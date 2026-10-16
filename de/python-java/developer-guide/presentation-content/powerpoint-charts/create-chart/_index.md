@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Diagramme in Python erstellen oder aktualisieren
+title: PowerPoint-Präsentationsdiagramme in Python erstellen oder aktualisieren
 linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
@@ -10,51 +10,51 @@ keywords:
 - Diagramm bearbeiten
 - Diagramm ändern
 - Diagramm aktualisieren
-- Streudiagramm
+- Scatterdiagramm
 - Kreisdiagramm
 - Liniendiagramm
-- Baumdiagramm
+- Tree-Map-Diagramm
 - Börsendiagramm
-- Box‑and‑Whisker‑Diagramm
+- Box-and-Whisker-Diagramm
 - Trichterdiagramm
-- Sonnenradialdiagramm
-- Histogramm
-- Radar‑Diagramm
-- Mehrkategorie‑Diagramm
+- Sunburst-Diagramm
+- Histogramm-Diagramm
+- Radar-Diagramm
+- Mehrkategorie-Diagramm
 - PowerPoint
 - Präsentation
 - Python
 - Java
 - Aspose.Slides
-description: "Erstellen und anpassen von Diagrammen in PowerPoint‑Präsentationen mit Aspose.Slides für Python via Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code‑Beispielen in Python."
+description: "Erstellen und Anpassen von Diagrammen in PowerPoint-Präsentationen mit Aspose.Slides für Python via Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code-Beispielen in Python."
 ---
 ## **Übersicht**
 
-Dieser Artikel bietet eine umfassende Anleitung, wie man Diagramme mit Aspose.Slides für Python über Java erstellt und anpasst. Sie lernen, wie man programmgesteuert ein Diagramm zu einer Folie hinzufügt, es mit Daten füllt und verschiedene Formatierungsoptionen anwendet, um Ihren spezifischen Gestaltungsanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis zur Konfiguration von Reihen, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Python‑Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen vereinfachen.
+Dieser Artikel bietet eine umfassende Anleitung, wie man Diagramme mit Aspose.Slides für Python via Java erstellt und anpasst. Sie lernen, wie man programmgesteuert ein Diagramm zu einer Folie hinzufügt, es mit Daten füllt und verschiedene Formatierungsoptionen anwendet, um Ihre speziellen Designanforderungen zu erfüllen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, vom Initialisieren der Präsentation und des Diagramm‑Objekts bis hin zur Konfiguration von Serien, Achsen und Legenden. Durch Befolgen dieser Anleitung erhalten Sie ein solides Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Python‑Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen optimieren.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einer Kalkulationstabelle nicht sofort ersichtlich sind.
+Diagramme helfen Personen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Spreadsheet nicht sofort ersichtlich sind.
 
-**Why Create Charts?**
+**Warum Diagramme erstellen?**
 
-Using charts, you can:
+Mit Diagrammen können Sie:
 
-* große Datenmengen auf einer einzigen Folie einer Präsentation aggregieren, komprimieren oder zusammenfassen;
-* Muster und Trends in den Daten aufzeigen;
-* die Richtung und das Momentum der Daten im Zeitverlauf oder in Bezug auf eine bestimmte Maßeinheit ableiten;
+* große Datenmengen auf einer einzigen Folie in einer Präsentation aggregieren, kondensieren oder zusammenfassen;
+* Muster und Trends in den Daten aufdecken;
+* die Richtung und das Momentum der Daten über die Zeit oder in Bezug auf eine bestimmte Maßeinheit ableiten;
 * Ausreißer, Aberrationen, Abweichungen, Fehler und unsinnige Daten erkennen;
 * komplexe Daten kommunizieren oder präsentieren.
 
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erzeugen.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) enumeration in the [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/) package. The values in this enumeration correspond to different chart types.
+Verwenden Sie die [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/)‑Aufzählung im [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/)‑Paket. Die Werte dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
 {{% /alert %}}
 
-### **Gruppierte Säulendiagramme erstellen**
+### **Gestapelte Säulendiagramme erstellen**
 
-This example uses [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) to create a clustered column chart that compares two series across three categories. The series use red and green fills, and individual labels demonstrate category names, series names, and values. Worksheet index 0 refers to the first sheet in the embedded chart workbook.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart), um ein gruppiertes Säulendiagramm zu erstellen, das zwei Serien über drei Kategorien vergleicht. Die Serien verwenden rote bzw. grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Seriennamen und Werte an. Der Arbeitsblatt‑Index 0 bezieht sich auf das erste Blatt im eingebetteten Diagramm‑Arbeitsbuch.
 
 ```python
 import jpype
@@ -139,20 +139,20 @@ finally:
 
 Das Ergebnis:
 
-![Das gruppierte Säulendiagramm](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Streudiagramme erstellen**
+### **Scatter‑Diagramme erstellen**
 
-Scatter charts (also known as scatter plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables.
+Scatter‑Diagramme (auch Punkt‑Diagramme oder X‑Y‑Grafiken genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu zeigen.
 
-Use a scatter chart when:
+Verwenden Sie ein Scatter‑Diagramm, wenn:
 
-* You have paired numerical data.
-* You have two variables that pair well together.
-* You want to determine whether the two variables are related.
-* You have an independent variable that has multiple values for a dependent variable.
+* Sie gepaarte numerische Daten haben.
+* Sie zwei Variablen besitzen, die gut zusammenpassen.
+* Sie bestimmen möchten, ob die beiden Variablen miteinander verbunden sind.
+* Sie eine unabhängige Variable haben, die für eine abhängige Variable mehrere Werte liefert.
 
-This example plots two sets of x-y values. The first series uses straight lines with star markers, while the second uses smooth lines with circle markers; both use a marker size of 10, configured with [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). The [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) method controls the marker shape.
+Dieses Beispiel zeichnet zwei Sätze von X‑Y‑Werten. Die erste Serie verwendet gerade Linien mit Stern‑Markern, während die zweite glatte Linien mit Kreis‑Markern nutzt; beide verwenden eine Marker‑Größe von 10, konfiguriert mit [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). Die [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol)‑Methode steuert die Form des Markers.
 
 ```python
 import jpype
@@ -222,13 +222,13 @@ finally:
 
 Das Ergebnis:
 
-![Das Streudiagramm](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Kreisdiagramme erstellen**
 
-Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you might want to consider using a bar chart instead.
+Kreisdiagramme eignen sich am besten, um das Teil‑zu‑Ganz‑Verhältnis in Daten darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Wenn Ihre Daten jedoch viele Teile oder Beschriftungen besitzen, sollten Sie stattdessen ein Balkendiagramm in Erwägung ziehen.
 
-This example creates a pie chart with three quarterly values. Each slice has a custom fill and border, and the labels display different combinations of values, percentages, and series information. The [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) method sets the first slice to start at 180 degrees.
+Dieses Beispiel erstellt ein Kreisdiagramm mit drei Quartalswerten. Jeder Abschnitt hat eine benutzerdefinierte Füllung und Rand, und die Beschriftungen zeigen verschiedene Kombinationen von Werten, Prozentanteilen und Serieninformationen. Die [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle)‑Methode setzt den ersten Abschnitt auf einen Startwinkel von 180 Grad.
 
 ```python
 import jpype
@@ -334,13 +334,15 @@ finally:
 
 Das Ergebnis:
 
-![Das Kreisdiagramm](pie_chart.png)
+![The Pie chart](pie_chart.png)
+
+Um die Lesbarkeit von Beschriftungen außerhalb des Kreises zu verbessern, siehe [Format Leader Lines](/slides/de/python-java/chart-data-label/#format-leader-lines) für ein Beispiel, das Beschriftungen positioniert und Linienfarbe, -breite, -transparenz und Strichstil anpasst.
 
 ### **Liniendiagramme erstellen**
 
-Line charts (also known as line graphs) are best used in situations where you want to demonstrate changes in value over time. Using a line chart, you can compare a large amount of data at once, track changes and trends over time, highlight anomalies in data series, and more.
+Liniendiagramme (auch Liniendiagramme genannt) eignen sich am besten, wenn Sie Änderungen von Werten über die Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie eine große Datenmenge auf einmal vergleichen, Veränderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und vieles mehr.
 
-This example uses [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) to create a line chart with the default series and categories, then saves the presentation as PPTX.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart), um ein Liniendiagramm mit den Standard‑Serien und -Kategorien zu erstellen und speichert die Präsentation als PPTX.
 
 ```python
 import jpype
@@ -362,7 +364,7 @@ finally:
     presentation.dispose()
 ```
 
-By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, call [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) with a value from [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/):
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade, durchgezogene Linien verbunden. Wenn Sie die Punkte stattdessen mit Strichen verbinden möchten, rufen Sie [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) mit einem Wert aus [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) auf:
 
 ```python
 import jpype
@@ -387,13 +389,13 @@ finally:
 
 Das Ergebnis:
 
-![Das Liniendiagramm](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Baumdiagramme erstellen**
+### **Tree‑Map‑Diagramme erstellen**
 
-Tree map charts are best used for sales data when you want to show the relative size of data categories and quickly draw attention to items that are large contributors within each category.
+Tree‑Map‑Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die Elemente hervorheben wollen, die große Beiträge innerhalb einer Kategorie leisten.
 
-This example creates a tree map with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) method assigns stems at grouping level 1 and branches at level 2. Values determine the relative rectangle sizes, while category labels and overlapping parent labels identify the hierarchy.
+Dieses Beispiel erstellt eine Tree‑Map mit acht Blättern, gruppiert in vier Stämmen und zwei Ästen. Die [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem)‑Methode ordnet Stämme Ebene 1 und Äste Ebene 2 zu. Werte bestimmen die relative Rechteckgröße, während Kategoriebeschriftungen und überlappende Eltern‑Beschriftungen die Hierarchie kennzeichnen.
 
 ```python
 import jpype
@@ -476,33 +478,33 @@ finally:
 
 Das Ergebnis:
 
-![Das Baumdiagramm](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Wasserfalldiagramme erstellen**
+### **Wasserfall‑Diagramme erstellen**
 
-A waterfall chart shows how positive and negative changes contribute to a final value. For example, a profit breakdown can start with revenue, subtract costs, and add other income. Change columns float between the previous and new running values, while total columns extend from zero to the accumulated value.
+Ein Wasserfall‑Diagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Zum Beispiel kann eine Gewinn‑Aufschlüsselung mit Umsatz beginnen, Kosten abziehen und andere Einnahmen hinzufügen. Änderungs‑Spalten schweben zwischen dem vorherigen und dem neuen laufenden Wert, während Gesamtsäulen von Null bis zum akkumulierten Wert reichen.
 
-The following example uses amounts in thousands of US dollars:
+Das folgende Beispiel verwendet Beträge in Tausend US‑Dollar:
 
-| Kategorie | Arbeitsmappenwert | Spaltentyp |
+| Kategorie | Arbeitsbuchwert | Spaltentyp |
 | --- | ---: | --- |
-| Umsatz | 1000 | Zunahme |
-| Verkaufskosten | -400 | Abnahme |
-| Bruttogewinn | 600 | Zwischensumme |
-| Betriebskosten | -200 | Abnahme |
-| Sonstige Erträge | 50 | Zunahme |
-| Nettoergebnis | 450 | Endsumme |
+| Umsatz | 1000 | Increase |
+| Produktionskosten | -400 | Decrease |
+| Bruttogewinn | 600 | Intermediate total |
+| Betriebskosten | -200 | Decrease |
+| Sonstige Erträge | 50 | Increase |
+| Nettoergebnis | 450 | Final total |
 
-To mark a point as an intermediate or final total, call its [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) method with `True`. Supply the actual accumulated amount in that point's workbook cell: `600` for gross profit (`1000 - 400`) and `450` for net profit (`600 - 200 + 50`). The method marks the column as a total; it does not calculate or populate the cell value. Do not use zero as a placeholder or supply another change for a total point. A total column displays the accumulated value without adding it again to the running value.
+Um einen Punkt als Zwischensumme oder Endsumme zu kennzeichnen, rufen Sie dessen [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal)‑Methode mit `True` auf. Geben Sie den tatsächlichen akkumulierten Betrag in der Arbeitsbuchzelle dieses Punktes an: `600` für den Bruttogewinn (`1000 - 400`) und `450` für das Nettoergebnis (`600 - 200 + 50`). Die Methode markiert die Spalte als Summe; sie berechnet oder füllt den Zellenwert nicht. Verwenden Sie nicht Null als Platzhalter und geben Sie keinen anderen Änderungswert für einen Summen‑Punkt an. Eine Gesamtsäule zeigt den akkumulierten Wert ohne ihn erneut zum laufenden Wert hinzuzufügen.
 
-This complete Python example creates a chart using the `Waterfall` member of [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), clears the default data, and fills the embedded workbook. Worksheet index `0` selects the first worksheet; column A contains category names and column B contains values. Each value cell is added with [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). The zero-based point indices `2` and `5` identify the intermediate and final totals. Calling [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) with `True` displays the amounts on the columns. No input presentation or workbook is required.
+Dieses vollständige Python‑Beispiel erstellt ein Diagramm mit dem `Waterfall`‑Mitglied von [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), löscht die Standarddaten und füllt das eingebettete Arbeitsbuch. Der Arbeitsblatt‑Index `0` wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B die Werte. Jede Wertzelle wird mit [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) hinzugefügt. Die nullbasierten Punktindizes `2` und `5` identifizieren die Zwischensumme bzw. die Endsumme. Durch Aufruf von [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) mit `True` werden die Beträge auf den Spalten angezeigt. Es wird keine Eingabe‑Präsentation oder kein Arbeitsbuch benötigt.
 
 ```python
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpile.isJVMStarted():
+    jpile.startJVM()
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
@@ -536,7 +538,7 @@ try:
         value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
         series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
 
-    # Die dritte und sechste Punkte stellen Gesamtsummen dar, nicht zusätzliche Änderungen.
+    # Die dritten und sechsten Punkte repräsentieren Summen, nicht zusätzliche Änderungen.
     series.getDataPoints().get_Item(2).setSetAsTotal(True)
     series.getDataPoints().get_Item(5).setSetAsTotal(True)
     series.setShowConnectorLines(True)
@@ -547,17 +549,17 @@ finally:
     presentation.dispose()
 ```
 
-Call the series-level [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) method with `True` to show lines linking consecutive columns and make the running value easier to follow. To hide these lines, replace the method call in the example with `series.setShowConnectorLines(False)` before saving. This changes only the line visibility, not the data or totals.
+Rufen Sie die Serien‑Methode [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) mit `True` auf, um Linien zwischen aufeinanderfolgenden Spalten anzuzeigen und den laufenden Wert leichter nachvollziehbar zu machen. Um diese Linien auszublenden, ersetzen Sie den Methodenaufruf im Beispiel durch `series.setShowConnectorLines(False)` vor dem Speichern. Dies ändert nur die Sichtbarkeit der Linien, nicht die Daten oder Summen.
 
-The saved presentation shows gross profit of 600 and net profit of 450, with both totals drawn from zero:
+Die gespeicherte Präsentation zeigt einen Bruttogewinn von 600 und ein Nettoergebnis von 450, wobei beide Summen von 0 ausgehend gezeichnet werden:
 
-![Wasserfalldiagramm, das Umsatz, Kosten, Bruttogewinn von 600 und Nettoergebnis von 450 mit Wertbeschriftungen und Verbindungslinien zeigt](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Börsendiagramme erstellen**
+### **Börsen‑Diagramme erstellen**
 
-Stock charts are used to display financial data such as open, high, low, and close prices, helping analyze market trends and volatility. They offer essential insights into stock performance, aiding investors and analysts in making informed decisions.
+Börsen‑Diagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse darzustellen und Markttrends sowie Volatilität zu analysieren. Sie bieten wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
 
-This example creates an open-high-low-close chart with four series in that order and three categories. The [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) method enables up/down bars, and [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) controls the high-low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
+Dieses Beispiel erstellt ein Open‑High‑Low‑Close‑Diagramm mit vier Serien in dieser Reihenfolge und drei Kategorien. Die [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars)‑Methode aktiviert Auf‑/Ab‑Balken, und [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) steuert die Hoch‑Tief‑Linien, die die Preisbereiche anzeigen, während die einzelnen Serien‑Linien und die feinen horizontalen Gitternetzlinien ausgeblendet werden.
 
 ```python
 import jpype
@@ -639,13 +641,13 @@ finally:
 
 Das Ergebnis:
 
-![Das Börsendiagramm](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
 ### **Box‑and‑Whisker‑Diagramme erstellen**
 
-Box and whisker charts are used to display the distribution of data by summarizing key statistical measures, such as the median, quartiles, and potential outliers. They are particularly useful in exploratory data analysis and statistical studies to quickly understand data variability and identify any anomalies.
+Box‑and‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten durch Zusammenfassung wichtiger statistischer Kennzahlen wie Median, Quartile und mögliche Ausreißer darzustellen. Sie sind besonders nützlich in der explorativen Datenanalyse und bei statistischen Studien, um die Datenvariabilität schnell zu verstehen und Anomalien zu identifizieren.
 
-This example creates a box and whisker chart from six values. The [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) method selects the exclusive quartile calculation. The example also enables mean lines, mean markers, inner points, and outlier points.
+Dieses Beispiel erstellt ein Box‑and‑Whisker‑Diagramm aus sechs Werten. Die [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod)‑Methode wählt die exklusive Quartilsberechnung. Das Beispiel aktiviert außerdem Mittelwert‑Linien, Mittelwert‑Marker, innere Punkte und Ausreißer‑Punkte.
 
 ```python
 import jpype
@@ -707,11 +709,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Trichterdiagramme erstellen**
+### **Trichter‑Diagramme erstellen**
 
-Funnel charts are used to visualize processes that involve sequential stages, where the volume of data decreases as it progresses from one step to the next. They are especially helpful for analyzing conversion rates, identifying bottlenecks, and tracking the efficiency of sales or marketing processes.
+Trichter‑Diagramme werden verwendet, um Prozesse mit sequenziellen Stufen zu visualisieren, bei denen das Datenvolumen von einem Schritt zum nächsten abnimmt. Sie sind besonders hilfreich zur Analyse von Konversionsraten, zur Identifizierung von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketing‑Prozessen.
 
-This example uses [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) to add a funnel chart to the first slide of an existing presentation. It replaces the default data with six categories and values ranging from 50 to 500, then saves the updated presentation. The input presentation must contain at least one slide.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart), um einem bestehenden Präsentations‑Slide ein Trichter‑Diagramm hinzuzufügen. Es ersetzt die Standarddaten durch sechs Kategorien und Werte von 50 bis 500 und speichert die aktualisierte Präsentation. Die Eingabe‑Präsentation muss mindestens eine Folie enthalten.
 
 ```python
 import jpype
@@ -769,13 +771,13 @@ finally:
 
 Das Ergebnis:
 
-![Das Trichterdiagramm](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Sonnenradialdiagramme erstellen**
+### **Sunburst‑Diagramme erstellen**
 
-Sunburst charts are used to visualize hierarchical data, displaying levels as concentric rings. They help illustrate part-to-whole relationships and are ideal for representing nested categories and subcategories in a clear, compact format.
+Sunburst‑Diagramme werden verwendet, um hierarchische Daten zu visualisieren, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich ideal zur Darstellung verschachtelter Kategorien und Unterkategorien in einem klaren, kompakten Format.
 
-This example creates a sunburst chart with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) method assigns stems at grouping level 1 and branches at level 2. Category labels identify the segments, and the values determine their relative sizes.
+Dieses Beispiel erstellt ein Sunburst‑Diagramm mit acht Blättern, gruppiert in vier Stämmen und zwei Ästen. Die [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem)‑Methode ordnet Stämme Ebene 1 und Äste Ebene 2 zu. Kategoriebeschriftungen identifizieren die Segmente, und die Werte bestimmen ihre relative Größe.
 
 ```python
 import jpype
@@ -856,17 +858,17 @@ finally:
 
 Das Ergebnis:
 
-![Das Sonnenradialdiagramm](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Histogramm‑Diagramme erstellen**
 
-Histogram charts show how numerical values are distributed across intervals (bins). For monthly reports on order processing times, use the same bin width and thresholds to keep intervals consistent and make distributions easier to compare.
+Histogramm‑Diagramme zeigen, wie numerische Werte über Intervalle (Bins) verteilt sind. Für Monatsberichte über Bearbeitungszeiten von Aufträgen verwenden Sie dieselbe Bin‑Breite und dieselben Schwellenwerte, um Intervalle konsistent zu halten und Verteilungen leichter vergleichen zu können.
 
-Call [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) on the horizontal axis with a mode from [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) applies only to `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) applies only to `ByNumberOfBins`. Use `Automatic` to let the chart choose the bins.
+Rufen Sie [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) für die horizontale Achse mit einem Modus aus [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/) auf. [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) gilt nur für `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) gilt nur für `ByNumberOfBins`. Verwenden Sie `Automatic`, damit das Diagramm die Bins selbst wählt.
 
-#### **Verwenden einer festen Bin‑Breite**
+#### **Feste Bin‑Breite verwenden**
 
-This example groups processing times into 10-minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) and [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin). When supplying explicit thresholds through [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) and [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin), call [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) and [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) with `False`.
+Dieses Beispiel gruppiert Bearbeitungszeiten in 10‑Minuten‑Intervalle, mit separaten Bins für Zeiten ≤ 10 Minuten und > 40 Minuten. Aktivieren Sie diese Bins mit [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) und [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin). Wenn Sie explizite Schwellenwerte über [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) und [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) angeben, rufen Sie [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) und [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) mit `False` auf.
 
 ```python
 import jpype
@@ -913,13 +915,13 @@ finally:
     presentation.dispose()
 ```
 
-Die in PowerPoint angezeigte Präsentation zeigt Bin‑Zählungen von **3, 4, 4, 4 und 2**. Das Unterlauf‑Bin enthält `5, 10, 10`, sodass seine Schwelle inklusiv ist. Das Überlauf‑Bin enthält nur `41, 50`, sodass seine Schwelle exklusiv ist; beide Werte gleich `40` verbleiben im vorherigen Intervall. Die Innen‑Bins enthalten Werte größer als ihre untere Grenze und kleiner‑gleich ihrer oberen Grenze.
+Die in PowerPoint dargestellte Präsentation zeigt Bin‑Anzahlen von **3, 4, 4, 4 und 2**. Der Unterlauf‑Bin enthält `5, 10, 10`, daher ist seine Schwelle inklusiv. Der Überlauf‑Bin enthält nur `41, 50`, daher ist seine Schwelle exklusiv; beide Werte gleich `40` verbleiben im vorherigen Intervall. Die Innen‑Bins enthalten Werte größer als ihre untere Grenze und kleiner‑gleich ihrer oberen Grenze.
 
-![Histogramm mit 10‑Minuten‑Bins und expliziten Unter‑ und Überlauf‑Schwellenwerten](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Angeben der Anzahl der Bins**
+#### **Anzahl der Bins festlegen**
 
-For a fixed level of detail instead of fixed intervals, request five bins for the same data. This example leaves underflow and overflow bins disabled. The chart determines the width from the data range, so boundaries can change between reports.
+Für ein festes Detailniveau statt fester Intervalle fordern Sie fünf Bins für dieselben Daten an. Dieses Beispiel lässt Unter‑ und Überlauf‑Bins deaktiviert. Das Diagramm ermittelt die Breite aus dem Datenbereich, sodass Grenzen zwischen Berichten variieren können.
 
 ```python
 import jpype
@@ -960,15 +962,15 @@ finally:
     presentation.dispose()
 ```
 
-Die fünf Bins haben Zählungen von **4, 4, 4, 4 und 1**. Vergleichen Sie diese Verteilung mit dem Ergebnis der festen Breite oben: Die Eingabewerte sind identisch, aber die Grenzen unterscheiden sich.
+Die fünf Bins haben Anzahlen von **4, 4, 4, 4 und 1**. Vergleichen Sie diese Verteilung mit dem Ergebnis der festen Breite oben: Die Eingabewerte sind identisch, die Grenzen jedoch unterschiedlich.
 
-![Histogramm mit fünf Bins, berechnet aus denselben Daten](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Radar‑Diagramme erstellen**
 
-Radar charts are used to display multivariate data in a two-dimensional format, allowing for easy comparison of several variables simultaneously. They are particularly useful for identifying patterns, strengths, and weaknesses across multiple performance metrics or attributes.
+Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, wodurch ein einfacher Vergleich mehrerer Variablen gleichzeitig möglich ist. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungskennzahlen oder Attribute hinweg zu erkennen.
 
-This example uses [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) to create a radar chart with the default series and categories, then saves the presentation as PPTX.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart), um ein Radar‑Diagramm mit den Standard‑Serien und -Kategorien zu erstellen, und speichert die Präsentation als PPTX.
 
 ```python
 import jpype
@@ -992,13 +994,13 @@ finally:
 
 Das Ergebnis:
 
-![Das Radar‑Diagramm](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
 ### **Mehrkategorie‑Diagramme erstellen**
 
-Multi-category charts are used to display data that involves more than one categorical grouping, allowing you to compare values across multiple dimensions simultaneously. They are particularly helpful when you need to analyze trends and relationships within complex, multi-layered datasets.
+Mehrkategorie‑Diagramme werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung umfassen, sodass Werte über mehrere Dimensionen gleichzeitig verglichen werden können. Sie sind besonders hilfreich, wenn Sie Trends und Zusammenhänge in komplexen, mehrschichtigen Datensätzen analysieren müssen.
 
-This example creates a clustered column chart with eight categories arranged in four pairs. The [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) method gives each pair a shared label at grouping level 1, producing a category axis with both individual and group labels.
+Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit acht Kategorien, angeordnet in vier Paaren. Die [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem)‑Methode gibt jedem Paar ein gemeinsames Label auf Ebene 1, wodurch die Kategorienachse sowohl einzelne als auch Gruppen‑Labels enthält.
 
 ```python
 import jpype
@@ -1074,13 +1076,13 @@ finally:
 
 Das Ergebnis:
 
-![Das Mehrkategorie‑Diagramm](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Karten‑Diagramme erstellen**
 
-Map charts are used to visualize geographical data by mapping information to specific locations such as countries, states, or cities. They are particularly useful for analyzing regional trends, demographic data, and spatial distributions in a clear, visually engaging manner.
+Karten‑Diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen bestimmten Standorten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie eignen sich besonders zur Analyse regionaler Trends, demografischer Daten und räumlicher Verteilungen in einer klaren, visuell ansprechenden Art.
 
-This example uses [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) to create a map chart with the default geographical data and saves it for viewing in PowerPoint.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart), um ein Karten‑Diagramm mit den Standard‑Geodaten zu erzeugen und speichert es zur Ansicht in PowerPoint.
 
 ```python
 import jpype
@@ -1104,27 +1106,26 @@ finally:
 
 Das Ergebnis:
 
-![Das Karten‑Diagramm](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-
-The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+Das obige Bild zeigt die gespeicherte Präsentation, die in PowerPoint geöffnet wurde. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch selbst keine Karten‑Diagramme: Wird eine Folie, die ein solches Diagramm enthält, zu einem Bild oder in PDF bzw. SVG konvertiert, bleibt der Diagrammbereich leer. Andere Formen auf derselben Folie sind davon nicht betroffen.
 {{% /alert %}}
 
 ### **Kombinations‑Diagramme erstellen**
 
-A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
+Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehreren Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
 
-![Das Kombinations‑Diagramm](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-This example combines two clustered column series with a line series across four categories. The columns use the primary vertical axis, while [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) places the line on a secondary vertical axis on the right. The helper functions configure the title, legend, axis labels, and gridlines.
+Dieses Beispiel kombiniert zwei gruppierte Säulen‑Serien mit einer Linien‑Serie über vier Kategorien. Die Säulen nutzen die primäre vertikale Achse, während [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) die Linie auf einer sekundären vertikalen Achse rechts platziert. Hilfsfunktionen konfigurieren Titel, Legende, Achsenbeschriftungen und Gitternetzlinien.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpade.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import AxisPositionType, ChartType, CrossesType, FillType, LegendPositionType, NullableBool, Presentation, SaveFormat
 
@@ -1158,11 +1159,11 @@ def create_chart_with_first_series(slide):
     title_format.setFontBold(NullableBool.False_)
     title_format.setFontHeight(18.0)
 
-    # Diagrammlegende festlegen.
+    # Legende des Diagramms festlegen.
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Standardmäßig generierte Reihen und Kategorien löschen.
+    # Standardgenerierte Serien und Kategorien löschen.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
@@ -1179,7 +1180,7 @@ def create_chart_with_first_series(slide):
     cell = workbook.getCell(worksheet_index, 4, 0, "Category 4")
     chart.getChartData().getCategories().add(cell)
 
-    # Erste Reihe hinzufügen.
+    # Erste Serie hinzufügen.
     series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
@@ -1249,7 +1250,7 @@ def set_primary_axes_format(chart):
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Farbe der vertikalen Hauptgitternetzlinien festlegen.
+    # Farbe der vertikalen Hauptgitterlinien festlegen.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
@@ -1287,9 +1288,9 @@ create_combo_chart()
 
 ## **Diagramme aktualisieren**
 
-Aspose.Slides for Python via Java enables you to update PowerPoint charts by modifying chart data, formatting, and styling. This functionality simplifies the process of keeping presentations up-to-date with dynamic content and ensures that charts accurately reflect current data and visual standards.
+Aspose.Slides für Python via Java ermöglicht es Ihnen, PowerPoint‑Diagramme zu aktualisieren, indem Sie Diagrammdaten, Formatierungen und Stile ändern. Diese Funktion vereinfacht das Aktualisieren von Präsentationen mit dynamischem Inhalt und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards exakt wiedergeben.
 
-This example updates the chart named "My chart" on the first slide of an existing presentation. It requires two column series with three data points each, with category labels in column A and series names in the first row of the first worksheet. The example uses [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) to change workbook cells, updates series values, adds a third series, and changes the chart to clustered cylinders through [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
+Dieses Beispiel aktualisiert das Diagramm mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation. Es erfordert zwei Spalten‑Serien mit je drei Datenpunkten, wobei Kategorienamen in Spalte A und Seriennamen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell), um Arbeitsbuchzellen zu ändern, aktualisiert Serienwerte, fügt eine dritte Serie hinzu und ändert das Diagramm zu gruppierten Zylindern über [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
 
 ```python
 import jpype
@@ -1349,11 +1350,11 @@ finally:
 
 ## **Datenbereich für ein Diagramm festlegen**
 
-To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/de/python-java/chart-workbook/#retrieve-a-charts-data-range).
+Um den bereits von einem bestehenden Diagramm genutzten Bereich zu prüfen, siehe [Retrieve a Chart's Data Range](/slides/de/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Python via Java provides the flexibility to define a specific data range from a worksheet as the source for your chart's data. This means you can directly map a portion of your worksheet to the chart, allowing you to control which cells contribute to the chart's series and categories. As a result, you can easily update and synchronize your charts with the latest data changes in your worksheet, ensuring that your PowerPoint presentations reflect current and accurate information.
+Aspose.Slides für Python via Java bietet die Flexibilität, einen spezifischen Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten festzulegen. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, wodurch Sie steuern, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. So können Sie Ihre Diagramme leicht mit den neuesten Änderungen im Arbeitsblatt aktualisieren und synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und genaue Informationen widerspiegeln.
 
-This example uses [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) to set the data source of the chart named "My chart" on the first slide of an existing presentation to `Sheet1!A1:B4`. The chart workbook must contain that worksheet and a populated range with a series heading in the first row, category labels in column A, and three values in column B.
+Dieses Beispiel verwendet [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange), um die Datenquelle des Diagramms mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Das Diagramm‑Arbeitsbuch muss dieses Arbeitsblatt und einen befüllten Bereich mit einer Serien‑Überschrift in der ersten Zeile, Kategorienamen in Spalte A und drei Werten in Spalte B enthalten.
 
 ```python
 import jpype
@@ -1382,9 +1383,9 @@ finally:
 
 ## **Standard‑Marker in Diagrammen verwenden**
 
-When you use default markers in charts, each chart series gets a different default marker symbol automatically.
+Wenn Sie Standard‑Marker in Diagrammen einsetzen, erhält jede Diagramm‑Serie automatisch ein unterschiedliches Standard‑Marker‑Symbol.
 
-This example uses [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) to create a chart with two line series and a legend. The marker settings accessed through [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) retain the automatically assigned marker symbols. The first series includes a negative value and a missing value, represented by `None`, while the second has a value for every category.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart), um ein Diagramm mit zwei Linien‑Serien und einer Legende zu erstellen. Die über [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) abgerufenen Marker‑Einstellungen behalten die automatisch zugewiesenen Marker‑Symbole bei. Die erste Serie enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `None`, während die zweite für jede Kategorie einen Wert hat.
 
 ```python
 import jpype
@@ -1451,18 +1452,18 @@ finally:
 
 ## **FAQ**
 
-**What chart types are supported by Aspose.Slides for Python via Java?**
+**Welche Diagrammtypen werden von Aspose.Slides für Python via Java unterstützt?**
 
-Aspose.Slides for Python via Java supports a wide range of chart types, including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
+Aspose.Slides für Python via Java unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kreis, Fläche, Scatter, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den für Ihre Datenvisualisierung am besten geeigneten Diagrammtyp auszuwählen.
 
-**How do I add a new chart to a slide?**
+**Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
 
-To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)‑Klasse, rufen die gewünschte Folie über ihren Index ab und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
-**How can I update the data displayed in a chart?**
+**Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-You can update a chart's data by accessing its data workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to programmatically refresh the chart to reflect the latest data.
+Sie können die Daten eines Diagramms aktualisieren, indem Sie auf dessen Daten‑Arbeitsbuch ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)) zugreifen, Standard‑Serien und -Kategorien löschen und anschließend Ihre benutzerdefinierten Daten hinzufügen. So können Sie das Diagramm programmgesteuert aktualisieren, sodass es die neuesten Daten widerspiegelt.
 
-**Is it possible to customize the appearance of the chart?**
+**Ist es möglich, das Aussehen des Diagramms anzupassen?**
 
-Yes, Aspose.Slides for Python via Java provides extensive customization options. You can modify colors, fonts, labels, legends, and other formatting elements to tailor the chart's appearance to your specific design requirements.
+Ja, Aspose.Slides für Python via Java bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und weitere Formatierungselemente ändern, um das Diagramm an Ihre spezifischen Designanforderungen anzupassen.

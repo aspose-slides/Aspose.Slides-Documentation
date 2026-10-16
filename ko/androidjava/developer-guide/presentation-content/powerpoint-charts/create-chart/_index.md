@@ -1,60 +1,58 @@
 ---
-title: Android에서 PowerPoint 프리젠테이션 차트 만들기 또는 업데이트
+title: Android에서 PowerPoint 프레젠테이션 차트 만들기 또는 업데이트
 linktitle: 차트 만들기 또는 업데이트
 type: docs
 weight: 10
 url: /ko/androidjava/create-chart/
 keywords:
 - 차트 추가
-- 차트 생성
+- 차트 만들기
 - 차트 편집
 - 차트 변경
 - 차트 업데이트
-- 분산 차트
+- 산점도 차트
 - 원형 차트
-- 꺾은선 차트
+- 선 차트
 - 트리맵 차트
 - 주식 차트
 - 상자 수염 차트
-- 퍼널 차트
+- 펀넬 차트
 - 선버스트 차트
 - 히스토그램 차트
 - 레이더 차트
-- 다중 범주 차트
+- 다중 카테고리 차트
 - PowerPoint
-- 프리젠테이션
+- 프레젠테이션
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java를 사용하여 PowerPoint 프리젠테이션에서 차트를 만들고 사용자 지정합니다. 차트를 추가, 서식 지정 및 편집하며 Java 실용 예제를 제공합니다."
+description: "Aspose.Slides for Android via Java를 사용하여 PowerPoint 프레젠테이션에서 차트를 만들고 사용자 지정합니다. Java 실용 코드 예제로 차트를 추가하고, 서식 지정하며, 편집합니다."
 ---
 ## **개요**
 
-이 문서에서는 Aspose.Slides for Android via Java를 사용하여 차트를 만들고 사용자 지정하는 방법에 대해 포괄적인 가이드를 제공합니다. 슬라이드에 차트를 프로그래밍 방식으로 추가하고 데이터를 채우며, 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배웁니다. 문서 전반에 걸쳐 자세한 코드 예제가 각 단계를 설명합니다. 프레젠테이션 및 차트 객체 초기화부터 시리즈, 축, 레전드 구성까지. 이 가이드를 따라 하면 Android 애플리케이션에 동적 차트 생성을 통합하는 방법을 확실히 이해하게 되어 데이터 기반 프레젠테이션 생성 프로세스를 간소화할 수 있습니다.
+이 문서는 Aspose.Slides for Android via Java를 사용하여 차트를 만들고 사용자 지정하는 방법에 대한 포괄적인 가이드를 제공합니다. 슬라이드에 차트를 프로그래밍 방식으로 추가하고 데이터를 채우며 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배웁니다. 문서 전체에 걸쳐 상세한 코드 예제가 각 단계를 설명합니다. 프레젠테이션 및 차트 개체 초기화부터 시리즈, 축, 범례 구성까지 다룹니다. 이 가이드를 따르면 Android 애플리케이션에 동적 차트 생성을 통합하는 방법을 확실히 이해하게 되며, 데이터 기반 프레젠테이션을 만드는 과정을 간소화할 수 있습니다.
 
 ## **차트 만들기**
 
-차트는 사람들이 데이터를 빠르게 시각화하고 표나 스프레드시트에서는 즉시 드러나지 않을 수 있는 인사이트를 얻도록 도와줍니다.
+차트는 사람들이 데이터를 빠르게 시각화하고 표나 스프레드시트에서 즉시 드러나지 않을 수 있는 인사이트를 얻을 수 있도록 도와줍니다.
 
-**왜 차트를 만들까요?**
-
-차트를 사용하면:
+**왜 차트를 만들어야 하나요?**
 
 * 프레젠테이션의 단일 슬라이드에 대량의 데이터를 집계, 압축 또는 요약합니다;
-* 데이터의 패턴과 추세를 드러냅니다;
-* 시간에 따라 또는 특정 측정 단위와 관련하여 데이터의 방향과 모멘텀을 추론합니다;
-* 이상치, 변칙, 편차, 오류 및 비논리적인 데이터를 식별합니다;
+* 데이터의 패턴 및 추세를 드러냅니다;
+* 시간 경과에 따른 데이터의 방향 및 모멘텀을 특정 측정 단위와 비교하여 추론합니다;
+* 이상치, 편차, 오류 및 비논리적인 데이터를 찾아냅니다;
 * 복잡한 데이터를 전달하거나 프레젠테이션합니다.
 
-PowerPoint에서는 *Insert* 기능을 통해 차트를 만들 수 있으며, 다양한 차트 유형을 디자인할 수 있는 템플릿을 제공합니다. Aspose.Slides를 사용하면 일반 차트(대중적인 차트 유형 기반)와 사용자 정의 차트를 모두 만들 수 있습니다.
+PowerPoint에서는 *Insert* 기능을 통해 차트를 만들 수 있으며, 이는 다양한 차트 유형을 디자인하기 위한 템플릿을 제공합니다. Aspose.Slides를 사용하면 일반 차트(인기 차트 유형 기반)와 사용자 지정 차트를 모두 만들 수 있습니다.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
+다음 패키지의 [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) 열거형을 사용하십시오. [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) 패키지에 포함되어 있습니다. 이 열거형의 값은 다양한 차트 유형에 해당합니다.
 {{% /alert %}}
 
-### **군집된 세로 막대 차트 만들기**
+### **클러스터드 컬럼 차트 만들기**
 
-이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-)을 사용하여 세 개 범주에 걸쳐 두 시리즈를 비교하는 군집된 세로 막대 차트를 만듭니다. 시리즈는 빨간색과 초록색 채우기를 사용하고, 개별 라벨은 범주 이름, 시리즈 이름 및 값을 보여 줍니다. 워크시트 인덱스 0은 포함된 차트 워크북의 첫 번째 시트를 의미합니다.
+이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 메서드를 사용하여 두 개의 시리즈를 세 개의 카테고리와 비교하는 클러스터드 컬럼 차트를 생성합니다. 시리즈는 빨강색과 초록색 채우기를 사용하고, 개별 레이블은 카테고리 이름, 시리즈 이름 및 값을 표시합니다. 워크시트 인덱스 0은 포함된 차트 워크북의 첫 번째 시트를 가리킵니다.
 
 ```java
 import com.aspose.slides.*;
@@ -135,20 +133,20 @@ finally
 
 결과:
 
-![군집 세로 막대 차트](clustered_column_chart.png)
+![클러스터드 컬럼 차트](clustered_column_chart.png)
 
-### **분산형 차트 만들기**
+### **산점도 차트 만들기**
 
-분산형 차트(산점도 또는 x‑y 그래프라고도 함)는 두 변수 간의 패턴을 확인하거나 상관 관계를 보여 주는 데 자주 사용됩니다.
+산점도 차트(또는 산점도 플롯, x-y 그래프)는 두 변수 간의 패턴을 확인하거나 상관관계를 보여주는 데 자주 사용됩니다.
 
-다음 경우에 분산형 차트를 사용하십시오:
+산점도 차트를 사용하는 경우:
 
 * 쌍을 이루는 숫자 데이터가 있는 경우;
-* 두 변수가 서로 잘 짝을 이루는 경우;
-* 두 변수 간의 관련성을 판단하려는 경우;
-* 종속 변수에 대해 여러 값을 갖는 독립 변수가 있는 경우.
+* 서로 잘 짝을 이루는 두 변수가 있는 경우;
+* 두 변수가 관계가 있는지 판단하려는 경우;
+* 종속 변수에 대한 여러 값을 가진 독립 변수가 있는 경우.
 
-이 예제는 두 세트의 x‑y 값을 플롯합니다. 첫 번째 시리즈는 별 마커가 있는 직선, 두 번째 시리즈는 원 마커가 있는 곡선이며, 두 시리즈 모두 마커 크기 10을 사용하고 [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-)으로 구성합니다. [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) 메서드가 마커 모양을 제어합니다.
+이 예제는 두 개의 x-y 값 집합을 플롯합니다. 첫 번째 시리즈는 별 마커가 있는 직선으로, 두 번째 시리즈는 원형 마커가 있는 부드러운 선으로 표시되며, 두 시리즈 모두 마커 크기를 10으로 설정하고 [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-)으로 구성합니다. [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) 메서드는 마커 모양을 제어합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -220,9 +218,9 @@ finally
 
 ### **원형 차트 만들기**
 
-원형 차트는 데이터의 전체 대비 부분 관계를 보여 주는 데 가장 적합합니다. 특히 범주 레이블에 숫자 값이 있는 경우에 유용합니다. 그러나 파트나 레이블이 많을 경우 막대 차트를 고려하십시오.
+원형 차트는 특히 범주형 레이블에 숫자 값이 포함된 경우 데이터의 전체 대비 부분 관계를 보여주는 데 가장 적합합니다. 그러나 데이터에 많은 부분이나 레이블이 포함된 경우 막대 차트를 고려하는 것이 좋습니다.
 
-이 예제는 3개의 분기 값을 갖는 원형 차트를 만듭니다. 각 조각은 사용자 지정 채우기와 테두리를 가지고 있으며, 라벨은 값, 백분율 및 시리즈 정보를 다양한 조합으로 표시합니다. [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) 메서드가 첫 조각을 180도에서 시작하도록 설정합니다.
+이 예제는 세 개의 분기 값을 가진 원형 차트를 생성합니다. 각 조각은 사용자 지정 채우기와 테두리를 가지고 있으며, 레이블은 값, 백분율 및 시리즈 정보를 조합하여 표시합니다. [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) 메서드는 첫 번째 조각이 180도에서 시작하도록 설정합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -325,11 +323,13 @@ finally
 
 ![원형 차트](pie_chart.png)
 
-### **꺾은선 차트 만들기**
+라벨을 파이 외부에 배치하고 색상, 너비, 투명도 및 대시 스타일을 사용자 지정하는 예제는 [Format Leader Lines](/slides/ko/androidjava/chart-data-label/#format-leader-lines) 를 참조하십시오.
 
-꺾은선 차트(선 그래프라고도 함)는 시간 경과에 따른 값 변화를 보여 주는 상황에 가장 적합합니다. 꺾은선 차트를 사용하면 대량의 데이터를 한 번에 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상 현상을 강조할 수 있습니다.
+### **선 차트 만들기**
 
-이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-)을 사용하여 기본 시리즈와 범주가 있는 꺾은선 차트를 만든 다음 PPTX로 저장합니다.
+선 차트(또는 선 그래프)는 시간 경과에 따른 값 변화를 보여주고자 할 때 가장 적합합니다. 선 차트를 사용하면 많은 데이터를 한 번에 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상 현상을 강조하는 등 다양한 작업을 수행할 수 있습니다.
+
+이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 를 사용하여 기본 시리즈와 카테고리를 가진 선 차트를 만든 뒤 프레젠테이션을 PPTX 형식으로 저장합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +349,7 @@ finally
 }
 ```
 
-기본적으로 꺾은선 차트의 포인트는 직선으로 연결됩니다. 포인트를 대시선으로 연결하려면 [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-)에 [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/)의 값을 전달하십시오.
+기본적으로 선 차트의 점은 직선으로 연결됩니다. 점을 대시선으로 연결하려면 [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) 에 [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) 값 중 하나를 전달하십시오.
 
 ```java
 import com.aspose.slides.*;
@@ -374,13 +374,13 @@ finally
 
 결과:
 
-![꺾은선 차트](line_chart.png)
+![선 차트](line_chart.png)
 
 ### **트리맵 차트 만들기**
 
-트리맵 차트는 매출 데이터와 같이 범주별 상대 크기를 보여 주고 각 범주 내에서 큰 기여 항목에 빠르게 주목하고자 할 때 가장 적합합니다.
+트리맵 차트는 각 카테고리 내에서 큰 기여를 하는 항목에 빠르게 주의를 끌고자 할 때 매출 데이터에 가장 적합합니다.
 
-이 예제는 8개의 잎을 4개의 줄기와 2개의 가지로 그룹화한 트리맵을 만듭니다. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 메서드가 레벨 1에 줄기, 레벨 2에 가지를 할당합니다. 값은 사각형 크기의 상대 비율을 결정하고, 범주 레이블과 겹치는 상위 레이블이 계층 구조를 식별합니다.
+이 예제는 네 개의 줄기와 두 개의 분기로 구성된 여덟 개의 잎을 가진 트리맵을 생성합니다. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 메서드는 레벨 1에서 줄기를, 레벨 2에서 분기를 지정합니다. 값은 사각형의 상대 크기를 결정하고, 카테고리 레이블 및 겹치는 상위 레이블이 계층 구조를 식별합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -465,9 +465,9 @@ finally
 
 ### **워터폴 차트 만들기**
 
-워터폴 차트는 양·음의 변동이 최종 값에 어떻게 기여하는지 보여 줍니다. 예를 들어, 수익에서 시작하여 비용을 차감하고 기타 수입을 더하는 방식으로 이익을 분해할 수 있습니다. 변동 열은 이전 값과 새로운 누적값 사이에 떠 있으며, 총합 열은 0에서 누적값까지 확장됩니다.
+워터폴 차트는 양의 변화와 음의 변화가 최종 값에 어떻게 기여하는지를 보여줍니다. 예를 들어, 이익 분석은 매출에서 시작해 비용을 차감하고 기타 수입을 추가하는 방식으로 진행됩니다. 변화 열은 이전 값과 새로운 누적 값 사이에 떠 있으며, 총합 열은 0에서 누적 값까지 확장됩니다.
 
-다음 예제는 미국 달러 천 단위 금액을 사용합니다:
+다음 예제는 미국 달러(천 달러) 단위의 금액을 사용합니다:
 
 | Category | Workbook value | Column type |
 | --- | ---: | --- |
@@ -478,9 +478,9 @@ finally
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-포인트를 중간 또는 최종 합계로 표시하려면 해당 포인트의 [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) 메서드에 `true`를 전달하십시오. 해당 워크북 셀에 실제 누적 금액을 제공하세요: 총이익은 `600` (`1000 - 400`), 순이익은 `450` (`600 - 200 + 50`). 이 메서드는 열을 합계로 표시하지만 셀 값을 계산하거나 채우지는 않습니다. 0을 자리 표시자로 사용하거나 합계 포인트에 다른 변동을 제공하지 마십시오. 합계 열은 누적 값을 다시 추가하지 않고 표시합니다.
+점을 중간 합계 또는 최종 합계로 표시하려면 해당 점의 [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) 메서드에 `true`를 전달하십시오. 워크북 셀에 실제 누적 금액을 제공하십시오: 총 이익(`600`)은 `1000 - 400`, 순이익(`450`)은 `600 - 200 + 50` 입니다. 이 메서드는 열을 합계로 표시하지만 셀 값을 계산하거나 채워 넣지는 않습니다. 0을 자리 표시자로 사용하거나 다른 변화를 합계 점에 제공하지 마십시오. 합계 열은 누적 값을 다시 더하지 않고 표시합니다.
 
-이 전체 Java 예제는 [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/)의 `Waterfall` 멤버를 사용해 차트를 만들고, 기본 데이터를 지우고, 포함된 워크북을 채웁니다. 워크시트 인덱스 `0`은 첫 번째 워크시트를 선택하고, A 열에는 범주 이름, B 열에는 값을 넣습니다. 각 값 셀은 [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-)로 추가합니다. 0 기반 포인트 인덱스 `2`와 `5`가 중간 및 최종 합계를 식별합니다. [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-)에 `true`를 전달하면 금액이 열에 표시됩니다. 입력 프레젠테이션이나 워크북이 필요하지 않습니다.
+이 전체 Java 예제는 [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) 의 `Waterfall` 멤버를 사용해 차트를 만든 뒤 기본 데이터를 지우고 포함된 워크북을 채웁니다. 워크시트 인덱스 `0`은 첫 번째 워크시트를 선택하고, 열 A에는 카테고리 이름, 열 B에는 값을 넣습니다. 각 값 셀은 [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) 로 추가합니다. 0 기반 점 인덱스 `2`와 `5`는 각각 중간 합계와 최종 합계를 식별합니다. [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) 에 `true` 를 전달하면 값이 열에 표시됩니다. 입력 프레젠테이션이나 워크북은 필요하지 않습니다.
 
 ```java
 import com.aspose.slides.*;
@@ -518,7 +518,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // 세 번째와 여섯 번째 포인트는 추가 변동이 아니라 합계입니다.
+    // 세 번째와 여섯 번째 포인트는 추가 변동이 아닌 총계입니다.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -532,17 +532,17 @@ finally
 }
 ```
 
-시리즈 수준에서 [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) 메서드에 `true`를 전달하면 연속 열을 연결하는 선이 표시되어 누적 값을 따라가기 쉽습니다. 이 선을 숨기려면 예제의 메서드 호출을 `series.setShowConnectorLines(false);` 로 바꾸고 저장하십시오. 이는 선 가시성만 변경하며 데이터나 합계에는 영향을 주지 않습니다.
+시리즈 수준의 [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) 메서드를 `true` 로 호출하면 연속 열을 연결하는 선이 표시되어 누적 값을 따라가기 쉬워집니다. 이 선을 숨기려면 예제에서 해당 메서드 호출을 `series.setShowConnectorLines(false);` 로 교체한 뒤 저장하십시오. 이는 선 가시성만 변경하고 데이터나 합계에는 영향을 주지 않습니다.
 
-저장된 프레젠테이션은 600의 총이익과 450의 순이익을 0에서 시작하는 두 합계로 보여 줍니다:
+저장된 프레젠테이션은 600의 총 이익과 450의 순이익을 0에서부터 시작하는 두 개의 합계로 표시합니다:
 
-![워터폴 차트(수익, 비용, 총이익 600, 순이익 450, 값 라벨 및 연결 선 포함)](waterfall_chart.png)
+![워터폴 차트가 매출, 비용, 600의 총 이익 및 450의 순이익을 표시하고 값 레이블과 연결 선을 포함한 모습](waterfall_chart.png)
 
 ### **주식 차트 만들기**
 
-주식 차트는 시가, 고가, 저가, 종가와 같은 금융 데이터를 표시하여 시장 동향과 변동성을 분석하는 데 사용됩니다. 이는 투자자와 분석가가 정보에 기반한 결정을 내리는 데 필수적인 인사이트를 제공합니다.
+주식 차트는 시가, 고가, 저가, 종가와 같은 재무 데이터를 표시하여 시장 추세와 변동성을 분석하는 데 사용됩니다. 이는 투자자와 분석가가 정보에 입각한 결정을 내리는 데 필수적인 통찰을 제공합니다.
 
-이 예제는 네 개의 시리즈(시가‑고가‑저가‑종가 순)와 세 개의 범주를 갖는 차트를 만듭니다. [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) 메서드가 상승/하강 막대를 활성화하고, [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--)가 가격 범위를 나타내는 고‑저 선을 제어합니다. 개별 시리즈 선과 작은 수평 격선은 숨겨집니다.
+이 예제는 네 개의 시리즈가 순서대로 배치된 OHLC(시가-고가-저가-종가) 차트를 만들고 세 개의 카테고리를 포함합니다. [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) 메서드는 상승/하강 막대를 활성화하고, [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) 은 가격 범위를 나타내는 고저선 형식을 제어합니다. 개별 시리즈 선과 작은 수평 그리드선은 숨겨집니다.
 
 ```java
 import com.aspose.slides.*;
@@ -628,9 +628,9 @@ finally
 
 ### **상자 수염 차트 만들기**
 
-상자 수염 차트는 중위수, 사분위수 및 잠재적 이상치를 요약하여 데이터 분포를 표시하는 데 사용됩니다. 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 파악하고 이상치를 식별하는 데 특히 유용합니다.
+상자 수염 차트는 중앙값, 사분위수 및 잠재적 이상치를 요약하여 데이터 분포를 표시하는 데 사용됩니다. 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 이해하고 이상치를 식별하는 데 특히 유용합니다.
 
-이 예제는 여섯 개 값을 사용해 상자 수염 차트를 만듭니다. [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) 메서드가 배타적 사분위 계산을 선택합니다. 또한 평균선, 평균 마커, 내부 포인트 및 이상치 포인트를 활성화합니다.
+이 예제는 여섯 개 값으로 상자 수염 차트를 생성합니다. [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) 메서드는 배타적 사분위 계산을 선택합니다. 예제는 평균선, 평균 마커, 내부 점 및 이상치 점도 활성화합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -690,11 +690,11 @@ finally
 }
 ```
 
-### **퍼널 차트 만들기**
+### **펀넬 차트 만들기**
 
-퍼널 차트는 단계별로 진행하면서 데이터 양이 감소하는 프로세스를 시각화하는 데 사용됩니다. 전환율 분석, 병목 현상 식별 및 영업·마케팅 프로세스 효율성 추적에 특히 도움이 됩니다.
+펀넬 차트는 단계별로 진행될수록 데이터 양이 감소하는 프로세스를 시각화하는 데 사용됩니다. 전환율 분석, 병목 현상 파악 및 영업·마케팅 프로세스 효율성을 추적하는 데 특히 도움이 됩니다.
 
-이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-)을 사용해 기존 프레젠테이션의 첫 번째 슬라이드에 퍼널 차트를 추가합니다. 기본 데이터를 6개의 범주와 50‑500 범위 값으로 교체한 뒤 업데이트된 프레젠테이션을 저장합니다. 입력 프레젠테이션에는 최소 하나의 슬라이드가 있어야 합니다.
+이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 로 펀넬 차트를 추가합니다. 기본 데이터를 여섯 개 카테고리와 50에서 500까지의 값으로 교체한 뒤 업데이트된 프레젠테이션을 저장합니다. 입력 프레젠테이션에는 최소 한 개의 슬라이드가 있어야 합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -750,13 +750,13 @@ finally
 
 결과:
 
-![퍼널 차트](funnel_chart.png)
+![펀넬 차트](funnel_chart.png)
 
 ### **선버스트 차트 만들기**
 
-선버스트 차트는 계층적 데이터를 시각화하며, 레벨을 동심원 형태의 링으로 표시합니다. 전체 대비 부분 관계를 나타내기에 적합하고, 중첩된 카테고리와 하위 카테고리를 명료하고 컴팩트하게 표현할 수 있습니다.
+선버스트 차트는 계층형 데이터를 시각화하며, 레벨을 동심원 형태의 링으로 표시합니다. 전체 대비 부분 관계를 설명하고 중첩된 카테고리와 하위 카테고리를 명확하고 압축된 형식으로 나타내는 데 적합합니다.
 
-이 예제는 8개의 잎을 4개의 줄기와 2개의 가지로 그룹화한 선버스트 차트를 만듭니다. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 메서드가 레벨 1에 줄기, 레벨 2에 가지를 할당합니다. 범주 레이블이 세그먼트를 식별하고, 값이 상대 크기를 결정합니다.
+이 예제는 네 개의 줄기와 두 개의 분기로 구성된 여덟 개의 잎을 가진 선버스트 차트를 생성합니다. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 메서드는 레벨 1에서 줄기를, 레벨 2에서 분기를 지정합니다. 카테고리 레이블은 구역을 식별하고, 값은 상대 크기를 결정합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -839,13 +839,13 @@ finally
 
 ### **히스토그램 차트 만들기**
 
-히스토그램 차트는 수치값이 구간(빈)별로 어떻게 분포되는지 보여 줍니다. 주문 처리 시간과 같은 월간 보고서에서는 구간 너비와 임계값을 동일하게 유지해 구간을 일관되게 유지하고 분포를 비교하기 쉽게 합니다.
+히스토그램 차트는 숫자 값이 구간(빈)별로 어떻게 분포되는지를 보여줍니다. 주문 처리 시간과 같은 월간 보고서에서는 동일한 빈 폭과 임계값을 사용해 구간을 일관되게 유지하고 분포를 비교하기 쉽게 합니다.
 
-수평 축에 [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-)을 호출하고 [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/)의 모드를 지정하십시오. `ByBinWidth`인 경우에만 [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-)이 적용되고, `ByNumberOfBins`인 경우에만 [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-)이 적용됩니다. `Automatic`을 사용하면 차트가 자동으로 빈을 선택합니다.
+수평 축에 [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) 을 호출하고 [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/) 의 모드 중 하나를 지정합니다. `ByBinWidth` 에는 [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) 이, `ByNumberOfBins` 에는 [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) 이 각각 적용됩니다. `Automatic` 을 사용하면 차트가 자동으로 빈을 선택합니다.
 
-#### **고정 빈 너비 사용**
+#### **고정 빈 폭 사용**
 
-이 예제는 처리 시간을 10분 구간으로 그룹화하고, 10분 이하와 40분 초과에 별도 빈을 둡니다. [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-)과 [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-)으로 이러한 빈을 활성화합니다. 명시적 임계값을 제공하려면 [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-)과 [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-)을 사용하고, [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-)과 [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-)에 `false`를 전달하십시오.
+이 예제는 10분 간격으로 처리 시간을 그룹화하고, 10분 이하와 40분 초과에 대한 별도 빈을 제공합니다. [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) 과 [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-) 로 이러한 빈을 활성화합니다. 명시적인 임계값을 제공하려면 [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) 및 [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-) 을 사용하고, [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) 과 [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) 에 `false` 를 전달합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -892,13 +892,13 @@ finally
 }
 ```
 
-PowerPoint에 표시된 프레젠테이션은 **3, 4, 4, 4, 2**개의 빈 개수를 보여 줍니다. 언더플로우 빈은 `5, 10, 10`을 포함하므로 임계값이 포함됩니다. 오버플로우 빈은 `41, 50`만 포함하므로 임계값이 제외됩니다; `40`과 같은 값은 이전 구간에 남습니다. 내부 빈은 하한보다 크고 상한보다 작거나 같은 값을 포함합니다.
+PowerPoint에 표시된 프레젠테이션은 **3, 4, 4, 4, 2** 개의 빈 카운트를 보여줍니다. 언더플로우 빈에는 `5, 10, 10` 이 포함되어 임계값은 포함형이며, 오버플로우 빈에는 `41, 50` 만 포함되어 임계값은 배제형입니다. `40` 은 이전 구간에 머무릅니다. 내부 빈은 하한보다 크고 상한보다 작거나 같은 값을 포함합니다.
 
-![10분 빈 및 명시적 언더플로우·오버플로우 임계값을 가진 히스토그램](histogram_bin_width.png)
+![10분 빈과 명시적 언더플로우·오버플로우 임계값이 적용된 히스토그램](histogram_bin_width.png)
 
 #### **빈 개수 지정**
 
-고정 구간 대신 고정 세부 수준을 원한다면 동일한 데이터에 대해 5개의 빈을 요청하십시오. 이 예제는 언더플로우와 오버플로우 빈을 비활성화합니다. 차트는 데이터 범위에서 너비를 계산하므로 경계가 보고서마다 달라질 수 있습니다.
+고정 구간 대신 고정 상세 수준을 원한다면 동일 데이터에 대해 다섯 개의 빈을 요청합니다. 이 예제는 언더플로우와 오버플로우 빈을 비활성화합니다. 차트는 데이터 범위에서 폭을 결정하므로 보고서마다 경계가 달라질 수 있습니다.
 
 ```java
 import com.aspose.slides.*;
@@ -939,15 +939,15 @@ finally
 }
 ```
 
-다섯 빈은 **4, 4, 4, 4, 1**개의 개수를 가집니다. 위의 고정‑너비 결과와 비교하십시오: 입력 값은 동일하지만 경계가 다릅니다.
+다섯 개 빈의 카운트는 **4, 4, 4, 4, 1** 입니다. 위의 고정 폭 결과와 비교해 보면 입력 값은 동일하지만 경계가 다릅니다.
 
-![동일 데이터에서 계산된 5개 빈을 가진 히스토그램](histogram_bin_count.png)
+![동일 데이터에서 계산된 다섯 개 빈 히스토그램](histogram_bin_count.png)
 
 ### **레이더 차트 만들기**
 
-레이더 차트는 다변량 데이터를 2차원 형태로 표시하여 여러 변수를 동시에 비교하기 쉽게 합니다. 여러 성능 지표나 속성의 패턴, 강점 및 약점을 식별하는 데 특히 유용합니다.
+레이더 차트는 다변량 데이터를 2차원 형식으로 표시하여 여러 변수를 동시에 쉽게 비교할 수 있게 합니다. 여러 성능 측정값이나 속성에 걸친 패턴, 강점 및 약점을 식별하는 데 특히 유용합니다.
 
-이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-)을 사용해 기본 시리즈와 범주가 있는 레이더 차트를 만든 다음 PPTX로 저장합니다.
+이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 을 사용해 기본 시리즈와 카테고리를 가진 레이더 차트를 만든 뒤 프레젠테이션을 PPTX 형식으로 저장합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -971,11 +971,11 @@ finally
 
 ![레이더 차트](radar_chart.png)
 
-### **다중 범주 차트 만들기**
+### **다중 카테고리 차트 만들기**
 
-다중 범주 차트는 하나 이상의 범주 그룹이 포함된 데이터를 표시하여 여러 차원에 걸쳐 값을 비교할 수 있게 합니다. 복잡하고 다중 레이어 데이터세트의 추세와 관계를 분석해야 할 때 특히 도움이 됩니다.
+다중 카테고리 차트는 하나 이상의 범주 그룹을 포함하는 데이터를 표시하여 여러 차원에서 값을 동시에 비교할 수 있게 합니다. 복잡하고 다층적인 데이터 세트에서 추세와 관계를 분석하려는 경우 특히 도움이 됩니다.
 
-이 예제는 네 쌍으로 구성된 여덟 개 범주를 가진 군집된 세로 막대 차트를 만듭니다. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 메서드가 각 쌍에 그룹 레벨 1에서 공유 라벨을 부여해 개별 라벨과 그룹 라벨이 모두 표시되는 범주 축을 생성합니다.
+이 예제는 네 개의 카테고리를 두 개씩 짝을 이루어 배치한 클러스터드 컬럼 차트를 생성합니다. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 메서드는 레벨 1에서 각 쌍에 공유 레이블을 부여하여 개별 레이블과 그룹 레이블이 모두 표시되는 카테고리 축을 만듭니다.
 
 ```java
 import com.aspose.slides.*;
@@ -1049,13 +1049,13 @@ finally
 
 결과:
 
-![다중 범주 차트](multi_category_chart.png)
+![다중 카테고리 차트](multi_category_chart.png)
 
 ### **지도 차트 만들기**
 
-지도 차트는 국가, 주, 도시 등 특정 위치에 정보를 매핑하여 지리 데이터를 시각화합니다. 지역별 추세, 인구 통계 및 공간 분포를 명확하고 시각적으로 매력적인 방식으로 분석하는 데 특히 유용합니다.
+지도 차트는 국가, 주, 도시와 같은 특정 위치에 정보를 매핑하여 지리 데이터를 시각화합니다. 지역 추세, 인구 통계 및 공간 분포를 명확하고 시각적으로 매력적인 방식으로 분석하는 데 특히 유용합니다.
 
-이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-)을 사용해 기본 지리 데이터를 가진 지도 차트를 만들고 PowerPoint에서 볼 수 있도록 저장합니다.
+이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 을 사용해 기본 지리 데이터를 가진 지도 차트를 만든 뒤 PowerPoint에서 볼 수 있도록 저장합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -1080,16 +1080,16 @@ finally
 ![지도 차트](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-위 그림은 PowerPoint에서 저장된 프레젠테이션을 연 모습입니다. Aspose.Slides는 지도 차트와 데이터를 올바르게 기록하지만 자체적으로 지도 차트를 그리지는 않습니다. 슬라이드가 이미지로 렌더링되거나 PDF·SVG로 변환될 때 차트 영역은 비어 있습니다. 같은 슬라이드의 다른 도형은 영향을 받지 않습니다.
+위 그림은 저장된 프레젠테이션을 PowerPoint에서 연 모습을 보여줍니다. Aspose.Slides는 지도 차트와 데이터를 올바르게 기록하지만, 자체적으로 지도 차트를 그리지는 않습니다. 슬라이드가 이미지, PDF 또는 SVG 로 변환될 때 차트 영역은 비어 있게 됩니다. 같은 슬라이드의 다른 도형은 영향을 받지 않습니다.
 {{% /alert %}}
 
-### **조합 차트 만들기**
+### **복합 차트 만들기**
 
-조합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이 차트는 두 개 이상의 데이터 세트를 강조, 비교 또는 차이를 조사하여 그들 간의 관계를 파악하는 데 도움을 줍니다.
+복합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이 차트를 사용하면 두 개 이상의 데이터 세트를 강조, 비교 또는 차이를 검토하여 해당 데이터 간 관계를 파악할 수 있습니다.
 
-![조합 차트](combination_chart.png)
+![복합 차트](combination_chart.png)
 
-이 예제는 네 개 범주에 걸쳐 두 개의 군집된 세로 막대 시리즈와 하나의 꺾은선 시리즈를 결합합니다. 막대는 기본 수직 축을 사용하고, [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-)가 꺾은선을 오른쪽의 보조 수직 축에 배치합니다. 도우미 함수가 제목, 레전드, 축 라벨 및 격선을 구성합니다.
+이 예제는 네 개 카테고리에서 두 개의 클러스터드 컬럼 시리즈와 하나의 선 시리즈를 결합합니다. 컬럼은 기본 수직 축을 사용하고, 선은 [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) 로 오른쪽 보조 수직 축에 배치합니다. 헬퍼 함수가 제목, 범례, 축 레이블 및 그리드선을 구성합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -1260,9 +1260,9 @@ example.createComboChart();
 
 ## **차트 업데이트**
 
-Aspose.Slides for Android via Java를 사용하면 차트 데이터를 수정하고 서식 및 스타일을 변경하여 PowerPoint 차트를 업데이트할 수 있습니다. 이 기능을 통해 프레젠테이션을 동적 콘텐츠와 동기화하고 차트가 현재 데이터와 시각적 표준을 정확히 반영하도록 쉽게 유지할 수 있습니다.
+Aspose.Slides for Android via Java는 차트 데이터를 수정하고 서식 및 스타일을 변경하여 PowerPoint 차트를 업데이트할 수 있게 합니다. 이 기능은 프레젠테이션을 동적 콘텐츠로 최신 상태로 유지하고 차트가 현재 데이터와 시각적 기준을 정확히 반영하도록 단순화합니다.
 
-이 예제는 기존 프레젠테이션 첫 번째 슬라이드에 있는 "My chart"라는 차트를 업데이트합니다. 각 시리즈에 세 개의 데이터 포인트가 있는 두 개의 열 시리즈가 필요하며, 범주 레이블은 A 열에, 시리즈 이름은 첫 번째 워크시트의 첫 번째 행에 있습니다. 예제는 [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-)을 사용해 워크북 셀을 변경하고, 시리즈 값을 업데이트하며, 세 번째 시리즈를 추가하고, [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-)을 통해 차트를 군집형 실린더로 변경합니다.
+이 예제는 기존 프레젠테이션의 첫 번째 슬라이드에 있는 "My chart" 라는 차트를 업데이트합니다. 각 시리즈에 세 개의 데이터 포인트가 있는 두 개의 열 시리즈가 필요하며, 카테고리 레이블은 열 A에, 시리즈 이름은 첫 번째 워크시트 첫 행에 있습니다. 예제는 [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) 로 워크북 셀을 변경하고, 시리즈 값을 업데이트하며, 세 번째 시리즈를 추가하고, [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-) 로 차트를 클러스터드 실린더 차트로 변경합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -1324,11 +1324,11 @@ finally
 
 ## **차트 데이터 범위 설정**
 
-기존 차트가 사용하고 있는 범위를 확인하려면 [Retrieve a Chart's Data Range](/slides/ko/androidjava/chart-workbook/#retrieve-a-charts-data-range)를 참조하십시오.
+기존 차트가 이미 사용하고 있는 범위를 확인하려면 [Retrieve a Chart's Data Range](/slides/ko/androidjava/chart-workbook/#retrieve-a-charts-data-range) 를 참조하십시오.
 
-Aspose.Slides for Android via Java는 워크시트의 특정 데이터 범위를 차트 데이터의 소스로 정의할 유연성을 제공합니다. 이를 통해 워크시트의 일부 영역을 차트에 직접 매핑하여 어떤 셀이 차트의 시리즈와 범주에 기여하는지 제어할 수 있습니다. 결과적으로 최신 워크시트 데이터 변경 사항에 맞춰 차트를 쉽게 업데이트하고 동기화하여 PowerPoint 프레젠테이션이 최신 정확한 정보를 반영하도록 할 수 있습니다.
+Aspose.Slides for Android via Java는 워크시트의 특정 데이터 범위를 차트 데이터 소스로 정의할 수 있는 유연성을 제공합니다. 이를 통해 워크시트의 일부분을 차트에 직접 매핑하여 차트의 시리즈와 카테고리에 어떤 셀이 기여하는지 제어할 수 있습니다. 결과적으로 워크시트의 최신 데이터 변경을 차트에 쉽게 업데이트하고 동기화하여 PowerPoint 프레젠테이션이 최신 정확한 정보를 반영하도록 할 수 있습니다.
 
-이 예제는 [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-)을 사용해 기존 프레젠테이션 첫 번째 슬라이드에 있는 "My chart" 차트의 데이터 소스를 `Sheet1!A1:B4`로 설정합니다. 차트 워크북에 해당 워크시트가 존재하고, 첫 번째 행에 시리즈 헤딩, A 열에 범주 레이블, B 열에 세 개 값이 포함된 범위가 채워져 있어야 합니다.
+이 예제는 [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) 을 사용해 기존 프레젠테이션의 첫 번째 슬라이드에 있는 "My chart" 차트의 데이터 소스를 `Sheet1!A1:B4` 로 설정합니다. 차트 워크북에 해당 워크시트와 첫 행에 시리즈 헤딩, 열 A에 카테고리 레이블, 열 B에 세 개의 값이 채워진 범위가 있어야 합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -1357,11 +1357,11 @@ finally
 }
 ```
 
-## **차트에서 기본 마커 사용**
+## **차트에 기본 마커 사용**
 
-차트에서 기본 마커를 사용하면 각 차트 시리즈에 자동으로 서로 다른 기본 마커 기호가 할당됩니다.
+차트에 기본 마커를 사용하면 각 차트 시리즈에 자동으로 서로 다른 기본 마커 기호가 할당됩니다.
 
-이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-)을 사용해 두 개의 꺾은선 시리즈와 레전드를 가진 차트를 만들고, [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--)를 통해 액세스한 마커 설정이 자동 할당된 마커 기호를 유지합니다. 첫 번째 시리즈에는 음수 값과 `null`로 표시된 누락 값이 포함되고, 두 번째 시리즈는 모든 범주에 값을 가지고 있습니다.
+이 예제는 [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 로 두 개의 선 시리즈와 범례를 가진 차트를 만든 뒤, [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) 로 접근한 마커 설정이 자동 할당된 마커 기호를 유지하도록 합니다. 첫 번째 시리즈에는 음수 값과 `null` 로 표시된 누락 값이 포함되고, 두 번째 시리즈는 모든 카테고리에 값을 가지고 있습니다.
 
 ```java
 import com.aspose.slides.*;
@@ -1428,16 +1428,16 @@ finally
 
 **Aspose.Slides for Android via Java에서 지원하는 차트 유형은 무엇입니까?**
 
-Aspose.Slides for Android via Java는 막대, 꺾은선, 원형, 영역, 산점도, 히스토그램, 레이더 등 다양한 차트 유형을 지원합니다. 이를 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
+Aspose.Slides for Android via Java는 막대, 선, 원형, 영역, 산점도, 히스토그램, 레이더 등을 포함한 다양한 차트 유형을 지원합니다. 이 유연성을 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
 
 **슬라이드에 새 차트를 추가하려면 어떻게 해야 합니까?**
 
-차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스 인스턴스를 만들고, 인덱스로 원하는 슬라이드를 가져온 다음, 차트 유형과 초기 데이터를 지정하여 차트를 추가하는 메서드를 호출합니다. 이렇게 하면 차트가 프레젠테이션에 직접 통합됩니다.
+차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 만들고, 인덱스로 원하는 슬라이드를 검색한 뒤 차트 유형과 초기 데이터를 지정하여 차트를 추가하는 메서드를 호출합니다. 이 과정으로 차트가 프레젠테이션에 직접 통합됩니다.
 
-**차트에 표시되는 데이터를 어떻게 업데이트합니까?**
+**차트에 표시된 데이터를 어떻게 업데이트할 수 있습니까?**
 
-차트의 데이터 워크북([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/))에 접근해 기본 시리즈와 범주를 삭제하고 사용자 지정 데이터를 추가하면 차트 데이터를 업데이트할 수 있습니다. 이를 통해 최신 데이터를 반영하도록 차트를 프로그래밍 방식으로 새로 고칠 수 있습니다.
+차트의 데이터를 업데이트하려면 차트 데이터 워크북([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/))에 접근하고 기본 시리즈와 카테고리를 지운 뒤 사용자 정의 데이터를 추가합니다. 이를 통해 차트를 프로그래밍 방식으로 최신 데이터에 맞게 새로 고칠 수 있습니다.
 
-**차트의 외관을 사용자 지정할 수 있습니까?**
+**차트의 모양을 사용자 지정할 수 있습니까?**
 
-예, Aspose.Slides for Android via Java는 색상, 글꼴, 라벨, 레전드 및 기타 서식 요소를 수정하여 차트 외관을 특정 디자인 요구 사항에 맞게 맞춤화할 수 있는 광범위한 옵션을 제공합니다.
+예, Aspose.Slides for Android via Java는 색상, 글꼴, 레이블, 범례 및 기타 서식 요소를 수정하여 차트의 모양을 특정 디자인 요구 사항에 맞게 맞춤 설정할 수 있는 광범위한 옵션을 제공합니다.

@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Impara ad aggiungere e formattare le etichette dei dati del grafico nelle presentazioni PowerPoint utilizzando Aspose.Slides per Android tramite Java per diapositive più coinvolgenti."
+description: "Impara ad aggiungere e formattare le etichette dei dati del grafico nelle presentazioni PowerPoint usando Aspose.Slides per Android tramite Java per slide più coinvolgenti."
 ---
 ## **Introduzione**
 
-Le etichette dei dati mostrano informazioni sulle serie di grafico e sui singoli punti dati, aiutando i lettori a identificare i valori e a comprendere il grafico. Questo articolo spiega come formattare i valori, visualizzare le percentuali, leggere il testo delle etichette, controllare le etichette al di sopra del massimo dell’asse, regolare la spaziatura delle etichette dell’asse delle categorie e posizionare le etichette di un grafico a torta.
+I dati etichette visualizzano informazioni sulle serie di grafico e sui singoli punti dati, aiutando i lettori a identificare i valori e a comprendere il grafico. Questo articolo spiega come formattare i valori, visualizzare le percentuali, leggere il testo dell’etichetta, controllare le etichette oltre il massimo dell’asse, regolare la spaziatura delle etichette dell’asse delle categorie e posizionare le etichette del grafico a torta.
 
 ## **Imposta la precisione dei dati nelle etichette del grafico**
 
-Utilizza [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) per formattare i valori delle serie. Questo esempio crea un grafico a linee con dati predefiniti, visualizza la sua tabella dati e abilita le etichette dei valori per la prima serie. Il formato `#,##0.00` mostra un separatore delle migliaia e due cifre decimali senza modificare i valori sottostanti.
+Utilizzare [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) per formattare i valori della serie. Questo esempio crea un grafico a linee con dati predefiniti, visualizza la sua tabella dei dati e abilita le etichette dei valori per la prima serie. Il formato `#,##0.00` mostra il separatore delle migliaia e due cifre decimali senza modificare i valori sottostanti.
 
 ```java
 import com.aspose.slides.*;
@@ -47,7 +47,7 @@ try {
 
 ## **Visualizza le percentuali come etichette**
 
-Per un grafico a colonne impilate, calcola ogni valore come percentuale del totale della sua categoria e assegna il testo al frame di testo restituito da [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Questo esempio utilizza i dati predefiniti del grafico e visualizza le percentuali con due cifre decimali in un carattere da 8 punti. Le categorie con un totale pari a zero vengono ignorate per evitare la divisione per zero. Ricalcola il testo personalizzato dell’etichetta se i dati del grafico cambiano.
+Per un grafico a colonne impilate, calcolare ogni valore come percentuale del totale della sua categoria e assegnare il testo al frame di testo restituito da [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Questo esempio utilizza i dati di grafico predefiniti e visualizza le percentuali con due cifre decimali in un carattere da 8 punti. Le categorie con un totale pari a zero vengono ignorate per evitare divisioni per zero. Ricalcolare il testo personalizzato dell’etichetta se i dati del grafico cambiano.
 
 ```java
 import com.aspose.slides.*;
@@ -106,9 +106,9 @@ try {
 
 ## **Imposta il simbolo percentuale con le etichette dei dati del grafico**
 
-Quando i valori sono memorizzati come frazioni, utilizza [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) per visualizzare le percentuali. Passa `false` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) per applicare il formato dell’etichetta indipendentemente dalle celle di origine.
+Quando i valori sono memorizzati come frazioni, usare [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) per visualizzare le percentuali. Passare `false` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) per applicare il formato dell’etichetta in modo indipendente dalle celle di origine.
 
-Questo esempio crea un grafico a colonne impilate al 100% con serie rosse e blu su quattro categorie. Ogni coppia di valori somma 1. Il formato dell’etichetta `0.0%` visualizza 0,30 come 30,0%, mentre l’asse verticale utilizza due cifre decimali. Entrambe le serie usano testo dell’etichetta bianco, di 10 punti.
+Questo esempio crea un grafico a colonne impilate al 100% con serie rosse e blu su quattro categorie. Ogni coppia di valori somma a 1. Il formato dell’etichetta `0.0%` visualizza 0,30 come 30,0%, mentre l’asse verticale utilizza due cifre decimali. Entrambe le serie usano testo dell’etichetta bianco, a 10 punti.
 
 ```java
 import com.aspose.slides.*;
@@ -163,9 +163,9 @@ try {
 }
 ```
 
-## **Leggi il testo effettivo delle etichette dei dati**
+## **Leggi il testo reale delle etichette dei dati**
 
-Utilizza [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) per recuperare il testo prodotto dalle impostazioni di un’etichetta dei dati. Questo è utile quando si estraggono etichette per report, si ricerca il contenuto di una presentazione o si convalidano i grafici generati. Nell’esempio seguente, il [formato predefinito delle etichette dei dati](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) combina il nome di ogni categoria, il nome della serie e il valore. Un punto formatta il suo valore come percentuale, e un altro utilizza testo personalizzato da [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Utilizzare [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) per recuperare il testo prodotto dalle impostazioni di un’etichetta di dati. È utile quando si estraggono le etichette per i report, si ricerca il contenuto della presentazione o si convalidano i grafici generati. Nell’esempio seguente, il [formato predefinito dell’etichetta dei dati](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) combina il nome di ciascuna categoria, il nome della serie e il valore. Un punto formatta il suo valore come percentuale, e un altro utilizza testo personalizzato da [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +225,15 @@ try {
 }
 ```
 
-Il numero memorizzato in un punto dati rimane `0.75`, anche quando la sua etichetta mostra `75%` insieme ai nomi della categoria e della serie. Il testo personalizzato sostituisce il testo dell’etichetta generato. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) restituisce la stringa dell’etichetta risultante in entrambi i casi. Verifica [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) separatamente, come mostrato sopra, quando desideri estrarre solo le etichette visibili.
+Il numero memorizzato in un punto dati rimane `0.75`, anche quando la sua etichetta mostra `75%` insieme ai nomi della categoria e della serie. Il testo personalizzato sostituisce il testo dell’etichetta generata. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) restituisce la stringa dell’etichetta risultante in entrambi i casi. Verificare [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) separatamente, come mostrato sopra, quando si desidera estrarre solo le etichette visibili.
 
 ## **Controlla le etichette dei dati oltre il massimo dell’asse**
 
-Quando limiti manualmente l’intervallo di un asse, alcuni punti dati possono superare il suo valore massimo. Utilizza [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) per controllare se le loro etichette dei dati vengono visualizzate. Questa impostazione modifica la visibilità delle etichette; non cambia l’intervallo dell’asse né i valori dei dati sottostanti.
+Quando si limita manualmente l’intervallo di un asse, alcuni punti dati possono superare il suo massimo. Utilizzare [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) per controllare se le loro etichette dei dati vengono visualizzate. Questa impostazione cambia la visibilità delle etichette; non modifica l’intervallo dell’asse né i valori dei dati sottostanti.
 
-L’esempio seguente crea un grafico a colonne raggruppate 2D con valori 60 e 120. Passa `false` a [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) e imposta il massimo a 100 con [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) sull’asse verticale. La prima diapositiva consente etichette oltre il massimo; una copia di quella diapositiva le disabilita. Entrambe le diapositive sono salvate in `DataLabelsOverMaximum.pptx`.
+L’esempio seguente crea un grafico a colonne raggruppate 2D con valori 60 e 120. Passa `false` a [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) e imposta il massimo a 100 con [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) sull’asse verticale. La prima diapositiva consente etichette oltre il massimo; una copia di quella diapositiva le disabilita. Entrambe le diapositive vengono salvate in `DataLabelsOverMaximum.pptx`.
 
-Abilita le etichette dei valori con [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). L’impostazione a livello di grafico non abilita la visualizzazione dei valori di per sé né sovrascrive la visualizzazione disabilitata di un’etichetta specifica. Questo esempio abilita i valori per l’intera serie e utilizza [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) per posizionare le etichette all’estremità esterna di ogni colonna.
+Abilitare le etichette dei valori con [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). L’impostazione a livello di grafico non abilita la visualizzazione dei valori da sola né sovrascrive la visualizzazione dei valori disabilitata di un’etichetta individuale. Questo esempio abilita i valori per l’intera serie e utilizza [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) per posizionare le etichette all’estremità esterna di ogni colonna.
 
 ```java
 import com.aspose.slides.*;
@@ -282,19 +282,19 @@ try {
 }
 ```
 
-Le immagini seguenti mostrano le diapositive salvate renderizzate da Microsoft PowerPoint. Con `true`, l’etichetta **120** è visibile al limite superiore; con `false`, è nascosta. L’etichetta **60** rimane visibile, il massimo dell’asse resta **100** e il secondo punto dati rimane **120** in entrambi i casi.
+Le immagini seguenti mostrano le diapositive salvate renderizzate da Microsoft PowerPoint. Con `true`, l’etichetta **120** è visibile al limite superiore; con `false`, è nascosta. L’etichetta **60** rimane visibile, il massimo dell’asse resta a **100** e il secondo punto dati rimane **120** in entrambi i casi.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Grafico PowerPoint che mostra l’etichetta valore 120 con un massimo dell’asse pari a 100](data-labels-over-maximum-true.png) | ![Grafico PowerPoint che nasconde l’etichetta valore 120 con un massimo dell’asse pari a 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Chart Type" %}}
-Questo esempio utilizza un grafico a colonne 2D con un asse dei valori. I grafici senza un asse dei valori, come i grafici a torta e a ciambella, non hanno un valore massimo dell’asse da limitare in questo modo.
+{{% alert color="info" title="Tipo di grafico" %}}
+Questo esempio utilizza un grafico a colonne 2D con un asse dei valori. I grafici senza asse dei valori, come i grafici a torta e a ciambella, non hanno un massimo dell’asse da limitare in questo modo.
 {{% /alert %}}
 
 ## **Imposta la distanza dell’etichetta da un asse**
 
-Utilizza [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) per controllare la distanza tra le etichette dell’asse delle categorie e l’asse. Il valore è una percentuale della dimensione massima del carattere delle etichette dell’asse. Questo esempio crea un grafico a colonne raggruppate e imposta lo scostamento dell’etichetta dell’asse orizzontale a 500. Questa impostazione influisce sulle etichette dell’asse delle categorie piuttosto che sulle etichette collegate ai singoli punti dati.
+Utilizzare [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) per controllare la distanza tra le etichette dell’asse di categoria e l’asse. Il valore è una percentuale della dimensione massima del carattere delle etichette dell’asse. Questo esempio crea un grafico a colonne raggruppate e imposta l’offset delle etichette dell’asse orizzontale a 500. Questa impostazione influisce sulle etichette dell’asse di categoria piuttosto che sulle etichette associate a singoli punti dati.
 
 ```java
 import com.aspose.slides.*;
@@ -314,9 +314,9 @@ try {
 
 ## **Regola la posizione dell’etichetta**
 
-In un grafico a torta, regola le posizioni delle etichette dei dati per migliorare la spaziatura e fare spazio alle linee di collegamento.
+Su un grafico a torta, regolare le posizioni delle etichette dei dati per migliorare la spaziatura e creare spazio per le linee di collegamento.
 
-Questo esempio mostra il valore del primo punto dati, posiziona la sua etichetta all’esterno della fetta e regola gli offset orizzontali e verticali utilizzando [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) e [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Questi offset sono relativi alla larghezza e all’altezza del grafico, rispettivamente.
+Questo esempio visualizza il valore del primo punto dati, posiziona la sua etichetta fuori dalla fetta e regola gli offset orizzontale e verticale usando [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) e [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Questi offset sono relativi rispettivamente alla larghezza e all’altezza del grafico.
 
 ```java
 import com.aspose.slides.*;
@@ -340,13 +340,65 @@ try {
 }
 ```
 
-![Grafico a torta con posizione dell’etichetta dati regolata](pie-chart-adjusted-label.png)
+![Grafico a torta con una posizione dell’etichetta dati regolata](pie-chart-adjusted-label.png)
+
+## **Formatta le linee di collegamento**
+
+Quando le etichette di un grafico a torta si trovano fuori dalle loro fette, le linee di collegamento aiutano i lettori a collegare ogni valore alla fetta corretta. Un colore a contrasto e una linea leggermente più spessa possono rendere queste connessioni più facili da seguire, mentre trasparenza e uno stile tratteggiato mantengono le linee poco invasive visivamente.
+
+Utilizzare [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) per formattare le linee di collegamento a livello della raccolta di etichette dei dati della serie. le impostazioni in `series.getLabels().getLeaderLinesFormat().getLine()` si applicano alla raccolta, piuttosto che a un’etichetta individuale.
+
+Questo esempio crea un grafico a torta con dati predefiniti, visualizza i valori fuori dalle fette e abilita [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Sposta due etichette più lontane dalle loro fette usando gli offset [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) e [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-), espressi come frazioni della larghezza e dell’altezza del grafico. Non è richiesta alcuna presentazione di input.
+
+Il [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) della linea imposta un colore blu solido con un valore alfa di 191 su 255, fornendo circa il 25 % di trasparenza. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) imposta lo spessore a 2 punti, e [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) rende la linea tratteggiata.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 80, 50, 560, 400);
+    chart.setLegend(false);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    IDataLabelFormat labelFormat = series.getLabels().getDefaultDataLabelFormat();
+    labelFormat.setShowValue(true);
+    labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
+    labelFormat.setShowLeaderLines(true);
+
+    // Sposta due etichette più lontano dalle loro fette.
+    series.getLabels().get_Item(0).setX(0.10f);
+    series.getLabels().get_Item(0).setY(-0.05f);
+    series.getLabels().get_Item(1).setX(-0.10f);
+    series.getLabels().get_Item(1).setY(0.05f);
+
+    ILineFormat line = series.getLabels().getLeaderLinesFormat().getLine();
+    line.getFillFormat().setFillType(FillType.Solid);
+    line.getFillFormat().getSolidFillColor().setColor(Color.argb(191, 30, 90, 160));
+    line.setWidth(2);
+    line.setDashStyle(LineDashStyle.Dash);
+
+    presentation.save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Abilitare le linee di collegamento non garantisce che una linea apparirà per ogni etichetta. La visibilità dipende dal posizionamento delle etichette e dal comportamento di layout del grafico. In questo esempio, le due etichette spostate hanno linee di collegamento visibili; le etichette che rimangono vicine alle loro fette non ne hanno bisogno.
+
+L’immagine seguente mostra il `FormattedLeaderLines.pptx` salvato, renderizzato con Aspose.Slides:
+
+![Grafico a torta con linee di collegamento blu, semitrasparenti e tratteggiate che collegano due etichette esterne alle loro fette](formatted-leader-lines.png)
 
 ## **Aggiungi più righe di etichette dei dati sopra un grafico a colonne**
 
-Questo esempio crea un grafico a colonne con due righe di etichette dei dati sopra l’area del grafico. La Serie A mostra le colonne visibili, mentre le Serie B e C forniscono le etichette aggiuntive. Le loro colonne sono nascoste rimuovendo il riempimento e il contorno. Il metodo [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) allinea tutte e tre le serie con gli stessi centri di categoria.
+Questo esempio crea un grafico a colonne con due righe di etichette dei dati sopra l’area del diagramma. La Serie A visualizza le colonne visibili, mentre le Serie B e Serie C forniscono le etichette aggiuntive. Le loro colonne sono nascoste rimuovendo il riempimento e il contorno. Il metodo [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) allinea tutte e tre le serie con gli stessi centri di categoria.
 
-Le impostazioni di [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) riservano spazio per le righe di etichette. Dopo che [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) calcola le posizioni predefinite, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) e [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) mantengono l’allineamento orizzontale e applicano offset verticali per disporre le etichette in due righe. I numeri rimangono etichette dei dati collegate ai valori delle serie; solo le intestazioni delle righe sono forme di testo separate.
+Le impostazioni di [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) riservano spazio per le righe delle etichette. Dopo che [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) calcola le posizioni predefinite, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) e [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) mantengono l’allineamento orizzontale e applicano offset verticali per disporre le etichette in due righe. I numeri rimangono etichette dei dati collegate ai valori delle serie; solo le intestazioni delle righe sono forme di testo separate.
 
 ```java
 import com.aspose.slides.*;
@@ -402,7 +454,7 @@ try {
         }
     }
 
-    // Allinea le tre serie con gli stessi centri di categoria.
+    // Allinea tutte e tre le serie con gli stessi centri di categoria.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
 
     // Usa meno linee della griglia per questo esempio compatto.
@@ -448,18 +500,18 @@ try {
 }
 ```
 
-![Grafico a colonne con due righe di etichette dei dati sopra l’area del grafico](multiple-rows-of-labels.png)
+![Grafico a colonne con due righe di etichette dei dati sopra l’area del diagramma](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
 **Come posso evitare che le etichette dei dati si sovrappongano in grafici densi?**
 
-Combina il posizionamento automatico delle etichette, le linee di collegamento e una dimensione del font ridotta; se necessario, nascondi alcuni campi (ad esempio, la categoria) o visualizza le etichette solo per i valori estremi o i punti chiave.
+Combinare il posizionamento automatico delle etichette, le linee di collegamento e una dimensione del carattere ridotta; se necessario, nascondere alcuni campi (ad esempio la categoria) o mostrare le etichette solo per i valori estremi o i punti chiave.
 
 **Come posso disabilitare le etichette solo per valori zero, negativi o vuoti?**
 
-Filtra i punti dati prima di abilitare le etichette e disattiva la visualizzazione per valori pari a 0, valori negativi o valori mancanti secondo una regola definita.
+Filtrare i punti dati prima di abilitare le etichette e disattivare la visualizzazione per valori pari a 0, valori negativi o valori mancanti secondo una regola definita.
 
 **Come posso garantire uno stile coerente delle etichette durante l’esportazione in PDF/immagini?**
 
-Imposta esplicitamente la famiglia e la dimensione del font e verifica che il font sia disponibile nell’ambiente di rendering per evitare il fallback.
+Impostare esplicitamente la famiglia e la dimensione del carattere e verificare che il font sia disponibile nell’ambiente di rendering per evitare il fallback.

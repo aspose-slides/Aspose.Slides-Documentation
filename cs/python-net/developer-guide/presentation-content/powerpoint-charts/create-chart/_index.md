@@ -10,47 +10,52 @@ keywords:
 - upravit graf
 - změnit graf
 - aktualizovat graf
-- rozptylový graf
+- rozptýlený graf
 - koláčový graf
 - čárový graf
-- graf stromové mapy
-- burzovní graf
+- stromový mapový graf
+- akciový graf
 - krabicový a vousový graf
-- trychový graf
-- graf slunečního paprsku
+- trychliofilní graf
+- slunečnicový graf
 - histogram
 - radarový graf
-- vícekategoriový graf
+- vícekategoriální graf
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Vytvořte a přizpůsobte grafy v prezentacích PowerPoint pomocí Aspose.Slides for Python via .NET. Přidejte, formátujte a upravujte grafy pomocí praktických ukázek kódu v Pythonu."
+description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro Python via .NET. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu v Pythonu."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak pomocí Aspose.Slides for Python via .NET vytvářet a přizpůsobovat grafy. Naučíte se programově přidat graf na snímek, naplnit jej daty a aplikovat různé možnosti formátování, aby vyhovoval vašim specifickým požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu až po konfiguraci sérií, os a legend. Po dokončení tohoto průvodce získáte pevné pochopení, jak integrovat dynamické generování grafů do vašich Python aplikací a zjednodušit proces vytváření datově řízených prezentací.
+Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides for Python via .NET. Naučíte se, jak programově přidat graf na snímek, naplnit jej daty a použít různé možnosti formátování, aby vyhovoval vašim konkrétním požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu po konfiguraci sérií, os a legend. Po absolvování tohoto průvodce získáte pevné pochopení, jak integrovat dynamické generování grafů do vašich Python aplikací a zjednodušit tvorbu prezentací založených na datech.
 
 ## **Vytvořit graf**
 
-Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě zřejmé z tabulky nebo kalkulační tabulky.
+Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě zřejmé z tabulky nebo tabulkového výkazu.
 
 **Proč vytvářet grafy?**
-* agregovat, zhušťovat nebo sumarizovat velké množství dat na jediném snímku v prezentaci;
-* odhalit vzorce a trendy v datech;
-* odvodit směr a tempo dat v čase nebo vzhledem ke konkrétní jednotce měření;
-* odhalit odlehlé hodnoty, odchylky, chyby a nesmyslná data;
+
+Používáním grafů můžete:
+
+* agregovat, zhušťovat nebo shrnout velké množství dat na jediném snímku v prezentaci;
+* odhalovat vzory a trendy v datech;
+* určit směr a dynamiku dat v čase nebo vzhledem k konkrétní jednotce měření;
+* zaznamenat odlehlé hodnoty, odchylky, chyby a nesmyslná data;
 * komunikovat nebo prezentovat složitá data.
 
-V PowerPointu můžete vytvářet grafy pomocí funkce *Insert*, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech grafů), tak vlastní grafy.
+V PowerPointu můžete grafy vytvářet funkcí *Insert*, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech), tak i vlastní grafy.
 
 {{% alert color="info" title="Note" %}}
+
 Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) v modulu [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
+
 {{% /alert %}}
 
 ### **Vytvořit seskupené sloupcové grafy**
 
-Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k vytvoření seskupeného sloupcového grafu, který porovnává dvě řady napříč třemi kategoriemi. Řady používají červené a zelené výplně a jednotlivé popisky ukazují názvy kategorií, názvy řad a hodnoty. Index listu 0 odkazuje na první list vloženého sešitu grafu.
+Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k vytvoření seskupeného sloupcového grafu, který porovnává dvě série napříč třemi kategoriemi. Série používají červené a zelené výplně a jednotlivé popisky zobrazují názvy kategorií, názvy sérií a hodnoty. Index listu 0 odkazuje na první list v zabudovaném sešitu grafu.
 
 ```python
 import aspose.pydrawing as draw
@@ -127,17 +132,18 @@ Výsledek:
 
 ![Seskupený sloupcový graf](clustered_column_chart.png)
 
-### **Vytvořit rozptylové grafy**
+### **Vytvořit bodové grafy**
 
-Rozptylové grafy (také známé jako rozptylové diagramy nebo x-y grafy) se často používají ke kontrole vzorců nebo demonstraci korelací mezi dvěma proměnnými.
+Bodové grafy (také známé jako scatter ploty nebo x‑y grafy) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými.
 
-Použijte rozptylový graf, když:
-* Máte párovaná číselná data.
-* Máte dvě proměnné, které dobře spolu souvisejí.
-* Chcete zjistit, zda jsou dvě proměnné vzájemně propojené.
-* Máte nezávislou proměnnou, která má více hodnot pro závislou proměnnou.
+Použijte bodový graf, když:
 
-Tento příklad vykresluje dvě sady hodnot x-y. První řada používá přímé čáry s hvězdicovými značkami, zatímco druhá používá hladké čáry s kruhovými značkami; obě používají [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) 10. Vlastnost [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) určuje tvar značky.
+* máte spárovaná číselná data;
+* máte dvě proměnné, které spolu dobře korespondují;
+* chcete zjistit, zda jsou dvě proměnné vzájemně propojené;
+* máte nezávislou proměnnou, která má pro závislou proměnnou více hodnot.
+
+Tento příklad vykresluje dvě sady hodnot x‑y. První série používá přímé čáry s hvězdicovými značkami, zatímco druhá používá hladké čáry s kruhovými značkami; obě používají [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) 10. Vlastnost [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) určuje tvar značky.
 
 ```python
 import aspose.slides as slides
@@ -199,13 +205,13 @@ with slides.Presentation() as presentation:
 
 Výsledek:
 
-![Rozptylový graf](scatter_chart.png)
+![Bodový graf](scatter_chart.png)
 
 ### **Vytvořit koláčové grafy**
 
-Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část-celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit místo toho sloupcový graf.
+Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit použití sloupcového grafu místo toho.
 
-Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o řadě. Vlastnost [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) nastavuje první výsek, aby začínal při 180 stupních.
+Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o sérii. Vlastnost [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) nastavuje první výsek tak, aby začínal při 180 stupních.
 
 ```python
 import aspose.pydrawing as draw
@@ -302,11 +308,13 @@ Výsledek:
 
 ![Koláčový graf](pie_chart.png)
 
+Pro zlepšení čitelnosti popisků mimo koláč se podívejte na [Format Leader Lines](/slides/cs/python-net/chart-data-label/#format-leader-lines), kde je ukázáno, jak umístit popisky a přizpůsobit barvu, šířku, průhlednost a styl čáry vodících čar.
+
 ### **Vytvořit čárové grafy**
 
-Čárové grafy (také známé jako čárové diagramy) jsou nejvhodnější v situacích, kdy chcete ukázat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnávat velké množství dat, sledovat změny a trendy v průběhu času, zvýraznit anomálie v řadách dat a další.
+Čárové grafy (také známé jako čárové diagramy) jsou nejvhodnější v situacích, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v datech a další.
 
-Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k vytvoření čárového grafu s výchozími řadami a kategoriemi a poté uloží prezentaci jako PPTX.
+Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k vytvoření čárového grafu se standardními sériemi a kategoriemi a poté uloží prezentaci jako PPTX.
 
 ```python
 import aspose.slides as slides
@@ -320,7 +328,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny čárkovanými čarami, nastavte [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) na hodnotu z [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
+Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny čárami, nastavte [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) na hodnotu z [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
@@ -339,11 +347,11 @@ Výsledek:
 
 ![Čárový graf](line_chart.png)
 
-### **Vytvořit stromové mapové grafy**
+### **Vytvořit hierarchické mapové grafy (Tree Map)**
 
-Stromové mapové grafy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost kategorií dat a rychle upozornit na položky, které představují velké příspěvky v rámci každé kategorie.
+Hierarchické mapové grafy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost kategorií a rychle upoutat pozornost na položky, které představují velké příspěvky v rámci každé kategorie.
 
-Tento příklad vytváří stromovou mapu se osmi listy seskupenými do čtyř stop a dvou větví. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) přiřazuje stonky na úrovni seskupování 1 a větve na úrovni 2. Hodnoty určují relativní velikosti obdélníků, zatímco štítky kategorií a překrývající se nadřazené štítky identifikují hierarchii.
+Tento příklad vytváří hierarchický mapový graf s osmi listy seskupenými do čtyř kořenů a dvou větví. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) přiřazuje kořeny na úrovni seskupení 1 a větve na úrovni 2. Hodnoty určují relativní velikosti obdélníků, zatímco štítky kategorií a překrývající se rodičovské štítky identifikují hierarchii.
 
 ```python
 import aspose.slides as slides
@@ -418,24 +426,26 @@ with slides.Presentation() as presentation:
 
 Výsledek:
 
-![Stromová mapa](treemap_chart.png)
+![Hierarchický mapový graf](treemap_chart.png)
 
 ### **Vytvořit vodopádové grafy**
 
-Vodopádový graf ukazuje, jak pozitivní a negativní změny přispívají k finální hodnotě. Například rozpis zisku může začínat tržbami, odečíst náklady a přičíst další příjmy. Sloupce změn plavou mezi předchozí a novou běžící hodnotou, zatímco součtové sloupce sahají od nuly k akumulované hodnotě.
+Vodopádový graf ukazuje, jak pozitivní a negativní změny přispívají k finální hodnotě. Například rozpis zisku může začínat tržbami, odečíst náklady a přičíst jiné příjmy. Sloupce změn „plavou“ mezi předchozí a novou kumulativní hodnotou, zatímco součtové sloupce sahají od nuly k akumulované hodnotě.
 
-| Kategorie | Hodnota sešitu | Typ sloupce |
+Následující příklad používá částky v tisících amerických dolarů:
+
+| Kategorie | Hodnota v sešitu | Typ sloupce |
 | --- | ---: | --- |
-| Tržby | 1000 | Zvýšení |
-| Náklady na prodej | -400 | Snížení |
-| Hrubý zisk | 600 | Mezitotál |
-| Provozní výdaje | -200 | Snížení |
-| Jiný příjem | 50 | Zvýšení |
+| Výnosy | 1000 | Nárůst |
+| Náklady na prodej | -400 | Pokles |
+| Hrubý zisk | 600 | Mezní součet |
+| Provozní náklady | -200 | Pokles |
+| Ostatní příjmy | 50 | Nárůst |
 | Čistý zisk | 450 | Konečný součet |
 
-Chcete-li označit bod jako mezisoučet nebo konečný součet, nastavte jeho vlastnost [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) na `True`. Zadejte skutečnou akumulovanou částku v buňce sešitu tohoto bodu: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Vlastnost označuje sloupec jako součet; nepočítá ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný znak ani neposkytujte další změnu pro bod součtu. Součtový sloupec zobrazuje akumulovanou hodnotu bez jejího opětovného přičtení k běžící hodnotě.
+Chcete-li označit bod jako mezní nebo konečný součet, nastavte jeho vlastnost [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) na `True`. Do buňky sešitu daného bodu vložte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Vlastnost označí sloupec jako součet; neprovádí výpočet ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný znak ani jinou změnu pro součtový bod. Součtový sloupec zobrazí akumulovanou hodnotu, aniž by ji znovu přičetl k běžné hodnotě.
 
-Tento kompletní C# příklad vytváří graf pomocí členu `Waterfall` typu [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), vyčistí výchozí data a vyplní vložený sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B obsahuje hodnoty. Každá buňka hodnoty je přidána pomocí [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). Indexy bodů založené na nule `2` a `5` identifikují mezisoučty a konečné součty. Aktivací [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) se zobrazí částky na sloupcích. Žádná vstupní prezentace ani sešit není vyžadována.
+Tento kompletní C# příklad vytváří graf pomocí členu `Waterfall` typu [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), vymaže výchozí data a naplní zabudovaný sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B obsahuje hodnoty. Každá buňka s hodnotou je přidána pomocí [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). Indexy bodů založené na nule `2` a `5` určují mezní a konečný součet. Povolení [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) zobrazí částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
 
 ```python
 import aspose.slides as slides
@@ -470,7 +480,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
         series.data_points.add_data_point_for_waterfall_series(value_cell)
 
-    # Třetí a šestý bod představují součty, ne další změny.
+    # Třetí a šestý bod představují součty, nikoli další změny.
     series.data_points[2].set_as_total = True
     series.data_points[5].set_as_total = True
     series.show_connector_lines = True
@@ -479,15 +489,17 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Na úrovni řady nastavte vlastnost [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) na `True`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžící hodnoty. Chcete-li tyto čáry skrýt, nahraďte přiřazení v příkladu `series.show_connector_lines = False` před uložením. Tím se změní pouze viditelnost čar, ne data ani součty.
+Nastavte na úrovni série vlastnost [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) na `True`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžné hodnoty. Chcete‑li tyto čáry skrýt, nahraďte přiřazení v příkladu výrazem `series.show_connector_lines = False` před uložením. Tím se změní pouze viditelnost čáry, nikoli data nebo součty.
 
-![Vodopádový graf zobrazující tržby, náklady, hrubý zisk 600 a čistý zisk 450, s popisky hodnot a spojnicovými čarami](waterfall_chart.png)
+Uložená prezentace zobrazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou vykresleny od nuly:
 
-### **Vytvořit burzovní grafy**
+![Vodopádový graf zobrazující výnosy, náklady, hrubý zisk 600 a čistý zisk 450, s popisky hodnot a spojujícími čarami](waterfall_chart.png)
 
-Burzovní grafy se používají k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a uzavírací ceny, pomáhají analyzovat tržní trendy a volatilitu. Poskytují klíčové poznatky o výkonnosti akcií, pomáhají investorům a analytikům činit informovaná rozhodnutí.
+### **Vytvořit akciové grafy (Stock)**
 
-Tento příklad vytváří graf open-high-low-close se čtyřmi řadami v tomto pořadí a třemi kategoriemi. Vlastnost [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) zapíná up/down pruhy a [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) řídí vysoké-nízké čáry, které ukazují cenové rozpětí, zatímco jednotlivé řady čar a menší vodorovné mřížky jsou skryté.
+Akciové grafy slouží k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a uzavírací ceny, což pomáhá analyzovat tržní trendy a volatilitu. Poskytují klíčové informace o výkonu akcií a pomáhají investorům i analytikům činit informovaná rozhodnutí.
+
+Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi sériemi v uvedeném pořadí a třemi kategoriemi. Vlastnost [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) povoluje svislé pruhy nahoru/dolů a [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) řídí čáry high‑low, které ukazují cenové rozpětí, zatímco jednotlivé čáry sérií a drobné vodorovné mřížky jsou skryté.
 
 ```python
 import aspose.slides as slides
@@ -559,13 +571,15 @@ with slides.Presentation() as presentation:
     presentation.save("Stock-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Burzovní graf](stock_chart.png)
+Výsledek:
+
+![Akciový graf](stock_chart.png)
 
 ### **Vytvořit krabicové a vousové grafy**
 
-Krabicové a vousové grafy se používají k zobrazení rozdělení dat shrnutím klíčových statistických měr, jako je medián, kvartily a případné odlehlé hodnoty. Jsou zvláště užitečné při exploratorní analýze dat a statistických studiích pro rychlé pochopení variability dat a identifikaci anomálií.
+Krabicové a vousové grafy slouží k zobrazení rozdělení dat shrnutím klíčových statistických měřítek, jako jsou medián, kvartily a potenciální odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze dat a statistických studiích pro rychlé pochopení variability dat a identifikaci anomálií.
 
-Tento příklad vytváří krabicový a vousový graf ze šesti hodnot. Vlastnost [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) vybírá exkluzivní výpočet kvartilů. Příklad také zapíná čáry průměru, značky průměru, vnitřní body a body odlehlých hodnot.
+Tento příklad vytváří krabicový a vousový graf ze šesti hodnot. Vlastnost [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) vybírá exkluzivní výpočet kvartilů. Příklad také povoluje čáry průměru, značky průměru, vnitřní body a odlehlé body.
 
 ```python
 import aspose.slides as slides
@@ -619,11 +633,11 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhisker.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Vytvořit trychové grafy**
+### **Vytvořit trychliofilní grafy (Funnel)**
 
-Trychové grafy se používají k vizualizaci procesů, které zahrnují sekvenční kroky, kde objem dat klesá při postupu z jednoho kroku na další. Jsou zvláště užitečné pro analýzu konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních nebo marketingových procesů.
+Trychliofilní grafy slouží k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupem od jednoho kroku k dalšímu. Jsou zvláště užitečné pro analýzu konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních nebo marketingových procesů.
 
-Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k přidání trychového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami v rozmezí od 50 do 500, poté uloží aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k přidání trychliofilního grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami v rozmezí 50‑500, poté uloží aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
 
 ```python
 import aspose.slides as slides
@@ -671,13 +685,15 @@ with slides.Presentation("test.pptx") as presentation:
     presentation.save("Funnel.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Trychový graf](funnel_chart.png)
+Výsledek:
 
-### **Vytvořit sluneční paprsek grafy**
+![Trychliofilní graf](funnel_chart.png)
 
-Sluneční paprsek grafy se používají k vizualizaci hierarchických dat, zobrazující úrovně jako soustředné kruhy. Pomáhají ilustrovat vztahy část-celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
+### **Vytvořit slunečnicové grafy (Sunburst)**
 
-Tento příklad vytváří sluneční paprsek graf se osmi listy seskupenými do čtyř stop a dvou větví. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) přiřazuje stonky na úrovni seskupování 1 a větve na úrovni 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
+Slunečnicové grafy slouží k vizualizaci hierarchických dat, přičemž úrovně jsou zobrazeny jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro představování vnořených kategorií a podkategorií v přehledném a kompaktním formátu.
+
+Tento příklad vytváří slunečnicový graf s osmi listy seskupenými do čtyř kořenů a dvou větví. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) přiřazuje kořeny na úrovni seskupení 1 a větve na úrovni 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
 
 ```python
 import aspose.slides as slides
@@ -748,17 +764,19 @@ with slides.Presentation() as presentation:
     presentation.save("Sunburst.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Sluneční paprsek graf](sunburst_chart.png)
+Výsledek:
 
-### **Vytvořit histogramové grafy**
+![Slunečnicový graf](sunburst_chart.png)
 
-Histogramové grafy ukazují, jak jsou číselné hodnoty rozděleny do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek používejte stejnou šířku binu a prahové hodnoty, aby intervaly zůstaly konzistentní a usnadnily porovnání rozdělení.
+### **Vytvořit histogramy**
 
-Nastavte horizontální osu [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) na režim z [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) platí pouze pro `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) platí pouze pro `BY_NUMBER_OF_BINS`. Použijte `AUTOMATIC` pro automatický výběr binů.
+Histogramy ukazují, jak jsou číselné hodnoty rozděleny do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek použijte stejnou šířku binu a prahy, aby byly intervaly konzistentní a usnadnily srovnání rozdělení.
+
+Nastavte horizontální osu [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) na režim z [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) se použije jen pro `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) se použije jen pro `BY_NUMBER_OF_BINS`. Použijte `AUTOMATIC`, aby si graf sám vybral biny.
 
 #### **Použít pevnou šířku binu**
 
-Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy do 10 minut a nad 40 minut. Bin s podprůměrem aktivujte pomocí [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) a bin s přetečením pomocí [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). Při zadání explicitních prahů [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) a [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) nastavte [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) a [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) na `False`.
+Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 min a > 40 min. Aktivujte tyto biny pomocí [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) a [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). Při zadání explicitních prahů [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) a [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) nastavte [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) a [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) na `False`.
 
 ```python
 import aspose.slides as slides
@@ -797,13 +815,13 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Prezentace zobrazovaná v PowerPointu ukazuje počty v jednotlivých binách **3, 4, 4, 4 a 2**. Bin podprůběhu zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Bin přetečení zahrnuje pouze `41, 50`, takže jeho práh je exkluzivní; oba hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich spodní hranice a menší nebo rovné jejich horní hranici.
+Prezentace v PowerPointu zobrazuje počty v bitech **3, 4, 4, 4 a 2**. Bin podlimit zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Bin přelimit zahrnuje jen `41, 50`, takže jeho práh je exkluzivní; oba hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich spodní hranice a menší nebo rovné jejich horní hranici.
 
-![Histogram s 10‑minutovými biny a explicitními prahy podprůběhu a přetečení](histogram_bin_width.png)
+![Histogram s 10‑minutovými biny a explicitními prahy pod‑ a přelimitu](histogram_bin_width.png)
 
 #### **Zadat počet binů**
 
-Pro pevnou úroveň detailu místo pevných intervalů požadujte pět binů pro stejná data. Tento příklad ponechává bin podprůběhu a přetečení zakázané. Graf určuje šířku z datového rozsahu, takže hranice se mohou mezi zprávami měnit.
+Pro pevnou úroveň detailu místo pevných intervalů požádejte o pět binů pro stejná data. Tento příklad má biny pod‑ a přelimit vypnuté. Graf určuje šířku z datového rozsahu, takže hranice se mohou mezi zprávami měnit.
 
 ```python
 import aspose.slides as slides
@@ -836,15 +854,15 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pět binů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou stejné, ale hranice se liší.
+Pět binů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou identické, ale hranice se liší.
 
 ![Histogram s pěti biny vypočtenými ze stejných dat](histogram_bin_count.png)
 
 ### **Vytvořit radarové grafy**
 
-Radarové grafy se používají k zobrazení vícerozměrných dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných najednou. Jsou zvláště užitečné pro identifikaci vzorců, silných a slabých stránek napříč více metrikami výkonnosti nebo atributy.
+Radarové grafy slouží k zobrazení multivariátních dat ve dvourozměrném formátu, což usnadňuje porovnání několika proměnných najednou. Jsou zvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč více výkonnostními metrikami nebo atributy.
 
-Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k vytvoření radarového grafu s výchozími řadami a kategoriemi a poté uloží prezentaci jako PPTX.
+Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k vytvoření radarového grafu se standardními sériemi a kategoriemi a poté uloží prezentaci jako PPTX.
 
 ```python
 import aspose.slides as slides
@@ -858,13 +876,15 @@ with slides.Presentation() as presentation:
     presentation.save("Radar-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Výsledek:
+
 ![Radarový graf](radar_chart.png)
 
-### **Vytvořit vícekategoriové grafy**
+### **Vytvořit vícekategoriální grafy**
 
-Vícekategoriové grafy se používají k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což umožňuje porovnávat hodnoty napříč více dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, vícevrstvých datových sadách.
+Vícekategoriální grafy slouží k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což umožňuje porovnávat hodnoty napříč několika dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, víceúrovňových datových sadách.
 
-Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech párech. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) přiřazuje každému páru sdílený štítek na úrovni seskupování 1, čímž vytváří osu kategorií s jednotlivými i skupinovými štítky.
+Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech dvojicích. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) přiřadí každé dvojici sdílený štítek na úrovni seskupení 1, což vytvoří osu kategorií s individuálními i skupinovými štítky.
 
 ```python
 import aspose.slides as slides
@@ -930,11 +950,13 @@ with slides.Presentation() as presentation:
     presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Vícekategoriový graf](multi_category_chart.png)
+Výsledek:
+
+![Vícekategoriální graf](multi_category_chart.png)
 
 ### **Vytvořit mapové grafy**
 
-Mapové grafy se používají k vizualizaci geografických dat mapováním informací na konkrétní místa, jako jsou země, státy nebo města. Jsou zvláště užitečné pro analýzu regionálních trendů, demografických dat a prostorových rozdělení jasným, vizuálně atraktivním způsobem.
+Mapové grafy slouží k vizualizaci geografických dat mapováním informací na konkrétní místa, jako jsou země, státy nebo města. Jsou zvláště užitečné pro analýzu regionálních trendů, demografických údajů a prostorových rozdělení v jasném, vizuálně atraktivním formátu.
 
 Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k vytvoření mapového grafu s výchozími geografickými daty a uloží jej pro zobrazení v PowerPointu.
 
@@ -950,19 +972,23 @@ with slides.Presentation() as presentation:
     presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Výsledek:
+
 ![Mapový graf](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Obrázek výše zobrazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale sám mapové grafy nevykresluje: když je snímek, který ho obsahuje, vykreslen do obrázku nebo převeden do PDF či SVG, oblast grafu je prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
+
+Obrázek výše ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale samotný mapový graf nevykresluje: když je snímek obsahující mapu renderován jako obrázek nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
+
 {{% /alert %}}
 
 ### **Vytvořit kombinované grafy**
 
-Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jedné grafice. Tento graf vám umožní zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma nebo více datovými sadami, což vám pomáhá identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožňuje zvýraznit, porovnat nebo zkoumat rozdíly mezi dvěma nebo více datasety, což vám pomůže identifikovat vztahy mezi nimi.
 
 ![Kombinovaný graf](combination_chart.png)
 
-Tento příklad kombinuje dvě seskupené sloupcové řady s čárovou řadou napříč čtyřmi kategoriemi. Sloupce používají primární svislou osu, zatímco [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) umisťuje čáru na sekundární svislou osu vpravo. Pomocné funkce konfiguruje název, legendu, popisky os a mřížky.
+Tento příklad kombinuje dvě seskupené sloupcové série s čárovou sérií napříč čtyřmi kategoriemi. Sloupce používají primární svislou osu, zatímco [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) umístí čáru na sekundární svislou osu vpravo. Pomocné funkce nastaví název, legendu, popisky os a mřížku.
 
 ```python
 import aspose.pydrawing as draw
@@ -1110,9 +1136,9 @@ create_combo_chart()
 
 ## **Aktualizovat grafy**
 
-Aspose.Slides for Python via .NET umožňuje aktualizovat grafy v PowerPointu úpravou dat grafu, formátování a stylování. Tato funkčnost zjednodušuje proces udržování prezentací aktuálních s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí aktuální data a vizuální standardy.
+Aspose.Slides for Python via .NET vám umožňuje aktualizovat PowerPoint grafy úpravou dat grafu, formátování a stylování. Tato funkčnost zjednodušuje proces udržování prezentací aktuálních s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí současná data a vizuální standardy.
 
-Tento příklad aktualizuje graf pojmenovaný "My chart" na prvním snímku existující prezentace. Vyžaduje dvě sloupcové řady se třemi datovými body každá, s popisky kategorií ve sloupci A a názvy řad v první řádce prvního listu. Příklad používá [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) k změně buněk sešitu, aktualizuje hodnoty řad, přidá třetí řadu a změní typ grafu na seskupené válcové pomocí [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
+Tento příklad aktualizuje graf s názvem „My chart“ na prvním snímku existující prezentace. Vyžaduje dvě sériové sloupce se třemi datovými body v každé, přičemž štítky kategorií jsou ve sloupci A a názvy sérií v prvním řádku prvního listu. Příklad používá [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) ke změně buněk sešitu, aktualizuje hodnoty sérií, přidá třetí sérii a změní graf na seskupené válce pomocí [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
 
 ```python
 import aspose.slides as slides
@@ -1164,11 +1190,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **Nastavit datový rozsah pro graf**
 
-Chcete-li prozkoumat rozsah již použitého existujícím grafem, podívejte se na [Načíst datový rozsah grafu](/slides/cs/python-net/chart-workbook/#retrieve-a-charts-data-range).
+Chcete‑li prozkoumat rozsah již použitý existujícím grafem, podívejte se na [Retrieve a Chart's Data Range](/slides/cs/python-net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Python via .NET poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu do grafu, což vám umožní kontrolovat, které buňky přispívají k řadám a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami dat v listu, což zajišťuje, že vaše PowerPoint prezentace odrážejí aktuální a přesné informace.
+Aspose.Slides for Python via .NET poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj dat pro váš graf. To znamená, že můžete přímo mapovat část listu na graf, což vám umožní řídit, které buňky přispívají ke sériím a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami v datech listu, čímž zajistíte, že vaše PowerPoint prezentace odrážejí aktuální a přesné informace.
 
-Tento příklad používá [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) k nastavení datového zdroje grafu pojmenovaného "My chart" na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a naplněný rozsah s názvem řady v první řádce, popisky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
+Tento příklad používá [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) k nastavení datového zdroje grafu s názvem „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí tento list obsahovat a musí mít vyplněný rozsah s názvem série v prvním řádku, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
 
 ```python
 import aspose.slides as slides
@@ -1189,9 +1215,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **Použít výchozí značky v grafech**
 
-Když používáte výchozí značky v grafech, každá řada grafu automaticky získá jiný výchozí symbol značky.
+Když použijete výchozí značky v grafech, každá série grafu automaticky získá odlišný výchozí symbol značky.
 
-Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k vytvoření grafu se dvěma čárovými řadami a legendou. Nastavení [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) uchovává automaticky přiřazené symboly značek. První řada zahrnuje zápornou hodnotu a chybějící hodnotu, reprezentovanou `None`, zatímco druhá má hodnotu pro každou kategorii.
+Tento příklad používá [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) k vytvoření grafu se dvěma čárovými sériemi a legendou. Nastavení [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) si ponechává automaticky přiřazené symboly značek. První série obsahuje zápornou hodnotu a chybějící hodnotu reprezentovanou `None`, zatímco druhá má hodnotu pro každou kategorii.
 
 ```python
 import aspose.slides as slides
@@ -1250,18 +1276,18 @@ with slides.Presentation() as presentation:
 
 ## **Často kladené otázky**
 
-**Jaké typy grafů jsou podporovány v Aspose.Slides for Python via .NET?**
+**Jaké typy grafů jsou podporovány Aspose.Slides for Python via .NET?**
 
-Aspose.Slides for Python via .NET podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, plošných, rozptylových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro potřeby vizualizace vašich dat.
+Aspose.Slides for Python via .NET podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, oblastních, bodových, histogramů, radarových a mnoha dalších. Tato flexibilita vám umožňuje vybrat nejvhodnější typ grafu pro vaše vizualizační potřeby.
 
 **Jak přidám nový graf na snímek?**
 
-Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), získáte požadovaný snímek pomocí jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž určíte typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Chcete‑li přidat graf, nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), získáte požadovaný snímek pomocí jeho indexu a pak zavoláte metodu pro přidání grafu, přičemž specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
-**Jak mohu aktualizovat data zobrazovaná v grafu?**
+**Jak mohu aktualizovat data zobrazená v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), vymazáním výchozích řad a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat přístupem k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), vymazáním výchozích sérií a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides for Python via .NET poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky, aby vzhled grafu odpovídal vašim konkrétním požadavkům na design.
+Ano, Aspose.Slides for Python via .NET poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky, abyste graf upravili podle svých konkrétních požadavků na design.

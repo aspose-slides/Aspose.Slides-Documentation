@@ -1,26 +1,26 @@
 ---
-title: Hantera diagramdataetiketter i presentationer med Python
-linktitle: Dataetikett
+title: Hantera diagrammets datalabeler i presentationer med Python
+linktitle: Datalabel
 type: docs
 url: /sv/python-net/chart-data-label/
 keywords:
 - diagram
-- dataetikett
+- datalabel
 - dataprecision
 - procent
 - etikettavstånd
-- etikettposition
+- etikettplacering
 - PowerPoint
 - presentation
 - Python
 - Aspose.Slides
-description: "Lär dig att lägga till och formatera diagramdataetiketter i PowerPoint-presentationer med Aspose.Slides för Python via .NET för mer engagerande bilder."
+description: "Lär dig att lägga till och formatera diagrammets datalabeler i PowerPoint-presentationer med Aspose.Slides för Python via .NET för mer engagerande bildspel."
 ---
 ## **Introduktion**
 
-Dataetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsare att identifiera värden och förstå diagrammet. Denna artikel förklarar hur man formaterar värden, visar procentsatser, läser etiketttext, styr etiketter utanför axelns maximum, justerar avståndet mellan kategori-axelns etiketter och placerar cirkeldiagrametiketter.
+Dataetiketter visar information om diagramserier och enskilda datapunkter, vilket hjälper läsare att identifiera värden och förstå diagrammet. Denna artikel förklarar hur man formaterar värden, visar procent, läser etiketttext, styr etiketter utanför axelns maximum, justerar avståndet mellan kategoriaxelns etiketter och placerar cirkeldiagrametiketter.
 
-## **Ställ in dataprecision i diagrammets dataetiketter**
+## **Ange dataprecision i diagrammets datalabeler**
 
 Använd [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
 
@@ -41,9 +41,9 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Visa procentsats som etiketter**
+## **Visa procent som etiketter**
 
-För ett staplat stapeldiagram beräknas varje värde som en procentsats av sin kategoris totala summa och texten tilldelas [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Detta exempel använder diagrammets standarddata och visar procentsatser med två decimaler i en 8‑punkts teckensnitt. Kategorier med en total på noll hoppas över för att undvika division med noll. Beräkna om den anpassade etiketttexten om diagramdata ändras.
+För ett staplat stapeldiagram beräknas varje värde som en procent av dess kategori‑total och tilldelas texten till [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Detta exempel använder standarddiagramdata och visar procent med två decimaler i ett teckensnitt på 8 punkter. Kategorier med totalen noll hoppas över för att undvika division med noll. Beräkna om den anpassade etiketttexten om diagramdata ändras.
 
 ```python
 import aspose.slides as slides
@@ -90,11 +90,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ställ in procenttecken med diagrammets dataetiketter**
+## **Ställ in procenttecken med diagrammets datalabeler**
 
-När värden lagras som bråktal, använd [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) för att visa procent. Sätt [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) till `False` för att tillämpa etikettformatet oberoende av källcellerna.
+När värden lagras som bråk, använd [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) för att visa procent. Sätt [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) till `False` för att tillämpa etikettformatet oberoende av källcellerna.
 
-Det här exemplet skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje par av värden summeras till 1. Etikettformatet `0.0%` visar 0.30 som 30,0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit etiketttext i 10 punkter.
+Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje värdepar summerar till 1. Etikettformatet `0.0%` visar 0,30 som 30,0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit etiketttext på 10 punkter.
 
 ```python
 import aspose.slides as slides
@@ -143,9 +143,9 @@ with slides.Presentation() as presentation:
     presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Läs den faktiska texten för dataetiketter**
+## **Läs den faktiska texten för datalabeler**
 
-Använd [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) för att hämta den text som produceras av en dataetiketts inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som en procentsats, och en annan använder anpassad text från [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Använd [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) för att hämta den text som produceras av en datalabels inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard‑[data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) varje kategorinamn, serienamn och värde. En punkt formaterar sitt värde som procent, och en annan använder anpassad text från [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -196,15 +196,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-Numret som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75 %` tillsammans med kategori- och serienamnen. Anpassad text ersätter den genererade etiketttexten. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) returnerar den resulterande etikettssträngen i båda fallen. Kontrollera [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separat, som visas ovan, när du bara vill extrahera synliga etiketter.
+Det tal som lagras i en datapunkt är fortfarande `0.75`, även när dess etikett visar `75 %` tillsammans med kategori‑ och serienamnen. Anpassad text ersätter den genererade etiketttexten. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) returnerar den resulterande etikettsträngen i båda fallen. Kontrollera [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separat, som visat ovan, när du bara vill extrahera synliga etiketter.
 
-## **Styr dataetiketter bortom axelns maximum**
+## **Styr datalabeler utanför axelns maximum**
 
-När du begränsar ett axelintervall manuellt kan vissa datapunkter överstiga dess maximum. Använd [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) för att styra om deras dataetiketter visas. Denna inställning ändrar etikettens synlighet; den ändrar inte axelintervallet eller de underliggande datavärdena.
+När du manuellt begränsar ett axelintervall kan vissa datapunkter överskrida dess maximum. Använd [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) för att bestämma om deras datalabeler ska visas. Denna inställning påverkar etikettens synlighet; den ändrar inte axelintervallet eller de underliggande datavärdena.
 
-Exemplet nedan skapar ett 2D grupperat stapeldiagram med värdena 60 och 120. Det sätter [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) till `False` och [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) till 100 på den vertikala axeln. Den första bilden tillåter etiketter bortom maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
+Exemplet nedan skapar ett 2D‑klustrat stapeldiagram med värdena 60 och 120. Det sätter [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) till `False` och [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) till 100 på den vertikala axeln. Den första bilden tillåter etiketter utanför maximum; en kopia av den bilden inaktiverar dem. Båda bilderna sparas i `DataLabelsOverMaximum.pptx`.
 
-Aktivera värdeetiketter med [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Diagramnivåinställningen aktiverar inte värdevisning i sig eller överskrider en individuell etikett som har inaktiverad värdevisning. Detta exempel aktiverar värden för hela serien och använder [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) för att placera etiketter vid den yttre änden av varje stapel.
+Aktivera värdeetiketter med [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Diagramnivåinställningen aktiverar inte värdevisning i sig och åsidosätter inte en enskild etiketts inaktiverade värdevisning. Detta exempel aktiverar värden för hela serien och använder [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) för att placera etiketter vid varje kolumns yttre ände.
 
 ```python
 import aspose.slides as slides
@@ -250,19 +250,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Följande bilder visar de sparade bilderna renderade av Microsoft PowerPoint. Med `True` är etiketten **120** synlig vid den övre gränsen; med `False` är den dold. Etiketten **60** förblir synlig, axelmaximum förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
+Följande bilder visar de sparade bilderna som renderats av Microsoft PowerPoint. Med `True` är etiketten **120** synlig vid den övre gränsen; med `False` är den dold. Etiketten **60** förblir synlig, axelmaximum förblir **100**, och den andra datapunkten förblir **120** i båda fallen.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint‑diagram som visar värdeetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-true.png) | ![PowerPoint‑diagram som döljer värdeetiketten 120 med ett axelmaximum på 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Diagramtyp" %}}
-Det här exemplet använder ett 2D stapeldiagram med en värdeaxel. Diagram utan en värdeaxel, såsom paj- och munkdiagram, har inget axelmaximum att begränsa på detta sätt.
+Detta exempel använder ett 2D‑stapeldiagram med en värdeaxel. Diagram utan värdeaxel, såsom paj‑ och donutdiagram, har inget axelmaximum att begränsa på detta sätt.
 {{% /alert %}}
 
-## **Ställ in etikettavstånd från en axel**
+## **Ställ in etiketavstånd från en axel**
 
-Använd [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) för att kontrollera avståndet mellan kategori-axelns etiketter och axeln. Värdet är en procentsats av den maximala teckenstorleken för axelns etiketter. Detta exempel skapar ett grupperat stapeldiagram och sätter den horisontella axelns etikettavstånd till 500. Denna inställning påverkar kategori‑axelns etiketter snarare än etiketter som är fästa vid enskilda datapunkter.
+Använd [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) för att styra avståndet mellan kategoriaxelns etiketter och axeln. Värdet är en procentsats av den största teckenstorleken för axelns etiketter. Detta exempel skapar ett klustrat stapeldiagram och sätter den horisontella axelns etikett‑offset till 500. Inställningen påverkar kategoriaxelns etiketter snarare än etiketter kopplade till enskilda datapunkter.
 
 ```python
 import aspose.slides as slides
@@ -279,9 +279,9 @@ with slides.Presentation() as presentation:
 
 ## **Justera etikettplacering**
 
-I ett pajdiagram justeras positionerna för dataetiketter för att förbättra avståndet och skapa utrymme för ledarlinjer.
+På ett pajdiagram justeras datalabelernas placering för att förbättra avståndet och ge plats för ledlinjer.
 
-Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför segmentet och justerar dess [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/)‑ och [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/)‑offsets. Dessa offset är relativa till diagrammets bredd respektive höjd.
+Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför segmentet och justerar dess [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/)‑ och [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/)‑offsetar. Dessa offsetar är relativa till diagrammets bredd respektive höjd.
 
 ```python
 import aspose.slides as slides
@@ -302,13 +302,62 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Pajdiagram med justerad dataetikettposition](pie-chart-adjusted-label.png)
+![Pajdiagram med justerad datalabelposition](pie-chart-adjusted-label.png)
 
-## **Lägg till flera rader med dataetiketter ovanför ett stapeldiagram**
+## **Formatera ledlinjer**
 
-Detta exempel skapar ett stapeldiagram med två rader dataetiketter ovanför plotområdet. Serie A visar de synliga staplarna, medan Serie B och Serie C tillhandahåller de extra etiketterna. Deras staplar döljs genom att ta bort fyllning och kontur. Egenskapen [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) justerar alla tre serier med samma kategoricentrum.
+När pajdiagrametiketter sitter utanför sina segment hjälper ledlinjer läsaren att matcha varje värde med rätt segment. En kontrasterande färg och en något tjockare linje kan göra dessa kopplingar lättare att följa, medan transparens och streckad stil håller linjerna visuellt diskreta.
 
-Inställningarna för [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) reserverar utrymme för etikettraderna. Efter att [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) beräknat standardpositionerna bevarar [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) och [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) horisontell justering och tillämpar vertikala offset för att placera etiketterna i två rader. siffrorna förblir dataetiketter kopplade till serievärdena; endast radrubrikerna är separata textformer.
+Använd [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) för att formatera ledlinjer på seriens datalabel‑samlingsnivå. Inställningarna i `series.labels.leader_lines_format.line` gäller för samlingen snarare än för en enskild etikett.
+
+Detta exempel skapar ett pajdiagram med standarddata, visar värden utanför segmenten och aktiverar [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Det flyttar två etiketter längre bort från sina segment med hjälp av [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/)‑ och [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/)‑offsetar, uttryckt som bråkdelar av diagrammets bredd och höjd. Ingen inmatningspresentation krävs.
+
+Linjen's [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) ställer in en solid blå färg med ett alfavärde på 191 av 255, vilket ger cirka 25 % transparens. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) sätter tjockleken till 2 punkter, och [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) gör linjen streckad.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 80, 50, 560, 400)
+    chart.has_legend = False
+
+    series = chart.chart_data.series[0]
+
+    label_format = series.labels.default_data_label_format
+    label_format.show_value = True
+    label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
+    label_format.show_leader_lines = True
+
+    # Flytta två etiketter längre bort från deras segment.
+    series.labels[0].x = 0.10
+    series.labels[0].y = -0.05
+    series.labels[1].x = -0.10
+    series.labels[1].y = 0.05
+
+    line = series.labels.leader_lines_format.line
+    line.fill_format.fill_type = slides.FillType.SOLID
+    line.fill_format.solid_fill_color.color = drawing.Color.from_argb(191, 30, 90, 160)
+    line.width = 2
+    line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Att aktivera ledlinjer garanterar inte att en linje visas för varje etikett. Synligheten beror på etikettens placering och diagrammets layoutbeteende. I detta exempel har de två förskjutna etiketterna synliga ledlinjer; etiketterna som förblir nära sina segment behöver dem inte.
+
+Följande bild visar den sparade `FormattedLeaderLines.pptx` som renderats med Aspose.Slides:
+
+![Pajdiagram med blå, semitransparenta streckade ledlinjer som kopplar två externa etiketter till deras segment](formatted-leader-lines.png)
+
+## **Lägg till flera rader med datalabeler ovanför ett stapeldiagram**
+
+Detta exempel skapar ett stapeldiagram med två rader av datalabeler ovanför plot‑ytan. Serie A visar de synliga staplarna, medan Serie B och Serie C tillhandahåller de extra etiketterna. Deras staplar döljs genom att ta bort fyllning och kontur. Egenskapen [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) justerar alla tre serier så att de har samma kategori­centrum.
+
+[plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/)-inställningarna reserverar utrymme för etikettraderna. Efter att [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) beräknat standardpositionerna bevarar [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/)‑ och [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/)‑offsetarna horisontell justering och applicerar vertikala offsetar för att arrangera etiketterna i två rader. Siffrorna förblir datalabeler länkade till serievärdena; endast radrubrikerna är separata textformer.
 
 ```python
 import aspose.slides as slides
@@ -350,7 +399,7 @@ with slides.Presentation() as presentation:
             series.data_points.add_data_point_for_bar_series(value_cell)
 
         if series_index > 0:
-            # Dölj kolumnerna för B och C, men behåll deras dataetiketter.
+            # Dölj kolumnerna för B och C, men behåll deras datalabeler.
             series.format.fill.fill_type = slides.FillType.NO_FILL
             series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
             label_format = series.labels.default_data_label_format
@@ -361,14 +410,14 @@ with slides.Presentation() as presentation:
             label_fill.solid_fill_color.color = drawing.Color.black
             label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
 
-    # Justera alla tre serier så att de har samma kategori­centrum.
+    # Rikta in alla tre serierna på samma kategori­center.
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
     # Använd färre rutnätlinjer för detta kompakta exempel.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # Reservera utrymme ovanför diagrammet för två rader med dataetiketter.
+    # Reservera utrymme ovanför diagramområdet för två rader med datalabeler.
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -383,7 +432,7 @@ with slides.Presentation() as presentation:
         for category_index in range(len(categories)):
             data_label = series.data_points[category_index].label
             # Behåll standard horisontell position. Y är en offset från
-            # standardetikettens position, uttryckt som en bråkdel av diagramhöjden.
+            # standardetikettpositionen, uttryckt som en andel av diagramhöjden.
             data_label.x = 0
             data_label.y = row_top - data_label.actual_y / chart.height
 
@@ -402,18 +451,18 @@ with slides.Presentation() as presentation:
     presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Stapeldiagram med två rader dataetiketter ovanför plotområdet](multiple-rows-of-labels.png)
+![Stapeldiagram med två rader av datalabeler ovanför plot‑ytan](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Hur kan jag förhindra att dataetiketter överlappar i täta diagram?**
+**Hur kan jag förhindra att datalabeler överlappar i täta diagram?**
 
-Kombinera automatisk placering av etiketter, ledarlinjer och minskad teckenstorlek; vid behov dölja vissa fält (t.ex. kategorin) eller visa etiketter endast för extrema värden eller nyckelpunkter.
+Kombinera automatisk etikettplacering, ledlinjer och minskad teckenstorlek; vid behov dölja vissa fält (t.ex. kategori) eller visa etiketter endast för extrema värden eller nyckelpunkter.
 
-**Hur kan jag inaktivera etiketter endast för noll-, negativa eller tomma värden?**
+**Hur kan jag inaktivera etiketter bara för noll, negativa eller tomma värden?**
 
-Filtrera datapunkter innan etiketter aktiveras och stäng av visning för värden som är 0, negativa eller saknade enligt en definierad regel.
+Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden som är 0, negativa eller saknade enligt en definierad regel.
 
-**Hur kan jag säkerställa en konsekvent etikettstil vid export till PDF/bilder?**
+**Hur säkerställer jag en enhetlig etikettstil vid export till PDF/bilder?**
 
-Ange explicit typsnittsfamilj och storlek och verifiera att typsnittet är tillgängligt i renderingsmiljön för att undvika fallback.
+Ange explicit teckensnittsfamilj och storlek samt verifiera att teckensnittet är tillgängligt i renderingsmiljön för att undvika reservteckensnitt.

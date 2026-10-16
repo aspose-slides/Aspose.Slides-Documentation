@@ -1,5 +1,5 @@
 ---
-title: Vytvořit nebo aktualizovat grafy v prezentaci PowerPoint v Pythonu
+title: Vytvořit nebo aktualizovat grafy v PowerPoint prezentaci v Pythonu
 linktitle: Vytvořit nebo aktualizovat grafy
 type: docs
 weight: 10
@@ -13,24 +13,24 @@ keywords:
 - rozptýlený graf
 - koláčový graf
 - čárový graf
-- stromová mapa graf
+- graf stromové mapy
 - akciový graf
-- krabicový a vousový graf
-- trychtýřový graf
-- paprskový graf
+- krabicový a fňukový graf
+- trychovitý graf
+- sluneční graf
 - histogram
 - radarový graf
-- vícekategoriální graf
+- vícekategoriový graf
 - PowerPoint
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Vytvořte a přizpůsobte grafy v prezentacích PowerPoint pomocí Aspose.Slides pro Python prostřednictvím Javy. Přidávejte, formátujte a upravujte grafy s praktickými příklady kódu v Pythonu."
+description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro Python prostřednictvím Javy. Přidávejte, formátujte a upravujte grafy s praktickými příklady kódu v Pythonu."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides pro Python prostřednictvím Javy. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a aplikovat různá formátovací nastavení, aby odpovídala vašim konkrétním požadavkům na design. V průběhu článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu po konfiguraci sérií, os a legend. Dodržením tohoto průvodce získáte solidní pochopení, jak integrovat dynamické generování grafů do vašich aplikací v Pythonu, zjednodušující proces tvorby prezentací založených na datech.
+Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides pro Python prostřednictvím Javy. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování, aby odpovídaly vašim konkrétním návrhovým požadavkům. V celém článku podrobné příklady kódu ilustrují každý krok, od inicializace prezentace a objektu grafu po konfiguraci sérií, os a legend. Dodržováním tohoto průvodce získáte pevné pochopení, jak integrovat dynamické generování grafů do svých Python aplikací a zjednodušit proces vytváření datově řízených prezentací.
 
 ## **Vytvoření grafu**
 
@@ -38,21 +38,23 @@ Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemus
 
 **Proč vytvářet grafy?**
 
-* agregovat, zhušťovat nebo shrnovat velké množství dat na jediném snímku v prezentaci;
+Pomocí grafů můžete:
+
+* agregovat, zhušťovat nebo shrnovat velké objemy dat na jediném snímku prezentace;
 * odhalovat vzory a trendy v datech;
-* odhadnout směr a dynamiku dat v čase nebo s ohledem na konkrétní jednotku měření;
-* identifikovat odlehlé hodnoty, aberace, odchylky, chyby a nesmyslná data;
+* odhadovat směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření;
+* identifikovat odlehlé hodnoty, anomálie, odchylky, chyby a nesmyslná data;
 * komunikovat nebo prezentovat složitá data.
 
-V PowerPointu můžete vytvářet grafy pomocí funkce *Insert*, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech grafů), tak vlastní grafy.
+V PowerPointu můžete grafy vytvářet pomocí funkce *Insert*, která poskytuje šablony pro navrhování mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech), tak vlastní grafy.
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Poznámka" %}}
 Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) v balíčku [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
 {{% /alert %}}
 
 ### **Vytvoření seskupených sloupcových grafů**
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k vytvoření seskupeného sloupcového grafu, který porovnává dvě řady napříč třemi kategoriemi. Řady používají červené a zelené výplně a jednotlivé popisky zobrazují názvy kategorií, názvy řad a hodnoty. Index listu 0 odkazuje na první list v vložené sešitu grafu.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k vytvoření seskupeného sloupcového grafu, který porovnává dvě série napříč třemi kategoriemi. Série používají červené a zelené výplně a jednotlivé popisky ukazují názvy kategorií, názvy sérií a hodnoty. Index listu 0 odkazuje na první list vložené sešitu grafu.
 
 ```python
 import jpype
@@ -137,20 +139,20 @@ finally:
 
 Výsledek:
 
-![Seskupený sloupcový graf](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **Vytvoření rozptylových grafů**
 
-Rozptylové grafy (také známé jako rozptylové diagramy nebo x‑y grafy) se často používají k ověření vzorů nebo k demonstraci korelací mezi dvěma proměnnými.
+Rozptylové grafy (známé také jako scatter plot nebo x‑y grafy) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými.
 
 Použijte rozptylový graf, když:
 
-* Máte spárovaná numerická data.
-* Máte dvě proměnné, které spolu dobře ladí.
-* Chcete zjistit, zda jsou dvě proměnné navzájem související.
-* Máte nezávislou proměnnou, která má více hodnot pro závislou proměnnou.
+* máte spárovaná číselná data;
+* máte dvě proměnné, které dobře spolu souvisí;
+* chcete zjistit, zda jsou dvě proměnné související;
+* máte nezávislou proměnnou, která má pro závislou proměnnou více hodnot.
 
-Tento příklad vykresluje dvě sady hodnot x‑y. První řada používá přímé čáry s hvězdicovými značkami, zatímco druhá používá hladké čáry s kruhovými značkami; obě používají velikost značky 10, nastavenou pomocí [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). Metoda [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) řídí tvar značky.
+Tento příklad vykresluje dva soubory hodnot x‑y. První série používá přímé čáry s hvězdicovými značkami, zatímco druhá používá hladké čáry s kruhovými značkami; obě používají velikost značky 10, nastavenou pomocí [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). Metoda [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) určuje tvar značky.
 
 ```python
 import jpype
@@ -220,13 +222,13 @@ finally:
 
 Výsledek:
 
-![Rozptylový graf](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Vytvoření koláčových grafů**
 
-Koláčové grafy jsou nejlépe použitelné k zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit místo toho sloupcový graf.
+Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategorické štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, může být vhodnější použít sloupcový graf.
 
-Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o řadě. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) nastavuje první výsek tak, aby začínal při 180 stupních.
+Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o sérii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) nastavuje první výsek tak, aby začínal při 180 stupních.
 
 ```python
 import jpype
@@ -332,13 +334,15 @@ finally:
 
 Výsledek:
 
-![Koláčový graf](pie_chart.png)
+![The Pie chart](pie_chart.png)
+
+Pro zlepšení čitelnosti popisků mimo koláč viz [Format Leader Lines](/slides/cs/python-java/chart-data-label/#format-leader-lines) pro příklad, který umisťuje popisky a přizpůsobuje barvu, šířku, průhlednost a styl čáry vodící čáry.
 
 ### **Vytvoření čárových grafů**
 
-Čárové grafy (také známé jako čárové diagramy) jsou nejlépe použitelné v situacích, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v průběhu času, zvýraznit anomálie v řadách dat a další.
+Čárové grafy (známé také jako line graphs) jsou nejvhodnější v situacích, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v průběhu času, zvýraznit anomálie v datových sériích a podobně.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k vytvoření čárového grafu s výchozími řadami a kategoriemi a poté uloží prezentaci jako PPTX.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k vytvoření čárového grafu s výchozími sériemi a kategoriemi, poté prezentaci uloží jako PPTX.
 
 ```python
 import jpype
@@ -360,7 +364,7 @@ finally:
     presentation.dispose()
 ```
 
-Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny pomlčkami, zavolejte [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/):
+Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete místo toho spojit body čárami, zavolejte [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/):
 
 ```python
 import jpype
@@ -385,13 +389,13 @@ finally:
 
 Výsledek:
 
-![Čárový graf](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Vytvoření stromových map**
+### **Vytvoření grafů stromové mapy**
 
-Stromové mapy jsou nejlépe použitelné pro prodejní data, když chcete zobrazit relativní velikost kategorií a rychle upozornit na položky, které jsou ve své kategorii velkými přispěvateli.
+Grafy stromové mapy jsou nejvhodnější pro prodejní data, kdy chcete zobrazit relativní velikost kategorií a rychle upoutat pozornost na položky, které jsou v rámci každé kategorie velkými přispěvateli.
 
-Tento příklad vytváří stromovou mapu s osmi listy seskupenými do čtyř kořenů a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) přiřazuje kořeny na úrovni seskupení 1 a větve na úrovni 2. Hodnoty určují relativní velikosti obdélníků, zatímco popisky kategorií a překrývající se nadřazené popisky identifikují hierarchii.
+Tento příklad vytváří stromovou mapu se osmi listy seskupenými do čtyř kořenů a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) přiřazuje kořeny na úrovni seskupení 1 a větve na úrovni 2. Hodnoty určují relativní velikosti obdélníků, zatímco štítky kategorií a překrývající se nadřazené štítky identifikují hierarchii.
 
 ```python
 import jpype
@@ -474,24 +478,26 @@ finally:
 
 Výsledek:
 
-![Graf stromové mapy](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **Vytvoření vodopádových grafů**
 
-Vodopádový graf ukazuje, jak kladné a záporné změny přispívají k finální hodnotě. Například rozpis zisku může začínat tržbami, odečíst náklady a přičíst ostatní příjmy. Sloupce změn „plavou“ mezi předchozí a novou běžící hodnotou, zatímco celkové sloupce sahají od nuly k akumulované hodnotě.
+Vodopádový graf ukazuje, jak kladné a záporné změny přispívají k konečné hodnotě. Například rozpis zisku může začít tržbami, odečíst náklady a přičíst jiné příjmy. Sloupce změn „plavou“ mezi předchozí a novou běžící hodnotou, zatímco součtové sloupce sahají od nuly k akumulované hodnotě.
 
-| Kategorie | Hodnota sešitu | Typ sloupce |
+Níže je ukázka s částkami v tisících amerických dolarů:
+
+| Kategorie | Hodnota v sešitu | Typ sloupce |
 | --- | ---: | --- |
-| Tržby | 1000 | Zvýšení |
-| Náklady na prodané zboží | -400 | Snížení |
-| Hrubý zisk | 600 | Mezivýsledek |
-| Provozní náklady | -200 | Snížení |
-| Ostatní příjmy | 50 | Zvýšení |
-| Čistý zisk | 450 | Konečný výsledek |
+| Tržby | 1000 | Nárůst |
+| Náklady na prodej | -400 | Pokles |
+| Hrubý zisk | 600 | Meziprodukt |
+| Provozní náklady | -200 | Pokles |
+| Ostatní příjmy | 50 | Nárůst |
+| Čistý zisk | 450 | Konečný součet |
 
-Pro označení bodu jako mezivýsledku nebo konečného výsledku zavolejte jeho metodu [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) s hodnotou `True`. Poskytněte skutečnou akumulovanou částku v buňce sešitu tohoto bodu: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako celkový; nepočítá ani nevyplní hodnotu buňky. Nepoužívejte nulu jako zástupný symbol ani neposkytujte další změnu pro bod celku. Celkový sloupec zobrazuje akumulovanou hodnotu, aniž by ji znovu přičítal k běžící hodnotě.
+Pro označení bodu jako meziproduktu nebo konečného součtu zavolejte jeho metodu [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) s hodnotou `True`. Do buňky sešitu v tomto bodě zadejte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako součet; nepočítá ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný znak ani nespecifikujte další změnu pro součtový bod. Součtový sloupec zobrazuje akumulovanou hodnotu, aniž by ji znovu přičítal k běžné hodnotě.
 
-Tento kompletní příklad v Pythonu vytváří graf pomocí členu `Waterfall` výčtu [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), vymaže výchozí data a vyplní vložený sešit. Index listu `0` vybere první list; sloupec A obsahuje názvy kategorií a sloupec B obsahuje hodnoty. Každá buňka s hodnotou je přidána pomocí [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Indexy bodů založené na nule `2` a `5` identifikují mezivýsledek a konečný výsledek. Zavoláním [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) s `True` zobrazíte částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
+Tento úplný příklad v Pythonu vytváří graf pomocí členu `Waterfall` typu [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), vymaže výchozí data a naplní vložený sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B hodnoty. Každá buňka s hodnotou je přidána pomocí [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Indexy bodů založené na nule `2` a `5` označují meziprodukty a konečný součet. Zavoláním [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) s `True` zobrazíte částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
 
 ```python
 import jpype
@@ -532,7 +538,7 @@ try:
         value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
         series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
 
-    # Třetí a šestý bod představují součty, nikoli další změny.
+    # Třetí a šestý bod představují součty, ne další změny.
     series.getDataPoints().get_Item(2).setSetAsTotal(True)
     series.getDataPoints().get_Item(5).setSetAsTotal(True)
     series.setShowConnectorLines(True)
@@ -543,17 +549,17 @@ finally:
     presentation.dispose()
 ```
 
-Na úrovni řady zavolejte metodu [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) s `True`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžící hodnoty. Chcete-li tyto čáry skrýt, nahraďte volání metody v příkladu za `series.setShowConnectorLines(False)` před uložením. Tím se změní pouze viditelnost čáry, ne data ani součty.
+Série‑úrovňová metoda [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) s `True` zobrazí čáry spojující po sobě jdoucí sloupce a usnadní sledování běžné hodnoty. Chcete‑li tyto čáry skrýt, vyměňte volání metody v příkladu za `series.setShowConnectorLines(False)` před uložením. Tím změníte pouze viditelnost čáry, ne data ani součty.
 
-Uložená prezentace zobrazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou počítány od nuly:
+Uložená prezentace zobrazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty vycházejí z nuly:
 
-![Vodopádový graf zobrazující tržby, náklady, hrubý zisk 600 a čistý zisk 450, s popisky hodnot a spojnicovými čarami](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
 ### **Vytvoření akciových grafů**
 
-Akciové grafy se používají k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a závěrečné ceny, což pomáhá analyzovat tržní trendy a volatilitu. Poskytují klíčové poznatky o výkonnosti akcií, což pomáhá investorům a analytikům činit informovaná rozhodnutí.
+Akciové grafy se používají k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a uzavírací ceny, což pomáhá analyzovat tržní trendy a volatilitu. Poskytují klíčové poznatky o výkonnosti akcií a pomáhají investorům i analytikům činit informovaná rozhodnutí.
 
-Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi řadami v tomto pořadí a třemi kategoriemi. Metoda [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) zapíná up/down pruhy a [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) řídí čáry high‑low, které ukazují cenové rozpětí, zatímco čáry jednotlivých řad a menší vodorovné mřížky jsou skryté.
+Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi sériemi v tomto pořadí a třemi kategoriemi. Metoda [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) aktivuje up/down pruhy a [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) řídí čáry high‑low, které ukazují cenové rozpětí, zatímco jednotlivé čáry sérií a menší vodorovné mřížky jsou skryté.
 
 ```python
 import jpype
@@ -635,13 +641,13 @@ finally:
 
 Výsledek:
 
-![Akciový graf](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Vytvoření krabicových a vousových grafů**
+### **Vytvoření krabicových a fňukových grafů**
 
-Krabicové a vousové grafy se používají k zobrazení rozdělení dat shrnutím klíčových statistických mír, jako je medián, kvartily a případné odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze dat a statistických studiích k rychlému pochopení variability dat a identifikaci anomálií.
+Krabicové a fňukové grafy se používají k zobrazení rozdělení dat souhrnným zobrazením klíčových statistických měřítek, jako jsou medián, kvartily a potenciální odlehlé hodnoty. Jsou obzvláště užitečné při explorativní analýze dat a statistických studiích k rychlému pochopení variability dat a identifikaci anomálií.
 
-Tento příklad vytváří krabicový a vousový graf ze šesti hodnot. Metoda [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) vybírá exkluzivní výpočet kvartilu. Příklad také zapíná střední čáry, značky středních hodnot, vnitřní body a body odlehlých hodnot.
+Tento příklad vytváří krabicový a fňukový graf ze šesti hodnot. Metoda [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) volí exkluzivní výpočet kvartilů. Příklad také zapíná čáry průměru, značky průměru, vnitřní body a body odlehlých hodnot.
 
 ```python
 import jpype
@@ -703,11 +709,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Vytvoření trychtýřových grafů**
+### **Vytvoření trychovitých grafů**
 
-Trychtýřové grafy se používají k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá, jak postupuje od jednoho kroku k dalšímu. Jsou obzvláště užitečné pro analýzu konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních či marketingových procesů.
+Trychovité grafy se používají k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupem z jednoho kroku na další. Jsou zvláště užitečné pro analýzu konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních či marketingových procesů.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k přidání trychtýřového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami v rozmezí 50 – 500 a poté uloží aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k přidání trychovitého grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami v rozmezí 50‑500 a poté uloží aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
 
 ```python
 import jpype
@@ -765,13 +771,13 @@ finally:
 
 Výsledek:
 
-![Trychtýřový graf](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Vytvoření paprskových grafů**
+### **Vytvoření slunečních grafů**
 
-Paprskové grafy se používají k vizualizaci hierarchických dat, přičemž úrovně jsou zobrazeny jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
+Sluneční grafy se používají k vizualizaci hierarchických dat, zobrazujících úrovně jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
 
-Tento příklad vytváří paprskový graf s osmi listy seskupenými do čtyř kořenů a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) přiřazuje kořeny na úrovni seskupení 1 a větve na úrovni 2. Popisky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
+Tento příklad vytváří sluneční graf s osmi listy seskupenými do čtyř kořenů a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) přiřazuje kořeny na úrovni seskupení 1 a větve na úrovni 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
 
 ```python
 import jpype
@@ -852,17 +858,17 @@ finally:
 
 Výsledek:
 
-![Paprskový graf](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Vytvoření histogramových grafů**
 
-Histogramové grafy ukazují, jak jsou číselné hodnoty rozděleny do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek použijte stejnou šířku binu a prahy, aby byly intervaly konzistentní a usnadnily porovnání rozdělení.
+Histogramové grafy ukazují, jak jsou číselné hodnoty rozloženy do intervalů (binů). Pro měsíční zprávy o době zpracování objednávek použijte stejnou šířku binu a prahy, aby intervaly zůstaly konzistentní a usnadnily srovnání rozdělení.
 
-Zavolejte [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) na horizontální ose s režimem z [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) platí jen pro `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) platí jen pro `ByNumberOfBins`. Použijte `Automatic`, aby si graf sám zvolil biny.
+Zavolejte [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) na vodorovné ose s režimem z [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) se používá jen pro `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) jen pro `ByNumberOfBins`. Použijte `Automatic` pro automatický výběr binů.
 
-#### **Použít pevnou šířku intervalu**
+#### **Použití pevné šířky binu**
 
-Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 min a > 40 min. Tyto biny zapnete pomocí [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) a [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin). Při zadávání explicitních prahů pomocí [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) a [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) zavolejte [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) a [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) s hodnotou `False`.
+Tento příklad seskupuje doby zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 min a > 40 min. Tyto biny povolíte pomocí [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) a [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin). Když zadáváte explicitní prahy pomocí [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) a [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin), zavolejte [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) a [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) s hodnotou `False`.
 
 ```python
 import jpype
@@ -909,13 +915,13 @@ finally:
     presentation.dispose()
 ```
 
-Prezentace zobrazovaná v PowerPointu ukazuje počty v bitech **3, 4, 4, 4 a 2**. Underflow bin zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Overflow bin zahrnuje pouze `41, 50`, takže jeho práh je exkluzivní; hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich dolní hranice a menší nebo rovné jejich horní hranici.
+Prezentace v PowerPointu ukazuje počty v bitech **3, 4, 4, 4 a 2**. Bin podprůliv zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Bin přetečení zahrnuje jen `41, 50`, takže jeho práh je exkluzivní; obě hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich dolní hranice a menší nebo rovné jejich horní hranici.
 
-![Histogram s 10‑minutovými intervaly a explicitními prahy podtečení a přetečení](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Zadat počet intervalů**
+#### **Určení počtu binů**
 
-Pro pevnou úroveň detailu namísto pevných intervalů požádejte o pět intervalů pro stejná data. Tento příklad nechává podtečný a přetečný bin zakázané. Graf určuje šířku podle datového rozsahu, takže hranice se mohou mezi zprávami měnit.
+Pro pevnou úroveň podrobnosti místo pevných intervalů požádejte o pět binů pro stejná data. Tento příklad má biny podprůlivu a přetečení zakázány. Graf určuje šířku z rozsahu dat, takže hranice se mohou mezi zprávami měnit.
 
 ```python
 import jpype
@@ -956,15 +962,15 @@ finally:
     presentation.dispose()
 ```
 
-Pět intervalů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou identické, ale hranice se liší.
+Pět binů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou stejné, ale hranice se liší.
 
-![Histogram s pěti intervaly vypočtenými ze stejných dat](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Vytvoření radarových grafů**
 
-Radarové grafy se používají k zobrazení multivariátních dat ve dvourozměrném formátu, což usnadňuje porovnání několika proměnných současně. Jsou zvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč více výkonnostními metrikami či atributy.
+Radarové grafy se používají k zobrazení multivariantních dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných současně. Jsou obzvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč více výkonnostními metrikami nebo atributy.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k vytvoření radarového grafu s výchozími řadami a kategoriemi a poté uloží prezentaci jako PPTX.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k vytvoření radarového grafu s výchozími sériemi a kategoriemi, poté prezentaci ukládá jako PPTX.
 
 ```python
 import jpype
@@ -988,13 +994,13 @@ finally:
 
 Výsledek:
 
-![Radarový graf](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Vytvoření vícekategoriálních grafů**
+### **Vytvoření vícekategoriových grafů**
 
-Vícekategoriální grafy slouží k zobrazení dat, která zahrnují více než jedno kategorické seskupení, což vám umožní porovnávat hodnoty napříč více dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, vícestupňových souborech dat.
+Vícekategoriové grafy se používají k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což vám umožňuje porovnávat hodnoty napříč několika dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, víceúrovňových datových sadách.
 
-Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech dvojicích. Metoda [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) dává každé dvojici sdílený popisek na úrovni seskupení 1, čímž vzniká osa kategorií s individuálními i skupinovými popisky.
+Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech dvojicích. Metoda [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) dává každé dvojici sdílený štítek na úrovni seskupení 1, čímž vzniká osa kategorií s individuálními i skupinovými štítky.
 
 ```python
 import jpype
@@ -1070,11 +1076,11 @@ finally:
 
 Výsledek:
 
-![Vícekategoriální graf](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Vytvoření mapových grafů**
 
-Mapové grafy se používají k vizualizaci geografických dat mapováním informací na konkrétní místa, jako jsou země, státy nebo města. Jsou zvláště užitečné pro analýzu regionálních trendů, demografických dat a prostorových rozdělení jasným a vizuálně poutavým způsobem.
+Mapové grafy se používají k vizualizaci geografických dat mapováním informací na konkrétní lokality, jako jsou země, státy nebo města. Jsou obzvláště užitečné pro analýzu regionálních trendů, demografických údajů a prostorových rozložení jasným a vizuálně atraktivním způsobem.
 
 Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k vytvoření mapového grafu s výchozími geografickými daty a ukládá jej pro zobrazení v PowerPointu.
 
@@ -1100,19 +1106,19 @@ finally:
 
 Výsledek:
 
-![Mapový graf](map_chart.png)
+![The Map chart](map_chart.png)
 
-{{% alert color="info" title="Note" %}}
-Obrázek výše ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale sám mapové grafy nevykresluje: když je snímek obsahující takový graf renderován do obrázku nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
+{{% alert color="info" title="Poznámka" %}}
+Obrázek výše ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale samotný mapový graf nevykresluje: při převodu snímku obsahujícího takový graf na obrázek nebo při konverzi do PDF či SVG je oblast grafu prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
 {{% /alert %}}
 
 ### **Vytvoření kombinovaných grafů**
 
-Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma nebo více datovými sadami, což pomáhá identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zdůraznit, porovnat nebo prozkoumat rozdíly mezi dvěma či více datovými sadami, což vám pomůže identifikovat vztahy mezi nimi.
 
-![Kombinovaný graf](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Tento příklad kombinuje dva seskupené sloupcové řady s čárovou řadou napříč čtyřmi kategoriemi. Sloupce používají primární vertikální osu, zatímco [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) umisťuje čáru na sekundární vertikální osu vpravo. Pomocné funkce konfigurují název, legendu, popisky os a mřížky.
+Tento příklad kombinuje dvě seskupené sloupcové série s čárovou sérií napříč čtyřmi kategoriemi. Sloupce používají primární vertikální osu, zatímco [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) umisťuje čáru na sekundární vertikální osu vpravo. Pomocné funkce nastavují název, legendu, popisky os a mřížky.
 
 ```python
 import jpype
@@ -1144,7 +1150,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
-    # Nastavit název grafu.
+    # Nastavte název grafu.
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("Chart Title")
     chart.getChartTitle().setOverlay(False)
@@ -1153,18 +1159,18 @@ def create_chart_with_first_series(slide):
     title_format.setFontBold(NullableBool.False_)
     title_format.setFontHeight(18.0)
 
-    # Nastavit legendu grafu.
+    # Nastavte legendu grafu.
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Smazat výchozí vygenerované řady a kategorie.
+    # Odstraňte výchozí vygenerované řady a kategorie.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     worksheet_index = 0
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Přidat nové kategorie.
+    # Přidejte nové kategorie.
     cell = workbook.getCell(worksheet_index, 1, 0, "Category 1")
     chart.getChartData().getCategories().add(cell)
     cell = workbook.getCell(worksheet_index, 2, 0, "Category 2")
@@ -1174,7 +1180,7 @@ def create_chart_with_first_series(slide):
     cell = workbook.getCell(worksheet_index, 4, 0, "Category 4")
     chart.getChartData().getCategories().add(cell)
 
-    # Přidat první řadu.
+    # Přidejte první řadu.
     series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
@@ -1230,28 +1236,28 @@ def add_third_series_to_chart(chart):
     series.setPlotOnSecondAxis(True)
 
 def set_primary_axes_format(chart):
-    # Nastavit vodorovnou osu.
+    # Nastavte vodorovnou osu.
     horizontal_axis = chart.getAxes().getHorizontalAxis()
     horizontal_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     horizontal_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # Nastavit svislou osu.
+    # Nastavte svislou osu.
     vertical_axis = chart.getAxes().getVerticalAxis()
     vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     vertical_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Nastavit barvu hlavních mřížkových čar svislé osy.
+    # Nastavte barvu hlavních mřížkových čar svislé osy.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
     major_grid_lines_format.getSolidFillColor().setColor(color)
 
 def set_secondary_axes_format(chart):
-    # Nastavit sekundární vodorovnou osu.
+    # Nastavte sekundární vodorovnou osu.
     secondary_horizontal_axis = chart.getAxes().getSecondaryHorizontalAxis()
     secondary_horizontal_axis.setPosition(AxisPositionType.Bottom)
     secondary_horizontal_axis.setCrossType(CrossesType.Maximum)
@@ -1259,7 +1265,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
     secondary_horizontal_axis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    # Nastavit sekundární svislou osu.
+    # Nastavte sekundární svislou osu.
     secondary_vertical_axis = chart.getAxes().getSecondaryVerticalAxis()
     secondary_vertical_axis.setPosition(AxisPositionType.Right)
     secondary_vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
@@ -1282,9 +1288,9 @@ create_combo_chart()
 
 ## **Aktualizace grafů**
 
-Aspose.Slides pro Python prostřednictvím Javy umožňuje aktualizovat PowerPoint grafy úpravou dat grafu, formátování a stylování. Tato funkčnost zjednodušuje proces udržování prezentací aktuálních s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí aktuální data a vizuální standardy.
+Aspose.Slides pro Python prostřednictvím Javy vám umožňuje aktualizovat grafy PowerPointu úpravou dat grafu, formátování a stylování. Tato funkce zjednodušuje proces udržování prezentací aktuálními s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí aktuální data a vizuální standardy.
 
-Tento příklad aktualizuje graf pojmenovaný „My chart“ na prvním snímku existující prezentace. Vyžaduje dvě sloupcové řady s třemi datovými body každá, přičemž popisky kategorií jsou ve sloupci A a názvy řad v prvním řádku prvního listu. Příklad používá [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) ke změně buněk sešitu, aktualizuje hodnoty řad, přidá třetí řadu a změní graf na seskupené válcové přes [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
+Tento příklad aktualizuje graf pojmenovaný „My chart“ na prvním snímku existující prezentace. Vyžaduje dvě sloupcové série se třemi datovými body každá, s kategoriálními štítky ve sloupci A a názvy sérií v prvním řádku první listu. Příklad používá [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) ke změně buněk sešitu, aktualizuje hodnoty sérií, přidá třetí sérii a změní graf na seskupené válcové pomocí [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
 
 ```python
 import jpype
@@ -1344,11 +1350,11 @@ finally:
 
 ## **Nastavení datového rozsahu pro graf**
 
-Pro zobrazení rozsahu, který již existující graf používá, viz [Získání datového rozsahu grafu](/slides/cs/python-java/chart-workbook/#retrieve-a-charts-data-range).
+Pro zobrazení rozsahu již použitého existujícím grafem viz [Retrieve a Chart's Data Range](/slides/cs/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides pro Python prostřednictvím Javy poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu na graf, což vám umožní řídit, které buňky přispívají k řadám a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami v listu, čímž vaše PowerPoint prezentace vždy odráží aktuální a přesné informace.
+Aspose.Slides pro Python prostřednictvím Javy poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu na graf, což vám umožní kontrolovat, které buňky přispívají k sériím a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami dat v listu, čímž zajistíte, že vaše PowerPoint prezentace odrážejí aktuální a přesné informace.
 
-Tento příklad používá [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) k nastavení datového zdroje grafu pojmenovaného „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a naplněný rozsah s nadpisem řady v prvním řádku, popisky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
+Tento příklad používá [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) k nastavení datového zdroje grafu pojmenovaného „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a vyplněný rozsah s názvem série v prvním řádku, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
 
 ```python
 import jpype
@@ -1377,9 +1383,9 @@ finally:
 
 ## **Použití výchozích značek v grafech**
 
-Když používáte výchozí značky v grafech, každá řada grafu automaticky získá jiný výchozí symbol značky.
+Když používáte výchozí značky v grafech, každá série grafu automaticky získá jiný výchozí symbol značky.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k vytvoření grafu se dvěma čárovými řadami a legendou. Nastavení značky získané pomocí [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) zachovává automaticky přiřazené symboly značek. První řada obsahuje zápornou hodnotu a chybějící hodnotu, reprezentovanou `None`, zatímco druhá má hodnotu pro každou kategorii.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) k vytvoření grafu se dvěma čárovými sériemi a legendou. Nastavení značek přístupné přes [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) zachovává automaticky přiřazené symboly značek. První série zahrnuje zápornou hodnotu a chybějící hodnotu, reprezentovanou `None`, zatímco druhá má hodnotu pro každou kategorii.
 
 ```python
 import jpype
@@ -1448,16 +1454,16 @@ finally:
 
 **Jaké typy grafů podporuje Aspose.Slides pro Python prostřednictvím Javy?**
 
-Aspose.Slides pro Python prostřednictvím Javy podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, oblastních, rozptylových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro potřeby vizualizace vašich dat.
+Aspose.Slides pro Python prostřednictvím Javy podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, oblastních, rozptylových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
-**Jak přidat nový graf na snímek?**
+**Jak přidám nový graf do snímku?**
 
-Chcete-li přidat graf, nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) a získáte požadovaný snímek pomocí jeho indexu, poté zavoláte metodu pro přidání grafu, přičemž určíte typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Chcete‑li přidat graf, nejprve vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), získejte požadovaný snímek pomocí jeho indexu a potom zavolejte metodu pro přidání grafu, přičemž specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
 **Jak mohu aktualizovat data zobrazovaná v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), vymazáním výchozích řad a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat přístupem k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)), vymazáním výchozích sérií a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides pro Python prostřednictvím Javy poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky, aby graf odpovídal vašim konkrétním požadavkům na design.
+Ano, Aspose.Slides pro Python prostřednictvím Javy poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky tak, aby graf odpovídal vašim konkrétním návrhovým požadavkům.

@@ -1,5 +1,5 @@
 ---
-title: مدیریت برچسب‌های دادهٔ نمودار در ارائه‌ها با استفاده از PHP
+title: مدیریت برچسب‌های داده نمودار در ارائه‌ها با استفاده از PHP
 linktitle: برچسب داده
 type: docs
 url: /fa/php-java/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید چگونه برچسب‌های دادهٔ نمودار را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای PHP از طریق Java اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
+description: "یاد بگیرید چگونه برچسب‌های داده نمودار را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای PHP از طریق Java اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
 ---
 ## **مقدمه**
 
-برچسب‌های داده اطلاعاتی درباره سری‌های نمودار و نقاط دادهٔ منفرد نمایش می‌دهند و به خوانندگان کمک می‌کنند مقادیر را شناسایی و نمودار را درک کنند. این مقاله توضیح می‌دهد چگونه مقادیر را قالب‌بندی کنید، درصدها را نمایش دهید، متن برچسب را بخوانید، برچسب‌ها را فراتر از حداکثر محور کنترل کنید، فاصلهٔ برچسب‌های محور دسته‌بندی را تنظیم کنید و موقعیت برچسب‌های نمودار دایره‌ای را تعیین کنید.
+برچسب‌های داده اطلاعاتی درباره‌ٔ سری‌های نمودار و نقاط داده‌ی جداگانه نمایش می‌دهند و به خوانندگان کمک می‌کنند تا مقادیر را شناسایی و نمودار را درک کنند. این مقاله توضیح می‌دهد که چگونه مقادیر را قالب‌بندی کنید، درصدها را نمایش دهید، متن برچسب را بخوانید، برچسب‌ها را فراتر از حداکثر محور کنترل کنید، فاصله برچسب‌های محور دسته‌بندی را تنظیم کنید و موقعیت برچسب‌های نمودار دایره‌ای را تعیین کنید.
 
-## **تنظیم دقت داده در برچسب‌های دادهٔ نمودار**
+## **تنظیم دقت داده‌ها در برچسب‌های دادهٔ نمودار**
 
-از [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) برای قالب‌بندی مقادیر سری‌ها استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول دادهٔ آن را نمایش می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌کند. قالب `#,##0.00` یک جداکنندهٔ هزارگان و دو رقم اعشار را نشان می‌دهد بدون تغییر مقادیر زیرین.
+از [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) برای قالب‌بندی مقادیر سری‌ها استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول داده‌های آن را نمایش می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌کند. قالب `#,##0.00` جداکنندهٔ هزارگان و دو رقم اعشار را بدون تغییر مقادیر پایه نمایش می‌دهد.
 
 ```php
 use aspose\slides\Presentation;
@@ -46,9 +46,9 @@ try {
 }
 ```
 
-## **نمایش درصد به‌عنوان برچسب‌ها**
+## **نمایش درصد به عنوان برچسب‌ها**
 
-برای یک نمودار ستونی انباشته، هر مقدار را به‌عنوان درصدی از مجموع دستهٔ مربوطه محاسبه کنید و متن را به فریم متنی که توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) برگردانده می‌شود اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم ۸ پوینت نمایش می‌دهد. دسته‌هایی که مجموعشان صفر است، برای جلوگیری از تقسیم بر صفر نادیده گرفته می‌شوند. اگر داده‌های نمودار تغییر کنند، متن برچسب سفارشی را دوباره محاسبه کنید.
+برای یک نمودار ستونی انباشته، هر مقدار را به عنوان درصدی از مجموع دسته‑آن محاسبه کنید و متن را به چارچوب متن برگردانده‌شده توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم 8 نقطه‌ای نمایش می‌دهد. دسته‌هایی که مجموعشان صفر است برای جلوگیری از تقسیم بر صفر حذف می‌شوند. اگر داده‌های نمودار تغییر کنند متن برچسب سفارشی را دوباره محاسبه کنید.
 
 ```php
 use aspose\slides\Presentation;
@@ -108,11 +108,11 @@ try {
 }
 ```
 
-## **تنظیم علامت درصد در برچسب‌های دادهٔ نمودار**
+## **تنظیم علامت درصد با برچسب‌های دادهٔ نمودار**
 
-وقتی مقادیر به‌صورت کسر ذخیره می‌شوند، از [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormat) برای نمایش درصدها استفاده کنید. برای اعمال قالب برچسب مستقل از سلول‌های منبع، مقدار `false` را به [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) پاس دهید.
+زمانی که مقادیر به صورت کسر ذخیره می‌شوند، از [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) برای نمایش درصدها استفاده کنید. `false` را به [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) بفرستید تا قالب برچسب به‌صورت مستقل از سلول‌های منبع اعمال شود.
 
-این مثال یک نمودار ستونی انباشته ۱۰۰٪ با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار مجموعاً برابر ۱ است. قالب برچسب `0.0%` مقدار ۰٫۳۰ را به‌صورت ۳۰٫۰٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید با اندازهٔ ۱۰ پوینت استفاده می‌کنند.
+این مثال یک نمودار ستونی 100٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار جمعاً برابر 1 است. قالب برچسب `0.0%` مقدار 0.30 را به‌صورت 30.0٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید با اندازه 10 نقطه استفاده می‌کنند.
 
 ```php
 use aspose\slides\Presentation;
@@ -172,7 +172,7 @@ try {
 
 ## **خواندن متن واقعی برچسب‌های داده**
 
-از [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) برای بازیابی متنی که توسط تنظیمات برچسب داده تولید می‌شود استفاده کنید. این موضوع هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجوی محتوای ارائه یا اعتبارسنجی نمودارهای تولید شده مفید است. در مثال زیر، [قالب برچسب داده](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) پیش‌فرض نام هر دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به‌صورت درصد قالب‌بندی می‌کند و نقطهٔ دیگری از متن سفارشی حاصل از [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) استفاده می‌کند.
+از [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) برای دریافت متنی که تنظیمات یک برچسب داده تولید می‌کند استفاده کنید. این روش زمانی مفید است که برای گزارش‌ها برچسب‌ها استخراج شوند، محتوای ارائه جستجو شود یا نمودارهای تولیدی اعتبارسنجی شوند. در مثال زیر، قالب پیش‌فرض [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) نام هر دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدارش را به‌صورت درصد قالب‌بندی می‌کند و نقطهٔ دیگر از متن سفارشی‌ دریافت‌شده توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) استفاده می‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +236,15 @@ try {
 }
 ```
 
-عدد ذخیره‌شده در نقطهٔ داده همچنان `0.75` باقی می‌ماند، حتی اگر برچسب آن `75%` همراه با نام‌های دسته و سری را نشان دهد. متن سفارشی متن برچسب تولید شده را جایگزین می‌کند. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) رشتهٔ برچسب نهایی را در هر دو حالت برمی‌گرداند. برای استخراج فقط برچسب‌های قابل مشاهده، همان‌طور که در بالا نشان داده شد، [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#isVisible) را به‌صورت جداگانه بررسی کنید.
+عدد ذخیره‌شده در یک نقطه داده همان `0.75` می‌ماند، حتی زمانی که برچسب آن `75%` به همراه نام دسته و سری نشان می‌دهد. متن سفارشی متن برچسب تولیدشده را جایگزین می‌کند. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) در هر دو حالت رشتهٔ برچسب نهایی را برمی‌گرداند. برای استخراج تنها برچسب‌های قابل مشاهده، همان‌طور که در بالا نشان داده شد، [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) را به‌طور جداگانه بررسی کنید.
 
 ## **کنترل برچسب‌های داده فراتر از حداکثر محور**
 
-هنگامی که بازهٔ محور را به‌صورت دستی محدود می‌کنید، ممکن است برخی نقاط داده از حداکثر آن فراتر رود. از [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) برای کنترل نمایش برچسب‌های دادهٔ آن‌ها استفاده کنید. این تنظیم فقط نمایش برچسب‌ها را تغییر می‌دهد؛ بازهٔ محور یا مقادیر دادهٔ زیرین را تغییر نمی‌دهد.
+زمانی که محدودهٔ محور را به‌صورت دستی محدود می‌کنید، ممکن است برخی نقاط داده از حداکثر آن فراتر بروند. از [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) برای کنترل اینکه آیا برچسب‌های دادهٔ آن‌ها نمایش داده شوند یا نه استفاده کنید. این تنظیم فقط دیدگاه برچسب را تغییر می‌دهد؛ محدودهٔ محور یا مقادیر داده‌های زیرین را تغییر نمی‌دهد.
 
-مثال زیر یک نمودار ستونی خوشه‌ای ۲ بعدی با مقادیر ۶۰ و ۱۲۰ ایجاد می‌کند. مقدار `false` را به [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setAutomaticMaxValue) پاس می‌دهد و حداکثر را روی ۱۰۰ با استفاده از [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setMaxValue) در محور عمودی تنظیم می‌کند. اسلاید اول اجازه می‌دهد برچسب‌ها فراتر از حداکثر باشند؛ نسخهٔ دیگری از آن اسلاید این قابلیت را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
+مثال زیر یک نمودار ستونی خوشه‌ای دو‑بعدی با مقادیر 60 و 120 ایجاد می‌کند. `false` را به [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) می‌فرستید و حداکثر را روی محور عمودی به‌وسیلهٔ [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) بر روی 100 تنظیم می‌کند. اسلاید اول اجازهٔ نمایش برچسب‌ها فراتر از حداکثر را می‌دهد؛ یک کپی از آن اسلاید این قابلیت را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
 
-برچسب‌های مقدار را با [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) فعال کنید. تنظیم سطح نمودار به‌تنهایی نمایش مقدار را فعال نمی‌کند یا نمایش مقدار غیرفعال یک برچسب را نادیده نمی‌گیرد. این مثال مقادیر را برای تمام سری فعال می‌کند و از [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setPosition) برای قرار دادن برچسب‌ها در انتهای بیرونی هر ستون استفاده می‌کند.
+برچسب‌های مقدار را با [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) فعال کنید. تنظیم سطح نمودار به‌تنهایی نمایش مقدار را فعال نمی‌کند و نیز برچسب‌های فردی که نمایش مقدارشان غیرفعال شده است، بازنویسی نمی‌کند. این مثال مقادیر را برای تمام سری فعال می‌کند و از [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) برای قرار دادن برچسب‌ها در انتهای خارجی هر ستون استفاده می‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +296,19 @@ try {
 }
 ```
 
-تصاویر زیر اسلایدهای ذخیره‌شده را که توسط Microsoft PowerPoint رندر شده‌اند نشان می‌دهند. با مقدار `true`، برچسب **120** در مرز بالایی قابل مشاهده است؛ با مقدار `false`، مخفی می‌شود. برچسب **60** همچنان قابل مشاهده است، حداکثر محور در **100** باقی می‌ماند و نقطهٔ دادهٔ دوم در هر دو حالت **120** می‌ماند.
+تصاویر زیر اسلایدهای ذخیره‌شدهٔ رندر شده توسط Microsoft PowerPoint را نشان می‌دهند. با `true` برچسب **120** در مرز بالایی قابل مشاهده است؛ با `false` مخفی می‌شود. برچسب **60** قابل مشاهده می‌ماند، حداکثر محور در **100** ثابت می‌ماند و نقطهٔ دادهٔ دوم در هر دو حالت **120** می‌ماند.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![نمودار PowerPoint که برچسب مقدار 120 را با حداکثر محور 100 نشان می‌دهد](data-labels-over-maximum-true.png) | ![نمودار PowerPoint که برچسب مقدار 120 را با حداکثر محور 100 مخفی می‌کند](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-این مثال یک نمودار ستونی ۲ بعدی با محور مقدار استفاده می‌کند. نمودارهای بدون محور مقدار، مانند نمودارهای دایره‌ای و دونات، حداکثر محوری برای محدود کردن به این شکل ندارند.
+این مثال از یک نمودار ستونی دو‑بعدی با محور مقدار استفاده می‌کند. نمودارهایی که محور مقدار ندارند، مانند نمودارهای دایره‌ای و دونات، حداکثر محوری برای محدود کردن به این شکل ندارند.
 {{% /alert %}}
 
 ## **تنظیم فاصله برچسب از محور**
 
-از [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setLabelOffset) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و خود محور استفاده کنید. مقدار به‌صورت درصدی از بزرگ‌ترین اندازهٔ قلم برچسب‌های محور محسوب می‌شود. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و فاصلهٔ برچسب محور افقی را روی ۵۰۰ تنظیم می‌نماید. این تنظیم بر برچسب‌های محور دسته‌بندی تأثیر دارد نه برچسب‌های متصل به نقاط دادهٔ منفرد.
+از [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و محور استفاده کنید. مقدار به‌صورت درصدی از حداکثر اندازهٔ قلم برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و فاصلهٔ برچسب محور افقی را روی 500 تنظیم می‌کند. این تنظیم برچسب‌های محور دسته‌بندی را تحت تأثیر قرار می‌دهد نه برچسب‌های متصل به نقاط دادهٔ جداگانه.
 
 ```php
 use aspose\slides\Presentation;
@@ -330,9 +330,9 @@ try {
 
 ## **تنظیم موقعیت برچسب**
 
-در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را تنظیم کنید تا فاصله‌ها بهبود یابند و فضای کافی برای خطوط رهبری فراهم شود.
+در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را برای بهبود فضا و ایجاد جایگاه برای خطوط راهنما تنظیم کنید.
 
-این مثال مقدار اولین نقطه داده را نمایش می‌دهد، برچسب آن را خارج از قطعه قرار می‌دهد و جابجایی‌های افقی و عمودی آن را با استفاده از [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) و [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) تنظیم می‌کند. این جابجایی‌ها به ترتیب نسبت به عرض و ارتفاع نمودار هستند.
+این مثال مقدار اولین نقطه داده را نمایش می‌دهد، برچسب آن را در خارج از برش قرار می‌دهد و افست‌های افقی و عمودی آن را با استفاده از [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) و [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) تنظیم می‌کند. این افست‌ها به‌ ترتیب نسبت به عرض و ارتفاع نمودار هستند.
 
 ```php
 use aspose\slides\Presentation;
@@ -361,11 +361,68 @@ try {
 
 ![نمودار دایره‌ای با موقعیت برچسب داده تنظیم‌شده](pie-chart-adjusted-label.png)
 
-## **افزودن ردیف‌های متعدد برچسب داده بالای نمودار ستونی**
+## **قالب‌بندی خطوط راهنما**
 
-این مثال یک نمودار ستونی با دو ردیف برچسب داده در بالای ناحیهٔ ترسیم ایجاد می‌کند. سری A ستون‌های قابل مشاهده را نمایش می‌دهد، در حالی که سری‌های B و C برچسب‌های اضافی را فراهم می‌کنند. ستون‌های آن‌ها با حذف پرشدگی و حاشیه مخفی می‌شوند. متد [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) تمام سه سری را با مراکز دستهٔ یکسان هم‌راستا می‌کند.
+زمانی که برچسب‌های نمودار دایره‌ای در خارج از برش‌هایشان قرار می‌گیرند، خطوط راهنما به خوانندگان کمک می‌کند تا هر مقدار را به برش صحیح مربوط کنند. یک رنگ متضاد و خط کمی ضخیم‌تر می‌تواند این ارتباطات را پیگیری‌پذیرتر کند، در حالی که شفافیت و سبک خط چین خطوط را به‌صورت بصری کمتر مشهود می‌سازد.
 
-تنظیمات [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) فضایی برای ردیف‌های برچسب ذخیره می‌کند. پس از این‌که [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#validateChartLayout) موقعیت‌های پیش‌فرض را محاسبه کرد، [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) و [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) تراز افقی را حفظ کرده و جابجایی‌های عمودی را برای چینش برچسب‌ها در دو ردیف اعمال می‌کنند. اعداد همچنان برچسب‌های دادهٔ مرتبط با مقادیر سری‌ها می‌باشند؛ فقط سرتیترهای ردیف به‌صورت شکل‌های متنی جداگانه هستند.
+از [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) برای قالب‌بندی خطوط راهنما در سطح مجموعهٔ برچسب‌های دادهٔ سری استفاده کنید. تنظیمات موجود در `$series->getLabels()->getLeaderLinesFormat()->getLine()` به مجموعه اعمال می‌شود، نه به یک برچسب منفرد.
+
+این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند، مقادیر را در خارج از برش‌ها نمایش می‌دهد و [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/) را فعال می‌کند. دو برچسب را با استفاده از افست‌های [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) و [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) که به‌صورت کسری از عرض و ارتفاع نمودار بیان شده‌اند، دورتر از برش‌هایشان می‌برد. ارائهٔ ورودی موردنیاز نیست.
+
+خط `[getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/)` یک رنگ آبی ثابت با مقدار آلفای 191 از 255 تنظیم می‌کند که تقریباً 25٪ شفافیت دارد. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) ضخامت را به 2 نقطه تنظیم می‌کند و [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) خط را خط‌چین می‌کند.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\FillType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 80, 50, 560, 400);
+    $chart->setLegend(false);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+    $labelFormat->setShowValue(true);
+    $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
+    $labelFormat->setShowLeaderLines(true);
+
+    // دو برچسب را دورتر از برش‌هایشان جابه‌جا کنید.
+    $series->getLabels()->get_Item(0)->setX(0.10);
+    $series->getLabels()->get_Item(0)->setY(-0.05);
+    $series->getLabels()->get_Item(1)->setX(-0.10);
+    $series->getLabels()->get_Item(1)->setY(0.05);
+
+    $line = $series->getLabels()->getLeaderLinesFormat()->getLine();
+    $line->getFillFormat()->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 30, 90, 160, 191);
+    $line->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+    $line->setWidth(2);
+    $line->setDashStyle(LineDashStyle::Dash);
+
+    $presentation->save("FormattedLeaderLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+فعال‌سازی خطوط راهنما تضمین نمی‌کند که برای هر برچسب یک خط ظاهر شود. قابل رؤیت بودن بستگی به موقعیت برچسب و رفتار چیدمان نمودار دارد. در این مثال، دو برچسب جابجا شده خطوط راهنمای قابل رؤیتی دارند؛ برچسب‌هایی که نزدیک به برش‌هایشان می‌مانند نیازی به آن‌ها ندارند.
+
+تصویر زیر فایل ذخیره‌شدهٔ `FormattedLeaderLines.pptx` رندر شده با Aspose.Slides را نشان می‌دهد:
+
+![نمودار دایره‌ای با خطوط راهنمای آبی، نیمه‌شفاف و خط‌چین که دو برچسب خارج را به قطعاتشان متصل می‌کند](formatted-leader-lines.png)
+
+## **افزودن چندین ردیف برچسب داده بالا روی نمودار ستونی**
+
+این مثال یک نمودار ستونی با دو ردیف برچسب داده بالا روی ناحیهٔ ترسیم ایجاد می‌کند. سری A ستون‌های قابل مشاهده را نمایش می‌دهد، در حالی که سری B و C برچسب‌های اضافی را فراهم می‌کنند. ستون‌های آن‌ها با حذف پرکردن و حاشیه مخفی می‌شوند. روش [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) تمام سه سری را با مرکزهای دسته‌ای یکسان هم‌راستا می‌کند.
+
+تنظیمات [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) فضایی برای ردیف‌های برچسب رزرو می‌کند. پس از اینکه [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) موقعیت‌های پیش‌فرض را محاسبه کرد، [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) و [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) تراز افقی را حفظ می‌کنند و افست‌های عمودی را برای ترتیب برچسب‌ها در دو ردیف اعمال می‌نمایند. اعداد همچنان برچسب‌های دادهٔ پیوندشده به مقادیر سری‌ها باقی می‌مانند؛ فقط سرفصل‌های ردیف به‌صورت شکل‌های متنی جداگانه هستند.
 
 ```php
 use aspose\slides\Presentation;
@@ -429,14 +486,14 @@ try {
         }
     }
 
-    // تمام سه سری را با مراکز دستهٔ یکسان هم‌راستا کنید.
+    // همهٔ سه سری را با مراکز دسته‌بندی یکسان تراز کنید.
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
-    // برای این مثال فشرده، خطوط شبکهٔ کمتری استفاده کنید.
+    // برای این مثال فشرده از خطوط شبکهٔ کمتر استفاده کنید.
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // فضای بالای نمودار را برای دو ردیف برچسب داده رزرو کنید.
+    // فضای بالای ناحیهٔ نمودار را برای دو ردیف برچسب داده رزرو کنید.
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -453,8 +510,8 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // موقعیت افقی پیش‌فرض را حفظ کنید. Y یک جابجایی از
-            // موقعیت پیش‌فرض برچسب، که به‌صورت کسری از ارتفاع نمودار بیان می‌شود.
+            // موقعیت افقی پیش‌فرض را نگه دارید. Y یک افست از
+            // موقعیت پیش‌فرض برچسب است که به‌صورت کسری از ارتفاع نمودار بیان می‌شود.
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
@@ -479,19 +536,18 @@ try {
 }
 ```
 
-![نمودار ستونی با دو ردیف برچسب داده در بالای ناحیهٔ ترسیم](multiple-rows-of-labels.png)
+![نمودار ستونی با دو ردیف برچسب داده بالا روی ناحیهٔ ترسیم](multiple-rows-of-labels.png)
 
+## **سوالات متداول**
 
-## **FAQ**
+**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای پرتراکم جلوگیری کنم؟**
 
-**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای شلوغ جلوگیری کنم؟**
-
-از ترکیب قرارگیری خودکار برچسب، خطوط رهبری و کاهش اندازه قلم استفاده کنید؛ در صورت نیاز، برخی فیلدها (مثلاً دسته) را مخفی کنید یا فقط برچسب‌ها را برای مقادیر شدید یا نقاط کلیدی نمایش دهید.
+از ترکیب قرارگیری خودکار برچسب‌ها، خطوط راهنما و کاهش اندازهٔ قلم استفاده کنید؛ در صورت نیاز، برخی فیلدها (به عنوان مثال، دسته‌بندی) را مخفی کنید یا تنها برچسب‌ها را برای مقادیر انتهایی یا نقاط کلیدی نمایش دهید.
 
 **چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
 
-قبل از فعال‌سازی برچسب‌ها نقاط داده را فیلتر کنید و نمایش مقادیر صفر، منفی یا خالی را بر پایهٔ یک قانون تعریف‌شده غیرفعال کنید.
+نقاط داده را قبل از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش مقادیر صفر، مقادیر منفی یا مقادیر گمشده را بر اساس قاعده‌ای تعریف‌شده غیرفعال کنید.
 
-**چگونه می‌توانم اطمینان حاصل کنم که سبک برچسب‌ها هنگام خروجی‌گیری به PDF/تصاویر ثابت باشد؟**
+**چگونه می‌توانم سبک برچسب را هنگام خروجی گرفتن به PDF/تصاویر ثابت نگه دارم؟**
 
-خانواده و اندازهٔ قلم را به‌صورت صریح تنظیم کنید و اطمینان حاصل کنید که قلم در محیط رندر موجود است تا از استفاده از قلم جایگزین جلوگیری شود.
+به‌صورت صریح خانواده و اندازهٔ قلم را تنظیم کنید و اطمینان حاصل کنید که فونت در محیط رندر موجود است تا از استفادهٔ فونت جایگزین جلوگیری شود.

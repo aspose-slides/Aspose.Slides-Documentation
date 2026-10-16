@@ -5,24 +5,24 @@ type: docs
 url: /ja/php-java/chart-data-label/
 keywords:
 - チャート
-- データ ラベル
-- データ 精度
+- データラベル
+- データ精度
 - パーセンテージ
-- ラベル 距離
-- ラベル 位置
+- ラベル距離
+- ラベル位置
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
 description: "Aspose.Slides for PHP via Java を使用して、PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
 ---
-## **導入**
+## **はじめに**
 
-データ ラベルはチャートシリーズや個々のデータ ポイントに関する情報を表示し、読者が値を特定しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフラベルの位置設定について説明します。
+データ ラベルはチャートの系列や個々のデータ ポイントに関する情報を表示し、読者が値を特定しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、そして円グラフ ラベルの位置決めについて説明します。
 
-## **チャート データ ラベルのデータ精度の設定**
+## **チャート データ ラベルのデータ精度を設定する**
 
-シリーズの値を書式設定するには、[setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) を使用します。この例では、既定のデータで折れ線グラフを作成し、データテーブルを表示し、最初のシリーズの値ラベルを有効にします。書式 `#,##0.00` は千区切りと小数点以下 2 桁を表示しますが、基になる値は変更しません。
+シリーズの値の書式設定には [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) を使用します。この例では、デフォルト データで折れ線グラフを作成し、データテーブルを表示し、最初の系列の値ラベルを有効にします。書式 `#,##0.00` は千区切りと小数点以下 2 桁を表示し、基になる値は変更されません。
 
 ```php
 use aspose\slides\Presentation;
@@ -46,9 +46,9 @@ try {
 }
 ```
 
-## **ラベルとしてパーセンテージを表示**
+## **ラベルとしてパーセンテージを表示する**
 
-積み上げ縦棒グラフの場合、各値をカテゴリ合計に対するパーセンテージに計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) が返すテキストフレームに割り当てます。この例は既定のチャート データを使用し、8 ポイント フォントで小数点以下 2 桁のパーセンテージを表示します。合計が 0 のカテゴリは除外して除算エラーを回避します。チャート データが変更された場合はカスタム ラベル テキストを再計算してください。
+積み上げ縦棒グラフの場合、各値をそのカテゴリ合計に対するパーセンテージとして計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) が返すテキスト フレームにテキストを割り当てます。この例ではデフォルトのチャート データを使用し、8 ポイントのフォントで小数点以下 2 桁のパーセンテージを表示します。合計が 0 のカテゴリはゼロ除算を防ぐためにスキップされます。チャート データが変更された場合は、カスタム ラベル テキストを再計算してください。
 
 ```php
 use aspose\slides\Presentation;
@@ -108,11 +108,11 @@ try {
 }
 ```
 
-## **チャート データ ラベルにパーセンテージ記号を設定**
+## **チャート データ ラベルにパーセンテージ記号を設定する**
 
-値が分数として格納されている場合、[setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormat) を使用してパーセンテージを表示します。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) に `false` を渡すと、ラベルの書式を元セルとは独立させて適用できます。
+値が分数として格納されている場合は、[setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) を使用してパーセンテージを表示します。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) に `false` を渡すと、ラベルの書式をソース セルとは独立して適用できます。
 
-この例では、4 つのカテゴリにわたる赤と青のシリーズで 100% 積み上げ縦棒グラフを作成します。各ペアの値は合計で 1 になります。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下 2 桁を使用します。両シリーズとも白色の 10 ポイント ラベル テキストを使用します。
+この例では、4 つのカテゴリにわたる赤と青の系列を持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値の合計は 1 です。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下 2 桁を使用します。両方の系列は白色で 10 ポイントのラベル テキストを使用します。
 
 ```php
 use aspose\slides\Presentation;
@@ -170,9 +170,9 @@ try {
 }
 ```
 
-## **データ ラベルの実際のテキストを取得**
+## **データ ラベルの実際のテキストを取得する**
 
-[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) を使用して、データ ラベルの設定から生成されたテキストを取得します。レポート用ラベル抽出、プレゼンテーション内容検索、生成チャートの検証に便利です。下の例では、既定の[data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) がカテゴリ名、シリーズ名、値を組み合わせます。あるポイントは値をパーセンテージとして書式設定し、別のポイントは[getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) から取得したカスタム テキストを使用します。
+[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) を使用して、データ ラベルの設定によって生成されたテキストを取得します。これは、レポート用にラベルを抽出したり、プレゼンテーション コンテンツを検索したり、生成されたチャートを検証したりする際に便利です。以下の例では、デフォルトの [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) が各カテゴリ名、系列名、値を組み合わせます。あるポイントは値をパーセンテージとして書式設定し、別のポイントは [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) から取得したカスタム テキストを使用します。
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +236,15 @@ try {
 }
 ```
 
-データ ポイントに格納されている数値は `0.75` のままです。ラベルが `75%` とカテゴリ名・シリーズ名を併せて表示していても、実際の数値は変わりません。カスタム テキストは生成されたラベル テキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) はどちらの場合でも結果のラベル文字列を返します。表示されているラベルだけを抽出したい場合は、上記のように [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#isVisible) を別途確認してください。
+データ ポイントに格納されている数値は `0.75` のままで、ラベルがカテゴリ名と系列名と共に `75%` を表示していても変わりません。カスタム テキストは生成されたラベル テキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) はどちらの場合でも結果のラベル文字列を返します。表示されているラベルだけを抽出したい場合は、上記のように [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) を別途確認してください。
 
-## **軸の最大値を超えるデータ ラベルの制御**
+## **軸の最大値を超えるデータ ラベルを制御する**
 
-軸範囲を手動で制限すると、一部のデータ ポイントが最大値を超えることがあります。[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) を使用して、これらのデータ ラベルを表示するかどうかを制御します。この設定はラベルの可視性を変更しますが、軸範囲や基になるデータ値は変更しません。
+軸の範囲を手動で制限すると、一部のデータ ポイントが最大値を超えることがあります。[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) を使用して、これらのデータ ラベルを表示するかどうかを制御します。この設定はラベルの可視性を変更しますが、軸の範囲や基になるデータ値は変更しません。
 
-以下の例は、60 と 120 の値を持つ 2D クラスタ化縦棒グラフを作成します。[setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setAutomaticMaxValue) に `false` を渡し、縦軸の最大値を [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setMaxValue) で 100 に設定します。最初のスライドは最大値を超えるラベルを許可し、コピーしたスライドはそれを無効にします。両スライドは `DataLabelsOverMaximum.pptx` に保存されます。
+以下の例では、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。[setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) に `false` を渡し、縦軸の最大値を [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) で 100 に設定します。最初のスライドは最大値を超えるラベルを許可し、そのコピーはラベルを無効にします。両方のスライドは `DataLabelsOverMaximum.pptx` に保存されます。
 
-[setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) で値ラベルを有効にします。チャート レベルの設定だけでは個別ラベルの表示が自動的に有効になるわけでも、無効化されたラベルの表示を上書きするわけでもありません。この例ではシリーズ全体の値を有効にし、[setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setPosition) を使用して各列の外側端にラベルを配置します。
+[setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) で値ラベルを有効にします。チャート レベルの設定だけでは値の表示は有効にならず、個々のラベルで無効になっている値表示を上書きもしません。この例では、シリーズ全体の値を有効にし、[setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) を使用して各列の外側端にラベルを配置します。
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +296,19 @@ try {
 }
 ```
 
-以下の画像は Microsoft PowerPoint でレンダリングした保存済みスライドを示しています。`true` の場合、ラベル **120** が上端境界に表示され、`false` の場合は非表示になります。ラベル **60** は常に表示され、軸の最大値は **100** のままで、2 番目のデータ ポイントは両方の場合で **120** のままです。
+以下の画像は、Microsoft PowerPoint でレンダリングされた保存済みスライドを示しています。`true` の場合、ラベル **120** が上部境界に表示されますが、`false` の場合は非表示になります。ラベル **60** は表示されたままで、軸の最大値は **100** のまま、2 番目のデータ ポイントはどちらの場合でも **120** のままです。
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![軸最大値が 100 のときに値ラベル 120 を表示する PowerPoint チャート](data-labels-over-maximum-true.png) | ![軸最大値が 100 のときに値ラベル 120 を非表示にする PowerPoint チャート](data-labels-over-maximum-false.png) |
+| ![軸の最大値が 100 のときに値ラベル 120 を表示する PowerPoint のチャート](data-labels-over-maximum-true.png) | ![軸の最大値が 100 のときに値ラベル 120 を非表示にする PowerPoint のチャート](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-この例は値軸を持つ 2D 縦棒グラフを使用しています。値軸を持たない円グラフやドーナツ グラフなどは、ここで制限できる軸の最大値がありません。
+この例は、値軸を持つ 2D 縦棒チャートを使用しています。円グラフやドーナツ グラフのように値軸がないチャートは、この方法で軸の最大値を制限できません。
 {{% /alert %}}
 
-## **軸からのラベル間隔の設定**
+## **軸からのラベル距離を設定する**
 
-[setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setLabelOffset) を使用して、カテゴリ軸ラベルと軸の間隔を制御します。値は軸ラベルの最大フォントサイズに対するパーセンテージです。この例はクラスタ化縦棒グラフを作成し、水平軸ラベルのオフセットを 500 に設定します。この設定は個々のデータ ポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
+[setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) を使用して、カテゴリ軸ラベルと軸との距離を制御します。値は軸ラベルの最大フォント サイズのパーセンテージです。この例では、クラスタ化縦棒チャートを作成し、水平軸ラベルのオフセットを 500 に設定します。この設定は個々のデータ ポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
 
 ```php
 use aspose\slides\Presentation;
@@ -328,11 +328,11 @@ try {
 }
 ```
 
-## **ラベルの位置調整**
+## **ラベルの位置を調整する**
 
-円グラフでは、ラベルの位置を調整して間隔を確保し、リーダー ラインの余裕を作ります。
+円グラフでは、データ ラベルの位置を調整して間隔を改善し、リーダーラインのスペースを確保します。
 
-この例は最初のデータ ポイントの値を表示し、ラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) と [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) を使用して水平・垂直オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対値です。
+この例では、最初のデータ ポイントの値を表示し、ラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) と [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) を使用して水平および垂直オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対値です。
 
 ```php
 use aspose\slides\Presentation;
@@ -359,13 +359,70 @@ try {
 }
 ```
 
-![調整されたデータ ラベル位置を持つ円グラフ](pie-chart-adjusted-label.png)
+![ラベル位置を調整した円グラフ](pie-chart-adjusted-label.png)
 
-## **列チャートの上に複数行のデータ ラベルを追加**
+## **リーダーラインの書式設定**
 
-この例では、プロット領域の上に 2 行のデータ ラベルを持つ列チャートを作成します。Series A は可視列を表示し、Series B と Series C が追加ラベルを提供します。これらの列は塗りつぶしとアウトラインを削除して非表示にします。[ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) メソッドにより、3 つのシリーズすべてが同じカテゴリ中心に揃えられます。
+円グラフのラベルがスライスの外側にある場合、リーダーラインは各値を正しいスライスに結び付けるのに役立ちます。対照的な色とやや太めの線にすると接続が分かりやすくなり、透明度と破線スタイルにすると線が視覚的に目立ちすぎません。
 
-[ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) の設定でラベル行のスペースを確保します。[Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#validateChartLayout) がデフォルト位置を計算した後、[DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) と [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) が水平位置を保持し、垂直オフセットを適用してラベルを 2 行に配置します。数値はシリーズ値にリンクしたデータ ラベルのままで、行見出しだけが別のテキスト シェイプです。
+[getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) を使用して、系列のデータ ラベル コレクション レベルでリーダーラインの書式設定を行います。`$series->getLabels()->getLeaderLinesFormat()->getLine()` の設定は個々のラベルではなくコレクション全体に適用されます。
+
+この例では、デフォルト データの円グラフを作成し、スライスの外側に値を表示し、[setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/) を有効にします。[setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) と [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) のオフセットを使用して、2 つのラベルをスライスからより遠くに移動させます。オフセットはチャートの幅と高さの比率で表されます。入力プレゼンテーションは必要ありません。
+
+線の [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) は、255 のうち 191 のアルファ値を持つ単色の青を設定し、約 25% の透明度になります。[setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) で太さを 2 ポイントに設定し、[setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) で線を破線にします。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\FillType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 80, 50, 560, 400);
+    $chart->setLegend(false);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+    $labelFormat->setShowValue(true);
+    $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
+    $labelFormat->setShowLeaderLines(true);
+
+    // 2 つのラベルをスライスから離して遠くに移動します。
+    $series->getLabels()->get_Item(0)->setX(0.10);
+    $series->getLabels()->get_Item(0)->setY(-0.05);
+    $series->getLabels()->get_Item(1)->setX(-0.10);
+    $series->getLabels()->get_Item(1)->setY(0.05);
+
+    $line = $series->getLabels()->getLeaderLinesFormat()->getLine();
+    $line->getFillFormat()->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 30, 90, 160, 191);
+    $line->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+    $line->setWidth(2);
+    $line->setDashStyle(LineDashStyle::Dash);
+
+    $presentation->save("FormattedLeaderLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+リーダーラインを有効にしても、すべてのラベルに線が表示されるわけではありません。可視性はラベルの配置とチャートのレイアウト 動作に依存します。この例では、位置がずれた 2 つのラベルには可視なリーダーラインがあり、スライスに近いラベルには不要です。
+
+以下の画像は、Aspose.Slides でレンダリングされた保存済み `FormattedLeaderLines.pptx` を示しています：
+
+![外側ラベル 2つをスライスに接続する青色の半透明破線リーダーラインを持つ円グラフ](formatted-leader-lines.png)
+
+## **縦棒チャート上部に複数行のデータ ラベルを追加する**
+
+この例では、プロット領域の上部に 2 行のデータ ラベルを持つ縦棒チャートを作成します。Series A は可視列を表示し、Series B と Series C は追加ラベルを提供します。これらの列は塗りつぶしとアウトラインを削除して非表示にします。[ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) メソッドは、3 つの系列すべてを同じカテゴリ中心に揃えます。
+
+[ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) の設定でラベル行のスペースを確保します。[Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) がデフォルト位置を計算した後、[DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) と [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) が水平揃えを維持し、垂直オフセットを適用してラベルを 2 行に配置します。数値はシリーズ値にリンクされたデータ ラベルのままで、行見出しだけが別個のテキスト シェイプです。
 
 ```php
 use aspose\slides\Presentation;
@@ -429,14 +486,14 @@ try {
         }
     }
 
-    // 3 つのシリーズすべてを同じカテゴリ中心に揃えます。
+    // 3 つの系列すべてを同じカテゴリ中心に揃えます。
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
-    // このコンパクトな例のためにグリッド線の数を減らします。
+    // このコンパクトな例のために、目盛線の数を減らします。
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // プロット領域の上部にデータ ラベル用の 2 行分のスペースを確保します。
+    // プロット上部に 2 行分のデータ ラベル用スペースを確保します。
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -453,8 +510,8 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // デフォルトの水平位置を保ちます。Y は
-            // デフォルト ラベル位置からのオフセットで、チャートの高さの割合として表されます。
+            // デフォルトの水平位置を保持します。Y は次からのオフセットです。
+            // デフォルトのラベル位置で、チャートの高さの割合で表されます。
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
@@ -479,18 +536,18 @@ try {
 }
 ```
 
-![プロット領域の上に2行のデータ ラベルがある列チャート](multiple-rows-of-labels.png)
+![プロット領域上部に 2 行のデータ ラベルを持つ縦棒チャート](multiple-rows-of-labels.png)
 
-## **よくある質問**
+## **FAQ**
 
-**密なチャートでデータ ラベルの重なりを防ぐにはどうすればよいですか？**
+**密集したチャートでデータ ラベルが重なるのを防ぐにはどうすればよいですか？**
 
-自動ラベル配置、リーダー ライン、フォント サイズの縮小を組み合わせます。必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要なポイントのみラベルを表示します。
+自動ラベル配置、リーダーライン、フォントサイズの縮小を組み合わせます。必要に応じて、一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要なポイントにのみラベルを表示します。
 
 **ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
 
-ラベルを有効にする前にデータ ポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを適用します。
+ラベルを有効にする前にデータ ポイントをフィルタリングし、定義されたルールに従って 0、負の値、または欠損値の表示をオフにします。
 
-**PDF/画像にエクスポートするときに一貫したラベルスタイルを確保するにはどうすればよいですか？**
+**PDF/画像にエクスポートする際に一貫したラベルスタイルを保証するにはどうすればよいですか？**
 
-フォント ファミリーとサイズを明示的に設定し、レンダリング環境にフォントが存在することを確認してフォントのフォールバックを防ぎます。
+フォントファミリーとサイズを明示的に設定し、レンダリング環境にフォントが存在することを確認してフォールバックを防ぎます。

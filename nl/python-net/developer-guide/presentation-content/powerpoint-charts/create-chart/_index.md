@@ -1,6 +1,6 @@
 ---
-title: Maak of werk grafieken in PowerPoint‑presentaties bij in Python
-linktitle: Maak of werk grafieken bij
+title: Grafieken in PowerPoint-presentaties maken of bijwerken in Python
+linktitle: Grafieken maken of bijwerken
 type: docs
 weight: 10
 url: /nl/python-net/create-chart/
@@ -11,49 +11,49 @@ keywords:
 - grafiek wijzigen
 - grafiek bijwerken
 - spreidingsgrafiek
-- taartgrafiek
+- cirkeldiagram
 - lijngrafiek
 - boomkaartgrafiek
 - aandelengrafiek
-- box‑en‑whisker‑grafiek
+- box-en-whisker-grafiek
 - trechtergrafiek
-- sunburst‑grafiek
+- zonnestraalgrafiek
 - histogramgrafiek
 - radargrafiek
-- multicategorie‑grafiek
+- multicategorie-grafiek
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Maak en pas grafieken aan in PowerPoint‑presentaties met Aspose.Slides voor Python via .NET. Voeg grafieken toe, formatteer en bewerk ze met praktische code‑voorbeelden in Python."
+description: "Maak en pas grafieken aan in PowerPoint-presentaties met Aspose.Slides voor Python via .NET. Voeg grafieken toe, formatteer en bewerk ze met praktische codevoorbeelden in Python."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide handleiding voor het maken en aanpassen van grafieken met Aspose.Slides voor Python via .NET. Je leert hoe je programmatically een grafiek aan een dia toevoegt, deze vult met data en verschillende opmaakopties toepast om te voldoen aan je specifieke ontwerpeisen. Gedurende het artikel illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en grafiekobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijg je een solide inzicht in hoe je dynamische grafiekgeneratie integreert in je Python‑toepassingen, waardoor het proces van het maken van datagedreven presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide gids over hoe je grafieken maakt en aanpast met Aspose.Slides voor Python via .NET. Je leert hoe je programmatisch een grafiek aan een dia toevoegt, deze van gegevens voorziet en verschillende opmaakopties toepast om te voldoen aan je specifieke ontwerpeisen. Door het artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en grafiekobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijg je een gedegen begrip van hoe je dynamische grafiekgeneratie integreert in je Python‑applicaties, waardoor het maken van datagestuurde presentaties wordt gestroomlijnd.
 
-## **Een grafiek maken**
+## **Maak een grafiek**
 
-Grafieken helpen mensen snel data te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
+Grafieken helpen mensen snel gegevens visualiseren en inzichten verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
 
 **Waarom grafieken maken?**
 
 Met grafieken kun je:
 
-* grote hoeveelheden data aggregeren, condenseren of samenvatten op één dia in een presentatie;
-* patronen en trends in data blootleggen;
-* de richting en impuls van data in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
-* uitschieters, afwijkingen, fouten en onzinnige data opsporen;
-* complexe data communiceren of presenteren.
+* grote hoeveelheden gegevens samenvatten op één dia in een presentatie;
+* patronen en trends in gegevens blootleggen;
+* de richting en momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitschieters, afwijkingen, fouten en onzinnige gegevens opsporen;
+* complexe gegevens communiceren of presenteren.
 
-In PowerPoint kun je grafieken maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van vele grafiektype­n. Met Aspose.Slides kun je zowel reguliere grafieken (gebaseerd op populaire grafiektype­n) als aangepaste grafieken maken.
+In PowerPoint kun je grafieken maken via de *Invoegen*‑functie, die sjablonen biedt voor het ontwerpen van vele soorten grafieken. Met Aspose.Slides kun je zowel gewone grafieken (gebaseerd op populaire grafiektype­s) als aangepaste grafieken maken.
 
 {{% alert color="info" title="Note" %}}
-Gebruik de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)‑enumeratie onder de [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/)‑module. De waarden in deze enumeratie komen overeen met verschillende grafiektype­n.
+Gebruik de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) enumeratie onder de [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) module. De waarden in deze enumeratie komen overeen met verschillende grafiektype­s.
 {{% /alert %}}
 
-### **Clustered Column‑grafieken maken**
+### **Maak gegroepeerde kolomgrafieken**
 
-Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een clustered column‑grafiek te maken die twee series over drie categorieën vergelijkt. De series gebruiken rode en groene vullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkblad‑index 0 verwijst naar het eerste blad in de embedded grafiek‑werkmap.
+Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een gegroepeerde kolomgrafiek te maken die twee series vergelijkt over drie categorieën. De series gebruiken rode en groene opvullingen, en individuele labels tonen categorienamen, serienaam en waarden. Werkbladindex 0 verwijst naar het eerste blad in de ingesloten grafiekwerkmap.
 
 ```python
 import aspose.pydrawing as draw
@@ -128,20 +128,20 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De Clustered Column‑grafiek](clustered_column_chart.png)
+![De gegroepeerde kolomgrafiek](clustered_column_chart.png)
 
-### **Scatter‑grafieken maken**
+### **Maak spreidingsgrafieken**
 
-Scatter‑grafieken (ook bekend als spreidingsdiagrammen of x‑y‑grafieken) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
+Spreidingsgrafieken (ook bekend als scatter plots of x‑y‑grafieken) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
 
-Gebruik een scatter‑grafiek wanneer:
+Gebruik een spreidingsgrafiek wanneer:
 
-* je gekoppelde numerieke data hebt;
+* je gepaarde numerieke gegevens hebt;
 * je twee variabelen hebt die goed bij elkaar passen;
-* je wilt bepalen of de twee variabelen met elkaar verband houden;
+* je wilt bepalen of de twee variabelen verwant zijn;
 * je een onafhankelijke variabele hebt met meerdere waarden voor een afhankelijke variabele.
 
-Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markers, terwijl de tweede gladde lijnen met cirkel‑markers gebruikt; beide gebruiken een [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) van 10. De [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/)‑eigenschap bepaalt de vorm van de marker.
+Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markers, terwijl de tweede vloeiende lijnen met cirkel‑markers gebruikt; beide gebruiken een [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) van 10. De [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/)‑eigenschap bepaalt de vorm van de marker.
 
 ```python
 import aspose.slides as slides
@@ -203,13 +203,13 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De Scatter‑grafiek](scatter_chart.png)
+![De spreidingsgrafiek](scatter_chart.png)
 
-### **Taartgrafieken maken**
+### **Maak cirkeldiagrammen**
 
-Taartgrafieken zijn het meest geschikt om de deel‑tot‑geheel‑relatie in data weer te geven, vooral wanneer de data categorische labels met numerieke waarden bevat. Als je data echter veel delen of labels bevat, kun je beter een staafgrafiek gebruiken.
+Cirkeldiagrammen zijn het meest geschikt om de relatie deel‑tot‑geheel in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafdiagram gebruiken.
 
-Dit voorbeeld maakt een taartgrafiek met drie kwartaalwaarden. Elke slice heeft een aangepaste vulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en series‑informatie. De [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/)‑eigenschap stelt de eerste slice in op 180 graden.
+Dit voorbeeld maakt een cirkeldiagram met drie kwartaalwaarden. Elke partitie heeft een aangepaste opvulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en seriinformatie. De eigenschap [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) stelt de eerste partitie in op een starthoek van 180 graden.
 
 ```python
 import aspose.pydrawing as draw
@@ -304,13 +304,15 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De Taartgrafiek](pie_chart.png)
+![Het cirkeldiagram](pie_chart.png)
 
-### **Lijngrafieken maken**
+Om de leesbaarheid van labels buiten de cirkel te verbeteren, zie [Format Leader Lines](/slides/nl/python-net/chart-data-label/#format-leader-lines) voor een voorbeeld dat labels positioneert en de kleur, breedte, transparantie en streepstijl van de lijnen aanpast.
 
-Lijngrafieken (ook bekend als lijndiagrammen) zijn het meest geschikt wanneer je veranderingen in waarde over de tijd wilt aantonen. Met een lijngrafiek kun je grote hoeveelheden data tegelijk vergelijken, veranderingen en trends in de tijd volgen, anomalieën in dataseries accentueren, enzovoort.
+### **Maak lijngrafieken**
 
-Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een lijngrafiek te maken met de standaard series en categorieën, en slaat de presentatie op als PPTX.
+Lijngrafieken (ook bekend als lijndiagrammen) zijn het meest geschikt in situaties waarin je wijzigingen in waarde over tijd wilt aantonen. Met een lijngrafiek kun je grote hoeveelheden gegevens tegelijk vergelijken, veranderingen en trends in de loop van de tijd volgen, afwijkingen in gegevensseries accentueren, enzovoort.
+
+Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een lijngrafiek te maken met de standaard series en categorieën, waarna de presentatie als PPTX wordt opgeslagen.
 
 ```python
 import aspose.slides as slides
@@ -324,7 +326,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Standaard worden punten in een lijngrafiek verbonden door rechte doorlopende lijnen. Als je de punten liever met stippellijnen verbindt, stel je [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) in op een waarde uit [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
+Standaard worden punten in een lijngrafiek verbonden door rechte doorlopende lijnen. Als je de punten liever met streepjes wilt verbinden, stel je [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) in op een waarde uit [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
@@ -341,13 +343,13 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De Lijngrafiek](line_chart.png)
+![De lijngrafiek](line_chart.png)
 
-### **Tree‑Map‑grafieken maken**
+### **Maak boomkaartgrafieken**
 
-Tree‑Map‑grafieken zijn ideaal voor verkoopdata wanneer je de relatieve grootte van datacategorieën wilt weergeven en snel de items wilt markeren die grote bijdragers binnen elke categorie zijn.
+Boomkaartgrafieken zijn het meest geschikt voor verkoopgegevens wanneer je de relatieve grootte van categorieën wilt tonen en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
 
-Dit voorbeeld maakt een tree‑map met acht bladeren gegroepeerd in vier stammen en twee takken. De [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/)‑methode kent stammen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgroottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie aangeven.
+Dit voorbeeld maakt een boomkaart met acht bladeren gegroepeerd in vier stammen en twee takken. De methode [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgrootte, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie weergeven.
 
 ```python
 import aspose.slides as slides
@@ -422,26 +424,26 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De Treemap‑grafiek](treemap_chart.png)
+![De boomkaartgrafiek](treemap_chart.png)
 
-### **Waterval‑grafieken maken**
+### **Maak watervalgrafieken**
 
-Een waterval‑grafiek toont hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winst­analyse kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Verandermarkeringen zweven tussen de vorige en nieuwe tussenwaarden, terwijl totalen van nul tot de geaccumuleerde waarde lopen.
+Een watervalgrafiek toont hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winst‑analyse kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderingskolommen zweven tussen de vorige en de nieuwe tussenliggende waarden, terwijl totaal‑kolommen lopen van nul tot de opgetelde waarde.
 
 Het volgende voorbeeld gebruikt bedragen in duizenden Amerikaanse dollars:
 
 | Categorie | Werkbladwaarde | Kolomtype |
 | --- | ---: | --- |
 | Omzet | 1000 | Toename |
-| Kosten van de verkoop | -400 | Afname |
-| Brutowinst | 600 | Tussentotaal |
-| Bedrijfskosten | -200 | Afname |
-| Andere inkomsten | 50 | Toename |
-| Nettowinst | 450 | Eindtotaal |
+| Kostprijs van de omzet | -400 | Aftrek |
+| Bruto winst | 600 | Tussentotaal |
+| Operationele kosten | -200 | Aftrek |
+| Overige inkomsten | 50 | Toename |
+| Netto winst | 450 | Eindtotaal |
 
-Om een punt te markeren als een tussentotaal of eindtotaal, stel je de [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/)‑eigenschap in op `True`. Geef het werkbladcellen‑bedrag op: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De eigenschap markeert de kolom als een totaal; hij berekent of vult de celwaarde niet. Gebruik geen nul als placeholder en voeg geen andere wijziging toe voor een totaalpunt. Een totaalkolom toont de geaccumuleerde waarde zonder die opnieuw bij de tussenwaarde op te tellen.
+Om een punt te markeren als een tussentotaal of eindtotaal, stel je de eigenschap [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) in op `True`. Lever de werkelijke opgetelde hoeveelheid in de werkbladcel van dat punt: `600` voor bruto winst (`1000 - 400`) en `450` voor netto winst (`600 - 200 + 50`). De eigenschap markeert de kolom als een totaal; hij berekent of vult de celwaarde niet in. Gebruik geen nul als tijdelijke placeholder en lever geen andere wijziging voor een totaalpunt. Een totaal‑kolom toont de opgetelde waarde zonder deze opnieuw bij de lopende waarde op te tellen.
 
-Deze volledige C#‑voorbeeld maakt een grafiek met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), wist de standaard data en vult de embedded werkmap. Werkblad‑index `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B waarden. Elke waardecel wordt toegevoegd met [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk het tussentotaal en eindtotaal. Het inschakelen van [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) toont de bedragen op de kolommen. Er is geen invoer‑presentatie of werkmap nodig.
+Dit volledige C#‑voorbeeld maakt een grafiek met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), wist de standaardgegevens en vult de ingesloten werkmap. Werkbladindex `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk het tussentotaal en het eindtotaal. Het inschakelen van [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) toont de bedragen op de kolommen. Er is geen invoerpresentatie of werkmap vereist.
 
 ```python
 import aspose.slides as slides
@@ -476,7 +478,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
         series.data_points.add_data_point_for_waterfall_series(value_cell)
 
-    # De derde en zesde punten zijn totalen, geen extra wijzigingen.
+    # Het derde en zesde punt staan voor totalen, niet voor extra wijzigingen.
     series.data_points[2].set_as_total = True
     series.data_points[5].set_as_total = True
     series.show_connector_lines = True
@@ -485,17 +487,17 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Stel de series‑niveau‑[show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/)‑eigenschap in op `True` om lijnen tussen opeenvolgende kolommen te tonen en de tussenwaarde beter traceerbaar te maken. Om deze lijnen te verbergen, vervang je de toewijzing in het voorbeeld door `series.show_connector_lines = False` vóór het opslaan. Dit verandert alleen de zichtbaarheid van de lijnen, niet de data of totalen.
+Stel de series‑specifieke eigenschap [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) in op `True` om lijnen te tonen die opeenvolgende kolommen verbinden en de voortschrijdende waarde makkelijker te volgen maken. Om deze lijnen te verbergen, vervang je de toewijzing in het voorbeeld door `series.show_connector_lines = False` vóór het opslaan. Dit wijzigt alleen de zichtbaarheid van de lijnen, niet de data of totalen.
 
-De opgeslagen presentatie toont een brutowinst van 600 en een nettowinst van 450, waarbij beide totalen van nul worden getekend:
+De opgeslagen presentatie toont een bruto winst van 600 en een netto winst van 450, waarbij beide totalen vanaf nul worden getekend:
 
-![Waterval‑grafiek met omzet, kosten, brutowinst van 600 en nettowinst van 450, met waardelabels en verbindingslijnen](waterfall_chart.png)
+![Watervalgrafiek die omzet, kosten, bruto winst van 600 en netto winst van 450 toont, met waardelabels en connector‑lijnen](waterfall_chart.png)
 
-### **Aandelen‑grafieken maken**
+### **Maak aandelengrafieken**
 
-Aandelen‑grafieken worden gebruikt om financiële gegevens weer te geven, zoals open, high, low en close prijzen, en helpen markttrends en volatiliteit te analyseren. Ze bieden essentiële inzichten in de aandelenprestaties, waardoor investeerders en analisten beter onderbouwde beslissingen kunnen nemen.
+Aandelengrafieken worden gebruikt om financiële gegevens zoals openings‑, hoogste‑, laagste‑ en slotkoersen weer te geven, zodat markttrends en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in de prestaties van aandelen, wat beleggers en analisten helpt weloverwogen beslissingen te nemen.
 
-Dit voorbeeld maakt een open‑high‑low‑close‑grafiek met vier series in die volgorde en drie categorieën. De [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/)‑eigenschap activeert op‑/neer‑balken, en [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) regelt de high‑low‑lijnen die de prijsranges tonen, terwijl de individuele serielijnen en de kleinere horizontale rasterlijnen verborgen blijven.
+Dit voorbeeld maakt een open‑high‑low‑close‑grafiek met vier series in die volgorde en drie categorieën. De eigenschap [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) activeert op‑/neer‑balken, en [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) beheert de hoog‑/laag‑lijnen die de prijsbereiken tonen, terwijl de individuele series‑lijnen en kleine horizontale rasterlijnen verborgen zijn.
 
 ```python
 import aspose.slides as slides
@@ -569,13 +571,13 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De Aandelen‑grafiek](stock_chart.png)
+![De aandelengrafiek](stock_chart.png)
 
-### **Box‑en‑whisker‑grafieken maken**
+### **Maak box‑en‑whisker‑grafieken**
 
-Box‑en‑whisker‑grafieken tonen de verdeling van data door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitschieters. Ze zijn bijzonder nuttig in exploratieve data‑analyse en statistische studies om snel de variabiliteit van data te begrijpen en eventuele anomalieën te identificeren.
+Box‑en‑whisker‑grafieken worden gebruikt om de distributie van gegevens weer te geven door belangrijke statistische maten, zoals mediaan, kwartielen en mogelijke uitschieters, samen te vatten. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische studies om variabiliteit snel te begrijpen en eventuele anomalieën te identificeren.
 
-Dit voorbeeld maakt een box‑en‑whisker‑grafiek van zes waarden. De [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/)‑eigenschap kiest de exclusieve kwartiel‑berekening. Het voorbeeld activeert ook gemiddellijnen, gemiddelde‑markers, interne punten en uitscheider‑punten.
+Dit voorbeeld maakt een box‑en‑whisker‑grafiek van zes waarden. De eigenschap [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) selecteert de exclusieve kwartielberekening. Het voorbeeld zet ook mediaan‑lijnen, mediaan‑markers, interne punten en uitschieter‑punten aan.
 
 ```python
 import aspose.slides as slides
@@ -629,11 +631,11 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhisker.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Trechtergrafieken maken**
+### **Maak trechter‑grafieken**
 
-Trechtergrafieken visualiseren processen met opeenvolgende fasen, waarbij het volume data afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn bijzonder nuttig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
+Trechter‑grafieken visualiseren processen met opeenvolgende fasen, waarbij het volume gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn bijzonder handig voor het analyseren van conversieratio’s, het identificeren van knelpunten en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
 
-Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een trechtergrafiek toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaard data door zes categorieën met waarden van 50 tot 500, en slaat de bijgewerkte presentatie op. De invoer‑presentatie moet minimaal één dia bevatten.
+Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een trechter‑grafiek toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaarddata door zes categorieën en waarden variërend van 50 tot 500, en slaat vervolgens de bijgewerkte presentatie op. De invoerpresentatie moet minstens één dia bevatten.
 
 ```python
 import aspose.slides as slides
@@ -683,13 +685,13 @@ with slides.Presentation("test.pptx") as presentation:
 
 Het resultaat:
 
-![De Trechtergrafiek](funnel_chart.png)
+![De trechtergrafiek](funnel_chart.png)
 
-### **Sunburst‑grafieken maken**
+### **Maak zonnestraal‑grafieken**
 
-Sunburst‑grafieken visualiseren hiërarchische data, waarbij niveaus als concentrische ringen worden weergegeven. Ze illustreren deel‑tot‑geheel‑relaties en zijn ideaal om geneste categorieën en subcategorieën helder en compact te presenteren.
+Zonnestraal‑grafieken visualiseren hiërarchische data door niveaus als concentrische ringen weer te geven. Ze helpen de deel‑tot‑geheel‑relatie te illustreren en zijn ideaal om geneste categorieën en subcategorieën op een overzichtelijke en compacte manier weer te geven.
 
-Dit voorbeeld maakt een sunburst‑grafiek met acht bladeren gegroepeerd in vier stammen en twee takken. De [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/)‑methode kent stammen toe op groeperingsniveau 1 en takken op niveau 2. Categorielabels identificeren de segmenten en de waarden bepalen hun relatieve grootte.
+Dit voorbeeld maakt een zonnestraal‑grafiek met acht bladeren gegroepeerd in vier stammen en twee takken. De methode [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Categorielabels identificeren de segmenten, en de waarden bepalen hun relatieve grootte.
 
 ```python
 import aspose.slides as slides
@@ -762,17 +764,17 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De Sunburst‑grafiek](sunburst_chart.png)
+![De zonnestraalgrafiek](sunburst_chart.png)
 
-### **Histogram‑grafieken maken**
+### **Maak histogramgrafieken**
 
-Histogram‑grafieken tonen hoe numerieke waarden over intervallen (bins) zijn verdeeld. Voor maandelijkse rapporten over doorlooptijden van bestellingen, gebruik je dezelfde bin‑breedte en drempels om intervallen consistent te houden en verdelingen makkelijker te vergelijken.
+Histogramgrafieken tonen hoe numerieke waarden verdeeld zijn over intervallen (bins). Voor maandelijkse rapporten over doorlooptijden van orders, gebruik je dezelfde bin‑breedte en drempels om intervallen consistent te houden en distributies makkelijker te vergelijken.
 
-Stel de horizontale as‑[aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) in op een modus van [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) geldt alleen voor `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) geldt alleen voor `BY_NUMBER_OF_BINS`. Gebruik `AUTOMATIC` om de grafiek de bins te laten bepalen.
+Stel de horizontale as‑eigenschap [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) in op een modus uit [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) is alleen van toepassing bij `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) alleen bij `BY_NUMBER_OF_BINS`. Gebruik `AUTOMATIC` om de grafiek de bins zelf te laten kiezen.
 
-#### **Een vaste bin‑breedte gebruiken**
+#### **Gebruik een vaste bin‑breedte**
 
-Dit voorbeeld groepeert doorlooptijden in 10‑minuten‑intervallen, met aparte bins voor tijden ≤ 10 min en > 40 min. Schakel deze bins in met [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) en [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). Wanneer je expliciete [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/)‑ en [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/)‑drempels opgeeft, stel dan [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) en [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) in op `False`.
+Dit voorbeeld groepeert doorlooptijden in 10‑minuten‑intervallen, met aparte bins voor tijden ≤ 10 minuten en > 40 minuten. Schakel deze bins in met [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) en [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). Wanneer je expliciete [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/)‑ en [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/)‑drempels opgeeft, stel je [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) en [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) in op `False`.
 
 ```python
 import aspose.slides as slides
@@ -811,13 +813,13 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De presentatie getoond in PowerPoint geeft bin‑tellingen van **3, 4, 4, 4 en 2**. De underflow‑bin omvat `5, 10, 10`, dus de drempel is inclusief. De overflow‑bin omvat alleen `41, 50`, dus de drempel is exclusief; beide waarden gelijk aan `40` blijven in het voorgaande interval. De binnenste bins bevatten waarden groter dan hun ondergrens en kleiner of gelijk aan hun bovengrens.
+De presentatie in PowerPoint toont bin‑tellingen van **3, 4, 4, 4, en 2**. De underflow‑bin omvat `5, 10, 10`, dus de drempel is inclusief. De overflow‑bin omvat alleen `41, 50`, dus de drempel is exclusief; beide waarden gelijk aan `40` blijven in het vorige interval. De binnenste bins bevatten waarden groter dan hun ondergrens en kleiner dan of gelijk aan hun bovengrens.
 
 ![Histogram met 10‑minuten‑bins en expliciete under‑ en overflow‑drempels](histogram_bin_width.png)
 
-#### **Het aantal bins specificeren**
+#### **Specificeer het aantal bins**
 
-Voor een vaste detail‑niveau in plaats van vaste intervallen, vraag je vijf bins aan voor dezelfde data. Dit voorbeeld laat under‑ en overflow‑bins uitgeschakeld. De grafiek bepaalt de breedte vanuit het dat bereik, waardoor grenzen tussen rapporten kunnen variëren.
+Voor een vaste detailniveau in plaats van vaste intervallen, vraag je vijf bins aan voor dezelfde data. Dit voorbeeld laat under‑ en overflow‑bins uitgeschakeld. De grafiek bepaalt de breedte aan de hand van het datumbereik, waardoor grenzen tussen rapporten kunnen variëren.
 
 ```python
 import aspose.slides as slides
@@ -850,15 +852,15 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De vijf bins hebben tellen van **4, 4, 4, 4 en 1**. Vergelijk deze verdeling met het vaste‑breedte‑resultaat hierboven: de invoerwaarden zijn identiek, maar de grenzen verschillen.
+De vijf bins hebben tellen van **4, 4, 4, 4, en 1**. Vergelijk deze distributie met het resultaat van vaste breedte hierboven: de invoerwaarden zijn identiek, maar de grenzen verschillen.
 
-![Histogram met vijf bins berekend uit dezelfde data](histogram_bin_count.png)
+![Histogram met vijf bins berekend op basis van dezelfde data](histogram_bin_count.png)
 
-### **Radar‑grafieken maken**
+### **Maak radargrafieken**
 
-Radar‑grafieken visualiseren multivariate data in een tweedimensionaal format, waardoor meerdere variabelen eenvoudig tegelijk kunnen worden vergeleken. Ze zijn vooral nuttig om patronen, sterktes en zwaktes over diverse prestatie‑metrics of attributen te identificeren.
+Radargrafieken worden gebruikt om multivariate gegevens in een tweedimensionaal formaat weer te geven, waardoor meerdere variabelen tegelijk gemakkelijk te vergelijken zijn. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes over verschillende prestatie‑indicatoren of attributen te identificeren.
 
-Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een radar‑grafiek te maken met de standaard series en categorieën, en slaat de presentatie op als PPTX.
+Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een radargrafiek te maken met de standaard series en categorieën, waarna de presentatie als PPTX wordt opgeslagen.
 
 ```python
 import aspose.slides as slides
@@ -874,13 +876,13 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De Radar‑grafiek](radar_chart.png)
+![De radargrafiek](radar_chart.png)
 
-### **Multi‑categorie‑grafieken maken**
+### **Maak multi‑categorie‑grafieken**
 
-Multi‑categorie‑grafieken visualiseren data die meer dan één categorische groepering bevatten, waardoor je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn bijzonder behulpzaam bij het analyseren van trends en relaties binnen complexe, meerlagige datasets.
+Multi‑categorie‑grafieken worden gebruikt om gegevens weer te geven die meer dan één categorische groepering bevatten, zodat je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn vooral handig wanneer je trends en relaties binnen complexe, gelaagde datasets moet analyseren.
 
-Dit voorbeeld maakt een clustered column‑grafiek met acht categorieën verdeeld over vier paren. De [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/)‑methode geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor een categorische as ontstaat met zowel individuele als groepslabels.
+Dit voorbeeld maakt een gegroepeerde kolomgrafiek met acht categorieën gerangschikt in vier paren. De methode [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor een categorische as ontstaat met zowel individuele als groepslabels.
 
 ```python
 import aspose.slides as slides
@@ -948,13 +950,13 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De multi‑categorie‑grafiek](multi_category_chart.png)
+![De multi‑categoriegrafiek](multi_category_chart.png)
 
-### **Kaart‑grafieken maken**
+### **Maak kaartgrafieken**
 
-Kaart‑grafieken visualiseren geografische data door informatie aan specifieke locaties (landen, provincies, steden) te koppelen. Ze zijn zeer geschikt voor het analyseren van regionale trends, demografische data en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
+Kaartgrafieken visualiseren geografische gegevens door informatie te koppelen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische data en ruimtelijke distributies op een heldere, visueel aantrekkelijke manier.
 
-Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een kaart‑grafiek te maken met de standaard geografische data en slaat deze op voor weergave in PowerPoint.
+Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een kaartgrafiek te maken met de standaard geografische gegevens en slaat deze op voor weergave in PowerPoint.
 
 ```python
 import aspose.slides as slides
@@ -970,19 +972,19 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De Kaart‑grafiek](map_chart.png)
+![De kaartgrafiek](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft de kaart‑grafiek en de bijbehorende data correct weg, maar tekent zelf geen kaart‑grafieken: wanneer een dia met een kaart‑grafiek wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het grafiek‑gebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
+Afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft de kaartgrafiek en de bijbehorende data correct, maar tekent zelf geen kaartgrafieken: wanneer een dia met een kaartgrafiek wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het grafiekgebied blanco. Andere vormen op dezelfde dia blijven onaangetast.
 {{% /alert %}}
 
-### **Combinatie‑grafieken maken**
+### **Maak gecombineerde grafieken**
 
-Een combinatie‑grafiek (of combo‑grafiek) combineert twee of meer grafiektype­n in één diagram. Deze grafiek laat je toe om verschillen tussen twee of meer datasets te benadrukken, vergelijken of te onderzoeken, waardoor relaties tussen hen duidelijker worden.
+Een gecombineerde grafiek (of combo‑grafiek) combineert twee of meer grafiektype­s in één diagram. Deze grafiek stelt je in staat om verschillen tussen twee of meer datasets te benadrukken, te vergelijken of te onderzoeken, waardoor je relaties tussen hen kunt identificeren.
 
-![De combinatie‑grafiek](combination_chart.png)
+![De gecombineerde grafiek](combination_chart.png)
 
-Dit voorbeeld combineert twee clustered column‑series met een lijn‑serie over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) de lijn op een secundaire verticale as rechts plaatst. Helper‑functies configureren titel, legenda, as‑labels en rasterlijnen.
+Dit voorbeeld combineert twee gegroepeerde kolomseries met een lijngrafiek over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) de lijn op een secundaire verticale as rechts plaatst. Helper‑functies configureren de titel, legenda, as‑labels en rasterlijnen.
 
 ```python
 import aspose.pydrawing as draw
@@ -1130,9 +1132,9 @@ create_combo_chart()
 
 ## **Grafieken bijwerken**
 
-Aspose.Slides voor Python via .NET stelt je in staat PowerPoint‑grafieken bij te werken door grafiek‑data, opmaak en styling te wijzigen. Deze functionaliteit vereenvoudigt het up‑daten van presentaties met dynamische content en zorgt ervoor dat grafieken nauwkeurig de huidige data en visuele standaarden weergeven.
+Aspose.Slides voor Python via .NET maakt het mogelijk om PowerPoint‑grafieken bij te werken door grafiekdata, opmaak en styling aan te passen. Deze functionaliteit vereenvoudigt het up‑daten van presentaties met dynamische inhoud en zorgt ervoor dat grafieken nauwkeurig de huidige data en visuele standaarden weerspiegelen.
 
-Dit voorbeeld werkt de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie bij. Het vereist twee kolom‑series met elk drie datapunten, met categorielabels in kolom A en serienamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) om werkbladcellen te wijzigen, werkt series‑waarden bij, voegt een derde serie toe en verandert de grafiek in clustered cylinders via [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
+Dit voorbeeld werkt de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie bij. Het vereist twee kolom‑series met elk drie datapunten, met categorielabels in kolom A en serienaam in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) om werkbladcellen te wijzigen, werkt serie‑waarden bij, voegt een derde serie toe en verandert de grafiek in gegroepeerde cilinders via [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
 
 ```python
 import aspose.slides as slides
@@ -1182,13 +1184,13 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("AsposeChartModified.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Databereik voor een grafiek instellen**
+## **Gegevensbereik voor een grafiek instellen**
 
-Om het al gebruikte bereik van een bestaande grafiek te inspecteren, zie [Retrieve a Chart's Data Range](/slides/nl/python-net/chart-workbook/#retrieve-a-charts-data-range).
+Om het bereik dat al door een bestaande grafiek wordt gebruikt te inspecteren, zie [Retrieve a Chart's Data Range](/slides/nl/python-net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides voor Python via .NET biedt de flexibiliteit om een specifiek databereik uit een werkblad als bron voor de grafiek‑data te definiëren. Dit betekent dat je een gedeelte van je werkblad direct kunt koppelen aan de grafiek, waardoor je controle hebt over welke cellen bijdragen aan de series en categorieën. Hierdoor kun je je grafieken eenvoudig bijwerken en synchroniseren met de laatste data‑wijzigingen in je werkblad, zodat je PowerPoint‑presentaties altijd actuele en accurate informatie bevatten.
+Aspose.Slides voor Python via .NET biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor je grafiekdata te definiëren. Dit betekent dat je direct een deel van je werkblad kunt koppelen aan de grafiek, waardoor je bepaalt welke cellen bijdragen aan de series en categorieën. Als gevolg kun je je grafieken eenvoudig bijwerken en synchroniseren met de laatste wijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en nauwkeurige informatie weergeven.
 
-Dit voorbeeld gebruikt [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) om de gegevensbron van de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. De grafiek‑werkmap moet dat werkblad en een gevulde range bevatten met een seriekop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
+Dit voorbeeld gebruikt [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) om de gegevensbron van de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. Het grafiek‑werkboek moet dat werkblad bevatten en een gevuld bereik met een seriekop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
 
 ```python
 import aspose.slides as slides
@@ -1207,11 +1209,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("SetDataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Standaard‑markers gebruiken in grafieken**
+## **Standaard‑markers in grafieken gebruiken**
 
-Wanneer je standaard‑markers in grafieken gebruikt, krijgt elke grafiek‑serie automatisch een ander standaard‑markersymbool toegewezen.
+Wanneer je standaard‑markers in grafieken gebruikt, krijgt elke grafiekserie automatisch een ander standaard‑markersymbool toegewezen.
 
-Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een grafiek met twee lijn‑series en een legenda te maken. De [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/)‑instellingen behouden de automatisch toegewezen markersymbolen. De eerste serie bevat een negatieve waarde en een ontbrekende waarde, weergegeven als `None`, terwijl de tweede serie voor elke categorie een waarde heeft.
+Dit voorbeeld gebruikt [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) om een grafiek te maken met twee lijngrafiek‑series en een legenda. De [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/)‑instellingen behouden de automatisch toegewezen markersymbolen. De eerste serie bevat een negatieve waarde en een ontbrekende waarde, weergegeven door `None`, terwijl de tweede serie een waarde voor elke categorie heeft.
 
 ```python
 import aspose.slides as slides
@@ -1270,18 +1272,18 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Welke grafiektype­n worden ondersteund door Aspose.Slides voor Python via .NET?**
+**Welke grafiektype­s worden ondersteund door Aspose.Slides voor Python via .NET?**
 
-Aspose.Slides voor Python via .NET ondersteunt een breed scala aan grafiektype­n, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en vele andere. Deze flexibiliteit stelt je in staat het meest geschikte grafiektype voor je data‑visualisatie‑behoeften te kiezen.
+Aspose.Slides voor Python via .NET ondersteunt een breed scala aan grafiektype­s, waaronder staaf, lijn, cirkel, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat om het meest geschikte grafiektype te kiezen voor je datavisualisatiebehoeften.
 
 **Hoe voeg ik een nieuwe grafiek toe aan een dia?**
 
-Om een grafiek toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑klasse, haal je de gewenste dia op via de index en roep je vervolgens de methode aan om een grafiek toe te voegen, waarbij je het grafiektype en de start‑data opgeeft. Dit proces integreert de grafiek rechtstreeks in je presentatie.
+Om een grafiek toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑klasse, haal je de gewenste dia op via zijn index, en roep je vervolgens de methode aan om een grafiek toe te voegen, waarbij je het grafiektype en de initiële data opgeeft. Dit proces integreert de grafiek direct in je presentatie.
 
-**Hoe kan ik de weergegeven data in een grafiek bijwerken?**
+**Hoe kan ik de gegevens die in een grafiek worden weergegeven bijwerken?**
 
-Je kunt de data van een grafiek bijwerken door toegang te krijgen tot de bijbehorende data‑werkmap ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), de standaard series en categorieën te wissen, en vervolgens je eigen data toe te voegen. Hiermee kun je de grafiek programmatically vernieuwen zodat deze de nieuwste data weergeeft.
+Je kunt de gegevens van een grafiek bijwerken door toegang te krijgen tot de gegevens‑werkmap ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), eventuele standaard‑series en -categorieën te wissen, en vervolgens je eigen gegevens toe te voegen. Hiermee kun je de grafiek programmatisch vernieuwen zodat deze de nieuwste data weergeeft.
 
-**Is het mogelijk het uiterlijk van de grafiek aan te passen?**
+**Is het mogelijk om het uiterlijk van de grafiek aan te passen?**
 
-Ja, Aspose.Slides voor Python via .NET biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legendes en andere opmaakelementen wijzigen om het uiterlijk van de grafiek af te stemmen op jouw specifieke ontwerpvereisten.
+Ja, Aspose.Slides voor Python via .NET biedt uitgebreide aanpassingsmogelijkheden. Je kunt kleuren, lettertypes, labels, legenda’s en andere opmaak‑elementen wijzigen om het uiterlijk van de grafiek af te stemmen op je specifieke ontwerpvereisten.

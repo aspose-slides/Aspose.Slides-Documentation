@@ -1,5 +1,5 @@
 ---
-title: Java में PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
+title: जावा में PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
 linktitle: चार्ट बनाएं या अपडेट करें
 type: docs
 weight: 10
@@ -20,40 +20,40 @@ keywords:
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
 - रेडार चार्ट
-- मल्टीकैटेगरी चैर्ट
+- मल्टीकैटेगरी चार्ट
 - PowerPoint
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। Java में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
+description: "Aspose.Slides for Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। जावा में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides for Java का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि प्रोग्रामmatically स्लाइड में चार्ट कैसे जोड़ें, डेटा से उसे भरें, और विभिन्न फ़ॉर्मैटिंग विकल्प लागू करके अपने विशिष्ट डिज़ाइन आवश्यकताओं से मेल कराएँ। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को आरंभ करने से लेकर सीरीज़, अक्ष और लेजेंड को कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करने से आप अपने Java एप्लिकेशन में डायनेमिक चार्ट जेनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑ड्रिवेन प्रस्तुतियों का निर्माण सरल हो जाएगा।
+यह लेख Aspose.Slides for Java का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामेटिक रूप से एक स्लाइड में चार्ट जोड़ें, उसे डेटा से भरें, और आपके विशिष्ट डिज़ाइन आवश्यकताओं के अनुरूप विभिन्न फ़ॉर्मेटिंग विकल्प लागू करें। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुतिकरण और चार्ट ऑब्जेक्ट को प्रारम्भ करने से लेकर सीरीज़, अक्ष, और लेजेंड को कॉन्फ़िगर करने तक। इस मार्गदर्शिका का अनुसरण करके आप गतिशील चार्ट जनरेशन को अपने Java अनुप्रयोगों में एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑चालित प्रस्तुतियों का निर्माण सहज हो जाता है।
 
-## **चार्ट बनाएँ**
+## **एक चार्ट बनाएं**
 
-चार्ट लोगों को डेटा को शीघ्रता से दृश्य रूप में प्रस्तुत करने और ऐसी अंतर्दृष्टि प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होती।
+चार्ट लोगों को डेटा को जल्दी से दृश्यात्मक करने और ऐसे अंतर्दृष्टि प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
 
 **चार्ट क्यों बनाएं?**
 
 चार्ट का उपयोग करके आप:
 
-* बड़े पैमाने पर डेटा को एक ही स्लाइड में सारांशित, कंसॉलिडेट या संक्षिप्त कर सकते हैं;
-* डेटा में पैटर्न और ट्रेंड उजागर कर सकते हैं;
-* समय के साथ या किसी विशिष्ट माप इकाई के सापेक्ष डेटा की दिशा और गति का अनुमान लगा सकते हैं;
-* अपवाद, विचलन, त्रुटियाँ और असंगत डेटा पहचान सकते हैं;
-* जटिल डेटा को प्रभावी रूप से संप्रेषित या प्रस्तुत कर सकते हैं।
+* एक ही स्लाइड में बड़ी मात्रा में डेटा को समेकित, संक्षिप्त या सारांशित कर सकते हैं;
+* डेटा में पैटर्न और रुझानों को उजागर कर सकते हैं;
+* समय के साथ या किसी विशेष माप इकाई के संदर्भ में डेटा की दिशा और गति का अनुमान लगा सकते हैं;
+* आउटलाइनर्स, विसंगतियों, विचलनों, त्रुटियों और निरर्थक डेटा को पहचान सकते हैं;
+* जटिल डेटा को संवादात्मक या प्रस्तुत करने योग्य बना सकते हैं।
 
-PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के चार्ट टेम्पलेट का उपयोग करके चार्ट बना सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (प्रचलित चार्ट प्रकारों पर आधारित) तथा कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के चार्ट टेम्पलेट बना सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
+[ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) एनेमरेशन को [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) पैकेज में उपयोग करें। इस एनेमरेशन के मान विभिन्न चार्ट प्रकारों के अनुरूप होते हैं।
 {{% /alert %}}
 
-### **क्लस्टर्ड कॉलम चार्ट बनाएँ**
+### **क्लस्टर्ड कॉलम चार्ट बनाएं**
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके एक क्लस्टर्ड कॉलम चार्ट बनाता है जो दो सीरीज़ को तीन श्रेणियों में तुलना करता है। सीरीज़ लाल और हरे रंग से भरे गए हैं, तथा व्यक्तिगत लेबल श्रेणी नाम, सीरीज़ नाम और मान दर्शाते हैं। वर्कशीट इंडेक्स 0 एंबेडेड चार्ट वर्कबुक की पहली शीट को संदर्भित करता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके एक क्लस्टर्ड कॉलम चार्ट बनाता है जो दो सीरीज़ को तीन श्रेणियों के साथ तुलना करता है। सीरीज़ में लाल और हरे भराव का उपयोग किया गया है, और व्यक्तिगत लेबल श्रेणी नाम, सीरीज़ नाम और मान प्रदर्शित करते हैं। वर्कशीट इंडेक्स 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को दर्शाता है।
 
 ```java
 import com.aspose.slides.*;
@@ -136,18 +136,18 @@ finally
 
 ![क्लस्टर्ड कॉलम चार्ट](clustered_column_chart.png)
 
-### **स्कैटर चार्ट बनाएँ**
+### **स्कैटर चार्ट बनाएं**
 
-स्कैटर चार्ट (जिन्हें स्कैटर प्लॉट या x‑y ग्राफ़ भी कहा जाता है) का अक्सर उपयोग दो चर के बीच पैटर्न या सहसंबंध जांचने के लिए किया जाता है।
+स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ़ भी कहा जाता है) का अक्सर दो चर के बीच पैटर्न या सहसंबंध जांचने के लिए उपयोग किया जाता है।
 
-एक स्कैटर चार्ट का उपयोग तब करें जब:
+स्कैटर चार्ट का उपयोग तब करें जब:
 
-* आपके पास जोड़े हुए संख्यात्मक डेटा हों।
-* दो चर एक-दूसरे के साथ अच्छी तरह मेल खाते हों।
-* आप यह निर्धारित करना चाहते हों कि दो चर संबंधित हैं या नहीं।
-* आपके पास एक स्वतंत्र चर हो जिसके कई मान निर्भरशील चर के लिए हों।
+* आपके पास युग्मित संख्यात्मक डेटा हो;
+* दो चर एक‑दूसरे के साथ अच्छी तरह से जुड़ते हों;
+* आप निर्धारित करना चाहते हों कि दोनों चर संबंधित हैं या नहीं;
+* आपके पास एक स्वतंत्र चर हो जिसके कई मान ठीक‑ठीक एक आश्रित चर के लिए हों।
 
-यह उदाहरण दो सेट x‑y मानों को प्लॉट करता है। पहली सीरीज़ में सीधे रेखा के साथ स्टार मार्कर हैं, जबकि दूसरी में स्मूथ रेखा के साथ सर्कल मार्कर हैं; दोनों का मार्कर आकार 10 है, जिसे [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) के साथ कॉन्फ़िगर किया गया है। [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) विधि मार्कर आकार को नियंत्रित करती है।
+यह उदाहरण दो सेट x‑y मान प्लॉट करता है। पहली सीरीज़ में स्टार मार्कर्स के साथ सीधी रेखाएँ हैं, जबकि दूसरी में गोल मार्कर्स के साथ स्मूथ रेखाएँ; दोनों में मार्कर आकार 10 है, जिसे [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) के साथ कॉन्फ़िगर किया गया है। मार्कर आकार को [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) मेथड द्वारा नियंत्रित किया जाता है।
 
 ```java
 import com.aspose.slides.*;
@@ -217,11 +217,11 @@ finally
 
 ![स्कैटर चार्ट](scatter_chart.png)
 
-### **पाई चार्ट बनाएँ**
+### **पाई चार्ट बनाएं**
 
-पाई चार्ट डेटा के भाग‑से‑पूरा संबंध को दिखाने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणी लेबल वाले संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में बहुत अधिक भाग या लेबल हों, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
+पाई चार्ट डेटा में भाग‑से‑सम्पूर्ण संबंध दिखाने के लिए सर्वोत्तम होते हैं, विशेष रूप से जब डेटा में श्रेणी‑लेबल के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में बहुत अधिक भाग या लेबल हों, तो आप बार चार्ट उपयोग करने पर विचार कर सकते हैं।
 
-यह उदाहरण तीन त्रैमासिक मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस का अपना कस्टम फ़िल और बॉर्डर है, और लेबल विभिन्न संयोजन (मान, प्रतिशत, सीरीज़ जानकारी) प्रदर्शित करते हैं। [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) विधि पहले स्लाइस को 180 डिग्री पर शुरू करती है।
+यह उदाहरण तीन क्वॉर्टर मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस का कस्टम फिल और बॉर्डर है, और लेबल विभिन्न मान, प्रतिशत और सीरीज़ जानकारी के संयोजन को प्रदर्शित करते हैं। [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) मेथड पहला स्लाइस 180 डिग्री पर शुरू करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -324,11 +324,13 @@ finally
 
 ![पाई चार्ट](pie_chart.png)
 
-### **लाइन चार्ट बनाएँ**
+पाई के बाहर के लेबल की पठनीयता सुधारने के लिए, देखें [Format Leader Lines](/slides/hi/java/chart-data-label/#format-leader-lines) जिसमें लेबल को स्थान देने और लाइनों के रंग, चौड़ाई, पारदर्शिता और डैश शैली को अनुकूलित करने का उदाहरण है।
 
-लाइन चार्ट (जिन्हें लाइन ग्राफ़ भी कहा जाता है) उन परिस्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मान में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप एक ही बार में बड़ी मात्रा में डेटा की तुलना, परिवर्तन और ट्रेंड को ट्रैक, तथा डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं।
+### **लाइन चार्ट बनाएं**
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके एक लाइन चार्ट बनाता है जिसमें डिफ़ॉल्ट सीरीज़ और श्रेणियाँ हैं, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) समय के साथ मान में परिवर्तन प्रदर्शित करने के लिए सबसे उपयुक्त होते हैं। लाइन चार्ट का उपयोग करके आप बड़ी मात्रा में डेटा को एक साथ तुलना कर सकते हैं, समय के साथ परिवर्तन और प्रवृत्तियों को ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं, आदि।
+
+यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक लाइन चार्ट बनाता है, फिर प्रस्तुतिकरण को PPTX के रूप में सहेजता है।
 
 ```java
 import com.aspose.slides.*;
@@ -348,7 +350,7 @@ finally
 }
 ```
 
-डिफ़ॉल्ट रूप में, लाइन चार्ट के बिंदु सीधे सतत रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश के साथ जोड़ना चाहते हैं, तो [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) को [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) से कोई मान देकर कॉल करें:
+डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदुओं को सीधी निरंतर रेखाओं से जोड़ा जाता है। यदि आप बिंदुओं को डैश के साथ जोड़ना चाहते हैं, तो [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) को [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) के मान के साथ कॉल करें:
 
 ```java
 import com.aspose.slides.*;
@@ -375,11 +377,11 @@ finally
 
 ![लाइन चार्ट](line_chart.png)
 
-### **ट्री मैप चार्ट बनाएँ**
+### **ट्री मैप चार्ट बनाएं**
 
-ट्री मैप चार्ट उन सेल्स डेटा के लिए सबसे उपयुक्त होते हैं जहाँ आप डेटा श्रेणियों के सापेक्ष आकार दिखाना और प्रत्येक श्रेणी में बड़े योगदानकर्ता आइटम पर जल्दी से ध्यान आकर्षित करना चाहते हैं।
+ट्री मैप चार्ट बिक्री डेटा के लिए सबसे उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक श्रेणी के भीतर बड़े योगदानकर्ताओं पर जल्दी से ध्यान आकर्षित करना चाहते हैं।
 
-यह उदाहरण आठ पत्तियों को चार तनों और दो शाखाओं में समूहित करके एक ट्री मैप बनाता है। [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) विधि स्तर 1 पर तनों और स्तर 2 पर शाखाओं को असाइन करती है। मान सापेक्ष आयत आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पैरेंट लेबल पदानुक्रम को पहचानते हैं।
+यह उदाहरण चार टोकन और दो शाखाओं में समूहित आठ लीव्स के साथ एक ट्री मैप बनाता है। [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) मेथड स्तर 1 पर टोकन और स्तर 2 पर शाखाएँ असाइन करता है। मान सापेक्ष आयत आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पैरेंट लेबल पदानुक्रम को दर्शाते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -397,7 +399,7 @@ try
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // शाखा 1
+    // ब्रांच 1
     IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
     IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
@@ -413,7 +415,7 @@ try
     categoryCell = workbook.getCell(0, "C4", "Leaf4");
     chart.getChartData().getCategories().add(categoryCell);
 
-    // शाखा 2
+    // ब्रांच 2
     categoryCell = workbook.getCell(0, "C5", "Leaf5");
     leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
@@ -462,11 +464,11 @@ finally
 
 ![ट्रीमैप चार्ट](treemap_chart.png)
 
-### **वॉटरफ़ॉल चार्ट बनाएँ**
+### **वॉटरफ़ॉल चार्ट बनाएं**
 
-वॉटरफ़ॉल चार्ट दिखाते हैं कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, मुनाफ़ा ब्रेकर डाउन राजस्व से शुरू हो सकता है, लागत घटाकर, और अन्य आय जोड़कर। परिवर्तन कॉलम पिछले और नए चल रहे मानों के बीच तैरते हैं, जबकि कुल कॉलम शून्य से संचित मान तक विस्तारित होते हैं।
+वॉटरफ़ॉल चार्ट दिखाता है कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, मुनाफ़े का ब्रेकडाउन राजस्व से शुरू होकर लागत घटाने और अन्य आय जोड़ने तक हो सकता है। परिवर्तन कॉलम पिछले और नए चल रहे मानों के बीच तैरते हैं, जबकि कुल कॉलम शून्य से संचयी मान तक विस्तृत होते हैं।
 
-निम्न उदाहरण में अमेरिकी डॉलर में हजारों की मात्रा उपयोग की गई है:
+निम्नलिखित उदाहरण में अमेरिकी डॉलर के हजारों में मान उपयोग किए गए हैं:
 
 | श्रेणी | वर्कबुक मान | कॉलम प्रकार |
 | --- | ---: | --- |
@@ -477,9 +479,9 @@ finally
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-किसी बिंदु को मध्यवर्ती या अंतिम कुल के रूप में चिह्नित करने हेतु, उसके [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) को `true` रखें। उस बिंदु के workbook सेल में वास्तविक संचित मान प्रदान करें: `600` ग्रॉस प्रॉफिट (`1000 - 400`) के लिए, और `450` नेट प्रॉफिट (`600 - 200 + 50`) के लिए। यह विधि कॉलम को कुल के रूप में चिह्नित करती है; यह सेल मान की गणना नहीं करती। शून्य को प्लेसहोल्डर के रूप में न उपयोग करें या कुल बिंदु के लिए अन्य परिवर्तन न दें। कुल कॉलम संचित मान को बिना दोबारा जोड़े दिखाता है।
+बिंदु को अंतरिम या अंतिम कुल के रूप में चिन्हित करने के लिए, उसकी [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) मेथड को `true` के साथ कॉल करें। उस बिंदु की वर्कबुक सेल में वास्तविक संचयी राशि प्रदान करें: ग्रॉस प्रॉफिट के लिए `600` (`1000 - 400`) और नेट प्रॉफिट के लिए `450` (`600 - 200 + 50`)। यह मेथड कॉलम को कुल के रूप में चिह्नित करता है; यह सेल मान की गणना नहीं करता। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या कुल बिंदु के लिए कोई अन्य परिवर्तन न जोड़ें। एक कुल कॉलम संचयी मान को दिखाता है बिना उसे फिर से चल रहे मान में जोड़ें।
 
-यह पूर्ण Java उदाहरण [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) के `Waterfall` सदस्य का उपयोग करके चार्ट बनाता है, डिफ़ॉल्ट डेटा साफ़ करता है, और एंबेडेड वर्कबुक को भरता है। वर्कशीट इंडेक्स `0` पहली वर्कशीट को चुनता है; कॉलम A में श्रेणी नाम और कॉलम B में मान होते हैं। प्रत्येक मान सेल को [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) से जोड़ा गया है। शून्य‑आधारित बिंदु इंडेक्स `2` और `5` क्रमशः मध्यवर्ती और अंतिम कुल को दर्शाते हैं। [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) को `true` करने से मान कॉलम पर प्रदर्शित होते हैं। इनपुट प्रस्तुति या वर्कबुक आवश्यक नहीं है।
+यह पूर्ण Java उदाहरण [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) के `Waterfall` सदस्य का उपयोग करके चार्ट बनाता है, डिफ़ॉल्ट डेटा साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट इंडेक्स `0` पहली वर्कशीट चुनता है; कॉलम A में श्रेणी नाम और कॉलम B में मान होते हैं। प्रत्येक मान सेल को [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) से जोड़ा जाता है। शून्य‑आधारित बिंदु इंडेक्स `2` और `5` क्रमशः अंतरिम और अंतिम कुल को दर्शाते हैं। [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) को `true` करने से मान कॉलम पर दिखते हैं। इनपुट प्रस्तुति या वर्कबुक की आवश्यकता नहीं है।
 
 ```java
 import com.aspose.slides.*;
@@ -517,7 +519,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // तीसरा और छठा बिंदु कुल को दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
+    // तीसरा और छठा बिंदु कुल दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -531,17 +533,17 @@ finally
 }
 ```
 
-सीरीज़‑लेवल पर [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) को `true` करें ताकि क्रमिक कॉलम को जोड़ने वाली रेखाएँ दिखाई दें और चल रहा मान आसानी से ट्रैक हो सके। इन रेखाओं को छिपाने के लिए उदाहरण में मेथड कॉल को `series.setShowConnectorLines(false);` से बदलें और फिर सहेजें। यह केवल रेखा की दृश्यता को बदलता है, डेटा या कुल को नहीं।
+सीरीज़‑स्तर की [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) मेथड को `true` करने से क्रमागत कॉलम को जोड़ने वाली रेखाएँ दिखती हैं और चल रहा मान समझने में आसान हो जाता है। इन रेखाओं को छिपाने के लिए, उदाहरण में मेथड कॉल को `series.setShowConnectorLines(false);` से बदलें और फिर सहेजें। यह केवल रेखा की दृश्यता को बदलता है, डेटा या कुल को नहीं।
 
-सहेजी गई प्रस्तुति में ग्रॉस प्रॉफिट 600 और नेट प्रॉफिट 450 दर्शाए गए हैं, दोनों कुल शून्य से शुरू होते हैं:
+सहेजी गई प्रस्तुति में ग्रॉस प्रॉफिट 600 और नेट प्रॉफिट 450 दिखाते हैं, दोनों कुल शून्य से शुरू होते हैं:
 
-![वॉटरफ़ॉल चार्ट जिसमें राजस्व, लागत, ग्रॉस प्रॉफिट 600, और नेट प्रॉफिट 450 दिखाए गए हैं, मान लेबल और कनेक्टर लाइन्स के साथ](waterfall_chart.png)
+![वॉटरफ़ॉल चार्ट जिसमें राजस्व, लागत, 600 का ग्रॉस प्रॉफिट और 450 का नेट प्रॉफिट, मान लेबल और कनेक्टर लाइन्स के साथ दिखाए गए हैं](waterfall_chart.png)
 
-### **स्टॉक चार्ट बनाएँ**
+### **स्टॉक चार्ट बनाएं**
 
-स्टॉक चार्ट वित्तीय डेटा जैसे Open, High, Low, Close मूल्य दिखाने के लिए उपयोग होते हैं, जो बाजार रुझानों और अस्थिरता का विश्लेषण करने में मदद करते हैं। यह स्टॉक प्रदर्शन पर महत्वपूर्ण अंतर्दृष्टि प्रदान करता है, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में सहायता मिलती है।
+स्टॉक चार्ट वित्तीय डेटा जैसे ओपन, हाई, लो और क्लोज़ मूल्यों को प्रदर्शित करने के लिए उपयोग होते हैं, जिससे बाजार रुझान और अस्थिरता का विश्लेषण संभव होता है। वे स्टॉक प्रदर्शन पर महत्वपूर्ण अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
 
-यह उदाहरण चार श्रृंखला के साथ एक Open‑High‑Low‑Close चार्ट बनाता है और तीन श्रेणियाँ जोड़ता है। [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) विधि Up/Down बार सक्षम करती है, और [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) हाई‑लो रेखाओं को नियंत्रित करती है जो मूल्य रेंज दिखाती हैं, जबकि व्यक्तिगत श्रृंखला रेखाएँ और माइनर हॉरिज़ॉन्टल ग्रिडलाइन छिपे रहते हैं।
+यह उदाहरण चार सीरीज़ के साथ एक ओपन‑हाई‑लो‑क्लोज़ चार्ट बनाता है, क्रमशः तीन श्रेणियाँ। [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) मेथड अप/डाउन बार सक्षम करता है, और [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) हाई‑लो लाइन्स को नियंत्रित करता है जो मूल्य रेंज दिखाते हैं, जबकि व्यक्तिगत सीरीज़ रेखाएँ और छोटे क्षैतिज ग्रिडलाइन छिपे हुए हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -625,11 +627,11 @@ finally
 
 ![स्टॉक चार्ट](stock_chart.png)
 
-### **बॉक्स और व्हिस्कर चार्ट बनाएँ**
+### **बॉक्स और व्हिस्कर चार्ट बनाएं**
 
-बॉक्स और व्हिस्कर चार्ट डेटा वितरण को सारांशित करने के लिए प्रमुख सांख्यिकीय माप (मीडियन, क्वार्टाइल, संभावित आउट्लायर) दिखाते हैं। ये एक्सप्लोरेटरी डेटा एनालिसिस और सांख्यिकीय अध्ययनों में डेटा वैरिएबिलिटी को जल्दी समझने और किसी भी विसंगति की पहचान करने में उपयोगी होते हैं।
+बॉक्स और व्हिस्कर चार्ट डेटा वितरण को प्रमुख सांख्यिकीय माप (मध्यिका, क्वार्टाइल, संभावित आउट्लायर्स) के सारांश के रूप में प्रदर्शित करते हैं। वे अन्वेषणात्मक डेटा विश्लेषण और सांख्यिकीय अध्ययनों में डेटा की वैरिएबिलिटी को जल्दी समझने और किसी भी विसंगति की पहचान करने में विशेष रूप से उपयोगी होते हैं।
 
-यह उदाहरण छह मानों से एक बॉक्स और व्हिस्कर चार्ट बनाता है। [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) विधि एक्सक्लूसिव क्वार्टाइल गणना चुनती है। उदाहरण में mean लाइन, mean मार्कर, इनर पॉइंट और आउट्लायर पॉइंट भी सक्षम हैं।
+यह उदाहरण छह मानों से एक बॉक्स और व्हिस्कर चार्ट बनाता है। [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) मेथड एक्सक्लूसिव क्वार्टाइल गणना चुनता है। उदाहरण में औसत रेखाएँ, औसत मार्कर, आंतरिक बिंदु और आउट्लायर बिंदु भी सक्षम किए गए हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -689,11 +691,11 @@ finally
 }
 ```
 
-### **फ़नल चार्ट बनाएँ**
+### **फ़नल चार्ट बनाएं**
 
-फ़नल चार्ट प्रक्रियाओं को दृश्य बनाते हैं जहाँ क्रमिक चरणों में डेटा का आयतन घटता जाता है। ये रूपांतरण दर विश्लेषण, बॉटलनेक पहचान और बिक्री या मार्केटिंग प्रक्रियाओं की दक्षता ट्रैक करने में विशेष रूप से सहायक होते हैं।
+फ़नल चार्ट उन प्रक्रियाओं को दृश्यात्मक करने के लिए उपयोग होते हैं जिनमें क्रमबद्ध चरण होते हैं, जहाँ डेटा की मात्रा अगले चरण में कम होती जाती है। वे रूपांतरण दरों का विश्लेषण करने, बाधाओं की पहचान करने और बिक्री या मार्केटिंग प्रक्रियाओं की दक्षता को ट्रैक करने में विशेष रूप से सहायक होते हैं।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड में एक फ़नल चार्ट जोड़ता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50‑से‑500 मानों के साथ बदलता है, फिर अपडेटेड प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होना आवश्यक है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड में एक फ़नल चार्ट जोड़ता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50 से 500 तक के मानों से बदलता है, फिर अपडेटेड प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
 
 ```java
 import com.aspose.slides.*;
@@ -751,11 +753,11 @@ finally
 
 ![फ़नल चार्ट](funnel_chart.png)
 
-### **सनबर्स्ट चार्ट बनाएँ**
+### **सनबर्स्ट चार्ट बनाएं**
 
-सनबर्स्ट चार्ट पदानुक्रमित डेटा को कॉन्सेंट्रिक रिंग्स के रूप में प्रदर्शित करते हैं। ये भाग‑से‑पूरा संबंध को स्पष्ट करते हैं और नेस्टेड श्रेणियों एवं उप‑श्रेणियों को संक्षिप्त रूप में दिखाने के लिए आदर्श होते हैं।
+सनबर्स्ट चार्ट पदानुक्रमित डेटा को दृश्यात्मक करने के लिए उपयोग होते हैं, स्तरों को सम्मिलित अदर्शियों के रूप में दर्शाते हैं। वे भाग‑से‑सम्पूर्ण संबंध को स्पष्ट, संक्षिप्त प्रारूप में दर्शाते हैं और नेस्टेड श्रेणियों तथा उप‑श्रेणियों को प्रस्तुत करने के लिए आदर्श होते हैं।
 
-यह उदाहरण आठ पत्तियों को चार तनों और दो शाखाओं में समूहित करके एक सनबर्स्ट चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) विधि स्तर 1 पर तनों और स्तर 2 पर शाखाओं को असाइन करती है। श्रेणी लेबल सेगमेंट की पहचान करते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
+यह उदाहरण आठ लीव्स को चार टोकन और दो शाखाओं में समूहित करके एक सनबर्स्ट चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) मेथड स्तर 1 पर टोकन और स्तर 2 पर शाखाएँ असाइन करता है। श्रेणी लेबल से सेगमेंट पहचाने जाते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -773,7 +775,7 @@ try
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // शाखा 1
+    // ब्रांच 1
     IChartDataCell categoryCell = workbook.getCell(0, "C1", "Leaf1");
     IChartCategory leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
@@ -789,7 +791,7 @@ try
     categoryCell = workbook.getCell(0, "C4", "Leaf4");
     chart.getChartData().getCategories().add(categoryCell);
 
-    // शाखा 2
+    // ब्रांच 2
     categoryCell = workbook.getCell(0, "C5", "Leaf5");
     leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
@@ -836,15 +838,15 @@ finally
 
 ![सनबर्स्ट चार्ट](sunburst_chart.png)
 
-### **हिस्टोग्राम चार्ट बनाएँ**
+### **हिस्टोग्राम चार्ट बनाएं**
 
-हिस्टोग्राम चार्ट दिखाते हैं कि संख्यात्मक मान अंतराल (बिन) में कैसे वितरित हैं। मासिक आदेश प्रोसेसिंग समय रिपोर्ट के लिए समान बिन चौड़ाई और थ्रेशहोल्ड उपयोग करें ताकि अंतराल सुसंगत रहें और वितरण की तुलना आसान हो।
+हिस्टोग्राम चार्ट दिखाते हैं कि संख्यात्मक मान अंतराल (बिन) में कैसे वितरित होते हैं। मासिक ऑर्डर प्रोसेसिंग समय की रिपोर्ट में समान बिन चौड़ाई और थ्रेशहोल्ड रखकर अंतराल को स्थिर रखें, जिससे वितरण की तुलना आसान हो जाए।
 
-हॉरिज़ॉन्टल अक्ष पर [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) को [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/) के किसी मोड से कॉल करें। `ByBinWidth` के लिए केवल [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) लागू होता है; `ByNumberOfBins` के लिए केवल [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) लागू होता है। बिन चुनने के लिए `Automatic` का उपयोग करें।
+हॉरिज़ॉन्टल अक्ष पर [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) को [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/) के किसी मोड के साथ कॉल करें। `ByBinWidth` के लिए केवल [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) लागू होता है; `ByNumberOfBins` के लिए केवल [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) लागू होता है। `Automatic` का उपयोग करके चार्ट को बिन चुनने दिया जा सकता है।
 
 #### **स्थिर बिन चौड़ाई का उपयोग करें**
 
-यह उदाहरण प्रोसेसिंग समय को 10‑मिनट अंतराल में समूहित करता है, 10 मिनट या उससे कम और 40 मिनट से अधिक समय के लिए अलग बिन बनाकर। इन बिन को [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) और [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-) के साथ सक्षम करें। जब आप स्पष्ट थ्रेशहोल्ड को [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) और [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-) से सेट करते हैं, तो [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) और [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) को `false` रखें।
+यह उदाहरण प्रोसेसिंग समय को 10‑मिनट अंतराल में समूहित करता है, 10 मिनट या कम और 40 मिनट से अधिक समय के लिए अलग बिन बनाते हैं। इन बिन्स को [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) और [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-) के साथ सक्रिय करें। जब आप स्पष्ट थ्रेशहोल्ड को [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) और [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-) से परिभाषित करते हैं, तो [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) और [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) को `false` के साथ कॉल करें।
 
 ```java
 import com.aspose.slides.*;
@@ -891,13 +893,13 @@ finally
 }
 ```
 
-PowerPoint में प्रदर्शित प्रस्तुति में बिन काउंट **3, 4, 4, 4, और 2** हैं। अंडरफ़्लो बिन `5, 10, 10` को शामिल करता है, इसलिए उसका थ्रेशहोल्ड इन्क्लूसिव है। ओवरफ़्लो बिन केवल `41, 50` को शामिल करता है, इसलिए उसका थ्रेशहोल्ड एक्सक्लूसिव है; `40` के बराबर मान पूर्ववर्ती अंतराल में रहता है। आंतरिक बिन अपने लोअर बाउंडरी से बड़े और अपर बाउंडरी से छोटे या बराबर मान होते हैं।
+PowerPoint में प्रदर्शित प्रस्तुति में बिन काउंट **3, 4, 4, 4, और 2** दिखते हैं। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए इसका थ्रेशहोल्ड सम्मिलित है। ओवरफ़्लो बिन में केवल `41, 50` शामिल हैं, इसलिए इसका थ्रेशहोल्ड बहिष्कृत है; दोनों मान `40` पूर्ववर्ती अंतराल में रहते हैं। आंतरिक बिन्स का मान नीचे की सीमा से बड़ा और ऊपर की सीमा से कम या बराबर होता है।
 
-![10‑मिनट बिन और स्पष्ट अंडरफ़्लो/ओवरफ़्लो थ्रेशहोल्ड के साथ हिस्टोग्राम](histogram_bin_width.png)
+![10‑मिनट बिन और स्पष्ट अंडरफ़्लो‑ओवरफ़्लो थ्रेशहोल्ड के साथ हिस्टोग्राम](histogram_bin_width.png)
 
 #### **बिन की संख्या निर्दिष्ट करें**
 
-स्थिर बिन चौड़ाई के बजाय स्थिर विवरण स्तर के लिए, उसी डेटा पर पाँच बिन अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को अक्षम रखता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए रिपोर्ट के बीच सीमा बदल सकती है।
+स्थिर अंतराल के बजाय स्थिर विवरण स्तर के लिए, समान डेटा के लिए पाँच बिन अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को निष्क्रिय रखता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए रिपोर्टों के बीच सीमाएँ बदल सकती हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -938,15 +940,15 @@ finally
 }
 ```
 
-पाँच बिन के काउंट **4, 4, 4, 4, और 1** हैं। ऊपर के स्थिर‑चौड़ाई परिणाम से तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ अलग हैं।
+पाँच बिन का काउंट **4, 4, 4, 4, और 1** है। ऊपर के स्थिर‑चौड़ाई परिणाम से इस वितरण की तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ अलग हैं।
 
-![एक ही डेटा से गणना किए गए पाँच बिन वाले हिस्टोग्राम](histogram_bin_count.png)
+![समान डेटा से गणना किए गए पाँच बिन के साथ हिस्टोग्राम](histogram_bin_count.png)
 
-### **रेडार चार्ट बनाएँ**
+### **रेडार चार्ट बनाएं**
 
-रेडार चार्ट दो‑आयामी प्रारूप में बहु‑चर डेटा को प्रदर्शित करते हैं, जिससे कई वैरिएबल की एक साथ तुलना आसान हो जाती है। ये पैटर्न, मजबूती और कमजोरी को कई प्रदर्शन मीट्रिक या विशेषताओं के बीच पहचानने में विशेष रूप से उपयोगी होते हैं।
+रेडार चार्ट बहु‑चर डेटा को दो‑आयामी प्रारूप में प्रदर्शित करते हैं, जिससे कई चर को एक साथ आसानी से तुलना किया जा सकता है। वे विभिन्न प्रदर्शन मीट्रिक या गुणों में पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी होते हैं।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके एक रेडार चार्ट बनाता है जिसमें डिफ़ॉल्ट सीरीज़ और श्रेणियाँ हैं, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक रेडार चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
 
 ```java
 import com.aspose.slides.*;
@@ -970,11 +972,11 @@ finally
 
 ![रेडार चार्ट](radar_chart.png)
 
-### **मल्टी‑कैटेगरी चार्ट बनाएँ**
+### **मल्टी‑कैटेगरी चार्ट बनाएं**
 
-मल्टी‑कैटेगरी चार्ट ऐसे डेटा को प्रदर्शित करने के लिए उपयोग होते हैं जहाँ एक से अधिक श्रेणी समूह शामिल हों, जिससे आप कई आयामों में मानों की एक साथ तुलना कर सकें। ये जटिल, बहु‑स्तरीय डेटासेट में रुझान और संबंध विश्लेषण में विशेष रूप से सहायक होते हैं।
+मल्टी‑कैटेगरी चार्ट उन डेटा को प्रदर्शित करने के लिए उपयोग होते हैं जिनमें एक से अधिक श्रेणी समूह शामिल होते हैं, जिससे आप कई आयामों में मानों की समानांतर तुलना कर सकते हैं। वे जटिल, बहु‑स्तरीय डेटा सेट में रुझानों और संबंधों का विश्लेषण करने में विशेष रूप से सहायक होते हैं।
 
-यह उदाहरण चार्ट को आठ श्रेणियों के साथ चार जोड़े में व्यवस्थित क्लस्टर्ड कॉलम चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) प्रत्येक जोड़े को समूह स्तर 1 पर साझा लेबल देता है, जिससे व्यक्तिगत और समूह लेबल दोनों वाले श्रेणी अक्ष बनते हैं।
+यह उदाहरण चार जोड़े में व्यवस्थित आठ श्रेणियों के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) मेथड प्रत्येक जोड़े को स्तर 1 पर साझा लेबल देता है, जिससे व्यक्तिगत और समूह लेबल दोनों वाला कैटेगरी एक्सिस बनता है।
 
 ```java
 import com.aspose.slides.*;
@@ -1050,11 +1052,11 @@ finally
 
 ![मल्टी‑कैटेगरी चार्ट](multi_category_chart.png)
 
-### **मैप चार्ट बनाएँ**
+### **मैप चार्ट बनाएं**
 
-मैप चार्ट भौगोलिक डेटा को विशिष्ट स्थानों (देश, राज्य, शहरी) पर मैप करके दृश्य बनाते हैं। ये क्षेत्रीय रुझान, जनसांख्यिकीय डेटा और स्थानिक वितरण को स्पष्ट और आकर्षक रूप में विश्लेषण करने में विशेष रूप से उपयोगी होते हैं।
+मैप चार्ट भौगोलिक डेटा को देशों, राज्यों या शहरों जैसी विशिष्ट स्थानों पर मैप करके दृश्यात्मक करने के लिए उपयोग होते हैं। वे क्षेत्रीय रुझानों, जनसांख्यिकीय डेटा और स्थानिक वितरण का स्पष्ट, आकर्षक तरीके से विश्लेषण करने में विशेष रूप से उपयोगी हैं।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके एक मैप चार्ट बनाता है जिसमें डिफ़ॉल्ट भौगोलिक डेटा है, और इसे PowerPoint में देखने के लिये सहेजता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके डिफ़ॉल्ट भू‑भौतिक डेटा के साथ एक मैप चार्ट बनाता है और इसे PowerPoint में देखने हेतु सहेजता है।
 
 ```java
 import com.aspose.slides.*;
@@ -1079,16 +1081,16 @@ finally
 ![मैप चार्ट](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+ऊपर की तस्वीर में सहेजी गई प्रस्तुति PowerPoint में खुली हुई दिखती है। Aspose.Slides मैप चार्ट और उसके डेटा को सही ढंग से लिखता है, लेकिन स्वयं मैप चार्ट नहीं बनाता: जब किसी स्लाइड को छवि या PDF या SVG में परिवर्तित किया जाता है, तो चार्ट क्षेत्र खाली निकलता है। उसी स्लाइड के अन्य आकार अप्रभावित रहते हैं।
 {{% /alert %}}
 
-### **कॉम्बिनेशन चार्ट बनाएँ**
+### **कॉंबिनेशन चार्ट बनाएं**
 
-एक कॉम्बिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को संयोजित करता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या परीक्षा करने की सुविधा देता है, जिससे आप उनके बीच संबंध पहचान सकते हैं।
+कॉंबिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेटों के बीच अंतर को उजागर, तुलना या निरीक्षण करने की अनुमति देता है, जिससे उनके बीच संबंधों की पहचान आसान हो जाती है।
 
 ![कॉम्बिनेशन चार्ट](combination_chart.png)
 
-यह उदाहरण चार श्रेणियों में दो क्लस्टर्ड कॉलम सीरीज़ को एक लाइन सीरीज़ के साथ संयोजित करता है। कॉलम प्राथमिक वर्टिकल अक्ष का उपयोग करते हैं, जबकि [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) लाइन को दाएँ पर एक सेकेंडरी वर्टिकल अक्ष पर रखता है। हेल्पर फ़ंक्शन शीर्षक, लेजेंड, अक्ष लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
+यह उदाहरण चार कैटेगरी में दो क्लस्टर्ड कॉलम सीरीज़ को एक लाइन सीरीज़ के साथ जोड़ता है। कॉलम प्राथमिक वर्टिकल अक्ष का प्रयोग करते हैं, जबकि [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) लाइन को दाएँ स्थित द्वितीय वर्टिकल अक्ष पर रखता है। हेल्पर फ़ंक्शन शीर्षक, लेजेंड, अक्ष लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -1259,9 +1261,9 @@ example.createComboChart();
 
 ## **चार्ट अपडेट करें**
 
-Aspose.Slides for Java आपको चार्ट डेटा, फ़ॉर्मैटिंग और स्टाइलिंग को संशोधित करके PowerPoint चार्ट अपडेट करने की सुविधा देता है। यह फ़ंक्शनलिटी गतिशील सामग्री के साथ प्रस्तुतियों को अद्यतन रखने की प्रक्रिया को सरल बनाता है और सुनिश्चित करता है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सही ढंग से प्रतिबिंबित करें।
+Aspose.Slides for Java आपको PowerPoint चार्ट को डेटा, फ़ॉर्मेटिंग और स्टाइलिंग में परिवर्तन करके अपडेट करने की सुविधा देता है। यह सुविधा गतिशील सामग्री के साथ प्रस्तुतियों को अद्यतन रखना आसान बनाती है और सुनिश्चित करती है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सटीक रूप से दर्शाते रहें।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट को अपडेट करता है। इसमें प्रत्येक में तीन डेटा पॉइंट वाली दो कॉलम सीरीज़ आवश्यक हैं, जहाँ श्रेणी लेबल कॉलम A में और सीरीज़ नाम पहले शीट की पहली पंक्ति में होते हैं। उदाहरण [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) का उपयोग करके वर्कबुक सेल बदलता है, सीरीज़ मान अपडेट करता है, तीसरी सीरीज़ जोड़ता है, और [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) से चार्ट को क्लस्टर्ड सिलिंडर में बदलता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट को अपडेट करता है। इसमें प्रत्येक में तीन डेटा पॉइंट वाले दो कॉलम सीरीज़ की आवश्यकता होती है, जिसमें श्रेणी लेबल कॉलम A में और सीरीज़ नाम पहली शीट की पहली पंक्ति में होते हैं। उदाहरण [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) का उपयोग करके वर्कबुक सेल को बदलता है, सीरीज़ मान अपडेट करता है, तीसरी सीरीज़ जोड़ता है, और [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) के माध्यम से चार्ट को क्लस्टर्ड सिलेंडर में बदलता है।
 
 ```java
 import com.aspose.slides.*;
@@ -1325,9 +1327,9 @@ finally
 
 किसी मौजूदा चार्ट द्वारा उपयोग की गई रेंज को निरीक्षण करने के लिए देखें [Retrieve a Chart's Data Range](/slides/hi/java/chart-workbook/#retrieve-a-charts-data-range)।
 
-Aspose.Slides for Java आपको वर्कशीट से एक विशिष्ट डेटा रेंज को स्रोत के रूप में परिभाषित करने की लचीलापन देता है। इसका अर्थ है कि आप सीधे वर्कशीट के किसी हिस्से को चार्ट से मैप कर सकते हैं, जिससे आप तय कर सकते हैं कि कौन‑से सेल्स चार्ट की सीरीज़ और श्रेणियों में योगदान देंगे। परिणामस्वरूप, आप अपने चार्ट को वर्कशीट में नवीनतम डेटा परिवर्तनों के साथ आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपके PowerPoint प्रस्तुतियों में वर्तमान और सटीक जानकारी दर्शाई जा सके।
+Aspose.Slides for Java आपको वर्कशीट के किसी विशिष्ट डेटा रेंज को अपने चार्ट के डेटा स्रोत के रूप में परिभाषित करने की लचीलापन देता है। इसका अर्थ है कि आप सीधे वर्कशीट का एक भाग चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि कौन से सेल चार्ट की सीरीज़ और श्रेणियों में योगदान देते हैं। परिणामस्वरूप, आप आसानी से अपने चार्ट को नवीनतम डेटा बदलावों के साथ अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपके PowerPoint प्रस्तुतियों में वर्तमान और सटीक जानकारी बनी रहे।
 
-यह उदाहरण [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) का उपयोग करके पहली स्लाइड पर "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` सेट करता है। चार्ट वर्कबुक में वह शीट और एक पॉप्युलेटेड रेंज होना चाहिए जिसमें पहली पंक्ति में सीरीज़ हेडिंग, कॉलम A में श्रेणी लेबल, और कॉलम B में तीन मान हों।
+यह उदाहरण [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) का उपयोग करके "My chart" नामक चार्ट की डेटा स्रोत को `Sheet1!A1:B4` पर सेट करता है। चार्ट वर्कबुक में वह शीट और एक भरपूर रेंज होनी चाहिए, जिसमें पहली पंक्ति में सीरीज़ हेडिंग, कॉलम A में श्रेणी लेबल और कॉलम B में तीन मान हों।
 
 ```java
 import com.aspose.slides.*;
@@ -1358,9 +1360,9 @@ finally
 
 ## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वतः एक अलग डिफ़ॉल्ट मार्कर सिम्बल मिल जाता है।
+जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग डिफ़ॉल्ट मार्कर सिंबल मिलता है।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके दो लाइन सीरीज़ और एक लेजेंड वाला चार्ट बनाता है। [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) के द्वारा एक्सेस किए गए मार्कर सेटिंग्स स्वचालित रूप से असाइन किए गए मार्कर सिम्बल को बरकरार रखते हैं। पहली सीरीज़ में एक नकारात्मक मान और एक मिसिंग मान (`null`) है, जबकि दूसरी में प्रत्येक श्रेणी के लिए मान है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके दो लाइन सीरीज़ और एक लेजेंड वाला चार्ट बनाता है। [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) के माध्यम से एक्सेस किए गए मार्कर सेटिंग्स स्वचालित रूप से नियुक्त मार्कर सिंबल को बरकरार रखते हैं। पहली सीरीज़ में एक नकारात्मक मान और एक गायब मान (`null`) है, जबकि दूसरी में प्रत्येक श्रेणी के लिए मान मौजूद है।
 
 ```java
 import com.aspose.slides.*;
@@ -1423,20 +1425,20 @@ finally
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**Aspose.Slides for Java द्वारा कौन‑से चार्ट प्रकार समर्थित हैं?**
+**Aspose.Slides for Java कौन से चार्ट प्रकारों का समर्थन करता है?**
 
-Aspose.Slides for Java बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य सहित विस्तृत चार्ट प्रकारों का समर्थन करता है। यह लचीलापन आपको आपके डेटा विज़ुअलाइज़ेशन आवश्यकताओं के अनुरूप सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
+Aspose.Slides for Java बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और अनेक अन्य सहित विस्तृत चार्ट प्रकारों का समर्थन करता है। यह लचीलापन आपको डेटा विज़ुअलाइज़ेशन की जरूरतों के अनुसार सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
-**स्लाइड में नया चार्ट कैसे जोड़ें?**
+**मैं स्लाइड में नया चार्ट कैसे जोड़ूं?**
 
-चार्ट जोड़ने के लिए पहले आप [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसका इंडेक्स देकर प्राप्त करते हैं, और फिर चार्ट जोड़ने की मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट होते हैं। यह प्रक्रिया सीधे आपके प्रस्तुति में चार्ट को इंटीग्रेट करती है।
+एक नया चार्ट जोड़ने के लिए, सबसे पहले आप [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट प्रकार तथा प्रारम्भिक डेटा निर्दिष्ट करके चार्ट जोड़ने की मेथड को कॉल करते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत करती है।
 
-**चार्ट में प्रदर्शित डेटा को कैसे अपडेट करें?**
+**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट करूं?**
 
-आप [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) तक पहुंचकर, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और अपनी कस्टम डेटा जोड़कर चार्ट डेटा को अपडेट कर सकते हैं। इससे आप प्रोग्रामmatically चार्ट को नवीनतम डेटा के अनुसार रीफ़्रेश कर सकते हैं।
+आप चार्ट के डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)) को एक्सेस करके, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ कर, और अपना कस्टम डेटा जोड़कर चार्ट डेटा को अपडेट कर सकते हैं। यह आपको प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के साथ रिफ़्रेश करने की सुविधा देता है।
 
 **क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?**
 
-हां, Aspose.Slides for Java विस्तृत अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फ़ॉर्मैटिंग तत्वों को बदलकर चार्ट की उपस्थिति को आपके विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार ढाल सकते हैं।
+हाँ, Aspose.Slides for Java विस्तृत कस्टमाइज़ेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फ़ॉर्मेटिंग तत्वों को बदलकर चार्ट की उपस्थिति को अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार ढाल सकते हैं।

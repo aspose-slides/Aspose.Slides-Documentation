@@ -7,7 +7,7 @@ keywords:
 - gráfico
 - rótulo de dados
 - precisão de dados
-- porcentagem
+- percentual
 - distância do rótulo
 - localização do rótulo
 - PowerPoint
@@ -15,15 +15,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em apresentações PowerPoint usando JavaScript e Aspose.Slides para Node.js via Java para slides mais envolventes."
+description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em apresentações do PowerPoint usando JavaScript e Aspose.Slides para Node.js via Java para slides mais envolventes."
 ---
 ## **Introdução**
 
-Rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e compreender o gráfico. Este artigo explica como formatar valores, exibir porcentagens, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar rótulos em gráficos de pizza.
+Os rótulos de dados exibem informações sobre as séries do gráfico e os pontos de dados individuais, ajudando os leitores a identificar valores e compreender o gráfico. Este artigo explica como formatar valores, exibir percentuais, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar rótulos em gráficos de pizza.
 
-## **Definir Precisão de Dados nos Rótulos de Dados do Gráfico**
+## **Definir Precisão dos Dados nos Rótulos de Dados do Gráfico**
 
-Use [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhar e duas casas decimais sem alterar os valores subjacentes.
+Use [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) para formatar os valores das séries. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita os rótulos de valor para a primeira série. O formato `#,##0.00` exibe um separador de milhar e duas casas decimais sem alterar os valores subjacentes.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -45,9 +45,9 @@ try {
 }
 ```
 
-## **Exibir Porcentagem como Rótulos**
+## **Exibir Percentual como Rótulos**
 
-Para um gráfico de colunas empilhadas, calcule cada valor como porcentagem do total da sua categoria e atribua o texto ao quadro de texto retornado por [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Este exemplo usa os dados padrão do gráfico e exibe porcentagens com duas casas decimais em fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto personalizado do rótulo se os dados do gráfico mudarem.
+Para um gráfico de colunas empilhadas, calcule cada valor como percentual do total da sua categoria e atribua o texto ao quadro de texto retornado por [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Este exemplo usa os dados padrão do gráfico e exibe percentuais com duas casas decimais em fonte de 8 pt. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto personalizado do rótulo se os dados do gráfico mudarem.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -103,11 +103,11 @@ try {
 }
 ```
 
-## **Definir Símbolo de Porcentagem nos Rótulos de Dados do Gráfico**
+## **Definir Sinal de Percentual nos Rótulos de Dados do Gráfico**
 
-Quando os valores são armazenados como frações, use [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) para exibir porcentagens. Passe `false` para [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) para aplicar o formato do rótulo independentemente das células de origem.
+Quando os valores são armazenados como frações, use [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) para exibir percentuais. Passe `false` para [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) para aplicar o formato do rótulo independentemente das células de origem.
 
-Este exemplo cria um gráfico de colunas empilhadas 100% com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0%, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, tamanho 10 pontos.
+Este exemplo cria um gráfico de colunas empilhadas 100 % com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0 %, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, 10 pt.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,7 +165,7 @@ try {
 
 ## **Ler o Texto Real dos Rótulos de Dados**
 
-Use [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) para recuperar o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o [formato padrão de rótulo de dados](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como porcentagem, e outro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Use [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) para recuperar o texto produzido pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o [formato de rótulo de dados](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) padrão combina o nome da categoria, o nome da série e o valor. Um ponto formata seu valor como percentual e outro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -228,15 +228,15 @@ try {
 }
 ```
 
-O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo mostra `75%` juntamente com os nomes da categoria e da série. Texto personalizado substitui o texto do rótulo gerado. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) retorna a string de rótulo resultante em ambos os casos. Verifique [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
+O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo mostra `75 %` junto com os nomes da categoria e da série. Texto personalizado substitui o texto de rótulo gerado. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) retorna a string de rótulo resultante em ambos os casos. Verifique [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) separadamente, como demonstrado acima, quando desejar extrair apenas rótulos visíveis.
 
 ## **Controlar Rótulos de Dados Além do Máximo do Eixo**
 
-Quando você limita manualmente o intervalo de um eixo, alguns pontos de dados podem exceder seu máximo. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) para controlar se seus rótulos de dados são exibidos. Esta configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes dos dados.
+Quando você limita manualmente o intervalo de um eixo, alguns pontos de dados podem exceder seu máximo. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) para controlar se seus rótulos de dados são exibidos. Essa configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes.
 
 O exemplo abaixo cria um gráfico de colunas agrupadas 2D com valores 60 e 120. Ele passa `false` para [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) e define o máximo como 100 com [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) no eixo vertical. O primeiro slide permite rótulos além do máximo; uma cópia desse slide os desabilita. Ambos os slides são salvos em `DataLabelsOverMaximum.pptx`.
 
-Habilite rótulos de valor com [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). A configuração a nível de gráfico não habilita a exibição de valores por si só nem substitui a exibição de valor desabilitada de um rótulo individual. Este exemplo habilita valores para toda a série e usa [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) para posicionar os rótulos na extremidade externa de cada coluna.
+Habilite rótulos de valor com [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/). A configuração ao nível do gráfico não habilita a exibição de valores por si só nem sobrescreve a exibição desativada de um rótulo individual. Este exemplo habilita valores para toda a série e usa [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) para posicionar os rótulos na extremidade externa de cada coluna.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -285,19 +285,19 @@ try {
 }
 ```
 
-As imagens a seguir mostram os slides salvos renderizados pelo Microsoft PowerPoint. Com `true`, o rótulo **120** está visível no limite superior; com `false`, está oculto. O rótulo **60** permanece visível, o máximo do eixo permanece em **100** e o segundo ponto de dados permanece **120** em ambos os casos.
+A seguir, as imagens mostram os slides salvos renderizados pelo Microsoft PowerPoint. Com `true`, o rótulo **120** está visível no limite superior; com `false`, ele está oculto. O rótulo **60** permanece visível, o máximo do eixo permanece em **100** e o segundo ponto de dados continua **120** em ambos os casos.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![Gráfico do PowerPoint mostrando o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-true.png) | ![Gráfico do PowerPoint ocultando o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-false.png) |
+| ![Gráfico do PowerPoint exibindo o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-true.png) | ![Gráfico do PowerPoint ocultando o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Este exemplo usa um gráfico de colunas 2D com um eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não possuem um máximo de eixo para limitar dessa forma.
+Este exemplo usa um gráfico de colunas 2D com um eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não possuem um máximo de eixo a ser limitado dessa forma.
 {{% /alert %}}
 
 ## **Definir Distância do Rótulo a partir de um Eixo**
 
-Use [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Esta configuração afeta os rótulos do eixo de categorias, e não os rótulos anexados a pontos de dados individuais.
+Use [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, e não os rótulos ligados a pontos de dados individuais.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,9 +317,9 @@ try {
 
 ## **Ajustar Localização do Rótulo**
 
-Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e dar espaço às linhas de ligação.
+Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e abrir espaço para as linhas de ligação.
 
-Este exemplo exibe o valor do primeiro ponto de dados, posiciona seu rótulo fora da fatia e ajusta seus deslocamentos horizontal e vertical usando [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) e [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
+Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e ajusta seus deslocamentos horizontal e vertical usando [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) e [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -346,11 +346,64 @@ try {
 
 ![Gráfico de pizza com posição de rótulo de dados ajustada](pie-chart-adjusted-label.png)
 
+## **Formatar Linhas de Ligação**
+
+Quando os rótulos de um gráfico de pizza ficam fora das suas fatias, as linhas de ligação ajudam os leitores a associar cada valor à fatia correta. Uma cor de contraste e uma linha ligeiramente mais espessa podem tornar essas conexões mais fáceis de seguir, enquanto transparência e estilo tracejado mantêm as linhas visualmente discretas.
+
+Use [getLeaderLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getleaderlinesformat/) para formatar linhas de ligação no nível da coleção de rótulos de dados da série. As configurações em `series.getLabels().getLeaderLinesFormat().getLine()` são aplicadas à coleção, e não a um rótulo individual.
+
+Este exemplo cria um gráfico de pizza com dados padrão, exibe valores fora das fatias e habilita [setShowLeaderLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowleaderlines/). Ele move dois rótulos mais longe de suas fatias usando deslocamentos [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) e [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/), expressos como frações da largura e altura do gráfico. Nenhuma apresentação de entrada é necessária.
+
+O [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/) da linha define uma cor azul sólida com um valor alfa de 191 de 255, proporcionando aproximadamente 25 % de transparência. [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/) define a espessura para 2 pt, e [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) torna a linha tracejada.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 80, 50, 560, 400);
+    chart.setLegend(false);
+
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    const labelFormat = series.getLabels().getDefaultDataLabelFormat();
+    labelFormat.setShowValue(true);
+    labelFormat.setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
+    labelFormat.setShowLeaderLines(true);
+
+    // Mover dois rótulos mais longe de suas fatias.
+    series.getLabels().get_Item(0).setX(java.newFloat(0.10));
+    series.getLabels().get_Item(0).setY(java.newFloat(-0.05));
+    series.getLabels().get_Item(1).setX(java.newFloat(-0.10));
+    series.getLabels().get_Item(1).setY(java.newFloat(0.05));
+
+    const line = series.getLabels().getLeaderLinesFormat().getLine();
+    line.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const lineColor = java.newInstanceSync("java.awt.Color", 30, 90, 160, 191);
+    line.getFillFormat().getSolidFillColor().setColor(lineColor);
+    line.setWidth(2);
+    line.setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+
+    presentation.save("FormattedLeaderLines.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Habilitar linhas de ligação não garante que uma linha apareça para cada rótulo. A visibilidade depende da posição do rótulo e do comportamento de layout do gráfico. Neste exemplo, os dois rótulos deslocados têm linhas de ligação visíveis; os rótulos que permanecem próximos às suas fatias não precisam delas.
+
+A imagem a seguir mostra o `FormattedLeaderLines.pptx` salvo, renderizado com Aspose.Slides:
+
+![Gráfico de pizza com linhas de ligação azuis, semitransparentes e tracejadas conectando dois rótulos externos às suas fatias](formatted-leader-lines.png)
+
 ## **Adicionar Várias Linhas de Rótulos de Dados Acima de um Gráfico de Colunas**
 
-Este exemplo cria um gráfico de colunas com duas linhas de rótulos de dados acima da área de plotagem. A Série A exibe as colunas visíveis, enquanto as Séries B e C fornecem os rótulos adicionais. Suas colunas são ocultas removendo o preenchimento e o contorno. O método [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) alinha as três séries ao mesmo centro de categoria.
+Este exemplo cria um gráfico de colunas com duas linhas de rótulos de dados acima da área de plotagem. A Série A exibe as colunas visíveis, enquanto as Séries B e C fornecem os rótulos adicionais. Suas colunas são ocultas removendo o preenchimento e o contorno. O método [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) alinha as três séries nos mesmos centros de categoria.
 
-As configurações de [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) reservam espaço para as linhas de rótulos. Após [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) calcular as posições padrão, [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) e [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) preservam o alinhamento horizontal e aplicam deslocamentos verticais para dispor os rótulos em duas linhas. Os números permanecem como rótulos de dados vinculados aos valores das séries; apenas os cabeçalhos das linhas são formas de texto separadas.
+As configurações de [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) reservam espaço para as linhas de rótulos. Após [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) calcular as posições padrão, [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) e [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) preservam o alinhamento horizontal e aplicam deslocamentos verticais para organizar os rótulos em duas linhas. Os números permanecem rótulos de dados vinculados aos valores das séries; apenas os cabeçalhos das linhas são formas de texto separadas.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -425,7 +478,7 @@ try {
         for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
             // Manter a posição horizontal padrão. Y é um deslocamento de
-            // a posição padrão do rótulo, expressado como fração da altura do gráfico.
+            // a posição padrão do rótulo, expressa como fração da altura do gráfico.
             dataLabel.setX(0);
             dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
         }
@@ -453,11 +506,14 @@ try {
 
 ## **Perguntas Frequentes**
 
-**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**  
-Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para valores extremos ou pontos-chave.
+**Como posso evitar que os rótulos de dados se sobreponham em gráficos densos?**
 
-**Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**  
-Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
+Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos apenas para valores extremos ou pontos-chave.
 
-**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**  
-Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar a substituição.
+**Como posso desabilitar rótulos apenas para valores zero, negativos ou vazios?**
+
+Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores iguais a 0, valores negativos ou valores ausentes de acordo com uma regra definida.
+
+**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
+
+Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar substituição automática.

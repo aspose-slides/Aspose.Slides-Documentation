@@ -1,5 +1,5 @@
 ---
-title: एंड्रॉयड पर PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
+title: Android पर PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
 linktitle: चार्ट बनाएं या अपडेट करें
 type: docs
 weight: 10
@@ -19,42 +19,42 @@ keywords:
 - फ़नल चार्ट
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
-- रेडार चार्ट
-- मल्टीकैटेगॉरी चार्ट
+- रडार चार्ट
+- मल्टीकैटेगरी चार्ट
 - PowerPoint
 - प्रस्तुति
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। Java में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, स्वरूपित करें और संपादित करें।"
+description: "Aspose.Slides for Android via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। Java में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मेट करें और संपादित करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-यह लेख Aspose.Slides for Android via Java का उपयोग करके चार्ट बनाने और अनुकूलित करने की व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामेटिक रूप से स्लाइड में चार्ट जोड़ें, डेटा से भरें, और अपने विशिष्ट डिजाइन आवश्यकताओं के अनुसार विभिन्न फ़ॉर्मेटिंग विकल्प लागू करें। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर श्रृंखलाओं, अक्षों और लेजेंड को कॉन्फ़िगर करने तक। इस गाइड का पालन करके आप अपने Android अनुप्रयोगों में गतिशील चार्ट जनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा-चालित प्रस्तुतियों को बनाना सरल हो जाता है।
+यह लेख Aspose.Slides for Android via Java का उपयोग करके चार्ट बनाने और अनुकूलित करने के बारे में एक व्यापक गाइड प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामेटिक रूप से स्लाइड में चार्ट जोड़ें, उसे डेटा से भरें, और आपके विशेष डिज़ाइन आवश्यकताओं के अनुसार विभिन्न फ़ॉर्मेटिंग विकल्प लागू करें। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर सीरीज़, अक्ष, और लेजेंड को कॉन्फ़िगर करने तक। इस गाइड का पालन करके, आप अपने Android एप्लिकेशन में डायनेमिक चार्ट जनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑ड्रिवन प्रेज़ेंटेशन बनाना सहज हो जाएगा।
 
-## **चार्ट बनाएं**
+## **एक चार्ट बनाएं**
 
-चार्ट लोगों को शीघ्रता से डेटा को विज़ुअलाइज़ करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करता है जो टेबल या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
+चार्ट लोगों को डेटा को जल्दी से विज़ुअलाइज़ करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होतीं।
 
 **चार्ट क्यों बनाएं?**
 
 चार्ट का उपयोग करके आप:
 
-* प्रस्तुतिकरण की एक स्लाइड पर बड़ी मात्रा के डेटा को समेकित, संक्षिप्त या सारांशित कर सकते हैं;
-* डेटा में पैटर्न और रुझानों को उजागर कर सकते हैं;
+* एक ही स्लाइड में बड़ी मात्रा में डेटा को सम्मिलित, संक्षिप्त या सारांशित कर सकते हैं;
+* डेटा में पैटर्न और प्रवृत्तियों को उजागर कर सकते हैं;
 * समय के साथ या किसी विशिष्ट माप इकाई के संदर्भ में डेटा की दिशा और गति का अनुमान लगा सकते हैं;
-* अपवर्जन, विसंगतियों, त्रुटियों और अनुचित डेटा को पहचान सकते हैं;
-* जटिल डेटा को संचारित या प्रस्तुत कर सकते हैं।
+* आउट्लायर, विसंगति, विचलन, त्रुटियाँ और बेमानी डेटा को पहचान सकते हैं;
+* जटिल डेटा को प्रभावी ढंग से संवाद या प्रस्तुत कर सकते हैं।
 
-PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के चार्ट टेम्पलेट चुनकर चार्ट बना सकते हैं। Aspose.Slides का उपयोग करके आप नियमित चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के चार्ट टेम्पलेट चुनकर चार्ट बना सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
+पैकेज [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) में [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) एन्युमरेशन का उपयोग करें। इस एन्युमरेशन के मान विभिन्न चार्ट प्रकारों से मेल खाते हैं।
 {{% /alert %}}
 
-### **क्लस्टर्ड कॉलम चार्ट बनाएं**
+### **Clustered Column चार्ट बनाएं**
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके क्लस्टर्ड कॉलम चार्ट बनाता है जो तीन श्रेणियों में दो श्रृंखलाओं की तुलना करता है। श्रृंखलाओं में लाल और हरी भरणी है, और व्यक्तिगत लेबल श्रेणी नाम, श्रृंखला नाम और मान दर्शाते हैं। कार्यपत्रक सूचकांक 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को दर्शाता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके एक क्लस्टर्ड कॉलम चार्ट बनाता है जो तीन श्रेणियों में दो सीरीज़ की तुलना करता है। सीरीज़ लाल और हरे फ़िल्स का उपयोग करती हैं, और व्यक्तिगत लेबल श्रेणी नाम, सीरीज़ नाम और मान प्रदर्शित करते हैं। वर्कबुक में शिट इंडेक्स 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को संदर्भित करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -137,18 +137,18 @@ finally
 
 ![क्लस्टर्ड कॉलम चार्ट](clustered_column_chart.png)
 
-### **स्कैटर चार्ट बनाएं**
+### **Scatter चार्ट बनाएं**
 
-स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ़ भी कहा जाता है) अक्सर दो चर के बीच पैटर्न या सहसंबंध जांचने के लिए उपयोग किए जाते हैं।
+Scatter चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ भी कहा जाता है) का उपयोग अक्सर दो चर के बीच पैटर्न या सहसंबंध की जाँच के लिए किया जाता है।
 
-स्कैटर चार्ट तब उपयोग करें जब:
+Scatter चार्ट का उपयोग तब करें जब:
 
-* आपके पास युग्मित संख्यात्मक डेटा हो।
-* दो चर एक-दूसरे के साथ अच्छा मेल खाते हों।
+* आपके पास जुड़े हुए संख्यात्मक डेटा हों।
+* दो चर आपस में अच्छी तरह मेल खाते हों।
 * आप यह निर्धारित करना चाहते हों कि दो चर संबंधित हैं या नहीं।
-* आपके पास एक स्वतंत्र चर हो जिसके कई मान किसी आश्रित चर के हों।
+* आपके पास एक स्वतंत्र चर हो जिसके लिए निर्भर चर के कई मान हों।
 
-यह उदाहरण दो x‑y मान सेट प्लॉट करता है। पहली श्रृंखला में सितारा मार्कर के साथ सीधी रेखाएँ हैं, जबकि दूसरी में गोल मार्कर के साथ स्मूद रेखाएँ हैं; दोनों में मार्कर आकार 10 है, जिसे [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-) से कॉन्फ़िगर किया गया है। मार्कर आकार को [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) विधि द्वारा नियंत्रित किया जाता है।
+यह उदाहरण दो सेट x‑y मानों को प्लॉट करता है। पहली सीरीज़ में स्टार मार्कर के साथ सीधी रेखाएँ हैं, जबकि दूसरी में सर्कल मार्कर के साथ स्मूथ रेखाएँ हैं; दोनों में मार्कर आकार 10 है, जिसे [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-) द्वारा कॉन्फ़िगर किया गया है। मार्कर आकार का नियंत्रण [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) मेथड से किया जाता है।
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ finally
 
 ![स्कैटर चार्ट](scatter_chart.png)
 
-### **पाई चार्ट बनाएं**
+### **Pie चार्ट बनाएं**
 
-पाई चार्ट डेटा में भाग‑से‑सम्पूर्ण संबंध प्रदर्शित करने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणीबद्ध लेबल के साथ संख्यात्मक मान हो। हालांकि, यदि आपके डेटा में बहुत सारे भाग या लेबल हों, तो बार चार्ट पर विचार कर सकते हैं।
+Pie चार्ट का उपयोग डेटा में भाग‑से‑सम्पूर्ण संबंध दिखाने के लिए किया जाता है, विशेषकर जब डेटा में श्रेणीबद्ध लेबल और संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में बहुत सारे भाग या लेबल हों, तो बार चार्ट उपयोग करने पर विचार करें।
 
-यह उदाहरण तीन त्रैमासिक मानों के साथ पाई चार्ट बनाता है। प्रत्येक स्लाइस में कस्टम फ़िल और बॉर्डर है, और लेबल विभिन्न संयोजन (मान, प्रतिशत, श्रृंखला जानकारी) दिखाते हैं। [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) विधि पहली स्लाइस को 180 डिग्री पर शुरू करती है।
+यह उदाहरण तीन तिमाही मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस का फ़िल और बॉर्डर कस्टम है, और लेबल विभिन्न संयोजन (मान, प्रतिशत, सीरीज़ जानकारी) प्रदर्शित करते हैं। [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) मेथड पहले स्लाइस को 180 डिग्री पर शुरू करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -325,11 +325,13 @@ finally
 
 ![पाई चार्ट](pie_chart.png)
 
-### **लाइन चार्ट बनाएं**
+पाई के बाहर लेबल की पठनीयता सुधारने के लिए, देखें [Format Leader Lines](/slides/hi/androidjava/chart-data-label/#format-leader-lines) जिसमें लेबल की स्थिति और लाइनों के रंग, चौड़ाई, पारदर्शिता और डैश शैली को अनुकूलित किया गया है।
 
-लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) तब उपयुक्त होते हैं जब आप समय के साथ मान में बदलाव दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप बड़ी मात्रा के डेटा की एक साथ तुलना, समय के साथ रुझानों को ट्रैक, डेटा श्रृंखलाओं में विसंगतियों को उजागर, आदि कर सकते हैं।
+### **Line चार्ट बनाएं**
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके डिफ़ॉल्ट श्रृंखलाओं और श्रेणियों के साथ लाइन चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+Line चार्ट (जिसे लाइन ग्राफ भी कहा जाता है) का उपयोग तब किया जाता है जब आप मूल्य में समय के साथ परिवर्तन दिखाना चाहते हों। लाइन चार्ट से आप बड़ी मात्रा में डेटा की तुलना, समय के साथ रुझान को ट्रैक, डेटा सीरीज़ में असामान्यताओं को हाइलाइट आदि कर सकते हैं।
+
+यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक लाइन चार्ट बनाता है, और प्रस्तुति को PPTX के रूप में सहेजता है।
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +351,7 @@ finally
 }
 ```
 
-डिफ़ॉल्ट रूप से, लाइन चार्ट के बिंदु सीधी निरंतर रेखाओं से जुड़ते हैं। यदि आप बिंदुओं को डैश द्वारा जोड़ना चाहते हैं, तो [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) को [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) से कोई मान पास करें:
+डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदु निरंतर सीधी रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश‑स्टाइल रेखाओं से जोड़ना चाहते हैं, तो [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) को [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) के मान के साथ कॉल करें:
 
 ```java
 import com.aspose.slides.*;
@@ -376,11 +378,11 @@ finally
 
 ![लाइन चार्ट](line_chart.png)
 
-### **ट्री मैप चार्ट बनाएं**
+### **Tree Map चार्ट बनाएं**
 
-ट्री मैप चार्ट बिक्री डेटा के लिए उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना और प्रत्येक श्रेणी में बड़े योगदानकर्ता आइटमों पर जल्दी ध्यान आकर्षित करना चाहते हैं।
+Tree Map चार्ट का उपयोग बिक्री डेटा में किया जाता है जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हों और प्रत्येक श्रेणी में बड़े योगदान करने वाले आइटम को जल्दी से उजागर करना चाहते हों।
 
-यह उदाहरण आठ पत्तियों को चार स्टेम और दो ब्रांच में समूहित करके ट्री मैप बनाता है। [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) विधि स्तर 1 पर स्टेम और स्तर 2 पर ब्रांच असाइन करती है। मान सापेक्ष आयत आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलेपिंग पैरेंट लेबल पदानुक्रम दर्शाते हैं।
+यह उदाहरण आठ पत्तियों को चार स्टेम और दो शाखाओं में समूहित करके एक ट्री मैप बनाता है। [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) मेथड स्तर 1 पर स्टेम और स्तर 2 पर शाखा को असाइन करता है। मान सापेक्ष आयत आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पैरेंट लेबल श्रेणीक्रम को दर्शाते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -463,13 +465,13 @@ finally
 
 ![ट्रीमैप चार्ट](treemap_chart.png)
 
-### **वॉटरफ़ॉल चार्ट बनाएं**
+### **Waterfall चार्ट बनाएं**
 
-वॉटरफ़ॉल चार्ट दिखाता है कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, लाभ विभाजन में राजस्व से शुरू होकर लागत घटाने और अन्य आय जोड़ने तक की प्रक्रिया दिखाई जा सकती है। परिवर्तन कॉलम पिछले और नए चल रहे मानों के बीच तैरते हैं, जबकि कुल कॉलम शून्य से संचयी मान तक विस्तारित होते हैं।
+Waterfall चार्ट यह दर्शाता है कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, लाभ का विवरण राजस्व से शुरू होकर लागत घटाने और अन्य आय जोड़ने तक हो सकता है। परिवर्तन कॉलम पिछले और नए चल रहे मान के बीच तैरते हैं, जबकि कुल कॉलम शून्य से संचित मान तक विस्तारित होते हैं।
 
-निम्न उदाहरण में राशि अमेरिकी डॉलर के हजारों में दी गई है:
+नीचे示例 में अमेरिकी डॉलर में हजारों के रूप में मान उपयोग किए गए हैं:
 
-| Category | Workbook value | Column type |
+| श्रेणी | वर्कबुक मान | कॉलम प्रकार |
 | --- | ---: | --- |
 | Revenue | 1000 | Increase |
 | Cost of sales | -400 | Decrease |
@@ -478,9 +480,9 @@ finally
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-किसी बिंदु को मध्यवर्ती या अंतिम कुल के रूप में चिह्नित करने के लिए, उसके [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) को `true` सेट करें। उस बिंदु की वर्कबुक सेल में वास्तविक संचयी राशि प्रदान करें: सकल लाभ के लिए `600` (`1000 - 400`) और शुद्ध लाभ के लिए `450` (`600 - 200 + 50`)। यह विधि कॉलम को कुल के रूप में चिह्नित करती है; यह सेल मान की गणना नहीं करती। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या कुल बिंदु के लिए कोई अन्य परिवर्तन न जोड़ें। कुल कॉलम अतिरिक्त रूप से मान को जोड़े बिना संचयी मान दिखाता है।
+किसी बिंदु को मध्यवर्ती या अंतिम कुल के रूप में मार्क करने के लिए, उसके [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) मेथड को `true` के साथ कॉल करें। उस बिंदु की वर्कबुक सेल में वास्तविक संचित राशि दें: `600` ग्रॉस प्रॉफिट (`1000 - 400`) के लिए और `450` नेट प्रॉफिट (`600 - 200 + 50`) के लिए। यह मेथड कॉलम को कुल के रूप में चिह्नित करता है; यह सेल मान की गणना नहीं करता। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या कुल बिंदु के लिए कोई अन्य परिवर्तन न दें। कुल कॉलम संचित मान को दोबारा जोड़े बिना प्रदर्शित करता है।
 
-यह पूर्ण Java उदाहरण [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) के `Waterfall` सदस्य का उपयोग करके चार्ट बनाता है, डिफ़ॉल्ट डेटा साफ करता है, और एम्बेडेड वर्कबुक को भरता है। कार्यपत्रक सूचकांक `0` पहली शीट चुनता है; कॉलम A श्रेणी नाम रखता है और कॉलम B मान रखता है। प्रत्येक मान सेल को [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) से जोड़ा गया है। शून्य‑आधारित बिंदु सूचकांक `2` और `5` क्रमशः मध्यवर्ती और अंतिम कुल दर्शाते हैं। [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) को `true` सेट करने से स्तंभ पर राशि दिखती है। इनपुट प्रस्तुति या वर्कबुक आवश्यक नहीं है।
+यह पूर्ण Java उदाहरण [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) के `Waterfall` सदस्य का उपयोग करके चार्ट बनाता है, डिफ़ॉल्ट डेटा साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट इंडेक्स `0` पहली शीट चुनता है; कॉलम A में श्रेणी नाम और कॉलम B में मान होते हैं। प्रत्येक मान सेल को [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) से जोड़ा जाता है। शून्य‑आधारित बिंदु इंडेक्स `2` और `5` मध्यवर्ती तथा अंतिम कुल को पहचानते हैं। [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) को `true` करने से मान कॉलम पर दिखते हैं। कोई इनपुट प्रस्तुति या वर्कबुक आवश्यक नहीं है।
 
 ```java
 import com.aspose.slides.*;
@@ -518,7 +520,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // तीसरा और छठा बिंदु कुल को दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
+    // तीसरा और छठा बिंदु कुल दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -532,17 +534,17 @@ finally
 }
 ```
 
-श्रृंखला‑स्तर का [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) `true` करने से क्रमिक कॉलम को जोड़ने वाली रेखाएँ दिखती हैं और चल रहा मान अधिक स्पष्ट होता है। इन रेखाओं को छिपाने के लिए, उदाहरण में कॉल को `series.setShowConnectorLines(false);` से बदलें। यह केवल रेखा दृश्यता बदलता है, डेटा या कुल को नहीं।
+सीरीज़‑स्तर के [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) को `true` करने से क्रमिक कॉलम को जोड़ने वाली रेखाएँ दिखती हैं और चल रहा मान आसानी से समझ में आता है। इन रेखाओं को छिपाने के लिए, उदाहरण में मेथड कॉल को `series.setShowConnectorLines(false);` में बदलें और फिर सहेजें। यह केवल रेखा दृश्यता बदलता है, डेटा या कुल नहीं।
 
-सहेजी गई प्रस्तुति में सकल लाभ 600 और शुद्ध लाभ 450 दिखाए गए हैं, दोनों कुल शून्य से शुरू होते हैं:
+सहेजी गई प्रस्तुति में 600 का ग्रॉस प्रॉफिट और 450 का नेट प्रॉफिट दिखता है, दोनों कुल शून्य से शुरू होते हैं:
 
-![वॉटरफ़ॉल चार्ट](waterfall_chart.png)
+![Waterfall चार्ट जिसमें राजस्व, लागत, 600 का ग्रॉस प्रॉफिट और 450 का नेट प्रॉफिट, मान लेबल और कनेक्टर लाइन हैं](waterfall_chart.png)
 
-### **स्टॉक चार्ट बनाएं**
+### **Stock चार्ट बनाएं**
 
-स्टॉक चार्ट खुले, उच्च, निम्न और बंद कीमतों जैसे वित्तीय डेटा को प्रदर्शित करने के लिए उपयोग होते हैं, जिससे बाजार रुझान और अस्थिरता का विश्लेषण आसान हो जाता है। यह निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद करता है।
+Stock चार्ट का उपयोग ओपन, हाई, लो, और क्लोज कीमतों जैसे वित्तीय डेटा को प्रदर्शित करने के लिए किया जाता है, जिससे बाजार रुझान और अस्थिरता का विश्लेषण किया जा सके। यह स्टॉक प्रदर्शन में महत्वपूर्ण अंतर्दृष्टि प्रदान करता है, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
 
-यह उदाहरण चार श्रृंखला के साथ ओपन‑हाई‑लो‑क्लोज़ चार्ट बनाता है और तीन श्रेणियों को जोड़ता है। [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) मेथड अप/डाउन बार सक्षम करता है, और [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) हाई‑लो रेखाओं को नियंत्रण करता है जो मूल्य सीमा दिखाती हैं; व्यक्तिगत श्रृंखला रेखाएँ और छोटे क्षैतिज ग्रिडलाइन छिपी हैं।
+यह उदाहरण चार क्रम में चार सीरीज़ और तीन श्रेणियों के साथ एक ओपन‑हाई‑लो‑क्लोज चार्ट बनाता है। [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) मेथड अप/डाउन बार सक्षम करता है, और [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) हाई‑लो लाइनों को नियंत्रित करता है जो मूल्य रेंज दिखाते हैं, जबकि व्यक्तिगत सीरीज़ लाइनों और माइनर हॉरिज़ॉन्टल ग्रिडलाइन को छिपाया गया है।
 
 ```java
 import com.aspose.slides.*;
@@ -626,11 +628,11 @@ finally
 
 ![स्टॉक चार्ट](stock_chart.png)
 
-### **बॉक्स और व्हिस्कर चार्ट बनाएं**
+### **Box and Whisker चार्ट बनाएं**
 
-बॉक्स और व्हिस्कर चार्ट डेटा वितरण को प्रमुख सांख्यिकीय माप (मध्यमान, चतुर्थांश, संभावित अपवर्जन) के माध्यम से संक्षेपित करके प्रदर्शित करते हैं। यह अन्वेषणात्मक डेटा विश्लेषण और सांख्यिकीय अध्ययनों में डेटा विचलन को जल्दी समझने और विसंगतियों की पहचान करने में उपयोगी है।
+Box and Whisker चार्ट डेटा का वितरण प्रमुख सांख्यिकीय माप (जैसे मीडियन, क्वार्टाइल, संभावित आउट्लायर) का सारांश देकर दिखाते हैं। यह खोजपरक डेटा विश्लेषण और सांख्यिकीय अध्ययन में डेटा की विविधता को जल्दी समझने और किसी भी विसंगति की पहचान करने में उपयोगी है।
 
-यह उदाहरण छह मानों से बॉक्स और व्हिस्कर चार्ट बनाता है। [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) मेथड विशिष्ट चतुर्थांश गणना चुनता है। उदाहरण में औसत रेखाएँ, औसत मार्कर, भीतरी बिंदु और अपवर्जन बिंदु भी सक्षम हैं।
+यह उदाहरण छह मानों से एक बॉक्स और व्हिस्कर चार्ट बनाता है। [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) मेथड एक्सक्लूसिव क्वार्टाइल गणना चुनता है। उदाहरण में माध्य रेखाएँ, माध्य मार्कर, आंतरिक बिंदु, और आउट्लायर बिंदु भी सक्रिय किए गए हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -690,11 +692,11 @@ finally
 }
 ```
 
-### **फ़नल चार्ट बनाएं**
+### **Funnel चार्ट बनाएं**
 
-फ़नल चार्ट क्रमिक चरणों वाली प्रक्रियाओं को विज़ुअलाइज़ करने के लिए उपयोग होते हैं, जहाँ डेटा की मात्रा प्रत्येक चरण के साथ घटती है। यह रूपांतरण दरों का विश्लेषण, बाधाओं की पहचान, और बिक्री अथवा मार्केटिंग प्रक्रियाओं की दक्षता ट्रैक करने में मदद करता है।
+Funnel चार्ट का उपयोग क्रमबद्ध चरणों वाले प्रक्रियाओं को विज़ुअलाइज़ करने के लिए किया जाता है, जहाँ डेटा की मात्रा प्रत्येक अगले चरण में घटती जाती है। यह रूपांतरण दर विश्लेषण, बाधाओं की पहचान, और बिक्री या मार्केटिंग प्रक्रियाओं की दक्षता ट्रैक करने में विशेष रूप से सहायक है।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके फ़नल चार्ट जोड़ता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50‑500 मानों के साथ बदलता है और अद्यतन प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके एक फ़नल चार्ट जोड़ता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50‑500 के मानों से बदलता है, फिर अपडेटेड प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होना आवश्यक है।
 
 ```java
 import com.aspose.slides.*;
@@ -752,11 +754,11 @@ finally
 
 ![फ़नल चार्ट](funnel_chart.png)
 
-### **सनबर्स्ट चार्ट बनाएं**
+### **Sunburst चार्ट बनाएं**
 
-सनबर्स्ट चार्ट पदानुक्रमित डेटा को प्रदर्शित करने के लिए उपयोग होते हैं, जिसमें स्तरों को केंद्रित वलयों के रूप में दिखाया जाता है। यह भाग‑से‑सम्पूर्ण संबंधों को स्पष्ट, सघन रूप में दर्शाता है और नेस्टेड श्रेणियों एवं उप‑श्रेणियों के लिए उपयुक्त है।
+Sunburst चार्ट पदानुक्रमित डेटा को विज़ुअलाइज़ करने के लिए उपयोग किया जाता है, जहाँ स्तरों को आधी‑परिधि वाले वृतों के रूप में प्रदर्शित किया जाता है। यह भाग‑से‑सम्पूर्ण संबंधों को दर्शाता है और नेस्टेड श्रेणियों एवं उप‑श्रेणियों को स्पष्ट, संक्षिप्त रूप में प्रस्तुत करने के लिए आदर्श है।
 
-यह उदाहरण आठ पत्तियों को चार स्टेम और दो ब्रांच में समूहित करके सनबर्स्ट चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) विधि स्तर 1 पर स्टेम और स्तर 2 पर ब्रांच असाइन करती है। श्रेणी लेबल खंडों को पहचानते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
+यह उदाहरण आठ पत्तियों को चार स्टेम और दो शाखाओं में समूहित करके एक सनबर्स्ट चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) मेथड स्तर 1 पर स्टेम और स्तर 2 पर शाखा को असाइन करता है। श्रेणी लेबल सेगमेंट को पहचानते हैं, और मान उनकी सापेक्ष आकार निर्धारित करते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -837,15 +839,15 @@ finally
 
 ![सनबर्स्ट चार्ट](sunburst_chart.png)
 
-### **हिस्टोग्राम चार्ट बनाएं**
+### **Histogram चार्ट बनाएं**
 
-हिस्टोग्राम चार्ट दिखाता है कि संख्यात्मक मान अंतराल (बिन) में कैसे वितरित होते हैं। मासिक रिपोर्ट में ऑर्डर प्रोसेसिंग समय के लिए समान बिन चौड़ाई और थ्रेशहोल्ड रखकर अंतराल स्थिर रख सकते हैं और वितरण की तुलना आसान बनाते हैं।
+Histogram चार्ट यह दर्शाते हैं कि संख्यात्मक मान अंतराल (बिन) में कैसे वितरित होते हैं। मासिक रिपोर्टों में ऑर्डर प्रोसेसिंग समय को समान बिन चौड़ाई और थ्रेशहोल्ड के साथ रखना उपयोगी होता है, जिससे अंतराल सुसंगत रहते हैं और वितरण की तुलना आसान होती है।
 
-हॉरिज़ॉन्टल अक्ष पर [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) को [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/) के किसी मोड से सेट करें। `ByBinWidth` के लिए केवल [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) लागू होता है; `ByNumberOfBins` के लिए केवल [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) लागू होता है। बिन चयन के लिए `Automatic` का उपयोग करें।
+हॉरिज़ॉन्टल एक्सिस पर [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) को [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/) के किसी मोड के साथ कॉल करें। `ByBinWidth` के लिए केवल [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) लागू होता है; `ByNumberOfBins` के लिए केवल [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) लागू होता है। बिन चयन को स्वचालित करने के लिए `Automatic` उपयोग करें।
 
 #### **स्थिर बिन चौड़ाई का उपयोग करें**
 
-यह उदाहरण प्रोसेसिंग समय को 10‑मिनट अंतराल में समूहित करता है, जिसमें 10 मिनट या उससे कम और 40 मिनट से अधिक समय के लिए अलग बिन होते हैं। इन्हें [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) और [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-) से सक्षम करें। स्पष्ट थ्रेशहोल्ड प्रदान करने पर [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) और [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-) के साथ-साथ [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) तथा [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) को `false` सेट करें।
+यह उदाहरण प्रोसेसिंग समय को 10‑मिनट अंतराल में समूहित करता है, जिसमें 10 मिनट या उससे कम और 40 मिनट से अधिक के लिए अलग बिन होते हैं। इन बिनों को [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) और [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-) के साथ सक्षम करें। जब स्पष्ट थ्रेशहोल्ड को [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) और [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-) से सेट किया जाता है, तो [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) और [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) को `false` करें।
 
 ```java
 import com.aspose.slides.*;
@@ -892,13 +894,13 @@ finally
 }
 ```
 
-PowerPoint में प्रदर्शित प्रस्तुति में बिन गणना **3, 4, 4, 4, और 2** है। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए इसका थ्रेशहोल्ड समावेशी है। ओवरफ़्लो बिन में केवल `41, 50` हैं, इसलिए इसका थ्रेशहोल्ड अपवर्जित है; `40` के बराबर मान पूर्ववर्ती अंतराल में रहते हैं। अंदरूनी बिन मान उनके निचले सीमा से अधिक और ऊपरी सीमा से कम या बराबर होते हैं।
+PowerPoint में प्रदर्शित प्रस्तुति में बिन काउंट **3, 4, 4, 4, और 2** हैं। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए इसका थ्रेशहोल्ड इनक्लूसिव है। ओवरफ़्लो बिन में केवल `41, 50` शामिल हैं, इसलिए इसका थ्रेशहोल्ड एक्सक्लूसिव है; दोनों `40` मान पूर्ववर्ती अंतराल में रहेंगे। अंदरूनी बिन में मान उनके निचले सीमा से बड़े और ऊपरी सीमा तक (समावेशी) होते हैं।
 
-![10‑मिनट बिन और स्पष्ट अंडरफ़्लो‑ओवरफ़्लो थ्रेशहोल्ड के साथ हिस्टोग्राम](histogram_bin_width.png)
+![10‑मिनट बिन और स्पष्ट अंडरफ़्लो व ओवरफ़्लो थ्रेशहोल्ड वाले हिस्टोग्राम](histogram_bin_width.png)
 
-#### **बिन संख्या निर्दिष्ट करें**
+#### **बिन की संख्या निर्दिष्ट करें**
 
-स्थिर अंतराल के बजाय स्थिर विस्तार स्तर के लिए, समान डेटा पर पाँच बिन अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को निष्क्रिय रखता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए सीमाएँ रिपोर्ट के बीच बदल सकती हैं।
+स्थिर अंतराल के बजाय स्थिर विवरण स्तर चाहिए तो समान डेटा के लिए पाँच बिन अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को निष्क्रिय रखता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए सीमाएँ रिपोर्ट‑टु‑रिपोर्ट बदल सकती हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -939,15 +941,15 @@ finally
 }
 ```
 
-पाँच बिन की गणना **4, 4, 4, 4, और 1** है। ऊपर की स्थिर‑रुचि परिणाम से तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ भिन्न हैं।
+पाँच बिन की काउंट **4, 4, 4, 4, और 1** है। ऊपर के स्थिर‑चौड़ाई परिणाम से तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ अलग हैं।
 
 ![समान डेटा से गणना किए गए पाँच बिन वाले हिस्टोग्राम](histogram_bin_count.png)
 
-### **रेडार चार्ट बनाएं**
+### **Radar चार्ट बनाएं**
 
-रेडार चार्ट दो‑आयामी स्वरूप में बहु‑परिवर्तनीय डेटा दिखाते हैं, जिससे कई वेरिएबल्स की एक साथ आसान तुलना संभव होती है। यह कई प्रदर्शन मीट्रिक्स या गुणों में पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी है।
+Radar चार्ट का उपयोग बहुविध डेटा को द्वि‑आयामी स्वरूप में प्रदर्शित करने के लिए किया जाता है, जिससे कई वेरिएबल की एक साथ तुलना आसान हो जाती है। यह पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी है।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके डिफ़ॉल्ट श्रृंखला और श्रेणियों के साथ रेडार चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक रडार चार्ट बनाता है, और प्रस्तुति को PPTX के रूप में सहेजता है।
 
 ```java
 import com.aspose.slides.*;
@@ -971,11 +973,11 @@ finally
 
 ![रेडार चार्ट](radar_chart.png)
 
-### **मल्टी‑कैटेगॉरी चार्ट बनाएं**
+### **Multi‑Category चार्ट बनाएं**
 
-मल्टी‑कैटेगॉरी चार्ट उन डेटा को प्रदर्शित करते हैं जिनमें एक से अधिक श्रेणी समूह होते हैं, जिससे कई आयामों में मानों की तुलना एक साथ संभव होती है। जटिल, बहु‑स्तरीय डेटासेट में रुझान और संबंधों का विश्लेषण करने में यह विशेष रूप से सहायक है।
+Multi‑Category चार्ट का उपयोग उन डेटा को प्रदर्शित करने के लिए किया जाता है जिनमें एक से अधिक श्रेणीबद्ध समूह होते हैं, जिससे आप कई आयामों में मानों की तुलना एक साथ कर सकते हैं। यह जटिल, बहु‑स्तरीय डेटासेट में रुझान और संबंधों का विश्लेषण करने में विशेष रूप से सहायक है।
 
-यह उदाहरण चार जोड़ों में व्यवस्थित आठ श्रेणियों के साथ क्लस्टर्ड कॉलम चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) विधि प्रत्येक जोड़े को समूह स्तर 1 पर साझा लेबल देती है, जिससे एक श्रेणी अक्ष पर व्यक्तिगत और समूह लेबल दोनों दिखते हैं।
+यह उदाहरण चार्ट को चार जोड़े में व्यवस्थित आठ श्रेणियों के साथ क्लस्टर्ड कॉलम चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) मेथड प्रत्येक जोड़े के लिए समूह स्तर 1 पर एक साझा लेबल असाइन करता है, जिससे श्रेणी अक्ष पर व्यक्तिगत और समूह लेबल दोनों दिखते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -1049,13 +1051,13 @@ finally
 
 परिणाम:
 
-![मल्टी‑कैटेगॉरी चार्ट](multi_category_chart.png)
+![मल्टी‑कैटेगरी चार्ट](multi_category_chart.png)
 
-### **मैप चार्ट बनाएं**
+### **Map चार्ट बनाएं**
 
-मैप चार्ट भौगोलिक डेटा को विशिष्ट स्थानों (देश, राज्य, शहर) से जोड़कर विज़ुअलाइज़ करने के लिए उपयोग होते हैं। यह क्षेत्रीय रुझान, जनसांख्यिकीय डेटा और स्थानिक वितरण का विश्लेषण स्पष्ट व दृष्टिगत रूप से आकर्षक ढंग से करने में मदद करता है।
+Map चार्ट का उपयोग भूगोलिक डेटा को देशों, राज्यों या शहरों जैसे विशिष्ट स्थानों से मैप करके विज़ुअलाइज़ करने के लिए किया जाता है। यह क्षेत्रीय रुझानों, जनसांख्यिकीय डेटा और स्थानिक वितरण का स्पष्ट, दृष्टिगत रूप से आकर्षक विश्लेषण करने में उपयोगी है।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके डिफ़ॉल्ट भू‑भौतिक डेटा के साथ मैप चार्ट बनाता है और इसे PowerPoint में देखने के लिए सहेजता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके डिफ़ॉल्ट भौगोलिक डेटा के साथ एक मैप चार्ट बनाता है और इसे PowerPoint में देखने के लिए सहेजता है।
 
 ```java
 import com.aspose.slides.*;
@@ -1080,16 +1082,16 @@ finally
 ![मैप चार्ट](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-ऊपर दिखाया गया चित्र सहेजी गई प्रस्तुति को PowerPoint में खोलता है। Aspose.Slides मैप चार्ट और उसके डेटा को सही ढंग से लिखता है, लेकिन स्वयं मैप चार्ट नहीं बनाता: जब किसी स्लाइड को इमेज या PDF या SVG में रेंडर किया जाता है, तो चार्ट क्षेत्र खाली निकलता है। उसी स्लाइड के अन्य आकार अप्रभावित रहते हैं।
+ऊपर की तस्वीर सहेजी गई प्रस्तुति को PowerPoint में खोलते हुए दिखाती है। Aspose.Slides मैप चार्ट और उसके डेटा को सही रूप से लिखता है, लेकिन स्वयं मैप चार्ट नहीं बनाता: जब कोई स्लाइड जिसमें मैप चार्ट हो, को इमेज में रेंडर या PDF या SVG में परिवर्तित किया जाता है, तो चार्ट क्षेत्र खाली रहता है। उसी स्लाइड के अन्य आकार प्रभावित नहीं होते।
 {{% /alert %}}
 
-### **कंबिनेशन चार्ट बनाएं**
+### **Combination चार्ट बनाएं**
 
-कंबिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को जोड़ता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या जांचने में मदद करता है, जिससे उनके बीच संबंध पहचानना आसान होता है।
+Combination चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या परीक्षा करने की अनुमति देता है, जिससे आप उनके बीच के संबंधों की पहचान कर सकते हैं।
 
-![कंबिनेशन चार्ट](combination_chart.png)
+![कॉम्बिनेशन चार्ट](combination_chart.png)
 
-यह उदाहरण चार क्लस्टर्ड कॉलम श्रृंखलाओं को एक लाइन श्रृंखला के साथ चार श्रेणियों में जोड़ता है। कॉलम प्राथमिक वर्टिकल अक्ष पर होते हैं, जबकि [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) लाइन को दाएँ की द्वितीयक वर्टिकल अक्ष पर रखता है। सहायक फ़ंक्शन शीर्षक, लेजेंड, अक्ष लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
+यह उदाहरण चार श्रेणियों में दो क्लस्टर्ड कॉलम सीरीज़ को एक लाइन सीरीज़ के साथ मिलाता है। कॉलम प्राथमिक वर्टिकल अक्ष का उपयोग करते हैं, जबकि [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) लाइन को दाईं ओर द्वितीयक वर्टिकल अक्ष पर रखता है। हेल्पर फ़ंक्शन शीर्षक, लेजेंड, अक्ष लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -1260,9 +1262,9 @@ example.createComboChart();
 
 ## **चार्ट अपडेट करें**
 
-Aspose.Slides for Android via Java आपको PowerPoint चार्ट को डेटा, फ़ॉर्मेटिंग और स्टाइलिंग संशोधित करके अपडेट करने की सुविधा देता है। यह कार्यक्षमता प्रस्तुतियों को गतिशील सामग्री के साथ अद्यतन रखने की प्रक्रिया को सरल बनाती है और सुनिश्चित करती है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सही ढंग से प्रतिबिंबित करें।
+Aspose.Slides for Android via Java आपको PowerPoint चार्ट को डेटा, फ़ॉर्मेटिंग और स्टाइलिंग में परिवर्तन करके अपडेट करने की सुविधा देता है। यह कार्यक्षमता प्रस्तुति को गतिशील सामग्री के साथ अद्यतन रखने की प्रक्रिया को सरल बनाती है और सुनिश्चित करती है कि चार्ट वर्तमान डेटा और विज़ुअल मानकों को सही ढंग से प्रतिबिंबित करें।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट को अपडेट करता है। इसे प्रत्येक में तीन डेटा बिंदुओं वाली दो कॉलम श्रृंखलाओं की आवश्यकता है, जहाँ श्रेणी लेबल कॉलम A में और श्रृंखला नाम पहली शीट की पहली पंक्ति में होते हैं। उदाहरण [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) का उपयोग करके वर्कबुक सेल बदलता है, श्रृंखला मान अपडेट करता है, तीसरी श्रृंखला जोड़ता है, और [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-) के माध्यम से चार्ट को क्लस्टर्ड सिलिंडर में बदलता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट को अपडेट करता है। इसमें प्रत्येक में तीन डेटा पॉइंट वाले दो कॉलम सीरीज़ की आवश्यकता होती है, जिसमें श्रेणी लेबल कॉलम A में और सीरीज़ नाम पहले शीट की पहली पंक्ति में होते हैं। उदाहरण [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) का उपयोग करके वर्कबुक सेल बदलता है, सीरीज़ मान अपडेट करता है, तीसरी सीरीज़ जोड़ता है, और [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-) के साथ चार्ट को क्लस्टर्ड सिलेंडर में बदलता है।
 
 ```java
 import com.aspose.slides.*;
@@ -1326,9 +1328,9 @@ finally
 
 किसी मौजूदा चार्ट द्वारा उपयोग की गई रेंज को देखने के लिए, देखें [Retrieve a Chart's Data Range](/slides/hi/androidjava/chart-workbook/#retrieve-a-charts-data-range)।
 
-Aspose.Slides for Android via Java आपको वर्कशीट के किसी विशिष्ट डेटा रेंज को चार्ट डेटा स्रोत के रूप में परिभाषित करने की लचीलापन प्रदान करता है। इसका अर्थ है कि आप सीधे वर्कशीट के एक भाग को चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि कौन‑से सेल श्रृंखलाओं और श्रेणियों में योगदान देते हैं। परिणामस्वरूप आप अपने चार्ट को शीट में नवीनतम डेटा परिवर्तन के साथ आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपकी PowerPoint प्रस्तुतियां सटीक और अद्यतित बनी रहती हैं।
+Aspose.Slides for Android via Java आपको एक वर्कशीट से विशिष्ट डेटा रेंज को अपने चार्ट के डेटा स्रोत के रूप में परिभाषित करने की लचीलापन प्रदान करता है। इसका मतलब है कि आप सीधे वर्कशीट का एक भाग चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि कौन से सेल चार्ट की सीरीज़ और श्रेणियों में योगदान देते हैं। परिणामस्वरूप, आप अपने चार्ट को शीट में नवीनतम डेटा परिवर्तन के साथ आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपकी PowerPoint प्रस्तुति वर्तमान और सटीक जानकारी को प्रतिबिंबित करती है।
 
-यह उदाहरण [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट की डेटा स्रोत को `Sheet1!A1:B4` सेट करता है। चार्ट वर्कबुक में वह वर्कशीट और एक भरपूर रेंज होना चाहिए जिसमें पहली पंक्ति में श्रृंखला शीर्षक, कॉलम A में श्रेणी लेबल और कॉलम B में तीन मान हों।
+यह उदाहरण [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` पर सेट करता है। चार्ट वर्कबुक में वह शीट और एक भरी हुई रेंज होनी चाहिए, जिसमें पहली पंक्ति में सीरीज़ हेडिंग, कॉलम A में श्रेणी लेबल, और कॉलम B में तीन मान हों।
 
 ```java
 import com.aspose.slides.*;
@@ -1357,11 +1359,11 @@ finally
 }
 ```
 
-## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
+## **चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करें**
 
-डिफ़ॉल्ट मार्कर का प्रयोग करने पर प्रत्येक चार्ट श्रृंखला को स्वचालित रूप से अलग डिफ़ॉल्ट मार्कर प्रतीक मिल जाता है।
+जब आप चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग डिफ़ॉल्ट मार्कर सिंबल मिलता है।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके दो लाइन श्रृंखलाओं और एक लेजेंड के साथ चार्ट बनाता है। [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) द्वारा एक्सेस किए गए मार्कर सेटिंग स्वचालित रूप से असाइन किए गए मार्कर प्रतीकों को बनाए रखते हैं। पहली श्रृंखला में नकारात्मक मान और `null` द्वारा दर्शाया गया अनुपलब्ध मान है, जबकि दूसरी में प्रत्येक श्रेणी के लिए मान है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) का उपयोग करके दो लाइन सीरीज़ और एक लेजेंड वाला चार्ट बनाता है। [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) द्वारा एक्सेस किया गया मार्कर सेटिंग स्वचालित रूप से असाइन किए गए मार्कर सिंबल को बरकरार रखता है। पहली सीरीज़ में एक नकारात्मक मान और एक गायब मान (`null`) है, जबकि दूसरी में प्रत्येक श्रेणी के लिए मान है।
 
 ```java
 import com.aspose.slides.*;
@@ -1426,18 +1428,18 @@ finally
 
 ## **FAQ**
 
-**Aspose.Slides for Android via Java कौन‑से चार्ट प्रकार समर्थन करता है?**
+**Aspose.Slides for Android via Java द्वारा कौन से चार्ट प्रकार समर्थित हैं?**
 
-Aspose.Slides for Android via Java बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य सहित विस्तृत चार्ट प्रकारों का समर्थन करता है। यह लचीलापन आपको डेटा विज़ुअलाइज़ेशन की आवश्यकता के अनुसार सबसे उपयुक्त चार्ट चुनने की सुविधा देता है।
+Aspose.Slides for Android via Java कई प्रकार के चार्ट का समर्थन करता है, जिसमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य शामिल हैं। यह लचीलापन आपको डेटा विज़ुअलाइज़ेशन की आवश्यकता के अनुसार सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
 **मैं स्लाइड में नया चार्ट कैसे जोड़ूं?**
 
-पहले आप [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके सूचकांक से प्राप्त करते हैं, फिर चार्ट जोड़ने वाली मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट होता है। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में सम्मिलित करती है।
+चार्ट जोड़ने के लिए, सबसे पहले आप [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने की मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट होते हैं। यह प्रक्रिया सीधे आपके प्रेज़ेंटेशन में चार्ट को एकीकृत करती है।
 
-**मैं चार्ट में प्रदर्शित डेटा कैसे अपडेट करूं?**
+**मैं चार्ट में दिखाए गए डेटा को कैसे अपडेट कर सकता हूँ?**
 
-आप चार्ट के डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)) को एक्सेस करके, डिफ़ॉल्ट श्रृंखला और श्रेणियों को साफ कर, अपनी कस्टम डेटा जोड़ सकते हैं। इस प्रकार आप प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के साथ रीफ़्रेश कर सकते हैं।
+आप चार्ट के डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)) तक पहुंचकर, डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ करके, और अपनी कस्टम डेटा जोड़कर डेटा अपडेट कर सकते हैं। यह आपको प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के साथ रीफ़्रेश करने की सुविधा देता है।
 
-**क्या मैं चार्ट की उपस्थिति को अनुकूलित कर सकता हूँ?**
+**क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?**
 
-हां, Aspose.Slides for Android via Java व्यापक अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फ़ॉर्मेटिंग तत्वों को बदलकर चार्ट की उपस्थिति को विशिष्ट डिजाइन आवश्यकताओं के अनुसार ढाल सकते हैं।
+हां, Aspose.Slides for Android via Java व्यापक अनुकूलन विकल्प प्रदान करता है। आप रंग, फॉन्ट, लेबल, लेजेंड और अन्य फ़ॉर्मेटिंग तत्वों को बदलकर अपने विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार चार्ट की उपस्थिति को तैयार कर सकते हैं।

@@ -1,5 +1,5 @@
 ---
-title: 使用 C++ 在演示文稿中管理图表数据标签
+title: 在演示文稿中使用 C++ 管理图表数据标签
 linktitle: 数据标签
 type: docs
 url: /zh/cpp/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
+description: "了解如何使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以打造更具吸引力的幻灯片。"
 ---
 ## **介绍**
 
-数据标签显示图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本篇文章说明如何格式化数值、显示百分比、读取标签文本、控制轴最大值之外的标签、调整类目轴标签间距以及定位饼图标签。
+数据标签显示有关图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文说明了如何格式化数值、显示百分比、读取标签文本、在轴最大值之外控制标签、调整类别轴标签间距以及定位饼图标签。
 
-## **设置图表数据标签的数值精度**
+## **设置图表数据标签的数据精度**
 
-使用 [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) 对系列数值进行格式化。此示例创建一个带默认数据的折线图，显示其数据表，并为第一个系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，而不更改底层数值。
+使用 [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) 来格式化系列值。此示例创建一个具有默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，而不更改底层值。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,7 +59,7 @@ presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 
 ## **将百分比显示为标签**
 
-对于堆积柱形图，计算每个数值占其类目总和的百分比，并将文本分配给 [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) 返回的文本框。本示例使用默认图表数据，并以两位小数、8 磅字体显示百分比。总计为零的类目将被跳过，以避免除以零。如果图表数据发生变化，需要重新计算自定义标签文本。
+对于堆积柱形图，计算每个值占其类别总计的百分比，并将文本分配给 [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) 返回的文本框。本示例使用默认图表数据，并以 8 磅字体显示保留两位小数的百分比。总计为零的类别将被跳过，以避免除以零。若图表数据更改，需要重新计算自定义标签文本。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -147,11 +147,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **使用图表数据标签设置百分号**
+## **在图表数据标签中设置百分号**
 
-当数值以分数形式存储时，使用 [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) 显示百分比。将 `false` 传递给 [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) 以独立于源单元格应用标签格式。
+当数值以分数形式存储时，使用 [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) 来显示百分比。向 [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) 传递 `false`，以使标签格式独立于源单元格。
 
-本示例创建一个 100% 堆积柱形图，四个类目分别包含红色和蓝色系列。每对数值相加为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而垂直轴使用两位小数。两个系列的标签文字均为白色、10 磅。
+本示例创建一个 100% 堆积柱形图，包含红色和蓝色系列，跨越四个类别。每对数值之和为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而垂直轴使用两位小数。两个系列均使用白色、10 磅的标签文本。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -238,7 +238,7 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **读取数据标签的实际文本**
 
-使用 [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) 获取数据标签设置产生的文本。此功能在提取报告标签、搜索演示文稿内容或验证生成的图表时非常有用。下面的示例中，默认的 [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) 将每个类目名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一点使用 [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) 的自定义文本。
+使用 [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) 检索由数据标签设置生成的文本。这在提取报告标签、搜索演示文稿内容或验证生成的图表时非常有用。在下面的示例中，默认的 [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) 将每个类别名称、系列名称和数值组合起来。一个点将其值格式化为百分比，另一个使用来自 [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) 的自定义文本。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +326,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-存储在数据点中的数值仍为 `0.75`，即使其标签显示为 `75%` 并包含类目和系列名称。自定义文本会替代生成的标签文本。不论哪种情况，[GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) 都返回最终的标签字符串。正如上文所示，如需仅提取可见标签，请另行检查 [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/)。
+数据点中存储的数值仍为 `0.75`，即使其标签显示为 `75%` 并附带类别和系列名称。自定义文本会替代生成的标签文本。 [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) 在两种情况下都返回结果标签字符串。当您只想提取可见标签时，请像上面所示单独检查 [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/)。
 
-## **控制轴最大值之外的数据标签**
+## **在轴最大值之外控制数据标签**
 
-当手动限制轴范围时，某些数据点可能超出其最大值。使用 [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) 控制是否显示这些数据标签。此设置仅改变标签可见性，不会更改轴范围或底层数值。
+当手动限制轴范围时，某些数据点可能会超过其最大值。使用 [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) 来控制是否显示它们的数据标签。此设置仅更改标签的可见性，不会改变轴范围或底层数据值。
 
-下面的示例创建一个二维簇状柱形图，数值为 60 和 120。它将垂直轴的 [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) 设为 `false`，并通过 [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) 将最大值设为 100。第一张幻灯片允许标签超出最大值；复制的幻灯片则禁用该功能。两张幻灯片均保存为 `DataLabelsOverMaximum.pptx`。
+下面的示例创建一个具有 60 和 120 值的 2D 聚类柱形图。在垂直轴上将 [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) 设置为 `false`，并将 [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) 设置为 100。第一张幻灯片允许标签超出最大值；该幻灯片的副本则禁用这些标签。两张幻灯片均保存为 `DataLabelsOverMaximum.pptx`。
 
-通过 [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) 启用数值标签。图表级别的设置本身并不启用数值显示，也不会覆盖单个标签被禁用的数值显示。此示例为整个系列启用数值，并使用 [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) 将标签放置在每根柱子的外端。
+使用 [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) 启用数值标签。图表级别的设置本身不会启用数值显示，也不会覆盖单个标签被禁用的数值显示。此示例为整个系列启用数值，并使用 [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) 将标签放置在每个柱形的外端。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,20 +405,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-下图展示了 Microsoft PowerPoint 渲染的已保存幻灯片。`true` 时，标签 **120** 在上边界可见；`false` 时则隐藏。标签 **60** 保持可见，轴最大值仍为 **100**，第二个数据点在两种情况下均为 **120**。
+下面的图像显示了 Microsoft PowerPoint 渲染的已保存幻灯片。设置为 `true` 时，标签 **120** 在上边界可见；设置为 `false` 时，它被隐藏。标签 **60** 保持可见，轴最大值仍为 **100**，且第二个数据点在两种情况下均为 **120**。
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-此示例使用带数值轴的二维柱形图。不带数值轴的图表（如饼图和环形图）没有轴最大值可供此方式限制。
-
+此示例使用带数值轴的 2D 柱形图。没有数值轴的图表，例如饼图和环形图，无法以这种方式限制轴的最大值。
 {{% /alert %}}
 
 ## **设置标签与轴的距离**
 
-使用 [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) 控制类目轴标签与轴之间的距离。该值为轴标签最大字号的百分比。本示例创建一个簇状柱形图，并将水平轴标签偏移设为 500。此设置影响类目轴标签，而非附加到单个数据点的标签。
+使用 [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) 控制类别轴标签与轴之间的距离。该值以轴标签最大字体大小的百分比表示。此示例创建一个聚类柱形图，并将水平轴标签偏移设置为 500。此设置影响类别轴标签，而非附加在单个数据点上的标签。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -448,9 +447,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **调整标签位置**
 
-在饼图上，调整数据标签位置以改善间距并为引导线留出空间。
+在饼图上，调整数据标签位置以改善间距并为指引线留出空间。
 
-本示例显示第一个数据点的数值，将其标签放置在切片外部，并使用 [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) 与 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) 调整其偏移。这些偏移分别相对于图表的宽度和高度。
+本示例显示第一个数据点的数值，将其标签放置在切片外部，并使用 [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) 和 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) 调整其偏移。这些偏移分别相对于图表的宽度和高度。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -488,13 +487,17 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![饼图（调整后的数据标签位置）](pie-chart-adjusted-label.png)
 
-## **在柱形图上方添加多行数据标签**
+## **格式化指引线**
 
-本示例创建一个柱形图，在绘图区域上方放置两行数据标签。Series A 显示可见的柱子，Series B 与 Series C 提供额外的标签。通过去除填充和轮廓将它们的柱子隐藏。使用 [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) 方法使三个系列在相同的类目中心对齐。
+当饼图标签位于切片外部时，指引线帮助读者将每个数值匹配到相应的切片。使用对比色和稍粗的线条可以使这些连接更易于辨识，而透明度和虚线样式则使线条在视觉上不显突兀。
 
-[ get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) 设置为标签行预留空间。调用 [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) 计算默认位置后，使用 [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) 与 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) 保持水平对齐并应用垂直偏移，以在两行中排列标签。数字仍然是链接到系列数值的数据标签；仅行标题是单独的文本形状。
+使用 [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) 在系列的数据标签集合层级格式化指引线。`series->get_Labels()->get_LeaderLinesFormat()->get_Line()` 中的设置适用于整个集合，而非单个标签。
+
+本示例创建一个默认数据的饼图，在切片外显示数值，并使用 [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/) 启用指引线。它通过使用 [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) 和 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) 偏移，将两个标签从切片进一步移开，这些偏移以图表宽高的分数表示。无需输入演示文稿。
+
+[get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) 返回的填充格式用于设置不透明度为 191（相对于 255）的纯蓝色，约 25% 透明度。[set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) 将粗细设为 2 磅，而 [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) 将线条设为虚线。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -506,9 +509,17 @@ presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
 #include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IChartLinesFormat.h>
 #include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/LineDashStyle.h>
 #include <Export/SaveFormat.h>
+#include <drawing/color.h>
 #include <system/smart_ptr.h>
 #include <system/string.h>
 
@@ -516,6 +527,98 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 80, 50, 560, 400);
+chart->set_HasLegend(false);
+
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+
+auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+labelFormat->set_ShowValue(true);
+labelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+labelFormat->set_ShowLeaderLines(true);
+
+// 将两个标签从它们的切片进一步移开。
+series->get_Label(0)->set_X(0.10f);
+series->get_Label(0)->set_Y(-0.05f);
+series->get_Label(1)->set_X(-0.10f);
+series->get_Label(1)->set_Y(0.05f);
+
+auto line = series->get_Labels()->get_LeaderLinesFormat()->get_Line();
+line->get_FillFormat()->set_FillType(FillType::Solid);
+line->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(191, 30, 90, 160));
+line->set_Width(2);
+line->set_DashStyle(LineDashStyle::Dash);
+
+presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
+```
+
+启用指引线并不能保证每个标签都有线。可见性取决于标签位置和图表的布局行为。在本示例中，两个被移动的标签拥有可见的指引线；靠近切片的标签则不需要指引线。
+
+下图显示了使用 Aspose.Slides 渲染的已保存的 `FormattedLeaderLines.pptx`：
+
+![饼图，蓝色半透明虚线指引线连接两个外部标签到其切片](formatted-leader-lines.png)
+
+## **在柱形图上方添加多行数据标签**
+
+本示例创建一个柱形图，在绘图区域上方添加两行数据标签。系列 A 显示可见的柱形，系列 B 和系列 C 提供额外的标签。通过去除填充和轮廓来隐藏它们的柱形。[set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) 方法使三个系列的类别中心对齐。
+
+[get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) 设置为标签行预留空间。调用 [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) 计算默认位置后，使用 [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) 和 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) 保持水平对齐并应用垂直偏移，以将标签排列成两行。这些数字仍然是链接到系列数值的数据标签；仅行标题是独立的文本形状。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartPlotArea.h>
+#include <DOM/Chart/LayoutTargetType.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
@@ -558,7 +661,7 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // 隐藏 B 和 C 的柱子，但保留它们的数据标签。
+        // 隐藏 B 和 C 的柱形，但保留它们的数据标签。
         series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
         series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
         auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
@@ -571,14 +674,14 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
     }
 }
 
-// 将所有三个系列对齐到相同的类目中心。
+// Align all three series with the same category centers.
 chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
 
-// 在此紧凑示例中使用更少的网格线。
+// Use fewer gridlines for this compact example.
 chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
 chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
 
-// 在绘图区上方预留空间用于两行数据标签。
+// Reserve space above the plot for two rows of data labels.
 chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
 chart->get_PlotArea()->set_X(0.15f);
 chart->get_PlotArea()->set_Y(0.32f);
@@ -594,13 +697,13 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
     for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
     {
         auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
-        // 保持默认水平位置。Y 是相对于
+        // 保持默认的水平位置。Y 是相对于
         // 默认标签位置的偏移，以图表高度的比例表示。
         dataLabel->set_X(0);
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
     }
 
-    // 仅行标题是单独的文本形状。
+    // 只有行标题是单独的文本形状。
     auto rowHeading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, chart->get_X(), chart->get_Y() + rowTop * chart->get_Height(), 85, 18);
     rowHeading->get_FillFormat()->set_FillType(FillType::NoFill);
     rowHeading->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -616,18 +719,15 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
 presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 ```
 
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![在绘图区域上方有两行数据标签的柱形图](multiple-rows-of-labels.png)
 
 ## **常见问题**
 
-**如何防止标签在密集图表中重叠？**
+**如何防止在密集图表上数据标签重叠？**  
+结合自动标签布局、指引线和缩小字体大小；必要时，隐藏某些字段（例如类别），或仅对极值或关键点显示标签。
 
-结合自动标签布局、引导线和减小字体大小；如有必要，隐藏某些字段（例如类目），或仅对极值或关键点显示标签。
+**如何仅对零、负数或空值禁用标签？**  
+在启用标签之前过滤数据点，并根据定义的规则关闭对值为 0、负数或缺失值的显示。
 
-**如何仅对零、负数或空值禁用标签？**
-
-在启用标签前过滤数据点，并根据定义的规则对数值为 0、负数或缺失的点关闭显示。
-
-**如何在导出为 PDF/图像时保持标签样式一致？**
-
-显式设置字体族和大小，并确认渲染环境中可使用该字体，以避免回退。
+**如何在导出为 PDF/图像时确保标签样式一致？**  
+明确设置字体族和大小，并确认渲染环境中可用该字体，以避免回退。

@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-Präsentationsdiagramme auf Android erstellen oder aktualisieren
+title: Erstellen oder Aktualisieren von PowerPoint-Präsentationsdiagrammen unter Android
 linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
@@ -13,48 +13,48 @@ keywords:
 - Streudiagramm
 - Kreisdiagramm
 - Liniendiagramm
-- Baumdiagramm
-- Börsendiagramm
+- TreeMap-Diagramm
+- Aktienkursdiagramm
 - Box‑und‑Whisker‑Diagramm
 - Trichterdiagramm
-- Sonnenblütendiagramm
-- Histogramm
-- Radardiagramm
-- Diagramm mit mehreren Kategorien
+- Sunburst-Diagramm
+- Histogramm-Diagramm
+- Radar-Diagramm
+- Mehrkategorie‑Diagramm
 - PowerPoint
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Erstellen und anpassen von Diagrammen in PowerPoint‑Präsentationen mit Aspose.Slides für Android über Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code‑Beispielen in Java."
+description: "Erstellen und Anpassen von Diagrammen in PowerPoint-Präsentationen mit Aspose.Slides für Android via Java. Hinzufügen, formatieren und bearbeiten von Diagrammen mit praktischen Codebeispielen in Java."
 ---
-## **Übersicht**
+## **Überblick**
 
-Dieser Artikel bietet eine umfassende Anleitung, wie Sie Diagramme mit Aspose.Slides für Android über Java erstellen und anpassen. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen ausführliche Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis hin zur Konfiguration von Reihen, Achsen und Legenden. Durch Befolgen dieser Anleitung erhalten Sie ein solides Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Android‑Anwendungen integrieren und so den Prozess der Erstellung datenbasierter Präsentationen optimieren.
+Dieser Artikel bietet eine umfassende Anleitung, wie man Diagramme mit Aspose.Slides für Android via Java erstellt und anpasst. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, vom Initialisieren der Präsentation und des Diagrammobjekts bis hin zur Konfiguration von Serien, Achsen und Legenden. Durch Befolgen dieser Anleitung erhalten Sie ein solides Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Android‑Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen vereinfachen.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Tabellenblatt nicht sofort ersichtlich sind.
+Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Spreadsheet nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-Mit Diagrammen können Sie:
+Verwenden Sie Diagramme, um:
 
-* große Datenmengen auf einer einzelnen Folie einer Präsentation aggregieren, verdichten oder zusammenfassen;
-* Muster und Trends in Daten aufzeigen;
-* die Richtung und Dynamik von Daten über die Zeit oder bezogen auf eine bestimmte Maßeinheit ableiten;
-* Ausreißer, Abweichungen, Fehler und unsinnige Daten erkennen;
-* komplexe Daten kommunizieren oder präsentieren.
+* große Datenmengen auf einer einzigen Folie in einer Präsentation zusammenzufassen, zu verdichten oder zu bündeln;
+* Muster und Trends in den Daten aufzuzeigen;
+* die Richtung und den Impuls von Daten über die Zeit oder in Bezug auf eine bestimmte Maßeinheit abzuleiten;
+* Ausreißer, Anomalien, Abweichungen, Fehler und unsinnige Daten zu erkennen;
+* komplexe Daten zu kommunizieren oder zu präsentieren.
 
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für viele Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf beliebten Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
 
 {{% alert color="info" title="Note" %}}
-Verwenden Sie die [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) Aufzählung im Paket [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). Die Werte dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
+Verwenden Sie die [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) Aufzählung im Paket [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). Die Werte in dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
 {{% /alert %}}
 
-### **Erstellen gruppierter Säulendiagramme**
+### **Gruppierte Säulendiagramme erstellen**
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) zum Erstellen eines gruppierten Säulendiagramms, das zwei Reihen über drei Kategorien vergleicht. Die Reihen verwenden rote bzw. grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Reihennamen und Werte. Der Arbeitsblatt‑Index 0 bezieht sich auf das erste Blatt in der eingebetteten Diagramm‑Arbeitsmappe.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) um ein gruppiertes Säulendiagramm zu erstellen, das zwei Serien über drei Kategorien vergleicht. Die Serien verwenden rote bzw. grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Seriennamen und Werte. Der Arbeitsblatt‑Index 0 bezieht sich auf das erste Blatt in der eingebetteten Diagrammarbeitsmappe.
 
 ```java
 import com.aspose.slides.*;
@@ -137,18 +137,18 @@ Das Ergebnis:
 
 ![Das gruppierte Säulendiagramm](clustered_column_chart.png)
 
-### **Erstellen von Streudiagrammen**
+### **Streudiagramme erstellen**
 
-Streudiagramme (auch Scatter‑Plots oder x‑y‑Diagramme genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren.
+Streudiagramme (auch Scatter‑Plots oder X‑Y‑Grafiken genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren.
 
 Verwenden Sie ein Streudiagramm, wenn:
 
 * Sie gepaarte numerische Daten haben.
 * Sie zwei Variablen haben, die gut zusammenpassen.
-* Sie feststellen möchten, ob die beiden Variablen zusammenhängen.
-* Sie eine unabhängige Variable mit mehreren Werten für eine abhängige Variable besitzen.
+* Sie feststellen möchten, ob die beiden Variablen miteinander zusammenhängen.
+* Sie eine unabhängige Variable haben, die für eine abhängige Variable mehrere Werte hat.
 
-Dieses Beispiel zeichnet zwei Sätze von x‑y‑Werten. Die erste Reihe verwendet gerade Linien mit Stern‑Markern, die zweite glatte Linien mit Kreis‑Markern; beide verwenden eine Markergöße von 10, konfiguriert mit [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Die Methode [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) steuert die Markerform.
+Dieses Beispiel plottet zwei Sätze von X‑Y‑Werten. Die erste Serie verwendet gerade Linien mit Stern‑Markern, während die zweite glatte Linien mit Kreis‑Markern nutzt; beide verwenden eine Markergöße von 10, konfiguriert mit [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Die Methode [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) steuert die Markerform.
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ Das Ergebnis:
 
 ![Das Streudiagramm](scatter_chart.png)
 
-### **Erstellen von Kreisdiagrammen**
+### **Kreisdiagramme erstellen**
 
-Kreisdiagramme eignen sich am besten, um das Verhältnis Teil‑zu‑Ganzes in Daten darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Daten jedoch viele Teile oder Beschriftungen, sollten Sie ein Balkendiagramm in Erwägung ziehen.
+Kreisdiagramme eignen sich am besten, um das Verhältnis von Teilen zum Ganzen zu zeigen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Datenmenge jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
 
-Dieses Beispiel erzeugt ein Kreisdiagramm mit drei Quartalswerten. Jeder Abschnitt hat eine benutzerdefinierte Füllung und Rahmen, und die Beschriftungen zeigen verschiedene Kombinationen von Werten, Prozentzahlen und Reiheninformationen. Die Methode [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) legt den ersten Abschnitt auf 180 Grad fest.
+Dieses Beispiel erstellt ein Kreisdiagramm mit drei Quartalswerten. Jeder Abschnitt hat eine benutzerdefinierte Füllung und Rand, und die Beschriftungen zeigen verschiedene Kombinationen aus Werten, Prozentsätzen und Serieninformationen. Die Methode [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) legt den ersten Abschnitt auf 180 Grad fest.
 
 ```java
 import com.aspose.slides.*;
@@ -325,11 +325,13 @@ Das Ergebnis:
 
 ![Das Kreisdiagramm](pie_chart.png)
 
-### **Erstellen von Liniendiagrammen**
+Um die Lesbarkeit von Beschriftungen außerhalb des Kreises zu verbessern, siehe [Format Leader Lines](/slides/de/androidjava/chart-data-label/#format-leader-lines) für ein Beispiel, das Beschriftungen positioniert und die Linienfarbe, -breite, -transparenz und Strichart anpasst.
 
-Liniendiagramme (auch Liniendiagramme genannt) eignen sich am besten, wenn Sie Änderungen von Werten über die Zeit darstellen möchten. Mit einem Liniendiagramm können Sie große Datenmengen auf einmal vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und mehr.
+### **Liniendiagramme erstellen**
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) zum Erstellen eines Liniendiagramms mit den Standard‑Reihen und -Kategorien und speichert die Präsentation anschließend als PPTX.
+Liniendiagramme (auch Liniengraphen genannt) eignen sich am besten, wenn Sie Änderungen von Werten über die Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Veränderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und mehr.
+
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) um ein Liniendiagramm mit den Standard‑Serien und -Kategorien zu erstellen und speichert die Präsentation anschließend als PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +351,7 @@ finally
 }
 ```
 
-Standardmäßig werden Punkte in einem Liniendiagramm durch gerade durchgängige Linien verbunden. Wenn Sie die Punkte stattdessen mit Strichen verbinden möchten, rufen Sie [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) mit einem Wert aus [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) auf:
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade durchgehende Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, rufen Sie [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) mit einem Wert aus [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) auf:
 
 ```java
 import com.aspose.slides.*;
@@ -376,11 +378,11 @@ Das Ergebnis:
 
 ![Das Liniendiagramm](line_chart.png)
 
-### **Erstellen von Baumdiagrammen (Tree Map)**
+### **TreeMap-Diagramme erstellen**
 
-Baumdiagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell auf Elemente aufmerksam machen möchten, die große Beiträge innerhalb jeder Kategorie leisten.
+TreeMap‑Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell Aufmerksamkeit auf große Beitragende innerhalb jeder Kategorie lenken möchten.
 
-Dieses Beispiel erstellt ein Baumdiagramm mit acht Blättern, die zu vier Stämmen und zwei Zweigen gruppiert sind. Die Methode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) weist Stämme der Gruppierungsebene 1 und Zweige Ebene 2 zu. Werte bestimmen die relativen Rechteckgrößen, während Kategoriebeschriftungen und überlappende Elternbeschriftungen die Hierarchie verdeutlichen.
+Dieses Beispiel erstellt eine TreeMap mit acht Blättern, die in vier Stämmen und zwei Ästen gruppiert sind. Die Methode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) weist Stämme auf Gruppierungsebene 1 und Äste auf Ebene 2 zu. Werte bestimmen die relative Rechteckgröße, während Kategorienbeschriftungen und überlappende Eltern‑Beschriftungen die Hierarchie identifizieren.
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +463,26 @@ finally
 
 Das Ergebnis:
 
-![Das Baumdiagramm](treemap_chart.png)
+![Das Treemap‑Diagramm](treemap_chart.png)
 
-### **Erstellen von Wasserfalldiagrammen**
+### **Wasserfalldiagramme erstellen**
 
-Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Beispielsweise kann eine Gewinnaufstellung mit Umsatz beginnen, Kosten abziehen und sonstige Erträge hinzufügen. Änderungs‑Spalten schweben zwischen dem vorherigen und dem neuen Laufwert, während Gesamtsummen‑Spalten von 0 bis zum akkumulierten Wert reichen.
+Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Beispielsweise kann eine Gewinn‑Aufschlüsselung mit Umsatz beginnen, Kosten abziehen und sonstige Erträge hinzufügen. Änderungs­spalten „schweben“ zwischen dem vorherigen und dem neuen Laufwert, während Gesamtsäulen von 0 bis zum akkumulierten Wert reichen.
 
 Das folgende Beispiel verwendet Beträge in Tausend US‑Dollar:
 
 | Kategorie | Arbeitsmappenwert | Spaltentyp |
 | --- | ---: | --- |
 | Umsatz | 1000 | Zunahme |
-| Kosten der Verkäufe | -400 | Abnahme |
+| Kosten der verkauften Waren | -400 | Abnahme |
 | Bruttogewinn | 600 | Zwischensumme |
 | Betriebskosten | -200 | Abnahme |
 | Sonstige Erträge | 50 | Zunahme |
-| Nettogewinn | 450 | Endsumme |
+| Nettoergebnis | 450 | Endsumme |
 
-Um einen Punkt als Zwischensumme oder Endsumme zu kennzeichnen, rufen Sie dessen [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-)‑Methode mit `true` auf. Geben Sie den tatsächlichen akkumulierten Betrag in der Arbeitsmappen‑Zelle dieses Punktes an: `600` für den Bruttogewinn (`1000 - 400`) und `450` für den Nettogewinn (`600 - 200 + 50`). Die Methode markiert die Spalte als Summe; sie berechnet den Zellwert nicht. Verwenden Sie nicht 0 als Platzhalter und geben Sie keinen anderen Änderungswert für einen Summenpunkt an. Eine Summenspalte zeigt den akkumulierten Wert an, ohne ihn erneut zum Laufwert hinzuzufügen.
+Um einen Punkt als Zwischensumme oder Endsumme zu markieren, rufen Sie dessen [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) mit `true` auf. Geben Sie den tatsächlichen akkumulierten Betrag in der Arbeitsmappen‑Zelle dieses Punktes an: `600` für den Bruttogewinn (`1000 - 400`) und `450` für das Nettoergebnis (`600 - 200 + 50`). Die Methode kennzeichnet die Spalte als Summe; sie berechnet oder füllt den Zellenwert nicht. Verwenden Sie nicht 0 als Platzhalter und geben Sie keinen anderen Wechsel für einen Summenpunkt an. Eine Summenspalte zeigt den akkumulierten Wert, ohne ihn erneut zum Laufwert hinzuzufügen.
 
-Dieses vollständige Java‑Beispiel erstellt ein Diagramm mit dem `Waterfall`‑Element von [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), leert die Standarddaten und füllt die eingebettete Arbeitsmappe. Der Arbeitsblatt‑Index `0` wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B Werte. Jeder Wert wird mit [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) hinzugefügt. Die nullbasierten Punkt‑Indizes `2` und `5` identifizieren die Zwischensumme bzw. die Endsumme. Durch Aufruf von [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) mit `true` werden die Beträge auf den Spalten angezeigt. Es wird keine Eingabe‑Präsentation oder Arbeitsmappe benötigt.
+Dieses vollständige Java‑Beispiel erstellt ein Diagramm mit dem `Waterfall`‑Mitglied von [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), löscht die Standarddaten und füllt die eingebettete Arbeitsmappe. Arbeitsblatt‑Index 0 wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B die Werte. Jede Wertzelle wird mit [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) hinzugefügt. Die nullbasierten Punktindizes `2` und `5` identifizieren die Zwischensummen‑ bzw. Endsummen. Durch Aufruf von [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) mit `true` werden die Beträge auf den Säulen angezeigt. Keine Eingabe‑Präsentation oder Arbeitsmappe ist erforderlich.
 
 ```java
 import com.aspose.slides.*;
@@ -532,17 +534,17 @@ finally
 }
 ```
 
-Rufen Sie die reihen‑bezogene Methode [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) mit `true` auf, um Linien zwischen aufeinanderfolgenden Spalten anzuzeigen und den Laufwert leichter nachvollziehbar zu machen. Um diese Linien auszublenden, ersetzen Sie den Methodenaufruf im Beispiel durch `series.setShowConnectorLines(false);` vor dem Speichern. Dies ändert nur die Sichtbarkeit der Linien, nicht die Daten oder Summen.
+Rufen Sie die serien‑bezogene Methode [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) mit `true` auf, um Linien zwischen aufeinanderfolgenden Säulen anzuzeigen und den Laufwert leichter nachvollziehbar zu machen. Um diese Linien auszublenden, ersetzen Sie den Methodenaufruf im Beispiel durch `series.setShowConnectorLines(false);` vor dem Speichern. Dies ändert nur die Sichtbarkeit der Linie, nicht die Daten oder Summen.
 
-Die gespeicherte Präsentation zeigt einen Bruttogewinn von 600 und einen Nettogewinn von 450, beide Summen beginnen bei 0:
+Die gespeicherte Präsentation zeigt einen Bruttogewinn von 600 und ein Nettoergebnis von 450, wobei beide Summen von 0 aus gezeichnet werden:
 
-![Wasserfalldiagramm mit Umsatz, Kosten, Bruttogewinn von 600 und Nettogewinn von 450, mit Beschriftungen und Verbindungslinien](waterfall_chart.png)
+![Wasserfalldiagramm, das Umsatz, Kosten, Bruttogewinn von 600 und Nettoergebnis von 450 zeigt, mit Wertbeschriftungen und Verbindungslinien](waterfall_chart.png)
 
-### **Erstellen von Börsendiagrammen**
+### **Aktienkursdiagramme erstellen**
 
-Börsendiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse darzustellen und so Markttrends sowie Volatilität zu analysieren. Sie liefern wesentliche Einblicke in die Aktienperformance und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
+Aktienkursdiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse anzuzeigen und so Markttrends und Volatilität zu analysieren. Sie bieten wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
 
-Dieses Beispiel erstellt ein Open‑High‑Low‑Close‑Diagramm mit vier Reihen in dieser Reihenfolge und drei Kategorien. Die Methode [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) aktiviert Auf‑/Ab‑Balken, und [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) steuert die Hoch‑Tief‑Linien, die die Preisspannen anzeigen, während die einzelnen Reihen‑Linien und kleinere horizontale Gitterlinien ausgeblendet werden.
+Dieses Beispiel erstellt ein Open‑High‑Low‑Close‑Diagramm mit vier Serien in genau dieser Reihenfolge und drei Kategorien. Die Methode [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) aktiviert Auf‑/Ab‑Balken, und [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) steuert die Hoch‑Tief‑Linien, die die Kursbereiche anzeigen, während die einzelnen Serien‑Linien und die feinen horizontalen Gitternetzlinien ausgeblendet werden.
 
 ```java
 import com.aspose.slides.*;
@@ -624,13 +626,13 @@ finally
 
 Das Ergebnis:
 
-![Das Börsendiagramm](stock_chart.png)
+![Das Aktienkursdiagramm](stock_chart.png)
 
-### **Erstellen von Box‑und‑Whisker‑Diagrammen**
+### **Box‑und‑Whisker‑Diagramme erstellen**
 
-Box‑und‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten zu visualisieren, indem zentrale statistische Kennzahlen wie Median, Quartile und mögliche Ausreißer zusammengefasst werden. Sie sind besonders nützlich in explorativer Datenanalyse und statistischen Studien, um Datenvariabilität schnell zu erfassen und Anomalien zu identifizieren.
+Box‑und‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten zusammenzufassen, indem zentrale statistische Kennzahlen wie Median, Quartile und mögliche Ausreißer dargestellt werden. Sie sind besonders nützlich in der explorativen Datenanalyse und in statistischen Studien, um die Datenvariabilität schnell zu verstehen und Anomalien zu identifizieren.
 
-Dieses Beispiel erzeugt ein Box‑und‑Whisker‑Diagramm aus sechs Werten. Die Methode [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) wählt die exklusive Quartilsberechnung. Das Beispiel aktiviert zudem Mittelwert‑Linien, Mittelwert‑Marker, innere Punkte und Ausreißer‑Punkte.
+Dieses Beispiel erstellt ein Box‑und‑Whisker‑Diagramm aus sechs Werten. Die Methode [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) wählt die exklusive Quartilsberechnung. Das Beispiel aktiviert außerdem Mittelwertlinien, Mittelwert‑Marker, innere Punkte und Ausreißer‑Punkte.
 
 ```java
 import com.aspose.slides.*;
@@ -690,11 +692,11 @@ finally
 }
 ```
 
-### **Erstellen von Trichterdiagrammen**
+### **Trichterdiagramme erstellen**
 
-Trichterdiagramme visualisieren Prozesse mit aufeinanderfolgenden Stufen, bei denen das Datenvolumen von einem Schritt zum nächsten abnimmt. Sie sind besonders hilfreich zur Analyse von Konversionsraten, zur Identifizierung von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketingprozessen.
+Trichterdiagramme werden verwendet, um Prozesse zu visualisieren, die sequentielle Stufen umfassen, wobei das Datenvolumen von einer Stufe zur nächsten abnimmt. Sie sind besonders hilfreich, um Konversionsraten zu analysieren, Engpässe zu identifizieren und die Effizienz von Vertriebs‑ oder Marketing‑Prozessen zu verfolgen.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) zum Hinzufügen eines Trichterdiagramms zur ersten Folie einer bestehenden Präsentation. Es ersetzt die Standarddaten durch sechs Kategorien mit Werten von 50 bis 500 und speichert die aktualisierte Präsentation. Die Eingabe‑Präsentation muss mindestens eine Folie enthalten.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) um ein Trichterdiagramm zur ersten Folie einer bestehenden Präsentation hinzuzufügen. Es ersetzt die Standarddaten durch sechs Kategorien und Werte von 50 bis 500 und speichert anschließend die aktualisierte Präsentation. Die Eingabe‑Präsentation muss mindestens eine Folie enthalten.
 
 ```java
 import com.aspose.slides.*;
@@ -752,11 +754,11 @@ Das Ergebnis:
 
 ![Das Trichterdiagramm](funnel_chart.png)
 
-### **Erstellen von Sonnenblütendiagrammen**
+### **Sunburst‑Diagramme erstellen**
 
-Sonnenblütendiagramme visualisieren hierarchische Daten, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie verdeutlichen Teil‑zu‑Ganzes‑Beziehungen und eignen sich ideal für die Darstellung verschachtelter Kategorien und Unterkategorien in einem kompakten Format.
+Sunburst‑Diagramme werden verwendet, um hierarchische Daten zu visualisieren, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich ideal zur Darstellung verschachtelter Kategorien und Unterkategorien in einem klaren, kompakten Format.
 
-Dieses Beispiel erstellt ein Sonnenblütendiagramm mit acht Blättern, die zu vier Stämmen und zwei Zweigen gruppiert sind. Die Methode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) weist Stämme Ebene 1 und Zweige Ebene 2 zu. Kategoriebeschriftungen identifizieren die Segmente, und die Werte bestimmen deren relative Größe.
+Dieses Beispiel erstellt ein Sunburst‑Diagramm mit acht Blättern, die in vier Stämmen und zwei Ästen gruppiert sind. Die Methode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) weist Stämme auf Gruppierungsebene 1 und Äste auf Ebene 2 zu. Kategorienbeschriftungen identifizieren die Segmente, und die Werte bestimmen ihre relative Größe.
 
 ```java
 import com.aspose.slides.*;
@@ -835,17 +837,17 @@ finally
 
 Das Ergebnis:
 
-![Das Sonnenblütendiagramm](sunburst_chart.png)
+![Das Sunburst‑Diagramm](sunburst_chart.png)
 
-### **Erstellen von Histogrammdiagrammen**
+### **Histogrammdiagramme erstellen**
 
-Histogrammdiagramme zeigen, wie numerische Werte über Intervalle (Bins) verteilt sind. Für monatliche Berichte über Auftragsbearbeitungszeiten verwenden Sie dieselbe Bin‑Breite und dieselben Schwellenwerte, um die Intervalle konsistent zu halten und Vergleiche zu erleichtern.
+Histogrammdiagramme zeigen, wie numerische Werte über Intervalle (Bins) verteilt sind. Für monatliche Berichte über Auftragsbearbeitungszeiten verwenden Sie dieselbe Klassenbreite und Schwellenwerte, um Intervalle konsistent zu halten und Verteilungen leichter vergleichen zu können.
 
-Rufen Sie [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) auf der Horizontalachse mit einem Modus aus [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/) auf. [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) gilt nur für `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) gilt nur für `ByNumberOfBins`. Verwenden Sie `Automatic`, damit das Diagramm die Bins selbst bestimmt.
+Rufen Sie [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) auf der Horizontalachse mit einem Modus aus [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/) auf. [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) gilt nur für `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) gilt nur für `ByNumberOfBins`. Verwenden Sie `Automatic`, um das Diagramm die Klassen selbst wählen zu lassen.
 
-#### **Verwenden einer festen Bin‑Breite**
+#### **Feste Klassenbreite verwenden**
 
-Dieses Beispiel gruppiert Bearbeitungszeiten in 10‑Minute‑Intervalle, mit eigenen Bins für Zeiten ≤ 10 Minuten und > 40 Minuten. Aktivieren Sie diese Bins mit [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) und [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Beim expliziten Festlegen von Schwellenwerten über [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) und [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-) rufen Sie [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) und [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) mit `false` auf.
+Dieses Beispiel gruppiert Bearbeitungszeiten in 10‑Minute‑Intervalle, mit separaten Klassen für Zeiten ≤ 10 Minuten und > 40 Minuten. Aktivieren Sie diese Klassen mit [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) und [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Wenn Sie explizite Schwellenwerte über [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) und [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-) angeben, rufen Sie [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) und [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) mit `false` auf.
 
 ```java
 import com.aspose.slides.*;
@@ -892,13 +894,13 @@ finally
 }
 ```
 
-Die in PowerPoint angezeigte Präsentation weist Bin‑Zahlen von **3, 4, 4, 4, und 2** auf. Der Unterlauf‑Bin enthält `5, 10, 10`, sodass seine Schwelle inklusiv ist. Der Überlauf‑Bin enthält nur `41, 50`, sodass seine Schwelle exklusiv ist; Werte gleich `40` bleiben im vorangegangenen Intervall. Die Innen‑Bins enthalten Werte größer als ihre untere Grenze und kleiner‑gleich ihrer oberen Grenze.
+Die in PowerPoint angezeigte Präsentation zeigt Klassen­zählungen von **3, 4, 4, 4 und 2**. Die Unterlauf‑Klasse enthält `5, 10, 10`, daher ist ihr Schwellenwert inklusiv. Die Überlauf‑Klasse enthält nur `41, 50`, sodass ihr Schwellenwert exklusiv ist; beide Werte gleich `40` verbleiben im vorangegangenen Intervall. Die inneren Klassen enthalten Werte größer als ihre untere Grenze und kleiner‑gleich ihrer oberen Grenze.
 
 ![Histogramm mit 10‑Minute‑Bins und expliziten Unter‑ und Überlauf‑Schwellenwerten](histogram_bin_width.png)
 
-#### **Angeben der Bin‑Anzahl**
+#### **Anzahl der Klassen angeben**
 
-Für ein festes Detailniveau statt fester Intervalle fordern Sie fünf Bins für dieselben Daten an. Dieses Beispiel lässt Unter‑ und Überlauf‑Bins deaktiviert. Das Diagramm ermittelt die Breite aus dem Datenbereich, sodass Grenzen zwischen Berichten variieren können.
+Für ein festes Detailniveau statt fester Intervalle fordern Sie fünf Klassen für dieselben Daten an. Dieses Beispiel lässt Unter‑ und Überlauf‑Klassen deaktiviert. Das Diagramm bestimmt die Breite aus dem Datenbereich, sodass Grenzen zwischen Berichten variieren können.
 
 ```java
 import com.aspose.slides.*;
@@ -939,15 +941,15 @@ finally
 }
 ```
 
-Die fünf Bins haben Zähler von **4, 4, 4, 4, und 1**. Vergleichen Sie diese Verteilung mit dem Ergebnis fester Breite oben: Die Eingabewerte sind identisch, aber die Grenzen unterscheiden sich.
+Die fünf Klassen haben Zählungen von **4, 4, 4, 4 und 1**. Vergleichen Sie diese Verteilung mit dem Ergebnis der festen Breite oben: Die Eingabewerte sind identisch, aber die Grenzen unterscheiden sich.
 
-![Histogramm mit fünf aus denselben Daten berechneten Bins](histogram_bin_count.png)
+![Histogramm mit fünf Klassen, berechnet aus denselben Daten](histogram_bin_count.png)
 
-### **Erstellen von Radardiagrammen**
+### **Radar‑Diagramme erstellen**
 
-Radardiagramme dienen zur Darstellung multivariater Daten in einem zweidimensionalen Format und ermöglichen den gleichzeitigen Vergleich mehrerer Variablen. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungsmetriken oder Attribute hinweg zu identifizieren.
+Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, sodass mehrere Variablen gleichzeitig leicht verglichen werden können. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungsmetriken oder Attribute hinweg zu identifizieren.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) zum Erstellen eines Radardiagramms mit den Standard‑Reihen und -Kategorien und speichert die Präsentation anschließend als PPTX.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) um ein Radar‑Diagramm mit den Standard‑Serien und -Kategorien zu erstellen und speichert die Präsentation anschließend als PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -969,13 +971,13 @@ finally
 
 Das Ergebnis:
 
-![Das Radardiagramm](radar_chart.png)
+![Das Radar‑Diagramm](radar_chart.png)
 
-### **Erstellen von Diagrammen mit mehreren Kategorien**
+### **Diagramme mit mehreren Kategorien erstellen**
 
-Diagramme mit mehreren Kategorien visualisieren Daten, die mehr als eine kategoriale Gruppierung enthalten, sodass Sie Werte über mehrere Dimensionen gleichzeitig vergleichen können. Sie sind besonders hilfreich, wenn Sie Trends und Zusammenhänge in komplexen, mehrschichtigen Datensätzen analysieren müssen.
+Diagramme mit mehreren Kategorien werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung enthalten, sodass Sie Werte über mehrere Dimensionen gleichzeitig vergleichen können. Sie sind besonders hilfreich, wenn Sie Trends und Zusammenhänge in komplexen, mehrschichtigen Datensätzen analysieren müssen.
 
-Dieses Beispiel erzeugt ein gruppiertes Säulendiagramm mit acht Kategorien, die in vier Paare angeordnet sind. Die Methode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) weist jedem Paar ein gemeinsames Label auf Gruppierungsebene 1 zu, wodurch eine Kategorienachse mit sowohl einzelnen als auch Gruppen‑Labels entsteht.
+Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit acht Kategorien, die in vier Paare angeordnet sind. Die Methode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) gibt jedem Paar eine gemeinsame Beschriftung auf Gruppierungsebene 1, wodurch eine Kategorienachse mit sowohl Einzel‑ als auch Gruppenbeschriftungen entsteht.
 
 ```java
 import com.aspose.slides.*;
@@ -1051,11 +1053,11 @@ Das Ergebnis:
 
 ![Das Diagramm mit mehreren Kategorien](multi_category_chart.png)
 
-### **Erstellen von Karten‑Diagrammen**
+### **Karten‑diagramme erstellen**
 
-Karten‑Diagramme visualisieren geografische Daten, indem Informationen bestimmten Orten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
+Karten‑diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen bestimmten Standorten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) zum Erstellen eines Karten‑Diagramms mit den Standard‑Geodaten und speichert es zur Ansicht in PowerPoint.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) um ein Karten‑Diagramm mit den Standard‑Geodaten zu erstellen und speichert es zur Ansicht in PowerPoint.
 
 ```java
 import com.aspose.slides.*;
@@ -1080,16 +1082,16 @@ Das Ergebnis:
 ![Das Karten‑Diagramm](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Das obige Bild zeigt die in PowerPoint geöffnete gespeicherte Präsentation. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch selbst keine Karten‑Diagramme: Wird eine Folie, die ein solches Diagramm enthält, zu einem Bild gerendert oder in PDF bzw. SVG konvertiert, bleibt der Diagrammbereich leer. Andere Formen auf derselben Folie bleiben unverändert.
+Das obige Bild zeigt die in PowerPoint geöffnete gespeicherte Präsentation. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch selbst keine Karten‑Diagramme: Wenn eine Folie, die eines enthält, zu einem Bild gerendert oder in PDF oder SVG konvertiert wird, erscheint der Diagrammbereich leer. Andere Formen auf derselben Folie bleiben unverändert.
 {{% /alert %}}
 
-### **Erstellen von Kombinations‑Diagrammen**
+### **Kombinationsdiagramme erstellen**
 
 Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
 
-![Das Kombinations‑Diagramm](combination_chart.png)
+![Das Kombinationsdiagramm](combination_chart.png)
 
-Dieses Beispiel kombiniert zwei gruppierte Säulenreihen mit einer Liniereihe über vier Kategorien. Die Säulen verwenden die primäre vertikale Achse, während [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) die Linie auf einer sekundären vertikalen Achse rechts platziert. Hilfsfunktionen konfigurieren Titel, Legende, Achsenbeschriftungen und Gitterlinien.
+Dieses Beispiel kombiniert zwei gruppierte Säulen‑Serien mit einer Linien‑Serie über vier Kategorien. Die Säulen nutzen die primäre vertikale Achse, während [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) die Linie auf eine sekundäre vertikale Achse rechts platziert. Hilfsfunktionen konfigurieren Titel, Legende, Achsenbeschriftungen und Gitterlinien.
 
 ```java
 import com.aspose.slides.*;
@@ -1260,9 +1262,9 @@ example.createComboChart();
 
 ## **Diagramme aktualisieren**
 
-Aspose.Slides für Android über Java ermöglicht das Aktualisieren von PowerPoint‑Diagrammen durch Ändern von Diagrammdaten, Formatierung und Stil. Diese Funktionalität vereinfacht das Aktualisieren von Präsentationen mit dynamischen Inhalten und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards exakt widerspiegeln.
+Aspose.Slides für Android via Java ermöglicht es Ihnen, PowerPoint‑Diagramme zu aktualisieren, indem Sie Diagrammdaten, Formatierungen und Stile ändern. Diese Funktionalität vereinfacht das Aktualisieren von Präsentationen mit dynamischen Inhalten und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards genau widerspiegeln.
 
-Dieses Beispiel aktualisiert das Diagramm mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation. Es erfordert zwei Spaltenreihen mit jeweils drei Datenpunkten, wobei Kategoriebeschriftungen in Spalte A und Reihen‑Namen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) zum Ändern von Arbeitsmappen‑Zellen, aktualisiert Reihen‑Werte, fügt eine dritte Reihe hinzu und ändert das Diagramm zu gruppierten Zylindern über [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
+Dieses Beispiel aktualisiert das Diagramm mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation. Es erfordert zwei Spalten‑Serien mit jeweils drei Datenpunkten, wobei Kategorienamen in Spalte A und Seriennamen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) um Arbeitsmappen‑Zellen zu ändern, aktualisiert Serienwerte, fügt eine dritte Serie hinzu und ändert das Diagramm zu gruppierten Zylindern über [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1324,11 +1326,11 @@ finally
 
 ## **Datenbereich für ein Diagramm festlegen**
 
-Um den bereits von einem bestehenden Diagramm genutzten Bereich zu inspizieren, siehe [Retrieve a Chart's Data Range](/slides/de/androidjava/chart-workbook/#retrieve-a-charts-data-range).
+Um den bereits von einem bestehenden Diagramm genutzten Bereich zu inspizieren, siehe [Abrufen des Datenbereichs eines Diagramms](/slides/de/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides für Android über Java bietet die Flexibilität, einen spezifischen Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten zu definieren. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, um zu steuern, welche Zellen zu den Reihen und Kategorien des Diagramms beitragen. Dadurch können Sie Ihre Diagramme leicht aktualisieren und mit den neuesten Datenänderungen in Ihrem Arbeitsblatt synchronisieren, sodass Ihre PowerPoint‑Präsentationen stets aktuelle und korrekte Informationen widerspiegeln.
+Aspose.Slides für Android via Java bietet die Flexibilität, einen spezifischen Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten festzulegen. Das bedeutet, dass Sie einen Teil Ihrer Arbeitsmappe direkt dem Diagramm zuordnen können, um zu steuern, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. Dadurch können Sie Ihre Diagramme leicht aktualisieren und mit den neuesten Datenänderungen in Ihrer Arbeitsmappe synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und genaue Informationen widerspiegeln.
 
-Dieses Beispiel verwendet [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) um die Datenquelle des Diagramms mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Die Diagramm‑Arbeitsmappe muss dieses Arbeitsblatt und einen ausgefüllten Bereich mit einer Reihen‑Überschrift in der ersten Zeile, Kategoriebeschriftungen in Spalte A und drei Werten in Spalte B enthalten.
+Dieses Beispiel verwendet [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) um die Datenquelle des Diagramms mit dem Namen „My chart“ auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Die Diagrammarbeitsmappe muss dieses Arbeitsblatt und einen befüllten Bereich mit einer Serienüberschrift in der ersten Zeile, Kategorienamen in Spalte A und drei Werten in Spalte B enthalten.
 
 ```java
 import com.aspose.slides.*;
@@ -1359,9 +1361,9 @@ finally
 
 ## **Standard‑Marker in Diagrammen verwenden**
 
-Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagramm‑Reihe automatisch ein unterschiedliches Standard‑Marker‑Symbol.
+Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein unterschiedliches Standard‑Marker‑Symbol.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) zum Erstellen eines Diagramms mit zwei Liniereihen und einer Legende. Die über [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) abgerufenen Marker‑Einstellungen behalten die automatisch zugewiesenen Marker‑Symbole. Die erste Reihe enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `null`, während die zweite für jede Kategorie einen Wert hat.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) um ein Diagramm mit zwei Linien‑Serien und einer Legende zu erstellen. Die Marker‑Einstellungen, die über [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) abgerufen werden, behalten die automatisch zugewiesenen Marker‑Symbole. Die erste Serie enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `null`, während die zweite für jede Kategorie einen Wert hat.
 
 ```java
 import com.aspose.slides.*;
@@ -1426,18 +1428,18 @@ finally
 
 ## **FAQ**
 
-**Welche Diagrammtypen werden von Aspose.Slides für Android über Java unterstützt?**
+**Welche Diagrammtypen werden von Aspose.Slides für Android via Java unterstützt?**
 
-Aspose.Slides für Android über Java unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kreis, Fläche, Streu, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierung auszuwählen.
+Aspose.Slides für Android via Java unterstützt eine breite Palette von Diagrammtypen, einschließlich Balken, Linien, Kreis, Flächen, Scatter, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den für Ihre Datenvisualisierung am besten geeigneten Diagrammtyp zu wählen.
 
-**Wie füge ich einer Folie ein neues Diagramm hinzu?**
+**Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zuerst eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Klasse, rufen die gewünschte Folie über ihren Index ab und rufen anschließend die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), rufen das gewünschte Folien‑Objekt über dessen Index ab und rufen anschließend die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Diagrammdaten aktualisieren, indem Sie auf die zugehörige Daten‑Arbeitsmappe ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)) zugreifen, Standard‑Reihen und -Kategorien entfernen und anschließend Ihre eigenen Daten hinzufügen. So können Sie das Diagramm programmgesteuert aktualisieren, damit es die neuesten Daten widerspiegelt.
+Sie können die Diagrammdaten aktualisieren, indem Sie auf die Datenarbeitsmappe des Diagramms ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)) zugreifen, Standard‑Serien und -Kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. So können Sie das Diagramm programmgesteuert aktualisieren, damit es die neuesten Daten widerspiegelt.
 
 **Ist es möglich, das Aussehen des Diagramms anzupassen?**
 
-Ja, Aspose.Slides für Android über Java bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Aussehen des Diagramms an Ihre spezifischen Designanforderungen anzupassen.
+Ja, Aspose.Slides für Android via Java bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Aussehen des Diagramms an Ihre spezifischen Designanforderungen anzupassen.

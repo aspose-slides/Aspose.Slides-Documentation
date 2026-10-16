@@ -1,5 +1,5 @@
 ---
-title: PowerPoint bemutató diagramjainak létrehozása vagy frissítése Pythonban
+title: PowerPoint‑prezentációk diagramjainak létrehozása vagy frissítése Pythonban
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -10,49 +10,51 @@ keywords:
 - diagram szerkesztése
 - diagram módosítása
 - diagram frissítése
-- szórásdiagram
+- szórt diagram
 - kördiagram
 - vonaldiagram
 - fa térkép diagram
 - részvénydiagram
-- doboz és szárnyas diagram
-- tölcsérdiagram
-- napkitörés diagram
+- doboz‑ és szakáll diagram
+- tölcsér diagram
+- napkör diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
 - PowerPoint
-- bemutató
+- prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Készítsen és testreszabjon diagramokat PowerPoint bemutatókban az Aspose.Slides for Python via Java használatával. Diagramokat adjon hozzá, formázzon és szerkesszen gyakorlati Python kódrészletekkel."
+description: "Készítsen és testreszabjon diagramokat PowerPoint‑prezentációkban az Aspose.Slides for Python via Java használatával. Adjon hozzá diagramokat, formázza és szerkessze őket gyakorlati Python kódrészletekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt arról, hogyan hozhat és testreszabhat diagramokat az Aspose.Slides for Python via Java használatával. Megtanulja, hogyan adhat programozott módon diagramot egy diára, hogyan töltheti fel adatokal, és hogyan alkalmazhat különféle formázási beállításokat a specifikus tervezési követelményeknek megfelelően. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, a bemutató és a diagramobjektum inicializálásától a sorozatok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével szilárd megértést szerez a dinamikus diagramgenerálás integrálásáról Python alkalmazásaiban, egyszerűsítve az adatvezérelt bemutatók létrehozásának folyamatát.
+Ez a cikk átfogó útmutatót nyújt arról, hogyan hozhatunk létre és testreszabhatunk diagramokat az Aspose.Slides for Python via Java használatával. Megtanulhatja, hogyan adjon programozott módon diagramot egy diára, töltse fel adatokal, és alkalmazzon különféle formázási beállításokat, hogy megfeleljen a specifikus tervezési követelményeinek. A cikk során részletes kódrészletek mutatják be minden lépést, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével alapos megértést szerezhet a dinamikus diagramgenerálás integrálásáról Python alkalmazásaiban, ezzel leegyszerűsítve az adat‑alapú prezentációk létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat és betekintést nyerni, ami egy táblázatból vagy munkalapból nem feltétlenül azonnal egyértelmű.
+A diagramok segítik az embereket az adatok gyors megjelenítésében és olyan betekintések nyerésében, amelyek egy táblázatból vagy számolótáblából nem lennének azonnal egyértelműek.
 
-**Miért hozunk létre diagramokat?**
+**Miért készítsünk diagramokat?**
 
-* nagy mennyiségű adat összesítése, tömörítése vagy összefoglalása egyetlen dián a bemutatóban;
-* minták és trendek feltárása az adatokban;
-* az adatok időbeli vagy egy adott mérőegységhez viszonyított irányának és lendületének meghatározása;
-* kiemelni kiugró értékeket, eltéréseket, hibákat és értelmetlen adatokat;
-* komplex adatok kommunikálása vagy bemutatása.
+A diagramok segítségével:
 
-A PowerPointban a *Insert* (Beszúrás) funkcióval hozhat diagramokat, amely számos diagramtípus sablonját biztosítja. Az Aspose.Slides használatával mind szabványos diagramokat (népszerű diagramtípusokon alapuló) mind egyedi diagramokat hozhat létre.
+* nagy mennyiségű adatot aggregálhat, sűríthet vagy összefoglalhat egyetlen dián egy prezentációban;
+* mintákat és trendeket tárhat fel az adatokban;
+* meghatározhatja az adatok időbeli vagy adott mérőegységhez viszonyított irányát és lendületét;
+* észlelhet kiejtések, anomáliák, eltérések, hibák és értelmetlen adatokat;
+* komplex adatokat kommunikálhat vagy prezentálhat.
+
+PowerPointban a diagramok létrehozhatók a *Insert* (Beszúrás) funkcióval, amely sablonokat kínál számos diagramtípus megtervezéséhez. Az Aspose.Slides használatával létrehozhat mind szabványos diagramokat (népszerű diagramtípusokon alapulva), mind egyedi diagramokat.
 
 {{% alert color="info" title="Note" %}}
 Használja a [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) felsorolást a [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/) csomagban. Ennek a felsorolásnak az értékei különböző diagramtípusoknak felelnek meg.
 {{% /alert %}}
 
-### **Halmozott oszlopdiagramok létrehozása**
+### **Csoportosított oszlopdiagramok létrehozása**
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódust használja egy halmozott oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltéseket használnak, az egyedi címkék a kategória neveket, sorozat neveket és értékeket mutatják. A 0 indexű munkalap az beágyazott diagram munkafüzet első lapjára utal.
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódust használja egy csoportosított oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltéssel jelennek meg, az egyedi címkék pedig a kategóraneveket, sorozatneveket és értékeket mutatják. A 0‑s munkalap‑index az beágyazott diagrammunkafüzet első lapjára hivatkozik.
 
 ```python
 import jpype
@@ -137,20 +139,20 @@ finally:
 
 Az eredmény:
 
-![A halmozott oszlopdiagram](clustered_column_chart.png)
+![A csoportosított oszlopdiagram](clustered_column_chart.png)
 
-### **Szórásdiagramok létrehozása**
+### **Pontdiagramok létrehozása**
 
-A szórásdiagramok (más néven szóráspontdiagramok vagy x‑y grafikonok) gyakran használatosak a minták keresésére vagy a két változó közötti korreláció bemutatására.
+A pontdiagramok (más néven scatter plot vagy x‑y grafikon) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
 
-Használjon szórásdiagramot, ha:
+Használjon pontdiagramot, ha:
 
-* párosított numerikus adatai vannak;
-* két változó jól párosítható;
-* meg szeretné határozni, hogy a két változó összefügg-e;
-* van egy független változó, amely több értékkel rendelkezik egy függő változóhoz képest.
+* Párosított numerikus adatjai vannak.
+* Két változó jól párosítható egymással.
+* Meg akarja állapítani, hogy a két változó összefügg-e.
+* Van egy független változó, amely több értéket vesz fel egy függő változó esetén.
 
-Ez a példa két x‑y értékkészletet ábrázol. Az első sorozat egyenes vonalakat csillag‑jelölőkkel használ, míg a második sima vonalakat kör‑jelölőkkel; mindkettő 10-es jelölőmérettel rendelkezik, amit a [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize) állít be. A [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) metódus vezérli a jelölő formáját.
+Ez a példa két x‑y értékkészletet ábrázol. Az első sorozat egyenes vonalakkal és csillag‑markerekkel jelenik meg, a második sima vonalakkal és kör‑markerekkel; mindkettő 10‑es markerméretet használ, amelyet a [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize) állít be. A [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) metódus szabályozza a jelölő alakját.
 
 ```python
 import jpype
@@ -220,13 +222,13 @@ finally:
 
 Az eredmény:
 
-![A szórásdiagram](scatter_chart.png)
+![A pontdiagram](scatter_chart.png)
 
 ### **Kördiagramok létrehozása**
 
-A kördiagramok leginkább a rész‑egész kapcsolat megjelenítésére alkalmasak, különösen, ha a adatok kategóriákat tartalmaznak numerikus értékekkel. Ha azonban sok rész vagy címke van, érdemesebb oszlopdiagramot használni.
+A kördiagramok leginkább az adatok része‑egész viszonyának bemutatására alkalmasak, különösen akkor, ha a data kategóriákat numerikus értékekkel látják el. Ha az adatok sok részre vagy címkére oszlanak, érdemes inkább oszlopdiagramot használni.
 
-Ez a példa egy háromnegyedéves értékekkel rendelkező kördiagramot hoz létre. Minden szelet egyedi kitöltéssel és szegéllyel rendelkezik, a címkék pedig különböző kombinációkban jelenítik meg az értékeket, százalékokat és sorozatinformációkat. A [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) metódus az első szeletet 180 foknál kezdi.
+Ez a példa három negyedéves értékkel hoz létre egy kördiagramot. Minden szelet egyedi kitöltéssel és szegéllyel rendelkezik, a címkék pedig különböző kombinációban jelenítik meg az értékeket, százalékokat és sorozatinformációkat. A [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) metódus az első szeletet 180 fokban indítja.
 
 ```python
 import jpype
@@ -334,11 +336,13 @@ Az eredmény:
 
 ![A kördiagram](pie_chart.png)
 
+A körön kívüli címkék olvashatóságának javításához tekintse meg a [Format Leader Lines](/slides/hu/python-java/chart-data-label/#format-leader-lines) példát, amely a címkék pozícionálását és a vonalak színének, vastagságának, átlátszóságának és szaggatottságának testreszabását mutatja be.
+
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább akkor hasznosak, amikor az érték változását időben szeretnénk bemutatni. Egy vonaldiagram segítségével nagymennyiségű adatot hasonlíthatunk össze egyszerre, nyomon követhetjük az időbeli változásokat és trendeket, kiemelhetjük a sorozatok anomáliáit, és még sok mást.
+A vonaldiagramok (más néven line graph) leginkább olyan helyzetekben hasznosak, ahol az értékek időbeli változását szeretné bemutatni. Egy vonaldiagram segítségével egyszerre összehasonlíthat nagy mennyiségű adatot, nyomon követheti az időbeli változásokat és trendeket, kiemelheti a sorozatok anomáliáit, és még sok mást.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódust használja egy vonaldiagram létrehozásához alapértelmezett sorozattal és kategóriákkal, majd PPTX‑ként menti a bemutatót.
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódussal hoz létre egy vonaldiagramot az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```python
 import jpype
@@ -360,7 +364,7 @@ finally:
     presentation.dispose()
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjait egyenes, folytonos vonalak kötik össze. Ha pontokat szaggatott vonallal szeretne összekötni, hívja a [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) metódust a [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) egyik értékével:
+Alapértelmezés szerint a vonaldiagram pontjai egyenes, folytonos vonallal vannak összekötve. Ha a pontok közötti kapcsolatot szaggatott vonallal szeretné, hívja meg a [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) metódust a [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) egyik értékével:
 
 ```python
 import jpype
@@ -387,11 +391,11 @@ Az eredmény:
 
 ![A vonaldiagram](line_chart.png)
 
-### **Fák térkép diagramok létrehozása**
+### **Fa térkép diagramok létrehozása**
 
-A fa térkép diagramok leginkább értékesítési adatok esetén hasznosak, amikor a kategóriák relatív méretét szeretnénk megmutatni, és gyorsan felhívni a figyelmet a nagy hozzájáruló tételekre minden kategórián belül.
+A fa térkép diagramok leginkább értékesítési adatok esetén használandók, amikor a kategóriák relatív méretét és a legnagyobb hozzájárulók gyors kiemelését szeretné megjeleníteni.
 
-Ez a példa egy fátérképet hoz létre nyolc levéllel, amelyek négy szárra és két ágra csoportosulnak. A [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus az 1. szintű csoportosításnál a szárakat, a 2. szintnél az ágakat rendeli hozzá. Az értékek a relatív téglalapméreteket határozzák meg, míg a kategória‑címkék és a átfedő szülőcímkék az hierarchiát azonosítják.
+Ez a példa egy fa térképet hoz létre nyolc levéllel, amely négy szárra és két ágra van csoportosítva. A [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus az 1‑es szintű csoportosításnál a szárakat, a 2‑es szintnél pedig az ágakat rendeli hozzá. Az értékek határozzák meg a relatív téglalapméreteket, míg a kategória‑címkék és a átfedő szülőcímkék jelölik a hierarchiát.
 
 ```python
 import jpype
@@ -474,26 +478,26 @@ finally:
 
 Az eredmény:
 
-![A fák térkép diagram](treemap_chart.png)
+![A fa térkép diagram](treemap_chart.png)
 
-### **Vízesés diagramok létrehozása**
+### **Vízáfall diagramok létrehozása**
 
-A vízesés diagram azt mutatja, hogyan járulnak hozzá a pozitív és negatív változások egy végső értékhez. Például egy nyereség‑bontás kezdődhet a bevétellel, levonja a költségeket, majd hozzáad egyéb jövedelmeket. A változó oszlopok az előző és az új futó értékek között lebegnek, míg a teljes oszlopok a nullától a felhalmozott értékig terjednek.
+A vízáfall diagram megmutatja, hogy a pozitív és negatív változások hogyan járulnak hozzá a végső értékhez. Például egy profit‑szemlélet a bevétellel kezdődhet, majd a költségek levonásával és egyéb bevételek hozzáadásával alakul ki. A változó oszlopok a korábbi és az új futó értékek között lebegnek, míg a teljes oszlopok a nullától a felhalmozott értékig terjednek.
 
 Az alábbi példa ezer amerikai dollárban megadott összegeket használ:
 
 | Kategória | Munkafüzet érték | Oszlop típusa |
 | --- | ---: | --- |
-| Bevétel | 1000 | Növekedés |
-| Eladási költség | -400 | Csökkenés |
-| Bruttó nyereség | 600 | Köztes összeg |
-| Működési költségek | -200 | Csökkenés |
-| Egyéb jövedelem | 50 | Növekedés |
-| Nettó nyereség | 450 | Végső összeg |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-Egy pont köztes vagy végső összegként jelöléséhez hívja a [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) metódust `True`‑val. Adja meg a tényleges felhalmozott összeget a pont munkafüzet‑cellájában: `600` a bruttó nyereséghez (`1000 - 400`) és `450` a nettó nyereséghez (`600 - 200 + 50`). A metódus csak megjelöli az oszlopot összegként; nem számolja ki vagy tölti ki a cella értékét. Ne használjon nullát helyőrzőként, és ne adjon meg más változást egy összeg‑pont esetén. A teljes oszlop a felhalmozott értéket jeleníti meg anélkül, hogy újra hozzáadná a futó értékhez.
+Egy pont közbenső vagy végső összegként való megjelöléséhez hívja meg a [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) metódust **True** értékkel. Adja meg a tényleges felhalmozott összeget a pont munkafüzet‑cellájában: `600` a bruttó profithoz (`1000 - 400`) és `450` a nettó profithoz (`600 - 200 + 50`). A metódus csak megjelöli az oszlopot összegként; nem számolja ki vagy tölti fel a cella értékét. Ne használjon nullát helyőrzőként, és ne adjon meg más változást egy összeg‑pont számára. A teljes oszlop csak a felhalmozott értéket jeleníti meg, anélkül, hogy újra hozzáadná azt a futó értékhez.
 
-Ez a teljes Python példa a [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) `Waterfall` tagját használja, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. A 0‑ás munkalap index a első munkalapot választja; az A oszlop a kategória neveket, a B oszlop az értékeket tartalmazza. Minden értékcella a [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) metódussal kerül hozzáadásra. A 0‑bázisú pontindexek `2` és `5` a köztes illetve a végső összegeket azonosítják. A [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) `True`‑val való hívása megjeleníti az összegeket az oszlopokon. Bemutató‑fájl vagy munkafüzet nem szükséges.
+Ez a teljes Python példa a [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) **Waterfall** tagjával hoz létre egy diagramot, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. A 0‑s munkalap‑index az első munkalapot választja; az A oszlop a kategórianéveket, a B oszlop az értékeket tartalmazza. Minden értékcellát a [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) metódussal adunk hozzá. A 0‑alapú pontindexek `2` és `5` a köztes és a végső összegeket jelölik. A [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) **True**‑val való hívása megjeleníti az összegeket az oszlopokon. Nincs bemeneti prezentáció vagy munkafüzet szükséges.
 
 ```python
 import jpype
@@ -534,7 +538,7 @@ try:
         value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
         series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
 
-    # A harmadik és a hatodik pont összesítést jelent, nem további változást.
+    # A harmadik és a hatodik pont összegként jelenik meg, nem további változásként.
     series.getDataPoints().get_Item(2).setSetAsTotal(True)
     series.getDataPoints().get_Item(5).setSetAsTotal(True)
     series.setShowConnectorLines(True)
@@ -545,17 +549,17 @@ finally:
     presentation.dispose()
 ```
 
-A sorozat‑szintű [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) `True`‑val hívása vonalakat jelenít meg, amelyek összekötik a szomszédos oszlopokat, és könnyebbé teszik a futó érték követését. Ezeknek a vonalaknak a elrejtéséhez cserélje ki a példa hívását `series.setShowConnectorLines(False)`‑re a mentés előtt. Ez csak a vonalak láthatóságát változtatja, az adatokat vagy összegeket nem.
+A sorozatszintű [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) **True**‑ra állítása megjeleníti a szomszédos oszlopokat összekötő vonalakat, megkönnyítve a futó érték nyomon követését. Ezeknek a vonalaknak a elrejtéséhez cserélje ki a metódushívást a példában `series.setShowConnectorLines(False)`‑ra a mentés előtt. Ez csak a vonalak láthatóságát változtatja, az adatot vagy az összegeket nem.
 
-A mentett bemutató 600 bruttó nyereséget és 450 nettó nyereséget mutat, mindkét összeg nulláról indul:
+A mentett prezentáció 600‑as bruttó profitot és 450‑as nettó profitot mutat, mindkét összeg nulláról indul:
 
-![A vízesés diagram, amely a bevételt, költségeket, 600 bruttó nyereséget és 450 nettó nyereséget mutatja, értékcímkékkel és összekötővonalakkal](waterfall_chart.png)
+![A vízáfall diagram a bevételt, költségeket, 600‑as bruttó profitot és 450‑as nettó profitot, értékcímkékkel és összekötő vonalakkal ábrázolva](waterfall_chart.png)
 
 ### **Részvénydiagramok létrehozása**
 
-A részvénydiagramok pénzügyi adatokat jelenítenek meg, például nyitó, legmagasabb, legalacsonyabb és záró árakat, segítve a piaci trendek és volatilitás elemzését. Létfontosságú betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a megalapozott döntések meghozatalában.
+A részvénydiagramok pénzügyi adatokat, például nyitó, legmagasabb, legalacsonyabb és záró árakat ábrázolják, segítve a piaci trendek és volatilitás elemzését. Alapvető betekintést nyújtanak a részvény‑teljesítménybe, támogatva a befektetőket és elemzőket a tájékozott döntéshozatalban.
 
-Ez a példa egy nyitó‑magas‑alacsony‑záró (OHLC) diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) metódus engedélyezi a fel‑le oszlopokat, a [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) szabályozza a magas‑alacsony vonalakat, míg az egyedi sorozatvonalak és a kisebb vízszintes rácsvonalak rejtve maradnak.
+Ez a példa egy nyitó‑magas‑alacsony‑záró (OHLC) diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) metódus engedélyezi a fel‑le csíkokat, a [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) szabályozza a magas‑alacsony vonalakat, míg az egyes sorozat‑vonalak és a kisebb vízszintes rácsvonalak el vannak rejtve.
 
 ```python
 import jpype
@@ -639,11 +643,11 @@ Az eredmény:
 
 ![A részvénydiagram](stock_chart.png)
 
-### **Doboz‑ és oszlopdiagramok létrehozása**
+### **Doboz‑ és szakáll diagramok létrehozása**
 
-A doboz‑ és oszlopdiagramok az adatok eloszlását mutatják, összefoglalva kulcsfontosságú statisztikai mérőszámokat, mint a medián, kvartilisek és lehetséges kiugró értékek. Különösen hasznosak feltáró adat‑analízisben és statisztikai tanulmányokban, hogy gyorsan megértsék az adatváltozatosságot és azonosítsák az anomáliákat.
+A doboz‑ és szakáll diagramok az adat eloszlását jelenítik meg kulcsfontosságú statisztikai mutatók – például medián, kvartilisek és esetleges kiugró értékek – összefoglalásával. Különösen hasznosak felderítő adatelemzések és statisztikai tanulmányok során, hogy gyorsan megértsük az adatvariabilitást és az esetleges anomáliákat.
 
-Ez a példa hat értéken alapuló doboz‑ és oszlopdiagramot hoz létre. A [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) metódus az exkluzív kvartilis‑számítást választja. A példa engedélyezi az átlagvonalakat, átlag‑jelölőket, belső pontokat és kiugró pontokat.
+Ez a példa hat értékkel hoz létre egy doboz‑ és szakáll diagramot. A [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) metódus az exkluzív kvartilis‑számítást választja. A példa engedélyezi a közép‑vonalakat, a közép‑markereket, a belső pontokat és a kiugró pontokat is.
 
 ```python
 import jpype
@@ -707,9 +711,9 @@ finally:
 
 ### **Tölcsér diagramok létrehozása**
 
-A tölcsér diagramok a folyamatok szekvenciális szakaszait ábrázolják, ahol az adatmennyiség csökken a lépésről‑lépésre haladva. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
+A tölcsér diagramok a folyamatok szekvenciális szakaszainak vizualizálására szolgálnak, ahol az adatmennyiség minden lépésnél csökken. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódust használja egy tölcsér diagram hozzáadásához egy meglévő bemutató első diájához. Lecseréli az alapértelmezett adatokat hat kategóriára és 50‑től 500‑ig terjedő értékekre, majd menti a frissített bemutatót. A bemutató‑fájlnak legalább egy diát kell tartalmaznia.
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) használatával tölcsér diagramot ad az existing prezentáció első diájához. A alapértelmezett adatot hat kategóriával és 50‑tól 500‑ig terjedő értékekkel helyettesíti, majd menti a frissített prezentációt. A bemeneti prezentációban legalább egy dia kötelező.
 
 ```python
 import jpype
@@ -767,13 +771,13 @@ finally:
 
 Az eredmény:
 
-![A tölcsérdiagram](funnel_chart.png)
+![A tölcsér diagram](funnel_chart.png)
 
-### **Sugár‑diagramok létrehozása**
+### **Sunburst diagramok létrehozása**
 
-A sugár‑diagramok hierarchikus adatokat ábrázolnak, a szinteket koncentrikus gyűrűkkel jelenítve. Segítenek a rész‑egész kapcsolatok illusztrálásában, és ideálisak a beágyazott kategóriák és alkategóriák világos, tömör megjelenítéséhez.
+A Sunburst diagramok hierarchikus adatokat ábrázolnak, a szinteket koncentrikus gyűrűkként jelenítve. Segítenek a rész‑egész kapcsolatok bemutatásában, és ideálisak a beágyazott kategóriák és alcsoportok tömör, áttekinthető megjelenítéséhez.
 
-Ez a példa nyolc levélből álló sugár‑diagramot hoz létre, amely négy szárra és két ágra csoportosul. A [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus az 1. szintű csoportosításnál a szárakat, a 2. szintnél az ágakat rendeli hozzá. A kategória‑címkék az egyes szegmenseket azonosítják, az értékek pedig a relatív méreteket határozzák meg.
+Ez a példa egy Sunburst diagramot hoz létre nyolc levéllel, amely négy szárra és két ágra van csoportosítva. A [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus az 1‑es szintű szárakat, a 2‑es szintű ágakat rendeli hozzá. A kategória‑címkék az egyes szegmeneteket jelölik, az értékek pedig a relatív méreteket határozzák meg.
 
 ```python
 import jpype
@@ -854,17 +858,17 @@ finally:
 
 Az eredmény:
 
-![A sugárdiagram](sunburst_chart.png)
+![A Sunburst diagram](sunburst_chart.png)
 
 ### **Hisztogram diagramok létrehozása**
 
-A hisztogram diagramok azt mutatják, hogyan oszlanak a numerikus értékek intervallumok (bin‑ek) között. Havi jelentésekhez a megrendelési feldolgozási időkről használjon azonos bin‑szélességet és küszöböket az intervallumok konzisztens tartásához és a eloszlások könnyebb összehasonlításához.
+A hisztogram diagramok megmutatják, hogyan oszlanak a numerikus értékek az intervallumok (binok) között. Havi jelentésekben a megrendelés‑feldolgozási időkről érdemes állandó bin‑szélességet és küszöböket használni, így az intervallumok konzisztensnek maradnak, és a megoszlások könnyebben összehasonlíthatók.
 
-A horizontális tengelyen hívja a [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType)‑t a [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/) valamelyik módjával. A [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) csak a `ByBinWidth` esetén érvényes; a [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) csak a `ByNumberOfBins` esetén. Az `Automatic` használatával a diagram maga választja meg a bin‑eket.
+Hívja a [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) metódust a vízszintes tengelyen a [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/) egyik módjával. A [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) csak a `ByBinWidth` esetén alkalmazható; a [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) csak a `ByNumberOfBins` esetén. Az `Automatic` használatával a diagram maga választja ki a bin‑eket.
 
-#### **Fix bin‑szélesség használata**
+#### **Fix bin szélesség használata**
 
-Ez a példa a feldolgozási időt 10‑perces intervallumokra csoportosítja, külön bin‑ekkel a 10 perc vagy annál rövidebb és a 40 perc feletti időkre. Engedélyezze ezeket a bin‑eket a [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) és a [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) metódusokkal. Ha expliciten küszöböket ad meg a [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) és a [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) segítségével, hívja a [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) és a [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) metódusokat `False`‑zal.
+Ez a példa a feldolgozási időket 10‑perces intervallumokba sorolja, külön binokkal a 10 perc vagy annál kevesebb, illetve a 40 perc feletti időkre. Az ilyen bin‑eket a [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) és a [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) engedélyezi. Ha explicit küszöböket ad meg a [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) és a [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) segítségével, akkor a [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) és a [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) metódusokat `False`‑ra állítsa.
 
 ```python
 import jpype
@@ -911,13 +915,13 @@ finally:
     presentation.dispose()
 ```
 
-A PowerPoint‑ban megjelenő bemutató **3, 4, 4, 4, és 2** darab bin‑t mutat. Az underflow bin tartalmazza a `5, 10, 10` értékeket, így küszöbe inkluzív. Az overflow bin csak a `41, 50` értékeket tartalmazza, ezért kizáró; a `40` értékek az előző intervallumban maradnak. A belső bin‑ek az alsó határnál nagyobb, felső határnál kisebb vagy egyenlő értékeket tartalmazzák.
+A PowerPoint‑ban megjelenített prezentáció a **3, 4, 4, 4, és 2** bin‑számot mutatja. Az alulcsökkenő bin tartalmazza a `5, 10, 10` értékeket, így a küszöb inkluzív. A felülcsökkenő bin csak a `41, 50` értékeket tartalmazza, ezért a küszöb exkluzív; a `40`‑es értékek az előző intervallumban maradnak. A belső bin‑ek értéke nagyobb, mint az alsó határ, és kisebb vagy egyenlő a felső határral.
 
-![Hisztogram 10‑perces bin‑ekkel és explicit underflow‑ és overflow‑küszöbökkel](histogram_bin_width.png)
+![Hisztogram 10‑perces bin‑ekkel és explicit alul‑ és felülcsökkenő küszöbökkel](histogram_bin_width.png)
 
-#### **Bin‑szám meghatározása**
+#### **Határozd meg a binok számát**
 
-Fix részletességi szint helyett, kérjen öt bin‑t ugyanarra az adatra. Ez a példa az underflow‑ és overflow‑bin‑eket letiltva hagyja. A diagram a szélességet az adat‑tartományból számítja ki, ezért a határok jelentései jelentésenként változhatnak.
+Rögzített részletességi szint helyett, ha a bin‑ek számát szeretné meghatározni, kérje ki öt bin‑t ugyanarra az adatra. Ez a példa letiltja az alul‑ és felülcsökkenő bin‑eket. A diagram a szélességet az adat‑tartományból számolja, így a határok jelentések között változhatnak.
 
 ```python
 import jpype
@@ -958,15 +962,15 @@ finally:
     presentation.dispose()
 ```
 
-Az öt bin‑nek **4, 4, 4, 4, és 1** darabja van. Hasonlítsa össze ezt a fix‑szélességű eredménnyel: a bemeneti értékek azonosak, de a határok eltérnek.
+Az öt bin **4, 4, 4, 4, és 1** értéket tartalmaz. Hasonlítsa össze ezt az eloszlást a fenti fix‑szélességű eredménnyel: a bemeneti értékek azonosak, de a határok különböznek.
 
-![Hisztogram öt bin‑nel, amely ugyanazból az adathalmazból számított](histogram_bin_count.png)
+![Hisztogram öt bin‑nel, azonos adatok alapján számítva](histogram_bin_count.png)
 
 ### **Radar diagramok létrehozása**
 
-A radar diagramok többváltozós adatokat jelenítenek meg kétdimenziós formában, lehetővé téve több változó egyszerre történő könnyű összehasonlítását. Különösen hasznosak minták, erősségek és gyengeségek azonosításában több teljesítménymutató vagy attribútum esetén.
+A radar diagramok többváltozós adatokat ábrázolnak kétdimenziós formában, lehetővé téve több változó egyszerre történő könnyű összehasonlítását. Különösen hasznosak a minták, erősségek és gyengeségek azonosításában több teljesítménymutató vagy attribútum esetén.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódust használja egy radar diagram létrehozásához alapértelmezett sorozattal és kategóriákkal, majd PPTX‑ként menti a bemutatót.
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódussal hoz létre egy radar diagramot az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```python
 import jpype
@@ -994,9 +998,9 @@ Az eredmény:
 
 ### **Többkategóriás diagramok létrehozása**
 
-A többkategóriás diagramok több kategóriacsoportot tartalmazó adatokat jelenítenek meg, lehetővé téve az értékek több dimenzióban való összehasonlítását egyszerre. Különösen hasznosak, ha összetett, több rétegből álló adatkészletek trendjeit és kapcsolatait kell elemezni.
+A többkategóriás diagramok olyan adatokat jelenítenek meg, amelyek több kategória‑csoportot tartalmaznak, lehetővé téve az értékek több dimenzióban való egyidejű összehasonlítását. Különösen hasznosak, ha összetett, több rétegű adathalmazok trendjeit és összefüggéseit kell elemezni.
 
-Ez a példa egy halmozott oszlopdiagramot hoz létre nyolc kategóriával, négy párosítva. A [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus minden párhoz egy közös címkét ad az 1. szintű csoportosításnál, így a kategória‑tengely egyéni és csoportcímkéket is tartalmaz.
+Ez a példa egy csoportosított oszlopdiagramot hoz létre nyolc kategóriával, amely négy párra van rendezve. A [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) metódus minden párhoz megosztott címkét ad az 1‑es csoportosítási szinten, így a kategóriatengely egyaránt tartalmaz egyéni és csoportcímkéket.
 
 ```python
 import jpype
@@ -1072,13 +1076,13 @@ finally:
 
 Az eredmény:
 
-![A többkategóriás diagram](multi_category_chart.png)
+![A többkategória diagram](multi_category_chart.png)
 
-### **Térképi diagramok létrehozása**
+### **Térkép diagramok létrehozása**
 
-A térképi diagramok földrajzi adatokat ábrázolnak, információkat térképezve konkrét helyekhez, például országokhoz, államokhoz vagy városokhoz. Különösen hasznosak regionális trendek, demográfiai adatok és térbeli eloszlások elemzésére világos, vizuálisan vonzó módon.
+A térkép diagramok földrajzi adatokat ábrázolnak, információkat térképezve konkrét helyekre, mint például országok, államok vagy városok. Különösen hasznosak a regionális trendek, demográfiai adatok és térbeli eloszlások elemzésében, egyértelmű és vizuálisan vonzó módon.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódust használja egy alapértelmezett földrajzi adatokkal rendelkező térképi diagram létrehozásához, és elmenti a PowerPointban való megtekintéshez.
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) segítségével hoz létre egy térkép diagramot az alapértelmezett földrajzi adatokkal, és PowerPointban megtekinthető formában menti.
 
 ```python
 import jpype
@@ -1102,26 +1106,26 @@ finally:
 
 Az eredmény:
 
-![A térképi diagram](map_chart.png)
+![A térkép diagram](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-A fenti kép a mentett bemutatót mutatja megnyitva a PowerPointban. Az Aspose.Slides helyesen írja a térképi diagramot és annak adatait, de maga a diagram nem kerül megrajzolásra: amikor egy diát, amely tartalmaz térképi diagramot, képre, PDF‑re vagy SVG‑re renderelnek, a diagram területe üres marad. A többi alakzat a dián érintetlen marad.
+A fenti kép a mentett prezentáció PowerPoint‑ban megnyitott állapotát mutatja. Az Aspose.Slides helyesen írja a térkép diagramot és annak adatait, de maga a diagram nem kerül renderelésre: amikor egy diát, amely ilyen diagramot tartalmaz, képpé, PDF‑vé vagy SVG‑vé konvertálnak, a diagramterület üres marad. A dián lévő egyéb alakzatok ezzel nem érintettek.
 {{% /alert %}}
 
-### **Kombinációs diagramok létrehozása**
+### **Kombinált diagramok létrehozása**
 
-A kombinációs (combo) diagram több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemeljünk, összehasonlítsunk vagy megvizsgáljunk különböző adatkészletek közötti különbségeket, segítve a kapcsolatok azonosítását.
+A kombinált diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen ábrában. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a különböző adatcsoportok közti eltéréseket, segítve a köztük lévő kapcsolatok azonosítását.
 
-![A kombinációs diagram](combination_chart.png)
+![A kombinált diagram](combination_chart.png)
 
-Ez a példa két halmozott oszlop sorozatot kombinál egy vonal sorozattal négy kategórián. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) a vonalat a jobb oldali másodlagos függőleges tengelyre helyezi. A segédfüggvények a címet, jelmagyarázatot, tengelycímkéket és rácsvonalakat konfigurálják.
+Ez a példa két csoportosított oszlop sorozatot és egy vonal sorozatot kombinál négy kategóriában. Az oszlopok az elsődleges függőleges tengelyhez tartoznak, míg a [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) a vonalat a jobb oldalon található második függőleges tengelyre helyezi. A segédfüggvények konfigurálják a címet, a jelmagyarázatot, a tengelycímkéket és a rácsvonalakat.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpoe.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import AxisPositionType, ChartType, CrossesType, FillType, LegendPositionType, NullableBool, Presentation, SaveFormat
 
@@ -1253,7 +1257,7 @@ def set_primary_axes_format(chart):
     major_grid_lines_format.getSolidFillColor().setColor(color)
 
 def set_secondary_axes_format(chart):
-    # A másodlagos vízszintes tengely beállítása.
+    # Másodlagos vízszintes tengely beállítása.
     secondary_horizontal_axis = chart.getAxes().getSecondaryHorizontalAxis()
     secondary_horizontal_axis.setPosition(AxisPositionType.Bottom)
     secondary_horizontal_axis.setCrossType(CrossesType.Maximum)
@@ -1261,7 +1265,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
     secondary_horizontal_axis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    # A másodlagos függőleges tengely beállítása.
+    # Másodlagos függőleges tengely beállítása.
     secondary_vertical_axis = chart.getAxes().getSecondaryVerticalAxis()
     secondary_vertical_axis.setPosition(AxisPositionType.Right)
     secondary_vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
@@ -1284,9 +1288,9 @@ create_combo_chart()
 
 ## **Diagramok frissítése**
 
-Az Aspose.Slides for Python via Java lehetővé teszi a PowerPoint diagramok frissítését diagramadatok, formázás és stílus módosításával. Ez a funkció leegyszerűsíti a bemutatók naprakészen tartását dinamikus tartalommal, és biztosítja, hogy a diagramok pontosan tükrözzék a aktuális adatokat és a vizuális szabványokat.
+Az Aspose.Slides for Python via Java lehetővé teszi, hogy PowerPoint diagramokat frissítsen a diagramadatok, formázás és stílus módosításával. Ez a funkcionalitás leegyszerűsíti a prezentációk dinamikus tartalommal való naprakészen tartását, és biztosítja, hogy a diagramok pontosan tükrözzék az aktuális adatokat és vizuális szabványokat.
 
-Ez a példa frissíti a „My chart” nevű diagramot egy meglévő bemutató első diáján. Két oszlop‑sorozatot igényel három adatponttal mindegyikben, a kategória‑címkék az A oszlopban, a sorozat‑nevek az első sorban az első munkalapon. A példa a [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) metódust használja a munkafüzet‑cellák megváltoztatásához, frissíti a sorozatértékeket, egy harmadik sorozatot ad hozzá, és a diagramot halmozott henger formára változtatja a [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType) metódussal.
+Ez a példa frissíti a “My chart” nevű diagramot a meglévő prezentáció első diáján. Két oszlop‑sorozat szükséges, mindegyik három adatponttal, a kategória‑címkék az A oszlopban, a sorozatnevek az első munkalap első sorában. A példa a [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) metódussal módosítja a munkafüzet celláit, frissíti a sorozatértékeket, hozzáad egy harmadik sorozatot, és a [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType) segítségével a diagramot csoportosított hengerekké változtatja.
 
 ```python
 import jpype
@@ -1344,13 +1348,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Adattartomány beállítása diagramhoz**
+## **Adattartomány beállítása egy diagramhoz**
 
 A már meglévő diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/python-java/chart-workbook/#retrieve-a-charts-data-range) oldalt.
 
-Az Aspose.Slides for Python via Java rugalmasságot biztosít, hogy egy munkalap adott adattartományát definiálja a diagram adatforrásaként. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap‑részletet a diagramra, ezzel szabályozva, mely cellák járulnak hozzá a sorozatokhoz és kategóriákhoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja a diagramokat a munkalap legújabb adatváltozásaival, biztosítva, hogy a PowerPoint‑bemutatók pontos és naprakész információkat tükrözzenek.
+Az Aspose.Slides for Python via Java rugalmasságot biztosít, hogy egy munkalap konkrét adattartományát definiálja diagramadatai forrásaként. Ez azt jelenti, hogy közvetlenül leképezheti a munkalap egy részét a diagramra, ellenőrizve, hogy mely cellák járulnak hozzá a sorozatokhoz és a kategóriákhoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja a diagramokat a munkalap legújabb adatváltozásaival, biztosítva, hogy a PowerPoint prezentációk aktuális és pontos információkat tükrözzenek.
 
-Ez a példa a [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) metódust használja a „My chart” nevű diagram adatforrásának beállításához az első dián egy meglévő bemutatóban a `Sheet1!A1:B4` tartományra. A diagram munkafüzetének tartalmaznia kell azt a munkalapot, valamint egy feltöltött tartományt, ahol az első sorban a sorozat‑fejléc, az A oszlopban a kategória‑címkék, a B oszlopban három érték szerepel.
+Ez a példa a [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) használatával állítja be a “My chart” nevű diagram adatforrását az első dián egy meglévő prezentációban `Sheet1!A1:B4`‑re. A diagram munkafüzetnek tartalmaznia kell ezt a munkalapot, valamint egy sorozat‑fejlécet az első sorban, kategória‑címkéket az A oszlopban, és három értéket a B oszlopban.
 
 ```python
 import jpype
@@ -1379,9 +1383,9 @@ finally:
 
 ## **Alapértelmezett jelölők használata diagramokban**
 
-Alapértelmezett jelölők használata esetén minden diagram‑sorozat automatikusan más‑más jelölőszimbólummal kapja meg a jelölőt.
+Alapértelmezett jelölők használatakor minden diagramsorozat automatikusan más‑más alapértelmezett jelölő szimbólummal rendelkezik.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) metódust használja egy két vonal‑sorozatot és egy jelmagyarázatot tartalmazó diagram létrehozásához. A [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) által elérhető jelölőbeállítások megtartják az automatikusan hozzárendelt jelölőszimbólumokat. Az első sorozat negatív és hiányzó (`None`) értéket tartalmaz, a második minden kategóriában értékkel rendelkezik.
+Ez a példa a [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) segítségével hoz létre egy diagramot két vonal‑sorozattal és egy jelmagyarázattal. A [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) által elérhető jelölő beállítások megtartják az automatikusan hozzárendelt jelölő szimbólumokat. Az első sorozat negatív és hiányzó értéket (None) tartalmaz, míg a második minden kategóriához értéket ad.
 
 ```python
 import jpype
@@ -1450,16 +1454,16 @@ finally:
 
 **Milyen diagramtípusokat támogat az Aspose.Slides for Python via Java?**
 
-Az Aspose.Slides for Python via Java széles körű diagramtípusok támogatását biztosítja, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és sok más. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adatvizualizációs igényeihez.
+Az Aspose.Slides for Python via Java széles körű diagramtípusokat támogat, többek között oszlop, vonal, kör, terület, pont, hisztogram, radar és még sok más. Ez a rugalmasság lehetővé teszi, hogy az adatvizualizációs igényeknek leginkább megfelelő típusokat válassza.
 
-**Hogyan adhatok új diagramot egy diához?**
+**Hogyan adhatok hozzá új diagramot egy diára?**
 
-Egy diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztály egy példányát, szerezze be a kívánt diát indexe alapján, majd hívja a diagram hozzáadására szolgáló metódust, megadva a diagram típust és a kezdeti adatokat. Ez a folyamat közvetlenül integrálja a diagramot a bemutatóba.
+Új diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztály egy példányát, szerezze be a kívánt diát az indexével, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül integrálja a diagramot a prezentációba.
 
-**Hogyan frissíthetem egy diagram megjelenített adatait?**
+**Hogyan frissíthetem egy diagramon megjelenített adatokat?**
 
-A diagram adatait a [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) elérésével, az alapértelmezett sorozatok és kategóriák törlésével, majd saját adatainak hozzáadásával frissítheti. Ez lehetővé teszi a diagram programozott újbóli frissítését a legújabb adatok tükrözésére.
+A diagram adatait a [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) elérésével, az alapértelmezett sorozatok és kategóriák törlésével, majd saját adatainak hozzáadásával frissítheti. Ez lehetővé teszi, hogy programozottan frissítse a diagramot a legújabb adatokkal.
 
-**Lehetséges-e testre szabni a diagram megjelenését?**
+**Lehetséges-e a diagram megjelenésének testreszabása?**
 
-Igen, az Aspose.Slides for Python via Java kiterjedt testreszabási lehetőségeket biztosít. Módosíthat színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenése megfeleljen a specifikus tervezési követelményeknek.
+Igen, az Aspose.Slides for Python via Java kiterjedt testreszabási lehetőségeket biztosít. Módosíthat színeket, betűtípusokat, címkéket, jelmagyarázatokat és más formázási elemeket, hogy a diagram megjelenését az Ön specifikus tervezési követelményeihez igazítsa.

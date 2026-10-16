@@ -1,5 +1,5 @@
 ---
-title: Skapa eller uppdatera PowerPoint-presentation diagram i .NET
+title: Skapa eller uppdatera PowerPoint-presentationdiagram i .NET
 linktitle: Skapa eller uppdatera diagram
 type: docs
 weight: 10
@@ -11,13 +11,13 @@ keywords:
 - ändra diagram
 - uppdatera diagram
 - spridningsdiagram
-- pajdiagram
+- cirkeldiagram
 - linjediagram
-- trädkartsdiagram
-- aktiediagram
-- låddiagram
+- trädmapdiagram
+- börsdiagram
+- låda-och-viskare-diagram
 - trattdiagram
-- solstrålediagram
+- sol-och-stjärndiagram
 - histogramdiagram
 - radardiagram
 - flerkategoridiagram
@@ -30,29 +30,31 @@ description: "Skapa och anpassa diagram i PowerPoint-presentationer med Aspose.S
 ---
 ## **Översikt**
 
-Denna artikel ger en omfattande guide om hur man skapar och anpassar diagram med Aspose.Slides för .NET. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustrerar detaljerade kodexempel varje steg, från att initiera presentationen och diagramobjektet till att konfigurera serier, axlar och legender. Genom att följa denna guide får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina .NET‑applikationer, vilket effektiviserar processen att skapa datadrivna presentationer.
+Denna artikel ger en omfattande guide för hur du skapar och anpassar diagram med Aspose.Slides för .NET. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och använder olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustreras varje steg med detaljerade kodexempel, från initiering av presentationen och diagramobjektet till konfiguration av serier, axlar och förklaringar. Genom att följa denna guide får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina .NET‑applikationer och förenklar skapandet av datadrivna presentationer.
 
 ## **Skapa ett diagram**
 
-Diagram hjälper människor att snabbt visualisera data och få insikter som kanske inte omedelbart är uppenbara från en tabell eller kalkylblad.
+Diagram hjälper människor att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara ur en tabell eller ett kalkylblad.
 
 **Varför skapa diagram?**
 
-* sammanfatta, komprimera eller kondensera stora mängder data på en enda bild i en presentation;
+Med diagram kan du:
+
+* aggregera, komprimera eller sammanfatta stora mängder data på en enda bild i en presentation;
 * avslöja mönster och trender i data;
 * avgöra riktning och momentum för data över tid eller i förhållande till en specifik mätenhet;
-* upptäcka avvikande värden, avvikelser, fel och meningslösa data;
-* kommunicera eller presentera komplex data.
+* upptäcka avvikelser, anomalier, fel och meningslösa data;
+* kommunicera eller presentera komplexa data.
 
-I PowerPoint kan du skapa diagram via *Insert*-funktionen, som tillhandahåller mallar för att designa många typer av diagram. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
+I PowerPoint kan du skapa diagram via *Infoga*-funktionen, som erbjuder mallar för att designa många typer av diagram. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
 
 {{% alert color="info" title="Note" %}}
-Använd [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) uppräkning under [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) namnrymden. Värdena i denna uppräkning motsvarar olika diagramtyper.
+Använd [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)‑uppslagning under namnområdet [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Värdena i denna uppslagning motsvarar olika diagramtyper.
 {{% /alert %}}
 
-### **Skapa grupperade kolumndiagram**
+### **Skapa grupperade stapeldiagram**
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett grupperat kolumndiagram som jämför två serier över tre kategorier. Serierna använder röd och grön fyllning, och enskilda etiketter visar kategorinamn, serienamn och värden. Arbetsbokindex 0 hänvisar till det första bladet i den inbäddade diagramarbetsboken.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett grupperat stapeldiagram som jämför två serier över tre kategorier. Serierna använder röd respektive grön fyllning, och enskilda etiketter visar kategorinamnen, serienamnen och värdena. Arbetsboksindex 0 refererar till det första bladet i den inbäddade diagramarboken.
 
 ```csharp
 using System.Drawing;
@@ -132,16 +134,16 @@ Resultatet:
 
 ### **Skapa spridningsdiagram**
 
-Spridningsdiagram (även kända som spridningsplottar eller x‑y‑grafer) används ofta för att kontrollera mönster eller visa korrelationer mellan två variabler.
+Spridningsdiagram (även kallade scatter plots eller x‑y‑grafer) används ofta för att kontrollera mönster eller demonstrera korrelationer mellan två variabler.
 
 Använd ett spridningsdiagram när:
 
-* Du har parade numeriska data.
-* Du har två variabler som passar bra ihop.
-* Du vill avgöra om de två variablerna är relaterade.
-* Du har en oberoende variabel som har flera värden för en beroende variabel.
+* du har parade numeriska data;
+* du har två variabler som passar bra ihop;
+* du vill avgöra om de två variablerna är relaterade;
+* du har en oberoende variabel som har flera värden för en beroende variabel.
 
-Detta exempel plottar två uppsättningar av x‑y‑värden. Den första serien använder raka linjer med stjärnmarkörer, medan den andra använder mjuka linjer med cirkelmarkörer; båda använder en [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) på 10. [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/)‑egenskapen styr markörformen.
+Detta exempel plottar två uppsättningar x‑y‑värden. Den första serien använder raka linjer med stjärnmarkörer, medan den andra använder jämna linjer med cirkelmarkörer; båda använder en [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) på 10. [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/)‑egenskapen styr markörformen.
 
 ```csharp
 using Aspose.Slides;
@@ -206,11 +208,11 @@ Resultatet:
 
 ![The Scatter chart](scatter_chart.png)
 
-### **Skapa pajdiagram**
+### **Skapa cirkeldiagram**
 
-Pajdiagram är bäst att använda för att visa förhållandet mellan del och helhet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om dina data innehåller många delar eller etiketter kan du överväga att använda ett stapeldiagram istället.
+Cirkeldiagram är bäst för att visa förhållandet del‑till‑helhet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om dina data innehåller många delar eller etiketter kan du överväga att använda ett stapeldiagram istället.
 
-Detta exempel skapar ett pajdiagram med tre kvartalsvärden. Varje skiva har en anpassad fyllning och kant, och etiketterna visar olika kombinationer av värden, procentandelar och serieninformation. [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/)‑egenskapen sätter den första skivan att börja vid 180 grader.
+Detta exempel skapar ett cirkeldiagram med tre kvartalsvärden. Varje del har en anpassad fyllning och kant, och etiketterna visar olika kombinationer av värden, procentsatser och serieinformation. [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/)‑egenskapen sätter den första delen att börja vid 180 grader.
 
 ```csharp
 using System.Drawing;
@@ -308,11 +310,13 @@ Resultatet:
 
 ![The Pie chart](pie_chart.png)
 
+För att förbättra läsbarheten av etiketter utanför cirkeln, se [Format Leader Lines](/slides/sv/net/chart-data-label/#format-leader-lines) för ett exempel som placerar etiketter och anpassar linjernas färg, bredd, transparens och streckade stil.
+
 ### **Skapa linjediagram**
 
-Linjediagram (även kända som linjegrafer) är bäst att använda i situationer där du vill visa förändringar i värde över tid. Med ett linjediagram kan du jämföra en stor mängd data samtidigt, följa förändringar och trender över tid, markera avvikelser i dataserier och mer.
+Linjediagram (även kallade linjediagram) är bäst i situationer där du vill visa förändringar i värde över tid. Med ett linjediagram kan du jämföra stora datamängder samtidigt, följa förändringar och trender över tid, markera avvikelser i dataserier och mer.
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett linjediagram med standardserier och kategorier, och sparar sedan presentationen som PPTX.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett linjediagram med standardserier och -kategorier, och sparar sedan presentationen som PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -350,9 +354,9 @@ Resultatet:
 
 ### **Skapa trädkartsdiagram**
 
-Trädkartsdiagram är bäst att använda för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt rikta uppmärksamheten mot poster som är stora bidragsgivare inom varje kategori.
+Trädkartsdiagram är bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt dra uppmärksamhet till de poster som är stora bidragsgivare inom varje kategori.
 
-Detta exempel skapar ett trädkartsdiagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) tilldelar stammar på grupperingnivå 1 och grenar på nivå 2. Värdena bestämmer de relativa rektangelstorlekarna, medan kategorietiketter och överlappande föräldratiketter identifierar hierarkin.
+Detta exempel skapar ett trädkartsdiagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) tilldelar stammar på grupperingsnivå 1 och grenar på nivå 2. Värdena avgör de relativa rektangelstorlekarna, medan kategori‑etiketterna och överlappande föräldraetiketter identifierar hierarkin.
 
 ```csharp
 using Aspose.Slides;
@@ -430,22 +434,24 @@ Resultatet:
 
 ![The Treemap chart](treemap_chart.png)
 
-### **Skapa vattenfallsdiagram**
+### **Skapa waterfall‑diagram**
 
-Ett vattenfallsdiagram visar hur positiva och negativa förändringar bidrar till ett slutligt värde. Till exempel kan en vinstanalys börja med intäkter, dra av kostnader och lägga till andra inkomster. Ändringskolumner svävar mellan föregående och nytt löpande värde, medan totalkolumner sträcker sig från noll till det ackumulerade värdet.
+Ett waterfall‑diagram visar hur positiva och negativa förändringar bidrar till ett slutvärde. Till exempel kan en vinstuppdelning börja med intäkter, dra av kostnader och lägga till annan inkomst. Ändringskolumner flyter mellan föregående och nytt löpande värde, medan totalsummakolumner sträcker sig från noll till det ackumulerade värdet.
 
-| Kategori | Arbetsboksvärde | Kolumntyp |
+Följande exempel använder belopp i tusentals amerikanska dollar:
+
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| Intäkter | 1000 | Ökning |
-| Kostnad för sålda varor | -400 | Minskning |
-| Bruttoresultat | 600 | Mellanliggande total |
-| Operativa kostnader | -200 | Minskning |
-| Övriga intäkter | 50 | Ökning |
-| Nettoresultat | 450 | Slutlig total |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-För att markera en punkt som en mellanliggande eller slutlig total, sätt dess [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) egenskap till `true`. Ange det faktiska ackumulerade beloppet i punktens arbetsbokscell: `600` för bruttoresultat (`1000 - 400`) och `450` för nettoresultat (`600 - 200 + 50`). Egenskapen markerar kolumnen som en total; den beräknar eller fyller inte i cellvärdet. Använd inte noll som platshållare eller ange en annan förändring för en totalpunkt. En totalkolumn visar det ackumulerade värdet utan att lägga till det igen till det löpande värdet.
+För att markera en punkt som ett mellantotal eller slutligt total, sätt dess [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/)‑egenskap till `true`. Ange det faktiska ackumulerade beloppet i den punktens arbetsbokscell: `600` för bruttoresultat (`1000 - 400`) och `450` för nettovinst (`600 - 200 + 50`). Egenskapen markerar kolumnen som ett total, den beräknar eller fyller inte i cellvärdet. Använd inte noll som platshållare eller ange en annan förändring för en totalpunkt. En totalkolumn visar det ackumulerade värdet utan att lägga till det igen på löpande värde.
 
-Detta kompletta C#‑exempel skapar ett diagram med hjälp av `Waterfall`‑medlemmen i [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), rensar standarddata och fyller den inbäddade arbetsboken. Arbetsboksindex `0` väljer det första bladet; kolumn A innehåller kategorinamnen och kolumn B innehåller värdena. Varje värdecell läggs till med [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). De nollbaserade punktindexen `2` och `5` identifierar de mellanliggande respektive slutliga totalerna. Genom att aktivera [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) visas beloppen på kolumnerna. Ingen inmatningspresentation eller arbetsbok krävs.
+Detta kompletta C#‑exempel skapar ett diagram med `Waterfall`‑medlemmen av [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), rensar standarddata och fyller den inbäddade arbetsboken. Arbetsboksindex `0` väljer det första arbetsbladet; kolumn A innehåller kategorinamnen och kolumn B innehåller värdena. Varje värdecell läggs till med [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). De nollbaserade punktindexen `2` och `5` identifierar respektive mellantotal och slutligt total. Genom att aktivera [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) visas beloppen på kolumnerna. Ingen inmatningspresentation eller arbetsbok krävs.
 
 ```csharp
 using Aspose.Slides;
@@ -483,7 +489,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Den tredje och sjätte punkten representerar totaler, inte ytterligare förändringar.
+// Den tredje och den sjätte punkten representerar totalsummor, inte ytterligare förändringar.
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -492,15 +498,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Sätt serienivåns [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) egenskap till `true` för att visa linjer som länkar på varandra följande kolumner och göra det löpande värdet enklare att följa. För att dölja dessa linjer, ersätt tilldelningen i exemplet med `series.ShowConnectorLines = false;` innan du sparar. Detta ändrar bara linjens synlighet, inte data eller totaler.
+Sätt serie‑nivåns [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/)‑egenskap till `true` för att visa linjer som länkar ihop på varandra följande kolumner och göra det löpande värdet enklare att följa. För att dölja dessa linjer, ersätt tilldelningen i exemplet med `series.ShowConnectorLines = false;` innan sparning. Detta ändrar bara linjernas synlighet, inte data eller totalsummor.
+
+Den sparade presentationen visar bruttoresultat på 600 och nettovinst på 450, med båda totalsummorna ritade från noll:
 
 ![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Skapa aktiediagram**
+### **Skapa börsdiagram**
 
-Aktiediagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta- och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De ger viktiga insikter om aktiens prestanda och underlättar för investerare och analytiker att fatta välgrundade beslut.
+Börsdiagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta‑ och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De ger viktig insikt i aktiens prestanda och stödjer investerare och analytiker i att fatta informerade beslut.
 
-Detta exempel skapar ett öppnings‑höga‑låga‑stängningsdiagram med fyra serier i den ordningen och tre kategorier. Egenskapen [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) aktiverar upp/ner‑staplar, och [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) styr hög‑lå linjerna som visar prisintervallen, medan de enskilda serielinjerna och mindre horisontella rutnätslinjer är dolda.
+Detta exempel skapar ett öppnings‑–‑högt‑–‑låg‑–‑stängnings‑diagram med fyra serier i den ordningen och tre kategorier. [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/)‑egenskapen aktiverar upp/ner‑staplar, och [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) styr de hög‑låg‑linjer som visar prisintervallen, medan de enskilda serielinjerna och mindre horisontella rutnätslinjer döljs.
 
 ```csharp
 using Aspose.Slides;
@@ -579,11 +587,11 @@ Resultatet:
 
 ![The Stock chart](stock_chart.png)
 
-### **Skapa låd- och whiskerdiagram**
+### **Skapa låd‑ och whisker‑diagram**
 
-Låddiagram och whiskerdiagram används för att visa fördelningen av data genom att sammanfatta nyckelstatistiska mått, såsom median, kvartiler och potentiella avvikande värden. De är särskilt användbara i explorativ dataanalys och statistiska studier för att snabbt förstå datavariabilitet och identifiera avvikelser.
+Låd‑ och whisker‑diagram används för att visa fördelningen av data genom att sammanfatta viktiga statistiska mått, såsom median, kvartiler och potentiella avvikare. De är särskilt användbara i explorativ dataanalys och statistiska studier för snabbt att förstå datavariabilitet och identifiera avvikelser.
 
-Detta exempel skapar ett låd- och whiskerdiagram från sex värden. Egenskapen [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) väljer den exklusiva kvartilberäkningen. Exemplet aktiverar också medellinjer, medelmarkörer, inre punkter och avvikande punkter.
+Detta exempel skapar ett låd‑ och whisker‑diagram från sex värden. [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/)‑egenskapen väljer den exklusiva kvartilberäkningen. Exemplet aktiverar också medellinjer, medelmarkörer, inre punkter och avvikarpunkter.
 
 ```csharp
 using Aspose.Slides;
@@ -638,11 +646,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Skapa trattdiagram**
+### **Skapa tratt‑diagram**
 
-Trattdiagram används för att visualisera processer som innefattar sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och följa effektiviteten i försäljnings- eller marknadsprocesser.
+Tratt‑diagram används för att visualisera processer som innefattar sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsfrekvenser, identifiera flaskhalsar och följa effektiviteten i försäljnings‑ eller marknadsföringsprocesser.
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att lägga till ett trattdiagram på den första bilden i en befintlig presentation. Det ersätter standarddata med sex kategorier och värden från 50 till 500, och sparar sedan den uppdaterade presentationen. Inmatningspresentationen måste innehålla minst en bild.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att lägga till ett tratt‑diagram på den första bilden i en befintlig presentation. Det ersätter standarddata med sex kategorier och värden från 50 till 500, och sparar sedan den uppdaterade presentationen. Inmatningspresentationen måste innehålla minst en bild.
 
 ```csharp
 using Aspose.Slides;
@@ -695,11 +703,11 @@ Resultatet:
 
 ![The Funnel chart](funnel_chart.png)
 
-### **Skapa solstrålediagram**
+### **Skapa sol‑ och stjärndiagram**
 
-Solstrålediagram används för att visualisera hierarkisk data, där nivåerna visas som koncentriska ringar. De hjälper till att illustrera förhållandet del‑till‑helhet och är idealiska för att representera nästlade kategorier och underkategorier i ett tydligt, kompakt format.
+Sol‑ och stjärndiagram används för att visualisera hierarkisk data, där nivåer visas som koncentriska ringar. De hjälper till att illustrera del‑till‑helhet‑relationer och är idealiska för att representera inbäddade kategorier och underkategorier i ett tydligt, kompakt format.
 
-Detta exempel skapar ett solstrålediagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) tilldelar stammar på grupperingnivå 1 och grenar på nivå 2. Kategorietiketter identifierar segmenten, och värdena bestämmer deras relativa storlekar.
+Detta exempel skapar ett sol‑ och stjärndiagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) tilldelar stammar på grupperingsnivå 1 och grenar på nivå 2. Kategori‑etiketterna identifierar segmenten och värdena bestämmer deras relativa storlek.
 
 ```csharp
 using Aspose.Slides;
@@ -775,15 +783,15 @@ Resultatet:
 
 ![The Sunburst chart](sunburst_chart.png)
 
-### **Skapa histogramdiagram**
+### **Skapa histogram‑diagram**
 
-Histogramdiagram visar hur numeriska värden fördelas över intervall (bin). För månatliga rapporter om orderbehandlingstider, använd samma binbredd och trösklar för att hålla intervallen konsekventa och göra fördelningarna enklare att jämföra.
+Histogram‑diagram visar hur numeriska värden fördelas över intervall (bin). För månatliga rapporter om orderbehandlingstider, använd samma bin‑bredd och tröskelvärden för att hålla intervallen konsekventa och göra fördelningarna enklare att jämföra.
 
-Ställ in den horisontella axelns [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) på ett läge från [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) gäller endast för `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) gäller endast för `ByNumberOfBins`. Använd `Automatic` för att låta diagrammet välja binarna.
+Ställ in den horisontella axelns [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) till ett läge från [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) gäller endast för `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) gäller endast för `ByNumberOfBins`. Använd `Automatic` för att låta diagrammet välja binarna.
 
-#### **Använd en fast binbredd**
+#### **Använd en fast bin‑bredd**
 
-Detta exempel grupperar bearbetningstider i 10‑minutersintervaller, med separata bin för tider på eller under 10 minuter och över 40 minuter. Aktivera dessa bin med [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) och [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). När du anger explicita [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/)‑ och [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/)‑trösklar, sätt [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) och [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) till `false`.
+Detta exempel grupperar behandlingstider i 10‑minutersintervall, med separata bin för tider ≤ 10 minuter och > 40 minuter. Aktivera dessa bin med [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) och [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). När du anger explicita [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/)‑ och [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/)‑trösklar, sätt [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) och [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) till `false`.
 
 ```csharp
 using Aspose.Slides;
@@ -825,13 +833,13 @@ axis.OverflowBin = 40;
 presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-Presentationen som visas i PowerPoint visar binantal **3, 4, 4, 4, och 2**. Underflödesbinen inkluderar `5, 10, 10`, så dess tröskel är inklusiv. Överflödesbinen inkluderar endast `41, 50`, så dess tröskel är exklusiv; både värden lika med `40` förblir i föregående intervall. De inre binarna innehåller värden som är större än deras lägre gräns och mindre än eller lika med deras övre gräns.
+Presentationen som visas i PowerPoint har bin‑antal **3, 4, 4, 4 och 2**. Underflow‑bin inkluderar `5, 10, 10`, så dess tröskel är inklusiv. Overflow‑bin inkluderar bara `41, 50`, så dess tröskel är exklusiv; båda värdena lika med `40` förblir i föregående intervall. De inre binarna innehåller värden som är större än deras nedre gräns och mindre än eller lika med deras övre gräns.
 
 ![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Ange antalet bin**
+#### **Specificera antal bin**
 
-För en fast detaljnivå istället för fasta intervall, begär fem bin för samma data. Detta exempel har under‑ och överflödesbin inaktiverade. Diagrammet bestämmer bredden utifrån dataområdet, så gränserna kan förändras mellan rapporter.
+För en fast detaljnivå i stället för fasta intervall, begär fem bin för samma data. Detta exempel har underflow‑ och overflow‑bin inaktiverade. Diagrammet bestämmer bredden från dataintervallet, så gränserna kan ändras mellan rapporter.
 
 ```csharp
 using Aspose.Slides;
@@ -867,15 +875,15 @@ axis.NumberOfBins = 5;
 presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
 ```
 
-De fem bin har antal **4, 4, 4, 4, och 1**. Jämför denna fördelning med resultatet för fast bredd ovan: indata är identiska men gränserna skiljer sig.
+De fem binarna har antal **4, 4, 4, 4 och 1**. Jämför denna fördelning med resultatet från fast bredd ovan: inmatningsvärdena är identiska, men gränserna skiljer sig.
 
 ![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **Skapa radardiagram**
+### **Skapa radar‑diagram**
 
-Radardiagram används för att visa multivariata data i ett tvådimensionellt format, vilket möjliggör enkel jämförelse av flera variabler samtidigt. De är särskilt användbara för att identifiera mönster, styrkor och svagheter över flera prestationsmått eller attribut.
+Radar‑diagram används för att visa multivariata data i ett tvådimensionellt format, vilket möjliggör enkel jämförelse av flera variabler samtidigt. De är särskilt användbara för att identifiera mönster, styrkor och svagheter över flera prestationsmått eller egenskaper.
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett radardiagram med standardserier och -kategorier, och sparar sedan presentationen som PPTX.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett radar‑diagram med standardserier och -kategorier, och sparar sedan presentationen som PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -894,11 +902,11 @@ Resultatet:
 
 ![The Radar chart](radar_chart.png)
 
-### **Skapa flerkategori‑diagram**
+### **Skapa diagram med flera kategorier**
 
-Flerkategori‑diagram används för att visa data som involverar mer än en kategorisk gruppering, vilket låter dig jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och samband inom komplexa, flerlagrade dataset.
+Diagram med flera kategorier används för att visa data som omfattar mer än en kategorisk gruppering, vilket gör att du kan jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och relationer i komplexa, flerskiktsdatauppsättningar.
 
-Detta exempel skapar ett grupperat kolumndiagram med åtta kategorier arrangerade i fyra par. Metoden [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ger varje par en gemensam etikett på grupperingnivå 1, vilket producerar en kategori‑axel med både individuella och grupp‑etiketter.
+Detta exempel skapar ett grupperat stapeldiagram med åtta kategorier arrangerade i fyra par. Metoden [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ger varje par en gemensam etikett på grupperingsnivå 1, vilket ger en kategori‑axel med både individuella och grupp‑etiketter.
 
 ```csharp
 using Aspose.Slides;
@@ -971,9 +979,9 @@ Resultatet:
 
 ### **Skapa kartdiagram**
 
-Kartdiagram används för att visualisera geografisk data genom att mappa information till specifika platser såsom länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografisk data och spatiala fördelningar på ett tydligt, visuellt engagerande sätt.
+Kartdiagram används för att visualisera geografisk data genom att kartlägga information till specifika platser som länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografisk data och rumsliga fördelningar på ett tydligt och visuellt engagerande sätt.
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett kartdiagram med standardgeografisk data och sparar det för visning i PowerPoint.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett kartdiagram med standardgeografiska data och sparar det för visning i PowerPoint.
 
 ```csharp
 using Aspose.Slides;
@@ -993,14 +1001,16 @@ Resultatet:
 ![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Bilden ovan visar den sparade presentationen öppen i PowerPoint. Aspose.Slides skriver kartdiagrammet och dess data korrekt, men det ritar inte kartdiagram själva: när en bild som innehåller ett renderas till en bild eller konverteras till PDF eller SVG blir diagramområdet tomt. Andra former på samma bild påverkas inte.
+Bilden ovan visar den sparade presentationen som öppnats i PowerPoint. Aspose.Slides skriver kartdiagrammet och dess data korrekt, men ritar inte själva kartdiagrammen: när en bild som innehåller ett sådant renderas till en bild eller konverteras till PDF eller SVG blir diagramområdet tomt. Andra former på samma bild påverkas inte.
 {{% /alert %}}
 
-### **Skapa kombinationsdiagram**
+### **Skapa kombinations‑diagram**
+
+Ett kombinations‑diagram (eller combo‑diagram) kombinerar två eller flera diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller flera dataset, vilket hjälper dig att identifiera relationer mellan dem.
 
 ![The combination chart](combination_chart.png)
 
-Detta exempel kombinerar två grupperade kolumnserier med en linjeserie över fyra kategorier. Kolumnerna använder den primära vertikala axeln, medan [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) placerar linjen på en sekundär vertikal axel till höger. Hjälpfunktionerna konfigurerar titel, legend, axelrubriker och rutnätslinjer.
+Detta exempel kombinerar två grupperade stapel‑serier med en linje‑serie över fyra kategorier. Staplarna använder den primära vertikala axeln, medan [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) placerar linjen på en sekundär vertikal axel till höger. Hjälpfunktionerna konfigurerar titel, förklaring, axel‑etiketter och rutnätslinjer.
 
 ```csharp
 using System.Drawing;
@@ -1162,9 +1172,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Uppdatera diagram**
 
-Aspose.Slides för .NET möjliggör att du uppdaterar PowerPoint‑diagram genom att modifiera diagramdata, formatering och stil. Denna funktion förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagramen exakt återger aktuella data och visuella standarder.
+Aspose.Slides för .NET gör det möjligt att uppdatera PowerPoint‑diagram genom att modifiera diagramdata, formatering och stil. Denna funktion förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagrammen exakt återspeglar aktuella data och visuella standarder.
 
-Detta exempel uppdaterar diagrammet med namnet "My chart" på den första bilden i en befintlig presentation. Det kräver två kolumnserier med tre datapunkter vardera, med kategorietiketter i kolumn A och serienamn i den första raden i det första arbetsbladet. Exemplet använder [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) för att ändra arbetsboks­celler, uppdaterar serievärden, lägger till en tredje serie och ändrar diagrammet till grupperade cylindrar via [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
+Detta exempel uppdaterar diagrammet med namnet "My chart" på den första bilden i en befintlig presentation. Det kräver två kolumnserier med tre datapunkter vardera, med kategori‑etiketter i kolumn A och serienamn i den första raden i det första arbetsbladet. Exemplet använder [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) för att ändra arbetsboks­celler, uppdaterar serie‑värden, lägger till en tredje serie och byter diagram till grupperade cylindrar via [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
 ```csharp
 using Aspose.Slides;
@@ -1218,13 +1228,13 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Ange dataområde för ett diagram**
+## **Ange dataintervall för ett diagram**
 
-För att inspektera intervallet som redan används av ett befintligt diagram, se [Hämta ett diagrams dataområde](/slides/sv/net/chart-workbook/#retrieve-a-charts-data-range).
+För att inspektera intervallet som redan används av ett befintligt diagram, se [Retrieve a Chart's Data Range](/slides/sv/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides för .NET ger flexibiliteten att definiera ett specifikt dataområde från ett arbetsblad som källa för ditt diagramdata. Detta innebär att du kan mappa en del av ditt arbetsblad direkt till diagrammet, vilket låter dig kontrollera vilka celler som bidrar till diagrammets serier och kategorier. Som resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataskiftningarna i ditt arbetsblad, så att dina PowerPoint‑presentationer reflekterar aktuell och korrekt information.
+Aspose.Slides för .NET ger flexibiliteten att definiera ett specifikt dataintervall från ett arbetsblad som källa för ditt diagram‑data. Detta innebär att du kan mappa en del av ditt arbetsblad direkt till diagrammet, vilket låter dig kontrollera vilka celler som bidrar till diagrammets serier och kategorier. Som resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataändringarna i ditt arbetsblad, så att dina PowerPoint‑presentationer återspeglar aktuell och korrekt information.
 
-Detta exempel använder [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) för att sätta datakällan för diagrammet med namnet "My chart" på den första bilden i en befintlig presentation till `Sheet1!A1:B4`. Diagramarbetsboken måste innehålla det bladet och ett fyllt område med en serierubrik i den första raden, kategorietiketter i kolumn A och tre värden i kolumn B.
+Detta exempel använder [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) för att sätta datakällan för diagrammet med namnet "My chart" på den första bilden i en befintlig presentation till `Sheet1!A1:B4`. Diagramarboken måste innehålla det arbetsbladet och ett ifyllt område med en serierubrik i den första raden, kategori‑etiketter i kolumn A och tre värden i kolumn B.
 
 ```csharp
 using Aspose.Slides;
@@ -1251,7 +1261,7 @@ presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 
 När du använder standardmarkörer i diagram får varje diagramserie automatiskt en annan standardmarkörsymbol.
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett diagram med två linjeserier och en legend. Inställningarna för [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) behåller de automatiskt tilldelade markörsymbolerna. Den första serien innehåller ett negativt värde och ett saknat värde, representerat av `null`, medan den andra har ett värde för varje kategori.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) för att skapa ett diagram med två linjeserier och en förklaring. [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/)‑inställningarna behåller de automatiskt tilldelade markörsymbolerna. Den första serien innehåller ett negativt värde och ett saknat värde, representerat av `null`, medan den andra har ett värde för varje kategori.
 
 ```csharp
 using Aspose.Slides;
@@ -1309,20 +1319,20 @@ chart.Legend.Overlay = false;
 presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Vilka diagramtyper stöds av Aspose.Slides för .NET?**
 
-Aspose.Slides för .NET stödjer ett brett spektrum av diagramtyper, inklusive stapel, linje, paj, yta, spridning, histogram, radar och många fler. Denna flexibilitet låter dig välja den mest lämpliga diagramtypen för dina data‑visualiseringsbehov.
+Aspose.Slides för .NET stöder ett brett spektrum av diagramtyper, inklusive stapel, linje, cirkel, area, spridning, histogram, radar och många fler. Denna flexibilitet låter dig välja den mest lämpliga diagramtypen för dina datavisualiseringsbehov.
 
 **Hur lägger jag till ett nytt diagram på en bild?**
 
-För att lägga till ett diagram skapar du först en instans av [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-klassen, hämtar den önskade bilden med dess index och anropar sedan metoden för att lägga till ett diagram, där du anger diagramtypen och initiala data. Denna process integrerar diagrammet direkt i din presentation.
+För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), hämtar den önskade bilden via dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtypen och initiala data. Detta integrerar diagrammet direkt i din presentation.
 
-**Hur kan jag uppdatera de data som visas i ett diagram?**
+**Hur kan jag uppdatera data som visas i ett diagram?**
 
-Du kan uppdatera ett diagramdata genom att få åtkomst till dess dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier, och sedan lägga till dina egna data. Detta möjliggör att programatiskt uppdatera diagrammet så att det speglar de senaste data.
+Du kan uppdatera ett diagram‑s data genom att komma åt dess dataarbok ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier, och sedan lägga till dina egna anpassade data. Detta möjliggör programmatisk uppdatering av diagrammet så att det speglar de senaste data.
 
 **Är det möjligt att anpassa diagrammets utseende?**
 
-Ja, Aspose.Slides för .NET erbjuder omfattande anpassningsalternativ. Du kan modifiera färger, teckensnitt, etiketter, legender och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.
+Ja, Aspose.Slides för .NET erbjuder omfattande anpassningsalternativ. Du kan ändra färger, typsnitt, etiketter, förklaringar och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.

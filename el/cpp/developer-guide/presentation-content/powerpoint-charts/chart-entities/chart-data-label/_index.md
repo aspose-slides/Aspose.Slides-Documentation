@@ -1,6 +1,6 @@
 ---
 title: Διαχείριση ετικετών δεδομένων διαγράμματος σε παρουσιάσεις χρησιμοποιώντας C++
-linktitle: Ετικέτα δεδομένων
+linktitle: Ετικέτα Δεδομένων
 type: docs
 url: /el/cpp/chart-data-label/
 keywords:
@@ -9,20 +9,21 @@ keywords:
 - ακρίβεια δεδομένων
 - ποσοστό
 - απόσταση ετικέτας
-- θέση ετικέτας
+- τοποθεσία ετικέτας
 - PowerPoint
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Μάθετε να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγράμματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για C++ για πιο ελκυστικές διαφάνειες."
+description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγράμματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για C++ για πιο ελκυστικές διαφάνειες."
 ---
 ## **Εισαγωγή**
 
-Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές του διαγράμματος και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να αναγνωρίζουν τις τιμές και να κατανοούν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε τις τιμές, να εμφανίσετε ποσοστά, να διαβάσετε το κείμενο της ετικέτας, να ελέγξετε τις ετικέτες πέρα από το μέγιστο του άξονα, να προσαρμόσετε το διάστημα ετικετών του άξονα κατηγορίας και να τοποθετήσετε τις ετικέτες σε διάγραμμα πίτας.
+Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές διαγραμμάτων και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να αναγνωρίζουν τις τιμές και να κατανοούν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε τιμές, να εμφανίζετε ποσοστά, να διαβάζετε το κείμενο της ετικέτας, να ελέγχετε τις ετικέτες πέρα από το μέγιστο του άξονα, να προσαρμόζετε το διάστημα των ετικετών του άξονα κατηγορίας και να τοποθετείτε τις ετικέτες σχεδίασης πίτας.
 
-## **Ορισμός ακρίβειας δεδομένων στις ετικέτες δεδομένων του διαγράμματος**
+## **Ορισμός της ακρίβειας δεδομένων στις ετικέτες δεδομένων του διαγράμματος**
 
-Χρησιμοποιήστε [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
+Χρησιμοποιήστε [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) για να μορφοποιήσετε τις τιμές της σειράς. Αυτό το παράδειγμα δημιουργεί ένα γράφημα γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις βασικές τιμές.
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -58,7 +59,8 @@ presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 
 ## **Εμφάνιση ποσοστού ως ετικέτες**
 
-Για ένα στοίβαγμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού ποσού της κατηγορίας της και εκχωρήστε το κείμενο στο πλαίσιο κειμένου που επιστρέφεται από [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα του διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με συνολικό άθροισμα μηδέν παραλείπονται για να αποφευχθεί διαίρεση με το μηδέν. Επαναϋπολογίστε το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
+Για ένα στοίβαστο διάγραμμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού αθροίσματος της κατηγορίας της και αντιστοιχίστε το κείμενο στο πλαίσιο κειμένου που επιστρέφεται από [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με συνολικό μηδέν παραλείπονται για να αποφευχθεί η διαίρεση με το μηδέν. Επαναυπολογίστε το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -145,11 +147,12 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ορισμός συμβόλου ποσοστού στις ετικέτες δεδομένων του διαγράμματος**
+## **Ορισμός του συμβόλου ποσοστού στις ετικέτες δεδομένων του διαγράμματος**
 
-Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) για να εμφανίσετε ποσοστά. Περάστε `false` σε [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) για να εφαρμόσετε τη μορφοποίηση της ετικέτας ανεξάρτητα από τα κελιά πηγής.
+Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) για να εμφανίσετε τα ποσοστά. Μετάδοση του `false` στη μέθοδο [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) εφαρμόζει τη μορφοποίηση της ετικέτας ανεξάρτητα από τα κελιά προέλευσης.
 
-Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στοίβαξης 100% με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζει στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
+Αυτό το παράδειγμα δημιουργεί ένα 100% στοίβαστο διάγραμμα στήλης με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζει στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -235,7 +238,8 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **Ανάγνωση του πραγματικού κειμένου των ετικετών δεδομένων**
 
-Χρησιμοποιήστε [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) για να ανακτήσετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επαληθεύετε τα παραγόμενα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλογή [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) συνδυάζει κάθε όνομα κατηγορίας, όνομα σειράς και τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, και ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Χρησιμοποιήστε [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) για να ανακτήσετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επαληθεύετε δημιουργημένα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [μορφή ετικέτας δεδομένων](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, ενώ ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από το [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -322,15 +326,16 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα κατηγορίας και σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) επιστρέφει τη δεσμευμένη συμβολοσειρά ετικέτας σε κάθε περίπτωση. Ελέγξτε το [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
+Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα της κατηγορίας και της σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) επιστρέφει το τελικό κείμενο ετικέτας και στις δύο περιπτώσεις. Ελέγξτε το [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
 
 ## **Έλεγχος ετικετών δεδομένων πέρα από το μέγιστο του άξονα**
 
-Όταν περιορίζετε το εύρος ενός άξονα χειροκίνητα, κάποια σημεία δεδομένων μπορεί να υπερβούν το μέγιστό του. Χρησιμοποιήστε [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) για να ελέγξετε εάν εμφανίζονται οι ετικέτες τους. Αυτή η ρύθμιση αλλάζει την ορατότητα της ετικέτας· δεν αλλάζει το εύρος του άξονα ή τις υποκείμενες τιμές δεδομένων.
+Όταν περιορίζετε το εύρος ενός άξονα χειροκίνητα, κάποια σημεία δεδομένων μπορεί να ξεπεράσουν το μέγιστό του. Χρησιμοποιήστε [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) για να ελέγξετε εάν οι ετικέτες δεδομένων τους εμφανίζονται. Αυτή η ρύθμιση αλλάζει την ορατότητα των ετικετών· δεν αλλάζει το εύρος του άξονα ούτε τις υποκείμενες τιμές δεδομένων.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα 2Δ ομαδοποιημένο διάγραμμα στήλης με τιμές 60 και 120. Θέτει το [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) σε `false` και το [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) σε 100 στον κατακόρυφο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο αυτής της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται σε `DataLabelsOverMaximum.pptx`.
+Το παρακάτω παράδειγμα δημιουργεί ένα 2Δ συστοιχισμένο γράφημα στήλης με τιμές 60 και 120. Ορίζει το [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) σε `false` και το [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) σε 100 στον κατακόρυφο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο αυτής της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο `DataLabelsOverMaximum.pptx`.
 
-Ενεργοποιήστε τις ετικέτες τιμών με το [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Η ρύθμιση σε επίπεδο διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμής από μόνη της ή δεν παρακάμπτει την απενεργοποιημένη εμφάνιση τιμής μιας μεμονωμένης ετικέτας. Αυτό το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
+Ενεργοποιήστε τις ετικέτες τιμών με το [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Η ρύθμιση σε επίπεδο διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμών από μόνη της ή δεν υπερκαλύπτει την απενεργοποίηση εμφάνισης τιμής μιας μεμονωμένης ετικέτας. Το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -400,19 +405,20 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες που αποδίδονται από το Microsoft PowerPoint. Με `true`, η ετικέτα **120** είναι ορατή στο άνω όριο· με `false`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει στο **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
+Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες που αποδιδόμενες από το Microsoft PowerPoint. Με `true`, η ετικέτα **120** είναι ορατή στο ανώτερο όριο· με `false`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα διατηρείται στο **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Αυτό το παράδειγμα χρησιμοποιεί ένα 2Δ διάγραμμα στήλης με άξονα τιμών. Διαγράμματα χωρίς άξονα τιμών, όπως τα διαγράμματα πίτας και δακτυλίου, δεν διαθέτουν μέγιστο άξονα που να περιορίζεται με αυτόν τον τρόπο.
+Αυτό το παράδειγμα χρησιμοποιεί ένα 2Δ γράφημα στήλης με άξονα τιμών. Τα διαγράμματα χωρίς άξονα τιμών, όπως τα διαγράμματα πίτας και δακτυλίου, δεν διαθέτουν μέγιστο άξονα που μπορεί να περιοριστεί με αυτόν τον τρόπο.
 {{% /alert %}}
 
 ## **Ορισμός απόστασης ετικέτας από άξονα**
 
-Χρησιμοποιήστε [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα ομαδοποιημένο διάγραμμα στήλης και ορίζει το offset της οριζόντιας ετικέτας άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας αντί των ετικετών που προσαρτώνται σε μεμονωμένα σημεία δεδομένων.
+Χρησιμοποιήστε το [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα συστοιχισμένο γράφημα στήλης και ορίζει την απόσταση ετικέτας του οριζόντιου άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας και όχι τις ετικέτες που είναι προσαρτημένες σε μεμονωμένα σημεία δεδομένων.
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -439,11 +445,12 @@ chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
 presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ρύθμιση θέσης ετικέτας**
+## **Προσαρμογή θέσης ετικέτας**
 
-Σε ένα διάγραμμα πίτας, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε το διάστημα και να δημιουργήσετε χώρο για τις γραμμές οδηγού.
+Σε ένα γράφημα πίτας, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε το κενό και να δημιουργήσετε χώρο για τις γραμμές οδηγητών.
 
-Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και χρησιμοποιεί τα [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) και [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) για να προσαρμόσει τις μετατοπίσεις του. Αυτές οι μετατοπίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και χρησιμοποιεί τις μεθόδους [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) και [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) για να προσαρμόσει τις αποσπάσεις του. Οι αποσπάσεις αυτές είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -482,11 +489,86 @@ presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ![Διάγραμμα πίτας με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
 
-## **Προσθήκη πολλαπλών σειρών ετικετών δεδομένων πάνω από διάγραμμα στήλης**
+## **Μορφοποίηση γραμμών οδηγών**
 
-Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στήλης με δύο σειρές ετικετών δεδομένων πάνω από την περιοχή σχεδίασης. Η Σειρά A εμφανίζει τις ορατές στήλες, ενώ οι Σειρές B και C παρέχουν τις πρόσθετες ετικέτες. Οι στήλες τους κρύβονται αφαιρώντας τη γέμισμα και τη γραμμή περιγράμματος. Η μέθοδος [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) ευθυγραμμίζει και τις τρεις σειρές με τα ίδια κέντρα κατηγοριών.
+Όταν οι ετικέτες ενός διαγράμματος πίτας βρίσκονται έξω από τα τμήματά τους, οι γραμμές οδηγιών βοηθούν τους αναγνώστες να αντιστοιχίσουν κάθε τιμή στο σωστό τμήμα. Ένα αντίθετο χρώμα και μια ελαφρώς πιο παχύρρευστη γραμμή μπορούν να κάνουν αυτές τις συνδέσεις πιο εύκολες στη παρακολούθηση, ενώ η διαφάνεια και το διακεκομμένο στυλ διατηρούν τις γραμμές οπτικά ανεπαίσθητες.
 
-Οι ρυθμίσεις του [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) διατηρούν χώρο για τις σειρές ετικετών. Μετά την εκτέλεση του [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) που υπολογίζει τις προεπιλεγμένες θέσεις, τα [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) και [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) διατηρούν την οριζόντια στοίχιση και εφαρμόζουν κατακόρυφες μετατοπίσεις για να οργανώσουν τις ετικέτες σε δύο σειρές. Οι αριθμοί παραμένουν ετικέτες δεδομένων συνδεδεμένες με τις τιμές των σειρών· μόνο οι επικεφαλίδες των σειρών είναι ξεχωριστά σχήματα κειμένου.
+Χρησιμοποιήστε το [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) για να μορφοποιήσετε τις γραμμές οδηγιών σε επίπεδο συλλογής ετικετών δεδομένων της σειράς. Οι ρυθμίσεις στο `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` ισχύουν για τη συλλογή, όχι για μεμονωμένη ετικέτα.
+
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα πίτας με προεπιλεγμένα δεδομένα, εμφανίζει τις τιμές έξω από τα τμήματα και ενεργοποιεί τις γραμμές οδηγιών με το [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Μετακινεί δύο ετικέτες πιο μακριά από τα τμήματά τους χρησιμοποιώντας τις αποσπάσεις [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) και [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), εκφρασμένες ως κλάσματα του πλάτους και του ύψους του διαγράμματος. Δεν απαιτείται εισαγωγική παρουσίαση.
+
+Η μορφή γεμίσματος που επιστρέφεται από το [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) χρησιμοποιείται για να ορίσει ένα συμπαγές μπλε χρώμα με τιμή άλφα 191 από 255, παρέχοντας περίπου 25% διαφάνεια. Η μέθοδος [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) ορίζει το πάχος στα 2 σημεία, και η [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) κάνει τη γραμμή διακεκομμένη.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/LineDashStyle.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 80, 50, 560, 400);
+chart->set_HasLegend(false);
+
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+
+auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+labelFormat->set_ShowValue(true);
+labelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+labelFormat->set_ShowLeaderLines(true);
+
+// Μετακινήστε δύο ετικέτες πιο μακριά από τα τμήματά τους.
+series->get_Label(0)->set_X(0.10f);
+series->get_Label(0)->set_Y(-0.05f);
+series->get_Label(1)->set_X(-0.10f);
+series->get_Label(1)->set_Y(0.05f);
+
+auto line = series->get_Labels()->get_LeaderLinesFormat()->get_Line();
+line->get_FillFormat()->set_FillType(FillType::Solid);
+line->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(191, 30, 90, 160));
+line->set_Width(2);
+line->set_DashStyle(LineDashStyle::Dash);
+
+presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
+```
+
+Η ενεργοποίηση των γραμμών οδηγιών δεν εγγυάται ότι θα εμφανιστεί γραμμή για κάθε ετικέτα. Η ορατότητα εξαρτάται από τη θέση της ετικέτας και τη συμπεριφορά διάταξης του διαγράμματος. Σε αυτό το παράδειγμα, οι δύο μετατοπισμένες ετικέτες έχουν ορατές γραμμές οδηγών· οι ετικέτες που παραμένουν κοντά στα τμήματά τους δεν τις χρειάζονται.
+
+Η παρακάτω εικόνα δείχνει το αποθηκευμένο `FormattedLeaderLines.pptx` αποδομένο με το Aspose.Slides:
+
+![Διάγραμμα πίτας με μπλε, ημιδιαφανείς, διακεκομμένες γραμμές οδηγού που συνδέουν δύο εξωτερικές ετικέτες με τα τμήματά τους](formatted-leader-lines.png)
+
+## **Προσθήκη πολλαπλών σειρών ετικετών δεδομένων πάνω από γράφημα στήλης**
+
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα στήλης με δύο σειρές ετικετών δεδομένων πάνω από την περιοχή σχεδίασης. Η Σειρά A εμφανίζει τις ορατές στήλες, ενώ οι Σειρές B και C παρέχουν τις επιπρόσθετες ετικέτες. Οι στήλες τους κρύβονται αφαιρώντας το γέμισμα και το περίγραμμα. Η μέθοδος [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) ευθυγραμμίζει και τις τρεις σειρές στα ίδια κέντρα κατηγοριών.
+
+Οι ρυθμίσεις του [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) διατηρούν χώρο για τις σειρές ετικετών. Μετά το [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) που υπολογίζει τις προεπιλεγμένες θέσεις, οι μέθοδοι [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) και [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) διατηρούν την οριζόντια στοίχιση και εφαρμόζουν κατακόρυφες αποσπάσεις για τη διάταξη των ετικετών σε δύο σειρές. Οι αριθμοί παραμένουν ετικέτες δεδομένων συνδεδεμένες με τις τιμές της σειράς· μόνο οι επικεφαλίδες των σειρών είναι ξεχωριστά σχήματα κειμένου.
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -592,14 +674,14 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
     }
 }
 
-// Στοίχιση και των τριών σειρών με τα ίδια κέντρα κατηγοριών.
+// Στοίχιση και των τριών σειρών στα ίδια κέντρα κατηγοριών.
 chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
 
-// Χρήση λιγότερων γραμμών πλέγματος σε αυτό το συμπαγές παράδειγμα.
+// Χρήση λιγότερων γραμμών πλέγματος για αυτό το συμπαγές παράδειγμα.
 chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
 chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
 
-// Δέσμευση χώρου πάνω από το τμήμα σχεδίασης για δύο σειρές ετικετών δεδομένων.
+// Κράτηση χώρου πάνω από το γράφημα για δύο σειρές ετικετών δεδομένων.
 chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
 chart->get_PlotArea()->set_X(0.15f);
 chart->get_PlotArea()->set_Y(0.32f);
@@ -615,8 +697,8 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
     for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
     {
         auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
-        // Διατήρηση της προεπιλεγμένης οριζόντιας θέσης.
-        // Το Y είναι μια μετατόπιση από την προεπιλεγμένη θέση ετικέτας, εκφρασμένη ως κλάσμα του ύψους του διαγράμματος.
+        // Διατήρηση της προεπιλεγμένης οριζόντιας θέσης. Το Y είναι μια απόσταση από
+        // την προεπιλεγμένη θέση ετικέτας, εκφρασμένη ως κλάσμα του ύψους του διαγράμματος.
         dataLabel->set_X(0);
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
     }
@@ -641,11 +723,14 @@ presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 
 ## **Συχνές ερωτήσεις**
 
-**Πώς μπορώ να αποτρέψω την επικάλυψη ετικετών δεδομένων σε πυκνά διαγράμματα;**  
-Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγού και μειωμένο μέγεθος γραμματοσειράς· εάν χρειαστεί, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή βασικά σημεία.
+**Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά διαγράμματα;**
 
-**Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για μηδενικές, αρνητικές ή κενές τιμές;**  
-Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν καθορισμένο κανόνα.
+Συνδυάστε την αυτόματη τοποθέτηση ετικετών, τις γραμμές οδηγιών και τη μείωση του μεγέθους της γραμματοσειράς· εάν χρειαστεί, κρύψτε ορισμένα πεδία (π.χ., την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή βασικά σημεία.
 
-**Πώς μπορώ να εξασφαλίσω συνεπές στυλ ετικετών κατά την εξαγωγή σε PDF/εικόνες;**  
-Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και επαληθεύστε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε την εναλλακτική.
+**Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για μηδενικές, αρνητικές ή κενές τιμές;**
+
+Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν ορισμένο κανόνα.
+
+**Πώς μπορώ να διασφαλίσω ένα συνεπές στυλ ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
+
+Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε την εναλλακτική.

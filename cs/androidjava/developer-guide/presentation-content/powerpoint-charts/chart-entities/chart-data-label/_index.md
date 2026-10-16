@@ -1,11 +1,11 @@
 ---
-title: Správa datových popisků v grafech v prezentacích na Androidu
-linktitle: Datový popisek
+title: Správa popisků dat v grafech v prezentacích na Androidu
+linktitle: Popisek dat
 type: docs
 url: /cs/androidjava/chart-data-label/
 keywords:
 - graf
-- datový popisek
+- popisek dat
 - přesnost dat
 - procento
 - vzdálenost popisku
@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se přidávat a formátovat datové popisky v grafech v PowerPoint prezentacích pomocí Aspose.Slides pro Android prostřednictvím Javy pro poutavější snímky."
+description: "Naučte se přidávat a formátovat popisky dat v grafech v prezentacích PowerPoint pomocí Aspose.Slides pro Android v Javě pro poutavější snímky."
 ---
 ## **Úvod**
 
-Datové popisky zobrazují informace o sériích grafu a jednotlivých datových bodech, pomáhají čtenářům identifikovat hodnoty a pochopit graf. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisku, ovládat popisky mimo maximum osy, upravit rozestup popisků kategoriální osy a umístit popisky koláčového grafu.
+Popisky dat zobrazují informace o řadách grafu a jednotlivých datových bodech, pomáhají čtenářům identifikovat hodnoty a pochopit graf. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisku, řídit popisky mimo maximální hodnotu osy, upravit rozestupy popisků osy kategorií a umístit popisky koláčového grafu.
 
-## **Nastavení přesnosti dat v popiscích grafu**
+## **Nastavení přesnosti hodnot v popiscích dat grafu**
 
-Použijte [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) k formátování hodnot sérií. Tento příklad vytvoří čárový graf s výchozími daty, zobrazí jeho datovou tabulku a povolí popisky hodnot pro první sérii. Formát `#,##0.00` zobrazí oddělovač tisíců a dvě desetinná místa, aniž by měnil podkladové hodnoty.
+Použijte [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) k formátování hodnot řad. Tento příklad vytváří čárový graf s výchozími daty, zobrazuje jeho datovou tabulku a povoluje popisky hodnot pro první řadu. Formát `#,##0.00` zobrazuje oddělovač tisíců a dvě desetinná místa, aniž by měnil podkladové hodnoty.
 
 ```java
 import com.aspose.slides.*;
@@ -47,7 +47,7 @@ try {
 
 ## **Zobrazení procent jako popisků**
 
-Pro sloupcový graf se skládanými sloupci vypočítejte každou hodnotu jako procento celkového součtu kategorie a přiřaďte text do textového rámce vráceného metodou [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Tento příklad používá výchozí data grafu a zobrazuje procenta se dvěma desetinnými místy v písmu o velikosti 8 bodů. Kategorie s nulovým součtem jsou přeskočeny, aby se zabránilo dělení nulou. Přepočítejte vlastní text popisku, pokud se data grafu změní.
+Pro sloupcový graf se zásobníkem vypočítejte každou hodnotu jako procento celkové hodnoty kategorie a přiřaďte text do textového rámce vráceného metodou [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Tento příklad použije výchozí data grafu a zobrazí procenta se dvěma desetinnými místy v 8‑bodovém písmu. Kategorie s nulovým součtem jsou přeskočeny, aby se zabránilo dělení nulou. Přepočítejte vlastní text popisku, pokud se data grafu změní.
 
 ```java
 import com.aspose.slides.*;
@@ -104,11 +104,11 @@ try {
 }
 ```
 
-## **Nastavení procentního znaku v popiscích grafu**
+## **Nastavení procentního symbolu v popiscích dat grafu**
 
-Když jsou hodnoty uloženy jako zlomky, použijte [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) k zobrazení procent. Předávejte `false` metodě [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) , aby se formát popisku použil nezávisle na buňkách zdroje.
+Když jsou hodnoty uloženy jako zlomky, použijte [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) k zobrazení procent. Předávejte `false` metodě [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) a aplikujte formát popisku nezávisle na zdrojových buňkách.
 
-Tento příklad vytvoří 100 % sloupcový graf se skládanými sloupci s červenou a modrou sérií napříč čtyřmi kategoriemi. Každý pár hodnot dohromady dává 1. Formát popisku `0.0%` zobrazí 0.30 jako 30,0 %, zatímco vertikální osa používá dvě desetinná místa. Obě série používají bílý popisek o velikosti 10 bodů.
+Tento příklad vytváří 100 % sloupcový graf se zásobníkem se červenou a modrou řadou napříč čtyřmi kategoriemi. Každý pár hodnot sečte na 1. Formát popisku `0.0%` zobrazí 0.30 jako 30.0 %, zatímco vertikální osa používá dvě desetinná místa. Obě řady používají bílý popisek o velikosti 10 bodů.
 
 ```java
 import com.aspose.slides.*;
@@ -163,9 +163,9 @@ try {
 }
 ```
 
-## **Načtení skutečného textu datových popisků**
+## **Načtení skutečného textu popisků dat**
 
-Použijte [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) k získání textu vytvořeného nastavením datového popisku. To je užitečné při extrahování popisků pro zprávy, vyhledávání obsahu prezentace nebo ověřování vygenerovaných grafů. V níže uvedeném příkladu výchozí [data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) kombinuje název každé kategorie, název série a hodnotu. Jeden bod formátuje svou hodnotu jako procento a jiný používá vlastní text z [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Použijte [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) k získání textu vytvořeného nastavením popisku dat. To je užitečné při extrahování popisků pro zprávy, vyhledávání obsahu prezentace nebo ověřování vygenerovaných grafů. V níže uvedeném příkladu výchozí [výchozí formát popisku dat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) kombinuje každé jméno kategorie, jméno řady a hodnotu. Jeden bod formátuje svou hodnotu jako procento a další používá vlastní text z [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +225,15 @@ try {
 }
 ```
 
-Číslo uložené v datovém bodě zůstává `0.75`, i když jeho popisek zobrazuje `75 %` spolu s názvem kategorie a série. Vlastní text nahrazuje vygenerovaný text popisku. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) vrací výsledný řetězec popisku v obou případech. Zkontrolujte [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) samostatně, jak je ukázáno výše, pokud chcete extrahovat pouze viditelné popisky.
+Číslo uložené v datovém bodě zůstává `0.75`, i když jeho popisek zobrazuje `75 %` spolu s názvy kategorie a řady. Vlastní text nahrazuje vygenerovaný text popisku. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) vrací výsledný řetězec popisku v obou případech. Zkontrolujte [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) samostatně, jak je ukázáno výše, pokud chcete extrahovat jen viditelné popisky.
 
-## **Ovládání datových popisků mimo maximum osy**
+## **Řízení popisků dat mimo maximální hodnotu osy**
 
-Když omezíte rozsah osy ručně, některé datové body mohou překročit její maximum. Použijte [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) , abyste určili, zda se jejich datové popisky zobrazí. Toto nastavení mění viditelnost popisků; nezmění rozsah osy ani podkladové hodnoty dat.
+Když omezíte rozsah osy ručně, některé datové body mohou překročit její maximum. Použijte [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) k určení, zda se jejich popisky zobrazí. Toto nastavení mění viditelnost popisků; nemění rozsah osy ani podkladové hodnoty dat.
 
-Níže uvedený příklad vytvoří 2D seskupený sloupcový graf s hodnotami 60 a 120. Předá `false` metodě [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) a nastaví maximum na 100 pomocí [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) na vertikální ose. První snímek umožňuje popisky mimo maximum; kopie tohoto snímku je zakáže. Oba snímky jsou uloženy v souboru `DataLabelsOverMaximum.pptx`.
+Níže uvedený příklad vytváří 2D sloupcový graf se seskupenými sloupci s hodnotami 60 a 120. Předá `false` metodě [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) a nastaví maximum na 100 metodou [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) na vertikální ose. První snímek povoluje popisky mimo maximum; kopie tohoto snímku je zakazuje. Oba snímky jsou uloženy v souboru `DataLabelsOverMaximum.pptx`.
 
-Povolte popisky hodnot pomocí [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Nastavení na úrovni grafu samo o sobě nezpůsobí zobrazení hodnot ani nepřepíše vypnuté zobrazení hodnot u jednotlivých popisků. Tento příklad povolí hodnoty pro celou sérii a použije [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) , aby umístil popisky na vnější konec každého sloupce.
+Povolte popisky hodnot pomocí [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Nastavení na úrovni grafu neumožňuje zobrazení hodnot samo o sobě ani nepřepisuje zakázané zobrazení hodnot u jednotlivých popisků. Tento příklad povoluje hodnoty pro celou řadu a používá [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) k umístění popisků na vnější konec každého sloupce.
 
 ```java
 import com.aspose.slides.*;
@@ -282,19 +282,19 @@ try {
 }
 ```
 
-Následující obrázky ukazují uložené snímky vykreslené v Microsoft PowerPoint. Při `true` je popisek **120** viditelný na horní hranici; při `false` je skrytý. Popisek **60** zůstává viditelný, maximum osy zůstává na **100** a druhý datový bod zůstává **120** v obou případech.
+Následující obrázky ukazují uložené snímky vykreslené v Microsoft PowerPoint. S `true` je popisek **120** viditelný na horní hranici; s `false` je skrytý. Popisek **60** zůstává viditelný, maximum osy zůstává na **100** a druhý datový bod zůstává **120** v obou případech.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![Graf PowerPoint zobrazující popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-true.png) | ![Graf PowerPoint skrývající popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Tento příklad používá 2D sloupcový graf s hodnotovou osou. Grafy bez hodnotové osy, jako jsou koláčové a prstencové grafy, nemají maximum osy, které by šlo tímto způsobem omezit.
+Tento příklad používá 2D sloupcový graf s hodnotovou osou. Grafy bez hodnotové osy, jako koláčové a prstencové grafy, nemají maximální hodnotu osy, kterou by bylo možné tímto způsobem omezit.
 {{% /alert %}}
 
 ## **Nastavení vzdálenosti popisku od osy**
 
-Použijte [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) , abyste řídili vzdálenost mezi popisky kategoriální osy a osou. Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytvoří seskupený sloupcový graf a nastaví odsazení popisků horizontální osy na 500. Toto nastavení ovlivňuje popisky kategoriální osy spíše než popisky přiřazené jednotlivým datovým bodům.
+Použijte [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) k řízení vzdálenosti mezi popisky osy kategorií a osou. Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytváří sloupcový graf se seskupením a nastavuje odsazení popisku horizontální osy na 500. Toto nastavení ovlivňuje popisky osy kategorií, nikoli popisky připojené k jednotlivým datovým bodům.
 
 ```java
 import com.aspose.slides.*;
@@ -312,11 +312,11 @@ try {
 }
 ```
 
-## **Úprava umístění popisků**
+## **Úprava umístění popisku**
 
-U koláčového grafu upravte umístění datových popisků, aby se zlepšilo rozestup a vytvořil prostor pro čáry spojnice.
+U koláčového grafu upravte polohy popisků dat, aby se zlepšilo rozestupování a vytvořil se prostor pro vodící čáry.
 
-Tento příklad zobrazí hodnotu prvního datového bodu, umístí jeho popisek mimo výseč a upraví jeho horizontální a vertikální odsazení pomocí [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) a [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Tato odsazení jsou relativní k šířce a výšce grafu.
+Tento příklad zobrazuje hodnotu prvního datového bodu, umisťuje jeho popisek mimo výseč a upravuje jeho horizontální a vertikální posuny pomocí [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) a [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Tyto posuny jsou relativní k šířce a výšce grafu.
 
 ```java
 import com.aspose.slides.*;
@@ -340,13 +340,65 @@ try {
 }
 ```
 
-![Graf koláč s upraveným umístěním datového popisku](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Přidání více řádků datových popisků nad sloupcový graf**
+## **Formátování vodících čar**
 
-Tento příklad vytvoří sloupcový graf se dvěma řádky datových popisků nad oblastí vykreslování. Série A zobrazuje viditelné sloupce, zatímco série B a série C poskytují dodatečné popisky. Jejich sloupce jsou skryty odstraněním výplně a obrysu. Metoda [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) zarovná všechny tři série ke stejným středům kategorií.
+Když jsou popisky koláčového grafu umístěny mimo výseče, vodící čáry pomáhají čtenářům přiřadit každou hodnotu ke správné výseči. Kontrastní barva a mírně silnější čára mohou usnadnit sledování těchto spojení, zatímco průhlednost a přerušovaný styl udržují čáry vizuálně nenápadné.
 
-Nastavení [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) vyhrazuje prostor pro řádky popisků. Po výpočtu výchozích pozic metodou [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) zachovají [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) a [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) horizontální zarovnání a použijí vertikální odsazení k uspořádání popisků ve dvou řadách. Čísla zůstávají datovými popisky propojenými s hodnotami sérií; pouze nadpisy řádků jsou oddělené textové tvary.
+Použijte [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) k formátování vodících čar na úrovni kolekce popisků řady. Nastavení v `series.getLabels().getLeaderLinesFormat().getLine()` se vztahují na kolekci, nikoli na jednotlivý popisek.
+
+Tento příklad vytváří koláčový graf s výchozími daty, zobrazuje hodnoty mimo výseče a povoluje [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Posouvá dva popisky dále od jejich výsečí pomocí posunů [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) a [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-), vyjádřených jako zlomky šířky a výšky grafu. Vstupní prezentace není vyžadována.
+
+Formát čáry [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) nastavuje plnou modrou barvu s alfa hodnotou 191 z 255, což poskytuje přibližně 25 % průhlednost. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) nastavuje tloušťku na 2 body a [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) činí čáru přerušovanou.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 80, 50, 560, 400);
+    chart.setLegend(false);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    IDataLabelFormat labelFormat = series.getLabels().getDefaultDataLabelFormat();
+    labelFormat.setShowValue(true);
+    labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
+    labelFormat.setShowLeaderLines(true);
+
+    // Posuňte dva popisky dále od jejich výsečí.
+    series.getLabels().get_Item(0).setX(0.10f);
+    series.getLabels().get_Item(0).setY(-0.05f);
+    series.getLabels().get_Item(1).setX(-0.10f);
+    series.getLabels().get_Item(1).setY(0.05f);
+
+    ILineFormat line = series.getLabels().getLeaderLinesFormat().getLine();
+    line.getFillFormat().setFillType(FillType.Solid);
+    line.getFillFormat().getSolidFillColor().setColor(Color.argb(191, 30, 90, 160));
+    line.setWidth(2);
+    line.setDashStyle(LineDashStyle.Dash);
+
+    presentation.save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Povolení vodících čar nezaručuje, že se čára objeví u každého popisku. Viditelnost závisí na umístění popisku a chování rozvržení grafu. V tomto příkladu mají dva posunuté popisky viditelné vodící čáry; popisky, které zůstávají blízko svých výsečí, je nepotřebují.
+
+Následující obrázek ukazuje uložený soubor `FormattedLeaderLines.pptx` vykreslený pomocí Aspose.Slides:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+
+## **Přidání více řádků popisků dat nad sloupcový graf**
+
+Tento příklad vytváří sloupcový graf se dvěma řádky popisků dat nad vykreslovací oblastí. Řada A zobrazuje viditelné sloupce, zatímco řady B a C poskytují další popisky. Jejich sloupce jsou skryty odebráním výplně a obrysu. Metoda [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) zarovnává všechny tři řady se stejnými středy kategorií.
+
+Nastavení [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) vyhrazuje místo pro řádky popisků. Po výpočtu výchozích pozic metodou [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) zachovávají [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) a [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) horizontální zarovnání a aplikují vertikální posuny k uspořádání popisků do dvou řádků. Čísla zůstávají popisky dat propojené s hodnotami řady; pouze záhlaví řádků jsou samostatné textové tvary.
 
 ```java
 import com.aspose.slides.*;
@@ -390,7 +442,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // Skrýt sloupce B a C, ale zachovat jejich datové popisky.
+            // Skryjte sloupce B a C, ale zachovejte jejich popisky dat.
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -402,14 +454,14 @@ try {
         }
     }
 
-    // Zarovnat všechny tři série ke stejným středům kategorií.
+    // Zarovnejte všechny tři řady se stejnými středy kategorií.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
 
-    // Použít méně mřížkových čar pro tento kompaktní příklad.
+    // Použijte méně mřížkových čar pro tento kompaktní příklad.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // Rezervovat prostor nad oblastí vykreslování pro dva řádky datových popisků.
+    // Rezervujte prostor nad vykreslenou oblastí pro dva řádky popisků dat.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -423,13 +475,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // Zachovat výchozí vodorovnou polohu. Y je posun od
-            // výchozí pozice popisku, vyjádřeno jako zlomek výšky grafu.
+            // Zachovejte výchozí horizontální pozici. Y je posun od
+            // výchozí pozice popisku, vyjádřené jako zlomkový podíl výšky grafu.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // Pouze nadpis řádku je samostatný textový tvar.
+        // Pouze záhlaví řádku je samostatný textový tvar.
         IAutoShape rowHeading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
         rowHeading.getFillFormat().setFillType(FillType.NoFill);
         rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
@@ -448,15 +500,18 @@ try {
 }
 ```
 
-![Sloupcový graf se dvěma řádky datových popisků nad oblastí vykreslování](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **Často kladené otázky**
 
-**Jak mohu zabránit překrývání datových popisků v hustých grafech?**  
-Kombinujte automatické umístění popisků, čáry spojnice a sníženou velikost písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazujte popisky jen pro extrémní hodnoty či klíčové body.
+**Jak mohu zabránit překrývání popisků dat v hustých grafech?**
 
-**Jak mohu zakázat popisky pouze pro nulové, záporné nebo prázdné hodnoty?**  
-Filtrujte datové body před povolením popisků a vypněte jejich zobrazování pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
+Kombinujte automatické umístění popisků, vodící čáry a zmenšení velikosti písma; případně skryjte některá pole (například kategorii) nebo zobrazujte popisky jen pro extrémní hodnoty či klíčové body.
 
-**Jak mohu zajistit konzistentní styl popisků při exportu do PDF/obrázků?**  
-Explicitně nastavte rodinu písma a velikost a ověřte, že je písmo dostupné v prostředí vykreslování, abyste se vyhnuli náhradě.
+**Jak mohu zakázat popisky jen pro nulové, záporné nebo prázdné hodnoty?**
+
+Filtrujte datové body před povolením popisků a vypněte zobrazení pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
+
+**Jak mohu zajistit konzistentní styl popisku při exportu do PDF/obrázků?**
+
+Explicitně nastavte rodinu a velikost písma a ověřte, že je font k dispozici v renderovacím prostředí, aby nedošlo k náhradnímu fontu.

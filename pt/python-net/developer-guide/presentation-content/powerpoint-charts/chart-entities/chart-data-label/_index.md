@@ -7,22 +7,22 @@ keywords:
 - gráfico
 - rótulo de dados
 - precisão de dados
-- percentual
+- porcentagem
 - distância do rótulo
 - localização do rótulo
 - PowerPoint
 - apresentação
 - Python
 - Aspose.Slides
-description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em apresentações do PowerPoint usando Aspose.Slides para Python via .NET para slides mais envolventes."
+description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em apresentações PowerPoint usando Aspose.Slides para Python via .NET para slides mais envolventes."
 ---
 ## **Introdução**
 
-Os rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e entender o gráfico. Este artigo explica como formatar valores, exibir percentuais, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categoria e posicionar rótulos em gráficos de pizza.
+Os rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e compreender o gráfico. Este artigo explica como formatar valores, exibir porcentagens, ler o texto do rótulo, controlar rótulos além do máximo do eixo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar rótulos em gráficos de pizza.
 
-## **Definir Precisão dos Dados nos Rótulos de Dados do Gráfico**
+## **Definir Precisão dos Dados nos Rótulos do Gráfico**
 
-Use [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valores para a primeira série. O formato `#,##0.00` exibe um separador de milhar e duas casas decimais sem alterar os valores subjacentes.
+Use [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) para formatar os valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valores para a primeira série. O formato `#,##0.00` exibe separador de milhar e duas casas decimais sem alterar os valores subjacentes.
 
 ```python
 import aspose.slides as slides
@@ -41,9 +41,9 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Exibir Percentual como Rótulos**
+## **Exibir Porcentagem como Rótulos**
 
-Para um gráfico de colunas empilhadas, calcule cada valor como percentual do total da sua categoria e atribua o texto a [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Este exemplo usa os dados padrão do gráfico e exibe percentuais com duas casas decimais em fonte de 8 pt. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto personalizado do rótulo se os dados do gráfico mudarem.
+Para um gráfico de colunas empilhadas, calcule cada valor como porcentagem do total da sua categoria e atribua o texto a [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Este exemplo usa os dados padrão do gráfico e exibe porcentagens com duas casas decimais em fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto do rótulo personalizado se os dados do gráfico mudarem.
 
 ```python
 import aspose.slides as slides
@@ -90,11 +90,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Definir Sinal de Percentual com Rótulos de Dados do Gráfico**
+## **Definir Símbolo de Porcentagem nos Rótulos do Gráfico**
 
-Quando os valores são armazenados como frações, use [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) para exibir percentuais. Defina [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) como `False` para aplicar o formato do rótulo independentemente das células de origem.
+Quando os valores são armazenados como frações, use [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) para exibir porcentagens. Defina [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) como `False` para aplicar o formato do rótulo independentemente das células de origem.
 
-Este exemplo cria um gráfico de colunas empilhadas 100 % com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0 %, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, tamanho 10 pt.
+Este exemplo cria um gráfico de colunas empilhadas 100 % com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0 %, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, 10 pt.
 
 ```python
 import aspose.slides as slides
@@ -145,7 +145,7 @@ with slides.Presentation() as presentation:
 
 ## **Ler o Texto Real dos Rótulos de Dados**
 
-Use [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) para recuperar o texto gerado pelas configurações de um rótulo de dado. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o [formato padrão de rótulo de dados](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como percentual, e outro usa texto customizado de [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Use [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) para recuperar o texto produzido pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo da apresentação ou validar gráficos gerados. No exemplo abaixo, o [formato padrão de rótulo de dados](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como porcentagem e outro usa texto personalizado de [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -196,15 +196,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-O número armazenado em um ponto de dado permanece `0.75`, mesmo quando seu rótulo mostra `75%` junto com os nomes da categoria e da série. Texto customizado substitui o texto gerado do rótulo. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) retorna a string resultante do rótulo em ambos os casos. Verifique [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
+O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo mostra `75 %` junto com os nomes da categoria e da série. Texto personalizado substitui o texto gerado do rótulo. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) devolve a string de rótulo resultante em ambos os casos. Verifique [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
 
 ## **Controlar Rótulos de Dados Além do Máximo do Eixo**
 
-Ao limitar manualmente o intervalo de um eixo, alguns pontos de dado podem exceder seu máximo. Use [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) para controlar se seus rótulos de dados são exibidos. Essa configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes.
+Ao limitar manualmente o intervalo de um eixo, alguns pontos de dados podem exceder seu máximo. Use [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) para controlar se seus rótulos de dados são exibidos. Essa configuração altera a visibilidade dos rótulos; não altera o intervalo do eixo nem os valores subjacentes.
 
 O exemplo abaixo cria um gráfico de colunas agrupadas 2D com valores 60 e 120. Ele define [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) como `False` e [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) como 100 no eixo vertical. O primeiro slide permite rótulos além do máximo; uma cópia desse slide os desabilita. Ambos os slides são salvos em `DataLabelsOverMaximum.pptx`.
 
-Habilite rótulos de valor com [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). A configuração ao nível do gráfico não habilita a exibição de valores por si só nem sobrescreve a exibição desativada de um rótulo individual. Este exemplo habilita valores para toda a série e usa [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) para colocar os rótulos na extremidade externa de cada coluna.
+Habilite rótulos de valor com [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). A configuração a nível de gráfico não habilita a exibição de valor por si só nem sobrescreve a exibição desativada de um rótulo individual. Este exemplo habilita valores para toda a série e usa [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) para colocar os rótulos na extremidade externa de cada coluna.
 
 ```python
 import aspose.slides as slides
@@ -250,19 +250,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-As imagens a seguir mostram os slides salvos renderizados pelo Microsoft PowerPoint. Com `True`, o rótulo **120** fica visível no limite superior; com `False`, ele fica oculto. O rótulo **60** permanece visível, o máximo do eixo permanece em **100** e o segundo ponto de dado continua **120** em ambos os casos.
+As imagens a seguir mostram os slides salvos renderizados pelo Microsoft PowerPoint. Com `True`, o rótulo **120** aparece na borda superior; com `False`, ele fica oculto. O rótulo **60** permanece visível, o máximo do eixo continua em **100** e o segundo ponto de dados permanece **120** em ambos os casos.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
-| ![Gráfico do PowerPoint exibindo o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-true.png) | ![Gráfico do PowerPoint ocultando o rótulo de valor 120 com um máximo de eixo de 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Tipo de Gráfico" %}}
-Este exemplo usa um gráfico de colunas 2D com eixo de valores. Gráficos sem eixo de valores, como gráficos de pizza e rosquinha, não possuem um máximo de eixo a ser limitado dessa forma.
+{{% alert color="info" title="Chart Type" %}}
+Este exemplo usa um gráfico de colunas 2D com eixo de valores. Gráficos sem eixo de valores, como pizza e rosca, não possuem um máximo de eixo a ser limitado dessa forma.
 {{% /alert %}}
 
-## **Definir Distância do Rótulo em Relação a um Eixo**
+## **Definir Distância do Rótulo em Relação ao Eixo**
 
-Use [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, e não os rótulos ligados a pontos de dado individuais.
+Use [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, não os rótulos anexados a pontos de dados individuais.
 
 ```python
 import aspose.slides as slides
@@ -277,11 +277,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ajustar a Posição do Rótulo**
+## **Ajustar Localização do Rótulo**
 
 Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e criar espaço para as linhas de ligação.
 
-Este exemplo exibe o valor do primeiro ponto de dado, coloca seu rótulo fora da fatia e ajusta seus deslocamentos [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) e [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
+Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e ajusta seus deslocamentos [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) e [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Esses deslocamentos são relativos à largura e à altura do gráfico, respectivamente.
 
 ```python
 import aspose.slides as slides
@@ -302,13 +302,62 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Gráfico de pizza com posição de rótulo de dados ajustada](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Adicionar Múltiplas Linhas de Rótulos de Dados Acima de um Gráfico de Colunas**
+## **Formatar Linhas de Ligação**
 
-Este exemplo cria um gráfico de colunas com duas linhas de rótulos de dados acima da área de plotagem. A Série A exibe as colunas visíveis, enquanto as Séries B e C fornecem os rótulos adicionais. Suas colunas são ocultadas removendo o preenchimento e o contorno. A propriedade [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) alinha as três séries com os mesmos centros de categoria.
+Quando os rótulos de gráficos de pizza ficam fora das fatias, as linhas de ligação ajudam os leitores a associar cada valor à fatia correta. Uma cor contrastante e uma linha ligeiramente mais grossa podem tornar essas conexões mais fáceis de seguir, enquanto transparência e estilo tracejado mantêm as linhas discretas.
 
-As configurações de [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) reservam espaço para as linhas de rótulos. Após [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calcular as posições padrão, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) e [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) mantêm o alinhamento horizontal e aplicam deslocamentos verticais para organizar os rótulos em duas linhas. Os números permanecem como rótulos de dados vinculados aos valores das séries; apenas os cabeçalhos das linhas são formas de texto separadas.
+Use [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) para formatar linhas de ligação no nível da coleção de rótulos de dados da série. As configurações em `series.labels.leader_lines_format.line` aplicam‑se à coleção, e não a um rótulo individual.
+
+Este exemplo cria um gráfico de pizza com dados padrão, exibe valores fora das fatias e habilita [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Ele move dois rótulos mais longe de suas fatias usando os deslocamentos [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) e [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/), expressos como frações da largura e altura do gráfico. Nenhuma apresentação de entrada é necessária.
+
+O [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) da linha define uma cor azul sólida com valor alfa 191 de 255, resultando em aproximadamente 25 % de transparência. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) define a espessura para 2 pontos, e [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) deixa a linha tracejada.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 80, 50, 560, 400)
+    chart.has_legend = False
+
+    series = chart.chart_data.series[0]
+
+    label_format = series.labels.default_data_label_format
+    label_format.show_value = True
+    label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
+    label_format.show_leader_lines = True
+
+    # Mova dois rótulos mais longe de suas fatias.
+    series.labels[0].x = 0.10
+    series.labels[0].y = -0.05
+    series.labels[1].x = -0.10
+    series.labels[1].y = 0.05
+
+    line = series.labels.leader_lines_format.line
+    line.fill_format.fill_type = slides.FillType.SOLID
+    line.fill_format.solid_fill_color.color = drawing.Color.from_argb(191, 30, 90, 160)
+    line.width = 2
+    line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Habilitar linhas de ligação não garante que uma linha apareça para cada rótulo. A visibilidade depende da posição do rótulo e do comportamento de layout do gráfico. Neste exemplo, os dois rótulos deslocados têm linhas de ligação visíveis; os rótulos que permanecem próximos às suas fatias não precisam delas.
+
+A imagem a seguir mostra o `FormattedLeaderLines.pptx` salvo e renderizado com Aspose.Slides:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+
+## **Adicionar Várias Linhas de Rótulos de Dados Acima de um Gráfico de Colunas**
+
+Este exemplo cria um gráfico de colunas com duas linhas de rótulos de dados acima da área de plotagem. A Série A exibe as colunas visíveis, enquanto as Séries B e C fornecem os rótulos adicionais. Suas colunas são ocultas removendo o preenchimento e o contorno. A propriedade [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) alinha as três séries nos mesmos centros de categoria.
+
+As configurações de [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) reservam espaço para as linhas de rótulos. Após [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calcular as posições padrão, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) e [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) preservam o alinhamento horizontal e aplicam deslocamentos verticais para organizar os rótulos em duas linhas. Os números permanecem rótulos de dados vinculados aos valores das séries; apenas os cabeçalhos das linhas são formas de texto separadas.
 
 ```python
 import aspose.slides as slides
@@ -350,7 +399,7 @@ with slides.Presentation() as presentation:
             series.data_points.add_data_point_for_bar_series(value_cell)
 
         if series_index > 0:
-            # Ocultar as colunas de B e C, mas manter seus rótulos de dados.
+            # Oculte as colunas de B e C, mas mantenha seus rótulos de dados.
             series.format.fill.fill_type = slides.FillType.NO_FILL
             series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
             label_format = series.labels.default_data_label_format
@@ -361,14 +410,14 @@ with slides.Presentation() as presentation:
             label_fill.solid_fill_color.color = drawing.Color.black
             label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
 
-    # Alinhar as três séries ao mesmo centro de categoria.
+    # Alinhe as três séries ao mesmo centro de categoria.
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
-    # Usar menos linhas de grade neste exemplo compacto.
+    # Use menos linhas de grade para este exemplo compacto.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # Reservar espaço acima da área de plotagem para duas linhas de rótulos de dados.
+    # Reserve espaço acima da área de plotagem para duas linhas de rótulos de dados.
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -382,8 +431,8 @@ with slides.Presentation() as presentation:
 
         for category_index in range(len(categories)):
             data_label = series.data_points[category_index].label
-            # Manter a posição horizontal padrão. Y é um deslocamento a partir de
-            # a posição padrão do rótulo, expressado como fração da altura do gráfico.
+            # Mantenha a posição horizontal padrão. Y é um deslocamento de
+            # a posição padrão do rótulo, expressa como fração da altura do gráfico.
             data_label.x = 0
             data_label.y = row_top - data_label.actual_y / chart.height
 
@@ -402,15 +451,18 @@ with slides.Presentation() as presentation:
     presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Gráfico de colunas com duas linhas de rótulos de dados acima da área de plotagem](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**  
-Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para valores extremos ou pontos-chave.
+**Como impedir que os rótulos de dados se sobreponham em gráficos densos?**
 
-**Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**  
-Filtre os pontos de dado antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
+Combine posicionamento automático de rótulos, linhas de ligação e tamanho de fonte reduzido; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos apenas para valores extremos ou pontos-chave.
 
-**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**  
+**Como desativar rótulos apenas para valores zero, negativos ou vazios?**
+
+Filtre os pontos de dados antes de habilitar rótulos e desative a exibição para valores 0, negativos ou ausentes conforme uma regra definida.
+
+**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
+
 Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar fallback.

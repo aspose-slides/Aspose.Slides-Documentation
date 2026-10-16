@@ -1,5 +1,5 @@
 ---
-title: Správa popisků dat v grafech v prezentacích pomocí Pythonu
+title: Správa popisků dat grafu v prezentacích pomocí Pythonu
 linktitle: Popisek dat
 type: docs
 url: /cs/python-net/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Naučte se přidávat a formátovat popisky dat v grafech v PowerPoint prezentacích pomocí Aspose.Slides pro Python přes .NET pro poutavější snímky."
+description: "Naučte se přidávat a formátovat popisky dat grafu v prezentacích PowerPoint pomocí Aspose.Slides pro Python přes .NET pro poutavější snímky."
 ---
 ## **Úvod**
 
-Popisky dat zobrazují informace o sériích grafu a jednotlivých datech, pomáhají čtenářům identifikovat hodnoty a porozumět grafu. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisky, ovládat popisky nad maximem osy, upravovat mezery popisků kategorií osy a umisťovat popisky koláčových grafů.
+Popisky dat zobrazují informace o sériích grafu a jednotlivých datových bodech, pomáhají čtenářům identifikovat hodnoty a pochopit graf. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisku, řídit popisky mimo maximální hodnotu osy, upravit rozestup popisků osy kategorií a umístit popisky koláčových grafů.
 
 ## **Nastavení přesnosti dat v popiscích grafu**
 
-Použijte [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) k formátování hodnot sérií. Tento příklad vytvoří čárový graf s výchozími daty, zobrazí jeho datovou tabulku a povolí popisky hodnot pro první sérii. Formát `#,##0.00` zobrazuje oddělovač tisíců a dvě desetinná místa, aniž by měnil podkladové hodnoty.
+Použijte [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) k formátování hodnot řad. Tento příklad vytvoří čárový graf s výchozími daty, zobrazí jeho datovou tabulku a povolí popisky hodnot pro první řadu. Formát `#,##0.00` zobrazí oddělovač tisíců a dvě desetinná místa, aniž by měnil podkladové hodnoty.
 
 ```python
 import aspose.slides as slides
@@ -43,7 +43,7 @@ with slides.Presentation() as presentation:
 
 ## **Zobrazení procent jako popisků**
 
-U sloupcového grafu se zásobníkem vypočítejte každou hodnotu jako procento celkového součtu kategorie a přiřaďte text do [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Tento příklad používá výchozí data grafu a zobrazuje procenta se dvěma desetinnými místy ve 8‑bodovém písmu. Kategorie s nulovým součtem jsou přeskočeny, aby se zabránilo dělení nulou. Přepočítejte vlastní text popisku, pokud se data grafu změní.
+Pro sloupcový graf s naskládáním vypočítejte každou hodnotu jako procento celkového součtu kategorie a přiřaďte text do [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Tento příklad používá výchozí data grafu a zobrazuje procenta se dvěma desetinnými místy ve fontu o velikosti 8 bodů. Kategorie s celkovým součtem nula jsou přeskočeny, aby se předešlo dělení nulou. Přepočítejte vlastní text popisku, pokud se data grafu změní.
 
 ```python
 import aspose.slides as slides
@@ -90,11 +90,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nastavení procentního znaménka v popiscích grafu**
+## **Nastavení procentního znaku v popiscích dat grafu**
 
 Když jsou hodnoty uloženy jako zlomky, použijte [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) k zobrazení procent. Nastavte [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) na `False`, aby se formát popisku použil nezávisle na zdrojových buňkách.
 
-Tento příklad vytvoří 100 % zásobníkový sloupcový graf s červenou a modrou sérií napříč čtyřmi kategoriemi. Každý pár hodnot sečte na 1. Formát popisku `0.0%` zobrazí 0.30 jako 30,0 %, zatímco svislá osa používá dvě desetinná místa. Obě série používají bílý popisek o velikosti 10 bodů.
+Tento příklad vytvoří 100 % naskládaný sloupcový graf s červenými a modrými řadami ve čtyřech kategoriích. Každý pár hodnot sečte na 1. Formát popisku `0.0%` zobrazí 0.30 jako 30,0 %, zatímco vertikální osa používá dvě desetinná místa. Obě řady mají bílý, 10‑bodový text popisku.
 
 ```python
 import aspose.slides as slides
@@ -143,9 +143,9 @@ with slides.Presentation() as presentation:
     presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přečtení skutečného textu popisků dat**
+## **Čtení skutečného textu popisků dat**
 
-Použijte [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) k získání textu vytvořeného nastavením popisku dat. To je užitečné při extrahování popisků pro zprávy, prohledávání obsahu prezentací nebo ověřování vygenerovaných grafů. V níže uvedeném příkladu výchozí [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) kombinuje název kategorie, název série a hodnotu. Jeden bod formátuje svou hodnotu jako procento a další používá vlastní text z [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Použijte [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) k získání textu vytvořeného nastavením popisku dat. To je užitečné při extrahování popisků pro zprávy, hledání obsahu prezentace nebo ověřování generovaných grafů. V níže uvedeném příkladu výchozí [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) kombinuje název kategorie, název řady a hodnotu. Jeden bod formátuje svou hodnotu jako procento a další používá vlastní text z [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -196,15 +196,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-Číslo uložené v datovém bodu zůstává `0.75`, i když jeho popisek zobrazuje `75 %` spolu s názvem kategorie a série. Vlastní text nahrazuje vygenerovaný text popisku. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) vrací výsledný řetězec popisku v obou případech. Zkontrolujte [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) samostatně, jak je ukázáno výše, pokud chcete extrahovat pouze viditelné popisky.
+Číslo uložené v datovém bodě zůstává `0.75`, i když jeho popisek ukazuje `75 %` spolu s názvy kategorie a řady. Vlastní text nahrazuje generovaný text popisku. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) vrací výsledný řetězec popisku v obou případech. Zkontrolujte [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) zvlášť, jak je ukázáno výše, když chcete extrahovat jen viditelné popisky.
 
-## **Ovládání popisků dat nad maximem osy**
+## **Řízení popisků dat nad maximem osy**
 
-Když omezíte rozsah osy ručně, některé datové body mohou překročit její maximum. Použijte [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) k ovládání, zda jsou jejich popisky zobrazeny. Toto nastavení mění viditelnost popisků; nemění rozsah osy ani podkladové hodnoty dat.
+Když omezíte rozsah osy ručně, některé datové body mohou přesáhnout její maximum. Použijte [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) k řízení, zda se jejich popisky dat zobrazí. Toto nastavení mění viditelnost popisků; nemění rozsah osy ani podkladové hodnoty dat.
 
-Níže uvedený příklad vytvoří 2D seskupený sloupcový graf s hodnotami 60 a 120. Nastaví [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) na `False` a [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) na 100 na svislé ose. První snímek umožňuje popisky nad maximem; kopie tohoto snímku je zakazuje. Oba snímky jsou uloženy v `DataLabelsOverMaximum.pptx`.
+Níže uvedený příklad vytvoří 2D seskupený sloupcový graf s hodnotami 60 a 120. Nastaví [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) na `False` a [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) na 100 na vertikální ose. První snímek umožňuje popisky nad maximem; kopie tohoto snímku je zakazuje. Oba snímky jsou uloženy v `DataLabelsOverMaximum.pptx`.
 
-Povolte popisky hodnot pomocí [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Nastavení na úrovni grafu samo o sobě neaktivuje zobrazení hodnot ani nepřepíše zakázané zobrazení hodnot u jednotlivých popisků. Tento příklad povoluje hodnoty pro celou sérii a používá [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) k umístění popisků na vnější konec každého sloupce.
+Povolte popisky hodnot pomocí [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Nastavení na úrovni grafu samo o sobě neumožňuje zobrazování hodnot ani nepřepisuje zakázané zobrazování hodnot u jednotlivých popisků. Tento příklad povolí hodnoty pro celou řadu a použije [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) k umístění popisků na vnější konec každého sloupce.
 
 ```python
 import aspose.slides as slides
@@ -250,19 +250,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Následující obrázky zobrazují uložené snímky vykreslené aplikací Microsoft PowerPoint. S `True` je popisek **120** viditelný na horní hranici; s `False` je skrytý. Popisek **60** zůstává viditelný, maximum osy zůstává na **100** a druhý datový bod zůstává **120** v obou případech.
+Následující obrázky zobrazují uložené snímky vykreslené v Microsoft PowerPoint. S `True` je popisek **120** viditelný na horní hranici; s `False` je skrytý. Popisek **60** zůstává viditelný, maximum osy zůstává na **100** a druhý datový bod zůstává **120** v obou případech.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
-| ![Graf PowerPoint zobrazující popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-true.png) | ![Graf PowerPoint skrývající popisek hodnoty 120 s maximem osy 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Tento příklad používá 2D sloupcový graf s hodnotovou osou. Grafy bez hodnotové osy, jako jsou koláčové a prstencové grafy, nemají maximální hodnotu osy, kterou by bylo možné tímto způsobem omezit.
+Tento příklad používá 2D sloupcový graf s hodnotovou osou. Grafy bez hodnotové osy, jako koláčové a prstencové diagramy, nemají maximální hodnotu osy, kterou by bylo možné tímto způsobem omezit.
 {{% /alert %}}
 
 ## **Nastavení vzdálenosti popisku od osy**
 
-Použijte [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) k řízení vzdálenosti mezi popisky kategorií osy a samotnou osou. Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytvoří seskupený sloupcový graf a nastaví offset popisků horizontální osy na 500. Toto nastavení ovlivňuje popisky kategorií osy, nikoli popisky připojené k jednotlivým datovým bodům.
+Použijte [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) k řízení vzdálenosti mezi popisky osy kategorií a osou. Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytvoří seskupený sloupcový graf a nastaví posun popisku horizontální osy na 500. Toto nastavení ovlivňuje popisky osy kategorií spíše než popisky připojené k jednotlivým datovým bodům.
 
 ```python
 import aspose.slides as slides
@@ -279,9 +279,9 @@ with slides.Presentation() as presentation:
 
 ## **Úprava umístění popisku**
 
-U koláčového grafu upravte pozice datových popisků pro zlepšení rozestupů a vytvoření místa pro vodící čáry.
+V koláčovém grafu upravte polohu popisků dat, aby se zlepšil rozestup a vytvořilo místo pro vodící čáry.
 
-Tento příklad zobrazuje hodnotu prvního datového bodu, umisťuje jeho popisek vně výseku a upravuje jeho offsety [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) a [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Tyto offsety jsou relativní k šířce a výšce grafu.
+Tento příklad zobrazí hodnotu prvního datového bodu, umístí jeho popisek mimo výseč a upraví jeho [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) a [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) posuny. Tyto posuny jsou relativní k šířce a výšce grafu.
 
 ```python
 import aspose.slides as slides
@@ -302,13 +302,62 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Koláčový graf s upravenou pozicí datového popisku](pie-chart-adjusted-label.png)
+![Koláčový graf s upravenou polohou popisku](pie-chart-adjusted-label.png)
+
+## **Formátování vodících čar**
+
+Když jsou popisky koláčového grafu umístěny mimo výseče, vodící čáry pomáhají čtenářům spojit každou hodnotu se správnou výsečí. Kontrastní barva a mírně silnější čára mohou tyto spojení učinit snadněji sledovatelnými, zatímco průhlednost a čárkový styl udržují čáry vizuálně nenápadné.
+
+Použijte [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) k formátování vodících čar na úrovni kolekce popisků řady. Nastavení v `series.labels.leader_lines_format.line` se vztahuje na kolekci, nikoli na jednotlivý popisek.
+
+Tento příklad vytvoří koláčový graf s výchozími daty, zobrazí hodnoty mimo výseče a povolí [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Posune dva popisky dále od jejich výsečí pomocí [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) a [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) posunů, vyjádřených jako zlomky šířky a výšky grafu. Žádná vstupní prezentace není vyžadována.
+
+[fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) čáry nastaví pevnou modrou barvu s alfa hodnotou 191 ze 255, což dává přibližně 25 % průhlednosti. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) nastaví tloušťku na 2 body a [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) udělá čáru čárkovanou.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 80, 50, 560, 400)
+    chart.has_legend = False
+
+    series = chart.chart_data.series[0]
+
+    label_format = series.labels.default_data_label_format
+    label_format.show_value = True
+    label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
+    label_format.show_leader_lines = True
+
+    # Posuňte dva popisky dál od jejich výsečí.
+    series.labels[0].x = 0.10
+    series.labels[0].y = -0.05
+    series.labels[1].x = -0.10
+    series.labels[1].y = 0.05
+
+    line = series.labels.leader_lines_format.line
+    line.fill_format.fill_type = slides.FillType.SOLID
+    line.fill_format.solid_fill_color.color = drawing.Color.from_argb(191, 30, 90, 160)
+    line.width = 2
+    line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Povolení vodících čar nezaručuje, že se čára objeví u každého popisku. Viditelnost závisí na umístění popisku a chování rozvržení grafu. V tomto příkladu mají dva posunuté popisky viditelné vodící čáry; popisky, které zůstávají blízko výsečím, je nepotřebují.
+
+Následující obrázek ukazuje uložený `FormattedLeaderLines.pptx` vykreslený pomocí Aspose.Slides:
+
+![Koláčový graf s modrými, poloprůhlednými čárkovanými vodícími čarami spojujícími dva vnější popisky s jejich výsečemi](formatted-leader-lines.png)
 
 ## **Přidání více řádků popisků nad sloupcový graf**
 
-Tento příklad vytvoří sloupcový graf se dvěma řádky popisků nad výsečovou oblastí. Série A zobrazuje viditelné sloupce, zatímco Série B a Série C poskytují další popisky. Jejich sloupce jsou skryté odstraněním výplně a obrysu. Vlastnost [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) zarovnává všechny tři série se stejnými středy kategorií.
+Tento příklad vytvoří sloupcový graf se dvěma řádky popisků nad oblastí vykreslování. Řada A zobrazí viditelné sloupce, zatímco Řada B a Řada C poskytují další popisky. Jejich sloupce jsou skryty odstraněním výplně a obrysu. Vlastnost [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) zarovnává všechny tři řady se stejnými středy kategorií.
 
-Nastavení [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) rezervuje prostor pro řádky popisků. Po výpočtu výchozích pozic metodou [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) a [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) zachovávají vodorovné zarovnání a aplikují svislé offsety pro uspořádání popisků ve dvou řadách. Čísla zůstávají datovými popisky propojenými s hodnotami sérií; pouze nadpisy řádků jsou samostatné textové tvary.
+Nastavení [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) rezervuje prostor pro řádky popisků. Po výpočtu výchozích pozic pomocí [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) zachovají [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) a [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) horizontální zarovnání a aplikují vertikální posuny k uspořádání popisků do dvou řádků. Čísla zůstávají popisky dat spojené s hodnotami řady; pouze nadpisy řádků jsou samostatné textové tvary.
 
 ```python
 import aspose.slides as slides
@@ -350,7 +399,7 @@ with slides.Presentation() as presentation:
             series.data_points.add_data_point_for_bar_series(value_cell)
 
         if series_index > 0:
-            # Skrýt sloupce B a C, ale zachovat jejich datové popisky.
+            # Skrýt sloupce B a C, ale zachovat jejich popisky dat.
             series.format.fill.fill_type = slides.FillType.NO_FILL
             series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
             label_format = series.labels.default_data_label_format
@@ -361,14 +410,14 @@ with slides.Presentation() as presentation:
             label_fill.solid_fill_color.color = drawing.Color.black
             label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
 
-    # Zarovnat všechny tři série se stejnými středy kategorií.
+    # Zarovnat všechny tři řady ke stejným středům kategorií.
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
     # Použít méně mřížkových čar pro tento kompaktní příklad.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # Rezervovat prostor nad oblastí grafu pro dva řádky datových popisků.
+    # Vyhradit místo nad grafem pro dva řádky popisků dat.
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -382,8 +431,8 @@ with slides.Presentation() as presentation:
 
         for category_index in range(len(categories)):
             data_label = series.data_points[category_index].label
-            # Zachovat výchozí vodorovnou pozici. Y je posun od
-            # výchozí pozice popisku, vyjádřeno jako podíl výšky grafu.
+            # Zachovat výchozí horizontální pozici. Y je posun od
+            # výchozí pozice popisku, vyjádřené jako zlomek výšky grafu.
             data_label.x = 0
             data_label.y = row_top - data_label.actual_y / chart.height
 
@@ -402,18 +451,18 @@ with slides.Presentation() as presentation:
     presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Sloupcový graf se dvěma řádky popisků nad výsečovou oblastí](multiple-rows-of-labels.png)
+![Sloupcový graf se dvěma řádky popisků nad oblastí vykreslování](multiple-rows-of-labels.png)
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
 **Jak mohu zabránit překrývání popisků dat v hustých grafech?**
 
-Kombinujte automatické umístění popisků, vodící čáry a zmenšení velikosti písma; v případě potřeby skryjte některá pole (např. kategorii) nebo zobrazujte popisky jen pro extrémní hodnoty či klíčové body.
+Kombinujte automatické umístění popisků, vodící čáry a zmenšení velikosti písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazte popisky jen pro extrémní hodnoty či klíčové body.
 
 **Jak mohu zakázat popisky pouze pro nulové, záporné nebo prázdné hodnoty?**
 
-Filtrujte datové body před povolením popisků a vypněte jejich zobrazení pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
+Odfiltrujte datové body před povolením popisků a vypněte zobrazení pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
 
 **Jak mohu zajistit konzistentní styl popisků při exportu do PDF/obrázků?**
 
-Explicitně nastavte rodinu a velikost písma a ověřte, že je font dostupný v prostředí renderování, aby nedošlo k automatickému přepnutí.
+Explicitně nastavte rodinu písma a velikost a ověřte, že je font dostupný v prostředí vykreslování, aby nedošlo k náhradnímu fontu.

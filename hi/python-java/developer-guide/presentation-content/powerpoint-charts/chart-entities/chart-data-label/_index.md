@@ -1,5 +1,5 @@
 ---
-title: प्रस्तुतियों में Python का उपयोग करके चार्ट डेटा लेबल प्रबंधित करें
+title: Python का उपयोग करके प्रस्तुतियों में चार्ट डेटा लेबल प्रबंधित करें
 linktitle: डेटा लेबल
 type: docs
 url: /hi/python-java/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और स्वरूपित करने के बारे में जानें, जिससे अधिक आकर्षक स्लाइड्स बनें।"
+description: "PowerPoint प्रस्तुतियों में अधिक आकर्षक स्लाइड्स के लिए Aspose.Slides for Python via Java का उपयोग करके चार्ट डेटा लेबल जोड़ना और फॉर्मेट करना सीखें।"
 ---
 ## **परिचय**
 
-डेटा लेबल चार्ट श्रृंखलाओं और व्यक्तिगत डेटा पॉइंट्स के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे स्वरूपित किया जाए, प्रतिशत कैसे दिखाएँ, लेबल टेक्स्ट कैसे पढ़ें, अक्ष अधिकतम से परे लेबल को कैसे नियंत्रित करें, श्रेणी अक्ष लेबल स्पेसिंग को कैसे समायोजित करें, और पाई चार्ट लेबल को कैसे स्थित किया जाए।
+डेटा लेबल्स चार्ट श्रृंखला और व्यक्तिगत डेटा बिंदुओं की जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख मानों को फॉर्मेट करने, प्रतिशत प्रदर्शित करने, लेबल टेक्स्ट पढ़ने, अक्ष अधिकतम से परे लेबल नियंत्रण, श्रेणी अक्ष लेबल अंतराल समायोजित करने, और पाई चार्ट लेबल्स की स्थिति निर्धारित करने के तरीके बताता है।
 
-## **चार्ट डेटा लेबल में डेटा सटीकता सेट करें**
+## **चार्ट डेटा लेबल्स में डेटा सटीकता सेट करें**
 
-श्रेणी मानों को स्वरूपित करने के लिए [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसका डेटा टेबल प्रदर्शित करता है, और पहली श्रृंखला के लिए मान लेबल सक्षम करता है। फ़ॉर्मेट `#,##0.00` हजारों विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
+सीरीज़ मानों को फॉर्मेट करने के लिए [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसका डेटा टेबल दिखाता है, और पहली श्रृंखला के लिए मान लेबल सक्षम करता है। फॉर्मेट `#,##0.00` हजारों विभाजक और दो दशमलव स्थान प्रदर्शित करता है बिना मूल मानों को बदले।
 
 ```python
 import jpype
@@ -49,9 +49,10 @@ try:
 finally:
     presentation.dispose()
 ```
-## **लेबल के रूप में प्रतिशत प्रदर्शित करें**
 
-स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान की गणना उसकी श्रेणी कुल के प्रतिशत के रूप में करें और उसे उस टेक्स्ट फ्रेम को असाइन करें जो [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) द्वारा लौटाया जाता है। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8‑पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। शून्य कुल वाली श्रेणियों को शून्य द्वारा विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
+## **लेबल्स के रूप में प्रतिशत प्रदर्शित करें**
+
+स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल का प्रतिशत निकालें और टेक्स्ट को [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) द्वारा लौटाए गए टेक्स्ट फ्रेम में असाइन करें। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8‑पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट दोबारा गणना करें।
 
 ```python
 import jpype
@@ -106,11 +107,12 @@ try:
 finally:
     presentation.dispose()
 ```
-## **चार्ट डेटा लेबल के साथ प्रतिशत चिन्ह सेट करें**
 
-जब मान अंश के रूप में संग्रहीत होते हैं, तो प्रतिशत दर्शाने के लिए [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) को `False` पास करें।
+## **डेटा लेबल्स के साथ प्रतिशत चिह्न सेट करें**
 
-यह उदाहरण चार श्रेणियों में लाल और नीले श्रृंखलाओं के साथ 100 % स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान युग्म का योग 1 होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0 % के रूप में दिखाता है, जबकि लंबवत अक्ष दो दशमलव स्थान उपयोग करता है। दोनों श्रृंखलाएँ सफेद, 10‑पॉइंट लेबल टेक्स्ट उपयोग करती हैं।
+जब मान भिन्नों के रूप में संग्रहीत होते हैं, तो प्रतिशत दिखाने के लिए [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) का उपयोग करें। लेबल फॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) को `False` पास करें।
+
+यह उदाहरण चार श्रेणियों में लाल और नीले श्रृंखलाओं के साथ 100 % स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान जोड़ी का योग 1 होता है। लेबल फॉर्मेट `0.0%` 0.30 को 30.0 % दिखाता है, जबकि लम्बवत अक्ष दो दशमलव स्थान उपयोग करता है। दोनों श्रृंखलाएँ सफ़ेद, 10‑पॉइंट लेबल टेक्स्ट इस्तेमाल करती हैं।
 
 ```python
 import jpype
@@ -168,9 +170,10 @@ try:
 finally:
     presentation.dispose()
 ```
-## **डेटा लेबल का वास्तविक टेक्स्ट पढ़ें**
 
-डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) का उपयोग करें। यह रिपोर्टों के लिए लेबल निकालते समय, प्रस्तुति सामग्री खोजते समय, या निर्मित चार्ट की वैधता जाँचते समय उपयोगी है। नीचे के उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, श्रृंखला नाम, और मान को मिलाता है। एक बिंदु अपने मान को प्रतिशत के रूप में स्वरूपित करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) से कस्टम टेक्स्ट उपयोग करता है।
+## **डेटा लेबल्स का वास्तविक टेक्स्ट पढ़ें**
+
+डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) का प्रयोग करें। यह रिपोर्ट के लिए लेबल निकालते समय, प्रस्तुति सामग्री खोजते समय, या उत्पन्न चार्ट की वैधता जाँचते समय उपयोगी है। नीचे दिए उदाहरण में, डिफ़ॉल्ट [डेटा लेबल फॉर्मेट](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, श्रृंखला नाम और मान को जोड़ता है। एक बिंदु अपने मान को प्रतिशत के रूप में फॉर्मेट करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) से कस्टम टेक्स्ट प्रयोग करता है।
 
 ```python
 import jpype
@@ -231,15 +234,15 @@ finally:
     presentation.dispose()
 ```
 
-डेटा पॉइंट में संग्रहीत संख्या `0.75` बनी रहती है, भले ही उसका लेबल `75%` श्रेणी और श्रृंखला नामों के साथ दिखाए। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को बदल देता है। [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। जब आप केवल दृश्यमान लेबल निकालना चाहते हैं, तो ऊपर दिखाए अनुसार [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) को अलग से जांचें।
+डेटा बिंदु में संग्रहीत संख्या `0.75` रहती है, भले ही उसका लेबल `75%` दिखाए तथा श्रेणी और श्रृंखला नाम शामिल हो। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को प्रतिस्थापित करता है। [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) दोनों मामलों में परिणामी लेबल स्ट्रिंग लौटाता है। दृश्य लेबल्स ही निकालने हों तो ऊपर दिखाए अनुसार [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) को अलग से जाँचें।
 
-## **अक्ष अधिकतम से परे डेटा लेबल नियंत्रित करें**
+## **अक्ष अधिकतम से परे डेटा लेबल्स नियंत्रित करें**
 
-जब आप मैन्युअल रूप से अक्ष की सीमा सीमित करते हैं, तो कुछ डेटा पॉइंट्स उसकी अधिकतम सीमा से ऊपर जा सकते हैं। यह नियंत्रित करने के लिए [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) का उपयोग करें कि उनके डेटा लेबल दिखाए जाएँ या नहीं। यह सेटिंग लेबल की दृश्यमानता बदलती है; यह अक्ष सीमा या मूल डेटा मानों को नहीं बदलती।
+यदि आप मैन्युअल रूप से अक्ष रेंज सीमित करते हैं, तो कुछ डेटा बिंदु उसके अधिकतम से ऊपर जा सकते हैं। यह निर्धारित करने के लिए कि उनके डेटा लेबल दिखाएँ या नहीं, [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) का उपयोग करें। यह सेटिंग लेबल की दृश्यता बदलती है; यह अक्ष रेंज या मूल डेटा मानों को नहीं बदलती।
 
-नीचे का उदाहरण 60 और 120 मानों के साथ एक 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) को `False` पास करता है और लंबवत अक्ष पर [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) के साथ अधिकतम को 100 सेट करता है। पहले स्लाइड में अधिकतम से परे लेबल अनुमति देते हैं; उस स्लाइड की एक कॉपी में उन्हें अक्षम किया जाता है। दोनों स्लाइड्स `DataLabelsOverMaximum.pptx` में सहेजी जाती हैं।
+नीचे दिया उदाहरण 60 और 120 मानों के साथ एक 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) को `False` पास करता है और लम्बवत अक्ष पर [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) के साथ अधिकतम 100 सेट करता है। पहली स्लाइड अधिकतम से परे लेबल अनुमति देती है; उसी स्लाइड की एक कॉपी उन्हें निष्क्रिय करती है। दोनों स्लाइड्स `DataLabelsOverMaximum.pptx` में संग्रहीत की जाती हैं।
 
-[setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) के साथ मान लेबल सक्षम करें। चार्ट-स्तर की यह सेटिंग स्वयं मान प्रदर्शन को सक्षम नहीं करती या व्यक्तिगत लेबल के निष्क्रिय मान प्रदर्शन को अधिलेखित नहीं करती। यह उदाहरण पूरी श्रृंखला के लिए मान सक्षम करता है और प्रत्येक कॉलम के बाहर के सिरे पर लेबल रखने के लिए [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) का उपयोग करता है।
+[setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) के साथ मान लेबल सक्रिय करें। चार्ट‑स्तर की यह सेटिंग स्वयं मान प्रदर्शित नहीं करती और न ही व्यक्तिगत लेबल के निष्क्रिय मान प्रदर्शन को ओवरराइड करती है। यह उदाहरण पूरी श्रृंखला के लिए मान सक्रिय करता है और [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) का उपयोग करके प्रत्येक कॉलम के बाहर के सिरे पर लेबल रखता है।
 
 ```python
 import jpype
@@ -293,19 +296,19 @@ finally:
     presentation.dispose()
 ```
 
-निम्न छवियाँ माइक्रोसॉफ़्ट पावरपॉइंट द्वारा रेंडर की गई सहेजी गई स्लाइड्स दिखाती हैं। `True` के साथ, लेबल **120** ऊपर की सीमा पर दिखाई देता है; `False` के साथ यह छिपा रहता है। लेबल **60** दृश्यमान रहता है, अक्ष अधिकतम **100** पर बना रहता है, और दूसरा डेटा पॉइंट दोनों मामलों में **120** ही रहता है।
+नीचे चित्रों में Microsoft PowerPoint द्वारा रेंडर की गई सहेजी गई स्लाइड्स दिखायी गई हैं। `True` होने पर लेबल **120** ऊपर की सीमा पर दिखाई देता है; `False` होने पर वह छिप जाता है। लेबल **60** दिखाई रहता है, अक्ष अधिकतम **100** पर बना रहता है, और दूसरा डेटा बिंदु दोनों मामलों में **120** ही रहता है।
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
-| ![PowerPoint चार्ट जिसमें अक्ष अधिकतम 100 के साथ मान लेबल 120 दिखाया गया है](data-labels-over-maximum-true.png) | ![PowerPoint चार्ट जिसमें अक्ष अधिकतम 100 के साथ मान लेबल 120 छिपाया गया है](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-यह उदाहरण मान अक्ष के साथ एक 2D कॉलम चार्ट का उपयोग करता है। जिन चार्ट में मान अक्ष नहीं होता, जैसे पाई और डोनट चार्ट, उनके पास इस प्रकार सीमित करने के लिए कोई अक्ष अधिकतम नहीं होता।
+यह उदाहरण एक 2D कॉलम चार्ट को वैल्यू अक्ष के साथ उपयोग करता है। वैल्यू अक्ष के बिना चार्ट, जैसे पाई और डोनट चार्ट, इस प्रकार के अक्ष अधिकतम सीमा से सीमित नहीं होते।
 {{% /alert %}}
 
 ## **अक्ष से लेबल की दूरी सेट करें**
 
-[setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच दूरी नियंत्रित करें। यह मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा पॉइंट्स से जुड़े लेबल्स के बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
+[setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच की दूरी नियंत्रित करें। मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा बिंदुओं से जुड़े लेबल्स के बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
 
 ```python
 import jpype
@@ -327,11 +330,12 @@ try:
 finally:
     presentation.dispose()
 ```
+
 ## **लेबल स्थान समायोजित करें**
 
-पाई चार्ट पर, डेटा लेबल स्थितियों को समायोजित करें ताकि स्पेसिंग बेहतर हो और लीडर लाइनों के लिए जगह बने।
+पाई चार्ट में, लेबल की स्थितियों को समायोजित कर अंतराल सुधारें और लीडर लाइन के लिए जगह बनाएँ।
 
-यह उदाहरण पहले डेटा पॉइंट का मान प्रदर्शित करता है, उसका लेबल स्लाइस के बाहर रखता है, और [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) तथा [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) का उपयोग करके उसके क्षैतिज और ऊर्ध्वाधर ऑफ़सेट को समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
+यह उदाहरण पहले डेटा बिंदु का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और क्षैतिज तथा ऊर्ध्वाधर ऑफ़सेट को [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) और [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) के माध्यम से समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
 
 ```python
 import jpype
@@ -359,13 +363,73 @@ try:
 finally:
     presentation.dispose()
 ```
-![समायोजित डेटा लेबल स्थिति के साथ पाई चार्ट](pie-chart-adjusted-label.png)
+
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+
+## **लीडर लाइनों का फॉर्मेट करें**
+
+जब पाई चार्ट लेबल स्लाइस के बाहर स्थित होते हैं, तो लीडर लाइनों से पाठकों को प्रत्येक मान को सही स्लाइस से मिलाने में मदद मिलती है। कंट्रास्ट वाला रंग और थोड़ा मोटा लाइन इन कनेक्शन को अधिक स्पष्ट बनाता है, जबकि पारदर्शिता और डैश्ड स्टाइल लाइनों को दृश्य रूप से कम बाधक रखती है।
+
+सीरीज के डेटा लेबल कलेक्शन स्तर पर लीडर लाइनों को फॉर्मेट करने के लिए [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) का प्रयोग करें। `series.getLabels().getLeaderLinesFormat().getLine()` में परिभाषित सेटिंग्स कलेक्शन पर लागू होती हैं, व्यक्तिगत लेबल पर नहीं।
+
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है, स्लाइस के बाहर मान दिखाता है, और [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines) को सक्रिय करता है। यह दो लेबल्स को उनके स्लाइस से अधिक दूर ले जाने के लिए [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) और [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) ऑफ़सेट का प्रयोग करता है। कोई इनपुट प्रस्तुति आवश्यक नहीं है।
+
+लाइन का [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) 255 में से 191 अल्फा मान के साथ ठोस नीला रंग सेट करता है, जिससे लगभग 25 % पारदर्शिता मिलती है। [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) लाइन की मोटाई 2 पॉइंट सेट करता है, और [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) लाइन को डैश्ड बनाता है।
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, LegendDataLabelPosition, LineDashStyle, Presentation, SaveFormat
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 80, 50, 560, 400)
+    chart.setLegend(False)
+
+    series = chart.getChartData().getSeries().get_Item(0)
+
+    label_format = series.getLabels().getDefaultDataLabelFormat()
+    label_format.setShowValue(True)
+    label_format.setPosition(LegendDataLabelPosition.OutsideEnd)
+    label_format.setShowLeaderLines(True)
+
+    # दो लेबल्स को उनके स्लाइस से अधिक दूर ले जाएँ।
+    series.getLabels().get_Item(0).setX(0.10)
+    series.getLabels().get_Item(0).setY(-0.05)
+    series.getLabels().get_Item(1).setX(-0.10)
+    series.getLabels().get_Item(1).setY(0.05)
+
+    line = series.getLabels().getLeaderLinesFormat().getLine()
+    line.getFillFormat().setFillType(FillType.Solid)
+    color = Color(30, 90, 160, 191)
+    line.getFillFormat().getSolidFillColor().setColor(color)
+    line.setWidth(2)
+    line.setDashStyle(LineDashStyle.Dash)
+
+    presentation.save("FormattedLeaderLines.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+लीडर लाइनों को सक्रिय करने से यह गारंटी नहीं मिलती कि प्रत्येक लेबल के लिए लाइन दिखाई देगी। दृश्यता लेबल की स्थिति और चार्ट के लेआउट व्यवहार पर निर्भर करती है। इस उदाहरण में दो विस्थापित लेबलों के लिए लीडर लाइनों की दृश्यता है; स्लाइस के निकट रहने वाले लेबलों को इसकी आवश्यकता नहीं है।
+
+नीचे चित्र में `FormattedLeaderLines.pptx` को Aspose.Slides द्वारा रेंडर किया गया दिखाया गया है:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
 ## **कॉलम चार्ट के ऊपर कई पंक्तियों के डेटा लेबल जोड़ें**
 
-यह उदाहरण प्लॉट क्षेत्र के ऊपर दो पंक्तियों वाले डेटा लेबल के साथ एक कॉलम चार्ट बनाता है। श्रृंखला A दृश्यमान कॉलम दिखाती है, जबकि श्रृंखला B और C अतिरिक्त लेबल प्रदान करती हैं। उनके कॉलम को भराव और रूपरेखा हटाकर छिपा दिया जाता है। [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) मेथड सभी तीन श्रृंखलाओं को समान श्रेणी केंद्रों के साथ संरेखित करता है।
+यह उदाहरण प्लॉट एरिया के ऊपर दो पंक्तियों के डेटा लेबल्स के साथ एक कॉलम चार्ट बनाता है। श्रृंखला A दृश्य कॉलम दिखाती है, जबकि श्रृंखला B और C अतिरिक्त लेबल प्रदान करती हैं। उनके कॉलम को फ़िल और आउटलाइन हटाकर छिपाया जाता है। [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) मेथड सभी तीन श्रृंखलाओं को समान श्रेणी केंद्रों पर संरेखित करता है।
 
-[ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) सेटिंग्स लेबल पंक्तियों के लिए स्थान आरक्षित करती हैं। [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) डिफ़ॉल्ट स्थितियों की गणना करने के बाद, [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) और [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) क्षैतिज संरेखण को बनाए रखते हैं और दो पंक्तियों में लेबल व्यवस्थित करने के लिए ऊर्ध्वर ऑफ़सेट लागू करते हैं। संख्याएँ श्रृंखला मानों से जुड़े डेटा लेबल ही रहती हैं; केवल पंक्ति शीर्षक अलग टेक्स्ट शेम्स होते हैं।
+[ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) की सेटिंग्स लेबल पंक्तियों के लिए जगह आरक्षित करती हैं। [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) द्वारा डिफ़ॉल्ट स्थितियों की गणना के बाद, [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) और [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) क्षैतिज संरेखण को बनाए रखते हैं और दो पंक्तियों में लेबल व्यवस्थित करने के लिये ऊर्ध्वाधर ऑफ़सेट लागू करते हैं। संख्याएँ अभी भी श्रृंखला मानों से जुड़ी डेटा लेबल्स रहती हैं; केवल पंक्ति शीर्षक अलग टेक्स्ट शैप होते हैं।
 
 ```python
 import jpype
@@ -410,7 +474,7 @@ try:
             series.getDataPoints().addDataPointForBarSeries(value_cell)
 
         if series_index > 0:
-            # B और C की कॉलम को छिपाएँ, लेकिन उनके डेटा लेबल रखें।
+            # B और C कॉलम छिपाएँ, लेकिन उनके डेटा लेबल रखें।
             series.getFormat().getFill().setFillType(FillType.NoFill)
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
             label_format = series.getLabels().getDefaultDataLabelFormat()
@@ -421,14 +485,14 @@ try:
             label_fill.getSolidFillColor().setColor(Color.BLACK)
             label_format.setPosition(LegendDataLabelPosition.InsideBase)
 
-    # तीनों श्रृंखलाओं को समान श्रेणी केंद्रों के साथ संरेखित करें।
+    # सभी तीन श्रृंखलाओं को समान श्रेणी केंद्रों के साथ संरेखित करें।
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
 
-    # इस संक्षिप्त उदाहरण के लिए कम ग्रिडलाइन इस्तेमाल करें।
+    # इस कॉम्पैक्ट उदाहरण के लिए कम ग्रिडलाइन का उपयोग करें।
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setMajorUnit(10)
 
-    # प्लॉट के ऊपर दो पंक्तियों के डेटा लेबल के लिए जगह आरक्षित करें।
+    # प्लॉट के ऊपर दो पंक्तियों के डेटा लेबल्स के लिए जगह आरक्षित करें।
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
     chart.getPlotArea().setX(0.15)
     chart.getPlotArea().setY(0.32)
@@ -442,12 +506,12 @@ try:
 
         for category_index in range(len(categories)):
             data_label = series.getDataPoints().get_Item(category_index).getLabel()
-            # डिफ़ॉल्ट क्षैतिज स्थिति रखें। Y एक ऑफ़सेट है
-            # डिफ़ॉल्ट लेबल स्थिति से, जो चार्ट-ऊँचाई अनुपात के रूप में व्यक्त किया गया है।
+            # डिफ़ॉल्ट क्षैतिज स्थान रखें। Y एक ऑफ़सेट है
+            # डिफ़ॉल्ट लेबल स्थिति से, जिसे चार्ट-ऊँचाई के अंश के रूप में व्यक्त किया गया है।
             data_label.setX(0)
             data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
 
-        # केवल पंक्ति शीर्षक एक अलग टेक्स्ट शेम है।
+        # केवल पंक्ति शीर्षक एक अलग टेक्स्ट शैप है।
         heading_y = chart.getY() + row_top * chart.getHeight()
         row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
         row_heading.getFillFormat().setFillType(FillType.NoFill)
@@ -464,18 +528,19 @@ try:
 finally:
     presentation.dispose()
 ```
-![प्लॉट क्षेत्र के ऊपर दो पंक्तियों के डेटा लेबल वाला कॉलम चार्ट](multiple-rows-of-labels.png)
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+
+## **FAQ**
 
 **मैं घने चार्ट्स में डेटा लेबल्स के ओवरलैप को कैसे रोक सकता हूँ?**
 
-ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइनों और छोटे फ़ॉन्ट आकार को मिलाएँ; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) छिपाएँ या केवल चरम मानों या मुख्य बिंदुओं के लिए लेबल दिखाएँ।
+ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइनों और छोटे फ़ॉन्ट साइज को संयोजित करें; आवश्यक होने पर कुछ फ़ील्ड (जैसे श्रेणी) को छिपाएँ या केवल अत्यधिक मान/मुख्य बिंदुओं के लिये लेबल दिखाएँ।
 
-**मैं शून्य, नकारात्मक या खाली मानों के लिए लेबल केवल कैसे अक्षम करूँ?**
+**मैं शून्य, नकारात्मक या खाली मानों के लिये लेबल केवल कैसे निष्क्रिय करूँ?**
 
-लेबल सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपस्थित मानों के लिए प्रदर्शन बंद करें।
+लेबल्स को सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और 0, नकारात्मक या अनुपलब्ध मानों के लिये डिस्प्ले को बंद करें, जैसा कि परिभाषित नियम में बताया गया है।
 
-**मैं PDF/छवियों में निर्यात करते समय लेबल शैली को सुसंगत कैसे रखूँ?**
+**PDF/इमेज में निर्यात करते समय लेबल स्टाइल को संपूर्ण रूप से कैसे बनाए रखें?**
 
-फ़ॉन्ट फैमिली और आकार को स्पष्ट रूप से सेट करें और रेंडरिंग पर्यावरण में फ़ॉन्ट उपलब्ध हो, यह सुनिश्चित करें ताकि फ़ॉलबैक न हो।
+फ़ॉन्ट फ़ैमिली और साइज को स्पष्ट रूप से सेट करें और सुनिश्चित करें कि रेंडरिंग वातावरण में वह फ़ॉन्ट उपलब्ध हो, ताकि फ़ॉलबैक से बचा जा सके।

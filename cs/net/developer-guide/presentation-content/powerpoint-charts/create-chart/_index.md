@@ -1,5 +1,5 @@
 ---
-title: Vytvořit nebo aktualizovat grafy v PowerPoint prezentacích v .NET
+title: Vytvořit nebo aktualizovat grafy PowerPoint prezentací v .NET
 linktitle: Vytvořit nebo aktualizovat grafy
 type: docs
 weight: 10
@@ -13,48 +13,48 @@ keywords:
 - rozptylový graf
 - koláčový graf
 - čárový graf
-- stromový mapový graf
+- stromová mapa
 - akciový graf
-- krabicový a fousový graf
+- krabicový a vousový graf
 - trychtýřový graf
-- sluneční paprsek graf
-- histogramový graf
+- sluneční graf
+- histogram
 - radarový graf
-- vícekategoriový graf
+- vícekategoriální graf
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro .NET. Přidávejte, formátujte a upravujte grafy s praktickými příklady kódu v C#."
+description: "Vytvořte a přizpůsobte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro .NET. Přidejte, formátujte a upravujte grafy s praktickými ukázkami kódu v C#."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides pro .NET. Naučíte se, jak programově přidat graf na snímek, naplnit jej daty a použít různé možnosti formátování tak, aby vyhovovaly vašim konkrétním požadavkům na design. V celém článku jsou podrobné ukázky kódu, které ilustrují každý krok – od inicializace prezentace a objektu grafu po konfiguraci řad, os a legend. Dodržením tohoto průvodce získáte solidní pochopení, jak integrovat dynamické generování grafů do vašich .NET aplikací a zjednodušit proces vytváření prezentací řízených daty.
+Tento článek poskytuje ucelený návod, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides pro .NET. Naučíte se programově přidat graf do snímku, naplnit jej daty a použít různá formátovací nastavení tak, aby odpovídala vašim konkrétním požadavkům na design. V celém článku jsou podrobně ilustrovány ukázky kódu, které krok za krokem ukazují inicializaci prezentace a objektu grafu, konfiguraci řad, os a legend. Po prostudování tohoto návodu budete mít pevné pochopení toho, jak integrovat dynamické generování grafů do vašich .NET aplikací a zjednodušit tak tvorbu prezentací založených na datech.
 
 ## **Vytvořit graf**
 
-Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být hned patrné z tabulky nebo kalkulační tabulky.
+Grafy pomáhají lidem rychle vizualizovat data a získat postřehy, které by z tabulky nebo sešitu nemusely být okamžitě zřejmé.
 
 **Proč vytvářet grafy?**
 
 Pomocí grafů můžete:
 
-* agregovat, zhušťovat nebo shrnout velké množství dat na jediném snímku v prezentaci;
+* agregovat, zhutnit nebo shrnout velké množství dat na jediném snímku v prezentaci;
 * odhalit vzory a trendy v datech;
-* odvodit směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření;
-* zaznamenat odlehlé hodnoty, aberace, odchylky, chyby a nesmyslná data;
+* určit směr a hybnost dat v čase nebo vzhledem k určité jednotce měření;
+* identifikovat odlehlé hodnoty, odchylky, chyby a nesmyslná data;
 * komunikovat nebo prezentovat složitá data.
 
-V PowerPointu můžete grafy vytvářet pomocí funkce *Insert*, která poskytuje šablony pro navrhování mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (na základě populárních typů grafů), tak i vlastní grafy.
+V PowerPointu můžete grafy vytvářet pomocí funkce *Insert*, která nabízí šablony pro mnoho typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech), tak vlastní grafy.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration under the [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
+Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) v namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
 {{% /alert %}}
 
-### **Vytvořit sloupcové shlukové grafy**
+### **Vytvořit seskupené sloupcové grafy**
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření sloupcového shlukového grafu, který porovnává dvě řady napříč třemi kategoriemi. Řady mají červené a zelené výplně a jednotlivé popisky ukazují názvy kategorií, názvy řad a hodnoty. Index listu 0 odkazuje na první list v zabudovaném sešitu grafu.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření seskupeného sloupcového grafu, který porovnává dvě řady napříč třemi kategoriemi. Řady používají červené a zelené výplně a jednotlivé popisky ukazují názvy kategorií, názvy řad i hodnoty. Index listu 0 odkazuje na první list v vložené sešitu grafu.
 
 ```csharp
 using System.Drawing;
@@ -130,20 +130,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Sloupcový shlukový graf](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **Vytvořit rozptylové grafy**
 
-Rozptylové grafy (také známé jako scatter ploty nebo x‑y grafy) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými.
+Rozptylové grafy (známé také jako scatter plot nebo x‑y graf) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými.
 
-Použijte rozptylový graf, pokud:
+Použijte rozptylový graf, když:
 
 * máte spárovaná číselná data;
 * máte dvě proměnné, které spolu dobře souvisejí;
-* chcete určit, zda jsou dvě proměnné propojené;
+* chcete zjistit, zda jsou tyto dvě proměnné navzájem související;
 * máte nezávislou proměnnou s více hodnotami pro závislou proměnnou.
 
-Tento příklad vykresluje dvě sady x‑y hodnot. První řada používá rovné čáry s hvězdicovými značkami, zatímco druhá používá hladké čáry s kruhovými značkami; obě používají [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) 10. Vlastnost [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) řídí tvar značky.
+Tento příklad vykresluje dvě sady hodnot x‑y. První řada používá přímé čáry se značkami hvězdiček, druhá hladké čáry se značkami kruhů; obě používají [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) = 10. Vlastnost [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) určuje tvar značky.
 
 ```csharp
 using Aspose.Slides;
@@ -206,13 +206,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Rozptylový graf](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Vytvořit koláčové grafy**
 
-Koláčové grafy jsou nejlépe použity k zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit místo toho sloupcový graf.
+Koláčové grafy jsou nejvhodnější pro zobrazení poměru částí k celku, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete raději použít sloupcový graf.
 
-Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a štítky zobrazují různé kombinace hodnot, procent a informací o řadě. Vlastnost [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) nastavuje první výsek, aby začínal ve 180 stupních.
+Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o řadě. Vlastnost [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) nastavuje první výsek na 180 stupňů.
 
 ```csharp
 using System.Drawing;
@@ -308,13 +308,15 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Koláčový graf](pie_chart.png)
+![The Pie chart](pie_chart.png)
+
+Pro zlepšení čitelnosti popisků mimo koláč viz [Format Leader Lines](/slides/cs/net/chart-data-label/#format-leader-lines), kde je ukázáno, jak umístit popisky a přizpůsobit barvu, šířku, průhlednost a styl čáry.
 
 ### **Vytvořit čárové grafy**
 
-Čárové grafy (také známé jako lineární grafy) jsou nejlépe použity v situacích, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v řadách dat a další.
+Čárové grafy (známé také jako line graphs) jsou nejvhodnější tam, kde chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v řadách a podobně.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření čárového grafu s výchozími řadami a kategoriemi a následně ukládá prezentaci jako PPTX.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření čárového grafu s výchozími řadami a kategoriemi a poté prezentaci uloží jako PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -329,7 +331,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Ve výchozím nastavení jsou body na čárovém grafu spojeny rovnými souvislými čarami. Pokud chcete, aby byly body spojeny čárkovanou čárou, nastavte [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) na hodnotu z [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými spojnicemi. Pokud chcete, aby byly body spojeny pomlčkami, nastavte [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) na hodnotu z [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
 
 ```csharp
 using Aspose.Slides;
@@ -348,13 +350,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 Výsledek:
 
-![Čárový graf](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Vytvořit grafy typu stromový diagram (Tree Map)**
+### **Vytvořit stromové mapy**
 
-Grafy typu stromový diagram jsou nejlépe použity pro prodejní data, kdy chcete ukázat relativní velikost datových kategorií a rychle upoutat pozornost na položky, které jsou velkými přispěvateli v rámci každé kategorie.
+Stromové mapy jsou nejvhodnější pro prodejní data, kdy chcete zobrazit relativní velikost kategorií a rychle upozornit na položky, které představují velký podíl v každé kategorii.
 
-Tento příklad vytváří stromový diagram se osmi listy seskupenými do čtyř stop a dvou větví. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) přiřazuje stonky na úroveň seskupení 1 a větve na úroveň 2. Hodnoty určují relativní velikosti obdélníků, zatímco štítky kategorií a překrývající se štítky rodičů identifikují hierarchii.
+Tento příklad vytváří stromovou mapu se osm položkami seskupenými do čtyř větví a dvou podvětví. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) přiřazuje větve na úroveň 1 a podvětve na úroveň 2. Hodnoty určují relativní velikost obdélníků, zatímco štítky kategorií a překrývající se nadřazené štítky identifikují hierarchii.
 
 ```csharp
 using Aspose.Slides;
@@ -430,26 +432,26 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Stromový diagram](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **Vytvořit vodopádové grafy**
 
-Vodopádový graf ukazuje, jak kladné a záporné změny přispívají k finální hodnotě. Například rozpis zisku může začít s výnosy, odečíst náklady a připočíst jiné příjmy. Sloupce změn „plavou“ mezi předchozí a novou běžící hodnotou, zatímco součtové sloupce sahají od nuly k akumulované hodnotě.
+Vodopádový graf ukazuje, jak pozitivní a negativní změny přispívají k konečné hodnotě. Například rozpis zisku může začínat tržbami, odečíst náklady a přičíst další příjmy. Sloupce změn “plavou” mezi předchozí a novou akumulovanou hodnotou, zatímco celkové sloupce sahají od nuly až po akumulovanou hodnotu.
 
 Následující příklad používá částky v tisících amerických dolarů:
 
-| Kategorie | Hodnota v sešitu | Typ sloupce |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| Tržby | 1000 | Nárůst |
-| Náklady na prodej | -400 | Pokles |
-| Hrubý zisk | 600 | Mezičíslený součet |
-| Provozní náklady | -200 | Pokles |
-| Ostatní příjmy | 50 | Nárůst |
-| Čistý zisk | 450 | Konečný součet |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-Chcete‑li označit bod jako mezičíslený nebo konečný součet, nastavte jeho vlastnost [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) na `true`. Do buňky sešitu v tomto bodě zadejte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Vlastnost označuje sloupec jako součet; neprovádí výpočet ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný znak ani neposkytujte jinou změnu pro součtový bod. Součtový sloupec zobrazuje akumulovanou hodnotu, aniž by ji znovu přičítal k běžící hodnotě.
+Pro označení bodu jako mezisoučtu nebo finálního součtu nastavte jeho vlastnost [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) na `true`. Do buňky v sešitu zadejte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Tato vlastnost pouze označuje sloupec jako součet; neprovádí výpočet ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný znak ani neuvádějte další změnu pro součtový bod. Sloupec se součtem zobrazuje akumulovanou hodnotu, aniž by ji znovu sčítal k běžné hodnotě.
 
-Tento kompletní C# příklad vytváří graf pomocí členu `Waterfall` z [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), vymaže výchozí data a naplní zabudovaný sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B hodnoty. Každá buňka s hodnotou je přidána pomocí [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indexy bodů (nulové) `2` a `5` označují mezičíslené a konečné součty. Povolení [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) zobrazuje částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
+Celý C# příklad vytváří graf pomocí členu `Waterfall` výčtu [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), vymaže výchozí data a naplní vložený sešit. Index listu `0` volí první list; sloupec A obsahuje názvy kategorií a sloupec B hodnoty. Každá buňka s hodnotou se přidá pomocí [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indexy bodů `2` a `5` (číslo od 0) označují mezisoučty a finální součty. Povolíte-li [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/), zobrazí se částky na sloupcích. Není vyžadována žádná vstupní prezentace ani sešit.
 
 ```csharp
 using Aspose.Slides;
@@ -487,7 +489,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Třetí a šestý bod představují součty, nikoli další změny.
+// Třetí a šestý bod představují součty, ne další změny.
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -496,17 +498,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Nastavte řadové [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) na `true`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžící hodnoty. Pro skrytí těchto čar nahraďte přiřazení v příkladu řádkem `series.ShowConnectorLines = false;` před uložením. Tím se změní pouze viditelnost čar, ne data ani součty.
+Nastavte vlastnost řady [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) na `true`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování akumulované hodnoty. Chcete‑li tyto čáry skrýt, nahraďte přiřazení v ukázce `series.ShowConnectorLines = false;` před uložením. Změní se jen viditelnost čáry, ne data ani součty.
 
-Uložená prezentace ukazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou vykresleny od nuly:
+Uložená prezentace ukazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou počítány od nuly:
 
-![Vodopádový graf zobrazující tržby, náklady, hrubý zisk 600 a čistý zisk 450 s popisky hodnot a čarami spojujícími sloupce](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Vytvořit akciové grafy (Stock Charts)**
+### **Vytvořit akciové grafy**
 
-Akciové grafy slouží k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a uzavírací ceny, což pomáhá analyzovat tržní trendy a volatilitu. Poskytují zásadní přehled o výkonnosti akcií a pomáhají investorům i analytikům činit informovaná rozhodnutí.
+Akciové grafy slouží k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a uzavírací ceny, a pomáhají analyzovat tržní trendy a volatilitu. Poskytují klíčové informace o výkonnosti akcií, což usnadňuje investorům a analytikům činit informovaná rozhodnutí.
 
-Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi řadami v tomto pořadí a třemi kategoriemi. Vlastnost [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) povoluje up/down tyče a [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) řídí čáry high‑low, které ukazují cenové rozpětí, zatímco individuální řady a menší vodorovné mřížky jsou skryty.
+Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi řadami v daném pořadí a třemi kategoriemi. Vlastnost [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) zapíná sloupce nahoru/dolů a [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) řídí čáry high‑low, zatímco jednotlivé čáry řad a menší vodorovné mřížky jsou skryté.
 
 ```csharp
 using Aspose.Slides;
@@ -583,13 +585,13 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Akciový graf](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Vytvořit krabicové a fousové grafy (Box and Whisker Charts)**
+### **Vytvořit krabicové a vousové grafy**
 
-Krabicové a fousové grafy slouží k zobrazení rozdělení dat shrnutím klíčových statistických měr, jako je medián, kvartily a potenciální odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze dat a statistických studiích, kde rychle pomáhají pochopit proměnlivost dat a identifikovat anomálie.
+Krabicové a vousové grafy zobrazují rozdělení dat shrnutím klíčových statistických ukazatelů, jako je medián, kvartily a případné odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze dat a statistických studiích, kde pomáhají rychle pochopit variabilitu a odhalit anomálie.
 
-Tento příklad vytváří krabicový a fousový graf ze šesti hodnot. Vlastnost [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) vybírá exkluzivní výpočet kvartilů. Příklad také povoluje čáry průměru, značky průměru, vnitřní body a odlehlé body.
+Tento příklad vytváří krabicový a vousový graf ze šesti hodnot. Vlastnost [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) volí výlučný výpočet kvartilů. Příklad také zapíná čáry průměru, značky průměru, vnitřní body a odlehlé body.
 
 ```csharp
 using Aspose.Slides;
@@ -644,11 +646,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Vytvořit trychtýřové grafy (Funnel Charts)**
+### **Vytvořit trychtýřové grafy**
 
-Trychtýřové grafy slouží k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupem z jednoho kroku na další. Pomáhají zejména při analýze konverzních poměrů, identifikaci úzkých míst a sledování účinnosti prodejních nebo marketingových procesů.
+Trychtýřové grafy vizualizují procesy s postupnými fázemi, kde objem dat klesá s každým dalším krokem. Hodí se zejména pro analýzu konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních či marketingových procesů.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k přidání trychtýřového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami od 50 do 500 a poté ukládá aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k přidání trychtýřového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami od 50 do 500 a poté aktualizovanou prezentaci uloží. Vstupní prezentace musí obsahovat alespoň jeden snímek.
 
 ```csharp
 using Aspose.Slides;
@@ -699,13 +701,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Trychtýřový graf](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Vytvořit sluneční paprsky (Sunburst Charts)**
+### **Vytvořit sluneční grafy**
 
-Grafy sluneční paprsek slouží k vizualizaci hierarchických dat, přičemž úrovně jsou zobrazeny jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném kompaktním formátu.
+Sluneční grafy vizualizují hierarchická data, přičemž úrovně jsou zobrazeny jako soustředné kruhové prstence. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném a kompaktním formátu.
 
-Tento příklad vytváří sluneční paprsek s osmi listy seskupenými do čtyř stop a dvou větví. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) přiřazuje stonky na úroveň seskupení 1 a větve na úroveň 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
+Tento příklad vytváří sluneční graf se osm položkami seskupenými do čtyř větví a dvou podvětví. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) přiřazuje větve na úroveň 1 a podvětve na úroveň 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
 
 ```csharp
 using Aspose.Slides;
@@ -779,17 +781,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Sluneční paprsek](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Vytvořit histogramové grafy**
 
-Histogramové grafy ukazují, jak jsou číselné hodnoty rozděleny do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek použijte stejnou šířku binu a prahy, aby byly intervaly konzistentní a usnadnily porovnání rozdělení.
+Histogramy ukazují, jak jsou číselné hodnoty rozděleny do intervalů (košů). Pro měsíční zprávy o časech zpracování objednávek používejte stejnou šířku koše a prahy, aby byly intervaly konzistentní a usnadnily porovnání rozdělení.
 
-Nastavte horizontální osu [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) na režim z [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) se používá jen pro `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) jen pro `ByNumberOfBins`. Použijte `Automatic`, aby si graf sám zvolil biny.
+Nastavte horizontální ose [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) na režim z [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) platí jen pro `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) platí jen pro `ByNumberOfBins`. Použijte `Automatic`, aby graf sám určil koše.
 
-#### **Použít pevnou šířku binu**
+#### **Použít pevnou šířku koše**
 
-Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 min a > 40 min. Aktivujte tyto biny pomocí [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) a [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). Při zadání explicitních prahů [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) a [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) nastavte [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) a [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) na `false`.
+Tento příklad seskupuje časy zpracování do intervalů po 10 minutách, přičemž má samostatné koše pro časy ≤ 10 min a > 40 min. Tyto koše zapnete pomocí [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) a [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). Při zadání explicitních prahů [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) a [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) nastavte [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) a [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) na `false`.
 
 ```csharp
 using Aspose.Slides;
@@ -831,13 +833,13 @@ axis.OverflowBin = 40;
 presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-Prezentace zobrazovaná v PowerPointu ukazuje počty v binách **3, 4, 4, 4 a 2**. Bin podprůtok zahrnuje `5, 10, 10`, takže je prahová hodnota inkluzivní. Bin přetékání zahrnuje jen `41, 50`, takže je prahová hodnota exkluzivní; hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich spodní hranice a menší či rovné jejich horní hranici.
+Prezentace zobrazovaná v PowerPointu ukazuje počty v koších **3, 4, 4, 4 a 2**. Koš podprůtok zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Koš přetoku zahrnuje jen `41, 50`, takže jeho práh je exkluzivní; hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní koše obsahují hodnoty větší než spodní hranice a menší nebo rovné horní hranici.
 
-![Histogram s 10‑minutovými biny a explicitními prahy podprůtoku a přetečení](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Zadat počet binů**
+#### **Zadat počet košů**
 
-Pro pevnou úroveň detailu místo pevných intervalů požádejte o pět binů pro stejná data. Tento příklad ponechává biny podprůtoku a přetečení zakázané. Graf určuje šířku z datového rozsahu, takže hranice se mohou mezi zprávami měnit.
+Pro pevnou úroveň detailu místo pevných intervalů požadujte pět košů pro stejná data. Tento příklad nechává koše podprůtoku a přetoku vypnuté. Graf určuje šířku z rozsahu dat, takže hranice se mohou mezi zprávami měnit.
 
 ```csharp
 using Aspose.Slides;
@@ -873,15 +875,15 @@ axis.NumberOfBins = 5;
 presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
 ```
 
-Pět binů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou identické, ale hranice se liší.
+Pět košů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou stejné, ale hranice se liší.
 
-![Histogram s pěti biny vypočítanými ze stejných dat](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **Vytvořit radiální grafy (Radar Charts)**
+### **Vytvořit radary**
 
-Radiální grafy slouží k zobrazení multivariantních dat ve dvourozměrném formátu, což usnadňuje porovnání několika proměnných najednou. Jsou zvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč různými výkonnostními metrikami nebo atributy.
+Radarové grafy zobrazují multivariátní data ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných současně. Jsou obzvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč více výkonnostními metrikami nebo atributy.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření radiálního grafu s výchozími řadami a kategoriemi a následně ukládá prezentaci jako PPTX.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření radarového grafu s výchozími řadami a kategoriemi a poté prezentaci uloží jako PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -898,13 +900,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Radiální graf](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Vytvořit grafy s více kategoriemi**
+### **Vytvořit vícekategoriální grafy**
 
-Grafy s více kategoriemi slouží k zobrazení dat, která zahrnují více než jedno kategorické seskupení, což umožňuje porovnávat hodnoty napříč několika rozměry najednou. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, víceúrovňových datových souborech.
+Vícekategoriální grafy zobrazují data, která zahrnují více než jedno kategoriální seskupení, což vám umožní porovnat hodnoty napříč několika dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních vícestupňových datových sadách.
 
-Tento příklad vytváří sloupcový shlukový graf s osmi kategoriemi uspořádanými ve čtyřech dvojicích. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) dává každé dvojici sdílený štítek na úrovni seskupení 1, čímž vzniká osa kategorií s individuálními i skupinovými štítky.
+Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech dvojicích. Metoda [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) přiřadí každé dvojici sdílený štítek na úrovni 1 a vytvoří tak osu kategorií s jednotlivými i skupinovými štítky.
 
 ```csharp
 using Aspose.Slides;
@@ -973,13 +975,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Graf s více kategoriemi](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Vytvořit mapové grafy**
 
-Mapové grafy slouží k vizualizaci geografických dat přiřazením informací ke konkrétním místům, jako jsou země, státy nebo města. Jsou zvláště užitečné při analýze regionálních trendů, demografických dat a prostorových rozložení v přehledném a vizuálně atraktivním formátu.
+Mapové grafy vizualizují geografická data přiřazením informací k konkrétním místům, jako jsou země, státy nebo města. Jsou velmi užitečné při analýze regionálních trendů, demografických dat a prostorových rozdělení v přehledném a vizuálně atraktivním formátu.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření mapového grafu s výchozími geografickými daty a ukládá jej pro zobrazení v PowerPointu.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření mapového grafu s výchozími geografickými daty a uloží jej pro zobrazení v PowerPointu.
 
 ```csharp
 using Aspose.Slides;
@@ -996,19 +998,19 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 Výsledek:
 
-![Mapový graf](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+Obrázek výše ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale samotné mapové grafy nekreslí: když je snímek obsahující graf renderován do obrázku nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
 {{% /alert %}}
 
 ### **Vytvořit kombinované grafy**
 
-Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma nebo více datovými sadami a pomůže vám identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma či více datovými sadami, což vám pomůže identifikovat vztahy mezi nimi.
 
-![Kombinovaný graf](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Tento příklad kombinuje dvě shlukové sloupcové řady s čárovou řadou napříč čtyřmi kategoriemi. Sloupce používají primární vertikální osu, zatímco [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) umisťuje čáru na sekundární vertikální osu vpravo. Pomocné funkce konfigurují název, legendu, popisky os a mřížky.
+Tento příklad kombinuje dvě seskupené sloupcové řady s čárovou řadou napříč čtyřmi kategoriemi. Sloupce používají primární svislou osu, zatímco [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) umisťuje čáru na sekundární svislou osu vpravo. Pomocné funkce konfigurovat titul, legendu, popisky os a mřížky.
 
 ```csharp
 using System.Drawing;
@@ -1170,9 +1172,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Aktualizovat grafy**
 
-Aspose.Slides pro .NET umožňuje aktualizovat PowerPoint grafy úpravou dat grafu, formátování a stylu. Tato funkčnost zjednodušuje proces udržování prezentací aktuálních s dynamickým obsahem a zajišťuje, aby grafy přesně odrážely aktuální data a vizuální standardy.
+Aspose.Slides pro .NET vám umožňuje aktualizovat PowerPoint grafy úpravou dat, formátování a stylů. Tato funkce zjednodušuje proces udržování prezentací aktuálních s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí současná data i vizuální standardy.
 
-Tento příklad aktualizuje graf s názvem "My chart" na prvním snímku existující prezentace. Vyžaduje dvě řady sloupců se třemi datovými body každá, přičemž štítky kategorií jsou ve sloupci A a názvy řad v prvním řádku prvního listu. Příklad používá [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) ke změně buněk sešitu, aktualizuje hodnoty řad, přidá třetí řadu a změní graf na shlukové válcové prostřednictvím [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
+Tento příklad aktualizuje graf s názvem „My chart“ na první snímek existující prezentace. Vyžaduje dvě sloupcové řady se třemi datovými body každá, přičemž štítky kategorií jsou ve sloupci A a názvy řad v prvním řádku prvního listu. Příklad používá [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) ke změně buněk sešitu, aktualizuje hodnoty řad, přidá třetí řadu a změní typ grafu na seskupené válce pomocí [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
 ```csharp
 using Aspose.Slides;
@@ -1226,13 +1228,13 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Nastavit rozsah dat pro graf**
+## **Nastavit datový rozsah pro graf**
 
-Chcete‑li prozkoumat rozsah, který již používá existující graf, viz [Retrieve a Chart's Data Range](/slides/cs/net/chart-workbook/#retrieve-a-charts-data-range).
+Chcete‑li si prohlédnout rozsah již použitého existujícím grafem, viz [Retrieve a Chart's Data Range](/slides/cs/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides pro .NET poskytuje flexibilitu definovat konkrétní rozsah dat z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část vašeho listu do grafu, čímž kontrolujete, které buňky přispívají k řadám a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami v listu, což zajišťuje, že vaše PowerPoint prezentace odráží aktuální a přesné informace.
+Aspose.Slides pro .NET poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data grafu. To znamená, že můžete přímo mapovat část listu do grafu, čímž ovládáte, které buňky přispívají k řadám a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami v listu, aby vaše PowerPoint prezentace odrážely aktuální a přesné informace.
 
-Tento příklad používá [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) k nastavení datového zdroje grafu s názvem "My chart" na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a vyplněný rozsah s názvem řady v prvním řádku, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
+Tento příklad používá [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) k nastavení datového zdroje grafu s názvem „My chart“ na první snímek existující prezentace na `Sheet1!A1:B4`. Grafický sešit musí obsahovat tento list a naplněný rozsah s nadpisem řady v prvním řádku, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
 
 ```csharp
 using Aspose.Slides;
@@ -1259,7 +1261,7 @@ presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 
 Když použijete výchozí značky v grafech, každá řada grafu automaticky získá jiný výchozí symbol značky.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření grafu se dvěma čárovými řadami a legendou. Nastavení [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) zachovávají automaticky přiřazené symboly značek. První řada obsahuje zápornou hodnotu a chybějící hodnotu reprezentovanou `null`, zatímco druhá má hodnotu pro každou kategorii.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) k vytvoření grafu se dvěma čárovými řadami a legendou. Nastavení [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) zachovává automaticky přiřazené symboly značek. První řada obsahuje zápornou hodnotu a chybějící hodnotu reprezentovanou `null`, zatímco druhá má hodnotu pro každou kategorii.
 
 ```csharp
 using Aspose.Slides;
@@ -1317,20 +1319,20 @@ chart.Legend.Overlay = false;
 presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
-## **Často kladené dotazy (FAQ)**
+## **Často kladené otázky**
 
-**Jaké typy grafů jsou podporovány v Aspose.Slides pro .NET?**
+**Jaké typy grafů podporuje Aspose.Slides pro .NET?**
 
-Aspose.Slides pro .NET podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, oblastních, rozptylových, histogramových, radiálních a mnoha dalších. Tato flexibilita vám umožní zvolit nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
+Aspose.Slides pro .NET podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, plošných, rozptylových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
-**Jak přidám nový graf na snímek?**
+**Jak přidám nový graf do snímku?**
 
-Chcete‑li přidat graf, nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), získáte požadovaný snímek pomocí jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž určíte typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), získáte požadovaný snímek pomocí jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž zadáte typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
-**Jak mohu aktualizovat data zobrazovaná v grafu?**
+**Jak mohu aktualizovat data zobrazená v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), vymazáním výchozích řad a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
+Můžete aktualizovat data grafu přístupem k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), vymazáním výchozích řad a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides pro .NET poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky tak, aby graf odpovídal vašim konkrétním požadavkům na design.
+Ano, Aspose.Slides pro .NET poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací elementy tak, aby graf odpovídal vašim specifickým požadavkům na design.

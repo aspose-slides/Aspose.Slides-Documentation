@@ -1,59 +1,59 @@
 ---
-title: PythonでPowerPointプレゼンテーションのチャートを作成または更新
+title: Python で PowerPoint プレゼンテーションのチャートを作成または更新する
 linktitle: チャートの作成または更新
 type: docs
 weight: 10
 url: /ja/python-net/create-chart/
 keywords:
-- チャートの追加
-- チャートの作成
-- チャートの編集
-- チャートの変更
-- チャートの更新
+- チャートを追加
+- チャートを作成
+- チャートを編集
+- チャートを変更
+- チャートを更新
 - 散布図
 - 円グラフ
 - 折れ線グラフ
-- ツリーマップチャート
+- ツリーマップ
 - 株価チャート
 - 箱ひげ図
 - ファンネルチャート
 - サンバーストチャート
-- ヒストグラムチャート
+- ヒストグラム
 - レーダーチャート
 - マルチカテゴリチャート
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint プレゼンテーション内のチャートを作成およびカスタマイズします。Python の実用的なコード例を用いて、チャートの追加、書式設定、編集が可能です。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint プレゼンテーション内のチャートを作成およびカスタマイズします。Python の実用的なコード例を用いて、チャートの追加、書式設定、編集を行います。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for Python via .NET を使用してチャートを作成およびカスタマイズする方法について包括的なガイドを提供します。スライドにプログラムでチャートを追加し、データを設定し、特定のデザイン要件に合わせてさまざまな書式設定オプションを適用する方法を学びます。記事全体で、プレゼンテーションとチャートオブジェクトの初期化から、系列、軸、凡例の構成まで、各ステップを示す詳細なコード例が示されています。このガイドに従うことで、Python アプリケーションに動的なチャート生成を統合し、データ駆動型プレゼンテーションの作成プロセスを効率化する方法をしっかりと理解できます。
+この記事では、Aspose.Slides for Python via .NET を使用してチャートを作成およびカスタマイズする方法について包括的なガイドを提供します。スライドにプログラムでチャートを追加し、データを設定し、特定のデザイン要件に合わせてさまざまな書式設定オプションを適用する方法を学びます。記事全体を通じて、プレゼンテーションとチャートオブジェクトの初期化から系列、軸、凡例の設定に至るまで、詳細なコード例が各ステップを示しています。このガイドに従うことで、Python アプリケーションに動的なチャート生成を統合する方法をしっかりと理解でき、データ主導のプレゼンテーション作成プロセスを効率化できます。
 
 ## **チャートの作成**
 
-チャートは、データをすばやく視覚化し、表やスプレッドシートからはすぐに分からない洞察を得るのに役立ちます。
+チャートは、データを素早く可視化し、表やスプレッドシートからはすぐには分からない洞察を得るのに役立ちます。
 
 **チャートを作成する理由**
 
-チャートを使用すると、次のことが可能です。
+チャートを使用すると、次のことができます。
 
-* 大量のデータを 1 つのスライドに集約、要約、凝縮できます。
-* データのパターンやトレンドを明らかにできます。
-* 時間の経過や特定の測定単位に対するデータの方向性と勢いを推測できます。
-* 外れ値、異常、偏差、エラー、意味のないデータを検出できます。
-* 複雑なデータを伝達または提示できます。
+* プレゼンテーションの単一スライドに大量のデータを集約、圧縮、または要約する；
+* データのパターンやトレンドを明らかにする；
+* 時間経過や特定の測定単位に対するデータの方向性や勢いを推測する；
+* 外れ値、異常、偏差、エラー、無意味なデータを検出する；
+* 複雑なデータを伝達または提示する。
 
-PowerPoint では *Insert* 機能を使って多数のチャートテンプレートからチャートを作成できます。Aspose.Slides を使用すると、一般的なチャート種別に基づく通常のチャートとカスタムチャートの両方を作成できます。
+PowerPoint では、*Insert* 機能を使用してチャートを作成でき、さまざまなチャートタイプのテンプレートが提供されています。Aspose.Slides を使用すると、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
 
 {{% alert color="info" title="Note" %}}
-[ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 列挙体は [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) モジュールで利用できます。この列挙体の値はさまざまなチャート種別に対応しています。
+このモジュールの [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) の下にある [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 列挙体を使用します。この列挙体の値はさまざまなチャートタイプに対応しています。
 {{% /alert %}}
 
-### **クラスター縦棒チャートの作成**
+### **クラスター化された縦棒チャートの作成**
 
-この例は [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、3 つのカテゴリに対して 2 つの系列を比較するクラスター縦棒チャートを作成します。系列は赤と緑の塗りつぶしを使用し、個別ラベルでカテゴリ名、系列名、値を示します。ワークシートインデックス 0 は埋め込みチャートブックの最初のシートを指します。
+この例では [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、3 つのカテゴリにわたって 2 系列を比較するクラスター化された縦棒チャートを作成します。系列は赤と緑の塗りつぶしを使用し、個々のラベルはカテゴリ名、系列名、値を示します。ワークシートインデックス 0 は埋め込みチャートブックの最初のシートを指します。
 
 ```python
 import aspose.pydrawing as draw
@@ -126,22 +126,22 @@ with slides.Presentation() as presentation:
     presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
-![クラスター縦棒チャート](clustered_column_chart.png)
+![クラスター化縦棒チャート](clustered_column_chart.png)
 
-### **散布図の作成**
+### **散布図チャートの作成**
 
-散布図（スキャッタープロット、x‑y グラフとも呼ばれる）は、2 つの変数間のパターンや相関関係を確認する際に使用されます。
+散布図（散布チャート、x‑y グラフ）は、2 つの変数間のパターンや相関関係を確認するために頻繁に使用されます。
 
-散布図を使用する状況:
+散布図を使用する場面：
 
-* ペアになった数値データがあるとき。
-* 2 つの変数が相互に関連付けられるとき。
+* 対になった数値データがあるとき。
+* 互いにペアになりやすい 2 つの変数があるとき。
 * 2 つの変数が関連しているかどうかを判断したいとき。
-* 従属変数に対して複数の独立変数の値があるとき。
+* 従属変数に対して複数の値を持つ独立変数があるとき。
 
-この例は 2 つの x‑y データセットをプロットします。最初の系列は星マーカー付きの直線、2 番目の系列は円マーカー付きの滑らかな線を使用し、両方ともサイズ 10 を持ちます。[size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) プロパティでサイズを設定し、[symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) プロパティでマーカー形状を制御します。
+この例では 2 つの x‑y 値のセットをプロットします。最初の系列は星マーカー付きの直線、2 番目の系列は円マーカー付きの滑らかな線を使用し、どちらも [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) が 10 に設定されています。[symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) プロパティでマーカー形状を制御します。
 
 ```python
 import aspose.slides as slides
@@ -201,15 +201,15 @@ with slides.Presentation() as presentation:
     presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
-![散布図](scatter_chart.png)
+![散布図チャート](scatter_chart.png)
 
 ### **円グラフの作成**
 
-円グラフは、特にカテゴリラベルと数値が関連付けられたデータにおいて、全体に対する部分の関係を示すのに最適です。ただし、要素やラベルが多数ある場合は棒グラフの使用を検討してください。
+円グラフは、データの全体に対する部分の関係を示すのに最適です。特に、カテゴリラベルに数値が付随する場合に有効です。ただし、カテゴリや部分が多数ある場合は棒グラフの使用を検討してください。
 
-この例は 3 つの四半期値からなる円グラフを作成します。各スライスはカスタム塗りつぶしと枠線を持ち、ラベルは値、パーセンテージ、系列情報の異なる組み合わせを表示します。[first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) プロパティで最初のスライスを 180 度から開始します。
+この例では、3 つの四半期値で構成された円グラフを作成します。各スライスはカスタムの塗りつぶしと枠線を持ち、ラベルは値、パーセンテージ、系列情報のさまざまな組み合わせを表示します。[first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) プロパティで最初のスライスを 180 度から開始します。
 
 ```python
 import aspose.pydrawing as draw
@@ -302,15 +302,17 @@ with slides.Presentation() as presentation:
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
 ![円グラフ](pie_chart.png)
 
+円の外側にあるラベルの可読性を向上させるには、[リーダー線の書式設定](/slides/ja/python-net/chart-data-label/#format-leader-lines) を参照し、ラベルの位置や線の色、幅、透明度、破線スタイルをカスタマイズする例を確認してください。
+
 ### **折れ線グラフの作成**
 
-折れ線グラフ（ライングラフ）は、時間経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、膨大なデータを一度に比較し、時間に伴う変化やトレンドを追跡し、データ系列の異常を強調表示できます。
+折れ線グラフ（折れ線チャート）は、時間経過による値の変化を示すのに最適です。折れ線グラフを使用すると、大量のデータを一度に比較したり、時間経過による変化やトレンドを追跡したり、データ系列の異常を強調したりできます。
 
-この例は [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、デフォルトの系列とカテゴリを持つ折れ線グラフを作成し、プレゼンテーションを PPTX 形式で保存します。
+この例では [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、デフォルトの系列とカテゴリを持つ折れ線グラフを作成し、プレゼンテーションを PPTX として保存します。
 
 ```python
 import aspose.slides as slides
@@ -324,7 +326,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-既定では、折れ線グラフの点は直線で結ばれます。破線で結びたい場合は、[dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) を [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) のいずれかの値に設定します。
+デフォルトでは、折れ線グラフのポイントは直線で結ばれます。ポイントを破線で結びたい場合は、[dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) を [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) の値に設定します。
 
 ```python
 import aspose.slides as slides
@@ -339,15 +341,15 @@ with slides.Presentation() as presentation:
         series.format.line.dash_style = slides.LineDashStyle.DASH
 ```
 
-結果:
+結果：
 
 ![折れ線グラフ](line_chart.png)
 
 ### **ツリーマップチャートの作成**
 
-ツリーマップチャートは、売上データなどでカテゴリごとの相対的なサイズを示し、各カテゴリ内で大きく貢献している項目に注目させるのに最適です。
+ツリーマップチャートは、売上データなどでカテゴリ間の相対的なサイズを示し、各カテゴリ内で大きな貢献者に注意を引きやすくするのに最適です。
 
-この例は、8 つのリーフを 4 つのステムと 2 つのブランチにグループ化したツリーマップを作成します。[set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) メソッドでレベル 1 にステム、レベル 2 にブランチを割り当てます。値が矩形の相対サイズを決定し、カテゴリラベルと重なる親ラベルが階層を示します。
+この例では、8 つのリーフを 4 つのステムと 2 つのブランチにグループ化したツリーマップを作成します。[set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) メソッドでステムをレベル 1、ブランチをレベル 2 に割り当てます。値は長方形の相対サイズを決定し、カテゴリラベルと重なる親ラベルが階層を示します。
 
 ```python
 import aspose.slides as slides
@@ -420,28 +422,28 @@ with slides.Presentation() as presentation:
     presentation.save("Treemap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
 ![ツリーマップチャート](treemap_chart.png)
 
-### **ウォーターフォールチャートの作成**
+### **滝グラフの作成**
 
-ウォーターフォールチャートは、正と負の変化が最終値にどのように寄与するかを示します。たとえば、利益の内訳は売上から始まり、費用を差し引き、その他の収入を加算します。変化列は前の累計値と新しい累計値の間を浮き上がって表示し、合計列はゼロから累計値まで伸びます。
+滝グラフは、正・負の変化が最終値にどのように寄与するかを示します。たとえば、利益の内訳は売上から始まり、費用を差し引き、その他の収入を加算します。変化列は前の累積値と新しい累積値の間を浮動し、合計列はゼロから累積値まで伸びます。
 
-以下の例は米ドル千単位の金額を使用します。
+以下の例では、金額を千米ドル単位で使用します。
 
-| カテゴリ | ワークブック値 | 列タイプ |
+| カテゴリ | ブック値 | 列タイプ |
 | --- | ---: | --- |
-| 売上 | 1000 | 増加 |
-| 売上原価 | -400 | 減少 |
-| 粗利益 | 600 | 中間合計 |
-| 営業費用 | -200 | 減少 |
-| その他の収入 | 50 | 増加 |
-| 純利益 | 450 | 最終合計 |
+| Revenue | 1000 | 増加 |
+| Cost of sales | -400 | 減少 |
+| Gross profit | 600 | 中間合計 |
+| Operating expenses | -200 | 減少 |
+| Other income | 50 | 増加 |
+| Net profit | 450 | 最終合計 |
 
-ポイントを中間合計または最終合計としてマークするには、[set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) プロパティを `True` に設定します。そのポイントのワークブックセルに実際の累計額（粗利益は `600` (= 1000 - 400)、純利益は `450` (= 600 - 200 + 50)）を入力します。このプロパティは列を合計としてマークしますが、セルの値を計算・入力するわけではありません。ゼロをプレースホルダーとして使用したり、合計ポイントに別の変化を設定したりしないでください。合計列は累計値を表示しますが、ランニング値に再度加算されません。
+ポイントを中間合計または最終合計としてマークするには、[set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) プロパティを `True` に設定します。そのポイントのブックセルには実際の累積額を入力します：粗利益は `600`（`1000 - 400`）、純利益は `450`（`600 - 200 + 50`）。このプロパティは列を合計としてマークしますが、セルの値を計算したり入力したりはしません。ゼロをプレースホルダーとして使用したり、合計ポイントに別の変化を与えたりしないでください。合計列は累積値を表示しますが、再度加算はされません。
 
-この完全な C# サンプルは [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) の `Waterfall` メンバーを使用してチャートを作成し、既定データをクリアして埋め込みブックにデータを入力します。ワークシートインデックス `0` は最初のシートを選択し、列 A にカテゴリ名、列 B に値を配置します。各値セルは [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/) で追加します。0 ベースのポイントインデックス `2` と `5` がそれぞれ中間合計と最終合計を表します。[show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) を有効にすると、列に金額が表示されます。入力プレゼンテーションやブックは不要です。
+この完全な C# 例では、[ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) の `Waterfall` メンバーを使用してチャートを作成し、デフォルトデータをクリアして埋め込みブックにデータを入力します。ワークシートインデックス `0` は最初のシートを選択し、列 A にカテゴリ名、列 B に値を格納します。各値セルは [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/) で追加します。0 ベースのポイントインデックス `2` と `5` が中間合計と最終合計を識別します。[show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) を有効にすると、列に金額が表示されます。入力プレゼンテーションやブックは不要です。
 
 ```python
 import aspose.slides as slides
@@ -476,7 +478,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
         series.data_points.add_data_point_for_waterfall_series(value_cell)
 
-    # 3 番目と 6 番目のポイントは合計を表しており、追加の変化ではありません。
+    # 3番目と6番目のポイントは合計を表し、追加の変化ではありません。
     series.data_points[2].set_as_total = True
     series.data_points[5].set_as_total = True
     series.show_connector_lines = True
@@ -485,17 +487,17 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-系列レベルの [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) プロパティを `True` に設定すると、連続する列を結ぶ線が表示され、ランニング値が追いやすくなります。これらの線を非表示にしたい場合は、サンプルの代入を `series.show_connector_lines = False` に置き換えて保存してください。線の可視性のみが変更され、データや合計は変わりません。
+系列レベルの [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) プロパティを `True` に設定すると、連続する列を結ぶ線が表示され、累積値が追いやすくなります。これらの線を非表示にするには、例の代入を `series.show_connector_lines = False` に置き換えてから保存します。この変更は線の表示にのみ影響し、データや合計には影響しません。
 
-保存されたプレゼンテーションは、粗利益 600 と純利益 450 をゼロから描画したものです。
+保存されたプレゼンテーションは、粗利益 600 と純利益 450 をゼロから描画した結果を示します。
 
-![ウォーターフォールチャート（売上、費用、粗利益 600、純利益 450、値ラベルとコネクタ線付き）](waterfall_chart.png)
+![売上、費用、粗利益600、純利益450を示す滝グラフ（値ラベルとコネクタ線付き）](waterfall_chart.png)
 
 ### **株価チャートの作成**
 
-株価チャートは、始値・高値・安値・終値などの金融データを表示し、市場のトレンドやボラティリティを分析するのに役立ちます。投資家やアナリストが情報に基づいた意思決定を行うための重要な洞察を提供します。
+株価チャートは、始値、高値、安値、終値などの金融データを表示し、市場のトレンドやボラティリティを分析するのに役立ちます。投資家やアナリストが情報に基づいた意思決定を行うための重要な洞察を提供します。
 
-この例は、4 系列（順に始値・高値・安値・終値）と 3 カテゴリで構成された OHLC（Open‑High‑Low‑Close）チャートを作成します。[has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) プロパティで上下バーを有効にし、[hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) で価格範囲を示す高低線を制御します。個別系列の線とマイナー横グリッドラインは非表示にしています。
+この例では、順番に 4 系列、3 カテゴリからなる OHLC（始値‑高値‑安値‑終値）チャートを作成します。[has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) プロパティで上下棒を有効にし、[hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) で価格範囲を示す高低線を制御します。個別系列の線と小さな水平グリッドラインは非表示にしています。
 
 ```python
 import aspose.slides as slides
@@ -567,15 +569,15 @@ with slides.Presentation() as presentation:
     presentation.save("Stock-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
 ![株価チャート](stock_chart.png)
 
 ### **箱ひげ図の作成**
 
-箱ひげ図は、中央値、四分位数、外れ値などの主要統計指標を要約してデータの分布を示すのに使用されます。探索的データ分析や統計調査で、データの変動性や異常を迅速に把握するのに役立ちます。
+箱ひげ図は、中央値、四分位数、外れ値などの主要統計指標を要約してデータの分布を表示します。探索的データ分析や統計研究で、データのばらつきや異常を迅速に把握するのに特に有用です。
 
-この例は 6 つの値から箱ひげ図を作成します。[quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) プロパティで排他的四分位計算を選択し、平均線、平均マーカー、内部ポイント、外れ値ポイントも有効化しています。
+この例では、6 つの値から箱ひげ図を作成します。[quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) プロパティで排他的四分位計算を選択し、平均線、平均マーカー、内部ポイント、外れ値ポイントも有効にしています。
 
 ```python
 import aspose.slides as slides
@@ -631,9 +633,9 @@ with slides.Presentation() as presentation:
 
 ### **ファンネルチャートの作成**
 
-ファンネルチャートは、段階的にデータ量が減少していくプロセスを可視化するのに使用されます。コンバージョン率の分析、ボトルネックの特定、販売やマーケティングプロセスの効率追跡に特に有用です。
+ファンネルチャートは、段階的にデータ量が減少していくプロセスを可視化します。コンバージョン率の分析、ボトルネックの特定、販売やマーケティングプロセスの効率追跡に特に役立ちます。
 
-この例は [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、既存プレゼンテーションの最初のスライドにファンネルチャートを追加します。デフォルトデータを 6 つのカテゴリと 50 から 500 の値に置き換え、更新したプレゼンテーションを保存します。入力プレゼンテーションは少なくとも 1 枚のスライドを含んでいる必要があります。
+この例では [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、既存プレゼンテーションの最初のスライドにファンネルチャートを追加します。デフォルトデータを 6 カテゴリ、50〜500 の値に置き換え、更新されたプレゼンテーションを保存します。入力プレゼンテーションには少なくとも 1 枚のスライドが必要です。
 
 ```python
 import aspose.slides as slides
@@ -681,15 +683,15 @@ with slides.Presentation("test.pptx") as presentation:
     presentation.save("Funnel.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
 ![ファンネルチャート](funnel_chart.png)
 
 ### **サンバーストチャートの作成**
 
-サンバーストチャートは階層データを同心円状に表示し、部分と全体の関係を示します。入れ子になったカテゴリやサブカテゴリを明瞭かつコンパクトに表現するのに最適です。
+サンバーストチャートは階層データを同心円リングとして可視化し、部分と全体の関係を示すのに適しています。入れ子構造のカテゴリやサブカテゴリをコンパクトに表現できます。
 
-この例は、8 つのリーフを 4 つのステムと 2 つのブランチにグループ化したサンバーストチャートを作成します。[set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) メソッドでレベル 1 にステム、レベル 2 にブランチを割り当てます。カテゴリラベルがセグメントを示し、値が相対サイズを決定します。
+この例では、8 つのリーフを 4 つのステムと 2 つのブランチにグループ化したサンバーストチャートを作成します。[set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) メソッドでステムをレベル 1、ブランチをレベル 2 に割り当て、カテゴリラベルでセグメントを識別し、値で相対サイズを決定します。
 
 ```python
 import aspose.slides as slides
@@ -760,19 +762,19 @@ with slides.Presentation() as presentation:
     presentation.save("Sunburst.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
 ![サンバーストチャート](sunburst_chart.png)
 
 ### **ヒストグラムチャートの作成**
 
-ヒストグラムは数値が区間（ビン）にどのように分布しているかを示します。注文処理時間の月次レポートなどで、区間幅としきい値を統一すれば、分布を比較しやすくなります。
+ヒストグラムは数値が区間（ビン）にどう分布しているかを示します。たとえば、受注処理時間の月次レポートでは、ビン幅と閾値を統一して区間を揃えることで、分布を比較しやすくなります。
 
-水平軸の [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) を [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/) のいずれかに設定します。[bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) は `BY_BIN_WIDTH` のみ、[number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) は `BY_NUMBER_OF_BINS` のみで使用します。`AUTOMATIC` を使用すればチャートが自動でビンを決定します。
+横軸の [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) を [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/) のいずれかに設定します。[bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) は `BY_BIN_WIDTH` のみ、[number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) は `BY_NUMBER_OF_BINS` のみで使用できます。`AUTOMATIC` を使用すると、チャートが自動でビンを決定します。
 
 #### **固定ビン幅の使用**
 
-この例は処理時間を 10 分間隔に区切り、10 分以下と 40 分以上のビンを別途設定します。[is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) と [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/) でそれらのビンを有効化します。明示的に [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) と [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) のしきい値を設定する場合は、[is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) と [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) を `False` にします。
+この例では処理時間を 10 分間隔のビンにグループ化し、10 分以下と 40 分以上のビンを別途設定します。[is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) と [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/) でこれらのビンを有効にします。明示的な [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) と [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) の閾値を設定する場合は、[is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) と [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) を `False` にします。
 
 ```python
 import aspose.slides as slides
@@ -811,13 +813,13 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-PowerPoint で表示されたプレゼンテーションのビンカウントは **3、4、4、4、2** です。アンダーフロービンは `5、10、10` を含むためしきい値は包括的です。オーバーフロービンは `41、50` のみを含むためしきい値は排他的で、`40` の値は前の区間に残ります。内部ビンは下限より大きく上限以下の値を含みます。
+PowerPoint で表示されるプレゼンテーションはビンカウントが **3, 4, 4, 4, 2** です。アンダーフロービンには `5, 10, 10` が含まれ、閾値は包括的です。オーバーフロービンには `41, 50` のみが含まれ、閾値は排他的です。`40` の値は前のビンに残ります。内部ビンは下限より大きく上限以下の値を含みます。
 
-![10 分ビン幅と明示的なアンダー/オーバーフロービンしきい値を持つヒストグラム](histogram_bin_width.png)
+![10 分ビンと明示的なアンダー/オーバーフロービンしきい値を持つヒストグラム](histogram_bin_width.png)
 
-#### **ビン数の指定**
+#### **ビン数を指定**
 
-固定間隔ではなく一定の詳細レベルが必要な場合、同じデータに対して 5 ビンを要求します。この例ではアンダー/オーバーフロービンを無効にしています。チャートはデータ範囲から幅を算出するため、レポートごとに境界が変わる可能性があります。
+固定間隔ではなく一定の詳細レベルを求める場合、同じデータに対して 5 ビンを要求します。この例ではアンダー/オーバーフロービンは無効にしています。チャートはデータ範囲から幅を算出するため、レポート間で境界が変わることがあります。
 
 ```python
 import aspose.slides as slides
@@ -850,15 +852,15 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-5 ビンのカウントは **4、4、4、4、1** です。上記の固定幅結果と比較すると、入力値は同じですが境界が異なります。
+5 ビンのカウントは **4, 4, 4, 4, 1** です。上の固定幅結果と比較すると、入力値は同一ですが境界が異なります。
 
-![同一データから算出された 5 ビンのヒストグラム](histogram_bin_count.png)
+![同一データから算出した 5 ビンのヒストグラム](histogram_bin_count.png)
 
 ### **レーダーチャートの作成**
 
-レーダーチャートは多変量データを二次元で表示し、複数の変数を同時に比較できるようにします。複数のパフォーマンス指標や属性間のパターン、強み、弱みを特定するのに特に有用です。
+レーダーチャートは多変量データを二次元で表示し、複数変数を同時に比較しやすくします。パフォーマンス指標や属性のパターン、強み、弱みを特定するのに特に有用です。
 
-この例は [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、デフォルトの系列とカテゴリでレーダーチャートを作成し、PPTX 形式で保存します。
+この例では [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、デフォルト系列とカテゴリを持つレーダーチャートを作成し、プレゼンテーションを PPTX として保存します。
 
 ```python
 import aspose.slides as slides
@@ -872,15 +874,15 @@ with slides.Presentation() as presentation:
     presentation.save("Radar-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
 ![レーダーチャート](radar_chart.png)
 
 ### **マルチカテゴリチャートの作成**
 
-マルチカテゴリチャートは、複数のカテゴリ階層を持つデータを表示し、複数次元で値を比較できます。複雑で多層的なデータセットのトレンドや関係性を分析する際に特に役立ちます。
+マルチカテゴリチャートは、複数のカテゴリグループを含むデータを表示し、複数の次元で値を比較できます。複雑な階層データのトレンドや関係を分析する際に便利です。
 
-この例は、4 つのペアに分割された 8 つのカテゴリでクラスター縦棒チャートを作成します。[set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) メソッドで各ペアにレベル 1 の共有ラベルを付与し、個別ラベルとグループラベルの両方を持つカテゴリ軸を生成します。
+この例では、4 ペアに分けた 8 カテゴリのクラスター化縦棒チャートを作成します。[set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) メソッドで各ペアにレベル 1 の共有ラベルを付与し、個別ラベルとグループラベルの両方を持つカテゴリ軸を生成します。
 
 ```python
 import aspose.slides as slides
@@ -946,15 +948,15 @@ with slides.Presentation() as presentation:
     presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
 ![マルチカテゴリチャート](multi_category_chart.png)
 
 ### **マップチャートの作成**
 
-マップチャートは、国・州・都市などの特定の位置に情報をマッピングすることで地理データを可視化します。地域別トレンド、人口統計、空間分布を明確かつ視覚的に分析するのに非常に有用です。
+マップチャートは国や州、都市など特定の場所に情報をマッピングして地理データを可視化します。地域別トレンド、人口統計、空間分布の分析に特に有用です。
 
-この例は [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用してデフォルトの地理データを持つマップチャートを作成し、PowerPoint で表示できるように保存します。
+この例では [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、デフォルトの地理データを持つマップチャートを作成し、PowerPoint で閲覧できるように保存します。
 
 ```python
 import aspose.slides as slides
@@ -968,21 +970,21 @@ with slides.Presentation() as presentation:
     presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-結果:
+結果：
 
 ![マップチャート](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-上の画像は PowerPoint で開いた保存済みプレゼンテーションを示しています。Aspose.Slides はマップチャートとそのデータを書き込みますが、マップチャート自体は描画しません。スライドを画像へレンダリングしたり PDF や SVG に変換したりすると、チャート領域は空白になります。同じスライド上の他の図形には影響しません。
+上の画像は PowerPoint で開いた保存済みプレゼンテーションを示しています。Aspose.Slides はマップチャートとそのデータを書き込みますが、マップチャート自体は描画しません。スライドを画像にレンダリングしたり、PDF や SVG に変換したりすると、チャート領域は空白になります。同じスライド上の他の形状には影響しません。
 {{% /alert %}}
 
-### **コンビネーションチャートの作成**
+### **複合チャートの作成**
 
-コンビネーションチャート（コンボチャート）は、単一のグラフに 2 つ以上のチャート種別を組み合わせます。このチャートにより、複数のデータセット間の違いを強調、比較、検証でき、相互関係を把握しやすくなります。
+複合チャート（コンボチャート）は、単一のグラフ内に 2 種類以上のチャートタイプを組み合わせます。これにより、複数のデータセット間の違いをハイライト、比較、検証でき、関係性の把握が容易になります。
 
-![コンビネーションチャート](combination_chart.png)
+![複合チャート](combination_chart.png)
 
-この例は、4 つのカテゴリに対して 2 つのクラスター縦棒系列と 1 本の折れ線系列を組み合わせます。縦棒はプライマリ垂直軸を使用し、[plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) で折れ線を右側のセカンダリ垂直軸に配置します。ヘルパー関数でタイトル、凡例、軸ラベル、グリッドラインを設定します。
+この例では、4 カテゴリにわたって 2 系列のクラスター化縦棒と 1 系列の折れ線を組み合わせます。縦棒は主軸（左側）を使用し、[plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) で折れ線を右側の副軸に配置します。ヘルパー関数でタイトル、凡例、軸ラベル、グリッド線を設定します。
 
 ```python
 import aspose.pydrawing as draw
@@ -1130,9 +1132,9 @@ create_combo_chart()
 
 ## **チャートの更新**
 
-Aspose.Slides for Python via .NET を使用すると、チャートのデータ、書式設定、スタイルを変更して PowerPoint のチャートを更新できます。この機能により、プレゼンテーションを動的コンテンツで最新に保ち、チャートが現在のデータと視覚基準を正確に反映するように簡素化できます。
+Aspose.Slides for Python via .NET を使用すると、チャートデータ、書式設定、スタイルを変更して PowerPoint のチャートを更新できます。この機能により、プレゼンテーションを動的コンテンツで最新の状態に保ち、チャートが現在のデータとビジュアル標準を正確に反映できるようになります。
 
-この例は、既存プレゼンテーションの最初のスライドにある「My chart」チャートを更新します。各系列に 3 つのデータポイントを持つ 2 つの列系列が必要で、カテゴリラベルは列 A、系列名は最初のシートの最初の行に配置されます。例では [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) を使用してブックセルを変更し、系列値を更新し、3 番目の系列を追加し、[type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/) を使用してチャートをクラスターシリンダーに変更します。
+この例では、既存プレゼンテーションの最初のスライドにある「My chart」という名前のチャートを更新します。各系列は 3 つのデータポイントを持ち、カテゴリラベルは列 A、系列名は最初のシートの最初の行に配置されていることが前提です。[get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) を使用してブックセルを変更し、系列値を更新し、3 系列目を追加し、[type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/) でチャートをクラスター化シリンダーに変更します。
 
 ```python
 import aspose.slides as slides
@@ -1186,9 +1188,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 既存チャートで使用されている範囲を確認するには、[Retrieve a Chart's Data Range](/slides/ja/python-net/chart-workbook/#retrieve-a-charts-data-range) を参照してください。
 
-Aspose.Slides for Python via .NET は、ワークシート内の特定のデータ範囲をチャートのデータソースとして定義する柔軟性を提供します。これにより、ワークシートの一部を直接チャートにマッピングでき、どのセルが系列やカテゴリに寄与するかを制御できます。その結果、ワークシートの最新データ変更とチャートを簡単に同期・更新でき、PowerPoint プレゼンテーションが常に正確な情報を反映します。
+Aspose.Slides for Python via .NET は、ワークシートの特定範囲をチャートデータのソースとして定義する柔軟性を提供します。これにより、ワークシートの一部を直接チャートにマッピングでき、系列とカテゴリにどのセルが寄与するかを制御できます。その結果、ワークシートの最新データ変更とチャートを簡単に同期でき、PowerPoint プレゼンテーションが最新かつ正確な情報を反映します。
 
-この例は [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) を使用して、既存プレゼンテーションの最初のスライドにある「My chart」チャートのデータソースを `Sheet1!A1:B4` に設定します。チャートブックにはそのシートが存在し、1 行目に系列ヘッダー、列 A にカテゴリラベル、列 B に 3 つの値が入力された範囲が必要です。
+この例では、[set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) を使用して、既存プレゼンテーションの最初のスライドにある「My chart」チャートのデータ ソースを `Sheet1!A1:B4` に設定します。チャートブックにはそのシートと、1 行目に系列見出し、列 A にカテゴリラベル、列 B に 3 つの値が入力された範囲が必要です。
 
 ```python
 import aspose.slides as slides
@@ -1209,9 +1211,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **チャートでデフォルトマーカーを使用する**
 
-チャートでデフォルトマーカーを使用すると、各系列に自動的に異なるデフォルトマーカー記号が割り当てられます。
+チャートでデフォルトマーカーを使用すると、各系列に自動的に異なるデフォルトマーカーシンボルが割り当てられます。
 
-この例は [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、2 本の折れ線系列と凡例を持つチャートを作成します。[marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) 設定は自動割り当てされたマーカー記号を保持します。最初の系列は負の値と欠損値（`None`）を含み、2 番目の系列はすべてのカテゴリに値を持ちます。
+この例では [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) を使用して、2 系列の折れ線と凡例を持つチャートを作成します。[marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) 設定は自動割り当てされたマーカーシンボルを保持します。最初の系列には負の値と欠損値（`None`）が含まれ、2 系列目はすべてのカテゴリに値があります。
 
 ```python
 import aspose.slides as slides
@@ -1270,18 +1272,18 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Aspose.Slides for Python via .NET がサポートするチャート種別は何ですか？**
+**Aspose.Slides for Python via .NET がサポートするチャートタイプは何ですか？**
 
-Aspose.Slides for Python via .NET は、棒グラフ、折れ線グラフ、円グラフ、エリアグラフ、散布図、ヒストグラム、レーダー、その他多数のチャート種別をサポートします。この柔軟性により、データ可視化のニーズに最適なチャート種別を選択できます。
+Aspose.Slides for Python via .NET は、棒、折れ線、円、面、散布、ヒストグラム、レーダーなど多数のチャートタイプをサポートします。この柔軟性により、データ可視化のニーズに最適なチャートタイプを選択できます。
 
-**スライドに新しいチャートを追加する方法は？**
+**スライドに新しいチャートを追加するにはどうすればよいですか？**
 
-まず [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得し、チャート種別と初期データを指定してチャート追加メソッドを呼び出します。この手順でチャートがプレゼンテーションに直接統合されます。
+チャートを追加するには、まず [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得し、チャートタイプと初期データを指定してチャート追加メソッドを呼び出します。このプロセスにより、チャートがプレゼンテーションに直接組み込まれます。
 
-**チャートに表示されるデータを更新するには？**
+**チャートに表示されているデータを更新するにはどうすればよいですか？**
 
-チャートのデータブック（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスし、既定の系列とカテゴリをクリアしてからカスタムデータを追加します。これにより、プログラムから最新データにチャートをリフレッシュできます。
+チャートのデータは、データブック（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)）にアクセスし、デフォルトの系列とカテゴリをクリアしてカスタムデータを追加することで更新できます。これにより、最新データを反映するようプログラムでチャートをリフレッシュできます。
 
-**チャートの外観をカスタマイズできますか？**
+**チャートの外観をカスタマイズすることは可能ですか？**
 
-はい。Aspose.Slides for Python via .NET は豊富なカスタマイズオプションを提供します。色、フォント、ラベル、凡例、その他の書式設定要素を変更して、特定のデザイン要件に合わせたチャート外観に調整できます。
+はい、Aspose.Slides for Python via .NET は豊富なカスタマイズオプションを提供します。色、フォント、ラベル、凡例、その他の書式設定要素を変更して、チャートの外観を特定のデザイン要件に合わせて調整できます。

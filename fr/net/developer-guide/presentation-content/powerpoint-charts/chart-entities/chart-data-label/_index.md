@@ -1,10 +1,10 @@
 ---
-title: Gestion des étiquettes de données de graphique dans les présentations en .NET
+title: Gérer les étiquettes de données des graphiques dans les présentations en .NET
 linktitle: Étiquette de données
 type: docs
 url: /fr/net/chart-data-label/
 keywords:
-- graphique
+- diagramme
 - étiquette de données
 - précision des données
 - pourcentage
@@ -15,15 +15,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Apprenez à ajouter et formater les étiquettes de données de graphique dans les présentations PowerPoint en utilisant Aspose.Slides pour .NET afin de rendre les diapositives plus attrayantes."
+description: "Apprenez à ajouter et à mettre en forme les étiquettes de données des graphiques dans les présentations PowerPoint à l'aide d'Aspose.Slides pour .NET afin de créer des diapositives plus attrayantes."
 ---
 ## **Introduction**
 
-Les étiquettes de données affichent des informations sur les séries de graphique et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des étiquettes, contrôler les étiquettes au‑delà du maximum de l'axe, ajuster l'espacement des étiquettes de l'axe des catégories et positionner les étiquettes des graphiques circulaires.
+Les étiquettes de données affichent des informations sur les séries de diagrammes et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le diagramme. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des étiquettes, contrôler les étiquettes au‑delà du maximum de l’axe, ajuster l’espacement des étiquettes de l’axe des catégories et positionner les étiquettes des graphiques circulaires.
 
-## **Définir la précision des données dans les étiquettes de graphique**
+## **Set Data Precision in Chart Data Labels**
 
-Utilisez [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) pour formater les valeurs des séries. Cet exemple crée un graphique en courbes avec des données par défaut, affiche son tableau de données et active les étiquettes de valeur pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous‑jacent.
+Utilisez [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) pour formater les valeurs des séries. Cet exemple crée un graphique en courbes avec des données par défaut, affiche son tableau de données et active les étiquettes de valeurs pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous‑jacentes.
 
 ```csharp
 using Aspose.Slides;
@@ -43,9 +43,9 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Afficher le pourcentage sous forme d'étiquettes**
+## **Display Percentage as Labels**
 
-Pour un histogramme empilé, calculez chaque valeur comme un pourcentage du total de sa catégorie et assignez le texte à [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est zéro sont ignorées afin d'éviter une division par zéro. Recalculez le texte d'étiquette personnalisé si les données du graphique changent.
+Pour un histogramme empilé, calculez chaque valeur comme un pourcentage du total de sa catégorie et affectez le texte à [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Cet exemple utilise les données de diagramme par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est zéro sont ignorées afin d’éviter une division par zéro. Recalculez le texte d’étiquette personnalisé si les données du diagramme changent.
 
 ```csharp
 using System;
@@ -106,11 +106,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Définir le symbole de pourcentage avec les étiquettes de données du graphique**
+## **Set Percentage Sign with Chart Data Labels**
 
-Lorsque les valeurs sont stockées sous forme de fractions, utilisez [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) pour afficher les pourcentages. Définissez [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) à `false` pour appliquer le format d'étiquette indépendamment des cellules source.
+Lorsque les valeurs sont stockées sous forme de fractions, utilisez [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) pour afficher les pourcentages. Définissez [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) sur `false` afin d’appliquer le format d’étiquette indépendamment des cellules sources.
 
-Cet exemple crée un histogramme empilé à 100% avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs s'additionne à 1. Le format d'étiquette `0.0%` affiche 0.30 comme 30.0%, tandis que l'axe vertical utilise deux décimales. Les deux séries utilisent un texte d'étiquette blanc de 10 points.
+Cet exemple crée un histogramme empilé à 100 % avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs totalise 1. Le format d’étiquette `0.0%` affiche 0,30 comme 30,0 %, tandis que l’axe vertical utilise deux décimales. Les deux séries utilisent un texte d’étiquette blanc de 10 points.
 
 ```csharp
 using System.Drawing;
@@ -166,9 +166,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Lire le texte réel des étiquettes de données**
+## **Read the Actual Text of Data Labels**
 
-Utilisez [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) pour récupérer le texte généré par les paramètres d'une étiquette de données. Ceci est utile lors de l'extraction d'étiquettes pour des rapports, la recherche de contenu dans une présentation ou la validation de graphiques générés. Dans l'exemple ci‑dessous, le [format d'étiquette de données](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) par défaut combine chaque nom de catégorie, nom de série et valeur. Un point formate sa valeur en pourcentage, et un autre utilise du texte personnalisé provenant de [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Utilisez [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) pour récupérer le texte généré par les paramètres d’une étiquette de données. Cela est utile lors de l’extraction d’étiquettes pour des rapports, la recherche de contenu dans une présentation ou la validation de diagrammes générés. Dans l’exemple ci‑dessous, le [format d’étiquette de données](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) par défaut combine le nom de chaque catégorie, le nom de la série et la valeur. Un point formate sa valeur en pourcentage, et un autre utilise un texte personnalisé provenant de [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -222,15 +222,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Le nombre stocké dans un point de données reste `0.75`, même si son étiquette affiche `75%` avec les noms de catégorie et de série. Le texte personnalisé remplace le texte d'étiquette généré. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) renvoie la chaîne d'étiquette résultante dans les deux cas. Vérifiez [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) séparément, comme indiqué ci‑dessus, lorsque vous souhaitez extraire uniquement les étiquettes visibles.
+Le nombre stocké dans un point de données reste `0.75`, même si son étiquette affiche `75 %` avec les noms de catégorie et de série. Le texte personnalisé remplace le texte d’étiquette généré. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) renvoie la chaîne d’étiquette résultante dans les deux cas. Vérifiez [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) séparément, comme indiqué ci‑above, lorsque vous souhaitez extraire uniquement les étiquettes visibles.
 
-## **Contrôler les étiquettes de données au‑delà du maximum de l'axe**
+## **Control Data Labels Beyond the Axis Maximum**
 
-Lorsque vous limitez manuellement la plage d'un axe, certains points de données peuvent dépasser son maximum. Utilisez [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) pour contrôler si leurs étiquettes de données sont affichées. Ce paramètre modifie la visibilité des étiquettes ; il ne change pas la plage de l'axe ni les valeurs sous‑jacent des données.
+Lorsque vous limitez manuellement la plage d’un axe, certains points de données peuvent dépasser son maximum. Utilisez [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) pour contrôler l’affichage de leurs étiquettes de données. Ce paramètre modifie la visibilité des étiquettes ; il ne modifie pas la plage de l’axe ni les valeurs sous‑jacentes.
 
-L'exemple ci‑dessous crée un histogramme à colonnes groupées en 2D avec des valeurs de 60 et 120. Il définit [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) à `false` et [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) à 100 sur l'axe vertical. La première diapositive autorise les étiquettes au‑delà du maximum ; une copie de cette diapositive les désactive. Les deux diapositives sont enregistrées dans `DataLabelsOverMaximum.pptx`.
+L’exemple ci‑dessous crée un histogramme groupé 2D avec des valeurs de 60 et 120. Il définit [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) sur `false` et [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) à 100 sur l’axe vertical. La première diapositive autorise les étiquettes au‑delà du maximum ; une copie de cette diapositive les désactive. Les deux diapositives sont enregistrées dans `DataLabelsOverMaximum.pptx`.
 
-Activez les étiquettes de valeur avec [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Le paramètre au niveau du graphique n'active pas l'affichage des valeurs par lui‑même et ne remplace pas la désactivation de l'affichage de la valeur d'une étiquette individuelle. Cet exemple active les valeurs pour toute la série et utilise [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) pour placer les étiquettes à l'extrémité extérieure de chaque colonne.
+Activez les étiquettes de valeurs avec [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Le paramètre au niveau du diagramme n’active pas l’affichage des valeurs lui‑même et ne remplace pas la désactivation de l’affichage des valeurs d’une étiquette individuelle. Cet exemple active les valeurs pour toute la série et utilise [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) pour placer les étiquettes à l’extrémité extérieure de chaque colonne.
 
 ```csharp
 using Aspose.Slides;
@@ -277,19 +277,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-Les images suivantes montrent les diapositives enregistrées rendues par Microsoft PowerPoint. Avec `true`, l'étiquette **120** est visible à la limite supérieure ; avec `false`, elle est masquée. L'étiquette **60** reste visible, le maximum de l'axe reste à **100**, et le deuxième point de données reste **120** dans les deux cas.
+Les images suivantes montrent les diapositives enregistrées rendues par Microsoft PowerPoint. Avec `true`, l’étiquette **120** est visible à la limite supérieure ; avec `false`, elle est masquée. L’étiquette **60** reste visible, le maximum de l’axe reste à **100**, et le second point de données reste **120** dans les deux cas.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![Graphique PowerPoint affichant l'étiquette de valeur 120 avec un maximum d'axe de 100](data-labels-over-maximum-true.png) | ![Graphique PowerPoint masquant l'étiquette de valeur 120 avec un maximum d'axe de 100](data-labels-over-maximum-false.png) |
+| ![Diagramme PowerPoint affichant l’étiquette de valeur 120 avec un maximum d’axe de 100](data-labels-over-maximum-true.png) | ![Diagramme PowerPoint masquant l’étiquette de valeur 120 avec un maximum d’axe de 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Type de graphique" %}}
-Cet exemple utilise un histogramme à colonnes 2D avec un axe des valeurs. Les graphiques sans axe des valeurs, comme les graphiques circulaires et les graphiques en anneau, n'ont pas de maximum d'axe à limiter de cette manière.
+{{% alert color="info" title="Chart Type" %}}
+Cet exemple utilise un histogramme en colonnes 2D avec un axe de valeurs. Les diagrammes sans axe de valeurs, tels que les diagrammes circulaires et en anneau, n’ont pas de maximum d’axe à limiter de cette manière.
 {{% /alert %}}
 
-## **Définir la distance de l'étiquette par rapport à un axe**
+## **Set Label Distance from an Axis**
 
-Utilisez [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) pour contrôler la distance entre les étiquettes de l'axe des catégories et l'axe. La valeur est un pourcentage de la taille maximale de police des étiquettes de l'axe. Cet exemple crée un histogramme groupé et définit le décalage des étiquettes de l'axe horizontal à 500. Ce réglage affecte les étiquettes de l'axe des catégories plutôt que les étiquettes attachées aux points de données individuels.
+Utilisez [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) pour contrôler la distance entre les étiquettes de l’axe des catégories et l’axe. La valeur est un pourcentage de la taille maximale de police des étiquettes d’axe. Cet exemple crée un histogramme groupé et définit le décalage des étiquettes de l’axe horizontal à 500. Ce paramètre affecte les étiquettes de l’axe des catégories plutôt que les étiquettes attachées aux points de données individuels.
 
 ```csharp
 using Aspose.Slides;
@@ -305,11 +305,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Ajuster la position de l'étiquette**
+## **Adjust Label Location**
 
-Sur un graphique circulaire, ajustez les positions des étiquettes de données pour améliorer l'espacement et laisser de la place aux traits de liaison.
+Sur un diagramme circulaire, ajustez les positions des étiquettes de données pour améliorer l’espacement et laisser de la place aux lignes de repère.
 
-Cet exemple affiche la valeur du premier point de données, place son étiquette à l'extérieur de la tranche et ajuste ses décalages [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) et [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Ces décalages sont relatifs à la largeur et à la hauteur du graphique, respectivement.
+Cet exemple affiche la valeur du premier point de données, place son étiquette à l’extérieur de la part et ajuste ses décalages [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) et [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Ces décalages sont relatifs à la largeur et à la hauteur du diagramme, respectivement.
 
 ```csharp
 using Aspose.Slides;
@@ -331,15 +331,66 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Graphique circulaire avec une position d'étiquette de données ajustée](pie-chart-adjusted-label.png)
+![Diagramme circulaire avec une position d’étiquette de données ajustée](pie-chart-adjusted-label.png)
 
-## **Ajouter plusieurs lignes d'étiquettes de données au-dessus d'un histogramme**
+## **Format Leader Lines**
 
-Cet exemple crée un histogramme avec deux lignes d'étiquettes de données au-dessus de la zone de tracé. La série A affiche les colonnes visibles, tandis que les séries B et C fournissent les étiquettes supplémentaires. Leurs colonnes sont masquées en supprimant le remplissage et le contour. La propriété [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) aligne les trois séries sur les mêmes centres de catégorie.
+Lorsque les étiquettes d’un diagramme circulaire se trouvent à l’extérieur de leurs parts, les lignes de repère aident les lecteurs à associer chaque valeur à la part correspondante. Une couleur contrastée et une ligne légèrement plus épaisse peuvent rendre ces connexions plus faciles à suivre, tandis que la transparence et le style pointillé maintiennent les lignes visuellement discrètes.
 
-Les paramètres du [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) réservent de l'espace pour les lignes d'étiquettes. Après que [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) calcule les positions par défaut, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) et [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) conservent l'alignement horizontal et appliquent des décalages verticaux pour disposer les étiquettes en deux lignes. Les nombres restent des étiquettes de données liées aux valeurs des séries ; seules les en‑têtes de ligne sont des formes de texte séparées.
+Utilisez [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) pour formater les lignes de repère au niveau de la collection d’étiquettes de données de la série. Les paramètres de `series.Labels.LeaderLinesFormat.Line` s’appliquent à la collection, plutôt qu’à une étiquette individuelle.
+
+Cet exemple crée un diagramme circulaire avec des données par défaut, affiche les valeurs à l’extérieur des parts et active [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). Il déplace deux étiquettes plus loin de leurs parts en utilisant les décalages [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) et [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/), exprimés en fractions de la largeur et de la hauteur du diagramme. Aucune présentation d’entrée n’est requise.
+
+Le [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) de la ligne définit une couleur bleue solide avec une valeur alpha de 191 sur 255, offrant environ 25 % de transparence. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) définit l’épaisseur à 2 points, et [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) rend la ligne pointillée.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 80, 50, 560, 400);
+chart.HasLegend = false;
+
+var series = chart.ChartData.Series[0];
+
+var labelFormat = series.Labels.DefaultDataLabelFormat;
+labelFormat.ShowValue = true;
+labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+labelFormat.ShowLeaderLines = true;
+
+// Déplacer deux étiquettes plus loin de leurs parts.
+series.Labels[0].X = 0.10f;
+series.Labels[0].Y = -0.05f;
+series.Labels[1].X = -0.10f;
+series.Labels[1].Y = 0.05f;
+
+var line = series.Labels.LeaderLinesFormat.Line;
+line.FillFormat.FillType = FillType.Solid;
+line.FillFormat.SolidFillColor.Color = Color.FromArgb(191, 30, 90, 160);
+line.Width = 2;
+line.DashStyle = LineDashStyle.Dash;
+
+presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
+```
+
+Activer les lignes de repère ne garantit pas qu’une ligne apparaîtra pour chaque étiquette. La visibilité dépend du placement des étiquettes et du comportement de mise en page du diagramme. Dans cet exemple, les deux étiquettes déplacées ont des lignes de repère visibles ; les étiquettes qui restent proches de leurs parts n’en ont pas besoin.
+
+L’image suivante montre le fichier `FormattedLeaderLines.pptx` enregistré, rendu avec Aspose.Slides :
+
+![Diagramme circulaire avec des lignes de repère bleues, semi‑transparentes et pointillées reliant deux étiquettes extérieures à leurs parts](formatted-leader-lines.png)
+
+## **Add Multiple Rows of Data Labels Above a Column Chart**
+
+Cet exemple crée un histogramme en colonnes avec deux rangées d’étiquettes de données au-dessus de la zone de tracé. La série A affiche les colonnes visibles, tandis que les séries B et C fournissent les étiquettes supplémentaires. Leurs colonnes sont masquées en supprimant le remplissage et le contour. La propriété [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) aligne les trois séries sur les mêmes centres de catégorie.
+
+Les paramètres du [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) réservent de l’espace pour les rangées d’étiquettes. Après que [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) calcule les positions par défaut, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) et [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) préservent l’alignement horizontal et appliquent des décalages verticaux pour disposer les étiquettes en deux rangées. Les nombres restent des étiquettes de données liées aux valeurs des séries ; seules les en‑têtes de rangée sont des formes de texte séparées.
+
+```csharp
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
@@ -401,11 +452,11 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 // Aligner les trois séries sur les mêmes centres de catégorie.
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
-// Utiliser moins de quadrillages pour cet exemple compact.
+// Utiliser moins de lignes de grille pour cet exemple compact.
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// Réserver de l'espace au-dessus du tracé pour deux lignes d'étiquettes de données.
+// Réserver de l'espace au-dessus du tracé pour deux rangées d'étiquettes de données.
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -422,12 +473,12 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
         // Conserver la position horizontale par défaut. Y est un décalage depuis
-        // la position d'étiquette par défaut, exprimé en fraction de la hauteur du graphique.
+        // la position d'étiquette par défaut, exprimé en fraction de la hauteur du diagramme.
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
 
-    // Seul le titre de ligne est une forme texte séparée.
+    // Seul le titre de ligne est une forme de texte distincte.
     var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
     rowHeading.FillFormat.FillType = FillType.NoFill;
     rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
@@ -443,18 +494,18 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![Histogramme avec deux lignes d'étiquettes de données au-dessus de la zone de tracé](multiple-rows-of-labels.png)
+![Histogramme en colonnes avec deux rangées d’étiquettes de données au-dessus de la zone de tracé](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Comment empêcher le chevauchement des étiquettes de données sur des graphiques denses ?**
+**Comment puis‑je empêcher les étiquettes de données de se chevaucher sur des graphiques denses ?**
 
-Combinez le placement automatique des étiquettes, les traits de liaison et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n'affichez les étiquettes que pour les valeurs extrêmes ou les points clés.
+Combinez le placement automatique des étiquettes, les lignes de repère et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n’affichez les étiquettes que pour les valeurs extrêmes ou les points clés.
 
 **Comment désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**
 
-Filtrez les points de données avant d'activer les étiquettes et désactivez l'affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
+Filtrez les points de données avant d’activer les étiquettes et désactivez l’affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
 
-**Comment garantir un style d'étiquette cohérent lors de l'exportation en PDF/images ?**
+**Comment garantir un style d’étiquette cohérent lors de l’exportation en PDF/images ?**
 
-Définissez explicitement la famille de police et la taille, et vérifiez que la police est disponible dans l'environnement de rendu pour éviter le recours à une police de secours.
+Définissez explicitement la famille et la taille de police et vérifiez que la police est disponible dans l’environnement de rendu afin d’éviter le recours à une police de remplacement.

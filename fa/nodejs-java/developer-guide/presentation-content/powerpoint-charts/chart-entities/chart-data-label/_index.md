@@ -1,5 +1,5 @@
 ---
-title: مدیریت برچسب‌های داده نمودار در ارائه‌ها با JavaScript
+title: مدیریت برچسب‌های داده نمودار در ارائه‌ها با استفاده از JavaScript
 linktitle: برچسب داده
 type: docs
 url: /fa/nodejs-java/chart-data-label/
@@ -9,21 +9,21 @@ keywords:
 - دقت داده
 - درصد
 - فاصله برچسب
-- موقعیت برچسب
+- محل برچسب
 - PowerPoint
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "یادگیری افزودن و قالب‌بندی برچسب‌های داده نمودار در ارائه‌های PowerPoint با استفاده از JavaScript و Aspose.Slides برای Node.js از طریق Java برای اسلایدهای جذاب‌تر."
+description: "یاد بگیرید چگونه برچسب‌های داده نمودار را در ارائه‌های PowerPoint با استفاده از JavaScript و Aspose.Slides برای Node.js از طریق Java اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
 ---
 ## **مقدمه**
 
-برچسب‌های داده اطلاعاتی دربارهٔ سری‌های نمودار و نقاط دادهٔ فردی نمایش می‌دهند و به خوانندگان کمک می‌کنند تا مقادیر را شناسایی کنند و نمودار را درک نمایند. این مقاله توضیح می‌دهد چگونه مقادیر را قالب‌بندی کنیم، درصدها را نمایش دهیم، متن برچسب را بخوانیم، برچسب‌ها را فراتر از حداکثر محور کنترل کنیم، فاصلهٔ برچسب‌های محور دسته‌بندی را تنظیم کنیم و موقعیت برچسب‌های نمودار دایره‌ای را تعیین کنیم.
+برچسب‌های داده اطلاعاتی دربارهٔ سری‌های نمودار و نقاط دادهٔ تک‌تک نمایش می‌دهند و به خوانندگان کمک می‌کنند تا مقادیر را شناسایی و نمودار را درک کنند. این مقاله توضیح می‌دهد چگونه مقادیر را قالب‌بندی کنید، درصدها را نمایش دهید، متن برچسب را بخوانید، برچسب‌ها را فراتر از حداکثر محور کنترل کنید، فاصلهٔ برچسب محور دسته‌بندی را تنظیم کنید و موقعیت برچسب‌های نمودار دایره‌ای را تعیین کنید.
 
-## **تنظیم دقت داده در برچسب‌های دادهٔ نمودار**
+## **تنظیم دقت داده در برچسب‌های داده نمودار**
 
-از [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) برای قالب‌بندی مقادیر سری استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول داده آن را نمایش می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌کند. قالب `#,##0.00` جداکنندهٔ هزارگان و دو رقم اعشار را نشان می‌دهد بدون آنکه مقادیر زیرین تغییر کنند.
+از [setNumberFormatOfValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) برای قالب‌بندی مقادیر سری استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول دادهٔ آن را نمایش می‌دهد و برچسب‌های مقدار را برای سری اول فعال می‌سازد. قالب `#,##0.00` جداکنندهٔ هزارگان و دو رقم اعشار را بدون تغییر مقادیر اصلی نشان می‌دهد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -47,7 +47,7 @@ try {
 
 ## **نمایش درصد به‌عنوان برچسب‌ها**
 
-برای یک نمودار ستونی انباشته، هر مقدار را به‌عنوان درصدی از مجموع دستهٔ خود محاسبه کنید و متن را به قاب متن صادر شده توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم ۸ نقطه‌ای نمایش می‌دهد. دسته‌هایی که مجموع آن‌ها صفر است برای جلوگیری از تقسیم بر صفر نادیده گرفته می‌شوند. اگر داده‌های نمودار تغییر کنند متن برچسب سفارشی را مجدداً محاسبه کنید.
+برای یک نمودار ستونی انباشته، هر مقدار را به عنوان درصدی از مجموع دستهٔ خود محاسبه کنید و متن را به قاب متن بازگردانده‌شده توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم 8 نقاط نمایش می‌دهد. دسته‌هایی که مجموع آن‌ها صفر است برای جلوگیری از تقسیم بر صفر نادیده گرفته می‌شوند. اگر داده‌های نمودار تغییر کرد، متن سفارشی برچسب را مجدداً محاسبه کنید.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -103,11 +103,11 @@ try {
 }
 ```
 
-## **تنظیم علامت درصد با برچسب‌های دادهٔ نمودار**
+## **تنظیم علامت درصد با برچسب‌های داده نمودار**
 
-زمانی که مقادیر به صورت کسر ذخیره می‌شوند، از [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) برای نمایش درصدها استفاده کنید. برای اعمال قالب برچسب مستقل از سلول‌های منبع، `false` را به [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) پاس دهید.
+وقتی مقادیر به صورت کسری ذخیره می‌شوند، از [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) برای نمایش درصدها استفاده کنید. برای اعمال قالب برچسب به‌طور مستقل از سلول‌های منبع، `false` را به [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) پاس دهید.
 
-این مثال یک نمودار ستونی انباشتهٔ ۱۰۰٪ با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار مجموعاً برابر ۱ است. قالب برچسب `0.0%` مقدار ۰.۳۰ را به‌صورت ۳۰.۰٪ نمایش می‌دهد، در حالی که محور عمودی دو رقم اعشار دارد. هر دو سری از متن برچسب سفید با اندازهٔ قلم ۱۰ نقطه استفاده می‌کنند.
+این مثال یک نمودار ستونی 100٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار مجموعاً برابر 1 است. قالب برچسب `0.0%` مقدار 0.30 را به‌صورت 30.0٪ نشان می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید، 10 نقطه‌ای استفاده می‌کنند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,7 +165,7 @@ try {
 
 ## **خواندن متن واقعی برچسب‌های داده**
 
-از [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) برای دریافت متنی که تنظیمات یک برچسب داده تولید می‌کند، استفاده کنید. این روش زمانی مفید است که برچسب‌ها را برای گزارش‌ها استخراج می‌کنید، محتوای ارائه را جستجو می‌کنید یا نمودارهای تولیدشده را اعتبارسنجی می‌کنید. در مثال زیر، [قالب پیش‌فرض برچسب داده](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) هر نام دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدارش را به‌صورت درصد قالب‌بندی می‌کند و نقطهٔ دیگری متن سفارشی را از [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) می‌گیرد.
+از [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) برای بازیابی متنی که توسط تنظیمات برچسب داده تولید شده استفاده کنید. این کار هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجو در محتوای ارائه یا اعتبارسنجی نمودارهای تولید شده مفید است. در مثال زیر، قالب پیش‌فرض [قالب برچسب داده](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/) هر نام دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به‌عنوان درصد قالب‌بندی می‌کند و دیگری از متن سفارشی بازگردانده‌شده توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) استفاده می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -228,15 +228,15 @@ try {
 }
 ```
 
-عدد ذخیره‌شده در یک نقطه داده همان `0.75` باقی می‌ماند، حتی وقتی برچسب آن `75%` به همراه نام‌های دسته و سری نشان می‌دهد. متن سفارشی متن تولیدشدهٔ برچسب را جایگزین می‌کند. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) در هر دو حالت رشتهٔ برچسب نهایی را برمی‌گرداند. همان‌طور که در بالا نشان داده شد، برای استخراج تنها برچسب‌های قابل مشاهده، به‌صورت جداگانه از [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) استفاده کنید.
+عدد ذخیره‌شده در یک نقطه داده همچنان `0.75` می‌ماند، حتی وقتی برچسب آن `75%` همراه با نام‌های دسته و سری نمایش می‌دهد. متن سفارشی متن برچسب تولید شده را جایگزین می‌کند. [getActualLabelText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) در هر دو حالت رشتهٔ برچسب نهایی را برمی‌گرداند. به‌طور جداگانه [isVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/isvisible/) را بررسی کنید، همان‌طور که در بالا نشان داده شد، زمانی که فقط برچسب‌های قابل مشاهده را می‌خواهید استخراج کنید.
 
 ## **کنترل برچسب‌های داده فراتر از حداکثر محور**
 
-وقتی بازهٔ محور را به‌صورت دستی محدود می‌کنید، برخی نقاط داده ممکن است بیش از حداکثر آن باشند. برای کنترل اینکه آیا برچسب‌های دادهٔ آن‌ها نمایش داده شود یا نه، از [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) استفاده کنید. این تنظیم فقط قابلیت مشاهده برچسب را تغییر می‌دهد؛ بازهٔ محور یا مقادیر زیرین داده را تغییر نمی‌دهد.
+هنگامی که بازهٔ محور را به‌صورت دستی محدود می‌کنید، ممکن است برخی نقاط داده بیش از حداکثر آن باشند. از [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setshowdatalabelsovermaximum/) برای کنترل نمایش برچسب‌های آن‌ها استفاده کنید. این تنظیم فقط دیداری برچسب را تغییر می‌دهد؛ بازهٔ محور یا مقادیر دادهٔ زمینه‌ای را تغییر نمی‌دهد.
 
-مثال زیر یک نمودار ستونی خوشه‌ای ۲بعدی با مقادیر ۶۰ و ۱۲۰ ایجاد می‌کند. `false` به [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) پاس می‌شود و حداکثر به ۱۰۰ با [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) روی محور عمودی تنظیم می‌شود. اسلاید اول اجازه نمایش برچسب‌ها فراتر از حداکثر را می‌دهد؛ یک کپی از آن اسلاید این قابلیت را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
+مثال زیر یک نمودار ستونی خوشه‌ای 2D با مقادیر 60 و 120 ایجاد می‌کند. `false` را به [setAutomaticMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticmaxvalue/) پاس می‌دهد و حداکثر را با [setMaxValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setmaxvalue/) بر محور عمودی به 100 تنظیم می‌کند. اسلاید اول اجازه نمایش برچسب‌ها فراتر از حداکثر را می‌دهد؛ یک کپی از آن اسلاید این ویژگی را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
 
-با [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) برچسب‌های مقدار را فعال کنید. تنظیم سطح نمودار به‌تنهایی نمایش مقدار را فعال نمی‌کند و نیز تنظیم غیرفعال‌شدن نمایش مقدار برای یک برچسب منفرد را بازنویسی نمی‌کند. این مثال مقادیر را برای تمام سری فعال می‌کند و با [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) برچسب‌ها را در انتهای بیرونی هر ستون قرار می‌دهد.
+با [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) برچسب‌های مقدار را فعال کنید. این تنظیم در سطح نمودار به‌تنهایی نمایش مقدار را فعال نمی‌کند و برچسب‌های منفردی که نمایش مقدارشان غیرفعال شده است را نیز نادیده نمی‌گیرد. این مثال مقادیر را برای تمام سری‌ها فعال می‌کند و با [setPosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setposition/) برچسب‌ها را در انتهای بیرونی هر ستون قرار می‌دهد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -285,19 +285,19 @@ try {
 }
 ```
 
-تصاویر زیر اسلایدهای ذخیره‌شده را که توسط Microsoft PowerPoint رندر شده‌اند نشان می‌دهند. با `true`، برچسب **120** در مرز بالایی قابل مشاهده است؛ با `false`، مخفی می‌شود. برچسب **60** همچنان قابل مشاهده است، حداکثر محور در **100** باقی می‌ماند و نقطهٔ دادهٔ دوم در هر دو حالت **120** می‌ماند.
+تصاویر زیر اسلایدهای ذخیره‌شده را که توسط Microsoft PowerPoint رندر شده‌اند نشان می‌دهند. با مقدار `true`، برچسب **120** در مرز بالایی قابل مشاهده است؛ با مقدار `false`، مخفی می‌شود. برچسب **60** همچنان قابل مشاهده است، حداکثر محور در **100** باقی می‌ماند و نقطه دادهٔ دوم در هر دو حالت **120** است.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![نمودار PowerPoint نشان‌دهندهٔ برچسب مقدار 120 با حداکثر محور 100](data-labels-over-maximum-true.png) | ![نمودار PowerPoint مخفی‌کنندهٔ برچسب مقدار 120 با حداکثر محور 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-این مثال از یک نمودار ستونی ۲بعدی با محور مقدار استفاده می‌کند. نمودارهایی که محور مقدار ندارند، مانند نمودارهای دایره‌ای و دونات، حداکثر محور برای محدود کردن به این شکل ندارند.
+این مثال از یک نمودار ستونی 2D با محور مقدار استفاده می‌کند. نمودارهایی که محور مقدار ندارند، مانند نمودارهای دایره‌ای و دونات، حداکثر محور برای محدود کردن به این شکل ندارند.
 {{% /alert %}}
 
-## **تنظیم فاصلهٔ برچسب از محور**
+## **تنظیم فاصله برچسب از محور**
 
-از [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و محور استفاده کنید. مقدار، درصدی از حداکثر اندازهٔ قلم برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و مقدار افست محور افقی را برابر ۵۰۰ تنظیم می‌کند. این تنظیم برچسب‌های محور دسته‌بندی را تحت تأثیر قرار می‌دهد نه برچسب‌های متصل به نقاط دادهٔ منفرد.
+از [setLabelOffset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setlabeloffset/) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و خود محور استفاده کنید. مقدار بر حسب درصد حداکثر اندازهٔ قلم برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و فاصلهٔ برچسب محور افقی را به 500 تنظیم می‌کند. این تنظیم برچسب‌های محور دسته‌بندی را تحت‌تأثیر قرار می‌دهد نه برچسب‌های متصل به نقاط دادهٔ تک‌تک.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,11 +315,11 @@ try {
 }
 ```
 
-## **تنظیم موقعیت برچسب**
+## **تنظیم محل برچسب**
 
-در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را تنظیم کنید تا فضا بهبود یابد و برای خطوط راهنما جا باشد.
+در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را برای بهبود فواصل و ایجاد فضای کافی برای خطوط راهنما تنظیم کنید.
 
-این مثال مقدار نقطهٔ دادهٔ اول را نمایش می‌دهد، برچسب آن را در بیرون برش قرار می‌دهد و افست‌های افقی و عمودی آن را با استفاده از [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) و [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) تنظیم می‌کند. این افست‌ها به ترتیب نسبت به عرض و ارتفاع نمودار نسبی هستند.
+این مثال مقدار اولین نقطه داده را نمایش می‌دهد، برچسب آن را بیرون قطعه قرار می‌دهد و با استفاده از [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) و [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) جابه‌جایی افقی و عمودی آن را تنظیم می‌کند. این جابه‌جایی‌ها به‌ترتیب نسبت به عرض و ارتفاع نمودار هستند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -344,13 +344,66 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![نمودار دایره‌ای با موقعیت برچسب داده تنظیم‌شده](pie-chart-adjusted-label.png)
+
+## **قالب‌بندی خطوط راهنما**
+
+زمانی که برچسب‌های نمودار دایره‌ای خارج از قطعات خود قرار می‌گیرند، خطوط راهنما به خواننده کمک می‌کند تا هر مقدار را به قطعهٔ صحیح متصل کند. یک رنگ متضاد و خط کمی ضخیم می‌تواند این ارتباط را قابل‌دنبال‌تر کند، در حالی که شفافیت و سبک خط‌چین خطوط را از نظر بصری کمتر مزاحم می‌سازد.
+
+از [getLeaderLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelcollection/getleaderlinesformat/) برای قالب‌بندی خطوط راهنما در سطح مجموعهٔ برچسب‌های دادهٔ سری استفاده کنید. تنظیمات در `series.getLabels().getLeaderLinesFormat().getLine()` به کل مجموعه اعمال می‌شود، نه به‌صورت تک‌تک برچسب.
+
+این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند، مقادیر را بیرون قطعات نمایش می‌دهد و با [setShowLeaderLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowleaderlines/) خطوط راهنما را فعال می‌کند. دو برچسب با استفاده از جابه‌جایی‌های [setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) و [setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) دورتر از قطعاتشان قرار می‌گیرند؛ این جابه‌جایی‌ها به‌صورت کسری از عرض و ارتفاع نمودار بیان می‌شوند. هیچ ارائهٔ ورودی مورد نیاز نیست.
+
+متد [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/) خط را با رنگ آبی ثابت و مقدار آلفای 191 از 255 تنظیم می‌کند که تقریباً 25٪ شفافیت می‌دهد. [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/) ضخامت را به 2 نقطه تنظیم می‌کند و [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) خط را خط‌چین می‌کند.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 80, 50, 560, 400);
+    chart.setLegend(false);
+
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    const labelFormat = series.getLabels().getDefaultDataLabelFormat();
+    labelFormat.setShowValue(true);
+    labelFormat.setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
+    labelFormat.setShowLeaderLines(true);
+
+    // دو برچسب را از قطعاتشان دورتر ببرید.
+    series.getLabels().get_Item(0).setX(java.newFloat(0.10));
+    series.getLabels().get_Item(0).setY(java.newFloat(-0.05));
+    series.getLabels().get_Item(1).setX(java.newFloat(-0.10));
+    series.getLabels().get_Item(1).setY(java.newFloat(0.05));
+
+    const line = series.getLabels().getLeaderLinesFormat().getLine();
+    line.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const lineColor = java.newInstanceSync("java.awt.Color", 30, 90, 160, 191);
+    line.getFillFormat().getSolidFillColor().setColor(lineColor);
+    line.setWidth(2);
+    line.setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+
+    presentation.save("FormattedLeaderLines.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+فعال‌سازی خطوط راهنما تضمین نمی‌کند که برای هر برچسب یک خط ظاهر شود. قابلیت مشاهده بستگی به مکان‌گذاری برچسب و رفتار چیدمان نمودار دارد. در این مثال، دو برچسب جابجا شده خطوط راهنمای قابل رؤیتی دارند؛ برچسب‌هایی که نزدیک به قطعات خود می‌مانند نیازی به آن ندارند.
+
+تصویر زیر `FormattedLeaderLines.pptx` ذخیره‌شده را که با Aspose.Slides رندر شده نشان می‌دهد:
+
+![نمودار دایره‌ای با خطوط راهنمای آبی، نیمه‌شفاف، خط‌چین که دو برچسب بیرونی را به قطعاتشان متصل می‌کند](formatted-leader-lines.png)
 
 ## **افزودن چند ردیف برچسب داده بالای نمودار ستونی**
 
-این مثال یک نمودار ستونی با دو ردیف برچسب داده بالای ناحیهٔ ترسیم ایجاد می‌کند. سری A ستون‌های قابل مشاهده را نمایش می‌دهد، در حالی که سری‌های B و C برچسب‌های اضافی را فراهم می‌کند. ستون‌های آن‌ها با حذف پر و خط بیرونی مخفی می‌شوند. متد [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) تمام سه سری را با مراکز دستهٔ یکسان هم‌تراز می‌کند.
+این مثال یک نمودار ستونی با دو ردیف برچسب داده بالای ناحیهٔ ترسیم ایجاد می‌کند. سری A ستون‌های قابل مشاهده را نمایش می‌دهد، در حالی که سری‌های B و C برچسب‌های اضافی را فراهم می‌کنند. ستون‌های آن‌ها با حذف پرشدن و خط بیرونی مخفی می‌شوند. متد [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) همهٔ سه سری را با همان مرکزهای دسته هم‌تراز می‌کند.
 
-تنظیمات [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) فضای لازم برای ردیف‌های برچسب را رزرو می‌کند. پس از اینکه [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) موقعیت‌های پیش‌فرض را محاسبه کرد، [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) و [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) تراز افقی را حفظ کرده و افست‌های عمودی را برای ترتیب برچسب‌ها در دو ردیف اعمال می‌کنند. اعداد همچنان برچسب‌های دادهٔ مرتبط با مقادیر سری هستند؛ تنها سرفصل‌های ردیف به‌صورت شکل‌های متنی جداگانه هستند.
+تنظیمات [ChartPlotArea](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartplotarea/) فضای لازم برای ردیف‌های برچسب را رزرو می‌کند. پس از اینکه [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) موقعیت‌های پیش‌فرض را محاسبه کرد، [DataLabel.setX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/setx/) و [DataLabel.setY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/sety/) هم‌ترازی افقی را حفظ کرده و جابه‌جایی‌های عمودی را اعمال می‌کنند تا برچسب‌ها در دو ردیف چینند. اعداد همچنان برچسب‌های دادهٔ مرتبط با مقادیر سری هستند؛ فقط عناوین ردیف به‌صورت اشکال متنی جداگانه‌اند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -391,7 +444,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // ستون‌های B و C را مخفی کنید، اما برچسب‌های داده‌ای آن‌ها را نگه دارید.
+            // ستون‌های B و C را مخفی کنید، اما برچسب‌های داده آنها را نگه دارید.
             series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -403,14 +456,14 @@ try {
         }
     }
 
-    // تمامی سه سری را با مراکز دسته یکسان هم‌راستا کنید.
+    // تمام سه سری را با همان مرکزهای دسته هم‌تراز کنید.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(java.newByte(100));
 
-    // برای این مثال فشرده از خطوط شبکه کمتر استفاده کنید.
+    // برای این مثال فشرده خطوط شبکه کمتری استفاده کنید.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // فضای بالای ناحیه ترسیم را برای دو ردیف برچسب داده رزرو کنید.
+    // فضای بالای ناحیه رسم را برای دو ردیف برچسب داده رزرو کنید.
     chart.getPlotArea().setLayoutTargetType(aspose.slides.LayoutTargetType.Inner);
     chart.getPlotArea().setX(java.newFloat(0.15));
     chart.getPlotArea().setY(java.newFloat(0.32));
@@ -424,13 +477,13 @@ try {
 
         for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             const dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // موقعیت افقی پیش‌فرض را حفظ کنید. Y یک جابجایی از
-            // موقعیت پیش‌فرض برچسب، بیان شده به‌عنوان کسری از ارتفاع نمودار.
+            // موقعیت افقی پیش‌فرض را حفظ کنید. Y یک جابجایی است از
+            // موقعیت پیش‌فرض برچسب، بیان‌شده به‌صورت کسری از ارتفاع نمودار.
             dataLabel.setX(0);
             dataLabel.setY(java.newFloat(rowTop - dataLabel.getActualY() / chart.getHeight()));
         }
 
-        // فقط سرصفحهٔ ردیف به‌صورت شکل متنی جداگانه است.
+        // فقط عنوان ردیف یک شکل متنی جداگانه است.
         const rowHeading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
         rowHeading.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         rowHeading.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
@@ -449,18 +502,18 @@ try {
 }
 ```
 
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![نمودار ستونی با دو ردیف برچسب داده بالای ناحیهٔ ترسیم](multiple-rows-of-labels.png)
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چگونه می‌توان از هم‌پوشانی برچسب‌های داده در نمودارهای پرچمتری جلوگیری کرد؟**
+**چگونه می‌توان از overlapping برچسب‌های داده در نمودارهای پر تراکم جلوگیری کرد؟**
 
-از جایگذاری خودکار برچسب، خطوط راهنما و کاهش اندازهٔ قلم استفاده کنید؛ در صورت لزوم برخی فیلدها (مانند دسته) را مخفی کنید یا فقط برای مقادیر شدید یا نقاط کلیدی برچسب نشان دهید.
+از قرارگیری خودکار برچسب‌ها، خطوط راهنما و کاهش اندازهٔ قلم استفاده کنید؛ در صورت لزوم، برخی فیلدها (مثلاً دسته) را مخفی کنید یا فقط برچسب‌های مقادیر حاشیه‌ای یا نقاط کلیدی را نشان دهید.
 
 **چگونه می‌توان برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کرد؟**
 
-پیش از فعال‌سازی برچسب‌ها نقاط داده را فیلتر کنید و نمایش مقادیر ۰، مقادیر منفی یا مقادیر گمشده را بر اساس قانونی تعریف‌شده غیرفعال کنید.
+قبل از فعال‌سازی برچسب‌ها نقاط داده را فیلتر کنید و نمایش مقادیر 0، مقادیر منفی یا مقادیر گمشده را طبق قاعدهٔ تعریف‌شده خاموش کنید.
 
-**چگونه می‌توان سبک برچسب را هنگام خروجی به PDF/تصاویر ثابت نگه داشت؟**
+**چگونه می‌توان سبک برچسب را به‌صورت یکدست هنگام خروجی به PDF/تصاویر تضمین کرد؟**
 
-قابلاندهٔ خانوادهٔ قلم و اندازه را به‌صورت صریح تنظیم کنید و اطمینان حاصل کنید قلم در محیط رندر موجود است تا از استفاده از قلم‌های جایگزین جلوگیری شود.
+قلم خانواده و اندازه را به‌صورت صریح تنظیم کنید و اطمینان حاصل کنید قلم موردنظر در محیط رندر موجود است تا از استفاده از قلم پیش‌فرض جلوگیری شود.

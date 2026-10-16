@@ -14,15 +14,15 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk PHP via Java agar slide lebih menarik."
+description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk PHP via Java untuk slide yang lebih menarik."
 ---
 ## **Pendahuluan**
 
-Label data menampilkan informasi tentang seri diagram dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami diagram. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengontrol label di luar batas maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram lingkaran.
+Label data menampilkan informasi tentang seri diagram dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami diagram. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengendalikan label di luar maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram lingkaran.
 
 ## **Atur Presisi Data pada Label Data Diagram**
 
-Gunakan [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai dasar.
+Gunakan [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai dasar.
 
 ```php
 use aspose\slides\Presentation;
@@ -48,7 +48,7 @@ try {
 
 ## **Tampilkan Persentase sebagai Label**
 
-Untuk diagram kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teks ke bingkai teks yang dikembalikan oleh [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua tempat desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data diagram berubah.
+Untuk diagram kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori masing‑masing dan tetapkan teks ke frame teks yang dikembalikan oleh [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua tempat desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data diagram berubah.
 
 ```php
 use aspose\slides\Presentation;
@@ -108,11 +108,9 @@ try {
 }
 ```
 
-## **Atur Tanda Persentase dengan Label Data Diagram**
+## **Atur Tanda Persen dengan Label Data Diagram**
 
-Ketika nilai disimpan sebagai pecahan, gunakan [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormat) untuk menampilkan persentase. Berikan `false` ke [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) agar format label diterapkan secara independen dari sel sumber.
-
-Contoh ini membuat diagram kolom 100% bertumpuk dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai berjumlah 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label putih berukuran 10 poin.
+Ketika nilai disimpan sebagai pecahan, gunakan [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) untuk menampilkan persentase. Berikan `false` ke [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) agar format label diterapkan secara independen dari sel sumber. Contoh ini membuat diagram kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlah menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label putih berukuran 10 poin.
 
 ```php
 use aspose\slides\Presentation;
@@ -170,9 +168,9 @@ try {
 }
 ```
 
-## **Baca Teks Aktual dari Label Data**
+## **Baca Teks Sebenarnya dari Label Data**
 
-Gunakan [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Pada contoh di bawah, [format label data](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) default menggabungkan setiap nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks khusus dari [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Gunakan [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Dalam contoh di bawah, [format label data](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) default menggabungkan setiap nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks khusus dari [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +234,15 @@ try {
 }
 ```
 
-Angka yang disimpan dalam titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#isVisible) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
+Angka yang disimpan dalam sebuah titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda hanya ingin mengekstrak label yang terlihat.
 
-## **Kendalikan Label Data di Luar Batas Maksimum Sumbu**
+## **Kendalikan Label Data di Luar Maksimum Sumbu**
 
-Saat Anda membatasi rentang sumbu secara manual, beberapa titik data mungkin melampaui maksimum. Gunakan [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) untuk mengontrol apakah label data mereka ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data dasar.
+Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data mungkin melampaui maksimum sumbu. Gunakan [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) untuk mengendalikan apakah label data mereka ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data yang mendasarinya.
 
-Contoh di bawah membuat diagram kolom terkelompok 2D dengan nilai 60 dan 120. Ia memberikan `false` ke [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setAutomaticMaxValue) dan menetapkan maksimum menjadi 100 dengan [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setMaxValue) pada sumbu vertikal. Slide pertama memungkinkan label di luar maksimum; salinan slide itu menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
+Contoh di bawah membuat diagram kolom berkelompok 2D dengan nilai 60 dan 120. Ia memberikan `false` ke [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) dan menetapkan maksimum menjadi 100 dengan [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) pada sumbu vertikal. Slide pertama mengizinkan label di luar maksimum; salinan slide itu menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
 
-Aktifkan label nilai dengan [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). Pengaturan tingkat diagram tidak mengaktifkan tampilan nilai secara otomatis atau menimpa tampilan nilai yang dinonaktifkan pada label individu. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setPosition) untuk menempatkan label di ujung luar setiap kolom.
+Aktifkan label nilai dengan [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Pengaturan pada tingkat diagram tidak mengaktifkan tampilan nilai secara otomatis atau menimpa tampilan nilai yang dinonaktifkan pada label individual. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) untuk menempatkan label di ujung luar setiap kolom.
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +294,19 @@ try {
 }
 ```
 
-Gambar berikut menunjukkan slide yang disimpan yang dirender oleh Microsoft PowerPoint. Dengan `true`, label **120** terlihat pada batas atas; dengan `false`, label tersebut disembunyikan. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** dalam kedua kasus.
+Gambar berikut menampilkan slide yang disimpan dan dirender oleh Microsoft PowerPoint. Dengan `true`, label **120** terlihat pada batas atas; dengan `false`, label tersebut tersembunyi. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** pada kedua kasus.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![Diagram PowerPoint yang menampilkan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-true.png) | ![Diagram PowerPoint yang menyembunyikan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-false.png) |
+| ![Diagram PowerPoint yang menunjukkan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-true.png) | ![Diagram PowerPoint menyembunyikan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Tipe Diagram" %}}
-Contoh ini menggunakan diagram kolom 2D dengan sumbu nilai. Diagram tanpa sumbu nilai, seperti diagram lingkaran dan donat, tidak memiliki maksimum sumbu yang dapat dibatasi dengan cara ini.
+{{% alert color="info" title="Chart Type" %}}
+Contoh ini menggunakan diagram kolom 2D dengan sumbu nilai. Diagram tanpa sumbu nilai, seperti diagram lingkaran dan donat, tidak memiliki maksimum sumbu untuk dibatasi dengan cara ini.
 {{% /alert %}}
 
 ## **Atur Jarak Label dari Sumbu**
 
-Gunakan [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setLabelOffset) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya adalah persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom terkelompok dan menetapkan offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terlampir pada titik data individu.
+Gunakan [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) untuk mengendalikan jarak antara label sumbu kategori dan sumbu. Nilainya berupa persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom berkelompok dan menetapkan offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang melekat pada titik data individu.
 
 ```php
 use aspose\slides\Presentation;
@@ -330,9 +328,9 @@ try {
 
 ## **Sesuaikan Lokasi Label**
 
-Pada diagram lingkaran, sesuaikan posisi label data untuk meningkatkan jarak antar label dan memberi ruang bagi garis penunjuk.
+Pada diagram lingkaran, sesuaikan posisi label data untuk memperbaiki jarak dan memberi ruang bagi garis penuntun.
 
-Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset horizontal serta vertikalnya menggunakan [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) dan [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY). Offset ini relatif terhadap lebar dan tinggi diagram masing‑masing.
+Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan mengatur offset horizontal serta vertikal menggunakan [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) dan [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). Offset ini relatif terhadap lebar dan tinggi diagram masing‑masing.
 
 ```php
 use aspose\slides\Presentation;
@@ -361,11 +359,68 @@ try {
 
 ![Diagram lingkaran dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
 
+## **Format Garis Penuntun**
+
+Ketika label diagram lingkaran berada di luar irisan mereka, garis penuntun membantu pembaca mencocokkan setiap nilai dengan irisan yang tepat. Warna yang kontras dan garis yang sedikit lebih tebal dapat membuat koneksi ini lebih mudah diikuti, sementara transparansi dan gaya putus‑putus menjaga garis tetap tidak mengganggu secara visual.
+
+Gunakan [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) untuk memformat garis penuntun pada tingkat koleksi label data seri. Pengaturan dalam `$series->getLabels()->getLeaderLinesFormat()->getLine()` berlaku untuk seluruh koleksi, bukan untuk label individu.
+
+Contoh ini membuat diagram lingkaran dengan data default, menampilkan nilai di luar irisan, dan mengaktifkan [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). Ia memindahkan dua label lebih jauh dari irisan mereka menggunakan offset [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) dan [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/), yang dinyatakan sebagai pecahan lebar dan tinggi diagram. Tidak diperlukan presentasi masukan.
+
+Format garisnya dengan [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) menetapkan warna biru solid dengan nilai alpha 191 dari 255, memberikan transparansi kira‑kira 25%. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) mengatur ketebalan menjadi 2 poin, dan [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) membuat garis menjadi putus‑putus.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\FillType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 80, 50, 560, 400);
+    $chart->setLegend(false);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+    $labelFormat->setShowValue(true);
+    $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
+    $labelFormat->setShowLeaderLines(true);
+
+    // Pindahkan dua label lebih jauh dari irisan mereka.
+    $series->getLabels()->get_Item(0)->setX(0.10);
+    $series->getLabels()->get_Item(0)->setY(-0.05);
+    $series->getLabels()->get_Item(1)->setX(-0.10);
+    $series->getLabels()->get_Item(1)->setY(0.05);
+
+    $line = $series->getLabels()->getLeaderLinesFormat()->getLine();
+    $line->getFillFormat()->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 30, 90, 160, 191);
+    $line->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+    $line->setWidth(2);
+    $line->setDashStyle(LineDashStyle::Dash);
+
+    $presentation->save("FormattedLeaderLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Mengaktifkan garis penuntun tidak menjamin bahwa sebuah garis akan muncul untuk setiap label. Visibilitas bergantung pada penempatan label dan perilaku tata letak diagram. Dalam contoh ini, dua label yang dipindahkan memiliki garis penuntun yang terlihat; label yang tetap dekat dengan irisan mereka tidak memerlukannya.
+
+Gambar berikut menampilkan `FormattedLeaderLines.pptx` yang disimpan dan dirender dengan Aspose.Slides:
+
+![Diagram lingkaran dengan garis penuntun biru, semi‑transparan, putus‑putus yang menghubungkan dua label luar ke irisan mereka](formatted-leader-lines.png)
+
 ## **Tambahkan Beberapa Baris Label Data di Atas Diagram Kolom**
 
-Contoh ini membuat diagram kolom dengan dua baris label data di atas area plot. Seri A menampilkan kolom yang terlihat, sementara Seri B dan Seri C menyediakan label tambahan. Kolom mereka disembunyikan dengan menghapus isian dan garis tepi. Metode [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) menyelaraskan ketiga seri dengan pusat kategori yang sama.
+Contoh ini membuat diagram kolom dengan dua baris label data di atas area plot. Seri A menampilkan kolom yang terlihat, sementara Seri B dan Seri C menyediakan label tambahan. Kolom mereka disembunyikan dengan menghapus isian dan garis tepi. Metode [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) menyelaraskan ketiga seri pada pusat kategori yang sama.
 
-Pengaturan [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) menyediakan ruang untuk baris label. Setelah [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#validateChartLayout) menghitung posisi default, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) dan [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) mempertahankan perataan horizontal dan menerapkan offset vertikal untuk menyusun label dalam dua baris. Angka tetap menjadi label data yang terhubung ke nilai seri; hanya judul baris yang berupa bentuk teks terpisah.
+Pengaturan [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) menyisakan ruang untuk baris label. Setelah [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) menghitung posisi default, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) dan [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) mempertahankan penyelarasan horizontal dan menerapkan offset vertikal untuk menyusun label dalam dua baris. Angka tetap menjadi label data yang terhubung ke nilai seri; hanya judul baris yang menjadi bentuk teks terpisah.
 
 ```php
 use aspose\slides\Presentation;
@@ -432,11 +487,11 @@ try {
     // Sejajarkan ketiga seri dengan pusat kategori yang sama.
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
-    // Gunakan lebih sedikit garis kisi untuk contoh yang ringkas ini.
+    // Gunakan lebih sedikit garis kisi untuk contoh kompak ini.
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // Cadangkan ruang di atas area plot untuk dua baris label data.
+    // Sediakan ruang di atas plot untuk dua baris label data.
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -454,7 +509,7 @@ try {
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
             // Pertahankan posisi horizontal default. Y adalah offset dari
-            // posisi label default, yang dinyatakan sebagai fraksi tinggi diagram.
+            // posisi label default, dinyatakan sebagai fraksi tinggi diagram.
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
@@ -481,16 +536,17 @@ try {
 
 ![Diagram kolom dengan dua baris label data di atas area plot](multiple-rows-of-labels.png)
 
-## **Tanya Jawab**
+
+## **FAQ**
 
 **Bagaimana saya dapat mencegah label data saling tumpang tindih pada diagram yang padat?**
 
-Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang lebih kecil; jika perlu, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik kunci.
+Gabungkan penempatan label otomatis, garis penuntun, dan ukuran font yang lebih kecil; jika perlu, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrim atau titik penting.
 
 **Bagaimana cara menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
 
-Saring titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
+Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai dengan aturan yang ditentukan.
 
 **Bagaimana saya dapat memastikan gaya label yang konsisten saat mengekspor ke PDF/gambar?**
 
-Tetapkan secara eksplisit keluarga font dan ukuran serta verifikasi bahwa font tersedia di lingkungan rendering untuk menghindari fallback.
+Tetapkan secara eksplisit keluarga dan ukuran font serta pastikan font tersedia di lingkungan rendering untuk menghindari fallback.

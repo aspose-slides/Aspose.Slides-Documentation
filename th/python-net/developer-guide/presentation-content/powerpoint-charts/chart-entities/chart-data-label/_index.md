@@ -14,15 +14,15 @@ keywords:
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Python ผ่าน .NET เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น"
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ Python ผ่าน .NET เพื่อสไลด์ที่น่าสนใจยิ่งขึ้น."
 ---
 ## **บทนำ**
 
-ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย การควบคุมป้ายเหนือค่าสูงสุดของแกน การปรับระยะห่างของป้ายแกนประเภท และการกำหนดตำแหน่งของป้ายแผนภูมิพาย
+ป้ายข้อมูลจะแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย ควบคุมป้ายนอกเหนือค่ามากสุดของแกน การปรับระยะห่างของป้ายแกนประเภท และการจัดตำแหน่งป้ายของแผนภูมิพาย
 
-## **ตั้งค่าความแม่นยำของข้อมูลในป้ายแผนภูมิ**
+## **กำหนดความแม่นยำของข้อมูลในป้ายข้อมูลแผนภูมิ**
 
-ใช้ [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) เพื่อจัดรูปแบบค่าชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลค่าเริ่มต้น แสดงตารางข้อมูลของมัน และเปิดใช้งานป้ายค่าสำหรับชุดแรก รูปแบบ `#,##0.00` แสดงเครื่องหมายคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าตัวพื้นฐาน
+ใช้ [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) เพื่อจัดรูปแบบค่าชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของมัน และเปิดใช้งานป้ายค่าสำหรับชุดข้อมูลแรก รูปแบบ `#,##0.00` จะแสดงตัวคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนแปลงค่าที่อยู่ด้านล่าง
 
 ```python
 import aspose.slides as slides
@@ -43,7 +43,7 @@ with slides.Presentation() as presentation:
 
 ## **แสดงเปอร์เซ็นต์เป็นป้าย**
 
-สำหรับแผนภูมิคอลัมน์ซ้อนกัน ใหคำนวณแต่ละค่เป็นเปอร์เซ็นต์ของผลรวมของหมวดหมู่และกำหนดข้อความไปยัง [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). ตัวอย่างนี้ใช้ข้อมูลแผนภูมิเพียมค่าเริ่มต้นและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งในฟอนต์ขนาด 8 จุด หมวดหมู่ที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ คำนวณข้อความป้ายแบบกำหนดใหม่หากข้อมูลแผนภูมิเปลี่ยนแปลง
+สำหรับแผนภูมิคอลัมน์แบบซ้อนกัน คำนวณแต่ละค่าตามเปอร์เซ็นต์ของผลรวมประเภทของมันและกำหนดข้อความให้กับ [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). ตัวอย่างนี้ใช้ข้อมูลแผนภูมิเบื้องต้นและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งในฟอนต์ขนาด 8 จุด ประเภทที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ คำนวณข้อความป้ายแบบกำหนดเองใหม่หากข้อมูลแผนภูมิมีการเปลี่ยนแปลง
 
 ```python
 import aspose.slides as slides
@@ -90,11 +90,11 @@ with slides.Presentation() as presentation:
     presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตั้งเครื่องหมายเปอร์เซ็นต์ในป้ายข้อมูลแผนภูมิ**
+## **ตั้งสัญลักษณ์เปอร์เซ็นต์กับป้ายข้อมูลแผนภูมิ**
 
-เมื่อค่าถูกจัดเก็บเป็นเศษส่วน ให้ใช้ [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) เพื่อแสดงเปอร์เซ็นต์ ตั้งค่า [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) เป็น `False` เพื่อใช้รูปแบบป้ายแยกจากเซลล์ต้นฉบับ
+เมื่อค่าถูกเก็บเป็นเศษส่วน ใช้ [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) เพื่อแสดงเปอร์เซ็นต์ ตั้งค่า [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) เป็น `False` เพื่อใช้รูปแบบป้ายอย่างอิสระจากเซลล์ต้นฉบับ
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซ้อน 100% พร้อมชุดสีแดงและสีน้ำเงินในสี่หมวดหมู่ แต่ละคู่ของค่ารวมกันได้ 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองชุดใช้ข้อความป้ายสีขาว ขนาด 10 จุด
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบซ้อน 100% ที่มีชุดสีแดงและสีน้ำเงินในสี่ประเภท แต่ละคู่ของค่ารวมกันเป็น 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองชุดใช้ข้อความป้ายสีขาว ขนาด 10 จุด
 
 ```python
 import aspose.slides as slides
@@ -145,7 +145,7 @@ with slides.Presentation() as presentation:
 
 ## **อ่านข้อความจริงของป้ายข้อมูล**
 
-ใช้ [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล วิธีนี้มีประโยชน์เมื่อต้องดึงป้ายสำหรับรายงาน ค้นหาข้อมูลในงานพรีเซนเทชัน หรือยืนยันความถูกต้องของแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบ [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) เริ่มต้นจะผสานชื่อหมวดหมู่ ชื่อชุดข้อมูล และค่าไว้ด้วยกัน จุดหนึ่งจัดรูปแบบค่าของมันเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)
+ใช้ [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล ซึ่งมีประโยชน์เมื่อต้องสกัดป้ายสำหรับรายงาน ค้นหาเนื้อหาในการนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบป้ายข้อมูลเริ่มต้น [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) จะรวมชื่อประเภท ชื่อชุดข้อมูล และค่าเข้าด้วยกัน จุดหนึ่งจัดรูปแบบค่าของมันเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)
 
 ```python
 import aspose.slides as slides
@@ -196,15 +196,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-ค่าที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ป้ายจะแสดง `75%` ร่วมกับชื่อหมวดหมู่และชุดข้อมูล ข้อความกำหนดเองจะแทนที่ข้อความป้ายที่สร้างขึ้น [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) จะคืนสตริงป้ายที่ได้ในทั้งสองกรณี ตรวจสอบ [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) แยกต่างหากตามที่แสดงด้านบนเมื่อคุณต้องการดึงป้ายที่มองเห็นได้เท่านั้น
+ค่าที่เก็บไว้ในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายของมันจะแสดง `75%` พร้อมกับชื่อประเภทและชื่อชุดข้อมูล ข้อความกำหนดเองแทนที่ข้อความป้ายที่สร้างขึ้น [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) จะคืนสตริงป้ายที่ได้ในกรณีใดกรณีหนึ่ง ตรวจสอบ [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) แยกต่างหากตามที่แสดงด้านบนเมื่อคุณต้องการสกัดเฉพาะป้ายที่มองเห็นได้
 
-## **ควบคุมป้ายข้อมูลเหนือค่าสูงสุดของแกน**
+## **ควบคุมป้ายข้อมูลเกินค่ามากสุดของแกน**
 
-เมื่อคุณกำหนดช่วงแกนด้วยตนเอง บางจุดข้อมูลอาจเกินค่าสูงสุดของมัน ใช้ [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) เพื่อควบคุมว่าป้ายข้อมูลของพวกเขาจะแสดงหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้าย; ไม่ทำการเปลี่ยนช่วงแกนหรือค่าข้อมูลพื้นฐาน
+เมื่อคุณจำกัดช่วงแกนด้วยตนเอง จุดข้อมูลบางจุดอาจเกินค่ามากสุดของมัน ใช้ [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) เพื่อควบคุมว่าจะให้แสดงป้ายข้อมูลของมันหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้าย แต่ไม่เปลี่ยนช่วงแกนหรือค่าข้อมูลพื้นฐาน
 
-ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์กระจุก 2D ด้วยค่าที่ 60 และ 120 ตั้งค่า [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) เป็น `False` และ [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) เป็น 100 บนแกนแนวตั้ง สไลด์แรกอนุญาตให้ป้ายเกินค่าสูงสุด; สำเนาของสไลด์นั้นปิดการทำงานของป้าย ทั้งสองสไลด์ถูกบันทึกใน `DataLabelsOverMaximum.pptx`
+ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์แบบกลุ่ม 2D ที่มีค่า 60 และ 120 มันตั้งค่า [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) เป็น `False` และ [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) เป็น 100 บนแกนแนวตั้ง สไลด์แรกอนุญาตให้ป้ายเกินค่ามากสุด; สำเนาของสไลด์นั้นปิดการใช้งานป้าย ทั้งสองสไลด์ถูกบันทึกเป็น `DataLabelsOverMaximum.pptx`.
 
-เปิดใช้งานป้ายค่าโดยใช้ [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). การตั้งค่าที่ระดับแผนภูมิไม่ทำให้แสดงค่าด้วยตนเองหรือแทนที่การปิดการแสดงค่าของป้ายเดี่ยว ตัวอย่างนี้เปิดค่าสำหรับชุดทั้งหมดและใช้ [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) เพื่อวางป้ายที่ปลายนอกของแต่ละคอลัมน์
+เปิดป้ายค่าโดยใช้ [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). การตั้งค่าระดับแผนภูมิไม่ได้เปิดการแสดงค่าด้วยตัวเองหรือเขียนทับการปิดการแสดงค่าของป้ายแต่ละอัน ตัวอย่างนี้เปิดค่าสำหรับชุดข้อมูลทั้งหมดและใช้ [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) เพื่อตำแหน่งป้ายที่ส่วนปลายนอกของแต่ละคอลัมน์。
 
 ```python
 import aspose.slides as slides
@@ -250,19 +250,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ภาพต่อไปนี้แสดงสไลด์ที่บันทึกซึ่งเรนเดอร์โดย Microsoft PowerPoint เมื่อ `True` ป้าย **120** จะปรากฏที่ขอบบน; เมื่อ `False` ป้ายจะซ่อนอยู่ ป้าย **60** ยังคงมองเห็นได้ ค่าสูงสุดของแกนคงที่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
+ภาพต่อไปนี้แสดงสไลด์ที่บันทึกแล้วซึ่งเรนเดอร์โดย Microsoft PowerPoint เมื่อเป็น `True` ป้าย **120** จะมองเห็นได้ที่ขอบบน; เมื่อเป็น `False` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ ค่ามากสุดของแกนยังคงเป็น **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
-| ![แผนภูมิ PowerPoint ที่แสดงป้ายค่ 120 พร้อมค่าสูงสุดของแกนที่ 100](data-labels-over-maximum-true.png) | ![แผนภูมิ PowerPoint ที่ซ่อนป้ายค่ 120 พร้อมค่าสูงสุดของแกนที่ 100](data-labels-over-maximum-false.png) |
+| ![แผนภูมิ PowerPoint แสดงป้ายค่าที่ 120 พร้อมค่ามากสุดของแกนที่ 100](data-labels-over-maximum-true.png) | ![แผนภูมิ PowerPoint ซ่อนป้ายค่าที่ 120 พร้อมค่ามากสุดของแกนที่ 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2D พร้อมแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิวงและโดนัท จะไม่มีค่าสูงสุดของแกนที่จะจำกัดในลักษณะนี้
+ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2D พร้อมกับแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิปายและโดนัท จะไม่มีค่ามากสุดของแกนที่จะจำกัดในลักษณะนี้
 {{% /alert %}}
 
 ## **ตั้งระยะห่างของป้ายจากแกน**
 
-ใช้ [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทกับแกน ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์กระจุกและตั้งค่า offset ของป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภท ไม่ใช่ป้ายที่แนบกับจุดข้อมูลแต่ละจุด
+ใช้ [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทและแกน ค่าจะเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและตั้งค่าออฟเซ็ตป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้มีผลต่อป้ายแกนประเภท มากกว่าป้ายที่แนบกับจุดข้อมูลแต่ละจุด。
 
 ```python
 import aspose.slides as slides
@@ -279,9 +279,9 @@ with slides.Presentation() as presentation:
 
 ## **ปรับตำแหน่งป้าย**
 
-บนแผนภูมิวง ให้ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มระยะห่างและทำให้มีพื้นที่สำหรับเส้นนำ
+บนแผนภูมิปาย ปรับตำแหน่งป้ายข้อมูลเพื่อปรับปรุงการเว้นระยะและเพิ่มพื้นที่สำหรับเส้นนำ
 
-ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายของมันนอกส่วนของสไลซ์ และปรับ offset ของ [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) และ [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) offset เหล่านี้เป็นค่าตามความกว้างและความสูงของแผนภูมิตามลำดับ
+ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายของมันนอกชิ้นส่วน และปรับออฟเซ็ต [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) และ [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) ของมัน ออฟเซ็ตเหล่านี้สัมพันธ์กับความกว้างและความสูงของแผนภูมิตามลำดับ
 
 ```python
 import aspose.slides as slides
@@ -302,13 +302,62 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![แผนภูมิวงที่ปรับตำแหน่งป้ายข้อมูล](pie-chart-adjusted-label.png)
+![แผนภูมิปายกับตำแหน่งป้ายข้อมูลที่ปรับแล้ว](pie-chart-adjusted-label.png)
+
+## **จัดรูปแบบเส้นนำ**
+
+เมื่อป้ายแผนภูมิปายอยู่ด้านนอกชิ้นส่วน เส้นนำช่วยให้ผู้อ่านจับคู่ค่ากับชิ้นส่วนที่ถูกต้อง สีที่ตัดกันและเส้นที่หนาขึ้นเล็กน้อยสามารถทำให้การเชื่อมต่อเหล่านี้ง่ายต่อการตามได้ ขณะที่ความโปร่งใสและสไตล์เส้นประทำให้เส้นดูไม่รบกวนสายตา
+
+ใช้ [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) เพื่อจัดรูปแบบเส้นนำระดับคอลเลกชันป้ายข้อมูลของชุดข้อมูล การตั้งค่าใน `series.labels.leader_lines_format.line` จะใช้กับคอลเลกชัน ไม่ใช่กับป้ายเดี่ยว
+
+ตัวอย่างนี้สร้างแผนภูมิปายด้วยข้อมูลเริ่มต้น แสดงค่านอกชิ้นส่วน และเปิดใช้งาน [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). มันย้ายป้ายสองอันให้ห่างจากชิ้นส่วนมากขึ้นโดยใช้ [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) และ [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) ออฟเซ็ต ซึ่งแสดงเป็นเศษส่วนของความกว้างและความสูงของแผนภูมิ ไม่จำเป็นต้องมีพรีเซนเทชันเข้า
+
+เส้นที่มี [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) ตั้งค่าสีฟ้าแบบทึบโดยมีค่าอัลฟ่า 191 จาก 255 ทำให้มีความโปร่งใสประมาณ 25% [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) ตั้งความหนาเป็น 2 จุด และ [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) ทำให้เส้นเป็นแบบประหยัด
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 80, 50, 560, 400)
+    chart.has_legend = False
+
+    series = chart.chart_data.series[0]
+
+    label_format = series.labels.default_data_label_format
+    label_format.show_value = True
+    label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
+    label_format.show_leader_lines = True
+
+    # ย้ายป้ายสองอันให้ห่างจากชิ้นส่วนของมันมากขึ้น.
+    series.labels[0].x = 0.10
+    series.labels[0].y = -0.05
+    series.labels[1].x = -0.10
+    series.labels[1].y = 0.05
+
+    line = series.labels.leader_lines_format.line
+    line.fill_format.fill_type = slides.FillType.SOLID
+    line.fill_format.solid_fill_color.color = drawing.Color.from_argb(191, 30, 90, 160)
+    line.width = 2
+    line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+การเปิดใช้เส้นนำไม่ได้รับประกันว่าจะมีเส้นสำหรับทุกป้าย การมองเห็นขึ้นอยู่กับการวางป้ายและพฤติกรรมการจัดรูปแบบของแผนภูมิ ในตัวอย่างนี้ ป้ายที่ย้ายออกสองอันมีเส้นนำที่มองเห็นได้ ป้ายที่ยังคงอยู่ใกล้ชิ้นส่วนไม่ต้องการเส้นนำ
+
+ภาพต่อไปนี้แสดงไฟล์ `FormattedLeaderLines.pptx` ที่บันทึกแล้วและเรนเดอร์ด้วย Aspose.Slides:
+
+![แผนภูมิปายกับเส้นนำสีฟ้าแบบประหยัด กึ่งโปร่งใส ที่เชื่อมต่อป้ายสองอันด้านนอกกับชิ้นส่วนของมัน](formatted-leader-lines.png)
 
 ## **เพิ่มหลายแถวของป้ายข้อมูลเหนือแผนภูมิคอลัมน์**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์พร้อมสองแถวของป้ายข้อมูลเหนือพื้นที่พล็อต ชุด A แสดงคอลัมน์ที่มองเห็นได้ ในขณะที่ชุด B และชุด C ให้ป้ายเพิ่มเติม คอลัมน์ของพวกเขาถูกซ่อนโดยการลบการเติมสีและเส้นขอบ คุณสมบัติ [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) ทำให้ทั้งสามชุดจัดแนวตรงกับศูนย์กลางหมวดหมู่เดียวกัน
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ที่มีสองแถวของป้ายข้อมูลอยู่เหนือพื้นที่พล็อต คุณลักษณะของชุดข้อมูล A แสดงคอลัมน์ที่มองเห็นได้ ในขณะที่ชุดข้อมูล B และ C ให้ป้ายเพิ่มเติม คอลัมน์ของพวกมันถูกซ่อนโดยการลบสีเติมและเส้นขอบ คุณลักษณะ [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) ทำให้ชุดข้อมูลทั้งสามจัดตำแหน่งศูนย์กลางประเภทเดียวกัน
 
-การตั้งค่า [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) สงวนพื้นที่สำหรับแถวของป้าย หลังจากที่ [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) คำนวณตำแหน่งเริ่มต้นแล้ว [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) และ [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) จะรักษาการจัดแนวนอนและใช้ offset แนวตั้งเพื่อจัดเรียงป้ายเป็นสองแถว ตัวเลขยังคงเป็นป้ายข้อมูลที่เชื่อมโยงกับค่าชุด แต่หัวแถวเป็นรูปร่างข้อความแยกต่างหาก
+การตั้งค่า [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) จองพื้นที่สำหรับแถวป้าย หลังจากที่ [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) คำนวณตำแหน่งเริ่มต้นแล้ว [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) และ [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) จะรักษาการจัดแนวนอนและใช้การออฟเซ็ตแนวตั้งเพื่อจัดเรียงป้ายในสองแถว ตัวเลขยังคงเป็นป้ายข้อมูลที่เชื่อมโยงกับค่าชุดข้อมูล; เฉพาะหัวแถวเป็นรูปแบบข้อความแยก
 
 ```python
 import aspose.slides as slides
@@ -350,7 +399,7 @@ with slides.Presentation() as presentation:
             series.data_points.add_data_point_for_bar_series(value_cell)
 
         if series_index > 0:
-            # ซ่อนคอลัมน์ของ B และ C แต่คงป้ายข้อมูลไว้
+            # ซ่อนคอลัมน์ของ B และ C แต่ยังคงป้ายข้อมูลไว้.
             series.format.fill.fill_type = slides.FillType.NO_FILL
             series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
             label_format = series.labels.default_data_label_format
@@ -361,14 +410,14 @@ with slides.Presentation() as presentation:
             label_fill.solid_fill_color.color = drawing.Color.black
             label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
 
-    # จัดแนวสามชุดข้อมูลให้ตรงกับศูนย์กลางของหมวดหมู่เดียวกัน
+    # จัดตำแหน่งชุดข้อมูลทั้งสามให้ตรงกับศูนย์กลางประเภทเดียวกัน.
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
-    # ใช้เส้นตารางน้อยลงสำหรับตัวอย่างที่กระชับนี้
+    # ใช้เส้นตารางน้อยลงสำหรับตัวอย่างแบบกะทัดรัดนี้.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # จองพื้นที่เหนือพล็อตสำหรับสองแถวของป้ายข้อมูล
+    # จองพื้นที่เหนือพื้นที่พล็อตสำหรับสองแถวของป้ายข้อมูล.
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -382,12 +431,12 @@ with slides.Presentation() as presentation:
 
         for category_index in range(len(categories)):
             data_label = series.data_points[category_index].label
-            # คงตำแหน่งแนวนอนเริ่มต้น. Y เป็นการชดเชยจาก
-            # ตำแหน่งป้ายเริ่มต้น, แสดงเป็นส่วนของความสูงแผนภูมิ
+            # รักษาตำแหน่งแนวนอนเริ่มต้นไว้ Y เป็นการชดเชยจาก
+            # ตำแหน่งป้ายเริ่มต้น, แสดงเป็นส่วนของความสูงแผนภูมิ.
             data_label.x = 0
             data_label.y = row_top - data_label.actual_y / chart.height
 
-        # เพียงหัวแถวเท่านั้นที่เป็นรูปข้อความแยกต่างหาก
+        # เฉพาะหัวแถวเท่านั้นที่เป็นรูปร่างข้อความแยก.
         row_heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, chart.x, chart.y + row_top * chart.height, 85, 18)
         row_heading.fill_format.fill_type = slides.FillType.NO_FILL
         row_heading.line_format.fill_format.fill_type = slides.FillType.NO_FILL
@@ -402,15 +451,15 @@ with slides.Presentation() as presentation:
     presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![แผนภูมิคอลัมน์พร้อมสองแถวของป้ายข้อมูลเหนือพื้นที่พล็อต](multiple-rows-of-labels.png)
+![แผนภูมิคอลัมน์ที่มีสองแถวของป้ายข้อมูลเหนือพื้นที่พล็อต](multiple-rows-of-labels.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันการทับซ้อนของป้ายข้อมูลบนแผนภูมิที่แน่นได้อย่างไร?**  
-ผสานการวางป้ายอัตโนมัติ, เส้นนำ, และขนาดฟอนต์ที่ลดลง; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น หมวดหมู่) หรือแสดงป้ายเฉพาะค่าที่สุดยอดหรือจุดสำคัญ
+**ฉันจะป้องกันไม่ให้ป้ายข้อมูลซ้อนทับกันบนแผนภูมิที่แน่นหนาได้อย่างไร?**  
+ผสานการวางป้ายอัตโนมัติ, เส้นนำ, และลดขนาดฟอนต์; หากจำเป็น ให้ซ่อนบางฟิลด์ (เช่น ประเภท) หรือแสดงป้ายเฉพาะค่าสูงสุดหรือจุดสำคัญเท่านั้น
 
-**ฉันจะปิดการทำงานของป้ายสำหรับค่าเป็นศูนย์, ลบ, หรือว่างได้อย่างไร?**  
-กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงผลสำหรับค่าที่เป็น 0, ค่าลบ, หรือค่าที่ขาดหายไปตามกฎที่กำหนด
+**ฉันจะปิดการใช้งานป้ายเฉพาะค่าศูนย์, ค่าเป็นลบ, หรือค่าว่างได้อย่างไร?**  
+กรองจุดข้อมูลก่อนเปิดป้ายและปิดการแสดงผลสำหรับค่าที่เป็น 0, ค่าเป็นลบ, หรือค่าที่หายไปตามกฎที่กำหนด
 
-**ฉันจะทำให้สไตล์ป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**  
-ตั้งค่าครอบครัวฟอนต์และขนาดอย่างชัดเจนและตรวจสอบว่าฟอนต์พร้อมใช้งานในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง
+**ฉันจะทำให้สไตล์ของป้ายคงที่เมื่อตีออกเป็น PDF/รูปภาพได้อย่างไร?**  
+ตั้งค่าครอบครัวฟอนต์และขนาดอย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง

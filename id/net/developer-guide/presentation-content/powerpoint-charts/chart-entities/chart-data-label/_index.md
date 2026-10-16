@@ -1,29 +1,29 @@
 ---
-title: Kelola Label Data Bagan dalam Presentasi di .NET
+title: Kelola Label Data Grafik dalam Presentasi di .NET
 linktitle: Label Data
 type: docs
 url: /id/net/chart-data-label/
 keywords:
-- bagan
+- grafik
 - label data
 - presisi data
 - persentase
 - jarak label
-- lokasi label
+- posisi label
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan memformat label data bagan dalam presentasi PowerPoint menggunakan Aspose.Slides untuk .NET untuk slide yang lebih menarik."
+description: "Pelajari cara menambahkan dan memformat label data grafik dalam presentasi PowerPoint menggunakan Aspose.Slides untuk .NET agar slide lebih menarik."
 ---
 ## **Pendahuluan**
 
-Label data menampilkan informasi tentang rangkaian bagan dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami bagan. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengontrol label di luar batas maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan menempatkan label bagan pai.
+Label data menampilkan informasi tentang seri grafik dan titik data individual, membantu pembaca mengidentifikasi nilai dan memahami grafik. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengontrol label di luar nilai maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label grafik lingkaran.
 
-## **Set Data Precision in Chart Data Labels**
+## **Mengatur Presisi Data pada Label Data Grafik**
 
-Gunakan [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) untuk memformat nilai seri. Contoh ini membuat bagan garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai dasarnya.
+Gunakan [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) untuk memformat nilai seri. Contoh ini membuat grafik garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai sebenarnya.
 
 ```csharp
 using Aspose.Slides;
@@ -43,9 +43,9 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Display Percentage as Labels**
+## **Menampilkan Persentase sebagai Label**
 
-Untuk bagan kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teksnya ke [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Contoh ini menggunakan data bagan default dan menampilkan persentase dengan dua tempat desimal dalam font ukuran 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data bagan berubah.
+Untuk grafik kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teks ke [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Contoh ini menggunakan data grafik default dan menampilkan persentase dengan dua tempat desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data grafik berubah.
 
 ```csharp
 using System;
@@ -106,11 +106,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Set Percentage Sign with Chart Data Labels**
+## **Menetapkan Tanda Persentase pada Label Data Grafik**
 
 Ketika nilai disimpan sebagai pecahan, gunakan [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) untuk menampilkan persentase. Atur [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) ke `false` untuk menerapkan format label secara independen dari sel sumber.
 
-Contoh ini membuat bagan kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlahkan menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label berwarna putih, ukuran 10 poin.
+Contoh ini membuat grafik kolom 100% bertumpuk dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai berjumlah 1. Format label `0.0%` menampilkan 0,30 sebagai 30,0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label berwarna putih berukuran 10 poin.
 
 ```csharp
 using System.Drawing;
@@ -166,9 +166,9 @@ for (int i = 0; i < seriesNames.Length; i++)
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Read the Actual Text of Data Labels**
+## **Membaca Teks Aktual dari Label Data**
 
-Gunakan [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi bagan yang dihasilkan. Pada contoh di bawah, [format label data](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) default menggabungkan setiap nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks khusus dari [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Gunakan [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi grafik yang dihasilkan. Pada contoh di bawah, format [label data](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) default menggabungkan nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks khusus dari [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -222,15 +222,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Angka yang disimpan dalam suatu titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
+Angka yang disimpan dalam titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda hanya ingin mengekstrak label yang terlihat.
 
-## **Control Data Labels Beyond the Axis Maximum**
+## **Mengontrol Label Data di Luar Nilai Maksimum Sumbu**
 
-Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data mungkin melebihi maksimum sumbu. Gunakan [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) untuk mengontrol apakah label data mereka ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data dasarnya.
+Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data mungkin melebihi nilai maksimum. Gunakan [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) untuk mengontrol apakah label data mereka ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data yang mendasarinya.
 
-Contoh di bawah membuat bagan kolom berkelompok 2D dengan nilai 60 dan 120. Ia mengatur [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) ke `false` dan [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) ke 100 pada sumbu vertikal. Slide pertama memperbolehkan label di luar maksimum; salinan slide tersebut menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
+Contoh di bawah membuat grafik kolom berkelompok 2D dengan nilai 60 dan 120. Ia mengatur [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) ke `false` dan [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) ke 100 pada sumbu vertikal. Slide pertama mengizinkan label di luar maksimum; salinan slide tersebut menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
 
-Aktifkan label nilai dengan [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Pengaturan pada tingkat bagan tidak mengaktifkan tampilan nilai secara otomatis atau menggantikan penonaktifan tampilan nilai pada label individu. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) untuk menempatkan label di ujung luar setiap kolom.
+Aktifkan label nilai dengan [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Pengaturan tingkat grafik tidak mengaktifkan tampilan nilai secara otomatis atau menggantikan tampilan nilai yang dinonaktifkan pada label individual. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) untuk menempatkan label di ujung luar masing‑masing kolom.
 
 ```csharp
 using Aspose.Slides;
@@ -277,19 +277,21 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-Gambar-gambar berikut menampilkan slide yang disimpan yang dirender oleh Microsoft PowerPoint. Dengan `true`, label **120** terlihat di batas atas; dengan `false`, label tersebut disembunyikan. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** dalam kedua kasus.
+Gambar berikut menunjukkan slide yang disimpan dan dirender oleh Microsoft PowerPoint. Dengan `true`, label **120** terlihat pada batas atas; dengan `false`, label tersebut disembunyikan. Label **60** tetap terlihat, nilai maksimum sumbu tetap **100**, dan titik data kedua tetap **120** dalam kedua kasus.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![Bagan PowerPoint yang menampilkan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-true.png) | ![Bagan PowerPoint yang menyembunyikan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Contoh ini menggunakan bagan kolom 2D dengan sumbu nilai. Bagan tanpa sumbu nilai, seperti bagan pai dan donat, tidak memiliki maksimum sumbu untuk dibatasi dengan cara ini.
+
+Contoh ini menggunakan grafik kolom 2D dengan sumbu nilai. Grafik tanpa sumbu nilai, seperti grafik lingkaran dan donat, tidak memiliki nilai maksimum sumbu untuk dibatasi dengan cara ini.
+
 {{% /alert %}}
 
-## **Set Label Distance from an Axis**
+## **Mengatur Jarak Label dari Sumbu**
 
-Gunakan [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya adalah persentase dari ukuran font maksimum label sumbu. Contoh ini membuat bagan kolom berkelompok dan mengatur offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori bukan label yang terpasang pada titik data individu.
+Gunakan [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya adalah persentase dari ukuran font maksimum label sumbu. Contoh ini membuat grafik kolom berkelompok dan mengatur offset label sumbu horizontal ke 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terpasang pada titik data individual.
 
 ```csharp
 using Aspose.Slides;
@@ -305,11 +307,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Adjust Label Location**
+## **Menyesuaikan Posisi Label**
 
-Pada bagan pai, sesuaikan posisi label data untuk memperbaiki jarak dan memberikan ruang bagi garis penunjuk.
+Pada grafik lingkaran, sesuaikan posisi label data untuk memperbaiki jarak dan memberi ruang bagi garis penunjuk.
 
-Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) dan [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Offset ini relatif terhadap lebar dan tinggi bagan, masing-masing.
+Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) dan [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Offset ini relatif terhadap lebar dan tinggi grafik masing‑masing.
 
 ```csharp
 using Aspose.Slides;
@@ -331,15 +333,66 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Bagan pai dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Add Multiple Rows of Data Labels Above a Column Chart**
+## **Memformat Garis Penunjuk**
 
-Contoh ini membuat bagan kolom dengan dua baris label data di atas area plot. Seri A menampilkan kolom yang terlihat, sedangkan Seri B dan Seri C menyediakan label tambahan. Kolom mereka disembunyikan dengan menghapus isian dan garis tepi. Properti [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) menyelaraskan ketiga seri dengan pusat kategori yang sama.
+Ketika label grafik lingkaran berada di luar irisan, garis penunjuk membantu pembaca mencocokkan setiap nilai dengan irisan yang tepat. Warna yang kontras dan garis yang sedikit lebih tebal dapat membuat koneksi ini lebih mudah diikuti, sementara transparansi dan gaya garis putus‑putus menjaga garis tetap tidak mengganggu secara visual.
 
-Pengaturan [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) menyisakan ruang untuk baris label. Setelah [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) menghitung posisi default, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) dan [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) menjaga kesejajaran horizontal dan menerapkan offset vertikal untuk menata label dalam dua baris. Angka-angka tetap menjadi label data yang terhubung ke nilai seri; hanya judul baris yang berupa bentuk teks terpisah.
+Gunakan [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) untuk memformat garis penunjuk pada tingkat koleksi label data seri. Pengaturan di `series.Labels.LeaderLinesFormat.Line` berlaku untuk seluruh koleksi, bukan untuk label individual.
+
+Contoh ini membuat grafik lingkaran dengan data default, menampilkan nilai di luar irisan, dan mengaktifkan [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). Ia memindahkan dua label lebih jauh dari irisan mereka menggunakan offset [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) dan [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/), yang dinyatakan sebagai pecahan dari lebar dan tinggi grafik. Tidak diperlukan presentasi masukan.
+
+[FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) garis mengatur warna biru solid dengan nilai alfa 191 dari 255, memberikan transparansi sekitar 25%. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) mengatur ketebalan menjadi 2 poin, dan [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) membuat garis menjadi putus‑putus.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 80, 50, 560, 400);
+chart.HasLegend = false;
+
+var series = chart.ChartData.Series[0];
+
+var labelFormat = series.Labels.DefaultDataLabelFormat;
+labelFormat.ShowValue = true;
+labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+labelFormat.ShowLeaderLines = true;
+
+// Pindahkan dua label lebih jauh dari irisan mereka.
+series.Labels[0].X = 0.10f;
+series.Labels[0].Y = -0.05f;
+series.Labels[1].X = -0.10f;
+series.Labels[1].Y = 0.05f;
+
+var line = series.Labels.LeaderLinesFormat.Line;
+line.FillFormat.FillType = FillType.Solid;
+line.FillFormat.SolidFillColor.Color = Color.FromArgb(191, 30, 90, 160);
+line.Width = 2;
+line.DashStyle = LineDashStyle.Dash;
+
+presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
+```
+
+Mengaktifkan garis penunjuk tidak menjamin bahwa garis akan muncul untuk setiap label. Visibilitas tergantung pada penempatan label dan perilaku tata letak grafik. Pada contoh ini, dua label yang dipindahkan memiliki garis penunjuk yang terlihat; label yang tetap dekat dengan irisan tidak memerlukannya.
+
+Gambar berikut menunjukkan file `FormattedLeaderLines.pptx` yang disimpan dan dirender dengan Aspose.Slides:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+
+## **Menambahkan Beberapa Baris Label Data di Atas Grafik Kolom**
+
+Contoh ini membuat grafik kolom dengan dua baris label data di atas area plot. Seri A menampilkan kolom yang terlihat, sementara Seri B dan Seri C menyediakan label tambahan. Kolom mereka disembunyikan dengan menghapus isian dan garis tepi. Properti [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) menyelaraskan ketiga seri dengan pusat kategori yang sama.
+
+Pengaturan [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) menyisakan ruang untuk baris label. Setelah [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) menghitung posisi default, [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) dan [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) mempertahankan penyelarasan horizontal dan menerapkan offset vertikal untuk menata label dalam dua baris. Angka tetap menjadi label data yang terhubung ke nilai seri; hanya judul baris yang berupa bentuk teks terpisah.
+
+```csharp
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
@@ -385,7 +438,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // Sembunyikan kolom B dan C, tetapi tetap pertahankan label data mereka.
+        // Sembunyikan kolom B dan C, tetapi pertahankan label data mereka.
         series.Format.Fill.FillType = FillType.NoFill;
         series.Format.Line.FillFormat.FillType = FillType.NoFill;
         var labelFormat = series.Labels.DefaultDataLabelFormat;
@@ -401,11 +454,11 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 // Selaraskan ketiga seri dengan pusat kategori yang sama.
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
-// Gunakan lebih sedikit garis kisi untuk contoh yang ringkas ini.
+// Gunakan lebih sedikit garis kisi untuk contoh kompak ini.
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// Sisihkan ruang di atas area plot untuk dua baris label data.
+// Sediakan ruang di atas area plot untuk dua baris label data.
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -422,12 +475,12 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
         // Pertahankan posisi horizontal default. Y adalah offset dari
-        // posisi label default, dinyatakan sebagai fraksi tinggi bagan.
+        // posisi label default, yang dinyatakan sebagai fraksi tinggi grafik.
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
 
-    // Hanya heading baris yang merupakan bentuk teks terpisah.
+    // Hanya judul baris yang merupakan bentuk teks terpisah.
     var rowHeading = slide.Shapes.AddAutoShape(ShapeType.Rectangle, chart.X, chart.Y + rowTop * chart.Height, 85, 18);
     rowHeading.FillFormat.FillType = FillType.NoFill;
     rowHeading.LineFormat.FillFormat.FillType = FillType.NoFill;
@@ -443,18 +496,18 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![Bagan kolom dengan dua baris label data di atas area plot](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Bagaimana saya dapat mencegah label data saling tumpang tindih pada bagan yang padat?**
+**Bagaimana cara mencegah label data saling bertumpuk pada grafik yang padat?**
 
-Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang lebih kecil; jika diperlukan, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrem atau poin kunci.
+Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang lebih kecil; jika perlu, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik kunci.
 
-**Bagaimana saya dapat menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
+**Bagaimana cara menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
 
-Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai dengan aturan yang ditentukan.
+Saring titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
 
-**Bagaimana saya dapat memastikan gaya label yang konsisten saat mengekspor ke PDF/gambar?**
+**Bagaimana cara memastikan gaya label konsisten saat mengekspor ke PDF/gambar?**
 
-Secara eksplisit tetapkan keluarga font dan ukuran serta verifikasi bahwa font tersedia di lingkungan render untuk menghindari fallback.
+Tetapkan secara eksplisit keluarga dan ukuran font serta verifikasi bahwa font tersedia di lingkungan rendering untuk menghindari fallback.

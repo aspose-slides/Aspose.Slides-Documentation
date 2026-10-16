@@ -1,5 +1,5 @@
 ---
-title: C++ का उपयोग करके प्रस्तुतियों में चार्ट डेटा लेबल प्रबंधित करें
+title: प्रस्तुतीकरण में C++ का उपयोग करके चार्ट डेटा लेबल प्रबंधित करें
 linktitle: डेटा लेबल
 type: docs
 url: /hi/cpp/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और स्वरूपित करने के बारे में जानें ताकि अधिक आकर्षक स्लाइड बन सकें।"
+description: "Aspose.Slides for C++ का उपयोग करके PowerPoint प्रस्तुतीकरण में चार्ट डेटा लेबल जोड़ने और स्वरूपित करने के लिए सीखें, जिससे अधिक आकर्षक स्लाइड बनें।"
 ---
 ## **परिचय**
 
-डेटा लेबल्स चार्ट सीरीज़ और व्यक्तिगत डेटा पॉइंट्स की जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मानों की पहचान करने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे स्वरूपित करें, प्रतिशत कैसे प्रदर्शित करें, लेबल टेक्स्ट को कैसे पढ़ें, अक्ष अधिकतम से परे लेबल्स को कैसे नियंत्रित करें, श्रेणी अक्ष लेबल स्पेसिंग को कैसे समायोजित करें, और पाई चार्ट लेबल्स को कैसे स्थित करें।
+डेटा लेबल चार्ट सीरीज़ और व्यक्तिगत डेटा पॉइंट्स के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे स्वरूपित करें, प्रतिशत कैसे प्रदर्शित करें, लेबल पाठ को कैसे पढ़ें, अक्ष अधिकतम से परे लेबल को कैसे नियंत्रित करें, श्रेणी अक्ष लेबल स्पेसिंग को कैसे समायोजित करें, और पाई चार्ट लेबल को कैसे स्थित करें।
 
-## **चार्ट डेटा लेबल्स में डेटा सटीकता सेट करें**
+## **चार्ट डेटा लेबल में डेटा सटीकता सेट करें**
 
-सीरीज़ मानों को स्वरूपित करने के लिए [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसकी डेटा टेबल दिखाता है, और पहली सीरीज़ के लिए मान लेबल्स सक्षम करता है। स्वरूप `#,##0.00` हजार विभाजक और दो दशमलव स्थान दिखाता है बिना अंतर्निहित मानों को बदले।
+Use [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,9 +57,9 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **लेबल्स के रूप में प्रतिशत दिखाएँ**
+## **लेबल के रूप में प्रतिशत प्रदर्शित करें**
 
-एक स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसके श्रेणी कुल का प्रतिशत गणना करें और टेक्स्ट को उस टेक्स्ट फ्रेम में असाइन करें जो [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) द्वारा लौटाया जाता है। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8 पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत प्रदर्शित करता है। शून्य कुल वाली श्रेणियों को शून्य से भाग देने से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
+स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी के कुल का प्रतिशत निकालें और पाठ को उस टेक्स्ट फ्रेम को असाइन करें जो [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) द्वारा लौटाया जाता है। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8 पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत प्रदर्शित करता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -147,11 +147,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **चार्ट डेटा लेबल्स के साथ प्रतिशत संकेत सेट करें**
+## **चार्ट डेटा लेबल के साथ प्रतिशत संकेत सेट करें**
 
-जब मान अंश के रूप में संग्रहीत होते हैं, तो प्रतिशत प्रदर्शित करने के लिए [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) का उपयोग करें। स्रोत कोशिकाओं से स्वतंत्र रूप से लेबल स्वरूप लागू करने के लिए [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) को `false` पास करें।
+जब मान अंश के रूप में संग्रहीत होते हैं, तो प्रतिशत प्रदर्शित करने के लिए [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) को `false` पास करें।
 
-यह उदाहरण चार श्रेणियों में लाल और नीली सीरीज़ के साथ 100 % स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान की जोड़ी का योग 1 होता है। लेबल स्वरूप `0.0%` 0.30 को 30.0 % के रूप में दिखाता है, जबकि लंबवत अक्ष दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ सफ़ेद, 10‑पॉइंट लेबल टेक्स्ट उपयोग करती हैं।
+यह उदाहरण चार श्रेणियों में लाल और नीले सीरीज़ के साथ एक 100% स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान जोड़ी का योग 1 होता है। लेबल फॉर्मेट `0.0%` 0.30 को 30.0% दिखाता है, जबकि लंबवत अक्ष दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ सफेद, 10 पॉइंट लेबल टेक्स्ट का उपयोग करती हैं।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -236,9 +236,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **डेटा लेबल्स का वास्तविक टेक्स्ट पढ़ें**
+## **डेटा लेबल के वास्तविक टेक्स्ट को पढ़ें**
 
-[GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) का उपयोग करके डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट प्राप्त करें। रिपोर्टों के लिए लेबल निकाले, प्रस्तुति सामग्री खोजे, या उत्पन्न चार्ट का सत्यापन करने में यह उपयोगी है। नीचे के उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम और मान को जोड़ता है। एक पॉइंट अपना मान प्रतिशत के रूप में स्वरूपित करता है, और दूसरा [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) से कस्टम टेक्स्ट उपयोग करता है।
+डेटा लेबल सेटिंग्स द्वारा निर्मित टेक्स्ट प्राप्त करने के लिए [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) का उपयोग करें। यह रिपोर्टों के लिए लेबल निकालते समय, प्रस्तुति सामग्री खोजते समय, या उत्पन्न चार्ट्स को सत्यापित करते समय उपयोगी है। नीचे के उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) प्रत्येक श्रेणी नाम, श्रृंखला नाम, और मान को मिलाता है। एक बिंदु अपने मान को प्रतिशत के रूप में स्वरूपित करता है, और दूसरा [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) से कस्टम टेक्स्ट उपयोग करता है।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +326,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-डेटा पॉइंट में संग्रहीत संख्या `0.75` बनी रहती है, चाहे उसका लेबल `75%` के साथ श्रेणी और सीरीज़ नाम दिखाए। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को बदल देता है। [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) किसी भी स्थिति में परिणामस्वरूप लेबल स्ट्रिंग लौटाता है। जब आप केवल दृश्यमान लेबल्स निकालना चाहते हैं, तो ऊपर दिखाए अनुसार [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) को अलग से जांचें।
+डेटा पॉइंट में संग्रहीत संख्या `0.75` बनी रहती है, भले ही उसका लेबल `75%` को श्रेणी और श्रृंखला नामों के साथ दिखाए। कस्टम टेक्स्ट तैयार किए गए लेबल टेक्स्ट को प्रतिस्थापित करता है। [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) दोनों मामलों में परिणामस्वरूप लेबल स्ट्रिंग लौटाता है। केवल दृश्यमान लेबल निकालना चाहते हैं तो ऊपर दिखाए अनुसार स्वतंत्र रूप से [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) जांचें।
 
-## **अक्ष अधिकतम से परे डेटा लेबल्स को नियंत्रित करें**
+## **अक्ष अधिकतम से परे डेटा लेबल नियंत्रित करें**
 
-जब आप मैन्युअल रूप से अक्ष सीमा सीमित करते हैं, तो कुछ डेटा पॉइंट्स उसकी अधिकतम से अधिक हो सकते हैं। यह नियंत्रित करने के लिए [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) का उपयोग करें कि उनके डेटा लेबल दिखाए जाएँ या नहीं। यह सेटिंग लेबल की दृश्यता बदलती है; यह अक्ष सीमा या अंतर्निहित डेटा मानों को नहीं बदलती।
+जब आप मैन्युअली अक्ष रेंज सीमित करते हैं, तो कुछ डेटा पॉइंट्स अधिकतम से अधिक हो सकते हैं। इनके डेटा लेबल दिखाए जाने को नियंत्रित करने के लिए [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) का उपयोग करें। यह सेटिंग लेबल की दृश्यमानता बदलती है; यह अक्ष रेंज या मूल डेटा मानों को नहीं बदलती।
 
-नीचे का उदाहरण 60 और 120 मानों के साथ 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह लंबवत अक्ष पर [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) को `false` और [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) को 100 सेट करता है। पहली स्लाइड अधिकतम से परे लेबल की अनुमति देती है; उसकी एक प्रति उन्हें अक्षम करती है। दोनों स्लाइड्स `DataLabelsOverMaximum.pptx` में सहेजी गई हैं।
+नीचे का उदाहरण 60 और 120 मानों के साथ एक 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह लंबवत अक्ष पर [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) को `false` और [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) को 100 सेट करता है। पहली स्लाइड अधिकतम से परे लेबल की अनुमति देती है; उस स्लाइड की एक कॉपी उन्हें अक्षम करती है। दोनों स्लाइड्स `DataLabelsOverMaximum.pptx` में सहेजी गई हैं।
 
-[set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) से मान लेबल सक्षम करें। चार्ट‑स्तर का यह सेटिंग स्वयं मान प्रदर्शित नहीं करता और न ही व्यक्तिगत लेबल की अक्षम मान प्रदर्शनी को ओवरराइड करता है। यह उदाहरण पूरी सीरीज़ के लिए मान सक्षम करता है और [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) का उपयोग करके प्रत्येक कॉलम के बाहरी छोर पर लेबल रखता है।
+[set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) के साथ मान लेबल सक्षम करें। चार्ट-स्तर की यह सेटिंग स्वयं मान प्रदर्शन को सक्षम नहीं करती या व्यक्तिगत लेबल के अक्षम मान प्रदर्शन को ओवरराइड नहीं करती। यह उदाहरण पूरी श्रृंखला के लिए मान सक्षम करता है और [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) का उपयोग करके प्रत्येक कॉलम के बाहर के अंत में लेबल रखता है।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,19 +405,20 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-नीचे की छवियों में Microsoft PowerPoint द्वारा रेंडर किए गए सहेजे गए स्लाइड दिखाए गए हैं। `true` के साथ लेबल **120** ऊपर की सीमा पर दिखाई देता है; `false` के साथ वह छिपा रहता है। लेबल **60** दृश्य रहता है, अक्ष अधिकतम **100** पर बना रहता है, और दूसरा डेटा पॉइंट दोनों मामलों में **120** ही रहता है।
+निम्नलिखित चित्र Microsoft PowerPoint द्वारा रेंडर की गई सहेजी गई स्लाइड्स को दिखाते हैं। `true` होने पर लेबल **120** ऊपरी सीमा पर दिखाई देता है; `false` होने पर यह छुपा रहता है। लेबल **60** दृश्यमान रहता है, अक्ष अधिकतम **100** पर बना रहता है, और दूसरा डेटा पॉइंट दोनों मामलों में **120** ही रहता है।
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-यह उदाहरण मान‑अक्ष के साथ 2D कॉलम चार्ट का उपयोग करता है। पाई और डोनट चार्ट जैसे बिना मान‑अक्ष वाले चार्ट्स में इस तरह का अक्ष अधिकतम सीमित नहीं किया जा सकता।
+यह उदाहरण मूल्य अक्ष के साथ एक 2D कॉलम चार्ट का उपयोग करता है। मूल्य अक्ष के बिना चार्ट, जैसे पाई और डोनट चार्ट, इस प्रकार अक्ष अधिकतम को सीमित नहीं कर सकते।
 {{% /alert %}}
 
-## **अक्ष से लेबल दूरी सेट करें**
+## **अक्ष से लेबल की दूरी सेट करें**
 
-[set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) का उपयोग करके श्रेणी अक्ष लेबल्स और अक्ष के बीच दूरी नियंत्रित करें। यह मान अक्ष लेबल्स के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा पॉइंट्स से जुड़े लेबल्स के बजाय श्रेणी अक्ष लेबल्स को प्रभावित करती है।
+श्रेणी अक्ष लेबल और अक्ष के बीच दूरी नियंत्रित करने के लिए [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) का उपयोग करें। यह मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा पॉइंट्स से जुड़े लेबल की बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <DOM/ISlide.h>
@@ -446,9 +447,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **लेबल स्थान समायोजित करें**
 
-पाई चार्ट में डेटा लेबल की स्थितियों को समायोजित करके स्पेसिंग बेहतर बनाएं और लीडर लाइनों के लिए जगह बनाएं।
+पाई चार्ट पर, डेटा लेबल स्थितियों को समायोजित करके स्पेसिंग में सुधार करें और लीडर लाइनों के लिए जगह बनाएं।
 
-यह उदाहरण पहला डेटा पॉइंट का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और ऑफ़सेट को समायोजित करने के लिए [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) और [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) का उपयोग करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
+यह उदाहरण पहले डेटा पॉइंट का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और ऑफ़सेट समायोजित करने के लिए [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) और [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) का उपयोग करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -486,13 +487,87 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![समायोजित डेटा लेबल स्थिति के साथ पाई चार्ट](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **कॉलम चार्ट के ऊपर कई पंक्तियों में डेटा लेबल्स जोड़ें**
+## **लीडर लाइनों का प्रारूप निर्धारित करें**
 
-यह उदाहरण दो पंक्तियों में डेटा लेबल्स के साथ कॉलम चार्ट बनाता है, जो प्लॉट एरिया के ऊपर स्थित होते हैं। सीरीज़ A दृश्य कॉलम प्रदर्शित करता है, जबकि सीरीज़ B और C अतिरिक्त लेबल प्रदान करते हैं। उनके कॉलम भराव और आउटलाइन हटाकर छिपा दिए जाते हैं। [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) मेथड सभी तीन सीरीज़ को समान श्रेणी केंद्रों के साथ संरेखित करता है।
+जब पाई चार्ट लेबल अपने स्लाइस के बाहर स्थित होते हैं, तो लीडर लाइन्स पढ़ने वालों को प्रत्येक मान को सही स्लाइस से मिलाने में मदद करती हैं। विपरीत रंग और थोड़ा मोटी लाइन इन कनेक्शनों को आसान बनाती हैं, जबकि पारदर्शिता और डैश्ड शैली लाइनों को दृश्य रूप से अप्रभावी रखती हैं।
 
-[get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) सेटिंग्स लेबल पंक्तियों के लिए जगह आरक्षित करती हैं। [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) डिफ़ॉल्ट स्थितियों की गणना करने के बाद, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) और [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) क्षैतिज संरेखण को बनाए रखते हैं और दो पंक्तियों में लेबल व्यवस्थित करने के लिए ऊर्ध्वाधर ऑफ़सेट लागू करते हैं। संख्याएँ सीरीज़ मानों से जुड़ी डेटा लेबल्स ही रहती हैं; केवल पंक्ति हेडिंग अलग टेक्स्ट शैप होते हैं।
+सीरीज़ के डेटा लेबल संग्रह स्तर पर लीडर लाइनों का प्रारूप निर्धारित करने के लिए [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) का उपयोग करें। `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` में स्थित सेटिंग्स संग्रह पर लागू होती हैं, न कि व्यक्तिगत लेबल पर।
+
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है, स्लाइस के बाहर मान प्रदर्शित करता है, और [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/) के साथ लीडर लाइन्स सक्षम करता है। यह दो लेबल को उनके स्लाइस से अधिक दूर ले जाने के लिए [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) और [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) ऑफ़सेट का उपयोग करता है, जो चार्ट की चौड़ाई और ऊँचाई के अंश के रूप में व्यक्त होते हैं। कोई इनपुट प्रस्तुति आवश्यक नहीं है।
+
+[get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) द्वारा लौटाए गए फ़िल फ़ॉर्मेट का उपयोग करके 255 में से 191 अल्फा मान के साथ एक ठोस नीले रंग को सेट किया जाता है, जिससे लगभग 25% पारदर्शिता मिलती है। [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) लाइन की मोटाई को 2 पॉइंट सेट करता है, और [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) लाइन को डैश्ड बनाता है।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/LineDashStyle.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 80, 50, 560, 400);
+chart->set_HasLegend(false);
+
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+
+auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+labelFormat->set_ShowValue(true);
+labelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+labelFormat->set_ShowLeaderLines(true);
+
+// दो लेबल को उनके स्लाइस से अधिक दूर ले जाएँ।
+series->get_Label(0)->set_X(0.10f);
+series->get_Label(0)->set_Y(-0.05f);
+series->get_Label(1)->set_X(-0.10f);
+series->get_Label(1)->set_Y(0.05f);
+
+auto line = series->get_Labels()->get_LeaderLinesFormat()->get_Line();
+line->get_FillFormat()->set_FillType(FillType::Solid);
+line->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(191, 30, 90, 160));
+line->set_Width(2);
+line->set_DashStyle(LineDashStyle::Dash);
+
+presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
+```
+
+लीडर लाइन्स को सक्षम करने से यह गारंटी नहीं मिलती कि प्रत्येक लेबल के लिए लाइन दिखाई देगी। दृश्यमानता लेबल की स्थिति और चार्ट के लेआउट व्यवहार पर निर्भर करती है। इस उदाहरण में, दो हटाए गए लेबलों के पास दृश्यमान लीडर लाइन्स हैं; जो लेबल अपने स्लाइस के पास रहते हैं उन्हें इसकी आवश्यकता नहीं होती।
+
+निम्नलिखित चित्र Aspose.Slides के साथ रेंडर किए गए सहेजे गए `FormattedLeaderLines.pptx` को दर्शाता है:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+
+## **कॉलम चार्ट के ऊपर कई पंक्तियों के डेटा लेबल जोड़ें**
+
+यह उदाहरण प्लॉट एरिया के ऊपर दो पंक्तियों के डेटा लेबल के साथ एक कॉलम चार्ट बनाता है। सीरीज़ A दिखाई देने वाले कॉलम दिखाती है, जबकि सीरीज़ B और सीरीज़ C अतिरिक्त लेबल प्रदान करती हैं। उनके कॉलम भर और रूपरेखा हटाकर छिपाए गए हैं। [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) मेथड सभी तीन सीरीज़ को समान श्रेणी केंद्रों के साथ संरेखित करता है।
+
+[get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) सेटिंग्स लेबल पंक्तियों के लिए स्थान सुरक्षित करती हैं। [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) डिफ़ॉल्ट स्थितियों की गणना करने के बाद, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) और [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) क्षैतिज संरेखण को बरकरार रखते हैं और दो पंक्तियों में लेबल व्यवस्थित करने के लिए लंबवत ऑफ़सेट लागू करते हैं। संख्याएँ श्रृंखला मानों से जुड़ी डेटा लेबल बनी रहती हैं; केवल पंत्ति शीर्षकों को अलग टेक्स्ट शेप्स के रूप में माना जाता है।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -586,7 +661,7 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // B और C के कॉलम छिपाएँ, लेकिन उनके डेटा लेबल रखें।
+        // B और C के कॉलम छुपाएँ, लेकिन उनके डेटा लेबल रखें।
         series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
         series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
         auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
@@ -599,14 +674,14 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
     }
 }
 
-// तीनों सीरीज़ को समान श्रेणी केंद्रों के साथ संरेखित करें।
+// तीनों श्रृंखलाओं को समान श्रेणी केंद्रों के साथ संरेखित करें।
 chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
 
-// इस संक्षिप्त उदाहरण के लिए कम ग्रिडलाइन उपयोग करें।
+// इस कॉम्पैक्ट उदाहरण के लिए कम ग्रिडलाइन का उपयोग करें।
 chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
 chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
 
-// प्लॉट के ऊपर दो पंक्तियों के डेटा लेबल्स के लिए जगह आरक्षित करें।
+// प्लॉट के ऊपर दो पंक्तियों के डेटा लेबल के लिए स्थान आरक्षित करें।
 chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
 chart->get_PlotArea()->set_X(0.15f);
 chart->get_PlotArea()->set_Y(0.32f);
@@ -622,8 +697,8 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
     for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
     {
         auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
-        // डिफ़ॉल्ट क्षैतिज स्थिति रखें।
-        // Y डिफ़ॉल्ट लेबल स्थिति से एक ऑफ़सेट है, जो चार्ट-ऊँचाई का अंश के रूप में व्यक्त है।
+        // डिफ़ॉल्ट क्षैतिज स्थिति को रखें।
+        // Y डिफ़ॉल्ट लेबल स्थिति से ऑफ़सेट है, जिसे चार्ट-ऊँचाई के अंश के रूप में व्यक्त किया गया है।
         dataLabel->set_X(0);
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
     }
@@ -644,18 +719,15 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
 presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 ```
 
-![प्लॉट एरिया के ऊपर दो पंक्तियों में डेटा लेबल्स के साथ कॉलम चार्ट](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं घने चार्ट्स में डेटा लेबल्स के ओवरलैप को कैसे रोक सकता हूँ?**
+**डेटा लेबल को घनी चार्ट्स में ओवरलैप होने से कैसे रोकें?**  
+ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइन्स और छोटे फ़ॉन्ट आकार को मिलाकर उपयोग करें; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) को छुपाएँ या केवल अत्यधिक मान या मुख्य बिंदुओं के लिए लेबल दिखाएँ।
 
-ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइनों और छोटे फ़ॉन्ट आकार को संयोजित करें; यदि आवश्यक हो तो कुछ फील्ड (जैसे श्रेणी) छिपाएँ या केवल अतिच Extreme मानों या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
+**केवल शून्य, नकारात्मक या खाली मानों के लिए लेबल कैसे अक्षम करें?**  
+लेबल सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए प्रदर्शन बंद करें।
 
-**मैं शून्य, नकारात्मक या खाली मानों के लिए लेबल्स को केवल कैसे अक्षम कर सकता हूँ?**
-
-लेबल सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले को बंद करने के नियम निर्धारित करें।
-
-**PDF/छवियों में निर्यात करते समय मैं लेबल शैली को स्थिर कैसे रख सकता हूँ?**
-
-फ़ॉन्ट परिवार और आकार को स्पष्ट रूप से सेट करें और सुनिश्चित करें कि रेंडरिंग वातावरण में फ़ॉन्ट उपलब्ध हो ताकि फ़ॉलबैक न हो।
+**PDF/छवियों में निर्यात करते समय लेबल शैली को सुसंगत कैसे रखें?**  
+फ़ॉन्ट परिवार और आकार को स्पष्ट रूप से सेट करें और रेंडरिंग वातावरण में फ़ॉन्ट उपलब्ध हो, यह सुनिश्चित करें ताकि फ़ॉलबैक न हो।

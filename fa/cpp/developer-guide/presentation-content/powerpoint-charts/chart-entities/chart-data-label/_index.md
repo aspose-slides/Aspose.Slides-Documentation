@@ -14,15 +14,15 @@ keywords:
 - ارائه
 - C++
 - Aspose.Slides
-description: "یاد بگیرید چگونه برچسب‌های داده نمودار را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای C++ اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
+description: "با استفاده از Aspose.Slides برای C++، نحوه افزودن و قالب‌بندی برچسب‌های داده نمودار در ارائه‌های PowerPoint را برای اسلایدهای جذاب‌تر بیاموزید."
 ---
 ## **مقدمه**
 
-برچسب‌های داده اطلاعاتی دربارهٔ سری‌های نمودار و نقاط دادهٔ جداگانه را نمایش می‌دهند و به خوانندگان کمک می‌کنند تا مقادیر را شناسایی کرده و نمودار را درک کنند. این مقاله توضیح می‌دهد چگونه مقادیر را قالب‌بندی کنیم، درصدها را نمایش دهیم، متن برچسب را بخوانیم، برچسب‌ها را فراتر از حداکثر محور کنترل کنیم، فاصله برچسب‌های محور دسته را تنظیم کنیم و موقعیت برچسب‌های چارت دایره‌ای را تنظیم کنیم.
+برچسب‌های داده اطلاعاتی دربارهٔ سری‌های نمودار و نقاط دادهٔ تک‌تکه نشان می‌دهند و به خوانندگان کمک می‌کنند مقادیر را شناسایی و نمودار را درک کنند. این مقاله توضیح می‌دهد چگونه مقادیر را قالب‌بندی کنید، درصدها را نمایش دهید، متن برچسب را بخوانید، برچسب‌ها را فراتر از حداکثر محور کنترل کنید، فاصلهٔ برچسب‌های محور دسته‌بندی را تنظیم کنید و موقعیت برچسب‌های نمودار دایره‌ای را تعیین کنید.
 
 ## **تنظیم دقت داده در برچسب‌های دادهٔ نمودار**
 
-از [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) برای قالب‌بندی مقادیر سری استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول داده آن را نمایش می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌کند. قالب `#,##0.00` یک جداکنندهٔ هزارگان و دو رقم اعشار را نمایش می‌دهد بدون اینکه مقادیر پایه‌ای تغییر کنند.
+از [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) برای قالب‌بندی مقادیر سری استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول دادهٔ آن را نمایش می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌سازد. قالب `#,##0.00` جداساز هزارها و دو رقم اعشار را نمایش می‌دهد بدون اینکه مقادیر زیرین تغییر کنند.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,9 +57,9 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **نمایش درصد به‌عنوان برچسب‌ها**
+## **نمایش درصد به عنوان برچسب‌ها**
 
-برای یک نمودار ستونی انباشته، هر مقدار را به‌عنوان درصدی از مجموع دسته آن محاسبه کنید و متن را به فریم متنی که توسط [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) بازگردانده می‌شود، اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در یک فونت 8 نقطه‌ای نمایش می‌دهد. دسته‌هایی که مجموع آن‌ها صفر است برای جلوگیری از تقسیم بر صفر نادیده گرفته می‌شوند. اگر داده‌های نمودار تغییر کنند متن برچسب سفارشی باید مجدداً محاسبه شود.
+برای یک نمودار ستون انباشته، هر مقدار را به عنوان درصدی از مجموع دستهٔ خود حساب کنید و متن را به فریم متنی 반환 شده توسط [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم 8 نقطه‌ای نمایش می‌دهد. دسته‌هایی که مجموع آنها صفر است برای جلوگیری از تقسیم بر صفر نادیده گرفته می‌شوند. اگر داده‌های نمودار تغییر کنند متن برچسب سفارشی را مجدداً محاسبه کنید.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -149,9 +149,9 @@ presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 
 ## **تنظیم علامت درصد با برچسب‌های دادهٔ نمودار**
 
-زمانی که مقادیر به صورت کسر ذخیره می‌شوند، از [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) برای نمایش درصدها استفاده کنید. برای اعمال فرمت برچسب مستقل از سلول‌های منبع، مقدار `false` را به [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) پاس دهید.
+زمانی که مقادیر به صورت کسر ذخیره شوند، از [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) برای نمایش درصدها استفاده کنید. برای اعمال قالب برچسب به طور مستقل از سلول‌های منبع، `false` را به [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) پاس بدهید.
 
-این مثال یک نمودار ستونی 100٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار به‌هم‌پیوستگی 1 می‌شود. فرمت برچسب `0.0%` عدد 0.30 را به‌صورت 30.0٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید با اندازهٔ 10 نقطه استفاده می‌کنند.
+این مثال یک نمودار ستون 100٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار مجموعاً برابر 1 است. قالب برچسب `0.0%` مقدار 0.30 را به عنوان 30.0٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید، 10 نقطه‌ای استفاده می‌کنند.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -238,7 +238,7 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **خواندن متن واقعی برچسب‌های داده**
 
-از [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) برای بازیابی متنی که توسط تنظیمات یک برچسب داده تولید شده استفاده کنید. این کار هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجو در محتوای ارائه یا اعتبارسنجی نمودارهای تولید شده مفید است. در مثال زیر، قالب پیش‌فرض [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) هر نام دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به‌صورت درصد قالب‌بندی می‌کند و دیگری متن سفارشی را از [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) دریافت می‌کند.
+از [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) برای بازیابی متنی که تنظیمات یک برچسب داده تولید می‌کند، استفاده کنید. این کار هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجو در محتویات ارائه یا اعتبارسنجی نمودارهای تولید شده مفید است. در مثال زیر، قالب پیش‌فرض [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) هر نام دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به عنوان درصد قالب‌بندی می‌کند و دیگری از متن سفارشی برگرفته از [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) استفاده می‌کند.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +326,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-عدد ذخیره‌شده در یک نقطه داده همچنان `0.75` باقی می‌ماند، حتی اگر برچسب آن `75%` را به‌همراه نام‌های دسته و سری نشان دهد. متن سفارشی متن تولید شدهٔ برچسب را جایگزین می‌کند. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) رشتهٔ برچسب نهایی را در هر دو حالت برمی‌گرداند. برای استخراج فقط برچسب‌های قابل‌دید، همان‌طور که در بالا نشان داده شد، [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) را به‌طور جداگانه بررسی کنید.
+عدد ذخیره‌شده در یک نقطه داده همچنان `0.75` می‌ماند، حتی وقتی برچسب آن `75%` به همراه نام‌های دسته و سری نشان می‌دهد. متن سفارشی متن تولید‌شده برچسب را جایگزین می‌کند. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) در هر دو حالت رشتهٔ برچسب نهایی را برمی‌گرداند. همان‌طور که در بالا نشان داده شد، برای استخراج تنها برچسب‌های قابل مشاهده، [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) را جداگانه بررسی کنید.
 
 ## **کنترل برچسب‌های داده فراتر از حداکثر محور**
 
-زمانی که بازهٔ محور را به‌صورت دستی محدود می‌کنید، برخی نقاط داده می‌توانند بیش از حداکثر آن باشند. از [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) برای کنترل نمایش برچسب‌های دادهٔ آنها استفاده کنید. این تنظیم فقط نمایش برچسب‌ها را تغییر می‌دهد؛ بازهٔ محور یا مقادیر پایه‌ای زیرین را تغییر نمی‌دهد.
+زمانی که محدودهٔ محور را به صورت دستی محدود می‌کنید، برخی نقاط داده ممکن است از حداکثر آن فراتر بروند. از [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) برای کنترل اینکه آیا برچسب‌های دادهٔ آنها نمایش داده شوند یا نه، استفاده کنید. این تنظیم تنها قابلیت نمایش برچسب را تغییر می‌دهد؛ بازهٔ محور یا مقادیر زیرین داده را تغییر نمی‌دهد.
 
-مثال زیر یک نمودار ستونی خوشه‌ای 2 بعدی با مقادیر 60 و 120 ایجاد می‌کند. بر روی محور عمودی، [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) را به `false` و [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) را به 100 تنظیم می‌کند. اسلاید اول اجازه می‌دهد برچسب‌ها فراتر از حداکثر باشند؛ یک نسخهٔ کپی آن اسلاید این قابلیت را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
+مثال زیر یک نمودار ستونی خوشه‌ای دو‌بعدی با مقادیر 60 و 120 ایجاد می‌کند. برای محور عمودی، [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) را روی `false` و [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) را روی 100 تنظیم می‌کند. اسلاید اول اجازه می‌دهد برچسب‌ها فراتر از حداکثر باشند؛ کپی آن اسلاید این امکان را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
 
-برچسب‌های مقدار را با [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) فعال کنید. تنظیم سطح نمودار به‌تنهایی نمایش مقدار را فعال نمی‌کند و همچنین تنظیم غیرفعال شدن نمایش مقدار برای برچسب‌های جداگانه را بازنویسی نمی‌کند. این مثال مقادیر را برای کل سری فعال می‌کند و از [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) برای قرار دادن برچسب‌ها در انتهای بیرونی هر ستون استفاده می‌کند.
+برچسب‌های مقدار را با [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) فعال کنید. این تنظیم در سطح نمودار به تنهایی نمایش مقدار را فعال نمی‌کند و برچسب‌های منفردی که نمایش مقدارشان غیرفعال است را بازنویسی نمی‌کند. این مثال مقادیر را برای کل سری فعال می‌کند و با [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) برچسب‌ها را در انتهای بیرونی هر ستون قرار می‌دهد.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,19 +405,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-تصاویر زیر اسلایدهای ذخیره‌شده را که توسط Microsoft PowerPoint رندر شده‌اند نشان می‌دهند. با `true`، برچسب **120** در مرز بالایی قابل‌دید است؛ با `false`، مخفی می‌شود. برچسب **60** همچنان قابل‌دید می‌ماند، حداکثر محور در **100** ثابت می‌ماند و نقطهٔ دادهٔ دوم در هر دو حالت **120** می‌ماند.
+تصاویر زیر اسلایدهای ذخیره‌شده را که توسط Microsoft PowerPoint رندر شده‌اند نشان می‌دهند. با `true`، برچسب **120** در مرز بالایی قابل مشاهده است؛ با `false`، مخفی می‌شود. برچسب **60** همچنان قابل مشاهده است، حداکثر محور در **100** باقی می‌ماند و نقطه دوم داده در هر دو حالت **120** است.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![نمودار PowerPoint که برچسب مقدار 120 را با حداکثر محور 100 نشان می‌دهد](data-labels-over-maximum-true.png) | ![نمودار PowerPoint که برچسب مقدار 120 را با حداکثر محور 100 مخفی می‌کند](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-این مثال از یک نمودار ستونی 2 بعدی با محور مقدار استفاده می‌کند. نمودارهایی که محور مقدار ندارند، مانند نمودارهای دایره‌ای و حلقوی، حداکثر محوری برای محدود کردن به این روش ندارند.
+این مثال از یک نمودار ستونی دو‌بعدی با محور مقدار استفاده می‌کند. نمودارهای بدون محور مقدار، مانند نمودارهای دایره‌ای و دونات، حداکثر محور برای محدود کردن به این شکل ندارند.
 {{% /alert %}}
 
 ## **تنظیم فاصلهٔ برچسب از محور**
 
-از [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) برای کنترل فاصله بین برچسب‌های محور دسته و خود محور استفاده کنید. مقدار به‌صورت درصدی از بیشترین اندازهٔ فونت برچسب‌های محور محاسبه می‌شود. این مثال یک نمودار ستونی خوشه‌ای ایجاد کرده و افست برچسب محور افقی را به 500 تنظیم می‌کند. این تنظیم برچسب‌های محور دسته را تحت تأثیر قرار می‌دهد نه برچسب‌های متصل به نقاط دادهٔ جداگانه.
+از [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و محور استفاده کنید. مقدار به درصد حداکثر اندازهٔ قلم برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و فاصلهٔ برچسب محور افقی را روی 500 تنظیم می‌کند. این تنظیم برچسب‌های محور دسته‌بندی را تحت تأثیر قرار می‌دهد نه برچسب‌های متصل به نقاط دادهٔ تک‌تکه.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -447,9 +447,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **تنظیم موقعیت برچسب**
 
-در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را تنظیم کنید تا فواصل بهبود یابد و فضای کافی برای خطوط راهنما فراهم شود.
+در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را برای بهبود فواصل تنظیم کنید و جایگاهی برای خطوط اتصال (leader lines) فراهم کنید.
 
-این مثال مقدار اولین نقطه داده را نمایش می‌دهد، برچسب آن را در خارج از برش قرار می‌دهد و از [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) و [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) برای تنظیم افست‌های آن استفاده می‌کند. این افست‌ها به ترتیب نسبت به عرض و ارتفاع نمودار هستند.
+این مثال مقدار اولین نقطه داده را نمایش می‌دهد، برچسب آن را خارج از برش قرار می‌دهد و با استفاده از [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) و [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) جابه‌جایی‌های آن را تنظیم می‌کند. این جابه‌جایی‌ها به ترتیب نسبت به عرض و ارتفاع نمودار هستند.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -489,11 +489,85 @@ presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ![نمودار دایره‌ای با موقعیت برچسب داده تنظیم‌شده](pie-chart-adjusted-label.png)
 
-## **افزودن چند ردیف برچسب داده در بالای نمودار ستونی**
+## **قالب‌بندی خطوط اتصال**
 
-این مثال یک نمودار ستونی با دو ردیف برچسب داده در بالای ناحیهٔ رسم ایجاد می‌کند. سری A ستون‌های قابل‌دید را نمایش می‌دهد، در حالی که سری‌های B و C برچسب‌های اضافی را فراهم می‌کنند. ستون‌های آنها با حذف پر کردن و خط مرزی مخفی می‌شوند. روش [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) تمام سه سری را با مراکز دسته یکسان هم‌تراز می‌کند.
+هنگامی که برچسب‌های نمودار دایره‌ای در بیرون برش‌ها قرار می‌گیرند، خطوط اتصال به خواننده کمک می‌کنند تا هر مقدار را با برش مناسب مطابقت دهد. رنگ متضاد و خط کمی ضخیم می‌توانند این ارتباط را واضح‌تر کنند، در حالی که شفافیت و سبک نقطه‌دار خطوط را کم‌رنگ و نامحسوس می‌سازند.
 
-تنظیمات [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) برای ردیف‌های برچسب فضای لازم را رزرو می‌کند. پس از محاسبه موقعیت‌های پیش‌فرض توسط [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/)، [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) و [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) هم‌راستایی افقی را حفظ کرده و افست‌های عمودی را برای چینش برچسب‌ها در دو ردیف اعمال می‌کند. اعداد همچنان برچسب‌های داده مرتبط با مقادیر سری‌ها هستند؛ فقط سرفصل‌های ردیف به‌صورت اشکال متنی جداگانه بوده‌اند.
+از [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) برای قالب‌بندی خطوط اتصال در سطح مجموعهٔ برچسب‌های دادهٔ سری استفاده کنید. تنظیمات موجود در `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` به کل مجموعه اعمال می‌شود نه به یک برچسب منفرد.
+
+این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند، مقادیر را بیرون برش‌ها نمایش می‌دهد و خطوط اتصال را با [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/) فعال می‌کند. دو برچسب را با استفاده از جابه‌جایی‌های [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) و [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) بیشتر از برش‌های خود دور می‌کند؛ این مقادیر به صورت کسری از عرض و ارتفاع نمودار بیان می‌شوند. ارائه ورودی نیازی نیست.
+
+فرمت پر شدن برگرفته از [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) برای تنظیم رنگ آبی صلب با مقدار آلفای 191 از 255 استفاده می‌شود که حدود 25٪ شفافیت می‌دهد. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) ضخامت را به 2 نقطه تنظیم می‌کند و [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) خط را نقطه‌دار می‌سازد.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/LineDashStyle.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 80, 50, 560, 400);
+chart->set_HasLegend(false);
+
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+
+auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+labelFormat->set_ShowValue(true);
+labelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+labelFormat->set_ShowLeaderLines(true);
+
+// دو برچسب را از برش‌های خود دورتر حرکت دهید.
+series->get_Label(0)->set_X(0.10f);
+series->get_Label(0)->set_Y(-0.05f);
+series->get_Label(1)->set_X(-0.10f);
+series->get_Label(1)->set_Y(0.05f);
+
+auto line = series->get_Labels()->get_LeaderLinesFormat()->get_Line();
+line->get_FillFormat()->set_FillType(FillType::Solid);
+line->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(191, 30, 90, 160));
+line->set_Width(2);
+line->set_DashStyle(LineDashStyle::Dash);
+
+presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
+```
+
+فعال‌سازی خطوط اتصال تضمین نمی‌کند که برای هر برچسب یک خط ظاهر شود. قابلیت مشاهده به جایگذاری برچسب و رفتار چیدمان نمودار بستگی دارد. در این مثال، دو برچسب جابجا شده خطوط اتصال قابل مشاهده دارند؛ برچسب‌هایی که نزدیک برش‌های خود می‌مانند نیازی به خطوط ندارند.
+
+تصویر زیر فایل `FormattedLeaderLines.pptx` ذخیره‌شده را که با Aspose.Slides رندر شده نشان می‌دهد:
+
+![نمودار دایره‌ای با خطوط اتصال آبی، نیمه‌شفاف، نقطه‌دار که دو برچسب بیرونی را به برش‌هایشان متصل می‌کند](formatted-leader-lines.png)
+
+## **افزودن ردیف‌های متعدد برچسب داده بالای نمودار ستونی**
+
+این مثال یک نمودار ستونی با دو ردیف برچسب داده بالای ناحیهٔ ترسیم ایجاد می‌کند. سری A ستون‌های قابل مشاهده را نشان می‌دهد، در حالی که سری‌های B و C برچسب‌های اضافی را فراهم می‌کنند. ستون‌های آنها با حذف پر و خط خارجی مخفی می‌شوند. روش [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) تمام سه سری را با مراکز دسته‌ای یکسان هم‌تراز می‌کند.
+
+تنظیمات [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) فضای مورد نیاز برای ردیف‌های برچسب راReserve می‌کند. پس از محاسبه موقعیت‌های پیش‌فرض توسط [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/)، [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) و [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) هم‌ترازی افقی را حفظ کرده و جابه‌جایی‌های عمودی را برای ترتیب برچسب‌ها در دو ردیف اعمال می‌کند. اعداد همچنان برچسب‌های داده مرتبط با مقادیر سری هستند؛ فقط سرعنوان ردیف‌ها به‌صورت شکل‌های متنی جداگانه هستند.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -587,7 +661,7 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // ستون‌های B و C را مخفی کنید، اما برچسب‌های داده‌ای آن‌ها را نگه دارید.
+        // ستون‌های B و C را مخفی کنید، اما برچسب‌های داده آن‌ها را نگه دارید.
         series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
         series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
         auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
@@ -600,14 +674,14 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
     }
 }
 
-// هم‌راستایی تمام سه سری با مراکز دسته یکسان.
+// تمام سه سری را با مراکز دسته‌ای یکسان تراز کنید.
 chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
 
-// استفاده از خطوط شبکه کمتر برای این مثال فشرده.
+// برای این مثال فشرده از خطوط شبکه کمتر استفاده کنید.
 chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
 chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
 
-// رزرو فضای بالا برای دو ردیف برچسب داده.
+// فضای بالای ناحیه‌نمودار را برای دو ردیف برچسب داده رزرو کنید.
 chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
 chart->get_PlotArea()->set_X(0.15f);
 chart->get_PlotArea()->set_Y(0.32f);
@@ -623,13 +697,13 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
     for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
     {
         auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
-        // حفظ موقعیت افقی پیش‌فرض. Y یک جابجایی از
-        // موقعیت پیش‌فرض برچسب است، که به صورت کسری از ارتفاع نمودار بیان می‌شود.
+        // موقعیت افقی پیش‌فرض را حفظ کنید. مقدار Y یک جابجایی از
+        // موقعیت پیش‌فرض برچسب است که به صورت کسری از ارتفاع نمودار بیان می‌شود.
         dataLabel->set_X(0);
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
     }
 
-    // فقط عنوان ردیف یک شکل متنی جداگانه است.
+    // فقط سرفصل ردیف یک شکل متنی جداگانه است.
     auto rowHeading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, chart->get_X(), chart->get_Y() + rowTop * chart->get_Height(), 85, 18);
     rowHeading->get_FillFormat()->set_FillType(FillType::NoFill);
     rowHeading->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -645,18 +719,18 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
 presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 ```
 
-![نمودار ستونی با دو ردیف برچسب داده در بالای ناحیهٔ رسم](multiple-rows-of-labels.png)
+![نمودار ستونی با دو ردیف برچسب داده بالای ناحیهٔ ترسیم](multiple-rows-of-labels.png)
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای متراکم جلوگیری کنم؟**
+**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای شلوغ جلوگیری کنم؟**
 
-از قراردهی خودکار برچسب، خطوط راهنما و کاهش اندازهٔ فونت ترکیب کنید؛ در صورت نیاز برخی فیلدها (مثلاً دسته) را مخفی کنید یا فقط برای مقادیر شدید یا نقاط کلیدی برچسب نمایش دهید.
+از جایگذاری خودکار برچسب، خطوط اتصال و کاهش اندازهٔ قلم استفاده کنید؛ در صورت لزوم برخی فیلدها (مثلاً دسته) را مخفی کنید یا برچسب‌ها را تنها برای مقادیر انتهایی یا نقاط کلیدی نشان دهید.
 
-**چگونه می‌توانم برچسب‌ها را تنها برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
+**چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
 
-قبل از فعال‌سازی برچسب‌ها، نقاط داده را فیلتر کنید و نمایش مقادیر 0، مقادیر منفی یا مقادیر گمشده را بر اساس قانونی تعریف‌شده خاموش کنید.
+قبل از فعال‌سازی برچسب‌ها نقاط داده را فیلتر کنید و نمایش را برای مقادیر 0، مقادیر منفی یا مقادیر گمشده بر اساس قاعده‌ای تعریف‌شده خاموش کنید.
 
-**چگونه می‌توانم سبک برچسب را به‌صورت یکسان هنگام خروجی به PDF/تصاویر حفظ کنم؟**
+**چگونه می‌توانم استایل برچسب را به‌صورت ثابت هنگام خروجی به PDF/تصاویر حفظ کنم؟**
 
-به‌طور صریح خانواده و اندازهٔ فونت را تنظیم کنید و اطمینان حاصل کنید که فونت در محیط رندر موجود است تا از استفاده از فونت جایگزین جلوگیری شود.
+به‌طور صریح خانواده و اندازهٔ قلم را تنظیم کنید و اطمینان حاصل کنید که قلم در محیط رندر موجود است تا از استفادهٔ جایگزین جلوگیری شود.

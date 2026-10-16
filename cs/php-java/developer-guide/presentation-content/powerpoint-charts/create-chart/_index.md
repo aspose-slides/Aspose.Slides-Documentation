@@ -1,6 +1,6 @@
 ---
-title: Vytvoření nebo aktualizace grafů v PowerPoint prezentacích v PHP
-linktitle: Vytvoření nebo aktualizace grafů
+title: Vytvořit nebo aktualizovat grafy PowerPoint prezentací v PHP
+linktitle: Vytvořit nebo aktualizovat grafy
 type: docs
 weight: 10
 url: /cs/php-java/create-chart/
@@ -11,51 +11,49 @@ keywords:
 - změnit graf
 - aktualizovat graf
 - rozptylový graf
-- výsečový graf
+- koláčový graf
 - čárový graf
-- stromová mapa graf
+- graf stromové mapy
 - akciový graf
-- krabicový a vousatý graf
+- krabicový a vousový graf
 - trychtýřový graf
-- sluneční graf
-- histogramový graf
-- radiální graf
+- slunečnicový graf
+- histogram
+- radarový graf
 - vícekategoriový graf
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro PHP via Java. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu v PHP."
+description: "Vytvořte a přizpůsobte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro PHP přes Java. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu v PHP."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexního průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides for PHP via Java. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování, aby vyhovovaly vašim konkrétním požadavkům na design. V celém článku podrobně ilustrují příklady kódu každý krok, od inicializace prezentace a objektu grafu po konfiguraci sérií, os a legend. Po absolvování tohoto průvodce získáte pevné pochopení, jak integrovat dynamické generování grafů do vašich PHP aplikací a zjednodušit proces vytváření prezentací založených na datech.
+Tento článek poskytuje komplexního průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides pro PHP přes Java. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování, aby odpovídal vašim konkrétním návrhovým požadavkům. V celém článku detailní příklady kódu ilustrují každý krok, od inicializace prezentace a objektu grafu po konfiguraci sérií, os a legend. Dodržením tohoto průvodce získáte pevné pochopení, jak integrovat dynamické generování grafů do vašich PHP aplikací a zjednodušit proces vytváření prezentací založených na datech.
 
-## **Vytvoření grafu**
+## **Vytvořit graf**
 
-Grafy pomáhají rychle vizualizovat data a získat poznatky, které nemusí být okamžitě zřejmé z tabulky nebo tabulkového kalkulátoru.
+Grafy pomáhají lidem rychle vizualizovat data a získat postřehy, které nemusí být hned zřejmé z tabulky nebo kalkulační tabulky.
 
 **Proč vytvářet grafy?**
 
 Pomocí grafů můžete:
 
-* agregovat, zhušťovat nebo shrnout velké množství dat na jediném snímku v prezentaci;
+* agregovat, zhušťovat nebo shrnout velké množství dat na jednom snímku prezentace;
 * odhalit vzory a trendy v datech;
-* odvodit směr a momentum dat v čase nebo vzhledem k určité jednotce měření;
-* zaznamenat odlehlé hodnoty, anomálie, odchylky, chyby a nesmyslná data;
+* odvodit směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření;
+* identifikovat odlehlé hodnoty, anomálie, odchylky, chyby a nesmyslná data;
 * komunikovat nebo prezentovat složitá data.
 
-V PowerPointu můžete vytvářet grafy pomocí funkce *Insert*, která poskytuje šablony pro navrhování mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech) tak i vlastní grafy.
+V PowerPointu můžete grafy vytvářet pomocí funkce *Insert*, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech), tak vlastní grafy.
 
 {{% alert color="info" title="Note" %}}
-
-Použijte výčet [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) v namespace [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
-
+Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) v jmenném prostoru [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
 {{% /alert %}}
 
-### **Vytvoření seskupených sloupcových grafů**
+### **Vytvořit seskupené sloupcové grafy**
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření seskupeného sloupcového grafu, který porovnává dvě série ve třech kategoriích. Série používají červené a zelené výplně a jednotlivé popisky ukazují názvy kategorií, názvy sérií a hodnoty. Index listu 0 odkazuje na první list v vložené sešitu grafu.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření seskupeného sloupcového grafu, který porovnává dvě série napříč třemi kategoriemi. Série používají červené a zelené výplně a jednotlivé popisky ukazují názvy kategorií, názvy sérií a hodnoty. Index listu 0 odkazuje na první list v vložené sešitové tabulce grafu.
 
 ```php
 use aspose\slides\ChartType;
@@ -141,20 +139,20 @@ finally
 
 Výsledek:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Diagram seskupených sloupců](clustered_column_chart.png)
 
-### **Vytvoření rozptylových grafů**
+### **Vytvořit rozptylové grafy**
 
-Rozptylové grafy (také známé jako scatter ploty nebo x‑y grafy) se často používají k kontrole vzorů nebo demonstraci korelací mezi dvěma proměnnými.
+Rozptylové grafy (známé také jako scatter plot nebo x‑y grafy) se často používají k kontrole vzorů nebo ukázání korelací mezi dvěma proměnnými.
 
 Použijte rozptylový graf, když:
 
-* máte dvojice číselných dat;
+* máte spárovaná číselná data;
 * máte dvě proměnné, které spolu dobře souvisejí;
-* chcete zjistit, zda jsou dvě proměnné propojené;
+* chcete zjistit, zda jsou dvě proměnné vzájemně propojené;
 * máte nezávislou proměnnou, která má pro závislou proměnnou více hodnot.
 
-Tento příklad vykresluje dvě sady x‑y hodnot. První série používá přímé čáry s hvězdicovými značkami, zatímco druhá používá plynulé čáry s kruhovými značkami; obě používají velikost značky 10, nastavenou pomocí [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). Metoda [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) řídí tvar značky.
+Tento příklad vykresluje dvě sady x‑y hodnot. První série používá přímé čáry s hvězdicovými značkami, zatímco druhá používá hladké čáry s kruhovými značkami; obě používají velikost značky 10, nastavenou pomocí [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). Metoda [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) určuje tvar značky.
 
 ```php
 use aspose\slides\ChartType;
@@ -225,13 +223,13 @@ finally
 
 Výsledek:
 
-![The Scatter chart](scatter_chart.png)
+![Rozptylový graf](scatter_chart.png)
 
-### **Vytvoření výsečových grafů**
+### **Vytvořit koláčové grafy**
 
-Výsečové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit místo nich sloupcový graf.
+Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, zvažte místo toho sloupcový graf.
 
-Tento příklad vytváří výsečový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o sérii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) nastaví první výsek na úhel 180 stupňů.
+Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a štítky zobrazují různé kombinace hodnot, procent a informací o sérii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) nastavuje první výsek tak, aby začínal ve 180 stupeň.
 
 ```php
 use aspose\slides\ChartType;
@@ -343,13 +341,15 @@ finally
 
 Výsledek:
 
-![The Pie chart](pie_chart.png)
+![Koláčový graf](pie_chart.png)
 
-### **Vytvoření čárových grafů**
+Pro zlepšení čitelnosti štítků mimo koláč viz [Format Leader Lines](/slides/cs/php-java/chart-data-label/#format-leader-lines) pro příklad, který umisťuje štítky a přizpůsobuje barvu, šířku, průhlednost a styl čar.
 
-Čárové grafy (také známé jako line grafy) jsou nejvhodnější v situacích, kdy chcete ukázat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnávat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v sériích a další.
+### **Vytvořit čárové grafy**
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření čárového grafu s výchozími sériemi a kategoriemi a poté ukládá prezentaci jako PPTX.
+Čárové grafy (známé také jako line graphs) jsou nejvhodnější v situacích, kdy chcete ukázat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v datových sériích a další.
+
+Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření čárového grafu s výchozími sériemi a kategoriemi, poté prezentaci uloží jako PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -371,7 +371,7 @@ finally
 }
 ```
 
-Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny pomlčkami, zavolejte [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
+Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete místo toho body spojit čárkovanou čárou, zavolejte [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
 
 ```php
 use aspose\slides\ChartType;
@@ -399,13 +399,13 @@ finally
 
 Výsledek:
 
-![The Line chart](line_chart.png)
+![Čárový graf](line_chart.png)
 
-### **Vytvoření grafů stromového mapování**
+### **Vytvořit stromové mapy**
 
-Grafy stromové mapy jsou nejvhodnější pro prodejní data, když chcete ukázat relativní velikost kategorií a rychle upozornit na položky, které jsou velkými přispěvateli v každé kategorii.
+Stromové mapy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost kategorií a rychle upoutat pozornost na položky, které jsou v každé kategorii velkými přispěvateli.
 
-Tento příklad vytváří stromovou mapu se osm listy seskupenými do čtyř větví a dvou podvětví. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) přiřazuje větve na úrovni seskupení 1 a podvětve na úrovni 2. Hodnoty určují relativní velikosti obdélníků, zatímco štítky kategorií a překrývající se nadřazené štítky identifikují hierarchii.
+Tento příklad vytváří stromovou mapu s osmi listy seskupenými do čtyř stop a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) přiřazuje stonky na úrovni seskupení 1 a větve na úrovni 2. Hodnoty určují relativní velikosti obdélníků, zatímco štítky kategorií a překrývající se nadřazené štítky identifikují hierarchii.
 
 ```php
 use aspose\slides\ChartType;
@@ -489,26 +489,26 @@ finally
 
 Výsledek:
 
-![The Treemap chart](treemap_chart.png)
+![Stromová mapa](treemap_chart.png)
 
-### **Vytvoření vodopádových grafů**
+### **Vytvořit vodopádové grafy**
 
-Vodopádový graf ukazuje, jak pozitivní a negativní změny přispívají k konečné hodnotě. Například rozpis zisku může začínat tržbami, odečítat náklady a přidávat další příjmy. Sloupce změn „plavou“ mezi předchozí a novou běžící hodnotou, zatímco součtové sloupce sahají od nuly k akumulované hodnotě.
+Vodopádový graf ukazuje, jak kladné i záporné změny přispívají k konečné hodnotě. Například rozpis zisku může začínat příjmem, odečíst náklady a přičíst další příjmy. Sloupce změn „plavou“ mezi předchozí a novou hodnotou, zatímco souhrnné sloupce se rozprostírají od nuly po akumulovanou hodnotu.
 
 Následující příklad používá částky v tisících amerických dolarů:
 
-| Kategorie | Hodnota sešitu | Typ sloupce |
+| Kategorie | Hodnota v sešitu | Typ sloupce |
 | --- | ---: | --- |
-| Revenue | 1000 | Zvýšení |
-| Cost of sales | -400 | Snížení |
-| Gross profit | 600 | Meziprodukt |
-| Operating expenses | -200 | Snížení |
-| Other income | 50 | Zvýšení |
-| Net profit | 450 | Konečný součet |
+| Příjem | 1000 | Nárůst |
+| Náklady na prodej | -400 | Úbytek |
+| Hrubý zisk | 600 | Mezivýsledek |
+| Provozní náklady | -200 | Úbytek |
+| Ostatní příjmy | 50 | Nárůst |
+| Čistý zisk | 450 | Konečný výsledek |
 
-Pro označení bodu jako mezisoučtu nebo konečného součtu zavolejte jeho metodu [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) s `true`. Do buňky sešitu v tomto bodě vložte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako součet; nepočítá ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný znak ani nedávejte jinou změnu pro součtový bod. Součtový sloupec zobrazuje akumulovanou hodnotu, aniž by ji znovu přičítal k běžné hodnotě.
+Pro označení bodu jako mezivýsledku nebo konečného výsledku zavolejte jeho metodu [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) s `true`. Do buňky sešitu příslušného bodu zadejte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako souhrnný; nevyčíslí ani nevyplní hodnotu buňky. Nepoužívejte nulu jako zástupný znak ani nedávejte jinou změnu pro souhrnný bod. Souhrnný sloupec zobrazuje akumulovanou hodnotu bez opětovného přičtení k běžné hodnotě.
 
-Tento kompletní PHP příklad vytváří graf pomocí členu `Waterfall` výčtu [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), vymaže výchozí data a vyplní vložený sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B obsahuje hodnoty. Každá buňka s hodnotou je přidána pomocí [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Indexy bodů `2` a `5` (číslo začíná od nuly) identifikují mezisoučty a konečný součet. Zavoláním [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) s `true` zobrazíte částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
+Tento kompletní PHP příklad vytváří graf pomocí členu `Waterfall` výčtu [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), vymaže výchozí data a naplní vložený sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B hodnoty. Každá buňka s hodnotou je přidána metodou [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Indexy bodů počínaje nulou `2` a `5` identifikují mezivýsledky a konečný výsledek. Volání [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) s `true` zobrazí částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
 
 ```php
 use aspose\slides\ChartType;
@@ -548,7 +548,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // Třetí a šestý bod představují součty, nikoli další změny.
+    // Třetí a šestý bod představují součty, ne další změny.
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -562,17 +562,17 @@ finally
 }
 ```
 
-Zavolejte metodu na úrovni sérií [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) s `true`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžné hodnoty. Pro skrytí těchto čar nahraďte volání metody v příkladu řádkem `$series->setShowConnectorLines(false);` před uložením. Tím se změní pouze viditelnost čar, ne data ani součty.
+Zavolejte metodu na úrovni sérií [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) s `true`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžné hodnoty. Pro skrytí těchto čar nahraďte volání metody v příkladu `$series->setShowConnectorLines(false);` před uložením. Tím se změní pouze viditelnost čar, ne data nebo souhrny.
 
-Uložená prezentace ukazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou vykresleny od nuly:
+Uložená prezentace ukazuje hrubý zisk 600 a čistý zisk 450, přičemž oba souhrny jsou počítány od nuly:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Vodopádový graf zobrazující příjem, náklady, hrubý zisk 600 a čistý zisk 450 s hodnotovými štítky a čarami spojujícími sloupce](waterfall_chart.png)
 
-### **Vytvoření akciových grafů**
+### **Vytvořit akciové grafy**
 
-Akciové grafy se používají k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a uzavírací ceny, což pomáhá analyzovat tržní trendy a volatilitu. Poskytují klíčové poznatky o výkonnosti akcií a pomáhají investorům i analytikům činit informovaná rozhodnutí.
+Akciové grafy se používají k zobrazení finančních údajů, jako jsou otevírací, nejvyšší, nejnižší a uzavírací ceny, což pomáhá analyzovat tržní trendy a volatilitu. Poskytují klíčové poznatky o výkonnosti akcií, čímž usnadňují investorům a analytikům činit informovaná rozhodnutí.
 
-Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi sériemi v tomto pořadí a třemi kategoriemi. Metoda [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) povoluje up/down pruhy a [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) řídí linky high‑low, které ukazují cenové rozpětí, zatímco jednotlivé linie sérií a menší vodorovné mřížky jsou skryté.
+Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi sériemi v tomto pořadí a třemi kategoriemi. Metoda [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) aktivuje up/down lišty a [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) řídí čáry high‑low, které zobrazují cenové rozpětí, zatímco jednotlivé čáry sérií a menší vodorovné mřížky jsou skryté.
 
 ```php
 use aspose\slides\ChartType;
@@ -658,13 +658,13 @@ finally
 
 Výsledek:
 
-![The Stock chart](stock_chart.png)
+![Akciový graf](stock_chart.png)
 
-### **Vytvoření krabicových a vousatých grafů**
+### **Vytvořit krabicové a vousové grafy**
 
-Krabicové a vousaté grafy se používají k zobrazení rozdělení dat shrnutím klíčových statistických měr, jako je medián, kvartily a případné odlehlé hodnoty. Jsou obzvláště užitečné při průzkumné analýze dat a statistických studiích pro rychlé pochopení variability dat a identifikaci anomálií.
+Krabicové a vousové grafy slouží k zobrazení rozdělení dat shrnutím klíčových statistických měřítek, jako jsou medián, kvartily a případné odlehlé hodnoty. Jsou zvláště užitečné při průzkumné datové analýze a statistických studiích k rychlému pochopení variability dat a identifikaci anomálií.
 
-Tento příklad vytváří krabicový a vousatý graf ze šesti hodnot. Metoda [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) volí výlučný výpočet kvartilů. Příklad také povoluje čáry průměru, značky průměru, vnitřní body a body odlehlých hodnot.
+Tento příklad vytváří krabicový a vousový graf ze šesti hodnot. Metoda [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) vybírá výlučný výpočet kvartilů. Příklad také zapíná čáry průměru, značky průměru, vnitřní body a odlehlé body.
 
 ```php
 use aspose\slides\ChartType;
@@ -727,11 +727,11 @@ finally
 }
 ```
 
-### **Vytvoření trychtýřových grafů**
+### **Vytvořit trychtýřové grafy**
 
-Trychtýřové grafy slouží k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s každým dalším krokem. Jsou zvláště užitečné pro analýzu konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních či marketingových procesů.
+Trychtýřové grafy slouží k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s každým dalším krokem. Jsou zvláště užitečné při analýze konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních nebo marketingových procesů.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k přidání trychtýřového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami od 50 do 500 a poté ukládá aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k přidání trychtýřového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami v rozsahu 50 až 500, poté uloží aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
 
 ```php
 use aspose\slides\ChartType;
@@ -789,13 +789,13 @@ finally
 
 Výsledek:
 
-![The Funnel chart](funnel_chart.png)
+![Trychtýřový graf](funnel_chart.png)
 
-### **Vytvoření slunečních grafů**
+### **Vytvořit slunečnicové grafy**
 
-Sluneční grafy slouží k vizualizaci hierarchických dat, přičemž úrovně jsou zobrazeny jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
+Slunečnicové grafy slouží k vizualizaci hierarchických dat, přičemž úrovně jsou zobrazeny jako soustředné prstence. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
 
-Tento příklad vytváří sluneční graf s osmi listy seskupenými do čtyř větví a dvou podvětví. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) přiřazuje větve na úrovni 1 a podvětve na úrovni 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
+Tento příklad vytváří slunečnicový graf s osmi listy seskupenými do čtyř stop a dvou větví. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) přiřazuje stonky na úrovni seskupení 1 a větve na úrovni 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
 
 ```php
 use aspose\slides\ChartType;
@@ -876,17 +876,17 @@ finally
 
 Výsledek:
 
-![The Sunburst chart](sunburst_chart.png)
+![Slunečnicový graf](sunburst_chart.png)
 
-### **Vytvoření histogramových grafů**
+### **Vytvořit histogramy**
 
-Histogramové grafy ukazují, jak jsou číselné hodnoty rozděleny do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek používejte stejnou šířku binu a prahy, aby byly intervaly konzistentní a usnadnily porovnání rozdělení.
+Histogramy ukazují, jak jsou číselné hodnoty rozloženy do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek použijte stejnou šířku binu a prahy, aby byly intervaly konzistentní a rozdělení se snadno porovnávalo.
 
-Zavolejte [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) na vodorovné ose s režimem z [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) platí jen pro `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) platí jen pro `ByNumberOfBins`. Použijte `Automatic`, aby si graf sám určil biny.
+Zavolejte [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) na vodorovné ose s režimem z [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) se použije jen pro `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) jen pro `ByNumberOfBins`. Použijte `Automatic`, aby graf sám určil biny.
 
 #### **Použít pevnou šířku binu**
 
-Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 min a > 40 min. Aktivujte tyto biny pomocí [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) a [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Při poskytování explicitních prahů pomocí [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) a [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) zavolejte [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) a [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) s `false`.
+Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 min a > 40 min. Tyto biny povolíte pomocí [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) a [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Při zadání explicitních prahů skrze [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) a [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) zavolejte [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) a [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) s `false`.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -936,13 +936,13 @@ finally
 }
 ```
 
-Prezentace zobrazovaná v PowerPointu ukazuje počty binů **3, 4, 4, 4 a 2**. Bin podprůtok zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Bin přetečení zahrnuje pouze `41, 50`, takže jeho práh je exkluzivní; oba hodnoty rovné `40` zůstávají v předcházejícím intervalu. Vnitřní biny obsahují hodnoty větší než jejich dolní hranice a menší nebo rovné jejich horní hranici.
+Prezentace zobrazovaná v PowerPointu ukazuje počty v binech **3, 4, 4, 4 a 2**. Bin podproud obsahuje `5, 10, 10`, takže jeho práh je inkluzivní. Bin přetečení obsahuje jen `41, 50`, takže jeho práh je exkluzivní; oba hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich spodní hranice a menší nebo rovné jejich horní hranici.
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Histogram s 10‑minutovými biny a explicitními prahy podproud a přetečení](histogram_bin_width.png)
 
 #### **Zadat počet binů**
 
-Pro pevnou úroveň detailu místo pevných intervalů požádejte o pět binů pro stejná data. Tento příklad má vypnuté biny podprůtoku a přetečení. Graf určuje šířku z rozsahu dat, takže hranice se mohou mezi zprávami měnit.
+Pro pevnou úroveň detailu místo pevných intervalů požádejte o pět binů pro stejná data. Tento příklad ponechává biny podproud a přetečení zakázané. Graf určuje šířku z rozsahu dat, takže hranice se mohou mezi zprávami měnit.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -988,13 +988,13 @@ finally
 
 Pět binů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou identické, ale hranice se liší.
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![Histogram s pěti biny vypočtenými ze stejných dat](histogram_bin_count.png)
 
-### **Vytvoření radiálních grafů**
+### **Vytvořit radiální grafy**
 
-Radiální grafy slouží k zobrazení mnoho‑variabilních dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných najednou. Jsou zvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč více metrikami výkonnosti nebo atributy.
+Radiální grafy slouží k zobrazení vícevariabilních dat ve dvourozměrném formátu, což usnadňuje porovnání několika proměnných najednou. Jsou obzvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč více metrikami výkonnosti nebo atributy.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření radiálního grafu s výchozími sériemi a kategoriemi a poté ukládá prezentaci jako PPTX.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření radiálního grafu s výchozími sériemi a kategoriemi, poté prezentaci uloží jako PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -1018,13 +1018,13 @@ finally
 
 Výsledek:
 
-![The Radar chart](radar_chart.png)
+![Radiální graf](radar_chart.png)
 
-### **Vytvoření vícekategoriových grafů**
+### **Vytvořit multi‑kategorie grafy**
 
-Vícekategoriové grafy slouží k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což vám umožňuje porovnávat hodnoty napříč více dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, vícestupňových datech.
+Multi‑kategorie grafy slouží k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což vám umožní porovnat hodnoty napříč více rozměry najednou. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, vícestupňových datových sadách.
 
-Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech párech. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) přiřazuje každému páru sdílený štítek na úrovni seskupení 1, čímž vzniká osa kategorií s individuálními i skupinovými štítky.
+Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech dvojicích. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) dává každé dvojici společný štítek na úrovni seskupení 1, čímž vzniká osa kategorií s jednotlivými i skupinovými štítky.
 
 ```php
 use aspose\slides\ChartType;
@@ -1100,13 +1100,13 @@ finally
 
 Výsledek:
 
-![The multi category chart](multi_category_chart.png)
+![Multi‑kategorie graf](multi_category_chart.png)
 
-### **Vytvoření mapových grafů**
+### **Vytvořit mapové grafy**
 
-Mapové grafy slouží k vizualizaci geografických dat přiřazením informací k konkrétním místům, jako jsou země, státy nebo města. Jsou zvláště užitečné pro analýzu regionálních trendů, demografických dat a prostorových rozdělení jasným a vizuálně přitažlivým způsobem.
+Mapové grafy slouží k vizualizaci geografických dat mapováním informací na konkrétní místa, jako jsou země, státy nebo města. Jsou zvláště užitečné při analýze regionálních trendů, demografických údajů a prostorových rozdělení v přehledném a vizuálně atraktivním formátu.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření mapového grafu s výchozími geografickými daty a ukládá jej pro zobrazení v PowerPointu.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření mapového grafu s výchozími geografickými daty a uloží jej pro prohlížení v PowerPointu.
 
 ```php
 use aspose\slides\ChartType;
@@ -1130,21 +1130,19 @@ finally
 
 Výsledek:
 
-![The Map chart](map_chart.png)
+![Mapový graf](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-
-Výše uvedený obrázek ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale sám mapové grafy nevykresluje: když je snímek s mapovým grafem renderován do obrázku nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
-
+Obrázek výše zobrazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale sám mapové grafy nevykresluje: když se snímek obsahující takový graf renderuje na obrázek nebo převádí do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
 {{% /alert %}}
 
-### **Vytvoření kombinovaných grafů**
+### **Vytvořit kombinované grafy**
 
-Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma nebo více sadami dat, což vám pomůže identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo zkoumat rozdíly mezi dvěma nebo více datovými sadami a pomoci tak identifikovat vztahy mezi nimi.
 
-![The combination chart](combination_chart.png)
+![Kombinovaný graf](combination_chart.png)
 
-Tento příklad kombinuje dva seskupené sloupcové série s čárovou sérií napříč čtyřmi kategoriemi. Sloupce používají primární svislou osu, zatímco [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) umisťuje čáru na sekundární svislou osu vpravo. Pomocné funkce konfigurují název, legendu, popisky os a mřížky.
+Tento příklad kombinuje dvě seskupené sloupcové série s čárovou sérií napříč čtyřmi kategoriemi. Sloupce používají primární svislou osu, zatímco [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) umisťuje čáru na sekundární svislou osu vpravo. Pomocné funkce konfigurují název, legendu, popisky os a mřížky.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1316,11 +1314,11 @@ function setAxisTitle($axis, $axisTitle)
 createComboChart();
 ```
 
-## **Aktualizace grafů**
+## **Aktualizovat grafy**
 
-Aspose.Slides for PHP via Java vám umožňuje aktualizovat grafy PowerPointu úpravou dat grafu, formátování a stylů. Tato funkčnost zjednodušuje proces udržování prezentací aktuálními s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí aktuální data a vizuální standardy.
+Aspose.Slides pro PHP přes Java vám umožňuje aktualizovat grafy PowerPointu úpravou dat grafu, formátování a stylování. Tato funkčnost zjednodušuje proces udržování prezentací aktuálních s dynamickým obsahem a zajišťuje, že grafy přesně odráží současná data a vizuální standardy.
 
-Tento příklad aktualizuje graf pojmenovaný „My chart“ na prvním snímku existující prezentace. Vyžaduje dvě sloupcové série se třemi datovými body každá, s etiketami kategorií ve sloupci A a názvy sérií v prvním řádku první tabulky. Příklad používá [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) k změně buněk sešitu, aktualizuje hodnoty sérií, přidá třetí sérii a změní typ grafu na seskupené válec pomocí [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
+Tento příklad aktualizuje graf pojmenovaný „My chart“ na prvním snímku existující prezentace. Vyžaduje dvě sloupcové série se třemi datovými body každá, s štítky kategorií ve sloupci A a názvy sérií v prvním řádku prvního listu. Příklad používá [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) ke změně buněk sešitu, aktualizuje hodnoty sérií, přidá třetí sérii a změní typ grafu na seskupené válce pomocí [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
 
 ```php
 use aspose\slides\ChartType;
@@ -1384,13 +1382,13 @@ finally
 }
 ```
 
-## **Nastavení rozsahu dat pro graf**
+## **Nastavit datový rozsah pro graf**
 
-Pro zobrazení rozsahu již použitého existujícím grafem viz [Retrieve a Chart's Data Range](/slides/cs/php-java/chart-workbook/#retrieve-a-charts-data-range).
+Chcete‑li zobrazit rozsah již použitý existujícím grafem, viz [Retrieve a Chart's Data Range](/slides/cs/php-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for PHP via Java poskytuje flexibilitu definovat konkrétní rozsah dat z tabulky jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část tabulky na graf, což vám umožní řídit, které buňky přispívají k sériím a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace grafů s nejnovějšími změnami dat v tabulce, aby vaše PowerPoint prezentace odrážely aktuální a přesné informace.
+Aspose.Slides pro PHP přes Java poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu na graf, což vám umožní kontrolovat, které buňky přispívají k sériím a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace grafů s nejnovějšími změnami v listu, aby vaše PowerPoint prezentace odrážely aktuální a přesné informace.
 
-Tento příklad používá [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) k nastavení zdroje dat grafu pojmenovaného „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a naplněný rozsah s nadpisem série v prvním řádku, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
+Tento příklad používá [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) k nastavení datového zdroje grafu pojmenovaného „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a naplněný rozsah s nadpisem série v prvním řádku, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
 
 ```php
 use aspose\slides\Presentation;
@@ -1422,11 +1420,11 @@ finally
 }
 ```
 
-## **Použití výchozích značek v grafech**
+## **Používat výchozí značky v grafech**
 
-Když použijete výchozí značky v grafech, každá série grafu automaticky získá jiný výchozí symbol značky.
+Když používáte výchozí značky v grafech, každá série grafu automaticky získá jiný výchozí symbol značky.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření grafu se dvěma čárovými sériemi a legendou. Nastavení značky získané pomocí [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) si ponechává automaticky přiřazené symboly značek. První série zahrnuje zápornou hodnotu a chybějící hodnotu, reprezentovanou `null`, zatímco druhá má hodnotu pro každou kategorii.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) k vytvoření grafu se dvěma čárovými sériemi a legendou. Nastavení značek přístupné přes [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) zachovává automaticky přiřazené symboly značek. První série obsahuje zápornou hodnotu a chybějící hodnotu reprezentovanou `null`, zatímco druhá má hodnotu pro každou kategorii.
 
 ```php
 use aspose\slides\ChartType;
@@ -1493,18 +1491,18 @@ finally
 
 ## **Často kladené otázky**
 
-**Jaké typy grafů jsou podporovány v Aspose.Slides for PHP via Java?**
+**Jaké typy grafů podporuje Aspose.Slides pro PHP přes Java?**
 
-Aspose.Slides for PHP via Java podporuje širokou škálu typů grafů, včetně sloupcových, čárových, výsečových, plošných, rozptylových, histogramových, radiálních a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
+Aspose.Slides pro PHP přes Java podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, plošných, rozptylových, histogramů, radiálních a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
 **Jak přidám nový graf do snímku?**
 
-Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), získáte požadovaný snímek pomocí jeho indexu a poté zavoláte metodu pro přidání grafu, kde specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Chcete‑li přidat graf, nejprve vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), načtěte požadovaný snímek podle jeho indexu a poté zavolejte metodu pro přidání grafu, kde určíte typ grafu a počáteční data. Tento proces vloží graf přímo do vaší prezentace.
 
-**Jak mohu aktualizovat data zobrazená v grafu?**
+**Jak mohu aktualizovat data zobrazovaná v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), vymazáním výchozích sérií a kategorií a následným přidáním vlastních dat. To vám umožní programově aktualizovat graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat přístupem k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), vymazáním výchozích sérií a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides for PHP via Java poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky, aby graf odpovídal vašim konkrétním požadavkům na design.
+Ano, Aspose.Slides pro PHP přes Java poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, štítky, legendy a další formátovací prvky tak, aby graf odpovídal vašim konkrétním návrhovým požadavkům.

@@ -14,15 +14,15 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Aprenda a añadir y dar formato a las etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para PHP mediante Java para diapositivas más atractivas."
+description: "Aprenda a añadir y formatear etiquetas de datos de gráficos en presentaciones de PowerPoint usando Aspose.Slides para PHP a través de Java para diapositivas más atractivas."
 ---
 ## **Introducción**
 
-Las etiquetas de datos muestran información sobre las series del gráfico y los puntos de datos individuales, ayudando a los lectores a identificar los valores y comprender el gráfico. Este artículo explica cómo dar formato a los valores, mostrar porcentajes, leer el texto de la etiqueta, controlar las etiquetas más allá del máximo del eje, ajustar el espaciado de las etiquetas del eje de categorías y posicionar las etiquetas del gráfico circular.
+Las etiquetas de datos muestran información sobre las series del gráfico y los puntos de datos individuales, ayudando a los lectores a identificar valores y comprender el gráfico. Este artículo explica cómo formatear valores, mostrar porcentajes, leer el texto de la etiqueta, controlar las etiquetas más allá del máximo del eje, ajustar el espaciado de las etiquetas del eje de categorías y posicionar las etiquetas de los gráficos circulares.
 
-## **Establecer precisión de datos en las etiquetas de datos del gráfico**
+## **Establecer precisión de los datos en las etiquetas de datos del gráfico**
 
-Use [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) para dar formato a los valores de la serie. Este ejemplo crea un gráfico de líneas con datos predeterminados, muestra su tabla de datos y habilita las etiquetas de valor para la primera serie. El formato `#,##0.00` muestra un separador de miles y dos decimales sin modificar los valores subyacentes.
+Utilice [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) para formatear los valores de la serie. Este ejemplo crea un gráfico de líneas con datos predeterminados, muestra su tabla de datos y habilita las etiquetas de valores para la primera serie. El formato `#,##0.00` muestra un separador de miles y dos decimales sin cambiar los valores subyacentes.
 
 ```php
 use aspose\slides\Presentation;
@@ -48,7 +48,7 @@ try {
 
 ## **Mostrar porcentaje como etiquetas**
 
-Para un gráfico de columnas apiladas, calcule cada valor como porcentaje del total de su categoría y asigne el texto al marco de texto devuelto por [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Este ejemplo utiliza los datos predeterminados del gráfico y muestra los porcentajes con dos decimales en una fuente de 8 puntos. Las categorías con un total de cero se omiten para evitar una división por cero. Recalcule el texto de la etiqueta personalizada si los datos del gráfico cambian.
+Para un gráfico de columnas apiladas, calcule cada valor como porcentaje del total de su categoría y asigne el texto al marco de texto devuelto por [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). Este ejemplo usa los datos predeterminados del gráfico y muestra porcentajes con dos decimales en una fuente de 8 pt. Las categorías con un total de cero se omiten para evitar una división por cero. Recalcule el texto de la etiqueta personalizada si los datos del gráfico cambian.
 
 ```php
 use aspose\slides\Presentation;
@@ -108,11 +108,11 @@ try {
 }
 ```
 
-## **Establecer signo de porcentaje con etiquetas de datos del gráfico**
+## **Establecer el signo de porcentaje con las etiquetas de datos del gráfico**
 
-Cuando los valores se almacenan como fracciones, use [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormat) para mostrar porcentajes. Pase `false` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) para aplicar el formato de la etiqueta de forma independiente de las celdas de origen.
+Cuando los valores se almacenan como fracciones, utilice [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) para mostrar porcentajes. Pase `false` a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) para aplicar el formato de la etiqueta de forma independiente de las celdas de origen.
 
-Este ejemplo crea un gráfico de columnas apiladas al 100 % con series rojas y azules en cuatro categorías. Cada pareja de valores suma 1. El formato de etiqueta `0.0%` muestra 0,30 como 30,0 %, mientras que el eje vertical utiliza dos decimales. Ambas series usan texto de etiqueta blanco de 10 puntos.
+Este ejemplo crea un gráfico de columnas apiladas al 100 % con series roja y azul en cuatro categorías. Cada pareja de valores suma 1. El formato de etiqueta `0.0%` muestra 0.30 como 30.0 %, mientras que el eje vertical usa dos decimales. Ambas series utilizan texto de etiqueta blanco de 10 pt.
 
 ```php
 use aspose\slides\Presentation;
@@ -172,7 +172,7 @@ try {
 
 ## **Leer el texto real de las etiquetas de datos**
 
-Use [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) para obtener el texto generado por la configuración de una etiqueta de datos. Esto resulta útil al extraer etiquetas para informes, buscar contenido en presentaciones o validar gráficos generados. En el ejemplo siguiente, el [formato de etiqueta de datos](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) predeterminado combina el nombre de cada categoría, el nombre de la serie y el valor. Un punto formatea su valor como porcentaje, y otro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Utilice [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) para obtener el texto producido por la configuración de una etiqueta de datos. Esto es útil al extraer etiquetas para informes, buscar contenido en presentaciones o validar gráficos generados. En el ejemplo siguiente, el formato de etiqueta de datos predeterminado ([data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/)) combina el nombre de cada categoría, el nombre de la serie y el valor. Un punto formatea su valor como porcentaje y otro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +236,15 @@ try {
 }
 ```
 
-El número almacenado en un punto de datos sigue siendo `0.75`, incluso cuando su etiqueta muestra `75%` junto con los nombres de categoría y serie. El texto personalizado sustituye el texto de etiqueta generado. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) devuelve la cadena de etiqueta resultante en ambos casos. Verifique [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#isVisible) por separado, como se muestra arriba, cuando solo desee extraer etiquetas visibles.
+El número almacenado en un punto de datos sigue siendo `0.75`, incluso cuando su etiqueta muestra `75%` junto con los nombres de categoría y serie. El texto personalizado sustituye al texto generado por la etiqueta. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) devuelve la cadena de etiqueta resultante en ambos casos. Compruebe [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) por separado, como se muestra arriba, cuando solo desee extraer etiquetas visibles.
 
-## **Controlar etiquetas de datos más allá del máximo del eje**
+## **Controlar las etiquetas de datos más allá del máximo del eje**
 
-Al limitar manualmente el rango de un eje, algunos puntos de datos pueden superar su máximo. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) para controlar si sus etiquetas de datos se muestran. Esta configuración cambia la visibilidad de las etiquetas; no modifica el rango del eje ni los valores subyacentes.
+Cuando limita manualmente el rango de un eje, algunos puntos pueden superar su máximo. Utilice [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) para controlar si se muestran sus etiquetas de datos. Esta configuración cambia la visibilidad de la etiqueta; no modifica el rango del eje ni los valores subyacentes.
 
-El ejemplo siguiente crea un gráfico de columnas agrupadas 2D con valores de 60 y 120. Pasa `false` a [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setAutomaticMaxValue) y establece el máximo en 100 con [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setMaxValue) en el eje vertical. La primera diapositiva permite etiquetas más allá del máximo; una copia de esa diapositiva las desactiva. Ambas diapositivas se guardan en `DataLabelsOverMaximum.pptx`.
+El ejemplo siguiente crea un gráfico de columnas agrupadas 2D con valores de 60 y 120. Pasa `false` a [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) y establece el máximo en 100 con [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) en el eje vertical. La primera diapositiva permite etiquetas más allá del máximo; una copia de esa diapositiva las desactiva. Ambas diapositivas se guardan en `DataLabelsOverMaximum.pptx`.
 
-Habilite las etiquetas de valor con [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). La configuración a nivel de gráfico no habilita la visualización de valores por sí sola ni sobrescribe la desactivación de la visualización de valores de una etiqueta individual. Este ejemplo habilita los valores para toda la serie y usa [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setPosition) para colocar las etiquetas en el extremo exterior de cada columna.
+Active las etiquetas de valores con [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). La configuración a nivel de gráfico no habilita la visualización de valores por sí sola ni sobrescribe la visualización desactivada de una etiqueta individual. Este ejemplo habilita los valores para toda la serie y usa [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) para colocar las etiquetas en el extremo externo de cada columna.
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +296,19 @@ try {
 }
 ```
 
-Las imágenes siguientes muestran las diapositivas guardadas renderizadas por Microsoft PowerPoint. Con `true`, la etiqueta **120** es visible en el límite superior; con `false`, está oculta. La etiqueta **60** sigue visible, el máximo del eje se mantiene en **100** y el segundo punto de datos sigue siendo **120** en ambos casos.
+Las imágenes siguientes muestran las diapositivas guardadas renderizadas por Microsoft PowerPoint. Con `true`, la etiqueta **120** es visible en el límite superior; con `false`, está oculta. La etiqueta **60** sigue visible, el máximo del eje permanece en **100** y el segundo punto de datos sigue siendo **120** en ambos casos.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![Gráfica de PowerPoint que muestra la etiqueta de valor 120 con un máximo de eje de 100](data-labels-over-maximum-true.png) | ![Gráfica de PowerPoint que oculta la etiqueta de valor 120 con un máximo de eje de 100](data-labels-over-maximum-false.png) |
+| ![Gráfico de PowerPoint que muestra la etiqueta de valor 120 con un máximo de eje de 100](data-labels-over-maximum-true.png) | ![Gráfico de PowerPoint que oculta la etiqueta de valor 120 con un máximo de eje de 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Este ejemplo utiliza un gráfico de columnas 2D con un eje de valores. Los gráficos sin eje de valores, como los circulares y de rosquilla, no disponen de un máximo de eje que pueda limitarse de esta forma.
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
-## **Establecer distancia de la etiqueta respecto a un eje**
+## **Establecer distancia de la etiqueta desde un eje**
 
-Use [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setLabelOffset) para controlar la distancia entre las etiquetas del eje de categorías y el eje. El valor es un porcentaje del tamaño máximo de fuente de las etiquetas del eje. Este ejemplo crea un gráfico de columnas agrupadas y establece el desplazamiento de la etiqueta del eje horizontal en 500. Esta configuración afecta a las etiquetas del eje de categorías más que a las etiquetas vinculadas a puntos de datos individuales.
+Utilice [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) para controlar la distancia entre las etiquetas del eje de categorías y el eje. El valor es un porcentaje del tamaño máximo de fuente de las etiquetas del eje. Este ejemplo crea un gráfico de columnas agrupadas y establece el desplazamiento de etiquetas del eje horizontal en 500. Esta configuración afecta a las etiquetas del eje de categorías más que a las etiquetas asociadas a puntos de datos individuales.
 
 ```php
 use aspose\slides\Presentation;
@@ -328,11 +328,11 @@ try {
 }
 ```
 
-## **Ajustar ubicación de la etiqueta**
+## **Ajustar la ubicación de la etiqueta**
 
-En un gráfico circular, ajuste la posición de las etiquetas de datos para mejorar el espaciado y dejar espacio a las líneas de guía.
+En un gráfico circular, ajuste la posición de las etiquetas de datos para mejorar el espaciado y dejar espacio a las líneas guía.
 
-Este ejemplo muestra el valor del primer punto de datos, coloca su etiqueta fuera de la porción y ajusta sus desplazamientos horizontal y vertical mediante [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) y [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY). Estos desplazamientos son relativos al ancho y la altura del gráfico, respectivamente.
+Este ejemplo muestra el valor del primer punto de datos, coloca su etiqueta fuera de la porción y ajusta sus desplazamientos horizontal y vertical mediante [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) y [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). Estos desplazamientos son relativos al ancho y al alto del gráfico, respectivamente.
 
 ```php
 use aspose\slides\Presentation;
@@ -359,13 +359,70 @@ try {
 }
 ```
 
-![Gráfica circular con una posición de etiqueta de datos ajustada](pie-chart-adjusted-label.png)
+![Gráfico circular con una posición de etiqueta de datos ajustada](pie-chart-adjusted-label.png)
 
-## **Añadir varias filas de etiquetas de datos encima de un gráfico de columnas**
+## **Formatear líneas guía**
 
-Este ejemplo crea un gráfico de columnas con dos filas de etiquetas de datos encima del área de trazado. La Serie A muestra las columnas visibles, mientras que las Series B y C proporcionan las etiquetas adicionales. Sus columnas se ocultan eliminando el relleno y el contorno. El método [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) alinea las tres series en los mismos centros de categoría.
+Cuando las etiquetas de los gráficos circulares se sitúan fuera de sus porciones, las líneas guía ayudan a los lectores a asociar cada valor con la porción correcta. Un color contrastante y una línea ligeramente más gruesa pueden facilitar estas conexiones, mientras que la transparencia y un estilo dash mantienen las líneas visualmente discretas.
 
-Los ajustes de [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) reservan espacio para las filas de etiquetas. Después de que [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#validateChartLayout) calcule las posiciones predeterminadas, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) y [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) conservan la alineación horizontal y aplican desplazamientos verticales para organizar las etiquetas en dos filas. Los números siguen siendo etiquetas de datos vinculadas a los valores de la serie; solo los encabezados de fila son formas de texto independientes.
+Utilice [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) para dar formato a las líneas guía a nivel de la colección de etiquetas de datos de la serie. La configuración en `$series->getLabels()->getLeaderLinesFormat()->getLine()` se aplica a la colección, no a una etiqueta individual.
+
+Este ejemplo crea un gráfico circular con datos predeterminados, muestra los valores fuera de las porciones y habilita [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). Mueve dos etiquetas más lejos de sus porciones mediante los desplazamientos [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) y [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/), expresados como fracciones del ancho y alto del gráfico. No se requiere una presentación de entrada.
+
+El [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) de la línea establece un color azul sólido con un valor alfa de 191 sobre 255, lo que equivale a aproximadamente un 25 % de transparencia. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) establece el grosor en 2 pt, y [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) convierte la línea en dash.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\FillType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 80, 50, 560, 400);
+    $chart->setLegend(false);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+    $labelFormat->setShowValue(true);
+    $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
+    $labelFormat->setShowLeaderLines(true);
+
+    // Mover dos etiquetas más lejos de sus porciones.
+    $series->getLabels()->get_Item(0)->setX(0.10);
+    $series->getLabels()->get_Item(0)->setY(-0.05);
+    $series->getLabels()->get_Item(1)->setX(-0.10);
+    $series->getLabels()->get_Item(1)->setY(0.05);
+
+    $line = $series->getLabels()->getLeaderLinesFormat()->getLine();
+    $line->getFillFormat()->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 30, 90, 160, 191);
+    $line->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+    $line->setWidth(2);
+    $line->setDashStyle(LineDashStyle::Dash);
+
+    $presentation->save("FormattedLeaderLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Activar las líneas guía no garantiza que aparezca una línea para cada etiqueta. La visibilidad depende de la ubicación de la etiqueta y del comportamiento de diseño del gráfico. En este ejemplo, las dos etiquetas desplazadas tienen líneas guía visibles; las etiquetas que permanecen cerca de sus porciones no las necesitan.
+
+La imagen siguiente muestra el archivo `FormattedLeaderLines.pptx` guardado y renderizado con Aspose.Slides:
+
+![Gráfico circular con líneas guía azules, semitransparentes y con estilo dash que conectan dos etiquetas externas con sus porciones](formatted-leader-lines.png)
+
+## **Agregar varias filas de etiquetas de datos encima de un gráfico de columnas**
+
+Este ejemplo crea un gráfico de columnas con dos filas de etiquetas de datos encima del área de trazado. La Serie A muestra las columnas visibles, mientras que las Series B y C proporcionan las etiquetas adicionales. Sus columnas se ocultan eliminando el relleno y el contorno. El método [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) alinea las tres series con los mismos centros de categoría.
+
+Los ajustes de [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) reservan espacio para las filas de etiquetas. Después de que [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) calcula las posiciones predeterminadas, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) y [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) conservan la alineación horizontal y aplican desplazamientos verticales para organizar las etiquetas en dos filas. Los números siguen siendo etiquetas de datos vinculadas a los valores de la serie; solo los encabezados de fila son formas de texto independientes.
 
 ```php
 use aspose\slides\Presentation;
@@ -453,7 +510,7 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // Mantener la posición horizontal predeterminada. Y es un desplazamiento de
+            // Mantener la posición horizontal predeterminada. Y es un desplazamiento desde
             // la posición predeterminada de la etiqueta, expresado como una fracción de la altura del gráfico.
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
@@ -481,15 +538,16 @@ try {
 
 ![Gráfico de columnas con dos filas de etiquetas de datos encima del área de trazado](multiple-rows-of-labels.png)
 
+
 ## **Preguntas frecuentes**
 
 **¿Cómo puedo evitar que las etiquetas de datos se superpongan en gráficos densos?**
 
-Combine la colocación automática de etiquetas, líneas de guía y una reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para valores extremos o puntos clave.
+Combine la colocación automática de etiquetas, líneas guía y una reducción del tamaño de fuente; si es necesario, oculte algunos campos (por ejemplo, la categoría) o muestre etiquetas solo para valores extremos o puntos clave.
 
 **¿Cómo puedo desactivar etiquetas solo para valores cero, negativos o vacíos?**
 
-Filtre los puntos de datos antes de habilitar las etiquetas y desactive la visualización para valores de 0, negativos o ausentes según una regla definida.
+Filtre los puntos de datos antes de activar las etiquetas y desactive la visualización para valores de 0, valores negativos o valores ausentes según una regla definida.
 
 **¿Cómo puedo garantizar un estilo de etiqueta coherente al exportar a PDF/imagenes?**
 

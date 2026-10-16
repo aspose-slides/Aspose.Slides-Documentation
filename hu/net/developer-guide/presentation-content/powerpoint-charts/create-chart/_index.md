@@ -1,5 +1,5 @@
 ---
-title: PowerPoint prezentáció diagramok létrehozása vagy frissítése .NET-ben
+title: PowerPoint prezentációdiagramok létrehozása vagy frissítése .NET-ben
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -10,14 +10,14 @@ keywords:
 - diagram szerkesztése
 - diagram módosítása
 - diagram frissítése
-- szórásdiagram
-- kördiagram
-- vonaldiagram
-- fa térkép diagram
-- részvénydiagram
-- doboz‑és‑szárnyas diagram
-- tölcsérdiagram
-- napkitörés diagram
+- szétszórt diagram
+- kör diagram
+- vonal diagram
+- fájda diagram
+- részvény diagram
+- doboz és szakábra diagram
+- tölcsér diagram
+- napfény diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
@@ -26,35 +26,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for .NET használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati C# kódrészletekkel."
+description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for .NET használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati C# kódtárgyalásokkal."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót ad arról, hogyan hozhatunk létre és testreszabhatunk diagramokat az Aspose.Slides for .NET használatával. Megtanulja, hogyan adhat programozottan egy diagramot egy diára, hogyan töltheti fel adatokal, és hogyan alkalmazhat különböző formázási beállításokat a specifikus tervezési igényeinek megfelelően. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, a bemutató és a diagram objektum inicializálásától a sorok, tengelyek és legendák beállításáig. Az útmutató követésével szilárd megértést szerez a dinamikus diagramgenerálás integrálásáról .NET alkalmazásaiba, ezzel egyszerűsítve az adatvezérelt prezentációk létrehozását.
+Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides for .NET segítségével. Megtanulhatja, hogyan lehet programozott módon diagramot hozzáadni egy diára, adatokat feltölteni, és különféle formázási beállításokat alkalmazni a specifikus tervezési követelményeknek megfelelően. A cikk során részletes kódtárgyalások mutatják be az egyes lépéseket, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Ennek az útmutatónak a követésével szilárd megértést szerez a dinamikus diagramgenerálás .NET‑alkalmazásokba való integrálásáról, megkönnyítve az adat‑vezérelt előadások létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat és olyan információkat nyerni, amelyek táblázatból vagy számolaptáblázatból nem nyílnak azonnal szembe.
+A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat, és olyan betekintéseket nyerni, amelyek egy táblázatból vagy munkalapból nem azonnal láthatóak.
 
-**Miért hozzunk létre diagramokat?**
+**Miért érdemes diagramokat létrehozni?**
 
-A diagramok segítségével:
+Diagramok használatával:
 
-* nagy mennyiségű adatot összegyűjthet, tömöríthet vagy összefoglalhat egyetlen dián egy prezentációban;
-* mintákat és trendeket tárhat fel az adatokban;
-* meghatározhatja az adatok irányát és lendületét időben vagy egy adott mérőegységhez képest;
-* felismerheti az kiugró, anomáliás, eltérő, hibás vagy értelmetlen adatokat;
-* komplex adatokat kommunikálhat vagy bemutathat.
+* nagy mennyiségű adatot lehet összegyűjteni, sűríteni vagy összefoglalni egyetlen dián egy prezentációban;
+* mintákat és trendeket lehet feltárni az adatokban;
+* meghatározható az adat iránya és lendülete az idő függvényében vagy egy adott mértékegységhez viszonyítva;
+* kiemelhetők a kiugró értékek, eltérések, hibák és értelmetlen adatok;
+* összetett adatokat lehet közvetíteni vagy bemutatni.
 
-PowerPointban a *Insert* (Beszúrás) funkcióval hozhat létre diagramokat, amely számos diagramtípushoz biztosít sablonokat. Az Aspose.Slides segítségével szabályos diagramokat (népszerű diagramtípusokon alapuló) és egyéni diagramokat egyaránt létrehozhat.
+PowerPointban a *Beszúrás* funkcióval hozhatók létre diagramok, amely számos sablont biztosít a különböző diagramtípusok tervezéséhez. Az Aspose.Slides segítségével mind szabványos, mind egyedi diagramok hozhatók létre.
 
 {{% alert color="info" title="Note" %}}
-Használja a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolást az [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) névtérben. Ennek az enumerációnak az értékei különböző diagramtípusoknak felelnek meg.
+Használja a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) felsorolást a [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) névtérben. Ennek a felsorolásnak az értékei a különböző diagramtípusoknak felelnek meg.
 {{% /alert %}}
 
 ### **Csoportosított oszlopdiagramok létrehozása**
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) használatával hoz létre egy csoportosított oszlopdiagramot, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltéseket használnak, és az egyedi címkék a kategória neveket, sorozat neveket és értékeket mutatják. A 0 indexű munkalap az beágyazott diagram munkafüzetének első lapjára vonatkozik.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) metódust használja egy csoportosított oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltést kapnak, az egyedi címkék pedig a kategória neveket, sorozat neveket és értékeket jelenítik meg. A 0‑s munkalap index az beágyazott diagram munkafüzetének első lapjára mutat.
 
 ```csharp
 using System.Drawing;
@@ -132,18 +132,18 @@ Az eredmény:
 
 ![A csoportosított oszlopdiagram](clustered_column_chart.png)
 
-### **Szórásdiagramok létrehozása**
+### **Szétszórt diagramok létrehozása**
 
-A szórásdiagramok (más néven scatter plot vagy x‑y grafikon) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
+A szétszórt diagramok (más néven pontdiagramok vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
 
-Használjon szórásdiagramot, ha:
+Használjon szétszórt diagramot, ha:
 
-* párosított numerikus adatokkal rendelkezik;
+* párosított numerikus adatai vannak;
 * két változó jól párosítható egymással;
-* meg akarja határozni, hogy a két változó összefügg-e;
-* van egy független változó, amelynek több értéke is van egy függő változó esetén.
+* meg szeretné határozni, hogy a két változó kapcsolatban áll‑e;
+* egy független változó több értékkel rendelkezik egy függő változóhoz képest.
 
-Ez a példa két x‑y értékcsoportot ábrázol. Az első sorozat egyenes vonalakat használ csillag jelölőkkel, a második sima vonalakat kör jelölőkkel; mindkettő a [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) értéke 10. A [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) tulajdonság vezérli a jelölő alakzatát.
+Ez a példa két x‑y értékkészletet ábrázol. Az első sorozat egyenes vonalakkal és csillagmarkerekkel jelenik meg, míg a második sima vonalakkal és körmarkerekkel; mindkettő 10‑es [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) mérettel rendelkezik. A [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) tulajdonság vezérli a marker alakját.
 
 ```csharp
 using Aspose.Slides;
@@ -206,13 +206,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A szórásdiagram](scatter_chart.png)
+![A szétszórt diagram](scatter_chart.png)
 
 ### **Kördiagramok létrehozása**
 
-A kördiagramok leginkább a részek‑a‑teljes egész arányának bemutatására alkalmasak, különösen, ha a data kategóriacímkéket tartalmaz numerikus értékekkel. Ha azonban sok része vagy címkéje van az adatnak, érdemesebb lehet oszlopdiagramot használni.
+A kördiagramok leginkább a részek‑a‑teljes egész arányának bemutatására alkalmasak, különösen akkor, ha az adatok kategóriákat numerikus értékekkel párosítanak. Ha az adatok sok részt vagy címkét tartalmaznak, érdemes sávdiagramot használni.
 
-Ez a példa három negyedéves értékkel egy kördiagramot hoz létre. Minden szelet egyéni kitöltéssel és szegéllyel rendelkezik, a címkék pedig különböző kombinációkat jelenítenek meg az értékek, százalékok és sorozatinformációk tekintetében. A [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) tulajdonság a első szeletet 180 foknál kezdi.
+Ez a példa három negyedévi értékkel ellátott kördiagramot hoz létre. Minden szelet egyedi kitöltést és keretet kap, a címkék különböző kombinációkban jelenítik meg az értékeket, százalékokat és sorozatinformációkat. A [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) tulajdonság az első szeletet 180 fokra állítja.
 
 ```csharp
 using System.Drawing;
@@ -310,11 +310,13 @@ Az eredmény:
 
 ![A kördiagram](pie_chart.png)
 
+A körön belüli címkék olvashatóságának javításához tekintse meg a [Formázás vezetővonalak](/slides/hu/net/chart-data-label/#format-leader-lines) példát, amely a címkék pozicionálását és a vonalak színét, szélességét, átlátszóságát és szaggatott stílusát mutatja be.
+
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven line graphs) leginkább olyan helyzetekben használandók, ahol az értékek időbeli változását szeretnénk bemutatni. Egy vonaldiagram segítségével egyszerre nagy mennyiségű adatot hasonlíthat össze, nyomon követheti az időbeli változásokat és trendeket, kiemelhet anomáliákat az adat sorozatokban, és még sok mást.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használandók, ahol az értékek időbeli változását szeretné bemutatni. Egy vonaldiagram segítségével nagy mennyiségű adatot lehet egyszerre összehasonlítani, nyomon követni az időbeli változásokat és trendeket, kiemelni az anomáliákat az adatsorokban, és még sok mást.
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) használatával hoz létre egy vonaldiagramot az alapértelmezett sorozattal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) metódust használja egy vonaldiagram létrehozásához az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX formátumban menti a prezentációt.
 
 ```csharp
 using Aspose.Slides;
@@ -329,7 +331,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjait egyenes, folyamatos vonalak kötik össze. Ha pontok helyett szaggatott vonalakkal szeretné össze kötni őket, állítsa a [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) értékét egy [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) elemből:
+Alapértelmezés szerint a vonaldiagram pontjai egyenes, folyamatos vonallal vannak összekötve. Ha a pontokat szaggatott vonallal szeretné összekötni, állítsa a [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) értékét a [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) egyikére:
 
 ```csharp
 using Aspose.Slides;
@@ -350,11 +352,11 @@ Az eredmény:
 
 ![A vonaldiagram](line_chart.png)
 
-### **Tree Map diagramok létrehozása**
+### **Fájfa diagramok (Tree Map) létrehozása**
 
-A Tree Map diagramok leginkább értékesítési adatok esetén használandók, amikor a kategóriaadatok relatív méretét kívánja megjeleníteni, és gyorsan fel akarja hívni a figyelmet a kategóriánként nagy hozzájáruló elemekre.
+A fájda diagramok leginkább értékesítési adatok esetén használandók, amikor a felhasználónak a kategóriák relatív méretét kell megjeleníteni, és gyorsan fel kell hívni a figyelmet az egyes kategóriákban nagy hozzájáruló elemekre.
 
-Ez a példa nyolc levélből álló Tree Map‑et hoz létre, amely négy ággal és két ággal csoportosított. A [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus az 1. szintű csoportosításnál ágat, a 2. szintnél ágat rendel. Az értékek határozzák meg a relatív téglalapméreteket, míg a kategória címkék és a szülő címkék átfedése mutatja a hierarchiát.
+Ez a példa egy fájda diagramot hoz létre nyolc levéllel, amely négy szárra és két ágra van csoportosítva. A [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus az 1‑es csoportosítási szinthez rendeli a szárakat, a 2‑es szinthez pedig az ágakat. Az értékek határozzák meg a relatív téglalapméreteket, míg a kategória‑címkék és a szülőcímkék jelzik a hierarchiát.
 
 ```csharp
 using Aspose.Slides;
@@ -430,26 +432,26 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A Treemap diagram](treemap_chart.png)
+![A fájda diagram](treemap_chart.png)
 
-### **Waterfall diagramok létrehozása**
+### **Vízesés diagramok (Waterfall) létrehozása**
 
-A Waterfall diagram megmutatja, hogyan járulnak hozzá a pozitív és negatív változások egy végső értékhez. Például egy nyereségtörés a bevétellel kezdődhet, majd költségek levonásával és egyéb bevételek hozzáadásával folytatódik. A változásos oszlopok a korábbi és az új összeg között lebegnek, míg a teljes oszlopok a nullától az akkumulált értékig terjednek.
+A vízesés diagram azt mutatja, hogy a pozitív és negatív változások hogyan járulnak hozzá a végső értékhez. Például egy nyereséggörbe a bevételtől indul, levonja a költségeket, és hozzáad egyéb jövedelmeket. A változási oszlopok az előző és az új futó értékek között lebegnek, míg az összesítő oszlopok a nullától az akkumulált értékig terjednek.
 
-Az alábbi példa ezred dollárban kifejezett összegeket használ:
+Az alábbi példa ezer amerikai dollárban megadott összegeket használ:
 
 | Kategória | Munkafüzet érték | Oszlop típusa |
 | --- | ---: | --- |
 | Bevétel | 1000 | Növekedés |
-| Költség | -400 | Csökkenés |
-| Bruttó nyereség | 600 | Közbenső összeg |
+| Eladási költség | -400 | Csökkenés |
+| Bruttó nyereség | 600 | Köztes összeg |
 | Működési költség | -200 | Csökkenés |
-| Egyéb bevétel | 50 | Növekedés |
+| Egyéb jövedelem | 50 | Növekedés |
 | Nettó nyereség | 450 | Végső összeg |
 
-Egy pont közbenső vagy végső összegként való megjelöléséhez állítsa be a [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) tulajdonságot **true**‑ra. Adja meg a tényleges akkumulált összeget a pont munkafüzet cellájában: `600` a bruttó nyereséghez (`1000 - 400`) és `450` a nettó nyereséghez (`600 - 200 + 50`). A tulajdonság csak megjelöli az oszlopot összegként; nem számolja ki vagy tölti fel a cella értékét. Ne használjon nullát helyőrzőként, és ne adjon meg egy másik változást egy összeg ponthoz. Egy összegző oszlop az akkumulált értéket jeleníti meg anélkül, hogy újból hozzáadná a futó értékhez.
+Az adott pont köztes vagy végső összegnek jelöléséhez állítsa be a [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) tulajdonságát **true**‑ra. Adja meg a tényleges akkumulált összeget a pont munkafüzetcellájában: `600` a bruttó nyereséghez (`1000 - 400`) és `450` a nettó nyereséghez (`600 - 200 + 50`). A tulajdonság csak megjelöli az oszlopot összegként; nem számolja ki vagy tölti ki a cellaértéket. Ne használjon nullát helyőrzőként, és ne adjon meg más változást egy összegponthoz. Egy összegoszlop az akkumulált értéket mutatja, anélkül, hogy újra hozzáadná a futó értékhez.
 
-Ez a teljes C# példa a `Waterfall` tagot használja a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)‑ből, törli az alapértelmezett adatokat, és kitölti a beágyazott munkafüzetet. A 0‑ás munkalap index a első munkalapot választja; az A oszlop a kategória neveket, a B oszlop az értékeket tartalmazza. Minden értékcellát a [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) hívással adunk hozzá. A 0‑alapú pontindexek `2` és `5` azonosítják a közbenső és a végső összeg pontokat. A [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) engedélyezése megjeleníti az összegeket az oszlopokon. Nincs szükség bemeneti prezentációra vagy munkafüzetre.
+Ez a teljes C# példa a [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) `Waterfall` tagját használja, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. A `0`‑s munkalap index a első munkalapot választja; az A oszlop a kategórianév, a B oszlop az értékek. Minden értékcellát a [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) metódussal adunk hozzá. A nullával kezdődő pontindexek `2` és `5` jelölik a köztes és a végső összegpontokat. A [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) engedélyezése megjeleníti az összegeket az oszlopokon. Bemutató fájl vagy munkafüzet nem szükséges.
 
 ```csharp
 using Aspose.Slides;
@@ -487,7 +489,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// A harmadik és hatodik pont összegként jelenik meg, nem további változásként.
+// A harmadik és a hatodik pont összegként jelenik meg, nem további változásként.
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -496,17 +498,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Állítsa be a sorozatszintű [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) tulajdonságot **true**‑ra a szomszédos oszlopokat összekötő vonalak megjelenítéséhez, ezáltal könnyebben követhető a futó érték. A vonalak elrejtéséhez cserélje ki a példában a beállítást **series.ShowConnectorLines = false;**-ra a mentés előtt. Ez csak a vonalak láthatóságát változtatja, nem az adatokat vagy összegeket.
+Állítsa be a sorozatszintű [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) tulajdonságot **true**‑ra, hogy megjelenjenek a szomszédos oszlopok közti összekötő vonalak, és könnyebben nyomon követhető legyen a futó érték. Ezeknek a vonalaknak a elrejtéséhez cserélje ki a példában a példányosítást a `series.ShowConnectorLines = false;` kódsorra a mentés előtt. Ez csak a vonalak láthatóságát változtatja, az adatokat vagy összegértékeket nem.
 
-A mentett prezentáció a 600 bruttó és a 450 nettó nyereséget mutatja, mindkét összeg nulláról indul:
+Az elmentett prezentáció a 600-as bruttó nyereséget és a 450-es nettó nyereséget mutatja, mindkét összeg nulláról indul:
 
-![A Waterfall diagram, amely a bevételt, a költségeket, a 600 bruttó nyereséget és a 450 nettó nyereséget mutatja értékcímkékkel és összekötő vonalakkal](waterfall_chart.png)
+![A vízesés diagram, amely a bevételt, költségeket, 600-as bruttó nyereséget és 450-as nettó nyereséget mutatja, értékcímkékkel és összekötő vonalakkal](waterfall_chart.png)
 
-### **Részvény diagramok létrehozása**
+### **Részvénydiagramok (Stock) létrehozása**
 
-A részvény diagramok pénzügyi adatokat, például nyitó, legmagasabb, legalacsonyabb és záró árakat jelenítenek meg, segítve a piaci trendek és volatilitás elemzését. Alapvető betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a megalapozott döntések meghozatalában.
+A részvénydiagramok a nyitó, legmagasabb, legalacsonyabb és záró árak megjelenítésére szolgálnak, segítve a piaci trendek és volatilitás elemzését. Lényeges betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a megalapozott döntések meghozatalában.
 
-Ez a példa egy nyitó‑magas‑alacsony‑záró diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) tulajdonság engedélyezi a fel/le sávokat, a [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) pedig a magas‑alacsony vonalakat szabályozza, míg az egyes sorozat vonalai és a kisebb vízszintes rácsvonalak rejtve vannak.
+Ez a példa egy nyitó‑magas‑alacsony‑záró (OHLC) diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) tulajdonság engedélyezi a fel/le sávokat, a [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) szabályozza a magas‑alacsony vonalakat, míg az egyes sorozatvonalak és a kisebb vízszintes rácsvonalak rejtve maradnak.
 
 ```csharp
 using Aspose.Slides;
@@ -583,13 +585,13 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A részvény diagram](stock_chart.png)
+![A részvénydiagram](stock_chart.png)
 
-### **Box‑and‑Whisker diagramok létrehozása**
+### **Doboz‑ és szakábrák (Box and Whisker) létrehozása**
 
-A Box‑and‑Whisker diagramok az adat eloszlását jelenítik meg, összefoglalva a kulcsfontosságú statisztikai mutatókat, például a mediánt, kvartiliseket és lehetséges kiugró értékeket. Különösen hasznosak felfedező adat- és statisztikai elemzésekben, hogy gyorsan megértsük az adat változatosságát és az esetleges anomáliákat.
+A doboz‑ és szakábrák az adateloszlás megjelenítésére szolgálnak, összefoglalva a kulcsfontosságú statisztikai mutatókat, például a mediánt, kvartiliseket és a lehetséges kiugró értékeket. Különösen hasznosak feltáró adat‑elemzésnél és statisztikai tanulmányokban, hogy gyorsan megértsük az adatok variabilitását és azonosítsuk az anomáliákat.
 
-Ez a példa hat értékkel hoz létre egy Box‑and‑Whisker diagramot. A [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) tulajdonság az exkluzív kvartilis számítást választja. A példa engedélyezi a medián vonalakat, medián jelölőket, belső pontokat és kiugró pontokat is.
+Ez a példa hat értékkel készült doboz‑ és szakábrát hoz létre. A [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) tulajdonság a kizárólagos kvartilis‑számítást választja. A példa engedélyezi a középérték‑vonalakat, középérték‑marker‑eket, belső pontokat és kiugró pontokat is.
 
 ```csharp
 using Aspose.Slides;
@@ -644,11 +646,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Funke diagramok létrehozása**
+### **Tölcsérdiagramok (Funnel) létrehozása**
 
-A funke diagramok folyamatok szekvenciális szakaszainak vizualizálására szolgálnak, ahol az adatmennyiség csökken a lépésről‑lépésre haladás során. Különösen hasznosak a konverziós arányok elemzéséhez, a szűk keresztmetszetek azonosításához és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követéséhez.
+A tölcsérdiagramok a folyamatok szekvenciális szakaszainak vizualizálására szolgálnak, ahol az adatmennyiség csökken a lépésről lépésre. Különösen hasznosak a konverziós arányok elemzéséhez, a szűk keresztmetszetek azonosításához és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követéséhez.
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) használatával ad egy funke diagramot egy meglévő prezentáció első diájához. A alapértelmezett adatot hat kategóriával és 50‑től 500‑ig terjedő értékekkel helyettesíti, majd menti a frissített prezentációt. A bemeneti prezentációnak legalább egy diát kell tartalmaznia.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) metódussal ad egy tölcsérdiagramot egy létező prezentáció első diájához. Lecseréli az alapértelmezett adatokat hat kategóriára és 50‑tól 500‑ig terjedő értékekre, majd elmenti a frissített prezentációt. A bemeneti prezentációnak legalább egy diát kell tartalmaznia.
 
 ```csharp
 using Aspose.Slides;
@@ -699,13 +701,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A funke diagram](funnel_chart.png)
+![A tölcsérdiagram](funnel_chart.png)
 
-### **Sunburst diagramok létrehozása**
+### **Napfénydiagramok (Sunburst) létrehozása**
 
-A Sunburst diagramok hierarchikus adatokat jelenítenek meg, a szinteket koncentrikus gyűrűkkel ábrázolva. Segítenek a rész‑a‑teljes egész kapcsolatok bemutatásában, és ideálisak beágyazott kategóriák és alkategóriák tömör, áttekinthető ábrázolására.
+A napfénydiagramok a hierarchikus adatok vizualizálására szolgálnak, a szinteket koncentrikus gyűringszerűen ábrázolva. Segítenek a rész‑a‑teljes egész kapcsolatok szemléltetésében, és ideálisak a beágyazott kategóriák és alkategóriák tiszta, kompakt megjelenítéséhez.
 
-Ez a példa nyolc levélből álló Sunburst diagramot hoz létre, amely négy ággal és két ággal csoportosított. A [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus az 1. szintű csoportosításnál ágat, a 2. szintnél ágat rendel. A kategória címkék az egyes szegmenseket azonosítják, míg az értékek határozzák meg relatív méretüket.
+Ez a példa nyolc levélből álló napfénydiagramot hoz létre, amely négy szárra és két ágra van csoportosítva. A [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus az 1‑es szinthez rendeli a szárakat, a 2‑es szinthez pedig az ágakat. A kategória‑címkék az egyes szegmenseket azonosítják, az értékek pedig a relatív méreteket határozzák meg.
 
 ```csharp
 using Aspose.Slides;
@@ -779,17 +781,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A Sunburst diagram](sunburst_chart.png)
+![A napfénydiagram](sunburst_chart.png)
 
 ### **Hisztogram diagramok létrehozása**
 
-A hisztogram diagramok azt mutatják, hogyan oszlanak el a numerikus értékek intervallumok (bin‑ek) között. Havi jelentések esetén a megrendelés feldolgozási időiről, használja ugyanazt a bin‑szélességet és küszöbértékeket, hogy az intervallumok konzisztens módon legyenek, és a megoszlások könnyen összehasonlíthatóak legyenek.
+A hisztogram diagramok azt mutatják, hogyan oszlanak el a numerikus értékek intervallumok (tömbök) között. Havi jelentések esetén a megrendelés feldolgozási időinek összehasonlításához használjon azonos sávszélességet és küszöbértékeket, hogy az intervallumok konzisztensnek maradjanak és a megoszlások könnyebben összehasonlíthatóak legyenek.
 
-Állítsa a vízszintes tengely [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) tulajdonságát a [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/) valamely módjára. A [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) csak a `ByBinWidth` esetén érvényes, a [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) csak a `ByNumberOfBins` esetén. Az `Automatic` használata lehetővé teszi a diagram számára a bin‑ek automatikus meghatározását.
+Állítsa a vízszintes tengely [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) tulajdonságát a [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/) egyik módjára. A [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) csak a `ByBinWidth` esetén érvényes, a [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) csak a `ByNumberOfBins` esetén. Az `Automatic` használatával a diagram automatikusan választja a sávokat.
 
-#### **Fix bin‑szélesség használata**
+#### **Fix sávszélesség használata**
 
-Ez a példa a feldolgozási időket 10 perces intervallumokra csoportosítja, külön bin‑ekkel a ≤ 10 perc és a > 40 perc időpontokhoz. Engedélyezze ezeket a bin‑eket a [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) és a [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/) használatával. Ha kifejezett [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) és [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) küszöböket ad meg, állítsa az [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) és az [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) értékét **false**‑ra.
+Ez a példa a feldolgozási időket 10 perces intervallumokra csoportosítja, külön sávokkal a 10 perc vagy annál kevesebb, illetve a 40 perc feletti értékekhez. Engedélyezze ezeket a sávokat a [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) és a [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/) beállításával. Amikor explicit [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) és [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) küszöböket ad meg, állítsa az [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) és az [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) értékét **false**‑ra.
 
 ```csharp
 using Aspose.Slides;
@@ -831,13 +833,13 @@ axis.OverflowBin = 40;
 presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-A PowerPoint‑ban megjelenő prezentáció a következő bin‑számokat mutatja: **3, 4, 4, 4, és 2**. Az underflow bin tartalmazza a `5, 10, 10` értékeket, ezért a küszöb inkluzív. Az overflow bin csak a `41, 50` értékeket tartalmazza, ezért a küszöb exkluzív; a `40` értékek az előző intervallumban maradnak. A belső bin‑ek értékei nagyobbak a alsó határértéknél és kisebbek vagy egyenlőek a felső határértéknél.
+A PowerPoint‑ban megjelenő prezentáció a **3, 4, 4, 4 és 2** sávszámot mutatja. Az alulfolyó sáv tartalmazza a `5, 10, 10` értékeket, ezért a küszöb befogadó. A felülfolyó sáv csak a `41, 50` értékeket tartalmazza, ezért kizáró; a `40` érték mindkét esetben az előző intervallumba kerül. A belső sávok az alsó határnál nagyobb, a felső határnál kisebb vagy egyenlő értékeket tartalmazzák.
 
-![Hisztogram 10 perces bin‑ekkel és explicit underflow és overflow küszöbökkel](histogram_bin_width.png)
+![Hisztogram 10 perces sávszélességgel és explicit alul‑ és felülfolyó küszöbökkel](histogram_bin_width.png)
 
-#### **Bin‑szám meghatározása**
+#### **A sávok számának megadása**
 
-Ha egy fix részletességi szintet szeretne bin‑ek helyett, kérje ki az öt bin‑t ugyanazon adatokra. Ez a példa az underflow és overflow bin‑eket letiltva hagyja. A diagram a szélességet az adatintervallumból számolja ki, így a határok jelentések között változhatnak.
+Rögzített részletességi szint helyett a fix intervallumok helyett kérjen öt sávot ugyanarra az adatra. Ez a példa letiltja az alul‑ és felülfolyó sávokat. A diagram a szélességet az adat‑tartományból számolja, így a határok a jelentések között változhatnak.
 
 ```csharp
 using Aspose.Slides;
@@ -873,15 +875,15 @@ axis.NumberOfBins = 5;
 presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
 ```
 
-Az öt bin száma **4, 4, 4, 4, és 1**. Hasonlítsa össze ezt az eloszlást a fenti fix‑szélesség eredményével: a bemeneti értékek ugyanazok, de a határok különböznek.
+Az öt sáv **4, 4, 4, 4 és 1** darab elemet tartalmaz. Hasonlítsa össze ezt az eloszlást a fenti fix‑szélességű eredménnyel: a bemeneti értékek azonosak, csak a határok különböznek.
 
-![Hisztogram öt bin‑nel, amely ugyanabból az adatból számított](histogram_bin_count.png)
+![Hisztogram öt sávval, amely ugyanabból az adathalmazból számolták ki](histogram_bin_count.png)
 
 ### **Radar diagramok létrehozása**
 
-A radar diagramok többváltozós adatokat jelenítenek meg kétdimenziós formátumban, lehetővé téve több változó egyszerre történő könnyű összehasonlítását. Különösen hasznosak minták, erősségek és gyengeségek azonosításához több teljesítménymutató vagy attribútum tekintetében.
+A radar diagramok többváltozós adatokat jelenítenek meg kétdimenziós formátumban, lehetővé téve több változó egyszerre történő könnyű összehasonlítását. Különösen hasznosak minták, erősségek és gyengeségek felderítésére több teljesítménymutató vagy attribútum esetén.
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) használatával hoz létre egy radar diagramot az alapértelmezett sorozattal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) metódust használja egy radar diagram létrehozásához az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```csharp
 using Aspose.Slides;
@@ -900,11 +902,11 @@ Az eredmény:
 
 ![A radar diagram](radar_chart.png)
 
-### **Többcsoportos diagramok létrehozása**
+### **Többkategóriás diagramok létrehozása**
 
-A többcsoportos diagramok olyan adatokat jelenítenek meg, amelyek több kategóriacsoportot is magukban foglalnak, lehetővé téve az értékek több dimenzióban történő egyszerre történő összehasonlítását. Különösen hasznosak komplex, több rétegű adatállományok trendjeinek és kapcsolatrendszereinek elemzéséhez.
+A többkategóriás diagramok olyan adatokat jelenítenek meg, amelyek egy vagy több kategóriacsoportot tartalmaznak, lehetővé téve az értékek több dimenzióban történő egyszerre történő összehasonlítását. Különösen hasznosak összetett, több rétegből álló adathalmazok trendjeinek és kapcsolataiknak elemzésénél.
 
-Ez a példa egy csoportosított oszlopdiagramot hoz létre nyolc kategóriával, négy párba rendezve. A [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus minden párnak közös címkét ad az 1. szintű csoportosításnál, így a kategória tengely egyéni és csoportcímkéket is tartalmaz.
+Ez a példa egy csoportosított oszlopdiagramot hoz létre nyolc kategóriával, négy párban rendezve. A [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus minden párnak közös címkét ad az 1‑es csoportosítási szinten, így a tengely mind egyedi, mind csoportcímkéket tartalmaz.
 
 ```csharp
 using Aspose.Slides;
@@ -973,13 +975,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Az eredmény:
 
-![A többcsoportos diagram](multi_category_chart.png)
+![A többkategóriás diagram](multi_category_chart.png)
 
 ### **Térkép diagramok létrehozása**
 
-A térkép diagramok földrajzi adatokat ábrázolnak, az információt konkrét helyekhez, például országokhoz, államokhoz vagy városokhoz rendelve. Különösen hasznosak a regionális trendek, demográfiai adatok és térbeli eloszlások elemzésére egyértelmű, vizuálisan vonzó módon.
+A térkép diagramok földrajzi adatok vizualizálására szolgálnak, az információkat konkrét helyekhez (országok, államok, városok) rendelve. Különösen hasznosak regionális trendek, demográfiai adatok és térbeli eloszlások elemzésére, egyértelmű és vizuálisan vonzó módon.
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) használatával hoz létre egy térkép diagramot az alapértelmezett földrajzi adatokkal, és PowerPointban nézhetővé menti.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) metódussal hoz létre egy alapértelmezett földrajzi adatokkal rendelkező térkép diagramot, és PowerPointban megtekinthető formában menti.
 
 ```csharp
 using Aspose.Slides;
@@ -999,16 +1001,16 @@ Az eredmény:
 ![A térkép diagram](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-A fenti kép a PowerPoint‑ban megnyitott, mentett prezentációt mutatja. Az Aspose.Slides helyesen írja a térkép diagramot és annak adatait, de magát a térkép diagramot nem rajzolja meg: amikor egy olyan diát, amely tartalmaz egy térkép diagramot, képpé renderel vagy PDF‑be vagy SVG‑be konvertál, a diagram területe üres marad. A dián lévő egyéb alakzatok nem érintettek.
+A fenti kép a mentett prezentációt mutatja megnyitva PowerPointban. Az Aspose.Slides helyesen írja a térképdiagramot és annak adatait, de maga a diagram nem kerül megrajzolásra: amikor egy diát, amely ilyen diagramot tartalmaz, képre renderelnek, vagy PDF‑re vagy SVG‑re konvertálnak, a diagramterület üres marad. A dián lévő egyéb alakzatok nem érintettek.
 {{% /alert %}}
 
-### **Kombináció diagramok létrehozása**
+### **Kombinációs diagramok létrehozása**
 
-A kombináció diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen grafikonba. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy vizsgálja a két vagy több adatkészlet közötti különbségeket, így segítve a köztük fennálló kapcsolatok azonosítását.
+A kombinációs diagram (vagy combo diagram) több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a két vagy több adathalmaz közötti különbségeket, segítve a köztük lévő kapcsolatok azonosítását.
 
-![A kombináció diagram](combination_chart.png)
+![A kombinációs diagram](combination_chart.png)
 
-Ez a példa két csoportosított oszlop sorozatot kombinál egy vonal sorozattal négy kategóriában. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) a vonalat egy jobb oldalon lévő másodlagos függőleges tengelyre helyezi. A segédfüggvények konfigurálják a címet, legendát, tengelycímkéket és rácsvonalakat.
+Ez a példa két csoportosított oszlop sorozatot kombinál egy vonal sorozattal négy kategórián keresztül. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) a vonalat a jobb oldali másodlagos függőleges tengelyre helyezi. A segédfüggvények konfigurálják a címet, a jelmagyarázatot, a tengelycímkéket és a rácsvonalakat.
 
 ```csharp
 using System.Drawing;
@@ -1170,9 +1172,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Diagramok frissítése**
 
-Az Aspose.Slides for .NET lehetővé teszi a PowerPoint diagramok frissítését a diagramadatok, formázás és stílus módosításával. Ez a funkció leegyszerűsíti a prezentációk naprakészen tartását dinamikus tartalommal, és biztosítja, hogy a diagramok pontosan tükrözzék a jelenlegi adatokat és vizuális szabványokat.
+Az Aspose.Slides for .NET lehetővé teszi a PowerPoint diagramok frissítését a diagramadatok, formázás és stílus módosításával. Ez a funkció egyszerűsíti a prezentációk dinamikus tartalommal való naprakészen tartását, és biztosítja, hogy a diagramok pontosan tükrözzék a jelenlegi adatokat és vizuális szabványokat.
 
-Ez a példa a meglévő prezentáció első diáján található „My chart” nevű diagramot frissíti. Két oszlop sorozatra van szükség, mindegyik három adatponttal, a kategória címkék az A oszlopban, a sorozat nevek pedig az első sorban, az első munkalapon. A példa a [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) segítségével módosítja a munkafüzet cellákat, frissíti a sorozat értékeket, egy harmadik sorozatot ad hozzá, és a diagramot csoportosított hengerekké változtatja a [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) használatával.
+Ez a példa frissíti a "My chart" nevű diagramot az első dián egy meglévő prezentációban. Két oszlopos sorozatra van szükség, mindegyik három adatponttal, a kategória‑címkékkel az A oszlopban és a sorozatnevekkel az első munkalap első sorában. A [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) segítségével módosítja a munkafüzetcellákat, frissíti a sorozatértékeket, hozzáad egy harmadik sorozatot, és a [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) segítségével klaszterezett hengerekké alakítja a diagramot.
 
 ```csharp
 using Aspose.Slides;
@@ -1226,13 +1228,13 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Adattartomány beállítása diagramhoz**
+## **Adattartomány beállítása egy diagramhoz**
 
-A már meglévő diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/net/chart-workbook/#retrieve-a-charts-data-range) oldalt.
+A már meglévő diagram által használt tartomány megtekintéséhez lásd a [Diagram adat‑tartományának lekérése](/slides/hu/net/chart-workbook/#retrieve-a-charts-data-range) fejezetet.
 
-Az Aspose.Slides for .NET rugalmasságot biztosít egy adott munkalap adat-tartományának diagramadat‑forrásként való meghatározásához. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap részletét a diagramra, így szabályozhatja, mely cellák járuljanak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja diagramjait a munkalap legújabb adatváltozásaival, biztosítva, hogy PowerPoint prezentációi naprakész és pontos információkat tükrözzenek.
+Az Aspose.Slides for .NET rugalmasságot biztosít, hogy egy munkalap meghatározott adat‑tartományát használja a diagram adatforrásaként. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap egy részét a diagramra, ezáltal szabályozva, mely cellák járulnak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja diagramjait a legújabb munkalap‑adatokkal, biztosítva, hogy a PowerPoint‑prezentációk naprakész és pontos információkat tükrözzenek.
 
-Ez a példa a [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) használatával állítja be a „My chart” nevű diagram adatforrását az első dián egy meglévő prezentációban `Sheet1!A1:B4`‑re. A diagram munkafüzetének tartalmaznia kell azt a munkalapot, valamint egy feltöltött tartományt, ahol az első sorban a sorozatfejléc, az A oszlopban a kategória címkék, a B oszlopban három érték szerepel.
+Ez a példa a [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) metódust használja a "My chart" nevű diagram adatforrásának beállításához az első dián egy meglévő prezentációban `Sheet1!A1:B4`‑re. A diagram munkafüzetének tartalmaznia kell azt a munkalapot, és egy feltöltött tartományt, amely első sorban sorozat‑címke, az A oszlopban kategória‑címke, a B oszlopban három érték található.
 
 ```csharp
 using Aspose.Slides;
@@ -1257,9 +1259,9 @@ presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 
 ## **Alapértelmezett jelölők használata diagramokban**
 
-Alapértelmezett jelölők használatakor a diagram minden sorozata automatikusan más‑más alapértelmezett jelölőszimbólumot kap.
+Alapértelmezett jelölők használatakor minden diagram sorozata automatikusan más‑más alapértelmezett jelölőszimbólumot kap.
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) használatával hoz létre egy diagramot két vonal sorozattal és egy legendával. A [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) beállítások megtartják az automatikusan hozzárendelt jelölőszimbólumokat. Az első sorozat negatív értéket és egy hiányzó értéket (`null`) tartalmaz, a második pedig minden kategóriához értéket ad.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) metódust használja egy két vonalas sorozatot és egy jelmagyarázatot tartalmazó diagram létrehozásához. A [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) beállítások megtartják a automatikusan hozzárendelt jelölőszimbólumokat. Az első sorozat negatív és hiányzó (`null`) értéket tartalmaz, a második minden kategóriához értéket ad.
 
 ```csharp
 using Aspose.Slides;
@@ -1319,18 +1321,18 @@ presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 
 ## **GYIK**
 
-**Milyen diagramtípusokat támogat az Aspose.Slides for .NET?**
+**Milyen diagramtípusok támogatottak az Aspose.Slides for .NET‑ben?**
 
-Az Aspose.Slides for .NET számos diagramtípust támogat, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és még sok más. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adatvizualizációs igényeihez.
+Az Aspose.Slides for .NET számos diagramtípust támogat, többek között oszlop, vonal, kör, terület, szétszórt, hisztogram, radar és még sok mást. Ez a rugalmasság lehetővé teszi, hogy az adatvizualizációs igényeknek leginkább megfelelő diagramtípust válassza.
 
-**Hogyan adhatok hozzá egy új diagramot egy diához?**
+**Hogyan adhatok új diagramot egy diához?**
 
-Diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) osztály egy példányát, szerezze meg a kívánt diát indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül a diagramot integrálja a prezentációba.
+Diagram hozzáadásához először egy [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) példányt hoz létre, lekéri a kívánt diát az indexe alapján, majd meghívja a diagram hozzáadására szolgáló metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül a diagramot integrálja a prezentációba.
 
-**Hogyan frissíthetem egy diagramon megjelenített adatokat?**
+**Hogyan frissíthetem egy diagram megjelenített adatait?**
 
-Frissítheti a diagram **adatait** azáltal, hogy hozzáfér a [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) objektumhoz, törli az alapértelmezett sorozatokat és kategóriákat, majd saját egyéni adatokat ad hozzá. Ez lehetővé teszi a diagram programozott frissítését a legújabb adatok tükrözéséhez.
+Frissítheti egy diagram adatát a [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) elérésével, törölheti az alapértelmezett sorozatokat és kategóriákat, majd hozzáadhatja saját egyedi adatait. Ez lehetővé teszi, hogy programozottan a legújabb adatokat jelenítse meg a diagramon.
 
-**Lehet-e testre szabni egy diagram megjelenését?**
+**Lehet-e testreszabni a diagram megjelenését?**
 
-Igen, az Aspose.Slides for .NET kiterjedt testreszabási lehetőségeket biztosít. Módosíthat színeket, betűtípusokat, címkéket, legendákat és egyéb formázási elemeket, hogy a diagram **megjelenését** az Ön specifikus tervezési követelményeihez igazítsa.
+Igen, az Aspose.Slides for .NET kiterjedt testreszabási lehetőségeket biztosít. Módosíthat színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenését az Ön specifikus tervezési követelményeihez igazítsa.
