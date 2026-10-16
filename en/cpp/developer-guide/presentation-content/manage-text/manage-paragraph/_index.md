@@ -349,6 +349,68 @@ presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+#### **Retrieving Effective “Start At” Values**
+
+`IBulletFormat::get_NumberedBulletStartWith()` returns the start number defined for the whole numbering group, not the individual displayed value for each paragraph. To obtain the actual value shown in PowerPoint’s **Bullets and Numbering** dialog you can:
+
+* Use `IBulletFormatEffectiveData::get_ActualBulletValue()` on the effective bullet data.
+* Compute it manually with a helper that walks the paragraph collection.
+
+Below is a compact helper that returns the effective start number for a given paragraph:
+
+```cpp
+int GetPowerPointParagraphStartAt(
+    const SharedPtr<IParagraph>& targetParagraph,
+    const SharedPtr<IParagraphCollection>& allParagraphs)
+{
+    auto targetEff = targetParagraph->get_ParagraphFormat()->GetEffective();
+    if (targetEff->get_Bullet()->get_Type() != BulletType::Numbered)
+        return 0;
+
+    auto targetDepth = targetEff->get_Depth();
+
+    int targetIndex = -1;
+    for (int i = 0; i < allParagraphs->get_Count(); ++i)
+        if (System::ObjectExt::Equals(allParagraphs->idx_get(i), targetParagraph)) { targetIndex = i; break; }
+
+    if (targetIndex < 0) return 0;
+
+    auto IsNumberedAtSameDepth = [&](int i) {
+        auto eff = allParagraphs->idx_get(i)->get_ParagraphFormat()->GetEffective();
+        return eff->get_Bullet()->get_Type() == BulletType::Numbered && eff->get_Depth() == targetDepth;
+    };
+    auto GetStartAtEffective = [&](int i) {
+        return allParagraphs->idx_get(i)->get_ParagraphFormat()->GetEffective()
+            ->get_Bullet()->get_NumberedBulletStartWith();
+    };
+
+    int runStart = targetIndex;
+    for (int i = targetIndex; i > 0; --i) {
+        if (!IsNumberedAtSameDepth(i) || !IsNumberedAtSameDepth(i - 1))
+            break;
+        if (GetStartAtEffective(i) != GetStartAtEffective(i - 1))
+            break;
+        runStart = i - 1;
+    }
+
+    int base = GetStartAtEffective(runStart);
+    int offset = 0;
+    for (int i = runStart; i <= targetIndex; ++i)
+        if (IsNumberedAtSameDepth(i)) ++offset;
+
+    return base + offset - 1;
+}
+```
+
+You can combine this with `IBulletFormatEffectiveData::get_ActualBulletValue()` to verify the result:
+
+```cpp
+auto bulletEffective = paragraph->get_ParagraphFormat()->GetEffective()->get_Bullet();
+Console::WriteLine(u"ActualBulletValue: " + bulletEffective->get_ActualBulletValue());
+```
+
+This approach mimics PowerPoint’s numbering behavior for lists with custom “Start At” values.
+
 ## **Control Paragraph Layout and End Properties**
 
 Adjust paragraph margins and indents to control the position of the first line and wrapped lines. You can also format the paragraph end mark separately from the visible text portions.
