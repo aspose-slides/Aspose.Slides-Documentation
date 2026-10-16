@@ -1,6 +1,6 @@
 ---
-title: "Android'de PowerPoint Sunumu Grafiklerini Oluşturma veya Güncelleme"
-linktitle: "Grafik Oluşturma veya Güncelleme"
+title: Android'de PowerPoint Sunum Grafiklerini Oluşturma veya Güncelleme
+linktitle: Grafik Oluşturma veya Güncelleme
 type: docs
 weight: 10
 url: /tr/androidjava/create-chart/
@@ -10,16 +10,16 @@ keywords:
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağılımlı grafik
-- pasta grafik
-- çizgi grafik
-- ağaç haritası grafik
-- hisse grafik
-- kutu ve bıyık grafik
-- huni grafik
-- güneş ışığı grafik
-- histogram grafik
-- radar grafik
+- dağılım grafiği
+- pasta grafiği
+- çizgi grafiği
+- ağaç haritası grafiği
+- hisse senedi grafiği
+- kutu ve bıyık grafiği
+- huni grafiği
+- güneş patlaması grafiği
+- histogram grafiği
+- radar grafiği
 - çok kategorili grafik
 - PowerPoint
 - sunum
@@ -30,31 +30,31 @@ description: "Aspose.Slides for Android via Java kullanarak PowerPoint sunumlar�
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Android via Java kullanarak grafiklerin nasıl oluşturulacağını ve özelleştirileceğini kapsamlı bir şekilde anlatır. Bir slayta programlı olarak grafik eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uyması için çeşitli biçimlendirme seçenekleri uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan seriler, eksenler ve lejantları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu kılavuzu izleyerek, Android uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayışa sahip olacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
+Bu makale, Aspose.Slides for Android via Java kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafiği programlı olarak bir slayta nasıl ekleyeceğinizi, verilerle dolduracağınızı ve belirli tasarım gereksinimlerinize uyması için çeşitli biçimlendirme seçeneklerini nasıl uygulayacağınızı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan serileri, eksenleri ve lejandları yapılandırmaya kadar her adımı ayrıntılı kod örnekleriyle gösterir. Bu rehberi izleyerek, Android uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, verileri hızlı bir şekilde görselleştirerek tablo veya elektronik tablodan hemen anlaşılmayan içgörüler elde etmeyi sağlar.
+Grafikler, insanlara verileri hızlı bir şekilde görselleştirmelerine ve bir tablo veya elektronik tablodan hemen fark edilmeyen içgörüler elde etmelerine yardımcı olur.
 
-**Neden Grafik Oluşturulur?**
+**Grafik Neden Oluşturulur?**
 
 Grafikleri kullanarak:
 
-* bir sunumdaki tek bir slayta büyük miktarda veriyi toplu, özet veya sıkıştırılmış biçimde gösterebilirsiniz;
-* veri içindeki kalıpları ve trendleri ortaya çıkarabilirsiniz;
-* zaman içinde veya belirli bir ölçü birimine göre verinin yönünü ve ivmesini belirleyebilirsiniz;
-* aykırı değerleri, sapmaları, hataları ve mantıksız verileri fark edebilirsiniz;
-* karmaşık verileri iletişim kurabilir veya sunabilirsiniz.
+* büyük miktarda veriyi tek bir slaytta toplulaştırabilir, sıkıştırabilir veya özetleyebilirsiniz;
+* verilerdeki desenleri ve eğilimleri ortaya çıkarabilirsiniz;
+* zaman içinde veya belirli bir ölçüm birimiyle verinin yönünü ve ivmesini çıkarabilirsiniz;
+* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit edebilirsiniz;
+* karmaşık verileri iletebilir veya sunabilirsiniz.
 
-PowerPoint'te, birçok grafik tipi tasarlamak için şablonlar sunan *Insert* işlevi aracılığıyla grafik oluşturabilirsiniz. Aspose.Slides ile hem popüler grafik tiplerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
+PowerPoint’te *Ekle* işlevi ile grafikler oluşturabilir, birçok grafik türü için şablonlar tasarlayabilirsiniz. Aspose.Slides kullanarak hem popüler grafik türlerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
+Grafik tiplerine karşılık gelen değerleri içeren [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enum'ını [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) paketinde kullanın.
 {{% /alert %}}
 
-### **Kümelenmiş Sütun Grafikleri Oluşturma**
+### **Küme Sütun Grafiklerini Oluşturma**
 
-Bu örnek, iki seriyi üç kategori boyunca karşılaştıran bir kümelenmiş sütun grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metodunu kullanır. Seriler kırmızı ve yeşil doldurmalara sahiptir ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma kitabı indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfaya işaret eder.
+Bu örnek, iki seriyi üç kategori boyunca karşılaştıran bir küme sütun grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır. Seriler kırmızı ve yeşil dolgu renkleri kullanır ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
 
 ```java
 import com.aspose.slides.*;
@@ -135,20 +135,20 @@ finally
 
 Sonuç:
 
-![Kümelenmiş Sütun grafiği](clustered_column_chart.png)
+![Küme Sütun grafiği](clustered_column_chart.png)
 
-### **Saçılım (Scatter) Grafikleri Oluşturma**
+### **Serpme Grafiklerini Oluşturma**
 
-Saçılım grafikleri (scatter plots veya x‑y grafikleri olarak da bilinir), iki değişken arasındaki kalıpları kontrol etmek veya korelasyonları göstermek için sıkça kullanılır.
+Serpme grafikler (diğer adıyla dağılım grafikleri veya x‑y grafikleri), iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için sıkça kullanılır.
 
-Saçılım grafiği kullanın:
+Serpme grafik şu durumlarda kullanılır:
 
-* Çift sayısal veriniz olduğunda.
-* Birbirine iyi eşleşen iki değişkeniniz olduğunda.
+* Eşleştirilmiş sayısal verileriniz olduğunda.
+* Birbirine iyi uyum sağlayan iki değişkeniniz olduğunda.
 * İki değişkenin ilişkili olup olmadığını belirlemek istediğinizde.
-* Bağımlı bir değişken için birden çok değer içeren bağımsız bir değişkeniniz olduğunda.
+* Bağımlı bir değişken için birden çok değere sahip bağımsız bir değişkeniniz olduğunda.
 
-Bu örnek iki x‑y değer kümesini çizer. İlk seri yıldız işaretçili düz çizgiler kullanırken, ikincisi daire işaretçili yumuşak çizgeler kullanır; her iki seri de [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-) ile 10 boyutunda işaretçi ayarlar. İşaretçi şekli [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) yöntemiyle kontrol edilir.
+Bu örnek iki set x‑y değerini çizer. İlk seri yıldız işaretleyicili düz çizgiler, ikinci seri ise daire işaretleyicili yumuşak çizgiler kullanır; her ikisi de [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-) ile 10 boyutunda işaretleyicilere sahiptir. [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) yöntemi işaretleyici şeklini kontrol eder.
 
 ```java
 import com.aspose.slides.*;
@@ -216,13 +216,13 @@ finally
 
 Sonuç:
 
-![Saçılım grafiği](scatter_chart.png)
+![Serpme grafiği](scatter_chart.png)
 
-### **Pasta (Pie) Grafikleri Oluşturma**
+### **Pasta Grafiklerini Oluşturma**
 
-Pasta grafikler, özellikle kategorik etiketleri sayısal değerlerle içeren verilerde, parçadan bütün ilişkisinin gösterilmesi için en uygunudur. Ancak verinizde çok fazla parça veya etiket varsa, çubuk grafik kullanmayı düşünebilirsiniz.
+Pasta grafikler, özellikle kategorik etiketlere sahip sayısal değerlere sahip verilerin bütün‑parça ilişkisini göstermek için en uygunudur. Ancak veriniz çok sayıda parça veya etiket içeriyorsa, çubuk grafik düşünmek daha iyi olabilir.
 
-Bu örnek, üç çeyrek değeri içeren bir pasta grafik oluşturur. Her dilim özel bir doldurma ve kenarlığa sahiptir ve etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarla gösterir. [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) yöntemi ilk dilimin 180 derece başlamasını sağlar.
+Bu örnek, üç çeyrek değerine sahip bir pasta grafiği oluşturur. Her dilim özel bir dolgu ve kenarlığa sahiptir ve etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarla gösterir. [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) yöntemi ilk dilimin 180 derece başlamasını sağlar.
 
 ```java
 import com.aspose.slides.*;
@@ -325,11 +325,13 @@ Sonuç:
 
 ![Pasta grafiği](pie_chart.png)
 
-### **Çizgi (Line) Grafikleri Oluşturma**
+Daha okunaklı dış etiketler için [Format Leader Lines](/slides/tr/androidjava/chart-data-label/#format-leader-lines) bölümünde etiketlerin konumlandırılması ve çizgilerin renk, genişlik, şeffaflık ve kesikli stilinin özelleştirilmesi örneğine bakın.
 
-Çizgi grafikler (line graphs), zaman içinde değer değişimini göstermek istediğiniz durumlarda en uygunudur. Çizgi grafiği kullanarak büyük miktarda veriyi aynı anda karşılaştırabilir, zaman içindeki değişim ve trendleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+### **Çizgi Grafiklerini Oluşturma**
 
-Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafik oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metodunu kullanır ve ardından sunumu PPTX olarak kaydeder.
+Çizgi grafikler (diğer adıyla çizgi diyagramları), zaman içinde değer değişikliklerini göstermek istediğiniz durumlarda en uygunudur. Bir çizgi grafiği kullanarak aynı anda büyük miktarda veriyi karşılaştırabilir, zaman içinde değişiklikleri ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilir ve daha fazlasını yapabilirsiniz.
+
+Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır ve sunumu PPTX olarak kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +351,7 @@ finally
 }
 ```
 
-Varsayılan olarak, çizgi grafiğindeki noktalar kesintisiz düz çizgilerle bağlanır. Noktaların tireli çizgilerle bağlanmasını istiyorsanız, [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) metodunu bir [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) değeriyle çağırın:
+Varsayılan olarak, çizgi grafiğindeki noktalar düz kesintisiz çizgilerle birleştirilir. Noktaların kesikli bir çizgiyle birleştirilmesini istiyorsanız, [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) yöntemini [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) içindeki bir değerle çağırın:
 
 ```java
 import com.aspose.slides.*;
@@ -376,11 +378,11 @@ Sonuç:
 
 ![Çizgi grafiği](line_chart.png)
 
-### **Ağaç Haritası (Tree Map) Grafikleri Oluşturma**
+### **Ağaç Haritası Grafiklerini Oluşturma**
 
-Ağaç haritası grafikleri, her kategori içinde büyük katkıda bulunan öğelere hızlıca dikkat çekmek istediğiniz satış verileri için en uygundur.
+Ağaç haritası grafikler, özellikle satış verileri için veri kategorilerinin göreceli boyutlarını göstermek ve her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde en uygundur.
 
-Bu örnek, dört gövde ve iki dal içinde gruplanmış sekiz yapraklı bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi 1. gruplanma seviyesindeki gövdeleri ve 2. seviyedeki dalları atar. Değerler dikdörtgenlerin göreli boyutlarını belirlerken, kategori etiketleri ve üst üste gelen ebeveyn etiketleri hiyerarşiyi gösterir.
+Bu örnek, dört dal ve iki üst dal olmak üzere sekiz yaprak içeren bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi 1. grup seviyesinde dalları, 2. seviyede üst dalları atar. Değerler, göreceli dikdörtgen boyutlarını belirler, kategori etiketleri ve üst üste gelen ebeveyn etiketleri hiyerarşiyi tanımlar.
 
 ```java
 import com.aspose.slides.*;
@@ -463,24 +465,24 @@ Sonuç:
 
 ![Ağaç Haritası grafiği](treemap_chart.png)
 
-### **Şelale (Waterfall) Grafikleri Oluşturma**
+### **Şelale Grafiklerini Oluşturma**
 
-Şelale grafiği, pozitif ve negatif değişimlerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kar dökümü gelirle başlayıp maliyetleri çıkarıp diğer geliri ekleyebilir. Değişim sütunları önceki ve yeni çalışan değerler arasında yüzerken, toplam sütunlar sıfırdan birikmiş değere uzanır.
+Şelale grafiği, pozitif ve negatif değişikliklerin son değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kâr dökümü gelir ile başlar, maliyetleri çıkarır ve diğer gelirleri ekler. Değişim sütunları önceki ve yeni çalışan değerler arasında süzülürken, toplam sütunlar sıfırdan birikmiş değere kadar uzanır.
 
-Aşağıdaki örnek ABD doları binleri cinsinden tutarları gösterir:
+Aşağıdaki örnek, ABD doları binleri cinsinden tutarları kullanır:
 
-| Kategori | Çalışma kitabı değeri | Sütun tipi |
+| Kategori | Çalışma kitabı değeri | Sütun türü |
 | --- | ---: | --- |
 | Gelir | 1000 | Artış |
 | Satış maliyeti | -400 | Azalış |
-| Brüt kar | 600 | Ara toplam |
-| Faaliyet giderleri | -200 | Azalış |
+| Brüt kâr | 600 | Ara toplam |
+| İşletme giderleri | -200 | Azalış |
 | Diğer gelir | 50 | Artış |
-| Net kar | 450 | Son toplam |
+| Net kâr | 450 | Final toplam |
 
-Bir noktayı ara toplam veya son toplam olarak işaretlemek için, [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) metodunu `true` ile çağırın. O noktadaki çalışma kitabı hücresine gerçek birikmiş miktarı girin: brüt kar için `600` (`1000 - 400`), net kar için `450` (`600 - 200 + 50`). Metot sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı bir yer tutucu olarak kullanmayın ve toplam noktası için başka bir değişim sağlamayın. Toplam sütun, birikmiş değeri tekrar eklemeden gösterir.
+Bir noktayı ara toplam veya final toplam olarak işaretlemek için, `true` ile [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) yöntemini çağırın. O noktanın çalışma kitabı hücresine gerçek birikmiş tutarı girin: brüt kâr için `600` (`1000 - 400`) ve net kâr için `450` (`600 - 200 + 50`). Yöntem sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın veya toplam noktası için başka bir değişim sağlamayın. Toplam sütun, birikmiş değeri tekrar eklemeden gösterir.
 
-Bu tam Java örneği, [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) üyesi `Waterfall` kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma kitabı indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) ile eklenir. Sıfır tabanlı nokta indeksleri `2` ve `5` ara ve son toplamları tanımlar. [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true` ile çağrıldığında tutarlar sütunlarda gösterilir. Sunum dosyası ya da çalışma kitabı önceden gerekmez.
+Bu tam Java örneği, [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) üyesi `Waterfall` kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) ile eklenir. Sıfır‑tabanlı nokta indeksleri `2` ve `5` ara ve final toplamları tanımlar. [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true` ile sütun üzerindeki tutarlar gösterilir. Giriş sunumu veya çalışma kitabı gerekir.
 
 ```java
 import com.aspose.slides.*;
@@ -518,7 +520,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Üçüncü ve altıncı noktalar toplamları temsil eder, ek değişiklikleri değil.
+    // Üçüncü ve altıncı noktalar toplamları temsil eder, ek değişiklikler değildir.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -532,17 +534,17 @@ finally
 }
 ```
 
-Seri düzeyindeki [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) metodunu `true` yaparak art arda gelen sütunları bağlayan çizgileri gösterebilir ve çalışan değerin izlenmesini kolaylaştırabilirsiniz. Bu çizgileri gizlemek için örnekteki metod çağrısını `series.setShowConnectorLines(false);` ile değiştirip kaydetmeden önce ekleyin. Bu yalnızca çizgi görünürlüğünü değiştirir, veriyi ya da toplamları etkilemez.
+Seri düzeyindeki [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) yöntemini `true` yaparak ardışık sütunları bağlayan çizgileri gösterin ve çalışan değerin takibini kolaylaştırın. Bu çizgileri gizlemek için örnekteki yöntemi `series.setShowConnectorLines(false);` ile değiştirin ve kaydedin. Bu yalnızca çizgi görünürlüğünü değiştirir, veri veya toplamları etkilemez.
 
-Kaydedilen sunum, sıfırdan çekilen 600 brüt kar ve 450 net kar toplamlarını gösterir:
+Kaydedilen sunum, 600 brüt kâr ve 450 net kârı gösterir; her iki toplam da sıfırdan çizilir:
 
-![Şelale grafiği: gelir, maliyetler, 600 brüt kar ve 450 net kar, değer etiketleri ve bağlayıcı çizgilerle](waterfall_chart.png)
+![Şelale grafiği, gelir, maliyetler, 600 brüt kâr ve 450 net kâr, değer etiketleri ve bağlantı çizgileriyle](waterfall_chart.png)
 
-### **Hisse (Stock) Grafikleri Oluşturma**
+### **Hisse Senedi Grafiklerini Oluşturma**
 
-Hisse grafikleri, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstererek piyasa trendlerini ve volatiliteyi analiz etmeye yardımcı olur. Yatırımcı ve analistlerin bilinçli kararlar almasını sağlayan kritik içgörüler sunar.
+Hisse senedi grafikleri, açılış, en yüksek, en düşük ve kapanış fiyatları gibi finansal verileri görüntülemek ve piyasa eğilimlerini ve dalgalanmalarını analiz etmek için kullanılır. Yatırımcıların ve analistlerin bilinçli kararlar almasına yardımcı olur.
 
-Bu örnek, dört seriyi sırasıyla açık‑yüksek‑düşük‑kapanış diagramı olarak ve üç kategoriyle oluşturur. [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) yöntemi yukarı/aşağı barları etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) yüksek‑düşük çizgileri kontrol eder; bireysel seri çizgileri ve küçük yatay ızgaralar gizlenir.
+Bu örnek, dört seriyi sırasıyla Açılış‑Yüksek‑Düşük‑Kapanış şeklinde ve üç kategoriyle bir hisse senedi grafiği oluşturur. [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) yöntemi up/down çubuklarını etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) yüksek-düşük çizgileri kontrol eder; bireysel seri çizgileri ve küçük yatay ızgara çizgileri gizlenir.
 
 ```java
 import com.aspose.slides.*;
@@ -624,13 +626,13 @@ finally
 
 Sonuç:
 
-![Hisse grafiği](stock_chart.png)
+![Hisse senedi grafiği](stock_chart.png)
 
-### **Kutu ve Bıyık (Box and Whisker) Grafikleri Oluşturma**
+### **Kutu ve Bıyık Grafiklerini Oluşturma**
 
-Kutu ve bıyık grafikleri, veri dağılımını özet ölçümler (medyan, çeyrekler, olası aykırı değerler vb.) ile gösterir. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri tespit etmek için idealdir.
+Kutu ve bıyık grafikler, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçüleri özetleyerek verinin dağılımını göstermek için kullanılır. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve olası anormallikleri tanımlamak açısından çok yararlıdır.
 
-Bu örnek, altı değerden bir kutu ve bıyık grafik oluşturur. [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) yöntemi ayrıcalıklı çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktalar ve aykırı değer noktalarını da etkinleştirir.
+Bu örnek, altı değerden bir kutu ve bıyık grafiği oluşturur. [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) yöntemi ayrık çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretleyicileri, iç noktaları ve aykırı değer noktalarını etkinleştirir.
 
 ```java
 import com.aspose.slides.*;
@@ -690,11 +692,11 @@ finally
 }
 ```
 
-### **Huni (Funnel) Grafikleri Oluşturma**
+### **Huni Grafiklerini Oluşturma**
 
-Huni grafikler, bir sürecin ardışık aşamalarını görselleştirir; veri hacmi bir adımdan diğerine ilerledikçe azalır. Dönüşüm oranlarını analiz etmek, darboğazları tespit etmek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için çok yararlıdır.
+Huni grafikler, bir sürecin ardışık aşamalarını görselleştirmek için kullanılır; her adımda veri hacmi bir sonraki adıma geçtikçe azalır. Dönüşüm oranlarını analiz etmek, darboğazları tespit etmek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle yararlıdır.
 
-Bu örnek, mevcut bir sunumun ilk slaytına [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) kullanarak bir huni grafik ekler. Varsayılan verileri altı kategori ve 50‑500 arasında değerler ile değiştirir, ardından güncellenmiş sunumu kaydeder. Giriş sunumunda en az bir slayt bulunmalıdır.
+Bu örnek, mevcut bir sunumun ilk slaytına [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) kullanarak bir huni grafiği ekler. Varsayılan verileri altı kategori ve 50‑500 arası değerle değiştirir, ardından güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
 
 ```java
 import com.aspose.slides.*;
@@ -752,11 +754,11 @@ Sonuç:
 
 ![Huni grafiği](funnel_chart.png)
 
-### **Güneş Işığı (Sunburst) Grafikleri Oluşturma**
+### **Güneş Patlaması Grafiklerini Oluşturma**
 
-Güneş ışığı grafikler, katmanları konsantrik halkalar olarak gösteren hiyerarşik verileri görselleştirir. Parçadan bütün ilişkilerini açıklamaya yardımcı olur ve iç içe kategorileri net ve kompakt bir biçimde temsil etmek için idealdir.
+Güneş patlaması grafikler, hiyerarşik verileri görselleştirmek için kullanılır; seviyeler konsantrik halkalar olarak gösterilir. Parça‑bütün ilişkilerini göstermek ve iç içe geçmiş kategorileri net, kompakt bir biçimde temsil etmek için idealdir.
 
-Bu örnek, dört gövde ve iki dal içinde gruplanmış sekiz yapraklı bir güneş ışığı grafik oluşturur. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi 1. seviyedeki gövdeleri ve 2. seviyedeki dalları atar. Kategori etiketleri bölümleri tanımlarken, değerler göreli boyutlarını belirler.
+Bu örnek, dört dal ve iki üst dal olmak üzere sekiz yaprak içeren bir güneş patlaması grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi 1. grup seviyesinde dalları, 2. seviyede üst dalları atar. Kategori etiketleri segmentleri tanımlar, değerler ise göreceli boyutları belirler.
 
 ```java
 import com.aspose.slides.*;
@@ -835,17 +837,17 @@ finally
 
 Sonuç:
 
-![Güneş Işığı grafiği](sunburst_chart.png)
+![Güneş patlaması grafiği](sunburst_chart.png)
 
-### **Histogram Grafikler Oluşturma**
+### **Histogram Grafiklerini Oluşturma**
 
-Histogramlar, sayısal değerlerin aralıklara (kova) nasıl dağıldığını gösterir. Aylık sipariş işleme süreleri raporlarında aynı kova genişliği ve eşiklerini kullanarak aralıkların tutarlı kalmasını ve dağılımların karşılaştırılmasını kolaylaştırabilirsiniz.
+Histogram grafikler, sayısal değerlerin aralıklar (kümeler) üzerinden nasıl dağıldığını gösterir. Aylık sipariş işleme süresi raporları gibi durumlarda, aralık genişliğini ve eşik değerlerini aynı tutarak dağılımları karşılaştırmak daha kolay olur.
 
-Yatay eksende bir mod ile [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) metodunu [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/) üzerinden çağırın. `ByBinWidth` için sadece [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) geçerlidir; `ByNumberOfBins` için sadece [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) geçerlidir. Grafiğin kova sayısını seçmesine izin vermek için `Automatic` kullanın.
+Yatay eksende, [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/) içinden bir modla [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) yöntemini çağırın. `ByBinWidth` için yalnızca [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) geçerlidir; `ByNumberOfBins` için yalnızca [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) geçerlidir. `Automatic` kullanarak grafiğin kümeleri otomatik seçmesini sağlayabilirsiniz.
 
-#### **Sabit Kova Genişliği Kullanma**
+#### **Sabit Kutu Genişliği Kullanma**
 
-Bu örnek, işleme sürelerini 10 dakikalık aralıklara gruplar; 10 dakikadan az veya eşit sürelere bir kova, 40 dakikadan fazla sürelere başka bir kova ayrılır. Bu kovaları [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) ve [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-) ile etkinleştirin. Açık eşikler için [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) ve [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-) çağırdıktan sonra, [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) ve [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) metodlarını `false` olarak ayarlayın.
+Bu örnek, işleme sürelerini 10 dakikalık aralıklara gruplar; 10 dakikaya kadar ve 40 dakikadan üstteki süreler için ayrı kümeler oluşturur. Bu kümeleri [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) ve [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-) ile etkinleştirin. Açık eşik değerleri sağlamak için [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) ve [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-) kullanırken, [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) ve [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) `false` olarak ayarlayın.
 
 ```java
 import com.aspose.slides.*;
@@ -892,13 +894,13 @@ finally
 }
 ```
 
-PowerPoint’te gösterilen sunum, **3, 4, 4, 4 ve 2** kova sayısı içerir. Alt akış kova `5, 10, 10` değerlerini içerdiği için eşiği kapsayıcıdır. Üst akış kova yalnızca `41, 50` değerlerini içerir ve eşiği dışlayıcıdır; `40` değerleri bir önceki aralıkta kalır. İç kovalar alt sınırdan büyük ve üst sınırdan küçük‑eşit değerleri alır.
+PowerPoint’te gösterilen sunum, **3, 4, 4, 4 ve 2** adet küme sayısı içerir. Alt akış kümesi `5, 10, 10` değerlerini içerir; bu yüzden eşiği kapsayıcıdır. Üst akış kümesi yalnızca `41, 50` değerlerini içerir; bu yüzden eşiği dışlayıcıdır; `40` değerleri bir önceki aralıkta kalır. İç kümeler, alt sınırdan büyük ve üst sınırdan küçük veya eşit değerleri içerir.
 
-![10 dakikalık kovalar ve açık alt/üst eşiklerle histogram](histogram_bin_width.png)
+![10 dakikalık kümeler ve açık alt/üst eşik değerleriyle histogram](histogram_bin_width.png)
 
-#### **Kova Sayısını Belirleme**
+#### **Kutu Sayısını Belirtme**
 
-Sabit aralıklar yerine sabit detay seviyesi isteniyorsa, aynı veri için beş kova talep edin. Bu örnek, alt ve üst akış kovalarını devre dışı bırakır. Grafik, genişliği veri aralığından belirler; bu yüzden sınırlar raporlar arasında değişebilir.
+Sabit aralıklar yerine sabit ayrıntı seviyesi isteniyorsa, aynı veri için beş küme talep edin. Bu örnek alt ve üst akış kümelerini devre dışı bırakır. Grafik, genişliği veri aralığından belirler; bu nedenle sınırlar raporlar arasında değişebilir.
 
 ```java
 import com.aspose.slides.*;
@@ -939,15 +941,15 @@ finally
 }
 ```
 
-Beş kova **4, 4, 4, 4 ve 1** sayısına sahiptir. Yukarıdaki sabit‑genişlik sonucu ile karşılaştırın: giriş değerleri aynı, ancak sınırlar farklıdır.
+Beş küme **4, 4, 4, 4 ve 1** adet sayıya sahiptir. Yukarıdaki sabit‑genişlik sonucuyla karşılaştırın: girdi değerleri aynı, ancak sınırlar farklıdır.
 
-![Aynı veriden hesaplanan beş kova histogramı](histogram_bin_count.png)
+![Aynı veri üzerinden hesaplanan beş kümeli histogram](histogram_bin_count.png)
 
-### **Radar Grafikler Oluşturma**
+### **Radar Grafiklerini Oluşturma**
 
-Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden fazla değişkeni aynı anda kolayca karşılaştırmayı sağlar. Performans ölçütleri veya özellikler arasında kalıpları, güçlü yönleri ve zayıf yönleri tespit etmek için özellikle yararlıdır.
+Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden fazla değişkeni aynı anda kolayca karşılaştırmanıza olanak tanır. Performans ölçütleri veya özellikler arasındaki desenleri, güçlü ve zayıf yönleri belirlemek için özellikle yararlıdır.
 
-Bu örnek, varsayılan seriler ve kategorilerle bir radar grafik oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metodunu kullanır ve ardından sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir radar grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır ve sunumu PPTX olarak kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -971,11 +973,11 @@ Sonuç:
 
 ![Radar grafiği](radar_chart.png)
 
-### **Çok Kategorili Grafikler Oluşturma**
+### **Çok Kategorili Grafikleri Oluşturma**
 
-Çok kategorili grafikler, birden fazla kategorik grup içeren verileri göstermek için kullanılır; böylece değerleri aynı anda birden çok boyutta karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri setlerinde trendleri ve ilişkileri analiz etmek istediğinizde özellikle faydalıdır.
+Çok kategorili grafikler, birden fazla kategorik grup içeren verileri göstermek için kullanılır; böylece değerleri birden çok boyutta aynı anda karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri kümelerinde eğilimleri ve ilişkileri analiz etmek gerektiğinde özellikle faydalıdır.
 
-Bu örnek, dört çift halinde düzenlenmiş sekiz kategoriye sahip bir kümelenmiş sütun grafik oluşturur. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi her çifte grup seviyesi 1’de ortak bir etiket verir; bu da hem bireysel hem de grup etiketlerine sahip bir kategori ekseni üretir.
+Bu örnek, dört çift içinde sekiz kategori bulunan bir küme sütun grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) yöntemi her çift için grup seviyesi 1’de ortak bir etiket verir; bu, hem bireysel hem de grup etiketlerine sahip bir kategori ekseni üretir.
 
 ```java
 import com.aspose.slides.*;
@@ -1051,11 +1053,11 @@ Sonuç:
 
 ![Çok kategorili grafik](multi_category_chart.png)
 
-### **Harita Grafikler Oluşturma**
+### **Harita Grafiklerini Oluşturma**
 
-Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgiyi eşleyerek coğrafi verileri görselleştirir. Bölgesel trendleri, demografik verileri ve mekânsal dağılımları net ve görsel açıdan çekici bir biçimde analiz etmek için çok uygundur.
+Harita grafikler, verileri ülke, eyalet veya şehir gibi belirli konumlara eşleştirerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekânsal dağılımları net, görsel açıdan çekici bir şekilde analiz etmek için özellikle yararlıdır.
 
-Bu örnek, varsayılan coğrafi verileriyle bir harita grafik oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metodunu kullanır ve ardından PowerPoint’te görüntülenmek üzere kaydeder.
+Bu örnek, varsayılan coğrafi verilerle bir harita grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır ve PowerPoint’te görüntülenmek üzere kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -1080,16 +1082,16 @@ Sonuç:
 ![Harita grafiği](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Yukarıdaki resim, PowerPoint’te açılmış kaydedilmiş sunumu gösterir. Aspose.Slides harita grafiğini ve verilerini doğru yazar, ancak harita grafiklerini kendisi çizmeyecek: bir slayttaki harita grafiği bir görüntüye render edildiğinde veya PDF ya da SVG’ye dönüştürüldüğünde grafik alanı boş çıkar. Aynı slayttaki diğer şekiller etkilenmez.
+Yukarıdaki resim, PowerPoint’te açılmış kaydedilmiş sunumu gösterir. Aspose.Slides harita grafiğini ve verilerini doğru şekilde yazar, ancak harita grafiklerini kendisi çizmez: bir slayt görüntüye dönüştürüldüğünde veya PDF ya da SVG’ye çevrildiğinde grafik alanı boş çıkar. Aynı slayttaki diğer şekiller etkilenmez.
 {{% /alert %}}
 
-### **Kombinasyon Grafikleri Oluşturma**
+### **Kombinasyon Grafiklerini Oluşturma**
 
-Kombinasyon (combo) grafiği, tek bir grafikte iki veya daha fazla grafik tipini birleştirir. Bu grafik, iki ya da daha fazla veri seti arasındaki ilişkileri vurgulamak, karşılaştırmak veya incelemek için kullanılır.
+Kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki veya daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve ilişkileri tanımlamanıza yardımcı olur.
 
 ![Kombinasyon grafiği](combination_chart.png)
 
-Bu örnek, dört kategori boyunca iki kümelenmiş sütun serisi ile bir çizgi serisini birleştirir. Sütunlar birincil dikey ekseni, çizgi ise [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) ile sağ tarafta ikincil bir dikey eksene yerleştirilir. Yardımcı fonksiyonlar başlığı, lejanti, eksen etiketlerini ve ızgaraları yapılandırır.
+Bu örnek, dört kategori boyunca iki küme sütun serisini bir çizgi serisiyle birleştirir. Sütunlar birincil dikey ekseni kullanırken, [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) çizgiyi sağ tarafta ikincil bir dikey eksene yerleştirir. Yardımcı işlevler başlık, lejand, eksen etiketleri ve ızgara çizgilerini yapılandırır.
 
 ```java
 import com.aspose.slides.*;
@@ -1260,9 +1262,9 @@ example.createComboChart();
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for Android via Java, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu özellik, sunumları dinamik içerikle güncel tutma sürecini basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını temin eder.
+Aspose.Slides for Android via Java, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu işlevsellik, sunumları dinamik içerikle güncel tutma sürecini basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru şekilde yansıtmasını sağlar.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki "My chart" adlı grafiği günceller. Her birinde üç veri noktası bulunan iki sütun serisi gerektirir; kategori etiketleri A sütununda, seri adları ise ilk satırda bulunur. Örnek, [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) ile çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-) ile kümelenmiş silindirlere dönüştürür.
+Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiği günceller. Her birinin üç veri noktasına sahip iki sütun serisi gerekir; kategori etiketleri A sütununda, seri adları ise ilk çalışma sayfasının ilk satırında bulunur. Örnek, [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) ile çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-) ile küme silindirlerine dönüştürür.
 
 ```java
 import com.aspose.slides.*;
@@ -1322,13 +1324,13 @@ finally
 }
 ```
 
-## **Bir Grafik İçin Veri Aralığını Belirleme**
+## **Bir Grafik İçin Veri Aralığını Ayarlama**
 
-Mevcut bir grafiğin kullandığı aralığı incelemek için [Retrieve a Chart's Data Range](/slides/tr/androidjava/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
+Mevcut bir grafiğin zaten kullandığı aralığı incelemek için [Retrieve a Chart's Data Range](/slides/tr/androidjava/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
 
-Aspose.Slides for Android via Java, çalışma kitabınızdan belirli bir veri aralığını grafiğinizin veri kaynağı olarak tanımlamanıza esneklik sağlar. Böylece çalışma kitabınızın hangi hücrelerinin grafik serilerine ve kategorilerine katkıda bulunacağını doğrudan kontrol edebilir, grafiklerinizi en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilirsiniz.
+Aspose.Slides for Android via Java, bir çalışma sayfasından belirli bir veri aralığını grafiğinizin veri kaynağı olarak tanımlama esnekliği sağlar. Bu, çalışma sayfanızın bir bölümünü doğrudan grafiğe eşlemenize, hangi hücrelerin seri ve kategorilere katkıda bulunacağını kontrol etmenize olanak tanır. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilirsiniz; bu sayede PowerPoint sunumlarınız güncel ve doğru bilgi yansıtır.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki "My chart" adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlamak için [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) metodunu kullanır. Grafik çalışma kitabının bu çalışma sayfasını ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir aralık barındırması gerekir.
+Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlamak için [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) yöntemini kullanır. Grafik çalışma kitabında bu çalışma sayfası ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer bulunan doldurulmuş bir aralık bulunmalıdır.
 
 ```java
 import com.aspose.slides.*;
@@ -1357,11 +1359,11 @@ finally
 }
 ```
 
-## **Grafiklerde Varsayılan İşaretçiler Kullanma**
+## **Grafiklerde Varsayılan İşaretleyicileri Kullanma**
 
-Grafiklerde varsayılan işaretçiler kullanıldığında, her grafik serisine otomatik olarak farklı bir varsayılan işaretçi simgesi atanır.
+Grafiklerde varsayılan işaretleyicileri kullandığınızda, her grafik serisi otomatik olarak farklı bir varsayılan işaretleyici simgesi alır.
 
-Bu örnek, iki çizgi serisi ve bir lejant ile bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metodunu kullanır. [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) aracılığıyla erişilen işaretçi ayarları, otomatik atanmış işaretçi simgelerini korur. İlk seri negatif bir değer ve `null` ile temsil edilen eksik bir değer içerirken, ikincisi her kategori için bir değer içerir.
+Bu örnek, iki çizgi serisi ve bir lejand içeren bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) yöntemini kullanır. [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) üzerinden erişilen işaretleyici ayarları, otomatik olarak atanmış işaretleyici sembollerini korur. İlk seri negatif bir değer ve `null` ile temsil edilen eksik bir değer içerirken, ikinci seri her kategori için bir değer içerir.
 
 ```java
 import com.aspose.slides.*;
@@ -1426,18 +1428,18 @@ finally
 
 ## **SSS**
 
-**Aspose.Slides for Android via Java hangi grafik türlerini destekler?**
+**Aspose.Slides for Android via Java tarafından hangi grafik türleri destekleniyor?**
 
-Aspose.Slides for Android via Java, çubuk, çizgi, pasta, alan, saçılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik tipini seçmenize olanak tanır.
+Aspose.Slides for Android via Java, çubuk, çizgi, pasta, alan, serpme, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenize olanak tanır.
 
 **Bir slayta yeni bir grafik nasıl eklenir?**
 
-Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istenen slaytı indeksine göre alır ve ardından grafik tipini ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu süreç, grafiği doğrudan sunumunuza entegre eder.
+Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istenen slaytı diziniyle alır ve ardından grafik tipini ve ilk verileri belirterek grafik ekleme yöntemini çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
-**Grafikte gösterilen veriler nasıl güncellenir?**
+**Bir grafikte görüntülenen veriler nasıl güncellenir?**
 
-Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyebilir ve kendi verilerinizi ekleyebilirsiniz. Bu sayede grafiği programlı olarak en son verileri yansıtacak şekilde yenileyebilirsiniz.
+Bir grafiğin verilerini, veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip özel verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenize olanak tanır.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides for Android via Java kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, lejantlar ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü tasarım gereksinimlerinize göre şekillendirebilirsiniz.
+Evet, Aspose.Slides for Android via Java kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejandları ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre şekillendirebilirsiniz.

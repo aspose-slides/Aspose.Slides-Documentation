@@ -1,61 +1,69 @@
 ---
-title: Membuat atau Memperbarui Grafik Presentasi PowerPoint di C++
-linktitle: Membuat atau Memperbarui Grafik
+title: B
+
+linktitle: B
+
 type: docs
+
 weight: 10
+
 url: /id/cpp/create-chart/
+
 aliases:
   - /cpp/update-chart/
+
 keywords:
-- menambah grafik
-- membuat grafik
-- mengedit grafik
-- mengubah grafik
-- memperbarui grafik
-- grafik sebar
-- grafik pai
-- grafik garis
-- grafik peta pohon
-- grafik saham
-- grafik box dan whisker
-- grafik corong
-- grafik sunburst
-- grafik histogram
-- grafik radar
-- grafik multi kategori
+- tambahkan diagram
+- buat diagram
+- edit diagram
+- ubah diagram
+- perbarui diagram
+- diagram sebar
+- diagram lingkaran
+- diagram garis
+- diagram peta pohon
+- diagram saham
+- diagram kotak dan whisker
+- diagram corong
+- diagram sunburst
+- diagram histogram
+- diagram radar
+- diagram multi‑kategori
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Buat dan sesuaikan grafik dalam presentasi PowerPoint menggunakan Aspose.Slides untuk C++. Tambahkan, format, dan edit grafik dengan contoh kode praktis dalam C++."
+
+description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk C++. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam C++."
+
 ---
 ## **Gambaran Umum**
 
-Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan grafik menggunakan Aspose.Slides untuk C++. Anda akan belajar cara menambahkan grafik ke slide secara programatik, mengisi data, dan menerapkan berbagai opsi pemformatan agar sesuai dengan kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci mengilustrasikan setiap langkah, mulai dari menginisialisasi presentasi dan objek grafik hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan grafik dinamis ke dalam aplikasi C++ Anda, menyederhanakan proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan lengkap tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk C++. Anda akan mempelajari cara menambahkan diagram secara programatis ke slide, mengisi data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari inisialisasi presentasi dan objek diagram hingga konfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi C++ Anda, mempermudah proses pembuatan presentasi berbasis data.
 
-## **Buat Grafik**
+## **Membuat Diagram**
 
-Grafik membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
+Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
-**Mengapa Membuat Grafik?**
+**Mengapa Membuat Diagram?**
 
-Dengan grafik, Anda dapat:
+Dengan diagram, Anda dapat:
 
-* menggabungkan, meringkas, atau menyimpulkan sejumlah besar data pada satu slide dalam sebuah presentasi;
+* menggabungkan, merangkum, atau menyimpulkan sejumlah besar data pada satu slide dalam sebuah presentasi;
 * menampilkan pola dan tren dalam data;
-* menyimpulkan arah dan momentum data dari waktu ke waktu atau terhadap satuan pengukuran tertentu;
+* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu;
 * mengidentifikasi nilai pencilan, penyimpangan, kesalahan, dan data yang tidak masuk akal;
 * menyampaikan atau mempresentasikan data yang kompleks.
 
-Di PowerPoint, Anda dapat membuat grafik melalui fungsi *Insert*, yang menyediakan templat untuk merancang banyak jenis grafik. Menggunakan Aspose.Slides, Anda dapat membuat baik grafik standar (berdasarkan jenis grafik populer) maupun grafik khusus.
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang banyak jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan jenis diagram populer) maupun diagram khusus.
 
 {{% alert color="info" title="Note" %}}
-Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) di bawah namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Nilai-nilai dalam enumerasi ini sesuai dengan berbagai jenis grafik.
+Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) di dalam namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Nilai‑nilai dalam enumerasi ini berkorespondensi dengan berbagai jenis diagram.
 {{% /alert %}}
 
-### **Buat Grafik Kolom Terkelompok**
+### **Membuat Diagram Kolom Berkelompok**
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat grafik kolom terkelompok yang membandingkan dua seri pada tiga kategori. Seri menggunakan isian merah dan hijau, dan label individual menunjukkan nama kategori, nama seri, dan nilai. Indeks worksheet 0 mengacu pada lembar pertama dalam buku kerja grafik yang disematkan.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat diagram kolom berkelompok yang membandingkan dua seri pada tiga kategori. Seri menggunakan isian merah dan hijau, dan label individual memperlihatkan nama kategori, nama seri, serta nilai. Indeks lembar kerja 0 merujuk pada lembar pertama dalam buku kerja diagram yang tertanam.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -165,20 +173,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Kolom Terkelompok](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Buat Grafik Sebar**
+### **Membuat Diagram Sebar**
 
-Grafik sebar (juga dikenal sebagai scatter plot atau grafik x-y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
-Gunakan grafik sebar ketika:
+Gunakan diagram sebar ketika:
 
 * Anda memiliki data numerik berpasangan.
-* Anda memiliki dua variabel yang cocok bersama.
-* Anda ingin menentukan apakah kedua variabel saling terkait.
-* Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen.
+* Anda memiliki dua variabel yang saling berpasangan dengan baik.
+* Anda ingin menentukan apakah kedua variabel tersebut saling terkait.
+* Anda memiliki variabel independen yang memiliki banyak nilai untuk satu variabel dependen.
 
-Contoh ini memplot dua set nilai x-y. Seri pertama menggunakan garis lurus dengan penanda bintang, sementara seri kedua menggunakan garis halus dengan penanda lingkaran; keduanya menggunakan ukuran penanda 10, yang diatur dengan [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Metode [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) mengontrol bentuk penanda.
+Contoh ini memplot dua set nilai x‑y. Seri pertama menggunakan garis lurus dengan penanda bintang, sementara seri kedua menggunakan garis halus dengan penanda lingkaran; keduanya menggunakan ukuran penanda 10, yang diatur dengan [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Metode [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) mengontrol bentuk penanda.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -268,13 +276,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Sebar](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Buat Grafik Pai**
+### **Membuat Diagram Lingkaran**
 
-Grafik pai paling cocok untuk menampilkan hubungan bagian terhadap keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan grafik batang sebagai gantinya.
+Diagram lingkaran paling cocok untuk menunjukkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, bila data Anda memiliki banyak bagian atau label, pertimbangkan menggunakan diagram batang sebagai gantinya.
 
-Contoh ini membuat grafik pai dengan tiga nilai kuartalan. Setiap irisan memiliki isian dan batas khusus, dan label menampilkan kombinasi nilai, persentase, dan informasi seri yang berbeda. Metode [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) mengatur irisan pertama dimulai pada 180 derajat.
+Contoh ini membuat diagram lingkaran dengan tiga nilai kuartalan. Setiap irisan memiliki isian dan batas khusus, dan label menampilkan kombinasi nilai, persentase, serta informasi seri. Metode [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) mengatur irisan pertama mulai dari 180 derajat.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -411,13 +419,15 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Pai](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **Buat Grafik Garis**
+Untuk meningkatkan keterbacaan label di luar lingkaran, lihat [Format Leader Lines](/slides/id/cpp/chart-data-label/#format-leader-lines) untuk contoh yang memposisikan label serta menyesuaikan warna, lebar, transparansi, dan gaya garis pemisah.
 
-Grafik garis (juga dikenal sebagai line graph) paling cocok digunakan dalam situasi di mana Anda ingin menunjukkan perubahan nilai dari waktu ke waktu. Dengan grafik garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren dari waktu ke waktu, menyoroti anomali dalam seri data, dan lain-lain.
+### **Membuat Diagram Garis**
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat grafik garis dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
+Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan banyak data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lain‑lain.
+
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat diagram garis dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +459,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Secara default, titik pada grafik garis dihubungkan oleh garis lurus berkesinambungan. Jika Anda ingin titik dihubungkan dengan garis putus-putus, panggil [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) dengan nilai dari [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+Secara default, titik‑titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, panggil [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) dengan nilai dari [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -486,11 +496,11 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 Hasilnya:
 
-![Grafik Garis](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Buat Grafik Peta Pohon**
+### **Membuat Diagram Peta Pohon**
 
-Grafik peta pohon paling cocok untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan dengan cepat menarik perhatian pada item yang menjadi kontributor besar dalam setiap kategori.
+Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian pada item yang berkontribusi besar dalam setiap kategori.
 
 Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Nilai menentukan ukuran relatif persegi panjang, sementara label kategori dan label induk yang tumpang tindih mengidentifikasi hierarki.
 
@@ -598,26 +608,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Peta Pohon](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Buat Grafik Waterfall**
+### **Membuat Diagram Air Terjun**
 
-Grafik waterfall menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian keuntungan dapat dimulai dengan pendapatan, mengurangi biaya, dan menambahkan pendapatan lain. Kolom perubahan mengambang antara nilai berjalan sebelumnya dan nilai baru, sementara kolom total memperluas dari nol ke nilai terakumulasi.
+Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian laba dapat dimulai dengan pendapatan, mengurangi biaya, dan menambahkan pendapatan lain. Kolom perubahan mengambang antara nilai berjalan sebelumnya dan nilai baru, sementara kolom total memperpanjang dari nol ke nilai terakumulasi.
 
 Contoh berikut menggunakan jumlah dalam ribuan dolar AS:
 
-| Kategori | Nilai Workbook | Jenis Kolom |
+| Kategori | Nilai workbook | Tipe kolom |
 | --- | ---: | --- |
-| Revenue | 1000 | Penambahan |
-| Cost of sales | -400 | Pengurangan |
-| Gross profit | 600 | Total Menengah |
-| Operating expenses | -200 | Pengurangan |
-| Other income | 50 | Penambahan |
-| Net profit | 450 | Total Akhir |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-Untuk menandai sebuah titik sebagai total menengah atau total akhir, panggil metode [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) dengan `true`. Isi sel workbook pada titik tersebut dengan jumlah terakumulasi yang sebenarnya: `600` untuk gross profit (`1000 - 400`) dan `450` untuk net profit (`600 - 200 + 50`). Metode ini menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau memasukkan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
+Untuk menandai suatu titik sebagai total menengah atau total akhir, panggil metode [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/)‑nya dengan `true`. Isi sel workbook pada titik tersebut dengan jumlah terakumulasi yang sebenarnya: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Metode ini menandai kolom sebagai total; tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau memberi perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
 
-Contoh C++ lengkap ini membuat grafik menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), membersihkan data default, dan mengisi workbook yang disematkan. Indeks worksheet `0` memilih lembar kerja pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total menengah dan total akhir. Mengirim `true` ke [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau workbook input.
+Contoh C++ lengkap ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), mengosongkan data default, dan mengisi buku kerja yang tertanam. Indeks lembar kerja `0` memilih lembar pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total menengah dan total akhir. Mengirim `true` ke [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau buku kerja input.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -700,17 +710,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Panggil metode level seri [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) dengan `true` untuk menampilkan garis yang menghubungkan kolom berurutan dan memudahkan pelacakan nilai berjalan. Untuk menyembunyikan garis ini, ganti penugasan dalam contoh dengan `series->set_ShowConnectorLines(false);` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
+Panggil metode tingkat seri [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) dengan `true` untuk menampilkan garis penghubung antar kolom berurutan dan memudahkan pelacakan nilai berjalan. Untuk menyembunyikan garis tersebut, ganti penetapan dalam contoh dengan `series->set_ShowConnectorLines(false);` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
 
-Presentasi yang disimpan menampilkan gross profit sebesar 600 dan net profit sebesar 450, dengan kedua total ditarik dari nol:
+Presentasi yang disimpan menampilkan laba kotor 600 dan laba bersih 450, dengan kedua total dihitung dari nol:
 
-![Grafik Waterfall menunjukkan pendapatan, biaya, gross profit 600, dan net profit 450, dengan label nilai dan garis penghubung](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Buat Grafik Saham**
+### **Membuat Diagram Saham**
 
-Grafik saham digunakan untuk menampilkan data keuangan seperti harga pembukaan, tertinggi, terendah, dan penutupan, membantu menganalisis tren pasar dan volatilitas. Mereka memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
+Diagram saham digunakan untuk menampilkan data keuangan seperti harga pembukaan, tertinggi, terendah, dan penutupan, membantu menganalisis tren pasar dan volatilitas. Diagram ini memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
 
-Contoh ini membuat grafik open‑high‑low‑close dengan empat seri dalam urutan tersebut dan tiga kategori. Metode [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) mengaktifkan batang naik/turun, dan [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) mengontrol garis tinggi‑rendah yang menampilkan rentang harga, sementara garis seri individu dan garis kisi horizontal minor disembunyikan.
+Contoh ini membuat diagram open‑high‑low‑close dengan empat seri dalam urutan tersebut dan tiga kategori. Metode [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) mengaktifkan batang naik/turun, dan [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) mengatur garis tinggi‑rendah yang memperlihatkan rentang harga, sementara garis seri individual dan garis kisi horizontal minor disembunyikan.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -818,13 +828,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Saham](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Buat Grafik Box dan Whisker**
+### **Membuat Diagram Kotak‑Whisker**
 
-Grafik box dan whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan potensi pencilan. Mereka sangat berguna dalam analisis data eksploratori dan studi statistik untuk cepat memahami variabilitas data dan mengidentifikasi anomali.
+Diagram kotak‑whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan pencilan potensial. Diagram ini sangat berguna dalam analisis data eksploratori dan studi statistik untuk cepat memahami variabilitas data serta mengidentifikasi anomali.
 
-Contoh ini membuat grafik box dan whisker dari enam nilai. Metode [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) memilih perhitungan kuartil eksklusif. Contoh ini juga mengaktifkan garis rata‑rata, penanda rata‑rata, titik internal, dan titik pencilan.
+Contoh ini membuat diagram kotak‑whisker dari enam nilai. Metode [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) memilih perhitungan kuartil eksklusif. Contoh juga mengaktifkan garis rata‑rata, penanda rata‑rata, titik internal, dan titik pencilan.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -905,11 +915,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **Buat Grafik Corong**
+### **Membuat Diagram Corong**
 
-Grafik corong digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data menurun seiring progresi dari satu langkah ke langkah berikutnya. Mereka sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
+Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahap berurutan, di mana volume data menurun saat bergerak dari satu langkah ke langkah berikutnya. Diagram ini sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi kemacetan, dan melacak efisiensi proses penjualan atau pemasaran.
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk menambahkan grafik corong ke slide pertama dari presentasi yang ada. Ia menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, lalu menyimpan presentasi yang diperbarui. Presentasi input harus berisi setidaknya satu slide.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk menambahkan diagram corong ke slide pertama dari presentasi yang ada. Diagram menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, lalu menyimpan presentasi yang diperbarui. Presentasi input harus berisi setidaknya satu slide.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -984,13 +994,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Corong](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Buat Grafik Sunburst**
+### **Membuat Diagram Sunburst**
 
-Grafik sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan level sebagai cincin konsentris. Mereka membantu menggambarkan hubungan bagian‑ke‑keseluruhan dan ideal untuk mewakili kategori bersarang dan subkategori dalam format yang jelas dan ringkas.
+Diagram sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan level sebagai cincin konsentrik. Diagram ini membantu menggambarkan hubungan bagian‑ke‑keseluruhan dan ideal untuk merepresentasikan kategori bersarang dalam format yang jelas dan ringkas.
 
-Contoh ini membuat grafik sunburst dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
+Contoh ini membuat diagram sunburst dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1093,17 +1103,17 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Sunburst](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Buat Grafik Histogram**
+### **Membuat Diagram Histogram**
 
-Grafik histogram menampilkan bagaimana nilai numerik didistribusikan di antara interval (bin). Untuk laporan bulanan tentang waktu pemrosesan pesanan, gunakan lebar bin dan ambang yang sama untuk menjaga konsistensi interval dan memudahkan perbandingan distribusi.
+Diagram histogram menunjukkan bagaimana nilai numerik terdistribusi di sepanjang interval (bin). Untuk laporan bulanan tentang waktu pemrosesan pesanan, gunakan lebar bin dan ambang yang sama agar interval konsisten dan distribusi lebih mudah dibandingkan.
 
-Panggil metode sumbu horizontal [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) dengan mode dari [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) hanya berlaku untuk `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) hanya berlaku untuk `ByNumberOfBins`. Gunakan `Automatic` agar grafik memilih bin secara otomatis.
+Panggil metode sumbu horizontal [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) dengan mode dari [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) hanya berlaku untuk `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) hanya untuk `ByNumberOfBins`. Gunakan `Automatic` agar diagram memilih bin secara otomatis.
 
 #### **Gunakan Lebar Bin Tetap**
 
-Contoh ini mengelompokkan waktu pemrosesan ke dalam interval 10 menit, dengan bin terpisah untuk waktu ≤10 menit dan >40 menit. Aktifkan bin ini dengan [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) dan [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Saat menyediakan ambang eksplisit melalui [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) dan [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), panggil [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) dan [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) dengan `false`.
+Contoh ini mengelompokkan waktu pemrosesan ke dalam interval 10 menit, dengan bin terpisah untuk waktu ≤ 10 menit dan > 40 menit. Aktifkan bin tersebut dengan [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) dan [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Saat memberikan ambang eksplisit melalui [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) dan [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), panggil [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) serta [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) dengan `false`.
 
 ```cpp
 #include <system/array.h>
@@ -1173,13 +1183,13 @@ axis->set_OverflowBin(40);
 presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-Presentasi yang ditampilkan di PowerPoint menunjukkan hitungan bin **3, 4, 4, 4, dan 2**. Bin underflow mencakup `5, 10, 10`, sehingga ambangnya inklusif. Bin overflow hanya mencakup `41, 50`, sehingga ambangnya eksklusif; kedua nilai `40` tetap berada di interval sebelumnya. Bin interior berisi nilai yang lebih besar dari batas bawahnya dan kurang dari atau sama dengan batas atasnya.
+Presentasi yang ditampilkan di PowerPoint menunjukkan jumlah bin **3, 4, 4, 4, dan 2**. Bin underflow mencakup `5, 10, 10`, sehingga ambangnya inklusif. Bin overflow hanya mencakup `41, 50`, sehingga ambangnya eksklusif; kedua nilai `40` tetap berada di interval sebelumnya. Bin interior berisi nilai lebih besar dari batas bawah dan kurang dari atau sama dengan batas atas.
 
-![Histogram dengan bin 10‑menit dan ambang underflow serta overflow eksplisit](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
 #### **Tentukan Jumlah Bin**
 
-Untuk tingkat detail tetap alih‑alih interval tetap, minta lima bin untuk data yang sama. Contoh ini menonaktifkan bin underflow dan overflow. Grafik menentukan lebar dari rentang data, sehingga batas dapat berubah antar laporan.
+Untuk tingkat detail tetap alih‑alih interval tetap, mintalah lima bin untuk data yang sama. Contoh ini menonaktifkan bin underflow dan overflow. Diagram menentukan lebar berdasarkan rentang data, sehingga batas dapat berubah antar laporan.
 
 ```cpp
 #include <system/array.h>
@@ -1243,15 +1253,15 @@ axis->set_NumberOfBins(5);
 presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
 ```
 
-Lima bin memiliki hitungan **4, 4, 4, 4, dan 1**. Bandingkan distribusi ini dengan hasil lebar‑bin tetap di atas: nilai inputnya identik, tetapi batasnya berbeda.
+Lima bin memiliki jumlah **4, 4, 4, 4, dan 1**. Bandingkan distribusi ini dengan hasil lebar‑bin tetap di atas: nilai input identik, tetapi batasnya berbeda.
 
-![Histogram dengan lima bin yang dihitung dari data yang sama](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **Buat Grafik Radar**
+### **Membuat Diagram Radar**
 
-Grafik radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan. Mereka sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan across beberapa metrik atau atribut kinerja.
+Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan. Diagram ini sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di berbagai metrik atau atribut kinerja.
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat grafik radar dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat diagram radar dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1285,13 +1295,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Radar](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Buat Grafik Multi‑Kategori**
+### **Membuat Diagram Multi‑Kategori**
 
-Grafik multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di banyak dimensi secara bersamaan. Mereka sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam kumpulan data multi‑lapis yang kompleks.
+Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di beberapa dimensi secara bersamaan. Diagram ini sangat membantu saat Anda perlu menganalisis tren dan hubungan dalam kumpulan data berlapis kompleks.
 
-Contoh ini membuat grafik kolom terkelompok dengan delapan kategori yang diatur dalam empat pasang. Metode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) memberikan setiap pasang label bersama pada level pengelompokan 1, menghasilkan sumbu kategori dengan label individual dan grup.
+Contoh ini membuat diagram kolom berkelompok dengan delapan kategori yang disusun dalam empat pasang. Metode [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) memberikan setiap pasang label bersama pada level pengelompokan 1, menghasilkan sumbu kategori dengan label individual dan grup.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1386,13 +1396,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Multi‑Kategori](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Buat Grafik Peta**
+### **Membuat Diagram Peta**
 
-Grafik peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi tertentu seperti negara, negara bagian, atau kota. Mereka sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial dalam cara yang jelas dan menarik secara visual.
+Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Diagram ini sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial dalam cara yang jelas dan menarik secara visual.
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat grafik peta dengan data geografis default dan menyimpannya untuk dilihat di PowerPoint.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat diagram peta dengan data geografis default dan menyimpannya untuk ditampilkan di PowerPoint.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1426,19 +1436,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 Hasilnya:
 
-![Grafik Peta](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Gambar di atas menunjukkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis grafik peta dan datanya dengan benar, tetapi tidak menggambar grafik peta sendiri: ketika slide yang memuatnya dirender menjadi gambar atau dikonversi ke PDF atau SVG, area grafik menjadi kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
+Gambar di atas menunjukkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta secara langsung: ketika slide yang berisi diagram tersebut dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram menjadi kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
 {{% /alert %}}
 
-### **Buat Grafik Kombinasi**
+### **Membuat Diagram Kombinasi**
 
-Grafik kombinasi (atau combo chart) menggabungkan dua atau lebih jenis grafik dalam satu grafik. Grafik ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
+Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih jenis diagram dalam satu grafik. Diagram ini memungkinkan Anda menyorot, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
 
-![Grafik Kombinasi](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Contoh ini menggabungkan dua seri kolom terkelompok dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) menempatkan garis pada sumbu vertikal sekunder di kanan. Fungsi pembantu mengkonfigurasi judul, legenda, label sumbu, dan garis kisi.
+Contoh ini menggabungkan dua seri kolom berkelompok dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) menempatkan garis pada sumbu vertikal sekunder di kanan. Fungsi bantuan mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1647,11 +1657,11 @@ struct ComboChartExample
 ComboChartExample::CreateComboChart();
 ```
 
-## **Perbarui Grafik**
+## **Memperbarui Diagram**
 
-Aspose.Slides untuk C++ memungkinkan Anda memperbarui grafik PowerPoint dengan memodifikasi data grafik, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap terbaru dengan konten dinamis dan memastikan grafik secara akurat mencerminkan data dan standar visual saat ini.
+Aspose.Slides untuk C++ memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap mutakhir dengan konten dinamis dan memastikan diagram mencerminkan data serta standar visual terkini.
 
-Contoh ini memperbarui grafik bernama "My chart" pada slide pertama dari presentasi yang ada. Ia memerlukan dua seri kolom dengan tiga poin data masing‑masing, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh ini menggunakan [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) untuk mengubah sel workbook, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah grafik menjadi silinder terkelompok melalui [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+Contoh ini memperbarui diagram bernama "My chart" pada slide pertama dari presentasi yang ada. Contoh ini memerlukan dua seri kolom dengan tiga titik data masing‑masing, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh menggunakan [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) untuk mengubah sel workbook, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah diagram menjadi silinder berkelompok melalui [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1732,21 +1742,21 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 ```
 
-## **Atur Rentang Data untuk Grafik**
+## **Menetapkan Rentang Data untuk Diagram**
 
-Untuk memeriksa rentang yang sudah digunakan oleh grafik yang ada, lihat [Retrieve a Chart's Data Range](/slides/id/cpp/chart-workbook/#retrieve-a-charts-data-range).
+Untuk memeriksa rentang yang sudah digunakan oleh diagram yang ada, lihat [Retrieve a Chart's Data Range](/slides/id/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides untuk C++ menyediakan fleksibilitas untuk mendefinisikan rentang data spesifik dari lembar kerja sebagai sumber data untuk grafik Anda. Ini berarti Anda dapat memetakan sebagian lembar kerja secara langsung ke grafik, memungkinkan Anda mengontrol sel mana yang berkontribusi pada seri dan kategori grafik. Akibatnya, Anda dapat dengan mudah memperbarui dan menyinkronkan grafik dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang terkini dan akurat.
+Aspose.Slides untuk C++ menyediakan fleksibilitas untuk menentukan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat memetakan bagian lembar kerja langsung ke diagram, memungkinkan Anda mengontrol sel‑sel mana yang berkontribusi pada seri dan kategori diagram. Akibatnya, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
 
-Contoh ini menggunakan [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) untuk menetapkan sumber data grafik bernama "My chart" pada slide pertama dari presentasi yang ada ke `Sheet1!A1:B4`. Buku kerja grafik harus berisi lembar tersebut dan rentang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
+Contoh ini menggunakan [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) untuk menetapkan sumber data diagram bernama "My chart" pada slide pertama dari presentasi yang ada ke `Sheet1!A1:B4`. Buku kerja diagram harus berisi lembar kerja tersebut dan rentang yang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
 
 ```cpp
 #include <system/shared_ptr.h>
-#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/ChartType> 
 #include <DOM/Chart/IChartCategoryCollection.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/Chart/IFormat>
+#include <DOM/Chart/IFormat.h>
 #include <DOM/IChart.h>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
@@ -1763,16 +1773,14 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-const String chartName = u"My chart";
-
-auto? // This line contains syntax errors and cannot be translated as‑is
+const ...
 ```
 
-## **Gunakan Penanda Default di Grafik**
+## **Gunakan Penanda Bawaan dalam Diagram**
 
-Saat Anda menggunakan penanda default di grafik, setiap seri grafik mendapatkan simbol penanda default yang berbeda secara otomatis.
+Saat Anda menggunakan penanda bawaan dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda bawaan yang berbeda.
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat grafik dengan dua seri garis dan legenda. Pengaturan [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan oleh `nullptr`, sementara seri kedua memiliki nilai untuk setiap kategori.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) untuk membuat diagram dengan dua seri garis dan legenda. Pengaturan [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan dengan `nullptr`, sementara seri kedua memiliki nilai untuk setiap kategori.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1860,18 +1868,18 @@ presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Apa jenis grafik yang didukung oleh Aspose.Slides untuk C++?**
+**Jenis diagram apa yang didukung oleh Aspose.Slides untuk C++?**
 
-Aspose.Slides untuk C++ mendukung berbagai jenis grafik, termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih jenis grafik yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides untuk C++ mendukung berbagai jenis diagram, termasuk batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih jenis diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
 
-**Bagaimana cara menambahkan grafik baru ke slide?**
+**Bagaimana cara menambahkan diagram baru ke slide?**
 
-Untuk menambahkan grafik, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), dapatkan slide yang diinginkan menggunakan indeksnya, kemudian panggil metode untuk menambahkan grafik, menentukan jenis grafik dan data awal. Proses ini mengintegrasikan grafik langsung ke dalam presentasi Anda.
+Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), ambil slide yang diinginkan melalui indeksnya, kemudian panggil metode untuk menambahkan diagram, menentukan jenis diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
 
-**Bagaimana cara memperbarui data yang ditampilkan dalam grafik?**
+**Bagaimana cara memperbarui data yang ditampilkan dalam diagram?**
 
-Anda dapat memperbarui data grafik dengan mengakses workbook data grafik ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), membersihkan seri dan kategori default, lalu menambahkan data khusus Anda. Ini memungkinkan Anda menyegarkan grafik secara programatik agar mencerminkan data terbaru.
+Anda dapat memperbarui data diagram dengan mengakses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), membersihkan semua seri dan kategori default, kemudian menambahkan data khusus Anda. Ini memungkinkan Anda secara programatis menyegarkan diagram agar mencerminkan data terbaru.
 
-**Apakah memungkinkan untuk menyesuaikan tampilan grafik?**
+**Apakah mungkin menyesuaikan tampilan diagram?**
 
-Ya, Aspose.Slides untuk C++ menyediakan opsi penyesuaian yang luas. Anda dapat memodifikasi warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan grafik sesuai dengan kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides untuk C++ menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai kebutuhan desain spesifik Anda.

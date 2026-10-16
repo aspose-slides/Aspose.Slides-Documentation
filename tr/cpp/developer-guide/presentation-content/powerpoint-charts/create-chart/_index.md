@@ -8,55 +8,53 @@ aliases:
   - /cpp/update-chart/
   - /cpp/grafik-guncelle/
 keywords:
-  - grafik ekle
-  - grafik oluştur
-  - grafiği düzenle
-  - grafik değiştir
-  - grafik güncelle
-  - dağılımlı grafik
-  - pasta grafik
-  - çizgi grafik
-  - ağaç harita grafik
-  - hisse senedi grafik
-  - kutu ve bıyık grafik
-  - huni grafik
-  - güneş patlaması grafik
-  - histogram grafik
-  - radar grafik
-  - çok kategorili grafik
-  - PowerPoint
-  - sunum
-  - C++
-  - Aspose.Slides
-description: "Aspose.Slides for C++ kullanarak PowerPoint sunumlarında grafik oluşturun ve özelleştirin. C++'da pratik kod örnekleriyle grafik ekleyin, biçimlendirin ve düzenleyin."
+- grafik ekle
+- grafik oluştur
+- grafik düzenle
+- grafik değiştir
+- grafik güncelle
+- dağılım grafiği
+- pasta grafiği
+- çizgi grafiği
+- ağaç harita grafiği
+- hisse senedi grafiği
+- kutu ve bıyık grafiği
+- huni grafiği
+- güneş patlaması grafiği
+- histogram grafiği
+- radar grafiği
+- çoklu kategori grafiği
+- PowerPoint
+- sunum
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ kullanarak PowerPoint sunumlarında grafikler oluşturun ve özelleştirin. Grafikleri ekleyin, biçimlendirin ve C++ içinde pratik kod örnekleriyle düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for C++ kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafiği programlı olarak bir slayta eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uyması için çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, kod örnekleri her adımı, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve açıklamaları yapılandırmaya kadar ayrıntılı olarak gösterir. Bu rehberi izleyerek, C++ uygulamalarınıza dinamik grafik üretimini entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini basitleştireceksiniz.
+Bu makale, Aspose.Slides for C++ kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir slayta programlı olarak grafik eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uyması için çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunum ve grafik nesnesinin başlatılmasından seriler, eksenler ve açıklamaların yapılandırılmasına kadar her adımı ayrıntılı kod örnekleriyle gösterilmektedir. Bu rehberi izleyerek, C++ uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, kişilerin verileri hızlı bir şekilde görselleştirmesine ve bir tablo veya elektronik tablodan hemen anlaşılmayan içgörüler elde etmesine yardımcı olur.
+Grafikler, insanların verileri hızlı bir şekilde görselleştirmesine ve bir tablo veya elektronik tablodan hemen anlaşılmayabilecek içgörüler elde etmesine yardımcı olur.
 
 **Grafik Oluşturmanın Nedenleri?**
 
-Grafikler kullanarak:
+* Büyük miktarda veriyi bir sunum slaytında tek bir slaytta toplamak, sıkıştırmak veya özetlemek;
+* Verideki desen ve eğilimleri ortaya çıkarmak;
+* Verinin zaman içinde ya da belirli bir ölçü birimine göre yönünü ve ivmesini çıkarmak;
+* Ayyp, sapma, hatalar ve mantıksız verileri tespit etmek;
+* Karmaşık verileri iletmek veya sunmak.
 
-* bir sunumdaki tek bir slaytta büyük miktarda veriyi toplamak, sıkıştırmak veya özetlemek;
-* verilerdeki kalıpları ve eğilimleri ortaya çıkarmak;
-* zaman içinde veya belirli bir ölçü birimine göre verilerin yönünü ve ivmesini tahmin etmek;
-* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit etmek;
-* karmaşık verileri iletişim kurmak veya sunmak.
-
-PowerPoint’te *Insert* işlevi aracılığıyla birçok grafik türü için şablonlar sunan grafikler oluşturabilirsiniz. Aspose.Slides kullanarak hem popüler grafik türlerine dayanan normal grafikler hem de özel grafikler oluşturabilirsiniz.
+PowerPoint'te, *Insert* işlevi aracılığıyla grafikler oluşturabilirsiniz; bu işlev, birçok grafik türü tasarlamak için şablonlar sunar. Aspose.Slides kullanarak, hem yaygın grafik türlerine dayalı düzenli grafikler hem de özel grafikler oluşturabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-Bu enumerasyonu [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) isim uzayında, [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) altında kullanın. Bu enumerasyondaki değerler farklı grafik türlerine karşılık gelir.
+Grafik tiplerini temsil eden [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) dizini, [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) ad alanı altında kullanın. Bu dizindeki değerler farklı grafik türlerine karşılık gelir.
 {{% /alert %}}
 
-### **Kümelenmiş Sütun Grafiklerini Oluşturma**
+### **Küme Sütun Grafikleri Oluşturma**
 
-Bu örnek, iki seriyi üç kategori boyunca karşılaştıran bir kümelenmiş sütun grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanır. Seriler kırmızı ve yeşil dolgu kullanır ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
+Bu örnek, iki seriyi üç kategori boyunca karşılaştıran bir küme sütun grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) yöntemini kullanır. Seriler kırmızı ve yeşil doldurmalarla gösterilir ve ayrı etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfaya işaret eder.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -166,20 +164,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Kümelenmiş Sütun Grafiği](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **Dağılım Grafiklerini Oluşturma**
 
-Dağılım grafikleri (diğer adıyla dağılım diyagramları veya x‑y grafikleri), iki değişken arasındaki kalıpları kontrol etmek veya ilişkileri göstermek için sıklıkla kullanılır.
+Dağılım grafikleri (aynı zamanda dağılım diyagramları veya x‑y grafikleri olarak da bilinir) iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için sıklıkla kullanılır.
 
-Dağılım grafiği kullanın:
+Aşağıdaki durumlarda bir dağılım grafiği kullanın:
 
 * Eşleştirilmiş sayısal verileriniz olduğunda.
-* Birbirine iyi eşleşen iki değişkeniniz olduğunda.
+* Birbiriyle iyi eşleşen iki değişkeniniz olduğunda.
 * İki değişkenin ilişkili olup olmadığını belirlemek istediğinizde.
-* Bağımsız bir değişkenin, bağımlı bir değişken için birden çok değeri olduğunda.
+* Bağımlı bir değişken için birden fazla değere sahip bağımsız bir değişkeniniz olduğunda.
 
-Bu örnek iki x‑y değeri seti çizer. İlk seri yıldız işaretçili düz çizgiler kullanırken, ikinci seri yuvarlak işaretçili yumuşak çizgiler kullanır; her ikisi de [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/) ile 10 boyutunda işaretçi kullanır. İşaretçi şekli [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) yöntemiyle kontrol edilir.
+Bu örnek iki x‑y değer kümesini çizer. İlk seri yıldız işaretçili düz çizgiler kullanırken, ikincisi daire işaretçili yumuşak çizgiler kullanır; her iki seri de [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/) ile 10 boyutunda işaretçi kullanır. [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) yöntemi işaretçi şeklini kontrol eder.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -269,13 +267,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Dağılım Grafiği](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Pasta Grafiklerini Oluşturma**
 
-Pasta grafikler, özellikle veriler kategorik etiketlerle sayısal değerler içerdiğinde, parçanın bütünle ilişkisini göstermek için en uygunudur. Ancak, verileriniz çok fazla parçaya veya etikete sahipse, çubuk grafik kullanmayı düşünebilirsiniz.
+Pasta grafikler, özellikle veriler sınıflandırılmış etiketler ve sayısal değerler içerdiğinde, parçanın bütüne oranını göstermek için en iyisidir. Ancak verinizde çok fazla parça veya etiket varsa, bir çubuk grafik kullanmayı düşünebilirsiniz.
 
-Bu örnek, üç çeyrek değer içeren bir pasta grafik oluşturur. Her dilim özel bir dolgu ve kenarlık alır ve etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarda gösterir. [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) yöntemi ilk dilimin 180 derecede başlamasını ayarlar.
+Bu örnek, üç çeyrek değer içeren bir pasta grafik oluşturur. Her dilim özel bir doldurma ve kenarlık alır ve etiketler değer, yüzde ve seri bilgisi kombinasyonlarını gösterir. [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) yöntemi ilk dilimi 180 derece konumlandırır.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -412,13 +410,15 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Pasta Grafiği](pie_chart.png)
+![The Pie chart](pie_chart.png)
+
+Etiketlerin pasta dışındaki okunurluğunu artırmak için, etiketleri konumlandıran ve çizgi renk, genişlik, şeffaflık ve kesikli stilini özelleştiren bir örnek için [Format Leader Lines](/slides/tr/cpp/chart-data-label/#format-leader-lines) sayfasına bakın.
 
 ### **Çizgi Grafiklerini Oluşturma**
 
-Çizgi grafikler (diğer adıyla çizgi diyagramları), zaman içinde değer değişimini göstermek istediğiniz durumlarda en uygunudur. Çizgi grafik kullanarak büyük miktarda veriyi aynı anda karşılaştırabilir, zaman içindeki değişimleri ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikler (aynı zamanda çizgi diyagramları olarak da bilinir), değer değişikliklerini zaman içinde göstermek istediğiniz durumlarda en iyisidir. Bir çizgi grafik kullanarak, büyük miktarda veriyi bir kerede karşılaştırabilir, zaman içindeki değişimleri ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilir ve daha fazlasını yapabilirsiniz.
 
-Bu örnek, [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanarak varsayılan seri ve kategorilere sahip bir çizgi grafik oluşturur ve sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanır ve ardından sunumu PPTX olarak kaydeder.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -450,7 +450,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Varsayılan olarak, bir çizgi grafikteki noktalar düz sürekli çizgilerle birleştirilir. Noktaların kesikli çizgilerle birleştirilmesini istiyorsanız, [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) yöntemini [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) içerisindeki bir değerle çağırın:
+Varsayılan olarak, çizgi grafik üzerindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların kesikli çizgilerle birleştirilmesini isterseniz, [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) yöntemini [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) içindeki bir değerle çağırın:
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -487,13 +487,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 Sonuç:
 
-![Çizgi Grafiği](line_chart.png)
+![The Line chart](line_chart.png)
 
 ### **Ağaç Haritası Grafiklerini Oluşturma**
 
-Ağaç haritası grafikler, satış verileri gibi kategori boyutlarını göreceli olarak göstermek ve her kategori içinde büyük katkı sağlayan öğelere dikkat çekmek istediğinizde en uygunudur.
+Ağaç haritası grafikler, satış verileri için veri kategorilerinin göreceli boyutunu göstermek ve her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde en iyisidir.
 
-Bu örnek, dört kök ve iki dal içinde gruplanmış sekiz yapraklı bir ağaç haritası oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi kökleri grup seviyesi 1, dalları ise seviye 2 olarak atar. Değerler dikdörtgenlerin göreceli boyutlarını belirler, kategori etiketleri ve üst üste binen ebeveyn etiketleri hiyerarşiyi gösterir.
+Bu örnek, dört gövde ve iki dal içinde gruplanmış sekiz yaprak içeren bir ağaç haritası oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, 1. seviyedeki gövdeleri ve 2. seviyedeki dalları atar. Değerler görece dikdörtgen boyutlarını belirlerken, kategori etiketleri ve üst üste binen ebeveyn etiketleri hiyerarşiyi tanımlar.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -541,7 +541,7 @@ chart->get_ChartData()->get_Series()->Clear();
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
-// Dal 1
+// Şube 1
 auto categoryCell = workbook->GetCell(0, u"C1", ObjectExt::Box(String(u"Leaf1")));
 auto leaf = chart->get_ChartData()->get_Categories()->Add(categoryCell);
 leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem1")));
@@ -557,7 +557,7 @@ leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem2")))
 categoryCell = workbook->GetCell(0, u"C4", ObjectExt::Box(String(u"Leaf4")));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
 
-// Dal 2
+// Şube 2
 categoryCell = workbook->GetCell(0, u"C5", ObjectExt::Box(String(u"Leaf5")));
 leaf = chart->get_ChartData()->get_Categories()->Add(categoryCell);
 leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem3")));
@@ -599,26 +599,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Ağaç Haritası Grafiği](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **Şelale Grafiklerini Oluşturma**
 
-Şelale grafik, pozitif ve negatif değişimlerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kâr dağılımı gelirle başlar, maliyetler düşülür ve diğer gelirler eklenir. Değişim sütunları önceki ve yeni çalıştırma değerleri arasında yüzerken, toplam sütunlar sıfırdan birikmiş değere uzanır.
+Şelale grafik, pozitif ve negatif değişikliklerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kar analizinde gelirle başlar, maliyetleri çıkarır ve diğer gelirleri ekler. Değişim sütunları önceki ve yeni yürütülen değerler arasında süzülürken, toplam sütunlar sıfırdan birikmiş değere kadar uzanır.
 
-Aşağıdaki örnek, binlerce ABD Doları cinsinden tutarları gösterir:
+Aşağıdaki örnek, ABD doları binleri cinsinden tutarları kullanır:
 
-| Kategori | Çalışma kitabı değeri | Sütun tipi |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| Gelir | 1000 | Artış |
-| Satış maliyeti | -400 | Azalış |
-| Brüt kâr | 600 | Ara toplam |
-| İşletme giderleri | -200 | Azalış |
-| Diğer gelir | 50 | Artış |
-| Net kâr | 450 | Nihai toplam |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-Bir noktayı ara toplam veya nihai toplam olarak işaretlemek için, o noktanın [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) yöntemini `true` ile çağırın. Gerçek birikmiş miktarı o noktanın çalışma kitabı hücresine girin: brüt kâr için `600` (`1000 - 400`), net kâr için `450` (`600 - 200 + 50`). Bu yöntem sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın ve toplam noktası için başka bir değişim eklemeyin. Toplam sütun, birikmiş değeri gösterir, ancak tekrar çalıştırma değerine eklemez.
+Bir noktayı ara toplam veya nihai toplam olarak işaretlemek için, `[set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/)` yöntemini `true` ile çağırın. O noktaya ait çalışma kitabı hücresine gerçek birikmiş miktarı girin: brüt kar için `600` (`1000 - 400`) ve net kar için `450` (`600 - 200 + 50`). Yöntem, sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın ve toplam noktası için başka bir değişim sağlamayın. Toplam sütun, birikmiş değeri gösterir, ancak bu değer yeniden yürütülen değere eklenmez.
 
-Bu tam C++ örneği, [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) içindeki `Waterfall` üyesiyle bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) ile eklenir. Sıfır tabanlı nokta indeksleri `2` ve `5` ara ve nihai toplamları tanımlar. [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) yöntemine `true` geçirilmesi, miktarların sütunlar üzerinde gösterilmesini sağlar. Giriş sunumu veya çalışma kitabı gerektirmez.
+Bu tam C++ örneği, `[ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/)` üyesi `Waterfall` kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi `[AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/)` ile eklenir. Sıfır‑tabanlı nokta indeksleri `2` ve `5` ara ve nihai toplamları tanımlar. `[set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/)` yöntemine `true` geçirerek miktarlar sütunlarda gösterilir. Giriş sunumu veya çalışma kitabı gerekmez.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -701,17 +701,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Seri düzeyinde [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) yöntemini `true` olarak çağırmak, ardışık sütunları bağlayan hatları gösterir ve çalıştırma değerinin izlenmesini kolaylaştırır. Bu hatları gizlemek için, örnekteki atamayı `series->set_ShowConnectorLines(false);` ile değiştirip kaydetmeden önce yapın. Bu sadece çizgi görünürlüğünü değiştirir, veri veya toplamları etkilemez.
+Seri‑seviyesindeki `[set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/)` yöntemini `true` ile çağırarak ardışık sütunları bağlayan çizgileri gösterin ve yürütülen değerin izlenmesini kolaylaştırın. Bu çizgileri gizlemek için örnekteki atamayı `series->set_ShowConnectorLines(false);` ile değiştirip kaydetmeden önce yapın. Bu yalnızca çizgi görünürlüğünü değiştirir, veri veya toplamları etkilemez.
 
-Kaydedilen sunum, sıfırdan çizilen brüt kârı 600 ve net kârı 450 gösterir:
+Kaydedilen sunum, 600 brüt kar ve 450 net karı gösterir; her iki toplam da sıfırdan çizilir:
 
-![Şelale Grafiği, gelir, maliyet, 600 brüt kâr ve 450 net kâr, değer etiketleri ve bağlayıcı hatlar ile](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
 ### **Hisse Senedi Grafiklerini Oluşturma**
 
-Hisse senedi grafikleri, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri görüntüleyerek piyasa eğilimlerini ve volatiliteyi analiz etmeye yardımcı olur. Bu grafikler, yatırımcıların ve analistlerin bilinçli kararlar almasını sağlayan önemli içgörüler sunar.
+Hisse senedi grafikleri, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstermek için kullanılır; piyasa eğilimlerini ve volatiliteyi analiz etmeye yardımcı olur. Bu grafikler, yatırımcılara ve analistlere bilinçli kararlar almak için temel içgörüler sunar.
 
-Bu örnek, dört seri sırasıyla açık‑yüksek‑düşük‑kapanış (OHLC) grafiği ve üç kategori oluşturur. [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) yöntemi yükseliş/düşüş çubuklarını etkinleştirir ve [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) yüksek‑düşük çizgilerini kontrol eder; bireysel seri çizgileri ve ufak yatay ızgara çizgileri gizlidir.
+Bu örnek, dört seri sırasıyla açılış‑yüksek‑düşük‑kapanış (OHLC) grafik oluşturur ve üç kategori ekler. `[set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/)` yöntemi yükseliş/düşüş çubuklarını etkinleştirir ve `[get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/)` yüksek‑düşük çizgilerini kontrol eder; bireysel seri çizgileri ve küçük yatay ızgara çizgileri gizlenir.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -819,13 +819,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Hisse Senedi Grafiği](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Kutu ve Çubuk Grafiklerini Oluşturma**
+### **Kutu ve Büyüteç Grafiklerini Oluşturma**
 
-Kutu ve çubuk grafikler, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek verilerin dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri tanımlamak açısından çok faydalıdır.
+Kutu ve büyüteç grafikler, medyan, çeyrekler ve olası ayyp gibi temel istatistik ölçümleri özetleyerek verinin dağılımını göstermek için kullanılır. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri tespit etmek açısından özellikle yararlıdır.
 
-Bu örnek, altı değerden oluşan bir kutu ve çubuk grafik oluşturur. [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) yöntemi özel çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktalar ve aykırı değer noktalarını etkinleştirir.
+Bu örnek, altı değerden bir kutu ve büyüteç grafik oluşturur. `[set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/)` yöntemi dışlayıcı çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç nokta ve ayyp noktasını da etkinleştirir.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -908,9 +908,9 @@ presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 
 ### **Huni Grafiklerini Oluşturma**
 
-Huni grafikler, bir sürecin bir adımdan diğerine ilerledikçe veri hacminin azaldığı ardışık aşamaları görselleştirmek için kullanılır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle faydalıdır.
+Huni grafikler, bir sürecin ardışık aşamalarını görselleştirmek için kullanılır; veri hacmi bir adımdan sonraki adıma ilerledikçe azalır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini takip etmek için özellikle faydalıdır.
 
-Bu örnek, mevcut bir sunumun ilk slaytına [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) ile bir huni grafik ekler. Varsayılan verileri altı kategori ve 50‑500 arasında değerler ile değiştirir, ardından güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
+Bu örnek, mevcut bir sunumun ilk slaytına bir huni grafik eklemek için [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanır. Varsayılan veriyi altı kategori ve 50‑500 arasında değişen değerlerle değiştirir, ardından güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -985,13 +985,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Huni Grafiği](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
 ### **Güneş Patlaması Grafiklerini Oluşturma**
 
-Güneş patlaması grafikler, hiyerarşik verileri gösteren, seviyeleri iç içe halkalar olarak sunan grafiklerdir. Parça‑bütün ilişkilerini göstermek ve iç içe kategorileri net ve kompakt bir biçimde temsil etmek için idealdir.
+Güneş patlaması grafikler, hiyerarşik verileri konik halkalar olarak görselleştirir. Parçanın bütüne oranını göstermek ve iç içe kategorileri net, kompakt bir biçimde temsil etmek için idealdir.
 
-Bu örnek, sekiz yapraklı bir güneş patlaması grafiği oluşturur; yapraklar dört kök ve iki dal içinde gruplanır. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi kökleri seviye 1, dalları seviye 2 olarak atar. Kategori etiketleri segmentleri tanımlar, değerler göreceli boyutları belirler.
+Bu örnek, dört gövde ve iki dal içinde gruplanmış sekiz yaprağa sahip bir güneş patlaması grafik oluşturur. `[SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)` yöntemi, 1. seviyedeki gövdeleri ve 2. seviyedeki dalları atar. Kategori etiketleri segmentleri tanımlar ve değerler görece boyutlarını belirler.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1038,7 +1038,7 @@ chart->get_ChartData()->get_Series()->Clear();
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
-// Dal 1
+// Şube 1
 auto categoryCell = workbook->GetCell(0, u"C1", ObjectExt::Box(String(u"Leaf1")));
 auto leaf = chart->get_ChartData()->get_Categories()->Add(categoryCell);
 leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem1")));
@@ -1054,7 +1054,7 @@ leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem2")))
 categoryCell = workbook->GetCell(0, u"C4", ObjectExt::Box(String(u"Leaf4")));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
 
-// Dal 2
+// Şube 2
 categoryCell = workbook->GetCell(0, u"C5", ObjectExt::Box(String(u"Leaf5")));
 leaf = chart->get_ChartData()->get_Categories()->Add(categoryCell);
 leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem3")));
@@ -1094,17 +1094,17 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Güneş Patlaması Grafiği](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Histogram Grafiklerini Oluşturma**
 
-Histogram grafikler, sayısal değerlerin aralıklar (kova) içinde nasıl dağıtıldığını gösterir. Aylık sipariş işleme süreleri raporlarında, aralık genişliğini ve eşik değerlerini aynı tutarak dağılımları karşılaştırmayı kolaylaştırır.
+Histogram grafikler, sayısal değerlerin aralıklara (bins) nasıl dağıldığını gösterir. Aylık sipariş işleme süresi raporları için aralık genişliğini ve eşiklerini aynı tutarak aralıkları tutarlı tutabilir ve dağılımları karşılaştırmayı kolaylaştırabilirsiniz.
 
-Yatay ekseni, [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/)‘nden bir modla [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) yöntemiyle ayarlayın. `ByBinWidth` için yalnızca [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) uygulanır; `ByNumberOfBins` için yalnızca [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) uygulanır. `Automatic` seçilirse grafik kendi başına kova sayısını belirler.
+Yatay eksende `[set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/)` yöntemini `[AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/)` içindeki bir kip ile çağırın. `[set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/)` yalnızca `ByBinWidth` için uygulanır; `[set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/)` yalnızca `ByNumberOfBins` için uygulanır. `Automatic` seçeneği, histogramın kendisinin binleri seçmesine olanak tanır.
 
-#### **Sabit Kova Genişliği Kullanma**
+#### **Sabit Bin Genişliği Kullanma**
 
-Bu örnek işleme sürelerini 10‑dakikalık aralıklara gruplayarak, 10 dakika ve altında olanları bir kova, 40 dakika üzerindekileri başka bir kova olarak ayırır. Bu kovaları [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) ve [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/) ile etkinleştirin. Açık eşik değerleri vermek için [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) ve [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/) kullanın; ardından [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) ve [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) yöntemlerini `false` olarak ayarlayın.
+Bu örnek, işleme sürelerini 10 dakikalık aralıklara gruplar; 10 dakikaya kadar ve 40 dakikadan üzeri için ayrı binler oluşturur. Bu binleri `[set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/)` ve `[set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/)` ile etkinleştirin. Açık eşik değerlerini `[set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/)` ve `[set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/)` üzerinden verirken, `[set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/)` ve `[set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/)` metodlarını `false` olarak ayarlayın.
 
 ```cpp
 #include <system/array.h>
@@ -1174,13 +1174,13 @@ axis->set_OverflowBin(40);
 presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-PowerPoint’te gösterilen sunum, **3, 4, 4, 4 ve 2** sayıda kova içerir. Alt akış kova `5, 10, 10` değerlerini içerir; eşik değeri kapsayıcıdır. Üst akış kova yalnızca `41, 50` değerlerini içerir; eşik değeri dışlayıcıdır; `40` değerleri önceki aralıkta kalır. İç kova değerleri alt sınırdan büyük ve üst sınırdan küçük ya da eşit olmalıdır.
+PowerPoint'te görüntülenen sunum, **3, 4, 4, 4 ve 2** adet bin sayısı gösterir. Alt akış binine `5, 10, 10` dahil edildiği için eşik değeri kapsayıcıdır. Üst akış binine yalnızca `41, 50` dahil olduğu için eşik değeri dışlayıcıdır; `40` değeri önceki aralıkta kalır. İç binler, alt sınırdan büyük ve üst sınırdan küçük ya da eşit değerleri içerir.
 
-![10‑dakikalık kova genişliği ve açık alt/üst eşik değerleriyle Histogram](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Kova Sayısını Belirtme**
+#### **Bin Sayısını Belirleme**
 
-Sabit aralıklar yerine sabit ayrıntı seviyesi istiyorsanız, aynı veri için beş kova isteyin. Bu örnek alt ve üst akış kovalarını devre dışı bırakır. Grafik, veri aralığından genişliği belirler; bu nedenle sınırlar raporlar arasında değişebilir.
+Sabit aralıklar yerine sabit detay seviyesi istiyorsanız, aynı veri seti için beş bin talep edin. Bu örnek alt ve üst akış binlerini devre dışı bırakır. Grafik, veri aralığından genişliği belirler; bu nedenle sınırlar raporlar arasında değişebilir.
 
 ```cpp
 #include <system/array.h>
@@ -1244,15 +1244,15 @@ axis->set_NumberOfBins(5);
 presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
 ```
 
-Beş kova **4, 4, 4, 4 ve 1** sayısına sahiptir. Yukarıdaki sabit‑genişlik sonuçlarıyla karşılaştırın: giriş değerleri aynı, fakat sınırlar farklı.
+Beş bin, **4, 4, 4, 4 ve 1** adet sayıya sahiptir. Yukarıdaki sabit‑genişlik sonuçlarıyla karşılaştırın: giriş değerleri aynıdır, ancak sınırlar farklıdır.
 
-![Aynı veriden hesaplanan beş kova ile Histogram](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Radar Grafiklerini Oluşturma**
 
-Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birkaç değişkeni aynı anda kolayca karşılaştırmayı sağlar. Performans metrikleri ya da nitelikler gibi çeşitli ölçütlerde kalıpları, güçlü ve zayıf yönleri belirlemede özellikle faydalıdır.
+Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden çok değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans metrikleri veya nitelikler arasında desen, güçlü yön ve zayıf yönleri belirlemek için özellikle yararlıdır.
 
-Bu örnek, [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanarak varsayılan seri ve kategorilere sahip bir radar grafik oluşturur ve sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir radar grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanır ve ardından sunumu PPTX olarak kaydeder.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1286,13 +1286,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Radar Grafiği](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
 ### **Çok‑Kategori Grafiklerini Oluşturma**
 
-Çok‑kategori grafikler, birden fazla kategorik gruplama içeren verileri göstermek için kullanılır; böylece değerleri birden fazla boyutta aynı anda karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri setlerinde eğilim ve ilişkileri analiz etmek istediğinizde özellikle yararlıdır.
+Çok‑kategori grafikler, birden fazla kategorik gruplama içeren verileri göstermek ve değerleri aynı anda birden fazla boyutta karşılaştırmak için kullanılır. Karmaşık, çok‑katmanlı veri kümelerinde eğilim ve ilişkileri analiz etmeniz gerektiğinde özellikle faydalıdır.
 
-Bu örnek, dört çift içinde düzenlenmiş sekiz kategoriye sahip bir kümelenmiş sütun grafik oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi her çifte grup seviyesi 1’de ortak bir etiket atar; bu, hem bireysel hem grup etiketli bir kategori ekseni üretir.
+Bu örnek, dört çift halinde düzenlenmiş sekiz kategoriye sahip bir küme sütun grafik oluşturur. `[SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/)` yöntemi, her çifti grup seviyesi 1'de ortak bir etiketle işaretler; böylece hem bireysel hem de grup etiketlerini içeren bir kategori ekseni elde edilir.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1387,13 +1387,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Çok‑Kategori Grafiği](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
 ### **Harita Grafiklerini Oluşturma**
 
-Harita grafikler, ülkeler, bölgeler ya da şehirler gibi belirli konumlara bilgi eşleştirerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekânsal dağılımları net ve görsel açıdan çekici bir biçimde analiz etmek için özellikle faydalıdır.
+Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgi eşleyerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve uzamsal dağılımları net ve görsel açıdan çekici bir biçimde analiz etmek için özellikle kullanışlıdır.
 
-Bu örnek, [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanarak varsayılan coğrafi veriye sahip bir harita grafik oluşturur ve PowerPoint’te görüntülenmek üzere kaydeder.
+Bu örnek, varsayılan coğrafi verileri kullanarak bir harita grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanır ve PowerPoint'te görüntülenmek üzere kaydeder.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1427,19 +1427,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 Sonuç:
 
-![Harita Grafiği](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Yukarıdaki resim, PowerPoint’te açılan kaydedilmiş sunumu gösterir. Aspose.Slides harita grafiğini ve verilerini doğru şekilde yazar, ancak harita grafiklerini kendisi çizmeyiz: bir slayt, görüntüye render edildiğinde ya da PDF/SVG’ye dönüştürüldüğünde grafik alanı boş çıkar. Aynı slayttaki diğer şekiller etkilenmez.
+Yukarıdaki resim, kaydedilen sunumun PowerPoint'te açılmış halini gösterir. Aspose.Slides harita grafiği ve verilerini doğru bir şekilde yazar, ancak harita grafiklerini kendisi çizmez: bir slayt görüntüye, PDF'ye veya SVG'ye dönüştürüldüğünde grafik alanı boş çıkar. Aynı slaydın diğer şekilleri etkilenmez.
 {{% /alert %}}
 
 ### **Kombinasyon Grafiklerini Oluşturma**
 
-Kombinasyon (combo) grafiği, tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki veya daha fazla veri seti arasındaki farkları vurgulamanıza, karşılaştırmanıza ya da incelemenize olanak tanır ve ilişkileri tanımlamaya yardımcı olur.
+Kombinasyon (veya combo) grafik, tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki ya da daha fazla veri seti arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve aralarındaki ilişkileri belirlemenize yardımcı olur.
 
-![Kombinasyon Grafiği](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Bu örnek, dört kategori içinde iki kümelenmiş sütun serisini bir çizgi serisiyle birleştirir. Sütunlar birincil dikey ekseni, [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) yöntemi ise çizgiyi sağda ikinci bir dikey eksene yerleştirir. Yardımcı işlevler başlık, açıklama, eksen etiketleri ve ızgara çizgilerini yapılandırır.
+Bu örnek, dört kategori üzerinde iki küme sütun serisini bir çizgi serisiyle birleştirir. Sütunlar ana dikey ekseni, çizgi ise `[set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/)` yöntemiyle sağ tarafta ikincil bir dikey eksene yerleştirilir. Yardımcı işlevler başlık, açıklama, eksen etiketleri ve ızgara çizgilerini yapılandırır.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1650,9 +1650,9 @@ ComboChartExample::CreateComboChart();
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for C++, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu özellik, sunumları dinamik içerikle güncel tutma sürecini basitleştirir ve grafiklerin güncel veri ve görsel standartları doğru yansıtmasını garantiler.
+Aspose.Slides for C++ , grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu özellik, sunumlarınızı dinamik içerikle güncel tutma sürecini basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını sağlar.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiği günceller. Her birinin üç veri noktasına sahip iki sütun serisine ihtiyaç duyar; kategori etiketleri A sütununda ve seri adları ilk çalışma sayfasının ilk satırındadır. Örnek, [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) kullanarak çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/) ile kümelenmiş silindir grafik haline getirir.
+Bu örnek, mevcut bir sunumun ilk slaydındaki "My chart" adlı grafik üzerine güncelleme yapar. Her biri üç veri noktasına sahip iki sütun serisi gerekir; kategori etiketleri A sütununda, seri adları ise ilk çalışma sayfasının ilk satırında bulunur. Örnek, `[GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/)` kullanarak çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve `[set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/)` ile grafiği küme silindirlerine dönüştürür.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1735,11 +1735,11 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 ## **Bir Grafik İçin Veri Aralığını Ayarlama**
 
-Mevcut bir grafik tarafından kullanılan aralığı incelemek için, [Retrieve a Chart's Data Range](/slides/tr/cpp/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
+Mevcut bir grafik tarafından zaten kullanılan aralığı incelemek için, [Retrieve a Chart's Data Range](/slides/tr/cpp/chart-workbook/#retrieve-a-charts-data-range) sayfasına bakın.
 
-Aspose.Slides for C++, bir çalışma sayfasından belirli bir veri aralığını grafik veri kaynağınız olarak tanımlama esnekliği sunar. Bu, çalışma sayfanızın yalnızca bir bölümünü doğrudan grafiğe eşlemenize, grafik serileri ve kategorileri için hangi hücrelerin katkıda bulunduğunu kontrol etmenize olanak tanır. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilir, PowerPoint sunumlarınızın güncel ve doğru bilgi yansıtmasını sağlayabilirsiniz.
+Aspose.Slides for C++ , bir çalışma sayfasındaki belirli bir veri aralığını grafik verilerinizin kaynağı olarak tanımlama esnekliği sunar. Bu sayede, çalışma sayfanızın bir bölümünü doğrudan grafiğe eşleyebilir, hangi hücrelerin seri ve kategori olarak kullanılacağını kontrol edebilirsiniz. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilir, PowerPoint sunumlarınızın güncel ve doğru bilgiler içermesini sağlayabilirsiniz.
 
-Bu örnek, [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) kullanarak mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlar. Grafik çalışma kitabının bu çalışma sayfasını ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren doldurulmuş bir aralığı içermesi gerekir.
+Bu örnek, `[SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/)` yöntemini kullanarak "My chart" adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlar. Grafik çalışma kitabı bu çalışma sayfasını ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer bulunan bir aralığı içermelidir.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1781,11 +1781,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **Grafiklerde Varsayılan İşaretçi Kullanma**
+## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
-Grafiklerde varsayılan işaretçiler kullanıldığında, her grafik serisine otomatik olarak farklı bir varsayılan işaretçi sembolü atanır.
+Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi sembolü alır.
 
-Bu örnek, iki çizgi serisi ve bir açıklama içeren bir grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanır. [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) ayarları otomatik atanmış işaretçi sembollerini korur. İlk seri negatif bir değer ve `nullptr` ile temsil edilen eksik bir değer içerirken, ikincisi her kategori için bir değer içerir.
+Bu örnek, iki çizgi serisi ve bir açıklama içeren bir grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) kullanır. `[get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/)` ayarları, otomatik olarak atanan işaretçi sembollerini korur. İlk seri negatif bir değer ve `nullptr` ile temsil edilen eksik bir değer içerirken, ikincisi her kategori için bir değer içerir.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1879,12 +1879,12 @@ Aspose.Slides for C++, çubuk, çizgi, pasta, alan, dağılım, histogram, radar
 
 **Bir slayta yeni bir grafik nasıl eklenir?**
 
-Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) sınıfının bir örneğini oluşturur, istediğiniz slaytı indeksine göre alır ve ardından grafik türü ve başlangıç verilerini belirterek bir grafik ekleme metodunu çağırırsınız. Bu işlem grafik doğrudan sunumunuza entegre eder.
+Yeni bir grafik eklemek için önce `[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation)` sınıfının bir örneğini oluşturur, istediğiniz slaytı indeksine göre elde eder ve ardından grafik tipini ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
-**Bir grafikte gösterilen veri nasıl güncellenir?**
+**Bir grafikte gösterilen veriler nasıl güncellenir?**
 
-Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip, kendi özel verilerinizi ekleyerek bir grafiğin verisini güncelleyebilirsiniz. Bu, grafiği programlı olarak en yeni verileri yansıtacak şekilde yenilemenizi sağlar.
+Bir grafiğin verilerini, veri çalışma kitabına (`[IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)`) erişerek, varsayılan serileri ve kategorileri temizleyip, kendi verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenizi sağlar.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides for C++ geniş özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, açıklamalar ve diğer biçimleme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre şekillendirebilirsiniz.
+Evet, Aspose.Slides for C++, renkler, yazı tipleri, etiketler, açıklamalar ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü özel tasarım gereksinimlerinize göre uyarlamanıza olanak tanıyan geniş özelleştirme seçenekleri sunar.

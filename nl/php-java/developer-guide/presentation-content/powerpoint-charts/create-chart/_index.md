@@ -1,59 +1,57 @@
 ---
-title: Grafieken in PowerPoint-presentaties maken of bijwerken in PHP
-linktitle: Grafieken maken of bijwerken
+title: Diagrammen voor PowerPoint‑presentaties maken of bijwerken in PHP
+linktitle: Diagrammen maken of bijwerken
 type: docs
 weight: 10
 url: /nl/php-java/create-chart/
 keywords:
-- grafiek toevoegen
-- grafiek maken
-- grafiek bewerken
-- grafiek wijzigen
-- grafiek bijwerken
-- spreidingsgrafiek
-- taartgrafiek
-- lijngrafiek
-- boomkaartgrafiek
-- aandelengrafiek
-- box‑en‑whisker‑grafiek
-- trechtergrafiek
-- sunburst‑grafiek
-- histogramgrafiek
-- radargrafiek
-- multicategorie‑grafiek
+- diagram toevoegen
+- diagram maken
+- diagram bewerken
+- diagram wijzigen
+- diagram bijwerken
+- spreidingsdiagram
+- taartdiagram
+- lijndiagram
+- boomkaartdiagram
+- aandelendiagram
+- box-en-whisker-diagram
+- trechterdiagram
+- sunburst-diagram
+- histogramdiagram
+- radardiagram
+- meervoudig-categoriediagram
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Grafieken maken en aanpassen in PowerPoint-presentaties met Aspose.Slides voor PHP via Java. Voeg grafieken toe, formatteer en bewerk ze met praktische code-voorbeelden in PHP."
+description: "Diagrammen maken en aanpassen in PowerPoint-presentaties met Aspose.Slides voor PHP via Java. Diagrammen toevoegen, opmaken en bewerken met praktische code-voorbeelden in PHP."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe je grafieken kunt maken en aanpassen met Aspose.Slides for PHP via Java. Je leert hoe je programmatisch een grafiek aan een dia toevoegt, deze vult met gegevens en verschillende opmaakopties toepast om aan jouw specifieke ontwerpvereisten te voldoen. Door het hele artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en het grafiekobject tot het configureren van series, assen en legendes. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische grafiekgeneratie kunt integreren in je PHP‑toepassingen, waardoor het proces van het maken van gegevens‑gedreven presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide gids over hoe je diagrammen kunt maken en aanpassen met Aspose.Slides voor PHP via Java. Je leert hoe je programmatiche een diagram aan een dia toevoegt, het van gegevens voorziet, en verschillende opmaakopties toepast om te voldoen aan je specifieke ontwerpeisen. Gedurende het artikel illustreren gedetailleerde code-voorbeelden elke stap, van het initialiseren van de presentatie en het diagramobject tot het configureren van series, assen en legenda's. Door deze gids te volgen, krijg je een solide begrip van hoe je dynamische diagramgeneratie kunt integreren in je PHP-toepassingen, waardoor het proces van het maken van gegevensgedreven presentaties wordt gestroomlijnd.
 
-## **Een grafiek maken**
+## **Diagram maken**
 
-Grafieken helpen mensen snel gegevens te visualiseren en inzichten te krijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
+Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn vanuit een tabel of spreadsheet.
 
-**Waarom grafieken maken?**
+**Waarom diagrammen maken?**
 
-Met grafieken kun je:
-
-* grote hoeveelheden gegevens aggregeren, condenseren of samenvatten op één dia in een presentatie;
+* groeperen, samenvatten of condenseren van grote hoeveelheden gegevens op één dia in een presentatie;
 * patronen en trends in gegevens blootleggen;
-* de richting en het momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden;
-* uitschieters, afwijkingen, fouten en onzinnige gegevens opsporen;
+* de richting en dynamiek van gegevens over tijd of ten opzichte van een specifieke meeteenheid afleiden;
+* uitschieters, afwijkingen, fouten en onsamenhangende gegevens opsporen;
 * complexe gegevens communiceren of presenteren.
 
-In PowerPoint kun je grafieken maken via de *Invoegen*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende grafiektype­n. Met Aspose.Slides kun je zowel reguliere grafieken (gebaseerd op populaire grafiektype­n) als aangepaste grafieken maken.
+In PowerPoint kun je diagrammen maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende diagramtypen. Met Aspose.Slides kun je zowel reguliere diagrammen (gebaseerd op populaire diagramtypen) als aangepaste diagrammen maken.
 
 {{% alert color="info" title="Note" %}}
-Gebruik de [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/)‑enumeratie in de namespace [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). De waarden in deze enumeratie komen overeen met verschillende grafiektype­n.
+Gebruik de enumeratie [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) in de [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) namespace. De waarden in deze enumeratie corresponderen met verschillende diagramtypen.
 {{% /alert %}}
 
-### **Clustered Column‑grafieken maken**
+### **Clustered kolomdiagrammen maken**
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een gegroepeerde kolomgrafiek te maken die twee series over drie categorieën vergelijkt. De series gebruiken rode en groene vullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkblad‑index 0 verwijst naar het eerste blad in de ingebedde grafiek‑werkmap.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een gegroepeerd kolomdiagram te maken dat twee series vergelijkt over drie categorieën. De series gebruiken rode en groene opvullingen, en individuele labels tonen categorienamen, serienamen en waarden. Werkblad‑index 0 verwijst naar het eerste blad in de ingebedde diagramwerkmap.
 
 ```php
 use aspose\slides\ChartType;
@@ -139,20 +137,20 @@ finally
 
 Het resultaat:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Het gegroepeerde kolomdiagram](clustered_column_chart.png)
 
-### **Scatter‑grafieken maken**
+### **Spreidingsdiagrammen maken**
 
-Scatter‑grafieken (ook wel spreidingsdiagrammen of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te controleren of correlaties tussen twee variabelen aan te tonen.
+Spreidingsdiagrammen (ook bekend als scatter-plots of x-y-grafieken) worden vaak gebruikt om patronen te controleren of correlaties tussen twee variabelen aan te tonen.
 
-Gebruik een spreidingsgrafiek wanneer:
+Gebruik een spreidingsdiagram wanneer:
 
-* je gekoppelde numerieke gegevens hebt;
-* je twee variabelen hebt die goed bij elkaar passen;
-* je wilt bepalen of de twee variabelen met elkaar verband houden;
-* je een onafhankelijke variabele hebt die meerdere waarden heeft voor een afhankelijke variabele.
+* Je hebt gekoppelde numerieke gegevens.
+* Je hebt twee variabelen die goed bij elkaar passen.
+* Je wilt bepalen of de twee variabelen gerelateerd zijn.
+* Je hebt een onafhankelijke variabele met meerdere waarden voor een afhankelijke variabele.
 
-Dit voorbeeld plot twee sets x‑y‑waarden. De eerste serie gebruikt rechte lijnen met ster‑markers, terwijl de tweede gladde lijnen met cirkel‑markers gebruikt; beide gebruiken een marker‑grootte van 10, geconfigureerd met [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). De [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/)‑methode bepaalt de vorm van de marker.
+Dit voorbeeld plot twee sets x-y-waarden. De eerste serie gebruikt rechte lijnen met ster-markers, terwijl de tweede gladde lijnen met cirkel-markers gebruikt; beide gebruiken een marker-grootte van 10, geconfigureerd met [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). De [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/)‑methode bepaalt de vorm van de marker.
 
 ```php
 use aspose\slides\ChartType;
@@ -223,13 +221,13 @@ finally
 
 Het resultaat:
 
-![The Scatter chart](scatter_chart.png)
+![Het spreidingsdiagram](scatter_chart.png)
 
-### **Taartgrafieken maken**
+### **Taartdiagrammen maken**
 
-Taartgrafieken worden het best gebruikt om de deel‑tot‑geheel‑relatie in gegevens te tonen, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafgrafiek overwegen.
+Taartdiagrammen zijn het meest geschikt om de deel-tot-geheel-relatie in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafdiagram gebruiken.
 
-Dit voorbeeld maakt een taartgrafiek met drie kwartaalwaarden. Elke sector heeft een aangepaste vulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en seriinformatie. De [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/)‑methode stelt de eerste sector in op 180 graden.
+Dit voorbeeld maakt een taartdiagram met drie kwartaalwaarden. Elke part heeft een aangepaste opvulling en rand, en de labels tonen verschillende combinaties van waarden, percentages en serie-informatie. De [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/)‑methode stelt de eerste part in op 180 graden.
 
 ```php
 use aspose\slides\ChartType;
@@ -341,13 +339,15 @@ finally
 
 Het resultaat:
 
-![The Pie chart](pie_chart.png)
+![Het taartdiagram](pie_chart.png)
 
-### **Lijngrafieken maken**
+Om de leesbaarheid van labels buiten de taart te verbeteren, zie [Format Leader Lines](/slides/nl/php-java/chart-data-label/#format-leader-lines) voor een voorbeeld dat labels positioneert en de kleur, breedte, transparantie en streeplijn-stijl van de lijnen aanpast.
 
-Lijngrafieken (ook wel lijndiagrammen genoemd) worden het best gebruikt wanneer je veranderingen in waarde over tijd wilt laten zien. Met een lijngrafiek kun je een grote hoeveelheid data tegelijk vergelijken, veranderingen en trends in de tijd volgen, anomalieën in dataseries benadrukken, en meer.
+### **Lijndiagrammen maken**
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een lijngrafiek te maken met de standaard series en categorieën, en slaat de presentatie op als PPTX.
+Lijndiagrammen (ook bekend als lijngrafieken) zijn het meest geschikt in situaties waarin je veranderingen in waarde over tijd wilt laten zien. Met een lijndiagram kun je een grote hoeveelheid gegevens tegelijk vergelijken, trends in de tijd volgen, anomalieën in reeksen benadrukken, en meer.
+
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een lijndiagram te maken met de standaard series en categorieën, en slaat vervolgens de presentatie op als PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -369,7 +369,7 @@ finally
 }
 ```
 
-Standaard worden punten in een lijngrafiek verbonden door rechte doorlopende lijnen. Als je wilt dat de punten door stippellijnen worden verbonden, roep je [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
+Standaard worden punten in een lijndiagram verbonden door rechte doorlopende lijnen. Als je de punten in plaats daarvan door stippellijnen wilt verbinden, roep je [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) aan met een waarde uit [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
 
 ```php
 use aspose\slides\ChartType;
@@ -397,13 +397,13 @@ finally
 
 Het resultaat:
 
-![The Line chart](line_chart.png)
+![Het lijndiagram](line_chart.png)
 
-### **Tree Map‑grafieken maken**
+### **Boomkaartdiagrammen maken**
 
-Tree Map‑grafieken worden het best gebruikt voor verkoopgegevens wanneer je de relatieve grootte van datacategorieën wilt tonen en snel de items wilt benadrukken die grote bijdragers zijn binnen elke categorie.
+Boomkaartdiagrammen zijn het meest geschikt voor verkoopgegevens wanneer je de relatieve grootte van datacategorieën wilt laten zien en snel de aandacht wilt vestigen op items die grote bijdragers zijn binnen elke categorie.
 
-Dit voorbeeld maakt een tree map met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/)‑methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoek‑groottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie identificeren.
+Dit voorbeeld maakt een boomkaartdiagram met acht bladeren gegroepeerd in vier stelen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/)‑methode kent stelen toe op groeperingsniveau 1 en takken op niveau 2. Waarden bepalen de relatieve rechthoekgroottes, terwijl categorielabels en overlappende bovenliggende labels de hiërarchie identificeren.
 
 ```php
 use aspose\slides\ChartType;
@@ -487,26 +487,24 @@ finally
 
 Het resultaat:
 
-![The Treemap chart](treemap_chart.png)
+![Het boomkaartdiagram](treemap_chart.png)
 
-### **Waterfall‑grafieken maken**
+### **Waterval-diagrammen maken**
 
-Een waterfall‑grafiek toont hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winst‑analyse kan beginnen met omzet, kosten aftrekken en andere inkomsten toevoegen. Veranderingskolommen zweven tussen de vorige en nieuwe lopende waarden, terwijl totale kolommen van nul tot de geaccumuleerde waarde reiken.
-
-Het volgende voorbeeld gebruikt bedragen in duizenden Amerikaanse dollars:
+Een watervaldiagram toont hoe positieve en negatieve veranderingen bijdragen aan een eindwaarde. Bijvoorbeeld, een winst-opdeling kan beginnen met omzet, kosten aftrekken, en andere inkomsten toevoegen. Veranderingskolommen zweven tussen de vorige en de nieuwe lopende waarden, terwijl totaalkolommen van nul tot de opeengehoopte waarde reiken.
 
 | Categorie | Werkbladwaarde | Kolomtype |
 | --- | ---: | --- |
 | Omzet | 1000 | Toename |
-| Kosten van verkoop | -400 | Aftrek |
-| Bruto winst | 600 | Intermediaire totaal |
-| Exploitatiekosten | -200 | Aftrek |
+| Verkoopkosten | -400 | Afname |
+| Brutowinst | 600 | Intermediaire totaal |
+| Bedrijfskosten | -200 | Afname |
 | Overige inkomsten | 50 | Toename |
-| Nettowinst | 450 | Finale totaal |
+| Nettowinst | 450 | Eindtotaal |
 
-Om een punt te markeren als intermediaire of finale totaal, roep je de [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/)‑methode aan met `true`. Lever de daadwerkelijke geaccumuleerde hoeveelheid in die werkbladcel: `600` voor bruto winst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als totaal; hij berekent of vult de celwaarde niet. Gebruik geen nul als tijdelijke aanduiding en lever geen andere wijziging voor een totaalpunt. Een totale kolom toont de geaccumuleerde waarde zonder deze opnieuw bij de lopende waarde op te tellen.
+Om een punt te markeren als een intermediaire of eindtotaal, roep je de [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/)‑methode aan met `true`. Geef het werkelijke opgegroeide bedrag op in de werkbladcel van dat punt: `600` voor brutowinst (`1000 - 400`) en `450` voor nettowinst (`600 - 200 + 50`). De methode markeert de kolom als totaal; hij berekent of vult de celwaarde niet automatisch in. Gebruik geen nul als tijdelijke aanduiding of voeg geen andere wijziging toe voor een totaalpunt. Een totaal-kolom toont de opgegroeide waarde zonder deze opnieuw bij de lopende waarde op te tellen.
 
-Deze volledige PHP‑voorbeeld maakt een grafiek met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), wist de standaardgegevens en vult de ingebedde werkmap. Werkblad‑index `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). De nul‑gebaseerde punt‑indices `2` en `5` identificeren respectievelijk de intermediaire en finale totalen. Het aanroepen van [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) met `true` toont de bedragen op de kolommen. Geen invoer‑presentatie of werkmap is vereist.
+Dit volledige PHP‑voorbeeld maakt een diagram met het `Waterfall`‑lid van [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), wist de standaardgegevens, en vult de ingebedde werkmap. Werkblad‑index `0` selecteert het eerste werkblad; kolom A bevat categorienamen en kolom B bevat waarden. Elke waardecel wordt toegevoegd met [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). De nul‑gebaseerde puntindices `2` en `5` identificeren respectievelijk de intermediaire en eindtotaal. Door [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) met `true` aan te roepen, worden de bedragen op de kolommen weergegeven. Er is geen invoer‑presentatie of werkmap vereist.
 
 ```php
 use aspose\slides\ChartType;
@@ -546,7 +544,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // Het derde en zesde punt vertegenwoordigen totalen, niet extra wijzigingen.
+    // De derde en zesde punten stellen totalen voor, geen extra wijzigingen.
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -560,17 +558,17 @@ finally
 }
 ```
 
-Roep de series‑niveau [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/)‑methode aan met `true` om lijnen te tonen die opeenvolgende kolommen met elkaar verbinden en de lopende waarde makkelijker te volgen. Om deze lijnen te verbergen, vervang je de methode‑aanroep in het voorbeeld door `$series->setShowConnectorLines(false);` vóór het opslaan. Dit verandert alleen de zichtbaarheid van de lijnen, niet de data of totalen.
+Roep de series‑niveau [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/)‑methode aan met `true` om verbindingslijnen tussen opeenvolgende kolommen te tonen en de lopende waarde gemakkelijker te volgen. Om deze lijnen te verbergen, vervang je de methode-aanroep in het voorbeeld door `$series->setShowConnectorLines(false);` vóór het opslaan. Dit verandert alleen de zichtbaarheid van de lijnen, niet de gegevens of totalen.
 
-De opgeslagen presentatie toont een bruto winst van 600 en een nettowinst van 450, met beide totalen vanaf nul:
+De opgeslagen presentatie toont een brutowinst van 600 en een nettowinst van 450, waarbij beide totalen van nul worden getekend:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Watervaldiagram dat omzet, kosten, brutowinst van 600, en nettowinst van 450 toont, met waardelabels en verbindingslijnen](waterfall_chart.png)
 
-### **Stock‑grafieken maken**
+### **Aandelendiagrammen maken**
 
-Stock‑grafieken worden gebruikt om financiële gegevens zoals openings-, hoogste, laagste en slotkoersen weer te geven, waardoor markttrends en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in de aandelenprestaties en helpen beleggers en analisten weloverwogen beslissingen te nemen.
+Aandelendiagrammen worden gebruikt om financiële gegevens weer te geven, zoals openings-, hoog-, laag- en slotkoersen, waardoor markttrends en volatiliteit geanalyseerd kunnen worden. Ze bieden essentiële inzichten in de aandelenprestaties, en helpen beleggers en analisten weloverwogen beslissingen te nemen.
 
-Dit voorbeeld maakt een Open‑High‑Low‑Close‑grafiek met vier series in die volgorde en drie categorieën. De [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/)‑methode schakelt up/down‑bars in, en [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) regelt de high‑low‑lijnen die de prijsranges weergeven, terwijl de individuele series‑lijnen en kleine horizontale rasterlijnen verborgen blijven.
+Dit voorbeeld maakt een open-hoog-laag-slot-diagram met vier series in die volgorde en drie categorieën. De [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/)‑methode schakelt up/down-balken in, en [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) regelt de hoog-laag-lijnen die de prijsklassen tonen, terwijl de individuele series-lijnen en kleine horizontale rasterlijnen verborgen zijn.
 
 ```php
 use aspose\slides\ChartType;
@@ -656,13 +654,13 @@ finally
 
 Het resultaat:
 
-![The Stock chart](stock_chart.png)
+![Het aandelendiagram](stock_chart.png)
 
-### **Box‑en‑Whisker‑grafieken maken**
+### **Box-en-whisker-diagrammen maken**
 
-Box‑en‑whisker‑grafieken worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitschieters. Ze zijn bijzonder nuttig bij verkennende data‑analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
+Box-en-whisker-diagrammen worden gebruikt om de verdeling van gegevens weer te geven door belangrijke statistische maten samen te vatten, zoals de mediaan, kwartielen en mogelijke uitschieters. Ze zijn bijzonder nuttig bij verkennende data-analyse en statistische studies om snel de variabiliteit van gegevens te begrijpen en eventuele anomalieën te identificeren.
 
-Dit voorbeeld maakt een box‑en‑whisker‑grafiek van zes waarden. De [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/)‑methode selecteert de exclusieve kwartiel‑berekening. Het voorbeeld schakelt ook middelwaardelijnen, middelwaardemarkeringen, interne punten en uitschieterpunten in.
+Dit voorbeeld maakt een box-en-whisker-diagram van zes waarden. De [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/)‑methode selecteert de exclusieve kwartiel-berekening. Het voorbeeld schakelt bovendien gemiddelde-lijnen, gemiddelde-markers, interne punten en uitschieter-punten in.
 
 ```php
 use aspose\slides\ChartType;
@@ -725,11 +723,11 @@ finally
 }
 ```
 
-### **Funnel‑grafieken maken**
+### **Trechterdiagrammen maken**
 
-Funnel‑grafieken worden gebruikt om processen te visualiseren die opeenvolgende fases omvatten, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende gaat. Ze zijn vooral handig voor het analyseren van conversieratio’s, het identificeren van knelpunten, en het volgen van de efficiëntie van verkoop‑ of marketingprocessen.
+Trechterdiagrammen worden gebruikt om processen te visualiseren die opeenvolgende fasen omvatten, waarbij het volume van gegevens afneemt naarmate het van de ene stap naar de volgende voortschrijdt. Ze zijn vooral nuttig voor het analyseren van conversieratio's, het identificeren van knelpunten, en het volgen van de efficiëntie van verkoop- of marketingprocessen.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een funnel‑grafiek toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaarddata door zes categorieën en waarden variërend van 50 tot 500, en slaat de bijgewerkte presentatie op. De invoer‑presentatie moet minimaal één dia bevatten.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een trechterdiagram toe te voegen aan de eerste dia van een bestaande presentatie. Het vervangt de standaardgegevens door zes categorieën en waarden variërend van 50 tot 500, en slaat vervolgens de bijgewerkte presentatie op. De invoerpresentatie moet minstens één dia bevatten.
 
 ```php
 use aspose\slides\ChartType;
@@ -787,13 +785,13 @@ finally
 
 Het resultaat:
 
-![The Funnel chart](funnel_chart.png)
+![Het trechterdiagram](funnel_chart.png)
 
-### **Sunburst‑grafieken maken**
+### **Sunburst-diagrammen maken**
 
-Sunburst‑grafieken worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus als concentrische ringen worden weergegeven. Ze helpen deel‑tot‑geheel‑relaties te illustreren en zijn ideaal voor het weergeven van geneste categorieën en subcategorieën op een duidelijke, compacte manier.
+Sunburst-diagrammen worden gebruikt om hiërarchische gegevens te visualiseren, waarbij niveaus worden weergegeven als concentrische ringen. Ze helpen deel-tot-geheel-relaties te illustreren en zijn ideaal om geneste categorieën en subcategorieën in een duidelijk, compact formaat weer te geven.
 
-Dit voorbeeld maakt een sunburst‑grafiek met acht bladeren gegroepeerd in vier stammen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/)‑methode wijst stammen toe op groeperingsniveau 1 en takken op niveau 2. Categorielabels identificeren de segmenten en de waarden bepalen hun relatieve grootte.
+Dit voorbeeld maakt een sunburst-diagram met acht bladeren gegroepeerd in vier stelen en twee takken. De [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/)‑methode kent stelen toe op groeperingsniveau 1 en takken op niveau 2. Categorie-labels identificeren de segmenten, en de waarden bepalen hun relatieve grootte.
 
 ```php
 use aspose\slides\ChartType;
@@ -874,17 +872,17 @@ finally
 
 Het resultaat:
 
-![The Sunburst chart](sunburst_chart.png)
+![Het sunburst-diagram](sunburst_chart.png)
 
-### **Histogram‑grafieken maken**
+### **Histogram-diagrammen maken**
 
-Histogram‑grafieken tonen hoe numerieke waarden zijn verdeeld over intervallen (bins). Voor maandelijkse rapporten over verwerkingstijden van orders kun je dezelfde bin‑breedte en drempels gebruiken om intervallen consistent te houden en verdelingen makkelijker te vergelijken.
+Histogram-diagrammen tonen hoe numerieke waarden verdeeld zijn over intervallen (bakken). Voor maandelijkse rapporten over orderverwerkingstijden gebruik je dezelfde bakbreedte en drempels om de intervallen consistent te houden en de distributies makkelijker te vergelijken.
 
-Roep [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) aan op de horizontale as met een modus uit [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) wordt alleen toegepast bij `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) wordt alleen toegepast bij `ByNumberOfBins`. Gebruik `Automatic` om de grafiek de bins te laten bepalen.
+Roep [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) aan op de horizontale as met een modus uit [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) geldt alleen voor `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) geldt alleen voor `ByNumberOfBins`. Gebruik `Automatic` om het diagram de bakken te laten kiezen.
 
-#### **Een vaste bin‑breedte gebruiken**
+#### **Gebruik een vaste bakbreedte**
 
-Dit voorbeeld groepeert verwerkingstijden in intervallen van 10 minuten, met afzonderlijke bins voor tijden van 10 minuten of minder en voor tijden boven 40 minuten. Schakel deze bins in met [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) en [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Wanneer je expliciete drempels opgeeft via [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) en [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/), roep je [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) en [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) aan met `false`.
+Dit voorbeeld groepeert verwerkingstijden in intervallen van 10 minuten, met afzonderlijke bakken voor tijden van of onder 10 minuten en boven 40 minuten. Schakel deze bakken in met [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) en [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Wanneer je expliciete drempels opgeeft via [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) en [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/), roep je [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) en [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) aan met `false`.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -934,13 +932,13 @@ finally
 }
 ```
 
-De in PowerPoint getoonde presentatie laat bin‑aantallen zien van **3, 4, 4, 4 en 2**. De underflow‑bin bevat `5, 10, 10`, dus de drempel is inclusief. De overflow‑bin bevat alleen `41, 50`, dus de drempel is exclusief; beide waarden gelijk aan `40` blijven in het voorgaande interval. De binnenliggende bins bevatten waarden groter dan hun ondergrens en kleiner dan of gelijk aan hun bovengrens.
+De presentatie die in PowerPoint wordt getoond, geeft bak-telling van **3, 4, 4, 4 en 2** weer. De onder-bak bevat `5, 10, 10`, dus de drempel is inclusief. De over-bak bevat alleen `41, 50`, dus de drempel is exclusief; beide waarden gelijk aan `40` blijven in het voorgaande interval. De binnenste bakken bevatten waarden die groter zijn dan hun ondergrens en kleiner of gelijk aan hun bovengrens.
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Histogram met 10-minuten-bakken en expliciete onder- en over-drempels](histogram_bin_width.png)
 
-#### **Het aantal bins specificeren**
+#### **Specificeer het aantal bakken**
 
-Voor een vast detailniveau in plaats van vaste intervallen, vraag je vijf bins aan voor dezelfde data. Dit voorbeeld laat de underflow‑ en overflow‑bins uitgeschakeld. De grafiek bepaalt de breedte aan de hand van het gegevensbereik, zodat de grenzen kunnen variëren per rapport.
+Voor een vast detailniveau in plaats van vaste intervallen, vraag je vijf bakken aan voor dezelfde gegevens. Dit voorbeeld laat onder- en over-bakken uitgeschakeld. Het diagram bepaalt de breedte vanuit het gegevensbereik, dus de grenzen kunnen tussen rapporten variëren.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -984,15 +982,15 @@ finally
 }
 ```
 
-De vijf bins hebben aantallen **4, 4, 4, 4 en 1**. Vergelijk deze verdeling met het resultaat van vaste breedte hierboven: de invoerwaarden zijn identiek, maar de grenzen verschillen.
+De vijf bakken hebben tellingen van **4, 4, 4, 4 en 1**. Vergelijk deze distributie met het vaste-breedte-resultaat hierboven: de invoerwaarden zijn identiek, maar de grenzen verschillen.
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![Histogram met vijf bakken berekend uit dezelfde gegevens](histogram_bin_count.png)
 
-### **Radar‑grafieken maken**
+### **Radar-diagrammen maken**
 
-Radar‑grafieken worden gebruikt om multivariabele gegevens in een tweedimensionaal formaat weer te geven, waardoor meerdere variabelen tegelijk gemakkelijk kunnen worden vergeleken. Ze zijn bijzonder nuttig om patronen, sterktes en zwaktes te identificeren over verschillende prestatiemaatstaven of attributen.
+Radar-diagrammen worden gebruikt om multivariate gegevens weer te geven in een tweedimensionaal formaat, waardoor verschillende variabelen tegelijkertijd gemakkelijk kunnen worden vergeleken. Ze zijn vooral nuttig om patronen, sterktes en zwaktes over meerdere prestatiemetingen of attributen te identificeren.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een radar‑grafiek te maken met de standaard series en categorieën, en slaat de presentatie op als PPTX.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een radardiagram te maken met de standaard series en categorieën, en slaat vervolgens de presentatie op als PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -1016,13 +1014,13 @@ finally
 
 Het resultaat:
 
-![The Radar chart](radar_chart.png)
+![Het radardiagram](radar_chart.png)
 
-### **Meervoudige‑categorie‑grafieken maken**
+### **Meerdere-categoriediagrammen maken**
 
-Meervoudige‑categorie‑grafieken worden gebruikt om data weer te geven die meer dan één categorische groepering omvatten, zodat je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn vooral handig wanneer je trends en relaties binnen complexe, meerlagige datasets moet analyseren.
+Meerdere-categoriediagrammen worden gebruikt om gegevens weer te geven die meer dan één categorische groepering bevatten, waardoor je waarden over meerdere dimensies tegelijk kunt vergelijken. Ze zijn vooral nuttig wanneer je trends en relaties binnen complexe, meerlagige datasets moet analyseren.
 
-Dit voorbeeld maakt een gegroepeerde kolomgrafiek met acht categorieën verdeeld over vier paar. De [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/)‑methode geeft elk paar een gedeeld label op groeperingsniveau 1, waardoor een categorische as ontstaat met zowel individuele als groepslabels.
+Dit voorbeeld maakt een gegroepeerd kolomdiagram met acht categorieën, gerangschikt in vier paren. De [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/)‑methode geeft elk paar een gemeenschappelijk label op groeperingsniveau 1, waardoor een categorische as ontstaat met zowel individuele als groepslabels.
 
 ```php
 use aspose\slides\ChartType;
@@ -1098,13 +1096,13 @@ finally
 
 Het resultaat:
 
-![The multi category chart](multi_category_chart.png)
+![Het meervoudig-categoriediagram](multi_category_chart.png)
 
-### **Kaart‑grafieken maken**
+### **Kaartdiagrammen maken**
 
-Kaart‑grafieken worden gebruikt om geografische gegevens te visualiseren door informatie toe te wijzen aan specifieke locaties zoals landen, provincies of steden. Ze zijn bijzonder nuttig voor het analyseren van regionale trends, demografische data en ruimtelijke verdelingen op een duidelijke, visueel aantrekkelijke manier.
+Kaartdiagrammen worden gebruikt om geografische gegevens te visualiseren door informatie te koppelen aan specifieke locaties zoals landen, provincies of steden. Ze zijn vooral nuttig voor het analyseren van regionale trends, demografische gegevens en ruimtelijke distributies op een duidelijke, visueel aantrekkelijke manier.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een kaart‑grafiek te maken met de standaard geografische data en slaat deze op voor weergave in PowerPoint.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een kaartdiagram te maken met de standaard geografische gegevens en slaat het op voor weergave in PowerPoint.
 
 ```php
 use aspose\slides\ChartType;
@@ -1128,19 +1126,19 @@ finally
 
 Het resultaat:
 
-![The Map chart](map_chart.png)
+![Het kaartdiagram](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-De bovenstaande afbeelding toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft de kaart‑grafiek en de bijbehorende data correct, maar tekent geen kaart‑grafieken zelf: wanneer een dia met een kaart‑grafiek wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het grafiekgebied leeg. Andere vormen op dezelfde dia blijven ongewijzigd.
+De afbeelding hierboven toont de opgeslagen presentatie geopend in PowerPoint. Aspose.Slides schrijft het kaartdiagram en de bijbehorende gegevens correct, maar tekent zelf geen kaartdiagrammen: wanneer een dia die er één bevat wordt gerenderd naar een afbeelding of geconverteerd naar PDF of SVG, blijft het diagramgebied leeg. Andere vormen op dezelfde dia blijven onaangetast.
 {{% /alert %}}
 
-### **Combinatie‑grafieken maken**
+### **Combinatiediagrammen maken**
 
-Een combinatie‑grafiek (of combo‑grafiek) combineert twee of meer grafiektype­n in één diagram. Met deze grafiek kun je verschillen tussen twee of meer datasets benadrukken, vergelijken of onderzoeken, wat helpt bij het identificeren van onderlinge relaties.
+Een combinatiediagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram stelt je in staat om verschillen tussen twee of meer datasets te accentueren, vergelijken of te onderzoeken, waardoor je relaties tussen hen kunt identificeren.
 
-![The combination chart](combination_chart.png)
+![Het combinatiediagram](combination_chart.png)
 
-Dit voorbeeld combineert twee gegroepeerde kolomseries met een lijngrafiek over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) de lijn op een secundaire verticale as rechts plaatst. Hulp‑functies configureren de titel, legenda, as‑labels en rasterlijnen.
+Dit voorbeeld combineert twee gegroepeerde kolomseries met een lijngrafiek over vier categorieën. De kolommen gebruiken de primaire verticale as, terwijl [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) de lijn op een secundaire verticale as rechts plaatst. De hulpfuncties configureren de titel, legenda, aslabels en rasterlijnen.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1312,11 +1310,11 @@ function setAxisTitle($axis, $axisTitle)
 createComboChart();
 ```
 
-## **Grafieken bijwerken**
+## **Diagrammen bijwerken**
 
-Aspose.Slides for PHP via Java stelt je in staat PowerPoint‑grafieken bij te werken door grafiekdata, opmaak en stijl aan te passen. Deze functionaliteit vereenvoudigt het bijwerken van presentaties met dynamische content en zorgt ervoor dat grafieken nauwkeurig de actuele data en visuele standaarden weergeven.
+Aspose.Slides voor PHP via Java stelt je in staat om PowerPoint-diagrammen bij te werken door de diagramgegevens, opmaak en stijl te wijzigen. Deze functionaliteit vereenvoudigt het proces om presentaties actueel te houden met dynamische inhoud en zorgt ervoor dat diagrammen nauwkeurig de huidige gegevens en visuele standaarden weergeven.
 
-Dit voorbeeld werkt de grafiek met de naam "My chart" bij op de eerste dia van een bestaande presentatie. Het vereist twee kolom‑series met elk drie datapunten, met categorielabels in kolom A en serienamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) om werkbladcellen te wijzigen, werkt series‑waarden bij, voegt een derde series toe en verandert de grafiek naar gegroepeerde cilinders via [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
+Dit voorbeeld werkt het diagram met de naam "My chart" op de eerste dia van een bestaande presentatie bij. Het vereist twee kolomseries met elk drie gegevenspunten, met categorielabels in kolom A en serienamen in de eerste rij van het eerste werkblad. Het voorbeeld gebruikt [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) om werkbladcellen te wijzigen, werkt seriewaarden bij, voegt een derde serie toe, en wijzigt het diagram naar gegroepeerde cilinders via [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
 
 ```php
 use aspose\slides\ChartType;
@@ -1380,13 +1378,13 @@ finally
 }
 ```
 
-## **Gegevensbereik voor een grafiek instellen**
+## **Gegevensbereik voor een diagram instellen**
 
-Om het bereik te bekijken dat al door een bestaande grafiek wordt gebruikt, zie [Retrieve a Chart's Data Range](/slides/nl/php-java/chart-workbook/#retrieve-a-charts-data-range).
+Om het bereik dat al door een bestaand diagram wordt gebruikt te inspecteren, zie [Retrieve a Chart's Data Range](/slides/nl/php-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for PHP via Java biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor de grafiekdata te definiëren. Dit betekent dat je rechtstreeks een deel van je werkblad kunt koppelen aan de grafiek, zodat je kunt bepalen welke cellen bijdragen aan de series en categorieën. Hierdoor kun je je grafieken eenvoudig bijwerken en synchroniseren met de laatste wijzigingen in je werkblad, zodat je PowerPoint‑presentaties actuele en accurate informatie weergeven.
+Aspose.Slides voor PHP via Java biedt de flexibiliteit om een specifiek gegevensbereik uit een werkblad als bron voor de diagramgegevens te definiëren. Dit betekent dat je rechtstreeks een deel van je werkblad kunt toewijzen aan het diagram, waardoor je kunt bepalen welke cellen bijdragen aan de series en categorieën van het diagram. Hierdoor kun je je diagrammen eenvoudig bijwerken en synchroniseren met de laatste gegevenswijzigingen in je werkblad, zodat je PowerPoint-presentaties de huidige en nauwkeurige informatie weergeven.
 
-Dit voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) om de gegevensbron van de grafiek met de naam "My chart" op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. De grafiek‑werkmap moet dat werkblad en een gevulde bereik bevatten met een seriekop in de eerste rij, categorielabels in kolom A en drie waarden in kolom B.
+Dit voorbeeld gebruikt [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) om de gegevensbron van het diagram met de naam "My chart" op de eerste dia van een bestaande presentatie in te stellen op `Sheet1!A1:B4`. Het diagram-werkboek moet dat werkblad bevatten en een gepopuleerd bereik met een seriekop op de eerste rij, categorielabels in kolom A, en drie waarden in kolom B.
 
 ```php
 use aspose\slides\Presentation;
@@ -1418,11 +1416,11 @@ finally
 }
 ```
 
-## **Standaard‑markers gebruiken in grafieken**
+## **Standaard-markers in diagrammen gebruiken**
 
-Wanneer je standaard‑markers gebruikt in grafieken, krijgt elke grafiek‑serie automatisch een verschillend standaard‑markersymbool toegewezen.
+Wanneer je standaard-markers in diagrammen gebruikt, krijgt elke diagramserie automatisch een verschillend standaard-markersymbool.
 
-Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een grafiek te maken met twee lijngrafiek‑series en een legenda. De marker‑instellingen die via [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) worden benaderd, behouden de automatisch toegewezen markersymbolen. De eerste serie bevat een negatieve waarde en een missende waarde, weergegeven als `null`, terwijl de tweede een waarde heeft voor elke categorie.
+Dit voorbeeld gebruikt [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) om een diagram te maken met twee lijngeries en een legenda. De markerinstellingen die via [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) worden opgehaald, behouden de automatisch toegewezen markersymbolen. De eerste serie bevat een negatieve waarde en een ontbrekende waarde, weergegeven als `null`, terwijl de tweede een waarde voor elke categorie heeft.
 
 ```php
 use aspose\slides\ChartType;
@@ -1489,18 +1487,18 @@ finally
 
 ## **FAQ**
 
-**Welke grafiektype­n worden ondersteund door Aspose.Slides for PHP via Java?**
+**Welke diagramtypen worden ondersteund door Aspose.Slides voor PHP via Java?**
 
-Aspose.Slides for PHP via Java ondersteunt een breed scala aan grafiektype­n, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat het meest geschikte grafiektype voor jouw datavisualisaties te kiezen.
+Aspose.Slides voor PHP via Java ondersteunt een breed scala aan diagramtypen, waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en nog veel meer. Deze flexibiliteit stelt je in staat om het meest geschikte diagramtype te kiezen voor jouw visualisatiebehoeften.
 
-**Hoe voeg ik een nieuwe grafiek toe aan een dia?**
+**Hoe voeg ik een nieuw diagram toe aan een dia?**
 
-Om een grafiek toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse, haal je de gewenste dia op via de index en roep je vervolgens de methode aan om een grafiek toe te voegen, waarbij je het grafiektype en de initiële data opgeeft. Dit proces integreert de grafiek direct in je presentatie.
+Om een diagram toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klasse, haal je de gewenste dia op via zijn index, en roep je vervolgens de methode aan om een diagram toe te voegen, waarbij je het diagramtype en de initiële gegevens specificeert. Dit proces integreert het diagram direct in je presentatie.
 
-**Hoe kan ik de gegevens die in een grafiek worden weergegeven bijwerken?**
+**Hoe kan ik de gegevens die in een diagram worden weergegeven bijwerken?**
 
-Je kunt de gegevens van een grafiek bijwerken door toegang te krijgen tot de bijbehorende gegevens‑werkmap ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), eventuele standaard‑series en -categorieën te wissen en vervolgens je eigen gegevens toe te voegen. Hiermee kun je de grafiek programmatisch vernieuwen zodat deze de nieuwste data weergeeft.
+Je kunt de gegevens van een diagram bijwerken door toegang te krijgen tot de gegevenswerkmap ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), eventuele standaard series en categorieën te wissen, en vervolgens je aangepaste gegevens toe te voegen. Hiermee kun je het diagram programmatiche vernieuwen zodat het de laatste gegevens weergeeft.
 
-**Is het mogelijk het uiterlijk van de grafiek aan te passen?**
+**Is het mogelijk om het uiterlijk van het diagram aan te passen?**
 
-Ja, Aspose.Slides for PHP via Java biedt uitgebreide aanpassingsmogelijkheden. Je kunt kleuren, lettertypen, labels, legendes en andere opmaak‑elementen wijzigen om het uiterlijk van de grafiek af te stemmen op jouw specifieke ontwerpvereisten.
+Ja, Aspose.Slides voor PHP via Java biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legenda's en andere opmaakelementen wijzigen om het diagram aan te passen aan je specifieke ontwerpeisen.

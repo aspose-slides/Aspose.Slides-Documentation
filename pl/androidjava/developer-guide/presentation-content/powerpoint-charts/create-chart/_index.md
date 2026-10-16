@@ -1,5 +1,5 @@
 ---
-title: Tworzenie lub aktualizacja wykresów prezentacji PowerPoint na Androidzie
+title: Tworzenie lub aktualizacja wykresów w prezentacjach PowerPoint na Androidzie
 linktitle: Tworzenie lub aktualizacja wykresów
 type: docs
 weight: 10
@@ -14,23 +14,23 @@ keywords:
 - wykres kołowy
 - wykres liniowy
 - wykres mapy drzewa
-- wykres giełdowy
+- wykres akcji
 - wykres pudełkowy i wąsowy
 - wykres lejkowy
 - wykres promieniowy
 - wykres histogramu
 - wykres radarowy
-- wykres wielokategorii
+- wykres wielokategorowy
 - PowerPoint
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Androida w Javie. Dodawaj, formatuj i edytuj wykresy przy użyciu praktycznych przykładów kodu w Javie."
+description: "Tworzenie i dostosowywanie wykresów w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Androida w Javie. Dodawaj, formatuj i edytuj wykresy, korzystając z praktycznych przykładów kodu w języku Java."
 ---
 ## **Przegląd**
 
-Ten artykuł dostarcza kompleksowego przewodnika, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides for Android via Java. Nauczysz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić określone wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę o tym, jak integrować dynamiczne generowanie wykresów w aplikacjach Android, upraszczając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides for Android via Java. Nauczysz się, jak programowo dodać wykres do slajdu, wypełnić go danymi i zastosować różne opcje formatowania, aby dopasować go do konkretnych wymagań projektowych. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Podążając za tym przewodnikiem, zdobędziesz solidną wiedzę, jak zintegrować dynamiczne generowanie wykresów w aplikacjach Android, usprawniając proces tworzenia prezentacji opartych na danych.
 
 ## **Utwórz wykres**
 
@@ -38,23 +38,21 @@ Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które mogą nie
 
 **Dlaczego tworzyć wykresy?**
 
-Używając wykresów, możesz:
-
-* agregować, konsolidować lub podsumowywać duże ilości danych na jednym slajdzie prezentacji;
-* ujawniać wzorce i trendy w danych;
-* wyciągać kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary;
-* wykrywać wartości odstające, aberracje, odchylenia, błędy i nielogiczne dane;
+* agregować, kompresować lub podsumowywać duże ilości danych na jednym slajdzie prezentacji;
+* uwidaczniać wzorce i trendy w danych;
+* wyciągać wnioski o kierunku i dynamice danych w czasie lub w odniesieniu do określonej jednostki miary;
+* wykrywać wartości odstające, aberracje, odchylenia, błędy i bezsensowne dane;
 * komunikować lub prezentować złożone dane.
 
-W programie PowerPoint wykresy można tworzyć za pomocą funkcji *Insert*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
+W programie PowerPoint można tworzyć wykresy za pomocą funkcji *Wstaw* (Insert), która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, można tworzyć zarówno zwykłe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
 
 {{% alert color="info" title="Note" %}}
 Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) w pakiecie [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
 {{% /alert %}}
 
-### **Utwórz wykresy kolumnowe grupowane**
+### **Utwórz grupowane wykresy kolumnowe**
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do stworzenia wykresu kolumnowego grupowanego, który porównuje dwie serie w trzech kategoriach. Serie używają czerwonych i zielonych wypełnień, a poszczególne etykiety przedstawiają nazwy kategorii, nazwy serii i wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
+W tym przykładzie użyto metody [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do utworzenia grupowanego wykresu kolumnowego, który porównuje dwie serie w trzech kategoriach. Serie wykorzystują wypełnienia czerwone i zielone, a poszczególne etykiety pokazują nazwy kategorii, nazwy serii oraz wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
 
 ```java
 import com.aspose.slides.*;
@@ -135,20 +133,20 @@ finally
 
 Wynik:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Wykres kolumnowy grupowany](clustered_column_chart.png)
 
 ### **Utwórz wykresy punktowe**
 
-Wykresy punktowe (znane także jako wykresy rozproszenia lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwoma zmiennymi.
+Wykresy punktowe (znane również jako wykresy rozproszenia lub wykresy x-y) są często używane do sprawdzania wzorców lub demonstrowania korelacji pomiędzy dwoma zmiennymi.
 
 Użyj wykresu punktowego, gdy:
 
-* masz sparowane dane liczbowe;
-* masz dwie zmienne, które dobrze ze sobą współgrają;
-* chcesz określić, czy dwie zmienne są ze sobą powiązane;
-* masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
+* Masz sparowane dane liczbowe.
+* Masz dwie zmienne, które dobrze ze sobą współgrają.
+* Chcesz określić, czy dwie zmienne są ze sobą powiązane.
+* Masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
 
-Ten przykład rysuje dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii z markerami‑gwiazdkami, podczas gdy druga używa wygładzonych linii z markerami‑kół; obie używają rozmiaru markera 10, skonfigurowanego za pomocą [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Metoda [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) kontroluje kształt markera.
+W tym przykładzie wykreślono dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii z markerami‑gwiazdkami, natomiast druga – wygładzonych linii z markerami‑kółkami; obie używają rozmiaru markera 10, skonfigurowanego metodą [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Metoda [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) kontroluje kształt markera.
 
 ```java
 import com.aspose.slides.*;
@@ -216,13 +214,13 @@ finally
 
 Wynik:
 
-![The Scatter chart](scatter_chart.png)
+![Wykres punktowy](scatter_chart.png)
 
 ### **Utwórz wykresy kołowe**
 
-Wykresy kołowe najlepiej służą do pokazania zależności części od całości w danych, zwłaszcza gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jednakże, jeśli Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
+Wykresy kołowe są najlepsze do przedstawiania relacji część‑całość w danych, szczególnie gdy dane zawierają kategorie z wartościami liczbowymi. Jeżeli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
 
-Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy wycinek ma własne wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) ustawia pierwszy wycinek na 180 stopni.
+Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy wycinek ma własne wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) ustawia początkowy kąt pierwszego wycinka na 180 stopni.
 
 ```java
 import com.aspose.slides.*;
@@ -323,13 +321,15 @@ finally
 
 Wynik:
 
-![The Pie chart](pie_chart.png)
+![Wykres kołowy](pie_chart.png)
+
+Aby poprawić czytelność etykiet poza wykresem kołowym, zobacz [Format Leader Lines](/slides/pl/androidjava/chart-data-label/#format-leader-lines) dla przykładu, który pozycjonuje etykiety i dostosowuje kolor, szerokość, przejrzystość oraz styl przerywania linii.
 
 ### **Utwórz wykresy liniowe**
 
-Wykresy liniowe (znane także jako wykresy liniowe) najlepiej sprawdzają się w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Za ich pomocą można jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i wiele więcej.
+Wykresy liniowe (znane również jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do stworzenia wykresu liniowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
+W tym przykładzie użyto [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do stworzenia wykresu liniowego z domyślnymi seriami i kategoriami, a następnie zapisano prezentację jako PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +349,7 @@ finally
 }
 ```
 
-Domyślnie punkty na wykresie liniowym są łączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, wywołaj [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) z wartością z [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
+Domyślnie punkty na wykresie liniowym łączone są prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, wywołaj [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) z wartością z [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -374,13 +374,13 @@ finally
 
 Wynik:
 
-![The Line chart](line_chart.png)
+![Wykres liniowy](line_chart.png)
 
 ### **Utwórz wykresy mapy drzewa**
 
-Wykresy mapy drzewa najlepiej sprawdzają się w przypadku danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy będące dużymi contributorami w każdej kategorii.
+Wykresy mapy drzewa są najlepsze do danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii i szybko zwrócić uwagę na elementy będące dużymi wkładami w każdej kategorii.
 
-Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, a etykiety kategorii i nakładające się etykiety rodziców identyfikują hierarchię.
+Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, a etykiety kategorii i nachodzące etykiety rodziców identyfikują hierarchię.
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +461,24 @@ finally
 
 Wynik:
 
-![The Treemap chart](treemap_chart.png)
+![Wykres mapy drzewa](treemap_chart.png)
 
 ### **Utwórz wykresy wodospadowe**
 
-Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do wartości końcowej. Na przykład rozbicie zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian „unoszą się” pomiędzy poprzednią a nową wartością bieżącą, a kolumny sumaryczne rozciągają się od zera do wartości skumulowanej.
-
-Poniższy przykład używa kwot w tysiącach dolarów amerykańskich:
+Wykres wodospadowy pokazuje, jak zmiany dodatnie i ujemne przyczyniają się do wartości końcowej. Na przykład podział zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian „pływają” pomiędzy poprzednią a nową wartością bieżącą, a kolumny sum końcowych rozciągają się od zera do skumulowanej wartości.
 
 | Kategoria | Wartość w skoroszycie | Typ kolumny |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| Przychód | 1000 | Wzrost |
+| Koszt sprzedaży | -400 | Spadek |
+| Zysk brutto | 600 | Suma pośrednia |
+| Koszty operacyjne | -200 | Spadek |
+| Inne przychody | 50 | Wzrost |
+| Zysk netto | 450 | Suma końcowa |
 
-Aby oznaczyć punkt jako sumę pośrednią lub końcową, wywołaj jego metodę [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) z wartością `true`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Metoda oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako zastępczej wartości ani nie podawaj innej zmiany dla punktu sumy. Kolumna sumy wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
+Aby oznaczyć punkt jako sumę pośrednią lub końcową, wywołaj jego metodę [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) z wartością `true`. Podaj faktyczną skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Metoda zaznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu sumy. Kolumna sumy wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
 
-Ten kompletny przykład w Javie tworzy wykres przy użyciu członu `Waterfall` wyliczenia [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B wartości. Każda komórka wartości jest dodawana metodą [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Indeksy punktów zerobazowe `2` i `5` identyfikują sumy pośrednie i końcowe. Wywołanie [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) z `true` wyświetla kwoty na kolumnach. Nie wymaga żadnej wejściowej prezentacji ani skoroszytu.
+Ten kompletny przykład w Javie tworzy wykres przy użyciu członka `Waterfall` z [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B – wartości. Każda komórka wartości jest dodawana metodą [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Indeksy punktów zerowe `2` i `5` identyfikują sumy pośrednie i końcowe. Wywołanie [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) z `true` wyświetla kwoty na kolumnach. Nie wymaga się żadnej wejściowej prezentacji ani skoroszytu.
 
 ```java
 import com.aspose.slides.*;
@@ -532,17 +530,17 @@ finally
 }
 ```
 
-Wywołaj metodę poziomu serii [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) z `true`, aby wyświetlić linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień wywołanie metody w przykładzie na `series.setShowConnectorLines(false);` przed zapisem. Zmieni to tylko widoczność linii, nie dane ani sumy.
+Wywołaj metodę poziomu serii [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) z `true`, aby pokazać linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień wywołanie metody w przykładzie na `series.setShowConnectorLines(false);` przed zapisaniem. Zmiana dotyczy wyłącznie widoczności linii, a nie danych ani sum.
 
-Zapisana prezentacja pokazuje zysk brutto 600 oraz zysk netto 450, przy czym obie sumy rysowane są od zera:
+Zapisana prezentacja pokazuje zysk brutto 600 i zysk netto 450, przy czym obie sumy liczone są od zera:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Wykres wodospadowy przedstawiający przychód, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łączącymi](waterfall_chart.png)
 
-### **Utwórz wykresy giełdowe**
+### **Utwórz wykresy akcji**
 
-Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają niezbędnych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
+Wykresy akcji służą do prezentacji danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wydajności akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
 
-Ten przykład tworzy wykres otwarcia‑wysokiego‑niskiego‑zamknięcia z czterema seriami w tej kolejności i trzema kategoriami. Metoda [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) włącza paski w górę/dół, a [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) kontroluje linie wysokich‑niskich, które pokazują zakresy cen, podczas gdy linie serii i drobne linie siatki poziome są ukryte.
+Ten przykład tworzy wykres otwarcia‑wysokiego‑niskiego‑zamknięcia z czterema seriami w tej kolejności i trzema kategoriami. Metoda [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) włącza słupki wzrostu/spadku, a [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) steruje liniami wysokiego‑niskiego, które pokazują zakres cen, przy czym indywidualne linie serii oraz drobne linie siatki poziome są ukryte.
 
 ```java
 import com.aspose.slides.*;
@@ -624,13 +622,13 @@ finally
 
 Wynik:
 
-![The Stock chart](stock_chart.png)
+![Wykres akcji](stock_chart.png)
 
 ### **Utwórz wykresy pudełkowe i wąsowe**
 
-Wykresy pudełkowe i wąsowe służą do wyświetlania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie eksploracyjnej i badaniach statystycznych, aby szybko zrozumieć zmienność danych i zidentyfikować ewentualne anomalie.
+Wykresy pudełkowe i wąsowe służą do przedstawiania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w eksploracyjnej analizie danych i badaniach statystycznych, aby szybko zrozumieć zmienność danych i zidentyfikować anomalie.
 
-Ten przykład tworzy wykres pudełkowy i wąsowy z sześciu wartości. Metoda [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) wybiera wyłączne obliczanie kwartylów. Przykład dodatkowo włącza linie średniej, markery średniej, wewnętrzne punkty oraz punkty odstające.
+Ten przykład tworzy wykres pudełkowy i wąsowy z sześciu wartości. Metoda [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) wybiera wyłączną metodę obliczania kwartylów. Przykład włącza także linie średniej, znaczniki średniej, punkty wewnętrzne i punkty odstające.
 
 ```java
 import com.aspose.slides.*;
@@ -692,9 +690,9 @@ finally
 
 ### **Utwórz wykresy lejkowe**
 
-Wykresy lejkowe służą do wizualizacji procesów, które obejmują kolejne etapy, gdzie wolumen danych maleje w miarę przechodzenia z jednego kroku do następnego. Są szczególnie pomocne przy analizie współczynników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
+Wykresy lejkowe służą do wizualizacji procesów składających się z kolejnych etapów, w których objętość danych maleje w miarę przechodzenia z jednego kroku do następnego. Są szczególnie pomocne przy analizie współczynników konwersji, identyfikowaniu wąskich gardeł i śledzeniu efektywności procesów sprzedażowych lub marketingowych.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do dodania wykresu lejkowego do pierwszego slajdu istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, a następnie zapisuje zaktualizowaną prezentację. Wejściowa prezentacja musi zawierać co najmniej jeden slajd.
+Ten przykład używa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do dodania wykresu lejkowego na pierwszym slajdzie istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, a następnie zapisuje zaktualizowaną prezentację. Wejściowa prezentacja musi zawierać co najmniej jeden slajd.
 
 ```java
 import com.aspose.slides.*;
@@ -750,13 +748,13 @@ finally
 
 Wynik:
 
-![The Funnel chart](funnel_chart.png)
+![Wykres lejkowy](funnel_chart.png)
 
-### **Utwórz wykresy promieniowe**
+### **Utwórz wykresy sunburst**
 
-Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają ilustrować zależności części‑od‑całości i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzystym, kompaktowym formacie.
+Wykresy sunburst służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zilustrować relacje część‑całość i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzystym, kompaktowym formacie.
 
-Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
+Ten przykład tworzy wykres sunburst z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
 
 ```java
 import com.aspose.slides.*;
@@ -835,17 +833,17 @@ finally
 
 Wynik:
 
-![The Sunburst chart](sunburst_chart.png)
+![Wykres sunburst](sunburst_chart.png)
 
 ### **Utwórz wykresy histogramu**
 
-Wykresy histogramu pokazują, jak wartości liczbowe są rozłożone w przedziałach (koszach). Dla comiesięcznych raportów czasu przetwarzania zamówień użyj tej samej szerokości kosza i progów, aby zachować spójność przedziałów i ułatwić porównywanie rozkładów.
+Histogramy pokazują, jak wartości liczbowe są rozmieszczone w przedziałach (binach). W miesięcznych raportach o czasach przetwarzania zamówień używaj tej samej szerokości przedziału i progów, aby zachować spójność przedziałów i ułatwić porównywanie rozkładów.
 
-Wywołaj [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) na osi poziomej z trybem z [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) ma zastosowanie tylko do `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) ma zastosowanie tylko do `ByNumberOfBins`. Użyj `Automatic`, aby wykres sam wybrał kosze.
+Wywołaj [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) na osi poziomej, podając tryb z [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) działa tylko przy trybie `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) – tylko przy `ByNumberOfBins`. Użyj `Automatic`, aby pozwolić wykresowi wybrać przedziały.
 
-#### **Użyj stałej szerokości kosza**
+#### **Użyj stałej szerokości przedziału**
 
-Ten przykład grupuje czasy przetwarzania w przedziały 10‑minutowe, z oddzielnymi koszami dla czasów ≤ 10 min i > 40 min. Włącz te kosze za pomocą [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) i [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Podczas dostarczania wyraźnych progów przez [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) i [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), wywołaj [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) oraz [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) z wartością `false`.
+Ten przykład grupuje czasy przetwarzania w przedziały 10‑minutowe, z osobnymi binami dla czasów ≤ 10 min i > 40 min. Włącz te przedziały metodami [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) i [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Podając wyraźne progi przy użyciu [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) oraz [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), wywołaj [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) i [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) z wartością `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -892,13 +890,13 @@ finally
 }
 ```
 
-Prezentacja wyświetlana w PowerPoint pokazuje liczby w koszach **3, 4, 4, 4 i 2**. Kosz podprzepływu zawiera `5, 10, 10`, więc jego próg jest inkluzywny. Kosz przepełnienia zawiera tylko `41, 50`, więc jego próg jest ekskluzywny; oba wartości równe `40` pozostają w poprzednim przedziale. Kosze wewnętrzne zawierają wartości większe niż ich dolna granica i mniejsze lub równe górnej granicy.
+Prezentacja wyświetlana w PowerPoint pokazuje liczbę elementów w binach: **3, 4, 4, 4 i 2**. Bin podprzepływu obejmuje `5, 10, 10`, więc jego próg jest inkluzywny. Bin przepływu zawiera tylko `41, 50`, więc jego próg jest ekskluzywny; wartości równe `40` pozostają w poprzednim przedziale. Biny wewnętrzne zawierają wartości większe od dolnej granicy i mniejsze lub równe górnej granicy.
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Histogram z przedziałami 10‑minutowymi oraz wyraźnymi progami podprzepływu i przepływu](histogram_bin_width.png)
 
-#### **Określ liczbę koszy**
+#### **Określ liczbę przedziałów**
 
-Dla stałego poziomu szczegółowości zamiast stałych przedziałów, poproś o pięć koszy dla tych samych danych. Ten przykład pozostawia wyłączone kosze podprzepływu i przepełnienia. Wykres wyznacza szerokość na podstawie zakresu danych, więc granice mogą się zmieniać pomiędzy raportami.
+Dla stałego poziomu szczegółowości zamiast stałych przedziałów, zażądaj pięciu binów dla tych samych danych. Ten przykład pozostawia wyłączone biny podprzepływu i przepływu. Wykres ustala szerokość na podstawie zakresu danych, więc granice mogą się zmieniać pomiędzy raportami.
 
 ```java
 import com.aspose.slides.*;
@@ -939,13 +937,13 @@ finally
 }
 ```
 
-Pięć koszy ma liczbę elementów **4, 4, 4, 4 i 1**. Porównaj ten rozkład z wynikiem stałej szerokości powyżej: wartości wejściowe są identyczne, ale granice się różnią.
+Pięć binów ma liczbę elementów **4, 4, 4, 4 i 1**. Porównaj ten rozkład z wynikiem przy stałej szerokości: wartości wejściowe są identyczne, ale granice się różnią.
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![Histogram z pięcioma przedziałami obliczonymi z tych samych danych](histogram_bin_count.png)
 
 ### **Utwórz wykresy radarowe**
 
-Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w różnych miarach wydajności lub atrybutach.
+Wykresy radarowe służą do prezentacji danych wielowymiarowych w formacie dwuwymiarowym, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w wielu wskaźnikach wydajności lub atrybutach.
 
 Ten przykład używa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do stworzenia wykresu radarowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
@@ -969,13 +967,13 @@ finally
 
 Wynik:
 
-![The Radar chart](radar_chart.png)
+![Wykres radarowy](radar_chart.png)
 
-### **Utwórz wykresy wielokategorii**
+### **Utwórz wykresy wielokategorowe**
 
-Wykresy wielokategorii służą do wyświetlania danych, które obejmują więcej niż jedną grupę kategoryczną, umożliwiając porównywanie wartości w wielu wymiarach jednocześnie. Są szczególnie pomocne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
+Wykresy wielokategorowe służą do prezentacji danych, które obejmują więcej niż jedną grupę kategorii, umożliwiając jednoczesne porównywanie wartości w wielu wymiarach. Są szczególnie przydatne przy analizie trendów i zależności w skomplikowanych, wielowarstwowych zestawach danych.
 
-Ten przykład tworzy wykres kolumnowy grupowany z ośmioma kategoriami ułożonymi w cztery pary. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z zarówno pojedynczymi, jak i grupowymi etykietami.
+Ten przykład tworzy grupowany wykres kolumnowy z ośmioma kategoriami ułożonymi w cztery pary. Metoda [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z zarówno indywidualnymi, jak i grupowymi etykietami.
 
 ```java
 import com.aspose.slides.*;
@@ -1049,25 +1047,25 @@ finally
 
 Wynik:
 
-![The multi category chart](multi_category_chart.png)
+![Wykres wielokategorowy](multi_category_chart.png)
 
 ### **Utwórz wykresy mapowe**
 
-Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany lub miasta. Są szczególnie przydatne do analizy trendów regionalnych, danych demograficznych i rozkładów przestrzennych w przejrzysty, wizualnie atrakcyjny sposób.
+Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany czy miasta. Są szczególnie użyteczne przy analizie trendów regionalnych, danych demograficznych i rozkładów przestrzennych w przejrzysty i atrakcyjny wizualnie sposób.
 
 Ten przykład używa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do stworzenia wykresu mapowego z domyślnymi danymi geograficznymi i zapisuje go do przeglądania w PowerPoint.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation();
+Presentation presentation = new Presentation;
 try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     IChart chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300);
 
-    presentation.save("mapChart.pptx", SaveFormat.Pptx);
+    presentation.save("mapChart.pptx", SaveFormat.Ppt0);
 }
 finally
 {
@@ -1077,19 +1075,19 @@ finally
 
 Wynik:
 
-![The Map chart](map_chart.png)
+![Wykres mapowy](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Powyższy obraz pokazuje zapisany plik prezentacji otwarty w PowerPoint. Aspose.Slides zapisuje wykres mapowy i jego dane prawidłowo, ale nie rysuje samych wykresów mapowych: gdy slajd zawierający taki wykres zostaje wyrenderowany do obrazu lub przekonwertowany na PDF lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
+Obraz powyżej przedstawia zapisany plik prezentacji otwarty w programie PowerPoint. Aspose.Slides prawidłowo zapisuje wykres mapowy i jego dane, ale nie rysuje samych wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany do PDF lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
 {{% /alert %}}
 
 ### **Utwórz wykresy kombinowane**
 
-Wykres kombinowany (lub combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice pomiędzy dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności pomiędzy nimi.
+Wykres kombinowany (lub combo) łączy dwa lub więcej typów wykresów w jednej grafice. Pozwala podkreślić, porównać lub przeanalizować różnice pomiędzy dwoma lub więcej zestawami danych, pomagając zidentyfikować ich wzajemne zależności.
 
-![The combination chart](combination_chart.png)
+![Wykres kombinowany](combination_chart.png)
 
-Ten przykład łączy dwie serie kolumn grupowanych z serią liniową w czterech kategoriach. Kolumny używają podstawowej pionowej osi, podczas gdy [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) umieszcza linię na drugorzędnej pionowej osi po prawej stronie. Funkcje pomocnicze konfigurują tytuł, legendę, etykiety osi i linie siatki.
+Ten przykład łączy dwie grupowane serie kolumnowe z serią liniową w czterech kategoriach. Kolumny używają pierwszej (głównej) osi pionowej, natomiast [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) umieszcza linię na drugiej, prawej osi pionowej. Funkcje pomocnicze konfigurują tytuł, legendę, etykiety osi i linie siatki.
 
 ```java
 import com.aspose.slides.*;
@@ -1216,9 +1214,7 @@ class ComboChartExample
 
         IAxis verticalAxis = chart.getAxes().getVerticalAxis();
         verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-        verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-
-        setAxisTitle(verticalAxis, "Y Axis 1");
+        verticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
 
         ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
         majorGridLinesFormat.setFillType(FillType.Solid);
@@ -1237,9 +1233,9 @@ class ComboChartExample
         IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
         secondaryVerticalAxis.setPosition(AxisPositionType.Right);
         secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-        secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-        secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
-        secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMajorGridLinesFormat().getLine().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMinorGridLinesFormat().getLine().setFillType(FillType.NoFill);
 
         setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
     }
@@ -1258,11 +1254,11 @@ ComboChartExample example = new ComboChartExample();
 example.createComboChart();
 ```
 
-## **Aktualizuj wykresy**
+## **Aktualizacja wykresów**
 
-Aspose.Slides for Android via Java umożliwia aktualizację wykresów w PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Funkcjonalność ta upraszcza proces utrzymywania prezentacji na bieżąco z dynamiczną treścią i zapewnia, że wykresy dokładnie odzwierciedlają aktualne dane oraz standardy wizualne.
+Aspose.Slides for Android via Java umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Funkcjonalność ta upraszcza proces utrzymywania prezentacji w aktualnym stanie przy dynamicznej treści i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane oraz standardy wizualne.
 
-Ten przykład aktualizuje wykres o nazwie „My chart” na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, przy czym etykiety kategorii znajdują się w kolumnie A, a nazwy serii w pierwszym wierszu pierwszego arkusza. Przykład używa [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia typ wykresu na grupowane cylindry poprzez [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
+Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, przy czym etykiety kategorii znajdują się w kolumnie A, a nazwy serii w pierwszym wierszu pierwszego arkusza. Przykład używa [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia wykres na grupowane cylindry przy pomocy [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1326,9 +1322,9 @@ finally
 
 Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Android via Java zapewnia elastyczność definiowania określonego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować część arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. W rezultacie możesz łatwo aktualizować i synchronizować wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
+Aspose.Slides for Android via Java zapewnia elastyczność definiowania konkretnego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. Dzięki temu łatwo aktualizujesz i synchronizujesz wykresy ze zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
 
-Ten przykład używa [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) do ustawienia źródła danych wykresu o nazwie „My chart” na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz oraz wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A i trzema wartościami w kolumnie B.
+Ten przykład używa [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) do ustawienia źródła danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz i wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A oraz trzema wartościami w kolumnie B.
 
 ```java
 import com.aspose.slides.*;
@@ -1359,9 +1355,9 @@ finally
 
 ## **Używaj domyślnych markerów w wykresach**
 
-Gdy używasz domyślnych markerów w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol markera.
+Kiedy używasz domyślnych markerów w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny znak markera.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do stworzenia wykresu z dwiema seriami liniowymi i legendą. Ustawienia markera dostępne przez [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) zachowują automatycznie przydzielone symbole markerów. Pierwsza seria zawiera wartość ujemną i brakującą wartość, reprezentowaną przez `null`, podczas gdy druga ma wartość dla każdej kategorii.
+Ten przykład używa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) do stworzenia wykresu z dwoma seriami liniowymi i legendą. Ustawienia markera dostępne przez [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) zachowują automatycznie przypisane symbole markerów. Pierwsza seria zawiera wartość ujemną oraz brakującą wartość, reprezentowaną przez `null`, natomiast druga posiada wartość dla każdej kategorii.
 
 ```java
 import com.aspose.slides.*;
@@ -1428,16 +1424,16 @@ finally
 
 **Jakie typy wykresów są obsługiwane przez Aspose.Slides for Android via Java?**
 
-Aspose.Slides for Android via Java obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, rozproszenia, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides for Android via Java obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), pobierasz żądany slajd za jego indeksem, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio z twoją prezentacją.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), pobierasz żądany slajd za jego indeksem, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten wstawia wykres bezpośrednio do prezentacji.
 
-**Jak mogę zaktualizować dane wyświetlane w wykresie?**
+**Jak mogę zaktualizować dane wyświetlane na wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programatyczne odświeżenie wykresu, aby odzwierciedlał najnowsze dane.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Pozwala to programowo odświeżyć wykres, aby odzwierciedlał najnowsze informacje.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides for Android via Java zapewnia rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides for Android via Java oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.

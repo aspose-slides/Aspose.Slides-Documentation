@@ -1,5 +1,5 @@
 ---
-title: Δημιουργία ή ενημέρωση διαγραμμάτων παρουσίασης PowerPoint για Android
+title: Δημιουργία ή ενημέρωση διαγραμμάτων παρουσίασης PowerPoint σε Android
 linktitle: Δημιουργία ή ενημέρωση διαγραμμάτων
 type: docs
 weight: 10
@@ -10,17 +10,17 @@ keywords:
 - επεξεργασία διαγράμματος
 - αλλαγή διαγράμματος
 - ενημέρωση διαγράμματος
-- διασπαρμένο διάγραμμα
+- διάγραμμα διασποράς
 - διάγραμμα πίτας
 - διάγραμμα γραμμής
-- διάγραμμα χάρτη δέντρου
+- διάγραμμα χάρτη δένδρου
 - διάγραμμα μετοχών
-- διάγραμμα κουτιού-τσιπιδιού
-- διάγραμμα χωνιού
-- διάγραμμα ηλιακό
-- ιστογράφημα
+- διάγραμμα κουτιού-σκουλαρίκι
+- διάγραμμα χωνίου
+- διάγραμμα ηλιακής έκρηξης
+- διάγραμμα ιστογράμματος
 - διάγραμμα ραντάρ
-- πολυκατηγορικό διάγραμμα
+- διάγραμμα πολλαπλών κατηγοριών
 - PowerPoint
 - παρουσίαση
 - Android
@@ -28,33 +28,35 @@ keywords:
 - Aspose.Slides
 description: "Δημιουργήστε και προσαρμόστε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Προσθέστε, μορφοποιήστε και επεξεργαστείτε διαγράμματα με πρακτικά παραδείγματα κώδικα σε Java."
 ---
-## **Επισκόπηση**
+## **Overview**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides για Android μέσω Java. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει με τις συγκεκριμένες απαιτήσεις του σχεδιασμού σας. Σε όλη τη διάρκεια του άρθρου, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε βαθιά κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία διαγραμμάτων στις Android εφαρμογές σας, απλοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων που βασίζονται σε δεδομένα.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργείτε και να προσαρμόζετε διαγράμματα χρησιμοποιώντας το Aspose.Slides for Android via Java. Θα μάθετε πώς να προσθέτετε πρόγραμματικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει στις συγκεκριμένες απαιτήσεις σχεδίου σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα δείχνουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια στέρεη κατανόηση του πώς να ενσωματώνετε δυναμική δημιουργία διαγραμμάτων στις Android εφαρμογές σας, βελτιώνοντας τη διαδικασία δημιουργίας παρουσιάσεων βασισμένων σε δεδομένα.
 
-## **Δημιουργία Διάγραμμα**
+## **Create a Chart**
 
-Τα διαγράμματα βοηθούν τους ανθρώπους να απεικονίζουν γρήγορα δεδομένα και να εξάγουν πληροφορίες που ενδέχεται να μην είναι άμεσα προφανείς από έναν πίνακα ή υπολογιστικό φύλλο.
+Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα δεδομένα και να εξάγουν συμπεράσματα που δεν είναι άμεσα εμφανή από έναν πίνακα ή λογιστικό φύλλο.
 
-**Γιατί να δημιουργήσετε διαγράμματα;**
+**Why Create Charts?**
 
-Χρησιμοποιώντας διαγράμματα, μπορείτε:
+Με τη χρήση διαγραμμάτων μπορείτε:
 
-* συγκεντρώνετε, συμπιέζετε ή συνοψίζετε μεγάλους όγκους δεδομένων σε μια μόνο διαφάνεια σε μια παρουσίαση.
-* αποκαλύπτετε πρότυπα και τάσεις στα δεδομένα.
-* συμπεραίνετε την κατεύθυνση και την ορμή των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης.
-* εντοπίζετε ακραίες τιμές, αποκλίσεις, παραλλαγές, σφάλματα και μη λογικά δεδομένα.
-* επικοινωνείτε ή παρουσιάζετε σύνθετα δεδομένα.
+* να συγκεντρώσετε, συμπτύξετε ή συνοψίσετε μεγάλες ποσότητες δεδομένων σε μια μόνο διαφάνεια μιας παρουσίασης·
+* να αναδείξετε μοτίβα και τάσεις στα δεδομένα·
+* να κατανοήσετε την κατεύθυνση και την ορμή των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης·
+* να εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα και μη λογικά δεδομένα·
+* να επικοινωνήσετε ή να παρουσιάσετε πολύπλοκα δεδομένα.
 
 Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας *Insert*, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους) όσο και προσαρμοσμένα διαγράμματα.
 
 {{% alert color="info" title="Note" %}}
-Χρησιμοποιήστε την απαρίθμηση [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) στο πακέτο [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). Οι τιμές σε αυτήν την απαρίθμηση αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
+
+Use the [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
+
 {{% /alert %}}
 
-### **Δημιουργία Συγκεντρωτικών Στηλών**
+### **Create Clustered Column Charts**
 
-Αυτό το παράδειγμα χρησιμοποιεί το [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα συγκεντρωτικό στήλης διάγραμμα που συγκρίνει δύο σειρές σε τρεις κατηγορίες. Οι σειρές χρησιμοποιούν κόκκινο και πράσινο γέμισμα, και οι μεμονωμένες ετικέτες εμφανίζουν τα ονόματα των κατηγοριών, τα ονόματα των σειρών και τις τιμές. Ο δείκτης φύλλου εργασίας 0 αναφέρεται στο πρώτο φύλλο του ενσωματωμένου βιβλίου διαγράμματος.
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a clustered column chart that compares two series across three categories. The series use red and green fills, and individual labels demonstrate category names, series names, and values. Worksheet index 0 refers to the first sheet in the embedded chart workbook.
 
 ```java
 import com.aspose.slides.*;
@@ -133,22 +135,22 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Συγκεντρωτικών Στηλών](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Δημιουργία Διασπαρμένων Διαγραμμάτων**
+### **Create Scatter Charts**
 
-Τα διαγράμματα scatter (γνωστά επίσης ως διασπαρμένα διαγράμματα ή γραφήματα x-y) χρησιμοποιούνται συχνά για να ελέγξουν πρότυπα ή να δείξουν συσχετισμούς μεταξύ δύο μεταβλητών.
+Scatter charts (also known as scatter plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables.
 
-Χρησιμοποιήστε ένα διαγράμμα scatter όταν:
+Use a scatter chart when:
 
-* Διέχετε ζεύγος αριθμητικών δεδομένων.
-* Διέχετε δύο μεταβλητές που ταιριάζουν καλά μεταξύ τους.
-* Θέλετε να προσδιορίσετε εάν οι δύο μεταβλητές σχετίζονται.
-* Διέχετε μια ανεξάρτητη μεταβλητή που έχει πολλαπλές τιμές για μια εξαρτημένη μεταβλητή.
+* You have paired numerical data.
+* You have two variables that pair well together.
+* You want to determine whether the two variables are related.
+* You have an independent variable that has multiple values for a dependent variable.
 
-Αυτό το παράδειγμα σχεδιάζει δύο σύνολα τιμών x-y. Η πρώτη σειρά χρησιμοποιεί ευθείες γραμμές με αστέρια ως δείκτες, ενώ η δεύτερη χρησιμοποιεί ομαλές γραμμές με κύκλους ως δείκτες· και οι δύο χρησιμοποιούν μέγεθος δείκτη 10, που ρυθμίζεται με τη μέθοδο [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Η μέθοδος [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) ελέγχει το σχήμα του δείκτη.
+This example plots two sets of x-y values. The first series uses straight lines with star markers, while the second uses smooth lines with circle markers; both use a marker size of 10, configured with [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). The [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) method controls the marker shape.
 
 ```java
 import com.aspose.slides.*;
@@ -214,15 +216,15 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Scatter](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Δημιουργία Πι Διαγραμμάτων**
+### **Create Pie Charts**
 
-Τα διαγράμματα πίτας είναι ιδανικά για να δείξουν τη σχέση μέρος‑όλο σε δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά μέρη ή ετικέτες, ίσως θελήσετε να χρησιμοποιήσετε ένα ραβδόγραμμα αντί αυτού.
+Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you might want to consider using a bar chart instead.
 
-Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα πίτας με τρεις τριμηναίες τιμές. Κάθε φέτα έχει προσαρμοσμένο γέμισμα και περίγραμμα, και οι ετικέτες εμφανίζουν διαφορετικούς συνδυασμούς τιμών, ποσοστών και πληροφοριών σειράς. Η μέθοδος [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) θέτει την πρώτη φέτα να ξεκινά από 180 μοίρες.
+This example creates a pie chart with three quarterly values. Each slice has a custom fill and border, and the labels display different combinations of values, percentages, and series information. The [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) method sets the first slice to start at 180 degrees.
 
 ```java
 import com.aspose.slides.*;
@@ -321,15 +323,17 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Πίτας](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **Δημιουργία Γραμμικών Διαγραμμάτων**
+To improve the readability of labels outside the pie, see [Format Leader Lines](/slides/el/androidjava/chart-data-label/#format-leader-lines) for an example that positions labels and customizes the lines' color, width, transparency, and dash style.
 
-Τα γραμμικά διαγράμματα (γνωστά επίσης ως γραφήματα γραμμών) είναι ιδανικά σε καταστάσεις όπου θέλετε να δείξετε αλλαγές τιμής με την πάροδο του χρόνου. Με ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε μεγάλο όγκο δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις με τον χρόνο, να επισημάνετε ανωμαλίες σε σειρές δεδομένων, και πολλά άλλα.
+### **Create Line Charts**
 
-Αυτό το παράδειγμα χρησιμοποιεί το [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα γραμμικό διάγραμμα με τις προεπιλεγμένες σειρές και κατηγορίες, έπειτα αποθηκεύει την παρουσίαση ως PPTX.
+Line charts (also known as line graphs) are best used in situations where you want to demonstrate changes in value over time. Using a line chart, you can compare a large amount of data at once, track changes and trends over time, highlight anomalies in data series, and more.
+
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a line chart with the default series and categories, then saves the presentation as PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -349,7 +353,7 @@ finally
 }
 ```
 
-Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα συνδέονται με ευθείες συνεχόμενες γραμμές. Εάν επιθυμείτε τα σημεία να συνδέονται με παύλες, καλέστε τη μέθοδο [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) με μια τιμή από το [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
+By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, call [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) with a value from [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -372,15 +376,15 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Γραμμής](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Δημιουργία Διαγραμμάτων Δέντρου**
+### **Create Tree Map Charts**
 
-Τα διαγράμματα Tree Map είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συνεισφέρουν σημαντικά εντός κάθε κατηγορίας.
+Tree map charts are best used for sales data when you want to show the relative size of data categories and quickly draw attention to items that are large contributors within each category.
 
-Αυτό το παράδειγμα δημιουργεί ένα Tree Map με οκτώ φύλλα ομαδοποιημένα σε τέσσερις κορμούς και δύο κλαδιά. Η μέθοδος [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) αναθέτει κορμούς στο επίπεδο ομαδοποίησης 1 και κλαδιά στο επίπεδο 2. Οι τιμές καθορίζουν τα σχετικά μεγέθη των ορθογωνίων, ενώ οι ετικέτες κατηγοριών και οι επικαλυπτόμενες ετικέτες γονέων προσδιορίζουν την ιεραρχία.
+This example creates a tree map with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) method assigns stems at grouping level 1 and branches at level 2. Values determine the relative rectangle sizes, while category labels and overlapping parent labels identify the hierarchy.
 
 ```java
 import com.aspose.slides.*;
@@ -459,28 +463,28 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Δέντρου](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Δημιουργία Waterfall Διαγραμμάτων**
+### **Create Waterfall Charts**
 
-Ένα Waterfall διάγραμμα δείχνει πώς θετικές και αρνητικές αλλαγές συμβάλλουν σε μια τελική τιμή. Για παράδειγμα, μια ανάλυση κέρδους μπορεί να ξεκινά με τα έσοδα, να αφαιρεί τα κόστη και να προσθέτει άλλα έσοδα. Οι στήλες αλλαγής αιωρούνται μεταξύ των προηγούμενων και των νέων τιμών, ενώ οι συνολικές στήλες εκτείνονται από το μηδέν έως την συσσωρευμένη τιμή.
+A waterfall chart shows how positive and negative changes contribute to a final value. For example, a profit breakdown can start with revenue, subtract costs, and add other income. Change columns float between the previous and new running values, while total columns extend from zero to the accumulated value.
 
-Ο παρακάτω πίνακας χρησιμοποιεί ποσά σε χιλιάδες δολάρια ΗΠΑ:
+The following example uses amounts in thousands of US dollars:
 
-| Κατηγορία | Τιμή φύλλου εργασίας | Τύπος στήλης |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| Έσοδα | 1000 | Αύξηση |
-| Κόστος πωλήσεων | -400 | Μείωση |
-| Ακαθάριστο κέρδος | 600 | Ενδιάμεσο σύνολο |
-| Λειτουργικά έξοδα | -200 | Μείωση |
-| Άλλα έσοδα | 50 | Αύξηση |
-| Καθαρό κέρδος | 450 | Τελικό σύνολο |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-Για να σημειώσετε ένα σημείο ως ενδιάμεσο ή τελικό σύνολο, καλέστε τη μέθοδο [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) με `true`. Παρέχετε την πραγματική συσσωρευμένη τιμή στο κελί του φύλλου εργασίας του σημείου: `600` για το ακαθάριστο κέρδος (`1000 - 400`) και `450` για το καθαρό κέρδος (`600 - 200 + 50`). Η μέθοδος σημειώνει τη στήλη ως σύνολο· δεν υπολογίζει ή γεμίζει την τιμή του κελιού. Μην χρησιμοποιείτε το μηδέν ως placeholder ή δώσετε άλλη αλλαγή για ένα σημείο σύνολο. Μια στήλη σύνολο εμφανίζει τη συσσωρευμένη τιμή χωρίς να την προσθέτει ξανά στη τρέχουσα τιμή.
+To mark a point as an intermediate or final total, call its [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) method with `true`. Supply the actual accumulated amount in that point's workbook cell: `600` for gross profit (`1000 - 400`) and `450` for net profit (`600 - 200 + 50`). The method marks the column as a total; it does not calculate or populate the cell value. Do not use zero as a placeholder or supply another change for a total point. A total column displays the accumulated value without adding it again to the running value.
 
-Αυτό το πλήρες παράδειγμα Java δημιουργεί διάγραμμα χρησιμοποιώντας το μέλος `Waterfall` του [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), διαγράφει τα προεπιλεγμένα δεδομένα και γεμίζει το ενσωματωμένο βιβλίο εργασίας. Ο δείκτης φύλλου `0` επιλέγει το πρώτο φύλλο; η στήλη A περιέχει ονόματα κατηγοριών και η στήλη B τιμές. Κάθε κελί τιμής προστίθεται με τη μέθοδο [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Οι μηδενικές βάσεις ευρετηρίων σημείων `2` και `5` αναγνωρίζουν τα ενδιάμεσα και τα τελικά σύνολα. Καλώντας το [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) με `true` εμφανίζει τα ποσά στις στήλες. Δεν απαιτείται είσοδος παρουσίασης ή βιβλίου εργασίας.
+This complete Java example creates a chart using the `Waterfall` member of [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), clears the default data, and fills the embedded workbook. Worksheet index `0` selects the first worksheet; column A contains category names and column B contains values. Each value cell is added with [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). The zero-based point indices `2` and `5` identify the intermediate and final totals. Calling [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) with `true` displays the amounts on the columns. No input presentation or workbook is required.
 
 ```java
 import com.aspose.slides.*;
@@ -518,7 +522,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Το τρίτο και το έκτο σημείο αντιπροσωπεύουν σύνολα, όχι επιπλέον αλλαγές.
+    // Τα τρίτο και έκτο σημεία αντιπροσωπεύουν σύνολα, όχι πρόσθετες αλλαγές.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -532,17 +536,17 @@ finally
 }
 ```
 
-Καλέστε τη μέθοδο επιπέδου σειράς [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) με `true` για να εμφανίσετε γραμμές σύνδεσης μεταξύ διαδοχικών στηλών και να κάνετε την τρέχουσα τιμή πιο εύκολη στην παρακολούθηση. Για να κρύψετε αυτές τις γραμμές, αντικαταστήστε την κλήση με `series.setShowConnectorLines(false);` πριν την αποθήκευση. Αυτό αλλάζει μόνο την ορατότητα των γραμμών, όχι τα δεδομένα ή τα σύνολα.
+Call the series-level [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) method with `true` to show lines linking consecutive columns and make the running value easier to follow. To hide these lines, replace the method call in the example with `series.setShowConnectorLines(false);` before saving. This changes only the line visibility, not the data or totals.
 
-Το αποθηκευμένο διάγραμμα εμφανίζει ακαθάριστο κέρδος 600 και καθαρό κέρδος 450, με τα σύνολα να ξεκινούν από το μηδέν:
+The saved presentation shows gross profit of 600 and net profit of 450, with both totals drawn from zero:
 
-![Διάγραμμα Waterfall που δείχνει έσοδα, κόστη, ακαθάριστο κέρδος 600 και καθαρό κέρδος 450, με ετικέτες τιμών και γραμμές σύνδεσης](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Δημιουργία Stock Διαγραμμάτων**
+### **Create Stock Charts**
 
-Τα Stock διαγράμματα χρησιμοποιούνται για την προβολή χρηματοοικονομικών δεδομένων όπως τιμές ανοίγματος, υψηλής, χαμηλής και κλεισίματος, βοηθώντας στην ανάλυση τάσεων αγοράς και μεταβλητότητας. Παρέχουν κρίσιμες πληροφορίες για την απόδοση των μετοχών, υποστηρίζοντας επενδυτές και αναλυτές στη λήψη ενημερωμένων αποφάσεων.
+Stock charts are used to display financial data such as open, high, low, and close prices, helping analyze market trends and volatility. They offer essential insights into stock performance, aiding investors and analysts in making informed decisions.
 
-Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα ανοίγματος‑υψίστου‑χαμηλού‑κλεισίματος με τέσσερις σειρές με αυτή τη σειρά και τρεις κατηγορίες. Η μέθοδος [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) ενεργοποιεί τις ράβδους άνω/κάτω, και η μέθοδος [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) ελέγχει τις γραμμές υψηλού‑χαμηλού που δείχνουν τα εύρη τιμών, ενώ οι ατομικές γραμμές σειρών και οι μικρές οριζόντιες γραμμές πλέγματος είναι κρυμμένες.
+This example creates an open-high-low-close chart with four series in that order and three categories. The [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) method enables up/down bars, and [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) controls the high-low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
 
 ```java
 import com.aspose.slides.*;
@@ -622,15 +626,15 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Stock](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Δημιουργία Box and Whisker Διαγραμμάτων**
+### **Create Box and Whisker Charts**
 
-Τα διαγράμματα Box and Whisker χρησιμοποιούνται για την προβολή της κατανομής των δεδομένων συνοψίζοντας βασικά στατιστικά μέτρα, όπως η διάμεσος, τα τεταρτημόρια και πιθανές ακραίες τιμές. Είναι ιδιαίτερα χρήσιμα στην εξερευνητική ανάλυση δεδομένων και σε στατιστικές μελέτες για γρήγορη κατανόηση της μεταβλητότητας των δεδομένων και εντοπισμό τυχόν ανωμαλιών.
+Box and whisker charts are used to display the distribution of data by summarizing key statistical measures, such as the median, quartiles, and potential outliers. They are particularly useful in exploratory data analysis and statistical studies to quickly understand data variability and identify any anomalies.
 
-Αυτό το παράδειγμα δημιουργεί ένα Box and Whisker διάγραμμα από έξι τιμές. Η μέθοδος [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) επιλέγει τον αποκλειστικό υπολογισμό τεταρτημορίων. Το παράδειγμα ενεργοποιεί επίσης γραμμές μέσου όρου, δείκτες μέσου, εσωτερικά σημεία και σημεία ακραίων τιμών.
+This example creates a box and whisker chart from six values. The [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) method selects the exclusive quartile calculation. The example also enables mean lines, mean markers, inner points, and outlier points.
 
 ```java
 import com.aspose.slides.*;
@@ -690,11 +694,11 @@ finally
 }
 ```
 
-### **Δημιουργία Funnel Διαγραμμάτων**
+### **Create Funnel Charts**
 
-Τα Funnel διαγράμματα χρησιμοποιούνται για την απεικόνιση διαδικασιών που περιλαμβάνουν διαδοχικά στάδια, όπου ο όγκος των δεδομένων μειώνεται καθώς προχωρά από το ένα βήμα στο επόμενο. Είναι ιδιαίτερα χρήσιμα για την ανάλυση ποσοστών μετατροπής, τον εντοπισμό bottleneck και την παρακολούθηση της αποδοτικότητας διαδικασιών πωλήσεων ή μάρκετινγκ.
+Funnel charts are used to visualize processes that involve sequential stages, where the volume of data decreases as it progresses from one step to the next. They are especially helpful for analyzing conversion rates, identifying bottlenecks, and tracking the efficiency of sales or marketing processes.
 
-Αυτό το παράδειγμα χρησιμοποιεί το [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να προσθέσει ένα funnel διάγραμμα στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης. Αντικαθιστά τα προεπιλεγμένα δεδομένα με έξι κατηγορίες και τιμές από 50 έως 500, έπειτα αποθηκεύει την ενημερωμένη παρουσίαση. Η εισερχόμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια.
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to add a funnel chart to the first slide of an existing presentation. It replaces the default data with six categories and values ranging from 50 to 500, then saves the updated presentation. The input presentation must contain at least one slide.
 
 ```java
 import com.aspose.slides.*;
@@ -748,15 +752,15 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Funnel](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Δημιουργία Sunburst Διαγραμμάτων**
+### **Create Sunburst Charts**
 
-Τα Sunburst διαγράμματα χρησιμοποιούνται για την απεικόνιση ιεραρχικών δεδομένων, παρουσιάζοντας επίπεδα ως συνελικτικούς δακτυλίους. Βοηθούν στην απεικόνιση σχέσεων μέρος‑όλο και είναι ιδανικά για την αναπαράσταση ενσωματωμένων κατηγοριών και υποκατηγοριών με σαφή, συμπαγή μορφή.
+Sunburst charts are used to visualize hierarchical data, displaying levels as concentric rings. They help illustrate part-to-whole relationships and are ideal for representing nested categories and subcategories in a clear, compact format.
 
-Αυτό το παράδειγμα δημιουργεί ένα Sunburst διάγραμμα με οκτώ φύλλα ομαδοποιημένα σε τέσσερις κορμούς και δύο κλαδιά. Η μέθοδος [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) αναθέτει κορμούς στο επίπεδο ομαδοποίησης 1 και κλαδιά στο επίπεδο 2. Οι ετικέτες κατηγοριών προσδιορίζουν τα τμήματα, και οι τιμές καθορίζουν τα σχετικά μεγέθη τους.
+This example creates a sunburst chart with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) method assigns stems at grouping level 1 and branches at level 2. Category labels identify the segments, and the values determine their relative sizes.
 
 ```java
 import com.aspose.slides.*;
@@ -833,19 +837,19 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Sunburst](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Δημιουργία Histogram Διαγραμμάτων**
+### **Create Histogram Charts**
 
-Τα ιστογράμματα δείχνουν πώς οι αριθμητικές τιμές κατανέμονται σε διαστήματα (bins). Για μηνιαίες αναφορές χρόνου επεξεργασίας παραγγελιών, χρησιμοποιήστε το ίδιο πλάτος bin και τα όρια ώστε να διατηρούνται τα διαστήματα συνεπή και οι κατανομές πιο εύκολα συγκρίσιμες.
+Histogram charts show how numerical values are distributed across intervals (bins). For monthly reports on order processing times, use the same bin width and thresholds to keep intervals consistent and make distributions easier to compare.
 
-Καλέστε το [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) στον οριζόντιο άξονα με μια τιμή από το [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). Το [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) εφαρμόζεται μόνο σε `ByBinWidth`; το [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) εφαρμόζεται μόνο σε `ByNumberOfBins`. Χρησιμοποιήστε `Automatic` για να επιτρέψετε στο διάγραμμα να επιλέξει τα bins.
+Call [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) on the horizontal axis with a mode from [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) applies only to `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) applies only to `ByNumberOfBins`. Use `Automatic` to let the chart choose the bins.
 
-#### **Χρήση Σταθερού Πλάτους Κουβά**
+#### **Use a Fixed Bin Width**
 
-Αυτό το παράδειγμα ομαδοποιεί χρόνους επεξεργασίας σε διαστήματα 10 λεπτών, με ξεχωριστά bins για χρόνους ≤ 10 λεπτά και > 40 λεπτά. Ενεργοποιήστε αυτά τα bins με τα [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) και [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Κατά την παροχή σαφών ορίων μέσω των [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) και [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), καλέστε τα [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) και [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) με `false`.
+This example groups processing times into 10-minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) and [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). When supplying explicit thresholds through [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) and [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), call [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) and [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) with `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -892,13 +896,13 @@ finally
 }
 ```
 
-Η παρουσίαση που εμφανίζεται στο PowerPoint δείχνει αριθμούς bin **3, 4, 4, 4, και 2**. Το bin υποροής περιλαμβάνει `5, 10, 10`, οπότε το όριό του είναι περιληπτικό. Το bin υπερχείλισης περιλαμβάνει μόνο `41, 50`, οπότε το όριό του είναι αποκλειστικό· και οι τιμές ίσες με `40` παραμένουν στο προγενέστερο διάστημα. Τα ενδιάμεσα bins περιέχουν τιμές μεγαλύτερες από το κατώτερο όριο και μικρότερες ή ίσες με το άνω όριο.
+The presentation displayed in PowerPoint shows bin counts of **3, 4, 4, 4, and 2**. The underflow bin includes `5, 10, 10`, so its threshold is inclusive. The overflow bin includes only `41, 50`, so its threshold is exclusive; both values equal to `40` remain in the preceding interval. The interior bins contain values greater than their lower boundary and less than or equal to their upper boundary.
 
-![Ιστόγραμμα με 10‑λεπτα bins και ρητά όρια υποροής και υπερχείλισης](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Καθορισμός Αριθμού Κουβάδων**
+#### **Specify the Number of Bins**
 
-Για ένα σταθερό επίπεδο λεπτομέρειας αντί σταθερών διαστημάτων, ζητήστε πέντε bins για τα ίδια δεδομένα. Αυτό το παράδειγμα αφήνει απενεργοποιημένα τα bins υποροής και υπερχείλισης. Το διάγραμμα καθορίζει το πλάτος από το εύρος των δεδομένων, έτσι τα όρια μπορούν να αλλάξουν μεταξύ αναφορών.
+For a fixed level of detail instead of fixed intervals, request five bins for the same data. This example leaves underflow and overflow bins disabled. The chart determines the width from the data range, so boundaries can change between reports.
 
 ```java
 import com.aspose.slides.*;
@@ -939,15 +943,15 @@ finally
 }
 ```
 
-Τα πέντε bins έχουν μετρήσεις **4, 4, 4, 4, και 1**. Συγκρίνετε αυτή τη διανομή με το αποτέλεσμα σταθερού πλάτους παραπάνω: οι εισαγόμενες τιμές είναι οι ίδιες, αλλά τα όρια διαφέρουν.
+The five bins have counts of **4, 4, 4, 4, and 1**. Compare this distribution with the fixed-width result above: the input values are identical, but the boundaries differ.
 
-![Ιστόγραμμα με πέντε bins υπολογισμένα από τα ίδια δεδομένα](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **Δημιουργία Radar Διαγραμμάτων**
+### **Create Radar Charts**
 
-Τα Radar διαγράμματα χρησιμοποιούνται για την απεικόνιση πολυμεταβλητών δεδομένων σε δισδιάστατη μορφή, επιτρέποντας εύκολη σύγκριση πολλών μεταβλητών ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα για την αναγνώριση προτύπων, δυνατών και αδύναμων σημείων σε πολλαπλές μετρήσεις απόδοσης ή χαρακτηριστικά.
+Radar charts are used to display multivariate data in a two-dimensional format, allowing for easy comparison of several variables simultaneously. They are particularly useful for identifying patterns, strengths, and weaknesses across multiple performance metrics or attributes.
 
-Αυτό το παράδειγμα χρησιμοποιεί το [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα Radar διάγραμμα με τις προεπιλεγμένες σειρές και κατηγορίες, έπειτα αποθηκεύει την παρουσίαση ως PPTX.
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a radar chart with the default series and categories, then saves the presentation as PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -967,15 +971,15 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Radar](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Δημιουργία Πολυκατηγορικών Διαγραμμάτων**
+### **Create Multi-Category Charts**
 
-Τα Πολυκατηγορικά διαγράμματα χρησιμοποιούνται για την προβολή δεδομένων που αφορούν περισσότερες από μία κατηγορίες ομαδοποίησης, επιτρέποντάς σας να συγκρίνετε τιμές σε πολλαπλές διαστάσεις ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα όταν χρειάζεται να αναλύσετε τάσεις και σχέσεις μέσα σε σύνθετα, πολυεπίπεδα σύνολα δεδομένων.
+Multi-category charts are used to display data that involves more than one categorical grouping, allowing you to compare values across multiple dimensions simultaneously. They are particularly helpful when you need to analyze trends and relationships within complex, multi-layered datasets.
 
-Αυτό το παράδειγμα δημιουργεί ένα συγκεντρωτικό στήλης διάγραμμα με οκτώ κατηγορίες διατεταγμένες σε τέσσερα ζεύγη. Η μέθοδος [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) δίνει σε κάθε ζεύγος μια κοινή ετικέτα στο επίπεδο ομαδοποίησης 1, παράγοντας έναν άξονα κατηγοριών με ατομικές και ομαδικές ετικέτες.
+This example creates a clustered column chart with eight categories arranged in four pairs. The [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) method gives each pair a shared label at grouping level 1, producing a category axis with both individual and group labels.
 
 ```java
 import com.aspose.slides.*;
@@ -1047,15 +1051,15 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το πολυκατηγορικό διάγραμμα](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Δημιουργία Map Διαγραμμάτων**
+### **Create Map Charts**
 
-Τα Map διαγράμματα χρησιμοποιούνται για την απεικόνιση γεωγραφικών δεδομένων χαρτογραφώντας πληροφορίες σε συγκεκριμένες θέσεις όπως χώρες, πολιτείες ή πόλεις. Είναι ιδιαίτερα χρήσιμα για την ανάλυση περιοδικών τάσεων, δημογραφικών δεδομένων και χωρικών διανομών με σαφή, οπτικά ελκυστικό τρόπο.
+Map charts are used to visualize geographical data by mapping information to specific locations such as countries, states, or cities. They are particularly useful for analyzing regional trends, demographic data, and spatial distributions in a clear, visually engaging manner.
 
-Αυτό το παράδειγμα χρησιμοποιεί το [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα Map διάγραμμα με τα προεπιλεγμένα γεωγραφικά δεδομένα και το αποθηκεύει για προβολή στο PowerPoint.
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a map chart with the default geographical data and saves it for viewing in PowerPoint.
 
 ```java
 import com.aspose.slides.*;
@@ -1075,21 +1079,23 @@ finally
 }
 ```
 
-Το αποτέλεσμα:
+The result:
 
-![Το διάγραμμα Χάρτη](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Η παραπάνω εικόνα δείχνει την αποθηκευμένη παρουσίαση ανοιγμένη στο PowerPoint. Το Aspose.Slides γράφει το Map διάγραμμα και τα δεδομένα του σωστά, αλλά δεν σχεδιάζει τα Map διαγράμματα αυτόνομα: όταν μια διαφάνεια που περιέχει ένα τέτοιο διάγραμμα αποδίδεται σε εικόνα ή μετατρέπεται σε PDF ή SVG, η περιοχή του διαγράμματος εμφανίζεται κενή. Τα άλλα σχήματα στην ίδια διαφάνεια δεν επηρεάζονται.
+
+The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+
 {{% /alert %}}
 
-### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
+### **Create Combination Charts**
 
-Ένα συνδυαστικό διάγραμμα (ή combo διάγραμμα) συνδυάζει δύο ή περισσότερους τύπους διαγράμματος σε ένα ενιαίο γράφημα. Αυτό το διάγραμμα σας επιτρέπει να επισημάνετε, συγκρίνετε ή εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
-![Το συνδυαστικό διάγραμμα](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Αυτό το παράδειγμα συνδυάζει δύο συγκεντρωτικές στήλες με μια σειρά γραμμής σε τέσσερις κατηγορίες. Οι στήλες χρησιμοποιούν τον κύριο κάθετο άξονα, ενώ η μέθοδος [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) τοποθετεί τη γραμμή σε δευτερεύον κάθετο άξονα στα δεξιά. Οι βοηθητικές συναρτήσεις διαμορφώνουν τον τίτλο, το υπόμνημα, τις ετικέτες άξονα και τις γραμμές πλέγματος.
+This example combines two clustered column series with a line series across four categories. The columns use the primary vertical axis, while [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) places the line on a secondary vertical axis on the right. The helper functions configure the title, legend, axis labels, and gridlines.
 
 ```java
 import com.aspose.slides.*;
@@ -1258,11 +1264,11 @@ ComboChartExample example = new ComboChartExample();
 example.createComboChart();
 ```
 
-## **Ενημέρωση Διαγραμμάτων**
+## **Update Charts**
 
-Το Aspose.Slides for Android via Java σας επιτρέπει να ενημερώνετε διαγράμματα PowerPoint τροποποιώντας δεδομένα διαγράμματος, μορφοποίηση και στυλ. Αυτή η λειτουργία απλοποιεί τη διαδικασία διατήρησης των παρουσιάσεων ενημερωμένων με δυναμικό περιεχόμενο και διασφαλίζει ότι τα διαγράμματα αντικατοπτρίζουν ακριβώς τα τρέχοντα δεδομένα και τα οπτικά πρότυπα.
+Aspose.Slides for Android via Java enables you to update PowerPoint charts by modifying chart data, formatting, and styling. This functionality simplifies the process of keeping presentations up-to-date with dynamic content and ensures that charts accurately reflect current data and visual standards.
 
-Αυτό το παράδειγμα ενημερώνει το διάγραμμα με όνομα "My chart" στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης. Απαιτεί δύο στήλες σειρών με τρία σημεία δεδομένων η καθεμία, με ετικέτες κατηγοριών στη στήλη A και ονόματα σειρών στην πρώτη γραμμή του πρώτου φύλλου εργασίας. Το παράδειγμα χρησιμοποιεί το [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) για να αλλάξει κελιά βιβλίου, ενημερώνει τις τιμές σειρών, προσθέτει τρίτη σειρά, και αλλάζει το διάγραμμα σε συγκεντρωτικούς κυλίνδρους μέσω του [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
+This example updates the chart named "My chart" on the first slide of an existing presentation. It requires two column series with three data points each, with category labels in column A and series names in the first row of the first worksheet. The example uses [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) to change workbook cells, updates series values, adds a third series, and changes the chart to clustered cylinders through [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1322,13 +1328,13 @@ finally
 }
 ```
 
-## **Ορισμός Εμβέλειας Δεδομένων για Διάγραμμα**
+## **Set Data Range for a Chart**
 
-Για να δείτε την εμβέλεια που χρησιμοποιείται ήδη από ένα υπάρχον διάγραμμα, ανατρέξτε στο [Ανάκτηση Εμβέλειας Δεδομένων Διαγράμματος](/slides/el/androidjava/chart-workbook/#retrieve-a-charts-data-range).
+To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/el/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-Το Aspose.Slides for Android via Java παρέχει την ευελιξία να ορίσετε μια συγκεκριμένη εμβέλεια δεδομένων από ένα φύλλο εργασίας ως πηγή για τα δεδομένα του διαγράμματος σας. Αυτό σημαίνει ότι μπορείτε άμεσα να χαρτογραφήσετε ένα τμήμα του φύλλου εργασίας στο διάγραμμα, ελέγχοντας ποιοι κελιοί θα συνεισφέρουν στις σειρές και τις κατηγορίες του διαγράμματος. Ως αποτέλεσμα, μπορείτε εύκολα να ενημερώνετε και να συγχρονίζετε τα διαγράμματα σας με τις τελευταίες αλλαγές στα δεδομένα του φύλλου εργασίας, διασφαλίζοντας ότι οι παρουσιάσεις PowerPoint σας αντικατοπτρίζουν ενημερωμένες και ακριβείς πληροφορίες.
+Aspose.Slides for Android via Java provides the flexibility to define a specific data range from a worksheet as the source for your chart's data. This means you can directly map a portion of your worksheet to the chart, allowing you to control which cells contribute to the chart's series and categories. As a result, you can easily update and synchronize your charts with the latest data changes in your worksheet, ensuring that your PowerPoint presentations reflect current and accurate information.
 
-Αυτό το παράδειγμα χρησιμοποιεί το [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) για να ορίσει την πηγή δεδομένων του διαγράμματος με όνομα "My chart" στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης σε `Sheet1!A1:B4`. Το βιβλίο εργασίας διαγράμματος πρέπει να περιέχει αυτό το φύλλο και μια γεμάτη εμβέλεια με επικεφαλίδα σειράς στην πρώτη γραμμή, ετικέτες κατηγοριών στη στήλη A και τρεις τιμές στη στήλη B.
+This example uses [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) to set the data source of the chart named "My chart" on the first slide of an existing presentation to `Sheet1!A1:B4`. The chart workbook must contain that worksheet and a populated range with a series heading in the first row, category labels in column A, and three values in column B.
 
 ```java
 import com.aspose.slides.*;
@@ -1357,11 +1363,11 @@ finally
 }
 ```
 
-## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
+## **Use Default Markers in Charts**
 
-Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει διαφορετικό προεπιλεγμένο σχήμα δείκτη αυτόματα.
+When you use default markers in charts, each chart series gets a different default marker symbol automatically.
 
-Αυτό το παράδειγμα χρησιμοποιεί το [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) για να δημιουργήσει ένα διάγραμμα με δύο σειρές γραμμής και ένα υπόμνημα. Οι ρυθμίσεις δείκτη που προσπελαύνονται μέσω του [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) διατηρούν τα αυτόματα εκχωρημένα σχήματα δείκτη. Η πρώτη σειρά περιλαμβάνει μια αρνητική τιμή και μια ελλιπή τιμή, που αντιπροσωπεύεται από `null`, ενώ η δεύτερη έχει τιμή για κάθε κατηγορία.
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a chart with two line series and a legend. The marker settings accessed through [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) retain the automatically assigned marker symbols. The first series includes a negative value and a missing value, represented by `null`, while the second has a value for every category.
 
 ```java
 import com.aspose.slides.*;
@@ -1426,18 +1432,18 @@ finally
 
 ## **FAQ**
 
-**Τι τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides for Android via Java;**
+**What chart types are supported by Aspose.Slides for Android via Java?**
 
-Το Aspose.Slides for Android via Java υποστηρίζει μια ευρεία γκάμα τύπων διαγραμμάτων, συμπεριλαμβανομένων των ραβδίου, γραμμής, πίτας, περιοχής, scatter, ιστογράμματος, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
+Aspose.Slides for Android via Java supports a wide range of chart types, including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
 
-**Πώς προσθέτω νέο διάγραμμα σε μια διαφάνεια;**
+**How do I add a new chart to a slide?**
 
-Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργείτε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), ανακτάτε τη ζητούμενη διαφάνεια με το δείκτη της, και κατόπιν καλείτε τη μέθοδο προσθήκης διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
+To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
 
-**Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
+**How can I update the data displayed in a chart?**
 
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπελάζοντας το βιβλίο δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), διαγράφοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες, και προσθέτοντας τα δικά σας προσαρμοσμένα δεδομένα. Αυτό σας επιτρέπει να ανανεώνετε προγραμματιστικά το διάγραμμα ώστε να αντανακλά τα πιο πρόσφατα δεδομένα.
+You can update a chart's data by accessing its data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to programmatically refresh the chart to reflect the latest data.
 
-**Μπορώ να προσαρμόσω την εμφάνιση του διαγράμματος;**
+**Is it possible to customize the appearance of the chart?**
 
-Ναι, το Aspose.Slides for Android via Java παρέχει εκτενούς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπόμνημα και άλλα στοιχεία μορφοποίησης ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος στις συγκεκριμένες απαιτήσεις του σχεδίου σας.
+Yes, Aspose.Slides for Android via Java provides extensive customization options. You can modify colors, fonts, labels, legends, and other formatting elements to tailor the chart's appearance to your specific design requirements.

@@ -8,21 +8,21 @@ keywords:
 - étiquette de données
 - précision des données
 - pourcentage
-- distance d’étiquette
-- position d’étiquette
+- distance d'étiquette
+- position d'étiquette
 - PowerPoint
 - présentation
 - Python
 - Aspose.Slides
-description: "Apprenez à ajouter et formater les étiquettes de données de graphiques dans les présentations PowerPoint en utilisant Aspose.Slides pour Python via .NET pour des diapositives plus attrayantes."
+description: "Apprenez à ajouter et à formater les étiquettes de données de graphiques dans les présentations PowerPoint en utilisant Aspose.Slides pour Python via .NET pour des diapositives plus attrayantes."
 ---
 ## **Introduction**
 
-Les étiquettes de données affichent des informations sur les séries du graphique et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des étiquettes, contrôler les étiquettes au‑delà du maximum de l’axe, ajuster l’espacement des étiquettes de l’axe des catégories et positionner les étiquettes d’un graphique circulaire.
+Les etiquettes de données affichent des informations sur les séries de graphiques et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des étiquettes, contrôler les étiquettes au-dela du maximum de l'axe, ajuster l'espacement des étiquettes de l'axe des categories et positionner les étiquettes d'un graphique en secteur.
 
 ## **Définir la précision des données dans les étiquettes de graphique**
 
-Utilisez [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) pour formater les valeurs des séries. Cet exemple crée un graphique en courbes avec des données par défaut, affiche son tableau de données et active les étiquettes de valeur pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous‑jacentes.
+Utilisez [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) pour formater les valeurs des séries. Cet exemple crée un graphique en ligne avec des données par défaut, affiche son tableau de données et active les étiquettes de valeur pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous-jacentes.
 
 ```python
 import aspose.slides as slides
@@ -41,9 +41,9 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Afficher le pourcentage en tant qu’étiquettes**
+## **Afficher le pourcentage comme étiquettes**
 
-Pour un graphique à colonnes empilées, calculez chaque valeur comme pourcentage du total de sa catégorie et affectez le texte à [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est zéro sont ignorées afin d’éviter une division par zéro. Recalculez le texte de l’étiquette personnalisée si les données du graphique changent.
+Pour un graphique à colonnes empilées, calculez chaque valeur comme pourcentage du total de sa catégorie et affectez le texte à [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les categories dont le total est zéro sont ignorées afin d'éviter une division par zéro. Recalculez le texte d'étiquette personnalisé si les données du graphique changent.
 
 ```python
 import aspose.slides as slides
@@ -92,9 +92,9 @@ with slides.Presentation() as presentation:
 
 ## **Définir le signe de pourcentage avec les étiquettes de graphique**
 
-Lorsque les valeurs sont stockées sous forme de fractions, utilisez [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) pour afficher les pourcentages. Réglez [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) sur `False` pour appliquer le format d’étiquette indépendamment des cellules source.
+Lorsque les valeurs sont stockées sous forme de fractions, utilisez [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) pour afficher les pourcentages. Définissez [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) sur `False` pour appliquer le format d'étiquette indépendamment des cellules source.
 
-Cet exemple crée un graphique à colonnes empilées à 100 % avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs totalise 1. Le format d’étiquette `0.0%` affiche 0,30 comme 30,0 %, tandis que l’axe vertical utilise deux décimales. Les deux séries utilisent un texte d’étiquette blanc de 10 points.
+Cet exemple crée un graphique à colonnes empilées à 100% avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs s'additionne à 1. Le format d'étiquette `0.0%` affiche 0.30 comme 30.0%, tandis que l'axe vertical utilise deux décimales. Les deux séries utilisent un texte d'étiquette blanc de 10 points.
 
 ```python
 import aspose.slides as slides
@@ -145,7 +145,7 @@ with slides.Presentation() as presentation:
 
 ## **Lire le texte réel des étiquettes de données**
 
-Utilisez [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) pour récupérer le texte produit par les paramètres d’une étiquette de données. Cela est utile lors de l’extraction des étiquettes pour des rapports, la recherche de contenu dans une présentation ou la validation de graphiques générés. Dans l’exemple ci‑dessous, le [format d’étiquette de données](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) par défaut combine chaque nom de catégorie, nom de série et valeur. Un point formate sa valeur en pourcentage, et un autre utilise du texte personnalisé provenant de [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+Utilisez [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) pour récupérer le texte généré par les paramètres d'une étiquette de données. Cela est utile lors de l'extraction d'étiquettes pour des rapports, la recherche de contenu dans une présentation ou la validation de graphiques générés. Dans l'exemple ci-dessous, le [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) par défaut combine le nom de chaque catégorie, le nom de la série et la valeur. Un point formate sa valeur en pourcentage, et un autre utilise un texte personnalisé provenant de [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
 
 ```python
 import aspose.slides as slides
@@ -196,15 +196,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-Le nombre stocké dans un point de données reste `0.75`, même lorsque son étiquette indique `75 %` avec les noms de catégorie et de série. Le texte personnalisé remplace le texte d’étiquette généré. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) renvoie la chaîne d’étiquette résultante dans les deux cas. Vérifiez [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) séparément, comme indiqué ci‑dessus, lorsque vous ne souhaitez extraire que les étiquettes visibles.
+Le nombre stocké dans un point de données reste `0.75`, même si son etiquette affiche `75%` avec les noms de categorie et de serie. Le texte personnalisé remplace le texte d'etiquette genere. [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) renvoie la chaine d'etiquette resultante dans les deux cas. Verifiez [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) separement, comme indique ci-dessous, lorsque vous souhaitez extraire uniquement les etiquettes visibles.
 
-## **Contrôler les étiquettes de données au‑delà du maximum de l’axe**
+## **Contrôler les étiquettes de données au-dela du maximum de l'axe**
 
-Lorsque vous limitez manuellement la plage d’un axe, certains points de données peuvent dépasser son maximum. Utilisez [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) pour déterminer si leurs étiquettes de données sont affichées. Ce paramètre modifie la visibilité des étiquettes ; il ne modifie pas la plage de l’axe ni les valeurs sous‑jacentes.
+Lorsque vous limitez manuellement la plage d'un axe, certains points de données peuvent dépasser son maximum. Utilisez [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) pour contrôler si leurs étiquettes de données sont affichées. Ce paramètre modifie la visibilité des étiquettes ; il ne modifie pas la plage de l'axe ni les valeurs sous-jacentes.
 
-L’exemple ci‑dessous crée un graphique à colonnes groupées 2D avec des valeurs de 60 et 120. Il définit [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) sur `False` et [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) sur 100 pour l’axe vertical. La première diapositive autorise les étiquettes au‑delà du maximum ; une copie de cette diapositive les désactive. Les deux diapositives sont enregistrées dans `DataLabelsOverMaximum.pptx`.
+L'exemple ci-dessous crée un graphique à colonnes groupées 2D avec des valeurs de 60 et 120. Il définit [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) sur `False` et [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) à 100 sur l'axe vertical. La première diapositive autorise les étiquettes au-dela du maximum ; une copie de cette diapositive les désactive. Les deux diapositives sont enregistrées dans `DataLabelsOverMaximum.pptx`.
 
-Activez les étiquettes de valeur avec [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Le paramètre au niveau du graphique n’active pas l’affichage des valeurs par lui‑même et ne remplace pas la désactivation d’affichage d’une étiquette individuelle. Cet exemple active les valeurs pour toute la série et utilise [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) pour placer les étiquettes à l’extrémité extérieure de chaque colonne.
+Activez les étiquettes de valeur avec [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Le paramètre au niveau du graphique n'active pas l'affichage des valeurs par lui-même ni ne remplace le paramètre d'affichage désactivé d'une étiquette individuelle. Cet exemple active les valeurs pour toute la série et utilise [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) pour placer les étiquettes à l'extrémité extérieure de chaque colonne.
 
 ```python
 import aspose.slides as slides
@@ -250,19 +250,19 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Les images suivantes montrent les diapositives enregistrées rendues par Microsoft PowerPoint. Avec `True`, l’étiquette **120** est visible à la limite supérieure ; avec `False`, elle est masquée. L’étiquette **60** reste visible, le maximum de l’axe reste à **100**, et le deuxième point de données reste **120** dans les deux cas.
+Les images suivantes montrent les diapositives enregistrées rendues par Microsoft PowerPoint. Avec `True`, l'étiquette **120** est visible à la limite supérieure ; avec `False`, elle est cachée. L'étiquette **60** reste visible, le maximum de l'axe reste à **100**, et le deuxième point de données reste **120** dans les deux cas.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
-| ![Graphique PowerPoint affichant l’étiquette de valeur 120 avec un maximum d’axe de 100](data-labels-over-maximum-true.png) | ![Graphique PowerPoint masquant l’étiquette de valeur 120 avec un maximum d’axe de 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Type de graphique" %}}
-Cet exemple utilise un graphique à colonnes 2D avec un axe de valeurs. Les graphiques sans axe de valeurs, tels que les graphiques circulaires et les graphiques anneaux, n’ont pas de maximum d’axe à limiter de cette manière.
+Cet exemple utilise un graphique à colonnes 2D avec un axe de valeurs. Les graphiques sans axe de valeurs, comme les graphiques en secteur et en anneau, n'ont pas de maximum d'axe à limiter de cette façon.
 {{% /alert %}}
 
-## **Définir la distance de l’étiquette par rapport à un axe**
+## **Définir la distance de l'étiquette par rapport à un axe**
 
-Utilisez [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) pour contrôler la distance entre les étiquettes de l’axe des catégories et l’axe. La valeur est un pourcentage de la taille maximale de police des étiquettes d’axe. Cet exemple crée un graphique à colonnes groupées et définit le décalage de l’étiquette de l’axe horizontal à 500. Ce paramètre affecte les étiquettes de l’axe des catégories plutôt que les étiquettes associées aux points de données individuels.
+Utilisez [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) pour contrôler la distance entre les étiquettes de l'axe des categories et l'axe. La valeur est un pourcentage de la taille maximale de police des etiquettes d'axe. Cet exemple crée un graphique à colonnes groupées et définit le decalage des etiquettes de l'axe horizontal à 500. Ce paramètre affecte les étiquettes de l'axe des categories plutôt que les étiquettes attachees aux points de données individuels.
 
 ```python
 import aspose.slides as slides
@@ -277,11 +277,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ajuster la position des étiquettes**
+## **Ajuster la position de l'étiquette**
 
-Sur un graphique circulaire, ajustez les positions des étiquettes de données pour améliorer l’espacement et laisser de la place aux lignes de repère.
+Sur un graphique en secteur, ajustez les positions des étiquettes de données pour améliorer l'espacement et laisser de la place aux lignes de repères.
 
-Cet exemple affiche la valeur du premier point de données, place son étiquette à l’extérieur du segment et ajuste les décalages [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) et [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Ces décalages sont relatifs à la largeur et à la hauteur du graphique, respectivement.
+Cet exemple affiche la valeur du premier point de données, place son etiquette à l'extérieur de la tranche et ajuste ses decales [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) et [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/). Ces decales sont relatifs à la largeur et à la hauteur du graphique, respectivement.
 
 ```python
 import aspose.slides as slides
@@ -302,13 +302,62 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Graphique circulaire avec une position d’étiquette de données ajustée](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Ajouter plusieurs lignes d’étiquettes au‑dessus d’un graphique à colonnes**
+## **Formater les lignes de repère**
 
-Cet exemple crée un graphique à colonnes avec deux lignes d’étiquettes au‑dessus de la zone du tracé. La série A affiche les colonnes visibles, tandis que les séries B et C fournissent les étiquettes supplémentaires. Leurs colonnes sont masquées en supprimant le remplissage et le contour. La propriété [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) aligne les trois séries sur les mêmes centres de catégorie.
+Lorsque les eti­quettes d'un graphique en secteur sont placees a l'exterieur de leurs tranches, les lignes de repere aident les lecteurs a associer chaque valeur a la bonne tranche. Une couleur contrastee et une ligne legerement plus epaisse peuvent faciliter la lecture, tandis que la transparence et un style pointille rend les lignes moins visibles.
 
-Les paramètres du [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) réservent de l’espace pour les rangées d’étiquettes. Après que [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calcule les positions par défaut, les valeurs [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) et [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) conservent l’alignement horizontal et appliquent des décalages verticaux pour disposer les étiquettes en deux rangées. Les nombres restent des étiquettes de données liées aux valeurs de la série ; seules les en‑têtes de rangée sont des formes de texte séparées.
+Utilisez [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) pour formater les lignes de repere au niveau de la collection d'etiquettes de données de la serie. Les parametres dans `series.labels.leader_lines_format.line` s'appliquent à la collection, plutot qu'à une etiquette individuelle.
+
+Cet exemple cree un graphique en secteur avec des donnees par defaut, affiche les valeurs a l'exterieur des tranches et active [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). Il eloigne deux etiquettes de leurs tranches en utilisant les decales [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) et [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/), exprimes en fractions de la largeur et de la hauteur du graphique. Aucune presentation d'entree n'est requise.
+
+Le [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) de la ligne definit une couleur bleue unie avec une valeur alpha de 191 sur 255, ce qui donne environ 25% de transparence. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) definit l'epaisseur a 2 points, et [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) rend la ligne en pointille.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 80, 50, 560, 400)
+    chart.has_legend = False
+
+    series = chart.chart_data.series[0]
+
+    label_format = series.labels.default_data_label_format
+    label_format.show_value = True
+    label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
+    label_format.show_leader_lines = True
+
+    # Déplacez deux étiquettes plus loin de leurs tranches.
+    series.labels[0].x = 0.10
+    series.labels[0].y = -0.05
+    series.labels[1].x = -0.10
+    series.labels[1].y = 0.05
+
+    line = series.labels.leader_lines_format.line
+    line.fill_format.fill_type = slides.FillType.SOLID
+    line.fill_format.solid_fill_color.color = drawing.Color.from_argb(191, 30, 90, 160)
+    line.width = 2
+    line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Activer les lignes de repere ne garantit pas qu'une ligne apparaisse pour chaque etiquette. La visibilite depend du placement des etiquettes et du comportement de mise en page du graphique. Dans cet exemple, les deux etiquettes deplacees ont des lignes de repere visibles ; les etiquettes proches de leurs tranches n'en ont pas besoin.
+
+L'image suivante montre le fichier `FormattedLeaderLines.pptx` enregistre, rendu avec Aspose.Slides:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+
+## **Ajouter plusieurs rangées d'étiquettes de données au-dessus d'un graphique à colonnes**
+
+Cet exemple cree un graphique à colonnes avec deux rangées d'étiquettes de données au-dessus de la zone du trace. La serie A affiche les colonnes visibles, tandis que les series B et C fournissent les etiquettes supplementaires. Leurs colonnes sont cachees en supprimant le remplissage et le contour. La propriete [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) aligne les trois series sur les memes centres de categories.
+
+Les parametres [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) reserve de l'espace pour les rangées d'etiquettes. Apres que [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calcule les positions par defaut, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) et [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) conservent l'alignement horizontal et appliquent des decales verticaux pour disposer les etiquettes en deux rangées. Les nombres restent des etiquettes de donnees liees aux valeurs des series ; seuls les en-tetes de rangee sont des formes de texte separees.
 
 ```python
 import aspose.slides as slides
@@ -350,7 +399,7 @@ with slides.Presentation() as presentation:
             series.data_points.add_data_point_for_bar_series(value_cell)
 
         if series_index > 0:
-            # Masquer les colonnes de B et C, mais conserver leurs étiquettes de données.
+            # Masquez les colonnes de B et C, mais conservez leurs étiquettes de données.
             series.format.fill.fill_type = slides.FillType.NO_FILL
             series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
             label_format = series.labels.default_data_label_format
@@ -361,14 +410,14 @@ with slides.Presentation() as presentation:
             label_fill.solid_fill_color.color = drawing.Color.black
             label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
 
-    # Aligner les trois séries sur les mêmes centres de catégorie.
+    # Alignez les trois séries sur les mêmes centres de catégorie.
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
-    # Utiliser moins de lignes de grille pour cet exemple compact.
+    # Utilisez moins de lignes de grille pour cet exemple compact.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # Réserver de l'espace au-dessus du tracé pour deux lignes d'étiquettes de données.
+    # Réservez de l'espace au-dessus du tracé pour deux rangées d'étiquettes de données.
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -382,8 +431,8 @@ with slides.Presentation() as presentation:
 
         for category_index in range(len(categories)):
             data_label = series.data_points[category_index].label
-            # Conserver la position horizontale par défaut. Y est un décalage depuis
-            # la position d'étiquette par défaut, exprimé en fraction de la hauteur du graphique.
+            # Conservez la position horizontale par défaut. Y est un décalage depuis
+            # la position d'étiquette par défaut, exprimé comme une fraction de la hauteur du graphique.
             data_label.x = 0
             data_label.y = row_top - data_label.actual_y / chart.height
 
@@ -402,18 +451,18 @@ with slides.Presentation() as presentation:
     presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Graphique à colonnes avec deux rangées d’étiquettes au‑dessus de la zone du tracé](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Comment éviter que les étiquettes de données se chevauchent sur des graphiques denses ?**
+**Comment puis‑je empêcher les étiquettes de données de se chevaucher sur des graphiques denses ?**
 
-Combinez le placement automatique des étiquettes, les lignes de repère et la réduction de la taille de police ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n’affichez les étiquettes que pour les valeurs extrêmes ou les points clés.
+Combinez le placement automatique des étiquettes, les lignes de repère et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n'affichez les étiquettes que pour les valeurs extrêmes ou les points clés.
 
-**Comment désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**
+**Comment puis‑je désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**
 
-Filtrez les points de données avant d’activer les étiquettes et désactivez l’affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
+Filtrez les points de données avant d'activer les étiquettes et désactivez l'affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
 
-**Comment garantir un style d’étiquette cohérent lors de l’exportation en PDF/images ?**
+**Comment puis‑je garantir un style d'étiquette cohérent lors de l'exportation vers PDF/images ?**
 
-Définissez explicitement la famille et la taille de la police et vérifiez que la police est disponible dans l’environnement de rendu pour éviter les substitutions.
+Définissez explicitement la famille et la taille de police et vérifiez que la police est disponible dans l'environnement de rendu afin d'éviter le remplacement.

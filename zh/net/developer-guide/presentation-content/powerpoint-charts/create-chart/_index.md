@@ -17,7 +17,7 @@ keywords:
 - 股票图表
 - 箱线图
 - 漏斗图
-- 旭辉图
+- 旭日图
 - 直方图
 - 雷达图
 - 多类别图表
@@ -26,35 +26,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 在 PowerPoint 演示文稿中创建和自定义图表。通过 C# 实用代码示例添加、格式化和编辑图表。"
+description: "使用 Aspose.Slides for .NET 在 PowerPoint 演示文稿中创建和自定义图表。通过 C# 的实用代码示例添加、格式化和编辑图表。"
 ---
-## **概览**
+## **概述**
 
-本文提供了使用 Aspose.Slides for .NET 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表、填充数据，并应用各种格式选项以满足特定的设计需求。文章中通过详细的代码示例展示了每个步骤，包括初始化演示文稿和图表对象、配置系列、坐标轴和图例。遵循本指南，您可以深入了解如何在 .NET 应用程序中集成动态图表生成，从而简化数据驱动的演示文稿创建过程。
+本文提供了使用 Aspose.Slides for .NET 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表、填充数据并应用各种格式选项，以满足特定的设计需求。全文通过详细的代码示例展示每一步，从初始化演示文稿和图表对象到配置系列、坐标轴和图例。遵循本指南，您将能够在 .NET 应用程序中集成动态图表生成，简化数据驱动演示文稿的创建过程。
 
 ## **创建图表**
 
-图表帮助人们快速可视化数据，并获得表格或电子表格中不易直接看出的洞察。
+图表帮助人们快速可视化数据，并获得在表格或电子表格中不易立即看出的洞察。
 
-**为何要创建图表？**
+**为什么要创建图表？**
 
 使用图表，您可以：
 
-* 在单个幻灯片上汇总、浓缩或概括大量数据；
-* 揭示数据中的模式和趋势；
-* 推断数据随时间或特定计量单位的方向和动量；
-* 发现异常值、偏差、错误和不合理的数据；
+* 在演示文稿的单张幻灯片上汇总、压缩或概括大量数据；
+* 展示数据中的模式和趋势；
+* 推断数据随时间或特定计量单位的变化方向和动量；
+* 发现异常值、偏差、错误和无意义的数据；
 * 传达或展示复杂数据。
 
-在 PowerPoint 中，您可以通过 *Insert* 功能创建图表，该功能提供了多种图表模板。使用 Aspose.Slides，您既可以创建常规图表（基于常见图表类型），也可以创建自定义图表。
+在 PowerPoint 中，您可以通过 *插入* 功能创建图表，该功能提供了多种图表模板。使用 Aspose.Slides，您可以创建常规图表（基于流行图表类型）和自定义图表。
 
 {{% alert color="info" title="Note" %}}
-使用 [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 枚举（位于 [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) 命名空间）来指定图表类型。枚举值对应不同的图表类型。
+使用 [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 枚举（位于 [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) 命名空间）。该枚举的值对应不同的图表类型。
 {{% /alert %}}
 
-### **创建簇状柱形图**
+### **创建聚簇柱形图**
 
-此示例使用 [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) 创建一个簇状柱形图，比较两个系列在三个类别中的数据。系列使用红色和绿色填充，单独的标签展示类别名称、系列名称和数值。工作表索引 0 指嵌入式图表工作簿中的第一张工作表。
+此示例使用 [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) 创建一个聚簇柱形图，比较两个系列在三个类别中的数据。系列使用红色和绿色填充，单独的标签展示类别名称、系列名称和数值。工作表索引 0 指的是嵌入式图表工作簿中的第一张工作表。
 
 ```csharp
 using System.Drawing;
@@ -130,20 +130,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 结果：
 
-![簇状柱形图](clustered_column_chart.png)
+![聚簇柱形图](clustered_column_chart.png)
 
 ### **创建散点图**
 
-散点图（也称为散点图或 x‑y 图）常用于检查模式或展示两个变量之间的相关性。
+散点图（亦称散点图或 x‑y 图）常用于检查模式或展示两个变量之间的相关性。
 
 在以下情况下使用散点图：
 
-* 您拥有成对的数值数据；
-* 两个变量相互关联；
-* 您想确定两个变量是否相关；
-* 您有一个自变量对应多个因变量取值。
+* 您拥有配对的数值数据；
+* 您有两个配合良好的变量；
+* 您想确定这两个变量是否相关；
+* 您有一个独立变量，其对应的因变量拥有多个取值。
 
-此示例绘制两组 x‑y 值。第一系列使用带星形标记的直线，第二系列使用带圆形标记的平滑线；两者的 [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) 均为 10。 [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) 属性控制标记形状。
+此示例绘制了两组 x‑y 值。第一系列使用直线加星形标记，第二系列使用平滑线加圆形标记；两者的 [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) 均为 10。 [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) 属性控制标记形状。
 
 ```csharp
 using Aspose.Slides;
@@ -210,9 +210,9 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 ### **创建饼图**
 
-饼图最适合展示数据的部分与整体关系，尤其是当数据包含带数值的分类标签时。但是，如果数据包含许多部分或标签，建议考虑使用条形图。
+饼图最适合展示数据的整体与部分关系，尤其是在数据包含带数值的分类标签时。然而，如果您的数据包含大量部分或标签，建议考虑使用条形图。
 
-此示例创建一个包含三项季度值的饼图。每个切片都有自定义填充和边框，标签显示值、百分比和系列信息的不同组合。 [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) 属性将第一片起始角度设为 180 度。
+此示例创建了一个包含三个季度值的饼图。每个切片都有自定义填充和边框，标签显示数值、百分比和系列信息的不同组合。 [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) 属性将第一片的起始角度设为 180 度。
 
 ```csharp
 using System.Drawing;
@@ -310,9 +310,11 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 ![饼图](pie_chart.png)
 
+要改进饼图外部标签的可读性，请参阅 [Format Leader Lines](/slides/zh/net/chart-data-label/#format-leader-lines) 中演示如何定位标签并自定义连线的颜色、宽度、透明度和虚线样式的示例。
+
 ### **创建折线图**
 
-折线图（也称为折线图）最适用于需要展示随时间变化的数值的场景。使用折线图，您可以一次比较大量数据、跟踪随时间的变化和趋势、突出数据系列中的异常等。
+折线图（亦称折线图）最适用于展示数值随时间的变化。使用折线图，您可以一次比较大量数据、跟踪随时间的变化趋势、突出显示数据系列中的异常等。
 
 此示例使用 [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) 创建一个默认系列和类别的折线图，然后将演示文稿保存为 PPTX。
 
@@ -329,7 +331,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-默认情况下，折线图上的点由直线连续连接。如果希望使用虚线，请将 [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) 设置为 [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) 中的某个值：
+默认情况下，折线图上的点由直线连续相连。如果希望点之间使用虚线相连，请将 [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) 设置为 [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) 中的某个值：
 
 ```csharp
 using Aspose.Slides;
@@ -352,9 +354,9 @@ foreach (var series in lineChart.ChartData.Series)
 
 ### **创建树状图**
 
-树状图在展示销售数据时最为合适，可显示数据类别的相对大小，并快速突出每个类别中贡献较大的项目。
+树状图最适用于销售数据，可显示数据类别的相对大小，并快速将注意力聚焦在每个类别中的大贡献项上。
 
-此示例创建一个包含八个叶子、四个干和两个分支的树状图。 [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 设定干，在级别 2 设定分支。数值决定矩形的相对大小，类别标签和重叠的父标签标识层级结构。
+此示例创建了一个包含八个叶子、分为四个干和两条枝的树状图。 [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 上分配干，在级别 2 上分配枝。数值决定矩形的相对大小，类别标签和重叠的父标签标识层次结构。
 
 ```csharp
 using Aspose.Slides;
@@ -434,22 +436,22 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 ### **创建瀑布图**
 
-瀑布图展示正负变化如何共同构成最终值。例如，利润细分可以从收入开始，减去成本，再加上其他收入。变动列在前后累计值之间浮动，而总计列则从零延伸至累计值。
+瀑布图展示正向和负向变化如何贡献到最终值。例如，利润细分可以从收入开始，减去成本，再加上其他收入。变化列在前一个和新的累计值之间浮动，而总计列则从零延伸到累计值。
 
-以下示例使用千美元为单位：
+以下示例使用千美元为单位的金额：
 
 | 类别 | 工作簿值 | 列类型 |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| 收入 | 1000 | Increase |
+| 销售成本 | -400 | Decrease |
+| 毛利润 | 600 | Intermediate total |
+| 营业费用 | -200 | Decrease |
+| 其他收入 | 50 | Increase |
+| 净利润 | 450 | Final total |
 
-要将点标记为中间或最终总计，请将其 [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) 属性设为 `true`。在该点的工作簿单元格中提供实际累计金额：`600` 表示毛利润（`1000 - 400`），`450` 表示净利润（`600 - 200 + 50`）。该属性仅标记列为总计，不会计算或填充值。请勿使用零作占位符，也不要为总计点提供其他变动值。总计列显示累计值，但不会再次将其加到运行值中。
+要将点标记为中间总计或最终总计，请将其 [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) 属性设为 `true`。在该点的工作簿单元格中提供实际累计金额：毛利润为 `600`（`1000 - 400`），净利润为 `450`（`600 - 200 + 50`）。该属性仅标记列为总计；它不会计算或填充单元格值。不要使用零作为占位符或为总计点提供其他变化。总计列显示累计值，但不会再次将其加到运行值中。
 
-下面的完整 C# 示例使用 [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 的 `Waterfall` 成员创建图表，清除默认数据，并填充嵌入式工作簿。工作表索引 `0` 选取第一个工作表；A 列为类别名称，B 列为数值。每个数值单元格通过 [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) 添加。基于零的点索引 `2` 和 `5` 标识中间和最终总计。启用 [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 可在列上显示数值。无需输入演示文稿或工作簿。
+完整的 C# 示例使用 [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 的 `Waterfall` 成员创建图表，清除默认数据并填充嵌入式工作簿。工作表索引 `0` 选择第一张工作表；A 列包含类别名称，B 列包含数值。每个数值单元格通过 [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) 添加。基于零的点索引 `2` 和 `5` 标识中间和最终总计。启用 [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 可在列上显示数值。无需输入演示文稿或工作簿。
 
 ```csharp
 using Aspose.Slides;
@@ -487,7 +489,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// 第三和第六个点代表总计，而非额外的变动。
+// 第三点和第六点表示总计，而不是额外的变化。
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -496,17 +498,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-将系列级别的 [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) 属性设为 `true`，可以显示连接相邻列的线，使运行值更易跟踪。若要隐藏这些线，只需在示例中将赋值改为 `series.ShowConnectorLines = false;` 再保存。此更改仅影响线的可见性，不影响数据或总计。
+将系列级别的 [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) 属性设为 `true` 可显示连接连续列的线，使运行值更易跟踪。若要隐藏这些线，请在示例中将赋值替换为 `series.ShowConnectorLines = false;` 再保存。此更改仅影响线的可见性，不会影响数据或总计。
 
-保存的演示文稿显示毛利润 600、净利润 450，两个总计均从零开始绘制：
+保存后的演示文稿显示毛利润 600 和净利润 450，两者的总计均从零开始绘制：
 
-![瀑布图，显示收入、成本、毛利润 600 和净利润 450，带数值标签和连接线](waterfall_chart.png)
+![显示收入、成本、600 的毛利润和 450 的净利润的瀑布图，带有数值标签和连接线](waterfall_chart.png)
 
 ### **创建股票图表**
 
 股票图表用于显示开盘价、最高价、最低价和收盘价等金融数据，帮助分析市场趋势和波动性。它们提供对股票表现的关键洞察，帮助投资者和分析师做出明智决策。
 
-此示例创建一个按顺序包含四个系列的开‑高‑低‑收（OHLC）图表，并包含三个类别。 [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) 属性启用上下条， [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) 控制显示价格区间的高低线，同时隐藏各系列线和次要水平网格线。
+此示例创建了一个包含四个系列（顺序为开、高、低、收）的 OHLC 图，以及三个类别。 [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) 属性启用上下柱， [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) 控制显示价格区间的高低线，而各系列线和次要水平网格线被隐藏。
 
 ```csharp
 using Aspose.Slides;
@@ -587,9 +589,9 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 ### **创建箱线图**
 
-箱线图用于通过汇总关键统计量（如中位数、四分位数和潜在异常值）来显示数据分布。它们在探索性数据分析和统计研究中非常有用，可快速了解数据变异性并识别异常。
+箱线图用于通过汇总关键统计度量（如中位数、四分位数和潜在异常值）来显示数据的分布情况。它们在探索性数据分析和统计研究中非常有用，可快速了解数据的变异性并识别异常。
 
-此示例基于六个数值创建箱线图。 [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) 属性选择排除法四分位计算。示例还启用了均值线、均值标记、内部点和异常点。
+此示例使用六个数值创建箱线图。 [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) 属性选择排除法四分位数计算。示例还启用了均值线、均值标记、内部点和异常点。
 
 ```csharp
 using Aspose.Slides;
@@ -646,7 +648,7 @@ presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 
 ### **创建漏斗图**
 
-漏斗图用于可视化包含连续阶段的流程，随着每一步的推进，数据量会逐渐减少。它们特别适用于分析转化率、识别瓶颈以及跟踪销售或营销流程的效率。
+漏斗图用于可视化包含顺序阶段的过程，数据量会随步骤的推进而递减。它们特别适合分析转化率、识别瓶颈以及跟踪销售或营销过程的效率。
 
 此示例使用 [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) 在现有演示文稿的第一张幻灯片上添加漏斗图。它用六个类别和从 50 到 500 的数值替换默认数据，然后保存更新后的演示文稿。输入演示文稿必须至少包含一张幻灯片。
 
@@ -701,11 +703,11 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 ![漏斗图](funnel_chart.png)
 
-### **创建旭辉图**
+### **创建旭日图**
 
-旭辉图用于可视化层级数据，以同心环的形式显示各层级。它们帮助展示部分与整体的关系，适合以紧凑的方式呈现嵌套的类别和子类别。
+旭日图用于可视化层级数据，使用同心环展示各层级。它们帮助阐释整体与部分的关系，适用于以紧凑、清晰的方式呈现嵌套类别和子类别。
 
-此示例创建一个包含八个叶子、四个干和两个分支的旭辉图。 [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 设定干，在级别 2 设定分支。类别标签标识各段，数值决定相对大小。
+此示例创建了一个包含八个叶子、分为四个干和两条枝的旭日图。 [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 上分配干，在级别 2 上分配枝。类别标签标识各段，数值决定相对大小。
 
 ```csharp
 using Aspose.Slides;
@@ -779,17 +781,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 结果：
 
-![旭辉图](sunburst_chart.png)
+![旭日图](sunburst_chart.png)
 
 ### **创建直方图**
 
-直方图展示数值在区间（箱）中的分布情况。用于每月订单处理时间报告时，使用相同的箱宽和阈值可以保持区间一致，便于比较分布。
+直方图显示数值在区间（箱）中的分布情况。对订单处理时间的月度报告使用相同的箱宽和阈值，可保持区间一致，使分布更易比较。
 
-将水平轴的 [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) 设置为 [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/) 中的某种模式。[BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) 仅在 `ByBinWidth` 时生效；[NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) 仅在 `ByNumberOfBins` 时生效。使用 `Automatic` 让图表自行决定箱数。
+将水平轴的 [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) 设置为 [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/) 中的模式。[BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) 仅在 `ByBinWidth` 时适用；[NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) 仅在 `ByNumberOfBins` 时适用。使用 `Automatic` 让图表自行决定箱数。
 
 #### **使用固定箱宽**
 
-此示例将处理时间分为 10 分钟的区间，并为 ≤10 分钟和 >40 分钟的时间各设置单独的箱。通过 [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) 和 [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/) 启用这些箱。若显式提供 [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) 和 [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) 阈值，还需将 [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) 与 [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) 设为 `false`。
+此示例将处理时间分为 10 分钟的区间，对 ≤10 分钟和 >40 分钟的时间设置单独的箱。使用 [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) 和 [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/) 启用这些箱。提供显式的 [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) 与 [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) 阈值时，请将 [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) 和 [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) 设为 `false`。
 
 ```csharp
 using Aspose.Slides;
@@ -831,13 +833,13 @@ axis.OverflowBin = 40;
 presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-PowerPoint 中展示的演示文稿显示箱计数为 **3, 4, 4, 4, 2**。下溢箱包含 `5, 10, 10`（阈值为闭区间），上溢箱仅包含 `41, 50`（阈值为开区间），`40` 仍属于前一个区间。内部箱包含大于下界且小于等于上界的值。
+PowerPoint 中显示的演示文稿的箱计数为 **3、4、4、4、2**。下溢箱包括 `5、10、10`，因此阈值为闭区间。上溢箱仅包含 `41、50`，阈值为开区间；`40` 仍属于前一个区间。内部箱包含大于下界且小于等于上界的值。
 
-![直方图（10 分钟箱）以及显式的下溢和上溢阈值](histogram_bin_width.png)
+![使用 10 分钟箱宽和显式下溢/上溢阈值的直方图](histogram_bin_width.png)
 
 #### **指定箱数**
 
-若希望保持固定的细节层级而非固定区间，可请求五个箱。此示例关闭下溢和上溢箱。图表根据数据范围自行确定箱宽，故边界可能随报告而变化。
+若需固定细节层级而非固定区间，可为相同数据请求五个箱。此示例禁用下溢和上溢箱。图表根据数据范围确定宽度，因而边界在不同报告之间可能变化。
 
 ```csharp
 using Aspose.Slides;
@@ -873,13 +875,13 @@ axis.NumberOfBins = 5;
 presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
 ```
 
-五个箱的计数为 **4, 4, 4, 4, 1**。将此分布与上面的固定宽度结果对比：输入值相同，但边界不同。
+五个箱的计数为 **4、4、4、4、1**。将此分布与上面的固定宽度结果进行比较：输入值相同，但边界不同。
 
-![使用相同数据计算得到的五个箱的直方图](histogram_bin_count.png)
+![使用相同数据计算的五个箱的直方图](histogram_bin_count.png)
 
 ### **创建雷达图**
 
-雷达图用于在二维平面上显示多变量数据，便于同时比较多个变量。它们特别适合识别多个绩效指标或属性之间的模式、优势和劣势。
+雷达图用于在二维平面上展示多变量数据，便于同时比较多个变量。它们特别适用于识别多个绩效指标或属性之间的模式、优势和劣势。
 
 此示例使用 [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) 创建一个默认系列和类别的雷达图，然后将演示文稿保存为 PPTX。
 
@@ -902,9 +904,9 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 ### **创建多类别图表**
 
-多类别图表用于显示涉及多个分类分组的数据，帮助您在多个维度上同时比较数值。它们在分析复杂、多层次数据集的趋势和关系时尤为有用。
+多类别图表用于展示涉及多个分类分组的数据，便于在多个维度上同时比较数值。它们在分析复杂多层数据集的趋势和关系时特别有用。
 
-此示例创建一个簇状柱形图，包含八个类别，按四对排列。 [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法为每对在分组级别 1 设置共享标签，产生既有单独标签又有组标签的类别轴。
+此示例创建了一个聚簇柱形图，包含八个类别，排列为四对。 [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) 方法在分组级别 1 为每对分配共享标签，从而在类别轴上同时显示单个标签和组标签。
 
 ```csharp
 using Aspose.Slides;
@@ -977,9 +979,9 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 ### **创建地图图表**
 
-地图图表用于通过将信息映射到特定位置（如国家、州或城市）来可视化地理数据。它们在分析地区趋势、人口统计数据和空间分布时非常有价值，且呈现方式直观且富有视觉冲击力。
+地图图表用于通过将信息映射到特定地点（如国家、州或城市）来可视化地理数据。它们在分析地区趋势、人口统计数据和空间分布时尤其有用，能够以清晰、视觉吸引的方式呈现。
 
-此示例使用 [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) 创建一个默认地理数据的地图图表，并将其保存以供 PowerPoint 查看。
+此示例使用 [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) 创建一个默认地理数据的地图图表，并保存以便在 PowerPoint 中查看。
 
 ```csharp
 using Aspose.Slides;
@@ -999,16 +1001,16 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 ![地图图表](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-上图显示在 PowerPoint 中打开的已保存演示文稿。Aspose.Slides 能正确写入地图图表及其数据，但本身不绘制地图图表：当包含地图图表的幻灯片渲染为图像或转换为 PDF、SVG 时，图表区域会呈现为空白。同一幻灯片上的其他形状不受影响。
+上图显示了在 PowerPoint 中打开的已保存演示文稿。Aspose.Slides 能正确写入地图图表及其数据，但它本身不绘制地图图表：当包含地图图表的幻灯片渲染为图像或转换为 PDF、SVG 时，图表区域会呈现为空白。同一幻灯片上的其他形状不受影响。
 {{% /alert %}}
 
 ### **创建组合图表**
 
-组合图表（或 combo 图表）在同一图表中组合两种或以上的图表类型。此类图表可帮助您突出、比较或检查多个数据集之间的差异，从而识别它们之间的关系。
+组合图表（或复合图表）在同一图中组合两种或多种图表类型。该图表可帮助您突出、比较或检查两个或多个数据集之间的差异，从而识别它们之间的关系。
 
 ![组合图表](combination_chart.png)
 
-此示例将两个簇状柱形系列与一个折线系列在四个类别上组合。柱形使用主垂直轴，而 [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) 将折线放置在右侧的次要垂直轴上。辅助函数配置标题、图例、坐标轴标签和网格线。
+此示例将两组聚簇柱形系列与一组折线系列组合在四个类别上。柱形使用主垂直坐标轴，而 [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) 将折线放置在右侧的次坐标轴上。辅助函数配置标题、图例、坐标轴标签和网格线。
 
 ```csharp
 using System.Drawing;
@@ -1170,9 +1172,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **更新图表**
 
-Aspose.Slides for .NET 使您能够通过修改图表数据、格式和样式来更新 PowerPoint 图表。此功能简化了保持演示文稿与动态内容同步的过程，并确保图表准确反映当前数据和视觉标准。
+Aspose.Slides for .NET 使您能够通过修改图表数据、格式和样式来更新 PowerPoint 图表。此功能简化了保持演示文稿随动态内容更新的过程，并确保图表准确反映当前数据和视觉标准。
 
-此示例更新现有演示文稿第一张幻灯片上名为 “My chart” 的图表。它需要两个包含三个数据点的列系列，类别标签位于 A 列，系列名称位于第一个工作表的第一行。示例使用 [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) 更改工作簿单元格，更新系列值，添加第三个系列，并通过 [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) 将图表更改为簇状圆柱体。
+此示例更新现有演示文稿第一张幻灯片上名为 “My chart” 的图表。它需要两个系列、每个系列有三个数据点，类别标签位于 A 列，系列名称位于工作簿第一行。示例使用 [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) 更改工作簿单元格，更新系列值，添加第三个系列，并通过 [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) 将图表更改为聚簇圆柱体。
 
 ```csharp
 using Aspose.Slides;
@@ -1230,9 +1232,9 @@ presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 
 要检查现有图表已使用的范围，请参阅 [Retrieve a Chart's Data Range](/slides/zh/net/chart-workbook/#retrieve-a-charts-data-range)。
 
-Aspose.Slides for .NET 提供了从工作表中定义特定数据范围作为图表数据源的灵活性。这意味着您可以直接映射工作表的某一部分到图表，从而控制哪些单元格贡献给图表的系列和类别。如此一来，您可以轻松地更新和同步图表，以反映工作表中最新的数据变化，确保 PowerPoint 演示文稿保持当前且准确的信息。
+Aspose.Slides for .NET 提供了从工作表中定义特定数据范围作为图表数据源的灵活性。这意味着您可以直接将工作表的某一部分映射到图表，控制哪些单元格为图表的系列和类别提供数据。结果是，您可以轻松更新并同步图表，使其始终反映工作表中的最新数据更改，确保 PowerPoint 演示文稿保持当前且准确的信息。
 
-此示例使用 [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) 将现有演示文稿第一张幻灯片上名为 “My chart” 的图表的数据源设置为 `Sheet1!A1:B4`。图表工作簿必须包含该工作表以及包含第一行系列标题、A 列类别标签和 B 列三个数值的已填充范围。
+此示例使用 [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) 将现有演示文稿第一张幻灯片上名为 “My chart” 的图表的数据源设置为 `Sheet1!A1:B4`。图表工作簿必须包含该工作表，并且该范围应已填充：首行为系列标题，A 列为类别标签，B 列为三个数值。
 
 ```csharp
 using Aspose.Slides;
@@ -1257,9 +1259,9 @@ presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 
 ## **在图表中使用默认标记**
 
-在图表中使用默认标记时，每个系列会自动获得不同的默认标记符号。
+使用默认标记时，每个图表系列会自动获得不同的默认标记符号。
 
-此示例使用 [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) 创建一个包含两条折线系列和图例的图表。 [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) 设置保留自动分配的标记符号。第一系列包含一个负值和一个缺失值（用 `null` 表示），第二系列在每个类别都有数值。
+此示例使用 [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) 创建一个包含两个折线系列和图例的图表。 [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) 设置保留了自动分配的标记符号。第一个系列包含负值和缺失值（用 `null` 表示），第二个系列在每个类别都有数值。
 
 ```csharp
 using Aspose.Slides;
@@ -1317,20 +1319,20 @@ chart.Legend.Overlay = false;
 presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
-## **常见问题**
+## **常见问题解答**
 
 **Aspose.Slides for .NET 支持哪些图表类型？**
 
-Aspose.Slides for .NET 支持包括柱形、折线、饼形、面积、散点、直方图、雷达图等在内的多种图表类型。此灵活性使您能够为数据可视化需求选择最合适的图表类型。
+Aspose.Slides for .NET 支持广泛的图表类型，包括条形图、折线图、饼图、面积图、散点图、直方图、雷达图等。这种灵活性使您可以根据数据可视化需求选择最合适的图表类型。
 
 **如何向幻灯片添加新图表？**
 
-要添加图表，首先创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例，使用索引获取目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程将图表直接集成到演示文稿中。
+要添加图表，首先创建 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) 类的实例，按索引检索目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程将图表直接嵌入演示文稿中。
 
 **如何更新图表中显示的数据？**
 
-您可以通过访问图表的数据工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/))，清除默认的系列和类别，然后添加自定义数据，从而以编程方式刷新图表以反映最新数据。
+您可以通过访问其数据工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/))，清除默认的系列和类别，然后添加自定义数据来更新图表的数据。这使您能够以编程方式刷新图表，以反映最新数据。
 
 **是否可以自定义图表的外观？**
 
-可以，Aspose.Slides for .NET 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例等格式元素，以根据特定设计要求定制图表的外观。
+是的，Aspose.Slides for .NET 提供了广泛的自定义选项。您可以修改颜色、字体、标签、图例及其他格式元素，以将图表的外观调整为符合特定设计需求。

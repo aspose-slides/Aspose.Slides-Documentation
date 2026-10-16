@@ -1,62 +1,60 @@
 ---
-title: Buat atau Perbarui Diagram Presentasi PowerPoint di .NET
-linktitle: Buat atau Perbarui Diagram
+title: Buat atau Perbarui Chart Presentasi PowerPoint di .NET
+linktitle: Buat atau Perbarui Chart
 type: docs
 weight: 10
 url: /id/net/create-chart/
 keywords:
-- tambahkan diagram
-- buat diagram
-- sunting diagram
-- ubah diagram
-- perbarui diagram
-- diagram sebar
-- diagram pai
-- diagram garis
-- diagram peta pohon
-- diagram saham
-- diagram kotak dan whisker
-- diagram corong
-- diagram sunburst
-- diagram histogram
-- diagram radar
-- diagram multi‑kategori
+- menambahkan chart
+- membuat chart
+- mengedit chart
+- mengubah chart
+- memperbarui chart
+- chart sebar
+- chart pai
+- chart garis
+- chart peta pohon
+- chart saham
+- chart kotak‑dan‑garis
+- chart corong
+- chart sunburst
+- chart histogram
+- chart radar
+- chart multi‑kategori
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk .NET. Tambahkan, format, dan ubah diagram dengan contoh kode praktis dalam C#."
+description: "Buat dan sesuaikan chart dalam presentasi PowerPoint menggunakan Aspose.Slides untuk .NET. Tambahkan, format, dan edit chart dengan contoh kode praktis dalam C#."
 ---
-## **Ikhtisar**
+## **Ringkasan**
 
-Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk .NET. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisi data, dan menerapkan berbagai opsi pemformatan untuk memenuhi persyaratan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi objek presentasi dan diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi .NET Anda, menyederhanakan proses pembuatan presentasi berbasis data.
+Artikel ini menyediakan panduan lengkap tentang cara membuat dan menyesuaikan chart menggunakan Aspose.Slides untuk .NET. Anda akan mempelajari cara menambahkan chart secara programatik ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari inisialisasi presentasi dan objek chart hingga konfigurasi series, sumbu, dan legend. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan chart dinamis ke dalam aplikasi .NET Anda, mempermudah proses pembuatan presentasi berbasis data.
 
-## **Buat Diagram**
+## **Buat Chart**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
+Chart membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
-**Mengapa Membuat Diagram?**
+**Mengapa Membuat Chart?**
 
-Dengan diagram, Anda dapat:
+Dengan chart, Anda dapat:
 
 * menggabungkan, memadatkan, atau merangkum sejumlah besar data pada satu slide dalam sebuah presentasi;
 * menampilkan pola dan tren dalam data;
-* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu;
-* mengidentifikasi nilai outlier, penyimpangan, kesalahan, dan data yang tidak masuk akal;
+* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan ukuran tertentu;
+* mengidentifikasi outlier, penyimpangan, kesalahan, dan data yang tidak masuk akal;
 * menyampaikan atau mempresentasikan data yang kompleks.
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Dengan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan jenis diagram populer) maupun diagram kustom.
+Di PowerPoint, Anda dapat membuat chart melalui fungsi *Insert*, yang menyediakan templat untuk merancang banyak jenis chart. Menggunakan Aspose.Slides, Anda dapat membuat chart reguler (berdasarkan tipe chart populer) maupun chart khusus.
 
 {{% alert color="info" title="Note" %}}
-
-Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) di bawah namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Nilai‑nilai dalam enumerasi ini sesuai dengan berbagai tipe diagram.
-
+Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) di bawah namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Nilai‑nilai dalam enumerasi ini sesuai dengan berbagai tipe chart.
 {{% /alert %}}
 
-### **Buat Diagram Kolom Berkelompok**
+### **Buat Chart Kolom Kelompok**
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram kolom berkelompok yang membandingkan dua seri pada tiga kategori. Seri menggunakan isian merah dan hijau, serta label individu yang menunjukkan nama kategori, nama seri, dan nilai. Indeks lembar kerja 0 mengacu pada lembar pertama dalam buku kerja diagram yang tersemat.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat chart kolom kelompok yang membandingkan dua series pada tiga kategori. Series menggunakan isian merah dan hijau, dan label individual menunjukkan nama kategori, nama series, serta nilai. Indeks worksheet 0 mengacu pada sheet pertama dalam workbook chart yang tersemat.
 
 ```csharp
 using System.Drawing;
@@ -132,20 +130,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Kolom Berkelompok](clustered_column_chart.png)
+![Chart Kolom Kelompok](clustered_column_chart.png)
 
-### **Buat Diagram Sebar**
+### **Buat Chart Sebaran**
 
-Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+Chart sebaran (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
-Gunakan diagram sebar ketika:
+Gunakan chart sebaran ketika:
 
 * Anda memiliki data numerik berpasangan.
-* Anda memiliki dua variabel yang saling berpasangan dengan baik.
-* Anda ingin menentukan apakah dua variabel tersebut saling terkait.
+* Anda memiliki dua variabel yang cocok bersama.
+* Anda ingin menentukan apakah kedua variabel terkait.
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen.
 
-Contoh ini memplot dua set nilai x‑y. Seri pertama menggunakan garis lurus dengan penanda bintang, sedangkan seri kedua menggunakan garis halus dengan penanda lingkaran; keduanya menggunakan [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) sebesar 10. Properti [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) mengontrol bentuk penanda.
+Contoh ini memplot dua set nilai x‑y. Series pertama menggunakan garis lurus dengan marker bintang, sementara yang kedua menggunakan garis halus dengan marker lingkaran; keduanya menggunakan [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) sebesar 10. Properti [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) mengontrol bentuk marker.
 
 ```csharp
 using Aspose.Slides;
@@ -208,13 +206,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Sebar](scatter_chart.png)
+![Chart Sebaran](scatter_chart.png)
 
-### **Buat Diagram Pai**
+### **Buat Chart Pai**
 
-Diagram pai paling cocok untuk menampilkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya.
+Chart pai paling cocok untuk menunjukkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, pertimbangkan untuk menggunakan chart batang sebagai gantinya.
 
-Contoh ini membuat diagram pai dengan tiga nilai kuartalan. Setiap irisan memiliki isian dan garis tepi kustom, dan label menampilkan kombinasi nilai, persentase, dan informasi seri yang berbeda. Properti [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) mengatur irisan pertama dimulai pada 180 derajat.
+Contoh ini membuat chart pai dengan tiga nilai kuartalan. Setiap irisan memiliki isian dan batas khusus, dan label menampilkan kombinasi nilai, persentase, serta informasi series. Properti [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) mengatur irisan pertama mulai dari 180 derajat.
 
 ```csharp
 using System.Drawing;
@@ -310,13 +308,15 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Pai](pie_chart.png)
+![Chart Pai](pie_chart.png)
 
-### **Buat Diagram Garis**
+Untuk meningkatkan keterbacaan label di luar pai, lihat [Format Leader Lines](/slides/id/net/chart-data-label/#format-leader-lines) untuk contoh yang memposisikan label dan menyesuaikan warna, lebar, transparansi, serta gaya garis.
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lain‑lain.
+### **Buat Chart Garis**
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram garis dengan seri dan kategori default, lalu menyimpan presentasi sebagai PPTX.
+Chart garis (juga dikenal sebagai line graph) paling cocok digunakan ketika Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan chart garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren sepanjang waktu, menyoroti anomali dalam series data, dan lain‑lain.
+
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat chart garis dengan series dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -331,7 +331,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Secara default, titik‑titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, atur [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) ke nilai dari [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+Secara default, titik‑titik pada chart garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, setel [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) ke salah satu nilai dari [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
 
 ```csharp
 using Aspose.Slides;
@@ -350,13 +350,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 Hasilnya:
 
-![Diagram Garis](line_chart.png)
+![Chart Garis](line_chart.png)
 
-### **Buat Diagram Peta Pohon**
+### **Buat Chart Peta Pohon**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang berkontribusi besar dalam setiap kategori.
+Chart peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menyoroti item yang berkontribusi besar dalam setiap kategori.
 
-Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Nilai menentukan ukuran relatif kotak, sementara label kategori dan label induk yang tumpang tindih mengidentifikasi hierarki.
+Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) menugaskan batang pada level pengelompokan 1 dan cabang pada level 2. Nilai menentukan ukuran relatif persegi panjang, sementara label kategori dan label induk yang tumpang tindih mengidentifikasi hierarki.
 
 ```csharp
 using Aspose.Slides;
@@ -432,26 +432,26 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Peta Pohon](treemap_chart.png)
+![Chart Peta Pohon](treemap_chart.png)
 
-### **Buat Diagram Air Terjun**
+### **Buat Chart Waterfall**
 
-Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian profit dapat dimulai dengan pendapatan, mengurangi biaya, dan menambahkan pendapatan lain. Kolom perubahan mengambang antara nilai berjalan sebelumnya dan nilai baru, sementara kolom total memperluas dari nol ke nilai terakumulasi.
+Chart waterfall menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian profit dapat dimulai dengan pendapatan, mengurangkan biaya, dan menambahkan pendapatan lain. Kolom perubahan mengambang antara nilai berjalan sebelumnya dan nilai baru, sementara kolom total memperluas dari nol ke nilai terakumulasi.
 
 Contoh berikut menggunakan jumlah dalam ribuan dolar AS:
 
-| Kategori | Nilai Buku Kerja | Jenis Kolom |
+| Kategori | Nilai Workbook | Tipe Kolom |
 | --- | ---: | --- |
-| Pendapatan | 1000 | Peningkatan |
-| Harga pokok penjualan | -400 | Penurunan |
-| Laba kotor | 600 | Total interim |
-| Biaya operasional | -200 | Penurunan |
-| Pendapatan lain | 50 | Peningkatan |
-| Laba bersih | 450 | Total akhir |
+| Pendapatan | 1000 | Kenaikan |
+| Harga Pokok Penjualan | -400 | Penurunan |
+| Laba Kotor | 600 | Total Sementara |
+| Beban Operasional | -200 | Penurunan |
+| Pendapatan Lain | 50 | Kenaikan |
+| Laba Bersih | 450 | Total Akhir |
 
-Untuk menandai titik sebagai total interim atau total akhir, atur properti [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) menjadi `true`. Isi sel buku kerja pada titik tersebut dengan jumlah terakumulasi yang sesungguhnya: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Properti ini menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau memasukkan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
+Untuk menandai sebuah titik sebagai total sementara atau total akhir, setel properti [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/)‑nya ke `true`. Berikan jumlah terakumulasi yang sesungguhnya pada sel workbook titik tersebut: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Properti ini menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau memberikan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
 
-Contoh C# lengkap ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), membersihkan data default, dan mengisi buku kerja yang tersemat. Indeks lembar kerja `0` memilih lembar pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total interim dan total akhir. Mengaktifkan [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau buku kerja input.
+Contoh C# lengkap ini membuat chart menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), menghapus data default, dan mengisi workbook yang tersemat. Indeks worksheet `0` memilih worksheet pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total sementara dan total akhir. Mengaktifkan [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau workbook input.
 
 ```csharp
 using Aspose.Slides;
@@ -498,17 +498,17 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Atur properti level‑seri [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) menjadi `true` untuk menampilkan garis yang menghubungkan kolom berurutan dan memudahkan pelacakan nilai berjalan. Untuk menyembunyikan garis ini, ganti penugasan dalam contoh dengan `series.ShowConnectorLines = false;` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
+Setel properti level‑series [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) ke `true` untuk menampilkan garis yang menghubungkan kolom berurutan dan memudahkan pelacakan nilai berjalan. Untuk menyembunyikan garis ini, ganti penugasan dalam contoh dengan `series.ShowConnectorLines = false;` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
 
-Presentasi yang disimpan menampilkan laba kotor 600 dan laba bersih 450, dengan kedua total digambar dari nol:
+Presentasi yang disimpan menampilkan laba kotor 600 dan laba bersih 450, dengan kedua total dihitung dari nol:
 
-![Diagram Air Terjun yang menampilkan pendapatan, biaya, laba kotor 600, dan laba bersih 450, dengan label nilai dan garis penghubung](waterfall_chart.png)
+![Chart Waterfall menampilkan pendapatan, biaya, laba kotor 600, dan laba bersih 450, dengan label nilai dan garis penghubung](waterfall_chart.png)
 
-### **Buat Diagram Saham**
+### **Buat Chart Saham**
 
-Diagram saham digunakan untuk menampilkan data keuangan seperti harga buka, tinggi, rendah, dan tutup, membantu menganalisis tren pasar dan volatilitas. Mereka memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
+Chart saham digunakan untuk menampilkan data keuangan seperti harga pembukaan, tertinggi, terendah, dan penutupan, membantu menganalisis tren pasar dan volatilitas. Chart ini memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
 
-Contoh ini membuat diagram open‑high‑low‑close dengan empat seri dalam urutan tersebut dan tiga kategori. Properti [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) mengaktifkan batang naik/turun, dan [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) mengontrol garis tinggi‑rendah yang menunjukkan rentang harga, sementara garis seri individual dan garis kisi horizontal minor disembunyikan.
+Contoh ini membuat chart open‑high‑low‑close dengan empat series dalam urutan tersebut dan tiga kategori. Properti [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) mengaktifkan bar naik/ turun, dan [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) mengontrol garis high‑low yang menunjukkan rentang harga, sementara garis series individual dan gridline horizontal minor disembunyikan.
 
 ```csharp
 using Aspose.Slides;
@@ -585,13 +585,13 @@ presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Saham](stock_chart.png)
+![Chart Saham](stock_chart.png)
 
-### **Buat Diagram Kotak‑Dan‑Whisker**
+### **Buat Chart Box‑and‑Whisker**
 
-Diagram kotak‑dan‑whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan outlier potensial. Mereka sangat berguna dalam analisis data eksploratori dan studi statistik untuk memahami variabilitas data secara cepat serta mengidentifikasi anomali.
+Chart box‑and‑whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan outlier potensial. Chart ini sangat berguna dalam analisis data eksploratif dan studi statistik untuk cepat memahami variabilitas data serta mengidentifikasi anomali.
 
-Contoh ini membuat diagram kotak‑dan‑whisker dari enam nilai. Properti [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) memilih perhitungan kuartil eksklusif. Contoh ini juga mengaktifkan garis mean, penanda mean, titik internal, dan titik outlier.
+Contoh ini membuat chart box‑and‑whisker dari enam nilai. Properti [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) memilih perhitungan kuartil eksklusif. Contoh juga mengaktifkan garis rata‑rata, marker rata‑rata, titik dalam, dan titik outlier.
 
 ```csharp
 using Aspose.Slides;
@@ -646,11 +646,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Buat Diagram Corong**
+### **Buat Chart Funnel**
 
-Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data berkurang saat bergerak dari satu langkah ke langkah berikutnya. Mereka sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
+Chart funnel digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data berkurang seiring langkah demi langkah. Chart ini sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk menambahkan diagram corong ke slide pertama dari presentasi yang ada. Diagram menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, lalu menyimpan presentasi yang diperbarui. Presentasi input harus memiliki setidaknya satu slide.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk menambahkan chart funnel ke slide pertama dari presentasi yang ada. Ia menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, lalu menyimpan presentasi yang diperbarui. Presentasi input harus memiliki setidaknya satu slide.
 
 ```csharp
 using Aspose.Slides;
@@ -701,13 +701,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Corong](funnel_chart.png)
+![Chart Funnel](funnel_chart.png)
 
-### **Buat Diagram Sunburst**
+### **Buat Chart Sunburst**
 
-Diagram sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkat sebagai cincin konsentris. Mereka membantu menggambarkan hubungan bagian‑ke‑keseluruhan dan ideal untuk mewakili kategori bersarang serta subkategori secara jelas dan ringkas.
+Chart sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkat sebagai cincin konsentrik. Chart ini membantu menggambarkan hubungan bagian‑dengan‑keseluruhan dan ideal untuk merepresentasikan kategori bersarang serta subkategori dalam format yang jelas dan kompak.
 
-Contoh ini membuat diagram sunburst dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) menetapkan batang pada tingkat pengelompokan 1 dan cabang pada tingkat 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
+Contoh ini membuat chart sunburst dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) menugaskan batang pada level pengelompokan 1 dan cabang pada level 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
 
 ```csharp
 using Aspose.Slides;
@@ -781,17 +781,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Sunburst](sunburst_chart.png)
+![Chart Sunburst](sunburst_chart.png)
 
-### **Buat Diagram Histogram**
+### **Buat Chart Histogram**
 
-Diagram histogram menunjukkan bagaimana nilai numerik terdistribusi di antara interval (bin). Untuk laporan bulanan tentang waktu proses pesanan, gunakan lebar bin dan ambang batas yang sama untuk menjaga interval konsisten dan memudahkan perbandingan distribusi.
+Chart histogram menunjukkan bagaimana nilai numerik terdistribusi pada interval (bin). Untuk laporan bulanan tentang waktu pemrosesan pesanan, gunakan lebar bin dan ambang batas yang sama agar interval konsisten dan distribusi lebih mudah dibandingkan.
 
-Atur sumbu horizontal [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) ke mode dari [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) hanya berlaku untuk `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) hanya berlaku untuk `ByNumberOfBins`. Gunakan `Automatic` agar diagram memilih bin secara otomatis.
+Setel sumbu horizontal [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) ke mode dari [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) hanya berlaku untuk `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) hanya berlaku untuk `ByNumberOfBins`. Gunakan `Automatic` agar chart memilih bin secara otomatis.
 
 #### **Gunakan Lebar Bin Tetap**
 
-Contoh ini mengelompokkan waktu proses menjadi interval 10 menit, dengan bin terpisah untuk waktu ≤ 10 menit dan > 40 menit. Aktifkan bin ini dengan [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) dan [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). Saat menentukan ambang [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) dan [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) secara eksplisit, atur [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) dan [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) menjadi `false`.
+Contoh ini mengelompokkan waktu pemrosesan ke dalam interval 10‑menit, dengan bin terpisah untuk waktu ≤10 menit dan >40 menit. Aktifkan bin ini dengan [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) dan [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). Saat menyediakan ambang [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) dan [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) secara eksplisit, setel [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) dan [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) ke `false`.
 
 ```csharp
 using Aspose.Slides;
@@ -833,13 +833,13 @@ axis.OverflowBin = 40;
 presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-Presentasi yang ditampilkan di PowerPoint memperlihatkan jumlah bin **3, 4, 4, 4, dan 2**. Bin underflow mencakup `5, 10, 10`, sehingga ambangannya inklusif. Bin overflow hanya mencakup `41, 50`, sehingga ambangannya eksklusif; kedua nilai `40` tetap berada di interval sebelumnya. Bin interior berisi nilai lebih besar dari batas bawah dan kurang dari atau sama dengan batas atasnya.
+Presentasi yang ditampilkan di PowerPoint menunjukkan jumlah bin **3, 4, 4, 4, dan 2**. Bin underflow mencakup `5, 10, 10`, sehingga ambangannya inklusif. Bin overflow hanya mencakup `41, 50`, sehingga ambangannya eksklusif; nilai `40` tetap berada di interval sebelumnya. Bin interior berisi nilai yang lebih besar dari batas bawah dan kurang dari atau sama dengan batas atas.
 
-![Histogram dengan bin 10 menit dan ambang underflow serta overflow eksplisit](histogram_bin_width.png)
+![Histogram dengan bin 10‑menit dan ambang underflow serta overflow eksplisit](histogram_bin_width.png)
 
 #### **Tentukan Jumlah Bin**
 
-Untuk tingkat detail tetap alih‑alih interval tetap, minta lima bin untuk data yang sama. Contoh ini menonaktifkan bin underflow dan overflow. Diagram menentukan lebar dari rentang data, sehingga batas dapat berubah antar laporan.
+Untuk tingkat detail tetap alih‑alih interval tetap, minta lima bin untuk data yang sama. Contoh ini menonaktifkan bin underflow dan overflow. Chart menentukan lebar berdasarkan rentang data, sehingga batas dapat berubah antar laporan.
 
 ```csharp
 using Aspose.Slides;
@@ -875,15 +875,15 @@ axis.NumberOfBins = 5;
 presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
 ```
 
-Lima bin memiliki jumlah **4, 4, 4, 4, dan 1**. Bandingkan distribusi ini dengan hasil lebar‑bin tetap di atas: nilai inputnya identik, tetapi batasnya berbeda.
+Lima bin memiliki jumlah **4, 4, 4, 4, dan 1**. Bandingkan distribusi ini dengan hasil lebar‑bin tetap di atas: nilai input identik, namun batasnya berbeda.
 
 ![Histogram dengan lima bin yang dihitung dari data yang sama](histogram_bin_count.png)
 
-### **Buat Diagram Radar**
+### **Buat Chart Radar**
 
-Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan. Mereka sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di seluruh metrik atau atribut kinerja.
+Chart radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan mudah beberapa variabel secara bersamaan. Chart ini sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di berbagai metrik atau atribut kinerja.
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram radar dengan seri dan kategori default, lalu menyimpan presentasi sebagai PPTX.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat chart radar dengan series dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -900,13 +900,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Radar](radar_chart.png)
+![Chart Radar](radar_chart.png)
 
-### **Buat Diagram Multi‑Kategori**
+### **Buat Chart Multi‑Kategori**
 
-Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di banyak dimensi secara bersamaan. Mereka sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam kumpulan data multi‑lapisan yang kompleks.
+Chart multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di beberapa dimensi secara bersamaan. Chart ini sangat membantu saat Anda perlu menganalisis tren dan hubungan dalam dataset yang kompleks dan berlapis‑lapis.
 
-Contoh ini membuat diagram kolom berkelompok dengan delapan kategori yang disusun dalam empat pasang. Metode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) memberikan setiap pasang label bersama pada tingkat pengelompokan 1, menghasilkan sumbu kategori dengan label individual dan grup.
+Contoh ini membuat chart kolom kelompok dengan delapan kategori yang diatur dalam empat pasang. Metode [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) memberi setiap pasang label bersama pada level pengelompokan 1, menghasilkan sumbu kategori dengan label individual dan grup.
 
 ```csharp
 using Aspose.Slides;
@@ -975,13 +975,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Multi‑Kategori](multi_category_chart.png)
+![Chart Multi‑Kategori](multi_category_chart.png)
 
-### **Buat Diagram Peta**
+### **Buat Chart Peta**
 
-Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Mereka sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial secara jelas dan menarik secara visual.
+Chart peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi tertentu seperti negara, provinsi, atau kota. Chart ini sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial dalam format yang jelas dan menarik secara visual.
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram peta dengan data geografis default dan menyimpannya untuk dilihat di PowerPoint.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat chart peta dengan data geografis default dan menyimpannya untuk dilihat di PowerPoint.
 
 ```csharp
 using Aspose.Slides;
@@ -998,21 +998,19 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 Hasilnya:
 
-![Diagram Peta](map_chart.png)
+![Chart Peta](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-
-Gambar di atas menunjukkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis diagram peta dan data dengan benar, tetapi tidak menggambar diagram peta secara langsung: ketika slide yang memuatnya dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram menjadi kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
-
+Gambar di atas menampilkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis chart peta dan datanya dengan benar, tetapi tidak menggambar chart peta secara langsung: ketika slide yang memuat chart tersebut dirender menjadi gambar atau dikonversi ke PDF atau SVG, area chart muncul kosong. Shape lain pada slide yang sama tidak terpengaruh.
 {{% /alert %}}
 
-### **Buat Diagram Kombinasi**
+### **Buat Chart Kombinasi**
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
+Chart kombinasi (atau combo chart) menggabungkan dua atau lebih tipe chart dalam satu grafik. Chart ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
 
-![Diagram Kombinasi](combination_chart.png)
+![Chart Kombinasi](combination_chart.png)
 
-Contoh ini menggabungkan dua seri kolom berkelompok dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) menempatkan garis pada sumbu vertikal sekunder di kanan. Fungsi pembantu mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
+Contoh ini menggabungkan dua series kolom kelompok dengan satu series garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) menempatkan garis pada sumbu vertikal sekunder di kanan. Fungsi bantu mengonfigurasi judul, legend, label sumbu, dan garis grid.
 
 ```csharp
 using System.Drawing;
@@ -1172,11 +1170,11 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 }
 ```
 
-## **Perbarui Diagram**
+## **Perbarui Chart**
 
-Aspose.Slides untuk .NET memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap terkini dengan konten dinamis dan memastikan diagram mencerminkan data dan standar visual saat ini secara akurat.
+Aspose.Slides untuk .NET memungkinkan Anda memperbarui chart PowerPoint dengan memodifikasi data chart, pemformatan, dan gaya. Fungsionalitas ini mempermudah proses menjaga presentasi tetap up‑to‑date dengan konten dinamis dan memastikan chart mencerminkan data serta standar visual terkini.
 
-Contoh ini memperbarui diagram bernama "My chart" pada slide pertama dari presentasi yang ada. Ia memerlukan dua seri kolom dengan tiga titik data masing‑masing, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh ini menggunakan [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) untuk mengubah sel buku kerja, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah diagram menjadi silinder berkelompok melalui [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
+Contoh ini memperbarui chart bernama "My chart" pada slide pertama dari presentasi yang ada. Ia memerlukan dua series kolom dengan tiga titik data masing‑masing, dengan label kategori di kolom A dan nama series di baris pertama worksheet pertama. Contoh ini menggunakan [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) untuk mengubah sel workbook, memperbarui nilai series, menambahkan series ketiga, dan mengubah chart menjadi silinder kelompok melalui [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
 ```csharp
 using Aspose.Slides;
@@ -1230,13 +1228,13 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Atur Rentang Data untuk Diagram**
+## **Atur Rentang Data untuk Chart**
 
-Untuk memeriksa rentang yang sudah digunakan oleh diagram yang ada, lihat [Retrieve a Chart's Data Range](/slides/id/net/chart-workbook/#retrieve-a-charts-data-range).
+Untuk memeriksa rentang yang sudah digunakan oleh chart yang ada, lihat [Retrieve a Chart's Data Range](/slides/id/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides untuk .NET menyediakan fleksibilitas untuk mendefinisikan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat memetakan langsung sebagian lembar kerja ke diagram, memungkinkan Anda mengontrol sel mana yang berkontribusi pada seri dan kategori diagram. Sebagai hasilnya, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
+Aspose.Slides untuk .NET memberikan fleksibilitas untuk mendefinisikan rentang data spesifik dari worksheet sebagai sumber data chart Anda. Ini berarti Anda dapat memetakan secara langsung bagian worksheet ke chart, memungkinkan kontrol atas sel‑sel mana yang berkontribusi pada series dan kategori chart. Akibatnya, Anda dapat dengan mudah memperbarui dan menyinkronkan chart dengan perubahan data terbaru di worksheet, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan mutakhir.
 
-Contoh ini menggunakan [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) untuk mengatur sumber data diagram bernama "My chart" pada slide pertama dari presentasi yang ada ke `Sheet1!A1:B4`. Buku kerja diagram harus berisi lembar kerja tersebut dan rentang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
+Contoh ini menggunakan [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) untuk mengatur sumber data chart bernama "My chart" pada slide pertama dari presentasi yang ada ke `Sheet1!A1:B4`. Workbook chart harus berisi worksheet tersebut dan rentang terisi dengan heading series di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
 
 ```csharp
 using Aspose.Slides;
@@ -1259,11 +1257,11 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
-## **Gunakan Penanda Default dalam Diagram**
+## **Gunakan Marker Default di Chart**
 
-Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram mendapatkan simbol penanda default yang berbeda secara otomatis.
+Ketika Anda menggunakan marker default di chart, setiap series chart secara otomatis mendapatkan simbol marker default yang berbeda.
 
-Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat diagram dengan dua seri garis dan sebuah legenda. Pengaturan [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan oleh `null`, sementara seri kedua memiliki nilai untuk setiap kategori.
+Contoh ini menggunakan [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) untuk membuat chart dengan dua series garis dan legend. Pengaturan [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) mempertahankan simbol marker yang ditetapkan secara otomatis. Series pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan oleh `null`, sementara series kedua memiliki nilai untuk setiap kategori.
 
 ```csharp
 using Aspose.Slides;
@@ -1323,18 +1321,18 @@ presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Jenis diagram apa yang didukung oleh Aspose.Slides untuk .NET?**
+**Jenis chart apa yang didukung Aspose.Slides untuk .NET?**
 
-Aspose.Slides untuk .NET mendukung berbagai jenis diagram, termasuk batang, garis, pai, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides untuk .NET mendukung berbagai jenis chart, termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe chart yang paling tepat untuk kebutuhan visualisasi data Anda.
 
-**Bagaimana cara menambahkan diagram baru ke slide?**
+**Bagaimana cara menambahkan chart baru ke slide?**
 
-Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), ambil slide yang diinginkan menggunakan indeksnya, dan kemudian panggil metode untuk menambahkan diagram, menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan chart, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan chart, dengan menentukan tipe chart dan data awal. Proses ini menyisipkan chart langsung ke dalam presentasi Anda.
 
-**Bagaimana cara memperbarui data yang ditampilkan dalam diagram?**
+**Bagaimana cara memperbarui data yang ditampilkan dalam chart?**
 
-Anda dapat memperbarui data diagram dengan mengakses buku kerja datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), menghapus semua seri dan kategori default, lalu menambahkan data kustom Anda. Hal ini memungkinkan Anda menyegarkan diagram secara programatis agar mencerminkan data terbaru.
+Anda dapat memperbarui data chart dengan mengakses workbook data chart ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), membersihkan series dan kategori default, lalu menambahkan data khusus Anda. Ini memungkinkan Anda menyegarkan chart secara programatis agar mencerminkan data terbaru.
 
-**Apakah mungkin menyesuaikan tampilan diagram?**
+**Apakah memungkinkan menyesuaikan tampilan chart?**
 
-Ya, Aspose.Slides untuk .NET menyediakan opsi penyesuaian yang luas. Anda dapat memodifikasi warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram dengan kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides untuk .NET menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legend, dan elemen pemformatan lainnya untuk menyesuaikan tampilan chart dengan kebutuhan desain spesifik Anda.

@@ -1,5 +1,5 @@
 ---
-title: PowerPoint prezentációk diagramjainak létrehozása vagy frissítése C++-ban
+title: Diagramok létrehozása vagy frissítése PowerPoint prezentációkban C++-ban
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -12,14 +12,14 @@ keywords:
 - diagram szerkesztése
 - diagram módosítása
 - diagram frissítése
-- szórt diagram
+- szórásdiagram
 - kördiagram
 - vonaldiagram
 - fa térkép diagram
 - részvénydiagram
-- doboz és bajusz diagram
+- doboz és szárnyas diagram
 - tölcsérdiagram
-- napfény diagram
+- napkör diagram
 - hisztogram diagram
 - radar diagram
 - többkategóriás diagram
@@ -27,37 +27,33 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for C++ használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati C++ kódpéldákkal."
+description: "Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for C++ segítségével. Diagramok hozzáadása, formázása és szerkesztése gyakorlati C++ kódrészletekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásához és testreszabásához az Aspose.Slides for C++ használatával. Megtanulja, hogyan adhat programozottan diagramot egy diára, töltse fel adatokkal, és alkalmazzon különféle formázási lehetőségeket a tervezési követelményeknek megfelelően. A cikkben részletes kódrészletek illusztrálják minden lépést, a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázatok konfigurálásáig. Az útmutató követésével alaposan megértheti, hogyan integrálhatja a dinamikus diagramgenerálást C++ alkalmazásaiba, egyszerűsítve az adatvezérelt prezentációk létrehozását.
+Ez a cikk átfogó útmutatót nyújt arról, hogyan hozhatunk létre és testre szabhatunk diagramokat az Aspose.Slides for C++ segítségével. Megtanulja, hogyan adhat programozott módon diagramot egy diára, hogyan töltheti fel adatokal, és hogyan alkalmazhat különféle formázási beállításokat a specifikus tervezési igényekhez. A cikk során részletes kódrészletek szemléltetik az egyes lépéseket, a bemutató és a diagram objektum inicializálásától a sorozatok, tengelyek és jelmagyarázatok konfigurálásáig. Ennek az útmutatónak a követésével alapos megértést szerezhet a dinamikus diagramgenerálás integrálásáról C++ alkalmazásaiban, ezáltal egyszerűsítve az adatvezérelt bemutatók létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat és felismerni azokat a meglátásokat, amelyek egy táblázatból vagy táblázatkezetből nem lennének azonnal nyilvánvalóak.
+A diagramok segítik az embereket az adatok gyors megjelenítésében és olyan betekintések megszerzésében, amelyek nem feltétlenül nyilvánvalóak egy táblázatból vagy táblázatkezdőből.
 
-**Miért kell diagramokat létrehozni?**
+**Miért kell diagramokat készíteni?**
 
-A diagramok használatával:
+* nagy mennyiségű adat aggregálása, sűrítése vagy összefoglalása egyetlen prezentációs dián;
+* minták és trendek feltárása az adatokban;
+* az adatok időbeli irányának és lendületének levezetése, vagy egy adott mérőegységhez viszonyítva;
+* kiugró értékek, rendellenességek, eltérések, hibák és értelmetlen adatok felderítése;
+* összetett adatok kommunikálása vagy bemutatása.
 
-* nagy mennyiségű adatot aggregálhat, tömöríthet vagy összefoglalhat egyetlen dián egy prezentációban;
-* mintákat és trendeket tárhat fel az adatokban;
-* meghatározhatja az adatok időbeli vagy egy adott mértékegységhez viszonyított irányát és lendületét;
-* felismerheti az eltéréseket, anomáliákat, hibákat és értelmetlen adatokat;
-* komplex adatokat kommunikálhat vagy bemutathat.
-
-A PowerPointban a *Insert* (Beszúrás) funkcióval hozhat létre diagramokat, amely számos diagramtípus sablonját biztosítja. Az Aspose.Slides segítségével mind szabványos diagramokat (népszerű típusok alapján), mind egyedi diagramokat hozhat létre.
+A PowerPointban a diagramok létrehozhatók az *Insert* (Beszúrás) funkción keresztül, amely számos diagramtípus tervezéséhez sablonokat biztosít. Az Aspose.Slides használatával mind szabványos diagramokat (népszerű diagramtípusokon alapuló), mind egyedi diagramokat hozhatunk létre.
 
 {{% alert color="info" title="Note" %}}
-
-Használja a [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) felsorolást a [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) névtérben. Ennek a felsorolásnak az értékei a különböző diagramtípusoknak felelnek meg.
-
+Használja a [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) felsorolást a [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) névtérben. Ennek az enumerációnak az értékei különböző diagramtípusoknak felelnek meg.
 {{% /alert %}}
 
 ### **Csoportos oszlopdiagramok létrehozása**
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy csoportos oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltést használnak, és az egyedi címkék a kategória nevét, a sorozat nevét és az értékeket mutatják. A 0. munkalap index az beágyazott diagrammunkafüzet első lapjára vonatkozik.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy csoportos oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltést használnak, és az egyéni címkék a kategória neveket, sorozat neveket és értékeket mutatják. A 0 munkalap-index az beágyazott diagram munkafüzet első lapjára mutat.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -167,20 +163,19 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![A csoportos oszlopdiagram](clustered_column_chart.png)
 
-### **Pontdiagramok létrehozása**
+### **Szórásdiagramok létrehozása**
 
-A pontdiagramok (más néven szórási diagramok vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
+A szórásdiagramok (más néven szórásábrák vagy x‑y grafikonok) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
 
-Használjon pontdiagramot, ha:
+Use a scatter chart when:
+* Párosított numerikus adatok állnak rendelkezésre.
+* Két változó létezik, amelyek jól párosíthatók egymással.
+* Meg szeretné határozni, hogy a két változó összefügg-e.
+* Van egy független változó, amely több értékkel rendelkezik a függő változóhoz képest.
 
-* páros numerikus adatai vannak;
-* két változó jól párosítható egymással;
-* meg szeretné határozni, hogy a két változó összefügg-e;
-* van egy független változó, amelynek több értéke van egy függő változóhoz.
-
-Ez a példa két x‑y értékkészletet ábrázol. Az első sorozat egyenes vonalakat és csillagjelzőket használ, míg a második sima vonalakat és körjelzőket; mindkettő 10-es jelzőmérettel rendelkezik, amely a [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/) metódussal van beállítva. A [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) metódus szabályozza a jelző alakját.
+Ez a példa két x‑y értékhalmazt ábrázol. Az első sorozat egyenes vonalakkal és csillagjelzőkkel rendelkezik, míg a második sima vonalakkal és körjelzőkkel; mindkettő 10-es jelzőmérettel van beállítva a [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). A [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) metódus vezérli a jelző alakzatát.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -270,13 +265,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The Scatter chart](scatter_chart.png)
+![A szórásdiagram](scatter_chart.png)
 
 ### **Kördiagramok létrehozása**
 
-A kördiagramok leginkább a rész‑egész arányok bemutatására alkalmasak, különösen akkor, ha az adatok kategórikus címkéket és numerikus értékeket tartalmaznak. Ha azonban sok rész vagy címke van, érdemes oszlopdiagramot használni.
+A kördiagramok leginkább a rész‑egész viszony megjelenítésére alkalmasak, különösen ha az adatok kategóriákat tartalmazó numerikus értékekkel rendelkeznek. Azonban ha az adatok sok részt vagy címkét tartalmaznak, érdemes oszlopdiagramot használni.
 
-Ez a példa három negyedéves értékkel hoz létre egy kördiagramot. Minden szelet egyedi kitöltéssel és szegéllyel rendelkezik, a címkék pedig különböző kombinációkat mutatnak az értékek, százalékok és sorozatinformációk között. A [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) metódus az első szeletet 180 fokra állítja.
+Ez a példa egy kördiagramot hoz létre három negyedéves értékkel. Minden szelet egyedi kitöltéssel és kerettel rendelkezik, a címkék pedig különböző kombinációkat mutatnak az értékek, százalékok és sorozatinformációk között. A [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) metódus az első szeletet 180 foknál kezdődik.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -413,13 +408,15 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The Pie chart](pie_chart.png)
+![A kördiagram](pie_chart.png)
+
+A címkék olvashatóságának javítása érdekében kívül a körön, lásd a [Format Leader Lines](/slides/hu/cpp/chart-data-label/#format-leader-lines) példát, amely a címkék pozícióját és a vonalak színét, szélességét, átlátszóságát és szaggatottsági stílusát testreszabja.
 
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használandók, ahol az értékek időbeli változását szeretnénk bemutatni. Egy vonaldiagramból egyszerre nagy mennyiségű adatot hasonlíthatunk össze, nyomon követhetjük az időbeli változásokat és trendeket, kiemelhetjük az anomáliákat az adatcsoportokban, és így tovább.
+A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben használandók, amikor az értékek időbeli változását szeretnénk bemutatni. Egy vonaldiagram segítségével egyszerre összehasonlíthat nagy mennyiségű adatot, nyomon követheti az időbeli változásokat és trendeket, kiemelheti a sorozatok anomáliáit, stb.
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy vonaldiagram létrehozásához az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX formátumban menti a prezentációt.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy vonaldiagram létrehozásához az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX-ként menti a bemutatót.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -451,7 +448,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjait egyenes, folytonos vonalak kötik össze. Ha pontokat szaggatott vonalakkal szeretne összekötni, hívja meg a [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) metódust a [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) egyik értékével:
+Alapértelmezés szerint a vonaldiagram pontjai egyenes folytonos vonalakkal vannak összekötve. Ha a pontokat szaggatott vonallal szeretné összekötni, hívja meg a [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) metódust a [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) egyik értékével:
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -488,13 +485,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 Az eredmény:
 
-![The Line chart](line_chart.png)
+![A vonaldiagram](line_chart.png)
 
 ### **Fa térkép diagramok létrehozása**
 
-A fa térkép diagramok leginkább értékesítési adatok esetén használhatók, amikor a adatkategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet az egyes kategóriák nagy hozzájáruló elemeire.
+A fa térkép diagramok leginkább értékesítési adatok esetén használandók, amikor a kategóriák relatív méretét és gyorsan a legnagyobb hozzájáruló elemeket szeretnénk kiemelni.
 
-Ez a példa egy fa térképet hoz létre nyolc levéllel, amelyek négy szárra és két ágra csoportosulnak. A [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus az 1‑es szintű csoportosításnál a szárakat, a 2‑es szintnél pedig az ágakat rendeli. Az értékek határozzák meg a relatív téglalapméreteket, míg a kategória‑ és a szülőcímkék az hierarchiát jelzik.
+Ez a példa egy fa térképet hoz létre nyolc levéllel, amelyek négy ágra és két ágra csoportosulnak. A [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus az 1. csoportosítási szinten ágról, a 2. szinten ágról gondoskodik. Az értékek határozzák meg a relatív téglalapméreteket, a kategóriacímkék és átfedő szülőcímkék az hierarchiát jelölik.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -600,15 +597,13 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The Treemap chart](treemap_chart.png)
+![A fa térkép diagram](treemap_chart.png)
 
-### **Vízözön diagramok létrehozása**
+### **Vízözönt diagramok létrehozása**
 
-A vízözön diagram azt mutatja, hogy a pozitív és negatív változások hogyan járulnak hozzá a végső értékhez. Például egy nyereségtörés a bevételből indul, levonja a költségeket, majd hozzáadja a többi jövedelmet. A változásos oszlopok a korábbi és az új futó értékek között lebegnek, míg a teljes oszlopok a nullától a felhalmozott értékig terjednek.
+A vízözönt diagram azt mutatja, hogy a pozitív és negatív változások hogyan járulnak hozzá egy végső értékhez. Például egy profitösszefoglaló a bevétellel indul, levonja a költségeket, majd hozzáad egyéb bevételeket. A változási oszlopok a korábbi és az új futó értékek között lebegnek, míg a teljes oszlopok a nullától a felhalmozott értékig terjednek.
 
-Az alábbi példa ezredek amerikai dollárban kifejezett összegeket használja:
-
-| Category | Workbook value | Column type |
+| Kategória | Munkafüzet érték | Oszlop típusa |
 | --- | ---: | --- |
 | Revenue | 1000 | Increase |
 | Cost of sales | -400 | Decrease |
@@ -617,9 +612,9 @@ Az alábbi példa ezredek amerikai dollárban kifejezett összegeket használja:
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-Egy pontot közbenső vagy végső összegként megjelölni a [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) metódus `true` értékével kell hívni. A pont munkafüzet cellájában adja meg a tényleges felhalmozott összeget: `600` a bruttó nyereséghez (`1000 - 400`) és `450` a nettó nyereséghez (`600 - 200 + 50`). A metódus csak megjelöli az oszlopot összegként; nem számítja ki vagy tölti ki a cella értékét. Ne használjon nullát helyőrzőként, és ne adjon meg másik változást egy összegpontnál. A teljes oszlop a felhalmozott értéket jeleníti meg anélkül, hogy újból hozzáadná a futó értékhez.
+Ahhoz, hogy egy pontot közbenső vagy végső összegként jelöljön, hívja meg a [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) metódust `true` értékkel. A pont munkafüzetcellájában adja meg a tényleges felhalmozott összeget: `600` a bruttó profithoz (`1000 - 400`) és `450` a nettó profithoz (`600 - 200 + 50`). A metódus csak megjelöli az oszlopot összegként; nem számítja ki vagy tölti ki a cella értékét. Ne használjon nullát helykitöltőként, és ne adjon meg más változást egy összegpont számára. A teljes oszlop a felhalmozott értéket jeleníti meg anélkül, hogy újra hozzáadná a futó értékhez.
 
-Ez a teljes C++ példa a `Waterfall` tagot a [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) enumerációból használja, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. A `0` indexű munkalap az első munkalapot választja; az A oszlop a kategórianéveket, a B oszlop az értékeket tartalmazza. Minden értékcellát a [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) metódussal adunk hozzá. A 0‑alapú pontindexek `2` és `5` a közbenső és a végső összegeket azonosítják. A [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) `true` értéke megjeleníti az összegeket az oszlopokon. Bemutató vagy munkafüzet fájlra nincs szükség.
+Ez a teljes C++ példa a `Waterfall` típusú [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) taggal hoz létre diagramot, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. A `0` munkalap-index az első munkalapot választja; az A oszlop a kategória neveket, a B oszlop pedig az értékeket tartalmazza. Minden értékcellát a [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) metódussal adunk hozzá. A 0‑alapú pontindexek `2` és `5` azonosítják a közbenső és végső összegeket. A [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) `true` értéke megjeleníti az összegeket az oszlopokon. Bemutató bemenetre vagy munkafüzetre nincs szükség.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -693,7 +688,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// A harmadik és hatodik pont összegként jelenik meg, nem további változásként.
+// A harmadik és hatodik pont összegként van megjelölve, nem további változásként.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -702,17 +697,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-A sorozatszintű [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) metódus `true` értékével megjeleníthetők a szomszédos oszlopokat összekötő vonalak, így könnyebb követni a futó értéket. Ezeknek a vonalaknak a rejtéséhez cserélje le a példában a hozzárendelést `series->set_ShowConnectorLines(false);` –re a mentés előtt. Ez csak a vonalak láthatóságát változtatja, az adatokat vagy az összegeket nem.
+A sorozatszintű [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) metódus `true` értéke megjeleníti a egymást követő oszlopokat összekötő vonalakat, így könnyebben nyomon követhető a futó érték. Ezeknek a vonalaknak a elrejtéséhez cserélje le a példában a hozzárendelést `series->set_ShowConnectorLines(false);` értékre mentés előtt. Ez csak a vonalak láthatóságát módosítja, nem az adatot vagy az összegeket.
 
-A mentett prezentáció a 600 bruttó nyereséget és a 450 nettó nyereséget mutatja, mindkét összeg a nulláról indul:
+A mentett prezentáció a 600 bruttó profitot és a 450 nettó profitot mutatja, mindkét összeg nulláról indul:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Vízözönt diagram, amely a bevételt, a költségeket, a 600 bruttó profitot és a 450 nettó profitot mutatja, értékcímkékkel és összekötő vonalakkal](waterfall_chart.png)
 
 ### **Részvénydiagramok létrehozása**
 
-A részvénydiagramok pénzügyi adatok, például nyitó, magas, alacsony és záróárak megjelenítésére szolgálnak, segítve a piaci trendek és volatilitás elemzését. Alapvető betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a tájékozott döntések meghozatalában.
+A részvénydiagramok pénzügyi adatok, például nyitó, legmagasabb, legalacsonyabb és záró árak megjelenítésére szolgálnak, ezáltal segítve a piaci trendek és volatilitás elemzését. Lényeges betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a tájékozott döntések meghozatalában.
 
-Ez a példa egy nyitó‑magas‑alacsony‑záró (OHLC) diagramot hoz létre négy sorozattal ebben a sorrendben, és három kategóriával. A [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) metódus engedélyezi a fel‑le sávokat, a [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) szabályozza a magas‑alacsony vonalakat, amelyek az árintervallumot mutatják, míg az egyes sorozatsorok és a kisebb vízszintes rácsvonalak rejtve maradnak.
+Ez a példa egy nyitó‑magas‑alacsony‑záró diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) metódus engedélyezi a fel/le oszlopokat, a [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) szabályozza a magas‑alacsony vonalakat, míg az egyes sorozatvonalak és a kisebb vízszintes rácsvonalak el vannak rejtve.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -820,13 +815,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The Stock chart](stock_chart.png)
+![A részvénydiagram](stock_chart.png)
 
-### **Doboz‑ és bajusz diagramok létrehozása**
+### **Doboz- és csík diagramok létrehozása**
 
-A doboz‑ és bajusz diagramok az adat eloszlását jelenítik meg, összefoglalva a kulcsfontosságú statisztikai mérőszámokat, mint a medián, kvartilisek és esetleges kiugró értékek. Különösen hasznosak felderítő adat-elemzésben és statisztikai tanulmányokban, hogy gyorsan megértsük az adatok variabilitását és az esetleges anomáliákat.
+A dobók és csík diagramok az adat eloszlását jelenítik meg kulcsfontosságú statisztikai mérőszámok (például medián, kvartilisek, lehetséges kiugró értékek) összegzésével. Különösen hasznosak az feltáró adatelemzésben és statisztikai tanulmányokban, hogy gyorsan megértsük az adat varianciáját és azonosítsuk az esetleges anomáliákat.
 
-Ez a példa hat értékkel hoz létre egy doboz‑ és bajusz diagramot. A [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) metódus az exkluzív kvartilis számítást választja. A példa továbbá engedélyezi a középértékvonalakat, középérték‑jelölőket, belső pontokat és kiugró pontokat.
+Ez a példa egy dobók‑és‑csík diagramot hoz létre hat értékkel. A [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) metódus az exkluzív kvartilis számítást választja. A példa továbbá engedélyezi az átlagvonalakat, átlagjelzőket, belső pontokat és kiugró pontokat.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -907,11 +902,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **Tölcsér diagramok létrehozása**
+### **Tölcsérdiagramok létrehozása**
 
-A tölcsér diagramokat folyamatok szekvenciális szakaszainak vizualizálására használják, ahol az adat mennyisége csökken az egyes lépések között. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
+A tölcsérdiagramok a folyamatok szekvenciális szakaszainak vizualizálására szolgálnak, ahol az adat mennyisége csökken minden egyes lépésnél. Különösen hasznosak a konverziós arányok elemzéséhez, szűk keresztmetszetek azonosításához és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követéséhez.
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódussal egy tölcsér diagramot ad az adott prezentáció első diájához. A alapértelmezett adatot hat kategóriára és 50‑től 500‑ig terjedő értékekre cseréli, majd menti a frissített prezentációt. A bemeneti prezentációnak legalább egy diával kell rendelkeznie.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy tölcsérdiagram hozzáadására egy meglévő prezentáció első diájához. Lecseréli az alapértelmezett adatokat hat kategóriára és 50‑tól 500‑ig terjedő értékekre, majd menti a frissített prezentációt. A bemeneti prezentációnak legalább egy diát kell tartalmaznia.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -986,13 +981,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The Funnel chart](funnel_chart.png)
+![A tölcsérdiagram](funnel_chart.png)
 
-### **Napfény diagramok létrehozása**
+### **Napkör diagramok létrehozása**
 
-A napfény diagramok hierarchikus adatokat jelenítenek meg, a szinteket koncentrikus gyűrűkként ábrázolva. Segítenek a rész‑egész kapcsolatok illusztrálásában, és ideálisak ágyazott kategóriák és al‑kategóriák tiszta, kompakt formában történő ábrázolására.
+A napkör diagramok hierarchikus adatok megjelenítésére szolgálnak, szintekben koncentrikus gyűrűkkel. Segítségükkel a rész‑egész viszony ábrázolható, és ideálisak a beágyazott kategóriák és alkategóriák világos, kompakt formában történő bemutatásához.
 
-Ez a példa nyolc levélből álló napfény diagramot hoz létre, négy szárra és két ágra csoportosítva. A [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus az 1‑es szintnél a szárakat, a 2‑es szintnél az ágakat rendeli. A kategóriacímkék az egyes szegmenseket azonosítják, az értékek pedig a relatív méreteket határozzák meg.
+Ez a példa egy napkör diagramot hoz létre nyolc levéllel, amelyek négy ágra és két ágra csoportosulnak. A [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus az 1. csoportosítási szinten ágról, a 2. szinten ágról gondoskodik. A kategóriacímkék az egyes szegmenseket azonosítják, az értékek pedig a relatív méretüket határozzák meg.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1095,17 +1090,17 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The Sunburst chart](sunburst_chart.png)
+![A napkör diagram](sunburst_chart.png)
 
 ### **Hisztogram diagramok létrehozása**
 
-A hisztogram diagramok megmutatják, hogyan oszlanak el a numerikus értékek intervallumok (bins) között. Havi jelentések esetén a megrendelésfeldolgozási idők esetén használjon azonos bin‑szélességet és küszöböket, hogy az intervallumok konzisztensen legyenek, és a eloszlások könnyen összehasonlíthatók legyenek.
+A hisztogram diagramok azt mutatják, hogyan oszlanak el a numerikus értékek intervallumok (bin‑ek) között. Havi jelentésekben a rendelések feldolgozási idő munkájáról használja ugyanazt a bin‑szélességet és küszöböt, így az intervallumok következetesek, és az eloszlások könnyebben összehasonlíthatók.
 
-Hívja meg a vízszintes tengelyen a [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) metódust a [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/) valamelyik módjával. A [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) csak a `ByBinWidth` esetén alkalmazható; a [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) csak a `ByNumberOfBins` esetén. Használja az `Automatic` értéket, hogy a diagram magát válassza ki a bin‑eket.
+Call the horizontal axis [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) method with a mode from [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) applies only to `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) applies only to `ByNumberOfBins`. Use `Automatic` to let the chart choose the bins.
 
-#### **Rögzített bin‑szélesség használata**
+#### **Fix bin szélesség használata**
 
-Ez a példa a feldolgozási időket 10 perces intervallumokba csoportosítja, külön bin‑ekkel a ≤10 perc és >40 perc időket. Engedélyezze ezeket a bin‑eket a [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) és a [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/) metódusokkal. Ha explicit küszöböket ad meg a [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) és a [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/) metódusokkal, hívja meg a [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) és a [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) `false` értékével.
+Ez a példa a feldolgozási időket 10 perces intervallumokba csoportosítja, különálló bin‑ekkel a 10 perc vagy annál kevesebb, illetve a 40 percnél nagyobb időkre. Engedélyezze ezeket a bin‑eket a [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) és a [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/) metódusokkal. Amikor explicit küszöböket ad meg a [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) és a [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/) segítségével, hívja meg a [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) és a [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) metódusokat `false` értékkel.
 
 ```cpp
 #include <system/array.h>
@@ -1175,13 +1170,13 @@ axis->set_OverflowBin(40);
 presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-A PowerPointban megjelenő prezentáció a bin‑számokat **3, 4, 4, 4, és 2** mutatja. Az alulfolyó bin tartalmazza a `5, 10, 10` értékeket, ezért a küszöb inkluzív. A felülfolyó bin csak a `41, 50` értékeket tartalmazza, ezért a küszöb exkluzív; a `40` értékek az előző intervallumban maradnak. A belső bin‑ek a saját alsó határuknál nagyobb, felső határuknál kisebb vagy egyenlő értékeket tartalmazzák.
+A PowerPointban megjelenő prezentáció a bin‑számokat **3, 4, 4, 4 és 2** tartalmazza. Az alulcsökkenő bin tartalmazza a `5, 10, 10` értékeket, ezért a küszöb inkluzív. A felülcsökkenő bin csak a `41, 50` értékeket tartalmazza, így a küszöb exkluzív; a `40` értékek az előző intervallumba kerülnek. A belső bin‑ek a határérték alatti értékeket nagyobb, a felső határérték alatti vagy egyenlő értékeket tartalmaznak.
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Hisztogram 10 perces bin-ekkel és explicit alul- és felülcsökkenő küszöbökkel](histogram_bin_width.png)
 
-#### **A bin‑szám megadása**
+#### **Bin számának meghatározása**
 
-Ha a részletességi szintet szeretné rögzíteni a fix intervallumok helyett, kérje ki öt bin‑t ugyanarra az adatra. Ez a példa letiltja az alul‑ és felülfolyó bin‑eket. A diagram a szélességet az adat‑tartományból számítja, ezért a határok a jelentések között változhatnak.
+Rögzített részletességi szint helyett, kérjen öt bin‑t ugyanazokra az adatokra. Ez a példa letiltja az alul‑ és felülcsökkenő bin‑eket. A diagram a szélességet az adatintervallumtól számítja ki, ezért a határok jelentésenként változhatnak.
 
 ```cpp
 #include <system/array.h>
@@ -1224,8 +1219,8 @@ auto chart = slide->get_Shapes()->AddChart(ChartType::Histogram, 20, 20, 680, 20
 chart->set_HasLegend(false);
 chart->set_HasTitle(false);
 
-chart->get_ChartData()->get_Categories()->clear();
-chart->get_ChartData()->get_Series()->clear();
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
 
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
@@ -1245,15 +1240,13 @@ axis->set_NumberOfBins(5);
 presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
 ```
 
-Az öt bin száma **4, 4, 4, 4, és 1**. Hasonlítsa össze ezt a fenti rögzített‑szélességű eredménnyel: a bemeneti értékek azonosak, de a határok eltérnek.
+Az öt bin **4, 4, 4, 4 és 1** elemet tartalmaz. Hasonlítsa össze ezt az eloszlást a fentebb bemutatott fix‑szélességű eredménnyel: a bemeneti értékek azonosak, de a határok eltérnek.
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![Hisztogram öt bin‑kel, amely ugyanazokból az adatokból számított](histogram_bin_count.png)
 
-### **Radiális diagramok létrehozása**
+### **Radar diagramok létrehozása**
 
-A radiális diagramok többváltozós adatot jelenítenek meg kétdimenziós formátumban, lehetővé téve több változó egyszerre történő összehasonlítását. Különösen hasznosak a minták, erősségek és gyengeségek azonosításában több teljesítménymutató vagy attribútum esetén.
-
-Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy radiális diagram létrehozásához az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX formátumban menti a prezentációt.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy radar diagram létrehozásához az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a bemutatót.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1287,13 +1280,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The Radar chart](radar_chart.png)
+![A radar diagram](radar_chart.png)
 
 ### **Többkategóriás diagramok létrehozása**
 
-A többkategóriás diagramok olyan adatokat jelenítenek meg, amelyek több kategória‑csoportosítást tartalmaznak, lehetővé téve az értékek több dimenzióban történő egyidejű összehasonlítását. Különösen hasznosak összetett, többrétegű adathalmazok trendjeinek és kapcsolódásainak elemzéséhez.
+A többkategóriás diagramok olyan adatokat jelenítenek meg, amelyek több kategóriacsoportot érintenek, lehetővé téve az értékek több dimenzióban történő összehasonlítását. Különösen hasznosak bonyolult, több szintű adathalmazok trendjeinek és kapcsolódásainak elemzéséhez.
 
-Ez a példa egy csoportos oszlopdiagramot hoz létre nyolc kategóriával, amelyek négy párosra rendeződnek. A [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus minden párnak közös címkét ad az 1‑es csoportosítási szinten, így a kategóriatengelyen egyaránt megjelennek az egyedi és a csoportcímkék.
+Ez a példa egy csoportos oszlopdiagramot hoz létre nyolc kategóriával, négy párosra rendezve. A [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) metódus minden párnak közös címkét ad az 1. csoportosítási szinten, így a kategóriatengely egyéni és csoportcímkéket egyaránt tartalmaz.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1388,13 +1381,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The multi category chart](multi_category_chart.png)
+![A többkategóriás diagram](multi_category_chart.png)
 
-### **Térképadagramok létrehozása**
+### **Térkép diagramok létrehozása**
 
-A térképadagramok földrajzi adatok vizualizálására szolgálnak, az információkat konkrét helyekhez – országokhoz, államokhoz vagy városokhoz – rendelve. Különösen hasznosak regionális trendek, demográfiai adatok és térbeli eloszlások elemzésére, egyértelmű és vizuálisan vonzó módon.
+A térkép diagramok földrajzi adatok vizualizálására szolgálnak, az információt konkrét helyekhez (országok, államok, városok) rendelve. Különösen hasznosak regionális trendek, demográfiai adatok és térbeli eloszlások elemzéséhez egyértelmű, vizuálisan vonzó módon.
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy térképadagram létrehozásához alapértelmezett földrajzi adatokkal, és a PowerPointban történő megtekintéshez menti.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy alapértelmezett földrajzi adatokkal ellátott térkép diagram létrehozásához, majd a PowerPointban való megtekintéshez menti.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1428,21 +1421,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 Az eredmény:
 
-![The Map chart](map_chart.png)
+![A térkép diagram](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-
-A fenti kép a PowerPointban megnyitott, elmentett prezentációt mutatja. Az Aspose.Slides helyesen írja a térképadagramot és annak adatait, de maga a diagram nem kerül megrajzolásra: amikor egy olyan diát, amely tartalmaz diagramot, képpé renderelik, PDF‑re vagy SVG‑re konvertálják, a diagram területe üres marad. A többi alakzat a dián érintetlen marad.
-
+A fenti kép a PowerPointben megnyitott mentett prezentációt mutatja. Az Aspose.Slides helyesen írja a térkép diagramot és annak adatait, de maga a térkép diagramot nem rajzolja: amikor egy ilyen diagramot tartalmazó dia képre renderelődik vagy PDF‑re vagy SVG‑re konvertálódik, a diagram területe üres marad. A többi alakzat ugyanazon a dián változatlan marad.
 {{% /alert %}}
 
 ### **Kombinációs diagramok létrehozása**
 
-A kombinációs diagram (vagy combo diagram) több diagramtípust egyesít egyetlen grafikonban. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a két vagy több adathalmaz közötti különbségeket, segítve a köztük lévő kapcsolatok azonosítását.
+A kombinációs diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen grafikában. Ez a diagram lehetővé teszi, hogy kiemelje, összehasonlítsa vagy megvizsgálja a két vagy több adathalmaz közti különbségeket, segítve a köztük lévő kapcsolatok azonosítását.
 
-![The combination chart](combination_chart.png)
+![A kombinációs diagram](combination_chart.png)
 
-Ez a példa két csoportos oszlop sorozatot kombinál egy vonal sorozattal négy kategórián keresztül. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) a vonalat a jobb oldalon lévő másodlagos függőleges tengelyre helyezi. A segédfüggvények beállítják a címet, a jelmagyarázatot, a tengelycímkéket és a rácsvonalakat.
+Ez a példa két csoportos oszlop sorozatot és egy vonal sorozatot kombinál négy kategóriában. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) a vonalat egy jobb oldali másodlagos függőleges tengelyre helyezi. A segédfüggvények konfigurálják a címet, a jelmagyarázatot, a tengelycímkéket és a rácsvonalakat.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1653,9 +1644,9 @@ ComboChartExample::CreateComboChart();
 
 ## **Diagramok frissítése**
 
-Az Aspose.Slides for C++ lehetővé teszi, hogy PowerPoint diagramokat frissítsen a diagramadatok, a formázás és a stílus módosításával. Ez a funkció egyszerűsíti a prezentációk naprakészen tartását dinamikus tartalommal, és biztosítja, hogy a diagramok pontosan tükrözzék az aktuális adatokat és vizuális szabványokat.
+Az Aspose.Slides for C++ lehetővé teszi, hogy frissítse a PowerPoint diagramokat a diagram adatainak, formázásának és stílusának módosításával. Ez a funkcionalitás leegyszerűsíti a prezentációk dinamikus tartalommal való naprakészen tartását, és biztosítja, hogy a diagramok pontosan tükrözzék a jelenlegi adatokat és vizuális szabványokat.
 
-Ez a példa frissíti a "My chart" nevű diagramot az első dián egy meglévő prezentációban. Két oszlop sorozatra van szükség, mindegyik három adatponttal, a kategóriacímkék az A oszlopban, a sorozatnevek az első munkalap első sorában. A példa a [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) metódussal módosítja a munkafüzet celláit, frissíti a sorozat értékeket, hozzáad egy harmadik sorozatot, és a diagramot csoportos henger formára változtatja a [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/) metódussal.
+Ez a példa frissíti a "My chart" nevű diagramot az első dián egy meglévő prezentációban. Két oszlop sorozatot igényel, három adatponttal mindegyikben, a kategória címkék az A oszlopban, a sorozat nevek a munkalap első sorában vannak. A példa a [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) segítségével módosítja a munkafüzet cellákat, frissíti a sorozat értékeket, hozzáad egy harmadik sorozatot, és a diagramot csoportos hengeresé alakítja át a [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/) metódussal.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1738,11 +1729,11 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 ## **Adattartomány beállítása diagramhoz**
 
-A már meglévő diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/cpp/chart-workbook/#retrieve-a-charts-data-range) oldalt.
+A meglévő diagram által már használt tartomány megtekintéséhez lásd a [Diagram adat‑tartományának lekérdezése](/slides/hu/cpp/chart-workbook/#retrieve-a-charts-data-range) című oldalt.
 
-Az Aspose.Slides for C++ rugalmasságot biztosít egy adott munkalap adatainak meghatározott tartományként való megadásához diagram adatforrásként. Ez lehetővé teszi, hogy közvetlenül egy munkalap részt leképezze a diagramra, és irányíthassa, mely cellák járulnak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja diagramjait a munkalap legújabb adatváltozásaival, biztosítva, hogy a PowerPoint prezentációk aktuális és pontos információkat tartalmazzanak.
+Az Aspose.Slides for C++ lehetővé teszi egy adott adat‑tartomány meghatározását egy munkalapról a diagram adatforrásaként. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap részletet a diagramra, így szabályozható, mely cellák járulnak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja diagramjait a munkalap legújabb adatváltozásaival, biztosítva, hogy PowerPoint prezentációi aktuális és pontos információkat tükrözzenek.
 
-Ez a példa a [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) metódust használja a "My chart" nevű diagram adatforrásának beállításához az első dián egy meglévő prezentációban a `Sheet1!A1:B4` tartományra. A diagram munkafüzetének tartalmaznia kell azt a munkalapot és egy feltöltött tartományt, ahol az első sor a sorozatfejlécek, az A oszlop a kategóriacímkék, a B oszlop három érték.
+Ez a példa a [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) segítségével állítja be a "My chart" nevű diagram adatforrását az első dián egy meglévő prezentációban a `Sheet1!A1:B4` tartományra. A diagram munkafüzete tartalmaznia kell azt a munkalapot és egy feltöltött tartományt, ahol az első sor sorozatfejléc, az A oszlop kategóriacímkék, a B oszlop három érték.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1784,11 +1775,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **Alapértelmezett jelzők használata diagramokban**
+## **Alapértelmezett jelölők használata diagramokon**
 
-Alapértelmezett jelzők használatakor a diagram sorozatai automatikusan különböző alapértelmezett jelzőszimbólumot kapnak.
+Alapértelmezett jelölők használatakor minden diagram sorozat automatikusan különböző alapértelmezett jelölőszimbólumot kap.
 
-Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) metódust használja egy diagram létrehozásához két vonal sorozattal és egy jelmagyarázattal. A [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) beállítások megtartják az automatikusan hozzárendelt jelzőszimbólumokat. Az első sorozat negatív értéket és hiányzó értéket tartalmaz (`nullptr`), míg a második minden kategóriához értéket ad.
+Ez a példa a [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) segítségével hoz létre egy diagramot két vonal sorozattal és egy jelmagyarázattal. A [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) beállításai megtartják az automatikusan hozzárendelt jelölőszimbólumokat. Az első sorozat egy negatív értéket és egy hiányzó értéket (nullptr) tartalmaz, a második minden kategóriához értéket rendel.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1874,20 +1865,20 @@ chart->get_Legend()->set_Overlay(false);
 presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-## **GYIK**
+## **GyIK**
 
-**Milyen diagramtípusok támogatottak az Aspose.Slides for C++‑ban?**
+**Milyen diagramtípusokat támogat az Aspose.Slides for C++?**
 
-Az Aspose.Slides for C++ számos diagramtípust támogat, köztük oszlop, vonal, kör, terület, pont, hisztogram, radar és sok más. Ez a rugalmasság lehetővé teszi, hogy az adatvizualizációs igényeinek legmegfelelőbb diagramtípust válassza.
+Az Aspose.Slides for C++ számos diagramtípust támogat, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és még sok más. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adatvizualizációs igényeihez.
 
-**Hogyan adhatok új diagramot egy diához?**
+**Hogyan adhatok hozzá új diagramot egy diára?**
 
-Új diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) osztály egy példányát, szerezze meg a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadásához szükséges metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül integrálja a diagramot a prezentációba.
+Új diagram hozzáadásához először létre kell hozni egy példányt a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) osztályból, le kell kérni a kívánt diát indexe alapján, majd meg kell hívni a diagram hozzáadására szolgáló metódust, megadva a diagram típust és a kezdeti adatokat. Ez a folyamat közvetlenül a diagramot integrálja a prezentációba.
 
-**Hogyan frissíthetem a diagramban megjelenített adatokat?**
+**Hogyan frissíthetem a diagramon megjelenített adatokat?**
 
-A diagram adatait a [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) elérésével, az alapértelmezett sorozatokat és kategóriákat törölve, majd saját adatait hozzáadva frissítheti. Ez lehetővé teszi, hogy programozottan frissítse a diagramot a legújabb adatokkal.
+A diagram adatait a [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) elérésével frissítheti, törölheti az alapértelmezett sorozatokat és kategóriákat, majd hozzáadhatja a saját adatát. Ez lehetővé teszi, hogy programozott módon frissítse a diagramot a legújabb adatokkal.
 
-**Lehívható-e a diagram megjelenésének testéről testre szabása?**
+**Lehetséges-e a diagram megjelenésének testreszabása?**
 
-Igen, az Aspose.Slides for C++ kiterjedt testreszabási lehetőségeket biztosít. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenését az Ön konkrét tervezési követelményeihez igazítsa.
+Igen, az Aspose.Slides for C++ kiterjedt testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenését a konkrét tervezési követelményeknek megfelelően alakítsa.

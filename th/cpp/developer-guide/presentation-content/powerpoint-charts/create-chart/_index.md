@@ -7,55 +7,53 @@ url: /th/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-- เพิ่มแผนภูมิ
-- สร้างแผนภูมิ
-- แก้ไขแผนภูมิ
-- เปลี่ยนแผนภูมิ
-- อัปเดตแผนภูมิ
-- แผนภูมิกระจาย
-- แผนภูมีพาย
-- แผนภูมิเส้น
-- แผนภูมิต้นไม้
-- แผนภูมิหุ้น
-- แผนภูมิกล่องและวิสกเกอร์
-- แผนภูมุกระบอก
-- แผนภูมิซันบัสต์
-- แผนภูมิฮิสโตแกรม
-- แผนภูมิเะรดาร์
-- แผนภูมิหลายประเภท
-- PowerPoint
-- การนำเสนอ
-- C++
-- Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ C++. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน C++."
+  - เพิ่มแผนภูมิ
+  - สร้างแผนภูมิ
+  - แก้ไขแผนภูมิ
+  - เปลี่ยนแปลงแผนภูมิ
+  - อัปเดตแผนภูมิ
+  - แผนภูมิกระจาย
+  - แผนภูมวงกลม
+  - แผนภูมิเส้น
+  - แผนภูมิต้นไม้
+  - แผนภูมหุ้น
+  - แผนภูมิกล่องและวิสเคอร์
+  - แผนภูมิกระบอก
+  - แผนภูมิ Sunburst
+  - แผนภูมิฮิสโตแกรม
+  - แผนภูมิเรดาร์
+  - แผนภูมิหลายหมวดหมู่
+  - PowerPoint
+  - การนำเสนอ
+  - C++
+  - Aspose.Slides
+description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ C++. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิโดยใช้ตัวอย่างโค้ดจริงใน C++."
 ---
 ## **ภาพรวม**
 
-บทความนี้ให้คู่มือโดยละเอียดเกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for C++. คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิลงในสไลด์โดยใช้โค้ด, เติมข้อมูลลงไป, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ ตลอดบทความ จะมีตัวอย่างโค้ดโดยละเอียดเพื่อแสดงแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และอ็อบเจ็กต์แผนภูมิ ไปจนถึงการกำหนด Series, Axis, และ Legend เป็นต้น ด้วยการทำตามคู่มือนี้ คุณจะเข้าใจอย่างถ่องแท้ว่าการผสานการสร้างแผนภูมิกระ dynamิกเข้ากับแอปพลิเคชัน C++ ของคุณอย่างไร ทำให้กระบวนการสร้างการนำเสนอที่ขับเคลื่อนด้วยข้อมูลง่ายขึ้น
+บทความนี้เป็นคู่มืออย่างครอบคลุมเกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for C++. คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิเข้าไปในสไลด์อย่างโปรแกรมเมติก, เติมข้อมูลลงในแผนภูมิ, และนำตัวเลือกการจัดรูปแบบต่าง ๆ ไปใช้เพื่อให้ตรงกับความต้องการออกแบบของคุณเอง ตลอดบทความ ตัวอย่างโค้ดโดยละเอียดจะแสดงแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และออบเจ็กต์แผนภูมิ ไปจนถึงการกำหนดค่าซีรีส์, แกน, และตำนาน (legend) ด้วยการทำตามคู่มือนี้ คุณจะได้ความเข้าใจที่มั่นคงเกี่ยวกับการบูรณาการการสร้างแผนภูมิกระทำในแอปพลิเคชัน C++ ของคุณ, ทำให้กระบวนการสร้างการนำเสนอที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายขึ้น.
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและเข้าใจข้อมูลเชิงลึกที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีท
+แผนภูมิช่วยให้ผู้คนมองเห็นข้อมูลได้อย่างรวดเร็วและได้รับข้อมูลเชิงลึกที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-ใช้แผนภูมิคุณสามารถ:
+* รวบรวม, ย่อหรือสรุปข้อมูลจำนวนมากลงในสไลด์เดียวของการนำเสนอ;
+* แสดงรูปแบบและแนวโน้มในข้อมูล;
+* สรุปทิศทางและแรงขับเคลื่อนของข้อมูลตามเวลา หรือเทียบกับหน่วยวัดเฉพาะ;
+* ระบุค่าที่เป็นข้อยกเว้น, ความผิดปกติ, ความเบี่ยงเบน, ความผิดพลาด, และข้อมูลที่ไม่มีเหตุผล;
+* สื่อสารหรือแสดงข้อมูลที่ซับซ้อน.
 
-* รวม, ย่อ, หรือสรุปข้อมูลขนาดใหญ่บนสไลด์เดียวในงานนำเสนอ
-* เปิดเผยรูปแบบและแนวโน้มของข้อมูล
-* สรุปทิศทางและความเร็วของข้อมูลตามเวลา หรือเทียบตามหน่วยวัดที่กำหนด
-* ระบุค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่มีความหมาย
-* สื่อสารหรือแสดงข้อมูลที่ซับซ้อน
-
-ใน PowerPoint คุณสามารถสร้างแผนภูมิโดยใช้ฟังก์ชัน *Insert* ซึ่งมีเท็มเพลตสำหรับออกแบบแผนภูมิต่าง ๆ ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (ตามประเภทแผนภูมิที่เป็นที่นิยม) และแผนภูกรมาตรฐานเองได้
+ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งให้เทมเพลตสำหรับการออกแบบแผนภูมิมากมายหลายประเภท การใช้ Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (อิงจากประเภทแผนภูมิที่นิยม) และแผนภูมิที่กำหนดเองได้
 
 {{% alert color="info" title="Note" %}}
-ใช้ enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ภายใต้เนมสเปซ [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
+ใช้ enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ภายใต้ namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
 {{% /alert %}}
 
-### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
+### **สร้างแผนภูมิคอลัมน์แบบจัดกลุ่ม**
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิคอลัมน์แบบกลุ่มที่เปรียบเทียบสองซีรีส์ในสามประเภท ซีรีส์ใช้สีเติมแดงและเขียว และป้ายกำกับแต่ละรายการแสดงชื่อประเภท, ชื่อซีรีส์ และค่า ดัชนี Worksheet 0 หมายถึงชีตแรกในเวิร์กบุ๊กแผนภูมิที่ฝังอยู่
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิคอลัมน์แบบจัดกลุ่มที่เปรียบเทียบสองชุดข้อมูลในสามหมวดหมู่ ชุดข้อมูลใช้สีเติมแบบสีแดงและสีเขียว, และป้ายกำกับแต่ละอันแสดงชื่อหมวดหมู่, ชื่อชุดข้อมูล, และค่า ดัชนี Worksheet 0 หมายถึงแผ่นแรกในเวิร์กบุค์แผนภูมิที่ฝังอยู่
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -165,7 +163,7 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิคอลัมน์แบบกลุ่ม](clustered_column_chart.png)
+![แผนภูมิคอลัมน์แบบจัดกลุ่ม](clustered_column_chart.png)
 
 ### **สร้างแผนภูมิกระจาย**
 
@@ -173,12 +171,12 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 ใช้แผนภูมิกระจายเมื่อ:
 
-* คุณมีข้อมูลตัวเลขเป็นคู่
-* คุณมีสองตัวแปรที่เชื่อมโยงกันดี
-* คุณต้องการตรวจสอบว่าตัวแปรสองตัวมีความสัมพันธ์หรือไม่
-* คุณมีตัวแปรอิสระที่มีค่าหลายค่าสำหรับตัวแปรตาม
+* คุณมีข้อมูลตัวเลขที่จับคู่กัน
+* คุณมีสองตัวแปรที่จับคู่กันอย่างเหมาะสม
+* คุณต้องการกำหนดว่าตัวแปรสองตัวนี้เกี่ยวข้องกันหรือไม่
+* คุณมีตัวแปรอิสระที่มีค่าหลายค่าเพื่อเป็นตัวแปรตาม
 
-ตัวอย่างนี้พล็อตค่าตั้งแต่ x‑y สองชุด ชุดแรกใช้เส้นตรงพร้อมเครื่องหมายดาว, ส่วนชุดที่สองใช้เส้นโค้งพร้อมเครื่องหมายวงกลม; ทั้งสองใช้ขนาดเครื่องหมาย 10 ซึ่งตั้งค่าผ่าน [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). วิธี [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) ควบคุมรูปแบบเครื่องหมาย
+ตัวอย่างนี้พล็อตสองชุดของค่า x‑y ชุดแรกใช้เส้นตรงพร้อมเครื่องหมายดาว, ส่วนชุดที่สองใช้เส้นโค้งพร้อมเครื่องหมายวงกลม; ทั้งสองใช้ขนาดเครื่องหมาย 10 ซึ่งตั้งค่าด้วย [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). วิธี [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) ควบคุมรูปแบบเครื่องหมาย
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -270,11 +268,11 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 ![แผนภูมิกระจาย](scatter_chart.png)
 
-### **สร้างแผนภูมิเสี้ยง (Pie) Charts**
+### **สร้างแผนภูมิวงกลม**
 
-แผนภูมิเสี้ยงเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อทั้งหมดของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายกำกับเชิงประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายกำกับจำนวนหลายส่วน อาจพิจารณาใช้แผนภูมิแท่งแทน
+แผนภูมิวงกลมเหมาะที่สุดสำหรับการแสดงความสัมพันธ์ส่วนต่อส่วนทั้งหมดของข้อมูล, โดยเฉพาะเมื่อข้อมูลมีป้ายหมวดหมู่ที่มีค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีหลายส่วนหรือหลายป้าย, คุณอาจต้องพิจารณาใช้แผนภูมิบาร์แทน
 
-ตัวอย่างนี้สร้างแผนภูมิเสี้ยงที่มีค่ากลางไตรมาสสามค่า แต่ละชิ้นมีการเติมสีและเส้นขอบแบบกำหนดเอง, ป้ายกำกับแสดงค่าต่าง ๆ, เปอร์เซ็นต์, และข้อมูลซีรีส์ วิธี [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) ตั้งให้ชิ้นแรกเริ่มต้นที่ 180 องศา
+ตัวอย่างนี้สร้างแผนภูมวงกลมด้วยค่าควอเตอร์เดือนไปสามค่า แต่ละส่วนมีการเติมสีและขอบที่กำหนดเอง, และป้ายกำกับแสดงการรวมค่าที่แตกต่างกันของค่า, เปอร์เซ็นต์, และข้อมูลชุด ใช้เมธอด [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) เพื่อให้ส่วนแรกเริ่มที่ 180 องศา
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -411,13 +409,15 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิเสี้ยง](pie_chart.png)
+![แผนภูมิวงกลม](pie_chart.png)
 
-### **สร้างแผนภูมิเส้น (Line) Charts**
+เพื่อปรับปรุงความสามารถในการอ่านของป้ายกำกับที่อยู่ด้านนอกของแผนภูมิวงกลม, ดูที่ [รูปแบบเส้นนำ](/slides/th/cpp/chart-data-label/#format-leader-lines) เพื่อดูตัวอย่างที่กำหนดตำแหน่งป้ายและปรับแต่งสี, ความกว้าง, ความโปร่งแสง, และรูปแบบของเส้น
 
-แผนภูมิเส้น (หรือที่เรียกว่า line graph) เหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วยแผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นจุดผิดปกติในซีรีส์ข้อมูล, และอื่น ๆ
+### **สร้างแผนภูมิเส้น**
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิเส้นที่มีซีรีส์และประเภทเริ่มต้น, จากนั้นบันทึกเป็นไฟล์ PPTX
+แผนภูมิเส้น (หรือที่เรียกว่า line graph) เหมาะที่สุดในสถานการณ์ที่ต้องการแสดงการเปลี่ยนแปลงค่าตามเวลา การใช้แผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากในครั้งเดียว, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, ไฮไลท์ความผิดปกติในชุดข้อมูล, และอื่น ๆ
+
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิเส้นด้วยซีรีส์และหมวดหมู่เริ่มต้น, แล้วบันทึกการนำเสนอเป็น PPTX
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +449,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นขีดให้เรียก [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) พร้อมค่าจาก [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+โดยค่าเริ่มต้น, จุดบนแผนภูมิเส้นจะถูกเชื่อมด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมด้วยเส้นประ ให้เรียกเมธอด [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) พร้อมค่าจาก [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -488,11 +488,11 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 ![แผนภูมิเส้น](line_chart.png)
 
-### **สร้างแผนภูมิต้นไม้ (Tree Map) Charts**
+### **สร้างแผนภูมิต้นไม้**
 
-แผนภูมิต้นไม้เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของประเภทข้อมูลและดึงความสนใจไปยังรายการที่มีส่วนสนับสนุนมากที่สุดในแต่ละประเภท
+แผนภูมิต้นไม้เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่เป็นผู้สนับสนุนขนาดใหญ่ในแต่ละหมวดหมู่
 
-ตัวอย่างนี้สร้างแผนภูมิต้นไม้ที่มีใบแปดใบจัดกลุ่มเป็นสเตมสี่และสาขาสองสเตม วิธี [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) กำหนดสเตมที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ค่าใช้กำหนดขนาดสี่เหลี่ยมสัมพัทธ์, ป้ายกำกับประเภทและป้ายกำกับพาเรนท์ที่ซ้อนกันระบุลำดับชั้น
+ตัวอย่างนี้สร้างแผนภูมิต้นไม้ด้วยใบแปดใบที่จัดกลุ่มเป็นสเต็มสี่และสาขาสองอัน เมธอด [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) กำหนดสเต็มที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ค่าตัดสินขนาดรูปสี่เหลี่ยมสัมพัทธ์, ป้ายหมวดหมู่และป้ายพาเรนต์ที่ซ้อนทับแสดงลำดับชั้น
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -600,24 +600,24 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 ![แผนภูมิต้นไม้](treemap_chart.png)
 
-### **สร้างแผนภูมิ Waterfall**
+### **สร้างแผนภูมือน้ำตก**
 
-แผนภูมิ Waterfall แสดงว่าการเปลี่ยนแปลงบวกและลบมีส่วนช่วยให้ได้ค่าตามผลลัพธ์สุดท้าย ตัวอย่างเช่น การสรุปกำไรอาจเริ่มจากรายได้, หักต้นทุน, แล้วบวกรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่าที่ทำงานก่อนหน้าและค่าที่ใหม่, ส่วนคอลัมน์ผลรวมจะขยายจากศูนย์ถึงค่าที่สะสม
+แผนภูมือน้ำตกแสดงว่าการเปลี่ยนแปลงบวกและลบมีส่วนช่วยให้ค่าเต็มอย่างไร ตัวอย่างเช่น การแยกกำไรอาจเริ่มจากรายได้, หักต้นทุน, แล้วเพิ่มรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่าปัจจุบันและค่าที่ใหม่, ส่วนคอลัมน์รวมจะขยายจากศูนย์ถึงค่าที่สะสม
 
-ตัวอย่างต่อไปนี้ใช้จำนวนเป็นพันดอลลาร์สหรัฐ:
+ตารางต่อไปนี้ใช้จำนวนเป็นพันดอลลาร์สหรัฐ:
 
-| ประเภท | ค่าจากเวิร์กบุ๊ก | ประเภทคอลัมน์ |
+| หมวดหมู่ | ค่าตารางงาน | ประเภทคอลัมน์ |
 | --- | ---: | --- |
-| ยอดขาย | 1000 | เพิ่ม |
-| ต้นทุนขาย | -400 | ลด |
-| กำไรขั้นต้น | 600 | ผลรวมขั้นกลาง |
+| รายได้ | 1000 | เพิ่ม |
+| ต้นทุนการขาย | -400 | ลด |
+| กำไรขั้นต้น | 600 | รวมส่วนกลาง |
 | ค่าใช้จ่ายในการดำเนินงาน | -200 | ลด |
 | รายได้อื่น | 50 | เพิ่ม |
-| กำไรสุทธิ | 450 | ผลรวมสุดท้าย |
+| กำไรสุทธิ | 450 | รวมสุดท้าย |
 
-เพื่อระบุจุดว่าเป็นผลรวมขั้นกลางหรือผลรวมสุดท้าย ให้เรียกวิธี [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) ของจุดนั้นด้วยค่า `true` แล้วใส่จำนวนที่สะสมจริงในเซลล์เวิร์กบุ๊กของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`). วิธีนี้ทำเครื่องหมายคอลัมน์ว่าเป็นผลรวม; ไม่ได้คำนวณหรือเติมค่าในเซลล์ อย่าใช้ศูนย์เป็นตัวแทนหรือใส่การเปลี่ยนแปลงอื่นสำหรับจุดผลรวม คอลัมน์ผลรวมจะแสดงค่าที่สะสมโดยไม่ต้องบวกอีกครั้งกับค่าที่ทำงานอยู่
+เพื่อทำเครื่องหมายจุดเป็นผลรวมกลางหรือสุดท้าย ให้เรียกเมธอด [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) ของจุดนั้นด้วย `true` แล้วใส่จำนวนที่สะสมจริงในเซลล์เวิร์กบุคของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`). เมธอดนี้ทำเครื่องหมายคอลัมน์ว่าเป็นผลรวม; มันไม่ได้คำนวณหรือเติมค่าในเซลล์ อย่าใช้ศูนย์เป็นตัวแทน หรือกำหนดการเปลี่ยนแปลงอื่นให้กับจุดผลรวม คอลัมน์ผลรวมจะแสดงค่าที่สะสมโดยไม่บวกอีกครั้งกับค่าที่กำลังดำเนินอยู่
 
-ตัวอย่าง C++ นี้สร้างแผนภูมิโดยใช้สมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), ล้างข้อมูลเริ่มต้น, แล้วเติมเวิร์กบุ๊กที่ฝังอยู่ ดัชนี Worksheet `0` เลือกชีตแรก; คอลัมน์ A มีชื่อประเภทและคอลัมน์ B มีค่า แต่ละเซลล์ค่าถูกเพิ่มด้วย [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). ดัชนีจุดฐานศูนย์ `2` และ `5` ระบุผลรวมขั้นกลางและผลรวมสุดท้าย การส่ง `true` ไปยัง [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) แสดงจำนวนบนคอลัมน์ ไม่จำเป็นต้องมีการนำเสนอหรือเวิร์กบุ๊กอินพุต
+ตัวอย่าง C++ นี้สร้างแผนภูมิด้วยสมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), ล้างข้อมูลเริ่มต้น, และเติมเวิร์กบุคที่ฝังอยู่ ดัชนี Worksheet `0` เลือกแผ่นงานแรก; คอลัมน์ A มีชื่อหมวดหมู่และคอลัมน์ B มีค่า แต่ละเซลค่าถูกเพิ่มด้วย [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). ดัชนีจุดที่เริ่มจากศูนย์ `2` และ `5` ระบุผลรวมกลางและสุดท้าย การส่ง `true` ไปที่เมธอด [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) แสดงจำนวนบนคอลัมน์ ไม่ต้องมีการนำเสนอหรือเวิร์กบุคต้นเข้ามา
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -691,7 +691,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// จุดที่สามและหกเป็นผลรวม ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
+// จุดที่สามและหก แสดงเป็นผลรวม ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -700,17 +700,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-เรียกวิธีระดับซีรีส์ [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) ด้วยค่า `true` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่องและทำให้ค่าที่ทำงานต่อเนื่องง่ายต่อการติดตาม หากต้องการซ่อนเส้นเหล่านี้ ให้แทนที่การกำหนดค่าในตัวอย่างด้วย `series->set_ShowConnectorLines(false);` ก่อนบันทึก ซึ่งจะเปลี่ยนแค่การมองเห็นเส้น ไม่กระทบต่อข้อมูลหรือผลรวม
+เรียกเมธอดระดับซีรีส์ [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) ด้วย `true` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่องและทำให้ค่าที่ดำเนินอยู่ติดตามได้ง่ายขึ้น หากต้องการซ่อนเส้นเหล่านี้ให้เปลี่ยนการกำหนดในตัวอย่างเป็น `series->set_ShowConnectorLines(false);` ก่อนบันทึก การเปลี่ยนแปลงนี้มีผลต่อการมองเห็นเส้นเท่านั้น ไม่กระทบต่อข้อมูลหรือผลรวม
 
-การบันทึกการนำเสนอแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450, ทั้งสองผลรวมถูกวาดจากศูนย์:
+การนำเสนอที่บันทึกแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450, ทั้งสองผลรวมเริ่มจากศูนย์:
 
-![แผนภูมิ Waterfall แสดงรายได้, ต้นทุน, กำไรขั้นต้น 600, และกำไรสุทธิ 450 พร้อมป้ายค่าและเส้นเชื่อม](waterfall_chart.png)
+![แผนภูมือน้ำตกแสดงรายได้, ต้นทุน, กำไรขั้นต้น 600, และกำไรสุทธิ 450, พร้อมป้ายค่าและเส้นเชื่อมต่อ](waterfall_chart.png)
 
-### **สร้างแผนภูมิ Stock**
+### **สร้างแผนภูมิหุ้น**
 
-แผนภูมิ Stock ใช้แสดงข้อมูลการเงินเช่น ราคาเปิด, สูง, ต่ำ, และปิด, ช่วยวิเคราะห์แนวโน้มและความผันผวนของตลาด พวกมันให้ข้อมูลเชิงลึกที่สำคัญเกี่ยวกับประสิทธิภาพของหุ้น, สนับสนุนการตัดสินใจของนักลงทุนและนักวิเคราะห์
+แผนภูมิหุ้นใช้แสดงข้อมูลการเงินเช่น ราคาเปิด, สูง, ต่ำ, ปิด, ช่วยวิเคราะห์แนวโน้มตลาดและความผันผวน ให้ข้อมูลเชิงลึกที่สำคัญต่อประสิทธิภาพของหุ้น, ช่วยนักลงทุนและนักวิเคราะห์ทำการตัดสินใจอย่างมีข้อมูล
 
-ตัวอย่างนี้สร้างแผนภูมิ open‑high‑low‑close ที่มีสี่ซีรีส์ตามลำดับและสามประเภท วิธี [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) เปิดใช้งานแถบขึ้น/ลง, และ [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) ควบคุมเส้น high‑low ที่แสดงช่วงราคา, ขณะเดียวกันเส้นซีรีส์แต่ละอันและเส้นกริดแนวนอนระดับย่อยถูกซ่อน
+ตัวอย่างนี้สร้างแผนภูมิเปิด‑สูง‑ต่ำ‑ปิดด้วยสี่ซีรีส์ตามลำดับและสามหมวดหมู่ เมธอด [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) เปิดใช้งานแถบขึ้น/ลง, และ [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) ควบคุมเส้นสูง‑ต่ำที่แสดงช่วงราคา, ในขณะที่เส้นซีรีส์แต่ละอันและเส้นกริดแนวนอนเล็กถูกซ่อน
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -818,13 +818,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิ Stock](stock_chart.png)
+![แผนภูมิหุ้น](stock_chart.png)
 
 ### **สร้างแผนภูมิ Box and Whisker**
 
-แผนภูมิ Box and Whisker ใช้แสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติหลัก เช่น ค่ากลาง, ควอร์ไทล์, และค่าเบี่ยงเบนที่อาจเป็นค่าผิดปกติ พวกมันมีประโยชน์อย่างยิ่งในการวิเคราะห์ข้อมูลสำรวจและการศึกษาเชิงสถิติ เพื่อทำความเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
+แผนภูมิ Box and Whisker ใช้แสดงการกระจายข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น ค่ากลาง, ควอไทล์, และค่าขาดออก พวกมันมีประโยชน์อย่างยิ่งในการวิเคราะห์สำรวจข้อมูลและการศึกษาเชิงสถิติ เพื่อให้เข้าใจความแปรปรวนของข้อมูลและระบุข้อผิดปกติได้อย่างรวดเร็ว
 
-ตัวอย่างนี้สร้างแผนภูมิ Box and Whisker จากห้าค่าตัวอย่าง วิธี [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) เลือกการคำนวณควอร์ไทล์แบบ exclusive ตัวอย่างยังเปิดใช้เส้นค่าเฉลี่ย, เครื่องหมายค่าเฉลี่ย, จุดภายใน, และจุดเบี่ยงเบน
+ตัวอย่างนี้สร้างแผนภูมิ Box and Whisker จากหกค่า เมธอด [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) เลือกการคำนวณควอไทล์แบบ exclusive ตัวอย่างยังเปิดใช้งานเส้นค่าเฉลี่ย, สัญลักษณ์ค่าเฉลี่ย, จุดภายใน, และจุดขาดออก
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -907,9 +907,9 @@ presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 
 ### **สร้างแผนภูมิ Funnel**
 
-แผนภูมิ Funnel ใช้แสดงกระบวนการที่มีขั้นตอนต่อเนื่อง, โดยปริมาณข้อมูลจะลดลงตามขั้นตอน ตัวอย่างนี้มีประโยชน์สำหรับการวิเคราะห์อัตราการแปลง, การระบุคอขวด, และการติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
+แผนภูมิ Funnel ใช้แสดงกระบวนการที่มีขั้นตอนต่อเนื่อง โดยปริมาณข้อมูลจะลดลงเมื่อดำเนินจากขั้นตอนหนึ่งไปยังขั้นตอนต่อไป เหมาะอย่างยิ่งสำหรับการวิเคราะห์อัตราการเปลี่ยนแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อเพิ่มแผนภูมิ Funnel ไปยังสไลด์แรกของการนำเสนอที่มีอยู่แล้ว แทนที่ข้อมูลเริ่มต้นด้วยห้าประเภทและค่าตั้งแต่ 50 ถึง 500, แล้วบันทึกการนำเสนอที่อัปเดต การนำเสนออินพุตต้องมีอย่างน้อยหนึ่งสไลด์
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อเพิ่มแผนภูมิ Funnel ไปยังสไลด์แรกของการนำเสนอที่มีอยู่ มันแทนที่ข้อมูลเริ่มต้นด้วยหกหมวดหมู่และค่าตั้งแต่ 50 ถึง 500, จากนั้นบันทึกการนำเสนอที่อัปเดต การนำเข้าต้องมีสไลด์อย่างน้อยหนึ่งสไลด์
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -984,13 +984,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิ Funnel](funnel_chart.png)
+![แผนภูมิกระบอก](funnel_chart.png)
 
 ### **สร้างแผนภูมิ Sunburst**
 
-แผนภูมิ Sunburst ใช้แสดงข้อมูลเชิงลำดับชั้นโดยแสดงระดับเป็นวงวงกลมรอบศูนย์ ช่วยแสดงความสัมพันธ์ส่วนต่อทั้งหมดและเหมาะสำหรับการแทนประเภทและหมวดหมู่ย่อยในรูปแบบที่ชัดเจนและกระชับ
+แผนภูมิ Sunburst ใช้แสดงข้อมูลเชิงลำดับขั้น, แสดงระดับเป็นวงแหวนศูนย์กลางซ้อนกัน ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนทั้งหมดและเหมาะสำหรับการแสดงหมวดหมู่และหมวดย่อยที่ซ้อนกันในรูปแบบที่ชัดเจนและกะทัดรัด
 
-ตัวอย่างนี้สร้างแผนภูมิ Sunburst ที่มีใบแปดใบจัดกลุ่มเป็นสเตมสี่และสาขาสองสเตม วิธี [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) กำหนดสเตมที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ป้ายกำกับประเภทบ่งบอกส่วนต่าง ๆ, ส่วนค่ากำหนดขนาดสัมพัทธ์ของแต่ละส่วน
+ตัวอย่างนี้สร้างแผนภูมิ Sunburst ด้วยใบแปดใบที่จัดกลุ่มเป็นสเต็มสี่และสาขาสองอัน เมธอด [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) กำหนดสเต็มที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ป้ายหมวดหมู่ระบุส่วน, ค่าตัดสินขนาดสัมพัทธ์
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1095,15 +1095,15 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 ![แผนภูมิ Sunburst](sunburst_chart.png)
 
-### **สร้างแผนภูมิ Histogram**
+### **สร้างแผนภูมิฮิสโตแกรม**
 
-แผนภูมิ Histogram แสดงการกระจายของค่าตัวเลขตามช่วง (bin) สำหรับรายงานประจำเดือนเกี่ยวกับเวลาในการดำเนินการสั่งซื้อ ใช้ความกว้าง bin และเกณฑ์เดียวกันเพื่อให้ช่วงคงที่และทำให้การเปรียบเทียบการกระจายง่ายขึ้น
+แผนภูมิฮิสโตแกรมแสดงการกระจายของค่าตัวเลขตามช่วง (bins) สำหรับรายงานประจำเดือนเกี่ยวกับเวลาประมวลผลคำสั่งซื้อ ให้ใช้ความกว้างของ bin และเกณฑ์เดียวกันเพื่อให้ช่วงคงที่และทำให้การเปรียบเทียบการกระจายง่ายขึ้น
 
-เรียกวิธีแกนแนวนอน [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) พร้อมโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) ใช้เฉพาะกับ `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) ใช้เฉพาะกับ `ByNumberOfBins`. ใช้ `Automatic` เพื่อให้แผนภูมิตัดสินใจเลือก bin
+เรียกเมธอดแนวนอนของแกน [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) ด้วยโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/) [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) ใช้เฉพาะกับ `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) ใช้เฉพาะกับ `ByNumberOfBins` ใช้ `Automatic` ให้แผนภูมิกำหนด bin เอง
 
 #### **ใช้ความกว้าง Bin คงที่**
 
-ตัวอย่างนี้จัดกลุ่มเวลาในการประมวลผลเป็นช่วง 10 นาที, โดยมี bin แยกสำหรับเวลาที่ ≤ 10 นาทีและ > 40 นาที เปิดใช้งาน bin เหล่านี้ด้วย [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) และ [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). เมื่อตั้งค่าเกณฑ์โดยตรงผ่าน [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) และ [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), เรียก [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) และ [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) ด้วยค่า `false`
+ตัวอย่างนี้จัดกลุ่มเวลาประมวลผลเป็นช่วง 10‑นาที, มี bin แยกสำหรับเวลาที่ ≤10 นาทีและ >40 นาที เปิดใช้งาน bin เหล่านี้ด้วย [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) และ [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/) เมื่อระบุเกณฑ์โดยตรงผ่าน [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) และ [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), เรียก [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) และ [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) ด้วย `false`
 
 ```cpp
 #include <system/array.h>
@@ -1173,13 +1173,13 @@ axis->set_OverflowBin(40);
 presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-งานนำเสนอที่แสดงใน PowerPoint มีจำนวน bin **3, 4, 4, 4, และ 2**. bin underflow รวม `5, 10, 10`, ดังนั้นเกณฑ์เป็น inclusive. bin overflow มีเพียง `41, 50`, ดังนั้นเกณฑ์เป็น exclusive; ค่าที่เท่ากับ `40` ยังคงอยู่ในช่วงก่อนหน้า. bin ภายในมีค่ามากกว่าเขตล่างและน้อยกว่าหรือเท่ากับเขตบน
+การนำเสนอที่แสดงใน PowerPoint แสดงจำนวน Bin คือ **3, 4, 4, 4, และ 2**. Bin underflow รวม `5, 10, 10`, ดังนั้นเกณฑ์เป็น inclusive. Bin overflow มีเพียง `41, 50`, ดังนั้นเกณฑ์เป็น exclusive; ค่า `40` จะอยู่ในช่วงก่อนหน้า. Bin ภายในมีค่าใหญ่กว่าขอบล่างและไม่เกินขอบบน
 
-![Histogram ด้วย bin 10‑minute และเกณฑ์ underflow/overflow ที่กำหนดเอง](histogram_bin_width.png)
+![ฮิสโตแกรมที่มี Bin ความยาว 10 นาทีและเกณฑ์ underflow และ overflow ที่ระบุ](histogram_bin_width.png)
 
 #### **ระบุจำนวน Bin**
 
-หากต้องการระดับรายละเอียดคงที่แทนช่วงคงที่ ให้กำหนดจำนวน bin เป็นห้า สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิดการใช้งาน bin underflow และ overflow แผนภูมิจะคำนวณความกว้างจากช่วงข้อมูล ดังนั้นขอบเขตอาจเปลี่ยนระหว่างรายงาน
+สำหรับระดับรายละเอียดคงที่แทนช่วงคงที่ ให้ขอ 5 bin สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิดใช้งาน bin underflow และ overflow แผนภูมิกำหนดความกว้างจากช่วงข้อมูล, ดังนั้นขอบอาจเปลี่ยนระหว่างรายงาน
 
 ```cpp
 #include <system/array.h>
@@ -1243,15 +1243,15 @@ axis->set_NumberOfBins(5);
 presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
 ```
 
-ห้าขั้นตอนมีจำนวน **4, 4, 4, 4, และ 1**. เปรียบเทียบการกระจายนี้กับผลลัพธ์ความกว้างคงที่ด้านบน: ค่าตัวแปรอินพุตเหมือนกัน แต่ขอบเขตต่างกัน
+ห้า bin มีจำนวนเป็น **4, 4, 4, 4, และ 1**. เปรียบเทียบการกระจายนี้กับผลลัพธ์ความกว้างคงที่ด้านบน: ค่าข้อมูลเท่ากัน, แต่ขอบต่างกัน
 
-![Histogram ด้วยห้าขั้นตอนที่คำนวณจากข้อมูลเดียวกัน](histogram_bin_count.png)
+![ฮิสโตแกรมที่มี 5 Bin คำนวณจากข้อมูลเดียวกัน](histogram_bin_count.png)
 
 ### **สร้างแผนภูมิ Radar**
 
-แผนภูมิ Radar ใช้แสดงข้อมูลหลายมิติในรูปแบบสองมิติ ทำให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย เหมาะสำหรับการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในหลายเมตริกหรือคุณลักษณะ
+แผนภูมิ Radar ใช้แสดงข้อมูลหลายมิติในรูปแบบสองมิติ, ช่วยให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย พวกมันมีประโยชน์ในการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในหลายเมตริกหรือคุณลักษณะ
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิ Radar ที่มีซีรีส์และประเภทเริ่มต้น, แล้วบันทึกเป็นไฟล์ PPTX
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิ Radar ด้วยซีรีส์และหมวดหมู่เริ่มต้น, แล้วบันทึกการนำเสนอเป็น PPTX
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1287,11 +1287,11 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 ![แผนภูมิ Radar](radar_chart.png)
 
-### **สร้างแผนภูมิ Multi-Category**
+### **สร้างแผนภูมิหลายหมวดหมู่**
 
-แผนภูมิ Multi-Category ใช้แสดงข้อมูลที่มีการจัดกลุ่มประเภทหลายระดับ, ช่วยให้เปรียบเทียบค่าข้ามมิติหลาย ๆ อย่างพร้อมกัน มีประโยชน์เมื่อคุณต้องวิเคราะห์แนวโน้มและความสัมพันธ์ภายในชุดข้อมูลหลายชั้น
+แผนภูมิหลายหมวดหมู่ใช้แสดงข้อมูลที่มีการจัดกลุ่มตามหมวดหมู่หลายชุด, ช่วยให้เปรียบเทียบค่าข้ามมิติหลายมิติพร้อมกัน เหมาะเมื่อคุณต้องวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลหลายชั้น
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีแปดประเภทจัดเป็นสี่คู่ วิธี [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ให้แต่ละคู่มีป้ายร่วมที่ระดับการจัดกลุ่ม 1 ทำให้แกนประเภทมีทั้งป้ายเดี่ยวและป้ายกลุ่ม
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบจัดกลุ่มด้วยหมวดหมู่แปดหมวดจัดเป็นสี่คู่ เมธอด [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ให้แต่ละคู่มีป้ายร่วมที่ระดับการจัดกลุ่ม 1 ผลลัพธ์เป็นแกนหมวดหมู่ที่มีป้ายแบบเดี่ยวและแบบกลุ่ม
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1386,13 +1386,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิ Multi-Category](multi_category_chart.png)
+![แผนภูมิหลายหมวดหมู่](multi_category_chart.png)
 
-### **สร้างแผนภูมิ Map**
+### **สร้างแผนภูมิแผนที่**
 
-แผนภูมิ Map ใช้แสดงข้อมูลทางภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง มีประโยชน์สำหรับการวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและน่าดึงดูด
+แผนภูมิแผนที่ใช้แสดงข้อมูลเชิงภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะเช่น ประเทศ, รัฐ, หรือเมือง มีประโยชน์ในการวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่อย่างชัดเจนและดึงดูด
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิ Map ด้วยข้อมูลภูมิศาสตร์เริ่มต้นแล้วบันทึกเพื่อดูใน PowerPoint
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิแผนที่ด้วยข้อมูลภูมิศาสตร์เริ่มต้นและบันทึกเพื่อดูใน PowerPoint
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1426,19 +1426,19 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิ Map](map_chart.png)
+![แผนภูมิแผนที่](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-ภาพด้านบนแสดงการเปิดการนำเสนอที่บันทึกไว้ใน PowerPoint Aspose.Slides เขียนแผนภูมิ Map และข้อมูลของมันอย่างถูกต้อง, แต่ไม่ได้วาดแผนภูมิ Map ด้วยตนเอง: เมื่อสไลด์ที่มีแผนภูมิ Map ถูกเรนเดอร์เป็นภาพหรือแปลงเป็น PDF หรือ SVG พื้นที่แผนภูมิจะเป็นสีว่าง รูปทรงอื่น ๆ บนสไลด์เดียวกันไม่ได้รับผลกระทบ
+รูปภาพด้านบนแสดงการเปิดการนำเสนอที่บันทึกแล้วใน PowerPoint Aspose.Slides เขียนแผนภูมิแผนที่และข้อมูลอย่างถูกต้อง, แต่ไม่วาดแผนภูมิแผนที่เอง: เมื่อสไลด์ที่มีแผนภูมินั้นเรนเดอร์เป็นรูปภาพหรือแปลงเป็น PDF หรือ SVG, พื้นที่แผนภูมิจะแสดงเป็นช่องว่าง รูปทรงอื่นบนสไลด์เดียวกันไม่ถูกกระทบ
 {{% /alert %}}
 
-### **สร้างแผนภูมิ Combination**
+### **สร้างแผนภูมิผสม**
 
-แผนภูมิ Combination (หรือ combo chart) รวมสองหรือมากกว่าประเภทแผนภูมิในกราฟเดียว ช่วยให้คุณเน้น, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุด, ช่วยระบุความสัมพันธ์ระหว่างพวกมัน
+แผนภูมิผสม (หรือ combo chart) ผสานประเภทแผนภูมิสองหรือหลายประเภทในกราฟเดียว ช่วยให้คุณไฮไลท์, เปรียบเทียบ, หรือตรวจสอบความแตกต่างระหว่างชุดข้อมูลสองชุดขึ้นไป, เพื่อระบุความสัมพันธ์ระหว่างกัน
 
-![แผนภูมิ Combination](combination_chart.png)
+![แผนภูมิผสม](combination_chart.png)
 
-ตัวอย่างนี้รวมสองซีรีส์คอลัมน์แบบกลุ่มกับซีรีส์เส้นบนสี่ประเภท คอลัมน์ใช้แกนแนวตั้งหลัก, ส่วน [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) วางเส้นบนแกนแนวตั้งรองด้านขวา ฟังก์ชันช่วยกำหนดชื่่อ, คำอธิบาย, ป้ายแกน, และเส้นตาราง
+ตัวอย่างนี้ผสานสองซีรีส์คอลัมน์จัดกลุ่มกับซีรีส์เส้นในสี่หมวดหมู่ คอลัมน์ใช้แกนแนวตั้งหลัก, ส่วนเส้นวางบนแกนแนวตั้งรองด้านขวาโดยใช้เมธอด [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) ฟังก์ชันช่วยกำหนดหัวเรื่อง, ชุดอธิบาย, ป้ายแกน, และเส้นกริด
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1649,9 +1649,9 @@ ComboChartExample::CreateComboChart();
 
 ## **อัปเดตแผนภูมิ**
 
-Aspose.Slides for C++ ช่วยให้คุณอัปเดตแผนภูมิ PowerPoint ได้โดยการแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ การทำเช่นนี้ทำให้การรักษาการนำเสนอให้เป็นปัจจุบันด้วยเนื้อหาแบบไดนามิกง่ายขึ้นและทำให้แผนภูมิสะท้อนข้อมูลและมาตรฐานภาพที่เป็นปัจจุบันอย่างแม่นยำ
+Aspose.Slides for C++ ให้คุณอัปเดตแผนภูมิ PowerPoint โดยแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ การทำเช่นนี้ช่วยให้การอัปเดตการนำเสนอด้วยเนื้อหาแบบไดนามิกง่ายขึ้นและทำให้แผนภูมสะท้อนข้อมูลและมาตรฐานภาพล่าสุดอย่างแม่นยำ
 
-ตัวอย่างนี้อัปเดตแผนภูมิที่ชื่อ “My chart” บนสไลด์แรกของการนำเสนอที่มีอยู่ ต้องการสองซีรีส์คอลัมน์ที่มีจุดข้อมูลสามจุดแต่ละจุด, ป้ายประเภทในคอลัมน์ A และชื่อซีรีส์ในแถวแรกของชีตแรก ตัวอย่างใช้ [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) เพื่อเปลี่ยนเซลล์เวิร์กบุ๊ก, อัปเดตค่าซีรีส์, เพิ่มซีรีส์ที่สาม, และเปลี่ยนแผนภูมิเป็นเซลลี่ทรงกระบอกแบบกลุ่มผ่าน [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/)
+ตัวอย่างนี้อัปเดตแผนภูมิชื่อ “My chart” บนสไลด์แรกของการนำเข้าที่มีอยู่ ต้องมีสองซีรีส์คอลัมน์แต่ละซีรีส์มีจุดข้อมูลสามจุด, ป้ายหมวดหมู่อยู่ในคอลัมน์ A และชื่อซีรีส์ในแถวแรกของเวิร์กชีตแรก ตัวอย่างใช้ [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) เพื่อเปลี่ยนเซลล์เวิร์กบุค, อัปเดตค่าซีรีส์, เพิ่มซีรีส์ที่สาม, และเปลี่ยนประเภทแผนภูมิเป็น clustered cylinders ผ่าน [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/)
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1732,13 +1732,13 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 ```
 
-## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ**
+## **ตั้งค่าช่วงข้อมูลสำหรับแผนภูมิ**
 
-เพื่อดูช่วงที่ใช้โดยแผนภูมิที่มีอยู่ ให้ดูที่ [Retrieve a Chart's Data Range](/slides/th/cpp/chart-workbook/#retrieve-a-charts-data-range).
+เพื่อดูช่วงข้อมูลที่ถูกใช้โดยแผนภูมิที่มีอยู่แล้ว, ดูที่ [ดึงข้อมูลช่วงของแผนภูมิ](/slides/th/cpp/chart-workbook/#retrieve-a-charts-data-range)
 
-Aspose.Slides for C++ ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจาก Worksheet เป็นแหล่งข้อมูลสำหรับแผนภูมิของคุณ ซึ่งหมายความว่าคุณสามารถแมปส่วนของ Worksheet ไปยังแผนภูมิได้โดยตรง, ควบคุมว่าเซลล์ใดมีส่วนร่วมในซีรีส์และประเภทของแผนภูมิ ผลลัพธ์คือคุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดใน Worksheet ได้ง่าย ๆ เพื่อให้การนำเสนอ PowerPoint ของคุณสะท้อนข้อมูลที่เป็นปัจจุบันและแม่นยำ
+Aspose.Slides for C++ ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจากเวิร์กชีตเป็นแหล่งข้อมูลของแผนภูมิ นั่นหมายความว่าคุณสามารถแมปส่วนหนึ่งของเวิร์กชีตไปยังแผนภูมิได้โดยตรง, ควบคุมเซลล์ใดบ้างที่มีส่วนร่วมในซีรีส์และหมวดหมู่ของแผนภูมิ ผลที่ได้คุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดในเวิร์กชีตได้อย่างง่ายดาย, ทำให้การนำเสนอ PowerPoint ของคุณสะท้อนข้อมูลที่เป็นปัจจุบันและถูกต้อง
 
-ตัวอย่างนี้ใช้ [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) เพื่อตั้งค่าแหล่งข้อมูลของแผนภูมิที่ชื่อ “My chart” บนสไลด์แรกของการนำเสนอที่มีอยู่เป็น `Sheet1!A1:B4`. เวิร์กบุ๊กของแผนภูมิต้องมีชีตนั้นและช่วงข้อมูลที่เต็มที่มีหัวเรื่องซีรีส์ในแถวแรก, ป้ายประเภทในคอลัมน์ A, และค่าสามค่าในคอลัมน์ B
+ตัวอย่างนี้ใช้ [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) เพื่อตั้งค่าแหล่งข้อมูลของแผนภูมิชื่อ “My chart” บนสไลด์แรกของการนำเข้าที่มีอยู่เป็น `Sheet1!A1:B4`. แผนภูมิเวิร์กบุคต้องมีแผ่นงานนั้นและช่วงที่มีหัวข้อซีรีส์ในแถวแรก, ป้ายหมวดหมู่ในคอลัมน์ A, และค่าสามค่าในคอลัมน์ B
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1782,9 +1782,9 @@ presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 
 ## **ใช้ Marker เริ่มต้นในแผนภูมิ**
 
-เมื่อใช้ Marker เริ่มต้นในแผนภูมิ, แต่ละซีรีส์ของแผนภูมิจะได้รับสัญลักษณ์ Marker เริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
+เมื่อคุณใช้ Marker เริ่มต้นในแผนภูมิ, แต่ละซีรีส์ของแผนภูมิจะได้รับสัญลักษณ์ Marker เริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิที่มีสองซีรีส์เส้นและ legend การตั้งค่า [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) รักษาสัญลักษณ์ Marker ที่กำหนดอัตโนมัติ ซีรีส์แรกมีค่าติดลบและค่าที่หายไป (แทนด้วย `nullptr`), ส่วนซีรีส์ที่สองมีค่าทุกประเภท
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิที่มีสองซีรีส์เส้นและตำนาน การตั้งค่า [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) เก็บสัญลักษณ์ Marker ที่กำหนดโดยอัตโนมัติ ซีรีส์แรกมีค่าติดลบและค่าที่หายไป (`nullptr`), ส่วนซีรีส์ที่สองมีค่าในทุกหมวดหมู่
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1870,20 +1870,20 @@ chart->get_Legend()->set_Overlay(false);
 presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**แผนภูมิประเภทใดบ้างที่สนับสนุนโดย Aspose.Slides for C++?**
+**ประเภทแผนภูมิที่รองรับโดย Aspose.Slides for C++ มีอะไรบ้าง?**
 
-Aspose.Slides for C++ รองรับแผนภูมิหลายประเภท รวมถึง bar, line, pie, area, scatter, histogram, radar, และอื่น ๆ อีกมากมาย ความยืดหยุ่นนี้ช่วยให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงผลข้อมูลของคุณที่สุด
+Aspose.Slides for C++ รองรับประเภทแผนภูมิที่หลากหลายรวมถึง แบร์, เส้น, วงกลม, พื้นที่, กระจาย, ฮิสโตแกรม, เรดาร์, และอื่น ๆ อีกมาก ความยืดหยุ่นนี้ทำให้คุณเลือกประเภทแผนภูมิที่เหมาะสมที่สุดสำหรับความต้องการการแสดงผลข้อมูลของคุณ
 
-**ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์อย่างไร?**
+**ฉันจะเพิ่มแผนภูมิใหม่ในสไลด์อย่างไร?**
 
-เพื่อเพิ่มแผนภูมิ, ก่อนอื่นต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), ดึงสไลด์ที่ต้องการโดยใช้ดัชนี, แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ, ระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะผสานแผนภูมิเข้ากับการนำเสนอของคุณโดยตรง
+เพื่อเพิ่มแผนภูมิ, คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation) ก่อน, ดึงสไลด์ที่ต้องการโดยใช้ดัชนี, แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ พร้อมระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้รวมแผนภูมิเข้าไปในการนำเสนอของคุณโดยตรง
 
-**ฉันสามารถอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
+**ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), ลบซีรีส์และประเภทเริ่มต้นที่มีอยู่, แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ วิธีนี้ช่วยให้คุณรีเฟรชแผนภูมิด้วยข้อมูลล่าสุดได้โดยอัตโนมัติ
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุคข้อมูลของมัน ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), ล้างซีรีส์และหมวดหมู่เริ่มต้น, จากนั้นเพิ่มข้อมูลที่กำหนดเอง วิธีนี้ให้คุณรีเฟรชแผนภูมิโดยโปรแกรมเมติกเพื่อแสดงข้อมูลล่าสุด
 
-**สามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
+**สามารถปรับแต่งรูปลักษณ์ของแผนภูมิได้หรือไม่?**
 
-ใช่, Aspose.Slides for C++ มีตัวเลือกการปรับแต่งอย่างกว้างขวาง คุณสามารถแก้ไขสี, ฟอนต์, ป้าย, legend, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการออกแบบของคุณอย่างเฉพาะเจาะจง
+ได้, Aspose.Slides for C++ มีตัวเลือกการปรับแต่งอย่างกว้างขวาง คุณสามารถแก้ไขสี, ฟอนต์, ป้าย, ตำนาน, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิเป็นไปตามความต้องการออกแบบเฉพาะของคุณ

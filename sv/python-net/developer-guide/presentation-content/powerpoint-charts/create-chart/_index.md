@@ -1,5 +1,5 @@
 ---
-title: Skapa eller uppdatera PowerPoint-presentationdiagram i Python
+title: Skapa eller uppdatera PowerPoint‑presentationdiagram i Python
 linktitle: Skapa eller uppdatera diagram
 type: docs
 weight: 10
@@ -15,43 +15,45 @@ keywords:
 - linjediagram
 - trädkartsdiagram
 - aktiediagram
-- låddiagram
+- låda‑och‑viskardiagram
 - trattdiagram
-- solrosdiagram
+- solstråle‑diagram
 - histogramdiagram
 - radardiagram
-- multikategoridiagram
+- flerkategori‑diagram
 - PowerPoint
 - presentation
 - Python
 - Aspose.Slides
-description: Skapa och anpassa diagram i PowerPoint-presentationer med Aspose.Slides för Python via .NET. Lägg till, formatera och redigera diagram med praktiska kodexempel i Python.
+description: "Skapa och anpassa diagram i PowerPoint‑presentationer med Aspose.Slides för Python via .NET. Lägg till, formatera och redigera diagram med praktiska kodexempel i Python."
 ---
 ## **Översikt**
 
-Den här artikeln ger en omfattande guide om hur du skapar och anpassar diagram med Aspose.Slides för Python via .NET. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustrerar detaljerade kodexempel varje steg, från att initiera presentationen och diagramobjektet till att konfigurera serier, axlar och förklaringar. Genom att följa den här guiden får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina Python‑applikationer, vilket förenklar processen att skapa datadrivna presentationer.
+Denna artikel ger en omfattande guide om hur du skapar och anpassar diagram med Aspose.Slides for Python via .NET. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustrerar detaljerade kodexempel varje steg, från initiering av presentationen och diagramobjektet till konfiguration av serier, axlar och förklaringar. Genom att följa denna guide får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina Python‑applikationer och förenklar processen att skapa datadrivna presentationer.
 
 ## **Skapa ett diagram**
 
-Diagram hjälper människor att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller kalkylblad.
+Diagram hjälper personer att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller ett kalkylblad.
 
 **Varför skapa diagram?**
 
-* samla, komprimera eller sammanfatta stora mängder data på en enda bild i en presentation;
-* visa mönster och trender i data;
-* härleda riktning och momentum för data över tid eller i förhållande till en specifik mätenhet;
-* identifiera avvikande värden, avvikelser, fel och osammanhängande data;
+Genom att använda diagram kan du:
+
+* aggregera, kondensera eller sammanfatta stora mängder data på en enda bild i en presentation;
+* avslöja mönster och trender i data;
+* avgöra riktning och momentum för data över tid eller i förhållande till en specifik mätenhet;
+* identifiera avvikelser, avvikelser, fel och meningslösa data;
 * kommunicera eller presentera komplex data.
 
-I PowerPoint kan du skapa diagram via *Insert*-funktionen, som erbjuder mallar för att designa många typer av diagram. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
+I PowerPoint kan du skapa diagram via *Insert*-funktionen, som erbjuder mallar för att designa många diagramtyper. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
 
 {{% alert color="info" title="Note" %}}
-Använd uppräkningen [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) under modulen [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Värdena i denna uppräkning motsvarar olika diagramtyper.
+Använd [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)‑enumerationen under [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/)‑modulen. Värdena i denna enumeration motsvarar olika diagramtyper.
 {{% /alert %}}
 
-### **Skapa klustrade kolumndiagram**
+### **Skapa grupperade kolumndiagram**
 
-Detta exempel använder [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att skapa ett klustrat kolumndiagram som jämför två serier över tre kategorier. Serierna använder röd och grön fyllning, och enskilda etiketter visar kategorinamnen, serienamnen och värdena. Kalkylbladsindex 0 hänvisar till det första bladet i den inbäddade diagramarbetsboken.
+Detta exempel använder [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att skapa ett grupperat kolumndiagram som jämför två serier över tre kategorier. Serierna använder röd och grön färg, och individuella etiketter visar kategorinamn, serienamn och värden. Arbetsboksindex 0 hänvisar till det första bladet i den inbäddade diagramarbetsboken.
 
 ```python
 import aspose.pydrawing as draw
@@ -130,16 +132,16 @@ Resultatet:
 
 ### **Skapa spridningsdiagram**
 
-Spridningsdiagram (även kända som spridningsplottar eller x‑y‑grafer) används ofta för att kontrollera mönster eller demonstrera korrelationer mellan två variabler.
+Spridningsdiagram (även kallade scatter plots eller x‑y‑grafer) används ofta för att kontrollera mönster eller demonstrera korrelationer mellan två variabler.
 
 Använd ett spridningsdiagram när:
 
-* Du har parade numeriska data.
-* Du har två variabler som passar bra ihop.
-* Du vill avgöra om de två variablerna är relaterade.
-* Du har en oberoende variabel som har flera värden för en beroende variabel.
+* du har parade numeriska data;
+* du har två variabler som passar bra ihop;
+* du vill avgöra om de två variablerna är relaterade;
+* du har en oberoende variabel som har flera värden för en beroende variabel.
 
-Detta exempel ritar två uppsättningar av x‑y‑värden. Den första serien använder raka linjer med stjärnmarkörer, medan den andra använder släta linjer med cirkelmarkörer; båda använder en [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) på 10. Egenskapen [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) styr markeringsformen.
+Detta exempel ritar två uppsättningar x‑y‑värden. Den första serien använder raka linjer med stjärnmarkörer, medan den andra använder släta linjer med cirkelmarkörer; båda använder en [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) på 10. [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/)‑egenskapen styr markörens form.
 
 ```python
 import aspose.slides as slides
@@ -205,9 +207,9 @@ Resultatet:
 
 ### **Skapa cirkeldiagram**
 
-Cirkeldiagram används bäst för att visa del‑till‑helhet‑förhållandet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om dina data däremot innehåller många delar eller etiketter kan det vara bättre att använda ett stapeldiagram istället.
+Cirkeldiagram är bäst för att visa del‑till‑hel-relationer i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om dina data innehåller många delar eller etiketter kan ett stapeldiagram vara ett bättre alternativ.
 
-Detta exempel skapar ett cirkeldiagram med tre kvartalsvärden. Varje segment har en anpassad fyllning och kant, och etiketterna visar olika kombinationer av värden, procentandelar och serieinformation. Egenskapen [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) anger att det första segmentet startar vid 180 grader.
+Detta exempel skapar ett cirkeldiagram med tre kvartalsvärden. Varje segment har en anpassad fyllning och ram, och etiketterna visar olika kombinationer av värden, procentsatser och serieinformation. [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/)‑egenskapen sätter den första biten att börja vid 180 grader.
 
 ```python
 import aspose.pydrawing as draw
@@ -304,9 +306,11 @@ Resultatet:
 
 ![The Pie chart](pie_chart.png)
 
+För att förbättra läsbarheten för etiketter utanför cirkeln, se [Format Leader Lines](/slides/sv/python-net/chart-data-label/#format-leader-lines) för ett exempel som positionerar etiketter och anpassar linjernas färg, bredd, transparens och streckstil.
+
 ### **Skapa linjediagram**
 
-Linjediagram (även kända som linjegrafer) används bäst i situationer där du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra stora mängder data på en gång, spåra förändringar och trender över tid, markera avvikelser i dataserier och mer.
+Linjediagram (även kallade linjediagram) är bäst i situationer där du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra stora mängder data samtidigt, spåra förändringar och trender över tid, markera avvikelser i dataserier och mer.
 
 Detta exempel använder [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att skapa ett linjediagram med standardserier och -kategorier, och sparar sedan presentationen som PPTX.
 
@@ -322,7 +326,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Som standard förenas punkter i ett linjediagram med raka kontinuerliga linjer. Om du vill att punkterna ska länkas med streck istället, sätt [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) till ett värde från [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
+Som standard förenas punkter i ett linjediagram med raka, kontinuerliga linjer. Om du vill att punkterna ska förenas med streck, ställ in [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) till ett värde från [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
@@ -343,9 +347,9 @@ Resultatet:
 
 ### **Skapa trädkartsdiagram**
 
-Trädkartsdiagram är bäst lämpade för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt rikta uppmärksamhet till de poster som är stora bidragsgivare inom varje kategori.
+Trädkartsdiagram är bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt dra uppmärksamhet till de poster som är stora bidragsgivare i varje kategori.
 
-Detta exempel skapar ett trädkartsdiagram med åtta blad grupperade i fyra stammar och två grenar. Metoden [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) tilldelar stammar på gruppering nivå 1 och grenar på nivå 2. Värdena bestämmer de relativa rektangelstorlekarna, medan kategori‑etiketter och överlappande föräldraetiketter identifierar hierarkin.
+Detta exempel skapar ett trädkartsdiagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) tilldelar stammar på grupperingnivå 1 och grenar på nivå 2. Värdena bestämmer de relativa rektangelstorlekarna, medan kategorietiketter och överlappande föräldratiketter identifierar hierarkin.
 
 ```python
 import aspose.slides as slides
@@ -424,20 +428,22 @@ Resultatet:
 
 ### **Skapa vattenfallsdiagram**
 
-Vattenfallsdiagram visar hur positiva och negativa förändringar bidrar till ett slutvärde. Till exempel kan en vinstuppdelning börja med intäkter, subtrahera kostnader och lägga till annan inkomst. Ändringskolumner svävar mellan föregående och nya löpande värden, medan total‑kolumner sträcker sig från noll till det ackumulerade värdet.
+Ett vattenfallsdiagram visar hur positiva och negativa förändringar bidrar till ett slutvärde. Till exempel kan en vinstuppdelning börja med intäkter, dra av kostnader och lägga till annan inkomst. Ändringskolumner svävar mellan föregående och nya löpande värden, medan totalsummakolumner sträcker sig från noll till det ackumulerade värdet.
 
-| Kategori | Arbetsboksvärde | Kolumntyp |
+Följande exempel använder belopp i tusentals amerikanska dollar:
+
+| Kategori | Arbetsbokvärde | Kolumntyp |
 | --- | ---: | --- |
-| Intäkter | 1000 | Ökning |
-| Försäljningskostnad | -400 | Minskning |
-| Bruttoresultat | 600 | Mellanliggande total |
-| Driftskostnader | -200 | Minskning |
-| Övriga intäkter | 50 | Ökning |
-| Nettoresultat | 450 | Slutlig total |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-För att markera en punkt som en mellanliggande eller slutlig total, sätt dess [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/)‑egenskap till `True`. Ange det faktiska ackumulerade beloppet i punktens arbetsbokscell: `600` för bruttoresultat (`1000 - 400`) och `450` för nettoresultat (`600 - 200 + 50`). Egenskapen markerar kolumnen som en total; den beräknar eller fyller inte i cellvärdet. Använd inte noll som platshållare eller ange en annan förändring för en totalpunkt. En total‑kolumn visar det ackumulerade värdet utan att lägga till det igen till det löpande värdet.
+För att markera en punkt som ett mellantotal eller slutligt total, sätt dess [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/)‑egenskap till `True`. Ange det faktiska ackumulerade beloppet i den punktens arbetsbokscell: `600` för bruttoresultat (`1000 - 400`) och `450` för nettovinst (`600 - 200 + 50`). Egenskapen markerar kolumnen som ett total, den beräknar eller fyller inte i cellvärdet. Använd inte noll som platshållare eller ange en annan förändring för en totalpunkt. En totalkolumn visar det ackumulerade värdet utan att lägga till det igen i det löpande värdet.
 
-Detta kompletta C#‑exempel skapar ett diagram med `Waterfall`‑medlemmen i [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), rensar standarddata och fyller den inbäddade arbetsboken. Kalkylbladsindex `0` väljer det första kalkylbladet; kolumn A innehåller kategorinamnen och kolumn B innehåller värdena. Varje värdecell läggs till med [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). De nollbaserade punktindexen `2` och `5` identifierar de mellanliggande respektive slutliga totalerna. Aktivering av [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) visar beloppen på kolumnerna. Ingen inmatningspresentation eller arbetsbok krävs.
+Detta kompletta C#‑exempel skapar ett diagram med `Waterfall`‑medlemmen av [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), rensar standarddata och fyller den inbäddade arbetsboken. Arbetsboksindex `0` väljer det första bladet; kolumn A innehåller kategorinamnen och kolumn B innehåller värdena. Varje värdecell läggs till med [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). De nollbaserade punktindexen `2` och `5` identifierar respektive mellantotal och slutligt total. Aktivering av [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) visar beloppen på kolumnerna. Ingen inmatningspresentation eller arbetsbok krävs.
 
 ```python
 import aspose.slides as slides
@@ -481,17 +487,17 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sätt den serienivå‑[show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/)‑egenskapen till `True` för att visa linjer som länkar på varandra följande kolumner och göra det löpande värdet lättare att följa. För att dölja dessa linjer, ersätt tilldelningen i exemplet med `series.show_connector_lines = False` innan du sparar. Detta ändrar endast linjernas synlighet, inte data eller totaler.
+Ställ in serie‑nivåns [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/)‑egenskap till `True` för att visa linjer som länkar på varandra följande kolumner och underlätta spårning av det löpande värdet. För att dölja dessa linjer, ersätt tilldelningen i exemplet med `series.show_connector_lines = False` innan du sparar. Detta förändrar endast linjens synlighet, inte data eller totaler.
 
-Den sparade presentationen visar bruttoresultat på 600 och nettoresultat på 450, med båda totalerna ritade från noll:
+Den sparade presentationen visar bruttoresultat 600 och nettovinst 450, med båda totalerna ritade från noll:
 
 ![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
 ### **Skapa aktiediagram**
 
-Aktiediagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta- och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De erbjuder viktig insikt i aktieprestanda och underlättar för investerare och analytiker att fatta välgrundade beslut.
+Aktiediagram används för att visa finansiella data såsom öppnings‑, högsta‑, lägsta‑ och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De ger viktig insikt i aktiens prestanda och stödjer investerare och analytiker i att fatta informerade beslut.
 
-Detta exempel skapar ett öppnings‑högsta‑lägsta‑stängningsdiagram med fyra serier i den ordningen och tre kategorier. Egenskapen [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) aktiverar upp/ner‑staplar, och [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) styr hög‑läg‑linjerna som visar prisintervallen, medan de enskilda serielinjerna och de mindre horisontella rutnätslinjerna är dolda.
+Detta exempel skapar ett öppna‑höga‑låga‑stänga‑diagram med fyra serier i den ordningen och tre kategorier. Egenskapen [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) aktiverar upp/ner‑staplar, och [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) styr hög‑läg‑linjerna som visar prisintervallen, medan de enskilda serielinjerna och mindre horisontella rutnätslinjer är dolda.
 
 ```python
 import aspose.slides as slides
@@ -567,11 +573,11 @@ Resultatet:
 
 ![The Stock chart](stock_chart.png)
 
-### **Skapa låddiagram och whisker-diagram**
+### **Skapa låda‑och‑viskardiagram**
 
-Låddiagram och whisker-diagram används för att visa fördelningen av data genom att sammanfatta nyckelstatistiska mått, såsom median, kvartiler och potentiella avvikelser. De är särskilt användbara i utforskande dataanalys och statistiska studier för snabbt att förstå datavariabilitet och identifiera avvikelser.
+Låda‑och‑viskardiagram används för att visa fördelningen av data genom att sammanfatta nyckelstatistiska mått såsom median, kvartiler och potentiella avvikelser. De är särskilt användbara i utforskande dataanalys och statistiska studier för snabbt förstå datavariabilitet och identifiera anomalier.
 
-Detta exempel skapar ett låddiagram och whisker-diagram från sex värden. Egenskapen [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) väljer den exklusiva kvartilberäkningen. Exemplet aktiverar även medellinjer, medelmarkörer, inre punkter och avvikelsepunkter.
+Detta exempel skapar ett låda‑och‑viskardiagram från sex värden. Egenskapen [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) väljer exklusiv kvartilberäkning. Exemplet aktiverar också medellinjer, medelmarkörer, interna punkter och avvikelsepunkter.
 
 ```python
 import aspose.slides as slides
@@ -627,7 +633,7 @@ with slides.Presentation() as presentation:
 
 ### **Skapa trattdiagram**
 
-Trattdiagram används för att visualisera processer som involverar sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och spåra effektiviteten i försäljnings‑ eller marknadsföringsprocesser.
+Trattdiagram används för att visualisera processer som involverar sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsfrekvens, identifiera flaskhalsar och följa effektiviteten i försäljnings‑ eller marknadsföringsprocesser.
 
 Detta exempel använder [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att lägga till ett trattdiagram på den första bilden i en befintlig presentation. Det ersätter standarddata med sex kategorier och värden från 50 till 500, och sparar sedan den uppdaterade presentationen. Inmatningspresentationen måste innehålla minst en bild.
 
@@ -681,11 +687,11 @@ Resultatet:
 
 ![The Funnel chart](funnel_chart.png)
 
-### **Skapa solrosdiagram**
+### **Skapa solstråle‑diagram**
 
-Solrosdiagram används för att visualisera hierarkisk data, där nivåerna visas som koncentriska ringar. De hjälper till att illustrera del‑till‑helhet‑relationer och är idealiska för att representera inbäddade kategorier och underkategorier i ett tydligt, kompakt format.
+Solstråle‑diagram används för att visualisera hierarkisk data, där nivåer visas som koncentriska ringar. De hjälper till att illustrera del‑till‑hel‑relationer och är idealiska för att representera inbäddade kategorier och underkategorier i ett tydligt, kompakt format.
 
-Detta exempel skapar ett solrosdiagram med åtta blad grupperade i fyra stammar och två grenar. Metoden [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) tilldelar stammar på gruppering nivå 1 och grenar på nivå 2. Kategori‑etiketter identifierar segmenten, och värdena bestämmer deras relativa storlek.
+Detta exempel skapar ett solstråle‑diagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) tilldelar stammar på grupperingnivå 1 och grenar på nivå 2. Kategorietiketter identifierar segmenten, och värdena bestämmer deras relativa storlek.
 
 ```python
 import aspose.slides as slides
@@ -762,13 +768,13 @@ Resultatet:
 
 ### **Skapa histogramdiagram**
 
-Histogramdiagram visar hur numeriska värden är fördelade över intervall (bins). För månatliga rapporter om orderbehandlingstider, använd samma intervallbredd och tröskelvärden för att hålla intervallen konsekventa och göra fördelningarna enklare att jämföra.
+Histogramdiagram visar hur numeriska värden fördelas över intervall (bin). För månadsrapporter om orderbehandlingstider, använd samma bin‑bredd och trösklar för att hålla intervallen konsistenta och göra fördelningar enklare att jämföra.
 
-Ställ in den horisontella axelns [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) till ett läge från [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) gäller endast för `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) gäller endast för `BY_NUMBER_OF_BINS`. Använd `AUTOMATIC` för att låta diagrammet välja intervallen.
+Ställ in den horisontella axelns [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) till ett läge från [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) gäller endast för `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) gäller endast för `BY_NUMBER_OF_BINS`. Använd `AUTOMATIC` för att låta diagrammet välja binen.
 
-#### **Använd en fast intervallbredd**
+#### **Använd en fast bin‑bredd**
 
-Detta exempel grupperar bearbetningstider i 10‑minutersintervall, med separata intervall för tider på eller under 10 minuter och över 40 minuter. Aktivera dessa intervall med [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) och [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). När du anger explicita [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/)‑ och [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/)‑trösklar, sätt [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) och [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) till `False`.
+Detta exempel grupperar behandlingstider i 10‑minutersintervall, med separata bin för tider ≤ 10 minuter och > 40 minuter. Aktivera dessa bin med [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) och [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). När du anger explicita [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/)‑ och [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/)‑trösklar, sätt [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) och [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) till `False`.
 
 ```python
 import aspose.slides as slides
@@ -807,13 +813,13 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Presentationen som visas i PowerPoint har stapelantal **3, 4, 4, 4 och 2**. Underflödesintervallen inkluderar `5, 10, 10`, så dess tröskel är inklusiv. Överflödesintervallen inkluderar endast `41, 50`, så dess tröskel är exklusiv; båda värdena lika med `40` förblir i föregående intervall. De inre intervallen innehåller värden som är större än deras nedre gräns och mindre än eller lika med deras övre gräns.
+Presentation som visas i PowerPoint har bin‑antal **3, 4, 4, 4, och 2**. Under‑bin inkluderar `5, 10, 10`, så dess tröskel är inklusiv. Över‑bin inkluderar endast `41, 50`, så dess tröskel är exklusiv; båda värdena `40` förblir i föregående intervall. De inre binen innehåller värden större än deras nedre gräns och mindre än eller lika med deras övre gräns.
 
 ![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Specificera antalet intervaller**
+#### **Ange antal bin**
 
-För en fast detaljnivå i stället för fasta intervall, begär fem intervaller för samma data. Detta exempel lämnar under‑ och överflödesintervall inaktiverade. Diagrammet bestämmer bredden utifrån dataintervallet, så gränserna kan förändras mellan rapporter.
+För en fast detaljnivå i stället för fasta intervall, begär fem bin för samma data. Detta exempel har under‑ och över‑bin inaktiverade. Diagrammet bestämmer bredden från dataområdet, så gränserna kan förändras mellan rapporter.
 
 ```python
 import aspose.slides as slides
@@ -846,7 +852,7 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De fem intervallerna har antal **4, 4, 4, 4 och 1**. Jämför denna fördelning med resultatet för fast bredd ovan: indata är identiska, men gränserna skiljer sig.
+De fem bin har antal **4, 4, 4, 4, och 1**. Jämför denna fördelning med resultatet för fast bredd ovan: indata är identiska, men gränserna skiljer sig.
 
 ![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
@@ -872,11 +878,11 @@ Resultatet:
 
 ![The Radar chart](radar_chart.png)
 
-### **Skapa multikategoridiagram**
+### **Skapa flerkategori‑diagram**
 
-Multikategoridiagram används för att visa data som involverar mer än en kategorisk gruppering, vilket gör det möjligt att jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och relationer i komplexa, lagerförda dataset.
+Flerkategori‑diagram används för att visa data som involverar mer än en kategorisk gruppering, så att du kan jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och samband i komplexa, flerskiktsdatamängder.
 
-Detta exempel skapar ett klustrat kolumndiagram med åtta kategorier arrangerade i fyra par. Metoden [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) ger varje par en gemensam etikett på gruppering nivå 1, vilket ger en kategori‑axel med både individuella och gruppetiketter.
+Detta exempel skapar ett grupperat kolumndiagram med åtta kategorier arrangerade i fyra par. Metoden [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) ger varje par en gemensam etikett på grupperingnivå 1, vilket ger en kategori‑axel med både individuella och gruppetiketter.
 
 ```python
 import aspose.slides as slides
@@ -948,9 +954,9 @@ Resultatet:
 
 ### **Skapa kartdiagram**
 
-Kartdiagram används för att visualisera geografisk data genom att mappa information till specifika platser såsom länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografisk data och rumsfördelningar på ett tydligt, visuellt engagerande sätt.
+Kartdiagram används för att visualisera geografisk data genom att mappa information till specifika platser såsom länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografisk data och rumsliga fördelningar på ett tydligt, visuellt engagerande sätt.
 
-Detta exempel använder [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att skapa ett kartdiagram med standard geografisk data och sparar det för visning i PowerPoint.
+Detta exempel använder [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att skapa ett kartdiagram med standardgeografisk data och sparar det för visning i PowerPoint.
 
 ```python
 import aspose.slides as slides
@@ -969,16 +975,16 @@ Resultatet:
 ![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Bilden ovan visar den sparade presentationen öppnad i PowerPoint. Aspose.Slides skriver kartdiagrammet och dess data korrekt, men ritar inte själva kartdiagrammen: när en bild som innehåller ett sådant renderas till en bild eller konverteras till PDF eller SVG, blir diagramområdet tomt. Andra former på samma bild påverkas inte.
+Bilden ovan visar den sparade presentationen öppnad i PowerPoint. Aspose.Slides skriver kartdiagrammet och dess data korrekt, men ritar inte själva kartdiagrammen: när en bild som innehåller ett sådant renderas till en bild eller konverteras till PDF eller SVG blir diagramområdet tomt. Andra former på samma bild påverkas inte.
 {{% /alert %}}
 
 ### **Skapa kombinationsdiagram**
 
-Ett kombinationsdiagram (eller kombodiagram) kombinerar två eller flera diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler dataset, vilket hjälper dig att identifiera relationer mellan dem.
+Ett kombinationsdiagram (eller combo‑diagram) kombinerar två eller fler diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler datamängder, vilket hjälper dig att identifiera relationer mellan dem.
 
 ![The combination chart](combination_chart.png)
 
-Detta exempel kombinerar två klustrade kolumnserier med en linjeserie över fyra kategorier. Kolumnerna använder den primära vertikala axeln, medan [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) placerar linjen på en sekundär vertikal axel till höger. Hjälpfunktionerna konfigurerar titel, legend, axelrubriker och rutnätslinjer.
+Detta exempel kombinerar två grupperade kolumnserier med en linjeserie över fyra kategorier. Kolumnerna använder den primära vertikala axeln, medan [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) placerar linjen på en sekundär vertikal axel till höger. Hjälpfunktionerna konfigurerar titel, förklaring, axelrubriker och rutnätslinjer.
 
 ```python
 import aspose.pydrawing as draw
@@ -1126,9 +1132,9 @@ create_combo_chart()
 
 ## **Uppdatera diagram**
 
-Aspose.Slides för Python via .NET möjliggör att du uppdaterar PowerPoint‑diagram genom att ändra diagramdata, formatering och stil. Denna funktionalitet förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagram exakt speglar aktuella data och visuella standarder.
+Aspose.Slides for Python via .NET möjliggör att du uppdaterar PowerPoint‑diagram genom att modifiera diagramdata, formatering och styling. Denna funktionalitet förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagram korrekt återspeglar aktuella data och visuella standarder.
 
-Detta exempel uppdaterar diagrammet med namnet "My chart" på den första bilden i en befintlig presentation. Det kräver två kolumnserier med tre datapunkter vardera, med kategori‑etiketter i kolumn A och serienamn i den första raden i det första kalkylbladet. Exemplet använder [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) för att ändra arbetsboksceller, uppdaterar serievärden, lägger till en tredje serie och ändrar diagrammet till klustrade cylindrar via [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
+Detta exempel uppdaterar diagrammet med namnet "My chart" på den första bilden i en befintlig presentation. Det kräver två kolumnserier med tre datapunkter vardera, med kategorietiketter i kolumn A och serienamn i den första raden i det första arbetsbladet. Exemplet använder [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) för att ändra arbetsboksceller, uppdaterar seriervärden, lägger till en tredje serie och ändrar diagrammet till grupperade cylindrar via [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
 
 ```python
 import aspose.slides as slides
@@ -1178,13 +1184,13 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("AsposeChartModified.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ange dataintervall för ett diagram**
+## **Ställ in dataintervall för ett diagram**
 
 För att inspektera intervallet som redan används av ett befintligt diagram, se [Retrieve a Chart's Data Range](/slides/sv/python-net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides för Python via .NET erbjuder flexibiliteten att definiera ett specifikt dataintervall från ett kalkylblad som källa för ditt diagramdata. Detta innebär att du kan kartlägga en del av ditt kalkylblad direkt till diagrammet, vilket låter dig kontrollera vilka celler som bidrar till diagrammets serier och kategorier. Som ett resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataväxlingarna i ditt kalkylblad, så att dina PowerPoint‑presentationer återspeglar aktuell och korrekt information.
+Aspose.Slides for Python via .NET ger flexibiliteten att definiera ett specifikt dataintervall från ett arbetsblad som källa för ditt diagramdata. Detta innebär att du direkt kan mappa en del av ditt arbetsblad till diagrammet, vilket låter dig kontrollera vilka celler som bidrar till diagrammets serier och kategorier. Som resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataändringarna i ditt arbetsblad, vilket säkerställer att dina PowerPoint‑presentationer reflekterar aktuell och korrekt information.
 
-Detta exempel använder [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) för att sätta datakällan för diagrammet med namnet "My chart" på den första bilden i en befintlig presentation till `Sheet1!A1:B4`. Diagramarbetsboken måste innehålla det bladet och ett fyllt intervall med en serierubrik i den första raden, kategori‑etiketter i kolumn A och tre värden i kolumn B.
+Detta exempel använder [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) för att sätta datakällan för diagrammet med namnet "My chart" på den första bilden i en befintlig presentation till `Sheet1!A1:B4`. Diagramarbetsboken måste innehålla det bladet och ett befolkat intervall med en serie‑rubrik i den första raden, kategorietiketter i kolumn A och tre värden i kolumn B.
 
 ```python
 import aspose.slides as slides
@@ -1207,7 +1213,7 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 När du använder standardmarkörer i diagram får varje diagramserie automatiskt en annan standardmarkörsymbol.
 
-Detta exempel använder [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att skapa ett diagram med två linjeserier och en legend. [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/)‑inställningarna behåller de automatiskt tilldelade markörsymbolerna. Den första serien inkluderar ett negativt värde och ett saknat värde, representerat av `None`, medan den andra har ett värde för varje kategori.
+Detta exempel använder [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) för att skapa ett diagram med två linjeserier och en förklaring. [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/)‑inställningarna behåller de automatiskt tilldelade markörsymbolerna. Den första serien inkluderar ett negativt värde och ett saknat värde, representerat av `None`, medan den andra har ett värde för varje kategori.
 
 ```python
 import aspose.slides as slides
@@ -1264,20 +1270,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Vilka diagramtyper stöds av Aspose.Slides för Python via .NET?**
+**Vilka diagramtyper stöds av Aspose.Slides for Python via .NET?**
 
-Aspose.Slides för Python via .NET stöder ett brett utbud av diagramtyper, inklusive stapel, linje, cirkel, område, spridning, histogram, radar och många fler. Denna flexibilitet låter dig välja den mest lämpliga diagramtypen för dina data‑visualiseringsbehov.
+Aspose.Slides for Python via .NET stöder ett brett utbud av diagramtyper, inklusive stapel, linje, cirkel, område, spridning, histogram, radar och många fler. Denna flexibilitet låter dig välja den mest lämpliga diagramtypen för dina datavisualiseringsbehov.
 
 **Hur lägger jag till ett nytt diagram på en bild?**
 
-För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), hämtar den önskade bilden via dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtypen och initiala data. Detta integrerar diagrammet direkt i din presentation.
+För att lägga till ett diagram skapar du först en instans av [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-klassen, hämtar den önskade bilden med dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtypen och initiala data. Denna process integrerar diagrammet direkt i din presentation.
 
-**Hur kan jag uppdatera de data som visas i ett diagram?**
+**Hur kan jag uppdatera data som visas i ett diagram?**
 
-Du kan uppdatera ett diagramdata genom att komma åt dess dataarbok ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), rensa eventuella standardserier och -kategorier, och sedan lägga till dina egna data. Detta gör det möjligt att programatiskt uppdatera diagrammet så att det speglar de senaste data.
+Du kan uppdatera ett diagrams data genom att komma åt dess dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), rensa eventuella standardserier och -kategorier och sedan lägga till dina egna data. Detta möjliggör att programatiskt uppdatera diagrammet så att det speglar de senaste data.
 
 **Är det möjligt att anpassa diagrammets utseende?**
 
-Ja, Aspose.Slides för Python via .NET erbjuder omfattande anpassningsalternativ. Du kan förändra färger, teckensnitt, etiketter, legender och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.
+Ja, Aspose.Slides for Python via .NET erbjuder omfattande anpassningsalternativ. Du kan ändra färger, typsnitt, etiketter, förklaringar och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.

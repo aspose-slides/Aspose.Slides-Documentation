@@ -7,22 +7,22 @@ url: /sv/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-- lägga till diagram
+- lägg till diagram
 - skapa diagram
 - redigera diagram
 - ändra diagram
 - uppdatera diagram
-- spridd diagram
+- spridningsdiagram
 - cirkeldiagram
 - linjediagram
-- trädkartdiagram
+- trädkartsdiagram
 - aktiediagram
 - låda-och-whisker-diagram
 - trattdiagram
-- sol-och-stråldsdiagram
+- sol-och-stjärndiagram
 - histogramdiagram
 - radardiagram
-- multikategoridiagram
+- multikategori-diagram
 - PowerPoint
 - presentation
 - C++
@@ -31,33 +31,33 @@ description: "Skapa och anpassa diagram i PowerPoint-presentationer med Aspose.S
 ---
 ## **Översikt**
 
-Detta artikel ger en fullständig guide för hur du skapar och anpassar diagram med Aspose.Slides för C++. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustreras varje steg med detaljerade kodexempel, från initiering av presentationen och diagramobjektet till konfiguration av serier, axlar och förklaringar. Genom att följa guiden får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina C++‑applikationer och förenklar processen att skapa datadrivna presentationer.
+Den här artikeln ger en omfattande guide för hur du skapar och anpassar diagram med Aspose.Slides för C++. Du kommer att lära dig hur du programmässigt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att passa dina specifika designkrav. Genom hela artikeln illustreras varje steg med detaljerade kodexempel, från att initiera presentationen och diagramobjektet till att konfigurera serier, axlar och förklaringar. Genom att följa den här guiden får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina C++‑applikationer och förenklar processen att skapa datadrivna presentationer.
 
 ## **Skapa ett diagram**
 
-Diagram hjälper människor att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller kalkylark.
+Diagram hjälper människor att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller ett kalkylblad.
 
 **Varför skapa diagram?**
 
 Med diagram kan du:
 
-* samla, komprimera eller sammanfatta stora mängder data på en enda bild i en presentation;
+* sammanfatta, kondensera eller komprimera stora mängder data på en enda bild i en presentation;
 * avslöja mönster och trender i data;
-* dra slutsatser om riktning och momentum i data över tid eller i förhållande till en specifik mätenhet;
-* identifiera avvikande värden, avvikelser, fel och meningslösa data;
-* kommunicera eller presentera komplex data.
+* härleda riktning och momentum för data över tid eller i förhållande till en specifik mätenhet;
+* upptäcka avvikande värden, avvikelser, fel och meningslösa data;
+* kommunicera eller presentera komplexa data.
 
-I PowerPoint kan du skapa diagram via funktionen *Insert*, som erbjuder mallar för många diagramtyper. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
+I PowerPoint kan du skapa diagram via *Infoga*-funktionen, som erbjuder mallar för att designa många olika diagramtyper. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
 
 {{% alert color="info" title="Note" %}}
 
-Använd [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/)‑uppräkningen under namnrymden [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Värdena i denna uppräkning motsvarar olika diagramtyper.
+Use the [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) enumeration under the [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
 
 {{% /alert %}}
 
-### **Skapa gruppera stapeldiagram**
+### **Skapa grupperade stapeldiagram**
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) för att skapa ett gruppera stapeldiagram som jämför två serier över tre kategorier. Serierna använder röd respektive grön fyllning, och individuella etiketter visar kategorinamnen, serienamnen och värdena. Arbetsboksindex 0 avser det första bladet i den inbäddade diagramarboken.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) för att skapa ett grupperat stapeldiagram som jämför två serier över tre kategorier. Serierna använder röd respektive grön fyllning, och enskilda etiketter visar kategorinamn, serienamn och värden. Arbetsbladsindex 0 hänvisar till det första bladet i det inbäddade diagramarbetsboken.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -167,20 +167,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Det gruppera stapeldiagrammet](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Skapa spridningsdiagram**
+### **Skapa spriddiagram**
 
-Spridningsdiagram (även kallade scatter plots eller x‑y‑grafer) används ofta för att söka efter mönster eller demonstrera korrelationer mellan två variabler.
+Spriddiagram (även kallade spridningsdiagram eller x‑y‑grafer) används ofta för att kontrollera mönster eller demonstrera korrelationer mellan två variabler.
 
-Använd ett spridningsdiagram när:
+Använd ett spriddiagram när:
 
 * du har parade numeriska data;
 * du har två variabler som passar bra ihop;
 * du vill avgöra om de två variablerna är relaterade;
 * du har en oberoende variabel som har flera värden för en beroende variabel.
 
-Detta exempel ritar två uppsättningar x‑y‑värden. Den första serien använder raka linjer med stjärnmarkörer, medan den andra använder släta linjer med cirkelmarkörer; båda har en markörstorlek på 10, satt med [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Metoden [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) styr markörformen.
+Detta exempel ritar två uppsättningar x‑y‑värden. Den första serien använder raka linjer med stjärnmarkörer, medan den andra använder mjuka linjer med cirkelmarkörer; båda har en markörstorlek på 10, satt med [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Metoden [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) styr markörens form.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -270,13 +270,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Spridningsdiagrammet](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Skapa cirkeldiagram**
 
-Cirkeldiagram är bäst för att visa förhållandet del‑till‑helhet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om din data innehåller många delar eller etiketter kan ett stapeldiagram vara ett bättre alternativ.
+Cirkeldiagram används bäst för att visa förhållandet del‑till‑helhet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om dina data innehåller många delar eller etiketter kan ett stapeldiagram vara ett bättre alternativ.
 
-Detta exempel skapar ett cirkeldiagram med tre kvartalsvärden. Varje segment har en anpassad fyllning och kant, och etiketterna visar olika kombinationer av värden, procentsatser och serieinformation. Metoden [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) sätter den första sektorn att börja vid 180 grader.
+Detta exempel skapar ett cirkeldiagram med tre kvartalsvärden. Varje segment har en anpassad fyllning och kant, och etiketterna visar olika kombinationer av värden, procentsatser och serieinformation. Metoden [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) anger att den första sektorn ska starta vid 180 grader.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -413,11 +413,13 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Cirkeldiagrammet](pie_chart.png)
+![The Pie chart](pie_chart.png)
+
+För att förbättra läsbarheten för etiketter utanför cirkeln, se [Format Leader Lines](/slides/sv/cpp/chart-data-label/#format-leader-lines) för ett exempel som placerar etiketter och anpassar linjernas färg, bredd, transparens och streckstil.
 
 ### **Skapa linjediagram**
 
-Linjediagram (även kallade linjediagram) är bäst när du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra stora mängder data samtidigt, följa förändringar och trender över tid, markera avvikelser i dataserier och mer.
+Linjediagram (även kallade linjediagram) är bäst i situationer där du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra stora mängder data samtidigt, spåra förändringar och trender över tid, markera avvikelser i dataserier och mer.
 
 Detta exempel använder [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) för att skapa ett linjediagram med standardserier och -kategorier, och sparar sedan presentationen som PPTX.
 
@@ -451,7 +453,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Som standard förenas punkterna i ett linjediagram med raka kontinuerliga linjer. Om du vill att punkterna ska förenas med streck, anropa [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) med ett värde från [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+Som standard förenas punkter i ett linjediagram med raka kontinuerliga linjer. Om du vill att punkterna ska förenas med streck, anropa [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) med ett värde från [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -488,13 +490,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 Resultatet:
 
-![Linjediagrammet](line_chart.png)
+![The Line chart](line_chart.png)
 
 ### **Skapa trädkartsdiagram**
 
-Trädkartsdiagram är bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt rikta uppmärksamheten mot de poster som är stora bidragsgivare inom varje kategori.
+Trädkartsdiagram är bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt rikta uppmärksamheten mot poster som är stora bidragsgivare inom varje kategori.
 
-Detta exempel skapar ett trädkartsdiagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) tilldelar stammar på grupperingnivå 1 och grenar på nivå 2. Värdena bestämmer de relativa rektangelstorlekarna, medan kategorietiketter och överlappande överordnade etiketter identifierar hierarkin.
+Detta exempel skapar ett trädkartsdiagram med åtta blad grupperade i fyra stammar och två grenar. Metoden [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) tilldelar stammar på gruppering nivå 1 och grenar på nivå 2. Värdena bestämmer de relativa rektangelstorlekarna, medan kategorietiketter och överlappande föräldratiketter identifierar hierarkin.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -600,26 +602,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Trädkartsdiagrammet](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Skapa waterfall‑diagram**
+### **Skapa vattenfallsdiagram**
 
-Ett waterfall‑diagram visar hur positiva och negativa förändringar bidrar till ett slutvärde. Till exempel kan en vinstuppdelning börja med intäkter, dra av kostnader och lägga till annan inkomst. Ändringskolumner svävar mellan föregående och nya löpande värden, medan total­kolumner sträcker sig från noll till det ackumulerade värdet.
+Ett vattenfallsdiagram visar hur positiva och negativa förändringar bidrar till ett slutvärde. Till exempel kan en vinstuppdelning börja med intäkter, dra av kostnader och lägga till annan inkomst. Ändringskolumner svävar mellan föregående och nytt löpande värde, medan totalkolumner sträcker sig från noll till det ackumulerade värdet.
 
-Följande exempel använder belopp i tusental amerikanska dollar:
+Följande exempel använder belopp i tusentals amerikanska dollar:
 
-| Kategori | Arbetsboksvärde | Kolumntyp |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| Intäkter | 1000 | Ökning |
-| Kostnad för sålda varor | -400 | Minskning |
-| Bruttoresultat | 600 | Mellantotal |
-| Driftskostnader | -200 | Minskning |
-| Övriga intäkter | 50 | Ökning |
-| Nettovinst | 450 | Sluttotal |
+| Intäkter | 1000 | Increase |
+| Kostnad för sålda varor | -400 | Decrease |
+| Bruttoresultat | 600 | Intermediate total |
+| Driftskostnader | -200 | Decrease |
+| Övriga intäkter | 50 | Increase |
+| Nettoresultat | 450 | Final total |
 
-För att markera en punkt som mellantotal eller sluttotal, anropa dess [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/)‑metod med `true`. Ange det faktiska ackumulerade beloppet i den punktens arbetsboks­cell: `600` för bruttoresultat (`1000 - 400`) och `450` för nettovinst (`600 - 200 + 50`). Metoden markerar kolumnen som en total; den beräknar inte eller fyller i cellvärdet. Använd inte noll som platshållare eller ange någon annan förändring för en totalpunkt. En total­kolumn visar det ackumulerade värdet utan att lägga till det igen i löpande värde.
+För att markera en punkt som ett mellan- eller slutligt total, anropa dess [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) med `true`. Ange det faktiska ackumulerade beloppet i den punktens arbetsbokscell: `600` för bruttoresultat (`1000 - 400`) och `450` för nettoresultat (`600 - 200 + 50`). Metoden markerar kolumnen som ett total; den beräknar inte eller fyller i cellvärdet. Använd inte noll som platshållare eller ange en annan förändring för en totalpunkt. En totalkolumn visar det ackumulerade värdet utan att lägga till det igen till det löpande värdet.
 
-Detta fullständiga C++‑exempel skapar ett diagram med `Waterfall`‑medlemmen i [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), rensar standarddata och fyller den inbäddade arbetsboken. Arbetsboksindex `0` väljer det första arbetsbladet; kolumn A innehåller kategorinamnen och kolumn B innehåller värdena. Varje värdecelle läggs till med [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). De nollbaserade punktindexen `2` och `5` identifierar mellantotalen respektive sluttotalen. Genom att skicka `true` till [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) visas beloppen på kolumnerna. Ingen indata‑presentation eller arbetsbok krävs.
+Detta kompletta C++‑exempel skapar ett diagram med `Waterfall`‑medlemmen av [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), rensar standarddata och fyller den inbäddade arbetsboken. Arbetsbladsindex `0` väljer det första arbetsbladet; kolumn A innehåller kategorinamnen och kolumn B innehåller värdena. Varje värdecell läggs till med [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). De nollbaserade punktindexen `2` och `5` identifierar mellantotalen respektive sluttotalen. Genom att skicka `true` till [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) visas beloppen på kolumnerna. Ingen inmatningspresentation eller arbetsbok krävs.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -693,7 +695,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Den tredje och sjätte punkten representerar totaler, inte ytterligare förändringar.
+// Det tredje och sjätte punkterna representerar totaler, inte ytterligare förändringar.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -702,17 +704,17 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Anropa serie‑nivåns [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/)‑metod med `true` för att visa linjer som länkar ihop på varandra följande kolumner och göra det löpande värdet lättare att följa. För att dölja dessa linjer, ersätt tilldelningen i exemplet med `series->set_ShowConnectorLines(false);` innan du sparar. Detta ändrar bara linjens synlighet, inte data eller totaler.
+Anropa serie‑nivå‑metoden [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) med `true` för att visa linjer som länkar sammanhängande kolumner och göra det löpande värdet lättare att följa. För att dölja dessa linjer, ersätt tilldelningen i exemplet med `series->set_ShowConnectorLines(false);` innan sparning. Detta ändrar endast linjens synlighet, inte data eller totaler.
 
-Den sparade presentationen visar bruttoresultat 600 och nettovinst 450, med båda totalerna räknade från noll:
+Den sparade presentationen visar bruttoresultat på 600 och nettoresultat på 450, med båda totalerna ritade från noll:
 
-![Waterfall‑diagram som visar intäkter, kostnader, bruttoresultat på 600 och nettovinst på 450, med värdeetiketter och förbindelselänkar](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
 ### **Skapa aktiediagram**
 
-Aktiediagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta- och stängningspriser, och hjälper till att analysera marknadstrender och volatilitet. De ger viktiga insikter i aktieprestanda, vilket underlättar för investerare och analytiker att fatta välgrundade beslut.
+Aktiediagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta- och stängningskurser, och hjälper till att analysera marknadstrender och volatilitet. De ger viktig insikt i aktiens utveckling och underlättar för investerare och analytiker att fatta välgrundade beslut.
 
-Detta exempel skapar ett öppna‑höga‑låga‑stänga‑diagram med fyra serier i den ordningen och tre kategorier. Metoden [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) aktiverar upp‑/ned‑staplar, och [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) styr hög‑/låg‑linjerna som visar prisintervall, medan de enskilda serielinjerna och mindre horisontella rutnätslinjer är dolda.
+Detta exempel skapar ett öppnings‑höga‑låga‑stängnings‑diagram med fyra serier i den ordningen och tre kategorier. Metoden [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) aktiverar upp/ner‑staplar, och [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) styr de hög‑låga linjerna som visar prisintervallen, medan de enskilda serielinjerna och mindre horisontella rutnätslinjer är dolda.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -820,13 +822,13 @@ presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Aktiediagrammet](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Skapa låd‑och‑whisker‑diagram**
+### **Skapa låd‑ och whisker‑diagram**
 
-Låda‑och‑whisker‑diagram används för att visa fördelningen av data genom att sammanfatta viktiga statistiska mått, såsom median, kvartiler och möjliga avvikare. De är särskilt användbara i explorativ dataanalys och statistiska studier för snabbt att förstå datavariabilitet och identifiera avvikelser.
+Låd‑ och whisker‑diagram används för att visa datadistribution genom att sammanfatta nyckelstatistiska mått, såsom median, kvartiler och potentiella avvikande värden. De är särskilt användbara vid explorativ dataanalys och statistiska studier för att snabbt förstå datavariabilitet och identifiera avvikelser.
 
-Detta exempel skapar ett låda‑och‑whisker‑diagram från sex värden. Metoden [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) väljer exklusiv kvartilberäkning. Exemplet aktiverar också medellinjer, medelmarkörer, inre punkter och avvikarpunkter.
+Detta exempel skapar ett låd‑ och whisker‑diagram från sex värden. Metoden [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) väljer den exklusiva kvartilberäkningen. Exemplet aktiverar också medelvärdeslinjer, medelvärdesmarkörer, interna punkter och avvikande punkter.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -909,9 +911,9 @@ presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 
 ### **Skapa tratt‑diagram**
 
-Tratt‑diagram används för att visualisera processer som involverar sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och spåra effektiviteten i försäljnings‑ eller marknadsföringsprocesser.
+Tratt‑diagram används för att visualisera processer med sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och spåra effektiviteten i försäljnings‑ eller marknadsföringsprocesser.
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) för att lägga till ett tratt‑diagram på den första bilden i en befintlig presentation. Det ersätter standarddata med sex kategorier och värden från 50 till 500, och sparar sedan den uppdaterade presentationen. Inmatningspresentationen måste innehålla minst en bild.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) för att lägga till ett tratt‑diagram på den första bilden i en befintlig presentation. Det ersätter standarddata med sex kategorier och värden från 50 till 500, och sparar sedan den uppdaterade presentationen. Indatapresentationen måste innehålla minst en bild.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -986,13 +988,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Tratt‑diagrammet](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Skapa sol‑och‑strålds‑diagram**
+### **Skapa sol‑ och stjärndiagram**
 
-Sol‑och‑strålds‑diagram används för att visualisera hierarkisk data, där nivåerna visas som koncentriska ringar. De hjälper till att illustrera del‑till‑helhets‑förhållanden och är idealiska för att representera nästlade kategorier och underkategorier på ett tydligt, kompakt sätt.
+Sol‑ och stjärndiagram används för att visualisera hierarkisk data, där nivåer visas som koncentriska ringar. De hjälper till att illustrera del‑till‑helhet‑förhållanden och är idealiska för att representera inbäddade kategorier och underkategorier på ett tydligt, kompakt sätt.
 
-Detta exempel skapar ett sol‑och‑strålds‑diagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) tilldelar stammar på grupperingnivå 1 och grenar på nivå 2. Kategorietiketter identifierar segmenten, och värdena bestämmer deras relativa storlekar.
+Detta exempel skapar ett sol‑ och stjärndiagram med åtta blad grupperade i fyra stammar och två grenar. Metoden [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) tilldelar stammar på gruppering nivå 1 och grenar på nivå 2. Kategorietiketter identifierar segmenten, och värdena bestämmer deras relativa storlekar.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1095,17 +1097,17 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Sol‑och‑strålds‑diagrammet](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **Skapa histogram‑diagram**
 
-Histogram‑diagram visar hur numeriska värden fördelas över intervall (bins). För månatliga rapporter om orderbehandlingstider, använd samma bin‑bredd och tröskelvärden för att hålla intervallen konsekventa och göra fördelningarna lättare att jämföra.
+Histogram‑diagram visar hur numeriska värden är fördelade över intervall (bins). För månatliga rapporter om orderbehandlingstider, använd samma bin‑bredd och trösklar för att hålla intervallen konsekventa och göra fördelningarna enklare att jämföra.
 
-Anropa den horisontella axelns [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/)‑metod med ett läge från [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) gäller endast för `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) gäller endast för `ByNumberOfBins`. Använd `Automatic` för att låta diagrammet välja binarna.
+Anropa den horisontella axelns [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) med ett läge från [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) gäller endast för `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) gäller endast för `ByNumberOfBins`. Använd `Automatic` för att låta diagrammet själva välja binarna.
 
 #### **Använd en fast bin‑bredd**
 
-Detta exempel grupperar behandlingstider i 10‑minutersintervall, med separata bin för tider ≤ 10 min och > 40 min. Aktivera dessa bin med [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) och [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). När du anger explicita tröskelvärden via [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) och [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), anropa [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) samt [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) med `false`.
+Detta exempel grupperar behandlingstider i 10‑minutersintervall, med separata binar för tider ≤ 10 minuter och > 40 minuter. Aktivera dessa binar med [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) och [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). När du anger explicita trösklar via [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) och [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), anropa [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) och [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) med `false`.
 
 ```cpp
 #include <system/array.h>
@@ -1175,13 +1177,13 @@ axis->set_OverflowBin(40);
 presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-Presentationen i PowerPoint visar bin‑antal på **3, 4, 4, 4 och 2**. Underflow‑binen inkluderar `5, 10, 10`, så dess tröskel är inklusiv. Overflow‑binen inkluderar endast `41, 50`, så dess tröskel är exklusiv; båda värdena `40` förblir i föregående intervall. De inre binarna innehåller värden som är större än deras nedre gräns och mindre än eller lika med deras övre gräns.
+Presentation som visas i PowerPoint visar bin‑antal på **3, 4, 4, 4, och 2**. Underflow‑binen inkluderar `5, 10, 10`, så dess tröskel är inklusiv. Overflow‑binen inkluderar endast `41, 50`, så dess tröskel är exklusiv; båda värdena lika med `40` förblir i föregående intervall. De inre binarna innehåller värden större än deras nedre gräns och mindre än eller lika med deras övre gräns.
 
-![Histogram med 10‑minuters bin och explicita under‑ och overflow‑trösklar](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Ange antal bin**
+#### **Ange antal binar**
 
-För en fast detaljnivå i stället för fasta intervall, begär fem bin för samma data. Detta exempel har under‑ och overflow‑bin inaktiverade. Diagrammet bestämmer bredden utifrån dataintervallet, så gränserna kan förändras mellan rapporter.
+För en fast detaljnivå i stället för fasta intervall, begär fem binar för samma data. Detta exempel har under‑ och overflow‑binarna inaktiverade. Diagrammet bestämmer bredden utifrån dataområdet, så gränserna kan ändras mellan rapporter.
 
 ```cpp
 #include <system/array.h>
@@ -1245,15 +1247,15 @@ axis->set_NumberOfBins(5);
 presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
 ```
 
-De fem bin har antal **4, 4, 4, 4 och 1**. Jämför denna fördelning med resultatet från fast bredd ovan: indata är identiska, men gränserna skiljer sig.
+De fem binarna har antal **4, 4, 4, 4, och 1**. Jämför denna fördelning med resultatet med fast bredd ovan: inmatningsvärdena är identiska, men gränserna skiljer sig.
 
-![Histogram med fem bin beräknade från samma data](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **Skapa radiella diagram**
+### **Skapa radardiagram**
 
-Radiella diagram används för att visa multivariat data i ett tvådimensionellt format, vilket möjliggör enkel jämförelse av flera variabler samtidigt. De är särskilt användbara för att identifiera mönster, styrkor och svagheter över flera prestationsmått eller attribut.
+Radardiagram används för att visa multivariata data i ett tvådimensionellt format, vilket möjliggör enkel jämförelse av flera variabler samtidigt. De är särskilt användbara för att identifiera mönster, styrkor och svagheter över flera prestationsmått eller attribut.
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) för att skapa ett radiellt diagram med standardserier och -kategorier, och sparar sedan presentationen som PPTX.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) för att skapa ett radardiagram med standardserier och -kategorier, och sparar sedan presentationen som PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1287,13 +1289,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Radiella diagrammet](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Skapa diagram med flera kategorier**
+### **Skapa multikategori‑diagram**
 
-Diagram med flera kategorier används för att visa data som innefattar mer än en kategorisk gruppering, vilket gör att du kan jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och samband i komplexa, flerskikts‑datamängder.
+Multikategori‑diagram används för att visualisera data som involverar mer än en kategorisk gruppering, vilket låter dig jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och samband i komplexa, flerlagrade dataset.
 
-Detta exempel skapar ett gruppera stapeldiagram med åtta kategorier arrangerade i fyra par. Metoden [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ger varje par en gemensam etikett på grupperingnivå 1, vilket ger en kategori‑axel med både individuella och gruppetiketter.
+Detta exempel skapar ett grupperat stapeldiagram med åtta kategorier ordnade i fyra par. Metoden [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ger varje par en gemensam etikett på gruppering nivå 1, vilket ger en kategori‑axel med både enskilda och gruppegodkända etiketter.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1388,13 +1390,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Diagrammet med flera kategorier](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Skapa karta‑diagram**
+### **Skapa kartdiagram**
 
-Karta‑diagram används för att visualisera geografisk data genom att mappa information till specifika platser såsom länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografisk data och rumsliga fördelningar på ett tydligt, visuellt engagerande sätt.
+Kartdiagram används för att visualisera geografiska data genom att kartlägga information till specifika platser såsom länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografisk data och rumsliga fördelningar på ett tydligt, visuellt engagerande sätt.
 
-Detta exempel använder [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) för att skapa ett karta‑diagram med standardgeografisk data och sparar det för visning i PowerPoint.
+Detta exempel använder [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) för att skapa ett kartdiagram med standardgeografisk data och sparar det för visning i PowerPoint.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1428,21 +1430,21 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 Resultatet:
 
-![Karta‑diagrammet](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
 
-Bilden ovan visar den sparade presentationen öppnad i PowerPoint. Aspose.Slides skriver karta‑diagrammet och dess data korrekt, men ritar inte själva karta‑diagrammen: när en bild som innehåller ett sådant renderas till en bild eller konverteras till PDF eller SVG blir diagramområdet tomt. Övriga former på samma bild påverkas inte.
+Bilden ovan visar den sparade presentationen öppnad i PowerPoint. Aspose.Slides skriver kartdiagrammet och dess data korrekt, men ritar inte själva kartdiagrammen: när en bild som innehåller ett sådant renderas till en bild eller konverteras till PDF eller SVG blir diagramområdet tomt. Andra former på samma bild påverkas inte.
 
 {{% /alert %}}
 
 ### **Skapa kombinationsdiagram**
 
-Ett kombinationsdiagram (eller combo‑diagram) kombinerar två eller fler diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler dataset, vilket hjälper dig att identifiera relationer mellan dem.
+Ett kombinationsdiagram (eller kombinations‑diagram) kombinerar två eller fler diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler dataset, vilket hjälper dig att identifiera relationer mellan dem.
 
-![Kombinationsdiagrammet](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Detta exempel kombinerar två gruppera stapelserier med en linjeserie över fyra kategorier. Staplarna använder den primära vertikala axeln, medan [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) placerar linjen på en sekundär vertikal axel till höger. Hjälp‑funktionerna konfigurerar titel, förklaring, axel‑etiketter och rutnätslinjer.
+Detta exempel kombinerar två grupperade stapelserier med en linjeserie över fyra kategorier. Staplarna använder den primära vertikala axeln, medan [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) placerar linjen på en sekundär vertikal axel till höger. Hjälpfunktionerna konfigurerar rubrik, förklaring, axel‑etiketter och rutnätslinjer.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1653,9 +1655,9 @@ ComboChartExample::CreateComboChart();
 
 ## **Uppdatera diagram**
 
-Aspose.Slides för C++ låter dig uppdatera PowerPoint‑diagram genom att modifiera diagramdata, formatering och stil. Denna funktion förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagramen exakt återspeglar aktuell data och visuella standarder.
+Aspose.Slides för C++ låter dig uppdatera PowerPoint‑diagram genom att modifiera diagramdata, formatering och stil. Denna funktionalitet förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagrammen exakt återspeglar aktuella data och visuella standarder.
 
-Detta exempel uppdaterar diagrammet med namnet "My chart" på den första bilden i en befintlig presentation. Det kräver två kolumnserier med tre datapunkter vardera, med kategori­etiketter i kolumn A och serienamn i den första raden i det första arbetsbladet. Exemplet använder [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) för att ändra arbetsboks­celler, uppdaterar serie‑värden, lägger till en tredje serie och ändrar diagrammet till gruppera cylindrar via [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+Detta exempel uppdaterar diagrammet med namnet "My chart" på den första bilden i en befintlig presentation. Det kräver två kolumnserier med tre datapunkter vardera, med kategorietiketter i kolumn A och serienamn i den första raden i det första arbetsbladet. Exemplet använder [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) för att ändra arbetsboks­celler, uppdaterar serievärden, lägger till en tredje serie och ändrar diagrammet till grupperade cylindrar via [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1736,13 +1738,13 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 ```
 
-## **Ange dataområde för ett diagram**
+## **Ange dataintervall för ett diagram**
 
 För att inspektera intervallet som redan används av ett befintligt diagram, se [Retrieve a Chart's Data Range](/slides/sv/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides för C++ ger flexibiliteten att definiera ett specifikt dataområde från ett arbetsblad som källa för ditt diagram. Detta innebär att du kan mappa en del av ditt arbetsblad direkt till diagrammet, vilket ger dig kontroll över vilka celler som bidrar till diagrammets serier och kategorier. Som ett resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataändringarna i ditt arbetsblad, så att dina PowerPoint‑presentationer speglar aktuell och korrekt information.
+Aspose.Slides för C++ ger flexibiliteten att definiera ett specifikt dataintervall från ett arbetsblad som källa för ditt diagrams data. Detta innebär att du kan mappa en del av ditt arbetsblad direkt till diagrammet, vilket låter dig kontrollera vilka celler som bidrar till diagrammets serier och kategorier. Som resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataändringarna i ditt arbetsblad, så att dina PowerPoint‑presentationer återger aktuell och korrekt information.
 
-Detta exempel använder [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) för att sätta datakällan för diagrammet med namn "My chart" på den första bilden i en befintlig presentation till `Sheet1!A1:B4`. Diagramarboken måste innehålla det arbetsbladet och ett fyllt område med en serierubrik i den första raden, kategori­etiketter i kolumn A och tre värden i kolumn B.
+Detta exempel använder [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) för att ställa in datakällan för diagrammet med namnet "My chart" på den första bilden i en befintlig presentation till `Sheet1!A1:B4`. Diagramarbetsboken måste innehålla det arbetsbladet och ett ifyllt intervall med en serie‑rubrik i den första raden, kategorietiketter i kolumn A och tre värden i kolumn B.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1878,16 +1880,16 @@ presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 **Vilka diagramtyper stöds av Aspose.Slides för C++?**
 
-Aspose.Slides för C++ stöder ett brett spektrum av diagramtyper, inklusive stapel, linje, cirkel, area, spridning, histogram, radar och många fler. Denna flexibilitet låter dig välja den mest lämpliga diagramtypen för dina visualiseringsbehov.
+Aspose.Slides för C++ stöder ett brett spektrum av diagramtyper, inklusive stapel, linje, cirkel, area, sprid, histogram, radar och många fler. Denna flexibilitet gör att du kan välja den mest lämpade diagramtypen för dina visualiseringsbehov.
 
 **Hur lägger jag till ett nytt diagram på en bild?**
 
-För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), hämtar den önskade bilden med dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtypen och startdata. Detta integrerar diagrammet direkt i din presentation.
+För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), hämtar den önskade bilden med dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtyp och initiala data. Detta integrerar diagrammet direkt i din presentation.
 
 **Hur kan jag uppdatera data som visas i ett diagram?**
 
-Du kan uppdatera ett diagrams data genom att komma åt dess dataarbok ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier, och sedan lägga till dina egna data. Detta gör att du programatiskt kan uppdatera diagrammet så att det återspeglar den senaste datan.
+Du kan uppdatera ett diagrams data genom att komma åt dess dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier och sedan lägga till dina egna data. Detta möjliggör att programmässigt uppdatera diagrammet så att det återspeglar de senaste data.
 
 **Är det möjligt att anpassa diagrammets utseende?**
 
-Ja, Aspose.Slides för C++ erbjuder omfattande anpassningsalternativ. Du kan ändra färger, teckensnitt, etiketter, förklaringar och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.
+Ja, Aspose.Slides för C++ erbjuder omfattande anpassningsalternativ. Du kan ändra färger, typsnitt, etiketter, förklaringar och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.

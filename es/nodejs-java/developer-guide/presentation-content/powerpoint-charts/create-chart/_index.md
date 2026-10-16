@@ -17,36 +17,36 @@ keywords:
 - gráfico de cotizaciones
 - gráfico de caja y bigotes
 - gráfico de embudo
-- gráfico de explosión
+- gráfico de anillos concéntricos
 - gráfico de histograma
 - gráfico de radar
-- gráfico multicategoría
+- gráfico de múltiples categorías
 - PowerPoint
 - presentación
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Crear y personalizar gráficos en presentaciones PowerPoint utilizando Aspose.Slides para Node.js mediante Java. Añadir, dar formato y editar gráficos con ejemplos de código prácticos en JavaScript."
+description: "Crear y personalizar gráficos en presentaciones PowerPoint utilizando Aspose.Slides para Node.js via Java. Añadir, dar formato y editar gráficos con ejemplos de código prácticos en JavaScript."
 ---
 ## **Visión general**
 
-Este artículo ofrece una guía completa sobre cómo crear y personalizar gráficos con Aspose.Slides para Node.js a través de Java. Aprenderá a añadir programáticamente un gráfico a una diapositiva, rellenarlo con datos y aplicar diversas opciones de formato para que coincida con sus requisitos de diseño específicos. A lo largo del artículo, ejemplos de código detallados ilustran cada paso, desde la inicialización de la presentación y del objeto gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones Node.js, optimizando el proceso de creación de presentaciones basadas en datos.
+Este artículo ofrece una guía completa sobre cómo crear y personalizar gráficos usando Aspose.Slides for Node.js via Java. Aprenderá a añadir programáticamente un gráfico a una diapositiva, poblarlo con datos y aplicar diversas opciones de formato para adaptarlo a sus requisitos de diseño específicos. A lo largo del artículo, los ejemplos de código detallados ilustran cada paso, desde la inicialización de la presentación y el objeto gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones Node.js, simplificando el proceso de crear presentaciones basadas en datos.
 
 ## **Crear un gráfico**
 
-Los gráficos ayudan a las personas a visualizar rápidamente los datos y a obtener ideas que pueden no ser evidentes a primera vista en una tabla o hoja de cálculo.
+Los gráficos ayudan a las personas a visualizar rápidamente los datos y obtener ideas que pueden no ser evidentes a partir de una tabla o hoja de cálculo.
 
 **¿Por qué crear gráficos?**
 
-Al usar gráficos, puede:
+Al usar gráficos, usted puede:
 
 * agregar, condensar o resumir grandes cantidades de datos en una sola diapositiva de una presentación;
 * revelar patrones y tendencias en los datos;
 * deducir la dirección y el impulso de los datos a lo largo del tiempo o respecto a una unidad de medida específica;
-* detectar valores atípicos, aberraciones, desviaciones, errores y datos sin sentido;
+* identificar valores atípicos, aberraciones, desviaciones, errores y datos sin sentido;
 * comunicar o presentar datos complejos.
 
-En PowerPoint, puede crear gráficos mediante la función *Insertar*, que ofrece plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos habituales (basados en tipos de gráficos populares) como gráficos personalizados.
+En PowerPoint, puede crear gráficos mediante la función *Insertar*, que proporciona plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos normales (basados en tipos de gráfico populares) como gráficos personalizados.
 
 {{% alert color="info" title="Note" %}}
 Utilice la enumeración [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) en el módulo [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/). Los valores de esta enumeración corresponden a diferentes tipos de gráficos.
@@ -54,7 +54,7 @@ Utilice la enumeración [ChartType](https://reference.aspose.com/slides/nodejs-j
 
 ### **Crear gráficos de columnas agrupadas**
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) para crear un gráfico de columnas agrupadas que compara dos series en tres categorías. Las series usan rellenos rojo y verde, y las etiquetas individuales demuestran los nombres de categoría, los nombres de serie y los valores. El índice de hoja 0 se refiere a la primera hoja del libro de trabajo del gráfico incrustado.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) para crear un gráfico de columnas agrupadas que compara dos series en tres categorías. Las series usan rellenos rojo y verde, y las etiquetas individuales muestran nombres de categorías, nombres de series y valores. El índice de la hoja de cálculo 0 se refiere a la primera hoja en el libro de trabajo incrustado del gráfico.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -143,12 +143,12 @@ Los gráficos de dispersión (también conocidos como diagramas de dispersión o
 
 Use un gráfico de dispersión cuando:
 
-* Posea datos numéricos emparejados.
-* Tenga dos variables que se relacionen bien entre sí.
-* Desee determinar si las dos variables están relacionadas.
-* Posea una variable independiente que tenga múltiples valores para una variable dependiente.
+* tenga datos numéricos emparejados;
+* tenga dos variables que se relacionen bien entre sí;
+* quiera determinar si las dos variables están relacionadas;
+* tenga una variable independiente que tenga varios valores para una variable dependiente.
 
-Este ejemplo traza dos conjuntos de valores x‑y. La primera serie usa líneas rectas con marcadores de estrella, mientras que la segunda usa líneas suaves con marcadores de círculo; ambas usan un tamaño de marcador de 10, configurado con [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). El método [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) controla la forma del marcador.
+Este ejemplo dibuja dos conjuntos de valores x‑y. La primera serie usa líneas rectas con marcadores de estrella, mientras que la segunda usa líneas suaves con marcadores circulares; ambas usan un tamaño de marcador de 10, configurado con [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsize/). El método [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsymbol/) controla la forma del marcador.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -218,11 +218,11 @@ El resultado:
 
 ![Gráfico de dispersión](scatter_chart.png)
 
-### **Crear gráficos circulares**
+### **Crear gráficos de sectores**
 
-Los gráficos circulares se usan mejor para mostrar la relación parte‑a‑todo en los datos, sobre todo cuando los datos contienen etiquetas categóricas con valores numéricos. Sin embargo, si sus datos contienen muchas partes o etiquetas, podría considerar usar un gráfico de barras en su lugar.
+Los gráficos de sectores se usan mejor para mostrar la relación parte‑todo en los datos, especialmente cuando los datos contienen etiquetas categóricas con valores numéricos. Sin embargo, si sus datos contienen muchas partes o etiquetas, quizá quiera considerar usar un gráfico de columnas en su lugar.
 
-Este ejemplo crea un gráfico circular con tres valores trimestrales. Cada sector tiene un relleno y un contorno personalizados, y las etiquetas muestran distintas combinaciones de valores, porcentajes e información de serie. El método [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) establece que el primer sector comience en 180 grados.
+Este ejemplo crea un gráfico de sectores con tres valores trimestrales. Cada porción tiene un relleno y borde personalizados, y las etiquetas muestran diferentes combinaciones de valores, porcentajes e información de la serie. El método [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) establece que la primera porción comience en 180 grados.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -323,13 +323,15 @@ finally
 
 El resultado:
 
-![Gráfico circular](pie_chart.png)
+![Gráfico de sectores](pie_chart.png)
+
+Para mejorar la legibilidad de las etiquetas fuera del sector, consulte [Format Leader Lines](/slides/es/nodejs-java/chart-data-label/#format-leader-lines) para un ejemplo que posiciona etiquetas y personaliza el color, ancho, transparencia y estilo de guion de las líneas.
 
 ### **Crear gráficos de líneas**
 
-Los gráficos de líneas (también conocidos como diagramas de líneas) son más adecuados en situaciones donde se desea demostrar cambios de valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos a la vez, seguir cambios y tendencias en el tiempo, resaltar anomalías en series de datos, etc.
+Los gráficos de líneas (también conocidos como diagramas de líneas) se utilizan mejor en situaciones donde desea demostrar cambios en el valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos a la vez, seguir cambios y tendencias a lo largo del tiempo, resaltar anomalías en series de datos y más.
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) para crear un gráfico de líneas con series y categorías predeterminadas, y luego guarda la presentación como PPTX.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) para crear un gráfico de líneas con las series y categorías predeterminadas, y luego guarda la presentación como PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -349,7 +351,7 @@ finally
 }
 ```
 
-Por defecto, los puntos en un gráfico de líneas se unen mediante líneas rectas continuas. Si desea que los puntos se unan mediante guiones, llame a [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) con un valor de [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
+Por defecto, los puntos en un gráfico de líneas se unen mediante líneas rectas continuas. Si desea que los puntos se unan mediante guiones, llame a [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) con un valor de [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -378,11 +380,11 @@ El resultado:
 
 ![Gráfico de líneas](line_chart.png)
 
-### **Crear gráficos de mapa de árbol**
+### **Crear gráficos de mapas de árbol**
 
-Los gráficos de mapa de árbol se utilizan mejor para datos de ventas cuando se quiere mostrar el tamaño relativo de las categorías de datos y llamar rápidamente la atención sobre los elementos que son grandes contribuyentes dentro de cada categoría.
+Los gráficos de mapas de árbol se usan mejor para datos de ventas cuando desea mostrar el tamaño relativo de categorías de datos y llamar rápidamente la atención sobre los elementos que son grandes contribuyentes dentro de cada categoría.
 
-Este ejemplo crea un mapa de árbol con ocho hojas agrupadas en cuatro troncos y dos ramas. El método [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) asigna los troncos al nivel de agrupación 1 y las ramas al nivel 2. Los valores determinan los tamaños relativos de los rectángulos, mientras que las etiquetas de categoría y las etiquetas de padre superpuestas identifican la jerarquía.
+Este ejemplo crea un mapa de árbol con ocho hojas agrupadas en cuatro tallos y dos ramas. El método [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) asigna tallos en el nivel de agrupación 1 y ramas en el nivel 2. Los valores determinan los tamaños relativos de los rectángulos, mientras que las etiquetas de categoría y las etiquetas de padres superpuestas identifican la jerarquía.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -467,11 +469,11 @@ El resultado:
 
 ### **Crear gráficos de cascada**
 
-Un gráfico de cascada muestra cómo los cambios positivos y negativos contribuyen a un valor final. Por ejemplo, un desglose de beneficios puede comenzar con ingresos, restar costos y añadir otros ingresos. Las columnas de cambio flotan entre el valor anterior y el nuevo valor acumulado, mientras que las columnas totales se extienden desde cero hasta el valor acumulado.
+Un gráfico de cascada muestra cómo los cambios positivos y negativos contribuyen a un valor final. Por ejemplo, un desglose de beneficios puede comenzar con ingresos, restar costes y añadir otros ingresos. Las columnas de cambio flotan entre los valores acumulados anteriores y nuevos, mientras que las columnas totales se extienden desde cero hasta el valor acumulado.
 
-El siguiente ejemplo utiliza cantidades en miles de dólares estadounidenses:
+El siguiente ejemplo usa cantidades en miles de dólares estadounidenses:
 
-| Categoría | Valor del libro de trabajo | Tipo de columna |
+| Categoría | Valor en el libro de trabajo | Tipo de columna |
 | --- | ---: | --- |
 | Ingresos | 1000 | Incremento |
 | Coste de ventas | -400 | Decremento |
@@ -480,9 +482,9 @@ El siguiente ejemplo utiliza cantidades en miles de dólares estadounidenses:
 | Otros ingresos | 50 | Incremento |
 | Beneficio neto | 450 | Total final |
 
-Para marcar un punto como total intermedio o final, llame a su método [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) con `true`. Proporcione la cantidad real acumulada en la celda del libro de trabajo de ese punto: `600` para beneficio bruto (`1000 - 400`) y `450` para beneficio neto (`600 - 200 + 50`). El método marca la columna como total; no calcula ni rellena el valor de la celda. No use cero como marcador de posición ni proporcione otro cambio para un punto total. Una columna total muestra el valor acumulado sin volver a sumarlo al valor en curso.
+Para marcar un punto como total intermedio o final, llame a su método [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setsetastotal/) con `true`. Proporcione la cantidad acumulada real en la celda del libro de trabajo de ese punto: `600` para beneficio bruto (`1000 - 400`) y `450` para beneficio neto (`600 - 200 + 50`). El método marca la columna como total; no calcula ni rellena el valor de la celda. No use cero como marcador de posición ni proporcione otro cambio para un punto total. Una columna total muestra el valor acumulado sin añadirlo nuevamente al valor en curso.
 
-Este ejemplo completo de JavaScript crea un gráfico usando el miembro `Waterfall` de [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), elimina los datos predeterminados y rellena el libro de trabajo incrustado. El índice de hoja `0` selecciona la primera hoja; la columna A contiene los nombres de categoría y la columna B contiene los valores. Cada celda de valor se añade con [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Los índices de punto basados en cero `2` y `5` identifican los totales intermedios y finales. Llamar a [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) con `true` muestra las cantidades en las columnas. No se necesita ninguna presentación o libro de trabajo de entrada.
+Este ejemplo completo de JavaScript crea un gráfico usando el miembro `Waterfall` de [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), borra los datos predeterminados y rellena el libro de trabajo incrustado. El índice de hoja de cálculo `0` selecciona la primera hoja; la columna A contiene nombres de categoría y la columna B contiene valores. Cada celda de valor se añade con [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Los índices de punto basados en cero `2` y `5` identifican los totales intermedios y finales. Llamar a [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) con `true` muestra las cantidades en las columnas. No se requiere una presentación o libro de trabajo de entrada.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -520,7 +522,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // El tercer y el sexto punto representan totales, no cambios adicionales.
+    // Los puntos tercero y sexto representan totales, no cambios adicionales.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -534,7 +536,7 @@ finally
 }
 ```
 
-Llame al método a nivel de serie [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) con `true` para mostrar líneas que enlazan columnas consecutivas y facilitar el seguimiento del valor en curso. Para ocultar estas líneas, reemplace la llamada al método en el ejemplo por `series.setShowConnectorLines(false);` antes de guardar. Esto solo cambia la visibilidad de la línea, no los datos ni los totales.
+Llame al método a nivel de serie [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setshowconnectorlines/) con `true` para mostrar líneas que enlazan columnas consecutivas y facilitar el seguimiento del valor en curso. Para ocultar estas líneas, reemplace la llamada al método en el ejemplo por `series.setShowConnectorLines(false);` antes de guardar. Esto solo cambia la visibilidad de la línea, no los datos ni los totales.
 
 La presentación guardada muestra un beneficio bruto de 600 y un beneficio neto de 450, con ambos totales dibujados desde cero:
 
@@ -542,9 +544,9 @@ La presentación guardada muestra un beneficio bruto de 600 y un beneficio neto 
 
 ### **Crear gráficos de cotizaciones**
 
-Los gráficos de cotizaciones se utilizan para mostrar datos financieros como precios de apertura, máximo, mínimo y cierre, ayudando a analizar tendencias del mercado y volatilidad. Proporcionan información esencial sobre el rendimiento de acciones, asistiendo a inversores y analistas en la toma de decisiones informadas.
+Los gráficos de cotizaciones se utilizan para mostrar datos financieros como precios de apertura, máximo, mínimo y cierre, ayudando a analizar tendencias del mercado y volatilidad. Ofrecen información esencial sobre el rendimiento de acciones, apoyando a inversores y analistas en la toma de decisiones informadas.
 
-Este ejemplo crea un gráfico de apertura‑máximo‑mínimo‑cierre con cuatro series en ese orden y tres categorías. El método [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) habilita las barras de subida/bajada, y [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) controla las líneas alto‑bajo que muestran los rangos de precios, mientras que las líneas de serie individuales y las líneas de cuadrícula horizontales menores están ocultas.
+Este ejemplo crea un gráfico de cotizaciones abierto‑alto‑bajo‑cierre con cuatro series en ese orden y tres categorías. El método [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/setupdownbars/) habilita las barras de subida/bajada, y [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) controla las líneas alto‑bajo que muestran los rangos de precios, mientras que las líneas de serie individuales y las líneas de cuadrícula horizontal menores están ocultas.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -632,9 +634,9 @@ El resultado:
 
 ### **Crear gráficos de caja y bigotes**
 
-Los gráficos de caja y bigotes se utilizan para mostrar la distribución de datos resumendo medidas estadísticas clave, como la mediana, cuartiles y posibles valores atípicos. Son particularmente útiles en análisis exploratorios de datos y estudios estadísticos para comprender rápidamente la variabilidad de los datos e identificar anomalías.
+Los gráficos de caja y bigotes se utilizan para mostrar la distribución de datos recopilando medidas estadísticas clave, como la mediana, cuartiles y posibles valores atípicos. Son particularmente útiles en análisis exploratorios y estudios estadísticos para comprender rápidamente la variabilidad de los datos e identificar anomalías.
 
-Este ejemplo crea un gráfico de caja y bigotes a partir de seis valores. El método [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) selecciona el cálculo exclusivo de cuartiles. El ejemplo también habilita líneas de media, marcadores de media, puntos internos y puntos atípicos.
+Este ejemplo crea un gráfico de caja y bigotes a partir de seis valores. El método [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setquartilemethod/) selecciona el cálculo de cuartiles exclusivo. El ejemplo también habilita líneas de media, marcadores de media, puntos internos y puntos atípicos.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -696,9 +698,9 @@ finally
 
 ### **Crear gráficos de embudo**
 
-Los gráficos de embudo se utilizan para visualizar procesos que implican etapas secuenciales, donde el volumen de datos disminuye a medida que avanza de un paso al siguiente. Son especialmente útiles para analizar tasas de conversión, identificar cuellos de botella y seguir la eficiencia de procesos de ventas o marketing.
+Los gráficos de embudo se utilizan para visualizar procesos que implican etapas secuenciales, donde el volumen de datos disminuye a medida que avanza de un paso al siguiente. Son especialmente útiles para analizar tasas de conversión, identificar cuellos de botella y seguir la eficiencia de procesos de venta o marketing.
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) para añadir un gráfico de embudo a la primera diapositiva de una presentación existente. Reemplaza los datos predeterminados con seis categorías y valores que van de 50 a 500, y luego guarda la presentación actualizada. La presentación de entrada debe contener al menos una diapositiva.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) para añadir un gráfico de embudo a la primera diapositiva de una presentación existente. Reemplaza los datos predeterminados con seis categorías y valores que van de 50 a 500, y luego guarda la presentación actualizada. La presentación de entrada debe contener al menos una diapositiva.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -756,11 +758,11 @@ El resultado:
 
 ![Gráfico de embudo](funnel_chart.png)
 
-### **Crear gráficos de explosión**
+### **Crear gráficos de anillos concéntricos**
 
-Los gráficos de explosión se utilizan para visualizar datos jerárquicos, mostrando los niveles como anillos concéntricos. Ayudan a ilustrar relaciones parte‑a‑todo y son ideales para representar categorías y subcategorías anidadas de forma clara y compacta.
+Los gráficos de anillos concéntricos se utilizan para visualizar datos jerárquicos, mostrando niveles como anillos concéntricos. Ayudan a ilustrar relaciones parte‑todo y son ideales para representar categorías y subcategorías anidadas de forma clara y compacta.
 
-Este ejemplo crea un gráfico de explosión con ocho hojas agrupadas en cuatro troncos y dos ramas. El método [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) asigna los troncos al nivel de agrupación 1 y las ramas al nivel 2. Las etiquetas de categoría identifican los segmentos y los valores determinan sus tamaños relativos.
+Este ejemplo crea un gráfico de anillos concéntricos con ocho hojas agrupadas en cuatro tallos y dos ramas. El método [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) asigna tallos en el nivel de agrupación 1 y ramas en el nivel 2. Las etiquetas de categoría identifican los segmentos, y los valores determinan sus tamaños relativos.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -839,17 +841,17 @@ finally
 
 El resultado:
 
-![Gráfico de explosión](sunburst_chart.png)
+![Gráfico de anillos concéntricos](sunburst_chart.png)
 
 ### **Crear gráficos de histograma**
 
-Los gráficos de histograma muestran cómo los valores numéricos se distribuyen a lo largo de intervalos (cajas). Para informes mensuales sobre tiempos de procesamiento de pedidos, use el mismo ancho de caja y los mismos umbrales para mantener los intervalos consistentes y facilitar la comparación de distribuciones.
+Los gráficos de histograma muestran cómo los valores numéricos se distribuyen a lo largo de intervalos (cubos). Para informes mensuales de tiempos de procesamiento de pedidos, use el mismo ancho de intervalo y umbrales para mantener los intervalos consistentes y facilitar la comparación de distribuciones.
 
-Llame a [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) en el eje horizontal con un modo de [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setBinWidth) se aplica solo a `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberOfBins) se aplica solo a `ByNumberOfBins`. Use `Automatic` para que el gráfico elija las cajas.
+Utilice [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaggregationtype/) en el eje horizontal con un modo de [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setbinwidth/) se aplica solo a `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberofbins/) se aplica solo a `ByNumberOfBins`. Use `Automatic` para que el gráfico elija los cubos.
 
-#### **Usar un ancho de caja fijo**
+#### **Usar un ancho de intervalo fijo**
 
-Este ejemplo agrupa los tiempos de procesamiento en intervalos de 10 minutos, con cajas separadas para tiempos ≤ 10 minutos y > 40 minutos. Habilite estas cajas con [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) y [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin). Al proporcionar umbrales explícitos mediante [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) y [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin), llame a [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticUnderflowBin) y [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticOverflowBin) con `false`.
+Este ejemplo agrupa los tiempos de procesamiento en intervalos de 10 minutos, con cubos separados para tiempos de 10 minutos o menos y para tiempos superiores a 40 minutos. Habilite estos cubos con [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) y [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/). Al proporcionar umbrales explícitos mediante [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) y [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/), llame a [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticunderflowbin/) y [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticoverflowbin/) con `false`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -896,13 +898,13 @@ finally
 }
 ```
 
-La presentación mostrada en PowerPoint indica recuentos de cajas de **3, 4, 4, 4 y 2**. La caja de desbordamiento inferior incluye `5, 10, 10`, por lo que su umbral es inclusivo. La caja de desbordamiento superior incluye solo `41, 50`, por lo que su umbral es exclusivo; ambos valores iguales a `40` permanecen en el intervalo anterior. Las cajas intermedias contienen valores mayores que su límite inferior y menores o iguales que su límite superior.
+La presentación mostrada en PowerPoint indica recuentos de cubos de **3, 4, 4, 4 y 2**. El cubo de subflujo incluye `5, 10, 10`, por lo que su umbral es inclusivo. El cubo de desbordamiento incluye solo `41, 50`, por lo que su umbral es exclusivo; ambos valores iguales a `40` permanecen en el intervalo anterior. Los cubos intermedios contienen valores mayores que su límite inferior y menores o iguales que su límite superior.
 
-![Histograma con cajas de 10 minutos y umbrales explícitos de desbordamiento inferior y superior](histogram_bin_width.png)
+![Histograma con cubos de 10 minutos y umbrales explícitos de subflujo y desbordamiento](histogram_bin_width.png)
 
-#### **Especificar el número de cajas**
+#### **Especificar el número de intervalos**
 
-Para un nivel de detalle fijo en lugar de intervalos fijos, solicite cinco cajas para los mismos datos. Este ejemplo deja desactivadas las cajas de desbordamiento inferior y superior. El gráfico determina el ancho a partir del rango de datos, por lo que los límites pueden cambiar entre informes.
+Para obtener un nivel de detalle fijo en lugar de intervalos fijos, solicite cinco cubos para los mismos datos. Este ejemplo deja los cubos de subflujo y desbordamiento desactivados. El gráfico determina el ancho a partir del rango de datos, por lo que los límites pueden cambiar entre informes.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -943,15 +945,15 @@ finally
 }
 ```
 
-Las cinco cajas tienen recuentos de **4, 4, 4, 4 y 1**. Compare esta distribución con el resultado de ancho fijo anterior: los valores de entrada son idénticos, pero los límites difieren.
+Los cinco cubos tienen recuentos de **4, 4, 4, 4 y 1**. Compare esta distribución con el resultado de ancho fijo anterior: los valores de entrada son idénticos, pero los límites difieren.
 
-![Histograma con cinco cajas calculadas a partir de los mismos datos](histogram_bin_count.png)
+![Histograma con cinco intervalos calculados a partir de los mismos datos](histogram_bin_count.png)
 
 ### **Crear gráficos de radar**
 
 Los gráficos de radar se utilizan para mostrar datos multivariados en un formato bidimensional, lo que permite comparar fácilmente varias variables simultáneamente. Son particularmente útiles para identificar patrones, fortalezas y debilidades en múltiples métricas o atributos de rendimiento.
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) para crear un gráfico de radar con series y categorías predeterminadas, y luego guarda la presentación como PPTX.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) para crear un gráfico de radar con las series y categorías predeterminadas, y luego guarda la presentación como PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -975,11 +977,11 @@ El resultado:
 
 ![Gráfico de radar](radar_chart.png)
 
-### **Crear gráficos multicategoría**
+### **Crear gráficos de múltiples categorías**
 
-Los gráficos multicategoría se utilizan para mostrar datos que implican más de un agrupamiento categórico, lo que permite comparar valores a través de múltiples dimensiones simultáneamente. Son particularmente útiles cuando necesita analizar tendencias y relaciones dentro de conjuntos de datos complejos y de varias capas.
+Los gráficos de múltiples categorías se utilizan para mostrar datos que implican más de un agrupamiento categórico, permitiendo comparar valores a través de varias dimensiones simultáneamente. Son especialmente útiles cuando necesita analizar tendencias y relaciones dentro de conjuntos de datos complejos y multicapa.
 
-Este ejemplo crea un gráfico de columnas agrupadas con ocho categorías dispuestas en cuatro pares. El método [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) asigna a cada par una etiqueta compartida en el nivel de agrupación 1, produciendo un eje de categorías con etiquetas individuales y de grupo.
+Este ejemplo crea un gráfico de columnas agrupadas con ocho categorías dispuestas en cuatro pares. El método [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) da a cada par una etiqueta compartida en el nivel de agrupación 1, produciendo un eje de categorías con etiquetas individuales y de grupo.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1053,13 +1055,13 @@ finally
 
 El resultado:
 
-![Gráfico multicategoría](multi_category_chart.png)
+![Gráfico de múltiples categorías](multi_category_chart.png)
 
 ### **Crear gráficos de mapa**
 
-Los gráficos de mapa se utilizan para visualizar datos geográficos asociando información a ubicaciones específicas como países, estados o ciudades. Son particularmente útiles para analizar tendencias regionales, datos demográficos y distribuciones espaciales de forma clara y visualmente atractiva.
+Los gráficos de mapa se utilizan para visualizar datos geográficos asignando información a ubicaciones específicas como países, estados o ciudades. Son particularmente útiles para analizar tendencias regionales, datos demográficos y distribuciones espaciales de forma clara y visualmente atractiva.
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) para crear un gráfico de mapa con datos geográficos predeterminados y lo guarda para su visualización en PowerPoint.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) para crear un gráfico de mapa con los datos geográficos predeterminados y lo guarda para su visualización en PowerPoint.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1084,16 +1086,16 @@ El resultado:
 ![Gráfico de mapa](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-La imagen anterior muestra la presentación guardada abierta en PowerPoint. Aspose.Slides escribe correctamente el gráfico de mapa y sus datos, pero no dibuja los gráficos de mapa por sí mismo: cuando una diapositiva que contiene uno se renderiza a una imagen o se convierte a PDF o SVG, el área del gráfico aparece vacía. Otras formas en la misma diapositiva no se ven afectadas.
+La imagen anterior muestra la presentación guardada abierta en PowerPoint. Aspose.Slides escribe el gráfico de mapa y sus datos correctamente, pero no dibuja gráficos de mapa por sí mismo: cuando una diapositiva que contiene uno se renderiza a una imagen o se convierte a PDF o SVG, el área del gráfico aparece en blanco. Otras formas en la misma diapositiva no se ven afectadas.
 {{% /alert %}}
 
 ### **Crear gráficos combinados**
 
-Un gráfico combinado (o gráfico combo) combina dos o más tipos de gráficos en un mismo diagrama. Este gráfico le permite resaltar, comparar o examinar diferencias entre dos o más conjuntos de datos, ayudándole a identificar relaciones entre ellos.
+Un gráfico combinado (o gráfico combo) combina dos o más tipos de gráficos en un único diagrama. Este gráfico le permite resaltar, comparar o examinar diferencias entre dos o más conjuntos de datos, ayudándole a identificar relaciones entre ellos.
 
 ![Gráfico combinado](combination_chart.png)
 
-Este ejemplo combina dos series de columnas agrupadas con una serie de líneas en cuatro categorías. Las columnas usan el eje vertical principal, mientras que [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) coloca la línea en un eje vertical secundario a la derecha. Las funciones auxiliares configuran el título, la leyenda, las etiquetas de los ejes y las líneas de cuadrícula.
+Este ejemplo combina dos series de columnas agrupadas con una serie de líneas en cuatro categorías. Las columnas usan el eje vertical primario, mientras que [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setplotonsecondaxis/) coloca la línea en un eje vertical secundario a la derecha. Las funciones auxiliares configuran el título, la leyenda, las etiquetas de los ejes y las líneas de cuadrícula.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1260,9 +1262,9 @@ createComboChart();
 
 ## **Actualizar gráficos**
 
-Aspose.Slides para Node.js a través de Java le permite actualizar gráficos de PowerPoint modificando los datos del gráfico, el formato y el estilo. Esta funcionalidad simplifica el proceso de mantener las presentaciones actualizadas con contenido dinámico y garantiza que los gráficos reflejen con precisión los datos y estándares visuales actuales.
+Aspose.Slides for Node.js via Java le permite actualizar gráficos de PowerPoint modificando los datos del gráfico, el formato y el estilo. Esta funcionalidad simplifica el proceso de mantener las presentaciones actualizadas con contenido dinámico y garantiza que los gráficos reflejen con precisión los datos actuales y los estándares visuales.
 
-Este ejemplo actualiza el gráfico llamado "My chart" en la primera diapositiva de una presentación existente. Requiere dos series de columna con tres puntos de datos cada una, con etiquetas de categoría en la columna A y nombres de serie en la primera fila de la primera hoja de cálculo. El ejemplo usa [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) para modificar celdas del libro de trabajo, actualiza los valores de las series, añade una tercera serie y cambia el tipo de gráfico a cilindros agrupados mediante [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType).
+Este ejemplo actualiza el gráfico llamado "My chart" en la primera diapositiva de una presentación existente. Requiere dos series de columnas con tres puntos de datos cada una, con etiquetas de categoría en la columna A y nombres de series en la primera fila de la primera hoja de cálculo. El ejemplo usa [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) para cambiar celdas del libro de trabajo, actualiza los valores de las series, añade una tercera serie y cambia el tipo del gráfico a cilindros agrupados mediante [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/settype/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1326,11 +1328,11 @@ finally
 
 ## **Establecer rango de datos para un gráfico**
 
-Para inspeccionar el rango ya utilizado por un gráfico existente, vea [Retrieve a Chart's Data Range](/slides/es/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
+Para inspeccionar el rango ya usado por un gráfico existente, consulte [Retrieve a Chart's Data Range](/slides/es/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides para Node.js a través de Java ofrece la flexibilidad de definir un rango de datos específico de una hoja de cálculo como origen para los datos de su gráfico. Esto significa que puede mapear directamente una porción de su hoja de cálculo al gráfico, controlando qué celdas contribuyen a las series y categorías del gráfico. Como resultado, puede actualizar y sincronizar fácilmente sus gráficos con los últimos cambios de datos en su hoja de cálculo, garantizando que sus presentaciones de PowerPoint reflejen información actual y precisa.
+Aspose.Slides for Node.js via Java brinda la flexibilidad de definir un rango de datos específico de una hoja de cálculo como origen de los datos de su gráfico. Esto significa que puede mapear directamente una parte de su hoja de cálculo al gráfico, controlando qué celdas contribuyen a las series y categorías del gráfico. Como resultado, puede actualizar y sincronizar fácilmente sus gráficos con los últimos cambios de datos en su hoja, asegurando que sus presentaciones PowerPoint reflejen información actual y precisa.
 
-Este ejemplo usa [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) para establecer la fuente de datos del gráfico llamado "My chart" en la primera diapositiva de una presentación existente a `Sheet1!A1:B4`. El libro de trabajo del gráfico debe contener esa hoja y un rango poblado con un encabezado de serie en la primera fila, etiquetas de categoría en la columna A y tres valores en la columna B.
+Este ejemplo usa [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) para establecer la fuente de datos del gráfico llamado "My chart" en la primera diapositiva de una presentación existente a `Sheet1!A1:B4`. El libro de trabajo del gráfico debe contener esa hoja y un rango poblado con un encabezado de serie en la primera fila, etiquetas de categoría en la columna A y tres valores en la columna B.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1363,9 +1365,9 @@ finally
 
 ## **Usar marcadores predeterminados en los gráficos**
 
-Cuando usa marcadores predeterminados en los gráficos, cada serie del gráfico obtiene automáticamente un símbolo de marcador predeterminado diferente.
+Cuando usa marcadores predeterminados en los gráficos, cada serie del gráfico recibe automáticamente un símbolo de marcador predeterminado diferente.
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) para crear un gráfico con dos series de líneas y una leyenda. La configuración de marcadores accesible a través de [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) conserva los símbolos de marcador asignados automáticamente. La primera serie incluye un valor negativo y un valor faltante, representado por `null`, mientras que la segunda tiene un valor para cada categoría.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) para crear un gráfico con dos series de líneas y una leyenda. Los ajustes de marcador accesibles a través de [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getmarker/) conservan los símbolos de marcador asignados automáticamente. La primera serie incluye un valor negativo y un valor ausente, representado por `null`, mientras que la segunda tiene un valor para cada categoría.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1430,9 +1432,9 @@ finally
 
 ## **Preguntas frecuentes**
 
-**¿Qué tipos de gráficos son compatibles con Aspose.Slides para Node.js a través de Java?**
+**¿Qué tipos de gráficos son compatibles con Aspose.Slides for Node.js via Java?**
 
-Aspose.Slides para Node.js a través de Java admite una amplia gama de tipos de gráficos, incluidos barras, líneas, circulares, áreas, dispersión, histogramas, radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más apropiado para sus necesidades de visualización de datos.
+Aspose.Slides for Node.js via Java admite una amplia gama de tipos de gráficos, incluidos barras, líneas, sectores, áreas, dispersión, histograma, radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más apropiado para sus necesidades de visualización de datos.
 
 **¿Cómo añado un nuevo gráfico a una diapositiva?**
 
@@ -1440,8 +1442,8 @@ Para añadir un gráfico, primero crea una instancia de la clase [Presentation](
 
 **¿Cómo puedo actualizar los datos mostrados en un gráfico?**
 
-Puede actualizar los datos de un gráfico accediendo a su libro de datos ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), borrando cualquier serie y categoría predeterminada, y luego añadiendo sus datos personalizados. Esto le permite refrescar programáticamente el gráfico para reflejar los datos más recientes.
+Puede actualizar los datos de un gráfico accediendo a su libro de datos ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), borrando cualquier serie y categoría predeterminadas y luego añadiendo sus datos personalizados. Esto le permite refrescar programáticamente el gráfico para reflejar los datos más recientes.
 
 **¿Es posible personalizar la apariencia del gráfico?**
 
-Sí, Aspose.Slides para Node.js a través de Java ofrece amplias opciones de personalización. Puede modificar colores, fuentes, etiquetas, leyendas y otros elementos de formato para adaptar la apariencia del gráfico a sus requisitos de diseño específicos.
+Sí, Aspose.Slides for Node.js via Java ofrece amplias opciones de personalización. Puede modificar colores, fuentes, etiquetas, leyendas y otros elementos de formato para adaptar la apariencia del gráfico a sus requisitos de diseño específicos.

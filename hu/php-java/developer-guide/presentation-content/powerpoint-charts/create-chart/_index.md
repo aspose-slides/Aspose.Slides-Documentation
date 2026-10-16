@@ -1,5 +1,5 @@
 ---
-title: PowerPoint-prezentációk diagramjainak létrehozása vagy frissítése PHP-ben
+title: PowerPoint prezentáció diagramok létrehozása vagy frissítése PHP-ben
 linktitle: Diagramok létrehozása vagy frissítése
 type: docs
 weight: 10
@@ -10,49 +10,50 @@ keywords:
 - diagram szerkesztése
 - diagram módosítása
 - diagram frissítése
-- szórási diagram
+- szétszórt diagram
 - kördiagram
 - vonaldiagram
-- fa térképi diagram
+- fa térkép diagram
 - részvénydiagram
-- doboz‑ és mustárdiagram
+- doboz és szárny diagram
 - tölcsér diagram
-- napfény diagram
+- napkitörés diagram
 - hisztogram diagram
 - radar diagram
-- többcsoportos diagram
+- többkategóriás diagram
 - PowerPoint
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Diagramok létrehozása és testreszabása PowerPoint-prezentációkban az Aspose.Slides for PHP via Java használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati PHP kódrészletekkel."
+description: Diagramok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for PHP via Java használatával. Diagramok hozzáadása, formázása és szerkesztése gyakorlati PHP kódrészletekkel.
 ---
 ## **Áttekintés**
 
-Ez a cikk átfogó útmutatót nyújt arról, hogyan hozhatunk létre és testreszabhatunk diagramokat az Aspose.Slides for PHP via Java segítségével. Megtanulja, hogyan adhat hozzá programozott módon diagramot egy diára, hogyan töltheti fel adatokka
-ra, és hogyan alkalmazhat különféle formázási beállításokat az Ön specifikus tervezési követelményeinek megfelelően. A cikk során részletes kódrészletek illusztrálják az egyes lépéseket, a prezentáció és a diagram objektum inicializálásától a sorozatok, tengelyek és jelmagyarázatok beállításáig. Az útmutató követésével szilárd megértést szerez a dinamikus diagramgenerálás integrálásáról PHP alkalmazásaiban, ezzel egyszerűsítve az adat‑vezérelt prezentációk létrehozását.
+Ez a cikk átfogó útmutatót nyújt a diagramok létrehozásáról és testreszabásáról az Aspose.Slides for PHP via Java használatával. Megtanulhatja, hogyan adhat programozottan diagramot egy diára, hogyan töltheti fel adatokal, és hogyan alkalmazhat különféle formázási lehetőségeket az egyedi tervezési igényekhez. A cikk során részletes kódrészletek mutatják be a lépéseket a prezentáció és a diagramobjektum inicializálásától a sorok, tengelyek és jelmagyarázat beállításáig. Az útmutató követésével alapos megértést szerez a dinamikus diagramgenerálás integrálásáról PHP‑alkalmazásaiba, egyszerűsítve az adat‑vezérelt prezentációk létrehozását.
 
 ## **Diagram létrehozása**
 
-A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat és olyan felismeréseket nyerni, amelyek egy táblázatból vagy táblázatkezdőből nem egyértelműek.
+A diagramok segítenek az embereknek gyorsan megjeleníteni az adatokat és felismerni azokat a meglátásokat, amelyek egy táblázatból vagy szintűből nem közvetlenül láthatóak.
 
-**Miért érdemes diagramokat létrehozni?**
+**Miért hozunk létre diagramokat?**
 
-* nagy mennyiségű adat aggregálása, tömörítése vagy összegzése egyetlen dián a prezentációban;
-* minták és trendek feltárása az adatokban;
-* az adatok időbeli vagy egy adott mérőegységhez viszonyított irányának és lendületének meghatározása;
-* kiugró értékek, hibák, eltérések és értelmetlen adatok felderítése;
-* összetett adatok kommunikálása vagy bemutatása.
+A diagramok segítségével:
 
-A PowerPointban a *Insert* (Beszúrás) funkcióval hozhat diagramokat, amely sablonokat kínál különféle diagramtípusok tervezéséhez. Az Aspose.Slides használatával mind normál diagramokat (népszerű diagramtípusokon alapulókat), mind egyedi diagramokat hozhat létre.
+* nagy mennyiségű adatot összegezhet, tömöríthet vagy összefoglalhat egyetlen diáron egy prezentációban;
+* mintákat és trendeket tárhat fel az adatokban;
+* megállapíthatja az adat irányát és lendületét az időben vagy egy adott mérőegységhez viszonyítva;
+* észlelhet kiugró értékeket, hibákat és értelmetlen adatokat;
+* komplex adatokat kommunikálhat vagy prezentálhat.
+
+PowerPoint‑ban a diagramokat az *Insert* funkcióval hozhatja létre, amely számos diagramtípushoz sablonokat biztosít. Az Aspose.Slides segítségével létrehozhat mind hagyományos diagramokat (népszerű diagramtípusokon alapulókat), mind egyedi diagramokat.
 
 {{% alert color="info" title="Note" %}}
-Használja a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) enumerációt az [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) névtérben. Ennek az enumerációnak az értékei különböző diagramtípusoknak felelnek meg.
+Használja a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) felsorolást az [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) névtérben. Ennek a felsorolásnak az értékei a különböző diagramtípusoknak felelnek meg.
 {{% /alert %}}
 
 ### **Csoportosított oszlopdiagramok létrehozása**
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) használatával hoz létre egy csoportosított oszlopdiagramot, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltéseket használnak, és az egyes címkék a kategória neveket, sorozat neveket és értékeket jelenítik meg. A 0. munkalap index az beágyazott diagram munkafüzet első lapjára mutat.
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy csoportosított oszlopdiagram létrehozásához, amely két sorozatot hasonlít össze három kategóriában. A sorozatok piros és zöld kitöltésekkel rendelkeznek, az egyes címkék pedig a kategória nevét, a sorozat nevét és az értéket jelenítik meg. Az 0‑s munkalap‑index az beágyazott diagrammunkafüzet első munkalapjára mutat.
 
 ```php
 use aspose\slides\ChartType;
@@ -140,18 +141,18 @@ Az eredmény:
 
 ![A csoportosított oszlopdiagram](clustered_column_chart.png)
 
-### **Szórási diagramok létrehozása**
+### **Szétszórt diagramok létrehozása**
 
-Az szórási diagramok (más néven szórásábrák vagy x‑y grafikonok) gyakran használatosak minták ellenőrzésére vagy két változó közötti korrelációk bemutatására.
+A szétszórt diagramok (más néven scatter plot vagy x‑y grafikon) gyakran használatosak minták keresésére vagy két változó közötti korreláció bemutatására.
 
-Használjon szórási diagramot, ha:
+Használjon szétszórt diagramot, ha:
 
-* párosított numerikus adatai vannak.
-* két olyan változója van, amely jól párosítható.
-* meg akarja határozni, hogy a két változó kapcsolódik‑e egymáshoz.
-* független változója több értékkel rendelkezik egy függő változóhoz képest.
+* párosított numerikus adatokat tartalmaz;
+* két változó jól párosítható egymással;
+* meg szeretné határozni, hogy a két változó összefügg‑e;
+* van egy független változó, amely több értéket kap egy függő változóhoz.
 
-Ez a példa két x‑y értékcsoportot ábrázol. Az első sorozat egyenes vonalakat csillag jelölőkkel használ, míg a második sima vonalakat körjelölőkkel; mindkettő 10‑es jelölőmérettel rendelkezik, amely a [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) metódussal van beállítva. A [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) metódus vezérli a jelölő alakzatát.
+Ez a példa két x‑y értékkészletet ábrázol. Az első sorozat egyenes vonalakkal és csillag‑jelölőkkel jelenik meg, míg a második sima vonalakkal és kör‑jelölőkkel; mindkettő 10‑es jelölőmérettel rendelkezik, amelyet a [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) metódussal állíthat be. A [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) metódus szabályozza a jelölő alakját.
 
 ```php
 use aspose\slides\ChartType;
@@ -222,13 +223,13 @@ finally
 
 Az eredmény:
 
-![A szórási diagram](scatter_chart.png)
+![A szétszórt diagram](scatter_chart.png)
 
 ### **Kördiagramok létrehozása**
 
-A kördiagramok leginkább arra használhatók, hogy a rész‑a‑teljes egység viszonyát mutassák meg, különösen akkor, ha a adatok kategóriákat tartalmaznak numerikus értékekkel. Ha azonban a diagram sok részt vagy címkét tartalmaz, érdemesebb oszlopdiagramot használni.
+A kördiagramok leginkább az adat rész‑egész arányának bemutatására alkalmasak, különösen akkor, ha a data kategóriákat numerikus értékekkel látják el. Ha azonban sok rész vagy címke van, érdemes oszlopdiagramot használni.
 
-Ez a példa egy három negyedéves értékkel rendelkező kördiagramot hoz létre. Minden szelet egyedi kitöltéssel és szegéllyel rendelkezik, a címkék pedig különböző kombinációkat jelenítenek meg az értékek, százalékok és sorozatinformációk tekintetében. A [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) metódus az első szeletet 180 fokban indítja.
+Ez a példa három negyedéves értékből álló kördiagramot hoz létre. Minden szelet egyedi kitöltéssel és szegéllyel rendelkezik, a címkék pedig különböző kombinációban jelenítik meg az értékeket, a százalékokat és a sorozatinformációkat. A [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) metódus a első szeletet 180 fokban indítja.
 
 ```php
 use aspose\slides\ChartType;
@@ -342,11 +343,13 @@ Az eredmény:
 
 ![A kördiagram](pie_chart.png)
 
+A körön kívüli címkék olvashatóságának javítása érdekében tekintse meg a [Format Leader Lines](/slides/hu/php-java/chart-data-label/#format-leader-lines) példát, amely a címkék elhelyezését és a vonalak színét, vastagságát, átlátszóságát és vonalstílusát szabályozza.
+
 ### **Vonaldiagramok létrehozása**
 
-A vonaldiagramok (más néven vonalgrafikonok) leginkább olyan helyzetekben hasznosak, amikor időbeli értékváltozást szeretnénk bemutatni. Egy vonaldiagram segítségével egyszerre nagy mennyiségű adatot hasonlíthatunk össze, nyomon követhetjük az időbeli változásokat és trendeket, kiemelhetjük az anomáliákat a sorozatokban, stb.
+A vonaldiagramok (más néven line graphs) leginkább olyan helyzetekben hasznosak, ahol az értékek időbeli változását szeretné bemutatni. Egy vonaldiagram segítségével egyszerre összehasonlíthat nagy mennyiségű adatot, nyomon követheti az időbeli változásokat és trendeket, kiemelheti az anomáliákat az adat‑sorozatokban, és még sok mindent.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) használatával hoz létre egy vonaldiagramot az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy vonaldiagram létrehozásához az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
 
 ```php
 use aspose\slides\ChartType;
@@ -368,7 +371,7 @@ finally
 }
 ```
 
-Alapértelmezés szerint a vonaldiagram pontjait egyenes folytonos vonalak kötik össze. Ha pontok helyett szaggatott vonalakat szeretne, hívja meg a [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) metódust a [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) egyik értékével:
+Alapértelmezés szerint a vonaldiagram pontjait egyenes, folytonos vonalak kötik össze. Ha pontok helyett szaggatott vonalat szeretne, hívja meg a [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) metódust a [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) egyik értékével:
 
 ```php
 use aspose\slides\ChartType;
@@ -400,9 +403,9 @@ Az eredmény:
 
 ### **Fa térkép diagramok létrehozása**
 
-A fa térkép diagramok leginkább értékesítési adatok esetén hasznosak, amikor a kategóriák relatív méretét szeretnénk bemutatni, valamint gyorsan felhívni a figyelmet az egyes kategóriákon belül a nagy hozzájárulókra.
+A fa térkép diagramok leginkább értékesítési adatoknál hasznosak, amikor a kategóriák relatív méretét szeretné megjeleníteni, és gyorsan felhívni a figyelmet a nagy hozzájáruló elemekre minden kategórián belül.
 
-Ez a példa egy nyolc levélből álló fa térképet hoz létre, amely négy szárra és két ágra csoportosul. A [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) metódus az 1. szintű csoportosításnál a szárakat, a 2. szintnél pedig az ágakat rendeli hozzá. Az értékek határozzák meg a relatív téglalapméreteket, a kategóriacímkék és a átfedő szülőcímkék pedig a hierarchiát jelölik.
+Ez a példa nyolc levélből álló fa térképet hoz létre, amely négy szárra és két ágra van csoportosítva. A [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) metódus az 1‑es szintű csoportosításnál a szárakat, a 2‑es szintnél pedig az ágakat rendeli hozzá. Az értékek határozzák meg a relatív téglalapméreteket, a kategóriacímkék és a felül‑felülre helyezett szülőcímkék pedig a hierarchiát mutatják.
 
 ```php
 use aspose\slides\ChartType;
@@ -488,24 +491,24 @@ Az eredmény:
 
 ![A fa térkép diagram](treemap_chart.png)
 
-### **Vízcsúszda diagramok létrehozása**
+### **Vízesés diagramok létrehozása**
 
-A vízcsúszda diagram megmutatja, hogyan járulnak hozzá a pozitív és negatív változások a végső értékhez. Például a profit bontása elindul a bevétellel, levonja a költségeket, és hozzáadja a többletbevételt. A változó oszlopok a korábbi és az új futó értékek között lebegnek, míg a teljes oszlopok a nullától az összegyűjtött értékig terjednek.
+A vízesés diagram megmutatja, hogyan járulnak hozzá a pozitív és negatív változások a végső értékhez. Például egy profit‑bontás kezdődhet a bevétellel, levonja a költségeket, majd hozzáad egyéb bevételeket. A változási oszlopok az előző és az új futó értékek között úsznak, míg a total oszlopok a nullától a felhalmozott értékig terjednek.
 
-Az alábbi példa ezer amerikai dollárban megadott összegeket használ:
+A következő példa ezresekben (USD) megadott összegeket használ:
 
 | Kategória | Munkafüzet érték | Oszlop típusa |
 | --- | ---: | --- |
-| Bevétel | 1000 | Növekedés |
-| Értékesítési költség | -400 | Csökkenés |
-| Bruttó nyereség | 600 | Közbenső összeg |
-| Működési költségek | -200 | Csökkenés |
-| Egyéb bevétel | 50 | Növekedés |
-| Nettó nyereség | 450 | Végső összeg |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-Egy pont közbenső vagy végső összegként való megjelöléséhez hívja meg a [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) metódust `true` értékkel. A tényleges felhalmozott összeget a pont munkafüzet cellájában kell megadni: `600` a bruttó nyereséghez (`1000 - 400`) és `450` a nettó nyereséghez (`600 - 200 + 50`). A metódus csak megjelöli az oszlopot összegként; nem számolja ki vagy tölti fel a cella értékét. Ne használjon nullát helykitöltőként, és ne adjon meg más változást egy összegpontnál. A teljes oszlop a felhalmozott értéket jeleníti meg anélkül, hogy újra hozzáadná a futó értékhez.
+Egy pont közbenső vagy végső total‑ként történő megjelöléséhez hívtassa meg a [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) metódust `true` értékkel. A megfelelő munkalap‑cella tartalmazza a tényleges felgyülemlett összeget: `600` a bruttó nyereséghez (`1000 - 400`) és `450` a nettó nyereséghez (`600 - 200 + 50`). A metódus csak a total‑oszlopot jelöli meg; nem számolja ki vagy tölti ki a cella értékét. Ne használjon nullát helykitöltőként, és ne adjon meg más változást egy total ponthoz. A total oszlop a felhalmozott értéket jeleníti meg anélkül, hogy újra hozzáadná a futó értékhez.
 
-Ez a teljes PHP példa a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) `Waterfall` tagját használja, törli az alapértelmezett adatot, és feltölti a beágyazott munkafüzetet. A 0‑s indexű munkalap az első munkalapot választja; az A oszlop a kategórianév, a B oszlop pedig az értékek. Minden értékcellát a [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) metódus ad hozzá. A 0‑bázisú pontindexek `2` és `5` a közbenső és a végső összegeket azonosítják. A [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) `true` értékkel való hívása megjeleníti az összegeket az oszlopokon. Bemutató bemenetre vagy munkafüzetre nincs szükség.
+Ez a teljes PHP‑példa a `Waterfall` tagot használja a [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/)‑ból, törli az alapértelmezett adatokat, és feltölti a beágyazott munkafüzetet. Az 0‑s munkalap‑index az első munkalapot választja; az A oszlop a kategórianéveket, a B oszlop az értékeket tartalmazza. Minden értékcellát a [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) metódussal adunk hozzá. A 0‑alapú pontindexek `2` és `5` az intermedius és a végső total‑t azonosítják. A [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) `true` hívása megjeleníti az összegeket az oszlopokon. Bemutató fájlra nincs szükség.
 
 ```php
 use aspose\slides\ChartType;
@@ -545,7 +548,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // A harmadik és a hatodik pont összegként jelenik meg, nem további változásként.
+    // A harmadik és hatodik pont totalként van megjelölve, nem további változásként.
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -559,17 +562,17 @@ finally
 }
 ```
 
-A sorozatszintű [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) `true` értékű hívása megjeleníti az egymást követő oszlopokat összekötő vonalakat, és könnyebben követhetővé teszi a futó értéket. Ezeknek a vonalaknak a elrejtéséhez cserélje le a példában a metódushívást `$series->setShowConnectorLines(false);`‑ra mentés előtt. Ez csak a vonalak láthatóságát módosítja, az adat vagy az összegek nem változnak.
+A sorozatszintű [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) `true` hívásával megjeleníthetőek a szomszédos oszlopokat összekötő vonalak, így a futó érték könnyebben követhető. Ezeknek a vonalaknak a rejtéséhez cserélje le a hívást `$series->setShowConnectorLines(false);`‑re a mentés előtt. Ez csak a vonal láthatóságát változtatja, az adatot vagy a total‑okat nem.
 
-A mentett prezentáció a 600-as bruttó nyereséget és a 450-es nettó nyereséget mutatja, mindkettő nulláról indul:
+A mentett prezentáció 600‑as bruttó nyereséget és 450‑as nettó nyereséget mutat, mindkét total a nulláról indul:
 
-![Vízcsúszda diagram, amely a bevételt, költségeket, 600‑as bruttó nyereséget és 450‑as nettó nyereséget mutatja értékcímkékkel és összekötővonalakkal](waterfall_chart.png)
+![Vízesés diagram, amely a bevételt, a költségeket, a 600‑as bruttó nyereséget és a 450‑as nettó nyereséget, értékcímkékkel és vezetővonalakkal jeleníti meg](waterfall_chart.png)
 
-### **Részvény diagramok létrehozása**
+### **Részvénydiagramok létrehozása**
 
-A részvény diagramok pénzügyi adatokat, például nyitó, magas, alacsony és záró árakat jelenítenek meg, segítve a piaci trendek és ingadozások elemzését. Lényeges betekintést nyújtanak a részvény teljesítményébe, támogatva a befektetőket és elemzőket a megalapozott döntések meghozatalában.
+A részvénydiagramokat pénzügyi adatok – például nyitó, legmagasabb, legalacsonyabb és záró árak – megjelenítésére használják, segítve a piac trendjeinek és volatilitásának elemzését. Alapvető betekintést nyújtanak a részvény teljesítményébe, támogató információkkal szolgálva a befektetők és elemzők számára a megalapozott döntésekhez.
 
-Ez a példa egy nyitó‑magas‑alacsony‑záró diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) metódus engedélyezi a fel‑le oszlopokat, a [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) a magas‑alacsony vonalakat, amelyek az árintervallumot mutatják, míg az egyedi sorozatvonalak és a kisebb vízszintes rácsvonalak rejtve maradnak.
+Ez a példa egy nyitó‑magas‑alacsony‑záró (OHLC) diagramot hoz létre négy sorozattal ebben a sorrendben és három kategóriával. A [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) metódus engedélyezi az up/down sávokat, a [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) szabályozza a magas‑alacsony vonalakat, amelyek a ár‑tartományt mutatják, míg az egyéni sorozatvonalak és a kisebb vízszintes rácsvonalak el vannak rejtve.
 
 ```php
 use aspose\slides\ChartType;
@@ -655,13 +658,13 @@ finally
 
 Az eredmény:
 
-![A részvény diagram](stock_chart.png)
+![A részvénydiagram](stock_chart.png)
 
-### **Doboz‑ és mustárdiagramok létrehozása**
+### **Doboz- és Szárnydiagramok létrehozása**
 
-A doboz‑ és mustárdiagramok az adateloszlást jelenítik meg kulcsfontosságú statisztikai mutatók – például medián, kvartilisek és esetleges kiugró értékek – összefoglalásával. Különösen hasznosak felfedező adatvizsgálatokban és statisztikai tanulmányokban, hogy gyorsan megértsék az adat varianciáját és az esetleges anomáliákat.
+A doboz‑ és szárnydiagramok az adat eloszlását jelenítik meg kulcsfontosságú statisztikai mutatók – például medián, kvartilis és esetleges kiugró értékek – összegzésével. Különösen hasznosak felderítő adat‑elemzésekben és statisztikai vizsgálatokban, mivel gyorsan feltárják az adat változatosságát és az esetleges anomáliákat.
 
-Ez a példa hat értékkel hoz létre egy doboz‑ és mustárdiagramot. A [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) a kizárólagos kvartilis számítást választja. A példa továbbá engedélyezi az átlagvonalakat, átlagjelölőket, belső pontokat és kiugró pontokat.
+Ez a példa hat értékkel hoz létre egy doboz‑ és szárnydiagramot. A [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) metódus az exkluzív kvartilis‑számítást választja. A példa engedélyezi az átlag‑vonalakat, az átlag‑jelölőket, a belső pontokat és a kiugró pontokat is.
 
 ```php
 use aspose\slides\ChartType;
@@ -726,9 +729,9 @@ finally
 
 ### **Tölcsér diagramok létrehozása**
 
-A tölcsér diagramok a folyamatok szekvenciális szakaszait ábrázolják, ahol az adatmennyiség minden lépésben csökken. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketingfolyamatok hatékonyságának nyomon követésében.
+A tölcsér diagramok a folyamatok sorrendjének vizualizálására szolgálnak, ahol az adatmennyiség csökken a lépésről lépésre haladva. Különösen hasznosak a konverziós arányok elemzésében, a szűk keresztmetszetek azonosításában és az értékesítési vagy marketing folyamatok hatékonyságának nyomon követésében.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) használatával ad egy tölcsér diagramot egy meglévő prezentáció első diájához. A alapértelmezett adatot hat kategóriával és 50‑től 500‑ig terjedő értékekkel helyettesíti, majd menti a frissített prezentációt. A bemeneti prezentációnak legalább egy diát kell tartalmaznia.
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy tölcsér diagram hozzáadásához egy meglévő prezentáció első diájához. Lecseréli az alapértelmezett adatot hat kategóriára és értékre, amelyek 50‑től 500‑ig terjednek, majd elmenti a frissített prezentációt. A bemeneti prezentációnak legalább egy diát kell tartalmaznia.
 
 ```php
 use aspose\slides\ChartType;
@@ -788,11 +791,11 @@ Az eredmény:
 
 ![A tölcsér diagram](funnel_chart.png)
 
-### **Napfény diagramok létrehozása**
+### **Sunburst diagramok létrehozása**
 
-A napfény diagramok hierarchikus adatokat jelenítenek meg, a szinteket koncentrikus gyűrűkként ábrázolva. Segítenek a rész‑a‑teljes egység viszonyok illusztrálásában, és ideálisak beágyazott kategóriák és alkategóriák világos, kompakt megjelenítésére.
+A Sunburst diagramok hierarchikus adatokat ábrázolnak, a szinteket koncentrikus gyűrűkkel jelenítve. Segítenek a rész‑egész kapcsolatok bemutatásában, és ideálisak beágyazott kategóriák és alkategóriák világos, kompakt ábrázolására.
 
-Ez a példa nyolc levélből álló napfény diagramot hoz létre, amely négy szárra és két ágra csoportosul. A [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) a 1. szintű csoportosításnál a szárakat, a 2. szintnél pedig az ágakat rendeli hozzá. A kategóriacímkék határozzák meg a szegmenseket, az értékek pedig a relatív méreteket.
+Ez a példa nyolc levélből álló Sunburst diagramot hoz létre, amely négy szárra és két ágra van csoportosítva. A [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) metódus az 1‑es szinten a szárakat, a 2‑es szinten az ágakat rendeli hozzá. A kategóriacímkék az egyes szegmenseket azonosítják, az értékek pedig a relatív méreteket határozzák meg.
 
 ```php
 use aspose\slides\ChartType;
@@ -873,17 +876,17 @@ finally
 
 Az eredmény:
 
-![A napfény diagram](sunburst_chart.png)
+![A Sunburst diagram](sunburst_chart.png)
 
 ### **Hisztogram diagramok létrehozása**
 
-A hisztogram diagramok azt mutatják, hogyan oszlanak a numerikus értékek az intervallumok (bin‑ek) között. Havi jelentések esetén a megrendelés feldolgozási időkre használja ugyanazt a bin‑szélességet és küszöbértékeket, hogy az intervallumok konzisztensnek maradjanak és az eloszlások könnyebben összehasonlíthatók legyenek.
+A hisztogram diagramok azt mutatják, hogy a numerikus értékek hogyan oszlanak el intervallumokban (bin‑ek). Havi jelentések esetén, amelyek a megrendelések feldolgozási idejét mutatják, használjon azonos bin‑szélességet és küszöbértékeket, hogy az intervallumok konzisztens módon legyenek meghatározva, és az eloszlás könnyen összehasonlítható legyen.
 
-Hívja a [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) metódust a vízszintes tengelyen a [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) valamelyik módjával. A [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) csak a `ByBinWidth` esetén érvényes, a [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) csak a `ByNumberOfBins` esetén. Az `Automatic` használatával a diagram maga választja ki a bin‑eket.
+Hívja meg a [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) metódust a vízszintes tengelyen egy [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) értékkel. A [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) csak a `ByBinWidth` módra vonatkozik; a [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) csak a `ByNumberOfBins` módra. Az `Automatic` használatával a diagram maga választja ki a bin‑eket.
 
-#### **Fix bin‑szélesség használata**
+#### **Rögzített bin szélesség használata**
 
-Ez a példa a feldolgozási időket 10 perces intervallumokra csoportosítja, külön bin‑ekkel a 10 perc vagy annál rövidebb, illetve a 40 perc feletti időkre. Engedélyezze ezeket a bin‑eket a [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) és a [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) metódusokkal. Ha explicit küszöböket ad meg a [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) és a [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) segítségével, hívja a [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) és a [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) metódusokat `false` értékkel.
+Ez a példa a feldolgozási időket 10 perces intervallumokra csoportosítja, külön bin‑ekkel a 10 perc vagy kevesebb és a 40 perc feletti időkre. Engedélyezze ezeket a bin‑eket a [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) és a [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) metódusokkal. Amikor explicit küszöböket ad meg a [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) és a [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) segítségével, hívja meg a [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) és a [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) metódusokat `false` értékkel.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -933,13 +936,13 @@ finally
 }
 ```
 
-A PowerPointban megjelenő prezentáció **3, 4, 4, 4, 2** bin‑számot mutat. Az alulfolyó bin tartalmazza a `5, 10, 10` értékeket, így a küszöb inkluzív. A felülfolyó bin csak a `41, 50` értékeket tartalmazza, ezért a küszöb exkluzív; a `40`‑ra egyenlő értékek az előző intervallumban maradnak. A belső bin‑ek nagyobbak, mint az alsó határ, és legfeljebb egyenlőek a felső határral.
+A PowerPoint‑ban megjelenő prezentáció a következő bin‑számokat mutatja: **3, 4, 4, 4, és 2**. Az aluláramló bin tartalmazza a `5, 10, 10` értékeket, ezért a küszöb inkluzív. A felüláramló bin csak a `41, 50` értékeket tartalmazza, ezért a küszöb exkluzív; a `40`‑nak megfelelő értékek az előző intervallumban maradnak. A belső bin‑ek tartalmazzák az alsó határnál nagyobb és a felső határnál kisebb vagy egyenlő értékeket.
 
-![Hisztogram 10 perces bin‑ekkel és explicit alul‑ és felülfolyó küszöbökkel](histogram_bin_width.png)
+![Hisztogram 10 perces bin‑ekkel és explicit alul‑ és felüláramló küszöbökkel](histogram_bin_width.png)
 
-#### **Bin‑szám megadása**
+#### **A binok számának meghatározása**
 
-Rögzített részletességi szint helyett, amely fix intervallumot jelent, kérjen öt bin‑t ugyanarra az adatra. Ez a példa letiltja az alul‑ és felülfolyó bin‑eket. A diagram a szélességet az adatintervallumból számolja ki, így a határok jelentések között változhatnak.
+Az intervallumok fix szélessége helyett a részletesség szintjének fixálásához kérjen öt bin‑t ugyanarra az adatra. Ebben a példában az alul‑ és felüláramló bin‑ek le vannak tiltva. A diagram a bin‑szélességet az adat‑tartományból számítja, ezért a határok jelentése változhat a jelentések között.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -983,15 +986,15 @@ finally
 }
 ```
 
-Az öt bin **4, 4, 4, 4, 1** darab értéket tartalmaz. Hasonlítsa össze ezt a rögzített‑szélességű eredménnyel: a bemeneti értékek azonosak, de a határok különböznek.
+Az öt bin számosságai **4, 4, 4, 4, és 1**. Hasonlítsa össze ezt az eloszlást a fentiekben bemutatott rögzített szélességű eredménnyel: a bemeneti értékek azonosak, de a határok eltérnek.
 
-![Hisztogram öt bin‑nel, amely ugyanabból az adathalmazból számított](histogram_bin_count.png)
+![Hisztogram öt bin‑nel, amely ugyanabból az adathalmazból lett kiszámítva](histogram_bin_count.png)
 
 ### **Radar diagramok létrehozása**
 
-A radar diagramok többváltozós adatokat jelenítenek meg kétdimenziós formában, lehetővé téve több változó egyszerre történő összehasonlítását. Különösen hasznosak minták, erősségek és gyengeségek azonosításában több teljesítménymutató vagy attribútum esetén.
+A radar diagramok többváltozós adatot jelenítenek meg kétdimenziós formában, lehetővé téve több változó egyszerre történő könnyű összehasonlítását. Különösen hasznosak a minták, erősségek és gyengeségek azonosításához több teljesítménymutató vagy attribútum között.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) használatával hoz létre egy radar diagramot az alapértelmezett sorozatokkal és kategóriákkal, majd PPTX‑ként menti a prezentációt.
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy radar diagram létrehozásához az alapértelmezett sorozat‑ és kategória‑értékekkel, majd PPTX‑ként menti a prezentációt.
 
 ```php
 use aspose\slides\ChartType;
@@ -1017,11 +1020,11 @@ Az eredmény:
 
 ![A radar diagram](radar_chart.png)
 
-### **Többcsoportos diagramok létrehozása**
+### **Többkategóriás diagramok létrehozása**
 
-A többcsoportos diagramok több kategóriacsoportot tartalmazó adatokat jelenítenek meg, lehetővé téve az értékek összehasonlítását több dimenzióban egyszerre. Különösen hasznosak összetett, többrétegű adathalmazok trendjeinek és kapcsolatoknak a vizsgálatakor.
+A többkategóriás diagramok több kategóriacsoportot is tartalmazó adatokat jelenítenek meg, lehetővé téve az értékek összehasonlítását több dimenzióban egyszerre. Különösen hasznosak, ha összetett, több rétegből álló adatbázisok trendjeit és kapcsolatait kell elemezni.
 
-Ez a példa egy csoportosított oszlopdiagramot hoz létre nyolc kategóriával, négy párra rendezve. A [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) minden párnak egy közös címkét ad az 1. csoportosítási szinten, így a kategória tengely egyedi és csoportcímkéket is tartalmaz.
+Ez a példa egy csoportosított oszlopdiagramot hoz létre nyolc kategóriával, amelyek négy párban vannak elrendezve. A [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) metódus minden párhoz egy közös címkét ad a 1‑es csoportosítási szinten, így a kategória‑tengely tartalmaz egyéni és csoportcímkéket is.
 
 ```php
 use aspose\slides\ChartType;
@@ -1097,13 +1100,13 @@ finally
 
 Az eredmény:
 
-![A többcsoportos diagram](multi_category_chart.png)
+![A többkategóriás diagram](multi_category_chart.png)
 
-### **Térképdagramok létrehozása**
+### **Térkép diagramok létrehozása**
 
-A térképdagramok földrajzi adatokat ábrázolnak, információkat térképezve országokra, tartományokra vagy városokra. Különösen hasznosak regionális trendek, demográfiai adatok és térbeli eloszlások elemzésében, világos és vizuálisan vonzó módon.
+A térkép diagramok földrajzi adatok vizualizálására szolgálnak, az információkat konkrét helyekhez – például országokhoz, államokhoz vagy városokhoz – rendelve. Különösen hasznosak regionális trendek, demográfiai adatok és térbeli eloszlások elemzésére egyértelmű, vizuálisan vonzó módon.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) használatával hoz létre egy térképdagramot az alapértelmezett földrajzi adatokkal, és menti a PowerPointban való megtekintéshez.
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy alapértelmezett földrajzi adatokkal rendelkező térkép diagram létrehozásához, majd a PowerPoint‑ban való megtekintéshez menti azt.
 
 ```php
 use aspose\slides\ChartType;
@@ -1127,19 +1130,19 @@ finally
 
 Az eredmény:
 
-![A térképdagram](map_chart.png)
+![A térkép diagram](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-A fenti kép a mentett prezentációt mutatja megnyitva a PowerPointban. Az Aspose.Slides helyesen írja a térképdigramot és annak adatait, de magát a térképdigramot nem rajzolja: ha egy diát, amely tartalmaz ilyen diagramot, képpé renderel vagy PDF‑re vagy SVG‑re konvertál, a diagram területe üres marad. A dián lévő egyéb alakzatok nem érintettek.
+A fenti kép a mentett prezentációt mutatja megnyitva a PowerPoint‑ban. Az Aspose.Slides helyesen írja a térkép diagramot és annak adatait, de a diagramot maga nem rajzolja: amikor egy diát, amely ilyen diagramot tartalmaz, képpé renderel vagy PDF‑‑vé vagy SVG‑‑vé konvertál, a diagram területe üres marad. A többi alakzat a dián érintetlen marad.
 {{% /alert %}}
 
-### **Kombinációs diagramok létrehozása**
+### **Kombinált diagramok létrehozása**
 
-A kombinációs diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen grafikonba. Ez a diagram lehetővé teszi a különböző adatkészletek kiemelését, összehasonlítását vagy egymáshoz viszonyított különbségeinek vizsgálatát.
+A kombinált diagram (vagy combo diagram) két vagy több diagramtípust egyesít egyetlen grafikonon. Ez a diagram lehetővé teszi, hogy kiemeljük, összehasonlítsuk vagy megvizsgáljuk a két vagy több adathalmaz közötti különbségeket, segítve a köztük lévő kapcsolatok azonosítását.
 
-![A kombinációs diagram](combination_chart.png)
+![A kombinált diagram](combination_chart.png)
 
-Ez a példa két csoportosított oszlopsorozatot és egy vonalsorozatot egyesít négy kategórián. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) a vonalat a jobb oldali másodlagos függőleges tengelyre helyezi. A segédfüggvények beállítják a címet, a jelmagyarázatot, a tengelycímkéket és a rácsvonalakat.
+Ez a példa két csoportosított oszlop sorozatot kombinál egy vonal sorozattal négy kategórián keresztül. Az oszlopok az elsődleges függőleges tengelyt használják, míg a [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) a vonalat a jobb oldalon lévő másodlagos függőleges tengelyre helyezi. A segédfüggvények a címet, a jelmagyarázatot, a tengelycímkéket és a rácsvonalakat konfigurálják.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1313,9 +1316,9 @@ createComboChart();
 
 ## **Diagramok frissítése**
 
-Az Aspose.Slides for PHP via Java lehetővé teszi a PowerPoint diagramok frissítését a diagramadatok, formázás és stílus módosításával. Ez a funkcionalitás leegyszerűsíti a prezentációk dinamikus tartalommal való naprakészen tartását, és biztosítja, hogy a diagramok pontosan tükrözzék a jelenlegi adatokat és a vizuális szabványokat.
+Az Aspose.Slides for PHP via Java lehetővé teszi a PowerPoint diagramok frissítését a diagramadatok, a formázás és a stílus módosításával. Ez a funkció leegyszerűsíti a prezentációk naprakészen tartását dinamikus tartalommal, és biztosítja, hogy a diagramok pontosan tükrözzék a jelenlegi adatokat és vizuális szabványokat.
 
-Ez a példa frissíti a "My chart" nevű diagramot egy meglévő prezentáció első diáján. Két oszlopos sorozatra van szükség, mindegyik három adatponttal, a kategória címkék az A oszlopban, a sorozat nevek pedig az első munkalap első sorában vannak. A példa a [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) használatával módosítja a munkafüzet cellákat, frissíti a sorozat értékeket, hozzáad egy harmadik sorozatot, és a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/) segítségével a diagramot csoportosított hengeres formára állítja.
+Ez a példa frissíti a "My chart" nevű diagramot a meglévő prezentáció első diáján. Két oszlop‑sorozatra van szükség, mindegyik három adatponttal, a kategória‑címkék az A oszlopban, a sorozat‑nevek pedig az első munkalap első sorában szerepelnek. A példa a [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) metódust használja a munkafüzet‑cellák módosítására, frissíti a sorozat‑értékeket, egy harmadik sorozatot ad hozzá, és a [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/)‑al a diagramot csoportosított hengerekre változtatja.
 
 ```php
 use aspose\slides\ChartType;
@@ -1379,13 +1382,13 @@ finally
 }
 ```
 
-## **Adattartomány beállítása egy diagramhoz**
+## **Diagram adat‑tartomány beállítása**
 
-A már meglévő diagram által használt tartomány megtekintéséhez tekintse meg a [Retrieve a Chart's Data Range](/slides/hu/php-java/chart-workbook/#retrieve-a-charts-data-range) oldalt.
+A már létező diagram által használt tartomány megtekintéséhez lásd a [Retrieve a Chart's Data Range](/slides/hu/php-java/chart-workbook/#retrieve-a-charts-data-range) oldalt.
 
-Az Aspose.Slides for PHP via Java rugalmasságot biztosít, hogy egy munkalap meghatározott adattartományát használja a diagram adatforrásaként. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap részt a diagramra, így ellenőrizheti, mely cellák járulnak hozzá a sorozatokhoz és a kategóriákhoz. Ennek eredményeként könnyen frissítheti és szinkronizálhatja diagramjait a munkalap legújabb adatváltozásaival, biztosítva, hogy a PowerPoint prezentációk aktuális és pontos információkat tükrözzenek.
+Az Aspose.Slides for PHP via Java rugalmasságot biztosít, hogy egy munkalapról meghatározott adat‑tartományt állíthasson be a diagram adatforrásaként. Ez azt jelenti, hogy közvetlenül leképezhet egy munkalap‑részletet a diagramra, így szabályozhatja, mely cellák járulnak hozzá a diagram sorozataihoz és kategóriáihoz. Ennek eredményeként egyszerűen frissítheti és szinkronizálhatja diagramjait a munkalap legújabb adatváltozásaival, biztosítva, hogy a PowerPoint‑prezentációk naprakész és pontos információkat tükrözzenek.
 
-Ez a példa a [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) használatával állítja be a "My chart" nevű diagram adatforrását egy meglévő prezentáció első diáján a `Sheet1!A1:B4` tartományra. A diagram munkafüzetének tartalmaznia kell ezt a munkalapot, valamint egy feltöltött tartományt, ahol az első sor a sorozatfejléc, az A oszlop a kategória címkék, a B oszlop pedig három értéket tartalmaz.
+Ez a példa a [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/)‑t használja, hogy a "My chart" nevű diagram adatforrását az első dián a `Sheet1!A1:B4` tartományra állítsa. A diagram munkafüzetnek tartalmaznia kell ezt a munkalapot, és egy sorozati fejlécet első sorban, kategória‑címkéket az A oszlopban, valamint három értéket a B oszlopban.
 
 ```php
 use aspose\slides\Presentation;
@@ -1417,11 +1420,11 @@ finally
 }
 ```
 
-## **Alapértelmezett jelölők használata diagramokon**
+## **Alapértelmezett jelölők használata diagramokban**
 
-Alapértelmezett jelölők használatakor minden diagram sorozat automatikusan más‑más jelölőszimbólummal rendelkezik.
+Alapértelmezett jelölők használata esetén minden diagram sorozat automatikusan más‑más jelölőszimbólumot kap.
 
-Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) használatával hoz létre egy diagramot két vonalsorozattal és egy jelmagyarázattal. A [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) által elérhető jelölőbeállítások megtartják az automatikusan hozzárendelt jelölőszimbólumokat. Az első sorozat negatív értéket és egy hiányzó értéket (`null`) tartalmaz, míg a második minden kategóriához értéket biztosít.
+Ez a példa a [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) metódust használja egy diagram létrehozásához két vonal sorozattal és egy jelmagyarázattal. A [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/)‑en keresztül elérhető jelölőbeállítások megőrzik az automatikusan hozzárendelt jelölőszimbólumokat. Az első sorozat negatív értéket és hiányzó értéket (`null`) tartalmaz, a második pedig minden kategóriához rendelkezik értékkel.
 
 ```php
 use aspose\slides\ChartType;
@@ -1490,16 +1493,16 @@ finally
 
 **Milyen diagramtípusokat támogat az Aspose.Slides for PHP via Java?**
 
-Az Aspose.Slides for PHP via Java számos diagramtípust támogat, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és még sok mást. Ez a rugalmasság lehetővé teszi, hogy a legmegfelelőbb diagramtípust válassza adatvizualizációs igényeihez.
+Az Aspose.Slides for PHP via Java számos diagramtípust támogat, többek között oszlop, vonal, kör, terület, szórás, hisztogram, radar és még sok mást. Ez a rugalmasság lehetővé teszi, hogy az adat‑vizualizációs igényeknek leginkább megfelelő diagramot válassza.
 
 **Hogyan adhatok új diagramot egy diára?**
 
-Az új diagram hozzáadásához először hozza létre a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztály egy példányát, szerezze meg a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagramtípust és a kezdeti adatokat. Ez a folyamat közvetlenül a diagramot integrálja a prezentációba.
+Új diagram hozzáadásához először hozzon létre egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) osztálypéldányt, szerezze be a kívánt diát az indexe alapján, majd hívja meg a diagram hozzáadására szolgáló metódust, megadva a diagramtípust és a kezdeti adatokat. Ezzel a folyamattal a diagram közvetlenül a prezentációba integrálható.
 
-**Hogyan frissíthetem a diagramon megjelenített adatokat?**
+**Hogyan frissíthetem egy diagram megjelenített adatait?**
 
-A diagram adatait a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) elérésével frissítheti, az alapértelmezett sorozatokat és kategóriákat törölve, majd saját adatokat hozzáadva. Ez lehetővé teszi, hogy programozottan frissítse a diagramot a legújabb adatokkal.
+Egy diagram adatát frissítheti a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) elérésével, az alapértelmezett sorozatok és kategóriák törlésével, majd saját adatainak hozzáadásával. Így programozottan frissítheti a diagramot, hogy az a legújabb adatokat tükrözze.
 
-**Lehet-e testreszabni a diagram megjelenését?**
+**Lehet-e testre szabni a diagram megjelenését?**
 
-Igen, az Aspose.Slides for PHP via Java kiterjedt testreszabási lehetőségeket kínál. Módosíthatja a színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenése megfeleljen a konkrét tervezési követelményeinek.
+Igen, az Aspose.Slides for PHP via Java kiterjedt testreszabási lehetőségeket biztosít. Módosíthat színeket, betűtípusokat, címkéket, jelmagyarázatokat és egyéb formázási elemeket, hogy a diagram megjelenése megfeleljen a speciális tervezési követelményeinek.

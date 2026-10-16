@@ -1,5 +1,5 @@
 ---
-title: Tworzenie lub aktualizacja wykresów w prezentacji PowerPoint w JavaScript
+title: Tworzenie lub aktualizacja wykresów w prezentacjach PowerPoint w JavaScript
 linktitle: Tworzenie lub aktualizacja wykresów
 type: docs
 weight: 10
@@ -10,12 +10,12 @@ keywords:
 - edytuj wykres
 - zmień wykres
 - zaktualizuj wykres
-- wykres rozrzutu
+- wykres rozproszony
 - wykres kołowy
 - wykres liniowy
 - wykres mapy drzewa
 - wykres giełdowy
-- wykres pudełko-wąsy
+- wykres pudełkowy i wąsowy
 - wykres lejkowy
 - wykres promieniowy
 - wykres histogramu
@@ -26,35 +26,34 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tworzenie i dostosowywanie wykresów w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Node.js via Java. Dodawaj, formatuj i edytuj wykresy przy praktycznych przykładach kodu w JavaScript."
+description: "Tworzenie i dostosowywanie wykresów w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Node.js via Java. Dodawaj, formatuj i edytuj wykresy przy pomocy praktycznych przykładów kodu w JavaScript."
 ---
 ## **Przegląd**
 
-Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla Node.js za pośrednictwem Java. Nauczysz się programowo dodawać wykres do slajdu, wypełniać go danymi oraz stosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach Node.js, usprawniając tworzenie prezentacji opartych na danych.
+Ten artykuł zapewnia kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla Node.js via Java. Nauczysz się, jak programowo dodać wykres do slajdu, wypełnić go danymi i zastosować różne opcje formatowania, aby dopasować go do konkretnych wymagań projektowych. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę o tym, jak integrować dynamiczne generowanie wykresów w aplikacjach Node.js, upraszczając proces tworzenia prezentacji opartych na danych.
 
-## **Tworzenie wykresu**
+## **Utworzenie wykresu**
 
-Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które mogą nie być od razu oczywiste z tabeli lub arkusza kalkulacyjnego.
+Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które mogą nie być od razu widoczne w tabeli lub arkuszu kalkulacyjnym.
 
-**Dlaczego warto tworzyć wykresy?**
+**Dlaczego tworzyć wykresy?**
 
-Korzystając z wykresów, możesz:
+Używając wykresów, możesz:
+* agregować, zagęszczać lub podsumowywać duże ilości danych na pojedynczym slajdzie prezentacji;
+* uwidaczniać wzorce i trendy w danych;
+* wyciągać kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary;
+* wykrywać wartości odstające, aberracje, odchylenia, błędy i nielogiczne dane;
+* komunikować lub prezentować złożone dane.
 
-* agregować, kondensować lub podsumowywać duże ilości danych na jednym slajdzie prezentacji;
-* ujawniać wzorce i trendy w danych;
-* wywnioskować kierunek i dynamikę danych w czasie lub względem określonej jednostki miary;
-* wykrywać wartości odstające, aberracje, odchylenia, błędy i niespójne dane;
-* przekazywać lub prezentować złożone dane.
+W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji *Insert*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
 
-W programie PowerPoint można tworzyć wykresy za pomocą funkcji *Insert*, która oferuje szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
-
-{{% alert color="info" title="Uwaga" %}}
+{{% alert color="info" title="Note" %}}
 Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) w module [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
 {{% /alert %}}
 
-### **Tworzenie wykresów kolumnowych skumulowanych**
+### **Utworzenie grupowanych wykresów kolumnowych**
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) do stworzenia wykresu kolumnowego skumulowanego, który porównuje dwie serie w trzech kategoriach. Serie używają wypełnień na czerwono i zielono, a indywidualne etykiety pokazują nazwy kategorii, nazwy serii oraz wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
+Ten przykład wykorzystuje [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) aby utworzyć grupowany wykres kolumnowy porównujący dwie serie w trzech kategoriach. Serie używają czerwonego i zielonego wypełnienia, a poszczególne etykiety pokazują nazwy kategorii, nazwy serii i wartości. Indeks arkusza roboczego 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -135,20 +134,19 @@ finally
 
 Wynik:
 
-![Wykres kolumnowy skumulowany](clustered_column_chart.png)
+![Wykres kolumnowy grupowany](clustered_column_chart.png)
 
-### **Tworzenie wykresów rozrzutu**
+### **Utworzenie wykresów punktowych**
 
-Wykresy rozrzutu (znane również jako wykresy punktowe lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji pomiędzy dwoma zmiennymi.
+Wykresy punktowe (znane również jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji pomiędzy dwiema zmiennymi.
 
-Użyj wykresu rozrzutu, gdy:
-
+Użyj wykresu punktowego, gdy:
 * Masz sparowane dane liczbowe.
 * Masz dwie zmienne, które dobrze ze sobą współgrają.
 * Chcesz określić, czy dwie zmienne są ze sobą powiązane.
 * Masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
 
-Ten przykład wykreśla dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii z markerami‑gwiazdkami, druga — wygładzonych linii z markerami‑kółkami; obie używają rozmiaru markera 10, konfigurowanego za pomocą [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). Metoda [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) określa kształt markera.
+Ten przykład rysuje dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii ze znacznikami‑gwiazdkami, podczas gdy druga używa wygładzonych linii ze znacznikami‑kółkami; oba używają rozmiaru znacznika 10, konfigurowanego przy pomocy [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsize/). Metoda [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsymbol/) kontroluje kształt znacznika.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -216,13 +214,13 @@ finally
 
 Wynik:
 
-![Wykres rozrzutu](scatter_chart.png)
+![Wykres punktowy](scatter_chart.png)
 
-### **Tworzenie wykresów kołowych**
+### **Utworzenie wykresów kołowych**
 
-Wykresy kołowe najlepiej służą do prezentacji zależności część‑całość w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak dane zawierają wiele części lub etykiet, warto rozważyć użycie wykresu słupkowego.
+Wykresy kołowe są najlepsze do prezentacji relacji część‑całość w danych, szczególnie gdy dane zawierają etykiety kategorialne z wartościami liczbowymi. Jednakże, jeśli Twoje dane zawierają wiele części lub etykiet, warto rozważyć użycie wykresu słupkowego.
 
-Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy wycinek ma niestandardowe wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) ustawia pierwszy wycinek pod kątem 180 stopni.
+Ten przykład tworzy wykres kołowy z trzema kwartalnymi wartościami. Każdy wycinek ma własne wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) ustawia pierwszy wycinek na start pod kątem 180 stopni.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -325,11 +323,13 @@ Wynik:
 
 ![Wykres kołowy](pie_chart.png)
 
-### **Tworzenie wykresów liniowych**
+Aby poprawić czytelność etykiet poza wykresem, zobacz [Formatuj linie prowadzące](/slides/pl/nodejs-java/chart-data-label/#format-leader-lines) jako przykład pozycjonowania etykiet i dostosowania koloru, szerokości, przezroczystości oraz stylu kreski linii.
 
-Wykresy liniowe (znane również jako wykresy liniowe) najlepiej sprawdzają się, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz porównywać dużą liczbę danych jednocześnie, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
+### **Utworzenie wykresów liniowych**
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) do stworzenia wykresu liniowego z domyślnymi seriami i kategoriami, po czym zapisuje prezentację w formacie PPTX.
+Wykresy liniowe (znane również jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Korzystając z wykresu liniowego, możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
+
+Ten przykład wykorzystuje [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) aby utworzyć wykres liniowy z domyślnymi seriami i kategoriami, po czym zapisuje prezentację jako PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -349,7 +349,7 @@ finally
 }
 ```
 
-Domyślnie punkty na wykresie liniowym łączone są prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, wywołaj [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) z wartością z [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
+Domyślnie punkty na wykresie liniowym są łączone prostymi, ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, wywołaj [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) z wartością z [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -378,11 +378,11 @@ Wynik:
 
 ![Wykres liniowy](line_chart.png)
 
-### **Tworzenie wykresów mapy drzewa**
+### **Utworzenie wykresów mapy drzewa**
 
-Wykresy mapy drzewa najlepiej sprawdzają się przy danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które stanowią duży wkład w każdej kategorii.
+Wykresy mapy drzewa są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy będące dużymi wkładami w każdej kategorii.
 
-Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, a etykiety kategorii i nakładające się etykiety nadrzędne identyfikują hierarchię.
+Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, natomiast etykiety kategorii i nakładające się etykiety rodziców identyfikują hierarchię.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -465,24 +465,22 @@ Wynik:
 
 ![Wykres mapy drzewa](treemap_chart.png)
 
-### **Tworzenie wykresów wodospadowych**
+### **Utworzenie wykresów wodospadowych**
 
-Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do wartości końcowej. Na przykład podział zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian unoszą się pomiędzy poprzednią a nową wartością bieżącą, a kolumny sumaryczne rozciągają się od zera do skumulowanej wartości.
+Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do wartości końcowej. Na przykład podział zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian „pływają” między poprzednią a nową wartością bieżącą, podczas gdy kolumny sumy rozciągają się od zera do wartości skumulowanej.
 
-Poniższy przykład używa kwot w tysiącach dolarów amerykańskich:
-
-| Kategoria | Wartość w skoroszycie | Typ kolumny |
+| Kategoria | Wartość skoroszytu | Typ kolumny |
 | --- | ---: | --- |
 | Przychód | 1000 | Wzrost |
-| Koszt sprzedaży | -400 | Spadek |
+| Koszt sprzedanych produktów | -400 | Spadek |
 | Zysk brutto | 600 | Suma pośrednia |
 | Koszty operacyjne | -200 | Spadek |
-| Inne przychody | 50 | Wzrost |
+| Inny przychód | 50 | Wzrost |
 | Zysk netto | 450 | Suma końcowa |
 
-Aby oznaczyć punkt jako sumę pośrednią lub końcową, wywołaj jego metodę [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) z wartością `true`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Metoda oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu sumarycznego. Kolumna sumaryczna wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
+Aby oznaczyć punkt jako sumę pośrednią lub końcową, wywołaj jego metodę [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setsetastotal/) z wartością `true`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Metoda oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako zastępczej wartości ani nie podawaj innej zmiany dla punktu sumy. Kolumna sumy wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
 
-Ten kompletny przykład JavaScript tworzy wykres przy użyciu członka `Waterfall` wyliczenia [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B wartości. Każda komórka wartości jest dodawana metodą [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). Indeksy punktów zerowo‑bazowe `2` i `5` identyfikują sumy pośrednie i końcowe. Wywołanie [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) z `true` wyświetla kwoty na kolumnach. Żadna prezentacja ani skoroszyt nie są wymagane jako wejście.
+Ten kompletny przykład JavaScript tworzy wykres przy użyciu członka `Waterfall` typu [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B wartości. Każda komórka wartości jest dodawana metodą [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Indeksy punktów zero‑based `2` i `5` identyfikują sumy pośrednie i końcowe. Wywołanie [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) z `true` wyświetla kwoty na kolumnach. Żadna wejściowa prezentacja ani skoroszyt nie są wymagane.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -520,7 +518,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Trzeci i szósty punkt reprezentują sumy, a nie dodatkowe zmiany.
+    // Trzecie i szóste punkty reprezentują sumy, a nie dodatkowe zmiany.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -534,17 +532,17 @@ finally
 }
 ```
 
-Wywołaj metodę serii [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) z `true`, aby pokazać linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień wywołanie metody w przykładzie na `series.setShowConnectorLines(false);` przed zapisem. Zmiana dotyczy wyłącznie widoczności linii, nie danych ani sum.
+Wywołaj metodę poziomu serii [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setshowconnectorlines/) z `true`, aby pokazać linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień wywołanie metody w przykładzie na `series.setShowConnectorLines(false);` przed zapisem. Zmienia to jedynie widoczność linii, nie dane ani sumy.
 
-Zapisana prezentacja pokazuje zysk brutto = 600 i zysk netto = 450, przy czym obie sumy są rysowane od zera:
+Zapisana prezentacja pokazuje zysk brutto 600 oraz zysk netto 450, przy czym obie sumy są rysowane od zera:
 
-![Wykres wodospadowy przedstawiający przychód, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łączącymi](waterfall_chart.png)
+![Wykres wodospadowy pokazujący przychody, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łączącymi](waterfall_chart.png)
 
-### **Tworzenie wykresów giełdowych**
+### **Utworzenie wykresów giełdowych**
 
-Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksimum, minimum i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
+Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
 
-Ten przykład tworzy wykres typu otwarcie‑wysoko‑nisko‑zamknięcie z czterema seriami w tej kolejności oraz trzema kategoriami. Metoda [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) włącza słupki wzrost/spadek, a [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) steruje liniami wysokiego‑niskiego pokazującymi zakresy cen, podczas gdy linie serii i drobne linie siatki poziome są ukryte.
+Ten przykład tworzy wykres otwarcie‑maksimum‑minimum‑zamknięcie z czterema seriami w tej kolejności i trzema kategoriami. Metoda [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/setupdownbars/) włącza słupki w górę/w dół, a [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) kontroluje linie wysokich‑niskich, które pokazują zakres cen, podczas gdy indywidualne linie serii i drobne linie siatki poziome są ukryte.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -626,15 +624,13 @@ finally
 }
 ```
 
-Wynik:
-
 ![Wykres giełdowy](stock_chart.png)
 
-### **Tworzenie wykresów pudełko‑wąsy**
+### **Utworzenie wykresów pudełkowych i wąsów**
 
-Wykresy pudełko‑wąsy służą do prezentacji rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie użyteczne w analizie eksploracyjnej i badaniach statystycznych, umożliwiając szybkie zrozumienie zmienności danych i identyfikację anomaliów.
+Wykresy pudełkowe i wąsy służą do prezentacji rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie wstępnej i badaniach statystycznych, umożliwiając szybkie zrozumienie zmienności danych i identyfikację anomalii.
 
-Ten przykład tworzy wykres pudełko‑wąsy z sześciu wartości. Metoda [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) wybiera wyłączne obliczanie kwartylu. Przykład włącza również linie średniej, markery średniej, wewnętrzne punkty i punkty odstające.
+Ten przykład tworzy wykres pudełkowy i wąsowy z sześciu wartości. Metoda [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setquartilemethod/) wybiera wyłączną metodę obliczania kwartylu. Przykład włącza także linie średniej, znaczniki średniej, wewnętrzne punkty i punkty odstające.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -694,11 +690,11 @@ finally
 }
 ```
 
-### **Tworzenie wykresów lejkowych**
+### **Utworzenie wykresów lejkowych**
 
-Wykresy lejkowe służą do wizualizacji procesów z kolejnymi etapami, w których wolumen danych maleje wraz z postępem od jednego kroku do kolejnego. Są szczególnie przydatne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
+Wykresy lejkowe służą do wizualizacji procesów, które obejmują kolejne etapy, przy czym wolumen danych maleje w miarę postępu z jednego kroku do kolejnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) aby dodać wykres lejkowy do pierwszego slajdu istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, a następnie zapisuje zaktualizowaną prezentację. Prezentacja wejściowa musi zawierać co najmniej jeden slajd.
+Ten przykład wykorzystuje [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) aby dodać wykres lejkowy do pierwszego slajdu istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, po czym zapisuje zaktualizowaną prezentację. Wejściowa prezentacja musi zawierać co najmniej jeden slajd.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -752,15 +748,13 @@ finally
 }
 ```
 
-Wynik:
-
 ![Wykres lejkowy](funnel_chart.png)
 
-### **Tworzenie wykresów promieniowych**
+### **Utworzenie wykresów promieniowych**
 
-Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają ilustrować relacje część‑całość i są idealne do reprezentacji zagnieżdżonych kategorii i podkategorii w przejrzystym, kompaktowym formacie.
+Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zilustrować relacje część‑całość i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzysty, zwarty sposób.
 
-Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) przydziela pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
+Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) przypisuje pędy na poziomie grupowania 1 oraz gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -837,15 +831,17 @@ finally
 }
 ```
 
-Wynik:
-
 ![Wykres promieniowy](sunburst_chart.png)
 
-### **Tworzenie wykresów histogramu**
+### **Utworzenie wykresów histogramów**
 
-Wykresy histogramu służą do przedstawiania rozkładu danych liczbowych poprzez grupowanie wartości w przedziały (kosze). Są szczególnie przydatne do identyfikacji wzorców danych, takich jak częstotliwość, skośność i rozrzut, oraz do wykrywania wartości odstających w zestawie danych.
+Histogramy pokazują, jak wartości liczbowe rozkładają się w przedziałach (koszach). W comiesięcznych raportach czasu przetwarzania zamówień używaj tej samej szerokości kosza i progów, aby utrzymać spójność przedziałów i ułatwić porównanie rozkładów.
 
-Ten przykład tworzy histogram z sześciu wartości liczbowych, w tym wartości ujemnych. Wywołanie [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) z automatycznym typem agregacji pozwala wykresowi określić kosze używane do wyświetlenia rozkładu.
+Wywołaj [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaggregationtype/) na osi poziomej z trybem z [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setbinwidth/) ma zastosowanie wyłącznie do `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberofbins/) wyłącznie do `ByNumberOfBins`. Użyj `Automatic`, aby pozwolić wykresowi wybrać kosze.
+
+#### **Użyj stałej szerokości przedziału**
+
+Ten przykład grupuje czasy przetwarzania w 10‑minutowe przedziały, z osobnymi koszami dla czasów ≤ 10 min i > 40 min. Włącz te kosze metodami [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) i [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/). Gdy podajesz wyraźne progi za pomocą [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) i [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/), wywołaj [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticunderflowbin/) oraz [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticoverflowbin/) z wartością `false`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -855,7 +851,10 @@ try
 {
     let slide = presentation.getSlides().get_Item(0);
 
-    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 500, 300);
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
 
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
@@ -864,22 +863,24 @@ try
     workbook.clear(0);
 
     let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-    let valueCell = workbook.getCell(0, "A1", 15);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A2", -41);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A3", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A4", 10);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A5", -23);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
-    valueCell = workbook.getCell(0, "A6", 16);
-    series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByBinWidth);
+    axis.setBinWidth(10);
+    axis.setUnderflowBin(true);
+    axis.setAutomaticUnderflowBin(false);
+    axis.setUnderflowBin(10);
+    axis.setOverflowBin(true);
+    axis.setAutomaticOverflowBin(false);
+    axis.setOverflowBin(40);
 
-    presentation.save("Histogram.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("Histogram-bin-width.pptx", aspose.slides.SaveFormat.Pptx);
 }
 finally
 {
@@ -887,15 +888,62 @@ finally
 }
 ```
 
-Wynik:
+Prezentacja wyświetlana w PowerPoint pokazuje liczbę elementów w koszach **3, 4, 4, 4 i 2**. Kosz podprzepływu zawiera `5, 10, 10`, więc jego próg jest inkluzywny. Kosz przepływu zawiera tylko `41, 50`, więc jego próg jest ekskluzywny; oba wartości równe `40` pozostają w poprzednim przedziale. Wewnętrzne kosze zawierają wartości większe od ich dolnej granicy i mniejsze lub równe ich górnej granicy.
 
-![Wykres histogramu](histogram_chart.png)
+![Histogram z 10‑minutowymi przedziałami i wyraźnymi progami podprzepływu i przepływu](histogram_bin_width.png)
 
-### **Tworzenie wykresów radarowych**
+#### **Określ liczbę przedziałów**
 
-Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w wielu metrykach wydajności lub atrybutach.
+Dla stałego poziomu szczegółowości zamiast stałych przedziałów, poproś o pięć koszy dla tych samych danych. Ten przykład pozostawia kosze podprzepływu i przepływu wyłączone. Wykres określa szerokość na podstawie zakresu danych, więc granice mogą się zmieniać między raportami.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) aby stworzyć wykres radarowy z domyślnymi seriami i kategoriami, po czym zapisuje prezentację w formacie PPTX.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
+try
+{
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.Histogram, 20, 20, 680, 200);
+
+    chart.setLegend(false);
+    chart.setTitle(false);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    let workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    let series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+    let values = [ 5, 10, 10, 11, 15, 20, 20, 21, 25, 30, 30, 31, 35, 40, 40, 41, 50 ];
+    for (let i = 0; i < values.length; i++)
+    {
+        let valueCell = workbook.getCell(0, i, 0, values[i]);
+        series.getDataPoints().addDataPointForHistogramSeries(valueCell);
+    }
+
+    let axis = chart.getAxes().getHorizontalAxis();
+    axis.setAggregationType(aspose.slides.AxisAggregationType.ByNumberOfBins);
+    axis.setNumberOfBins(5);
+
+    presentation.save("Histogram-bin-count.pptx", aspose.slides.SaveFormat.Pptx);
+}
+finally
+{
+    presentation.dispose();
+}
+```
+
+Pięć koszy ma liczbę elementów **4, 4, 4, 4 i 1**. Porównaj ten rozkład z wynikiem stałej szerokości powyżej: wartości wejściowe są identyczne, ale granice się różnią.
+
+![Histogram z pięcioma przedziałami obliczonymi na podstawie tych samych danych](histogram_bin_count.png)
+
+### **Utworzenie wykresów radarowych**
+
+Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych stron i słabości w wielu miarach wydajności lub atrybutach.
+
+Ten przykład wykorzystuje [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) aby utworzyć wykres radarowy z domyślnymi seriami i kategoriami, po czym zapisuje prezentację jako PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -915,15 +963,13 @@ finally
 }
 ```
 
-Wynik:
-
 ![Wykres radarowy](radar_chart.png)
 
-### **Tworzenie wykresów wielokategorii**
+### **Utworzenie wykresów wielokategorii**
 
-Wykresy wielokategorii służą do prezentacji danych, które obejmują więcej niż jedną grupę kategorialną, umożliwiając porównywanie wartości w wielu wymiarach jednocześnie. Są szczególnie pomocne, gdy należy analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
+Wykresy wielokategorii służą do prezentacji danych, które obejmują więcej niż jedną grupę kategorialną, umożliwiając porównywanie wartości w wielu wymiarach jednocześnie. Są szczególnie pomocne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
 
-Ten przykład tworzy wykres kolumnowy skumulowany z ośmioma kategoriami ułożonymi w cztery pary. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z zarówno indywidualnymi, jak i grupowymi etykietami.
+Ten przykład tworzy grupowany wykres kolumnowy z ośmioma kategoriami ułożonymi w cztery pary. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z zarówno indywidualnymi, jak i grupowymi etykietami.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -995,15 +1041,13 @@ finally
 }
 ```
 
-Wynik:
-
 ![Wykres wielokategorii](multi_category_chart.png)
 
-### **Tworzenie wykresów map**
+### **Utworzenie wykresów mapowych**
 
-Wykresy map służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany lub miasta. Są szczególnie przydatne do analizowania trendów regionalnych, danych demograficznych i rozmieszczenia przestrzennego w przejrzysty i atrakcyjny wizualnie sposób.
+Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany lub miasta. Są szczególnie przydatne do analizy trendów regionalnych, danych demograficznych i rozmieszczenia przestrzennego w przejrzysty, wizualnie atrakcyjny sposób.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) aby stworzyć wykres mapowy z domyślnymi danymi geograficznymi i zapisuje go do wyświetlenia w programie PowerPoint.
+Ten przykład wykorzystuje [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) aby utworzyć wykres mapowy z domyślnymi danymi geograficznymi i zapisuje go do wyświetlenia w PowerPoint.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1023,21 +1067,19 @@ finally
 }
 ```
 
-Wynik:
-
 ![Wykres mapowy](map_chart.png)
 
-{{% alert color="info" title="Uwaga" %}}
-Powyższy obrazek przedstawia zapisaną prezentację otwartą w programie PowerPoint. Aspose.Slides poprawnie zapisuje wykres mapowy i jego dane, ale sam nie rysuje wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany na obraz lub konwertowany do PDF albo SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
+{{% alert color="info" title="Note" %}}
+Powyższy obraz przedstawia zapisaną prezentację otwartą w PowerPoint. Aspose.Slides zapisuje wykres mapowy i jego dane prawidłowo, ale nie rysuje samych wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany na PDF lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
 {{% /alert %}}
 
-### **Tworzenie wykresów kombinowanych**
+### **Utworzenie wykresów kombinowanych**
 
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności pomiędzy nimi.
+Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice między dwoma lub większą liczbą zestawów danych, pomagając zidentyfikować zależności między nimi.
 
 ![Wykres kombinowany](combination_chart.png)
 
-Ten przykład łączy dwie serie kolumnowe skumulowane z serią liniową w czterech kategoriach. Kolumny używają głównej pionowej osi, podczas gdy [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) umieszcza linię na drugiej pionowej osi po prawej stronie. Funkcje pomocnicze konfigurują tytuł, legendę, etykiety osi i linie siatki.
+Ten przykład łączy dwie grupowane serie kolumnowe z serią liniową w czterech kategoriach. Kolumny używają pierwszorzędnej osi pionowej, podczas gdy [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setplotonsecondaxis/) umieszcza linię na drugorzędnej osi pionowej po prawej stronie. Funkcje pomocnicze konfigurowują tytuł, legendę, etykiety osi i linie siatki.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1204,9 +1246,9 @@ createComboChart();
 
 ## **Aktualizacja wykresów**
 
-Aspose.Slides dla Node.js za pośrednictwem Java umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Funkcjonalność ta upraszcza proces utrzymywania prezentacji w aktualnym stanie przy dynamicznej treści i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane i standardy wizualne.
+Aspose.Slides for Node.js via Java umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Ta funkcja upraszcza proces utrzymywania prezentacji na bieżąco z dynamiczną treścią i zapewnia, że wykresy dokładnie odzwierciedlają aktualne dane oraz standardy wizualne.
 
-Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, przy czym etykiety kategorii znajdują się w kolumnie A, a nazwy serii w pierwszym wierszu pierwszego arkusza. Przykład używa [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia typ wykresu na skumulowane walce za pomocą [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType).
+Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, z etykietami kategorii w kolumnie A i nazwami serii w pierwszym wierszu pierwszego arkusza. Przykład używa [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia wykres na grupowane walce metodą [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/settype/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1243,8 +1285,8 @@ try
 
             workbook.getCell(worksheetIndex, 0, 2, "New_Series 2");
             series.getDataPoints().get_Item(0).getValue().setData(23);
-            series.getDataPoints().get_Item(1).getValue().setData(67);
-            series.getDataPoints().get_Item(2).getValue().setData(99);
+            series.getDataPoints().get_Item(1).setData(67);
+            series.getDataPoints().get_Item(2).setData(99);
 
             let seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Series 3");
             series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
@@ -1268,13 +1310,13 @@ finally
 }
 ```
 
-## **Ustawianie zakresu danych dla wykresu**
+## **Ustaw zakres danych dla wykresu**
 
-Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
+Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Pobierz zakres danych wykresu](/slides/pl/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides dla Node.js za pośrednictwem Java zapewnia elastyczność definiowania określonego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. W rezultacie możesz łatwo aktualizować i synchronizować wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
+Aspose.Slides for Node.js via Java zapewnia elastyczność definiowania konkretnego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment swojego arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. W rezultacie możesz łatwo aktualizować i synchronizować wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że Twoje prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
 
-Ten przykład używa [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) aby ustawić źródło danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz i wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A oraz trzema wartościami w kolumnie B.
+Ten przykład używa [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) aby ustawić źródło danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz i wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A oraz trzema wartościami w kolumnie B.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1305,11 +1347,11 @@ finally
 }
 ```
 
-## **Używanie domyślnych markerów w wykresach**
+## **Używanie domyślnych znaczników w wykresach**
 
-Kiedy używasz domyślnych markerów w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol markera.
+Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) aby stworzyć wykres z dwoma seriami liniowymi i legendą. Ustawienia markera dostępne przez [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) zachowują automatycznie przypisane symbole markerów. Pierwsza seria zawiera wartość ujemną i brakującą wartość, reprezentowaną przez `null`, natomiast druga ma wartość dla każdej kategorii.
+Ten przykład używa [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) aby stworzyć wykres z dwoma seriami liniowymi i legendą. Ustawienia znacznika dostępne przez [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getmarker/) zachowują automatycznie przypisane symbole znaczników. Pierwsza seria zawiera wartość ujemną i brakującą, reprezentowaną przez `null`, podczas gdy druga ma wartość dla każdej kategorii.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1374,18 +1416,18 @@ finally
 
 ## **FAQ**
 
-**Jakie typy wykresów są obsługiwane przez Aspose.Slides dla Node.js za pośrednictwem Java?**
+**Jakie typy wykresów są obsługiwane przez Aspose.Slides for Node.js via Java?**
 
-Aspose.Slides dla Node.js za pośrednictwem Java obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides for Node.js via Java obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, obszarowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), pobierasz żądany slajd po jego indeksie, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), pobierasz żądany slajd za pomocą jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Ten proces integruje wykres bezpośrednio w Twojej prezentacji.
 
-**Jak mogę zaktualizować dane wyświetlane w wykresie?**
+**Jak mogę zaktualizować dane wyświetlane na wykresie?**
 
 Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu, aby odzwierciedlał najnowsze dane.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides dla Node.js za pośrednictwem Java oferuje rozbudowane możliwości dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides for Node.js via Java oferuje rozbudowane opcje dostosowywania. Możesz zmieniać kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
