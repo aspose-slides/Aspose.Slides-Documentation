@@ -6,10 +6,10 @@ url: /vi/php-java/trend-line/
 keywords:
 - biểu đồ
 - đường xu hướng
-- đường xu hướng hàm số mũ
+- đường xu hướng hàm mũ
 - đường xu hướng tuyến tính
 - đường xu hướng logarit
-- đường xu hướng trung bình động
+- đường xu hướng trung bình di chuyển
 - đường xu hướng đa thức
 - đường xu hướng lũy thừa
 - đường xu hướng tùy chỉnh
@@ -17,106 +17,163 @@ keywords:
 - bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Nhanh chóng thêm và tùy chỉnh các đường xu hướng trong biểu đồ PowerPoint với Aspose.Slides for PHP via Java — một hướng dẫn thực tế để thu hút khán giả của bạn."
+description: "Nhanh chóng thêm và tùy chỉnh các đường xu hướng trong biểu đồ PowerPoint với Aspose.Slides cho PHP qua Java — một hướng dẫn thực tế để thu hút khán giả của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách thêm các đường xu hướng vào biểu đồ trong bản trình chiếu bằng cách sử dụng Aspose.Slides. Nó mô tả cách tạo một biểu đồ, thêm đường xu hướng vào các chuỗi biểu đồ, và làm việc với một số loại đường xu hướng, bao gồm hàm số mũ, tuyến tính, logarit, trung bình động, đa thức và lũy thừa.
+Bài viết này giải thích cách thêm các đường xu hướng vào biểu đồ trong bản trình chiếu bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tạo biểu đồ, thêm đường xu hướng vào các chuỗi biểu đồ, và làm việc với một số loại đường xu hướng, bao gồm hàm mũ, hàm tuyến tính, hàm logarit, trung bình di chuyển, đa thức và lũy thừa.
 
-Nó cũng mô tả cách thêm một đường tùy chỉnh vào biểu đồ bằng cách chèn một hình dạng đường thẳng, và bao gồm một mục FAQ ngắn về giá trị chiếu ngang về phía trước và phía sau của đường xu hướng và việc các đường xu hướng có được bảo tồn khi xuất sang PDF hoặc SVG cũng như khi render biểu đồ dưới dạng hình ảnh hay không.
+Nó cũng mô tả cách thêm một đường tùy chỉnh vào biểu đồ bằng cách chèn một hình dạng đường thẳng, và bao gồm một phần Hỏi‑Đáp ngắn về giá trị chiếu của đường xu hướng về phía trước và phía sau cũng như việc các đường xu hướng có được giữ lại khi xuất sang PDF hoặc SVG và khi hiển thị biểu đồ dưới dạng ảnh hay không.
 
-## **Thêm đường xu hướng**
-Aspose.Slides for PHP via Java cung cấp một API đơn giản để quản lý các Đường xu hướng khác nhau cho biểu đồ:
+## **Thêm Đường Xu Hướng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của một slide bằng chỉ mục của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng với bất kỳ loại nào mong muốn (ví dụ này sử dụng ChartType::ClusteredColumn).
-4. Thêm đường xu hướng hàm số mũ cho chuỗi biểu đồ 1.
-5. Thêm đường xu hướng tuyến tính cho chuỗi biểu đồ 1.
-6. Thêm đường xu hướng logarit cho chuỗi biểu đồ 2.
-7. Thêm đường xu hướng trung bình động cho chuỗi biểu đồ 2.
-8. Thêm đường xu hướng đa thức cho chuỗi biểu đồ 3.
-9. Thêm đường xu hướng lũy thừa cho chuỗi biểu đồ 3.
-10. Ghi bản trình chiếu đã chỉnh sửa ra tệp PPTX.
+Sử dụng [TrendlineCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinecollection/add/) để thêm một đường xu hướng vào chuỗi biểu đồ, chọn loại bằng [TrendlineType](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinetype/). Ví dụ tạo một biểu đồ cột nhóm với dữ liệu mặc định và thêm hai đường xu hướng vào mỗi ba chuỗi của nó.
 
-Mã sau được sử dụng để tạo một biểu đồ với các Đường xu hướng.
+Đường xu hướng hàm mũ ẩn phương trình và giá trị R‑bình phương thông qua [setDisplayEquation](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayequation/) và [setDisplayRSquaredValue](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayrsquaredvalue/), trong khi đường xu hướng tuyến tính có màu đỏ. Đường xu hướng logarit sử dụng [addTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/addtextframeforoverriding/) để đặt nhãn tùy chỉnh. Đường trung bình di chuyển sử dụng một [setPeriod](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setperiod/) của ba điểm dữ liệu và một [setTrendlineName](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/settrendlinename/) tùy chỉnh.
+
+Đường xu hướng đa thức có bậc ba, được đặt qua [setOrder](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setorder/), và mở rộng một danh mục về phía trước qua [setForward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setforward/). Đường xu hướng lũy thừa mở rộng một danh mục về phía sau qua [setBackward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setbackward/).
 
 ```php
-  # Tạo một thể hiện của lớp Presentation
-  $pres = new Presentation();
-  try {
-    # Tạo một biểu đồ cột gom nhóm
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
-    # Thêm đường xu hướng hàm số mũ cho chuỗi biểu đồ 1
-    $tredLinep = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Exponential);
-    $tredLinep->setDisplayEquation(false);
-    $tredLinep->setDisplayRSquaredValue(false);
-    # Thêm đường xu hướng tuyến tính cho chuỗi biểu đồ 1
-    $tredLineLin = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Linear);
-    $tredLineLin->setTrendlineType(TrendlineType::Linear);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Thêm đường xu hướng logarit cho chuỗi biểu đồ 2
-    $tredLineLog = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Logarithmic);
-    $tredLineLog->setTrendlineType(TrendlineType::Logarithmic);
-    $tredLineLog->addTextFrameForOverriding("New log trend line");
-    # Thêm đường xu hướng trung bình động cho chuỗi biểu đồ 2
-    $tredLineMovAvg = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setTrendlineType(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setPeriod(3);
-    $tredLineMovAvg->setTrendlineName("New TrendLine Name");
-    # Thêm đường xu hướng đa thức cho chuỗi biểu đồ 3
-    $tredLinePol = $chart->getChartData()->getSeries()->get_Item(2)->getTrendLines()->add(TrendlineType::Polynomial);
-    $tredLinePol->setTrendlineType(TrendlineType::Polynomial);
-    $tredLinePol->setForward(1);
-    $tredLinePol->setOrder(3);
-    # Thêm đường xu hướng lũy thừa cho chuỗi biểu đồ 3
-    $tredLinePower = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Power);
-    $tredLinePower->setTrendlineType(TrendlineType::Power);
-    $tredLinePower->setBackward(1);
-    # Lưu bản trình chiếu
-    $pres->save("ChartTrendLines_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
+
+    $firstSeries = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $exponentialTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Exponential);
+    $exponentialTrendline->setDisplayEquation(false);
+    $exponentialTrendline->setDisplayRSquaredValue(false);
+
+    $linearTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Linear);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $secondSeries = $chart->getChartData()->getSeries()->get_Item(1);
+
+    $logarithmicTrendline = $secondSeries->getTrendLines()->add(TrendlineType::Logarithmic);
+    $logarithmicTrendline->addTextFrameForOverriding("New log trend line");
+
+    $movingAverageTrendline = $secondSeries->getTrendLines()->add(TrendlineType::MovingAverage);
+    $movingAverageTrendline->setPeriod(3);
+    $movingAverageTrendline->setTrendlineName("New TrendLine Name");
+
+    $thirdSeries = $chart->getChartData()->getSeries()->get_Item(2);
+
+    $polynomialTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Polynomial);
+    $polynomialTrendline->setForward(1);
+    $polynomialTrendline->setOrder(3);
+
+    $powerTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Power);
+    $powerTrendline->setBackward(1);
+
+    $presentation->save("ChartTrendLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Thêm đường tùy chỉnh**
-Aspose.Slides for PHP via Java cung cấp một API đơn giản để thêm các đường tùy chỉnh vào biểu đồ. Để thêm một đường thẳng đơn giản vào slide đã chọn của bản trình chiếu, vui lòng làm theo các bước sau:
+## **Đặt Giao Cắt Đường Xu Hướng**
 
-- Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-- Lấy tham chiếu của một slide bằng cách sử dụng chỉ mục của nó.
-- Tạo một biểu đồ mới bằng phương thức AddChart được cung cấp bởi đối tượng Shapes.
-- Thêm một AutoShape loại Đường thẳng bằng phương thức AddAutoShape được cung cấp bởi đối tượng Shapes.
-- Đặt màu cho các đường của hình dạng.
-- Ghi bản trình chiếu đã chỉnh sửa thành tệp PPTX
+Sử dụng [setIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setintercept/) để cố định giá trị Y của đường xu hướng tại X = 0. Cài đặt này hỗ trợ cho các đường xu hướng tuyến tính, hàm mũ và đa thức.
 
-Mã sau được sử dụng để tạo một biểu đồ với các Đường tùy chỉnh.
+Ví dụ, mô hình chi phí sản xuất có thể cần bắt đầu ở chi phí cố định đã biết là 100, ngay cả khi các đo lường ở mức sản xuất không bằng không cho thấy một đường cơ sở khác. Đối với đường xu hướng tuyến tính, việc cố định giao cắt buộc phương trình `y = ax + b` thành `b = 100`; độ dốc được điều chỉnh cho dữ liệu dưới ràng buộc đó. Nó không chỉ di chuyển một đường đã được điều chỉnh sẵn. Cài đặt giao cắt trục chỉ kiểm soát nơi các trục biểu đồ gặp nhau, không phải các hệ số của đường xu hướng đã được điều chỉnh.
+
+Ví dụ sau tạo một biểu đồ phân tán (XY) với khối lượng sản xuất từ 1 đến 4 và chi phí 170, 200, 230 và 260. Nó lưu biểu đồ với giao cắt tự động mặc định, đặt giao cắt thành 100, và lưu một PPTX thứ hai. Hai tệp chỉ khác nhau ở cài đặt giao cắt. Đường xu hướng hiển thị phương trình và mở rộng trở lại X = 0.
 
 ```php
-  # Tạo một thể hiện của lớp Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
-    $shape = $chart->getUserShapes()->getShapes()->addAutoShape(ShapeType::Line, 0, $chart->getHeight() / 2, $chart->getWidth(), 0);
-    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("Presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithMarkers, 20, 20, 480, 210);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $nameCell = $workbook->getCell(0, 0, 1, "Production cost");
+    $series = $chart->getChartData()->getSeries()->add($nameCell, ChartType::ScatterWithMarkers);
+    $costs = [170, 200, 230, 260];
+
+    for ($i = 0; $i < count($costs); $i++) {
+        $xCell = $workbook->getCell(0, $i + 1, 0, $i + 1);
+        $yCell = $workbook->getCell(0, $i + 1, 1, $costs[$i]);
+        $series->getDataPoints()->addDataPointForScatterSeries($xCell, $yCell);
     }
-  }
+
+    $trendline = $series->getTrendLines()->add(TrendlineType::Linear);
+    $trendline->setDisplayEquation(true);
+    $trendline->setBackward(1);
+
+    $presentation->save("AutomaticIntercept.pptx", SaveFormat::Pptx);
+
+    $trendline->setIntercept(100);
+    $presentation->save("FixedIntercept.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Câu hỏi thường gặp**
+Với phép tính tự động, các dữ liệu này tạo ra `y = 30x + 140`. Đặt giao cắt thành 100 thay vào đó cho ra khoảng `y = 43.33x + 100`: giá trị điều chỉnh tại không khớp với đường cơ sở đã biết, trong khi đường không còn đi qua mọi điểm dữ liệu nữa.
 
-**'Forward' và 'backward' có nghĩa là gì đối với một đường xu hướng?**
+| Giao cắt tự động | Giao cắt cố định 100 |
+| --- | --- |
+| ![Đường xu hướng tuyến tính với giao cắt được tính tự động là 140](intercept-automatic.png) | ![Đường xu hướng tuyến tính với giao cắt cố định là 100](intercept-fixed.png) |
 
-Chúng là độ dài của đường xu hướng được chiếu ra phía trước/phía sau: đối với biểu đồ phân tán (XY) — tính bằng đơn vị trục; đối với các biểu đồ không phải phân tán — tính bằng số lượng danh mục. Chỉ cho phép các giá trị không âm.
+Cả hai hình ảnh đều sử dụng cùng một dữ liệu và tỉ lệ trục. Các đường xu hướng được mở rộng trở lại X = 0 để hiển thị giao cắt của chúng.
 
-**Đường xu hướng có được bảo tồn khi xuất bản trình chiếu sang PDF hoặc SVG, hoặc khi render một slide thành ảnh không?**
+Mặc định, [getIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/getintercept/) trả về `NaN`, đại diện cho một giao cắt chưa xác định thay vì bằng không. Khi đó giao cắt được tính tự động từ dữ liệu.
 
-Có. Aspose.Slides chuyển đổi các bản trình chiếu sang [PDF](/slides/vi/php-java/convert-powerpoint-to-pdf/)/[SVG](/slides/vi/php-java/render-a-slide-as-an-svg-image/) và render các biểu đồ thành hình ảnh; các đường xu hướng, như một phần của biểu đồ, được bảo tồn trong các thao tác này. Một phương thức cũng có sẵn để [xuất hình ảnh của biểu đồ](/slides/vi/php-java/create-shape-thumbnails/) riêng.
+## **Thêm Đường Tùy Chỉnh**
+
+Đường tùy chỉnh là một hình dạng được vẽ lên trên biểu đồ thay vì một đường xu hướng được tính từ dữ liệu chuỗi. Ví dụ này sử dụng [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) để thêm một đường ngang vào slide phía trên biểu đồ. Vị trí của đường được chỉ định bằng tọa độ slide, đo bằng điểm, vì vậy nó bắt đầu ở cạnh trái của biểu đồ và nằm giữa chiều cao của biểu đồ. Độ rộng của nó khớp với độ rộng của biểu đồ. Phương thức [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) cung cấp cho đường một màu đỏ đặc.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\ShapeType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+
+    $lineY = java_values($chart->getY()) + java_values($chart->getHeight()) / 2;
+    $line = $slide->getShapes()->addAutoShape(ShapeType::Line, $chart->getX(), $lineY, $chart->getWidth(), 0);
+    $line->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $line->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $presentation->save("AddCustomLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **FAQ**
+
+**‘forward’ và ‘backward’ có nghĩa là gì đối với một đường xu hướng?**
+
+Chúng là độ dài của đường xu hướng được chiếu về phía trước/ phía sau: đối với biểu đồ phân tán (XY) — tính bằng đơn vị trục; đối với các biểu đồ không phải phân tán — tính bằng số danh mục. Chỉ cho phép các giá trị không âm.
+
+**Đường xu hướng có được giữ lại khi xuất bản trình chiếu sang PDF hoặc SVG, hoặc khi hiển thị slide thành ảnh không?**
+
+Có. Aspose.Slides chuyển đổi bản trình chiếu sang [PDF](/slides/vi/php-java/convert-powerpoint-to-pdf/) hoặc [SVG](/slides/vi/php-java/render-a-slide-as-an-svg-image/) và hiển thị biểu đồ dưới dạng ảnh; các đường xu hướng, như một phần của biểu đồ, được giữ lại trong các thao tác này. Một phương thức cũng có sẵn để [export an image of the chart](/slides/vi/php-java/create-shape-thumbnails/) tự nó.

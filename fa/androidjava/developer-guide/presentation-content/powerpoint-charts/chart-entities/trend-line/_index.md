@@ -9,121 +9,162 @@ keywords:
 - خط روند نمایی
 - خط روند خطی
 - خط روند لگاریتمی
-- خط روند متوسط متحرک
+- خط روند میانگین متحرک
 - خط روند چندجمله‌ای
 - خط روند توان
 - خط روند سفارشی
-- پاورپوینت
+- PowerPoint
 - ارائه
-- اندروید
-- جاوا
+- Android
+- Java
 - Aspose.Slides
-description: "به سرعت خطوط روند را در نمودارهای PowerPoint با Aspose.Slides برای Android از طریق Java اضافه و سفارشی کنید — راهنمای عملی برای جذب مخاطبان شما."
+description: "به‌سرعت خطوط روند را در نمودارهای PowerPoint با Aspose.Slides برای Android از طریق Java اضافه و سفارشی کنید — راهنمای عملی برای جذب مخاطبان شما."
 ---
-## **بررسی اجمالی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه خطوط روند را به نمودارهای ارائه با استفاده از Aspose.Slides اضافه کنیم. این مقاله نشان می‌دهد چگونه یک نمودار ایجاد کنیم، خطوط روند را به سری‌های نمودار اضافه کنیم، و با انواع مختلف خطوط روند شامل نمایی، خطی، لگاریتمی، متوسط متحرک، چندجمله‌ای و توان کار کنیم.
+این مقاله توضیح می‌دهد که چگونه خطوط روند را به نمودارهای ارائه با استفاده از Aspose.Slides اضافه کنید. این مقاله نشان می‌دهد چگونه یک نمودار ایجاد کنید، خطوط روند را به سِری‌های نمودار اضافه کنید، و با چندین نوع خط روند کار کنید، از جمله نمایی، خطی، لگاریتمی، میانگین متحرک، چندجمله‌ای و توان.
 
-همچنین توضیح می‌دهد چگونه یک خط سفارشی به یک نمودار اضافه کنیم با وارد کردن یک شکل خطی، و شامل پرسش و پاسخ کوتاهی درباره مقادیر پیش‌بینی خط روند به سمت جلو و عقب و این که آیا خطوط روند هنگام خروجی به PDF یا SVG و هنگام رندر نمودارها به صورت تصویر حفظ می‌شوند یا خیر.
+همچنین توصیف می‌کند چگونه یک خط سفارشی به نمودار اضافه شود با قرار دادن یک شکل خط، و شامل یک سؤال‑پاسخ کوتاه درباره مقادیر پیش‌رو و بازگشتی پیش‌بینی خطوط روند و اینکه آیا خطوط روند هنگام خروجی به PDF یا SVG و هنگام رندر نمودارها به عنوان تصویر حفظ می‌شوند یا نه.
 
-## **افزودن خط روند**
-Aspose.Slides for Android via Java یک API ساده برای مدیریت خطوط روند مختلف نمودار ارائه می‌دهد:
+## **افزودن یک خط روند**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. با استفاده از ایندکس، مرجع یک اسلاید را دریافت کنید.
-3. یک نمودار با داده‌های پیش‌فرض به همراه هر نوع دلخواه اضافه کنید (در این مثال از ChartType.ClusteredColumn استفاده شده است).
-4. افزودن خط روند نمایی برای سری 1 نمودار.
-5. افزودن خط روند خطی برای سری 1 نمودار.
-6. افزودن خط روند لگاریتمی برای سری 2 نمودار.
-7. افزودن خط روند متوسط متحرک برای سری 2 نمودار.
-8. افزودن خط روند چندجمله‌ای برای سری 3 نمودار.
-9. افزودن خط روند توان برای سری 3 نمودار.
-10. ارائه تغییر یافته را در یک فایل PPTX بنویسید.
+از [ITrendlineCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendlinecollection/#add-int-) برای افزودن یک خط روند به یک سِری نمودار استفاده کنید و نوع آن را با [TrendlineType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendlinetype/) انتخاب کنید. مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض ایجاد می‌کند و دو خط روند به هر یک از سه سِری آن اضافه می‌کند.
 
-کد زیر برای ایجاد یک نمودار با خطوط روند استفاده می‌شود.
+خط روند نمایی معادله و مقدار R‑squared خود را با استفاده از [setDisplayEquation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setDisplayEquation-boolean-) و [setDisplayRSquaredValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setDisplayRSquaredValue-boolean-) مخفی می‌کند، در حالی که خط روند خطی به‌صورت قرمز است. خط روند لگاریتمی از [addTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendline/#addTextFrameForOverriding-java.lang.String-) برای برچسب سفارشی استفاده می‌کند. میانگین متحرک با یک [setPeriod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setPeriod-byte-) برابر با سه نقطه داده و یک [setTrendlineName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setTrendlineName-java.lang.String-) سفارشی ساخته می‌شود.
+
+خط روند چندجمله‌ای دارای [setOrder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setOrder-byte-) برابر با سه است و یک دسته به‑صورت پیشرو از طریق [setForward](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setForward-double-) گسترش می‌یابد. خط روند توان یک دسته به‑صورت بازگشتی از طریق [setBackward](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setBackward-double-) گسترش می‌یابد.
 
 ```java
-// ایجاد یک نمونه از کلاس Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // ساخت یک نمودار ستونی خوشه‌ای
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
-    
-    // افزودن خط روند نمایی برای سری 1 نمودار
-    ITrendline tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential);
-    tredLinep.setDisplayEquation(false);
-    tredLinep.setDisplayRSquaredValue(false);
-    
-    // افزودن خط روند خطی برای سری 1 نمودار
-    ITrendline tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear);
-    tredLineLin.setTrendlineType(TrendlineType.Linear);
-    tredLineLin.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    
-    
-    // افزودن خط روند لگاریتمی برای سری 2 نمودار
-    ITrendline tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic);
-    tredLineLog.setTrendlineType(TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("New log trend line");
-    
-    // افزودن خط روند متوسط متحرک برای سری 2 نمودار
-    ITrendline tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage);
-    tredLineMovAvg.setTrendlineType(TrendlineType.MovingAverage);
-    tredLineMovAvg.setPeriod((byte)3);
-    tredLineMovAvg.setTrendlineName("New TrendLine Name");
-    
-    // افزودن خط روند چندجمله‌ای برای سری 3 نمودار
-    ITrendline tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial);
-    tredLinePol.setTrendlineType(TrendlineType.Polynomial);
-    tredLinePol.setForward(1);
-    tredLinePol.setOrder((byte)3);
-    
-    // افزودن خط روند توان برای سری 3 نمودار
-    ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
-    tredLinePower.setTrendlineType(TrendlineType.Power);
-    tredLinePower.setBackward(1);
-    
-    // ذخیره ارائه
-    pres.save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+
+    IChartSeries firstSeries = chart.getChartData().getSeries().get_Item(0);
+
+    ITrendline exponentialTrendline = firstSeries.getTrendLines().add(TrendlineType.Exponential);
+    exponentialTrendline.setDisplayEquation(false);
+    exponentialTrendline.setDisplayRSquaredValue(false);
+
+    ITrendline linearTrendline = firstSeries.getTrendLines().add(TrendlineType.Linear);
+    linearTrendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    linearTrendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    IChartSeries secondSeries = chart.getChartData().getSeries().get_Item(1);
+
+    ITrendline logarithmicTrendline = secondSeries.getTrendLines().add(TrendlineType.Logarithmic);
+    logarithmicTrendline.addTextFrameForOverriding("New log trend line");
+
+    ITrendline movingAverageTrendline = secondSeries.getTrendLines().add(TrendlineType.MovingAverage);
+    movingAverageTrendline.setPeriod((byte) 3);
+    movingAverageTrendline.setTrendlineName("New TrendLine Name");
+
+    IChartSeries thirdSeries = chart.getChartData().getSeries().get_Item(2);
+
+    ITrendline polynomialTrendline = thirdSeries.getTrendLines().add(TrendlineType.Polynomial);
+    polynomialTrendline.setForward(1);
+    polynomialTrendline.setOrder((byte) 3);
+
+    ITrendline powerTrendline = thirdSeries.getTrendLines().add(TrendlineType.Power);
+    powerTrendline.setBackward(1);
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **افزودن خط سفارشی**
-Aspose.Slides for Android via Java یک API ساده برای افزودن خطوط سفارشی در یک نمودار فراهم می‌کند. برای افزودن یک خط ساده به یک اسلاید انتخابی از ارائه، لطفاً مراحل زیر را دنبال کنید:
+## **تنظیم تقاطع خط روند**
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید
-- مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید
-- یک نمودار جدید با استفاده از متد AddChart که توسط شیء Shapes ارائه می‌شود، ایجاد کنید
-- یک AutoShape از نوع خط را با استفاده از متد AddAutoShape که توسط شیء Shapes ارائه می‌شود، اضافه کنید
-- رنگ خطوط شکل را تنظیم کنید.
-- ارائه تغییر یافته را به عنوان فایل PPTX بنویسید
+از [setIntercept](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendline/#setIntercept-double-) برای ثابت کردن مقدار Y یک خط روند در X = 0 استفاده کنید. این تنظیم برای خطوط روند خطی، نمایی و چندجمله‌ای پشتیبانی می‌شود.
 
-کد زیر برای ایجاد یک نمودار با خطوط سفارشی استفاده می‌شود.
+به عنوان مثال، مدل هزینه تولید ممکن است نیاز داشته باشد که از هزینه ثابت شناخته‌شده ۱۰۰ شروع شود، حتی اگر اندازه‌گیری‌ها در حجم‌های تولید غیر صفر نشانگر یک پایه متفاوت باشند. برای یک خط روند خطی، ثابت کردن تقاطع معادله `y = ax + b` را به `b = 100` محدود می‌کند؛ شیب تحت این محدودیت به داده‌ها برازش می‌شود. این کار به سادگی یک خط قبلاً برازش‌شده را جابه‌جا نمی‌کند. تنظیمات عبور محور مکان تقاطع محورها را تعیین می‌کند، نه ضریب‌های خط روند برازش‌شده.
+
+مثال زیر یک نمودار پراکندگی (XY) با حجم‌های تولید ۱ تا ۴ و هزینه‌های ۱۷۰، ۲۰۰، ۲۳۰ و ۲۶۰ ایجاد می‌کند. این نمودار را با تقاطع خودکار پیش‌فرض ذخیره می‌کند، تقاطع را به ۱۰۰ تنظیم می‌کند و یک PPTX دوم ذخیره می‌نماید. دو فایل تنها در تنظیم تقاطع متفاوت هستند. خط روند معادله خود را نمایش می‌دهد و به X = 0 بازمی‌گردد.
 
 ```java
-// ایجاد یک نمونه از کلاس Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight()/2, chart.getWidth(), 0);
-    
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.awt.Color.RED);
-    
-    pres.save("Presentation.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartDataCell nameCell = workbook.getCell(0, 0, 1, "Production cost");
+    IChartSeries series = chart.getChartData().getSeries().add(nameCell, ChartType.ScatterWithMarkers);
+    double[] costs = { 170, 200, 230, 260 };
+
+    for (int i = 0; i < costs.length; i++) {
+        IChartDataCell xCell = workbook.getCell(0, i + 1, 0, i + 1);
+        IChartDataCell yCell = workbook.getCell(0, i + 1, 1, costs[i]);
+        series.getDataPoints().addDataPointForScatterSeries(xCell, yCell);
+    }
+
+    ITrendline trendline = series.getTrendLines().add(TrendlineType.Linear);
+    trendline.setDisplayEquation(true);
+    trendline.setBackward(1);
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+    trendline.setIntercept(100);
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **سوالات متداول**
+با محاسبه خودکار، این داده‌ها `y = 30x + 140` تولید می‌کنند. تنظیم تقاطع به ۱۰۰ به‌جای آن تقریباً `y = 43.33x + 100` می‌دهد: مقدار برازش‌شده در صفر با پایه شناخته‌شده مطابقت دارد، در حالی که خط دیگر از هر نقطه داده عبور نمی‌کند.
 
-**معنای 'forward' و 'backward' در یک خط روند چیست؟**
+| تقاطع خودکار | تقاطع ثابت 100 |
+| --- | --- |
+| ![خط روند خطی با تقاطع محاسبه‌شده خودکار 140](intercept-automatic.png) | ![خط روند خطی با تقاطع ثابت 100](intercept-fixed.png) |
 
-آنها طول‌های خط روند هستند که به سمت جلو/عقب پیش‌بینی می‌شوند: برای نمودارهای پراکندگی (XY) — بر حسب واحدهای محور؛ برای نمودارهای غیرپراکندگی — بر حسب تعداد دسته‌ها. تنها مقادیر غیرمنفی مجاز هستند.
+هر دو تصویر از همان داده‌ها و مقیاس‌های محورها استفاده می‌کنند. خطوط روند به X = 0 بازگشته‌اند تا تقاطع‌هایشان نشان داده شود.
 
-**آیا خط روند هنگام خروجی به PDF یا SVG یا هنگام رندر یک اسلاید به تصویر حفظ می‌شود؟**
+به‌صورت پیش‌فرض، [getIntercept](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendline/#getIntercept--) مقدار `Double.NaN` را برمی‌گرداند که نمایانگر تقاطع نامشخص است نه صفر. سپس تقاطع به‌صورت خودکار از داده‌ها محاسبه می‌شود.
 
-بله. Aspose.Slides ارائه‌ها را به [PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/)/[SVG](/slides/fa/androidjava/render-a-slide-as-an-svg-image/) تبدیل می‌کند و نمودارها را به تصویر رندر می‌نماید؛ خطوط روند به عنوان بخشی از نمودار در این عملیات‌ها حفظ می‌شوند. همچنین یک متد برای [صادرات تصویر نمودار](/slides/fa/androidjava/create-shape-thumbnails/) وجود دارد.
+## **افزودن یک خط سفارشی**
+
+یک خط سفارشی یک شکل است که بر فراز نمودار کشیده می‌شود نه یک خط روند محاسبه‌شده از داده‌های سِری. این مثال از [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) برای افزودن یک خط افقی به اسلاید بر فراز نمودار استفاده می‌کند. موقعیت خط در مختصات اسلاید، بر حسب پوینت، مشخص می‌شود، بنابراین از لبهٔ چپ نمودار شروع می‌شود و نیمهٔ ارتفاع نمودار را می‌پوشاند. عرض آن با عرض نمودار مطابقت دارد. [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) خط را به رنگ قرمز ثابت می‌دهد.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+    IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0);
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **سؤال‑پاسخ**
+
+**مقدارهای «پیش‌رو» و «بازگشتی» برای یک خط روند چه معنایی دارند؟**
+
+اینها طول‌های خط روند هستند که به‌صورت پیش‌رو یا بازگشتی پیش‌بینی می‌شوند: برای نمودارهای پراکندگی (XY) — بر حسب واحدهای محور؛ برای نمودارهای غیر پراکندگی — بر حسب تعداد دسته‌ها. فقط مقادیر غیرمنفی مجاز هستند.
+
+**آیا خط روند هنگام خروجی ارائه به PDF یا SVG یا هنگام رندر اسلاید به یک تصویر حفظ می‌شود؟**
+
+بله. Aspose.Slides ارائه‌ها را به [PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/) یا [SVG](/slides/fa/androidjava/render-a-slide-as-an-svg-image/) تبدیل می‌کند و نمودارها را به تصاویر رندر می‌کند؛ خطوط روند، به‌عنوان بخشی از نمودار، در طول این عملیات‌ها حفظ می‌شوند. همچنین روشی برای [export an image of the chart](/slides/fa/androidjava/create-shape-thumbnails/) وجود دارد.

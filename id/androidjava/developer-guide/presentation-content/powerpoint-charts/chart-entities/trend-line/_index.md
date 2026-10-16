@@ -11,115 +11,160 @@ keywords:
 - garis tren logaritmik
 - garis tren rata-rata bergerak
 - garis tren polinomial
-- garis tren daya
-- garis tren khusus
+- garis tren pangkat
+- garis tren kustom
 - PowerPoint
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Tambahkan dan sesuaikan garis tren dalam diagram PowerPoint dengan Aspose.Slides untuk Android via Java secara cepat — panduan praktis untuk menarik perhatian audiens Anda."
+description: "Tambahkan dan sesuaikan garis tren dengan cepat dalam diagram PowerPoint menggunakan Aspose.Slides untuk Android via Java — panduan praktis untuk menarik perhatian audiens Anda."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini menjelaskan cara menambahkan garis tren ke diagram presentasi menggunakan Aspose.Slides. Artikel ini menunjukkan cara membuat diagram, menambahkan garis tren ke seri diagram, dan bekerja dengan beberapa tipe garis tren, termasuk eksponensial, linear, logaritmik, rata-rata bergerak, polinomial, dan daya.
+Artikel ini menjelaskan cara menambahkan garis tren ke diagram presentasi dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara membuat diagram, menambahkan garis tren ke seri diagram, dan bekerja dengan beberapa jenis garis tren, termasuk eksponensial, linear, logaritmik, rata‑rata bergerak, polinomial, dan pangkat.
 
-Artikel ini juga menjelaskan cara menambahkan garis khusus ke diagram dengan menyisipkan bentuk garis, dan menyertakan FAQ singkat tentang nilai proyeksi garis tren maju dan mundur serta apakah garis tren dipertahankan saat mengekspor ke PDF atau SVG dan saat merender diagram sebagai gambar.
+Artikel ini juga menjelaskan cara menambahkan garis kustom ke diagram dengan menyisipkan bentuk garis, serta menyertakan FAQ singkat tentang nilai proyeksi garis tren maju dan mundur serta apakah garis tren dipertahankan saat mengekspor ke PDF atau SVG dan saat merender diagram sebagai gambar.
 
 ## **Menambahkan Garis Tren**
-Aspose.Slides for Android via Java menyediakan API sederhana untuk mengelola berbagai Garis Tren diagram:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
-2. Dapatkan referensi slide berdasarkan indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (contoh ini menggunakan ChartType.ClusteredColumn).
-4. Menambahkan garis tren eksponensial untuk seri diagram 1.
-5. Menambahkan garis tren linear untuk seri diagram 1.
-6. Menambahkan garis tren logaritmik untuk seri diagram 2.
-7. Menambahkan garis tren rata-rata bergerak untuk seri diagram 2.
-8. Menambahkan garis tren polinomial untuk seri diagram 3.
-9. Menambahkan garis tren daya untuk seri diagram 3.
-10. Tuliskan presentasi yang telah dimodifikasi ke file PPTX.
+Gunakan [ITrendlineCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendlinecollection/#add-int-) untuk menambahkan garis tren ke seri diagram, memilih tipenya dengan [TrendlineType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendlinetype/). Contoh ini membuat diagram kolom berkelompok dengan data default dan menambahkan dua garis tren ke masing‑masing tiga serinya.
+
+Garis tren eksponensial menyembunyikan persamaannya dan nilai R‑squared melalui [setDisplayEquation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setDisplayEquation-boolean-) dan [setDisplayRSquaredValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setDisplayRSquaredValue-boolean-), sedangkan garis tren linear berwarna merah. Garis tren logaritmik menggunakan [addTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendline/#addTextFrameForOverriding-java.lang.String-) untuk label kustom. Rata‑rata bergerak menggunakan [setPeriod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setPeriod-byte-) tiga titik data dan [setTrendlineName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setTrendlineName-java.lang.String-) kustom.
+
+Garis tren polinomial memiliki [setOrder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setOrder-byte-) tiga dan memperluas satu kategori ke depan melalui [setForward](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setForward-double-). Garis tren pangkat memperluas satu kategori ke belakang melalui [setBackward](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setBackward-double-).
 
 ```java
-// Membuat instance kelas Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Membuat diagram kolom terkonsentrasi
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
-    
-    // Menambahkan garis tren eksponensial untuk seri diagram 1
-    ITrendline tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential);
-    tredLinep.setDisplayEquation(false);
-    tredLinep.setDisplayRSquaredValue(false);
-    
-    // Menambahkan garis tren Linear untuk seri diagram 1
-    ITrendline tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear);
-    tredLineLin.setTrendlineType(TrendlineType.Linear);
-    tredLineLin.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    
-    
-    // Menambahkan garis tren Logaritmik untuk seri diagram 2
-    ITrendline tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic);
-    tredLineLog.setTrendlineType(TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("New log trend line");
-    
-    // Menambahkan garis tren MovingAverage untuk seri diagram 2
-    ITrendline tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage);
-    tredLineMovAvg.setTrendlineType(TrendlineType.MovingAverage);
-    tredLineMovAvg.setPeriod((byte)3);
-    tredLineMovAvg.setTrendlineName("New TrendLine Name");
-    
-    // Menambahkan garis tren Polinomial untuk seri diagram 3
-    ITrendline tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial);
-    tredLinePol.setTrendlineType(TrendlineType.Polynomial);
-    tredLinePol.setForward(1);
-    tredLinePol.setOrder((byte)3);
-    
-    // Menambahkan garis tren Power untuk seri diagram 3
-    ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
-    tredLinePower.setTrendlineType(TrendlineType.Power);
-    tredLinePower.setBackward(1);
-    
-    // Menyimpan presentasi
-    pres.save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+
+    IChartSeries firstSeries = chart.getChartData().getSeries().get_Item(0);
+
+    ITrendline exponentialTrendline = firstSeries.getTrendLines().add(TrendlineType.Exponential);
+    exponentialTrendline.setDisplayEquation(false);
+    exponentialTrendline.setDisplayRSquaredValue(false);
+
+    ITrendline linearTrendline = firstSeries.getTrendLines().add(TrendlineType.Linear);
+    linearTrendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    linearTrendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    IChartSeries secondSeries = chart.getChartData().getSeries().get_Item(1);
+
+    ITrendline logarithmicTrendline = secondSeries.getTrendLines().add(TrendlineType.Logarithmic);
+    logarithmicTrendline.addTextFrameForOverriding("New log trend line");
+
+    ITrendline movingAverageTrendline = secondSeries.getTrendLines().add(TrendlineType.MovingAverage);
+    movingAverageTrendline.setPeriod((byte) 3);
+    movingAverageTrendline.setTrendlineName("New TrendLine Name");
+
+    IChartSeries thirdSeries = chart.getChartData().getSeries().get_Item(2);
+
+    ITrendline polynomialTrendline = thirdSeries.getTrendLines().add(TrendlineType.Polynomial);
+    polynomialTrendline.setForward(1);
+    polynomialTrendline.setOrder((byte) 3);
+
+    ITrendline powerTrendline = thirdSeries.getTrendLines().add(TrendlineType.Power);
+    powerTrendline.setBackward(1);
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Menambahkan Garis Khusus**
-Aspose.Slides for Android via Java menyediakan API sederhana untuk menambahkan garis khusus ke dalam diagram. Untuk menambahkan garis polos sederhana ke slide yang dipilih dalam presentasi, ikuti langkah‑langkah di bawah ini:
+## **Mengatur Intersep Garis Tren**
 
-- Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Presentation).
-- Dapatkan referensi slide dengan menggunakan Indeksnya.
-- Buat diagram baru menggunakan metode AddChart yang disediakan oleh objek Shapes.
-- Tambahkan AutoShape tipe Garis menggunakan metode AddAutoShape yang disediakan oleh objek Shapes.
-- Atur Warna garis bentuk.
-- Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+Gunakan [setIntercept](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendline/#setIntercept-double-) untuk mengunci nilai Y garis tren pada X = 0. Pengaturan ini didukung untuk garis tren linear, eksponensial, dan polinomial.
+
+Sebagai contoh, model biaya produksi mungkin perlu dimulai dengan biaya tetap yang diketahui sebesar 100, meskipun pengukuran pada volume produksi non‑nol menunjukkan baseline yang berbeda. Untuk garis tren linear, mengunci intersep memaksa persamaan `y = ax + b` menjadi `b = 100`; kemiringan disesuaikan dengan data di bawah kendala tersebut. Ini tidak sekadar memindahkan garis yang sudah dipasang. Pengaturan pertemuan sumbu mengontrol dimana sumbu diagram bertemu, bukan koefisien dari garis tren yang dipasang.
+
+Contoh berikut membuat diagram sebar (XY) dengan volume produksi 1 hingga 4 dan biaya 170, 200, 230, dan 260. Diagram disimpan dengan intersep otomatis default, kemudian intersep diatur menjadi 100, dan disimpan PPTX kedua. Kedua berkas hanya berbeda pada pengaturan intersep. Garis tren menampilkan persamaannya dan memperpanjang kembali ke X = 0.
 
 ```java
-// Buat instance kelas Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight()/2, chart.getWidth(), 0);
-    
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.awt.Color.RED);
-    
-    pres.save("Presentation.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartDataCell nameCell = workbook.getCell(0, 0, 1, "Production cost");
+    IChartSeries series = chart.getChartData().getSeries().add(nameCell, ChartType.ScatterWithMarkers);
+    double[] costs = { 170, 200, 230, 260 };
+
+    for (int i = 0; i < costs.length; i++) {
+        IChartDataCell xCell = workbook.getCell(0, i + 1, 0, i + 1);
+        IChartDataCell yCell = workbook.getCell(0, i + 1, 1, costs[i]);
+        series.getDataPoints().addDataPointForScatterSeries(xCell, yCell);
+    }
+
+    ITrendline trendline = series.getTrendLines().add(TrendlineType.Linear);
+    trendline.setDisplayEquation(true);
+    trendline.setBackward(1);
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+    trendline.setIntercept(100);
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Dengan perhitungan otomatis, data ini menghasilkan `y = 30x + 140`. Mengatur intersep menjadi 100 menghasilkan kira‑kira `y = 43.33x + 100`: nilai yang dipasang pada nol cocok dengan baseline yang diketahui, sementara garis tidak lagi melewati setiap titik data.
 
-**Apa arti 'forward' dan 'backward' pada garis tren?**
+| Intersep otomatis | Intersep tetap 100 |
+| --- | --- |
+| ![Garis tren linear dengan intersep yang dihitung secara otomatis sebesar 140](intercept-automatic.png) | ![Garis tren linear dengan intersep tetap 100](intercept-fixed.png) |
 
-Mereka adalah panjang garis tren yang diproyeksikan ke depan/ke belakang: untuk diagram sebar (XY) — dalam satuan sumbu; untuk diagram non‑sebar — dalam jumlah kategori. Hanya nilai non‑negatif yang diizinkan.
+Kedua gambar menggunakan data dan skala sumbu yang sama. Garis tren diperpanjang kembali ke X = 0 untuk menunjukkan intersepsnya.
+
+Secara bawaan, [getIntercept](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendline/#getIntercept--) mengembalikan `Double.NaN`, yang menandakan intersep yang tidak ditentukan bukan nol. Intersep kemudian dihitung secara otomatis dari data.
+
+## **Menambahkan Garis Kustom**
+
+Garis kustom adalah bentuk yang digambar di atas diagram, bukan garis tren yang dihitung dari data seri. Contoh ini menggunakan [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) untuk menambahkan garis horizontal ke slide di atas diagram. Posisi garis ditentukan dalam koordinat slide, diukur dalam poin, sehingga mulai pada tepi kiri diagram dan berada setengah tinggi diagram. Lebarnya sama dengan lebar diagram. [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) memberi garis warna merah solid.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+    IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0);
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Tanya Jawab**
+
+**Apa arti 'forward' dan 'backward' pada sebuah garis tren?**
+
+Mereka adalah panjang garis tren yang diproyeksikan maju/mundur: untuk diagram sebar (XY) — dalam satuan sumbu; untuk diagram non‑sebar — dalam jumlah kategori. Hanya nilai non‑negatif yang diizinkan.
 
 **Apakah garis tren akan dipertahankan saat mengekspor presentasi ke PDF atau SVG, atau saat merender slide menjadi gambar?**
 
-Ya. Aspose.Slides mengonversi presentasi ke [PDF](/slides/id/androidjava/convert-powerpoint-to-pdf/)/[SVG](/slides/id/androidjava/render-a-slide-as-an-svg-image/) dan merender diagram menjadi gambar; garis tren, sebagai bagian dari diagram, dipertahankan selama operasi tersebut. Metode juga tersedia untuk [mengekspor gambar diagram](/slides/id/androidjava/create-shape-thumbnails/) itu sendiri.
+Ya. Aspose.Slides mengonversi presentasi ke [PDF](/slides/id/androidjava/convert-powerpoint-to-pdf/) atau [SVG](/slides/id/androidjava/render-a-slide-as-an-svg-image/) dan merender diagram ke gambar; garis tren, sebagai bagian dari diagram, dipertahankan selama operasi ini. Metode juga tersedia untuk [mengekspor gambar diagram](/slides/id/androidjava/create-shape-thumbnails/) itu sendiri.

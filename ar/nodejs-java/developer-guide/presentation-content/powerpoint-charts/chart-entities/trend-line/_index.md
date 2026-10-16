@@ -1,103 +1,174 @@
 ---
-title: خط الاتجاه
+title: إضافة خطوط الاتجاه إلى مخططات العروض التقديمية في JavaScript
+linktitle: خط الاتجاه
 type: docs
 url: /ar/nodejs-java/trend-line/
+keywords:
+- مخطط
+- خط الاتجاه
+- خط الاتجاه الأسي
+- خط الاتجاه الخطي
+- خط الاتجاه اللوغاريتمي
+- خط الاتجاه للمتوسط المتحرك
+- خط الاتجاه متعدد الحدود
+- خط الاتجاه القوي
+- خط الاتجاه المخصص
+- PowerPoint
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "إضافة وتخصيص خطوط الاتجاه بسرعة في مخططات PowerPoint باستخدام JavaScript و Aspose.Slides لـ Node.js عبر Java — دليل عملي لجذب جمهورك."
 ---
+## **نظرة عامة**
 
-## **إضافة خط الاتجاه**
+تشرح هذه المقالة كيفية إضافة خطوط الاتجاه إلى مخططات العروض التقديمية باستخدام Aspose.Slides. توضح كيفية إنشاء مخطط، إضافة خطوط الاتجاه إلى سلسلة المخطط، والعمل مع عدة أنواع من خطوط الاتجاه، بما في ذلك الأسية، الخطية، اللوغاريتمية، المتوسط المتحرك، المتعددة الحدود، والقوة.
 
-Aspose.Slides for Node.js via Java يوفر واجهة برمجة تطبيقات بسيطة لإدارة خطوط الاتجاه لمختلف المخططات:
+كما يصف كيفية إضافة خط مخصص إلى مخطط عن طريق إدراج شكل خط، ويتضمن قسم أسئلة شائعة قصير حول قيم توقع خط الاتجاه للأمام وللخلف وما إذا كانت خطوط الاتجاه تُحافظ عليها أثناء تصدير إلى PDF أو SVG وعند عرض المخططات كصور.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. إضافة مخطط ببيانات افتراضية مع أحد الأنواع المطلوبة (هذا المثال يستخدم ChartType.ClusteredColumn).
-4. إضافة خط اتجاه أسي للسلسلة 1 في المخطط.
-5. إضافة خط اتجاه خطي للسلسلة 1 في المخطط.
-6. إضافة خط اتجاه لوغاريتمي للسلسلة 2 في المخطط.
-7. إضافة خط اتجاه متوسط متحرك للسلسلة 2 في المخطط.
-8. إضافة خط اتجاه متعدد الحدود للسلسلة 3 في المخطط.
-9. إضافة خط اتجاه طاقة للسلسلة 3 في المخطط.
-10. كتابة العرض المعدل إلى ملف PPTX.
+## **إضافة خط اتجاه**
 
-الكود التالي يُستخدم لإنشاء مخطط مع خطوط الاتجاه.
+استخدم [TrendlineCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendlinecollection/#add) لإضافة خط اتجاه إلى سلسلة مخطط، مع تحديد نوعه باستخدام [TrendlineType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendlinetype/). ينشئ المثال مخطط أعمدة مجمّع ببيانات افتراضية ويضيف خطي اتجاه إلى كل من سلسلةه الثلاث.
+
+يخفي خط الاتجاه الأسّي معادلته وقيمة R‑squared من خلال [setDisplayEquation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setDisplayEquation) و[setDisplayRSquaredValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setDisplayRSquaredValue)، بينما يكون خط الاتجاه الخطي أحمر. يستخدم خط الاتجاه اللوغاريتمي [addTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#addTextFrameForOverriding) لإضافة تسمية مخصصة. يستخدم المتوسط المتحرك [setPeriod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setPeriod) لثلاث نقاط بيانات و[setTrendlineName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setTrendlineName) مخصص.
+
+يحتوي خط الاتجاه المتعدد الحدود على [setOrder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setOrder) قيمته ثلاثة ويمتد فئة واحدة إلى الأمام عبر [setForward](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setForward). يمتد خط الاتجاه القوي فئة واحدة إلى الخلف عبر [setBackward](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setBackward).
+
 ```javascript
-// إنشاء مثيل من فئة Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // إنشاء مخطط عمودي مجمع
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 400);
-    // إضافة خط اتجاه أسي للسلسلة 1 في المخطط
-    var tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(aspose.slides.TrendlineType.Exponential);
-    tredLinep.setDisplayEquation(false);
-    tredLinep.setDisplayRSquaredValue(false);
-    // إضافة خط اتجاه خطي للسلسلة 1 في المخطط
-    var tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(aspose.slides.TrendlineType.Linear);
-    tredLineLin.setTrendlineType(aspose.slides.TrendlineType.Linear);
-    tredLineLin.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // إضافة خط اتجاه لوغاريتمي للسلسلة 2 في المخطط
-    var tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.Logarithmic);
-    tredLineLog.setTrendlineType(aspose.slides.TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("New log trend line");
-    // إضافة خط اتجاه متوسط متحرك للسلسلة 2 في المخطط
-    var tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.MovingAverage);
-    tredLineMovAvg.setTrendlineType(aspose.slides.TrendlineType.MovingAverage);
-    tredLineMovAvg.setPeriod(3);
-    tredLineMovAvg.setTrendlineName("New TrendLine Name");
-    // إضافة خط اتجاه متعدد الحدود للسلسلة 3 في المخطط
-    var tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(aspose.slides.TrendlineType.Polynomial);
-    tredLinePol.setTrendlineType(aspose.slides.TrendlineType.Polynomial);
-    tredLinePol.setForward(1);
-    tredLinePol.setOrder(3);
-    // إضافة خط اتجاه طاقة للسلسلة 3 في المخطط
-    var tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.Power);
-    tredLinePower.setTrendlineType(aspose.slides.TrendlineType.Power);
-    tredLinePower.setBackward(1);
-    // حفظ العرض
-    pres.save("ChartTrendLines_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 400);
+
+    const firstSeries = chart.getChartData().getSeries().get_Item(0);
+
+    const exponentialTrendline = firstSeries.getTrendLines().add(aspose.slides.TrendlineType.Exponential);
+    exponentialTrendline.setDisplayEquation(false);
+    exponentialTrendline.setDisplayRSquaredValue(false);
+
+    const linearTrendline = firstSeries.getTrendLines().add(aspose.slides.TrendlineType.Linear);
+    linearTrendline.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    linearTrendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(red);
+
+    const secondSeries = chart.getChartData().getSeries().get_Item(1);
+
+    const logarithmicTrendline = secondSeries.getTrendLines().add(aspose.slides.TrendlineType.Logarithmic);
+    logarithmicTrendline.addTextFrameForOverriding("New log trend line");
+
+    const movingAverageTrendline = secondSeries.getTrendLines().add(aspose.slides.TrendlineType.MovingAverage);
+    movingAverageTrendline.setPeriod(java.newByte(3));
+    movingAverageTrendline.setTrendlineName("New TrendLine Name");
+
+    const thirdSeries = chart.getChartData().getSeries().get_Item(2);
+
+    const polynomialTrendline = thirdSeries.getTrendLines().add(aspose.slides.TrendlineType.Polynomial);
+    polynomialTrendline.setForward(1);
+    polynomialTrendline.setOrder(java.newByte(3));
+
+    const powerTrendline = thirdSeries.getTrendLines().add(aspose.slides.TrendlineType.Power);
+    powerTrendline.setBackward(1);
+
+    presentation.save("ChartTrendLines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **تعيين نقطة تقاطع خط الاتجاه**
+
+استخدم [setIntercept](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setIntercept) لتثبيت قيمة Y لخط الاتجاه عند X = 0. يدعم هذا الإعداد خطوط الاتجاه الخطية، الأسية، والمتعددة الحدود.
+
+على سبيل المثال، قد يحتاج نموذج تكلفة الإنتاج إلى البدء بتكاليف ثابتة معروفة قدرها 100، حتى عندما تشير القياسات عند مستويات إنتاج غير صفرية إلى خط أساس مختلف. بالنسبة لخط الاتجاه الخطي، يقيّد تثبيت نقطة التقاطع المعادلة `y = ax + b` لتصبح `b = 100`؛ يتم تعديل الانحدار وفق البيانات تحت هذا القيد. لا يقوم بذلك فقط بنقل خط تم تثبيته مسبقًا. تتحكم إعدادات تقاطع المحاور في مكان التقاء محاور المخطط، لا في معاملات خط الاتجاه المتناسب.
+
+ينشئ المثال التالي مخططًا مبعثرًا (XY) بأحجام إنتاج تتراوح من 1 إلى 4 وتكاليف 170، 200، 230، و260. يحفظ المخطط بنقطة التقاطع التلقائية الافتراضية، ثم يضبط نقطة التقاطع إلى 100، ويحفظ نسخة PPTX ثانية. يختلف الملفان فقط في إعداد نقطة التقاطع. يعرض خط الاتجاه معادلته ويمتد مرة أخرى إلى X = 0.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const nameCell = workbook.getCell(0, 0, 1, "Production cost");
+    const series = chart.getChartData().getSeries().add(nameCell, aspose.slides.ChartType.ScatterWithMarkers);
+    const costs = [170, 200, 230, 260];
+
+    for (let i = 0; i < costs.length; i++) {
+        const xCell = workbook.getCell(0, i + 1, 0, i + 1);
+        const yCell = workbook.getCell(0, i + 1, 1, costs[i]);
+        series.getDataPoints().addDataPointForScatterSeries(xCell, yCell);
+    }
+
+    const trendline = series.getTrendLines().add(aspose.slides.TrendlineType.Linear);
+    trendline.setDisplayEquation(true);
+    trendline.setBackward(1);
+
+    presentation.save("AutomaticIntercept.pptx", aspose.slides.SaveFormat.Pptx);
+
+    trendline.setIntercept(100);
+    presentation.save("FixedIntercept.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+مع الحساب التلقائي، تُنتج هذه البيانات المعادلة `y = 30x + 140`. ضبط نقطة التقاطع إلى 100 ينتج تقريبًا المعادلة `y = 43.33x + 100`: القيمة المتطابقة عند الصفر تتطابق مع الخط الأساسي المعرف، بينما لم يعد الخط يمر عبر كل نقطة بيانات.
+
+| نقطة تقاطع تلقائية | نقطة تقاطع ثابتة 100 |
+| --- | --- |
+| ![خط اتجاه خطي مع نقطة تقاطع محسوبة تلقائيًا 140](intercept-automatic.png) | ![خط اتجاه خطي مع نقطة تقاطع ثابتة 100](intercept-fixed.png) |
+
+تستخدم الصورتان نفس البيانات ومقاييس المحاور. تمتد خطوط الاتجاه مرة أخرى إلى X = 0 لإظهار نقاط التقاطع.
+
+بشكل افتراضي، يُعيد [getIntercept](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#getIntercept) القيمة `NaN`، التي تمثل نقطة تقاطع غير محددة بدلاً من الصفر. ثم تُحسب نقطة التقاطع تلقائيًا من البيانات.
 
 ## **إضافة خط مخصص**
 
-Aspose.Slides for Node.js via Java يوفر واجهة برمجة تطبيقات بسيطة لإضافة خطوط مخصصة في المخطط. لإضافة خط بسيط إلى شريحة مختارة من العرض، اتبع الخطوات أدناه:
+الخط المخصص هو شكل يُرسم فوق المخطط بدلاً من أن يكون خط اتجاه يُحسب من بيانات السلسلة. يستخدم هذا المثال [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAutoShape) لإضافة خط أفقي إلى الشريحة فوق المخطط. يتم تحديد موضع الخط بإحداثيات الشريحة، مقاسًا بالنقاط، لذا يبدأ عند الحافة اليسرى للمخطط ويقع في منتصف ارتفاع المخطط. يتطابق عرضه مع عرض المخطط. تُعطي الدالة [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) الخط لونًا أحمر صلب.
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-- الحصول على مرجع الشريحة باستخدام فهرستها.
-- إنشاء مخطط جديد باستخدام طريقة AddChart التي يوفرها كائن Shapes.
-- إضافة AutoShape من نوع Line باستخدام طريقة AddAutoShape التي يوفرها كائن Shapes.
-- تعيين لون خطوط الشكل.
-- كتابة العرض المعدل كملف PPTX.
-
-الكود التالي يُستخدم لإنشاء مخطط مع خطوط مخصصة.
 ```javascript
-// إنشاء مثيل من فئة Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
-    var shape = chart.getUserShapes().getShapes().addAutoShape(aspose.slides.ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0);
-    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.save("Presentation.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+    const line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0);
+    line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+    presentation.save("AddCustomLines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **الأسئلة المتكررة**
+**ما معنى 'forward' و 'backward' لخط الاتجاه؟**
 
-**ماذا يعني "forward" و "backward" بالنسبة لخط الاتجاه؟**
+إنهما طولان لخط الاتجاه المُسقَط إلى الأمام/الخلف: بالنسبة لمخططات المبعثر (XY) — بوحدات المحور؛ بالنسبة للمخططات غير المبعثرة — بعدد الفئات. يُسمح فقط بالقيم غير السالبة.
 
-هما طولا خط الاتجاه الممدود إلى الأمام/الخلف: في المخططات النقطية (XY) — بوحدات المحور؛ في المخططات غير النقطية — بعدد الفئات. يُسمح فقط بالقيم غير السالبة.
+**هل سيُحفظ خط الاتجاه عند تصدير العرض التقديمي إلى PDF أو SVG، أو عند تحويل شريحة إلى صورة؟**
 
-**هل سيظل خط الاتجاه محفوظًا عند تصدير العرض إلى PDF أو SVG، أو عند تحويل الشريحة إلى صورة؟**
-
-نعم. Aspose.Slides يقوم بتحويل العروض إلى [PDF](/slides/ar/nodejs-java/convert-powerpoint-to-pdf/)/[SVG](/slides/ar/nodejs-java/render-a-slide-as-an-svg-image/) ويحول المخططات إلى صور؛ خطوط الاتجاه، كجزء من المخطط، تُحفظ خلال هذه العمليات. كما تتوفر طريقة لتصدير صورة للمخطط نفسه [هنا](/slides/ar/nodejs-java/create-shape-thumbnails/).
+نعم. تقوم Aspose.Slides بتحويل العروض التقديمية إلى [PDF](/slides/ar/nodejs-java/convert-powerpoint-to-pdf/) أو [SVG](/slides/ar/nodejs-java/render-a-slide-as-an-svg-image/) وتعرض المخططات كصور؛ تُحفظ خطوط الاتجاه، كجزء من المخطط، خلال هذه العمليات. كما تتوفر طريقة لـ [تصدير صورة للمخطط](/slides/ar/nodejs-java/create-shape-thumbnails/) نفسها.

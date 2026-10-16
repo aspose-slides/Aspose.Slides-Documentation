@@ -1,5 +1,5 @@
 ---
-title: افزودن خطوط روند به نمودارهای ارائه در جاوااسکریپت
+title: افزودن خطوط روند به نمودارهای ارائه در جاوا اسکریپت
 linktitle: خط روند
 type: docs
 url: /fa/nodejs-java/trend-line/
@@ -11,115 +11,164 @@ keywords:
 - خط روند لگاریتمی
 - خط روند میانگین متحرک
 - خط روند چندجمله‌ای
-- خط روند توان
+- خط روند توانی
 - خط روند سفارشی
-- PowerPoint
+- پاورپوینت
 - ارائه
 - Node.js
-- JavaScript
+- جاوااسکریپت
 - Aspose.Slides
-description: "به سرعت خطوط روند را در نمودارهای PowerPoint با جاوااسکریپت و Aspose.Slides برای Node.js از طریق جاوا اضافه و سفارشی‌سازی کنید — راهنمای عملی برای جذب مخاطب شما."
+description: "به‌سرعت خطوط روند را در نمودارهای پاورپوینت با جاوااسکریپت و Aspose.Slides برای Node.js via Java اضافه و سفارشی کنید — راهنمای عملی برای جذب مخاطبان شما."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه با استفاده از Aspose.Slides خطوط روند را به نمودارهای ارائه اضافه کنید. نشان می‌دهد چگونه یک نمودار ایجاد کنید، خطوط روند را به سری‌های نمودار اضافه کنید، و با چند نوع خط روند کار کنید، از جمله نمایی، خطی، لگاریتمی، میانگین متحرک، چندجمله‌ای و توان.
+این مقاله توضیح می‌دهد که چگونه با استفاده از Aspose.Slides خطوط روند را به نمودارهای ارائه اضافه کنید. نشان می‌دهد چگونه یک نمودار ایجاد کنید، خطوط روند را به سری‌های نمودار اضافه کنید و با چندین نوع خط روند کار کنید، از جمله نمایی، خطی، لگاریتمی، میانگین متحرک، چندجمله‌ای و توانی.
 
-همچنین شرح می‌دهد که چگونه با وارد کردن یک شکل خطی، یک خط سفارشی به نمودار اضافه کنید، و شامل یک سؤالات متداول کوتاه در مورد مقادیر پیش‌بینی جلو و عقب خط روند و این که آیا خطوط روند در هنگام صادرات به PDF یا SVG و هنگام رندر نمودارها به عنوان تصویر حفظ می‌شوند یا نه.
+همچنین توصیف می‌کند چگونه یک خط سفارشی را با افزودن شکل خط به نمودار اضافه کنید و شامل بخش پرسش‌وپاسخ کوتاهی درباره مقادیر پیش‌بینی شده خط روند به سمت جلو و عقب و اینکه آیا خطوط روند هنگام خروجی به PDF یا SVG و هنگام رندر نمودارها به تصویر حفظ می‌شوند یا خیر.
 
-## **اضافه کردن خط روند**
+## **افزودن خط روند**
 
-Aspose.Slides برای Node.js از طریق Java یک API ساده برای مدیریت خطوط روند مختلف نمودارها فراهم می‌کند:
+از [TrendlineCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendlinecollection/#add) برای افزودن خط روند به یک سری نمودار استفاده کنید و نوع آن را با [TrendlineType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendlinetype/) انتخاب کنید. مثال یک نمودار میله‌ای خوشه‌ای با داده‌های پیش‌فرض ایجاد می‌کند و به هر یک از سه سری‌اش دو خط روند اضافه می‌کند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسلاید را با استفاده از ایندکس آن دریافت کنید.
-3. یک نمودار با داده‌های پیش‌فرض به همراه هر یک از انواع موردنظر اضافه کنید (در این مثال از ChartType.ClusteredColumn استفاده شده است).
-4. اضافه کردن خط روند نمایی برای سری شماره 1 نمودار.
-5. اضافه کردن خط روند خطی برای سری شماره 1 نمودار.
-6. اضافه کردن خط روند لگاریتمی برای سری شماره 2 نمودار.
-7. اضافه کردن خط روند میانگین متحرک برای سری شماره 2 نمودار.
-8. اضافه کردن خط روند چندجمله‌ای برای سری شماره 3 نمودار.
-9. اضافه کردن خط روند توان برای سری شماره 3 نمودار.
-10. ارائه‌نامه تغییر یافته را به یک فایل PPTX بنویسید.
+خط روند نمایی معادله و مقدار R‑squared خود را از طریق [setDisplayEquation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setDisplayEquation) و [setDisplayRSquaredValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setDisplayRSquaredValue) مخفی می‌کند، در حالی که خط روند خطی به رنگ قرمز است. خط روند لگاریتمی از [addTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#addTextFrameForOverriding) برای برچسب سفارشی استفاده می‌کند. میانگین متحرک از یک [setPeriod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setPeriod) برابر با سه نقطه داده و یک [setTrendlineName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setTrendlineName) سفارشی استفاده می‌کند.
 
-کد زیر برای ایجاد یک نمودار با خطوط روند استفاده می‌شود.
+خط روند چندجمله‌ای یک [setOrder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setOrder) برابر با سه دارد و از طریق [setForward](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setForward) یک دسته به سمت جلو گسترش می‌یابد. خط روند توانی از طریق [setBackward](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setBackward) یک دسته به سمت عقب گسترش می‌یابد.
 
 ```javascript
-// یک نمونه از کلاس Presentation ایجاد کنید
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // ایجاد یک نمودار ستونی خوشه‌ای
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 400);
-    // اضافه کردن خط روند نمایی برای سری نمودار 1
-    var tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(aspose.slides.TrendlineType.Exponential);
-    tredLinep.setDisplayEquation(false);
-    tredLinep.setDisplayRSquaredValue(false);
-    // اضافه کردن خط روند خطی برای سری نمودار 1
-    var tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(aspose.slides.TrendlineType.Linear);
-    tredLineLin.setTrendlineType(aspose.slides.TrendlineType.Linear);
-    tredLineLin.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // اضافه کردن خط روند لگاریتمی برای سری نمودار 2
-    var tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.Logarithmic);
-    tredLineLog.setTrendlineType(aspose.slides.TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("New log trend line");
-    // اضافه کردن خط روند میانگین متحرک برای سری نمودار 2
-    var tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.MovingAverage);
-    tredLineMovAvg.setTrendlineType(aspose.slides.TrendlineType.MovingAverage);
-    tredLineMovAvg.setPeriod(3);
-    tredLineMovAvg.setTrendlineName("New TrendLine Name");
-    // اضافه کردن خط روند چندجمله‌ای برای سری نمودار 3
-    var tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(aspose.slides.TrendlineType.Polynomial);
-    tredLinePol.setTrendlineType(aspose.slides.TrendlineType.Polynomial);
-    tredLinePol.setForward(1);
-    tredLinePol.setOrder(3);
-    // اضافه کردن خط روند توان برای سری نمودار 3
-    var tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.Power);
-    tredLinePower.setTrendlineType(aspose.slides.TrendlineType.Power);
-    tredLinePower.setBackward(1);
-    // ذخیرهٔ ارائه
-    pres.save("ChartTrendLines_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 400);
+
+    const firstSeries = chart.getChartData().getSeries().get_Item(0);
+
+    const exponentialTrendline = firstSeries.getTrendLines().add(aspose.slides.TrendlineType.Exponential);
+    exponentialTrendline.setDisplayEquation(false);
+    exponentialTrendline.setDisplayRSquaredValue(false);
+
+    const linearTrendline = firstSeries.getTrendLines().add(aspose.slides.TrendlineType.Linear);
+    linearTrendline.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    linearTrendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(red);
+
+    const secondSeries = chart.getChartData().getSeries().get_Item(1);
+
+    const logarithmicTrendline = secondSeries.getTrendLines().add(aspose.slides.TrendlineType.Logarithmic);
+    logarithmicTrendline.addTextFrameForOverriding("New log trend line");
+
+    const movingAverageTrendline = secondSeries.getTrendLines().add(aspose.slides.TrendlineType.MovingAverage);
+    movingAverageTrendline.setPeriod(java.newByte(3));
+    movingAverageTrendline.setTrendlineName("New TrendLine Name");
+
+    const thirdSeries = chart.getChartData().getSeries().get_Item(2);
+
+    const polynomialTrendline = thirdSeries.getTrendLines().add(aspose.slides.TrendlineType.Polynomial);
+    polynomialTrendline.setForward(1);
+    polynomialTrendline.setOrder(java.newByte(3));
+
+    const powerTrendline = thirdSeries.getTrendLines().add(aspose.slides.TrendlineType.Power);
+    powerTrendline.setBackward(1);
+
+    presentation.save("ChartTrendLines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **اضافه کردن خط سفارشی**
+## **تنظیم مقطع خط روند**
 
-Aspose.Slides برای Node.js از طریق Java یک API ساده برای افزودن خطوط سفارشی در یک نمودار فراهم می‌کند. برای افزودن یک خط ساده به اسلاید انتخاب‌شده ارائه، لطفاً مراحل زیر را دنبال کنید:
+از [setIntercept](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setIntercept) برای ثابت کردن مقدار Y خط روند در X = 0 استفاده کنید. این تنظیم برای خطوط روند خطی، نمایی و چندجمله‌ای پشتیبانی می‌شود.
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید
-- مرجع یک اسلاید را با استفاده از Index آن به دست آورید
-- یک نمودار جدید با استفاده از متد AddChart که توسط شی Shapes ارائه شده است، ایجاد کنید
-- یک AutoShape از نوع Line را با استفاده از متد AddAutoShape که توسط شی Shapes ارائه شده است، اضافه کنید
-- رنگ خطوط شکل را تنظیم کنید.
-- ارائه‌نامه تغییر یافته را به صورت فایل PPTX ذخیره کنید
+به عنوان مثال، یک مدل هزینه تولید ممکن است نیاز داشته باشد از هزینه‌های ثابت شناخته‌شده 100 شروع شود، حتی اگر اندازه‌گیری‌ها در حجم‌های تولید غیرصفر نشان‌دهنده پایه‌ای متفاوت باشند. برای یک خط روند خطی، ثابت کردن مقطع معادله `y = ax + b` را به `b = 100` محدود می‌کند؛ شیب تحت آن محدودیت به داده‌ها برازش می‌شود. این کار به سادگی خطی که قبلاً برازش شده را جابه‌جا نمی‌کند. تنظیمات تقاطع محور، محل تلاقی محورها را کنترل می‌کند، نه ضرایب خط روند برازش‌شده.
 
-کد زیر برای ایجاد یک نمودار با خطوط سفارشی استفاده می‌شود.
+مثال زیر یک نمودار پراکنده (XY) با حجم‌های تولید از 1 تا 4 و هزینه‌های 170، 200، 230 و 260 ایجاد می‌کند. نمودار را با مقطع خودکار پیش‌فرض ذخیره می‌کند، مقطع را به 100 تنظیم می‌کند و یک PPTX دوم ذخیره می‌کند. دو فایل تنها در تنظیم مقطع با هم متفاوت هستند. خط روند معادله خود را نمایش می‌دهد و به X = 0 بازمی‌گردد.
 
 ```javascript
-// یک نمونه از کلاس Presentation ایجاد کنید
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
-    var shape = chart.getUserShapes().getShapes().addAutoShape(aspose.slides.ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0);
-    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.save("Presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const nameCell = workbook.getCell(0, 0, 1, "Production cost");
+    const series = chart.getChartData().getSeries().add(nameCell, aspose.slides.ChartType.ScatterWithMarkers);
+    const costs = [170, 200, 230, 260];
+
+    for (let i = 0; i < costs.length; i++) {
+        const xCell = workbook.getCell(0, i + 1, 0, i + 1);
+        const yCell = workbook.getCell(0, i + 1, 1, costs[i]);
+        series.getDataPoints().addDataPointForScatterSeries(xCell, yCell);
     }
+
+    const trendline = series.getTrendLines().add(aspose.slides.TrendlineType.Linear);
+    trendline.setDisplayEquation(true);
+    trendline.setBackward(1);
+
+    presentation.save("AutomaticIntercept.pptx", aspose.slides.SaveFormat.Pptx);
+
+    trendline.setIntercept(100);
+    presentation.save("FixedIntercept.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **سؤالات متداول**
+با محاسبه خودکار، این داده‌ها `y = 30x + 140` را تولید می‌کند. تنظیم مقطع به 100 به‌جای آن تقریباً `y = 43.33x + 100` می‌شود: مقدار برازش‌شده در صفر با پایه شناخته‌شده مطابقت دارد، در حالی که خط دیگر از هر نقطه داده عبور نمی‌کند.
 
-**معنای 'forward' و 'backward' در خط روند چیست؟**
+| مقطع خودکار | مقطع ثابت 100 |
+| --- | --- |
+| ![خط روند خطی با مقطع محاسبه‌شده خودکار 140](intercept-automatic.png) | ![خط روند خطی با مقطع ثابت 100](intercept-fixed.png) |
 
-این‌ها طول‌های خط روند هستند که به سمت جلو/عقب پیش‌بینی می‌شوند: برای نمودارهای نقطه‌ای (XY) — به واحدهای محور؛ برای نمودارهای غیرنقطه‌ای — به تعداد دسته‌ها. فقط مقادیر غیرمنفی مجاز هستند.
+هر دو تصویر از همان داده‌ها و مقیاس‌های محور استفاده می‌کنند. خطوط روند تا X = 0 بازگشت داده شده‌اند تا مقاطعشان نشان داده شود.
 
-**آیا خط روند هنگام صادرات ارائه به PDF یا SVG یا هنگام رندر اسلاید به تصویر حفظ می‌شود؟**
+به‌طور پیش‌فرض، [getIntercept](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#getIntercept) مقدار `NaN` را برمی‌گرداند که نشان‌دهنده مقطع نامشخص است، نه صفر. سپس مقطع به‌صورت خودکار از داده‌ها محاسبه می‌شود.
 
-بله. Aspose.Slides ارائه‌ها را به [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/)/[SVG](/slides/fa/nodejs-java/render-a-slide-as-an-svg-image/) تبدیل می‌کند و نمودارها را به تصاویر رندر می‌کند؛ خطوط روند به عنوان بخشی از نمودار در طول این عملیات حفظ می‌شوند. همچنین یک متد برای [صادر کردن تصویر نمودار](/slides/fa/nodejs-java/create-shape-thumbnails/) وجود دارد.
+## **افزودن خط سفارشی**
+
+یک خط سفارشی شکلی است که بر روی نمودار کشیده می‌شود نه خط روندی که از داده‌های سری محاسبه می‌شود. این مثال از [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAutoShape) برای افزودن یک خط افقی به اسلاید بالای نمودار استفاده می‌کند. موقعیت خط در مختصات اسلاید، بر حسب پوینت، مشخص می‌شود، بنابراین از لبه چپ نمودار شروع می‌شود و در نیمه‌سوی پایین نمودار قرار می‌گیرد. عرض آن برابر با عرض نمودار است. [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) به خط رنگ ثابت قرمز می‌دهد.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+    const line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0);
+    line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+    presentation.save("AddCustomLines.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **پرسش‌وپاسخ**
+
+**«پیشرو» و «عقب‌رو» برای یک خط روند به چه معناست؟**
+
+اینها طول‌های خط روند هستند که به سمت جلو/عقب پیش‌بینی می‌شوند: برای نمودارهای پراکنده (XY) — به واحدهای محور؛ برای نمودارهای غیرپراکنده — به تعداد دسته‌ها. فقط مقادیر غیرمنفی مجاز هستند.
+
+**آیا خط روند هنگام خروجی ارائه به PDF یا SVG یا هنگام رندر اسلاید به تصویر حفظ می‌شود؟**
+
+بله. Aspose.Slides ارائه‌ها را به [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) یا [SVG](/slides/fa/nodejs-java/render-a-slide-as-an-svg-image/) تبدیل می‌کند و نمودارها را به تصاویر رندر می‌کند؛ خطوط روند به‌عنوان بخشی از نمودار در این عملیات‌ها حفظ می‌شوند. همچنین روشی برای [صدور تصویر نمودار](/slides/fa/nodejs-java/create-shape-thumbnails/) وجود دارد.

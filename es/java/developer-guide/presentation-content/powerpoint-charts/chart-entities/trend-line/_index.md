@@ -1,123 +1,169 @@
 ---
-title: Agregar líneas de tendencia a los gráficos de presentaciones en Java
+title: Añadir líneas de tendencia a los gráficos de presentación en Java
 linktitle: Línea de tendencia
 type: docs
 url: /es/java/trend-line/
 keywords:
-  - gráfico
-  - línea de tendencia
-  - línea de tendencia exponencial
-  - línea de tendencia lineal
-  - línea de tendencia logarítmica
-  - línea de tendencia de promedio móvil
-  - línea de tendencia polinómica
-  - línea de tendencia de potencia
-  - línea de tendencia personalizada
-  - PowerPoint
-  - presentación
-  - Java
-  - Aspose.Slides
-description: "Agregue y personalice rápidamente líneas de tendencia en los gráficos de PowerPoint con Aspose.Slides para Java — una guía práctica para cautivar a su audiencia."
+- gráfico
+- línea de tendencia
+- línea de tendencia exponencial
+- línea de tendencia lineal
+- línea de tendencia logarítmica
+- línea de tendencia de media móvil
+- línea de tendencia polinómica
+- línea de tendencia de potencia
+- línea de tendencia personalizada
+- PowerPoint
+- presentación
+- Java
+- Aspose.Slides
+description: "Añade y personaliza rápidamente líneas de tendencia en gráficos de PowerPoint con Aspose.Slides para Java — una guía práctica para captar la atención de tu audiencia."
 ---
+## **Descripción general**
 
-## **Agregar una línea de tendencia**
-Aspose.Slides for Java proporciona una API sencilla para administrar diferentes líneas de tendencia de gráficos:
+Este artículo explica cómo añadir líneas de tendencia a los gráficos de presentaciones mediante Aspose.Slides. Muestra cómo crear un gráfico, añadir líneas de tendencia a las series del gráfico y trabajar con varios tipos de líneas de tendencia, incluidos exponencial, lineal, logarítmico, media móvil, polinómico y de potencia.
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. Obtener la referencia de una diapositiva por su índice.
-3. Añadir un gráfico con datos predeterminados junto con cualquiera de los tipos deseados (este ejemplo usa ChartType.ClusteredColumn).
-4. Añadir una línea de tendencia exponencial para la serie 1 del gráfico.
-5. Añadir una línea de tendencia lineal para la serie 1 del gráfico.
-6. Añadir una línea de tendencia logarítmica para la serie 2 del gráfico.
-7. Añadir una línea de tendencia de promedio móvil para la serie 2 del gráfico.
-8. Añadir una línea de tendencia polinómica para la serie 3 del gráfico.
-9. Añadir una línea de tendencia de potencia para la serie 3 del gráfico.
-10. Guardar la presentación modificada en un archivo PPTX.
+También describe cómo añadir una línea personalizada a un gráfico insertando una forma de línea, e incluye una breve Preguntas frecuentes sobre los valores de proyección de línea de tendencia hacia adelante y hacia atrás y si las líneas de tendencia se conservan al exportar a PDF o SVG y al renderizar los gráficos como imágenes.
 
-El siguiente código se usa para crear un gráfico con líneas de tendencia.
+## **Añadir una línea de tendencia**
+
+Utilice [ITrendlineCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/itrendlinecollection/#add-int-) para añadir una línea de tendencia a una serie de gráfico, seleccionando su tipo con [TrendlineType](https://reference.aspose.com/slides/java/com.aspose.slides/trendlinetype/). El ejemplo crea un gráfico de columnas agrupadas con datos predeterminados y añade dos líneas de tendencia a cada una de sus tres series.
+
+La línea de tendencia exponencial oculta su ecuación y el valor R‑cuadrado mediante [setDisplayEquation](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setDisplayEquation-boolean-) y [setDisplayRSquaredValue](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setDisplayRSquaredValue-boolean-), mientras que la línea de tendencia lineal es roja. La línea de tendencia logarítmica utiliza [addTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/trendline/#addTextFrameForOverriding-java.lang.String-) para una etiqueta personalizada. La media móvil utiliza un [setPeriod](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setPeriod-byte-) de tres puntos de datos y un [setTrendlineName](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setTrendlineName-java.lang.String-) personalizado.
+
+La línea de tendencia polinómica tiene un [setOrder](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setOrder-byte-) de tres y se extiende una categoría hacia adelante mediante [setForward](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setForward-double-). La línea de tendencia de potencia se extiende una categoría hacia atrás mediante [setBackward](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setBackward-double-).
+
 ```java
-// Crear una instancia de la clase Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Crear un gráfico de columnas agrupadas
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
-    
-    // Añadiendo línea de tendencia exponencial para la serie 1 del gráfico
-    ITrendline tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential);
-    tredLinep.setDisplayEquation(false);
-    tredLinep.setDisplayRSquaredValue(false);
-    
-    // Añadiendo línea de tendencia lineal para la serie 1 del gráfico
-    ITrendline tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear);
-    tredLineLin.setTrendlineType(TrendlineType.Linear);
-    tredLineLin.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    
-    
-    // Añadiendo línea de tendencia logarítmica para la serie 2 del gráfico
-    ITrendline tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic);
-    tredLineLog.setTrendlineType(TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("New log trend line");
-    
-    // Añadiendo línea de tendencia de promedio móvil para la serie 2 del gráfico
-    ITrendline tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage);
-    tredLineMovAvg.setTrendlineType(TrendlineType.MovingAverage);
-    tredLineMovAvg.setPeriod((byte)3);
-    tredLineMovAvg.setTrendlineName("New TrendLine Name");
-    
-    // Añadiendo línea de tendencia polinómica para la serie 3 del gráfico
-    ITrendline tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial);
-    tredLinePol.setTrendlineType(TrendlineType.Polynomial);
-    tredLinePol.setForward(1);
-    tredLinePol.setOrder((byte)3);
-    
-    // Añadiendo línea de tendencia de potencia para la serie 3 del gráfico
-    ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
-    tredLinePower.setTrendlineType(TrendlineType.Power);
-    tredLinePower.setBackward(1);
-    
-    // Guardando la presentación
-    pres.save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+
+    IChartSeries firstSeries = chart.getChartData().getSeries().get_Item(0);
+
+    ITrendline exponentialTrendline = firstSeries.getTrendLines().add(TrendlineType.Exponential);
+    exponentialTrendline.setDisplayEquation(false);
+    exponentialTrendline.setDisplayRSquaredValue(false);
+
+    ITrendline linearTrendline = firstSeries.getTrendLines().add(TrendlineType.Linear);
+    linearTrendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    linearTrendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    IChartSeries secondSeries = chart.getChartData().getSeries().get_Item(1);
+
+    ITrendline logarithmicTrendline = secondSeries.getTrendLines().add(TrendlineType.Logarithmic);
+    logarithmicTrendline.addTextFrameForOverriding("New log trend line");
+
+    ITrendline movingAverageTrendline = secondSeries.getTrendLines().add(TrendlineType.MovingAverage);
+    movingAverageTrendline.setPeriod((byte) 3);
+    movingAverageTrendline.setTrendlineName("New TrendLine Name");
+
+    IChartSeries thirdSeries = chart.getChartData().getSeries().get_Item(2);
+
+    ITrendline polynomialTrendline = thirdSeries.getTrendLines().add(TrendlineType.Polynomial);
+    polynomialTrendline.setForward(1);
+    polynomialTrendline.setOrder((byte) 3);
+
+    ITrendline powerTrendline = thirdSeries.getTrendLines().add(TrendlineType.Power);
+    powerTrendline.setBackward(1);
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Establecer la intersección de una línea de tendencia**
 
-## **Agregar una línea personalizada**
-Aspose.Slides for Java proporciona una API sencilla para agregar líneas personalizadas en un gráfico. Para agregar una línea simple y plana a una diapositiva seleccionada de la presentación, siga los pasos a continuación:
+Utilice [setIntercept](https://reference.aspose.com/slides/java/com.aspose.slides/trendline/#setIntercept-double-) para fijar el valor Y de una línea de tendencia en X = 0. Esta configuración es compatible con las líneas de tendencia lineales, exponenciales y polinómicas.
 
-- Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)
-- Obtener la referencia de una diapositiva usando su Índice
-- Crear un nuevo gráfico usando el método AddChart expuesto por el objeto Shapes
-- Añadir una AutoShape de tipo Línea usando el método AddAutoShape expuesto por el objeto Shapes
-- Establecer el Color de las líneas de la forma.
-- Guardar la presentación modificada como un archivo PPTX
+Por ejemplo, un modelo de coste de producción puede necesitar comenzar con costes fijos conocidos de 100, incluso cuando las mediciones a volúmenes de producción distintos de cero sugieren una línea base diferente. Para una línea de tendencia lineal, fijar la intersección restringe la ecuación `y = ax + b` a `b = 100`; la pendiente se ajusta a los datos bajo esa restricción. No simplemente desplaza una línea ya ajustada. La configuración de cruce de ejes controla dónde se encuentran los ejes del gráfico, no los coeficientes de la línea de tendencia ajustada.
 
-El siguiente código se usa para crear un gráfico con líneas personalizadas.
+El siguiente ejemplo crea un gráfico de dispersión (XY) con volúmenes de producción de 1 a 4 y costes de 170, 200, 230 y 260. Guarda el gráfico con la intersección automática predeterminada, establece la intersección en 100 y guarda un segundo PPTX. Los dos archivos difieren solo en la configuración de la intersección. La línea de tendencia muestra su ecuación y se extiende nuevamente hasta X = 0.
+
 ```java
-// Crear una instancia de la clase Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight()/2, chart.getWidth(), 0);
-    
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.awt.Color.RED);
-    
-    pres.save("Presentation.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartDataCell nameCell = workbook.getCell(0, 0, 1, "Production cost");
+    IChartSeries series = chart.getChartData().getSeries().add(nameCell, ChartType.ScatterWithMarkers);
+    double[] costs = { 170, 200, 230, 260 };
+
+    for (int i = 0; i < costs.length; i++) {
+        IChartDataCell xCell = workbook.getCell(0, i + 1, 0, i + 1);
+        IChartDataCell yCell = workbook.getCell(0, i + 1, 1, costs[i]);
+        series.getDataPoints().addDataPointForScatterSeries(xCell, yCell);
+    }
+
+    ITrendline trendline = series.getTrendLines().add(TrendlineType.Linear);
+    trendline.setDisplayEquation(true);
+    trendline.setBackward(1);
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+    trendline.setIntercept(100);
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Con cálculo automático, estos datos producen `y = 30x + 140`. Establecer la intersección en 100 en su lugar produce aproximadamente `y = 43.33x + 100`: el valor ajustado en cero coincide con la línea base conocida, mientras que la línea ya no pasa por todos los puntos de datos.
+
+| Intersección automática | Intersección fija de 100 |
+| --- | --- |
+| ![Línea de tendencia lineal con una intersección calculada automáticamente de 140](intercept-automatic.png) | ![Línea de tendencia lineal con una intersección fija de 100](intercept-fixed.png) |
+
+Ambas imágenes utilizan los mismos datos y escalas de ejes. Las líneas de tendencia se extienden de nuevo hasta X = 0 para mostrar sus intersecciones.
+
+Por defecto, [getIntercept](https://reference.aspose.com/slides/java/com.aspose.slides/trendline/#getIntercept--) devuelve `Double.NaN`, lo que representa una intersección no especificada en lugar de cero. La intersección se calcula entonces automáticamente a partir de los datos.
+
+## **Añadir una línea personalizada**
+
+Una línea personalizada es una forma dibujada sobre el gráfico en lugar de una línea de tendencia calculada a partir de los datos de la serie. Este ejemplo utiliza [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) para añadir una línea horizontal a la diapositiva sobre el gráfico. La posición de la línea se especifica en coordenadas de la diapositiva, medidas en puntos, de modo que comienza en el borde izquierdo del gráfico y se sitúa a mitad de altura del mismo. Su ancho coincide con el ancho del gráfico. El [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) le da a la línea un color rojo sólido.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+    IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0);
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Preguntas frecuentes**
 
-**¿Qué significan 'forward' y 'backward' en una línea de tendencia?**
+**¿Qué significan 'forward' y 'backward' para una línea de tendencia?**
 
-Son las longitudes de la línea de tendencia proyectadas hacia adelante/atrás: para gráficos de dispersión (XY) — en unidades del eje; para gráficos que no son de dispersión — en número de categorías. Solo se permiten valores no negativos.
+Son las longitudes de la línea de tendencia proyectadas hacia adelante/atrás: para gráficos de dispersión (XY) — en unidades del eje; para gráficos no de dispersión — en número de categorías. Solo se permiten valores no negativos.
 
-**¿Se conservará la línea de tendencia al exportar la presentación a PDF o SVG, o al renderizar una diapositiva a una imagen?**
+**¿Se conservará la línea de tendencia al exportar la presentación a PDF o SVG, o al renderizar una diapositiva como imagen?**
 
-Sí. Aspose.Slides convierte presentaciones a [PDF](/slides/es/java/convert-powerpoint-to-pdf/)/[SVG](/slides/es/java/render-a-slide-as-an-svg-image/) y renderiza gráficos a imágenes; las líneas de tendencia, como parte del gráfico, se conservan durante estas operaciones. También hay un método disponible para [exportar una imagen del gráfico](/slides/es/java/create-shape-thumbnails/) mismo.
+Sí. Aspose.Slides convierte presentaciones a [PDF](/slides/es/java/convert-powerpoint-to-pdf/) o [SVG](/slides/es/java/render-a-slide-as-an-svg-image/) y renderiza gráficos como imágenes; las líneas de tendencia, como parte del gráfico, se conservan durante estas operaciones. También hay un método disponible para [exportar una imagen del gráfico](/slides/es/java/create-shape-thumbnails/) mismo.

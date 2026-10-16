@@ -1,5 +1,5 @@
 ---
-title: Trendvonalak hozzáadása a prezentációs diagramokhoz .NET-ben
+title: Trendvonalak hozzáadása a prezentáció diagramokhoz .NET-ben
 linktitle: Trendvonal
 type: docs
 url: /hu/net/trend-line/
@@ -18,104 +18,148 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Gyorsan adjon hozzá és testreszabjon trendvonalakat a PowerPoint diagramokban az Aspose.Slides for .NET segítségével — egy gyakorlati útmutató, amely segít lekötni a közönséget."
+description: "Gyorsan adjon hozzá és testre szabjon trendvonalakat a PowerPoint diagramokban az Aspose.Slides for .NET segítségével — egy gyakorlati útmutató a közönség bevonásához."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan adhat trendvonalakat a prezentáció diagramjaihoz az Aspose.Slides használatával. Megmutatja, hogyan hozhat létre diagramot, adhat hozzá trendvonalakat a diagram sorozataihoz, és dolgozhat több trendvonal típussal, beleértve az exponenciális, lineáris, logaritmikus, mozgó átlag, polinomiális és hatvány típusokat.
+Ez a cikk bemutatja, hogyan adhat trendvonalakat a prezentáció diagramjaihoz az Aspose.Slides használatával. Megmutatja, hogyan hozhat létre diagramot, adhat trendvonalakat a diagram sorozataihoz, és hogyan dolgozhat többféle trendvonal típussal, többek között exponenciális, lineáris, logaritmikus, mozgó átlag, polinomiális és hatvány.
 
-Leírja továbbá, hogyan adhat egy egyéni vonalat a diagramhoz vonal alakzat beszúrásával, valamint tartalmaz egy rövid GYIK-et a trendvonal előre és hátra irányú projekciós értékekkel kapcsolatban, és arról, hogy a trendvonalak megmaradnak-e PDF vagy SVG exportálásakor, illetve a diagramok képként történő renderelésekor.
+Leírja továbbá, hogyan adhat egyéni vonalat a diagramhoz egy vonal alakzat beszúrásával, és tartalmaz egy rövid GYIK-ot a trendvonalak előre és hátra projekciós értékeiről, valamint arról, hogy a trendvonalak megmaradnak-e PDF vagy SVG exportálásakor, illetve a diagramok képként történő renderelésekor.
 
 ## **Trendvonal hozzáadása**
-Aspose.Slides for .NET egyszerű API-t kínál a különböző diagram trendvonalak kezeléséhez:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-2. Szerezze meg egy dia hivatkozását az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típus egyikével (ebben a példában a ChartType.ClusteredColumn típus kerül használatra).
-4. Exponenciális trendvonal hozzáadása az 1. diagram sorozathoz.
-5. Lineáris trendvonal hozzáadása az 1. diagram sorozathoz.
-6. Logaritmikus trendvonal hozzáadása a 2. diagram sorozathoz.
-7. Mozgó átlag trendvonal hozzáadása a 2. diagram sorozathoz.
-8. Polinomiális trendvonal hozzáadása a 3. diagram sorozathoz.
-9. Hatvány trendvonal hozzáadása a 3. diagram sorozathoz.
-10. Írja a módosított prezentációt egy PPTX fájlba.
+Használja az [ITrendlineCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendlinecollection/add/) metódust egy trendvonal hozzáadásához egy diagram sorozatához, a típus kiválasztásához pedig a [TrendlineType](https://reference.aspose.com/slides/net/aspose.slides.charts/trendlinetype/) használható. A példában egy csoportosított oszlopdiagramot hoz létre alapértelmezett adatokkal, és két trendvonalat ad hozzá mindhárom sorozatához.
 
-Az alábbi kódot használják diagram Trendvonalakkal való létrehozásához.
+Az exponenciális trendvonal elrejti egyenletét és az R‑négyzet értékét a [DisplayEquation](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayequation/) és a [DisplayRSquaredValue](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayrsquaredvalue/) segítségével, míg a lineáris trendvonal piros. A logaritmikus trendvonal a [AddTextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/addtextframeforoverriding/)‑t használja egy egyéni címkéhez. A mozgó átlag a három adatpontból álló [Period](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/period/) értéket és egy egyéni [TrendlineName](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/trendlinename/)‑t használ.
 
-```c#
-// Üres prezentáció létrehozása
-Presentation pres = new Presentation();
+A polinomiális trendvonal [Order](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/order/) értéke három, és egy kategóriával előre nyúlik a [Forward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/forward/) használatával. A hatvány trendvonal egy kategóriával hátra nyúlik a [Backward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/backward/) segítségével.
 
-// Csoportosított oszlopdiagram létrehozása
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Exponenciális trendvonal hozzáadása a diagram 1. sorozatához
-ITrendline tredLinep = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Exponential);
-tredLinep.DisplayEquation = false;
-tredLinep.DisplayRSquaredValue = false;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Lineáris trendvonal hozzáadása a diagram 1. sorozatához
-ITrendline tredLineLin = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Linear);
-tredLineLin.TrendlineType = TrendlineType.Linear;
-tredLineLin.Format.Line.FillFormat.FillType = FillType.Solid;
-tredLineLin.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
 
+var firstSeries = chart.ChartData.Series[0];
 
-// Logaritmikus trendvonal hozzáadása a diagram 2. sorozatához
-ITrendline tredLineLog = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Logarithmic);
-tredLineLog.TrendlineType = TrendlineType.Logarithmic;
-tredLineLog.AddTextFrameForOverriding("New log trend line");
+var exponentialTrendline = firstSeries.TrendLines.Add(TrendlineType.Exponential);
+exponentialTrendline.DisplayEquation = false;
+exponentialTrendline.DisplayRSquaredValue = false;
 
-// Mozgó átlag trendvonal hozzáadása a diagram 2. sorozatához
-ITrendline tredLineMovAvg = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.MovingAverage);
-tredLineMovAvg.TrendlineType = TrendlineType.MovingAverage;
-tredLineMovAvg.Period = 3;
-tredLineMovAvg.TrendlineName = "New TrendLine Name";
+var linearTrendline = firstSeries.TrendLines.Add(TrendlineType.Linear);
+linearTrendline.Format.Line.FillFormat.FillType = FillType.Solid;
+linearTrendline.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
 
-// Polinomiális trendvonal hozzáadása a diagram 3. sorozatához
-ITrendline tredLinePol = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Polynomial);
-tredLinePol.TrendlineType = TrendlineType.Polynomial;
-tredLinePol.Forward = 1;
-tredLinePol.Order = 3;
+var secondSeries = chart.ChartData.Series[1];
 
-// Hatvány trendvonal hozzáadása a diagram 3. sorozatához
-ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
-tredLinePower.TrendlineType = TrendlineType.Power;
-tredLinePower.Backward = 1;
+var logarithmicTrendline = secondSeries.TrendLines.Add(TrendlineType.Logarithmic);
+logarithmicTrendline.AddTextFrameForOverriding("New log trend line");
 
-// Prezentáció mentése
-pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+var movingAverageTrendline = secondSeries.TrendLines.Add(TrendlineType.MovingAverage);
+movingAverageTrendline.Period = 3;
+movingAverageTrendline.TrendlineName = "New TrendLine Name";
+
+var thirdSeries = chart.ChartData.Series[2];
+
+var polynomialTrendline = thirdSeries.TrendLines.Add(TrendlineType.Polynomial);
+polynomialTrendline.Forward = 1;
+polynomialTrendline.Order = 3;
+
+var powerTrendline = thirdSeries.TrendLines.Add(TrendlineType.Power);
+powerTrendline.Backward = 1;
+
+presentation.Save("ChartTrendLines.pptx", SaveFormat.Pptx);
 ```
 
-## **Egyéni vonal hozzáadása**
-Aspose.Slides for .NET egyszerű API-t biztosít egyéni vonalak diagramhoz való hozzáadásához. Egyszerű egyenes vonal hozzáadásához a prezentáció egy kiválasztott diájához, kövesse az alábbi lépéseket:
+## **Trendvonal metszéspont beállítása**
 
-- Hozzon létre egy példányt a Presentation osztályból
-- Szerezze meg egy dia hivatkozását az Index használatával
-- Hozzon létre egy új diagramot a Shapes objektum által biztosított AddChart metódussal
-- Adjon hozzá egy vonal típusú AutoShape-et a Shapes objektum által biztosított AddAutoShape metódussal
-- Állítsa be a forma vonalainak színét.
-- Írja a módosított prezentációt PPTX fájlként
+Használja az [Intercept](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/intercept/) metódust a trendvonal Y értékének X = 0‑nál rögzítéséhez. Ez a beállítás támogatott lineáris, exponenciális és polinomiális trendvonalak esetén.
 
-Az alábbi kódot használják diagram Custom Lines (egyéni vonalakkal) létrehozásához.
+Például egy termelési költségmodellnek a 100 ismert rögzített költségnél kellene indulnia, még akkor is, ha a nemnulla termelési mennyiségek mérései más kiindulási értéket sugallnak. Lineáris trendvonal esetén a metszéspont rögzítése a `y = ax + b` egyenletet `b = 100`‑ra korlátozza; a meredekség a korlátozás mellett illeszkedik az adatokhoz. Ez nem egyszerűen csak áthelyezi a már illesztett vonalat. A tengelykeresztezési beállítások szabályozzák, hol találkozik a diagram tengelye, nem pedig a trendvonal együtthatóit.
 
-```c#
-using (Presentation pres = new Presentation())
+A következő példa egy szórás (XY) diagramot hoz létre 1‑től 4‑ig terjedő termelési mennyiségekkel és 170, 200, 230 és 260 költségekkel. A diagramot az alapértelmezett automatikus metszésponttal menti, beállítja a metszéspontot 100‑ra, és egy második PPTX fájlt ment. A két fájl csak a metszéspont beállításában különbözik. A trendvonal megjeleníti egyenletét és visszanyúlik X = 0‑ig.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var nameCell = workbook.GetCell(0, 0, 1, "Production cost");
+var series = chart.ChartData.Series.Add(nameCell, ChartType.ScatterWithMarkers);
+double[] costs = { 170, 200, 230, 260 };
+
+for (var i = 0; i < costs.Length; i++)
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.UserShapes.Shapes.AddAutoShape(ShapeType.Line, 0, chart.Height / 2, chart.Width, 0);
-    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
-    pres.Save("AddCustomLines.pptx", SaveFormat.Pptx);
+    var xCell = workbook.GetCell(0, i + 1, 0, i + 1);
+    var yCell = workbook.GetCell(0, i + 1, 1, costs[i]);
+    series.DataPoints.AddDataPointForScatterSeries(xCell, yCell);
 }
+
+var trendline = series.TrendLines.Add(TrendlineType.Linear);
+trendline.DisplayEquation = true;
+trendline.Backward = 1;
+
+presentation.Save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+trendline.Intercept = 100;
+presentation.Save("FixedIntercept.pptx", SaveFormat.Pptx);
+```
+
+Automatikus számítás esetén ezek az adatok `y = 30x + 140`‑at adnak. A metszéspont 100‑ra állítása helyette körülbelül `y = 43.33x + 100`‑at eredményez: a nulla pontban illesztett érték megegyezik a ismert kiindulási értékkel, míg a vonal már nem halad át minden adatponton.
+
+| Automatikus metszéspont | 100‑as rögzített metszéspont |
+| --- | --- |
+| ![Lineáris trendvonal automatikusan számított 140‑es metszésponttal](intercept-automatic.png) | ![Lineáris trendvonal 100‑as rögzített metszésponttal](intercept-fixed.png) |
+
+Mindkét kép ugyanazt az adatot és tengelyskálát használja. A trendvonalak visszanyúlnak X = 0‑ig, hogy megmutassák metszéspontjaikat.
+
+Alapértelmezés szerint a tulajdonság `double.NaN` értéket tartalmaz, amely nem meghatározott metszéspontot jelöl, nem pedig nullát. A metszéspont ezután automatikusan számítódik ki az adatokból.
+
+## **Egyéni vonal hozzáadása**
+
+Az egyéni vonal egy alakzat, amely a diagram felett kerül lerajzolásra, nem pedig a sorozat adataiból számított trendvonal. Ez a példa a [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) metódust használja egy vízszintes vonal hozzáadásához a diára a diagram felett. A vonal pozíciója a dia koordinátáiban van meghatározva, pontban mérve, így a diagram bal szélén kezdődik és a diagram felére lejjebb helyezkedik el. Szélessége megegyezik a diagram szélességével. A [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) szilárd piros színt ad a vonalnak.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+var line = slide.Shapes.AddAutoShape(ShapeType.Line, chart.X, chart.Y + chart.Height / 2, chart.Width, 0);
+line.LineFormat.FillFormat.FillType = FillType.Solid;
+line.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+presentation.Save("AddCustomLines.pptx", SaveFormat.Pptx);
 ```
 
 ## **GYIK**
 
-**Mit jelentenek a 'forward' és 'backward' a trendvonal esetében?**
+**Mit jelentenek a 'forward' és a 'backward' egy trendvonal esetén?**
 
-Ezek a trendvonal előre/hátra kiterjesztett hosszát jelentik: szórt (XY) diagramok esetén – tengelyegységekben; nem szórt diagramok esetén – kategóriák számában. Csak nem negatív értékek megengedettek.
+Ez a trendvonal előre/hátra projektált hosszát jelenti: szórás (XY) diagramok esetén – tengelyegységekben; nem‑szórás diagramok esetén – kategóriák számában. Csak nem negatív értékek megengedettek.
 
-**Megmarad a trendvonal a prezentáció PDF vagy SVG formátumba exportálásakor, illetve a dia képpé renderelésekor?**
+**Megmarad a trendvonal a prezentáció PDF vagy SVG formátumba való exportálásakor, vagy a dia képként történő renderelésekor?**
 
-Igen. Az Aspose.Slides a prezentációkat [PDF](/slides/hu/net/convert-powerpoint-to-pdf/)/[SVG](/slides/hu/net/render-a-slide-as-an-svg-image/) formátumra konvertálja és a diagramokat képként rendereli; a trendvonalak, amelyek a diagram részét képezik, ezeknek a műveleteknek a során megmaradnak. Egy módszer is rendelkezésre áll a diagram [képének exportálásához](/slides/hu/net/create-shape-thumbnails/).
+Igen. Az Aspose.Slides a prezentációkat [PDF](/slides/hu/net/convert-powerpoint-to-pdf/)‑re vagy [SVG](/slides/hu/net/render-a-slide-as-an-svg-image/)‑re konvertálja, és diagramokat képekké rendereli; a trendvonalak a diagram részeként ezek során megmaradnak. Egy metódus is elérhető a [a diagram képének exportálása](/slides/hu/net/create-shape-thumbnails/) számára.

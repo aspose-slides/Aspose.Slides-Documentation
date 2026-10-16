@@ -1,5 +1,5 @@
 ---
-title: Menambahkan Garis Tren ke Diagram Presentasi di Python
+title: Menambahkan Garis Tren ke Diagram Presentasi dalam Python
 linktitle: Garis Tren
 type: docs
 url: /id/python-net/trend-line/
@@ -9,121 +9,153 @@ keywords:
 - garis tren eksponensial
 - garis tren linear
 - garis tren logaritmik
-- garis tren rata-rata bergerak
+- garis tren rata‑rata bergerak
 - garis tren polinomial
-- garis tren pangkat
+- garis tren daya
 - garis tren kustom
 - PowerPoint
-- OpenDocument
 - presentasi
 - Python
 - Aspose.Slides
-description: "Tambahkan dan sesuaikan garis tren dengan cepat dalam diagram PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via .NET — panduan praktis dan contoh kode untuk meningkatkan akurasi peramalan serta menarik perhatian audiens Anda."
+description: "Dengan cepat menambahkan dan menyesuaikan garis tren pada diagram PowerPoint dengan Aspose.Slides untuk Python melalui .NET — panduan praktis untuk menarik perhatian audiens Anda."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara menambahkan garis tren ke diagram presentasi menggunakan Aspose.Slides. Ini menunjukkan cara membuat diagram, menambahkan garis tren ke seri diagram, dan bekerja dengan beberapa jenis garis tren, termasuk eksponensial, linear, logaritmik, rata-rata bergerak, polinomial, dan pangkat.
+Artikel ini menjelaskan cara menambahkan garis tren ke diagram presentasi dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara membuat diagram, menambahkan garis tren ke seri diagram, dan bekerja dengan beberapa jenis garis tren, termasuk eksponensial, linear, logaritmik, rata‑rata bergerak, polinomial, dan daya.
 
-Artikel ini juga menjelaskan cara menambahkan garis khusus ke diagram dengan menyisipkan bentuk garis, dan menyertakan FAQ singkat tentang nilai proyeksi garis tren maju dan mundur serta apakah garis tren dipertahankan saat mengekspor ke PDF atau SVG dan ketika merender diagram sebagai gambar.
+Ini juga menjelaskan cara menambahkan garis kustom ke diagram dengan menyisipkan bentuk garis, dan menyertakan FAQ singkat tentang nilai proyeksi garis tren maju dan mundur serta apakah garis tren dipertahankan saat mengekspor ke PDF atau SVG dan saat merender diagram sebagai gambar.
 
-## **Tambahkan Garis Tren**
-Aspose.Slides for Python via .NET menyediakan API sederhana untuk mengelola Berbagai Garis Tren diagram:
+## **Menambahkan Garis Tren**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-1. Dapatkan referensi slide berdasarkan indeksnya.
-1. Tambahkan diagram dengan data default bersama tipe yang diinginkan (contoh ini menggunakan ChartType.CLUSTERED_COLUMN).
-1. Menambahkan garis tren eksponensial untuk seri diagram 1.
-1. Menambahkan garis tren linear untuk seri diagram 1.
-1. Menambahkan garis tren logaritmik untuk seri diagram 2.
-1. Menambahkan garis tren rata-rata bergerak untuk seri diagram 2.
-1. Menambahkan garis tren polinomial untuk seri diagram 3.
-1. Menambahkan garis tren pangkat untuk seri diagram 3.
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX.
+Gunakan [TrendlineCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendlinecollection/add/) untuk menambahkan garis tren ke seri diagram, memilih tipenya dengan [TrendlineType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendlinetype/). Contoh ini membuat diagram kolom berkelompok dengan data default dan menambahkan dua garis tren ke masing‑masing tiga serinya.
 
-Kode berikut digunakan untuk membuat diagram dengan Garis Tren.
+Garis tren eksponensial menyembunyikan persamaannya dan nilai R‑squared melalui [display_equation](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/display_equation/) dan [display_r_squared_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/display_r_squared_value/), sedangkan garis tren linear berwarna merah. Garis tren logaritmik menggunakan [add_text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/add_text_frame_for_overriding/) untuk label khusus. Rata‑rata bergerak menggunakan [period](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/period/) tiga data poin dan [trendline_name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/trendline_name/) khusus.
 
-```py
-import aspose.slides.charts as charts
+Garis tren polinomial memiliki [order](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/order/) tiga dan memperluas satu kategori ke depan melalui [forward](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/forward/). Garis tren daya memperluas satu kategori ke belakang melalui [backward](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/backward/).
+
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# Membuat presentasi kosong
-with slides.Presentation() as pres:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Membuat diagram kolom berkelompok
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 400)
 
-    # Menambahkan garis tren eksponensial untuk seri diagram 1
-    tredLinep = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.EXPONENTIAL)
-    tredLinep.display_equation = False
-    tredLinep.display_r_squared_value = False
+    first_series = chart.chart_data.series[0]
 
-    # Menambahkan garis tren Linear untuk seri diagram 1
-    tredLineLin = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.LINEAR)
-    tredLineLin.trendline_type = charts.TrendlineType.LINEAR
-    tredLineLin.format.line.fill_format.fill_type = slides.FillType.SOLID
-    tredLineLin.format.line.fill_format.solid_fill_color.color = draw.Color.red
+    exponential_trendline = first_series.trend_lines.add(charts.TrendlineType.EXPONENTIAL)
+    exponential_trendline.display_equation = False
+    exponential_trendline.display_r_squared_value = False
 
+    linear_trendline = first_series.trend_lines.add(charts.TrendlineType.LINEAR)
+    linear_trendline.format.line.fill_format.fill_type = slides.FillType.SOLID
+    linear_trendline.format.line.fill_format.solid_fill_color.r = 255
+    linear_trendline.format.line.fill_format.solid_fill_color.g = 0
+    linear_trendline.format.line.fill_format.solid_fill_color.b = 0
 
-    # Menambahkan garis tren Logaritmik untuk seri diagram 2
-    tredLineLog = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.LOGARITHMIC)
-    tredLineLog.trendline_type = charts.TrendlineType.LOGARITHMIC
-    tredLineLog.add_text_frame_for_overriding("New log trend line")
+    second_series = chart.chart_data.series[1]
 
-    # Menambahkan garis tren Rata-rata Bergerak untuk seri diagram 2
-    tredLineMovAvg = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.MOVING_AVERAGE)
-    tredLineMovAvg.trendline_type = charts.TrendlineType.MOVING_AVERAGE
-    tredLineMovAvg.period = 3
-    tredLineMovAvg.trendline_name = "New TrendLine Name"
+    logarithmic_trendline = second_series.trend_lines.add(charts.TrendlineType.LOGARITHMIC)
+    logarithmic_trendline.add_text_frame_for_overriding("New log trend line")
 
-    # Menambahkan garis tren Polinomial untuk seri diagram 3
-    tredLinePol = chart.chart_data.series[2].trend_lines.add(charts.TrendlineType.POLYNOMIAL)
-    tredLinePol.trendline_type = charts.TrendlineType.POLYNOMIAL
-    tredLinePol.forward = 1
-    tredLinePol.order = 3
+    moving_average_trendline = second_series.trend_lines.add(charts.TrendlineType.MOVING_AVERAGE)
+    moving_average_trendline.period = 3
+    moving_average_trendline.trendline_name = "New TrendLine Name"
 
-    # Menambahkan garis tren Pangkat untuk seri diagram 3
-    tredLinePower = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.POWER)
-    tredLinePower.trendline_type = charts.TrendlineType.POWER
-    tredLinePower.backward = 1
+    third_series = chart.chart_data.series[2]
 
-    # Menyimpan presentasi
-    pres.save("Charttrend_lines_out.pptx", slides.export.SaveFormat.PPTX)
+    polynomial_trendline = third_series.trend_lines.add(charts.TrendlineType.POLYNOMIAL)
+    polynomial_trendline.forward = 1
+    polynomial_trendline.order = 3
+
+    power_trendline = third_series.trend_lines.add(charts.TrendlineType.POWER)
+    power_trendline.backward = 1
+
+    presentation.save("ChartTrendLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Mengatur Intersep Garis Tren**
 
+Gunakan [intercept](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/intercept/) untuk menetapkan nilai Y garis tren pada X = 0. Pengaturan ini didukung untuk garis tren linear, eksponensial, dan polinomial.
 
-## **Tambahkan Garis Kustom**
-Aspose.Slides for Python via .NET menyediakan API sederhana untuk menambahkan garis kustom pada diagram. Untuk menambahkan garis lurus sederhana ke slide yang dipilih dalam presentasi, ikuti langkah‑langkah di bawah ini:
+Sebagai contoh, model biaya produksi mungkin harus dimulai dengan biaya tetap yang diketahui sebesar 100, bahkan ketika pengukuran pada volume produksi yang tidak nol menunjukkan baseline yang berbeda. Untuk garis tren linear, menetapkan intersep membatasi persamaan `y = ax + b` menjadi `b = 100`; kemiringan dipasang ke data dengan batasan tersebut. Ini tidak sekadar memindahkan garis yang sudah dipasang. Pengaturan perpotongan sumbu mengontrol dimana sumbu diagram bertemu, bukan koefisien dari garis tren yang dipasang.
 
-- Buat instance kelas Presentation
-- Dapatkan referensi slide dengan menggunakan Indexnya
-- Buat diagram baru menggunakan metode AddChart yang disediakan oleh objek Shapes
-- Tambahkan AutoShape tipe Line menggunakan metode AddAutoShape yang disediakan oleh objek Shapes
-- Atur Color garis bentuk.
-- Simpan presentasi yang telah dimodifikasi sebagai file PPTX
+Contoh berikut membuat diagram sebar (XY) dengan volume produksi dari 1 hingga 4 dan biaya 170, 200, 230, dan 260. Diagram tersebut disimpan dengan intersep otomatis default, kemudian intersep diatur menjadi 100, dan menyimpan PPTX kedua. Kedua file hanya berbeda pada pengaturan intersep. Garis tren menampilkan persamaannya dan memperpanjang kembali ke X = 0.
 
-Kode berikut digunakan untuk membuat diagram dengan Garis Kustom.
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
-    shape = chart.user_shapes.shapes.add_auto_shape(slides.ShapeType.LINE, 0, chart.height / 2, chart.width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-    pres.save("AddCustomLines.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_MARKERS, 20, 20, 480, 210)
+    chart.has_legend = False
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    name_cell = workbook.get_cell(0, 0, 1, "Production cost")
+    series = chart.chart_data.series.add(name_cell, charts.ChartType.SCATTER_WITH_MARKERS)
+    costs = [170, 200, 230, 260]
+
+    for i, cost in enumerate(costs):
+        x_cell = workbook.get_cell(0, i + 1, 0, i + 1)
+        y_cell = workbook.get_cell(0, i + 1, 1, cost)
+        series.data_points.add_data_point_for_scatter_series(x_cell, y_cell)
+
+    trendline = series.trend_lines.add(charts.TrendlineType.LINEAR)
+    trendline.display_equation = True
+    trendline.backward = 1
+
+    presentation.save("AutomaticIntercept.pptx", slides.export.SaveFormat.PPTX)
+
+    trendline.intercept = 100
+    presentation.save("FixedIntercept.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Dengan perhitungan otomatis, data ini menghasilkan `y = 30x + 140`. Menetapkan intersep menjadi 100 menghasilkan kira‑kira `y = 43.33x + 100`: nilai yang dipasang pada nol cocok dengan baseline yang diketahui, sedangkan garis tidak lagi melewati setiap titik data.
+
+| Intersep otomatis | Intersep tetap 100 |
+| --- | --- |
+| ![Garis tren linear dengan intersep yang dihitung otomatis sebesar 140](intercept-automatic.png) | ![Garis tren linear dengan intersep tetap 100](intercept-fixed.png) |
+
+Kedua gambar menggunakan data dan skala sumbu yang sama. Garis tren diperpanjang kembali ke X = 0 untuk menampilkan intercept mereka.
+
+Secara default, properti berisi `float("nan")`, yang mewakili intersep yang tidak ditentukan bukan nol. Intersep kemudian dihitung secara otomatis dari data.
+
+## **Menambahkan Garis Kustom**
+
+Garis kustom adalah bentuk yang digambar di atas diagram, bukan garis tren yang dihitung dari data seri. Contoh ini menggunakan [ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) untuk menambahkan garis horizontal ke slide di atas diagram. Posisi garis ditentukan dalam koordinat slide, diukur dalam poin, sehingga mulai dari tepi kiri diagram dan berada di tengah tinggi diagram. Lebarnya sama dengan lebar diagram. [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) memberikan garis warna merah solid.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
+
+    line = slide.shapes.add_auto_shape(slides.ShapeType.LINE, chart.x, chart.y + chart.height / 2, chart.width, 0)
+    line.line_format.fill_format.fill_type = slides.FillType.SOLID
+    line.line_format.fill_format.solid_fill_color.r = 255
+    line.line_format.fill_format.solid_fill_color.g = 0
+    line.line_format.fill_format.solid_fill_color.b = 0
+
+    presentation.save("AddCustomLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Apa arti 'forward' dan 'backward' untuk sebuah garis tren?**
+**What do 'forward' and 'backward' mean for a trend line?**
 
-Mereka adalah panjang garis tren yang diproyeksikan maju/mundur: untuk diagram scatter (XY) — dalam satuan sumbu; untuk diagram non-scatter — dalam jumlah kategori. Hanya nilai non-negatif yang diperbolehkan.
+Mereka adalah panjang garis tren yang diproyeksikan maju/mundur: untuk diagram sebar (XY) — dalam satuan sumbu; untuk diagram non‑sebar — dalam jumlah kategori. Hanya nilai non‑negatif yang diizinkan.
 
-**Apakah garis tren akan dipertahankan saat mengekspor presentasi ke PDF atau SVG, atau saat merender slide menjadi gambar?**
+**Will the trend line be preserved when exporting the presentation to PDF or SVG, or when rendering a slide to an image?**
 
-Ya. Aspose.Slides mengonversi presentasi ke [PDF](/slides/id/python-net/convert-powerpoint-to-pdf/)/[SVG](/slides/id/python-net/render-a-slide-as-an-svg-image/) dan merender diagram ke gambar; garis tren, sebagai bagian dari diagram, dipertahankan selama operasi tersebut. Metode juga tersedia untuk [mengekspor gambar diagram](/slides/id/python-net/create-shape-thumbnails/) itu sendiri.
+Ya. Aspose.Slides mengonversi presentasi ke [PDF](/slides/id/python-net/convert-powerpoint-to-pdf/) atau [SVG](/slides/id/python-net/render-a-slide-as-an-svg-image/) dan merender diagram menjadi gambar; garis tren, sebagai bagian dari diagram, dipertahankan selama operasi tersebut. Sebuah metode juga tersedia untuk [mengekspor gambar diagram](/slides/id/python-net/create-shape-thumbnails/) itu sendiri.

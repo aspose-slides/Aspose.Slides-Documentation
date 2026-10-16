@@ -1,5 +1,5 @@
 ---
-title: 在 Java 中向演示文稿图表添加趋势线
+title: 在 Java 中为演示文稿图表添加趋势线
 linktitle: 趋势线
 type: docs
 url: /zh/java/trend-line/
@@ -17,107 +17,153 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 快速在 PowerPoint 图表中添加和自定义趋势线——实用指南，助您吸引观众。"
+description: "使用 Aspose.Slides for Java 在 PowerPoint 图表中快速添加和自定义趋势线——实用指南，帮助您吸引观众。"
 ---
+## **概述**
+
+本文说明如何使用 Aspose.Slides 为演示文稿中的图表添加趋势线。演示如何创建图表、向图表系列添加趋势线，并使用多种趋势线类型，包括指数、线性、对数、移动平均、多项式和幂。
+
+还描述了如何通过插入直线形状在图表上添加自定义线，并提供了一个简短的 FAQ，解释了趋势线的前向和后向投影值的含义，以及在导出为 PDF 或 SVG 或将图表渲染为图像时趋势线是否会被保留。
 
 ## **添加趋势线**
-Aspose.Slides for Java 提供了用于管理不同图表趋势线的简易 API：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。
-1. 通过索引获取幻灯片的引用。
-1. 添加一个带有默认数据的图表，并指定所需类型（本例使用 ChartType.ClusteredColumn）。
-1. 为图表系列 1 添加指数趋势线。
-1. 为图表系列 1 添加线性趋势线。
-1. 为图表系列 2 添加对数趋势线。
-1. 为图表系列 2 添加移动平均趋势线。
-1. 为图表系列 3 添加多项式趋势线。
-1. 为图表系列 3 添加幂趋势线。
-1. 将修改后的演示文稿写入 PPTX 文件。
+使用[ITrendlineCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/itrendlinecollection/#add-int-)向图表系列添加趋势线，使用[TrendlineType](https://reference.aspose.com/slides/java/com.aspose.slides/trendlinetype/)选择其类型。示例创建了一个带默认数据的聚类柱形图，并向其三个系列中的每个系列添加了两条趋势线。
 
-以下代码用于创建带有趋势线的图表。
+指数趋势线通过[setDisplayEquation](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setDisplayEquation-boolean-)和[setDisplayRSquaredValue](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setDisplayRSquaredValue-boolean-)隐藏其方程式和决定系数值，而线性趋势线为红色。对数趋势线使用[addTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/trendline/#addTextFrameForOverriding-java.lang.String-)添加自定义标签。移动平均使用[setPeriod](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setPeriod-byte-)设为三个数据点，并使用自定义[setTrendlineName](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setTrendlineName-java.lang.String-)。
+
+多项式趋势线的[setOrder](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setOrder-byte-)为三，并通过[setForward](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setForward-double-)向前延伸一个类别。幂趋势线通过[setBackward](https://reference.aspose.com/slides/java/com.aspose.slides/itrendline/#setBackward-double-)向后延伸一个类别。
+
 ```java
-// 创建 Presentation 类的实例
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // 创建聚类柱形图表
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
-    
-    // 为图表系列 1 添加指数趋势线
-    ITrendline tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential);
-    tredLinep.setDisplayEquation(false);
-    tredLinep.setDisplayRSquaredValue(false);
-    
-    // 为图表系列 1 添加线性趋势线
-    ITrendline tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear);
-    tredLineLin.setTrendlineType(TrendlineType.Linear);
-    tredLineLin.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    
-    
-    // 为图表系列 2 添加对数趋势线
-    ITrendline tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic);
-    tredLineLog.setTrendlineType(TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("New log trend line");
-    
-    // 为图表系列 2 添加移动平均趋势线
-    ITrendline tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage);
-    tredLineMovAvg.setTrendlineType(TrendlineType.MovingAverage);
-    tredLineMovAvg.setPeriod((byte)3);
-    tredLineMovAvg.setTrendlineName("New TrendLine Name");
-    
-    // 为图表系列 3 添加多项式趋势线
-    ITrendline tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial);
-    tredLinePol.setTrendlineType(TrendlineType.Polynomial);
-    tredLinePol.setForward(1);
-    tredLinePol.setOrder((byte)3);
-    
-    // 为图表系列 3 添加幂趋势线
-    ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
-    tredLinePower.setTrendlineType(TrendlineType.Power);
-    tredLinePower.setBackward(1);
-    
-    // 保存演示文稿
-    pres.save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+
+    IChartSeries firstSeries = chart.getChartData().getSeries().get_Item(0);
+
+    ITrendline exponentialTrendline = firstSeries.getTrendLines().add(TrendlineType.Exponential);
+    exponentialTrendline.setDisplayEquation(false);
+    exponentialTrendline.setDisplayRSquaredValue(false);
+
+    ITrendline linearTrendline = firstSeries.getTrendLines().add(TrendlineType.Linear);
+    linearTrendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    linearTrendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    IChartSeries secondSeries = chart.getChartData().getSeries().get_Item(1);
+
+    ITrendline logarithmicTrendline = secondSeries.getTrendLines().add(TrendlineType.Logarithmic);
+    logarithmicTrendline.addTextFrameForOverriding("New log trend line");
+
+    ITrendline movingAverageTrendline = secondSeries.getTrendLines().add(TrendlineType.MovingAverage);
+    movingAverageTrendline.setPeriod((byte) 3);
+    movingAverageTrendline.setTrendlineName("New TrendLine Name");
+
+    IChartSeries thirdSeries = chart.getChartData().getSeries().get_Item(2);
+
+    ITrendline polynomialTrendline = thirdSeries.getTrendLines().add(TrendlineType.Polynomial);
+    polynomialTrendline.setForward(1);
+    polynomialTrendline.setOrder((byte) 3);
+
+    ITrendline powerTrendline = thirdSeries.getTrendLines().add(TrendlineType.Power);
+    powerTrendline.setBackward(1);
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **设置趋势线截距**
+
+使用[setIntercept](https://reference.aspose.com/slides/java/com.aspose.slides/trendline/#setIntercept-double-)将趋势线在 X = 0 时的 Y 值固定。此设置支持线性、指数和多项式趋势线。
+
+例如，生产成本模型可能需要在已知固定成本 100 时开始，即使非零产量的测量值表明不同的基准线。对于线性趋势线，将截距固定为 `b = 100`，从而约束方程 `y = ax + b`，斜率在该约束下拟合数据。它并不是简单地移动已拟合的直线。坐标轴交叉设置控制图表坐标轴的相交位置，而不是已拟合趋势线的系数。
+
+以下示例创建了一个散点 (XY) 图，产量从 1 到 4，对应成本分别为 170、200、230 和 260。它先使用默认的自动截距保存图表，然后将截距设置为 100 并保存第二个 PPTX。两个文件唯一的区别在于截距设置。趋势线显示其方程式并向后延伸到 X = 0。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartDataCell nameCell = workbook.getCell(0, 0, 1, "Production cost");
+    IChartSeries series = chart.getChartData().getSeries().add(nameCell, ChartType.ScatterWithMarkers);
+    double[] costs = { 170, 200, 230, 260 };
+
+    for (int i = 0; i < costs.length; i++) {
+        IChartDataCell xCell = workbook.getCell(0, i + 1, 0, i + 1);
+        IChartDataCell yCell = workbook.getCell(0, i + 1, 1, costs[i]);
+        series.getDataPoints().addDataPointForScatterSeries(xCell, yCell);
+    }
+
+    ITrendline trendline = series.getTrendLines().add(TrendlineType.Linear);
+    trendline.setDisplayEquation(true);
+    trendline.setBackward(1);
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+    trendline.setIntercept(100);
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+使用自动计算时，这些数据产生 `y = 30x + 140`。将截距设为 100 时则约得到 `y = 43.33x + 100`：零点的拟合值匹配已知基准线，而直线不再通过所有数据点。
+
+| 自动截距 | 固定截距 100 |
+| --- | --- |
+| ![线性趋势线，自动计算的截距为 140](intercept-automatic.png) | ![线性趋势线，固定截距为 100](intercept-fixed.png) |
+
+两幅图片使用相同的数据和坐标轴比例。趋势线向后延伸到 X = 0 以显示其截距。
+
+默认情况下，[getIntercept](https://reference.aspose.com/slides/java/com.aspose.slides/trendline/#getIntercept--)返回 `Double.NaN`，表示未指定的截距，而不是零。随后截距会根据数据自动计算。
 
 ## **添加自定义线**
-Aspose.Slides for Java 提供了在图表中添加自定义线的简易 API。要在演示文稿的选定幻灯片上添加一条简单的直线，请按以下步骤操作：
 
-- 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例
-- 使用其 Index 获取幻灯片的引用
-- 使用 Shapes 对象公开的 AddChart 方法创建新图表
-- 使用 Shapes 对象公开的 AddAutoShape 方法添加线类型的 AutoShape
-- 设置形状线条的颜色。
-- 将修改后的演示文稿写入 PPTX 文件
+自定义线是一种绘制在图表之上的形状，而不是从系列数据计算得到的趋势线。此示例使用[IShapeCollection.addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-)在图表上方的幻灯片中添加水平线。线的位置以幻灯片坐标（点）指定，因而从图表左边缘开始并位于图表中部。其宽度与图表宽度相同。[getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) 为该线设置了实心红色。
 
-以下代码用于创建带有自定义线的图表。
 ```java
-// 创建 Presentation 类的实例
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight()/2, chart.getWidth(), 0);
+    ISlide slide = presentation.getSlides().get_Item(0);
     
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.awt.Color.RED);
-    
-    pres.save("Presentation.pptx", SaveFormat.Pptx);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+    IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0);
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **常见问题**
 
-**'forward' 和 'backward' 对趋势线的含义是什么？**
+**“前向”和“后向”在趋势线中是什么意思？**
 
-它们是趋势线向前/向后投射的长度：对于散点 (XY) 图表，以坐标轴单位计量；对于非散点图表，以类别数计量。仅允许非负值。
+它们是趋势线向前或向后投影的长度：对于散点 (XY) 图表——以坐标轴单位计量；对于非散点图表——以类别数计量。仅允许非负值。
 
-**将演示文稿导出为 PDF 或 SVG，或将幻灯片渲染为图像时，趋势线会被保留吗？**
+**在将演示文稿导出为 PDF 或 SVG，或将幻灯片渲染为图像时，趋势线会被保留吗？**
 
-是的。Aspose.Slides 可将演示文稿转换为 [PDF](/slides/zh/java/convert-powerpoint-to-pdf/)/[SVG](/slides/zh/java/render-a-slide-as-an-svg-image/) 并将图表渲染为图像；趋势线作为图表的一部分，在这些操作中会被保留。同时还提供了将图表本身[导出为图像](/slides/zh/java/create-shape-thumbnails/)的方法。
+是的。Aspose.Slides 将演示文稿转换为[PDF](/slides/zh/java/convert-powerpoint-to-pdf/)或[SVG](/slides/zh/java/render-a-slide-as-an-svg-image/)，并将图表渲染为图像；作为图表一部分的趋势线在这些操作中会被保留。还提供了一个方法以[导出图表的图像](/slides/zh/java/create-shape-thumbnails/)本身。

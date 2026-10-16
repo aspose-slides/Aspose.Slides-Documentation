@@ -9,7 +9,7 @@ keywords:
 - خط روند نمایی
 - خط روند خطی
 - خط روند لگاریتمی
-- خط روند میانگین متحرک
+- خط روند متوسط متحرک
 - خط روند چندجمله‌ای
 - خط روند توان
 - خط روند سفارشی
@@ -22,100 +22,144 @@ description: "به‌سرعت خطوط روند را در نمودارهای Pow
 ---
 ## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه خطوط روند را به نمودارهای ارائه با استفاده از Aspose.Slides اضافه کنیم. نشان می‌دهد چگونه یک نمودار ایجاد کنیم، خطوط روند را به سری‌های نمودار اضافه کنیم، و با انواع مختلف خطوط روند از جمله نمایی، خطی، لگاریتمی، میانگین متحرک، چندجمله‌ای و توان کار کنیم.
+این مقاله توضیح می‌دهد چگونه خطوط روند را با استفاده از Aspose.Slides به نمودارهای ارائه اضافه کنیم. این مقاله نشان می‌دهد چگونه یک نمودار ساخته شود، خطوط روند به سری‌های نمودار اضافه شوند و با انواع مختلف خطوط روند کار شود، از جمله نمایی، خطی، لگاریتمی، متوسط متحرک، چندجمله‌ای و توان.
 
-همچنین توضیح می‌دهد چگونه یک خط سفارشی را به نمودار اضافه کنیم با قرار دادن یک شکل خطی، و شامل یک سوالات متداول کوتاه درباره مقادیر پیش‌بینی‌گر جلو و عقب خط روند و اینکه آیا خطوط روند در زمان خروجی به PDF یا SVG و هنگام رندر نمودارها به‌صورت تصویر حفظ می‌شوند یا نه.
+همچنین شرح می‌دهد چگونه یک خط سفارشی به نمودار اضافه شود با درج یک شکل خط، و شامل سؤالات متداول کوتاهی درباره مقادیر پیش‌روی و پس‌روی خط روند و این که آیا خطوط روند در هنگام صادرات به PDF یا SVG و هنگام رندر نمودارها به تصویر حفظ می‌شوند یا خیر.
 
 ## **افزودن خط روند**
-Aspose.Slides برای .NET یک API ساده برای مدیریت انواع خطوط روند نمودارها ارائه می‌دهد:
 
-1. یک نمونه از کلاس [ارائه](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.
-1. مرجع یک اسلاید را با استفاده از فهرست (نمایه) آن به دست آورید.
-1. یک نمودار با داده‌های پیش‌فرض به همراه هر نوع دلخواه اضافه کنید (در این مثال از ChartType.ClusteredColumn استفاده شده است).
-1. افزودن خط روند نمایی برای سری نمودار 1.
-1. افزودن خط روند خطی برای سری نمودار 1.
-1. افزودن خط روند لگاریتمی برای سری نمودار 2.
-1. افزودن خط روند میانگین متحرک برای سری نمودار 2.
-1. افزودن خط روند چندجمله‌ای برای سری نمودار 3.
-1. افزودن خط روند توان برای سری نمودار 3.
-1. ارائه اصلاح‌شده را در یک فایل PPTX بنویسید.
+از [ITrendlineCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendlinecollection/add/) برای افزودن خط روند به یک سری نمودار استفاده کنید و نوع آن را با [TrendlineType](https://reference.aspose.com/slides/net/aspose.slides.charts/trendlinetype/) انتخاب کنید. مثال یک نمودار ستون خوشه‌ای با داده‌های پیش‌فرض ایجاد می‌کند و دو خط روند به هر یک از سه سری آن اضافه می‌نماید.
 
-کد زیر برای ایجاد یک نمودار با خطوط روند استفاده می‌شود.
+خط روند نمایی معادله و مقدار R‑squared خود را از طریق [DisplayEquation](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayequation/) و [DisplayRSquaredValue](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayrsquaredvalue/) مخفی می‌کند، در حالی که خط روند خطی قرمز است. خط روند لگاریتمی از [AddTextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/addtextframeforoverriding/) برای برچسب سفارشی استفاده می‌کند. متوسط متحرک از یک [Period](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/period/) سه نقطه داده و یک [TrendlineName](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/trendlinename/) سفارشی بهره می‌برد.
 
-```c#
-// ایجاد ارائه خالی
-Presentation pres = new Presentation();
+خط روند چندجمله‌ای دارای یک [Order](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/order/) سه است و یک دسته به سمت جلو از طریق [Forward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/forward/) گسترش می‌یابد. خط روند توان یک دسته به سمت عقب از طریق [Backward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/backward/) گسترش می‌دهد.
 
-// ایجاد نمودار ستون‌های خوشه‌ای
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// افزودن خط روند نمایی برای سری نمودار 1
-ITrendline tredLinep = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Exponential);
-tredLinep.DisplayEquation = false;
-tredLinep.DisplayRSquaredValue = false;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// افزودن خط روند خطی برای سری نمودار 1
-ITrendline tredLineLin = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Linear);
-tredLineLin.TrendlineType = TrendlineType.Linear;
-tredLineLin.Format.Line.FillFormat.FillType = FillType.Solid;
-tredLineLin.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
 
+var firstSeries = chart.ChartData.Series[0];
 
-// افزودن خط روند لگاریتمی برای سری نمودار 2
-ITrendline tredLineLog = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Logarithmic);
-tredLineLog.TrendlineType = TrendlineType.Logarithmic;
-tredLineLog.AddTextFrameForOverriding("New log trend line");
+var exponentialTrendline = firstSeries.TrendLines.Add(TrendlineType.Exponential);
+exponentialTrendline.DisplayEquation = false;
+exponentialTrendline.DisplayRSquaredValue = false;
 
-// افزودن خط روند میانگین‌متحرک برای سری نمودار 2
-ITrendline tredLineMovAvg = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.MovingAverage);
-tredLineMovAvg.TrendlineType = TrendlineType.MovingAverage;
-tredLineMovAvg.Period = 3;
-tredLineMovAvg.TrendlineName = "New TrendLine Name";
+var linearTrendline = firstSeries.TrendLines.Add(TrendlineType.Linear);
+linearTrendline.Format.Line.FillFormat.FillType = FillType.Solid;
+linearTrendline.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
 
-// افزودن خط روند چندجمله‌ای برای سری نمودار 3
-ITrendline tredLinePol = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Polynomial);
-tredLinePol.TrendlineType = TrendlineType.Polynomial;
-tredLinePol.Forward = 1;
-tredLinePol.Order = 3;
+var secondSeries = chart.ChartData.Series[1];
 
-// افزودن خط روند توان برای سری نمودار 3
-ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
-tredLinePower.TrendlineType = TrendlineType.Power;
-tredLinePower.Backward = 1;
+var logarithmicTrendline = secondSeries.TrendLines.Add(TrendlineType.Logarithmic);
+logarithmicTrendline.AddTextFrameForOverriding("New log trend line");
 
-// ذخیره ارائه
-pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+var movingAverageTrendline = secondSeries.TrendLines.Add(TrendlineType.MovingAverage);
+movingAverageTrendline.Period = 3;
+movingAverageTrendline.TrendlineName = "New TrendLine Name";
+
+var thirdSeries = chart.ChartData.Series[2];
+
+var polynomialTrendline = thirdSeries.TrendLines.Add(TrendlineType.Polynomial);
+polynomialTrendline.Forward = 1;
+polynomialTrendline.Order = 3;
+
+var powerTrendline = thirdSeries.TrendLines.Add(TrendlineType.Power);
+powerTrendline.Backward = 1;
+
+presentation.Save("ChartTrendLines.pptx", SaveFormat.Pptx);
 ```
+
+## **تنظیم مقطع خط روند**
+
+از [Intercept](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/intercept/) برای ثابت نگه داشتن مقدار Y خط روند در X = 0 استفاده کنید. این تنظیم برای خطوط روند خطی، نمایی و چندجمله‌ای پشتیبانی می‌شود.
+
+به‌عنوان مثال، یک مدل هزینه تولید ممکن است نیاز داشته باشد از هزینه‌های ثابت شناخته‌شده ۱۰۰ شروع شود، حتی زمانی که اندازه‌گیری‌ها در مقادیر تولید غیر صفر نشان‌دهنده مبنای متفاوتی باشند. برای یک خط روند خطی، ثابت‌کردن مقطع معادله `y = ax + b` را به `b = 100` محدود می‌کند؛ شیب تحت آن محدودیت به داده‌ها تنظیم می‌شود. این کار به سادگی خطی که پیش از این برازش شده را جابه‌جا نمی‌کند. تنظیمات عبور محور، محل تقاطع محورها را کنترل می‌کند، نه ضرایب خط روند برازش‌شده.
+
+مثال زیر یک نمودار نقطه‌ای (XY) با حجم‌های تولید از ۱ تا ۴ و هزینه‌های ۱۷۰، ۲۰۰، ۲۳۰ و ۲۶۰ ایجاد می‌کند. این نمودار را با مقطع خودکار پیش‌فرض ذخیره می‌کند، مقطع را به ۱۰۰ تنظیم می‌کند و یک فایل PPTX دوم ذخیره می‌کند. دو فایل تنها در تنظیم مقطع متفاوت هستند. خط روند معادله خود را نمایش می‌دهد و به X = 0 باز می‌گردد.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var nameCell = workbook.GetCell(0, 0, 1, "Production cost");
+var series = chart.ChartData.Series.Add(nameCell, ChartType.ScatterWithMarkers);
+double[] costs = { 170, 200, 230, 260 };
+
+for (var i = 0; i < costs.Length; i++)
+{
+    var xCell = workbook.GetCell(0, i + 1, 0, i + 1);
+    var yCell = workbook.GetCell(0, i + 1, 1, costs[i]);
+    series.DataPoints.AddDataPointForScatterSeries(xCell, yCell);
+}
+
+var trendline = series.TrendLines.Add(TrendlineType.Linear);
+trendline.DisplayEquation = true;
+trendline.Backward = 1;
+
+presentation.Save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+trendline.Intercept = 100;
+presentation.Save("FixedIntercept.pptx", SaveFormat.Pptx);
+```
+
+با محاسبه خودکار، این داده‌ها `y = 30x + 140` را تولید می‌کنند. تنظیم مقطع به ۱۰۰ به‌جای آن تقریباً `y = 43.33x + 100` می‌دهد: مقدار برازش‌شده در صفر با مبنای شناخته‌شده مطابقت دارد، در حالی که خط دیگر از تمام نقاط داده عبور نمی‌کند.
+
+| مقطع خودکار | مقطع ثابت ۱۰۰ |
+| --- | --- |
+| ![خط روند خطی با مقطع محاسبه‌شده خودکار 140](intercept-automatic.png) | ![خط روند خطی با مقطع ثابت 100](intercept-fixed.png) |
+
+هر دو تصویر از داده‌ها و مقیاس‌های محور یکسان استفاده می‌کنند. خطوط روند به سمت X = 0 گسترش یافته‌اند تا مقاطعشان نمایش داده شود.
+
+به‌طور پیش‌فرض، این ویژگی مقدار `double.NaN` را دارد که نشان‌دهنده مقطع نامشخص است نه صفر. سپس مقطع به‌صورت خودکار از داده‌ها محاسبه می‌شود.
 
 ## **افزودن خط سفارشی**
-Aspose.Slides برای .NET یک API ساده برای افزودن خطوط سفارشی در نمودار ارائه می‌دهد. برای افزودن یک خط ساده به اسلاید انتخابی ارائه، لطفاً مراحل زیر را دنبال کنید:
 
-- یک نمونه از کلاس Presentation ایجاد کنید
-- مرجع یک اسلاید را با استفاده از Index آن به دست آورید
-- یک نمودار جدید با استفاده از متد AddChart که توسط شیء Shapes در دسترس است، ایجاد کنید
-- یک AutoShape از نوع خط را با استفاده از متد AddAutoShape که توسط شیء Shapes در دسترس است، اضافه کنید
-- رنگ خطوط شکل را تنظیم کنید.
-- ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید
+خط سفارشی یک شکل است که بر روی نمودار کشیده می‌شود نه خط روندی که از داده‌های سری محاسبه می‌شود. این مثال از [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) برای افزودن یک خط افقی به اسلاید روی نمودار استفاده می‌کند. موقعیت خط در مختصات اسلاید، بر حسب نقطه، مشخص می‌شود، به طوری که از لبه چپ نمودار شروع شده و در میان ارتفاع نمودار قرار می‌گیرد. عرض آن برابر با عرض نمودار است. [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) به خط رنگ قرمز یکدست می‌دهد.
 
-کد زیر برای ایجاد یک نمودار با خطوط سفارشی استفاده می‌شود.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.UserShapes.Shapes.AddAutoShape(ShapeType.Line, 0, chart.Height / 2, chart.Width, 0);
-    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
-    pres.Save("AddCustomLines.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+var line = slide.Shapes.AddAutoShape(ShapeType.Line, chart.X, chart.Y + chart.Height / 2, chart.Width, 0);
+line.LineFormat.FillFormat.FillType = FillType.Solid;
+line.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+presentation.Save("AddCustomLines.pptx", SaveFormat.Pptx);
 ```
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**'forward' و 'backward' برای یک خط روند به چه معنی هستند؟**
+**معنی 'forward' و 'backward' برای خط روند چیست؟**
 
-آنها طول‌های خط روند هستند که به جلو/به عقب پیش‌بینی می‌شوند: برای نمودارهای scatter (XY) — بر حسب واحدهای محور؛ برای نمودارهای غیر‑scatter — بر حسب تعداد دسته‌ها. فقط مقادیر غیرمنفی مجاز هستند.
+آنها طول‌های خط روند هستند که به جلو/به عقب پیش‌بینی می‌شوند: برای نمودارهای نقطه‌ای (XY) — بر حسب واحدهای محور؛ برای نمودارهای غیر نقطه‌ای — بر حسب تعداد دسته‌ها. تنها مقادیر غیرمنفی مجاز هستند.
 
-**آیا خط روند در هنگام خروجی به PDF یا SVG یا هنگام رندر یک اسلاید به تصویر حفظ می‌شود؟**
+**آیا خط روند هنگام صادرات ارائه به PDF یا SVG، یا هنگام رندر اسلاید به تصویر حفظ می‌شود؟**
 
-بله. Aspose.Slides ارائه‌ها را به [PDF](/slides/fa/net/convert-powerpoint-to-pdf/)/[SVG](/slides/fa/net/render-a-slide-as-an-svg-image/) تبدیل می‌کند و نمودارها را به تصاویر رندر می‌سازد؛ خطوط روند، به‌عنوان بخشی از نمودار، در طول این عملیات‌ها حفظ می‌شوند. یک متد نیز برای [صدور تصویر از نمودار](/slides/fa/net/create-shape-thumbnails/) موجود است.
+بله. Aspose.Slides ارائه‌ها را به [PDF](/slides/fa/net/convert-powerpoint-to-pdf/) یا [SVG](/slides/fa/net/render-a-slide-as-an-svg-image/) تبدیل می‌کند و نمودارها را به تصاویر رندر می‌کند؛ خطوط روند به عنوان بخشی از نمودار در طول این عملیات‌ها حفظ می‌شوند. همچنین روشی برای [export an image of the chart](/slides/fa/net/create-shape-thumbnails/) موجود است.

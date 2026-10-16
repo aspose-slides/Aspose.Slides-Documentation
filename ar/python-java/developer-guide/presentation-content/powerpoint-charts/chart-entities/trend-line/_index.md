@@ -1,47 +1,38 @@
 ---
-title: إضافة خطوط الاتجاه إلى مخططات العرض في بايثون
+title: إضافة خطوط الاتجاه إلى مخططات العروض التقديمية في بايثون
 linktitle: خط الاتجاه
 type: docs
 url: /ar/python-java/trend-line/
 keywords:
 - مخطط
-- خط الاتجاه
-- خط الاتجاه الأسي
-- خط الاتجاه الخطي
-- خط الاتجاه اللوغاريتمي
-- خط الاتجاه للمتوسط المتحرك
-- خط الاتجاه المتعدد الحدود
-- خط الاتجاه القوي
-- خط الاتجاه المخصص
+- خط اتجاه
+- خط اتجاه أسي
+- خط اتجاه خطي
+- خط اتجاه لوغاريتمي
+- خط اتجاه متوسط متحرك
+- خط اتجاه متعدد الحدود
+- خط اتجاه القوة
+- خط اتجاه مخصص
 - PowerPoint
-- عرض
+- عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "أضف خطوط الاتجاه وخصصها بسرعة في مخططات PowerPoint باستخدام Aspose.Slides for Python عبر Java — دليل عملي لجذب جمهورك."
+description: "أضف خطوط الاتجاه وتخصيصها بسرعة في مخططات PowerPoint باستخدام Aspose.Slides للبايثون عبر جافا — دليل عملي لجذب جمهورك."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية إضافة خطوط الاتجاه إلى مخططات العرض باستخدام Aspose.Slides. وتظهر كيفية إنشاء مخطط، إضافة خطوط الاتجاه إلى سلاسل المخطط، والعمل مع عدة أنواع من خطوط الاتجاه، بما في ذلك الأسية، الخطية، اللوغاريتمية، المتوسط المتحرك، المتعدد الحدود، والقوة.
+هذا المقال يشرح كيفية إضافة خطوط الاتجاه إلى مخططات العروض باستخدام Aspose.Slides. يوضح كيفية إنشاء مخطط، إضافة خطوط الاتجاه إلى سلاسل المخطط، والعمل مع عدة أنواع من خطوط الاتجاه، بما في ذلك الأسي، الخطي، اللوغاريتمي، المتوسط المتحرك، متعدد الحدود، والقدرة.
 
-كما توضح كيفية إضافة خط مخصص إلى المخطط عن طريق إدراج شكل خط، وتضم سؤالًا شائعًا قصيرًا حول قيم إسقاط خط الاتجاه إلى الأمام وإلى الخلف وما إذا كانت خطوط الاتجاه تُحافظ عليها أثناء تصدير العرض إلى PDF أو SVG وعند تحويل المخططات إلى صور.
+كما يصف كيفية إضافة خط مخصص إلى مخطط عن طريق إدراج شكل خط، ويتضمن أسئلة متكررة قصيرة حول قيم إظهار إتجاه الخط إلى الأمام وإلى الخلف وما إذا كانت خطوط الاتجاه تُحفظ أثناء التصدير إلى PDF أو SVG وعند تحويل المخططات إلى صور.
 
 ## **إضافة خط اتجاه**
 
-توفر Aspose.Slides for Python via Java واجهة برمجة تطبيقات بسيطة لإدارة خطوط الاتجاه المختلفة للمخططات:
+استخدم [TrendlineCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinecollection/#add) لإضافة خط اتجاه إلى سلسلة مخطط، مع تحديد نوعه عبر [TrendlineType](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinetype/). يُنشئ المثال مخطط أعمدة مجمع ببيانات افتراضية ويضيف خطي اتجاه إلى كل من السلاسل الثلاثة.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
-2. الحصول على مرجع إلى شريحة بواسطة فهرسها.
-3. إضافة مخطط ببيانات افتراضية والنوع المطلوب (هذا المثال يستخدم [ChartType.ClusteredColumn](https://reference.aspose.com/slides/ar/python-java/aspose.slides/charttype/#ClusteredColumn)).
-4. إضافة خط اتجاه أسي إلى السلسلة 1 في المخطط.
-5. إضافة خط اتجاه خطي إلى السلسلة 1 في المخطط.
-6. إضافة خط اتجاه لوغاريتمي إلى السلسلة 2 في المخطط.
-7. إضافة خط اتجاه متوسط متحرك إلى السلسلة 2 في المخطط.
-8. إضافة خط اتجاه متعدد حدود إلى السلسلة 3 في المخطط.
-9. إضافة خط اتجاه قوة إلى السلسلة 3 في المخطط.
-10. حفظ العرض المعدل في ملف PPTX.
+يخفي خط الاتجاه الأسي معادلته وقيمة R‑squared عبر [setDisplayEquation](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayEquation) و[setDisplayRSquaredValue](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayRSquaredValue)، بينما يكون خط الاتجاه الخطي أحمر. يستخدم خط الاتجاه اللوغاريتمي [addTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#addTextFrameForOverriding) لتسمية مخصصة. يستخدم المتوسط المتحرك [setPeriod](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setPeriod) لثلاث نقاط بيانات و[setTrendlineName](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setTrendlineName) مخصص.
 
-الشفرة التالية تنشئ مخططًا مع خطوط الاتجاه.
+يحتوي خط الاتجاه متعدد الحدود على رتبة ثلاثة، يتم تعيينها عبر [setOrder](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setOrder) ويمتد فئة واحدة إلى الأمام عبر [setForward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setForward). يمتد خط الاتجاه بالقوة فئة واحدة إلى الخلف عبر [setBackward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setBackward).
 
 ```python
 import jpype
@@ -53,63 +44,109 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, TrendlineType
 from java.awt import Color
 
-# إنشاء نسخة من فئة Presentation.
 presentation = Presentation()
 try:
-    # إنشاء مخطط أعمدة متجمعة.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # إضافة خط اتجاه أسي إلى السلسلة 1 في المخطط.
-    exponential_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential)
-    exponential_trend_line.setDisplayEquation(False)
-    exponential_trend_line.setDisplayRSquaredValue(False)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
 
-    # إضافة خط اتجاه خطي إلى السلسلة 1 في المخطط.
-    linear_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear)
-    linear_trend_line.setTrendlineType(TrendlineType.Linear)
-    linear_trend_line.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    linear_trend_line.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    first_series = chart.getChartData().getSeries().get_Item(0)
 
-    # إضافة خط اتجاه لوغاريتمي إلى السلسلة 2 في المخطط.
-    logarithmic_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic)
-    logarithmic_trend_line.setTrendlineType(TrendlineType.Logarithmic)
-    logarithmic_trend_line.addTextFrameForOverriding("New log trend line")
+    exponential_trendline = first_series.getTrendLines().add(TrendlineType.Exponential)
+    exponential_trendline.setDisplayEquation(False)
+    exponential_trendline.setDisplayRSquaredValue(False)
 
-    # إضافة خط اتجاه متوسط متحرك إلى السلسلة 2 في المخطط.
-    moving_average_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage)
-    moving_average_trend_line.setTrendlineType(TrendlineType.MovingAverage)
-    moving_average_trend_line.setPeriod(jpype.JByte(3))
-    moving_average_trend_line.setTrendlineName("New TrendLine Name")
+    linear_trendline = first_series.getTrendLines().add(TrendlineType.Linear)
+    linear_trendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    linear_trendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # إضافة خط اتجاه متعدد حدود إلى السلسلة 3 في المخطط.
-    polynomial_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial)
-    polynomial_trend_line.setTrendlineType(TrendlineType.Polynomial)
-    polynomial_trend_line.setForward(1)
-    polynomial_trend_line.setOrder(jpype.JByte(3))
+    second_series = chart.getChartData().getSeries().get_Item(1)
 
-    # إضافة خط اتجاه قوة إلى السلسلة 3 في المخطط.
-    power_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Power)
-    power_trend_line.setTrendlineType(TrendlineType.Power)
-    power_trend_line.setBackward(1)
+    logarithmic_trendline = second_series.getTrendLines().add(TrendlineType.Logarithmic)
+    logarithmic_trendline.addTextFrameForOverriding("New log trend line")
 
-    # حفظ العرض.
-    presentation.save("ChartTrendLines_out.pptx", SaveFormat.Pptx)
+    moving_average_trendline = second_series.getTrendLines().add(TrendlineType.MovingAverage)
+    moving_average_trendline.setPeriod(jpype.JByte(3))
+    moving_average_trendline.setTrendlineName("New TrendLine Name")
+
+    third_series = chart.getChartData().getSeries().get_Item(2)
+
+    polynomial_trendline = third_series.getTrendLines().add(TrendlineType.Polynomial)
+    polynomial_trendline.setForward(1)
+    polynomial_trendline.setOrder(jpype.JByte(3))
+
+    power_trendline = third_series.getTrendLines().add(TrendlineType.Power)
+    power_trendline.setBackward(1)
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **تعيين تقاطع خط الاتجاه**
+
+استخدم [setIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setIntercept) لتثبيت قيمة Y لخط الاتجاه عند X = 0. يتم دعم هذا الإعداد لخطوط الاتجاه الخطي، الأسي، ومتعدد الحدود.
+
+على سبيل المثال، قد يحتاج نموذج تكلفة الإنتاج إلى البدء بتكاليف ثابتة معروفة مقدارها 100، حتى عندما تشير القياسات عند أحجام إنتاج غير صفرية إلى أساس مختلف. بالنسبة لخط الاتجاه الخطي، يقيّد تثبيت التقاطع المعادلة `y = ax + b` إلى `b = 100`؛ ويتم تعديل الانحدار وفق البيانات تحت هذا القيد. هذا لا يعني مجرد تحريك خط مُناسب مسبقًا. تتحكم إعدادات تقاطع المحاور في موضع التقاط المحاور، وليس في معاملات خط الاتجاه المُناسب.
+
+المثال التالي ينشئ مخططًا مبعثرًا (XY) بحجوم إنتاج من 1 إلى 4 وتكاليف 170، 200، 230، و260. يحفظ المخطط بالتقاطع التلقائي الافتراضي، ثم يضبط التقاطع إلى 100 ويحفظ ملف PPTX ثاني. يختلف الملفان فقط في إعداد التقاطع. يُظهر خط الاتجاه معادلته ويمتد إلى X = 0.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat, TrendlineType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    name_cell = workbook.getCell(0, 0, 1, "Production cost")
+    series = chart.getChartData().getSeries().add(name_cell, ChartType.ScatterWithMarkers)
+    costs = [170, 200, 230, 260]
+
+    for i in range(len(costs)):
+        x_cell = workbook.getCell(0, i + 1, 0, i + 1)
+        y_cell = workbook.getCell(0, i + 1, 1, costs[i])
+        series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+
+    trendline = series.getTrendLines().add(TrendlineType.Linear)
+    trendline.setDisplayEquation(True)
+    trendline.setBackward(1)
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx)
+
+    trendline.setIntercept(100)
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+مع الحساب التلقائي، تُنتج هذه البيانات `y = 30x + 140`. ضبط التقاطع إلى 100 ينتج تقريبًا `y = 43.33x + 100`: القيمة المُناسبة عند الصفر تتطابق مع الأساس المعروف، بينما لا يمر الخط بعد الآن عبر كل نقطة بيانات.
+
+| التقاطع التلقائي | تقاطع ثابت 100 |
+| --- | --- |
+| ![خط الاتجاه الخطي مع تقاطع محسوب تلقائيًا بقيمة 140](intercept-automatic.png) | ![خط الاتجاه الخطي مع تقاطع ثابت بقيمة 100](intercept-fixed.png) |
+
+تستخدم الصورتان نفس البيانات ومقاييس المحاور. تُمتد خطوط الاتجاه إلى X = 0 لإظهار تقاطعاتها.
+
+بشكل افتراضي، تُعيد [getIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#getIntercept) القيمة `NaN`، التي تمثل تقاطعًا غير محدد بدلاً من الصفر. ثم يُحسب التقاطع تلقائيًا من البيانات.
+
 ## **إضافة خط مخصص**
 
-توفر Aspose.Slides for Python عبر Java واجهة برمجة تطبيقات بسيطة لإضافة خطوط مخصصة إلى المخطط. لإضافة خط عادي إلى مخطط على شريحة مختارة، اتبع الخطوات التالية:
-
-- إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
-- الحصول على مرجع إلى شريحة بواسطة فهرسها.
-- إنشاء مخطط جديد باستخدام طريقة [addChart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapecollection/#addChart) من الفئة [ShapeCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapecollection/).
-- إضافة شكل خط باستخدام طريقة [addAutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapecollection/#addAutoShape) مع [ShapeType.Line](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapetype/#Line).
-- ضبط لون خط الشكل.
-- حفظ العرض المعدل في ملف PPTX.
-
-الشفرة التالية تنشئ مخططًا بخط مخصص.
+الخط المخصص هو شكل يُرسم فوق المخطط بدلاً من أن يكون خط اتجاه يُحسب من بيانات السلاسل. يستخدم هذا المثال [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) لإضافة خط أفقي إلى الشريحة فوق المخطط. يُحدَّد موضع الخط بإحداثيات الشريحة، مقاسًا بالنقاط، لذا يبدأ عند الحافة اليسرى للمخطط ويقع في منتصف ارتفاعه. عرضه يطابق عرض المخطط. تُتيح طريقة [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) الوصول إلى تنسيق الخط لتطبيق لون أحمر صلب.
 
 ```python
 import jpype
@@ -121,26 +158,27 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# إنشاء نسخة من فئة Presentation.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
-    shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0)
+    slide = presentation.getSlides().get_Item(0)
 
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
 
-    presentation.save("Presentation.pptx", SaveFormat.Pptx)
+    line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0)
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ماذا يعني 'forward' و 'backward' لخط الاتجاه؟**
+**ماذا يعني “forward” و “backward” بالنسبة لخط الاتجاه؟**
 
-إنها أطوال خط الاتجاه المُسقطة إلى الأمام أو الخلف: بالنسبة لمخططات التبعثر (XY)، يتم قياسها بوحدات المحور؛ بالنسبة للمخططات غير التبعثرية، يتم قياسها بعدد الفئات. يُسمح فقط بالقيم غير السالبة.
+هما طولا خط الاتجاه المُمتد إلى الأمام أو الخلف: بالنسبة لمخططات المبعثر (XY) — بوحدات المحور؛ بالنسبة للمخططات غير المبعثرة — بعدد الفئات. يُسمح فقط بالقيم غير السالبة.
 
-**هل سيُحافظ على خط الاتجاه عند تصدير العرض إلى PDF أو SVG، أو عند تحويل شريحة إلى صورة؟**
+**هل يتم حفظ خط الاتجاه عند تصدير العرض التقديمي إلى PDF أو SVG، أو عند تحويل الشريحة إلى صورة؟**
 
-نعم. تقوم Aspose.Slides بتحويل العروض إلى [PDF](/slides/ar/python-java/convert-powerpoint-to-pdf/)/[SVG](/slides/ar/python-java/render-a-slide-as-an-svg-image/) وتُنشئ صورًا للمخططات؛ تُحافظ خطوط الاتجاه، كجزء من المخطط، على وجودها خلال هذه العمليات. كما تتوفر طريقة لـ [تصدير صورة للمخطط](/slides/ar/python-java/create-shape-thumbnails/) نفسها.
+نعم. يقوم Aspose.Slides بتحويل العروض التقديمية إلى [PDF](/slides/ar/python-java/convert-powerpoint-to-pdf/) أو [SVG](/slides/ar/python-java/render-a-slide-as-an-svg-image/) ويُحَوِّل المخططات إلى صور؛ تُحفظ خطوط الاتجاه، كجزء من المخطط، أثناء هذه العمليات. كما تتوفر طريقة لـ [export an image of the chart](/slides/ar/python-java/create-shape-thumbnails/) نفسها.

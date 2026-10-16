@@ -6,10 +6,10 @@ url: /hi/php-java/trend-line/
 keywords:
 - चार्ट
 - ट्रेंड लाइन
-- घातीय ट्रेंड लाइन
-- रैखिक ट्रेंड लाइन
+- एक्सपोनेन्शियल ट्रेंड लाइन
+- लीनियर ट्रेंड लाइन
 - लॉगरिदमिक ट्रेंड लाइन
-- मूविंग एवरेज ट्रेंड लाइन
+- मूविंग औसत ट्रेंड लाइन
 - पॉलीनॉमियल ट्रेंड लाइन
 - पावर ट्रेंड लाइन
 - कस्टम ट्रेंड लाइन
@@ -17,106 +17,163 @@ keywords:
 - प्रेजेंटेशन
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java के साथ PowerPoint चार्ट में ट्रेंड लाइन्स को जल्दी से जोड़ें और अनुकूलित करें — दर्शकों को जोड़ने के लिए एक व्यावहारिक मार्गदर्शिका।"
+description: "Aspose.Slides for PHP via Java के साथ PowerPoint चार्ट में ट्रेंड लाइन्स को तेज़ी से जोड़ें और अनुकूलित करें — दर्शकों को सम्मोहित करने के लिए एक व्यावहारिक गाइड।"
 ---
-## **समीक्षा**
+## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके प्रस्तुति चार्ट में ट्रेंड लाइन्स जोड़ने का तरीका समझाता है। यह दिखाता है कि चार्ट कैसे बनाएं, चार्ट सीरीज़ में ट्रेंड लाइन्स कैसे जोड़ें, और एक्सपोनेंशियल, लीनियर, लॉगरिदमिक, मूविंग एवरेज, पॉलीनॉमियल और पावर सहित कई ट्रेंड लाइन प्रकारों के साथ कैसे काम करें।
+यह लेख Aspose.Slides का उपयोग करके प्रस्तुति चार्ट में ट्रेंड लाइन्स जोड़ने के तरीके को समझाता है। यह दिखाता है कि चार्ट कैसे बनाएं, चार्ट सीरीज़ में ट्रेंड लाइन्स जोड़ें, और कई ट्रेंड लाइन प्रकारों के साथ काम करें, जिसमें एक्सपोनेन्शियल, लीनियर, लॉगरिदमिक, मूविंग औसत, पॉलीनॉमियल और पावर शामिल हैं।
 
-यह यह भी बताता है कि एक लाइन शैप जोड़कर चार्ट में कस्टम लाइन कैसे डालें, और फ़ॉरवर्ड और बैकवर्ड ट्रेंडलाइन प्रोजेक्शन मानों तथा क्या ट्रेंड लाइन्स PDF या SVG में निर्यात या चार्ट को इमेज के रूप में रेंडर करते समय संरक्षित रहती हैं, इस पर संक्षिप्त FAQ शामिल है।
+यह भी वर्णन करता है कि लाइन आकार डालकर चार्ट में एक कस्टम लाइन कैसे जोड़ें, और फ़ॉरवर्ड तथा बैकवर्ड ट्रेंड लाइन प्रोजेक्शन वैल्यूज़ और क्या ट्रेंड लाइन्स को PDF या SVG में निर्यात करते समय या चार्ट को इमेज के रूप में रेंडर करते समय संरक्षित रखा जाता है, इस पर एक छोटा FAQ शामिल है।
 
-## **एक ट्रेंड लाइन जोड़ें**
-Aspose.Slides for PHP via Java विभिन्न चार्ट ट्रेंड लाइन्स को प्रबंधित करने के लिए एक सरल API प्रदान करता है:
+## **ट्रेंड लाइन जोड़ें**
 
-1. Presentation क्लास का एक इंस्टेंस बनाएं।
-2. स्लाइड का संदर्भ उसके इंडेक्स द्वारा प्राप्त करें।
-3. डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें और इच्छित प्रकार चुनें (इस उदाहरण में ChartType::ClusteredColumn उपयोग किया गया है)।
-4. चार्ट सीरीज़ 1 के लिए एक्सपोनेंशियल ट्रेंड लाइन जोड़ें।
-5. चार्ट सीरीज़ 1 के लिए लीनियर ट्रेंड लाइन जोड़ें।
-6. चार्ट सीरीज़ 2 के लिए लॉगरिदमिक ट्रेंड लाइन जोड़ें।
-7. चार्ट सीरीज़ 2 के लिए मूविंग एवरेज ट्रेंड लाइन जोड़ें।
-8. चार्ट सीरीज़ 3 के लिए पॉलीनॉमियल ट्रेंड लाइन जोड़ें।
-9. चार्ट सीरीज़ 3 के लिए पावर ट्रेंड लाइन जोड़ें।
-10. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
+Use [TrendlineCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinecollection/add/) to add a trend line to a chart series, selecting its type with [TrendlineType](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinetype/). The example creates a clustered column chart with default data and adds two trend lines to each of its three series.
 
-निम्न कोड का उपयोग ट्रेंड लाइनों के साथ एक चार्ट बनाने के लिए किया जाता है।
+The exponential trend line hides its equation and R-squared value through [setDisplayEquation](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayequation/) and [setDisplayRSquaredValue](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayrsquaredvalue/), while the linear trend line is red. The logarithmic trend line uses [addTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/addtextframeforoverriding/) for a custom label. The moving average uses a [setPeriod](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setperiod/) of three data points and a custom [setTrendlineName](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/settrendlinename/).
+
+The polynomial trend line has an order of three, set through [setOrder](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setorder/), and extends one category forward through [setForward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setforward/). The power trend line extends one category backward through [setBackward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setbackward/).
 
 ```php
-  # Presentation क्लास का एक इंस्टेंस बनाएँ
-  $pres = new Presentation();
-  try {
-    # क्लस्टर्ड कॉलम चार्ट बनाना
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
-    # चार्ट सीरीज़ 1 के लिए घातीय ट्रेंड लाइन जोड़ना
-    $tredLinep = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Exponential);
-    $tredLinep->setDisplayEquation(false);
-    $tredLinep->setDisplayRSquaredValue(false);
-    # चार्ट सीरीज़ 1 के लिए रैखिक ट्रेंड लाइन जोड़ना
-    $tredLineLin = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Linear);
-    $tredLineLin->setTrendlineType(TrendlineType::Linear);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # चार्ट सीरीज़ 2 के लिए लॉगरिदमिक ट्रेंड लाइन जोड़ना
-    $tredLineLog = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Logarithmic);
-    $tredLineLog->setTrendlineType(TrendlineType::Logarithmic);
-    $tredLineLog->addTextFrameForOverriding("New log trend line");
-    # चार्ट सीरीज़ 2 के लिए मूविंग एवरेज ट्रेंड लाइन जोड़ना
-    $tredLineMovAvg = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setTrendlineType(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setPeriod(3);
-    $tredLineMovAvg->setTrendlineName("New TrendLine Name");
-    # चार्ट सीरीज़ 3 के लिए पॉलीनॉमियल ट्रेंड लाइन जोड़ना
-    $tredLinePol = $chart->getChartData()->getSeries()->get_Item(2)->getTrendLines()->add(TrendlineType::Polynomial);
-    $tredLinePol->setTrendlineType(TrendlineType::Polynomial);
-    $tredLinePol->setForward(1);
-    $tredLinePol->setOrder(3);
-    # चार्ट सीरीज़ 3 के लिए पावर ट्रेंड लाइन जोड़ना
-    $tredLinePower = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Power);
-    $tredLinePower->setTrendlineType(TrendlineType::Power);
-    $tredLinePower->setBackward(1);
-    # प्रस्तुति सहेजना
-    $pres->save("ChartTrendLines_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
+
+    $firstSeries = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $exponentialTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Exponential);
+    $exponentialTrendline->setDisplayEquation(false);
+    $exponentialTrendline->setDisplayRSquaredValue(false);
+
+    $linearTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Linear);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $secondSeries = $chart->getChartData()->getSeries()->get_Item(1);
+
+    $logarithmicTrendline = $secondSeries->getTrendLines()->add(TrendlineType::Logarithmic);
+    $logarithmicTrendline->addTextFrameForOverriding("New log trend line");
+
+    $movingAverageTrendline = $secondSeries->getTrendLines()->add(TrendlineType::MovingAverage);
+    $movingAverageTrendline->setPeriod(3);
+    $movingAverageTrendline->setTrendlineName("New TrendLine Name");
+
+    $thirdSeries = $chart->getChartData()->getSeries()->get_Item(2);
+
+    $polynomialTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Polynomial);
+    $polynomialTrendline->setForward(1);
+    $polynomialTrendline->setOrder(3);
+
+    $powerTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Power);
+    $powerTrendline->setBackward(1);
+
+    $presentation->save("ChartTrendLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **एक कस्टम लाइन जोड़ें**
-Aspose.Slides for PHP via Java चार्ट में कस्टम लाइन्स जोड़ने के लिए एक सरल API प्रदान करता है। प्रस्तुति की चयनित स्लाइड में एक साधारण सी लाइन जोड़ने के लिए नीचे दिए गए चरणों का पालन करें:
+## **ट्रेंड लाइन इंटरसेप्ट सेट करें**
 
-- Presentation क्लास का एक इंस्टेंस बनाएं।
-- इंडेक्स का उपयोग करके स्लाइड का संदर्भ प्राप्त करें।
-- Shapes ऑब्जेक्ट के AddChart मेथड का उपयोग करके नया चार्ट बनाएं।
-- Shapes ऑब्जेक्ट के AddAutoShape मेथड का उपयोग करके लाइन प्रकार का AutoShape जोड़ें।
-- शेप की लाइनों का रंग सेट करें।
-- संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में लिखें।
+Use [setIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setintercept/) to fix a trend line's Y value at X = 0. This setting is supported for linear, exponential, and polynomial trend lines.
 
-निम्न कोड का उपयोग कस्टम लाइनों के साथ एक चार्ट बनाने के लिए किया जाता है।
+उदाहरण के लिए, एक उत्पादन लागत मॉडल को ज्ञात निश्चित लागत 100 से शुरू होने की आवश्यकता हो सकती है, भले ही शून्य से अलग उत्पादन मात्रा पर माप अलग आधार रेखा सुझाते हों। एक लीनियर ट्रेंड लाइन के लिए, इंटरसेप्ट को फिक्स करने से समीकरण `y = ax + b` को `b = 100` तक सीमित किया जाता है; इस बाधा के तहत ढाल को डेटा के अनुसार फिट किया जाता है। यह केवल पहले से फिट की गई रेखा को नहीं हटाता। एक्सिस क्रॉसिंग सेटिंग्स चार्ट की एक्सिस कहाँ मिलती हैं, इसे नियंत्रित करती हैं, न कि फिट की गई ट्रेंड लाइन के गुणांक को।
+
+निम्नलिखित उदाहरण 1 से 4 तक के उत्पादन वॉल्यूम और 170, 200, 230, तथा 260 की लागतों के साथ एक स्कैटर (XY) चार्ट बनाता है। यह चार्ट को डिफ़ॉल्ट ऑटोमैटिक इंटरसेप्ट के साथ सेव करता है, इंटरसेप्ट को 100 पर सेट करता है, और दूसरा PPTX सेव करता है। दोनों फ़ाइलें केवल इंटरसेप्ट सेटिंग में भिन्न हैं। ट्रेंड लाइन अपना समीकरण दिखाता है और X = 0 तक पीछे की ओर विस्तारित होती है।
 
 ```php
-  # Presentation क्लास का एक इंस्टेंस बनाएं
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
-    $shape = $chart->getUserShapes()->getShapes()->addAutoShape(ShapeType::Line, 0, $chart->getHeight() / 2, $chart->getWidth(), 0);
-    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("Presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithMarkers, 20, 20, 480, 210);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $nameCell = $workbook->getCell(0, 0, 1, "Production cost");
+    $series = $chart->getChartData()->getSeries()->add($nameCell, ChartType::ScatterWithMarkers);
+    $costs = [170, 200, 230, 260];
+
+    for ($i = 0; $i < count($costs); $i++) {
+        $xCell = $workbook->getCell(0, $i + 1, 0, $i + 1);
+        $yCell = $workbook->getCell(0, $i + 1, 1, $costs[$i]);
+        $series->getDataPoints()->addDataPointForScatterSeries($xCell, $yCell);
     }
-  }
+
+    $trendline = $series->getTrendLines()->add(TrendlineType::Linear);
+    $trendline->setDisplayEquation(true);
+    $trendline->setBackward(1);
+
+    $presentation->save("AutomaticIntercept.pptx", SaveFormat::Pptx);
+
+    $trendline->setIntercept(100);
+    $presentation->save("FixedIntercept.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+ऑटोमैटिक कैलकुलेशन के साथ, ये डेटा `y = 30x + 140` बनाते हैं। इंटरसेप्ट को 100 पर सेट करने से लगभग `y = 43.33x + 100` बनता है: शून्य पर फिट किया गया मान ज्ञात बेसलाइन से मेल खाता है, जबकि रेखा अब हर डेटा पॉइंट से नहीं गुजरती।
+
+| ऑटोमैटिक इंटरसेप्ट | 100 का फिक्स्ड इंटरसेप्ट |
+| --- | --- |
+| ![140 के ऑटोमैटिकली कैलकुलेटेड इंटरसेप्ट के साथ लीनियर ट्रेंड लाइन](intercept-automatic.png) | ![100 के फिक्स्ड इंटरसेप्ट के साथ लीनियर ट्रेंड लाइन](intercept-fixed.png) |
+
+दोनों इमेज समान डेटा और एक्सिस स्केल का उपयोग करती हैं। ट्रेंड लाइन्स X = 0 तक पीछे की ओर विस्तारित की गई हैं ताकि उनका इंटरसेप्ट दिखाया जा सके।
+
+डिफ़ॉल्ट रूप से, [getIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/getintercept/) `NaN` लौटाता है, जिसका अर्थ है एक अनिर्दिष्ट इंटरसेप्ट, शून्य नहीं। इंटरसेप्ट तब डेटा से ऑटोमैटिक रूप से गणना किया जाता है।
+
+## **कस्टम लाइन जोड़ें**
+
+A custom line is a shape drawn over the chart rather than a trend line calculated from series data. This example uses [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) to add a horizontal line to the slide over the chart. The line's position is specified in slide coordinates, measured in points, so it starts at the chart's left edge and sits halfway down the chart. Its width matches the chart's width. The [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) gives the line a solid red color.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\ShapeType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+
+    $lineY = java_values($chart->getY()) + java_values($chart->getHeight()) / 2;
+    $line = $slide->getShapes()->addAutoShape(ShapeType::Line, $chart->getX(), $lineY, $chart->getWidth(), 0);
+    $line->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $line->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $presentation->save("AddCustomLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**ट्रेंडलाइन में 'फ़ॉरवर्ड' और 'बैकवर्ड' का क्या अर्थ है?**
+**ट्रेंड लाइन के लिए 'फ़ॉरवर्ड' और 'बैकवर्ड' का क्या अर्थ है?**
 
-इनका अर्थ है ट्रेंडलाइन की लंबाई जो आगे/पीछे प्रोजेक्ट की गई है: स्कैटर (XY) चार्ट के लिए — अक्ष इकाइयों में; गैर-स्कैटर चार्ट के लिए — श्रेणियों की संख्या में। केवल गैर-नकारात्मक मानों की अनुमति है।
+वे ट्रेंड लाइन की लंबाइयाँ हैं जो आगे/पीछे प्रोजेक्ट की जाती हैं: स्कैटर (XY) चार्ट्स के लिए — अक्ष इकाइयों में; नॉन‑स्कैटर चार्ट्स के लिए — श्रेणियों की संख्या में। केवल गैर‑नकारात्मक मानों की अनुमति है।
 
-**क्या ट्रेंडलाइन PDF या SVG में निर्यात करते समय, या स्लाइड को इमेज के रूप में रेंडर करते समय संरक्षित रहती है?**
+**क्या प्रस्तुति को PDF या SVG में निर्यात करने या स्लाइड को इमेज में रेंडर करने पर ट्रेंड लाइन संरक्षित रहती है?**
 
-हां। Aspose.Slides प्रस्तुतियों को [PDF](/slides/hi/php-java/convert-powerpoint-to-pdf/)/[SVG](/slides/hi/php-java/render-a-slide-as-an-svg-image/) में परिवर्तित करता है और चार्ट को इमेज में रेंडर करता है; ट्रेंडलाइन, चार्ट का हिस्सा होने के नाते, इन ऑपरेशनों के दौरान संरक्षित रहती हैं। एक मेथड भी उपलब्ध है जिससे आप सीधे [चार्ट की इमेज निर्यात](/slides/hi/php-java/create-shape-thumbnails/) कर सकते हैं।
+Yes. Aspose.Slides प्रस्तुतियों को [PDF](/slides/hi/php-java/convert-powerpoint-to-pdf/) या [SVG](/slides/hi/php-java/render-a-slide-as-an-svg-image/) में बदलता है और चार्ट को इमेज में रेंडर करता है; ट्रेंड लाइन्स, जो चार्ट का हिस्सा हैं, इन ऑपरेशनों के दौरान संरक्षित रहती हैं। एक मेथड भी उपलब्ध है जो [चार्ट की इमेज निर्यात](/slides/hi/php-java/create-shape-thumbnails/) करता है।

@@ -7,116 +7,173 @@ keywords:
 - wykres
 - linia trendu
 - wykładnicza linia trendu
-- liniowa linia trendu
+- linia trendu liniowa
 - logarytmiczna linia trendu
 - linia trendu średniej kroczącej
 - wielomianowa linia trendu
 - potęgowa linia trendu
-- własna linia trendu
+- niestandardowa linia trendu
 - PowerPoint
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Szybko dodawaj i dostosowuj linie trendu w wykresach PowerPoint przy użyciu Aspose.Slides for PHP via Java — praktyczny poradnik, który przyciągnie uwagę Twojej publiczności."
+description: "Szybko dodawaj i dostosowuj linie trendu w wykresach PowerPoint za pomocą Aspose.Slides dla PHP poprzez Java — praktyczny przewodnik, który zaangażuje Twoją publiczność."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak dodać linie trendu do wykresów w prezentacji przy użyciu Aspose.Slides. Pokazuje, jak utworzyć wykres, dodać linie trendu do serii wykresu oraz pracować z różnymi typami linii trendu, w tym wykładniczym, liniowym, logarytmicznym, średnią kroczącą, wielomianowym i potęgowym.
+Ten artykuł wyjaśnia, jak dodać linie trendu do wykresów w prezentacji przy użyciu Aspose.Slides. Pokazuje, jak utworzyć wykres, dodać linie trendu do serii wykresu oraz pracować z kilkoma rodzajami linii trendu, w tym wykładniczą, liniową, logarytmiczną, średnią kroczącą, wielomianową i potęgową.
 
-Opisuje także, jak dodać własną linię do wykresu, wstawiając kształt linii, oraz zawiera krótkie FAQ dotyczące wartości projekcji linii trendu w przód i w tył oraz tego, czy linie trendu są zachowywane podczas eksportu do PDF lub SVG oraz przy renderowaniu wykresów jako obrazy.
+Opisuje również, jak dodać własną linię do wykresu poprzez wstawienie kształtu linii, i zawiera krótkie FAQ dotyczące wartości projekcji linii trendu w przód i w tył oraz tego, czy linie trendu są zachowywane podczas eksportu do PDF lub SVG oraz przy renderowaniu wykresów jako obrazy.
 
-## **Dodawanie linii trendu**
-Aspose.Slides for PHP via Java udostępnia prosty interfejs API do zarządzania różnymi liniami trendu wykresu:
+## **Dodaj linię trendu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/Presentation).
-1. Uzyskaj odwołanie do slajdu za jego indeksem.
-1. Dodaj wykres z domyślnymi danymi wraz z wybranym typem (w tym przykładzie użyto ChartType::ClusteredColumn).
-1. Dodaj wykładniczą linię trendu dla serii wykresu 1.
-1. Dodaj liniową linię trendu dla serii wykresu 1.
-1. Dodaj logarytmiczną linię trendu dla serii wykresu 2.
-1. Dodaj linię trendu będącą średnią kroczącą dla serii wykresu 2.
-1. Dodaj wielomianową linię trendu dla serii wykresu 3.
-1. Dodaj potęgową linię trendu dla serii wykresu 3.
-1. Zapisz zmodyfikowaną prezentację do pliku PPTX.
+Użyj [TrendlineCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinecollection/add/) aby dodać linię trendu do serii wykresu, wybierając jej typ za pomocą [TrendlineType](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinetype/). Przykład tworzy wykres kolumnowy grupowy z domyślnymi danymi i dodaje po dwie linie trendu do każdej z trzech serii.
 
-Poniższy kod służy do utworzenia wykresu z liniami trendu.
+Wykładnicza linia trendu ukrywa swoje równanie i wartość R‑kwadrat za pomocą [setDisplayEquation](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayequation/) i [setDisplayRSquaredValue](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayrsquaredvalue/), natomiast liniowa linia trendu jest czerwona. Logarytmiczna linia trendu używa [addTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/addtextframeforoverriding/) do niestandardowej etykiety. Średnia krocząca używa [setPeriod](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setperiod/) ustawionego na trzy punkty danych oraz niestandardowego [setTrendlineName](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/settrendlinename/).
+
+Wielomianowa linia trendu ma rząd równy trzem, ustawiany za pomocą [setOrder](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setorder/), i rozszerza się o jedną kategorię do przodu za pomocą [setForward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setforward/). Potęgowa linia trendu rozszerza się o jedną kategorię do tyłu za pomocą [setBackward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setbackward/).
 
 ```php
-  # Utwórz instancję klasy Presentation
-  $pres = new Presentation();
-  try {
-    # Tworzenie wykresu kolumnowego grupowanego
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
-    # Dodawanie wykładniczej linii trendu dla serii wykresu 1
-    $tredLinep = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Exponential);
-    $tredLinep->setDisplayEquation(false);
-    $tredLinep->setDisplayRSquaredValue(false);
-    # Dodawanie liniowej linii trendu dla serii wykresu 1
-    $tredLineLin = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Linear);
-    $tredLineLin->setTrendlineType(TrendlineType::Linear);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Dodawanie logarytmicznej linii trendu dla serii wykresu 2
-    $tredLineLog = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Logarithmic);
-    $tredLineLog->setTrendlineType(TrendlineType::Logarithmic);
-    $tredLineLog->addTextFrameForOverriding("New log trend line");
-    # Dodawanie linii trendu średniej kroczącej dla serii wykresu 2
-    $tredLineMovAvg = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setTrendlineType(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setPeriod(3);
-    $tredLineMovAvg->setTrendlineName("New TrendLine Name");
-    # Dodawanie wielomianowej linii trendu dla serii wykresu 3
-    $tredLinePol = $chart->getChartData()->getSeries()->get_Item(2)->getTrendLines()->add(TrendlineType::Polynomial);
-    $tredLinePol->setTrendlineType(TrendlineType::Polynomial);
-    $tredLinePol->setForward(1);
-    $tredLinePol->setOrder(3);
-    # Dodawanie potęgowej linii trendu dla serii wykresu 3
-    $tredLinePower = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Power);
-    $tredLinePower->setTrendlineType(TrendlineType::Power);
-    $tredLinePower->setBackward(1);
-    # Zapisywanie prezentacji
-    $pres->save("ChartTrendLines_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
+
+    $firstSeries = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $exponentialTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Exponential);
+    $exponentialTrendline->setDisplayEquation(false);
+    $exponentialTrendline->setDisplayRSquaredValue(false);
+
+    $linearTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Linear);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $secondSeries = $chart->getChartData()->getSeries()->get_Item(1);
+
+    $logarithmicTrendline = $secondSeries->getTrendLines()->add(TrendlineType::Logarithmic);
+    $logarithmicTrendline->addTextFrameForOverriding("New log trend line");
+
+    $movingAverageTrendline = $secondSeries->getTrendLines()->add(TrendlineType::MovingAverage);
+    $movingAverageTrendline->setPeriod(3);
+    $movingAverageTrendline->setTrendlineName("New TrendLine Name");
+
+    $thirdSeries = $chart->getChartData()->getSeries()->get_Item(2);
+
+    $polynomialTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Polynomial);
+    $polynomialTrendline->setForward(1);
+    $polynomialTrendline->setOrder(3);
+
+    $powerTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Power);
+    $powerTrendline->setBackward(1);
+
+    $presentation->save("ChartTrendLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Dodawanie własnej linii**
-Aspose.Slides for PHP via Java udostępnia prosty interfejs API do dodawania własnych linii w wykresie. Aby dodać prostą linię do wybranego slajdu prezentacji, wykonaj poniższe kroki:
+## **Ustaw przecięcie linii trendu**
 
-- Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/Presentation)
-- Uzyskaj odwołanie do slajdu, używając jego indeksu
-- Utwórz nowy wykres, korzystając z metody AddChart udostępnionej przez obiekt Shapes
-- Dodaj AutoShape typu Line, używając metody AddAutoShape udostępnionej przez obiekt Shapes
-- Ustaw kolor linii kształtu.
-- Zapisz zmodyfikowaną prezentację jako plik PPTX
+Użyj [setIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setintercept/), aby ustawić wartość Y linii trendu przy X = 0. To ustawienie jest obsługiwane dla linii trendu liniowych, wykładniczych i wielomianowych.
 
-Poniższy kod służy do utworzenia wykresu z własnymi liniami.
+Na przykład model kosztów produkcji może wymagać rozpoczęcia od znanych stałych kosztów równych 100, nawet gdy pomiary przy niezerowych wolumenach produkcji sugerują inną wartość bazową. Dla liniowej linii trendu, ustalenie przecięcia ogranicza równanie `y = ax + b` do `b = 100`; nachylenie jest dopasowywane do danych przy tym ograniczeniu. Nie powoduje to jedynie przesunięcia już dopasowanej linii. Ustawienia przecięcia osi określają, gdzie osie wykresu się spotykają, a nie współczynniki dopasowanej linii trendu.
+
+Poniższy przykład tworzy wykres punktowy (XY) z wolumenami produkcji od 1 do 4 oraz kosztami 170, 200, 230 i 260. Zapisuje wykres z domyślnym automatycznym przecięciem, ustawia przecięcie na 100 i zapisuje drugi plik PPTX. Dwa pliki różnią się jedynie ustawieniem przecięcia. Linia trendu wyświetla swoje równanie i rozszerza się do X = 0.
 
 ```php
-  # Utwórz instancję klasy Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
-    $shape = $chart->getUserShapes()->getShapes()->addAutoShape(ShapeType::Line, 0, $chart->getHeight() / 2, $chart->getWidth(), 0);
-    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("Presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithMarkers, 20, 20, 480, 210);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $nameCell = $workbook->getCell(0, 0, 1, "Production cost");
+    $series = $chart->getChartData()->getSeries()->add($nameCell, ChartType::ScatterWithMarkers);
+    $costs = [170, 200, 230, 260];
+
+    for ($i = 0; $i < count($costs); $i++) {
+        $xCell = $workbook->getCell(0, $i + 1, 0, $i + 1);
+        $yCell = $workbook->getCell(0, $i + 1, 1, $costs[$i]);
+        $series->getDataPoints()->addDataPointForScatterSeries($xCell, $yCell);
     }
-  }
+
+    $trendline = $series->getTrendLines()->add(TrendlineType::Linear);
+    $trendline->setDisplayEquation(true);
+    $trendline->setBackward(1);
+
+    $presentation->save("AutomaticIntercept.pptx", SaveFormat::Pptx);
+
+    $trendline->setIntercept(100);
+    $presentation->save("FixedIntercept.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Przy automatycznym obliczeniu te dane dają `y = 30x + 140`. Ustawienie przecięcia na 100 zamiast tego daje przybliżenie `y = 43.33x + 100`: dopasowana wartość przy zerze odpowiada znanej wartości bazowej, podczas gdy linia nie przechodzi już przez każdy punkt danych.
+
+| Automatyczne przecięcie | Stałe przecięcie 100 |
+| --- | --- |
+| ![Liniowa linia trendu z automatycznie obliczonym przecięciem 140](intercept-automatic.png) | ![Liniowa linia trendu ze stałym przecięciem 100](intercept-fixed.png) |
+
+Oba obrazy używają tych samych danych i skal osi. Linie trendu są rozszerzone do X = 0, aby pokazać ich przecięcia.
+
+Domyślnie, [getIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/getintercept/) zwraca `NaN`, co oznacza nieokreślone przecięcie, a nie zero. Przecięcie jest wtedy obliczane automatycznie na podstawie danych.
+
+## **Dodaj własną linię**
+
+Własna linia to kształt narysowany nad wykresem, a nie linia trendu obliczona na podstawie danych serii. Ten przykład używa [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/), aby dodać poziomą linię do slajdu nad wykresem. Pozycja linii jest określona w współrzędnych slajdu, mierzonych w punktach, więc zaczyna się ona od lewej krawędzi wykresu i znajduje się w połowie wysokości wykresu. Jej szerokość odpowiada szerokości wykresu. [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) nadaje linii jednolity czerwony kolor.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\ShapeType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+
+    $lineY = java_values($chart->getY()) + java_values($chart->getHeight()) / 2;
+    $line = $slide->getShapes()->addAutoShape(ShapeType::Line, $chart->getX(), $lineY, $chart->getWidth(), 0);
+    $line->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $line->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $presentation->save("AddCustomLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Co oznaczają terminy „forward” i „backward” w kontekście linii trendu?**
+**Co oznaczają „forward” i „backward” w odniesieniu do linii trendu?**
 
-Są to długości linii trendu projekowanej w przód/w tył: dla wykresów punktowych (XY) – w jednostkach osi; dla wykresów nie‑punktowych – w liczbie kategorii. Dozwolone są wyłącznie wartości nieujemne.
+Są to długości linii trendu projekowane w przód lub w tył: dla wykresów punktowych (XY) — w jednostkach osi; dla wykresów nie‑punktowych — w liczbie kategorii. Dozwolone są tylko wartości nieujemne.
 
-**Czy linia trendu zostanie zachowana przy eksporcie prezentacji do PDF lub SVG oraz przy renderowaniu slajdu jako obrazu?**
+**Czy linia trendu zostanie zachowana przy eksporcie prezentacji do PDF lub SVG, albo przy renderowaniu slajdu jako obrazu?**
 
-Tak. Aspose.Slides konwertuje prezentacje do [PDF](/slides/pl/php-java/convert-powerpoint-to-pdf/)/[SVG](/slides/pl/php-java/render-a-slide-as-an-svg-image/) i renderuje wykresy jako obrazy; linie trendu, będąc częścią wykresu, są zachowywane podczas tych operacji. Dostępna jest także metoda umożliwiająca [eksport obrazu samego wykresu](/slides/pl/php-java/create-shape-thumbnails/).
+Tak. Aspose.Slides konwertuje prezentacje do [PDF](/slides/pl/php-java/convert-powerpoint-to-pdf/) lub [SVG](/slides/pl/php-java/render-a-slide-as-an-svg-image/) i renderuje wykresy jako obrazy; linie trendu, jako część wykresu, są zachowywane podczas tych operacji. Dostępna jest również metoda do [eksportu obrazu wykresu](/slides/pl/php-java/create-shape-thumbnails/).

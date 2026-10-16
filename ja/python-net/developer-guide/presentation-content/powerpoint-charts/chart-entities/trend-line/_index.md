@@ -1,5 +1,5 @@
 ---
-title: Pythonでプレゼンテーションチャートにトレンドラインを追加
+title: Python でプレゼンテーション チャートにトレンドラインを追加する
 linktitle: トレンドライン
 type: docs
 url: /ja/python-net/trend-line/
@@ -10,115 +10,152 @@ keywords:
 - 線形トレンドライン
 - 対数トレンドライン
 - 移動平均トレンドライン
-- 多項式トレンドライン
-- べきトレンドライン
+- ポリノミアルトレンドライン
+- べき乗トレンドライン
 - カスタムトレンドライン
 - PowerPoint
-- OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint と OpenDocument のチャートにトレンドラインを迅速に追加およびカスタマイズできます。予測精度を向上させ、オーディエンスを引き付ける実用的なガイドとコード例をご紹介します。"
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint チャートにトレンドラインをすばやく追加・カスタマイズし、観客を惹きつける実用的なガイド。"
 ---
+## **概要**
+
+この記事では、Aspose.Slides を使用してプレゼンテーションのチャートにトレンドラインを追加する方法を説明します。チャートの作成、チャート系列へのトレンドラインの追加、および指数、線形、対数、移動平均、ポリノミアル、べき乗など複数のトレンドラインタイプの操作方法を示します。
+
+また、ラインシェイプを挿入してチャートにカスタムラインを追加する方法と、前方・後方のトレンドライン投影値や、PDF や SVG へのエクスポート、画像としてチャートをレンダリングする際にトレンドラインが保持されるかどうかに関する簡易 FAQ も含まれています。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 400)
+
+    first_series = chart.chart_data.series[0]
+
+    exponential_trendline = first_series.trend_lines.add(charts.TrendlineType.EXPONENTIAL)
+    exponential_trendline.display_equation = False
+    exponential_trendline.display_r_squared_value = False
+
+    linear_trendline = first_series.trend_lines.add(charts.TrendlineType.LINEAR)
+    linear_trendline.format.line.fill_format.fill_type = slides.FillType.SOLID
+    linear_trendline.format.line.fill_format.solid_fill_color.r = 255
+    linear_trendline.format.line.fill_format.solid_fill_color.g = 0
+    linear_trendline.format.line.fill_format.solid_fill_color.b = 0
+
+    second_series = chart.chart_data.series[1]
+
+    logarithmic_trendline = second_series.trend_lines.add(charts.TrendlineType.LOGARITHMIC)
+    logarithmic_trendline.add_text_frame_for_overriding("New log trend line")
+
+    moving_average_trendline = second_series.trend_lines.add(charts.TrendlineType.MOVING_AVERAGE)
+    moving_average_trendline.period = 3
+    moving_average_trendline.trendline_name = "New TrendLine Name"
+
+    third_series = chart.chart_data.series[2]
+
+    polynomial_trendline = third_series.trend_lines.add(charts.TrendlineType.POLYNOMIAL)
+    polynomial_trendline.forward = 1
+    polynomial_trendline.order = 3
+
+    power_trendline = third_series.trend_lines.add(charts.TrendlineType.POWER)
+    power_trendline.backward = 1
+
+    presentation.save("ChartTrendLines.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **トレンドラインの追加**
-Aspose.Slides for Python via .NET は、さまざまなチャートのトレンドラインを管理するためのシンプルな API を提供します:
 
-1. [プレゼンテーション](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスでスライドの参照を取得します。
-1. デフォルトデータを持つチャートを追加し、任意のタイプを指定します（この例では ChartType.CLUSTERED_COLUMN を使用）。
-1. 系列 1 に指数トレンドラインを追加します。
-1. 系列 1 に線形トレンドラインを追加します。
-1. 系列 2 に対数トレンドラインを追加します。
-1. 系列 2 に移動平均トレンドラインを追加します。
-1. 系列 3 に多項式トレンドラインを追加します。
-1. 系列 3 にべきトレンドラインを追加します。
-1. 変更されたプレゼンテーションを PPTX ファイルに書き出します。
+チャート系列にトレンドラインを追加するには、[TrendlineCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendlinecollection/add/) を使用し、タイプは [TrendlineType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendlinetype/) で選択します。この例では、デフォルトデータを用いたクラスター化された縦棒チャートを作成し、3 系列それぞれに 2 本のトレンドラインを追加します。
 
-以下のコードは、トレンドライン付きチャートを作成するために使用されます。
-```py
-import aspose.slides.charts as charts
+指数トレンドラインは [display_equation](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/display_equation/) と [display_r_squared_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/display_r_squared_value/) によって式と決定係数の表示を非表示にし、線形トレンドラインは赤色です。対数トレンドラインはカスタムラベルのために [add_text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/add_text_frame_for_overriding/) を使用します。移動平均は 3 データポイントの [period](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/period/) とカスタム [trendline_name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/trendline_name/) を使用します。
+
+ポリノミアルトレンドラインは [order](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/order/) が 3 で、[forward](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/forward/) により 1 カテゴリ前方に拡張します。べき乗トレンドラインは [backward](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/backward/) を使用して 1 カテゴリ後方に拡張します。
+
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# 空のプレゼンテーションを作成
-with slides.Presentation() as pres:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # クラスタードカラムチャートを作成
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_MARKERS, 20, 20, 480, 210)
+    chart.has_legend = False
 
-    # 系列 1 に指数トレンドラインを追加
-    tredLinep = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.EXPONENTIAL)
-    tredLinep.display_equation = False
-    tredLinep.display_r_squared_value = False
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-    # 系列 1 に線形トレンドラインを追加
-    tredLineLin = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.LINEAR)
-    tredLineLin.trendline_type = charts.TrendlineType.LINEAR
-    tredLineLin.format.line.fill_format.fill_type = slides.FillType.SOLID
-    tredLineLin.format.line.fill_format.solid_fill_color.color = draw.Color.red
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
 
+    name_cell = workbook.get_cell(0, 0, 1, "Production cost")
+    series = chart.chart_data.series.add(name_cell, charts.ChartType.SCATTER_WITH_MARKERS)
+    costs = [170, 200, 230, 260]
 
-    # 系列 2 に対数トレンドラインを追加
-    tredLineLog = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.LOGARITHMIC)
-    tredLineLog.trendline_type = charts.TrendlineType.LOGARITHMIC
-    tredLineLog.add_text_frame_for_overriding("New log trend line")
+    for i, cost in enumerate(costs):
+        x_cell = workbook.get_cell(0, i + 1, 0, i + 1)
+        y_cell = workbook.get_cell(0, i + 1, 1, cost)
+        series.data_points.add_data_point_for_scatter_series(x_cell, y_cell)
 
-    # 系列 2 に移動平均トレンドラインを追加
-    tredLineMovAvg = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.MOVING_AVERAGE)
-    tredLineMovAvg.trendline_type = charts.TrendlineType.MOVING_AVERAGE
-    tredLineMovAvg.period = 3
-    tredLineMovAvg.trendline_name = "New TrendLine Name"
+    trendline = series.trend_lines.add(charts.TrendlineType.LINEAR)
+    trendline.display_equation = True
+    trendline.backward = 1
 
-    # 系列 3 に多項式トレンドラインを追加
-    tredLinePol = chart.chart_data.series[2].trend_lines.add(charts.TrendlineType.POLYNOMIAL)
-    tredLinePol.trendline_type = charts.TrendlineType.POLYNOMIAL
-    tredLinePol.forward = 1
-    tredLinePol.order = 3
+    presentation.save("AutomaticIntercept.pptx", slides.export.SaveFormat.PPTX)
 
-    # 系列 3 にべきトレンドラインを追加
-    tredLinePower = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.POWER)
-    tredLinePower.trendline_type = charts.TrendlineType.POWER
-    tredLinePower.backward = 1
-
-    # プレゼンテーションを保存
-    pres.save("Charttrend_lines_out.pptx", slides.export.SaveFormat.PPTX)
+    trendline.intercept = 100
+    presentation.save("FixedIntercept.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **トレンドラインの切片の設定**
 
+[intercept](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/intercept/) を使用して、X = 0 でトレンドラインの Y 値を固定します。この設定は線形、指数、ポリノミアルのトレンドラインでサポートされています。
 
+例えば、生産コストモデルでは、非ゼロの生産量で測定した結果が異なる基準線を示唆していても、既知の固定コスト 100 から開始する必要がある場合があります。線形トレンドラインの場合、切片を固定すると方程式 `y = ax + b` が `b = 100` に制約され、傾きはその制約の下でデータに合わせてフィットします。これは既にフィットした線を単に移動させるだけではありません。軸交差設定はチャート軸が交わる位置を制御し、フィットしたトレンドラインの係数を変更するものではありません。
+
+以下の例では、1 から 4 の生産量とコスト 170、200、230、260 の散布図 (XY) チャートを作成します。デフォルトの自動切片でチャートを保存し、切片を 100 に設定して 2 番目の PPTX を保存します。2 つのファイルは切片設定のみが異なります。トレンドラインは式を表示し、X = 0 まで遡って表示されます。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
+
+    line = slide.shapes.add_auto_shape(slides.ShapeType.LINE, chart.x, chart.y + chart.height / 2, chart.width, 0)
+    line.line_format.fill_format.fill_type = slides.FillType.SOLID
+    line.line_format.fill_format.solid_fill_color.r = 255
+    line.line_format.fill_format.solid_fill_color.g = 0
+    line.line_format.fill_format.solid_fill_color.b = 0
+
+    presentation.save("AddCustomLines.pptx", slides.export.SaveFormat.PPTX)
+```
+
+自動計算の場合、これらのデータは `y = 30x + 140` を生成します。切片を 100 に設定すると、約 `y = 43.33x + 100` となります。ゼロ点でのフィット値が既知の基準線と一致しますが、線はすべてのデータ点を通過しなくなります。
+
+| 自動切片 | 切片 100 の固定 |
+| --- | --- |
+| ![自動計算された切片 140 を持つ線形トレンドライン](intercept-automatic.png) | ![切片 100 が固定された線形トレンドライン](intercept-fixed.png) |
+
+両方の画像は同じデータと軸スケールを使用しています。トレンドラインは X = 0 まで遡って切片を示しています。
+
+デフォルトでは、このプロパティは `float("nan")` を含み、ゼロではなく未指定の切片を表します。その後、切片はデータから自動的に計算されます。
 
 ## **カスタムラインの追加**
-Aspose.Slides for Python via .NET は、チャートにカスタムラインを追加するためのシンプルな API を提供します。プレゼンテーションの選択されたスライドにシンプルな直線を追加するには、以下の手順に従ってください:
 
-- Presentation クラスのインスタンスを作成する
-- インデックスを使用してスライドの参照を取得する
-- Shapes オブジェクトが提供する AddChart メソッドを使用して新しいチャートを作成する
-- Shapes オブジェクトが提供する AddAutoShape メソッドを使用して Line タイプの AutoShape を追加する
-- 図形の線の色を設定する
-- 変更されたプレゼンテーションを PPTX ファイルとして書き出す
-
-以下のコードは、カスタムライン付きチャートを作成するために使用されます。
-```py
-import aspose.slides.charts as charts
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
-    shape = chart.user_shapes.shapes.add_auto_shape(slides.ShapeType.LINE, 0, chart.height / 2, chart.width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-    pres.save("AddCustomLines.pptx", slides.export.SaveFormat.PPTX)
-```
-
+カスタムラインは、系列データから計算されたトレンドラインではなく、チャート上に描画するシェイプです。この例では、[ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) を使用して、チャート上に水平ラインをスライドに追加します。ラインの位置はポイント単位のスライド座標で指定され、チャートの左端から始まり、チャートの高さの半分の位置に配置されます。幅はチャートの幅と同じです。[line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) でラインを実線の赤色に設定します。
 
 ## **FAQ**
 
-**トレンドラインの「forward」および「backward」とは何ですか？**
+**トレンドラインの「forward」と「backward」は何を意味しますか？**
 
-トレンドラインを前方/後方に投影した長さを表します。散布図（XY）チャートの場合は軸の単位で、散布図以外の場合はカテゴリ数で示します。負の値は許可されません。
+それらはトレンドラインを前方または後方に投影した長さを表します。散布図 (XY) の場合は軸単位で、非散布図の場合はカテゴリ数で表されます。負の値は使用できません。
 
-**プレゼンテーションを PDF または SVG にエクスポートしたり、スライドを画像としてレンダリングしたりしたときにトレンドラインは保持されますか？**
+**プレゼンテーションを PDF や SVG にエクスポートしたり、スライドを画像としてレンダリングした場合、トレンドラインは保持されますか？**
 
-はい。Aspose.Slides はプレゼンテーションを [PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/) / [SVG](/slides/ja/python-net/render-a-slide-as-an-svg-image/) に変換し、チャートを画像としてレンダリングします。チャートの一部であるトレンドラインはこれらの操作中に保持されます。また、チャート自体の画像を [エクスポート](/slides/ja/python-net/create-shape-thumbnails/)するメソッドも利用可能です。
+はい。Aspose.Slides はプレゼンテーションを [PDF](/slides/ja/python-net/convert-powerpoint-to-pdf/) または [SVG](/slides/ja/python-net/render-a-slide-as-an-svg-image/) に変換し、チャートを画像としてレンダリングします。トレンドラインはチャートの一部としてこれらの操作中に保持されます。また、[チャートの画像をエクスポート](/slides/ja/python-net/create-shape-thumbnails/) するメソッドも利用可能です。

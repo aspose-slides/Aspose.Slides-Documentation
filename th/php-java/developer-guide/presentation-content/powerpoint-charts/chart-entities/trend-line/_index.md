@@ -1,122 +1,179 @@
 ---
-title: เพิ่มเส้นแนวโน้มในแผนภูมิการนำเสนอด้วย PHP
-linktitle: เส้นแนวโน้ม
+title: เพิ่มเส้นเทรนด์ไลน์ในแผนภูมิการนำเสนอด้วย PHP
+linktitle: เส้นเทรนด์ไลน์
 type: docs
 url: /th/php-java/trend-line/
 keywords:
 - แผนภูมิ
-- เส้นแนวโน้ม
-- เส้นแนวโน้มแบบเอ็กซ์โปเนนเชียล
-- เส้นแนวโน้มเชิงเส้น
-- เส้นแนวโน้มลอการิทึม
-- เส้นแนวโน้มค่าเฉลี่ยเคลื่อนที่
-- เส้นแนวโน้มแบบพหุนาม
-- เส้นแนวโน้มกำลัง
-- เส้นแนวโน้มกำหนดเอง
+- เส้นเทรนด์ไลน์
+- เส้นเทรนด์ไลน์เอ็กซ์โพเนนเชียล
+- เส้นเทรนด์ไลน์เชิงเส้น
+- เส้นเทรนด์ไลน์ลอการิทึม
+- เส้นเทรนด์ไลน์ค่าเฉลี่ยเคลื่อนที่
+- เส้นเทรนด์ไลน์พหุนาม
+- เส้นเทรนด์ไลน์พาวเวอร์
+- เส้นเทรนด์ไลน์กำหนดเอง
 - PowerPoint
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เพิ่มและปรับแต่งเส้นแนวโน้มในแผนภูมิ PowerPoint ด้วย Aspose.Slides for PHP via Java อย่างรวดเร็ว — คำแนะนำที่เป็นประโยชน์เพื่อดึงดูดผู้ชมของคุณ."
+description: "เพิ่มและปรับแต่งเส้นเทรนด์ไลน์ในแผนภูมิ PowerPoint อย่างรวดเร็วด้วย Aspose.Slides สำหรับ PHP ผ่าน Java — คู่มือการใช้งานเพื่อดึงดูดผู้ชมของคุณ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายว่าจะแทรกเส้นแนวโน้มลงในแผนภูมิการนำเสนอโดยใช้ Aspose.Slides อย่างไร แสดงวิธีสร้างแผนภูมิ, เพิ่มเส้นแนวโน้มให้กับชุดข้อมูลของแผนภูมิ, และทำงานกับประเภทเส้นแนวโน้มหลายประเภท รวมถึงเส้นแนวโน้มแบบเอ็กซ์โปเนนเชียล, เส้นตรง, ลอการิทึม, ค่าเฉลี่ยเคลื่อนที่, พหุนาม, และกำลัง
+บทความนี้อธิบายวิธีการเพิ่มเส้นเทรนด์ไลน์ลงในแผนภูมิการนำเสนอโดยใช้ Aspose.Slides โดยแสดงวิธีสร้างแผนภูมิ, เพิ่มเส้นเทรนด์ไลน์ให้กับซีรีส์ของแผนภูมิ, และทำงานกับประเภทของเส้นเทรนด์ไลน์หลายประเภท รวมถึง exponential, linear, logarithmic, moving average, polynomial, และ power.
 
-นอกจากนี้ยังอธิบายวิธีเพิ่มเส้นกำหนดเองลงในแผนภูมิโดยการแทรกรูปร่างเส้น และมีส่วน FAQ สั้นเกี่ยวกับค่าการฉายเส้นแนวโน้มแบบต่อหน้าและถอยหลัง และว่าการส่งออกเป็น PDF หรือ SVG หรือการเรนเดอร์แผนภูมิเป็นภาพ จะคงเส้นแนวโน้มไว้หรือไม่
+นอกจากนี้ยังอธิบายวิธีการเพิ่มเส้นกำหนดเองลงในแผนภูมิโดยการแทรกรูปร่างเส้น และรวมคำถามที่พบบ่อยสั้น ๆ เกี่ยวกับค่าการฉายเส้นเทรนด์ไลน์ไปข้างหน้าและถอยหลัง และว่ามีการคงรักษาเส้นเทรนด์ไลน์ไว้หรือไม่ระหว่างการส่งออกเป็น PDF หรือ SVG และเมื่อแสดงผลแผนภูมิเป็นภาพ.
 
-## **เพิ่มเส้นแนวโน้ม**
-Aspose.Slides for PHP via Java มี API ที่ง่ายสำหรับจัดการเส้นแนวโน้มของแผนภูมิต่าง ๆ:
+## **เพิ่มเส้นเทรนด์ไลน์**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation).
-2. รับอ้างอิงสไลด์โดยใช้ดัชนีของมัน.
-3. เพิ่มแผนภูมิที่มีข้อมูลเริ่มต้นพร้อมกับประเภทที่ต้องการ (ตัวอย่างนี้ใช้ ChartType::ClusteredColumn).
-4. เพิ่มเส้นแนวโน้มแบบเอ็กซ์โปเนนเชียลสำหรับชุดข้อมูลแผนภูมิที่ 1.
-5. เพิ่มเส้นแนวโน้มเชิงเส้นสำหรับชุดข้อมูลแผนภูมิที่ 1.
-6. เพิ่มเส้นแนวโน้มแบบลอการิทึมสำหรับชุดข้อมูลแผนภูมิที่ 2.
-7. เพิ่มเส้นแนวโน้มค่าเฉลี่ยเคลื่อนที่สำหรับชุดข้อมูลแผนภูมิที่ 2.
-8. เพิ่มเส้นแนวโน้มแบบพหุนามสำหรับชุดข้อมูลแผนภูมิที่ 3.
-9. เพิ่มเส้นแนวโน้มแบบกำลังสำหรับชุดข้อมูลแผนภูมิที่ 3.
-10. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX.
+Use [TrendlineCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinecollection/add/) to add a trend line to a chart series, selecting its type with [TrendlineType](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinetype/). ตัวอย่างสร้างแผนภูมิคอลัมน์แบบ clustered ด้วยข้อมูลเริ่มต้นและเพิ่มเส้นเทรนด์ไลน์สองเส้นให้กับแต่ละของสามซีรีส์
 
-โค้ดต่อไปนี้ใช้เพื่อสร้างแผนภูมิพร้อมเส้นแนวโน้ม.
+The exponential trend line hides its equation and R-squared value through [setDisplayEquation](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayequation/) and [setDisplayRSquaredValue](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayrsquaredvalue/), while the linear trend line is red. The logarithmic trend line uses [addTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/addtextframeforoverriding/) for a custom label. The moving average uses a [setPeriod](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setperiod/) of three data points and a custom [setTrendlineName](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/settrendlinename/).
+
+The polynomial trend line has an order of three, set through [setOrder](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setorder/), and extends one category forward through [setForward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setforward/). The power trend line extends one category backward through [setBackward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setbackward/).
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation();
-  try {
-    # สร้างแผนภูมิประเภทคอลัมน์กลุ่ม
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
-    # เพิ่มเส้นแนวโน้มแบบเอ็กซ์โปเนนเชียลสำหรับชุดข้อมูลแผนภูมิที่ 1
-    $tredLinep = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Exponential);
-    $tredLinep->setDisplayEquation(false);
-    $tredLinep->setDisplayRSquaredValue(false);
-    # เพิ่มเส้นแนวโน้มเชิงเส้นสำหรับชุดข้อมูลแผนภูมิที่ 1
-    $tredLineLin = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Linear);
-    $tredLineLin->setTrendlineType(TrendlineType::Linear);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # เพิ่มเส้นแนวโน้มแบบลอการิทึมสำหรับชุดข้อมูลแผนภูมิที่ 2
-    $tredLineLog = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Logarithmic);
-    $tredLineLog->setTrendlineType(TrendlineType::Logarithmic);
-    $tredLineLog->addTextFrameForOverriding("New log trend line");
-    # เพิ่มเส้นแนวโน้มค่าเฉลี่ยเคลื่อนที่สำหรับชุดข้อมูลแผนภูมิที่ 2
-    $tredLineMovAvg = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setTrendlineType(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setPeriod(3);
-    $tredLineMovAvg->setTrendlineName("New TrendLine Name");
-    # เพิ่มเส้นแนวโน้มแบบพหุนามสำหรับชุดข้อมูลแผนภูมิที่ 3
-    $tredLinePol = $chart->getChartData()->getSeries()->get_Item(2)->getTrendLines()->add(TrendlineType::Polynomial);
-    $tredLinePol->setTrendlineType(TrendlineType::Polynomial);
-    $tredLinePol->setForward(1);
-    $tredLinePol->setOrder(3);
-    # เพิ่มเส้นแนวโน้มแบบกำลังสำหรับชุดข้อมูลแผนภูมิที่ 3
-    $tredLinePower = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Power);
-    $tredLinePower->setTrendlineType(TrendlineType::Power);
-    $tredLinePower->setBackward(1);
-    # บันทึกการนำเสนอ
-    $pres->save("ChartTrendLines_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
+
+    $firstSeries = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $exponentialTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Exponential);
+    $exponentialTrendline->setDisplayEquation(false);
+    $exponentialTrendline->setDisplayRSquaredValue(false);
+
+    $linearTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Linear);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $secondSeries = $chart->getChartData()->getSeries()->get_Item(1);
+
+    $logarithmicTrendline = $secondSeries->getTrendLines()->add(TrendlineType::Logarithmic);
+    $logarithmicTrendline->addTextFrameForOverriding("New log trend line");
+
+    $movingAverageTrendline = $secondSeries->getTrendLines()->add(TrendlineType::MovingAverage);
+    $movingAverageTrendline->setPeriod(3);
+    $movingAverageTrendline->setTrendlineName("New TrendLine Name");
+
+    $thirdSeries = $chart->getChartData()->getSeries()->get_Item(2);
+
+    $polynomialTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Polynomial);
+    $polynomialTrendline->setForward(1);
+    $polynomialTrendline->setOrder(3);
+
+    $powerTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Power);
+    $powerTrendline->setBackward(1);
+
+    $presentation->save("ChartTrendLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **เพิ่มเส้นกำหนดเอง**
-Aspose.Slides for PHP via Java มี API ที่ง่ายสำหรับเพิ่มเส้นกำหนดเองในแผนภูมิ เพื่อเพิ่มเส้นธรรมดาในสไลด์ที่เลือกของการนำเสนอ โปรดทำตามขั้นตอนด้านล่าง:
+## **ตั้งการตัดของเส้นเทรนด์ไลน์**
 
-- สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)
-- รับอ้างอิงของสไลด์โดยใช้ Index ของมัน
-- สร้างแผนภูมิใหม่โดยใช้เมธอด AddChart ที่เปิดให้ใช้งานจากอ็อบเจกต์ Shapes
-- เพิ่ม AutoShape ประเภท Line โดยใช้เมธอด AddAutoShape ที่เปิดให้ใช้งานจากอ็อบเจกต์ Shapes
-- ตั้งค่า Color ของเส้นรูปร่าง.
-- บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+Use [setIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setintercept/) to fix a trend line's Y value at X = 0. This setting is supported for linear, exponential, and polynomial trend lines.
 
-โค้ดต่อไปนี้ใช้เพื่อสร้างแผนภูมิพร้อมเส้นกำหนดเอง.
+For example, a production cost model may need to start at known fixed costs of 100, even when measurements at nonzero production volumes suggest a different baseline. For a linear trend line, fixing the intercept constrains the equation `y = ax + b` to `b = 100`; the slope is fitted to the data under that constraint. It does not simply move an already fitted line. Axis crossing settings control where the chart axes meet, not the coefficients of the fitted trend line.
+
+The following example creates a scatter (XY) chart with production volumes from 1 to 4 and costs of 170, 200, 230, and 260. It saves the chart with the default automatic intercept, sets the intercept to 100, and saves a second PPTX. The two files differ only in the intercept setting. The trend line displays its equation and extends back to X = 0.
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
-    $shape = $chart->getUserShapes()->getShapes()->addAutoShape(ShapeType::Line, 0, $chart->getHeight() / 2, $chart->getWidth(), 0);
-    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("Presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithMarkers, 20, 20, 480, 210);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $nameCell = $workbook->getCell(0, 0, 1, "Production cost");
+    $series = $chart->getChartData()->getSeries()->add($nameCell, ChartType::ScatterWithMarkers);
+    $costs = [170, 200, 230, 260];
+
+    for ($i = 0; $i < count($costs); $i++) {
+        $xCell = $workbook->getCell(0, $i + 1, 0, $i + 1);
+        $yCell = $workbook->getCell(0, $i + 1, 1, $costs[$i]);
+        $series->getDataPoints()->addDataPointForScatterSeries($xCell, $yCell);
     }
-  }
+
+    $trendline = $series->getTrendLines()->add(TrendlineType::Linear);
+    $trendline->setDisplayEquation(true);
+    $trendline->setBackward(1);
+
+    $presentation->save("AutomaticIntercept.pptx", SaveFormat::Pptx);
+
+    $trendline->setIntercept(100);
+    $presentation->save("FixedIntercept.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+With automatic calculation, these data produce `y = 30x + 140`. Setting the intercept to 100 instead produces approximately `y = 43.33x + 100`: the fitted value at zero matches the known baseline, while the line no longer passes through every data point.
+
+| การคำนวณอัตโนมัติ | การตั้งค่าการตัดที่ 100 |
+| --- | --- |
+| ![เส้นเทรนด์ไลน์เส้นตรงที่คำนวณการตัดอัตโนมัติ 140](intercept-automatic.png) | ![เส้นเทรนด์ไลน์เส้นตรงที่ตั้งค่าการตัดเป็น 100](intercept-fixed.png) |
+
+Both images use the same data and axis scales. The trend lines are extended back to X = 0 to show their intercepts.
+
+By default, [getIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/getintercept/) returns `NaN`, which represents an unspecified intercept rather than zero. The intercept is then calculated automatically from the data.
+
+## **เพิ่มเส้นกำหนดเอง**
+
+A custom line is a shape drawn over the chart rather than a trend line calculated from series data. This example uses [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) to add a horizontal line to the slide over the chart. The line's position is specified in slide coordinates, measured in points, so it starts at the chart's left edge and sits halfway down the chart. Its width matches the chart's width. The [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) gives the line a solid red color.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\ShapeType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+
+    $lineY = java_values($chart->getY()) + java_values($chart->getHeight()) / 2;
+    $line = $slide->getShapes()->addAutoShape(ShapeType::Line, $chart->getX(), $lineY, $chart->getWidth(), 0);
+    $line->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $line->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $presentation->save("AddCustomLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**'forward' และ 'backward' มีความหมายอย่างไรสำหรับเส้นแนวโน้ม?**
+**What do 'forward' and 'backward' mean for a trend line?**
 
-เป็นความยาวของเส้นแนวโน้มที่ฉายไปข้างหน้า/ข้างหลัง: สำหรับแผนภูมิสเก็ตเตอร์ (XY) — หน่วยแกน; สำหรับแผนภูมิที่ไม่ใช่สเก็ตเตอร์ — จำนวนหมวดหมู่. ค่าต้องไม่เป็นลบ.
+They are the lengths of the trend line projected forward/backward: for scatter (XY) charts — in axis units; for non-scatter charts — in number of categories. Only non-negative values are allowed.
 
-**เส้นแนวโน้มจะคงอยู่หรือไม่เมื่อตัวส่งออกการนำเสนอเป็น PDF หรือ SVG หรือเมื่อตัวเรนเดอร์สไลด์เป็นภาพ?**
+**Will the trend line be preserved when exporting the presentation to PDF or SVG, or when rendering a slide to an image?**
 
-ใช่. Aspose.Slides แปลงการนำเสนอเป็น [PDF](/slides/th/php-java/convert-powerpoint-to-pdf/)/[SVG](/slides/th/php-java/render-a-slide-as-an-svg-image/) และเรนเดอร์แผนภูมิเป็นภาพ; เส้นแนวโน้มซึ่งเป็นส่วนหนึ่งของแผนภูมิจะถูกรักษาไว้ระหว่างการดำเนินการเหล่านี้. อีกหนึ่งเมธอดยังพร้อมให้ใช้เพื่อ [ส่งออกรูปภาพของแผนภูมิ](/slides/th/php-java/create-shape-thumbnails/) ด้วย.
+Yes. Aspose.Slides converts presentations to [PDF](/slides/th/php-java/convert-powerpoint-to-pdf/) or [SVG](/slides/th/php-java/render-a-slide-as-an-svg-image/) and renders charts to images; trend lines, as part of the chart, are preserved during these operations. A method is also available to [export an image of the chart](/slides/th/php-java/create-shape-thumbnails/) itself.
