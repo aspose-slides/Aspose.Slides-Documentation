@@ -1,16 +1,16 @@
 ---
-title: Přidání čar trendu do diagramů v prezentacích v .NET
+title: Přidání čar trendu do grafů v prezentaci v .NET
 linktitle: Čára trendu
 type: docs
 url: /cs/net/trend-line/
 keywords:
-- diagram
+- graf
 - čára trendu
 - exponenciální čára trendu
 - lineární čára trendu
 - logaritmická čára trendu
-- čára trendu s klouzavým průměrem
-- polynomiální čára trendu
+- čára trendu klouzavého průměru
+- polynomická čára trendu
 - mocninná čára trendu
 - vlastní čára trendu
 - PowerPoint
@@ -18,106 +18,148 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Rychle přidejte a přizpůsobte čáry trendu v diagramech PowerPointu pomocí Aspose.Slides pro .NET — praktický průvodce, jak zaujmout své publikum."
+description: "Rychle přidejte a přizpůsobte čáry trendu v grafech PowerPointu pomocí Aspose.Slides pro .NET — praktický průvodce, jak zaujmout své publikum."
 ---
 ## **Přehled**
 
-Tento článek popisuje, jak pomocí Aspose.Slides přidat do diagramů prezentace čáry trendu. Ukazuje, jak vytvořit diagram, přidat čáry trendu do sérií diagramu a pracovat s několika typy čar trendu, včetně exponenciální, lineární, logaritmické, klouzavého průměru, polynomiální a mocninné.
+Tento článek vysvětluje, jak pomocí Aspose.Slides přidat do grafů v prezentaci čáry trendu. Ukazuje, jak vytvořit graf, přidat čáry trendu do sérií grafu a pracovat s několika typy čar trendu, včetně exponenciální, lineární, logaritmické, klouzavého průměru, polynomické a mocninné.
 
-Také popisuje, jak přidat vlastní čáru do diagramu vložením tvaru čáry, a obsahuje krátké FAQ o hodnotách projekce čáry trendu dopředu a dozadu a o tom, zda jsou čáry trendu zachovány při exportu do PDF nebo SVG a při vykreslování diagramů jako obrázků.
+Dále popisuje, jak přidat do grafu vlastní čáru vložením tvaru čáry, a obsahuje stručné FAQ o hodnotách projekce čar trendu dopředu a dozadu a o tom, zda jsou čáry trendu zachovány při exportu do PDF nebo SVG a při vykreslování grafů jako obrázků.
 
 ## **Přidání čáry trendu**
-Aspose.Slides for .NET poskytuje jednoduché rozhraní API pro správu různých čar trendu v diagramech:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte diagram s výchozími daty a požadovaným typem (v tomto příkladu se používá ChartType.ClusteredColumn).
-1. Přidejte exponenciální čáru trendu pro sérii diagramu 1.
-1. Přidejte lineární čáru trendu pro sérii diagramu 1.
-1. Přidejte logaritmickou čáru trendu pro sérii diagramu 2.
-1. Přidejte čáru trendu s klouzavým průměrem pro sérii diagramu 2.
-1. Přidejte polynomiální čáru trendu pro sérii diagramu 3.
-1. Přidejte mocninnou čáru trendu pro sérii diagramu 3.
-1. Zapište upravenou prezentaci do souboru PPTX.
+Použijte [ITrendlineCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendlinecollection/add/) k přidání čáry trendu do série grafu a vyberte její typ pomocí [TrendlineType](https://reference.aspose.com/slides/net/aspose.slides.charts/trendlinetype/). Příklad vytvoří seskupený sloupcový graf s výchozími daty a přidá dvě čáry trendu ke každé ze tří sérií.
 
-Následující kód slouží k vytvoření diagramu s čarami trendu.
+Exponenciální čára trendu skrývá svou rovnici a hodnotu R‑kvadrátu pomocí [DisplayEquation](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayequation/) a [DisplayRSquaredValue](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayrsquaredvalue/), zatímco lineární čára trendu je červená. Logaritmická čára trendu používá [AddTextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/addtextframeforoverriding/) pro vlastní popisek. Klouzavý průměr používá [Period](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/period/) se třemi datovými body a vlastní [TrendlineName](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/trendlinename/).
 
-```c#
-// Vytvoření prázdné prezentace
-Presentation pres = new Presentation();
+Polynomická čára trendu má [Order](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/order/) tři a prodlužuje o jednu kategorii dopředu pomocí [Forward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/forward/). Mocninná čára trendu prodlužuje o jednu kategorii dozadu pomocí [Backward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/backward/).
 
-// Vytvoření sloupcového seskupeného diagramu
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Přidání exponenciální čáry trendu pro sérii diagramu 1
-ITrendline tredLinep = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Exponential);
-tredLinep.DisplayEquation = false;
-tredLinep.DisplayRSquaredValue = false;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Přidání lineární čáry trendu pro sérii diagramu 1
-ITrendline tredLineLin = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Linear);
-tredLineLin.TrendlineType = TrendlineType.Linear;
-tredLineLin.Format.Line.FillFormat.FillType = FillType.Solid;
-tredLineLin.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
 
+var firstSeries = chart.ChartData.Series[0];
 
-// Přidání logaritmické čáry trendu pro sérii diagramu 2
-ITrendline tredLineLog = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Logarithmic);
-tredLineLog.TrendlineType = TrendlineType.Logarithmic;
-tredLineLog.AddTextFrameForOverriding("New log trend line");
+var exponentialTrendline = firstSeries.TrendLines.Add(TrendlineType.Exponential);
+exponentialTrendline.DisplayEquation = false;
+exponentialTrendline.DisplayRSquaredValue = false;
 
-// Přidání čáry trendu s klouzavým průměrem pro sérii diagramu 2
-ITrendline tredLineMovAvg = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.MovingAverage);
-tredLineMovAvg.TrendlineType = TrendlineType.MovingAverage;
-tredLineMovAvg.Period = 3;
-tredLineMovAvg.TrendlineName = "New TrendLine Name";
+var linearTrendline = firstSeries.TrendLines.Add(TrendlineType.Linear);
+linearTrendline.Format.Line.FillFormat.FillType = FillType.Solid;
+linearTrendline.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
 
-// Přidání polynomiální čáry trendu pro sérii diagramu 3
-ITrendline tredLinePol = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Polynomial);
-tredLinePol.TrendlineType = TrendlineType.Polynomial;
-tredLinePol.Forward = 1;
-tredLinePol.Order = 3;
+var secondSeries = chart.ChartData.Series[1];
 
-// Přidání mocninné čáry trendu pro sérii diagramu 3
-ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
-tredLinePower.TrendlineType = TrendlineType.Power;
-tredLinePower.Backward = 1;
+var logarithmicTrendline = secondSeries.TrendLines.Add(TrendlineType.Logarithmic);
+logarithmicTrendline.AddTextFrameForOverriding("New log trend line");
 
-// Ukládání prezentace
-pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+var movingAverageTrendline = secondSeries.TrendLines.Add(TrendlineType.MovingAverage);
+movingAverageTrendline.Period = 3;
+movingAverageTrendline.TrendlineName = "New TrendLine Name";
+
+var thirdSeries = chart.ChartData.Series[2];
+
+var polynomialTrendline = thirdSeries.TrendLines.Add(TrendlineType.Polynomial);
+polynomialTrendline.Forward = 1;
+polynomialTrendline.Order = 3;
+
+var powerTrendline = thirdSeries.TrendLines.Add(TrendlineType.Power);
+powerTrendline.Backward = 1;
+
+presentation.Save("ChartTrendLines.pptx", SaveFormat.Pptx);
 ```
 
+## **Nastavení průsečíku čáry trendu**
 
+Použijte [Intercept](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/intercept/) k pevné hodnotě Y čáry trendu při X = 0. Toto nastavení je podporováno pro lineární, exponenciální a polynomické čáry trendu.
+
+Například model výrobních nákladů může potřebovat začít u známých fixních nákladů 100, i když měření při nenulových objemech výroby naznačují jiný základ. Pro lineární čáru trendu pevné nastavení průsečíku omezuje rovnici `y = ax + b` na `b = 100`; sklon je přizpůsoben datům pod tímto omezením. Nejedná se pouze o posunutí již navázané čáry. Nastavení průsečíku os řídí, kde se osy grafu setkávají, nikoli koeficienty přizpůsobené čáry trendu.
+
+Následující příklad vytvoří bodový (XY) graf s objemy výroby od 1 do 4 a náklady 170, 200, 230 a 260. Uloží graf s výchozím automatickým průsečíkem, nastaví průsečík na 100 a uloží druhý soubor PPTX. Tyto dva soubory se liší pouze nastavením průsečíku. Čára trendu zobrazuje svou rovnici a prodlužuje se zpět na X = 0.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var nameCell = workbook.GetCell(0, 0, 1, "Production cost");
+var series = chart.ChartData.Series.Add(nameCell, ChartType.ScatterWithMarkers);
+double[] costs = { 170, 200, 230, 260 };
+
+for (var i = 0; i < costs.Length; i++)
+{
+    var xCell = workbook.GetCell(0, i + 1, 0, i + 1);
+    var yCell = workbook.GetCell(0, i + 1, 1, costs[i]);
+    series.DataPoints.AddDataPointForScatterSeries(xCell, yCell);
+}
+
+var trendline = series.TrendLines.Add(TrendlineType.Linear);
+trendline.DisplayEquation = true;
+trendline.Backward = 1;
+
+presentation.Save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+trendline.Intercept = 100;
+presentation.Save("FixedIntercept.pptx", SaveFormat.Pptx);
+```
+
+Při automatickém výpočtu tato data dávají `y = 30x + 140`. Nastavení průsečíku na 100 místo toho dává přibližně `y = 43.33x + 100`: přizpůsobená hodnota při nule odpovídá známému základu, zatímco čára již neprochází každým datovým bodem.
+
+| Automatický průsečík | Pevný průsečík 100 |
+| --- | --- |
+| ![Lineární čára trendu s automaticky vypočteným průsečíkem 140](intercept-automatic.png) | ![Lineární čára trendu s pevným průsečíkem 100](intercept-fixed.png) |
+
+Obě obrázky používají stejná data a měřítka os. Čáry trendu jsou prodlouženy zpět na X = 0, aby ukázaly své průsečíky.
+
+Ve výchozím nastavení vlastnost obsahuje `double.NaN`, což představuje neurčený průsečík místo nuly. Průsečík je pak automaticky vypočten z dat.
 
 ## **Přidání vlastní čáry**
-Aspose.Slides for .NET poskytuje jednoduché rozhraní API pro přidání vlastních čar v diagramu. Pro přidání jednoduché rovné čáry na vybraný snímek prezentace postupujte podle následujících kroků:
 
-- Vytvořte instanci třídy Presentation
-- Získejte odkaz na snímek pomocí jeho indexu
-- Vytvořte nový diagram pomocí metody AddChart, která je součástí objektu Shapes
-- Přidejte AutoShape typu Line pomocí metody AddAutoShape, která je součástí objektu Shapes
-- Nastavte barvu čar tvaru.
-- Zapište upravenou prezentaci jako soubor PPTX
+Vlastní čára je tvar nakreslený přes graf, nikoli čára trendu vypočtená z dat série. Tento příklad používá [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) k přidání horizontální čáry do snímku nad grafem. Pozice čáry je zadána v souřadnicích snímku, měřených v bodech, takže začíná na levém okraji grafu a leží v polovině výšky grafu. Její šířka odpovídá šířce grafu. [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) dává čáře plnou červenou barvu.
 
-Následující kód slouží k vytvoření diagramu s vlastními čarami.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.UserShapes.Shapes.AddAutoShape(ShapeType.Line, 0, chart.Height / 2, chart.Width, 0);
-    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
-    pres.Save("AddCustomLines.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+var line = slide.Shapes.AddAutoShape(ShapeType.Line, chart.X, chart.Y + chart.Height / 2, chart.Width, 0);
+line.LineFormat.FillFormat.FillType = FillType.Solid;
+line.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+presentation.Save("AddCustomLines.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Co znamenají pojmy „dopředu“ a „dozadu“ u čáry trendu?**
+**Co znamená ‚forward‘ a ‚backward‘ u čáry trendu?**
 
-Jedná se o délky čáry trendu projekované dopředu nebo dozadu: u rozptylových (XY) diagramů v jednotkách osy; u ostatních diagramů v počtu kategorií. Povolené jsou pouze nezáporné hodnoty.
+Jedná se o délky čáry trendu projekcí dopředu/dozadu: u bodových (XY) grafů — v jednotkách os; u ne‑bodových grafů — v počtu kategorií. Povolené jsou pouze nezáporné hodnoty.
 
 **Zůstane čára trendu zachována při exportu prezentace do PDF nebo SVG, nebo při vykreslování snímku jako obrázku?**
 
-Ano. Aspose.Slides převádí prezentace na [PDF](/slides/cs/net/convert-powerpoint-to-pdf/)/[SVG](/slides/cs/net/render-a-slide-as-an-svg-image/) a vykresluje diagramy do obrázků; čáry trendu jako součást diagramu jsou při těchto operacích zachovány. K dispozici je také metoda pro [export obrázku samotného diagramu](/slides/cs/net/create-shape-thumbnails/).
+Ano. Aspose.Slides převádí prezentace na [PDF](/slides/cs/net/convert-powerpoint-to-pdf/) nebo [SVG](/slides/cs/net/render-a-slide-as-an-svg-image/) a vykresluje grafy jako obrázky; čáry trendu jako součást grafu jsou během těchto operací zachovány. K dispozici je také metoda pro [export obrázku grafu](/slides/cs/net/create-shape-thumbnails/).

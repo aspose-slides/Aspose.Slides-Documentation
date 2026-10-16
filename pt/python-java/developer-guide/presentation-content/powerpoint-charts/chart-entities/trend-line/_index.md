@@ -1,6 +1,6 @@
 ---
 title: Adicionar linhas de tendência a gráficos de apresentação em Python
-linktitle: Linha de tendência
+linktitle: Linha de Tendência
 type: docs
 url: /pt/python-java/trend-line/
 keywords:
@@ -22,26 +22,17 @@ description: "Adicione e personalize rapidamente linhas de tendência em gráfic
 ---
 ## **Visão geral**
 
-Este artigo explica como adicionar linhas de tendência a gráficos de apresentação usando Aspose.Slides. Ele mostra como criar um gráfico, adicionar linhas de tendência às séries do gráfico e trabalhar com vários tipos de linha de tendência, incluindo exponencial, linear, logarítmica, média móvel, polinomial e potência.
+Este artigo explica como adicionar linhas de tendência a gráficos de apresentação usando Aspose.Slides. Ele demonstra como criar um gráfico, adicionar linhas de tendência às séries do gráfico e trabalhar com vários tipos de linha de tendência, incluindo exponencial, linear, logarítmica, média móvel, polinomial e potência.
 
-Ele também descreve como adicionar uma linha personalizada a um gráfico inserindo uma forma de linha e inclui uma breve FAQ sobre valores de projeção da linha de tendência para frente e para trás e se as linhas de tendência são preservadas ao exportar para PDF ou SVG e ao renderizar gráficos como imagens.
+Ele também descreve como adicionar uma linha personalizada a um gráfico inserindo uma forma de linha e inclui uma breve FAQ sobre os valores de projeção da linha de tendência para frente e para trás e se as linhas de tendência são preservadas durante a exportação para PDF ou SVG e ao renderizar gráficos como imagens.
 
 ## **Adicionar uma linha de tendência**
 
-Aspose.Slides for Python via Java fornece uma API simples para gerenciar diferentes linhas de tendência de gráficos:
+Use [TrendlineCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinecollection/#add) para adicionar uma linha de tendência a uma série de gráfico, selecionando seu tipo com [TrendlineType](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinetype/). O exemplo cria um gráfico de colunas agrupadas com dados padrão e adiciona duas linhas de tendência a cada uma de suas três séries.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um gráfico com dados padrão e o tipo desejado (este exemplo usa [ChartType.ClusteredColumn](https://reference.aspose.com/slides/pt/python-java/aspose.slides/charttype/#ClusteredColumn)).
-1. Adicionar uma linha de tendência exponencial à série 1 do gráfico.
-1. Adicionar uma linha de tendência linear à série 1 do gráfico.
-1. Adicionar uma linha de tendência logarítmica à série 2 do gráfico.
-1. Adicionar uma linha de tendência de média móvel à série 2 do gráfico.
-1. Adicionar uma linha de tendência polinomial à série 3 do gráfico.
-1. Adicionar uma linha de tendência de potência à série 3 do gráfico.
-1. Salvar a apresentação modificada em um arquivo PPTX.
+A linha de tendência exponencial oculta sua equação e o valor de R‑quadrado através de [setDisplayEquation](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayEquation) e [setDisplayRSquaredValue](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayRSquaredValue), enquanto a linha de tendência linear é vermelha. A linha de tendência logarítmica usa [addTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#addTextFrameForOverriding) para um rótulo personalizado. A média móvel usa um [setPeriod](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setPeriod) de três pontos de dados e um [setTrendlineName](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setTrendlineName) personalizado.
 
-O código a seguir cria um gráfico com linhas de tendência.
+A linha de tendência polinomial tem ordem três, definida por meio de [setOrder](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setOrder) e estende uma categoria para frente através de [setForward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setForward). A linha de tendência de potência estende uma categoria para trás através de [setBackward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setBackward).
 
 ```python
 import jpype
@@ -53,63 +44,109 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, TrendlineType
 from java.awt import Color
 
-# Crie uma instância da classe Presentation.
 presentation = Presentation()
 try:
-    # Crie um gráfico de colunas agrupadas.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Adicione uma linha de tendência exponencial à série 1 do gráfico.
-    exponential_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential)
-    exponential_trend_line.setDisplayEquation(False)
-    exponential_trend_line.setDisplayRSquaredValue(False)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
 
-    # Adicione uma linha de tendência linear à série 1 do gráfico.
-    linear_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear)
-    linear_trend_line.setTrendlineType(TrendlineType.Linear)
-    linear_trend_line.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    linear_trend_line.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    first_series = chart.getChartData().getSeries().get_Item(0)
 
-    # Adicione uma linha de tendência logarítmica à série 2 do gráfico.
-    logarithmic_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic)
-    logarithmic_trend_line.setTrendlineType(TrendlineType.Logarithmic)
-    logarithmic_trend_line.addTextFrameForOverriding("New log trend line")
+    exponential_trendline = first_series.getTrendLines().add(TrendlineType.Exponential)
+    exponential_trendline.setDisplayEquation(False)
+    exponential_trendline.setDisplayRSquaredValue(False)
 
-    # Adicione uma linha de tendência de média móvel à série 2 do gráfico.
-    moving_average_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage)
-    moving_average_trend_line.setTrendlineType(TrendlineType.MovingAverage)
-    moving_average_trend_line.setPeriod(jpype.JByte(3))
-    moving_average_trend_line.setTrendlineName("New TrendLine Name")
+    linear_trendline = first_series.getTrendLines().add(TrendlineType.Linear)
+    linear_trendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    linear_trendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # Adicione uma linha de tendência polinomial à série 3 do gráfico.
-    polynomial_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial)
-    polynomial_trend_line.setTrendlineType(TrendlineType.Polynomial)
-    polynomial_trend_line.setForward(1)
-    polynomial_trend_line.setOrder(jpype.JByte(3))
+    second_series = chart.getChartData().getSeries().get_Item(1)
 
-    # Adicione uma linha de tendência de potência à série 3 do gráfico.
-    power_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Power)
-    power_trend_line.setTrendlineType(TrendlineType.Power)
-    power_trend_line.setBackward(1)
+    logarithmic_trendline = second_series.getTrendLines().add(TrendlineType.Logarithmic)
+    logarithmic_trendline.addTextFrameForOverriding("New log trend line")
 
-    # Salve a apresentação.
-    presentation.save("ChartTrendLines_out.pptx", SaveFormat.Pptx)
+    moving_average_trendline = second_series.getTrendLines().add(TrendlineType.MovingAverage)
+    moving_average_trendline.setPeriod(jpype.JByte(3))
+    moving_average_trendline.setTrendlineName("New TrendLine Name")
+
+    third_series = chart.getChartData().getSeries().get_Item(2)
+
+    polynomial_trendline = third_series.getTrendLines().add(TrendlineType.Polynomial)
+    polynomial_trendline.setForward(1)
+    polynomial_trendline.setOrder(jpype.JByte(3))
+
+    power_trendline = third_series.getTrendLines().add(TrendlineType.Power)
+    power_trendline.setBackward(1)
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Definir a intercepção da linha de tendência**
+
+Use [setIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setIntercept) para fixar o valor de Y de uma linha de tendência em X = 0. Essa configuração é suportada para linhas de tendência lineares, exponenciais e polinomiais.
+
+Por exemplo, um modelo de custo de produção pode precisar começar com custos fixos conhecidos de 100, mesmo quando medições em volumes de produção diferentes de zero sugerem uma linha de base distinta. Para uma linha de tendência linear, fixar a intercepção restringe a equação `y = ax + b` para `b = 100`; a inclinação é ajustada aos dados sob essa restrição. Isso não move simplesmente uma linha já ajustada. As configurações de cruzamento dos eixos controlam onde os eixos do gráfico se encontram, não os coeficientes da linha de tendência ajustada.
+
+O exemplo a seguir cria um gráfico de dispersão (XY) com volumes de produção de 1 a 4 e custos de 170, 200, 230 e 260. Ele salva o gráfico com a intercepção automática padrão, define a intercepção para 100 e salva um segundo PPTX. Os dois arquivos diferem apenas na configuração da intercepção. A linha de tendência exibe sua equação e se estende de volta a X = 0.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat, TrendlineType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    name_cell = workbook.getCell(0, 0, 1, "Production cost")
+    series = chart.getChartData().getSeries().add(name_cell, ChartType.ScatterWithMarkers)
+    costs = [170, 200, 230, 260]
+
+    for i in range(len(costs)):
+        x_cell = workbook.getCell(0, i + 1, 0, i + 1)
+        y_cell = workbook.getCell(0, i + 1, 1, costs[i])
+        series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+
+    trendline = series.getTrendLines().add(TrendlineType.Linear)
+    trendline.setDisplayEquation(True)
+    trendline.setBackward(1)
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx)
+
+    trendline.setIntercept(100)
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Com cálculo automático, esses dados produzem `y = 30x + 140`. Definir a intercepção para 100 produz aproximadamente `y = 43.33x + 100`: o valor ajustado em zero corresponde à linha de base conhecida, enquanto a linha não passa mais por todos os pontos de dados.
+
+| Intercepção automática | Intercepção fixa de 100 |
+| --- | --- |
+| ![Linha de tendência linear com intercepção calculada automaticamente de 140](intercept-automatic.png) | ![Linha de tendência linear com intercepção fixa de 100](intercept-fixed.png) |
+
+Ambas as imagens usam os mesmos dados e escalas de eixo. As linhas de tendência são estendidas de volta a X = 0 para mostrar suas intercepções.
+
+Por padrão, [getIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#getIntercept) retorna `NaN`, que representa uma intercepção não especificada em vez de zero. A intercepção é então calculada automaticamente a partir dos dados.
+
 ## **Adicionar uma linha personalizada**
 
-Aspose.Slides for Python via Java fornece uma API simples para adicionar linhas personalizadas a um gráfico. Para adicionar uma linha simples a um gráfico em um slide selecionado, siga estas etapas:
-
-- Criar uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/).
-- Obter uma referência a um slide pelo seu índice.
-- Criar um novo gráfico usando o método [addChart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapecollection/#addChart) da classe [ShapeCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapecollection/).
-- Adicionar uma forma de linha usando o método [addAutoShape](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapecollection/#addAutoShape) com [ShapeType.Line](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapetype/#Line).
-- Definir a cor da linha da forma.
-- Salvar a apresentação modificada em um arquivo PPTX.
-
-O código a seguir cria um gráfico com uma linha personalizada.
+Uma linha personalizada é uma forma desenhada sobre o gráfico em vez de uma linha de tendência calculada a partir dos dados da série. Este exemplo usa [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) para adicionar uma linha horizontal ao slide sobre o gráfico. A posição da linha é especificada em coordenadas do slide, medidas em pontos, de modo que começa na borda esquerda do gráfico e fica a meio caminho para baixo do gráfico. Sua largura corresponde à largura do gráfico. O método [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) fornece acesso à formatação da linha usada para aplicar uma cor vermelha sólida.
 
 ```python
 import jpype
@@ -121,16 +158,17 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Crie uma instância da classe Presentation.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
-    shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0)
+    slide = presentation.getSlides().get_Item(0)
 
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
 
-    presentation.save("Presentation.pptx", SaveFormat.Pptx)
+    line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0)
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
@@ -139,8 +177,8 @@ finally:
 
 **O que significam 'forward' e 'backward' para uma linha de tendência?**
 
-São os comprimentos da linha de tendência projetados para a frente ou para trás: para gráficos de dispersão (XY), são medidos em unidades dos eixos; para gráficos que não são de dispersão, são medidos no número de categorias. Apenas valores não negativos são permitidos.
+São os comprimentos da linha de tendência projetados para frente ou para trás: para gráficos de dispersão (XY) — em unidades de eixo; para gráficos que não são de dispersão — em número de categorias. Apenas valores não negativos são permitidos.
 
 **A linha de tendência será preservada ao exportar a apresentação para PDF ou SVG, ou ao renderizar um slide como imagem?**
 
-Sim. Aspose.Slides converte apresentações para [PDF](/slides/pt/python-java/convert-powerpoint-to-pdf/)/[SVG](/slides/pt/python-java/render-a-slide-as-an-svg-image/) e renderiza gráficos em imagens; as linhas de tendência, como parte do gráfico, são preservadas durante essas operações. Também há um método disponível para [exportar uma imagem do gráfico](/slides/pt/python-java/create-shape-thumbnails/) propriamente dito.
+Sim. Aspose.Slides converte apresentações para [PDF](/slides/pt/python-java/convert-powerpoint-to-pdf/) ou [SVG](/slides/pt/python-java/render-a-slide-as-an-svg-image/) e renderiza gráficos como imagens; as linhas de tendência, como parte do gráfico, são preservadas durante essas operações. Também há um método disponível para [exportar uma imagem do gráfico](/slides/pt/python-java/create-shape-thumbnails/) propriamente dito.

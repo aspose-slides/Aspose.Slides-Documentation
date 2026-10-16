@@ -1,5 +1,5 @@
 ---
-title: Añadir líneas de tendencia a los gráficos de presentación en .NET
+title: Agregar líneas de tendencia a gráficos de presentación en .NET
 linktitle: Línea de tendencia
 type: docs
 url: /es/net/trend-line/
@@ -9,7 +9,7 @@ keywords:
 - línea de tendencia exponencial
 - línea de tendencia lineal
 - línea de tendencia logarítmica
-- línea de tendencia de promedio móvil
+- línea de tendencia de media móvil
 - línea de tendencia polinómica
 - línea de tendencia de potencia
 - línea de tendencia personalizada
@@ -18,99 +18,148 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Añade y personaliza rápidamente líneas de tendencia en los gráficos de PowerPoint con Aspose.Slides para .NET — una guía práctica para cautivar a tu audiencia."
+description: "Agregue y personalice rápidamente líneas de tendencia en gráficos de PowerPoint con Aspose.Slides para .NET — una guía práctica para captar la atención de su audiencia."
 ---
+## **Visión general**
+
+Este artículo explica cómo agregar líneas de tendencia a los gráficos de presentaciones utilizando Aspose.Slides. Muestra cómo crear un gráfico, agregar líneas de tendencia a las series del gráfico y trabajar con varios tipos de líneas de tendencia, incluidos exponencial, lineal, logarítmica, media móvil, polinómica y potencia.
+
+También describe cómo agregar una línea personalizada a un gráfico insertando una forma de línea, e incluye una breve FAQ sobre los valores de proyección de línea de tendencia hacia adelante y hacia atrás y si las líneas de tendencia se conservan al exportar a PDF o SVG y al renderizar gráficos como imágenes.
 
 ## **Agregar una línea de tendencia**
-Aspose.Slides for .NET ofrece una API simple para administrar diferentes líneas de tendencia de gráficos:
 
-1. Cree una instancia de la clase [Presentación](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Obtenga una referencia a una diapositiva mediante su índice.
-3. Agregue un gráfico con datos predeterminados y cualquiera de los tipos deseados (en este ejemplo se usa ChartType.ClusteredColumn).
-4. Añadiendo una línea de tendencia exponencial para la serie 1 del gráfico.
-5. Añadiendo una línea de tendencia lineal para la serie 1 del gráfico.
-6. Añadiendo una línea de tendencia logarítmica para la serie 2 del gráfico.
-7. Añadiendo una línea de tendencia de promedio móvil para la serie 2 del gráfico.
-8. Añadiendo una línea de tendencia polinómica para la serie 3 del gráfico.
-9. Añadiendo una línea de tendencia de potencia para la serie 3 del gráfico.
-10. Guarde la presentación modificada en un archivo PPTX.
+Utiliza [ITrendlineCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendlinecollection/add/) para agregar una línea de tendencia a una serie de gráfico, seleccionando su tipo con [TrendlineType](https://reference.aspose.com/slides/net/aspose.slides.charts/trendlinetype/). El ejemplo crea un gráfico de columnas agrupadas con datos predeterminados y agrega dos líneas de tendencia a cada una de sus tres series.
 
-El siguiente código se utiliza para crear un gráfico con líneas de tendencia.
-```c#
-// Creando una presentación vacía
-Presentation pres = new Presentation();
+La línea de tendencia exponencial oculta su ecuación y el valor R al cuadrado mediante [DisplayEquation](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayequation/) y [DisplayRSquaredValue](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayrsquaredvalue/), mientras que la línea de tendencia lineal es roja. La línea de tendencia logarítmica utiliza [AddTextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/addtextframeforoverriding/) para una etiqueta personalizada. La media móvil utiliza un [Period](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/period/) de tres puntos de datos y un [TrendlineName](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/trendlinename/) personalizado.
 
-// Creando un gráfico de columnas agrupadas
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+La línea de tendencia polinómica tiene un [Order](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/order/) de tres y se extiende una categoría hacia adelante mediante [Forward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/forward/). La línea de tendencia de potencia se extiende una categoría hacia atrás mediante [Backward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/backward/).
 
-// Añadiendo línea de tendencia exponencial para la serie 1 del gráfico
-ITrendline tredLinep = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Exponential);
-tredLinep.DisplayEquation = false;
-tredLinep.DisplayRSquaredValue = false;
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Añadiendo línea de tendencia lineal para la serie 1 del gráfico
-ITrendline tredLineLin = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Linear);
-tredLineLin.TrendlineType = TrendlineType.Linear;
-tredLineLin.Format.Line.FillFormat.FillType = FillType.Solid;
-tredLineLin.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
 
-// Añadiendo línea de tendencia logarítmica para la serie 2 del gráfico
-ITrendline tredLineLog = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Logarithmic);
-tredLineLog.TrendlineType = TrendlineType.Logarithmic;
-tredLineLog.AddTextFrameForOverriding("New log trend line");
+var firstSeries = chart.ChartData.Series[0];
 
-// Añadiendo línea de tendencia de promedio móvil para la serie 2 del gráfico
-ITrendline tredLineMovAvg = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.MovingAverage);
-tredLineMovAvg.TrendlineType = TrendlineType.MovingAverage;
-tredLineMovAvg.Period = 3;
-tredLineMovAvg.TrendlineName = "New TrendLine Name";
+var exponentialTrendline = firstSeries.TrendLines.Add(TrendlineType.Exponential);
+exponentialTrendline.DisplayEquation = false;
+exponentialTrendline.DisplayRSquaredValue = false;
 
-// Añadiendo línea de tendencia polinómica para la serie 3 del gráfico
-ITrendline tredLinePol = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Polynomial);
-tredLinePol.TrendlineType = TrendlineType.Polynomial;
-tredLinePol.Forward = 1;
-tredLinePol.Order = 3;
+var linearTrendline = firstSeries.TrendLines.Add(TrendlineType.Linear);
+linearTrendline.Format.Line.FillFormat.FillType = FillType.Solid;
+linearTrendline.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
 
-// Añadiendo línea de tendencia de potencia para la serie 3 del gráfico
-ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
-tredLinePower.TrendlineType = TrendlineType.Power;
-tredLinePower.Backward = 1;
+var secondSeries = chart.ChartData.Series[1];
 
-// Guardando la presentación
-pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+var logarithmicTrendline = secondSeries.TrendLines.Add(TrendlineType.Logarithmic);
+logarithmicTrendline.AddTextFrameForOverriding("New log trend line");
+
+var movingAverageTrendline = secondSeries.TrendLines.Add(TrendlineType.MovingAverage);
+movingAverageTrendline.Period = 3;
+movingAverageTrendline.TrendlineName = "New TrendLine Name";
+
+var thirdSeries = chart.ChartData.Series[2];
+
+var polynomialTrendline = thirdSeries.TrendLines.Add(TrendlineType.Polynomial);
+polynomialTrendline.Forward = 1;
+polynomialTrendline.Order = 3;
+
+var powerTrendline = thirdSeries.TrendLines.Add(TrendlineType.Power);
+powerTrendline.Backward = 1;
+
+presentation.Save("ChartTrendLines.pptx", SaveFormat.Pptx);
 ```
 
+## **Establecer la intersección de una línea de tendencia**
+
+Utiliza [Intercept](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/intercept/) para fijar el valor Y de una línea de tendencia en X = 0. Esta configuración es compatible con líneas de tendencia lineales, exponenciales y polinómicas.
+
+Por ejemplo, un modelo de costes de producción puede necesitar comenzar con costes fijos conocidos de 100, incluso cuando las mediciones en volúmenes de producción distintos de cero sugieren una línea base diferente. Para una línea de tendencia lineal, fijar la intersección obliga a la ecuación `y = ax + b` a `b = 100`; la pendiente se ajusta a los datos bajo esa restricción. No simplemente mueve una línea ya ajustada. La configuración de cruce de ejes controla dónde se encuentran los ejes del gráfico, no los coeficientes de la línea de tendencia ajustada.
+
+El siguiente ejemplo crea un gráfico de dispersión (XY) con volúmenes de producción de 1 a 4 y costes de 170, 200, 230 y 260. Guarda el gráfico con la intersección automática predeterminada, establece la intersección en 100 y guarda una segunda PPTX. Los dos archivos difieren solo en la configuración de la intersección. La línea de tendencia muestra su ecuación y se extiende hasta X = 0.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var nameCell = workbook.GetCell(0, 0, 1, "Production cost");
+var series = chart.ChartData.Series.Add(nameCell, ChartType.ScatterWithMarkers);
+double[] costs = { 170, 200, 230, 260 };
+
+for (var i = 0; i < costs.Length; i++)
+{
+    var xCell = workbook.GetCell(0, i + 1, 0, i + 1);
+    var yCell = workbook.GetCell(0, i + 1, 1, costs[i]);
+    series.DataPoints.AddDataPointForScatterSeries(xCell, yCell);
+}
+
+var trendline = series.TrendLines.Add(TrendlineType.Linear);
+trendline.DisplayEquation = true;
+trendline.Backward = 1;
+
+presentation.Save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+trendline.Intercept = 100;
+presentation.Save("FixedIntercept.pptx", SaveFormat.Pptx);
+```
+
+Con cálculo automático, estos datos producen `y = 30x + 140`. Al fijar la intersección en 100, se obtiene aproximadamente `y = 43.33x + 100`: el valor ajustado en cero coincide con la línea base conocida, mientras que la línea ya no pasa por todos los puntos de datos.
+
+| Intersección automática | Intersección fija de 100 |
+| --- | --- |
+| ![Línea de tendencia lineal con una intersección calculada automáticamente de 140](intercept-automatic.png) | ![Línea de tendencia lineal con una intersección fija de 100](intercept-fixed.png) |
+
+Ambas imágenes usan los mismos datos y escalas de los ejes. Las líneas de tendencia se extienden hasta X = 0 para mostrar sus intersecciones.
+
+Por defecto, la propiedad contiene `double.NaN`, que representa una intersección no especificada en lugar de cero. La intersección se calcula automáticamente a partir de los datos.
 
 ## **Agregar una línea personalizada**
-Aspose.Slides for .NET ofrece una API simple para agregar líneas personalizadas en un gráfico. Para agregar una línea simple y plana a una diapositiva seleccionada de la presentación, siga los pasos a continuación:
 
-- Cree una instancia de la clase Presentation
-- Obtenga la referencia de una diapositiva usando su índice
-- Cree un nuevo gráfico usando el método AddChart expuesto por el objeto Shapes
-- Agregue un AutoShape de tipo Línea usando el método AddAutoShape expuesto por el objeto Shapes
-- Establezca el color de las líneas de la forma.
-- Guarde la presentación modificada como un archivo PPTX
+Una línea personalizada es una forma dibujada sobre el gráfico en lugar de una línea de tendencia calculada a partir de los datos de la serie. Este ejemplo utiliza [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) para agregar una línea horizontal a la diapositiva sobre el gráfico. La posición de la línea se especifica en coordenadas de diapositiva, medidas en puntos, por lo que comienza en el borde izquierdo del gráfico y se sitúa a mitad de altura del mismo. Su anchura coincide con la anchura del gráfico. El [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) asigna a la línea un color rojo sólido.
 
-El siguiente código se utiliza para crear un gráfico con líneas personalizadas.
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.UserShapes.Shapes.AddAutoShape(ShapeType.Line, 0, chart.Height / 2, chart.Width, 0);
-    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
-    pres.Save("AddCustomLines.pptx", SaveFormat.Pptx);
-}
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+var line = slide.Shapes.AddAutoShape(ShapeType.Line, chart.X, chart.Y + chart.Height / 2, chart.Width, 0);
+line.LineFormat.FillFormat.FillType = FillType.Solid;
+line.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+presentation.Save("AddCustomLines.pptx", SaveFormat.Pptx);
 ```
 
+## **Preguntas frecuentes**
 
-## **FAQ**
+**¿Qué significan 'forward' y 'backward' para una línea de tendencia?**
 
-**¿Qué significan 'forward' y 'backward' en una línea de tendencia?**
-
-Son las longitudes de la línea de tendencia proyectadas hacia adelante/atrás: para gráficos de dispersión (XY) — en unidades del eje; para gráficos que no son de dispersión — en número de categorías. Solo se permiten valores no negativos.
+Son las longitudes de la línea de tendencia proyectada hacia adelante/atrás: para gráficos de dispersión (XY) — en unidades de eje; para gráficos que no son de dispersión — en número de categorías. Solo se permiten valores no negativos.
 
 **¿Se conservará la línea de tendencia al exportar la presentación a PDF o SVG, o al renderizar una diapositiva como imagen?**
 
-Sí. Aspose.Slides convierte presentaciones a [PDF](/slides/es/net/convert-powerpoint-to-pdf/)/[SVG](/slides/es/net/render-a-slide-as-an-svg-image/) y renderiza gráficos a imágenes; las líneas de tendencia, como parte del gráfico, se conservan durante estas operaciones. También hay un método disponible para [exportar una imagen del gráfico](/slides/es/net/create-shape-thumbnails/).
+Sí. Aspose.Slides convierte presentaciones a [PDF](/slides/es/net/convert-powerpoint-to-pdf/) o [SVG](/slides/es/net/render-a-slide-as-an-svg-image/) y renderiza gráficos a imágenes; las líneas de tendencia, como parte del gráfico, se conservan durante estas operaciones. También está disponible un método para [exportar una imagen del gráfico](/slides/es/net/create-shape-thumbnails/).

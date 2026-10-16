@@ -1,47 +1,35 @@
 ---
-title: Přidat trendové čáry do prezentačních grafů v Pythonu
-linktitle: Trendová čára
+title: Přidání čar trendu do grafů v prezentaci v Pythonu
+linktitle: Čára trendu
 type: docs
 url: /cs/python-java/trend-line/
 keywords:
 - graf
-- trendová čára
-- exponenciální trendová čára
-- lineární trendová čára
-- logaritmická trendová čára
-- trendová čára klouzavého průměru
-- polynomická trendová čára
-- mocninná trendová čára
-- vlastní trendová čára
+- čára trendu
+- exponenciální čára trendu
+- lineární čára trendu
+- logaritmická čára trendu
+- čára trendu klouzavý průměr
+- polynomická čára trendu
+- čára trendu mocninná
+- vlastní čára trendu
 - PowerPoint
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Rychle přidejte a přizpůsobte trendové čáry v grafech PowerPointu pomocí Aspose.Slides pro Python přes Java — praktický průvodce, jak zaujmout své publikum."
+description: "Rychle přidejte a přizpůsobte čáry trendu v grafech PowerPointu pomocí Aspose.Slides pro Python přes Java — praktický průvodce, jak zaujmout své publikum."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pomocí Aspose.Slides přidat do prezentačních grafů trendové čáry. Ukazuje, jak vytvořit graf, přidat trendové čáry k řadám grafu a pracovat s několika typy trendových čar, včetně exponenciální, lineární, logaritmické, klouzavého průměru, polynomické a mocninné.
+Tento článek vysvětluje, jak pomocí Aspose.Slides přidat do grafů v prezentaci čáry trendu. Ukazuje, jak vytvořit graf, přidat čáry trendu k sériím grafu a pracovat s několika typy čar trendu, včetně exponenciální, lineární, logaritmické, klouzavý průměr, polynomické a mocninné.  
+Také popisuje, jak do grafu přidat vlastní čáru vložením tvaru čáry, a obsahuje krátké FAQ o hodnotách projekce čáry trendu dopředu a dozadu a o tom, zda jsou čáry trendu zachovány při exportu do PDF nebo SVG a při vykreslování grafů jako obrázků.
 
-Také popisuje, jak do grafu přidat vlastní čáru vložením tvaru čáry, a obsahuje krátké FAQ o hodnotách projekce trendové čáry dopředu a dozadu a o tom, zda jsou trendové čáry zachovány při exportu do PDF nebo SVG a při renderování grafů jako obrázky.
+## **Přidání čáry trendu**
 
-## **Přidat trendovou čáru**
-
-Aspose.Slides for Python via Java poskytuje jednoduché API pro správu různých trendových čar grafu:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte graf s výchozími daty a požadovaným typem (v tomto příkladu je použit [ChartType.ClusteredColumn](https://reference.aspose.com/slides/cs/python-java/aspose.slides/charttype/#ClusteredColumn)).
-1. Přidejte exponenciální trendovou čáru k řadě grafu 1.
-1. Přidejte lineární trendovou čáru k řadě grafu 1.
-1. Přidejte logaritmickou trendovou čáru k řadě grafu 2.
-1. Přidejte trendovou čáru klouzavého průměru k řadě grafu 2.
-1. Přidejte polynomickou trendovou čáru k řadě grafu 3.
-1. Přidejte mocninnou trendovou čáru k řadě grafu 3.
-1. Zapište upravenou prezentaci do souboru PPTX.
-
-Následující kód vytvoří graf s trendovými čárami.
+Použijte [TrendlineCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinecollection/#add) k přidání čáry trendu do série grafu a vyberte její typ pomocí [TrendlineType](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinetype/). Příklad vytvoří seskupený sloupcový graf s výchozími daty a přidá dvě čáry trendu ke každé ze svých tří sérií.  
+Exponenciální čára trendu skryje svou rovnici a hodnotu R‑kvadrátu pomocí [setDisplayEquation](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayEquation) a [setDisplayRSquaredValue](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayRSquaredValue), zatímco lineární čára trendu je červená. Logaritmická čára trendu používá [addTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#addTextFrameForOverriding) pro vlastní popisek. Klouzavý průměr používá [setPeriod](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setPeriod) se třemi datovými body a vlastní [setTrendlineName](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setTrendlineName).  
+Polynomická čára trendu má řád tři, nastavený pomocí [setOrder](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setOrder) a prodlužuje o jednu kategorii dopředu pomocí [setForward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setForward). Mocninná čára trendu prodlužuje o jednu kategorii dozadu pomocí [setBackward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setBackward).
 
 ```python
 import jpype
@@ -53,63 +41,106 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, TrendlineType
 from java.awt import Color
 
-# Vytvořte instanci třídy Presentation.
 presentation = Presentation()
 try:
-    # Vytvořte seskupený sloupcový graf.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte exponenciální trendovou čáru do řady grafu 1.
-    exponential_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential)
-    exponential_trend_line.setDisplayEquation(False)
-    exponential_trend_line.setDisplayRSquaredValue(False)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
 
-    # Přidejte lineární trendovou čáru do řady grafu 1.
-    linear_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear)
-    linear_trend_line.setTrendlineType(TrendlineType.Linear)
-    linear_trend_line.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    linear_trend_line.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    first_series = chart.getChartData().getSeries().get_Item(0)
 
-    # Přidejte logaritmickou trendovou čáru do řady grafu 2.
-    logarithmic_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic)
-    logarithmic_trend_line.setTrendlineType(TrendlineType.Logarithmic)
-    logarithmic_trend_line.addTextFrameForOverriding("New log trend line")
+    exponential_trendline = first_series.getTrendLines().add(TrendlineType.Exponential)
+    exponential_trendline.setDisplayEquation(False)
+    exponential_trendline.setDisplayRSquaredValue(False)
 
-    # Přidejte trendovou čáru klouzavého průměru do řady grafu 2.
-    moving_average_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage)
-    moving_average_trend_line.setTrendlineType(TrendlineType.MovingAverage)
-    moving_average_trend_line.setPeriod(jpype.JByte(3))
-    moving_average_trend_line.setTrendlineName("New TrendLine Name")
+    linear_trendline = first_series.getTrendLines().add(TrendlineType.Linear)
+    linear_trendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    linear_trendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # Přidejte polynomickou trendovou čáru do řady grafu 3.
-    polynomial_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial)
-    polynomial_trend_line.setTrendlineType(TrendlineType.Polynomial)
-    polynomial_trend_line.setForward(1)
-    polynomial_trend_line.setOrder(jpype.JByte(3))
+    second_series = chart.getChartData().getSeries().get_Item(1)
 
-    # Přidejte mocninnou trendovou čáru do řady grafu 3.
-    power_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Power)
-    power_trend_line.setTrendlineType(TrendlineType.Power)
-    power_trend_line.setBackward(1)
+    logarithmic_trendline = second_series.getTrendLines().add(TrendlineType.Logarithmic)
+    logarithmic_trendline.addTextFrameForOverriding("New log trend line")
 
-    # Uložte prezentaci.
-    presentation.save("ChartTrendLines_out.pptx", SaveFormat.Pptx)
+    moving_average_trendline = second_series.getTrendLines().add(TrendlineType.MovingAverage)
+    moving_average_trendline.setPeriod(jpype.JByte(3))
+    moving_average_trendline.setTrendlineName("New TrendLine Name")
+
+    third_series = chart.getChartData().getSeries().get_Item(2)
+
+    polynomial_trendline = third_series.getTrendLines().add(TrendlineType.Polynomial)
+    polynomial_trendline.setForward(1)
+    polynomial_trendline.setOrder(jpype.JByte(3))
+
+    power_trendline = third_series.getTrendLines().add(TrendlineType.Power)
+    power_trendline.setBackward(1)
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Přidat vlastní čáru**
+## **Nastavení průsečíku čáry trendu**
 
-Aspose.Slides for Python via Java poskytuje jednoduché API pro přidání vlastních čar do grafu. Pro přidání prosté čáry do grafu na vybraném snímku postupujte takto:
+Použijte [setIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setIntercept) k fixaci hodnoty Y čáry trendu při X = 0. Toto nastavení je podporováno pro lineární, exponenciální a polynomické čáry trendu.  
+Například model nákladů na výrobu může vyžadovat, aby začínal od známých fixních nákladů 100, i když měření při nenulových objemech výroby naznačují odlišnou základní úroveň. Pro lineární čáru trendu fixování průsečíku omezuje rovnici `y = ax + b` na `b = 100`; sklon je přizpůsoben datům pod tímto omezením. Nejde jen o posunutí již nasazené čáry. Nastavení průsečíku os určuje, kde se protínají osy grafu, nikoli koeficienty nasazené čáry trendu.  
+Následující příklad vytvoří bodový (XY) graf s objemy výroby od 1 do 4 a náklady 170, 200, 230 a 260. Uloží graf s výchozím automatickým průsečíkem, nastaví průsečík na 100 a uloží druhý soubor PPTX. Oba soubory se liší jen nastavením průsečíku. Čára trendu zobrazuje svou rovnici a prodlužuje se zpět k X = 0.
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-- Získejte odkaz na snímek podle jeho indexu.
-- Vytvořte nový graf pomocí metody [addChart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#addChart) třídy [ShapeCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/).
-- Přidejte tvar čáry pomocí metody [addAutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#addAutoShape) s parametrem [ShapeType.Line](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapetype/#Line).
-- Nastavte barvu čáry tvaru.
-- Zapište upravenou prezentaci do souboru PPTX.
+```python
+import jpype
+import asposeslides
 
-Následující kód vytvoří graf s vlastní čárou.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat, TrendlineType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    name_cell = workbook.getCell(0, 0, 1, "Production cost")
+    series = chart.getChartData().getSeries().add(name_cell, ChartType.ScatterWithMarkers)
+    costs = [170, 200, 230, 260]
+
+    for i in range(len(costs)):
+        x_cell = workbook.getCell(0, i + 1, 0, i + 1)
+        y_cell = workbook.getCell(0, i + 1, 1, costs[i])
+        series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+
+    trendline = series.getTrendLines().add(TrendlineType.Linear)
+    trendline.setDisplayEquation(True)
+    trendline.setBackward(1)
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx)
+
+    trendline.setIntercept(100)
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Při automatickém výpočtu tato data dávají `y = 30x + 140`. Nastavení průsečíku na 100 místo toho přibližně dává `y = 43.33x + 100`: vypočtená hodnota při nule odpovídá známé základní úrovni, zatímco čára již neprochází všemi datovými body.
+
+| Automatický průsečík | Fixní průsečík 100 |
+| --- | --- |
+| ![Lineární čára trendu s automaticky vypočteným průsečíkem 140](intercept-automatic.png) | ![Lineární čára trendu s fixním průsečíkem 100](intercept-fixed.png) |
+
+Oba obrázky používají stejná data a měřítka os. Čáry trendu jsou prodlouženy zpět k X = 0, aby ukázaly své průsečíky.  
+Ve výchozím nastavení [getIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#getIntercept) vrací `NaN`, což představuje nedefinovaný průsečík místo nuly. Průsečík je pak automaticky vypočítán z dat.
+
+## **Přidání vlastní čáry**
+
+Vlastní čára je tvar nakreslený nad grafem, nikoli čára trendu vypočtená z dat sérií. Tento příklad používá [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) k přidání horizontální čáry na snímek nad grafem. Pozice čáry je zadána ve souřadnicích snímku, měřených v bodech, takže začíná na levém okraji grafu a leží v polovině výšky grafu. Její šířka odpovídá šířce grafu. Metoda [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) poskytuje přístup k formátování čáry použitému k aplikaci pevné červené barvy.
 
 ```python
 import jpype
@@ -121,26 +152,27 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Vytvořte instanci třídy Presentation.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
-    shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0)
+    slide = presentation.getSlides().get_Item(0)
 
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
 
-    presentation.save("Presentation.pptx", SaveFormat.Pptx)
+    line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0)
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Co znamenají pojmy „dopředu“ a „dozadu“ u trendové čáry?**
+**Co znamenají 'forward' a 'backward' u čáry trendu?**
 
-Jedná se o délky trendové čáry promítnuté dopředu nebo dozadu: u rozptylových (XY) grafů jsou měřeny v jednotkách osy; u jiných grafů jsou měřeny v počtu kategorií. Povolené jsou pouze nezáporné hodnoty.
+Jedná se o délky čáry trendu projektované dopředu/dozadu: pro bodové (XY) grafy — v jednotkách osy; pro jiné grafy — v počtu kategorií. Povolené jsou pouze nezáporné hodnoty.
 
-**Zachová se trendová čára při exportu prezentace do PDF nebo SVG, nebo při renderování snímku jako obrázku?**
+**Zůstane čára trendu zachována při exportu prezentace do PDF nebo SVG, nebo při vykreslování snímku jako obrázku?**
 
-Ano. Aspose.Slides převádí prezentace na [PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/)/[SVG](/slides/cs/python-java/render-a-slide-as-an-svg-image/) a renderuje grafy do obrázků; trendové čáry jako součást grafu jsou při těchto operacích zachovány. K dispozici je také metoda pro [export obrázku grafu](/slides/cs/python-java/create-shape-thumbnails/).
+Ano. Aspose.Slides převádí prezentace na [PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/) nebo [SVG](/slides/cs/python-java/render-a-slide-as-an-svg-image/) a vykresluje grafy jako obrázky; čáry trendu, jako součást grafu, jsou při těchto operacích zachovány. K dispozici je také metoda pro [export obrázku grafu](/slides/cs/python-java/create-shape-thumbnails/).

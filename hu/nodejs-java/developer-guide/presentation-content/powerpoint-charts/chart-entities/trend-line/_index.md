@@ -1,5 +1,5 @@
 ---
-title: Trendvonalak hozzáadása prezentáció diagramokhoz JavaScript-ben
+title: Trendvonalak hozzáadása prezentációs diagramokhoz JavaScriptben
 linktitle: Trendvonal
 type: docs
 url: /hu/nodejs-java/trend-line/
@@ -9,108 +9,157 @@ keywords:
 - exponenciális trendvonal
 - lineáris trendvonal
 - logaritmikus trendvonal
-- mozgó átlag trendvonal
+- mozgóátlag trendvonal
 - polinomiális trendvonal
-- hatvány trendvonal
-- egyedi trendvonal
+- hatványos trendvonal
+- egyéni trendvonal
 - PowerPoint
 - prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gyorsan adjon hozzá és testreszabjon trendvonalakat a PowerPoint diagramokban JavaScript és az Aspose.Slides for Node.js via Java segítségével – egy gyakorlati útmutató a közönség bevonásához."
+description: "Gyorsan adjon hozzá és testreszabjon trendvonalakat a PowerPoint diagramokban JavaScript és Aspose.Slides for Node.js segítségével Java‑on keresztül — egy gyakorlati útmutató, amely segít lekötni a közönségét."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan adhat trendvonalakat a prezentáció diagramjaihoz az Aspose.Slides használatával. Megmutatja, hogyan hozhat létre diagramot, adhat trendvonalakat a diagram sorozataihoz, és hogyan dolgozhat többféle trendvonal típussal, többek között exponenciális, lineáris, logaritmikus, mozgó átlag, polinomiális és hatvány típusú trendvonalakkal.
+Ez a cikk bemutatja, hogyan lehet trendvonalakat hozzáadni a prezentációdiagramokhoz az Aspose.Slides használatával. Megmutatja, hogyan hozhatunk létre diagramot, hogyan adhatunk hozzá trendvonalakat a diagram sorozataihoz, és hogyan dolgozhatunk több trendvonal típussal, beleértve az exponenciális, lineáris, logaritmikus, mozgóátlag, polinomiális és hatványos típusokat.
 
-Leírja továbbá, hogyan adhat egyedi vonalat a diagramhoz egy vonalas alakzat beszúrásával, és tartalmaz egy rövid GYIK-ot a trendvonal előre és hátra vetített értékeiről, valamint arról, hogy a trendvonalak megmaradnak-e PDF‑ vagy SVG‑exportáláskor és a diagramok képként történő renderelésekor.
+Leírja továbbá, hogyan adhatunk egy egyéni vonalat a diagramhoz vonal alakzat beillesztésével, és tartalmaz egy rövid GYIK-ot a trendvonalak előre és hátra történő kiterjesztésének értékeiről, valamint arról, hogy a trendvonalak megmaradnak-e a PDF vagy SVG formátumba való exportálás, illetve a diagramok képként történő renderelése során.
 
 ## **Trendvonal hozzáadása**
 
-Az Aspose.Slides for Node.js via Java egyszerű API‑t biztosít a különféle diagram Trendvonalak kezeléséhez:
+Használja a [TrendlineCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendlinecollection/#add) metódust trendvonal hozzáadásához egy diagram sorozatához, a típust a [TrendlineType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendlinetype/) segítségével választhatja ki. A példa egy klaszterezett oszlopdiagramot hoz létre alapértelmezett adatokkal, és két trendvonalat ad hozzá mind a három sorozatához.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2. Szerezze meg a dia hivatkozását az indexe alapján.
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal, a kívánt típus valamelyikével (ez a példa a ChartType.ClusteredColumn típust használja).
-4. Exponenciális trendvonal hozzáadása az 1. sorozathoz.
-5. Lineáris trendvonal hozzáadása az 1. sorozathoz.
-6. Logaritmikus trendvonal hozzáadása a 2. sorozathoz.
-7. Mozgó átlag trendvonal hozzáadása a 2. sorozathoz.
-8. Polinomiális trendvonal hozzáadása a 3. sorozathoz.
-9. Hatvány trendvonal hozzáadása a 3. sorozathoz.
-10. Írja a módosított prezentációt egy PPTX fájlba.
+Az exponenciális trendvonal elrejti az egyenletét és az R-négyzet értékét a [setDisplayEquation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setDisplayEquation) és a [setDisplayRSquaredValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setDisplayRSquaredValue) segítségével, míg a lineáris trendvonal piros. A logaritmikus trendvonal a [addTextFrameForOverriding](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#addTextFrameForOverriding) metódust használja egy egyéni címkéhez. A mozgóátlag a [setPeriod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setPeriod) három adatpontot és egy egyéni [setTrendlineName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setTrendlineName) beállítást használ.
 
-Az alábbi kód a trendvonalakkal rendelkező diagram létrehozásához használható.
+A polinomiális trendvonal [setOrder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setOrder) értéke három, és egy kategóriával előre nyúlik a [setForward](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setForward) segítségével. A hatványos trendvonal egy kategóriával hátra nyúlik a [setBackward](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setBackward) segítségével.
 
 ```javascript
-// Hozzon létre egy példányt a Presentation osztályból
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Csoportos oszlopdiagram létrehozása
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 400);
-    // Exponenciális trendvonal hozzáadása a diagram 1. sorozatához
-    var tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(aspose.slides.TrendlineType.Exponential);
-    tredLinep.setDisplayEquation(false);
-    tredLinep.setDisplayRSquaredValue(false);
-    // Lineáris trendvonal hozzáadása a diagram 1. sorozatához
-    var tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(aspose.slides.TrendlineType.Linear);
-    tredLineLin.setTrendlineType(aspose.slides.TrendlineType.Linear);
-    tredLineLin.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Logaritmikus trendvonal hozzáadása a diagram 2. sorozatához
-    var tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.Logarithmic);
-    tredLineLog.setTrendlineType(aspose.slides.TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("New log trend line");
-    // Mozgó átlag trendvonal hozzáadása a diagram 2. sorozatához
-    var tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.MovingAverage);
-    tredLineMovAvg.setTrendlineType(aspose.slides.TrendlineType.MovingAverage);
-    tredLineMovAvg.setPeriod(3);
-    tredLineMovAvg.setTrendlineName("New TrendLine Name");
-    // Polinomiális trendvonal hozzáadása a diagram 3. sorozatához
-    var tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(aspose.slides.TrendlineType.Polynomial);
-    tredLinePol.setTrendlineType(aspose.slides.TrendlineType.Polynomial);
-    tredLinePol.setForward(1);
-    tredLinePol.setOrder(3);
-    // Hatvány trendvonal hozzáadása a diagram 3. sorozatához
-    var tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.Power);
-    tredLinePower.setTrendlineType(aspose.slides.TrendlineType.Power);
-    tredLinePower.setBackward(1);
-    // Prezentáció mentése
-    pres.save("ChartTrendLines_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 400);
+
+    const firstSeries = chart.getChartData().getSeries().get_Item(0);
+
+    const exponentialTrendline = firstSeries.getTrendLines().add(aspose.slides.TrendlineType.Exponential);
+    exponentialTrendline.setDisplayEquation(false);
+    exponentialTrendline.setDisplayRSquaredValue(false);
+
+    const linearTrendline = firstSeries.getTrendLines().add(aspose.slides.TrendlineType.Linear);
+    linearTrendline.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    linearTrendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(red);
+
+    const secondSeries = chart.getChartData().getSeries().get_Item(1);
+
+    const logarithmicTrendline = secondSeries.getTrendLines().add(aspose.slides.TrendlineType.Logarithmic);
+    logarithmicTrendline.addTextFrameForOverriding("New log trend line");
+
+    const movingAverageTrendline = secondSeries.getTrendLines().add(aspose.slides.TrendlineType.MovingAverage);
+    movingAverageTrendline.setPeriod(java.newByte(3));
+    movingAverageTrendline.setTrendlineName("New TrendLine Name");
+
+    const thirdSeries = chart.getChartData().getSeries().get_Item(2);
+
+    const polynomialTrendline = thirdSeries.getTrendLines().add(aspose.slides.TrendlineType.Polynomial);
+    polynomialTrendline.setForward(1);
+    polynomialTrendline.setOrder(java.newByte(3));
+
+    const powerTrendline = thirdSeries.getTrendLines().add(aspose.slides.TrendlineType.Power);
+    powerTrendline.setBackward(1);
+
+    presentation.save("ChartTrendLines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Egyéni vonal hozzáadása**
+## **Trendvonal metszéspont beállítása**
 
-Az Aspose.Slides for Node.js via Java egyszerű API‑t biztosít egyedi vonalak diagramhoz való hozzáadásához. Egy egyszerű egyenes vonal hozzáadásához a prezentáció kiválasztott diájához kövesse az alábbi lépéseket:
+Használja a [setIntercept](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#setIntercept) metódust a trendvonal Y értékének X = 0-nál rögzítésére. Ez a beállítás támogatott lineáris, exponenciális és polinomiális trendvonalaknál.
 
-- Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból
-- Szerezze meg egy dia hivatkozását az Index használatával
-- Hozzon létre egy új diagramot a Shapes objektum által biztosított AddChart metódussal
-- Adjon hozzá egy vonal típusú AutoShape‑t a Shapes objektum által biztosított AddAutoShape metódussal
-- Állítsa be a forma vonalainak színét.
-- Írja a módosított prezentációt PPTX fájlként
+Például egy termelési költségmodellnek 100 egység ismert fix költségnél kellene indulnia, még akkor is, ha a nem nulla termelési mennyiségeknél mért adatok más kiindulási értéket sugallnak. Lineáris trendvonal esetén a metszéspont rögzítése korlátozza a `y = ax + b` egyenletet `b = 100`‑ra; a meredekség a megadott feltétel mellett illeszkedik az adatokhoz. Ez nem egyszerűen eltol egy már illesztett vonalat. A tengelykeresztzési beállítások szabályozzák, hogy a diagram tengelyei hol találkoznak, nem pedig a trendvonal együtthatóit.
 
-Az alábbi kód a saját vonalakkal rendelkező diagram létrehozásához használható.
+A következő példa egy szórási (XY) diagramot hoz létre, amely 1‑től 4‑ig terjedő termelési mennyiségeket és 170, 200, 230 és 260 költséget tartalmaz. A diagramot az alapértelmezett automatikus metszésponttal menti, beállítja a metszéspontot 100-ra, és egy második PPTX‑et ment. A két fájl csak a metszéspont beállításában különbözik. A trendvonal megjeleníti az egyenletét, és visszanyúlik X = 0‑ig.
 
 ```javascript
-// Hozzon létre egy példányt a Presentation osztályból
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
-    var shape = chart.getUserShapes().getShapes().addAutoShape(aspose.slides.ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0);
-    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.save("Presentation.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const nameCell = workbook.getCell(0, 0, 1, "Production cost");
+    const series = chart.getChartData().getSeries().add(nameCell, aspose.slides.ChartType.ScatterWithMarkers);
+    const costs = [170, 200, 230, 260];
+
+    for (let i = 0; i < costs.length; i++) {
+        const xCell = workbook.getCell(0, i + 1, 0, i + 1);
+        const yCell = workbook.getCell(0, i + 1, 1, costs[i]);
+        series.getDataPoints().addDataPointForScatterSeries(xCell, yCell);
     }
+
+    const trendline = series.getTrendLines().add(aspose.slides.TrendlineType.Linear);
+    trendline.setDisplayEquation(true);
+    trendline.setBackward(1);
+
+    presentation.save("AutomaticIntercept.pptx", aspose.slides.SaveFormat.Pptx);
+
+    trendline.setIntercept(100);
+    presentation.save("FixedIntercept.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Automatikus számítás esetén ezek az adatok `y = 30x + 140` egyenletet adnak. A metszéspont 100‑ra állítása helyette körülbelül `y = 43.33x + 100` egyenletet ad: a nulla ponton illesztett érték egyezik az ismert kiindulási értékkel, míg a vonal már nem halad át minden adatponton.
+
+| Automatikus metszéspont | Fix metszéspont 100 |
+| --- | --- |
+| ![Lineáris trendvonal automatikusan számított 140-es metszésponttal](intercept-automatic.png) | ![Lineáris trendvonal fix 100-as metszésponttal](intercept-fixed.png) |
+
+Mindkét kép ugyanazokat az adatokat és tengelyskálákat használja. A trendvonalak visszanyúlnak X = 0‑ig, hogy megmutassák metszéspontjaikat.
+
+Alapértelmezés szerint a [getIntercept](https://reference.aspose.com/slides/nodejs-java/aspose.slides/trendline/#getIntercept) `NaN` értéket ad vissza, ami nem meghatározott metszéspontot jelent, nem pedig nullát. Ezután a metszéspontot az adatokból számítja ki automatikusan.
+
+## **Egyéni vonal hozzáadása**
+
+Az egyéni vonal egy alakzat, amely a diagram felett van rajzolva, nem pedig a sorozatadatokból számított trendvonal. Ez a példa a [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addAutoShape) metódust használja egy vízszintes vonal hozzáadásához a diára a diagram felett. A vonal pozíciója a dia koordinátáiban, pontokban van megadva, így a diagram bal szélén kezdődik, és a diagram feléig helyezkedik el. Szélessége megegyezik a diagram szélességével. A [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) szilárd piros színt ad a vonalnak.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const red = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+    const line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0);
+    line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(red);
+
+    presentation.save("AddCustomLines.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
@@ -118,8 +167,8 @@ try {
 
 **Mit jelent a 'forward' és a 'backward' egy trendvonal esetén?**
 
-A trendvonal előre/hátra vetített hossza: pontfelhő (XY) diagramok esetén – tengelyegységekben; nem pontfelhő diagramok esetén – kategóriák számban. Csak nem negatív értékek megengedettek.
+Ezek a trendvonal előre/vissza kiterjesztett hosszát jelentik: szórási (XY) diagramok esetén tengelyegységekben; nem-szórási diagramok esetén kategóriák számában. Csak nem negatív értékek engedélyezettek.
 
-**Megmarad a trendvonal a prezentáció PDF vagy SVG exportálásakor, vagy a diák képként történő renderelésekor?**
+**Megmarad-e a trendvonal, amikor a prezentációt PDF‑be vagy SVG‑be exportálják, illetve amikor egy diát képként renderelik?**
 
-Igen. Az Aspose.Slides konvertálja a prezentációkat [PDF](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/)/[SVG](/slides/hu/nodejs-java/render-a-slide-as-an-svg-image/) formátumra, és a diagramokat képekké rendereli; a trendvonalak, mint a diagram részei, megmaradnak ezek során. Emellett elérhető egy módszer a diagram [képként való exportálásához](/slides/hu/nodejs-java/create-shape-thumbnails/).
+Igen. Az Aspose.Slides a prezentációkat [PDF](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) vagy [SVG](/slides/hu/nodejs-java/render-a-slide-as-an-svg-image/) formátumba konvertálja, és a diagramokat képekké rendereli; a trendvonalak a diagram részeként megmaradnak ezeknél a műveleteknél. Egy módszer is elérhető a diagram [képének exportálására](/slides/hu/nodejs-java/create-shape-thumbnails/).

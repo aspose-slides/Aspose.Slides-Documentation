@@ -17,106 +17,163 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "به سرعت خطوط روند را در نمودارهای PowerPoint با Aspose.Slides برای PHP از طریق Java اضافه و سفارشی کنید — راهنمای عملی برای جذب مخاطبان شما."
+description: "به‌سرعت خطوط روند را در نمودارهای PowerPoint با Aspose.Slides برای PHP از طریق Java اضافه و سفارشی کنید — راهنمایی عملی برای جذب مخاطبان شما."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-این مقاله توضیح می‌دهد چگونه می‌توان خطوط روند را به نمودارهای ارائه با استفاده از Aspose.Slides اضافه کرد. این مقاله نشان می‌دهد چگونه یک نمودار ایجاد کنید، خطوط روند را به سری‌های نمودار اضافه کنید و با چندین نوع خط روند کار کنید، از جمله نمایی، خطی، لگاریتمی، میانگین متحرک، چندجمله‌ای و توان.
+این مقاله توضیح می‌دهد که چگونه با استفاده از Aspose.Slides خطوط روند را به نمودارهای ارائه اضافه کنید. نشان می‌دهد چگونه یک نمودار ایجاد کرده، خطوط روند را به سری‌های نمودار اضافه کنید و با انواع مختلف خطوط روند کار کنید، از جمله نمایی، خطی، لگاریتمی، میانگین متحرک، چندجمله‌ای و توان.
 
-همچنین توضیح می‌دهد چگونه می‌توان یک خط سفارشی به نمودار اضافه کرد با وارد کردن یک شکل خطی، و شامل سؤالات متداول کوتاهی درباره مقادیر پیش‌بینی شده خط روند به سمت جلو و عقب و این که آیا خطوط روند هنگام صادرات به PDF یا SVG یا رندر نمودارها به عنوان تصویر حفظ می‌شوند یا نه.
+همچنین توصیف می‌کند چگونه با درج یک شکل خطی، یک خط سفارشی به نمودار اضافه کنید و شامل یک بخش پرسش‌های متداول کوتاه درباره مقادیر پیش‌بینی خط روند به سمت جلو و عقب و این که آیا خطوط روند در هنگام خروجی به PDF یا SVG و هنگام رندر نمودارها به عنوان تصویر حفظ می‌شوند یا نه، می‌باشد.
 
 ## **افزودن خط روند**
-Aspose.Slides برای PHP از طریق Java یک API ساده برای مدیریت خطوط روند نمودارهای مختلف ارائه می‌دهد:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسلاید را بر اساس اندیس آن به دست آورید.
-3. یک نمودار با داده‌های پیش‌فرض به همراه هر نوع دلخواه (در این مثال از ChartType::ClusteredColumn استفاده می‌شود) اضافه کنید.
-4. خط روند نمایی را برای سری 1 نمودار اضافه کنید.
-5. خط روند خطی را برای سری 1 نمودار اضافه کنید.
-6. خط روند لگاریتمی را برای سری 2 نمودار اضافه کنید.
-7. خط روند میانگین متحرک را برای سری 2 نمودار اضافه کنید.
-8. خط روند چندجمله‌ای را برای سری 3 نمودار اضافه کنید.
-9. خط روند توان را برای سری 3 نمودار اضافه کنید.
-10. نمایشنامه تغییر یافته را به یک فایل PPTX بنویسید.
+از [TrendlineCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinecollection/add/) برای افزودن خط روند به یک سری نمودار استفاده کنید و نوع آن را با [TrendlineType](https://reference.aspose.com/slides/php-java/aspose.slides/trendlinetype/) انتخاب کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض ایجاد می‌کند و دو خط روند به هر کدام از سه سری آن اضافه می‌کند.
 
-کد زیر برای ایجاد یک نمودار با خطوط روند استفاده می‌شود.
+خط روند نمایی معادله و مقدار R‑squared خود را از طریق [setDisplayEquation](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayequation/) و [setDisplayRSquaredValue](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setdisplayrsquaredvalue/) مخفی می‌کند، در حالی که خط روند خطی به رنگ قرمز است. خط روند لگاریتمی از [addTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/addtextframeforoverriding/) برای برچسب سفارشی استفاده می‌کند. میانگین متحرک از یک [setPeriod](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setperiod/) سه نقطه داده‌ای و یک [setTrendlineName](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/settrendlinename/) سفارشی بهره می‌برد.
+
+خط روند چندجمله‌ای دارای مرتبه سه است که از طریق [setOrder](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setorder/) تنظیم می‌شود و یک دسته به سمت جلو گسترش می‌یابد با [setForward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setforward/). خط روند توان یک دسته به سمت عقب گسترش می‌یابد با [setBackward](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setbackward/).
 
 ```php
-  # ایجاد یک نمونه از کلاس Presentation
-  $pres = new Presentation();
-  try {
-    # ایجاد یک نمودار ستونی خوشه‌ای
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
-    # افزودن خط روند نمایی برای سری 1 نمودار
-    $tredLinep = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Exponential);
-    $tredLinep->setDisplayEquation(false);
-    $tredLinep->setDisplayRSquaredValue(false);
-    # افزودن خط روند خطی برای سری 1 نمودار
-    $tredLineLin = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Linear);
-    $tredLineLin->setTrendlineType(TrendlineType::Linear);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # افزودن خط روند لگاریتمی برای سری 2 نمودار
-    $tredLineLog = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Logarithmic);
-    $tredLineLog->setTrendlineType(TrendlineType::Logarithmic);
-    $tredLineLog->addTextFrameForOverriding("New log trend line");
-    # افزودن خط روند میانگین متحرک برای سری 2 نمودار
-    $tredLineMovAvg = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setTrendlineType(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setPeriod(3);
-    $tredLineMovAvg->setTrendlineName("New TrendLine Name");
-    # افزودن خط روند چندجمله‌ای برای سری 3 نمودار
-    $tredLinePol = $chart->getChartData()->getSeries()->get_Item(2)->getTrendLines()->add(TrendlineType::Polynomial);
-    $tredLinePol->setTrendlineType(TrendlineType::Polynomial);
-    $tredLinePol->setForward(1);
-    $tredLinePol->setOrder(3);
-    # افزودن خط روند توان برای سری 3 نمودار
-    $tredLinePower = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Power);
-    $tredLinePower->setTrendlineType(TrendlineType::Power);
-    $tredLinePower->setBackward(1);
-    # ذخیره‌سازی ارائه
-    $pres->save("ChartTrendLines_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
+
+    $firstSeries = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $exponentialTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Exponential);
+    $exponentialTrendline->setDisplayEquation(false);
+    $exponentialTrendline->setDisplayRSquaredValue(false);
+
+    $linearTrendline = $firstSeries->getTrendLines()->add(TrendlineType::Linear);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $linearTrendline->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $secondSeries = $chart->getChartData()->getSeries()->get_Item(1);
+
+    $logarithmicTrendline = $secondSeries->getTrendLines()->add(TrendlineType::Logarithmic);
+    $logarithmicTrendline->addTextFrameForOverriding("New log trend line");
+
+    $movingAverageTrendline = $secondSeries->getTrendLines()->add(TrendlineType::MovingAverage);
+    $movingAverageTrendline->setPeriod(3);
+    $movingAverageTrendline->setTrendlineName("New TrendLine Name");
+
+    $thirdSeries = $chart->getChartData()->getSeries()->get_Item(2);
+
+    $polynomialTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Polynomial);
+    $polynomialTrendline->setForward(1);
+    $polynomialTrendline->setOrder(3);
+
+    $powerTrendline = $thirdSeries->getTrendLines()->add(TrendlineType::Power);
+    $powerTrendline->setBackward(1);
+
+    $presentation->save("ChartTrendLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **تنظیم مقطع خط روند**
+
+از [setIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/setintercept/) برای ثابت کردن مقدار Y خط روند در X = 0 استفاده کنید. این تنظیم برای خطوط روند خطی، نمایی و چندجمله‌ای پشتیبانی می‌شود.
+
+به عنوان مثال، یک مدل هزینه تولید ممکن است نیاز داشته باشد که از هزینه‌های ثابت شناخته‌شده 100 شروع شود، حتی وقتی اندازه‌گیری‌ها در حجم‌های تولید غیر صفر مبنای متفاوتی نشان می‌دهند. برای یک خط روند خطی، ثابت کردن مقطع معادله `y = ax + b` را به `b = 100` محدود می‌کند؛ شیب تحت این محدودیت به داده‌ها سازگار می‌شود. این کار به سادگی یک خط قبلاً سازگارشده را جابه‌جا نمی‌کند. تنظیمات عبور محور، مکان تقاطع محورهای نمودار را کنترل می‌کند، نه ضریب‌های خط روند سازگارشده.
+
+مثال زیر یک نمودار پراکنده (XY) با حجم‌های تولید از 1 تا 4 و هزینه‌های 170، 200، 230 و 260 ایجاد می‌کند. نمودار را با مقطع خودکار پیش‌فرض ذخیره می‌کند، مقطع را به 100 تنظیم می‌کند و یک فایل PPTX دوم ذخیره می‌کند. دو فایل تنها در تنظیم مقطع متفاوت هستند. خط روند معادله خود را نمایش می‌دهد و به X = 0 بازمی‌گردد.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\TrendlineType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithMarkers, 20, 20, 480, 210);
+    $chart->setLegend(false);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $nameCell = $workbook->getCell(0, 0, 1, "Production cost");
+    $series = $chart->getChartData()->getSeries()->add($nameCell, ChartType::ScatterWithMarkers);
+    $costs = [170, 200, 230, 260];
+
+    for ($i = 0; $i < count($costs); $i++) {
+        $xCell = $workbook->getCell(0, $i + 1, 0, $i + 1);
+        $yCell = $workbook->getCell(0, $i + 1, 1, $costs[$i]);
+        $series->getDataPoints()->addDataPointForScatterSeries($xCell, $yCell);
+    }
+
+    $trendline = $series->getTrendLines()->add(TrendlineType::Linear);
+    $trendline->setDisplayEquation(true);
+    $trendline->setBackward(1);
+
+    $presentation->save("AutomaticIntercept.pptx", SaveFormat::Pptx);
+
+    $trendline->setIntercept(100);
+    $presentation->save("FixedIntercept.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+با محاسبه خودکار، این داده‌ها `y = 30x + 140` را تولید می‌کنند. تنظیم مقطع به 100 به‌جای آن تقریباً `y = 43.33x + 100` می‌شود: مقدار سازگارشده در صفر با مبنای شناخته‌شده مطابقت دارد، در حالی که خط دیگر از هر نقطه داده عبور نمی‌کند.
+
+| مقطع خودکار | مقطع ثابت 100 |
+| --- | --- |
+| ![خط روند خطی با یک مقطع محاسبه‌شده خودکار 140](intercept-automatic.png) | ![خط روند خطی با یک مقطع ثابت 100](intercept-fixed.png) |
+
+هر دو تصویر از داده‌ها و مقیاس‌های محور یکسان استفاده می‌کنند. خطوط روند به X = 0 گسترش یافته‌اند تا مقاطع خود را نشان دهند.
+
+به‌صورت پیش‌فرض، [getIntercept](https://reference.aspose.com/slides/php-java/aspose.slides/trendline/getintercept/) مقدار `NaN` را برمی‌گرداند که نمایانگر مقطع نامشخص است نه صفر. سپس مقطع به‌صورت خودکار از داده‌ها محاسبه می‌شود.
 
 ## **افزودن خط سفارشی**
-Aspose.Slides برای PHP از طریق Java یک API ساده برای افزودن خطوط سفارشی به یک نمودار فراهم می‌کند. برای افزودن یک خط ساده به اسلاید انتخابی ارائه، لطفاً مراحل زیر را دنبال کنید:
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید
-- مرجع یک اسلاید را با استفاده از Index آن به دست آورید
-- یک نمودار جدید با استفاده از متد AddChart که توسط شیء Shapes ارائه می‌شود ایجاد کنید
-- یک AutoShape از نوع خط را با استفاده از متد AddAutoShape که توسط شیء Shapes ارائه می‌شود اضافه کنید
-- رنگ خطوط شکل را تنظیم کنید.
-- نمایشنامه تغییر یافته را به عنوان فایل PPTX بنویسید
-
-کد زیر برای ایجاد یک نمودار با خطوط سفارشی استفاده می‌شود.
+یک خط سفارشی شکلی است که بر روی نمودار رسم می‌شود نه یک خط روند محاسبه‌شده از داده‌های سری. این مثال از [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addautoshape/) برای افزودن یک خط افقی به اسلاید بالای نمودار استفاده می‌کند. موقعیت خط در مختصات اسلاید، به‌پویین اندازه‌گیری می‌شود، بنابراین از لبه چپ نمودار شروع می‌شود و تا نیمه ارتفاع نمودار می‌افتد. عرض آن با عرض نمودار منطبق است. [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) به خط یک رنگ قرمز پیوسته می‌دهد.
 
 ```php
-  # ایجاد یک نمونه از کلاس Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
-    $shape = $chart->getUserShapes()->getShapes()->addAutoShape(ShapeType::Line, 0, $chart->getHeight() / 2, $chart->getWidth(), 0);
-    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("Presentation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\ShapeType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+
+    $lineY = java_values($chart->getY()) + java_values($chart->getHeight()) / 2;
+    $line = $slide->getShapes()->addAutoShape(ShapeType::Line, $chart->getX(), $lineY, $chart->getWidth(), 0);
+    $line->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $line->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+
+    $presentation->save("AddCustomLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
-**'forward' و 'backward' در رابطه با خط روند چه معنایی دارند؟**
+**«پیشرو» و «پسرو» برای یک خط روند چه معنایی دارند؟**
 
-اینها طول‌های خط روند هستند که به سمت جلو/عقب پیش‌بینی می‌شوند: برای نمودارهای پراکندگی (XY) — به واحدهای محور؛ برای نمودارهای غیرپراکندگی — به تعداد دسته‌ها. فقط مقادیر غیرمنفی مجاز هستند.
+آنها طول‌های خط روند هستند که به‌صورت پیشرو/پسرو پروجکشن می‌شوند: برای نمودارهای پراکنده (XY) — به‌واحدهای محور؛ برای نمودارهای غیرپراکنده — به‌تعداد دسته‌ها. فقط مقادیر غیر منفی مجاز هستند.
 
-**آیا خط روند هنگام صادرات ارائه به PDF یا SVG، یا هنگام رندر یک اسلاید به تصویر حفظ می‌شود؟**
+**آیا خط روند هنگام خروجی ارائه به PDF یا SVG یا هنگام رندر اسلاید به تصویر حفظ می‌شود؟**
 
-بله. Aspose.Slides ارائه‌ها را به [PDF](/slides/fa/php-java/convert-powerpoint-to-pdf/)/[SVG](/slides/fa/php-java/render-a-slide-as-an-svg-image/) تبدیل می‌کند و نمودارها را به تصاویر رندر می‌کند؛ خطوط روند، به عنوان بخشی از نمودار، در طول این عملیات حفظ می‌شوند. همچنین روشی برای [export an image of the chart](/slides/fa/php-java/create-shape-thumbnails/) موجود است.
+بله. Aspose.Slides ارائه‌ها را به [PDF](/slides/fa/php-java/convert-powerpoint-to-pdf/) یا [SVG](/slides/fa/php-java/render-a-slide-as-an-svg-image/) تبدیل می‌کند و نمودارها را به تصویر رندر می‌کند؛ خطوط روند، به‌عنوان بخشی از نمودار، در این عملیات‌ها حفظ می‌شوند. همچنین روشی برای [صدور تصویر نمودار](/slides/fa/php-java/create-shape-thumbnails/) وجود دارد.

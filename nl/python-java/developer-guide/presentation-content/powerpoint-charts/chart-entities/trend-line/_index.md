@@ -1,15 +1,15 @@
 ---
-title: Trendlijnen toevoegen aan presentatiediagrammen in Python
+title: Trendlijnen toevoegen aan presentatiegrafieken in Python
 linktitle: Trendlijn
 type: docs
 url: /nl/python-java/trend-line/
 keywords:
-- diagram
+- grafiek
 - trendlijn
 - exponentiële trendlijn
 - lineaire trendlijn
 - logaritmische trendlijn
-- voortschrijdende gemiddelde trendlijn
+- trendlijn met voortschrijdend gemiddelde
 - polynomiale trendlijn
 - machts trendlijn
 - aangepaste trendlijn
@@ -18,30 +18,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Voeg snel trendlijnen toe aan PowerPoint‑diagrammen en pas ze aan met Aspose.Slides voor Python via Java — een praktische gids om uw publiek te boeien."
+description: "Voeg snel trendlijnen toe en pas ze aan in PowerPoint‑grafieken met Aspose.Slides voor Python via Java — een praktische gids om uw publiek te boeien."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u trendlijnen kunt toevoegen aan presentatiediagrammen met behulp van Aspose.Slides. Het laat zien hoe u een diagram maakt, trendlijnen toevoegt aan diagramreeksen, en werkt met verschillende trendlijntypen, waaronder exponentieel, lineair, logaritmisch, voortschrijdend gemiddelde, polynoom en macht.
+Dit artikel legt uit hoe je trendlijnen kunt toevoegen aan presentatiegrafieken met Aspose.Slides. Het laat zien hoe je een grafiek maakt, trendlijnen toevoegt aan grafiekseries, en werkt met verschillende trendlinietypen, waaronder exponentiële, lineaire, logaritmische, bewegend gemiddelde, polynomiale en machts.
 
-Het beschrijft ook hoe u een aangepaste lijn aan een diagram kunt toevoegen door een lijnvorm in te voegen, en bevat een korte FAQ over de waarden voor vooruit- en achterwaartse projectie van trendlijnen en of trendlijnen behouden blijven bij export naar PDF of SVG en bij het renderen van diagrammen als afbeeldingen.
+Het beschrijft ook hoe je een aangepaste lijn aan een grafiek toevoegt door een vorm toe te voegen, en bevat een korte FAQ over de projectiewaarden ‘forward’ en ‘backward’ van een trendlijn en of trendlijnen behouden blijven bij export naar PDF of SVG en bij het renderen van grafieken als afbeeldingen.
 
 ## **Trendlijn toevoegen**
 
-Aspose.Slides for Python via Java biedt een eenvoudige API voor het beheren van verschillende trendlijnen in diagrammen:
+Gebruik [TrendlineCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinecollection/#add) om een trendlijn toe te voegen aan een grafiekserie, waarbij het type wordt geselecteerd met [TrendlineType](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinetype/). Het voorbeeld maakt een gegroepeerde kolomgrafiek met standaardgegevens en voegt twee trendlijnen toe aan elk van de drie series.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
-2. Verkrijg een referentie naar een dia op basis van de index.
-3. Voeg een diagram toe met standaardgegevens en het gewenste type (in dit voorbeeld wordt [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nl/python-java/aspose.slides/charttype/#ClusteredColumn) gebruikt).
-4. Voeg een exponentiële trendlijn toe aan diagramreeks 1.
-5. Voeg een lineaire trendlijn toe aan diagramreeks 1.
-6. Voeg een logaritmische trendlijn toe aan diagramreeks 2.
-7. Voeg een trendlijn voor voortschrijdend gemiddelde toe aan diagramreeks 2.
-8. Voeg een polynomiale trendlijn toe aan diagramreeks 3.
-9. Voeg een machts‑trendlijn toe aan diagramreeks 3.
-10. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
+De exponentiële trendlijn verbergt zijn vergelijking en R‑kwadraat‑waarde via [setDisplayEquation](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayEquation) en [setDisplayRSquaredValue](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayRSquaredValue), terwijl de lineaire trendlijn rood is. De logaritmische trendlijn gebruikt [addTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#addTextFrameForOverriding) voor een aangepast label. Het bewegende gemiddelde gebruikt een [setPeriod](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setPeriod) van drie gegevenspunten en een aangepaste [setTrendlineName](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setTrendlineName).
 
-De volgende code maakt een diagram met trendlijnen.
+De polynomiale trendlijn heeft een orde van drie, ingesteld via [setOrder](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setOrder), en breidt één categorie vooruit uit via [setForward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setForward). De machts‑trendlijn breidt één categorie terug uit via [setBackward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setBackward).
 
 ```python
 import jpype
@@ -53,63 +44,109 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, TrendlineType
 from java.awt import Color
 
-# Maak een instantie van de Presentation-klasse.
 presentation = Presentation()
 try:
-    # Maak een gegroepeerde kolomdiagram.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Voeg een exponentiële trendlijn toe aan diagramreeks 1.
-    exponential_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential)
-    exponential_trend_line.setDisplayEquation(False)
-    exponential_trend_line.setDisplayRSquaredValue(False)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
 
-    # Voeg een lineaire trendlijn toe aan diagramreeks 1.
-    linear_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear)
-    linear_trend_line.setTrendlineType(TrendlineType.Linear)
-    linear_trend_line.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    linear_trend_line.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    first_series = chart.getChartData().getSeries().get_Item(0)
 
-    # Voeg een logaritmische trendlijn toe aan diagramreeks 2.
-    logarithmic_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic)
-    logarithmic_trend_line.setTrendlineType(TrendlineType.Logarithmic)
-    logarithmic_trend_line.addTextFrameForOverriding("New log trend line")
+    exponential_trendline = first_series.getTrendLines().add(TrendlineType.Exponential)
+    exponential_trendline.setDisplayEquation(False)
+    exponential_trendline.setDisplayRSquaredValue(False)
 
-    # Voeg een trendlijn voor voortschrijdend gemiddelde toe aan diagramreeks 2.
-    moving_average_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage)
-    moving_average_trend_line.setTrendlineType(TrendlineType.MovingAverage)
-    moving_average_trend_line.setPeriod(jpype.JByte(3))
-    moving_average_trend_line.setTrendlineName("New TrendLine Name")
+    linear_trendline = first_series.getTrendLines().add(TrendlineType.Linear)
+    linear_trendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    linear_trendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # Voeg een polynomiale trendlijn toe aan diagramreeks 3.
-    polynomial_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial)
-    polynomial_trend_line.setTrendlineType(TrendlineType.Polynomial)
-    polynomial_trend_line.setForward(1)
-    polynomial_trend_line.setOrder(jpype.JByte(3))
+    second_series = chart.getChartData().getSeries().get_Item(1)
 
-    # Voeg een machts trendlijn toe aan diagramreeks 3.
-    power_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Power)
-    power_trend_line.setTrendlineType(TrendlineType.Power)
-    power_trend_line.setBackward(1)
+    logarithmic_trendline = second_series.getTrendLines().add(TrendlineType.Logarithmic)
+    logarithmic_trendline.addTextFrameForOverriding("New log trend line")
 
-    # Sla de presentatie op.
-    presentation.save("ChartTrendLines_out.pptx", SaveFormat.Pptx)
+    moving_average_trendline = second_series.getTrendLines().add(TrendlineType.MovingAverage)
+    moving_average_trendline.setPeriod(jpype.JByte(3))
+    moving_average_trendline.setTrendlineName("New TrendLine Name")
+
+    third_series = chart.getChartData().getSeries().get_Item(2)
+
+    polynomial_trendline = third_series.getTrendLines().add(TrendlineType.Polynomial)
+    polynomial_trendline.setForward(1)
+    polynomial_trendline.setOrder(jpype.JByte(3))
+
+    power_trendline = third_series.getTrendLines().add(TrendlineType.Power)
+    power_trendline.setBackward(1)
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Intercept van een trendlijn instellen**
+
+Gebruik [setIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setIntercept) om de Y‑waarde van een trendlijn te fixeren bij X = 0. Deze instelling wordt ondersteund voor lineaire, exponentiële en polynomiale trendlijnen.
+
+Bijvoorbeeld, een productiekostmodel moet mogelijk beginnen met bekende vaste kosten van 100, zelfs wanneer metingen bij niet‑nul productievolumes een andere basislijn suggereren. Voor een lineaire trendlijn dwingt het fixeren van de intercept de vergelijking `y = ax + b` tot `b = 100`; de helling wordt dan passend gemaakt aan de gegevens onder die beperking. Het verplaatst niet simpelweg een reeds passende lijn. Instellingen voor het kruisen van assen bepalen waar de assen van de grafiek elkaar ontmoeten, niet de coëfficiënten van de aangepaste trendlijn.
+
+Het volgende voorbeeld maakt een spreidings‑ (XY‑)grafiek met productievolumes van 1 tot 4 en kosten van 170, 200, 230 en 260. Het slaat de grafiek op met de standaard automatische intercept, stelt de intercept in op 100, en slaat een tweede PPTX op. De twee bestanden verschillen alleen in de intercept‑instelling. De trendlijn toont zijn vergelijking en strekt zich uit tot X = 0.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat, TrendlineType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    name_cell = workbook.getCell(0, 0, 1, "Production cost")
+    series = chart.getChartData().getSeries().add(name_cell, ChartType.ScatterWithMarkers)
+    costs = [170, 200, 230, 260]
+
+    for i in range(len(costs)):
+        x_cell = workbook.getCell(0, i + 1, 0, i + 1)
+        y_cell = workbook.getCell(0, i + 1, 1, costs[i])
+        series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+
+    trendline = series.getTrendLines().add(TrendlineType.Linear)
+    trendline.setDisplayEquation(True)
+    trendline.setBackward(1)
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx)
+
+    trendline.setIntercept(100)
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Met automatische berekening leveren deze gegevens `y = 30x + 140` op. Het instellen van de intercept op 100 in plaats daarvan levert ongeveer `y = 43.33x + 100` op: de aangepaste waarde bij nul komt overeen met de bekende basislijn, terwijl de lijn niet langer door elk gegevenspunt gaat.
+
+| Automatische intercept | Vaste intercept van 100 |
+| --- | --- |
+| ![Lineaire trendlijn met een automatisch berekende intercept van 140](intercept-automatic.png) | ![Lineaire trendlijn met een vaste intercept van 100](intercept-fixed.png) |
+
+Beide afbeeldingen gebruiken dezelfde gegevens en as‑schalen. De trendlijnen worden terug uitgerekt tot X = 0 om hun intercepten te tonen.
+
+Standaard retourneert [getIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#getIntercept) `NaN`, wat een niet‑gespecificeerde intercept aanduidt in plaats van nul. De intercept wordt vervolgens automatisch berekend uit de gegevens.
+
 ## **Aangepaste lijn toevoegen**
 
-Aspose.Slides for Python via Java biedt een eenvoudige API om aangepaste lijnen aan een diagram toe te voegen. Om een eenvoudige lijn aan een diagram op een geselecteerde dia toe te voegen, volgt u deze stappen:
-
-- Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
-- Verkrijg een referentie naar een dia op basis van de index.
-- Maak een nieuw diagram met behulp van de [addChart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/#addChart) methode van de [ShapeCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/) klasse.
-- Voeg een lijnvorm toe met de [addAutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/#addAutoShape) methode en [ShapeType.Line](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapetype/#Line).
-- Stel de kleur van de lijn van de vorm in.
-- Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
-
-De volgende code maakt een diagram met een aangepaste lijn.
+Een aangepaste lijn is een vorm die over de grafiek wordt getekend in plaats van een trendlijn die wordt berekend uit seriedata. Dit voorbeeld gebruikt [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) om een horizontale lijn toe te voegen aan de dia boven de grafiek. De positie van de lijn wordt opgegeven in dia‑coördinaten, gemeten in points, zodat hij begint bij de linkerrand van de grafiek en halverwege de grafiek ligt. De breedte komt overeen met de breedte van de grafiek. De methode [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) geeft toegang tot de lijnopmaak die wordt gebruikt om een effen rode kleur toe te passen.
 
 ```python
 import jpype
@@ -121,16 +158,17 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Maak een instantie van de Presentation-klasse.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
-    shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0)
+    slide = presentation.getSlides().get_Item(0)
 
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
 
-    presentation.save("Presentation.pptx", SaveFormat.Pptx)
+    line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0)
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
@@ -139,8 +177,8 @@ finally:
 
 **Wat betekenen 'forward' en 'backward' voor een trendlijn?**
 
-Dit zijn de lengtes van de trendlijn die vooruit of achteruit worden geprojecteerd: bij spreidings‑ (XY‑) diagrammen worden ze gemeten in as‑eenheden; bij niet‑spreidings diagrammen worden ze gemeten in het aantal categorieën. Alleen niet‑negatieve waarden zijn toegestaan.
+Het zijn de lengtes van de trendlijn die naar voren/achteren worden geprojecteerd: voor spreidings‑ (XY‑)grafieken — in as‑eenheden; voor niet‑spreidingsgrafieken — in aantal categorieën. Alleen niet‑negatieve waarden zijn toegestaan.
 
-**Wordt de trendlijn behouden bij het exporteren van de presentatie naar PDF of SVG, of bij het renderen van een dia als afbeelding?**
+**Wordt de trendlijn behouden bij het exporteren van de presentatie naar PDF of SVG, of bij het renderen van een dia naar een afbeelding?**
 
-Ja. Aspose.Slides converteert presentaties naar [PDF](/slides/nl/python-java/convert-powerpoint-to-pdf/)/[SVG](/slides/nl/python-java/render-a-slide-as-an-svg-image/) en rendert diagrammen naar afbeeldingen; trendlijnen, als onderdeel van het diagram, worden behouden tijdens deze bewerkingen. Er is ook een methode beschikbaar om een afbeelding van het diagram zelf te [exporteren](/slides/nl/python-java/create-shape-thumbnails/).
+Ja. Aspose.Slides zet presentaties om naar [PDF](/slides/nl/python-java/convert-powerpoint-to-pdf/) of [SVG](/slides/nl/python-java/render-a-slide-as-an-svg-image/) en rendert grafieken naar afbeeldingen; trendlijnen, als onderdeel van de grafiek, blijven behouden tijdens deze bewerkingen. Er is ook een methode beschikbaar om een afbeelding van de grafiek zelf [een afbeelding van de grafiek exporteren](/slides/nl/python-java/create-shape-thumbnails/).

@@ -1,123 +1,165 @@
 ---
-title: Menambahkan Garis Tren ke Bagan Presentasi di .NET
+title: Menambahkan Garis Tren ke Diagram Presentasi di .NET
 linktitle: Garis Tren
 type: docs
 url: /id/net/trend-line/
 keywords:
-- bagan
+- diagram
 - garis tren
 - garis tren eksponensial
 - garis tren linear
 - garis tren logaritmik
-- garis tren rata-rata bergerak
+- garis tren rata‑rata bergerak
 - garis tren polinomial
 - garis tren pangkat
-- garis tren kustom
+- garis tren khusus
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Tambahkan dan sesuaikan garis tren pada bagan PowerPoint dengan Aspose.Slides untuk .NET secara cepat — panduan praktis untuk melibatkan audiens Anda."
+description: "Tambahkan dan sesuaikan garis tren dengan cepat dalam diagram PowerPoint menggunakan Aspose.Slides untuk .NET — panduan praktis untuk menarik perhatian audiens Anda."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini menjelaskan cara menambahkan garis tren ke bagan presentasi dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara membuat bagan, menambahkan garis tren ke seri bagan, dan bekerja dengan beberapa jenis garis tren, termasuk eksponensial, linear, logaritmik, rata‑rata bergerak, polinomial, dan pangkat.
+Artikel ini menjelaskan cara menambahkan garis tren ke diagram presentasi dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara membuat diagram, menambahkan garis tren ke seri diagram, dan bekerja dengan beberapa jenis garis tren, termasuk eksponensial, linear, logaritmik, rata‑rata bergerak, polinomial, dan pangkat.
 
-Artikel ini juga menjelaskan cara menambahkan garis kustom ke bagan dengan menyisipkan bentuk garis, dan menyertakan FAQ singkat tentang nilai proyeksi garis tren maju dan mundur serta apakah garis tren dipertahankan saat mengekspor ke PDF atau SVG dan saat merender bagan sebagai gambar.
+Artikel ini juga menjelaskan cara menambahkan garis khusus ke diagram dengan menyisipkan bentuk garis, serta menyertakan FAQ singkat tentang nilai proyeksi garis tren ke depan dan ke belakang serta apakah garis tren dipertahankan saat mengekspor ke PDF atau SVG dan saat merender diagram sebagai gambar.
 
 ## **Menambahkan Garis Tren**
-Aspose.Slides for .NET menyediakan API sederhana untuk mengelola berbagai Garis Tren Bagan:
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-1. Dapatkan referensi slide berdasarkan indeksnya.
-1. Tambahkan bagan dengan data default beserta tipe yang diinginkan (contoh ini menggunakan ChartType.ClusteredColumn).
-1. Menambahkan garis tren eksponensial untuk seri bagan 1.
-1. Menambahkan garis tren linear untuk seri bagan 1.
-1. Menambahkan garis tren logaritmik untuk seri bagan 2.
-1. Menambahkan garis tren rata‑rata bergerak untuk seri bagan 2.
-1. Menambahkan garis tren polinomial untuk seri bagan 3.
-1. Menambahkan garis tren pangkat untuk seri bagan 3.
-1. Tulis presentasi yang telah dimodifikasi ke file PPTX.
+Gunakan [ITrendlineCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendlinecollection/add/) untuk menambahkan garis tren ke seri diagram, memilih jenisnya dengan [TrendlineType](https://reference.aspose.com/slides/net/aspose.slides.charts/trendlinetype/). Contoh ini membuat diagram kolom berkelompok dengan data default dan menambahkan dua garis tren ke masing‑masing dari tiga serinya.
 
-Kode berikut digunakan untuk membuat bagan dengan Garis Tren.
+Garis tren eksponensial menyembunyikan persamaan dan nilai R‑squared melalui [DisplayEquation](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayequation/) dan [DisplayRSquaredValue](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/displayrsquaredvalue/), sementara garis tren linear berwarna merah. Garis tren logaritmik menggunakan [AddTextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/addtextframeforoverriding/) untuk label khusus. Rata‑rata bergerak menggunakan [Period](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/period/) tiga titik data dan [TrendlineName](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/trendlinename/) khusus.
 
-```c#
-// Membuat presentasi kosong
-Presentation pres = new Presentation();
+Garis tren polinomial memiliki [Order](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/order/) tiga dan memperluas satu kategori ke depan melalui [Forward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/forward/). Garis tren pangkat memperluas satu kategori ke belakang melalui [Backward](https://reference.aspose.com/slides/net/aspose.slides.charts/itrendline/backward/).
 
-// Membuat bagan kolom berkelompok
-IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Menambahkan garis tren eksponensial untuk seri bagan 1
-ITrendline tredLinep = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Exponential);
-tredLinep.DisplayEquation = false;
-tredLinep.DisplayRSquaredValue = false;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Menambahkan garis tren linear untuk seri bagan 1
-ITrendline tredLineLin = chart.ChartData.Series[0].TrendLines.Add(TrendlineType.Linear);
-tredLineLin.TrendlineType = TrendlineType.Linear;
-tredLineLin.Format.Line.FillFormat.FillType = FillType.Solid;
-tredLineLin.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
 
+var firstSeries = chart.ChartData.Series[0];
 
-// Menambahkan garis tren logaritmik untuk seri bagan 2
-ITrendline tredLineLog = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Logarithmic);
-tredLineLog.TrendlineType = TrendlineType.Logarithmic;
-tredLineLog.AddTextFrameForOverriding("New log trend line");
+var exponentialTrendline = firstSeries.TrendLines.Add(TrendlineType.Exponential);
+exponentialTrendline.DisplayEquation = false;
+exponentialTrendline.DisplayRSquaredValue = false;
 
-// Menambahkan garis tren rata‑rata bergerak untuk seri bagan 2
-ITrendline tredLineMovAvg = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.MovingAverage);
-tredLineMovAvg.TrendlineType = TrendlineType.MovingAverage;
-tredLineMovAvg.Period = 3;
-tredLineMovAvg.TrendlineName = "New TrendLine Name";
+var linearTrendline = firstSeries.TrendLines.Add(TrendlineType.Linear);
+linearTrendline.Format.Line.FillFormat.FillType = FillType.Solid;
+linearTrendline.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
 
-// Menambahkan garis tren polinomial untuk seri bagan 3
-ITrendline tredLinePol = chart.ChartData.Series[2].TrendLines.Add(TrendlineType.Polynomial);
-tredLinePol.TrendlineType = TrendlineType.Polynomial;
-tredLinePol.Forward = 1;
-tredLinePol.Order = 3;
+var secondSeries = chart.ChartData.Series[1];
 
-// Menambahkan garis tren pangkat untuk seri bagan 3
-ITrendline tredLinePower = chart.ChartData.Series[1].TrendLines.Add(TrendlineType.Power);
-tredLinePower.TrendlineType = TrendlineType.Power;
-tredLinePower.Backward = 1;
+var logarithmicTrendline = secondSeries.TrendLines.Add(TrendlineType.Logarithmic);
+logarithmicTrendline.AddTextFrameForOverriding("New log trend line");
 
-// Menyimpan presentasi
-pres.Save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+var movingAverageTrendline = secondSeries.TrendLines.Add(TrendlineType.MovingAverage);
+movingAverageTrendline.Period = 3;
+movingAverageTrendline.TrendlineName = "New TrendLine Name";
+
+var thirdSeries = chart.ChartData.Series[2];
+
+var polynomialTrendline = thirdSeries.TrendLines.Add(TrendlineType.Polynomial);
+polynomialTrendline.Forward = 1;
+polynomialTrendline.Order = 3;
+
+var powerTrendline = thirdSeries.TrendLines.Add(TrendlineType.Power);
+powerTrendline.Backward = 1;
+
+presentation.Save("ChartTrendLines.pptx", SaveFormat.Pptx);
 ```
 
+## **Mengatur Intersep Garis Tren**
 
+Gunakan [Intercept](https://reference.aspose.com/slides/net/aspose.slides.charts/trendline/intercept/) untuk menetapkan nilai Y intersep garis tren pada X = 0. Pengaturan ini didukung untuk garis tren linear, eksponensial, dan polinomial.
 
-## **Menambahkan Garis Kustom**
-Aspose.Slides for .NET menyediakan API sederhana untuk menambahkan garis kustom dalam bagan. Untuk menambahkan garis polos sederhana ke slide yang dipilih dalam presentasi, ikuti langkah‑langkah berikut:
+Sebagai contoh, model biaya produksi mungkin perlu dimulai dengan biaya tetap yang diketahui sebesar 100, meskipun pengukuran pada volume produksi non‑nol menunjukkan garis dasar yang berbeda. Untuk garis tren linear, menetapkan intersep memaksa persamaan `y = ax + b` menjadi `b = 100`; kemiringan dipasang ke data dengan kendala tersebut. Ini tidak sekadar memindahkan garis yang sudah terpasang. Pengaturan perpotongan sumbu mengontrol dimana sumbu diagram bertemu, bukan koefisien garis tren yang dipasang.
 
-- Buat sebuah instance dari kelas Presentation
-- Dapatkan referensi slide dengan menggunakan Index-nya
-- Buat bagan baru menggunakan metode AddChart yang disediakan oleh objek Shapes
-- Tambahkan AutoShape tipe Line menggunakan metode AddAutoShape yang disediakan oleh objek Shapes
-- Atur warna (Color) garis bentuk.
-- Tulis presentasi yang telah dimodifikasi sebagai file PPTX
+Contoh berikut membuat diagram sebar (XY) dengan volume produksi 1 sampai 4 dan biaya 170, 200, 230, dan 260. Diagram disimpan dengan intersep otomatis default, kemudian intersep diatur ke 100, dan disimpan PPTX kedua. Kedua file hanya berbeda pada pengaturan intersep. Garis tren menampilkan persamaannya dan memperpanjang kembali hingga X = 0.
 
-Kode berikut digunakan untuk membuat bagan dengan Garis Kustom.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+chart.HasLegend = false;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var nameCell = workbook.GetCell(0, 0, 1, "Production cost");
+var series = chart.ChartData.Series.Add(nameCell, ChartType.ScatterWithMarkers);
+double[] costs = { 170, 200, 230, 260 };
+
+for (var i = 0; i < costs.Length; i++)
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.UserShapes.Shapes.AddAutoShape(ShapeType.Line, 0, chart.Height / 2, chart.Width, 0);
-    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
-    pres.Save("AddCustomLines.pptx", SaveFormat.Pptx);
+    var xCell = workbook.GetCell(0, i + 1, 0, i + 1);
+    var yCell = workbook.GetCell(0, i + 1, 1, costs[i]);
+    series.DataPoints.AddDataPointForScatterSeries(xCell, yCell);
 }
+
+var trendline = series.TrendLines.Add(TrendlineType.Linear);
+trendline.DisplayEquation = true;
+trendline.Backward = 1;
+
+presentation.Save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+trendline.Intercept = 100;
+presentation.Save("FixedIntercept.pptx", SaveFormat.Pptx);
+```
+
+Dengan perhitungan otomatis, data ini menghasilkan `y = 30x + 140`. Menetapkan intersep menjadi 100 menghasilkan kira‑kira `y = 43.33x + 100`: nilai terpasang pada nol cocok dengan basis yang diketahui, sementara garis tidak lagi melewati setiap titik data.
+
+| Intersep otomatis | Intersep tetap 100 |
+| --- | --- |
+| ![Garis tren linear dengan intercept yang dihitung otomatis sebesar 140](intercept-automatic.png) | ![Garis tren linear dengan intercept tetap sebesar 100](intercept-fixed.png) |
+
+Kedua gambar menggunakan data dan skala sumbu yang sama. Garis tren diperpanjang kembali hingga X = 0 untuk memperlihatkan intersepnya.
+
+Secara bawaan, properti berisi `double.NaN`, yang mewakili intersep yang tidak ditentukan bukan nol. Intersep kemudian dihitung secara otomatis dari data.
+
+## **Menambahkan Garis Khusus**
+
+Garis khusus adalah bentuk yang digambar di atas diagram, bukan garis tren yang dihitung dari data seri. Contoh ini menggunakan [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) untuk menambahkan garis horizontal ke slide di atas diagram. Posisi garis ditentukan dalam koordinat slide, diukur dalam poin, sehingga mulai dari tepi kiri diagram dan berada setengah tinggi diagram. Lebarnya cocok dengan lebar diagram. [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) memberi garis warna merah solid.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+var line = slide.Shapes.AddAutoShape(ShapeType.Line, chart.X, chart.Y + chart.Height / 2, chart.Width, 0);
+line.LineFormat.FillFormat.FillType = FillType.Solid;
+line.LineFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+presentation.Save("AddCustomLines.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Apa arti 'forward' dan 'backward' pada garis tren?**
+**Apa arti 'forward' dan 'backward' pada sebuah garis tren?**
 
-Itu adalah panjang garis tren yang diproyeksikan ke depan/belakang: untuk chart scatter (XY) — dalam satuan sumbu; untuk chart non‑scatter — dalam jumlah kategori. Hanya nilai non‑negatif yang diizinkan.
+Kedua nilai tersebut merupakan panjang garis tren yang diproyeksikan ke depan/ke belakang: untuk diagram sebar (XY) — dalam satuan sumbu; untuk diagram non‑sebar — dalam jumlah kategori. Hanya nilai non‑negatif yang diizinkan.
 
 **Apakah garis tren akan dipertahankan saat mengekspor presentasi ke PDF atau SVG, atau saat merender slide menjadi gambar?**
 
-Ya. Aspose.Slides mengonversi presentasi ke [PDF](/slides/id/net/convert-powerpoint-to-pdf/)/[SVG](/slides/id/net/render-a-slide-as-an-svg-image/) dan merender bagan menjadi gambar; garis tren, sebagai bagian dari bagan, dipertahankan selama operasi tersebut. Sebuah metode juga tersedia untuk [export an image of the chart](/slides/id/net/create-shape-thumbnails/) itu sendiri.
+Ya. Aspose.Slides mengonversi presentasi ke [PDF](/slides/id/net/convert-powerpoint-to-pdf/) atau [SVG](/slides/id/net/render-a-slide-as-an-svg-image/) dan merender diagram ke gambar; garis tren, sebagai bagian dari diagram, dipertahankan selama operasi tersebut. Sebuah metode juga tersedia untuk [mengekspor gambar diagram](/slides/id/net/create-shape-thumbnails/).

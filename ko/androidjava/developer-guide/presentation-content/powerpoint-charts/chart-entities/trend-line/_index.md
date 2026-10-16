@@ -18,112 +18,153 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java를 사용하여 PowerPoint 차트에 추세선을 빠르게 추가하고 맞춤 설정하는 실용적인 가이드 — 청중을 사로잡는 방법."
+description: "Android용 Java를 통해 Aspose.Slides로 PowerPoint 차트에 추세선을 빠르게 추가하고 맞춤 설정하는 실용적인 가이드 — 청중을 사로잡는 방법."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides를 사용하여 프레젠테이션 차트에 추세선을 추가하는 방법을 설명합니다. 차트를 만들고, 차트 시리즈에 추세선을 추가하며, 지수형, 선형, 로그형, 이동 평균, 다항식 및 거듭제곱 등 여러 추세선 유형을 사용하는 방법을 보여줍니다.
+이 문서에서는 Aspose.Slides를 사용하여 프레젠테이션 차트에 추세선을 추가하는 방법을 설명합니다. 차트를 만들고, 차트 시리즈에 추세선을 추가하고, 지수, 선형, 로그, 이동 평균, 다항식 및 거듭제곱을 포함한 여러 추세선 유형을 사용하는 방법을 보여줍니다.
 
-또한 선 모양을 삽입하여 차트에 사용자 정의 선을 추가하는 방법을 설명하고, 추세선의 앞쪽 및 뒤쪽 투영값과 PDF 또는 SVG로 내보낼 때 또는 차트를 이미지로 렌더링할 때 추세선이 보존되는지에 대한 간단한 FAQ를 포함합니다.
+또한 라인 도형을 삽입하여 차트에 사용자 정의 선을 추가하는 방법을 설명하고, 추세선의 앞·뒤 투영값 및 PDF 또는 SVG로 내보내거나 차트를 이미지로 렌더링할 때 추세선이 보존되는지에 대한 간단한 FAQ를 포함합니다.
 
 ## **추세선 추가**
-Aspose.Slides for Android via Java는 다양한 차트 추세선을 관리하기 위한 간단한 API를 제공합니다:
 
-1. [프레젠테이션](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 인덱스로 슬라이드 참조를 가져옵니다.
-1. 기본 데이터를 사용하여 원하는 유형의 차트를 추가합니다(이 예제에서는 ChartType.ClusteredColumn 사용).
-1. 차트 시리즈 1에 지수형 추세선을 추가합니다.
-1. 차트 시리즈 1에 선형 추세선을 추가합니다.
-1. 차트 시리즈 2에 로그형 추세선을 추가합니다.
-1. 차트 시리즈 2에 이동 평균 추세선을 추가합니다.
-1. 차트 시리즈 3에 다항식 추세선을 추가합니다.
-1. 차트 시리즈 3에 거듭제곱 추세선을 추가합니다.
-1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
+[ITrendlineCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendlinecollection/#add-int-)을 사용하여 차트 시리즈에 추세선을 추가하고, [TrendlineType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendlinetype/)으로 유형을 선택합니다. 예제에서는 기본 데이터로 클러스터형 열 차트를 만든 뒤 각 세 시리즈마다 두 개의 추세선을 추가합니다.
 
-다음 코드는 추세선이 포함된 차트를 만드는 예시입니다.
+지수 추세선은 [setDisplayEquation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setDisplayEquation-boolean-)와 [setDisplayRSquaredValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setDisplayRSquaredValue-boolean-)을 통해 방정식과 R‑제곱 값을 숨기고, 선형 추세선은 빨간색으로 표시됩니다. 로그 추세선은 [addTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendline/#addTextFrameForOverriding-java.lang.String-)을 사용하여 사용자 지정 레이블을 지정합니다. 이동 평균은 세 데이터 포인트에 대한 [setPeriod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setPeriod-byte-)와 사용자 지정 [setTrendlineName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setTrendlineName-java.lang.String-)을 사용합니다.
+
+다항식 추세선은 [setOrder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setOrder-byte-)가 3이며, [setForward](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setForward-double-)를 통해 한 범주 앞으로 확장됩니다. 거듭제곱 추세선은 [setBackward](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itrendline/#setBackward-double-)를 통해 한 범주 뒤로 확장됩니다.
 
 ```java
-// Presentation 클래스의 인스턴스를 생성합니다
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // 클러스터드 컬럼 차트를 생성합니다
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
-    
-    // 차트 시리즈 1에 지수 추세선을 추가합니다
-    ITrendline tredLinep = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential);
-    tredLinep.setDisplayEquation(false);
-    tredLinep.setDisplayRSquaredValue(false);
-    
-    // 차트 시리즈 1에 선형 추세선을 추가합니다
-    ITrendline tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear);
-    tredLineLin.setTrendlineType(TrendlineType.Linear);
-    tredLineLin.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    
-    
-    // 차트 시리즈 2에 로그 추세선을 추가합니다
-    ITrendline tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic);
-    tredLineLog.setTrendlineType(TrendlineType.Logarithmic);
-    tredLineLog.addTextFrameForOverriding("New log trend line");
-    
-    // 차트 시리즈 2에 이동 평균 추세선을 추가합니다
-    ITrendline tredLineMovAvg = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage);
-    tredLineMovAvg.setTrendlineType(TrendlineType.MovingAverage);
-    tredLineMovAvg.setPeriod((byte)3);
-    tredLineMovAvg.setTrendlineName("New TrendLine Name");
-    
-    // 차트 시리즈 3에 다항식 추세선을 추가합니다
-    ITrendline tredLinePol = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial);
-    tredLinePol.setTrendlineType(TrendlineType.Polynomial);
-    tredLinePol.setForward(1);
-    tredLinePol.setOrder((byte)3);
-    
-    // 차트 시리즈 3에 거듭제곱 추세선을 추가합니다
-    ITrendline tredLinePower = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Power);
-    tredLinePower.setTrendlineType(TrendlineType.Power);
-    tredLinePower.setBackward(1);
-    
-    // 프레젠테이션 저장
-    pres.save("ChartTrendLines_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400);
+
+    IChartSeries firstSeries = chart.getChartData().getSeries().get_Item(0);
+
+    ITrendline exponentialTrendline = firstSeries.getTrendLines().add(TrendlineType.Exponential);
+    exponentialTrendline.setDisplayEquation(false);
+    exponentialTrendline.setDisplayRSquaredValue(false);
+
+    ITrendline linearTrendline = firstSeries.getTrendLines().add(TrendlineType.Linear);
+    linearTrendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    linearTrendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    IChartSeries secondSeries = chart.getChartData().getSeries().get_Item(1);
+
+    ITrendline logarithmicTrendline = secondSeries.getTrendLines().add(TrendlineType.Logarithmic);
+    logarithmicTrendline.addTextFrameForOverriding("New log trend line");
+
+    ITrendline movingAverageTrendline = secondSeries.getTrendLines().add(TrendlineType.MovingAverage);
+    movingAverageTrendline.setPeriod((byte) 3);
+    movingAverageTrendline.setTrendlineName("New TrendLine Name");
+
+    IChartSeries thirdSeries = chart.getChartData().getSeries().get_Item(2);
+
+    ITrendline polynomialTrendline = thirdSeries.getTrendLines().add(TrendlineType.Polynomial);
+    polynomialTrendline.setForward(1);
+    polynomialTrendline.setOrder((byte) 3);
+
+    ITrendline powerTrendline = thirdSeries.getTrendLines().add(TrendlineType.Power);
+    powerTrendline.setBackward(1);
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **사용자 정의 선 추가**
-Aspose.Slides for Android via Java는 차트에 사용자 정의 선을 추가하기 위한 간단한 API를 제공합니다. 프레젠테이션의 선택된 슬라이드에 간단한 기본 선을 추가하려면 다음 단계를 따르세요:
+## **추세선 절편 설정**
 
-- [프레젠테이션](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다
-- 인덱스를 사용하여 슬라이드 참조를 가져옵니다
-- Shapes 객체가 제공하는 AddChart 메서드를 사용해 새 차트를 생성합니다
-- Shapes 객체가 제공하는 AddAutoShape 메서드를 사용해 선 유형의 AutoShape을 추가합니다
-- 도형 선의 색상을 설정합니다
-- 수정된 프레젠테이션을 PPTX 파일로 저장합니다
+[setIntercept](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendline/#setIntercept-double-)을 사용하여 X = 0에서 추세선의 Y 값을 고정합니다. 이 설정은 선형, 지수 및 다항식 추세선에서 지원됩니다.
 
-다음 코드는 사용자 정의 선이 포함된 차트를 만드는 예시입니다.
+예를 들어, 생산 비용 모델은 비정상적인 생산량 측정값이 다른 기준선을 제시하더라도 알려진 고정 비용 100에서 시작해야 할 수 있습니다. 선형 추세선의 경우 절편을 고정하면 방정식 `y = ax + b`에서 `b = 100`이 되며, 기울기는 해당 제약 조건 하에서 데이터에 맞춰집니다. 이는 이미 맞춰진 선을 단순히 이동하는 것이 아닙니다. 축 교차 설정은 차트 축이 만나는 위치를 제어하며, 맞춰진 추세선의 계수를 조정하지는 않습니다.
+
+다음 예제는 생산량 1~4와 비용 170, 200, 230, 260을 갖는 산점도(XY) 차트를 만들고, 기본 자동 절편으로 차트를 저장한 뒤 절편을 100으로 설정하고 두 번째 PPTX를 저장합니다. 두 파일은 절편 설정만 다릅니다. 추세선은 방정식을 표시하고 X = 0까지 뒤로 확장됩니다.
 
 ```java
-// Presentation 클래스의 인스턴스를 생성합니다
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    IAutoShape shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight()/2, chart.getWidth(), 0);
-    
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.awt.Color.RED);
-    
-    pres.save("Presentation.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210);
+    chart.setLegend(false);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartDataCell nameCell = workbook.getCell(0, 0, 1, "Production cost");
+    IChartSeries series = chart.getChartData().getSeries().add(nameCell, ChartType.ScatterWithMarkers);
+    double[] costs = { 170, 200, 230, 260 };
+
+    for (int i = 0; i < costs.length; i++) {
+        IChartDataCell xCell = workbook.getCell(0, i + 1, 0, i + 1);
+        IChartDataCell yCell = workbook.getCell(0, i + 1, 1, costs[i]);
+        series.getDataPoints().addDataPointForScatterSeries(xCell, yCell);
+    }
+
+    ITrendline trendline = series.getTrendLines().add(TrendlineType.Linear);
+    trendline.setDisplayEquation(true);
+    trendline.setBackward(1);
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx);
+
+    trendline.setIntercept(100);
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+자동 계산을 사용하면 이러한 데이터에서 `y = 30x + 140`이 만들어집니다. 절편을 100으로 설정하면 대략 `y = 43.33x + 100`이 생성됩니다: 제로에서의 맞춰진 값이 알려진 기준선과 일치하지만, 선이 모든 데이터 포인트를 통과하지는 않습니다.
+
+| 자동 절편 | 절편 100 고정 |
+| --- | --- |
+| ![자동으로 계산된 절편 140을 가진 선형 추세선](intercept-automatic.png) | ![절편 100이 고정된 선형 추세선](intercept-fixed.png) |
+
+두 이미지 모두 동일한 데이터와 축 눈금을 사용합니다. 추세선은 절편을 표시하기 위해 X = 0까지 뒤로 확장됩니다.
+
+기본적으로 [getIntercept](https://reference.aspose.com/slides/androidjava/com.aspose.slides/trendline/#getIntercept--)은 `Double.NaN`을 반환하는데, 이는 0이 아니라 지정되지 않은 절편을 의미합니다. 그 후 절편은 데이터에서 자동으로 계산됩니다.
+
+## **사용자 정의 선 추가**
+
+사용자 정의 선은 시리즈 데이터에서 계산된 추세선이 아니라 차트 위에 그려지는 도형입니다. 이 예제는 [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-)을 사용하여 차트 위 슬라이드에 수평선을 추가합니다. 선의 위치는 포인트 단위의 슬라이드 좌표로 지정되어 차트 왼쪽 가장자리에서 시작해 차트 중간 높이에 위치합니다. 너비는 차트 너비와 일치합니다. [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--)은 선에 단색 빨간색을 적용합니다.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+
+    IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0);
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**'앞쪽(forward)' 및 '뒤쪽(backward)'은 추세선에서 무엇을 의미하나요?**
+**추세선에서 'forward'와 'backward'는 무엇을 의미합니까?**
 
-추세선을 앞쪽 또는 뒤쪽으로 투영한 길이를 나타냅니다: 산점도(XY) 차트의 경우 축 단위이며, 비산점도 차트의 경우 카테고리 수입니다. 음수 값은 허용되지 않습니다.
+앞·뒤 투영된 추세선의 길이이며, 산점도(XY) 차트에서는 축 단위, 비산점도 차트에서는 카테고리 수로 표시됩니다. 음수 값은 허용되지 않습니다.
 
-**프레젠테이션을 PDF나 SVG로 내보내거나 슬라이드를 이미지로 렌더링할 때 추세선이 보존되나요?**
+**프레젠테이션을 PDF 또는 SVG로 내보내거나 슬라이드를 이미지로 렌더링할 때 추세선이 보존됩니까?**
 
-예. Aspose.Slides는 프레젠테이션을 [PDF](/slides/ko/androidjava/convert-powerpoint-to-pdf/)/[SVG](/slides/ko/androidjava/render-a-slide-as-an-svg-image/)로 변환하고 차트를 이미지로 렌더링합니다; 차트의 일부인 추세선은 이러한 작업 중에 보존됩니다. 차트 자체의 이미지를 [내보내는](/slides/ko/androidjava/create-shape-thumbnails/) 메서드도 제공됩니다.
+예. Aspose.Slides는 프레젠테이션을 [PDF](/slides/ko/androidjava/convert-powerpoint-to-pdf/) 또는 [SVG](/slides/ko/androidjava/render-a-slide-as-an-svg-image/)로 변환하고 차트를 이미지로 렌더링합니다; 차트의 일부인 추세선은 이러한 작업 중에 보존됩니다. 차트 자체의 이미지를 [내보내는](/slides/ko/androidjava/create-shape-thumbnails/) 메서드도 제공됩니다.

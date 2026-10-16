@@ -1,5 +1,5 @@
 ---
-title: Aggiungere linee di tendenza ai grafici di presentazione in Python
+title: Aggiungi linee di tendenza ai grafici delle presentazioni in Python
 linktitle: Linea di tendenza
 type: docs
 url: /it/python-net/trend-line/
@@ -14,114 +14,148 @@ keywords:
 - linea di tendenza potenza
 - linea di tendenza personalizzata
 - PowerPoint
-- OpenDocument
 - presentazione
 - Python
 - Aspose.Slides
-description: "Aggiungere rapidamente e personalizzare le linee di tendenza nei grafici PowerPoint e OpenDocument con Aspose.Slides per Python tramite .NET — una guida pratica e esempi di codice per migliorare l'accuratezza delle previsioni e coinvolgere il tuo pubblico."
+description: "Aggiungi rapidamente e personalizza le linee di tendenza nei grafici PowerPoint con Aspose.Slides per Python via .NET — una guida pratica per coinvolgere il tuo pubblico."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come aggiungere linee di tendenza ai grafici delle presentazioni utilizzando Aspose.Slides. Mostra come creare un grafico, aggiungere linee di tendenza alle serie del grafico e lavorare con diversi tipi di linee di tendenza, inclusi esponenziale, lineare, logaritmico, media mobile, polinomiale e potenza.
+Questo articolo spiega come aggiungere linee di tendenza ai grafici delle presentazioni utilizzando Aspose.Slides. Mostra come creare un grafico, aggiungere linee di tendenza alle serie del grafico e lavorare con diversi tipi di linee di tendenza, tra cui esponenziale, lineare, logaritmica, media mobile, polinomiale e potenza.
 
-Descrive inoltre come aggiungere una linea personalizzata a un grafico inserendo una forma linea e include una breve FAQ sui valori di proiezione della linea di tendenza in avanti e indietro e sull’opportunità di conservare le linee di tendenza durante l’esportazione in PDF o SVG e quando i grafici vengono renderizzati come immagini.
+Descrive inoltre come aggiungere una linea personalizzata a un grafico inserendo una forma di linea e include una breve FAQ sui valori di proiezione in avanti e indietro della linea di tendenza e sul fatto che le linee di tendenza vengano preservate durante l'esportazione in PDF o SVG e quando i grafici vengono renderizzati come immagini.
 
-## **Aggiungi linea di tendenza**
-Aspose.Slides for Python via .NET fornisce un'API semplice per gestire le varie Linee di Tendenza dei grafici:
+## **Aggiungi una linea di tendenza**
 
-1. Crea un'istanza della classe [Presentazione](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-2. Ottieni il riferimento di una diapositiva mediante il suo indice.
-3. Aggiungi un grafico con dati predefiniti insieme a uno dei tipi desiderati (questo esempio usa ChartType.CLUSTERED_COLUMN).
-4. Aggiungi una linea di tendenza esponenziale per la serie del grafico 1.
-5. Aggiungi una linea di tendenza lineare per la serie del grafico 1.
-6. Aggiungi una linea di tendenza logaritmica per la serie del grafico 2.
-7. Aggiungi una linea di tendenza a media mobile per la serie del grafico 2.
-8. Aggiungi una linea di tendenza polinomiale per la serie del grafico 3.
-9. Aggiungi una linea di tendenza potenza per la serie del grafico 3.
-10. Scrivi la presentazione modificata in un file PPTX.
+Utilizza [TrendlineCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendlinecollection/add/) per aggiungere una linea di tendenza a una serie di un grafico, selezionando il suo tipo con [TrendlineType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendlinetype/). L'esempio crea un grafico a colonne raggruppate con dati predefiniti e aggiunge due linee di tendenza a ciascuna delle sue tre serie.
 
-Il codice seguente viene usato per creare un grafico con Linee di Tendenza.
+La linea di tendenza esponenziale nasconde la sua equazione e il valore R-quadrato tramite [display_equation](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/display_equation/) e [display_r_squared_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/display_r_squared_value/), mentre la linea di tendenza lineare è rossa. La linea di tendenza logaritmica utilizza [add_text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/add_text_frame_for_overriding/) per un'etichetta personalizzata. La media mobile utilizza un [period](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/period/) di tre punti dati e un [trendline_name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/trendline_name/) personalizzato.
 
-```py
-import aspose.slides.charts as charts
+La linea di tendenza polinomiale ha un [order](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/order/) di tre e si estende di una categoria in avanti tramite [forward](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/forward/). La linea di tendenza potenza si estende di una categoria indietro tramite [backward](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/backward/).
+
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# Creazione di una presentazione vuota
-with slides.Presentation() as pres:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Creazione di un grafico a colonne raggruppate
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 400)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 400)
 
-    # Aggiunta di una linea di tendenza esponenziale per la serie 1 del grafico
-    tredLinep = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.EXPONENTIAL)
-    tredLinep.display_equation = False
-    tredLinep.display_r_squared_value = False
+    first_series = chart.chart_data.series[0]
 
-    # Aggiunta di una linea di tendenza lineare per la serie 1 del grafico
-    tredLineLin = chart.chart_data.series[0].trend_lines.add(charts.TrendlineType.LINEAR)
-    tredLineLin.trendline_type = charts.TrendlineType.LINEAR
-    tredLineLin.format.line.fill_format.fill_type = slides.FillType.SOLID
-    tredLineLin.format.line.fill_format.solid_fill_color.color = draw.Color.red
+    exponential_trendline = first_series.trend_lines.add(charts.TrendlineType.EXPONENTIAL)
+    exponential_trendline.display_equation = False
+    exponential_trendline.display_r_squared_value = False
 
+    linear_trendline = first_series.trend_lines.add(charts.TrendlineType.LINEAR)
+    linear_trendline.format.line.fill_format.fill_type = slides.FillType.SOLID
+    linear_trendline.format.line.fill_format.solid_fill_color.r = 255
+    linear_trendline.format.line.fill_format.solid_fill_color.g = 0
+    linear_trendline.format.line.fill_format.solid_fill_color.b = 0
 
-    # Aggiunta di una linea di tendenza logaritmica per la serie 2 del grafico
-    tredLineLog = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.LOGARITHMIC)
-    tredLineLog.trendline_type = charts.TrendlineType.LOGARITHMIC
-    tredLineLog.add_text_frame_for_overriding("New log trend line")
+    second_series = chart.chart_data.series[1]
 
-    # Aggiunta di una linea di tendenza media mobile per la serie 2 del grafico
-    tredLineMovAvg = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.MOVING_AVERAGE)
-    tredLineMovAvg.trendline_type = charts.TrendlineType.MOVING_AVERAGE
-    tredLineMovAvg.period = 3
-    tredLineMovAvg.trendline_name = "New TrendLine Name"
+    logarithmic_trendline = second_series.trend_lines.add(charts.TrendlineType.LOGARITHMIC)
+    logarithmic_trendline.add_text_frame_for_overriding("New log trend line")
 
-    # Aggiunta di una linea di tendenza polinomiale per la serie 3 del grafico
-    tredLinePol = chart.chart_data.series[2].trend_lines.add(charts.TrendlineType.POLYNOMIAL)
-    tredLinePol.trendline_type = charts.TrendlineType.POLYNOMIAL
-    tredLinePol.forward = 1
-    tredLinePol.order = 3
+    moving_average_trendline = second_series.trend_lines.add(charts.TrendlineType.MOVING_AVERAGE)
+    moving_average_trendline.period = 3
+    moving_average_trendline.trendline_name = "New TrendLine Name"
 
-    # Aggiunta di una linea di tendenza potenza per la serie 3 del grafico
-    tredLinePower = chart.chart_data.series[1].trend_lines.add(charts.TrendlineType.POWER)
-    tredLinePower.trendline_type = charts.TrendlineType.POWER
-    tredLinePower.backward = 1
+    third_series = chart.chart_data.series[2]
 
-    # Salvataggio della presentazione
-    pres.save("Charttrend_lines_out.pptx", slides.export.SaveFormat.PPTX)
+    polynomial_trendline = third_series.trend_lines.add(charts.TrendlineType.POLYNOMIAL)
+    polynomial_trendline.forward = 1
+    polynomial_trendline.order = 3
+
+    power_trendline = third_series.trend_lines.add(charts.TrendlineType.POWER)
+    power_trendline.backward = 1
+
+    presentation.save("ChartTrendLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Aggiungi linea personalizzata**
-Aspose.Slides for Python via .NET fornisce un'API semplice per aggiungere linee personalizzate in un grafico. Per aggiungere una semplice linea plain a una diapositiva selezionata della presentazione, segui i passaggi seguenti:
+## **Imposta l'intercetta della linea di tendenza**
 
-- Crea un'istanza della classe Presentation.
-- Ottieni il riferimento di una diapositiva usando il suo indice.
-- Crea un nuovo grafico usando il metodo AddChart esposto dall'oggetto Shapes.
-- Aggiungi un AutoShape di tipo Linea usando il metodo AddAutoShape esposto dall'oggetto Shapes.
-- Imposta il colore delle linee della forma.
-- Scrivi la presentazione modificata come file PPTX.
+Utilizza [intercept](https://reference.aspose.com/slides/python-net/aspose.slides.charts/trendline/intercept/) per fissare il valore Y di una linea di tendenza a X = 0. Questa impostazione è supportata per le linee di tendenza lineari, esponenziali e polinomiali.
 
-Il codice seguente viene usato per creare un grafico con Linee Personalizzate.
+Ad esempio, un modello di costo di produzione potrebbe dover partire da costi fissi noti di 100, anche quando le misurazioni a volumi di produzione diversi dallo zero suggeriscono una linea di base differente. Per una linea di tendenza lineare, fissare l'intercetta vincola l'equazione `y = ax + b` a `b = 100`; la pendenza viene adattata ai dati sotto tale vincolo. Non sposta semplicemente una linea già adattata. Le impostazioni di intersezione degli assi controllano dove gli assi del grafico si incontrano, non i coefficienti della linea di tendenza adattata.
 
-```py
-import aspose.slides.charts as charts
+L'esempio seguente crea un grafico a dispersione (XY) con volumi di produzione da 1 a 4 e costi di 170, 200, 230 e 260. Salva il grafico con l'intercetta automatica predefinita, imposta l'intercetta a 100 e salva un secondo file PPTX. I due file differiscono solo per l'impostazione dell'intercetta. La linea di tendenza visualizza la sua equazione e si estende indietro fino a X = 0.
+
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
-    shape = chart.user_shapes.shapes.add_auto_shape(slides.ShapeType.LINE, 0, chart.height / 2, chart.width, 0)
-    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-    shape.line_format.fill_format.solid_fill_color.color = draw.Color.red
-    pres.save("AddCustomLines.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_MARKERS, 20, 20, 480, 210)
+    chart.has_legend = False
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    name_cell = workbook.get_cell(0, 0, 1, "Production cost")
+    series = chart.chart_data.series.add(name_cell, charts.ChartType.SCATTER_WITH_MARKERS)
+    costs = [170, 200, 230, 260]
+
+    for i, cost in enumerate(costs):
+        x_cell = workbook.get_cell(0, i + 1, 0, i + 1)
+        y_cell = workbook.get_cell(0, i + 1, 1, cost)
+        series.data_points.add_data_point_for_scatter_series(x_cell, y_cell)
+
+    trendline = series.trend_lines.add(charts.TrendlineType.LINEAR)
+    trendline.display_equation = True
+    trendline.backward = 1
+
+    presentation.save("AutomaticIntercept.pptx", slides.export.SaveFormat.PPTX)
+
+    trendline.intercept = 100
+    presentation.save("FixedIntercept.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Con il calcolo automatico, questi dati producono `y = 30x + 140`. Impostare l'intercetta a 100 invece produce approssimativamente `y = 43.33x + 100`: il valore adattato a zero corrisponde alla linea di base nota, mentre la linea non passa più per tutti i punti dati.
+
+| Intercetta automatica | Intercetta fissa di 100 |
+| --- | --- |
+| ![Linea di tendenza lineare con intercetta calcolata automaticamente di 140](intercept-automatic.png) | ![Linea di tendenza lineare con intercetta fissa di 100](intercept-fixed.png) |
+
+Entrambe le immagini usano gli stessi dati e le stesse scale degli assi. Le linee di tendenza sono estese indietro fino a X = 0 per mostrare le loro intercette.
+
+Per impostazione predefinita, la proprietà contiene `float("nan")`, che rappresenta un'intercetta non specificata anziché zero. L'intercetta viene quindi calcolata automaticamente dai dati.
+
+## **Aggiungi una linea personalizzata**
+
+Una linea personalizzata è una forma disegnata sopra il grafico piuttosto che una linea di tendenza calcolata dai dati delle serie. Questo esempio utilizza [ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_auto_shape/) per aggiungere una linea orizzontale alla diapositiva sopra il grafico. La posizione della linea è specificata in coordinate della diapositiva, misurate in punti, quindi inizia dal bordo sinistro del grafico e si trova a metà altezza del grafico. La sua larghezza corrisponde a quella del grafico. Il [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) assegna alla linea un colore rosso solido.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 500, 400)
+
+    line = slide.shapes.add_auto_shape(slides.ShapeType.LINE, chart.x, chart.y + chart.height / 2, chart.width, 0)
+    line.line_format.fill_format.fill_type = slides.FillType.SOLID
+    line.line_format.fill_format.solid_fill_color.r = 255
+    line.line_format.fill_format.solid_fill_color.g = 0
+    line.line_format.fill_format.solid_fill_color.b = 0
+
+    presentation.save("AddCustomLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Cosa significano “avanti” e “indietro” per una linea di tendenza?**
+**Cosa significano 'forward' e 'backward' per una linea di tendenza?**
 
-Sono le lunghezze della linea di tendenza proiettate in avanti/indietro: per i grafici a dispersione (XY) — in unità degli assi; per i grafici non a dispersione — in numero di categorie. Sono consentiti solo valori non negativi.
+Sono le lunghezze della linea di tendenza proiettata in avanti/indietro: per i grafici a dispersione (XY) — in unità dell'asse; per i grafici non a dispersione — in numero di categorie. Sono concessi solo valori non negativi.
 
-**La linea di tendenza viene conservata quando si esporta la presentazione in PDF o SVG, o quando si renderizza una diapositiva in un’immagine?**
+**La linea di tendenza verrà preservata durante l'esportazione della presentazione in PDF o SVG, o durante il rendering di una diapositiva in un'immagine?**
 
-Sì. Aspose.Slides converte le presentazioni in [PDF](/slides/it/python-net/convert-powerpoint-to-pdf/)/[SVG](/slides/it/python-net/render-a-slide-as-an-svg-image/) e renderizza i grafici in immagini; le linee di tendenza, essendo parte del grafico, sono conservate durante queste operazioni. È inoltre disponibile un metodo per [esportare un’immagine del grafico](/slides/it/python-net/create-shape-thumbnails/).
+Sì. Aspose.Slides converte le presentazioni in [PDF](/slides/it/python-net/convert-powerpoint-to-pdf/) o [SVG](/slides/it/python-net/render-a-slide-as-an-svg-image/) e rende i grafici in immagini; le linee di tendenza, come parte del grafico, sono preservate durante queste operazioni. È disponibile anche un metodo per [esportare un'immagine del grafico](/slides/it/python-net/create-shape-thumbnails/).

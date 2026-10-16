@@ -1,5 +1,5 @@
 ---
-title: Trendvonalak hozzáadása a prezentáció diagramjaihoz Pythonban
+title: Trendvonalak hozzáadása prezentációs diagramokhoz Pythonban
 linktitle: Trendvonal
 type: docs
 url: /hu/python-java/trend-line/
@@ -18,30 +18,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Gyorsan adjon hozzá és testre szabjon trendvonalakat a PowerPoint diagramokban az Aspose.Slides for Python via Java használatával – egy gyakorlati útmutató a közönség bevonásához."
+description: "Gyorsan hozzáadhat és testreszabhat trendvonalakat a PowerPoint diagramokhoz az Aspose.Slides for Python via Java segítségével — egy gyakorlati útmutató, amely segít lebilincselni a közönségét."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet trendvonalakat hozzáadni a prezentáció diagramjaihoz az Aspose.Slides használatával. Megmutatja, hogyan hozhatunk létre diagramot, hogyan adhatunk hozzá trendvonalakat a diagram sorozataihoz, és hogyan dolgozhatunk többféle trendvonal típussal, beleértve az exponenciális, lineáris, logaritmikus, mozgóátlag, polinomiális és hatvány típusúakat.
+Ez a cikk bemutatja, hogyan lehet trendvonalakat hozzáadni a prezentáció diagramjaihoz az Aspose.Slides használatával. Megmutatja, hogyan hozhatunk létre diagramot, hogyan adhatunk trendvonalakat a diagram sorozataihoz, és hogyan dolgozhatunk többféle trendvonal típussal, beleértve az exponenciális, lineáris, logaritmikus, mozgó átlag, polinomiális és hatvány típusokat.
 
-Leírja továbbá, hogyan adhatunk egy egyéni vonalat a diagramhoz egy vonal alakzat beszúrásával, és tartalmaz egy rövid GYIK-et a trendvonal előre és hátra vetített értékeiről, valamint arról, hogy a trendvonalak megmaradnak-e a PDF vagy SVG formátumba történő exportálás során, illetve a diagramok képként való renderelésekor.
+Leírja továbbá, hogyan adhatunk egy egyéni vonalat a diagramhoz egy vonal alakzat beszúrásával, és egy rövid GYIK-ot tartalmaz a trendvonal előre és hátra irányú projektált értékeiről, valamint arról, hogy a trendvonalak megmaradnak-e PDF vagy SVG exportáláskor és a diagramok képként történő renderelésekor.
 
 ## **Trendvonal hozzáadása**
 
-Az Aspose.Slides for Python via Java egyszerű API-t biztosít a különböző diagram trendvonalak kezelése érdekében:
+A [TrendlineCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinecollection/#add) használatával adhatunk hozzá trendvonalat egy diagram sorozatához, a típusát a [TrendlineType](https://reference.aspose.com/slides/python-java/aspose.slides/trendlinetype/) segítségével választhatjuk ki. A példa egy klaszteres oszlopdiagramot hoz létre alapértelmezett adatokkal, és mindhárom sorozatához két trendvonalat ad hozzá.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal és a kívánt típussal (ez a példa a [ChartType.ClusteredColumn](https://reference.aspose.com/slides/hu/python-java/aspose.slides/charttype/#ClusteredColumn) típust használja).
-1. Adjon hozzá egy exponenciális trendvonalat a diagram 1. sorozatához.
-1. Adjon hozzá egy lineáris trendvonalat a diagram 1. sorozatához.
-1. Adjon hozzá egy logaritmikus trendvonalat a diagram 2. sorozatához.
-1. Adjon hozzá egy mozgóátlag trendvonalat a diagram 2. sorozatához.
-1. Adjon hozzá egy polinomiális trendvonalat a diagram 3. sorozatához.
-1. Adjon hozzá egy hatvány trendvonalat a diagram 3. sorozatához.
-1. Írja ki a módosított prezentációt egy PPTX fájlba.
+Az exponenciális trendvonal elrejti egyenletét és az R-négyzet értékét a [setDisplayEquation](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayEquation) és a [setDisplayRSquaredValue](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setDisplayRSquaredValue) használatával, míg a lineáris trendvonal piros. A logaritmikus trendvonal egy egyéni címkehez a [addTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#addTextFrameForOverriding) metódust használja. A mozgó átlag három adatpontos [setPeriod](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setPeriod) értéket és egy egyéni [setTrendlineName](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setTrendlineName) beállítást használ.
 
-Az alábbi kód egy diagramot hoz létre trendvonalakkal.
+A polinomiális trendvonal rendje három, a [setOrder](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setOrder) segítségével van beállítva, és egy kategóriát előre nyújt a [setForward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setForward) segítségével. A hatvány trendvonal egy kategóriát hátra nyújt a [setBackward](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setBackward) segítségével.
 
 ```python
 import jpype
@@ -53,63 +44,109 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, TrendlineType
 from java.awt import Color
 
-# Hozzon létre egy példányt a Presentation osztályból.
 presentation = Presentation()
 try:
-    # Hozzon létre egy csoportosított oszlop diagramot.
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Adjon hozzá egy exponenciális trendvonalat az 1. diagram sorozathoz.
-    exponential_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Exponential)
-    exponential_trend_line.setDisplayEquation(False)
-    exponential_trend_line.setDisplayRSquaredValue(False)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 400)
 
-    # Adjon hozzá egy lineáris trendvonalat az 1. diagram sorozathoz.
-    linear_trend_line = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(TrendlineType.Linear)
-    linear_trend_line.setTrendlineType(TrendlineType.Linear)
-    linear_trend_line.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    linear_trend_line.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    first_series = chart.getChartData().getSeries().get_Item(0)
 
-    # Adjon hozzá egy logaritmikus trendvonalat a 2. diagram sorozathoz.
-    logarithmic_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.Logarithmic)
-    logarithmic_trend_line.setTrendlineType(TrendlineType.Logarithmic)
-    logarithmic_trend_line.addTextFrameForOverriding("New log trend line")
+    exponential_trendline = first_series.getTrendLines().add(TrendlineType.Exponential)
+    exponential_trendline.setDisplayEquation(False)
+    exponential_trendline.setDisplayRSquaredValue(False)
 
-    # Adjon hozzá egy mozgóátlag trendvonalat a 2. diagram sorozathoz.
-    moving_average_trend_line = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(TrendlineType.MovingAverage)
-    moving_average_trend_line.setTrendlineType(TrendlineType.MovingAverage)
-    moving_average_trend_line.setPeriod(jpype.JByte(3))
-    moving_average_trend_line.setTrendlineName("New TrendLine Name")
+    linear_trendline = first_series.getTrendLines().add(TrendlineType.Linear)
+    linear_trendline.getFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    linear_trendline.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
 
-    # Adjon hozzá egy polinomiális trendvonalat a 3. diagram sorozathoz.
-    polynomial_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Polynomial)
-    polynomial_trend_line.setTrendlineType(TrendlineType.Polynomial)
-    polynomial_trend_line.setForward(1)
-    polynomial_trend_line.setOrder(jpype.JByte(3))
+    second_series = chart.getChartData().getSeries().get_Item(1)
 
-    # Adjon hozzá egy hatvány trendvonalat a 3. diagram sorozathoz.
-    power_trend_line = chart.getChartData().getSeries().get_Item(2).getTrendLines().add(TrendlineType.Power)
-    power_trend_line.setTrendlineType(TrendlineType.Power)
-    power_trend_line.setBackward(1)
+    logarithmic_trendline = second_series.getTrendLines().add(TrendlineType.Logarithmic)
+    logarithmic_trendline.addTextFrameForOverriding("New log trend line")
 
-    # Mentse a prezentációt.
-    presentation.save("ChartTrendLines_out.pptx", SaveFormat.Pptx)
+    moving_average_trendline = second_series.getTrendLines().add(TrendlineType.MovingAverage)
+    moving_average_trendline.setPeriod(jpype.JByte(3))
+    moving_average_trendline.setTrendlineName("New TrendLine Name")
+
+    third_series = chart.getChartData().getSeries().get_Item(2)
+
+    polynomial_trendline = third_series.getTrendLines().add(TrendlineType.Polynomial)
+    polynomial_trendline.setForward(1)
+    polynomial_trendline.setOrder(jpype.JByte(3))
+
+    power_trendline = third_series.getTrendLines().add(TrendlineType.Power)
+    power_trendline.setBackward(1)
+
+    presentation.save("ChartTrendLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Trendvonal metszéspont beállítása**
+
+A [setIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#setIntercept) használatával rögzíthetjük a trendvonal Y értékét X = 0‑nál. Ez a beállítás támogatott a lineáris, exponenciális és polinomiális trendvonalak esetén.
+
+Például egy termelési költségmodellnek szüksége lehet arra, hogy a 100 ismert fix költségnél induljon, még akkor is, ha a nemnulla termelési mennyiségeknél mért értékek más kiindulási pontot sugallnak. Lineáris trendvonal esetén a metszéspont rögzítése korlátozza a `y = ax + b` egyenletet `b = 100`‑ra; a meredekség a korlátozás mellett van illesztve az adatokhoz. Ez nem egyszerűen csak egy már illesztett vonalat mozgat. A tengelykereszteződés beállítások szabályozzák, hogy a diagram tengelyei hol találkoznak, nem pedig az illesztett trendvonal együtthatóit.
+
+Az alábbi példa egy szórás (XY) diagramot hoz létre 1‑től 4‑ig terjedő termelési mennyiségekkel és 170, 200, 230 és 260 költségekkel. A diagramot elmenti az alapértelmezett automatikus metszésponttal, beállítja a metszéspontot 100-ra, és egy második PPTX‑et ment. A két fájl csak a metszéspont beállításában tér el. A trendvonal megjeleníti az egyenletét és visszanyúlik X = 0‑ra.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat, TrendlineType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ScatterWithMarkers, 20, 20, 480, 210)
+    chart.setLegend(False)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    name_cell = workbook.getCell(0, 0, 1, "Production cost")
+    series = chart.getChartData().getSeries().add(name_cell, ChartType.ScatterWithMarkers)
+    costs = [170, 200, 230, 260]
+
+    for i in range(len(costs)):
+        x_cell = workbook.getCell(0, i + 1, 0, i + 1)
+        y_cell = workbook.getCell(0, i + 1, 1, costs[i])
+        series.getDataPoints().addDataPointForScatterSeries(x_cell, y_cell)
+
+    trendline = series.getTrendLines().add(TrendlineType.Linear)
+    trendline.setDisplayEquation(True)
+    trendline.setBackward(1)
+
+    presentation.save("AutomaticIntercept.pptx", SaveFormat.Pptx)
+
+    trendline.setIntercept(100)
+    presentation.save("FixedIntercept.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Automatikus számítás esetén ezek az adatok `y = 30x + 140` eredményt adnak. A metszéspont 100‑ra állításával körülbelül `y = 43.33x + 100` lesz: a nulla értékénél illesztett érték megegyezik a ismert kiindulási ponttal, míg a vonal már nem halad át minden adatponton.
+
+| Automatikus metszéspont | 100‑as rögzített metszéspont |
+| --- | --- |
+| ![Lineáris trendvonal automatikusan kiszámított 140‑as metszésponttal](intercept-automatic.png) | ![Lineáris trendvonal 100‑as rögzített metszésponttal](intercept-fixed.png) |
+
+Mindkét kép ugyanazt az adatot és tengelyskálát használja. A trendvonalak visszanyúlnak X = 0‑ra, hogy megjelenítsék a metszéspontjaikat.
+
+Alapértelmezés szerint a [getIntercept](https://reference.aspose.com/slides/python-java/aspose.slides/trendline/#getIntercept) `NaN`‑t ad vissza, ami egy nem meghatározott metszéspontot jelent, nem pedig nullát. A metszéspont ezután automatikusan lesz kiszámítva az adatokból.
+
 ## **Egyéni vonal hozzáadása**
 
-Az Aspose.Slides for Python via Java egyszerű API-t biztosít egyéni vonalak diagramhoz való hozzáadásához. Egy egyszerű vonal hozzáadásához egy kiválasztott dián lévő diagramhoz kövesse az alábbi lépéseket:
-
-- Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-- Szerezzen hivatkozást egy diára az indexe alapján.
-- Hozzon létre egy új diagramot a [addChart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/#addChart) metódus segítségével a [ShapeCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/) osztályban.
-- Adjon hozzá egy vonal alakzatot a [addAutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/#addAutoShape) metódus használatával a [ShapeType.Line](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapetype/#Line) típussal.
-- Állítsa be az alakzat vonalának színét.
-- Írja ki a módosított prezentációt egy PPTX fájlba.
-
-Az alábbi kód egy diagramot hoz létre egy egyéni vonallal.
+Az egyéni vonal egy alakzat, amelyet a diagram fölött rajzolunk, nem pedig a sorozati adatokból számított trendvonal. Ez a példa a [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addAutoShape) használatával ad hozzá egy vízszintes vonalat a diára a diagram felett. A vonal pozíciója a diakoordinátákban van megadva pontokban, így a diagram bal szélén kezdődik, és a diagram közepénél helyezkedik el. Szélessége megegyezik a diagram szélességével. A [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) metódus hozzáférést biztosít a vonal formázásához, amely egy tiszta piros színt alkalmaz.
 
 ```python
 import jpype
@@ -121,16 +158,17 @@ if not jpype.isJVMStarted():
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Hozzon létre egy példányt a Presentation osztályból.
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
-    shape = chart.getUserShapes().getShapes().addAutoShape(ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0)
+    slide = presentation.getSlides().get_Item(0)
 
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
 
-    presentation.save("Presentation.pptx", SaveFormat.Pptx)
+    line = slide.getShapes().addAutoShape(ShapeType.Line, chart.getX(), chart.getY() + chart.getHeight() / 2, chart.getWidth(), 0)
+    line.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED)
+
+    presentation.save("AddCustomLines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
@@ -139,8 +177,8 @@ finally:
 
 **Mit jelentenek a 'forward' és a 'backward' egy trendvonal esetén?**
 
-A trendvonal előre vagy hátra vetített hosszát jelentik: szórás (XY) diagramok esetén tengelyegységekben mérik; nem szórás diagramok esetén a kategóriák számában. Csak nem negatív értékek engedélyezettek.
+Ezek a trendvonal előre/hátra kiterjesztett hosszát jelentik: szórás (XY) diagramok esetén – tengelyegységekben; nem szórás diagramok esetén – kategóriák számában. Csak nem negatív értékek megengedettek.
 
-**Megmarad-e a trendvonal a prezentáció PDF vagy SVG formátumba történő exportálásakor, illetve a dia képként való renderelésekor?**
+**Megmarad a trendvonal a prezentáció PDF‑ vagy SVG‑formátumba exportálása, illetve a dia képként való renderelése esetén?**
 
-Igen. Az Aspose.Slides a prezentációkat [PDF](/slides/hu/python-java/convert-powerpoint-to-pdf/)/[SVG](/slides/hu/python-java/render-a-slide-as-an-svg-image/) formátumba konvertálja, és a diagramokat képekké rendereli; a trendvonalak, mint a diagram része, megmaradnak ezek során. Egy metódus is elérhető a diagram [képének exportálásához](/slides/hu/python-java/create-shape-thumbnails/).
+Igen. Az Aspose.Slides a prezentációkat [PDF](/slides/hu/python-java/convert-powerpoint-to-pdf/) vagy [SVG](/slides/hu/python-java/render-a-slide-as-an-svg-image/) formátumba konvertálja, és a diagramokat képekké rendereli; a trendvonalak, mint a diagram részei, megmaradnak ezek során. Egy módszer szintén elérhető a diagram [a diagram képének exportálása](/slides/hu/python-java/create-shape-thumbnails/) számára.
