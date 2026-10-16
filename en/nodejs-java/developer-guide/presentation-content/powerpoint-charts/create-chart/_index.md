@@ -57,7 +57,7 @@ Use the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slide
 
 ### **Create Clustered Column Charts**
 
-This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) to create a clustered column chart that compares two series across three categories. The series use red and green fills, and individual labels demonstrate category names, series names, and values. Worksheet index 0 refers to the first sheet in the embedded chart workbook.
+This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) to create a clustered column chart that compares two series across three categories. The series use red and green fills, and individual labels demonstrate category names, series names, and values. Worksheet index 0 refers to the first sheet in the embedded chart workbook.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -151,7 +151,7 @@ Use a scatter chart when:
 * You want to determine whether the two variables are related.
 * You have an independent variable that has multiple values for a dependent variable.
 
-This example plots two sets of x-y values. The first series uses straight lines with star markers, while the second uses smooth lines with circle markers; both use a marker size of 10, configured with [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSize). The [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/#setSymbol) method controls the marker shape.
+This example plots two sets of x-y values. The first series uses straight lines with star markers, while the second uses smooth lines with circle markers; both use a marker size of 10, configured with [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsize/). The [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsymbol/) method controls the marker shape.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -225,7 +225,7 @@ The result:
 
 Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you might want to consider using a bar chart instead.
 
-This example creates a pie chart with three quarterly values. Each slice has a custom fill and border, and the labels display different combinations of values, percentages, and series information. The [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) method sets the first slice to start at 180 degrees.
+This example creates a pie chart with three quarterly values. Each slice has a custom fill and border, and the labels display different combinations of values, percentages, and series information. The [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) method sets the first slice to start at 180 degrees.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -328,11 +328,13 @@ The result:
 
 ![The Pie chart](pie_chart.png)
 
+To improve the readability of labels outside the pie, see [Format Leader Lines](/slides/nodejs-java/chart-data-label/#format-leader-lines) for an example that positions labels and customizes the lines' color, width, transparency, and dash style.
+
 ### **Create Line Charts**
 
 Line charts (also known as line graphs) are best used in situations where you want to demonstrate changes in value over time. Using a line chart, you can compare a large amount of data at once, track changes and trends over time, highlight anomalies in data series, and more.
 
-This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) to create a line chart with the default series and categories, then saves the presentation as PPTX.
+This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) to create a line chart with the default series and categories, then saves the presentation as PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -352,7 +354,7 @@ finally
 }
 ```
 
-By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, call [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) with a value from [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
+By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, call [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) with a value from [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -385,7 +387,7 @@ The result:
 
 Tree map charts are best used for sales data when you want to show the relative size of data categories and quickly draw attention to items that are large contributors within each category.
 
-This example creates a tree map with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) method assigns stems at grouping level 1 and branches at level 2. Values determine the relative rectangle sizes, while category labels and overlapping parent labels identify the hierarchy.
+This example creates a tree map with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) method assigns stems at grouping level 1 and branches at level 2. Values determine the relative rectangle sizes, while category labels and overlapping parent labels identify the hierarchy.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -483,9 +485,9 @@ The following example uses amounts in thousands of US dollars:
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-To mark a point as an intermediate or final total, call its [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setSetAsTotal) method with `true`. Supply the actual accumulated amount in that point's workbook cell: `600` for gross profit (`1000 - 400`) and `450` for net profit (`600 - 200 + 50`). The method marks the column as a total; it does not calculate or populate the cell value. Do not use zero as a placeholder or supply another change for a total point. A total column displays the accumulated value without adding it again to the running value.
+To mark a point as an intermediate or final total, call its [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setsetastotal/) method with `true`. Supply the actual accumulated amount in that point's workbook cell: `600` for gross profit (`1000 - 400`) and `450` for net profit (`600 - 200 + 50`). The method marks the column as a total; it does not calculate or populate the cell value. Do not use zero as a placeholder or supply another change for a total point. A total column displays the accumulated value without adding it again to the running value.
 
-This complete JavaScript example creates a chart using the `Waterfall` member of [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), clears the default data, and fills the embedded workbook. Worksheet index `0` selects the first worksheet; column A contains category names and column B contains values. Each value cell is added with [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). The zero-based point indices `2` and `5` identify the intermediate and final totals. Calling [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) with `true` displays the amounts on the columns. No input presentation or workbook is required.
+This complete JavaScript example creates a chart using the `Waterfall` member of [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), clears the default data, and fills the embedded workbook. Worksheet index `0` selects the first worksheet; column A contains category names and column B contains values. Each value cell is added with [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). The zero-based point indices `2` and `5` identify the intermediate and final totals. Calling [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) with `true` displays the amounts on the columns. No input presentation or workbook is required.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -537,7 +539,7 @@ finally
 }
 ```
 
-Call the series-level [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setShowConnectorLines) method with `true` to show lines linking consecutive columns and make the running value easier to follow. To hide these lines, replace the method call in the example with `series.setShowConnectorLines(false);` before saving. This changes only the line visibility, not the data or totals.
+Call the series-level [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setshowconnectorlines/) method with `true` to show lines linking consecutive columns and make the running value easier to follow. To hide these lines, replace the method call in the example with `series.setShowConnectorLines(false);` before saving. This changes only the line visibility, not the data or totals.
 
 The saved presentation shows gross profit of 600 and net profit of 450, with both totals drawn from zero:
 
@@ -547,7 +549,7 @@ The saved presentation shows gross profit of 600 and net profit of 450, with bot
 
 Stock charts are used to display financial data such as open, high, low, and close prices, helping analyze market trends and volatility. They offer essential insights into stock performance, aiding investors and analysts in making informed decisions.
 
-This example creates an open-high-low-close chart with four series in that order and three categories. The [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/#setUpDownBars) method enables up/down bars, and [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) controls the high-low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
+This example creates an open-high-low-close chart with four series in that order and three categories. The [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/setupdownbars/) method enables up/down bars, and [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) controls the high-low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -637,7 +639,7 @@ The result:
 
 Box and whisker charts are used to display the distribution of data by summarizing key statistical measures, such as the median, quartiles, and potential outliers. They are particularly useful in exploratory data analysis and statistical studies to quickly understand data variability and identify any anomalies.
 
-This example creates a box and whisker chart from six values. The [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setQuartileMethod) method selects the exclusive quartile calculation. The example also enables mean lines, mean markers, inner points, and outlier points.
+This example creates a box and whisker chart from six values. The [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setquartilemethod/) method selects the exclusive quartile calculation. The example also enables mean lines, mean markers, inner points, and outlier points.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -701,7 +703,7 @@ finally
 
 Funnel charts are used to visualize processes that involve sequential stages, where the volume of data decreases as it progresses from one step to the next. They are especially helpful for analyzing conversion rates, identifying bottlenecks, and tracking the efficiency of sales or marketing processes.
 
-This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) to add a funnel chart to the first slide of an existing presentation. It replaces the default data with six categories and values ranging from 50 to 500, then saves the updated presentation. The input presentation must contain at least one slide.
+This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) to add a funnel chart to the first slide of an existing presentation. It replaces the default data with six categories and values ranging from 50 to 500, then saves the updated presentation. The input presentation must contain at least one slide.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -763,7 +765,7 @@ The result:
 
 Sunburst charts are used to visualize hierarchical data, displaying levels as concentric rings. They help illustrate part-to-whole relationships and are ideal for representing nested categories and subcategories in a clear, compact format.
 
-This example creates a sunburst chart with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) method assigns stems at grouping level 1 and branches at level 2. Category labels identify the segments, and the values determine their relative sizes.
+This example creates a sunburst chart with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) method assigns stems at grouping level 1 and branches at level 2. Category labels identify the segments, and the values determine their relative sizes.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -848,11 +850,11 @@ The result:
 
 Histogram charts show how numerical values are distributed across intervals (bins). For monthly reports on order processing times, use the same bin width and thresholds to keep intervals consistent and make distributions easier to compare.
 
-Call [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAggregationType) on the horizontal axis with a mode from [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setBinWidth) applies only to `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberOfBins) applies only to `ByNumberOfBins`. Use `Automatic` to let the chart choose the bins.
+Call [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaggregationtype/) on the horizontal axis with a mode from [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setbinwidth/) applies only to `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberofbins/) applies only to `ByNumberOfBins`. Use `Automatic` to let the chart choose the bins.
 
 #### **Use a Fixed Bin Width**
 
-This example groups processing times into 10-minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) and [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin). When supplying explicit thresholds through [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setUnderflowBin) and [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setOverflowBin), call [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticUnderflowBin) and [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setAutomaticOverflowBin) with `false`.
+This example groups processing times into 10-minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) and [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/). When supplying explicit thresholds through [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) and [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/), call [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticunderflowbin/) and [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticoverflowbin/) with `false`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -954,7 +956,7 @@ The five bins have counts of **4, 4, 4, 4, and 1**. Compare this distribution wi
 
 Radar charts are used to display multivariate data in a two-dimensional format, allowing for easy comparison of several variables simultaneously. They are particularly useful for identifying patterns, strengths, and weaknesses across multiple performance metrics or attributes.
 
-This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) to create a radar chart with the default series and categories, then saves the presentation as PPTX.
+This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) to create a radar chart with the default series and categories, then saves the presentation as PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -982,7 +984,7 @@ The result:
 
 Multi-category charts are used to display data that involves more than one categorical grouping, allowing you to compare values across multiple dimensions simultaneously. They are particularly helpful when you need to analyze trends and relationships within complex, multi-layered datasets.
 
-This example creates a clustered column chart with eight categories arranged in four pairs. The [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) method gives each pair a shared label at grouping level 1, producing a category axis with both individual and group labels.
+This example creates a clustered column chart with eight categories arranged in four pairs. The [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) method gives each pair a shared label at grouping level 1, producing a category axis with both individual and group labels.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1062,7 +1064,7 @@ The result:
 
 Map charts are used to visualize geographical data by mapping information to specific locations such as countries, states, or cities. They are particularly useful for analyzing regional trends, demographic data, and spatial distributions in a clear, visually engaging manner.
 
-This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) to create a map chart with the default geographical data and saves it for viewing in PowerPoint.
+This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) to create a map chart with the default geographical data and saves it for viewing in PowerPoint.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1098,7 +1100,7 @@ A combination chart (or combo chart) combines two or more chart types in a singl
 
 ![The combination chart](combination_chart.png)
 
-This example combines two clustered column series with a line series across four categories. The columns use the primary vertical axis, while [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setPlotOnSecondAxis) places the line on a secondary vertical axis on the right. The helper functions configure the title, legend, axis labels, and gridlines.
+This example combines two clustered column series with a line series across four categories. The columns use the primary vertical axis, while [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setplotonsecondaxis/) places the line on a secondary vertical axis on the right. The helper functions configure the title, legend, axis labels, and gridlines.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1267,7 +1269,7 @@ createComboChart();
 
 Aspose.Slides for Node.js via Java enables you to update PowerPoint charts by modifying chart data, formatting, and styling. This functionality simplifies the process of keeping presentations up-to-date with dynamic content and ensures that charts accurately reflect current data and visual standards.
 
-This example updates the chart named "My chart" on the first slide of an existing presentation. It requires two column series with three data points each, with category labels in column A and series names in the first row of the first worksheet. The example uses [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) to change workbook cells, updates series values, adds a third series, and changes the chart to clustered cylinders through [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setType).
+This example updates the chart named "My chart" on the first slide of an existing presentation. It requires two column series with three data points each, with category labels in column A and series names in the first row of the first worksheet. The example uses [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) to change workbook cells, updates series values, adds a third series, and changes the chart to clustered cylinders through [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/settype/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1335,7 +1337,7 @@ To inspect the range already used by an existing chart, see [Retrieve a Chart's 
 
 Aspose.Slides for Node.js via Java provides the flexibility to define a specific data range from a worksheet as the source for your chart's data. This means you can directly map a portion of your worksheet to the chart, allowing you to control which cells contribute to the chart's series and categories. As a result, you can easily update and synchronize your charts with the latest data changes in your worksheet, ensuring that your PowerPoint presentations reflect current and accurate information.
 
-This example uses [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) to set the data source of the chart named "My chart" on the first slide of an existing presentation to `Sheet1!A1:B4`. The chart workbook must contain that worksheet and a populated range with a series heading in the first row, category labels in column A, and three values in column B.
+This example uses [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) to set the data source of the chart named "My chart" on the first slide of an existing presentation to `Sheet1!A1:B4`. The chart workbook must contain that worksheet and a populated range with a series heading in the first row, category labels in column A, and three values in column B.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1370,7 +1372,7 @@ finally
 
 When you use default markers in charts, each chart series gets a different default marker symbol automatically.
 
-This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) to create a chart with two line series and a legend. The marker settings accessed through [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getMarker) retain the automatically assigned marker symbols. The first series includes a negative value and a missing value, represented by `null`, while the second has a value for every category.
+This example uses [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) to create a chart with two line series and a legend. The marker settings accessed through [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getmarker/) retain the automatically assigned marker symbols. The first series includes a negative value and a missing value, represented by `null`, while the second has a value for every category.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };

@@ -492,6 +492,80 @@ presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
+## **Format Leader Lines**
+
+When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
+
+Use [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) to format leader lines at the series' data label collection level. The settings in `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` apply to the collection, rather than to an individual label.
+
+This example creates a pie chart with default data, displays values outside the slices, and enables leader lines with [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). It moves two labels farther from their slices using [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) and [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) offsets, expressed as fractions of the chart width and height. No input presentation is required.
+
+The fill format returned by [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) is used to set a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) sets the thickness to 2 points, and [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) makes the line dashed.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/LineDashStyle.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 80, 50, 560, 400);
+chart->set_HasLegend(false);
+
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+
+auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+labelFormat->set_ShowValue(true);
+labelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+labelFormat->set_ShowLeaderLines(true);
+
+// Move two labels farther away from their slices.
+series->get_Label(0)->set_X(0.10f);
+series->get_Label(0)->set_Y(-0.05f);
+series->get_Label(1)->set_X(-0.10f);
+series->get_Label(1)->set_Y(0.05f);
+
+auto line = series->get_Labels()->get_LeaderLinesFormat()->get_Line();
+line->get_FillFormat()->set_FillType(FillType::Solid);
+line->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(191, 30, 90, 160));
+line->set_Width(2);
+line->set_DashStyle(LineDashStyle::Dash);
+
+presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
+```
+
+Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
+
+The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+
 ## **Add Multiple Rows of Data Labels Above a Column Chart**
 
 This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) method aligns all three series with the same category centers.

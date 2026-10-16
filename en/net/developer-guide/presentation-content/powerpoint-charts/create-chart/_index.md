@@ -313,6 +313,8 @@ The result:
 
 ![The Pie chart](pie_chart.png)
 
+To improve the readability of labels outside the pie, see [Format Leader Lines](/slides/net/chart-data-label/#format-leader-lines) for an example that positions labels and customizes the lines' color, width, transparency, and dash style.
+
 ### **Create Line Charts**
 
 Line charts (also known as line graphs) are best used in situations where you want to demonstrate changes in value over time. Using a line chart, you can compare a large amount of data at once, track changes and trends over time, highlight anomalies in data series, and more.

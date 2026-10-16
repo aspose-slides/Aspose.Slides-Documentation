@@ -336,6 +336,56 @@ presentation.Save("presentation.pptx", SaveFormat.Pptx);
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
+## **Format Leader Lines**
+
+When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
+
+Use [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) to format leader lines at the series' data label collection level. The settings in `series.Labels.LeaderLinesFormat.Line` apply to the collection, rather than to an individual label.
+
+This example creates a pie chart with default data, displays values outside the slices, and enables [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). It moves two labels farther from their slices using [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) and [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) offsets, expressed as fractions of the chart width and height. No input presentation is required.
+
+The line's [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) sets the thickness to 2 points, and [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) makes the line dashed.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Pie, 80, 50, 560, 400);
+chart.HasLegend = false;
+
+var series = chart.ChartData.Series[0];
+
+var labelFormat = series.Labels.DefaultDataLabelFormat;
+labelFormat.ShowValue = true;
+labelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+labelFormat.ShowLeaderLines = true;
+
+// Move two labels farther away from their slices.
+series.Labels[0].X = 0.10f;
+series.Labels[0].Y = -0.05f;
+series.Labels[1].X = -0.10f;
+series.Labels[1].Y = 0.05f;
+
+var line = series.Labels.LeaderLinesFormat.Line;
+line.FillFormat.FillType = FillType.Solid;
+line.FillFormat.SolidFillColor.Color = Color.FromArgb(191, 30, 90, 160);
+line.Width = 2;
+line.DashStyle = LineDashStyle.Dash;
+
+presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
+```
+
+Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
+
+The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+
 ## **Add Multiple Rows of Data Labels Above a Column Chart**
 
 This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) property aligns all three series with the same category centers.

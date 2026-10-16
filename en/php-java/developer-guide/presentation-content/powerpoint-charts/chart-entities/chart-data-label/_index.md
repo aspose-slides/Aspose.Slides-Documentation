@@ -23,7 +23,7 @@ Data labels display information about chart series and individual data points, h
 
 ## **Set Data Precision in Chart Data Labels**
 
-Use [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
+Use [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
 ```php
 use aspose\slides\Presentation;
@@ -49,7 +49,7 @@ try {
 
 ## **Display Percentage as Labels**
 
-For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
 
 ```php
 use aspose\slides\Presentation;
@@ -111,7 +111,7 @@ try {
 
 ## **Set Percentage Sign with Chart Data Labels**
 
-When values are stored as fractions, use [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormat) to display percentages. Pass `false` to [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) to apply the label format independently of the source cells.
+When values are stored as fractions, use [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) to display percentages. Pass `false` to [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) to apply the label format independently of the source cells.
 
 This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
@@ -173,7 +173,7 @@ try {
 
 ## **Read the Actual Text of Data Labels**
 
-Use [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Use [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```php
 use aspose\slides\Presentation;
@@ -237,15 +237,15 @@ try {
 }
 ```
 
-The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#getActualLabelText) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#isVisible) separately, as shown above, when you want to extract only visible labels.
+The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) separately, as shown above, when you want to extract only visible labels.
 
 ## **Control Data Labels Beyond the Axis Maximum**
 
-When you limit an axis range manually, some data points may exceed its maximum. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
+When you limit an axis range manually, some data points may exceed its maximum. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
 
-The example below creates a 2D clustered column chart with values of 60 and 120. It passes `false` to [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setAutomaticMaxValue) and sets the maximum to 100 with [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setMaxValue) on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
+The example below creates a 2D clustered column chart with values of 60 and 120. It passes `false` to [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) and sets the maximum to 100 with [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
 
-Enable value labels with [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setPosition) to place labels at the outside end of each column.
+Enable value labels with [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) to place labels at the outside end of each column.
 
 ```php
 use aspose\slides\Presentation;
@@ -311,7 +311,7 @@ This example uses a 2D column chart with a value axis. Charts without a value ax
 
 ## **Set Label Distance from an Axis**
 
-Use [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setLabelOffset) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
+Use [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
 ```php
 use aspose\slides\Presentation;
@@ -335,7 +335,7 @@ try {
 
 On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
 
-This example displays the value of the first data point, places its label outside the slice, and adjusts its horizontal and vertical offsets using [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) and [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY). These offsets are relative to the chart width and height, respectively.
+This example displays the value of the first data point, places its label outside the slice, and adjusts its horizontal and vertical offsets using [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) and [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). These offsets are relative to the chart width and height, respectively.
 
 ```php
 use aspose\slides\Presentation;
@@ -364,11 +364,68 @@ try {
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
+## **Format Leader Lines**
+
+When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
+
+Use [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) to format leader lines at the series' data label collection level. The settings in `$series->getLabels()->getLeaderLinesFormat()->getLine()` apply to the collection, rather than to an individual label.
+
+This example creates a pie chart with default data, displays values outside the slices, and enables [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). It moves two labels farther from their slices using [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) and [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) offsets, expressed as fractions of the chart width and height. No input presentation is required.
+
+The line's [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) sets the thickness to 2 points, and [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) makes the line dashed.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\FillType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 80, 50, 560, 400);
+    $chart->setLegend(false);
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+    $labelFormat->setShowValue(true);
+    $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
+    $labelFormat->setShowLeaderLines(true);
+
+    // Move two labels farther away from their slices.
+    $series->getLabels()->get_Item(0)->setX(0.10);
+    $series->getLabels()->get_Item(0)->setY(-0.05);
+    $series->getLabels()->get_Item(1)->setX(-0.10);
+    $series->getLabels()->get_Item(1)->setY(0.05);
+
+    $line = $series->getLabels()->getLeaderLinesFormat()->getLine();
+    $line->getFillFormat()->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 30, 90, 160, 191);
+    $line->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+    $line->setWidth(2);
+    $line->setDashStyle(LineDashStyle::Dash);
+
+    $presentation->save("FormattedLeaderLines.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
+
+The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+
 ## **Add Multiple Rows of Data Labels Above a Column Chart**
 
-This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) method aligns all three series with the same category centers.
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) method aligns all three series with the same category centers.
 
-The [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#validateChartLayout) calculates the default positions, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setX) and [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/#setY) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
+The [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) calculates the default positions, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) and [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
 
 ```php
 use aspose\slides\Presentation;

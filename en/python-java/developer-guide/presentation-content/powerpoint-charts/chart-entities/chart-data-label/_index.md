@@ -370,6 +370,65 @@ finally:
 
 ![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
+## **Format Leader Lines**
+
+When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
+
+Use [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) to format leader lines at the series' data label collection level. The settings in `series.getLabels().getLeaderLinesFormat().getLine()` apply to the collection, rather than to an individual label.
+
+This example creates a pie chart with default data, displays values outside the slices, and enables [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines). It moves two labels farther from their slices using [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) and [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) offsets, expressed as fractions of the chart width and height. No input presentation is required.
+
+The line's [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) sets the thickness to 2 points, and [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) makes the line dashed.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, LegendDataLabelPosition, LineDashStyle, Presentation, SaveFormat
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.Pie, 80, 50, 560, 400)
+    chart.setLegend(False)
+
+    series = chart.getChartData().getSeries().get_Item(0)
+
+    label_format = series.getLabels().getDefaultDataLabelFormat()
+    label_format.setShowValue(True)
+    label_format.setPosition(LegendDataLabelPosition.OutsideEnd)
+    label_format.setShowLeaderLines(True)
+
+    # Move two labels farther away from their slices.
+    series.getLabels().get_Item(0).setX(0.10)
+    series.getLabels().get_Item(0).setY(-0.05)
+    series.getLabels().get_Item(1).setX(-0.10)
+    series.getLabels().get_Item(1).setY(0.05)
+
+    line = series.getLabels().getLeaderLinesFormat().getLine()
+    line.getFillFormat().setFillType(FillType.Solid)
+    color = Color(30, 90, 160, 191)
+    line.getFillFormat().getSolidFillColor().setColor(color)
+    line.setWidth(2)
+    line.setDashStyle(LineDashStyle.Dash)
+
+    presentation.save("FormattedLeaderLines.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
+
+The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+
 ## **Add Multiple Rows of Data Labels Above a Column Chart**
 
 This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) method aligns all three series with the same category centers.
