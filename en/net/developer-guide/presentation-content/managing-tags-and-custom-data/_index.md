@@ -366,6 +366,8 @@ Tags added through the `CustomData.Tags` collection are stored only in the Power
 
 **Workaround**: You can store a custom identifier in the object's **Alt Text** (for example, `shape.AlternativeText = "MyId"`). After exporting to PDF, the Alt Text may appear in the PDF tag structure.
 
+> **Note:** Alternative text defined for text boxes is not included in the PDF/UA-1 structure when exporting a presentation. This behavior was corrected starting with Aspose.Slides for .NET 26.3. Update to this version or later to have the Alt Text mapped to the PDF structure.
+
 ## **FAQ**
 
 **Can I remove all tags from a presentation, slide, or shape in one operation?**
