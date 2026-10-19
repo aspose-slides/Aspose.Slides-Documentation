@@ -8,32 +8,42 @@ keywords:
 - embed chart
 - OLE object
 - PowerPoint
-- OpenDocument
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Create Excel charts and embed them as OLE objects in PowerPoint and OpenDocument presentations with Python. Step-by-step guide with code samples."
+description: "Create an Excel chart with Aspose.Cells for Python via Java and embed the workbook in a PowerPoint presentation with Aspose.Slides, including a chart preview."
 ---
 
-## **Background**
+## **Overview**
 
-In PowerPoint, using editable charts to display data graphically is a common practice. Aspose supports creating Excel charts with Aspose.Cells for Python via Java, and these charts can then be embedded as OLE objects in PowerPoint slides through Aspose.Slides for Python via Java. This article covers the necessary steps and provides a Python code sample for creating an Excel chart and embedding it as an OLE object in a PowerPoint presentation using Aspose.Cells and Aspose.Slides.
+This article shows how to create an Excel column chart with Aspose.Cells for Python via Java and embed its workbook in a PowerPoint presentation with Aspose.Slides for Python via Java. The embedded workbook contains both the source data and the chart. A separate PNG preview displays the chart on the slide before the OLE object is activated.
 
-## **Required Steps**
+The result is an embedded Excel object, not a native PowerPoint chart. Editing the workbook through OLE requires a desktop application that supports OLE activation and a compatible Excel installation.
 
-The following sequence of steps is required to create and embed an Excel chart as an OLE object in a PowerPoint slide:
+## **Prerequisites**
 
-1. Create an Excel chart using Aspose.Cells.
-1. Set the OLE size of the Excel chart using Aspose.Cells.
-1. Get an image of the Excel chart with Aspose.Cells.
-1. Embed the Excel chart as an OLE object in a PPTX presentation using Aspose.Slides.
-1. Replace the "EMBEDDED OLE OBJECT" image with the image obtained in step 3 to address the [object preview issue](/slides/python-java/object-preview-issue-when-adding-oleobjectframe/).
-1. Save the presentation to disk in PPTX format.
+Install the `aspose-cells` and `aspose-slides-java` Python packages and a compatible Java runtime. Import both packages before starting the JVM so that their Java libraries are available to JPype. Microsoft Office is not required to generate the presentation with these libraries.
 
-## **Implementation of the Required Steps**
+No input files are required: the example creates the data and chart in memory, then writes `OutputChart.pptx` to the current working directory. Apply licenses for both products when running outside evaluation mode.
 
-The Python implementation of the above steps is as follows:
+## **How the Embedding Works**
+
+1. Create a workbook with a data worksheet and a chart sheet.
+1. Make the chart sheet active so that the workbook opens on the chart.
+1. Set the workbook's OLE display range and render the chart to PNG.
+1. Save the workbook as XLSX in memory and embed those bytes in a slide.
+1. Assign the PNG as the OLE object's preview and save the presentation as PPTX.
+
+The workbook display range and the frame on the slide have different roles. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) takes zero-based start/end row and column indices. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) instead takes the top row, left column, bottom row, and right column. The example uses row index 55 and column index 25 as the lower-right boundaries; these values are layout choices, not the number of data rows or columns.
+
+The slide frame uses points. The example fits it within the slide and centers it while preserving the PNG's aspect ratio, rather than stretching the preview to fill the slide.
+
+## **Create and Embed the Chart**
+
+The following complete example populates `DataSheet` with four rows and five columns of values. Each row becomes a chart series. `ChartSheet` is selected as the active sheet before the workbook is saved.
+
+The workbook is explicitly saved as XLSX, matching the `xlsx` extension passed to [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/). Java byte-array streams keep the workbook and image in memory and provide the byte arrays required by the Java APIs. The PNG is loaded directly from its bytes without an intermediate bitmap conversion. Assigning it through [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) replaces the default OLE placeholder.
 
 ```python
 import jpype
@@ -45,128 +55,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # An array of cell names.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # An array of cell data.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # Add a new worksheet to populate cells with data.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # Populate the data sheet with data.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # Add a chart sheet.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # Add a chart to the chart sheet with data series from the data sheet.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # Set the chart sheet as the active sheet.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # Describe the workbook as embedded OLE data.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# Create a workbook.
 workbook = Workbook()
-
-# Add an Excel chart.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# Set the OLE size of the chart.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# Get the chart image and save it to a stream.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# Save the workbook to a stream.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# Create a presentation.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # Add the workbook to a slide.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # Save the presentation to disk.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # Render the chart preview and serialize the editable workbook separately.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # Fit the preview within the slide without changing its aspect ratio.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-The presentation created by the above method will contain the Excel chart as an OLE object that can be activated by double-clicking the OLE object frame.
+## **Expected Result**
 
-## **Conclusion**
+`OutputChart.pptx` contains one slide with an embedded Excel workbook and a chart preview. The workbook contains the original data and a column chart with four series. The preview is centered on the slide and retains its proportions.
 
-By using Aspose.Cells for Python via Java together with Aspose.Slides for Python via Java, we can create any Excel chart supported by Aspose.Cells and embed the chart as an OLE object in a PowerPoint slide. The OLE size of the Excel chart can also be defined. End users can then edit the Excel chart like any other OLE object.
+![Excel column chart displayed as the preview of an embedded workbook](excel-chart-ole-preview.png)
+
+In a compatible desktop PowerPoint environment with Excel available, double-click the object to activate and edit the embedded workbook. Activation and editing depend on the host application's OLE support and security settings.
+
+## **FAQ**
+
+**Why is a preview image needed?**
+
+The embedded workbook and its slide preview are separate content. Supply a chart image so the slide shows the chart instead of the default "EMBEDDED OLE OBJECT" placeholder. See [Object Preview Issue when Adding OleObjectFrame](/slides/python-java/object-preview-issue-when-adding-oleobjectframe/).
+
+**Does the preview update automatically when I change the workbook in code?**
+
+Treat the preview as a snapshot. When updating workbook data programmatically, regenerate the chart image and replace the preview as well as the embedded workbook data.
+
+**Can I use XLS instead of XLSX?**
+
+Yes. Save the workbook in XLS format and use `xls` as the embedded data extension. The extension must match the actual workbook format; changing the extension alone does not convert the data.
+
+**Why might the object change size after activation?**
+
+The host application can update the OLE object's presentation when it activates the workbook. The workbook's OLE display range and the slide frame dimensions both matter. See [Working Solution for Chart Resizing in PPTX](/slides/python-java/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Related Sections**
 
 - [Working Solution for Chart Resizing in PPTX](/slides/python-java/working-solution-for-chart-resizing-in-pptx/)
 - [Object Preview Issue when Adding OleObjectFrame](/slides/python-java/object-preview-issue-when-adding-oleobjectframe/)
-
-## **FAQ**
-
-**Which libraries are used to create and embed the Excel chart?**
-
-Aspose.Cells for Python via Java creates the Excel chart, and Aspose.Slides for Python via Java embeds it as an OLE object in a PowerPoint slide.
-
-**How can users edit the embedded Excel chart?**
-
-Users can double-click the OLE object frame to activate the chart and edit it like any other OLE object.
-
-**How is the default OLE object preview replaced?**
-
-The example obtains an image of the Excel chart with Aspose.Cells and uses it to replace the "EMBEDDED OLE OBJECT" image.

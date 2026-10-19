@@ -8,92 +8,58 @@ keywords:
 - embed chart
 - OLE object
 - PowerPoint
-- OpenDocument
 - presentation
 - C++
 - Aspose.Slides
-description: "Create Excel charts and embed them as OLE objects in PowerPoint and OpenDocument presentations with C++. Step-by-step guide with code samples."
+description: "Create an Excel chart with Aspose.Cells for C++ and embed the workbook in a PowerPoint presentation with Aspose.Slides, including a chart preview."
 ---
 
-## **Background**
+## **Overview**
 
-In PowerPoint, using editable charts to display data graphically is a common practice. Aspose supports creating Excel charts with Aspose.Cells for C++, and these charts can then be embedded as OLE objects in PowerPoint slides through Aspose.Slides for C++. This article covers the necessary steps and provides C++ code samples for creating an Excel chart and embedding it as an OLE object in a PowerPoint presentation using Aspose.Cells and Aspose.Slides.
+This article shows how to create an Excel column chart with Aspose.Cells for C++ and embed its workbook in a PowerPoint presentation with Aspose.Slides for C++. The embedded workbook contains both the source data and the chart. A separate PNG preview displays the chart on the slide before the OLE object is activated.
 
-## **Required Steps**
+The result is an embedded Excel object, not a native PowerPoint chart. Editing the workbook through OLE requires a desktop application that supports OLE activation and a compatible Excel installation.
 
-The following sequence of steps is required to create and embed an Excel chart as an OLE object in a PowerPoint slide:
+## **Prerequisites**
 
-1. Create an Excel chart using Aspose.Cells.
-1. Set the OLE size of the Excel chart using Aspose.Cells.
-1. Get an image of the Excel chart with Aspose.Cells.
-1. Embed the Excel chart as an OLE object in a PPTX presentation using Aspose.Slides.
-1. Replace the "EMBEDDED OLE OBJECT" image with the image obtained in step 3 to address the [object preview issue](/slides/cpp/object-preview-issue-when-adding-oleobjectframe/).
-1. Save the presentation to disk in PPTX format.
+Configure your C++ project with the headers and libraries for Aspose.Cells for C++ and Aspose.Slides for C++. Place the example code in your application entry point, with the include declarations at file scope. Microsoft Office is not required to generate the presentation with these libraries.
 
-## **Implementation of the Required Steps**
+No input files are required: the example creates the data and chart in memory, then writes `OutputChart.pptx` to the current working directory. Apply licenses for both products when running outside evaluation mode.
 
-The C++ implementation of the above steps is as follows:
+## **How the Embedding Works**
+
+1. Create a workbook with a data worksheet and a chart sheet.
+1. Make the chart sheet active so that the workbook opens on the chart.
+1. Set the workbook's OLE display range and render the chart to PNG.
+1. Save the workbook as XLSX in memory and embed those bytes in a slide.
+1. Assign the PNG as the OLE object's preview and save the presentation as PPTX.
+
+The workbook display range and the frame on the slide have different roles. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) takes zero-based start/end row and column indices. [ChartCollection::Add](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chartcollection/add/) instead takes the top row, left column, bottom row, and right column. The example uses row index 55 and column index 25 as the lower-right boundaries; these values are layout choices, not the number of data rows or columns.
+
+The slide frame uses points. The example fits it within the slide and centers it while preserving the PNG's aspect ratio, rather than stretching the preview to fill the slide.
+
+## **Create and Embed the Chart**
+
+The following complete example populates `DataSheet` with four rows and five columns of values. Each row becomes a chart series. `ChartSheet` is selected as the active sheet before the workbook is saved.
+
+The workbook is explicitly saved as XLSX, matching the `xlsx` extension passed to [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/). The PNG is loaded from an in-memory stream without an intermediate bitmap conversion. Aspose.Cells returns byte vectors, which the example copies into the array type accepted by Aspose.Slides. Initialize Aspose.Cells before using its objects, and release its resources after those objects have been destroyed. Assigning it through [IOleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/get_substitutepictureformat/) replaces the default OLE placeholder.
 
 ```cpp
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
 #include "Aspose.Cells/Chart.h"
 #include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartType.h"
 #include "Aspose.Cells/ImageType.h"
 #include "Aspose.Cells/Initializer.h"
 #include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/U16String.h"
 #include "Aspose.Cells/Vector.h"
 #include "Aspose.Cells/Workbook.h"
 #include "Aspose.Cells/Worksheet.h"
 #include "Aspose.Cells/WorksheetCollection.h"
-using namespace Aspose::Slides;
-
-// Aspose.Cells for C++ must be started before any of its types are used.
-Aspose::Cells::Startup();
-
-// Step - 1: Create an Excel chart using Aspose.Cells.
-// ---------------------------------------------------
-// Create a workbook.
-Aspose::Cells::Workbook workbook;
-// Add an Excel chart.
-int32_t chartRows = 55;
-int32_t chartCols = 25;
-int32_t chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
-
-// Step - 2: Set the OLE size of the chart using Aspose.Cells.
-// -----------------------------------------------------------
-workbook.GetWorksheets().SetOleSize(0, chartRows, 0, chartCols);
-
-// Step - 3: Get the image of the chart with Aspose.Cells.
-// -------------------------------------------------------
-Aspose::Cells::Vector<uint8_t> chartImage = workbook.GetWorksheets().Get(chartSheetIndex)
-    .GetCharts().Get(0).ToImage(Aspose::Cells::Drawing::ImageType::Png);
-// Save the workbook to a buffer.
-Aspose::Cells::Vector<uint8_t> workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
-
-// Step - 4 AND 5
-// ==============
-// Step - 4: Embed the chart as an OLE object inside a .ppt presentation using Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// Step - 5: Replace the "EMBEDDED OLE OBJECT" image with the image obtained in step 3 to address Object Preview Issue.
-// --------------------------------------------------------------------------------------------------------------------
-// Create a presentation.
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
-// Add the workbook to the slide.
-AddExcelChartInPresentation(presentation, slide, workbookData, chartImage);
-
-// Step - 6: Save the output presentation to disk.
-// -----------------------------------------------
-presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-presentation->Dispose();
-
-Aspose::Cells::Cleanup();
-```
-
-```cpp
 #include <DOM/IImageCollection.h>
 #include <DOM/IOleObjectFrame.h>
 #include <DOM/IPPImage.h>
@@ -103,122 +69,124 @@ Aspose::Cells::Cleanup();
 #include <DOM/ISlideSize.h>
 #include <DOM/ISlidesPicture.h>
 #include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <Ole/OleEmbeddedDataInfo.h>
 #include <Util/Images.h>
 #include <drawing/size_f.h>
+#include <system/array.h>
 #include <system/io/memory_stream.h>
-#include "Aspose.Cells/Vector.h"
+#include <algorithm>
+#include <IImage.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::DOM::Ole;
 
-void AddExcelChartInPresentation(System::SharedPtr<Presentation> presentation, System::SharedPtr<ISlide> slide,
-                                 const Aspose::Cells::Vector<uint8_t>& workbookData,
-                                 const Aspose::Cells::Vector<uint8_t>& chartImage)
+// Initialize Cells before creating any of its objects.
+Aspose::Cells::Startup();
 {
-    float oleWidth = presentation->get_SlideSize()->get_Size().get_Width();
-    float oleHeight = presentation->get_SlideSize()->get_Size().get_Height();
-    int32_t x = 0;
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"DataSheet");
 
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo =
-        System::MakeObject<OleEmbeddedDataInfo>(ToSlidesArray(workbookData), u"xls");
-    System::SharedPtr<IOleObjectFrame> oleFrame;
-    oleFrame = slide->get_Shapes()->AddOleObjectFrame(static_cast<float>(x), 0.0f, oleWidth, oleHeight, dataInfo);
-
-    auto imageStream = System::MakeObject<System::IO::MemoryStream>(ToSlidesArray(chartImage));
-    auto slidesImage = Images::FromStream(imageStream);
-    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(slidesImage));
-}
-```
-
-```cpp
-#include <system/array.h>
-#include "Aspose.Cells/Vector.h"
-
-// Aspose.Cells for C++ hands back raw buffers as Aspose::Cells::Vector<uint8_t>, while
-// Aspose.Slides for C++ consumes System::ArrayPtr<uint8_t>. This helper copies between them.
-System::ArrayPtr<uint8_t> ToSlidesArray(const Aspose::Cells::Vector<uint8_t>& buffer)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
-    std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), outputBuffer->data_ptr());
-
-    return outputBuffer;
-}
-```
-
-``` cpp
-#include "Aspose.Cells/Cell.h"
-#include "Aspose.Cells/Cells.h"
-#include "Aspose.Cells/Chart.h"
-#include "Aspose.Cells/ChartCollection.h"
-#include "Aspose.Cells/ChartType.h"
-#include "Aspose.Cells/SeriesCollection.h"
-#include "Aspose.Cells/SheetType.h"
-#include "Aspose.Cells/U16String.h"
-#include "Aspose.Cells/Workbook.h"
-#include "Aspose.Cells/Worksheet.h"
-#include "Aspose.Cells/WorksheetCollection.h"
-
-int32_t AddExcelChartInWorkbook(Aspose::Cells::Workbook& workbook, int32_t chartRows, int32_t chartCols)
-{
-    // An array of cell names.
-    const char16_t* cellNames[] =
-    { 
-        u"A1", u"A2", u"A3", u"A4", 
-        u"B1", u"B2", u"B3", u"B4",
-        u"C1", u"C2", u"C3", u"C4",
-        u"D1", u"D2", u"D3", u"D4",
-        u"E1", u"E2", u"E3", u"E4" 
-    };
-    
-    // An array of cell data.
-    int32_t cellValues[] =
+    int32_t values[4][5] =
     {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25 
+        { 67, 44, 46, 43, 24 },
+        { 86, 64, 97, 29, 40 },
+        { 68, 89, 78, 69, 38 },
+        { 91, 48, 60, 26, 25 }
     };
 
-    // Add a new worksheet to populate cells with data.
-    int32_t dataSheetIndex = workbook.GetWorksheets().Add();
-    Aspose::Cells::Worksheet dataSheet = workbook.GetWorksheets().Get(dataSheetIndex);
-    Aspose::Cells::U16String sheetName(u"DataSheet");
-    dataSheet.SetName(sheetName);
-
-    // Populate the data sheet with data.
-    for (size_t i = 0; i < sizeof(cellValues) / sizeof(cellValues[0]); i++)
+    for (auto row = 0; row < 4; row++)
     {
-        const char16_t* cellName = cellNames[i];
-        int32_t cellValue = cellValues[i];
-        dataSheet.GetCells().Get(cellName).PutValue(cellValue);
+        for (auto column = 0; column < 5; column++)
+        {
+            dataSheet.GetCells().Get(row, column).PutValue(values[row][column]);
+        }
     }
 
-    // Add a chart sheet.
-    int32_t chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
-    Aspose::Cells::Worksheet chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
     chartSheet.SetName(u"ChartSheet");
 
-    // Add a chart to the chart sheet with data series from the data sheet.
-    int32_t chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, chartRows, 0, chartCols);
-    Aspose::Cells::Charts::Chart chart = chartSheet.GetCharts().Get(chartIndex);
-    chart.GetNSeries().Add(sheetName + u"!A1:E1", false);
-    chart.GetNSeries().Add(sheetName + u"!A2:E2", false);
-    chart.GetNSeries().Add(sheetName + u"!A3:E3", false);
-    chart.GetNSeries().Add(sheetName + u"!A4:E4", false);
+    auto lastChartRow = 55;
+    auto lastChartColumn = 25;
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, lastChartRow, lastChartColumn);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    const char16_t* seriesRanges[] = { u"DataSheet!A1:E1", u"DataSheet!A2:E2", u"DataSheet!A3:E3", u"DataSheet!A4:E4" };
+    for (auto range : seriesRanges)
+    {
+        chart.GetNSeries().Add(range, false);
+    }
 
-    // Set the chart sheet as an active sheet.
     workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetOleSize(0, lastChartRow, 0, lastChartColumn);
 
-    return chartSheetIndex;
+    // Render the chart preview and serialize the editable workbook separately.
+    auto chartImageData = chart.ToImage(Aspose::Cells::Drawing::ImageType::Png);
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+
+    // Copy Cells buffers into the array type used by Slides.
+    auto toSlidesArray = [](const Aspose::Cells::Vector<uint8_t>& buffer)
+    {
+        auto result = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+        std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), result->data_ptr());
+        return result;
+    };
+    auto chartImageBytes = toSlidesArray(chartImageData);
+    auto workbookBytes = toSlidesArray(workbookData);
+    auto chartImageStream = System::MakeObject<System::IO::MemoryStream>(chartImageBytes);
+    auto chartImage = Images::FromStream(chartImageStream);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto slideSize = presentation->get_SlideSize()->get_Size();
+
+    // Fit the preview within the slide without changing its aspect ratio.
+    auto scale = (std::min)(slideSize.get_Width() / chartImage->get_Width(), slideSize.get_Height() / chartImage->get_Height());
+    auto frameWidth = chartImage->get_Width() * scale;
+    auto frameHeight = chartImage->get_Height() * scale;
+    auto frameX = (slideSize.get_Width() - frameWidth) / 2;
+    auto frameY = (slideSize.get_Height() - frameHeight) / 2;
+
+    auto embeddedData = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xlsx");
+    auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+    auto previewImage = presentation->get_Images()->AddImage(chartImage);
+    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(previewImage);
+
+    presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
+    chartImage->Dispose();
+    chartImageStream->Dispose();
 }
+// Release Cells resources after all Cells objects have been destroyed.
+Aspose::Cells::Cleanup();
 ```
 
-The presentation created by the above method will contain the Excel chart as an OLE object that can be activated by double-clicking the OLE object frame.
+## **Expected Result**
 
-## **Conclusion**
+`OutputChart.pptx` contains one slide with an embedded Excel workbook and a chart preview. The workbook contains the original data and a column chart with four series. The preview is centered on the slide and retains its proportions.
 
-By using Aspose.Cells for C++ together with Aspose.Slides for C++, we can create any Excel chart supported by Aspose.Cells and embed the chart as an OLE object in a PowerPoint slide. The OLE size of the Excel chart can also be defined. End users can then edit the Excel chart like any other OLE object.
+![Excel column chart displayed as the preview of an embedded workbook](excel-chart-ole-preview.png)
+
+In a compatible desktop PowerPoint environment with Excel available, double-click the object to activate and edit the embedded workbook. Activation and editing depend on the host application's OLE support and security settings.
+
+## **FAQ**
+
+**Why is a preview image needed?**
+
+The embedded workbook and its slide preview are separate content. Supply a chart image so the slide shows the chart instead of the default "EMBEDDED OLE OBJECT" placeholder. See [Object Preview Issue when Adding OleObjectFrame](/slides/cpp/object-preview-issue-when-adding-oleobjectframe/).
+
+**Does the preview update automatically when I change the workbook in code?**
+
+Treat the preview as a snapshot. When updating workbook data programmatically, regenerate the chart image and replace the preview as well as the embedded workbook data.
+
+**Can I use XLS instead of XLSX?**
+
+Yes. Save the workbook in XLS format and use `xls` as the embedded data extension. The extension must match the actual workbook format; changing the extension alone does not convert the data.
+
+**Why might the object change size after activation?**
+
+The host application can update the OLE object's presentation when it activates the workbook. The workbook's OLE display range and the slide frame dimensions both matter. See [Working Solution for Chart Resizing in PPTX](/slides/cpp/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Related Sections**
 
