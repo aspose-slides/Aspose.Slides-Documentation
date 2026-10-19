@@ -1,8 +1,10 @@
 ---
-title: Resize Shapes on Presentation Slides
+title: Resize Shapes on Presentation Slides in C++
 type: docs
-weight: 100
-url: /cpp/re-sizing-shapes-on-slide/
+weight: 130
+url: /cpp/resizing-shapes-on-slide/
+aliases:
+  /cpp/re-sizing-shapes-on-slide/
 keywords:
 - resize shape
 - change shape size
@@ -16,11 +18,13 @@ description: "Easily resize shapes on PowerPoint and OpenDocument slides with As
 
 ## **Overview**
 
-One of the most common questions from Aspose.Slides for C++ customers is how to resize shapes so that, when the slide size changes, the data isn’t cut off. This short technical article shows how to do that.
+When you change a presentation's slide size, you may also need to resize and reposition its shapes to fit the new dimensions. This article shows how to scale shapes manually and how to handle tables on slides, masters, and layouts.
 
 ## **Resize Shapes**
 
-To prevent shapes from becoming misaligned when the slide size changes, update each shape’s position and dimensions so they conform to the new slide layout.
+To preserve each shape's relative position and size, multiply its horizontal coordinates and width by the ratio of the new slide width to the original width. Apply the corresponding height ratio to its vertical coordinates and height.
+
+The first example loads a presentation whose slides contain no tables, changes the slide size to A4, and saves the result. It uses [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) with [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) so that the subsequent loop controls the scaling. The ratios are unitless; shape positions and dimensions are measured in points. Different width and height ratios can distort shapes, and changing a shape's dimensions does not scale its font sizes.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -34,39 +38,28 @@ To prevent shapes from becoming misaligned when the slide size changes, update e
 #include <Export/SaveFormat.h>
 #include <drawing/size_f.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Load the presentation file.
-auto presentation = MakeObject<Presentation>(u"sample.ppt");
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the original slide size.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-// Change the slide size without scaling existing shapes.
+// Calculate independent horizontal and vertical scale factors.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Get the new slide size.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-// Resize and reposition shapes on every slide.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // Scale the shape size.
-        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Scale the shape position.
-        shape->set_Y(shape->get_Y() * heightRatio);
+        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
 }
 
@@ -74,13 +67,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-If a slide contains a table, the code above will not work correctly. In that case, each cell in the table must be resized.
+Tables require separate handling: scale their column widths and row heights instead of assigning the table's overall width and height. Row heights may remain larger than requested if the cell content requires more space.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Use the following code on your end to resize slides that contain tables. For tables, setting the width or height is a special case: you must adjust individual row heights and column widths to change the table’s overall size.
+The second example supports tables and processes shapes on masters and layouts as well as individual slides before saving the resized presentation. Its helper handles each [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) by scaling [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) and [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/). It then scales the table's position without separately scaling its overall dimensions.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -104,80 +97,64 @@ Use the following code on your end to resize slides that contain tables. For tab
 #include <Export/SaveFormat.h>
 #include <drawing/size_f.h>
 #include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the original slide size.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-// Change the slide size without scaling existing shapes.
+// Calculate independent horizontal and vertical scale factors.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Get the new slide size.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
+auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, float heightRatio)
+{
+    for (auto&& shape : shapes)
+    {
+        if (ObjectExt::Is<ITable>(shape))
+        {
+            auto table = ExplicitCast<ITable>(shape);
+            // Table dimensions are controlled by column widths and row heights.
+            for (auto&& column : table->get_Columns())
+            {
+                column->set_Width(column->get_Width() * widthRatio);
+            }
 
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
+            for (auto&& row : table->get_Rows())
+            {
+                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
+            }
+        }
+        else
+        {
+            shape->set_Width(shape->get_Width() * widthRatio);
+            shape->set_Height(shape->get_Height() * heightRatio);
+        }
 
+        shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
+    }
+};
+
+// Resize shapes defined on masters and layouts as well as individual slides.
 for (auto&& master : presentation->get_Masters())
 {
-    for (auto&& shape : master->get_Shapes())
-    {
-        // Scale the shape size.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Scale the shape position.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-    }
+    resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
 
     for (auto&& layoutSlide : master->get_LayoutSlides())
     {
-        for (auto&& shape : layoutSlide->get_Shapes())
-        {
-            // Scale the shape size.
-            shape->set_Height(shape->get_Height() * heightRatio);
-            shape->set_Width(shape->get_Width() * widthRatio);
-
-            // Scale the shape position.
-            shape->set_Y(shape->get_Y() * heightRatio);
-            shape->set_X(shape->get_X() * widthRatio);
-        }
+        resizeShapes(layoutSlide->get_Shapes(), widthRatio, heightRatio);
     }
 }
 
 for (auto&& slide : presentation->get_Slides())
 {
-    for (auto&& shape : slide->get_Shapes())
-    {
-        // Scale the shape size.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Scale the shape position.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-
-        if (ObjectExt::Is<ITable>(shape))
-        {
-            SharedPtr<ITable> table = ExplicitCast<ITable>(shape);
-            for (auto&& row : table->get_Rows())
-            {
-                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
-            }
-            for (auto&& column : table->get_Columns())
-            {
-                column->set_Width(column->get_Width() * widthRatio);
-            }
-        }
-    }
+    resizeShapes(slide->get_Shapes(), widthRatio, heightRatio);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
@@ -186,30 +163,30 @@ presentation->Dispose();
 
 ## **FAQ**
 
-### Why are shapes distorted or cut off after resizing a slide?
+**Why are shapes distorted or cut off after resizing a slide?**
 
-When resizing a slide, shapes retain their original position and size unless the scale is explicitly changed. This can result in content being cropped or shapes being misaligned.
+If you change the slide size without scaling the shapes, they keep their original positions and dimensions and may extend beyond the slide. Scaling width and height by different ratios can also distort shapes.
 
-### Does the provided code work for all shape types?
+**Does the provided code work for all shape types?**
 
-The basic example works for most shape types (text boxes, images, charts, etc.). However, for tables, you need to handle rows and columns separately, since the height and width of a table are determined by the dimensions of individual cells.
+The first example changes shape bounds directly and is intended for slides without tables. The second example handles tables separately. Check the resulting layout, particularly text and tables, because these examples do not scale font sizes and table content can constrain row heights.
 
-### How do I resize tables when resizing a slide?
+**How do I resize tables when resizing a slide?**
 
-You need to loop through all the rows and columns of the table and resize their height and width proportionally, as shown in the second code example.
+Scale column widths by the width ratio and minimum row heights by the height ratio, then scale the table's position, as shown in the second example.
 
-### Will this resizing work for master slides and layout slides?
+**Will this resizing work for master slides and layout slides?**
 
-Yes, but you should also loop through [Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) and [Layout slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) and apply the same scaling logic to their shapes to ensure consistency across the presentation.
+Yes. The second example iterates through [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) and each master's [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) and applies the same resizing logic to their shapes.
 
-### Can I change the orientation of a slide (portrait/landscape) along with the resizing?
+**Can I change the orientation of a slide (portrait/landscape) along with the resizing?**
 
-Yes. You can use [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/islidesize/set_orientation/) to change the orientation. Make sure you set the scaling logic accordingly to preserve the layout.
+Yes. Set [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) after changing the slide size and before reading the target dimensions, so the scale factors reflect the final orientation.
 
-### Is there a limit to the slide size I can set?
+**Is there a limit to the slide size I can set?**
 
-Aspose.Slides supports custom sizes, but very large sizes may affect performance or compatibility with some versions of PowerPoint.
+You can specify custom slide dimensions with [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/). The supported dimensions also depend on the presentation format and the application used to open the file.
 
-### How can I prevent fixed aspect ratio shapes from becoming distorted?
+**How can I prevent shapes with a fixed aspect ratio from becoming distorted?**
 
-You can check the `get_AspectRatioLocked` method of the shape before scaling. If it is locked, adjust the width or height proportionally rather than scaling them individually.
+Use the same scale factor for width and height. To fit the original layout within the new slide dimensions, use the smaller of the width and height ratios for both dimensions and positions. This preserves proportions but may leave unused space along one edge.
