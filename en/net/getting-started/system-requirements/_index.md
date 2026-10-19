@@ -57,6 +57,24 @@ Aspose.Slides.NET6.CrossPlatform does not run on Alpine Linux or other distribut
 
 On Windows, the native library of Aspose.Slides.NET6.CrossPlatform uses the Microsoft Visual C++ runtime (*MSVCP140.dll* and *VCRUNTIME140.dll*, plus *VCRUNTIME140_1.dll* on x64). If these files are missing on the target machine, install the [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170).
 
+## **Windows**
+
+* For Docker images based on Windows, ensure the native Aspose.Slides DLLs are present in the output folder. Add a post-build step to copy them:
+
+```xml
+<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy $(ProjectDir)Resources\DLL\*.* $(OutDir)" />
+</Target>
+```
+
+* The native drawing library `aspose.slides.drawing.capi_vc14x64.dll` depends on the Microsoft Visual C++ runtime. Use a Windows Server Core image and install the redistributable:
+
+```dockerfile
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-windowsservercore-ltsc2019
+ADD https://aka.ms/vc14/vc_redist.x64.exe C:/temp/vc_redist.x64.exe 
+RUN C:\temp\vc_redist.x64.exe /install /quiet /norestart || IF "%ERRORLEVEL%"=="3010" EXIT 0
+```
+
 ## **Linux**
 
 Both packages need additional system libraries on Linux. Without them, the first example in [Create Presentations](/slides/net/create-presentation/) fails with an exception instead of saving the file. The commands below are for Debian and Ubuntu; on these distributions, each library also brings in the DejaVu fonts (`fonts-dejavu-core`), so text renders without further font packages.
