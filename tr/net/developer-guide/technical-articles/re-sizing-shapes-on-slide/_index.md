@@ -5,7 +5,6 @@ weight: 130
 url: /tr/net/resizing-shapes-on-slide/
 aliases:
   - /tr/net/re-sizing-shapes-on-slide/
-  /net/re-sizing-shapes-on-slide/
 keywords:
   - şekil yeniden boyutlandırma
   - şekil boyutunu değiştir

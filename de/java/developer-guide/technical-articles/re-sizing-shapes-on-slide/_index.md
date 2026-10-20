@@ -5,7 +5,6 @@ weight: 130
 url: /de/java/resizing-shapes-on-slide/
 aliases:
   - /de/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - Form skalieren
 - Formgröße ändern

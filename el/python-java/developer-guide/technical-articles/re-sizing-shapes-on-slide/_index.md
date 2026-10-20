@@ -5,7 +5,6 @@ weight: 110
 url: /el/python-java/resizing-shapes-on-slide/
 aliases:
   - /el/python-java/re-sizing-shapes-on-slide/
-  /python-java/re-sizing-shapes-on-slide/
 keywords:
   - αλλαγή μεγέθους σχήματος
   - αλλαγή μεγέθους σχήματος

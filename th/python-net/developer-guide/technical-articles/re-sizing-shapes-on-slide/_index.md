@@ -5,7 +5,6 @@ weight: 130
 url: /th/python-net/resizing-shapes-on-slide/
 aliases:
   - /th/python-net/re-sizing-shapes-on-slide/
-  /python-net/ปรับขนาด-รูปร่าง-บน-สไลด์/
 keywords:
 - ปรับขนาดรูปร่าง
 - เปลี่ยนขนาดรูปร่าง

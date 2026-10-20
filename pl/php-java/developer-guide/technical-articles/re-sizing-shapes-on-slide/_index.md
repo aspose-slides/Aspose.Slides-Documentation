@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /pl/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/przeskalowywanie-ksztaltow-na-slajdzie/
+  - /pl/php-java/re-sizing-shapes-on-slide/
 keywords:
   - przeskaluj kształt
   - zmień rozmiar kształtu

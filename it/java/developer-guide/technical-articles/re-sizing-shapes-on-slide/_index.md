@@ -5,7 +5,6 @@ weight: 130
 url: /it/java/resizing-shapes-on-slide/
 aliases:
   - /it/java/re-sizing-shapes-on-slide/
-  /java/ridimensionamento-forme-sulla-diapositive/
 keywords:
   - ridimensiona forma
   - cambia dimensione forma

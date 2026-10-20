@@ -5,7 +5,6 @@ weight: 130
 url: /ja/cpp/resizing-shapes-on-slide/
 aliases:
   - /ja/cpp/re-sizing-shapes-on-slide/
-  /cpp/re-sizing-shapes-on-slide/
 keywords:
   - 形状のリサイズ
   - 形状のサイズ変更

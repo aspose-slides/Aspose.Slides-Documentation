@@ -5,7 +5,6 @@ weight: 130
 url: /cs/java/resizing-shapes-on-slide/
 aliases:
   - /cs/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - zmenšení tvaru
 - změna velikosti tvaru

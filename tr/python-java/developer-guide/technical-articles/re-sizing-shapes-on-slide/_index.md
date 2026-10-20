@@ -5,7 +5,6 @@ weight: 110
 url: /tr/python-java/resizing-shapes-on-slide/
 aliases:
   - /tr/python-java/re-sizing-shapes-on-slide/
-  /python-java/re-sizing-shapes-on-slide/
 keywords:
 - şekil yeniden boyutlandırma
 - şekil boyutunu değiştirme

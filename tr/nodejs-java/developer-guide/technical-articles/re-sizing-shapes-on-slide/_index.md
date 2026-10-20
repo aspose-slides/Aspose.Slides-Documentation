@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /tr/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /tr/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - şekil yeniden boyutlandırma
 - şekil boyutunu değiştirme

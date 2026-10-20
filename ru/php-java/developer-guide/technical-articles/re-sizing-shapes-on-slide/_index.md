@@ -5,7 +5,6 @@ weight: 130
 url: /ru/php-java/resizing-shapes-on-slide/
 aliases:
   - /ru/php-java/re-sizing-shapes-on-slide/
-  /php-java/re-sizing-shapes-on-slide/
 keywords:
 - изменить размер фигуры
 - изменить размер формы

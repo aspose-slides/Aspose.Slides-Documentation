@@ -5,7 +5,6 @@ weight: 130
 url: /cs/net/resizing-shapes-on-slide/
 aliases:
   - /cs/net/re-sizing-shapes-on-slide/
-  /net/re-sizing-shapes-on-slide/
 keywords:
 - změna velikosti tvaru
 - úprava velikosti tvaru

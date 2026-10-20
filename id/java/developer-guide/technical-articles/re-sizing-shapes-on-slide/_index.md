@@ -5,7 +5,6 @@ weight: 130
 url: /id/java/resizing-shapes-on-slide/
 aliases:
   - /id/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - ubah ukuran bentuk
 - ubah ukuran bentuk

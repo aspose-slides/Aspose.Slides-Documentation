@@ -5,7 +5,6 @@ weight: 130
 url: /cs/cpp/resizing-shapes-on-slide/
 aliases:
   - /cs/cpp/re-sizing-shapes-on-slide/
-  /cpp/re-sizing-shapes-on-slide/
 keywords:
 - změna velikosti tvaru
 - změna velikosti tvaru

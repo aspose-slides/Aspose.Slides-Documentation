@@ -5,7 +5,6 @@ weight: 130
 url: /tr/cpp/resizing-shapes-on-slide/
 aliases:
   - /tr/cpp/re-sizing-shapes-on-slide/
-  /cpp/sekilleri-yeniden-boyutlandirma/
 keywords:
 - şekil yeniden boyutlandırma
 - şekil boyutunu değiştir

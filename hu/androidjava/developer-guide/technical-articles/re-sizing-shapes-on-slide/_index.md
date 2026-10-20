@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /hu/androidjava/resizing-shapes-on-slide/
 aliases:
-  /androidjava/alakzatok-átméretezése-dialapon/
+  - /hu/androidjava/re-sizing-shapes-on-slide/
 keywords:
 - alakzat átméretezése
 - alakzat méretének módosítása

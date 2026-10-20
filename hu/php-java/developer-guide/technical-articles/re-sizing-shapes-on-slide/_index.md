@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /hu/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/alakzatok-ujrameresztes-diakon/
+  - /hu/php-java/re-sizing-shapes-on-slide/
 keywords:
 - alakzat átméretezése
 - alakzat méretének módosítása

@@ -5,7 +5,6 @@ weight: 130
 url: /sv/net/resizing-shapes-on-slide/
 aliases:
   - /sv/net/re-sizing-shapes-on-slide/
-  /net/storleksanpassning-av-former-pa-bild/
 keywords:
 - ändra storlek på form
 - ändra formstorlek

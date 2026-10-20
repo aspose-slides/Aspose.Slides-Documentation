@@ -5,7 +5,6 @@ weight: 130
 url: /ja/java/resizing-shapes-on-slide/
 aliases:
   - /ja/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
   - シェイプのサイズ変更
   - シェイプサイズの変更

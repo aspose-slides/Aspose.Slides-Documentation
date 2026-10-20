@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /sv/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/re-sizing-shapes-on-slide/
+  - /sv/php-java/re-sizing-shapes-on-slide/
 keywords:
 - ändra storlek på form
 - ändra formens storlek

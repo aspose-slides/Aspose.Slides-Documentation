@@ -5,7 +5,6 @@ weight: 110
 url: /hu/python-java/resizing-shapes-on-slide/
 aliases:
   - /hu/python-java/re-sizing-shapes-on-slide/
-  /python-java/forma-ujramereteles-diakon/
 keywords:
 - forma átméretezése
 - forma méretének módosítása

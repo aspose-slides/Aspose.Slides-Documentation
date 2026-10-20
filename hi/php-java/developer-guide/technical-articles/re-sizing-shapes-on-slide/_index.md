@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /hi/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/आकार-परिवर्तन-आकृतियों-पर-स्लाइड/
+  - /hi/php-java/re-sizing-shapes-on-slide/
 keywords:
 - आकृति आकार बदलें
 - आकृति आकार बदलना

@@ -4,7 +4,7 @@ type: docs
 weight: 110
 url: /python-java/resizing-shapes-on-slide/
 aliases:
-  /python-java/re-sizing-shapes-on-slide/
+  - /python-java/re-sizing-shapes-on-slide/
 keywords:
 - resize shape
 - change shape size

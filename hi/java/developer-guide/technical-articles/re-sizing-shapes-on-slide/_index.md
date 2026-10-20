@@ -5,7 +5,6 @@ weight: 130
 url: /hi/java/resizing-shapes-on-slide/
 aliases:
   - /hi/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - आकार बदलें आकृति
 - आकृति का आकार बदलें

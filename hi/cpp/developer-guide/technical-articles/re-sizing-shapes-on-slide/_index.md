@@ -5,7 +5,6 @@ weight: 130
 url: /hi/cpp/resizing-shapes-on-slide/
 aliases:
   - /hi/cpp/re-sizing-shapes-on-slide/
-  /cpp/re-sizing-shapes-on-slide/
 keywords:
 - आकार पुनःआकारित करें
 - आकार बदलें

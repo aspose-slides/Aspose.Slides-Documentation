@@ -5,7 +5,6 @@ weight: 130
 url: /sv/java/resizing-shapes-on-slide/
 aliases:
   - /sv/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
   - ändra storlek på form
   - ändra formstorlek

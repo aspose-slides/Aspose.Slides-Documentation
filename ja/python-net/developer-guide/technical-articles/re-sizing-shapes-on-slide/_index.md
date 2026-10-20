@@ -5,7 +5,6 @@ weight: 130
 url: /ja/python-net/resizing-shapes-on-slide/
 aliases:
   - /ja/python-net/re-sizing-shapes-on-slide/
-  /python-net/re-sizing-shapes-on-slide/
 keywords:
 - シェイプのリサイズ
 - シェイプサイズの変更

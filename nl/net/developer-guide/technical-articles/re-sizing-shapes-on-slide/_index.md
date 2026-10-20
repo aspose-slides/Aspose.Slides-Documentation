@@ -5,7 +5,6 @@ weight: 130
 url: /nl/net/resizing-shapes-on-slide/
 aliases:
   - /nl/net/re-sizing-shapes-on-slide/
-  /net/re-sizing-shapes-on-slide/
 keywords:
 - vorm verkleinen
 - vormgrootte wijzigen

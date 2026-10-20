@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /it/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /it/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - ridimensionare forma
 - cambiare dimensione forma

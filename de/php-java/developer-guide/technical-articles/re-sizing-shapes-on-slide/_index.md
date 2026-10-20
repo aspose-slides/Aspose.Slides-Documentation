@@ -5,7 +5,6 @@ weight: 130
 url: /de/php-java/resizing-shapes-on-slide/
 aliases:
   - /de/php-java/re-sizing-shapes-on-slide/
-  /php-java/re-sizing-shapes-on-slide/
 keywords:
   - Form skalieren
   - Formgröße ändern

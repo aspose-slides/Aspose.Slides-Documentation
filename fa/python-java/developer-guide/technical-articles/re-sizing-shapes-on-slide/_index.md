@@ -5,7 +5,6 @@ weight: 110
 url: /fa/python-java/resizing-shapes-on-slide/
 aliases:
   - /fa/python-java/re-sizing-shapes-on-slide/
-  /python-java/re-sizing-shapes-on-slide/
 keywords:
 - تغییر اندازه شکل
 - تغییر اندازه شکل

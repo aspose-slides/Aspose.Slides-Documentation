@@ -5,7 +5,6 @@ weight: 110
 url: /id/python-java/resizing-shapes-on-slide/
 aliases:
   - /id/python-java/re-sizing-shapes-on-slide/
-  /python-java/ubah-ukuran-bentuk-pada-slide/
 keywords:
   - ubah ukuran bentuk
   - ubah ukuran bentuk

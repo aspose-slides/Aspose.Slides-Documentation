@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /cpp/resizing-shapes-on-slide/
 aliases:
-  /cpp/re-sizing-shapes-on-slide/
+  - /cpp/re-sizing-shapes-on-slide/
 keywords:
 - resize shape
 - change shape size

@@ -5,7 +5,6 @@ weight: 130
 url: /ko/python-net/resizing-shapes-on-slide/
 aliases:
   - /ko/python-net/re-sizing-shapes-on-slide/
-  /python-net/re-sizing-shapes-on-slide/
 keywords:
 - 도형 크기 조정
 - 도형 크기 변경

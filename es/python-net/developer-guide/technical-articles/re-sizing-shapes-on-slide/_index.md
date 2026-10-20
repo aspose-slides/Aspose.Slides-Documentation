@@ -5,7 +5,6 @@ weight: 130
 url: /es/python-net/resizing-shapes-on-slide/
 aliases:
   - /es/python-net/re-sizing-shapes-on-slide/
-  /python-net/redimensionar-formas-en-diapositiva/
 keywords:
 - redimensionar forma
 - cambiar tamaño de forma

@@ -5,7 +5,6 @@ weight: 130
 url: /vi/java/resizing-shapes-on-slide/
 aliases:
   - /vi/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - thay đổi kích thước hình dạng
 - đổi kích thước hình dạng

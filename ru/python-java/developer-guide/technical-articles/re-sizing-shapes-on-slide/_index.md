@@ -5,7 +5,6 @@ weight: 110
 url: /ru/python-java/resizing-shapes-on-slide/
 aliases:
   - /ru/python-java/re-sizing-shapes-on-slide/
-  /python-java/re-sizing-shapes-on-slide/
 keywords:
 - изменить размер фигуры
 - изменить размер фигуры

@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /it/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/re-sizing-shapes-on-slide/
+  - /it/php-java/re-sizing-shapes-on-slide/
 keywords:
 - ridimensiona forma
 - cambia dimensione forma

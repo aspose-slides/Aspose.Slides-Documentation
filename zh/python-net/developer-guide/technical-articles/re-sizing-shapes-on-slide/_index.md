@@ -5,7 +5,6 @@ weight: 130
 url: /zh/python-net/resizing-shapes-on-slide/
 aliases:
   - /zh/python-net/re-sizing-shapes-on-slide/
-  /python-net/重新调整-形状-在-幻灯片/
 keywords:
 - 调整形状大小
 - 更改形状尺寸

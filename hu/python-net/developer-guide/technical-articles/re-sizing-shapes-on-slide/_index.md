@@ -5,7 +5,6 @@ weight: 130
 url: /hu/python-net/resizing-shapes-on-slide/
 aliases:
   - /hu/python-net/re-sizing-shapes-on-slide/
-  /python-net/re-sizing-shapes-on-slide/
 keywords:
 - forma átméretezése
 - forma méretének módosítása

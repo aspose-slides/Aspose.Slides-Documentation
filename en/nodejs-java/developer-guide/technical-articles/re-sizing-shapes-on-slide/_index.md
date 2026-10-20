@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - resize shape
 - change shape size

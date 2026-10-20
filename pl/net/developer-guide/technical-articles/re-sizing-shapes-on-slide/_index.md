@@ -5,7 +5,6 @@ weight: 130
 url: /pl/net/resizing-shapes-on-slide/
 aliases:
   - /pl/net/re-sizing-shapes-on-slide/
-  /net/zmiana-rozmiaru-ksztaltow-na-slajdzie/
 keywords:
   - skalowanie kształtu
   - zmiana rozmiaru kształtu

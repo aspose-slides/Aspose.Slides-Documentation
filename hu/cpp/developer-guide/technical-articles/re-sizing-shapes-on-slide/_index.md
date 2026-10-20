@@ -5,7 +5,6 @@ weight: 130
 url: /hu/cpp/resizing-shapes-on-slide/
 aliases:
   - /hu/cpp/re-sizing-shapes-on-slide/
-  /cpp/alakzatok-átméretezése-dián/
 keywords:
 - alakzat átméretezése
 - alakzat méretének módosítása

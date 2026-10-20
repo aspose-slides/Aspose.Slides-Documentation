@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /python-net/resizing-shapes-on-slide/
 aliases:
-  /python-net/re-sizing-shapes-on-slide/
+  - /python-net/re-sizing-shapes-on-slide/
 keywords:
 - resize shape
 - change shape size
