@@ -9,207 +9,121 @@ keywords:
 - OLE object
 - embed chart
 - PowerPoint
-- OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Fix unexpected chart resizing in PPTX when using embedded Excel OLE objects with Aspose.Slides for Java. Learn two methods with code to keep sizes consistent."
+description: "Fix unexpected chart resizing in PPTX when using embedded Excel OLE objects with Aspose.Slides for Java. Set fixed chart dimensions to keep the chart and OLE frame sizes consistent."
 ---
 
 ## **Background**
 
-It has been observed that Excel charts embedded as OLE objects in a PowerPoint presentation through Aspose components are resized to an unspecified scale after their first activation. This behavior causes a noticeable visual difference in the presentation between the pre- and post-activation states of the chart. The Aspose team has investigated the issue in detail and has found a solution. This article describes the causes of the problem and the corresponding fix.
+Excel charts embedded as OLE objects in PowerPoint presentations using Aspose components can change size after their first activation. This can cause a noticeable difference in the chart's appearance before and after activation. This article explains why resizing occurs and shows how to prevent it by matching fixed chart dimensions to the OLE frame.
 
-In the [previous article](/slides/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), we explained how to create an Excel chart with Aspose.Cells for Java and embed it in a PowerPoint presentation using Aspose.Slides for Java. To address the [object preview issue](/slides/java/object-preview-issue-when-adding-oleobjectframe/), we assigned the chart image to the chart’s OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the chart image, the Excel chart is activated. End users can make any desired changes in the underlying Excel workbook and then return to the corresponding slide by clicking outside the activated workbook. The size of the OLE object frame changes when the user returns to the slide, and the resizing factor varies depending on the original sizes of both the OLE object frame and the embedded Excel workbook.
+In [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), we explained how to create an Excel chart with Aspose.Cells for Java and embed it in a PowerPoint presentation using Aspose.Slides for Java. To address the [object preview issue](/slides/java/object-preview-issue-when-adding-oleobjectframe/), we assigned the chart image to the chart’s OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the chart image, the Excel chart is activated. Users can edit the embedded Excel workbook and then return to the slide by clicking outside the activated workbook. The size of the OLE object frame changes when the user returns to the slide, and the resizing factor varies depending on the original sizes of both the OLE object frame and the embedded Excel workbook.
 
 ## **Cause of Resizing**
 
-Because the Excel workbook has its own window size, it tries to retain its original size on its first activation. The OLE object frame, however, has its own size. According to Microsoft, when the Excel workbook is activated, Excel and PowerPoint negotiate the size and maintain the correct proportions as part of the embedding process. Depending on the differences between the Excel window size and the OLE object frame’s size or position, resizing occurs.
+The embedded Excel workbook has its own window dimensions, which Excel tries to retain when the object is first activated. The OLE frame on the slide has independently defined dimensions. When the Excel workbook is activated, Excel and PowerPoint negotiate the object's size to maintain its proportions as part of the embedding process. Differences between the workbook window and the OLE frame can therefore cause the object to resize.
 
 ## **Working Solution**
 
-There are two possible scenarios for creating PowerPoint presentations using Aspose.Slides for Java.
+Match the chart size to the OLE frame on the slide and keep the chart dimensions independent of the workbook window. This solution works with a new presentation or an existing template.
 
-**Scenario 1:** Create a presentation based on an existing template.
+The example requires Aspose.Cells for Java and Aspose.Slides for Java. It creates a simple column chart on an active chart sheet and embeds the workbook in XLS format. No chart preview image is assigned; the chart becomes visible when the OLE object is activated in PowerPoint.
 
-**Scenario 2:** Create a presentation from scratch.
+The example creates a new presentation with a 9.5 × 4-inch OLE frame positioned 0.5 inches from the left edge and 1 inch from the top. Slide coordinates and dimensions are in points (72 points per inch). For an existing presentation, see [Use a Template](#use-a-template).
 
-The solution we provide here applies to both scenarios. The basis of all solution approaches is the same: **the embedded OLE object’s window size should match the OLE object frame in the PowerPoint slide**. We will now discuss the two approaches to this solution.
+## **Set a Fixed Chart Size**
 
-## **First Approach**
-
-In this approach, we will learn how to set the window size of the embedded Excel workbook so that it matches the size of the OLE object frame in the PowerPoint slide.
-
-**Scenario 1**
-
-Suppose we have defined a template and want to create presentations based on it. Assume there is a shape at index 2 in the template where we want to place an OLE frame containing an embedded Excel workbook. In this scenario, the size of the OLE object frame is predefined—it matches the size of the shape at index 2 in the template. All we need to do is set the workbook’s window size equal to that shape’s size. The following code snippet serves this purpose:
+Set [setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) to false so that the chart dimensions are independent of the workbook window. Set the [getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) dimensions through [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) and [setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-), converting points to pixels using 96 pixels per inch: a frame measuring 684 × 288 points corresponds to a chart measuring 912 × 384 pixels. Set [setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) to the CUSTOM value of [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/). The example embeds the workbook with [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) and saves a presentation with a 9.5 × 4-inch OLE frame.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// Set the window width of the workbook in inches (divided by 72 as PowerPoint uses 72 points per inch).
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// Set the window height of the workbook in inches.
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// Save the workbook to a memory stream.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Create an OLE object frame with the embedded Excel data.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // Slide coordinates and dimensions are in points (72 points per inch).
+        float width = 684f; // 9.5 inches.
+        float height = 288f; // 4 inches.
+
+        chart.setSizeWithWindow(false);
+        // Convert points to chart pixels using 96 pixels per inch.
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**Scenario 2**
+## **Use a Template**
 
-Let’s say we want to create a presentation from scratch and include an OLE object frame of any size with an embedded Excel workbook. In the following code snippet, we create an OLE object frame 4 inches high and 9.5 inches wide at x = 0.5 inches and y = 1 inch on the slide. We then set the Excel workbook window to the same size—4 inches high and 9.5 inches wide.
+The sizing logic is the same for an existing presentation. To adapt the example:
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// Our desired height.
-int desiredHeight = 288; // 4 inch (4 * 72)
- 
-// Our desired width.
-int desiredWidth = 684; // 9.5 inch (9.5 * 72)
- 
-// Define the chart size with a window.
-chart.setSizeWithWindow(true);
- 
-// Set the window width of the workbook in inches (divided by 72 as PowerPoint uses 72 points per inch).
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// Set the window height of the workbook in inches.
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// Save the workbook to a memory stream.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Create an OLE object frame with the embedded Excel data.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 inch (0.5 * 72)
-    72,  // y = 1 inch (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **Second Approach**
-
-In this approach, we will learn how to set the size of the chart in the embedded Excel workbook to match the size of the OLE object frame in the PowerPoint slide. This approach is useful when the chart size is known up front and will never change.
-
-**Scenario 1**
-
-Suppose we have defined a template and want to create presentations based on it. Assume there is a shape at index 2 in the template where we intend to place an OLE frame containing an embedded Excel workbook. In this scenario, the OLE frame size is predefined—matching the size of the shape at index 2 in the template. All we need to do is set the chart size in the workbook to equal the shape’s size. The following code snippet serves this purpose:
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// Define the chart size without a window.
-chart.setSizeWithWindow(false);
- 
-// Set the chart width in pixels (multiply by 96 as Excel uses 96 pixels per inch).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// Set the chart height in pixels.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// Define the chart print size.
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// Save the workbook to a memory stream.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Create an OLE object frame with the embedded Excel data.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
-
-**Scenario 2**:
-
-Suppose we want to create a presentation from scratch and include an OLE object frame of any size with an embedded Excel workbook. In the following code snippet, we create an OLE object frame with a height of 4 inches and a width of 9.5 inches on the slide at x = 0.5 inches and y = 1 inch. We also set the corresponding chart size to the same dimensions: a height of 4 inches and a width of 9.5 inches.
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// Our desired height.
-int desiredHeight = 288; // 4 inch (4 * 72)
- 
-// Our desired width.
-int desiredWidth = 684; // 9.5 inch (9.5 * 72)
- 
-// Define the chart size without a window.
-chart.setSizeWithWindow(false);
- 
-// Set the chart width in pixels (divided by 72 to get inches, multiplied by 96 as Excel uses 96 pixels per inch).
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// Set the chart height in pixels.
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// Save the workbook to a memory stream.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Create an OLE object frame with the embedded Excel data.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 inch (0.5 * 72)
-    72,  // y = 1 inch (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **Conclusion**
-
-There are two approaches to fixing the chart-resizing issue. The choice of approach depends on the requirements and the use case. Both approaches work the same way whether the presentations are created from a template or created from scratch. Also, there is no limit to the size of the OLE object frame in this solution.
+1. Load the template presentation instead of creating an empty presentation.
+1. Check that the first slide contains at least three shapes, then use the shape at index 2 as the placeholder.
+1. Take the frame width and height from that shape instead of using the fixed values 684 and 288. Keep the sizing calculations unchanged.
+1. Add the OLE frame at the placeholder's position instead of the fixed coordinates 36 and 72.
+1. Remove the placeholder before saving the presentation.
 
 ## **FAQ**
 
-### Why does my embedded Excel chart change size after activating it in PowerPoint?
+**Why does my embedded Excel chart change size after activating it in PowerPoint?**
 
-This happens because Excel tries to restore the original window size when first activated, whereas the OLE object frame in PowerPoint has its own dimensions. PowerPoint and Excel negotiate the size to maintain aspect ratio, which can cause the resizing.
+This happens because Excel tries to restore the original window size when first activated, whereas the OLE object frame in PowerPoint has its own dimensions. PowerPoint and Excel negotiate the size to maintain the aspect ratio, which can cause the resizing.
 
-### Is it possible to prevent this resizing issue entirely?
+**How can I keep the chart and OLE frame sizes consistent?**
 
-Yes. By matching the Excel workbook window size or chart size to the OLE object frame size before embedding, you can keep the chart sizes consistent.
+Set fixed chart dimensions that match the OLE frame and use a custom chart print size before embedding the workbook. The example above shows the required settings and unit conversions.
 
-### Which approach should I take, setting the workbook window size or setting the chart size?
+**Is matching the workbook window size sufficient?**
 
-Use **Approach 1 (window size)** if you want to maintain the workbook's aspect ratio and possibly allow resizing later.
-Use **Approach 2 (chart size)** if the chart dimensions are fixed and will not change after embedding.
+Matching the workbook window size alone does not reliably prevent the OLE frame from changing size after activation. Use fixed chart dimensions as shown in the example.
 
-### Will these methods work with both template-based presentations and new presentations?
+**Does this solution work with both template-based presentations and new presentations?**
 
-Yes. Both approaches work the same for presentations created from templates and from scratch.
+Yes. For a template, use the placeholder's dimensions and position. For a new presentation, specify the frame dimensions and position directly.
 
-### Is there a limit to the size of the OLE object frame?
+**Can I use this example with charts created in other spreadsheet programs?**
 
-No. You can set the OLE frame to any size as long as it scales appropriately to the workbook or chart size.
-
-### Can I use these methods with charts created in other spreadsheet programs?
-
-The examples are designed for Excel charts created with Aspose.Cells, but the principles apply to other OLE-compatible spreadsheet programs as long as they support similar sizing options.
+The example uses an Excel workbook created with Aspose.Cells. It does not demonstrate activation behavior for other spreadsheet programs.
 
 ## **Related Sections**
 

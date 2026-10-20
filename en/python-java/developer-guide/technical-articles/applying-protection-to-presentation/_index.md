@@ -1,6 +1,6 @@
 ---
-title: Prevent Presentation Edits with Shape Locks
-linktitle: Prevent Presentation Edits
+title: Restrict Presentation Edits with Shape Locks in Python
+linktitle: Restrict Presentation Edits
 type: docs
 weight: 60
 url: /python-java/applying-protection-to-presentation/
@@ -10,28 +10,28 @@ keywords:
 - lock shape
 - lock position
 - lock select
-- lock size
+- lock resizing
 - lock grouping
 - PowerPoint
-- OpenDocument
+- PPTX
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Discover how Aspose.Slides for Python via Java locks or unlocks shapes in PPT, PPTX and ODP files, securing presentations while allowing controlled edits and faster delivery."
+description: "Learn how to lock and unlock shapes in PPTX presentations with Aspose.Slides for Python via Java to restrict selection, movement, resizing, and grouping."
 ---
 
 ## **Background**
 
-A common use for Aspose.Slides is to create, update, and save Microsoft PowerPoint (PPTX) presentations as part of an automated workflow. Users of applications that employ Aspose.Slides in this way have access to the generated presentations, so protecting them from editing is a common concern. It is important that automatically generated presentations retain their original formatting and content.
+A common use for Aspose.Slides for Python via Java is to create, update, and save PowerPoint (PPTX) presentations as part of an automated workflow. When users receive these presentations, restricting changes to shapes can help preserve the intended layout and content.
 
-This article explains how presentations and slides are structured and how Aspose.Slides for Python via Java can apply protection to a presentation and later remove it. It provides developers with a way to control how the presentations their applications generate are used.
+This article explains how shapes are organized on slides and how to apply and remove shape locks in a PPTX presentation. These locks let you restrict specific editing operations on individual shapes.
 
 ## **Composition of a Slide**
 
 A presentation slide is composed of components such as autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors, and other elements used to build a presentation. In Aspose.Slides for Python via Java, each element on a slide is represented by an object that inherits from the [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) class.
 
-The structure of PPTX is complex, so unlike PPT, where a generic lock can be used for all types of shapes, different shape types require different locks. The [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) class is the generic locking class for PPTX. The following types of locks are supported in Aspose.Slides for Python via Java for PPTX:
+Different shape types expose different locking options. The [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) class is the base class for shape locks. Aspose.Slides for Python via Java provides the following lock classes:
 
 - [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) locks autoshapes.  
 - [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) locks connector shapes.  
@@ -39,19 +39,19 @@ The structure of PPTX is complex, so unlike PPT, where a generic lock can be use
 - [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) locks group shapes.  
 - [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) locks picture frames.  
 
-Any action performed on all shape objects in a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) object is applied to the entire presentation.
+To apply locks across a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), iterate through its slides and set the appropriate locks on each supported shape.
 
 ## **Apply and Remove Protection**
 
-Applying protection ensures that a presentation cannot be edited. It is a useful technique for protecting the presentation’s content.
+Shape locks restrict operations such as selecting, moving, and resizing shapes. They do not make the entire presentation uneditable.
 
 ### **Apply Protection to PPTX Shapes**
 
 Aspose.Slides for Python via Java provides the [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) class to work with shapes on a slide.
 
-As mentioned earlier, each shape class has an associated shape-lock class for protection. This article focuses on the NoSelect, NoMove, and NoResize locks. These locks ensure that shapes cannot be selected (through mouse clicks or other selection methods) and that they cannot be moved or resized.
+The example calls [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked), and [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) with `True` for autoshapes, with equivalent locks for group shapes, connectors, and picture frames. Connectors use [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) for movement; groups also use [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) to restrict grouping.
 
-The code sample that follows applies protection to all shape types in a presentation.
+The example loads an existing PPTX presentation, checks the shapes in each slide's shape collection, and saves a copy with these restrictions applied. Shapes outside the four handled types are left unchanged. The loop does not traverse the child shapes inside a group.
 
 ```python
 import jpype
@@ -62,12 +62,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Instantiate the Presentation class that represents a PPTX file.
 presentation = Presentation("Sample.pptx")
 try:
-    # Traverse all the slides in the presentation.
     for slide in presentation.getSlides():
-        # Traverse all the shapes in the slide.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -91,7 +88,6 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # Save the presentation file.
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -99,7 +95,7 @@ finally:
 
 ### **Remove Protection**
 
-To unlock a shape, set the applied lock’s value to `False`. The following code sample shows how to unlock shapes in a locked presentation.
+To remove a shape lock, set its value to `False`. The following example loads a presentation with shape locks and clears the selection, movement, and resizing restrictions through [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/), and [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). It also removes the grouping restriction by passing `False` to [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) and saves a copy of the presentation. Other lock settings are left unchanged.
 
 ```python
 import jpype
@@ -110,12 +106,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Instantiate the Presentation class that represents a PPTX file.
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # Traverse all the slides in the presentation.
     for slide in presentation.getSlides():
-        # Traverse all the shapes in the slide.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -139,26 +132,25 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # Save the presentation file.
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Conclusion**
+### **Conclusion**
 
-Aspose.Slides offers several options for protecting shapes in a presentation. You can lock an individual shape or iterate through all the shapes in a presentation and lock each one to effectively secure the entire file. You can remove the protection by setting the lock value to `False`.
+Aspose.Slides for Python via Java lets you restrict specific editing operations on individual shapes or apply the same restrictions across slides. Choose the locks supported by each shape type, and set their values to `False` when you need to remove those restrictions.
 
 ## **FAQ**
 
 **Can I combine shape locks and password protection in the same presentation?**
 
-Yes. Locks limit editing of objects inside the file, while [password protection](/slides/python-java/password-protected-presentation/) controls access to opening and/or saving changes. These mechanisms complement each other and work together.
+Yes. Shape locks restrict specific editing operations, while [password protection](/slides/python-java/password-protected-presentation/) can restrict opening or modifying the presentation. You can use both in the same file.
 
 **Can I restrict editing on specific slides without affecting others?**
 
-Yes. Apply locks to the shapes on the selected slides; the remaining slides will stay editable.
+Yes. Apply locks only to shapes on the selected slides. This does not change the lock settings on other slides.
 
-**Do shape locks apply to grouped objects and connectors?**
+**How can I apply locks to individual shapes inside a group?**
 
-Yes. Dedicated lock types are supported for groups, connectors, graphic objects, and other shape kinds.
+Iterate through the collection returned by the group's [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) method and apply the appropriate locks to each child shape. Repeat this for any nested groups. The examples above process only the slide's shape collection, so they do not set locks on individual group members.

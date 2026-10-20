@@ -1,6 +1,6 @@
 ---
-title: Prevent Presentation Edits with Shape Locks in .NET
-linktitle: Prevent Presentation Edits
+title: Restrict Presentation Edits with Shape Locks in .NET
+linktitle: Restrict Presentation Edits
 type: docs
 weight: 70
 url: /net/applying-protection-to-presentation/
@@ -10,28 +10,28 @@ keywords:
 - lock shape
 - lock position
 - lock select
-- lock size
+- lock resizing
 - lock grouping
 - PowerPoint
-- OpenDocument
+- PPTX
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Discover how Aspose.Slides for .NET locks or unlocks shapes in PPT, PPTX and ODP files, securing presentations while allowing controlled edits."
+description: "Learn how to lock and unlock shapes in PPTX presentations with Aspose.Slides for .NET to restrict selection, movement, resizing, and grouping."
 ---
 
 ## **Background**
 
-A common use for Aspose.Slides is to create, update, and save Microsoft PowerPoint (PPTX) presentations as part of an automated workflow. Users of applications that employ Aspose.Slides in this way have access to the generated presentations, so protecting them from editing is a common concern. It is important that automatically generated presentations retain their original formatting and content.
+A common use for Aspose.Slides for .NET is to create, update, and save PowerPoint (PPTX) presentations as part of an automated workflow. When users receive these presentations, restricting changes to shapes can help preserve the intended layout and content.
 
-This article explains how presentations and slides are structured and how Aspose.Slides for .NET can apply protection to a presentation and later remove it. It provides developers with a way to control how the presentations their applications generate are used.
+This article explains how shapes are organized on slides and how to apply and remove shape locks in a PPTX presentation. These locks let you restrict specific editing operations on individual shapes.
 
 ## **Composition of a Slide**
 
 A presentation slide is composed of components such as autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors, and other elements used to build a presentation. In Aspose.Slides for .NET, each element on a slide is represented by an object that implements the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interface or inherits from a class that does.
 
-The structure of PPTX is complex, so unlike PPT, where a generic lock can be used for all types of shapes, different shape types require different locks. The [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) interface is the generic locking class for PPTX. The following types of locks are supported in Aspose.Slides for .NET for PPTX:
+Different shape types expose different locking options. The [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) interface is the base interface for shape locks. Aspose.Slides for .NET provides the following lock interfaces:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) locks autoshapes.  
 - [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) locks connector shapes.  
@@ -39,32 +39,29 @@ The structure of PPTX is complex, so unlike PPT, where a generic lock can be use
 - [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) locks group shapes.  
 - [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) locks picture frames.  
 
-Any action performed on all shape objects in a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) object is applied to the entire presentation.
+To apply locks across a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), iterate through its slides and set the appropriate locks on each supported shape.
 
 ## **Apply and Remove Protection**
 
-Applying protection ensures that a presentation cannot be edited. It is a useful technique for protecting the presentation’s content.
+Shape locks restrict operations such as selecting, moving, and resizing shapes. They do not make the entire presentation uneditable.
 
 ### **Apply Protection to PPTX Shapes**
 
 Aspose.Slides for .NET provides the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interface to work with shapes on a slide.
 
-As mentioned earlier, each shape class has an associated shape-lock class for protection. This article focuses on the NoSelect, NoMove, and NoResize locks. These locks ensure that shapes cannot be selected (through mouse clicks or other selection methods) and that they cannot be moved or resized.
+The example sets [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/), and [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) to `true` for autoshapes, with equivalent locks for group shapes, connectors, and picture frames. Connectors use [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) for movement; groups also use [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) to restrict grouping.
 
-The code sample that follow apply protection to all shape types in a presentation.
+The example loads an existing PPTX presentation, checks the shapes in each slide's shape collection, and saves a copy with these restrictions applied. Shapes outside the four handled types are left unchanged. The loop does not traverse the child shapes inside a group.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantiate the Presentation class that represents a PPTX file.
-using Presentation presentation = new Presentation("Sample.pptx");
+using var presentation = new Presentation("Sample.pptx");
 
-// Traversing all the slides in the presentation.
-foreach (ISlide slide in presentation.Slides)
+foreach (var slide in presentation.Slides)
 {
-    // Traversing all the shapes in the slide.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -94,26 +91,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Saving the presentation file.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Remove Protection**
 
-To unlock a shape, set the applied lock’s value to `false`. The following code sample shows how to unlock shapes in a locked presentation.
+To remove a shape lock, set its value to `false`. The following example loads a presentation with shape locks and clears the selection, movement, and resizing restrictions through [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/), and [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). It also clears [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) and saves a copy of the presentation. Other lock settings are left unchanged.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantiate the Presentation class that represents a PPTX file.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using var presentation = new Presentation("ProtectedSample.pptx");
 
-// Traversing all the slides in the presentation.
-foreach (ISlide slide in presentation.Slides)
+foreach (var slide in presentation.Slides)
 {
-    // Traversing all the shapes in the slide.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -143,24 +136,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Saving the presentation file.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Conclusion**
 
-Aspose.Slides offers several options for protecting shapes in a presentation. You can lock an individual shape or iterate through all the shapes in a presentation and lock each one to effectively secure the entire file. You can remove the protection by setting the lock value to `false`.
+Aspose.Slides for .NET lets you restrict specific editing operations on individual shapes or apply the same restrictions across slides. Choose the locks supported by each shape type, and set their values to `false` when you need to remove those restrictions.
 
 ## **FAQ**
 
-### Can I combine shape locks and password protection in the same presentation?
+**Can I combine shape locks and password protection in the same presentation?**
 
-Yes. Locks limit editing of objects inside the file, while [password protection](/slides/net/password-protected-presentation/) controls access to opening and/or saving changes. These mechanisms complement each other and work together.
+Yes. Shape locks restrict specific editing operations, while [password protection](/slides/net/password-protected-presentation/) can restrict opening or modifying the presentation. You can use both in the same file.
 
-### Can I restrict editing on specific slides without affecting others?
+**Can I restrict editing on specific slides without affecting others?**
 
-Yes. Apply locks to the shapes on the selected slides; the remaining slides will stay editable.
+Yes. Apply locks only to shapes on the selected slides. This does not change the lock settings on other slides.
 
-### Do shape locks apply to grouped objects and connectors?
+**How can I apply locks to individual shapes inside a group?**
 
-Yes. Dedicated lock types are supported for groups, connectors, graphic objects, and other shape kinds.
+Iterate through the group's [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) collection and apply the appropriate locks to each child shape. Repeat this for any nested groups. The examples above process only the slide's shape collection, so they do not set locks on individual group members.

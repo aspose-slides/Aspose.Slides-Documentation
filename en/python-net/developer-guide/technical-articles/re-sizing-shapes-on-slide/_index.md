@@ -1,9 +1,10 @@
 ---
-title: Resize Shapes in Presentations with Python
-linktitle: Resizing Shapes
+title: Resize Shapes on Presentation Slides in Python
 type: docs
 weight: 130
-url: /python-net/re-sizing-shapes-on-slide/
+url: /python-net/resizing-shapes-on-slide/
+aliases:
+  /python-net/re-sizing-shapes-on-slide/
 keywords:
 - resize shape
 - change shape size
@@ -17,137 +18,111 @@ description: "Easily resize shapes on PowerPoint and OpenDocument slides with As
 
 ## **Overview**
 
-One of the most common questions from Aspose.Slides for Python customers is how to resize shapes so that, when the slide size changes, the data isn’t cut off. This short technical article shows how to do that.
+When you change a presentation's slide size, you may also need to resize and reposition its shapes to fit the new dimensions. This article shows how to scale shapes manually and how to handle tables on slides, masters, and layouts.
 
 ## **Resize Shapes**
 
-To prevent shapes from becoming misaligned when the slide size changes, update each shape’s position and dimensions so they conform to the new slide layout.
+To preserve each shape's relative position and size, multiply its horizontal coordinates and width by the ratio of the new slide width to the original width. Apply the corresponding height ratio to its vertical coordinates and height.
 
-```py
+The first example loads a presentation whose slides contain no tables, changes the slide size to A4, and saves the result. It uses [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) with [SlideSizeScaleType.DO_NOT_SCALE](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/) so that the subsequent loop controls the scaling. The ratios are unitless; shape positions and dimensions are measured in points. Different width and height ratios can distort shapes, and changing a shape's dimensions does not scale its font sizes.
+
+```python
 import aspose.slides as slides
 
-# Load the presentation file.
 with slides.Presentation("sample.pptx") as presentation:
-    # Get the original slide size.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Change the slide size without scaling existing shapes.
+    # Calculate independent horizontal and vertical scale factors.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Get the new slide size.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # Resize and reposition shapes on every slide.
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # Scale the shape size.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Scale the shape position.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+            shape.x *= width_ratio
+            shape.y *= height_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-A table needs care: its overall size is the sum of its column widths and row heights, and assigning `width` or `height` to the table already redistributes the change across them. Scaling the table frame **and** its rows and columns applies each ratio twice, so the table ends up scaled by the square of the ratio.
+Tables require separate handling: scale their column widths and row heights instead of assigning the table's overall width and height. Row heights may remain larger than requested if the cell content requires more space.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Use the following code on your end to resize slides that contain tables, and to scale the master and layout slides as well. For a table, skip the frame and adjust the individual row heights and column widths instead.
+The second example supports tables and processes shapes on masters and layouts as well as individual slides before saving the resized presentation. Its helper handles each [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) by scaling [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) and [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/). It then scales the table's position without separately scaling its overall dimensions.
 
-```py
+```python
 import aspose.slides as slides
 
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, slides.Table):
+            # Table dimensions are controlled by column widths and row heights.
+            for column in shape.columns:
+                column.width *= width_ratio
+
+            for row in shape.rows:
+                row.minimal_height *= height_ratio
+        else:
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+
+        shape.x *= width_ratio
+        shape.y *= height_ratio
+
+
 with slides.Presentation("sample.pptx") as presentation:
-    # Get the original slide size.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Change the slide size without scaling existing shapes.
+    # Calculate independent horizontal and vertical scale factors.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Get the new slide size.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # Resize shapes defined on masters and layouts as well as individual slides.
     for master in presentation.masters:
-        for shape in master.shapes:
-            # Scale the shape size.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Scale the shape position.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+        resize_shapes(master.shapes, width_ratio, height_ratio)
 
         for layout_slide in master.layout_slides:
-            for shape in layout_slide.shapes:
-                # Scale the shape size.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # Scale the shape position.
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
+            resize_shapes(layout_slide.shapes, width_ratio, height_ratio)
 
     for slide in presentation.slides:
-        for shape in slide.shapes:
-            if type(shape) is slides.Table:
-                # A table's size follows its rows and columns, so scale those instead of the frame.
-                for row in shape.rows:
-                    row.minimal_height = row.minimal_height * height_ratio
-                for column in shape.columns:
-                    column.width = column.width * width_ratio
-            else:
-                # Scale the shape size.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-            # Scale the shape position.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+        resize_shapes(slide.shapes, width_ratio, height_ratio)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-### Why are shapes distorted or cut off after resizing a slide?
+**Why are shapes distorted or cut off after resizing a slide?**
 
-When resizing a slide, shapes retain their original position and size unless the scale is explicitly changed. This can result in content being cropped or shapes being misaligned.
+If you change the slide size without scaling the shapes, they keep their original positions and dimensions and may extend beyond the slide. Scaling width and height by different ratios can also distort shapes.
 
-### Does the provided code work for all shape types?
+**Does the provided code work for all shape types?**
 
-The basic example works for most shape types (text boxes, images, charts, etc.). However, for tables, you need to handle rows and columns separately, since the height and width of a table are determined by the dimensions of individual cells.
+The first example changes shape bounds directly and is intended for slides without tables. The second example handles tables separately. Check the resulting layout, particularly text and tables, because these examples do not scale font sizes and table content can constrain row heights.
 
-### How do I resize tables when resizing a slide?
+**How do I resize tables when resizing a slide?**
 
-You need to loop through all the rows and columns of the table and resize their height and width proportionally, as shown in the second code example.
+Scale column widths by the width ratio and minimum row heights by the height ratio, then scale the table's position, as shown in the second example.
 
-### Will this resizing work for master slides and layout slides?
+**Will this resizing work for master slides and layout slides?**
 
-Yes, but you should also loop through [Masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) and [Layout slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) and apply the same scaling logic to their shapes to ensure consistency across the presentation.
+Yes. The second example iterates through [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) and each master's [MasterSlide.layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) and applies the same resizing logic to their shapes.
 
-### Can I change the orientation of a slide (portrait/landscape) along with the resizing?
+**Can I change the orientation of a slide (portrait/landscape) along with the resizing?**
 
-Yes. You can use [presentation.slide_size.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/islidesize/orientation/) to change the orientation. Make sure you set the scaling logic accordingly to preserve the layout.
+Yes. Set [SlideSize.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/orientation/) after changing the slide size and before reading the target dimensions, so the scale factors reflect the final orientation.
 
-### Is there a limit to the slide size I can set?
+**Is there a limit to the slide size I can set?**
 
-Aspose.Slides supports custom sizes, but very large sizes may affect performance or compatibility with some versions of PowerPoint.
+You can specify custom slide dimensions with [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/). The supported dimensions also depend on the presentation format and the application used to open the file.
 
-### How can I prevent fixed aspect ratio shapes from becoming distorted?
+**How can I prevent shapes with a fixed aspect ratio from becoming distorted?**
 
-You can check the `aspect_ratio_locked` property of the shape before scaling. If it is locked, adjust the width or height proportionally rather than scaling them individually.
+Use the same scale factor for width and height. To fit the original layout within the new slide dimensions, use the smaller of the width and height ratios for both dimensions and positions. This preserves proportions but may leave unused space along one edge.

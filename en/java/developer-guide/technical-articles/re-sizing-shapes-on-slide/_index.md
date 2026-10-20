@@ -1,8 +1,10 @@
 ---
-title: Resize Shapes on Presentation Slides
+title: Resize Shapes on Presentation Slides in Java
 type: docs
-weight: 110
-url: /java/re-sizing-shapes-on-slide/
+weight: 130
+url: /java/resizing-shapes-on-slide/
+aliases:
+  /java/re-sizing-shapes-on-slide/
 keywords:
 - resize shape
 - change shape size
@@ -16,43 +18,33 @@ description: "Easily resize shapes on PowerPoint and OpenDocument slides with As
 
 ## **Overview**
 
-One of the most common questions from Aspose.Slides for Java customers is how to resize shapes so that, when the slide size changes, the data isn’t cut off. This short technical article shows how to do that.
+When you change a presentation's slide size, you may also need to resize and reposition its shapes to fit the new dimensions. This article shows how to scale shapes manually and how to handle tables on slides, masters, and layouts.
 
 ## **Resize Shapes**
 
-To prevent shapes from becoming misaligned when the slide size changes, update each shape’s position and dimensions so they conform to the new slide layout.
+To preserve each shape's relative position and size, multiply its horizontal coordinates and width by the ratio of the new slide width to the original width. Apply the corresponding height ratio to its vertical coordinates and height.
+
+The first example loads a presentation whose slides contain no tables, changes the slide size to A4, and saves the result. It uses [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) with [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) so that the subsequent loop controls the scaling. The ratios are unitless; shape positions and dimensions are measured in points. Different width and height ratios can distort shapes, and changing a shape's dimensions does not scale its font sizes.
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-// Load the presentation file.
-Presentation presentation = new Presentation("sample.ppt");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Get the original slide size.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Change the slide size without scaling existing shapes.
+    // Calculate independent horizontal and vertical scale factors.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Get the new slide size.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Resize and reposition shapes on every slide.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            
-            // Scale the shape size.
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Scale the shape position.
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -63,68 +55,65 @@ finally {
 }
 ```
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-Tables need no special treatment: setting a table's width and height rescales its columns and rows proportionally, so scaling the row heights and column widths again would apply the ratio twice.
+Tables require separate handling: scale their column widths and row heights instead of assigning the table's overall width and height. Row heights may remain larger than requested if the cell content requires more space.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-The code above changes only the shapes on the slides. Master slides and layout slides keep their own shapes, so scale them as well when you want the whole presentation to follow the new slide size:
+The second example supports tables and processes shapes on masters and layouts as well as individual slides before saving the resized presentation. Its helper handles each [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) by scaling column widths with [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) and minimum row heights with [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-). It then scales the table's position without separately scaling its overall dimensions.
 
 ```java
 import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // Table dimensions are controlled by column widths and row heights.
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Get the original slide size.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Change the slide size without scaling existing shapes.
+    // Calculate independent horizontal and vertical scale factors.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Get the new slide size.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    ShapeResizer resizer = new ShapeResizer();
 
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
+    // Resize shapes defined on masters and layouts as well as individual slides.
     for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // Scale the shape size.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Scale the shape position.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // Scale the shape size.
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // Scale the shape position.
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
         }
     }
 
     for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            // Scale the shape size.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Scale the shape position.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
     }
 
     presentation.save("output.pptx", SaveFormat.Pptx);
@@ -136,30 +125,30 @@ finally {
 
 ## **FAQ**
 
-### Why are shapes distorted or cut off after resizing a slide?
+**Why are shapes distorted or cut off after resizing a slide?**
 
-When resizing a slide, shapes retain their original position and size unless the scale is explicitly changed. This can result in content being cropped or shapes being misaligned.
+If you change the slide size without scaling the shapes, they keep their original positions and dimensions and may extend beyond the slide. Scaling width and height by different ratios can also distort shapes.
 
-### Does the provided code work for all shape types?
+**Does the provided code work for all shape types?**
 
-Yes. Setting the height and width works for text boxes, images, charts, and tables alike.
+The first example changes shape bounds directly and is intended for slides without tables. The second example handles tables separately. Check the resulting layout, particularly text and tables, because these examples do not scale font sizes and table content can constrain row heights.
 
-### How do I resize tables when resizing a slide?
+**How do I resize tables when resizing a slide?**
 
-Scale the table shape itself, exactly like any other shape. Its rows and columns follow proportionally, so do not scale them again afterwards.
+Scale column widths by the width ratio and minimum row heights by the height ratio, then scale the table's position, as shown in the second example.
 
-### Will this resizing work for master slides and layout slides?
+**Will this resizing work for master slides and layout slides?**
 
-Yes, but you should also loop through [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) and [Layout slides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) and apply the same scaling logic to their shapes to ensure consistency across the presentation.
+Yes. The second example iterates through [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) and each master's [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) and applies the same resizing logic to their shapes.
 
-### Can I change the orientation of a slide (portrait/landscape) along with the resizing?
+**Can I change the orientation of a slide (portrait/landscape) along with the resizing?**
 
-Yes. You can use [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/islidesize/#setOrientation-int-) to change the orientation. Make sure you set the scaling logic accordingly to preserve the layout.
+Yes. Call [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) after changing the slide size and before reading the target dimensions, so the scale factors reflect the final orientation.
 
-### Is there a limit to the slide size I can set?
+**Is there a limit to the slide size I can set?**
 
-Aspose.Slides supports custom sizes, but very large sizes may affect performance or compatibility with some versions of PowerPoint.
+You can specify custom slide dimensions with [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-). The supported dimensions also depend on the presentation format and the application used to open the file.
 
-### How can I prevent fixed aspect ratio shapes from becoming distorted?
+**How can I prevent shapes with a fixed aspect ratio from becoming distorted?**
 
-You can check the `getAspectRatioLocked` method of the shape before scaling. If it is locked, adjust the width or height proportionally rather than scaling them individually.
+Use the same scale factor for width and height. To fit the original layout within the new slide dimensions, use the smaller of the width and height ratios for both dimensions and positions. This preserves proportions but may leave unused space along one edge.

@@ -8,168 +8,139 @@ keywords:
 - embed chart
 - OLE object
 - PowerPoint
-- OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Create Excel charts and embed them as OLE objects in PowerPoint and OpenDocument presentations with C#/.NET. Step-by-step guide with code samples."
+description: "Create an Excel chart with Aspose.Cells for .NET and embed the workbook in a PowerPoint presentation with Aspose.Slides, including a chart preview."
 ---
 
-## **Background**
+## **Overview**
 
-In PowerPoint, using editable charts to display data graphically is a common practice. Aspose supports creating Excel charts with Aspose.Cells for .NET, and these charts can then be embedded as OLE objects in PowerPoint slides through Aspose.Slides for .NET. This article covers the necessary steps and provides C# code samples for creating an Excel chart and embedding it as an OLE object in a PowerPoint presentation using Aspose.Cells and Aspose.Slides.
+This article shows how to create an Excel column chart with Aspose.Cells for .NET and embed its workbook in a PowerPoint presentation with Aspose.Slides for .NET. The embedded workbook contains both the source data and the chart. A separate PNG preview displays the chart on the slide before the OLE object is activated.
 
-## **Required Steps**
+The result is an embedded Excel object, not a native PowerPoint chart. Editing the workbook through OLE requires a desktop application that supports OLE activation and a compatible Excel installation.
 
-The following sequence of steps is required to create and embed an Excel chart as an OLE object in a PowerPoint slide:
+## **Prerequisites**
 
-1. Create an Excel chart using Aspose.Cells.
-1. Set the OLE size of the Excel chart using Aspose.Cells.
-1. Get an image of the Excel chart with Aspose.Cells.
-1. Embed the Excel chart as an OLE object in a PPTX presentation using Aspose.Slides.
-1. Replace the "EMBEDDED OLE OBJECT" image with the image obtained in step 3 to address the [object preview issue](/slides/net/object-preview-issue-when-adding-oleobjectframe/).
-1. Save the presentation to disk in PPTX format.
+Add references to Aspose.Cells for .NET and Aspose.Slides for .NET in your C# project. The example uses top-level statements and requires C# 9 or later. Microsoft Office is not required to generate the presentation with these libraries.
 
-## **Implementation of the Required Steps**
+No input files are required: the example creates the data and chart in memory, then writes `OutputChart.pptx` to the current working directory. Apply licenses for both products when running outside evaluation mode.
 
-The C# implementation of the above steps is as follows:
+## **How the Embedding Works**
 
-```cs
-using System.Drawing;
-using Aspose.Slides;
+1. Create a workbook with a data worksheet and a chart sheet.
+1. Make the chart sheet active so that the workbook opens on the chart.
+1. Set the workbook's OLE display range and render the chart to PNG.
+1. Save the workbook as XLSX in memory and embed those bytes in a slide.
+1. Assign the PNG as the OLE object's preview and save the presentation as PPTX.
 
-// Step - 1: Create an Excel chart using Aspose.Cells.
-// ---------------------------------------------------
-// Create a workbook.
-Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook();
-// Add an Excel chart.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+The workbook display range and the frame on the slide have different roles. [SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) takes zero-based start/end row and column indices. [ChartCollection.Add](https://reference.aspose.com/cells/net/aspose.cells.charts/chartcollection/add/) instead takes the top row, left column, bottom row, and right column. The example uses row index 55 and column index 25 as the lower-right boundaries; these values are layout choices, not the number of data rows or columns.
 
-// Step - 2: Set the OLE size of the chart using Aspose.Cells.
-// -----------------------------------------------------------
-workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
+The slide frame uses points. The example fits it within the slide and centers it while preserving the PNG's aspect ratio, rather than stretching the preview to fill the slide.
 
-// Step - 3: Get the image of the chart with Aspose.Cells.
-// -------------------------------------------------------
-MemoryStream chartImageStream = new MemoryStream();
-workbook.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
-chartImageStream.Position = 0;
-Bitmap chartImage = new Bitmap(chartImageStream);
-// Save the workbook to a stream.
-MemoryStream workbookStream = workbook.SaveToStream();
+## **Create and Embed the Chart**
 
-// Step - 4 AND 5
-// ==============
-// Step - 4: Embed the chart as an OLE object inside a .ppt presentation using Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// Step - 5: Replace the "EMBEDDED OLE OBJECT" image with the image obtained in step 3 to address Object Preview Issue.
-// --------------------------------------------------------------------------------------------------------------------
-// Create a presentation.
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    // Add the workbook to the slide.
-    AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+The following complete example populates `DataSheet` with four rows and five columns of values. Each row becomes a chart series. `ChartSheet` is selected as the active sheet before the workbook is saved.
 
-    // Step - 6: Save the output presentation to disk.
-    // -----------------------------------------------
-    presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
+The workbook is explicitly saved as XLSX, matching the `xlsx` extension passed to [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/). The PNG is loaded directly from its stream without an intermediate bitmap conversion. Assigning it through [SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/substitutepictureformat/) replaces the default OLE placeholder.
 
 ```cs
-static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows, int chartCols)
-{
-    // An array of cell names.
-    string[] cellNames = new string[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
-
-    // An array of cell data.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
-
-    // Add a new worksheet to populate cells with data.
-    int dataSheetIndex = workbook.Worksheets.Add();
-    Aspose.Cells.Worksheet dataSheet = workbook.Worksheets[dataSheetIndex];
-    string sheetName = "DataSheet";
-    dataSheet.Name = sheetName;
-
-    // Populate the data sheet with data.
-    for (int i = 0; i < cellNames.Length; i++)
-    {
-        string cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.Cells[cellName].PutValue(cellValue);
-    }
-
-    // Add a chart sheet.
-    int chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
-    Aspose.Cells.Worksheet chartSheet = workbook.Worksheets[chartSheetIndex];
-    chartSheet.Name = "ChartSheet";
-
-    // Add a chart to the chart sheet with data series from the data sheet.
-    int chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
-    Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIndex];
-    chart.NSeries.Add(sheetName + "!A1:E1", false);
-    chart.NSeries.Add(sheetName + "!A2:E2", false);
-    chart.NSeries.Add(sheetName + "!A3:E3", false);
-    chart.NSeries.Add(sheetName + "!A4:E4", false);
-
-    // Set the chart sheet as an active sheet.
-    workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
-    return chartSheetIndex;
-}
-```
-
-```cs
-using System.Drawing;
+using System;
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.DOM.Ole;
 
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "DataSheet";
+
+int[,] values =
 {
-    float oleWidth = presentation.SlideSize.Size.Width;
-    float oleHeight = presentation.SlideSize.Size.Height;
+    { 67, 44, 46, 43, 24 },
+    { 86, 64, 97, 29, 40 },
+    { 68, 89, 78, 69, 38 },
+    { 91, 48, 60, 26, 25 }
+};
 
-    byte[] oleData = new byte[workbookStream.Length];
-    workbookStream.Position = 0;
-    workbookStream.Read(oleData, 0, oleData.Length);
-
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xls");
-    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
-
-    using (MemoryStream imageStream = new MemoryStream())
+for (var row = 0; row < values.GetLength(0); row++)
+{
+    for (var column = 0; column < values.GetLength(1); column++)
     {
-        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
-
-	    imageStream.Position = 0;
-        IPPImage ppImage = presentation.Images.AddImage(imageStream);
-
-        oleFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+        dataSheet.Cells[row, column].PutValue(values[row, column]);
     }
 }
+
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+chartSheet.Name = "ChartSheet";
+
+var lastChartRow = 55;
+var lastChartColumn = 25;
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, lastChartRow, lastChartColumn);
+var chart = chartSheet.Charts[chartIndex];
+for (var row = 1; row <= values.GetLength(0); row++)
+{
+    chart.NSeries.Add($"DataSheet!A{row}:E{row}", false);
+}
+
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
+workbook.Worksheets.SetOleSize(0, lastChartRow, 0, lastChartColumn);
+
+// Render the chart preview and serialize the editable workbook separately.
+using var chartImageStream = new MemoryStream();
+chart.ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+using var chartImage = Images.FromStream(chartImageStream);
+
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Xlsx);
+var workbookBytes = workbookStream.ToArray();
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var slideSize = presentation.SlideSize.Size;
+
+// Fit the preview within the slide without changing its aspect ratio.
+var scale = Math.Min(slideSize.Width / chartImage.Width, slideSize.Height / chartImage.Height);
+var frameWidth = chartImage.Width * scale;
+var frameHeight = chartImage.Height * scale;
+var frameX = (slideSize.Width - frameWidth) / 2;
+var frameY = (slideSize.Height - frameHeight) / 2;
+
+var embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+var previewImage = presentation.Images.AddImage(chartImage);
+oleFrame.SubstitutePictureFormat.Picture.Image = previewImage;
+
+presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-The presentation created by the above method will contain the Excel chart as an OLE object that can be activated by double-clicking the OLE object frame.
+## **Expected Result**
 
-## **Conclusion**
+`OutputChart.pptx` contains one slide with an embedded Excel workbook and a chart preview. The workbook contains the original data and a column chart with four series. The preview is centered on the slide and retains its proportions.
 
-By using Aspose.Cells for .NET together with Aspose.Slides for .NET, we can create any Excel chart supported by Aspose.Cells and embed the chart as an OLE object in a PowerPoint slide. The OLE size of the Excel chart can also be defined. End users can then edit the Excel chart like any other OLE object.
+![Excel column chart displayed as the preview of an embedded workbook](excel-chart-ole-preview.png)
+
+In a compatible desktop PowerPoint environment with Excel available, double-click the object to activate and edit the embedded workbook. Activation and editing depend on the host application's OLE support and security settings.
+
+## **FAQ**
+
+**Why is a preview image needed?**
+
+The embedded workbook and its slide preview are separate content. Supply a chart image so the slide shows the chart instead of the default "EMBEDDED OLE OBJECT" placeholder. See [Object Preview Issue when Adding OleObjectFrame](/slides/net/object-preview-issue-when-adding-oleobjectframe/).
+
+**Does the preview update automatically when I change the workbook in code?**
+
+Treat the preview as a snapshot. When updating workbook data programmatically, regenerate the chart image and replace the preview as well as the embedded workbook data.
+
+**Can I use XLS instead of XLSX?**
+
+Yes. Save the workbook in XLS format and use `xls` as the embedded data extension. The extension must match the actual workbook format; changing the extension alone does not convert the data.
+
+**Why might the object change size after activation?**
+
+The host application can update the OLE object's presentation when it activates the workbook. The workbook's OLE display range and the slide frame dimensions both matter. See [Working Solution for Chart Resizing in PPTX](/slides/net/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Related Sections**
 

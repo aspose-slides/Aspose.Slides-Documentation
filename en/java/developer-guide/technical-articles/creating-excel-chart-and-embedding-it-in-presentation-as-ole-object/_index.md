@@ -8,159 +8,166 @@ keywords:
 - embed chart
 - OLE object
 - PowerPoint
-- OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Create Excel charts and embed them as OLE objects in PowerPoint and OpenDocument presentations with Java. Step-by-step guide with code samples."
+description: "Create an Excel chart with Aspose.Cells for Java and embed the workbook in a PowerPoint presentation with Aspose.Slides, including a chart preview."
 ---
 
-## **Background**
+## **Overview**
 
-In PowerPoint, using editable charts to display data graphically is a common practice. Aspose supports creating Excel charts with Aspose.Cells for Java, and these charts can then be embedded as OLE objects in PowerPoint slides through Aspose.Slides for Java. This article covers the necessary steps and provides Java code samples for creating an Excel chart and embedding it as an OLE object in a PowerPoint presentation using Aspose.Cells and Aspose.Slides.
+This article shows how to create an Excel column chart with Aspose.Cells for Java and embed its workbook in a PowerPoint presentation with Aspose.Slides for Java. The embedded workbook contains both the source data and the chart. A separate PNG preview displays the chart on the slide before the OLE object is activated.
 
-## **Required Steps**
+The result is an embedded Excel object, not a native PowerPoint chart. Editing the workbook through OLE requires a desktop application that supports OLE activation and a compatible Excel installation.
 
-The following sequence of steps is required to create and embed an Excel chart as an OLE object in a PowerPoint slide:
+## **Prerequisites**
 
-1. Create an Excel chart using Aspose.Cells.
-1. Set the OLE size of the Excel chart using Aspose.Cells.
-1. Get an image of the Excel chart with Aspose.Cells.
-1. Embed the Excel chart as an OLE object in a PPTX presentation using Aspose.Slides.
-1. Replace the "EMBEDDED OLE OBJECT" image with the image obtained in step 3 to address the [object preview issue](/slides/java/object-preview-issue-when-adding-oleobjectframe/).
-1. Save the presentation to disk in PPTX format.
+Add Aspose.Cells for Java and Aspose.Slides for Java to your project dependencies. Run the example inside a Java method. Microsoft Office is not required to generate the presentation with these libraries.
 
-## **Implementation of the Required Steps**
+No input files are required: the example creates the data and chart in memory, then writes `OutputChart.pptx` to the current working directory. Apply licenses for both products when running outside evaluation mode.
 
-The Java implementation of the above steps is as follows:
+## **How the Embedding Works**
 
-```java
-import com.aspose.slides.*;
-import com.aspose.cells.Workbook;
-import java.io.ByteArrayOutputStream;
+1. Create a workbook with a data worksheet and a chart sheet.
+1. Make the chart sheet active so that the workbook opens on the chart.
+1. Set the workbook's OLE display range and render the chart to PNG.
+1. Save the workbook as XLSX in memory and embed those bytes in a slide.
+1. Assign the PNG as the OLE object's preview and save the presentation as PPTX.
 
-// Create a workbook.
-Workbook workbook = new Workbook();
+The workbook display range and the frame on the slide have different roles. [setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) takes zero-based start/end row and column indices. [ChartCollection.add](https://reference.aspose.com/cells/java/com.aspose.cells/chartcollection/#add-int-int-int-int-int-) instead takes the top row, left column, bottom row, and right column. The example uses row index 55 and column index 25 as the lower-right boundaries; these values are layout choices, not the number of data rows or columns.
 
-// Add an Excel chart.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+The slide frame uses points. The example fits it within the slide and centers it while preserving the PNG's aspect ratio, rather than stretching the preview to fill the slide.
 
-// Set the OLE size of the chart.
-workbook.getWorksheets().setOleSize(0, chartRows, 0, chartCols);
+## **Create and Embed the Chart**
 
-// Get the chart image and save it to a stream.
-com.aspose.cells.ImageOrPrintOptions printOptions = new com.aspose.cells.ImageOrPrintOptions();
-printOptions.setImageType(com.aspose.cells.ImageType.PNG);
-ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
-workbook.getWorksheets().get(chartSheetIndex).getCharts().get(0).toImage(imageStream, printOptions);
+The following complete example populates `DataSheet` with four rows and five columns of values. Each row becomes a chart series. `ChartSheet` is selected as the active sheet before the workbook is saved.
 
-// Save the workbook to a stream.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream(); 
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
-
-// Create a presentation.
-Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Add the workbook to a slide.
-AddExcelChartInPresentation(presentation, slide, workbookStream.toByteArray(), imageStream.toByteArray());
-
-// Save the presentation to disk.
-presentation.save("OutputChart.pptx", SaveFormat.Pptx);
-presentation.dispose();
-```
+The workbook is explicitly saved as XLSX, matching the `xlsx` extension passed to [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/oleembeddeddatainfo/). The PNG is loaded directly from its bytes without an intermediate bitmap conversion. Assigning it through [getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) replaces the default OLE placeholder.
 
 ```java
-import com.aspose.slides.*;
-import java.io.ByteArrayInputStream;
-
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
-{
-    double oleHeight = presentation.getSlideSize().getSize().getHeight();
-    double oleWidth = presentation.getSlideSize().getSize().getWidth();
- 
-    // Describe the workbook as embedded OLE data.
-    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookArray, "xls");
- 
-    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, dataInfo);
-    oleFrame.getSubstitutePictureFormat().getPicture().setImage(presentation.getImages().addImage(new ByteArrayInputStream(chartImage)));
-}
-```
-
-```java
-import com.aspose.slides.*;
 import com.aspose.cells.Chart;
 import com.aspose.cells.ChartType;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import static com.aspose.cells.SaveFormat.XLSX;
+import static com.aspose.slides.SaveFormat.Pptx;
 import com.aspose.cells.SheetType;
 import com.aspose.cells.Workbook;
 import com.aspose.cells.Worksheet;
-import java.lang.reflect.Array;
+import com.aspose.slides.IImage;
+import com.aspose.slides.Images;
+import com.aspose.slides.IOleObjectFrame;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayOutputStream;
 
-static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
-{
-    // An array of cell names.
-    String[] cellNames = new String[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+try {
+    Workbook workbook = new Workbook();
+    try {
+        Worksheet dataSheet = workbook.getWorksheets().get(0);
+        dataSheet.setName("DataSheet");
 
-    // An array of cell data.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
+        int[][] values = {
+            { 67, 44, 46, 43, 24 },
+            { 86, 64, 97, 29, 40 },
+            { 68, 89, 78, 69, 38 },
+            { 91, 48, 60, 26, 25 }
+        };
 
-    // Add a new worksheet to populate cells with data.
-    int dataSheetIndex = workbook.getWorksheets().add();
-    Worksheet dataSheet = workbook.getWorksheets().get(dataSheetIndex);
-    String sheetName = "DataSheet";
-    dataSheet.setName(sheetName);
+        for (int row = 0; row < values.length; row++) {
+            for (int column = 0; column < values[row].length; column++) {
+                dataSheet.getCells().get(row, column).putValue(values[row][column]);
+            }
+        }
 
-    // Populate the data sheet with data.
-    int size = Array.getLength(cellNames);
-    for (int i = 0; i < size; i++)
-    {
-        String cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.getCells().get(cellName).setValue(cellValue);
+        int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+        Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+        chartSheet.setName("ChartSheet");
+
+        int lastChartRow = 55;
+        int lastChartColumn = 25;
+        int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, lastChartRow, lastChartColumn);
+        Chart chart = chartSheet.getCharts().get(chartIndex);
+        for (int row = 1; row <= values.length; row++) {
+            chart.getNSeries().add("DataSheet!A" + row + ":E" + row, false);
+        }
+
+        workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+        workbook.getWorksheets().setOleSize(0, lastChartRow, 0, lastChartColumn);
+
+        // Render the chart preview and serialize the editable workbook separately.
+        ImageOrPrintOptions imageOptions = new ImageOrPrintOptions();
+        imageOptions.setImageType(ImageType.PNG);
+        ByteArrayOutputStream chartImageStream = new ByteArrayOutputStream();
+        chart.toImage(chartImageStream, imageOptions);
+        byte[] chartImageBytes = chartImageStream.toByteArray();
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, XLSX);
+        byte[] workbookBytes = workbookStream.toByteArray();
+
+        IImage chartImage = Images.fromData(chartImageBytes);
+        try {
+            Presentation presentation = new Presentation();
+            try {
+                ISlide slide = presentation.getSlides().get_Item(0);
+                double slideWidth = presentation.getSlideSize().getSize().getWidth();
+                double slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+                // Fit the preview within the slide without changing its aspect ratio.
+                double scale = Math.min(slideWidth / chartImage.getWidth(), slideHeight / chartImage.getHeight());
+                float frameWidth = (float) (chartImage.getWidth() * scale);
+                float frameHeight = (float) (chartImage.getHeight() * scale);
+                float frameX = (float) ((slideWidth - frameWidth) / 2);
+                float frameY = (float) ((slideHeight - frameHeight) / 2);
+
+                OleEmbeddedDataInfo embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+                IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+                IPPImage previewImage = presentation.getImages().addImage(chartImage);
+                oleFrame.getSubstitutePictureFormat().getPicture().setImage(previewImage);
+
+                presentation.save("OutputChart.pptx", Pptx);
+            } finally {
+                presentation.dispose();
+            }
+        } finally {
+            chartImage.dispose();
+        }
+    } finally {
+        workbook.dispose();
     }
-
-    // Add a chart sheet.
-    int worksheetIndex = workbook.getWorksheets().add(SheetType.CHART);
-    Worksheet chartSheet = workbook.getWorksheets().get(worksheetIndex);
-    chartSheet.setName("ChartSheet");
-    int chartSheetIndex = chartSheet.getIndex();
-
-    // Add a chart to the chart sheet with data series from the data sheet.
-    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, chartRows, 0, chartCols);
-    Chart chart = chartSheet.getCharts().get(chartIndex);
-    
-    chart.getNSeries().add(sheetName + "!A1:E1", false);
-    chart.getNSeries().add(sheetName + "!A2:E2", false);
-    chart.getNSeries().add(sheetName + "!A3:E3", false);
-    chart.getNSeries().add(sheetName + "!A4:E4", false);
-
-    // Set the chart sheet as an active sheet.
-    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
-    return chartSheetIndex;
+} catch (Exception exception) {
+    System.err.println("Could not create the presentation: " + exception.getMessage());
 }
 ```
 
-The presentation created by the above method will contain the Excel chart as an OLE object that can be activated by double-clicking the OLE object frame.
+## **Expected Result**
 
-## **Conclusion**
+`OutputChart.pptx` contains one slide with an embedded Excel workbook and a chart preview. The workbook contains the original data and a column chart with four series. The preview is centered on the slide and retains its proportions.
 
-By using Aspose.Cells for Java together with Aspose.Slides for Java, we can create any Excel chart supported by Aspose.Cells and embed the chart as an OLE object in a PowerPoint slide. The OLE size of the Excel chart can also be defined. End users can then edit the Excel chart like any other OLE object.
+![Excel column chart displayed as the preview of an embedded workbook](excel-chart-ole-preview.png)
+
+In a compatible desktop PowerPoint environment with Excel available, double-click the object to activate and edit the embedded workbook. Activation and editing depend on the host application's OLE support and security settings.
+
+## **FAQ**
+
+**Why is a preview image needed?**
+
+The embedded workbook and its slide preview are separate content. Supply a chart image so the slide shows the chart instead of the default "EMBEDDED OLE OBJECT" placeholder. See [Object Preview Issue when Adding OleObjectFrame](/slides/java/object-preview-issue-when-adding-oleobjectframe/).
+
+**Does the preview update automatically when I change the workbook in code?**
+
+Treat the preview as a snapshot. When updating workbook data programmatically, regenerate the chart image and replace the preview as well as the embedded workbook data.
+
+**Can I use XLS instead of XLSX?**
+
+Yes. Save the workbook in XLS format and use `xls` as the embedded data extension. The extension must match the actual workbook format; changing the extension alone does not convert the data.
+
+**Why might the object change size after activation?**
+
+The host application can update the OLE object's presentation when it activates the workbook. The workbook's OLE display range and the slide frame dimensions both matter. See [Working Solution for Chart Resizing in PPTX](/slides/java/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Related Sections**
 
