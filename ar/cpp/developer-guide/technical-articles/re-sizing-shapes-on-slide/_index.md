@@ -5,7 +5,6 @@ weight: 130
 url: /ar/cpp/resizing-shapes-on-slide/
 aliases:
   - /ar/cpp/re-sizing-shapes-on-slide/
-  /cpp/re-sizing-shapes-on-slide/
 keywords:
   - تحجيم الشكل
   - تغيير حجم الشكل

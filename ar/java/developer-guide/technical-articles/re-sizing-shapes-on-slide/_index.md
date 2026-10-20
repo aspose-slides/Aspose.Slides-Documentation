@@ -5,7 +5,6 @@ weight: 130
 url: /ar/java/resizing-shapes-on-slide/
 aliases:
   - /ar/java/re-sizing-shapes-on-slide/
-  /java/تحجيم-الأشكال-على-الشريحة/
 keywords:
 - تحجيم الشكل
 - تغيير حجم الشكل

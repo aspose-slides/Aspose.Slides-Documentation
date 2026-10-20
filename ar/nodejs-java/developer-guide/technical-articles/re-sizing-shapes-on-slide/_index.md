@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /ar/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /ar/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - تحجيم الشكل
 - تغيير حجم الشكل

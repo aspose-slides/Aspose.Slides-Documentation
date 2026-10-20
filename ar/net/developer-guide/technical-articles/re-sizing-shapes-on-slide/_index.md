@@ -5,7 +5,6 @@ weight: 130
 url: /ar/net/resizing-shapes-on-slide/
 aliases:
   - /ar/net/re-sizing-shapes-on-slide/
-  /net/إعادة-تحجيم-الأشكال-على-الشريحة/
 keywords:
 - إعادة تحجيم الشكل
 - تغيير حجم الشكل

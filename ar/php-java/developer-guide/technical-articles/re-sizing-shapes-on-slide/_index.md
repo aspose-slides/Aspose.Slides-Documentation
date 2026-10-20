@@ -5,7 +5,6 @@ weight: 130
 url: /ar/php-java/resizing-shapes-on-slide/
 aliases:
   - /ar/php-java/re-sizing-shapes-on-slide/
-  /php-java/re-sizing-shapes-on-slide/
 keywords:
   - تغيير حجم الشكل
   - تعديل حجم الشكل

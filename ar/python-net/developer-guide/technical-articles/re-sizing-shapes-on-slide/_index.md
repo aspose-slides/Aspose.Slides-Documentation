@@ -5,7 +5,6 @@ weight: 130
 url: /ar/python-net/resizing-shapes-on-slide/
 aliases:
   - /ar/python-net/re-sizing-shapes-on-slide/
-  /python-net/re-sizing-shapes-on-slide/
 keywords:
   - تحجيم الشكل
   - تغيير حجم الشكل
