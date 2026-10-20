@@ -1,26 +1,31 @@
 ---
-title: Python via Java でプレゼンテーションスライドのシェイプをリサイズ
+title: Python（Java経由）でプレゼンテーション スライドの図形をリサイズする
 type: docs
 weight: 110
-url: /ja/python-java/re-sizing-shapes-on-slide/
+url: /ja/python-java/resizing-shapes-on-slide/
+aliases:
+  - /python-java/スライド上-図形-リサイズ/
+  - /ja/python-java/re-sizing-shapes-on-slide/
 keywords:
-- シェイプのリサイズ
-- シェイプサイズの変更
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- Python
-- Java
-- Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用して、PowerPoint および OpenDocument スライド上のシェイプを簡単にリサイズし、スライドレイアウトの調整を自動化して生産性を向上させます。"
+  - 図形リサイズ
+  - 図形 サイズ変更
+  - PowerPoint
+  - OpenDocument
+  - プレゼンテーション
+  - Python
+  - Java
+  - Aspose.Slides
+description: "Aspose.Slides for Python via Java を使用して、PowerPoint と OpenDocument のスライド上の図形を簡単にリサイズし、スライドレイアウトの調整を自動化して生産性を向上させます。"
 ---
 ## **概要**
 
-Aspose.Slides for Python via Java のお客様から最もよくある質問のひとつは、スライドサイズが変更されたときにデータが切り取られないようにシェイプのサイズを変更する方法です。この短い技術記事では、その方法を示します。
+プレゼンテーションのスライドサイズを変更すると、新しい寸法に合わせて図形のサイズ変更と位置調整が必要になる場合があります。この記事では、図形を手動で拡大縮小する方法と、スライド、マスタ、レイアウト上のテーブルの処理方法を示します。
 
-## **シェイプのサイズ変更**
+## **図形のサイズ変更**
 
-スライドサイズが変更されたときにシェイプがずれないように、各シェイプの位置とサイズを新しいスライドレイアウトに合わせて更新します。
+各図形の相対的な位置とサイズを保持するには、水平座標と幅を新しいスライド幅と元の幅の比率で掛けます。対応する高さの比率を垂直座標と高さに適用します。
+
+最初の例では、テーブルを含まないスライドを持つプレゼンテーションをロードし、スライドサイズをA4に変更して結果を保存します。スケーリングを制御するために、後続のループで使用できるよう、[SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) を [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale) と共に使用しています。比率は単位なしで、図形の位置と寸法はポイントで測定されます。幅と高さの比率が異なると図形が歪み、図形の寸法を変更してもフォントサイズは拡大縮小されません。
 
 ```python
 import jpype
@@ -29,47 +34,34 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType
 
-# プレゼンテーションファイルを読み込みます。
-presentation = Presentation("sample.ppt")
+presentation = Presentation("sample.pptx")
 try:
-    # 元のスライドサイズを取得します。
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
+        # 水平および垂直方向の独立したスケール係数を計算します。
+        original_size = presentation.getSlideSize().getSize()
+        presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
+        target_size = presentation.getSlideSize().getSize()
+        width_ratio = target_size.getWidth() / original_size.getWidth()
+        height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # 既存のシェイプをスケーリングせずにスライドサイズを変更します。
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
+        for slide in presentation.getSlides():
+            for shape in slide.getShapes():
+                shape.setWidth(shape.getWidth() * width_ratio)
+                shape.setHeight(shape.getHeight() * height_ratio)
+                shape.setX(shape.getX() * width_ratio)
+                shape.setY(shape.getY() * height_ratio)
 
-    # 新しいスライドサイズを取得します。
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # すべてのスライドのシェイプをリサイズおよび再配置します。
-    for slide in presentation.getSlides():
-        for shape in slide.getShapes():
-
-            # シェイプのサイズをスケーリングします。
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # シェイプの位置をスケーリングします。
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
-
-    presentation.save("output.pptx", SaveFormat.Pptx)
+        presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}} 
-テーブルは特別な処理は不要です。テーブルの幅と高さを設定すると、列と行が比例的にリスケールされるため、行の高さや列の幅を再度スケーリングすると比率が二重に適用されます。
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+テーブルは個別に処理する必要があります。テーブル全体の幅と高さを設定するのではなく、列幅と行高さをスケーリングします。セルの内容がより多くのスペースを必要とする場合、行の高さは要求されたサイズより大きくなることがあります。
+{{% /alert %}}
 
-上記のコードはスライド上のシェイプのみを変更します。マスタースライドやレイアウトスライドはそれぞれ固有のシェイプを持っているため、プレゼンテーション全体を新しいスライドサイズに合わせたい場合は、それらも同様にスケールしてください。
+2番目の例では、テーブルをサポートし、リサイズされたプレゼンテーションを保存する前に、マスタとレイアウト上の図形、および個々のスライドの図形を処理します。そのヘルパーは、各[Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) を[Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth)で列幅を、[Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight)で最小行高さをスケーリングして処理します。その後、テーブル全体の寸法を個別にスケーリングせずにテーブルの位置をスケーリングします。
 
 ```python
 import jpype
@@ -78,54 +70,44 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, Table
+
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, Table):
+            # テーブルの寸法は列幅と行高さで制御されます。
+            for column in shape.getColumns():
+                column.setWidth(column.getWidth() * width_ratio)
+
+            for row in shape.getRows():
+                row.setMinimalHeight(row.getMinimalHeight() * height_ratio)
+        else:
+            shape.setWidth(shape.getWidth() * width_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
+
+        shape.setX(shape.getX() * width_ratio)
+        shape.setY(shape.getY() * height_ratio)
+
 
 presentation = Presentation("sample.pptx")
 try:
-    # 元のスライドサイズを取得します。
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # 既存のシェイプをスケーリングせずにスライドサイズを変更します。
+    # 水平および垂直方向の独立したスケール係数を計算します。
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
-    # presentation.getSlideSize().setOrientation(SlideOrientation.Portrait)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # 新しいスライドサイズを取得します。
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # マスタとレイアウト、および個々のスライド上に定義された図形をリサイズします。
     for master in presentation.getMasters():
-        for shape in master.getShapes():
-            # シェイプのサイズをスケーリングします。
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # シェイプの位置をスケーリングします。
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(master.getShapes(), width_ratio, height_ratio)
 
         for layout_slide in master.getLayoutSlides():
-            for shape in layout_slide.getShapes():
-                # シェイプのサイズをスケーリングします。
-                shape.setHeight(shape.getHeight() * height_ratio)
-                shape.setWidth(shape.getWidth() * width_ratio)
-
-                # シェイプの位置をスケーリングします。
-                shape.setY(shape.getY() * height_ratio)
-                shape.setX(shape.getX() * width_ratio)
+            resize_shapes(layout_slide.getShapes(), width_ratio, height_ratio)
 
     for slide in presentation.getSlides():
-        for shape in slide.getShapes():
-            # シェイプのサイズをスケーリングします。
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # シェイプの位置をスケーリングします。
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(slide.getShapes(), width_ratio, height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
@@ -134,30 +116,30 @@ finally:
 
 ## **よくある質問**
 
-**スライドのサイズ変更後にシェイプが歪んだり切り取られたりするのはなぜですか？**
+**スライドのサイズ変更後に図形が歪んだり切り取られたりするのはなぜですか？**
 
-スライドのサイズを変更すると、スケールが明示的に変更されない限り、シェイプは元の位置とサイズのまま残ります。そのため、コンテンツが切り取られたりシェイプがずれたりすることがあります。
+スライドサイズを変更しても図形をスケーリングしないと、図形は元の位置と寸法を保持したままスライドの外にはみ出すことがあります。幅と高さを異なる比率でスケーリングすると、図形が歪むこともあります。
 
-**提供されたコードはすべてのシェイプタイプで機能しますか？**
+**提供されたコードはすべての図形タイプで機能しますか？**
 
-はい。高さと幅を設定することは、テキストボックス、画像、チャート、テーブルなどすべてのシェイプに対して機能します。
+最初の例は図形の境界を直接変更し、テーブルのないスライドを対象としています。2番目の例はテーブルを別途処理します。これらの例ではフォントサイズはスケーリングされず、テーブルの内容が行の高さを制限する可能性があるため、特にテキストやテーブルのレイアウトを確認してください。
 
-**スライドのサイズ変更時にテーブルをリサイズするにはどうすればよいですか？**
+**スライドのサイズ変更時にテーブルのサイズを変更するにはどうすればよいですか？**
 
-テーブル自体のシェイプを他のシェイプと同様にスケールします。行と列は比例的に調整されるため、後から再度スケーリングしないでください。
+幅の比率で列幅を、高さの比率で最小行高さをスケーリングし、テーブルの位置をスケーリングします（2番目の例を参照）。
 
-**このリサイズはマスタースライドやレイアウトスライドでも機能しますか？**
+**このリサイズはマスタスライドおよびレイアウトスライドでも機能しますか？**
 
-はい。ただし、[Presentation.getMasters](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getMasters) と [Presentation.getLayoutSlides](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getLayoutSlides) をループして、同じスケーリングロジックをそれらのシェイプにも適用し、プレゼンテーション全体の一貫性を保つ必要があります。
+はい。2番目の例では[Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) と各マスタの[MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides) を反復し、図形に同じリサイズロジックを適用します。
 
-**リサイズと同時にスライドの向き（縦/横）を変更できますか？**
+**リサイズと同時にスライドの向き（縦横）を変更できますか？**
 
-はい。[SlideSize.setOrientation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slidesize/#setOrientation) を使用して向きを変更できます。レイアウトを保つために、スケーリングロジックも適切に設定してください。
+はい。スライドサイズを変更した後、対象の寸法を取得する前に[SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation) を呼び出すことで、スケール係数が最終的な向きを反映します。
 
 **設定できるスライドサイズに制限はありますか？**
 
-Aspose.Slides はカスタムサイズをサポートしていますが、非常に大きなサイズはパフォーマンスや一部の PowerPoint バージョンとの互換性に影響を与える可能性があります。
+[SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) を使用してカスタムスライド寸法を指定できます。サポートされる寸法は、プレゼンテーション形式やファイルを開くアプリケーションにも依存します。
 
-**固定アスペクト比のシェイプが歪むのを防ぐにはどうすればよいですか？**
+**固定アスペクト比の図形が歪むのを防ぐにはどうすればよいですか？**
 
-スケーリングする前に、シェイプのロックの [getAspectRatioLocked](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshapelock/#getAspectRatioLocked) メソッドでロック状態を確認できます。ロックされている場合は、幅や高さを個別にスケーリングするのではなく、比例的に調整してください。
+幅と高さに同じスケール係数を使用します。元のレイアウトを新しいスライド寸法に合わせるには、幅と高さの比率のうち小さい方を幅・高さ・位置のすべてに使用します。これにより比例が保たれますが、片方の端に未使用のスペースが残る場合があります。

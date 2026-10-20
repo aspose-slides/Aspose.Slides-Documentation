@@ -1,30 +1,31 @@
 ---
-title: Formák átméretezése prezentációs diáikon Python használatával Java-on keresztül
+title: Alakzatok átméretezése a bemutató diákon Pythonon keresztül Java-val
 type: docs
 weight: 110
 url: /hu/python-java/resizing-shapes-on-slide/
 aliases:
+  - /python-java/re-sizing-shapes-on-slide/
   - /hu/python-java/re-sizing-shapes-on-slide/
 keywords:
-- forma átméretezése
-- forma méretének módosítása
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Python
-- Java
-- Aspose.Slides
-description: "Könnyedén átméretezheti a formákat PowerPoint és OpenDocument diáikon az Aspose.Slides for Python via Java segítségével – automatizálja a diasablon beállításait és növelje a hatékonyságot."
+  - alakzat átméretezése
+  - alakzat méretének módosítása
+  - PowerPoint
+  - OpenDocument
+  - bemutató
+  - Python
+  - Java
+  - Aspose.Slides
+description: "Könnyedén átméretezheted az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for Python via Java segítségével – automatizáld a diaelrendezés módosítását és növeld a hatékonyságot."
 ---
 ## **Áttekintés**
 
-Ha megváltoztatja egy bemutató diavetületének méretét, előfordulhat, hogy a formákat is át kell méretezni és áthelyezni, hogy illeszkedjenek az új méretekhez. Ez a cikk bemutatja, hogyan lehet manuálisan méretezni a formákat, és hogyan kell kezelni a táblázatokat a diákon, a mester‑ és elrendezési diákon.
+Amikor megváltoztatod egy bemutató diavetületének méretét, előfordulhat, hogy át kell méretezni és újra kell helyezni a benne lévő alakzatokat, hogy illeszkedjenek az új méretekhez. Ez a cikk bemutatja, hogyan skálázhatók manuálisan az alakzatok, és hogyan kell kezelni a táblázatokat a diákon, a mesterdiákon és az elrendezéseken.
 
-## **Formák átméretezése**
+## **Alakzatok átméretezése**
 
-Az egyes formák relatív pozíciójának és méretének megőrzéséhez szorozza a vízszintes koordinátákat és a szélességet az új diaszélesség és az eredeti szélesség arányával. Az ennek megfelelő magasságarányt alkalmazza a függőleges koordinátákra és a magasságra.
+Az egyes alakzatok relatív helyzetének és méretének megőrzéséhez szorozd meg a vízszintes koordinátáit és szélességét az új dia szélességének és az eredeti szélességnek arányával. A megfelelő magasságarányt alkalmazd a függőleges koordinátákra és a magasságra.
 
-Az első példa betölt egy olyan bemutatót, amelynek diái nem tartalmaznak táblázatot, A4‑re változtatja a diaméretet, és elmenti az eredményt. A [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) metódust a [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale) értékkel használja, hogy a későbbi ciklus szabályozza a méretezést. Az arányok mértékegység nélküli értékek; a formák pozíciói és méretei pontokban vannak megadva. A különböző szélesség‑ és magasságarányok torzíthatják a formákat, és a forma méretének módosítása nem méretezi át a betűméreteket.
+Az első példa betölt egy bemutatót, amely diáiban nincsenek táblázatok, A4-re változtatja a dia méretét, és elmenti az eredményt. A [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) függvényt a [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale) beállítással használja, hogy az ezt követő ciklus szabályozza a skálázást. Az arányok egység nélküli értékek; az alakzatok pozíciói és méretei pontokban vannak megadva. A különböző szélesség- és magasságarányok torzíthatják az alakzatokat, és egy alakzat méretének megváltoztatása nem méretezi át a betűméreteket.
 
 ```python
 import jpype
@@ -37,7 +38,7 @@ from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeS
 
 presentation = Presentation("sample.pptx")
 try:
-    # Számolja ki a független vízszintes és függőleges méretezési tényezőket.
+    # Számítsa ki a független vízszintes és függőleges skálázási tényezőket.
     original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
     target_size = presentation.getSlideSize().getSize()
@@ -57,10 +58,10 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-A táblázatokat külön kell kezelni: a táblázat teljes szélességét és magasságát nem kell beállítani, hanem az oszlopszélességeket és sormagasságokat kell méretezni. A sormagasságok nagyobbak lehetnek a kért értéknél, ha a cella tartalma több helyet igényel.
+A táblázatok külön kezelést igényelnek: a táblázat oszlopszélességét és sormagasságát kell skálázni a teljes táblázat szélességének és magasságának megadása helyett. A sormagasságok nagyobbak lehetnek a kért méretnél, ha a cella tartalma több helyet igényel.
 {{% /alert %}}
 
-A második példa támogatja a táblázatokat, és a mester‑ és elrendezési diákon, valamint az egyes diákon lévő formákat is feldolgozza, mielőtt elmenti a méretezett bemutatót. A segédprogram minden [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) elemet úgy kezel, hogy az oszlopszélességeket a [Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth) metódussal, a minimális sormagasságokat pedig a [Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight) metódussal méretezi. Ezután a táblázat pozícióját méretezi, anélkül hogy külön méretezné a teljes méreteket.
+A második példa támogatja a táblázatokat, és a mesterek és elrendezések, valamint az egyes diák alakzatait is feldolgozza, mielőtt elmentené az átméretezett bemutatót. A segédprogram a [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) minden egyes példányát a [Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth) segítségével skálázza az oszlopszélességekkel, és a [Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight) segítségével a minimális sormagasságokkal. Ezután a táblázat pozícióját méretezi, anélkül, hogy külön méretezné a teljes dimenzióit.
 
 ```python
 import jpype
@@ -75,7 +76,7 @@ from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeS
 def resize_shapes(shapes, width_ratio, height_ratio):
     for shape in shapes:
         if isinstance(shape, Table):
-            # A táblázat méretei az oszlopszélességek és a sormagasságok által vannak szabályozva.
+            # A táblázat méreteit az oszlopszélességek és a sormagasságok szabályozzák.
             for column in shape.getColumns():
                 column.setWidth(column.getWidth() * width_ratio)
 
@@ -91,14 +92,14 @@ def resize_shapes(shapes, width_ratio, height_ratio):
 
 presentation = Presentation("sample.pptx")
 try:
-    # Számítsa ki a független vízszintes és függőleges méretezési tényezőket.
+    # Számítsa ki a független vízszintes és függőleges skálázási tényezőket.
     original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
     target_size = presentation.getSlideSize().getSize()
     width_ratio = target_size.getWidth() / original_size.getWidth()
     height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # Átméretezze a mesterekben és elrendezésekben, valamint az egyes diákon definiált formákat.
+    # Átméretezze a mestereken és elrendezéseken, valamint az egyes diákon definiált alakzatokat.
     for master in presentation.getMasters():
         resize_shapes(master.getShapes(), width_ratio, height_ratio)
 
@@ -115,30 +116,30 @@ finally:
 
 ## **GYIK**
 
-**Miért torzulnak vagy vágódnak le a formák a dia átméretezése után?**
+**Miért torzulnak vagy vágódnak le az alakzatok egy dia átméretezése után?**
 
-Ha a diaméretet átméretezés nélkül módosítja, a formák megtartják eredeti pozícióikat és méreteiket, és a dia szélén túl is kinyúlhatnak. A szélesség és magasság különböző arányokkal való méretezése szintén torzíthatja a formákat.
+Ha a dia méretét skálázás nélkül változtatod, az alakzatok megtartják eredeti pozíciójukat és méretüket, és kikerülhetnek a diából. A szélesség és magasság különböző arányokkal való skálázása szintén torzíthatja az alakzatokat.
 
-**Működik a megadott kód minden forma típusra?**
+**A megadott kód minden alakzattípusra működik?**
 
-Az első példa közvetlenül módosítja a forma korlátait, és olyan diákra vonatkozik, amelyek nem tartalmaznak táblázatot. A második példa külön kezeli a táblázatokat. Ellenőrizze az eredő elrendezést, különösen a szöveget és a táblázatokat, mivel ezek a példák nem méretezik át a betűméreteket, és a táblázattartalom korlátozhatja a sormagasságokat.
+Az első példa közvetlenül módosítja az alakzat határait, és táblázat nélküli diákra van szánva. A második példa külön kezeli a táblázatokat. Ellenőrizd a kapott elrendezést, különösen a szöveget és a táblázatokat, mivel ezek a példák nem méretezik át a betűméreteket, és a táblázat tartalma korlátozhatja a sormagasságokat.
 
-**Hogyan méretezem át a táblázatokat egy dia átméretezésekor?**
+**Hogyan méretezzem át a táblázatokat egy dia átméretezésekor?**
 
-Mérje át az oszlopszélességeket a szélesség arányával, a minimális sormagasságokat a magasság arányával, majd méretezze a táblázat pozícióját, ahogyan a második példában látható.
+Skálázd az oszlopszélességeket a szélesség arányával, a minimális sormagasságokat a magasság arányával, majd a táblázat pozícióját, ahogyan a második példában is látható.
 
-**Ez az átméretezés működik mester‑diaikon és elrendezési diákon is?**
+**Ez az átméretezés működik a mesterdiákon és az elrendezési diákon is?**
 
-Igen. A második példa végigiterál a [Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) metóduson és minden mester [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides) metódusán, és azonos átméretezési logikát alkalmaz a formáikra.
+Igen. A második példa végigiterál a [Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) és minden mester [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides) elemein, és ugyanazt az átméretezési logikát alkalmazza az alakzataikra.
 
-**Megváltoztathatom egy dia tájolását (álló/ fekvő) az átméretezés mellett?**
+**Módosíthatom a dia tájolását (álló/fekvő) az átméretezés során?**
 
-Igen. Hívja meg a [SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation) metódust a diaméret megváltoztatása után és a célméretek lekérése előtt, hogy a méretezési tényezők a végső tájolást tükrözzék.
+Igen. Hívd meg a [SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation) függvényt a dia méretének módosítása után, és még a célméretek lekérdezése előtt, hogy a skála tényezők a végső tájolást tükrözzék.
 
-**Van korlátja a beállítható diaméretnek?**
+**Van korlátozás a beállítható dia méretre?**
 
-Egyéni diaméreteket adhat meg a [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) metódussal. A támogatott méretek a bemutató formátumától és a fájlt megnyitó alkalmazástól is függnek.
+Egyéni dia méreteket adhat meg a [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) segítségével. A támogatott méretek a bemutató formátumától és a fájlt megnyitó alkalmazástól is függenek.
 
-**Hogyan akadályozhatom meg, hogy a rögzített képarányú formák torzuljanak?**
+**Hogyan akadályozhatom meg, hogy a rögzített képarányú alakzatok torzuljanak?**
 
-Használjon azonos méretezési tényezőt a szélességhez és a magassághoz. Az eredeti elrendezés új diaméretekhez való igazításához a szélesség‑ és magasságarányok közül a kisebbet alkalmazza mind a méretekre, mind a pozíciókra. Ez megőrzi az arányokat, de előfordulhat, hogy egy oldal mentén üres hely marad.
+Használd ugyanazt a skála tényezőt a szélesség és magasság esetén. Az eredeti elrendezés az új dia méreteihez való igazításához használd a szélességi és magassági arányok közül a kisebbet mindkét dimenzióra és pozícióra. Ez megőrzi az arányokat, de előfordulhat, hogy egy szélén üres hely marad.

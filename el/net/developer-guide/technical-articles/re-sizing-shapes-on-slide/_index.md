@@ -1,173 +1,151 @@
 ---
-title: "Αλλαγή Μεγέθους Σχημάτων σε Διαφάνειες Παρουσίασης στο .NET"
+title: Αλλαγή Μεγέθους Σχημάτων σε Διαφάνειες Παρουσίασης σε .NET
 type: docs
 weight: 130
-url: /el/net/re-sizing-shapes-on-slide/
+url: /el/net/resizing-shapes-on-slide/
+aliases:
+  - /net/re-sizing-shapes-on-slide/
+  - /el/net/re-sizing-shapes-on-slide/
 keywords:
-- "αλλαγή μεγέθους σχήματος"
-- "αλλαγή μεγέθους σχήματος"
+- αλλαγή μεγέθους σχήματος
+- μεγέθυνση σχήματος
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Απλώς αλλάξτε το μέγεθος των σχημάτων σε διαφάνειες PowerPoint και OpenDocument με το Aspose.Slides για .NET - αυτοματοποιήστε τις προσαρμογές διάταξης διαφανειών και αυξήστε την παραγωγικότητα."
+description: "Κάντε εύκολη αλλαγή μεγέθους των σχημάτων σε διαφάνειες PowerPoint και OpenDocument με Aspose.Slides για .NET—αυτοματοποιήστε τις προσαρμογές διάταξης διαφανειών και αυξήστε την παραγωγικότητα."
 ---
 ## **Επισκόπηση**
 
-Μία από τις πιο συχνές ερωτήσεις των πελατών του Aspose.Slides για .NET είναι πώς να αλλάξετε το μέγεθος των σχημάτων έτσι ώστε, όταν αλλάξει το μέγεθος της διαφάνειας, τα δεδομένα να μην αποκόπτονται. Αυτό το σύντομο τεχνικό άρθρο δείχνει πώς να το κάνετε.
+Όταν αλλάζετε το μέγεθος της διαφάνειας μιας παρουσίασης, μπορεί επίσης να χρειαστεί να αλλάξετε το μέγεθος και τη θέση των σχημάτων της ώστε να ταιριάζουν με τις νέες διαστάσεις. Αυτό το άρθρο δείχνει πώς να κλιμακώσετε τα σχήματα χειροκίνητα και πώς να διαχειριστείτε τους πίνακες στις διαφάνειες, τα master και τα layout.
 
 ## **Αλλαγή Μεγέθους Σχημάτων**
 
-Για να αποτρέψετε τα σχήματα από το να καταστραφούν όταν αλλάξει το μέγεθος της διαφάνειας, ενημερώστε τη θέση και τις διαστάσεις κάθε σχήματος ώστε να ταιριάζουν με τη νέα διάταξη της διαφάνειας.
+Για να διατηρήσετε τη σχετική θέση και το μέγεθος κάθε σχήματος, πολλαπλασιάστε τις οριζόντιες συντεταγμένες και το πλάτος του με το λόγο του νέου πλάτους της διαφάνειας προς το αρχικό πλάτος. Εφαρμόστε τον αντίστοιχο λόγο ύψους στις κάθετες συντεταγμένες και το ύψος του.
 
-```c#
- // Load the presentation file.
-using (Presentation presentation = new Presentation("sample.pptx"))
+Το πρώτο παράδειγμα φορτώνει μια παρουσίαση των οποίων οι διαφάνειες δεν περιέχουν πίνακες, αλλάζει το μέγεθος της διαφάνειας σε A4 και αποθηκεύει το αποτέλεσμα. Χρησιμοποιεί [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) με [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) ώστε η επακόλουθη βρόχος να ελέγχει την κλιμάκωση. Οι λόγοι είναι χωρίς μονάδα· οι θέσεις και οι διαστάσεις των σχημάτων μετρώνται σε points. Διαφορετικοί λόγοι πλάτους και ύψους μπορούν να παραμορφώσουν τα σχήματα, και η αλλαγή των διαστάσεων ενός σχήματος δεν κλιμακώνει τα μεγέθη γραμματοσειράς.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Υπολογίστε ανεξάρτητους οριζόντιους και κάθετους συντελεστές κλιμάκωσης.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // Get the original slide size.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // Change the slide size without scaling existing shapes.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Get the new slide size.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Resize and reposition shapes on every slide.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // Scale the shape size.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Scale the shape position.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-Εάν μια διαφάνεια περιέχει πίνακα, ο παραπάνω κώδικας δεν θα λειτουργήσει σωστά. Σε αυτή την περίπτωση, κάθε κελί του πίνακα πρέπει να επαναπροσαρμοστεί.
+{{% alert color="info" title="Note" %}}
+Οι πίνακες απαιτούν ξεχωριστή διαχείριση: κλιμακώστε το πλάτος των στηλών τους και το ύψος των σειρών αντί να ορίσετε το συνολικό πλάτος και ύψος του πίνακα. Το ύψος των σειρών μπορεί να παραμείνει μεγαλύτερο από το ζητούμενο εάν το περιεχόμενο των κελιών απαιτεί περισσότερη θέση.
 {{% /alert %}}
 
-Χρησιμοποιήστε τον παρακάτω κώδικα στην πλευρά σας για να αλλάξετε το μέγεθος των διαφανειών που περιέχουν πίνακες. Για πίνακες, η ρύθμιση του πλάτους ή του ύψους είναι ειδική περίπτωση: πρέπει να προσαρμόσετε τα ύψη των επιμέρους γραμμών και τα πλάτη των στηλών για να αλλάξετε το συνολικό μέγεθος του πίνακα.
+Το δεύτερο παράδειγμα υποστηρίζει πίνακες και επεξεργάζεται σχήματα στα master και τα layout, καθώς και σε μεμονωμένες διαφάνειες, πριν αποθηκεύσει την αλλαγμένη παρουσίαση. Ο βοηθός του επεξεργάζεται κάθε [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) κλιμακώντας το [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) και το [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/). Στη συνέχεια κλιμακώνει τη θέση του πίνακα χωρίς να κλιμακώνει χωριστά τις συνολικές διαστάσεις του.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Υπολογίστε ανεξάρτητους οριζόντιους και κάθετους συντελεστές κλιμάκωσης.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Αλλάξτε το μέγεθος των σχημάτων που ορίζονται στα master και στα layout, καθώς και σε μεμονωμένες διαφάνειες.
+foreach (var master in presentation.Masters)
 {
-    // Λάβετε το αρχικό μέγεθος της διαφάνειας.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Αλλάξτε το μέγεθος της διαφάνειας χωρίς να κλιμακώνετε τα υπάρχοντα σχήματα.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Λάβετε το νέο μέγεθος της διαφάνειας.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Κλιμακώστε το μέγεθος του σχήματος.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Κλιμακώστε τη θέση του σχήματος.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // Οι διαστάσεις του πίνακα ελέγχονται από το πλάτος των στηλών και το ύψος των σειρών.
+            foreach (var column in table.Columns)
             {
-                // Κλιμακώστε το μέγεθος του σχήματος.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Κλιμακώστε τη θέση του σχήματος.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Κλιμακώστε το μέγεθος του σχήματος.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Κλιμακώστε τη θέση του σχήματος.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Γιατί τα σχήματα παραμορφώνονται ή αποκόπτονται μετά την αλλαγή μεγέθους μιας διαφάνειας;**
+**Γιατί τα σχήματα παραμορφώνονται ή περικόπτονται μετά την αλλαγή μεγέθους μιας διαφάνειας;**
 
-Κατά την αλλαγή μεγέθους μιας διαφάνειας, τα σχήματα διατηρούν τη αρχική τους θέση και μέγεθος εκτός εάν η κλίμακα αλλάξει ρητά. Αυτό μπορεί να οδηγήσει σε αποκοπή του περιεχομένου ή σε εκθήλωση των σχημάτων.
+Αν αλλάξετε το μέγεθος της διαφάνειας χωρίς να κλιμακώσετε τα σχήματα, αυτά διατηρούν τις αρχικές τους θέσεις και διαστάσεις και μπορεί να εκτείνονται εκτός της διαφάνειας. Η κλιμάκωση του πλάτους και του ύψους με διαφορετικούς λόγους μπορεί επίσης να παραμορφώσει τα σχήματα.
 
 **Λειτουργεί ο παρεχόμενος κώδικας για όλους τους τύπους σχημάτων;**
 
-Το βασικό παράδειγμα λειτουργεί για τους περισσότερους τύπους σχημάτων (πλαίσια κειμένου, εικόνες, διαγράμματα κ.λπ.). Ωστόσο, για πίνακες, πρέπει να διαχειριστείτε ξεχωριστά τις γραμμές και τις στήλες, επειδή το ύψος και το πλάτος ενός πίνακα καθορίζονται από τις διαστάσεις των επιμέρους κελιών.
+Το πρώτο παράδειγμα αλλάζει τα όρια των σχημάτων άμεσα και προορίζεται για διαφάνειες χωρίς πίνακες. Το δεύτερο παράδειγμα διαχειρίζεται τους πίνακες ξεχωριστά. Ελέγξτε τη διαρρύθμιση του αποτελέσματος, ιδιαίτερα το κείμενο και τους πίνακες, επειδή αυτά τα παραδείγματα δεν κλιμακώνουν τα μεγέθη γραμματοσειρών και το περιεχόμενο του πίνακα μπορεί να περιορίσει το ύψος των σειρών.
 
-**Πώς να αλλάξω το μέγεθος των πινάκων όταν αλλάζω το μέγεθος μιας διαφάνειας;**
+**Πώς αλλάζω το μέγεθος των πινάκων όταν αλλάζω το μέγεθος μιας διαφάνειας;**
 
-Πρέπει να διατρέξετε όλες τις γραμμές και στήλες του πίνακα και να αλλάξετε το ύψος και το πλάτος τους ανάλογα, όπως φαίνεται στο δεύτερο παράδειγμα κώδικα.
+Κλιμακώστε το πλάτος των στηλών με τον λόγο πλάτους και το ελάχιστο ύψος των σειρών με τον λόγο ύψους, έπειτα κλιμακώστε τη θέση του πίνακα, όπως φαίνεται στο δεύτερο παράδειγμα.
 
-**Θα λειτουργήσει αυτή η αλλαγή μεγέθους και για διαφάνειες προτύπου και διαφάνειες διάταξης;**
+**Θα λειτουργήσει αυτή η αλλαγή μεγέθους για master διαφάνειες και layout διαφάνειες;**
 
-Ναι, αλλά θα πρέπει επίσης να διατρέξετε τις [Masters](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/masters/) και τις [LayoutSlides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/layoutslides/) και να εφαρμόσετε την ίδια λογική κλιμάκωσης στα σχήματά τους ώστε να διασφαλιστεί η συνέπεια σε όλη την παρουσίαση.
+Ναί. Το δεύτερο παράδειγμα διατρέχει τις [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) και κάθε [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) του master και εφαρμόζει την ίδια λογική αλλαγής μεγέθους στα σχήματά τους.
 
 **Μπορώ να αλλάξω τον προσανατολισμό μιας διαφάνειας (κάθετη/οριζόντια) μαζί με την αλλαγή μεγέθους;**
 
-Ναι. Μπορείτε να ορίσετε το [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/el/net/aspose.slides/islidesize/orientation/) για να αλλάξετε τον προσανατολισμό. Βεβαιωθείτε ότι έχετε ρυθμίσει τη λογική κλιμάκωσης αναλόγως ώστε να διατηρηθεί η διάταξη.
+Ναί. Ορίστε το [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) μετά την αλλαγή του μεγέθους της διαφάνειας και πριν από την ανάγνωση των διαστάσεων-στόχου, ώστε οι συντελεστές κλιμάκωσης να αντανακλούν τον τελικό προσανατολισμό.
 
-**Υπάρχει όριο στο μέγεθος της διαφάνειας που μπορώ να θέσω;**
+**Υπάρχει όριο στο μέγεθος διαφάνειας που μπορώ να ορίσω;**
 
-Το Aspose.Slides υποστηρίζει προσαρμοσμένα μεγέθη, αλλά πολύ μεγάλα μεγέθη μπορεί να επηρεάσουν την απόδοση ή τη συμβατότητα με ορισμένες εκδόσεις του PowerPoint.
+Μπορείτε να ορίσετε προσαρμοσμένες διαστάσεις διαφάνειας με το [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). Οι υποστηριζόμενες διαστάσεις εξαρτώνται επίσης από τη μορφή της παρουσίασης και την εφαρμογή που χρησιμοποιείται για το άνοιγμα του αρχείου.
 
-**Πώς μπορώ να αποτρέψω τα σχήματα με σταθερό λόγο διαστάσεων από το να παραμορφωθούν;**
+**Πώς μπορώ να αποτρέψω τα σχήματα με σταθερό λόγο διαστάσεων να παραμορφώνονται;**
 
-Μπορείτε να ελέγξετε την ιδιότητα `AspectRatioLocked` του σχήματος πριν από την κλιμάκωση. Εάν είναι κλειδωμένη, προσαρμόστε το πλάτος ή το ύψος ανάλογα αντί να τα κλιμακώσετε ξεχωριστά.
+Χρησιμοποιήστε τον ίδιο συντελεστή κλιμάκωσης για το πλάτος και το ύψος. Για να ταιριάξετε την αρχική διάταξη μέσα στις νέες διαστάσεις της διαφάνειας, χρησιμοποιήστε το μικρότερο από τους λόγους πλάτους και ύψους για και τις δύο διαστάσεις και τις θέσεις. Αυτό διατηρεί τις αναλογίες αλλά μπορεί να αφήσει αχρησιμοποίητο χώρο κατά το ένα άκρο.

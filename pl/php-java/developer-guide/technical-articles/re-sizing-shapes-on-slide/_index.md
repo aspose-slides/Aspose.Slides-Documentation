@@ -4,26 +4,27 @@ type: docs
 weight: 130
 url: /pl/php-java/resizing-shapes-on-slide/
 aliases:
+  - /php-java/przeskalowywanie-ksztaltow-na-slajdzie/
   - /pl/php-java/re-sizing-shapes-on-slide/
 keywords:
-  - przeskaluj kształt
-  - zmień rozmiar kształtu
-  - PowerPoint
-  - OpenDocument
-  - prezentacja
-  - PHP
-  - Aspose.Slides
-description: "Łatwo przeskaluj kształty na slajdach PowerPoint i OpenDocument przy pomocy Aspose.Slides dla PHP via Java — automatyzuj dostosowywanie układu slajdów i zwiększaj wydajność."
+- przeskalowanie kształtu
+- zmiana rozmiaru kształtu
+- PowerPoint
+- OpenDocument
+- prezentacja
+- PHP
+- Aspose.Slides
+description: "Łatwo przeskaluj kształty na slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla PHP poprzez Java — automatyzuj dostosowanie układu slajdów i zwiększ wydajność."
 ---
 ## **Przegląd**
 
-Kiedy zmieniasz rozmiar slajdu prezentacji, może być konieczne również przeskalowanie i przemieszczenie jego kształtów, aby pasowały do nowych wymiarów. Ten artykuł pokazuje, jak ręcznie skalować kształty oraz jak obsługiwać tabele na slajdach, wzorcach i układach.
+Kiedy zmieniasz rozmiar slajdu prezentacji, możesz także potrzebować zmienić rozmiar i przemieścić jego kształty, aby pasowały do nowych wymiarów. Ten artykuł pokazuje, jak ręcznie skalować kształty i jak obsługiwać tabele na slajdach, szablonach i układach.
 
-## **Przeskalowanie kształtów**
+## **Zmiana rozmiaru kształtów**
 
-Aby zachować względne położenie i rozmiar każdego kształtu, pomnóż jego współrzędne poziome oraz szerokość przez stosunek nowej szerokości slajdu do szerokości pierwotnej. Zastosuj odpowiedni stosunek wysokości do jego współrzędnych pionowych oraz wysokości.
+Aby zachować względne położenie i rozmiar każdego kształtu, pomnóż jego współrzędne poziome i szerokość przez stosunek nowej szerokości slajdu do pierwotnej szerokości. Zastosuj odpowiadający stosunek wysokości do jego współrzędnych pionowych i wysokości.
 
-Pierwszy przykład ładuje prezentację, której slajdy nie zawierają tabel, zmienia rozmiar slajdu na format A4 i zapisuje wynik. Używa [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/) wraz z [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/php-java/aspose.slides/slidesizescaletype/), aby kolejna pętla kontrolowała skalowanie. Stosunki są bez wymiaru; pozycje i wymiary kształtów są mierzone w punktach. Różne współczynniki szerokości i wysokości mogą zniekształcać kształty, a zmiana wymiarów kształtu nie skaluje rozmiarów czcionek.
+Pierwszy przykład ładuje prezentację, której slajdy nie zawierają tabel, zmienia rozmiar slajdu na A4 i zapisuje wynik. Używa [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/) z [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/php-java/aspose.slides/slidesizescaletype/), aby następna pętla kontrolowała skalowanie. Stosunki są bez jednostek; pozycje i wymiary kształtów są mierzone w punktach. Różne współczynniki szerokości i wysokości mogą zniekształcać kształty, a zmiana wymiarów kształtu nie skaluje rozmiarów czcionek.
 
 ```php
 use aspose\slides\Presentation;
@@ -33,7 +34,7 @@ use aspose\slides\SlideSizeType;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    // Oblicz niezależne czynniki skali poziomej i pionowej.
+    // Oblicz niezależne współczynniki skalowania w poziomie i pionie.
     $originalSize = $presentation->getSlideSize()->getSize();
     $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
     $targetSize = $presentation->getSlideSize()->getSize();
@@ -59,10 +60,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-Tabele wymagają osobnego traktowania: skaluj ich szerokości kolumn i wysokości wierszy zamiast ustawiać ogólną szerokość i wysokość tabeli. Wysokości wierszy mogą pozostać większe niż żądane, jeśli zawartość komórek wymaga więcej miejsca.
+Tabele wymagają osobnego przetwarzania: skaluj ich szerokości kolumn i wysokości wierszy zamiast przypisywać całkowitą szerokość i wysokość tabeli. Wysokości wierszy mogą pozostać większe niż żądane, jeśli zawartość komórek wymaga więcej miejsca.
 {{% /alert %}}
 
-Drugi przykład obsługuje tabele i przetwarza kształty na wzorcach oraz układach, a także na poszczególnych slajdach przed zapisaniem przeskalowanej prezentacji. Jego pomocnicza metoda obsługuje każdą [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) poprzez skalowanie szerokości kolumn przy użyciu [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) oraz minimalnych wysokości wierszy przy użyciu [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/). Następnie skaluje pozycję tabeli bez oddzielnego skalowania jej ogólnych wymiarów.
+Drugi przykład obsługuje tabele i przetwarza kształty w szablonach i układach, jak i na poszczególnych slajdach przed zapisaniem przeskalowanej prezentacji. Jego pomocnik obsługuje każdą [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) skalując szerokości kolumn za pomocą [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) oraz minimalne wysokości wierszy za pomocą [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/). Następnie skaluje pozycję tabeli bez oddzielnego skalowania jej całkowitych wymiarów.
 
 ```php
 use aspose\slides\Presentation;
@@ -101,32 +102,32 @@ class ShapeResizer {
 
 $presentation = new Presentation("sample.pptx");
 try {
-        // Oblicz niezależne czynniki skali poziomej i pionowej.
-        $originalSize = $presentation->getSlideSize()->getSize();
-        $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
-        $targetSize = $presentation->getSlideSize()->getSize();
-        $widthRatio = java_values($targetSize->getWidth()) / java_values($originalSize->getWidth());
-        $heightRatio = java_values($targetSize->getHeight()) / java_values($originalSize->getHeight());
+    // Oblicz niezależne współczynniki skalowania w poziomie i pionie.
+    $originalSize = $presentation->getSlideSize()->getSize();
+    $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
+    $targetSize = $presentation->getSlideSize()->getSize();
+    $widthRatio = java_values($targetSize->getWidth()) / java_values($originalSize->getWidth());
+    $heightRatio = java_values($targetSize->getHeight()) / java_values($originalSize->getHeight());
 
-        $resizer = new ShapeResizer();
+    $resizer = new ShapeResizer();
 
-        // Przeskaluj kształty zdefiniowane na slajdach wzorcowych i układach oraz na poszczególnych slajdach.
-        for ($masterIndex = 0; $masterIndex < java_values($presentation->getMasters()->size()); $masterIndex++) {
-            $master = $presentation->getMasters()->get_Item($masterIndex);
-            $resizer->resizeShapes($master->getShapes(), $widthRatio, $heightRatio);
+    // Przeskaluj kształty zdefiniowane w szablonach i układach oraz na pojedynczych slajdach.
+    for ($masterIndex = 0; $masterIndex < java_values($presentation->getMasters()->size()); $masterIndex++) {
+        $master = $presentation->getMasters()->get_Item($masterIndex);
+        $resizer->resizeShapes($master->getShapes(), $widthRatio, $heightRatio);
 
-            for ($layoutSlideIndex = 0; $layoutSlideIndex < java_values($master->getLayoutSlides()->size()); $layoutSlideIndex++) {
-                $layoutSlide = $master->getLayoutSlides()->get_Item($layoutSlideIndex);
-                $resizer->resizeShapes($layoutSlide->getShapes(), $widthRatio, $heightRatio);
-            }
+        for ($layoutSlideIndex = 0; $layoutSlideIndex < java_values($master->getLayoutSlides()->size()); $layoutSlideIndex++) {
+            $layoutSlide = $master->getLayoutSlides()->get_Item($layoutSlideIndex);
+            $resizer->resizeShapes($layoutSlide->getShapes(), $widthRatio, $heightRatio);
         }
+    }
 
-        for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
-            $slide = $presentation->getSlides()->get_Item($slideIndex);
-            $resizer->resizeShapes($slide->getShapes(), $widthRatio, $heightRatio);
-        }
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $resizer->resizeShapes($slide->getShapes(), $widthRatio, $heightRatio);
+    }
 
-        $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->save("output.pptx", SaveFormat::Pptx);
 }
 finally {
     $presentation->dispose();
@@ -135,30 +136,23 @@ finally {
 
 ## **FAQ**
 
-**Dlaczego kształty są zniekształcone lub obcięte po zmianie rozmiaru slajdu?**
+**Dlaczego kształty są zniekształcone lub obcięte po zmianie rozmiaru slajdu?**  
+Jeśli zmienisz rozmiar slajdu bez skalowania kształtów, zachowają one pierwotne położenie i wymiary i mogą wystawać poza slajd. Skalowanie szerokości i wysokości różnymi współczynnikami może również zniekształcać kształty.
 
-Jeśli zmienisz rozmiar slajdu bez skalowania kształtów, pozostaną one w pierwotnych pozycjach i wymiarach i mogą wykraczać poza obszar slajdu. Skalowanie szerokości i wysokości przy użyciu różnych współczynników może także zniekształcać kształty.
+**Czy podany kod działa dla wszystkich typów kształtów?**  
+Pierwszy przykład zmienia granice kształtów bezpośrednio i jest przeznaczony dla slajdów bez tabel. Drugi przykład obsługuje tabele osobno. Sprawdź uzyskany układ, szczególnie tekst i tabele, ponieważ te przykłady nie skalują rozmiarów czcionek, a zawartość tabel może ograniczać wysokość wierszy.
 
-**Czy dostarczony kod działa dla wszystkich typów kształtów?**
+**Jak zmienić rozmiar tabel przy zmianie rozmiaru slajdu?**  
+Skaluj szerokości kolumn według współczynnika szerokości i minimalne wysokości wierszy według współczynnika wysokości, a następnie skaluj pozycję tabeli, jak pokazano w drugim przykładzie.
 
-Pierwszy przykład modyfikuje granice kształtów bezpośrednio i jest przeznaczony dla slajdów bez tabel. Drugi przykład obsługuje tabele osobno. Sprawdź otrzymany układ, szczególnie tekst i tabele, ponieważ te przykłady nie skalują rozmiarów czcionek, a zawartość tabel może ograniczać wysokość wierszy.
+**Czy to skalowanie działa dla slajdów szablonów i slajdów układów?**  
+Tak. Drugi przykład iteruje przez [Presentation::getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) oraz [MasterSlide::getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/getlayoutslides/) każdego szablonu i stosuje tę samą logikę zmiany rozmiaru do ich kształtów.
 
-**Jak przeskalować tabele przy zmianie rozmiaru slajdu?**
+**Czy mogę zmienić orientację slajdu (portret/landscape) wraz ze zmianą rozmiaru?**  
+Tak. Wywołaj [SlideSize::setOrientation](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setorientation/) po zmianie rozmiaru slajdu i przed odczytaniem docelowych wymiarów, aby współczynniki skalowania uwzględniały ostateczną orientację.
 
-Skaluj szerokości kolumn zgodnie ze współczynnikiem szerokości i minimalne wysokości wierszy zgodnie ze współczynnikiem wysokości, a następnie skaluj pozycję tabeli, jak pokazano w drugim przykładzie.
+**Czy istnieje limit rozmiaru slajdu, który mogę ustawić?**  
+Możesz określić niestandardowe wymiary slajdu za pomocą [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/). Obsługiwane wymiary zależą także od formatu prezentacji i aplikacji używanej do otwarcia pliku.
 
-**Czy to skalowanie będzie działało dla slajdów wzorcowych i układu?**
-
-Tak. Drugi przykład iteruje po [Presentation::getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) oraz po [MasterSlide::getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/getlayoutslides/) każdego wzorca i stosuje tę samą logikę zmiany rozmiaru do ich kształtów.
-
-**Czy mogę zmienić orientację slajdu (portret/poziom) wraz ze zmianą rozmiaru?**
-
-Tak. Wywołaj [SlideSize::setOrientation](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setorientation/) po zmianie rozmiaru slajdu i przed odczytaniem wymiarów docelowych, aby współczynniki skali odzwierciedlały ostateczną orientację.
-
-**Czy istnieje limit rozmiaru slajdu, który mogę ustawić?**
-
-Możesz określić własne wymiary slajdu przy użyciu [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/). Obsługiwane wymiary zależą również od formatu prezentacji oraz aplikacji używanej do otwarcia pliku.
-
-**Jak mogę zapobiec zniekształceniu kształtów o stałym współczynniku proporcji?**
-
-Użyj tego samego współczynnika skali dla szerokości i wysokości. Aby dopasować oryginalny układ do nowych wymiarów slajdu, użyj mniejszego z współczynników szerokości i wysokości zarówno dla wymiarów, jak i pozycji. To zachowuje proporcje, ale może pozostawić niewykorzystaną przestrzeń wzdłuż jednej krawędzi.
+**Jak zapobiec zniekształceniu kształtów o stałym stosunku proporcji?**  
+Użyj tego samego współczynnika skalowania dla szerokości i wysokości. Aby dopasować oryginalny układ do nowych wymiarów slajdu, zastosuj mniejszy z współczynników szerokości i wysokości zarówno do wymiarów, jak i pozycji. Zachowuje to proporcje, ale może pozostawić niewykorzystaną przestrzeń wzdłuż jednej krawędzi.

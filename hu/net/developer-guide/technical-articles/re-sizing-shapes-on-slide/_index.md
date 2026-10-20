@@ -1,30 +1,31 @@
 ---
-title: Alakzatok átméretezése a bemutató diákon .NET-ben
+title: Alakzatok átméretezése a .NET prezentációs diákon
 type: docs
 weight: 130
 url: /hu/net/resizing-shapes-on-slide/
 aliases:
+  - /net/re-sizing-shapes-on-slide/
   - /hu/net/re-sizing-shapes-on-slide/
 keywords:
 - alakzat átméretezése
-- alakzat méretének módosítása
+- alakzatméret módosítása
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Könnyedén átméretezheti az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for .NET segítségével – automatizálja a diaelrendezés módosítását és növelje a hatékonyságot."
+description: "Könnyedén átméretezhet alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for .NET segítségével—automatizálja a diák elrendezésének módosítását és növelje a hatékonyságot."
 ---
 ## **Áttekintés**
 
-Amikor megváltoztatja egy bemutató diaméreteit, előfordulhat, hogy át kell méretezni és át kell helyezni a benne lévő alakzatokat, hogy illeszkedjenek az új méretekhez. Ez a cikk bemutatja, hogyan skálázhatja az alakzatokat manuálisan, valamint hogyan kell kezelni a táblázatokat diákon, mestereken és elrendezéseken.
+Ha megváltoztatja egy bemutató dia méretét, előfordulhat, hogy át kell méretezni és áthelyezni a formákat, hogy illeszkedjenek az új méretekhez. Ez a cikk bemutatja, hogyan skálázhatja a formákat manuálisan, és hogyan kezelje a táblákat a diákon, a mesterdiákon és az elrendezéseken.
 
 ## **Alakzatok átméretezése**
 
-Az egyes alakzatok relatív pozíciójának és méretének megőrzéséhez szorozza meg a vízszintes koordinátákat és a szélességet az új dia szélességének és az eredeti szélességnek arányával. A magasságaránnyal szorozza meg a függőleges koordinátákat és a magasságot.
+Az egyes formák relatív pozíciójának és méretének megőrzéséhez szorozza a vízszintes koordinátákat és a szélességet a dia új szélessége és az eredeti szélesség hányadosával. Alkalmazza a megfelelő magasságharányt a függőleges koordinátákra és a magasságra.
 
-Az első példa betölti azt a bemutatót, amelynek diái nem tartalmaznak táblázatot, A4-re módosítja a dia méretét, és elmenti az eredményt. A [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) metódust a [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) értékkel használja, hogy a későbbi ciklus vezérelje a skálázást. Az arányok egység nélküli értékek; az alakzat pozíciói és méretei pontban vannak megadva. A különböző szélesség‑ és magasságarányok torzíthatják az alakzatokat, és az alakzat méretének módosítása nem skálázza a betűméreteket.
+Az első példában egy olyan bemutatót tölt be, amelynek diái nem tartalmaznak táblákat, megváltoztatja a dia méretét A4-re, és elmenti az eredményt. A [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) függvényt a [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) értékkel használja, hogy a későbbi ciklus vezérelje a méretezést. A hányadosok mértékegység nélküli értékek; a forma pozíciói és méretei pontban vannak megadva. A különböző szélesség‑ és magasságharányok torzíthatják a formákat, és egy forma méretének megváltoztatása nem méretezi a betűméreteket.
 
 ```cs
 using Aspose.Slides;
@@ -32,7 +33,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("sample.pptx");
 
-// Számítsa ki a független vízszintes és függőleges skálázási tényezőket.
+// Számítsa ki a független vízszintes és függőleges méretezési tényezőket.
 var originalSize = presentation.SlideSize.Size;
 presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 var targetSize = presentation.SlideSize.Size;
@@ -53,11 +54,11 @@ foreach (var slide in presentation.Slides)
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="info" title="Note" %}}
-A táblázatokat külön kell kezelni: a táblázat oszlopszélességeit és sormagasságait kell skálázni, nem a táblázat teljes szélességét és magasságát. A sormagasságok nagyobbak lehetnek a kért értéknél, ha a cellatartalom több helyet igényel.
+{{% alert color="info" title="Megjegyzés" %}}
+A táblákat külön kell kezelni: a táblák oszlopszélességét és sormagasságát kell skálázni, a tábla teljes szélességét és magasságát nem. A sormagasságok nagyobbak maradhatnak a kért értéknél, ha a cella tartalma több helyet igényel.
 {{% /alert %}}
 
-A második példa támogatja a táblázatokat, és a mestereken és elrendezéseken lévő alakzatokat is feldolgozza, mielőtt elmentené a átméretezett bemutatót. Segédprogramja minden [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) esetén a [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) és a [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) skálázásával kezeli a táblázatot. Ezután a táblázat pozícióját skálázza anélkül, hogy a teljes méreteket külön skálázná.
+A második példában a táblák is támogatottak, és a formákat a mesterek és elrendezések mellett az egyes diákon is feldolgozza, mielőtt elmentené a méretezett bemutatót. A segédfüggvény minden [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) elemet úgy kezel, hogy skálázza az [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) és a [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) értékeket. Ezután a tábla pozícióját skálázza anélkül, hogy külön skálázná a tábla teljes méreteit.
 
 ```cs
 using Aspose.Slides;
@@ -65,7 +66,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("sample.pptx");
 
-// Számítsa ki a független vízszintes és függőleges skálázási tényezőket.
+// Számítsa ki a független vízszintes és függőleges méretezési tényezőket.
 var originalSize = presentation.SlideSize.Size;
 presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 var targetSize = presentation.SlideSize.Size;
@@ -121,30 +122,30 @@ static void ResizeShapes(IShapeCollection shapes, float widthRatio, float height
 
 ## **GYIK**
 
-**Miért torzul vagy vágódik le az alakzat a dia átméretezése után?**
+**Miért torzul vagy vágódik le a forma a dia átméretezése után?**
 
-Ha a dia méretét átméretezés nélkül változtatja meg, az alakzatok megtartják eredeti pozíciójukat és méretüket, és a dia szélén túl is nyúlhatnak. A szélesség és magasság különböző aránnyal történő skálázása szintén torzíthatja az alakzatokat.
+Ha a dia méretét úgy változtatja meg, hogy a formákat nem méretezi újra, azok megőrzik az eredeti pozícióikat és méreteiket, és a dia szélén túlnyúlhatnak. A szélesség és magasság különböző hányadosokkal történő skálázása is torzíthatja a formákat.
 
-**Működik a megadott kód minden alakzattípussal?**
+**A megadott kód minden alakzattípusra működik?**
 
-Az első példa közvetlenül módosítja az alakzat határait, és diákra van szánva, amelyek nem tartalmaznak táblázatot. A második példa a táblázatokat külön kezeli. Ellenőrizze a kapott elrendezést, különösen a szöveget és a táblázatokat, mivel ezek a példák nem skálázzák a betűméreteket, és a táblázattartalom befolyásolhatja a sormagasságokat.
+Az első példa közvetlenül módosítja a forma határait, és olyan diákra van szánva, amelyek nem tartalmaznak táblákat. A második példa külön kezeli a táblákat. Ellenőrizze a kapott elrendezést, különösen a szöveget és a táblákat, mivel ezek a példák nem méretezik a betűméreteket, és a tábla tartalma korlátozhatja a sormagasságokat.
 
-**Hogyan méretezhetem át a táblázatokat a dia átméretezésekor?**
+**Hogyan méretezem át a táblákat a dia átméretezésekor?**
 
-Skálázza az oszlopszélességeket a szélességi aránnyal, a minimális sormagasságokat a magassági aránnyal, majd skálázza a táblázat pozícióját, ahogyan a második példában is látható.
+Skálázza az oszlopszélességeket a szélességharánnyal, a minimális sormagasságokat a magasségharánnyal, majd skálázza a tábla pozícióját, ahogy a második példában is látható.
 
-**Ez az átméretezés működik‑e mester- és elrendezésdíákon is?**
+**Ez a méretezés működik a mesterdiákon és az elrendezési diákon is?**
 
-Igen. A második példa bejárja a [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) és minden mester [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) elemeit, és ugyanazt az átméretezési logikát alkalmazza az alakzataikon.
+Igen. A második példa végig iterál a [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) és minden mester [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) elemein, és ugyanezt a méretezési logikát alkalmazza a formáikra.
 
-**Megváltoztathatom a dia tájolását (álló/fekvő) az átméretezés során?**
+**Megváltoztathatom-e a dia tájolását (álló/fekvő) a méretezés mellett?**
 
-Igen. Állítsa be a [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) értékét a dia méretének módosítása után, a célméretek beolvasása előtt, hogy a skálázási tényezők a végleges tájolásnak megfelelően legyenek.
+Igen. Állítsa be a [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) értékét a dia méretének módosítása után, és még a célméretek beolvasása előtt, hogy a méretarányok a végső tájolást tükrözzék.
 
 **Van korlátozás a beállítható dia méretre?**
 
-A [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) segítségével egyedi dia méreteket adhat meg. A támogatott méretek a bemutató formátumától és a fájlt megnyitó alkalmazástól is függenek.
+A [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) segítségével megadhat egyéni dia méreteket. A támogatott méretek a bemutató formátumától és attól az alkalmazástól is függnek, amelyben a fájlt megnyitja.
 
-**Hogyan kerülhetem el, hogy a rögzített képarányú alakzatok torzuljanak?**
+**Hogyan akadályozhatom meg, hogy egy rögzített képarányú forma torzuljon?**
 
-Használja ugyanazt a skálázási tényezőt a szélességhez és a magassághoz. Az eredeti elrendezés új dia méretekhez való illesztéséhez alkalmazza a kisebbik arányt mindkét dimenzióra és pozícióra. Ez megőrzi az arányokat, de az egyik oldalon előfordulhat üres tér.
+Használja ugyanazt a méretarányt a szélességhez és a magassághoz. Ahhoz, hogy az eredeti elrendezés az új dia méreteiben is elférjen, a kisebbik hányadost használja mindkét dimenzióra és pozícióra. Ez megőrzi az arányokat, de előfordulhat, hogy egy oldalon marad üres hely.

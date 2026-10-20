@@ -1,149 +1,126 @@
 ---
-title: Ubah Ukuran Bentuk dalam Presentasi dengan Python
-linktitle: Mengubah Ukuran Bentuk
+title: "Ubah Ukuran Bentuk pada Slide Presentasi dengan Python"
 type: docs
 weight: 130
-url: /id/python-net/re-sizing-shapes-on-slide/
+url: /id/python-net/resizing-shapes-on-slide/
+aliases:
+  - /python-net/re-sizing-shapes-on-slide/
+  - /id/python-net/re-sizing-shapes-on-slide/
 keywords:
-- ubah ukuran bentuk
-- ubah ukuran bentuk
-- PowerPoint
-- OpenDocument
-- presentasi
-- Python
-- Aspose.Slides
-description: "Dengan mudah ubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via .NET—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
+  - ubah ukuran bentuk
+  - mengubah ukuran bentuk
+  - PowerPoint
+  - OpenDocument
+  - presentasi
+  - Python
+  - Aspose.Slides
+description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via .NET—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Salah satu pertanyaan paling umum dari pelanggan Aspose.Slides for Python adalah cara mengubah ukuran bentuk sehingga, ketika ukuran slide berubah, data tidak terpotong. Artikel teknis singkat ini menunjukkan cara melakukannya.
+Saat Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuk‑bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara menskalakan bentuk secara manual serta cara menangani tabel pada slide, master, dan tata letak.
 
 ## **Ubah Ukuran Bentuk**
 
-Untuk mencegah bentuk menjadi tidak sejajar ketika ukuran slide berubah, perbarui posisi dan dimensi setiap bentuk agar sesuai dengan tata letak slide yang baru.
+Untuk mempertahankan posisi dan ukuran relatif setiap bentuk, kalikan koordinat horizontal dan lebar bentuk dengan rasio lebar slide baru terhadap lebar asli. Terapkan rasio tinggi yang sesuai pada koordinat vertikal dan tinggi bentuk.
 
-```py
+Contoh pertama memuat presentasi yang slide‑nya tidak berisi tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Contoh ini menggunakan [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) dengan [SlideSizeScaleType.DO_NOT_SCALE](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/) sehingga perulangan selanjutnya mengendalikan penskalaan. Rasio‑rasio tersebut tidak memiliki satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat mendistorsi bentuk, dan mengubah dimensi bentuk tidak menyesuaikan ukuran font.
+
+```python
 import aspose.slides as slides
 
-# Muat file presentasi.
 with slides.Presentation("sample.pptx") as presentation:
-    # Dapatkan ukuran slide asli.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Ubah ukuran slide tanpa menskalakan bentuk yang ada.
+    # Hitung faktor skala horizontal dan vertikal secara independen.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Dapatkan ukuran slide yang baru.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # Ubah ukuran dan posisikan kembali bentuk pada setiap slide.
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # Skalakan ukuran bentuk.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Skalakan posisi bentuk.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+            shape.x *= width_ratio
+            shape.y *= height_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
-Jika sebuah slide berisi tabel, kode di atas tidak akan berfungsi dengan benar. Dalam kasus tersebut, setiap sel dalam tabel harus diubah ukurannya.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Tabel memerlukan penanganan terpisah: skalakan lebar kolom dan tinggi baris alih‑alih menetapkan lebar serta tinggi keseluruhan tabel. Tinggi baris dapat tetap lebih besar dari yang diminta jika konten sel memerlukan ruang lebih.
+{{% /alert %}}
 
-Gunakan kode berikut di sisi Anda untuk mengubah ukuran slide yang berisi tabel. Untuk tabel, mengatur lebar atau tinggi merupakan kasus khusus: Anda harus menyesuaikan tinggi baris dan lebar kolom secara individual untuk mengubah ukuran keseluruhan tabel.
+Contoh kedua mendukung tabel dan memproses bentuk pada master serta tata letak, selain slide individu, sebelum menyimpan presentasi yang telah diubah ukurannya. Pembantu dalam contoh ini menangani setiap [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) dengan menskalakan [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) dan [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/). Selanjutnya contoh ini menskalakan posisi tabel tanpa menskalakan dimensi keseluruhannya secara terpisah.
 
-```py
+```python
 import aspose.slides as slides
 
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, slides.Table):
+            # Dimensi tabel dikontrol oleh lebar kolom dan tinggi baris.
+            for column in shape.columns:
+                column.width *= width_ratio
+
+            for row in shape.rows:
+                row.minimal_height *= height_ratio
+        else:
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+
+        shape.x *= width_ratio
+        shape.y *= height_ratio
+
+
 with slides.Presentation("sample.pptx") as presentation:
-    # Dapatkan ukuran slide asli.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Ubah ukuran slide tanpa menskalakan bentuk yang ada.
+    # Hitung faktor skala horizontal dan vertikal secara independen.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Dapatkan ukuran slide yang baru.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # Ubah ukuran bentuk yang didefinisikan pada master dan tata letak serta slide individu.
     for master in presentation.masters:
-        for shape in master.shapes:
-            # Skalakan ukuran bentuk.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Skalakan posisi bentuk.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+        resize_shapes(master.shapes, width_ratio, height_ratio)
 
         for layout_slide in master.layout_slides:
-            for shape in layout_slide.shapes:
-                # Skalakan ukuran bentuk.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # Skalakan posisi bentuk.
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
+            resize_shapes(layout_slide.shapes, width_ratio, height_ratio)
 
     for slide in presentation.slides:
-        for shape in slide.shapes:
-            # Skalakan ukuran bentuk.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Skalakan posisi bentuk.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
-            if type(shape) is slides.Table:
-                for row in shape.rows:
-                    row.minimal_height = row.minimal_height * height_ratio
-                for column in shape.columns:
-                    column.width = column.width * width_ratio
+        resize_shapes(slide.shapes, width_ratio, height_ratio)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tanya Jawab**
+## **FAQ**
 
 **Mengapa bentuk menjadi terdistorsi atau terpotong setelah mengubah ukuran slide?**
 
-Saat mengubah ukuran slide, bentuk mempertahankan posisi dan ukuran aslinya kecuali skala diubah secara eksplisit. Hal ini dapat menyebabkan konten terpotong atau bentuk menjadi tidak sejajar.
+Jika Anda mengubah ukuran slide tanpa menskalakan bentuk, maka bentuk tetap pada posisi dan dimensi asalnya dan dapat melampaui batas slide. Menskalakan lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
 
-**Apakah kode yang disediakan berfungsi untuk semua jenis bentuk?**
+**Apakah kode yang diberikan berfungsi untuk semua jenis bentuk?**
 
-Contoh dasar berfungsi untuk sebagian besar jenis bentuk (kotak teks, gambar, diagram, dll.). Namun, untuk tabel, Anda perlu menangani baris dan kolom secara terpisah, karena tinggi dan lebar tabel ditentukan oleh dimensi sel individual.
+Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide yang tidak memiliki tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak hasil, khususnya teks dan tabel, karena contoh‑contoh ini tidak menskalakan ukuran font dan konten tabel dapat membatasi tinggi baris.
 
 **Bagaimana cara mengubah ukuran tabel saat mengubah ukuran slide?**
 
-Anda perlu melintasi semua baris dan kolom tabel dan mengubah tinggi serta lebar mereka secara proporsional, seperti yang ditunjukkan pada contoh kode kedua.
+Skalakan lebar kolom dengan rasio lebar dan tinggi baris minimum dengan rasio tinggi, kemudian skalakan posisi tabel, seperti yang ditunjukkan pada contoh kedua.
 
-**Apakah perubahan ukuran ini akan berfungsi untuk slide master dan slide tata letak?**
+**Apakah perubahan ukuran ini berlaku untuk slide master dan slide tata letak?**
 
-Ya, tetapi Anda juga harus melintasi [Master](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/masters/) dan [Slide tata letak](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/layout_slides/) dan menerapkan logika skala yang sama pada bentuk-bentuk mereka untuk memastikan konsistensi di seluruh presentasi.
+Ya. Contoh kedua mengiterasi melalui [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) dan tiap master melalui [MasterSlide.layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) serta menerapkan logika pengubahan ukuran yang sama pada bentuk‑bentuknya.
 
-**Bisakah saya mengubah orientasi slide (potret/lanskap) bersama dengan mengubah ukuran?**
+**Bisakah saya mengubah orientasi slide (potret/lanskap) bersamaan dengan pengubahan ukuran?**
 
-Ya. Anda dapat menggunakan [presentation.slide_size.orientation](https://reference.aspose.com/slides/id/python-net/aspose.slides/islidesize/orientation/) untuk mengubah orientasi. Pastikan Anda mengatur logika skala dengan tepat untuk mempertahankan tata letak.
+Ya. Atur [SlideSize.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/orientation/) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor skala mencerminkan orientasi akhir.
 
-**Apakah ada batasan ukuran slide yang dapat saya atur?**
+**Apakah ada batasan ukuran slide yang dapat saya tentukan?**
 
-Aspose.Slides mendukung ukuran kustom, tetapi ukuran yang sangat besar dapat memengaruhi kinerja atau kompatibilitas dengan beberapa versi PowerPoint.
+Anda dapat menentukan dimensi slide kustom dengan [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/). Dimensi yang didukung juga tergantung pada format presentasi dan aplikasi yang digunakan untuk membuka file.
 
 **Bagaimana cara mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
 
-Anda dapat memeriksa properti `aspect_ratio_locked` dari bentuk sebelum melakukan skala. Jika properti tersebut terkunci, sesuaikan lebar atau tinggi secara proporsional daripada menskalakan keduanya secara terpisah.
+Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli dalam dimensi slide baru, gunakan rasio yang lebih kecil antara lebar dan tinggi untuk kedua dimensi serta posisi. Cara ini mempertahankan proporsi tetapi dapat meninggalkan ruang kosong di salah satu sisi.

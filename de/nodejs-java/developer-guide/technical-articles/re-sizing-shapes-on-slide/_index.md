@@ -4,6 +4,7 @@ type: docs
 weight: 130
 url: /de/nodejs-java/resizing-shapes-on-slide/
 aliases:
+  - /nodejs-java/groessen-anpassen-formen-auf-folie/
   - /de/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - Form skalieren
@@ -14,17 +15,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Skalieren Sie Formen einfach auf PowerPoint- und OpenDocument-Folien mit Aspose.Slides für Node.js via Java – automatisieren Sie Folienlayout-Anpassungen und steigern Sie die Produktivität."
+description: "Einfach Formen auf PowerPoint- und OpenDocument-Folien mit Aspose.Slides für Node.js via Java skalieren – automatisieren Sie Folienlayout-Anpassungen und steigern Sie die Produktivität."
 ---
 ## **Übersicht**
 
-Wenn Sie die Foliengröße einer Präsentation ändern, müssen Sie möglicherweise auch deren Formen neu skalieren und neu positionieren, damit sie in die neuen Abmessungen passen. Dieser Artikel zeigt, wie Formen manuell skaliert werden und wie Tabellen auf Folien, Folienmaster und Layouts behandelt werden.
+Wenn Sie die Foliengröße einer Präsentation ändern, müssen Sie möglicherweise auch die Formen skalieren und ihre Positionen anpassen, damit sie in die neuen Abmessungen passen. Dieser Artikel zeigt, wie man Formen manuell skaliert und wie man Tabellen auf Folien, Masterfolien und Layouts behandelt.
 
 ## **Formen skalieren**
 
-Um die relative Position und Größe jeder Form beizubehalten, multiplizieren Sie ihre horizontalen Koordinaten und die Breite mit dem Verhältnis der neuen Folienbreite zur ursprünglichen Breite. Wenden Sie das entsprechende Höhenverhältnis auf ihre vertikalen Koordinaten und die Höhe an.
+Um die relative Position und Größe jeder Form beizubehalten, multiplizieren Sie ihre horizontalen Koordinaten und Breite mit dem Verhältnis der neuen Folienbreite zur ursprünglichen Breite. Wenden Sie das entsprechende Höhenverhältnis auf ihre vertikalen Koordinaten und Höhe an.
 
-Das erste Beispiel lädt eine Präsentation, deren Folien keine Tabellen enthalten, ändert die Foliengröße auf A4 und speichert das Ergebnis. Es verwendet [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) zusammen mit [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesizescaletype/#DoNotScale), sodass die nachfolgende Schleife die Skalierung steuert. Die Verhältnisse sind ohne Einheit; Formpositionen und -abmessungen werden in Punkten gemessen. Unterschiedliche Breiten‑ und Höhenverhältnisse können Formen verzerren, und das Ändern der Formabmessungen skaliert die Schriftgrößen nicht.
+Das erste Beispiel lädt eine Präsentation, deren Folien keine Tabellen enthalten, ändert die Foliengröße zu A4 und speichert das Ergebnis. Es verwendet [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) mit [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesizescaletype/#DoNotScale), sodass die nachfolgende Schleife die Skalierung steuert. Die Verhältnisse sind einheitenlos; Positionen und Abmessungen von Formen werden in Punkten gemessen. Unterschiedliche Breiten‑ und Höhenverhältnisse können Formen verzerren, und das Ändern der Formabmessungen skaliert die Schriftgrößen nicht.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -57,11 +58,11 @@ finally {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-Tabellen erfordern eine separate Behandlung: Skalieren Sie ihre Spaltenbreiten und Zeilenhöhen, anstatt die Gesamtabmessungen der Tabelle zuzuweisen. Zeilenhöhen können größer bleiben als angefordert, wenn der Zelleninhalt mehr Platz benötigt.
+{{% alert color="info" title="Hinweis" %}}
+Tabellen erfordern eine separate Behandlung: Skalieren Sie ihre Spaltenbreiten und Zeilenhöhen, anstatt die Gesamtabmessungen der Tabelle zuzuweisen. Zeilenhöhen können größer bleiben als angefordert, wenn der Zellinhalt mehr Platz benötigt.
 {{% /alert %}}
 
-Das zweite Beispiel unterstützt Tabellen und verarbeitet Formen auf Folienmastern und Layouts sowie einzelne Folien, bevor die verkleinerte Präsentation gespeichert wird. Sein Helfer behandelt jede [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) indem er die Spaltenbreiten mit [Column.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/column/#setWidth) und die minimalen Zeilenhöhen mit [Row.setMinimalHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#setMinimalHeight) skaliert. Anschließend wird die Position der Tabelle skaliert, ohne deren Gesamtabmessungen separat zu skalieren.
+Das zweite Beispiel unterstützt Tabellen und verarbeitet Formen auf Master‑ und Layout‑Folien sowie einzelne Folien, bevor die skalierte Präsentation gespeichert wird. Sein Helfer behandelt jede [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) indem er die Spaltenbreiten mit [Column.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/column/#setWidth) und die minimalen Zeilenhöhen mit [Row.setMinimalHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#setMinimalHeight) skaliert. Anschließend wird die Position der Tabelle skaliert, ohne ihre Gesamtabmessungen separat zu skalieren.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -72,7 +73,7 @@ function resizeShapes(shapes, widthRatio, heightRatio) {
         const shape = shapes.get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.ITable")) {
             const table = shape;
-            // Tabellenabmessungen werden durch Spaltenbreiten und Zeilenhöhen gesteuert.
+            // Tabellendimensionen werden durch Spaltenbreiten und Zeilenhöhen gesteuert.
             for (let columnIndex = 0; columnIndex < table.getColumns().size(); columnIndex++) {
                 const column = table.getColumns().get_Item(columnIndex);
                 column.setWidth(column.getWidth() * widthRatio);
@@ -102,7 +103,7 @@ try {
     const widthRatio = targetSize.getWidth() / originalSize.getWidth();
     const heightRatio = targetSize.getHeight() / originalSize.getHeight();
 
-    // Formen, die auf Mastern und Layouts sowie einzelnen Folien definiert sind, skalieren.
+    // Formen auf Master- und Layout-Folien sowie einzelnen Folien skalieren.
     for (let masterIndex = 0; masterIndex < presentation.getMasters().size(); masterIndex++) {
         const master = presentation.getMasters().get_Item(masterIndex);
         resizeShapes(master.getShapes(), widthRatio, heightRatio);
@@ -127,30 +128,23 @@ finally {
 
 ## **FAQ**
 
-**Warum werden Formen nach dem Ändern der Foliengröße verzerrt oder abgeschnitten?**
+**Warum werden Formen nach dem Ändern der Foliengröße verzerrt oder abgeschnitten?**  
+Wenn Sie die Foliengröße ändern, ohne die Formen zu skalieren, behalten sie ihre ursprünglichen Positionen und Abmessungen bei und können über die Folie hinausgehen. Das Skalieren von Breite und Höhe mit unterschiedlichen Verhältnissen kann Formen ebenfalls verzerren.
 
-Wenn Sie die Foliengröße ändern, ohne die Formen zu skalieren, behalten sie ihre ursprünglichen Positionen und Abmessungen bei und können über die Folie hinausragen. Das Skalieren von Breite und Höhe mit unterschiedlichen Verhältnissen kann Formen ebenfalls verzerren.
+**Funktioniert der bereitgestellte Code für alle Formtypen?**  
+Das erste Beispiel ändert die Formgrenzen direkt und ist für Folien ohne Tabellen vorgesehen. Das zweite Beispiel behandelt Tabellen separat. Überprüfen Sie das resultierende Layout, insbesondere Text und Tabellen, da diese Beispiele die Schriftgrößen nicht skalieren und Tabelleninhalte die Zeilenhöhen einschränken können.
 
-**Funktioniert der bereitgestellte Code für alle Formtypen?**
-
-Das erste Beispiel ändert die Formbegrenzungen direkt und ist für Folien ohne Tabellen gedacht. Das zweite Beispiel behandelt Tabellen separat. Überprüfen Sie das resultierende Layout, insbesondere Text und Tabellen, da diese Beispiele die Schriftgrößen nicht skalieren und Tabelleninhalte die Zeilenhöhen einschränken können.
-
-**Wie skaliere ich Tabellen beim Ändern einer Foliengröße?**
-
+**Wie kann ich Tabellen beim Ändern der Foliengröße skalieren?**  
 Skalieren Sie die Spaltenbreiten mit dem Breitenverhältnis und die minimalen Zeilenhöhen mit dem Höhenverhältnis, anschließend skalieren Sie die Position der Tabelle, wie im zweiten Beispiel gezeigt.
 
-**Funktioniert diese Skalierung für Masterfolien und Layoutfolien?**
-
+**Funktioniert diese Skalierung für Master‑Folien und Layout‑Folien?**  
 Ja. Das zweite Beispiel iteriert über [Presentation.getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters) und über die [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getLayoutSlides) jedes Masters und wendet dieselbe Skalierungslogik auf deren Formen an.
 
-**Kann ich die Ausrichtung einer Folie (Hochformat/Querformat) zusammen mit der Skalierung ändern?**
+**Kann ich die Ausrichtung einer Folie (Hochformat/Landschaft) zusammen mit der Skalierung ändern?**  
+Ja. Rufen Sie [SlideSize.setOrientation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setOrientation) nach dem Ändern der Foliengröße und bevor Sie die Zielabmessungen auslesen auf, damit die Skalierungsfaktoren die endgültige Ausrichtung berücksichtigen.
 
-Ja. Rufen Sie [SlideSize.setOrientation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setOrientation) nach dem Ändern der Foliengröße und vor dem Auslesen der Zielabmessungen auf, damit die Skalierungsfaktoren die endgültige Ausrichtung berücksichtigen.
+**Gibt es ein Limit für die Foliengröße, die ich festlegen kann?**  
+Sie können benutzerdefinierte Folienabmessungen mit [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) festlegen. Die unterstützten Abmessungen hängen zudem vom Präsentationsformat und von der Anwendung ab, mit der die Datei geöffnet wird.
 
-**Gibt es eine Begrenzung für die Foliengröße, die ich festlegen kann?**
-
-Sie können benutzerdefinierte Folienabmessungen mit [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) festlegen. Die unterstützten Abmessungen hängen zudem vom Präsentationsformat und der Anwendung ab, mit der die Datei geöffnet wird.
-
-**Wie kann ich verhindern, dass Formen mit einem festen Seitenverhältnis verzerrt werden?**
-
-Verwenden Sie denselben Skalierungsfaktor für Breite und Höhe. Um das ursprüngliche Layout in den neuen Folienabmessungen zu erhalten, nutzen Sie das kleinere der Breiten‑ und Höhenverhältnisse für beide Dimensionen und Positionen. Dadurch bleiben die Proportionen erhalten, es kann jedoch entlang einer Kante ungenutzter Raum entstehen.
+**Wie kann ich verhindern, dass Formen mit festem Seitenverhältnis verzerrt werden?**  
+Verwenden Sie denselben Skalierungsfaktor für Breite und Höhe. Um das ursprüngliche Layout in die neuen Folienabmessungen einzupassen, nutzen Sie das kleinere der Breiten‑ oder Höhenverhältnisse für beide Dimensionen und Positionen. Dadurch bleiben die Proportionen erhalten, es kann jedoch an einer Kante ungenutzter Raum verbleiben.

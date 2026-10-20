@@ -1,8 +1,11 @@
 ---
-title: 在 Python via Java 中调整演示文稿幻灯片的形状大小
+title: 使用 Java 的 Python 调整演示文稿幻灯片上的形状大小
 type: docs
 weight: 110
-url: /zh/python-java/re-sizing-shapes-on-slide/
+url: /zh/python-java/resizing-shapes-on-slide/
+aliases:
+  - /python-java/re-sizing-shapes-on-slide/
+  - /zh/python-java/re-sizing-shapes-on-slide/
 keywords:
 - 调整形状
 - 更改形状大小
@@ -12,15 +15,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via Java，轻松调整 PowerPoint 和 OpenDocument 幻灯片上的形状大小——自动化幻灯片布局调整，提高工作效率。"
+description: "轻松使用 Aspose.Slides for Python via Java 在 PowerPoint 和 OpenDocument 幻灯片上调整形状大小——自动化幻灯片布局调整，提高生产力。"
 ---
 ## **概述**
 
-Aspose.Slides for Python via Java 用户最常提的一个问题是如何在更改幻灯片尺寸时调整形状大小，以免数据被截断。本文简要技术文档展示了实现方法。
+当您更改演示文稿的幻灯片大小时，可能还需要调整形状的大小并重新定位，以适应新的尺寸。本文介绍了如何手动缩放形状以及如何处理幻灯片、母版和布局中的表格。
 
 ## **调整形状大小**
 
-为防止幻灯片尺寸变化后形状错位，需要更新每个形状的位置和尺寸，使其符合新的幻灯片布局。
+为了保留每个形状的相对位置和大小，需要将其水平坐标和宽度乘以新幻灯片宽度与原始宽度的比例。将相应的高度比例应用于其垂直坐标和高度。
+
+第一个示例加载一个幻灯片中不包含表格的演示文稿，将幻灯片大小更改为 A4，并保存结果。它使用[SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize)与[SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale)以便后续循环控制缩放。比例是无单位的；形状的位置和尺寸以点为单位。不同的宽度和高度比例会导致形状失真，并且更改形状的尺寸不会缩放其字体大小。
 
 ```python
 import jpype
@@ -29,47 +34,34 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType
 
-# 加载演示文稿文件。
-presentation = Presentation("sample.ppt")
+presentation = Presentation("sample.pptx")
 try:
-    # 获取原始幻灯片尺寸。
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # 在不缩放现有形状的情况下更改幻灯片尺寸。
+    # 计算独立的水平和垂直缩放因子。
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # 获取新的幻灯片尺寸。
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # 调整每张幻灯片上形状的大小和位置。
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
-
-            # 缩放形状尺寸。
-            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setWidth(shape.getWidth() * width_ratio)
-
-            # 缩放形状位置。
-            shape.setY(shape.getY() * height_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setX(shape.getX() * width_ratio)
+            shape.setY(shape.getY() * height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}} 
-表格无需特殊处理：设置表格的宽度和高度会按比例重新缩放其列和行，因此再次缩放行高和列宽会导致比例叠加两次。 
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+表格需要单独处理：通过缩放列宽和行高来代替为表格设置整体宽度和高度。如果单元格内容需要更多空间，行高可能会大于请求的大小。
+{{% /alert %}}
 
-上述代码仅更改了幻灯片上的形状。母版幻灯片和布局幻灯片拥有各自的形状，需要在希望整个演示文稿遵循新幻灯片尺寸时同样对它们进行缩放：
+第二个示例支持表格，并在保存已调整大小的演示文稿之前处理母版、布局以及单个幻灯片上的形状。它的辅助方法通过使用[Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth)缩放列宽以及使用[Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight)设置最小行高来处理每个[Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/)。随后，它在不单独缩放整体尺寸的情况下缩放表格的位置。
 
 ```python
 import jpype
@@ -78,54 +70,44 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, Table
+
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, Table):
+            # 表格尺寸由列宽和行高控制。
+            for column in shape.getColumns():
+                column.setWidth(column.getWidth() * width_ratio)
+
+            for row in shape.getRows():
+                row.setMinimalHeight(row.getMinimalHeight() * height_ratio)
+        else:
+            shape.setWidth(shape.getWidth() * width_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
+
+        shape.setX(shape.getX() * width_ratio)
+        shape.setY(shape.getY() * height_ratio)
+
 
 presentation = Presentation("sample.pptx")
 try:
-    # 获取原始幻灯片尺寸。
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # 在不缩放现有形状的情况下更改幻灯片尺寸。
+    # 计算独立的水平和垂直缩放因子。
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
-    # presentation.getSlideSize().setOrientation(SlideOrientation.Portrait)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # 获取新的幻灯片尺寸。
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # 调整在母版和布局以及单个幻灯片上定义的形状大小。
     for master in presentation.getMasters():
-        for shape in master.getShapes():
-            # 缩放形状尺寸。
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # 缩放形状位置。
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(master.getShapes(), width_ratio, height_ratio)
 
         for layout_slide in master.getLayoutSlides():
-            for shape in layout_slide.getShapes():
-                # 缩放形状尺寸。
-                shape.setHeight(shape.getHeight() * height_ratio)
-                shape.setWidth(shape.getWidth() * width_ratio)
-
-                # 缩放形状位置。
-                shape.setY(shape.getY() * height_ratio)
-                shape.setX(shape.getX() * width_ratio)
+            resize_shapes(layout_slide.getShapes(), width_ratio, height_ratio)
 
     for slide in presentation.getSlides():
-        for shape in slide.getShapes():
-            # 缩放形状尺寸。
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # 缩放形状位置。
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(slide.getShapes(), width_ratio, height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
@@ -134,30 +116,30 @@ finally:
 
 ## **常见问题**
 
-**调整幻灯片后，形状为何会失真或被截断？**
+**调整幻灯片大小后，形状为何会失真或被截断？**
 
-在调整幻灯片尺寸时，形状会保持原始位置和大小，除非显式更改缩放比例。这可能导致内容被裁剪或形状错位。
+如果在更改幻灯片大小时未对形状进行缩放，它们会保持原始位置和尺寸，可能超出幻灯片范围。使用不同的宽度和高度比例进行缩放也会导致形状失真。
 
-**提供的代码适用于所有形状类型吗？**
+**提供的代码是否适用于所有形状类型？**
 
-是的。设置高度和宽度同样适用于文本框、图像、图表和表格等。
+第一个示例直接更改形状边界，适用于没有表格的幻灯片。第二个示例单独处理表格。请检查生成的布局，尤其是文本和表格，因为这些示例不会缩放字体大小，且表格内容可能限制行高。
 
-**调整幻灯片时，如何调整表格大小？**
+**在调整幻灯片大小时如何调整表格？**
 
-直接缩放表格形状本身，方式与其他形状相同。其行列会按比例自动跟随缩放，后续无需再次单独缩放行高或列宽。
+按宽度比例缩放列宽，按高度比例缩放最小行高，然后如第二个示例所示缩放表格的位置。
 
-**此缩放方法适用于母版幻灯片和布局幻灯片吗？**
+**此调整大小操作是否适用于母版幻灯片和布局幻灯片？**
 
-是的，但还应遍历[Presentation.getMasters]({{link_placeholder}})和[Presentation.getLayoutSlides]({{link_placeholder}})并对它们的形状应用相同的缩放逻辑，以确保整个演示文稿的一致性。
+是的。第二个示例遍历[Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters)以及每个母版的[MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides)，并对它们的形状应用相同的调大小逻辑。
 
-**可以在缩放的同时更改幻灯片的方向（纵向/横向）吗？**
+**我可以在调整大小的同时更改幻灯片的方向（纵向/横向）吗？**
 
-可以。可使用[SlideSize.setOrientation]({{link_placeholder}})更改方向。请相应调整缩放逻辑以保持布局不变。
+可以。在更改幻灯片大小后、读取目标尺寸前调用[SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation)，以便缩放因子反映最终的方向。
 
-**设置的幻灯片尺寸是否有上限？**
+**我可以设置的幻灯片尺寸是否有上限？**
 
-Aspose.Slides 支持自定义尺寸，但过大的尺寸可能影响性能或与某些 PowerPoint 版本的兼容性。
+可以使用[SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize)指定自定义幻灯片尺寸。支持的尺寸还取决于演示文稿格式以及打开文件的应用程序。
 
-**如何防止固定宽高比的形状被扭曲？**
+**如何防止具有固定宽高比的形状被拉伸变形？**
 
-在缩放前可检查形状锁的[getAspectRatioLocked]({{link_placeholder}})方法。如果已锁定宽高比，应按比例同时调整宽度和高度，而不是单独缩放。
+对宽度和高度使用相同的缩放因子。若要在新幻灯片尺寸内保持原始布局，可对两者均使用宽度比和高度比中较小的那个进行缩放。这样可以保留比例，但可能在某一边留下未使用的空间。

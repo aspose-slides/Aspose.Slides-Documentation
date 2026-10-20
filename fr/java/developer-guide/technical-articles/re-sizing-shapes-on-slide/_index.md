@@ -4,26 +4,27 @@ type: docs
 weight: 130
 url: /fr/java/resizing-shapes-on-slide/
 aliases:
+  - /java/re-sizing-shapes-on-slide/
   - /fr/java/re-sizing-shapes-on-slide/
 keywords:
 - redimensionner forme
-- changer la taille de la forme
+- modifier la taille de la forme
 - PowerPoint
 - OpenDocument
 - présentation
 - Java
 - Aspose.Slides
-description: "Redimensionnez facilement les formes sur les diapositives PowerPoint et OpenDocument avec Aspose.Slides pour Java — automatisez les ajustements de mise en page des diapositives et augmentez la productivité."
+description: "Redimensionnez facilement les formes sur les diapositives PowerPoint et OpenDocument avec Aspose.Slides pour Java—automatisez les ajustements de mise en page des diapositives et augmentez votre productivité."
 ---
 ## **Vue d'ensemble**
 
-Lorsque vous modifiez la taille des diapositives d'une présentation, vous devez également redimensionner et repositionner ses formes pour qu'elles s'adaptent aux nouvelles dimensions. Cet article montre comment mettre à l'échelle les formes manuellement et comment gérer les tableaux sur les diapositives, les maîtres et les dispositions.
+Lorsque vous changez la taille des diapositives d'une présentation, il peut également être nécessaire de redimensionner et de repositionner ses formes pour les adapter aux nouvelles dimensions. Cet article montre comment mettre à l'échelle les formes manuellement et comment gérer les tableaux sur les diapositives, les maîtres et les dispositions.
 
 ## **Redimensionner les formes**
 
-Pour préserver la position et la taille relatives de chaque forme, multipliez ses coordonnées horizontales et sa largeur par le rapport entre la nouvelle largeur de la diapositive et la largeur originale. Appliquez le même rapport de hauteur à ses coordonnées verticales et à sa hauteur.
+Pour conserver la position et la taille relatives de chaque forme, multipliez ses coordonnées horizontales et sa largeur par le rapport entre la nouvelle largeur de la diapositive et la largeur d'origine. Appliquez le même rapport de hauteur à ses coordonnées verticales et à sa hauteur.
 
-Le premier exemple charge une présentation dont les diapositives ne contiennent aucun tableau, change la taille des diapositives en A4 et enregistre le résultat. Il utilise [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) avec [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) afin que la boucle suivante contrôle le redimensionnement. Les rapports sont sans unité ; les positions et dimensions des formes sont mesurées en points. Des rapports de largeur et de hauteur différents peuvent déformer les formes, et modifier les dimensions d’une forme ne met pas à l’échelle la taille de ses polices.
+Le premier exemple charge une présentation dont les diapositives ne contiennent aucun tableau, modifie la taille de la diapositive en A4 et enregistre le résultat. Il utilise [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) avec [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) afin que la boucle suivante contrôle le redimensionnement. Les rapports sont sans unité ; les positions et les dimensions des formes sont exprimées en points. Des rapports de largeur et de hauteur différents peuvent déformer les formes, et modifier les dimensions d’une forme ne met pas à l’échelle les tailles de police.
 
 ```java
 import com.aspose.slides.*;
@@ -55,10 +56,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-Les tableaux nécessitent un traitement séparé : mettre à l'échelle leurs largeurs de colonnes et hauteurs de lignes au lieu d'attribuer la largeur et la hauteur globales du tableau. Les hauteurs des lignes peuvent rester supérieures à la valeur demandée si le contenu des cellules nécessite plus d'espace.
+Les tableaux nécessitent une prise en charge distincte : il faut mettre à l’échelle leurs largeurs de colonne et hauteurs de ligne au lieu d’attribuer la largeur et la hauteur globales du tableau. Les hauteurs de ligne peuvent rester supérieures à la valeur demandée si le contenu des cellules requiert plus d’espace.
 {{% /alert %}}
 
-Le deuxième exemple prend en charge les tableaux et traite les formes sur les maîtres et les dispositions ainsi que sur les diapositives individuelles avant d'enregistrer la présentation redimensionnée. Son utilitaire gère chaque [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) en mettant à l'échelle les largeurs de colonnes avec [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) et les hauteurs minimales des lignes avec [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-). Il met ensuite à l'échelle la position du tableau sans mettre séparément à l'échelle ses dimensions globales.
+Le deuxième exemple prend en charge les tableaux et traite les formes sur les maîtres et les dispositions ainsi que les diapositives individuelles avant d’enregistrer la présentation redimensionnée. Son utilitaire gère chaque [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) en mettant à l’échelle les largeurs de colonne avec [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) et les hauteurs minimales de ligne avec [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-). Il met ensuite à l’échelle la position du tableau sans mettre séparément à l’échelle ses dimensions globales.
 
 ```java
 import com.aspose.slides.*;
@@ -69,7 +70,7 @@ class ShapeResizer {
         for (IShape shape : shapes) {
             if (shape instanceof ITable) {
                 ITable table = (ITable) shape;
-                // Les dimensions du tableau sont contrôlées par les largeurs de colonnes et les hauteurs de lignes.
+                // Les dimensions du tableau sont contrôlées par les largeurs des colonnes et les hauteurs des lignes.
                 for (IColumn column : table.getColumns()) {
                     column.setWidth(column.getWidth() * widthRatio);
                 }
@@ -124,28 +125,28 @@ finally {
 
 **Pourquoi les formes sont‑elles déformées ou coupées après le redimensionnement d’une diapositive ?**
 
-Si vous modifiez la taille de la diapositive sans mettre à l'échelle les formes, elles conservent leurs positions et dimensions d'origine et peuvent dépasser de la diapositive. Mettre à l'échelle la largeur et la hauteur avec des rapports différents peut également déformer les formes.
+Si vous modifiez la taille de la diapositive sans mettre à l’échelle les formes, elles conservent leurs positions et dimensions d’origine et peuvent dépasser de la diapositive. Mettre à l’échelle la largeur et la hauteur avec des rapports différents peut également déformer les formes.
 
 **Le code fourni fonctionne‑t‑il pour tous les types de formes ?**
 
-Le premier exemple modifie directement les limites des formes et est destiné aux diapositives sans tableaux. Le deuxième exemple gère les tableaux séparément. Vérifiez la mise en page résultante, en particulier le texte et les tableaux, car ces exemples ne mettent pas à l'échelle les tailles de police et le contenu des tableaux peut contraindre les hauteurs des lignes.
+Le premier exemple modifie directement les limites des formes et est destiné aux diapositives sans tableaux. Le deuxième exemple gère les tableaux séparément. Vérifiez la mise en page résultante, en particulier le texte et les tableaux, car ces exemples ne mettent pas à l’échelle les tailles de police et le contenu des tableaux peut contraindre les hauteurs de ligne.
 
 **Comment redimensionner les tableaux lors du redimensionnement d’une diapositive ?**
 
-Mettez à l'échelle les largeurs de colonnes avec le rapport de largeur et les hauteurs minimales des lignes avec le rapport de hauteur, puis mettez à l'échelle la position du tableau, comme le montre le deuxième exemple.
+Mettez à l’échelle les largeurs de colonne selon le rapport de largeur et les hauteurs minimales de ligne selon le rapport de hauteur, puis mettez à l’échelle la position du tableau, comme indiqué dans le deuxième exemple.
 
-**Ce redimensionnement fonctionnera‑t‑il pour les diapositives maîtres et les diapositives de disposition ?**
+**Ce redimensionnement fonctionne‑t‑il pour les diapositives maîtres et les diapositives de disposition ?**
 
-Oui. Le deuxième exemple parcourt [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) et les [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) de chaque maître, et applique la même logique de redimensionnement à leurs formes.
+Oui. Le deuxième exemple parcourt les [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) et, pour chaque maître, les [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) et applique la même logique de redimensionnement à leurs formes.
 
-**Puis‑je changer l’orientation d’une diapositive (portrait/paysage) en même temps que le redimensionnement ?**
+**Puis‑je changer l’orientation d’une diapositive (portrait/paysage) lors du redimensionnement ?**
 
 Oui. Appelez [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) après avoir changé la taille de la diapositive et avant de lire les dimensions cibles, afin que les facteurs d’échelle reflètent l’orientation finale.
 
-**Y a‑t‑il une limite à la taille de diapositive que je peux définir ?**
+**Existe‑t‑il une limite à la taille de diapositive que je peux définir ?**
 
 Vous pouvez spécifier des dimensions de diapositive personnalisées avec [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-). Les dimensions prises en charge dépendent également du format de la présentation et de l’application utilisée pour ouvrir le fichier.
 
-**Comment empêcher les formes avec un ratio d’aspect fixe de se déformer ?**
+**Comment empêcher les formes avec un ratio d’aspect fixe d’être déformées ?**
 
-Utilisez le même facteur d’échelle pour la largeur et la hauteur. Pour adapter la mise en page originale aux nouvelles dimensions de la diapositive, utilisez le plus petit des rapports de largeur et de hauteur pour les deux dimensions et les positions. Cela préserve les proportions mais peut laisser un espace inutilisé le long d’un bord.
+Utilisez le même facteur d’échelle pour la largeur et la hauteur. Pour adapter la mise en page originale aux nouvelles dimensions de la diapositive, utilisez le plus petit des deux rapports (largeur et hauteur) pour les deux dimensions et les positions. Cela préserve les proportions mais peut laisser un espace inutilisé le long d’un bord.

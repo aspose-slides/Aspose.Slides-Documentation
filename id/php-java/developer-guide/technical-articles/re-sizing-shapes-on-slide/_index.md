@@ -1,29 +1,30 @@
 ---
-title: Mengubah Ukuran Bentuk pada Slide Presentasi di PHP
+title: Ubah Ukuran Bentuk pada Slide Presentasi di PHP
 type: docs
 weight: 130
 url: /id/php-java/resizing-shapes-on-slide/
 aliases:
+  - /php-java/re-sizing-shapes-on-slide/
   - /id/php-java/re-sizing-shapes-on-slide/
 keywords:
-- ubah ukuran bentuk
-- ubah ukuran bentuk
-- PowerPoint
-- OpenDocument
-- presentasi
-- PHP
-- Aspose.Slides
-description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument dengan Aspose.Slides untuk PHP via Java—mengotomatiskan penyesuaian tata letak slide dan meningkatkan produktivitas."
+  - ubah ukuran bentuk
+  - ubah ukuran bentuk
+  - PowerPoint
+  - OpenDocument
+  - presentasi
+  - PHP
+  - Aspose.Slides
+description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk PHP via Java—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
 ---
 ## **Gambaran Umum**
 
-Saat Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuk-bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara men-skalakan bentuk secara manual dan cara menangani tabel pada slide, master, dan tata letak.
+Saat Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisi ulang bentuk‑bentuknya agar cocok dengan dimensi baru. Artikel ini menunjukkan cara memperbesar bentuk secara manual dan cara menangani tabel pada slide, master, dan tata letak.
 
 ## **Ubah Ukuran Bentuk**
 
 Untuk mempertahankan posisi dan ukuran relatif tiap bentuk, kalikan koordinat horizontal dan lebar bentuk dengan rasio lebar slide baru terhadap lebar asli. Terapkan rasio tinggi yang sesuai pada koordinat vertikal dan tinggi bentuk.
 
-Contoh pertama memuat sebuah presentasi yang slide-nya tidak mengandung tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Ini menggunakan [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/) dengan [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/php-java/aspose.slides/slidesizescaletype/) sehingga loop berikutnya mengontrol skala. Rasio-rasio tersebut tidak memiliki satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat mendistorsi bentuk, dan mengubah dimensi bentuk tidak mengubah ukuran fontnya.
+Contoh pertama memuat presentasi yang slide‑nya tidak berisi tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Ia menggunakan [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/) dengan [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/php-java/aspose.slides/slidesizescaletype/) sehingga perulangan berikutnya mengendalikan skala. Rasio‑rasio tersebut tidak memiliki satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat merusak bentuk, dan mengubah dimensi bentuk tidak mengubah ukuran fontnya.
 
 ```php
 use aspose\slides\Presentation;
@@ -59,10 +60,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-Tabel memerlukan penanganan terpisah: skala lebar kolom dan tinggi baris mereka alih-alih menetapkan lebar dan tinggi keseluruhan tabel. Tinggi baris mungkin tetap lebih besar daripada yang diminta jika konten sel memerlukan ruang lebih.
+Tabel memerlukan penanganan terpisah: skala lebar kolom dan tinggi baris alih‑alih menetapkan lebar serta tinggi keseluruhan tabel. Tinggi baris dapat tetap lebih besar dari yang diminta jika konten sel memerlukan lebih banyak ruang.
 {{% /alert %}}
 
-Contoh kedua mendukung tabel dan memproses bentuk pada master dan tata letak serta slide individual sebelum menyimpan presentasi yang telah diubah ukurannya. Pembantuannya menangani tiap [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) dengan men-skalakan lebar kolom menggunakan [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) dan tinggi minimum baris dengan [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/). Kemudian ia men-skalakan posisi tabel tanpa men-skalakan dimensi keseluruhannya secara terpisah.
+Contoh kedua mendukung tabel dan memproses bentuk pada master serta tata letak seperti pada slide individual sebelum menyimpan presentasi yang telah diubah ukurannya. Pembantunya menangani tiap [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) dengan memperbesar lebar kolom menggunakan [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) dan tinggi minimal baris dengan [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/). Selanjutnya ia memperbesar posisi tabel tanpa memperbesar dimensi keseluruhannya secara terpisah.
 
 ```php
 use aspose\slides\Presentation;
@@ -137,21 +138,21 @@ finally {
 
 **Mengapa bentuk menjadi terdistorsi atau terpotong setelah mengubah ukuran slide?**
 
-Jika Anda mengubah ukuran slide tanpa menskalakan bentuk, mereka akan mempertahankan posisi dan dimensi aslinya dan dapat melampaui batas slide. Menskalakan lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
+Jika Anda mengubah ukuran slide tanpa memperbesar bentuk, bentuk akan tetap pada posisi dan dimensi aslinya dan dapat melampaui batas slide. Memperbesar lebar dan tinggi dengan rasio yang berbeda juga dapat menyebabkan bentuk terdistorsi.
 
-**Apakah kode yang disediakan berfungsi untuk semua jenis bentuk?**
+**Apakah kode yang diberikan bekerja untuk semua jenis bentuk?**
 
-Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak yang dihasilkan, khususnya teks dan tabel, karena contoh-contoh ini tidak menskalakan ukuran font dan konten tabel dapat membatasi tinggi baris.
+Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak hasil, terutama teks dan tabel, karena contoh‑contoh ini tidak memperbesar ukuran font dan konten tabel dapat membatasi tinggi baris.
 
 **Bagaimana cara mengubah ukuran tabel saat mengubah ukuran slide?**
 
-Skala lebar kolom dengan rasio lebar dan tinggi minimum baris dengan rasio tinggi, kemudian skala posisi tabel, seperti yang ditunjukkan pada contoh kedua.
+Skalakan lebar kolom dengan rasio lebar dan tinggi minimal baris dengan rasio tinggi, kemudian skalakan posisi tabel, seperti yang ditunjukkan pada contoh kedua.
 
-**Apakah penyesuaian ukuran ini akan bekerja untuk slide master dan slide tata letak?**
+**Apakah perubahan ukuran ini akan bekerja untuk slide master dan slide tata letak?**
 
-Ya. Contoh kedua mengiterasi melalui [Presentation::getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) dan setiap master [MasterSlide::getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/getlayoutslides/) dan menerapkan logika pengubahan ukuran yang sama pada bentuk-bentuk mereka.
+Ya. Contoh kedua mengiterasi melalui [Presentation::getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) dan setiap master’s [MasterSlide::getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/getlayoutslides/) serta menerapkan logika pengubahan ukuran yang sama pada bentuk‑bentuk mereka.
 
-**Apakah saya dapat mengubah orientasi slide (potret/pelan) bersamaan dengan pengubahan ukuran?**
+**Bisakah saya mengubah orientasi slide (potret/lanskap) bersamaan dengan pengubahan ukuran?**
 
 Ya. Panggil [SlideSize::setOrientation](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setorientation/) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor skala mencerminkan orientasi akhir.
 
@@ -159,6 +160,6 @@ Ya. Panggil [SlideSize::setOrientation](https://reference.aspose.com/slides/php-
 
 Anda dapat menentukan dimensi slide khusus dengan [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/). Dimensi yang didukung juga tergantung pada format presentasi dan aplikasi yang digunakan untuk membuka file.
 
-**Bagaimana saya dapat mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
+**Bagaimana cara mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
 
-Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli dalam dimensi slide baru, gunakan rasio yang lebih kecil antara lebar dan tinggi untuk kedua dimensi dan posisi. Ini mempertahankan proporsi namun mungkin meninggalkan ruang kosong di salah satu sisi.
+Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli ke dalam dimensi slide baru, gunakan rasio yang lebih kecil antara lebar dan tinggi untuk kedua dimensi serta posisi. Ini mempertahankan proporsi namun mungkin meninggalkan ruang kosong di salah satu sisi.

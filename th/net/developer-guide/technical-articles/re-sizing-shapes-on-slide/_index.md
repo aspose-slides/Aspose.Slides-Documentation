@@ -2,7 +2,10 @@
 title: ปรับขนาดรูปร่างบนสไลด์การนำเสนอใน .NET
 type: docs
 weight: 130
-url: /th/net/re-sizing-shapes-on-slide/
+url: /th/net/resizing-shapes-on-slide/
+aliases:
+  - /net/re-sizing-shapes-on-slide/
+  - /th/net/re-sizing-shapes-on-slide/
 keywords:
 - ปรับขนาดรูปร่าง
 - เปลี่ยนขนาดรูปร่าง
@@ -12,162 +15,135 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "ปรับขนาดรูปร่างบนสไลด์ PowerPoint และ OpenDocument อย่างง่ายดายด้วย Aspose.Slides สำหรับ .NET—ทำให้การปรับแต่งเค้าโครงสไลด์อัตโนมัติและเพิ่มประสิทธิภาพการทำงาน."
+description: "ปรับขนาดรูปร่างบนสไลด์ PowerPoint และ OpenDocument อย่างง่ายด้วย Aspose.Slides สำหรับ .NET—อัตโนมัติการปรับแต่งเลย์เอาต์สไลด์และเพิ่มประสิทธิภาพการทำงาน."
 ---
 ## **ภาพรวม**
 
-หนึ่งในคำถามที่พบบ่อยที่สุดจากลูกค้า Aspose.Slides for .NET คือวิธีการปรับขนาดรูปร่างให้เมื่อขนาดสไลด์เปลี่ยนแปลง ข้อมูลจะไม่ถูกตัดออก บทความเทคนิคสั้นนี้จะแสดงวิธีทำเช่นนั้น
+เมื่อคุณเปลี่ยนขนาดสไลด์ของการนำเสนอ คุณอาจต้องปรับขนาดและย้ายตำแหน่งของรูปร่างเพื่อให้พอดีกับมิติใหม่ บทความนี้แสดงวิธีการปรับขนาดรูปร่างด้วยตนเองและวิธีจัดการตารางบนสไลด์ มาสเตอร์ และเลย์เอาต์
 
 ## **ปรับขนาดรูปร่าง**
 
-เพื่อป้องกันไม่ให้รูปร่างเบี่ยงเบนเมื่อขนาดสไลด์เปลี่ยนแปลง ให้ปรับตำแหน่งและขนาดของแต่ละรูปร่างให้สอดคล้องกับเค้าโครงสไลด์ใหม่
+เพื่อรักษาตำแหน่งและขนาดสัมพัทธ์ของแต่ละรูปร่าง ให้คูณพิกัดแนวนอนและความกว้างของมันด้วยอัตราส่วนของความกว้างสไลด์ใหม่ต่อความกว้างเดิม ใช้อัตราส่วนความสูงที่สอดคล้องกับพิกัดแนวตั้งและความสูงของมัน
 
-```c#
-// โหลดไฟล์การนำเสนอ.
-using (Presentation presentation = new Presentation("sample.pptx"))
+ตัวอย่างแรกโหลดการนำเสนอที่สไลด์ไม่มีตาราง เปลี่ยนขนาดสไลด์เป็น A4 และบันทึกผลลัพธ์ ตัวอย่างใช้ [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) กับ [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) เพื่อให้ลูปถัดไปควบคุมการปรับสเกล อัตราส่วนไม่มีหน่วย; ตำแหน่งและมิติของรูปร่างวัดเป็นจุด อัตราส่วนความกว้างและความสูงที่ต่างกันอาจทำให้รูปร่างบิดเบี้ยว และการเปลี่ยนแปลงมิติของรูปร่างจะไม่ปรับสเกลขนาดฟอนต์
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// คำนวณอัตราส่วนการสเกลแนวนอนและแนวตั้งแบบอิสระ.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // รับขนาดสไลด์เดิม.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // เปลี่ยนขนาดสไลด์โดยไม่สเกลรูปร่างที่มีอยู่.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // รับขนาดสไลด์ใหม่.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // ปรับขนาดและตำแหน่งรูปร่างบนสไลด์ทุกหน้า.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // สเกลขนาดของรูปร่าง.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // สเกลตำแหน่งของรูปร่าง.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
-```
 
-{{% alert color="primary" %}}
-หากสไลด์มีตาราง โค้ดด้านบนจะทำงานไม่ถูกต้อง ในกรณีนั้นต้องปรับขนาดแต่ละเซลล์ในตาราง
+presentation.Save("output.pptx", SaveFormat.Pptx);
+```
+{{% alert color="info" title="Note" %}}
+ตารางต้องการการจัดการแยกต่างหาก: ปรับสเกลความกว้างของคอลัมน์และความสูงของแถวแทนการกำหนดความกว้างและความสูงโดยรวมของตาราง ความสูงของแถวอาจใหญ่กว่าที่ร้องขอหากเนื้อหาในเซลล์ต้องการพื้นที่มากกว่า
 {{% /alert %}}
 
-ใช้โค้ดต่อไปนี้เพื่อปรับขนาดสไลด์ที่มีตาราง สำหรับตาราง การกำหนดความกว้างหรือความสูงเป็นกรณีพิเศษ: คุณต้องปรับความสูงของแถวและความกว้างของคอลัมน์แต่ละอันเพื่อเปลี่ยนขนาดโดยรวมของตาราง
+ตัวอย่างที่สองรองรับตารางและประมวลผลรูปร่างบนมาสเตอร์และเลย์เอาต์รวมถึงสไลด์แต่ละสไลด์ก่อนบันทึกการนำเสนอที่ปรับขนาด ตัวช่วยของมันจัดการแต่ละ [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) โดยการปรับสเกล [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) และ [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) จากนั้นปรับสเกลตำแหน่งของตารางโดยไม่ปรับสเกลมิติรวมของตารางแยกต่างหาก
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// คำนวณอัตราส่วนการสเกลแนวนอนและแนวตั้งแบบอิสระ.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// ปรับขนาดรูปร่างที่กำหนดบนมาสเตอร์และเลย์เอาต์รวมถึงสไลด์แต่ละสไลด์.
+foreach (var master in presentation.Masters)
 {
-    // รับขนาดสไลด์เดิม.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // เปลี่ยนขนาดสไลด์โดยไม่สเกลรูปร่างที่มีอยู่.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // รับขนาดสไลด์ใหม่.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // สเกลขนาดของรูปร่าง.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // สเกลตำแหน่งของรูปร่าง.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // มิติของตารางถูกควบคุมโดยความกว้างของคอลัมน์และความสูงของแถว.
+            foreach (var column in table.Columns)
             {
-                // สเกลขนาดของรูปร่าง.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // สเกลตำแหน่งของรูปร่าง.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // สเกลขนาดของรูปร่าง.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // สเกลตำแหน่งของรูปร่าง.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
-
 ## **คำถามที่พบบ่อย**
 
-**ทำไโมชั่นรูปร่างบิดเบี้ยวหรือถูกตัดออกหลังจากปรับขนาดสไลด์?**
+**ทำไมหรือรูปร่างจึงบิดเบี้ยวหรือถูกตัดหลังจากปรับขนาดสไลด์?**
 
-เมื่อปรับขนาดสไลด์ รูปร่างจะคงตำแหน่งและขนาดเดิมไว้ หากไม่เปลี่ยนสเกลโดยเจตนา สิ่งนี้อาจทำให้เนื้อหาถูกตัดหรือรูปร่างเบี่ยงเบน
+หากคุณเปลี่ยนขนาดสไลด์โดยไม่ปรับสเกลรูปร่าง พวกมันจะรักษาตำแหน่งและมิติเดิมและอาจเกินขอบสไลด์ การปรับสเกลความกว้างและความสูงด้วยอัตราส่วนที่ต่างกันก็อาจทำให้รูปร่างบิดเบี้ยวได้
 
-**โค้ดที่ให้มาทำงานกับทุกประเภทของรูปร่างหรือไม่?**
+**โค้ดที่ให้มาทำงานได้กับทุกประเภทของรูปร่างหรือไม่?**
 
-ตัวอย่างพื้นฐานทำงานกับรูปร่างส่วนใหญ่ (ข้อความ, รูปภาพ, แผนภูมิ ฯลฯ) อย่างไรก็ตามสำหรับตารางคุณต้องจัดการแถวและคอลัมน์แยกกัน เนื่องจากความสูงและความกว้างของตารางกำหนดโดยขนาดของเซลล์แต่ละอัน
+ตัวอย่างแรกเปลี่ยนขอบเขตของรูปร่างโดยตรงและออกแบบมาสำหรับสไลด์ที่ไม่มีตาราง ตัวอย่างที่สองจัดการตารางแยกต่างหาก ตรวจสอบเลย์เอาต์ที่ได้โดยเฉพาะข้อความและตาราง เพราะตัวอย่างเหล่านี้ไม่ได้ปรับสเกลขนาดฟอนต์และเนื้อหาตารางอาจจำกัดความสูงของแถว
 
-**จะปรับขนาดตารางอย่างไรเมื่อปรับขนาดสไลด์?**
+**ฉันจะปรับขนาดตารางอย่างไรเมื่อปรับขนาดสไลด์?**
 
-คุณต้องวนลูปผ่านทุกแถวและคอลัมน์ของตารางและปรับความสูงและความกว้างของพวกมันโดยสัดส่วน ตามที่แสดงในตัวอย่างโค้ดที่สอง
+ปรับสเกลความกว้างของคอลัมน์ด้วยอัตราส่วนความกว้างและความสูงต่ำสุดของแถวด้วยอัตราส่วนความสูง จากนั้นปรับสเกลตำแหน่งของตารางตามที่แสดงในตัวอย่างที่สอง
 
-**การปรับขนาดนี้ทำงานกับสไลด์แม่แบบและสไลด์เค้าโครงหรือไม่?**
+**การปรับขนาดนี้จะทำงานกับมาสเตอร์สไลด์และเลย์เอาต์สไลด์หรือไม่?**
 
-ใช่ แต่คุณควรวนลูปผ่าน[แม่แบบ](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/masters/)และ[สไลด์เค้าโครง](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/layoutslides/)และใช้ตรรกะสเกลเดียวกันกับรูปร่างของพวกมันเพื่อให้การนำเสนอทั้งหมดสอดคล้องกัน
+ใช่ ตัวอย่างที่สองเรียกวนผ่าน [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) และ [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) ของแต่ละมาสเตอร์ และใช้ตรรกะการปรับขนาดเดียวกันกับรูปร่างของพวกมัน
 
-**ฉันสามารถเปลี่ยนการวางแนวของสไลด์ (แนวตั้ง/แนวนอน) พร้อมกับการปรับขนาดได้หรือไม่?**
+**ฉันสามารถเปลี่ยนแนวตั้ง/แนวนอนของสไลด์พร้อมกับการปรับขนาดได้หรือไม่?**
 
-ทำได้ คุณสามารถตั้งค่า[presentation.SlideSize.Orientation](https://reference.aspose.com/slides/th/net/aspose.slides/islidesize/orientation/)เพื่อเปลี่ยนการวางแนว ตรวจสอบให้แน่ใจว่าตั้งตรรกะสเกลให้สอดคล้องเพื่อรักษาเค้าโครง
+ได้ ใช้การตั้งค่า [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) หลังจากเปลี่ยนขนาดสไลด์และก่อนอ่านมิติเป้าหมาย เพื่อให้ค่าสเกลสะท้อนถึงแนวสุดท้าย
 
-**มีขีดจำกัดขนาดสไลด์ที่ฉันตั้งค่าได้หรือไม่?**
+**มีขีดจำกัดขนาดสไลด์ที่ฉันสามารถตั้งค่าได้หรือไม่?**
 
-Aspose.Slides รองรับขนาดที่กำหนดเอง แต่ขนาดที่ใหญ่เกินไปอาจส่งผลต่อประสิทธิภาพหรือความเข้ากันได้กับบางเวอร์ชันของ PowerPoint
+คุณสามารถระบุมิติสไลด์แบบกำหนดเองได้ด้วย [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). มิติที่รองรับยังขึ้นอยู่กับรูปแบบการนำเสนอและแอปพลิเคชันที่ใช้เปิดไฟล์
 
-**ฉันจะป้องกันไม่ให้รูปร่างที่ล็อกอัตราส่วนถูกบิดเบี้ยวได้อย่างไร?**
+**ฉันจะป้องกันไม่ให้รูปร่างที่มีอัตราส่วนคงที่บิดเบี้ยวได้อย่างไร?**
 
-คุณสามารถตรวจสอบคุณสมบัติ`AspectRatioLocked`ของรูปร่างก่อนทำการสเกล หากถูกล็อก ให้ปรับความกว้างหรือความสูงโดยสัดส่วนแทนการสเกลแยกกัน
+ใช้ค่าสเกลเดียวกันสำหรับความกว้างและความสูง เพื่อให้เลย์เอาต์เดิมพอดีกับมิติสไลด์ใหม่ ให้ใช้ค่าอัตราส่วนที่เล็กกว่ารหว่างอัตราส่วนความกว้างและความสูงสำหรับทั้งสองมิติและตำแหน่ง วิธีนี้รักษาสัดส่วนไว้แต่บางครั้งอาจเหลือพื้นที่ว่างที่ขอบหนึ่ง

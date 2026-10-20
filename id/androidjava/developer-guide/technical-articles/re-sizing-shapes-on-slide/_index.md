@@ -4,6 +4,7 @@ type: docs
 weight: 130
 url: /id/androidjava/resizing-shapes-on-slide/
 aliases:
+  - /androidjava/re-sizing-shapes-on-slide/
   - /id/androidjava/re-sizing-shapes-on-slide/
 keywords:
 - ubah ukuran bentuk
@@ -15,15 +16,15 @@ keywords:
 - Aspose.Slides
 description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Android via Java—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Saat Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuk-bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara mengubah skala bentuk secara manual dan cara menangani tabel pada slide, master, dan tata letak.
+Saat Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara memperbesar bentuk secara manual dan cara menangani tabel pada slide, master, dan tata letak.
 
 ## **Ubah Ukuran Bentuk**
 
-Untuk mempertahankan posisi dan ukuran relatif setiap bentuk, kalikan koordinat horizontal dan lebar bentuk dengan rasio lebar slide baru terhadap lebar asli. Terapkan rasio tinggi yang sesuai pada koordinat vertikal dan tinggi bentuk.
+Untuk mempertahankan posisi relatif dan ukuran setiap bentuk, kalikan koordinat horizontal dan lebar bentuk dengan rasio lebar slide baru terhadap lebar asli. Terapkan rasio tinggi yang sesuai pada koordinat vertikal dan tinggi bentuk.
 
-Contoh pertama memuat presentasi yang slide-nya tidak berisi tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Ini menggunakan [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-int-int-) dengan [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesizescaletype/#DoNotScale) sehingga loop berikutnya mengendalikan skala. Rasio-rasio tersebut tidak memiliki satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat mendistorsi bentuk, dan mengubah dimensi bentuk tidak mengubah skala ukuran fontnya.
+Contoh pertama memuat presentasi yang slide‑nya tidak mengandung tabel, mengubah ukuran slide ke A4, dan menyimpan hasilnya. Ia menggunakan [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-int-int-) dengan [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesizescaletype/#DoNotScale) sehingga loop selanjutnya mengendalikan penskalaan. Rasio‑rasio tersebut tidak memiliki satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat merusak bentuk, dan mengubah dimensi bentuk tidak memperbesar ukuran fontnya.
 
 ```java
 import com.aspose.slides.*;
@@ -54,10 +55,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-Tabel memerlukan penanganan terpisah: skala lebar kolom dan tinggi baris alih-alih menetapkan lebar dan tinggi keseluruhan tabel. Tinggi baris mungkin tetap lebih besar daripada yang diminta jika konten sel memerlukan lebih banyak ruang.
+Tabel memerlukan penanganan terpisah: skala lebar kolom dan tinggi barisnya alih‑alih menetapkan lebar dan tinggi keseluruhan tabel. Tinggi baris mungkin tetap lebih besar dari yang diminta jika isi sel memerlukan lebih banyak ruang.
 {{% /alert %}}
 
-Contoh kedua mendukung tabel dan memproses bentuk pada master dan tata letak serta slide individu sebelum menyimpan presentasi yang diubah ukurannya. Pembantuannya menangani setiap [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) dengan mengubah skala lebar kolom menggunakan [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) dan tinggi baris minimum dengan [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-). Kemudian ia mengubah skala posisi tabel tanpa mengubah skala dimensi keseluruhan secara terpisah.
+Contoh kedua mendukung tabel dan memproses bentuk pada master dan tata letak serta slide individu sebelum menyimpan presentasi yang telah diubah ukurannya. Pembantunya menangani setiap [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) dengan memperkecil lebar kolom menggunakan [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) dan tinggi minimum baris menggunakan [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-). Kemudian ia memperkecil posisi tabel tanpa memperkecil secara terpisah dimensi keseluruhan tabel.
 
 ```java
 import com.aspose.slides.*;
@@ -67,7 +68,7 @@ class ShapeResizer {
         for (IShape shape : shapes) {
             if (shape instanceof ITable) {
                 ITable table = (ITable) shape;
-                // Dimensi tabel dikontrol oleh lebar kolom dan tinggi baris.
+                // Dimensi tabel dikendalikan oleh lebar kolom dan tinggi baris.
                 for (IColumn column : table.getColumns()) {
                     column.setWidth(column.getWidth() * widthRatio);
                 }
@@ -120,30 +121,30 @@ finally {
 
 ## **FAQ**
 
-**Mengapa bentuk menjadi terdistorsi atau terpotong setelah mengubah ukuran slide?**
+**Mengapa bentuk terdistorsi atau terpotong setelah mengubah ukuran slide?**
 
-Jika Anda mengubah ukuran slide tanpa mengubah skala bentuk, bentuk tersebut tetap pada posisi dan dimensi aslinya dan dapat melampaui batas slide. Mengubah skala lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
+Jika Anda mengubah ukuran slide tanpa memperkecil bentuk, mereka akan mempertahankan posisi dan dimensi asli serta mungkin melampaui batas slide. Memperkecil lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
 
 **Apakah kode yang disediakan berfungsi untuk semua jenis bentuk?**
 
-Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak hasil, terutama teks dan tabel, karena contoh-contoh ini tidak mengubah skala ukuran font dan konten tabel dapat membatasi tinggi baris.
+Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak yang dihasilkan, terutama teks dan tabel, karena contoh‑contoh ini tidak memperkecil ukuran font dan konten tabel dapat membatasi tinggi baris.
 
 **Bagaimana cara mengubah ukuran tabel saat mengubah ukuran slide?**
 
-Skala lebar kolom menggunakan rasio lebar dan tinggi baris minimum menggunakan rasio tinggi, kemudian skala posisi tabel, seperti yang ditunjukkan pada contoh kedua.
+Skala lebar kolom dengan rasio lebar dan tinggi minimum baris dengan rasio tinggi, lalu skalakan posisi tabel, seperti yang ditunjukkan pada contoh kedua.
 
-**Apakah perubahan ukuran ini akan berfungsi untuk slide master dan slide tata letak?**
+**Apakah pengubahan ukuran ini berlaku untuk slide master dan slide tata letak?**
 
-Ya. Contoh kedua mengulangi melalui [Presentation.getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) dan setiap master [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/#getLayoutSlides--) serta menerapkan logika pengubahan ukuran yang sama pada bentuk mereka.
+Ya. Contoh kedua mengiterasi melalui [Presentation.getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) dan setiap master’s [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/#getLayoutSlides--) serta menerapkan logika pengubahan ukuran yang sama pada bentuk‑bentuknya.
 
 **Bisakah saya mengubah orientasi slide (potret/lanskap) bersamaan dengan pengubahan ukuran?**
 
-Ya. Panggil [SlideSize.setOrientation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setOrientation-int-) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor skala mencerminkan orientasi akhir.
+Ya. Panggil [SlideSize.setOrientation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setOrientation-int-) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor penskalaan mencerminkan orientasi akhir.
 
-**Apakah ada batasan ukuran slide yang dapat saya tentukan?**
+**Apakah ada batasan ukuran slide yang dapat saya atur?**
 
 Anda dapat menentukan dimensi slide khusus dengan [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-). Dimensi yang didukung juga tergantung pada format presentasi dan aplikasi yang digunakan untuk membuka file.
 
 **Bagaimana saya dapat mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
 
-Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli dalam dimensi slide baru, gunakan rasio yang lebih kecil antara lebar dan tinggi untuk kedua dimensi dan posisi. Ini mempertahankan proporsi tetapi dapat meninggalkan ruang kosong di salah satu sisi.
+Gunakan faktor penskalaan yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli dalam dimensi slide baru, gunakan rasio yang lebih kecil antara lebar dan tinggi untuk kedua dimensi serta posisi. Ini mempertahankan proporsi tetapi mungkin menyisakan ruang kosong di salah satu tepi.

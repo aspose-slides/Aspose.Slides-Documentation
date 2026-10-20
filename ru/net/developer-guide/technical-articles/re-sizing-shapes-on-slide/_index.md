@@ -2,173 +2,150 @@
 title: Изменение размеров фигур на слайдах презентации в .NET
 type: docs
 weight: 130
-url: /ru/net/re-sizing-shapes-on-slide/
+url: /ru/net/resizing-shapes-on-slide/
+aliases:
+  - /net/изменение-размера-фигур-на-слайде/
+  - /ru/net/re-sizing-shapes-on-slide/
 keywords:
-- изменение размера фигуры
-- изменение размеров фигуры
-- PowerPoint
-- OpenDocument
-- презентация
-- .NET
-- C#
-- Aspose.Slides
-description: "Легко изменяйте размеры фигур на слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для .NET — автоматизируйте настройку макета слайдов и повышайте производительность."
+  - изменение размера фигуры
+  - изменить размер фигуры
+  - PowerPoint
+  - OpenDocument
+  - презентация
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Легко изменяйте размеры фигур на слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для .NET — автоматизируйте настройки макета слайдов и повышайте продуктивность."
 ---
-
 ## **Обзор**
 
-Один из самых часто задаваемых вопросов клиентами Aspose.Slides for .NET — как изменить размер фигур так, чтобы при изменении размера слайда данные не обрезались. В этой короткой технической статье показано, как это сделать.
+Когда вы меняете размер слайда презентации, вам также может потребоваться изменить размер и положение его фигур, чтобы они соответствовали новым габаритам. Эта статья показывает, как вручную масштабировать фигуры и как работать с таблицами на слайдах, мастерах и макетах.
 
-## **Изменение размера фигур**
+## **Изменение размеров фигур**
 
-Чтобы фигуры не смещались при изменении размера слайда, обновите позицию и размеры каждой фигуры в соответствии с новым макетом слайда.
-```c#
- // Загрузить файл презентации.
-using (Presentation presentation = new Presentation("sample.pptx"))
+Чтобы сохранить относительное положение и размер каждой фигуры, умножьте её горизонтальные координаты и ширину на отношение новой ширины слайда к исходной ширине. Примените соответствующее отношение высоты к её вертикальным координатам и высоте.
+
+Первый пример загружает презентацию, в которой слайды не содержат таблиц, меняет размер слайда на A4 и сохраняет результат. Он использует [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) с [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) — чтобы последующий цикл контролировал масштабирование. Отношения безразмерны; позиции фигур и их размеры измеряются в пунктах. Разные коэффициенты ширины и высоты могут искажать фигуры, а изменение размеров фигуры не масштабирует её размеры шрифтов.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Вычислить независимые горизонтальные и вертикальные коэффициенты масштабирования.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // Получить исходный размер слайда.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // Изменить размер слайда без масштабирования существующих фигур.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Получить новый размер слайда.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Изменить размер и позицию фигур на каждом слайде.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // Масштабировать размер фигуры.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Масштабировать позицию фигуры.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-
-{{% alert color="primary" %}}
-Если слайд содержит таблицу, приведённый выше код работать не будет. В этом случае необходимо изменить размер каждой ячейки таблицы.
+{{% alert color="info" title="Note" %}}
+Таблицы требуют отдельной обработки: масштабируйте их ширину столбцов и высоту строк вместо задания общей ширины и высоты таблицы. Высота строк может оставаться больше запрошенной, если содержимое ячеек требует дополнительного места.
 {{% /alert %}}
 
-Используйте следующий код, чтобы изменить размер слайдов, содержащих таблицы. Для таблиц установка ширины или высоты является особым случаем: необходимо скорректировать высоту отдельных строк и ширину столбцов, чтобы изменить общий размер таблицы.
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+Второй пример поддерживает таблицы и обрабатывает фигуры на мастерах и макетах, а также отдельные слайды, перед сохранением изменённой презентации. Его вспомогательный метод обрабатывает каждый [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) путем масштабирования [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) и [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/). Затем он масштабирует позицию таблицы, не масштабируя её общие размеры отдельно.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Вычислить независимые горизонтальные и вертикальные коэффициенты масштабирования.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Изменить размеры фигур, определённых на мастерах и макетах, а также на отдельных слайдах.
+foreach (var master in presentation.Masters)
 {
-    // Получить исходный размер слайда.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Изменить размер слайда без масштабирования существующих фигур.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Получить новый размер слайда.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Масштабировать размер фигуры.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Масштабировать позицию фигуры.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // Размеры таблицы задаются шириной столбцов и высотой строк.
+            foreach (var column in table.Columns)
             {
-                // Масштабировать размер фигуры.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Масштабировать позицию фигуры.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Масштабировать размер фигуры.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Масштабировать позицию фигуры.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
+## **Часто задаваемые вопросы**
 
-## **FAQ**
+**Почему фигуры искажаются или обрезаются после изменения размера слайда?**
 
-**Почему после изменения размера слайда фигуры искажаются или обрезаются?**
-
-При изменении размера слайда фигуры сохраняют свою исходную позицию и размер, если явно не изменить масштаб. Это может привести к обрезке содержимого или смещению фигур.
+Если изменить размер слайда без масштабирования фигур, они сохранят свои исходные позиции и размеры и могут выйти за пределы слайда. Масштабирование ширины и высоты разными коэффициентами также может искажать фигуры.
 
 **Работает ли предоставленный код для всех типов фигур?**
 
-Базовый пример работает для большинства типов фигур (текстовые поля, изображения, диаграммы и т.д.). Однако для таблиц необходимо отдельно обрабатывать строки и столбцы, поскольку высота и ширина таблицы определяются размерами отдельных ячеек.
+Первый пример изменяет границы фигур напрямую и предназначен для слайдов без таблиц. Второй пример обрабатывает таблицы отдельно. Проверьте получившийся макет, особенно текст и таблицы, поскольку эти примеры не масштабируют размеры шрифтов, а содержимое таблиц может ограничивать высоту строк.
 
 **Как изменить размер таблиц при изменении размера слайда?**
 
-Необходимо пройтись по всем строкам и столбцам таблицы и пропорционально изменить их высоту и ширину, как показано во втором примере кода.
+Масштабируйте ширину столбцов по коэффициенту ширины и минимальную высоту строк — по коэффициенту высоты, затем масштабируйте позицию таблицы, как показано во втором примере.
 
-**Будет ли это изменение работать для шаблонных слайдов и слайдов макета?**
+**Будет ли такое масштабирование работать для слайдов‑мастеров и макетных слайдов?**
 
-Да, но также следует пройтись по [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) и [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) и применить ту же логику масштабирования к их фигурам, чтобы обеспечить согласованность во всей презентации.
+Да. Второй пример проходит по [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) и по каждому [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) мастера, применяя ту же логику изменения размеров к их фигурам.
 
 **Можно ли изменить ориентацию слайда (портрет/альбом) вместе с изменением размера?**
 
-Да. Можно установить [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/islidesize/orientation/), чтобы изменить ориентацию. Убедитесь, что логика масштабирования настроена соответствующим образом для сохранения макета.
+Да. Установите [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) после изменения размера слайда и перед чтением целевых габаритов, чтобы коэффициенты масштабирования учитывали окончательную ориентацию.
 
-**Есть ли ограничение на размер слайда, который я могу установить?**
+**Существует ли ограничение на размер слайда, который я могу установить?**
 
-Aspose.Slides поддерживает пользовательские размеры, но очень большие размеры могут повлиять на производительность или совместимость с некоторыми версиями PowerPoint.
+Вы можете задавать пользовательские размеры слайда с помощью [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). Поддерживаемые размеры также зависят от формата презентации и приложения, используемого для открытия файла.
 
 **Как предотвратить искажение фигур с фиксированным соотношением сторон?**
 
-Можно проверить свойство `AspectRatioLocked` у фигуры перед масштабированием. Если оно заблокировано, изменяйте ширину или высоту пропорционально, а не масштабируйте их по отдельности.
+Используйте один и тот же коэффициент масштабирования для ширины и высоты. Чтобы вписать исходный макет в новые габариты слайда, используйте меньший из коэффициентов ширины и высоты для обеих размеров и позиций. Это сохраняет пропорции, но может оставить свободное пространство по одной из сторон.

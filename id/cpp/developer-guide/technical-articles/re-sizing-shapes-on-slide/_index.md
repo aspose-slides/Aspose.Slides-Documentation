@@ -4,6 +4,7 @@ type: docs
 weight: 130
 url: /id/cpp/resizing-shapes-on-slide/
 aliases:
+  - /cpp/re-sizing-shapes-on-slide/
   - /id/cpp/re-sizing-shapes-on-slide/
 keywords:
 - ubah ukuran bentuk
@@ -13,17 +14,17 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++—otomatisasi penyesuaian tata letak slide dan meningkatkan produktivitas."
+description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
 ---
-## **Ringkasan**
+## **Ikhtisar**
 
-Saat Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuk‑bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara memperbesar bentuk secara manual serta cara menangani tabel pada slide, master, dan tata letak.
+Saat Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuk-bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara memperbesar bentuk secara manual dan cara menangani tabel pada slide, master, dan tata letak.
 
 ## **Ubah Ukuran Bentuk**
 
 Untuk mempertahankan posisi dan ukuran relatif setiap bentuk, kalikan koordinat horizontal dan lebar bentuk dengan rasio lebar slide baru terhadap lebar asli. Terapkan rasio tinggi yang sesuai pada koordinat vertikal dan tinggi bentuk.
 
-Contoh pertama memuat presentasi yang slide‑nya tidak mengandung tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Contoh ini menggunakan [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) dengan [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) sehingga perulangan berikutnya mengontrol skala. Rasio‑rasio tersebut tanpa satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat mendistorsi bentuk, dan mengubah dimensi bentuk tidak mengubah ukuran font.
+Contoh pertama memuat presentasi yang slide-nya tidak berisi tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Contoh ini menggunakan [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) dengan [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) sehingga perulangan berikutnya mengendalikan penskalaan. Rasio-rasio tersebut tidak memiliki satuan; posisi dan dimensi bentuk diukur dalam point. Rasio lebar dan tinggi yang berbeda dapat mendistorsi bentuk, dan mengubah dimensi sebuah bentuk tidak memperbesar ukuran hurufnya.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -67,10 +68,10 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Tabel memerlukan penanganan terpisah: skala lebar kolom dan tinggi baris alih‑alih menetapkan lebar dan tinggi keseluruhan tabel. Tinggi baris dapat tetap lebih besar dari yang diminta jika konten sel memerlukan ruang lebih.
+Tabel memerlukan penanganan terpisah: skalakan lebar kolom dan tinggi barisnya alih-alih menetapkan lebar dan tinggi keseluruhan tabel. Tinggi baris mungkin tetap lebih besar dari yang diminta jika konten sel memerlukan lebih banyak ruang.
 {{% /alert %}}
 
-Contoh kedua mendukung tabel dan memproses bentuk pada master dan tata letak serta slide individu sebelum menyimpan presentasi yang telah diubah ukurannya. Pembantuannya menangani setiap [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) dengan men‑scale [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) dan [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/). Selanjutnya, contoh ini men‑scale posisi tabel tanpa men‑scale dimensi keseluruhan secara terpisah.
+Contoh kedua mendukung tabel dan memproses bentuk pada master dan tata letak serta slide individu sebelum menyimpan presentasi yang telah diubah ukurannya. Pembantuannya menangani setiap [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) dengan menskalakan [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) dan [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/). Kemudian ia menskalakan posisi tabel tanpa menskalakan dimensi keseluruhannya secara terpisah.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -138,7 +139,7 @@ auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, flo
     }
 };
 
-// Resize shapes defined on masters and layouts as well as individual slides.
+// Ubah ukuran bentuk yang didefinisikan pada master dan tata letak serta slide individu.
 for (auto&& master : presentation->get_Masters())
 {
     resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
@@ -160,30 +161,30 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Mengapa bentuk terdistorsi atau terpotong setelah mengubah ukuran slide?**
+**Kenapa bentuk menjadi terdistorsi atau terpotong setelah mengubah ukuran slide?**
 
-Jika Anda mengubah ukuran slide tanpa men‑scale bentuk, bentuk akan tetap pada posisi dan dimensi asli sehingga dapat melampaui batas slide. Men‑scale lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
+Jika Anda mengubah ukuran slide tanpa menskalakan bentuk-bentuk, mereka akan mempertahankan posisi dan dimensi asli serta dapat melampaui batas slide. Menskalakan lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
 
-**Apakah kode yang disediakan berfungsi untuk semua jenis bentuk?**
+**Apakah kode yang diberikan bekerja untuk semua tipe bentuk?**
 
-Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak hasil, terutama teks dan tabel, karena contoh‑contoh ini tidak men‑scale ukuran font dan konten tabel dapat membatasi tinggi baris.
+Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak hasil, terutama teks dan tabel, karena contoh ini tidak memperbesar ukuran huruf dan konten tabel dapat membatasi tinggi baris.
 
 **Bagaimana cara mengubah ukuran tabel saat mengubah ukuran slide?**
 
-Skala lebar kolom dengan rasio lebar dan tinggi baris minimal dengan rasio tinggi, kemudian skala posisi tabel, seperti yang ditunjukkan pada contoh kedua.
+Skalakan lebar kolom dengan rasio lebar dan tinggi baris minimum dengan rasio tinggi, kemudian skalakan posisi tabel, seperti yang ditunjukkan pada contoh kedua.
 
-**Apakah perubahan ukuran ini bekerja untuk slide master dan slide tata letak?**
+**Apakah penskalaan ini bekerja untuk slide master dan slide tata letak?**
 
-Ya. Contoh kedua mengiterasi melalui [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) dan setiap master’s [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) serta menerapkan logika pengubahan ukuran yang sama pada bentuk‑bentuk mereka.
+Ya. Contoh kedua melakukan iterasi melalui [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) dan setiap masternya [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) serta menerapkan logika pengubahan ukuran yang sama pada bentuk-bentuk mereka.
 
-**Bisakah saya mengubah orientasi slide (potret/lanskap) bersamaan dengan mengubah ukuran?**
+**Bisakah saya mengubah orientasi slide (potret/landskap) bersamaan dengan mengubah ukuran?**
 
-Ya. Tetapkan [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor skala mencerminkan orientasi akhir.
+Ya. Atur [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor skala mencerminkan orientasi akhir.
 
-**Apakah ada batasan ukuran slide yang dapat saya tetapkan?**
+**Apakah ada batasan ukuran slide yang dapat saya atur?**
 
-Anda dapat menentukan dimensi slide khusus dengan [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/). Dimensi yang didukung juga bergantung pada format presentasi dan aplikasi yang digunakan untuk membuka berkas.
+Anda dapat menentukan dimensi slide khusus dengan [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/). Dimensi yang didukung juga tergantung pada format presentasi dan aplikasi yang digunakan untuk membuka file.
 
 **Bagaimana saya dapat mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
 
-Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli dalam dimensi slide baru, gunakan rasio yang lebih kecil antara rasio lebar dan tinggi untuk kedua dimensi serta posisi. Ini mempertahankan proporsi tetapi mungkin meninggalkan ruang kosong di salah satu sisi.
+Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli ke dalam dimensi slide baru, gunakan rasio yang lebih kecil antara lebar dan tinggi untuk kedua dimensi dan posisi. Ini mempertahankan proporsi tetapi mungkin meninggalkan ruang yang tidak terpakai di salah satu sisi.

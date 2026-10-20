@@ -1,55 +1,50 @@
 ---
-title: Vormen schalen op presentatiedia's
+title: Vormen schalen op presentatiedia's in Java
 type: docs
-weight: 110
-url: /nl/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /nl/java/resizing-shapes-on-slide/
+aliases:
+  - /java/re-sizing-shapes-on-slide/
+  - /nl/java/re-sizing-shapes-on-slide/
 keywords:
-- vorm schalen
-- vormgrootte wijzigen
-- PowerPoint
-- OpenDocument
-- presentatie
-- Java
-- Aspose.Slides
-description: "Schaal eenvoudig vormen op PowerPoint- en OpenDocument-dia's met Aspose.Slides voor Java - automatiseer dia-indelingaanpassingen en verhoog de productiviteit."
+  - vorm formaat wijzigen
+  - vormgrootte wijzigen
+  - PowerPoint
+  - OpenDocument
+  - presentatie
+  - Java
+  - Aspose.Slides
+description: "Eenvoudig vormen schalen op PowerPoint- en OpenDocument-dia's met Aspose.Slides voor Java—automatiseer dia‑lay-outaanpassingen en verhoog de productiviteit."
 ---
 ## **Overzicht**
 
-Een van de meest voorkomende vragen van Aspose.Slides for Java‑klanten is hoe vormen te schalen zodat, wanneer de dia‑grootte verandert, de gegevens niet worden afgekapt. Dit korte technische artikel laat zien hoe u dat doet.
+Wanneer je de diagrootte van een presentatie wijzigt, moet je mogelijk ook de vormen aanpassen en verplaatsen zodat ze passen binnen de nieuwe afmetingen. Dit artikel laat zien hoe je vormen handmatig kunt schalen en hoe je tabellen op dia's, masters en lay-outs kunt behandelen.
 
 ## **Vormen schalen**
 
-Om te voorkomen dat vormen scheef komen te staan wanneer de dia‑grootte verandert, werkt u de positie en afmetingen van elke vorm bij zodat ze overeenkomen met de nieuwe dia‑indeling.
+Om de relatieve positie en grootte van elke vorm te behouden, vermenigvuldig je de horizontale coördinaten en de breedte met de verhouding van de nieuwe diabreedte ten opzichte van de oorspronkelijke breedte. Pas de overeenkomstige hoogtesverhouding toe op de verticale coördinaten en de hoogte.
+
+Het eerste voorbeeld laadt een presentatie waarvan de dia's geen tabellen bevatten, verandert de dia‑grootte naar A4 en slaat het resultaat op. Het gebruikt [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) met [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) zodat de daaropvolgende lus de schaal bepaalt. De verhoudingen zijn eenheidloos; positie‑ en afmetingswaarden van vormen worden gemeten in points. Verschillende breedte‑ en hoogtesverhoudingen kunnen vormen vervormen, en het wijzigen van de afmetingen van een vorm schaalt de lettergroottes niet.
 
 ```java
-// Laad het presentatiebestand.
-Presentation presentation = new Presentation("sample.ppt");
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Haal de oorspronkelijke dia‑grootte op.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Verander de dia‑grootte zonder bestaande vormen te schalen.
+    // Bereken onafhankelijke horizontale en verticale schaalfactoren.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Haal de nieuwe dia‑grootte op.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Schaaf en verplaats vormen op elke dia.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            
-            // Schaal de vormgrootte.
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Schaal de vormpositie.
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -60,75 +55,63 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-Als een dia een tabel bevat, werkt de bovenstaande code niet correct. In dat geval moet elke cel in de tabel worden geschaald.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Tabellen vereisen een aparte behandeling: schaal hun kolombreedtes en rijhoogtes in plaats van de totale breedte en hoogte van de tabel toe te wijzen. Rijhoogtes kunnen groter blijven dan gevraagd als de celinhoud meer ruimte nodig heeft.
+{{% /alert %}}
 
-Gebruik de volgende code aan uw kant om dia's die tabellen bevatten te schalen. Voor tabellen is het instellen van de breedte of hoogte een speciaal geval: u moet de hoogte van individuele rijen en de breedte van individuele kolommen aanpassen om de totale afmeting van de tabel te wijzigen.
+Het tweede voorbeeld ondersteunt tabellen en verwerkt vormen op masters en lay-outs evenals individuele dia's vóór het opslaan van de aangepaste presentatie. De helper behandelt elke [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) door kolombreedtes te schalen met [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) en minimale rijhoogtes met [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-). Vervolgens wordt de positie van de tabel geschaald zonder de totale afmetingen apart te schalen.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // Tabelafmetingen worden beheerd door kolombreedtes en rijhoogtes.
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Haalt de oorspronkelijke dia-grootte op.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Verandert de dia-grootte zonder bestaande vormen te schalen.
+    // Bereken onafhankelijke horizontale en verticale schaalfactoren.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Haalt de nieuwe dia-grootte op.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    ShapeResizer resizer = new ShapeResizer();
 
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
+    // Schaal vormen die gedefinieerd zijn op masters en lay-outs, evenals op individuele dia's.
     for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // Schaal de vormgrootte.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Schaal de vormpositie.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // Schaal de vormgrootte.
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // Schaal de vormpositie.
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
         }
     }
 
     for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            // Schaal de vormgrootte.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Schaal de vormpositie.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
-        }
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
     }
 
     presentation.save("output.pptx", SaveFormat.Pptx);
@@ -140,23 +123,30 @@ finally {
 
 ## **FAQ**
 
-**Waarom raken vormen vervormd of worden ze afgekapt nadat een dia is geschaald?**  
-Wanneer een dia wordt geschaald, behouden vormen hun oorspronkelijke positie en grootte, tenzij de schaal expliciet wordt aangepast. Dit kan ertoe leiden dat inhoud wordt bijgesneden of dat vormen scheef komen te staan.
+**Waarom worden vormen vervormd of afgesneden na het aanpassen van een dia?**
 
-**Werkt de meegeleverde code voor alle type vormen?**  
-Het basisvoorbeeld werkt voor de meeste vormtypes (tekstvakken, afbeeldingen, grafieken, enz.). Voor tabellen moet u echter rijen en kolommen afzonderlijk behandelen, omdat de hoogte en breedte van een tabel worden bepaald door de afmetingen van individuele cellen.
+Als je de dia‑grootte verandert zonder de vormen te schalen, behouden ze hun oorspronkelijke positie en afmetingen en kunnen ze buiten de dia uitsteken. Het schalen van breedte en hoogte met verschillende verhoudingen kan vormen ook vervormen.
 
-**Hoe schaal ik tabellen bij het schalen van een dia?**  
-U moet door alle rijen en kolommen van de tabel lopen en hun hoogte en breedte proportioneel aanpassen, zoals weergegeven in het tweede code‑voorbeeld.
+**Werkt de meegeleverde code voor alle vormtypen?**
 
-**Werkt deze schaalaanpassing voor masterdia’s en lay-outdia’s?**  
-Ja, maar u moet ook door de [masterdia’s](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getMasters--) en de [lay-outdia’s](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getLayoutSlides--) lopen en dezelfde schaallogica toepassen op hun vormen om consistentie in de volledige presentatie te waarborgen.
+Het eerste voorbeeld wijzigt de vormgrenzen direct en is bedoeld voor dia's zonder tabellen. Het tweede voorbeeld behandelt tabellen apart. Controleer de resulterende lay-out, met name tekst en tabellen, omdat deze voorbeelden de lettergroottes niet schalen en tabelinhoud de rijhoogtes kan beperken.
 
-**Kan ik de oriëntatie van een dia (portret/landschap) wijzigen tegelijk met het schalen?**  
-Ja. U kunt [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islidesize/#setOrientation-int-) gebruiken om de oriëntatie te wijzigen. Zorg ervoor dat u de schaallogica dienovereenkomstig aanpast om de lay-out te behouden.
+**Hoe kan ik tabellen aanpassen wanneer ik een dia aanpas?**
 
-**Is er een limiet aan de dia‑grootte die ik kan instellen?**  
-Aspose.Slides ondersteunt aangepaste groottes, maar zeer grote afmetingen kunnen de prestaties of de compatibiliteit met sommige versies van PowerPoint beïnvloeden.
+Schaal kolombreedtes met de breedte‑verhouding en minimale rijhoogtes met de hoogte‑verhouding, en schaal vervolgens de positie van de tabel, zoals weergegeven in het tweede voorbeeld.
 
-**Hoe kan ik voorkomen dat vormen met een vaste beeldverhouding vervormen?**  
-U kunt de `getAspectRatioLocked`‑methode van de vorm controleren voordat u schaalt. Als deze vergrendeld is, past u de breedte of hoogte proportioneel aan in plaats van ze afzonderlijk te schalen.
+**Werkt deze aanpassing ook voor masterdia's en lay-outdia's?**
+
+Ja. Het tweede voorbeeld doorloopt [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) en voor elke master de [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) en past dezelfde schaallogica toe op hun vormen.
+
+**Kan ik de oriëntatie van een dia (staand/liggend) aanpassen in combinatie met het schalen?**
+
+Ja. Roep [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) aan nadat je de dia‑grootte hebt gewijzigd en vóór het uitlezen van de gewenste afmetingen, zodat de schaalfactoren de uiteindelijke oriëntatie weerspiegelen.
+
+**Is er een limiet aan de dia‑grootte die ik kan instellen?**
+
+Je kunt aangepaste dia‑afmetingen opgeven met [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-). De ondersteunde afmetingen hangen ook af van het presentatie‑formaat en de toepassing die het bestand opent.
+
+**Hoe kan ik voorkomen dat vormen met een vaste beeldverhouding vervormd raken?**
+
+Gebruik dezelfde schaalfactor voor breedte en hoogte. Om de oorspronkelijke lay-out te laten passen binnen de nieuwe dia‑afmetingen, gebruik je de kleinste van de breedte‑ en hoogte‑verhoudingen voor zowel afmetingen als posities. Dit behoudt de proporties, maar kan leiden tot ongebruikte ruimte langs één rand.

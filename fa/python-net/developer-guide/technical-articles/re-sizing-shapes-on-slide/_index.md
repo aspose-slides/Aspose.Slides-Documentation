@@ -1,9 +1,11 @@
 ---
-title: تغییر اندازه اشکال در ارائه‌ها با پایتون
-linktitle: تغییر اندازه اشکال
+title: تغییر اندازه اشکال در اسلایدهای ارائه با پایتون
 type: docs
 weight: 130
-url: /fa/python-net/re-sizing-shapes-on-slide/
+url: /fa/python-net/resizing-shapes-on-slide/
+aliases:
+  - /python-net/re-sizing-shapes-on-slide/
+  - /fa/python-net/re-sizing-shapes-on-slide/
 keywords:
 - تغییر اندازه شکل
 - تغییر اندازه شکل
@@ -12,138 +14,105 @@ keywords:
 - ارائه
 - Python
 - Aspose.Slides
-description: "به‌راحتی اشکال را در اسلایدهای PowerPoint و OpenDocument با Aspose.Slides برای پایتون از طریق .NET تغییر اندازه دهید—تنظیمات طرح اسلاید را خودکار کنید و بهره‌وری را افزایش دهید."
+description: "به راحتی با Aspose.Slides برای Python از طریق .NET، اندازه اشکال را در اسلایدهای PowerPoint و OpenDocument تغییر دهید — تنظیمات طرح اسلاید را خودکار کنید و بهره‌وری را افزایش دهید."
 ---
-## **مروری کلی**
+## **نمای کلی**
 
-یکی از رایج‌ترین سؤالات مشتریان Aspose.Slides برای Python این است که چگونه شکل‌ها را تغییر اندازه دهند تا وقتی اندازه اسلاید تغییر می‌کند، داده‌ها قطع نشوند. این مقالهٔ فنی کوتاه نشان می‌دهد چگونه این کار را انجام دهید.
+هنگام تغییر اندازه اسلاید یک ارائه، ممکن است نیاز داشته باشید شکل‌ها را دوباره مقیاس‌بندی و موقعیت‌دهی کنید تا با ابعاد جدید سازگار شوند. این مقاله نشان می‌دهد چگونه شکل‌ها را به صورت دستی مقیاس‌بندی کنید و جدول‌ها را در اسلایدها، مسترها و طرح‌بندی‌ها چگونه مدیریت کنید.
 
-## **تغییر اندازهٔ شکل‌ها**
+## **تغییر اندازه شکل‌ها**
 
-برای جلوگیری از جابجایی شکل‌ها هنگام تغییر اندازهٔ اسلاید، موقعیت و ابعاد هر شکل را به‌گونه‌ای به‌روزرسانی کنید که با طرح جدید اسلاید سازگار باشد.
+برای حفظ موقعیت نسبی و اندازه هر شکل، مختصات افقی و عرض آن را در نسبت عرض اسلاید جدید به عرض اصلی ضرب کنید. نسبت ارتفاع مربوطه را برای مختصات عمودی و ارتفاع اعمال کنید.
 
-```py
+مثال اول یک ارائه را بارگذاری می‌کند که اسلایدهای آن حاوی جدول نیستند، اندازه اسلاید را به A4 تغییر می‌دهد و نتیجه را ذخیره می‌کند. این مثال از [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) همراه با [SlideSizeScaleType.DO_NOT_SCALE](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/) استفاده می‌کند تا حلقه بعدی مقیاس‌بندی را کنترل کند. نسبت‌ها بدون واحد هستند؛ موقعیت و ابعاد شکل‌ها بر حسب نقطه اندازه‌گیری می‌شود. نسبت‌های متفاوت عرض و ارتفاع می‌توانند شکل‌ها را انحراف دهند و تغییر ابعاد شکل‌ها اندازهٔ قلم را مقیاس‌بندی نمی‌کند.
+
+```python
 import aspose.slides as slides
 
-# فایل ارائه را بارگذاری کنید.
 with slides.Presentation("sample.pptx") as presentation:
-    # اندازهٔ اسلاید اصلی را دریافت کنید.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # اندازهٔ اسلاید را بدون مقیاس‌بندی اشکال موجود تغییر دهید.
+    # محاسبه عوامل مقیاس افقی و عمودی مستقل.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # اندازهٔ اسلاید جدید را دریافت کنید.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # تغییر اندازه و جابه‌جایی اشکال در هر اسلاید.
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # مقیاس‌بندی اندازهٔ شکل.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # مقیاس‌بندی موقعیت شکل.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+            shape.x *= width_ratio
+            shape.y *= height_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
-اگر اسلاید شامل جدول باشد، کد بالا به‌درستی کار نخواهد کرد. در این حالت باید هر سلول جدول را تغییر اندازه داد.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+جدول‌ها نیاز به برخورد جداگانه دارند: عرض ستون‌ها و ارتفاع ردیف‌ها را مقیاس‌بندی کنید به جای انتساب مستقیم عرض و ارتفاع کلی جدول. ارتفاع ردیف‌ها ممکن است بزرگ‌تر از مقدار درخواستی باقی بماند اگر محتوای سلول به فضای بیشتری نیاز داشته باشد.
+{{% /alert %}}
 
-از کد زیر در سمت خود برای تغییر اندازهٔ اسلایدهایی که شامل جدول هستند استفاده کنید. برای جداول، تنظیم عرض یا ارتفاع یک مورد ویژه است: باید ارتفاع ردیف‌ها و عرض ستون‌ها را به‌صورت جداگانه تنظیم کنید تا اندازهٔ کلی جدول تغییر کند.
-
-```py
+مثال دوم از جدول‌ها پشتیبانی می‌کند و شکل‌ها را نه تنها در اسلایدهای منفرد بلکه در مسترها و طرح‌بندی‌ها نیز پیش از ذخیرهٔ ارائهٔ تغییر اندازهٔ یافته پردازش می‌کند. این کمک‌کننده هر [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) را با مقیاس‌بندی [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) و [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) مدیریت می‌کند. سپس موقعیت جدول را بدون مقیاس‌بندی جداگانهٔ ابعاد کلی آن مقیاس‌بندی می‌نماید.
+```python
 import aspose.slides as slides
 
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, slides.Table):
+            # ابعاد جدول توسط عرض ستون‌ها و ارتفاع ردیف‌ها کنترل می‌شود.
+            for column in shape.columns:
+                column.width *= width_ratio
+
+            for row in shape.rows:
+                row.minimal_height *= height_ratio
+        else:
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+
+        shape.x *= width_ratio
+        shape.y *= height_ratio
+
+
 with slides.Presentation("sample.pptx") as presentation:
-    # اندازهٔ اسلاید اصلی را دریافت کنید.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # اندازهٔ اسلاید را بدون مقیاس‌بندی اشکال موجود تغییر دهید.
+    # محاسبه عوامل مقیاس افقی و عمودی مستقل.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # اندازهٔ اسلاید جدید را دریافت کنید.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # تغییر اندازه اشکالی که در مسترها، طرح‌بندی‌ها و اسلایدهای جداگانه تعریف شده‌اند.
     for master in presentation.masters:
-        for shape in master.shapes:
-            # مقیاس‌بندی اندازهٔ شکل.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # مقیاس‌بندی موقعیت شکل.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+        resize_shapes(master.shapes, width_ratio, height_ratio)
 
         for layout_slide in master.layout_slides:
-            for shape in layout_slide.shapes:
-                # مقیاس‌بندی اندازهٔ شکل.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # مقیاس‌بندی موقعیت شکل.
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
+            resize_shapes(layout_slide.shapes, width_ratio, height_ratio)
 
     for slide in presentation.slides:
-        for shape in slide.shapes:
-            # مقیاس‌بندی اندازهٔ شکل.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # مقیاس‌بندی موقعیت شکل.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
-            if type(shape) is slides.Table:
-                for row in shape.rows:
-                    row.minimal_height = row.minimal_height * height_ratio
-                for column in shape.columns:
-                    column.width = column.width * width_ratio
+        resize_shapes(slide.shapes, width_ratio, height_ratio)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **سوالات متداول**
 
-**چرا پس از تغییر اندازهٔ اسلاید، شکل‌ها کشیده یا قطع می‌شوند؟**
+**چرا پس از تغییر اندازه اسلاید، شکل‌ها مخدوش یا قطع می‌شوند؟**  
+اگر اندازه اسلاید را بدون مقیاس‌بندی شکل‌ها تغییر دهید، موقعیت و ابعاد اولیهٔ آنها باقی می‌ماند و ممکن است از مرز اسلاید فراتر رود. مقیاس‌بندی عرض و ارتفاع با نسبت‌های متفاوت نیز می‌تواند شکل‌ها را مخدوش کند.
 
-هنگام تغییر اندازهٔ اسلاید، شکل‌ها موقعیت و اندازهٔ اصلی خود را حفظ می‌کنند مگر اینکه مقیاس به‌صورت صریح تغییر کند. این می‌تواند منجر به برش محتوا یا جابجایی شکل‌ها شود.
+**آیا کد ارائه‌شده برای تمام انواع شکل‌ها کار می‌کند؟**  
+مثال اول مستقیماً مرزهای شکل را تغییر می‌دهد و برای اسلایدهایی بدون جدول در نظر گرفته شده است. مثال دوم جدول‌ها را جداگانه مدیریت می‌کند. طرح‌بندی نهایی، به‌ویژه متن و جدول‌ها را بررسی کنید، زیرا این مثال‌ها اندازهٔ قلم را مقیاس‌بندی نمی‌کنند و محتوای جدول می‌تواند ارتفاع ردیف‌ها را محدود کند.
 
-**آیا کد ارائه شده برای تمام انواع شکل‌ها کار می‌کند؟**
+**چگونه هنگام تغییر اندازه اسلاید، جدول‌ها را نیز تغییر اندازه دهم؟**  
+عرض ستون‌ها را با نسبت عرض و ارتفاع حداقل ردیف‌ها را با نسبت ارتفاع مقیاس‌بندی کنید، سپس موقعیت جدول را مقیاس‌بندی کنید، همان‌طور که در مثال دوم نشان داده شده است.
 
-مثال پایه برای اکثر انواع شکل‌ها (جعبه‌های متن، تصاویر، نمودارها و غیره) کار می‌کند. اما برای جداول، باید ردیف‌ها و ستون‌ها را جداگانه مدیریت کنید، چون ارتفاع و عرض جدول توسط ابعاد سلول‌های فردی تعیین می‌شود.
+**آیا این تغییر اندازه برای مستر اسلایدها و اسلایدهای طرح‌بندی نیز اعمال می‌شود؟**  
+بله. مثال دوم از طریق [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) و هر [MasterSlide.layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) می‌گذرد و همان منطق تغییر اندازه را بر شکل‌های آنها اعمال می‌کند.
 
-**چگونه هنگام تغییر اندازهٔ اسلاید، جدول‌ها را تغییر اندازه دهم؟**
+**آیا می‌توانم جهت اسلاید (عمودی/افقی) را همراه با تغییر اندازه تغییر دهم؟**  
+بله. پس از تغییر اندازه اسلاید و پیش از خواندن ابعاد هدف، [SlideSize.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/orientation/) را تنظیم کنید تا عوامل مقیاس نهایی نمایانگر جهت نهایی باشند.
 
-باید در تمام ردیف‌ها و ستون‌های جدول پیمایش کنید و ارتفاع و عرض آن‌ها را به‌صورت نسبی تغییر دهید، همان‌طور که در مثال دوم کد نشان داده شده است.
+**آیا محدودیتی برای اندازه اسلایدی که می‌توانم تنظیم کنم وجود دارد؟**  
+می‌توانید ابعاد سفارشی اسلاید را با [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) مشخص کنید. ابعاد پشتیبانی‌شده همچنین به فرمت ارائه و برنامه‌ای که فایل را باز می‌کند بستگی دارد.
 
-**آیا این تغییر اندازه برای اسلایدهای مستر و اسلایدهای طرح‌بندی نیز کاربرد دارد؟**
-
-بله، اما همچنین باید در [Masters](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/masters/) و [Layout slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/layout_slides/) پیمایش کنید و منطق مقیاس‌گذاری یکسان را بر روی شکل‌های آن‌ها اعمال کنید تا در سراسر ارائه سازگاری حفظ شود.
-
-**آیا می‌توانم جهت اسلاید (پرتره/لنداسکیپ) را همراه با تغییر اندازه تغییر دهم؟**
-
-بله. می‌توانید از [presentation.slide_size.orientation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/islidesize/orientation/) برای تغییر جهت استفاده کنید. مطمئن شوید منطق مقیاس‌گذاری را به‌گونه‌ای تنظیم کنید که طرح حفظ شود.
-
-**آیا محدودیتی برای اندازهٔ اسلایدی که می‌توانم تنظیم کنم وجود دارد؟**
-
-Aspose.Slides از اندازه‌های سفارشی پشتیبانی می‌کند، اما اندازه‌های بسیار بزرگ ممکن است بر عملکرد یا سازگاری با برخی نسخه‌های PowerPoint تأثیر بگذارند.
-
-**چگونه می‌توانم از کشیده شدن اشکال با نسبت تصویر ثابت جلوگیری کنم؟**
-
-قبل از مقیاس‌گذاری می‌توانید ویژگی `aspect_ratio_locked` شکل را بررسی کنید. اگر قفل باشد، به‌جای مقیاس‌گذاری جداگانهٔ عرض و ارتفاع، آنها را به‌صورت متناسب تنظیم کنید.
+**چگونه می‌توانم از مخدوش شدن اشکالی که نسبت ابعاد ثابت دارند جلوگیری کنم؟**  
+از همان عامل مقیاس برای عرض و ارتفاع استفاده کنید. برای جایگذاری طرح‌بندی اصلی در ابعاد جدید اسلاید، از نسبت کوچکتر بین عرض و ارتفاع برای هر دو بعد و موقعیت‌ها استفاده کنید. این کار نسبت‌ها را حفظ می‌کند اما ممکن است فضای خالی در یک لبه باقی بگذارد.

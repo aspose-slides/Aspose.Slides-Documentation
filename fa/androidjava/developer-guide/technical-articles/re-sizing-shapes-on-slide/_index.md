@@ -1,36 +1,37 @@
 ---
-title: تغییر اندازه اشکال در اسلایدهای ارائه بر روی Android
+title: تغییر اندازه اشکال در اسلایدهای ارائه بر روی اندروید
 type: docs
 weight: 130
 url: /fa/androidjava/resizing-shapes-on-slide/
 aliases:
+  - /androidjava/re-sizing-shapes-on-slide/
   - /fa/androidjava/re-sizing-shapes-on-slide/
 keywords:
-- تغییر اندازه شکل
-- تغییر اندازه شکل
-- PowerPoint
-- OpenDocument
-- ارائه
-- Android
-- Aspose.Slides
-description: "به راحتی اشکال را در اسلایدهای PowerPoint و OpenDocument با Aspose.Slides برای Android از طریق Java تغییر اندازه دهید—تنظیمات طرح اسلاید را خودکار کنید و بهره‌وری را افزایش دهید."
+  - تغییر اندازه شکل
+  - تغییر اندازه شکل
+  - PowerPoint
+  - OpenDocument
+  - ارائه
+  - Android
+  - Aspose.Slides
+description: "به راحتی اشکال را در اسلایدهای PowerPoint و OpenDocument با Aspose.Slides برای Android از طریق Java تغییر اندازه دهید - تنظیمات چیدمان اسلایدها را خودکار کنید و بهره‌وری را افزایش دهید."
 ---
 ## **مرور کلی**
 
-هنگامی که اندازه اسلاید ارائه را تغییر می‌دهید، ممکن است نیاز داشته باشید اشکال آن را نیز برای سازگار شدن با ابعاد جدید تغییر اندازه و موقعیت دهید. این مقاله نشان می‌دهد چگونه اشکال را به صورت دستی مقیاس‌بندی کنید و چگونه جداول را در اسلایدها، مسترها و چیدمان‌ها مدیریت کنید.
+هنگامی که اندازه اسلاید یک ارائه را تغییر می‌دهید، ممکن است لازم باشد تا اشکال آن را برای هماهنگی با ابعاد جدید، دوباره‌سایز و بازجایگذاری کنید. این مقاله نشان می‌دهد چگونه اشکال را به صورت دستی مقیاس‌بندی کنید و چگونه جدول‌ها را در اسلایدها، مسترها و طرح‌بندی‌ها مدیریت کنید.
 
 ## **تغییر اندازه اشکال**
 
-برای حفظ موقعیت و اندازه نسبی هر شکل، مختصات افقی و عرض آن را در نسبت عرض اسلاید جدید به عرض اصلی ضرب کنید. نسبت ارتفاع مربوطه را بر مختصات عمودی و ارتفاع آن اعمال کنید.
+برای حفظ موقعیت و اندازه نسبی هر شکل، مختصات افقی و عرض آن را در نسبت عرض اسلاید جدید به عرض اصلی ضرب کنید. نسبت ارتفاع مربوطه را بر مختصات عمودی و ارتفاع اعمال کنید.
 
-مثال اول ارائه‌ای را بارگذاری می‌کند که اسلایدهای آن حاوی جدول نیستند، اندازه اسلاید را به A4 تغییر می‌دهد و نتیجه را ذخیره می‌کند. از [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-int-int-) با [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesizescaletype/#DoNotScale) استفاده می‌کند تا حلقهٔ بعدی مقیاس‌بندی را کنترل کند. نسبت‌ها بدون واحد هستند؛ موقعیت و ابعاد اشکال بر حسب نقطه اندازه‌گیری می‌شوند. نسبت‌های متفاوت عرض و ارتفاع می‌توانند باعث تحریف اشکال شوند و تغییر ابعاد یک شکل اندازهٔ قلم‌ها را مقیاس‌بندی نمی‌کند.
+مثال اول ارائه‌ای را بارگذاری می‌کند که اسلایدهای آن حاوی جدول نیستند، اندازه اسلاید را به A4 تغییر می‌دهد و نتیجه را ذخیره می‌کند. از [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-int-int-) با [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesizescaletype/#DoNotScale) استفاده می‌کند تا حلقه بعدی مقیاس‌بندی را کنترل کند. نسبت‌ها بدون واحد هستند؛ موقعیت‌ها و ابعاد اشکال بر پایهٔ نقطه‌اند. نسبت‌های متفاوت عرض و ارتفاع می‌توانند اشکال را اعوجاج دهند و تغییر ابعاد یک شکل اندازهٔ قلم‌ها را مقیاس‌بندی نمی‌کند.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // محاسبه عوامل مقیاس افقی و عمودی مستقل.
+    // محاسبه عوامل مقیاس افقی و عمودی به صورت مستقل.
     float originalWidth = (float) presentation.getSlideSize().getSize().getWidth();
     float originalHeight = (float) presentation.getSlideSize().getSize().getHeight();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
@@ -54,10 +55,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-جداول نیاز به مدیریت جداگانه دارند: عرض ستون‌ها و ارتفاع ردیف‌ها را مقیاس‌بندی کنید به جای اینکه عرض و ارتفاع کلی جدول را تعیین کنید. ارتفاع ردیف‌ها ممکن است بزرگتر از مقدار درخواستی باقی بماند اگر محتوای سلول به فضای بیشتری نیاز داشته باشد.
+جدول‌ها نیاز به پردازش جداگانه دارند: عرض ستون‌ها و ارتفاع ردیف‌ها را مقیاس‌بندی کنید به جای اختصاص عرض و ارتفاع کلی جدول. ارتفاع ردیف‌ها ممکن است بزرگ‌تر از مقدار خواسته‌شده بماند اگر محتوای سلول به فضای بیشتری نیاز داشته باشد.
 {{% /alert %}}
 
-مثال دوم از جداول پشتیبانی می‌کند و اشکال را نه تنها در اسلایدهای منفرد بلکه در مسترها و چیدمان‌ها نیز پردازش می‌کند پیش از ذخیرهٔ ارائهٔ تغییر اندازه یافته. کمک‌کشان آن هر [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) را با مقیاس‌بندی عرض ستون‌ها با [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) و حداقل ارتفاع ردیف‌ها با [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) مدیریت می‌کند. سپس موقعیت جدول را بدون مقیاس‌بندی جداگانهٔ ابعاد کلی آن مقیاس‌بندی می‌کند.
+مثال دوم جدول‌ها را پشتیبانی می‌کند و اشکال را نه تنها در اسلایدهای منفرد بلکه در مسترها و طرح‌بندی‌ها نیز پیش از ذخیرهٔ ارائهٔ تغییر اندازه شده پردازش می‌کند. helper آن هر [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) را با مقیاس‌بندی عرض ستون‌ها با [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) و ارتفاع حداقل ردیف‌ها با [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) مدیریت می‌کند. سپس موقعیت جدول را بدون مقیاس‌بندی جداگانهٔ ابعاد کلی‌اش مقیاس می‌دهد.
 ```java
 import com.aspose.slides.*;
 
@@ -88,7 +89,7 @@ class ShapeResizer {
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // محاسبه عوامل مقیاس افقی و عمودی مستقل.
+    // عوامل مقیاس افقی و عمودی به صورت مستقل محاسبه می‌شوند.
     float originalWidth = (float) presentation.getSlideSize().getSize().getWidth();
     float originalHeight = (float) presentation.getSlideSize().getSize().getHeight();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
@@ -97,7 +98,7 @@ try {
 
     ShapeResizer resizer = new ShapeResizer();
 
-    // تغییر اندازه اشکالی که در مسترها و چیدمان‌ها و همچنین اسلایدهای منفرد تعریف شده‌اند.
+    // تغییر اندازه اشکال تعریف‌شده در مسترها و طرح‌بندی‌ها و همچنین اسلایدهای منفرد.
     for (IMasterSlide master : presentation.getMasters()) {
         resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
@@ -117,32 +118,32 @@ finally {
 }
 ```
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چرا پس از تغییر اندازه اسلاید اشکال تحریف یا قطع می‌شوند؟**
+**چرا اشکال پس از تغییر اندازه اسلاید دچار اعوجاج یا قطع می‌شوند؟**
 
-اگر اندازه اسلاید را بدون مقیاس‌بندی اشکال تغییر دهید، آنها موقعیت و ابعاد اصلی خود را حفظ می‌کنند و ممکن است خارج از محدوده اسلاید گسترش یابند. مقیاس‌بندی عرض و ارتفاع با نسبت‌های متفاوت نیز می‌تواند باعث تحریف اشکال شود.
+اگر اسلاید را بدون مقیاس‌بندی اشکال تغییر اندازه دهید، آن‌ها موقعیت و ابعاد اصلی خود را حفظ می‌کنند و ممکن است خارج از اسلاید گسترش یابند. مقیاس‌بندی عرض و ارتفاع با نسبت‌های متفاوت نیز می‌تواند باعث اعوجاج اشکال شود.
 
-**آیا کد ارائه‌شده برای تمام انواع اشکال کار می‌کند؟**
+**آیا کد ارائه‌شده برای تمام انواع شکل‌ها کار می‌کند؟**
 
-مثال اول مرزهای شکل را به‌طور مستقیم تغییر می‌دهد و برای اسلایدهایی بدون جدول در نظر گرفته شده است. مثال دوم جداول را به صورت جداگانه مدیریت می‌کند. چیدمان حاصل را به‌خصوص متن و جداول بررسی کنید، زیرا این مثال‌ها اندازهٔ قلم‌ها را مقیاس‌بندی نمی‌کنند و محتوای جدول می‌تواند ارتفاع ردیف‌ها را محدود کند.
+مثال اول به‌صورت مستقیم حدود شکل‌ها را تغییر می‌دهد و برای اسلایدهایی بدون جدول در نظر گرفته شده است. مثال دوم جدول‌ها را جداگانه پردازش می‌کند. پس از اجرا طرح‌بندی نهایی، به‌خصوص متن و جدول‌ها را بررسی کنید، زیرا این مثال‌ها اندازهٔ قلم‌ها را مقیاس‌بندی نمی‌کنند و محتوای جدول می‌تواند ارتفاع ردیف‌ها را محدود کند.
 
-**چگونه هنگام تغییر اندازه اسلاید جداول را مقیاس‌بندی کنم؟**
+**چگونه هنگام تغییر اندازه اسلاید، جدول‌ها را تغییر اندازه دهم؟**
 
-عرض ستون‌ها را با نسبت عرض و حداقل ارتفاع ردیف‌ها را با نسبت ارتفاع مقیاس‌بندی کنید، سپس موقعیت جدول را همان‌گونه که در مثال دوم نشان داده شده است مقیاس‌بندی کنید.
+عرض ستون‌ها را با نسبت عرض مقیاس‌بندی کنید و ارتفاع حداقل ردیف‌ها را با نسبت ارتفاع، سپس موقعیت جدول را مقیاس‌بندی کنید، همان‌طور که در مثال دوم نشان داده شده است.
 
-**آیا این تغییر اندازه برای اسلایدهای مستر و اسلایدهای چیدمان کار خواهد کرد؟**
+**آیا این تغییر اندازه برای اسلایدهای مستر و اسلایدهای طرح‌بندی نیز اعمال می‌شود؟**
 
-بله. مثال دوم از طریق [Presentation.getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) و هر مستر از طریق [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/#getLayoutSlides--) عبور می‌کند و همان منطق تغییر اندازه را بر اشکال آنها اعمال می‌کند.
+بله. مثال دوم از طریق [Presentation.getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) و هر [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/#getLayoutSlides--) عبور می‌کند و همان منطق تغییر اندازه را بر اشکال آن‌ها اعمال می‌نماید.
 
-**آیا می‌توانم جهت اسلاید (عمودی/افقی) را همراه با تغییر اندازه تغییر دهم؟**
+**آیا می‌توانم جهت اسلاید (پرتره/لنداسکیپ) را همزمان با تغییر اندازه تغییر دهم؟**
 
-بله. پس از تغییر اندازه اسلاید و پیش از خواندن ابعاد هدف، [SlideSize.setOrientation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setOrientation-int-) را فراخوانی کنید تا عوامل مقیاس نهایی جهت‌گیری نهایی را منعکس کنند.
+بله. پس از تغییر اندازه اسلاید و پیش از خواندن ابعاد هدف، متد [SlideSize.setOrientation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setOrientation-int-) را فراخوانی کنید تا عوامل مقیاس‌گذاری جهت نهایی را منعکس کنند.
 
-**آیا محدودیتی برای اندازه اسلایدی که می‌توانم تنظیم کنم وجود دارد؟**
+**آیا محدودیتی برای اندازهٔ اسلایدی که می‌توانم تنظیم کنم وجود دارد؟**
 
-می‌توانید ابعاد سفارشی اسلاید را با [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) مشخص کنید. ابعاد پشتیبانی‌شده همچنین به فرمت ارائه و برنامه‌ای که برای باز کردن فایل استفاده می‌شود وابسته است.
+می‌توانید ابعاد سفارشی اسلاید را با [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) مشخص کنید. ابعاد پشتیبانی‌شده همچنین به قالب ارائه و برنامه‌ای که فایل را باز می‌کند، وابسته است.
 
-**چگونه می‌توانم از تحریف اشکال با نسبت عرض‑ارتفاع ثابت جلوگیری کنم؟**
+**چگونه می‌توانم از تغییر شکل اشکالی که نسبت ابعاد ثابت دارند جلوگیری کنم؟**
 
-از همان عامل مقیاس برای عرض و ارتفاع استفاده کنید. برای قرارگیری چیدمان اصلی در ابعاد جدید اسلاید، از کوچکترین نسبت عرض یا ارتفاع برای هر دو بعد و موقعیت‌ها استفاده کنید. این کار نسبت‌ها را حفظ می‌کند اما ممکن است فضای خالی در یک لبه باقی بگذارد.
+از همان عامل مقیاس برای عرض و ارتفاع استفاده کنید. برای جاگذاری طرح‌بندی اصلی در ابعاد جدید اسلاید، از کوچکتر مقدار نسبت عرض و ارتفاع برای هر دو بعد و موقعیت استفاده کنید. این کار نسبت‌ها را حفظ می‌کند اما ممکن است فضای خالی در یک لبه باقی بگذارد.
