@@ -1,17 +1,17 @@
 ---
 title: Python üzerinden Java ile PPT ve PPTX'i PDF'ye dönüştürün [Gelişmiş Özellikler Dahildir]
-linktitle: PowerPoint'ten PDF
+linktitle: PowerPoint'ten PDF'ye
 type: docs
 weight: 40
 url: /tr/python-java/convert-powerpoint-to-pdf/
 keywords:
 - PowerPoint dönüştür
 - sunumu dönüştür
-- PowerPoint PDF'ye
+- PowerPoint'ten PDF'ye
 - sunumu PDF'ye
-- PPT PDF'ye
+- PPT'den PDF'ye
 - PPT'yi PDF'ye dönüştür
-- PPTX PDF'ye
+- PPTX'ten PDF'ye
 - PPTX'i PDF'ye dönüştür
 - PowerPoint'i PDF olarak kaydet
 - PPT'yi PDF olarak kaydet
@@ -25,36 +25,34 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides kullanarak Python üzerinden Java ile PowerPoint PPT/PPTX'i yüksek kaliteli, aranabilir PDF'lere dönüştürün, hızlı kod örnekleri ve gelişmiş dönüşüm seçenekleriyle."
+description: "Aspose.Slides kullanarak Python üzerinden Java ile PowerPoint PPT/PPTX dosyalarını yüksek kaliteli, aranabilir PDF'lere dönüştürün, hızlı kod örnekleri ve gelişmiş dönüşüm seçenekleriyle."
 ---
 ## **Genel Bakış**
 
-PowerPoint sunumlarını (PPT, PPTX, ODP vb.) Python üzerinden Java ile PDF formatına dönüştürmek, farklı cihazlar arasında uyumluluk, sunumunuzun düzen ve biçimlendirmesinin korunması gibi çeşitli avantajlar sunar. Bu kılavuz, sunumları PDF belgelere nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları eklemeyi, PDF dosyalarını şifrelemeyi, yazı tipi ikamelerini tespit etmeyi, dönüştürme için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartları uygulamayı göstermektedir.
+PowerPoint sunumlarını (PPT, PPTX, ODP vb.) Python üzerinden Java ile PDF formatına dönüştürmek, çeşitli avantajlar sunar; farklı cihazlar arasında uyumluluk ve sunumunuzun düzeni ile biçimlendirmesinin korunması gibi. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları eklemeyi, PDF dosalarını parola ile korumayı, yazı tipi ikamelerini tespit etmeyi, dönüştürme için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartlarını uygulamayı gösterir.
 
-## **PowerPoint'ten PDF Dönüşümleri**
+## **PowerPoint'ten PDF'ye Dönüştürmeler**
 
-Aspose.Slides kullanarak aşağıdaki formatlardaki sunumları PDF'ye dönüştürebilirsiniz:
+Aspose.Slides'ı kullanarak, aşağıdaki formatlardaki sunumları PDF'ye dönüştürebilirsiniz:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Bir sunumu PDF'ye dönüştürmek için dosya adını [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) sınıfına argüman olarak geçirin ve ardından sunumu [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) yöntemiyle PDF olarak kaydedin. [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) yöntemini ortaya çıkarır.
+Bir sunumu PDF'ye dönüştürmek için, dosya adını [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) sınıfına bir argüman olarak geçirip, sonrasında sunumu [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) yöntemi ile PDF olarak kaydedin. [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) sınıfı, tipik olarak bir sunumu PDF'ye dönüştürmek için kullanılan [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) yöntemini sunar.
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides for Python via Java, API bilgisi ve sürüm numarasını çıktı belgelerine ekler. Örneğin, bir sunumu PDF'ye dönüştürürken Aspose.Slides, Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" biçiminde bir değerle doldurur. **Not** bu bilgiyi çıktı belgelerinden değiştiremez veya kaldıramazsınız.
-
+Aspose.Slides for Python via Java, çıktı belgelerine API bilgisi ve sürüm numarasını ekler. Örneğin, bir sunumu PDF'ye dönüştürürken, Aspose.Slides Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" biçiminde doldurur. **Not** Aspose.Slides'in bu bilgileri çıktı belgelerinden değiştirmenize veya kaldırmanıza izin vermediğini unutmayın.
 {{% /alert %}}
 
-Aspose.Slides, aşağıdakileri dönüştürmenize izin verir:
+Aspose.Slides size şunları dönüştürme imkanı verir:
 
 * Tüm sunumları PDF'ye
 * Bir sunumdan belirli slaytları PDF'ye
 
-Aspose.Slides, sunumları PDF'ye dışa aktararak elde edilen PDF'lerin orijinal sunumlara çok yakın olmasını sağlar. Dönüşüm sırasında öğeler ve özellikler doğru bir şekilde işlenir, örneğin:
+Aspose.Slides, sunumları PDF'ye dışa aktarır ve ortaya çıkan PDF'lerin orijinal sunumlara yakın olmasını sağlar. Dönüşüm sırasında öğeler ve öznitelikler doğru bir şekilde işlenir, şunlar dahil:
 
-* Görseller
+* Görüntüler
 * Metin kutuları ve şekiller
 * Metin biçimlendirme
 * Paragraf biçimlendirme
@@ -63,13 +61,11 @@ Aspose.Slides, sunumları PDF'ye dışa aktararak elde edilen PDF'lerin orijinal
 * Madde işaretleri
 * Tablolar
 
-## **PowerPoint'ten PDF'ye Dönüştürme**
+## **PowerPoint'i PDF'ye Dönüştür**
 
-Standart dönüşüm, varsayılan PDF dışa aktarma ayarlarını kullanır. Görüntü kalitesi, sayfa içeriği veya PDF uyumluluğunu kontrol etmeniz gerektiğinde özel seçenekler kullanın.
+Standart dönüşüm,varsayılan PDF dışa aktarma ayarlarını kullanır. Görüntü kalitesini, sayfa içeriğini veya PDF uyumluluğunu kontrol etmeniz gerektiğinde özel seçenekler kullanın.
 
-[Aspose.Slides for Python via Java](/slides/tr/python-java/installation/) ve uyumlu bir Java çalışma zamanı kurarak örnekleri çalıştırın. Her örnek, geçerli çalışma dizinindeki `presentation.pptx` dosyasını okur; bunu kendi PPT, PPTX veya ODP dosyanızla değiştirin. JVM'yi Python işlemi başına bir kez başlatın.
-
-Aşağıdaki örnek, bir sunumu yükler ve varsayılan dışa aktarma ayarlarıyla tüm görünür slaytları PDF olarak kaydeder.
+Aşağıdaki örnek, bir sunumu yükler ve tüm görünen slaytları varsayılan dışa aktarma ayarlarıyla PDF'ye kaydeder.
 
 ```python
 import jpype
@@ -88,32 +84,30 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-
-Aspose, ücretsiz bir çevrimiçi [**PowerPoint'ten PDF dönüştürücü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar; bu, burada açıklanan dönüşüm sürecinin canlı bir uygulamasını test etmenizi sağlar.
-
+Aspose, sunumdan PDF'ye dönüşüm sürecini gösteren ücretsiz bir çevrimiçi [**PowerPoint'ten PDF'ye dönüştürücü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar. Burada açıklanan prosedürün canlı bir uygulamasını test etmek için bu dönüştürücüyü kullanabilirsiniz.
 {{% /alert %}}
 
-## **PowerPoint'ten PDF'ye Dönüştürme – Seçeneklerle**
+## **Seçeneklerle PowerPoint'i PDF'ye Dönüştür**
 
-Aspose.Slides, [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfı altında bulunan özelleştirilebilir seçenekler—özellikler—sağlayarak oluşturulan PDF'yi özelleştirmenize, PDF'yi şifreyle kilitlemenize veya dönüşüm sürecinin nasıl ilerleyeceğini belirlemenize olanak tanır.
+Aspose.Slides, sonuç PDF'yi özelleştirmenize, PDF'yi bir parola ile kilitlemenize veya dönüşüm sürecinin nasıl ilerleyeceğini belirlemenize olanak tanıyan, [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfı altındaki özel seçenekler—özellikler—sağlar.
 
-### **PowerPoint'ten PDF'ye Özelleştirilmiş Seçeneklerle Dönüştürme**
+### **Özel Seçeneklerle PowerPoint'i PDF'ye Dönüştür**
 
-Özel dönüşüm seçenekleriyle raster görüntüler için tercih edilen kalite ayarını, metafile'ların nasıl işleneceğini, metin için sıkıştırma seviyesini, görüntüler için DPI ayarını ve daha fazlasını tanımlayabilirsiniz.
+Özel dönüşüm seçeneklerini kullanarak, raster görüntüler için tercih ettiğiniz kalite ayarını belirleyebilir, metafile'ların nasıl işleneceğini belirtebilir, metin için sıkıştırma seviyesini ayarlayabilir, görüntüler için DPI'yi yapılandırabilir ve daha fazlasını yapabilirsiniz.
 
-Aşağıdaki örnek, PDF 1.5 formatına JPEG kalitesi %90, görüntü çözünürlüğü 300 DPI, metafile'lar PNG olarak kaydedilir ve Flate metin sıkıştırması uygulanır şekilde bir sunumu dışa aktarır.
+İşte aşağıdaki örnek, bir sunumu PDF 1.5 olarak dışa aktarır; JPEG kalitesi 90, görüntü çözünürlüğü 300 DPI, metafile'lar PNG olarak kaydedilir ve Flate metin sıkıştırması kullanılır.
 
 ```python
-import jpype
+import jpade
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpade.isJVMStarted():
+    jpade.startJVM()
 
 from asposeslides.api import PdfCompliance, PdfOptions, PdfTextCompression, Presentation, SaveFormat
 
 pdf_options = PdfOptions()
-pdf_options.setJpegQuality(jpype.JByte(90))
+pdf_options.setJpegQuality(jpade.JByte(90))
 pdf_options.setSufficientResolution(300)
 pdf_options.setSaveMetafilesAsPng(True)
 pdf_options.setTextCompression(PdfTextCompression.Flate)
@@ -126,13 +120,42 @@ finally:
     presentation.dispose()
 ```
 
-### **Gömülü OLE Dosyalarını PDF Ekleri Olarak Korumak**
+### **Görüntü Sıkıştırmasını Otomatik Olarak Seç**
 
-Bir sunum gömülü bir Excel çalışma kitabı içeriyorsa, PDF alıcılarının hem slaytları görüntüleyebilmesini hem de çalışma kitabının verilerine erişebilmesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak tutmak için `[setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData)` yöntemini `True` olarak çağırın.
+Bir sunumda birçok fotoğraf veya ekran görüntüsü bulunduğunda, dışa aktarılan PDF'nin boyutunu azaltmak e-posta göndermeyi veya indirmeyi kolaylaştırabilir. PDF dışa aktarımı sırasında her görüntü için en uygun sıkıştırma algoritmasını otomatik olarak seçmek için [PdfOptions.setBestImagesCompressionRatio](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setBestImagesCompressionRatio) yöntemini `True` ile çağırın.
 
-Varsayılan değer `False`'tur: OLE nesnesinin ön izleme görüntüsü veya simgesi PDF sayfasında render edilir, ancak gömülü dosya ek olarak dahil edilmez. Seçeneği `True` olarak ayarlamak, dosya verilerini ayrıca ekler. Ön izleme görsel bir temsil olmaya devam eder; ek ise alıcıların gömülü dosyayı ayrı ayrı açıp kaydetmesine izin verir. OLE nesnesi PDF sayfasında etkileşimli bir Excel çalışma sayfasına dönüşmez.
+Aşağıdaki örnek, mevcut bir sunumu yükler, otomatik görüntü sıkıştırma seçimini etkinleştirir ve bir PDF belgesi olarak kaydeder. Diğer tüm PDF dışa aktarma ayarları varsayılan değerlerini korur.
 
-Aşağıdaki örnek, zaten gömülü bir Excel çalışma kitabı içeren bir sunumu yükler ve çalışma kitabını ek olarak tutarak PDF'ye dışa aktarır.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setBestImagesCompressionRatio(True)
+
+presentation = Presentation("image-heavy.pptx")
+try:
+    presentation.save("image-heavy.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+Bu seçenek her görüntü için bir sıkıştırma algoritması seçer. [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) yöntemine geçirilen değeri azaltmak JPEG görüntü kalitesini düşürür, [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) yöntemine geçirilen değeri azaltmak ise görüntülerin daha düşük çözünürlüğe düşürülmesini sağlar ve detay kaybına yol açabilir. Otomatik sıkıştırma seçimini etkinleştirmek, bu ayarların kendisini düşürmez.
+
+Görüntü sıkıştırma algoritmalarını seçmek ek işlem süresi ve bellek gerektirir. Boyut azalması, sunumun görüntülerine ve dışa aktarma ayarlarına bağlıdır; her sunum için sabit bir azalma garantilenmez.
+
+### **Gömülü OLE Dosyalarını PDF Ekleri Olarak Koru**
+
+Biri gömülü bir Excel çalışma kitabı içeriyorsa, PDF alıcılarının çalışma kitabının verilerine erişmesini ve aynı zamanda slaytları görüntülemesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak korumak için [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) yöntemini `True` ile çağırın.
+
+Varsayılan değer `False`'tır: OLE nesnesinin ön izleme görüntüsü veya simgesi PDF sayfasına işlenir, ancak gömülü dosya ek olarak eklenmez. Seçeneği `True` olarak ayarlamak, dosya verilerini ek olarak ekler. Ön izleme görsel bir temsil olarak kalır; ek, alıcıların gömülü dosyayı ayrı olarak açmasına veya kaydetmesine olanak tanır. OLE nesnesi PDF sayfasında etkileşimli bir Excel çalışma sayfasına dönüşmez.
+
+Aşağıdaki örnek, gömülü bir Excel çalışma kitabı zaten içeren bir sunumu yükler ve çalışma kitabı ekli olarak PDF'ye dışa aktarır.
 
 ```python
 import jpype
@@ -155,21 +178,19 @@ finally:
 
 Sonucu kontrol etmek için:
 
-1. PDF'yi, ekleri destekleyen bir görüntüleyicide (ör. Adobe Acrobat Reader) açın.
+1. Adobe Acrobat Reader gibi dosya eklerini destekleyen bir görüntüleyicide dışa aktarılan PDF'yi açın.
 2. Görüntüleyicinin **Attachments** panelini açın ve gömülü çalışma kitabını bulun.
-3. Eki kaydedin ve verilerini incelemek için Excel'de açın veya görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki ön izleme, ekten ayrı bir öğedir.
+3. Ek'i kaydedin ve verilerini incelemek için Excel'de açın, ya da görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki ön izleme, eklentiyle ayrı bir öğedir.
 
 {{% alert color="info" title="Note" %}}
-
-PDF/A standartları eklerle ilgili kısıtlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerine izin verir ve PDF/A-3 diğer dosya türlerine, Excel çalışma kitapları dahil, izin verir. Bu gereksinimler standartların kendisine aittir, Aspose.Slides'e özgü kısıtlamalar değildir. Bu örnek, varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarımını göstermez.
-
+PDF/A standartları ekler üzerinde kısıtlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerine izin verir ve PDF/A-3 Excel çalışma kitapları dahil diğer dosya türlerine izin verir. Bunlar standartların gereksinimleridir, Aspose.Slides'e özgü kısıtlamalar değildir. Bu örnek, varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarmayı göstermez.
 {{% /alert %}}
 
-### **Gizli Slaytlarla PowerPoint'ten PDF'ye Dönüştürme**
+### **Gizli Slaytlarla PowerPoint'i PDF'ye Dönüştür**
 
-Sunum gizli slaytlar içeriyorsa, [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) yöntemini [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfından çağırarak gizli slaytları sonuç PDF'de sayfa olarak ekleyebilirsiniz.
+Bir sunum gizli slaytlar içeriyorsa, gizli slaytları sonuç PDF'de sayfalar olarak eklemek için [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfından [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) yöntemini kullanabilirsiniz.
 
-Aşağıdaki örnek, gizli slaytlar dahil olmak üzere bir sunumu PDF'ye dışa aktarır.
+Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve gizli slaytları da içerir.
 
 ```python
 import jpype
@@ -190,9 +211,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Şifre Koruması Olan PDF'ye PowerPoint'ten Dönüştürme**
+### **Şifre Korumalı PDF Olarak PowerPoint'i Dönüştür**
 
-Aşağıdaki örnek, açmak için `password` şifresi gerekli olan bir PDF oluşturur. Erişim izinleri, yüksek kaliteli baskı dahil olmak üzere baskıya izin verir.
+İşte aşağıdaki örnek, bir sunumu açmak için `password` şifresi gereken bir PDF'ye dışa aktarır. Erişim izinleri, yüksek kaliteli baskı da dahil olmak üzere yazdırmaya izin verir.
 
 ```python
 import jpype
@@ -214,11 +235,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Yazı Tipi İkamelerini Algılama**
+### **Yazı Tipi İkame Tespiti**
 
-Aspose.Slides, [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) yöntemini [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfı altında sağlayarak PDF dönüşümü sırasında oluşan yazı tipi ikamelerini algılamanızı sağlar.
+Aspose.Slides, sunumdan PDF'ye dönüşüm sürecinde yazı tipi ikamelerini tespit etmenizi sağlayan [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfı altındaki [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) yöntemini sunar.
 
-Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve konsola yazı tipi ikamesi uyarılarını yazdırır. İkaz, dışa aktarma sırasında mevcut olmayan bir yazı tipi ikame edildiğinde yalnızca bir kez yazdırılır. Java API'sinden uyarı geri çağrıları almak için JPype proxy'si kullanın. Java açıklama dizesini Python dizesine dönüştürüp önekini kontrol edin:
+İşte aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve konsola yazı tipi ikame uyarılarını yazdırır. Uyarı yalnızca kullanılabilir olmayan bir yazı tipi dışa aktarma sırasında ikame edildiğinde yazdırılır. Java API'sinden uyarı geri aramalarını almak için bir JPype proxy'si kullanın. Başlığını kontrol etmeden önce Java açıklama dizesini Python dizesine dönüştürün:
 
 ```python
 import jpype
@@ -251,14 +272,47 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-
-Yazı tipi ikameleri hakkında daha fazla bilgi için [Font Substitution](/slides/tr/python-java/font-substitution/) makalesine bakın.
-
+Yazı tipi ikameleri hakkında daha fazla bilgi için, [Yazı Tipi İkamesi](/slides/tr/python-java/font-substitution/) makalesine bakın.
 {{% /alert %}}
 
-## **PowerPoint'ten Seçili Slaytları PDF'ye Dönüştürme**
+### **Ayrı Bir Kalın Yazı Tipi Olmayan Yazı Tiplerini İşleme**
 
-[Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) yöntemine geçirilen slayt numaraları 1 tabanlıdır. Bu örnek, her iki slayt da mevcut olduğunda 1 ve 3 numaralı slaytları dışa aktarır.
+Bir sunum, yazı tipinin ayrı bir kalın tipine sahip olmaması durumunda da metne kalın biçimlendirme uygulayabilir. Metin, düzenli glifleri yapay olarak kalınlaştıran sentetik kalınlaştırma ile hâlâ kalın görünebilir. Bu metin PDF'de çok ağır göründüğünde veya istenen görünümden farklı olduğunda, [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles) yöntemini `True` ile çağırmayı deneyin. Bu seçenek, etkilenen metni PDF dışa aktarımı sırasında bir bitmap olarak işler ve belirli yazı tiplerinin görünümünü iyileştirebilir. Varsayılan değeri `False`'tır.
+
+Örnek sunum iki metin kutusu içerir: biri normal metin, diğeri aynı yazı tipine uygulanan kalın biçimlendirmeye sahiptir ancak ayrı bir kalın tipine sahip değildir. Aşağıdaki örnek, sunumu yükler, desteklenmeyen yazı tipi stillerinin rasterleştirilmesini etkinleştirir ve PDF'ye dışa aktarır:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setRasterizeUnsupportedFontStyles(True)
+
+presentation = Presentation("unsupported-bold.pptx")
+try:
+    presentation.save("rasterized.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+İşte aşağıdaki önizlemeler, devre dışı bırakılmış ve etkinleştirilmiş çıktıyı gösterir. Bu örnekte, seçenek devre dışı bırakıldığında kalın metnin çizgileri daha kalın olur. Seçenek etkinleştirildiğinde, çizgileri daha hafif olur; normal metin değişmez. Sunumunuz için ayarı seçmeden önce sonuçları karşılaştırın.
+
+| Seçenek devre dışı (`False`, varsayılan) | Seçenek etkin (`True`) |
+|---|---|
+| ![Desteklenmeyen font stili rasterleştirme devre dışı](unsupported-bold-disabled.png) | ![Desteklenmeyen font stili rasterleştirme etkin](unsupported-bold-enabled.png) |
+
+Bu örnekte, seçeneği etkinleştirmek yalnızca kalın metni bir bitmap'e dönüştürür: OCR olmadan seçilemez, kopyalanamaz veya metin olarak aranamaz ve kenarları %800 yakınlaştırmada daha yumuşak görünür. Normal metin aranabilir kalır. Seçenek devre dışı bırakıldığında, her iki dize de metin olarak kalır.
+
+Bu seçenek, yazı tipinin ayrı bir kalın tipine sahip olmadığı durumlarda kalın olarak biçimlendirilmiş metni rasterleştirir. [Yazı Tipi İkamesi](/slides/tr/python-java/font-substitution/) ise orijinal mevcut olmadığında başka bir yazı tipi seçer.
+
+## **PowerPoint'ten Seçili Slaytları PDF'ye Dönüştür**
+
+[Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) metoduna iletilen slayt numaraları 1 tabanlıdır. Bu örnek, hem mevcut olduğunda 1 ve 3 numaralı slaytları dışa aktarır:
 
 ```python
 import jpype
@@ -277,9 +331,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Özel Slayt Boyutuyla PowerPoint'ten PDF'ye Dönüştürme**
+## **Özel Slayt Boyutuyla PowerPoint'i PDF'ye Dönüştür**
 
-Bu örnek, 612 x 792 point (US Letter) ölçülerinde bir sayfada ilk slaytı dışa aktarır. Belirtilen boyutta yeni bir sunuma slaytı kopyalar ve slayt içeriğini sayfaya sığdırmak için ölçeklendirir.
+Bu örnek, ilk slaytı 612x792 puan ölçüsünde (US Letter) bir sayfaya dışa aktarır. Slaytı belirtilen boyuta sahip yeni bir sunuma klonlar ve slayt içeriğini sığacak şekilde ölçeklendirir.
 
 ```python
 import jpype
@@ -297,7 +351,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     resized_presentation.getSlides().insertClone(0, slide)
 
-    # Yeni oluşturulan sunumla birlikte gelen boş slaytı kaldır.
+    # Yeni sunum oluşturulurken eklenen boş slaytı kaldır.
     resized_presentation.getSlides().removeAt(1)
 
     resized_presentation.save("presentation-custom-size.pdf", SaveFormat.Pdf)
@@ -306,7 +360,7 @@ finally:
     resized_presentation.dispose()
 ```
 
-## **Not Slaytı Görünümünde PowerPoint'ten PDF'ye Dönüştürme**
+## **Not Slaytı Görünümünde PowerPoint'i PDF'ye Dönüştür**
 
 Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve her slaytın konuşmacı notlarını slaytın altına yerleştirir. Sonucu görmek için konuşmacı notları içeren bir sunum kullanın.
 
@@ -332,11 +386,11 @@ finally:
     presentation.dispose()
 ```
 
-## **PDF İçin Erişilebilirlik ve Uyumluluk Standartları**
+## **PDF için Erişilebilirlik ve Uyumluluk Standartları**
 
-Erişilebilir PDF'ler hazırlarken, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) yönergelerine bakın. Çıktı standardını seçmek için [PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance) yöntemini kullanın: **PDF/A1a**, **PDF/A1b** ve **PDF/UA**.
+Yararlı PDF'ler hazırlarken, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) adresine bakın. Çıktı standardını seçmek için [PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance) yöntemini kullanın: **PDF/A1a**, **PDF/A1b**, ve **PDF/UA**.
 
-Aşağıdaki kod, farklı uyumluluk standartlarına göre birden çok PDF üreten bir PowerPoint‑PDF dönüşüm sürecini göstermektedir:
+Bu kod, farklı uyumluluk standartlarına göre birden fazla PDF üreten PowerPoint'ten PDF'ye dönüşüm sürecini gösterir:
 
 ```python
 import jpype
@@ -363,32 +417,32 @@ finally:
     presentation.dispose()
 ```
 
-> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak işler. Bireysel yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
+> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak işler. Tek tek yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
 
 ## **SSS**
 
-**Birden çok PowerPoint dosyasını toplu olarak PDF'ye dönüştürebilir miyim?**
+**Birden fazla PowerPoint dosyasını toplu olarak PDF'ye dönüştürebilir miyim?**
 
-Evet, Aspose.Slides birden çok PPT veya PPTX dosyasını toplu olarak PDF'ye dönüştürmeyi destekler. Dosyalarınızı döngüyle işleyerek dönüşüm sürecini programlı olarak uygulayabilirsiniz.
+Evet, Aspose.Slides, birden fazla PPT veya PPTX dosyasını toplu olarak PDF'ye dönüştürmeyi destekler. Dosyalarınızı döngü içinde işleyebilir ve dönüşüm sürecini programlı olarak uygulayabilirsiniz.
 
-**Dönüştürülen PDF'yi şifreyle koruyabilir miyim?**
+**Dönüştürülen PDF'yi şifreyle korumak mümkün mü?**
 
-Evet. Dönüşüm sırasında şifre belirlemek ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfını kullanın.
+Evet. Dönüşüm sırasında bir şifre belirlemek ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfını kullanın.
 
-**PDF'ye gizli slaytları nasıl ekleyebilirim?**
+**Gizli slaytları PDF'ye nasıl ekleyebilirim?**
 
-Gizli slaytları sonuç PDF'ye eklemek için [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfında `[setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides)` yöntemini `True` olarak çağırın.
+Sonuç PDF'ye gizli slaytları eklemek için [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfında [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) yöntemini `True` ile çağırın.
 
 **Aspose.Slides PDF'de yüksek görüntü kalitesini koruyabilir mi?**
 
-Evet, [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) ve [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) gibi yöntemlerle [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfı içinde görüntü kalitesini yüksek tutabilirsiniz.
+Evet, PDF'nizde yüksek kaliteli görüntüler sağlamak için [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) sınıfındaki [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) ve [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) gibi yöntemleri kullanarak görüntü kalitesini kontrol edebilirsiniz.
 
 **Aspose.Slides PDF/A uyumluluk standartlarını destekliyor mu?**
 
-Evet, Aspose.Slides, [various standards](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/) arasında PDF/A1a, PDF/A1b ve PDF/UA gibi PDF/A uyumluluk standartlarına uygun PDF'ler dışa aktarmanıza olanak tanır. İhtiyacınıza uygun standardı seçin ve çıktıyı gereksinimlerinize göre gözden geçirin.
+Evet, Aspose.Slides, erişilebilirlik veya arşivleme için PDF/A1a, PDF/A1b ve PDF/UA dahil olmak üzere [various standards](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/) ile uyumlu PDF'ler dışa aktarmanıza olanak tanır. İhtiyacınıza uygun standardı seçin ve çıktıyı gereksinimlerinize göre gözden geçirin.
 
 ## **Ek Kaynaklar**
 
-- [Aspose.Slides for Python via Java Documentation](/slides/tr/python-java/)
-- [Aspose.Slides for Python via Java API Reference](https://reference.aspose.com/slides/python-java/)
+- [Aspose.Slides for Python via Java Belgeleri](/slides/tr/python-java/)
+- [Aspose.Slides for Python via Java API Referansı](https://reference.aspose.com/slides/python-java/)
 - [Aspose Ücretsiz Çevrimiçi Dönüştürücüler](https://products.aspose.app/slides/conversion)

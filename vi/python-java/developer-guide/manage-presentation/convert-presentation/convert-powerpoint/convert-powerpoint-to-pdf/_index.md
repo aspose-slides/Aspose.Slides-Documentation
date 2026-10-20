@@ -1,73 +1,71 @@
 ---
-title: "Chuyển đổi PPT và PPTX sang PDF trong Python qua Java [Bao gồm các tính năng nâng cao]"
-linktitle: "PowerPoint sang PDF"
+title: Chuyển đổi PPT và PPTX sang PDF trong Python qua Java [Bao gồm các Tính năng Nâng cao]
+linktitle: PowerPoint sang PDF
 type: docs
 weight: 40
 url: /vi/python-java/convert-powerpoint-to-pdf/
 keywords:
-- "chuyển đổi PowerPoint"
-- "chuyển đổi bài thuyết trình"
-- "PowerPoint sang PDF"
-- "bài thuyết trình sang PDF"
-- "PPT sang PDF"
-- "chuyển đổi PPT sang PDF"
-- "PPTX sang PDF"
-- "chuyển đổi PPTX sang PDF"
-- "lưu PowerPoint dưới dạng PDF"
-- "lưu PPT dưới dạng PDF"
-- "lưu PPTX dưới dạng PDF"
-- "xuất PPT sang PDF"
-- "xuất PPTX sang PDF"
-- "tệp đính kèm"
-- "PDF/A1a"
-- "PDF/A1b"
-- "PDF/UA"
-- "Python"
-- "Java"
-- "Aspose.Slides"
-description: "Chuyển đổi PowerPoint PPT/PPTX sang PDF chất lượng cao, có thể tìm kiếm trong Python qua Java bằng Aspose.Slides, kèm theo các ví dụ mã nhanh và các tùy chọn chuyển đổi nâng cao."
+- chuyển đổi PowerPoint
+- chuyển đổi bản trình chiếu
+- PowerPoint sang PDF
+- bản trình chiếu sang PDF
+- PPT sang PDF
+- chuyển đổi PPT sang PDF
+- PPTX sang PDF
+- chuyển đổi PPTX sang PDF
+- lưu PowerPoint dưới dạng PDF
+- lưu PPT dưới dạng PDF
+- lưu PPTX dưới dạng PDF
+- xuất PPT sang PDF
+- xuất PPTX sang PDF
+- tệp đính kèm
+- PDF/A1a
+- PDF/A1b
+- PDF/UA
+- Python
+- Java
+- Aspose.Slides
+description: "Chuyển đổi PowerPoint PPT/PPTX sang PDF chất lượng cao, có thể tìm kiếm trong Python qua Java bằng Aspose.Slides, kèm ví dụ mã nhanh và các tùy chọn chuyển đổi nâng cao."
 ---
 ## **Tổng quan**
 
-Chuyển đổi các bài thuyết trình PowerPoint (PPT, PPTX, ODP, v.v.) sang định dạng PDF trong Python qua Java mang lại một số lợi ích, bao gồm khả năng tương thích trên các thiết bị khác nhau và bảo tồn bố cục và định dạng của bài thuyết trình. Hướng dẫn này trình bày cách chuyển đổi bài thuyết trình thành tài liệu PDF, sử dụng các tùy chọn khác nhau để kiểm soát chất lượng hình ảnh, bao gồm các slide ẩn, bảo mật PDF bằng mật khẩu, phát hiện thay thế phông chữ, chọn các slide cụ thể để chuyển đổi và áp dụng các tiêu chuẩn tuân thủ cho tài liệu đầu ra.
+Việc chuyển đổi các bản trình chiếu PowerPoint (PPT, PPTX, ODP, v.v.) sang định dạng PDF trong Python thông qua Java mang lại một số lợi thế, bao gồm khả năng tương thích trên các thiết bị khác nhau và việc bảo toàn bố cục và định dạng của bản trình chiếu. Hướng dẫn này trình bày cách chuyển đổi bản trình chiếu sang tài liệu PDF, sử dụng các tùy chọn khác nhau để kiểm soát chất lượng hình ảnh, bao gồm các slide ẩn, bảo mật PDF bằng mật khẩu, phát hiện thay thế phông chữ, chọn các slide cụ thể để chuyển đổi, và áp dụng các tiêu chuẩn tuân thủ cho tài liệu đầu ra.
 
 ## **Chuyển đổi PowerPoint sang PDF**
 
-Sử dụng Aspose.Slides, bạn có thể chuyển đổi các bài thuyết trình ở các định dạng sau sang PDF:
+Sử dụng Aspose.Slides, bạn có thể chuyển đổi các bản trình chiếu ở các định dạng sau sang PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Để chuyển đổi một bài thuyết trình sang PDF, truyền tên tệp làm đối số cho lớp [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) và sau đó lưu bài thuyết trình dưới dạng PDF bằng phương pháp [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). Lớp [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) cung cấp phương pháp [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) mà thường được sử dụng để chuyển đổi một bài thuyết trình sang PDF.
+Để chuyển đổi một bản trình chiếu sang PDF, truyền tên tệp như một đối số cho lớp [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) , sau đó lưu bản trình chiếu dưới dạng PDF bằng phương thức [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). Lớp [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) cung cấp phương thức [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) thường được dùng để chuyển đổi bản trình chiếu sang PDF.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java chèn thông tin API và số phiên bản của nó vào tài liệu đầu ra. Ví dụ, khi chuyển đổi một bài thuyết trình sang PDF, Aspose.Slides điền trường Application với "*Aspose.Slides*" và trường PDF Producer với giá trị dạng "*Aspose.Slides v XX.XX*". **Lưu ý** rằng bạn không thể chỉ đạo Aspose.Slides thay đổi hoặc loại bỏ thông tin này khỏi tài liệu đầu ra.
+Aspose.Slides cho Python thông qua Java chèn thông tin API và số phiên bản của nó vào các tài liệu đầu ra. Ví dụ, khi chuyển đổi một bản trình chiếu sang PDF, Aspose.Slides sẽ điền trường Application bằng "*Aspose.Slides*" và trường PDF Producer bằng giá trị dạng "*Aspose.Slides v XX.XX*". **Lưu ý** rằng bạn không thể yêu cầu Aspose.Slides thay đổi hoặc loại bỏ thông tin này khỏi các tài liệu đầu ra.
 {{% /alert %}}
 
 Aspose.Slides cho phép bạn chuyển đổi:
 
-* Toàn bộ bài thuyết trình sang PDF
-* Các slide cụ thể từ một bài thuyết trình sang PDF
+* Toàn bộ bản trình chiếu sang PDF
+* Các slide cụ thể từ một bản trình chiếu sang PDF
 
-Aspose.Slides xuất các bài thuyết trình sang PDF, đảm bảo các tệp PDF kết quả khớp chặt chẽ với bài thuyết trình gốc. Các yếu tố và thuộc tính được hiển thị chính xác trong quá trình chuyển đổi, bao gồm:
+Aspose.Slides xuất bản trình chiếu sang PDF, đảm bảo các PDF kết quả gần giống với bản trình chiếu gốc. Các yếu tố và thuộc tính được hiển thị chính xác trong quá trình chuyển đổi, bao gồm:
 
 * Hình ảnh
-* Các ô văn bản và hình dạng
+* Các hộp văn bản và hình dạng
 * Định dạng văn bản
 * Định dạng đoạn văn
-* Siêu liên kết
+* Liên kết siêu văn bản
 * Đầu trang và chân trang
 * Dấu đầu dòng
 * Bảng
 
 ## **Chuyển đổi PowerPoint sang PDF**
 
-Quá trình chuyển đổi chuẩn sử dụng các cài đặt xuất PDF mặc định. Sử dụng các tùy chọn tùy chỉnh khi bạn cần kiểm soát chất lượng hình ảnh, nội dung trang hoặc tuân thủ PDF.
+Việc chuyển đổi tiêu chuẩn sử dụng các cài đặt xuất PDF mặc định. Sử dụng các tùy chọn tùy chỉnh khi bạn cần kiểm soát chất lượng hình ảnh, nội dung trang hoặc tuân thủ PDF.
 
-Cài đặt [Aspose.Slides for Python via Java](/slides/vi/python-java/installation/) và một môi trường Java tương thích trước khi chạy các ví dụ. Mỗi ví dụ đọc tệp `presentation.pptx` từ thư mục làm việc hiện tại; thay thế nó bằng tệp PPT, PPTX hoặc ODP của bạn. Khởi động JVM một lần cho mỗi tiến trình Python.
-
-Ví dụ sau tải một bài thuyết trình và lưu tất cả các slide hiển thị sang PDF bằng các cài đặt xuất mặc định.
+Ví dụ sau tải một bản trình chiếu và lưu tất cả các slide có thể hiển thị sang PDF bằng các cài đặt xuất mặc định.
 
 ```python
 import jpype
@@ -86,18 +84,16 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose cung cấp một bộ chuyển đổi trực tuyến miễn phí [**Bộ chuyển đổi PowerPoint sang PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) để minh họa quy trình chuyển đổi từ bài thuyết trình sang PDF. Bạn có thể thực hiện thử nghiệm với bộ chuyển đổi này cho việc triển khai thực tế của quy trình được mô tả ở đây.
+Aspose cung cấp một công cụ chuyển đổi **PowerPoint sang PDF** trực tuyến miễn phí([**Công cụ chuyển đổi PowerPoint sang PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf)) mô tả quá trình chuyển đổi bản trình chiếu sang PDF. Bạn có thể thực hiện thử nghiệm với công cụ này để triển khai thực tế quy trình được mô tả ở đây.
 {{% /alert %}}
 
-## **Chuyển đổi PowerPoint sang PDF với Các Tùy chọn**
+## **Chuyển đổi PowerPoint sang PDF với Các Tùy Chọn**
 
-Aspose.Slides cung cấp các tùy chọn tùy chỉnh—các thuộc tính dưới lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)—cho phép bạn tùy chỉnh PDF kết quả, khóa PDF bằng mật khẩu, hoặc chỉ định cách tiến trình chuyển đổi sẽ được thực hiện.
+Aspose.Slides cung cấp các tùy chọn tùy chỉnh—các thuộc tính dưới lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/)—cho phép bạn tùy biến PDF kết quả, khóa PDF bằng mật khẩu, hoặc chỉ định cách tiến trình chuyển đổi sẽ diễn ra.
 
-### **Chuyển đổi PowerPoint sang PDF với Các Tùy chọn Tùy chỉnh**
+### **Chuyển đổi PowerPoint sang PDF với Các Tùy Chọn Tùy Chỉnh**
 
-Sử dụng các tùy chọn chuyển đổi tùy chỉnh, bạn có thể xác định cài đặt chất lượng ưa thích cho hình ảnh raster, chỉ định cách xử lý metafile, đặt mức nén cho văn bản, cấu hình DPI cho hình ảnh, và còn nhiều hơn nữa.
-
-Ví dụ sau xuất một bài thuyết trình sang PDF 1.5 với chất lượng JPEG được đặt là 90, độ phân giải hình ảnh là 300 DPI, metafile được lưu dưới dạng PNG, và nén văn bản Flate.
+Sử dụng các tùy chọn chuyển đổi tùy chỉnh, bạn có thể xác định thiết lập chất lượng mong muốn cho hình raster, chỉ định cách xử lý metafile, đặt mức nén cho văn bản, cấu hình DPI cho hình ảnh, và hơn thế nữa.
 
 ```python
 import jpype
@@ -122,13 +118,40 @@ finally:
     presentation.dispose()
 ```
 
-### **Bảo tồn các tệp OLE nhúng dưới dạng tệp đính kèm PDF**
+### **Tự Động Chọn Nén Hình Ảnh**
 
-Nếu một bài thuyết trình chứa một workbook Excel nhúng, bạn có thể muốn người nhận PDF truy cập dữ liệu workbook cũng như xem các slide. Gọi [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) với `True` để bảo tồn các tệp OLE nhúng dưới dạng tệp đính kèm trong PDF kết quả.
+Khi một bản trình chiếu chứa nhiều ảnh chụp hoặc screenshot, giảm kích thước PDF đã xuất có thể giúp việc gửi email hoặc tải xuống dễ dàng hơn. Gọi [PdfOptions.setBestImagesCompressionRatio](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setBestImagesCompressionRatio) với `True` để tự động chọn thuật toán nén phù hợp nhất cho mỗi hình ảnh trong quá trình xuất PDF.
 
-Giá trị mặc định là `False`: hình ảnh hoặc biểu tượng xem trước của đối tượng OLE được hiển thị trên trang PDF, nhưng tệp nhúng của nó không được bao gồm như một tệp đính kèm. Đặt tùy chọn thành `True` sẽ bổ sung dữ liệu tệp. Bản xem trước vẫn là một biểu diễn hình ảnh; tệp đính kèm cho phép người nhận mở hoặc lưu tệp nhúng riêng biệt. Đối tượng OLE không trở thành một bảng tính Excel tương tác trên trang PDF.
+Ví dụ sau tải một bản trình chiếu hiện có, bật tự động chọn nén hình ảnh, và lưu nó dưới dạng tài liệu PDF. Tất cả các cài đặt xuất PDF khác vẫn giữ giá trị mặc định.
 
-Ví dụ sau tải một bài thuyết trình đã chứa workbook Excel nhúng và xuất nó sang PDF với workbook được đính kèm.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setBestImagesCompressionRatio(True)
+
+presentation = Presentation("image-heavy.pptx")
+try:
+    presentation.save("image-heavy.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+Tùy chọn này chọn một thuật toán nén cho từng hình ảnh. Giảm giá trị truyền vào [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) thay vì giảm chất lượng ảnh JPEG, trong khi giảm giá trị truyền vào [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) cho phép giảm độ phân giải của ảnh, có thể giảm chi tiết. Bật tự động chọn nén không tự động giảm bất kỳ thiết lập nào trong hai trường hợp trên.
+
+Việc chọn thuật toán nén hình ảnh yêu cầu thời gian xử lý và bộ nhớ bổ sung. Mức giảm kích thước phụ thuộc vào hình ảnh và cài đặt xuất của bản trình chiếu; không có mức giảm cố định cho mọi bản trình chiếu.
+
+### **Giữ lại các tệp OLE nhúng dưới dạng tập tin đính kèm PDF**
+
+Nếu một bản trình chiếu chứa một workbook Excel nhúng, bạn có thể muốn người nhận PDF truy cập dữ liệu workbook đồng thời xem các slide. Gọi [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) với `True` để giữ lại các tệp OLE nhúng dưới dạng tập tin đính kèm trong PDF kết quả.
+
+Giá trị mặc định là `False`: hình ảnh hoặc biểu tượng xem trước của đối tượng OLE được hiển thị trên trang PDF, nhưng tệp nhúng không được bao gồm dưới dạng đính kèm. Đặt tùy chọn thành `True` sẽ bổ sung dữ liệu tệp. Bản xem trước vẫn là hình ảnh trực quan; tệp đính kèm cho phép người nhận mở hoặc lưu tệp nhúng riêng biệt. Đối tượng OLE sẽ không trở thành một bảng tính Excel tương tác trên trang PDF.
 
 ```python
 import jpype
@@ -151,19 +174,17 @@ finally:
 
 Để kiểm tra kết quả:
 
-1. Mở PDF đã xuất trong một trình xem hỗ trợ tệp đính kèm, chẳng hạn Adobe Acrobat Reader.
-2. Mở bảng **Attachments** của trình xem và tìm workbook nhúng.
-3. Lưu tệp đính kèm và mở nó trong Excel để kiểm tra dữ liệu, hoặc mở trực tiếp nếu trình xem cho phép. Bản xem trước trên trang PDF tách biệt khỏi tệp đính kèm.
+1. Mở file PDF đã xuất trong trình xem hỗ trợ tập tin đính kèm, chẳng hạn Adobe Acrobat Reader.
+2. Mở bảng **Attachments** của trình xem và tìm workbook đã nhúng.
+3. Lưu tập tin đính kèm và mở nó trong Excel để kiểm tra dữ liệu, hoặc mở trực tiếp nếu trình xem cho phép. Bản xem trước trên trang PDF tách biệt với tập tin đính kèm.
 
 {{% alert color="info" title="Note" %}}
-Tiêu chuẩn PDF/A áp đặt các hạn chế đối với tệp đính kèm: PDF/A-1 cấm tệp nhúng, PDF/A-2 chỉ cho phép tệp đính kèm PDF/A, và PDF/A-3 cho phép các loại tệp khác, bao gồm workbook Excel. Đây là yêu cầu của tiêu chuẩn, không phải là hạn chế riêng của Aspose.Slides. Ví dụ này sử dụng cài đặt tuân thủ PDF mặc định và không minh họa việc xuất PDF/A.
+Tiêu chuẩn PDF/A áp đặt các hạn chế đối với tập tin đính kèm: PDF/A-1 cấm các tệp nhúng, PDF/A-2 chỉ cho phép các tập tin đính kèm PDF/A, và PDF/A-3 cho phép các loại tệp khác, bao gồm workbook Excel. Đây là yêu cầu của tiêu chuẩn, không phải là hạn chế riêng của Aspose.Slides. Ví dụ này sử dụng cài đặt tuân thủ PDF mặc định và không trình bày xuất PDF/A.
 {{% /alert %}}
 
 ### **Chuyển đổi PowerPoint sang PDF với các Slide Ẩn**
 
-Nếu một bài thuyết trình chứa các slide ẩn, bạn có thể sử dụng phương pháp [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) từ lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) để bao gồm các slide ẩn dưới dạng các trang trong PDF kết quả.
-
-Ví dụ sau xuất một bài thuyết trình sang PDF, bao gồm bất kỳ slide ẩn nào.
+Nếu một bản trình chiếu chứa các slide ẩn, bạn có thể sử dụng phương thức [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) từ lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) để bao gồm các slide ẩn dưới dạng trang trong PDF kết quả.
 
 ```python
 import jpype
@@ -184,9 +205,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Chuyển đổi PowerPoint sang PDF có Bảo mật Mật khẩu**
+### **Chuyển đổi PowerPoint sang PDF có Bảo Mật Mật Khẩu**
 
-Ví dụ sau xuất một bài thuyết trình sang PDF yêu cầu mật khẩu `password` để mở. Các quyền truy cập cho phép in, bao gồm cả in chất lượng cao.
+Ví dụ sau xuất một bản trình chiếu sang PDF yêu cầu mật khẩu `password` để mở. Các quyền truy cập cho phép in, bao gồm in chất lượng cao.
 
 ```python
 import jpype
@@ -208,11 +229,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Phát hiện Thay thế Phông chữ**
+### **Phát Hiện Thay Thế Phông Chữ**
 
-Aspose.Slides cung cấp phương pháp [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) trong lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) cho phép bạn phát hiện các trường hợp thay thế phông chữ trong quá trình chuyển đổi bài thuyết trình sang PDF.
+Aspose.Slides cung cấp phương thức [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) dưới lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) , cho phép bạn phát hiện các trường hợp thay thế phông chữ trong quá trình chuyển đổi bản trình chiếu sang PDF.
 
-Ví dụ sau xuất một bài thuyết trình sang PDF và in cảnh báo thay thế phông chữ ra console. Cảnh báo chỉ được in khi một phông chữ không có sẵn bị thay thế trong quá trình xuất. Sử dụng một proxy JPype để nhận các callback cảnh báo từ API Java. Chuyển chuỗi mô tả Java sang chuỗi Python trước khi kiểm tra tiền tố của nó:
+Ví dụ sau xuất một bản trình chiếu sang PDF và in các cảnh báo thay thế phông chữ ra console. Cảnh báo chỉ được in khi một phông chữ không khả dụng bị thay thế trong quá trình xuất. Sử dụng proxy JPype để nhận các callback cảnh báo từ API Java. Chuyển chuỗi mô tả Java sang chuỗi Python trước khi kiểm tra tiền tố:
 
 ```python
 import jpype
@@ -245,14 +266,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Để biết thêm thông tin về thay thế phông chữ, xem bài viết [Thay thế Phông chữ](/slides/vi/python-java/font-substitution/).
+Để biết thêm thông tin về việc thay thế phông chữ, xem bài viết [Thay Thế Phông Chữ](/slides/vi/python-java/font-substitution/).
 {{% /alert %}}
 
-### **Xử lý Phông chữ Không có Kiểu chữ Đậm Riêng**
+### **Xử Lý Phông Chữ Không Có Kiểu Đậm Riêng**
 
-Một bài thuyết trình có thể áp dụng định dạng đậm cho văn bản ngay cả khi phông chữ của nó không có kiểu chữ đậm riêng. Văn bản vẫn có thể xuất hiện đậm thông qua việc tạo đậm tổng hợp, làm dày các glyph thông thường một cách nhân tạo. Khi văn bản đó trông quá dày hoặc không giống như mong muốn trong PDF, hãy thử gọi [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles) với `True`. Tùy chọn này sẽ render văn bản bị ảnh hưởng dưới dạng bitmap trong quá trình xuất PDF và có thể cải thiện ngoại hình của một số phông chữ. Giá trị mặc định là `False`.
+Một bản trình chiếu có thể áp dụng định dạng đậm cho văn bản ngay cả khi phông chữ không có kiểu đậm riêng. Văn bản vẫn có thể hiển thị đậm thông qua việc tạo đậm tổng hợp, làm dày các glyph thường. Khi văn bản như vậy trông quá nặng hoặc không khớp với mong muốn trong PDF, hãy thử gọi [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles) với `True`. Tùy chọn này render văn bản bị ảnh hưởng dưới dạng bitmap trong quá trình xuất PDF và có thể cải thiện việc hiển thị cho một số phông chữ. Giá trị mặc định là `False`.
 
-Bài thuyết trình mẫu chứa hai ô văn bản: một ô có văn bản thường và một ô có định dạng đậm được áp dụng cho cùng một phông chữ, mà không có kiểu chữ đậm riêng. Ví dụ sau tải bài thuyết trình, kích hoạt rasterization cho các kiểu phông chữ không được hỗ trợ, và xuất nó sang PDF:
+Bản trình chiếu mẫu chứa hai hộp văn bản: một hộp có văn bản thường và một hộp có định dạng đậm áp dụng cho cùng một phông chữ, phông chữ này không có kiểu đậm riêng. Ví dụ sau tải bản trình chiếu, bật raster hóa các kiểu phông chữ không được hỗ trợ, và xuất nó sang PDF:
 
 ```python
 import jpype
@@ -273,19 +294,19 @@ finally:
     presentation.dispose()
 ```
 
-Các bản xem trước sau đây hiển thị đầu ra khi tùy chọn bị tắt và khi được bật. Trong ví dụ này, văn bản đậm có nét dày hơn khi tùy chọn bị tắt. Khi bật, nét của nó nhẹ hơn; văn bản thường không thay đổi. So sánh kết quả trước khi chọn cài đặt cho bài thuyết trình của bạn.
+Các preview sau đây cho thấy đầu ra khi tùy chọn tắt và khi bật. Trong ví dụ này, văn bản đậm có nét dày hơn khi tùy chọn tắt. Khi bật, nét của nó nhẹ hơn; văn bản thường không thay đổi. So sánh kết quả trước khi chọn cài đặt cho bản trình chiếu của bạn.
 
 | Tùy chọn tắt (`False`, mặc định) | Tùy chọn bật (`True`) |
 |---|---|
-| ![PDF với rasterization kiểu phông chữ không hỗ trợ bị tắt](unsupported-bold-disabled.png) | ![PDF với rasterization kiểu phông chữ không hỗ trợ được bật](unsupported-bold-enabled.png) |
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
 
-Trong ví dụ này, việc bật tùy chọn chỉ chuyển đổi văn bản đậm thành bitmap: nó không thể được chọn, sao chép hoặc tìm kiếm dưới dạng văn bản mà không có OCR, và các cạnh của nó trông mềm hơn ở mức phóng 800%. Văn bản thường vẫn có thể tìm kiếm. Khi tắt tùy chọn, cả hai chuỗi vẫn là văn bản.
+Trong ví dụ này, bật tùy chọn chỉ chuyển đổi văn bản đậm thành bitmap: nó không thể được chọn, sao chép, hoặc tìm kiếm dưới dạng văn bản mà không có OCR, và các cạnh của nó xuất hiện mềm hơn ở độ phóng 800 %. Văn bản thường vẫn có thể tìm kiếm được. Khi tắt, cả hai chuỗi vẫn là văn bản.
 
-Tùy chọn này rasterize văn bản được định dạng đậm khi phông chữ của nó không có kiểu chữ đậm riêng. [Thay thế Phông chữ](/slides/vi/python-java/font-substitution/) thay vào đó chọn một phông chữ khác khi phông chữ gốc không khả dụng.
+Tùy chọn này raster hóa văn bản được định dạng đậm khi phông chữ không có kiểu đậm riêng. [Thay Thế Phông Chữ](/slides/vi/python-java/font-substitution/) thay vào đó sẽ chọn một phông chữ khác khi phông chữ gốc không khả dụng.
 
-## **Chuyển đổi các Slide Được Chọn từ PowerPoint sang PDF**
+## **Chuyển Đổi Các Slide Được Chọn Từ PowerPoint Sang PDF**
 
-Các số slide được truyền vào [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) là đánh số bắt đầu từ 1. Ví dụ này xuất các slide 1 và 3 khi cả hai đều tồn tại:
+Số slide truyền vào [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) bắt đầu từ 1. Ví dụ này xuất các slide 1 và 3 khi cả hai tồn tại:
 
 ```python
 import jpype
@@ -304,9 +325,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Chuyển đổi PowerPoint sang PDF với Kích thước Slide Tùy chỉnh**
+## **Chuyển Đổi PowerPoint Sang PDF với Kích Thước Slide Tùy Chỉnh**
 
-Ví dụ này xuất slide đầu tiên trên một trang có kích thước 612 x 792 điểm (US Letter). Nó sao chép slide vào một bài thuyết trình mới với kích thước đã chỉ định và điều chỉnh nội dung slide để vừa vặn.
+Ví dụ này xuất slide đầu tiên trên một trang có kích thước 612 × 792 điểm (US Letter). Nó sao chép slide vào một bản trình chiếu mới với kích thước đã chỉ định và thu phóng nội dung slide để vừa.
 
 ```python
 import jpype
@@ -324,7 +345,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     resized_presentation.getSlides().insertClone(0, slide)
 
-    # Xóa slide trống mà bản trình bày mới được tạo ra.
+    # Xóa slide trống mà bản trình chiếu mới được tạo ra.
     resized_presentation.getSlides().removeAt(1)
 
     resized_presentation.save("presentation-custom-size.pdf", SaveFormat.Pdf)
@@ -333,9 +354,9 @@ finally:
     resized_presentation.dispose()
 ```
 
-## **Chuyển đổi PowerPoint sang PDF ở chế độ Xem Ghi chú Slide**
+## **Chuyển Đổi PowerPoint Sang PDF trong chế độ Xem Ghi Chú Slide**
 
-Ví dụ sau xuất một bài thuyết trình sang PDF, đặt ghi chú diễn giả của mỗi slide dưới slide. Sử dụng một bài thuyết trình có ghi chú diễn giả để xem kết quả.
+Ví dụ sau xuất một bản trình chiếu sang PDF, đặt ghi chú của người thuyết trình cho mỗi slide dưới slide. Sử dụng một bản trình chiếu có ghi chú để thấy kết quả.
 
 ```python
 import jpype
@@ -359,11 +380,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Tiêu chuẩn Truy cập và Tuân thủ cho PDF**
+## **Tiêu Chuẩn Truy Cập và Tuân Thủ cho PDF**
 
-Trong việc chuẩn bị PDF có khả năng truy cập, tham khảo [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Sử dụng [PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance) để chọn tiêu chuẩn đầu ra: **PDF/A1a**, **PDF/A1b**, và **PDF/UA**.
+Khi chuẩn bị các PDF có thể truy cập, tham khảo [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Sử dụng [PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance) để chọn tiêu chuẩn đầu ra: **PDF/A1a**, **PDF/A1b**, và **PDF/UA**.
 
-Đoạn mã này minh họa quy trình chuyển đổi PowerPoint sang PDF tạo ra nhiều PDF dựa trên các tiêu chuẩn tuân thủ khác nhau:
+Mã này minh họa quy trình chuyển đổi PowerPoint sang PDF tạo ra nhiều PDF dựa trên các tiêu chuẩn tuân thủ khác nhau:
 
 ```python
 import jpype
@@ -390,32 +411,32 @@ finally:
     presentation.dispose()
 ```
 
-> **Lưu ý:** Khi xuất sang PDF/UA, Aspose.Slides xử lý các đồ họa phức tạp như SmartArt, biểu đồ và công thức như một hình duy nhất. Các phần tử đường dẫn riêng lẻ không được giữ lại như nội dung riêng và có thể được đánh dấu là các phần dư; văn bản thay thế chỉ được cung cấp cho toàn bộ hình.
+> **Lưu ý:** Khi xuất sang PDF/UA, Aspose.Slides xử lý các đồ họa phức tạp như SmartArt, biểu đồ và công thức như một hình duy nhất. Các phần tử đường dẫn riêng lẻ không được giữ lại dưới dạng nội dung riêng và có thể được đánh dấu là artefact; văn bản thay thế chỉ được cung cấp cho toàn bộ hình.
 
 ## **Câu hỏi thường gặp**
 
 **Tôi có thể chuyển đổi nhiều tệp PowerPoint sang PDF hàng loạt không?**
 
-Đúng, Aspose.Slides hỗ trợ chuyển đổi hàng loạt nhiều tệp PPT hoặc PPTX sang PDF. Bạn có thể lặp qua các tệp của mình và áp dụng quy trình chuyển đổi bằng chương trình.
+Có, Aspose.Slides hỗ trợ chuyển đổi hàng loạt nhiều tệp PPT hoặc PPTX sang PDF. Bạn có thể lặp qua các tệp và áp dụng quy trình chuyển đổi bằng mã.
 
-**Có thể bảo mật PDF đã chuyển đổi bằng mật khẩu không?**
+**Có thể bảo vệ PDF đã chuyển đổi bằng mật khẩu không?**
 
-Đúng. Sử dụng lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) để đặt mật khẩu và xác định quyền truy cập trong quá trình chuyển đổi.
+Có. Sử dụng lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) để đặt mật khẩu và xác định quyền truy cập trong quá trình chuyển đổi.
 
-**Làm sao để bao gồm các slide ẩn trong PDF?**
+**Làm thế nào để bao gồm các slide ẩn trong PDF?**
 
 Gọi [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) với `True` trong lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) để bao gồm các slide ẩn trong PDF kết quả.
 
-**Aspose.Slides có thể giữ chất lượng hình ảnh cao trong PDF không?**
+**Aspose.Slides có thể duy trì chất lượng hình ảnh cao trong PDF không?**
 
-Đúng, bạn có thể kiểm soát chất lượng hình ảnh bằng cách sử dụng các phương pháp như [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) và [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) trong lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) để đảm bảo hình ảnh chất lượng cao trong PDF của bạn.
+Có, bạn có thể kiểm soát chất lượng hình ảnh bằng cách sử dụng các phương thức như [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) và [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) trong lớp [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) để đảm bảo hình ảnh có chất lượng cao trong PDF của bạn.
 
-**Aspose.Slides hỗ trợ các tiêu chuẩn tuân thủ PDF/A không?**
+**Aspose.Slides có hỗ trợ các tiêu chuẩn tuân thủ PDF/A không?**
 
-Đúng, Aspose.Slides cho phép bạn xuất PDF tuân thủ [các tiêu chuẩn khác nhau](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/), bao gồm PDF/A1a, PDF/A1b và PDF/UA, cho mục đích truy cập hoặc lưu trữ. Chọn tiêu chuẩn phù hợp và kiểm tra đầu ra theo yêu cầu của bạn.
+Có, Aspose.Slides cho phép bạn xuất PDF tuân thủ với [các tiêu chuẩn](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/) bao gồm PDF/A1a, PDF/A1b và PDF/UA, phù hợp cho khả năng truy cập hoặc lưu trữ. Hãy chọn tiêu chuẩn phù hợp và kiểm tra đầu ra theo yêu cầu của bạn.
 
-## **Tài nguyên bổ sung**
+## **Tài Nguyên Bổ Sung**
 
 - [Tài liệu Aspose.Slides cho Python qua Java](/slides/vi/python-java/)
 - [Tham chiếu API Aspose.Slides cho Python qua Java](https://reference.aspose.com/slides/python-java/)
-- [Trình chuyển đổi trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/conversion)
+- [Công cụ chuyển đổi trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/conversion)

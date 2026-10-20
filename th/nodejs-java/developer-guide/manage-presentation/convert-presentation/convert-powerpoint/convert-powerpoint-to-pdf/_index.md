@@ -1,14 +1,14 @@
 ---
-title: แปลง PPT และ PPTX เป็น PDF ใน JavaScript [รวมฟีเจอร์ขั้นสูง]
+title: แปลง PPT และ PPTX เป็น PDF ใน JavaScript [รวมคุณลักษณะขั้นสูง]
 linktitle: PowerPoint เป็น PDF
 type: docs
 weight: 40
 url: /th/nodejs-java/convert-powerpoint-to-pdf/
 keywords:
 - แปลง PowerPoint
-- แปลงการนำเสนอ
+- แปลงงานนำเสนอ
 - PowerPoint เป็น PDF
-- การนำเสนอเป็น PDF
+- งานนำเสนอเป็น PDF
 - PPT เป็น PDF
 - แปลง PPT เป็น PDF
 - PPTX เป็น PDF
@@ -25,49 +25,47 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "แปลง PowerPoint PPT/PPTX เป็น PDF คุณภาพสูงที่สามารถค้นหาได้โดยใช้ Aspose.Slides สำหรับ Node.js พร้อมตัวอย่างโค้ดที่รวดเร็วและตัวเลือกการแปลงขั้นสูง"
+description: "แปลง PowerPoint PPT/PPTX เป็น PDF คุณภาพสูงที่ค้นหาได้โดยใช้ Aspose.Slides สำหรับ Node.js พร้อมตัวอย่างโค้ดที่เร็วและตัวเลือกการแปลงขั้นสูง"
 ---
 ## **ภาพรวม**
 
-การแปลงการนำเสนอ PowerPoint และ OpenDocument (PPT, PPTX, ODP เป็นต้น) เป็นรูปแบบ PDF ใน JavaScript มีข้อได้เปรียบหลายประการ รวมถึงความเข้ากันได้กับอุปกรณ์ต่าง ๆ และการรักษาเค้าโครงและการจัดรูปแบบของการนำเสนอของคุณ คู่มือนี้แสดงวิธีการแปลงการนำเสนอเป็นเอกสาร PDF, ใช้ตัวเลือกต่าง ๆ เพื่อควบคุมคุณภาพของรูปภาพ, รวมสไลด์ที่ซ่อนอยู่, ป้องกันไฟล์ PDF ด้วยรหัสผ่าน, ตรวจจับการแทนที่ฟอนต์, เลือกสไลด์เฉพาะสำหรับการแปลง, และใช้มาตรฐานการปฏิบัติตามสำหรับเอกสารผลลัพธ์
+การแปลงงานนำเสนอ PowerPoint และ OpenDocument (PPT, PPTX, ODP ฯลฯ) เป็นรูปแบบ PDF ด้วย JavaScript มีข้อได้เปรียบหลายประการ เช่น ความเข้ากันได้บนอุปกรณ์ต่างๆ และการรักษาเค้าโครงและรูปแบบของงานนำเสนอ คู่มือนี้จะแสดงวิธีการแปลงงานนำเสนอเป็นเอกสาร PDF การใช้ตัวเลือกต่างๆ เพื่อควบคุมคุณภาพภาพ การรวมสไลด์ที่ซ่อนอยู่ การตั้งรหัสผ่านสำหรับไฟล์ PDF การตรวจจับการแทนที่ฟอนต์ การเลือกสไลด์เฉพาะสำหรับการแปลง และการใช้มาตรฐานการปฏิบัติตามสำหรับเอกสารผลลัพธ์
 
 ## **การแปลง PowerPoint เป็น PDF**
 
-ใช้ Aspose.Slides คุณสามารถแปลงการนำเสนอในรูปแบบต่อไปนี้เป็น PDF:
+โดยใช้ Aspose.Slides คุณสามารถแปลงงานนำเสนอในรูปแบบต่อไปนี้เป็น PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-เพื่อแปลงการนำเสนอเป็น PDF ให้ส่งชื่อไฟล์เป็นอาร์กิวเมนต์ไปยังคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) จากนั้นบันทึกการนำเสนอเป็น PDF โดยใช้เมธอด [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) คลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) เปิดเผยเมธอด [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) ซึ่งโดยทั่วไปใช้สำหรับแปลงการนำเสนอเป็น PDF
+เพื่อแปลงงานนำเสนอเป็น PDF ให้ส่งชื่อไฟล์เป็นอาร์กิวเมนต์ให้คลาส [การนำเสนอ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) จากนั้นบันทึกงานนำเสนอเป็น PDF โดยใช้เมธอด [บันทึก](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) คลาส [การนำเสนอ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) จะเปิดให้ใช้เมธอด [บันทึก](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/) ที่โดยปกติใช้เพื่อแปลงงานนำเสนอเป็น PDF
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides สำหรับ Node.js ผ่าน Java แทรกข้อมูล API และหมายเลขเวอร์ชันของมันลงในเอกสารผลลัพธ์ ตัวอย่างเช่น เมื่อแปลงการนำเสนอเป็น PDF, Aspose.Slides จะเติมฟิลด์ Application ด้วย "*Aspose.Slides*" และฟิลด์ PDF Producer ด้วยค่าที่อยู่ในรูปแบบ "*Aspose.Slides v XX.XX*" **หมายเหตุ** ว่าคุณไม่สามารถสั่งให้ Aspose.Slides เปลี่ยนหรือลบข้อมูลนี้ออกจากเอกสารผลลัพธ์ได้
-
+Aspose.Slides for Node.js via Java จะใส่ข้อมูล API และหมายเลขเวอร์ชันลงในเอกสารผลลัพธ์ ตัวอย่างเช่น เมื่อแปลงการนำเสนอเป็น PDF, Aspose.Slides จะใส่ค่าลงในฟิลด์ Application เป็น "*Aspose.Slides*" และฟิลด์ PDF Producer จะเป็นค่าที่มีรูปแบบ "*Aspose.Slides v XX.XX*" **หมายเหตุ** ว่าคุณไม่สามารถสั่งให้ Aspose.Slides เปลี่ยนหรือเอาข้อมูลนี้ออกจากเอกสารผลลัพธ์ได้
 {{% /alert %}}
 
-Aspose.Slides อนุญาตให้คุณแปลง:
+Aspose.Slides ให้คุณแปลง:
 
-* การนำเสนอทั้งหมดเป็น PDF
-* สไลด์เฉพาะจากการนำเสนอเป็น PDF
+* งานนำเสนอทั้งหมดเป็น PDF
+* สไลด์เฉพาะจากงานนำเสนอเป็น PDF
 
-Aspose.Slides ส่งออกการนำเสนอเป็น PDF, ทำให้ไฟล์ PDF ที่ได้ตรงกับการนำเสนอเดิมอย่างใกล้เคียง องค์ประกอบและคุณลักษณะต่าง ๆ จะถูกเรนเดอร์อย่างแม่นยำในการแปลง, รวมถึง:
+Aspose.Slides ส่งออกงานนำเสนอเป็น PDF โดยทำให้ PDF ที่ได้ตรงกับงานนำเสนอเดิมอย่างใกล้เคียง ส่วนประกอบและแอตทริบิวต์ต่างๆ จะถูกเรนเดอร์อย่างแม่นยำในระหว่างการแปลง รวมถึง:
 
 * รูปภาพ
-* กล่องข้อความและรูปร่าง
-* รูปแบบข้อความ
-* รูปแบบย่อหน้า
+* กล่องข้อความและรูปทรง
+* การจัดรูปแบบตัวอักษร
+* การจัดรูปแบบย่อหน้า
 * ไฮเปอร์ลิงก์
-* ส่วนหัวและส่วนท้าย
-* หัวข้อย่อย
+* หัวกระดาษและท้ายกระดาษ
+* สัญลักษณ์หัวข้อ
 * ตาราง
 
 ## **แปลง PowerPoint เป็น PDF**
 
-กระบวนการแปลง PowerPoint ไปเป็น PDF มาตรฐานใช้ตัวเลือกค่าเริ่มต้น ในกรณีนี้ Aspose.Slides จะพยายามแปลงการนำเสนอที่ให้เป็น PDF โดยใช้การตั้งค่าที่เหมาะที่สุดที่ระดับคุณภาพสูงสุด
+กระบวนการแปลง PowerPoint เป็น PDF ปกติใช้ตัวเลือกเริ่มต้น ในกรณีนี้ Aspose.Slides จะพยายามแปลงงานนำเสนอที่ให้เป็น PDF โดยใช้การตั้งค่าที่เหมาะสมที่สุดในระดับคุณภาพสูงสุด
 
-ตัวอย่างต่อไปนี้โหลดการนำเสนอและบันทึกสไลด์ที่มองเห็นทั้งหมดเป็น PDF โดยใช้การตั้งค่าการส่งออกค่าเริ่มต้น
+ตัวอย่างต่อไปนี้โหลดงานนำเสนอและบันทึกสไลด์ที่มองเห็นทั้งหมดเป็น PDF โดยใช้การตั้งค่าการส่งออกเริ่มต้น
 
 ```js
 var aspose = aspose || {};
@@ -82,20 +80,18 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-
-Aspose มีตัวแปลง PowerPoint เป็น PDF ออนไลน์ฟรี [**ตัวแปลง PowerPoint เป็น PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) ที่แสดงกระบวนการแปลงการนำเสนอเป็น PDF คุณสามารถทดสอบกับตัวแปลงนี้เพื่อดูการดำเนินการจริงของขั้นตอนที่อธิบายไว้ที่นี่
-
+Aspose มีตัวแปลงออนไลน์ฟรีที่ชื่อว่า [**ตัวแปลง PowerPoint เป็น PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) ซึ่งแสดงกระบวนการแปลงงานนำเสนอเป็น PDF คุณสามารถทดสอบกับตัวแปลงนี้เพื่อดูการทำงานจริงของขั้นตอนที่อธิบายไว้ที่นี่
 {{% /alert %}}
 
-## **แปลง PowerPoint เป็น PDF ด้วยตัวเลือก**
+## **แปลง PowerPoint เป็น PDF พร้อมตัวเลือก**
 
-Aspose.Slides ให้ตัวเลือกกำหนดเอง—คุณสมบัติภายใต้คลาส [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/)—เพื่อให้คุณปรับแต่ง PDF ที่ได้, ปิดกั้น PDF ด้วยรหัสผ่าน, หรือระบุวิธีการดำเนินกระบวนการแปลง
+Aspose.Slides ให้ตัวเลือกแบบกำหนดเอง—คุณสมบัติภายใต้คลาส [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/)—ที่ช่วยให้คุณปรับแต่ง PDF ที่ได้ ปิด PDF ด้วยรหัสผ่าน หรือกำหนดวิธีการทำงานของกระบวนการแปลง
 
 ### **แปลง PowerPoint เป็น PDF ด้วยตัวเลือกกำหนดเอง**
 
-โดยใช้ตัวเลือกการแปลงกำหนดเอง คุณสามารถกำหนดการตั้งค่าคุณภาพที่ต้องการสำหรับภาพเรสเตอร์, ระบุวิธีการจัดการไฟล์เมต้า, ตั้งค่าระดับการบีบอัดสำหรับข้อความ, กำหนดค่า DPI สำหรับภาพ, และอื่น ๆ
+โดยใช้ตัวเลือกการแปลงแบบกำหนดเอง คุณสามารถกำหนดการตั้งค่าคุณภาพที่ต้องการสำหรับภาพเรสเตอร์ ระบุวิธีการจัดการเมต้าไฟล์ ตั้งค่าระดับการบีบอัดข้อความ กำหนด DPI สำหรับภาพ และอื่นๆ
 
-ตัวอย่างต่อไปนี้ส่งออกการนำเสนอเป็น PDF 1.5 โดยตั้งค่า JPEG quality เป็น 90, ความละเอียดภาพเป็น 300 DPI, บันทึกไฟล์เมต้าเป็น PNG, และใช้การบีบอัดข้อความแบบ Flate
+ตัวอย่างต่อไปนี้ส่งออกงานนำเสนอเป็น PDF 1.5 พร้อมคุณภาพ JPEG ที่ 90 ความละเอียดภาพที่ 300 DPI เมต้าไฟล์บันทึกเป็น PNG และการบีบอัดข้อความแบบ Flate
 
 ```js
 var aspose = aspose || {};
@@ -117,13 +113,38 @@ try {
 }
 ```
 
-### **รักษาไฟล์ OLE ฝังไว้เป็นไฟล์แนบ PDF**
+### **เลือกการบีบอัดภาพอัตโนมัติ**
 
-หากการนำเสนอมีเวิร์กบุ๊ก Excel ฝังอยู่ คุณอาจต้องการให้ผู้รับ PDF เข้าถึงข้อมูลของเวิร์กบุ๊กพร้อมกับดูสไลด์ เรียกใช้เมธอด [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) ด้วยค่า `true` เพื่อเก็บไฟล์ OLE ที่ฝังไว้เป็นไฟล์แนบใน PDF ที่ได้
+เมื่องานนำเสนอมีรูปถ่ายหรือภาพหน้าจอจำนวนมาก การลดขนาด PDF ที่ส่งออกออกมาจะทำให้ง่ายต่อการส่งอีเมลหรือดาวน์โหลด เรียกใช้เมธอด [PdfOptions.setBestImagesCompressionRatio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setbestimagescompressionratio/) ด้วยค่า `true` เพื่อให้ระบบเลือกอัลกอริธึมการบีบอัดที่เหมาะสมที่สุดสำหรับแต่ละภาพระหว่างการส่งออก PDF
 
-ค่าตั้งต้นคือ `false`: ภาพตัวอย่างหรือไอคอนของออบเจกต์ OLE จะถูกเรนเดอร์บนหน้า PDF แต่ไฟล์ที่ฝังไว้จะไม่ถูกใส่เป็นไฟล์แนบ การตั้งค่าเป็น `true` จะรวมข้อมูลไฟล์ด้วย ตัวอย่างแสดงภาพยังคงเป็นการแสดงผลวิชวล; ไฟล์แนบทำให้ผู้รับสามารถเปิดหรือบันทึกไฟล์ที่ฝังแยกต่างหากได้ ออบเจกต์ OLE จะไม่กลายเป็นแผ่นงาน Excel แบบโต้ตอบบนหน้า PDF
+ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีอยู่ เปิดใช้งานการเลือกบีบอัดภาพอัตโนมัติ และบันทึกเป็นไฟล์ PDF การตั้งค่าอื่นๆ ของการส่งออก PDF ยังคงค่าเริ่มต้นไว้
 
-ตัวอย่างต่อไปนี้โหลดการนำเสนอที่มีเวิร์กบุ๊ก Excel ฝังอยู่แล้วและส่งออกเป็น PDF พร้อมแนบเวิร์กบุ๊ก
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setBestImagesCompressionRatio(true);
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    presentation.save("presentation.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+เมธอดนี้จะเลือกอัลกอริธึมการบีบอัดสำหรับแต่ละภาพ การลดค่าที่ส่งให้กับ [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setjpegquality/) จะทำให้คุณภาพ JPEG ลดลง ส่วนการลดค่าที่ส่งให้กับ [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setsufficientresolution/) จะทำให้ภาพมีการลดความละเอียดลง ซึ่งอาจลดรายละเอียดได้ การเปิดใช้งานการเลือกบีบอัดอัตโนมัติเองไม่ได้ทำให้การตั้งค่าเหล่านี้ลดลง
+
+การเลือกอัลกอริธึมบีบอัดภาพต้องใช้การประมวลผลและหน่วยความจำเพิ่มเติม ขนาดที่ลดลงจะขึ้นกับภาพและการตั้งค่าการส่งออกของงานนำเสนอ; ไม่ได้รับประกันว่าจะลดขนาดได้เท่าเดิมสำหรับทุกงานนำเสนอ
+
+### **เก็บไฟล์ OLE ฝังเป็นไฟล์แนบ PDF**
+
+หากงานนำมีไฟล์ Excel ที่ฝังอยู่ คุณอาจต้องการให้ผู้รับ PDF สามารถเข้าถึงข้อมูลของไฟล์เวิร์คบุ๊กพร้อมกับดูสไลด์ เรียกใช้เมธอด [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) ด้วยค่า `true` เพื่อเก็บไฟล์ OLE ฝังเป็นไฟล์แนบใน PDF ที่สร้างขึ้น
+
+ค่าเริ่มต้นคือ `false`: ภาพพรีวิวหรือไอคอนของอ็อบเจ็กต์ OLE จะถูกเรนเดอร์บนหน้า PDF แต่ไฟล์ฝังจะไม่รวมเป็นไฟล์แนบ การตั้งค่าเป็น `true` จะเพิ่มข้อมูลไฟล์เข้าไปเช่นกัน พรีวิวยังคงเป็นการแสดงผลภาพ ส่วนไฟล์แนบทำให้ผู้รับสามารถเปิดหรือบันทึกไฟล์ฝังแยกต่างหากได้ อ็อบเจ็กต์ OLE จะไม่กลายเป็นแผ่นงาน Excel ที่โต้ตอบได้บนหน้า PDF
+
+ตัวอย่างต่อไปนี้โหลดงานนำเสนอที่มีไฟล์ Excel ฝังอยู่แล้วและส่งออกเป็น PDF พร้อมแนบเวิร์คบุ๊ก
 
 ```js
 var aspose = aspose || {};
@@ -142,19 +163,19 @@ try {
 
 เพื่อตรวจสอบผลลัพธ์:
 
-1. เปิดไฟล์ PDF ที่ส่งออกในโปรแกรมดูที่รองรับไฟล์แนบ เช่น Adobe Acrobat Reader
-2. เปิดแผง **Attachments** ของโปรแกรมดูและค้นหาเวิร์กบุ๊กที่ฝังไว้
-3. บันทึกไฟล์แนบและเปิดใน Excel เพื่อตรวจสอบข้อมูล หรือเปิดโดยตรงหากโปรแกรมดูอนุญาต การแสดงตัวอย่างบนหน้า PDF แยกจากไฟล์แนบ
+1. เปิด PDF ที่ส่งออกในโปรแกรมที่รองรับไฟล์แนบ เช่น Adobe Acrobat Reader
+2. เปิดแผง **Attachments** ของโปรแกรมและค้นหาเวิร์คบุ๊กที่ฝังอยู่
+3. บันทึกไฟล์แนบและเปิดใน Excel เพื่อตรวจสอบข้อมูล หรือเปิดโดยตรงหากโปรแกรมอนุญาต พรีวิวบนหน้า PDF จะอยู่แยกจากไฟล์แนบ
 
 {{% alert color="info" title="Note" %}}
-
-มาตรฐาน PDF/A กำหนดข้อจำกัดในการแนบไฟล์: PDF/A-1 ห้ามไฟล์ฝัง, PDF/A-2 อนุญาตให้แนบไฟล์ PDF/A เท่านั้น, และ PDF/A-3 อนุญาตไฟล์ประเภทอื่นรวมถึงเวิร์กบุ๊ก Excel สิ่งเหล่านี้เป็นข้อกำหนดของมาตรฐาน ไม่ใช่ข้อจำกัดเฉพาะของ Aspose.Slides ตัวอย่างนี้ใช้การตั้งค่าการปฏิบัติตาม PDF ค่าเริ่มต้นและไม่ได้สาธิตการส่งออก PDF/A
-
+มาตรฐาน PDF/A มีข้อจำกัดเรื่องไฟล์แนบ: PDF/A-1 ห้ามมีไฟล์ฝัง, PDF/A-2 อนุญาตไฟล์แนบ PDF/A เท่านั้น, PDF/A-3 อนุญาตประเภทไฟล์อื่นรวมถึงเวิร์คบุ๊ก Excel สิ่งเหล่านี้เป็นข้อกำหนดของมาตรฐาน ไม่ใช่ข้อจำกัดของ Aspose.Slides ตัวอย่างนี้ใช้การตั้งค่าการปฏิบัติตาม PDF เริ่มต้นและไม่ได้สาธิตการส่งออก PDF/A
 {{% /alert %}}
 
 ### **แปลง PowerPoint เป็น PDF พร้อมสไลด์ที่ซ่อนอยู่**
 
-หากการนำเสนอมีสไลด์ที่ซ่อนอยู่ คุณสามารถใช้เมธอด [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) จากคลาส [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) เพื่อรวมสไลด์ที่ซ่อนอยู่เป็นหน้าใน PDF ที่ได้
+หากงานนำเสนอมีสไลด์ที่ซ่อนอยู่ คุณสามารถใช้เมธอด [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) ของคลาส [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) เพื่อรวมสไลด์ที่ซ่อนเป็นหน้าใน PDF ที่สร้างขึ้น
+
+ตัวอย่างต่อไปนี้ส่งออกงานนำเสนอเป็น PDF พร้อมรวมสไลด์ที่ซ่อนทั้งหมด
 
 ```js
 var aspose = aspose || {};
@@ -171,9 +192,9 @@ try {
 }
 ```
 
-### **แปลง PowerPoint เป็น PDF ที่ป้องกันด้วยรหัสผ่าน**
+### **แปลง PowerPoint เป็น PDF ที่มีการตั้งรหัสผ่าน**
 
-ตัวอย่างต่อไปนี้ส่งออกการนำเสนอเป็น PDF ที่ต้องใช้รหัสผ่าน `password` เพื่อเปิด การอนุญาตการเข้าถึงอนุญาตให้พิมพ์รวมถึงการพิมพ์คุณภาพสูง
+ตัวอย่างต่อไปนี้ส่งออกงานนำเสนอเป็น PDF ที่ต้องใช้รหัสผ่าน `password` เพื่อเปิด การอนุญาตการเข้าถึงให้พิมพ์ได้ รวมถึงการพิมพ์คุณภาพสูง
 
 ```js
 var aspose = aspose || {};
@@ -193,9 +214,9 @@ try {
 
 ### **ตรวจจับการแทนที่ฟอนต์**
 
-Aspose.Slides ให้เมธอด [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/) ภายใต้คลาส [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) เพื่อให้คุณตรวจจับการแทนที่ฟอนต์ระหว่างกระบวนการแปลงการนำเสนอเป็น PDF
+Aspose.Slides มีเมธอด [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/) ภายใต้คลาส [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) ที่ช่วยให้คุณตรวจจับการแทนที่ฟอนต์ระหว่างกระบวนการแปลงงานนำเสนอเป็น PDF
 
-ตัวอย่างต่อไปนี้ส่งออกการนำเสนอเป็น PDF และพิมพ์คำเตือนการแทนที่ฟอนต์ไปยังคอนโซล คำเตือนจะพิมพ์เฉพาะเมื่อฟอนต์ที่ไม่มีอยู่ถูกแทนที่ระหว่างการส่งออก
+ตัวอย่างต่อไปนี้ส่งออกงานนำเสนอเป็น PDF และพิมพ์คำเตือนการแทนที่ฟอนต์ไปยังคอนโซล คำเตือนจะปรากฏก็ต่อเมื่อฟอนต์ที่ไม่มีอยู่ถูกแทนที่ระหว่างการส่งออก
 
 ```js
 var aspose = aspose || {};
@@ -223,16 +244,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการแทนที่ฟอนต์ โปรดดูบทความ [การแทนที่ฟอนต์](/slides/th/nodejs-java/font-substitution/)
-
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับการแทนที่ฟอนต์ โปรดดูบทความ [Font Substitution](/slides/th/nodejs-java/font-substitution/)
 {{% /alert %}} 
 
-### **จัดการฟอนต์ที่ไม่มีตัวหนาเฉพาะ**
+### **จัดการฟอนต์ที่ไม่มีตัวหนาที่แยกออกมา**
 
-การนำเสนอสามารถใช้การจัดรูปแบบตัวหนาสำหรับข้อความได้แม้ว่าฟอนต์ของมันจะไม่มีตัวหนาเฉพาะ ตัวอักษรอาจดูเป็นตัวหนาผ่านการทำ Synthetic Bold ซึ่งทำให้ glyph ปกติหนาขึ้น หากข้อความนั้นดูหนามากเกินไปหรือแตกต่างจากที่ต้องการใน PDF ให้ลองเรียกใช้เมธอด [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) ด้วยค่า `true` ตัวเลือกนี้จะแสดงข้อความที่ได้รับผลกระทบเป็นบิทแมพระหว่างการส่งออก PDF และอาจทำให้รูปลักษณ์ของฟอนต์บางตัวดีขึ้น ค่าเริ่มต้นคือ `false`
+งานนำเสนออาจใช้การจัดรูปแบบตัวหนากับข้อความแม้ว่าฟอนต์นั้นจะไม่มีรูปแบบตัวหนาแยกออกมา ข้อความยังคงแสดงเป็นตัวหนาผ่านการทำตัวหนาสังเคราะห์ ซึ่งทำให้กรีฟธรรมดาหนาขึ้น หากข้อความนั้นดูหนาเกินไปหรือไม่ตรงกับรูปลักษณ์ที่ต้องการใน PDF ให้ลองเรียกเมธอด [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) ด้วยค่า `true` ตัวเลือกนี้จะเรนเดอร์ข้อความที่ได้รับผลกระทบเป็นบิตแมพระหว่างการส่งออก PDF และอาจทำให้รูปลักษณ์ดีขึ้นสำหรับฟอนต์บางตัว ค่าเริ่มต้นคือ `false`
 
-ตัวอย่างการนำเสนอมีกล่องข้อความสองกล่อง: หนึ่งกล่องมีข้อความปกติและอีกหนึ่งกล่องมีการจัดรูปแบบตัวหนาใช้ฟอนต์เดียวกันที่ไม่มีตัวหนาเฉพาะ ตัวอย่างต่อไปนี้โหลดการนำเสนอ เปิดการเรสเซอร์ไลซ์สไตล์ฟอนต์ที่ไม่รองรับ และส่งออกเป็น PDF:
+งานนำเสนอตัวอย่างมีกล่องข้อความสองกล่อง: กล่องหนึ่งมีข้อความปกติและอีกกล่องหนึ่งมีการจัดรูปแบบตัวหนาใช้ฟอนต์เดียวกันที่ไม่มีตัวหนาแยกออกมา ตัวอย่างต่อไปนี้โหลดงานนำเสนอ เปิดใช้งานการเรซอร์ไรซ์ฟอนต์ที่ไม่รองรับรูปแบบตัวหนา และส่งออกเป็น PDF:
 
 ```javascript
 var aspose = aspose || {};
@@ -249,19 +268,19 @@ try {
 }
 ```
 
-ตัวอย่างต่อไปนี้แสดงผลลัพธ์ที่ปิดและเปิด การเปิดใช้งานตัวเลือกทำให้ข้อความตัวหนามีเส้นที่เบาลง; ข้อความปกติไม่เปลี่ยนแปลง เปรียบเทียบผลลัพธ์ก่อนเลือกการตั้งค่าสำหรับการนำเสนอของคุณ
+พรีวิวต่อไปนี้แสดงผลลัพธ์เมื่อปิดและเปิดตัวเลือก ในตัวอย่างนี้ข้อความหนามีเส้นที่หนากว่าเมื่อปิดตัวเลือก เมื่อเปิดตัวเลือกเส้นจะแน่นกว่า; ข้อความปกติไม่เปลี่ยนแปลง เปรียบเทียบผลลัพธ์ก่อนกำหนดค่าตามที่ต้องการสำหรับงานนำเสนอของคุณ
 
 | ตัวเลือกปิด (`false`, ค่าเริ่มต้น) | ตัวเลือกเปิด (`true`) |
 |---|---|
 | ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
 
-ในตัวอย่างนี้ การเปิดใช้งานตัวเลือกทำให้ข้อความตัวหนาเท่านั้นถูกแปลงเป็นบิทแมพ: ไม่สามารถเลือก, คัดลอก หรือค้นหาเป็นข้อความได้หากไม่มี OCR และขอบของมันจะดูนุ่มลงที่การซูม 800% ข้อความปกติยังคงค้นหาได้ เมื่อปิดตัวเลือก ทั้งสองสตริงยังคงเป็นข้อความ
+ในตัวอย่างนี้การเปิดตัวเลือกทำให้ข้อความหนาแปลงเป็นบิตแมพเท่านั้น: ไม่สามารถเลือก, คัดลอก หรือค้นหาเป็นข้อความได้หากไม่มี OCR และขอบจะดูอ่อนกว่าเมื่อซูมที่ 800% ส่วนข้อความปกติยังคงสามารถค้นหาได้ เมื่อปิดตัวเลือก ทั้งสองสตริงจะยังคงเป็นข้อความ
 
-ตัวเลือกนี้ทำการเรสเซอร์ไลซ์ข้อความที่จัดรูปแบบเป็นตัวหนาเมื่อฟอนต์ไม่มีตัวหนาเฉพาะ [การแทนที่ฟอนต์](/slides/th/nodejs-java/font-substitution/) จะเลือกฟอนต์อื่นเมื่อฟอนต์ต้นฉบับไม่พร้อมใช้งาน
+ตัวเลือกนี้ทำให้ข้อความที่จัดรูปแบบเป็นตัวหนาเมื่อฟอนต์ไม่มีตัวหนาแยกออกมาถูกเรซอร์ไรซ์ [Font substitution](/slides/th/nodejs-java/font-substitution/) จะเลือกฟอนต์อื่นแทนเมื่อฟอนต์เดิมไม่พร้อมใช้งาน
 
 ## **แปลงสไลด์ที่เลือกจาก PowerPoint เป็น PDF**
 
-ตัวอย่างต่อไปนี้ส่งออกสไลด์ที่ 1 และ 3 จากการนำเสนอเป็น PDF ตัวเลขสไลด์ในอาร์เรย์นี้เริ่มต้นที่ 1 และการนำเข้าต้องมีอย่างน้อยสามสไลด์
+ตัวอย่างต่อไปนี้ส่งออกสไลด์ที่ 1 และ 3 จากงานนำเสนอเป็น PDF ตัวเลขสไลด์ในอาเรย์นี้นับจาก 1 และงานนำเข้าต้องมีอย่างน้อยสามสไลด์
 
 ```js
 var aspose = aspose || {};
@@ -279,7 +298,7 @@ try {
 
 ## **แปลง PowerPoint เป็น PDF ด้วยขนาดสไลด์ที่กำหนดเอง**
 
-ตัวอย่างต่อไปนี้คัดลอกสไลด์แรกจากการนำเสนอไปยังการนำเสนอใหม่ที่มีขนาดสไลด์ 612 × 792 points (8.5 × 11 นิ้ว) มันปรับขนาดเนื้อหาสไลด์ให้พอดีและส่งออกสไลด์เดียวเป็น PDF
+ตัวอย่างต่อไปนี้คัดลอกสไลด์แรกจากงานนำเสนอไปยังงานนำเสนอใหม่ที่มีขนาดสไลด์ 612 × 792 พ้อยท์ (8.5 × 11 นิ้ว) ปรับสเกลเนื้อหาสไลด์ให้พอดีและส่งออกสไลด์เดียวเป็น PDF
 
 ```js
 var aspose = aspose || {};
@@ -296,7 +315,7 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // ลบสไลด์เปล่าที่สร้างขึ้นพร้อมการนำเสนอใหม่.
+    // ลบสไลด์เปล่าที่สร้างขึ้นเมื่อสร้างการนำเสนอใหม่
     resizedPresentation.getSlides().removeAt(1);
 
     resizedPresentation.save("PDF_with_custom_slide_size.pdf", aspose.slides.SaveFormat.Pdf);
@@ -308,7 +327,7 @@ try {
 
 ## **แปลง PowerPoint เป็น PDF ในมุมมองสไลด์บันทึกย่อ**
 
-ตัวอย่างต่อไปนี้ส่งออกการนำเสนอเป็น PDF โดยวางบันทึกย่อของผู้บรรยายแต่ละสไลด์ด้านล่างสไลด์ ใช้การนำเสนอที่มีบันทึกย่อเพื่อดูผลลัพธ์
+ตัวอย่างต่อไปนี้ส่งออกงานนำเสนอเป็น PDF โดยวางบันทึกย่อของผู้พูดใต้สไลด์แต่ละหน้า ใช้งานนำเสนอที่มีบันทึกย่อผู้พูดเพื่อดูผลลัพธ์
 
 ```js
 var aspose = aspose || {};
@@ -330,7 +349,9 @@ try {
 
 ## **มาตรฐานการเข้าถึงและการปฏิบัติตามสำหรับ PDF**
 
-Aspose.Slides อนุญาตให้คุณใช้กระบวนการแปลงที่สอดคล้องกับ [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) คุณสามารถส่งออกเอกสาร PowerPoint เป็น PDF โดยใช้มาตรฐานการปฏิบัติตามใดก็ได้ต่อไปนี้: **PDF/A1a**, **PDF/A1b**, และ **PDF/UA**
+Aspose.Slides อนุญาตให้คุณใช้กระบวนการแปลงที่สอดคล้องกับ [แนวทางการเข้าถึงเนื้อหาเว็บ (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) คุณสามารถส่งออกเอกสาร PowerPoint เป็น PDF ด้วยมาตรฐานการปฏิบัติตามเหล่านี้: **PDF/A1a**, **PDF/A1b**, และ **PDF/UA**
+
+โค้ดนี้สาธิตกระบวนการแปลง PowerPoint เป็น PDF ที่ผลิต PDF หลายไฟล์ตามมาตรฐานการปฏิบัติตามที่แตกต่างกัน:
 
 ```js
 var aspose = aspose || {};
@@ -354,37 +375,35 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides รองรับการดำเนินการแปลง PDF ทำให้คุณสามารถแปลงไฟล์ PDF ไปเป็นรูปแบบไฟล์ยอดนิยมได้ คุณสามารถทำการแปลง [PDF ไป HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF ไป JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/), และ [PDF ไป PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) การแปลง PDF ไปยังรูปแบบเฉพาะอื่น ๆ เช่น [PDF ไป SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF ไป TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/) ก็ได้รับการสนับสนุนเช่นกัน
-
+Aspose.Slides รองรับการทำงานแปลง PDF ทำให้คุณสามารถแปลงไฟล์ PDF ไปเป็นรูปแบบไฟล์ยอดนิยมอื่นได้ คุณสามารถทำการแปลง [PDF เป็น HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF เป็น JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/), และ [PDF เป็น PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) การแปลง PDF ไปเป็นรูปแบบเฉพาะอื่น เช่น [PDF เป็น SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF เป็น TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/) ก็รองรับเช่นกัน
 {{% /alert %}}
 
-> **หมายเหตุ:** เมื่อส่งออกเป็น PDF/UA, Aspose.Slides จะถือกราฟิกที่ซับซ้อนเช่น SmartArt, แผนภูมิ, และสูตรเป็นรูปแบบเดียว ไม่ได้เก็บองค์ประกอบเส้นทางแต่ละอันเป็นเนื้อหาแยกและอาจถูกบันทึกเป็นอาร์ตแฟคท์; ข้อความแทนที่ (alternative text) จะให้เฉพาะสำหรับรูปทั้งหมดเท่านั้น
+> **หมายเหตุ:** เมื่อส่งออกเป็น PDF/UA, Aspose.Slides จะถือกราฟิกซับซ้อนเช่น SmartArt, แผนภูมิ, และสูตรเป็นรูปแบบเดียว ไม่ได้เก็บส่วนประกอบเส้นทางแยกเป็นเนื้อหาแยกต่างหากและอาจถูกมาร์คเป็นสิ่งประดิษฐ์; ข้อความแทนภาพ (alt text) จะให้เฉพาะกับรูปทั้งหมดเท่านั้น
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**Can I convert multiple PowerPoint files to PDF in bulk?**
+**ฉันสามารถแปลงไฟล์ PowerPoint หลายไฟล์เป็น PDF เป็นชุดได้หรือไม่?**
 
-Yes, Aspose.Slides supports batch conversion of multiple PPT or PPTX files to PDF. You can iterate through your files and apply the conversion process programmatically.
+ได้, Aspose.Slides รองรับการแปลงเป็นชุดของไฟล์ PPT หรือ PPTX หลายไฟล์เป็น PDF คุณสามารถวนลูปไฟล์ของคุณและเรียกใช้กระบวนการแปลงโดยอัตโนมัติ
 
-**Is it possible to password-protect the converted PDF?**
+**ฉันสามารถตั้งรหัสผ่านให้ PDF ที่แปลงแล้วได้หรือไม่?**
 
-Yes. Use the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class to set a password and define access permissions during the conversion process.
+ได้. ใช้คลาส [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) เพื่อกำหนดรหัสผ่านและกำหนดสิทธิ์การเข้าถึงระหว่างกระบวนการแปลง
 
-**How do I include hidden slides in the PDF?**
+**ฉันจะรวมสไลด์ที่ซ่อนอยู่ใน PDF ได้อย่างไร?**
 
-Call [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) with `true` in the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class to include hidden slides in the resulting PDF.
+เรียกเมธอด [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) ด้วยค่า `true` ในคลาส [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) เพื่อรวมสไลด์ที่ซ่อนอยู่ใน PDF ที่สร้างขึ้น
 
-**Can Aspose.Slides maintain high image quality in the PDF?**
+**Aspose.Slides สามารถรักษาคุณภาพภาพสูงใน PDF ได้หรือไม่?**
 
-Yes, you can control image quality by using methods such as [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setjpegquality/) and [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setsufficientresolution/) in the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) class to ensure high-quality images in your PDF.
+ได้, คุณสามารถควบคุมคุณภาพภาพได้โดยใช้เมธอดเช่น [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setjpegquality/) และ [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setsufficientresolution/) ในคลาส [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) เพื่อให้ได้ภาพคุณภาพสูงใน PDF ของคุณ
 
-**Does Aspose.Slides support PDF/A compliance standards?**
+**Aspose.Slides รองรับมาตรฐานการปฏิบัติตาม PDF/A หรือไม่?**
 
-Yes, Aspose.Slides allows you to export PDFs that comply with [various standards](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfcompliance/), including PDF/A1a, PDF/A1b, and PDF/UA, ensuring your documents meet accessibility and archival requirements.
+ได้, Aspose.Slides อนุญาตให้คุณส่งออก PDF ที่สอดคล้องกับ [มาตรฐานต่างๆ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfcompliance/) รวมถึง PDF/A1a, PDF/A1b, และ PDF/UA เพื่อให้เอกสารของคุณตอบสนองความต้องการด้านการเข้าถึงและการเก็บรักษาแบบถาวร
 
 ## **แหล่งข้อมูลเพิ่มเติม**
 
-- [เอกสาร Aspose.Slides สำหรับ Node.js ผ่าน Java](/slides/th/nodejs-java/)
-- [อ้างอิง API Aspose.Slides สำหรับ Node.js ผ่าน Java](https://reference.aspose.com/slides/nodejs-java/)
-- [ตัวแปลงออนไลน์ฟรีของ Aspose](https://products.aspose.app/slides/conversion)
+- [Aspose.Slides for Node.js via Java Documentation](/slides/th/nodejs-java/)
+- [Aspose.Slides for Node.js via Java API Reference](https://reference.aspose.com/slides/nodejs-java/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)

@@ -1,5 +1,5 @@
 ---
-title: Java経由のPythonでPPTおよびPPTXをPDFに変換（高度な機能を含む）
+title: Python を介した Java で PPT と PPTX を PDF に変換する [高度な機能を含む]
 linktitle: PowerPoint を PDF に変換
 type: docs
 weight: 40
@@ -18,56 +18,56 @@ keywords:
 - PPTX を PDF として保存
 - PPT を PDF にエクスポート
 - PPTX を PDF にエクスポート
-- 添付
+- 添付ファイル
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides を使用して、Java 経由の Python で PowerPoint の PPT/PPTX を高品質かつ検索可能な PDF に変換し、迅速なコード例と高度な変換オプションを提供します。"
+description: "Aspose.Slides を使用し、Python 経由で Java で PowerPoint PPT/PPTX を高品質で検索可能な PDF に変換します。高速なコード例と高度な変換オプションを提供します。"
 ---
 ## **概要**
 
-PowerPointプレゼンテーション（PPT、PPTX、ODPなど）をJava経由のPythonでPDF形式に変換すると、さまざまな利点があります。デバイス間の互換性やプレゼンテーションのレイアウトと書式設定を保持できます。 本ガイドでは、プレゼンテーションをPDFドキュメントに変換する方法、画像品質を制御するさまざまなオプションの使用方法、非表示スライドの含め方、PDFファイルのパスワード保護、フォント置換の検出、変換対象の特定スライドの選択、出力ドキュメントへの準拠基準の適用方法を示します。
+Python から Java を介して PowerPoint プレゼンテーション (PPT、PPTX、ODP など) を PDF 形式に変換すると、さまざまなデバイス間での互換性や、プレゼンテーションのレイアウトと書式設定の保持など、複数の利点があります。このガイドでは、プレゼンテーションを PDF ドキュメントに変換する方法、画像品質を制御するオプションの使用、非表示スライドの含め方、PDF ファイルへのパスワード保護、フォント置換の検出、特定スライドだけを変換する方法、そして出力ドキュメントにコンプライアンス基準を適用する方法を示します。
 
-## **PowerPointからPDFへの変換**
+## **PowerPoint から PDF への変換**
 
-Aspose.Slides を使用すると、次の形式のプレゼンテーションをPDFに変換できます。
+Aspose.Slides を使用すると、以下の形式のプレゼンテーションを PDF に変換できます。
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-プレゼンテーションをPDFに変換するには、ファイル名を引数として[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)クラスに渡し、[save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save)メソッドを使用してプレゼンテーションをPDFとして保存します。[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)クラスは、通常プレゼンテーションをPDFに変換するために使用される[save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save)メソッドを公開しています。
+プレゼンテーションを PDF に変換するには、ファイル名を [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) クラスの引数として渡し、次に [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) メソッドを使用して PDF として保存します。[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) クラスは、通常プレゼンテーションを PDF に変換するために使用される [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) メソッドを公開しています。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java は、出力ドキュメントに API 情報とバージョン番号を挿入します。たとえば、プレゼンテーションをPDFに変換する際、Aspose.Slides は Application フィールドに「*Aspose.Slides*」を、PDF Producer フィールドに「*Aspose.Slides v XX.XX*」という形式の値を設定します。**注** Aspose.Slides に対して、出力ドキュメントからこの情報を変更または削除するよう指示することはできません。
+
+Aspose.Slides for Python via Java は、API 情報とバージョン番号を出力ドキュメントに挿入します。たとえば、プレゼンテーションを PDF に変換すると、Application フィールドに「*Aspose.Slides*」が、PDF Producer フィールドには「*Aspose.Slides v XX.XX*」という形式の値が設定されます。**注**：この情報を出力ドキュメントから変更または除去するように指示することはできません。
+
 {{% /alert %}}
 
-Aspose.Slides は以下の変換をサポートします：
+Aspose.Slides では、次の変換が可能です。
 
-* プレゼンテーション全体をPDFに変換
-* プレゼンテーションから特定のスライドをPDFに変換
+* プレゼンテーション全体を PDF に変換
+* プレゼンテーションの特定スライドを PDF に変換
 
-Aspose.Slides はプレゼンテーションをPDFにエクスポートし、生成されたPDFが元のプレゼンテーションとほぼ同一になるようにします。変換時に要素や属性が正確にレンダリングされます。具体的には：
+Aspose.Slides はプレゼンテーションを PDF にエクスポートし、結果の PDF が元のプレゼンテーションに極めて近い形になるようにします。変換時に正確にレンダリングされる要素と属性は次のとおりです。
 
 * 画像
-* テキストボックスと図形
-* テキストの書式設定
-* 段落の書式設定
+* テキスト ボックスと図形
+* テキスト書式設定
+* 段落書式設定
 * ハイパーリンク
 * ヘッダーとフッター
 * 箇条書き
 * 表
 
-## **PowerPointをPDFに変換**
+## **PowerPoint を PDF に変換する**
 
-標準の変換はデフォルトのPDFエクスポート設定を使用します。画像品質、ページ内容、またはPDFの準拠性を制御する必要がある場合は、カスタムオプションを使用してください。
+標準の変換はデフォルトの PDF エクスポート設定を使用します。画像品質、ページ内容、または PDF コンプライアンスを制御する必要がある場合はカスタム オプションを使用してください。
 
-例を実行する前に、[Aspose.Slides for Python via Java](/slides/ja/python-java/installation/) と互換性のある Java ランタイムをインストールしてください。各例は現在の作業ディレクトリから `presentation.pptx` を読み取ります。ご自身の PPT、PPTX、または ODP ファイルに置き換えてください。JVM は Python プロセスごとに一度だけ起動します。
-
-次の例はプレゼンテーションを読み込み、デフォルトのエクスポート設定を使用してすべての表示スライドをPDFに保存します。
+以下の例は、プレゼンテーションを読み込み、デフォルトのエクスポート設定で表示スライドすべてを PDF に保存します。
 
 ```python
 import jpype
@@ -86,16 +86,20 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose は、プレゼンテーションからPDFへの変換プロセスを示す無料のオンライン [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf) を提供しています。このコンバータでテストを実行し、ここで説明した手順の実装を確認できます。
+
+Aspose は、無料のオンライン [**PowerPoint から PDF へのコンバータ**](https://products.aspose.app/slides/conversion/ppt-to-pdf) を提供しており、プレゼンテーションから PDF への変換プロセスをデモンストレーションしています。このコンバータでテストを実行し、ここで説明した手順のライブ実装を確認できます。
+
 {{% /alert %}}
 
-## **PowerPointをPDFに変換（オプションあり）**
+## **オプション付きで PowerPoint を PDF に変換する**
 
-Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスのプロパティとしてカスタムオプションを提供し、生成されたPDFをカスタマイズしたり、パスワードでロックしたり、変換プロセスの進行方法を指定したりできます。
+Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスのプロパティとしてカスタム オプションを提供し、結果の PDF をカスタマイズしたり、PDF にパスワードを設定したり、変換プロセスの進め方を指定したりできます。
 
-### **PowerPointをPDFに変換（カスタムオプション）**
+### **カスタム オプションで PowerPoint を PDF に変換する**
 
-カスタム変換オプションを使用すると、ラスタ画像の品質設定、メタファイルの処理方法、テキストの圧縮レベル、画像の DPI 設定などを定義できます。
+カスタム変換オプションを使用すると、ラスター画像の品質設定、メタファイルの取り扱い方法、テキストの圧縮レベル、画像の DPI などを指定できます。
+
+以下の例は、PDF 1.5 にエクスポートし、JPEG 品質を 90、画像解像度を 300 DPI、メタファイルを PNG として保存し、Flate テキスト圧縮を適用します。
 
 ```python
 import jpype
@@ -120,13 +124,42 @@ finally:
     presentation.dispose()
 ```
 
-### **埋め込みOLEファイルをPDF添付ファイルとして保持**
+### **画像圧縮を自動選択する**
 
-プレゼンテーションに埋め込みの Excel ワークブックが含まれている場合、PDF の受信者がスライドを閲覧できるだけでなく、ワークブックのデータにもアクセスできるようにしたいことがあります。`True` を指定して [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) を呼び出すと、埋め込み OLE ファイルが結果の PDF に添付ファイルとして保持されます。
+プレゼンテーションに多数の写真やスクリーンショットが含まれている場合、エクスポートされた PDF のサイズを縮小すると、メールやダウンロードが容易になります。`True` を渡して [PdfOptions.setBestImagesCompressionRatio](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setBestImagesCompressionRatio) を呼び出すと、PDF エクスポート時に各画像に最も適切な圧縮アルゴリズムが自動的に選択されます。
 
-デフォルト値は `False` です。OLE オブジェクトのプレビュー画像またはアイコンは PDF ページにレンダリングされますが、埋め込みファイルは添付ファイルとして含まれません。オプションを `True` に設定すると、ファイルデータも添付されます。プレビューは視覚的な表現のままで、添付により受信者は埋め込みファイルを個別に開くまたは保存できます。OLE オブジェクトは PDF ページ上でインタラクティブな Excel ワークシートにはなりません。
+以下の例は、既存のプレゼンテーションを読み込み、自動画像圧縮選択を有効にして PDF ドキュメントとして保存します。その他の PDF エクスポート設定はデフォルト値のままです。
 
-次の例は、すでに埋め込みの Excel ワークブックを含むプレゼンテーションを読み込み、ワークブックを添付した状態で PDF にエクスポートします。
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setBestImagesCompressionRatio(True)
+
+presentation = Presentation("image-heavy.pptx")
+try:
+    presentation.save("image-heavy.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+このオプションは画像ごとに圧縮アルゴリズムを選択します。[setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) に渡す値を下げると JPEG 画像の品質が低下し、[setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) に渡す値を下げると画像が低解像度にダウンサンプルされ、詳細が削減されます。自動圧縮選択を有効にしても、これらの設定自体は下げられません。
+
+画像圧縮アルゴリズムの選択には追加の処理時間とメモリが必要です。サイズ削減はプレゼンテーションの画像とエクスポート設定に依存し、すべてのプレゼンテーションで一定の削減が保証されるわけではありません。
+
+### **埋め込み OLE ファイルを PDF 添付ファイルとして保持する**
+
+プレゼンテーションに埋め込みの Excel ワークブックが含まれている場合、PDF の受信者がスライドだけでなくワークブックのデータにもアクセスできるようにしたいことがあります。`True` を渡して [setIncludeOleData](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setIncludeOleData) を呼び出すと、埋め込み OLE ファイルが結果の PDF の添付ファイルとして保持されます。
+
+デフォルト値は `False` で、OLE オブジェクトのプレビュー画像またはアイコンは PDF ページに描画されますが、埋め込みファイルは添付されません。`True` に設定するとファイルデータも添付されます。プレビューは視覚的な表現のままで、添付ファイルにより受信者は埋め込みファイルを別個に開いたり保存したりできます。OLE オブジェクト自体が PDF ページ上で対話的な Excel シートになることはありません。
+
+以下の例は、既に埋め込みの Excel ワークブックを含むプレゼンテーションを読み込み、ワークブックを添付した状態で PDF にエクスポートします。
 
 ```python
 import jpype
@@ -147,21 +180,23 @@ finally:
     presentation.dispose()
 ```
 
-結果を確認するには：
+結果を確認する手順:
 
-1. Adobe Acrobat Reader など、ファイル添付をサポートするビューアでエクスポートされた PDF を開きます。
-2. ビューアの **Attachments** パネルを開き、埋め込みワークブックを探します。
-3. 添付ファイルを保存して Excel でデータを確認するか、ビューアが許可すれば直接開きます。PDF ページ上のプレビューは添付とは別です。
+1. 添付ファイルをサポートするビューア (例: Adobe Acrobat Reader) でエクスポートされた PDF を開く。
+2. ビューアの **Attachments** パネルを開き、埋め込みワークブックを探す。
+3. 添付ファイルを保存し、Excel で開いてデータを確認するか、ビューアが許可すれば直接開く。PDF ページ上のプレビューは添付とは別です。
 
 {{% alert color="info" title="Note" %}}
-PDF/A 標準は添付ファイルに制限を課しています：PDF/A-1 は埋め込みファイルを禁止し、PDF/A-2 は PDF/A 添付ファイルのみを許可し、PDF/A-3 は Excel ワークブックを含む他のファイルタイプを許可します。これらは標準の要件であり、Aspose.Slides 固有の制限ではありません。この例はデフォルトの PDF 準拠設定を使用しており、PDF/A エクスポートは示していません。
+
+PDF/A 標準は添付ファイルに制限を課します。PDF/A-1 は埋め込みファイルを禁止し、PDF/A-2 は PDF/A 添付ファイルのみを許可し、PDF/A-3 は Excel ワークブックを含むその他のファイルタイプも許可します。これは標準の要件であり、Aspose.Slides 固有の制限ではありません。この例はデフォルトの PDF コンプライアンス設定を使用しており、PDF/A エクスポートは示していません。
+
 {{% /alert %}}
 
-### **PowerPointをPDFに変換（非表示スライド込み）**
+### **非表示スライドを含めて PowerPoint を PDF に変換する**
 
-プレゼンテーションに非表示スライドが含まれている場合、[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスの [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) メソッドを使用して、非表示スライドを結果の PDF のページとして含めることができます。
+プレゼンテーションに非表示スライドが含まれている場合、[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスの [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) メソッドを使用して、非表示スライドを PDF のページとして含めることができます。
 
-次の例は、非表示スライドを含めてプレゼンテーションを PDF にエクスポートします。
+以下の例は、非表示スライドを含めてプレゼンテーションを PDF にエクスポートします。
 
 ```python
 import jpype
@@ -182,9 +217,9 @@ finally:
     presentation.dispose()
 ```
 
-### **PowerPointをパスワード保護されたPDFに変換**
+### **パスワード保護された PDF に変換する**
 
-次の例は、開く際にパスワード `password` が必要な PDF にプレゼンテーションをエクスポートします。アクセス許可では印刷が可能で、高品質印刷も含まれます。
+以下の例は、パスワード `password` が必要な PDF にプレゼンテーションをエクスポートします。アクセス権限は印刷を許可し、高品質印刷も可能です。
 
 ```python
 import jpype
@@ -206,11 +241,11 @@ finally:
     presentation.dispose()
 ```
 
-### **フォント置換の検出**
+### **フォント置換を検出する**
 
-Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスの下で [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) メソッドを提供し、プレゼンテーションからPDFへの変換プロセス中にフォント置換を検出できるようにします。
+Aspose.Slides は、[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスの下にある [setWarningCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setWarningCallback) メソッドを提供し、プレゼンテーションから PDF への変換プロセス中にフォント置換を検出できます。
 
-次の例は、プレゼンテーションを PDF にエクスポートし、フォント置換の警告をコンソールに出力します。警告は、利用できないフォントが置換されたときにのみ出力されます。Java API から警告コールバックを受け取るために JPype プロキシを使用します。プレフィックスを確認する前に、Java の説明文字列を Python の文字列に変換してください。
+以下の例は、プレゼンテーションを PDF にエクスポートし、フォント置換の警告をコンソールに出力します。利用できないフォントが置換されたときだけ警告が出力されます。Java API からの警告コールバックを受け取るには JPype プロキシを使用し、Java の文字列を Python の文字列に変換してプレフィックスをチェックします。
 
 ```python
 import jpype
@@ -243,14 +278,16 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-フォント置換に関する詳細は、[Font Substitution](/slides/ja/python-java/font-substitution/) 記事をご覧ください。
+
+フォント置換に関する詳細は、[Font Substitution](/slides/ja/python-java/font-substitution/) 記事をご参照ください。
+
 {{% /alert %}}
 
-### **専用の太字フォントがないフォントの処理**
+### **専用の太字フォントがない場合の処理**
 
-プレゼンテーションでは、フォントに専用の太字タイプフェイスがなくても、テキストに太字書式を適用できます。このテキストは、通常のグリフを人工的に太くする合成太字により太字として表示されます。そのテキストが PDF で意図した外観と比較して重く見える場合や異なる場合は、`True` を指定して [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles) を呼び出してみてください。このオプションは、PDF エクスポート時に影響を受けたテキストをビットマップとしてレンダリングし、特定のフォントでの外観を改善できることがあります。デフォルト値は `False` です。
+フォントに専用の太字タイプフェイスが存在しない場合でも、プレゼンテーションは太字書式を適用できます。太字テキストは合成太字として表示され、通常のグリフを人工的に太くします。このテキストが PDF で見た目が重すぎる、または期待通りでない場合は、`True` を渡して [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles) を呼び出してみてください。このオプションは、PDF エクスポート時に該当テキストをビットマップとして描画し、特定フォントでの表示を改善します。既定値は `False` です。
 
-サンプルのプレゼンテーションには、通常テキストが入ったテキストボックスと、同じフォント（専用の太字タイプフェイスなし）に太字書式が適用されたテキストボックスの 2 つがあります。次の例はプレゼンテーションを読み込み、サポートされていないフォントスタイルのラスタライズを有効にし、PDF にエクスポートします。
+サンプルのプレゼンテーションには、同一フォント（専用太字がない）で通常テキストと太字テキストの 2 つのテキスト ボックスが含まれています。以下の例はプレゼンテーションを読み込み、サポートされていないフォントスタイルのラスタライズを有効にして PDF にエクスポートします。
 
 ```python
 import jpype
@@ -271,19 +308,19 @@ finally:
     presentation.dispose()
 ```
 
-以下のプレビューは、オプション無効時と有効時の出力を示しています。この例では、オプションが無効の場合、太字テキストのストロークが太くなります。オプションを有効にすると、ストロークが細くなり、通常テキストは変更されません。設定を選択する前に結果を比較してください。
+以下のプレビューは、オプション無効時と有効時の出力を示しています。この例では、オプション無効時の太字テキストは線が太く、オプション有効時は線が細くなります。通常テキストは変わりません。設定を決定する前に結果を比較してください。
 
-| オプション無効 (`False`、デフォルト) | オプション有効 (`True`) |
+| オプション無効 (`False`, 既定) | オプション有効 (`True`) |
 |---|---|
-| ![サポートされていないフォントスタイルのラスタライズが無効なPDF](unsupported-bold-disabled.png) | ![サポートされていないフォントスタイルのラスタライズが有効なPDF](unsupported-bold-enabled.png) |
+| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
 
-この例では、オプションを有効にすると、太字テキストだけがビットマップに変換されます。OCR なしでは選択、コピー、検索ができず、800% のズームではエッジが柔らかく表示されます。通常テキストは検索可能なままです。オプションが無効の場合、両方の文字列はテキストとして残ります。
+この例では、オプションを有効にすると太字テキストだけがビットマップ化され、OCR なしでは選択・コピー・検索できず、800% ズーム時にエッジが柔らかく表示されます。通常テキストは引き続き検索可能です。オプション無効時は両方の文字列がテキストとして残ります。
 
-このオプションは、フォントに専用の太字タイプフェイスがない場合に、太字として書式設定されたテキストをラスタライズします。元のフォントが利用できない場合は、[Font substitution](/slides/ja/python-java/font-substitution/) が別のフォントを選択します。
+このオプションは、フォントに専用太字がない場合に太字テキストをラスタライズします。代わりに [Font substitution](/slides/ja/python-java/font-substitution/) が利用できないフォントを別のフォントに置き換えます。
 
-## **PowerPointから選択したスライドをPDFに変換**
+## **プレゼンテーションから選択したスライドを PDF に変換する**
 
-[Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) に渡すスライド番号は 1 から始まります。この例は、スライド 1 と 3 が存在する場合にそれらをエクスポートします。
+[Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) に渡すスライド番号は 1 から始まります。以下の例は、スライド 1 と 3 が存在する場合にそれらをエクスポートします。
 
 ```python
 import jpype
@@ -302,9 +339,9 @@ finally:
     presentation.dispose()
 ```
 
-## **PowerPointをカスタムスライドサイズでPDFに変換**
+## **カスタム スライド サイズで PowerPoint を PDF に変換する**
 
-この例は、サイズ 612 × 792 ポイント（US Letter）のページに最初のスライドをエクスポートします。指定サイズの新しいプレゼンテーションにスライドをクローンし、スライドコンテンツを拡大縮小して収めます。
+この例は、ページサイズ 612×792 ポイント (US Letter) のページに最初のスライドをエクスポートします。スライドを指定サイズの新しいプレゼンテーションにクローンし、スライドコンテンツをフィットさせるようにスケーリングします。
 
 ```python
 import jpype
@@ -322,7 +359,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     resized_presentation.getSlides().insertClone(0, slide)
 
-    # 新しく作成されたプレゼンテーションに含まれる空白スライドを削除します。
+    # 新しいプレゼンテーションが作成された際にできた空白スライドを削除します。
     resized_presentation.getSlides().removeAt(1)
 
     resized_presentation.save("presentation-custom-size.pdf", SaveFormat.Pdf)
@@ -331,9 +368,9 @@ finally:
     resized_presentation.dispose()
 ```
 
-## **PowerPointをノートスライドビューでPDFに変換**
+## **ノート スライド ビューで PowerPoint を PDF に変換する**
 
-次の例は、プレゼンテーションを PDF にエクスポートし、各スライドのスピーカーノートをスライドの下に配置します。結果を見るには、スピーカーノートを含むプレゼンテーションを使用してください。
+以下の例は、各スライドのスピーカーノートをスライドの下部に配置してプレゼンテーションを PDF にエクスポートします。結果を確認するには、スピーカーノートを含むプレゼンテーションを使用してください。
 
 ```python
 import jpype
@@ -357,11 +394,11 @@ finally:
     presentation.dispose()
 ```
 
-## **PDF のアクセシビリティと準拠基準**
+## **PDF のアクセシビリティとコンプライアンス基準**
 
-アクセシブルな PDF を作成する際は、[Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) を参照してください。[PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance) を使用して出力標準を選択できます：**PDF/A1a**、**PDF/A1b**、および **PDF/UA**。
+アクセシブルな PDF を作成する際は、[Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) を参照してください。出力標準を選択するには、[PdfOptions.setCompliance](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setCompliance) を使用し、**PDF/A1a**、**PDF/A1b**、**PDF/UA** から選択します。
 
-このコードは、異なる準拠基準に基づいて複数の PDF を生成する PowerPoint から PDF への変換プロセスを示しています。
+以下のコードは、異なるコンプライアンス基準に基づいて複数の PDF を生成する PowerPoint から PDF への変換プロセスを示しています。
 
 ```python
 import jpype
@@ -388,32 +425,32 @@ finally:
     presentation.dispose()
 ```
 
-> **注:** PDF/UA にエクスポートする際、Aspose.Slides は SmartArt、チャート、数式などの複雑なグラフィックを単一の図として扱います。個々のパス要素は別々のコンテンツとして保持されず、アーティファクトとしてマークされる可能性があります。代替テキストは全体の図に対してのみ提供されます。
+> **注:** PDF/UA にエクスポートする場合、Aspose.Slides は SmartArt、チャート、数式などの複雑なグラフィックを単一の図形として扱います。個別のパス要素は別々のコンテンツとして保持されず、アーティファクトとしてマークされることがあります。代替テキストは全体の図形に対してのみ提供されます。
 
 ## **FAQ**
 
 **複数の PowerPoint ファイルを一括で PDF に変換できますか？**
 
-はい、Aspose.Slides は複数の PPT または PPTX ファイルを PDF に一括変換することをサポートしています。ファイルを順に処理し、プログラムで変換プロセスを実行できます。
+はい、Aspose.Slides は複数の PPT または PPTX ファイルをバッチ変換して PDF に変換することをサポートしています。ファイルを列挙してプログラムで変換処理を実行できます。
 
-**変換された PDF にパスワード保護を設定できますか？**
+**変換した PDF にパスワードを設定できますか？**
 
-はい。変換プロセス中に [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスを使用してパスワードを設定し、アクセス許可を定義できます。
+はい。[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスを使用して、変換時にパスワードとアクセス権限を設定できます。
 
 **PDF に非表示スライドを含めるにはどうすればよいですか？**
 
-[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスで `True` を指定して [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) を呼び出すと、結果の PDF に非表示スライドが含まれます。
+[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスで `True` を渡して [setShowHiddenSlides](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) を呼び出すと、結果の PDF に非表示スライドが含まれます。
 
-**Aspose.Slides は PDF の画像品質を高く保つことができますか？**
+**Aspose.Slides は PDF の画像品質を高く保てますか？**
 
-はい、[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスの [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) や [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) といったメソッドを使用して画像品質を制御し、PDF 内の画像を高品質に保つことができます。
+はい。[PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) クラスの [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) や [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) などのメソッドを使用して、PDF 内の画像品質を高く保つことができます。
 
-**Aspose.Slides は PDF/A 準拠基準をサポートしていますか？**
+**Aspose.Slides は PDF/A コンプライアンス標準をサポートしていますか？**
 
-はい、Aspose.Slides はアクセシビリティやアーカイブ用に、PDF/A1a、PDF/A1b、PDF/UA を含む [various standards](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/) に準拠した PDF のエクスポートを可能にします。適切な標準を選択し、出力が要件を満たしているか確認してください。
+はい、Aspose.Slides は [various standards](https://reference.aspose.com/slides/python-java/aspose.slides/pdfcompliance/) を含む PDF/A1a、PDF/A1b、PDF/UA などの標準に準拠した PDF のエクスポートをサポートしています。目的に応じた標準を選択し、出力が要件を満たすか確認してください。
 
 ## **追加リソース**
 
-- [Aspose.Slides for Python via Java ドキュメント](/slides/ja/python-java/)
-- [Aspose.Slides for Python via Java API リファレンス](https://reference.aspose.com/slides/python-java/)
-- [Aspose 無料オンラインコンバータ](https://products.aspose.app/slides/conversion)
+- [Aspose.Slides for Python via Java Documentation](/slides/ja/python-java/)
+- [Aspose.Slides for Python via Java API Reference](https://reference.aspose.com/slides/python-java/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)

@@ -1,5 +1,5 @@
 ---
-title: Konwertuj PPT i PPTX do PDF w JavaScript [Zaawansowane funkcje w zestawie]
+title: Konwertuj PPT i PPTX do PDF w JavaScript [Zawarte zaawansowane funkcje]
 linktitle: PowerPoint do PDF
 type: docs
 weight: 40
@@ -25,11 +25,11 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Konwertuj prezentacje PowerPoint PPT/PPTX do wysokiej jakości, przeszukiwalnych plików PDF przy użyciu Aspose.Slides dla Node.js, z szybkimi przykładami kodu i zaawansowanymi opcjami konwersji."
+description: "Konwertuj PowerPoint PPT/PPTX do wysokiej jakości, przeszukiwalnych plików PDF przy użyciu Aspose.Slides for Node.js, z szybkimi przykładami kodu i zaawansowanymi opcjami konwersji."
 ---
 ## **Przegląd**
 
-Konwersja prezentacji PowerPoint i OpenDocument (PPT, PPTX, ODP itp.) do formatu PDF w JavaScript oferuje wiele korzyści, w tym kompatybilność z różnymi urządzeniami oraz zachowanie układu i formatowania prezentacji. Ten przewodnik pokazuje, jak konwertować prezentacje do dokumentów PDF, używać różnych opcji kontrolujących jakość obrazów, uwzględniać ukryte slajdy, zabezpieczać pliki PDF hasłem, wykrywać podstawienia czcionek, wybierać konkretne slajdy do konwersji oraz stosować standardy zgodności w dokumentach wyjściowych.
+Konwertowanie prezentacji PowerPoint i OpenDocument (PPT, PPTX, ODP itp.) do formatu PDF w JavaScript oferuje kilka zalet, w tym kompatybilność z różnymi urządzeniami oraz zachowanie układu i formatowania Twojej prezentacji. Ten przewodnik pokazuje, jak konwertować prezentacje do dokumentów PDF, używać różnych opcji kontrolujących jakość obrazów, włączać ukryte slajdy, zabezpieczać pliki PDF hasłem, wykrywać zastąpienia czcionek, wybierać określone slajdy do konwersji oraz stosować standardy zgodności w dokumentach wyjściowych.
 
 ## **Konwersje PowerPoint do PDF**
 
@@ -39,35 +39,33 @@ Używając Aspose.Slides, możesz konwertować prezentacje w następujących for
 * **PPTX**
 * **ODP**
 
-Aby skonwertować prezentację do PDF, przekaż nazwę pliku jako argument do klasy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) i następnie zapisz prezentację jako PDF przy użyciu metody [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/). Klasa [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) udostępnia metodę [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/), która jest typowo używana do konwersji prezentacji do PDF.
+Aby skonwertować prezentację do PDF, przekaż nazwę pliku jako argument do klasy [Prezentacja](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) i następnie zapisz prezentację jako PDF używając metody [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/). Klasa [Prezentacja](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) udostępnia metodę [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/save/), która jest zazwyczaj używana do konwersji prezentacji do PDF.
 
 {{% alert color="info" title="Uwaga" %}}
-
-Aspose.Slides for Node.js via Java wstawia informacje o API i numer wersji do dokumentów wyjściowych. Na przykład podczas konwersji prezentacji do PDF, Aspose.Slides wypełnia pole Application wartością "*Aspose.Slides*" oraz pole PDF Producer wartością w formacie "*Aspose.Slides v XX.XX*". **Uwaga**, że nie możesz nakazać Aspose.Slides zmiany lub usunięcia tych informacji z dokumentów wyjściowych.
-
+Aspose.Slides for Node.js via Java wstawia informacje o API i numer wersji do dokumentów wyjściowych. Na przykład, podczas konwertowania prezentacji do PDF, Aspose.Slides wypełnia pole Application wartością "*Aspose.Slides*" oraz pole PDF Producer wartością w formacie "*Aspose.Slides v XX.XX*". **Uwaga**, że nie można nakazać Aspose.Slides zmienić lub usunąć tych informacji z dokumentów wyjściowych.
 {{% /alert %}}
 
 Aspose.Slides umożliwia konwersję:
 
-* Całych prezentacji do PDF
-* Konkretnego slajdu z prezentacji do PDF
+* Całe prezentacje do PDF
+* Określone slajdy z prezentacji do PDF
 
-Aspose.Slides eksportuje prezentacje do PDF, zapewniając, że powstałe pliki PDF są w dużej mierze zgodne z oryginalnymi prezentacjami. Elementy i atrybuty są renderowane dokładnie w trakcie konwersji, w tym:
+Aspose.Slides eksportuje prezentacje do PDF, zapewniając, że powstałe pliki PDF ściśle odpowiadają oryginalnym prezentacjom. Elementy i atrybuty są renderowane dokładnie w trakcie konwersji, w tym:
 
 * Obrazy
 * Pola tekstowe i kształty
 * Formatowanie tekstu
-* Formatowanie akapitów
+* Formatowanie akapitu
 * Hiperłącza
 * Nagłówki i stopki
-* Wypunktowania
+* Punktory
 * Tabele
 
-## **Konwersja PowerPoint do PDF**
+## **Konwertuj PowerPoint do PDF**
 
-Standardowy proces konwersji PowerPoint‑do‑PDF używa domyślnych opcji. W tym przypadku Aspose.Slides próbuje przekonwertować podaną prezentację do PDF przy użyciu optymalnych ustawień o maksymalnej jakości.
+Standardowy proces konwersji PowerPoint do PDF używa domyślnych opcji. W tym przypadku Aspose.Slides stara się skonwertować podaną prezentację do PDF, stosując optymalne ustawienia przy maksymalnym poziomie jakości.
 
-Poniższy przykład ładuje prezentację i zapisuje wszystkie widoczne slajdy do PDF przy użyciu domyślnych ustawień eksportu.
+Następujący przykład ładuje prezentację i zapisuje wszystkie widoczne slajdy do PDF, używając domyślnych ustawień eksportu.
 
 ```js
 var aspose = aspose || {};
@@ -82,20 +80,18 @@ try {
 ```
 
 {{% alert color="info" title="Uwaga" %}}
-
-Aspose oferuje darmowy internetowy [**konwerter PowerPoint do PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), który demonstruje proces konwersji prezentacji do PDF. Możesz przetestować ten konwerter, aby zobaczyć działanie opisanej tutaj procedury.
-
+Aspose oferuje bezpłatny internetowy [**konwerter PowerPoint do PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf), który demonstruje proces konwersji prezentacji do PDF. Możesz przeprowadzić test z tym konwerterem, aby zobaczyć działanie opisanej tutaj procedury.
 {{% /alert %}}
 
-## **Konwersja PowerPoint do PDF z opcjami**
+## **Konwertuj PowerPoint do PDF z opcjami**
 
-Aspose.Slides udostępnia niestandardowe opcje — właściwości klasy [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) — które pozwalają dostosować powstały PDF, zabezpieczyć go hasłem lub określić, jak proces konwersji ma przebiegać.
+Aspose.Slides udostępnia niestandardowe opcje — właściwości klasy [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) — które pozwalają dostosować wynikowy PDF, zabezpieczyć PDF hasłem lub określić, jak ma przebiegać proces konwersji.
 
-### **Konwersja PowerPoint do PDF z własnymi opcjami**
+### **Konwertuj PowerPoint do PDF z własnymi opcjami**
 
-Używając własnych opcji konwersji, możesz określić preferowane ustawienie jakości dla rastrowych obrazów, określić sposób obsługi metaplików, ustawić poziom kompresji tekstu, skonfigurować DPI dla obrazów i nie tylko.
+Używając własnych opcji konwersji, możesz określić preferowane ustawienie jakości dla obrazów rastrowych, określić sposób obsługi metaplików, ustawić poziom kompresji tekstu, skonfigurować DPI dla obrazów i wiele więcej.
 
-Poniższy przykład eksportuje prezentację do PDF 1.5 z jakością JPEG ustawioną na 90, rozdzielczością obrazu 300 DPI, metaplikami zapisywanymi jako PNG oraz kompresją tekstu Flate.
+Następujący przykład eksportuje prezentację do PDF 1.5 z jakością JPEG ustawioną na 90, rozdzielczością obrazu 300 DPI, metaplikami zapisywanymi jako PNG oraz kompresją tekstu Flate.
 
 ```js
 var aspose = aspose || {};
@@ -117,13 +113,38 @@ try {
 }
 ```
 
-### **Zachowanie osadzonych plików OLE jako załączników PDF**
+### **Automatyczny wybór kompresji obrazu**
 
-Jeśli prezentacja zawiera osadzony skoroszyt Excel, możesz chcieć, aby odbiorcy PDF mieli dostęp do danych skoroszytu oraz do slajdów. Wywołaj [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) z wartością `true`, aby zachować osadzone pliki OLE jako załączniki w wygenerowanym PDF.
+Gdy prezentacja zawiera wiele fotografii lub zrzutów ekranu, zmniejszenie rozmiaru eksportowanego PDF może ułatwić wysyłanie e‑mail lub pobieranie. Wywołaj [PdfOptions.setBestImagesCompressionRatio](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setbestimagescompressionratio/) z wartością `true`, aby automatycznie wybrać najbardziej odpowiedni algorytm kompresji dla każdego obrazu podczas eksportu do PDF.
 
-Domyślna wartość to `false`: podgląd obrazu lub ikona obiektu OLE jest renderowana na stronie PDF, ale jego osadzony plik nie jest dołączany jako załącznik. Ustawienie opcji na `true` dodatkowo dołącza dane pliku. Podgląd pozostaje wizualną reprezentacją; załącznik pozwala odbiorcom otworzyć lub zapisać osadzony plik osobno. Obiekt OLE nie staje się interaktywnym arkuszem Excel na stronie PDF.
+Następujący przykład ładuje istniejącą prezentację, włącza automatyczny wybór kompresji obrazów i zapisuje ją jako dokument PDF. Wszystkie pozostałe ustawienia eksportu PDF zachowują wartości domyślne.
 
-Poniższy przykład ładuje prezentację, która już zawiera osadzony skoroszyt Excel, i eksportuje ją do PDF z dołączonym skoroszytem.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setBestImagesCompressionRatio(true);
+
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    presentation.save("presentation.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ta opcja wybiera algorytm kompresji dla każdego obrazu. Obniżenie wartości przekazywanej do [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setjpegquality/) powoduje obniżenie jakości obrazu JPEG, natomiast obniżenie wartości przekazywanej do [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setsufficientresolution/) pozwala na zmniejszenie rozdzielczości obrazów, co może zmniejszyć szczegóły. Włączenie automatycznego wyboru kompresji nie obniża tych ustawień.
+
+Wybór algorytmów kompresji obrazów wymaga dodatkowego czasu przetwarzania i pamięci. Redukcja rozmiaru zależy od obrazów w prezentacji i ustawień eksportu; stała redukcja nie jest gwarantowana dla każdej prezentacji.
+
+### **Zachowaj osadzone pliki OLE jako załączniki PDF**
+
+Jeśli prezentacja zawiera osadzony skoroszyt Excel, możesz chcieć, aby odbiorcy PDF mieli dostęp do danych skoroszytu oraz mogli przeglądać slajdy. Wywołaj [setIncludeOleData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) z wartością `true`, aby zachować osadzone pliki OLE jako załączniki w wynikowym PDF.
+
+Wartość domyślna to `false`: podgląd obrazu lub ikona obiektu OLE jest renderowana na stronie PDF, ale jego osadzony plik nie jest dołączany jako załącznik. Ustawienie opcji na `true` dodatkowo dołącza dane pliku. Podgląd pozostaje wizualną reprezentacją; załącznik umożliwia odbiorcom otwarcie lub zapisanie osadzonego pliku osobno. Obiekt OLE nie staje się interaktywnym arkuszem Excel na stronie PDF.
+
+Następujący przykład ładuje prezentację, która już zawiera osadzony skoroszyt Excel, i eksportuje ją do PDF z załączonym skoroszytem.
 
 ```js
 var aspose = aspose || {};
@@ -142,21 +163,19 @@ try {
 
 Aby sprawdzić wynik:
 
-1. Otwórz wyeksportowany PDF w przeglądarce obsługującej załączniki, np. Adobe Acrobat Reader.
-2. Otwórz panel **Attachments** i znajdź osadzony skoroszyt.
-3. Zapisz załącznik i otwórz go w Excelu, aby przejrzeć dane, lub otwórz go bezpośrednio, jeśli przeglądarka na to pozwala. Podgląd na stronie PDF jest oddzielny od załącznika.
+1. Otwórz wyeksportowany plik PDF w przeglądarce obsługującej załączniki, takiej jak Adobe Acrobat Reader.  
+2. Otwórz panel **Załączniki** w przeglądarce i znajdź osadzony skoroszyt.  
+3. Zapisz załącznik i otwórz go w Excelu, aby sprawdzić dane, lub otwórz go bezpośrednio, jeśli przeglądarka na to pozwala. Podgląd na stronie PDF jest oddzielny od załącznika.
 
 {{% alert color="info" title="Uwaga" %}}
-
-Standardy PDF/A nakładają ograniczenia na załączniki: PDF/A‑1 zakazuje osadzonych plików, PDF/A‑2 zezwala tylko na załączniki PDF/A, a PDF/A‑3 pozwala na inne typy plików, w tym skoroszyty Excel. Są to wymagania standardów, a nie ograniczenia specyficzne dla Aspose.Slides. Przykład używa domyślnego ustawienia zgodności PDF i nie demonstruje eksportu PDF/A.
-
+Standardy PDF/A nakładają ograniczenia na załączniki: PDF/A-1 zakazuje osadzonych plików, PDF/A-2 zezwala tylko na załączniki PDF/A, a PDF/A-3 zezwala na inne typy plików, w tym skoroszyty Excel. Są to wymagania standardów, a nie ograniczenia specyficzne dla Aspose.Slides. Ten przykład używa domyślnego ustawienia zgodności PDF i nie demonstruje eksportu PDF/A.
 {{% /alert %}}
 
-### **Konwersja PowerPoint do PDF z ukrytymi slajdami**
+### **Konwertuj PowerPoint do PDF z ukrytymi slajdami**
 
-Jeśli prezentacja zawiera ukryte slajdy, możesz użyć metody [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) z klasy [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), aby włączyć ukryte slajdy jako strony w powstałym PDF.
+Jeśli prezentacja zawiera ukryte slajdy, możesz użyć metody [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) z klasy [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), aby uwzględnić ukryte slajdy jako strony w wynikowym PDF.
 
-Poniższy przykład eksportuje prezentację do PDF, włączając wszelkie ukryte slajdy.
+Następujący przykład eksportuje prezentację do PDF, uwzględniając wszystkie ukryte slajdy.
 
 ```js
 var aspose = aspose || {};
@@ -173,9 +192,9 @@ try {
 }
 ```
 
-### **Konwersja PowerPoint do PDF chronionego hasłem**
+### **Konwertuj PowerPoint do PDF zabezpieczonego hasłem**
 
-Poniższy przykład eksportuje prezentację do PDF, który wymaga hasła `password` do otwarcia. Uprawnienia dostępu pozwalają na drukowanie, w tym drukowanie wysokiej jakości.
+Następujący przykład eksportuje prezentację do PDF, który wymaga hasła `password` do otwarcia. Uprawnienia dostępu pozwalają na drukowanie, w tym drukowanie w wysokiej jakości.
 
 ```js
 var aspose = aspose || {};
@@ -193,11 +212,11 @@ try {
 }
 ```
 
-### **Wykrywanie podstawień czcionek**
+### **Wykryj zastąpienia czcionek**
 
-Aspose.Slides udostępnia metodę [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/) w klasie [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), umożliwiającą wykrycie podstawień czcionek podczas konwersji prezentacji do PDF.
+Aspose.Slides udostępnia metodę [setWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/) w klasie [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), umożliwiając wykrycie zastąpień czcionek podczas procesu konwersji prezentacji do PDF.
 
-Poniższy przykład eksportuje prezentację do PDF i wypisuje ostrzeżenia o podstawieniach czcionek w konsoli. Ostrzeżenie jest wypisywane tylko wtedy, gdy nieobecna czcionka zostanie zastąpiona podczas eksportu.
+Następujący przykład eksportuje prezentację do PDF i wypisuje ostrzeżenia o zastąpieniach czcionek na konsolę. Ostrzeżenie jest wypisywane tylko wtedy, gdy podczas eksportu zastąpiona zostaje niedostępna czcionka.
 
 ```js
 var aspose = aspose || {};
@@ -225,16 +244,14 @@ try {
 ```
 
 {{% alert color="info" title="Uwaga" %}}
+Aby uzyskać więcej informacji o zastępowaniu czcionek, zobacz artykuł [Zastępowanie czcionek](/slides/pl/nodejs-java/font-substitution/).
+{{% /alert %}}
 
-Po więcej informacji na temat podstawień czcionek zobacz artykuł [Font Substitution](/slides/pl/nodejs-java/font-substitution/).
+### **Obsługa czcionek bez dedykowanej pogrubionej odmiany**
 
-{{% /alert %}} 
+Prezentacja może zastosować pogrubienie do tekstu, nawet jeśli czcionka nie ma dedykowanej pogrubionej wersji. Tekst może nadal wyglądać pogrubiony dzięki syntetycznemu pogrubianiu, które sztucznie zagęszcza zwykłe glify. Gdy taki tekst wygląda zbyt ciężko lub inaczej niż zamierzony w PDF, spróbuj wywołać [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) z wartością `true`. Ta opcja renderuje dotknięty tekst jako bitmapę podczas eksportu do PDF i może poprawić jego wygląd dla niektórych czcionek. Jej domyślna wartość to `false`.
 
-### **Obsługa czcionek bez dedykowanego stylu pogrubionego**
-
-Prezentacja może stosować pogrubienie tekstu, nawet gdy czcionka nie posiada dedykowanego stylu pogrubionego. Tekst może nadal wyglądać pogrubienie dzięki syntetycznemu pogrubianiu, które sztucznie zagęszcza zwykłe glify. Gdy taki tekst wygląda zbyt ciężko lub inaczej niż zamierzono w PDF, spróbuj wywołać [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/) z wartością `true`. Opcja ta renderuje dotknięty tekst jako bitmapę podczas eksportu PDF i może poprawić jego wygląd dla niektórych czcionek. Domyślna wartość to `false`.
-
-Przykładowa prezentacja zawiera dwa pola tekstowe: jedno z normalnym tekstem i drugie z pogrubionym formatowaniem tej samej czcionki, która nie ma dedykowanego stylu pogrubionego. Poniższy przykład ładuje prezentację, włącza rasteryzację nieobsługiwanych stylów czcionek i eksportuje ją do PDF:
+Przykładowa prezentacja zawiera dwa pola tekstowe: jedno z normalnym tekstem i jedno z pogrubionym formatowaniem zastosowanym do tej samej czcionki, która nie ma dedykowanej pogrubionej odmiany. Następujący przykład ładuje prezentację, włącza rasteryzację nieobsługiwanych stylów czcionek i eksportuje ją do PDF:
 
 ```javascript
 var aspose = aspose || {};
@@ -251,19 +268,19 @@ try {
 }
 ```
 
-Poniższe podglądy przedstawiają wynik z wyłączoną i włączoną opcją. W tym przykładzie tekst pogrubiony ma cięższe kreski przy wyłączonej opcji. Po włączeniu opcji kreski są lżejsze; tekst normalny pozostaje niezmieniony. Porównaj wyniki przed podjęciem decyzji o ustawieniu dla swojej prezentacji.
+Następujące podglądy pokazują wynik z wyłączoną i włączoną opcją. W tym przykładzie pogrubiony tekst ma cięższe kreski przy wyłączonej opcji. Po włączeniu opcja powoduje lżejsze kreski; tekst zwykły pozostaje niezmieniony. Porównaj wyniki przed wyborem ustawienia dla swojej prezentacji.
 
 | Opcja wyłączona (`false`, domyślnie) | Opcja włączona (`true`) |
 |---|---|
-| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+| ![PDF z wyłączoną rasteryzacją nieobsługiwanych stylów czcionki](unsupported-bold-disabled.png) | ![PDF z włączoną rasteryzacją nieobsługiwanych stylów czcionki](unsupported-bold-enabled.png) |
 
-W tym przykładzie włączenie opcji powoduje rasteryzację jedynie pogrubionego tekstu: nie może być zaznaczony, kopiowany ani przeszukiwany jako tekst bez OCR, a jego krawędzie są miększe przy 800 % powiększeniu. Normalny tekst pozostaje przeszukiwalny. Przy wyłączonej opcji oba ciągi pozostają tekstem.
+W tym przykładzie włączenie opcji zamienia tylko pogrubiony tekst na bitmapę: nie można go zaznaczyć, skopiować ani przeszukiwać jako tekst bez OCR, a jego krawędzie wyglądają miękko przy 800% powiększeniu. Tekst zwykły pozostaje przeszukiwalny. Przy wyłączonej opcji oba ciągi pozostają tekstem.
 
-Opcja ta rasteryzuje tekst sformatowany jako pogrubiony, gdy jego czcionka nie ma dedykowanego stylu pogrubionego. [Font substitution](/slides/pl/nodejs-java/font-substitution/) zamiast tego wybiera inną czcionkę, gdy oryginalna jest niedostępna.
+Ta opcja rasteryzuje tekst sformatowany jako pogrubiony, gdy jego czcionka nie ma dedykowanej pogrubionej odmiany. [Zastępowanie czcionek](/slides/pl/nodejs-java/font-substitution/) zamiast tego wybiera inną czcionkę, gdy oryginalna jest niedostępna.
 
-## **Konwersja wybranych slajdów z PowerPoint do PDF**
+## **Konwertuj wybrane slajdy z PowerPoint do PDF**
 
-Poniższy przykład eksportuje slajdy 1 i 3 z prezentacji do PDF. Numery slajdów w tej tablicy są numerowane od 1, a wejściowa prezentacja musi zawierać co najmniej trzy slajdy.
+Następujący przykład eksportuje slajdy 1 i 3 z prezentacji do PDF. Numery slajdów w tej tablicy zaczynają się od 1, a prezentacja wejściowa musi zawierać co najmniej trzy slajdy.
 
 ```js
 var aspose = aspose || {};
@@ -279,9 +296,9 @@ try {
 }
 ```
 
-## **Konwersja PowerPoint do PDF z niestandardowym rozmiarem slajdu**
+## **Konwertuj PowerPoint do PDF z niestandardowym rozmiarem slajdu**
 
-Poniższy przykład kopiuje pierwszy slajd z prezentacji do nowej prezentacji o rozmiarze slajdu 612 × 792 punktów (8,5 × 11 cali). Skaluje zawartość slajdu, aby pasowała, i eksportuje pojedynczy slajd do PDF.
+Następujący przykład kopiuje pierwszy slajd z prezentacji do nowej prezentacji o rozmiarze slajdu 612 × 792 punktów (8,5 × 11 cali). Skaluje zawartość slajdu, aby dopasować, i eksportuje pojedynczy slajd do PDF.
 
 ```js
 var aspose = aspose || {};
@@ -308,9 +325,9 @@ try {
 }
 ```
 
-## **Konwersja PowerPoint do PDF w widoku notatek slajdu**
+## **Konwertuj PowerPoint do PDF w widoku notatek slajdu**
 
-Poniższy przykład eksportuje prezentację do PDF, umieszczając notatki prelegenta pod każdym slajdem. Użyj prezentacji zawierającej notatki prelegenta, aby zobaczyć rezultat.
+Następujący przykład eksportuje prezentację do PDF, umieszczając notatki prelegenta każdego slajdu pod slajdem. Użyj prezentacji zawierającej notatki prelegenta, aby zobaczyć rezultat.
 
 ```js
 var aspose = aspose || {};
@@ -330,11 +347,11 @@ try {
 }
 ```
 
-## **Dostępność i standardy zgodności PDF**
+## **Standardy dostępności i zgodności dla PDF**
 
-Aspose.Slides pozwala używać procedury konwersji zgodnej z [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Możesz eksportować dokument PowerPoint do PDF, stosując dowolny z tych standardów zgodności: **PDF/A1a**, **PDF/A1b** i **PDF/UA**.
+Aspose.Slides umożliwia użycie procedury konwersji, która jest zgodna z [Wytycznymi dostępności treści internetowych (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Możesz wyeksportować dokument PowerPoint do PDF, używając dowolnego z tych standardów zgodności: **PDF/A1a**, **PDF/A1b** i **PDF/UA**.
 
-Poniższy kod demonstruje proces konwersji PowerPoint‑do‑PDF, który generuje wiele plików PDF na podstawie różnych standardów zgodności:
+Ten kod demonstruje proces konwersji PowerPoint do PDF, który tworzy wiele plików PDF w oparciu o różne standardy zgodności:
 
 ```js
 var aspose = aspose || {};
@@ -358,37 +375,30 @@ try {
 ```
 
 {{% alert color="info" title="Uwaga" %}}
-
-Aspose.Slides obsługuje operacje konwersji PDF, umożliwiając konwersję plików PDF do popularnych formatów. Możesz wykonywać konwersje [PDF to HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF to JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/) oraz [PDF to PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/). Inne operacje konwersji PDF do formatów specjalistycznych — [PDF to SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/) — także są wspierane.
-
+Aspose.Slides obsługuje operacje konwersji PDF, umożliwiając konwersję plików PDF do popularnych formatów. Możesz wykonać konwersje [PDF do HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF do JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/), oraz [PDF do PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/). Inne operacje konwersji PDF do specjalistycznych formatów — [PDF do SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF do TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/) — są również obsługiwane.
 {{% /alert %}}
 
-> **Uwaga:** Podczas eksportu do PDF/UA, Aspose.Slides traktuje złożoną grafikę taką jak SmartArt, wykresy i formuły jako jedną figurę. Poszczególne elementy ścieżek nie są zachowywane jako oddzielna treść i mogą być oznaczone jako artefakty; tekst alternatywny jest dostarczany tylko dla całej figury.
+> **Uwaga:** Kiedy eksportuje się do PDF/UA, Aspose.Slides traktuje złożone grafiki, takie jak SmartArt, wykresy i formuły, jako jedną figurę. Poszczególne elementy ścieżek nie są zachowywane jako oddzielna zawartość i mogą być oznaczone jako artefakty; tekst alternatywny jest podany tylko dla całej figury.
 
 ## **FAQ**
 
-**Czy mogę konwertować wiele plików PowerPoint do PDF jednocześnie?**
+**Czy mogę konwertować wiele plików PowerPoint do PDF jednocześnie?**  
+Tak, Aspose.Slides obsługuje konwersję wsadową wielu plików PPT lub PPTX do PDF. Możesz iterować po swoich plikach i programowo zastosować proces konwersji.
 
-Tak, Aspose.Slides obsługuje konwersję wsadową wielu plików PPT lub PPTX do PDF. Możesz iterować po swoich plikach i programowo stosować proces konwersji.
-
-**Czy możliwe jest zabezpieczenie skonwertowanego PDF hasłem?**
-
+**Czy można zabezpieczyć hasłem skonwertowany PDF?**  
 Tak. Użyj klasy [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), aby ustawić hasło i zdefiniować uprawnienia dostępu podczas procesu konwersji.
 
-**Jak włączyć ukryte slajdy w PDF?**
+**Jak włączyć ukryte slajdy w PDF?**  
+Wywołaj [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) z wartością `true` w klasie [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), aby uwzględnić ukryte slajdy w wynikowym PDF.
 
-Wywołaj [setShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setshowhiddenslides/) z wartością `true` w klasie [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), aby uwzględnić ukryte slajdy w powstałym PDF.
+**Czy Aspose.Slides może zachować wysoką jakość obrazu w PDF?**  
+Tak, możesz kontrolować jakość obrazu, używając metod takich jak [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setjpegquality/) i [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setsufficientresolution/) w klasie [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), aby zapewnić wysokiej jakości obrazy w swoim PDF.
 
-**Czy Aspose.Slides potrafi zachować wysoką jakość obrazów w PDF?**
-
-Tak, możesz kontrolować jakość obrazów, używając metod takich jak [setJpegQuality](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setjpegquality/) i [setSufficientResolution](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/setsufficientresolution/) w klasie [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfoptions/), aby zapewnić wysoką jakość obrazów w PDF.
-
-**Czy Aspose.Slides obsługuje standardy zgodności PDF/A?**
-
-Tak, Aspose.Slides umożliwia eksport PDF zgodnych z [różnymi standardami](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfcompliance/), w tym PDF/A1a, PDF/A1b oraz PDF/UA, zapewniając spełnienie wymagań dostępności i archiwizacji.
+**Czy Aspose.Slides obsługuje standardy zgodności PDF/A?**  
+Tak, Aspose.Slides umożliwia eksport PDF zgodnych z [różnymi standardami](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pdfcompliance/), w tym PDF/A1a, PDF/A1b i PDF/UA, zapewniając, że Twoje dokumenty spełniają wymagania dostępności i archiwizacji.
 
 ## **Dodatkowe zasoby**
 
-- [Aspose.Slides for Node.js via Java Documentation](/slides/pl/nodejs-java/)
-- [Aspose.Slides for Node.js via Java API Reference](https://reference.aspose.com/slides/nodejs-java/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
+- [Dokumentacja Aspose.Slides for Node.js via Java](/slides/pl/nodejs-java/)
+- [Odnośnik API Aspose.Slides for Node.js via Java](https://reference.aspose.com/slides/nodejs-java/)
+- [Bezpłatne konwertery online Aspose](https://products.aspose.app/slides/conversion)
