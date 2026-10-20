@@ -111,6 +111,26 @@ using var presentation = new Presentation("PowerPoint.pptx");
 presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
+### **Automatically Select Image Compression**
+
+When a presentation contains many photographs or screenshots, reducing the size of the exported PDF can make it easier to email or download. Set [PdfOptions.BestImagesCompressionRatio](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/bestimagescompressionratio/) to `true` to automatically select the most appropriate compression algorithm for each image during PDF export.
+
+The following example loads an existing presentation, enables automatic image compression selection, and saves it a PDF document. All other PDF export settings retain their default values.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var pdfOptions = new PdfOptions { BestImagesCompressionRatio = true };
+
+using var presentation = new Presentation("image-heavy.pptx");
+presentation.Save("image-heavy.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
+This option selects a compression algorithm for each image. Lowering [JpegQuality](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/jpegquality/) instead reduces JPEG image quality, while lowering [SufficientResolution](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/sufficientresolution/) allows images to be downsampled to a lower resolution, which can reduce detail. Enabling automatic compression selection does not itself lower either of these settings.
+
+Selecting image compression algorithms requires additional processing time and memory. The size reduction depends on the presentation's images and export settings; a fixed reduction is not guaranteed for every presentation.
+
 ### **Preserve Embedded OLE Files as PDF Attachments**
 
 If a presentation contains an embedded Excel workbook, you may want PDF recipients to access the workbook's data as well as view the slides. Set [PdfOptions.IncludeOleData](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/includeoledata/) to `true` to preserve embedded OLE files as attachments in the resulting PDF.
