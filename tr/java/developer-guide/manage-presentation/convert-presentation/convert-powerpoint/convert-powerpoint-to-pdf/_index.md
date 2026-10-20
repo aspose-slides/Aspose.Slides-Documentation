@@ -1,6 +1,6 @@
 ---
-title: "Java'da PPT ve PPTX'yi PDF'ye Dönüştür [Gelişmiş Özellikler Dahil]"
-linktitle: "PowerPoint'ten PDF'ye"
+title: Java'da PPT ve PPTX'yi PDF'ye Dönüştürme [Gelişmiş Özellikler Dahil]
+linktitle: PowerPoint'ten PDF'ye
 type: docs
 weight: 40
 url: /tr/java/convert-powerpoint-to-pdf/
@@ -11,7 +11,7 @@ keywords:
 - sunumu PDF'ye
 - PPT'den PDF'ye
 - PPT'yi PDF'ye dönüştür
-- PPTX'den PDF'ye
+- PPTX'ten PDF'ye
 - PPTX'i PDF'ye dönüştür
 - PowerPoint'i PDF olarak kaydet
 - PPT'yi PDF olarak kaydet
@@ -28,9 +28,9 @@ description: "Aspose.Slides kullanarak Java'da PowerPoint PPT/PPTX'yi yüksek ka
 ---
 ## **Genel Bakış**
 
-PowerPoint sunumlarını (PPT, PPTX, ODP vb.) Java’da PDF formatına dönüştürmek, farklı cihazlar arasında uyumluluk ve sunumunuzun düzen ve biçimlendirmesinin korunması gibi çeşitli avantajlar sunar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri kullanmayı, gizli slaytları eklemeyi, PDF dosyalarını şifrelemeyi, yazı tipi ikamelerini algılamayı, dönüşüm için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartlarını uygulamayı gösterir.
+Java'da PowerPoint sunumlarını (PPT, PPTX, ODP vb.) PDF formatına dönüştürmek, farklı cihazlar arasında uyumluluk ve sunumunuzun düzeni ile biçimlendirmesinin korunması gibi çeşitli avantajlar sağlar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları dahil etmeyi, PDF dosyalarını şifrelemeyi, yazı tipi ikamelerini tespit etmeyi, belirli slaytları seçerek dönüştürmeyi ve çıktı belgelerine uyumluluk standartları uygulamayı gösterir.
 
-## **PowerPoint'ten PDF Dönüşümleri**
+## **PowerPoint'ten PDF'ye Dönüşümler**
 
 Aspose.Slides kullanarak, aşağıdaki formatlardaki sunumları PDF'ye dönüştürebilirsiniz:
 
@@ -38,33 +38,33 @@ Aspose.Slides kullanarak, aşağıdaki formatlardaki sunumları PDF'ye dönüşt
 * **PPTX**
 * **ODP**
 
-Bir sunumu PDF'ye dönüştürmek için, dosya adını bir argüman olarak [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfına aktarın ve ardından sunumu PDF olarak [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) yöntemiyle kaydedin. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) yöntemini ortaya çıkarır.
+Bir sunumu PDF'ye dönüştürmek için, dosya adını [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfına argüman olarak aktarın ve ardından sunumu bir [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) yöntemiyle PDF olarak kaydedin. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) yöntemini sunar.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Java, çıktı belgelerine API bilgisi ve sürüm numarasını ekler. Örneğin, bir sunumu PDF'ye dönüştürürken, Aspose.Slides Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" biçiminde bir değerle doldurur. **Not** bu bilgiyi çıktı belgelerinden değiştiremez veya kaldıramazsınız.
+Aspose.Slides for Java, çıktı belgelere API bilgilerini ve sürüm numarasını ekler. Örneğin, bir sunumu PDF'ye dönüştürürken, Aspose.Slides Application alanını "*Aspose.Slides*" ve PDF Producer alanını "*Aspose.Slides v XX.XX*" biçiminde bir değerle doldurur. **Not** Aspose.Slides'in bu bilgiyi çıktı belgelerinden değiştirmesini veya kaldırmasını isteyemezsiniz.
 {{% /alert %}}
 
-Aspose.Slides size şunları dönüştürme imkanı verir:
+Aspose.Slides şunları dönüştürmenize izin verir:
 
 * Tüm sunumları PDF'ye
 * Bir sunumdan belirli slaytları PDF'ye
 
-Aspose.Slides sunumları PDF'ye dışa aktarır, böylece ortaya çıkan PDF'ler orijinal sunumlarla yakından eşleşir. Dönüşüm sırasında öğeler ve öznitelikler doğru şekilde işlenir, bunlar şunları içerir:
+Aspose.Slides, bir sunumu PDF'ye dışa aktarır ve oluşan PDF'lerin orijinal sunuma olabildiğince benzemesini sağlar. Dönüşüm sırasında öğeler ve nitelikler doğru bir şekilde işlenir, aşağıdakiler dahil:
 
 * Görüntüler
 * Metin kutuları ve şekiller
 * Metin biçimlendirme
 * Paragraf biçimlendirme
 * Köprüler
-* Üstbilgi ve altbilgi
+* Başlıklar ve altbilgiler
 * Madde işaretleri
 * Tablolar
 
-## **PowerPoint'i PDF'ye Dönüştür**
+## **PowerPoint'i PDF'ye Dönüştürme**
 
 Standart PowerPoint'ten PDF'ye dönüşüm süreci varsayılan seçenekleri kullanır. Bu durumda, Aspose.Slides sağlanan sunumu en yüksek kalite seviyelerinde optimal ayarlarla PDF'ye dönüştürmeye çalışır.
 
-Aşağıdaki örnek bir sunumu yükler ve tüm görünür slaytları varsayılan dışa aktarma ayarlarıyla PDF'ye kaydeder.
+Aşağıdaki örnek, bir sunumu yükler ve varsayılan dışa aktarım ayarlarını kullanarak tüm görünür slaytları PDF olarak kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -78,18 +78,18 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose, sunumdan PDF'ye dönüşüm sürecini gösteren ücretsiz bir çevrimiçi [**PowerPoint PDF Dönüştürücüsü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar. Burada açıklanan prosedürün canlı bir uygulamasını test etmek için bu dönüştürücüyü kullanabilirsiniz.
+Aspose, sunumdan PDF'ye dönüşüm sürecini gösteren ücretsiz bir çevrimiçi [**PowerPoint'ten PDF'ye dönüştürücü**](https://products.aspose.app/slides/conversion/ppt-to-pdf) sunar. Burada açıklanan prosedürün canlı bir uygulamasını test etmek için bu dönüştürücüyü kullanabilirsiniz.
 {{% /alert %}}
 
-## **PowerPoint'i Seçeneklerle PDF'ye Dönüştür**
+## **PowerPoint'i PDF'ye Seçeneklerle Dönüştürme**
 
-Aspose.Slides, sonuç PDF'yi özelleştirmenize, PDF'yi şifreyle kilitlemenize veya dönüşüm sürecinin nasıl ilerleyeceğini belirlemenize olanak tanıyan [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfı altındaki özel seçenekler—özellikler—sağlar.
+Aspose.Slides, [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfı altındaki özel seçenekler—özellikler—sunarak, oluşturulan PDF'yi özelleştirmenize, PDF'yi bir parola ile kilitlemenize veya dönüşüm sürecinin nasıl ilerleyeceğini belirtmenize olanak tanır.
 
-### **PowerPoint'i Özel Seçeneklerle PDF'ye Dönüştür**
+### **PowerPoint'i PDF'ye Özel Seçeneklerle Dönüştürme**
 
-Özel dönüşüm seçeneklerini kullanarak, raster görüntüler için tercih ettiğiniz kalite ayarını belirleyebilir, metafile'ların nasıl işleneceğini seçebilir, metin için sıkıştırma seviyesini ayarlayabilir, görüntüler için DPI yapılandırabilir ve daha fazlasını yapabilirsiniz.
+Özel dönüşüm seçeneklerini kullanarak, raster görüntüler için tercih ettiğiniz kalite ayarını tanımlayabilir, metafile'ların nasıl işleneceğini belirtebilir, metin için bir sıkıştırma seviyesi ayarlayabilir, görüntüler için DPI yapılandırabilir ve daha fazlasını yapabilirsiniz.
 
-Aşağıdaki örnek sunumu PDF 1.5'e, JPEG kalitesi %90, görüntü çözünürlüğü 300 DPI, metafile'lar PNG olarak kaydedilir ve Flate metin sıkıştırması ile dışa aktarır.
+Aşağıdaki örnek, bir sunumu PDF 1.5 olarak dışa aktarır; JPEG kalitesi %90, görüntü çözünürlüğü 300 DPI, metafile'lar PNG olarak kaydedilir ve Flate metin sıkıştırması uygulanır.
 
 ```java
 import com.aspose.slides.*;
@@ -110,13 +110,39 @@ try {
 }
 ```
 
+### **Görüntü Sıkıştırmasını Otomatik Olarak Seçme**
+
+Bir sunumda birçok fotoğraf veya ekran görüntüsü bulunduğunda, dışa aktarılan PDF'nin boyutunu küçültmek e-posta veya indirme işlemlerini kolaylaştırabilir. PDF dışa aktarımı sırasında her görüntü için en uygun sıkıştırma algoritmasını otomatik olarak seçmek için [PdfOptions.setBestImagesCompressionRatio](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setBestImagesCompressionRatio-boolean-) yöntemini `true` ile çağırın.
+
+Aşağıdaki örnek, mevcut bir sunumu yükler, otomatik görüntü sıkıştırma seçimini etkinleştirir ve PDF belgesi olarak kaydeder. Diğer tüm PDF dışa aktarım ayarları varsayılan değerlerini korur.
+
+```java
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+PdfOptions pdfOptions = new PdfOptions();
+pdfOptions.setBestImagesCompressionRatio(true);
+
+Presentation presentation = new Presentation("image-heavy.pptx");
+try {
+    presentation.save("image-heavy.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Bu seçenek, her görüntü için bir sıkıştırma algoritması seçer. [setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setJpegQuality-byte-) parametresine verilen değeri azaltmak JPEG görüntü kalitesini düşürürken, [setSufficientResolution](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setSufficientResolution-float-) parametresine verilen değeri azaltmak görüntülerin daha düşük çözünürlüğe düşürülmesine izin verir ve detay kaybına yol açabilir. Otomatik sıkıştırma seçimini etkinleştirmek bu ayarları kendi başına düşürmez.
+
+Görüntü sıkıştırma algoritmalarının seçilmesi ek işlem süresi ve bellek gerektirir. Boyut azaltma, sunumun görüntülerine ve dışa aktarım ayarlarına bağlıdır; her sunum için sabit bir azalma garanti edilmez.
+
 ### **Gömülü OLE Dosyalarını PDF Ekleri Olarak Koru**
 
-Bir sunumda gömülü bir Excel çalışma kitabı varsa, PDF alıcılarının sadece slaytları değil, aynı zamanda çalışma kitabının verilerine de erişmesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak korumak için `true` ile [setIncludeOleData](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setIncludeOleData-boolean-) metodunu çağırın.
+Eğer bir sunum gömülü bir Excel çalışma kitabı içeriyorsa, PDF alıcılarının hem çalışma kitabının verilerine erişmesini hem de slaytları görmesini isteyebilirsiniz. Gömülü OLE dosyalarını sonuç PDF'de ek olarak korumak için [setIncludeOleData](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setIncludeOleData-boolean-) yöntemini `true` ile çağırın.
 
-Varsayılan değer `false`'tur: OLE nesnesinin ön izleme resmi veya simgesi PDF sayfasında işlenir, ancak gömülü dosya ek olarak eklenmez. Seçeneği `true` yaparak dosya verileri de eklenir. Ön izleme görsel bir temsil olarak kalır; ek, alıcıların gömülü dosyayı ayrı olarak açmasını veya kaydetmesini sağlar. OLE nesnesi PDF sayfasında etkileşimli bir Excel çalışma sayfasına dönüşmez.
+Varsayılan değer `false`'tur: OLE nesnesinin önizleme görüntüsü veya simgesi PDF sayfasında gösterilir, ancak gömülü dosya ek olarak dahil edilmez. Seçeneği `true` olarak ayarlamak ek olarak dosya verisini de içerir. Önizleme görsel bir temsil olarak kalır; ek, alıcıların gömülü dosyayı ayrı olarak açmasına veya kaydetmesine izin verir. OLE nesnesi, PDF sayfasında etkileşimli bir Excel çalışma sayfasına dönüşmez.
 
-Aşağıdaki örnek zaten gömülü bir Excel çalışma kitabı içeren bir sunumu yükler ve çalışma kitabı ekli olarak PDF'ye dışa aktarır.
+Aşağıdaki örnek, zaten gömülü bir Excel çalışma kitabı içeren bir sunumu yükler ve çalışma kitabı ekli olarak PDF'ye dışa aktarır.
 
 ```java
 import com.aspose.slides.*;
@@ -134,19 +160,19 @@ try {
 
 Sonucu kontrol etmek için:
 
-1. PDF'yi ekleri destekleyen bir görüntüleyicide, örneğin Adobe Acrobat Reader'da açın.
-2. Görüntüleyicinin **Attachments** panelini açın ve gömülü çalışma kitabını bulun.
-3. Ek'i kaydedin ve Excel'de açarak verilerini inceleyin veya görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki ön izleme ek'ten ayrı bir öğedir.
+1. PDF'yi, Adobe Acrobat Reader gibi dosya eklerini destekleyen bir görüntüleyicide açın.
+2. Görüntüleyicinin **Attachments** (Ekler) panelini açın ve gömülü çalışma kitabını bulun.
+3. Ek'i kaydedin ve verilerini incelemek için Excel'de açın, ya da görüntüleyici izin veriyorsa doğrudan açın. PDF sayfasındaki önizleme ek'ten ayrı bir öğedir.
 
 {{% alert color="info" title="Note" %}}
-PDF/A standartları ekler konusunda kısıtlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerine izin verir ve PDF/A-3 diğer dosya türlerini, Excel çalışma kitapları dahil, izin verir. Bu kısıtlamalar standartların gereksinimleridir, Aspose.Slides'e özgü bir sınırlama değildir. Bu örnek varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarımını göstermez.
+PDF/A standartları ekler üzerinde kısıtlamalar getirir: PDF/A-1 gömülü dosyaları yasaklar, PDF/A-2 yalnızca PDF/A eklerine izin verir ve PDF/A-3 Excel çalışma kitapları dahil diğer dosya türlerine izin verir. Bunlar standartların gereksinimleridir, Aspose.Slides'e özgü kısıtlamalar değildir. Bu örnek, varsayılan PDF uyumluluk ayarını kullanır ve PDF/A dışa aktarımını göstermez.
 {{% /alert %}}
 
-### **Gizli Slaytlarla PowerPoint'i PDF'ye Dönüştür**
+### **Gizli Slaytlarla PowerPoint'i PDF'ye Dönüştürme**
 
-Bir sunumda gizli slaytlar varsa, gizli slaytları sonuç PDF'de sayfa olarak eklemek için [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfından [setShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) yöntemini kullanabilirsiniz.
+Eğer bir sunum gizli slaytlar içeriyorsa, [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfındaki [setShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) yöntemini kullanarak gizli slaytları sonuç PDF'de sayfa olarak dahil edebilirsiniz.
 
-Aşağıdaki örnek gizli slaytlar dahil olmak üzere bir sunumu PDF'ye dışa aktarır.
+Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve tüm gizli slaytları da içerir.
 
 ```java
 import com.aspose.slides.*;
@@ -162,9 +188,9 @@ try {
 }
 ```
 
-### **Şifre Koruması Olan PDF'ye PowerPoint'i Dönüştür**
+### **PowerPoint'i Şifre Koruması Olan PDF'ye Dönüştürme**
 
-Aşağıdaki örnek bir sunumu, açmak için `password` şifresini gerektiren bir PDF'ye dışa aktarır. Erişim izinleri, yüksek kaliteli baskı dahil baskıya izin verir.
+Aşağıdaki örnek, bir sunumu `password` şifresiyle açılması gereken bir PDF'ye dışa aktarır. Erişim izinleri, yüksek kalite baskı da dahil olmak üzere baskıya izin verir.
 
 ```java
 import com.aspose.slides.*;
@@ -181,11 +207,11 @@ try {
 }
 ```
 
-### **Yazı Tipi İkamelerini Algıla**
+### **Yazı Tipi İkamelerini Algılama**
 
-Aspose.Slides, sunumdan PDF'ye dönüşüm sürecinde yazı tipi ikamelerini algılamanızı sağlayan [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfı altında [setWarningCallback](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) yöntemini sunar.
+Aspose.Slides, [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfı altında [setWarningCallback](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) yöntemini sağlar; bu, sunumdan PDF'ye dönüşüm sırasında yazı tipi ikamelerini algılamanızı sağlar.
 
-Aşağıdaki örnek bir sunumu PDF'ye dışa aktarır ve font ikamesi uyarılarını konsola yazar. Bir uyarı yalnızca kullanılmayan bir font dışa aktarım sırasında ikame edildiğinde yazdırılır.
+Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve yazı tipi ikameleri uyarılarını konsola yazdırır. Uyarı, yalnızca kullanılabilir olmayan bir yazı tipi dışa aktarım sırasında ikame edildiğinde yazdırılır.
 
 ```java
 import com.aspose.slides.*;
@@ -214,11 +240,11 @@ try {
 Yazı tipi ikameleri hakkında daha fazla bilgi için [Yazı Tipi İkamesi](/slides/tr/java/font-substitution/) makalesine bakın.
 {{% /alert %}} 
 
-### **Ayrı Bir Kalın Yazı Tipi Olmayan Yazı Tiplerini İşle**
+### **Ayrı Bir Kalın Yazı Tipi Olmayan Yazı Tiplerini Ele Alma**
 
-Bir sunum, fontunun ayrı bir kalın tipine sahip olmamasına rağmen metne kalın biçimlendirme uygulayabilir. Metin, normal glifleri yapay olarak kalınlaştıran sentetik kalınlaştırma sayesinde hâlâ kalın görünebilir. Bu metin PDF'de çok ağır görünürse veya istenen görünümden farklıysa, `true` ile [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles-boolean-) metodunu çağırmayı deneyin. Bu seçenek, ilgili metni PDF dışa aktarımı sırasında bitmap olarak işler ve belirli fontlar için görünümünü iyileştirebilir. Varsayılan değeri `false`'tur.
+Bir sunum, fontunun ayrı bir kalın tipine sahip olmamasına rağmen metne kalın biçimlendirme uygulayabilir. Metin, düzenli glifleri yapay olarak kalınlaştıran sentetik kalınlaştırma sayesinde yine de kalın görünebilir. Bu metin PDF'de çok ağır veya istenen görünüme uymuyorsa, [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles-boolean-) yöntemini `true` ile çağırmayı deneyin. Bu seçenek, etkilenen metni PDF dışa aktarımı sırasında bir bitmap olarak işler ve bazı fontlarda görünümünü iyileştirebilir. Varsayılan değeri `false`'tur.
 
-Örnek sunum iki metin kutusu içerir: birinde normal metin, diğerinde aynı fonta kalın biçimlendirme uygulanmış ancak ayrı bir kalın tipine sahip olmayan bir font. Aşağıdaki örnek sunumu yükler, desteklenmeyen font stillerinin rasterleştirilmesini etkinleştirir ve PDF'ye dışa aktarır:
+Örnek sunum, aynı fonta sahip iki metin kutusu içerir; biri normal metin, diğeri ise ayrı bir kalın tipine sahip olmayan aynı fontta kalın biçimlendirme uygulanmıştır. Aşağıdaki örnek, sunumu yükler, desteklenmeyen font stillerinin rasterleştirilmesini etkinleştirir ve PDF'ye dışa aktarır:
 
 ```java
 import com.aspose.slides.PdfOptions;
@@ -236,19 +262,19 @@ try {
 }
 ```
 
-Aşağıdaki ön izlemeler devre dışı çıktıyı ve etkin çıktıyı gösterir. Bu örnekte, seçenek devre dışı iken kalın metnin hatları daha ağırdır. Seçenek etkin olduğunda hatları daha hafiftir; normal metin değişmez. Sunumunuz için ayarı seçmeden önce sonuçları karşılaştırın.
+Aşağıdaki ön izlemeler, devre dışı bırakılmış çıktıyı ve etkinleştirilmiş çıktıyı gösterir. Bu örnekte, seçenek devre dışı olduğunda kalın metnin çizgileri daha kalındır. Seçenek etkin olduğunda çizgileri daha hafiftir; normal metin değişmez. Sunumunuz için ayarı seçmeden önce sonuçları karşılaştırın.
 
 | Seçenek devre dışı (`false`, varsayılan) | Seçenek etkin (`true`) |
 |---|---|
-| ![PDF, desteklenmeyen yazı tipi stili rasterleştirme devre dışı](unsupported-bold-disabled.png) | ![PDF, desteklenmeyen yazı tipi stili rasterleştirme etkin](unsupported-bold-enabled.png) |
+| ![Desteklenmeyen font stili rasterleştirilmesi devre dışı olan PDF](unsupported-bold-disabled.png) | ![Desteklenmeyen font stili rasterleştirilmesi etkin olan PDF](unsupported-bold-enabled.png) |
 
-Bu örnekte, seçenek etkinleştirildiğinde yalnızca kalın metin bitmap'e dönüşür: OCR olmadan seçilemez, kopyalanamaz veya metin olarak aranamaz ve kenarları 800% yakınlaştırmada daha yumuşak görünür. Normal metin aranabilir olmaya devam eder. Seçenek devre dışı olduğunda, her iki dize de metin olarak kalır.
+Bu örnekte, seçeneği etkinleştirmek yalnızca kalın metni bir bitmap'e dönüştürür: OCR olmadan seçilemez, kopyalanamaz veya metin olarak aranamaz ve kenarları %800 yakınlaştırmada daha yumuşak görünür. Normal metin aranabilir kalır. Seçenek devre dışı olduğunda, her iki metin de metin olarak kalır.
 
-Bu seçenek, fontunun ayrı bir kalın tipine sahip olmaması durumunda kalın biçimlendirilmiş metni bitmap'e dönüştürür. [Yazı Tipi İkamesi](/slides/tr/java/font-substitution/) ise orijinal font mevcut değilse başka bir font seçer.
+Bu seçenek, fontunun ayrı bir kalın tipine sahip olmadığı durumlarda kalın biçimlendirilmiş metni rasterleştirir. [Yazı Tipi İkamesi](/slides/tr/java/font-substitution/) ise orijinal mevcut olmadığında başka bir font seçer.
 
-## **PowerPoint'ten Seçili Slaytları PDF'ye Dönüştür**
+## **PowerPoint'ten Seçili Slaytları PDF'ye Dönüştürme**
 
-Aşağıdaki örnek bir sunumdan slayt 1 ve 3'ü PDF'ye dışa aktarır. Bu dizi içindeki slayt numaraları 1 tabanlıdır ve giriş sunumu en az üç slayt içermelidir.
+Aşağıdaki örnek, bir sunumdan 1 ve 3 numaralı slaytları PDF'ye dışa aktarır. Bu dizideki slayt numaraları bir tabanlıdır ve giriş sunumu en az üç slayt içermelidir.
 
 ```java
 import com.aspose.slides.*;
@@ -262,9 +288,9 @@ try {
 }
 ```
 
-## **Özel Slayt Boyutu ile PowerPoint'i PDF'ye Dönüştür**
+## **PowerPoint'i Özel Slayt Boyutu ile PDF'ye Dönüştürme**
 
-Aşağıdaki örnek bir sunumun ilk slaytını, 612 × 792 nokta (8.5 × 11 inç) slayt boyutuna sahip yeni bir sunuma kopyalar. Slayt içeriğini sığacak şekilde ölçeklendirir ve tek slaytı PDF'ye dışa aktarır.
+Aşağıdaki örnek, bir sunumdan ilk slaytı 612 × 792 puan (8,5 × 11 inç) slayt boyutuna sahip yeni bir sunuma kopyalar. Slayt içeriği buna göre ölçeklendirir ve tek slaytı PDF'ye dışa aktarır.
 
 ```java
 import com.aspose.slides.*;
@@ -281,7 +307,7 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // Yeni sunum oluşturulurken eklenen boş slaytı kaldır.
+    // Yeni oluşturulan sunumun boş slaytını kaldır.
     resizedPresentation.getSlides().removeAt(1);
 
     resizedPresentation.save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
@@ -291,9 +317,9 @@ try {
 }
 ```
 
-## **Not Slayt Görünümünde PowerPoint'i PDF'ye Dönüştür**
+## **Not Slaytı Görünümünde PowerPoint'i PDF'ye Dönüştürme**
 
-Aşağıdaki örnek bir sunumu PDF'ye dışa aktarır, her slaytın konuşmacı notlarını slaytın altına yerleştirir. Sonucu görmek için konuşmacı notları içeren bir sunum kullanın.
+Aşağıdaki örnek, bir sunumu PDF'ye dışa aktarır ve her slaytın konuşmacı notlarını slaytın altına yerleştirir. Sonucu görmek için konuşmacı notları içeren bir sunum kullanın.
 
 ```java
 import com.aspose.slides.*;
@@ -314,9 +340,9 @@ try {
 
 ## **PDF için Erişilebilirlik ve Uyumluluk Standartları**
 
-Aspose.Slides, [Web İçerik Erişilebilirlik Yönergeleri (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza izin verir. Bu uyumluluk standartlarından herhangi birini kullanarak bir PowerPoint belgesini PDF'ye dışa aktarabilirsiniz: **PDF/A1a**, **PDF/A1b** ve **PDF/UA**.
+Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza olanak tanır. Bir PowerPoint belgesini PDF'ye, **PDF/A1a**, **PDF/A1b** ve **PDF/UA** gibi uyumluluk standartlarından herhangi birini kullanarak dışa aktarabilirsiniz.
 
-Bu kod, farklı uyumluluk standartlarına göre birden çok PDF üreten bir PowerPoint‑to‑PDF dönüşüm sürecini gösterir:
+Bu kod, farklı uyumluluk standartlarına göre birden fazla PDF üreten bir PowerPoint'ten PDF'ye dönüşüm sürecini gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -339,27 +365,32 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides, PDF dönüşüm işlemlerini destekler ve PDF dosyalarını popüler dosya biçimlerine dönüştürmenize olanak tanır. Şu dönüşümleri gerçekleştirebilirsiniz: [PDF'den HTML'ye](https://products.aspose.com/slides/java/conversion/pdf-to-html/), [PDF'den görüntüye](https://products.aspose.com/slides/java/conversion/pdf-to-image/), [PDF'den JPG'ye](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/), ve [PDF'den PNG'ye](https://products.aspose.com/slides/java/conversion/pdf-to-png/) dönüşümleri. Uzmanlaşmış formatlara dönüşüm işlemleri de desteklenir: [PDF'den SVG'ye](https://products.aspose.com/slides/java/conversion/pdf-to-svg/), [PDF'den TIFF'e](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/), ve [PDF'den XML'e](https://products.aspose.com/slides/java/conversion/pdf-to-xml/) dönüşümleri.
+Aspose.Slides PDF dönüşüm işlemlerini destekler, PDF dosyalarını popüler dosya formatlarına dönüştürmenize olanak tanır. [PDF'den HTML'ye](https://products.aspose.com/slides/java/conversion/pdf-to-html/), [PDF'den Görüntüye](https://products.aspose.com/slides/java/conversion/pdf-to-image/), [PDF'den JPG'ye](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/) ve [PDF'den PNG'ye](https://products.aspose.com/slides/java/conversion/pdf-to-png/) dönüşümlerini gerçekleştirebilirsiniz. Diğer PDF dönüşüm işlemleri, uzmanlaşmış formatlar—[PDF'den SVG'ye](https://products.aspose.com/slides/java/conversion/pdf-to-svg/), [PDF'den TIFF'e](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/) ve [PDF'den XML'e](https://products.aspose.com/slides/java/conversion/pdf-to-xml/)—da desteklenir.
 {{% /alert %}}
 
-> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak ele alır. Tek tek yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
+> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak ele alır. Tek tek yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca tüm şekil için sağlanır.
 
 ## **SSS**
 
-**Birden fazla PowerPoint dosyasını toplu olarak PDF'ye dönüştürebilir miyim?**  
-Evet, Aspose.Slides birden fazla PPT veya PPTX dosyasını PDF'ye toplu olarak dönüştürmeyi destekler. Dosyalarınızda dolaşabilir ve dönüşüm sürecini programlı olarak uygulayabilirsiniz.
+**Birden fazla PowerPoint dosyasını toplu olarak PDF'ye dönüştürebilir miyim?**
 
-**Dönüştürülen PDF'yi şifreyle korumak mümkün mü?**  
-Evet. Dönüştürme sırasında şifre ve erişim izinlerini ayarlamak için [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfını kullanın.
+Evet, Aspose.Slides birden fazla PPT veya PPTX dosyasını toplu olarak PDF'ye dönüştürmeyi destekler. Dosyalarınızda döngü oluşturup dönüşüm sürecini programlı olarak uygulayabilirsiniz.
 
-**PDF'ye gizli slaytları nasıl ekleyebilirim?**  
-Sonuç PDF'sine gizli slaytları eklemek için [setShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) yöntemini `true` ile [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfında çağırın.
+**Dönüştürülen PDF'yi şifreyle korumak mümkün mü?**
 
-**Aspose.Slides PDF'de yüksek görüntü kalitesini koruyabilir mi?**  
-Evet, [setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setJpegQuality-byte-) ve [setSufficientResolution](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setSufficientResolution-float-) gibi yöntemleri [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfında kullanarak PDF'nizde yüksek kaliteli görüntüler elde edebilirsiniz.
+Evet. Dönüşüm sürecinde bir şifre belirlemek ve erişim izinlerini tanımlamak için [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfını kullanın.
 
-**Aspose.Slides PDF/A uyumluluk standartlarını destekliyor mu?**  
-Evet, Aspose.Slides, PDF/A1a, PDF/A1b ve PDF/UA dahil olmak üzere [çeşitli standartlar](https://reference.aspose.com/slides/java/com.aspose.slides/pdfcompliance/) uyumlu PDF'ler dışa aktarmanıza izin verir, böylece belgeleriniz erişilebilirlik ve arşivleme gereksinimlerini karşılar.
+**PDF'ye gizli slaytları nasıl dahil ederim?**
+
+PDF'de gizli slaytları dahil etmek için, [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfında [setShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) yöntemini `true` ile çağırın.
+
+**Aspose.Slides PDF'de yüksek görüntü kalitesini koruyabilir mi?**
+
+Evet, PDF'nizde yüksek kaliteli görüntüler sağlamak için [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) sınıfındaki [setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setJpegQuality-byte-) ve [setSufficientResolution](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setSufficientResolution-float-) gibi yöntemleri kullanarak görüntü kalitesini kontrol edebilirsiniz.
+
+**Aspose.Slides PDF/A uyumluluk standartlarını destekliyor mu?**
+
+Evet, Aspose.Slides PDF/A1a, PDF/A1b ve PDF/UA dahil olmak üzere [çeşitli standartlar](https://reference.aspose.com/slides/java/com.aspose.slides/pdfcompliance/) ile uyumlu PDF'ler dışa aktarmanıza olanak tanır; bu sayede belgeleriniz erişilebilirlik ve arşivleme gereksinimlerini karşılar.
 
 ## **Ek Kaynaklar**
 

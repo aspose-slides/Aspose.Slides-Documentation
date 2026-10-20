@@ -1,36 +1,36 @@
 ---
-title: تبدیل PPT و PPTX به PDF در Java [ویژگی‌های پیشرفته گنجانده شده]
-linktitle: PowerPoint به PDF
+title: تبدیل PPT و PPTX به PDF در جاوا [شامل ویژگی‌های پیشرفته]
+linktitle: پاورپوینت به PDF
 type: docs
 weight: 40
 url: /fa/java/convert-powerpoint-to-pdf/
 keywords:
-- تبدیل PowerPoint
+- تبدیل پاورپوینت
 - تبدیل ارائه
-- PowerPoint به PDF
+- پاورپوینت به PDF
 - ارائه به PDF
 - PPT به PDF
 - تبدیل PPT به PDF
 - PPTX به PDF
 - تبدیل PPTX به PDF
-- ذخیره PowerPoint به عنوان PDF
+- ذخیره پاورپوینت به عنوان PDF
 - ذخیره PPT به عنوان PDF
 - ذخیره PPTX به عنوان PDF
-- صادر کردن PPT به PDF
-- صادر کردن PPTX به PDF
+- صادرات PPT به PDF
+- صادرات PPTX به PDF
 - پیوست
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
-- Java
+- جاوا
 - Aspose.Slides
-description: "PowerPoint PPT/PPTX را در Java با استفاده از Aspose.Slides به PDFهای با کیفیت بالا و جستجوپذیر تبدیل کنید، همراه با مثال‌های کد سریع و گزینه‌های پیشرفتهٔ تبدیل."
+description: "تبدیل پاورپوینت PPT/PPTX به PDFهای با کیفیت بالا و قابل جستجو در جاوا با استفاده از Aspose.Slides، همراه با مثال‌های کد سریع و گزینه‌های پیشرفته تبدیل."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-تبدیل ارائه‌های PowerPoint (PPT، PPTX، ODP و غیره) به فرمت PDF در Java چندین مزیت دارد، از جمله سازگاری با دستگاه‌های مختلف و حفظ چیدمان و قالب‌بندی ارائه شما. این راهنما نشان می‌دهد چگونه ارائه‌ها را به اسناد PDF تبدیل کنید، از گزینه‌های مختلف برای کنترل کیفیت تصویر استفاده کنید، اسلایدهای پنهان را شامل کنید، فایل‌های PDF را با رمز عبور محافظت کنید، جایگزینی فونت‌ها را شناسایی کنید، اسلایدهای خاصی را برای تبدیل انتخاب کنید و استانداردهای انطباق را بر اسناد خروجی اعمال کنید.
+تبدیل ارائه‌های پاورپوینت (PPT، PPTX، ODP و ...) به فرمت PDF در جاوا مزایای متعددی را ارائه می‌دهد، از جمله سازگاری بین دستگاه‌های مختلف و حفظ چیدمان و قالب‌بندی ارائه شما. این راهنما نشان می‌دهد چگونه ارائه‌ها را به اسناد PDF تبدیل کنید، از گزینه‌های مختلف برای کنترل کیفیت تصویر استفاده کنید، اسلایدهای مخفی را شامل کنید، فایل‌های PDF را با رمز عبور محافظت کنید، جایگزینی قلم‌ها را شناسایی کنید، اسلایدهای خاصی را برای تبدیل انتخاب کنید و استانداردهای انطباق را بر روی اسناد خروجی اعمال کنید.
 
-## **تبدیل PowerPoint به PDF**
+## **تبدیل‌های پاورپوینت به PDF**
 
 با استفاده از Aspose.Slides می‌توانید ارائه‌ها را در فرمت‌های زیر به PDF تبدیل کنید:
 
@@ -38,33 +38,33 @@ description: "PowerPoint PPT/PPTX را در Java با استفاده از Aspose
 * **PPTX**
 * **ODP**
 
-برای تبدیل یک ارائه به PDF، نام فایل را به‌عنوان آرگومان به کلاس [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) پاس می‌دهید و سپس ارائه را با استفاده از متد [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) به PDF ذخیره می‌کنید. کلاس [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) متد [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) را ارائه می‌دهد که معمولاً برای تبدیل یک ارائه به PDF استفاده می‌شود.
+To convert a presentation to PDF, pass the file name as an argument to the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and then save the presentation as a PDF using a [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) method. The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class exposes the [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) method that is typically used to convert a presentation to PDF.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides برای Java اطلاعات API و شماره نسخه خود را به اسناد خروجی اضافه می‌کند. به عنوان مثال، هنگام تبدیل یک ارائه به PDF، Aspose.Slides فیلد Application را با «*Aspose.Slides*» و فیلد PDF Producer را با مقداری به شکل «*Aspose.Slides v XX.XX*» پر می‌کند. **توجه** داشته باشید که نمی‌توانید به Aspose.Slides بگویید این اطلاعات را از اسناد خروجی تغییر یا حذف کند.
+Aspose.Slides برای جاوا اطلاعات API و شماره نسخه خود را به اسناد خروجی اضافه می‌کند. به عنوان مثال، هنگام تبدیل یک ارائه به PDF، Aspose.Slides فیلد Application را با "*Aspose.Slides*" و فیلد PDF Producer را با مقداری به شکل "*Aspose.Slides v XX.XX*" پر می‌کند. **Note** که شما نمی‌توانید Aspose.Slides را مجبور کنید این اطلاعات را در اسناد خروجی تغییر یا حذف کند.
 {{% /alert %}}
 
-Aspose.Slides به شما اجازه می‌دهد تا تبدیل کنید:
+Aspose.Slides به شما امکان می‌دهد تبدیل کنید:
 
 * کل ارائه‌ها به PDF
 * اسلایدهای خاصی از یک ارائه به PDF
 
-Aspose.Slides ارائه‌ها را به PDF صادر می‌کند و اطمینان می‌دهد که PDFهای حاصل به‌دقت مشابه ارائه‌های اصلی باشند. عناصر و ویژگی‌ها به‌دقت در تبدیل رندر می‌شوند، شامل:
+Aspose.Slides ارائه‌ها را به PDF صادر می‌کند و اطمینان می‌دهد که PDFهای حاصل به‌دقت با ارائه‌های اصلی مطابقت دارند. عناصر و ویژگی‌ها به‌درستی در تبدیل رندر می‌شوند، شامل:
 
 * تصاویر
 * جعبه‌های متن و اشکال
 * قالب‌بندی متن
 * قالب‌بندی پاراگراف
-* هایپرلینک‌ها
-* سرصفحات و پاصفحات
+* پیوندهای فراخوان
+* سرصفحه‌ها و پایین‌صفحه‌ها
 * گلوله‌ها
-* جداول
+* جدول‌ها
 
-## **تبدیل PowerPoint به PDF**
+## **تبدیل پاورپوینت به PDF**
 
-فرآیند استاندارد تبدیل PowerPoint به PDF از گزینه‌های پیش‌فرض استفاده می‌کند. در این حالت، Aspose.Slides سعی می‌کند ارائهٔ ارائه‌شده را با تنظیمات بهینه و در بالاترین سطوح کیفیت به PDF تبدیل کند.
+فرآیند استاندارد تبدیل پاورپوینت به PDF از گزینه‌های پیش‌فرض استفاده می‌کند. در این حالت، Aspose.Slides سعی می‌کند ارائهٔ ارائه‌شده را با تنظیمات بهینه و در بالاترین سطوح کیفیت به PDF تبدیل کند.
 
-مثال زیر یک ارائه را بارگذاری می‌کند و تمام اسلایدهای قابل مشاهده را با تنظیمات پیش‌فرض صادرات به PDF ذخیره می‌کند.
+The following example loads a presentation and saves all visible slides to PDF using the default export settings.
 
 ```java
 import com.aspose.slides.*;
@@ -78,18 +78,16 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose یک مبدل آنلاین رایگان [**مبدل PowerPoint به PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) ارائه می‌دهد که فرآیند تبدیل ارائه به PDF را نشان می‌دهد. می‌توانید این مبدل را برای امتحان اجرای زندهٔ روش شرح داده‌شده در اینجا استفاده کنید.
+Aspose یک مبدل آنلاین رایگان [**مبدل PowerPoint به PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) ارائه می‌دهد که فرایند تبدیل ارائه به PDF را نشان می‌دهد. می‌توانید با این مبدل یک تست برای اجرای زندهٔ روال توضیح داده شده در اینجا انجام دهید.
 {{% /alert %}}
 
-## **تبدیل PowerPoint به PDF با گزینه‌ها**
+## **تبدیل پاورپوینت به PDF با گزینه‌ها**
 
-Aspose.Slides گزینه‌های سفارشی—خصوصیات تحت کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/)—را فراهم می‌کند که به شما اجازه می‌دهد PDF حاصل را سفارشی کنید، PDF را با رمز عبور قفل کنید، یا نحوهٔ پیشبرد فرآیند تبدیل را مشخص کنید.
+Aspose.Slides گزینه‌های سفارشی — خصوصیات تحت کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) — را فراهم می‌کند که به شما اجازه می‌دهد PDF حاصل را سفارشی کنید، PDF را با رمز عبور قفل کنید، یا نحوه پیشبرد فرآیند تبدیل را تعیین کنید.
 
-### **تبدیل PowerPoint به PDF با گزینه‌های سفارشی**
+### **تبدیل پاورپوینت به PDF با گزینه‌های سفارشی**
 
-با استفاده از گزینه‌های سفارشی تبدیل، می‌توانید تنظیم کیفیت دلخواه برای تصاویر رستر، نحوهٔ پردازش متافایل‌ها، سطح فشرده‌سازی متن، DPI تصاویر و موارد دیگر را تعریف کنید.
-
-مثال زیر یک ارائه را با PDF 1.5، کیفیت JPEG برابر 90، وضوح تصویر 300 DPI، ذخیره متافایل‌ها به صورت PNG و فشرده‌سازی متن Flate به PDF صادر می‌کند.
+The following example exports a presentation to PDF 1.5 with JPEG quality set to 90, image resolution set to 300 DPI, metafiles saved as PNG, and Flate text compression.
 
 ```java
 import com.aspose.slides.*;
@@ -110,13 +108,39 @@ try {
 }
 ```
 
-### **حفظ فایل‌های OLE جاسازی‌شده به‌عنوان پیوست‌های PDF**
+### **انتخاب خودکار فشرده‌سازی تصویر**
 
-اگر یک ارائه شامل یک کاربری‌نامه Excel جاسازی‌شده باشد، ممکن است بخواهید دریافت‌کنندگان PDF به داده‌های کاربری‌نامه دسترسی داشته باشند و در عین حال اسلایدها را مشاهده کنند. با فراخوانی متد [setIncludeOleData](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setIncludeOleData-boolean-) با مقدار `true` می‌توانید فایل‌های OLE جاسازی‌شده را به‌عنوان پیوست در PDF حاصل حفظ کنید.
+When a presentation contains many photographs or screenshots, reducing the size of the exported PDF can make it easier to email or download. Call [PdfOptions.setBestImagesCompressionRatio](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setBestImagesCompressionRatio-boolean-) with `true` to automatically select the most appropriate compression algorithm for each image during PDF export.
 
-مقدار پیش‌فرض `false` است: تصویر پیش‌نمایش یا آیکون شیء OLE روی صفحه PDF رندر می‌شود، اما فایل جاسازی‌شده به‌عنوان پیوست شامل نمی‌شود. تنظیم این گزینه به `true` علاوه بر این دادهٔ فایل را نیز شامل می‌شود. پیش‌نمایش همچنان یک نمای بصری باقی می‌ماند؛ پیوست به دریافت‌کنندگان امکان می‌دهد فایل جاسازی‌شده را به‌صورت جداگانه باز یا ذخیره کنند. شیء OLE تبدیل به یک کاربرگ Excel تعاملی روی صفحه PDF نمی‌شود.
+The following example loads an existing presentation, enables automatic image compression selection, and saves it as a PDF document. All other PDF export settings retain their default values.
 
-مثال زیر یک ارائه را که قبلاً شامل یک کاربری‌نامه Excel جاسازی‌شده است بارگذاری کرده و با پیوست کاربری‌نامه به PDF صادر می‌کند.
+```java
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+PdfOptions pdfOptions = new PdfOptions();
+pdfOptions.setBestImagesCompressionRatio(true);
+
+Presentation presentation = new Presentation("image-heavy.pptx");
+try {
+    presentation.save("image-heavy.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+This option selects a compression algorithm for each image. Lowering the value passed to [setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setJpegQuality-byte-) instead reduces JPEG image quality, while lowering the value passed to [setSufficientResolution](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setSufficientResolution-float-) allows images to be downsampled to a lower resolution, which can reduce detail. Enabling automatic compression selection does not itself lower either of these settings.
+
+Selecting image compression algorithms requires additional processing time and memory. The size reduction depends on the presentation's images and export settings; a fixed reduction is not guaranteed for every presentation.
+
+### **حفظ فایل‌های OLE جاسازی‌شده به عنوان پیوست‌های PDF**
+
+If a presentation contains an embedded Excel workbook, you may want PDF recipients to access the workbook's data as well as view the slides. Call [setIncludeOleData](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setIncludeOleData-boolean-) with `true` to preserve embedded OLE files as attachments in the resulting PDF.
+
+The default value is `false`: the OLE object's preview image or icon is rendered on the PDF page, but its embedded file is not included as an attachment. Setting the option to `true` additionally includes the file data. The preview remains a visual representation; the attachment lets recipients open or save the embedded file separately. The OLE object does not become an interactive Excel worksheet on the PDF page.
+
+The following example loads a presentation that already contains an embedded Excel workbook and exports it to PDF with the workbook attached.
 
 ```java
 import com.aspose.slides.*;
@@ -134,19 +158,19 @@ try {
 
 برای بررسی نتیجه:
 
-1. PDF صادرشده را در برنامه‌ای که قابلیت پیوست فایل‌ها را دارد (مانند Adobe Acrobat Reader) باز کنید.
-2. پنل **Attachments** برنامه را باز کنید و کاربری‌نامه جاسازی‌شده را پیدا کنید.
-3. پیوست را ذخیره کنید و در Excel باز کنید تا داده‌ها را بررسی کنید، یا در صورت امکان مستقیماً در برنامه مرورگر باز کنید. پیش‌نمایش روی صفحه PDF جدا از پیوست است.
+1. PDF صادرشده را در یک نمایشگر که از پیوست‌های فایل پشتیبانی می‌کند، مانند Adobe Acrobat Reader باز کنید.
+2. پنل **Attachments** نمایشگر را باز کنید و کتاب کار جاسازی‌شده را پیدا کنید.
+3. پیوست را ذخیره کنید و در Excel باز کنید تا داده‌های آن را بررسی کنید، یا اگر نمایشگر اجازه دهد مستقیماً باز کنید. پیش‌نمایش روی صفحه PDF جدا از پیوست است.
 
 {{% alert color="info" title="Note" %}}
-استانداردهای PDF/A محدودیت‌هایی برای پیوست‌ها اعمال می‌کنند: PDF/A-1 از فایل‌های جاسازی‌شده منع می‌کند، PDF/A-2 تنها پیوست‌های PDF/A را مجاز می‌داند و PDF/A-3 انواع دیگر فایل‌ها از جمله کاربری‌نامه‌های Excel را اجازه می‌دهد. این موارد نیازهای استاندارد هستند، نه محدودیت‌های خاص Aspose.Slides. این مثال از تنظیم پیش‌فرض انطباق PDF استفاده می‌کند و خروجی PDF/A را نشان نمی‌دهد.
+استانداردهای PDF/A محدودیت‌هایی بر پیوست‌ها اعمال می‌کنند: PDF/A-1 Fileهای جاسازی‌شده را ممنوع می‌کند، PDF/A-2 فقط پیوست‌های PDF/A را اجازه می‌دهد، و PDF/A-3 انواع دیگر فایل‌ها از جمله کتاب‌کارهای Excel را مجاز می‌داند. این‌ها الزامات استانداردها هستند، نه محدودیت‌های خاص Aspose.Slides. این مثال از تنظیم پیش‌فرض انطباق PDF استفاده می‌کند و خروجی PDF/A را نشان نمی‌دهد.
 {{% /alert %}}
 
-### **تبدیل PowerPoint به PDF با اسلایدهای پنهان**
+### **تبدیل پاورپوینت به PDF با اسلایدهای مخفی**
 
-اگر یک ارائه شامل اسلایدهای پنهان باشد، می‌توانید با استفاده از متد [setShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) از کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) اسلایدهای پنهان را به‌عنوان صفحات در PDF حاصل شامل کنید.
+If a presentation contains hidden slides, you can use the [setShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) method from the [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) class to include the hidden slides as pages in the resulting PDF.
 
-مثال زیر یک ارائه را با تمام اسلایدهای پنهان به PDF صادر می‌کند.
+The following example exports a presentation to PDF, including any hidden slides.
 
 ```java
 import com.aspose.slides.*;
@@ -162,9 +186,9 @@ try {
 }
 ```
 
-### **تبدیل PowerPoint به PDF با رمز عبور**
+### **تبدیل پاورپوینت به PDF با حفاظت توسط رمز عبور**
 
-مثال زیر یک ارائه را به PDF صادر می‌کند که برای باز کردن به رمز `password` نیاز دارد. مجوزهای دسترسی چاپ، از جمله چاپ با کیفیت بالا، را اجازه می‌دهد.
+The following example exports a presentation to a PDF that requires the password `password` to open. The access permissions allow printing, including high-quality printing.
 
 ```java
 import com.aspose.slides.*;
@@ -181,11 +205,11 @@ try {
 }
 ```
 
-### **تشخیص جایگزینی فونت‌ها**
+### **شناسایی جایگزینی قلم‌ها**
 
-Aspose.Slides متد [setWarningCallback](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) را تحت کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) فراهم می‌کند تا بتوانید در طول فرآیند تبدیل ارائه به PDF جایگزینی فونت‌ها را شناسایی کنید.
+Aspose.Slides provides the [setWarningCallback](https://reference.aspose.com/slides/java/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) method under the [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) class, enabling you to detect font substitutions during the presentation-to-PDF conversion process.
 
-مثال زیر یک ارائه را به PDF صادر می‌کند و هشدارهای جایگزینی فونت را در کنسول چاپ می‌کند. یک هشدار فقط زمانی چاپ می‌شود که یک فونت غیرقابل دسترس در حین صادرات جایگزین شود.
+The following example exports a presentation to PDF and prints font substitution warnings to the console. A warning is printed only when an unavailable font is substituted during export.
 
 ```java
 import com.aspose.slides.*;
@@ -211,14 +235,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-برای اطلاعات بیشتر دربارهٔ جایگزینی فونت، مقالهٔ [Font Substitution](/slides/fa/java/font-substitution/) را ببینید.
+برای اطلاعات بیشتر در مورد جایگزینی قلم، مقالهٔ [جایگزینی قلم](/slides/fa/java/font-substitution/) را مشاهده کنید.
 {{% /alert %}} 
 
-### **پردازش فونت‌هایی که قلم ضخیم اختصاصی ندارند**
+### **مدیریت قلم‌هایی که نوع بولد اختصاصی ندارند**
 
-یک ارائه می‌تواند قالب‌گیری بولد را بر متن اعمال کند حتی اگر فونت آن قلم ضخیم اختصاصی نداشته باشد. متن می‌تواند همچنان به‌صورت بولد ظاهر شود از طریق بولد مصنوعی که گلیف‌های عادی را به‌صورت مصنوعی ضخیم می‌کند. وقتی این متن در PDF بسیار سنگین یا متفاوت از ظاهر موردنظر به‌نظر می‌رسد، می‌توانید با فراخوانی متد [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles-boolean-) با مقدار `true` این گزینه را فعال کنید. این گزینه متن تحت تاثیر را به‌صورت bitmap هنگام صادرات PDF رستر می‌کند و می‌تواند ظاهر آن را برای برخی فونت‌ها بهبود بخشد. مقدار پیش‌فرض آن `false` است.
+A presentation can apply bold formatting to text even when its font has no dedicated bold typeface. The text can still appear bold through synthetic bolding, which artificially thickens the regular glyphs. When that text looks too heavy or otherwise differs from the intended appearance in PDF, try calling [PdfOptions.setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setRasterizeUnsupportedFontStyles-boolean-) with `true`. This option renders the affected text as a bitmap during PDF export and can improve its appearance for certain fonts. Its default value is `false`.
 
-نمونه ارائه دارای دو جعبه متن است: یکی با متن معمولی و دیگری با قالب‌گیری بولد بر همان فونت که قلم ضخیم اختصاصی ندارد. مثال زیر ارائه را بارگذاری می‌کند، رسترینگ سبک‌های فونت پشتیبانی‌نشده را فعال می‌کند و آن را به PDF صادر می‌نماید:
+The sample presentation contains two text boxes: one with regular text and one with bold formatting applied to the same font, which has no dedicated bold typeface. The following example loads the presentation, enables rasterization of unsupported font styles, and exports it to PDF:
 
 ```java
 import com.aspose.slides.PdfOptions;
@@ -236,19 +260,19 @@ try {
 }
 ```
 
-پیش‌نمایش‌های زیر خروجی غیرفعال و خروجی فعال را نشان می‌دهند. در این مثال، متن بولد با گزینه غیرفعال خطوط ضخیم‌تری دارد. با فعال‌سازی گزینه، خطوط آن نازک‌تر هستند؛ متن معمولی تغییر نمی‌کند. قبل از انتخاب تنظیم برای ارائهٔ خود نتایج را مقایسه کنید.
+The following previews show the disabled output and the enabled output. In this example, the bold text has heavier strokes with the option disabled. With the option enabled, its strokes are lighter; the regular text is unchanged. Compare the results before choosing the setting for your presentation.
 
 | گزینه غیرفعال (`false`، پیش‌فرض) | گزینه فعال (`true`) |
 |---|---|
 | ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
 
-در این مثال، فعال‌سازی گزینه تنها متن بولد را به bitmap تبدیل می‌کند: بدون OCR نمی‌توان آن را انتخاب، کپی یا جستجو کرد و لبه‌های آن در بزرگ‌نمایی 800٪ نرم‌تر به‌نظر می‌رسد. متن معمولی همچنان قابل جستجو باقی می‌ماند. وقتی گزینه غیرفعال باشد، هر دو رشته به‌صورت متن باقی می‌مانند.
+In this example, enabling the option turns only the bold text into a bitmap: it cannot be selected, copied, or searched as text without OCR, and its edges appear softer at 800% zoom. The regular text remains searchable. With the option disabled, both strings remain text.
 
-این گزینه متن قالب‌دار به‌صورت بولد را وقتی فونت قلم ضخیم اختصاصی ندارد رستر می‌کند. [Font substitution](/slides/fa/java/font-substitution/) به‌جای آن فونت دیگری را وقتی فونت اصلی در دسترس نیست انتخاب می‌کند.
+This option rasterizes text formatted as bold when its font has no dedicated bold typeface. [جایگزینی قلم](/slides/fa/java/font-substitution/) instead selects another font when the original is unavailable.
 
-## **تبدیل اسلایدهای انتخابی از PowerPoint به PDF**
+## **تبدیل اسلایدهای انتخاب‌شده از پاورپوینت به PDF**
 
-مثال زیر اسلایدهای 1 و 3 را از یک ارائه به PDF صادر می‌کند. شماره اسلایدها در این آرایه یک‌پایه هستند و ارائهٔ ورودی باید حداقل سه اسلاید داشته باشد.
+The following example exports slides 1 and 3 from a presentation to PDF. Slide numbers in this array are one-based, and the input presentation must contain at least three slides.
 
 ```java
 import com.aspose.slides.*;
@@ -262,9 +286,9 @@ try {
 }
 ```
 
-## **تبدیل PowerPoint به PDF با اندازه سفارشی اسلاید**
+## **تبدیل پاورپوینت به PDF با اندازهٔ اسلاید سفارشی**
 
-مثال زیر اولین اسلاید را از یک ارائه به یک ارائهٔ جدید که اندازه اسلاید آن 612 × 792 نقطه (8.5 × 11 اینچ) است، کپی می‌کند. محتویات اسلاید را برای پر شدن مقیاس می‌کند و اسلاید تک را به PDF صادر می‌نماید.
+The following example copies the first slide from a presentation into a new presentation with a slide size of 612 × 792 points (8.5 × 11 inches). It scales the slide content to fit and exports the single slide to PDF.
 
 ```java
 import com.aspose.slides.*;
@@ -281,9 +305,8 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
-    // اسلاید خالی که ارائه جدید با آن ایجاد شده بود را حذف کنید.
-    resizedPresentation.getSlides().removeAt(1);
-
+    // حذف اسلاید خالی که ارائه جدید با آن ایجاد شده بود.
+    
     resizedPresentation.save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 } finally {
     resizedPresentation.dispose();
@@ -291,9 +314,9 @@ try {
 }
 ```
 
-## **تبدیل PowerPoint به PDF در نمای اسلاید نکات**
+## **تبدیل پاورپوینت به PDF در نمای اسلایدهای یادداشت‌ها**
 
-مثال زیر یک ارائه را به PDF صادر می‌کند به‌گونه‌ای که یادداشت‌های گوینده هر اسلاید زیر اسلاید قرار می‌گیرد. برای مشاهدهٔ نتیجه از یک ارائهٔ دارای یادداشت گوینده استفاده کنید.
+The following example exports a presentation to PDF, placing each slide's speaker notes below the slide. Use a presentation containing speaker notes to see the result.
 
 ```java
 import com.aspose.slides.*;
@@ -312,9 +335,11 @@ try {
 }
 ```
 
-## **استانداردهای دسترسی و انطباق برای PDF**
+## **استانداردهای دسترس‌پذیری و انطباق برای PDF**
 
-Aspose.Slides به شما اجازه می‌دهد از روشی استفاده کنید که با [راهنمای دسترسی به محتوای وب (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) سازگار باشد. می‌توانید یک سند PowerPoint را به PDF صادر کنید و هر یک از این استانداردهای انطباق را به کار ببرید: **PDF/A1a**، **PDF/A1b** و **PDF/UA**.
+Aspose.Slides اجازه می‌دهد از یک روش تبدیل استفاده کنید که با [دستورالعمل‌های دسترسی به محتوای وب (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) سازگار باشد. می‌توانید سند پاورپوینت را به PDF صادر کنید و از هر یک از این استانداردهای انطباق استفاده کنید: **PDF/A1a**، **PDF/A1b** و **PDF/UA**.
+
+The code demonstrates a PowerPoint-to-PDF conversion process that produces multiple PDFs based on different compliance standards:
 
 ```java
 import com.aspose.slides.*;
@@ -337,35 +362,35 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides عملیات‌های تبدیل PDF را پشتیبانی می‌کند و به شما اجازه می‌دهد فایل‌های PDF را به فرمت‌های محبوب تبدیل کنید. می‌توانید تبدیل‌های [PDF به HTML](https://products.aspose.com/slides/java/conversion/pdf-to-html/)، [PDF به تصویر](https://products.aspose.com/slides/java/conversion/pdf-to-image/)، [PDF به JPG](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/)، و [PDF به PNG](https://products.aspose.com/slides/java/conversion/pdf-to-png/) را انجام دهید. سایر عملیات‌های تبدیل PDF به فرمت‌های تخصصی—[PDF به SVG](https://products.aspose.com/slides/java/conversion/pdf-to-svg/)، [PDF به TIFF](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/)، و [PDF به XML](https://products.aspose.com/slides/java/conversion/pdf-to-xml/)—نیز پشتیبانی می‌شوند.
+Aspose.Slides عملیات‌های تبدیل PDF را پشتیبانی می‌کند و به شما امکان می‌دهد فایل‌های PDF را به فرمت‌های محبوب دیگر تبدیل کنید. می‌توانید تبدیل‌های [PDF به HTML](https://products.aspose.com/slides/java/conversion/pdf-to-html/)، [PDF به تصویر](https://products.aspose.com/slides/java/conversion/pdf-to-image/)، [PDF به JPG](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/)، و [PDF به PNG](https://products.aspose.com/slides/java/conversion/pdf-to-png/) را انجام دهید. سایر عملیات‌های تبدیل PDF به فرمت‌های تخصصی — [PDF به SVG](https://products.aspose.com/slides/java/conversion/pdf-to-svg/)، [PDF به TIFF](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/)، و [PDF به XML](https://products.aspose.com/slides/java/conversion/pdf-to-xml/) — نیز پشتیبانی می‌شوند.
 {{% /alert %}}
 
-> **توجه:** هنگام خروجی به PDF/UA، Aspose.Slides گرافیک‌های پیچیده‌ای مانند SmartArt، نمودارها و فرمول‌ها را به‌عنوان یک شکل واحد درنظر می‌گیرد. عناصر مسیر جداگانه به‌عنوان محتوای مستقل حفظ نمی‌شوند و ممکن است به‌عنوان artifacts علامت‌گذاری شوند؛ متن جایگزین فقط برای کل شکل فراهم می‌شود.
+> **Note:** When exporting to PDF/UA, Aspose.Slides treats complex graphics such as SmartArt, charts, and formulas as a single figure. Individual path elements are not preserved as separate content and may be marked as artifacts; alternative text is provided only for the whole figure.
 
 ## **سوالات متداول**
 
-**آیا می‌توانم چندین فایل PowerPoint را به صورت دسته‌ای به PDF تبدیل کنم؟**
+**آیا می‌توانم چندین فایل پاورپوینت را به صورت دسته‌ای به PDF تبدیل کنم؟**
 
-بله، Aspose.Slides از تبدیل دسته‌ای چندین فایل PPT یا PPTX به PDF پشتیبانی می‌کند. می‌توانید به‌صورت برنامه‌نویسی به‌طور متوالی بر روی فایل‌های خود پیمایش کنید و فرآیند تبدیل را اعمال کنید.
+بله، Aspose.Slides از تبدیل دسته‌ای چندین فایل PPT یا PPTX به PDF پشتیبانی می‌کند. می‌توانید فایل‌های خود را در یک حلقه مرور کنید و فرآیند تبدیل را به‌صورت برنامه‌نویسی شده اعمال کنید.
 
 **آیا می‌توان PDF تبدیل‌شده را با رمز عبور محافظت کرد؟**
 
-بله. با استفاده از کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) می‌توانید رمز عبور را تنظیم کرده و مجوزهای دسترسی را در طول فرآیند تبدیل تعریف کنید.
+بله. از کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) برای تنظیم رمز عبور و تعریف مجوزهای دسترسی در طول فرآیند تبدیل استفاده کنید.
 
-**چگونه می‌توانم اسلایدهای پنهان را در PDF شامل کنم؟**
+**چگونه اسلایدهای مخفی را در PDF درج کنم؟**
 
-با فراخوانی متد [setShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) با مقدار `true` در کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) می‌توانید اسلایدهای پنهان را در PDF حاصل به‌عنوان صفحات اضافه کنید.
+با فراخوانی [setShowHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setShowHiddenSlides-boolean-) با مقدار `true` در کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) اسلایدهای مخفی را در PDF نهایی گنجانده می‌شود.
 
 **آیا Aspose.Slides می‌تواند کیفیت بالای تصویر را در PDF حفظ کند؟**
 
-بله، می‌توانید با استفاده از متدهایی مانند [setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setJpegQuality-byte-) و [setSufficientResolution](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setSufficientResolution-float-) در کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) کیفیت تصویر را کنترل کنید تا تصاویر با کیفیت بالا در PDF شما قرار گیرند.
+بله، می‌توانید کیفیت تصویر را با استفاده از روش‌هایی مانند [setJpegQuality](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setJpegQuality-byte-) و [setSufficientResolution](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/#setSufficientResolution-float-) در کلاس [PdfOptions](https://reference.aspose.com/slides/java/com.aspose.slides/pdfoptions/) کنترل کنید تا تصاویر با کیفیت بالا در PDF شما باشند.
 
-**آیا Aspose.Slides از استانداردهای انطباق PDF/A پشتیبانی می‌کند؟**
+**آیا Aspose.Slides استانداردهای انطباق PDF/A را پشتیبانی می‌کند؟**
 
-بله، Aspose.Slides به شما اجازه می‌دهد PDFهایی را صادر کنید که با [استانداردهای مختلف](https://reference.aspose.com/slides/java/com.aspose.slides/pdfcompliance/) از جمله PDF/A1a، PDF/A1b و PDF/UA سازگار باشند و اطمینان حاصل کنید اسناد شما نیازهای دسترسی و بایگانی را برآورده می‌کنند.
+بله، Aspose.Slides به شما اجازه می‌دهد PDFهایی صادر کنید که با [استانداردهای مختلف](https://reference.aspose.com/slides/java/com.aspose.slides/pdfcompliance/) از جمله PDF/A1a، PDF/A1b و PDF/UA سازگاری داشته باشند و اطمینان حاصل کنید اسناد شما الزامات دسترس‌پذیری و بایگانی را برآورده می‌کنند.
 
-## **منابع اضافی**
+## **منابع بیشتر**
 
-- [مستندات Aspose.Slides برای Java](/slides/fa/java/)
-- [مرجع API Aspose.Slides برای Java](https://reference.aspose.com/slides/java/)
+- [مستندات Aspose.Slides برای جاوا](/slides/fa/java/)
+- [مرجع API Aspose.Slides برای جاوا](https://reference.aspose.com/slides/java/)
 - [مبدل‌های آنلاین رایگان Aspose](https://products.aspose.app/slides/conversion)

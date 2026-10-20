@@ -1,5 +1,5 @@
 ---
-title: تبدیل PPT و PPTX به PDF در PHP [ویژگی‌های پیشرفته گنجانده شده]
+title: تبدیل PPT و PPTX به PDF در PHP [دارای ویژگی‌های پیشرفته]
 linktitle: PowerPoint به PDF
 type: docs
 weight: 40
@@ -24,49 +24,47 @@ keywords:
 - PDF/UA
 - PHP
 - Aspose.Slides
-description: "PowerPoint PPT/PPTX را در PHP با استفاده از Aspose.Slides به PDFهای با کیفیت بالا و قابل جستجو تبدیل کنید، با مثال‌های سریع کد و گزینه‌های پیشرفته تبدیل."
+description: "تبدیل PowerPoint PPT/PPTX به PDFهای با کیفیت بالا و قابل جستجو در PHP با استفاده از Aspose.Slides، همراه با مثال‌های کد سریع و گزینه‌های پیشرفتهٔ تبدیل."
 ---
 ## **نمای کلی**
 
-تبدیل ارائه‌های PowerPoint (PPT، PPTX، ODP و غیره) به قالب PDF در PHP چندین مزیت دارد، از جمله سازگاری با دستگاه‌های مختلف و حفظ چیدمان و قالب‌بندی ارائه شما. این راهنما نشان می‌دهد چگونه ارائه‌ها را به اسناد PDF تبدیل کنید، از گزینه‌های مختلف برای کنترل کیفیت تصویر استفاده کنید، اسلایدهای مخفی را شامل کنید، فایل‌های PDF را با رمز عبور محافظت کنید، جایگزینی‌های قلم را تشخیص دهید، اسلایدهای خاصی را برای تبدیل انتخاب کنید و استانداردهای سازگاری را بر اسناد خروجی اعمال کنید.
+تبدیل ارائه‌های PowerPoint (PPT، PPTX، ODP و غیره) به فرمت PDF در PHP مزایای متعددی دارد، از جمله سازگاری با دستگاه‌های مختلف و حفظ چیدمان و قالب‌بندی ارائه شما. این راهنما نشان می‌دهد چگونه ارائه‌ها را به اسناد PDF تبدیل کنید، از گزینه‌های مختلف برای کنترل کیفیت تصویر استفاده کنید، اسلایدهای مخفی را شامل کنید، فایل‌های PDF را با رمز عبور محافظت کنید، جایگزینی‌های قلم را شناسایی کنید، اسلایدهای خاص را برای تبدیل انتخاب کنید و استانداردهای سازگاری را بر اسناد خروجی اعمال کنید.
 
 ## **تبدیل PowerPoint به PDF**
 
-با استفاده از Aspose.Slides، می‌توانید ارائه‌ها را در فرمت‌های زیر به PDF تبدیل کنید:
+با استفاده از Aspose.Slides، می‌توانید ارائه‌ها را در قالب‌های زیر به PDF تبدیل کنید:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-برای تبدیل یک ارائه به PDF، نام فایل را به عنوان آرگومان به کلاس [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) بدهید و سپس ارائه را با استفاده از روش [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) به PDF ذخیره کنید. کلاس [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) متد [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) را فراهم می‌کند که معمولاً برای تبدیل یک ارائه به PDF استفاده می‌شود.
+برای تبدیل یک ارائه به PDF، نام فایل را به عنوان آرگومان به کلاس [ارائه](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) بدهید و سپس با استفاده از متد [ذخیره](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) ارائه را به صورت PDF ذخیره کنید. کلاس [ارائه](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) متد [ذخیره](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) را ارائه می‌دهد که معمولاً برای تبدیل یک ارائه به PDF استفاده می‌شود.
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides for PHP via Java اطلاعات API و شماره نسخه خود را در اسناد خروجی وارد می‌کند. برای مثال، هنگام تبدیل یک ارائه به PDF، Aspose.Slides فیلد Application را با "*Aspose.Slides*" و فیلد PDF Producer را با مقداری به فرم "*Aspose.Slides v XX.XX*" پر می‌کند. **Note** اینکه نمی‌توانید Aspose.Slides را مجبور کنید این اطلاعات را از اسناد خروجی حذف یا تغییر دهد.
-
+Aspose.Slides for PHP via Java اطلاعات API و شماره نسخه خود را در اسناد خروجی درج می‌کند. برای مثال، هنگام تبدیل یک ارائه به PDF، Aspose.Slides فیلد Application را با "*Aspose.Slides*" و فیلد PDF Producer را با مقداری به شکل "*Aspose.Slides v XX.XX*" پر می‌کند. **توجه** داشته باشید که نمی‌توانید به Aspose.Slides بگویید این اطلاعات را در اسناد خروجی تغییر یا حذف کند.
 {{% /alert %}}
 
-Aspose.Slides به شما اجازه می‌دهد تا:
+Aspose.Slides به شما امکان تبدیل را می‌دهد:
 
-* کل ارائه‌ها را به PDF تبدیل کنید
-* اسلایدهای خاصی از یک ارائه را به PDF تبدیل کنید
+* کل ارائه‌ها به PDF
+* اسلایدهای خاص از یک ارائه به PDF
 
-Aspose.Slides ارائه‌ها را به PDF صادر می‌کند و اطمینان می‌دهد PDFهای تولید شده به‌دقت مشابه ارائه‌های اصلی باشند. عناصر و ویژگی‌ها در تبدیل به‌درستی رندر می‌شوند، از جمله:
+Aspose.Slides ارائه‌ها را به PDF صادر می‌کند و اطمینان می‌دهد که PDF‌های خروجی به‌دقت با ارائه‌های اصلی مطابقت داشته باشند. عناصر و ویژگی‌ها در تبدیل به‌درستی رندر می‌شوند، از جمله:
 
 * تصاویر
 * جعبه‌های متن و اشکال
 * قالب‌بندی متن
 * قالب‌بندی پاراگراف
-* پیوندهای ابرمتنی
-* سرصفحه‌ها و پاورقی‌ها
+* پیوندها
+* سرصفحه‌ها و پاورنه‌ها
 * گلوله‌ها
 * جداول
 
 ## **تبدیل PowerPoint به PDF**
 
-فرآیند استاندارد تبدیل PowerPoint به PDF از گزینه‌های پیش‌فرض استفاده می‌کند. در این حالت، Aspose.Slides سعی می‌کند ارائهٔ داده‌شده را با تنظیمات بهینه و در بالاترین سطوح کیفیت به PDF تبدیل کند.
+فرآیند استاندارد تبدیل PowerPoint به PDF از گزینه‌های پیش‌فرض استفاده می‌کند. در این حالت، Aspose.Slides سعی می‌کند ارائه ارائه‌شده را به PDF تبدیل کند با استفاده از تنظیمات بهینه در سطوح کیفیت حداکثری.
 
-مثال زیر یک ارائه را بارگذاری می‌کند و تمام اسلایدهای قابل مشاهده را با تنظیمات خروجی پیش‌فرض به PDF ذخیره می‌کند.
+مثال زیر یک ارائه را بارگذاری می‌کند و همه اسلایدهای قابل مشاهده را با استفاده از تنظیمات صادرات پیش‌فرض به PDF ذخیره می‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -81,20 +79,18 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-
-Aspose یک ابزار آنلاین رایگان [**PowerPoint to PDF converter**](https://products.aspose.app/slides/conversion/ppt-to-pdf) ارائه می‌دهد که فرآیند تبدیل ارائه به PDF را نشان می‌دهد. می‌توانید با این مبدل یک آزمایش زنده از روند توضیحی انجام دهید.
-
+Aspose یک [**مبدل PowerPoint به PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) آنلاین رایگان ارائه می‌دهد که فرآیند تبدیل ارائه به PDF را نشان می‌دهد. می‌توانید با این مبدل یک تست زنده از روش توضیح داده شده در اینجا انجام دهید.
 {{% /alert %}}
 
 ## **تبدیل PowerPoint به PDF با گزینه‌ها**
 
-Aspose.Slides گزینه‌های سفارشی—ویژگی‌های موجود در کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)—را فراهم می‌کند که به شما اجازه می‌دهد PDF نهایی را تنظیم کنید، PDF را با رمز عبور قفل کنید یا مشخص کنید فرآیند تبدیل به چه صورت پیش برود.
+Aspose.Slides گزینه‌های سفارشی—ویژگی‌های تحت کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)—را فراهم می‌کند که به شما اجازه می‌دهد PDF خروجی را سفارشی کنید، PDF را با رمز عبور قفل کنید یا مشخص کنید فرآیند تبدیل چگونه پیش برود.
 
 ### **تبدیل PowerPoint به PDF با گزینه‌های سفارشی**
 
-با استفاده از گزینه‌های سفارشی می‌توانید تنظیم کیفیت دلخواه خود برای تصاویر رستری، نحوهٔ پردازش متافایل‌ها، سطح فشرده‌سازی متن، DPI برای تصاویر و موارد دیگر را تعریف کنید.
+با استفاده از گزینه‌های سفارشی تبدیل، می‌توانید تنظیم کیفیت دلخواه خود را برای تصاویر رستر، نحوه پردازش متافایل‌ها، سطح فشرده‌سازی متن، DPI برای تصاویر و موارد دیگر تعریف کنید.
 
-مثال زیر یک ارائه را با تنظیمات PDF 1.5، کیفیت JPEG برابر 90، وضوح تصویر 300 DPI، ذخیره متافایل‌ها به‌صورت PNG و فشرده‌سازی متن Flate صادر می‌کند.
+مثال زیر یک ارائه را به PDF 1.5 صادر می‌کند با کیفیت JPEG تنظیم‌شده بر 90، وضوح تصویر تنظیم‌شده بر 300 DPI، متافایل‌ها به‌صورت PNG ذخیره می‌شوند و فشرده‌سازی متن Flate اعمال می‌شود.
 
 ```php
 use aspose\slides\PdfCompliance;
@@ -118,13 +114,39 @@ try {
 }
 ```
 
-### **حفظ فایل‌های OLE توکار به‌عنوان ضمیمه‌های PDF**
+### **انتخاب خودکار فشرده‌سازی تصویر**
 
-اگر ارائه شامل یک کارپوشهٔ Excel توکار باشد، ممکن است بخواهید دریافت‌کنندگان PDF به داده‌های کارپوشه دسترسی داشته باشند و همچنین اسلایدها را ببینند. برای حفظ فایل‌های OLE توکار به‌صورت ضمیمه در PDF نتیجه، متد [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) را با مقدار `true` صدا بزنید.
+هنگامی که یک ارائه شامل تعداد زیادی عکسبرداری یا اسکرین‌شات است، کاهش اندازه PDF صادرشده می‌تواند ارسال ایمیل یا دانلود را آسان‌تر کند. فراخوانی [PdfOptions::setBestImagesCompressionRatio](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setbestimagescompressionratio/) با `true` به‌طور خودکار مناسب‌ترین الگوریتم فشرده‌سازی را برای هر تصویر هنگام خروجی PDF انتخاب می‌کند.
 
-مقدار پیش‌فرض `false` است: تصویر پیش‌نمایش یا آیکون شیٔ OLE بر روی صفحه PDF رندر می‌شود، اما فایل توکار به‌عنوان ضمیمه گنجانده نمی‌شود. تنظیم این گزینه به `true` علاوه بر آن دادهٔ فایل را نیز شامل می‌شود. پیش‌نمایش همچنان یک نمایش بصری باقی می‌ماند؛ ضمیمه اجازه می‌دهد دریافت‌کنندگان فایل توکار را جداگانه باز یا ذخیره کنند. شیٔ OLE تبدیل به یک کاربرگ Excel تعاملی بر صفحه PDF نمی‌شود.
+مثال زیر یک ارائه موجود را بارگذاری می‌کند، انتخاب خودکار فشرده‌سازی تصویر را فعال می‌کند و آن را به‌عنوان سند PDF ذخیره می‌کند. تمام تنظیمات دیگر خروجی PDF ارزش پیش‌فرض خود را حفظ می‌کنند.
 
-مثال زیر یک ارائه را که هم‌اکنون شامل یک کارپوشهٔ Excel توکار است، بارگذاری می‌کند و آن را با کارپوشه پیوست‌شده به PDF صادر می‌کند.
+```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setBestImagesCompressionRatio(true);
+
+$presentation = new Presentation("image-heavy.pptx");
+try {
+    $presentation->save("image-heavy.pdf", SaveFormat::Pdf, $pdfOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+این گزینه الگوریتم فشرده‌سازی را برای هر تصویر انتخاب می‌کند. کاهش مقدار داده‌شده به [setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setjpegquality/) به‌جای این که کیفیت تصویر JPEG را کاهش دهد، در حالی که کاهش مقدار داده‌شده به [setSufficientResolution](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setsufficientresolution/) اجازه می‌دهد تصاویر به وضوح پایین‌تری کاهش نمونه شوند که می‌تواند جزئیات را کاهش دهد. فعال‌سازی انتخاب خودکار فشرده‌سازی به‌تنهایی هیچ‌یک از این تنظیمات را کاهش نمی‌دهد.
+
+انتخاب الگوریتم‌های فشرده‌سازی تصویر نیاز به زمان پردازش و حافظه بیشتر دارد. کاهش اندازه به تصاویر و تنظیمات خروجی ارائه بستگی دارد؛ کاهش ثابت برای هر ارائه تضمین نمی‌شود.
+
+### **حفظ فایل‌های OLE جاسازی‌شده به‌عنوان پیوست‌های PDF**
+
+اگر یک ارائه شامل یک کتاب‌کار Excel جاسازی‌شده باشد، ممکن است بخواهید دریافت‌کنندگان PDF به داده‌های کتاب‌کار دسترسی داشته باشند و همزمان اسلایدها را ببینند. فراخوانی [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) با `true` فایل‌های OLE جاسازی‌شده را به‌عنوان پیوست در PDF حاصل حفظ می‌کند.
+
+مقدار پیش‌فرض `false` است: تصویر پیش‌نمایش یا آیکون شیء OLE روی صفحه PDF رندر می‌شود، اما فایل جاسازی‌شده به‌عنوان پیوست شامل نمی‌شود. تنظیم گزینه به `true` علاوه بر این دادهٔ فایل را نیز شامل می‌شود. پیش‌نمایش همچنان یک نمایش بصری است؛ پیوست به دریافت‌کنندگان اجازه می‌دهد فایل جاسازی‌شده را به‌صورت جداگانه باز یا ذخیره کنند. شیء OLE تبدیل به یک ورک‌شیت تعاملی Excel در صفحه PDF نمی‌شود.
+
+مثال زیر یک ارائه که قبلاً شامل یک کتاب‌کار Excel جاسازی‌شده است بارگذاری می‌کند و آن را به PDF با کتاب‌کار پیوست‌شده صادر می‌کند.
 
 ```php
 use aspose\slides\PdfOptions;
@@ -144,21 +166,19 @@ try {
 
 برای بررسی نتیجه:
 
-1. PDF صادرشده را در یک مرورگری که از ضمیمه‌های فایل پشتیبانی می‌کند، مانند Adobe Acrobat Reader، باز کنید.
-2. پنل **Attachments** مرورگر را باز کنید و کارپوشهٔ توکار را پیدا کنید.
-3. ضمیمه را ذخیره کنید و در Excel باز کنید تا داده‌ها را بررسی کنید، یا در صورت امکان مستقیماً باز کنید. پیش‌نمایش بر روی صفحه PDF جدا از ضمیمه است.
+1. PDF صادرشده را در یک نمایشگری که از پیوست‌های فایل پشتیبانی می‌کند، مانند Adobe Acrobat Reader، باز کنید.
+2. پنل **Attachments** نمایشگر را باز کنید و کتاب‌کار جاسازی‌شده را پیدا کنید.
+3. پیوست را ذخیره کنید و در Excel باز کنید تا داده‌ها را بررسی کنید، یا اگر نمایشگر اجازه می‌دهد مستقیم باز کنید. پیش‌نمایش روی صفحه PDF جدا از پیوست است.
 
 {{% alert color="info" title="Note" %}}
-
-استانداردهای PDF/A محدودیت‌هایی برای ضمیمه‌ها اعمال می‌کنند: PDF/A‑1 فایل‌های توکار را ممنوع می‌کند، PDF/A‑2 فقط ضمیمه‌های PDF/A را مجاز می‌داند و PDF/A‑3 انواع فایل‌های دیگر از جمله کارپوشهٔ Excel را اجازه می‌دهد. این‌ها الزامات استانداردها هستند، نه محدودیت‌های خاص Aspose.Slides. این مثال از تنظیم پیش‌فرض سازگاری PDF استفاده می‌کند و خروجی PDF/A را نشان نمی‌دهد.
-
+استانداردهای PDF/A محدودیت‌هایی برای پیوست‌ها اعمال می‌کنند: PDF/A-1 از فایل‌های جاسازی‌شده ممنوع می‌شود، PDF/A-2 فقط پیوست‌های PDF/A را اجازه می‌دهد و PDF/A-3 انواع فایل‌های دیگر از جمله کتاب‌کارهای Excel را مجاز می‌داند. این‌ها الزامات استانداردهاست، نه محدودیت‌های خاص Aspose.Slides. این مثال از تنظیم پیش‌فرض سازگاری PDF استفاده می‌کند و صادرات PDF/A را نشان نمی‌دهد.
 {{% /alert %}}
 
 ### **تبدیل PowerPoint به PDF با اسلایدهای مخفی**
 
-اگر ارائه شامل اسلایدهای مخفی باشد، می‌توانید با استفاده از متد [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) از کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) اسلایدهای مخفی را به‌عنوان صفحات در PDF نهایی گنجانده شود.
+اگر یک ارائه شامل اسلایدهای مخفی باشد، می‌توانید از متد [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) در کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) استفاده کنید تا اسلایدهای مخفی را به‌عنوان صفحات در PDF نهایی شامل کنید.
 
-مثال زیر یک ارائه را به PDF صادر می‌کند و هر اسلاید مخفی را نیز شامل می‌شود.
+مثال زیر یک ارائه را به PDF صادر می‌کند و تمام اسلایدهای مخفی را نیز شامل می‌شود.
 
 ```php
 use aspose\slides\PdfOptions;
@@ -178,7 +198,7 @@ try {
 
 ### **تبدیل PowerPoint به PDF با حفاظت با رمز عبور**
 
-مثال زیر یک ارائه را به PDF صادر می‌کند که برای باز کردن نیاز به رمز عبور `password` دارد. مجوزهای دسترسی اجازه چاپ، از جمله چاپ با کیفیت بالا را می‌دهند.
+مثال زیر یک ارائه را به PDF صادر می‌کند که برای باز کردن نیاز به رمز عبور `password` دارد. مجوزهای دسترسی اجازه چاپ، از جمله چاپ با کیفیت بالا، را می‌دهند.
 
 ```php
 use aspose\slides\PdfAccessPermissions;
@@ -198,11 +218,11 @@ try {
 }
 ```
 
-### **تشخیص جایگزینی‌های قلم**
+### **تشخیص جایگزینی قلم‌ها**
 
-Aspose.Slides متد [setWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/) را تحت کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) فراهم می‌کند که به شما امکان می‌دهد در طول فرآیند تبدیل ارائه به PDF، جایگزینی‌های قلم را شناسایی کنید.
+Aspose.Slides متد [setWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/) را تحت کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) فراهم می‌کند که به شما امکان می‌دهد در فرآیند تبدیل ارائه به PDF، جایگزینی‌های قلم را تشخیص دهید.
 
-مثال زیر یک ارائه را به PDF صادر می‌کند و هشدارهای جایگزینی قلم را در کنسول چاپ می‌کند. هشدار فقط زمانی چاپ می‌شود که یک قلم غیرقابل دسترس جایگزین شود.
+مثال زیر یک ارائه را به PDF صادر می‌کند و هشدارهای جایگزینی قلم را در کنسول چاپ می‌کند. هشدار فقط زمانی چاپ می‌شود که قلمی در دسترس نباشد و در حین صادرات جایگزین شود.
 
 ```php
 use aspose\slides\PdfOptions;
@@ -236,16 +256,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-
-برای اطلاعات بیشتر در مورد جایگزینی قلم، مقالهٔ [Font Substitution](/slides/fa/php-java/font-substitution/) را ببینید.
-
+برای اطلاعات بیشتر درباره جایگزینی قلم، به مقاله [جایگزینی قلم](/slides/fa/php-java/font-substitution/) مراجعه کنید.
 {{% /alert %}} 
 
-### **برخورد با قلم‌هایی بدون سبک بولد جداگانه**
+### **دست‌کاری قلم‌هایی بدون سبک بولد اختصاصی**
 
-یک ارائه می‌تواند قالب بولد را بر متن اعمال کند حتی اگر قلم آن دارای سبک بولد جداگانه نباشد. متن می‌تواند از طریق بولد مصنوعی، که گلیف‌های معمولی را به‌طور مصنوعی ضخیم می‌کند، به‌نظر بولد برسد. وقتی این متن در PDF بیش از حد سنگین به‌نظر می‌رسد یا از ظاهر موردنظر متفاوت است، می‌توانید متد [PdfOptions::setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) را با مقدار `true` فراخوانی کنید. این گزینه متن تحت تأثیر را به‌صورت bitmap هنگام خروجی PDF رستر می‌کند و می‌تواند ظاهر آن را برای برخی قلم‌ها بهبود بخشد. مقدار پیش‌فرض آن `false` است.
+یک ارائه می‌تواند فرمت بولد را بر متنی اعمال کند حتی هنگامی که قلم آن سبک بولد اختصاصی ندارد. متن می‌تواند همچنان به‌صورت بولد ظاهر شود از طریق بولد مصنوعی که گلیف‌های معمولی را به‌صورت مصنوعی ضخیم می‌کند. وقتی آن متن در PDF خیلی سنگین یا متفاوت از ظاهر مطلوب به‌نظر می‌رسد، می‌توانید با فراخوانی [PdfOptions::setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) با `true` این گزینه را فعال کنید. این گزینه متن تحت تأثیر را به‌صورت بیت‌مپ در حین صادرات PDF رستر می‌کند و می‌تواند ظاهر آن را برای برخی قلم‌ها بهبود بخشد. مقدار پیش‌فرض آن `false` است.
 
-ارائهٔ نمونه شامل دو جعبه متن است: یکی با متن عادی و دیگری با قالب بولد بر همان قلم که سبک بولد جداگانه‌ای ندارد. مثال زیر ارائه را بارگذاری می‌کند، رستر کردن سبک‌های قلم پشتیبانی‌نشده را فعال می‌سازد و آن را به PDF صادر می‌کند:
+ارائه نمونه دو جعبه متن دارد: یکی با متن عادی و دیگری با فرمت بولد اعمال شده بر همان قلم که سبک بولد اختصاصی ندارد. مثال زیر ارائه را بارگذاری می‌کند، رستر کردن سبک‌های قلم پشتیبانی‌نشده را فعال می‌کند و آن را به PDF صادر می‌کند:
 
 ```php
 use aspose\slides\PdfOptions;
@@ -263,19 +281,19 @@ try {
 }
 ```
 
-پیش‌نمایش‌های زیر خروجی غیرفعال و فعال را نشان می‌دهند. در این مثال، متن بولد با گزینه غیرفعال خطوط سنگین‌تری دارد. با فعال‌سازی گزینه، خطوط آن سبک‌تر می‌شوند؛ متن عادی بدون تغییر باقی می‌ماند. قبل از انتخاب تنظیم برای ارائه خود نتایج را مقایسه کنید.
+پیش‌نمایش‌های زیر خروجی غیرفعال و فعال را نشان می‌دهند. در این مثال، متن بولد با گزینه غیرفعال دارای خط‌های سنگین‌تری است. با فعال‌سازی گزینه، خط‌های آن سبک‌تر هستند؛ متن عادی تغییر نمی‌کند. قبل از انتخاب تنظیم برای ارائه خود، نتایج را مقایسه کنید.
 
 | گزینه غیرفعال (`false`، پیش‌فرض) | گزینه فعال (`true`) |
 |---|---|
 | ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
 
-در این مثال، فعال کردن گزینه فقط متن بولد را به bitmap تبدیل می‌کند: بدون OCR نمی‌توان آن را انتخاب، کپی یا جستجو کرد و لبه‌های آن در بزرگ‌نمایی 800٪ نرم‌تر به‌نظر می‌رسند. متن عادی قابل جستجو می‌ماند. با غیرفعال بودن گزینه، هر دو رشته به‌عنوان متن باقی می‌مانند.
+در این مثال، فعال‌سازی گزینه فقط متن بولد را به بیت‌مپ تبدیل می‌کند: بدون OCR نمی‌تواند انتخاب، کپی یا جستجو شود و لبه‌های آن در بزرگنمایی 800٪ نرم‌تر به‌نظر می‌رسند. متن عادی همچنان قابل جستجوست. با گزینه غیرفعال، هر دو رشته به‌صورت متن باقی می‌مانند.
 
-این گزینه متن قالب بولد را رستر می‌کند وقتی قلم آن دارای سبک بولد جداگانه نیست. [Font substitution](/slides/fa/php-java/font-substitution/) به جای آن قلم دیگری را انتخاب می‌کند وقتی قلم اصلی در دسترس نیست.
+این گزینه متن فرمت شده به‌صورت بولد را رستر می‌کند وقتی قلم آن سبک بولد اختصاصی ندارد. [جایگزینی قلم](/slides/fa/php-java/font-substitution/) به‌جای آن قلم دیگری را وقتی قلم اصلی در دسترس نیست، انتخاب می‌کند.
 
 ## **تبدیل اسلایدهای انتخاب‌شده از PowerPoint به PDF**
 
-مثال زیر اسلایدهای 1 و 3 را از یک ارائه به PDF صادر می‌کند. شماره‌های اسلاید در این آرایه یک‌پایه‌اند و ارائهٔ ورودی باید حداقل شامل سه اسلاید باشد.
+مثال زیر اسلایدهای 1 و 3 را از یک ارائه به PDF صادر می‌کند. اعداد اسلایدها در این آرایه از یک شروع می‌شوند و ارائه ورودی باید حداقل سه اسلاید داشته باشد.
 
 ```php
 use aspose\slides\Presentation;
@@ -290,9 +308,9 @@ try {
 }
 ```
 
-## **تبدیل PowerPoint به PDF با اندازهٔ اسلاید سفارشی**
+## **تبدیل PowerPoint به PDF با اندازه اسلاید سفارشی**
 
-مثال زیر اولین اسلاید را از یک ارائه به یک ارائهٔ جدید با اندازهٔ اسلاید 612 × 792 پوینت (8.5 × 11 اینچ) کپی می‌کند. محتویات اسلاید را برای پر کردن مقیاس می‌کند و اسلاید تک را به PDF صادر می‌کند.
+مثال زیر اولین اسلاید را از یک ارائه به یک ارائه جدید با اندازه اسلاید 612 × 792 نقطه (8.5 × 11 اینچ) کپی می‌کند. محتوای اسلاید را برای جا شدن مقیاس می‌دهد و اسلاید منفرد را به PDF صادر می‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -310,7 +328,7 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $resizedPresentation->getSlides()->insertClone(0, $slide);
 
-    // اسلاید خالی که ارائه جدید با آن ایجاد شد را حذف کنید.
+    // حذف اسلاید خالی که ارائه جدید با آن ایجاد شده بود.
     $resizedPresentation->getSlides()->removeAt(1);
 
     $resizedPresentation->save("PDF_with_custom_slide_size.pdf", SaveFormat::Pdf);
@@ -320,9 +338,9 @@ try {
 }
 ```
 
-## **تبدیل PowerPoint به PDF در نمای اسلاید یادداشت‌ها**
+## **تبدیل PowerPoint به PDF در نمای اسلایدهای یادداشت**
 
-مثال زیر یک ارائه را به PDF صادر می‌کند به‌طوری که یادداشت‌های سخنران هر اسلاید زیر اسلاید قرار می‌گیرد. برای مشاهده نتیجه، از ارائه‌ای حاوی یادداشت‌های سخنران استفاده کنید.
+مثال زیر یک ارائه را به PDF صادر می‌کند به‌طوری که یادداشت‌های سخنران هر اسلاید زیر اسلاید قرار می‌گیرد. برای دیدن نتیجه از یک ارائه حاوی یادداشت‌های سخنران استفاده کنید.
 
 ```php
 use aspose\slides\NotesCommentsLayoutingOptions;
@@ -345,11 +363,11 @@ try {
 }
 ```
 
-## **دسترس‌پذیری و استانداردهای سازگاری برای PDF**
+## **استانداردهای دسترس‌پذیری و سازگاری برای PDF**
 
-Aspose.Slides به شما اجازه می‌دهد از یک روش تبدیل استفاده کنید که با [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) سازگار باشد. می‌توانید یک سند PowerPoint را به PDF با هر یک از این استانداردهای سازگاری صادر کنید: **PDF/A1a**، **PDF/A1b** و **PDF/UA**.
+Aspose.Slides به شما اجازه می‌دهد از یک فرآیند تبدیل استفاده کنید که با [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) سازگار است. می‌توانید یک سند PowerPoint را به PDF صادر کنید با هر یک از این استانداردهای سازگاری: **PDF/A1a**، **PDF/A1b** و **PDF/UA**.
 
-این کد فرآیند تبدیل PowerPoint به PDF را نشان می‌دهد که بر اساس استانداردهای مختلف سازگاری، چندین PDF تولید می‌کند:
+کد زیر یک فرآیند تبدیل PowerPoint به PDF را نشان می‌دهد که بر اساس استانداردهای مختلف سازگاری، چندین PDF تولید می‌کند:
 
 ```php
 $presentation = new Presentation("pres.pptx");
@@ -370,37 +388,35 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides از عملیات تبدیل PDF پشتیبانی می‌کند و اجازه می‌دهد فایل‌های PDF را به فرمت‌های محبوب دیگر تبدیل کنید. می‌توانید تبدیل‌های [PDF to HTML](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/)، [PDF to image](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/)، [PDF to JPG](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/) و [PDF to PNG](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/) را انجام دهید. سایر عملیات تبدیل PDF به فرمت‌های تخصصی—[PDF to SVG](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/)، [PDF to TIFF](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/)، و [PDF to XML](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/)—نیز پشتیبانی می‌شوند.
-
+Aspose.Slides عملیات تبدیل PDF را پشتیبانی می‌کند و به شما اجازه می‌دهد فایل‌های PDF را به فرمت‌های محبوب دیگر تبدیل کنید. می‌توانید تبدیل‌های [PDF به HTML](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/)، [PDF به تصویر](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/)، [PDF به JPG](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/)، و [PDF به PNG](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/) را انجام دهید. سایر عملیات تبدیل PDF به فرمت‌های تخصصی—[PDF به SVG](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/)، [PDF به TIFF](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/)، و [PDF به XML](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/)—نیز پشتیبانی می‌شوند.
 {{% /alert %}}
 
-> **Note:** هنگام خروجی به PDF/UA، Aspose.Slides گرافیک‌های پیچیده‌ای مانند SmartArt، نمودارها و فرمول‌ها را به‌عنوان یک شکل واحد در نظر می‌گیرد. عناصر مسیر جداگانه به‌عنوان محتوا حفظ نمی‌شوند و ممکن است به‌عنوان آثار هنری (artifacts) علامت‌گذاری شوند؛ متن جایگزین فقط برای کل شکل فراهم می‌شود.
+> **note:** هنگام صادرات به PDF/UA، Aspose.Slides گرافیک‌های پیچیده مانند SmartArt، نمودارها و فرمول‌ها را به‌عنوان یک شکل واحد در نظر می‌گیرد. عناصر مسیر جداگانه به‌عنوان محتوا حفظ نمی‌شوند و ممکن است به‌عنوان اثرات شناخته شوند؛ متن جایگزین تنها برای کل شکل فراهم می‌شود.
 
 ## **سوالات متداول**
 
-**آیا می‌توانم چندین فایل PowerPoint را به‌صورت دسته‌جمعی به PDF تبدیل کنم؟**
+**آیا می‌توانم چندین فایل PowerPoint را به‌صورت دسته‌ای به PDF تبدیل کنم؟**
 
-بله، Aspose.Slides از تبدیل دسته‌ای چندین فایل PPT یا PPTX به PDF پشتیبانی می‌کند. می‌توانید به‌صورت برنامه‌نویسی بر روی فایل‌های خود تکرار کنید و فرآیند تبدیل را اعمال کنید.
+بله، Aspose.Slides از تبدیل دسته‌ای چندین فایل PPT یا PPTX به PDF پشتیبانی می‌کند. می‌توانید به‌صورت برنامه‌نویسی بر روی فایل‌های خود حلقه بزنید و فرآیند تبدیل را اعمال کنید.
 
-**آیا می‌توان PDF تبدیل‌شده را با رمز عبور محافظت کرد؟**
+**آیا امکان حفاظت با رمز عبور برای PDF تبدیل‌شده وجود دارد؟**
 
 بله. از کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) برای تنظیم رمز عبور و تعریف مجوزهای دسترسی در طول فرآیند تبدیل استفاده کنید.
 
-**چگونه اسلایدهای مخفی را در PDF گنجانده کنم؟**
+**چگونه می‌توانم اسلایدهای مخفی را در PDF شامل کنم؟**
 
-متد [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) را با مقدار `true` در کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) فراخوانی کنید تا اسلایدهای مخفی در PDF نهایی گنجانده شوند.
+متد [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) را با `true` در کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) فراخوانی کنید تا اسلایدهای مخفی در PDF نهایی گنجانده شوند.
 
-**آیا Aspose.Slides می‌تواند کیفیت تصویر بالا را در PDF حفظ کند؟**
+**آیا Aspose.Slides می‌تواند کیفیت بالای تصویر را در PDF حفظ کند؟**
 
 بله، می‌توانید کیفیت تصویر را با استفاده از متدهایی مانند [setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setjpegquality/) و [setSufficientResolution](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setsufficientresolution/) در کلاس [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) کنترل کنید تا تصاویر با کیفیت بالا در PDF شما باشند.
 
 **آیا Aspose.Slides از استانداردهای سازگاری PDF/A پشتیبانی می‌کند؟**
 
-بله، Aspose.Slides به شما امکان می‌دهد PDFهایی صادر کنید که با [various standards](https://reference.aspose.com/slides/php-java/aspose.slides/pdfcompliance/) از جمله PDF/A1a، PDF/A1b و PDF/UA مطابقت داشته باشند و اطمینان حاصل کنید اسناد شما الزامات دسترس‌پذیری و بایگانی را برآورده می‌کنند.
+بله، Aspose.Slides به شما امکان می‌دهد PDFهایی را صادر کنید که با [استانداردهای مختلف](https://reference.aspose.com/slides/php-java/aspose.slides/pdfcompliance/) از جمله PDF/A1a، PDF/A1b و PDF/UA سازگاری دارند و مستندات شما نیازهای دسترس‌پذیری و آرشیو را برآورده می‌کنند.
 
 ## **منابع اضافی**
 
-- [Aspose.Slides for PHP via Java Documentation](/slides/fa/php-java/)
-- [Aspose.Slides for PHP via Java API Reference](https://reference.aspose.com/slides/php-java/)
-- [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
+- [مستندات Aspose.Slides برای PHP از طریق Java](/slides/fa/php-java/)
+- [مرجع API Aspose.Slides برای PHP از طریق Java](https://reference.aspose.com/slides/php-java/)
+- [مبدل‌های آنلاین رایگان Aspose](https://products.aspose.app/slides/conversion)

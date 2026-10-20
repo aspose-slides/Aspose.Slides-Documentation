@@ -1,5 +1,5 @@
 ---
-title: Konversi PPT dan PPTX ke PDF dalam C++ [Fitur Lanjutan Termasuk]
+title: Konversi PPT dan PPTX ke PDF dalam C++ [Fitur Lanjutan Disertakan]
 linktitle: PowerPoint ke PDF
 type: docs
 weight: 40
@@ -28,20 +28,20 @@ description: "Konversi PowerPoint PPT/PPTX ke PDF berkualitas tinggi dan dapat d
 ---
 ## **Gambaran Umum**
 
-Mengonversi presentasi PowerPoint (PPT, PPTX, ODP, dll.) ke format PDF dalam C++ menawarkan beberapa kelebihan, termasuk kompatibilitas di berbagai perangkat dan mempertahankan tata letak serta format presentasi Anda. Panduan ini menunjukkan cara mengonversi presentasi ke dokumen PDF, menggunakan berbagai opsi untuk mengontrol kualitas gambar, menyertakan slide tersembunyi, melindungi PDF dengan kata sandi, mendeteksi substitusi font, memilih slide tertentu untuk konversi, dan menerapkan standar kepatuhan pada dokumen keluaran.
+Mengonversi presentasi PowerPoint (PPT, PPTX, ODP, dll.) ke format PDF dalam C++ menawarkan beberapa keuntungan, termasuk kompatibilitas antar perangkat dan mempertahankan tata letak serta format presentasi Anda. Panduan ini menunjukkan cara mengonversi presentasi ke dokumen PDF, menggunakan berbagai opsi untuk mengendalikan kualitas gambar, menyertakan slide tersembunyi, melindungi file PDF dengan kata sandi, mendeteksi substitusi font, memilih slide tertentu untuk konversi, dan menerapkan standar kepatuhan pada dokumen output.
 
 ## **Konversi PowerPoint ke PDF**
 
-Dengan Aspose.Slides, Anda dapat mengonversi presentasi dalam format berikut ke PDF:
+Menggunakan Aspose.Slides, Anda dapat mengonversi presentasi dalam format berikut ke PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-Untuk mengonversi presentasi ke PDF, berikan nama file sebagai argumen ke kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) dan kemudian simpan presentasi sebagai PDF menggunakan metode [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) menyediakan metode [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) yang biasanya digunakan untuk mengonversi presentasi ke PDF.
+Untuk mengonversi presentasi ke PDF, berikan nama file sebagai argumen ke kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) lalu simpan presentasi sebagai PDF menggunakan metode [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Kelas [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) menyediakan metode [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) yang biasanya digunakan untuk mengonversi presentasi ke PDF.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides untuk C++ menyisipkan informasi API dan nomor versinya ke dalam dokumen keluaran. Misalnya, ketika mengonversi presentasi ke PDF, Aspose.Slides mengisi bidang Application dengan "*Aspose.Slides*" dan bidang PDF Producer dengan nilai dalam format "*Aspose.Slides v XX.XX*". **Catatan** bahwa Anda tidak dapat menginstruksikan Aspose.Slides untuk mengubah atau menghapus informasi ini dari dokumen keluaran.
+Aspose.Slides untuk C++ menyisipkan informasi API dan nomor versinya ke dalam dokumen output. Misalnya, saat mengonversi presentasi ke PDF, Aspose.Slides mengisi bidang Application dengan "*Aspose.Slides*" dan bidang PDF Producer dengan nilai dalam bentuk "*Aspose.Slides v XX.XX*". **Catatan** bahwa Anda tidak dapat menginstruksikan Aspose.Slides untuk mengubah atau menghapus informasi ini dari dokumen output.
 {{% /alert %}}
 
 Aspose.Slides memungkinkan Anda untuk mengonversi:
@@ -49,7 +49,7 @@ Aspose.Slides memungkinkan Anda untuk mengonversi:
 * Seluruh presentasi ke PDF
 * Slide tertentu dari sebuah presentasi ke PDF
 
-Aspose.Slides mengekspor presentasi ke PDF, memastikan PDF yang dihasilkan sangat mirip dengan presentasi asli. Elemen dan atribut dirender dengan akurat dalam konversi, termasuk:
+Aspose.Slides mengekspor presentasi ke PDF, memastikan PDF yang dihasilkan sangat mirip dengan presentasi asli. Elemen dan atribut dirender secara akurat dalam konversi, termasuk:
 
 * Gambar
 * Kotak teks dan bentuk
@@ -57,12 +57,12 @@ Aspose.Slides mengekspor presentasi ke PDF, memastikan PDF yang dihasilkan sanga
 * Pemformatan paragraf
 * Tautan
 * Header dan footer
-* Peluru
+* Bullet
 * Tabel
 
 ## **Konversi PowerPoint ke PDF**
 
-Proses konversi standar PowerPoint-ke-PDF menggunakan opsi default. Dalam hal ini, Aspose.Slides mencoba mengonversi presentasi yang diberikan ke PDF menggunakan pengaturan optimal pada tingkat kualitas maksimum.
+Proses standar konversi PowerPoint ke PDF menggunakan opsi default. Dalam hal ini, Aspose.Slides mencoba mengonversi presentasi yang diberikan ke PDF dengan pengaturan optimal pada tingkat kualitas maksimum.
 
 Contoh berikut memuat sebuah presentasi dan menyimpan semua slide yang terlihat ke PDF menggunakan pengaturan ekspor default.
 
@@ -81,18 +81,18 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose menyediakan [**konverter PowerPoint ke PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) gratis secara online yang memperlihatkan proses konversi presentasi ke PDF. Anda dapat menjalankan tes dengan konverter ini untuk implementasi langsung prosedur yang dijelaskan di sini.
+Aspose menawarkan [**konverter PowerPoint ke PDF**](https://products.aspose.app/slides/conversion/ppt-to-pdf) gratis secara online yang memperlihatkan proses konversi presentasi ke PDF. Anda dapat menjalankan tes dengan konverter ini untuk implementasi langsung dari prosedur yang dijelaskan di sini.
 {{% /alert %}}
 
 ## **Konversi PowerPoint ke PDF dengan Opsi**
 
-Aspose.Slides menyediakan opsi khusus—properti di bawah kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/)—yang memungkinkan Anda menyesuaikan PDF yang dihasilkan, mengunci PDF dengan kata sandi, atau menentukan bagaimana proses konversi harus berlangsung.
+Aspose.Slides menyediakan opsi kustom—properti di bawah kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/)—yang memungkinkan Anda menyesuaikan PDF yang dihasilkan, mengunci PDF dengan kata sandi, atau menentukan bagaimana proses konversi harus berjalan.
 
 ### **Konversi PowerPoint ke PDF dengan Opsi Kustom**
 
-Dengan menggunakan opsi konversi khusus, Anda dapat menentukan pengaturan kualitas yang diinginkan untuk gambar raster, menentukan cara penanganan metafile, mengatur tingkat kompresi untuk teks, mengkonfigurasi DPI untuk gambar, dan lainnya.
+Dengan opsi konversi kustom, Anda dapat menentukan pengaturan kualitas yang diinginkan untuk gambar raster, menentukan bagaimana metafile harus diproses, mengatur tingkat kompresi untuk teks, mengonfigurasi DPI untuk gambar, dan banyak lagi.
 
-Contoh berikut mengekspor sebuah presentasi ke PDF 1.5 dengan kualitas JPEG diatur ke 90, resolusi gambar diatur ke 300 DPI, metafile disimpan sebagai PNG, dan kompresi teks Flate.
+Contoh berikut mengekspor presentasi ke PDF 1.5 dengan kualitas JPEG diatur ke 90, resolusi gambar diatur ke 300 DPI, metafile disimpan sebagai PNG, dan kompresi teks Flate.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -118,13 +118,41 @@ presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-### **Pertahankan File OLE Tersemat sebagai Lampiran PDF**
+### **Pilih Kompresi Gambar Secara Otomatis**
 
-Jika sebuah presentasi berisi workbook Excel tersemat, Anda mungkin ingin penerima PDF dapat mengakses data workbook tersebut serta melihat slide. Panggil [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) dengan `true` untuk mempertahankan file OLE tersemat sebagai lampiran dalam PDF yang dihasilkan.
+Ketika sebuah presentasi berisi banyak foto atau tangkapan layar, mengurangi ukuran PDF yang diekspor dapat mempermudah pengiriman email atau pengunduhan. Panggil [PdfOptions::set_BestImagesCompressionRatio](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_bestimagescompressionratio/) dengan `true` untuk secara otomatis memilih algoritma kompresi paling tepat untuk setiap gambar selama ekspor PDF.
 
-Nilai default adalah `false`: gambar pratinjau atau ikon objek OLE dirender pada halaman PDF, tetapi file tersematnya tidak disertakan sebagai lampiran. Mengatur opsi ke `true` juga menyertakan data file. Pratinjau tetap menjadi representasi visual; lampiran memungkinkan penerima membuka atau menyimpan file tersemat secara terpisah. Objek OLE tidak menjadi lembar kerja Excel interaktif pada halaman PDF.
+Contoh berikut memuat presentasi yang ada, mengaktifkan pemilihan kompresi gambar otomatis, dan menyimpannya sebagai dokumen PDF. Semua pengaturan ekspor PDF lainnya tetap pada nilai default.
 
-Contoh berikut memuat presentasi yang sudah berisi workbook Excel tersemat dan mengekspornya ke PDF dengan workbook terlampir.
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_BestImagesCompressionRatio(true);
+
+auto presentation = MakeObject<Presentation>(u"image-heavy.pptx");
+presentation->Save(u"image-heavy.pdf", SaveFormat::Pdf, pdfOptions);
+presentation->Dispose();
+```
+
+Opsi ini memilih algoritma kompresi untuk setiap gambar. Menurunkan kualitas JPEG dengan [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) justru mengurangi kualitas gambar JPEG, sementara menurunkan resolusi dengan [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) memungkinkan gambar di‑downsample ke resolusi lebih rendah, yang dapat mengurangi detail. Mengaktifkan pemilihan kompresi otomatis tidak secara otomatis menurunkan salah satu pengaturan ini.
+
+Memilih algoritma kompresi gambar memerlukan waktu pemrosesan dan memori tambahan. Pengurangan ukuran tergantung pada gambar dalam presentasi dan pengaturan ekspor; pengurangan tetap tidak dijamin untuk setiap presentasi.
+
+### **Pertahankan File OLE yang Disematkan sebagai Lampiran PDF**
+
+Jika sebuah presentasi berisi workbook Excel yang disematkan, Anda mungkin ingin penerima PDF dapat mengakses data workbook tersebut serta melihat slide. Panggil [PdfOptions::set_IncludeOleData](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_includeoledata/) dengan `true` untuk mempertahankan file OLE yang disematkan sebagai lampiran dalam PDF yang dihasilkan.
+
+Nilai defaultnya adalah `false`: gambar pratinjau atau ikon objek OLE dirender pada halaman PDF, tetapi file yang disematkan tidak termasuk sebagai lampiran. Menetapkan opsi ke `true` juga menyertakan data file. Pratinjau tetap menjadi representasi visual; lampiran memungkinkan penerima membuka atau menyimpan file yang disematkan secara terpisah. Objek OLE tidak menjadi lembar kerja Excel interaktif pada halaman PDF.
+
+Contoh berikut memuat sebuah presentasi yang sudah berisi workbook Excel yang disematkan dan mengekspornya ke PDF dengan workbook terlampir.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -144,19 +172,21 @@ presentation->Save(u"presentation.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-Untuk memeriksa hasil:
+Untuk memeriksa hasilnya:
 
-1. Buka PDF yang diekspor di penampil yang mendukung lampiran file, seperti Adobe Acrobat Reader.
-2. Buka panel **Attachments** pada penampil dan temukan workbook yang tersemat.
+1. Buka PDF yang diekspor dengan penampil yang mendukung lampiran file, seperti Adobe Acrobat Reader.
+2. Buka panel **Attachments** penampil dan temukan workbook yang disematkan.
 3. Simpan lampiran dan buka di Excel untuk memeriksa datanya, atau buka langsung jika penampil mengizinkannya. Pratinjau pada halaman PDF terpisah dari lampiran.
 
 {{% alert color="info" title="Note" %}}
-Standar PDF/A memberlakukan pembatasan pada lampiran: PDF/A-1 melarang file tersemat, PDF/A-2 hanya memperbolehkan lampiran PDF/A, dan PDF/A-3 memperbolehkan tipe file lainnya, termasuk workbook Excel. Ini adalah persyaratan standar, bukan pembatasan khusus Aspose.Slides. Contoh ini menggunakan pengaturan kepatuhan PDF default dan tidak mendemonstrasikan ekspor PDF/A.
+Standar PDF/A memberlakukan pembatasan pada lampiran: PDF/A-1 melarang file yang disematkan, PDF/A-2 hanya mengizinkan lampiran PDF/A, dan PDF/A-3 mengizinkan tipe file lain, termasuk workbook Excel. Ini adalah persyaratan standar, bukan pembatasan khusus Aspose.Slides. Contoh ini menggunakan pengaturan kepatuhan PDF default dan tidak memperlihatkan ekspor PDF/A.
 {{% /alert %}}
 
 ### **Konversi PowerPoint ke PDF dengan Slide Tersembunyi**
 
 Jika sebuah presentasi berisi slide tersembunyi, Anda dapat menggunakan metode [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) dari kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) untuk menyertakan slide tersembunyi sebagai halaman dalam PDF yang dihasilkan.
+
+Contoh berikut mengekspor sebuah presentasi ke PDF, termasuk semua slide tersembunyi.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -178,7 +208,7 @@ presentation->Dispose();
 
 ### **Konversi PowerPoint ke PDF yang Dilindungi Kata Sandi**
 
-Contoh berikut mengekspor presentasi ke PDF yang memerlukan kata sandi `password` untuk dibuka. Izin akses memungkinkan pencetakan, termasuk pencetakan berkualitas tinggi.
+Contoh berikut mengekspor sebuah presentasi ke PDF yang memerlukan kata sandi `password` untuk dibuka. Izin akses memungkinkan pencetakan, termasuk pencetakan berkualitas tinggi.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -202,9 +232,9 @@ presentation->Dispose();
 
 ### **Deteksi Substitusi Font**
 
-Aspose.Slides menyediakan metode [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) pada kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), yang memungkinkan Anda mendeteksi substitusi font selama proses konversi presentasi ke PDF.
+Aspose.Slides menyediakan metode [set_WarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.export/saveoptions/set_warningcallback/) di bawah kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) yang memungkinkan Anda mendeteksi substitusi font selama proses konversi presentasi ke PDF.
 
-Contoh berikut mengekspor presentasi ke PDF dan mencetak peringatan substitusi font ke konsol. Peringatan dicetak hanya ketika font yang tidak tersedia digantikan selama ekspor.
+Contoh berikut mengekspor sebuah presentasi ke PDF dan mencetak peringatan substitusi font ke konsol. Peringatan dicetak hanya ketika font yang tidak tersedia disubstitusi selama ekspor.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -247,13 +277,13 @@ presentation->Dispose();
 
 {{% alert color="info" title="Note" %}}
 Untuk informasi lebih lanjut tentang substitusi font, lihat artikel [Font Substitution](/slides/id/cpp/font-substitution/).
-{{% /alert %}} 
+{{% /alert %}}
 
-### **Menangani Font Tanpa Jenis Huruf Tebal Khusus**
+### **Tangani Font Tanpa Gaya Tebal Khusus**
 
-Presentasi dapat menerapkan format tebal pada teks meskipun fontnya tidak memiliki jenis huruf tebal khusus. Teks masih dapat terlihat tebal melalui bold sintetis, yang secara artifisial menebalkan glyph reguler. Ketika teks tersebut tampak terlalu berat atau berbeda dari tampilan yang diinginkan dalam PDF, coba panggil [PdfOptions::set_RasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_rasterizeunsupportedfontstyles/) dengan `true`. Opsi ini merender teks yang terpengaruh sebagai bitmap selama ekspor PDF dan dapat meningkatkan tampilannya untuk font tertentu. Nilai defaultnya adalah `false`.
+Sebuah presentasi dapat menerapkan pemformatan tebal pada teks meskipun fontnya tidak memiliki gaya tebal khusus. Teks tersebut masih dapat tampak tebal melalui bold sintetis, yang menebalkan glyph standar secara artifisial. Ketika teks tersebut terlihat terlalu berat atau berbeda dari tampilan yang diinginkan di PDF, coba panggil [PdfOptions::set_RasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_rasterizeunsupportedfontstyles/) dengan `true`. Opsi ini merasterisasi teks yang terpengaruh menjadi bitmap selama ekspor PDF dan dapat memperbaiki tampilannya untuk font tertentu. Nilai defaultnya adalah `false`.
 
-Presentasi contoh berisi dua kotak teks: satu dengan teks biasa dan satu dengan format tebal yang diterapkan pada font yang sama, yang tidak memiliki jenis huruf tebal khusus. Contoh berikut memuat presentasi, mengaktifkan rasterisasi gaya font yang tidak didukung, dan mengekspornya ke PDF:
+Presentasi contoh berisi dua kotak teks: satu dengan teks biasa dan satu dengan pemformatan tebal yang diterapkan pada font yang sama, yang tidak memiliki gaya tebal khusus. Contoh berikut memuat presentasi, mengaktifkan rasterisasi gaya font yang tidak didukung, dan mengekspornya ke PDF:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -273,19 +303,19 @@ presentation->Save(u"rasterized.pdf", SaveFormat::Pdf, pdfOptions);
 presentation->Dispose();
 ```
 
-Pratinjau berikut menunjukkan output dengan opsi dimatikan dan diaktifkan. Dalam contoh ini, teks tebal memiliki goresan lebih berat ketika opsi dimatikan. Dengan opsi diaktifkan, goresannya lebih ringan; teks biasa tidak berubah. Bandingkan hasilnya sebelum memilih pengaturan untuk presentasi Anda.
+Pratinjau berikut menunjukkan output dengan opsi dinonaktifkan dan output dengan opsi diaktifkan. Dalam contoh ini, teks tebal memiliki goresan yang lebih berat ketika opsi dinonaktifkan. Dengan opsi diaktifkan, goresannya lebih ringan; teks biasa tidak berubah. Bandingkan hasilnya sebelum memilih pengaturan untuk presentasi Anda.
 
 | Opsi dinonaktifkan (`false`, default) | Opsi diaktifkan (`true`) |
 |---|---|
-| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+| ![PDF dengan rasterisasi gaya font tidak didukung dinonaktifkan](unsupported-bold-disabled.png) | ![PDF dengan rasterisasi gaya font tidak didukung diaktifkan](unsupported-bold-enabled.png) |
 
-Dalam contoh ini, mengaktifkan opsi mengubah hanya teks tebal menjadi bitmap: teks tersebut tidak dapat dipilih, disalin, atau dicari sebagai teks tanpa OCR, dan tepinya tampak lebih lembut pada zoom 800%. Teks biasa tetap dapat dicari. Dengan opsi dimatikan, kedua string tetap teks.
+Dalam contoh ini, mengaktifkan opsi hanya mengubah teks tebal menjadi bitmap: teks tidak dapat dipilih, disalin, atau dicari sebagai teks tanpa OCR, dan tepinya tampak lebih lembut pada pembesaran 800 %. Teks biasa tetap dapat dicari. Dengan opsi dinonaktifkan, kedua string tetap berupa teks.
 
-Opsi ini meraster teks yang diformat tebal ketika fontnya tidak memiliki jenis huruf tebal khusus. [Font substitution](/slides/id/cpp/font-substitution/) justru memilih font lain ketika font asli tidak tersedia.
+Opsi ini merasterisasi teks yang diformat sebagai tebal ketika fontnya tidak memiliki gaya tebal khusus. [Font substitution](/slides/id/cpp/font-substitution/) malah memilih font lain ketika font asli tidak tersedia.
 
 ## **Konversi Slide Terpilih dari PowerPoint ke PDF**
 
-Contoh berikut mengekspor slide 1 dan 3 dari sebuah presentasi ke PDF. Nomor slide dalam array ini berbasis satu, dan presentasi input harus memiliki setidaknya tiga slide.
+Contoh berikut mengekspor slide 1 dan 3 dari sebuah presentasi ke PDF. Nomor slide dalam array ini berbasis satu, dan presentasi input harus berisi setidaknya tiga slide.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -305,7 +335,7 @@ presentation->Dispose();
 
 ## **Konversi PowerPoint ke PDF dengan Ukuran Slide Kustom**
 
-Contoh berikut menyalin slide pertama dari sebuah presentasi ke presentasi baru dengan ukuran slide 612 × 792 poin (8,5 × 11 inci). Ia menskalakan konten slide agar pas dan mengekspor slide tunggal ke PDF.
+Contoh berikut menyalin slide pertama dari sebuah presentasi ke dalam presentasi baru dengan ukuran slide 612 × 792 poin (8,5 × 11 inci). Ia menskalakan konten slide agar pas dan mengekspor slide tunggal ke PDF.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -339,9 +369,9 @@ resizedPresentation->Dispose();
 presentation->Dispose();
 ```
 
-## **Konversi PowerPoint ke PDF dalam Tampilan Slide Catatan**
+## **Konversi PowerPoint ke PDF dalam Tampilan Catatan Slide**
 
-Contoh berikut mengekspor presentasi ke PDF, menempatkan catatan pembicara setiap slide di bawah slide. Gunakan presentasi yang berisi catatan pembicara untuk melihat hasilnya.
+Contoh berikut mengekspor sebuah presentasi ke PDF, menempatkan catatan pembicara setiap slide di bawah slide. Gunakan presentasi yang berisi catatan pembicara untuk melihat hasilnya.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -368,9 +398,9 @@ presentation->Dispose();
 
 ## **Standar Aksesibilitas dan Kepatuhan untuk PDF**
 
-Aspose.Slides memungkinkan Anda menggunakan prosedur konversi yang mematuhi [Pedoman Aksesibilitas Konten Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Anda dapat mengekspor dokumen PowerPoint ke PDF menggunakan salah satu standar kepatuhan berikut: **PDF/A1a**, **PDF/A1b**, dan **PDF/UA**.
+Aspose.Slides memungkinkan Anda menggunakan prosedur konversi yang mematuhi [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Anda dapat mengekspor dokumen PowerPoint ke PDF menggunakan salah satu standar kepatuhan berikut: **PDF/A1a**, **PDF/A1b**, dan **PDF/UA**.
 
-Kode C++ ini menunjukkan proses konversi PowerPoint ke PDF yang menghasilkan beberapa PDF berdasarkan standar kepatuhan yang berbeda:
+Kode C++ ini memperlihatkan proses konversi PowerPoint ke PDF yang menghasilkan beberapa PDF berdasarkan standar kepatuhan yang berbeda:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -403,28 +433,28 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides mendukung operasi konversi PDF, memungkinkan Anda mengonversi file PDF ke format file populer. Anda dapat melakukan konversi [PDF ke HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF ke gambar](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF ke JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/), dan [PDF ke PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/) . Operasi konversi PDF ke format khusus lainnya—[PDF ke SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF ke TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), dan [PDF ke XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/)—juga didukung.
+Aspose.Slides mendukung operasi konversi PDF, memungkinkan Anda mengonversi file PDF ke format file populer. Anda dapat melakukan konversi [PDF to HTML](https://products.aspose.com/slides/cpp/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/cpp/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/cpp/conversion/pdf-to-jpg/), dan [PDF to PNG](https://products.aspose.com/slides/cpp/conversion/pdf-to-png/). Operasi konversi PDF ke format khusus—[PDF to SVG](https://products.aspose.com/slides/cpp/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/cpp/conversion/pdf-to-tiff/), dan [PDF to XML](https://products.aspose.com/slides/cpp/conversion/pdf-to-xml/)—juga didukung.
 {{% /alert %}}
 
-> **Catatan:** Saat mengekspor ke PDF/UA, Aspose.Slides memperlakukan grafik kompleks seperti SmartArt, diagram, dan rumus sebagai satu gambar. Elemen jalur individual tidak dipertahankan sebagai konten terpisah dan mungkin ditandai sebagai artefak; teks alternatif hanya disediakan untuk seluruh gambar.
+> **Catatan:** Saat mengekspor ke PDF/UA, Aspose.Slides memperlakukan grafik kompleks seperti SmartArt, diagram, dan formula sebagai satu gambar. Elemen jalur individu tidak dipertahankan sebagai konten terpisah dan dapat ditandai sebagai artefak; teks alternatif disediakan hanya untuk keseluruhan gambar.
 
 ## **FAQ**
 
-**Bisakah saya mengonversi banyak file PowerPoint ke PDF secara massal?**
+**Apakah saya dapat mengonversi banyak file PowerPoint ke PDF secara massal?**
 
-Ya, Aspose.Slides mendukung konversi batch banyak file PPT atau PPTX ke PDF. Anda dapat mengiterasi file Anda dan menerapkan proses konversi secara programatik.
+Ya, Aspose.Slides mendukung konversi batch banyak file PPT atau PPTX ke PDF. Anda dapat mengiterasi file-file Anda dan menerapkan proses konversi secara programatik.
 
-**Apakah memungkinkan melindungi PDF yang dikonversi dengan kata sandi?**
+**Apakah mungkin melindungi PDF yang dikonversi dengan kata sandi?**
 
-Ya. Gunakan kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) untuk mengatur kata sandi dan menentukan izin akses selama proses konversi.
+Ya. Gunakan kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) untuk menetapkan kata sandi dan mendefinisikan izin akses selama proses konversi.
 
 **Bagaimana cara menyertakan slide tersembunyi dalam PDF?**
 
-Gunakan metode [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) pada kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) untuk menyertakan slide tersembunyi dalam PDF yang dihasilkan.
+Gunakan metode [set_ShowHiddenSlides](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_showhiddenslides/) di kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) untuk menyertakan slide tersembunyi dalam PDF yang dihasilkan.
 
-**Bisakah Aspose.Slides mempertahankan kualitas gambar tinggi dalam PDF?**
+**Apakah Aspose.Slides dapat mempertahankan kualitas gambar tinggi dalam PDF?**
 
-Ya, Anda dapat mengontrol kualitas gambar dengan menggunakan metode seperti [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) dan [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) pada kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) untuk memastikan gambar berkualitas tinggi dalam PDF Anda.
+Ya, Anda dapat mengendalikan kualitas gambar dengan menggunakan metode seperti [set_JpegQuality](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_jpegquality/) dan [set_SufficientResolution](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/set_sufficientresolution/) di kelas [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/) untuk memastikan gambar berkualitas tinggi dalam PDF Anda.
 
 **Apakah Aspose.Slides mendukung standar kepatuhan PDF/A?**
 

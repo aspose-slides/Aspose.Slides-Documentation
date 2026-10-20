@@ -1,5 +1,5 @@
 ---
-title: Konvertera PPT och PPTX till PDF i PHP [Avancerade funktioner ingår]
+title: Konvertera PPT och PPTX till PDF i PHP [Avancerade funktioner inkluderade]
 linktitle: PowerPoint till PDF
 type: docs
 weight: 40
@@ -28,18 +28,20 @@ description: "Konvertera PowerPoint PPT/PPTX till högkvalitativa, sökbara PDF-
 ---
 ## **Översikt**
 
-Att konvertera PowerPoint‑presentationer (PPT, PPTX, ODP osv.) till PDF‑format i PHP erbjuder flera fördelar, inklusive kompatibilitet över olika enheter och bevarande av layout och formatering av din presentation. Denna guide visar hur du konverterar presentationer till PDF‑dokument, använder olika alternativ för att kontrollera bildkvalitet, inkluderar dolda bilder, lösenordsskyddar PDF‑filer, upptäcker teckensnittsbyten, väljer specifika bilder för konvertering och tillämpar efterlevnadsstandarder på utdata dokument.
+Att konvertera PowerPoint‑presentationer (PPT, PPTX, ODP osv.) till PDF‑format i PHP ger flera fördelar, inklusive kompatibilitet över olika enheter och bevarande av layout och formatering i presentationen. Denna guide visar hur du konverterar presentationer till PDF‑dokument, använder olika alternativ för att kontrollera bildkvalitet, inkluderar dolda bilder, lösenordsskyddar PDF‑filer, upptäcker teckensnittsökningar, väljer specifika bilder för konvertering och tillämpar efterlevnadsstandarder på utdata‑dokument.
 
 ## **PowerPoint till PDF‑konverteringar**
+
+Med Aspose.Slides kan du konvertera presentationer i följande format till PDF:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-För att konvertera en presentation till PDF, skicka filnamnet som ett argument till klassen [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) och spara sedan presentationen som en PDF med hjälp av metoden [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). Klassen [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) exponerar metoden [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) som vanligtvis används för att konvertera en presentation till PDF.
+För att konvertera en presentation till PDF, skicka filnamnet som ett argument till [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klassen och spara sedan presentationen som en PDF med hjälp av en [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/)‑metod. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑klassen exponerar [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/)‑metoden som vanligtvis används för att konvertera en presentation till PDF.
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides för PHP via Java infogar sin API‑information och versionsnummer i utdata‑dokument. Till exempel, vid konvertering av en presentation till PDF, fyller Aspose.Slides i Application‑fältet med "*Aspose.Slides*" och PDF‑Producer‑fältet med ett värde i formen "*Aspose.Slides v XX.XX*". **Obs** att du inte kan instruera Aspose.Slides att ändra eller ta bort denna information från utdata‑dokument.
+{{% alert color="info" title="Obs" %}}
+Aspose.Slides för PHP via Java infogar sin API‑information och versionsnummer i utdatafiler. Till exempel, när en presentation konverteras till PDF, fyller Aspose.Slides i Application‑fältet med "*Aspose.Slides*" och PDF‑Producer‑fältet med ett värde i formatet "*Aspose.Slides v XX.XX*". **Obs** att du inte kan instruera Aspose.Slides att ändra eller ta bort denna information från utdatafiler.
 {{% /alert %}}
 
 Aspose.Slides låter dig konvertera:
@@ -47,7 +49,7 @@ Aspose.Slides låter dig konvertera:
 * Hela presentationer till PDF
 * Specifika bilder från en presentation till PDF
 
-Aspose.Slides exporterar presentationer till PDF och säkerställer att de resulterande PDF‑filerna noggrant matchar de ursprungliga presentationerna. Element och attribut återges exakt i konverteringen, inklusive:
+Aspose.Slides exporterar presentationer till PDF och säkerställer att de resulterande PDF‑filerna noggrant matchar originalpresentationerna. Element och attribut återges exakt i konverteringen, inklusive:
 
 * Bilder
 * Textrutor och former
@@ -60,9 +62,9 @@ Aspose.Slides exporterar presentationer till PDF och säkerställer att de resul
 
 ## **Konvertera PowerPoint till PDF**
 
-Den standardiserade PowerPoint‑till‑PDF‑konverteringsprocessen använder standardalternativ. I detta fall försöker Aspose.Slides konvertera den angivna presentationen till PDF med optimala inställningar på högsta kvalitet.
+Den standardiserade PowerPoint‑till‑PDF‑konverteringsprocessen använder standardalternativ. I detta fall försöker Aspose.Slides konvertera den angivna presentationen till PDF med optimala inställningar på högsta kvalitetsnivåer.
 
-Följande exempel läser in en presentation och sparar alla synliga bilder till PDF med hjälp av standardexportinställningarna.
+Följande exempel läser in en presentation och sparar alla synliga bilder till PDF med standard­exportinställningarna.
 
 ```php
 use aspose\slides\Presentation;
@@ -76,19 +78,17 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-Aspose erbjuder en gratis online‑konverterare för [**PowerPoint till PDF‑konverterare**](https://products.aspose.app/slides/conversion/ppt-to-pdf) som demonstrerar konverteringsprocessen från presentation till PDF. Du kan köra ett test med denna konverterare för en live‑implementering av proceduren som beskrivs här.
+{{% alert color="info" title="Obs" %}}
+Aspose erbjuder en gratis online‑konverterare för [**PowerPoint till PDF‑konverterare**](https://products.aspose.app/slides/conversion/ppt-to-pdf) som demonstrerar processen för att konvertera presentationer till PDF. Du kan köra ett test med den här konverteraren för en live‑implementation av den beskrivna proceduren.
 {{% /alert %}}
 
 ## **Konvertera PowerPoint till PDF med alternativ**
 
-Aspose.Slides tillhandahåller anpassade alternativ—egenskaper under klassen [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)—som låter dig anpassa den resulterande PDF‑filen, låsa PDF‑filen med ett lösenord eller ange hur konverteringsprocessen ska fortskrida.
+Aspose.Slides tillhandahåller anpassade alternativ — egenskaper under [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)‑klassen — som låter dig anpassa den resulterande PDF‑filen, låsa PDF‑filen med ett lösenord eller ange hur konverteringsprocessen ska gå till.
 
 ### **Konvertera PowerPoint till PDF med anpassade alternativ**
 
-Genom att använda anpassade konverteringsalternativ kan du ange din föredragna kvalitetsinställning för rasterbilder, specificera hur metafiler ska hanteras, ställa in en komprimeringsnivå för text, konfigurera DPI för bilder och mer.
-
-Följande exempel exporterar en presentation till PDF 1.5 med JPEG‑kvalitet satt till 90, bildupplösning satt till 300 DPI, metafiler sparade som PNG och Flate‑textkomprimering.
+Med anpassade konverteringsalternativ kan du definiera din föredragna kvalitetsinställning för rasterbilder, ange hur metafiler ska hanteras, sätta en komprimeringsnivå för text, konfigurera DPI för bilder och mer.
 
 ```php
 use aspose\slides\PdfCompliance;
@@ -112,11 +112,35 @@ try {
 }
 ```
 
+### **Välj automatisk bildkomprimering**
+
+När en presentation innehåller många fotografier eller skärmdumpar kan minskning av den exporterade PDF‑filens storlek göra det enklare att e‑posta eller ladda ner. Anropa [PdfOptions::setBestImagesCompressionRatio](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setbestimagescompressionratio/) med `true` för att automatiskt välja den mest lämpliga komprimeringsalgoritmen för varje bild under PDF‑export.
+
+```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setBestImagesCompressionRatio(true);
+
+$presentation = new Presentation("image-heavy.pptx");
+try {
+    $presentation->save("image-heavy.pdf", SaveFormat::Pdf, $pdfOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Detta alternativ väljer en komprimeringsalgoritm för varje bild. Att sänka värdet som skickas till [setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setjpegquality/) minskar JPEG‑bildkvaliteten, medan en sänkning av värdet som skickas till [setSufficientResolution](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setsufficientresolution/) tillåter att bilder samplas ner till en lägre upplösning, vilket kan reducera detaljer. Att aktivera automatisk komprimeringsval sänker i sig inte någon av dessa inställningar.
+
+Att välja bildkomprimeringsalgoritmer kräver extra behandlingstid och minne. Storleksreduktionen beror på presentationens bilder och exportinställningar; en fast reduktion kan inte garanteras för varje presentation.
+
 ### **Bevara inbäddade OLE‑filer som PDF‑bilagor**
 
-Om en presentation innehåller en inbäddad Excel‑arbetsbok kan du vilja att PDF‑mottagare får åtkomst till arbetsbokens data samt kan visa bilderna. Anropa [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) med `true` för att bevara inbäddade OLE‑filer som bilagor i den resulterande PDF‑filen.
+Om en presentation innehåller en inbäddad Excel‑arbetsbok kan du vilja att PDF‑mottagare även får åtkomst till arbetsbokens data. Anropa [setIncludeOleData](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) med `true` för att bevara inbäddade OLE‑filer som bilagor i den resulterande PDF‑filen.
 
-Standardvärdet är `false`: OLE‑objektets förhandsgranskningsbild eller ikon återges på PDF‑sidan, men den inbäddade filen inkluderas inte som en bilaga. Genom att sätta alternativet till `true` inkluderas dessutom filens data. Förhandsgranskningen förblir en visuell representation; bilagan låter mottagare öppna eller spara den inbäddade filen separat. OLE‑objektet blir inte ett interaktivt Excel‑kalkylblad på PDF‑sidan.
+Standardvärdet är `false`: OLE‑objektets förhandsgranskningsbild eller ikon renderas på PDF‑sidan, men den inbäddade filen inkluderas inte som en bilaga. Att sätta alternativet till `true` inkluderar dessutom fildata. Förhandsgranskningen förblir en visuell representation; bilagan låter mottagare öppna eller spara den inbäddade filen separat. OLE‑objektet blir inte ett interaktivt Excel‑kalkylblad på PDF‑sidan.
 
 Följande exempel läser in en presentation som redan innehåller en inbäddad Excel‑arbetsbok och exporterar den till PDF med arbetsboken bifogad.
 
@@ -138,19 +162,17 @@ try {
 
 För att kontrollera resultatet:
 
-1. Öppna den exporterade PDF‑filen i en visare som stöder filbilagor, t.ex. Adobe Acrobat Reader.
-2. Öppna visarens **Attachments**‑panel och lokalisera den inbäddade arbetsboken.
+1. Öppna den exporterade PDF‑filen i en visare som stöder filbilagor, exempelvis Adobe Acrobat Reader.
+2. Öppna visarens **Bilagor**‑panel och lokalisera den inbäddade arbetsboken.
 3. Spara bilagan och öppna den i Excel för att inspektera dess data, eller öppna den direkt om visaren tillåter det. Förhandsgranskningen på PDF‑sidan är separat från bilagan.
 
-{{% alert color="info" title="Note" %}}
-PDF/A‑standarderna inför begränsningar för bilagor: PDF/A‑1 förbjuder inbäddade filer, PDF/A‑2 tillåter endast PDF/A‑bilagor, och PDF/A‑3 tillåter andra filtyper, inklusive Excel‑arbetsböcker. Detta är krav från standarderna, inte begränsningar specifika för Aspose.Slides. Detta exempel använder standardinställningen för PDF‑efterlevnad och visar inte PDF/A‑export.
+{{% alert color="info" title="Obs" %}}
+PDF/A‑standarderna inför begränsningar för bilagor: PDF/A‑1 förbjuder inbäddade filer, PDF/A‑2 tillåter endast PDF/A‑bilagor och PDF/A‑3 tillåter andra filtyper, inklusive Excel‑arbetsböcker. Detta är krav från standarderna, inte begränsningar specifika för Aspose.Slides. Detta exempel använder standard‑PDF‑efterlevnadsinställning och demonstrerar inte PDF/A‑export.
 {{% /alert %}}
 
 ### **Konvertera PowerPoint till PDF med dolda bilder**
 
-Om en presentation innehåller dolda bilder kan du använda metoden [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) från klassen [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) för att inkludera de dolda bilderna som sidor i den resulterande PDF‑filen.
-
-Följande exempel exporterar en presentation till PDF och inkluderar eventuella dolda bilder.
+Om en presentation innehåller dolda bilder kan du använda metoden [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) från [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)‑klassen för att inkludera de dolda bilderna som sidor i den resulterande PDF‑filen.
 
 ```php
 use aspose\slides\PdfOptions;
@@ -170,7 +192,7 @@ try {
 
 ### **Konvertera PowerPoint till ett lösenordsskyddat PDF**
 
-Följande exempel exporterar en presentation till en PDF som kräver lösenordet `password` för att öppnas. Åtkomstbehörigheterna tillåter utskrift, inklusive utskrift i hög kvalitet.
+Följande exempel exporterar en presentation till ett PDF‑dokument som kräver lösenordet `password` för att öppnas. Åtkomstbehörigheterna tillåter utskrift, inklusive utskrift i hög kvalitet.
 
 ```php
 use aspose\slides\PdfAccessPermissions;
@@ -190,11 +212,9 @@ try {
 }
 ```
 
-### **Upptäcka teckensnittsbyten**
+### **Upptäcka teckensnittsökningar**
 
-Aspose.Slides tillhandahåller metoden [setWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/) under klassen [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/), vilket gör det möjligt att upptäcka teckensnittsbyten under konverteringsprocessen från presentation till PDF.
-
-Följande exempel exporterar en presentation till PDF och skriver ut teckensnittsbytesvarningar till konsolen. En varning skrivs endast ut när ett otillgängligt teckensnitt ersätts under export.
+Aspose.Slides tillhandahåller metoden [setWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/) under [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)‑klassen, vilket gör att du kan upptäcka teckensnittsökningar under konverteringsprocessen från presentation till PDF.
 
 ```php
 use aspose\slides\PdfOptions;
@@ -227,15 +247,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-För mer information om teckensnittsbyte, se artikeln [Font Substitution](/slides/sv/php-java/font-substitution/).
+{{% alert color="info" title="Obs" %}}
+För mer information om teckensnittsökning, se artikeln [Font Substitution](/slides/sv/php-java/font-substitution/).
 {{% /alert %}} 
 
 ### **Hantera teckensnitt utan en dedikerad fet stil**
 
-En presentation kan tillämpa fet formatering på text även om dess teckensnitt saknar en dedikerad fet stil. Texten kan fortfarande visas fet genom syntetisk fetstil, vilket artificiellt förtjockar de vanliga glyferna. När den texten känns för tung eller på annat sätt avviker från önskat utseende i PDF, prova att anropa [PdfOptions::setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) med `true`. Detta alternativ renderar den påverkade texten som en bitmap under PDF‑export och kan förbättra dess utseende för vissa teckensnitt. Standardvärdet är `false`.
+En presentation kan tillämpa fet formatering på text även när teckensnittet saknar en dedikerad fet stil. Texten kan ändå visas fet genom syntetisk fetstil, som artificiellt förtjockar de vanliga tecknen. När den fetstilta texten ser för tung ut eller på annat sätt avviker från den avsedda utseendet i PDF, prova att anropa [PdfOptions::setRasterizeUnsupportedFontStyles](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) med `true`. Detta alternativ renderar den påverkade texten som en bitmap under PDF‑export och kan förbättra dess utseende för vissa teckensnitt. Standardvärdet är `false`.
 
-Exempelpresentationen innehåller två textrutor: en med vanlig text och en med fet formatering applicerad på samma teckensnitt, som saknar en dedikerad fet stil. Följande exempel läser in presentationen, aktiverar rasterisering av ej stödda teckensnittsstilar och exporterar den till PDF:
+Exempelpresentationen innehåller två textrutor: en med vanlig text och en med fet formatering applicerad på samma teckensnitt, som saknar en dedikerad fet stil. Följande exempel läser in presentationen, aktiverar rasterisering av ej stödde teckensnittsstilar och exporterar den till PDF:
 
 ```php
 use aspose\slides\PdfOptions;
@@ -253,19 +273,19 @@ try {
 }
 ```
 
-Följande förhandsgranskningar visar resultatet med alternativet inaktiverat och med det aktiverat. I detta exempel har den feta texten tjockare linjer när alternativet är inaktiverat. När alternativet är aktiverat är linjerna lättare; den vanliga texten förblir oförändrad. Jämför resultaten innan du väljer inställningen för din presentation.
+Följande förhandsvisningar visar resultatet med alternativet inaktiverat och med det aktiverat. I detta exempel har den feta texten tjockare streck när alternativet är inaktiverat. Med alternativet aktiverat är strecken lättare; den vanliga texten är oförändrad. Jämför resultaten innan du väljer inställning för din presentation.
 
-| Alternativ inaktiverat (`false`, standard) | Alternativ aktiverat (`true`) |
+| Alternativ inaktiverad (`false`, standard) | Alternativ aktiverad (`true`) |
 |---|---|
-| ![PDF with unsupported font style rasterization disabled](unsupported-bold-disabled.png) | ![PDF with unsupported font style rasterization enabled](unsupported-bold-enabled.png) |
+| ![PDF med rasterisering av ej stödde fontstil inaktiverad](unsupported-bold-disabled.png) | ![PDF med rasterisering av ej stödde fontstil aktiverad](unsupported-bold-enabled.png) |
 
-I detta exempel gör aktivering av alternativet att endast den feta texten blir en bitmap: den kan inte väljas, kopieras eller sökas som text utan OCR, och dess kanter blir mjukare vid 800 % zoom. Den vanliga texten förblir sökbar. När alternativet är inaktiverat förblir båda strängarna text.
+I detta exempel gör aktiveringen av alternativet endast den feta texten till en bitmap: den kan inte markeras, kopieras eller sökas som text utan OCR, och dess kanter blir mjukare vid 800 % zoom. Den vanliga texten förblir sökbar. När alternativet är inaktiverat förblir båda strängarna som text.
 
-Detta alternativ rasteriserar text formaterad som fet när teckensnittet saknar en dedikerad fet stil. [Font substitution](/slides/sv/php-java/font-substitution/) väljer i stället ett annat teckensnitt när det ursprungliga inte är tillgängligt.
+Detta alternativ rasteriserar text formaterad som fet när teckensnittet saknar en dedikerad fet stil. [Font Substitution](/slides/sv/php-java/font-substitution/) väljer i stället ett annat teckensnitt när det ursprungliga inte är tillgängligt.
 
-## **Konvertera utvalda bilder från PowerPoint till PDF**
+## **Konvertera valda bilder från PowerPoint till PDF**
 
-Följande exempel exporterar bilderna 1 och 3 från en presentation till PDF. Bildnumren i denna array är en‑baserade, och inmatningspresentationen måste innehålla minst tre bilder.
+Följande exempel exporterar bild 1 och 3 från en presentation till PDF. Bildnumren i denna matris är en‑baserade, och den inmatade presentationen måste innehålla minst tre bilder.
 
 ```php
 use aspose\slides\Presentation;
@@ -282,7 +302,7 @@ try {
 
 ## **Konvertera PowerPoint till PDF med anpassad bildstorlek**
 
-Följande exempel kopierar den första bilden från en presentation till en ny presentation med en bildstorlek på 612 × 792 punkter (8,5 × 11 tum). Det skalar bildinnehållet för att passa och exporterar den enskilda bilden till PDF.
+Följande exempel kopierar den första bilden från en presentation till en ny presentation med en bildstorlek på 612 × 792 punkter (8,5 × 11 tum). Den skalas för att passa och exporterar den enkla bilden till PDF.
 
 ```php
 use aspose\slides\Presentation;
@@ -310,9 +330,9 @@ try {
 }
 ```
 
-## **Konvertera PowerPoint till PDF i anteckningsvy**
+## **Konvertera PowerPoint till PDF i notvy för bilder**
 
-Följande exempel exporterar en presentation till PDF och placerar varje bilds talarnoter under bilden. Använd en presentation som innehåller talarnoter för att se resultatet.
+Följande exempel exporterar en presentation till PDF, där varje bilds talarnoter placeras under bilden. Använd en presentation som innehåller talarnoter för att se resultatet.
 
 ```php
 use aspose\slides\NotesCommentsLayoutingOptions;
@@ -335,7 +355,7 @@ try {
 }
 ```
 
-## **Tillgänglighets‑ och efterlevnadsstandarder för PDF**
+## **Tillgänglighet och efterlevnadsstandarder för PDF**
 
 Aspose.Slides låter dig använda en konverteringsprocedur som följer [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Du kan exportera ett PowerPoint‑dokument till PDF med någon av dessa efterlevnadsstandarder: **PDF/A1a**, **PDF/A1b** och **PDF/UA**.
 
@@ -359,29 +379,29 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides stöder PDF‑konverteringsoperationer, vilket möjliggör att konvertera PDF‑filer till populära filformat. Du kan utföra [PDF till HTML](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/), [PDF till bild](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/), [PDF till JPG](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/), och [PDF till PNG](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/) konverteringar. Andra PDF‑konverteringsoperationer till specialiserade format—[PDF till SVG](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/), [PDF till TIFF](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/), och [PDF till XML](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/)—stöds också.
+{{% alert color="info" title="Obs" %}}
+Aspose.Slides stöder PDF‑konverteringsoperationer och låter dig konvertera PDF‑filer till populära filformat. Du kan utföra [PDF till HTML](https://products.aspose.com/slides/php-java/conversion/pdf-to-html/), [PDF till bild](https://products.aspose.com/slides/php-java/conversion/pdf-to-image/), [PDF till JPG](https://products.aspose.com/slides/php-java/conversion/pdf-to-jpg/) och [PDF till PNG](https://products.aspose.com/slides/php-java/conversion/pdf-to-png/) konverteringar. Andra PDF‑konverteringsoperationer till specialiserade format — [PDF till SVG](https://products.aspose.com/slides/php-java/conversion/pdf-to-svg/), [PDF till TIFF](https://products.aspose.com/slides/php-java/conversion/pdf-to-tiff/), och [PDF till XML](https://products.aspose.com/slides/php-java/conversion/pdf-to-xml/) — stöds också.
 {{% /alert %}}
 
-> **Obs:** Vid export till PDF/UA behandlar Aspose.Slides komplex grafik såsom SmartArt, diagram och formler som en enda figur. Enskilda banor element bevaras inte som separat innehåll och kan markeras som artefakter; alternativ text tillhandahålls endast för hela figuren.
+> **Obs:** Vid export till PDF/UA behandlar Aspose.Slides komplexa grafikobjekt som SmartArt, diagram och formler som en enda figur. Enskilda ban‑element bevaras inte som separat innehåll och kan markeras som artefakter; alternativtext tillhandahålls endast för hela figuren.
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Kan jag konvertera flera PowerPoint‑filer till PDF i bulk?**
+**Kan jag konvertera flera PowerPoint‑filer till PDF i batch?**
 
-Ja, Aspose.Slides stöder batch‑konvertering av flera PPT‑ eller PPTX‑filer till PDF. Du kan iterera genom dina filer och tillämpa konverteringsprocessen programmässigt.
+Ja, Aspose.Slides stöder batch‑konvertering av flera PPT‑ eller PPTX‑filer till PDF. Du kan iterera över dina filer och programatiskt tillämpa konverteringsprocessen.
 
 **Är det möjligt att lösenordsskydda den konverterade PDF‑filen?**
 
-Ja. Använd klassen [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) för att ange ett lösenord och definiera åtkomstbehörigheter under konverteringsprocessen.
+Ja. Använd [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)‑klassen för att sätta ett lösenord och definiera åtkomstbehörigheter under konverteringen.
 
 **Hur inkluderar jag dolda bilder i PDF‑filen?**
 
-Anropa [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) med `true` i klassen [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) för att inkludera dolda bilder i den resulterande PDF‑filen.
+Anropa [setShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setshowhiddenslides/) med `true` i [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)‑klassen för att inkludera dolda bilder i den resulterande PDF‑filen.
 
 **Kan Aspose.Slides behålla hög bildkvalitet i PDF‑filen?**
 
-Ja, du kan kontrollera bildkvaliteten genom att använda metoder som [setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setjpegquality/) och [setSufficientResolution](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setsufficientresolution/) i klassen [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/) för att säkerställa högkvalitativa bilder i din PDF.
+Ja, du kan kontrollera bildkvaliteten genom att använda metoder som [setJpegQuality](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setjpegquality/) och [setSufficientResolution](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/setsufficientresolution/) i [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/)‑klassen för att säkerställa högkvalitativa bilder i ditt PDF‑dokument.
 
 **Stöder Aspose.Slides PDF/A‑efterlevnadsstandarder?**
 
@@ -389,6 +409,6 @@ Ja, Aspose.Slides låter dig exportera PDF‑filer som följer [olika standarder
 
 ## **Ytterligare resurser**
 
-- [Aspose.Slides för PHP via Java-dokumentation](/slides/sv/php-java/)
-- [Aspose.Slides för PHP via Java API‑referens](https://reference.aspose.com/slides/php-java/)
+- [Aspose.Slides för PHP via Java‑dokumentation](/slides/sv/php-java/)
+- [Aspose.Slides för PHP via Java‑API‑referens](https://reference.aspose.com/slides/php-java/)
 - [Aspose gratis online‑konverterare](https://products.aspose.app/slides/conversion)
