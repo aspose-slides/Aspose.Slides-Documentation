@@ -5,7 +5,6 @@ weight: 130
 url: /id/cpp/resizing-shapes-on-slide/
 aliases:
   - /id/cpp/re-sizing-shapes-on-slide/
-  /cpp/re-sizing-shapes-on-slide/
 keywords:
 - ubah ukuran bentuk
 - ubah ukuran bentuk

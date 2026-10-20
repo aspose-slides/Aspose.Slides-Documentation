@@ -5,7 +5,6 @@ weight: 130
 url: /fa/net/resizing-shapes-on-slide/
 aliases:
   - /fa/net/re-sizing-shapes-on-slide/
-  /net/re-sizing-shapes-on-slide/
 keywords:
 - تغییر اندازه شکل
 - تغییر اندازهٔ شکل

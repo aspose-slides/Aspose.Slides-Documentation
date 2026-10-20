@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /ko/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /ko/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
   - "도형 크기 조정"
   - "도형 크기 변경"

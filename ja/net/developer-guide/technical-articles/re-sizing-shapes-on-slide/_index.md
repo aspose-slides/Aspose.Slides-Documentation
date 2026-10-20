@@ -5,7 +5,6 @@ weight: 130
 url: /ja/net/resizing-shapes-on-slide/
 aliases:
   - /ja/net/re-sizing-shapes-on-slide/
-  /net/re-sizing-shapes-on-slide/
 keywords:
 - シェイプのサイズ変更
 - シェイプサイズの変更

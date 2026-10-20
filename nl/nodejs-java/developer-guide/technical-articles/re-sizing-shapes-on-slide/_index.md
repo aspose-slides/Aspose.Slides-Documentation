@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /nl/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /nl/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - vorm herschalen
 - vormgrootte wijzigen

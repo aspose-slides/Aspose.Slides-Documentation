@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /el/androidjava/resizing-shapes-on-slide/
 aliases:
-  /androidjava/re-sizing-shapes-on-slide/
+  - /el/androidjava/re-sizing-shapes-on-slide/
 keywords:
 - αλλαγή μεγέθους σχήματος
 - τροποποίηση μεγέθους σχήματος

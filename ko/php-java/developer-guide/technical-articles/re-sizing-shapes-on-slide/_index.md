@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /ko/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/크기-조정-도형-슬라이드/
+  - /ko/php-java/re-sizing-shapes-on-slide/
 keywords:
 - 도형 크기 조정
 - 도형 크기 변경

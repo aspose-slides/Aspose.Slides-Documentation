@@ -5,7 +5,6 @@ weight: 130
 url: /zh/cpp/resizing-shapes-on-slide/
 aliases:
   - /zh/cpp/re-sizing-shapes-on-slide/
-  /cpp/re-sizing-shapes-on-slide/
 keywords:
 - 调整形状大小
 - 更改形状尺寸

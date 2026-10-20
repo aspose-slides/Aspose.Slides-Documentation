@@ -5,7 +5,6 @@ weight: 130
 url: /it/net/resizing-shapes-on-slide/
 aliases:
   - /it/net/re-sizing-shapes-on-slide/
-  /net/ri-dimensionamento-forme-su-diapositive/
 keywords:
 - ridimensiona forma
 - cambia dimensione forma

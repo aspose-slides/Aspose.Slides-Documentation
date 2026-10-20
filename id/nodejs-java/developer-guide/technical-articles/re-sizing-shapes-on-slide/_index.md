@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /id/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /id/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - ubah ukuran bentuk
 - ubah ukuran bentuk

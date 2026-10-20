@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /id/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/re-sizing-shapes-on-slide/
+  - /id/php-java/re-sizing-shapes-on-slide/
 keywords:
 - ubah ukuran bentuk
 - ubah ukuran bentuk

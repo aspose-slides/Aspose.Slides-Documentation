@@ -5,7 +5,6 @@ weight: 130
 url: /de/cpp/resizing-shapes-on-slide/
 aliases:
   - /de/cpp/re-sizing-shapes-on-slide/
-  /cpp/re-sizing-shapes-on-slide/
 keywords:
 - Form skalieren
 - Formgröße ändern

@@ -5,7 +5,6 @@ weight: 130
 url: /ru/python-net/resizing-shapes-on-slide/
 aliases:
   - /ru/python-net/re-sizing-shapes-on-slide/
-  /python-net/izmnenie-razmera-figur-na-slyde/
 keywords:
 - изменить размер фигуры
 - изменить размер фигуры

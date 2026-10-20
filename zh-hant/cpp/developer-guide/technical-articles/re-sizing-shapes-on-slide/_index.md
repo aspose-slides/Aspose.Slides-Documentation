@@ -5,7 +5,6 @@ weight: 130
 url: /zh-hant/cpp/resizing-shapes-on-slide/
 aliases:
   - /zh-hant/cpp/re-sizing-shapes-on-slide/
-  /cpp/重新-調整-形狀-投影片/
 keywords:
 - 調整形狀大小
 - 變更形狀尺寸

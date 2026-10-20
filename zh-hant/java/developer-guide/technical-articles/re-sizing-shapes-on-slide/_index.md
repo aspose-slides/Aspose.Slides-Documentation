@@ -5,7 +5,6 @@ weight: 130
 url: /zh-hant/java/resizing-shapes-on-slide/
 aliases:
   - /zh-hant/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - 調整形狀大小
 - 更改形狀尺寸

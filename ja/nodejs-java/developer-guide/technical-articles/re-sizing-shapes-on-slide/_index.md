@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /ja/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /ja/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - シェイプをリサイズ
 - シェイプサイズの変更

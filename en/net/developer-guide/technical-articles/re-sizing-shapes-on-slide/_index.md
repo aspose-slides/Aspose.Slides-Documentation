@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /net/resizing-shapes-on-slide/
 aliases:
-  /net/re-sizing-shapes-on-slide/
+  - /net/re-sizing-shapes-on-slide/
 keywords:
 - resize shape
 - change shape size

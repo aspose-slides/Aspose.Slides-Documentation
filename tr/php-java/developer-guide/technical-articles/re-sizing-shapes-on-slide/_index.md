@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /tr/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/re-sizing-shapes-on-slide/
+  - /tr/php-java/re-sizing-shapes-on-slide/
 keywords:
 - şekli yeniden boyutlandır
 - şekil boyutunu değiştir

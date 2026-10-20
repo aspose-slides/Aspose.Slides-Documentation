@@ -5,7 +5,6 @@ weight: 110
 url: /fr/python-java/resizing-shapes-on-slide/
 aliases:
   - /fr/python-java/re-sizing-shapes-on-slide/
-  /python-java/re-sizing-shapes-on-slide/
 keywords:
 - redimensionner forme
 - modifier la taille de la forme

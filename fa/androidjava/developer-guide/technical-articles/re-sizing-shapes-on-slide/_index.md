@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /fa/androidjava/resizing-shapes-on-slide/
 aliases:
-  /androidjava/تغییر-اندازه-اشکال-در-اسلاید/
+  - /fa/androidjava/re-sizing-shapes-on-slide/
 keywords:
 - تغییر اندازه شکل
 - تغییر اندازه شکل

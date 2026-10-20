@@ -5,7 +5,6 @@ weight: 130
 url: /ko/cpp/resizing-shapes-on-slide/
 aliases:
   - /ko/cpp/re-sizing-shapes-on-slide/
-  /cpp/re-sizing-shapes-on-slide/
 keywords:
 - 도형 크기 조정
 - 도형 크기 변경

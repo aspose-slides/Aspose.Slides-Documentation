@@ -5,7 +5,6 @@ weight: 130
 url: /pt/java/resizing-shapes-on-slide/
 aliases:
   - /pt/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - redimensionar forma
 - alterar tamanho da forma

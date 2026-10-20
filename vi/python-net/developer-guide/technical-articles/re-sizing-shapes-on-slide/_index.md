@@ -5,7 +5,6 @@ weight: 130
 url: /vi/python-net/resizing-shapes-on-slide/
 aliases:
   - /vi/python-net/re-sizing-shapes-on-slide/
-  /python-net/re-sizing-shapes-on-slide/
 keywords:
 - điều chỉnh kích thước hình dạng
 - thay đổi kích thước hình dạng

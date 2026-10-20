@@ -4,8 +4,7 @@ type: docs
 weight: 130
 url: /es/php-java/resizing-shapes-on-slide/
 aliases:
-  - /es/php-java/cambiar-el-tamano-de-las-formas-en-la-diapositiva/
-  /php-java/redimensionar-formas-en-diapositiva/
+  - /es/php-java/re-sizing-shapes-on-slide/
 keywords:
 - redimensionar forma
 - cambiar tamaño de forma

@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /cs/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/re-sizing-shapes-on-slide/
+  - /cs/php-java/re-sizing-shapes-on-slide/
 keywords:
 - změna velikosti tvaru
 - změna velikosti tvaru

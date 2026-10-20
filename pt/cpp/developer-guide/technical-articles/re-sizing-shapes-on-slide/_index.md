@@ -5,7 +5,6 @@ weight: 130
 url: /pt/cpp/resizing-shapes-on-slide/
 aliases:
   - /pt/cpp/re-sizing-shapes-on-slide/
-  /cpp/redimensionamento-de-formas-no-slide/
 keywords:
   - redimensionar forma
   - alterar tamanho da forma

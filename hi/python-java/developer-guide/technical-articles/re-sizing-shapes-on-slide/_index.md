@@ -5,7 +5,6 @@ weight: 110
 url: /hi/python-java/resizing-shapes-on-slide/
 aliases:
   - /hi/python-java/re-sizing-shapes-on-slide/
-  /python-java/re-sizing-shapes-on-slide/
 keywords:
   - आकार बदलें
   - आकार का आकार बदलें

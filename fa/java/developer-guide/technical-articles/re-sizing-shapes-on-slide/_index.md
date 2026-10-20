@@ -5,7 +5,6 @@ weight: 130
 url: /fa/java/resizing-shapes-on-slide/
 aliases:
   - /fa/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - تغییر اندازه شکل
 - تغییر سایز شکل

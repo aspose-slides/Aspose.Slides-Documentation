@@ -5,7 +5,6 @@ weight: 130
 url: /id/net/resizing-shapes-on-slide/
 aliases:
   - /id/net/re-sizing-shapes-on-slide/
-  /net/ubah-ukuran-bentuk-pada-slide/
 keywords:
 - ubah ukuran bentuk
 - ganti ukuran bentuk

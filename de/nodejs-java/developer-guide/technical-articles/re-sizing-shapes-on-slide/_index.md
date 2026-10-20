@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /de/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /de/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - Form skalieren
 - Formgröße ändern

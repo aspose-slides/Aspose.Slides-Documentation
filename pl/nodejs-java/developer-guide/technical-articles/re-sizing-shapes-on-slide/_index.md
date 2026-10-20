@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /pl/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /pl/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - skalowanie kształtu
 - zmiana rozmiaru kształtu

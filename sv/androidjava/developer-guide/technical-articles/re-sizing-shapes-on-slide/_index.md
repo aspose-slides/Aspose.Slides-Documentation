@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /sv/androidjava/resizing-shapes-on-slide/
 aliases:
-  /androidjava/andra-storlek-pa-former-pa-bild/
+  - /sv/androidjava/re-sizing-shapes-on-slide/
 keywords:
   - ändra formstorlek
   - ändra formens storlek

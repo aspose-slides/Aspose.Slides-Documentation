@@ -5,7 +5,6 @@ weight: 130
 url: /nl/cpp/resizing-shapes-on-slide/
 aliases:
   - /nl/cpp/re-sizing-shapes-on-slide/
-  /cpp/her-schaal-vormen-op-dia/
 keywords:
   - vorm schalen
   - vormgrootte wijzigen

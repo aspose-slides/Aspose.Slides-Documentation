@@ -5,7 +5,6 @@ weight: 130
 url: /de/python-net/resizing-shapes-on-slide/
 aliases:
   - /de/python-net/re-sizing-shapes-on-slide/
-  /python-net/re-sizing-shapes-on-slide/
 keywords:
 - Form skalieren
 - Formgröße ändern

@@ -5,7 +5,6 @@ weight: 130
 url: /vi/net/resizing-shapes-on-slide/
 aliases:
   - /vi/net/re-sizing-shapes-on-slide/
-  /net/re-sizing-shapes-on-slide/
 keywords:
 - thay đổi kích thước hình dạng
 - thay đổi kích thước hình

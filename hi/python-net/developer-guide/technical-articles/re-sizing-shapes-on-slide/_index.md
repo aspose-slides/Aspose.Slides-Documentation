@@ -5,7 +5,6 @@ weight: 130
 url: /hi/python-net/resizing-shapes-on-slide/
 aliases:
   - /hi/python-net/re-sizing-shapes-on-slide/
-  /python-net/स्लाइड-पर-आकार-परिवर्तन/
 keywords:
 - आकार बदलें
 - आकृति का आकार बदलें

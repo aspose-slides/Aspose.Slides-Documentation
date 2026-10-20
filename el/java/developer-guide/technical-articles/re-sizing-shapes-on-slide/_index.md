@@ -5,7 +5,6 @@ weight: 130
 url: /el/java/resizing-shapes-on-slide/
 aliases:
   - /el/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - αλλαγή μεγέθους σχήματος
 - αλλαγή μεγέθους σχήματος

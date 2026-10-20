@@ -5,7 +5,6 @@ weight: 130
 url: /zh/net/resizing-shapes-on-slide/
 aliases:
   - /zh/net/re-sizing-shapes-on-slide/
-  /net/re-sizing-shapes-on-slide/
 keywords:
 - 调整形状
 - 更改形状大小

@@ -5,7 +5,6 @@ weight: 110
 url: /zh-hant/python-java/resizing-shapes-on-slide/
 aliases:
   - /zh-hant/python-java/re-sizing-shapes-on-slide/
-  /python-java/re-sizing-shapes-on-slide/
 keywords:
   - 調整形狀大小
   - 變更形狀尺寸

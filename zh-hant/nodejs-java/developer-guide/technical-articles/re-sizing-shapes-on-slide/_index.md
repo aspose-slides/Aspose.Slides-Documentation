@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /zh-hant/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /zh-hant/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - 調整形狀大小
 - 變更形狀尺寸

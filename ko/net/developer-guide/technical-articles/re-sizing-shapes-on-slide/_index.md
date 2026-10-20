@@ -5,7 +5,6 @@ weight: 130
 url: /ko/net/resizing-shapes-on-slide/
 aliases:
   - /ko/net/re-sizing-shapes-on-slide/
-  /net/re-sizing-shapes-on-slide/
 keywords:
 - 모양 크기 조정
 - 모양 크기 변경

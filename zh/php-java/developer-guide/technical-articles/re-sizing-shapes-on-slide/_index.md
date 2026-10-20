@@ -5,7 +5,6 @@ weight: 130
 url: /zh/php-java/resizing-shapes-on-slide/
 aliases:
   - /zh/php-java/re-sizing-shapes-on-slide/
-  /php-java/重新调整-形状-幻灯片/
 keywords:
 - 调整形状大小
 - 更改形状大小

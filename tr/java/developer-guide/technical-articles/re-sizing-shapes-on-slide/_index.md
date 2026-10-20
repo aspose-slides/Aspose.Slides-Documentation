@@ -5,7 +5,6 @@ weight: 130
 url: /tr/java/resizing-shapes-on-slide/
 aliases:
   - /tr/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - şekli yeniden boyutlandır
 - şekil boyutunu değiştir

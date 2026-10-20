@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /sv/nodejs-java/resizing-shapes-on-slide/
 aliases:
-  /nodejs-java/re-sizing-shapes-on-slide/
+  - /sv/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - ändra storlek på form
 - ändra formstorlek

@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /nl/php-java/resizing-shapes-on-slide/
 aliases:
-  /php-java/herformaat-vormen-op-dia/
+  - /nl/php-java/re-sizing-shapes-on-slide/
 keywords:
   - vormgrootte aanpassen
   - vormgrootte wijzigen

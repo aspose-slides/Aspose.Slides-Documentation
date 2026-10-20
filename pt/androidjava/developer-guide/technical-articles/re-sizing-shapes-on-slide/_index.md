@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /pt/androidjava/resizing-shapes-on-slide/
 aliases:
-  /androidjava/re-sizing-shapes-on-slide/
+  - /pt/androidjava/re-sizing-shapes-on-slide/
 keywords:
 - redimensionar forma
 - alterar tamanho da forma

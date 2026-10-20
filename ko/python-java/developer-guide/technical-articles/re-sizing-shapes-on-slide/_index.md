@@ -5,7 +5,6 @@ weight: 110
 url: /ko/python-java/resizing-shapes-on-slide/
 aliases:
   - /ko/python-java/re-sizing-shapes-on-slide/
-  /python-java/re-sizing-shapes-on-slide/
 keywords:
 - 모양 크기 조정
 - 모양 크기 변경

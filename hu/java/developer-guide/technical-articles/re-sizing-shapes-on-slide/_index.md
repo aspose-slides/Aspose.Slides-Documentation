@@ -5,7 +5,6 @@ weight: 130
 url: /hu/java/resizing-shapes-on-slide/
 aliases:
   - /hu/java/re-sizing-shapes-on-slide/
-  /java/re-sizing-shapes-on-slide/
 keywords:
 - alakzat átméretezése
 - alakzat méretének módosítása

@@ -5,7 +5,6 @@ weight: 130
 url: /cs/python-net/resizing-shapes-on-slide/
 aliases:
   - /cs/python-net/re-sizing-shapes-on-slide/
-  /python-net/zmenovani-velikosti-tvaru-na-snimku/
 keywords:
 - zmenit velikost tvaru
 - zmenit velikost tvaru
