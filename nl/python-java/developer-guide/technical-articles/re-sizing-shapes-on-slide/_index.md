@@ -1,12 +1,13 @@
 ---
-title: Vormen schalen op presentatiedia's in Python via Java
+title: Vormen herschalen op presentatiedia's in Python via Java
 type: docs
 weight: 110
 url: /nl/python-java/resizing-shapes-on-slide/
 aliases:
+  - /python-java/her-schaal-vormen-op-dia/
   - /nl/python-java/re-sizing-shapes-on-slide/
 keywords:
-- vorm schalen
+- vorm herschalen
 - vormgrootte wijzigen
 - PowerPoint
 - OpenDocument
@@ -14,17 +15,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Schakel eenvoudig vormen schalen op PowerPoint- en OpenDocument-dia's met Aspose.Slides voor Python via Java—automatiseer dia-indelingsaanpassingen en verhoog de productiviteit."
+description: "Schakel eenvoudig vormen op PowerPoint- en OpenDocument-dia's bij met Aspose.Slides voor Python via Java—automatiseer dia‑lay-outaanpassingen en verhoog de productiviteit."
 ---
 ## **Overzicht**
 
-Wanneer u de dia‑grootte van een presentatie wijzigt, moet u mogelijk ook de vormen schalen en verplaatsen om ze aan te passen aan de nieuwe afmetingen. Dit artikel laat zien hoe u vormen handmatig schaalt en hoe u tabellen op dia's, masters en lay‑outs verwerkt.
+Wanneer je de diaformaat van een presentatie wijzigt, moet je mogelijk ook de vormen herschalen en opnieuw positioneren zodat ze passen binnen de nieuwe afmetingen. Dit artikel laat zien hoe je vormen handmatig schaalt en hoe je tabellen op dia's, masters en lay-outs verwerkt.
 
-## **Vormen schalen**
+## **Vormen herschalen**
 
-Om de relatieve positie en grootte van elke vorm te behouden, vermenigvuldigt u de horizontale coördinaten en de breedte met de verhouding van de nieuwe dia‑breedte ten opzichte van de oorspronkelijke breedte. Pas de overeenkomstige hoogteverhouding toe op de verticale coördinaten en de hoogte.
+Om de relatieve positie en grootte van elke vorm te behouden, vermenigvuldig je de horizontale coördinaten en de breedte met de verhouding van de nieuwe dia-breedte ten opzichte van de oorspronkelijke breedte. Pas de overeenkomstige hoogteverhouding toe op de verticale coördinaten en de hoogte.
 
-Het eerste voorbeeld laadt een presentatie waarvan de dia's geen tabellen bevatten, wijzigt de dia‑grootte naar A4 en slaat het resultaat op. Het gebruikt [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) met [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale) zodat de daaropvolgende lus de schaal regelt. De verhoudingen zijn dimensieloos; vormposities en afmetingen worden gemeten in punten. Verschillende breedte‑ en hoogteverhoudingen kunnen vormen vervormen, en het wijzigen van de afmetingen van een vorm schaalt de lettergroottes niet.
+Het eerste voorbeeld laadt een presentatie waarvan de dia's geen tabellen bevatten, wijzigt het diaformaat naar A4 en slaat het resultaat op. Het gebruikt [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) met [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale) zodat de daaropvolgende lus de schaling regelt. De verhoudingen zijn dimensieloos; de posities en afmetingen van vormen worden gemeten in points. Verschillende breedte- en hoogteverhoudingen kunnen vormen vervormen, en het wijzigen van de afmetingen van een vorm schaalt de lettergroottes niet.
 
 ```python
 import jpype
@@ -56,11 +57,11 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Opmerking" %}}
-Tabellen vereisen afzonderlijke behandeling: schaal de kolombreedtes en rijhoogtes in plaats van de algehele breedte en hoogte van de tabel toe te wijzen. Rijhoogtes kunnen groter blijven dan gevraagd als de celinhoud meer ruimte nodig heeft.
+{{% alert color="info" title="Note" %}}
+Tabellen vereisen aparte behandeling: schaals de kolombreedtes en rijhoogtes in plaats van de totale breedte en hoogte van de tabel toe te wijzen. Rijhoogtes kunnen groter blijven dan gevraagd als de celinhoud meer ruimte vereist.
 {{% /alert %}}
 
-Het tweede voorbeeld ondersteunt tabellen en verwerkt vormen op masters en lay‑outs evenals op individuele dia's voordat de verkleinde presentatie wordt opgeslagen. De helper behandelt elke [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) door kolombreedtes te schalen met [Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth) en minimale rijhoogtes met [Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight). Daarna schaalt hij de positie van de tabel zonder de algehele afmetingen afzonderlijk te schalen.
+Het tweede voorbeeld ondersteunt tabellen en verwerkt vormen op masters en lay-outs evenals individuele dia's voordat de herschaalde presentatie wordt opgeslagen. De helper behandelt elke [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) door kolombreedtes te schalen met [Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth) en minimale rijhoogtes met [Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight). Daarna schaalt het de positie van de tabel zonder de totale afmetingen apart te schalen.
 
 ```python
 import jpype
@@ -75,7 +76,7 @@ from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeS
 def resize_shapes(shapes, width_ratio, height_ratio):
     for shape in shapes:
         if isinstance(shape, Table):
-            # De afmetingen van de tabel worden beheerst door kolombreedtes en rijhoogtes.
+            # De afmetingen van de tabel worden geregeld door kolombreedtes en rijhoogtes.
             for column in shape.getColumns():
                 column.setWidth(column.getWidth() * width_ratio)
 
@@ -98,7 +99,7 @@ try:
     width_ratio = target_size.getWidth() / original_size.getWidth()
     height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # Schaal vormen die gedefinieerd zijn op masters en lay‑outs evenals op individuele dia's.
+    # Schaald vormen die gedefinieerd zijn op masters en lay-outs, evenals op individuele dia's.
     for master in presentation.getMasters():
         resize_shapes(master.getShapes(), width_ratio, height_ratio)
 
@@ -113,32 +114,32 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Waarom worden vormen vervormd of afgesneden na het wijzigen van een dia?**
+**Waarom worden vormen vervormd of afgesneden na het herschalen van een dia?**
 
-Als u de dia‑grootte wijzigt zonder de vormen te schalen, behouden ze hun oorspronkelijke posities en afmetingen en kunnen ze buiten de dia uitsteken. Het schalen van breedte en hoogte met verschillende verhoudingen kan ook vormen vervormen.
+Als je het diaformaat wijzigt zonder de vormen te schalen, behouden ze hun oorspronkelijke posities en afmetingen en kunnen ze buiten de dia uitsteken. Het schalen van breedte en hoogte met verschillende verhoudingen kan ook vormen vervormen.
 
 **Werkt de meegeleverde code voor alle vormtypen?**
 
-Het eerste voorbeeld wijzigt de grenzen van de vorm rechtstreeks en is bedoeld voor dia's zonder tabellen. Het tweede voorbeeld behandelt tabellen afzonderlijk. Controleer de resulterende lay‑out, met name tekst en tabellen, omdat deze voorbeelden de lettergroottes niet schalen en de tabelinhoud de rijhoogtes kan beperken.
+Het eerste voorbeeld wijzigt de vormgrenzen direct en is bedoeld voor dia's zonder tabellen. Het tweede voorbeeld behandelt tabellen apart. Controleer de resulterende lay-out, met name tekst en tabellen, omdat deze voorbeelden de lettergroottes niet schalen en de inhoud van tabellen de rijhoogtes kan beperken.
 
-**Hoe schaalt u tabellen bij het wijzigen van een dia?**
+**Hoe schaalt ik tabellen bij het herschalen van een dia?**
 
-Schaal de kolombreedtes met de breedte‑verhouding en de minimale rijhoogtes met de hoogte‑verhouding, en schaal vervolgens de positie van de tabel, zoals getoond in het tweede voorbeeld.
+Schaal kolombreedtes met de breedteverhouding en minimale rijhoogtes met de hoogteverhouding, en schaals daarna de positie van de tabel, zoals getoond in het tweede voorbeeld.
 
-**Werkt deze herschaling voor masters en lay‑outdia's?**
+**Werkt deze herschaling voor masterslides en lay-outslides?**
 
-Ja. Het tweede voorbeeld doorloopt [Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) en voor elke master de [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides) en past dezelfde herschalingslogica toe op hun vormen.
+Ja. Het tweede voorbeeld loopt door [Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) en door elke master-[MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides) en past dezelfde herschaal‑logica toe op hun vormen.
 
-**Kan ik de oriëntatie van een dia (portret/landschap) wijzigen samen met het verkleinen?**
+**Kan ik de oriëntatie van een dia (portret/landschap) wijzigen tegelijk met het herschalen?**
 
-Ja. Roep [SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation) aan nadat u de dia‑grootte hebt gewijzigd en vóór het lezen van de doelafmetingen, zodat de schaalfactoren de uiteindelijke oriëntatie weergeven.
+Ja. Roep [SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation) aan nadat je het diaformaat hebt gewijzigd en vóór het uitlezen van de doelafmetingen, zodat de schaalfactoren de uiteindelijke oriëntatie weergeven.
 
 **Is er een limiet aan de dia‑grootte die ik kan instellen?**
 
-U kunt aangepaste dia‑afmetingen opgeven met [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize). De ondersteunde afmetingen hangen ook af van het presentatieformaat en de toepassing die wordt gebruikt om het bestand te openen.
+Je kunt aangepaste dia‑afmetingen opgeven met [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize). De ondersteunde afmetingen hangen ook af van het presentatie‑formaat en de applicatie die het bestand opent.
 
-**Hoe kan ik voorkomen dat vormen met een vaste beeldverhouding vervormd raken?**
+**Hoe kan ik voorkomen dat vormen met een vaste beeldverhouding vervormd worden?**
 
-Gebruik dezelfde schaalfactor voor breedte en hoogte. Om de oorspronkelijke lay‑out te laten passen binnen de nieuwe dia‑afmetingen, gebruikt u de kleinste van de breedte‑ en hoogteverhoudingen voor beide dimensies en posities. Dit behoudt de verhoudingen, maar kan leiden tot ongebruikte ruimte langs één rand.
+Gebruik dezelfde schaalfactor voor breedte en hoogte. Om de oorspronkelijke lay-out in de nieuwe dia‑afmetingen te passen, gebruik je de kleinste van de breedte‑ en hoogteverhoudingen voor beide dimensies en posities. Dit behoudt de verhoudingen, maar kan leiden tot ongebruikte ruimte langs één rand.

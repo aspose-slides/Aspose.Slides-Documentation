@@ -1,26 +1,31 @@
 ---
-title: Thay đổi kích thước hình dạng trên các slide bài thuyết trình trong Python qua Java
+title: "Thay đổi kích thước các hình dạng trên slide của bản trình chiếu trong Python qua Java"
 type: docs
 weight: 110
-url: /vi/python-java/re-sizing-shapes-on-slide/
+url: /vi/python-java/resizing-shapes-on-slide/
+aliases:
+  - /python-java/re-sizing-shapes-on-slide/
+  - /vi/python-java/re-sizing-shapes-on-slide/
 keywords:
-- thay đổi kích thước hình dạng
-- đổi kích thước hình dạng
+- "thay đổi kích thước hình dạng"
+- "thay đổi kích thước hình"
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- "bản trình chiếu"
 - Python
 - Java
 - Aspose.Slides
-description: "Dễ dàng thay đổi kích thước các hình dạng trên các slide PowerPoint và OpenDocument với Aspose.Slides cho Python qua Java—tự động điều chỉnh bố cục slide và tăng năng suất."
+description: "Dễ dàng thay đổi kích thước các hình dạng trên slide PowerPoint và OpenDocument với Aspose.Slides cho Python qua Java—tự động điều chỉnh bố cục slide và tăng năng suất."
 ---
 ## **Tổng quan**
 
-Một trong những câu hỏi phổ biến nhất từ khách hàng Aspose.Slides for Python via Java là làm sao để thay đổi kích thước các hình dạng sao cho khi kích thước slide thay đổi, dữ liệu không bị cắt mất. Bài viết kỹ thuật ngắn này chỉ ra cách thực hiện.
+Khi bạn thay đổi kích thước slide của bản trình chiếu, bạn có thể cũng cần thay đổi kích thước và vị trí lại các hình dạng để phù hợp với kích thước mới. Bài viết này giới thiệu cách thu phóng các hình dạng một cách thủ công và cách xử lý bảng trên slide, master và layout.
 
 ## **Thay đổi kích thước hình dạng**
 
-Để ngăn các hình dạng bị lệch khi kích thước slide thay đổi, cập nhật vị trí và kích thước của mỗi hình dạng để chúng phù hợp với bố cục slide mới.
+Để giữ nguyên vị trí và kích thước tương đối của mỗi hình dạng, hãy nhân tọa độ ngang và chiều rộng của nó với tỉ lệ giữa chiều rộng slide mới và chiều rộng gốc. Áp dụng tỉ lệ chiều cao tương ứng cho các tọa độ dọc và chiều cao của nó.
+
+Ví dụ đầu tiên tải một bản trình chiếu mà các slide không chứa bảng, thay đổi kích thước slide thành A4 và lưu kết quả. Nó sử dụng [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) với [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale) để vòng lặp tiếp theo kiểm soát việc thu phóng. Các tỉ lệ không có đơn vị; vị trí và kích thước của hình dạng được đo bằng point. Các tỉ lệ chiều rộng và chiều cao khác nhau có thể làm biến dạng hình dạng, và việc thay đổi kích thước của hình dạng không làm thu phóng kích thước phông chữ.
 
 ```python
 import jpype
@@ -29,49 +34,34 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType
 
-# Tải tệp bài thuyết trình.
-presentation = Presentation("sample.ppt")
+presentation = Presentation("sample.pptx")
 try:
-    # Lấy kích thước slide gốc.
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # Thay đổi kích thước slide mà không tỷ lệ các hình dạng hiện có.
+    # Tính các hệ số thu phóng ngang và dọc độc lập.
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # Lấy kích thước slide mới.
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # Thay đổi kích thước và vị trí các hình dạng trên mỗi slide.
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
-
-            # Tỷ lệ kích thước hình dạng.
-            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setWidth(shape.getWidth() * width_ratio)
-
-            # Tỷ lệ vị trí hình dạng.
-            shape.setY(shape.getY() * height_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setX(shape.getX() * width_ratio)
+            shape.setY(shape.getY() * height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Lưu ý" %}} 
+{{% alert color="info" title="Note" %}}
+Bảng yêu cầu xử lý riêng: thu phóng độ rộng cột và chiều cao hàng thay vì gán độ rộng và chiều cao tổng thể của bảng. Chiều cao hàng có thể vẫn lớn hơn yêu cầu nếu nội dung ô yêu cầu nhiều không gian hơn.
+{{% /alert %}}
 
-Bảng không cần xử lý đặc biệt: việc đặt chiều rộng và chiều cao cho bảng sẽ tự động tỷ lệ lại các cột và hàng, vì vậy việc lại tỷ lệ chiều cao hàng và chiều rộng cột sẽ áp dụng tỷ lệ hai lần.
-
-{{% /alert %}} 
-
-Mã trên chỉ thay đổi các hình dạng trên các slide. Các master slide và layout slide giữ các hình dạng riêng, vì vậy hãy mở rộng chúng nữa khi bạn muốn toàn bộ bài thuyết trình tuân theo kích thước slide mới:
+Ví dụ thứ hai hỗ trợ bảng và xử lý các hình dạng trên master và layout cũng như các slide riêng lẻ trước khi lưu bản trình chiếu đã thu phóng. Trợ giúp của nó xử lý mỗi [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) bằng cách thu phóng độ rộng cột với [Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth) và chiều cao tối thiểu của hàng với [Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight). Sau đó, nó thu phóng vị trí của bảng mà không thu phóng riêng các kích thước tổng thể của nó.
 
 ```python
 import jpype
@@ -80,54 +70,44 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, Table
+
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, Table):
+            # Kích thước bảng được kiểm soát bởi độ rộng cột và chiều cao hàng.
+            for column in shape.getColumns():
+                column.setWidth(column.getWidth() * width_ratio)
+
+            for row in shape.getRows():
+                row.setMinimalHeight(row.getMinimalHeight() * height_ratio)
+        else:
+            shape.setWidth(shape.getWidth() * width_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
+
+        shape.setX(shape.getX() * width_ratio)
+        shape.setY(shape.getY() * height_ratio)
+
 
 presentation = Presentation("sample.pptx")
 try:
-    # Lấy kích thước slide gốc.
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # Thay đổi kích thước slide mà không tỷ lệ các hình dạng hiện có.
+    # Tính các hệ số thu phóng ngang và dọc độc lập.
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
-    # presentation.getSlideSize().setOrientation(SlideOrientation.Portrait)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # Lấy kích thước slide mới.
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # Thay đổi kích thước các hình dạng được định nghĩa trên master và layout cũng như các slide riêng lẻ.
     for master in presentation.getMasters():
-        for shape in master.getShapes():
-            # Tỷ lệ kích thước hình dạng.
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # Tỷ lệ vị trí hình dạng.
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(master.getShapes(), width_ratio, height_ratio)
 
         for layout_slide in master.getLayoutSlides():
-            for shape in layout_slide.getShapes():
-                # Tỷ lệ kích thước hình dạng.
-                shape.setHeight(shape.getHeight() * height_ratio)
-                shape.setWidth(shape.getWidth() * width_ratio)
-
-                # Tỷ lệ vị trí hình dạng.
-                shape.setY(shape.getY() * height_ratio)
-                shape.setX(shape.getX() * width_ratio)
+            resize_shapes(layout_slide.getShapes(), width_ratio, height_ratio)
 
     for slide in presentation.getSlides():
-        for shape in slide.getShapes():
-            # Tỷ lệ kích thước hình dạng.
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # Tỷ lệ vị trí hình dạng.
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(slide.getShapes(), width_ratio, height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
@@ -136,30 +116,23 @@ finally:
 
 ## **Câu hỏi thường gặp**
 
-**Tại sao các hình dạng bị biến dạng hoặc bị cắt khi thay đổi kích thước slide?**
+**Tại sao các hình dạng bị biến dạng hoặc bị cắt sau khi thay đổi kích thước slide?**  
+Nếu bạn thay đổi kích thước slide mà không thu phóng các hình dạng, chúng sẽ giữ nguyên vị trí và kích thước gốc và có thể vượt ra ngoài slide. Việc thu phóng chiều rộng và chiều cao bằng các tỉ lệ khác nhau cũng có thể làm biến dạng hình dạng.
 
-Khi thay đổi kích thước slide, các hình dạng giữ nguyên vị trí và kích thước gốc trừ khi tỷ lệ được thay đổi một cách rõ ràng. Điều này có thể dẫn đến nội dung bị cắt hoặc các hình dạng bị lệch.
+**Mã cung cấp có hoạt động cho tất cả các loại hình dạng không?**  
+Ví dụ đầu tiên thay đổi giới hạn của hình dạng trực tiếp và được thiết kế cho các slide không có bảng. Ví dụ thứ hai xử lý bảng riêng biệt. Kiểm tra bố cục kết quả, đặc biệt là văn bản và bảng, vì những ví dụ này không thu phóng kích thước phông chữ và nội dung bảng có thể hạn chế chiều cao hàng.
 
-**Mã được cung cấp có hoạt động cho mọi loại hình dạng không?**
+**Làm sao tôi có thể thay đổi kích thước bảng khi thay đổi kích thước slide?**  
+Thu phóng độ rộng cột bằng tỉ lệ chiều rộng và chiều cao tối thiểu của hàng bằng tỉ lệ chiều cao, sau đó thu phóng vị trí của bảng, như đã minh họa trong ví dụ thứ hai.
 
-Có. Việc đặt chiều cao và chiều rộng hoạt động cho hộp văn bản, hình ảnh, biểu đồ và bảng đều tương tự.
+**Việc thay đổi kích thước này có hoạt động cho các master slide và layout slide không?**  
+Có. Ví dụ thứ hai lặp qua [Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) và các [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides) của mỗi master và áp dụng cùng logic thay đổi kích thước cho các hình dạng của chúng.
 
-**Làm sao để thay đổi kích thước bảng khi thay đổi kích thước slide?**
+**Tôi có thể thay đổi hướng của slide (portrait/landscape) cùng với việc thay đổi kích thước không?**  
+Có. Gọi [SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation) sau khi thay đổi kích thước slide và trước khi đọc các kích thước mục tiêu, để các hệ số thu phóng phản ánh hướng cuối cùng.
 
-Mở rộng hình dạng bảng như bất kỳ hình dạng nào khác. Các hàng và cột sẽ theo tỷ lệ một cách tự động, vì vậy không cần mở rộng chúng lại sau đó.
+**Có giới hạn nào cho kích thước slide tôi có thể đặt không?**  
+Bạn có thể chỉ định kích thước slide tùy chỉnh bằng [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize). Các kích thước được hỗ trợ cũng phụ thuộc vào định dạng bản trình chiếu và ứng dụng được dùng để mở tệp.
 
-**Việc thay đổi kích thước này có áp dụng cho master slide và layout slide không?**
-
-Có, nhưng bạn cũng nên duyệt qua [Presentation.getMasters](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getMasters) và [Presentation.getLayoutSlides](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getLayoutSlides) và áp dụng cùng logic mở rộng cho các hình dạng của chúng để đảm bảo tính nhất quán trong toàn bộ bài thuyết trình.
-
-**Tôi có thể thay đổi hướng của slide (dọc/ngang) cùng với việc thay đổi kích thước không?**
-
-Có. Bạn có thể sử dụng [SlideSize.setOrientation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slidesize/#setOrientation) để thay đổi hướng. Đảm bảo điều chỉnh logic mở rộng cho phù hợp để giữ nguyên bố cục.
-
-**Có giới hạn nào cho kích thước slide mà tôi có thể đặt không?**
-
-Aspose.Slides hỗ trợ kích thước tùy chỉnh, nhưng kích thước quá lớn có thể ảnh hưởng đến hiệu năng hoặc khả năng tương thích với một số phiên bản PowerPoint.
-
-**Làm thế nào để ngăn các hình dạng có tỷ lệ khung hình cố định bị biến dạng?**
-
-Bạn có thể kiểm tra phương thức [getAspectRatioLocked](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshapelock/#getAspectRatioLocked) của khóa hình dạng trước khi mở rộng. Nếu nó được khóa, hãy điều chỉnh chiều rộng hoặc chiều cao một cách tỷ lệ thay vì mở rộng từng phần riêng lẻ.
+**Làm sao tôi có thể ngăn các hình dạng có tỷ lệ khung cố định bị biến dạng?**  
+Sử dụng cùng một hệ số thu phóng cho chiều rộng và chiều cao. Để vừa bố cục gốc trong kích thước slide mới, hãy dùng tỉ lệ nhỏ hơn giữa tỉ lệ chiều rộng và chiều cao cho cả hai chiều và vị trí. Điều này giữ nguyên tỉ lệ nhưng có thể để lại không gian trống ở một cạnh.

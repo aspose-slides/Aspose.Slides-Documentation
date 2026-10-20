@@ -1,9 +1,10 @@
 ---
-title: 在 Node.js 中調整簡報投影片上的形狀大小
+title: 在 Node.js 中調整簡報投影片的形狀大小
 type: docs
 weight: 130
 url: /zh-hant/nodejs-java/resizing-shapes-on-slide/
 aliases:
+  - /nodejs-java/重新-調整-形狀-於-投影片上/
   - /zh-hant/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - 調整形狀大小
@@ -14,17 +15,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "輕鬆使用 Aspose.Slides for Node.js 透過 Java 調整 PowerPoint 與 OpenDocument 投影片上的形狀大小——自動化投影片版面調整，提高生產力。"
+description: "輕鬆使用 Aspose.Slides for Node.js（透過 Java）調整 PowerPoint 與 OpenDocument 投影片上的形狀大小—自動化投影片版面調整，提高生產力。"
 ---
 ## **概覽**
 
-當您更改簡報的投影片尺寸時，可能還需要調整並重新定位其形狀以符合新尺寸。本文說明如何手動縮放形狀以及如何處理投影片、母片與布局中的表格。
+當您變更簡報的投影片尺寸時，可能還需要調整形狀的大小與位置，以符合新的尺寸。本文章說明如何手動縮放形狀，以及如何處理投影片、母片與版面的表格。
 
 ## **調整形狀大小**
 
-為了保留每個形狀的相對位置與大小，請將其水平座標與寬度乘以新投影片寬度與原始寬度的比例。再以相同的高度比例乘以其垂直座標與高度。
+為了保留每個形狀的相對位置與大小，請將其水平座標與寬度乘以新投影片寬度與原始寬度的比例。再以相同方式將垂直座標與高度乘以相應的高度比例。
 
-第一個範例載入投影片中不含表格的簡報，將投影片大小變更為 A4，並儲存結果。它使用 [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) 搭配 [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesizescaletype/#DoNotScale)，使後續的迴圈負責縮放。比例為無單位；形狀的位置與尺寸以點為單位測量。不同的寬度與高度比例可能會導致形狀變形，且變更形狀尺寸不會同時縮放其字型大小。
+第一個範例會載入一個投影片不含表格的簡報，將投影片尺寸變更為 A4，並將結果儲存。它使用 [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) 搭配 [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesizescaletype/#DoNotScale)，使後續的迴圈負責縮放。這些比例是無單位的；形狀的位置與尺寸以點為單位測量。不同的寬度與高度比例會導致形狀變形，且變更形狀尺寸不會同步縮放字型大小。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -32,7 +33,7 @@ const java = require("java");
 
 const presentation = new slides.Presentation("sample.pptx");
 try {
-    // 計算獨立的水平與垂直縮放因子。
+    // 計算獨立的水平與垂直縮放比例。
     const originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(slides.SlideSizeType.A4Paper, slides.SlideSizeScaleType.DoNotScale);
     const targetSize = presentation.getSlideSize().getSize();
@@ -58,10 +59,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-Tables require separate handling: scale their column widths and row heights instead of assigning the table's overall width and height. Row heights may remain larger than requested if the cell content requires more space.
+表格需要單獨處理：必須依比例縮放其欄寬與列高，而非直接設定表格的整體寬度與高度。如果儲存格內容需要更多空間，列高可能會大於要求的高度。
 {{% /alert %}}
 
-第二個範例支援表格，並在儲存調整大小後的簡報之前，處理母片與布局以及個別投影片上的形狀。其輔助工具會針對每個 [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/)，透過 [Column.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/column/#setWidth) 縮放欄寬，並使用 [Row.setMinimalHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#setMinimalHeight) 設定最小列高。接著會縮放表格的位置，而不會單獨縮放其整體尺寸。
+第二個範例支援表格，並在儲存重新調整大小的簡報之前，處理母片與版面以及各個投影片上的形狀。它的輔助程式會針對每個 [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/)，透過 [Column.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/column/#setWidth) 來縮放欄寬，並以 [Row.setMinimalHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#setMinimalHeight) 來縮放最小列高。之後再縮放表格的位置，而不會單獨縮放其整體尺寸。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -72,7 +73,7 @@ function resizeShapes(shapes, widthRatio, heightRatio) {
         const shape = shapes.get_Item(shapeIndex);
         if (java.instanceOf(shape, "com.aspose.slides.ITable")) {
             const table = shape;
-            // 表格的尺寸由欄寬與列高控制。
+            // 表格尺寸受欄寬和列高控制。
             for (let columnIndex = 0; columnIndex < table.getColumns().size(); columnIndex++) {
                 const column = table.getColumns().get_Item(columnIndex);
                 column.setWidth(column.getWidth() * widthRatio);
@@ -95,14 +96,14 @@ function resizeShapes(shapes, widthRatio, heightRatio) {
 
 const presentation = new slides.Presentation("sample.pptx");
 try {
-    // 計算獨立的水平與垂直縮放因子。
+    // 計算獨立的水平與垂直縮放比例。
     const originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(slides.SlideSizeType.A4Paper, slides.SlideSizeScaleType.DoNotScale);
     const targetSize = presentation.getSlideSize().getSize();
     const widthRatio = targetSize.getWidth() / originalSize.getWidth();
     const heightRatio = targetSize.getHeight() / originalSize.getHeight();
 
-    // 調整母片與布局以及個別投影片上定義的形狀。
+    // 調整母片、版面以及各個投影片上定義的形狀大小。
     for (let masterIndex = 0; masterIndex < presentation.getMasters().size(); masterIndex++) {
         const master = presentation.getMasters().get_Item(masterIndex);
         resizeShapes(master.getShapes(), widthRatio, heightRatio);
@@ -127,30 +128,30 @@ finally {
 
 ## **常見問題**
 
-**為什麼在調整投影片大小後形狀會變形或被裁切？**
+**為什麼調整投影片尺寸後形狀會變形或被裁切？**
 
-如果在未縮放形狀的情況下變更投影片大小，形狀會保留原始位置與尺寸，可能會超出投影片範圍。以不同比例縮放寬度與高度也會導致形狀變形。
+如果在變更投影片尺寸時未對形狀進行縮放，形狀會保留原始位置與尺寸，可能會超出投影片範圍。以不同的比例分別縮放寬度與高度也會導致形狀變形。
 
 **提供的程式碼是否適用於所有形狀類型？**
 
-第一個範例直接變更形狀的邊界，僅適用於不含表格的投影片。第二個範例則會分別處理表格。請檢查最終的版面配置，特別是文字與表格，因為這些範例不會縮放字型大小，且表格內容可能限制列高。
+第一個範例直接變更形狀的邊界，適用於不含表格的投影片。第二個範例則會單獨處理表格。請檢查產生的版面，尤其是文字與表格，因為這些範例不會縮放字型大小，且表格內容可能限制列高。
 
-**在調整投影片大小時，如何調整表格大小？**
+**在調整投影片尺寸時，如何重新調整表格大小？**
 
-如同第二個範例所示，先依寬度比例縮放欄寬，並依高度比例設定最小列高，最後再縮放表格的位置。
+如第二個範例所示，先以寬度比例縮放欄寬、以高度比例縮放最小列高，最後再縮放表格的位置。
 
-**此調整大小是否也適用於母片與布局投影片？**
+**此調整大小方式是否適用於母片與版面投影片？**
 
-會。第二個範例會遍歷 [Presentation.getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters) 以及每個母片的 [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getLayoutSlides)，並對其形狀套用相同的調整大小邏輯。
+會的。第二個範例會遍歷 [Presentation.getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters) 以及每個母片的 [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getLayoutSlides)，並對它們的形狀套用相同的重新調整大小邏輯。
 
 **我可以在調整大小的同時變更投影片的方向（直向/橫向）嗎？**
 
-可以。請在變更投影片大小後、讀取目標尺寸前呼叫 [SlideSize.setOrientation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setOrientation)，以讓縮放因子反映最終方向。
+可以。請在變更投影片尺寸後、讀取目標尺寸前，呼叫 [SlideSize.setOrientation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setOrientation)，以確保縮放係數反映最終的方向。
 
-**我可以設定的投影片尺寸有上限嗎？**
+**設定投影片尺寸有沒有上限？**
 
-您可以使用 [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) 設定自訂的投影片尺寸。支援的尺寸亦視簡報格式與開啟檔案的應用程式而定。
+您可以使用 [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) 來指定自訂的投影片尺寸。支援的尺寸也取決於簡報的格式以及開啟檔案的應用程式。
 
-**如何防止具有固定長寬比的形狀被拉伸變形？**
+**如何避免具有固定長寬比的形狀變形？**
 
-對寬度與高度使用相同的縮放比例。若要讓原始版面配置適應新投影片尺寸，請將寬高比例較小者應用於兩個方向的尺寸與位置。此方式可保留比例，但可能在某一側留下未使用的空間。
+對寬度與高度使用相同的縮放係數。若要在新投影片尺寸內容納原始版面，可同時使用寬度與高度比例中較小者作為縮放係數，套用於所有尺寸與位置。這樣可保留比例，但可能在某一邊留下未使用的空間。

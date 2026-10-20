@@ -2,25 +2,30 @@
 title: ปรับขนาดรูปทรงบนสไลด์การนำเสนอใน Python ผ่าน Java
 type: docs
 weight: 110
-url: /th/python-java/re-sizing-shapes-on-slide/
+url: /th/python-java/resizing-shapes-on-slide/
+aliases:
+  - /python-java/re-sizing-shapes-on-slide/
+  - /th/python-java/re-sizing-shapes-on-slide/
 keywords:
-- ปรับขนาดรูปทรง
-- เปลี่ยนขนาดรูปทรง
-- PowerPoint
-- OpenDocument
-- การนำเสนอ
-- Python
-- Java
-- Aspose.Slides
-description: "ปรับขนาดรูปทรงบนสไลด์ PowerPoint และ OpenDocument ได้อย่างง่ายดายด้วย Aspose.Slides สำหรับ Python ผ่าน Java—อัตโนมัติการปรับเลเอาต์สไลด์และเพิ่มประสิทธิภาพการทำงาน."
+  - ปรับขนาดรูปทรง
+  - เปลี่ยนขนาดรูปทรง
+  - PowerPoint
+  - OpenDocument
+  - งานนำเสนอ
+  - Python
+  - Java
+  - Aspose.Slides
+description: "ปรับขนาดรูปทรงบนสไลด์ PowerPoint และ OpenDocument อย่างง่ายดายด้วย Aspose.Slides สำหรับ Python ผ่าน Java—ทำงานปรับแต่งเลเอาต์สไลด์อัตโนมัติและเพิ่มประสิทธิภาพการทำงาน."
 ---
 ## **ภาพรวม**
 
-หนึ่งในคำถามที่พบบ่อยที่สุดจากลูกค้า Aspose.Slides for Python via Java คือวิธีการปรับขนาดรูปทรงเพื่อให้เมื่อขนาดสไลด์เปลี่ยนแปลง ข้อมูลไม่ถูกตัดออก บทความเทคนิคสั้นนี้จะแสดงวิธีทำเช่นนั้น
+เมื่อคุณเปลี่ยนขนาดสไลด์ของงานนำเสนอ คุณอาจต้องปรับขนาดและเปลี่ยนตำแหน่งรูปทรงให้พอดีกับมิติใหม่ บทความนี้แสดงวิธีปรับสเกลรูปทรงด้วยตนเองและวิธีจัดการตารางบนสไลด์ มาสเตอร์ และเลเอาต์
 
 ## **ปรับขนาดรูปทรง**
 
-เพื่อป้องกันไม่ให้รูปทรงเลื่อนตำแหน่งเมื่อขนาดสไลด์เปลี่ยนแปลง ให้ปรับตำแหน่งและขนาดของแต่ละรูปทรงให้สอดคล้องกับเค้าโครงสไลด์ใหม่
+เพื่อรักษาตำแหน่งและขนาดสัมพัทธ์ของแต่ละรูปทรง ให้คูณพิกัดแนวนอนและความกว้างของรูปทรงด้วยอัตราส่วนของความกว้างสไลด์ใหม่ต่อความกว้างเดิม นำอัตราส่วนความสูงที่สอดคล้องไปคูณกับพิกัดแนวตั้งและความสูงของรูปทรง
+
+ตัวอย่างแรกโหลดงานนำเสนอที่สไลด์ไม่มีตาราง เปลี่ยนขนาดสไลด์เป็น A4 และบันทึกผลลัพธ์ ใช้ [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) พร้อมกับ [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale) เพื่อให้ลูปถัดไปควบคุมการสเกล อัตราส่วนไม่มีหน่วย; ตำแหน่งและขนาดของรูปทรงวัดเป็นจุด อัตราส่วนความกว้างและความสูงที่ต่างกันสามารถทำให้รูปทรงบิดเบี้ยว และการเปลี่ยนขนาดรูปทรงจะไม่สเกลขนาดฟอนต์ของมัน
 
 ```python
 import jpype
@@ -29,47 +34,34 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType
 
-# โหลดไฟล์การนำเสนอ.
-presentation = Presentation("sample.ppt")
+presentation = Presentation("sample.pptx")
 try:
-    # รับขนาดสไลด์ดั้งเดิม.
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # เปลี่ยนขนาดสไลด์โดยไม่สเกลรูปทรงที่มีอยู่.
+    # คำนวณปัจจัยสเกลแนวนอนและแนวตั้งอย่างอิสระ.
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # รับขนาดสไลด์ใหม่.
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # ปรับขนาดและตำแหน่งใหม่ของรูปทรงบนแต่ละสไลด์.
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
-
-            # สเกลขนาดรูปทรง.
-            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setWidth(shape.getWidth() * width_ratio)
-
-            # สเกลตำแหน่งรูปทรง.
-            shape.setY(shape.getY() * height_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setX(shape.getX() * width_ratio)
+            shape.setY(shape.getY() * height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="หมายเหตุ" %}} 
-ตารางไม่ต้องการการจัดการพิเศษ: การตั้งค่าความกว้างและความสูงของตารางจะปรับสัดส่วนคอลัมน์และแถวโดยอัตโนมัติ ดังนั้นการปรับความสูงของแถวและความกว้างของคอลัมน์อีกครั้งจะทำให้สัดส่วนถูกนำไปใช้สองครั้ง
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+ตารางต้องการการจัดการแยกต่างหาก: ปรับสเกลความกว้างของคอลัมน์และความสูงของแถวแทนการกำหนดความกว้างและความสูงรวมของตาราง ความสูงของแถวอาจยังคงใหญ่กว่าที่ร้องขอหากเนื้อหาในเซลล์ต้องการพื้นที่มากกว่า
+{{% /alert %}}
 
-โค้ดด้านบนจะเปลี่ยนเฉพาะรูปทรงบนสไลด์เท่านั้น สไลด์มาสเตอร์และสไลด์เลเอาต์จะมีรูปทรงของตนเอง ดังนั้นให้ปรับสเกลของมันด้วยเมื่อคุณต้องการให้การนำเสนอทั้งหมดตามขนาดสไลด์ใหม่:
+ตัวอย่างที่สองรองรับตารางและประมวลผลรูปทรงบนมาสเตอร์และเลเอาต์รวมถึงสไลด์เดี่ยวก่อนบันทึกงานนำเสนอที่ปรับขนาด ตัวช่วยของมันจัดการแต่ละ [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) โดยปรับสเกลความกว้างของคอลัมน์ด้วย [Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth) และความสูงขั้นต่ำของแถวด้วย [Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight) จากนั้นปรับสเกลตำแหน่งของตารางโดยไม่แยกการสเกลมิติรวมของมัน
 
 ```python
 import jpype
@@ -78,54 +70,44 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, Table
+
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, Table):
+            # มิติของตารางถูกควบคุมโดยความกว้างของคอลัมน์และความสูงของแถว.
+            for column in shape.getColumns():
+                column.setWidth(column.getWidth() * width_ratio)
+
+            for row in shape.getRows():
+                row.setMinimalHeight(row.getMinimalHeight() * height_ratio)
+        else:
+            shape.setWidth(shape.getWidth() * width_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
+
+        shape.setX(shape.getX() * width_ratio)
+        shape.setY(shape.getY() * height_ratio)
+
 
 presentation = Presentation("sample.pptx")
 try:
-    # รับขนาดสไลด์ดั้งเดิม.
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # เปลี่ยนขนาดสไลด์โดยไม่สเกลรูปทรงที่มีอยู่.
+    # คำนวณปัจจัยสเกลแนวนอนและแนวตั้งอย่างอิสระ.
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
-    # presentation.getSlideSize().setOrientation(SlideOrientation.Portrait)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # รับขนาดสไลด์ใหม่.
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # ปรับขนาดรูปทรงที่กำหนดบนมาสเตอร์และเลเอาต์รวมถึงสไลด์แต่ละอัน.
     for master in presentation.getMasters():
-        for shape in master.getShapes():
-            # สเกลขนาดรูปทรง.
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # สเกลตำแหน่งรูปทรง.
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(master.getShapes(), width_ratio, height_ratio)
 
         for layout_slide in master.getLayoutSlides():
-            for shape in layout_slide.getShapes():
-                # สเกลขนาดรูปทรง.
-                shape.setHeight(shape.getHeight() * height_ratio)
-                shape.setWidth(shape.getWidth() * width_ratio)
-
-                # สเกลตำแหน่งรูปทรง.
-                shape.setY(shape.getY() * height_ratio)
-                shape.setX(shape.getX() * width_ratio)
+            resize_shapes(layout_slide.getShapes(), width_ratio, height_ratio)
 
     for slide in presentation.getSlides():
-        for shape in slide.getShapes():
-            # สเกลขนาดรูปทรง.
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # สเกลตำแหน่งรูปทรง.
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(slide.getShapes(), width_ratio, height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
@@ -134,23 +116,30 @@ finally:
 
 ## **คำถามที่พบบ่อย**
 
-**ทำไมรูปทรงจึงบิดเบี้ยวหรือถูกตัดออกหลังจากปรับขนาดสไลด์?**  
-เมื่อทำการปรับขนาดสไลด์ รูปทรงจะคงตำแหน่งและขนาดเดิมไว้ เว้นแต่สเกลจะถูกเปลี่ยนแปลงโดยเจตนา ซึ่งอาจทำให้เนื้อหาถูกตัดออกหรือรูปทรงเลื่อนตำแหน่ง
+**ทำไมรูปทรงจึงบิดเบี้ยวหรือถูกตัดหลังจากปรับขนาดสไลด์?**
 
-**โค้ดที่ให้มาทำงานกับประเภทรูปทรงทั้งหมดหรือไม่?**  
-ใช่ การกำหนดความสูงและความกว้างทำงานกับกล่องข้อความ รูปภาพ แผนภูมิ และตารางได้เช่นเดียวกัน
+หากคุณเปลี่ยนขนาดสไลด์โดยไม่มีการสเกลรูปทรง รูปทรงจะคงตำแหน่งและขนาดเดิมและอาจยื่นออกนอกสไลด์ การสเกลความกว้างและความสูงด้วยอัตราส่วนที่ต่างกันก็อาจทำให้รูปทรงบิดเบี้ยวได้
 
-**ฉันจะแปรขนาดตารางเมื่อปรับขนาดสไลด์อย่างไร?**  
-ปรับสเกลของรูปทรงตารางเองเช่นเดียวกับรูปทรงอื่น ๆ แถวและคอลัมน์จะปรับตามสัดส่วนโดยอัตโนมัติ ดังนั้นไม่ต้องปรับสเกลของพวกมันอีกครั้งหลังจากนั้น
+**โค้ดที่ให้มาทำงานได้กับทุกประเภทของรูปทรงหรือไม่?**
 
-**การปรับขนาดนี้จะทำงานกับสไลด์มาสเตอร์และสไลด์เลเอาต์หรือไม่?**  
-ใช่ แต่คุณควรวนลูปผ่าน [Presentation.getMasters](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getMasters) และ [Presentation.getLayoutSlides](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getLayoutSlides) และใช้ตรรกะการสเกลเดียวกันกับรูปทรงของพวกมันเพื่อให้แน่ใจว่าการนำเสนอทั้งหมดสอดคล้องกัน
+ตัวอย่างแรกเปลี่ยนขอบเขตของรูปทรงโดยตรงและออกแบบมาสำหรับสไลด์ที่ไม่มีตาราง ตัวอย่างที่สองจัดการตารางแยกต่างหาก ตรวจสอบเลเอาต์ที่ได้ โดยเฉพาะข้อความและตาราง เนื่องจากตัวอย่างเหล่านี้ไม่ได้สเกลขนาดฟอนต์และเนื้อหาตารางอาจจำกัดความสูงของแถว
 
-**ฉันสามารถเปลี่ยนทิศทางของสไลด์ (แนวตั้ง/แนวนอน) พร้อมกับการปรับขนาดได้หรือไม่?**  
-ใช่ คุณสามารถใช้ [SlideSize.setOrientation](https://reference.aspose.com/slides/th/python-java/aspose.slides/slidesize/#setOrientation) เพื่อเปลี่ยนทิศทางได้ อย่าลืมตั้งค่าตรรกะการสเกลให้สอดคล้องเพื่อรักษาเค้าโครง
+**ฉันจะปรับขนาดตารางเมื่อปรับขนาดสไลด์อย่างไร?**
 
-**มีข้อจำกัดเรื่องขนาดสไลด์ที่ฉันตั้งค่าได้หรือไม่?**  
-Aspose.Slides รองรับขนาดที่กำหนดเองได้ แต่ขนาดที่ใหญ่มากอาจส่งผลต่อประสิทธิภาพหรือความเข้ากันได้กับบางเวอร์ชันของ PowerPoint
+ปรับสเกลความกว้างของคอลัมน์ตามอัตราส่วนความกว้างและความสูงขั้นต่ำของแถวตามอัตราส่วนความสูง จากนั้นปรับสเกลตำแหน่งของตารางตามที่แสดงในตัวอย่างที่สอง
 
-**ฉันจะป้องกันไม่ให้รูปทรงที่ล็อครูปแบบอัตราส่วนคงที่บิดเบี้ยวได้อย่างไร?**  
-คุณสามารถตรวจสอบเมธอด [getAspectRatioLocked](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshapelock/#getAspectRatioLocked) ของการล็อกรูปทรงก่อนทำการสเกล หากมันล็อกอยู่ ให้ปรับความกว้างหรือความสูงโดยอัตราส่วนเทียบกันแทนการสเกลแยกกัน
+**การปรับขนาดนี้จะทำงานกับมาสเตอร์สไลด์และเลเอาต์สไลด์หรือไม่?**
+
+ใช่ ตัวอย่างที่สองวนลูปผ่าน [Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) และ [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides) ของแต่ละมาสเตอร์ แล้วใช้ตรรกะการปรับขนาดเดียวกันกับรูปทรงของพวกมัน
+
+**ฉันสามารถเปลี่ยนแนวสไลด์ (แนวตั้ง/แนวนอน) พร้อมกับการปรับขนาดได้หรือไม่?**
+
+ใช่ เรียก [SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation) หลังจากเปลี่ยนขนาดสไลด์และก่อนอ่านมิติเป้าหมาย เพื่อให้ปัจจัยสเกลสะท้อนแนวสุดท้าย
+
+**มีข้อจำกัดใดต่อขนาดสไลด์ที่ฉันสามารถตั้งค่าได้หรือไม่?**
+
+คุณสามารถกำหนดมิติสไลด์แบบกำหนดเองได้ด้วย [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) มิติที่สนับสนุนยังขึ้นกับรูปแบบงานนำเสนอและแอปพลิเคชันที่ใช้เปิดไฟล์
+
+**ฉันจะป้องกันไม่ให้รูปทรงที่มีอัตราส่วนคงที่บิดเบี้ยวได้อย่างไร?**
+
+ใช้ปัจจัยสเกลเดียวกันสำหรับความกว้างและความสูง เพื่อให้เลเอาต์เดิมพอดีกับมิติสไลด์ใหม่ ให้ใช้ค่าอัตราส่วนที่เล็กกว่ารหว่างความกว้างและความสูงสำหรับทั้งสองมิติและตำแหน่ง วิธีนี้รักษาส่วนประกอบไว้ แต่อาจทำให้เหลือพื้นที่ว่างที่ขอบหนึ่ง

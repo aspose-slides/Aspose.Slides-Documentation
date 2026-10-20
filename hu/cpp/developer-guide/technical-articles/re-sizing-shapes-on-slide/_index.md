@@ -4,6 +4,7 @@ type: docs
 weight: 130
 url: /hu/cpp/resizing-shapes-on-slide/
 aliases:
+  - /cpp/alakzatok-átméretezése-dián/
   - /hu/cpp/re-sizing-shapes-on-slide/
 keywords:
 - alakzat átméretezése
@@ -13,17 +14,17 @@ keywords:
 - bemutató
 - C++
 - Aspose.Slides
-description: "Könnyedén átméretezheti az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for C++ segítségével—automatizálja a diaelrendezés beállításait és növelje a termelékenységet."
+description: "Könnyedén átméretezhet alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for C++ segítségével—automatizálja a diaelrendezés módosítását és növelje a hatékonyságot."
 ---
 ## **Áttekintés**
 
-Ha megváltoztatja egy bemutató dia méretét, előfordulhat, hogy át kell méreteznie és át kell helyeznie annak alakzatait, hogy illeszkedjenek az új méretekhez. Ez a cikk bemutatja, hogyan lehet kézzel méretezni az alakzatokat, és hogyan kezeljük a táblákat diákon, mesterdiákon és elrendezéseken.
+Amikor megváltoztatja egy bemutató diaméretét, lehet, hogy át kell méretezni és át kell helyezni a benne lévő alakzatokat az új méretekhez igazítva. Ez a cikk bemutatja, hogyan lehet kézzel méretezni az alakzatokat, és hogyan kell kezelni a táblázatokat diákon, mester-diákon és elrendezéseken.
 
 ## **Alakzatok átméretezése**
 
-Az egyes alakzatok relatív pozíciójának és méretének megőrzéséhez szorozza meg a vízszintes koordinátákat és a szélességet az új dia szélességének és az eredeti szélességnek arányával. Alkalmazza a megfelelő magasságarányt a függőleges koordinátákra és a magasságra.
+Az egyes alakzatok relatív pozíciójának és méretének megőrzéséhez szorozza meg a vízszintes koordinátákat és a szélességet az új diaszélesség és az eredeti szélesség arányával. Alkalmazza a megfelelő magassárrátát a függőleges koordinátákra és a magasságra.
 
-Az első példa betölt egy olyan bemutatót, amelynek diái nem tartalmaznak táblákat, A4-re változtatja a dia méretét, majd elmenti az eredményt. A [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) metódust a [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) értékkel használja, hogy a későbbi ciklus szabályozza a méretezést. Az arányok dimenzió nélküli értékek; az alakzatok pozíciói és méretei pontban vannak megadva. A különböző szélesség- és magasságarányok torzíthatják az alakzatokat, és az alakzat méretének megváltoztatása nem méretezi át a betűméreteket.
+Az első példa betölt egy olyan bemutatót, amelynek diái nem tartalmaznak táblázatokat, megváltoztatja a diaméretet A4-re, és elmenti az eredményt. A [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) módszert a [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) értékkel használja, hogy a későbbi ciklus irányítsa a méretezést. Az arányok dimenzió nélküli értékek; az alakzatok pozíciói és méretei pontban vannak megadva. A különböző szélesség- és magassárráták torzíthatják az alakzatokat, és egy alakzat méretének megváltoztatása nem méretezi át a betűméreteket.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -67,10 +68,10 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-A táblákat külön kell kezelni: a teljes táblaszélesség és magasság helyett az oszlopszélességeket és sormagasságokat kell méretezni. A sormagasságok nagyobbak lehetnek a kért értéknél, ha a cella tartalma több helyet igényel.
+A táblázatokat külön kell kezelni: a táblázat teljes szélességét és magasságát nem kell beállítani, hanem az oszlopszélességeket és sormagasságokat kell méretezni. A sormagasságok nagyobbak maradhatnak a kért értéknél, ha a cella tartalma több helyet igényel.
 {{% /alert %}}
 
-A második példa támogatja a táblákat, és a mesterdiákon, elrendezéseken, valamint az egyes diákon lévő alakzatokat dolgozza fel a méretezett bemutató mentése előtt. Segítője minden [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) elemet úgy kezel, hogy méretezi a [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) és [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) metódusokat. Ezután a táblázat pozícióját méretezi anélkül, hogy külön méretezné a teljes méreteit.
+A második példa támogatja a táblázatokat, és a mester-diák és elrendezések, valamint az egyes diák alakzatainak feldolgozása után menti az átméretezett bemutatót. Segédfüggvénye minden egyes [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/)-t úgy kezel, hogy méretezi a [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) és [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) értékeket. Ezután méretezi a táblázat pozícióját anélkül, hogy külön méretezné a táblázat teljes méreteit.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -102,7 +103,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Számolja ki a független vízszintes és függőleges méretezési tényezőket.
+// Számítsa ki a független vízszintes és függőleges méretezési tényezőket.
 auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 auto targetSize = presentation->get_SlideSize()->get_Size();
@@ -138,7 +139,7 @@ auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, flo
     }
 };
 
-// Átméretezi a mestereken, elrendezéseken és egyedi diákon definiált alakzatokat.
+// Alakzatok átméretezése a master-diákon, elrendezéseken és az egyes diákon.
 for (auto&& master : presentation->get_Masters())
 {
     resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
@@ -158,32 +159,32 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Gyakran Ismételt Kérdések**
+## **GYIK**
 
 **Miért torzulnak vagy vágódnak le az alakzatok a dia átméretezése után?**
 
-Ha a dia méretét anélkül változtatja meg, hogy az alakzatokat méretezné, azok megőrzik eredeti pozíciójukat és méretüket, és kilóghatnak a diáról. A szélesség és magasság különböző arányú méretezése szintén torzíthatja az alakzatokat.
+Ha a diaméretet átméretezés nélkül változtatja meg, az alakzatok megtartják eredeti pozíciójukat és méretüket, és a dia szélén túl is kinyúlhatnak. A szélesség és magasság különböző arányokkal való méretezése szintén torzíthatja az alakzatokat.
 
-**A megadott kód minden alakzattípusra működik?**
+**Működik a megadott kód minden alakzattípusra?**
 
-Az első példa közvetlenül módosítja az alakzat határait, és olyan diákra vonatkozik, amelyek nem tartalmaznak táblákat. A második példa külön kezeli a táblákat. Ellenőrizze a végeredmény elrendezését, különösen a szöveget és a táblákat, mivel ezek a példák nem méreteznek betűméreteket, és a táblázat tartalma korlátozhatja a sormagasságokat.
+Az első példa közvetlenül módosítja az alakzat határait, és táblázat nélküli diákra szánt. A második példa a táblázatokat külön kezeli. Ellenőrizze a kapott elrendezést, különösen a szöveget és a táblázatokat, mivel ezek a példák nem méretezik a betűméreteket, és a táblázattartalom korlátozhatja a sormagasságokat.
 
-**Hogyan méretezzem át a táblákat a dia átméretezésekor?**
+**Hogyan méretezhetem át a táblázatokat a dia átméretezésekor?**
 
-Méretezze az oszlopszélességeket a szélességi arány szerint, a minimális sormagasságokat a magassági arány szerint, majd méretezze a táblázat pozícióját, ahogyan a második példában látható.
+Méretezze az oszlopszélességeket a szélességarány szerint, a minimális sormagasságokat a magasságarány szerint, majd méretezze a táblázat pozícióját, ahogyan a második példában látható.
 
-**Ez az átméretezés működik-e mesterdiákon és elrendezési diákon?**
+**Működik ez az átméretezés mester-diákon és elrendezés-diákon is?**
 
-Igen. A második példa végigiterál a [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) és minden mester [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) elemein, és ugyanazt az átméretezési logikát alkalmazza az azokban lévő alakzatokra.
+Igen. A második példa végigiterál a [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) és minden mester [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) elemein, és ugyanazt az átméretezési logikát alkalmazza az alakzataikra.
 
-**Megváltoztathatom egy dia orientációját (álló/ fekvő) az átméretezés mellett?**
+**Megváltoztathatom a dia tájolását (álló/fekvő) az átméretezés közben?**
 
-Igen. Állítsa be a [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) értéket a dia méretének megváltoztatása után és a célméretek lekérdezése előtt, hogy a méretezési tényezők a végső orientációt tükrözzék.
+Igen. A [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) beállítása a diaméret módosítása után, a célméretek lekérése előtt biztosítja, hogy a méretezési tényezők a végső tájolást tükrözzék.
 
-**Van korlátozás a beállítható dia méretére?**
+**Van korlát a beállítható diaméretre?**
 
-Egyéni dia méreteket adhat meg a [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) segítségével. A támogatott méretek a bemutató formátumától és a fájlt megnyitó alkalmazástól is függenek.
+A [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) segítségével megadhat egyedi diaméreteket. A támogatott méretek a bemutató formátumától és a fájlt megnyitó alkalmazástól is függnek.
 
 **Hogyan akadályozhatom meg, hogy a rögzített képarányú alakzatok torzuljanak?**
 
-Használja ugyanazt a méretezési tényezőt a szélességhez és a magassághoz. Az eredeti elrendezés új dia méreteibe való illesztéséhez a szélességi és magassági arányok közül a kisebbet alkalmazza mindkét dimenzióra és pozícióra. Ez megőrzi az arányokat, de előfordulhat, hogy az egyik oldalnál üres tér marad.
+Használja ugyanazt a méretezési tényezőt a szélességhez és a magassághoz. Az eredeti elrendezés új diaméretekbe való illesztéséhez vegye a szélesség- és magassárráták közül a kisebbet mind a méretekhez, mind a pozíciókhoz. Ez megőrzi az arányokat, de egy él mentén üres hely maradhat.

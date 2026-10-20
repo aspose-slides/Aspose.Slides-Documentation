@@ -1,26 +1,31 @@
 ---
-title: Ändra storlek på former på presentationsbilder i Python via Java
+title: Ändra storlek på former i presentationsbilder i Python via Java
 type: docs
 weight: 110
-url: /sv/python-java/re-sizing-shapes-on-slide/
+url: /sv/python-java/resizing-shapes-on-slide/
+aliases:
+  - /python-java/omstorla-former-paa-bild/
+  - /sv/python-java/re-sizing-shapes-on-slide/
 keywords:
 - ändra storlek på form
-- ändra formens storlek
+- ändra formstorlek
 - PowerPoint
 - OpenDocument
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Ändra enkelt storlek på former på PowerPoint- och OpenDocument-bilder med Aspose.Slides för Python via Java – automatisera justeringar av bildlayout och öka produktiviteten."
+description: "Lätt att ändra storlek på former i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Python via Java—automatisera layoutjusteringar av bilder och öka produktiviteten."
 ---
 ## **Översikt**
 
-En av de vanligaste frågorna från Aspose.Slides för Python via Java‑kunder är hur man ändrar storlek på former så att, när bildstorleken ändras, data inte blir avklippt. Denna korta tekniska artikel visar hur man gör det.
+När du ändrar en presentations bildstorlek kan du också behöva ändra storlek på och flytta dess former så att de passar de nya dimensionerna. Den här artikeln visar hur man skalar former manuellt och hur man hanterar tabeller på bilder, master‑bilder och layout‑bilder.
 
 ## **Ändra storlek på former**
 
-För att förhindra att former blir feljusterade när bildstorleken ändras, uppdatera varje forms position och dimensioner så att de anpassas till den nya bildlayouten.
+För att bevara varjeformes relativa position och storlek multiplicerar du dess horisontella koordinater och bredd med förhållandet mellan den nya bildbredden och den ursprungliga bredden. Applicera motsvarande höjdförhållande på dess vertikala koordinater och höjd.
+
+Det första exemplet laddar en presentation vars bilder inte innehåller några tabeller, ändrar bildstorleken till A4 och sparar resultatet. Det använder [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) med [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale) så att den efterföljande loopen styr skalningen. Förhållandena är enhetslösa; formernas positioner och dimensioner mäts i punkter. Olika bredd‑ och höjdförhållanden kan förvränga former, och att ändra en forms dimensioner skalar inte dess teckenstorlek.
 
 ```python
 import jpype
@@ -29,49 +34,34 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType
 
-# Ladda presentationsfilen.
-presentation = Presentation("sample.ppt")
+presentation = Presentation("sample.pptx")
 try:
-    # Hämta den ursprungliga bildstorleken.
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # Ändra bildstorleken utan att skala befintliga former.
+    # Beräkna oberoende horisontella och vertikala skalningsfaktorer.
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # Hämta den nya bildstorleken.
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # Ändra storlek och position på former på varje bild.
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
-
-            # Skala formens storlek.
-            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setWidth(shape.getWidth() * width_ratio)
-
-            # Skala formens position.
-            shape.setY(shape.getY() * height_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setX(shape.getX() * width_ratio)
+            shape.setY(shape.getY() * height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}} 
+{{% alert color="info" title="Obs" %}}
+Tabeller kräver separat hantering: skala deras kolumnbredder och radhöjder istället för att tilldela tabellens totala bredd och höjd. Radhöjder kan förbli större än begärt om cellinnehållet kräver mer utrymme.
+{{% /alert %}}
 
-Tabeller kräver ingen speciell behandling: att ange en tabs bredde och höjd skalar om dess kolumner och rader proportionellt, så att skala radhöjder och kolumnbredder igen skulle applicera förhållandet två gånger.
-
-{{% /alert %}} 
-
-Koden ovan ändrar endast formerna på bilderna. Masternbilder och layoutbilder behåller sina egna former, så skala även dem när du vill att hela presentationen ska följa den nya bildstorleken:
+Det andra exemplet stöder tabeller och behandlar former på master‑bilder och layout‑bilder samt enskilda bilder innan den sparade, omdimensionerade presentationen. Dess hjälpfunktion hanterar varje [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) genom att skala kolumnbredder med [Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth) och minimala radhöjder med [Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight). Den skalar sedan tabellens position utan att separat skala dess totala dimensioner.
 
 ```python
 import jpype
@@ -80,54 +70,44 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, Table
+
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, Table):
+            # Tabellens dimensioner styrs av kolumnbredder och radhöjder.
+            for column in shape.getColumns():
+                column.setWidth(column.getWidth() * width_ratio)
+
+            for row in shape.getRows():
+                row.setMinimalHeight(row.getMinimalHeight() * height_ratio)
+        else:
+            shape.setWidth(shape.getWidth() * width_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
+
+        shape.setX(shape.getX() * width_ratio)
+        shape.setY(shape.getY() * height_ratio)
+
 
 presentation = Presentation("sample.pptx")
 try:
-    # Hämta den ursprungliga bildstorleken.
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # Ändra bildstorleken utan att skala befintliga former.
+    # Beräkna oberoende horisontella och vertikala skalningsfaktorer.
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
-    # presentation.getSlideSize().setOrientation(SlideOrientation.Portrait)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
-    # Hämta den nya bildstorleken.
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # Ändra storlek på former som definierats på master‑bilder och layouter samt enskilda bilder.
     for master in presentation.getMasters():
-        for shape in master.getShapes():
-            # Skala formens storlek.
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # Skala formens position.
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(master.getShapes(), width_ratio, height_ratio)
 
         for layout_slide in master.getLayoutSlides():
-            for shape in layout_slide.getShapes():
-                # Skala formens storlek.
-                shape.setHeight(shape.getHeight() * height_ratio)
-                shape.setWidth(shape.getWidth() * width_ratio)
-
-                # Skala formens position.
-                shape.setY(shape.getY() * height_ratio)
-                shape.setX(shape.getX() * width_ratio)
+            resize_shapes(layout_slide.getShapes(), width_ratio, height_ratio)
 
     for slide in presentation.getSlides():
-        for shape in slide.getShapes():
-            # Skala formens storlek.
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # Skala formens position.
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
+        resize_shapes(slide.getShapes(), width_ratio, height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
@@ -136,30 +116,30 @@ finally:
 
 ## **Vanliga frågor**
 
-**Varför blir former förvrängda eller avklippta efter att en bild har ändrat storlek?**
+**Varför blir former förvrängda eller avklippta efter att en bild har ändrats i storlek?**
 
-När en bild ändras i storlek behåller formerna sin ursprungliga position och storlek om inte skalan ändras explicit. Detta kan leda till att innehåll blir beskuret eller att former blir feljusterade.
+Om du ändrar bildens storlek utan att skala formerna behåller de sina ursprungliga positioner och dimensioner och kan sträcka sig utanför bilden. Att skala bredd och höjd med olika förhållanden kan också förvränga former.
 
 **Fungerar den medföljande koden för alla typer av former?**
 
-Ja. Att ange höjd och bredd fungerar för textrutor, bilder, diagram och tabeller lika väl.
+Det första exemplet ändrar formens gränser direkt och är avsett för bilder utan tabeller. Det andra exemplet hanterar tabeller separat. Kontrollera den resulterande layouten, särskilt text och tabeller, eftersom dessa exempel inte skalar teckenstorlekar och tabellinnehåll kan begränsa radhöjder.
 
-**Hur ändrar jag storlek på tabeller när jag ändrar storlek på en bild?**
+**Hur ändrar jag storlek på tabeller när jag ändrar en bilds storlek?**
 
-Skala själva tabellformen, exakt som vilken annan form som helst. Dess rader och kolumner följer proportionellt, så skala dem inte igen efteråt.
+Skala kolumnbredder med breddförhållandet och minimala radhöjder med höjdförhållandet, skala sedan tabellens position, som visas i det andra exemplet.
 
-**Kommer denna storleksändring att fungera för masternbilder och layoutbilder?**
+**Fungerar denna omdimensionering för master‑bilder och layout‑bilder?**
 
-Ja, men du bör också iterera genom [Presentation.getMasters](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getMasters) och [Presentation.getLayoutSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getLayoutSlides) och tillämpa samma skalningslogik på deras former för att säkerställa konsekvens i hela presentationen.
+Ja. Det andra exemplet itererar genom [Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) och varje masters [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides) och tillämpar samma omdimensioneringslogik på deras former.
 
-**Kan jag ändra orienteringen på en bild (porträtt/landskap) tillsammans med storleksändringen?**
+**Kan jag ändra orienteringen på en bild (stående/liggande) samtidigt som jag ändrar storlek?**
 
-Ja. Du kan använda [SlideSize.setOrientation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidesize/#setOrientation) för att ändra orienteringen. Se till att du anpassar skalningslogiken därefter för att bevara layouten.
+Ja. Anropa [SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation) efter att du ändrat bildstorleken och innan du läser mål‑dimensionerna, så att skalningsfaktorerna återspeglar den slutgiltiga orienteringen.
 
-**Finns det någon gräns för vilken bildstorlek jag kan ange?**
+**Finns det en gräns för vilken bildstorlek jag kan ange?**
 
-Aspose.Slides stödjer anpassade storlekar, men mycket stora storlekar kan påverka prestanda eller kompatibilitet med vissa versioner av PowerPoint.
+Du kan ange anpassade bilddimensioner med [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize). De stödda dimensionerna beror också på presentationsformatet och den applikation som används för att öppna filen.
 
 **Hur kan jag förhindra att former med fast bildförhållande blir förvrängda?**
 
-Du kan kontrollera metoden [getAspectRatioLocked](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshapelock/#getAspectRatioLocked) för formens lås innan skalning. Om den är låst, justera bredd eller höjd proportionellt istället för att skala dem individuellt.
+Använd samma skalningsfaktor för bredd och höjd. För att få den ursprungliga layouten att passa inom de nya bilddimensionerna, använd den mindre av bredd‑ och höjdförhållandena för både dimensioner och positioner. Detta bevarar proportionerna men kan lämna oanvänt utrymme längs en kant.

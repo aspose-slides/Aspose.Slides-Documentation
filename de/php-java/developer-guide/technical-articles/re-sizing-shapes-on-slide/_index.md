@@ -4,26 +4,27 @@ type: docs
 weight: 130
 url: /de/php-java/resizing-shapes-on-slide/
 aliases:
+  - /php-java/re-sizing-shapes-on-slide/
   - /de/php-java/re-sizing-shapes-on-slide/
 keywords:
-  - Form skalieren
-  - Formgröße ändern
-  - PowerPoint
-  - OpenDocument
-  - Präsentation
-  - PHP
-  - Aspose.Slides
-description: "Einfach Formen auf PowerPoint- und OpenDocument-Folien mit Aspose.Slides für PHP via Java skalieren — automatisieren Sie Folienlayout-Anpassungen und steigern Sie die Produktivität."
+- Formgröße ändern
+- Größe der Form ändern
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PHP
+- Aspose.Slides
+description: "Einfach Formen auf PowerPoint- und OpenDocument-Folien mit Aspose.Slides für PHP via Java skalieren - Folienlayout-Anpassungen automatisieren und die Produktivität steigern."
 ---
 ## **Übersicht**
 
-Wenn Sie die Foliengröße einer Präsentation ändern, müssen Sie möglicherweise auch die Formen skalieren und neu positionieren, damit sie in die neuen Abmessungen passen. Dieser Artikel zeigt, wie man Formen manuell skaliert und wie man Tabellen auf Folien, Master-Folien und Layouts behandelt.
+Wenn Sie die Foliengröße einer Präsentation ändern, müssen Sie möglicherweise auch die Formen skalieren und neu positionieren, damit sie zu den neuen Abmessungen passen. Dieser Artikel zeigt, wie Sie Formen manuell skalieren und wie Sie Tabellen auf Folien, Masterfolien und Layouts behandeln.
 
 ## **Formen skalieren**
 
-Um die relative Position und Größe jeder Form beizubehalten, multiplizieren Sie ihre horizontalen Koordinaten und die Breite mit dem Verhältnis der neuen Folienbreite zur ursprünglichen Breite. Wenden Sie das entsprechende Höhenverhältnis auf ihre vertikalen Koordinaten und die Höhe an.
+Um die relative Position und Größe jeder Form beizubehalten, multiplizieren Sie ihre horizontalen Koordinaten und Breite mit dem Verhältnis der neuen Folienbreite zur ursprünglichen Breite. Wenden Sie das entsprechende Höhenverhältnis auf die vertikalen Koordinaten und die Höhe an.
 
-Das erste Beispiel lädt eine Präsentation, deren Folien keine Tabellen enthalten, ändert die Foliengröße auf A4 und speichert das Ergebnis. Es verwendet [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/) zusammen mit [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/php-java/aspose.slides/slidesizescaletype/), sodass die nachfolgende Schleife die Skalierung steuert. Die Verhältnisse sind einheitenlos; Positionen und Abmessungen der Formen werden in Punkten gemessen. Unterschiedliche Breiten- und Höhenverhältnisse können Formen verzerren, und das Ändern der Formabmessungen skaliert die Schriftgrößen nicht.
+Das erste Beispiel lädt eine Präsentation, deren Folien keine Tabellen enthalten, ändert die Foliengröße zu A4 und speichert das Ergebnis. Es verwendet [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/) mit [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/php-java/aspose.slides/slidesizescaletype/) sodass die nachfolgende Schleife die Skalierung steuert. Die Verhältnisse sind einheitenlos; Formpositionen und -abmessungen werden in Punkten gemessen. Unterschiedliche Breiten- und Höhenverhältnisse können Formen verzerren, und das Ändern der Formabmessungen skaliert die Schriftgrößen nicht.
 
 ```php
 use aspose\slides\Presentation;
@@ -59,10 +60,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-Tabellen erfordern eine separate Behandlung: Skalieren Sie deren Spaltenbreiten und Zeilenhöhen, anstatt die gesamte Breite und Höhe der Tabelle zuzuweisen. Zeilenhöhen können größer bleiben als angefordert, wenn der Zellinhalt mehr Platz benötigt.
+Tabellen erfordern eine separate Behandlung: Skalieren Sie ihre Spaltenbreiten und Zeilenhöhen, anstatt die Gesamtabmessungen der Tabelle festzulegen. Zeilenhöhen können größer bleiben als angefordert, wenn der Zellinhalt mehr Platz benötigt.
 {{% /alert %}}
 
-Das zweite Beispiel unterstützt Tabellen und verarbeitet Formen auf Master-Folien und Layouts sowie einzelne Folien, bevor die verkleinerte Präsentation gespeichert wird. Sein Helfer verarbeitet jede [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) durch Skalieren der Spaltenbreiten mit [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) und der minimalen Zeilenhöhen mit [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/). Anschließend wird die Position der Tabelle skaliert, ohne ihre Gesamtabmessungen separat zu skalieren.
+Das zweite Beispiel unterstützt Tabellen und verarbeitet Formen auf Masterfolien und Layouts sowie einzelne Folien, bevor die skalierte Präsentation gespeichert wird. Sein Helfer verarbeitet jede [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) indem er die Spaltenbreiten mit [Column::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/column/setwidth/) und die minimalen Zeilenhöhen mit [Row::setMinimalHeight](https://reference.aspose.com/slides/php-java/aspose.slides/row/setminimalheight/) skaliert. Anschließend wird die Position der Tabelle skaliert, ohne ihre Gesamtabmessungen separat zu skalieren.
 
 ```php
 use aspose\slides\Presentation;
@@ -110,7 +111,7 @@ try {
 
     $resizer = new ShapeResizer();
 
-    // Formen, die auf Master‑Folien und Layouts sowie einzelnen Folien definiert sind, skalieren.
+    // Formen skalieren, die auf Masterfolien und Layouts sowie auf einzelnen Folien definiert sind.
     for ($masterIndex = 0; $masterIndex < java_values($presentation->getMasters()->size()); $masterIndex++) {
         $master = $presentation->getMasters()->get_Item($masterIndex);
         $resizer->resizeShapes($master->getShapes(), $widthRatio, $heightRatio);
@@ -135,30 +136,30 @@ finally {
 
 ## **FAQ**
 
-**Warum werden Formen nach dem Ändern der Foliengröße verzerrt oder abgeschnitten?**
+**Warum sind Formen nach dem Ändern der Foliengröße verzerrt oder abgeschnitten?**
 
-Wenn Sie die Foliengröße ändern, ohne die Formen zu skalieren, behalten sie ihre ursprünglichen Positionen und Abmessungen bei und können über die Folie hinausreichen. Das Skalieren von Breite und Höhe mit unterschiedlichen Verhältnissen kann ebenfalls Formen verzerren.
+Wenn Sie die Foliengröße ändern, ohne die Formen zu skalieren, behalten sie ihre ursprünglichen Positionen und Abmessungen bei und können über die Folie hinausragen. Das Skalieren von Breite und Höhe mit unterschiedlichen Verhältnissen kann ebenfalls Formen verzerren.
 
 **Funktioniert der bereitgestellte Code für alle Formtypen?**
 
-Das erste Beispiel ändert die Formgrenzen direkt und ist für Folien ohne Tabellen vorgesehen. Das zweite Beispiel behandelt Tabellen separat. Überprüfen Sie das resultierende Layout, insbesondere Text und Tabellen, da diese Beispiele die Schriftgrößen nicht skalieren und Tabelleninhalte die Zeilenhöhen einschränken können.
+Das erste Beispiel ändert die Formgrenzen direkt und ist für Folien ohne Tabellen gedacht. Das zweite Beispiel behandelt Tabellen separat. Überprüfen Sie das resultierende Layout, insbesondere Text und Tabellen, da diese Beispiele die Schriftgrößen nicht skalieren und der Tabelleninhalt die Zeilenhöhen einschränken kann.
 
 **Wie kann ich Tabellen beim Ändern der Foliengröße skalieren?**
 
-Skalieren Sie die Spaltenbreiten mit dem Breitenverhältnis und die minimalen Zeilenhöhen mit dem Höhenverhältnis, und skalieren Sie anschließend die Position der Tabelle, wie im zweiten Beispiel gezeigt.
+Skalieren Sie die Spaltenbreiten anhand des Breitenverhältnisses und die minimalen Zeilenhöhen anhand des Höhenverhältnisses, und skalieren Sie anschließend die Position der Tabelle, wie im zweiten Beispiel gezeigt.
 
-**Funktioniert diese Skalierung für Master-Folien und Layout-Folien?**
+**Funktioniert dieses Skalieren für Masterfolien und Layoutfolien?**
 
 Ja. Das zweite Beispiel iteriert über [Presentation::getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getmasters/) und über die [MasterSlide::getLayoutSlides](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/getlayoutslides/) jedes Masters und wendet dieselbe Skalierungslogik auf deren Formen an.
 
-**Kann ich die Ausrichtung einer Folie (Hochformat/Landschaft) zusammen mit der Skalierung ändern?**
+**Kann ich die Ausrichtung einer Folie (Portrait/Landscape) zusammen mit der Skalierung ändern?**
 
-Ja. Rufen Sie [SlideSize::setOrientation](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setorientation/) nach dem Ändern der Foliengröße und vor dem Auslesen der Zielabmessungen auf, damit die Skalierungsfaktoren die endgültige Ausrichtung berücksichtigen.
+Ja. Rufen Sie [SlideSize::setOrientation](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setorientation/) nach dem Ändern der Foliengröße und vor dem Auslesen der Zielabmessungen auf, sodass die Skalierungsfaktoren die endgültige Ausrichtung berücksichtigen.
 
-**Gibt es ein Limit für die Foliengröße, die ich festlegen kann?**
+**Gibt es eine Grenze für die Foliengröße, die ich festlegen kann?**
 
-Sie können benutzerdefinierte Folienabmessungen mit [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/) festlegen. Die unterstützten Abmessungen hängen außerdem vom Präsentationsformat und von der Anwendung ab, mit der die Datei geöffnet wird.
+Sie können benutzerdefinierte Folienmaße mit [SlideSize::setSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/setsize/) angeben. Die unterstützten Maße hängen außerdem vom Präsentationsformat und von der Anwendung ab, die die Datei öffnet.
 
 **Wie kann ich verhindern, dass Formen mit festem Seitenverhältnis verzerrt werden?**
 
-Verwenden Sie denselben Skalierungsfaktor für Breite und Höhe. Um das ursprüngliche Layout in den neuen Folienabmessungen zu erhalten, nutzen Sie das kleinere der Breiten- und Höhenverhältnisse für beide Dimensionen und Positionen. Dadurch bleiben die Proportionen erhalten, es kann jedoch entlang einer Kante ungenutzter Raum entstehen.
+Verwenden Sie denselben Skalierungsfaktor für Breite und Höhe. Um das ursprüngliche Layout in die neuen Folienabmessungen einzupassen, verwenden Sie das kleinere der beiden Verhältnisse für beide Dimensionen und Positionen. Dadurch bleiben die Proportionen erhalten, es kann jedoch entlang einer Kante ungenutzter Raum verbleiben.

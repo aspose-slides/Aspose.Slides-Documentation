@@ -1,9 +1,11 @@
 ---
-title: Redimensionar Formas em Apresentações com Python
-linktitle: Redimensionamento de Formas
+title: Redimensionar formas em slides de apresentação em Python
 type: docs
 weight: 130
-url: /pt/python-net/re-sizing-shapes-on-slide/
+url: /pt/python-net/resizing-shapes-on-slide/
+aliases:
+  - /python-net/re-sizing-shapes-on-slide/
+  - /pt/python-net/re-sizing-shapes-on-slide/
 keywords:
 - redimensionar forma
 - alterar tamanho da forma
@@ -12,110 +14,83 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Redimensione facilmente formas em slides PowerPoint e OpenDocument com Aspose.Slides para Python via .NET—automatize ajustes de layout de slides e aumente a produtividade."
+description: "Redimensione facilmente formas em slides PowerPoint e OpenDocument com Aspose.Slides para Python via .NET — automatize ajustes de layout de slides e aumente a produtividade."
 ---
 ## **Visão geral**
 
-Uma das dúvidas mais comuns dos clientes do Aspose.Slides for Python é como redimensionar formas de modo que, ao mudar o tamanho do slide, os dados não sejam cortados. Este breve artigo técnico mostra como fazer isso.
+Ao alterar o tamanho do slide de uma apresentação, pode ser necessário redimensionar e reposicionar suas formas para que se ajustem às novas dimensões. Este artigo mostra como dimensionar formas manualmente e como lidar com tabelas em slides, mestres e layouts.
 
-## **Redimensionar Formas**
+## **Redimensionar formas**
 
-Para impedir que as formas fiquem desalinhadas quando o tamanho do slide mudar, atualize a posição e as dimensões de cada forma para que elas se ajustem ao novo layout do slide.
+Para preservar a posição e o tamanho relativos de cada forma, multiplique suas coordenadas horizontais e largura pela razão entre a nova largura do slide e a largura original. Aplique a razão de altura correspondente às suas coordenadas verticais e altura.
 
-```py
+O primeiro exemplo carrega uma apresentação cujos slides não contêm tabelas, altera o tamanho do slide para A4 e salva o resultado. Ele usa [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) com [SlideSizeScaleType.DO_NOT_SCALE](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/) para que o loop subsequente controle o dimensionamento. As razões são adimensionais; as posições e dimensões das formas são medidas em pontos. Razões diferentes de largura e altura podem distorcer as formas, e alterar as dimensões de uma forma não redimensiona seus tamanhos de fonte.
+
+```python
 import aspose.slides as slides
 
-# Carregar o arquivo de apresentação.
 with slides.Presentation("sample.pptx") as presentation:
-    # Obter o tamanho original do slide.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Alterar o tamanho do slide sem dimensionar as formas existentes.
+    # Calcular fatores de escala horizontal e vertical independentes.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Obter o novo tamanho do slide.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # Redimensionar e reposicionar formas em cada slide.
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # Dimensionar o tamanho da forma.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Dimensionar a posição da forma.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+            shape.x *= width_ratio
+            shape.y *= height_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+As tabelas exigem tratamento separado: dimensione suas larguras de coluna e alturas de linha em vez de atribuir a largura e altura gerais da tabela. As alturas das linhas podem permanecer maiores que o solicitado se o conteúdo da célula exigir mais espaço.
+{{% /alert %}}
 
-Se um slide contiver uma tabela, o código acima não funcionará corretamente. Nesse caso, cada célula da tabela deve ser redimensionada.
+O segundo exemplo suporta tabelas e processa formas em mestres e layouts, bem como em slides individuais, antes de salvar a apresentação redimensionada. Seu auxiliar manipula cada [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) dimensionando [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) e [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/). Em seguida, dimensiona a posição da tabela sem dimensionar separadamente suas dimensões globais.
 
-{{% /alert %}} 
-
-Use o código a seguir para redimensionar slides que contêm tabelas. Para tabelas, definir a largura ou altura é um caso especial: você deve ajustar individualmente as alturas das linhas e as larguras das colunas para mudar o tamanho geral da tabela.
-
-```py
+```python
 import aspose.slides as slides
 
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, slides.Table):
+            # As dimensões da tabela são controladas pelas larguras das colunas e alturas das linhas.
+            for column in shape.columns:
+                column.width *= width_ratio
+
+            for row in shape.rows:
+                row.minimal_height *= height_ratio
+        else:
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+
+        shape.x *= width_ratio
+        shape.y *= height_ratio
+
+
 with slides.Presentation("sample.pptx") as presentation:
-    # Obter o tamanho original do slide.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Alterar o tamanho do slide sem dimensionar as formas existentes.
+    # Calcular fatores de escala horizontal e vertical independentes.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Obter o novo tamanho do slide.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # Redimensionar formas definidas em mestres e layouts, bem como em slides individuais.
     for master in presentation.masters:
-        for shape in master.shapes:
-            # Dimensionar o tamanho da forma.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Dimensionar a posição da forma.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+        resize_shapes(master.shapes, width_ratio, height_ratio)
 
         for layout_slide in master.layout_slides:
-            for shape in layout_slide.shapes:
-                # Dimensionar o tamanho da forma.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # Dimensionar a posição da forma.
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
+            resize_shapes(layout_slide.shapes, width_ratio, height_ratio)
 
     for slide in presentation.slides:
-        for shape in slide.shapes:
-            # Dimensionar o tamanho da forma.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Dimensionar a posição da forma.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
-            if type(shape) is slides.Table:
-                for row in shape.rows:
-                    row.minimal_height = row.minimal_height * height_ratio
-                for column in shape.columns:
-                    column.width = column.width * width_ratio
+        resize_shapes(slide.shapes, width_ratio, height_ratio)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
@@ -124,28 +99,28 @@ with slides.Presentation("sample.pptx") as presentation:
 
 **Por que as formas ficam distorcidas ou cortadas após redimensionar um slide?**
 
-Ao redimensionar um slide, as formas mantêm sua posição e tamanho originais, a menos que a escala seja alterada explicitamente. Isso pode fazer com que o conteúdo seja recortado ou as formas fiquem desalinhadas.
+Se você alterar o tamanho do slide sem dimensionar as formas, elas mantêm suas posições e dimensões originais e podem se estender além do slide. Dimensionar a largura e a altura por razões diferentes também pode distorcer as formas.
 
 **O código fornecido funciona para todos os tipos de forma?**
 
-O exemplo básico funciona para a maioria dos tipos de forma (caixas de texto, imagens, gráficos etc.). No entanto, para tabelas, é necessário tratar linhas e colunas separadamente, já que a altura e a largura de uma tabela são determinadas pelas dimensões das células individuais.
+O primeiro exemplo altera os limites da forma diretamente e destina‑se a slides sem tabelas. O segundo exemplo lida com tabelas separadamente. Verifique o layout resultante, particularmente texto e tabelas, pois esses exemplos não dimensionam tamanhos de fonte e o conteúdo da tabela pode limitar as alturas das linhas.
 
 **Como redimensionar tabelas ao redimensionar um slide?**
 
-É preciso percorrer todas as linhas e colunas da tabela e redimensionar suas alturas e larguras proporcionalmente, como mostrado no segundo exemplo de código.
+Dimensione as larguras das colunas pela razão de largura e as alturas mínimas das linhas pela razão de altura, depois dimensione a posição da tabela, como mostrado no segundo exemplo.
 
-**Esse redimensionamento funciona para slides mestre e slides de layout?**
+**Esse redimensionamento funciona para slides mestres e slides de layout?**
 
-Sim, mas você também deve percorrer [Masters](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/masters/) e [Layout slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/layout_slides/) e aplicar a mesma lógica de escala às suas formas para garantir consistência em toda a apresentação.
+Sim. O segundo exemplo percorre [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) e os [MasterSlide.layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) de cada mestre e aplica a mesma lógica de redimensionamento às suas formas.
 
-**Posso mudar a orientação de um slide (retrato/paisagem) junto com o redimensionamento?**
+**Posso alterar a orientação de um slide (retrato/paisagem) juntamente com o redimensionamento?**
 
-Sim. Você pode usar [presentation.slide_size.orientation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/islidesize/orientation/) para mudar a orientação. Certifique-se de definir a lógica de escala adequadamente para preservar o layout.
+Sim. Defina [SlideSize.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/orientation/) após alterar o tamanho do slide e antes de ler as dimensões alvo, para que os fatores de escala reflitam a orientação final.
 
 **Existe um limite para o tamanho de slide que posso definir?**
 
-O Aspose.Slides suporta tamanhos personalizados, mas tamanhos muito grandes podem afetar o desempenho ou a compatibilidade com algumas versões do PowerPoint.
+Você pode especificar dimensões de slide personalizadas com [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/). As dimensões suportadas também dependem do formato da apresentação e do aplicativo usado para abrir o arquivo.
 
 **Como impedir que formas com proporção fixa fiquem distorcidas?**
 
-Verifique a propriedade `aspect_ratio_locked` da forma antes de escalar. Se estiver bloqueada, ajuste a largura ou a altura proporcionalmente ao invés de escalá‑las individualmente.
+Use o mesmo fator de escala para largura e altura. Para ajustar o layout original dentro das novas dimensões do slide, use a menor das razões de largura e altura para ambas as dimensões e posições. Isso preserva as proporções, mas pode deixar espaço não utilizado ao longo de uma borda.

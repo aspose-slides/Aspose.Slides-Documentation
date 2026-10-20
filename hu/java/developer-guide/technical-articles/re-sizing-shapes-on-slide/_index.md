@@ -1,29 +1,30 @@
 ---
-title: Alakzatok átméretezése prezentációs diákon Java-ban
+title: "Alakzatok átméretezése a bemutató diákon Java-ban"
 type: docs
 weight: 130
 url: /hu/java/resizing-shapes-on-slide/
 aliases:
+  - /java/újraméretezés-alakzatok-dián/
   - /hu/java/re-sizing-shapes-on-slide/
 keywords:
-- alakzat átméretezése
-- alakzat méretének módosítása
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Java
-- Aspose.Slides
-description: "Könnyedén átméretezheti az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for Java segítségével—automatizálja a diaelrendezés módosítását és növelje a hatékonyságot."
+  - "alakzat átméretezése"
+  - "alakzat méretének módosítása"
+  - PowerPoint
+  - OpenDocument
+  - bemutató
+  - Java
+  - Aspose.Slides
+description: "Könnyedén átméretezheti az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for Java segítségével—automatizálja a diaelrendezés módosítását és növelje a termelékenységet."
 ---
 ## **Áttekintés**
 
-Ha megváltoztatja egy prezentáció dia méretét, előfordulhat, hogy át kell méreteznie és újrarendeznie az alakzatokat, hogy illeszkedjenek az új méretekhez. Ez a cikk bemutatja, hogyan lehet manuálisan méretezni az alakzatokat, valamint hogyan kell kezelni a táblázatokat a diákon, a mester- és elrendezési diákon.
+Ha megváltoztatja a bemutató dia méretét, előfordulhat, hogy át kell méretezni és újra kell helyezni az alakzatokat az új méretekhez igazodva. Ez a cikk bemutatja, hogyan méretezhetőek kézzel az alakzatok, és hogyan kezelhetők a táblák a diákon, mesterdiákon és elrendezésekben.
 
 ## **Alakzatok átméretezése**
 
-Az egyes alakzatok relatív pozíciójának és méretének megőrzéséhez szorozza meg a vízszintes koordinátákat és a szélességet az új dia szélességének és az eredeti szélességnek az arányával. Alkalmazza a megfelelő magasságarányt a függőleges koordinátákra és a magasságra.
+Az egyes alakzatok relatív pozíciójának és méretének megőrzése érdekében szorozza meg a vízszintes koordinátákat és a szélességet az új dia szélességének és az eredeti szélességnek az arányával. A megfelelő magasságarányt alkalmazza a függőleges koordinátákra és a magasságra.
 
-Az első példa betölt egy prezentációt, amelynek diái nem tartalmaznak táblázatot, A4-re változtatja a dia méretét, majd elmenti az eredményt. A [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) metódust használja a [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) beállítással, hogy a későbbi ciklus szabályozza a méretezést. Az arányok egység nélküli értékek; az alakzatok pozíciói és méretei pontban vannak mérve. A különböző szélesség‑ és magasságarányok torzíthatják az alakzatokat, és az alakzat méretének megváltoztatása nem méretezi át a betűméreteket.
+Az első példa betölti azt a bemutatót, amely diái nem tartalmaznak táblákat, A4-re változtatja a dia méretét, majd elmenti az eredményt. A [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) metódust használja a [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) értékkel, hogy a későbbi ciklus vezérelje a méretezést. Az arányok mértékegység nélküli értékek; az alakzatok pozíciói és méretei pontokban vannak megadva. A különböző szélesség- és magasságarányok torzíthatják az alakzatokat, és egy alakzat méretének megváltoztatása nem méretezi át a betűméreteket.
 
 ```java
 import com.aspose.slides.*;
@@ -31,7 +32,7 @@ import java.awt.geom.Dimension2D;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Számolja ki a független vízszintes és függőleges méretezési tényezőket.
+    // Számítsa ki a független vízszintes és függőleges méretezési tényezőket.
     Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
     Dimension2D targetSize = presentation.getSlideSize().getSize();
@@ -55,10 +56,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-Táblázatok külön kezelést igényelnek: a oszlopszélességeket és a sormagasságokat kell méretezni a táblázat teljes szélességének és magasságának beállítása helyett. A sormagasságok nagyobbak maradhatnak a kért méretnél, ha a cella tartalma több helyet igényel.
+A táblákat külön kell kezelni: a oszlopok szélességét és a sorok magasságát kell méretezni a tábla teljes szélességének és magasságának hozzárendelése helyett. A sormagasságok nagyobbak lehetnek a kért értéknél, ha a cella tartalma több helyet igényel.
 {{% /alert %}}
 
-A második példa támogatja a táblázatokat, és a mester‑ és elrendezési diákon, valamint az egyedi diákon lévő alakzatokat is feldolgozza, mielőtt elmenti a méretezett prezentációt. A segédfüggvénye minden [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) objektumot úgy kezel, hogy az oszlopszélességeket a [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) metódussal, a minimális sormagasságokat pedig a [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-) metódussal méretezi. Ezután a táblázat pozícióját méretezi anélkül, hogy külön méretezné a teljes méreteket.
+A második példa támogatja a táblákat, és a mester- és elrendezési dia alakzatait, valamint az egyedi diák alakzatait is feldolgozza az átméretezett bemutató mentése előtt. A segítője minden [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) esetén az oszlopszélességeket a [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) metódussal, a minimális sormagasságokat pedig az [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-) metódussal méretezi. Ezután a tábla pozícióját méretezi, anélkül, hogy külön méretezné a teljes dimenziókat.
 
 ```java
 import com.aspose.slides.*;
@@ -69,7 +70,7 @@ class ShapeResizer {
         for (IShape shape : shapes) {
             if (shape instanceof ITable) {
                 ITable table = (ITable) shape;
-                // A táblázat méreteit az oszlopszélességek és a sormagasságok hatázzák meg.
+                // A tábla méreteit az oszlopszélességek és sormagasságok határozzák meg.
                 for (IColumn column : table.getColumns()) {
                     column.setWidth(column.getWidth() * widthRatio);
                 }
@@ -91,7 +92,7 @@ class ShapeResizer {
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Számolja ki a független vízszintes és függőleges méretezési tényezőket.
+    // Számítsa ki a független vízszintes és függőleges méretezési tényezőket.
     Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
     Dimension2D targetSize = presentation.getSlideSize().getSize();
@@ -100,7 +101,7 @@ try {
 
     ShapeResizer resizer = new ShapeResizer();
 
-    // Átméretezi a mesterek és elrendezési diák, valamint az egyedi diák alakzatait.
+    // Átméretezze a mesterek és elrendezések, valamint az egyéni diák által definiált alakzatokat.
     for (IMasterSlide master : presentation.getMasters()) {
         resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
@@ -124,28 +125,28 @@ finally {
 
 **Miért torzulnak vagy vágódnak le az alakzatok egy dia átméretezése után?**
 
-Ha a dia méretét anélkül változtatja meg, hogy az alakzatokat méretezi, azok megtartják eredeti pozíciójukat és méretüket, és a dia határain túlra nyúlhatnak. A szélesség és magasság különböző arányokkal való méretezése szintén torzíthatja az alakzatokat.
+Ha a dia méretét a alakzatok méretezése nélkül változtatja, azok megőrzik eredeti pozíciójukat és méretüket, és a dia határain túlnyúlhatnak. A szélesség és magasság különböző arányokkal való méretezése szintén torzíthatja az alakzatokat.
 
-**Működik a megadott kód minden alakzattípusra?**
+**A megadott kód minden alakzattípusra működik?**
 
-Az első példa közvetlenül módosítja az alakzat határait, és olyan diákra van szánva, amelyek nem tartalmaznak táblázatot. A második példa a táblázatokat külön kezeli. Ellenőrizze a kapott elrendezést, különösen a szöveget és a táblázatokat, mert ezek a példák nem méretezik át a betűméreteket, és a táblázattartalom korlátozhatja a sormagasságokat.
+Az első példa közvetlenül módosítja az alakzatok korlátait, és olyan diákra van szánva, amelyek nem tartalmaznak táblákat. A második példa külön kezeli a táblákat. Ellenőrizze az eredményes elrendezést, különösen a szöveget és a táblákat, mivel ezek a példák nem méreteznek betűméreteket, és a tábla tartalma korlátozhatja a sormagasságokat.
 
-**Hogyan méretezhetem át a táblázatokat egy dia átméretezésekor?**
+**Hogyan méretezhetem át a táblákat, amikor egy diát átméretezek?**
 
-Az oszlopszélességeket a szélességarány, a minimális sormagasságokat a magasságarány szerint méretezi, majd a táblázat pozícióját méretezi, ahogyan a második példában is látható.
+A szélességarány segítségével méretezze az oszlopszélességeket, a magasságarány segítségével a minimális sormagasságokat, majd a tábla pozícióját méretezze, ahogy a második példában látható.
 
-**Működik ez az átméretezés a mester‑ és elrendezési diákon is?**
+**Ez az átméretezés működik a mesterdiák és az elrendezésdiák esetén?**
 
-Igen. A második példa bejárja a [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) és minden mester [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) elemet, és ugyanazt az átméretezési logikát alkalmazza az ottani alakzatokra.
+Igen. A második példa végigiterál a [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) és az egyes mesterdiák [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) metódusain, majd ugyanazt az átméretezési logikát alkalmazza az alakzataikra.
 
-**Megváltoztathatom a dia tájolását (álló/fekvő) az átméretezés közben?**
+**Megváltoztathatom egy dia tájolását (álló/fekvő) az átméretezéssel együtt?**
 
-Igen. Hívja meg a [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) metódust a dia méretének megváltoztatása után és a céldimenziók beolvasása előtt, így a méretezési tényezők a végső tájolást tükrözik.
+Igen. Hívja a [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) metódust a dia méretének megváltoztatása után, és a célméretek beolvasása előtt, hogy a méretezési tényezők a végső tájolást tükrözzék.
 
-**Van korlátja a beállítható dia méretnek?**
+**Van korláta a beállítható dia méretnek?**
 
-Egyedi dia méreteket adhat meg a [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-) metódussal. A támogatott méretek továbbá a prezentáció formátumától és az fájlt megnyitó alkalmazástól függenek.
+A [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-) metódussal egyedi dia méreteket adhat meg. A támogatott méretek a bemutató formátumától és a fájlt megnyitó alkalmazástól is függenek.
 
-**Hogyan kerülhetem el, hogy a rögzített képarányú alakzatok torzuljanak?**
+**Hogyan akadályozhatom meg, hogy a rögzített méretarányú alakzatok torzuljanak?**
 
-Használja ugyanazt a méretezési tényezőt a szélességhez és a magassághoz. Az eredeti elrendezés új dia méretekhez való illesztéséhez a kisebbik, szélesség‑ vagy magasságarány alapján méretezze mindkét dimenziót és pozíciót. Ez megőrzi az arányokat, de előfordulhat, hogy az egyik szélén üres hely marad.
+Használja ugyanazt a méretezési tényezőt a szélességhez és a magassághoz. Az eredeti elrendezés új dia méretekhez való illesztéséhez a szélesség és magasság arányai közül a kisebbet alkalmazza mind a méretekre, mind a pozíciókra. Ez megőrzi az arányokat, de előfordulhat, hogy az egyik élén üres hely marad.

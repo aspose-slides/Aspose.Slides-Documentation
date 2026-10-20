@@ -1,56 +1,65 @@
 ---
-title: تغییر اندازه اشکال در اسلایدهای ارائه
+title: "تغییر اندازه اشکال در اسلایدهای ارائه با C++"
 type: docs
-weight: 100
-url: /fa/cpp/re-sizing-shapes-on-slide/
+weight: 130
+url: /fa/cpp/resizing-shapes-on-slide/
+aliases:
+  - /cpp/re-sizing-shapes-on-slide/
+  - /fa/cpp/re-sizing-shapes-on-slide/
 keywords:
-- تغییر اندازه شکل
-- تغییر اندازه شکل
+- "تغییر اندازه شکل"
+- "تغییر سایز شکل"
 - PowerPoint
 - OpenDocument
-- ارائه
+- presentation
 - C++
 - Aspose.Slides
-description: "به‌راحتی اشکال را در اسلایدهای PowerPoint و OpenDocument با Aspose.Slides برای C++ تغییر اندازه دهید—تنظیمات طرح اسلاید را خودکار کنید و بهره‌وری را افزایش دهید."
+description: "به‌راحتی اشکال را در اسلایدهای PowerPoint و OpenDocument با Aspose.Slides برای C++ تغییر اندازه دهید—تنظیم خودکار چیدمان اسلاید و افزایش بهره‌وری."
 ---
-## **مروری کلی**
+## **مرور کلی**
 
-یکی از رایج‌ترین سوالاتی که مشتریان Aspose.Slides برای C++ می‌پرسند این است که چگونه شکل‌ها را طوری تغییر اندازه دهند که هنگام تغییر اندازه اسلاید، داده‌ها بریده نشوند. این مقالهٔ فنی کوتاه نحوهٔ انجام این کار را نشان می‌دهد.
+زمانی که اندازه اسلاید یک ارائه را تغییر می‌دهید، ممکن است نیاز به تغییر اندازه و جابجایی اشکال آن داشته باشید تا با ابعاد جدید مطابقت پیدا کنند. این مقاله نشان می‌دهد چگونه اشکال را به‌صورت دستی مقیاس‌بندی کنید و چطور جدول‌ها را در اسلایدها، ماسترها و لایه‌ها مدیریت کنید.
 
-## **تغییر اندازه شکل‌ها**
+## **تغییر اندازه اشکال**
 
-برای جلوگیری از عدم تراز شدن شکل‌ها هنگام تغییر اندازهٔ اسلاید، موقعیت و ابعاد هر شکل را به‌گونه‌ای به‌روزرسانی کنید که با طرح جدید اسلاید سازگار باشد.
+برای حفظ موقعیت و اندازه نسبی هر شکل، مختصات افقی و عرض آن را در نسبت عرض اسلاید جدید به عرض اصلی ضرب کنید. نسبت ارتفاع مربوطه را بر روی مختصات عمودی و ارتفاع آن اعمال کنید.
+
+مثال اول یک ارائه را که اسلایدهای آن شامل جدول نیستند بارگذاری می‌کند، اندازه اسلاید را به A4 تغییر می‌دهد و نتیجه را ذخیره می‌کند. این مثال از [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) همراه با [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) استفاده می‌کند تا حلقه بعدی مقیاس‌بندی را کنترل کند. نسبت‌ها بدون واحد هستند؛ موقعیت و ابعاد اشکال بر حسب پوینت اندازه‌گیری می‌شوند. نسبت‌های متفاوت عرض و ارتفاع می‌توانند اشکال را کشیده یا فشرده کنند و تغییر ابعاد یک شکل اندازهٔ قلم آن را مقیاس‌بندی نمی‌کند.
 
 ```cpp
-// بارگذاری فایل ارائه.
-auto presentation = MakeObject<Presentation>(u"sample.ppt");
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
 
-// دریافت اندازهٔ اصلی اسلاید.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// تغییر اندازهٔ اسلاید بدون مقیاس‌بندی اشکال موجود.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+// محاسبه عوامل مقیاس افقی و عمودی مستقل.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// دریافت اندازهٔ جدید اسلاید.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-// تغییر اندازه و تغییر موقعیت اشکال در هر اسلاید.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // مقیاس‌بندی اندازهٔ شکل.
-        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
-
-        // مقیاس‌بندی موقعیت شکل.
-        shape->set_Y(shape->get_Y() * heightRatio);
+        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
 }
 
@@ -58,83 +67,92 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}} 
-اگر اسلاید شامل جدول باشد، کد بالا به‌درستی کار نخواهد کرد. در این صورت، باید هر سلول جدول را جداگانه تغییر اندازه دهید.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+جدول‌ها به‌صورت جداگانه باید مدیریت شوند: عرض ستون‌ها و ارتفاع ردیف‌ها را مقیاس‌بندی کنید به جای اختصاص عرض و ارتفاع کلی جدول. ارتفاع ردیف‌ها ممکن است بزرگ‌تر از مقدار درخواست‌شده باقی بماند اگر محتوای سلول به فضای بیشتری نیاز داشته باشد.
+{{% /alert %}}
 
-از کد زیر در پروژهٔ خود برای تغییر اندازهٔ اسلایدهای حاوی جدول استفاده کنید. برای جداول، تنظیم عرض یا ارتفاع یک حالت خاص است: باید ارتفاع ردیف‌ها و عرض ستون‌ها را به‌صورت جداگانه تنظیم کنید تا اندازهٔ کلی جدول تغییر کند.
+مثال دوم از جدول‌ها پشتیبانی می‌کند و اشکال را در ماسترها و لایه‌ها و همچنین اسلایدهای منفرد قبل از ذخیرهٔ ارائهٔ تغییر اندازه‌ یافته پردازش می‌نماید. کمک‌کنندهٔ آن هر [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) را با مقیاس‌بندی [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) و [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) مدیریت می‌کند. سپس موقعیت جدول را بدون مقیاس‌بندی مجزا از ابعاد کلی آن مقیاس می‌دهد.
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// دریافت اندازهٔ اصلی اسلاید.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-// تغییر اندازهٔ اسلاید بدون مقیاس‌بندی اشکال موجود.
+// محاسبه عوامل مقیاس افقی و عمودی مستقل.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// دریافت اندازهٔ جدید اسلاید.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
+auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, float heightRatio)
+{
+    for (auto&& shape : shapes)
+    {
+        if (ObjectExt::Is<ITable>(shape))
+        {
+            auto table = ExplicitCast<ITable>(shape);
+            // ابعاد جدول توسط عرض ستون‌ها و ارتفاع ردیف‌ها کنترل می‌شود.
+            for (auto&& column : table->get_Columns())
+            {
+                column->set_Width(column->get_Width() * widthRatio);
+            }
 
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
+            for (auto&& row : table->get_Rows())
+            {
+                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
+            }
+        }
+        else
+        {
+            shape->set_Width(shape->get_Width() * widthRatio);
+            shape->set_Height(shape->get_Height() * heightRatio);
+        }
 
+        shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
+    }
+};
+
+// تغییر اندازه اشکال تعریف‌شده در ماسترها و لایه‌ها و همچنین اسلایدهای منفرد.
 for (auto&& master : presentation->get_Masters())
 {
-    for (auto&& shape : master->get_Shapes())
-    {
-        // مقیاس‌بندی اندازهٔ شکل.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // مقیاس‌بندی موقعیت شکل.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-    }
+    resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
 
     for (auto&& layoutSlide : master->get_LayoutSlides())
     {
-        for (auto&& shape : layoutSlide->get_Shapes())
-        {
-            // مقیاس‌بندی اندازهٔ شکل.
-            shape->set_Height(shape->get_Height() * heightRatio);
-            shape->set_Width(shape->get_Width() * widthRatio);
-
-            // مقیاس‌بندی موقعیت شکل.
-            shape->set_Y(shape->get_Y() * heightRatio);
-            shape->set_X(shape->get_X() * widthRatio);
-        }
+        resizeShapes(layoutSlide->get_Shapes(), widthRatio, heightRatio);
     }
 }
 
 for (auto&& slide : presentation->get_Slides())
 {
-    for (auto&& shape : slide->get_Shapes())
-    {
-        // مقیاس‌بندی اندازهٔ شکل.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // مقیاس‌بندی موقعیت شکل.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-
-        if (ObjectExt::Is<ITable>(shape))
-        {
-            SharedPtr<ITable> table = ExplicitCast<ITable>(shape);
-            for (auto&& row : table->get_Rows())
-            {
-                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
-            }
-            for (auto&& column : table->get_Columns())
-            {
-                column->set_Width(column->get_Width() * widthRatio);
-            }
-        }
-    }
+    resizeShapes(slide->get_Shapes(), widthRatio, heightRatio);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
@@ -143,23 +161,30 @@ presentation->Dispose();
 
 ## **سوالات متداول**
 
-**چرا پس از تغییر اندازهٔ اسلاید، شکل‌ها دچار انحراف یا قطع می‌شوند؟**  
-هنگام تغییر اندازهٔ اسلاید، شکل‌ها موقعیت و اندازهٔ اولیهٔ خود را حفظ می‌کنند مگر این که مقیاس به‌طور صریح تغییر داده شود. این می‌تواند منجر به برش محتوا یا عدم تراز شدن شکل‌ها شود.
+**چرا پس از تغییر اندازه اسلاید اشکال کشیده یا قطع می‌شوند؟**
 
-**آیا کد ارائه‌شده برای تمام انواع شکل‌ها کار می‌کند؟**  
-مثال پایه برای اکثر انواع شکل‌ها (جعبه‌های متن، تصاویر، نمودارها و غیره) کار می‌کند. اما برای جداول، باید ردیف‌ها و ستون‌ها را جداگانه مدیریت کنید، زیرا ارتفاع و عرض جدول توسط ابعاد سلول‌های تک‌تکه تعیین می‌شود.
+اگر اندازه اسلاید را بدون مقیاس‌بندی اشکال تغییر دهید، آن‌ها موقعیت و ابعاد اصلی خود را حفظ می‌کنند و ممکن است خارج از اسلاید گسترش یابند. مقیاس‌بندی عرض و ارتفاع با نسبت‌های متفاوت نیز می‌تواند اشکال را کشیده کند.
 
-**چگونه هنگام تغییر اندازهٔ اسلاید، جداول را تغییر اندازه دهم؟**  
-باید تمام ردیف‌ها و ستون‌های جدول را پیمایش کنید و ارتفاع و عرض آن‌ها را به‌صورت نسبت‌مند تغییر اندازه دهید، همان‌طور که در مثال دوم کد نشان داده شده است.
+**آیا کد ارائه شده برای تمام انواع اشکال کار می‌کند؟**
 
-**آیا این تغییر اندازه برای اسلایدهای اصلی (Master) و اسلایدهای طرح‌بندی (Layout) نیز کار می‌کند؟**  
-بله، اما همچنین باید از طریق [Masters](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_masters/) و [Layout slides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_layoutslides/) حلقه بزنید و منطق مقیاس‌بندی یکسان را بر شکل‌های آن‌ها اعمال کنید تا سازگاری در سراسر ارائه حفظ شود.
+مثال اول مرزهای شکل را به‌صورت مستقیم تغییر می‌دهد و برای اسلایدهایی بدون جدول در نظر گرفته شده است. مثال دوم جدول‌ها را به‌صورت جداگانه مدیریت می‌کند. چیدمان حاصل را بررسی کنید، به‌ویژه متن و جدول‌ها، زیرا این مثال‌ها اندازهٔ قلم را مقیاس‌بندی نمی‌کنند و محتوای جدول می‌تواند ارتفاع ردیف‌ها را محدود کند.
 
-**آیا می‌توانم جهت اسلاید (پرتره/لنداسکیپ) را همراه با تغییر اندازه تغییر دهم؟**  
-بله. می‌توانید از [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidesize/set_orientation/) برای تغییر جهت استفاده کنید. مطمئن شوید منطق مقیاس‌بندی را متناسب تنظیم کنید تا طرح حفظ شود.
+**چگونه هنگام تغییر اندازه اسلاید، جدول‌ها را نیز تغییر اندازه دهم؟**
 
-**آیا محدودیتی برای اندازهٔ اسلایدی که می‌توانم تنظیم کنم وجود دارد؟**  
-Aspose.Slides از اندازه‌های سفارشی پشتیبانی می‌کند، اما اندازه‌های بسیار بزرگ ممکن است بر عملکرد یا سازگاری با برخی نسخه‌های PowerPoint تأثیر بگذارد.
+عرض ستون‌ها را با نسبت عرض و حداقل ارتفاع ردیف‌ها را با نسبت ارتفاع مقیاس‌بندی کنید، سپس موقعیت جدول را مقیاس دهید، همان‌طور که در مثال دوم نشان داده شده است.
 
-**چگونه می‌توانم از تغییر شکل اشکال با نسبت ابعاد ثابت جلوگیری کنم؟**  
-قبل از مقیاس‌بندی می‌توانید متد `get_AspectRatioLocked` شکل را بررسی کنید. اگر قفل شده باشد، به‌جای مقیاس‌بندی جداگانهٔ عرض و ارتفاع، عرض یا ارتفاع را به‌صورت نسبت‌مند تنظیم کنید.
+**آیا این تغییر اندازه برای اسلایدهای ماستر و لایهٔ اسلاید کار می‌کند؟**
+
+بله. مثال دوم از طریق [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) و هر [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) ماستر پیمایش می‌کند و همان منطق تغییر اندازه را بر روی اشکال آنها اعمال می‌کند.
+
+**آیا می‌توانم جهت اسلاید (پرتره/لنداسکیپ) را همراه با تغییر اندازه تغییر دهم؟**
+
+بله. پس از تغییر اندازه اسلاید و قبل از خواندن ابعاد هدف، [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) را تنظیم کنید تا عوامل مقیاس جهت نهایی را منعکس کنند.
+
+**آیا محدودیتی برای اندازهٔ اسلاید که می‌توانم تنظیم کنم وجود دارد؟**
+
+می‌توانید ابعاد سفارشی اسلاید را با استفاده از [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) مشخص کنید. ابعاد پشتیبانی‌شده همچنین به قالب ارائه و برنامه‌ای که برای باز کردن فایل استفاده می‌شود بستگی دارد.
+
+**چگونه می‌توانم از کشیده شدن اشکالی که نسبت ابعاد ثابت دارند جلوگیری کنم؟**
+
+از همان عامل مقیاس برای عرض و ارتفاع استفاده کنید. برای سازگار کردن چیدمان اصلی با ابعاد جدید اسلاید، نسبت کوچک‌تر بین عرض و ارتفاع را برای هر دو بُعد و موقعیت‌ها به کار ببرید. این کار نسبت‌ها را حفظ می‌کند اما ممکن است فضای نامستخدمی در یک سمت باقی بگذارد.

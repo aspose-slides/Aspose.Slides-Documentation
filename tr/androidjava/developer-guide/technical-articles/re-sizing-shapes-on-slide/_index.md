@@ -1,36 +1,37 @@
 ---
-title: Android'de Sunum Slaytlarındaki Şekilleri Yeniden Boyutlandır
+title: Android'de Sunum Slaytlarında Şekilleri Yeniden Boyutlandır
 type: docs
 weight: 130
 url: /tr/androidjava/resizing-shapes-on-slide/
 aliases:
+  - /androidjava/sekil-boyutlandirma-slide/
   - /tr/androidjava/re-sizing-shapes-on-slide/
 keywords:
-- şekil yeniden boyutlandır
-- şekil boyutunu değiştir
+- şekil boyutlandırma
+- şekil boyutunu değiştirme
 - PowerPoint
 - OpenDocument
 - sunum
 - Android
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java ile PowerPoint ve OpenDocument slaytlarında şekilleri kolayca yeniden boyutlandırın—slayt düzeni ayarlamalarını otomatikleştirin ve verimliliği artırın."
+description: "Aspose.Slides for Android via Java kullanarak PowerPoint ve OpenDocument slaytlarındaki şekilleri kolayca yeniden boyutlandırın—slayt düzeni ayarlamalarını otomatikleştirin ve verimliliği artırın."
 ---
 ## **Genel Bakış**
 
-Bir sunumun slayt boyutunu değiştirdiğinizde, şekilleri yeni boyutlara uydurmak için yeniden boyutlandırmanız ve konumlarını yeniden ayarlamanız gerekebilir. Bu makale, şekilleri manuel olarak nasıl ölçeklendireceğinizi ve slaytlardaki, ana slaytlardaki ve düzenlerdeki tabloları nasıl işleyeceğinizi gösterir.
+Bir sunumun slayt boyutunu değiştirdiğinizde, yeni ölçülere sığması için şekilleri yeniden boyutlandırmanız ve konumlandırmanız da gerekebilir. Bu makale, şekilleri manuel olarak nasıl ölçekleyeceğinizi ve slaytlar, ana slaytlar ve düzenlerdeki tablolarla nasıl başa çıkacağınızı gösterir.
 
 ## **Şekilleri Yeniden Boyutlandır**
 
-Her bir şeklin göreli konumunu ve boyutunu korumak için, yatay koordinatlarını ve genişliğini yeni slayt genişliğinin orijinal genişliğe oranı ile çarpın. Aynı şekilde, dikey koordinatlarını ve yüksekliğini ilgili yükseklik oranı ile çarpın.
+Her şeklin göreceli konumunu ve boyutunu korumak için, yatay koordinatlarını ve genişliğini yeni slayt genişliği ile orijinal genişlik arasındaki orana çarpın. Aynı şekilde, dikey koordinatlarını ve yüksekliğini yükseklik oranı ile çarpın.
 
-İlk örnek, slaytlarında tablo bulunmayan bir sunumu yükler, slayt boyutunu A4 olarak değiştirir ve sonucu kaydeder. Ölçeklemeyi sonraki döngünün kontrol etmesi için [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-int-int-) ile [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesizescaletype/#DoNotScale) kullanır. Oranlar birimsizdir; şekil konumları ve boyutları puan cinsinden ölçülür. Farklı genişlik ve yükseklik oranları şekilleri bozabilir ve bir şeklin boyutlarını değiştirmek yazı tipi boyutlarını ölçeklendirmez.
+İlk örnek, slaytlarında tablo bulunmayan bir sunumu yükler, slayt boyutunu A4 olarak değiştirir ve sonucu kaydeder. Sonraki döngünün ölçeklemeyi kontrol etmesi için [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-int-int-) ve [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesizescaletype/#DoNotScale) kullanır. Oranlar birimsizdir; şekil konumları ve boyutları puan cinsinden ölçülür. Farklı genişlik ve yükseklik oranları şekilleri bozabilir ve bir şeklin boyutlarını değiştirmek yazı tipi boyutlarını ölçeklemez.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Bağımsız yatay ve dikey ölçek faktörlerini hesaplayın.
+    // Bağımsız yatay ve düşey ölçek faktörlerini hesaplayın.
     float originalWidth = (float) presentation.getSlideSize().getSize().getWidth();
     float originalHeight = (float) presentation.getSlideSize().getSize().getHeight();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
@@ -54,10 +55,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-Tablolar ayrı bir işlem gerektirir: tablonun genel genişlik ve yüksekliğini atamak yerine sütun genişliklerini ve satır yüksekliklerini ölçeklendirin. Hücre içeriği daha fazla alan gerektiriyorsa satır yükseklikleri istenenden daha büyük kalabilir.
+Tablolar ayrı bir işlem gerektirir: tablonun genel genişlik ve yüksekliğini atamak yerine sütun genişliklerini ve satır yüksekliklerini ölçekleyin. Hücre içeriği daha fazla alana ihtiyaç duyarsa satır yüksekliği istenenden daha büyük kalabilir.
 {{% /alert %}}
 
-İkinci örnek, tabloları destekler ve yeniden boyutlandırılmış sunumu kaydetmeden önce ana slaytlardaki, düzenlerdeki ve bireysel slaytlardaki şekilleri işler. Yardımcısı, her bir [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) öğesini sütun genişliklerini [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) ile ve minimum satır yüksekliğini [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) ile ölçeklendirerek işler. Ardından, tablonun genel boyutlarını ayrı ayrı ölçeklendirmeden konumunu ölçeklendirir.
+İkinci örnek tabloları destekler ve yeniden boyutlandırılmış sunumu kaydetmeden önce hem ana slaytlarda ve düzenlerde hem de bireysel slaytlarda şekilleri işler. Yardımcısı, her [ITable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/) öğesini sütun genişliklerini [IColumn.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolumn/#setWidth-double-) ve minimum satır yüksekliklerini [IRow.setMinimalHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irow/#setMinimalHeight-double-) ile ölçekleyerek işler. Ardından, tablonun genel boyutlarını ayrı ayrı ölçeklendirmeden konumunu ölçeklendirir.
 ```java
 import com.aspose.slides.*;
 
@@ -66,7 +67,7 @@ class ShapeResizer {
         for (IShape shape : shapes) {
             if (shape instanceof ITable) {
                 ITable table = (ITable) shape;
-                // Tablo boyutları sütun genişlikleri ve satır yükseklikleriyle kontrol edilir.
+                // Tablonun boyutları sütun genişlikleri ve satır yükseklikleri tarafından kontrol edilir.
                 for (IColumn column : table.getColumns()) {
                     column.setWidth(column.getWidth() * widthRatio);
                 }
@@ -88,7 +89,7 @@ class ShapeResizer {
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Bağımsız yatay ve dikey ölçek faktörlerini hesaplayın.
+    // Bağımsız yatay ve düşey ölçek faktörlerini hesaplayın.
     float originalWidth = (float) presentation.getSlideSize().getSize().getWidth();
     float originalHeight = (float) presentation.getSlideSize().getSize().getHeight();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
@@ -97,7 +98,7 @@ try {
 
     ShapeResizer resizer = new ShapeResizer();
 
-    // Ana slaytlarda ve düzenlerde tanımlı şekilleri ve ayrıca bireysel slaytları yeniden boyutlandırın.
+    // Ana slaytlarda ve düzenlerde tanımlı şekilleri, ayrıca bireysel slaytlardaki şekilleri yeniden boyutlandırın.
     for (IMasterSlide master : presentation.getMasters()) {
         resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
@@ -119,30 +120,30 @@ finally {
 
 ## **SSS**
 
-**Bir slaytı yeniden boyutlandırdıktan sonra şekiller neden bozuluyor veya kesiliyor?**
+**Bir slayt yeniden boyutlandırıldıktan sonra şekiller neden bozulur veya kesilir?**
 
-Şekilleri ölçeklendirmeden slayt boyutunu değiştirirseniz, şekiller orijinal konum ve boyutlarını korur ve slayt dışına taşabilir. Genişlik ve yüksekliği farklı oranlarla ölçeklemek de şekilleri bozabilir.
+Slayt boyutunu şekilleri ölçeklendirmeden değiştirirseniz, şekiller orijinal konum ve boyutlarını korur ve slayt dışına taşabilir. Genişlik ve yüksekliği farklı oranlarla ölçeklemek de şekilleri bozabilir.
 
-**Sağlanan kod tüm şekil tipleri için çalışır mı?**
+**Sağlanan kod tüm şekil türleri için çalışır mı?**
 
-İlk örnek, şekil sınırlarını doğrudan değiştirir ve tabloları olmayan slaytlar için tasarlanmıştır. İkinci örnek ise tabloları ayrı olarak işler. Sonuçta ortaya çıkan düzeni, özellikle metin ve tabloları kontrol edin; çünkü bu örnekler yazı tipi boyutlarını ölçeklendirmez ve tablo içeriği satır yüksekliğini sınırlayabilir.
+İlk örnek şekil sınırlarını doğrudan değiştirir ve tablosuz slaytlar için tasarlanmıştır. İkinci örnek tabloları ayrı olarak işler. Özellikle metin ve tabloları kontrol edin, çünkü bu örnekler yazı tipi boyutlarını ölçeklendirmez ve tablo içeriği satır yüksekliğini kısıtlayabilir.
 
-**Bir slaytı yeniden boyutlandırırken tabloları nasıl yeniden boyutlandırabilirim?**
+**Bir slaytı yeniden boyutlandırırken tabloları nasıl yeniden boyutlandırırım?**
 
-Sütun genişliklerini genişlik oranı ile, minimum satır yüksekliklerini ise yükseklik oranı ile ölçeklendirin, ardından tablonun genel boyutlarını ayrı ayrı ölçeklendirmeden konumunu ölçeklendirin; bu, ikinci örnekte gösterildiği gibidir.
+Sütun genişliklerini genişlik oranıyla, minimum satır yüksekliklerini yükseklik oranıyla ölçekleyin, ardından tablonun konumunu ölçeklendirin; bu, ikinci örnekte gösterildiği gibidir.
 
-**Bu yeniden boyutlandırma ana slaytlar ve düzen slaytları için de çalışır mı?**
+**Bu yeniden boyutlandırma ana slaytlar ve düzen slaytları için çalışır mı?**
 
-Evet. İkinci örnek, [Presentation.getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) ve her bir ana slaydın [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/#getLayoutSlides--) üzerinden döner ve şekillerine aynı yeniden boyutlandırma mantığını uygular.
+Evet. İkinci örnek, [Presentation.getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) ve her bir ana slaydın [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/#getLayoutSlides--) üzerinden geçerek şekillerine aynı yeniden boyutlandırma mantığını uygular.
 
-**Bir slaydın yönünü (dikey/yatay) yeniden boyutlandırma ile birlikte değiştirebilir miyim?**
+**Yeniden boyutlandırma ile birlikte bir slaydın yönünü (dikey/yatay) değiştirebilir miyim?**
 
-Evet. Slayt boyutunu değiştirdikten ve hedef boyutları okumadan önce [SlideSize.setOrientation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setOrientation-int-) çağırın; böylece ölçek faktörleri son yönelime göre ayarlanır.
+Evet. Slayt boyutunu değiştirdikten ve hedef ölçüleri okumadan önce [SlideSize.setOrientation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setOrientation-int-) çağırın, böylece ölçek faktörleri nihai yönelime göre ayarlanır.
 
-**Ayarlayabileceğim slayt boyutu için bir sınırlama var mı?**
+**Ayarlayabileceğim slayt boyutu için bir limit var mı?**
 
-[SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) ile özel slayt boyutları belirtebilirsiniz. Desteklenen boyutlar, sunum formatına ve dosyayı açan uygulamaya da bağlıdır.
+Özel slayt boyutlarını [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) ile belirtebilirsiniz. Desteklenen boyutlar ayrıca sunum formatına ve dosyayı açan uygulamaya bağlıdır.
 
 **Sabit en‑boy oranına sahip şekillerin bozulmasını nasıl önleyebilirim?**
 
-Genişlik ve yükseklik için aynı ölçek faktörünü kullanın. Orijinal düzeni yeni slayt boyutlarına sığdırmak için, her iki boyut ve konum için genişlik ve yükseklik oranlarından daha küçük olanı kullanın. Bu, oranları korur ancak bir kenarda kullanılmayan boşluk bırakabilir.
+En ve yükseklik için aynı ölçek faktörünü kullanın. Orijinal düzeni yeni slayt boyutlarına sığdırmak için genişlik ve yükseklik oranlarından daha küçüğünü her iki boyut ve konum için kullanın. Bu, oranları korur ancak bir kenarda kullanılmayan boşluk bırakabilir.

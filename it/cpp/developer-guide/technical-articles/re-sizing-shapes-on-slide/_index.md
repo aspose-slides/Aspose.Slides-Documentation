@@ -4,26 +4,27 @@ type: docs
 weight: 130
 url: /it/cpp/resizing-shapes-on-slide/
 aliases:
+  - /cpp/ridimensionamento-forme-su-diapositive/
   - /it/cpp/re-sizing-shapes-on-slide/
 keywords:
-- ridimensionare forma
-- cambiare dimensione forma
-- PowerPoint
-- OpenDocument
-- presentazione
-- C++
-- Aspose.Slides
-description: "Ridimensiona facilmente le forme su diapositive PowerPoint e OpenDocument con Aspose.Slides per C++ — automatizza le regolazioni del layout delle diapositive e aumenta la produttività."
+  - ridimensionare forma
+  - cambiare dimensione forma
+  - PowerPoint
+  - OpenDocument
+  - presentazione
+  - C++
+  - Aspose.Slides
+description: "Ridimensiona facilmente forme su diapositive PowerPoint e OpenDocument con Aspose.Slides per C++—automatizza la regolazione del layout delle diapositive e aumenta la produttività."
 ---
 ## **Panoramica**
 
-Quando modifichi le dimensioni delle diapositive di una presentazione, potresti dover ridimensionare e riposizionare le forme per adattarle alle nuove dimensioni. Questo articolo mostra come ridimensionare manualmente le forme e come gestire le tabelle su diapositive, master e layout.
+Quando cambi le dimensioni di una diapositiva, potresti dover anche ridimensionare e riposizionare le sue forme per adattarle alle nuove dimensioni. Questo articolo mostra come ridimensionare manualmente le forme e come gestire le tabelle su diapositive, master e layout.
 
 ## **Ridimensionare forme**
 
-Per preservare la posizione e le dimensioni relative di ogni forma, moltiplica le sue coordinate orizzontali e la larghezza per il rapporto tra la nuova larghezza della diapositiva e quella originale. Applica il corrispondente rapporto di altezza alle sue coordinate verticali e all'altezza.
+Per conservare la posizione e le dimensioni relative di ogni forma, moltiplica le sue coordinate orizzontali e la larghezza per il rapporto tra la larghezza della nuova diapositiva e quella originale. Applica il corrispondente rapporto di altezza alle sue coordinate verticali e all'altezza.
 
-Il primo esempio carica una presentazione le cui diapositive non contengono tabelle, cambia la dimensione della diapositiva a A4 e salva il risultato. Utilizza [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) con [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) in modo che il ciclo successivo controlli il ridimensionamento. I rapporti sono privi di unità; le posizioni e le dimensioni delle forme sono misurate in punti. Rapporti di larghezza e altezza diversi possono deformare le forme, e la modifica delle dimensioni di una forma non ridimensiona le dimensioni del carattere.
+Il primo esempio carica una presentazione le cui diapositive non contengono tabelle, cambia la dimensione della diapositiva in A4 e salva il risultato. Usa [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) con [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) in modo che il ciclo successivo controlli la scalatura. I rapporti sono adimensionali; le posizioni e le dimensioni delle forme sono misurate in punti. Rapporti diversi di larghezza e altezza possono deformare le forme, e modificare le dimensioni di una forma non scala le dimensioni del carattere.
 
 ```cpp
 #include <DOM/IShape.h>
@@ -67,10 +68,10 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Le tabelle richiedono una gestione separata: scalare le larghezze delle colonne e le altezze delle righe invece di impostare la larghezza e l'altezza complessiva della tabella. Le altezze delle righe possono rimanere più grandi di quanto richiesto se il contenuto della cella richiede più spazio.
+Le tabelle richiedono una gestione separata: scala le larghezze delle colonne e le altezze delle righe invece di assegnare la larghezza e l'altezza complessive della tabella. Le altezze delle righe possono rimanere maggiori di quanto richiesto se il contenuto della cella richiede più spazio.
 {{% /alert %}}
 
-Il secondo esempio supporta le tabelle e elabora le forme sui master e sui layout così come sulle singole diapositive prima di salvare la presentazione ridimensionata. Il suo helper gestisce ciascun [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) scalando [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) e [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/). Quindi scala la posizione della tabella senza scalare separatamente le sue dimensioni complessive.
+Il secondo esempio supporta le tabelle e processa le forme su master e layout oltre che su diapositive individuali prima di salvare la presentazione ridimensionata. Il suo helper gestisce ogni [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) scalando [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) e [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/). Quindi scala la posizione della tabella senza scalare separatamente le sue dimensioni complessive.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -102,7 +103,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Calcola i fattori di scala indipendenti orizzontali e verticali.
+// Calcola fattori di scala orizzontali e verticali indipendenti.
 auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 auto targetSize = presentation->get_SlideSize()->get_Size();
@@ -138,7 +139,7 @@ auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, flo
     }
 };
 
-// Ridimensiona le forme definite su master e layout così come su diapositive individuali.
+// Ridimensiona le forme definite su master e layout così come sulle diapositive individuali.
 for (auto&& master : presentation->get_Masters())
 {
     resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
@@ -158,32 +159,32 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **Domande frequenti**
 
-**Perché le forme vengono deformate o tagliate dopo il ridimensionamento di una diapositiva?**
+**Perché le forme risultano distorte o tagliate dopo aver ridimensionato una diapositiva?**
 
-Se cambi la dimensione della diapositiva senza scalare le forme, queste mantengono le loro posizioni e dimensioni originali e possono estendersi oltre la diapositiva. Scalare larghezza e altezza con rapporti diversi può anche deformare le forme.
+Se cambi le dimensioni della diapositiva senza scalare le forme, queste mantengono le loro posizioni e dimensioni originali e possono estendersi oltre la diapositiva. Scalare larghezza e altezza con rapporti diversi può anche deformare le forme.
 
 **Il codice fornito funziona per tutti i tipi di forma?**
 
-Il primo esempio modifica direttamente i confini delle forme ed è destinato a diapositive senza tabelle. Il secondo esempio gestisce le tabelle separatamente. Verifica il layout risultante, in particolare testo e tabelle, poiché questi esempi non scalano le dimensioni dei caratteri e il contenuto delle tabelle può limitare le altezze delle righe.
+Il primo esempio modifica direttamente i confini delle forme ed è destinato a diapositive senza tabelle. Il secondo esempio gestisce le tabelle separatamente. Controlla il layout risultante, in particolare testo e tabelle, perché questi esempi non scalano le dimensioni del carattere e il contenuto delle tabelle può limitare le altezze delle righe.
 
-**Come ridimensionare le tabelle quando si ridimensiona una diapositiva?**
+**Come ridimensionare le tabelle durante il ridimensionamento di una diapositiva?**
 
-Scala le larghezze delle colonne con il rapporto di larghezza e le altezze minime delle righe con il rapporto di altezza, quindi scala la posizione della tabella, come mostrato nel secondo esempio.
+Scala le larghezze delle colonne usando il rapporto di larghezza e le altezze minime delle righe usando il rapporto di altezza, quindi scala la posizione della tabella, come mostrato nel secondo esempio.
 
-**Questa operazione di ridimensionamento funziona per le diapositive master e per le diapositive di layout?**
+**Il ridimensionamento funziona per le diapositive master e le diapositive di layout?**
 
-Sì. Il secondo esempio itera su [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) e su ogni master la sua [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/), applicando la stessa logica di ridimensionamento alle loro forme.
+Sì. Il secondo esempio itera attraverso [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) e le [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) di ogni master e applica la stessa logica di ridimensionamento alle loro forme.
 
 **Posso cambiare l'orientamento di una diapositiva (ritratto/paesaggio) insieme al ridimensionamento?**
 
-Sì. Imposta [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) dopo aver cambiato la dimensione della diapositiva e prima di leggere le dimensioni target, in modo che i fattori di scala riflettano l'orientamento finale.
+Sì. Imposta [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) dopo aver cambiato le dimensioni della diapositiva e prima di leggere le dimensioni target, così i fattori di scala riflettono l'orientamento finale.
 
 **Esiste un limite alle dimensioni della diapositiva che posso impostare?**
 
-Puoi specificare dimensioni personalizzate della diapositiva con [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/). Le dimensioni supportate dipendono anche dal formato della presentazione e dall'applicazione utilizzata per aprire il file.
+Puoi specificare dimensioni personalizzate della diapositiva con [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/). Le dimensioni supportate dipendono anche dal formato della presentazione e dall'applicazione usata per aprire il file.
 
-**Come posso impedire che le forme con rapporto d'aspetto fisso vengano deformate?**
+**Come posso evitare che le forme con rapporto d'aspetto fisso vengano distorte?**
 
-Usa lo stesso fattore di scala per larghezza e altezza. Per adattare il layout originale alle nuove dimensioni della diapositiva, utilizza il più piccolo tra il rapporto di larghezza e quello di altezza per entrambe le dimensioni e le posizioni. Questo preserva le proporzioni ma può lasciare spazio inutilizzato lungo un bordo.
+Usa lo stesso fattore di scala per larghezza e altezza. Per adattare il layout originale alle nuove dimensioni della diapositiva, utilizza il più piccolo dei due rapporti (larghezza o altezza) per entrambe le dimensioni e le posizioni. Questo preserva le proporzioni ma può lasciare spazio inutilizzato lungo un bordo.

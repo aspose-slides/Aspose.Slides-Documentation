@@ -4,27 +4,28 @@ type: docs
 weight: 130
 url: /id/net/resizing-shapes-on-slide/
 aliases:
+  - /net/re-sizing-shapes-on-slide/
   - /id/net/re-sizing-shapes-on-slide/
 keywords:
 - ubah ukuran bentuk
-- ganti ukuran bentuk
+- ubah ukuran bentuk
 - PowerPoint
 - OpenDocument
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Dengan mudah ubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
+description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
 ---
 ## **Gambaran Umum**
 
-Ketika Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuk-bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara memperbesar bentuk secara manual dan cara menangani tabel pada slide, master, dan tata letak.
+Saat Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuk‑bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara memperbesar bentuk secara manual dan cara menangani tabel pada slide, master, dan tata letak.
 
 ## **Ubah Ukuran Bentuk**
 
-Untuk mempertahankan posisi dan ukuran relatif tiap bentuk, kalikan koordinat horizontal dan lebar bentuk dengan rasio lebar slide baru terhadap lebar asal. Terapkan rasio tinggi yang sesuai pada koordinat vertikal dan tinggi bentuk.
+Untuk mempertahankan posisi dan ukuran relatif setiap bentuk, kalikan koordinat horizontal dan lebar bentuk dengan rasio lebar slide baru terhadap lebar aslinya. Terapkan rasio tinggi yang sesuai pada koordinat vertikal dan tinggi bentuk.
 
-Contoh pertama memuat sebuah presentasi yang slide‑nya tidak mengandung tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Contoh ini menggunakan [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) dengan [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) sehingga perulangan berikutnya mengendalikan skala. Rasio‑rasio tersebut tidak memiliki satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat mendistorsi bentuk, dan mengubah dimensi bentuk tidak men‑skala ukuran fontnya.
+Contoh pertama memuat presentasi yang slide‑nya tidak berisi tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Ia menggunakan [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) dengan [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) sehingga loop berikutnya mengontrol penskalaan. Rasio‑rasio tersebut tidak memiliki satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat mendistorsi bentuk, dan mengubah dimensi bentuk tidak memperbesar ukuran fontnya.
 
 ```cs
 using Aspose.Slides;
@@ -32,7 +33,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("sample.pptx");
 
-// Hitung faktor skala horizontal dan vertikal yang independen.
+// Hitung faktor skala horizontal dan vertikal secara independen.
 var originalSize = presentation.SlideSize.Size;
 presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 var targetSize = presentation.SlideSize.Size;
@@ -54,10 +55,12 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-Tabel memerlukan penanganan terpisah: skalakan lebar kolom dan tinggi baris alih‑alih menetapkan lebar dan tinggi keseluruhan tabel. Tinggi baris dapat tetap lebih besar dari yang diminta jika konten sel memerlukan ruang lebih.
+
+Tabel memerlukan penanganan terpisah: skalakan lebar kolom dan tinggi baris alih‑alih menetapkan lebar dan tinggi keseluruhan tabel. Tinggi baris mungkin tetap lebih besar daripada yang diminta jika isi sel memerlukan lebih banyak ruang.
+
 {{% /alert %}}
 
-Contoh kedua mendukung tabel dan memproses bentuk pada master dan tata letak serta slide individual sebelum menyimpan presentasi yang telah diubah ukurannya. Helper‑nya menangani setiap [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) dengan menskalakan [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) dan [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/). Kemudian ia menskalakan posisi tabel tanpa menskalakan dimensi keseluruhannya secara terpisah.
+Contoh kedua mendukung tabel dan memproses bentuk pada master dan tata letak serta slide individu sebelum menyimpan presentasi yang telah diubah ukurannya. Pembantunya menangani setiap [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) dengan memperbesar [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) dan [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/). Kemudian ia memperbesar posisi tabel tanpa memperbesar dimensi keseluruhannya secara terpisah.
 
 ```cs
 using Aspose.Slides;
@@ -65,14 +68,14 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("sample.pptx");
 
-// Hitung faktor skala horizontal dan vertikal yang independen.
+// Hitung faktor skala horizontal dan vertikal secara independen.
 var originalSize = presentation.SlideSize.Size;
 presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 var targetSize = presentation.SlideSize.Size;
 var widthRatio = targetSize.Width / originalSize.Width;
 var heightRatio = targetSize.Height / originalSize.Height;
 
-// Ubah ukuran bentuk yang didefinisikan pada master dan tata letak serta slide individual.
+// Ubah ukuran bentuk yang didefinisikan pada master dan tata letak serta slide individu.
 foreach (var master in presentation.Masters)
 {
     ResizeShapes(master.Shapes, widthRatio, heightRatio);
@@ -96,7 +99,7 @@ static void ResizeShapes(IShapeCollection shapes, float widthRatio, float height
     {
         if (shape is ITable table)
         {
-            // Dimensi tabel dikendalikan oleh lebar kolom dan tinggi baris.
+            // Dimensi tabel dikontrol oleh lebar kolom dan tinggi baris.
             foreach (var column in table.Columns)
             {
                 column.Width *= widthRatio;
@@ -123,28 +126,28 @@ static void ResizeShapes(IShapeCollection shapes, float widthRatio, float height
 
 **Mengapa bentuk menjadi terdistorsi atau terpotong setelah mengubah ukuran slide?**
 
-Jika Anda mengubah ukuran slide tanpa men‑skala bentuk‑bentuknya, mereka akan mempertahankan posisi dan dimensi asli serta dapat melampaui batas slide. Menskalakan lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
+Jika Anda mengubah ukuran slide tanpa menskala bentuk, bentuk‑bentuk tersebut mempertahankan posisi dan dimensi aslinya dan dapat melampaui batas slide. Menskala lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
 
-**Apakah kode yang disediakan berfungsi untuk semua jenis bentuk?**
+**Apakah kode yang diberikan berfungsi untuk semua jenis bentuk?**
 
-Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak yang dihasilkan, terutama teks dan tabel, karena contoh‑contoh ini tidak men‑skala ukuran font dan konten tabel dapat membatasi tinggi baris.
+Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak hasil, terutama teks dan tabel, karena contoh‑contoh ini tidak memperbesar ukuran font dan konten tabel dapat membatasi tinggi baris.
 
 **Bagaimana cara mengubah ukuran tabel saat mengubah ukuran slide?**
 
-Skalakan lebar kolom menggunakan rasio lebar dan tinggi minimum baris menggunakan rasio tinggi, kemudian skalakan posisi tabel, seperti yang ditunjukkan pada contoh kedua.
+Skalakan lebar kolom dengan rasio lebar dan tinggi baris minimum dengan rasio tinggi, kemudian skalakan posisi tabel, seperti yang ditunjukkan pada contoh kedua.
 
-**Apakah pengubahan ukuran ini berfungsi untuk slide master dan slide tata letak?**
+**Apakah perubahan ukuran ini akan bekerja untuk master slide dan layout slide?**
 
-Ya. Contoh kedua mengiterasi melalui [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) dan setiap [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) milik master, serta menerapkan logika pengubahan ukuran yang sama pada bentuk‑bentuknya.
+Ya. Contoh kedua mengiterasi melalui [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) dan setiap master’s [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) serta menerapkan logika pengubahan ukuran yang sama pada bentuk‑bentuknya.
 
 **Bisakah saya mengubah orientasi slide (potret/lanskap) bersama dengan pengubahan ukuran?**
 
-Ya. Atur [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor skala mencerminkan orientasi akhir.
+Ya. Tetapkan [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor skala mencerminkan orientasi akhir.
 
-**Apakah ada batasan ukuran slide yang dapat saya tetapkan?**
+**Apakah ada batasan ukuran slide yang dapat saya setel?**
 
-Anda dapat menentukan dimensi slide khusus dengan [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). Dimensi yang didukung juga tergantung pada format presentasi dan aplikasi yang digunakan untuk membuka file.
+Anda dapat menentukan dimensi slide khusus dengan [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). Dimensi yang didukung juga bergantung pada format presentasi dan aplikasi yang digunakan untuk membuka file.
 
-**Bagaimana cara mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
+**Bagaimana saya dapat mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
 
-Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli dalam dimensi slide baru, gunakan rasio yang lebih kecil antara lebar dan tinggi untuk kedua dimensi dan posisi. Ini mempertahankan proporsi namun dapat meninggalkan ruang kosong di salah satu sisi.
+Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli dalam dimensi slide baru, gunakan rasio yang lebih kecil antara lebar dan tinggi untuk kedua dimensi dan posisi. Ini mempertahankan proporsi tetapi mungkin meninggalkan ruang yang tidak terpakai di satu sisi.

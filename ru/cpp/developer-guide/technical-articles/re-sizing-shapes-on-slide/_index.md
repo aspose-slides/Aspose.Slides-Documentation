@@ -1,56 +1,65 @@
 ---
-title: Изменение размеров фигур на слайдах презентации
+title: Изменение размера фигур на слайдах презентации в C++
 type: docs
-weight: 100
-url: /ru/cpp/re-sizing-shapes-on-slide/
+weight: 130
+url: /ru/cpp/resizing-shapes-on-slide/
+aliases:
+  - /cpp/re-sizing-shapes-on-slide/
+  - /ru/cpp/re-sizing-shapes-on-slide/
 keywords:
-- изменить размер фигуры
-- изменить размер фигуры
+- изменение размера фигуры
+- изменение размеров фигуры
 - PowerPoint
 - OpenDocument
 - презентация
 - C++
 - Aspose.Slides
-description: "Легко изменяйте размеры фигур на слайдах PowerPoint и OpenDocument с помощью Aspose.Slides for C++ — автоматизируйте настройки макета слайдов и повышайте продуктивность."
+description: "Легко изменяйте размер фигур на слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для C++ — автоматизируйте корректировку макета слайдов и повышайте продуктивность."
 ---
-
 ## **Обзор**
 
-Один из самых частых вопросов клиентов Aspose.Slides for C++ — как изменить размер фигур так, чтобы при изменении размера слайда данные не обрезались. Эта короткая техническая статья показывает, как это сделать.
+Когда вы меняете размер слайда презентации, вам также может потребоваться изменить размер и позицию фигур, чтобы они соответствовали новым размерам. Эта статья показывает, как масштабировать фигуры вручную и как работать с таблицами на слайдах, шаблонах и макетах.
 
-## **Изменить размер фигур**
+## **Изменение размера фигур**
 
-Чтобы фигуры не смещались при изменении размера слайда, обновите позицию и размеры каждой фигуры, чтобы они соответствовали новому макету слайда.
+Чтобы сохранить относительное положение и размер каждой фигуры, умножьте её горизонтальные координаты и ширину на отношение новой ширины слайда к оригинальной ширине. Примените соответствующее отношение высоты к её вертикальным координатам и высоте.
+
+Первый пример загружает презентацию, в которой слайды не содержат таблиц, меняет размер слайда на A4 и сохраняет результат. Он использует [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) с [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) так, чтобы последующий цикл контролировал масштабирование. Коэффициенты безразмерны; позиции фигур и их размеры измеряются в пунктах. Разные коэффициенты ширины и высоты могут искажать фигуры, а изменение размеров фигуры не масштабирует её размеры шрифта.
+
 ```cpp
-// Загрузить файл презентации.
-auto presentation = MakeObject<Presentation>(u"sample.ppt");
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
 
-// Get the original slide size.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Изменить размер слайда без масштабирования существующих фигур.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+// Calculate independent horizontal and vertical scale factors.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Get the new slide size.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-// Resize and reposition shapes on every slide.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // Масштабировать размер фигуры.
-        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Масштабировать позицию фигуры.
-        shape->set_Y(shape->get_Y() * heightRatio);
+        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
 }
 
@@ -58,109 +67,124 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+{{% alert color="info" title="Note" %}}
+Таблицы требуют отдельной обработки: масштабируйте их ширины колонок и высоты строк вместо задания общей ширины и высоты таблицы. Высота строк может оставаться больше запрошенной, если содержимое ячейки требует больше места.
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
-Если слайд содержит таблицу, приведённый выше код работать не будет. В этом случае каждую ячейку таблицы необходимо изменить в размере.
-{{% /alert %}} 
+Второй пример поддерживает таблицы и обрабатывает фигуры в шаблонах и макетах, а также отдельные слайды перед сохранением изменённой презентации. Его вспомогательный класс обрабатывает каждую [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) масштабируя [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) и [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/). Затем он масштабирует позицию таблицы без отдельного масштабирования её общих размеров.
 
-Используйте следующий код, чтобы изменить размер слайдов, содержащих таблицы. Для таблиц установка ширины или высоты является особым случаем: необходимо изменить высоту отдельных строк и ширину отдельных столбцов, чтобы изменить общий размер таблицы.
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Получить исходный размер слайда.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-// Изменить размер слайда без масштабирования существующих фигур.
+// Вычислить независимые коэффициенты масштабирования по горизонтали и вертикали.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Получить новый размер слайда.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-for (auto&& master : presentation->get_Masters())
+auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, float heightRatio)
 {
-    for (auto&& shape : master->get_Shapes())
+    for (auto&& shape : shapes)
     {
-        // Масштабировать размер фигуры.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Масштабировать позицию фигуры.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-    }
-
-    for (auto&& layoutSlide : master->get_LayoutSlides())
-    {
-        for (auto&& shape : layoutSlide->get_Shapes())
-        {
-            // Масштабировать размер фигуры.
-            shape->set_Height(shape->get_Height() * heightRatio);
-            shape->set_Width(shape->get_Width() * widthRatio);
-
-            // Масштабировать позицию фигуры.
-            shape->set_Y(shape->get_Y() * heightRatio);
-            shape->set_X(shape->get_X() * widthRatio);
-        }
-    }
-}
-
-for (auto&& slide : presentation->get_Slides())
-{
-    for (auto&& shape : slide->get_Shapes())
-    {
-        // Масштабировать размер фигуры.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Масштабировать позицию фигуры.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-
         if (ObjectExt::Is<ITable>(shape))
         {
-            SharedPtr<ITable> table = ExplicitCast<ITable>(shape);
-            for (auto&& row : table->get_Rows())
-            {
-                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
-            }
+            auto table = ExplicitCast<ITable>(shape);
+            // Размеры таблицы контролируются ширинами колонок и высотами строк.
             for (auto&& column : table->get_Columns())
             {
                 column->set_Width(column->get_Width() * widthRatio);
             }
+
+            for (auto&& row : table->get_Rows())
+            {
+                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
+            }
         }
+        else
+        {
+            shape->set_Width(shape->get_Width() * widthRatio);
+            shape->set_Height(shape->get_Height() * heightRatio);
+        }
+
+        shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
+};
+
+// Изменить размер фигур, определённых в мастерах и макетах, а также в отдельных слайдах.
+for (auto&& master : presentation->get_Masters())
+{
+    resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
+
+    for (auto&& layoutSlide : master->get_LayoutSlides())
+    {
+        resizeShapes(layoutSlide->get_Shapes(), widthRatio, heightRatio);
+    }
+}
+
+for (auto&& slide : presentation->get_Slides())
+{
+    resizeShapes(slide->get_Shapes(), widthRatio, heightRatio);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Часто задаваемые вопросы**
 
-## **Вопросы и ответы**
+**Почему после изменения размера слайда фигуры искажаются или обрезаются?**
 
-**Почему фигуры искажаются или обрезаются после изменения размера слайда?**  
-При изменении размера слайда фигуры сохраняют исходную позицию и размер, если масштаб явно не изменить. Это может привести к обрезке содержимого или смещению фигур.
+Если изменить размер слайда без масштабирования фигур, они сохраняют свои исходные позиции и размеры и могут выходить за пределы слайда. Масштабирование ширины и высоты разными коэффициентами также может искажать фигуры.
 
-**Работает ли предоставленный код для всех типов фигур?**  
-Базовый пример работает для большинства типов фигур (текстовые поля, изображения, диаграммы и т.д.). Однако для таблиц необходимо обрабатывать строки и столбцы отдельно, так как высота и ширина таблицы определяются размерами отдельных ячеек.
+**Работает ли предоставленный код со всеми типами фигур?**
 
-**Как изменить размер таблиц при изменении размера слайда?**  
-Необходимо пройтись по всем строкам и столбцам таблицы и изменить их высоту и ширину пропорционально, как показано во втором примере кода.
+Первый пример изменяет границы фигур напрямую и предназначен для слайдов без таблиц. Второй пример обрабатывает таблицы отдельно. Проверьте полученную раскладку, особенно текст и таблицы, поскольку эти примеры не масштабируют размеры шрифтов, а содержимое таблиц может ограничивать высоту строк.
 
-**Будет ли такое изменение размера работать для мастер‑слайдов и слайдов макета?**  
-Да, но также следует пройтись по [Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) и [Layout slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) и применить ту же логику масштабирования к их фигурам, чтобы обеспечить согласованность по всей презентации.
+**Как изменить размер таблиц при изменении размера слайда?**
 
-**Можно ли изменить ориентацию слайда (портрет/ландшафт) вместе с изменением размера?**  
-Да. Можно использовать [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/islidesize/set_orientation/) для изменения ориентации. Убедитесь, что логика масштабирования настроена соответствующим образом, чтобы сохранить макет.
+Масштабируйте ширины колонок по коэффициенту ширины и минимальные высоты строк по коэффициенту высоты, затем масштабируйте позицию таблицы, как показано во втором примере.
 
-**Есть ли ограничение на размер слайда, который я могу задать?**  
-Aspose.Slides поддерживает пользовательские размеры, но очень большие размеры могут влиять на производительность или совместимость с некоторыми версиями PowerPoint.
+**Будет ли это масштабирование работать для шаблонных слайдов и макетов?**
 
-**Как предотвратить искажение фигур с фиксированным соотношением сторон?**  
-Можно проверить метод `get_AspectRatioLocked` у фигуры перед масштабированием. Если он заблокирован, изменяйте ширину или высоту пропорционально, а не масштабируйте их отдельно.
+Да. Во втором примере выполняется перебор через [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) и каждой [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) мастера, применяя ту же логику изменения размеров к их фигурам.
+
+**Можно ли одновременно изменить ориентацию слайда (портрет/ландшафт) и его размер?**
+
+Да. Установите [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) после изменения размера слайда и перед чтением целевых размеров, чтобы коэффициенты масштабирования учитывали окончательную ориентацию.
+
+**Есть ли ограничение на размер слайда, который я могу задать?**
+
+Вы можете указать пользовательские размеры слайда с помощью [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/). Поддерживаемые размеры также зависят от формата презентации и приложения, используемого для открытия файла.
+
+**Как предотвратить искажение фигур с фиксированным соотношением сторон?**
+
+Используйте один и тот же коэффициент масштабирования для ширины и высоты. Чтобы разместить оригинальную раскладку в новых размерах слайда, используйте меньший из коэффициентов ширины и высоты для обеих размеров и позиций. Это сохраняет пропорции, но может оставить свободное пространство вдоль одной из сторон.

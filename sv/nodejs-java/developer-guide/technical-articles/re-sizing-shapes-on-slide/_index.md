@@ -1,30 +1,31 @@
 ---
-title: Ändra storlek på former i presentationsbilder i Node.js
+title: Ändra storlek på former på presentationsbilder i Node.js
 type: docs
 weight: 130
 url: /sv/nodejs-java/resizing-shapes-on-slide/
 aliases:
+  - /nodejs-java/re-sizing-shapes-on-slide/
   - /sv/nodejs-java/re-sizing-shapes-on-slide/
 keywords:
 - ändra storlek på form
-- ändra formstorlek
+- ändra formens storlek
 - PowerPoint
 - OpenDocument
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ändra enkelt storlek på former i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Node.js via Java—automatisk justering av bildlayout och ökad produktivitet."
+description: "Enkelt ändra storlek på former i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Node.js via Java—automatisera bildlayoutjusteringar och öka produktiviteten."
 ---
 ## **Översikt**
 
-När du ändrar en presentations bildstorlek kan du också behöva ändra storlek och position på dess former för att passa de nya dimensionerna. Den här artikeln visar hur du skalar former manuellt och hur du hanterar tabeller på bilder, masterbilder och layoutbilder.
+När du ändrar en presentations bildstorlek kan du också behöva ändra storlek och flytta om dess former så att de passar de nya dimensionerna. Den här artikeln visar hur man skalar former manuellt och hur man hanterar tabeller på bilder, masterbilder och layouter.
 
 ## **Ändra storlek på former**
 
-För att bevara varje forms relativa position och storlek, multiplicera dess horisontella koordinater och bredd med förhållandet mellan den nya bildbredden och den ursprungliga bredden. Applicera motsvarande höjdförhållande på dess vertikala koordinater och höjd.
+För att bevara varje formens relativa position och storlek, multiplicera dess horisontella koordinater och bredd med förhållandet mellan den nya bildens bredd och den ursprungliga bredden. Applicera motsvarande höjdförhållande på dess vertikala koordinater och höjd.
 
-Det första exemplet läser in en presentation vars bilder inte innehåller tabeller, ändrar bildstorleken till A4 och sparar resultatet. Det använder [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) med [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesizescaletype/#DoNotScale) så att den efterföljande loopen styr skalningen. Förhållandena är enhetslösa; formernas positioner och dimensioner mäts i punkter. Olika bredd- och höjdförhållanden kan förvränga former, och att ändra en forms dimensioner skalar inte dess teckenstorlekar.
+Det första exemplet laddar en presentation vars bilder inte innehåller några tabeller, ändrar bildens storlek till A4 och sparar resultatet. Det använder [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize) med [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesizescaletype/#DoNotScale) så att den efterföljande loopen styr skalningen. Förhållandena är enhetslösa; formens positioner och dimensioner mäts i punkter. Olika bredd- och höjdförhållanden kan förvränga former, och att ändra en forms dimensioner skalar inte dess teckenstorlekar.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -58,10 +59,10 @@ finally {
 ```
 
 {{% alert color="info" title="Note" %}}
-Tabeller kräver separat hantering: skala deras kolumnbredder och radhöjder istället för att tilldela tabellens totala bredd och höjd. Radhöjder kan förbli större än begärt om cellinnehållet kräver mer utrymme.
+Tabeller kräver separat hantering: skala deras kolumnbredder och radhöjder istället för att tilldela tabellens övergripande bredd och höjd. Radhöjder kan förbli större än begärt om cellinnehållet kräver mer utrymme.
 {{% /alert %}}
 
-Det andra exemplet stöder tabeller och bearbetar former på masterbilder och layouter samt enskilda bilder innan den ändrade presentationen sparas. Dess hjälparutrustning hanterar varje [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) genom att skala kolumnbredder med [Column.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/column/#setWidth) och minimala radhöjder med [Row.setMinimalHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#setMinimalHeight). Den skalar sedan tabellens position utan att separat skala dess totala dimensioner.
+Det andra exemplet stödjer tabeller och bearbetar former på masterbilder och layouter samt enskilda bilder innan den sparar den ändrade presentationen. Dess hjälpfunktion hanterar varje [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) genom att skala kolumnbredder med [Column.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/column/#setWidth) och minsta radhöjder med [Row.setMinimalHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/row/#setMinimalHeight). Den skalar sedan tabellens position utan att separat skala dess övergripande dimensioner.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -127,30 +128,23 @@ finally {
 
 ## **Vanliga frågor**
 
-**Varför blir former förvrängda eller avklippta efter att en bild har ändrats i storlek?**
+**Varför blir former förvrängda eller avklippta efter att en bild har ändrats i storlek?**  
+Om du ändrar bildens storlek utan att skala formerna behåller de sina ursprungliga positioner och dimensioner och kan sträcka sig utanför bilden. Att skala bredd och höjd med olika förhållanden kan också förvränga former.
 
-Om du ändrar bildstorleken utan att skala formerna behåller de sina ursprungliga positioner och dimensioner och kan sträcka sig utanför bilden. Att skala bredd och höjd med olika förhållanden kan också förvränga former.
+**Fungerar den medföljande koden för alla formtyper?**  
+Det första exemplet ändrar formens gränser direkt och är avsett för bilder utan tabeller. Det andra exemplet hanterar tabeller separat. Kontrollera den resulterande layouten, särskilt text och tabeller, eftersom dessa exempel inte skalar teckenstorlekar och tabellinnehåll kan begränsa radhöjder.
 
-**Fungerar den medföljande koden för alla formtyper?**
+**Hur ändrar jag storlek på tabeller när jag ändrar en bilds storlek?**  
+Skala kolumnbredder med breddförhållandet och minsta radhöjder med höjdförhållandet, skala sedan tabellens position, enligt det andra exemplet.
 
-Det första exemplet ändrar formgränserna direkt och är avsett för bilder utan tabeller. Det andra exemplet hanterar tabeller separat. Kontrollera den resulterande layouten, särskilt text och tabeller, eftersom dessa exempel inte skalar teckenstorlekar och tabellinnehåll kan begränsa radhöjder.
-
-**Hur ändrar jag storlek på tabeller när jag ändrar bildens storlek?**
-
-Skala kolumnbredder med breddförhållandet och minimala radhöjder med höjdförhållandet, skala sedan tabellens position, som visat i det andra exemplet.
-
-**Kommer denna storleksändring att fungera för masterbilder och layoutbilder?**
-
+**Kommer denna storleksändring att fungera för masterbilder och layoutbilder?**  
 Ja. Det andra exemplet itererar genom [Presentation.getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters) och varje masters [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/#getLayoutSlides) och tillämpar samma storleksändringslogik på deras former.
 
-**Kan jag ändra orienteringen på en bild (stående/liggande) tillsammans med storleksändringen?**
+**Kan jag ändra orienteringen på en bild (porträtt/landskap) tillsammans med storleksändringen?**  
+Ja. Anropa [SlideSize.setOrientation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setOrientation) efter att du har ändrat bildens storlek och innan du läser målens dimensioner, så att skalningsfaktorerna speglar den slutgiltiga orienteringen.
 
-Ja. Anropa [SlideSize.setOrientation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setOrientation) efter att du har ändrat bildstorleken och innan du läser målmedelningarna, så att skalningsfaktorerna återspeglar den slutliga orienteringen.
+**Finns det någon begränsning för den bildstorlek jag kan ange?**  
+Du kan ange anpassade bilddimensioner med [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize). De stödjade dimensionerna beror också på presentationsformatet och det program som används för att öppna filen.
 
-**Finns det någon gräns för den bildstorlek jag kan ange?**
-
-Du kan ange anpassade bilddimensioner med [SlideSize.setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#setSize). De stödda dimensionerna beror också på presentationsformatet och den applikation som används för att öppna filen.
-
-**Hur kan jag förhindra att former med ett fast bildförhållande blir förvrängda?**
-
-Använd samma skalningsfaktor för bredd och höjd. För att få den ursprungliga layouten att passa i de nya bilddimensionerna, använd den mindre av bredd- och höjdförhållandena för både dimensioner och positioner. Detta bevarar proportionerna men kan lämna oanvänt utrymme längs en kant.
+**Hur kan jag förhindra att former med ett fast bildförhållande blir förvrängda?**  
+Använd samma skalningsfaktor för bredd och höjd. För att passa den ursprungliga layouten inom de nya bilddimensionerna, använd den mindre av bredd- och höjdförhållandena för både dimensioner och positioner. Detta bevarar proportionerna men kan lämna oanvänt utrymme längs en kant.

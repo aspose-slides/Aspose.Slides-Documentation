@@ -1,9 +1,10 @@
 ---
-title: 在 C++ 中調整簡報投影片上的形狀大小
+title: 在 C++ 中調整簡報投影片的形狀大小
 type: docs
 weight: 130
 url: /zh-hant/cpp/resizing-shapes-on-slide/
 aliases:
+  - /cpp/re-sizing-shapes-on-slide/
   - /zh-hant/cpp/re-sizing-shapes-on-slide/
 keywords:
 - 調整形狀大小
@@ -13,17 +14,17 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++，輕鬆在 PowerPoint 與 OpenDocument 投影片上調整形狀大小——自動化投影片版面調整，提升生產力。"
+description: "使用 Aspose.Slides for C++ 輕鬆調整 PowerPoint 與 OpenDocument 投影片上的形狀大小——自動化投影片版面調整，提升生產力。"
 ---
 ## **概觀**
 
-當您變更簡報的投影片尺寸時，可能還需要調整和重新定位其形狀，以符合新的尺寸。本文說明如何手動縮放形狀，以及如何處理投影片、母片與佈局上的表格。
+當您變更簡報的投影片大小時，可能還需要調整形狀的大小並重新定位，以符合新的尺寸。本文說明如何手動縮放形狀以及如何在投影片、母片和版面配置上處理表格。
 
 ## **調整形狀大小**
 
-為了保留每個形狀的相對位置與大小，請將其水平座標與寬度乘以新投影片寬度與原始寬度的比率。再將相對的高度比率套用到垂直座標與高度上。
+為了保留每個形狀的相對位置與大小，將其水平座標與寬度乘以新投影片寬度與原始寬度的比例。再以相應的高度比例乘以其垂直座標與高度。
 
-第一個範例載入一個投影片中不含表格的簡報，將投影片尺寸變更為 A4，並儲存結果。它使用 [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) 搭配 [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) 使後續迴圈自行控制縮放。比例是無單位的；形狀的位置與尺寸以點 (point) 為單位測量。不同的寬高比例會使形狀變形，且變更形狀尺寸不會縮放字型大小。
+第一個範例載入一個投影片中不含表格的簡報，將投影片大小變更為 A4，並儲存結果。它使用 [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) 搭配 [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/)，讓隨後的迴圈負責縮放。比例值沒有單位；形狀的位置與尺寸以點為單位測量。不同的寬度與高度比例會導致形狀變形，且變更形狀尺寸不會同時縮放其字型大小。
 
 ```cpp
 #include <DOM/IShape.h>
@@ -66,11 +67,11 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="info" title="注意" %}}
-表格需要單獨處理：以寬度比例縮放欄寬，以高度比例縮放列高，而不是直接指定表格的整體寬度與高度。如果儲存格內容需要更多空間，列高可能會保持大於要求的大小。
+{{% alert color="info" title="Note" %}}
+表格需要另行處理：縮放其欄寬與列高，而不是直接設定表格的整體寬度與高度。如果儲存格內容需要更多空間，列高可能會保持大於要求的大小。
 {{% /alert %}}
 
-第二個範例支援表格，並在儲存調整大小的簡報之前，處理母片、佈局以及單一投影片上的形狀。其輔助程式會針對每個 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 透過縮放 [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) 與 [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) 來處理。之後會縮放表格的位置，而不會單獨縮放其整體尺寸。
+第二個範例支援表格，並在儲存調整大小的簡報之前，處理母片、版面配置以及各個投影片上的形狀。它的輔助函式透過縮放每個 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/)，調整 [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) 與 [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/)。之後僅縮放表格的位置，並不另行縮放其整體尺寸。
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -102,7 +103,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// 計算獨立的水平與垂直縮放係數。
+// 計算水平與垂直的獨立縮放係數。
 auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 auto targetSize = presentation->get_SlideSize()->get_Size();
@@ -116,7 +117,7 @@ auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, flo
         if (ObjectExt::Is<ITable>(shape))
         {
             auto table = ExplicitCast<ITable>(shape);
-            // 表格的尺寸由欄寬和列高控制。
+            // 表格尺寸由欄寬和列高控制。
             for (auto&& column : table->get_Columns())
             {
                 column->set_Width(column->get_Width() * widthRatio);
@@ -138,7 +139,7 @@ auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, flo
     }
 };
 
-// Resize shapes defined on masters and layouts as well as individual slides.
+// 調整在母片、版面配置以及個別投影片上定義的形狀大小。
 for (auto&& master : presentation->get_Masters())
 {
     resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
@@ -160,30 +161,23 @@ presentation->Dispose();
 
 ## **常見問題**
 
-**調整投影片大小後，為何形狀會變形或被切掉？**
+**為何在調整投影片大小後形狀會變形或被裁切？**  
+如果在變更投影片大小時未對形狀進行縮放，形狀會保留原始位置與尺寸，可能會超出投影片範圍。以不同的比例同時縮放寬度和高度也會導致形狀變形。
 
-如果在變更投影片尺寸時未對形狀進行縮放，形狀會保留原始位置與尺寸，可能會超出投影片範圍。使用不同的寬高比例進行縮放也會導致形狀變形。
+**提供的程式碼能適用於所有形狀類型嗎？**  
+第一個範例直接變更形狀的邊界，僅適用於沒有表格的投影片。第二個範例則另行處理表格。請檢查最終的版面配置，特別是文字與表格，因為這些範例不會縮放字型大小，且表格內容可能限制列高。
 
-**提供的程式碼能適用於所有形狀類型嗎？**
+**在調整投影片大小時，該如何縮放表格？**  
+如第二個範例所示，先以寬度比例縮放欄寬，再以高度比例縮放最小列高，最後縮放表格的位置。
 
-第一個範例直接變更形狀的邊界，適用於不含表格的投影片。第二個範例則會單獨處理表格。請檢查最終版面的結果，特別是文字與表格，因為這些範例不會縮放字型大小，而表格內容可能會限制列高。
+**此縮放方式能適用於母片與版面投影片嗎？**  
+會的。第二個範例會遍歷 [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/)，以及每個母片的 [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/)，並對它們的形狀套用相同的縮放邏輯。
 
-**在調整投影片大小時，如何調整表格大小？**
+**我可以在調整大小的同時變更投影片的方向（直向/橫向）嗎？**  
+可以。請在變更投影片大小之後、讀取目標尺寸之前設定 [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/)，如此縮放係數會依最終的方向計算。
 
-依寬度比例縮放欄寬，依高度比例縮放最小列高，然後如第二個範例所示縮放表格的位置。
+**我能設定的投影片大小有上限嗎？**  
+您可以使用 [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) 來指定自訂的投影片尺寸。支援的尺寸亦取決於簡報的檔案格式以及開啟檔案的應用程式。
 
-**此調整方式能套用於母片與版面投影片嗎？**
-
-可以。第二個範例會遍歷 [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) 以及每個母片的 [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/)，對其形狀套用相同的調整邏輯。
-
-**是否可以在調整大小的同時變更投影片方向（直向/橫向）？**
-
-可以。請在變更投影片尺寸後、讀取目標尺寸前，設定 [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/)，使縮放係數反映最終的方向。
-
-**可設定的投影片尺寸有上限嗎？**
-
-您可以使用 [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) 指定自訂尺寸。支援的尺寸亦取決於簡報檔案格式與開啟檔案的應用程式。
-
-**如何防止具有固定長寬比的形狀變形？**
-
-對寬度與高度使用相同的縮放係數。若要在新投影片尺寸內保留原始版面，請同時使用寬高比率中較小的那一個作為寬度與高度的縮放係數，並以相同係數調整位置。這樣可保持比例，但可能在某一邊留下未使用的空間。
+**如何防止具有固定長寬比的形狀被變形？**  
+在寬度與高度上使用相同的縮放係數。若要讓原始版面配置符合新投影片尺寸，可同時使用寬度與高度比例中較小的那一個來縮放尺寸與位置。此方式能保持比例，但可能會在某一邊留下未使用的空間。
