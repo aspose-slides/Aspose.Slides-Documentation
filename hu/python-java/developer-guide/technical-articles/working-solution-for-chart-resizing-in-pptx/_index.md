@@ -1,5 +1,5 @@
 ---
-title: Működő megoldás a diagram átméretezésre PPTX-ben
+title: Működő megoldás a diagram átméretezésére PPTX-ben
 type: docs
 weight: 40
 url: /hu/python-java/working-solution-for-chart-resizing-in-pptx/
@@ -9,40 +9,27 @@ keywords:
 - OLE objektum
 - diagram beágyazása
 - PowerPoint
-- OpenDocument
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Javítsa a váratlan diagram átméretezést PPTX-ben, amikor beágyazott Excel OLE objektumokat használ az Aspose.Slides for Python via Java segítségével. Ismerjen meg két módszert kóddal, amelyekkel a méreteket konzisztens módon tartja."
+description: "Javítsa ki a váratlan diagram átméretezést PPTX-ben, amikor beágyazott Excel OLE objektumokat használ az Aspose.Slides for Python via Java segítségével. Állítson be rögzített diagramméreteket, hogy a diagram és az OLE keret méretei konzisztens maradjanak."
 ---
 ## **Háttér**
 
-Megfigyelték, hogy az Aspose komponenseken keresztül PowerPoint‑prezentációba OLE objektumként beágyazott Excel‑diagramok az első aktiválásuk után egy meghatározatlan méretarányra vannak átméretezve. Ez a viselkedés észrevehető vizuális különbséget eredményez a prezentációban a diagram aktiválás előtti és utáni állapota között. Az Aspose csapata részletesen vizsgálta a problémát, és megtalálta a megoldást. Ez a cikk leírja a probléma okait és a megfelelő javítást.
+Az Aspose komponensekkel PowerPoint prezentációkba beágyazott OLE objektumként megjelenő Excel-diagramok az első aktiválás után megváltoztathatják méretüket. Ez észrevehető különbséget eredményezhet a diagram megjelenésében az aktiválás előtti és utáni állapot között. Ebben a cikkben magyarázzuk, miért fordul elő az átméretezés, és bemutatjuk, hogyan lehet megakadályozni azt a diagram rögzített méretének az OLE kerethez való illesztésével.
 
-Az [előző cikk](/slides/hu/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)‑ben bemutattuk, hogyan hozhatunk létre egy Excel‑diagramot az Aspose.Cells for Python via Java segítségével, és ágyazzuk be egy PowerPoint‑prezentációba az Aspose.Slides for Python via Java‑val. A [objektum előnézeti probléma](/slides/hu/python-java/object-preview-issue-when-adding-oleobjectframe/) megoldásaként a diagram képét rendeltük a diagram OLE objektumkeretéhez. A kimeneti prezentációban, ha duplán kattintunk a diagram képét megjelenítő OLE objektumkeretre, az Excel‑diagram aktiválódik. A végfelhasználó a mögöttes Excel‑munka könyvben tetszőleges módosítást végezhet, majd a aktivált munkafüzeten kívülre kattintva visszatér a megfelelő diára. Az OLE objektumkeret mérete megváltozik, amikor a felhasználó visszatér a diára, és az átméretezés mértéke a OLE objektumkeret és a beágyazott Excel‑munka könyv eredeti méreteitől függ.
+Az [Excel-diagramok létrehozása és OLE objektumként való beágyazása a prezentációkba](/slides/hu/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) cikkben bemutattuk, hogyan hozhatunk létre Excel-diagramot az Aspose.Cells for Python via Java segítségével, és hogyan ágyazzuk be egy PowerPoint-prezentációba az Aspose.Slides for Python via Java használatával. Az [objektum előnézeti probléma](/slides/hu/python-java/object-preview-issue-when-adding-oleobjectframe/) megoldásához a diagramképét a diagram OLE objektumkeretéhez rendeltük. A kimeneti prezentációban, ha duplán kattintunk a diagramképet megjelenítő OLE objektumkeretre, aktiválódik az Excel-diagram. A felhasználók szerkeszthetik a beágyazott Excel-munkafüzetet, majd a diára visszatérhetnek a munkafüzeten kívül kattintva. Az OLE objektumkeret mérete megváltozik, amikor a felhasználó visszatér a diára, és az átméretezési arány a OLE objektumkeret és a beágyazott Excel-munkafüzet eredeti méreteitől függ.
 
-## **Méretezés oka**
+## **Az átméretezés oka**
 
-Mivel a Excel‑munka könyvnek saját ablakmérete van, az első aktiválásakor igyekszik megtartani eredeti méretét. Az OLE objektumkeret azonban saját mérettel rendelkezik. A Microsoft szerint, amikor a Excel‑munka könyv aktiválódik, az Excel és a PowerPoint egyeztetik a méretet, és a beágyazási folyamat részeként a helyes arányokat tartják fenn. Az Excel‑ablakméret és az OLE objektumkeret mérete vagy pozíciója közötti különbségek miatt történik az átméretezés.
+A beágyazott Excel-munkafüzet saját ablakmérettel rendelkezik, amelyet az Excel megpróbál megtartani az objektum első aktiválásakor. A dián lévő OLE keret függetlenül definiált méretekkel bír. Amikor az Excel-munkafüzet aktiválódik, az Excel és a PowerPoint egyeztetik az objektum méretét, hogy a beágyazási folyamat részeként megtartsák az arányokat. A munkafüzetablak és az OLE keret közötti különbségek ezért az objektum átméreteződését okozhatják.
 
 ## **Működő megoldás**
 
-Két lehetséges forgatókönyv van a PowerPoint‑prezentációk létrehozására az Aspose.Slides for Python via Java‑val.
+A példa az Aspose.Cells for Python via Java és az Aspose.Slides for Python via Java komponenseket igényli. Egy egyszerű oszlopdiagramot hoz létre egy aktív diagramlapon, és beágyazza a munkafüzetet XLS formátumban. Nem kerül diagram előnézeti kép hozzárendelésre; a diagram akkor válik láthatóvá, amikor a OLE objektum aktiválódik PowerPointban.
 
-**Forgatókönyv 1:** Prezentáció létrehozása egy meglévő sablon alapján.
-
-**Forgatókönyv 2:** Prezentáció létrehozása alapjából.
-
-Az itt bemutatott megoldás mindkét forgatókönyvre alkalmazható. Minden megoldási megközelítés alapja ugyanaz: **a beágyazott OLE objektum ablakméretének meg kell egyeznie a PowerPoint‑dia OLE objektumkeretével**. Most a két megközelítést ismertetjük.
-
-## **Első megközelítés**
-
-Ebben a megközelítésben megtanuljuk, hogyan állítható be a beágyazott Excel‑munka könyv ablakmérete úgy, hogy az egyezzen a PowerPoint‑dia OLE objektumkeretének méretével.
-
-**Forgatókönyv 1**
-
-Tegyük fel, hogy definiáltunk egy sablont, és annak alapján szeretnénk prezentációkat létrehozni. Feltételezzük, hogy a sablon 2. indexű alakzatában szeretnénk egy OLE‑keretet elhelyezni, amely beágyazott Excel‑munka könyvet tartalmaz. Ebben a forgatókönyvben az OLE objektumkeret mérete előre meghatározott – megegyezik a sablon 2. indexű alakzatának méretével. Csak annyit kell tennünk, hogy a munka könyv ablakméretét egyenlővé tesszük az alakzat méretével. Az alábbi kódrészlet ezt a célt szolgálja:
+A példa egy új prezentációt hoz létre egy 9,5 × 4 hüvelykes OLE kerettel, amely 0,5 hüvelyk távolságra van a bal széltől és 1 hüvelyk távolságra a tetejétől. A dia koordinátái és méretei pontokban (72 pont hüvelykenként) vannak megadva. Létező prezentáció esetén lásd a [Sablon használata](#use-a-template) részt.
 
 ```python
 import jpype
@@ -52,209 +39,88 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# Töltsük be a diagramot tartalmazó Excel munkafüzetet.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # Állítsuk be a munkafüzet ablakméretét hüvelykben (a PowerPoint 72 pontot használ hüvelykenként).
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # Mentsük a munkafüzetet egy memóriastream-be.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # Hozzunk létre egy OLE objektumkeretet a beágyazott Excel adatával.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # A dia koordinátái és méretei pontokban vannak megadva (72 pont hüvelykenként).
+        width = 684.0  # 9,5 hüvelyk.
+        height = 288.0  # 4 hüvelyk.
+
+        chart.setSizeWithWindow(False)
+        # Konvertálja a pontokat diagrampixelekre 96 pixel hüvelykenként.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Forgatókönyv 2**
+## **Rögzített diagramméret beállítása**
 
-Tegyük fel, hogy alapjavól szeretnénk egy prezentációt létrehozni, és tetszőleges méretű OLE objektumkeretet szeretnénk egy beágyazott Excel‑munka könyvvel. Az alábbi kódrészletben egy 4 hüvelykes magasságú és 9,5 hüvelykes szélességű OLE objektumkeretet hozunk létre a diáron x = 0,5 hüvelyk és y = 1 hüvelyk pozícióban. Ezután beállítjuk az Excel‑munka könyv ablakát ugyanolyan méretűre – 4 hüvelyk magasságra és 9,5 hüvelyk szélességre.
+Állítsuk a [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) értékét false-ra, hogy a diagram méretei függetlenek legyenek a munkafüzet ablakától. A [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) méreteit állítsuk be a [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) és a [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height) segítségével, a pontok átváltásával pixelekre 96 pixel hüvelykenként: a 684 × 288 pontot mérő keret 912 × 384 pixelnek felel meg. A [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) értékét állítsuk a [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/) CUSTOM értékére. A példa a munkafüzetet a [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) segítségével ágyazza be, és egy 9,5 × 4 hüvelykes OLE kerettel menti a prezentációt.
 
-```python
-import jpype
-import asposecells
-import asposeslides
+## **Sablon használata**
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+A méretlogika ugyanaz egy meglévő prezentáció esetén is. A példa adaptálásához:
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Töltsük be a diagramot tartalmazó Excel munkafüzetet.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 hüvelyk (4 * 72).
-    desired_width = 684  # 9,5 hüvelyk (9,5 * 72).
-
-    # Határozzuk meg a diagram méretét egy ablakban.
-    chart.setSizeWithWindow(True)
-
-    # Állítsuk be a munkafüzet ablakméretét hüvelykben (a PowerPoint 72 pontot használ hüvelykenként).
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # Mentsük a munkafüzetet egy memóriastream-be.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Hozzunk létre egy OLE objektumkeretet a beágyazott Excel adatokkal.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Második megközelítés**
-
-Ebben a megközelítésben megtanuljuk, hogyan állítható be a diagram mérete a beágyazott Excel‑munka könyvben úgy, hogy az egyezzen a PowerPoint‑dia OLE objektumkeretének méretével. Ez a megközelítés akkor hasznos, ha a diagram mérete előre ismert, és soha nem változik.
-
-**Forgatókönyv 1**
-
-Tegyük fel, hogy definiáltunk egy sablont, és annak alapján szeretnénk prezentációkat létrehozni. Feltételezzük, hogy a sablon 2. indexű alakzatában egy OLE keretet szeretnénk elhelyezni, amely beágyazott Excel‑munka könyvet tartalmaz. Ebben a forgatókönyvben az OLE keret mérete előre meghatározott – megegyezik a sablon 2. indexű alakzatának méretével. Csak annyit kell tennünk, hogy a diagram méretét a munka könyvben egyenlővé tesszük az alakzat méretével. Az alábbi kódrészlet ezt a célt szolgálja:
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Töltsük be a diagramot tartalmazó Excel munkafüzetet.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # Határozzuk meg a diagram méretét ablak nélkül.
-    chart.setSizeWithWindow(False)
-
-    # Állítsuk be a diagram méretét pixelekben (az Excel 96 pixelt használ hüvelykenként).
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # Határozzuk meg a diagram nyomtatási méretét.
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # Mentsük a munkafüzetet egy memóriastream-be.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Hozzunk létre egy OLE objektumkeretet a beágyazott Excel adatokkal.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Forgatókönyv 2**:
-
-Tegyük fel, hogy alapjavól szeretnénk egy prezentációt létrehozni, és tetszőleges méretű OLE objektumkeretet szeretnénk egy beágyazott Excel‑munka könyvvel. Az alábbi kódrészletben egy 4 hüvelykes magasságú és 9,5 hüvelykes szélességű OLE objektumkeretet hozunk létre a diáron x = 0,5 hüvelyk és y = 1 hüvelyk pozícióban. Emellett a diagram méretét is ugyanolyanra állítjuk: 4 hüvelyk magasságra és 9,5 hüvelyk szélességre.
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Töltsük be a diagramot tartalmazó Excel munkafüzetet.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 hüvelyk (4 * 72).
-    desired_width = 684  # 9,5 hüvelyk (9,5 * 72).
-
-    # Határozzuk meg a diagram méretét ablak nélkül.
-    chart.setSizeWithWindow(False)
-
-    # Állítsuk be a diagram méretét pixelekben (az Excel 96 pixelt használ hüvelykenként).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # Mentsük a munkafüzetet egy memóriastream-be.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Hozzunk létre egy OLE objektumkeretet a beágyazott Excel adatokkal.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Következtetés**
-
-Két megközelítés létezik a diagram‑á tméretezési probléma megoldására. A választás a követelményektől és az adott felhasználási esettől függ. Mindkét megközelítés ugyanúgy működik, függetlenül attól, hogy a prezentáció sablonból vagy alapjavól készült. Emellett nincs korlátozás az OLE objektumkeret méretére ebben a megoldásban.
+1. Töltsük be a sablonprezentációt az üres prezentáció létrehozása helyett.
+2. Ellenőrizzük, hogy az első dia legalább három alakzatot tartalmaz-e, majd a 2-es indexű alakzatot használjuk helykitöltőként.
+3. Vessük át a keret szélességét és magasságát erről az alakzatról a 684 és 288 rögzített értékek helyett. Tartsuk változatlanul a méret számításokat.
+4. Adjunk hozzá OLE keretet a helykitöltő pozíciójában a 36 és 72 rögzített koordináták helyett.
+5. Távolítsuk el a helykitöltőt a prezentáció mentése előtt.
 
 ## **GYIK**
 
-**Miért változik a beágyazott Excel‑diagram mérete, miután aktiváltam PowerPoint‑ban?**  
-Ez azért történik, mert az Excel az első aktiváláskor megpróbálja visszaállítani az eredeti ablakméretét, míg a PowerPoint‑ban az OLE objektumkeretnek saját mérete van. A PowerPoint és az Excel egyeztetik a méretet az arányok megtartása érdekében, ami átméretezést okozhat.
+**Miért változik meg a beágyazott Excel-diagram mérete a PowerPointban történő aktiválás után?**
 
-**Lehetséges-e teljesen megakadályozni ezt az átméretezési problémát?**  
-Igen. Ha a beágyazás előtt a Excel‑munka könyv ablakméretét vagy a diagram méretét megegyeztetjük az OLE objektumkeret méretével, a diagram mérete állandó marad.
+Ez azért történik, mert az Excel az első aktiváláskor megpróbálja visszaállítani az eredeti ablakméretet, míg a PowerPointban lévő OLE objektumkeretnek saját méretei vannak. A PowerPoint és az Excel egyeztetik a méretet, hogy megtartsák a képarányt, ami az átméretezést eredményezheti.
 
-**Melyik megközelítést válasszam, az ablakméret beállítását vagy a diagramméret beállítását?**  
-Használja a **Megközelítés 1 (ablakméret)**‑et, ha szeretné megőrizni a munka könyv arányait, és esetleg később engedélyezni a méretezést.  
-Használja a **Megközelítés 2 (diagramméret)**‑et, ha a diagram méretei rögzítettek és a beágyazás után nem változnak.
+**Hogyan tarthatom konzisztensnek a diagram és az OLE keret méreteit?**
 
-**Működnek-e ezek a módszerek sablon‑alapú és új prezentációk esetén egyaránt?**  
-Igen. Mindkét megközelítés ugyanúgy működik sablonból és alapjavól létrehozott prezentációk esetén.
+Állítsunk be rögzített diagramméreteket, amelyek megegyeznek az OLE kerettel, és használjunk egyedi diagramnyomtatási méretet a munkafüzet beágyazása előtt. A fenti példa bemutatja a szükséges beállításokat és egységátváltásokat.
 
-**Van korlátozás az OLE objektumkeret méretére?**  
-Nincs. Az OLE keretet bármilyen méretre beállíthatja, amíg az arányosan skálázódik a munka könyv vagy a diagram méretéhez.
+**Elégséges a munkafüzetablak méretének illesztése?**
 
-**Használhatók-e ezek a módszerek más táblázatkezelő programokban készült diagramokkal?**  
-A példák az Aspose.Cells‑tel létrehozott Excel‑diagramokra vonatkoznak, de az elv ugyanúgy alkalmazható más OLE‑kompatibilis táblázatkezelő programokra, ha azok támogatják a hasonló méretezési beállításokat.
+A munkafüzetablak méretének puszta illesztése nem biztos, hogy megbízhatóan megakadályozza az OLE keret méretének változását aktiválás után. Használjunk rögzített diagramméreteket, ahogy a példában látható.
+
+**Működik ez a megoldás sablonalapú és új prezentációk esetén is?**
+
+Igen. Sablon esetén használjuk a helykitöltő méreteit és pozícióját. Új prezentáció esetén közvetlenül adjuk meg a keret méreteit és pozícióját.
+
+**Használhatom ezt a példát más táblázatkezelő programokkal készített diagramokkal?**
+
+A példa egy Aspose.Cells által létrehozott Excel-munkafüzetet használ. Nem mutatja be más táblázatkezelő programok esetén a aktiválási viselkedést.
 
 ## **Kapcsolódó szakaszok**
 
-- [Excel‑diagramok létrehozása és OLE objektumként beágyazása prezentációkba](/slides/hu/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Excel-diagramok létrehozása és OLE objektumként való beágyazása a prezentációkba](/slides/hu/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

@@ -1,146 +1,136 @@
 ---
-title: Excelチャートの作成とOLEオブジェクトとしてプレゼンテーションに埋め込む
+title: Excel チャートを作成し、OLE オブジェクトとしてプレゼンテーションに埋め込む
 type: docs
 weight: 50
 url: /ja/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+keywords:
+- Excel チャート
+- チャートの埋め込み
+- OLE オブジェクト
+- PowerPoint
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Cells for .NET を使用して Excel チャートを作成し、Aspose.Slides を使用してブックを PowerPoint プレゼンテーションに埋め込み、チャートのプレビューも含めます。"
 ---
+## **概要**
 
-{{% alert color="primary" %}} 
+この記事では、Aspose.Cells for .NET を使用して Excel の縦棒グラフを作成し、Aspose.Slides for .NET を使用してそのブックを PowerPoint プレゼンテーションに埋め込む方法を示します。埋め込まれたブックには、ソース データとグラフの両方が含まれます。OLE オブジェクトがアクティブになる前に、スライド上にチャートを表示する PNG プレビューが別途表示されます。結果として得られるのは、ネイティブの PowerPoint グラフではなく、埋め込み Excel オブジェクトです。OLE 経由でブックを編集するには、OLE アクティベーションに対応したデスクトップ アプリケーションと、適切な Excel がインストールされている必要があります。
 
-PowerPointスライドでは、データのグラフィカルな表示のために編集可能なチャートの使用が一般的です。Asposeは、Aspose.Cells for .NETを使用してExcelチャートを作成するサポートを提供し、さらにこれらのチャートはAspose.Slides for .NETを介してPowerPointスライドにOLEオブジェクトとして埋め込むことができます。本記事では、Aspose.Cells for .NETとAspose.Slides for .NETを使用して、MS ExcelチャートをOLEオブジェクトとしてPowerPointプレゼンテーションに作成し埋め込むための必要な手順と実装をC#とVB.NETで示します。
+## **前提条件**
 
-{{% /alert %}} 
-## **必要な手順**
-ExcelチャートをOLEオブジェクトとしてPowerPointスライドに作成し埋め込むために必要な手順の順序は次のとおりです。
+C# プロジェクトに Aspose.Cells for .NET と Aspose.Slides for .NET の参照を追加します。このサンプルはトップレベルステートメントを使用し、C# 9 以降が必要です。これらのライブラリを使用してプレゼンテーションを生成するために Microsoft Office は必要ありません。入力ファイルは不要です。サンプルはメモリ上でデータとチャートを作成し、`OutputChart.pptx` を現在の作業ディレクトリに書き込みます。評価モード以外で実行する場合は、両製品のライセンスを適用してください。
 
-1. Aspose.Cells for .NETを使用してExcelチャートを作成します。
-2. Aspose.Cells for .NETを使用してExcelチャートのOLEサイズを設定します。
-3. Aspose.Cells for .NETを使用してExcelチャートの画像を取得します。
-4. Aspose.Slides for .NETを使用して、PPTXプレゼンテーション内にExcelチャートをOLEオブジェクトとして埋め込みます。
-5. ステップ3で取得した画像でオブジェクト変更の問題に対処するために、オブジェクト変更された画像を置き換えます。
-6. 出力プレゼンテーションをPPTX形式でディスクに書き込みます。
+## **埋め込みの仕組み**
 
-## **必要な手順の実装**
-上記の手順のC#およびVisual Basicによる実装は以下の通りです。
+1. データ ワークシートとチャート シートを持つブックを作成します。
+1. ブックがチャートで開くように、チャート シートをアクティブにします。
+1. ブックの OLE 表示範囲を設定し、チャートを PNG にレンダリングします。
+1. ブックをメモリ上で XLSX として保存し、そのバイト列をスライドに埋め込みます。
+1. PNG を OLE オブジェクトのプレビューとして割り当て、プレゼンテーションを PPTX として保存します。
 
-```c#
-//ステップ1: Aspose.Cellsを使用してExcelチャートを作成
-//--------------------------------------------------
-//ワークブックを作成
-Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Excelチャートを追加
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//ステップ2: Aspose.Cellsを使用してチャートのOLEサイズを設定
-//----------------------------------------------------------- 
-wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//ステップ3: Aspose.Cellsを使用してチャートの画像を取得
-//----------------------------------------------------------- 
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//ストリームにワークブックを保存
-MemoryStream wbStream = wb.SaveToStream();
-//ステップ4と5
-//-----------------------------------------------------------
-//ステップ4: Aspose.Slidesを使用して.pptプレゼンテーション内にチャートをOLEオブジェクトとして埋め込みます。
-//ステップ5: ステップ3で取得した画像でオブジェクト変更の問題に対処するために、オブジェクト変更された画像を置き換えます
-//----------------------------------------------------------- 
-//プレゼンテーションを作成
-Presentation pres = new Presentation();
-ISlide sld = pres.Slides[0];
-//スライドにワークブックを追加
-AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//ステップ6: 出力プレゼンテーションをディスクに保存
-//----------------------------------------------------------- 
-pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-```
+ブックの表示範囲とスライド上のフレームは異なる役割を持ちます。[SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) はゼロベースの開始/終了行と列のインデックスを受け取ります。[ChartCollection.Add](https://reference.aspose.com/cells/net/aspose.cells.charts/chartcollection/add/) は代わりに上端行、左端列、下端行、右端列を受け取ります。この例では、右下の境界として行インデックス 55 と列インデックス 25 を使用しています；これらの値はレイアウト上の選択であり、データ行や列の数を示すものではありません。スライドのフレームはポイント単位です。この例では、スライド内に収めて中心に配置し、PNG のアスペクト比を保持します。プレビューをスライド全体に伸ばすことはありません。
 
-```c#
-static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int chartCols)
+## **チャートの作成と埋め込み**
+
+以下の完全なサンプルは、`DataSheet` に 4 行 5 列の値を設定します。各行がチャート系列になります。ブックを保存する前に、`ChartSheet` をアクティブ シートとして選択します。ブックは明示的に XLSX として保存され、[OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) に渡された `xlsx` 拡張子と一致します。PNG は中間のビットマップ変換を行わずにストリームから直接読み込まれます。[SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/substitutepictureformat/) を使用して割り当てることで、デフォルトの OLE プレースホルダーが置き換えられます。
+
+```cs
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "DataSheet";
+
+int[,] values =
 {
-    //セル名の配列
-    string[] cellsName = new string[]
-      {
-  "A1", "A2", "A3", "A4",
-  "B1", "B2", "B3", "B4",
-  "C1", "C2", "C3", "C4",
-  "D1", "D2", "D3", "D4",
-  "E1", "E2", "E3", "E4"
-      };
+    { 67, 44, 46, 43, 24 },
+    { 86, 64, 97, 29, 40 },
+    { 68, 89, 78, 69, 38 },
+    { 91, 48, 60, 26, 25 }
+};
 
-    //セルデータの配列
-    int[] cellsValue = new int[]
-      {
- 67,86,68,91,
- 44,64,89,48,
- 46,97,78,60,
- 43,29,69,26,
- 24,40,38,25
-      };
-    //データでセルを埋めるための新しいワークシートを追加
-    int dataSheetIdx = wb.Worksheets.Add();
-    Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
-    string sheetName = "DataSheet";
-    dataSheet.Name = sheetName;
-    //データシートにデータを埋める
-    for (int i = 0; i < cellsName.Length; i++)
-    {
-        string cellName = cellsName[i];
-        int cellValue = cellsValue[i];
-        dataSheet.Cells[cellName].PutValue(cellValue);
-    }
-    //チャートシートを追加
-    int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
-    Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
-    chartSheet.Name = "ChartSheet";
-    //データシートからデータ系列を持つチャートをチャートシートに追加
-    int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
-    Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
-    chart.NSeries.Add(sheetName + "!A1:E1", false);
-    chart.NSeries.Add(sheetName + "!A2:E2", false);
-    chart.NSeries.Add(sheetName + "!A3:E3", false);
-    chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //チャートシートをアクティブシートとして設定
-    wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
-    return chartSheetIdx;
-}
-```
-
-```c#
-static void AddExcelChartInPresentation(Presentation pres, ISlide sld, Stream wbStream, Bitmap imgChart)
+for (var row = 0; row < values.GetLength(0); row++)
 {
-    float oleWidth = pres.SlideSize.Size.Width;
-    float oleHeight = pres.SlideSize.Size.Height;
-
-    byte[] chartOleData = new byte[wbStream.Length];
-    wbStream.Position = 0;
-    wbStream.Read(chartOleData, 0, chartOleData.Length);
-
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oof = sld.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
-
-    using (MemoryStream imageStream = new MemoryStream())
+    for (var column = 0; column < values.GetLength(1); column++)
     {
-        imgChart.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
-
-	imageStream.Position = 0;
-        IPPImage ppImage = pres.Images.AddImage(imageStream);
-
-        oof.SubstitutePictureFormat.Picture.Image = ppImage;
+        dataSheet.Cells[row, column].PutValue(values[row, column]);
     }
 }
+
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+chartSheet.Name = "ChartSheet";
+
+var lastChartRow = 55;
+var lastChartColumn = 25;
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, lastChartRow, lastChartColumn);
+var chart = chartSheet.Charts[chartIndex];
+for (var row = 1; row <= values.GetLength(0); row++)
+{
+    chart.NSeries.Add($"DataSheet!A{row}:E{row}", false);
+}
+
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
+workbook.Worksheets.SetOleSize(0, lastChartRow, 0, lastChartColumn);
+
+// チャートのプレビューをレンダリングし、編集可能なブックを別々にシリアライズします。
+using var chartImageStream = new MemoryStream();
+chart.ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+using var chartImage = Images.FromStream(chartImageStream);
+
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Xlsx);
+var workbookBytes = workbookStream.ToArray();
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var slideSize = presentation.SlideSize.Size;
+
+// Fit the preview within the slide without changing its aspect ratio.
+var scale = Math.Min(slideSize.Width / chartImage.Width, slideSize.Height / chartImage.Height);
+var frameWidth = chartImage.Width * scale;
+var frameHeight = chartImage.Height * scale;
+var frameX = (slideSize.Width - frameWidth) / 2;
+var frameY = (slideSize.Height - frameHeight) / 2;
+
+var embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+var previewImage = presentation.Images.AddImage(chartImage);
+oleFrame.SubstitutePictureFormat.Picture.Image = previewImage;
+
+presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}} 
+## **期待される結果**
 
-上記の方法で作成されたプレゼンテーションは、OLEオブジェクトフレームをダブルクリックすることによりアクティブ化できるExcelチャートを含みます。
+`OutputChart.pptx` には、埋め込み Excel ブックとチャート プレビューが含まれるスライドが 1 枚あります。ブックには元のデータと 4 系列の縦棒グラフが含まれます。プレビューはスライドの中央に配置され、比例を保ったまま表示されます。
 
-{{% /alert %}} 
-## **結論**
-{{% alert color="primary" %}} 
+![埋め込みブックのプレビューとして表示された Excel 縦棒グラフ](excel-chart-ole-preview.png)
 
-Aspose.Cells for .NETとAspose.Slides for .NETを使用することにより、Aspose.Cells for .NETがサポートするExcelチャートを作成し、作成したチャートをPowerPointスライドにOLEオブジェクトとして埋め込むことができます。また、ExcelチャートのOLEサイズも定義できます。エンドユーザーは、他のOLEオブジェクトと同様にExcelチャートをさらに編集できます。
+Excel が利用可能な対応デスクトップ PowerPoint 環境では、オブジェクトをダブルクリックして埋め込みブックをアクティブ化および編集できます。アクティブ化と編集は、ホスト アプリケーションの OLE サポートとセキュリティ設定に依存します。
 
-{{% /alert %}} 
+## **よくある質問**
+
+**プレビュー画像が必要な理由は何ですか？**  
+埋め込みブックとそのスライド プレビューは別々のコンテンツです。デフォルトの "EMBEDDED OLE OBJECT" プレースホルダーの代わりにチャート画像を提供すると、スライドにチャートが表示されます。[OleObjectFrame を追加する際のオブジェクト プレビューの問題](/slides/ja/net/object-preview-issue-when-adding-oleobjectframe/)
+
+**コードでブックを変更したときにプレビューは自動的に更新されますか？**  
+プレビューはスナップショットとして扱ってください。プログラムでブックのデータを更新する場合は、チャート画像を再生成し、プレビューと埋め込みブック データの両方を置き換える必要があります。
+
+**XLS を使用できますか、XLSX の代わりに？**  
+はい。ブックを XLS 形式で保存し、埋め込みデータの拡張子として `xls` を使用します。拡張子は実際のブック形式と一致する必要があり、拡張子だけを変更してもデータは変換されません。
+
+**アクティブ化後にオブジェクトのサイズが変わるのはなぜですか？**  
+ホスト アプリケーションは、ブックをアクティブ化する際に OLE オブジェクトの表示を更新することがあります。ブックの OLE 表示範囲とスライド フレームのサイズの両方が影響します。[PPTX におけるチャートサイズ変更の実装例](/slides/ja/net/working-solution-for-chart-resizing-in-pptx/)
+
 ## **関連セクション**
-[チャートサイズ変更のための作業ソリューション](/slides/ja/net/working-solution-for-chart-resizing-in-pptx/)[オブジェクト変更の問題](/slides/ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+
+- [PPTX におけるチャートサイズ変更の実装例](/slides/ja/net/working-solution-for-chart-resizing-in-pptx/)
+- [OleObjectFrame を追加する際のオブジェクト プレビューの問題](/slides/ja/net/object-preview-issue-when-adding-oleobjectframe/)
+- [PowerPoint アドインで OLE オブジェクトを自動的に更新](/slides/ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

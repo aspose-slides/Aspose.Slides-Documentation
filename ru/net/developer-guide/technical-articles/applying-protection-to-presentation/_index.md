@@ -1,66 +1,66 @@
 ---
-title: Предотвращение редактирования презентаций с помощью блокировки фигур в .NET
-linktitle: Предотвращение редактирования презентаций
+title: Ограничение редактирования презентаций с помощью блокировок фигур в .NET
+linktitle: Ограничить редактирование презентаций
 type: docs
 weight: 70
 url: /ru/net/applying-protection-to-presentation/
 keywords:
 - предотвратить редактирование
-- защитить от редактирования
+- защита от редактирования
 - блокировать фигуру
 - блокировать позицию
 - блокировать выбор
-- блокировать размер
+- блокировать изменение размера
 - блокировать группировку
 - PowerPoint
-- OpenDocument
+- PPTX
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как Aspose.Slides для .NET блокирует и разблокирует фигуры в файлах PPT, PPTX и ODP, обеспечивая безопасность презентаций при разрешённом контролируемом редактировании."
+description: "Узнайте, как блокировать и разблокировать фигуры в PPTX-презентациях с помощью Aspose.Slides for .NET, чтобы ограничить выбор, перемещение, изменение размеров и группировку."
 ---
-
 ## **Обзор**
 
-Распространённое применение Aspose.Slides — создание, обновление и сохранение презентаций Microsoft PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложений, использующих Aspose.Slides таким образом, имеют доступ к сгенерированным презентациям, поэтому защита от редактирования является актуальной проблемой. Важно, чтобы автоматически сгенерированные презентации сохраняли своё исходное форматирование и содержание.
+Распространённое применение Aspose.Slides for .NET — создание, обновление и сохранение презентаций PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Когда пользователи получают такие презентации, ограничение изменений фигур помогает сохранить предполагаемое расположение и содержимое.
 
-В этой статье объясняется, как устроены презентации и слайды, а также как Aspose.Slides for .NET может применить защиту к презентации и позже её снять. Она предоставляет разработчикам способ контролировать использование презентаций, генерируемых их приложениями.
+В этой статье объясняется, как фигуры организованы на слайдах и как применять и удалять блокировки фигур в презентации PPTX. Эти блокировки позволяют ограничить определённые операции редактирования для отдельных фигур.
 
 ## **Состав слайда**
 
-Слайд презентации состоит из компонентов, таких как автоконтуры, таблицы, OLE‑объекты, сгруппированные фигуры, рамки изображений, видеорамки, соединители и другие элементы, используемые для построения презентации. В Aspose.Slides for .NET каждый элемент на слайде представлен объектом, реализующим интерфейс [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) или наследующим класс, реализующий этот интерфейс.
+Слайд презентации состоит из таких компонентов, как автофигуры, таблицы, OLE‑объекты, сгруппированные фигуры, рамки изображений, видеорamки, соединители и другие элементы, используемые при создании презентации. В Aspose.Slides for .NET каждый элемент на слайде представлен объектом, реализующим интерфейс [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) или наследующим класс, который его реализует.
 
-Структура PPTX сложна, поэтому, в отличие от PPT, где можно использовать общий замок для всех типов фигур, разные типы фигур требуют разных замков. Интерфейс [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) является общим классом блокировки для PPTX. В Aspose.Slides for .NET для PPTX поддерживаются следующие типы замков:
+Разные типы фигур предоставляют различные варианты блокировок. Интерфейс [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) является базовым интерфейсом для блокировок фигур. Aspose.Slides for .NET предоставляет следующие интерфейсы блокировок:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) блокирует автоконтуры.  
-- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) блокирует фигуры‑соединители.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) блокирует автофигуры.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) блокирует соединительные фигуры.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) блокирует графические объекты.  
 - [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) блокирует сгруппированные фигуры.  
 - [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) блокирует рамки изображений.  
 
-Любое действие, выполненное над всеми объектами фигур в объекте [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), применяется ко всей презентации.
+Чтобы применить блокировки к всей [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), пройдите по её слайдам и установите соответствующие блокировки для каждой поддерживаемой фигуры.
 
 ## **Применение и удаление защиты**
 
-Применение защиты гарантирует, что презентацию нельзя будет редактировать. Это полезный приём для защиты содержимого презентации.
+Блокировки фигур ограничивают операции, такие как выбор, перемещение и изменение размера фигур. Они не делают всю презентацию недоступной для редактирования.
 
-### **Применить защиту к фигурам PPTX**
+### **Применение защиты к фигурам PPTX**
 
 Aspose.Slides for .NET предоставляет интерфейс [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) для работы с фигурами на слайде.
 
-Как упоминалось ранее, каждый класс фигуры имеет соответствующий класс блокировки фигуры для защиты. В этой статье рассматриваются замки NoSelect, NoMove и NoResize. Эти замки гарантируют, что фигуры нельзя будет выбрать (щелчком мыши или другими методами выбора) и что их нельзя будет переместить или изменить их размер.
+В примере свойства [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) и [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) устанавливаются в `true` для автофигур, аналогичные блокировки применяются к сгруппированным фигурам, соединителям и рамкам изображений. Соединители используют [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) для перемещения; группы также используют [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) для ограничения группировки.
 
-Пример кода ниже применяет защиту ко всем типам фигур в презентации.
+В примере загружается существующая PPTX‑презентация, проверяются фигуры в коллекции фигур каждого слайда и сохраняется копия с применёнными ограничениями. Фигуры, не относящиеся к четырём обрабатываемым типам, остаются без изменений. Цикл не проходит по дочерним фигурам внутри группы.
+
 ```cs
-// Создайте экземпляр класса Presentation, представляющего файл PPTX.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Перебор всех слайдов в презентации.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Перебор всех фигур на слайде.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Сохранение файла презентации.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
+### **Удаление защиты**
 
-### **Снять защиту**
+Чтобы снять блокировку фигуры, установите её значение в `false`. В следующем примере загружается презентация с блокировками фигур и очищаются ограничения выбора, перемещения и изменения размера с помощью [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/), и [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). Также сбрасывается [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) и сохраняется копия презентации. Другие параметры блокировок остаются без изменений.
 
-Чтобы разблокировать фигуру, установите значение соответствующего замка в `false`. Приведённый ниже пример кода показывает, как разблокировать фигуры в заблокированной презентации.
 ```cs
-// Создать экземпляр класса Presentation, представляющего файл PPTX.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Перебор всех слайдов в презентации.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Перебор всех фигур на слайде.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,25 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Сохранение файла презентации.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
-
 ### **Заключение**
 
-Aspose.Slides предоставляет несколько вариантов защиты фигур в презентации. Вы можете заблокировать отдельную фигуру или пройтись по всем фигурам в презентации и заблокировать каждую, чтобы эффективно защитить весь файл. Защиту можно снять, установив значение замка в `false`.
+Aspose.Slides for .NET позволяет ограничить определённые операции редактирования отдельных фигур или применить одинаковые ограничения ко всем слайдам. Выберите блокировки, поддерживаемые типом каждой фигуры, и установите их значения в `false`, когда необходимо снять эти ограничения.
 
 ## **FAQ**
 
-**Можно ли сочетать блокировку фигур и защиту паролем в одной презентации?**
+**Могу ли я комбинировать блокировки фигур и защиту паролем в одной презентации?**
 
-Да. Блокировки ограничивают редактирование объектов внутри файла, тогда как [защита паролем](/slides/ru/net/password-protected-presentation/) контролирует доступ к открытию и/или сохранению изменений. Эти механизмы дополняют друг друга и работают совместно.
+Да. Блокировки фигур ограничивают определённые операции редактирования, тогда как [защиту паролем](/slides/ru/net/password-protected-presentation/) может ограничивать открытие или изменение презентации. Вы можете использовать оба метода в одном файле.
 
-**Можно ли ограничить редактирование на отдельных слайдах, не влияя на остальные?**
+**Могу ли я ограничить редактирование на конкретных слайдах, не влияя на остальные?**
 
-Да. Применяйте блокировки к фигурам на выбранных слайдах; остальные слайды останутся редактируемыми.
+Да. Применяйте блокировки только к фигурам на выбранных слайдах. Это не изменит настройки блокировок на остальных слайдах.
 
-**Применяются ли блокировки фигур к сгруппированным объектам и соединителям?**
+**Как применить блокировки к отдельным фигурам внутри группы?**
 
-Да. Для групп, соединителей, графических объектов и других типов фигур поддерживаются отдельные типы блокировок.
+Пройдите по коллекции [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) группы и примените соответствующие блокировки к каждой дочерней фигуре. Повторите это для вложенных групп. Приведённые выше примеры обрабатывают только коллекцию фигур слайда, поэтому они не устанавливают блокировки для отдельных элементов группы.

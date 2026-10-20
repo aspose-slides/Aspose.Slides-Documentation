@@ -1,6 +1,6 @@
 ---
-title: Förhindra redigering av presentationer med formlås
-linktitle: Förhindra redigering av presentationer
+title: Begränsa redigering av presentationer med form‑lås i Java
+linktitle: Begränsa redigering av presentationer
 type: docs
 weight: 60
 url: /sv/java/applying-protection-to-presentation/
@@ -9,168 +9,150 @@ keywords:
 - skydda mot redigering
 - låsa form
 - låsa position
-- låsa urval
-- låsa storlek
+- låsa val
+- låsa storleksändring
 - låsa gruppering
 - PowerPoint
-- OpenDocument
+- PPTX
 - presentation
 - Java
 - Aspose.Slides
-description: "Upptäck hur Aspose.Slides for Java låser eller låser upp former i PPT-, PPTX- och ODP-filer, säkrar presentationer samtidigt som kontrollerade redigeringar möjliggörs och leveransen blir snabbare."
+description: "Lär dig hur du låser och låser upp former i PPTX‑presentationer med Aspose.Slides för Java för att begränsa val, rörelse, storleksändring och gruppering."
 ---
 ## **Bakgrund**
 
-En vanlig användning av Aspose.Slides är att skapa, uppdatera och spara Microsoft PowerPoint (PPTX)-presentationer som en del av ett automatiserat arbetsflöde. Användare av applikationer som använder Aspose.Slides på detta sätt har tillgång till de genererade presentationerna, så att skydda dem mot redigering är en vanlig oro. Det är viktigt att automatiskt genererade presentationer behåller sin ursprungliga formatering och sitt innehåll.
+Ett vanligt användningsområde för Aspose.Slides för Java är att skapa, uppdatera och spara PowerPoint‑presentationer (PPTX) som en del av ett automatiserat arbetsflöde. När användare får dessa presentationer kan begränsning av ändringar i former hjälpa till att bevara den avsedda layouten och innehållet.
 
-Den här artikeln förklarar hur presentationer och bilder är strukturerade och hur Aspose.Slides for Java kan tillämpa skydd på en presentation och senare ta bort det. Den ger utvecklare ett sätt att kontrollera hur de presentationer deras applikationer genererar används.
+Denna artikel förklarar hur former organiseras på bilder och hur du tillämpar och tar bort form‑lås i en PPTX‑presentation. Dessa lås låter dig begränsa specifika redigeringsåtgärder på enskilda former.
 
-## **Komposition av en bild**
+## **Sammansättning av en bild**
 
-En presentationsbild består av komponenter såsom autoshapes, tabeller, OLE‑objekt, grupperade former, bildrutor, videorutor, anslutningar och andra element som används för att bygga en presentation. I Aspose.Slides for Java representeras varje element på en bild av ett objekt som implementerar gränssnittet [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) eller ärver från en klass som gör det.
+En presentationsbild består av komponenter såsom autoshapes, tabeller, OLE‑objekt, grupperade former, bildramar, videoramar, anslutningar och andra element som används för att bygga en presentation. I Aspose.Slides för Java representeras varje element på en bild av ett objekt som implementerar [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)-gränssnittet eller ärver från en klass som gör det.
 
-Strukturen för PPTX är komplex, så till skillnad från PPT, där ett generiskt lås kan användas för alla typer av former, kräver olika formtyper olika lås. Gränssnittet [IBaseShapeLock](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibaseshapelock/) är den generiska låsklassen för PPTX. Följande typer av lås stöds i Aspose.Slides for Java för PPTX:
+Olika formtyper exponerar olika låsalternativ. [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/)-gränssnittet är basgränssnittet för form‑lås. Aspose.Slides för Java tillhandahåller följande låsgränssnitt:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshapelock/) låser autoshapes.  
-- [IConnectorLock](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iconnectorlock/) låser anslutningsformer.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/sv/java/com.aspose.slides/igraphicalobjectlock/) låser grafiska objekt.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/sv/java/com.aspose.slides/igroupshapelock/) låser gruppformer.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipictureframelock/) låser bildrutor.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) låser autoshapes.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) låser anslutningsformer.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) låser grafiska objekt.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) låser gruppformer.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) låser bildramar.  
 
-Alla åtgärder som utförs på alla formobjekt i ett [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/)‑objekt tillämpas på hela presentationen.
+För att tillämpa lås på en [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), iterera genom dess bilder och ange de lämpliga låsen på varje stödd form.
 
 ## **Tillämpa och ta bort skydd**
 
-Att tillämpa skydd säkerställer att en presentation inte kan redigeras. Det är en användbar teknik för att skydda presentationens innehåll.
+Form‑lås begränsar operationer såsom att välja, flytta och ändra storlek på former. De gör inte hela presentationen oredigerbar.
 
 ### **Tillämpa skydd på PPTX‑former**
 
-Aspose.Slides for Java tillhandahåller gränssnittet [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) för att arbeta med former på en bild.
+Aspose.Slides för Java tillhandahåller [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)-gränssnittet för att arbeta med former på en bild.
 
-Som nämnts tidigare har varje formklass en tillhörande form‑lås‑klass för skydd. Denna artikel fokuserar på låsen NoSelect, NoMove och NoResize. Dessa lås säkerställer att former inte kan väljas (genom mus‑klick eller andra urvalsmetoder) och att de inte kan flyttas eller ändra storlek.
+Exemplet anropar [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), och [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) med `true` för autoshapes, med motsvarande lås för gruppformer, anslutningar och bildramar. Anslutningar använder [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) för rörelse; grupper använder också [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) för att begränsa gruppering.
 
-Kodexemplet nedan tillämpar skydd på alla formtyper i en presentation.
+Exemplet laddar en befintlig PPTX‑presentation, kontrollerar formerna i varje bilds form‑samling och sparar en kopia med dessa restriktioner tillämpade. Former utanför de fyra hanterade typerna lämnas oförändrade. Loopen traverserar inte de underordnade formerna i en grupp.
 
 ```java
-// Skapa en instans av Presentation-klassen som representerar en PPTX-fil.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Sample.pptx");
-
-// Gå igenom alla bilder i presentationen.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Gå igenom alla former i bilden.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Typkonvertera formen till en autoshape och hämta dess form-lås.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(true);
-            autoShapeLock.setSelectLocked(true);
-            autoShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IGroupShape) {
-            // Typkonvertera formen till en gruppform och hämta dess form-lås.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(true);
-            groupShapeLock.setPositionLocked(true);
-            groupShapeLock.setSelectLocked(true);
-            groupShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IConnector) {
-            // Typkonvertera formen till en anslutningsform och hämta dess form-lås.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(true);
-            connectorShapeLock.setSelectLocked(true);
-            connectorShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IPictureFrame) {
-            // Typkonvertera formen till en bildram och hämta dess form-lås.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(true);
-            pictureFrameLock.setSelectLocked(true);
-            pictureFrameLock.setSizeLocked(true);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(true);
+                autoShapeLock.setSelectLocked(true);
+                autoShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(true);
+                groupShapeLock.setPositionLocked(true);
+                groupShapeLock.setSelectLocked(true);
+                groupShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(true);
+                connectorShapeLock.setSelectLocked(true);
+                connectorShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(true);
+                pictureFrameLock.setSelectLocked(true);
+                pictureFrameLock.setSizeLocked(true);
+            }
         }
     }
-}
 
-// Spara presentationsfilen.
-presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Ta bort skydd**
 
-För att låsa upp en form, sätt det tillämpade låsets värde till `false`. Följande kodexempel visar hur man låser upp former i en låst presentation.
+För att ta bort ett form‑lås, sätt dess värde till `false`. Följande exempel laddar en presentation med form‑lås och rensar urvalet, rörelsen och storleksändringen via [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) och [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Det tar också bort grupperingstillståndet genom att skicka `false` till [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) och sparar en kopia av presentationen. Övriga låsinställningar lämnas oförändrade.
 
 ```java
-// Instansiera Presentation-klassen som representerar en PPTX-fil.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ProtectedSample.pptx");
-
-// Traversera alla bilder i presentationen.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Traversera alla former i bilden.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Typkonvertera formen till en autoshape och hämta dess form‑lås.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(false);
-            autoShapeLock.setSelectLocked(false);
-            autoShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IGroupShape) {
-            // Typkonvertera formen till en gruppform och hämta dess form‑lås.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(false);
-            groupShapeLock.setPositionLocked(false);
-            groupShapeLock.setSelectLocked(false);
-            groupShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IConnector) {
-            // Typkonvertera formen till en anslutningsform och hämta dess form‑lås.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(false);
-            connectorShapeLock.setSelectLocked(false);
-            connectorShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IPictureFrame) {
-            // Typkonvertera formen till en bildram och hämta dess form‑lås.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(false);
-            pictureFrameLock.setSelectLocked(false);
-            pictureFrameLock.setSizeLocked(false);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(false);
+                autoShapeLock.setSelectLocked(false);
+                autoShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(false);
+                groupShapeLock.setPositionLocked(false);
+                groupShapeLock.setSelectLocked(false);
+                groupShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(false);
+                connectorShapeLock.setSelectLocked(false);
+                connectorShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(false);
+                pictureFrameLock.setSelectLocked(false);
+                pictureFrameLock.setSizeLocked(false);
+            }
         }
     }
-}
 
-// Spara presentationsfilen.
-presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Slutsats**
+### **Slutsats**
 
-Aspose.Slides erbjuder flera alternativ för att skydda former i en presentation. Du kan låsa en enskild form eller iterera genom alla former i en presentation och låsa varje för att effektivt skydda hela filen. Du kan ta bort skyddet genom att sätta låsvärdet till `false`.
+Aspose.Slides för Java låter dig begränsa specifika redigeringsåtgärder på enskilda former eller tillämpa samma restriktioner över bilder. Välj de lås som stöds av varje formtyp och sätt deras värden till `false` när du behöver ta bort dessa restriktioner.
 
 ## **FAQ**
 
 **Kan jag kombinera form‑lås och lösenordsskydd i samma presentation?**
 
-Ja. Lås begränsar redigering av objekt i filen, medan [lösenordsskydd](/slides/sv/java/password-protected-presentation/) styr åtkomst till att öppna och/eller spara ändringar. Dessa mekanismer kompletterar varandra och fungerar tillsammans.
+Ja. Form‑lås begränsar specifika redigeringsåtgärder, medan [password protection](/slides/sv/java/password-protected-presentation/) kan begränsa öppning eller ändring av presentationen. Du kan använda båda i samma fil.
 
 **Kan jag begränsa redigering på specifika bilder utan att påverka andra?**
 
-Ja. Tillämpa lås på formerna på de valda bilderna; de återstående bilderna förblir redigerbara.
+Ja. Tillämpar lås enbart på former på de valda bilderna. Detta ändrar inte låsinställningarna på andra bilder.
 
-**Gäller form‑lås för grupperade objekt och anslutningar?**
+**Hur kan jag tillämpa lås på enskilda former i en grupp?**
 
-Ja. Specifika låstyper stöds för grupper, anslutningar, grafiska objekt och andra formtyper.
+Iterera genom samlingen som returneras av gruppens [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--)‑metod och tillämpa de lämpliga låsen på varje underform. Upprepa detta för eventuella nästlade grupper. Exemplen ovan bearbetar endast bildens form‑samling, så de sätter inte lås på enskilda gruppmedlemmar.

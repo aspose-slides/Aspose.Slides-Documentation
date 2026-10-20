@@ -1,8 +1,11 @@
 ---
-title: Redimensionar formas em slides de apresentação
+title: Redimensionar formas em slides de apresentação em Java
 type: docs
-weight: 110
-url: /pt/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /pt/java/resizing-shapes-on-slide/
+aliases:
+  - /pt/java/re-sizing-shapes-on-slide/
+  /java/re-sizing-shapes-on-slide/
 keywords:
 - redimensionar forma
 - alterar tamanho da forma
@@ -11,123 +14,37 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Redimensione facilmente formas em slides PowerPoint e OpenDocument com Aspose.Slides para Java — automatize ajustes de layout de slides e aumente a produtividade."
+description: "Redimensione facilmente formas em slides PowerPoint e OpenDocument com Aspose.Slides for Java — automatize ajustes de layout de slides e aumente a produtividade."
 ---
 ## **Visão geral**
 
-Uma das perguntas mais comuns dos clientes do Aspose.Slides for Java é como redimensionar formas de modo que, quando o tamanho do slide mudar, os dados não sejam cortados. Este breve artigo técnico mostra como fazer isso.
+Quando você altera o tamanho do slide de uma apresentação, pode também precisar redimensionar e reposicionar suas formas para se ajustarem às novas dimensões. Este artigo mostra como dimensionar manualmente as formas e como lidar com tabelas em slides, mestres e layouts.
 
 ## **Redimensionar formas**
 
-Para evitar que as formas fiquem desalinhadas quando o tamanho do slide mudar, atualize a posição e as dimensões de cada forma para que elas se adequem ao novo layout do slide.
+Para preservar a posição e o tamanho relativos de cada forma, multiplique suas coordenadas horizontais e largura pela razão da nova largura do slide em relação à largura original. Aplique a razão de altura correspondente às coordenadas verticais e altura.
+
+O primeiro exemplo carrega uma apresentação cujos slides não contêm tabelas, altera o tamanho do slide para A4 e salva o resultado. Ele usa [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) com [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) para que o loop subsequente controle o dimensionamento. As razões são adimensionais; as posições e dimensões das formas são medidas em pontos. Diferentes razões de largura e altura podem distorcer as formas, e mudar as dimensões de uma forma não dimensiona seus tamanhos de fonte.
 
 ```java
-// Carregue o arquivo de apresentação.
-Presentation presentation = new Presentation("sample.ppt");
-try {
-    // Obtenha o tamanho original do slide.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-    // Altere o tamanho do slide sem dimensionar as formas existentes.
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Obtenha o novo tamanho do slide.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Redimensione e reposicione as formas em cada slide.
-    for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            
-            // Dimensione o tamanho da forma.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Dimensione a posição da forma.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
-    }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}} 
-Se um slide contém uma tabela, o código acima não funcionará corretamente. Nesse caso, cada célula da tabela deve ser redimensionada.
-{{% /alert %}} 
-
-Use o código a seguir para redimensionar slides que contêm tabelas. Para tabelas, definir a largura ou altura é um caso especial: é necessário ajustar as alturas das linhas individuais e as larguras das colunas para alterar o tamanho geral da tabela.
-
-```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Obtenha o tamanho original do slide.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Altere o tamanho do slide sem escalar as formas existentes.
+    // Calcule fatores de escala horizontais e verticais independentes.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
-
-    // Obtenha o novo tamanho do slide.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // Dimensione o tamanho da forma.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Dimensione a posição da forma.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
-
-        for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // Dimensione o tamanho da forma.
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // Dimensione a posição da forma.
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
-        }
-    }
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            // Dimensione o tamanho da forma.
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Dimensione a posição da forma.
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -138,32 +55,98 @@ finally {
 }
 ```
 
-## **Perguntas frequentes**
+{{% alert color="info" title="Note" %}}
+As tabelas requerem tratamento separado: dimensione suas larguras de coluna e alturas de linha em vez de atribuir a largura e altura gerais da tabela. As alturas de linha podem permanecer maiores que o solicitado se o conteúdo da célula exigir mais espaço.
+{{% /alert %}}
+
+O segundo exemplo suporta tabelas e processa formas em mestres e layouts, bem como slides individuais, antes de salvar a apresentação redimensionada. Seu auxiliar manipula cada [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) redimensionando as larguras das colunas com [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) e as alturas mínimas das linhas com [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-). Em seguida, dimensiona a posição da tabela sem dimensionar separadamente suas dimensões gerais.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // As dimensões da tabela são controladas pelas larguras das colunas e alturas das linhas.
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    // Calcule fatores de escala horizontais e verticais independentes.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
+    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
+
+    ShapeResizer resizer = new ShapeResizer();
+
+    // Redimensione formas definidas em mestres e layouts, bem como em slides individuais.
+    for (IMasterSlide master : presentation.getMasters()) {
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
+
+        for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
+        }
+    }
+
+    for (ISlide slide : presentation.getSlides()) {
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+}
+finally {
+    presentation.dispose();
+}
+```
+
+## **Perguntas Frequentes**
 
 **Por que as formas ficam distorcidas ou cortadas após redimensionar um slide?**
 
-Ao redimensionar um slide, as formas mantêm sua posição e tamanho originais, a menos que a escala seja alterada explicitamente. Isso pode fazer com que o conteúdo seja recortado ou que as formas fiquem desalinhadas.
+Se você mudar o tamanho do slide sem dimensionar as formas, elas mantêm suas posições e dimensões originais e podem ultrapassar o slide. Dimensionar largura e altura por razões diferentes também pode distorcer as formas.
 
 **O código fornecido funciona para todos os tipos de forma?**
 
-O exemplo básico funciona para a maioria dos tipos de forma (caixas de texto, imagens, gráficos etc.). Contudo, para tabelas, é necessário tratar linhas e colunas separadamente, pois a altura e a largura de uma tabela são determinadas pelas dimensões das células individuais.
+O primeiro exemplo altera os limites das formas diretamente e destina-se a slides sem tabelas. O segundo exemplo trata as tabelas separadamente. Verifique o layout resultante, particularmente textos e tabelas, pois esses exemplos não dimensionam os tamanhos de fonte e o conteúdo da tabela pode restringir as alturas das linhas.
 
 **Como redimensionar tabelas ao redimensionar um slide?**
 
-É preciso percorrer todas as linhas e colunas da tabela e redimensionar suas alturas e larguras proporcionalmente, como demonstrado no segundo exemplo de código.
+Dimensione as larguras das colunas pela razão de largura e as alturas mínimas das linhas pela razão de altura, então dimensione a posição da tabela, como mostrado no segundo exemplo.
 
-**Esse redimensionamento funciona para slides mestres e slides de layout?**
+**Esse redimensionamento funciona para slides mestre e slides de layout?**
 
-Sim, mas você também deve percorrer os [Masters](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#getMasters--) e os [Layout slides](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#getLayoutSlides--) e aplicar a mesma lógica de escala às suas formas para garantir consistência em toda a apresentação.
+Sim. O segundo exemplo itera através de [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) e de cada [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) de cada mestre e aplica a mesma lógica de redimensionamento às suas formas.
 
-**Posso mudar a orientação de um slide (retrato/paisagem) juntamente com o redimensionamento?**
+**Posso mudar a orientação de um slide (retrato/paisagem) junto com o redimensionamento?**
 
-Sim. Você pode usar [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islidesize/#setOrientation-int-) para alterar a orientação. Certifique‑se de ajustar a lógica de escala adequadamente para preservar o layout.
+Sim. Chame [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) após mudar o tamanho do slide e antes de ler as dimensões alvo, para que os fatores de escala reflitam a orientação final.
 
-**Existe um limite para o tamanho de slide que posso definir?**
+**Existe um limite para o tamanho do slide que eu posso definir?**
 
-O Aspose.Slides suporta tamanhos personalizados, mas tamanhos muito grandes podem afetar o desempenho ou a compatibilidade com algumas versões do PowerPoint.
+Você pode especificar dimensões personalizadas do slide com [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-). As dimensões suportadas também dependem do formato da apresentação e da aplicação usada para abrir o arquivo.
 
 **Como impedir que formas com proporção fixa fiquem distorcidas?**
 
-Você pode verificar o método `getAspectRatioLocked` da forma antes de escalá‑la. Se estiver bloqueado, ajuste a largura ou a altura proporcionalmente em vez de escalá‑las individualmente.
+Use o mesmo fator de escala para largura e altura. Para que o layout original caiba nas novas dimensões do slide, use a menor das razões de largura e altura para ambas as dimensões e posições. Isso preserva as proporções, mas pode deixar espaço não usado ao longo de uma das bordas.

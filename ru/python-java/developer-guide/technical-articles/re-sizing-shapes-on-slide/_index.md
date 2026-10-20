@@ -1,10 +1,13 @@
 ---
-title: Изменение размера фигур на слайдах презентаций в Python через Java
+title: Изменение размеров фигур на слайдах презентации в Python через Java
 type: docs
 weight: 110
-url: /ru/python-java/re-sizing-shapes-on-slide/
+url: /ru/python-java/resizing-shapes-on-slide/
+aliases:
+  - /ru/python-java/re-sizing-shapes-on-slide/
+  /python-java/re-sizing-shapes-on-slide/
 keywords:
-- изменение размера фигуры
+- изменить размер фигуры
 - изменить размер фигуры
 - PowerPoint
 - OpenDocument
@@ -12,15 +15,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Легко изменяйте размер фигур на слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Python через Java — автоматизируйте настройку макета слайдов и повышайте продуктивность."
+description: "Легко изменяйте размеры фигур на слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Python через Java — автоматизируйте корректировку макета слайдов и повышайте производительность."
 ---
 ## **Обзор**
 
-Один из самых часто задаваемых вопросов клиентами Aspose.Slides for Python via Java — как изменить размер фигур так, чтобы при изменении размера слайда данные не обрезались. Эта короткая техническая статья показывает, как это сделать.
+Когда вы меняете размер слайда презентации, вам также может потребоваться изменить размер и позицию фигур, чтобы они соответствовали новым габаритам. Эта статья показывает, как масштабировать фигуры вручную и как обрабатывать таблицы на слайдах, мастерах и макетах.
 
 ## **Изменение размера фигур**
 
-Чтобы фигуры не смещались при изменении размера слайда, обновите позицию и размеры каждой фигуры, чтобы они соответствовали новому макету слайда.
+Чтобы сохранить относительное положение и размер каждой фигуры, умножьте её горизонтальные координаты и ширину на коэффициент отношения новой ширины слайда к исходной ширине. Примените соответствующий коэффициент высоты к её вертикальным координатам и высоте.
+
+В первом примере загружается презентация, в которой слайды не содержат таблиц, меняется размер слайда на A4 и сохраняется результат. Используется [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize) с [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/python-java/aspose.slides/slidesizescaletype/#DoNotScale), чтобы последующий цикл контролировал масштабирование. Коэффициенты безразмерные; позиции фигур и их размеры измеряются в пунктах. Разные коэффициенты ширины и высоты могут искажать фигуры, а изменение размеров фигуры не масштабирует размеры шрифтов.
 
 ```python
 import jpype
@@ -29,137 +34,112 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
-
-# Загрузить файл презентации.
-presentation = Presentation("sample.ppt")
-try:
-    # Получить исходный размер слайда.
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # Изменить размер слайда без масштабирования существующих фигур.
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
-
-    # Получить новый размер слайда.
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # Изменить размер и положение фигур на каждом слайде.
-    for slide in presentation.getSlides():
-        for shape in slide.getShapes():
-
-            # Масштабировать размер фигуры.
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # Масштабировать положение фигуры.
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
-
-    presentation.save("output.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
-
-{{% alert color="info" title="Примечание" %}} 
-
-Таблицам не требуется особая обработка: задание ширины и высоты таблицы масштабирует её столбцы и строки пропорционально, поэтому повторное масштабирование высоты строк и ширины столбцов применит коэффициент дважды.
-
-{{% /alert %}} 
-
-Приведённый выше код изменяет только фигуры на слайдах. Мастер‑слайды и слайды‑макеты имеют свои собственные фигуры, поэтому масштабируйте их также, если вы хотите, чтобы вся презентация соответствовала новому размеру слайда:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, SlideOrientation
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType
 
 presentation = Presentation("sample.pptx")
 try:
-    # Получить исходный размер слайда.
-    current_height = presentation.getSlideSize().getSize().getHeight()
-    current_width = presentation.getSlideSize().getSize().getWidth()
-
-    # Изменить размер слайда без масштабирования существующих фигур.
+    # Вычислить независимые горизонтальные и вертикальные коэффициенты масштабирования.
+    original_size = presentation.getSlideSize().getSize()
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
-    # presentation.getSlideSize().setOrientation(SlideOrientation.Portrait)
-
-    # Получить новый размер слайда.
-    new_height = presentation.getSlideSize().getSize().getHeight()
-    new_width = presentation.getSlideSize().getSize().getWidth()
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    for master in presentation.getMasters():
-        for shape in master.getShapes():
-            # Масштабировать размер фигуры.
-            shape.setHeight(shape.getHeight() * height_ratio)
-            shape.setWidth(shape.getWidth() * width_ratio)
-
-            # Масштабировать положение фигуры.
-            shape.setY(shape.getY() * height_ratio)
-            shape.setX(shape.getX() * width_ratio)
-
-        for layout_slide in master.getLayoutSlides():
-            for shape in layout_slide.getShapes():
-                # Масштабировать размер фигуры.
-                shape.setHeight(shape.getHeight() * height_ratio)
-                shape.setWidth(shape.getWidth() * width_ratio)
-
-                # Масштабировать положение фигуры.
-                shape.setY(shape.getY() * height_ratio)
-                shape.setX(shape.getX() * width_ratio)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
 
     for slide in presentation.getSlides():
         for shape in slide.getShapes():
-            # Масштабировать размер фигуры.
-            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setWidth(shape.getWidth() * width_ratio)
-
-            # Масштабировать положение фигуры.
-            shape.setY(shape.getY() * height_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
             shape.setX(shape.getX() * width_ratio)
+            shape.setY(shape.getY() * height_ratio)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Вопросы и ответы**
+{{% alert color="info" title="Note" %}}
+Таблицы требуют отдельной обработки: масштабируйте их ширины столбцов и высоты строк вместо назначения общей ширины и высоты таблицы. Высота строк может оставаться больше запрошенного, если содержимое ячейки требует большего пространства.
+{{% /alert %}}
 
-**Почему фигуры искажаются или обрезаются после изменения размера слайда?**
+Во втором примере поддерживаются таблицы и обрабатываются фигуры на мастерах и макетах, а также отдельные слайды перед сохранением изменённой презентации. Его вспомогательный метод обрабатывает каждую [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/) путем масштабирования ширины столбцов с помощью [Column.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/column/#setWidth) и минимальной высоты строк с помощью [Row.setMinimalHeight](https://reference.aspose.com/slides/python-java/aspose.slides/row/#setMinimalHeight). Затем он масштабирует позицию таблицы без отдельного масштабирования её общих размеров.
 
-При изменении размера слайда фигуры сохраняют своё исходное положение и размер, если масштаб явно не меняется. Это может привести к обрезке содержимого или смещению фигур.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, SlideSizeType, SlideSizeScaleType, Table
+
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, Table):
+            # Размеры таблицы управляются ширинами столбцов и высотами строк.
+            for column in shape.getColumns():
+                column.setWidth(column.getWidth() * width_ratio)
+
+            for row in shape.getRows():
+                row.setMinimalHeight(row.getMinimalHeight() * height_ratio)
+        else:
+            shape.setWidth(shape.getWidth() * width_ratio)
+            shape.setHeight(shape.getHeight() * height_ratio)
+
+        shape.setX(shape.getX() * width_ratio)
+        shape.setY(shape.getY() * height_ratio)
+
+
+presentation = Presentation("sample.pptx")
+try:
+    # Вычислить независимые горизонтальные и вертикальные коэффициенты масштабирования.
+    original_size = presentation.getSlideSize().getSize()
+    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale)
+    target_size = presentation.getSlideSize().getSize()
+    width_ratio = target_size.getWidth() / original_size.getWidth()
+    height_ratio = target_size.getHeight() / original_size.getHeight()
+
+    # Изменить размер фигур, определённых на мастерах и макетах, а также на отдельных слайдах.
+    for master in presentation.getMasters():
+        resize_shapes(master.getShapes(), width_ratio, height_ratio)
+
+        for layout_slide in master.getLayoutSlides():
+            resize_shapes(layout_slide.getShapes(), width_ratio, height_ratio)
+
+    for slide in presentation.getSlides():
+        resize_shapes(slide.getShapes(), width_ratio, height_ratio)
+
+    presentation.save("output.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **FAQ**
+
+**Почему фигуры выглядят искажёнными или обрезанными после изменения размера слайда?**
+
+Если изменить размер слайда без масштабирования фигур, они сохраняют свои исходные позиции и размеры и могут выходить за пределы слайда. Масштабирование ширины и высоты разными коэффициентами также может искажать фигуры.
 
 **Работает ли предоставленный код для всех типов фигур?**
 
-Да. Установка высоты и ширины работает одинаково для текстовых полей, изображений, диаграмм и таблиц.
+Первый пример изменяет границы фигур напрямую и предназначен для слайдов без таблиц. Второй пример обрабатывает таблицы отдельно. Проверьте получившийся макет, особенно текст и таблицы, поскольку эти примеры не масштабируют размеры шрифтов, а содержимое таблиц может ограничивать высоту строк.
 
-**Как изменить размер таблиц при изменении размера слайда?**
+**Как изменять размер таблиц при изменении размера слайда?**
 
-Масштабируйте саму фигуру таблицы, как любую другую фигуру. Её строки и столбцы масштабируются пропорционально, поэтому не масштабируйте их повторно после этого.
+Масштабируйте ширины столбцов по коэффициенту ширины и минимальные высоты строк по коэффициенту высоты, затем масштабируйте позицию таблицы, как показано во втором примере.
 
-**Будет ли это работать для мастер‑слайдов и слайдов‑макетов?**
+**Будет ли это масштабирование работать для мастер‑слайдов и макетных слайдов?**
 
-Да, но также следует пройтись по [Presentation.getMasters](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getMasters) и [Presentation.getLayoutSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getLayoutSlides) и применить ту же логику масштабирования к их фигурам, чтобы обеспечить согласованность во всей презентации.
+Да. Во втором примере происходит итерация через [Presentation.getMasters](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getMasters) и каждый [MasterSlide.getLayoutSlides](https://reference.aspose.com/slides/python-java/aspose.slides/masterslide/#getLayoutSlides) мастера, применяя ту же логику изменения размера к их фигурам.
 
 **Можно ли изменить ориентацию слайда (портрет/ландшафт) вместе с изменением размера?**
 
-Да. Можно использовать [SlideSize.setOrientation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidesize/#setOrientation) для изменения ориентации. Убедитесь, что логика масштабирования настроена соответствующим образом, чтобы сохранить макет.
+Да. Вызовите [SlideSize.setOrientation](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setOrientation) после изменения размера слайда и перед чтением целевых размеров, чтобы коэффициенты масштабирования учитывали окончательную ориентацию.
 
-**Есть ли ограничение на размер слайда, который можно установить?**
+**Есть ли ограничение на размер слайда, который я могу установить?**
 
-Aspose.Slides поддерживает пользовательские размеры, но очень большие размеры могут влиять на производительность или совместимость с некоторыми версиями PowerPoint.
+Вы можете указать пользовательские размеры слайда с помощью [SlideSize.setSize](https://reference.aspose.com/slides/python-java/aspose.slides/slidesize/#setSize). Поддерживаемые размеры также зависят от формата презентации и приложения, используемого для её открытия.
 
 **Как предотвратить искажение фигур с фиксированным соотношением сторон?**
 
-Перед масштабированием можно проверить метод [getAspectRatioLocked](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshapelock/#getAspectRatioLocked) у блокировки фигуры. Если соотношение заблокировано, регулируйте ширину или высоту пропорционально, а не масштабируйте их по отдельности.
+Используйте одинаковый коэффициент масштабирования для ширины и высоты. Чтобы разместить оригинальный макет в новых габаритах слайда, используйте меньший из коэффициентов ширины и высоты для обеих размеров и позиций. Это сохраняет пропорции, но может оставить неиспользуемое пространство вдоль одной из сторон.

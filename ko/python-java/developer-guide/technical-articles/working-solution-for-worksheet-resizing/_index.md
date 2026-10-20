@@ -1,11 +1,11 @@
 ---
-title: 워크시트 크기 조정에 대한 작업 솔루션
+title: 워크시트 크기 조정에 대한 실용적인 해결책
 type: docs
 weight: 20
 url: /ko/python-java/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- 미리 보기 이미지
+- 미리보기 이미지
 - 이미지 크기 조정
 - Excel
 - 워크시트
@@ -14,34 +14,36 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "프레젠테이션에서 Excel 워크시트 OLE 크기 조정을 해결합니다: 객체 프레임을 일관되게 유지하는 두 가지 방법—프레임을 스케일링하거나 시트를 스케일링—PPT 및 PPTX 형식 전반에 적용됩니다."
+description: "프레젠테이션에서 Excel 워크시트 OLE 크기 조정을 수정합니다: 개체 프레임을 일관되게 유지하는 두 가지 방법—프레임을 스케일링하거나 시트를 스케일링—PPT 및 PPTX 형식 전반에 걸쳐."
 ---
 {{% alert color="info" title="Note" %}}
 
-Excel 워크시트를 Aspose 구성 요소를 사용해 PowerPoint 프레젠테이션에 OLE 객체로 삽입하면 첫 번째 활성화 이후 크기가 지정되지 않은 비율로 조정되는 현상이 관찰되었습니다. 이 동작으로 인해 OLE 객체의 활성화 전후 시각적 차이가 크게 나타납니다. 이 문제를 상세히 조사하고 해결 방법을 제시했으며, 해당 내용은 이 문서에 수록되어 있습니다.
+Aspose 구성 요소를 사용하여 PowerPoint 프레젠테이션에 OLE 개체로 삽입된 Excel 워크시트는 첫 번째 활성화 후 예상치 않게 크기가 변경될 수 있습니다. 이 동작으로 인해 OLE 개체가 활성화 전후에 눈에 띄는 시각적 차이가 발생합니다. 이 문서에서는 문제를 설명하고 해결 방법 두 가지를 소개합니다.
 
 {{% /alert %}}
 
 ## **배경**
 
-[OLE 관리](/slides/ko/python-java/manage-ole/) 문서에서 Aspose.Slides for Python via Java를 사용해 PowerPoint 프레젠테이션에 OLE 프레임을 추가하는 방법을 설명했습니다. [객체 미리 보기 문제](/slides/ko/python-java/object-preview-issue-when-adding-oleobjectframe/)를 해결하기 위해 선택한 워크시트 영역의 이미지를 OLE 객체 프레임에 할당했습니다. 출력 프레젠테이션에서 워크시트 이미지를 표시하는 OLE 객체 프레임을 더블 클릭하면 Excel 통합 문서가 활성화됩니다. 최종 사용자는 실제 Excel 통합 문서에서 원하는 대로 수정한 뒤, 활성화된 Excel 통합 문서 외부를 클릭해 슬라이드로 돌아갈 수 있습니다. 사용자가 슬라이드로 돌아올 때 OLE 객체 프레임의 크기가 변경됩니다. 크기 조정 비율은 OLE 객체 프레임과 삽입된 Excel 통합 문서의 크기에 따라 달라집니다.
+이 문서 [OLE 관리](/slides/ko/python-java/manage-ole/)에서는 Aspose.Slides for Python via Java를 사용하여 PowerPoint 프레젠테이션에 OLE 프레임을 추가하는 방법을 설명했습니다. [개체 미리보기 문제](/slides/ko/python-java/object-preview-issue-when-adding-oleobjectframe/)를 해결하기 위해 선택된 워크시트 영역의 이미지를 OLE 개체 프레임에 할당했습니다. 출력 프레젠테이션에서 워크시트 이미지를 표시하는 OLE 개체 프레임을 더블 클릭하면 Excel 통합 문서가 활성화됩니다. 최종 사용자는 실제 Excel 통합 문서를 원하는대로 변경한 후 활성화된 Excel 통합 문서 밖을 클릭하여 슬라이드로 돌아갈 수 있습니다. 사용자가 슬라이드로 돌아오면 OLE 개체 프레임의 크기가 변경됩니다. 크기 조정 비율은 OLE 개체 프레임과 삽입된 Excel 통합 문서의 크기에 따라 달라집니다.
 
 ## **크기 조정 원인**
 
-Excel 통합 문서는 자체 창 크기를 가지고 있어 첫 번째 활성화 시 원래 크기를 유지하려 합니다. 반면 OLE 객체 프레임은 자체 크기를 갖고 있습니다. Microsoft에 따르면 Excel 통합 문서가 활성화될 때 Excel과 PowerPoint가 크기를 협상해 임베딩 프로세스의 비율을 올바르게 유지합니다. 크기 조정은 Excel 창 크기와 OLE 객체 프레임의 크기·위치 차이에 기반해 발생합니다.
+Excel 통합 문서는 자체 창 크기를 가지고 있기 때문에 첫 번째 활성화 시 원래 크기를 유지하려고 합니다. 반면 OLE 개체 프레임은 자체 크기를 갖습니다. Microsoft에 따르면 Excel 통합 문서가 활성화될 때 Excel과 PowerPoint가 삽입 과정의 일환으로 올바른 비율을 유지하도록 크기를 협상합니다. 크기 조정은 Excel 창 크기와 OLE 개체 프레임의 크기 및 위치 차이에 따라 발생합니다.
 
-## **작동 솔루션**
+## **해결 방법**
 
-크기 조정 효과를 피할 수 있는 두 가지 해결책이 있습니다.
+크기 조정 효과를 방지하기 위한 두 가지 가능한 해결책이 있습니다.
 
-- OLE 프레임의 크기를 PowerPoint 프레젠테이션에서 원하는 행·열 수에 맞는 높이와 너비로 조정합니다.
-- OLE 프레임 크기를 고정하고, 포함된 행·열의 크기를 조정해 선택한 OLE 프레임 크기에 맞춥니다.
+- PowerPoint 프레젠테이션에서 OLE 프레임을 선택된 행과 열의 전체 높이와 너비에 맞게 스케일링합니다.
+- OLE 프레임 크기를 고정하고 선택된 행과 열을 프레임에 맞게 스케일링합니다.
 
 ### **OLE 프레임 크기 조정**
 
-이 방법에서는 삽입된 Excel 통합 문서의 OLE 프레임 크기를 Excel 워크시트의 포함 행·열 총합 크기에 맞게 설정하는 방법을 배웁니다.
+이 방법은 삽입된 Excel 워크시트에서 선택된 행과 열의 전체 높이와 너비에 맞게 OLE 프레임 크기를 설정합니다.
 
-템플릿 Excel 시트가 있고 이를 OLE 프레임으로 프레젠테이션에 추가한다고 가정합니다. 이 경우 OLE 객체 프레임의 크기는 워크북에 포함된 행 높이와 열 너비의 총합을 기준으로 먼저 계산됩니다. 그런 다음 계산된 값으로 OLE 프레임 크기를 설정합니다. PowerPoint에서 OLE 프레임에 표시되는 빨간색 “EMBEDDED OLE OBJECT” 메시지를 방지하기 위해 워크북에서 원하는 행·열 영역을 캡처하고 이를 OLE 프레임 이미지로 설정합니다.
+예제는 기존 Excel 통합 문서를 로드하고, 0부터 시작하는 인덱스를 사용하여 첫 번째 워크시트의 처음 10행과 13열을 선택합니다. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) 은 표시 범위를 정의합니다. 미리보기는 96 DPI로 렌더링되며, 픽셀 크기는 인치당 72 포인트를 사용하여 포인트로 변환됩니다. [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) 은 수정된 통합 문서를 해당 차원의 프레임에 삽입합니다. 미리보기는 [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) 을 통해 할당되어 저장된 프레젠테이션의 "EMBEDDED OLE OBJECT" 자리표시자를 교체합니다.
+
+미리보기 도우미는 [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) 를 선택된 범위로 설정하고 여백, 머리글 및 바닥글을 제거합니다. [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea) 가 활성화된 상태에서 [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) 은 범위를 PNG 이미지로 렌더링합니다. 도우미는 프레젠테이션에서 사용하기 위해 PNG 이미지를 포함하는 새로운 입력 스트림을 반환하며, 스트림은 시작 위치에 배치됩니다.
 
 ```python
 import jpype
@@ -94,7 +96,7 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # 워크북을 PowerPoint에서 OLE 객체로 사용할 때 표시되는 크기를 설정합니다.
+    # 워크북이 PowerPoint에서 OLE 개체로 사용될 때 표시되는 크기를 설정합니다.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
@@ -125,7 +127,7 @@ try:
             image_stream.reset()
             ole_image = presentation.getImages().addImage(image_stream)
 
-            # OLE 객체 프레임을 생성합니다.
+            # OLE 개체 프레임을 생성합니다.
             data_info = OleEmbeddedDataInfo(workbook_data, "xlsx")
             ole_frame = slide.getShapes().addOleObjectFrame(10.0, 10.0, frame_width, frame_height, data_info)
             ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
@@ -142,9 +144,13 @@ finally:
 
 ### **셀 범위 크기 조정**
 
-이 방법에서는 원하는 OLE 프레임 크기에 맞게 포함 행의 높이와 포함 열의 너비를 조정하는 방법을 배웁니다.
+이 방법은 선택된 행의 높이와 선택된 열의 너비를 사용자 정의 OLE 프레임 크기에 맞게 스케일링합니다.
 
-템플릿 Excel 시트가 있고 이를 OLE 프레임으로 프레젠테이션에 추가한다고 가정합니다. 이 경우 OLE 프레임 크기를 설정하고 OLE 프레임 영역에 포함되는 행·열의 크기를 조정합니다. 그런 다음 워크북을 스트림에 저장해 변경 사항을 적용하고, 이를 바이트 배열로 변환해 OLE 프레임에 추가합니다. PowerPoint에서 OLE 프레임에 표시되는 빨간색 “EMBEDDED OLE OBJECT” 메시지를 방지하기 위해 워크북에서 원하는 행·열 영역을 캡처하고 이를 OLE 프레임 이미지로 설정합니다.
+예제는 기존 Excel 통합 문서를 로드하고, 0부터 시작하는 인덱스를 사용하여 첫 번째 워크시트의 처음 10행과 13열을 선택합니다. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) 은 표시 범위를 정의하고, scale_cell_range 도우미는 해당 범위를 너비 400 포인트, 높이 100 포인트인 프레임에 맞게 스케일링합니다. 수정된 통합 문서를 스트림에 저장한 후, [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) 은 지정된 크기로 삽입합니다. 96 DPI로 렌더링된 미리보기는 [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) 을 통해 할당되어, 저장된 프레젠테이션이 기본 자리표시자 대신 선택된 셀을 표시하도록 합니다.
+
+스케일링 도우미는 선택된 범위에 대해 별도의 너비와 높이 비율을 계산하여 열의 상대 너비와 행의 상대 높이를 유지합니다. 계산된 치수를 포인트에서 인치로 변환한 후 [Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) 와 [Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch) 로 적용합니다. 선택된 범위는 너비와 높이가 0이 아니어야 합니다.
+
+이 미리보기 도우미는 [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) 를 사용하여 크기가 조정된 범위를 렌더링합니다. [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) 를 해당 범위로 제한하고, 여백, 머리글 및 바닥글을 제거한 뒤, 시작 위치에 배치된 PNG 스트림을 반환합니다.
 
 ```python
 import jpype
@@ -159,7 +165,7 @@ from asposecells.api import SaveFormat as CellsSaveFormat
 from asposeslides.api import Presentation, OleEmbeddedDataInfo, SaveFormat
 
 ByteArrayInputStream = jpype.JClass("java.io.ByteArrayInputStream")
-ByteArrayOutputStream = jpuse.JClass("java.io.ByteArrayOutputStream")
+ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
 
 def create_ole_image(cell_range, image_resolution):
@@ -218,13 +224,13 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # 워크북을 PowerPoint에서 OLE 객체로 사용할 때 표시되는 크기를 설정합니다.
+    # 워크북이 PowerPoint에서 OLE 개체로 사용될 때 표시되는 크기를 설정합니다.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
 
     cell_range = worksheet.getCells().createRange(start_row, start_column, row_count, column_count)
-    # 프레임 크기에 맞게 셀 범위를 스케일링합니다.
+    # 셀 범위를 프레임 크기에 맞게 스케일링합니다.
     scale_cell_range(cell_range, frame_width, frame_height)
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
@@ -245,7 +251,7 @@ try:
             image_stream.reset()
             ole_image = presentation.getImages().addImage(image_stream)
 
-            # OLE 객체 프레임을 생성합니다.
+            # OLE 개체 프레임을 생성합니다.
             data_info = OleEmbeddedDataInfo(workbook_data, "xlsx")
             ole_frame = slide.getShapes().addOleObjectFrame(10.0, 10.0, frame_width, frame_height, data_info)
             ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
@@ -264,36 +270,38 @@ finally:
 
 {{% alert color="info" title="Note" %}} 
 
-워크시트 크기 조정 문제를 해결하는 두 가지 접근 방식이 있습니다. 적절한 접근 방식 선택은 구체적인 요구 사항 및 사용 사례에 따라 달라집니다. 두 방식 모두 템플릿 기반이든 처음부터 만든 프레젠테이션이든 동일하게 작동합니다. 또한 이 솔루션에서는 OLE 객체 프레임 크기에 제한이 없습니다.
+워크시트 크기 조정 문제를 해결하기 위한 두 가지 접근 방식이 있습니다. 요구 사항 및 사용 사례에 가장 적합한 접근 방식을 선택하십시오. 두 접근 방식 모두 템플릿에서 생성했든 처음부터 만들었든 동일하게 작동합니다. 또한 이 솔루션에서는 OLE 개체 프레임 크기에 제한이 없습니다.
 
 {{% /alert %}}
 
-## **FAQ**
+## **자주 묻는 질문**
 
-**첫 번째 활성화 시 삽입된 Excel 워크시트가 PowerPoint에서 크기가 변경되는 이유는 무엇인가요?**
+**PowerPoint에서 삽입된 Excel 워크시트가 처음 활성화될 때 크기가 변경되는 이유는 무엇인가요?**
 
-Excel이 활성화될 때 원래 창 크기를 유지하려 하고, PowerPoint의 OLE 객체 프레임은 자체 차원을 갖기 때문입니다. PowerPoint와 Excel이 비율을 유지하도록 크기를 협상하면서 크기 조정이 발생합니다.
+이는 Excel이 활성화될 때 원래 창 크기를 유지하려고 시도하고, PowerPoint의 OLE 개체 프레임은 자체적인 차원을 가지고 있기 때문입니다. PowerPoint와 Excel은 비율을 유지하도록 크기를 협상하며, 이 과정에서 크기 조정이 발생할 수 있습니다.
 
 **이 크기 조정 문제를 완전히 방지할 수 있나요?**
 
-예. OLE 프레임을 Excel 셀 범위 크기에 맞게 조정하거나, 셀 범위를 원하는 OLE 프레임 크기에 맞게 조정하면 원하지 않는 크기 변화를 방지할 수 있습니다.
+예. OLE 프레임을 Excel 셀 범위 크기에 맞게 스케일링하거나 셀 범위를 원하는 OLE 프레임 크기에 맞게 스케일링하면 원하지 않는 크기 조정을 방지할 수 있습니다.
 
-**어떤 스케일링 방법을 사용해야 하나요? OLE 프레임 스케일링 vs 셀 범위 스케일링?**
+**어떤 스케일링 방법을 사용해야 하나요, OLE 프레임 스케일링인가요 셀 범위 스케일링인가요?**
 
-원본 Excel 행·열 크기를 유지하고 싶다면 **OLE 프레임 스케일링**을 선택하십시오. 프레젠테이션에서 OLE 프레임 크기를 고정하고 싶다면 **셀 범위 스케일링**을 선택하십시오.
+원본 Excel 행 및 열 크기를 유지하려면 **OLE 프레임 스케일링** 을 선택하십시오. 프레젠테이션에서 OLE 프레임을 고정된 크기로 사용하려면 **셀 범위 스케일링** 을 선택하십시오.
 
-**템플릿 기반 프레젠테이션에도 이 솔루션이 적용되나요?**
+**프레젠테이션이 템플릿 기반인 경우에도 이 솔루션이 작동하나요?**
 
-예. 두 솔루션 모두 템플릿에서 만든 프레젠테이션과 처음부터 만든 프레젠테이션 모두에서 작동합니다.
+예. 두 솔루션 모두 템플릿에서 만든 프레젠테이션과 처음부터 만든 프레젠테이션 모두에 적용됩니다.
 
-**이 방법을 사용할 때 OLE 프레임 크기에 제한이 있나요?**
+**이 방법들을 사용할 때 OLE 프레임 크기에 제한이 있나요?**
 
-아니요. 적절히 스케일을 지정하기만 하면 OLE 객체 프레임을 원하는 어떤 크기로도 만들 수 있습니다.
+아니요. 적절히 스케일을 설정하면 OLE 개체 프레임을 원하는 아무 크기로도 만들 수 있습니다.
 
-**PowerPoint에서 “EMBEDDED OLE OBJECT” 플레이스홀더 텍스트를 없앨 수 있나요?**
+**"EMBEDDED OLE OBJECT" 자리표시자 텍스트를 PowerPoint에서 피할 수 있는 방법이 있나요?**
 
-예. 대상 Excel 셀 범위의 스냅샷을 찍어 OLE 프레임의 플레이스홀더 이미지로 설정하면 기본 플레이스홀더 대신 사용자 지정 미리 보기 이미지를 표시할 수 있습니다.
+예. 대상 Excel 셀 범위의 스냅샷을 촬영하여 OLE 프레임의 자리표시자 이미지로 설정하면 기본 자리표시자 대신 사용자 지정 미리보기 이미지를 표시할 수 있습니다.
 
-## **관련 문서**
+## **관련 기사**
 
-[Excel 차트를 생성하고 OLE 객체로 프레젠테이션에 삽입](/slides/ko/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Excel 차트 만들기 및 OLE 개체로 프레젠테이션에 삽입하기](/slides/ko/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[MS PowerPoint 추가 기능을 사용하여 OLE 개체 자동 업데이트](/slides/ko/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

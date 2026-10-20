@@ -1,134 +1,128 @@
 ---
-title: 防止簡報在 Python 中透過形狀鎖定編輯
-linktitle: 防止簡報編輯
+title: 使用形狀鎖定在 Python 中限制簡報編輯
+linktitle: 限制簡報編輯
 type: docs
 weight: 70
 url: /zh-hant/python-net/applying-protection-to-presentation/
 keywords:
 - 防止編輯
-- 防止被編輯
+- 保護免於編輯
 - 鎖定形狀
 - 鎖定位置
 - 鎖定選取
-- 鎖定大小
+- 鎖定調整大小
 - 鎖定群組
 - PowerPoint
-- OpenDocument
+- PPTX
 - 簡報
 - Python
 - Aspose.Slides
-description: "了解 Aspose.Slides for Python via .NET 如何在 PPT、PPTX 與 ODP 檔案中鎖定或解鎖形狀，保護簡報安全，同時允許受控編輯與更快速的交付。"
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PPTX 簡報中鎖定與解鎖形狀，以限制選取、移動、調整大小和群組。"
 ---
 ## **背景**
 
-Aspose.Slides 的常見用法是於自動化工作流程中建立、更新與儲存 Microsoft PowerPoint (PPTX) 簡報。以此方式使用 Aspose.Slides 的應用程式使用者可以取得產生的簡報，因而對防止內容被編輯抱持高度關切。確保自動產生的簡報保留其原始格式與內容是十分重要的。
+Aspose.Slides for Python via .NET 的常見用途是於自動化工作流程中建立、更新與儲存 PowerPoint (PPTX) 簡報。當使用者收到這些簡報時，限制對圖形的變更可以協助保留預期的版面配置與內容。
 
-本篇說明簡報與投影片的結構，以及 Aspose.Slides for Python 如何對簡報套用保護並於之後移除。它為開發者提供一種方式，讓他們能控制應用程式產生的簡報的使用方式。
+本文說明圖形在投影片上的組織方式，以及如何在 PPTX 簡報中套用與移除圖形鎖定。這些鎖定讓您能限制對個別圖形的特定編輯操作。
 
 ## **投影片的組成**
 
-簡報投影片由自動圖形、表格、OLE 物件、群組形狀、圖片框、影片框、連接線以及其他用於建立簡報的元素構成。在 Aspose.Slides for Python 中，投影片上的每個元素皆以繼承自 [Shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/) 類別的物件表示。
+簡報投影片由自動圖形、表格、OLE 物件、群組圖形、圖片框、影片框、連接線以及其他用於建構簡報的元素組成。在 Aspose.Slides for Python via .NET 中，投影片上的每個元素皆以繼承自 [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) 類別的物件表示。
 
-PPTX 的結構相當複雜，因而不同於 PPT（可對所有形狀類型使用通用鎖定），不同形狀類型需要不同的鎖定。[BaseShapeLock](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/baseshapelock/) 類別是 PPTX 的通用鎖定類別。以下是 Aspose.Slides for Python 在 PPTX 中支援的鎖定類型：
+不同的圖形類型提供不同的鎖定選項。[BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) 類別是圖形鎖定的基底類別。Aspose.Slides for Python via .NET 提供以下鎖定類別：
 
-- [AutoShapeLock](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshapelock/) 鎖定自動圖形。  
-- [ConnectorLock](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/connectorlock/) 鎖定連接形狀。  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/graphicalobjectlock/) 鎖定圖形物件。  
-- [GroupShapeLock](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/groupshapelock/) 鎖定群組形狀。  
-- [PictureFrameLock](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframelock/) 鎖定圖片框。  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) 鎖定自動圖形。  
+- [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) 鎖定連接圖形。  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) 鎖定圖形物件。  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) 鎖定群組圖形。  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) 鎖定圖片框。  
 
-對 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 物件中的所有形狀物件所執行的任何操作，都會套用至整個簡報。
+若要在整個 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 中套用鎖定，請遍歷其投影片，並對每個受支援的圖形設定相應的鎖定。
 
 ## **套用與移除保護**
 
-套用保護可確保簡報無法被編輯。這是一項用於保護簡報內容的實用技術。
+圖形鎖定會限制選取、移動與調整大小等操作。它們不會使整個簡報變成不可編輯。
 
-### **套用保護至 PPTX 形狀**
+### **套用 PPTX 圖形的保護**
 
-Aspose.Slides for Python 提供 [Shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/) 類別，以處理投影片上的形狀。
+Aspose.Slides for Python via .NET 提供 [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) 類別，以在投影片上處理圖形。
 
-如前所述，每個形狀類別都有對應的 shape-lock 類別以提供保護。本篇聚焦於 NoSelect、NoMove 與 NoResize 鎖定。這些鎖定可防止形狀被選取（透過滑鼠點擊或其他選取方式），亦防止其被移動或調整大小。
+範例將 [select_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/select_locked/)、[position_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/position_locked/) 與 [size_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/size_locked/) 設為 `True` 於自動圖形，對群組圖形、連接線與圖片框套用相同的鎖定。連接線使用 [position_move](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/position_move/) 以控制移動；群組則使用 [grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) 以限制群組化。
 
-以下程式碼範例會對簡報中的所有形狀類型套用保護。
+範例載入現有的 PPTX 簡報，檢查每個投影片的圖形集合中的圖形，並儲存套用了這些限制的副本。未屬於上述四種處理類型的圖形將保持不變。此迴圈不會遍歷群組內的子圖形。
 
-```py
+```python
 import aspose.slides as slides
 
-# 實例化代表 PPTX 檔案的 Presentation 類別。
 with slides.Presentation("Sample.pptx") as presentation:
-    # 遍歷簡報中的所有投影片。
     for slide in presentation.slides:
-        # 遍歷投影片中的所有形狀。
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = True
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-    # 儲存簡報檔案。
+
     presentation.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **移除保護**
 
-若要解除形狀的鎖定，將已套用的鎖定值設為 `False`。以下程式碼範例示範如何在已鎖定的簡報中解除形狀的鎖定。
+若要移除圖形鎖定，請將其值設為 `False`。以下範例載入含有圖形鎖定的簡報，並透過 [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/)、[GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/)、[ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) 與 [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) 清除選取、移動與調整大小的限制。它同時清除 [GroupShapeLock.grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) 並儲存簡報的副本。其他鎖定設定則保持不變。
 
-```py
+```python
 import aspose.slides as slides
 
-# 實例化代表 PPTX 檔案的 Presentation 類別。
 with slides.Presentation("ProtectedSample.pptx") as presentation:
-    # 遍歷簡報中的所有投影片。
     for slide in presentation.slides:
-        # 遍歷投影片中的所有形狀。
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = False
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-    # 儲存簡報檔案。
+
     presentation.save("RemovedProtectionSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **結論**
 
-Aspose.Slides 提供多種保護簡報中形狀的選項。您可以鎖定單一形狀，或遍歷簡報中的所有形狀並逐一鎖定，以有效保護整個檔案。亦可透過將鎖定值設為 `False` 來移除保護。
+Aspose.Slides for Python via .NET 讓您能限制對單一圖形的特定編輯操作，或於多張投影片上套用相同的限制。請選擇各圖形類型支援的鎖定，並在需要移除限制時將其值設為 `False`。
 
 ## **常見問題**
 
-**我可以在同一個簡報中同時結合形狀鎖定與密碼保護嗎？**
+**我可以在同一個簡報中同時結合圖形鎖定與密碼保護嗎？**
 
-可以。鎖定限制檔案內物件的編輯，而 [password protection](/slides/zh-hant/python-net/password-protected-presentation/) 控制開啟與/或儲存變更的存取權限。這兩種機制相輔相成，可共同運作。
+可以。圖形鎖定限制特定的編輯操作，而 [密碼保護](/slides/zh-hant/python-net/password-protected-presentation/) 可以限制簡報的開啟或修改。您可以在同一個檔案中同時使用兩者。
 
-**我可以限制特定投影片的編輯而不影響其他投影片嗎？**
+**我可以僅限制特定投影片的編輯而不影響其他投影片嗎？**
 
-可以。對所選投影片上的形狀套用鎖定，其他投影片則保持可編輯。
+可以。僅在選取的投影片上套用鎖定，這不會更改其他投影片的鎖定設定。
 
-**形狀鎖定會套用於群組物件與連接線嗎？**
+**我該如何對群組內的個別圖形套用鎖定？**
 
-會。針對群組、連接線、圖形物件以及其他形狀類型均支援專屬的鎖定類別。
+遍歷群組的 [形狀](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) 集合，並對每個子圖形套用相應的鎖定。對任何巢狀群組亦重複此動作。上面的範例僅處理投影片的圖形集合，未對個別群組成員設定鎖定。

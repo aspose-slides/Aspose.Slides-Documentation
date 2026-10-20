@@ -1,170 +1,193 @@
 ---
-title: Δημιουργία διαγραμμάτων Excel και ενσωμάτωσή τους σε παρουσιάσεις ως αντικείμενα OLE
+title: Δημιουργία διαγραμμάτων Excel και ενσωμάτωση τους σε παρουσιάσεις ως αντικείμενα OLE
 type: docs
 weight: 40
 url: /el/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
 - Διάγραμμα Excel
-- ενσωμάτωση διαγράμματος
-- αντικείμενο OLE
+- Ενσωμάτωση διαγράμματος
+- Αντικείμενο OLE
 - PowerPoint
-- OpenDocument
-- παρουσίαση
+- Παρουσίαση
 - C++
 - Aspose.Slides
-description: "Δημιουργήστε διαγράμματα Excel και ενσωματώστε τα ως αντικείμενα OLE σε παρουσιάσεις PowerPoint και OpenDocument με C++. Οδηγός βήμα προς βήμα με δείγματα κώδικα."
+description: "Δημιουργήστε ένα διάγραμμα Excel με το Aspose.Cells για C++ και ενσωματώστε το βιβλίο εργασίας σε μια παρουσίαση PowerPoint με το Aspose.Slides, περιλαμβάνοντας μια προεπισκόπηση διαγράμματος."
 ---
-## **Ιστορικό**
+## **Επισκόπηση**
 
-Στο PowerPoint, η χρήση επεξεργάσιμων διαγραμμάτων για την απεικόνιση δεδομένων γραφικά αποτελεί κοινή πρακτική. Το Aspose υποστηρίζει τη δημιουργία διαγραμμάτων Excel με το Aspose.Cells για C++, και αυτά τα διαγράμματα μπορούν στη συνέχεια να ενσωματωθούν ως αντικείμενα OLE στις διαφάνειες του PowerPoint μέσω του Aspose.Slides για C++. Αυτό το άρθρο καλύπτει τα απαραίτητα βήματα και παρέχει δείγματα κώδικα C++ για τη δημιουργία διαγράμματος Excel και την ενσωμάτωσή του ως αντικείμενο OLE σε παρουσίαση PowerPoint χρησιμοποιώντας τα Aspose.Cells και Aspose.Slides.
+Αυτό το άρθρο δείχνει πώς να δημιουργήσετε ένα διάγραμμα στηλών Excel με Aspose.Cells for C++ και να ενσωματώσετε το βιβλίο εργασίας του σε μια παρουσίαση PowerPoint με Aspose.Slides for C++. Το ενσωματωμένο βιβλίο εργασίας περιέχει τόσο τα δεδομένα προέλευσης όσο και το διάγραμμα. Μια ξεχωριστή προεπισκόπηση PNG εμφανίζει το διάγραμμα στη διαφάνεια πριν ενεργοποιηθεί το αντικείμενο OLE.
 
-## **Απαιτούμενα Βήματα**
+Το αποτέλεσμα είναι ένα ενσωματωμένο αντικείμενο Excel, όχι ένα εγγενές διάγραμμα PowerPoint. Η επεξεργασία του βιβλίου εργασίας μέσω OLE απαιτεί μια εφαρμογή επιφάνειας εργασίας που υποστηρίζει ενεργοποίηση OLE και μια συμβατή εγκατάσταση του Excel.
 
-1. Δημιουργήστε ένα διάγραμμα Excel χρησιμοποιώντας το Aspose.Cells.
-1. Ορίστε το μέγεθος OLE του διαγράμματος Excel χρησιμοποιώντας το Aspose.Cells.
-1. Αποκτήστε μια εικόνα του διαγράμματος Excel με το Aspose.Cells.
-1. Ενσωματώστε το διάγραμμα Excel ως αντικείμενο OLE σε μια παρουσίαση PPTX χρησιμοποιώντας το Aspose.Slides.
-1. Αντικαταστήστε την εικόνα "EMBEDDED OLE OBJECT" με την εικόνα που ελήφθη στο βήμα 3 για την αντιμετώπιση του [object preview issue](/slides/el/cpp/object-preview-issue-when-adding-oleobjectframe/).
-1. Αποθηκεύστε την παρουσίαση στο δίσκο σε μορφή PPTX.
+## **Προαπαιτούμενα**
 
-## **Υλοποίηση των Απαιτούμενων Βημάτων**
+Διαμορφώστε το έργο C++ σας με τις κεφαλίδες και τις βιβλιοθήκες για Aspose.Cells for C++ και Aspose.Slides for C++. Τοποθετήστε τον κώδικα παραδείγματος στο σημείο εισόδου της εφαρμογής σας, με τις δηλώσεις include σε επίπεδο αρχείου. Δεν απαιτείται Microsoft Office για τη δημιουργία της παρουσίασης με αυτές τις βιβλιοθήκες.
 
-```cpp
-// Βήμα - 1: Δημιουργία διαγράμματος Excel χρησιμοποιώντας το Aspose.Cells.
-// ---------------------------------------------------
-// Δημιουργία βιβλίου εργασίας.
-intrusive_ptr<Aspose::Cells::IWorkbook> workbook = Aspose::Cells::Factory::CreateIWorkbook();
-// Προσθήκη διαγράμματος Excel.
-int32_t chartRows = 55;
-int32_t chartCols = 25;
-int32_t chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+Δεν απαιτούνται αρχεία εισόδου: το παράδειγμα δημιουργεί τα δεδομένα και το διάγραμμα στη μνήμη, στη συνέχεια γράφει `OutputChart.pptx` στον τρέχοντα φάκελο εργασίας. Εφαρμόστε άδειες για και τα δύο προϊόντα όταν εκτελείται εκτός λειτουργίας αξιολόγησης.
 
-// Βήμα - 2: Ορισμός του μεγέθους OLE του διαγράμματος χρησιμοποιώντας το Aspose.Cells.
-// -----------------------------------------------------------
-workbook->GetIWorksheets()->SetOleSize(0, chartRows, 0, chartCols);
+## **Πώς Λειτουργεί η Ενσωμάτωση**
 
-// Βήμα - 3: Λήψη της εικόνας του διαγράμματος με το Aspose.Cells.
-// -------------------------------------------------------
-System::SharedPtr<System::Drawing::Bitmap> chartImage = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex)->GetICharts()->GetObjectByIndex(0)->ToImage();
-// Save the workbook to a stream.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+1. Δημιουργήστε ένα βιβλίο εργασίας με ένα φύλλο δεδομένων και ένα φύλλο διαγράμματος.  
+1. Κάντε το φύλλο διαγράμματος ενεργό ώστε το βιβλίο εργασίας να ανοίγει στο διάγραμμα.  
+1. Ορίστε το εύρος εμφάνισης OLE του βιβλίου εργασίας και αποδώστε το διάγραμμα σε PNG.  
+1. Αποθηκεύστε το βιβλίο εργασίας ως XLSX στη μνήμη και ενσωματώστε αυτά τα bytes σε μια διαφάνεια.  
+1. Ορίστε το PNG ως προεπισκόπηση του αντικειμένου OLE και αποθηκεύστε την παρουσίαση ως PPTX.
 
-// Βήμα - 4 ΚΑΙ 5
-// ==============
-// Βήμα - 4: Ενσωμάτωση του διαγράμματος ως αντικείμενο OLE μέσα σε παρουσίαση .ppt χρησιμοποιώντας το Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// Βήμα - 5: Αντικατάσταση της εικόνας "EMBEDDED OLE OBJECT" με την εικόνα που ελήφθη στο βήμα 3 για την αντιμετώπιση του προβλήματος προεπισκόπησης αντικειμένου.
-// --------------------------------------------------------------------------------------------------------------------
-// Create a presentation.
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-// Add the workbook to the slide.
-AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+Το εύρος εμφάνισης του βιβλίου εργασίας και το πλαίσιο στη διαφάνεια έχουν διαφορετικούς ρόλους. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) δέχεται δείκτες γραμμής/στήλης με μηδενική βάση. [ChartCollection::Add](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chartcollection/add/) αντίθετα δέχεται την άνω γραμμή, αριστερή στήλη, κάτω γραμμή και δεξιά στήλη. Το παράδειγμα χρησιμοποιεί τη γραμμή 55 και τη στήλη 25 ως τα κάτω‑δεξιά όρια· αυτές οι τιμές είναι επιλογές διάταξης, όχι ο αριθμός των γραμμών ή στηλών δεδομένων.
 
-// Βήμα - 6: Αποθήκευση της εξόδου παρουσίασης στο δίσκο.
-// -----------------------------------------------
-presentation->Save(u"OutputChart.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
+Το πλαίσιο της διαφάνειας χρησιμοποιεί μονάδες points. Το παράδειγμα το τοποθετεί στο κέντρο της διαφάνειας διατηρώντας την αναλογία διαστάσεων του PNG, αντί να τεντώσει την προεπισκόπηση για να γεμίσει τη διαφάνεια.
+
+## **Δημιουργία και Ενσωμάτωση του Διαγράμματος**
+
+Το παρακάτω πλήρες παράδειγμα γεμίζει το `DataSheet` με τέσσερις γραμμές και πέντε στήλες τιμών. Κάθε γραμμή γίνεται μια σειρά διαγράμματος. Το `ChartSheet` επιλέγεται ως ενεργό φύλλο πριν αποθηκευτεί το βιβλίο εργασίας.
+
+Το βιβλίο εργασίας αποθηκεύεται ρητά ως XLSX, ταιριάζοντας με την επέκταση `xlsx` που περνάται στο [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/). Το PNG φορτώνεται από μια ροή μνήμης χωρίς ενδιάμεση μετατροπή bitmap. Το Aspose.Cells επιστρέφει διανύσματα byte, τα οποία το παράδειγμα αντιγράφει στο τύπο πίνακα που αποδέχεται το Aspose.Slides. Αρχικοποιήστε το Aspose.Cells πριν χρησιμοποιήσετε τα αντικείμενά του, και ελευθερώστε τους πόρους του αφού αυτά τα αντικείμενα έχουν καταστραφεί. Η ανάθεση μέσω του [IOleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/get_substitutepictureformat/) αντικαθιστά το προεπιλεγμένο placeholder OLE.
 
 ```cpp
-void AddExcelChartInPresentation(System::SharedPtr<Presentation> presentation, System::SharedPtr<ISlide> slide, 
-                                 System::SharedPtr<System::IO::Stream> workbookStream, 
-                                 intrusive_ptr<Aspose::Cells::Systems::Drawing::Bitmap> chartImage)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <Util/Images.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <algorithm>
+#include <IImage.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// Initialize Cells before creating any of its objects.
+Aspose::Cells::Startup();
 {
-    float oleWidth = presentation->get_SlideSize()->get_Size().get_Width();
-    float oleHeight = presentation->get_SlideSize()->get_Size().get_Height();
-    int32_t x = 0;
-    System::ArrayPtr<uint8_t> oleData = System::MakeArray<uint8_t>(workbookStream->get_Length(), 0);
-    workbookStream->set_Position(0);
-    workbookStream->Read(oleData, 0, oleData->get_Length());
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"DataSheet");
 
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(oleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleFrame;
-    oleFrame = slide->get_Shapes()->AddOleObjectFrame(static_cast<float>(x), 0.0f, oleWidth, oleHeight, dataInfo);
-
-    intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-    chartImage->Save(cellsOutputStream, Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-
-    auto slidesImage = Images::FromStream(ToSlidesMemoryStream(cellsOutputStream));
-    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(slidesImage));
-}
-```
-
-```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-``` cpp
-int32_t AddExcelChartInWorkbook(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t chartRows, int32_t chartCols)
-{
-    // Πίνακας ονομάτων κελιών.
-    System::ArrayPtr<System::String> cellNames = System::MakeArray<System::String>(
-    { 
-        u"A1", u"A2", u"A3", u"A4", 
-        u"B1", u"B2", u"B3", u"B4",
-        u"C1", u"C2", u"C3", u"C4",
-        u"D1", u"D2", u"D3", u"D4",
-        u"E1", u"E2", u"E3", u"E4" 
-    });
-    
-    // Πίνακας δεδομένων κελιών.
-    System::ArrayPtr<int32_t> cellValues = System::MakeArray<int32_t>(
+    int32_t values[4][5] =
     {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25 
-    });
+        { 67, 44, 46, 43, 24 },
+        { 86, 64, 97, 29, 40 },
+        { 68, 89, 78, 69, 38 },
+        { 91, 48, 60, 26, 25 }
+    };
 
-    // Προσθήκη νέου φύλλου εργασίας για την καταχώρηση κελιών με δεδομένα.
-    int32_t dataSheetIndex = workbook->GetIWorksheets()->Add();
-    intrusive_ptr<Aspose::Cells::IWorksheet> dataSheet = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIndex);
-    intrusive_ptr<Aspose::Cells::Systems::String> sheetName = new Aspose::Cells::Systems::String("DataSheet");
-    dataSheet->SetName(sheetName);
-
-    // Συμπλήρωση του φύλλου δεδομένων με δεδομένα.
-    for (int32_t i = 0; i < cellNames->get_Length(); i++)
+    for (auto row = 0; row < 4; row++)
     {
-        System::String cellName = cellNames[i];
-        int32_t cellValue = cellValues[i];
-        dataSheet->GetICells()->GetObjectByIndex(new String(cellName.ToWCS().c_str()))->PutValue(cellValue);
+        for (auto column = 0; column < 5; column++)
+        {
+            dataSheet.GetCells().Get(row, column).PutValue(values[row][column]);
+        }
     }
 
-    // Προσθήκη φύλλου διαγράμματος.
-    int32_t chartSheetIndex = workbook->GetIWorksheets()->Add(Aspose::Cells::SheetType::SheetType_Chart);
-    intrusive_ptr<Aspose::Cells::IWorksheet> chartSheet = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex);
-    chartSheet->SetName(new String("ChartSheet"));
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    chartSheet.SetName(u"ChartSheet");
 
-    // Προσθήκη διαγράμματος στο φύλλο διαγράμματος με σειρές δεδομένων από το φύλλο δεδομένων.
-    int32_t chartIndex = chartSheet->GetICharts()->Add(Aspose::Cells::Charts::ChartType::ChartType_Column, 0, chartRows, 0, chartCols);
-    intrusive_ptr<Aspose::Cells::Charts::IChart> chart = chartSheet->GetICharts()->GetObjectByIndex(chartIndex);
-    chart->GetNISeries()->Add(sheetName + "!A1:E1", false);
-    chart->GetNISeries()->Add(sheetName + "!A2:E2", false);
-    chart->GetNISeries()->Add(sheetName + "!A3:E3", false);
-    chart->GetNISeries()->Add(sheetName + "!A4:E4", false);
+    auto lastChartRow = 55;
+    auto lastChartColumn = 25;
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, lastChartRow, lastChartColumn);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    const char16_t* seriesRanges[] = { u"DataSheet!A1:E1", u"DataSheet!A2:E2", u"DataSheet!A3:E3", u"DataSheet!A4:E4" };
+    for (auto range : seriesRanges)
+    {
+        chart.GetNSeries().Add(range, false);
+    }
 
-    // Ορισμός του φύλλου διαγράμματος ως ενεργό φύλλο.
-    workbook->GetIWorksheets()->SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetOleSize(0, lastChartRow, 0, lastChartColumn);
 
-    return chartSheetIndex;
+    // Αποδώστε την προεπισκόπηση του διαγράμματος και αποθηκεύστε ξεχωριστά το επεξεργάσιμο βιβλίο εργασίας.
+    auto chartImageData = chart.ToImage(Aspose::Cells::Drawing::ImageType::Png);
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+
+    // Αντιγράψτε τα buffers του Cells στον τύπο πίνακα που χρησιμοποιείται από το Slides.
+    auto toSlidesArray = [](const Aspose::Cells::Vector<uint8_t>& buffer)
+    {
+        auto result = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+        std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), result->data_ptr());
+        return result;
+    };
+    auto chartImageBytes = toSlidesArray(chartImageData);
+    auto workbookBytes = toSlidesArray(workbookData);
+    auto chartImageStream = System::MakeObject<System::IO::MemoryStream>(chartImageBytes);
+    auto chartImage = Images::FromStream(chartImageStream);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto slideSize = presentation->get_SlideSize()->get_Size();
+
+    // Προσαρμόστε την προεπισκόπηση μέσα στη διαφάνεια χωρίς να αλλάξετε την αναλογία διαστάσεων.
+    auto scale = (std::min)(slideSize.get_Width() / chartImage->get_Width(), slideSize.get_Height() / chartImage->get_Height());
+    auto frameWidth = chartImage->get_Width() * scale;
+    auto frameHeight = chartImage->get_Height() * scale;
+    auto frameX = (slideSize.get_Width() - frameWidth) / 2;
+    auto frameY = (slideSize.get_Height() - frameHeight) / 2;
+
+    auto embeddedData = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xlsx");
+    auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+    auto previewImage = presentation->get_Images()->AddImage(chartImage);
+    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(previewImage);
+
+    presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
+    chartImage->Dispose();
+    chartImageStream->Dispose();
 }
+// Απελευθερώστε τους πόρους του Cells μετά την καταστροφή όλων των αντικειμένων Cells.
+Aspose::Cells::Cleanup();
 ```
 
-Η παρουσίαση που δημιουργείται με τη παραπάνω μέθοδο θα περιέχει το διάγραμμα Excel ως αντικείμενο OLE που μπορεί να ενεργοποιηθεί με διπλό κλικ στο πλαίσιο του αντικειμένου OLE.
+## **Αναμενόμενο Αποτέλεσμα**
 
-## **Συμπέρασμα**
+`OutputChart.pptx` περιέχει μία διαφάνεια με ένα ενσωματωμένο βιβλίο εργασίας Excel και μια προεπισκόπηση διαγράμματος. Το βιβλίο εργασίας περιέχει τα αρχικά δεδομένα και ένα διάγραμμα στηλών με τέσσερις σειρές. Η προεπισκόπηση είναι κεντραρισμένη στη διαφάνεια και διατηρεί τις αναλογίες της.
 
-Χρησιμοποιώντας το Aspose.Cells για C++ μαζί με το Aspose.Slides για C++, μπορούμε να δημιουργήσουμε οποιοδήποτε διάγραμμα Excel που υποστηρίζεται από το Aspose.Cells και να ενσωματώσουμε το διάγραμμα ως αντικείμενο OLE σε μια διαφάνεια PowerPoint. Το μέγεθος OLE του διαγράμματος Excel μπορεί επίσης να οριστεί. Οι τελικοί χρήστες μπορούν έπειτα να επεξεργαστούν το διάγραμμα Excel όπως οποιοδήποτε άλλο αντικείμενο OLE.
+![Διάγραμμα στηλών Excel ως προεπισκόπηση ενσωματωμένου βιβλίου εργασίας](excel-chart-ole-preview.png)
+
+Σε περιβάλλον PowerPoint επιφάνειας εργασίας με εγκατεστημένο το Excel, κάντε διπλό‑κλικ στο αντικείμενο για να το ενεργοποιήσετε και να επεξεργαστείτε το ενσωματωμένο βιβλίο εργασίας. Η ενεργοποίηση και η επεξεργασία εξαρτώνται από την υποστήριξη OLE και τις ρυθμίσεις ασφαλείας της εφαρμογής‑κεντρικού.
+
+## **Συχνές Ερωτήσεις**
+
+**Γιατί χρειάζεται εικόνα προεπισκόπησης;**
+
+Το ενσωματωμένο βιβλίο εργασίας και η προεπισκόπηση στη διαφάνεια είναι ξεχωριστό περιεχόμενο. Παρέχετε μια εικόνα διαγράμματος ώστε η διαφάνεια να δείχνει το διάγραμμα αντί του προεπιλεγμένου placeholder «EMBEDDED OLE OBJECT». Δείτε το [Πρόβλημα Προεπισκόπησης Αντικειμένου κατά την Προσθήκη OleObjectFrame](/slides/el/cpp/object-preview-issue-when-adding-oleobjectframe/).
+
+**Ενημερώνεται αυτόματα η προεπισκόπηση όταν αλλάζω το βιβλίο εργασίας στον κώδικα;**
+
+Η προεπισκόπηση θεωρείται στιγμιότυπο. Όταν ενημερώνετε τα δεδομένα του βιβλίου εργασίας προγραμματικά, δημιουργήστε ξανά την εικόνα του διαγράμματος και αντικαταστήστε τη προεπισκόπηση καθώς και τα ενσωματωμένα δεδομένα του βιβλίου εργασίας.
+
+**Μπορώ να χρησιμοποιήσω XLS αντί για XLSX;**
+
+Ναι. Αποθηκεύστε το βιβλίο εργασίας σε μορφή XLS και χρησιμοποιήστε `xls` ως επέκταση των ενσωματωμένων δεδομένων. Η επέκταση πρέπει να ταιριάζει με την πραγματική μορφή του βιβλίου εργασίας· η αλλαγή μόνο της επέκτασης δεν μετατρέπει τα δεδομένα.
+
+**Γιατί το αντικείμενο μπορεί να αλλάξει μέγεθος μετά την ενεργοποίηση;**
+
+Η εφαρμογή‑κεντρική μπορεί να ενημερώσει την παρουσίαση του αντικειμένου OLE όταν ενεργοποιήσει το βιβλίο εργασίας. Το εύρος εμφάνισης OLE του βιβλίου εργασίας και οι διαστάσεις του πλαισίου της διαφάνειας είναι και τα δύο σημαντικά. Δείτε την [Λύση Εργασίας για Αλλαγή Μεγέθους Διαγράμματος σε PPTX](/slides/el/cpp/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Σχετικές Ενότητες**
 
-- [Λύση λειτουργίας για αλλαγή μεγέθους διαγράμματος σε PPTX](/slides/el/cpp/working-solution-for-chart-resizing-in-pptx/)
-- [Πρόβλημα προεπισκόπησης αντικειμένου κατά την προσθήκη OleObjectFrame](/slides/el/cpp/object-preview-issue-when-adding-oleobjectframe/)
+- [Λύση Εργασίας για Αλλαγή Μεγέθους Διαγράμματος σε PPTX](/slides/el/cpp/working-solution-for-chart-resizing-in-pptx/)
+- [Πρόβλημα Προεπισκόπησης Αντικειμένου κατά την Προσθήκη OleObjectFrame](/slides/el/cpp/object-preview-issue-when-adding-oleobjectframe/)

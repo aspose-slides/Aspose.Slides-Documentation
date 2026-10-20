@@ -1,8 +1,11 @@
 ---
-title: ปรับขนาดรูปร่างบนสไลด์พรีเซนเทชัน
+title: ปรับขนาดรูปร่างบนสไลด์การนำเสนอใน Java
 type: docs
-weight: 110
-url: /th/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /th/java/resizing-shapes-on-slide/
+aliases:
+  - /th/java/re-sizing-shapes-on-slide/
+  /java/re-sizing-shapes-on-slide/
 keywords:
 - ปรับขนาดรูปร่าง
 - เปลี่ยนขนาดรูปร่าง
@@ -11,45 +14,37 @@ keywords:
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ปรับขนาดรูปร่างบนสไลด์ PowerPoint และ OpenDocument ได้อย่างง่ายดายด้วย Aspose.Slides for Java—ทำการปรับเลเอาต์สไลด์อัตโนมัติและเพิ่มประสิทธิภาพการทำงาน."
+description: "ปรับขนาดรูปร่างบนสไลด์ PowerPoint และ OpenDocument อย่างง่ายด้วย Aspose.Slides สำหรับ Java—อัตโนมัติการปรับแต่งเลเอาต์สไลด์และเพิ่มประสิทธิภาพการทำงาน."
 ---
 ## **ภาพรวม**
 
-หนึ่งในคำถามที่พบบ่อยที่สุดจากลูกค้า Aspose.Slides for Java คือวิธีปรับขนาดรูปร่างเพื่อให้เมื่อขนาดสไลด์เปลี่ยนแปลง ข้อมูลไม่ได้ถูกตัดออก บทความทางเทคนิคสั้นนี้แสดงวิธีทำเช่นนั้น
+เมื่อคุณเปลี่ยนขนาดสไลด์ของงานนำเสนอ คุณอาจต้องปรับขนาดและตำแหน่งของรูปร่างให้พอดีกับมิติใหม่ บทความนี้แสดงวิธีการปรับขนาดรูปร่างด้วยตนเองและวิธีการจัดการตารางบนสไลด์ มาสเตอร์ และเลเอาต์
 
 ## **ปรับขนาดรูปร่าง**
 
-เพื่อป้องกันไม่ให้รูปร่างเลื่อนตำแหน่งเมื่อขนาดสไลด์เปลี่ยนแปลง ให้ปรับตำแหน่งและขนาดของแต่ละรูปร่างให้สอดคล้องกับเลเอาต์สไลด์ใหม่
+เพื่อคงตำแหน่งและขนาดสัมพัทธ์ของแต่ละรูปร่าง ให้คูณพิกัดแนวนอนและความกว้างด้วยอัตราส่วนของความกว้างสไลด์ใหม่ต่อความกว้างเดิม แล้วนำอัตราส่วนความสูงที่สอดคล้องไปคูณพิกัดแนวตั้งและความสูง
+
+ตัวอย่างแรกโหลดงานนำเสนอที่สไลด์ไม่มีตาราง เปลี่ยนขนาดสไลด์เป็น A4 แล้วบันทึกผลลัพธ์ ใช้ [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) ร่วมกับ [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) เพื่อให้ลูปถัดไปควบคุมการสเกล อัตราส่วนเป็นค่าที่ไม่มีหน่วย; ตำแหน่งและมิติของรูปร่างวัดเป็นพอยต์ อัตราส่วนความกว้างและความสูงที่ต่างกันอาจทำให้รูปร่างบิดเบือน และการเปลี่ยนแปลงมิติของรูปร่างไม่ได้สเกลขนาดฟอนต์
 
 ```java
-// โหลดไฟล์พรีเซนเทชัน.
-Presentation presentation = new Presentation("sample.ppt");
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // รับขนาดสไลด์เดิม.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // เปลี่ยนขนาดสไลด์โดยไม่สเกลรูปร่างเดิม.
+    // คำนวณปัจจัยสเกลแนวนอนและแนวตั้งที่อิสระ.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // รับขนาดสไลด์ใหม่.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // ปรับขนาดและเปลี่ยนตำแหน่งรูปร่างบนสไลด์ทุกหน้า.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            
-            // สเกลขนาดรูปร่าง.
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // สเกลตำแหน่งรูปร่าง.
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -60,75 +55,63 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-หากสไลด์มีตาราง โค้ดข้างต้นจะทำงานไม่ถูกต้อง ในกรณีนั้นต้องปรับขนาดเซลล์แต่ละเซลล์ในตาราง
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+ตารางต้องการการจัดการแยกต่างหาก: ปรับความกว้างคอลัมน์และความสูงแถวแทนการกำหนดความกว้างและความสูงรวมของตาราง ความสูงของแถวอาจยังคงใหญ่กว่าที่ร้องขอหากเนื้อหาในเซลล์ต้องการพื้นที่เพิ่ม
+{{% /alert %}}
 
-ใช้โค้ดต่อไปนี้ในส่วนของคุณเพื่อปรับขนาดสไลด์ที่มีตาราง สำหรับตาราง การตั้งค่าความกว้างหรือความสูงเป็นกรณีพิเศษ: คุณต้องปรับความสูงของแถวและความกว้างของคอลัมน์แต่ละอันเพื่อเปลี่ยนขนาดโดยรวมของตาราง
+ตัวอย่างที่สองรองรับตารางและประมวลผลรูปร่างบนมาสเตอร์และเลเอาต์ รวมทั้งสไลด์แต่ละสไลด์ก่อนบันทึกงานนำเสนอที่ปรับขนาดแล้ว ตัวช่วยของมันจัดการกับแต่ละ [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) ด้วยการสเกลความกว้างคอลัมน์ผ่าน [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) และความสูงแถวขั้นต่ำผ่าน [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-) จากนั้นสเกลตำแหน่งของตารางโดยไม่สเกลมิติรวมแยกต่างหาก
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // มิติของตารางถูกควบคุมโดยความกว้างของคอลัมน์และความสูงของแถว.
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // รับขนาดสไลด์เดิม.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // เปลี่ยนขนาดสไลด์โดยไม่สเกลรูปร่างเดิม.
+    // คำนวณปัจจัยสเกลแนวนอนและแนวตั้งที่อิสระ.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // รับขนาดสไลด์ใหม่.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    ShapeResizer resizer = new ShapeResizer();
 
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
+    // ปรับขนาดรูปร่างที่กำหนดบนมาสเตอร์และเลเอาต์รวมถึงสไลด์แต่ละสไลด์.
     for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // สเกลขนาดรูปร่าง.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // สเกลตำแหน่งรูปร่าง.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // สเกลขนาดรูปร่าง.
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // สเกลตำแหน่งรูปร่าง.
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
         }
     }
 
     for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            // สเกลขนาดรูปร่าง.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // สเกลตำแหน่งรูปร่าง.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
-        }
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
     }
 
     presentation.save("output.pptx", SaveFormat.Pptx);
@@ -140,30 +123,30 @@ finally {
 
 ## **คำถามที่พบบ่อย**
 
-**ทำไมรูปร่างถึงเสียรูปหรือถูกตัดออกหลังจากปรับขนาดสไลด์?**
+**ทำไมรูปร่างจึงบิดเบือนหรือถูกตัดออกหลังจากการปรับขนาดสไลด์?**
 
-เมื่อปรับขนาดสไลด์ รูปร่างจะคงตำแหน่งและขนาดเดิมไว้ เว้นแต่จะเปลี่ยนสเกลโดยเจตนา ซึ่งอาจทำให้เนื้อหาถูกตัดหรือลูกศรเสียตำแหน่ง
+หากคุณเปลี่ยนขนาดสไลด์โดยไม่สเกลรูปร่าง รูปร่างจะคงตำแหน่งและมิติเดิมและอาจล้นออกจากสไลด์ การสเกลความกว้างและความสูงด้วยอัตราส่วนที่ต่างกันก็อาจทำให้รูปร่างบิดเบือนได้เช่นกัน
 
-**โค้ดที่ให้ทำงานได้กับทุกประเภทของรูปร่างหรือไม่?**
+**โค้ดที่ให้มาทำงานกับประเภทรูปร่างทั้งหมดหรือไม่?**
 
-ตัวอย่างพื้นฐานทำงานกับรูปแบบรูปร่างส่วนใหญ่ (กล่องข้อความ, รูปภาพ, แผนภูมิ เป็นต้น) อย่างไรก็ตาม สำหรับตาราง คุณต้องจัดการแถวและคอลัมน์แยกกัน เนื่องจากความสูงและความกว้างของตารางกำหนดโดยขนาดของเซลล์แต่ละเซลล์
+ตัวอย่างแรกเปลี่ยนขอบเขตของรูปร่างโดยตรงและมุ่งเป้าไปที่สไลด์ที่ไม่มีตาราง ตัวอย่างที่สองจัดการตารางแยกต่างหาก โปรดตรวจสอบเลเอาต์ที่ได้ โดยเฉพาะข้อความและตาราง เนื่องจากตัวอย่างเหล่านี้ไม่ได้สเกลขนาดฟอนต์และเนื้อหาตารางอาจจำกัดความสูงของแถว
 
-**ฉันจะปรับขนาดตารางเมื่อปรับขนาดสไลด์อย่างไร?**
+**ฉันจะปรับขนาดตารางอย่างไรเมื่อปรับขนาดสไลด์?**
 
-คุณต้องวนลูปผ่านทุกแถวและคอลัมน์ของตารางและปรับความสูงและความกว้างของพวกมันให้สัดส่วนตามที่แสดงในตัวอย่างโค้ดที่สอง
+สเกลความกว้างคอลัมน์ด้วยอัตราส่วนความกว้างและความสูงแถวขั้นต่ำด้วยอัตราส่วนความสูง แล้วสเกลตำแหน่งของตารางตามที่แสดงในตัวอย่างที่สอง
 
-**การปรับขนาดนี้จะทำงานกับสไลด์แม่และสไลด์เลเอาต์หรือไม่?**
+**การปรับขนาดนี้ทำงานกับสไลด์มาสเตอร์และสไลด์เลเอาต์หรือไม่?**
 
-ใช่ แต่คุณควรวนลูปผ่าน [Masters](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getMasters--) และ [Layout slides](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getLayoutSlides--) แล้วใช้ตรรกะการสเกลเดียวกันกับรูปร่างของพวกมันเพื่อให้แน่ใจว่าการนำเสนอทั้งหมดสอดคล้องกัน
+ใช่ ตัวอย่างที่สองวนผ่าน [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) และ [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) ของแต่ละมาสเตอร์ และใช้ตรรกะการปรับขนาดเดียวกันกับรูปร่างของพวกมัน
 
 **ฉันสามารถเปลี่ยนทิศทางของสไลด์ (แนวตั้ง/แนวนอน) พร้อมกับการปรับขนาดได้หรือไม่?**
 
-ใช่ คุณสามารถใช้ [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidesize/#setOrientation-int-) เพื่อเปลี่ยนทิศทาง อย่าลืมตั้งค่าตรรกะการสเกลให้เหมาะสมเพื่อรักษาเลเอาต์
+ได้ เรียกใช้ [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) หลังจากเปลี่ยนขนาดสไลด์และก่อนอ่านมิติเป้าหมาย เพื่อให้ค่าปัจจัยสเกลสะท้อนทิศทางสุดท้าย
 
 **มีขีดจำกัดของขนาดสไลด์ที่ฉันสามารถตั้งค่าได้หรือไม่?**
 
-Aspose.Slides รองรับขนาดที่กำหนดเอง แต่ขนาดที่ใหญ่เกินไปอาจส่งผลต่อประสิทธิภาพหรือความเข้ากันได้กับบางเวอร์ชันของ PowerPoint
+คุณสามารถระบุมิติสไลด์แบบกำหนดเองด้วย [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-) มิติที่รองรับขึ้นอยู่กับรูปแบบงานนำเสนอและแอปพลิเคชันที่ใช้เปิดไฟล์ด้วย
 
-**ฉันจะป้องกันไม่ให้รูปร่างที่มีอัตราส่วนคงที่เสียรูปได้อย่างไร?**
+**จะป้องกันไม่ให้รูปร่างที่มีอัตราส่วนคงที่บิดเบือนได้อย่างไร?**
 
-คุณสามารถตรวจสอบเมธอด `getAspectRatioLocked` ของรูปร่างก่อนทำการสเกล หากถูกล็อก ให้ปรับความกว้างหรือความสูงอย่างสัดส่วนแทนการสเกลแยกกัน
+ใช้ปัจจัยสเกลเดียวกันสำหรับความกว้างและความสูง เพื่อให้แผนผังเดิมพอดีกับมิติสไลด์ใหม่ ให้ใช้ค่าอัตราส่วนที่น้อยกว่าระหว่างความกว้างและความสูงสำหรับทั้งสองมิติและตำแหน่ง วิธีนี้จะคงสัดส่วนแต่บางครั้งอาจทำให้เหลือพื้นที่ว่างที่ขอบหนึ่งของสไลด์

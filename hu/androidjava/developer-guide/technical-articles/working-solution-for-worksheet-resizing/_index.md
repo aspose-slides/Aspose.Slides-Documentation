@@ -1,12 +1,12 @@
 ---
-title: Működő megoldás a munkalap átméretezéshez
+title: Működő megoldás a munkalap átméretezésére
 type: docs
 weight: 20
 url: /hu/androidjava/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - előnézeti kép
-- kép átméretezése
+- kép átméretezés
 - Excel
 - munkalap
 - PowerPoint
@@ -14,34 +14,42 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Javítsa az Excel munkalap OLE átméretezését a prezentációkban: két mód a objektumkeretek egységességének biztosítására – a keret vagy a munkalap skálázásával – a PPT és PPTX formátumokban."
+description: "Az Excel munkalap OLE átméretezésének javítása a prezentációkban: két módszer az objektumkeretek konzisztens megtartására – a keret vagy a lap skálázása – a PPT és PPTX formátumok között."
 ---
-{{% alert color="primary" %}}
-Megfigyeltük, hogy az Aspose komponenseken keresztül PowerPoint‑prezentációba beágyazott OLE objektumként szereplő Excel‑munkalapok az első aktiválás után ismeretlen méretarányra vannak átméretezve. Ez a viselkedés észrevehető vizuális különbséget eredményez a prezentációban az OLE objektum aktiválás előtti és utáni állapota között. Részletesen kivizsgáltuk ezt a problémát, és megoldást nyújtunk, amely ebben a cikkben található.
+{{% alert color="info" title="Megjegyzés" %}}
+
+Az Aspose összetevőkkel PowerPoint prezentációba beágyazott OLE objektumként megjelenő Excel munkalapok első aktiválásuk után váratlanul átméreteződhetnek. Ez a viselkedés megjegyezhető vizuális különbséget eredményez az OLE objektum aktiválás előtti és utáni állapota között. Ez a cikk ismerteti a problémát, és két megoldást mutat be.
+
 {{% /alert %}}
 
 ## **Háttér**
 
-Az [OLE kezelése](/slides/hu/androidjava/manage-ole/) című cikkben bemutattuk, hogyan lehet OLE keretet hozzáadni PowerPoint‑prezentációhoz az Aspose.Slides for Android for Java használatával. Az [objektum előnézeti probléma](/slides/hu/androidjava/object-preview-issue-when-adding-oleobjectframe/) megoldásához a kiválasztott munkalap területének képét rendeltük az OLE objektumkerethez. A kimeneti prezentációban, ha duplán kattint a munkalap képet megjelenítő OLE objektumkeretre, az Excel‑munkafüzet aktiválódik. A végfelhasználók tetszőleges módosításokat végezhetnek a tényleges Excel‑munkafüzeten, majd a slide‑ra visszatérhetnek a aktivált Excel‑munkafüzeten kívül kattintva. Az OLE objektumkeret mérete megváltozik, amikor a felhasználó visszatér a slide‑ra. Az átméretezési arány az OLE objektumkeret és a beágyazott Excel‑munkafüzet méretétől függ.
+Az [OLE kezelése](/slides/hu/androidjava/manage-ole/) című cikkben bemutattuk, hogyan lehet OLE keretet hozzáadni egy PowerPoint prezentációhoz az Aspose.Slides for Android Java használatával. Az [objektum előnézeti probléma](/slides/hu/androidjava/object-preview-issue-when-adding-oleobjectframe/) megoldásához a kiválasztott munkalap területének képét rendeltük az OLE objektumkerethez. A kimeneti prezentációban, ha duplán kattintunk a munkalap képet megjelenítő OLE objektumkeretre, aktiválódik az Excel munkafüzet. A végfelhasználók tetszőleges módosításokat végezhetnek a tényleges Excel munkafüzeten, majd a diához visszatérhetnek az aktivált Excel munkafüzeten kívülre kattintva. Az OLE objektumkeret mérete megváltozik, amikor a felhasználó visszatér a diához. Az átméretezési arány a OLE objektumkeret és a beágyazott Excel munkafüzet méretétől függ.
 
-## **Átméretezés oka**
+## **Az átméretezés oka**
 
-Mivel az Excel‑munkafüzetnek saját ablakmérete van, az első aktiváláskor megpróbálja megtartani az eredeti méretét. Ezzel szemben az OLE objektumkeretnek saját mérete van. A Microsoft szerint, amikor az Excel‑munkafüzet aktiválódik, az Excel és a PowerPoint egyeztetik a méretet, hogy biztosítsák a megfelelő arányok megőrzését az beágyazási folyamat részeként. Az átméretezés a Excel‑ablak mérete és az OLE objektumkeret mérete és pozíciója közötti eltérések alapján történik.
+Mivel az Excel munkafüzetnek saját ablakmérete van, az első aktiváláskor megpróbálja megőrizni eredeti méretét. Ezzel szemben az OLE objektumkeretnek saját mérete van. A Microsoft szerint, amikor az Excel munkafüzet aktiválódik, az Excel és a PowerPoint egyeztetik a méretet, hogy a beágyazási folyamat részeként megőrizze a helyes arányokat. Az átméretezés a Excel ablakmérete és az OLE objektumkeret mérete‑pozíciója közti különbségek alapján történik.
 
 ## **Működő megoldás**
 
-Két lehetséges megoldás létezik az átméretezési hatás elkerülésére.
+Két lehetséges megoldás van az átméretezési hatás elkerülésére.
 
-- Mérje skálázza az OLE keret méretét a PowerPoint‑prezentációban, hogy megfeleljen a kívánt sor‑ és oszlopszám magasságának és szélességének az OLE keretben.
-- Tartsa állandóan az OLE keret méretét, és skálázza a résztvevő sorok és oszlopok méretét, hogy illeszkedjen a kiválasztott OLE keret méretéhez.
+- Skálázza az OLE keretet a PowerPoint prezentációban, hogy megegyezzen a kiválasztott sorok és oszlopok teljes magasságával és szélességével.
+- Tartsa állandó méretűnek az OLE keretet, és skálázza a kiválasztott sorokat és oszlopokat, hogy beleférjenek.
 
 ### **OLE keret méretének skálázása**
 
-Ebben a megközelítésben megtanuljuk, hogyan állítható be a beágyazott Excel‑munkafüzet OLE keret mérete, hogy megegyezzen a résztvevő sorok és oszlopok összegzett méretével az Excel‑munkalapon.
+Ez a megközelítés az OLE keret méretét úgy állítja be, hogy az megegyezzen a beágyazott Excel munkalap kiválasztott sorainak és oszlopainak teljes magasságával és szélességével.
 
-Tegyük fel, hogy van egy sablon Excel‑állományunk, és azt OLE keretként szeretnénk hozzáadni a prezentációhoz. Ebben a forgatókönyvben az OLE objektumkeret méretét először a munkafüzetben résztvevő sorok magasságának és oszlopok szélességének összegzett értéke alapján számítjuk ki. Ezután ezt a kiszámított értéket állítjuk be az OLE keret méretének. A PowerPointban megjelenő piros „EMBEDDED OLE OBJECT” üzenet elkerülése érdekében a munkafüzetben kívánt sor‑ és oszloptartományok képét is elkészítjük, és azt állítjuk be OLE keret képként.
+A példa betölti egy meglévő Excel munkafüzetet, és kiválasztja az első 10 sort és 13 oszlopot az első munkalapján nulla‑alapú indexekkel. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) definiálja a megjelenített tartományt. Az előnézet 96 DPI‑n kerül renderelésre, és pixeldimenzióit 72 pont per hüvelyk alapján átszámítja pontokra. [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) beágyazza a módosított munkafüzetet egy olyan keretbe, amelynek méretei ezek. Az előnézetet a [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) segítségével rendeli hozzá, hogy a mentett prezentációban a "EMBEDDED OLE OBJECT" helyőrző helyett ez a kép jelenjen meg.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -51,7 +59,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Állítsa be a megjelenített méretet, amikor a munkafüzet fájlt OLE objektumként használják PowerPointban.
+// Állítsa be a megjelenített méretet, amikor a munkafájl OLE objektumként van használva a PowerPointban.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,10 +69,10 @@ InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
 // Szerezze meg az OLE kép szélességét és magasságát pontban.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
-// A módosított munkafüzetet kell használnunk.
+// Szükség van a módosított munkafájl használatára.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -88,7 +96,13 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+Az előnézetsegéd a [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) segítségével a kiválasztott tartományra állítja be a nyomtatási területet, és eltávolítja a margókat, fejléceket és lábléceket. A [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/java/com.aspose.cells/imageorprintoptions/#setOnlyArea-boolean-) engedélyezésével a [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-) a tartományt PNG‑képként rendereli. A segédprogram egy új bemeneti streamet ad vissza, amely a PNG‑képet a kezdeténél tartja a prezentációban való felhasználáshoz.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -113,13 +127,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-### **Cella tartomány méretének skálázása**
+### **Cellatartomány méretének skálázása**
 
-Ebben a megközelítésben megtanuljuk, hogyan skálázhatók a résztvevő sorok magasságai és a résztvevő oszlopok szélessége egy egyedi OLE keret méretéhez igazodva.
+Ez a megközelítés a kiválasztott sorok magasságát és oszlopok szélességét skálázza, hogy egy egyéni OLE keretmérettel egyezzen.
 
-Tegyük fel, hogy van egy sablon Excel‑állományunk, és azt OLE keretként szeretnénk hozzáadni a prezentációhoz. Ebben a forgatókönyvben beállítjuk az OLE keret méretét, és skálázzuk a OLE keret területébe tartozó sorok és oszlopok méretét. Ezután a munkafüzetet áramlamba mentjük a változtatások alkalmazásához, és bájt tömbbé konvertáljuk, hogy hozzáadhassuk az OLE kerethez. A PowerPointban megjelenő piros „EMBEDDED OLE OBJECT” üzenet elkerülése érdekében a munkafüzetben kívánt sor‑ és oszloptartományok képét is elkészítjük, és azt állítjuk be OLE keret képként.
+A példa betölti egy meglévő Excel munkafüzetet, és kiválasztja az első 10 sort és 13 oszlopot az első munkalapján nulla‑alapú indexekkel. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) definiálja a megjelenített tartományt, és az alábbi segédprogram ezt a tartományt egy 400 pont széles és 100 pont magas keretre méretezi. A módosított munkafüzet streambe mentése után a [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) a megadott mérettel ágyazza be. A 96 DPI‑n renderelt előnézet a [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) segítségével kerül hozzárendelésre, így a mentett prezentáció a kiválasztott cellákat mutatja az alapértelmezett helyőrző helyett.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -130,7 +148,7 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Állítsa be a megjelenített méretet, amikor a munkafüzet fájlt OLE objektumként használják PowerPointban.
+// Állítsa be a megjelenített méretet, amikor a munkafájl OLE objektumként van használva a PowerPointban.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -141,7 +159,7 @@ ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// A módosított munkafüzetet kell használnunk.
+// Szükség van a módosított munkafájl használatára.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -164,10 +182,12 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+A skálázó segédprogram külön szélességi és magassági arányokat számol ki a kiválasztott tartományra, megőrizve az oszlopok relatív szélességét és a sorok relatív magasságát. A kiszámított méreteket pontból hüvelykre konvertálja, mielőtt a [Cells.setColumnWidthInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setColumnWidthInch-int-double-) és a [Cells.setRowHeightInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setRowHeightInch-int-double-) metódusokkal alkalmazná. A kiválasztott tartománynak nem lehet nulla szélességű vagy magasságú.
+
 ```java
 /**
- * @param width     A cellatartomány várt szélessége pontokban.
- * @param height    A cellatartomány várt magassága pontokban.
+ * @param width     A cellatartomány várt szélessége pontban.
+ * @param height    A cellatartomány várt magassága pontban.
  */
 static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float height) {
     double rangeWidth = cellRange.getWidth();
@@ -201,7 +221,13 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 }
 ```
 
+Ez a előnézetsegéd a [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-) segítségével rendereli az átméretezett tartományt. A [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) csak erre a tartományra korlátozza a nyomtatási területet, eltávolítja a margókat, fejléceket és lábléceket, majd egy PNG‑streamet ad vissza, amely a kezdeténél áll.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -228,32 +254,40 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 
 ## **Következtetés**
 
-{{% alert color="primary" %}} 
-Két megközelítés létezik a munkalap átméretezési probléma megoldására. A megfelelő megközelítés kiválasztása a konkrét követelményektől és felhasználási esettől függ. Mindkét megközelítés ugyanúgy működik, függetlenül attól, hogy a prezentációt sablonból vagy az elejétől hozzák létre. Ezenkívül nincs korlátozás az OLE objektumkeret méretére ebben a megoldásban.
+{{% alert color="info" title="Megjegyzés" %}}
+
+Két megközelítés létezik a munkalap átméretezési probléma megoldására. Válassza ki a legmegfelelőbbet az igényei és felhasználási eset szerint. Mindkét módszer egyformán működik, akár sablonból, akár üresen hoz létre prezentációt. Emellett nincs korlátozás az OLE objektumkeret méretére ebben a megoldásban.
+
 {{% /alert %}}
 
 ## **GYIK**
 
-**Miért változik a beágyazott Excel‑munkalap mérete, amikor először aktiválják PowerPointban?**
+**Miért változik méretben egy beágyazott Excel munkalap, amikor először aktiválják a PowerPointban?**
 
-Ez azért történik, mert az Excel megpróbálja megtartani az eredeti ablakméretet aktiváláskor, míg a PowerPointban az OLE objektumkeretnek saját méretei vannak. A PowerPoint és az Excel egyeztetik a méretet az arányok megőrzése érdekében, ami az átméretezést okozhat.
+Ez azért történik, mert az Excel megpróbálja megtartani az eredeti ablakméretét aktiváláskor, míg a PowerPointban az OLE objektumkeretnek saját méretei vannak. A PowerPoint és az Excel egyeztetik a méretet, hogy megőrizzék az arányokat, ami átméretezést eredményezhet.
 
-**Lehet‑e teljesen elkerülni ezt az átméretezési problémát?**
+**Lehet-e teljesen megakadályozni ezt az átméretezési problémát?**
 
-Igen. Az OLE keret skálázásával az Excel cellatartomány méretéhez, vagy a cellatartomány skálázásával a kívánt OLE keret méretéhez megakadályozható a nem kívánt átméretezés.
+Igen. Az OLE keret skálázásával a Excel cellatartomány méretéhez, vagy a cellatartomány skálázásával a kívánt OLE keretmérethez megakadályozható a nem kívánt átméretezés.
 
-**Melyik skálázási módszert használjam, OLE keret skálázást vagy cellatartomány skálázást?**
+**Melyik skálázási módszert válasszam, OLE keret skálázás vagy cellatartomány skálázás?**
 
-Válassza az **OLE keret skálázást**, ha az eredeti Excel sor‑ és oszlopszélességeket szeretné megőrizni. Válassza a **cellatartomány skálázást**, ha a prezentációban fix OLE keret méretet szeretne.
+Válassza az **OLE keret skálázását**, ha meg akarja tartani az eredeti Excel sor‑ és oszlopszélességeket. Válassza a **cellatartomány skálázását**, ha fix méretű OLE keretet szeretne a prezentációjában.
 
-**Működnek ezek a megoldások, ha a prezentációm sablon alapján készült?**
+**Működnek-e ezek a megoldások, ha a prezentáció sablonon alapul?**
 
-Igen. Mindkét megoldás működik sablonból vagy az elejétől készült prezentációk esetén.
+Igen. Mindkét megoldás működik sablonból és üresen létrehozott prezentációk esetén egyaránt.
 
-**Van korlátja az OLE keret méretének ezen módszerek használatakor?**
+**Van-e korlátozás az OLE keret méretére e módszerekkel?**
 
-Nem. Az OLE objektumkeretet tetszőleges méretűre állíthatja, amíg a skálát megfelelően beállítja.
+Nincs. Az OLE objektumkeretet bármilyen méretűre beállíthatja, amíg a skálázást megfelelően elvégzi.
 
-**Van mód a PowerPointban megjelenő „EMBEDDED OLE OBJECT” helyettesítő szöveg elkerülésére?**
+**Létezik-e mód a "EMBEDDED OLE OBJECT" helyőrző szöveg elkerülésére a PowerPointban?**
 
-Igen. A cél Excel cellatartomány pillanatfelvételével, és azt OLE keret helyettesítő képének beállításával egyedi előnézeti képet jeleníthet meg az alapértelmezett helyettesítő szöveg helyett.
+Igen. A cél Excel cellatartományról készített pillanatképet beállíthatja az OLE keret helyőrzőképéül, így egy egyedi előnézeti képet jeleníthet meg az alapértelmezett helyőrző helyett.
+
+## **Kapcsolódó cikkek**
+
+[Excel diagram létrehozása és OLE objektumként beágyazása prezentációba](/slides/hu/androidjava/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[OLE objektumok automatikus frissítése MS PowerPoint kiegészítővel](/slides/hu/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

@@ -4,205 +4,125 @@ type: docs
 weight: 40
 url: /es/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- redimensionado de gráficos
+- redimensionado del gráfico
 - gráfico de Excel
 - objeto OLE
 - incrustar gráfico
 - PowerPoint
-- OpenDocument
 - presentación
 - Java
 - Aspose.Slides
-description: "Soluciona el inesperado redimensionado de gráficos en PPTX al usar objetos OLE de Excel incrustados con Aspose.Slides para Java. Aprende dos métodos con código para mantener los tamaños consistentes."
+description: "Soluciona el redimensionado inesperado de gráficos en PPTX al usar objetos OLE de Excel incrustados con Aspose.Slides para Java. Establece dimensiones fijas del gráfico para mantener consistentes los tamaños del gráfico y del marco OLE."
 ---
 ## **Antecedentes**
 
-Se ha observado que los gráficos de Excel incrustados como objetos OLE en una presentación de PowerPoint mediante los componentes de Aspose se redimensionan a una escala no especificada tras su primera activación. Este comportamiento provoca una diferencia visual notable en la presentación entre los estados antes y después de la activación del gráfico. El equipo de Aspose ha investigado el problema en detalle y ha encontrado una solución. Este artículo describe las causas del problema y la corrección correspondiente.
+Los gráficos de Excel incrustados como objetos OLE en presentaciones de PowerPoint usando componentes Aspose pueden cambiar de tamaño después de su primera activación. Esto puede provocar una diferencia notable en la apariencia del gráfico antes y después de la activación. Este artículo explica por qué ocurre el cambio de tamaño y muestra cómo evitarlo haciendo coincidir las dimensiones fijas del gráfico con el marco OLE.
 
-En el [artículo anterior](/slides/es/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), explicamos cómo crear un gráfico de Excel con Aspose.Cells for Java e incrustarlo en una presentación de PowerPoint mediante Aspose.Slides for Java. Para abordar el [problema de vista previa del objeto](/slides/es/java/object-preview-issue-when-adding-oleobjectframe/), asignamos la imagen del gráfico al marco del objeto OLE del gráfico. En la presentación resultante, al hacer doble clic en el marco del objeto OLE que muestra la imagen del gráfico, se activa el gráfico de Excel. Los usuarios pueden realizar los cambios deseados en el libro de Excel subyacente y luego volver a la diapositiva correspondiente haciendo clic fuera del libro activado. El tamaño del marco del objeto OLE cambia cuando el usuario vuelve a la diapositiva, y el factor de redimensionado varía según los tamaños originales tanto del marco del objeto OLE como del libro de Excel incrustado.
+En [Crear gráficos de Excel e incrustarlos como objetos OLE en presentaciones](/slides/es/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), explicamos cómo crear un gráfico de Excel con Aspose.Cells para Java y incrustarlo en una presentación de PowerPoint usando Aspose.Slides para Java. Para abordar el [problema de vista previa del objeto](/slides/es/java/object-preview-issue-when-adding-oleobjectframe/), asignamos la imagen del gráfico al marco del objeto OLE del gráfico. En la presentación resultante, cuando haces doble clic en el marco del objeto OLE que muestra la imagen del gráfico, el gráfico de Excel se activa. Los usuarios pueden editar el libro de Excel incrustado y luego volver a la diapositiva haciendo clic fuera del libro activado. El tamaño del marco del objeto OLE cambia cuando el usuario vuelve a la diapositiva, y el factor de redimensionado varía según los tamaños originales tanto del marco del objeto OLE como del libro de Excel incrustado.
 
-Existen dos escenarios posibles para crear presentaciones de PowerPoint utilizando Aspose.Slides for Java.
+## **Causa del cambio de tamaño**
 
-**Escenario 1:** Crear una presentación basada en una plantilla existente.
+El libro de Excel incrustado tiene sus propias dimensiones de ventana, que Excel intenta conservar cuando el objeto se activa por primera vez. El marco OLE en la diapositiva tiene dimensiones definidas de forma independiente. Cuando se activa el libro de Excel, Excel y PowerPoint negocian el tamaño del objeto para mantener sus proporciones como parte del proceso de incrustación. Por lo tanto, las diferencias entre la ventana del libro y el marco OLE pueden provocar que el objeto cambie de tamaño.
 
-**Escenario 2:** Crear una presentación desde cero.
+## **Solución funcional**
 
-La solución que ofrecemos aquí se aplica a ambos escenarios. La base de todas las aproximaciones a la solución es la misma: **el tamaño de la ventana del objeto OLE incrustado debe coincidir con el marco del objeto OLE en la diapositiva de PowerPoint**. A continuación, analizaremos los dos enfoques para esta solución.
+Haz coincidir el tamaño del gráfico con el marco OLE de la diapositiva y mantén las dimensiones del gráfico independientes de la ventana del libro. Esta solución funciona con una presentación nueva o con una plantilla existente.
 
-## **Primer enfoque**
+El ejemplo requiere Aspose.Cells para Java y Aspose.Slides para Java. Crea un gráfico de columnas sencillo en una hoja de gráfico activa y incrusta el libro en formato XLS. No se asigna ninguna imagen de vista previa del gráfico; el gráfico se vuelve visible cuando el objeto OLE se activa en PowerPoint.
 
-En este enfoque, aprenderemos a establecer el tamaño de ventana del libro de Excel incrustado para que coincida con el tamaño del marco del objeto OLE en la diapositiva de PowerPoint.
+El ejemplo crea una presentación nueva con un marco OLE de 9,5 × 4 pulgadas situado a 0,5 pulgadas del borde izquierdo y a 1 pulgada de la parte superior. Las coordenadas y dimensiones de la diapositiva están en puntos (72 puntos por pulgada). Para una presentación existente, consulta [Usar una plantilla](#use-a-template).
 
-**Escenario 1**
+## **Establecer un tamaño de gráfico fijo**
 
-Supongamos que hemos definido una plantilla y queremos crear presentaciones basadas en ella. Asumamos que hay una forma en el índice 2 de la plantilla donde deseamos colocar un marco OLE que contenga un libro de Excel incrustado. En este escenario, el tamaño del marco del objeto OLE está predefinido: coincide con el tamaño de la forma en el índice 2 de la plantilla. Lo único que necesitamos hacer es establecer el tamaño de ventana del libro de trabajo igual al tamaño de esa forma. El siguiente fragmento de código cumple esta función:
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// Establece el ancho de ventana del libro de trabajo en pulgadas (dividido por 72 ya que PowerPoint usa 72 puntos por pulgada).
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// Establece la altura de ventana del libro de trabajo en pulgadas.
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// Guarda el libro de trabajo en un flujo de memoria.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Crea un marco de objeto OLE con los datos de Excel incrustados.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
-
-**Escenario 2**
-
-Supongamos que queremos crear una presentación desde cero e incluir un marco de objeto OLE de cualquier tamaño con un libro de Excel incrustado. En el siguiente fragmento de código, creamos un marco de objeto OLE de 4 pulgadas de alto y 9,5 pulgadas de ancho en x = 0,5 pulgadas e y = 1 pulgada en la diapositiva. A continuación, establecemos la ventana del libro de Excel al mismo tamaño: 4 pulgadas de alto y 9,5 pulgadas de ancho.
+Establece [setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) a false para que las dimensiones del gráfico sean independientes de la ventana del libro. Configura las dimensiones del [getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) mediante [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) y [setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-), convirtiendo puntos a píxeles usando 96 píxeles por pulgada: un marco de 684 × 288 puntos corresponde a un gráfico de 912 × 384 píxeles. Configura [setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) al valor CUSTOM de [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/). El ejemplo incrusta el libro con [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) y guarda una presentación con un marco OLE de 9,5 × 4 pulgadas.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// Nuestra altura deseada.
-int desiredHeight = 288; // 4 pulgadas (4 * 72)
- 
-// Nuestra anchura deseada.
-int desiredWidth = 684; // 9,5 pulgadas (9.5 * 72)
- 
-// Define el tamaño del gráfico con ventana.
-chart.setSizeWithWindow(true);
- 
-// Establece el ancho de ventana del libro de trabajo en pulgadas (dividido por 72 ya que PowerPoint usa 72 puntos por pulgada).
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// Establece la altura de ventana del libro de trabajo en pulgadas.
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// Guarda el libro de trabajo en un flujo de memoria.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Crea un marco de objeto OLE con los datos de Excel incrustados.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0,5 pulgada (0.5 * 72)
-    72,  // y = 1 pulgada (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // Las coordenadas y dimensiones de la diapositiva están en puntos (72 puntos por pulgada).
+        float width = 684f; // 9,5 pulgadas.
+        float height = 288f; // 4 pulgadas.
+
+        chart.setSizeWithWindow(false);
+        // Convertir puntos a píxeles del gráfico usando 96 píxeles por pulgada.
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-## **Segundo enfoque**
+## **Usar una plantilla**
 
-En este enfoque, aprenderemos a establecer el tamaño del gráfico en el libro de Excel incrustado para que coincida con el tamaño del marco del objeto OLE en la diapositiva de PowerPoint. Este enfoque es útil cuando el tamaño del gráfico se conoce de antemano y nunca cambiará.
+La lógica de dimensionado es la misma para una presentación existente. Para adaptar el ejemplo:
 
-**Escenario 1**
-
-Supongamos que hemos definido una plantilla y queremos crear presentaciones basadas en ella. Asumamos que hay una forma en el índice 2 de la plantilla donde pretendemos colocar un marco OLE que contenga un libro de Excel incrustado. En este escenario, el tamaño del marco OLE está predefinido, coincidiendo con el tamaño de la forma en el índice 2 de la plantilla. Lo único que necesitamos hacer es establecer el tamaño del gráfico en el libro de trabajo igual al tamaño de esa forma. El siguiente fragmento de código cumple esta función:
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// Define el tamaño del gráfico sin ventana.
-chart.setSizeWithWindow(false);
- 
-// Establece el ancho del gráfico en píxeles (multiplica por 96 ya que Excel usa 96 píxeles por pulgada).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// Establece la altura del gráfico en píxeles.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// Define el tamaño de impresión del gráfico.
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// Guarda el libro de trabajo en un flujo de memoria.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Crea un marco de objeto OLE con los datos de Excel incrustados.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
-
-**Escenario 2**:
-
-Supongamos que queremos crear una presentación desde cero e incluir un marco de objeto OLE de cualquier tamaño con un libro de Excel incrustado. En el siguiente fragmento de código, creamos un marco de objeto OLE con una altura de 4 pulgadas y un ancho de 9,5 pulgadas en la diapositiva en x = 0,5 pulgadas e y = 1 pulgada. También establecemos el tamaño del gráfico correspondiente a las mismas dimensiones: una altura de 4 pulgadas y un ancho de 9,5 pulgadas.
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// Nuestra altura deseada.
-int desiredHeight = 288; // 4 pulgadas (4 * 72)
- 
-// Nuestro ancho deseado.
-int desiredWidth = 684; // 9.5 pulgadas (9.5 * 72)
- 
-// Define el tamaño del gráfico sin ventana.
-chart.setSizeWithWindow(false);
- 
-// Establece el ancho del gráfico en píxeles (dividido por 72 para obtener pulgadas, multiplicado por 96 ya que Excel usa 96 píxeles por pulgada).
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// Establece la altura del gráfico en píxeles.
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// Guarda el libro de trabajo en un flujo de memoria.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Crea un marco de objeto OLE con los datos de Excel incrustados.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 pulgada (0.5 * 72)
-    72,  // y = 1 pulgada (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **Conclusión**
-
-Existen dos enfoques para resolver el problema de redimensionado del gráfico. La elección del enfoque depende de los requisitos y del caso de uso. Ambos enfoques funcionan de la misma manera, tanto si las presentaciones se crean a partir de una plantilla como si se crean desde cero. Además, no hay límite para el tamaño del marco del objeto OLE en esta solución.
+1. Carga la presentación plantilla en lugar de crear una presentación vacía.
+1. Comprueba que la primera diapositiva contenga al menos tres formas y, a continuación, usa la forma en el índice 2 como marcador de posición.
+1. Obtén la anchura y altura del marco a partir de esa forma en lugar de usar los valores fijos 684 y 288. Mantén los cálculos de dimensionado sin cambios.
+1. Añade el marco OLE en la posición del marcador de posición en lugar de las coordenadas fijas 36 y 72.
+1. Elimina el marcador de posición antes de guardar la presentación.
 
 ## **Preguntas frecuentes**
 
-### ¿Por qué mi gráfico de Excel incrustado cambia de tamaño después de activarlo en PowerPoint?
+**¿Por qué mi gráfico de Excel incrustado cambia de tamaño después de activarlo en PowerPoint?**
 
-Esto ocurre porque Excel intenta restaurar el tamaño original de la ventana al activarse por primera vez, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la proporción, lo que puede provocar el cambio de tamaño.
+Esto ocurre porque Excel intenta restaurar el tamaño original de la ventana cuando se activa por primera vez, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la relación de aspecto, lo que puede provocar el cambio de tamaño.
 
-### ¿Es posible evitar este problema de cambio de tamaño por completo?
+**¿Cómo puedo mantener consistentes los tamaños del gráfico y del marco OLE?**
 
-Sí. Al hacer coincidir el tamaño de la ventana del libro de Excel o el tamaño del gráfico con el tamaño del marco del objeto OLE antes de incrustarlo, puedes mantener los tamaños de los gráficos consistentes.
+Establece dimensiones fijas para el gráfico que coincidan con el marco OLE y usa un tamaño de impresión de gráfico personalizado antes de incrustar el libro. El ejemplo anterior muestra la configuración necesaria y las conversiones de unidades.
 
-### ¿Qué enfoque debo usar, establecer el tamaño de la ventana del libro de trabajo o el tamaño del gráfico?
+**¿Es suficiente que coincida el tamaño de la ventana del libro?**
 
-Utiliza **Enfoque 1 (tamaño de ventana)** si deseas mantener la proporción del libro de trabajo y, posiblemente, permitir el cambio de tamaño más adelante.  
-Utiliza **Enfoque 2 (tamaño del gráfico)** si las dimensiones del gráfico son fijas y no cambiarán después de la incrustación.
+Que coincida solo el tamaño de la ventana del libro no evita de forma fiable que el marco OLE cambie de tamaño tras la activación. Utiliza dimensiones fijas del gráfico como se muestra en el ejemplo.
 
-### ¿Funcionarán estos métodos tanto con presentaciones basadas en plantillas como con presentaciones nuevas?
+**¿Esta solución funciona tanto con presentaciones basadas en plantillas como con presentaciones nuevas?**
 
-Sí. Ambos enfoques funcionan de la misma manera para presentaciones creadas a partir de plantillas o desde cero.
+Sí. Para una plantilla, utiliza las dimensiones y la posición del marcador de posición. Para una presentación nueva, especifica directamente las dimensiones y la posición del marco.
 
-### ¿Existe un límite para el tamaño del marco del objeto OLE?
+**¿Puedo usar este ejemplo con gráficos creados en otros programas de hojas de cálculo?**
 
-No. Puedes establecer el marco OLE a cualquier tamaño siempre que se escale adecuadamente al tamaño del libro de trabajo o del gráfico.
-
-### ¿Puedo usar estos métodos con gráficos creados en otros programas de hojas de cálculo?
-
-Los ejemplos están diseñados para gráficos de Excel creados con Aspose.Cells, pero los principios se aplican a otros programas de hojas de cálculo compatibles con OLE siempre que admitan opciones de dimensionado similares.
+El ejemplo usa un libro de Excel creado con Aspose.Cells. No muestra el comportamiento de activación de otros programas de hojas de cálculo.
 
 ## **Secciones relacionadas**
 

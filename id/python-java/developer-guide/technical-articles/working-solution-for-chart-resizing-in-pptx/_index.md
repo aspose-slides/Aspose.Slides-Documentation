@@ -1,48 +1,41 @@
 ---
-title: Solusi Praktis untuk Pengubahan Ukuran Diagram di PPTX
+title: Solusi Praktis untuk Mengatasi Perubahan Ukuran Diagram di PPTX
 type: docs
 weight: 40
 url: /id/python-java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- pengubahan ukuran diagram
+- perubahan ukuran diagram
 - diagram Excel
 - objek OLE
-- sematkan diagram
+- menyematkan diagram
 - PowerPoint
-- OpenDocument
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Perbaiki pengubahan ukuran diagram yang tidak terduga di PPTX saat menggunakan objek OLE Excel yang disematkan dengan Aspose.Slides untuk Python via Java. Pelajari dua metode dengan kode untuk menjaga ukuran tetap konsisten."
+description: "Perbaiki perubahan ukuran diagram yang tidak terduga di PPTX saat menggunakan objek OLE Excel yang disematkan dengan Aspose.Slides untuk Python via Java. Tetapkan dimensi diagram tetap untuk menjaga konsistensi ukuran diagram dan bingkai OLE."
 ---
 ## **Latar Belakang**
 
-Terjadi pengamatan bahwa diagram Excel yang disematkan sebagai objek OLE dalam presentasi PowerPoint melalui komponen Aspose mengalami perubahan ukuran ke skala yang tidak ditentukan setelah aktivasi pertama. Perilaku ini menyebabkan perbedaan visual yang nyata dalam presentasi antara keadaan sebelum dan sesudah aktivasi diagram. Tim Aspose telah menyelidiki masalah ini secara mendetail dan menemukan solusinya. Artikel ini menjelaskan penyebab masalah dan perbaikan yang relevan.
+Diagram Excel yang disematkan sebagai objek OLE dalam presentasi PowerPoint menggunakan komponen Aspose dapat berubah ukuran setelah aktivasi pertama. Hal ini dapat menyebabkan perbedaan yang terlihat pada tampilan diagram sebelum dan sesudah aktivasi. Artikel ini menjelaskan mengapa perubahan ukuran terjadi dan menunjukkan cara mencegahnya dengan mencocokkan dimensi diagram tetap dengan bingkai OLE.
 
-Dalam [artikel sebelumnya](/slides/id/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), kami menjelaskan cara membuat diagram Excel dengan Aspose.Cells for Python via Java dan menyematkannya dalam presentasi PowerPoint menggunakan Aspose.Slides for Python via Java. Untuk mengatasi [masalah pratinjau objek](/slides/id/python-java/object-preview-issue-when-adding-oleobjectframe/), kami menetapkan gambar diagram ke bingkai objek OLE diagram tersebut. Dalam presentasi output, ketika Anda mengklik dua kali bingkai objek OLE yang menampilkan gambar diagram, diagram Excel diaktifkan. Pengguna akhir dapat melakukan perubahan apa pun pada buku kerja Excel yang mendasarinya dan kemudian kembali ke slide yang bersangkutan dengan mengklik di luar buku kerja yang diaktifkan. Ukuran bingkai objek OLE berubah saat pengguna kembali ke slide, dan faktor perubahan ukuran bervariasi tergantung pada ukuran asli baik bingkai objek OLE maupun buku kerja Excel yang disematkan.
+Dalam [Buat Diagram Excel dan Sematkan Sebagai Objek OLE dalam Presentasi](/slides/id/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), kami menjelaskan cara membuat diagram Excel dengan Aspose.Cells untuk Python via Java dan menyematkannya dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Python via Java. Untuk mengatasi [masalah pratinjau objek](/slides/id/python-java/object-preview-issue-when-adding-oleobjectframe/), kami menetapkan gambar diagram ke bingkai objek OLE diagram. Dalam presentasi keluaran, ketika Anda mengklik ganda bingkai objek OLE yang menampilkan gambar diagram, diagram Excel diaktifkan. Pengguna dapat menyunting buku kerja Excel yang disematkan dan kemudian kembali ke slide dengan mengklik di luar buku kerja yang diaktifkan. Ukuran bingkai objek OLE berubah ketika pengguna kembali ke slide, dan faktor perubahan ukuran bervariasi tergantung pada ukuran asli baik bingkai objek OLE maupun buku kerja Excel yang disematkan.
 
-## **Penyebab Pengubahan Ukuran**
+## **Penyebab Perubahan Ukuran**
 
-Karena buku kerja Excel memiliki ukuran jendela tersendiri, ia berusaha mempertahankan ukuran aslinya pada aktivasi pertama. Bingkai objek OLE, bagaimanapun, memiliki ukuran sendiri. Menurut Microsoft, ketika buku kerja Excel diaktifkan, Excel dan PowerPoint bernegosiasi ukuran dan menjaga proporsi yang tepat sebagai bagian dari proses penyematan. Bergantung pada perbedaan antara ukuran jendela Excel dan ukuran atau posisi bingkai objek OLE, terjadi pengubahan ukuran.
+Buku kerja Excel yang disematkan memiliki dimensi jendela tersendiri, yang berusaha dipertahankan oleh Excel saat objek pertama kali diaktifkan. Bingkai OLE pada slide memiliki dimensi yang didefinisikan secara independen. Ketika buku kerja Excel diaktifkan, Excel dan PowerPoint bernegosiasi mengenai ukuran objek untuk mempertahankan proporsinya sebagai bagian dari proses penyematan. Perbedaan antara jendela buku kerja dan bingkai OLE dapat menyebabkan objek diubah ukurannya.
 
 ## **Solusi yang Berfungsi**
 
-Ada dua skenario yang mungkin untuk membuat presentasi PowerPoint menggunakan Aspose.Slides for Python via Java.
+Sesuaikan ukuran diagram dengan bingkai OLE pada slide dan pertahankan dimensi diagram terpisah dari jendela buku kerja. Solusi ini bekerja dengan presentasi baru atau templat yang sudah ada.
 
-**Skenario 1:** Membuat presentasi berdasarkan templat yang sudah ada.
+Contoh ini memerlukan Aspose.Cells untuk Python via Java dan Aspose.Slides untuk Python via Java. Contoh ini membuat diagram kolom sederhana pada lembar diagram aktif dan menyematkan buku kerja dalam format XLS. Tidak ada gambar pratinjau diagram yang ditetapkan; diagram menjadi terlihat ketika objek OLE diaktifkan di PowerPoint.
 
-**Skenario 2:** Membuat presentasi dari awal.
+Contoh ini membuat presentasi baru dengan bingkai OLE berukuran 9.5 × 4‑inch yang ditempatkan 0.5 inci dari tepi kiri dan 1 inci dari atas. Koordinat dan dimensi slide dalam satuan poin (72 poin per inci). Untuk presentasi yang sudah ada, lihat [Gunakan Templat](#use-a-template).
 
-Solusi yang kami berikan di sini berlaku untuk kedua skenario. Dasar semua pendekatan solusi adalah sama: **ukuran jendela objek OLE yang disematkan harus cocok dengan bingkai objek OLE di slide PowerPoint**. Kami akan membahas dua pendekatan untuk solusi ini.
+## **Atur Ukuran Diagram Tetap**
 
-## **Pendekatan Pertama**
-
-Dalam pendekatan ini, kami akan mempelajari cara mengatur ukuran jendela buku kerja Excel yang disematkan sehingga cocok dengan ukuran bingkai objek OLE di slide PowerPoint.
-
-**Scenario 1**
-
-Misalkan kami telah mendefinisikan sebuah templat dan ingin membuat presentasi berdasarkan templat tersebut. Asumsikan ada bentuk pada indeks 2 di templat tempat kami ingin menempatkan bingkai OLE yang berisi buku kerja Excel yang disematkan. Pada skenario ini, ukuran bingkai objek OLE telah ditentukan sebelumnya—ukuran ini cocok dengan ukuran bentuk pada indeks 2 di templat. Yang perlu kami lakukan hanyalah menetapkan ukuran jendela buku kerja sama dengan ukuran bentuk tersebut. Potongan kode berikut melayani tujuan ini:
+Setel [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) ke false sehingga dimensi diagram terpisah dari jendela buku kerja. Setel dimensi [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) melalui [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) dan [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height), mengonversi poin ke piksel menggunakan 96 piksel per inci: sebuah bingkai dengan ukuran 684 × 288 poin sesuai dengan diagram berukuran 912 × 384 piksel. Setel [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) ke nilai CUSTOM dari [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/). Contoh ini menyematkan buku kerja dengan [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) dan menyimpan presentasi dengan bingkai OLE berukuran 9.5 × 4‑inch.
 
 ```python
 import jpype
@@ -52,215 +45,84 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# Muat buku kerja Excel yang berisi diagram.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # Atur ukuran jendela buku kerja dalam inci (PowerPoint menggunakan 72 titik per inci).
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # Simpan buku kerja ke aliran memori.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # Buat bingkai objek OLE dengan data Excel yang disematkan.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # Koordinat dan dimensi slide dalam satuan poin (72 poin per inci).
+        width = 684.0  # 9,5 inci.
+        height = 288.0  # 4 inci.
+
+        chart.setSizeWithWindow(False)
+        # Konversi poin ke piksel diagram menggunakan 96 piksel per inci.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Scenario 2**
+## **Gunakan Templat**
 
-Katakanlah kami ingin membuat presentasi dari awal dan menyertakan bingkai objek OLE dengan ukuran apa pun yang berisi buku kerja Excel yang disematkan. Pada potongan kode berikut, kami membuat bingkai objek OLE setinggi 4 inci dan lebar 9,5 inci pada x = 0,5 inci dan y = 1 inci di slide. Kami kemudian menetapkan jendela buku kerja Excel ke ukuran yang sama—tinggi 4 inci dan lebar 9,5 inci.
+Logika pengukuran sama untuk presentasi yang sudah ada. Untuk menyesuaikan contoh:
 
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Muat buku kerja Excel yang berisi diagram.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 inci (4 * 72).
-    desired_width = 684  # 9.5 inci (9.5 * 72).
-
-    # Tentukan ukuran diagram dengan jendela.
-    chart.setSizeWithWindow(True)
-
-    # Atur ukuran jendela buku kerja dalam inci (PowerPoint menggunakan 72 titik per inci).
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # Simpan buku kerja ke aliran memori.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Buat bingkai objek OLE dengan data Excel yang disematkan.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Pendekatan Kedua**
-
-Dalam pendekatan ini, kami akan mempelajari cara mengatur ukuran diagram di dalam buku kerja Excel yang disematkan sehingga cocok dengan ukuran bingkai objek OLE di slide PowerPoint. Pendekatan ini berguna ketika ukuran diagram sudah diketahui sebelumnya dan tidak akan berubah.
-
-**Scenario 1**
-
-Misalkan kami telah mendefinisikan sebuah templat dan ingin membuat presentasi berdasarkan templat tersebut. Asumsikan ada bentuk pada indeks 2 di templat tempat kami bermaksud menempatkan bingkai OLE yang berisi buku kerja Excel yang disematkan. Pada skenario ini, ukuran bingkai OLE telah ditentukan sebelumnya—cocok dengan ukuran bentuk pada indeks 2 di templat. Yang perlu kami lakukan hanyalah menetapkan ukuran diagram di buku kerja sama dengan ukuran bentuk tersebut. Potongan kode berikut melayani tujuan ini:
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Muat buku kerja Excel yang berisi diagram.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # Tentukan ukuran diagram tanpa jendela.
-    chart.setSizeWithWindow(False)
-
-    # Atur ukuran diagram dalam piksel (Excel menggunakan 96 piksel per inci).
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # Tentukan ukuran cetak diagram.
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # Simpan buku kerja ke aliran memori.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Buat bingkai objek OLE dengan data Excel yang disematkan.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Scenario 2**:
-
-Misalkan kami ingin membuat presentasi dari awal dan menyertakan bingkai objek OLE dengan ukuran apa pun yang berisi buku kerja Excel yang disematkan. Pada potongan kode berikut, kami membuat bingkai objek OLE dengan tinggi 4 inci dan lebar 9,5 inci di slide pada x = 0,5 inci dan y = 1 inci. Kami juga menetapkan ukuran diagram yang bersesuaian ke dimensi yang sama: tinggi 4 inci dan lebar 9,5 inci.
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Muat buku kerja Excel yang berisi diagram.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 inci (4 * 72).
-    desired_width = 684  # 9.5 inci (9.5 * 72).
-
-    # Tentukan ukuran diagram tanpa jendela.
-    chart.setSizeWithWindow(False)
-
-    # Atur ukuran diagram dalam piksel (Excel menggunakan 96 piksel per inci).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # Simpan buku kerja ke aliran memori.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Buat bingkai objek OLE dengan data Excel yang disematkan.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Kesimpulan**
-
-Ada dua pendekatan untuk memperbaiki masalah pengubahan ukuran diagram. Pilihan pendekatan tergantung pada kebutuhan dan kasus penggunaan. Kedua pendekatan bekerja dengan cara yang sama baik ketika presentasi dibuat dari templat maupun dibuat dari awal. Selain itu, tidak ada batasan ukuran bingkai objek OLE dalam solusi ini.
+1. Muat presentasi templat alih-alih membuat presentasi kosong.
+1. Periksa bahwa slide pertama berisi setidaknya tiga bentuk, lalu gunakan bentuk pada indeks 2 sebagai placeholder.
+1. Ambil lebar dan tinggi bingkai dari bentuk tersebut alih-alih menggunakan nilai tetap 684 dan 288. Pertahankan perhitungan ukuran tetap.
+1. Tambahkan bingkai OLE pada posisi placeholder alih-alih koordinat tetap 36 dan 72.
+1. Hapus placeholder sebelum menyimpan presentasi.
 
 ## **FAQ**
 
-**Mengapa diagram Excel yang disematkan berubah ukuran setelah diaktifkan di PowerPoint?**
+**Mengapa diagram Excel yang saya sematkan berubah ukuran setelah diaktifkan di PowerPoint?**
 
-Hal ini terjadi karena Excel berusaha mengembalikan ukuran jendela aslinya saat pertama kali diaktifkan, sedangkan bingkai objek OLE di PowerPoint memiliki dimensi tersendiri. PowerPoint dan Excel bernegosiasi ukuran untuk mempertahankan rasio aspek, yang dapat menyebabkan pengubahan ukuran.
+Hal ini terjadi karena Excel berusaha mengembalikan ukuran jendela asli saat pertama kali diaktifkan, sedangkan bingkai objek OLE di PowerPoint memiliki dimensinya sendiri. PowerPoint dan Excel bernegosiasi ukuran untuk mempertahankan rasio aspek, yang dapat menyebabkan perubahan ukuran.
 
-**Apakah mungkin mencegah masalah pengubahan ukuran ini sepenuhnya?**
+**Bagaimana saya dapat menjaga konsistensi ukuran diagram dan bingkai OLE?**
 
-Ya. Dengan menyamakan ukuran jendela buku kerja Excel atau ukuran diagram dengan ukuran bingkai objek OLE sebelum penyematan, Anda dapat menjaga konsistensi ukuran diagram.
+Atur dimensi diagram tetap yang cocok dengan bingkai OLE dan gunakan ukuran cetak diagram khusus sebelum menyematkan buku kerja. Contoh di atas menunjukkan pengaturan yang diperlukan serta konversi satuan.
 
-**Pendekatan mana yang harus saya pilih, mengatur ukuran jendela buku kerja atau mengatur ukuran diagram?**
+**Apakah mencocokkan ukuran jendela buku kerja sudah cukup?**
 
-Gunakan **Pendekatan 1 (ukuran jendela)** jika Anda ingin mempertahankan rasio aspek buku kerja dan mungkin memungkinkan mengubah ukuran nanti.  
-Gunakan **Pendekatan 2 (ukuran diagram)** jika dimensi diagram sudah tetap dan tidak akan berubah setelah penyematan.
+Mencocokkan ukuran jendela buku kerja saja tidak dapat diandalkan untuk mencegah bingkai OLE berubah ukuran setelah aktivasi. Gunakan dimensi diagram tetap seperti yang ditunjukkan dalam contoh.
 
-**Apakah metode ini akan berfungsi pada presentasi berbasis templat maupun presentasi baru?**
+**Apakah solusi ini bekerja dengan presentasi berbasis templat maupun presentasi baru?**
 
-Ya. Kedua pendekatan bekerja dengan cara yang sama untuk presentasi yang dibuat dari templat maupun dari awal.
+Ya. Untuk templat, gunakan dimensi dan posisi placeholder. Untuk presentasi baru, tentukan dimensi dan posisi bingkai secara langsung.
 
-**Apakah ada batasan ukuran bingkai objek OLE?**
+**Bisakah saya menggunakan contoh ini dengan diagram yang dibuat di program spreadsheet lain?**
 
-Tidak. Anda dapat menetapkan bingkai OLE ke ukuran berapa pun selama skala tersebut sesuai dengan ukuran buku kerja atau diagram.
-
-**Dapatkah saya menggunakan metode ini dengan diagram yang dibuat di program spreadsheet lain?**
-
-Contoh‑contoh dirancang untuk diagram Excel yang dibuat dengan Aspose.Cells, tetapi prinsipnya berlaku untuk program spreadsheet lain yang kompatibel dengan OLE asalkan mendukung opsi ukuran serupa.
+Contoh ini menggunakan buku kerja Excel yang dibuat dengan Aspose.Cells. Contoh ini tidak memperlihatkan perilaku aktivasi untuk program spreadsheet lain.
 
 ## **Bagian Terkait**
 
-- [Buat Diagram Excel dan Sematkan sebagai Objek OLE dalam Presentasi](/slides/id/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Buat Diagram Excel dan Sematkan Sebagai Objek OLE dalam Presentasi](/slides/id/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

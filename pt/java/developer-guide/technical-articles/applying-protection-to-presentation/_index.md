@@ -1,6 +1,6 @@
 ---
-title: Impedir Edições de Apresentação com Bloqueios de Forma
-linktitle: Impedir Edições de Apresentação
+title: Restringir edições de apresentação com bloqueios de forma em Java
+linktitle: Restringir edições de apresentação
 type: docs
 weight: 60
 url: /pt/java/applying-protection-to-presentation/
@@ -10,167 +10,149 @@ keywords:
 - bloquear forma
 - bloquear posição
 - bloquear seleção
-- bloquear tamanho
+- bloquear redimensionamento
 - bloquear agrupamento
 - PowerPoint
-- OpenDocument
+- PPTX
 - apresentação
 - Java
 - Aspose.Slides
-description: "Descubra como o Aspose.Slides for Java bloqueia ou desbloqueia formas em arquivos PPT, PPTX e ODP, protegendo apresentações enquanto permite edições controladas e entrega mais rápida."
+description: "Aprenda como bloquear e desbloquear formas em apresentações PPTX com Aspose.Slides for Java para restringir seleção, movimento, redimensionamento e agrupamento."
 ---
 ## **Contexto**
 
-Um uso comum do Aspose.Slides é criar, atualizar e salvar apresentações do Microsoft PowerPoint (PPTX) como parte de um fluxo de trabalho automatizado. Usuários de aplicações que utilizam o Aspose.Slides dessa forma têm acesso às apresentações geradas, portanto proteger essas apresentações contra edição é uma preocupação frequente. É importante que as apresentações geradas automaticamente mantenham sua formatação e conteúdo originais.
+Um uso comum do Aspose.Slides for Java é criar, atualizar e salvar apresentações PowerPoint (PPTX) como parte de um fluxo de trabalho automatizado. Quando os usuários recebem essas apresentações, restringir alterações nas formas pode ajudar a preservar o layout e o conteúdo pretendidos.
 
-Este artigo explica como apresentações e slides são estruturados e como o Aspose.Slides for Java pode aplicar proteção a uma apresentação e removê‑la posteriormente. Ele oferece aos desenvolvedores um meio de controlar como as apresentações criadas por suas aplicações são usadas.
+Este artigo explica como as formas são organizadas nos slides e como aplicar e remover bloqueios de forma em uma apresentação PPTX. Esses bloqueios permitem restringir operações de edição específicas em formas individuais.
 
 ## **Composição de um Slide**
 
-Um slide de apresentação é composto por componentes como autoshapes, tabelas, objetos OLE, formas agrupadas, quadros de imagem, quadros de vídeo, conectores e outros elementos usados para montar uma apresentação. No Aspose.Slides for Java, cada elemento em um slide é representado por um objeto que implementa a interface [IShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishape/) ou herda de uma classe que o faz.
+Um slide de apresentação é composto por componentes como autoshapes, tabelas, objetos OLE, formas agrupadas, molduras de imagem, molduras de vídeo, conectores e outros elementos usados para construir uma apresentação. No Aspose.Slides for Java, cada elemento em um slide é representado por um objeto que implementa a interface [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) ou herda de uma classe que o faz.
 
-A estrutura do PPTX é complexa, portanto, ao contrário do PPT, onde um bloqueio genérico pode ser usado para todos os tipos de formas, diferentes tipos de forma requerem bloqueios diferentes. A interface [IBaseShapeLock](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibaseshapelock/) é a classe de bloqueio genérica para PPTX. Os seguintes tipos de bloqueios são suportados no Aspose.Slides for Java para PPTX:
+Tipos diferentes de forma expõem opções de bloqueio diferentes. A interface [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) é a interface base para bloqueios de forma. O Aspose.Slides for Java fornece as seguintes interfaces de bloqueio:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iautoshapelock/) bloqueia autoshapes.  
-- [IConnectorLock](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iconnectorlock/) bloqueia formas de conector.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/pt/java/com.aspose.slides/igraphicalobjectlock/) bloqueia objetos gráficos.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/pt/java/com.aspose.slides/igroupshapelock/) bloqueia formas agrupadas.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ipictureframelock/) bloqueia quadros de imagem.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) bloqueia autoshapes.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) bloqueia formas de conector.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) bloqueia objetos gráficos.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) bloqueia formas agrupadas.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) bloqueia molduras de imagem.  
 
-Qualquer ação executada em todos os objetos de forma em um objeto [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) é aplicada a toda a apresentação.
+Para aplicar bloqueios em uma [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), itere pelos seus slides e defina os bloqueios apropriados em cada forma suportada.
 
 ## **Aplicar e Remover Proteção**
 
-Aplicar proteção garante que uma apresentação não possa ser editada. É uma técnica útil para proteger o conteúdo da apresentação.
+Os bloqueios de forma restringem operações como selecionar, mover e redimensionar formas. Eles não tornam toda a apresentação não editável.
 
 ### **Aplicar Proteção a Formas PPTX**
 
-O Aspose.Slides for Java fornece a interface [IShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishape/) para trabalhar com formas em um slide.
+O Aspose.Slides for Java fornece a interface [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) para trabalhar com formas em um slide.
 
-Como mencionado anteriormente, cada classe de forma possui uma classe de bloqueio de forma associada para proteção. Este artigo foca nos bloqueios NoSelect, NoMove e NoResize. Esses bloqueios garantem que as formas não possam ser selecionadas (por cliques do mouse ou outros métodos de seleção) e que não possam ser movidas ou redimensionadas.
+O exemplo chama [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) e [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) com `true` para autoshapes, com bloqueios equivalentes para formas grupais, conectores e molduras de imagem. Conectores usam [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) para movimento; grupos também usam [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) para restringir o agrupamento.
 
-O exemplo de código a seguir aplica proteção a todos os tipos de forma em uma apresentação.
+O exemplo carrega uma apresentação PPTX existente, verifica as formas na coleção de formas de cada slide e salva uma cópia com essas restrições aplicadas. Formas fora dos quatro tipos tratados permanecem inalteradas. O laço não percorre as formas filhas dentro de um grupo.
 
 ```java
-// Instanciar a classe Presentation que representa um arquivo PPTX.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Sample.pptx");
-
-// Percorrer todos os slides da apresentação.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Percorrer todas as formas do slide.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Converter a forma para uma autoshape e obter seu bloqueio de forma.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(true);
-            autoShapeLock.setSelectLocked(true);
-            autoShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IGroupShape) {
-            // Converter a forma para uma forma de grupo e obter seu bloqueio de forma.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(true);
-            groupShapeLock.setPositionLocked(true);
-            groupShapeLock.setSelectLocked(true);
-            groupShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IConnector) {
-            // Converter a forma para uma forma de conector e obter seu bloqueio de forma.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(true);
-            connectorShapeLock.setSelectLocked(true);
-            connectorShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IPictureFrame) {
-            // Converter a forma para um quadro de imagem e obter seu bloqueio de forma.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(true);
-            pictureFrameLock.setSelectLocked(true);
-            pictureFrameLock.setSizeLocked(true);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(true);
+                autoShapeLock.setSelectLocked(true);
+                autoShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(true);
+                groupShapeLock.setPositionLocked(true);
+                groupShapeLock.setSelectLocked(true);
+                groupShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(true);
+                connectorShapeLock.setSelectLocked(true);
+                connectorShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(true);
+                pictureFrameLock.setSelectLocked(true);
+                pictureFrameLock.setSizeLocked(true);
+            }
         }
     }
-}
 
-// Salvar o arquivo de apresentação.
-presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Remover Proteção**
 
-Para desbloquear uma forma, defina o valor do bloqueio aplicado como `false`. O exemplo de código a seguir mostra como desbloquear formas em uma apresentação protegida.
+Para remover um bloqueio de forma, defina seu valor como `false`. O exemplo a seguir carrega uma apresentação com bloqueios de forma e limpa as restrições de seleção, movimento e redimensionamento através de [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) e [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Também remove a restrição de agrupamento passando `false` para [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) e salva uma cópia da apresentação. Outras configurações de bloqueio permanecem inalteradas.
 
 ```java
-// Instanciar a classe Presentation que representa um arquivo PPTX.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ProtectedSample.pptx");
-
-// Percorrer todos os slides da apresentação.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Percorrer todas as formas do slide.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Converter a forma para uma autoshape e obter seu bloqueio de forma.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(false);
-            autoShapeLock.setSelectLocked(false);
-            autoShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IGroupShape) {
-            // Converter a forma para uma forma de grupo e obter seu bloqueio de forma.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(false);
-            groupShapeLock.setPositionLocked(false);
-            groupShapeLock.setSelectLocked(false);
-            groupShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IConnector) {
-            // Converter a forma para uma forma de conector e obter seu bloqueio de forma.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(false);
-            connectorShapeLock.setSelectLocked(false);
-            connectorShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IPictureFrame) {
-            // Converter a forma para um quadro de imagem e obter seu bloqueio de forma.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(false);
-            pictureFrameLock.setSelectLocked(false);
-            pictureFrameLock.setSizeLocked(false);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(false);
+                autoShapeLock.setSelectLocked(false);
+                autoShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(false);
+                groupShapeLock.setPositionLocked(false);
+                groupShapeLock.setSelectLocked(false);
+                groupShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(false);
+                connectorShapeLock.setSelectLocked(false);
+                connectorShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(false);
+                pictureFrameLock.setSelectLocked(false);
+                pictureFrameLock.setSizeLocked(false);
+            }
         }
     }
-}
 
-// Salvar o arquivo de apresentação.
-presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Conclusão**
+### **Conclusão**
 
-O Aspose.Slides oferece várias opções para proteger formas em uma apresentação. Você pode bloquear uma forma individual ou iterar por todas as formas de uma apresentação e bloquear cada uma para proteger efetivamente todo o arquivo. É possível remover a proteção definindo o valor do bloqueio como `false`.
+O Aspose.Slides for Java permite restringir operações de edição específicas em formas individuais ou aplicar as mesmas restrições em vários slides. Escolha os bloqueios suportados por cada tipo de forma e defina seus valores como `false` quando precisar remover essas restrições.
 
-## **Perguntas Frequentes**
+## **Perguntas frequentes**
 
-**Posso combinar bloqueios de formas e proteção por senha na mesma apresentação?**
+**Posso combinar bloqueios de forma e proteção por senha na mesma apresentação?**
 
-Sim. Os bloqueios limitam a edição de objetos dentro do arquivo, enquanto a [password protection](/slides/pt/java/password-protected-presentation/) controla o acesso para abrir e/ou salvar alterações. Esses mecanismos se complementam e funcionam em conjunto.
+Sim. Os bloqueios de forma restringem operações de edição específicas, enquanto [proteção por senha](/slides/pt/java/password-protected-presentation/) pode restringir a abertura ou modificação da apresentação. Você pode usar ambos no mesmo arquivo.
 
 **Posso restringir a edição em slides específicos sem afetar os demais?**
 
-Sim. Aplique bloqueios às formas nos slides selecionados; os slides restantes permanecerão editáveis.
+Sim. Aplique bloqueios apenas às formas nos slides selecionados. Isso não altera as configurações de bloqueio nos outros slides.
 
-**Os bloqueios de forma se aplicam a objetos agrupados e conectores?**
+**Como posso aplicar bloqueios a formas individuais dentro de um grupo?**
 
-Sim. Tipos de bloqueio dedicados são suportados para grupos, conectores, objetos gráficos e outros tipos de forma.
+Itere pela coleção retornada pelo método [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) do grupo e aplique os bloqueios apropriados a cada forma filha. Repita isso para quaisquer grupos aninhados. Os exemplos acima processam apenas a coleção de formas do slide, portanto não definem bloqueios nos membros individuais do grupo.

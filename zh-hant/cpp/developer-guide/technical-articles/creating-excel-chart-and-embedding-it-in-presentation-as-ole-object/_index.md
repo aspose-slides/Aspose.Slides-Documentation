@@ -8,165 +8,186 @@ keywords:
 - 嵌入圖表
 - OLE 物件
 - PowerPoint
-- OpenDocument
 - 簡報
 - C++
 - Aspose.Slides
-description: "使用 C++ 建立 Excel 圖表並將其作為 OLE 物件嵌入 PowerPoint 與 OpenDocument 簡報。逐步說明與程式碼範例。"
+description: "使用 Aspose.Cells for C++ 建立 Excel 圖表，並將工作簿嵌入 PowerPoint 簡報中，搭配 Aspose.Slides，並包含圖表預覽。"
 ---
-## **背景**
+## **概觀**
 
-在 PowerPoint 中，使用可編輯的圖表以圖形方式顯示資料是一種常見做法。Aspose 支援使用 Aspose.Cells for C++ 建立 Excel 圖表，這些圖表隨後可透過 Aspose.Slides for C++ 以 OLE 物件的形式嵌入 PowerPoint 投影片中。本文說明必要的步驟，並提供 C++ 程式碼範例，用於建立 Excel 圖表並將其作為 OLE 物件嵌入 PowerPoint 簡報，使用 Aspose.Cells 與 Aspose.Slides。
+本文說明如何使用 Aspose.Cells for C++ 建立 Excel 柱狀圖，並將其工作簿嵌入到使用 Aspose.Slides for C++ 的 PowerPoint 簡報中。嵌入的工作簿同時包含來源資料與圖表。獨立的 PNG 預覽會在 OLE 物件被啟動之前於投影片上顯示圖表。
 
-## **必要步驟**
+最終得到的是嵌入的 Excel 物件，而非原生的 PowerPoint 圖表。透過 OLE 編輯工作簿需要支援 OLE 啟動的桌面應用程式以及相容的 Excel 安裝。
 
-1. 使用 Aspose.Cells 建立 Excel 圖表。  
-2. 使用 Aspose.Cells 設定 Excel 圖表的 OLE 大小。  
-3. 使用 Aspose.Cells 取得 Excel 圖表的影像。  
-4. 使用 Aspose.Slides 將 Excel 圖表以 OLE 物件的形式嵌入 PPTX 簡報。  
-5. 以第 3 步獲得的影像取代 “EMBEDDED OLE OBJECT” 圖片，以解決[object preview issue](/slides/zh-hant/cpp/object-preview-issue-when-adding-oleobjectframe/)。  
-6. 將簡報以 PPTX 格式儲存至磁碟。
+## **先決條件**
 
-## **必要步驟的實作**
+在 C++ 專案中配置 Aspose.Cells for C++ 與 Aspose.Slides for C++ 的標頭檔與函式庫。將範例程式碼放在應用程式的入口點，並將 include 宣告置於檔案層級。使用這些函式庫產生簡報時不需要安裝 Microsoft Office。
 
-上述步驟的 C++ 實作如下：
+不需要任何輸入檔案：範例會在記憶體中建立資料與圖表，然後將 `OutputChart.pptx` 寫入當前工作目錄。於非評估模式執行時請為兩個產品套用授權。
 
-```cpp
-// 步驟 1：使用 Aspose.Cells 建立 Excel 圖表。
-// ---------------------------------------------------
-// 建立工作簿。
-intrusive_ptr<Aspose::Cells::IWorkbook> workbook = Aspose::Cells::Factory::CreateIWorkbook();
-// 加入 Excel 圖表。
-int32_t chartRows = 55;
-int32_t chartCols = 25;
-int32_t chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+## **內嵌工作方式**
 
-// 步驟 2：使用 Aspose.Cells 設定圖表的 OLE 大小。
-// -----------------------------------------------------------
-workbook->GetIWorksheets()->SetOleSize(0, chartRows, 0, chartCols);
+1. 建立包含資料工作表與圖表工作表的工作簿。
+1. 將圖表工作表設為作用中，使工作簿開啟時顯示圖表。
+1. 設定工作簿的 OLE 顯示範圍，並將圖表渲染為 PNG。
+1. 將工作簿以 XLSX 格式儲存於記憶體，並將其位元組嵌入投影片中。
+1. 將 PNG 設為 OLE 物件的預覽，並將簡報儲存為 PPTX。
 
-// 步驟 3：使用 Aspose.Cells 取得圖表的影像。
-// -------------------------------------------------------
-System::SharedPtr<System::Drawing::Bitmap> chartImage = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex)->GetICharts()->GetObjectByIndex(0)->ToImage();
-// Save the workbook to a stream.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+工作簿的顯示範圍與投影片框架的角色不同。[WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) 使用以 0 為起點的起始/結束列與欄索引。相對地，[ChartCollection::Add](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chartcollection/add/) 需要指定上方列、左側欄、下方列與右側欄。範例以第 55 列與第 25 欄作為右下角界限；這些數值屬於版面配置的選擇，而非資料列或欄的數量。
 
-// 步驟 4 與 5
-// ==============
- // 步驟 4：使用 Aspose.Slides 將圖表以 OLE 物件嵌入 .ppt 簡報中。
-// ------------------------------------------------------------------------------------------
-// 步驟 5：將「EMBEDDED OLE OBJECT」圖像替換為第 3 步取得的圖像，以解決物件預覽問題。
-// --------------------------------------------------------------------------------------------------------------------
-// 建立簡報。
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-// 將工作簿加入投影片。
-AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+投影片框架的單位為點 (points)。範例將其縮放至投影片內，置中且保留 PNG 的長寬比，而非將預覽圖拉伸至填滿整個投影片。
 
-// 步驟 6：將輸出簡報儲存至磁碟。
-// -----------------------------------------------
-presentation->Save(u"OutputChart.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
+## **建立並內嵌圖表**
+
+以下完整範例會在 `DataSheet` 中填入四列五欄的數值。每一列都會成為圖表的一個系列。`ChartSheet` 會在儲存工作簿前被選為作用中工作表。
+
+工作簿會明確以 XLSX 格式儲存，與傳遞給 [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) 的 `xlsx` 副檔名相符。PNG 直接從記憶體串流載入，未經中間的 bitmap 轉換。Aspose.Cells 會回傳 byte 向量，範例將其複製到 Aspose.Slides 所接受的陣列型別。請在使用 Aspose.Cells 物件前先初始化，並在這些物件銷毀後釋放其資源。透過 [IOleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/get_substitutepictureformat/) 指定，可取代預設的 OLE 佔位圖。
 
 ```cpp
-void AddExcelChartInPresentation(System::SharedPtr<Presentation> presentation, System::SharedPtr<ISlide> slide, 
-                                 System::SharedPtr<System::IO::Stream> workbookStream, 
-                                 intrusive_ptr<Aspose::Cells::Systems::Drawing::Bitmap> chartImage)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <Util/Images.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <algorithm>
+#include <IImage.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// 初始化 Cells 於建立任何物件之前。
+Aspose::Cells::Startup();
 {
-    float oleWidth = presentation->get_SlideSize()->get_Size().get_Width();
-    float oleHeight = presentation->get_SlideSize()->get_Size().get_Height();
-    int32_t x = 0;
-    System::ArrayPtr<uint8_t> oleData = System::MakeArray<uint8_t>(workbookStream->get_Length(), 0);
-    workbookStream->set_Position(0);
-    workbookStream->Read(oleData, 0, oleData->get_Length());
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"DataSheet");
 
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(oleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleFrame;
-    oleFrame = slide->get_Shapes()->AddOleObjectFrame(static_cast<float>(x), 0.0f, oleWidth, oleHeight, dataInfo);
-
-    intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-    chartImage->Save(cellsOutputStream, Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-
-    auto slidesImage = Images::FromStream(ToSlidesMemoryStream(cellsOutputStream));
-    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(slidesImage));
-}
-```
-
-```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-``` cpp
-int32_t AddExcelChartInWorkbook(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t chartRows, int32_t chartCols)
-{
-    // 儲存格名稱陣列。
-    System::ArrayPtr<System::String> cellNames = System::MakeArray<System::String>(
-    { 
-        u"A1", u"A2", u"A3", u"A4", 
-        u"B1", u"B2", u"B3", u"B4",
-        u"C1", u"C2", u"C3", u"C4",
-        u"D1", u"D2", u"D3", u"D4",
-        u"E1", u"E2", u"E3", u"E4" 
-    });
-    
-    // 儲存格資料陣列。
-    System::ArrayPtr<int32_t> cellValues = System::MakeArray<int32_t>(
+    int32_t values[4][5] =
     {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25 
-    });
+        { 67, 44, 46, 43, 24 },
+        { 86, 64, 97, 29, 40 },
+        { 68, 89, 78, 69, 38 },
+        { 91, 48, 60, 26, 25 }
+    };
 
-    // 新增工作表以填入儲存格資料。
-    int32_t dataSheetIndex = workbook->GetIWorksheets()->Add();
-    intrusive_ptr<Aspose::Cells::IWorksheet> dataSheet = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIndex);
-    intrusive_ptr<Aspose::Cells::Systems::String> sheetName = new Aspose::Cells::Systems::String("DataSheet");
-    dataSheet->SetName(sheetName);
-
-    // 將資料填入資料工作表。
-    for (int32_t i = 0; i < cellNames->get_Length(); i++)
+    for (auto row = 0; row < 4; row++)
     {
-        System::String cellName = cellNames[i];
-        int32_t cellValue = cellValues[i];
-        dataSheet->GetICells()->GetObjectByIndex(new String(cellName.ToWCS().c_str()))->PutValue(cellValue);
+        for (auto column = 0; column < 5; column++)
+        {
+            dataSheet.GetCells().Get(row, column).PutValue(values[row][column]);
+        }
     }
 
-    // 新增圖表工作表。
-    int32_t chartSheetIndex = workbook->GetIWorksheets()->Add(Aspose::Cells::SheetType::SheetType_Chart);
-    intrusive_ptr<Aspose::Cells::IWorksheet> chartSheet = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex);
-    chartSheet->SetName(new String("ChartSheet"));
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    chartSheet.SetName(u"ChartSheet");
 
-    // 在圖表工作表上加入圖表，資料系列來源於資料工作表。
-    int32_t chartIndex = chartSheet->GetICharts()->Add(Aspose::Cells::Charts::ChartType::ChartType_Column, 0, chartRows, 0, chartCols);
-    intrusive_ptr<Aspose::Cells::Charts::IChart> chart = chartSheet->GetICharts()->GetObjectByIndex(chartIndex);
-    chart->GetNISeries()->Add(sheetName + "!A1:E1", false);
-    chart->GetNISeries()->Add(sheetName + "!A2:E2", false);
-    chart->GetNISeries()->Add(sheetName + "!A3:E3", false);
-    chart->GetNISeries()->Add(sheetName + "!A4:E4", false);
+    auto lastChartRow = 55;
+    auto lastChartColumn = 25;
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, lastChartRow, lastChartColumn);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    const char16_t* seriesRanges[] = { u"DataSheet!A1:E1", u"DataSheet!A2:E2", u"DataSheet!A3:E3", u"DataSheet!A4:E4" };
+    for (auto range : seriesRanges)
+    {
+        chart.GetNSeries().Add(range, false);
+    }
 
-    // 將圖表工作表設為作用中的工作表。
-    workbook->GetIWorksheets()->SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetOleSize(0, lastChartRow, 0, lastChartColumn);
 
-    return chartSheetIndex;
+    // 渲染圖表預覽並分別序列化可編輯的工作簿。
+    auto chartImageData = chart.ToImage(Aspose::Cells::Drawing::ImageType::Png);
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+
+    // 將 Cells 緩衝區複製到 Slides 使用的陣列型別。
+    auto toSlidesArray = [](const Aspose::Cells::Vector<uint8_t>& buffer)
+    {
+        auto result = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+        std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), result->data_ptr());
+        return result;
+    };
+    auto chartImageBytes = toSlidesArray(chartImageData);
+    auto workbookBytes = toSlidesArray(workbookData);
+    auto chartImageStream = System::MakeObject<System::IO::MemoryStream>(chartImageBytes);
+    auto chartImage = Images::FromStream(chartImageStream);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto slideSize = presentation->get_SlideSize()->get_Size();
+
+    // 在投影片內適配預覽圖，且不改變長寬比。
+    auto scale = (std::min)(slideSize.get_Width() / chartImage->get_Width(), slideSize.get_Height() / chartImage->get_Height());
+    auto frameWidth = chartImage->get_Width() * scale;
+    auto frameHeight = chartImage->get_Height() * scale;
+    auto frameX = (slideSize.get_Width() - frameWidth) / 2;
+    auto frameY = (slideSize.get_Height() - frameHeight) / 2;
+
+    auto embeddedData = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xlsx");
+    auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+    auto previewImage = presentation->get_Images()->AddImage(chartImage);
+    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(previewImage);
+
+    presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
+    chartImage->Dispose();
+    chartImageStream->Dispose();
 }
+// 釋放 Cells 資源於所有 Cells 物件銷毀之後。
+Aspose::Cells::Cleanup();
 ```
 
-上述方法建立的簡報將包含作為 OLE 物件的 Excel 圖表，使用者可透過雙擊 OLE 物件框架來啟用它。
+## **預期結果**
 
-## **結論**
+`OutputChart.pptx` 包含一張投影片，內有嵌入的 Excel 工作簿與圖表預覽。工作簿包含原始資料以及四個系列的柱狀圖。預覽圖置於投影片中央，並保留其比例。
 
-透過結合使用 Aspose.Cells for C++ 與 Aspose.Slides for C++，我們能夠建立任何 Aspose.Cells 支援的 Excel 圖表，並將圖表以 OLE 物件的形式嵌入 PowerPoint 投影片中。Excel 圖表的 OLE 大小亦可自行定義。最終使用者即可像編輯其他 OLE 物件一樣編輯 Excel 圖表。
+![Excel欄位圖表作為嵌入工作簿的預覽](excel-chart-ole-preview.png)
+
+在具備 Excel 的相容桌面 PowerPoint 環境中，雙擊該物件即可啟動並編輯嵌入的工作簿。啟動與編輯取決於主機應用程式的 OLE 支援與安全性設定。
+
+## **常見問題**
+
+**為何需要預覽圖像？**
+
+嵌入的工作簿與投影片預覽是獨立的內容。提供圖表圖像可讓投影片顯示圖表，而非預設的「EMBEDDED OLE OBJECT」佔位符。請參閱 [添加 OleObjectFrame 時的物件預覽問題](/slides/zh-hant/cpp/object-preview-issue-when-adding-oleobjectframe/)。
+
+**變更程式碼中的工作簿時，預覽會自動更新嗎？**
+
+將預覽視為快照。當以程式方式更新工作簿資料時，需重新產生圖表影像，並同時取代預覽以及嵌入的工作簿資料。
+
+**我可以使用 XLS 而非 XLSX 嗎？**
+
+可以。將工作簿以 XLS 格式儲存，並使用 `xls` 作為嵌入資料的副檔名。副檔名必須與實際的工作簿格式相符；僅更改副檔名並不會轉換資料。
+
+**為何物件在啟動後會改變尺寸？**
+
+主機應用程式在啟動工作簿時，可能會更新 OLE 物件的呈現。工作簿的 OLE 顯示範圍與投影片框架尺寸皆會影響結果。請參閱 [PPTX 圖表大小調整的可行解決方案](/slides/zh-hant/cpp/working-solution-for-chart-resizing-in-pptx/)。
 
 ## **相關章節**
 
-- [PPTX 中圖表調整大小的可行解決方案](/slides/zh-hant/cpp/working-solution-for-chart-resizing-in-pptx/)
-- [加入 OleObjectFrame 時的物件預覽問題](/slides/zh-hant/cpp/object-preview-issue-when-adding-oleobjectframe/)
+- [PPTX 圖表大小調整的可行解決方案](/slides/zh-hant/cpp/working-solution-for-chart-resizing-in-pptx/)
+- [添加 OleObjectFrame 時的物件預覽問題](/slides/zh-hant/cpp/object-preview-issue-when-adding-oleobjectframe/)

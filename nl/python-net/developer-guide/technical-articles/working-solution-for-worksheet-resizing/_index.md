@@ -1,48 +1,53 @@
 ---
-title: Werkende oplossing voor werkbladgrootte-aanpassing
+title: Werkende oplossing voor het aanpassen van de grootte van een werkblad
 type: docs
 weight: 40
 url: /nl/python-net/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- voorbeeldafbeelding
-- afbeelding schalen
+- preview-afbeelding
+- afbeeldingsgrootte aanpassen
 - Excel
 - werkblad
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Los het OLE-grootte-aanpassingsprobleem van Excel-werkbladen in presentaties op: twee manieren om objectframes consistent te houden - het frame of het blad schalen - over de PPT- en PPTX-formaten."
+description: "Los het OLE-grootteprobleem van Excel-werkbladen in presentaties op: twee manieren om objectframes consistent te houden — schaal het frame of het blad — in zowel PPT- als PPTX-formaten."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Er is geconstateerd dat Excel‑werkbladen die als OLE‑objecten in een PowerPoint‑presentatie via Aspose‑componenten zijn ingebed, na de eerste activatie tot een onbekende schaal worden aangepast. Dit gedrag veroorzaakt een merkbaar visueel verschil in de presentatie tussen de pre‑ en post‑activatiestatus van het OLE‑object. We hebben dit probleem uitvoerig onderzocht en een oplossing geboden, die in dit artikel wordt beschreven.
+Excel-werkbladen die als OLE-objecten in een PowerPoint‑presentatie zijn ingesloten met Aspose‑componenten, kunnen onverwacht van grootte veranderen na hun eerste activering. Dit gedrag veroorzaakt een opvallend visueel verschil tussen het OLE‑object vóór en na activering. Dit artikel legt het probleem uit en beschrijft twee manieren om het op te lossen.
 
 {{% /alert %}} 
 
 ## **Achtergrond**
 
-In het artikel [Manage OLE](/slides/nl/python-net/manage-ole/) hebben we uitgelegd hoe je een OLE‑frame toevoegt aan een PowerPoint‑presentatie met Aspose.Slides for Python via .NET. Om het [object preview issue](/slides/nl/python-net/object-preview-issue-when-adding-oleobjectframe/) op te lossen, hebben we een afbeelding van het geselecteerde werkbladgebied toegewezen aan het OLE‑objectframe. In de gegenereerde presentatie wordt, wanneer je dubbelklikt op het OLE‑objectframe dat de werkbladafbeelding toont, het Excel‑werkboek geactiveerd. Eindgebruikers kunnen vervolgens gewenste wijzigingen aanbrengen in het werkelijke Excel‑werkboek en daarna terugkeren naar de dia door buiten het geactiveerde Excel‑werkboek te klikken. De grootte van het OLE‑objectframe verandert wanneer de gebruiker terugkeert naar de dia. De schaalfactor varieert afhankelijk van de grootte van het OLE‑objectframe en het ingesloten Excel‑werkboek. 
+In het artikel [Manage OLE](/slides/nl/python-net/manage-ole/) legden we uit hoe je een OLE‑frame toevoegt aan een PowerPoint‑presentatie met Aspose.Slides for Python via .NET. Om het [object preview issue](/slides/nl/python-net/object-preview-issue-when-adding-oleobjectframe/) aan te pakken, hebben we een afbeelding van het gekozen werkbladgebied toegewezen aan het OLE‑objectframe. In de uitvoer‑presentatie, wanneer je dubbelklikt op het OLE‑objectframe dat de werkbladafbeelding weergeeft, wordt de Excel‑werkmap geactiveerd. Eindgebruikers kunnen eventuele gewenste wijzigingen aanbrengen in de daadwerkelijke Excel‑werkmap en vervolgens terugkeren naar de dia door buiten de geactiveerde Excel‑werkmap te klikken. De grootte van het OLE‑objectframe verandert wanneer de gebruiker terugkeert naar de dia. De schaalfactor varieert afhankelijk van de grootte van het OLE‑objectframe en de ingesloten Excel‑werkmap. 
 
-## **Oorzaak van de grootte‑aanpassing**
+## **Oorzaak van het formaat wijzigen**
 
-Aangezien het Excel‑werkboek zijn eigen venstergrootte heeft, probeert het bij de eerste activatie zijn oorspronkelijke formaat te behouden. Het OLE‑objectframe heeft echter zijn eigen afmetingen. Volgens Microsoft, wanneer het Excel‑werkboek wordt geactiveerd, onderhandelen Excel en PowerPoint over de grootte om ervoor te zorgen dat de juiste verhoudingen worden behouden als onderdeel van het insluitingsproces. De aanpassing gebeurt op basis van de verschillen tussen de Excel‑venstergrootte en de grootte en positie van het OLE‑objectframe.
+Aangezien de Excel‑werkmap zijn eigen venstergrootte heeft, probeert hij bij de eerste activering zijn oorspronkelijke grootte te behouden. Aan de andere kant heeft het OLE‑objectframe zijn eigen afmetingen. Volgens Microsoft onderhandelen Excel en PowerPoint over de grootte wanneer de Excel‑werkmap wordt geactiveerd, om de juiste verhoudingen te behouden als onderdeel van het insluitingsproces. Het formaat wordt aangepast op basis van de verschillen tussen de Excel‑venstergrootte en de afmetingen en positie van het OLE‑objectframe.
 
 ## **Werkende oplossing**
 
-Er zijn twee mogelijke oplossingen om het aanpassingseffect te voorkomen.
+Er zijn twee mogelijke oplossingen om het formaat‑wijzigings effect te vermijden.
 
-- Schaal de grootte van het OLE‑frame in de PowerPoint‑presentatie zodat deze overeenkomt met de hoogte en breedte van het gewenste aantal rijen en kolommen in het OLE‑frame.  
-- Houd de grootte van het OLE‑frame constant en schaaf de grootte van de betrokken rijen en kolommen bij zodat ze binnen de gekozen OLE‑frame‑grootte passen.  
+- Schaal het OLE‑frame in de PowerPoint‑presentatie zodat het overeenkomt met de totale hoogte en breedte van de geselecteerde rijen en kolommen.
+- Houd de grootte van het OLE‑frame constant en schaal de geselecteerde rijen en kolommen zodat ze erin passen.
 
-### **Grootte van het OLE‑frame schalen**
+### **Schaal de OLE‑frame‑grootte**
 
-In deze aanpak leren we hoe we de grootte van het OLE‑frame van het ingesloten Excel‑werkboek kunnen instellen zodat deze overeenkomt met de cumulatieve grootte van de betrokken rijen en kolommen in het Excel‑werkblad.
+Deze methode stelt de grootte van het OLE‑frame in op de totale hoogte en breedte van de geselecteerde rijen en kolommen in het ingesloten Excel‑werkblad.
 
-Stel dat we een sjabloon‑Excel‑sheet hebben en deze willen toevoegen aan een presentatie als OLE‑frame. In dit scenario wordt de grootte van het OLE‑objectframe eerst berekend op basis van de cumulatieve rijhoogtes en kolombreedtes van de betrokken rijen en kolommen in het werkboek. Vervolgens stellen we de grootte van het OLE‑frame in op deze berekende waarde. Om de rode “EMBEDDED OLE OBJECT”‑melding voor het OLE‑frame in PowerPoint te vermijden, maken we ook een afbeelding van de gewenste delen van de rijen en kolommen in het werkboek en stellen we deze in als OLE‑frame‑afbeelding.
+Het voorbeeld laadt een bestaande Excel‑werkmap en selecteert de eerste 10 rijen en 13 kolommen van het eerste werkblad met nul‑gebaseerde indexen. [WorksheetCollection.set_ole_size](https://reference.aspose.com/cells/python-net/aspose.cells/worksheetcollection/set_ole_size/) definieert het weergegeven bereik. De preview wordt gerenderd op 96 DPI en de pixelafmetingen worden omgezet naar punten met 72 punten per inch. [ShapeCollection.add_ole_object_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_ole_object_frame/) embedde de aangepaste werkmap in een frame met die afmetingen. De preview wordt toegewezen via [OleObjectFrame.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/substitute_picture_format/) om de “EMBEDDED OLE OBJECT”‑plaatsaanduiding in de opgeslagen presentatie te vervangen.
+
+De preview‑helper stelt [PageSetup.print_area](https://reference.aspose.com/cells/python-net/aspose.cells/pagesetup/print_area/) in op het geselecteerde bereik en verwijdert marges, kopteksten en voetteksten. Met [ImageOrPrintOptions.only_area](https://reference.aspose.com/cells/python-net/aspose.cells.rendering/imageorprintoptions/only_area/) ingeschakeld, renderen [SheetRender.to_image](https://reference.aspose.com/cells/python-net/aspose.cells.rendering/sheetrender/to_image/) het bereik als een PNG‑afbeelding. De helper zet de afbeeldings‑stream terug naar het begin voordat deze wordt geretourneerd voor gebruik in de presentatie.
 
 ```py
+import io
+import aspose.cells as cells
+
 def create_ole_image(cell_range, image_resolution):
     page_setup = cell_range.worksheet.page_setup
     page_setup.print_area = cell_range.address
@@ -68,7 +73,37 @@ def create_ole_image(cell_range, image_resolution):
     return image_data
 ```
 
+Het volledige voorbeeld hieronder combineert de helpers met werkmap‑insluiting en slaat de presentatie op als `output.pptx`.
+
 ```py
+import io
+import aspose.slides as slides
+import aspose.cells as cells
+
+def create_ole_image(cell_range, image_resolution):
+    page_setup = cell_range.worksheet.page_setup
+    page_setup.print_area = cell_range.address
+    page_setup.left_margin = 0.0
+    page_setup.right_margin = 0.0
+    page_setup.top_margin = 0.0
+    page_setup.bottom_margin = 0.0
+    page_setup.clear_header_footer()
+
+    image_options = cells.rendering.ImageOrPrintOptions()
+    image_options.image_type = cells.drawing.ImageType.PNG
+    image_options.vertical_resolution = image_resolution
+    image_options.horizontal_resolution = image_resolution
+    image_options.one_page_per_sheet = True
+    image_options.only_area = True
+
+    sheet_render = cells.rendering.SheetRender(cell_range.worksheet, image_options)
+    image_data = io.BytesIO()
+
+    sheet_render.to_image(0, image_data)
+    image_data.seek(0)
+
+    return image_data
+
 start_row, row_count = 0, 10
 start_column, column_count = 0, 13
 worksheet_index = 0
@@ -86,7 +121,7 @@ with cells.Workbook("sample.xlsx") as workbook:
     cell_range = worksheet.cells.create_range(start_row, start_column, row_count, column_count)
     image_stream = create_ole_image(cell_range, image_resolution)
 
-    # Haalt de breedte en hoogte van de OLE-afbeelding op in punten.
+    # Haal de breedte en hoogte van de OLE-afbeelding op in punten.
     with slides.Images.from_stream(image_stream) as image:
         image_width = image.width * 72 / image_resolution
         image_height = image.height * 72 / image_resolution
@@ -98,7 +133,7 @@ with cells.Workbook("sample.xlsx") as workbook:
         with slides.Presentation() as presentation:
             slide = presentation.slides[0]
 
-            # Voeg de OLE-afbeelding toe aan de presentatieresources.
+            # Voeg de OLE-afbeelding toe aan de presentatie-resources.
             image_stream.seek(0)
             ole_image = presentation.images.add_image(image_stream)
 
@@ -111,13 +146,17 @@ with cells.Workbook("sample.xlsx") as workbook:
             presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Grootte van het celbereik schalen**
+### **Schaal de celbereik‑grootte**
 
-In deze aanpak leren we hoe we de hoogtes van de betrokken rijen en de breedtes van de betrokken kolommen kunnen schalen zodat ze passen bij een aangepaste OLE‑frame‑grootte.
+Deze methode schaalt de hoogtes van de geselecteerde rijen en de breedtes van de geselecteerde kolommen zodat ze overeenkomen met een aangepaste OLE‑frame‑grootte.
 
-Stel dat we een sjabloon‑Excel‑sheet hebben en deze willen toevoegen aan een presentatie als OLE‑frame. In dit scenario stellen we de grootte van het OLE‑frame in en schalen we de grootte van de rijen en kolommen die deelnemen aan het OLE‑frame‑gebied. Daarna slaan we het werkboek op naar een stream om de wijzigingen toe te passen en converteren we het naar een byte‑array om toe te voegen aan het OLE‑frame. Om de rode “EMBEDDED OLE OBJECT”‑melding voor het OLE‑frame in PowerPoint te vermijden, maken we ook een afbeelding van de gewenste delen van de rijen en kolommen in het werkboek en stellen we deze in als OLE‑frame‑afbeelding.
+Het voorbeeld laadt een bestaande Excel‑werkmap en selecteert de eerste 10 rijen en 13 kolommen van het eerste werkblad met nul‑gebaseerde indexen. [WorksheetCollection.set_ole_size](https://reference.aspose.com/cells/python-net/aspose.cells/worksheetcollection/set_ole_size/) definieert het weergegeven bereik, en de helper hieronder schaalt dat bereik zodat het past in een frame van 400 punten breed en 100 punten hoog. Na het opslaan van de aangepaste werkmap naar een stream, embedde [ShapeCollection.add_ole_object_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_ole_object_frame/) deze op de opgegeven grootte. Een preview gerenderd op 96 DPI wordt toegewezen via [OleObjectFrame.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/substitute_picture_format/), zodat de opgeslagen presentatie de geselecteerde cellen toont in plaats van de standaardplaatsaanduiding.
+
+De schaal‑helper berekent afzonderlijke breedte‑ en hoogteratio’s voor het geselecteerde bereik, waarbij de relatieve breedtes van de kolommen en de relatieve hoogtes van de rijen worden behouden. De berekende afmetingen worden omgezet van punten naar inches voordat ze worden toegepast met [Cells.set_column_width_inch](https://reference.aspose.com/cells/python-net/aspose.cells/cells/set_column_width_inch/) en [Cells.set_row_height_inch](https://reference.aspose.com/cells/python-net/aspose.cells/cells/set_row_height_inch/). Het geselecteerde bereik moet een niet‑nul breedte en hoogte hebben.
 
 ```py
+import aspose.cells as cells
+
 # <param name="width">De verwachte breedte van het celbereik in punten.</param>
 # <param name="height">De verwachte hoogte van het celbereik in punten.</param>
 def scale_cell_range(cell_range, width, height):
@@ -141,7 +180,12 @@ def scale_cell_range(cell_range, width, height):
         cell_range.worksheet.cells.set_row_height_inch(row_index, height_in_inches)
 ```
 
+Deze preview‑helper rendert het geschaalde bereik met [SheetRender.to_image](https://reference.aspose.com/cells/python-net/aspose.cells.rendering/sheetrender/to_image/). Het beperkt [PageSetup.print_area](https://reference.aspose.com/cells/python-net/aspose.cells/pagesetup/print_area/) tot dat bereik, verwijdert marges, kopteksten en voetteksten, en retourneert een PNG‑stream die zich aan het begin bevindt.
+
 ```py
+import io
+import aspose.cells as cells
+
 def create_ole_image(cell_range, image_resolution):
     page_setup = cell_range.worksheet.page_setup
     page_setup.print_area = cell_range.address
@@ -167,7 +211,59 @@ def create_ole_image(cell_range, image_resolution):
     return image_data
 ```
 
+Het volledige voorbeeld hieronder combineert de helpers met werkmap‑insluiting en slaat de presentatie op als `output.pptx`.
+
 ```py
+import io
+import aspose.slides as slides
+import aspose.cells as cells
+
+# <param name="width">De verwachte breedte van het celbereik in punten.</param>
+# <param name="height">De verwachte hoogte van het celbereik in punten.</param>
+def scale_cell_range(cell_range, width, height):
+    range_width = cell_range.width
+    range_height = cell_range.height
+
+    for i in range(cell_range.column_count):
+        column_index = cell_range.first_column + i
+        column_width = cell_range.worksheet.cells.get_column_width(column_index, False, cells.CellsUnitType.POINT)
+
+        new_column_width = column_width * width / range_width
+        width_in_inches = new_column_width / 72
+        cell_range.worksheet.cells.set_column_width_inch(column_index, width_in_inches)
+
+    for i in range(cell_range.row_count):
+        row_index = cell_range.first_row + i
+        row_height = cell_range.worksheet.cells.get_row_height(row_index, False, cells.CellsUnitType.POINT)
+
+        new_row_height = row_height * height / range_height
+        height_in_inches = new_row_height / 72
+        cell_range.worksheet.cells.set_row_height_inch(row_index, height_in_inches)
+
+def create_ole_image(cell_range, image_resolution):
+    page_setup = cell_range.worksheet.page_setup
+    page_setup.print_area = cell_range.address
+    page_setup.left_margin = 0.0
+    page_setup.right_margin = 0.0
+    page_setup.top_margin = 0.0
+    page_setup.bottom_margin = 0.0
+    page_setup.clear_header_footer()
+
+    image_options = cells.rendering.ImageOrPrintOptions()
+    image_options.image_type = cells.drawing.ImageType.PNG
+    image_options.vertical_resolution = image_resolution
+    image_options.horizontal_resolution = image_resolution
+    image_options.one_page_per_sheet = True
+    image_options.only_area = True
+
+    sheet_render = cells.rendering.SheetRender(cell_range.worksheet, image_options)
+    image_data = io.BytesIO()
+
+    sheet_render.to_image(0, image_data)
+    image_data.seek(0)
+
+    return image_data
+
 start_row, row_count = 0, 10
 start_column, column_count = 0, 13
 worksheet_index = 0
@@ -183,7 +279,7 @@ with cells.Workbook("sample.xlsx") as workbook:
     last_column = start_column + column_count - 1
     workbook.worksheets.set_ole_size(start_row, last_row, start_column, last_column)
 
-    # Scha al het celbereik zodat het in de frame-grootte past.
+    # Schaal het celbereik zodat het in de framegrootte past.
     cell_range = worksheet.cells.create_range(start_row, start_column, row_count, column_count)
     scale_cell_range(cell_range, frame_width, frame_height)
 
@@ -196,7 +292,7 @@ with cells.Workbook("sample.xlsx") as workbook:
         with slides.Presentation() as presentation:
             slide = presentation.slides[0]
 
-            # Voeg de OLE-afbeelding toe aan de presentatieresources.
+            # Voeg de OLE-afbeelding toe aan de presentatie-resources.
             ole_image = presentation.images.add_image(image_stream)
 
             # Maak het OLE-objectframe.
@@ -210,8 +306,34 @@ with cells.Workbook("sample.xlsx") as workbook:
 
 ## **Conclusie**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-Er zijn twee benaderingen om het probleem met het aanpassen van de werkbladgrootte op te lossen. De keuze voor de juiste aanpak hangt af van de specifieke eisen en het gebruiksscenario. Beide benaderingen werken op dezelfde manier, of de presentaties nu vanuit een sjabloon of vanaf nul worden gemaakt. Bovendien is er geen limiet aan de grootte van het OLE‑objectframe in deze oplossing.
+Er zijn twee benaderingen om het formaat‑wijzingsprobleem van het werkblad op te lossen. Kies de benadering die het beste past bij uw eisen en gebruikssituatie. Beide benaderingen werken op dezelfde manier, of de presentaties nu vanuit een sjabloon of vanaf nul worden gemaakt. Bovendien is er geen limiet aan de grootte van het OLE‑objectframe in deze oplossing.
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Waarom verandert een ingesloten Excel‑werkblad van grootte bij de eerste activering in PowerPoint?**
+
+Dit gebeurt omdat Excel probeert de oorspronkelijke venstergrootte te behouden bij activering, terwijl het OLE‑objectframe in PowerPoint zijn eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat tot de grootte‑aanpassing kan leiden.
+
+**Is het mogelijk om dit formaat‑wijzingsprobleem volledig te voorkomen?**
+
+Ja. Door het OLE‑frame te schalen zodat het past bij de Excel‑celbereik‑grootte of door het celbereik te schalen naar de gewenste OLE‑frame‑grootte, kun je ongewenste formaatwijzigingen voorkomen.
+
+**Welke schaalmethode moet ik gebruiken, OLE‑frame‑schaal of celbereik‑schaal?**
+
+Kies **OLE‑frame‑schaal** als je de oorspronkelijke Excel‑rij‑ en kolomgroottes wilt behouden. Kies **celbereik‑schaal** als je een vaste grootte voor het OLE‑frame in je presentatie wilt.
+
+**Werken deze oplossingen als mijn presentatie op een sjabloon is gebaseerd?**
+
+Ja. Beide oplossingen werken voor presentaties die vanuit sjablonen of vanaf nul zijn gemaakt.
+
+**Is er een limiet aan de grootte van het OLE‑frame bij het gebruik van deze methoden?**
+
+Nee. Je kunt het OLE‑objectframe elke gewenste grootte geven, zolang je de schaal correct instelt.
+
+**Is er een manier om de tekst “EMBEDDED OLE OBJECT” in PowerPoint te vermijden?**
+
+Ja. Door een snapshot van het doel‑Excel‑celbereik te maken en deze in te stellen als de plaatsaanduidingsafbeelding van het OLE‑frame, kun je een aangepaste preview‑afbeelding weergeven in plaats van de standaardplaatsaanduiding.

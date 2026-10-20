@@ -1,6 +1,6 @@
 ---
-title: Şekil Kilitleriyle Sunum Düzenlemelerini Önleyin
-linktitle: Sunum Düzenlemelerini Önleme
+title: Python'da Şekil Kilitleriyle Sunum Düzenlemelerini Kısıtlayın
+linktitle: Sunum Düzenlemelerini Kısıtla
 type: docs
 weight: 60
 url: /tr/python-java/applying-protection-to-presentation/
@@ -10,47 +10,47 @@ keywords:
 - şekli kilitle
 - konumu kilitle
 - seçimi kilitle
-- boyutu kilitle
+- yeniden boyutlandırmayı kilitle
 - gruplamayı kilitle
 - PowerPoint
-- OpenDocument
+- PPTX
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java'un PPT, PPTX ve ODP dosyalarındaki şekilleri nasıl kilitlediğini veya kilidini açtığını keşfedin; sunumları güvence altına alırken kontrollü düzenlemelere ve daha hızlı teslimata olanak tanır."
+description: "Aspose.Slides for Python via Java ile PPTX sunumlarındaki şekilleri nasıl kilitleyeceğinizi ve kilidini açacağınızı öğrenin; seçim, taşıma, yeniden boyutlandırma ve gruplamayı kısıtlayın."
 ---
 ## **Arka Plan**
 
-Aspose.Slides'in yaygın bir kullanımı, otomatik bir iş akışının parçası olarak Microsoft PowerPoint (PPTX) sunumlarını oluşturmak, güncellemek ve kaydetmektir. Bu şekilde Aspose.Slides kullanan uygulamaların kullanıcıları oluşturulan sunumlara erişir, bu yüzden bunları düzenlemeden korumak yaygın bir endişedir. Otomatik olarak oluşturulan sunumların orijinal biçimlendirme ve içeriklerini koruması önemlidir.
+Aspose.Slides for Python via Java için sık kullanılan bir amaç, otomatik bir iş akışının parçası olarak PowerPoint (PPTX) sunumları oluşturmak, güncellemek ve kaydetmektir. Kullanıcılar bu sunumları aldığında, şekillerdeki değişiklikleri kısıtlamak, amaçlanan düzen ve içeriğin korunmasına yardımcı olabilir.
 
-Bu makale, sunumların ve slaytların nasıl yapılandırıldığını ve Aspose.Slides for Python via Java'nın bir sunuma nasıl koruma uygulayabileceğini ve daha sonra bunu nasıl kaldırabileceğini açıklar. Geliştiricilere, uygulamaları tarafından oluşturulan sunumların nasıl kullanılacağını kontrol etme yolu sağlar.
+Bu makale, şekillerin slaytlarda nasıl düzenlendiğini ve bir PPTX sunumunda şekil kilitlerinin nasıl uygulanıp kaldırılacağını açıklar. Bu kilitler, tek tek şekiller üzerindeki belirli düzenleme işlemlerini kısıtlamanıza olanak tanır.
 
 ## **Bir Slaytın Bileşimi**
 
-Bir sunum slaytı, otomatik şekiller, tablolar, OLE nesneleri, gruplanmış şekiller, resim çerçeveleri, video çerçeveleri, bağlayıcılar ve sunum oluşturmak için kullanılan diğer öğeler gibi bileşenlerden oluşur. Aspose.Slides for Python via Java'da, bir slayttaki her öğe, [Shape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shape/) sınıfından türetilen bir nesneyle temsil edilir.
+Bir sunum slaytı, otomatik şekiller, tablolar, OLE nesneleri, gruplanmış şekiller, resim çerçeveleri, video çerçeveleri, bağlayıcılar ve bir sunum oluşturmak için kullanılan diğer öğeler gibi bileşenlerden oluşur. Aspose.Slides for Python via Java'da bir slayttaki her öğe, [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) sınıfından türetilen bir nesne ile temsil edilir.
 
-PPTX'in yapısı karmaşıktır, bu yüzden tüm şekil türleri için genel bir kilit kullanılabilen PPT'den farklı olarak, farklı şekil türleri farklı kilitler gerektirir. [BaseShapeLock](https://reference.aspose.com/slides/tr/python-java/aspose.slides/baseshapelock/) sınıfı, PPTX için genel kilitleme sınıfıdır. Aspose.Slides for Python via Java'da PPTX için aşağıdaki kilit tipleri desteklenir:
+Farklı şekil türleri farklı kilitleme seçenekleri sunar. [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) sınıfı, şekil kilitlerinin temel sınıfıdır. Aspose.Slides for Python via Java aşağıdaki kilit sınıflarını sağlar:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/tr/python-java/aspose.slides/autoshapelock/) otomatik şekilleri kilitler.  
-- [ConnectorLock](https://reference.aspose.com/slides/tr/python-java/aspose.slides/connectorlock/) bağlayıcı şekilleri kilitler.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/tr/python-java/aspose.slides/graphicalobjectlock/) grafik nesneleri kilitler.  
-- [GroupShapeLock](https://reference.aspose.com/slides/tr/python-java/aspose.slides/groupshapelock/) grup şekillerini kilitler.  
-- [PictureFrameLock](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pictureframelock/) resim çerçevelerini kilitler.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) autoshape'ları kilitler.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) bağlayıcı şekilleri kilitler.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) grafik nesneleri kilitler.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) grup şekilleri kilitler.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) resim çerçevelerini kilitler.  
 
-Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) nesnesindeki tüm şekil nesneleri üzerinde gerçekleştirilen herhangi bir eylem, tüm sunuma uygulanır.
+Kilitleri bir [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) boyunca uygulamak için slaytları üzerinde döngü yapın ve her desteklenen şekil üzerinde uygun kilitleri ayarlayın.
 
-## **Koruma Uygulama ve Kaldırma**
+## **Uygula ve Kaldır Koruma**
 
-Koruma uygulamak, bir sunumun düzenlenememesini sağlar. Sunum içeriğini korumak için faydalı bir tekniktir.
+Şekil kilitleri, şekilleri seçme, taşıma ve yeniden boyutlandırma gibi işlemleri kısıtlar. Tüm sunumu düzenlenemez hale getirmezler.
 
 ### **PPTX Şekillerine Koruma Uygulama**
 
-Aspose.Slides for Python via Java, bir slayttaki şekillerle çalışmak için [Shape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shape/) sınıfını sağlar.
+Aspose.Slides for Python via Java, bir slayttaki şekillerle çalışmak için [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) sınıfını sağlar.
 
-Daha önce belirtildiği gibi, her şekil sınıfının koruma için ilişkili bir şekil kilidi sınıfı vardır. Bu makale NoSelect, NoMove ve NoResize kilitlerine odaklanmaktadır. Bu kilitler, şekillerin (fare tıklamaları veya diğer seçim yöntemleriyle) seçilememesini ve taşınamamasını veya yeniden boyutlandırılamamasını sağlar.
+Örnek, otomatik şekiller için `True` ile [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) ve [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) metodlarını çağırır; grup şekilleri, bağlayıcılar ve resim çerçeveleri için eşdeğer kilitleri uygular. Bağlayıcılar hareket için [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) metodunu kullanır; gruplar da grup oluşturmayı kısıtlamak için [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) metodunu kullanır.
 
-Aşağıdaki kod örneği, bir sunumdaki tüm şekil türlerine koruma uygular.
+Örnek, mevcut bir PPTX sunumunu yükler, her slaydın şekil koleksiyonundaki şekilleri kontrol eder ve bu kısıtlamalar uygulanmış bir kopyasını kaydeder. Dört işlenen tür dışındaki şekiller değişmeden bırakılır. Döngü bir grup içindeki alt şekilleri dolaşmaz.
 
 ```python
 import jpype
@@ -61,12 +61,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Bir PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
 presentation = Presentation("Sample.pptx")
 try:
-    # Sunumdaki tüm slaytları dolaşın.
     for slide in presentation.getSlides():
-        # Slayttaki tüm şekilleri dolaşın.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -90,7 +87,6 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # Sunum dosyasını kaydedin.
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -98,7 +94,7 @@ finally:
 
 ### **Koruma Kaldırma**
 
-Bir şeklin kilidini kaldırmak için, uygulanan kilidin değerini `False` olarak ayarlayın. Aşağıdaki kod örneği, kilitli bir sunumdaki şekillerin nasıl kilidinin açılacağını gösterir.
+Bir şekil kilidini kaldırmak için değerini `False` olarak ayarlayın. Aşağıdaki örnek, şekil kilitleri olan bir sunumu yükler ve seçim, taşıma ve yeniden boyutlandırma kısıtlamalarını [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) ve [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) aracılığıyla temizler. Ayrıca, grup oluşturma kısıtlamasını [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) metoduna `False` geçirerek kaldırır ve sunumun bir kopyasını kaydeder. Diğer kilit ayarları değişmeden bırakılır.
 
 ```python
 import jpype
@@ -109,12 +105,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # Sunumdaki tüm slaytları dolaşın.
     for slide in presentation.getSlides():
-        # Slayttaki tüm şekilleri dolaşın.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -138,26 +131,25 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # Sunum dosyasını kaydedin.
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Sonuç**
+### **Sonuç**
 
-Aspose.Slides, bir sunumdaki şekilleri korumak için çeşitli seçenekler sunar. Tek bir şekli kilitleyebilir veya bir sunumdaki tüm şekiller üzerinde döngü yaparak her birini kilitleyebilir ve böylece tüm dosyayı etkili bir şekilde güvence altına alabilirsiniz. Kilitin değerini `False` olarak ayarlayarak korumayı kaldırabilirsiniz.
+Aspose.Slides for Python via Java, tek tek şekiller üzerindeki belirli düzenleme işlemlerini kısıtlamanıza veya aynı kısıtlamaları slaytlar arasına uygulamanıza olanak tanır. Her şekil türü tarafından desteklenen kilitleri seçin ve bu kısıtlamaları kaldırmanız gerektiğinde değerlerini `False` olarak ayarlayın.
 
 ## **SSS**
 
 **Aynı sunumda şekil kilitlerini ve şifre korumasını birleştirebilir miyim?**
 
-Evet. Kilitler dosya içindeki nesnelerin düzenlenmesini sınırlar, [password protection](/slides/tr/python-java/password-protected-presentation/) ise açma ve/veya değişiklikleri kaydetme erişimini kontrol eder. Bu mekanizmalar birbirini tamamlar ve birlikte çalışır.
+Evet. Şekil kilitleri belirli düzenleme işlemlerini kısıtlarken, [şifre koruması](/slides/tr/python-java/password-protected-presentation/) sunumun açılmasını veya değiştirilmesini kısıtlayabilir. İkisini aynı dosyada kullanabilirsiniz.
 
-**Diğer slaytları etkilemeden belirli slaytlarda düzenlemeyi kısıtlayabilir miyim?**
+**Belirli slaytlarda düzenlemeyi, diğerlerini etkilemeden kısıtlayabilir miyim?**
 
-Evet. Seçilen slaytlardaki şekillere kilitler uygulayın; kalan slaytlar düzenlenebilir kalır.
+Evet. Kilitleri yalnızca seçilen slaytlardaki şekillere uygulayın. Bu, diğer slaytlardaki kilit ayarlarını değiştirmez.
 
-**Şekil kilitleri grup nesneleri ve bağlayıcılara uygulanır mı?**
+**Bir grup içindeki tek tek şekillere kilit nasıl uygulayabilirim?**
 
-Evet. Gruplar, bağlayıcılar, grafik nesneler ve diğer şekil türleri için özel kilit tipleri desteklenir.
+Grubun [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) yöntemiyle dönen koleksiyon üzerinde yineleme yaparak her alt şekle uygun kilitleri uygulayın. Bunu iç içe gruplar için de tekrarlayın. Yukarıdaki örnekler yalnızca slaydın şekil koleksiyonunu işler, bu yüzden tek tek grup üyelerine kilit uygulamaz.

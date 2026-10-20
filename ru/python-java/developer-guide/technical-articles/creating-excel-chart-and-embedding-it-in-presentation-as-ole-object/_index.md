@@ -4,35 +4,45 @@ type: docs
 weight: 30
 url: /ru/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Диаграмма Excel
-- Встроить диаграмму
+- диаграмма Excel
+- встроить диаграмму
 - OLE‑объект
 - PowerPoint
-- OpenDocument
-- Презентация
+- презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Создавайте диаграммы Excel и встраивайте их как OLE‑объекты в презентации PowerPoint и OpenDocument с помощью Python. Пошаговое руководство с примерами кода."
+description: "Создайте диаграмму Excel с помощью Aspose.Cells for Python via Java и встроите книгу в презентацию PowerPoint с помощью Aspose.Slides, включая предварительный просмотр диаграммы."
 ---
-## **Фон**
+## **Обзор**
 
-В PowerPoint использование редактируемых диаграмм для графического отображения данных является распространённой практикой. Aspose поддерживает создание диаграмм Excel с помощью Aspose.Cells for Python via Java, а затем эти диаграммы могут быть встроены как OLE‑объекты в слайды PowerPoint через Aspose.Slides for Python via Java. В этой статье описываются необходимые шаги и приводится пример кода на Python для создания диаграммы Excel и внедрения её в виде OLE‑объекта в презентацию PowerPoint с использованием Aspose.Cells и Aspose.Slides.
+В этой статье показано, как создать столбчатую диаграмму Excel с помощью Aspose.Cells for Python via Java и встроить её книгу в презентацию PowerPoint с помощью Aspose.Slides for Python via Java. Встроенная книга содержит как исходные данные, так и диаграмму. Отдельное PNG‑предпросмотр отображает диаграмму на слайде до активации OLE‑объекта.
 
-## **Необходимые шаги**
+В результате получаем встроенный объект Excel, а не нативную диаграмму PowerPoint. Для редактирования книги через OLE требуется настольное приложение, поддерживающее активацию OLE, и совместимая установка Excel.
 
-Для создания и внедрения диаграммы Excel в виде OLE‑объекта в слайд PowerPoint необходимо выполнить следующую последовательность шагов:
+## **Требования**
 
-1. Создать диаграмму Excel с помощью Aspose.Cells.
-1. Установить размер OLE‑объекта диаграммы Excel с помощью Aspose.Cells.
-1. Получить изображение диаграммы Excel с помощью Aspose.Cells.
-1. Встроить диаграмму Excel в виде OLE‑объекта в презентацию PPTX с помощью Aspose.Slides.
-1. Заменить изображение «EMBEDDED OLE OBJECT» на изображение, полученное на шаге 3, чтобы решить проблему [object preview issue](/slides/ru/python-java/object-preview-issue-when-adding-oleobjectframe/).
-1. Сохранить презентацию на диск в формате PPTX.
+Установите Python‑пакеты `aspose-cells` и `aspose-slides-java` и совместимую среду выполнения Java. Импортируйте оба пакета до запуска JVM, чтобы их Java‑библиотеки были доступны через JPype. Для создания презентации с помощью этих библиотек Microsoft Office не требуется.
 
-## **Реализация необходимых шагов**
+Входные файлы не нужны: пример создает данные и диаграмму в памяти, затем записывает `OutputChart.pptx` в текущий рабочий каталог. Примените лицензии для обоих продуктов при работе вне режима оценки.
 
-Ниже приведена реализация вышеуказанных шагов на Python:
+## **Как работает встраивание**
+
+1. Создайте книгу с листом данных и листом диаграммы.  
+2. Сделайте лист диаграммы активным, чтобы книга открывалась на диаграмме.  
+3. Установите диапазон отображения OLE книги и отрендерите диаграмму в PNG.  
+4. Сохраните книгу как XLSX в памяти и внедрите эти байты в слайд.  
+5. Назначьте PNG в качестве предварительного просмотра OLE‑объекта и сохраните презентацию как PPTX.
+
+Диапазон отображения книги и кадр на слайде играют разные роли. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) принимает нулевые индексы начала/конца строки и столбца. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) вместо этого принимает верхнюю строку, левый столбец, нижнюю строку и правый столбец. В примере в качестве правых нижних границ используются индексы строки 55 и столбца 25; эти значения являются выбором макета, а не количеством строк или столбцов данных.
+
+Кадр слайда использует единицы измерения в точках. Пример помещает его внутри слайда и центрирует, сохраняя соотношение сторон PNG, вместо растягивания предварительного просмотра до заполнения слайда.
+
+## **Создание и встраивание диаграммы**
+
+Следующий полнофункциональный пример заполняет `DataSheet` четырьмя строками и пятью столбцами значений. Каждая строка становится серией диаграммы. `ChartSheet` выбирается как активный лист перед сохранением книги.
+
+Книга явно сохраняется как XLSX, соответствуя расширению `xlsx`, переданному в [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/). Потоки массивов байтов Java удерживают книгу и изображение в памяти и предоставляют массивы байтов, требуемые API Java. PNG загружается напрямую из байтов без промежуточного преобразования в bitmap. Назначение его через [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) заменяет стандартный заполнитель OLE.
 
 ```python
 import jpype
@@ -44,128 +54,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # Массив имён ячеек.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # Массив данных ячеек.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # Добавить новый лист для заполнения ячеек данными.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # Заполнить лист данных данными.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # Добавить лист с диаграммой.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # Добавить диаграмму на лист диаграмм, используя серии данных с листа данных.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # Установить лист диаграммы активным листом.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # Описать рабочую книгу как вложенные OLE‑данные.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# Создать рабочую книгу.
 workbook = Workbook()
-
-# Добавить диаграмму Excel.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# Задать размер OLE‑объекта диаграммы.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# Получить изображение диаграммы и сохранить его в поток.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# Сохранить рабочую книгу в поток.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# Создать презентацию.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # Добавить рабочую книгу на слайд.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # Сохранить презентацию на диск.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # Отобразить предварительный просмотр диаграммы и отдельно сериализовать редактируемую книгу.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # Подогнать предварительный просмотр к слайду без изменения соотношения сторон.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-Презентация, созданная указанным способом, будет содержать диаграмму Excel в виде OLE‑объекта, который можно активировать двойным щелчком по кадру OLE‑объекта.
+## **Ожидаемый результат**
 
-## **Заключение**
+`OutputChart.pptx` содержит один слайд со встроенной книгой Excel и предварительным просмотром диаграммы. Книга содержит исходные данные и столбчатую диаграмму с четырьмя сериями. Предпросмотр центрирован на слайде и сохраняет свои пропорции.
 
-Используя Aspose.Cells for Python via Java вместе с Aspose.Slides for Python via Java, можно создать любую диаграмму Excel, поддерживаемую Aspose.Cells, и встроить её в виде OLE‑объекта в слайд PowerPoint. Размер OLE‑объекта диаграммы Excel также может быть задан. Конечные пользователи могут затем редактировать диаграмму Excel так же, как любой другой OLE‑объект.
+![Excel column chart displayed as the preview of an embedded workbook](excel-chart-ole-preview.png)
 
-## **Сопутствующие разделы**
-
-- [Рабочее решение для изменения размера диаграмм в PPTX](/slides/ru/python-java/working-solution-for-chart-resizing-in-pptx/)
-- [Проблема предварительного просмотра объекта при добавлении OleObjectFrame](/slides/ru/python-java/object-preview-issue-when-adding-oleobjectframe/)
+В совместимой настольной среде PowerPoint с установленным Excel двойной клик по объекту активирует и откроет встроенную книгу для редактирования. Активация и редактирование зависят от поддержки OLE и настроек безопасности хост‑приложения.
 
 ## **FAQ**
 
-**Какие библиотеки используются для создания и внедрения диаграммы Excel?**
+**Зачем нужен предварительный просмотр изображения?**
 
-Aspose.Cells for Python via Java создаёт диаграмму Excel, а Aspose.Slides for Python via Java встраивает её в виде OLE‑объекта в слайд PowerPoint.
+Встроенная книга и её предварительный просмотр на слайде представляют отдельный контент. Предоставьте изображение диаграммы, чтобы слайд показывал диаграмму вместо стандартного заполнительного текста «EMBEDDED OLE OBJECT». См. [Object Preview Issue when Adding OleObjectFrame](/slides/ru/python-java/object-preview-issue-when-adding-oleobjectframe/).
 
-**Как пользователи могут редактировать встроенную диаграмму Excel?**
+**Обновляется ли предварительный просмотр автоматически при изменении книги в коде?**
 
-Пользователи могут двойным щелчком по кадру OLE‑объекта активировать диаграмму и редактировать её, как любой другой OLE‑объект.
+Предпросмотр рассматривается как снимок. При программном обновлении данных книги необходимо заново создать изображение диаграммы и заменить как предварительный просмотр, так и данные встроенной книги.
 
-**Как заменяется предварительный просмотр OLE‑объекта по умолчанию?**
+**Можно ли использовать XLS вместо XLSX?**
 
-В примере изображение диаграммы Excel получено с помощью Aspose.Cells и используется для замены изображения «EMBEDDED OLE OBJECT».
+Да. Сохраните книгу в формате XLS и используйте `xls` в качестве расширения встроенных данных. Расширение должно соответствовать фактическому формату книги; изменение только расширения не преобразует данные.
+
+**Почему объект может изменить размер после активации?**
+
+Хост‑приложение может обновить представление OLE‑объекта при активации книги. И диапазон отображения OLE книги, и размеры кадра слайда имеют значение. См. [Working Solution for Chart Resizing in PPTX](/slides/ru/python-java/working-solution-for-chart-resizing-in-pptx/).
+
+## **См. также**
+
+- [Working Solution for Chart Resizing in PPTX](/slides/ru/python-java/working-solution-for-chart-resizing-in-pptx/)
+- [Object Preview Issue when Adding OleObjectFrame](/slides/ru/python-java/object-preview-issue-when-adding-oleobjectframe/)

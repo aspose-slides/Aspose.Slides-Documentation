@@ -6,7 +6,7 @@ url: /de/python-java/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - Vorschaubild
-- Bildskalierung
+- Bildgrößenanpassung
 - Excel
 - Arbeitsblatt
 - PowerPoint
@@ -14,32 +14,36 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Beheben Sie die OLE-Größenänderung von Excel-Arbeitsblättern in Präsentationen: zwei Methoden, um Objekt-Frames konsistent zu halten – entweder den Frame oder das Blatt skalieren – in den Formaten PPT und PPTX."
+description: "Beheben Sie die OLE-Größenänderung von Excel-Arbeitsblättern in Präsentationen: zwei Methoden, um Objekt-Frames konsistent zu halten - den Rahmen oder das Blatt skalieren - für die PPT- und PPTX-Formate."
 ---
 {{% alert color="info" title="Hinweis" %}}
-Es wurde beobachtet, dass in einer PowerPoint‑Präsentation eingebettete Excel‑Arbeitsblätter als OLE‑Objekte durch Aspose‑Komponenten nach der ersten Aktivierung auf eine nicht festgelegte Skalierung geändert werden. Dieses Verhalten führt zu einem sichtbaren Unterschied in der Präsentation zwischen dem Zustand vor und nach der Aktivierung des OLE‑Objekts. Wir haben das Problem ausführlich untersucht und eine Lösung bereitgestellt, die in diesem Artikel beschrieben wird.
+
+Excel‑Arbeitsblätter, die als OLE‑Objekte in einer PowerPoint‑Präsentation mithilfe von Aspose‑Komponenten eingebettet sind, können sich nach ihrer ersten Aktivierung unerwartet in der Größe ändern. Dieses Verhalten erzeugt einen deutlichen visuellen Unterschied zwischen dem OLE‑Objekt vor und nach der Aktivierung. Dieser Artikel erklärt das Problem und beschreibt zwei Möglichkeiten, es zu beheben.
+
 {{% /alert %}}
 
 ## **Hintergrund**
 
-Im Artikel [Manage OLE](/slides/de/python-java/manage-ole/) haben wir erklärt, wie man mit Aspose.Slides for Python via Java einen OLE‑Rahmen zu einer PowerPoint‑Präsentation hinzufügt. Um das [object preview issue](/slides/de/python-java/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir dem OLE‑Objekt‑Rahmen ein Bild des ausgewählten Arbeitsblattbereichs zugewiesen. Im Ergebnis‑Präsentationsdatei wird beim Doppelklick auf den OLE‑Rahmen, der das Arbeitsblatt‑Bild anzeigt, die Excel‑Arbeitsmappe aktiviert. Endbenutzer können beliebige Änderungen an der eigentlichen Excel‑Arbeitsmappe vornehmen und anschließend zur Folie zurückkehren, indem sie außerhalb der aktivierten Excel‑Arbeitsmappe klicken. Die Größe des OLE‑Rahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor variiert abhängig von der Größe des OLE‑Rahmens und der eingebetteten Excel‑Arbeitsmappe.
+Im Artikel [OLE verwalten](/slides/de/python-java/manage-ole/) haben wir erklärt, wie man mithilfe von Aspose.Slides für Python via Java einen OLE‑Rahmen zu einer PowerPoint‑Präsentation hinzufügt. Um das [Vorschauproblem für Objekte](/slides/de/python-java/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir dem OLE‑Objektrahmen ein Bild des ausgewählten Arbeitsblattbereichs zugewiesen. In der erzeugten Präsentation wird das Excel‑Arbeitsbuch aktiviert, wenn Sie den OLE‑Objektrahmen, der das Arbeitsblatt‑Bild anzeigt, doppelklicken. Endbenutzer können beliebige Änderungen am eigentlichen Excel‑Arbeitsbuch vornehmen und dann durch Klicken außerhalb des aktivierten Excel‑Arbeitsbuchs zur Folie zurückkehren. Die Größe des OLE‑Objektrahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Resize‑Faktor variiert je nach Größe des OLE‑Objektrahmens und des eingebetteten Excel‑Arbeitsbuchs.
 
 ## **Ursache der Größenänderung**
 
-Da die Excel‑Arbeitsmappe ihr eigenes Fenster hat, versucht sie beim ersten Aktivieren, ihre ursprüngliche Größe beizubehalten. Der OLE‑Rahmen hingegen hat seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint beim Aktivieren der Arbeitsmappe die Größe, um das korrekte Seitenverhältnis im Einbettungsprozess zu erhalten. Die Größenänderung entsteht durch die Unterschiede zwischen der Fenstergröße von Excel und der Größe sowie Position des OLE‑Rahmens.
+Da das Excel‑Arbeitsbuch seine eigene Fenstergröße hat, versucht es, bei der ersten Aktivierung seine ursprüngliche Größe beizubehalten. Der OLE‑Objektrahmen hingegen hat seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung des Excel‑Arbeitsbuchs die Größe, um sicherzustellen, dass die korrekten Proportionen im Rahmen des Einbettungsprozesses erhalten bleiben. Die Größenänderung entsteht durch die Unterschiede zwischen der Fenstergröße von Excel und der Größe sowie Position des OLE‑Objektrahmens.
 
 ## **Lösungsansatz**
 
-Es gibt zwei mögliche Lösungen, um den Skalierungseffekt zu vermeiden.
+Es gibt zwei mögliche Lösungen, um den Größenänderungseffekt zu vermeiden.
 
-- Skalieren Sie die OLE‑Rahmengröße in der PowerPoint‑Präsentation, sodass sie Höhe und Breite der gewünschten Anzahl von Zeilen und Spalten im OLE‑Rahmen entspricht.
-- Halten Sie die OLE‑Rahmengröße konstant und skalieren Sie die Größe der beteiligten Zeilen und Spalten, damit sie in die gewählte OLE‑Rahmengröße passen.
+- Skalieren Sie den OLE‑Rahmen in der PowerPoint‑Präsentation, sodass er der Gesamthöhe und -breite der ausgewählten Zeilen und Spalten entspricht.
+- Behalten Sie die Größe des OLE‑Rahmens bei und skalieren Sie die ausgewählten Zeilen und Spalten, damit sie hinein passen.
 
 ### **OLE‑Rahmengröße skalieren**
 
-In diesem Ansatz lernen wir, wie man die OLE‑Rahmengröße der eingebetteten Excel‑Arbeitsmappe so einstellt, dass sie der kumulativen Größe der beteiligten Zeilen und Spalten im Excel‑Arbeitsblatt entspricht.
+Dieser Ansatz setzt die OLE‑Rahmengröße so, dass sie der Gesamthöhe und -breite der ausgewählten Zeilen und Spalten im eingebetteten Excel‑Arbeitsblatt entspricht.
 
-Angenommen, wir haben ein Excel‑Vorlagenblatt und möchten es als OLE‑Rahmen zu einer Präsentation hinzufügen. In diesem Szenario wird die Größe des OLE‑Objekt‑Rahmens zunächst anhand der kumulierten Zeilenhöhen und Spaltenbreiten der beteiligten Zeilen und Spalten der Arbeitsmappe berechnet. Anschließend setzen wir die Größe des OLE‑Rahmens auf diesen berechneten Wert. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Rahmen in PowerPoint zu vermeiden, erfassen wir zudem ein Bild der gewünschten Abschnitte der Zeilen und Spalten in der Arbeitsmappe und setzen es als Bild des OLE‑Rahmens ein.
+Das Beispiel lädt ein vorhandenes Excel‑Arbeitsbuch und wählt mithilfe nullbasierter Indizes die ersten 10 Zeilen und 13 Spalten des ersten Arbeitsblatts aus. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) definiert den angezeigten Bereich. Die Vorschau wird mit 96 DPI gerendert und ihre Pixeldimensionen werden mithilfe von 72 Punkten pro Zoll in Punkte umgerechnet. [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) bettet das modifizierte Arbeitsbuch in einen Rahmen mit diesen Abmessungen ein. Die Vorschau wird über [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) zugewiesen, um den Platzhalter „EMBEDDED OLE OBJECT“ in der gespeicherten Präsentation zu ersetzen.
+
+Der Vorschau‑Helper setzt [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) auf den ausgewählten Bereich und entfernt Ränder, Kopf‑ und Fußzeilen. Mit aktivierten [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea) rendert [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) den Bereich als PNG‑Bild. Der Helper gibt einen neuen Eingabestream zurück, der das PNG‑Bild enthält und am Anfang positioniert ist, um in der Präsentation verwendet zu werden.
 
 ```python
 import jpype
@@ -92,7 +96,7 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # Festlegen der angezeigten Größe, wenn die Arbeitsmappe als OLE‑Objekt in PowerPoint verwendet wird.
+    # Festlegen der angezeigten Größe, wenn die Arbeitsmappe als OLE-Objekt in PowerPoint verwendet wird.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
@@ -101,7 +105,7 @@ try:
 
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
-        # Ermitteln der Breite und Höhe des OLE‑Bildes in Punkten.
+        # Abrufen von Breite und Höhe des OLE-Bildes in Punkten.
         image_io = jpype.JClass("javax.imageio.ImageIO")
         image = image_io.read(image_stream)
         frame_width = image.getWidth() * 72.0 / image_resolution
@@ -119,11 +123,11 @@ try:
         try:
             slide = presentation.getSlides().get_Item(0)
 
-            # OLE‑Bild zu den Präsentationsressourcen hinzufügen.
+            # OLE-Bild zu den Präsentationsressourcen hinzufügen.
             image_stream.reset()
             ole_image = presentation.getImages().addImage(image_stream)
 
-            # OLE‑Objekt‑Rahmen erstellen.
+            # OLE-Objektrahmen erstellen.
             data_info = OleEmbeddedDataInfo(workbook_data, "xlsx")
             ole_frame = slide.getShapes().addOleObjectFrame(10.0, 10.0, frame_width, frame_height, data_info)
             ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
@@ -140,9 +144,13 @@ finally:
 
 ### **Zellbereichsgröße skalieren**
 
-In diesem Ansatz lernen wir, wie man die Höhen der beteiligten Zeilen und die Breiten der beteiligten Spalten so skaliert, dass sie zu einer benutzerdefinierten OLE‑Rahmengröße passen.
+Dieser Ansatz skaliert die Höhen der ausgewählten Zeilen und die Breiten der ausgewählten Spalten, sodass sie einer benutzerdefinierten OLE‑Rahmengröße entsprechen.
 
-Angenommen, wir haben ein Excel‑Vorlagenblatt und möchten es als OLE‑Rahmen zu einer Präsentation hinzufügen. In diesem Szenario setzen wir die Größe des OLE‑Rahmens und skalieren die Größe der Zeilen und Spalten, die im OLE‑Rahmenbereich enthalten sind. Anschließend speichern wir die Arbeitsmappe in einen Stream, um die Änderungen anzuwenden, und konvertieren sie in ein Byte‑Array, das dem OLE‑Rahmen hinzugefügt wird. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Rahmen in PowerPoint zu vermeiden, erfassen wir zudem ein Bild der gewünschten Abschnitte der Zeilen und Spalten in der Arbeitsmappe und setzen es als Bild des OLE‑Rahmens ein.
+Das Beispiel lädt ein vorhandenes Excel‑Arbeitsbuch und wählt mithilfe nullbasierter Indizes die ersten 10 Zeilen und 13 Spalten des ersten Arbeitsblatts aus. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) definiert den angezeigten Bereich, und der Helper scale_cell_range skaliert diesen Bereich, sodass er in einen Rahmen von 400 Punkten Breite und 100 Punkten Höhe passt. Nach dem Speichern des modifizierten Arbeitsbuchs in einen Stream bettet [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) es mit der angegebenen Größe ein. Eine mit 96 DPI gerenderte Vorschau wird über [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) zugewiesen, sodass die gespeicherte Präsentation die ausgewählten Zellen anstelle des Standard‑Platzhalters anzeigt.
+
+Der Skalierungs‑Helper berechnet getrennte Breiten‑ und Höhen‑Verhältnisse für den ausgewählten Bereich und bewahrt dabei die relativen Spaltenbreiten und Zeilenhöhen. Er wandelt die berechneten Abmessungen von Punkten in Zoll um, bevor er sie mit [Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) und [Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch) anwendet. Der ausgewählte Bereich muss eine nicht null Breite und Höhe besitzen.
+
+Dieser Vorschau‑Helper rendert den verkleinerten Bereich mithilfe von [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage). Er begrenzt [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) auf diesen Bereich, entfernt Ränder, Kopf‑ und Fußzeilen und gibt einen PNG‑Stream zurück, der am Anfang positioniert ist.
 
 ```python
 import jpype
@@ -187,7 +195,7 @@ def create_ole_image(cell_range, image_resolution):
 
 
 def scale_cell_range(cell_range, width, height):
-    # Die erwartete Breite und Höhe des Zellbereichs sind in Punkten angegeben.
+    # Die erwartete Breite und Höhe des Zellbereichs sind in Punkten.
     range_width = cell_range.getWidth()
     range_height = cell_range.getHeight()
     cells = cell_range.getWorksheet().getCells()
@@ -216,13 +224,13 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # Festlegen der angezeigten Größe, wenn die Arbeitsmappe als OLE‑Objekt in PowerPoint verwendet wird.
+    # Festlegen der angezeigten Größe, wenn die Arbeitsmappe als OLE-Objekt in PowerPoint verwendet wird.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
 
     cell_range = worksheet.getCells().createRange(start_row, start_column, row_count, column_count)
-    # Skalieren des Zellbereichs, um in die Rahmengröße zu passen.
+    # Skaliere den Zellbereich, um in die Rahmengröße zu passen.
     scale_cell_range(cell_range, frame_width, frame_height)
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
@@ -239,11 +247,11 @@ try:
         try:
             slide = presentation.getSlides().get_Item(0)
 
-            # OLE‑Bild zu den Präsentationsressourcen hinzufügen.
+            # OLE-Bild zu den Präsentationsressourcen hinzufügen.
             image_stream.reset()
             ole_image = presentation.getImages().addImage(image_stream)
 
-            # OLE‑Objekt‑Rahmen erstellen.
+            # OLE-Objektrahmen erstellen.
             data_info = OleEmbeddedDataInfo(workbook_data, "xlsx")
             ole_frame = slide.getShapes().addOleObjectFrame(10.0, 10.0, frame_width, frame_height, data_info)
             ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
@@ -261,35 +269,39 @@ finally:
 ## **Fazit**
 
 {{% alert color="info" title="Hinweis" %}} 
-Es gibt zwei Ansätze, um das Problem der Größenänderung des Arbeitsblatts zu beheben. Die Wahl des geeigneten Ansatzes hängt von den konkreten Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren gleich, unabhängig davon, ob die Präsentationen aus einer Vorlage oder von Grund auf erstellt werden. Außerdem gibt es in dieser Lösung keine Begrenzung für die Größe des OLE‑Objekt‑Rahmens.
+
+Es gibt zwei Ansätze, um das Problem der Arbeitsblatt‑Größenänderung zu beheben. Wählen Sie den Ansatz, der am besten zu Ihren Anforderungen und Ihrem Anwendungsfall passt. Beide Ansätze funktionieren gleichermaßen, egal ob die Präsentationen aus einer Vorlage oder von Grund auf erstellt werden. Zusätzlich gibt es in dieser Lösung keine Begrenzung für die Größe des OLE‑Objektrahmens.
+
 {{% /alert %}}
 
 ## **FAQ**
 
 **Warum ändert ein eingebettetes Excel‑Arbeitsblatt seine Größe, wenn es in PowerPoint zum ersten Mal aktiviert wird?**
 
-Dies geschieht, weil Excel versucht, beim Aktivieren die ursprüngliche Fenstergröße beizubehalten, während der OLE‑Rahmen in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis zu erhalten, was die Größenänderung verursachen kann.
+Dies geschieht, weil Excel bei der Aktivierung versucht, die ursprüngliche Fenstergröße beizubehalten, während der OLE‑Objektrahmen in PowerPoint seine eigenen Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis zu erhalten, was die Größenänderung verursachen kann.
 
-**Lässt sich das Skalierungsproblem vollständig verhindern?**
+**Ist es möglich, dieses Größenänderungsproblem vollständig zu verhindern?**
 
-Ja. Durch Skalieren des OLE‑Rahmens auf die Größe des Excel‑Zellbereichs oder durch Skalieren des Zellbereichs auf die gewünschte OLE‑Rahmengröße kann unerwünschtes Skalieren verhindert werden.
+Ja. Durch Skalieren des OLE‑Rahmens, um die Größe des Excel‑Zellbereichs anzupassen, oder durch Skalieren des Zellbereichs, um die gewünschte OLE‑Rahmengröße zu erreichen, kann eine unerwünschte Größenänderung verhindert werden.
 
-**Welche Skalierungsmethode sollte ich verwenden, OLE‑Rahmenskalierung oder Zellbereichsskalierung?**
+**Welche Skalierungsmethode sollte ich verwenden, OLE‑Rahmen‑Skalierung oder Zellbereichs‑Skalierung?**
 
-Wählen Sie **OLE‑Rahmenskalierung**, wenn Sie die ursprünglichen Zeilen‑ und Spaltengrößen von Excel beibehalten möchten. Wählen Sie **Zellbereichsskalierung**, wenn Sie eine feste Größe für den OLE‑Rahmen in Ihrer Präsentation benötigen.
+Wählen Sie **OLE‑Rahmen‑Skalierung**, wenn Sie die ursprünglichen Zeilen‑ und Spaltengrößen von Excel beibehalten möchten. Wählen Sie **Zellbereichs‑Skalierung**, wenn Sie eine feste Größe für den OLE‑Rahmen in Ihrer Präsentation wünschen.
 
-**Funktionieren diese Lösungen, wenn meine Präsentation auf einer Vorlage basiert?**
+**Werden diese Lösungen funktionieren, wenn meine Präsentation auf einer Vorlage basiert?**
 
-Ja. Beide Lösungen funktionieren sowohl für aus Vorlagen als auch für von Grund auf erstellte Präsentationen.
+Ja. Beide Lösungen funktionieren sowohl für aus Vorlagen erstellte als auch für von Grund auf neu erstellte Präsentationen.
 
 **Gibt es eine Begrenzung für die Größe des OLE‑Rahmens bei Verwendung dieser Methoden?**
 
-Nein. Der OLE‑Objekt‑Rahmen kann beliebig groß sein, solange die Skalierung entsprechend gesetzt wird.
+Nein. Der OLE‑Objektrahmen kann beliebig groß sein, solange die Skalierung entsprechend eingestellt wird.
 
 **Gibt es eine Möglichkeit, den Platzhaltertext „EMBEDDED OLE OBJECT“ in PowerPoint zu vermeiden?**
 
-Ja. Durch Aufnehmen eines Schnappschusses des Ziel‑Excel‑Zellbereichs und Setzen dieses Bildes als Platzhalterbild des OLE‑Rahmens können Sie ein benutzerdefiniertes Vorschaubild anstelle des Standardplatzhalters anzeigen.
+Ja. Durch das Erstellen eines Schnappschusses des gewünschten Excel‑Zellbereichs und das Festlegen dieses Bildes als Platzhalterbild des OLE‑Rahmens können Sie ein benutzerdefiniertes Vorschau‑Bild anstelle des Standard‑Platzhalters anzeigen.
 
 ## **Verwandte Artikel**
 
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/de/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Erstellen eines Excel‑Diagramms und Einbetten in eine Präsentation als OLE‑Objekt](/slides/de/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[OLE‑Objekte automatisch aktualisieren mit einem MS PowerPoint‑Add‑In](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

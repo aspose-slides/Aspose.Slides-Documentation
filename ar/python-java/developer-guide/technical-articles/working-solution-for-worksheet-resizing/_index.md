@@ -1,11 +1,11 @@
 ---
-title: حل عملي لتغيير حجم ورقة العمل
+title: حل عملي لإعادة تحجيم ورقة العمل
 type: docs
 weight: 20
 url: /ar/python-java/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- صورة المعاينة
+- صورة معاينة
 - تغيير حجم الصورة
 - Excel
 - ورقة عمل
@@ -14,32 +14,36 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "إصلاح تغيير حجم OLE لورقة عمل Excel في العروض التقديمية: طريقتان للحفاظ على اتساق إطارات الكائن - إما ضبط مقياس الإطار أو الورقة - عبر صيغ PPT و PPTX."
+description: "إصلاح تغيير حجم ورقة عمل Excel OLE في العروض التقديمية: طريقتان للحفاظ على إطارات الكائن متسقة—إما تعديل حجم الإطار أو الورقة—في صيغ PPT و PPTX."
 ---
-{{% alert color="info" title="ملاحظة" %}}
-تمت ملاحظة أن أوراق عمل Excel المضمنة ككائنات OLE في عرض تقديمي PowerPoint عبر مكوّنات Aspose يتم تغيير حجمها إلى مقياس غير محدد بعد التفعيل الأول. يخلق هذا السلوك فرقًا بصريًا ملحوظًا في العرض بين حالتي ما قبل و ما بعد تفعيل كائن OLE. لقد قمنا بالتحقيق في هذه المشكلة بالتفصيل وتقديم حل، وهو ما يتم تغطيته في هذه المقالة.
+{{% alert color="info" title="Note" %}}
+
+قد يتم تغيير حجم أوراق عمل Excel المضمنة ككائنات OLE في عرض PowerPoint باستخدام مكونات Aspose بشكل غير متوقع بعد تنشيطها الأول. يخلق هذا السلوك فرقًا بصريًا واضحًا بين كائن OLE قبل وبعد التنشيط. توضح هذه المقالة المشكلة وتصف طريقتين لمعالجتها.
+
 {{% /alert %}}
 
 ## **الخلفية**
 
-في المقالة [إدارة OLE](/slides/ar/python-java/manage-ole/)، شرحنا كيفية إضافة إطار OLE إلى عرض تقديمي PowerPoint باستخدام Aspose.Slides for Python via Java. لمعالجة [مشكلة معاينة الكائن](/slides/ar/python-java/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة للمنطقة المحددة من ورقة العمل إلى إطار كائن OLE. في العرض الناتج، عند النقر مزدوجًا على إطار كائن OLE الذي يعرض صورة ورقة العمل، يتم تفعيل دفترة Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة على دفترة Excel الفعلية ثم العودة إلى الشريحة بالنقر خارج دفترة Excel المُفعّلة. سيتغير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة. سيتفاوت عامل تغيير الحجم بناءً على حجم إطار كائن OLE ودفترة Excel المضمنة.
+في المقالة [إدارة OLE](/slides/ar/python-java/manage-ole/)، شرحنا كيفية إضافة إطار OLE إلى عرض PowerPoint باستخدام Aspose.Slides للغة Python عبر Java. لمعالجة [مشكلة معاينة الكائن](/slides/ar/python-java/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة للمنطقة المحددة من ورقة العمل إلى إطار كائن OLE. في العرض الناتج، عندما تنقر نقرة مزدوجة على إطار كائن OLE الذي يعرض صورة ورقة العمل، يتم تنشيط مصنف Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة على مصنف Excel الفعلي ثم العودة إلى الشريحة بالنقر خارج مصنف Excel المنشط. سيتغير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة. سيتفاوت معامل إعادة التحجيم اعتمادًا على حجم إطار كائن OLE ومصنف Excel المضمن.
 
-## **سبب تغيير الحجم**
+## **سبب إعادة التحجيم**
 
-نظرًا لأن دفترة Excel لها حجم نافذة خاص بها، فإنها تحاول الاحتفاظ بحجمها الأصلي عند التفعيل الأول. من ناحية أخرى، يحتوي إطار كائن OLE على حجمه الخاص. وفقًا لمايكروسوفت، عندما يتم تفعيل دفترة Excel، يتفاوض Excel وPowerPoint على الحجم لضمان الحفاظ على النسب الصحيحة كجزء من عملية التضمين. يحدث تغيير الحجم بناءً على الفروقات بين حجم نافذة Excel وحجم ومكان إطار كائن OLE.
+نظرًا لأن مصنف Excel له حجم نافذة خاص به، فإنه يحاول الحفاظ على حجمه الأصلي عند التنشيط الأول. من ناحية أخرى، يمتلك إطار كائن OLE حجمه الخاص. وفقًا لمايكروسوفت، عندما يتم تنشيط مصنف Excel، يتفاوض كل من Excel وPowerPoint على الحجم لضمان الحفاظ على النسب الصحيحة كجزء من عملية التضمين. يحدث إعادة التحجيم بناءً على الفروقات بين حجم نافذة Excel وحجم وإزاحة إطار كائن OLE.
 
 ## **الحل العملي**
 
-هناك حلّان ممكنان لتجنب تأثير تغيير الحجم.
+هناك حلّان محتملان لتجنب تأثير إعادة التحجيم.
 
-- ضبط مقياس حجم إطار OLE في عرض PowerPoint ليتطابق مع ارتفاع وعرض عدد الصفوف والأعمدة المطلوبة في إطار OLE.
-- الحفاظ على حجم إطار OLE ثابتًا وتغيير مقياس حجم الصفوف والأعمدة المشاركة لتناسب حجم إطار OLE المحدد.
+- ضبط إطار OLE في عرض PowerPoint ليتطابق مع الارتفاع والعرض الكليين للصفوف والأعمدة المحددة.
+- الحفاظ على حجم إطار OLE ثابتًا وتكبير الصفوف والأعمدة المحددة لتناسبه.
 
-### **ضبط مقياس حجم إطار OLE**
+### **تحجيم حجم إطار OLE**
 
-في هذا النهج، سنتعلم كيفية تعيين حجم إطار OLE لدفترة Excel المضمنة ليتطابق مع الحجم التراكمي للصفوف والأعمدة المشاركة في ورقة العمل.
+تحدد هذه الطريقة حجم إطار OLE ليتطابق مع الارتفاع والعرض الكليين للصفوف والأعمدة المحددة في ورقة Excel المضمنة.
 
-لنفترض أن لدينا ورقة Excel نموذجية ونريد إضافتها إلى عرض تقديمي كإطار OLE. في هذا السيناريو، سيُحسب أولاً حجم إطار كائن OLE بناءً على الارتفاعات التراكمية للصفوف وعروض الأعمدة المشاركة في الدفتر. ثم سنقوم بتعيين حجم إطار OLE إلى هذه القيمة المحسوبة. لتجنب رسالة “EMBEDDED OLE OBJECT” الحمراء لإطار OLE في PowerPoint، سنلتقط أيضًا صورة للأجزاء المطلوبة من الصفوف والأعمدة في الدفتر ونعينها كصورة لإطار OLE.
+يقوم المثال بتحميل مصنف Excel موجود وتحديد الصفوف العشرة الأولى و13 عمودًا من ورقته الأولى باستخدام فهارس صفرية. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) يحدد النطاق المعروض. يتم إنشاء المعاينة بدقة 96 DPI، وتُحول أبعاد البكسل إلى نقاط باستخدام 72 نقطة لكل بوصة. [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) يضمّن المصنف المعدل في إطار بهذه الأبعاد. يتم تعيين المعاينة عبر [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) لاستبدال عنصر نائب "EMBEDDED OLE OBJECT" في العرض المحفوظ.
+
+يقوم المساعد المعاين بتحديد [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) للنطاق المحدد وإزالة الهوامش والرؤوس والتذييلات. مع تمكين [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea)، يقوم [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) بإنتاج النطاق كصورة PNG. يُعيد المساعد تيار إدخال جديد يحتوي على صورة PNG، مُوضعًا في بدايته لاستخدامه في العرض.
 
 ```python
 import jpype
@@ -92,7 +96,7 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # تعيين الحجم المعروض عندما يُستخدم دفتر العمل ككائن OLE في PowerPoint.
+    # تحديد الحجم المعروض عندما يتم استخدام المصنف ككائن OLE في PowerPoint.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
@@ -107,7 +111,7 @@ try:
         frame_width = image.getWidth() * 72.0 / image_resolution
         frame_height = image.getHeight() * 72.0 / image_resolution
 
-        # استخدام دفتر العمل المعدل.
+        # استخدام المصنف المعدل.
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -138,11 +142,15 @@ finally:
     workbook.dispose()
 ```
 
-### **ضبط مقياس حجم نطاق الخلايا**
+### **تحجيم حجم نطاق الخلايا**
 
-في هذا النهج، سنتعلم كيفية ضبط ارتفاعات الصفوف المشاركة وعروض الأعمدة المشاركة لتتطابق مع حجم إطار OLE مخصص.
+تقوم هذه الطريقة بتكبير ارتفاعات الصفوف المحددة وعرض الأعمدة المحددة لتتناسب مع حجم إطار OLE مخصص.
 
-لنفترض أن لدينا ورقة Excel نموذجية ونريد إضافتها إلى عرض تقديمي كإطار OLE. في هذا السيناريو، سنحدد حجم إطار OLE ونضبط حجم الصفوف والأعمدة التي تشارك في مساحة إطار OLE. ثم سنحفظ الدفتر إلى تدفق لتطبيق التغييرات ونحوّله إلى مصفوفة بايت لإضافته إلى إطار OLE. لتجنب رسالة “EMBEDDED OLE OBJECT” الحمراء لإطار OLE في PowerPoint، سنلتقط أيضًا صورة للأجزاء المطلوبة من الصفوف والأعمدة في الدفتر ونعينها كصورة لإطار OLE.
+يقوم المثال بتحميل مصنف Excel موجود وتحديد الصفوف العشرة الأولى و13 عمودًا من ورقته الأولى باستخدام فهارس صفرية. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) يحدد النطاق المعروض، ويقوم المساعد scale_cell_range بتكبير ذلك النطاق ليناسب إطار عرضه 400 نقطة وارتفاعه 100 نقطة. بعد حفظ المصنف المعدل إلى تيار، يضمّن [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame)ه بالحجم المحدد. يتم تعيين معاينة تم إنتاجها بدقة 96 DPI عبر [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat)، بحيث يعرض العرض المحفوظ الخلايا المحددة بدلاً من العنصر النائب الافتراضي.
+
+يحسب المساعد الخاص بالتحجيم نسب العرض والارتفاع المنفصلة للنطاق المحدد، مع الحفاظ على عرض الأعمدة النسبي وارتفاع الصفوف النسبي. يحول الأبعاد المحسوبة من نقاط إلى بوصات قبل تطبيقها باستخدام [Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) و[Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch). يجب أن يكون للنطاق المحدد عرض وارتفاع غير صفرية.
+
+يقوم هذا المساعد المعاين بإنتاج النطاق المعدل باستخدام [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage). يحدد [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) لهذا النطاق، ويزيل الهوامش والرؤوس والتذييلات، ويعيد تيار PNG مُوضعًا في بدايته.
 
 ```python
 import jpype
@@ -156,8 +164,8 @@ from asposecells.api import Workbook, ImageOrPrintOptions, ImageType, SheetRende
 from asposecells.api import SaveFormat as CellsSaveFormat
 from asposeslides.api import Presentation, OleEmbeddedDataInfo, SaveFormat
 
-ByteArrayInputStream = jpype.JClass("java.io.ByteArrayInputStream")
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
+ByteArrayInputStream = jpime.JClass("java.io.ByteArrayInputStream")
+ByteArrayOutputStream = jpime.JClass("java.io.ByteArrayOutputStream")
 
 
 def create_ole_image(cell_range, image_resolution):
@@ -187,7 +195,7 @@ def create_ole_image(cell_range, image_resolution):
 
 
 def scale_cell_range(cell_range, width, height):
-    # العرض والارتفاع المتوقع لنطاق الخلايا بوحدات النقاط.
+    # العرض المتوقع للعرض والارتفاع لنطاق الخلايا بالنقاط.
     range_width = cell_range.getWidth()
     range_height = cell_range.getHeight()
     cells = cell_range.getWorksheet().getCells()
@@ -216,18 +224,18 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # تعيين الحجم المعروض عندما يُستخدم دفتر العمل ككائن OLE في PowerPoint.
+    # تعيين الحجم المعروض عندما يتم استخدام المصنف ككائن OLE في PowerPoint.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
 
     cell_range = worksheet.getCells().createRange(start_row, start_column, row_count, column_count)
-    # ضبط نطاق الخلايا ليتناسب مع حجم الإطار.
+    # تحجيم نطاق الخلايا ليتناسب مع حجم الإطار.
     scale_cell_range(cell_range, frame_width, frame_height)
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
 
-        # استخدام دفتر العمل المعدل.
+        # استخدام المصنف المعدل.
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -260,36 +268,40 @@ finally:
 
 ## **الخلاصة**
 
-{{% alert color="info" title="ملاحظة" %}} 
-هناك نهجان لإصلاح مشكلة تغيير حجم ورقة العمل. يعتمد اختيار النهج المناسب على المتطلبات الخاصة وحالة الاستخدام. كلا النهجين يعملان بنفس الطريقة، سواء تم إنشاء العروض من قالب أو من الصفر. بالإضافة إلى ذلك، لا يوجد حد لحجم إطار كائن OLE في هذا الحل.
+{{% alert color="info" title="Note" %}} 
+
+هناك طريقتان لإصلاح مشكلة تغيير حجم ورقة العمل. اختر الطريقة التي تناسب متطلباتك وحالة الاستخدام. كلتا الطريقتين تعملان بنفس الطريقة، سواء تم إنشاء العروض من قالب أو من الصفر. بالإضافة إلى ذلك، لا يوجد حد لحجم إطار كائن OLE في هذا الحل.
+
 {{% /alert %}}
 
-## **الأسئلة المتداولّة**
+## **الأسئلة الشائعة**
 
-**لماذا تتغير حجم ورقة عمل Excel المضمنة عند تفعيلها لأول مرة في PowerPoint؟**
+**لماذا يتغير حجم ورقة عمل Excel المضمنة عند تنشيطها لأول مرة في PowerPoint؟**
 
-يحدث هذا لأن Excel تحاول الحفاظ على حجم النافذة الأصلي عند التفعيل، بينما يمتلك إطار كائن OLE في PowerPoint أبعادًا خاصة به. يتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة العرض إلى الارتفاع، مما قد يؤدي إلى تغيير الحجم.
+يحدث ذلك لأن Excel تحاول الحفاظ على حجم النافذة الأصلي عند التنشيط، بينما يمتلك إطار كائن OLE في PowerPoint أبعاده الخاصة. يتفاوض PowerPoint وExcel على الحجم للحفاظ على النسبة البانية، مما قد يؤدي إلى إعادة التحجيم.
 
-**هل يمكن منع مشكلة تغيير الحجم بالكامل؟**
+**هل يمكن منع مشكلة إعادة التحجيم هذه تمامًا؟**
 
-نعم. من خلال ضبط مقياس إطار OLE ليتناسب مع حجم نطاق خلايا Excel أو ضبط مقياس نطاق الخلايا ليتناسب مع حجم إطار OLE المطلوب، يمكنك منع تغيير الحجم غير المرغوب فيه.
+نعم. من خلال تحجيم إطار OLE ليتناسب مع حجم نطاق خلايا Excel أو تحجيم النطاق ليتناسب مع حجم إطار OLE المطلوب، يمكنك منع إعادة التحجيم غير المرغوب فيها.
 
-**أي طريقة مقياس يجب أن أستخدمها، مقياس إطار OLE أم مقياس نطاق الخلايا؟**
+**أي طريقة تحجيم يجب أن أستخدمها، تحجيم إطار OLE أم تحجيم نطاق الخلايا؟**
 
-اختر **مقياس إطار OLE** إذا كنت تريد الحفاظ على أحجام الصفوف والأعمدة الأصلية في Excel. اختر **مقياس نطاق الخلايا** إذا كنت تريد حجمًا ثابتًا لإطار OLE في عرضك التقديمي.
+اختر **OLE frame scaling** إذا كنت تريد الحفاظ على أحجام الصفوف والأعمدة الأصلية في Excel. اختر **cell range scaling** إذا كنت تريد حجمًا ثابتًا لإطار OLE في عرضك.
 
-**هل ستعمل هذه الحلول إذا كان عرضي التقديمي يعتمد على قالب؟**
+**هل ستعمل هذه الحلول إذا كان عرضي يعتمد على قالب؟**
 
-نعم. كلا الحلين يعملان للعروض التي تم إنشاؤها من قوالب وللعروض التي تم إنشاؤها من الصفر.
+نعم. كلا الحلين يعملان للعروض التي تم إنشاؤها من القوالب أو من الصفر.
 
 **هل هناك حد لحجم إطار OLE عند استخدام هذه الطرق؟**
 
-لا. يمكنك جعل إطار كائن OLE بأي حجم طالما قمت بضبط المقياس بشكل ملائم.
+لا. يمكنك جعل إطار كائن OLE بأي حجم طالما قمت بضبط التحجيم بشكل مناسب.
 
-**هل هناك طريقة لتجنب نص العنصر النائب “EMBEDDED OLE OBJECT” في PowerPoint؟**
+**هل هناك طريقة لتجنب نص العنصر النائب "EMBEDDED OLE OBJECT" في PowerPoint؟**
 
-نعم. عبر التقاط لقطة لنطاق خلايا Excel المستهدف وتعيينها كصورة عنصر نائب لإطار OLE، يمكنك عرض صورة معاينة مخصصة بدلاً من العنصر النائب الافتراضي.
+نعم. من خلال التقاط لقطة لنطاق خلايا Excel المستهدف وتعيينها كصورة عنصر نائب لإطار OLE، يمكنك عرض صورة معاينة مخصصة بدلاً من العنصر النائب الافتراضي.
 
-## **المقالات ذات الصلة**
+## **مقالات ذات صلة**
 
 [إنشاء مخطط Excel وتضمينه في عرض تقديمي ككائن OLE](/slides/ar/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[تحديث كائنات OLE تلقائيًا باستخدام إضافة MS PowerPoint](/slides/ar/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

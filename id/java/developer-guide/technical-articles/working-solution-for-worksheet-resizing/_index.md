@@ -1,5 +1,5 @@
 ---
-title: Solusi Bekerja untuk Mengubah Ukuran Lembar Kerja
+title: Solusi Bekerja untuk Mengubah Ukuran Worksheet
 type: docs
 weight: 20
 url: /id/java/working-solution-for-worksheet-resizing/
@@ -13,36 +13,42 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Perbaiki perubahan ukuran OLE lembar kerja Excel dalam presentasi: dua cara untuk menjaga konsistensi frame objek—skala frame atau lembar kerja—di seluruh format PPT dan PPTX."
+description: "Perbaiki perubahan ukuran OLE worksheet Excel dalam presentasi: dua cara untuk menjaga konsistensi bingkai objek—skala bingkai atau lembar kerja—di format PPT dan PPTX."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-Telah diamati bahwa lembar kerja Excel yang disematkan sebagai objek OLE dalam presentasi PowerPoint melalui komponen Aspose diubah ukurannya ke skala yang tidak teridentifikasi setelah aktivasi pertama. Perilaku ini menciptakan perbedaan visual yang jelas dalam presentasi antara keadaan sebelum dan sesudah aktivasi objek OLE. Kami telah menyelidiki masalah ini secara detail dan menyediakan solusi, yang dibahas dalam artikel ini.
+Worksheet Excel yang disematkan sebagai objek OLE dalam presentasi PowerPoint menggunakan komponen Aspose dapat mengubah ukuran secara tak terduga setelah aktivasi pertama. Perilaku ini menciptakan perbedaan visual yang terlihat antara objek OLE sebelum dan sesudah aktivasi. Artikel ini menjelaskan masalah tersebut dan menggambarkan dua cara untuk mengatasinya.
 
 {{% /alert %}}
 
 ## **Latar Belakang**
 
-Dalam artikel [Kelola OLE](/slides/id/java/manage-ole/), kami menjelaskan cara menambahkan frame OLE ke presentasi PowerPoint menggunakan Aspose.Slides for Java. Untuk mengatasi [masalah pratinjau objek](/slides/id/java/object-preview-issue-when-adding-oleobjectframe/), kami menetapkan gambar area lembar kerja yang dipilih ke frame objek OLE. Pada presentasi output, ketika Anda mengklik ganda frame objek OLE yang menampilkan gambar lembar kerja, buku kerja Excel diaktifkan. Pengguna akhir dapat melakukan perubahan apa pun yang diinginkan pada buku kerja Excel yang sebenarnya dan kemudian kembali ke slide dengan mengklik di luar buku kerja Excel yang diaktifkan. Ukuran frame objek OLE akan berubah saat pengguna kembali ke slide. Faktor perubahan ukuran akan bervariasi tergantung pada ukuran frame objek OLE dan buku kerja Excel yang disematkan.
+In artikel [Kelola OLE](/slides/id/java/manage-ole/), kami menjelaskan cara menambahkan bingkai OLE ke presentasi PowerPoint menggunakan Aspose.Slides for Java. Untuk mengatasi [masalah pratinjau objek](/slides/id/java/object-preview-issue-when-adding-oleobjectframe/), kami menetapkan gambar area worksheet yang dipilih ke bingkai objek OLE. Pada presentasi hasil, ketika Anda klik ganda bingkai objek OLE yang menampilkan gambar worksheet, workbook Excel diaktifkan. Pengguna akhir dapat melakukan perubahan apa pun yang diinginkan pada workbook Excel yang sebenarnya dan kemudian kembali ke slide dengan mengklik di luar workbook Excel yang diaktifkan. Ukuran bingkai objek OLE akan berubah ketika pengguna kembali ke slide. Faktor perubahan ukuran akan bervariasi tergantung pada ukuran bingkai objek OLE dan workbook Excel yang disematkan.
 
 ## **Penyebab Perubahan Ukuran**
 
-Karena buku kerja Excel memiliki ukuran jendela sendiri, ia berusaha mempertahankan ukuran aslinya pada aktivasi pertama. Di sisi lain, frame objek OLE memiliki ukuran sendiri. Menurut Microsoft, ketika buku kerja Excel diaktifkan, Excel dan PowerPoint melakukan negosiasi ukuran untuk memastikan proporsinya tetap benar sebagai bagian dari proses penyematan. Perubahan ukuran terjadi berdasarkan perbedaan antara ukuran jendela Excel dan ukuran serta posisi frame objek OLE.
+Karena workbook Excel memiliki ukuran jendela sendiri, ia berusaha mempertahankan ukuran aslinya saat aktivasi pertama. Di sisi lain, bingkai objek OLE memiliki ukuran tersendiri. Menurut Microsoft, ketika workbook Excel diaktifkan, Excel dan PowerPoint bernegosiasi ukuran untuk memastikan proporsi yang tepat sebagai bagian dari proses penyematan. Perubahan ukuran terjadi berdasarkan perbedaan antara ukuran jendela Excel dan ukuran serta posisi bingkai objek OLE.
 
 ## **Solusi yang Berfungsi**
 
-Ada dua solusi yang memungkinkan untuk menghindari efek perubahan ukuran.
+Ada dua solusi yang mungkin untuk menghindari efek perubahan ukuran.
 
-- Skala ukuran frame OLE dalam presentasi PowerPoint agar cocok dengan tinggi dan lebar jumlah baris dan kolom yang diinginkan dalam frame OLE.
-- Jaga ukuran frame OLE tetap konstan dan skala ukuran baris serta kolom yang berpartisipasi agar sesuai dengan ukuran frame OLE yang dipilih.
+- Skala bingkai OLE dalam presentasi PowerPoint agar sesuai dengan total tinggi dan lebar baris serta kolom yang dipilih.
+- Pertahankan ukuran bingkai OLE tetap konstan dan skala baris serta kolom yang dipilih agar sesuai di dalamnya.
 
-### **Skala Ukuran Frame OLE**
+### **Skala Ukuran Bingkai OLE**
 
-Dalam pendekatan ini, kita akan belajar cara mengatur ukuran frame OLE dari buku kerja Excel yang disematkan agar cocok dengan ukuran kumulatif baris dan kolom yang berpartisipasi dalam lembar kerja Excel.
+Pendekatan ini menetapkan ukuran bingkai OLE agar sesuai dengan total tinggi dan lebar baris serta kolom yang dipilih dalam worksheet Excel yang disematkan.
 
-Misalkan kita memiliki templat lembar kerja Excel dan ingin menambahkannya ke presentasi sebagai frame OLE. Dalam skenario ini, ukuran frame objek OLE pertama-tama akan dihitung berdasarkan tinggi baris kumulatif dan lebar kolom kumulatif dari baris dan kolom yang berpartisipasi dalam buku kerja. Kemudian, kita akan mengatur ukuran frame OLE ke nilai yang dihitung tersebut. Untuk menghindari pesan merah "EMBEDDED OLE OBJECT" pada frame OLE di PowerPoint, kami juga akan menangkap gambar bagian yang diinginkan dari baris dan kolom dalam buku kerja dan menjadikannya gambar frame OLE.
+Contoh ini memuat workbook Excel yang ada dan memilih 10 baris pertama serta 13 kolom pertama dari worksheet pertama menggunakan indeks berbasis nol. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) mendefinisikan rentang yang ditampilkan. Pratinjau dirender pada 96 DPI, dan dimensi pikselnya dikonversi ke poin menggunakan 72 poin per inci. [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) menyematkan workbook yang telah dimodifikasi ke dalam bingkai dengan dimensi tersebut. Pratinjau ditetapkan melalui [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) untuk menggantikan placeholder "EMBEDDED OLE OBJECT" dalam presentasi yang disimpan.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -52,7 +58,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Atur ukuran tampilan saat file workbook digunakan sebagai objek OLE di PowerPoint.
+// Atur ukuran yang ditampilkan ketika file workbook digunakan sebagai objek OLE di PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -73,12 +79,12 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Add the OLE image to the presentation resources.
+// Tambahkan gambar OLE ke sumber daya presentasi.
 imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Create the OLE object frame.
+// Buat bingkai objek OLE.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -89,7 +95,13 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+Pembantu pratinjau mengatur [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) ke rentang yang dipilih dan menghapus margin, header, serta footer. Dengan [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/java/com.aspose.cells/imageorprintoptions/#setOnlyArea-boolean-) diaktifkan, [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-) merender rentang sebagai gambar PNG. Pembantu mengembalikan aliran masukan baru yang berisi gambar PNG, diposisikan pada awalnya untuk digunakan dalam presentasi.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -116,11 +128,15 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 
 ### **Skala Ukuran Rentang Sel**
 
-Dalam pendekatan ini, kita akan belajar cara mengubah skala tinggi baris yang berpartisipasi dan lebar kolom yang berpartisipasi agar cocok dengan ukuran frame OLE khusus.
+Pendekatan ini menskalakan tinggi baris yang dipilih dan lebar kolom yang dipilih agar sesuai dengan ukuran bingkai OLE khusus.
 
-Misalkan kita memiliki templat lembar kerja Excel dan ingin menambahkannya ke presentasi sebagai frame OLE. Dalam skenario ini, kami akan mengatur ukuran frame OLE dan mengubah skala ukuran baris serta kolom yang berpartisipasi dalam area frame OLE. Kami kemudian akan menyimpan buku kerja ke aliran untuk menerapkan perubahan dan mengonversinya menjadi array byte untuk menambahkannya ke frame OLE. Untuk menghindari pesan merah "EMBEDDED OLE OBJECT" pada frame OLE di PowerPoint, kami juga akan menangkap gambar bagian yang diinginkan dari baris dan kolom dalam buku kerja dan menjadikannya gambar frame OLE.
+Contoh ini memuat workbook Excel yang ada dan memilih 10 baris pertama serta 13 kolom pertama dari worksheet pertama menggunakan indeks berbasis nol. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) mendefinisikan rentang yang ditampilkan, dan pembantu di bawah ini menskalakan rentang tersebut agar cocok dengan bingkai seluas 400 poin lebar dan 100 poin tinggi. Setelah menyimpan workbook yang telah dimodifikasi ke aliran, [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) menyematkannya pada ukuran yang ditentukan. Pratinjau yang dirender pada 96 DPI ditetapkan melalui [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--), sehingga presentasi yang disimpan menampilkan sel yang dipilih alih-alih placeholder default.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -131,18 +147,18 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Atur ukuran tampilan saat file workbook digunakan sebagai objek OLE di PowerPoint.
+// Atur ukuran yang ditampilkan ketika file workbook digunakan sebagai objek OLE di PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Skala rentang sel agar sesuai dengan ukuran frame.
+// Skala rentang sel agar sesuai dengan ukuran bingkai.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Kita perlu menggunakan workbook yang telah dimodifikasi.
+// We need to use the modified workbook.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -154,7 +170,7 @@ ISlide slide = presentation.getSlides().get_Item(0);
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Buat frame objek OLE.
+// Buat bingkai objek OLE.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -165,10 +181,12 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+Pembantu skala menghitung rasio lebar dan tinggi terpisah untuk rentang yang dipilih, mempertahankan lebar relatif kolomnya dan tinggi relatif barisnya. Ia mengonversi dimensi yang dihitung dari poin ke inci sebelum menerapkannya dengan [Cells.setColumnWidthInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setColumnWidthInch-int-double-) dan [Cells.setRowHeightInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setRowHeightInch-int-double-). Rentang yang dipilih harus memiliki lebar dan tinggi yang tidak nol.
+
 ```java
 /**
- * @param width     Lebar yang diharapkan dari rentang sel dalam titik.
- * @param height    Tinggi yang diharapkan dari rentang sel dalam titik.
+ * @param width     Lebar yang diharapkan dari rentang sel dalam poin.
+ * @param height    Tinggi yang diharapkan dari rentang sel dalam poin.
  */
 static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float height) {
     double rangeWidth = cellRange.getWidth();
@@ -202,7 +220,13 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 }
 ```
 
+Pembantu pratinjau ini merender ulang rentang yang diubah ukurannya menggunakan [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-). Ia membatasi [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) pada rentang tersebut, menghapus margin, header, dan footer, serta mengembalikan aliran PNG yang diposisikan pada awalnya.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -229,40 +253,40 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 
 ## **Kesimpulan**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Ada dua pendekatan untuk memperbaiki masalah perubahan ukuran lembar kerja. Pemilihan pendekatan yang tepat bergantung pada kebutuhan spesifik dan kasus penggunaan. Kedua pendekatan bekerja dengan cara yang sama, baik presentasi dibuat dari templat maupun dari awal. Selain itu, tidak ada batasan ukuran frame objek OLE dalam solusi ini.
+Ada dua pendekatan untuk memperbaiki masalah perubahan ukuran worksheet. Pilih pendekatan yang paling sesuai dengan kebutuhan dan kasus penggunaan Anda. Kedua pendekatan bekerja dengan cara yang sama, baik presentasi dibuat dari template maupun dari awal. Selain itu, tidak ada batasan ukuran bingkai objek OLE dalam solusi ini.
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Mengapa lembar kerja Excel yang disematkan berubah ukuran saat pertama kali diaktifkan di PowerPoint?**
+**Mengapa worksheet Excel yang disematkan berubah ukuran saat pertama kali diaktifkan di PowerPoint?**
 
-Ini terjadi karena Excel berusaha mempertahankan ukuran jendela asli saat diaktifkan, sementara frame objek OLE di PowerPoint memiliki dimensi sendiri. PowerPoint dan Excel melakukan negosiasi ukuran untuk mempertahankan rasio aspek, yang dapat menyebabkan perubahan ukuran.
+Hal ini terjadi karena Excel berusaha mempertahankan ukuran jendela asli ketika diaktifkan, sementara bingkai objek OLE di PowerPoint memiliki dimensi tersendiri. PowerPoint dan Excel bernegosiasi ukuran untuk mempertahankan rasio aspek, yang dapat menyebabkan perubahan ukuran.
 
-**Apakah mungkin mencegah masalah perubahan ukuran ini sepenuhnya?**
+**Apakah memungkinkan untuk mencegah masalah perubahan ukuran ini sepenuhnya?**
 
-Ya. Dengan menskalakan frame OLE agar sesuai dengan ukuran rentang sel Excel atau menskalakan rentang sel agar sesuai dengan ukuran frame OLE yang diinginkan, Anda dapat mencegah perubahan ukuran yang tidak diinginkan.
+Ya. Dengan menskalakan bingkai OLE agar sesuai dengan ukuran rentang sel Excel atau menskalakan rentang sel agar sesuai dengan ukuran bingkai OLE yang diinginkan, Anda dapat mencegah perubahan ukuran yang tidak diinginkan.
 
-**Metode skala mana yang harus saya gunakan, skala frame OLE atau skala rentang sel?**
+**Metode skala mana yang harus saya gunakan, skala bingkai OLE atau skala rentang sel?**
 
-Pilih **skala frame OLE** jika Anda ingin mempertahankan ukuran baris dan kolom Excel yang asli. Pilih **skala rentang sel** jika Anda menginginkan ukuran tetap untuk frame OLE dalam presentasi Anda.
+Pilih **skala bingkai OLE** jika Anda ingin mempertahankan ukuran baris dan kolom Excel asli. Pilih **skala rentang sel** jika Anda menginginkan ukuran tetap untuk bingkai OLE dalam presentasi Anda.
 
-**Apakah solusi ini akan bekerja jika presentasi saya berbasis templat?**
+**Apakah solusi ini akan bekerja jika presentasi saya berbasis template?**
 
-Ya. Kedua solusi bekerja untuk presentasi yang dibuat dari templat dan dari awal.
+Ya. Kedua solusi bekerja untuk presentasi yang dibuat dari template maupun dari awal.
 
-**Apakah ada batasan ukuran frame OLE saat menggunakan metode ini?**
+**Apakah ada batasan ukuran bingkai OLE saat menggunakan metode ini?**
 
-Tidak. Anda dapat membuat frame objek OLE dengan ukuran apa pun selama Anda mengatur skala secara tepat.
+Tidak. Anda dapat membuat bingkai objek OLE berukuran apa saja selama Anda mengatur skala secara tepat.
 
-**Apakah ada cara menghindari teks placeholder "EMBEDDED OLE OBJECT" di PowerPoint?**
+**Apakah ada cara untuk menghindari teks placeholder "EMBEDDED OLE OBJECT" di PowerPoint?**
 
-Ya. Dengan mengambil snapshot dari rentang sel Excel target dan menjadikannya gambar placeholder frame OLE, Anda dapat menampilkan gambar pratinjau khusus menggantikan placeholder default.
+Ya. Dengan mengambil snapshot rentang sel Excel target dan menetapkannya sebagai gambar placeholder bingkai OLE, Anda dapat menampilkan gambar pratinjau khusus menggantikan placeholder default.
 
-## **Artikel Terkait**
+## **Related Articles**
 
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/id/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Membuat Diagram Excel dan Menyematkannya dalam Presentasi sebagai Objek OLE](/slides/id/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Updating OLE Objects Automatically Using an MS PowerPoint Add-In](/slides/id/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Memperbarui Objek OLE secara Otomatis Menggunakan Add-In MS PowerPoint](/slides/id/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

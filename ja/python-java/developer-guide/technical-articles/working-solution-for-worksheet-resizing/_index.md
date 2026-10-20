@@ -1,5 +1,5 @@
 ---
-title: ワークシートのリサイズに対する実装ソリューション
+title: ワークシートのリサイズに対する実践的解決策
 type: docs
 weight: 20
 url: /ja/python-java/working-solution-for-worksheet-resizing/
@@ -14,34 +14,36 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "プレゼンテーションでの Excel ワークシート OLE リサイズを修正します。オブジェクトフレームを一貫させる方法は2つ—フレームをスケールするかシートをスケールするか—PPT および PPTX 形式で適用できます。"
+description: "プレゼンテーションでの Excel ワークシート OLE リサイズを修正します：オブジェクト フレームを一貫させるための 2 つの方法—フレームをスケーリングするかシートをスケーリングするか—PPT と PPTX 形式全体で対応。"
 ---
 {{% alert color="info" title="Note" %}}
 
-Excel ワークシートを OLE オブジェクトとして Aspose コンポーネント経由で PowerPoint プレゼンテーションに埋め込むと、最初にアクティブ化した後にスケールが未指定の状態でリサイズされることが確認されています。この動作により、OLE オブジェクトのアクティブ化前後でプレゼンテーションに目立つ視覚的な違いが生じます。本記事ではこの問題を詳細に調査し、解決策を提示しています。
+Aspose コンポーネントを使用して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込まれた Excel ワークシートは、最初にアクティブ化された後に予期せずサイズが変更されることがあります。この動作により、OLE オブジェクトのアクティブ化前後で目立つ視覚的な違いが生じます。本記事ではこの問題を説明し、対処方法を 2 つ紹介します。
 
 {{% /alert %}}
 
-## **Background**
+## **背景**
 
-[Manage OLE](/slides/ja/python-java/manage-ole/) 記事では、Aspose.Slides for Python via Java を使用して PowerPoint プレゼンテーションに OLE フレームを追加する方法を解説しました。[object preview issue](/slides/ja/python-java/object-preview-issue-when-adding-oleobjectframe/) に対処するため、選択したワークシート領域の画像を OLE オブジェクトフレームに割り当てました。出力されたプレゼンテーションで、ワークシート画像を表示している OLE オブジェクトフレームをダブルクリックすると Excel ブックがアクティブ化されます。エンドユーザーは実際の Excel ブックを自由に変更でき、アクティブ化された Excel ブックの外側をクリックするとスライドに戻ります。ユーザーがスライドに戻ると OLE オブジェクトフレームのサイズが変わります。リサイズ率は OLE オブジェクトフレームのサイズと埋め込まれた Excel ブックのサイズに応じて変動します。
+[OLE の管理](/slides/ja/python-java/manage-ole/) 記事では、Aspose.Slides for Python via Java を使用して PowerPoint プレゼンテーションに OLE フレームを追加する方法を説明しました。[オブジェクト プレビューの問題](/slides/ja/python-java/object-preview-issue-when-adding-oleobjectframe/) に対処するため、選択したワークシート領域の画像を OLE オブジェクト フレームに割り当てました。出力されたプレゼンテーションで、ワークシート画像を表示する OLE オブジェクト フレームをダブルクリックすると Excel ブックがアクティブ化されます。エンド ユーザーは実際の Excel ブックで任意の変更を行い、アクティブ化された Excel ブックの外側をクリックしてスライドに戻ります。ユーザーがスライドに戻ると OLE オブジェクト フレームのサイズが変わります。リサイズ率は OLE オブジェクト フレームのサイズと埋め込まれた Excel ブックのサイズに依存します。
 
-## **Cause of Resizing**
+## **リサイズの原因**
 
-Excel ブックは独自のウィンドウサイズを持っているため、最初のアクティブ化時に元のサイズを保とうとします。一方、OLE オブジェクトフレームは独自のサイズを持っています。Microsoft によると、Excel ブックがアクティブ化されると、Excel と PowerPoint がサイズを交渉し、埋め込みプロセスの一部として正しい比率を維持します。リサイズは Excel ウィンドウサイズと OLE オブジェクトフレームのサイズ・位置との差異に基づいて発生します。
+Excel ブックは独自のウィンドウ サイズを持っているため、最初のアクティブ化時に元のサイズを保持しようとします。一方、OLE オブジェクト フレームは独自のサイズを持ちます。Microsoft によると、Excel ブックがアクティブ化されると、Excel と PowerPoint がサイズを協議し、埋め込みプロセスの一部として正しい比率を維持します。リサイズは Excel ウィンドウ サイズと OLE オブジェクト フレームのサイズおよび位置の差異に基づいて発生します。
 
-## **Working Solution**
+## **動作する解決策**
 
-リサイズ効果を回避するための 2 つの解決策があります。
+リサイズ効果を回避するための 2 つの可能な解決策があります。
 
-- OLE フレームのサイズを、目的の行数と列数に合わせて PowerPoint プレゼンテーション内でスケーリングする。
-- OLE フレームのサイズを固定し、対象となる行と列のサイズをスケーリングしてフレーム内に収める。
+- PowerPoint プレゼンテーション内の OLE フレームを、選択した行と列の合計の高さと幅に合わせてスケールする。
+- OLE フレームのサイズを一定に保ち、選択した行と列をフレーム内に収まるようにスケールする。
 
-### **Scale the OLE Frame Size**
+### **OLE フレームのサイズをスケールする**
 
-この方法では、埋め込まれた Excel ブックの OLE フレームサイズを、ワークシート内の対象行と列の合計サイズに合わせて設定する方法を学びます。
+この方法は、埋め込まれた Excel ワークシートの選択した行と列の合計の高さと幅に合わせて OLE フレームのサイズを設定します。
 
-テンプレートの Excel シートがあり、それを OLE フレームとしてプレゼンテーションに追加したいとします。このシナリオでは、まずブック内の対象行の高さと対象列の幅の合計に基づいて OLE オブジェクトフレームのサイズを算出します。次に、その算出値を OLE フレームのサイズとして設定します。PowerPoint の OLE フレームに表示される赤い「EMBEDDED OLE OBJECT」メッセージを回避するため、ブック内の対象行と列の必要な部分の画像を取得し、OLE フレームの画像として設定します。
+例では既存の Excel ブックを読み込み、0 ベースのインデックスを使用して最初のシートの最初の 10 行と 13 列を選択します。[WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) が表示領域を定義します。プレビューは 96 DPI でレンダリングされ、そのピクセル寸法は 1 インチあたり 72 ポイントでポイントに変換されます。[ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) が変更されたブックをその寸法のフレームに埋め込みます。プレビューは [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) を通じて割り当てられ、保存されたプレゼンテーションの「EMBEDDED OLE OBJECT」プレースホルダーを置き換えます。
+
+プレビュー ヘルパーは [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) を選択した範囲に設定し、余白、ヘッダー、フッターを除去します。[ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea) を有効にし、[SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) が範囲を PNG 画像としてレンダリングします。ヘルパーは PNG 画像を含む新しい入力ストリームを返し、プレゼンテーションで使用できるように先頭に配置します。
 
 ```python
 import jpype
@@ -94,7 +96,7 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # PowerPoint で OLE オブジェクトとしてブックが使用されるときの表示サイズを設定します。
+    # PowerPoint でブックが OLE オブジェクトとして使用される際の表示サイズを設定します。
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
@@ -109,7 +111,7 @@ try:
         frame_width = image.getWidth() * 72.0 / image_resolution
         frame_height = image.getHeight() * 72.0 / image_resolution
 
-        # 変更されたブックを使用します。
+        # 変更したブックを使用します。
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -125,7 +127,7 @@ try:
             image_stream.reset()
             ole_image = presentation.getImages().addImage(image_stream)
 
-            # OLE オブジェクトフレームを作成します。
+            # OLE オブジェクト フレームを作成します。
             data_info = OleEmbeddedDataInfo(workbook_data, "xlsx")
             ole_frame = slide.getShapes().addOleObjectFrame(10.0, 10.0, frame_width, frame_height, data_info)
             ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
@@ -140,11 +142,15 @@ finally:
     workbook.dispose()
 ```
 
-### **Scale the Cell Range Size**
+### **セル範囲のサイズをスケールする**
 
-この方法では、カスタム OLE フレームサイズに合わせて対象行の高さと対象列の幅をスケーリングする方法を学びます。
+この方法は、選択した行の高さと列の幅をカスタム OLE フレーム サイズに合わせてスケールします。
 
-テンプレートの Excel シートがあり、それを OLE フレームとしてプレゼンテーションに追加したいとします。このシナリオでは、OLE フレームのサイズを設定し、フレーム領域に含まれる行と列のサイズをスケーリングします。その後、ブックをストリームに保存して変更を適用し、OLE フレームに追加できるバイト配列に変換します。PowerPoint の OLE フレームに表示される赤い「EMBEDDED OLE OBJECT」メッセージを回避するため、ブック内の対象行と列の必要な部分の画像を取得し、OLE フレームの画像として設定します。
+例では既存の Excel ブックを読み込み、0 ベースのインデックスを使用して最初のシートの最初の 10 行と 13 列を選択します。[WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) が表示領域を定義し、scale_cell_range ヘルパーがその範囲を幅 400 ポイント、高さ 100 ポイントのフレームに収まるようにスケールします。変更されたブックをストリームに保存した後、[ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) が指定サイズで埋め込みます。96 DPI でレンダリングされたプレビューは [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) を通じて割り当てられ、保存されたプレゼンテーションはデフォルトのプレースホルダーではなく選択されたセルを表示します。
+
+スケーリング ヘルパーは、選択範囲の幅と高さの比率を個別に計算し、列の相対幅と行の相対高さを保持します。計算された寸法はポイントからインチに変換され、[Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) と [Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch) を使用して適用されます。選択範囲の幅と高さはゼロであってはなりません。
+
+このプレビュー ヘルパーは [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) を使用してサイズ変更された範囲をレンダリングします。[PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) をその範囲に限定し、余白、ヘッダー、フッターを除去し、PNG ストリームを先頭に配置して返します。
 
 ```python
 import jpype
@@ -189,7 +195,7 @@ def create_ole_image(cell_range, image_resolution):
 
 
 def scale_cell_range(cell_range, width, height):
-    # セル範囲の想定幅と高さはポイント単位です。
+    # セル範囲の期待幅と高さはポイント単位です。
     range_width = cell_range.getWidth()
     range_height = cell_range.getHeight()
     cells = cell_range.getWorksheet().getCells()
@@ -218,18 +224,18 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # PowerPoint でブックが OLE オブジェクトとして使用されるときの表示サイズを設定します。
+    # ブックが PowerPoint の OLE オブジェクトとして使用される際の表示サイズを設定します。
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
 
     cell_range = worksheet.getCells().createRange(start_row, start_column, row_count, column_count)
-    # セル範囲をフレームサイズに合わせてスケーリングします。
+    # セル範囲をフレームサイズに合わせてスケールします。
     scale_cell_range(cell_range, frame_width, frame_height)
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
 
-        # 変更されたブックを使用します。
+        # 変更したブックを使用します。
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -245,7 +251,7 @@ try:
             image_stream.reset()
             ole_image = presentation.getImages().addImage(image_stream)
 
-            # OLE オブジェクトフレームを作成します。
+            # OLE オブジェクト フレームを作成します。
             data_info = OleEmbeddedDataInfo(workbook_data, "xlsx")
             ole_frame = slide.getShapes().addOleObjectFrame(10.0, 10.0, frame_width, frame_height, data_info)
             ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
@@ -260,40 +266,42 @@ finally:
     workbook.dispose()
 ```
 
-## **Conclusion**
+## **結論**
 
 {{% alert color="info" title="Note" %}} 
 
-ワークシートのリサイズ問題を解決するためのアプローチは 2 つあります。適切なアプローチの選択は、具体的な要件と使用ケースに依存します。どちらのアプローチも、テンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも同様に機能します。また、このソリューションでは OLE オブジェクトフレームのサイズに制限はありません。
+ワークシートのリサイズ問題を解決する方法は 2 つあります。要件や使用シーンに最適な方法を選んでください。どちらの方法も、テンプレートから作成したプレゼンテーションでもゼロから作成したプレゼンテーションでも同じように機能します。さらに、このソリューションでは OLE オブジェクト フレームのサイズに制限はありません。
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Why does an embedded Excel worksheet change size when first activated in PowerPoint?**
+**埋め込まれた Excel ワークシートが PowerPoint で最初にアクティブ化されたときにサイズが変わるのはなぜですか？**
 
-Excel がアクティブ化時に元のウィンドウサイズを維持しようとする一方、PowerPoint の OLE オブジェクトフレームは独自のサイズを持っているためです。PowerPoint と Excel がサイズを交渉してアスペクト比を保つ過程でリサイズが発生します。
+Excel はアクティブ化時に元のウィンドウサイズを維持しようとし、PowerPoint の OLE オブジェクト フレームは独自の寸法を持つためです。PowerPoint と Excel がサイズを協議してアスペクト比を保つため、リサイズが発生します。
 
-**Is it possible to prevent this resizing issue entirely?**
+**このリサイズ問題を完全に防ぐことは可能ですか？**
 
-はい。OLE フレームを Excel のセル範囲サイズに合わせてスケーリングするか、セル範囲を目的の OLE フレームサイズに合わせてスケーリングすれば、不要なリサイズを防げます。
+はい。OLE フレームを Excel セル範囲のサイズに合わせてスケールするか、セル範囲を目的の OLE フレームサイズに合わせてスケールすれば、不要なリサイズを防止できます。
 
-**Which scaling method should I use, OLE frame scaling or cell range scaling?**
+**どちらのスケーリング手法を使用すべきですか、OLE フレームのスケーリングですかセル範囲のスケーリングですか？**
 
-元の Excel の行・列サイズを保持したい場合は **OLE frame scaling** を選択してください。プレゼンテーション内で固定サイズの OLE フレームを維持したい場合は **cell range scaling** を選択してください。
+元の Excel 行・列のサイズを保持したい場合は **OLE フレームのスケーリング** を選択してください。プレゼンテーションで OLE フレームのサイズを固定したい場合は **セル範囲のスケーリング** を選択してください。
 
-**Will these solutions work if my presentation is based on a template?**
+**プレゼンテーションがテンプレートベースの場合でもこれらの解決策は機能しますか？**
 
-はい。どちらのソリューションもテンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも機能します。
+はい。両方の解決策はテンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも機能します。
 
-**Is there a limit to the size of the OLE frame when using these methods?**
+**これらの方法を使用する際、OLE フレームのサイズに制限はありますか？**
 
-いいえ。適切にスケールを設定すれば、OLE オブジェクトフレームのサイズに制限はありません。
+いいえ。スケールを適切に設定すれば、OLE オブジェクト フレームのサイズに制限はありません。
 
-**Is there a way to avoid the "EMBEDDED OLE OBJECT" placeholder text in PowerPoint?**
+**PowerPoint の「EMBEDDED OLE OBJECT」プレースホルダー テキストを回避する方法はありますか？**
 
-はい。対象となる Excel セル範囲のスナップショットを取得し、それを OLE フレームのプレースホルダー画像として設定すれば、デフォルトのプレースホルダー文字列をカスタムプレビュー画像に置き換えることができます。
+はい。対象となる Excel セル範囲のスナップショットを取得し、それを OLE フレームのプレースホルダー画像として設定すれば、デフォルトのプレースホルダーの代わりにカスタム プレビュー画像を表示できます。
 
-## **Related Articles**
+## **関連記事**
 
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/ja/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Excel グラフを作成し、OLE オブジェクトとしてプレゼンテーションに埋め込む](/slides/ja/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[MS PowerPoint アドインを使用して OLE オブジェクトを自動的に更新する](/slides/ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

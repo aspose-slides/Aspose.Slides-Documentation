@@ -1,6 +1,6 @@
 ---
-title: Αποτροπή επεξεργασιών παρουσίασης με κλειδώματα σχήματος
-linktitle: Αποτροπή επεξεργασιών παρουσίασης
+title: Περιορισμός Επεξεργασιών Παρουσίασης με Κλειδώματα Σχημάτων σε Java
+linktitle: Περιορισμός Επεξεργασιών Παρουσίασης
 type: docs
 weight: 60
 url: /el/java/applying-protection-to-presentation/
@@ -10,167 +10,149 @@ keywords:
 - κλείδωμα σχήματος
 - κλείδωμα θέσης
 - κλείδωμα επιλογής
-- κλείδωμα μεγέθους
+- κλείδωμα αλλαγής μεγέθους
 - κλείδωμα ομαδοποίησης
 - PowerPoint
-- OpenDocument
+- PPTX
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Ανακαλύψτε πώς το Aspose.Slides for Java κλειδώνει ή ξεκλειδώνει σχήματα σε αρχεία PPT, PPTX και ODP, εξασφαλίζοντας τις παρουσιάσεις ενώ επιτρέπει ελεγχόμενες επεξεργασίες και ταχύτερη διανομή."
+description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε σχήματα σε παρουσιάσεις PPTX με το Aspose.Slides for Java για να περιορίσετε την επιλογή, την κίνηση, την αλλαγή μεγέθους και την ομαδοποίηση."
 ---
 ## **Ιστορικό**
 
-Η κοινή χρήση του Aspose.Slides είναι η δημιουργία, η ενημέρωση και η αποθήκευση παρουσιάσεων Microsoft PowerPoint (PPTX) ως μέρος μιας αυτοματοποιημένης ροής εργασίας. Οι χρήστες εφαρμογών που χρησιμοποιούν το Aspose.Slides με αυτόν τον τρόπο έχουν πρόσβαση στις παραγόμενες παρουσιάσεις, επομένως η προστασία τους από επεξεργασία είναι μια συνήθης ανησυχία. Είναι σημαντικό οι αυτόματα δημιουργημένες παρουσιάσεις να διατηρούν την αρχική μορφοποίηση και το περιεχόμενό τους.
+Μια κοινή χρήση του Aspose.Slides for Java είναι η δημιουργία, η ενημέρωση και η αποθήκευση παρουσιάσεων PowerPoint (PPTX) ως μέρος μιας αυτοματοποιημένης ροής εργασίας. Όταν οι χρήστες λαμβάνουν αυτές τις παρουσιάσεις, ο περιορισμός των αλλαγών στα σχήματα μπορεί να βοηθήσει στη διατήρηση της προγραμματισμένης διάταξης και του περιεχομένου.
 
-Αυτό το άρθρο εξηγεί πώς δομούνται οι παρουσιάσεις και οι διαφάνειες και πώς το Aspose.Slides for Java μπορεί να εφαρμόσει προστασία σε μια παρουσίαση και στη συνέχεια να την αφαιρέσει. Παρέχει στους προγραμματιστές έναν τρόπο ελέγχου του τρόπου χρήσης των παρουσιάσεων που οι εφαρμογές τους δημιουργούν.
+Αυτό το άρθρο εξηγεί πώς οργανώνονται τα σχήματα στις διαφάνειες και πώς να εφαρμόσετε και να αφαιρέσετε κλειδώματα σχήματος σε μια παρουσίαση PPTX. Αυτά τα κλειδώματα σας επιτρέπουν να περιορίζετε συγκεκριμένες λειτουργίες επεξεργασίας σε μεμονωμένα σχήματα.
 
 ## **Σύνθεση μιας Διαφάνειας**
 
-Μια διαφάνεια παρουσίασης αποτελείται από στοιχεία όπως αυτόματα σχήματα, πίνακες, αντικείμενα OLE, ομαδοποιημένα σχήματα, περιοχές εικόνας, περιοχές βίντεο, συνδέσμους και άλλα στοιχεία που χρησιμοποιούνται για την κατασκευή μιας παρουσίασης. Στο Aspose.Slides for Java, κάθε στοιχείο σε μια διαφάνεια αντιπροσωπεύεται από ένα αντικείμενο που υλοποιεί τη διεπαφή [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) ή κληρονομεί από μια κλάση που το κάνει.
+Μια διαφάνεια παρουσίασης αποτελείται από στοιχεία όπως αυτόματα σχήματα, πίνακες, αντικείμενα OLE, ομαδοποιημένα σχήματα, πλαίσια εικόνων, πλαίσια βίντεο, συνδέσμους, και άλλα στοιχεία που χρησιμοποιούνται για τη δημιουργία μιας παρουσίασης. Στο Aspose.Slides for Java, κάθε στοιχείο σε μια διαφάνεια αντιπροσωπεύεται από ένα αντικείμενο που υλοποιεί τη διεπαφή [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) ή κληρονομεί από μια κλάση που το κάνει.
 
-Η δομή του PPTX είναι περίπλοκη, έτσι σε αντίθεση με το PPT, όπου μπορεί να χρησιμοποιηθεί ένα γενικό κλείδωμα για όλους τους τύπους σχημάτων, διαφορετικοί τύποι σχημάτων απαιτούν διαφορετικά κλειδώματα. Η διεπαφή [IBaseShapeLock](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseshapelock/) είναι η γενική κλάση κλειδώματος για το PPTX. Οι ακόλουθοι τύποι κλειδωμάτων υποστηρίζονται στο Aspose.Slides for Java για PPTX:
+Διαφορετικοί τύποι σχημάτων εκθέτουν διαφορετικές επιλογές κλειδαριάς. Η διεπαφή [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) είναι η βασική διεπαφή για κλειδώματα σχήματος. Το Aspose.Slides for Java παρέχει τις ακόλουθες διεπαφές κλειδωμάτων:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshapelock/) κλειδώνει τα αυτόματα σχήματα.  
-- [IConnectorLock](https://reference.aspose.com/slides/el/java/com.aspose.slides/iconnectorlock/) κλειδώνει τα σχήματα συνδέσεων.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/el/java/com.aspose.slides/igraphicalobjectlock/) κλειδώνει τα γραφικά αντικείμενα.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/el/java/com.aspose.slides/igroupshapelock/) κλειδώνει τα ομαδοποιημένα σχήματα.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframelock/) κλειδώνει τις περιοχές εικόνας.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) κλειδώνει αυτόματα σχήματα.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) κλειδώνει σχήματα συνδέσμων.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) κλειδώνει γραφικά αντικείμενα.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) κλειδώνει ομαδικά σχήματα.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) κλειδώνει πλαίσια εικόνας.  
 
-Κάθε ενέργεια που εκτελείται σε όλα τα αντικείμενα σχήματος σε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) εφαρμόζεται σε ολόκληρη την παρουσίαση.
+Για να εφαρμόσετε κλειδώματα σε όλη τη [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), επαναλάβετε τις διαφάνειες της και ορίστε τα κατάλληλα κλειδώματα σε κάθε υποστηριζόμενο σχήμα.
 
-## **Εφαρμογή και Αφαίρεση Προστασίας**
+## **Εφαρμογή και Απομάκρυνση Προστασίας**
 
-Η εφαρμογή προστασίας διασφαλίζει ότι μια παρουσίαση δεν μπορεί να επεξεργαστεί. Είναι μια χρήσιμη τεχνική για την προστασία του περιεχομένου της παρουσίασης.
+Τα κλειδώματα σχήματος περιορίζουν λειτουργίες όπως η επιλογή, η μετακίνηση και η αλλαγή μεγέθους των σχημάτων. Δεν κάνουν ολόκληρη την παρουσίαση μη επεξεργάσιμη.
 
 ### **Εφαρμογή Προστασίας σε Σχήματα PPTX**
 
-Το Aspose.Slides for Java παρέχει τη διεπαφή [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) για εργασία με σχήματα σε μια διαφάνεια.
+Το Aspose.Slides for Java παρέχει τη διεπαφή [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) για εργασία με σχήματα σε μια διαφάνεια.
 
-Όπως αναφέρθηκε προηγουμένως, κάθε κλάση σχήματος διαθέτει μια σχετική κλάση κλειδώματος σχήματος για προστασία. Αυτό το άρθρο εστιάζει στα κλειδώματα NoSelect, NoMove και NoResize. Αυτά τα κλειδώματα εξασφαλίζουν ότι τα σχήματα δεν μπορούν να επιλεγούν (μέσω κλικ του ποντικιού ή άλλων μεθόδων επιλογής) και ότι δεν μπορούν να μετακινηθούν ή να αλλάξουν μέγεθος.
+Το παράδειγμα καλεί τις [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), και [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) με `true` για αυτόματα σχήματα, με αντίστοιχα κλειδώματα για ομαδικά σχήματα, συνδέσμους και πλαίσια εικόνας. Οι σύνδεσμοι χρησιμοποιούν την [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) για κίνηση· οι ομάδες χρησιμοποιούν επίσης την [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) για περιορισμό ομαδοποίησης.
 
-Το παρακάτω δείγμα κώδικα εφαρμόζει προστασία σε όλους τους τύπους σχημάτων σε μια παρουσίαση.
+Το παράδειγμα φορτώνει μια υπάρχουσα παρουσίαση PPTX, ελέγχει τα σχήματα στη συλλογή σχημάτων κάθε διαφάνειας και αποθηκεύει ένα αντίγραφο με εφαρμοσμένους αυτούς τους περιορισμούς. Τα σχήματα εκτός των τεσσάρων επεξεργαζόμενων τύπων παραμένουν αμετάβλητα. Η επανάληψη δεν διασχίζει τα παιδικά σχήματα εντός μιας ομάδας.
 
 ```java
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Sample.pptx");
-
-// Διέλευση όλων των διαφανειών στην παρουσίαση.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Διέλευση όλων των σχημάτων στη διαφάνεια.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Μετατροπή του σχήματος σε αυτόματο σχήμα και λήψη του κλειδώματος του σχήματος.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(true);
-            autoShapeLock.setSelectLocked(true);
-            autoShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IGroupShape) {
-            // Μετατροπή του σχήματος σε ομαδοποιημένο σχήμα και λήψη του κλειδώματος του σχήματος.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(true);
-            groupShapeLock.setPositionLocked(true);
-            groupShapeLock.setSelectLocked(true);
-            groupShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IConnector) {
-            // Μετατροπή του σχήματος σε σχήμα σύνδεσμου και λήψη του κλειδώματος του σχήματος.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(true);
-            connectorShapeLock.setSelectLocked(true);
-            connectorShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IPictureFrame) {
-            // Μετατροπή του σχήματος σε πλαίσιο εικόνας και λήψη του κλειδώματος του σχήματος.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(true);
-            pictureFrameLock.setSelectLocked(true);
-            pictureFrameLock.setSizeLocked(true);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(true);
+                autoShapeLock.setSelectLocked(true);
+                autoShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(true);
+                groupShapeLock.setPositionLocked(true);
+                groupShapeLock.setSelectLocked(true);
+                groupShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(true);
+                connectorShapeLock.setSelectLocked(true);
+                connectorShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(true);
+                pictureFrameLock.setSelectLocked(true);
+                pictureFrameLock.setSizeLocked(true);
+            }
         }
     }
-}
 
-// Αποθήκευση του αρχείου παρουσίασης.
-presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Αφαίρεση Προστασίας**
 
-Για να ξεκλειδώσετε ένα σχήμα, ορίστε την τιμή του εφαρμόζουσας κλειδαριάς σε `false`. Το παρακάτω δείγμα κώδικα δείχνει πώς να ξεκλειδώσετε σχήματα σε μια κλειδωμένη παρουσίαση.
+Για να αφαιρέσετε ένα κλείδωμα σχήματος, ορίστε την τιμή του σε `false`. Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση με κλειδώματα σχημάτων και καθαρίζει τους περιορισμούς επιλογής, κίνησης και αλλαγής μεγέθους μέσω των [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/), και [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Αφαιρεί επίσης τον περιορισμό ομαδοποίησης περνώντας `false` στη [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) και αποθηκεύει ένα αντίγραφο της παρουσίασης. Οι άλλες ρυθμίσεις κλειδωμάτων παραμένουν αμετάβλητες.
 
 ```java
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ProtectedSample.pptx");
-
-// Διέλευση όλων των διαφανειών στην παρουσίαση.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Διέλευση όλων των σχημάτων στη διαφάνεια.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Μετατροπή του σχήματος σε αυτόματο σχήμα και λήψη του κλειδώματος του σχήματος.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(false);
-            autoShapeLock.setSelectLocked(false);
-            autoShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IGroupShape) {
-            // Μετατροπή του σχήματος σε ομαδοποιημένο σχήμα και λήψη του κλειδώματος του σχήματος.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(false);
-            groupShapeLock.setPositionLocked(false);
-            groupShapeLock.setSelectLocked(false);
-            groupShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IConnector) {
-            // Μετατροπή του σχήματος σε σχήμα συνδέσμου και λήψη του κλειδώματος του σχήματος.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(false);
-            connectorShapeLock.setSelectLocked(false);
-            connectorShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IPictureFrame) {
-            // Μετατροπή του σχήματος σε πλαίσιο εικόνας και λήψη του κλειδώματος του σχήματος.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(false);
-            pictureFrameLock.setSelectLocked(false);
-            pictureFrameLock.setSizeLocked(false);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(false);
+                autoShapeLock.setSelectLocked(false);
+                autoShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(false);
+                groupShapeLock.setPositionLocked(false);
+                groupShapeLock.setSelectLocked(false);
+                groupShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(false);
+                connectorShapeLock.setSelectLocked(false);
+                connectorShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(false);
+                pictureFrameLock.setSelectLocked(false);
+                pictureFrameLock.setSizeLocked(false);
+            }
         }
     }
-}
 
-// Αποθήκευση του αρχείου παρουσίασης.
-presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Συμπέρασμα**
+### **Συμπέρασμα**
 
-Το Aspose.Slides προσφέρει πολλές επιλογές για την προστασία σχημάτων σε μια παρουσίαση. Μπορείτε να κλειδώσετε ένα μεμονωμένο σχήμα ή να διατρέξετε όλα τα σχήματα σε μια παρουσίαση και να κλειδώσετε καθένα για να ασφαλίσετε αποτελεσματικά ολόκληρο το αρχείο. Μπορείτε να αφαιρέσετε την προστασία ορίζοντας την τιμή του κλειδώματος σε `false`.
+Το Aspose.Slides for Java σας επιτρέπει να περιορίσετε συγκεκριμένες λειτουργίες επεξεργασίας σε μεμονωμένα σχήματα ή να εφαρμόσετε τους ίδιους περιορισμούς σε όλες τις διαφάνειες. Επιλέξτε τα κλειδώματα που υποστηρίζονται από κάθε τύπο σχήματος και ορίστε τις τιμές τους σε `false` όταν χρειάζεται να αφαιρέσετε αυτούς τους περιορισμούς.
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **FAQ**
 
-**Μπορώ να συνδυάσω τα κλειδώματα σχήματος και την προστασία με κωδικό σε μια ίδια παρουσίαση;**
+**Μπορώ να συνδυάσω κλειδώματα σχήματος και προστασία με κωδικό στην ίδια παρουσίαση;**
 
-Ναι. Τα κλειδώματα περιορίζουν την επεξεργασία των αντικειμένων μέσα στο αρχείο, ενώ η [προστασία με κωδικό](/slides/el/java/password-protected-presentation/) ελέγχει την πρόσβαση στο άνοιγμα και/ή στην αποθήκευση αλλαγών. Αυτοί οι μηχανισμοί συμπληρώνουν ο ένας τον άλλο και λειτουργούν μαζί.
+Ναι. Τα κλειδώματα σχήματος περιορίζουν συγκεκριμένες λειτουργίες επεξεργασίας, ενώ η [προστασία με κωδικό](/slides/el/java/password-protected-presentation/) μπορεί να περιορίσει το άνοιγμα ή την τροποποίηση της παρουσίασης. Μπορείτε να χρησιμοποιήσετε και τα δύο στο ίδιο αρχείο.
 
-**Μπορώ να περιορίσω την επεξεργασία σε συγκεκριμένες διαφάνειες χωρίς να επηρεάσω τις άλλες;**
+**Μπορώ να περιορίσω την επεξεργασία σε συγκεκριμένες διαφάνειες χωρίς να επηρεάσω άλλες;**
 
-Ναι. Εφαρμόστε κλειδώματα στα σχήματα των επιλεγμένων διαφανειών· οι υπόλοιπες διαφάνειες θα παραμείνουν επεξεργάσιμες.
+Ναι. Εφαρμόστε κλειδώματα μόνο στα σχήματα των επιλεγμένων διαφανειών. Αυτό δεν αλλάζει τις ρυθμίσεις κλειδώματος σε άλλες διαφάνειες.
 
-**Ισχύουν τα κλειδώματα σχήματος για ομαδοποιημένα αντικείμενα και συνδέσμους;**
+**Πώς μπορώ να εφαρμόσω κλειδώματα σε μεμονωμένα σχήματα μέσα σε μια ομάδα;**
 
-Ναι. Υποστηρίζονται ειδικοί τύποι κλειδωμάτων για ομάδες, συνδέσμους, γραφικά αντικείμενα και άλλες κατηγορίες σχήματος.
+Περιηγηθείτε στη συλλογή που επιστρέφει η μέθοδος [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) της ομάδας και εφαρμόστε τα κατάλληλα κλειδώματα σε κάθε παιδικό σχήμα. Επαναλάβετε αυτό για οποιεσδήποτε ενσωματωμένες ομάδες. Τα παραπάνω παραδείγματα επεξεργάζονται μόνο τη συλλογή σχημάτων της διαφάνειας, επομένως δεν θέτουν κλειδώματα σε μεμονωμένα μέλη της ομάδας.

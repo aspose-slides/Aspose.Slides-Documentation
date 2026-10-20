@@ -1,213 +1,144 @@
 ---
-title: PPTX में चार्ट री‑साइज़िंग के लिए कार्यशील समाधान
+title: PPTX में चार्ट आकार बदलने के लिए कार्यशील समाधान
 type: docs
 weight: 60
 url: /hi/cpp/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- चार्ट री‑साइज़िंग
+- चार्ट आकार बदलना
 - Excel चार्ट
 - OLE ऑब्जेक्ट
 - चार्ट एम्बेड
 - PowerPoint
-- OpenDocument
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ के साथ एम्बेडेड Excel OLE ऑब्जेक्ट्स का उपयोग करने पर PPTX में अनपेक्षित चार्ट री‑साइज़िंग को ठीक करें। आकार को स्थिर रखने के लिए दो कोड विधियों को सीखें।"
+description: "Aspose.Slides for C++ के साथ एम्बेडेड Excel OLE ऑब्जेक्ट्स का उपयोग करने पर PPTX में अप्रत्याशित चार्ट आकार बदलने को ठीक करें। चार्ट और OLE फ्रेम के आकार को स्थिर रखने के लिए निश्चित चार्ट आयाम सेट करें।"
 ---
 ## **पृष्ठभूमि**
 
-यह देखा गया है कि Aspose घटकों के माध्यम से PowerPoint प्रस्तुति में OLE वस्तुओं के रूप में एम्बेड किए गए Excel चार्ट अपने पहले सक्रियण के बाद अनिर्दिष्ट स्केल में पुनः आकारित हो जाते हैं। यह व्यवहार प्रस्तुति में चार्ट की पूर्व‑और‑परिणाम सक्रियण स्थितियों के बीच एक स्पष्ट दृश्य अंतर पैदा करता है। Aspose टीम ने इस समस्या की विस्तार से जाँच की है और एक समाधान पाया है। यह लेख समस्या के कारणों और संबंधित समाधान का वर्णन करता है।
+Excel चार्ट को Aspose घटकों का उपयोग करके PowerPoint प्रस्तुतियों में OLE ऑब्जेक्ट के रूप में एम्बेड करने पर पहली सक्रियता के बाद उनका आकार बदल सकता है। इससे चार्ट के सक्रिय होने से पहले और बाद में दिखावट में स्पष्ट अंतर आ सकता है। यह लेख बताता है कि आकार बदलने का कारण क्या है और OLE फ्रेम के साथ निश्चित चार्ट आयाम मिलाकर इसे कैसे रोका जाए।
 
-In the [previous article](/slides/hi/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), we explained how to create an Excel chart with Aspose.Cells for C++ and embed it in a PowerPoint presentation using Aspose.Slides for C++. To address the [object preview issue](/slides/hi/cpp/object-preview-issue-when-adding-oleobjectframe/), we assigned the chart image to the chart’s OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the chart image, the Excel chart is activated. End users can make any desired changes in the underlying Excel workbook and then return to the corresponding slide by clicking outside the activated workbook. The size of the OLE object frame changes when the user returns to the slide, and the resizing factor varies depending on the original sizes of both the OLE object frame and the embedded Excel workbook.
+[Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/hi/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) में हमने बताया था कि Aspose.Cells for C++ का उपयोग करके Excel चार्ट कैसे बनाएं और Aspose.Slides for C++ का उपयोग करके इसे PowerPoint प्रस्तुति में कैसे एम्बेड करें। [object preview issue](/slides/hi/cpp/object-preview-issue-when-adding-oleobjectframe/) को हल करने के लिए हमने चार्ट छवि को चार्ट के OLE ऑब्जेक्ट फ्रेम में असाइन किया। आउटपुट प्रस्तुति में, जब आप चार्ट छवि दिखाने वाले OLE ऑब्जेक्ट फ्रेम पर डबल‑क्लिक करते हैं, तो Excel चार्ट सक्रिय हो जाता है। उपयोगकर्ता एम्बेडेड Excel वर्कबुक को संपादित कर सकते हैं और फिर सक्रिय वर्कबुक के बाहर क्लिक करके स्लाइड पर वापस आ सकते हैं। उपयोगकर्ता के स्लाइड पर वापस आने पर OLE ऑब्जेक्ट फ्रेम का आकार बदल जाता है, और यह परिवर्तन OLE ऑब्जेक्ट फ्रेम और एम्बेडेड Excel वर्कबुक के मूल आकारों पर निर्भर करता है।
 
-## **पुनः आकार देने का कारण**
+## **आकार बदलने का कारण**
 
-क्योंकि Excel workbook का अपना विंडो आकार होता है, यह पहले सक्रियण पर अपना मूल आकार बनाए रखने की कोशिश करता है। OLE ऑब्जेक्ट फ्रेम का अपना आकार होता है। Microsoft के अनुसार, जब Excel workbook सक्रिय किया जाता है, तो Excel और PowerPoint आकार पर बात‑चित करते हैं और एम्बेडिंग प्रक्रिया के हिस्से के रूप में सही अनुपात बनाए रखते हैं। Excel विंडो आकार और OLE ऑब्जेक्ट फ्रेम के आकार या स्थिति के बीच के अंतर के आधार पर पुनः आकार देना होता है।
+एम्बेडेड Excel वर्कबुक का अपना विंडो आयाम होता है, जिसे Excel पहली बार सक्रिय होने पर बरकरार रखने की कोशिश करता है। स्लाइड पर OLE फ्रेम का आयाम स्वतंत्र रूप से परिभाषित होता है। जब Excel वर्कबुक सक्रिय होती है, तो Excel और PowerPoint ऑब्जेक्ट के आकार को उसके अनुपात को बनाए रखने के लिए चर्चा करते हैं। वर्कबुक विंडो और OLE फ्रेम के बीच अंतर के कारण ऑब्जेक्ट का आकार बदल सकता है।
 
-## **कार्यशील समाधान**
+## **काम करने वाला समाधान**
 
-PowerPoint प्रस्तुतियों को Aspose.Slides for C++ के साथ बनाने के दो संभावित परिदृश्य हैं।
+चार्ट का आकार स्लाइड पर OLE फ्रेम से मिलाएँ और चार्ट आयाम को वर्कबुक विंडो से स्वतंत्र रखें। यह समाधान नई प्रस्तुति या मौजूदा टेम्प्लेट दोनों के साथ काम करता है।
 
-**Scenario 1:** मौजूदा टेम्पलेट के आधार पर प्रस्तुति बनाना।
+यह उदाहरण Aspose.Cells for C++ और Aspose.Slides for C++ की आवश्यकता रखता है। यह सक्रिय चार्ट शीट पर एक साधारण कॉलम चार्ट बनाता है और वर्कबुक को XLS स्वरूप में एम्बेड करता है। कोई चार्ट प्रीव्यू छवि असाइन नहीं की गई; चार्ट PowerPoint में OLE ऑब्जेक्ट सक्रिय होने पर दिखाई देता है।
 
-**Scenario 2:** शून्य से नई प्रस्तुति बनाना।
+उदाहरण कोड को अपने एप्लिकेशन एंट्री पॉइंट में रखें, जिसमें फ़ाइल स्तर पर include घोषणा शामिल हों। Aspose.Cells को उसके ऑब्जेक्ट बनाने से पहले इनिशियलाइज़ करें और उन ऑब्जेक्ट्स को नष्ट करने के बाद उसके संसाधनों को मुक्त करें। यह उदाहरण Aspose.Cells द्वारा लौटाए गए वर्कबुक बाइट वेक्टर को Aspose.Slides द्वारा स्वीकार किए गए एरे टाइप में कॉपी करता है।
 
-यहाँ प्रस्तुत किया गया समाधान दोनों परिदृश्यों पर लागू होता है। सभी समाधान दृष्टिकोणों का मूल सिद्धान्त समान है: **एम्बेडेड OLE ऑब्जेक्ट का विंडो आकार PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार के बराबर होना चाहिए**। अब हम इस समाधान के दो दृष्टिकोणों पर चर्चा करेंगे।
+यह उदाहरण 9.5 × 4‑इंच OLE फ्रेम के साथ नई प्रस्तुति बनाता है, जो बाएँ किनारे से 0.5 इंच और शीर्ष से 1 इंच पर स्थित है। स्लाइड निर्देशांक और आयाम पॉइंट्स में होते हैं (प्रति इंच 72 पॉइंट)। मौजूदा प्रस्तुति के लिए, देखें [Use a Template](#use-a-template)।
 
-## **पहला दृष्टिकोण**
+## **निश्चित चार्ट आकार सेट करना**
 
-इस दृष्टिकोण में हम सीखेंगे कि एम्बेडेड Excel workbook का विंडो आकार कैसे सेट किया जाए ताकि वह PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार के बराबर हो जाए।
-
-**Scenario 1**  
-
-मान लीजिए हमने एक टेम्पलेट परिभाषित किया है और उसके आधार पर प्रस्तुतियाँ बनाना चाहते हैं। मान लें कि टेम्पलेट में इंडेक्स 2 पर एक आकृति है जहाँ हम एक OLE फ्रेम रखना चाहते हैं जो एम्बेडेड Excel workbook रखेगा। इस परिदृश्य में OLE ऑब्जेक्ट फ्रेम का आकार पहले से निर्धारित है—यह टेम्पलेट में इंडेक्स 2 पर स्थित आकृति के आकार के बराबर है। हमें केवल workbook के विंडो आकार को उसी आकृति के आकार के बराबर सेट करना है। नीचे दिया गया कोड स्निपेट इस उद्देश्य को पूरा करता है:
+[Chart::SetSizeWithWindow](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setsizewithwindow/) को false सेट करें ताकि चार्ट आयाम वर्कबुक विंडो से स्वतंत्र रहें। [Chart::GetChartObject](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/getchartobject/) के आयाम को [Shape::SetWidth](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setwidth/) और [Shape::SetHeight](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setheight/) के माध्यम से सेट करें, पॉइंट्स को पिक्सेल में बदलते समय 96 पिक्सेल प्रति इंच का प्रयोग करें: 684 × 288 पॉइंट्स का फ्रेम 912 × 384 पिक्सेल के चार्ट के बराबर है। [Chart::SetPrintSize](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setprintsize/) को [PrintSizeType](https://reference.aspose.com/cells/cpp/aspose.cells/printsizetype/) के Custom मान पर सेट करें। उदाहरण वर्कबुक को [IShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addoleobjectframe/) से एम्बेड करता है और 9.5 × 4‑इंच OLE फ्रेम वाली प्रस्तुति सहेजता है।
 
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <algorithm>
+#include <cstdint>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+Aspose::Cells::Startup();
 {
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"Data");
+    dataSheet.GetCells().Get(u"A1").PutValue(10);
+    dataSheet.GetCells().Get(u"A2").PutValue(20);
 
-    return outputStream;
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, 20, 10);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    chart.GetNSeries().Add(u"Data!A1:A2", true);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    // स्लाइड के निर्देशांक और आयाम पॉइंट्स में हैं (प्रति इंच 72 पॉइंट्स)।
+    auto width = 684.f; // 9.5 इंच।
+    auto height = 288.f; // 4 इंच।
+
+    chart.SetSizeWithWindow(false);
+    // पॉइंट्स को चार्ट पिक्सेल में बदलें, 96 पिक्सेल प्रति इंच का उपयोग करके।
+    chart.GetChartObject().SetWidth(static_cast<int32_t>(width / 72.f * 96.f));
+    chart.GetChartObject().SetHeight(static_cast<int32_t>(height / 72.f * 96.f));
+    chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
+
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
+    // Cells बाइट वेक्टर को Slides द्वारा स्वीकार किए गए एरे प्रकार में कॉपी करें।
+    auto workbookBytes = System::MakeArray<uint8_t>(workbookData.GetLength(), 0);
+    std::copy(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength(), workbookBytes->data_ptr());
+    auto dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xls");
+    slide->get_Shapes()->AddOleObjectFrame(36, 72, width, height, dataInfo);
+
+    presentation->Save(u"chart-fixed-size.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
 }
+Aspose::Cells::Cleanup();
 ```
 
-```cpp
-// विंडो के साथ चार्ट का आकार निर्धारित करें। 
-chart->SetSizeWithWindow(true);
+## **टेम्प्लेट का उपयोग करें**
 
-auto shape = slide->get_Shape(2);
+मौजूदा प्रस्तुति के लिए आकार निर्धारण तर्क समान है। उदाहरण को अनुकूलित करने के लिए:
 
-// वर्कबुक की विंडो चौड़ाई को इंच में सेट करें (PowerPoint प्रत्येक इंच में 72 पिक्सेल उपयोग करता है, इसलिए 72 से विभाजित)।
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
+1. खाली प्रस्तुति बनाकर नहीं, बल्कि टेम्प्लेट प्रस्तुति लोड करें।
+2. सुनिश्चित करें कि पहली स्लाइड में कम से कम तीन शैप्स हों, फिर इंडेक्स 2 पर स्थित शैप को प्लेसहोल्डर के रूप में उपयोग करें।
+3. निश्चित मान 684 और 288 के बजाय उस शैप से फ्रेम की चौड़ाई और ऊँचाई प्राप्त करें। आकार गणना को अपरिवर्तित रखें।
+4. प्लेसहोल्डर की स्थिति पर OLE फ्रेम जोड़ें, न कि निश्चित निर्देशांक 36 और 72 पर।
+5. प्रस्तुति सहेजने से पहले प्लेसहोल्डर को हटा दें।
 
-// वर्कबुक की विंडो ऊँचाई को इंच में सेट करें।
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
+**मेरे एम्बेडेड Excel चार्ट का आकार PowerPoint में सक्रिय करने के बाद क्यों बदल जाता है?**
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+यह इसलिए होता है क्योंकि Excel पहली बार सक्रिय होने पर मूल विंडो आकार पुनर्स्थापित करने की कोशिश करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ्रेम का अपना आयाम होता है। PowerPoint और Excel अनुपात बनाए रखने के लिए आकार पर बातचीत करते हैं, जिससे आकार परिवर्तन हो सकता है।
 
-// एम्बेडेड Excel डेटा के साथ एक OLE ऑब्जेक्ट फ्रेम बनाएं।
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(), 
-    shape->get_Height(),
-    dataInfo);
-```
+**मैं चार्ट और OLE फ्रेम के आकार को कैसे स्थिर रख सकता हूँ?**
 
-**Scenario 2**  
+निश्चित चार्ट आयाम सेट करें जो OLE फ्रेम से मेल खाते हों और वर्कबुक एम्बेड करने से पहले कस्टम चार्ट प्रिंट आकार का प्रयोग करें। ऊपर दिया गया उदाहरण आवश्यक सेटिंग्स और इकाई रूपांतरण दिखाता है।
 
-मान लीजिए हम शून्य से एक नई प्रस्तुति बनाना चाहते हैं और किसी भी आकार के OLE ऑब्जेक्ट फ्रेम के साथ एम्बेडेड Excel workbook शामिल करना चाहते हैं। नीचे दिए गए कोड स्निपेट में हम स्लाइड पर x = 0.5 इंच और y = 1 इंच पर 4 इंच ऊँचा और 9.5 इंच चौड़ा OLE ऑब्जेक्ट फ्रेम बनाते हैं। फिर हम Excel workbook की विंडो को उसी आकार—4 इंच ऊँचा और 9.5 इंच चौड़ा—पर सेट करते हैं।
+**क्या केवल वर्कबुक विंडो आकार मिलाना पर्याप्त है?**
 
-```cpp
-// हमारी इच्छित ऊँचाई।
-int32_t desiredHeight = 288; // 4 इंच (4 * 72)
+केवल वर्कबुक विंडो आकार मिलाना OLE फ्रेम के सक्रिय होने के बाद आकार बदलने को विश्वसनीय रूप से रोकता नहीं है। उदाहरण में दिखाए गए अनुसार निश्चित चार्ट आयाम उपयोग करें।
 
-// हमारी इच्छित चौड़ाई।
-int32_t desiredWidth = 684; // 9.5 इंच (9.5 * 72)
+**क्या यह समाधान टेम्प्लेट‑आधारित और नई दोनों प्रस्तुतियों के साथ काम करता है?**
 
-// विंडो के साथ चार्ट का आकार निर्धारित करें। 
-chart->SetSizeWithWindow(true);
+हाँ। टेम्प्लेट के लिए प्लेसहोल्डर के आयाम और स्थिति उपयोग करें। नई प्रस्तुति के लिए फ्रेम के आयाम और स्थिति सीधे निर्दिष्ट करें।
 
-// वर्कबुक की विंडो चौड़ाई को इंच में सेट करें।
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
+**क्या मैं इस उदाहरण को अन्य स्प्रेडशीट प्रोग्रामों में बने चार्ट के साथ उपयोग कर सकता हूँ?**
 
-// वर्कबुक की विंडो ऊँचाई को इंच में सेट करें।
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
-
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएँ।
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f,
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-## **दूसरा दृष्टिकोण**
-
-इस दृष्टिकोण में हम सीखेंगे कि एम्बेडेड Excel workbook में चार्ट का आकार कैसे सेट किया जाए ताकि वह PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार के बराबर हो जाए। यह दृष्टिकोण तब उपयोगी है जब चार्ट का आकार प्रारम्भ में ही ज्ञात हो और बाद में नहीं बदलेगा।
-
-**Scenario 1**  
-
-मान लीजिए हमने एक टेम्पलेट परिभाषित किया है और उसके आधार पर प्रस्तुतियाँ बनाना चाहते हैं। मान लें कि टेम्पलेट में इंडेक्स 2 पर एक आकृति है जहाँ हम एक OLE फ्रेम रखना चाहते हैं जो एम्बेडेड Excel workbook रखेगा। इस परिदृश्य में OLE फ्रेम का आकार पहले से निर्धारित है—यह टेम्पलेट में इंडेक्स 2 पर स्थित आकृति के आकार के बराबर है। हमें केवल workbook में चार्ट का आकार उसी आकृति के आकार के बराबर सेट करना है। नीचे दिया गया कोड स्निपेट इस उद्देश्य को पूरा करता है:
-
-```cpp
-// विंडो के बिना चार्ट का आकार निर्धारित करें। 
-chart->SetSizeWithWindow(false);
-
-auto shape = slide->get_Shape(2);
-
-// पिक्सेल में चार्ट की चौड़ाई सेट करें (Excel प्रति इंच 96 पिक्सेल उपयोग करता है, इसलिए 96 से गुणा करें)।    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
-
-// पिक्सेल में चार्ट की ऊँचाई सेट करें।
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
-
-// चार्ट का प्रिंट आकार निर्धारित करें।
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
-
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(),
-    shape->get_Height(),
-    dataInfo);
-```
-
-**Scenario 2**  
-
-मान लीजिए हम शून्य से नई प्रस्तुति बनाना चाहते हैं और किसी भी आकार के OLE ऑब्जेक्ट फ्रेम के साथ एम्बेडेड Excel workbook शामिल करना चाहते हैं। नीचे दिए गए कोड स्निपेट में हम स्लाइड पर x = 0.5 इंच और y = 1 इंच पर 4 इंच ऊँचा और 9.5 इंच चौड़ा OLE ऑब्जेक्ट फ्रेम बनाते हैं। फिर हम सम्बंधित चार्ट का आकार भी वही—4 इंच ऊँचा और 9.5 इंच चौड़ा—सेट करते हैं:
-
-```cpp
-// हमारी इच्छित ऊँचाई।
-int32_t desiredHeight = 288; // 4 इंच (4 * 576)
-
-// हमारी इच्छित चौड़ाई।
-int32_t desiredWidth = 684; // 9.5 इंच(9.5 * 576)
-
-// विंडो के बिना चार्ट का आकार निर्धारित करें। 
-chart->SetSizeWithWindow(false);
-
-// पिक्सेल में चार्ट की चौड़ाई सेट करें।    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
-
-// पिक्सेल में चार्ट की ऊँचाई सेट करें।
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
-
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f, 
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-## **निष्कर्ष**
-
-चार्ट‑रीसाइज़िंग समस्या को ठीक करने के दो दृष्टिकोण हैं। किस दृष्टिकोण को अपनाना है यह आवश्यकताओं और उपयोग के मामलों पर निर्भर करता है। दोनों दृष्टिकोण समान रूप से काम करते हैं, चाहे प्रस्तुतियाँ टेम्पलेट से बनायीँ गई हों या शून्य से बनाई गई हों। साथ ही इस समाधान में OLE ऑब्जेक्ट फ्रेम के आकार पर कोई प्रतिबंध नहीं है।
-
-## **FAQ**
-
-**मेरे एम्बेडेड Excel चार्ट का आकार PowerPoint में सक्रिय करने के बाद क्यों बदल जाता है?**  
-यह इसलिए होता है क्योंकि Excel पहले सक्रियण पर अपना मूल विंडो आकार पुनः स्थापित करने की कोशिश करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ्रेम की अपनी माप होती है। PowerPoint और Excel आकार पर बातचीत करते हैं ताकि अनुपात बना रहे, जिससे री‑साइज़िंग हो सकती है।
-
-**क्या इस री‑साइज़िंग समस्या को पूरी तरह रोकना संभव है?**  
-हाँ। एम्बेड करने से पहले Excel workbook के विंडो आकार या चार्ट आकार को OLE ऑब्जेक्ट फ्रेम के आकार के बराबर करके आप चार्ट के आकार को स्थिर रख सकते हैं।
-
-**कौन‑सा दृष्टिकोण चुनूँ, workbook विंडो आकार सेट करना या चार्ट आकार सेट करना?**  
-यदि आप workbook के अनुपात को बनाए रखना चाहते हैं और बाद में पुनः आकार देने की संभावना रखना चाहते हैं तो **Approach 1 (विंडो आकार)** उपयोग करें।  
-यदि चार्ट के आयाम स्थिर हैं और एम्बेड करने के बाद नहीं बदलेंगे तो **Approach 2 (चार्ट आकार)** उपयोग करें।
-
-**क्या ये विधियाँ टेम्पलेट‑आधारित प्रस्तुतियों और नई प्रस्तुतियों दोनों पर काम करेंगी?**  
-हाँ। दोनों दृष्टिकोण टेम्पलेट से बनाई गई प्रस्तुतियों और शून्य से बनाई गई प्रस्तुतियों दोनों पर समान रूप से काम करते हैं।
-
-**OLE ऑब्जेक्ट फ्रेम के आकार पर कोई सीमा है क्या?**  
-नहीं। आप OLE फ्रेम को कोई भी आकार दे सकते हैं, बशर्ते वह workbook या चार्ट के आकार के साथ उचित比例 में स्केल हो।
-
-**क्या मैं इन विधियों को अन्य स्प्रेडशीट प्रोग्राम में बनाये गए चार्ट पर लागू कर सकता हूँ?**  
-उदाहरण Excel चार्ट के लिए Aspose.Cells के साथ तैयार किए गए हैं, लेकिन सिद्धान्त उन अन्य OLE‑संगत स्प्रेडशीट प्रोग्राम पर भी लागू होते हैं जो समान आकार निर्धारण विकल्पों का समर्थन करते हैं।
+उदाहरण Excel वर्कबुक (Aspose.Cells से निर्मित) को उपयोग करता है। यह अन्य स्प्रेडशीट प्रोग्रामों के सक्रियण व्यवहार को दर्शाता नहीं है।
 
 ## **संबंधित अनुभाग**
 

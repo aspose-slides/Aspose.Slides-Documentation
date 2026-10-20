@@ -1,154 +1,175 @@
 ---
-title: Maak Excel grafieken en embed ze in presentaties als OLE objecten
+title: Maak Excel-diagrammen en embed ze in presentaties als OLE-objecten
 type: docs
 weight: 30
 url: /nl/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Excel grafiek
-- grafiek insluiten
-- OLE object
+- Excel-diagram
+- diagram insluiten
+- OLE-object
 - PowerPoint
-- OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Maak Excel grafieken en embed ze als OLE objecten in PowerPoint- en OpenDocument-presentaties met Java. Stapsgewijze handleiding met codevoorbeelden."
+description: "Maak een Excel-diagram met Aspose.Cells voor Java en embed de werkmap in een PowerPoint-presentatie met Aspose.Slides, inclusief een diagrampreview."
 ---
-## **Achtergrond**
+## **Overzicht**
 
-In PowerPoint is het gebruik van bewerkbare grafieken om gegevens grafisch weer te geven een gangbare praktijk. Aspose ondersteunt het maken van Excel‑grafieken met Aspose.Cells voor Java, en deze grafieken kunnen vervolgens worden ingesloten als OLE‑objecten in PowerPoint‑dia's via Aspose.Slides voor Java. Dit artikel behandelt de benodigde stappen en biedt Java‑codevoorbeelden voor het maken van een Excel‑grafiek en het insluiten ervan als OLE‑object in een PowerPoint‑presentatie met behulp van Aspose.Cells en Aspose.Slides.
+Dit artikel laat zien hoe u een Excel‑kolomdiagram maakt met Aspose.Cells voor Java en de bijbehorende werkmap in een PowerPoint‑presentatie opneemt met Aspose.Slides voor Java. De ingebedde werkmap bevat zowel de brongegevens als het diagram. Een afzonderlijke PNG‑preview toont het diagram op de dia voordat het OLE‑object wordt geactiveerd.
 
-## **Vereiste stappen**
+Het resultaat is een ingebed Excel‑object, geen native PowerPoint‑diagram. Het bewerken van de werkmap via OLE vereist een desktop‑applicatie die OLE‑activatie ondersteunt en een compatibele Excel‑installatie.
 
-De volgende reeks stappen is vereist om een Excel‑grafiek te maken en in te sluiten als OLE‑object in een PowerPoint‑dia:
+## **Voorvereisten**
 
-1. Maak een Excel‑grafiek met Aspose.Cells.
-1. Stel de OLE‑grootte van de Excel‑grafiek in met Aspose.Cells.
-1. Haal een afbeelding van de Excel‑grafiek op met Aspose.Cells.
-1. Sluit de Excel‑grafiek in als OLE‑object in een PPTX‑presentatie met Aspose.Slides.
-1. Vervang de afbeelding "EMBEDDED OLE OBJECT" door de afbeelding die is verkregen in stap 3 om het [probleem met object preview](/slides/nl/java/object-preview-issue-when-adding-oleobjectframe/) op te lossen.
-1. Sla de presentatie op schijf op in PPTX‑formaat.
+Voeg Aspose.Cells voor Java en Aspose.Slides voor Java toe aan de afhankelijkheden van uw project. Voer het voorbeeld uit binnen een Java‑methode. Microsoft Office is niet vereist om de presentatie te genereren met deze bibliotheken.
 
-## **Implementatie van de vereiste stappen**
+Er zijn geen invoerbestanden nodig: het voorbeeld maakt de gegevens en het diagram in het geheugen, en schrijft vervolgens `OutputChart.pptx` naar de huidige werkmap. Pas licenties toe voor beide producten wanneer u buiten de evaluatiemodus werkt.
 
-De Java‑implementatie van de bovenstaande stappen is als volgt:
+## **Hoe het insluiten werkt**
 
-```java
-// Maak een werkmap.
-Workbook workbook = new Workbook();
+1. Maak een werkmap met een gegevenswerkblad en een diagramblad.
+1. Maak het diagramblad actief zodat de werkmap opent op het diagram.
+1. Stel het OLE‑weergavebereik van de werkmap in en render het diagram naar PNG.
+1. Sla de werkmap op als XLSX in het geheugen en embed die bytes in een dia.
+1. Wijs de PNG toe als preview van het OLE‑object en sla de presentatie op als PPTX.
 
-// Voeg een Excel-grafiek toe.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+Het weergavebereik van de werkmap en het kader op de dia hebben verschillende rollen. [setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) neemt nul‑gebaseerde start/eind‑rij‑ en kolom‑indices. [ChartCollection.add](https://reference.aspose.com/cells/java/com.aspose.cells/chartcollection/#add-int-int-int-int-int-) neemt daarentegen de bovenste rij, linkerkolom, onderste rij en rechterkolom. Het voorbeeld gebruikt rij‑index 55 en kolom‑index 25 als de rechter‑onder‑grenzen; deze waarden zijn layout‑keuzes, niet het aantal gegevensrijen of -kolommen.
 
-// Stel de OLE-grootte van de grafiek in.
-workbook.getWorksheets().setOleSize(0, chartRows, 0, chartCols);
+Het dia‑kader gebruikt punten. Het voorbeeld past het binnen de dia en centreert het, terwijl de beeldverhouding van de PNG behouden blijft, in plaats van de preview uit te rekken om de dia te vullen.
 
-// Haal de afbeelding van de grafiek op en sla deze op in een stream.
-com.aspose.cells.ImageOrPrintOptions printOptions = new com.aspose.cells.ImageOrPrintOptions();
-printOptions.setImageFormat(com.aspose.cells.ImageFormat.getPng());
-ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
-workbook.getWorksheets().get(chartSheetIndex).getCharts().get(0).toImage(imageStream, printOptions);
+## **Maak en embed het diagram**
 
-// Sla de werkmap op in een stream.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream(); 
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
+Het volgende volledige voorbeeld vult `DataSheet` met vier rijen en vijf kolommen met waarden. Elke rij wordt een diagramreeks. `ChartSheet` wordt geselecteerd als het actieve blad voordat de werkmap wordt opgeslagen.
 
-// Maak een presentatie.
-Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Voeg de werkmap toe aan een dia.
-AddExcelChartInPresentation(presentation, slide, workbookStream.toByteArray(), imageStream.toByteArray());
-
-// Sla de presentatie op schijf.
-presentation.save("OutputChart.pptx", SaveFormat.Pptx);
-presentation.dispose();
-```
+De werkmap wordt expliciet opgeslagen als XLSX, overeenkomend met de `xlsx`‑extensie die wordt doorgegeven aan [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/oleembeddeddatainfo/). De PNG wordt rechtstreeks uit de bytes geladen zonder een tussenliggende bitmap‑conversie. Het toewijzen via [getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) vervangt de standaard OLE‑placeholder.
 
 ```java
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
-{
-    double oleHeight = presentation.getSlideSize().getSize().getHeight();
-    double oleWidth = presentation.getSlideSize().getSize().getWidth();
- 
-    // Maak een EXCEL_97_TO_2003 LoadOptions-object aan.
-    com.aspose.cells.LoadOptions loadOptions = new com.aspose.cells.LoadOptions(com.aspose.cells.FileFormatType.EXCEL_97_TO_2003);         
-    Workbook workbook = new Workbook(new ByteArrayInputStream(workbookArray),loadOptions);
- 
-    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, "Excel.Sheet.8", workbookArray);
-    oleFrame.getSubstitutePictureFormat().getPicture().setImage(presentation.getImages().addImage(new ByteArrayInputStream(chartImage)));
-}
-```
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import static com.aspose.cells.SaveFormat.XLSX;
+import static com.aspose.slides.SaveFormat.Pptx;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.IImage;
+import com.aspose.slides.Images;
+import com.aspose.slides.IOleObjectFrame;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayOutputStream;
 
-```java
-static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
-{
-    // Een array van celnamen.
-    String[] cellNames = new String[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+try {
+    Workbook workbook = new Workbook();
+    try {
+        Worksheet dataSheet = workbook.getWorksheets().get(0);
+        dataSheet.setName("DataSheet");
 
-    // Een array van celwaarden.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
+        int[][] values = {
+            { 67, 44, 46, 43, 24 },
+            { 86, 64, 97, 29, 40 },
+            { 68, 89, 78, 69, 38 },
+            { 91, 48, 60, 26, 25 }
+        };
 
-    // Voeg een nieuw werkblad toe om cellen te vullen met gegevens.
-    int dataSheetIndex = workbook.getWorksheets().add();
-    Worksheet dataSheet = workbook.getWorksheets().get(dataSheetIndex);
-    String sheetName = "DataSheet";
-    dataSheet.setName(sheetName);
+        for (int row = 0; row < values.length; row++) {
+            for (int column = 0; column < values[row].length; column++) {
+                dataSheet.getCells().get(row, column).putValue(values[row][column]);
+            }
+        }
 
-    // Vul het gegevensblad met gegevens.
-    int size = Array.getLength(cellNames);
-    for (int i = 0; i < size; i++)
-    {
-        String cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.getCells().get(cellName).setValue(cellValue);
+        int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+        Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+        chartSheet.setName("ChartSheet");
+
+        int lastChartRow = 55;
+        int lastChartColumn = 25;
+        int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, lastChartRow, lastChartColumn);
+        Chart chart = chartSheet.getCharts().get(chartIndex);
+        for (int row = 1; row <= values.length; row++) {
+            chart.getNSeries().add("DataSheet!A" + row + ":E" + row, false);
+        }
+
+        workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+        workbook.getWorksheets().setOleSize(0, lastChartRow, 0, lastChartColumn);
+
+        // Render de diagrampreview en serialiseer de bewerkbare werkmap afzonderlijk.
+        ImageOrPrintOptions imageOptions = new ImageOrPrintOptions();
+        imageOptions.setImageType(ImageType.PNG);
+        ByteArrayOutputStream chartImageStream = new ByteArrayOutputStream();
+        chart.toImage(chartImageStream, imageOptions);
+        byte[] chartImageBytes = chartImageStream.toByteArray();
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, XLSX);
+        byte[] workbookBytes = workbookStream.toByteArray();
+
+        IImage chartImage = Images.fromData(chartImageBytes);
+        try {
+            Presentation presentation = new Presentation();
+            try {
+                ISlide slide = presentation.getSlides().get_Item(0);
+                double slideWidth = presentation.getSlideSize().getSize().getWidth();
+                double slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+                // Pas de preview aan binnen de dia zonder de beeldverhouding te wijzigen.
+                double scale = Math.min(slideWidth / chartImage.getWidth(), slideHeight / chartImage.getHeight());
+                float frameWidth = (float) (chartImage.getWidth() * scale);
+                float frameHeight = (float) (chartImage.getHeight() * scale);
+                float frameX = (float) ((slideWidth - frameWidth) / 2);
+                float frameY = (float) ((slideHeight - frameHeight) / 2);
+
+                OleEmbeddedDataInfo embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+                IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+                IPPImage previewImage = presentation.getImages().addImage(chartImage);
+                oleFrame.getSubstitutePictureFormat().getPicture().setImage(previewImage);
+
+                presentation.save("OutputChart.pptx", Pptx);
+            } finally {
+                presentation.dispose();
+            }
+        } finally {
+            chartImage.dispose();
+        }
+    } finally {
+        workbook.dispose();
     }
-
-    // Voeg een diagramblad toe.
-    int worksheetIndex = workbook.getWorksheets().add(SheetType.CHART);
-    Worksheet chartSheet = workbook.getWorksheets().get(worksheetIndex);
-    chartSheet.setName("ChartSheet");
-    int chartSheetIndex = chartSheet.getIndex();
-
-    // Voeg een diagram toe aan het diagramblad met gegevensreeksen van het gegevensblad.
-    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, chartRows, 0, chartCols);
-    Chart chart = chartSheet.getCharts().get(chartIndex);
-    
-    chart.getNSeries().add(sheetName + "!A1:E1", false);
-    chart.getNSeries().add(sheetName + "!A2:E2", false);
-    chart.getNSeries().add(sheetName + "!A3:E3", false);
-    chart.getNSeries().add(sheetName + "!A4:E4", false);
-
-    // Stel het diagramblad in als actief blad.
-    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
-    return chartSheetIndex;
+} catch (Exception exception) {
+    System.err.println("Could not create the presentation: " + exception.getMessage());
 }
 ```
 
-De presentatie die met de bovenstaande methode wordt gemaakt, bevat de Excel‑grafiek als OLE‑object dat kan worden geactiveerd door dubbel te klikken op het OLE‑objectframe.
+## **Verwacht resultaat**
 
-## **Conclusie**
+`OutputChart.pptx` bevat één dia met een ingebedde Excel‑werkmap en een diagram‑preview. De werkmap bevat de oorspronkelijke gegevens en een kolomdiagram met vier reeksen. De preview staat gecentreerd op de dia en behoudt zijn verhoudingen.
 
-Door Aspose.Cells voor Java samen met Aspose.Slides voor Java te gebruiken, kunnen we elke door Aspose.Cells ondersteunde Excel‑grafiek maken en de grafiek als OLE‑object in een PowerPoint‑dia insluiten. De OLE‑grootte van de Excel‑grafiek kan ook worden gedefinieerd. Eindgebruikers kunnen vervolgens de Excel‑grafiek bewerken zoals elk ander OLE‑object.
+![Excel‑kolomdiagram weergegeven als preview van een ingebedde werkmap](excel-chart-ole-preview.png)
+
+In een compatibele desktop‑PowerPoint‑omgeving met Excel beschikbaar, dubbelklikt u op het object om het te activeren en de ingebedde werkmap te bewerken. Activatie en bewerking hangen af van de OLE‑ondersteuning en de beveiligingsinstellingen van de host‑applicatie.
+
+## **Veelgestelde vragen**
+
+**Waarom is een preview‑afbeelding nodig?**
+
+De ingebedde werkmap en de dia‑preview zijn afzonderlijke inhoud. Voorzie een diagramafbeelding zodat de dia het diagram toont in plaats van de standaard “EMBEDDED OLE OBJECT”‑placeholder. Zie [Probleem met preview van object bij toevoegen van OleObjectFrame](/slides/nl/java/object-preview-issue-when-adding-oleobjectframe/).
+
+**Werkt de preview automatisch bij als ik de werkmap in code wijzig?**
+
+Beschouw de preview als een momentopname. Wanneer u de werkmapgegevens programmatisch bijwerkt, moet u de diagramafbeelding opnieuw genereren en zowel de preview als de ingebedde werkmapgegevens vervangen.
+
+**Kan ik XLS in plaats van XLSX gebruiken?**
+
+Ja. Sla de werkmap op in XLS‑formaat en gebruik `xls` als de extensie voor de ingebedde gegevens. De extensie moet overeenkomen met het daadwerkelijke werkmapformaat; alleen de extensie wijzigen converteert de gegevens niet.
+
+**Waarom kan het object van formaat veranderen na activatie?**
+
+De host‑applicatie kan de weergave van het OLE‑object bijwerken wanneer ze de werkmap activeert. Het OLE‑weergavebereik van de werkmap en de afmetingen van het dia‑kader zijn beide relevant. Zie [Werkende oplossing voor diagramschaling in PPTX](/slides/nl/java/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Gerelateerde secties**
 
-- [Werkende oplossing voor het aanpassen van grafiekgrootte in PPTX](/slides/nl/java/working-solution-for-chart-resizing-in-pptx/)
-- [Probleem met object preview bij het toevoegen van OleObjectFrame](/slides/nl/java/object-preview-issue-when-adding-oleobjectframe/)
-- [OLE-objecten automatisch bijwerken met een PowerPoint‑add‑in](/slides/nl/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Werkende oplossing voor diagramschaling in PPTX](/slides/nl/java/working-solution-for-chart-resizing-in-pptx/)
+- [Probleem met preview van object bij toevoegen van OleObjectFrame](/slides/nl/java/object-preview-issue-when-adding-oleobjectframe/)
+- [OLE‑objecten automatisch bijwerken met een PowerPoint‑add‑in](/slides/nl/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

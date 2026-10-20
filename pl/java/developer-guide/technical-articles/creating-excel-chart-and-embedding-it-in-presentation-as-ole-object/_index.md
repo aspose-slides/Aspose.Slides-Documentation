@@ -1,5 +1,5 @@
 ---
-title: Tworzenie wykresów Excel i osadzanie ich w prezentacjach jako obiekty OLE
+title: Utwórz wykresy Excel i osadź je w prezentacjach jako obiekty OLE
 type: docs
 weight: 30
 url: /pl/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
@@ -8,147 +8,168 @@ keywords:
 - osadź wykres
 - obiekt OLE
 - PowerPoint
-- OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Tworzenie wykresów Excel i osadzanie ich jako obiekty OLE w prezentacjach PowerPoint i OpenDocument przy użyciu Java. Przewodnik krok po kroku z przykładami kodu."
+description: "Utwórz wykres Excel za pomocą Aspose.Cells for Java i osadź skoroszyt w prezentacji PowerPoint przy użyciu Aspose.Slides, wraz z podglądem wykresu."
 ---
-## **Tło**
+## **Przegląd**
 
-W programie PowerPoint używanie edytowalnych wykresów do graficznego wyświetlania danych jest powszechną praktyką. Aspose obsługuje tworzenie wykresów Excel przy użyciu Aspose.Cells for Java, a te wykresy mogą być następnie osadzane jako obiekty OLE na slajdach PowerPoint za pośrednictwem Aspose.Slides for Java. Ten artykuł opisuje niezbędne kroki i zawiera przykłady kodu Java do tworzenia wykresu Excel i osadzania go jako obiektu OLE w prezentacji PowerPoint przy użyciu Aspose.Cells i Aspose.Slides.
+Ten artykuł pokazuje, jak utworzyć wykres kolumnowy Excel za pomocą Aspose.Cells for Java i osadzić jego skoroszyt w prezentacji PowerPoint przy użyciu Aspose.Slides for Java. Osadzony skoroszyt zawiera zarówno dane źródłowe, jak i wykres. Oddzielny podgląd PNG wyświetla wykres na slajdzie przed aktywacją obiektu OLE.
 
-## **Wymagane kroki**
+Wynikiem jest osadzony obiekt Excel, a nie natywny wykres PowerPoint. Edycja skoroszytu za pomocą OLE wymaga aplikacji komputerowej, która obsługuje aktywację OLE i kompatybilnej instalacji Excel.
 
-Poniższa kolejność kroków jest wymagana do utworzenia i osadzenia wykresu Excel jako obiektu OLE na slajdzie PowerPoint:
+## **Wymagania wstępne**
 
-1. Utwórz wykres Excel przy użyciu Aspose.Cells.
-1. Ustaw rozmiar OLE wykresu Excel przy użyciu Aspose.Cells.
-1. Uzyskaj obraz wykresu Excel przy użyciu Aspose.Cells.
-1. Osadź wykres Excel jako obiekt OLE w prezentacji PPTX przy użyciu Aspose.Slides.
-1. Zastąp obraz „EMBEDDED OLE OBJECT” obrazem uzyskanym w kroku 3, aby rozwiązać problem [problem podglądu obiektu](/slides/pl/java/object-preview-issue-when-adding-oleobjectframe/).
-1. Zapisz prezentację na dysku w formacie PPTX.
+Dodaj Aspose.Cells for Java oraz Aspose.Slides for Java do zależności projektu. Uruchom przykład wewnątrz metody Java. Microsoft Office nie jest wymagany do generowania prezentacji przy użyciu tych bibliotek.
 
-## **Implementacja wymaganych kroków**
+Żadne pliki wejściowe nie są wymagane: przykład tworzy dane i wykres w pamięci, a następnie zapisuje `OutputChart.pptx` w bieżącym katalogu roboczym. Zastosuj licencje dla obu produktów, gdy uruchamiasz poza trybem oceny.
 
-Implementacja w Javie powyższych kroków wygląda następująco:
+## **Jak działa osadzanie**
 
-```java
-// Utwórz skoroszyt.
-Workbook workbook = new Workbook();
+1. Utwórz skoroszyt z arkuszem danych i arkuszem wykresu.
+1. Ustaw arkusz wykresu jako aktywny, aby skoroszyt otwierał się na wykresie.
+1. Ustaw zakres wyświetlania OLE skoroszytu i wygeneruj wykres jako PNG.
+1. Zapisz skoroszyt jako XLSX w pamięci i osadź te bajty na slajdzie.
+1. Przypisz PNG jako podgląd obiektu OLE i zapisz prezentację jako PPTX.
 
-// Dodaj wykres Excel.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+Zakres wyświetlania skoroszytu i ramka na slajdzie mają różne role. [setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) przyjmuje indeksy wierszy i kolumn początkowych/końcowych zaczynające się od zera. [ChartCollection.add](https://reference.aspose.com/cells/java/com.aspose.cells/chartcollection/#add-int-int-int-int-int-) natomiast przyjmuje górny wiersz, lewą kolumnę, dolny wiersz i prawą kolumnę. Przykład używa indeksu wiersza 55 i indeksu kolumny 25 jako prawych dolnych granic; te wartości są wyborami układu, a nie liczbą wierszy lub kolumn danych.
 
-// Ustaw rozmiar OLE wykresu.
-workbook.getWorksheets().setOleSize(0, chartRows, 0, chartCols);
+Ramka slajdu używa jednostki punktów. Przykład dopasowuje ją do slajdu i centruje, zachowując proporcje PNG, zamiast rozciągać podgląd, aby wypełnić slajd.
 
-// Pobierz obraz wykresu i zapisz go do strumienia.
-com.aspose.cells.ImageOrPrintOptions printOptions = new com.aspose.cells.ImageOrPrintOptions();
-printOptions.setImageFormat(com.aspose.cells.ImageFormat.getPng());
-ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
-workbook.getWorksheets().get(chartSheetIndex).getCharts().get(0).toImage(imageStream, printOptions);
+## **Utwórz i osadź wykres**
 
-// Zapisz skoroszyt do strumienia.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream(); 
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
+Poniższy kompletny przykład wypełnia `DataSheet` czterema wierszami i pięcioma kolumnami wartości. Każdy wiersz staje się serią wykresu. `ChartSheet` jest wybierany jako aktywny arkusz przed zapisaniem skoroszytu.
 
-// Utwórz prezentację.
-Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Dodaj skoroszyt do slajdu.
-AddExcelChartInPresentation(presentation, slide, workbookStream.toByteArray(), imageStream.toByteArray());
-
-// Zapisz prezentację na dysku.
-presentation.save("OutputChart.pptx", SaveFormat.Pptx);
-presentation.dispose();
-```
+Skoroszyt jest wyraźnie zapisywany jako XLSX, co odpowiada rozszerzeniu `xlsx` przekazywanemu do [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/oleembeddeddatainfo/). PNG jest ładowany bezpośrednio z bajtów bez pośredniej konwersji bitmapy. Przypisanie go poprzez [getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) zastępuje domyślny znak zastępczy OLE.
 
 ```java
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
-{
-    double oleHeight = presentation.getSlideSize().getSize().getHeight();
-    double oleWidth = presentation.getSlideSize().getSize().getWidth();
- 
-    // Utwórz obiekt LoadOptions typu EXCEL_97_TO_2003.
-    com.aspose.cells.LoadOptions loadOptions = new com.aspose.cells.LoadOptions(com.aspose.cells.FileFormatType.EXCEL_97_TO_2003);         
-    Workbook workbook = new Workbook(new ByteArrayInputStream(workbookArray),loadOptions);
- 
-    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, "Excel.Sheet.8", workbookArray);
-    oleFrame.getSubstitutePictureFormat().getPicture().setImage(presentation.getImages().addImage(new ByteArrayInputStream(chartImage)));
-}
-```
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import static com.aspose.cells.SaveFormat.XLSX;
+import static com.aspose.slides.SaveFormat.Pptx;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.IImage;
+import com.aspose.slides.Images;
+import com.aspose.slides.IOleObjectFrame;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayOutputStream;
 
-```java
-static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
-{
-    // Tablica nazw komórek.
-    String[] cellNames = new String[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+try {
+    Workbook workbook = new Workbook();
+    try {
+        Worksheet dataSheet = workbook.getWorksheets().get(0);
+        dataSheet.setName("DataSheet");
 
-    // Tablica danych komórek.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
+        int[][] values = {
+            { 67, 44, 46, 43, 24 },
+            { 86, 64, 97, 29, 40 },
+            { 68, 89, 78, 69, 38 },
+            { 91, 48, 60, 26, 25 }
+        };
 
-    // Dodaj nowy arkusz, aby wypełnić komórki danymi.
-    int dataSheetIndex = workbook.getWorksheets().add();
-    Worksheet dataSheet = workbook.getWorksheets().get(dataSheetIndex);
-    String sheetName = "DataSheet";
-    dataSheet.setName(sheetName);
+        for (int row = 0; row < values.length; row++) {
+            for (int column = 0; column < values[row].length; column++) {
+                dataSheet.getCells().get(row, column).putValue(values[row][column]);
+            }
+        }
 
-    // Wypełnij arkusz danych danymi.
-    int size = Array.getLength(cellNames);
-    for (int i = 0; i < size; i++)
-    {
-        String cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.getCells().get(cellName).setValue(cellValue);
+        int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+        Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+        chartSheet.setName("ChartSheet");
+
+        int lastChartRow = 55;
+        int lastChartColumn = 25;
+        int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, lastChartRow, lastChartColumn);
+        Chart chart = chartSheet.getCharts().get(chartIndex);
+        for (int row = 1; row <= values.length; row++) {
+            chart.getNSeries().add("DataSheet!A" + row + ":E" + row, false);
+        }
+
+        workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+        workbook.getWorksheets().setOleSize(0, lastChartRow, 0, lastChartColumn);
+
+        // Wygeneruj podgląd wykresu i osobno zserializuj edytowalny skoroszyt.
+        ImageOrPrintOptions imageOptions = new ImageOrPrintOptions();
+        imageOptions.setImageType(ImageType.PNG);
+        ByteArrayOutputStream chartImageStream = new ByteArrayOutputStream();
+        chart.toImage(chartImageStream, imageOptions);
+        byte[] chartImageBytes = chartImageStream.toByteArray();
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, XLSX);
+        byte[] workbookBytes = workbookStream.toByteArray();
+
+        IImage chartImage = Images.fromData(chartImageBytes);
+        try {
+            Presentation presentation = new Presentation();
+            try {
+                ISlide slide = presentation.getSlides().get_Item(0);
+                double slideWidth = presentation.getSlideSize().getSize().getWidth();
+                double slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+                // Dopasuj podgląd do slajdu bez zmiany jego proporcji.
+                double scale = Math.min(slideWidth / chartImage.getWidth(), slideHeight / chartImage.getHeight());
+                float frameWidth = (float) (chartImage.getWidth() * scale);
+                float frameHeight = (float) (chartImage.getHeight() * scale);
+                float frameX = (float) ((slideWidth - frameWidth) / 2);
+                float frameY = (float) ((slideHeight - frameHeight) / 2);
+
+                OleEmbeddedDataInfo embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+                IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+                IPPImage previewImage = presentation.getImages().addImage(chartImage);
+                oleFrame.getSubstitutePictureFormat().getPicture().setImage(previewImage);
+
+                presentation.save("OutputChart.pptx", Pptx);
+            } finally {
+                presentation.dispose();
+            }
+        } finally {
+            chartImage.dispose();
+        }
+    } finally {
+        workbook.dispose();
     }
-
-    // Dodaj arkusz wykresu.
-    int worksheetIndex = workbook.getWorksheets().add(SheetType.CHART);
-    Worksheet chartSheet = workbook.getWorksheets().get(worksheetIndex);
-    chartSheet.setName("ChartSheet");
-    int chartSheetIndex = chartSheet.getIndex();
-
-    // Dodaj wykres do arkusza wykresu z serią danych z arkusza danych.
-    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, chartRows, 0, chartCols);
-    Chart chart = chartSheet.getCharts().get(chartIndex);
-    
-    chart.getNSeries().add(sheetName + "!A1:E1", false);
-    chart.getNSeries().add(sheetName + "!A2:E2", false);
-    chart.getNSeries().add(sheetName + "!A3:E3", false);
-    chart.getNSeries().add(sheetName + "!A4:E4", false);
-
-    // Ustaw arkusz wykresu jako aktywny arkusz.
-    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
-    return chartSheetIndex;
+} catch (Exception exception) {
+    System.err.println("Could not create the presentation: " + exception.getMessage());
 }
 ```
 
-Prezentacja utworzona w powyższy sposób będzie zawierać wykres Excel jako obiekt OLE, który można aktywować podwójnym kliknięciem w ramkę obiektu OLE.
+## **Oczekiwany wynik**
 
-## **Podsumowanie**
+`OutputChart.pptx` zawiera jeden slajd z osadzonym skoroszytem Excel oraz podglądem wykresu. Skoroszyt zawiera oryginalne dane oraz wykres kolumnowy z czterema seriami. Podgląd jest wyśrodkowany na slajdzie i zachowuje swoje proporcje.
 
-Korzystając z Aspose.Cells for Java w połączeniu z Aspose.Slides for Java, możemy tworzyć dowolny wykres Excel obsługiwany przez Aspose.Cells i osadzać go jako obiekt OLE na slajdzie PowerPoint. Rozmiar OLE wykresu Excel również może być określony. Użytkownicy końcowi mogą następnie edytować wykres Excel tak jak każdy inny obiekt OLE.
+![Wykres kolumnowy Excel wyświetlany jako podgląd osadzonego skoroszytu](excel-chart-ole-preview.png)
+
+W kompatybilnym środowisku PowerPoint na komputerze, z zainstalowanym Excelem, dwukrotne kliknięcie obiektu aktywuje i umożliwi edycję osadzonego skoroszytu. Aktywacja i edycja zależą od obsługi OLE oraz ustawień zabezpieczeń aplikacji hosta.
+
+## **Najczęściej zadawane pytania**
+
+**Dlaczego potrzebny jest obraz podglądu?**
+
+Osadzony skoroszyt i jego podgląd na slajdzie to oddzielne treści. Dostarcz obraz wykresu, aby slajd wyświetlał wykres zamiast domyślnego znacznika „EMBEDDED OLE OBJECT”. Zobacz [Problem z podglądem obiektu przy dodawaniu OleObjectFrame](/slides/pl/java/object-preview-issue-when-adding-oleobjectframe/).
+
+**Czy podgląd aktualizuje się automatycznie po zmianie skoroszytu w kodzie?**
+
+Traktuj podgląd jako migawkę. Przy programatycznej aktualizacji danych skoroszytu, wygeneruj ponownie obraz wykresu i zastąp podgląd oraz dane osadzonego skoroszytu.
+
+**Czy mogę używać XLS zamiast XLSX?**
+
+Tak. Zapisz skoroszyt w formacie XLS i użyj `xls` jako rozszerzenia danych osadzonych. Rozszerzenie musi odpowiadać rzeczywistemu formatowi skoroszytu; samo zmienienie rozszerzenia nie konwertuje danych.
+
+**Dlaczego obiekt może zmienić rozmiar po aktywacji?**
+
+Aplikacja hosta może zaktualizować prezentację obiektu OLE podczas aktywacji skoroszytu. Zarówno zakres wyświetlania OLE skoroszytu, jak i wymiary ramki slajdu mają znaczenie. Zobacz [Działające rozwiązanie dla zmiany rozmiaru wykresu w PPTX](/slides/pl/java/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Powiązane sekcje**
 
 - [Działające rozwiązanie dla zmiany rozmiaru wykresu w PPTX](/slides/pl/java/working-solution-for-chart-resizing-in-pptx/)
-- [Problem podglądu obiektu przy dodawaniu OleObjectFrame](/slides/pl/java/object-preview-issue-when-adding-oleobjectframe/)
+- [Problem z podglądem obiektu przy dodawaniu OleObjectFrame](/slides/pl/java/object-preview-issue-when-adding-oleobjectframe/)
 - [Automatyczna aktualizacja obiektów OLE przy użyciu dodatku PowerPoint](/slides/pl/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

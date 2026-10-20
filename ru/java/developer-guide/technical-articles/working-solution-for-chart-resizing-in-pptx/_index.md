@@ -1,215 +1,129 @@
 ---
-title: Рабочее решение изменения размера диаграмм в PPTX
+title: Рабочее решение для изменения размера диаграмм в PPTX
 type: docs
 weight: 40
 url: /ru/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
 - изменение размера диаграммы
 - диаграмма Excel
-- OLE‑объект
-- вставить диаграмму
+- OLE-объект
+- встраивание диаграммы
 - PowerPoint
-- OpenDocument
 - презентация
 - Java
 - Aspose.Slides
-description: "Исправьте неожиданное изменение размера диаграмм в PPTX при использовании встроенных Excel OLE‑объектов с Aspose.Slides для Java. Узнайте два метода с примером кода, чтобы сохранить размеры согласованными."
+description: "Исправьте неожиданное изменение размера диаграмм в PPTX при использовании встроенных OLE-объектов Excel с Aspose.Slides для Java. Установите фиксированные размеры диаграммы, чтобы размеры диаграммы и OLE-кадра оставались согласованными."
 ---
-## **Фон**
+## **Предыстория**
 
-Было замечено, что диаграммы Excel, встроенные в презентацию PowerPoint как OLE‑объекты с помощью компонентов Aspose, после первого активации изменяют масштаб до неопределённого значения. Это приводит к заметному визуальному различию между состоянием диаграммы до и после активации. Команда Aspose подробно изучила проблему и нашла решение. В статье описываются причины проблемы и соответствующее исправление.
+Диаграммы Excel, встроенные как OLE‑объекты в презентации PowerPoint с использованием компонентов Aspose, могут менять размер после первой активации. Это может вызвать заметную разницу во внешнем виде диаграммы до и после активации. В этой статье объясняется, почему происходит изменение размера, и показывается, как предотвратить его, согласовав фиксированные размеры диаграммы с OLE‑кадром.
 
-В [previous article](/slides/ru/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) мы объяснили, как создать диаграмму Excel с помощью Aspose.Cells for Java и встроить её в презентацию PowerPoint с помощью Aspose.Slides for Java. Чтобы решить [object preview issue](/slides/ru/java/object-preview-issue-when-adding-oleobjectframe/), мы присвоили изображение диаграммы объекту OLE‑кадра. В полученной презентации, когда вы дважды щёлкните по OLE‑кадру с изображением диаграммы, диаграмма Excel активируется. Пользователи могут вносить любые изменения в соответствующую книгу Excel, а затем возвращаться к нужному слайду, щёлкнув за пределами активированной книги. Размер OLE‑кадра меняется при возврате к слайду, и коэффициент изменения размера зависит от исходных размеров как OLE‑кадра, так и встроенной книги Excel.
+В статье [Создать диаграммы Excel и встроить их как OLE‑объекты в презентации](/slides/ru/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) мы объяснили, как создать диаграмму Excel с помощью Aspose.Cells for Java и встроить её в презентацию PowerPoint с помощью Aspose.Slides for Java. Чтобы решить проблему [проблема предварительного просмотра объекта](/slides/ru/java/object-preview-issue-when-adding-oleobjectframe/), мы присвоили изображение диаграммы кадру OLE‑объекта диаграммы. В полученной презентации, когда вы дважды щёлкаете по кадру OLE‑объекта, отображающему изображение диаграммы, активируется диаграмма Excel. Пользователи могут редактировать встроенную рабочую книгу Excel, а затем вернуться к слайду, щёлкнув за пределами активированной рабочей книги. Размер кадра OLE‑объекта меняется, когда пользователь возвращается к слайду, и коэффициент изменения размера зависит от исходных размеров как кадра OLE‑объекта, так и встроенной рабочей книги Excel.
 
 ## **Причина изменения размера**
 
-Поскольку у книги Excel своё собственное окно, при первой активации она пытается сохранить оригинальный размер. OLE‑кадр, однако, имеет свои размеры. Согласно Microsoft, при активации книги Excel Excel и PowerPoint согласовывают размер и сохраняют правильные пропорции в процессе внедрения. В зависимости от различий между размером окна Excel и размером или позицией OLE‑кадра происходит изменение масштаба.
+Встроенная рабочая книга Excel имеет собственные размеры окна, которые Excel пытается сохранить при первой активации объекта. Кадр OLE на слайде имеет независимо определённые размеры. Когда рабочая книга Excel активируется, Excel и PowerPoint согласовывают размер объекта, чтобы сохранить его пропорции в процессе встраивания. Различия между окном рабочей книги и кадром OLE могут привести к изменению размера объекта.
 
 ## **Рабочее решение**
 
-Существует два возможных сценария создания презентаций PowerPoint с использованием Aspose.Slides for Java.
+Согласуйте размер диаграммы с кадром OLE на слайде и сделайте размеры диаграммы независимыми от окна рабочей книги. Это решение работает как с новой презентацией, так и с существующим шаблоном.
 
-**Scenario 1:** Создание презентации на основе существующего шаблона.
+Для примера требуются Aspose.Cells for Java и Aspose.Slides for Java. Он создаёт простую столбчатую диаграмму на активном листе диаграмм и встраивает рабочую книгу в формате XLS. Изображение предварительного просмотра диаграммы не назначается; диаграмма становится видимой, когда OLE‑объект активируется в PowerPoint.
 
-**Scenario 2:** Создание презентации «с нуля».
-
-Предложенное здесь решение подходит для обоих сценариев. Основная идея обоих подходов одинаковая: **размер окна встроенного OLE‑объекта должен совпадать с размером OLE‑кадра на слайде PowerPoint**. Далее рассматриваются два подхода к реализации этого решения.
-
-## **Первый подход**
-
-В этом подходе мы узнаем, как задать размер окна встроенной книги Excel так, чтобы он соответствовал размеру OLE‑кадра на слайде PowerPoint.
-
-**Scenario 1**
-
-Предположим, у нас есть шаблон, и мы хотим создавать презентации на его основе. В шаблоне есть фигура с индексом 2, в которой нужно разместить OLE‑кадр с вложенной книгой Excel. В этом сценарии размер OLE‑кадра заранее определён — он совпадает с размером фигуры с индексом 2 в шаблоне. Всё, что нужно сделать, — установить размер окна книги, равный размеру этой фигуры. Следующий фрагмент кода решает задачу:
+Пример создаёт новую презентацию с OLE‑кадром размером 9,5 × 4 дюйма, расположенным на 0,5 дюйма от левого края и на 1 дюйм от верхнего. Координаты и размеры слайда указаны в пунктах (72 пункта = 1 дюйм). Для существующей презентации см. раздел [Использовать шаблон](#use-a-template).
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// Установите ширину окна книги в дюймах (делится на 72, так как PowerPoint использует 72 пункта на дюйм).
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// Установите высоту окна книги в дюймах.
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// Сохраните книгу в поток памяти.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Создайте OLE‑объектный кадр с вложенными данными Excel.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // Координаты слайда и его размеры указаны в пунктах (72 пункта на дюйм).
+        float width = 684f; // 9,5 дюйма.
+        float height = 288f; // 4 дюйма.
+
+        chart.setSizeWithWindow(false);
+        // Преобразуйте пункты в пиксели диаграммы, используя 96 пикселей на дюйм.
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**Scenario 2**
+## **Установить фиксированный размер диаграммы**
 
-Допустим, мы создаём презентацию с нуля и хотим добавить OLE‑кадр любого размера с вложенной книгой Excel. В следующем фрагменте кода мы создаём OLE‑кадр высотой 4 дюйма и шириной 9,5 дюйма, расположенный в точке x = 0,5 дюйма, y = 1 дюйм на слайде. Затем устанавливаем окно книги Excel того же размера — 4 дюйма в высоту и 9,5 дюйма в ширину.
+Установите [setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) в false, чтобы размеры диаграммы не зависели от окна рабочей книги. Установите размеры [getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) через [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) и [setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-), преобразуя пункты в пиксели при 96 пикселях на дюйм: кадр размером 684 × 288 пунктов соответствует диаграмме размером 912 × 384 пикселя. Установите [setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) в значение CUSTOM перечисления [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/). Пример встраивает рабочую книгу с помощью [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) и сохраняет презентацию с OLE‑кадром размером 9,5 × 4 дюйма.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+## **Использовать шаблон**
 
-// Желаемая высота.
-int desiredHeight = 288; // 4 дюйма (4 * 72)
- 
-// Желаемая ширина.
-int desiredWidth = 684; // 9.5 дюйма (9.5 * 72)
- 
-// Задать размер диаграммы с окном.
-chart.setSizeWithWindow(true);
- 
-// Установить ширину окна книги в дюймах (делится на 72, так как PowerPoint использует 72 пункта на дюйм).
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// Установить высоту окна книги в дюймах.
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// Сохранить книгу в поток памяти.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Создать OLE‑объектный кадр с вложенными данными Excel.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 дюйма (0.5 * 72)
-    72,  // y = 1 дюйм (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
+Логика задания размеров одинаковая для существующей презентации. Чтобы адаптировать пример:
 
-## **Второй подход**
+1. Загрузите шаблон презентации вместо создания пустой презентации.  
+2. Убедитесь, что на первом слайде есть как минимум три фигуры, затем используйте фигуру с индексом 2 в качестве заполнителя.  
+3. Возьмите ширину и высоту кадра из этой фигуры вместо фиксированных значений 684 и 288. Сохраните расчёты размеров без изменений.  
+4. Добавьте OLE‑кадр в позицию заполнителя вместо фиксированных координат 36 и 72.  
+5. Удалите заполнитель перед сохранением презентации.
 
-В этом подходе мы узнаем, как задать размер диаграммы во вложенной книге Excel, чтобы он соответствовал размеру OLE‑кадра на слайде PowerPoint. Этот подход полезен, когда размер диаграммы известен заранее и не будет изменяться.
+## **Вопросы и ответы**
 
-**Scenario 1**
+**Почему моя встроенная диаграмма Excel меняет размер после активации в PowerPoint?**
 
-Предположим, у нас есть шаблон, и мы хотим создавать презентации на его основе. В шаблоне есть фигура с индексом 2, в которой планируется разместить OLE‑кадр с вложенной книгой Excel. В этом сценарии размер OLE‑кадра заранее определён — он совпадает с размером фигуры с индексом 2 в шаблоне. Всё, что требуется, — установить размер диаграммы в книге, равный размеру этой фигуры. Следующий фрагмент кода реализует задачу:
+Это происходит потому, что Excel пытается восстановить оригинальный размер окна при первой активации, тогда как кадр OLE‑объекта в PowerPoint имеет свои собственные размеры. PowerPoint и Excel согласовывают размер, чтобы сохранить пропорции, что может вызвать изменение размера.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+**Как сохранить одинаковый размер диаграммы и OLE‑кадра?**
 
-// Определить размер диаграммы без окна.
-chart.setSizeWithWindow(false);
- 
-// Установить ширину диаграммы в пикселях (умножить на 96, так как Excel использует 96 пикселей на дюйм).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// Установить высоту диаграммы в пикселях.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// Задать размер печати диаграммы.
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// Сохранить книгу в поток памяти.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Создать OLE‑объектный кадр с вложенными данными Excel.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
+Установите фиксированные размеры диаграммы, соответствующие кадру OLE, и задайте пользовательский размер печати диаграммы перед встраиванием рабочей книги. В примере выше показаны необходимые настройки и преобразования единиц.
 
-**Scenario 2**:
+**Достаточно ли сопоставить размер окна рабочей книги?**
 
-Допустим, мы создаём презентацию с нуля и хотим добавить OLE‑кадр любого размера с вложенной книгой Excel. В следующем фрагменте кода мы создаём OLE‑кадр высотой 4 дюйма и шириной 9,5 дюйма, расположенный в точке x = 0,5 дюйма, y = 1 дюйм на слайде. Мы также задаём соответствующий размер диаграммы: высота 4 дюйма, ширина 9,5 дюйма.
+Сопоставление только размера окна рабочей книги надёжно не предотвращает изменение размера кадра OLE после активации. Используйте фиксированные размеры диаграммы, как показано в примере.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+**Работает ли это решение как с презентациями на основе шаблона, так и с новыми презентациями?**
 
-// Желательная высота.
-int desiredHeight = 288; // 4 дюйма (4 * 72)
- 
-// Желательная ширина.
-int desiredWidth = 684; // 9.5 дюйма (9.5 * 72)
- 
-// Определить размер диаграммы без окна.
-chart.setSizeWithWindow(false);
- 
-// Установить ширину диаграммы в пикселях (делить на 72 для получения дюймов, умножать на 96, так как Excel использует 96 пикселей на дюйм).
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// Установить высоту диаграммы в пикселях.
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// Сохранить книгу в поток памяти.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Создать OLE‑объектный кадр с вложенными данными Excel.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 дюйма (0.5 * 72)
-    72,  // y = 1 дюйм (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
+Да. Для шаблона используйте размеры и позицию заполнителя. Для новой презентации укажите размеры и позицию кадра напрямую.
 
-## **Заключение**
+**Могу ли я использовать этот пример с диаграммами, созданными в других табличных программах?**
 
-Существует два подхода к решению проблемы изменения размеров диаграммы. Выбор подхода зависит от требований и конкретного сценария использования. Оба подхода работают одинаково как для презентаций, созданных из шаблона, так и для презентаций, созданных с нуля. При этом отсутствуют ограничения по размеру OLE‑кадра в данном решении.
+Пример использует рабочую книгу Excel, созданную с помощью Aspose.Cells. Он не демонстрирует поведение активации для других табличных программ.
 
-## **FAQ**
+## **Связанные разделы**
 
-### Почему моя встроенная диаграмма Excel меняет размер после активации в PowerPoint?
-
-Это происходит потому, что Excel пытается восстановить оригинальный размер окна при первой активации, тогда как OLE‑кадр в PowerPoint имеет свои собственные размеры. PowerPoint и Excel согласовывают размер, сохраняя соотношение сторон, что может вызвать изменение масштаба.
-
-### Можно ли полностью избежать этой проблемы с изменением размера?
-
-Да. Совместив размер окна книги Excel или размер диаграммы с размером OLE‑кадра до внедрения, можно удерживать размеры диаграммы постоянными.
-
-### Какой подход выбрать: задавать размер окна книги или размер диаграммы?
-
-Используйте **Approach 1 (window size)**, если хотите сохранить соотношение сторон книги и, возможно, позволить последующее изменение размера.  
-Используйте **Approach 2 (chart size)**, если размеры диаграммы фиксированы и не будут изменяться после внедрения.
-
-### Работают ли эти методы как с шаблонными, так и с новыми презентациями?
-
-Да. Оба подхода работают одинаково для презентаций, созданных из шаблонов, и для созданных с нуля.
-
-### Есть ли ограничение по размеру OLE‑кадра?
-
-Нет. Вы можете задать OLE‑кадр любого размера, при условии корректного масштабирования к размеру книги или диаграммы.
-
-### Можно ли использовать эти методы с диаграммами, созданными в других электронных таблицах?
-
-Примеры рассчитаны на диаграммы Excel, созданные с помощью Aspose.Cells, но принципы применимы к другим программам, поддерживающим OLE и аналогичные параметры размеров.
-
-## **Related Sections**
-
-- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/ru/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Создать диаграммы Excel и встроить их как OLE‑объекты в презентации](/slides/ru/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

@@ -14,36 +14,39 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Opravte změnu velikosti OLE listu Excel v prezentacích: dva způsoby, jak udržet rámce objektů konzistentní – změňte velikost rámce nebo listu – napříč formáty PPT a PPTX."
+description: "Opravte změnu velikosti OLE listu Excel v prezentacích: dva způsoby, jak udržet rámce objektů konzistentní—škálovat rámec nebo list—napříč formáty PPT a PPTX."
 ---
-{{% alert color="primary" %}} 
-
-Bylo zaznamenáno, že listy Excelu vložené jako OLE objekty v prezentaci PowerPoint pomocí komponent Aspose se po první aktivaci zvětší na neznámou míru. Toto chování vytváří výrazný vizuální rozdíl v prezentaci mezi před a po aktivaci OLE objektu. Problém jsme podrobně prozkoumali a poskytli řešení, které je popsáno v tomto článku.
-
+{{% alert color="info" title="Note" %}}
+Listy Excel vložené jako OLE objekty v prezentaci PowerPoint pomocí komponent Aspose se mohou po první aktivaci neočekávaně změnit velikost. Toto chování vytváří znatelný vizuální rozdíl mezi OLE objektem před a po aktivaci. Tento článek popisuje problém a uvádí dva způsoby, jak jej vyřešit.
 {{% /alert %}} 
 
 ## **Pozadí**
 
-V článku [Spravovat OLE](/slides/cs/net/manage-ole/) jsme vysvětlili, jak přidat OLE rámec do prezentace PowerPoint pomocí Aspose.Slides for .NET. Pro řešení [problému s náhledem objektu](/slides/cs/net/object-preview-issue-when-adding-oleobjectframe/) jsme OLE objektu přiřadili obrázek vybrané oblasti listu. V výstupní prezentaci, když dvakrát kliknete na OLE rámec zobrazující obrázek listu, aktivuje se sešit Excelu. Uživatelé mohou provést libovolné změny ve skutečném sešitu Excel a poté se vrátit na snímek kliknutím mimo aktivovaný sešit. Velikost OLE rámce se změní, když se uživatel vrátí na snímek. Faktor změny velikosti se bude lišit v závislosti na velikosti OLE rámce a vloženého sešitu Excel.
+V článku [Spravovat OLE](/slides/cs/net/manage-ole/) jsme vysvětlili, jak pomocí Aspose.Slides pro .NET přidat OLE rámec do prezentace PowerPoint. Pro řešení [problému s náhledem objektu](/slides/cs/net/object-preview-issue-when-adding-oleobjectframe/) jsme přiřadili obrázek vybraného oblasti listu do OLE rámce. V výstupní prezentaci, když dvakrát kliknete na OLE rámec zobrazující obrázek listu, aktivuje se sešit Excel. Koncoví uživatelé mohou provést libovolné požadované změny ve skutečném sešitu Excel a poté se vrátit na snímek kliknutím mimo aktivovaný sešit Excel. Velikost OLE rámce se změní, když se uživatel vrátí na snímek. Faktor změny velikosti se bude lišit v závislosti na velikosti OLE rámce a vloženého sešitu Excel.
 
 ## **Příčina změny velikosti**
 
-Protože má sešit Excelu vlastní velikost okna, pokouší se při první aktivaci zachovat původní velikost. OLE rámec má naopak vlastní rozměry. Podle Microsoftu, když je sešit Excelu aktivován, Excel a PowerPoint si dohodnou velikost tak, aby zachovaly správné proporce jako součást procesu vkládání. Změna velikosti nastává na základě rozdílů mezi velikostí okna Excelu a rozměry a polohou OLE rámce.
+Protože má sešit Excel vlastní velikost okna, snaží se při první aktivaci zachovat původní velikost. Na druhé straně má OLE rámec svou vlastní velikost. Podle Microsoftu, když je sešit Excel aktivován, Excel a PowerPoint vyjednávají velikost tak, aby zachovaly správné proporce v rámci procesu vkládání. Změna velikosti nastává na základě rozdílů mezi velikostí okna Excel a velikostí a polohou OLE rámce.
 
-## **Fungující řešení**
+## **Řešení**
 
-Existují dvě možná řešení, jak se vyhnout efektu změny velikosti.
+Existují dva možné způsoby, jak se vyhnout efektu změny velikosti.
 
-- Změňte měřítko velikosti OLE rámce v prezentaci PowerPoint tak, aby odpovídalo výšce a šířce požadovaného počtu řádků a sloupců v OLE rámci.
-- Udržujte velikost OLE rámce konstantní a změňte měřítko velikosti řádků a sloupců tak, aby se vešly do vybrané velikosti OLE rámce.
+- Změňte měřítko OLE rámce v prezentaci PowerPoint tak, aby odpovídal celkové výšce a šířce vybraných řádků a sloupců.
+- Udržujte velikost OLE rámce konstantní a přizpůsobte měřítko vybraných řádků a sloupců tak, aby do něj vešly.
 
-### **Změna měřítka velikosti rámce OLE**
+### **Změnit měřítko velikosti OLE rámce**
 
-V tomto přístupu se naučíte, jak nastavit velikost OLE rámce vloženého sešitu Excel tak, aby odpovídala kumulativní velikosti zapojených řádků a sloupců v listu Excel.
+Tento přístup nastaví velikost OLE rámce tak, aby odpovídala celkové výšce a šířce vybraných řádků a sloupců v vloženém listu Excel.
 
-Předpokládejme, že máme šablonový list Excel a chceme jej přidat do prezentace jako OLE rámec. V tomto scénáři bude velikost OLE objektu nejprve vypočítána na základě součtu výšek řádků a šířek sloupců zapojených v sešitu. Poté nastavíme velikost OLE rámce na tuto vypočtenou hodnotu. Abychom v PowerPointu odstranili červenou zprávu „EMBEDDED OLE OBJECT“ u OLE rámce, zachytíme také obrázek požadovaných částí řádků a sloupců v sešitu a nastavíme jej jako obrázek OLE rámce.
+Příklad načte existující sešit Excel a pomocí nulových indexů vybere prvních 10 řádků a 13 sloupců jeho prvního listu. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) definuje zobrazovaný rozsah. Náhled je vykreslen při 96 DPI a jeho rozměry v pixelech jsou převedeny na body pomocí 72 bodů na palec. [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) vloží upravený sešit do rámce s těmito rozměry. Náhled je přiřazen prostřednictvím [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) pro nahrazení zástupného textu "EMBEDDED OLE OBJECT" v uložené prezentaci.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -86,6 +89,8 @@ oleFrame.IsObjectIcon = false;
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+Pomocná funkce pro náhled nastaví [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) na vybraný rozsah a odstraní okraje, záhlaví a zápatí. S povoleným [ImageOrPrintOptions.OnlyArea](https://reference.aspose.com/cells/net/aspose.cells.rendering/imageorprintoptions/onlyarea/) [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/) vykreslí rozsah jako PNG obrázek. Pomocná funkce přetočí proud obrázku zpět před jeho vrácením pro použití v prezentaci.
+
 ```cs
 static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
@@ -116,13 +121,17 @@ static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolu
 }
 ```
 
-### **Změna měřítka velikosti oblasti buněk**
+### **Změnit měřítko velikosti rozsahu buněk**
 
-V tomto přístupu se naučíte, jak změnit měřítko výšek zapojených řádků a šířek zapojených sloupců tak, aby odpovídaly vlastní velikosti OLE rámce.
+Tento přístup měří výšky vybraných řádků a šířky vybraných sloupců tak, aby odpovídaly vlastní velikosti OLE rámečku.
 
-Předpokládejme, že máme šablonový list Excel a chceme jej přidat do prezentace jako OLE rámec. V tomto scénáři nastavíme velikost OLE rámce a změříme velikost řádků a sloupců, které se podílejí na oblasti OLE rámce. Poté uložíme sešit do proudu, aby se změny použily, a převedeme jej na pole bytů pro přidání do OLE rámce. Abychom v PowerPointu odstranili červenou zprávu „EMBEDDED OLE OBJECT“ u OLE rámce, zachytíme také obrázek požadovaných částí řádků a sloupců v sešitu a nastavíme jej jako obrázek OLE rámce.
+Příklad načte existující sešit Excel a pomocí nulových indexů vybere prvních 10 řádků a 13 sloupců jeho prvního listu. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) definuje zobrazovaný rozsah a níže uvedená pomocná funkce měří tento rozsah tak, aby se vešel do rámce širokého 400 bodů a vysokého 100 bodů. Po uložení upraveného sešitu do proudu, [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) vloží jej v určené velikosti. Náhled vykreslený při 96 DPI je přiřazen prostřednictvím [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/), takže uložená prezentace zobrazuje vybrané buňky místo výchozího zástupného textu.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -138,7 +147,7 @@ var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Změňte měřítko oblastí buněk tak, aby odpovídaly velikosti rámce.
+// Změřte rozsah buněk tak, aby odpovídal velikosti rámce.
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -163,9 +172,11 @@ oleFrame.IsObjectIcon = false;
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+Pomocná funkce pro měřítko vypočítá samostatné poměry šířky a výšky pro vybraný rozsah, přičemž zachovává relativní šířky jeho sloupců a relativní výšky jeho řádků. Před jejich použitím s [Cells.SetColumnWidthInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setcolumnwidthinch/) a [Cells.SetRowHeightInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setrowheightinch/) převádí vypočtené rozměry z bodů na palce. Vybraný rozsah musí mít nenulovou šířku i výšku.
+
 ```cs
-/// <param name="width">Očekávaná šířka oblasti buněk v bodech.</param>
-/// <param name="height">Očekávaná výška oblasti buněk v bodech.</param>
+/// <param name="width">Očekávaná šířka rozsahu buněk v bodech.</param>
+/// <param name="height">Očekávaná výška rozsahu buněk v bodech.</param>
 static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float height)
 {
     var rangeWidth = cellRange.Width;
@@ -192,6 +203,8 @@ static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float heig
     }
 }
 ```
+
+Tato pomocná funkce pro náhled vykreslí změněný rozsah pomocí [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/). Omezí [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) na tento rozsah, odstraní okraje, záhlaví a zápatí a vrátí PNG proud nastavený na jeho začátek.
 
 ```cs
 static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
@@ -224,32 +237,29 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 ```
 
 ## **Závěr**
-
-{{% alert color="primary" %}}
-
-Existují dva přístupy k vyřešení problému se změnou velikosti listu. Výběr vhodného přístupu závisí na konkrétních požadavcích a použití. Oba přístupy fungují stejně, ať už jsou prezentace vytvořeny ze šablony nebo od nuly. Navíc v tomto řešení neexistuje žádné omezení velikosti OLE objektu.
-
+{{% alert color="info" title="Note" %}}
+Existují dva přístupy k vyřešení problému se změnou velikosti listu. Vyberte přístup, který nejlépe vyhovuje vašim požadavkům a scénáři použití. Oba přístupy fungují stejně, ať už jsou prezentace vytvořeny ze šablony nebo od nuly. Navíc neexistuje žádný limit velikosti OLE rámce v tomto řešení.
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Proč se vložený list Excelu změní po první aktivaci v PowerPointu?**  
-K tomu dochází, protože Excel se snaží zachovat původní velikost okna při aktivaci, zatímco OLE rámec v PowerPointu má své vlastní rozměry. PowerPoint a Excel si vyjednávají velikost tak, aby zachovaly poměr stran, což může způsobit změnu velikosti.
+**Proč se vložený list Excel změní velikost při první aktivaci v PowerPointu?**  
+K tomu dochází, protože se Excel při aktivaci snaží zachovat původní velikost okna, zatímco OLE rámec v PowerPointu má vlastní rozměry. PowerPoint a Excel vyjednávají velikost tak, aby zachovaly poměr stran, což může způsobit změnu velikosti.
 
-**Je možné zcela zabránit tomuto problému se změnou velikosti?**  
-Ano. Změnou měřítka OLE rámce tak, aby odpovídal velikosti oblasti buněk v Excelu, nebo změnou měřítka oblasti buněk tak, aby odpovídala požadované velikosti OLE rámce, můžete zabránit nechtěné změně velikosti.
+**Je možné tento problém se změnou velikosti zcela zabránit?**  
+Ano. Změněním měřítka OLE rámce tak, aby odpovídal velikosti rozsahu buněk Excel, nebo změněním měřítka rozsahu buněk tak, aby odpovídal požadované velikosti OLE rámce, můžete zabránit nechtěné změně velikosti.
 
-**Kterou metodu změny měřítka mám použít, změnu měřítka OLE rámce nebo změnu měřítka oblasti buněk?**  
-Zvolte **změnu měřítka OLE rámce**, pokud chcete zachovat původní velikosti řádků a sloupců v Excelu. Zvolte **změnu měřítka oblasti buněk**, pokud chcete mít v prezentaci pevnou velikost OLE rámce.
+**Kterou metodu měřítka mám použít, měřítko OLE rámce nebo měřítko rozsahu buněk?**  
+Zvolte **měřítko OLE rámce**, pokud chcete zachovat původní velikosti řádků a sloupců v Excelu. Zvolte **měřítko rozsahu buněk**, pokud chcete mít v prezentaci pevnou velikost OLE rámce.
 
 **Budou tato řešení fungovat, pokud je moje prezentace založena na šabloně?**  
 Ano. Obě řešení fungují pro prezentace vytvořené ze šablon i od nuly.
 
 **Existuje limit velikosti OLE rámce při použití těchto metod?**  
-Ne. OLE objekt můžete nastavit na libovolnou velikost, pokud nastavíte správné měřítko.
+Ne. Můžete nastavit OLE rámec na jakoukoli velikost, pokud nastavíte měřítko vhodně.
 
-**Existuje způsob, jak se vyhnout textu „EMBEDDED OLE OBJECT“ v PowerPointu?**  
-Ano. Pořízením snímku cílové oblasti buněk v Excelu a nastavením tohoto snímku jako placeholder obrázku OLE rámce můžete zobrazit vlastní náhled místo výchozího placeholderu.
+**Existuje způsob, jak se vyhnout textu zástupného symbolu „EMBEDDED OLE OBJECT“ v PowerPointu?**  
+Ano. Po pořízení snímku cílového rozsahu buněk v Excelu a nastavení tohoto snímku jako obrázku zástupného symbolu OLE rámce můžete zobrazit vlastní obrázek náhledu místo výchozího zástupného symbolu.
 
 ## **Související články**
 

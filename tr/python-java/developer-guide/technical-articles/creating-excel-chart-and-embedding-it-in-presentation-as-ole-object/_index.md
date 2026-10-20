@@ -1,38 +1,48 @@
 ---
-title: Excel Grafiklerini Oluşturun ve Sunumlara OLE Nesneleri Olarak Ekleyin
+title: Excel Grafiklerini Oluşturun ve Sunumlara OLE Nesnesi Olarak Yerleştirin
 type: docs
 weight: 30
 url: /tr/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
 - Excel grafiği
-- grafik ekle
+- grafik gömme
 - OLE nesnesi
 - PowerPoint
-- OpenDocument
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Python ile Excel grafiklerini oluşturun ve PowerPoint ve OpenDocument sunumlarına OLE nesneleri olarak ekleyin. Adım adım kılavuz ve kod örnekleri."
+description: "Aspose.Cells for Python via Java ile bir Excel grafiği oluşturun ve Aspose.Slides ile bir PowerPoint sunumuna çalışma kitabını, grafik önizlemesi dahil olmak üzere, yerleştirin."
 ---
-## **Arka Plan**
+## **Genel Bakış**
 
-PowerPoint'te, verileri grafiksel olarak göstermek için düzenlenebilir grafikler kullanmak yaygın bir uygulamadır. Aspose, Aspose.Cells for Python via Java ile Excel grafikleri oluşturmayı destekler ve bu grafikler daha sonra Aspose.Slides for Python via Java aracılığıyla PowerPoint slaytlarına OLE nesneleri olarak yerleştirilebilir. Bu makale gerekli adımları kapsar ve Aspose.Cells ve Aspose.Slides kullanarak bir Excel grafiği oluşturmak ve bunu PowerPoint sunumunda OLE nesnesi olarak yerleştirmek için bir Python kod örneği sunar.
+Bu makale, Aspose.Cells for Python via Java kullanarak bir Excel sütun grafiği oluşturmayı ve bu çalışma kitabını Aspose.Slides for Python via Java ile bir PowerPoint sunumuna yerleştirmeyi gösterir. Yerleştirilen çalışma kitabı hem kaynak verileri hem de grafiği içerir. Ayrı bir PNG önizlemesi, OLE nesnesi etkinleştirilmeden önce slaytta grafiği gösterir.
 
-## **Gerekli Adımlar**
+Sonuç, yerel bir PowerPoint grafiği değil, yerleştirilmiş bir Excel nesnesidir. OLE aracılığıyla çalışma kitabını düzenlemek, OLE etkinleştirmesini destekleyen bir masaüstü uygulaması ve uyumlu bir Excel kurulumunu gerektirir.
 
-PowerPoint slaytına bir Excel grafiği OLE nesnesi olarak oluşturmak ve yerleştirmek için aşağıdaki adımlar sırasını izlemek gerekir:
+## **Ön Koşullar**
 
-1. Aspose.Cells kullanarak bir Excel grafiği oluşturun.
-2. Aspose.Cells kullanarak Excel grafiğinin OLE boyutunu ayarlayın.
-3. Aspose.Cells ile Excel grafiğinin bir görüntüsünü alın.
-4. Aspose.Slides kullanarak Excel grafiğini bir PPTX sunumunda OLE nesnesi olarak yerleştirin.
-5. Adım 3'te elde edilen görüntüyle "EMBEDDED OLE OBJECT" görüntüsünü değiştirerek [nesne önizleme sorunu](/slides/tr/python-java/object-preview-issue-when-adding-oleobjectframe/) sorununu çözün.
-6. Sunumu PPTX formatında diske kaydedin.
+`aspose-cells` ve `aspose-slides-java` Python paketlerini ve uyumlu bir Java çalışma zamanını kurun. JVM'i başlatmadan önce her iki paketi de içe aktarın, böylece Java kütüphaneleri JPype tarafından kullanılabilir. Microsoft Office, bu kütüphanelerle sunumu oluşturmak için gerekli değildir.
 
-## **Gerekli Adımların Uygulanması**
+Hiçbir girdi dosyasına gerek yoktur: örnek, verileri ve grafiği bellekte oluşturur, ardından `OutputChart.pptx` dosyasını geçerli çalışma dizinine yazar. Değerlendirme modunun dışında çalıştırırken her iki ürün için de lisansları uygulayın.
 
-Yukarıdaki adımların Python uygulaması aşağıdaki gibidir:
+## **Yerleştirmenin Nasıl Çalıştığı**
+
+1. Veri çalışma sayfası ve bir grafik sayfası içeren bir çalışma kitabı oluşturun.  
+1. Çalışma kitabının grafik üzerinde açılması için grafik sayfasını etkinleştirin.  
+1. Çalışma kitabının OLE görüntüleme aralığını ayarlayın ve grafiği PNG olarak render edin.  
+1. Çalışma kitabını bellek içinde XLSX olarak kaydedin ve bu baytları bir slayta yerleştirin.  
+1. PNG'yi OLE nesnesinin önizlemesi olarak atayın ve sunumu PPTX olarak kaydedin.
+
+Çalışma kitabı görüntüleme aralığı ile slayttaki çerçeve farklı görevler üstlenir. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) sıfır tabanlı başlangıç/bitiş satır ve sütun dizinlerini alır. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) ise üst satır, sol sütun, alt satır ve sağ sütunu alır. Örnek, satır indeksi 55 ve sütun indeksi 25'i sağ‑alt sınır olarak kullanır; bu değerler düzen tercihidir, veri satır veya sütun sayısı değildir.
+
+Slayt çerçevesi puan birimini kullanır. Örnek, çerçeveyi slayt içinde sığdırır ve PNG'nin en‑boy oranını koruyarak ortalar; önizlemeyi slaytı dolduracak şekilde uzatmaktan kaçınır.
+
+## **Grafiği Oluşturma ve Yerleştirme**
+
+Aşağıdaki tam örnek, `DataSheet`'i dört satır ve beş sütun değerle doldurur. Her satır bir grafik serisi olur. Çalışma kitabı kaydedilmeden önce `ChartSheet` aktif sayfa olarak seçilir.
+
+Çalışma kitabı, [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/) metoduna geçirilen `xlsx` uzantısıyla eşleşecek şekilde açıkça XLSX olarak kaydedilir. Java bayt‑dizisi akışları, çalışma kitabını ve görüntüyü bellekte tutar ve Java API'lerinin gerektirdiği bayt dizilerini sağlar. PNG, ara bir bitmap dönüşümü olmadan doğrudan baytlarından yüklenir. [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) aracılığıyla atama, varsayılan OLE yer tutucusunu değiştirir.
 
 ```python
 import jpype
@@ -44,128 +54,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # Hücre adlarından oluşan bir dizi.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # Hücre verilerinden oluşan bir dizi.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # Hücreleri veriyle doldurmak için yeni bir çalışma sayfası ekleyin.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # Veri sayfasını veriyle doldurun.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # Bir grafik sayfası ekleyin.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # Veri sayfasındaki veri serileriyle grafik sayfasına bir grafik ekleyin.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # Grafik sayfasını etkin sayfa olarak ayarlayın.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # Çalışma kitabını gömülü OLE verisi olarak tanımlayın.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# Bir çalışma kitabı oluşturun.
 workbook = Workbook()
-
-# Bir Excel grafiği ekleyin.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# Grafiğin OLE boyutunu ayarlayın.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# Grafik görüntüsünü alın ve bir akışa kaydedin.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# Çalışma kitabını bir akışa kaydedin.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# Bir sunum oluşturun.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # Çalışma kitabını bir slayta ekleyin.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # Sunumu diske kaydedin.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # Grafik önizlemesini oluştur ve düzenlenebilir çalışma kitabını ayrı olarak serileştir.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # Önizlemeyi slayt içinde, en‑boy oranını değiştirmeden sığdır.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-Yukarıdaki yöntemle oluşturulan sunum, OLE nesne çerçevesine çift tıklanarak etkinleştirilebilen bir OLE nesnesi olarak Excel grafiğini içerecektir.
+## **Beklenen Sonuç**
 
-## **Sonuç**
+`OutputChart.pptx`, yerleştirilmiş bir Excel çalışma kitabı ve bir grafik önizlemesi içeren bir slayt içerir. Çalışma kitabı, orijinal verileri ve dört serili bir sütun grafiğini barındırır. Önizleme, slayt üzerinde ortalanmış olup oranlarını korur.
 
-Aspose.Cells for Python via Java ile Aspose.Slides for Python via Java'ı birlikte kullanarak, Aspose.Cells tarafından desteklenen herhangi bir Excel grafiğini oluşturabilir ve bu grafiği bir PowerPoint slaytına OLE nesnesi olarak yerleştirebiliriz. Excel grafiğinin OLE boyutu da tanımlanabilir. Son kullanıcılar Excel grafiğini diğer OLE nesneleri gibi düzenleyebilir.
+![Yerleştirilmiş bir çalışma kitabının önizlemesi olarak gösterilen Excel sütun grafiği](excel-chart-ole-preview.png)
+
+Excel'in kurulu olduğu uyumlu bir masaüstü PowerPoint ortamında, nesneyi çift tıklayarak yerleştirilmiş çalışma kitabını etkinleştirip düzenleyebilirsiniz. Etkinleştirme ve düzenleme, ana uygulamanın OLE desteği ve güvenlik ayarlarına bağlıdır.
+
+## **SSS**
+
+**Neden bir önizleme resmi gerekir?**
+
+Yerleştirilmiş çalışma kitabı ve slayt önizlemesi ayrı içeriklerdir. Bir grafik resmi sağlayarak slaytın varsayılan "EMBEDDED OLE OBJECT" yer tutucusu yerine grafiği göstermesini sağlayın. Bkz. [OleObjectFrame Eklerken Nesne Önizleme Sorunu](/slides/tr/python-java/object-preview-issue-when-adding-oleobjectframe/).
+
+**Kod içinde çalışma kitabını değiştirdiğimde önizleme otomatik olarak güncellenir mi?**
+
+Önizlemeyi bir anlık görüntü olarak değerlendirin. Çalışma kitabı verilerini program aracılığıyla güncellediğinizde, grafik görüntüsünü yeniden oluşturun ve önizlemeyi ve yerleştirilmiş çalışma kitabı verilerini değiştirin.
+
+**XLSX yerine XLS kullanabilir miyim?**
+
+Evet. Çalışma kitabını XLS formatında kaydedin ve yerleştirilmiş veri uzantısı olarak `xls` kullanın. Uzantı, gerçek çalışma kitabı formatıyla eşleşmelidir; yalnızca uzantıyı değiştirmek veriyi dönüştürmez.
+
+**Nesne etkinleştirildikten sonra boyutu neden değişebilir?**
+
+Ana uygulama, çalışma kitabını etkinleştirdiğinde OLE nesnesinin sunumunu güncelleyebilir. Çalışma kitabının OLE görüntüleme aralığı ve slayt çerçevesi boyutları her ikisi de önemlidir. Bkz. [PPTX'te Grafik Yeniden Boyutlandırma için Çalışan Çözüm](/slides/tr/python-java/working-solution-for-chart-resizing-in-pptx/).
 
 ## **İlgili Bölümler**
 
 - [PPTX'te Grafik Yeniden Boyutlandırma için Çalışan Çözüm](/slides/tr/python-java/working-solution-for-chart-resizing-in-pptx/)
 - [OleObjectFrame Eklerken Nesne Önizleme Sorunu](/slides/tr/python-java/object-preview-issue-when-adding-oleobjectframe/)
-
-## **SSS**
-
-**Excel grafiğini oluşturmak ve yerleştirmek için hangi kütüphaneler kullanılır?**
-
-Aspose.Cells for Python via Java Excel grafiğini oluşturur ve Aspose.Slides for Python via Java bunu bir PowerPoint slaytına OLE nesnesi olarak yerleştirir.
-
-**Kullanıcılar yerleştirilmiş Excel grafiğini nasıl düzenleyebilir?**
-
-Kullanıcılar grafiği etkinleştirmek ve diğer OLE nesneleri gibi düzenlemek için OLE nesne çerçevesine çift tıklayabilir.
-
-**Varsayılan OLE nesne önizlemesi nasıl değiştirilir?**
-
-Örnek, Excel grafiğinin bir görüntüsünü Aspose.Cells ile alır ve bunu "EMBEDDED OLE OBJECT" görüntüsüyle değiştirmek için kullanır.

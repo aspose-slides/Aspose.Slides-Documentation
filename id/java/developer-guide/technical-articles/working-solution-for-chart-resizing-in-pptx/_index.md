@@ -1,215 +1,124 @@
 ---
-title: Solusi Berfungsi untuk Mengubah Ukuran Grafik di PPTX
+title: Solusi Praktis untuk Mengubah Ukuran Diagram di PPTX
 type: docs
 weight: 40
 url: /id/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- mengubah ukuran grafik
-- grafik Excel
+- ubah ukuran diagram
+- diagram Excel
 - objek OLE
-- menyematkan grafik
+- sematkan diagram
 - PowerPoint
-- OpenDocument
 - presentasi
 - Java
 - Aspose.Slides
-description: "Perbaiki perubahan ukuran grafik yang tidak terduga di PPTX saat menggunakan objek OLE Excel yang disematkan dengan Aspose.Slides for Java. Pelajari dua metode dengan kode untuk menjaga ukuran tetap konsisten."
+description: "Perbaiki perubahan ukuran diagram yang tidak terduga di PPTX saat menggunakan objek OLE Excel yang disematkan dengan Aspose.Slides untuk Java. Tetapkan dimensi diagram tetap untuk menjaga ukuran diagram dan bingkai OLE tetap konsisten."
 ---
 ## **Latar Belakang**
 
-Terjadi pengamatan bahwa grafik Excel yang disematkan sebagai objek OLE dalam presentasi PowerPoint melalui komponen Aspose mengalami perubahan ukuran ke skala yang tidak ditentukan setelah aktivasi pertama. Perilaku ini menyebabkan perbedaan visual yang jelas dalam presentasi antara keadaan grafik sebelum dan sesudah aktivasi. Tim Aspose telah menyelidiki masalah ini secara mendetail dan menemukan solusinya. Artikel ini menjelaskan penyebab masalah dan perbaikan yang bersangkutan.
+Diagram Excel yang disematkan sebagai objek OLE dalam presentasi PowerPoint menggunakan komponen Aspose dapat berubah ukuran setelah aktivasi pertama. Hal ini dapat menyebabkan perbedaan yang terlihat pada penampilan diagram sebelum dan sesudah aktivasi. Artikel ini menjelaskan mengapa perubahan ukuran terjadi dan menunjukkan cara mencegahnya dengan mencocokkan dimensi diagram tetap dengan bingkai OLE.
 
-Dalam [artikel sebelumnya](/slides/id/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), kami menjelaskan cara membuat grafik Excel dengan Aspose.Cells for Java dan menyematkannya dalam presentasi PowerPoint menggunakan Aspose.Slides for Java. Untuk mengatasi [masalah pratinjau objek](/slides/id/java/object-preview-issue-when-adding-oleobjectframe/), kami menetapkan gambar grafik ke kerangka objek OLE grafik tersebut. Pada presentasi output, ketika Anda mengklik ganda kerangka objek OLE yang menampilkan gambar grafik, grafik Excel diaktifkan. Pengguna akhir dapat membuat perubahan apa pun yang diinginkan di buku kerja Excel yang mendasarinya, kemudian kembali ke slide terkait dengan mengklik di luar buku kerja yang diaktifkan. Ukuran kerangka objek OLE berubah ketika pengguna kembali ke slide, dan faktor perubahan ukuran bervariasi tergantung pada ukuran asli baik kerangka objek OLE maupun buku kerja Excel yang disematkan.
+Di [Buat Diagram Excel dan Sematkan Sebagai Objek OLE dalam Presentasi](/slides/id/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), kami menjelaskan cara membuat diagram Excel dengan Aspose.Cells untuk Java dan menyematkannya dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Java. Untuk mengatasi [masalah pratinjau objek](/slides/id/java/object-preview-issue-when-adding-oleobjectframe/), kami menetapkan gambar diagram ke bingkai objek OLE diagram. Dalam presentasi output, ketika Anda mengklik ganda bingkai objek OLE yang menampilkan gambar diagram, diagram Excel diaktifkan. Pengguna dapat mengedit buku kerja Excel yang disematkan dan kemudian kembali ke slide dengan mengklik di luar buku kerja yang diaktifkan. Ukuran bingkai objek OLE berubah ketika pengguna kembali ke slide, dan faktor perubahan ukuran bervariasi tergantung pada ukuran asli baik bingkai objek OLE maupun buku kerja Excel yang disematkan.
 
 ## **Penyebab Perubahan Ukuran**
 
-Karena buku kerja Excel memiliki ukuran jendela tersendiri, ia mencoba mempertahankan ukuran aslinya pada aktivasi pertama. Kerangka objek OLE, bagaimanapun, memiliki ukuran tersendiri. Menurut Microsoft, ketika buku kerja Excel diaktifkan, Excel dan PowerPoint bernegosiasi mengenai ukuran dan mempertahankan proporsi yang tepat sebagai bagian dari proses penyematan. Bergantung pada perbedaan antara ukuran jendela Excel dan ukuran atau posisi kerangka objek OLE, terjadi perubahan ukuran.
+Workbook Excel yang disematkan memiliki dimensi jendela tersendiri, yang berusaha dipertahankan Excel saat objek pertama kali diaktifkan. Bingkai OLE pada slide memiliki dimensi yang ditentukan secara independen. Ketika workbook Excel diaktifkan, Excel dan PowerPoint bernegosiasi mengenai ukuran objek untuk mempertahankan proporsinya sebagai bagian dari proses penyematan. Perbedaan antara jendela workbook dan bingkai OLE dapat menyebabkan objek berubah ukuran.
 
 ## **Solusi yang Berfungsi**
 
-Ada dua skenario kemungkinan untuk membuat presentasi PowerPoint menggunakan Aspose.Slides for Java.
+Sesuaikan ukuran diagram dengan bingkai OLE pada slide dan pertahankan dimensi diagram terpisah dari jendela workbook. Solusi ini berfungsi dengan presentasi baru atau templat yang ada.
 
-**Skenario 1:** Membuat presentasi berdasarkan templat yang ada.
+Contoh ini memerlukan Aspose.Cells untuk Java dan Aspose.Slides untuk Java. Ini membuat diagram kolom sederhana pada lembar diagram aktif dan menyematkan workbook dalam format XLS. Tidak ada gambar pratinjau diagram yang ditetapkan; diagram akan terlihat ketika objek OLE diaktifkan di PowerPoint.
 
-**Skenario 2:** Membuat presentasi dari awal.
+Contoh membuat presentasi baru dengan bingkai OLE berukuran 9,5 × 4 inci yang ditempatkan 0,5 inci dari tepi kiri dan 1 inci dari atas. Koordinat dan dimensi slide dalam poin (72 poin per inci). Untuk presentasi yang ada, lihat [Gunakan Template](#use-a-template).
 
-Solusi yang kami berikan di sini berlaku untuk kedua skenario. Dasar semua pendekatan solusi adalah sama: **ukuran jendela objek OLE yang disematkan harus cocok dengan kerangka objek OLE di slide PowerPoint**. Kami akan membahas dua pendekatan untuk solusi ini.
+## **Setel Ukuran Diagram Tetap**
 
-## **Pendekatan Pertama**
-
-Dalam pendekatan ini, kita akan belajar cara mengatur ukuran jendela buku kerja Excel yang disematkan sehingga cocok dengan ukuran kerangka objek OLE di slide PowerPoint.
-
-**Skenario 1**
-
-Misalkan kami telah mendefinisikan sebuah templat dan ingin membuat presentasi berdasarkan templat tersebut. Anggap ada sebuah shape pada indeks 2 dalam templat di mana kami ingin menempatkan kerangka OLE yang berisi buku kerja Excel yang disematkan. Dalam skenario ini, ukuran kerangka objek OLE sudah ditentukan—ia cocok dengan ukuran shape pada indeks 2 dalam templat. Yang perlu kami lakukan hanyalah mengatur ukuran jendela buku kerja agar sama dengan ukuran shape tersebut. Potongan kode berikut melayani tujuan ini:
+Setel [setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) ke false sehingga dimensi diagram terpisah dari jendela workbook. Setel dimensi [getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) melalui [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) dan [setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-), mengonversi poin ke piksel menggunakan 96 piksel per inci: sebuah bingkai berukuran 684 × 288 poin bersesuaian dengan diagram berukuran 912 × 384 piksel. Setel [setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) ke nilai CUSTOM dari [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/). Contoh menyematkan workbook dengan [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) dan menyimpan presentasi dengan bingkai OLE 9,5 × 4 inci.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// Atur lebar jendela buku kerja dalam inci (dibagi 72 karena PowerPoint menggunakan 72 poin per inci).
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// Atur tinggi jendela buku kerja dalam inci.
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// Simpan buku kerja ke aliran memori.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Buat kerangka objek OLE dengan data Excel yang disematkan.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // Koordinat dan dimensi slide dalam poin (72 poin per inci).
+        float width = 684f; // 9,5 inci.
+        float height = 288f; // 4 inci.
+
+        chart.setSizeWithWindow(false);
+        // Konversi poin ke piksel diagram menggunakan 96 piksel per inci.
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**Skenario 2**
+## **Gunakan Template**
 
-Katakanlah kami ingin membuat presentasi dari awal dan menyertakan kerangka objek OLE dengan ukuran apa pun yang berisi buku kerja Excel yang disematkan. Pada potongan kode berikut, kami membuat kerangka objek OLE setinggi 4 inci dan lebar 9,5 inci pada x = 0,5 inci dan y = 1 inci di slide. Kemudian kami mengatur jendela buku kerja Excel ke ukuran yang sama—tinggi 4 inci dan lebar 9,5 inci.
+Logika pengukuran sama untuk presentasi yang ada. Untuk menyesuaikan contoh:
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// Tinggi yang diinginkan.
-int desiredHeight = 288; // 4 inch (4 * 72)
- 
-// Lebar yang diinginkan.
-int desiredWidth = 684; // 9.5 inch (9.5 * 72)
- 
-// Tentukan ukuran grafik dengan jendela.
-chart.setSizeWithWindow(true);
- 
-// Atur lebar jendela buku kerja dalam inci (dibagi 72 karena PowerPoint menggunakan 72 poin per inci).
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// Atur tinggi jendela buku kerja dalam inci.
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// Simpan buku kerja ke aliran memori.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Buat kerangka objek OLE dengan data Excel yang disematkan.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 inch (0.5 * 72)
-    72,  // y = 1 inch (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **Pendekatan Kedua**
-
-Dalam pendekatan ini, kita akan belajar cara mengatur ukuran grafik di dalam buku kerja Excel yang disematkan agar cocok dengan ukuran kerangka objek OLE di slide PowerPoint. Pendekatan ini berguna ketika ukuran grafik sudah diketahui sebelumnya dan tidak akan berubah.
-
-**Skenario 1**
-
-Misalkan kami telah mendefinisikan sebuah templat dan ingin membuat presentasi berdasarkan templat tersebut. Anggap ada sebuah shape pada indeks 2 dalam templat di mana kami berniat menempatkan kerangka OLE yang berisi buku kerja Excel yang disematkan. Dalam skenario ini, ukuran kerangka OLE sudah ditentukan—sesuai dengan ukuran shape pada indeks 2 dalam templat. Yang perlu kami lakukan hanyalah mengatur ukuran grafik di buku kerja agar sama dengan ukuran shape tersebut. Potongan kode berikut melayani tujuan ini:
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// Tentukan ukuran grafik tanpa jendela.
-chart.setSizeWithWindow(false);
- 
-// Atur lebar grafik dalam piksel (kalikan dengan 96 karena Excel menggunakan 96 piksel per inci).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// Atur tinggi grafik dalam piksel.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// Tentukan ukuran cetak grafik.
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// Simpan buku kerja ke aliran memori.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Buat kerangka objek OLE dengan data Excel yang disematkan.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
-
-**Skenario 2**:
-
-Misalkan kami ingin membuat presentasi dari awal dan menyertakan kerangka objek OLE dengan ukuran apa pun yang berisi buku kerja Excel yang disematkan. Pada potongan kode berikut, kami membuat kerangka objek OLE dengan tinggi 4 inci dan lebar 9,5 inci pada slide di x = 0,5 inci dan y = 1 inci. Kami juga mengatur ukuran grafik yang bersesuaian ke dimensi yang sama: tinggi 4 inci dan lebar 9,5 inci.
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// Tinggi yang diinginkan.
-int desiredHeight = 288; // 4 inci (4 * 72)
- 
-// Lebar yang diinginkan.
-int desiredWidth = 684; // 9,5 inci (9.5 * 72)
- 
-// Tentukan ukuran grafik tanpa jendela.
-chart.setSizeWithWindow(false);
- 
-// Atur lebar grafik dalam piksel (dibagi 72 untuk mendapatkan inci, dikalikan 96 karena Excel menggunakan 96 piksel per inci).
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// Atur tinggi grafik dalam piksel.
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// Simpan buku kerja ke aliran memori.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Buat kerangka objek OLE dengan data Excel yang disematkan.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0,5 inci (0.5 * 72)
-    72,  // y = 1 inci (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **Kesimpulan**
-
-Ada dua pendekatan untuk memperbaiki masalah perubahan ukuran grafik. Pilihan pendekatan tergantung pada kebutuhan dan kasus penggunaan. Kedua pendekatan bekerja dengan cara yang sama baik presentasi dibuat dari templat maupun dibuat dari awal. Selain itu, tidak ada batasan ukuran kerangka objek OLE dalam solusi ini.
+1. Muat presentasi templat alih-alih membuat presentasi kosong.
+1. Periksa bahwa slide pertama berisi setidaknya tiga shape, kemudian gunakan shape pada indeks 2 sebagai placeholder.
+1. Ambil lebar dan tinggi bingkai dari shape tersebut alih-alih menggunakan nilai tetap 684 dan 288. Biarkan perhitungan ukuran tidak berubah.
+1. Tambahkan bingkai OLE pada posisi placeholder alih-alih koordinat tetap 36 dan 72.
+1. Hapus placeholder sebelum menyimpan presentasi.
 
 ## **FAQ**
 
-### Mengapa grafik Excel yang disematkan berubah ukuran setelah diaktifkan di PowerPoint?
+**Mengapa diagram Excel yang disematkan saya berubah ukuran setelah diaktifkan di PowerPoint?**  
+Ini terjadi karena Excel mencoba mengembalikan ukuran jendela asli saat pertama kali diaktifkan, sedangkan bingkai objek OLE di PowerPoint memiliki dimensinya sendiri. PowerPoint dan Excel bernegosiasi ukuran untuk mempertahankan rasio aspek, yang dapat menyebabkan perubahan ukuran.
 
-Hal ini terjadi karena Excel mencoba mengembalikan ukuran jendela asli saat pertama kali diaktifkan, sementara kerangka objek OLE di PowerPoint memiliki dimensi tersendiri. PowerPoint dan Excel bernegosiasi ukuran untuk mempertahankan rasio aspek, yang dapat menyebabkan perubahan ukuran.
+**Bagaimana saya dapat menjaga ukuran diagram dan bingkai OLE tetap konsisten?**  
+Tetapkan dimensi diagram tetap yang cocok dengan bingkai OLE dan gunakan ukuran cetak diagram khusus sebelum menyematkan workbook. Contoh di atas menunjukkan pengaturan yang diperlukan dan konversi satuan.
 
-### Apakah mungkin mencegah masalah perubahan ukuran ini sepenuhnya?
+**Apakah mencocokkan ukuran jendela workbook sudah cukup?**  
+Mencocokkan ukuran jendela workbook saja tidak secara andal mencegah bingkai OLE berubah ukuran setelah aktivasi. Gunakan dimensi diagram tetap seperti yang ditunjukkan dalam contoh.
 
-Ya. Dengan mencocokkan ukuran jendela buku kerja Excel atau ukuran grafik dengan ukuran kerangka objek OLE sebelum penyematan, Anda dapat menjaga konsistensi ukuran grafik.
+**Apakah solusi ini bekerja dengan presentasi berbasis templat dan presentasi baru?**  
+Ya. Untuk templat, gunakan dimensi dan posisi placeholder. Untuk presentasi baru, tentukan dimensi dan posisi bingkai secara langsung.
 
-### Pendekatan mana yang harus saya pilih, mengatur ukuran jendela buku kerja atau mengatur ukuran grafik?
-
-Gunakan **Pendekatan 1 (ukuran jendela)** jika Anda ingin mempertahankan rasio aspek buku kerja dan memungkinkan perubahan ukuran di kemudian hari.
-Gunakan **Pendekatan 2 (ukuran grafik)** jika dimensi grafik bersifat tetap dan tidak akan berubah setelah penyematan.
-
-### Apakah metode ini bekerja untuk presentasi berbasis templat dan presentasi baru?
-
-Ya. Kedua pendekatan bekerja sama untuk presentasi yang dibuat dari templat maupun dari awal.
-
-### Apakah ada batasan ukuran kerangka objek OLE?
-
-Tidak. Anda dapat mengatur kerangka OLE ke ukuran apa pun selama skala tersebut cocok dengan ukuran buku kerja atau grafik.
-
-### Bisakah saya menggunakan metode ini dengan grafik yang dibuat di program spreadsheet lain?
-
-Contoh-contoh dirancang untuk grafik Excel yang dibuat dengan Aspose.Cells, tetapi prinsipnya berlaku untuk program spreadsheet lain yang kompatibel dengan OLE selama mereka mendukung opsi pengukuran serupa.
+**Bisakah saya menggunakan contoh ini dengan diagram yang dibuat di program spreadsheet lain?**  
+Contoh ini menggunakan workbook Excel yang dibuat dengan Aspose.Cells. Ia tidak menunjukkan perilaku aktivasi untuk program spreadsheet lain.
 
 ## **Bagian Terkait**
 
-- [Buat Grafik Excel dan Sematkan Sebagai Objek OLE dalam Presentasi](/slides/id/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Buat Diagram Excel dan Sematkan Sebagai Objek OLE dalam Presentasi](/slides/id/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

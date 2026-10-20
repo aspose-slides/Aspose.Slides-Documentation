@@ -1,5 +1,5 @@
 ---
-title: "Giải pháp hoạt động cho việc thay đổi kích thước bảng tính"
+title: Giải pháp thực tế cho việc thay đổi kích thước bảng tính
 type: docs
 weight: 20
 url: /vi/python-java/working-solution-for-worksheet-resizing/
@@ -10,36 +10,38 @@ keywords:
 - Excel
 - bảng tính
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Python
 - Java
 - Aspose.Slides
-description: "Khắc phục việc thay đổi kích thước OLE của bảng tính Excel trong bản trình chiếu: hai cách để giữ khung đối tượng nhất quán—điều chỉnh tỷ lệ khung hoặc bảng tính—trên các định dạng PPT và PPTX."
+description: "Khắc phục việc thay đổi kích thước OLE của bảng tính Excel trong bản trình bày: hai cách để giữ khung đối tượng ổn định—phóng to khung hoặc bảng tính—trên các định dạng PPT và PPTX."
 ---
 {{% alert color="info" title="Note" %}}
-Đã được ghi nhận rằng các worksheet Excel được nhúng dưới dạng đối tượng OLE trong bản trình chiếu PowerPoint thông qua các thành phần Aspose sẽ được thay đổi kích thước theo một tỷ lệ không xác định sau lần kích hoạt đầu tiên. Hành vi này tạo ra sự khác biệt rõ rệt về hình ảnh trong bản trình chiếu giữa trạng thái trước và sau khi kích hoạt đối tượng OLE. Chúng tôi đã điều tra chi tiết vấn đề này và cung cấp một giải pháp, được trình bày trong bài viết này.
+Trang tính Excel được nhúng dưới dạng đối tượng OLE trong bản trình bày PowerPoint sử dụng các thành phần Aspose có thể thay đổi kích thước một cách không mong muốn sau lần kích hoạt đầu tiên. Hành vi này tạo ra sự khác biệt về hình ảnh đáng chú ý giữa đối tượng OLE trước và sau khi kích hoạt. Bài viết này giải thích vấn đề và mô tả hai cách để khắc phục.
 {{% /alert %}}
 
 ## **Bối cảnh**
 
-Trong bài viết [Manage OLE](/slides/vi/python-java/manage-ole/), chúng tôi đã giải thích cách thêm một khung OLE vào bản trình chiếu PowerPoint bằng cách sử dụng Aspose.Slides for Python qua Java. Để giải quyết [object preview issue](/slides/vi/python-java/object-preview-issue-when-adding-oleobjectframe/), chúng tôi đã gán một hình ảnh của vùng worksheet đã chọn cho khung đối tượng OLE. Trong bản trình chiếu đầu ra, khi bạn nhấp đúp vào khung OLE hiển thị hình ảnh worksheet, workbook Excel sẽ được kích hoạt. Người dùng cuối có thể thực hiện bất kỳ thay đổi nào mong muốn đối với workbook Excel thực tế và sau đó quay lại slide bằng cách nhấp ra ngoài workbook Excel đã kích hoạt. Kích thước của khung OLE sẽ thay đổi khi người dùng quay lại slide. Hệ số thay đổi kích thước sẽ khác nhau tùy thuộc vào kích thước của khung OLE và workbook Excel nhúng.
+Trong bài viết [Quản lý OLE](/slides/vi/python-java/manage-ole/), chúng tôi giải thích cách thêm khung OLE vào bản trình bày PowerPoint sử dụng Aspose.Slides cho Python qua Java. Để giải quyết [vấn đề xem trước đối tượng](/slides/vi/python-java/object-preview-issue-when-adding-oleobjectframe/), chúng tôi gán một hình ảnh của khu vực bảng tính được chọn cho khung đối tượng OLE. Trong bản trình bày đầu ra, khi bạn nhấp đúp vào khung đối tượng OLE hiển thị hình ảnh bảng tính, sổ làm việc Excel sẽ được kích hoạt. Người dùng cuối có thể thực hiện bất kỳ thay đổi nào mong muốn đối với sổ làm việc Excel thực tế và sau đó quay lại slide bằng cách nhấp ra ngoài sổ Excel đã kích hoạt. Kích thước của khung đối tượng OLE sẽ thay đổi khi người dùng quay lại slide. Hệ số thay đổi kích thước sẽ khác nhau tùy thuộc vào kích thước của khung OLE và sổ Excel được nhúng.
 
 ## **Nguyên nhân của việc thay đổi kích thước**
 
-Vì workbook Excel có kích thước cửa sổ riêng, nó cố gắng duy trì kích thước gốc khi lần đầu tiên được kích hoạt. Mặt khác, khung đối tượng OLE cũng có kích thước riêng. Theo Microsoft, khi workbook Excel được kích hoạt, Excel và PowerPoint sẽ thương lượng kích thước để đảm bảo duy trì tỷ lệ đúng như một phần của quá trình nhúng. Việc thay đổi kích thước xảy ra dựa trên sự khác biệt giữa kích thước cửa sổ Excel và kích thước cùng vị trí của khung OLE.
+Vì sổ làm việc Excel có kích thước cửa sổ riêng, nó cố gắng giữ nguyên kích thước ban đầu khi được kích hoạt lần đầu. Ngược lại, khung đối tượng OLE cũng có kích thước riêng của nó. Theo Microsoft, khi sổ Excel được kích hoạt, Excel và PowerPoint sẽ thương lượng kích thước để đảm bảo duy trì tỉ lệ chính xác như một phần của quá trình nhúng. Việc thay đổi kích thước xảy ra dựa trên sự khác biệt giữa kích thước cửa sổ Excel và kích thước và vị trí của khung đối tượng OLE.
 
-## **Giải pháp hoạt động**
+## **Giải pháp thực hiện**
 
 Có hai giải pháp khả thi để tránh hiệu ứng thay đổi kích thước.
 
-- Thay đổi kích thước khung OLE trong bản trình chiếu PowerPoint để khớp với chiều cao và chiều rộng của số hàng và cột mong muốn trong khung OLE.
-- Giữ kích thước khung OLE không đổi và thay đổi kích thước của các hàng và cột tham gia để vừa với kích thước khung OLE đã chọn.
+- Điều chỉnh kích thước khung OLE trong bản trình bày PowerPoint sao cho khớp với tổng chiều cao và chiều rộng của các hàng và cột đã chọn.
+- Giữ cố định kích thước khung OLE và thay đổi kích thước các hàng và cột đã chọn để vừa khớp bên trong.
 
 ### **Điều chỉnh kích thước khung OLE**
 
-Trong cách tiếp cận này, chúng ta sẽ tìm hiểu cách đặt kích thước khung OLE của workbook Excel được nhúng sao cho khớp với kích thước tổng cộng của các hàng và cột tham gia trong worksheet Excel.
+Cách tiếp cận này thiết lập kích thước khung OLE sao cho khớp với tổng chiều cao và chiều rộng của các hàng và cột đã chọn trong bảng tính Excel được nhúng.
 
-Giả sử chúng ta có một sheet Excel mẫu và muốn thêm nó vào bản trình chiếu dưới dạng khung OLE. Trong kịch bản này, kích thước của khung đối tượng OLE sẽ được tính toán đầu tiên dựa trên tổng chiều cao các hàng và chiều rộng các cột của các hàng và cột tham gia trong workbook. Sau đó, chúng ta sẽ đặt kích thước của khung OLE thành giá trị đã tính toán này. Để tránh thông báo màu đỏ "EMBEDDED OLE OBJECT" cho khung OLE trong PowerPoint, chúng ta cũng sẽ chụp một hình ảnh của các phần mong muốn của các hàng và cột trong workbook và đặt nó làm hình ảnh khung OLE.
+Ví dụ tải một sổ Excel hiện có và chọn 10 hàng đầu tiên và 13 cột đầu tiên của trang tính đầu tiên bằng chỉ số bắt đầu từ 0. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) xác định phạm vi hiển thị. Bản xem trước được tạo ở độ phân giải 96 DPI, và kích thước pixel của nó được chuyển đổi sang điểm bằng cách sử dụng 72 điểm mỗi inch. [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) nhúng sổ đã chỉnh sửa vào một khung với các kích thước đó. Bản xem trước được gán thông qua [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) để thay thế ký placeholder "EMBEDDED OLE OBJECT" trong bản trình bày đã lưu.
+
+Bộ trợ giúp xem trước đặt [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) thành phạm vi đã chọn và loại bỏ lề, tiêu đề và chân trang. Khi [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea) được bật, [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) tạo hình ảnh PNG cho phạm vi. Bộ trợ giúp trả về một luồng đầu vào mới chứa hình ảnh PNG, được đặt ở vị trí bắt đầu để sử dụng trong bản trình bày.
 
 ```python
 import jpype
@@ -92,7 +94,7 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # Đặt kích thước hiển thị khi workbook được sử dụng làm đối tượng OLE trong PowerPoint.
+    # Đặt kích thước hiển thị khi sổ làm việc được sử dụng làm đối tượng OLE trong PowerPoint.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
@@ -107,7 +109,7 @@ try:
         frame_width = image.getWidth() * 72.0 / image_resolution
         frame_height = image.getHeight() * 72.0 / image_resolution
 
-        # Sử dụng workbook đã được chỉnh sửa.
+        # Sử dụng sổ làm việc đã được chỉnh sửa.
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -119,7 +121,7 @@ try:
         try:
             slide = presentation.getSlides().get_Item(0)
 
-            # Thêm hình ảnh OLE vào tài nguyên của bản trình chiếu.
+            # Thêm hình ảnh OLE vào tài nguyên của bản trình bày.
             image_stream.reset()
             ole_image = presentation.getImages().addImage(image_stream)
 
@@ -140,9 +142,13 @@ finally:
 
 ### **Điều chỉnh kích thước phạm vi ô**
 
-Trong cách tiếp cận này, chúng ta sẽ tìm hiểu cách thay đổi chiều cao của các hàng tham gia và chiều rộng của các cột tham gia sao cho khớp với kích thước khung OLE tùy chỉnh.
+Cách tiếp cận này điều chỉnh chiều cao của các hàng đã chọn và chiều rộng của các cột đã chọn để khớp với kích thước khung OLE tùy chỉnh.
 
-Giả sử chúng ta có một sheet Excel mẫu và muốn thêm nó vào bản trình chiếu dưới dạng khung OLE. Trong kịch bản này, chúng ta sẽ đặt kích thước của khung OLE và thay đổi kích thước của các hàng và cột tham gia vào vùng khung OLE. Sau đó, chúng ta sẽ lưu workbook vào một luồng để áp dụng các thay đổi và chuyển đổi nó thành mảng byte để thêm vào khung OLE. Để tránh thông báo màu đỏ "EMBEDDED OLE OBJECT" cho khung OLE trong PowerPoint, chúng ta cũng sẽ chụp một hình ảnh của các phần mong muốn của các hàng và cột trong workbook và đặt nó làm hình ảnh khung OLE.
+Ví dụ tải một sổ Excel hiện có và chọn 10 hàng đầu tiên và 13 cột đầu tiên của trang tính đầu tiên bằng chỉ số bắt đầu từ 0. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) xác định phạm vi hiển thị, và bộ trợ giúp scale_cell_range điều chỉnh phạm vi đó để phù hợp với khung có chiều rộng 400 điểm và chiều cao 100 điểm. Sau khi lưu sổ đã chỉnh sửa vào một luồng, [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) nhúng nó với kích thước đã chỉ định. Một bản xem trước được tạo ở độ phân giải 96 DPI được gán thông qua [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat), vì vậy bản trình bày đã lưu hiển thị các ô đã chọn thay vì placeholder mặc định.
+
+Bộ trợ giúp điều chỉnh tính toán các tỉ lệ chiều rộng và chiều cao riêng biệt cho phạm vi đã chọn, bảo lưu độ rộng tương đối của các cột và độ cao tương đối của các hàng. Nó chuyển đổi các kích thước tính toán từ điểm sang inch trước khi áp dụng chúng bằng [Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) và [Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch). Phạm vi đã chọn phải có chiều rộng và chiều cao khác không.
+
+Bộ trợ giúp xem trước này tạo ra phạm vi đã thay đổi kích thước bằng cách sử dụng [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage). Nó giới hạn [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) cho phạm vi đó, loại bỏ lề, tiêu đề và chân trang, và trả về một luồng PNG được đặt ở vị trí bắt đầu.
 
 ```python
 import jpype
@@ -187,7 +193,7 @@ def create_ole_image(cell_range, image_resolution):
 
 
 def scale_cell_range(cell_range, width, height):
-    # Chiều rộng và chiều cao mong muốn của phạm vi ô được tính bằng điểm.
+    # Chiều rộng và chiều cao dự kiến của phạm vi ô được tính bằng điểm.
     range_width = cell_range.getWidth()
     range_height = cell_range.getHeight()
     cells = cell_range.getWorksheet().getCells()
@@ -216,7 +222,7 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # Đặt kích thước hiển thị khi workbook được sử dụng làm đối tượng OLE trong PowerPoint.
+    # Đặt kích thước hiển thị khi sổ làm việc được sử dụng làm đối tượng OLE trong PowerPoint.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
@@ -227,7 +233,7 @@ try:
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
 
-        # Sử dụng workbook đã được chỉnh sửa.
+        # Sử dụng sổ làm việc đã được chỉnh sửa.
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -239,7 +245,7 @@ try:
         try:
             slide = presentation.getSlides().get_Item(0)
 
-            # Thêm hình ảnh OLE vào tài nguyên của bản trình chiếu.
+            # Thêm hình ảnh OLE vào tài nguyên của bản trình bày.
             image_stream.reset()
             ole_image = presentation.getImages().addImage(image_stream)
 
@@ -261,36 +267,31 @@ finally:
 ## **Kết luận**
 
 {{% alert color="info" title="Note" %}} 
-
-Có hai cách tiếp cận để khắc phục vấn đề thay đổi kích thước worksheet. Lựa chọn cách tiếp cận phù hợp phụ thuộc vào yêu cầu và trường hợp sử dụng cụ thể. Cả hai cách đều hoạt động tương tự, bất kể bản trình chiếu được tạo từ mẫu hay tạo mới. Ngoài ra, không có giới hạn về kích thước của khung OLE trong giải pháp này.
+Có hai cách tiếp cận để khắc phục vấn đề thay đổi kích thước của bảng tính. Hãy chọn cách tiếp cận phù hợp nhất với yêu cầu và trường hợp sử dụng của bạn. Cả hai cách đều hoạt động tương tự, bất kể bản trình bày được tạo từ mẫu hay từ đầu. Ngoài ra, không có giới hạn nào về kích thước khung đối tượng OLE trong giải pháp này.
 {{% /alert %}}
 
 ## **Câu hỏi thường gặp**
 
-**Tại sao một worksheet Excel được nhúng lại thay đổi kích thước khi lần đầu tiên được kích hoạt trong PowerPoint?**
+**Tại sao một bảng tính Excel được nhúng lại thay đổi kích thước khi lần đầu được kích hoạt trong PowerPoint?**  
+Điều này xảy ra vì Excel cố gắng giữ nguyên kích thước cửa sổ ban đầu khi được kích hoạt, trong khi khung OLE trong PowerPoint có kích thước riêng. PowerPoint và Excel thương lượng kích thước để duy trì tỷ lệ khung hình, điều này có thể gây ra việc thay đổi kích thước.
 
-Điều này xảy ra vì Excel cố gắng duy trì kích thước cửa sổ gốc khi được kích hoạt, trong khi khung OLE trong PowerPoint có kích thước riêng. PowerPoint và Excel sẽ thương lượng kích thước để duy trì tỷ lệ khung hình, dẫn đến việc thay đổi kích thước.
+**Có thể ngăn ngừa hoàn toàn vấn đề thay đổi kích thước này không?**  
+Có. Bằng cách điều chỉnh kích thước khung OLE để phù hợp với kích thước phạm vi ô Excel hoặc điều chỉnh phạm vi ô để phù hợp với kích thước khung OLE mong muốn, bạn có thể ngăn ngừa việc thay đổi kích thước không mong muốn.
 
-**Liệu có thể ngăn hoàn toàn vấn đề thay đổi kích thước này không?**
+**Tôi nên sử dụng phương pháp điều chỉnh nào, điều chỉnh khung OLE hay điều chỉnh phạm vi ô?**  
+Chọn **điều chỉnh khung OLE** nếu bạn muốn duy trì kích thước hàng và cột gốc của Excel. Chọn **điều chỉnh phạm vi ô** nếu bạn muốn có kích thước cố định cho khung OLE trong bản trình bày.
 
-Có. Bằng cách điều chỉnh kích thước khung OLE để phù hợp với kích thước phạm vi ô Excel hoặc điều chỉnh phạm vi ô để phù hợp với kích thước khung OLE mong muốn, bạn có thể ngăn chặn việc thay đổi kích thước không mong muốn.
+**Các giải pháp này có hoạt động nếu bản trình bày của tôi dựa trên mẫu không?**  
+Có. Cả hai giải pháp đều hoạt động cho các bản trình bày được tạo từ mẫu và từ đầu.
 
-**Nên sử dụng phương pháp điều chỉnh nào, điều chỉnh khung OLE hay điều chỉnh phạm vi ô?**
+**Có giới hạn nào về kích thước khung OLE khi sử dụng các phương pháp này không?**  
+Không. Bạn có thể đặt khung đối tượng OLE với bất kỳ kích thước nào miễn là bạn điều chỉnh tỉ lệ một cách thích hợp.
 
-Chọn **điều chỉnh khung OLE** nếu bạn muốn giữ nguyên kích thước hàng và cột gốc của Excel. Chọn **điều chỉnh phạm vi ô** nếu bạn muốn có kích thước cố định cho khung OLE trong bản trình chiếu của mình.
-
-**Các giải pháp này có hoạt động nếu bản trình chiếu của tôi dựa trên một mẫu không?**
-
-Có. Cả hai giải pháp đều hoạt động cho các bản trình chiếu được tạo từ mẫu và từ đầu.
-
-**Có giới hạn nào về kích thước của khung OLE khi sử dụng các phương pháp này không?**
-
-Không. Bạn có thể đặt khung OLE ở bất kỳ kích thước nào miễn là bạn thiết lập tỷ lệ phù hợp.
-
-**Có cách nào để tránh văn bản placeholder "EMBEDDED OLE OBJECT" trong PowerPoint không?**
-
-Có. Bằng cách chụp ảnh phạm vi ô Excel mục tiêu và đặt nó làm hình ảnh placeholder cho khung OLE, bạn có thể hiển thị một hình ảnh xem trước tùy chỉnh thay cho placeholder mặc định.
+**Có cách nào để tránh văn bản placeholder "EMBEDDED OLE OBJECT" trong PowerPoint không?**  
+Có. Bằng cách chụp ảnh nhanh phạm vi ô Excel mục tiêu và đặt nó làm hình ảnh placeholder cho khung OLE, bạn có thể hiển thị một hình ảnh xem trước tùy chỉnh thay cho placeholder mặc định.
 
 ## **Bài viết liên quan**
 
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/vi/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Tạo biểu đồ Excel và nhúng nó vào bản trình bày dưới dạng đối tượng OLE](/slides/vi/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Cập nhật tự động các đối tượng OLE bằng Add-In MS PowerPoint](/slides/vi/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

@@ -1,5 +1,5 @@
 ---
-title: Buat Grafik Excel dan Sematkan ke Presentasi sebagai Objek OLE
+title: Buat Grafik Excel dan Sematkan dalam Presentasi sebagai Objek OLE
 type: docs
 weight: 40
 url: /id/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
@@ -8,167 +8,186 @@ keywords:
 - sematkan grafik
 - objek OLE
 - PowerPoint
-- OpenDocument
 - presentasi
 - C++
 - Aspose.Slides
-description: "Buat grafik Excel dan sematkan sebagai objek OLE dalam presentasi PowerPoint dan OpenDocument dengan C++. Panduan langkah demi langkah dengan contoh kode."
+description: "Buat grafik Excel dengan Aspose.Cells untuk C++ dan sematkan workbook di presentasi PowerPoint dengan Aspose.Slides, termasuk pratinjau grafik."
 ---
-## **Latar Belakang**
+## **Gambaran Umum**
 
-Di PowerPoint, menggunakan grafik yang dapat diedit untuk menampilkan data secara visual merupakan praktik umum. Aspose mendukung pembuatan grafik Excel dengan Aspose.Cells untuk C++, dan grafik ini kemudian dapat disematkan sebagai objek OLE dalam slide PowerPoint melalui Aspose.Slides untuk C++. Artikel ini menjelaskan langkah‑langkah yang diperlukan dan menyediakan contoh kode C++ untuk membuat grafik Excel dan menyematkannya sebagai objek OLE dalam presentasi PowerPoint menggunakan Aspose.Cells dan Aspose.Slides.
+Artikel ini menunjukkan cara membuat grafik kolom Excel dengan Aspose.Cells untuk C++ dan menyematkan workbook‑nya dalam presentasi PowerPoint dengan Aspose.Slides untuk C++. Workbook yang disematkan berisi data sumber dan grafik. Pratinjau PNG terpisah menampilkan grafik pada slide sebelum objek OLE diaktifkan.
 
-## **Langkah-Langkah yang Diperlukan**
+Hasilnya adalah objek Excel yang disematkan, bukan grafik PowerPoint asli. Mengedit workbook melalui OLE memerlukan aplikasi desktop yang mendukung aktivasi OLE dan instalasi Excel yang kompatibel.
 
-Urutan langkah berikut diperlukan untuk membuat dan menyematkan grafik Excel sebagai objek OLE dalam slide PowerPoint:
+## **Prasyarat**
 
-1. Buat grafik Excel menggunakan Aspose.Cells.
-1. Atur ukuran OLE grafik Excel menggunakan Aspose.Cells.
-1. Dapatkan gambar grafik Excel dengan Aspose.Cells.
-1. Sematkan grafik Excel sebagai objek OLE dalam presentasi PPTX menggunakan Aspose.Slides.
-1. Ganti gambar "EMBEDDED OLE OBJECT" dengan gambar yang diperoleh pada langkah 3 untuk mengatasi [object preview issue](/slides/id/cpp/object-preview-issue-when-adding-oleobjectframe/).
-1. Simpan presentasi ke disk dalam format PPTX.
+Konfigurasikan proyek C++ Anda dengan header dan pustaka untuk Aspose.Cells untuk C++ dan Aspose.Slides untuk C++. Letakkan kode contoh di titik masuk aplikasi Anda, dengan deklarasi include pada lingkup file. Microsoft Office tidak diperlukan untuk menghasilkan presentasi dengan pustaka ini.
 
-## **Implementasi Langkah-Langkah yang Diperlukan**
+Tidak diperlukan file input: contoh membuat data dan grafik di memori, kemudian menulis `OutputChart.pptx` ke direktori kerja saat ini. Terapkan lisensi untuk kedua produk saat dijalankan di luar mode evaluasi.
 
-Implementasi C++ untuk langkah‑langkah di atas adalah sebagai berikut:
+## **Cara Kerja Penyematan**
 
-```cpp
-// Langkah - 1: Buat grafik Excel menggunakan Aspose.Cells.
-// ---------------------------------------------------
-// Buat workbook.
-intrusive_ptr<Aspose::Cells::IWorkbook> workbook = Aspose::Cells::Factory::CreateIWorkbook();
-// Tambahkan grafik Excel.
-int32_t chartRows = 55;
-int32_t chartCols = 25;
-int32_t chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+1. Buat workbook dengan lembar kerja data dan lembar grafik.  
+1. Aktifkan lembar grafik sehingga workbook terbuka pada grafik.  
+1. Atur rentang tampilan OLE workbook dan render grafik ke PNG.  
+1. Simpan workbook sebagai XLSX dalam memori dan sematkan byte‑byte tersebut ke slide.  
+1. Tetapkan PNG sebagai pratinjau objek OLE dan simpan presentasi sebagai PPTX.
 
-// Langkah - 2: Atur ukuran OLE grafik menggunakan Aspose.Cells.
-// -----------------------------------------------------------
-workbook->GetIWorksheets()->SetOleSize(0, chartRows, 0, chartCols);
+Rentang tampilan workbook dan bingkai pada slide memiliki peran yang berbeda. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) mengambil indeks baris dan kolom mulai/akhir berbasis nol. [ChartCollection::Add](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chartcollection/add/) sebaliknya mengambil baris atas, kolom kiri, baris bawah, dan kolom kanan. Contoh menggunakan indeks baris 55 dan indeks kolom 25 sebagai batas kanan‑bawah; nilai‑nilai ini merupakan pilihan tata letak, bukan jumlah baris atau kolom data.
 
-// Langkah - 3: Dapatkan gambar grafik dengan Aspose.Cells.
-// -------------------------------------------------------
-System::SharedPtr<System::Drawing::Bitmap> chartImage = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex)->GetICharts()->GetObjectByIndex(0)->ToImage();
-// Simpan workbook ke stream.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+Bingkai slide menggunakan satuan poin. Contoh menyesuaikannya di dalam slide dan memusatkannya sambil mempertahankan rasio aspek PNG, alih‑alih meregangkan pratinjau untuk mengisi slide.
 
-// Langkah - 4 DAN 5
-// ==============
- // Langkah - 4: Sematkan grafik sebagai objek OLE di dalam presentasi .ppt menggunakan Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// Langkah - 5: Ganti gambar "EMBEDDED OLE OBJECT" dengan gambar yang diperoleh pada langkah 3 untuk mengatasi masalah Pratinjau Objek.
-// --------------------------------------------------------------------------------------------------------------------
- // Buat presentasi.
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-// Tambahkan workbook ke slide.
-AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+## **Buat dan Sematkan Grafik**
 
-// Langkah - 6: Simpan presentasi output ke disk.
-// -----------------------------------------------
-presentation->Save(u"OutputChart.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
+Contoh lengkap berikut mengisi `DataSheet` dengan empat baris dan lima kolom nilai. Setiap baris menjadi satu seri grafik. `ChartSheet` dipilih sebagai lembar aktif sebelum workbook disimpan.
+
+Workbook secara eksplisit disimpan sebagai XLSX, sesuai dengan ekstensi `xlsx` yang diberikan ke [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/). PNG dimuat dari aliran memori tanpa konversi bitmap menengah. Aspose.Cells mengembalikan vektor byte, yang kemudian contoh salin ke tipe array yang diterima oleh Aspose.Slides. Inisialisasi Aspose.Cells sebelum menggunakan objeknya, dan lepaskan sumber dayanya setelah objek‑objek tersebut dihancurkan. Menetapkannya melalui [IOleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/get_substitutepictureformat/) menggantikan placeholder OLE default.
 
 ```cpp
-void AddExcelChartInPresentation(System::SharedPtr<Presentation> presentation, System::SharedPtr<ISlide> slide, 
-                                 System::SharedPtr<System::IO::Stream> workbookStream, 
-                                 intrusive_ptr<Aspose::Cells::Systems::Drawing::Bitmap> chartImage)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <Util/Images.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <algorithm>
+#include <IImage.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// Inisialisasi Cells sebelum membuat objek apa pun.
+Aspose::Cells::Startup();
 {
-    float oleWidth = presentation->get_SlideSize()->get_Size().get_Width();
-    float oleHeight = presentation->get_SlideSize()->get_Size().get_Height();
-    int32_t x = 0;
-    System::ArrayPtr<uint8_t> oleData = System::MakeArray<uint8_t>(workbookStream->get_Length(), 0);
-    workbookStream->set_Position(0);
-    workbookStream->Read(oleData, 0, oleData->get_Length());
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"DataSheet");
 
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(oleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleFrame;
-    oleFrame = slide->get_Shapes()->AddOleObjectFrame(static_cast<float>(x), 0.0f, oleWidth, oleHeight, dataInfo);
-
-    intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-    chartImage->Save(cellsOutputStream, Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-
-    auto slidesImage = Images::FromStream(ToSlidesMemoryStream(cellsOutputStream));
-    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(slidesImage));
-}
-```
-
-```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-``` cpp
-int32_t AddExcelChartInWorkbook(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t chartRows, int32_t chartCols)
-{
-    // Array nama sel.
-    System::ArrayPtr<System::String> cellNames = System::MakeArray<System::String>(
-    { 
-        u"A1", u"A2", u"A3", u"A4", 
-        u"B1", u"B2", u"B3", u"B4",
-        u"C1", u"C2", u"C3", u"C4",
-        u"D1", u"D2", u"D3", u"D4",
-        u"E1", u"E2", u"E3", u"E4" 
-    });
-    
-    // Array data sel.
-    System::ArrayPtr<int32_t> cellValues = System::MakeArray<int32_t>(
+    int32_t values[4][5] =
     {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25 
-    });
+        { 67, 44, 46, 43, 24 },
+        { 86, 64, 97, 29, 40 },
+        { 68, 89, 78, 69, 38 },
+        { 91, 48, 60, 26, 25 }
+    };
 
-    // Tambahkan lembar kerja baru untuk mengisi sel dengan data.
-    int32_t dataSheetIndex = workbook->GetIWorksheets()->Add();
-    intrusive_ptr<Aspose::Cells::IWorksheet> dataSheet = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIndex);
-    intrusive_ptr<Aspose::Cells::Systems::String> sheetName = new Aspose::Cells::Systems::String("DataSheet");
-    dataSheet->SetName(sheetName);
-
-    // Isi lembar data dengan data.
-    for (int32_t i = 0; i < cellNames->get_Length(); i++)
+    for (auto row = 0; row < 4; row++)
     {
-        System::String cellName = cellNames[i];
-        int32_t cellValue = cellValues[i];
-        dataSheet->GetICells()->GetObjectByIndex(new String(cellName.ToWCS().c_str()))->PutValue(cellValue);
+        for (auto column = 0; column < 5; column++)
+        {
+            dataSheet.GetCells().Get(row, column).PutValue(values[row][column]);
+        }
     }
 
-    // Tambahkan lembar grafik.
-    int32_t chartSheetIndex = workbook->GetIWorksheets()->Add(Aspose::Cells::SheetType::SheetType_Chart);
-    intrusive_ptr<Aspose::Cells::IWorksheet> chartSheet = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex);
-    chartSheet->SetName(new String("ChartSheet"));
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    chartSheet.SetName(u"ChartSheet");
 
-    // Tambahkan grafik ke lembar grafik dengan rangkaian data dari lembar data.
-    int32_t chartIndex = chartSheet->GetICharts()->Add(Aspose::Cells::Charts::ChartType::ChartType_Column, 0, chartRows, 0, chartCols);
-    intrusive_ptr<Aspose::Cells::Charts::IChart> chart = chartSheet->GetICharts()->GetObjectByIndex(chartIndex);
-    chart->GetNISeries()->Add(sheetName + "!A1:E1", false);
-    chart->GetNISeries()->Add(sheetName + "!A2:E2", false);
-    chart->GetNISeries()->Add(sheetName + "!A3:E3", false);
-    chart->GetNISeries()->Add(sheetName + "!A4:E4", false);
+    auto lastChartRow = 55;
+    auto lastChartColumn = 25;
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, lastChartRow, lastChartColumn);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    const char16_t* seriesRanges[] = { u"DataSheet!A1:E1", u"DataSheet!A2:E2", u"DataSheet!A3:E3", u"DataSheet!A4:E4" };
+    for (auto range : seriesRanges)
+    {
+        chart.GetNSeries().Add(range, false);
+    }
 
-    // Atur lembar grafik sebagai lembar aktif.
-    workbook->GetIWorksheets()->SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetOleSize(0, lastChartRow, 0, lastChartColumn);
 
-    return chartSheetIndex;
+    // Render pratinjau grafik dan serialisasi workbook yang dapat diedit secara terpisah.
+    auto chartImageData = chart.ToImage(Aspose::Cells::Drawing::ImageType::Png);
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+
+    // Salin buffer Cells ke tipe array yang digunakan oleh Slides.
+    auto toSlidesArray = [](const Aspose::Cells::Vector<uint8_t>& buffer)
+    {
+        auto result = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+        std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), result->data_ptr());
+        return result;
+    };
+    auto chartImageBytes = toSlidesArray(chartImageData);
+    auto workbookBytes = toSlidesArray(workbookData);
+    auto chartImageStream = System::MakeObject<System::IO::MemoryStream>(chartImageBytes);
+    auto chartImage = Images::FromStream(chartImageStream);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto slideSize = presentation->get_SlideSize()->get_Size();
+
+    // Sesuaikan pratinjau dalam slide tanpa mengubah rasio aspeknya.
+    auto scale = (std::min)(slideSize.get_Width() / chartImage->get_Width(), slideSize.get_Height() / chartImage->get_Height());
+    auto frameWidth = chartImage->get_Width() * scale;
+    auto frameHeight = chartImage->get_Height() * scale;
+    auto frameX = (slideSize.get_Width() - frameWidth) / 2;
+    auto frameY = (slideSize.get_Height() - frameHeight) / 2;
+
+    auto embeddedData = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xlsx");
+    auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+    auto previewImage = presentation->get_Images()->AddImage(chartImage);
+    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(previewImage);
+
+    presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
+    chartImage->Dispose();
+    chartImageStream->Dispose();
 }
+// Lepaskan sumber daya Cells setelah semua objek Cells dihancurkan.
+Aspose::Cells::Cleanup();
 ```
 
-Presentasi yang dibuat dengan metode di atas akan berisi grafik Excel sebagai objek OLE yang dapat diaktifkan dengan mengklik ganda bingkai objek OLE.
+## **Hasil yang Diharapkan**
 
-## **Kesimpulan**
+`OutputChart.pptx` berisi satu slide dengan workbook Excel yang disematkan dan pratinjau grafik. Workbook berisi data asli dan grafik kolom dengan empat seri. Pratinjau dipusatkan pada slide dan mempertahankan proporsinya.
 
-Dengan menggunakan Aspose.Cells untuk C++ bersama Aspose.Slides untuk C++, kita dapat membuat grafik Excel apa pun yang didukung oleh Aspose.Cells dan menyematkan grafik tersebut sebagai objek OLE dalam slide PowerPoint. Ukuran OLE grafik Excel juga dapat didefinisikan. Pengguna akhir kemudian dapat mengedit grafik Excel seperti objek OLE lainnya.
+![Grafik kolom Excel yang ditampilkan sebagai pratinjau workbook yang disematkan](excel-chart-ole-preview.png)
+
+Di lingkungan desktop PowerPoint yang kompatibel dengan Excel tersedia, klik ganda objek untuk mengaktifkan dan mengedit workbook yang disematkan. Aktivasi dan penyuntingan bergantung pada dukungan OLE aplikasi host serta pengaturan keamanannya.
+
+## **FAQ**
+
+**Mengapa diperlukan gambar pratinjau?**
+
+Workbook yang disematkan dan pratinjau slide‑nya adalah konten terpisah. Sediakan gambar grafik sehingga slide menampilkan grafik alih‑alih placeholder default "EMBEDDED OLE OBJECT". Lihat [Masalah Pratinjau Objek saat Menambahkan OleObjectFrame](/slides/id/cpp/object-preview-issue-when-adding-oleobjectframe/).
+
+**Apakah pratinjau diperbarui secara otomatis saat saya mengubah workbook dalam kode?**
+
+Anggap pratinjau sebagai snapshot. Saat memperbarui data workbook secara programatis, hasilkan kembali gambar grafik dan ganti pratinjau serta data workbook yang disematkan.
+
+**Bisakah saya menggunakan XLS alih‑alih XLSX?**
+
+Ya. Simpan workbook dalam format XLS dan gunakan `xls` sebagai ekstensi data yang disematkan. Ekstensi harus sesuai dengan format workbook yang sebenarnya; mengubah ekstensi saja tidak mengonversi data.
+
+**Mengapa objek dapat berubah ukuran setelah aktivasi?**
+
+Aplikasi host dapat memperbarui tampilan objek OLE ketika mengaktifkan workbook. Rentang tampilan OLE workbook dan dimensi bingkai slide keduanya berpengaruh. Lihat [Solusi Bekerja untuk Mengubah Ukuran Grafik di PPTX](/slides/id/cpp/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Bagian Terkait**
 
-- [Working Solution for Chart Resizing in PPTX](/slides/id/cpp/working-solution-for-chart-resizing-in-pptx/)
-- [Object Preview Issue when Adding OleObjectFrame](/slides/id/cpp/object-preview-issue-when-adding-oleobjectframe/)
+- [Solusi Bekerja untuk Mengubah Ukuran Grafik di PPTX](/slides/id/cpp/working-solution-for-chart-resizing-in-pptx/)
+- [Masalah Pratinjau Objek saat Menambahkan OleObjectFrame](/slides/id/cpp/object-preview-issue-when-adding-oleobjectframe/)

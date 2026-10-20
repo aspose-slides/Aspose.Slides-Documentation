@@ -1,215 +1,129 @@
 ---
-title: راه حل عملی برای تغییر اندازه نمودار در PPTX
+title: راه‌حل عملی برای تغییر اندازه نمودار در PPTX
 type: docs
 weight: 40
 url: /fa/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
 - تغییر اندازه نمودار
 - نمودار Excel
-- شیء OLE
+- شی OLE
 - جاسازی نمودار
 - PowerPoint
-- OpenDocument
 - ارائه
 - Java
 - Aspose.Slides
-description: "رفع تغییر اندازه ناخواسته نمودار در PPTX هنگام استفاده از اشیای Excel OLE جاسازی‌شده با Aspose.Slides برای Java. دو روش همراه با کد برای حفظ سازگاری اندازه‌ها را بیاموزید."
+description: "رفع تغییر اندازه ناخواسته نمودار در PPTX هنگام استفاده از اشیای OLE Excel جاسازی‌شده با Aspose.Slides برای Java. تنظیم ابعاد ثابت نمودار برای حفظ سازگاری اندازه‌های نمودار و چارچوب OLE."
 ---
-## **پس‌زمینه**
+## **پیش‌زمینه**
 
-مشاهده شده است که نمودارهای Excel که به‌عنوان شیء OLE در ارائه PowerPoint از طریق مؤلفه‌های Aspose جایگذاری می‌شوند، پس از اولین فعال‌سازی به مقیاسی نامشخص تغییر اندازه می‌دهند. این رفتار باعث تفاوت بصری قابل‌توجهی بین حالت‌های قبل و بعد از فعال‌سازی نمودار در ارائه می‌شود. تیم Aspose این مسئله را به‌طور دقیق بررسی کرده و راه‌حلی یافته است. این مقاله علل مشکل و اصلاح مربوطه را شرح می‌دهد.
+نمودارهای Excel که به عنوان اشیای OLE در ارائه‌های PowerPoint با استفاده از مؤلفه‌های Aspose جاسازی می‌شوند، ممکن است پس از اولین فعال‌سازی اندازه خود را تغییر دهند. این می‌تواند تفاوت قابل‌توجهی در ظاهر نمودار قبل و پس از فعال‌سازی ایجاد کند. این مقاله دلیل بروز تغییر اندازه را توضیح می‌دهد و نشان می‌دهد چگونه با مطابقت ابعاد ثابت نمودار با چارچوب OLE از آن جلوگیری کنیم.
 
-در [مقاله قبلی](/slides/fa/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) توضیح دادیم چگونه یک نمودار Excel با Aspose.Cells for Java ایجاد و آن را به عنوان شیء OLE در ارائه PowerPoint با Aspose.Slides for Java جایگذاری کنیم. برای رفع [مشکل پیش‌نمایش شی](/slides/fa/java/object-preview-issue-when-adding-oleobjectframe/) تصویر نمودار را به قاب شیء OLE اختصاص دادیم. در ارائه خروجی، زمانی که بر روی قاب شیء OLE که تصویر نمودار را نشان می‌دهد دوبار کلیک می‌کنید، نمودار Excel فعال می‌شود. کاربران می‌توانند تغییرات دلخواه را در کتاب‌کار Excel زیرین انجام دهند و سپس با کلیک خارج از کتاب‌کار فعال شده به اسلاید مربوطه بازگردند. اندازه قاب شیء OLE هنگام بازگشت کاربر به اسلاید تغییر می‌کند و عامل تغییر اندازه بسته به اندازه اولیهٔ هر دو قاب شیء OLE و کتاب‌کار Excel جاسازی‌شده متفاوت است.
+در [ایجاد نمودارهای Excel و جاسازی آنها به عنوان اشیای OLE در ارائه‌ها](/slides/fa/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، نحوه ایجاد یک نمودار Excel با Aspose.Cells for Java و جاسازی آن در یک ارائه PowerPoint با Aspose.Slides for Java را توضیح دادیم. برای رفع [مشکل پیش‌نمایش شی](/slides/fa/java/object-preview-issue-when-adding-oleobjectframe/)، تصویر نمودار را به چارچوب شی OLE نمودار اختصاص دادیم. در ارائه خروجی، وقتی چارچوب شی OLE که تصویر نمودار را نشان می‌دهد را دو بار کلیک می‌کنید، نمودار Excel فعال می‌شود. کاربران می‌توانند کتاب‌کار Excel جاسازی‌شده را ویرایش کنند و سپس با کلیک خارج از کتاب‌کار فعال شده به اسلاید بازگردند. اندازه چارچوب شی OLE هنگام بازگشت کاربر به اسلاید تغییر می‌کند و ضریب تغییر اندازه بسته به اندازه‌های اولیه هر دو چارچوب شی OLE و کتاب‌کار Excel جاسازی‌شده متفاوت است.
 
 ## **دلیل تغییر اندازه**
 
-از آنجا که کتاب‌کار Excel دارای اندازهٔ پنجرهٔ خود است، در اولین فعال‌سازی سعی می‌کند اندازهٔ اصلی خود را حفظ کند. اما قاب شیء OLE نیز اندازهٔ خاص خود را دارد. بر اساس مطالعات مایکروسافت، زمانی که کتاب‌کار Excel فعال می‌شود، Excel و PowerPoint دربارهٔ اندازه مذاکره می‌کنند و نسبت‌ها را به‌درستی حفظ می‌نمایند؛ در نتیجه بسته به تفاوت بین اندازهٔ پنجرهٔ Excel و اندازه یا موقعیت قاب شیء OLE، تغییر اندازه رخ می‌دهد.
+کتاب‌کار Excel جاسازی‌شده ابعاد پنجره خودش را دارد که Excel سعی می‌کند هنگام اولین فعال‌سازی شی آن را حفظ کند. چارچوب OLE روی اسلاید ابعاد مستقلی دارد. وقتی کتاب‌کار Excel فعال می‌شود، Excel و PowerPoint برای حفظ نسبت‌های ابعاد شی، اندازهٔ آن را تنظیم می‌کنند. تفاوت بین پنجره کتاب‌کار و چارچوب OLE بنابراین می‌تواند باعث تغییر اندازه شی شود.
 
 ## **راه‌حل عملی**
 
-دو سناریو برای ایجاد ارائه‌های PowerPoint با Aspose.Slides for Java وجود دارد.
+اندازه نمودار را با چارچوب OLE روی اسلاید مطابقت دهید و ابعاد نمودار را مستقل از پنجره کتاب‌کار نگه دارید. این راه‌حل برای یک ارائهٔ جدید یا یک قالب موجود کار می‌کند.
 
-**سناریو 1:** ایجاد ارائه بر پایه یک الگوی موجود.
+این مثال به Aspose.Cells for Java و Aspose.Slides for Java نیاز دارد. یک نمودار ستونی ساده بر روی یک شیت نمودار فعال ایجاد می‌کند و کتاب‌کار را در قالب XLS جاسازی می‌نماید. هیچ تصویر پیش‌نمایش نموداری اختصاص داده نمی‌شود؛ نمودار زمانی که شی OLE در PowerPoint فعال می‌شود، قابل مشاهده می‌گردد.
 
-**سناریو ۲:** ایجاد ارائه از صفر.
+مثال یک ارائهٔ جدید با چارچوب OLE به اندازهٔ 9.5 × 4 اینچ ایجاد می‌کند که 0.5 اینچ از لبهٔ چپ و 1 اینچ از بالا موقعیت دارد. مختصات و ابعاد اسلاید بر حسب نقطه‌اند (72 نقطه در هر اینچ). برای یک ارائهٔ موجود، به [استفاده از قالب](#use-a-template) مراجعه کنید.
 
-راه‌حلی که در اینجا ارائه می‌دهیم به هر دو سناریو اعمال می‌شود. اصل تمام روش‌های راه‌حل یکسان است: **اندازهٔ پنجرهٔ شیء OLE جاسازی‌شده باید با اندازهٔ قاب شیء OLE در اسلاید PowerPoint مطابقت داشته باشد**. در ادامه دو روش برای این راه‌حل را بررسی می‌کنیم.
+## **تنظیم اندازه ثابت نمودار**
 
-## **رویکرد اول**
-
-در این روش، می‌آموزیم چگونه اندازهٔ پنجرهٔ کتاب‌کار Excel جاسازی‌شده را تنظیم کنیم تا با اندازهٔ قاب شیء OLE در اسلاید PowerPoint مطابقت داشته باشد.
-
-**سناریو 1**
-
-فرض کنید یک الگو تعریف کرده‌ایم و می‌خواهیم ارائه‌ها را بر پایهٔ آن ایجاد کنیم. در الگو یک شکل در شاخص 2 وجود دارد که می‌خواهیم یک قاب OLE حاوی کتاب‌کار Excel جاسازی‌شده در آن قرار دهیم. در این سناریو، اندازهٔ قاب شیء OLE از پیش تعریف شده است—با اندازهٔ شکل در شاخص 2 در الگو برابر است. تنها کاری که باید انجام دهیم این است که اندازهٔ پنجرهٔ کتاب‌کار را برابر با اندازهٔ آن شکل تنظیم کنیم. قطعه کد زیر این هدف را برآورده می‌کند:
+Set [setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) to false so that the chart dimensions are independent of the workbook window. Set the [getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) dimensions through [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) and [setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-), converting points to pixels using 96 pixels per inch: a frame measuring 684 × 288 points corresponds to a chart measuring 912 × 384 pixels. Set [setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) to the CUSTOM value of [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/). The example embeds the workbook with [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) and saves a presentation with a 9.5 × 4-inch OLE frame.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// عرض پنجرهٔ کتاب‌کار را به اینچ تنظیم کنید (تقسیم بر ۷۲ چون PowerPoint هر اینچ را ۷۲ نقطه در نظر می‌گیرد).
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// ارتفاع پنجرهٔ کتاب‌کار را به اینچ تنظیم کنید.
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// کتاب‌کار را در یک جریان حافظه (memory stream) ذخیره کنید.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// یک قاب شیء OLE با دادهٔ Excel جاسازی‌شده ایجاد کنید.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // مختصات و ابعاد اسلاید بر حسب نقطه‌اند (۷۲ نقطه در هر اینچ).
+        float width = 684f; // 9.5 اینچ.
+        float height = 288f; // 4 اینچ.
+
+        chart.setSizeWithWindow(false);
+        // تبدیل نقطه‌ها به پیکسل‌های نمودار با استفاده از ۹۶ پیکسل در هر اینچ.
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**سناریو ۲**
+## **استفاده از قالب**
 
-فرض کنید می‌خواهیم یک ارائه از صفر ایجاد کنیم و یک قاب شیء OLE با هر اندازه‌ای که داشته باشد شامل کتاب‌کار Excel جاسازی‌شده اضافه کنیم. در قطعه کد زیر یک قاب OLE به ارتفاع 4 اینچ و عرض 9.5 اینچ در مختصات x = 0.5 اینچ و y = 1 اینچ بر روی اسلاید ایجاد می‌کنیم. سپس پنجرهٔ کتاب‌کار Excel را به همان اندازه—ارتفاع 4 اینچ و عرض 9.5 اینچ—تنظیم می‌کنیم.
+منطق اندازه‑گیری برای یک ارائهٔ موجود نیز یکسان است. برای تطبیق مثال:
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+1. قالب ارائه را بارگذاری کنید به جای ایجاد یک ارائهٔ خالی.  
+2. اطمینان حاصل کنید که اسلاید اول حداقل شامل سه شکل باشد، سپس شکل با نمایهٔ 2 را به عنوان جای‌گیر استفاده کنید.  
+3. عرض و ارتفاع چارچوب را از آن شکل بگیرید به جای استفاده از مقادیر ثابت 684 و 288. محاسبات اندازه‌گیری را همان‌طور که هستند نگه دارید.  
+4. چارچوب OLE را در موقعیت جای‌گیر اضافه کنید به جای مختصات ثابت 36 و 72.  
+5. قبل از ذخیرهٔ ارائه، جای‌گیر را حذف کنید.
 
-// ارتفاع مطلوب ما.
-int desiredHeight = 288; // 4 اینچ (4 * 72)
- 
-// عرض مطلوب ما.
-int desiredWidth = 684; // 9.5 اینچ (9.5 * 72)
- 
-// اندازهٔ نمودار را با یک پنجره تعریف کنید.
-chart.setSizeWithWindow(true);
- 
-// عرض پنجرهٔ کتاب‌کار را به اینچ تنظیم کنید (تقسیم بر ۷۲ چون PowerPoint هر اینچ را ۷۲ نقطه در نظر می‌گیرد).
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// ارتفاع پنجرهٔ کتاب‌کار را به اینچ تنظیم کنید.
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// کتاب‌کار را در یک جریان حافظه ذخیره کنید.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// یک قاب شیء OLE با دادهٔ Excel جاسازی‌شده ایجاد کنید.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 اینچ (0.5 * 72)
-    72,  // y = 1 اینچ (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
+## **سوالات متداول**
 
-## **رویکرد دوم**
+**چرا نمودار Excel جاسازی‌شده من پس از فعال‌سازی در PowerPoint اندازه خود را تغییر می‌دهد؟**
 
-در این روش، می‌آموزیم چگونه اندازهٔ نمودار موجود در کتاب‌کار Excel جاسازی‌شده را تنظیم کنیم تا با اندازهٔ قاب شیء OLE در اسلاید PowerPoint مطابقت داشته باشد. این روش زمانی مفید است که اندازهٔ نمودار از پیش شناخته شده باشد و هرگز تغییر نکند.
+این به این دلیل است که Excel سعی می‌کند اندازهٔ اصلی پنجره را هنگام اولین فعال‌سازی بازگرداند، در حالی که چارچوب شی OLE در PowerPoint ابعاد مستقلی دارد. PowerPoint و Excel برای حفظ نسبت ابعاد، اندازه را تنظیم می‌کنند که می‌تواند منجر به تغییر اندازه شود.
 
-**سناریو 1**
+**چگونه می‌توانم اندازه‌های نمودار و چارچوب OLE را سازگار نگه دارم؟**
 
-فرض کنید یک الگو تعریف کرده‌ایم و می‌خواهیم ارائه‌ها را بر پایهٔ آن ایجاد کنیم. در الگو یک شکل در شاخص 2 وجود دارد که قصد داریم یک قاب OLE حاوی کتاب‌کار Excel جاسازی‌شده در آن قرار دهیم. در این سناریو، اندازهٔ قاب OLE از پیش تعریف شده است—با اندازهٔ شکل در شاخص 2 در الگو برابر است. تنها کاری که باید انجام دهیم این است که اندازهٔ نمودار را در کتاب‌کار برابر با اندازهٔ آن شکل تنظیم کنیم. قطعه کد زیر این هدف را برآورده می‌کند:
+اندازه‌های ثابت نمودار را طوری تنظیم کنید که با چارچوب OLE مطابقت داشته باشند و قبل از جاسازی کتاب‌کار، یک اندازه چاپ سفارشی برای نمودار تعیین کنید. مثال بالا تنظیمات لازم و تبدیل واحدها را نشان می‌دهد.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+**آیا مطابقت اندازه پنجره کتاب‌کار کافی است؟**
 
-// اندازهٔ نمودار را بدون پنجره تعریف کنید.
-chart.setSizeWithWindow(false);
- 
-// عرض نمودار را بر حسب پیکسل تنظیم کنید (ضرب در ۹۶ چون Excel هر اینچ را ۹۶ پیکسل در نظر می‌گیرد).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// ارتفاع نمودار را بر حسب پیکسل تنظیم کنید.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// اندازهٔ چاپ نمودار را تعریف کنید.
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// کتاب‌کار را در یک جریان حافظه ذخیره کنید.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// یک قاب شیء OLE با دادهٔ Excel جاسازی‌شده ایجاد کنید.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
+تنها مطابقت اندازه پنجره کتاب‌کار به‌ طور قابل‌اعتمادی تغییر اندازهٔ چارچوب OLE پس از فعال‌سازی را جلوگیری نمی‌کند. از ابعاد ثابت نمودار همان‌طور که در مثال نشان داده شده است، استفاده کنید.
 
-**سناریو ۲**:
+**آیا این راه‌حل برای ارائه‌های مبتنی بر قالب و ارائه‌های جدید هر دو کار می‌کند؟**
 
-فرض کنید می‌خواهیم یک ارائه از صفر ایجاد کنیم و یک قاب شیء OLE با هر اندازه‌ای شامل کتاب‌کار Excel جاسازی‌شده اضافه کنیم. در قطعه کد زیر یک قاب OLE با ارتفاع 4 اینچ و عرض 9.5 اینچ بر روی اسلاید در مختصات x = 0.5 اینچ و y = 1 اینچ ایجاد می‌کنیم. همچنین اندازهٔ نمودار متناظر را به همان ابعاد تنظیم می‌کنیم: ارتفاع 4 اینچ و عرض 9.5 اینچ.
+بله. برای یک قالب، از ابعاد و موقعیت جای‌گیر استفاده کنید. برای یک ارائهٔ جدید، مستقیماً ابعاد و موقعیت چارچوب را مشخص کنید.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+**آیا می‌توانم این مثال را با نمودارهای ایجادشده در برنامه‌های صفحه‑گسترده دیگر استفاده کنم؟**
 
-// ارتفاع مورد نظر ما.
-int desiredHeight = 288; // 4 اینچ (4 * 72)
- 
-// عرض مورد نظر ما.
-int desiredWidth = 684; // 9.5 اینچ (9.5 * 72)
- 
-// اندازهٔ نمودار را بدون پنجره تعریف کنید.
-chart.setSizeWithWindow(false);
- 
-// عرض نمودار را بر حسب پیکسل تنظیم کنید (تقسیم بر ۷۲ برای به دست آوردن اینچ، سپس ضرب در ۹۶ چون Excel هر اینچ را ۹۶ پیکسل می‌پندارد).
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// ارتفاع نمودار را بر حسب پیکسل تنظیم کنید.
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// کتاب‌کار را در یک جریان حافظه ذخیره کنید.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// یک قاب شیء OLE با دادهٔ Excel جاسازی‌شده ایجاد کنید.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 اینچ (0.5 * 72)
-    72,  // y = 1 اینچ (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **نتیجه‌گیری**
-
-دو روش برای رفع مشکل تغییر اندازهٔ نمودار وجود دارد. انتخاب روش بستگی به نیازها و مورد استفاده دارد. هر دو روش به‌صورت یکسان برای ارائه‌های پایه‌گذاری شده بر الگو یا ایجاد شده از صفر کار می‌کنند. همچنین در این راه‌حل هیچ محدودیتی برای اندازهٔ قاب OLE وجود ندارد.
-
-## **پرسش‌های متداول**
-
-### چرا پس از فعال‌سازی نمودار Excel جاسازی‌شده در PowerPoint اندازهٔ آن تغییر می‌کند؟
-
-این به این دلیل است که Excel سعی می‌کند اندازهٔ پنجرهٔ اصلی خود را هنگام اولین فعال‌سازی بازیابی کند، در حالی که قاب شیء OLE در PowerPoint ابعاد خاص خود را دارد. PowerPoint و Excel برای حفظ نسبت عرض به ارتفاع مذاکره می‌کنند که می‌تواند منجر به تغییر اندازه شود.
-
-### آیا می‌توان این مشکل تغییر اندازه را کاملاً جلوگیری کرد؟
-
-بله. با تنظیم اندازهٔ پنجرهٔ کتاب‌کار Excel یا اندازهٔ نمودار برابر با اندازهٔ قاب شیء OLE قبل از جاسازی، می‌توانید اندازه‌های نمودار را ثابت نگه دارید.
-
-### کدام روش را باید انتخاب کنم، تنظیم اندازهٔ پنجرهٔ کتاب‌کار یا تنظیم اندازهٔ نمودار؟
-
-از **رویکرد 1 (اندازهٔ پنجره)** استفاده کنید اگر می‌خواهید نسبت ابعاد کتاب‌کار حفظ شود و امکان تغییر اندازه بعدی وجود داشته باشد.  
-از **رویکرد 2 (اندازهٔ نمودار)** استفاده کنید اگر ابعاد نمودار ثابت هستند و پس از جاسازی تغییر نخواهند کرد.
-
-### آیا این روش‌ها برای هر دو نوع ارائه (بر پایه الگو و از صفر) کار می‌کنند؟
-
-بله. هر دو روش برای ارائه‌های ایجاد شده بر پایه الگو و همچنین ارائه‌های ساخته‌شده از صفر به‌یک‌سان عمل می‌کنند.
-
-### آیا محدودیتی برای اندازهٔ قاب شیء OLE وجود دارد؟
-
-خیر. می‌توانید قاب OLE را به هر اندازه‌ای تنظیم کنید به شرط آنکه به‌صورت مناسب به اندازهٔ کتاب‌کار یا نمودار مقیاس‌بندی شود.
-
-### آیا می‌توان این روش‌ها را با نمودارهای ایجاد‌شده در برنامه‌های صفحه‌گستردهٔ دیگر استفاده کرد؟
-
-مثال‌ها برای نمودارهای Excel ساخته‌شده با Aspose.Cells طراحی شده‌اند، اما اصول برای برنامه‌های صفحه‌گستردهٔ سازگار با OLE دیگر نیز اعمال می‌شود، مشروط بر اینکه گزینه‌های مشابهی برای تنظیم اندازه در اختیار داشته باشند.
+این مثال از یک کتاب‌کار Excel ایجادشده با Aspose.Cells استفاده می‌کند و رفتار فعال‌سازی را برای برنامه‌های صفحه‑گسترده دیگر نشان نمی‌دهد.
 
 ## **بخش‌های مرتبط**
 
-- [ایجاد نمودارهای Excel و جاسازی آن‌ها به‌عنوان شیء OLE در ارائه‌ها](/slides/fa/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [ایجاد نمودارهای Excel و جاسازی آنها به عنوان اشیای OLE در ارائه‌ها](/slides/fa/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

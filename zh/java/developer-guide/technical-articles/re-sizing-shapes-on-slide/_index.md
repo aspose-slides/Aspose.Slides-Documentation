@@ -1,8 +1,11 @@
 ---
-title: 幻灯片上调整形状大小
+title: 在 Java 中调整演示文稿幻灯片上的形状大小
 type: docs
-weight: 110
-url: /zh/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /zh/java/resizing-shapes-on-slide/
+aliases:
+  - /zh/java/re-sizing-shapes-on-slide/
+  /java/re-sizing-shapes-on-slide/
 keywords:
 - 调整形状大小
 - 更改形状尺寸
@@ -11,125 +14,37 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 轻松调整 PowerPoint 和 OpenDocument 幻灯片上的形状大小——自动化幻灯片布局调整，提高生产力。"
+description: "轻松使用 Aspose.Slides for Java 调整 PowerPoint 和 OpenDocument 幻灯片上的形状大小——自动化幻灯片布局调整，提高工作效率。"
 ---
-
 ## **概述**
 
-Aspose.Slides for Java 客户最常提出的问题之一是如何调整形状大小，以便在更改幻灯片尺寸时，数据不会被截断。本文简短的技术文章展示了如何实现此操作。
+当您更改演示文稿的幻灯片大小时，可能还需要调整形状的大小和位置以适应新的尺寸。本文展示了如何手动缩放形状以及如何处理幻灯片、母版和布局中的表格。
 
-## **调整形状**
+## **调整形状大小**
 
-为防止幻灯片尺寸变化时形状错位，请更新每个形状的位置和尺寸，使其符合新的幻灯片布局。
+为了保持每个形状的相对位置和大小，需要将其水平坐标和宽度乘以新幻灯片宽度与原始宽度的比例。将相应的高度比例应用于其垂直坐标和高度。
+
+第一个示例加载一个幻灯片中不包含表格的演示文稿，将幻灯片大小更改为 A4 并保存结果。它使用[SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-)搭配[SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale)来使后续循环控制缩放。比例是无单位的；形状的位置和尺寸以点为单位。不同的宽高比例会导致形状失真，且更改形状尺寸不会缩放其字体大小。
+
 ```java
-// 加载演示文稿文件。
-Presentation presentation = new Presentation("sample.ppt");
-try {
-    // 获取原始幻灯片尺寸。
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-    // 在不缩放现有形状的情况下更改幻灯片尺寸。
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // 获取新的幻灯片尺寸。
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // 调整每张幻灯片上形状的大小和位置。
-    for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            
-            // 缩放形状尺寸。
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // 缩放形状位置。
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
-    }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-
-{{% alert color="primary" %}} 
-
-如果幻灯片包含表格，上述代码将无法正常工作。在这种情况下，必须调整表格中每个单元格的大小。
-
-{{% /alert %}} 
-
-在您的代码中使用以下示例来调整包含表格的幻灯片。对于表格，设置宽度或高度是一种特殊情况：必须调整各行的高度和列的宽度，以更改表格的整体大小。
-```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // 获取原始幻灯片尺寸。
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // 在不缩放现有形状的情况下更改幻灯片尺寸。
+    // 计算独立的水平和垂直缩放因子。
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
-
-    // 获取新的幻灯片尺寸。
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // 缩放形状尺寸。
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // 缩放形状位置。
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
-
-        for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // 缩放形状尺寸。
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // 缩放形状位置。
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
-        }
-    }
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            // 缩放形状尺寸。
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // 缩放形状位置。
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -140,33 +55,98 @@ finally {
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+表格需要单独处理：通过缩放列宽和行高来调整，而不是直接设置表格的整体宽度和高度。如果单元格内容需要更多空间，行高可能会保持大于所请求的大小。
+{{% /alert %}}
+
+第二个示例支持表格，并在保存调整大小后的演示文稿之前处理母版、布局以及各个幻灯片上的形状。它的辅助工具通过使用[IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-)缩放列宽，并使用[IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-)设置最小行高来处理每个[ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/)。随后，它仅缩放表格的位置，而不单独缩放其整体尺寸。
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // 表格尺寸由列宽和行高控制。
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    // 计算独立的水平和垂直缩放因子。
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
+    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
+
+    ShapeResizer resizer = new ShapeResizer();
+
+    // 调整在母版、布局以及各个幻灯片上定义的形状大小。
+    for (IMasterSlide master : presentation.getMasters()) {
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
+
+        for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
+        }
+    }
+
+    for (ISlide slide : presentation.getSlides()) {
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+}
+finally {
+    presentation.dispose();
+}
+```
 
 ## **常见问题**
 
-**在调整幻灯片大小后，为什么形状会失真或被截断？**
+**为什么在调整幻灯片大小后形状会失真或被截断？**
 
-在调整幻灯片大小时，形状会保留原始位置和尺寸，除非显式更改比例。这可能导致内容被裁剪或形状错位。
+如果在更改幻灯片大小时未对形状进行缩放，它们将保持原始位置和尺寸，可能会超出幻灯片范围。使用不同比例的宽高进行缩放也会导致形状失真。
 
 **提供的代码适用于所有形状类型吗？**
 
-基本示例适用于大多数形状类型（文本框、图像、图表等）。但是，对于表格，需要单独处理行和列，因为表格的高度和宽度取决于各个单元格的尺寸。
+第一个示例直接更改形状边界，适用于没有表格的幻灯片。第二个示例单独处理表格。请检查生成的布局，特别是文本和表格，因为这些示例不会缩放字体大小，且表格内容可能限制行高。
 
-**在调整幻灯片大小时，如何调整表格？**
+**在调整幻灯片大小时如何调整表格？**
 
-需要遍历表格的所有行和列，并按比例调整它们的高度和宽度，如第二个代码示例所示。
+通过宽度比例缩放列宽，使用高度比例缩放最小行高，然后如第二个示例所示缩放表格的位置。
 
-**此调整能用于母版幻灯片和布局幻灯片吗？**
+**这种调整大小方法适用于母版幻灯片和布局幻灯片吗？**
 
-可以，但您还应该遍历[母版](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--)和[布局幻灯片](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--)，并对它们的形状应用相同的缩放逻辑，以确保整个演示文稿的一致性。
+是的。第二个示例遍历[Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--)以及每个母版的[IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--)，并对其形状应用相同的调整大小逻辑。
 
-**我可以在调整大小的同时更改幻灯片方向（纵向/横向）吗？**
+**我可以在调整大小的同时更改幻灯片的方向（纵向/横向）吗？**
 
-可以。您可以使用[presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/islidesize/#setOrientation-int-)来更改方向。确保相应地设置缩放逻辑以保持布局。
+可以。在更改幻灯片大小后、读取目标尺寸之前，调用[SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-)，使缩放因子反映最终方向。
 
-**我可以设置的幻灯片尺寸是否有限制？**
+**可以设置的幻灯片尺寸是否有限制？**
 
-Aspose.Slides 支持自定义尺寸，但非常大的尺寸可能会影响性能或与某些版本的 PowerPoint 的兼容性。
+您可以使用[SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-)指定自定义幻灯片尺寸。支持的尺寸还取决于演示文稿的格式以及用于打开文件的应用程序。
 
-**如何防止固定宽高比的形状失真？**
+**如何防止具有固定纵横比的形状失真？**
 
-在缩放之前，可以检查形状的`getAspectRatioLocked`方法。如果已锁定，则应按比例调整宽度或高度，而不是单独缩放它们。
+对宽度和高度使用相同的缩放因子。若要在新幻灯片尺寸内保持原始布局，请使用宽高比例中较小的那个作为两个维度和位置的缩放比例。这样可以保持比例，但可能在某一边留下未使用的空间。

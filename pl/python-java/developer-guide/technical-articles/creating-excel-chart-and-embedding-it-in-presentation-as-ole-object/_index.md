@@ -1,36 +1,48 @@
 ---
-title: Utwórz wykresy Excel i osadź je w prezentacjach jako obiekty OLE
+title: Utworzenie wykresów Excel i osadzenie ich w prezentacjach jako obiekty OLE
 type: docs
 weight: 30
 url: /pl/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- wykres Excel
+- Wykres Excel
 - osadzanie wykresu
 - obiekt OLE
 - PowerPoint
-- OpenDocument
 - prezentacja
 - Python
 - Java
 - Aspose.Slides
-description: "Utwórz wykresy Excel i osadź je jako obiekty OLE w prezentacjach PowerPoint i OpenDocument przy użyciu Pythona. Przewodnik krok po kroku z przykładami kodu."
+description: "Utwórz wykres Excel przy użyciu Aspose.Cells for Python via Java i osadź skoroszyt w prezentacji PowerPoint przy użyciu Aspose.Slides, w tym podgląd wykresu."
 ---
-## **Tło**
+## **Przegląd**
 
-W PowerPoint użycie edytowalnych wykresów do graficznego przedstawiania danych jest powszechną praktyką. Aspose wspiera tworzenie wykresów Excel za pomocą Aspose.Cells for Python via Java, a te wykresy mogą być następnie osadzane jako obiekty OLE na slajdach PowerPoint przy użyciu Aspose.Slides for Python via Java. Ten artykuł opisuje niezbędne kroki i zawiera przykładowy kod w języku Python, który tworzy wykres Excel i osadza go jako obiekt OLE w prezentacji PowerPoint przy użyciu Aspose.Cells i Aspose.Slides.
+Ten artykuł pokazuje, jak utworzyć wykres kolumnowy Excel przy użyciu Aspose.Cells for Python via Java i osadzić jego skoroszyt w prezentacji PowerPoint przy użyciu Aspose.Slides for Python via Java. Osadzony skoroszyt zawiera zarówno dane źródłowe, jak i wykres. Oddzielny podgląd PNG wyświetla wykres na slajdzie przed aktywacją obiektu OLE.
 
-## **Wymagane kroki**
+Wynikiem jest osadzony obiekt Excel, a nie natywny wykres PowerPoint. Edycja skoroszytu przez OLE wymaga aplikacji desktopowej obsługującej aktywację OLE oraz zgodnej instalacji Excel.
 
-1. Utwórz wykres Excel przy użyciu Aspose.Cells.
-1. Ustaw rozmiar OLE wykresu Excel przy użyciu Aspose.Cells.
-1. Uzyskaj obraz wykresu Excel za pomocą Aspose.Cells.
-1. Osadź wykres Excel jako obiekt OLE w prezentacji PPTX przy użyciu Aspose.Slides.
-1. Zamień obraz "EMBEDDED OLE OBJECT" na obraz uzyskany w kroku 3, aby rozwiązać problem [problem podglądu obiektu](/slides/pl/python-java/object-preview-issue-when-adding-oleobjectframe/).
-1. Zapisz prezentację na dysku w formacie PPTX.
+## **Wymagania wstępne**
 
-## **Implementacja wymaganych kroków**
+Zainstaluj pakiety Pythona `aspose-cells` i `aspose-slides-java` oraz kompatybilne środowisko uruchomieniowe Java. Zaimportuj oba pakiety przed uruchomieniem JVM, aby ich biblioteki Java były dostępne dla JPype. Microsoft Office nie jest wymagany do generowania prezentacji przy użyciu tych bibliotek.
 
-Implementacja w języku Python powyższych kroków wygląda następująco:
+Pliki wejściowe nie są wymagane: przykład tworzy dane i wykres w pamięci, a następnie zapisuje `OutputChart.pptx` w bieżącym katalogu roboczym. Zastosuj licencje dla obu produktów podczas uruchamiania poza trybem ewaluacji.
+
+## **Jak działa osadzanie**
+
+1. Utwórz skoroszyt z arkuszem danych i arkuszem wykresu.  
+1. Ustaw arkusz wykresu jako aktywny, aby skoroszyt otwierał się na wykresie.  
+1. Ustaw zakres wyświetlania OLE skoroszytu i renderuj wykres do PNG.  
+1. Zapisz skoroszyt jako XLSX w pamięci i osadź te bajty na slajdzie.  
+1. Przypisz PNG jako podgląd obiektu OLE i zapisz prezentację jako PPTX.
+
+Zakres wyświetlania skoroszytu i ramka na slajdzie pełnią różne role. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) przyjmuje indeksy wierszy i kolumn rozpoczynające się od zera. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) przyjmuje natomiast górny wiersz, lewą kolumnę, dolny wiersz i prawą kolumnę. Przykład używa indeksu wiersza 55 i indeksu kolumny 25 jako granic prawego dolnego rogu; wartości te są wyborem układu, a nie liczbą wierszy lub kolumn danych.
+
+Rama slajdu używa punktów. Przykład dopasowuje ją do slajdu i centruje, zachowując proporcje PNG, zamiast rozciągać podgląd, aby wypełnić slajd.
+
+## **Utwórz i osadź wykres**
+
+Poniższy pełny przykład wypełnia `DataSheet` czterema wierszami i pięcioma kolumnami wartości. Każdy wiersz staje się serią wykresu. `ChartSheet` jest wybierany jako aktywny arkusz przed zapisaniem skoroszytu.
+
+Skoroszyt jest wyraźnie zapisywany jako XLSX, zgodnie z rozszerzeniem `xlsx` przekazywanym do [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/). Strumienie tablic bajtów Java przechowują skoroszyt i obraz w pamięci oraz dostarczają tablice bajtów wymagane przez API Java. PNG jest ładowany bezpośrednio z bajtów, bez pośredniej konwersji bitmapy. Przypisanie go przez [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) zastępuje domyślny placeholder OLE.
 
 ```python
 import jpype
@@ -42,128 +54,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # Tablica nazw komórek.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # Tablica danych komórek.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # Dodaj nowy arkusz, aby wypełnić komórki danymi.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # Wypełnij arkusz danymi.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # Dodaj arkusz wykresu.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # Dodaj wykres do arkusza wykresu z seriami danych z arkusza danych.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # Ustaw arkusz wykresu jako aktywny arkusz.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # Opisz skoroszyt jako osadzony obiekt OLE.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# Utwórz skoroszyt.
 workbook = Workbook()
-
-# Dodaj wykres Excel.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# Ustaw rozmiar OLE wykresu.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# Pobierz obraz wykresu i zapisz go do strumienia.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# Zapisz skoroszyt do strumienia.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# Utwórz prezentację.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # Dodaj skoroszyt do slajdu.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # Zapisz prezentację na dysku.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # Wygeneruj podgląd wykresu i osobno zserializuj edytowalny skoroszyt.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # Dopasuj podgląd do slajdu bez zmiany jego proporcji.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-Prezentacja utworzona przy użyciu powyższej metody będzie zawierać wykres Excel jako obiekt OLE, który można aktywować podwójnym kliknięciem ramki obiektu OLE.
+## **Oczekiwany wynik**
 
-## **Wnioski**
+`OutputChart.pptx` zawiera jeden slajd z osadzonym skoroszytem Excel i podglądem wykresu. Skoroszyt zawiera oryginalne dane oraz wykres kolumnowy z czterema seriami. Podgląd jest wyśrodkowany na slajdzie i zachowuje proporcje.
 
-Używając Aspose.Cells for Python via Java w połączeniu z Aspose.Slides for Python via Java, możemy tworzyć dowolny wykres Excel obsługiwany przez Aspose.Cells i osadzać go jako obiekt OLE na slajdzie PowerPoint. Rozmiar OLE wykresu Excel może także być określony. Końcowi użytkownicy mogą następnie edytować wykres Excel tak jak każdy inny obiekt OLE.
+![Wykres kolumnowy Excel wyświetlany jako podgląd osadzonego skoroszytu](excel-chart-ole-preview.png)
 
-## **Powiązane sekcje**
-
-- [Działające rozwiązanie dla zmiany rozmiaru wykresu w PPTX](/slides/pl/python-java/working-solution-for-chart-resizing-in-pptx/)
-- [Problem podglądu obiektu przy dodawaniu OleObjectFrame](/slides/pl/python-java/object-preview-issue-when-adding-oleobjectframe/)
+W zgodnym środowisku PowerPoint na pulpicie, z dostępnym Excelem, dwukliknij obiekt, aby aktywować i edytować osadzony skoroszyt. Aktywacja i edycja zależą od obsługi OLE oraz ustawień zabezpieczeń aplikacji hosta.
 
 ## **FAQ**
 
-**Jakie biblioteki są używane do tworzenia i osadzania wykresu Excel?**
+**Dlaczego potrzebny jest obraz podglądu?**
 
-Aspose.Cells for Python via Java tworzy wykres Excel, a Aspose.Slides for Python via Java osadza go jako obiekt OLE w slajdzie PowerPoint.
+Osadzony skoroszyt i jego podgląd na slajdzie to oddzielne treści. Dostarcz obraz wykresu, aby slajd wyświetlał wykres zamiast domyślnego placeholdera „EMBEDDED OLE OBJECT”. Zobacz [Object Preview Issue when Adding OleObjectFrame](/slides/pl/python-java/object-preview-issue-when-adding-oleobjectframe/).
 
-**Jak użytkownicy mogą edytować osadzony wykres Excel?**
+**Czy podgląd aktualizuje się automatycznie po zmianie skoroszytu w kodzie?**
 
-Użytkownicy mogą podwójnie kliknąć ramkę obiektu OLE, aby aktywować wykres i edytować go tak jak każdy inny obiekt OLE.
+Traktuj podgląd jako migawkę. Przy programowej aktualizacji danych skoroszytu, wygeneruj ponownie obraz wykresu i zastąp podgląd oraz dane osadzonego skoroszytu.
 
-**Jak zastąpiony jest domyślny podgląd obiektu OLE?**
+**Czy mogę użyć XLS zamiast XLSX?**
 
-Przykład uzyskuje obraz wykresu Excel za pomocą Aspose.Cells i używa go do zastąpienia obrazu „EMBEDDED OLE OBJECT”.
+Tak. Zapisz skoroszyt w formacie XLS i użyj `xls` jako rozszerzenia danych osadzonych. Rozszerzenie musi odpowiadać rzeczywistemu formatowi skoroszytu; samo zmienienie rozszerzenia nie konwertuje danych.
+
+**Dlaczego obiekt może zmienić rozmiar po aktywacji?**
+
+Aplikacja hosta może zaktualizować prezentację obiektu OLE przy aktywacji skoroszytu. Zarówno zakres wyświetlania OLE skoroszytu, jak i wymiary ramki slajdu mają znaczenie. Zobacz [Working Solution for Chart Resizing in PPTX](/slides/pl/python-java/working-solution-for-chart-resizing-in-pptx/).
+
+## **Powiązane sekcje**
+
+- [Working Solution for Chart Resizing in PPTX](/slides/pl/python-java/working-solution-for-chart-resizing-in-pptx/)
+- [Object Preview Issue when Adding OleObjectFrame](/slides/pl/python-java/object-preview-issue-when-adding-oleobjectframe/)

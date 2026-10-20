@@ -1,5 +1,5 @@
 ---
-title: PPTX'te Grafik Yeniden Boyutlandırma İçin Çalışan Çözüm
+title: PPTX'te Grafik Yeniden Boyutlandırma İçin Çözüm
 type: docs
 weight: 60
 url: /tr/net/working-solution-for-chart-resizing-in-pptx/
@@ -13,185 +13,102 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile gömülü Excel OLE nesneleri kullanıldığında PPTX'te beklenmeyen grafik yeniden boyutlandırmayı düzeltin. Boyutların tutarlı kalmasını sağlayan iki yöntemi kod örnekleriyle öğrenin."
+description: "Aspose.Slides for .NET ile gömülü Excel OLE nesneleri kullanırken PPTX'te beklenmeyen grafik yeniden boyutlandırmayı düzeltin. Grafik ve OLE çerçeve boyutlarının tutarlı kalması için sabit grafik boyutları ayarlayın."
 ---
 ## **Arka Plan**
 
-Aspose bileşenleri aracılığıyla PowerPoint sunumuna OLE nesneleri olarak gömülen Excel grafiklerinin ilk etkinleştirilmelerinden sonra belirlenmemiş bir ölçeğe yeniden boyutlandırıldığı gözlemlenmiştir. Bu davranış, grafiğin etkinleştirilmeden önceki ve sonraki durumları arasında sunumda fark edilir bir görsel fark oluşturur. Aspose ekibi sorunu ayrıntılı bir şekilde araştırdı ve bir çözüm buldu. Bu makale sorunun nedenlerini ve ilgili çözümü açıklamaktadır.
+Aspose bileşenlerini kullanarak PowerPoint sunumlarına OLE nesnesi olarak gömülen Excel grafikler, ilk etkinleştirmelerinden sonra boyutlarını değiştirebilir. Bu, grafiğin etkinleştirmeden önce ve sonra görünümünde fark edilebilir bir değişikliğe neden olabilir. Bu makale, yeniden boyutlandırmanın neden gerçekleştiğini açıklar ve sabit grafik boyutlarını OLE çerçevesiyle eşleştirerek nasıl önlenebileceğini gösterir.
 
-Önceki makalede[önceki makale](/slides/tr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), Aspose.Cells for .NET ile bir Excel grafiği oluşturup Aspose.Slides for .NET kullanarak bir PowerPoint sunumuna nasıl gömeceğimizi açıkladık. [nesne önizleme sorunu](/slides/tr/net/object-preview-issue-when-adding-oleobjectframe/) ele almak için grafiğin resmini grafik OLE nesne çerçevesine atadık. Çıktı sunumda, grafik görüntüsü gösteren OLE nesne çerçevesine çift tıkladığınızda Excel grafiği etkinleştirilir. Son kullanıcılar, alttaki Excel çalışma kitabında istedikleri değişiklikleri yapabilir ve ardından etkinleştirilen çalışma kitabının dışına tıklayarak ilgili slayta geri dönebilir. Kullanıcı slayta geri döndüğünde OLE nesne çerçevesinin boyutu değişir ve yeniden boyutlandırma faktörü, OLE nesne çerçevesi ile gömülü Excel çalışma kitabının orijinal boyutlarına bağlı olarak değişir.
+In [Excel Grafiklerini Oluşturun ve Sunumlarda OLE Nesneleri Olarak Gömün](/slides/tr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), we explained how to create an Excel chart with Aspose.Cells for .NET and embed it in a PowerPoint presentation using Aspose.Slides for .NET. To address the [nesne önizleme sorunu](/slides/tr/net/object-preview-issue-when-adding-oleobjectframe/), we assigned the chart image to the chart’s OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the chart image, the Excel chart is activated. Users can edit the embedded Excel workbook and then return to the slide by clicking outside the activated workbook. The size of the OLE object frame changes when the user returns to the slide, and the resizing factor varies depending on the original sizes of both the OLE object frame and the embedded Excel workbook.
 
-## **Yeniden Boyutlandırma Nedeni**
+## **Yeniden Boyutlandırmanın Nedeni**
 
-Excel çalışma kitabının kendi pencere boyutu olduğu için, ilk etkinleştirildiğinde özgün boyutunu korumaya çalışır. Ancak OLE nesne çerçevesinin de kendine özgü bir boyutu vardır. Microsoft'a göre, Excel çalışma kitabı etkinleştirildiğinde, Excel ve PowerPoint boyutu müzakere eder ve gömme sürecinin bir parçası olarak doğru oranları korur. Excel pencere boyutu ile OLE nesne çerçevesinin boyutu ya da konumu arasındaki farklara bağlı olarak yeniden boyutlandırma gerçekleşir.
+Gömülü Excel çalışma kitabının kendi pencere boyutları vardır ve Excel nesne ilk etkinleştirildiğinde bunları korumaya çalışır. Slayttaki OLE çerçevesinin ise bağımsız tanımlanmış boyutları vardır. Excel çalışma kitabı etkinleştirildiğinde, Excel ve PowerPoint nesnenin boyutunu gömme işleminin bir parçası olarak oranlarını koruyacak şekilde müzakere eder. Çalışma kitabı penceresi ile OLE çerçevesi arasındaki farklılıklar bu nedenle nesnenin yeniden boyutlandırılmasına neden olabilir.
 
 ## **Çözüm**
 
-Aspose.Slides for .NET kullanarak PowerPoint sunumları oluşturmak için iki olası senaryo vardır.
+Grafik boyutunu slayttaki OLE çerçevesiyle eşleştirin ve grafik boyutlarını çalışma kitabı penceresinden bağımsız tutun. Bu çözüm yeni bir sunumla veya mevcut bir şablonla çalışır.
 
-**Senaryo 1:** Mevcut bir şablona dayanarak bir sunum oluşturun.
+Örnek, Aspose.Cells for .NET ve Aspose.Slides for .NET gerektirir. Aktif bir grafik sayfasında basit bir sütun grafik oluşturur ve çalışma kitabını XLS formatında gömer. Grafik önizleme görüntüsü atanmaz; grafik, OLE nesnesi PowerPoint'te etkinleştirildiğinde görünür hâle gelir.
 
-**Senaryo 2:** Sıfırdan bir sunum oluşturun.
+Örnek, sol kenardan 0.5 inç ve üstten 1 inç olarak konumlandırılmış 9.5 × 4 inçlik bir OLE çerçevesiyle yeni bir sunum oluşturur. Slayt koordinatları ve boyutları nokta birimindedir (inç başına 72 nokta). Mevcut bir sunum için, [Şablon Kullan](#use-a-template) bölümüne bakın.
 
-Burada sunduğumuz çözüm her iki senaryoya da uygulanabilir. Tüm çözüm yaklaşımlarının temeli aynı: **gömülü OLE nesnesinin pencere boyutu, PowerPoint slaytındaki OLE nesne çerçevesiyle eşleşmelidir**. Şimdi bu çözüme yönelik iki yaklaşımı tartışacağız.
+## **Sabit Bir Grafik Boyutu Ayarla**
 
-## **İlk Yaklaşım**
-
-Bu yaklaşımda, gömülü Excel çalışma kitabının pencere boyutunu, PowerPoint slaydındaki OLE nesne çerçevesinin boyutuyla eşleşecek şekilde nasıl ayarlayacağımızı öğreneceğiz.
-
-**Senaryo 1**
-
-Bir şablon tanımladığımızı ve buna göre sunumlar oluşturmak istediğimizi varsayalım. Şablonda indeks 2'de, gömülü bir Excel çalışma kitabı içeren bir OLE çerçevesi yerleştirmek istediğimiz bir şeklin olduğunu kabul edelim. Bu senaryoda, OLE nesne çerçevesinin boyutu önceden tanımlanmıştır—şeklin indeks 2'deki boyutuyla eşleşir. Tek yapmamız gereken, çalışma kitabının pencere boyutunu o şeklin boyutuna eşitlemektir. Aşağıdaki kod parçacığı bu amacı hizmet eder:
+Grafik boyutlarının çalışma kitabı penceresinden bağımsız olması için [SizeWithWindow](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/sizewithwindow/) değerini false olarak ayarlayın. [ChartObject](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/chartobject/) boyutlarını [Width](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/width/) ve [Height](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/height/) aracılığıyla ayarlayın; noktaları inç başına 96 piksel kullanarak piksellere dönüştürün: 684 × 288 nokta ölçen bir çerçeve, 912 × 384 piksel ölçen bir grafikle eşdeğerdir. [PrintSize](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/printsize/) değerini [PrintSizeType](https://reference.aspose.com/cells/net/aspose.cells/printsizetype/) öğesinin Custom değeri olarak ayarlayın. Örnek, çalışma kitabını [AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addoleobjectframe/) ile gömer ve 9.5 × 4 inçlik bir OLE çerçeveyle bir sunumu kaydeder.
 
 ```cs
-// Pencere ile grafik boyutunu tanımla.
-chart.SizeWithWindow = true;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
 
-// Çalışma kitabının pencere genişliğini inç olarak ayarla (PowerPoint 72 piksel/inç kullandığından 72'ye bölünür).
-workbook.Worksheets.WindowWidthInch = slide.Shapes[2].Width / 72f;
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "Data";
+dataSheet.Cells["A1"].PutValue(10);
+dataSheet.Cells["A2"].PutValue(20);
 
-// Çalışma kitabının pencere yüksekliğini inç olarak ayarla.
-workbook.Worksheets.WindowHeightInch = slide.Shapes[2].Height / 72f;
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, 20, 10);
+var chart = chartSheet.Charts[chartIndex];
+chart.NSeries.Add("Data!A1:A2", true);
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
 
-// Çalışma kitabını bir bellek akışına kaydet.
-MemoryStream workbookStream = workbook.SaveToStream();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Gömülü Excel verisiyle bir OLE nesne çerçevesi oluştur.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
+// Slayt koordinatları ve boyutları nokta birimindedir (inç başına 72 nokta).
+var width = 684f; // 9.5 inç.
+var height = 288f; // 4 inç.
 
-**Senaryo 2**
-
-Başlangıçtan bir sunum oluşturmak ve gömülü bir Excel çalışma kitabı içeren herhangi bir boyutta OLE nesne çerçevesi eklemek istediğimizi varsayalım. Aşağıdaki kod parçacığında, slayt üzerindeki x = 0.5 inç ve y = 1 inç konumunda, yüksekliği 4 inç ve genişliği 9.5 inç olan bir OLE nesne çerçevesi oluşturuyoruz. Ardından Excel çalışma kitabı penceresini aynı boyuta, yani yüksekliği 4 inç ve genişliği 9.5 inç olarak ayarlarız.
-
-```cs
-// İstediğimiz yükseklik.
-int desiredHeight = 288; // 4 inç (4 * 72)
-
-// İstediğimiz genişlik.
-int desiredWidth = 684;//9.5 inç (9.5 * 72)
-
-// Pencere ile grafik boyutunu tanımla.
-chart.SizeWithWindow = true;
-
-// Çalışma kitabının pencere genişliğini inç olarak ayarla.
-workbook.Worksheets.WindowWidthInch = desiredWidth / 72f;
-
-// Çalışma kitabının pencere yüksekliğini inç olarak ayarla.
-workbook.Worksheets.WindowHeightInch = desiredHeight / 72f;
-
-// Çalışma kitabını bir bellek akışına kaydet.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// Gömülü Excel verisiyle bir OLE nesne çerçevesi oluştur.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
-
-## **İkinci Yaklaşım**
-
-Bu yaklaşımda, gömülü Excel çalışma kitabındaki grafiğin boyutunu PowerPoint slaydındaki OLE nesne çerçevesinin boyutuyla eşleşecek şekilde nasıl ayarlayacağımızı öğreneceğiz. Bu yaklaşım, grafik boyutu önceden biliniyorsa ve hiçbir zaman değişmeyecekse kullanışlıdır.
-
-**Senaryo 1**
-
-Bir şablon tanımladığımızı ve buna göre sunumlar oluşturmak istediğimizi varsayalım. Şablonda indeks 2'de, gömülü bir Excel çalışma kitabı içeren bir OLE çerçevesi yerleştirmek istediğimiz bir şeklin olduğunu kabul edelim. Bu senaryoda, OLE çerçevesinin boyutu önceden tanımlanmıştır—şeklin indeks 2'deki boyutuyla eşleşir. Tek yapmamız gereken, çalışma kitabındaki grafiğin boyutunu o şeklin boyutuna eşitlemektir. Aşağıdaki kod parçacığı bu amacı hizmet eder:
-
-```cs
-// Pencere olmadan grafik boyutunu tanımla.
 chart.SizeWithWindow = false;
+// Nokta birimini, inç başına 96 piksel kullanarak grafik piksellerine dönüştür.
+chart.ChartObject.Width = (int)(width / 72f * 96f);
+chart.ChartObject.Height = (int)(height / 72f * 96f);
+chart.PrintSize = Aspose.Cells.PrintSizeType.Custom;
 
-// Grafiğin genişliğini piksel olarak ayarla (Excel'in inç başına 96 piksel kullandığını göz önünde bulundurarak 96 ile çarpın).
-chart.ChartObject.Width = (int)((slide.Shapes[2].Width / 72f) * 96f);
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Excel97To2003);
+var dataInfo = new OleEmbeddedDataInfo(workbookStream.ToArray(), "xls");
+slide.Shapes.AddOleObjectFrame(36, 72, width, height, dataInfo);
 
-// Grafiğin yüksekliğini piksel olarak ayarla.
-chart.ChartObject.Height = (int)((slide.Shapes[2].Height / 72f) * 96f);
-
-// Grafik baskı boyutunu tanımla.
-chart.PrintSize = PrintSizeType.Custom;
-
-// Çalışma kitabını bir bellek akışına kaydet.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// Gömülü Excel verisiyle bir OLE nesne çerçevesi oluştur.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
+presentation.Save("chart-fixed-size.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-**Senaryo 2**
+## **Şablon Kullan**
 
-Sıfırdan bir sunum oluşturmak ve gömülü bir Excel çalışma kitabı içeren herhangi bir boyutta OLE nesne çerçevesi eklemek istediğimizi varsayalım. Aşağıdaki kod parçacığında, slayt üzerindeki x = 0.5 inç ve y = 1 inç konumunda, yüksekliği 4 inç ve genişliği 9.5 inç olan bir OLE nesne çerçevesi oluşturuyoruz. Ayrıca ilgili grafik boyutunu aynı ölçülere ayarlıyoruz: yüksekliği 4 inç ve genişliği 9.5 inç.
+The sizing logic is the same for an existing presentation. To adapt the example:
 
-```cs
- // İstediğimiz yükseklik.
-int desiredHeight = 288; // 4 inç (4 * 576)
-
-// İstediğimiz genişlik.
-int desiredWidth = 684; // 9.5 inç (9.5 * 576)
-
-// Pencere olmadan grafik boyutunu tanımla.
-chart.SizeWithWindow = false;
-
-// Grafiğin genişliğini piksel olarak ayarla.   
-chart.ChartObject.Width = (int)((desiredWidth / 72f) * 96f);
-
-// Grafiğin yüksekliğini piksel olarak ayarla.    
-chart.ChartObject.Height = (int)((desiredHeight / 72f) * 96f);
-
-// Çalışma kitabını bir bellek akışına kaydet.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// Gömülü Excel verisiyle bir OLE nesne çerçevesi oluştur.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
-
-## **Sonuç**
-
-Grafik yeniden boyutlandırma sorununu gidermek için iki yaklaşım vardır. Yaklaşım seçimi gereksinimlere ve kullanım senaryosuna bağlıdır. Her iki yaklaşım da şablondan oluşturulan ya da sıfırdan oluşturulan sunumlarda aynı şekilde çalışır. Ayrıca bu çözümde OLE nesne çerçevesinin boyutu için bir sınırlama yoktur.
+1. Boş bir sunum oluşturmak yerine şablon sunumu yükleyin.
+1. İlk slaytın en az üç şekil içerdiğini doğrulayın ve ardından 2. indeksteki şekli yer tutucu olarak kullanın.
+1. Çerçevenin genişlik ve yüksekliğini, sabit değerler 684 ve 288 yerine bu şekilden alın. Boyutlandırma hesaplamalarını değiştirmeyin.
+1. Sabit koordinatlar 36 ve 72 yerine yer tutucunun konumunda OLE çerçevesi ekleyin.
+1. Sunumu kaydetmeden önce yer tutucuyu kaldırın.
 
 ## **SSS**
 
-**PowerPoint'te etkinleştirdikten sonra gömülü Excel grafiğim neden boyut değiştiriyor?**  
-Bu, Excel'in ilk etkinleştirildiğinde özgün pencere boyutunu geri getirmeye çalışması, PowerPoint'teki OLE nesne çerçevesinin ise kendi boyutlarına sahip olması nedeniyle olur. PowerPoint ve Excel, en boy oranını korumak için boyutu müzakere eder, bu da yeniden boyutlandırmaya yol açabilir.
+**Gömülü Excel grafiğim PowerPoint'te etkinleştirildikten sonra neden boyut değiştiriyor?**
 
-**Bu yeniden boyutlandırma sorununu tamamen önlemek mümkün mü?**  
-Evet. OLE nesne çerçevesi boyutuna göre Excel çalışma kitabı pencere boyutunu veya grafik boyutunu eşleştirerek, grafik boyutlarının tutarlı kalmasını sağlayabilirsiniz.
+Bu, Excel'in ilk etkinleştirildiğinde orijinal pencere boyutunu geri yüklemeye çalışması, PowerPoint'teki OLE nesne çerçevesinin ise kendi boyutlarına sahip olması nedeniyle olur. PowerPoint ve Excel, en boy oranını korumak için boyutu müzakere eder; bu da yeniden boyutlandırmaya yol açabilir.
 
-**Hangi yaklaşımı seçmeliyim, çalışma kitabı pencere boyutunu ayarlamayı mı yoksa grafik boyutunu mu?**  
-**Yaklaşım 1 (pencere boyutu)**, çalışma kitabının en boy oranını korumak ve ileride yeniden boyutlandırma izni vermek istiyorsanız.  
-**Yaklaşım 2 (grafik boyutu)**, grafik boyutları sabit ise ve gömüldükten sonra değişmeyecekse.
+**Grafik ve OLE çerçevesi boyutlarını tutarlı nasıl tutabilirim?**
 
-**Bu yöntemler hem şablon tabanlı hem de yeni sunumlarda çalışır mı?**  
-Evet. Her iki yaklaşım da şablondan oluşturulan ve sıfırdan oluşturulan sunumlar için aynı şekilde çalışır.
+OLE çerçevesiyle eşleşen sabit grafik boyutları ayarlayın ve çalışma kitabını gömmeden önce özel bir grafik baskı boyutu kullanın. Yukarıdaki örnek gerekli ayarları ve birim dönüşümlerini gösterir.
 
-**OLE nesne çerçevesinin boyutu için bir limit var mı?**  
-Hayır. OLE çerçevesini, çalışma kitabı veya grafik boyutuna uygun şekilde ölçeklendirebildiğiniz sürece istediğiniz boyuta ayarlayabilirsiniz.
+**Çalışma kitabı pencere boyutunu eşleştirmek yeterli mi?**
 
-**Bu yöntemleri başka tablo programlarıyla oluşturulan grafiklerde kullanabilir miyim?**  
-Örnekler, Aspose.Cells ile oluşturulan Excel grafikleri için tasarlanmıştır, ancak aynı boyutlandırma seçeneklerini destekleyen diğer OLE uyumlu tablo programları için de aynı prensipler geçerlidir.
+Sadece çalışma kitabı pencere boyutunu eşleştirmek, OLE çerçevesinin etkinleştirildikten sonra boyutunun değişmesini güvenilir şekilde engellemez. Örnekte gösterildiği gibi sabit grafik boyutları kullanın.
+
+**Bu çözüm şablon tabanlı sunumlar ve yeni sunumlar için çalışıyor mu?**
+
+Evet. Bir şablon için, yer tutucunun boyutlarını ve konumunu kullanın. Yeni bir sunum için ise çerçeve boyutlarını ve konumunu doğrudan belirtin.
+
+**Bu örneği diğer hesap tabloları programlarında oluşturulan grafiklerle kullanabilir miyim?**
+
+Örnek, Aspose.Cells ile oluşturulan bir Excel çalışma kitabını kullanır. Diğer hesap tablo programları için etkinleştirme davranışını göstermez.
 
 ## **İlgili Bölümler**
 
-- [Excel Grafiklerini Oluşturma ve Sunumlarda OLE Nesneleri Olarak Gömme](/slides/tr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
-- [PowerPoint Eklentisi Kullanarak OLE Nesnelerini Otomatik Güncelleme](/slides/tr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Excel Grafiklerini Oluşturun ve Sunumlarda OLE Nesneleri Olarak Gömün](/slides/tr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [PowerPoint Eklentisi Kullanarak OLE Nesnelerini Otomatik Güncelle](/slides/tr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

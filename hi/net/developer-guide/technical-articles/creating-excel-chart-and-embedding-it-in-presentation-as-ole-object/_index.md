@@ -1,5 +1,5 @@
 ---
-title: Excel चार्ट बनाएं और उन्हें प्रस्तुति में OLE ऑब्जेक्ट के रूप में एम्बेड करें
+title: Excel चार्ट बनाएं और उन्हें प्रस्तुतियों में OLE ऑब्जेक्ट के रूप में एम्बेड करें
 type: docs
 weight: 50
 url: /hi/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
@@ -8,159 +8,141 @@ keywords:
 - चार्ट एम्बेड करें
 - OLE ऑब्जेक्ट
 - PowerPoint
-- OpenDocument
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "C#/.NET के साथ Excel चार्ट बनाएं और उन्हें PowerPoint और OpenDocument प्रस्तुतियों में OLE ऑब्जेक्ट के रूप में एम्बेड करें। चरण-दर-चरण मार्गदर्शिका कोड नमूनों के साथ।"
+description: "Aspose.Cells for .NET के साथ एक Excel चार्ट बनाएं और Aspose.Slides के साथ PowerPoint प्रस्तुति में वर्कबुक को एम्बेड करें, जिसमें चार्ट प्रीव्यू शामिल है।"
 ---
-## **पृष्ठभूमि**
+## **अवलोकन**
 
-PowerPoint में, डेटा को ग्राफ़िक रूप से प्रदर्शित करने के लिए संपादन योग्य चार्ट का उपयोग सामान्य प्रथा है। Aspose .NET के लिए Aspose.Cells का उपयोग करके Excel चार्ट बनाना संभव है, और इन चार्टों को फिर Aspose.Slides for .NET के माध्यम से PowerPoint स्लाइड्स में OLE ऑब्जेक्ट के रूप में सम्मिलित किया जा सकता है। यह लेख आवश्यक चरणों को कवर करता है और Excel चार्ट बनाने और इसे Aspose.Cells और Aspose.Slides का उपयोग करके PowerPoint प्रस्तुति में OLE ऑब्जेक्ट के रूप में सम्मिलित करने के लिए C# कोड नमूने प्रदान करता है।
+यह लेख दिखाता है कि Aspose.Cells for .NET के साथ Excel कॉलम चार्ट कैसे बनाएं और इसे Aspose.Slides for .NET के साथ एक PowerPoint प्रस्तुति में वर्कबुक कैसे एम्बेड करें। एम्बेडेड वर्कबुक में स्रोत डेटा और चार्ट दोनों होते हैं। एक अलग PNG प्रीव्यू स्लाइड पर चार्ट को दर्शाता है, इससे पहले कि OLE ऑब्जेक्ट सक्रिय हो।
 
-## **आवश्यक चरण**
+परिणाम एक एम्बेडेड Excel ऑब्जेक्ट है, मूल PowerPoint चार्ट नहीं। OLE के माध्यम से वर्कबुक को संपादित करने के लिए ऐसे डेस्कटॉप एप्लिकेशन की आवश्यकता होती है जो OLE सक्रियता को सपोर्ट करता हो और संगत Excel इंस्टॉलेशन हो।
 
-PowerPoint स्लाइड में Excel चार्ट को OLE ऑब्जेक्ट के रूप में बनाने और सम्मिलित करने के लिए निम्न क्रम में चरणों की आवश्यकता होती है:
+## **पूर्वापेक्षाएँ**
 
-1. Aspose.Cells का उपयोग करके एक Excel चार्ट बनाएं।
-1. Aspose.Cells का उपयोग करके Excel चार्ट का OLE आकार निर्धारित करें।
-1. Aspose.Cells के साथ Excel चार्ट की एक छवि प्राप्त करें।
-1. Aspose.Slides का उपयोग करके PPTX प्रस्तुति में Excel चार्ट को OLE ऑब्जेक्ट के रूप में सम्मिलित करें।
-1. चरण 3 में प्राप्त छवि के साथ “EMBEDDED OLE OBJECT” छवि को प्रतिस्थापित करें ताकि [ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/net/object-preview-issue-when-adding-oleobjectframe/) को हल किया जा सके।
-1. प्रस्तुति को PPTX स्वरूप में डिस्क पर सहेजें।
+अपने C# प्रोजेक्ट में Aspose.Cells for .NET और Aspose.Slides for .NET के रेफ़रेंस जोड़ें। यह उदाहरण टॉप-लेवल स्टेटमेंट्स का उपयोग करता है और C# 9 या इसके बाद का संस्करण आवश्यक है। प्रस्तुति बनाने के लिए Microsoft Office की आवश्यकता नहीं है।
 
-## **आवश्यक चरणों का कार्यान्वयन**
+कोई इनपुट फ़ाइल की आवश्यकता नहीं है: उदाहरण डेटा और चार्ट को मेमोरी में बनाता है, फिर `OutputChart.pptx` को वर्तमान कार्य फ़ोल्डर में लिखता है। मूल्यांकन मोड के बाहर चलाते समय दोनों उत्पादों के लाइसेंस लागू करें।
 
-ऊपर दर्शाए गए चरणों की C# कार्यान्वयन इस प्रकार है:
+## **एम्बेडिंग कैसे काम करती है**
 
-```cs
-// Step - 1: Aspose.Cells का उपयोग करके Excel चार्ट बनाएं.
-// ---------------------------------------------------
-// एक वर्कबुक बनाएं.
-Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook();
-// Add an Excel chart.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+1. डेटा वर्कशीट और चार्ट शीट के साथ एक वर्कबुक बनाएं।
+2. चार्ट शीट को सक्रिय करें ताकि वर्कबुक चार्ट पर खुले।
+3. वर्कबुक के OLE डिस्प्ले रेंज को सेट करें और चार्ट को PNG में रेंडर करें।
+4. वर्कबुक को मेमोरी में XLSX रूप में सहेजें और उन बाइट्स को स्लाइड में एम्बेड करें।
+5. PNG को OLE ऑब्जेक्ट के प्रीव्यू के रूप में असाइन करें और प्रस्तुति को PPTX में सहेजें।
 
-// Step - 2: Aspose.Cells का उपयोग करके चार्ट का OLE आकार निर्धारित करें.
-// -----------------------------------------------------------
-workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
+वर्कबुक डिस्प्ले रेंज और स्लाइड पर फ्रेम की अलग-अलग भूमिकाएँ होती हैं। [SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) शून्य-आधारित प्रारंभ/समाप्ति पंक्ति और कॉलम इंडेक्स लेता है। [ChartCollection.Add](https://reference.aspose.com/cells/net/aspose.cells.charts/chartcollection/add/) इसके बजाय शीर्ष पंक्ति, बाएँ कॉलम, निचली पंक्ति और दाएँ कॉलम लेता है। उदाहरण पंक्ति इंडेक्स 55 और कॉलम इंडेक्स 25 का उपयोग निचले-दाएँ सीमाओं के रूप में करता है; ये मान लेआउट विकल्प हैं, डेटा पंक्तियों या कॉलमों की संख्या नहीं।
 
-// Step - 3: Aspose.Cells के साथ चार्ट की छवि प्राप्त करें.
-// -------------------------------------------------------
-Bitmap chartImage = workbook.Worksheets[chartSheetIndex].Charts[0].ToImage();
-// वर्कबुक को एक स्ट्रीम में सहेजें.
-MemoryStream workbookStream = workbook.SaveToStream();
+स्लाइड फ्रेम पॉइंट्स में मापी जाती है। उदाहरण इसे स्लाइड के भीतर फिट करता है और केंद्रित रखता है, जबकि PNG के अनुपात को बनाए रखता है, बजाय प्रीव्यू को स्लाइड के पूरी तरह भरने के लिए खींचे।
 
-// Step - 4 और 5
-// =============
-// Step - 4: Aspose.Slides का उपयोग करके .ppt प्रस्तुति में चार्ट को OLE ऑब्जेक्ट के रूप में एम्बेड करें.
-// ------------------------------------------------------------------------------------------
-// Step - 5: "EMBEDDED OLE OBJECT" छवि को चरण 3 में प्राप्त छवि से बदलें ताकि ऑब्जेक्ट प्रीव्यू समस्या को ठीक किया जा सके.
-// --------------------------------------------------------------------------------------------------------------------
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    // वर्कबुक को स्लाइड में जोड़ें.
-    AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+## **चार्ट बनाना और एम्बेड करना**
 
-    // Step - 6: आउटपुट प्रस्तुति को डिस्क पर सहेजें.
-    // -----------------------------------------------
-    presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
+निम्नलिखित पूर्ण उदाहरण `DataSheet` को चार पंक्तियों और पाँच कॉलम के मानों से भरता है। प्रत्येक पंक्ति एक चार्ट सीरीज़ बनती है। वर्कबुक को सहेजने से पहले `ChartSheet` को सक्रिय शीट के रूप में चयनित किया जाता है।
+
+वर्कबुक को स्पष्ट रूप से XLSX के रूप में सहेजा जाता है, जो `xlsx` एक्सटेंशन से मेल खाता है जो [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) को पास किया जाता है। PNG को उसका स्ट्रीम से सीधे लोड किया जाता है, बिना किसी मध्यवर्ती बिटमैप रूपांतरण के। इसे [SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/substitutepictureformat/) के माध्यम से असाइन करने से डिफ़ॉल्ट OLE प्लेसहोल्डर बदल जाता है।
 
 ```cs
-static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows, int chartCols)
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "DataSheet";
+
+int[,] values =
 {
-    // कोशिकाओं के नामों की सरणी।
-    string[] cellNames = new string[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+    { 67, 44, 46, 43, 24 },
+    { 86, 64, 97, 29, 40 },
+    { 68, 89, 78, 69, 38 },
+    { 91, 48, 60, 26, 25 }
+};
 
-    // कोशिकाओं के डेटा की सरणी।
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
-
-    // डेटा के साथ कोशिकाओं को भरने के लिए एक नया वर्कशीट जोड़ें।
-    int dataSheetIndex = workbook.Worksheets.Add();
-    Aspose.Cells.Worksheet dataSheet = workbook.Worksheets[dataSheetIndex];
-    string sheetName = "DataSheet";
-    dataSheet.Name = sheetName;
-
-    // डेटा शीट को डेटा से भरें।
-    for (int i = 0; i < cellNames.Length; i++)
-    {
-        string cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.Cells[cellName].PutValue(cellValue);
-    }
-
-    // चार्ट शीट जोड़ें।
-    int chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
-    Aspose.Cells.Worksheet chartSheet = workbook.Worksheets[chartSheetIndex];
-    chartSheet.Name = "ChartSheet";
-
-    // डेटा शीट से डेटा श्रृंखला के साथ चार्ट शीट पर चार्ट जोड़ें।
-    int chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
-    Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIndex];
-    chart.NSeries.Add(sheetName + "!A1:E1", false);
-    chart.NSeries.Add(sheetName + "!A2:E2", false);
-    chart.NSeries.Add(sheetName + "!A3:E3", false);
-    chart.NSeries.Add(sheetName + "!A4:E4", false);
-
-    // चार्ट शीट को सक्रिय शीट के रूप में सेट करें।
-    workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
-    return chartSheetIndex;
-}
-```
-
-```cs
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
+for (var row = 0; row < values.GetLength(0); row++)
 {
-    float oleWidth = presentation.SlideSize.Size.Width;
-    float oleHeight = presentation.SlideSize.Size.Height;
-
-    byte[] oleData = new byte[workbookStream.Length];
-    workbookStream.Position = 0;
-    workbookStream.Read(oleData, 0, oleData.Length);
-
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xls");
-    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
-
-    using (MemoryStream imageStream = new MemoryStream())
+    for (var column = 0; column < values.GetLength(1); column++)
     {
-        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
-
-	    imageStream.Position = 0;
-        IPPImage ppImage = presentation.Images.AddImage(imageStream);
-
-        oleFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+        dataSheet.Cells[row, column].PutValue(values[row, column]);
     }
 }
+
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+chartSheet.Name = "ChartSheet";
+
+var lastChartRow = 55;
+var lastChartColumn = 25;
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, lastChartRow, lastChartColumn);
+var chart = chartSheet.Charts[chartIndex];
+for (var row = 1; row <= values.GetLength(0); row++)
+{
+    chart.NSeries.Add($"DataSheet!A{row}:E{row}", false);
+}
+
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
+workbook.Worksheets.SetOleSize(0, lastChartRow, 0, lastChartColumn);
+
+// चार्ट प्रीव्यू को रेंडर करें और संपादन योग्य वर्कबुक को अलग से सीरियलाइज़ करें।
+using var chartImageStream = new MemoryStream();
+chart.ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+using var chartImage = Images.FromStream(chartImageStream);
+
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Xlsx);
+var workbookBytes = workbookStream.ToArray();
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var slideSize = presentation.SlideSize.Size;
+
+// प्रीव्यू को स्लाइड के भीतर फिट करें बिना उसके अनुपात को बदले।
+var scale = Math.Min(slideSize.Width / chartImage.Width, slideSize.Height / chartImage.Height);
+var frameWidth = chartImage.Width * scale;
+var frameHeight = chartImage.Height * scale;
+var frameX = (slideSize.Width - frameWidth) / 2;
+var frameY = (slideSize.Height - frameHeight) / 2;
+
+var embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+var previewImage = presentation.Images.AddImage(chartImage);
+oleFrame.SubstitutePictureFormat.Picture.Image = previewImage;
+
+presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-उपर्युक्त विधि से बनाई गई प्रस्तुति में Excel चार्ट OLE ऑब्जेक्ट के रूप में सम्मिलित होगा जिसे OLE ऑब्जेक्ट फ्रेम पर डबल‑क्लिक करके सक्रिय किया जा सकता है।
+## **अपेक्षित परिणाम**
 
-## **निष्कर्ष**
+`OutputChart.pptx` एक स्लाइड के साथ आता है जिसमें एम्बेडेड Excel वर्कबुक और चार्ट प्रीव्यू है। वर्कबुक में मूल डेटा और चार सीरीज़ वाला कॉलम चार्ट होता है। प्रीव्यू स्लाइड पर केंद्रित है और अपने अनुपात को बनाए रखता है।
 
-Aspose.Cells for .NET के साथ Aspose.Slides for .NET को मिलाकर हम Aspose.Cells द्वारा समर्थित किसी भी Excel चार्ट को बना सकते हैं और उसे PowerPoint स्लाइड में OLE ऑब्जेक्ट के रूप में सम्मिलित कर सकते हैं। Excel चार्ट का OLE आकार भी परिभाषित किया जा सकता है। अंत उपयोगकर्ता फिर Excel चार्ट को किसी अन्य OLE ऑब्जेक्ट की तरह संपादित कर सकते हैं।
+![Excel कॉलम चार्ट जो एम्बेडेड वर्कबुक के प्रीव्यू के रूप में दिखाया गया है](excel-chart-ole-preview.png)
+
+संगत डेस्कटॉप PowerPoint वातावरण में जहाँ Excel उपलब्ध है, ऑब्जेक्ट को डबल‑क्लिक करें ताकि एम्बेडेड वर्कबुक सक्रिय और संपादित हो सके। सक्रियण और संपादन होस्ट एप्लिकेशन की OLE समर्थन और सुरक्षा सेटिंग्स पर निर्भर करता है।
+
+## **बारंबार पूछे जाने वाले प्रश्न**
+
+**प्रीव्यू इमेज की आवश्यकता क्यों है?**
+
+एम्बेडेड वर्कबुक और उसके स्लाइड प्रीव्यू अलग सामग्री हैं। एक चार्ट इमेज प्रदान करें ताकि स्लाइड डिफ़ॉल्ट "EMBEDDED OLE OBJECT" प्लेसहोल्डर के बजाय चार्ट दिखाए। देखें [OleObjectFrame जोड़ते समय ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/net/object-preview-issue-when-adding-oleobjectframe/)।
+
+**क्या प्रीव्यू कोड में वर्कबुक बदलने पर स्वचालित रूप से अपडेट होता है?**
+
+प्रीव्यू को एक स्नैपशॉट के रूप में देखें। जब प्रोग्रामेटिक रूप से वर्कबुक डेटा अपडेट किया जाता है, तो चार्ट इमेज को फिर से बनाएँ और प्रीव्यू के साथ-साथ एम्बेडेड वर्कबुक डेटा को भी बदलें।
+
+**क्या मैं XLS को XLSX के बजाय इस्तेमाल कर सकता हूँ?**
+
+हाँ। वर्कबुक को XLS फॉर्मेट में सहेजें और एम्बेडेड डेटा एक्सटेंशन के रूप में `xls` उपयोग करें। एक्सटेंशन वास्तविक वर्कबुक फॉर्मेट से मेल खाना चाहिए; केवल एक्सटेंशन बदलने से डेटा परिवर्तित नहीं होता।
+
+**सक्रियकरण के बाद ऑब्जेक्ट का आकार क्यों बदल सकता है?**
+
+होस्ट एप्लिकेशन वर्कबुक को सक्रिय करने पर OLE ऑब्जेक्ट की प्रस्तुति को अपडेट कर सकता है। वर्कबुक की OLE डिस्प्ले रेंज और स्लाइड फ्रेम के आयाम दोनों महत्व रखते हैं। देखें [PPTX में चार्ट री‑साइज़िंग के लिए कार्य समाधान](/slides/hi/net/working-solution-for-chart-resizing-in-pptx/)।
 
 ## **संबंधित अनुभाग**
 
-- [PPTX में चार्ट आकार बदलने के लिए वर्किंग सॉल्यूशन](/slides/hi/net/working-solution-for-chart-resizing-in-pptx/)
-- [OleObjectFrame जोड़ने पर ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/net/object-preview-issue-when-adding-oleobjectframe/)
+- [PPTX में चार्ट री‑साइज़िंग के लिए कार्य समाधान](/slides/hi/net/working-solution-for-chart-resizing-in-pptx/)
+- [OleObjectFrame जोड़ते समय ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/net/object-preview-issue-when-adding-oleobjectframe/)
 - [PowerPoint ऐड‑इन का उपयोग करके OLE ऑब्जेक्ट्स को स्वचालित रूप से अपडेट करना](/slides/hi/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

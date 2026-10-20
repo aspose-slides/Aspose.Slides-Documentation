@@ -1,144 +1,122 @@
 ---
-title: Mengubah Ukuran Bentuk pada Slide Presentasi di .NET
+title: Ubah Ukuran Bentuk pada Slide Presentasi di .NET
 type: docs
 weight: 130
-url: /id/net/re-sizing-shapes-on-slide/
+url: /id/net/resizing-shapes-on-slide/
+aliases:
+  - /id/net/re-sizing-shapes-on-slide/
+  /net/ubah-ukuran-bentuk-pada-slide/
 keywords:
 - ubah ukuran bentuk
-- ubah ukuran bentuk
+- ganti ukuran bentuk
 - PowerPoint
 - OpenDocument
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
+description: "Dengan mudah ubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
 ---
-## **Ringkasan**
+## **Gambaran Umum**
 
-Salah satu pertanyaan paling umum dari pelanggan Aspose.Slides untuk .NET adalah cara mengubah ukuran bentuk sehingga, ketika ukuran slide berubah, data tidak terpotong. Artikel teknis singkat ini menunjukkan cara melakukannya.
+Ketika Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuk-bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara memperbesar bentuk secara manual dan cara menangani tabel pada slide, master, dan tata letak.
 
 ## **Ubah Ukuran Bentuk**
 
-Untuk mencegah bentuk menjadi tidak selaras ketika ukuran slide berubah, perbarui posisi dan dimensi setiap bentuk agar sesuai dengan tata letak slide yang baru.
+Untuk mempertahankan posisi dan ukuran relatif tiap bentuk, kalikan koordinat horizontal dan lebar bentuk dengan rasio lebar slide baru terhadap lebar asal. Terapkan rasio tinggi yang sesuai pada koordinat vertikal dan tinggi bentuk.
 
-```c#
- // Muat file presentasi.
- using (Presentation presentation = new Presentation("sample.pptx"))
- {
-     // Dapatkan ukuran slide asli.
-     float currentHeight = presentation.SlideSize.Size.Height;
-     float currentWidth = presentation.SlideSize.Size.Width;
+Contoh pertama memuat sebuah presentasi yang slide‑nya tidak mengandung tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Contoh ini menggunakan [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) dengan [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) sehingga perulangan berikutnya mengendalikan skala. Rasio‑rasio tersebut tidak memiliki satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat mendistorsi bentuk, dan mengubah dimensi bentuk tidak men‑skala ukuran fontnya.
 
-     // Ubah ukuran slide tanpa menskalakan bentuk yang ada.
-     presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-     // Dapatkan ukuran slide baru.
-     float newHeight = presentation.SlideSize.Size.Height;
-     float newWidth = presentation.SlideSize.Size.Width;
+using var presentation = new Presentation("sample.pptx");
 
-     float heightRatio = newHeight / currentHeight;
-     float widthRatio = newWidth / currentWidth;
+// Hitung faktor skala horizontal dan vertikal yang independen.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
 
-     // Ubah ukuran dan posisi kembali bentuk pada setiap slide.
-     foreach (ISlide slide in presentation.Slides)
-     {
-         foreach (IShape shape in slide.Shapes)
-         {
-             // Skala ukuran bentuk.
-             shape.Height *= heightRatio;
-             shape.Width *= widthRatio;
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
+}
 
-             // Skala posisi bentuk.
-             shape.Y *= heightRatio;
-             shape.X *= widthRatio;
-         }
-     }
-
-     presentation.Save("output.pptx", SaveFormat.Pptx);
- }
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-Jika sebuah slide berisi tabel, kode di atas tidak akan berfungsi dengan benar. Dalam kasus ini, setiap sel dalam tabel harus diubah ukurannya.
+{{% alert color="info" title="Note" %}}
+Tabel memerlukan penanganan terpisah: skalakan lebar kolom dan tinggi baris alih‑alih menetapkan lebar dan tinggi keseluruhan tabel. Tinggi baris dapat tetap lebih besar dari yang diminta jika konten sel memerlukan ruang lebih.
 {{% /alert %}}
 
-Gunakan kode berikut pada sisi Anda untuk mengubah ukuran slide yang berisi tabel. Untuk tabel, mengatur lebar atau tinggi merupakan kasus khusus: Anda harus menyesuaikan tinggi baris individu dan lebar kolom untuk mengubah ukuran keseluruhan tabel.
+Contoh kedua mendukung tabel dan memproses bentuk pada master dan tata letak serta slide individual sebelum menyimpan presentasi yang telah diubah ukurannya. Helper‑nya menangani setiap [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) dengan menskalakan [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) dan [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/). Kemudian ia menskalakan posisi tabel tanpa menskalakan dimensi keseluruhannya secara terpisah.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Hitung faktor skala horizontal dan vertikal yang independen.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Ubah ukuran bentuk yang didefinisikan pada master dan tata letak serta slide individual.
+foreach (var master in presentation.Masters)
 {
-    // Dapatkan ukuran slide asli.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Ubah ukuran slide tanpa menskalakan bentuk yang ada.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Dapatkan ukuran slide baru.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Skala ukuran bentuk.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Skala posisi bentuk.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // Dimensi tabel dikendalikan oleh lebar kolom dan tinggi baris.
+            foreach (var column in table.Columns)
             {
-                // Skala ukuran bentuk.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Skala posisi bentuk.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Skala ukuran bentuk.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Skala posisi bentuk.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
@@ -146,28 +124,28 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 **Mengapa bentuk menjadi terdistorsi atau terpotong setelah mengubah ukuran slide?**
 
-Saat mengubah ukuran slide, bentuk mempertahankan posisi dan ukuran aslinya kecuali skala diubah secara eksplisit. Hal ini dapat menyebabkan konten terpotong atau bentuk menjadi tidak selaras.
+Jika Anda mengubah ukuran slide tanpa men‑skala bentuk‑bentuknya, mereka akan mempertahankan posisi dan dimensi asli serta dapat melampaui batas slide. Menskalakan lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
 
-**Apakah kode yang diberikan bekerja untuk semua tipe bentuk?**
+**Apakah kode yang disediakan berfungsi untuk semua jenis bentuk?**
 
-Contoh dasar bekerja untuk sebagian besar tipe bentuk (kotak teks, gambar, bagan, dll.). Namun, untuk tabel, Anda perlu menangani baris dan kolom secara terpisah, karena tinggi dan lebar tabel ditentukan oleh dimensi sel individu.
+Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak yang dihasilkan, terutama teks dan tabel, karena contoh‑contoh ini tidak men‑skala ukuran font dan konten tabel dapat membatasi tinggi baris.
 
 **Bagaimana cara mengubah ukuran tabel saat mengubah ukuran slide?**
 
-Anda perlu melakukan iterasi pada semua baris dan kolom tabel serta mengubah tinggi dan lebar secara proporsional, seperti yang ditunjukkan pada contoh kode kedua.
+Skalakan lebar kolom menggunakan rasio lebar dan tinggi minimum baris menggunakan rasio tinggi, kemudian skalakan posisi tabel, seperti yang ditunjukkan pada contoh kedua.
 
-**Apakah perubahan ukuran ini berfungsi untuk master slide dan layout slide?**
+**Apakah pengubahan ukuran ini berfungsi untuk slide master dan slide tata letak?**
 
-Ya, tetapi Anda juga harus melakukan iterasi pada [Masters](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/masters/) dan [LayoutSlides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/layoutslides/) serta menerapkan logika skala yang sama pada bentuk mereka untuk memastikan konsistensi di seluruh presentasi.
+Ya. Contoh kedua mengiterasi melalui [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) dan setiap [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) milik master, serta menerapkan logika pengubahan ukuran yang sama pada bentuk‑bentuknya.
 
-**Apakah saya dapat mengubah orientasi slide (potret/lanskap) bersamaan dengan pengubahan ukuran?**
+**Bisakah saya mengubah orientasi slide (potret/lanskap) bersama dengan pengubahan ukuran?**
 
-Ya. Anda dapat mengatur [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/id/net/aspose.slides/islidesize/orientation/) untuk mengubah orientasi. Pastikan Anda menyesuaikan logika skala secara tepat untuk mempertahankan tata letak.
+Ya. Atur [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor skala mencerminkan orientasi akhir.
 
 **Apakah ada batasan ukuran slide yang dapat saya tetapkan?**
 
-Aspose.Slides mendukung ukuran kustom, tetapi ukuran yang sangat besar dapat memengaruhi kinerja atau kompatibilitas dengan beberapa versi PowerPoint.
+Anda dapat menentukan dimensi slide khusus dengan [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). Dimensi yang didukung juga tergantung pada format presentasi dan aplikasi yang digunakan untuk membuka file.
 
 **Bagaimana cara mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
 
-Anda dapat memeriksa properti `AspectRatioLocked` pada bentuk sebelum melakukan skala. Jika terkunci, sesuaikan lebar atau tinggi secara proporsional daripada menskalakan keduanya secara terpisah.
+Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli dalam dimensi slide baru, gunakan rasio yang lebih kecil antara lebar dan tinggi untuk kedua dimensi dan posisi. Ini mempertahankan proporsi namun dapat meninggalkan ruang kosong di salah satu sisi.

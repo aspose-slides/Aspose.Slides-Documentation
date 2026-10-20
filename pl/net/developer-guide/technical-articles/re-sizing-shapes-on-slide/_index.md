@@ -2,143 +2,121 @@
 title: Zmienianie rozmiaru kształtów na slajdach prezentacji w .NET
 type: docs
 weight: 130
-url: /pl/net/re-sizing-shapes-on-slide/
+url: /pl/net/resizing-shapes-on-slide/
+aliases:
+  - /pl/net/re-sizing-shapes-on-slide/
+  /net/zmiana-rozmiaru-ksztaltow-na-slajdzie/
 keywords:
-- zmień rozmiar kształtu
-- zmień rozmiar kształtu
-- PowerPoint
-- OpenDocument
-- prezentacja
-- .NET
-- C#
-- Aspose.Slides
-description: "Łatwo zmieniaj rozmiar kształtów na slajdach PowerPoint i OpenDocument za pomocą Aspose.Slides dla .NET—automatyzuj dostosowywanie układu slajdów i zwiększaj wydajność."
+  - skalowanie kształtu
+  - zmiana rozmiaru kształtu
+  - PowerPoint
+  - OpenDocument
+  - prezentacja
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Łatwo zmieniaj rozmiar kształtów na slajdach PowerPoint i OpenDocument za pomocą Aspose.Slides dla .NET—automatyzuj dostosowywanie układu slajdów i zwiększaj produktywność."
 ---
 ## **Przegląd**
 
-Jednym z najczęściej zadawanych pytań przez klientów Aspose.Slides dla .NET jest, jak zmienić rozmiar kształtów, aby gdy zmieni się rozmiar slajdu, dane nie były obcięte. Ten krótki artykuł techniczny pokazuje, jak to zrobić.
+Kiedy zmieniasz rozmiar slajdu prezentacji, możesz także potrzebować zmienić rozmiar i pozycję jego kształtów, aby pasowały do nowych wymiarów. Ten artykuł pokazuje, jak skalować kształty ręcznie oraz jak obsługiwać tabele na slajdach, wzorcach i układach.
 
-## **Zmienianie rozmiaru kształtów**
+## **Zmiana rozmiaru kształtów**
 
-Aby zapobiec nieprawidłowemu rozmieszczeniu kształtów po zmianie rozmiaru slajdu, zaktualizuj pozycję i wymiary każdego kształtu tak, aby odpowiadały nowemu układowi slajdu.
+Aby zachować względną pozycję i rozmiar każdego kształtu, pomnóż jego współrzędne poziome i szerokość przez stosunek nowej szerokości slajdu do oryginalnej szerokości. Zastosuj odpowiadający stosunek wysokości do jego współrzędnych pionowych i wysokości.
 
-```c#
-// Wczytaj plik prezentacji.
-using (Presentation presentation = new Presentation("sample.pptx"))
+Pierwszy przykład ładuje prezentację, której slajdy nie zawierają tabel, zmienia rozmiar slajdu na A4 i zapisuje wynik. Używa [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) z [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/), aby kolejna pętla kontrolowała skalowanie. Stosunki nie mają jednostek; pozycje i wymiary kształtów są mierzone w punktach. Różne współczynniki szerokości i wysokości mogą zniekształcać kształty, a zmiana wymiarów kształtu nie skaluje rozmiarów czcionki.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Oblicz niezależne współczynniki skalowania w poziomie i w pionie.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // Pobierz pierwotny rozmiar slajdu.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // Zmień rozmiar slajdu bez skalowania istniejących kształtów.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Pobierz nowy rozmiar slajdu.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Zmień rozmiar i przesuń kształty na każdym slajdzie.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // Skaluj rozmiar kształtu.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Skaluj pozycję kształtu.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-Jeśli slajd zawiera tabelę, powyższy kod nie będzie działał prawidłowo. W takim przypadku każda komórka w tabeli musi zostać przeskalowana.
+{{% alert color="info" title="Note" %}}
+Tabele wymagają osobnego podejścia: skaluj ich szerokości kolumn i wysokości wierszy zamiast ustawiać całkowitą szerokość i wysokość tabeli. Wysokości wierszy mogą pozostać większe niż żądane, jeśli zawartość komórki wymaga więcej miejsca.
 {{% /alert %}}
 
-Użyj poniższego kodu po swojej stronie, aby zmienić rozmiar slajdów zawierających tabele. Dla tabel ustawianie szerokości lub wysokości jest przypadkiem szczególnym: musisz dostosować wysokość poszczególnych wierszy i szerokość kolumn, aby zmienić całkowity rozmiar tabeli.
+Drugi przykład obsługuje tabele i przetwarza kształty na wzorcach i układach, a także na poszczególnych slajdach przed zapisaniem przeskalowanej prezentacji. Jego pomocnik obsługuje każdy [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) skalując [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) oraz [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/). Następnie skaluje pozycję tabeli, nie skalując osobno jej całkowitych wymiarów.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Oblicz niezależne współczynniki skalowania w poziomie i w pionie.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Zmiana rozmiaru kształtów zdefiniowanych w masterach i układach oraz na pojedynczych slajdach.
+foreach (var master in presentation.Masters)
 {
-    // Pobierz pierwotny rozmiar slajdu.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Zmień rozmiar slajdu bez skalowania istniejących kształtów.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Pobierz nowy rozmiar slajdu.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Skaluj rozmiar kształtu.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Skaluj pozycję kształtu.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // Wymiary tabeli są określane przez szerokości kolumn i wysokości wierszy.
+            foreach (var column in table.Columns)
             {
-                // Skaluj rozmiar kształtu.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Skaluj pozycję kształtu.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Skaluj rozmiar kształtu.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Skaluj pozycję kształtu.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
@@ -146,28 +124,28 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 **Dlaczego kształty są zniekształcone lub obcięte po zmianie rozmiaru slajdu?**
 
-Podczas zmiany rozmiaru slajdu kształty zachowują swoją pierwotną pozycję i rozmiar, chyba że skala zostanie jawnie zmieniona. Może to skutkować przycięciem zawartości lub nieprawidłowym rozmieszczeniem kształtów.
+Jeśli zmienisz rozmiar slajdu bez skalowania kształtów, zachowają one pierwotne pozycje i wymiary i mogą wykraczać poza slajd. Skalowanie szerokości i wysokości różnymi współczynnikami może również zniekształcać kształty.
 
-**Czy dostarczony kod działa dla wszystkich typów kształtów?**
+**Czy dostarczony kod działa ze wszystkimi typami kształtów?**
 
-Podany przykład działa dla większości typów kształtów (pola tekstowe, obrazy, wykresy itp.). Jednak w przypadku tabel trzeba obsłużyć wiersze i kolumny osobno, ponieważ wysokość i szerokość tabeli są określane przez wymiary poszczególnych komórek.
+Pierwszy przykład zmienia bezpośrednio granice kształtów i jest przeznaczony dla slajdów bez tabel. Drugi przykład obsługuje tabele osobno. Sprawdź powstały układ, zwłaszcza tekst i tabele, ponieważ te przykłady nie skalują rozmiarów czcionek, a zawartość tabel może ograniczać wysokość wierszy.
 
 **Jak zmienić rozmiar tabel przy zmianie rozmiaru slajdu?**
 
-Należy przeiterować wszystkie wiersze i kolumny tabeli oraz proporcjonalnie zmienić ich wysokość i szerokość, jak pokazano w drugim przykładzie kodu.
+Skaluj szerokości kolumn przy użyciu współczynnika szerokości i minimalne wysokości wierszy przy użyciu współczynnika wysokości, a następnie skaluj pozycję tabeli, jak pokazano w drugim przykładzie.
 
-**Czy to skalowanie działa dla slajdów mistrzowskich i układu?**
+**Czy to skalowanie będzie działać na slajdach master i układach?**
 
-Tak, ale powinieneś również przejść przez [Masters](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/masters/) i [LayoutSlides](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/layoutslides/) i zastosować tę samą logikę skalowania do ich kształtów, aby zapewnić spójność w całej prezentacji.
+Tak. Drugi przykład iteruje przez [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) oraz [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) każdego mastera i stosuje tę samą logikę zmiany rozmiaru do ich kształtów.
 
-**Czy mogę zmienić orientację slajdu (pionowa/pozioma) wraz ze zmianą rozmiaru?**
+**Czy mogę zmienić orientację slajdu (portret/poziom) wraz ze zmianą rozmiaru?**
 
-Tak. Możesz ustawić [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/pl/net/aspose.slides/islidesize/orientation/), aby zmienić orientację. Upewnij się, że odpowiednio dostosujesz logikę skalowania, aby zachować układ.
+Tak. Ustaw [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) po zmianie rozmiaru slajdu i przed odczytaniem docelowych wymiarów, aby współczynniki skalowania odzwierciedlały ostateczną orientację.
 
 **Czy istnieje limit rozmiaru slajdu, który mogę ustawić?**
 
-Aspose.Slides obsługuje rozmiary niestandardowe, ale bardzo duże rozmiary mogą wpływać na wydajność lub kompatybilność z niektórymi wersjami PowerPointa.
+Możesz określić własne wymiary slajdu za pomocą [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). Obsługiwane wymiary zależą również od formatu prezentacji i aplikacji używanej do otwarcia pliku.
 
-**Jak zapobiec zniekształceniu kształtów o stałym współczynniku proporcji?**
+**Jak mogę zapobiec zniekształceniu kształtów o stałym stosunku proporcji?**
 
-Możesz sprawdzić właściwość `AspectRatioLocked` kształtu przed skalowaniem. Jeśli jest zablokowana, dostosuj szerokość lub wysokość proporcjonalnie, zamiast skalować je osobno.
+Użyj tego samego współczynnika skalowania dla szerokości i wysokości. Aby dopasować oryginalny układ do nowych wymiarów slajdu, użyj mniejszego z współczynników szerokości i wysokości zarówno dla wymiarów, jak i pozycji. Zachowuje to proporcje, ale może pozostawić niewykorzystaną przestrzeń po jednej krawędzi.

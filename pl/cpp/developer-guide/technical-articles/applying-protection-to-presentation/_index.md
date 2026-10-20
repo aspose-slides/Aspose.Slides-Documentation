@@ -1,184 +1,216 @@
 ---
-title: Zapobiegaj edycjom prezentacji przy użyciu blokad kształtów
-linktitle: Zapobiegaj edycjom prezentacji
+title: Ogranicz edycję prezentacji za pomocą blokad kształtów w C++
+linktitle: Ogranicz edycję prezentacji
 type: docs
 weight: 10
 url: /pl/cpp/applying-protection-to-presentation/
 keywords:
-- zapobieganie edycjom
+- zapobieganie edycji
 - ochrona przed edycją
-- blokada kształtu
-- blokada pozycji
-- blokada wyboru
-- blokada rozmiaru
-- blokada grupowania
+- zablokuj kształt
+- zablokuj pozycję
+- zablokuj wybór
+- zablokuj zmianę rozmiaru
+- zablokuj grupowanie
 - PowerPoint
-- OpenDocument
+- PPTX
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak Aspose.Slides for C++ blokuje lub odblokowuje kształty w plikach PPT, PPTX i ODP, zabezpieczając prezentacje, jednocześnie umożliwiając kontrolowaną edycję i szybsze dostarczanie."
+description: "Dowiedz się, jak blokować i odblokowywać kształty w prezentacjach PPTX za pomocą Aspose.Slides dla C++, aby ograniczyć wybór, przemieszczanie, zmianę rozmiaru i grupowanie."
 ---
 ## **Tło**
 
-Typowym zastosowaniem Aspose.Slides jest tworzenie, aktualizowanie i zapisywanie prezentacji Microsoft PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Użytkownicy aplikacji wykorzystujących Aspose.Slides w ten sposób mają dostęp do wygenerowanych prezentacji, dlatego ochrona ich przed edycją jest powszechnym zmartwieniem. Ważne jest, aby automatycznie generowane prezentacje zachowały pierwotne formatowanie i zawartość.
+Typowym zastosowaniem Aspose.Slides for C++ jest tworzenie, aktualizowanie i zapisywanie prezentacji PowerPoint (PPTX) jako część zautomatyzowanego przepływu pracy. Gdy użytkownicy otrzymują te prezentacje, ograniczenie zmian kształtów może pomóc zachować zamierzony układ i zawartość.
 
-Ten artykuł wyjaśnia, jak są zbudowane prezentacje i slajdy oraz jak Aspose.Slides for C++ może zastosować ochronę do prezentacji i później ją usunąć. Dostarcza programistom sposobu kontrolowania sposobu użycia prezentacji generowanych przez ich aplikacje.
+Ten artykuł wyjaśnia, jak kształty są organizowane na slajdach oraz jak zastosować i usunąć blokady kształtów w prezentacji PPTX. Te blokady pozwalają ograniczyć określone operacje edycji na poszczególnych kształtach.
 
-## **Skład slajdu**
+## **Kompozycja slajdu**
 
-Slajd prezentacji składa się z elementów takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazu, ramki wideo, łączniki i inne elementy używane do budowy prezentacji. W Aspose.Slides for C++ każdy element na slajdzie jest reprezentowany przez obiekt implementujący interfejs [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/) lub dziedziczący po klasie, która to robi.
+Slajd prezentacji składa się z komponentów takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazu, ramki wideo, łączniki oraz inne elementy używane do budowy prezentacji. W Aspose.Slides for C++ każdy element na slajdzie jest reprezentowany przez obiekt implementujący interfejs [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) lub dziedziczący po klasie, która to robi.
 
-Struktura PPTX jest złożona, więc w przeciwieństwie do PPT, gdzie można używać ogólnego blokowania dla wszystkich typów kształtów, różne typy kształtów wymagają różnych blokad. Interfejs [IBaseShapeLock](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseshapelock/) jest ogólną klasą blokującą dla PPTX. Następujące typy blokad są obsługiwane w Aspose.Slides for C++ dla PPTX:
+Różne typy kształtów udostępniają różne opcje blokowania. Interfejs [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) jest podstawowym interfejsem dla blokad kształtów. Aspose.Slides for C++ udostępnia następujące interfejsy blokad:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshapelock/) blokuje autokształty.  
-- [IConnectorLock](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iconnectorlock/) blokuje łączniki.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igraphicalobjectlock/) blokuje obiekty graficzne.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igroupshapelock/) blokuje grupowane kształty.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipictureframelock/) blokuje ramki obrazu.   
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) blokuje autokształty.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) blokuje kształty łączników.
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) blokuje obiekty graficzne.
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) blokuje kształty grupowe.
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) blokuje ramki obrazu.
 
-Każde działanie wykonane na wszystkich obiektach kształtów w obiekcie [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) jest stosowane do całej prezentacji.
+Aby zastosować blokady w całej [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), przeiteruj jej slajdy i ustaw odpowiednie blokady na każdym obsługiwanym kształcie.
 
-## **Zastosowanie i usunięcie ochrony**
+## **Zastosowanie i usuwanie ochrony**
 
-Zastosowanie ochrony zapewnia, że prezentacja nie może być edytowana. Jest to przydatna technika ochrony zawartości prezentacji.
+Blokady kształtów ograniczają operacje takie jak wybieranie, przemieszczanie i zmiana rozmiaru kształtów. Nie sprawiają, że cała prezentacja staje się nieedytowalna.
 
-### **Zastosuj ochronę do kształtów PPTX**
+### **Zastosowanie ochrony do kształtów PPTX**
 
-Aspose.Slides for C++ udostępnia interfejs [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/) do pracy z kształtami na slajdzie.
+Aspose.Slides for C++ udostępnia interfejs [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/), aby pracować z kształtami na slajdzie.
 
-Jak wspomniano wcześniej, każda klasa kształtu ma powiązaną klasę blokady kształtu służącą do ochrony. Ten artykuł koncentruje się na blokadach NoSelect, NoMove i NoResize. Blokady te zapewniają, że kształty nie mogą być zaznaczane (poprzez kliknięcia myszy lub inne metody wyboru) oraz nie mogą być przenoszone ani zmieniane rozmiarem.
+Przykład przekazuje wartość `true` do metod [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) i [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) dla autokształtów, z odpowiednimi blokadami dla kształtów grupowych, łączników i ramek obrazu. Łączniki używają [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) do przemieszczania; grupy używają także [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/), aby ograniczyć grupowanie.
 
-Przykład kodu poniżej stosuje ochronę do wszystkich typów kształtów w prezentacji.
+Przykład ładuje istniejącą prezentację PPTX, sprawdza kształty w kolekcji kształtów każdego slajdu i zapisuje kopię z zastosowanymi ograniczeniami. Kształty poza czterema obsługiwanymi typami pozostają niezmienione. Pętla nie przechodzi przez kształty potomne wewnątrz grupy.
 
 ```cpp
-// Utwórz obiekt klasy Presentation, który reprezentuje plik PPTX.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-// Przeglądanie wszystkich slajdów w prezentacji.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// Przeglądanie wszystkich kształtów na slajdzie.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(true);
+            autoShapeLock->set_SelectLocked(true);
+            autoShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// Rzutowanie kształtu na autokształt i uzyskanie jego blokady kształtu.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(true);
+            groupShapeLock->set_PositionLocked(true);
+            groupShapeLock->set_SelectLocked(true);
+            groupShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(true);
-			autoShapeLock->set_SelectLocked(true);
-			autoShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// Rzutowanie kształtu na grupowany kształt i uzyskanie jego blokady kształtu.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(true);
+            connectorShapeLock->set_SelectLocked(true);
+            connectorShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(true);
-			groupShapeLock->set_PositionLocked(true);
-			groupShapeLock->set_SelectLocked(true);
-			groupShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// Rzutowanie kształtu na łącznik i uzyskanie jego blokady kształtu.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(true);
-			connectorShapeLock->set_SelectLocked(true);
-			connectorShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// Rzutowanie kształtu na ramkę obrazu i uzyskanie jej blokady kształtu.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(true);
-			pictureFrameLock->set_SelectLocked(true);
-			pictureFrameLock->set_SizeLocked(true);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(true);
+            pictureFrameLock->set_SelectLocked(true);
+            pictureFrameLock->set_SizeLocked(true);
+        }
+    }
 }
 
-// Zapisywanie pliku prezentacji.
 presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Usuń ochronę**
+### **Usunięcie ochrony**
 
-Aby odblokować kształt, ustaw wartość zastosowanej blokady na `false`. Poniższy przykład kodu pokazuje, jak odblokować kształty w zablokowanej prezentacji.
+Aby usunąć blokadę kształtu, ustaw jej wartość na `false`. Poniższy przykład ładuje prezentację z blokadami kształtów i usuwa ograniczenia wyboru, przemieszczania i zmiany rozmiaru za pomocą [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), i [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Usuwa także [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) i zapisuje kopię prezentacji. Inne ustawienia blokad pozostają niezmienione.
 
 ```cpp
-// Utwórz obiekt klasy Presentation, który reprezentuje plik PPTX.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"ProtectedSample.pptx");
 
-// Przeglądanie wszystkich slajdów w prezentacji.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// Przeglądanie wszystkich kształtów na slajdzie.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(false);
+            autoShapeLock->set_SelectLocked(false);
+            autoShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// Rzutowanie kształtu na autokształt i uzyskanie jego blokady kształtu.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(false);
+            groupShapeLock->set_PositionLocked(false);
+            groupShapeLock->set_SelectLocked(false);
+            groupShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(false);
-			autoShapeLock->set_SelectLocked(false);
-			autoShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// Rzutowanie kształtu na grupowany kształt i uzyskanie jego blokady kształtu.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(false);
+            connectorShapeLock->set_SelectLocked(false);
+            connectorShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(false);
-			groupShapeLock->set_PositionLocked(false);
-			groupShapeLock->set_SelectLocked(false);
-			groupShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// Rzutowanie kształtu na łącznik i uzyskanie jego blokady kształtu.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(false);
-			connectorShapeLock->set_SelectLocked(false);
-			connectorShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// Rzutowanie kształtu na ramkę obrazu i uzyskanie jej blokady kształtu.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(false);
-			pictureFrameLock->set_SelectLocked(false);
-			pictureFrameLock->set_SizeLocked(false);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(false);
+            pictureFrameLock->set_SelectLocked(false);
+            pictureFrameLock->set_SizeLocked(false);
+        }
+    }
 }
 
-// Zapisywanie pliku prezentacji.
 presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Wniosek**
+### **Wnioski**
 
-Aspose.Slides oferuje kilka opcji ochrony kształtów w prezentacji. Możesz zablokować pojedynczy kształt lub iterować po wszystkich kształtach w prezentacji i zablokować każdy z nich, aby skutecznie zabezpieczyć cały plik. Ochronę można usunąć, ustawiając wartość blokady na `false`.
+Aspose.Slides for C++ pozwala ograniczyć określone operacje edycji na poszczególnych kształtach lub zastosować te same ograniczenia na wszystkich slajdach. Wybierz blokady obsługiwane przez dany typ kształtu i ustaw ich wartości na `false`, gdy potrzebujesz usunąć te ograniczenia.
 
 ## **FAQ**
 
 **Czy mogę łączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
 
-Tak. Blokady ograniczają edycję obiektów wewnątrz pliku, natomiast [password protection](/slides/pl/cpp/password-protected-presentation/) kontroluje dostęp do otwierania i/lub zapisywania zmian. Mechanizmy te uzupełniają się i działają razem.
+Tak. Blokady kształtów ograniczają określone operacje edycji, podczas gdy [ochrona hasłem](/slides/pl/cpp/password-protected-presentation/) może ograniczyć otwieranie lub modyfikowanie prezentacji. Można używać obu w tym samym pliku.
 
 **Czy mogę ograniczyć edycję na konkretnych slajdach bez wpływu na inne?**
 
-Tak. Zastosuj blokady do kształtów na wybranych slajdach; pozostałe slajdy pozostaną edytowalne.
+Tak. Zastosuj blokady tylko do kształtów na wybranych slajdach. Nie zmienia to ustawień blokad na pozostałych slajdach.
 
-**Czy blokady kształtów obowiązują grupowane obiekty i łączniki?**
+**Jak mogę zastosować blokady do poszczególnych kształtów wewnątrz grupy?**
 
-Tak. Obsługiwane są dedykowane typy blokad dla grup, łączników, obiektów graficznych i innych rodzajów kształtów.
+Iteruj po kolekcji zwróconej przez metodę [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) grupy i zastosuj odpowiednie blokady do każdego kształtu potomnego. Powtórz to dla wszystkich zagnieżdżonych grup. Powyższe przykłady przetwarzają tylko kolekcję kształtów slajdu, więc nie ustawiają blokad na poszczególnych elementach grupy.

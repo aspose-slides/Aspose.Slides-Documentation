@@ -1,167 +1,148 @@
 ---
-title: Membuat Bagan Excel dan Menyematkannya dalam Presentasi sebagai Objek OLE
+title: Buat Diagram Excel dan Sematkan ke dalam Presentasi sebagai OLE Objects
 type: docs
 weight: 50
 url: /id/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Bagan Excel
-- menyematkan bagan
+- Diagram Excel
+- sematkan diagram
 - objek OLE
 - PowerPoint
-- OpenDocument
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Membuat bagan Excel dan menyematkannya sebagai objek OLE dalam presentasi PowerPoint dan OpenDocument dengan C#/.NET. Panduan langkah demi langkah dengan contoh kode."
+description: "Buat diagram Excel dengan Aspose.Cells untuk .NET dan sematkan workbook ke dalam presentasi PowerPoint dengan Aspose.Slides, termasuk pratinjau diagram."
 ---
-## **Latar Belakang**
+## **Gambaran Umum**
 
-Di PowerPoint, penggunaan bagan yang dapat diedit untuk menampilkan data secara grafis adalah praktik umum. Aspose mendukung pembuatan bagan Excel dengan Aspose.Cells untuk .NET, dan bagan tersebut kemudian dapat disematkan sebagai objek OLE dalam slide PowerPoint melalui Aspose.Slides untuk .NET. Artikel ini mencakup langkah‑langkah yang diperlukan dan menyediakan contoh kode C# untuk membuat bagan Excel dan menyematkannya sebagai objek OLE dalam presentasi PowerPoint menggunakan Aspose.Cells dan Aspose.Slides.
+Artikel ini menunjukkan cara membuat diagram kolom Excel dengan Aspose.Cells untuk .NET dan menyematkan workbook‑nya ke dalam presentasi PowerPoint dengan Aspose.Slides untuk .NET. Workbook yang disematkan berisi data sumber dan diagram. Pratinjau PNG terpisah menampilkan diagram pada slide sebelum objek OLE diaktifkan.
 
-## **Langkah yang Diperlukan**
+Hasilnya adalah objek Excel yang disematkan, bukan diagram PowerPoint native. Mengedit workbook melalui OLE memerlukan aplikasi desktop yang mendukung aktivasi OLE dan instalasi Excel yang kompatibel.
 
-Urutan langkah‑langkah berikut diperlukan untuk membuat dan menyematkan bagan Excel sebagai objek OLE dalam slide PowerPoint:
+## **Prasyarat**
 
-1. Buat bagan Excel menggunakan Aspose.Cells.
-1. Atur ukuran OLE bagan Excel menggunakan Aspose.Cells.
-1. Dapatkan gambar bagan Excel dengan Aspose.Cells.
-1. Sematkan bagan Excel sebagai objek OLE dalam presentasi PPTX menggunakan Aspose.Slides.
-1. Ganti gambar "EMBEDDED OLE OBJECT" dengan gambar yang diperoleh pada langkah 3 untuk mengatasi [masalah pratinjau objek](/slides/id/net/object-preview-issue-when-adding-oleobjectframe/).
-1. Simpan presentasi ke disk dalam format PPTX.
+Tambahkan referensi ke Aspose.Cells untuk .NET dan Aspose.Slides untuk .NET dalam proyek C# Anda. Contoh ini menggunakan pernyataan tingkat atas dan memerlukan C# 9 atau lebih baru. Microsoft Office tidak diperlukan untuk menghasilkan presentasi dengan pustaka ini.
 
-## **Implementasi Langkah yang Diperlukan**
+Tidak ada file input yang diperlukan: contoh membuat data dan diagram di memori, kemudian menulis `OutputChart.pptx` ke direktori kerja saat ini. Terapkan lisensi untuk kedua produk saat dijalankan di luar mode evaluasi.
 
-Implementasi C# dari langkah‑langkah di atas adalah sebagai berikut:
+## **Cara Kerja Penyematan**
 
-```cs
-// Step - 1: Buat bagan Excel menggunakan Aspose.Cells.
-// ---------------------------------------------------
-// Buat workbook.
-Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook();
-// Tambahkan bagan Excel.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+1. Buat workbook dengan lembar kerja data dan lembar diagram.  
+1. Jadikan lembar diagram aktif sehingga workbook terbuka pada diagram.  
+1. Atur rentang tampilan OLE workbook dan render diagram ke PNG.  
+1. Simpan workbook sebagai XLSX di memori dan sematkan byte‑nya ke dalam slide.  
+1. Tetapkan PNG sebagai pratinjau objek OLE dan simpan presentasi sebagai PPTX.
 
-// Step - 2: Atur ukuran OLE bagan menggunakan Aspose.Cells.
-// -----------------------------------------------------------
-workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
+Rentang tampilan workbook dan bingkai pada slide memiliki peran yang berbeda. [SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) menerima indeks baris dan kolom mulai/akhir berbasis nol. [ChartCollection.Add](https://reference.aspose.com/cells/net/aspose.cells.charts/chartcollection/add/) justru menerima baris atas, kolom kiri, baris bawah, dan kolom kanan. Contoh ini menggunakan indeks baris 55 dan indeks kolom 25 sebagai batas kanan‑bawah; nilai‑nilai ini adalah pilihan tata letak, bukan jumlah baris atau kolom data.
 
-// Step - 3: Dapatkan gambar bagan dengan Aspose.Cells.
-// -------------------------------------------------------
-Bitmap chartImage = workbook.Worksheets[chartSheetIndex].Charts[0].ToImage();
-// Simpan workbook ke stream.
-MemoryStream workbookStream = workbook.SaveToStream();
+Bingkai slide menggunakan satuan poin. Contoh menyesuaikannya dalam slide dan menempatkannya di tengah sambil mempertahankan rasio aspek PNG, alih‑alih meregangkan pratinjau untuk mengisi slide.
 
-// Step - 4 AND 5
-// ==============
- // Step - 4: Sematkan bagan sebagai objek OLE di dalam presentasi .ppt menggunakan Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// Step - 5: Ganti gambar "EMBEDDED OLE OBJECT" dengan gambar yang diperoleh pada langkah 3 untuk mengatasi Object Preview Issue.
-// --------------------------------------------------------------------------------------------------------------------
- // Create a presentation.
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    // Tambahkan workbook ke slide.
-    AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+## **Buat dan Sematkan Diagram**
 
-    // Step - 6: Simpan presentasi output ke disk.
-    // -----------------------------------------------
-    presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
+Contoh lengkap berikut mengisi `DataSheet` dengan empat baris dan lima kolom nilai. Setiap baris menjadi satu seri diagram. `ChartSheet` dipilih sebagai lembar aktif sebelum workbook disimpan.
+
+Workbook secara eksplisit disimpan sebagai XLSX, sesuai ekstensi `xlsx` yang diteruskan ke [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/). PNG dimuat langsung dari alirannya tanpa konversi bitmap perantara. Menetapkannya melalui [SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/substitutepictureformat/) menggantikan placeholder OLE default.
 
 ```cs
-static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows, int chartCols)
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "DataSheet";
+
+int[,] values =
 {
-    // Array nama sel.
-    string[] cellNames = new string[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+    { 67, 44, 46, 43, 24 },
+    { 86, 64, 97, 29, 40 },
+    { 68, 89, 78, 69, 38 },
+    { 91, 48, 60, 26, 25 }
+};
 
-    // Array data sel.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
-
-    // Tambahkan lembar kerja baru untuk mengisi sel dengan data.
-    int dataSheetIndex = workbook.Worksheets.Add();
-    Aspose.Cells.Worksheet dataSheet = workbook.Worksheets[dataSheetIndex];
-    string sheetName = "DataSheet";
-    dataSheet.Name = sheetName;
-
-    // Isi lembar data dengan data.
-    for (int i = 0; i < cellNames.Length; i++)
-    {
-        string cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.Cells[cellName].PutValue(cellValue);
-    }
-
-    // Tambahkan lembar bagan.
-    int chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
-    Aspose.Cells.Worksheet chartSheet = workbook.Worksheets[chartSheetIndex];
-    chartSheet.Name = "ChartSheet";
-
-    // Tambahkan bagan ke lembar bagan dengan seri data dari lembar data.
-    int chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
-    Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIndex];
-    chart.NSeries.Add(sheetName + "!A1:E1", false);
-    chart.NSeries.Add(sheetName + "!A2:E2", false);
-    chart.NSeries.Add(sheetName + "!A3:E3", false);
-    chart.NSeries.Add(sheetName + "!A4:E4", false);
-
-    // Atur lembar bagan sebagai lembar aktif.
-    workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
-    return chartSheetIndex;
-}
-```
-
-```cs
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
+for (var row = 0; row < values.GetLength(0); row++)
 {
-    float oleWidth = presentation.SlideSize.Size.Width;
-    float oleHeight = presentation.SlideSize.Size.Height;
-
-    byte[] oleData = new byte[workbookStream.Length];
-    workbookStream.Position = 0;
-    workbookStream.Read(oleData, 0, oleData.Length);
-
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xls");
-    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
-
-    using (MemoryStream imageStream = new MemoryStream())
+    for (var column = 0; column < values.GetLength(1); column++)
     {
-        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
-
-	    imageStream.Position = 0;
-        IPPImage ppImage = presentation.Images.AddImage(imageStream);
-
-        oleFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+        dataSheet.Cells[row, column].PutValue(values[row, column]);
     }
 }
+
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+chartSheet.Name = "ChartSheet";
+
+var lastChartRow = 55;
+var lastChartColumn = 25;
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, lastChartRow, lastChartColumn);
+var chart = chartSheet.Charts[chartIndex];
+for (var row = 1; row <= values.GetLength(0); row++)
+{
+    chart.NSeries.Add($"DataSheet!A{row}:E{row}", false);
+}
+
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
+workbook.Worksheets.SetOleSize(0, lastChartRow, 0, lastChartColumn);
+
+// Render preview diagram dan serialisasi workbook yang dapat diedit secara terpisah.
+using var chartImageStream = new MemoryStream();
+chart.ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+using var chartImage = Images.FromStream(chartImageStream);
+
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Xlsx);
+var workbookBytes = workbookStream.ToArray();
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var slideSize = presentation.SlideSize.Size;
+
+// Fit the preview within the slide without changing its aspect ratio.
+var scale = Math.Min(slideSize.Width / chartImage.Width, slideSize.Height / chartImage.Height);
+var frameWidth = chartImage.Width * scale;
+var frameHeight = chartImage.Height * scale;
+var frameX = (slideSize.Width - frameWidth) / 2;
+var frameY = (slideSize.Height - frameHeight) / 2;
+
+var embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+var previewImage = presentation.Images.AddImage(chartImage);
+oleFrame.SubstitutePictureFormat.Picture.Image = previewImage;
+
+presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-Presentasi yang dibuat dengan metode di atas akan berisi bagan Excel sebagai objek OLE yang dapat diaktifkan dengan mengklik dua kali frame objek OLE.
+## **Hasil yang Diharapkan**
 
-## **Kesimpulan**
+`OutputChart.pptx` berisi satu slide dengan workbook Excel yang disematkan dan pratinjau diagram. Workbook berisi data asli dan diagram kolom dengan empat seri. Pratinjau ditempatkan di tengah slide dan mempertahankan proporsinya.
 
-Dengan menggunakan Aspose.Cells untuk .NET bersama dengan Aspose.Slides untuk .NET, kita dapat membuat bagan Excel apa pun yang didukung oleh Aspose.Cells dan menyematkan bagan tersebut sebagai objek OLE dalam slide PowerPoint. Ukuran OLE bagan Excel juga dapat ditentukan. Pengguna akhir kemudian dapat mengedit bagan Excel seperti objek OLE lainnya.
+![Excel column chart displayed as the preview of an embedded workbook](excel-chart-ole-preview.png)
 
-## **Bagian‑Bagian Terkait**
+Di lingkungan PowerPoint desktop yang kompatibel dengan Excel, klik ganda objek untuk mengaktifkan dan mengedit workbook yang disematkan. Aktivasi dan penyuntingan bergantung pada dukungan OLE serta pengaturan keamanan aplikasi host.
 
-- [Solusi Kerja untuk Mengubah Ukuran Bagan di PPTX](/slides/id/net/working-solution-for-chart-resizing-in-pptx/)
-- [Masalah Pratinjau Objek saat Menambahkan OleObjectFrame](/slides/id/net/object-preview-issue-when-adding-oleobjectframe/)
-- [Perbarui Objek OLE secara Otomatis Menggunakan Add‑In PowerPoint](/slides/id/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+## **FAQ**
+
+**Mengapa diperlukan gambar pratinjau?**
+
+Workbook yang disematkan dan pratinjau slide‑nya adalah konten terpisah. Sediakan gambar diagram agar slide menampilkan diagram alih‑alih placeholder default “EMBEDDED OLE OBJECT”. Lihat [Object Preview Issue when Adding OleObjectFrame](/slides/id/net/object-preview-issue-when-adding-oleobjectframe/).
+
+**Apakah pratinjau diperbarui secara otomatis saat saya mengubah workbook dalam kode?**
+
+Anggap pratinjau sebagai snapshot. Saat memperbarui data workbook secara programatis, hasilkan kembali gambar diagram dan ganti pratinjau serta data workbook yang disematkan.
+
+**Bisakah saya menggunakan XLS alih‑alih XLSX?**
+
+Ya. Simpan workbook dalam format XLS dan gunakan `xls` sebagai ekstensi data yang disematkan. Ekstensi harus cocok dengan format workbook sebenarnya; mengubah ekstensi saja tidak mengonversi data.
+
+**Mengapa objek dapat berubah ukuran setelah aktivasi?**
+
+Aplikasi host dapat memperbarui tampilan objek OLE ketika workbook diaktifkan. Rentang tampilan OLE workbook dan dimensi bingkai slide keduanya memengaruhi hasil. Lihat [Working Solution for Chart Resizing in PPTX](/slides/id/net/working-solution-for-chart-resizing-in-pptx/).
+
+## **Bagian Terkait**
+
+- [Working Solution for Chart Resizing in PPTX](/slides/id/net/working-solution-for-chart-resizing-in-pptx/)
+- [Object Preview Issue when Adding OleObjectFrame](/slides/id/net/object-preview-issue-when-adding-oleobjectframe/)
+- [Update OLE Objects Automatically Using a PowerPoint Add-In](/slides/id/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

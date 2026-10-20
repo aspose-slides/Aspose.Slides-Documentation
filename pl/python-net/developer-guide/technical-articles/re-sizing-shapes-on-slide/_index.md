@@ -1,119 +1,96 @@
 ---
-title: Zmiana rozmiaru kształtów w prezentacjach przy użyciu Pythona
-linktitle: Zmiana rozmiaru kształtów
+title: Zmiana rozmiaru kształtów na slajdach prezentacji w Pythonie
 type: docs
 weight: 130
-url: /pl/python-net/re-sizing-shapes-on-slide/
+url: /pl/python-net/resizing-shapes-on-slide/
+aliases:
+  - /pl/python-net/re-sizing-shapes-on-slide/
+  /python-net/re-sizing-shapes-on-slide/
 keywords:
-- zmiana rozmiaru kształtu
+- zmień kształt
 - zmień rozmiar kształtu
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Łatwo zmień rozmiar kształtów na slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona w .NET — automatyzuj dostosowywanie układu slajdów i zwiększaj wydajność."
+description: "Łatwo zmień rozmiar kształtów na slajdach PowerPoint i OpenDocument za pomocą Aspose.Slides dla Pythona poprzez .NET — automatyzuj dostosowywanie układu slajdów i zwiększ produktywność."
 ---
 ## **Przegląd**
 
-Jednym z najczęściej zadawanych pytań klientów Aspose.Slides dla Pythona jest to, jak zmienić rozmiar kształtów, aby przy zmianie rozmiaru slajdu dane nie były obcięte. Ten krótki artykuł techniczny pokazuje, jak to zrobić.
+Kiedy zmieniasz rozmiar slajdu prezentacji, możesz również potrzebować zmienić rozmiar i pozycję jej kształtów, aby dopasować je do nowych wymiarów. Ten artykuł pokazuje, jak ręcznie skalować kształty i jak obsługiwać tabele na slajdach, szablonach i układach.
 
-## **Zmiana rozmiaru kształtów**
+## **Zmienianie rozmiaru kształtów**
 
-Aby zapobiec nieprawidłowemu rozmieszczeniu kształtów przy zmianie rozmiaru slajdu, zaktualizuj pozycję i wymiary każdego kształtu, aby dopasowały się do nowego układu slajdu.
+Aby zachować względną pozycję i rozmiar każdego kształtu, pomnóż jego współrzędne poziome i szerokość przez stosunek nowej szerokości slajdu do pierwotnej szerokości. Zastosuj odpowiedni stosunek wysokości do jego współrzędnych pionowych i wysokości.
 
-```py
+Pierwszy przykład ładuje prezentację, której slajdy nie zawierają tabel, zmienia rozmiar slajdu na A4 i zapisuje wynik. Używa [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) z [SlideSizeScaleType.DO_NOT_SCALE](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/) tak, aby kolejna pętla kontrolowała skalowanie. Stosunki są bezjednostkowe; pozycje i wymiary kształtów są mierzone w punktach. Różne stosunki szerokości i wysokości mogą zniekształcać kształty, a zmiana wymiarów kształtu nie skaluje rozmiarów czcionki.
+
+```python
 import aspose.slides as slides
 
-# Wczytaj plik prezentacji.
 with slides.Presentation("sample.pptx") as presentation:
-    # Pobierz oryginalny rozmiar slajdu.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Zmień rozmiar slajdu bez skalowania istniejących kształtów.
+    # Oblicz niezależne czynniki skali poziomej i pionowej.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Pobierz nowy rozmiar slajdu.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # Zmień rozmiar i pozycję kształtów na każdym slajdzie.
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # Skaluj rozmiar kształtu.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Skaluj pozycję kształtu.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+            shape.x *= width_ratio
+            shape.y *= height_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
-Jeśli slajd zawiera tabelę, powyższy kod nie będzie działał poprawnie. W takim przypadku każda komórka w tabeli musi zostać przeskalowana.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Tabele wymagają osobnej obsługi: skaluj ich szerokości kolumn i wysokości wierszy zamiast przypisywać całkowitą szerokość i wysokość tabeli. Wysokości wierszy mogą pozostać większe niż żądane, jeśli zawartość komórki wymaga więcej miejsca.
+{{% /alert %}}
 
-Użyj poniższego kodu, aby zmienić rozmiar slajdów zawierających tabele. W przypadku tabel ustawianie szerokości lub wysokości jest przypadkiem specjalnym: musisz dostosować wysokości poszczególnych wierszy i szerokości kolumn, aby zmienić ogólny rozmiar tabeli.
+Drugi przykład obsługuje tabele i przetwarza kształty na szablonach i układach, a także na poszczególnych slajdach, przed zapisaniem zmienionej prezentacji. Jego pomocnik obsługuje każdą [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) skalując [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) i [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/). Następnie skaluje pozycję tabeli bez osobnego skalowania jej całkowitych wymiarów.
 
-```py
+```python
 import aspose.slides as slides
 
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, slides.Table):
+            # Wymiary tabeli są kontrolowane przez szerokości kolumn i wysokości wierszy.
+            for column in shape.columns:
+                column.width *= width_ratio
+
+            for row in shape.rows:
+                row.minimal_height *= height_ratio
+        else:
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+
+        shape.x *= width_ratio
+        shape.y *= height_ratio
+
+
 with slides.Presentation("sample.pptx") as presentation:
-    # Pobierz oryginalny rozmiar slajdu.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Zmień rozmiar slajdu bez skalowania istniejących kształtów.
+    # Oblicz niezależne czynniki skali poziomej i pionowej.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Pobierz nowy rozmiar slajdu.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # Zmień rozmiar kształtów zdefiniowanych na szablonach i układach, a także na poszczególnych slajdach.
     for master in presentation.masters:
-        for shape in master.shapes:
-            # Skaluj rozmiar kształtu.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Skaluj pozycję kształtu.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+        resize_shapes(master.shapes, width_ratio, height_ratio)
 
         for layout_slide in master.layout_slides:
-            for shape in layout_slide.shapes:
-                # Skaluj rozmiar kształtu.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # Skaluj pozycję kształtu.
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
+            resize_shapes(layout_slide.shapes, width_ratio, height_ratio)
 
     for slide in presentation.slides:
-        for shape in slide.shapes:
-            # Skaluj rozmiar kształtu.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Skaluj pozycję kształtu.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
-            if type(shape) is slides.Table:
-                for row in shape.rows:
-                    row.minimal_height = row.minimal_height * height_ratio
-                for column in shape.columns:
-                    column.width = column.width * width_ratio
+        resize_shapes(slide.shapes, width_ratio, height_ratio)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
@@ -122,28 +99,28 @@ with slides.Presentation("sample.pptx") as presentation:
 
 **Dlaczego kształty są zniekształcone lub obcięte po zmianie rozmiaru slajdu?**
 
-Podczas zmiany rozmiaru slajdu kształty zachowują pierwotną pozycję i rozmiar, chyba że skala zostanie wyraźnie zmieniona. Może to spowodować przycięcie treści lub nieprawidłowe rozmieszczenie kształtów.
+Jeśli zmienisz rozmiar slajdu bez skalowania kształtów, zachowują one pierwotne pozycje i wymiary i mogą wystawać poza slajd. Skalowanie szerokości i wysokości przy różnych współczynnikach może również zniekształcać kształty.
 
-**Czy podany kod działa dla wszystkich typów kształtów?**
+**Czy dostarczony kod działa dla wszystkich typów kształtów?**
 
-Podstawowy przykład działa dla większości typów kształtów (pola tekstowe, obrazy, wykresy itp.). Jednak w przypadku tabel należy obsługiwać wiersze i kolumny osobno, ponieważ wysokość i szerokość tabeli są określone przez wymiary poszczególnych komórek.
+Pierwszy przykład zmienia granice kształtu bezpośrednio i jest przeznaczony dla slajdów bez tabel. Drugi przykład obsługuje tabele osobno. Sprawdź wynikowy układ, szczególnie tekst i tabele, ponieważ te przykłady nie skalują rozmiarów czcionek, a zawartość tabel może ograniczać wysokość wierszy.
 
 **Jak zmienić rozmiar tabel przy zmianie rozmiaru slajdu?**
 
-Należy przejść przez wszystkie wiersze i kolumny tabeli i proporcjonalnie zmienić ich wysokość oraz szerokość, jak pokazano w drugim przykładzie kodu.
+Skaluj szerokości kolumn przy użyciu współczynnika szerokości i minimalne wysokości wierszy przy użyciu współczynnika wysokości, a następnie skaluj pozycję tabeli, jak pokazano w drugim przykładzie.
 
-**Czy to skalowanie działa dla slajdów master i layout?**
+**Czy to skalowanie działa również dla slajdów szablonów i układów?**
 
-Tak, ale należy także przejść przez [Masters](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/masters/) i [Layout slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/layout_slides/) oraz zastosować tę samą logikę skalowania do ich kształtów, aby zapewnić spójność w całej prezentacji.
+Tak. Drugi przykład iteruje przez [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) i [MasterSlide.layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) każdego szablonu i stosuje tę samą logikę zmiany rozmiaru do ich kształtów.
 
-**Czy mogę zmienić orientację slajdu (portret/poziom) razem ze skalowaniem?**
+**Czy mogę zmienić orientację slajdu (pionową/poziomą) wraz ze zmianą rozmiaru?**
 
-Tak. Można użyć [presentation.slide_size.orientation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/islidesize/orientation/), aby zmienić orientację. Upewnij się, że logikę skalowania dostosowujesz odpowiednio, aby zachować układ.
+Tak. Ustaw [SlideSize.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/orientation/) po zmianie rozmiaru slajdu i przed odczytaniem docelowych wymiarów, aby współczynniki skalowania odzwierciedlały ostateczną orientację.
 
 **Czy istnieje limit rozmiaru slajdu, który mogę ustawić?**
 
-Aspose.Slides obsługuje rozmiary niestandardowe, ale bardzo duże rozmiary mogą wpływać na wydajność lub kompatybilność z niektórymi wersjami PowerPointa.
+Możesz określić niestandardowe wymiary slajdu przy użyciu [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/). Obsługiwane wymiary zależą również od formatu prezentacji i aplikacji używanej do otwarcia pliku.
 
-**Jak zapobiec zniekształceniu kształtów o stałym współczynniku proporcji?**
+**Jak zapobiec zniekształceniu kształtów o stałym stosunku boków?**
 
-Można sprawdzić właściwość `aspect_ratio_locked` kształtu przed skalowaniem. Jeśli jest zablokowana, należy proporcjonalnie dostosować szerokość lub wysokość zamiast skalować je osobno.
+Użyj tego samego współczynnika skalowania dla szerokości i wysokości. Aby dopasować pierwotny układ do nowych wymiarów slajdu, użyj mniejszego ze współczynników szerokości i wysokości dla obu wymiarów i pozycji. To zachowuje proporcje, ale może pozostawić niewykorzystaną przestrzeń wzdłuż jednej krawędzi.

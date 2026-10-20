@@ -1,48 +1,41 @@
 ---
-title: PPTX में चार्ट आकार बदलने के समाधान के लिए कार्यशील विधि
+title: PPTX में चार्ट रिसाइज़िंग के लिए कार्य समाधान
 type: docs
 weight: 40
 url: /hi/python-java/working-solution-for-chart-resizing-in-pptx/
 keywords:
 - चार्ट आकार बदलना
-- Excel चार्ट
+- एक्सेल चार्ट
 - OLE ऑब्जेक्ट
 - चार्ट एम्बेड करना
 - PowerPoint
-- OpenDocument
 - प्रस्तुति
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java का उपयोग करके एम्बेडेड Excel OLE ऑब्जेक्ट्स के साथ PPTX में अप्रत्याशित चार्ट आकार बदलने को ठीक करें। आकार को स्थिर रखने के लिए दो विधियों और कोड सीखें।"
+description: "Aspose.Slides for Python via Java का उपयोग करके एम्बेडेड Excel OLE ऑब्जेक्ट्स के साथ PPTX में अप्रत्याशित चार्ट आकार बदलने को ठीक करें। चार्ट और OLE फ्रेम के आकार को सुसंगत रखने के लिए स्थिर चार्ट आयाम निर्धारित करें।"
 ---
 ## **पृष्ठभूमि**
 
-यह देखा गया है कि Aspose घटकों के माध्यम से PowerPoint प्रस्तुति में OLE वस्तुओं के रूप में सम्मिलित Excel चार्ट पहली सक्रियता के बाद अनिश्चित अनुपात में पुनः आकारित हो जाते हैं। यह व्यवहार चार्ट की सक्रियता से पहले और बाद की स्थिति में प्रस्तुति में एक स्पष्ट दृश्य अंतर पैदा करता है। Aspose टीम ने इस मुद्दे की विस्तृत जाँच की है और समाधान पाया है। यह लेख समस्या के कारणों और संबंधित सुधार का वर्णन करता है।
+Aspose घटकों का उपयोग करके PowerPoint प्रस्तुतियों में OLE वस्तुओं के रूप में एम्बेड किए गए Excel चार्ट पहली सक्रियता के बाद आकार बदल सकते हैं। इससे सक्रियता से पहले और बाद में चार्ट की उपस्थिति में एक उल्लेखनीय अंतर हो सकता है। यह लेख बताता है कि पुनः आकार बदलना क्यों होता है और स्थिर चार्ट आयामों को OLE फ्रेम के साथ मिलाकर इसे कैसे रोका जाए।
 
-हमने [पिछला लेख](/slides/hi/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) में बताया कि Aspose.Cells for Python via Java का उपयोग करके Excel चार्ट कैसे बनाएं और Aspose.Slides for Python via Java का उपयोग करके इसे PowerPoint प्रस्तुति में कैसे एम्बेड करें। [ऑब्जेक्ट पूर्वावलोकन समस्या](/slides/hi/python-java/object-preview-issue-when-adding-oleobjectframe/) को हल करने के लिए, हमने चार्ट छवि को चार्ट के OLE ऑब्जेक्ट फ्रेम को सौंपा। आउटपुट प्रस्तुति में, जब आप चार्ट छवि दिखाने वाले OLE ऑब्जेक्ट फ्रेम पर डबल-क्लिक करते हैं, तो Excel चार्ट सक्रिय हो जाता है। अंतिम उपयोगकर्ता अंतर्निहित Excel वर्कबुक में इच्छित कोई भी परिवर्तन कर सकते हैं और फिर सक्रिय वर्कबुक के बाहर क्लिक करके संबंधित स्लाइड पर वापस जा सकते हैं। उपयोगकर्ता जब स्लाइड पर वापस आता है तो OLE ऑब्जेक्ट फ्रेम का आकार बदल जाता है, और पुनः आकार कारक दोनों OLE ऑब्जेक्ट फ्रेम और सम्मिलित Excel वर्कबुक के मूल आकारों पर निर्भर करता है।
+In [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/hi/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), we explained how to create an Excel chart with Aspose.Cells for Python via Java and embed it in a PowerPoint presentation using Aspose.Slides for Python via Java. To address the [object preview issue](/slides/hi/python-java/object-preview-issue-when-adding-oleobjectframe/), we assigned the chart image to the chart’s OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the chart image, the Excel chart is activated. Users can edit the embedded Excel workbook and then return to the slide by clicking outside the activated workbook. The size of the OLE object frame changes when the user returns to the slide, and the resizing factor varies depending on the original sizes of both the OLE object frame and the embedded Excel workbook.
 
-## **पुनः आकार का कारण**
+## **रीसाइज़िंग का कारण**
 
-क्योंकि Excel वर्कबुक का अपना विंडो आकार होता है, यह पहली सक्रियता पर अपना मूल आकार बनाए रखने की कोशिश करता है। OLE ऑब्जेक्ट फ्रेम के पास भी अपना आकार होता है। माइक्रोसॉफ्ट के अनुसार, जब Excel वर्कबुक सक्रिय होती है, तो Excel और PowerPoint आकार के बारे में बातचीत करते हैं और एम्बेडिंग प्रक्रिया के हिस्से के रूप में उचित अनुपात बनाए रखते हैं। Excel विंडो आकार और OLE ऑब्जेक्ट फ्रेम के आकार या स्थिति के बीच अंतर के आधार पर पुनः आकार की स्थिति उत्पन्न होती है।
+एम्बेड किया गया Excel वर्कबुक अपने स्वयं के विंडो आयाम रखता है, जिसे Excel पहली बार सक्रिय होने पर बनाए रखने की कोशिश करता है। स्लाइड पर OLE फ्रेम के आयाम स्वतंत्र रूप से परिभाषित होते हैं। जब Excel वर्कबुक सक्रिय होती है, तो Excel और PowerPoint वस्तु के आकार पर बातचीत करते हैं ताकि एम्बेड प्रक्रिया के हिस्से के रूप में अनुपात बनाए रखा जा सके। वर्कबुक विंडो और OLE फ्रेम के बीच अंतर वस्तु को पुनः आकार बदलने का कारण बन सकता है।
 
 ## **कार्यशील समाधान**
 
-Aspose.Slides for Python via Java का उपयोग करके PowerPoint प्रस्तुतियों को बनाने के दो संभावित परिदृश्य हैं।
+चार्ट के आकार को स्लाइड पर OLE फ्रेम के साथ मिलाएँ और चार्ट के आयाम को वर्कबुक विंडो से स्वतंत्र रखें। यह समाधान नई प्रस्तुति या मौजूदा टेम्प्लेट दोनों के साथ काम करता है।
 
-**Scenario 1:** मौजूदा टेम्पलेट के आधार पर प्रस्तुति बनाना।
+उदाहरण को Aspose.Cells for Python via Java और Aspose.Slides for Python via Java की आवश्यकता है। यह सक्रिय चार्ट शीट पर एक साधारण कॉलम चार्ट बनाता है और वर्कबुक को XLS प्रारूप में एम्बेड करता है। कोई चार्ट प्रीव्यू इमेज असाइन नहीं की गई है; चार्ट PowerPoint में OLE ऑब्जेक्ट सक्रिय होने पर दृश्य हो जाता है।
 
-**Scenario 2:** शून्य से प्रस्तुति बनाना।
+उदाहरण 9.5 × 4‑इंच के OLE फ्रेम के साथ एक नई प्रस्तुति बनाता है, जो बाएँ किनारे से 0.5 इंच और ऊपर से 1 इंच पर स्थित है। स्लाइड निर्देशांक और आयाम पॉइंट्स में हैं (प्रति इंच 72 पॉइंट)। मौजूदा प्रस्तुति के लिए, देखें [टेम्प्लेट का उपयोग करें](#use-a-template)।
 
-यहाँ प्रदान किया गया समाधान दोनों परिदृश्यों पर लागू होता है। सभी समाधान दृष्टिकोणों का आधार समान है: **एम्बेडेड OLE ऑब्जेक्ट का विंडो आकार PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार से मेल खाना चाहिए**। अब हम इस समाधान के दो दृष्टिकोणों पर चर्चा करेंगे।
+## **स्थिर चार्ट आकार सेट करें**
 
-## **पहला दृष्टिकोण**
-
-इस दृष्टिकोण में, हम सीखेंगे कि एम्बेडेड Excel वर्कबुक के विंडो आकार को कैसे सेट करें ताकि वह PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार से मेल खाए।
-
-**Scenario 1**
-
-मान लें कि हमने एक टेम्पलेट परिभाषित किया है और उसके आधार पर प्रस्तुतियों को बनाना चाहते हैं। टेम्पलेट में इंडेक्स 2 पर एक शेप है जहाँ हम एम्बेडेड Excel वर्कबुक वाला OLE फ्रेम रखना चाहते हैं। इस परिदृश्य में OLE ऑब्जेक्ट फ्रेम का आकार पहले से निर्धारित है—यह टेम्पलेट में इंडेक्स 2 पर शेप के आकार से मेल खाता है। हमें केवल वर्कबुक का विंडो आकार उसी शेप के आकार के बराबर सेट करना है। नीचे दिया गया कोड स्निपेट इस उद्देश्य की पूर्ति करता है:
+Set [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) को false सेट करें ताकि चार्ट के आयाम workbook window से स्वतंत्र हों। Set the [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) dimensions through [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) और [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height), converting points to pixels using 96 pixels per inch: 684 × 288 पॉइंट के फ्रेम का आकार 912 × 384 पिक्सेल के चार्ट के बराबर है। Set [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) को CUSTOM मान पर सेट करें, जो [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/) का हिस्सा है। उदाहरण वर्कबुक को [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) के साथ एम्बेड करता है और 9.5 × 4‑इंच के OLE फ्रेम के साथ प्रस्तुति सहेजता है।
 
 ```python
 import jpype
@@ -52,215 +45,84 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# चार्ट वाले Excel वर्कबुक को लोड करें।
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # वर्कबुक विंडो आकार को इंच में सेट करें (PowerPoint प्रत्येक इंच के लिए 72 पॉइंट उपयोग करता है)।
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # स्लाइड के निर्देशांक और आयाम पॉइंट्स में हैं (प्रति इंच 72 पॉइंट)।
+        width = 684.0  # 9.5 इंच।
+        height = 288.0  # 4 इंच।
+
+        chart.setSizeWithWindow(False)
+        # बिंदुओं को चार्ट पिक्सेल में बदलने के लिए 96 पिक्सेल प्रति इंच का उपयोग करें।
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Scenario 2**
+## **टेम्प्लेट का उपयोग करें**
 
-मान लें हम शून्य से एक प्रस्तुति बनाते हैं और किसी भी आकार के OLE ऑब्जेक्ट फ्रेम में एम्बेडेड Excel वर्कबुक शामिल करना चाहते हैं। नीचे दिए गए कोड स्निपेट में, हम स्लाइड पर x = 0.5 इंच और y = 1 इंच पर 4 इंच ऊँचा और 9.5 इंच चौड़ा OLE ऑब्जेक्ट फ्रेम बनाते हैं। फिर हम Excel वर्कबुक विंडो को उसी आकार—4 इंच ऊँचा और 9.5 इंच चौड़ा—पर सेट करते हैं।
+आकार तर्क मौजूदा प्रस्तुति के लिए भी समान है। उदाहरण को अनुकूलित करने के लिए:
 
-```python
-import jpype
-import asposecells
-import asposeslides
+1. खाली प्रस्तुति बनाने के बजाय टेम्प्लेट प्रस्तुति लोड करें।
+1. सुनिश्चित करें कि पहली स्लाइड में कम से कम तीन आकृतियाँ हैं, फिर इंडेक्स 2 वाली आकृति को प्लेसहोल्डर के रूप में उपयोग करें।
+1. स्थिर मान 684 और 288 के बजाय उस आकृति से फ्रेम की चौड़ाई और ऊँचाई ले लें। आकार गणनाएँ अपरिवर्तित रखें।
+1. स्थिर निर्देशांक 36 और 72 के बजाय प्लेसहोल्डर की स्थिति पर OLE फ्रेम जोड़ें।
+1. प्रस्तुति सहेजने से पहले प्लेसहोल्डर को हटाएँ।
 
-if not jpype.isJVMStarted():
-    jpide.startJVM()
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+**PowerPoint में सक्रिय करने के बाद मेरा एम्बेड किया गया Excel चार्ट आकार क्यों बदलता है?**
 
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
+यह इसलिए होता है क्योंकि Excel पहली सक्रियता पर मूल विंडो आकार पुनर्स्थापित करने की कोशिश करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ्रेम के अपने आयाम होते हैं। PowerPoint और Excel आकार पर बातचीत करके अनुपात बनाए रखने की कोशिश करते हैं, जिससे पुनः आकार बदलना हो सकता है।
 
-# चार्ट वाले Excel वर्कबुक को लोड करें।
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
+**मैं चार्ट और OLE फ्रेम के आकार को कैसे सुसंगत रख सकता हूँ?**
 
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 इंच (4 * 72)।
-    desired_width = 684  # 9.5 इंच (9.5 * 72)।
+स्थिर चार्ट आयाम सेट करें जो OLE फ्रेम से मेल खाते हों और वर्कबुक को एम्बेड करने से पहले एक कस्टम चार्ट प्रिंट आकार का उपयोग करें। ऊपर दिया गया उदाहरण आवश्यक सेटिंग्स और इकाई रूपांतरण दिखाता है।
 
-    # विंडो के साथ चार्ट का आकार निर्धारित करें।
-    chart.setSizeWithWindow(True)
+**क्या केवल वर्कबुक विंडो आकार मिलाना पर्याप्त है?**
 
-    # वर्कबुक विंडो आकार को इंच में सेट करें (PowerPoint प्रत्येक इंच के लिए 72 पॉइंट उपयोग करता है)।
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
+केवल वर्कबुक विंडो आकार मिलाना OLE फ्रेम के सक्रियता के बाद आकार बदलने से विश्वसनीय रूप से रोक नहीं पाता। उदाहरण में दिखाए अनुसार स्थिर चार्ट आयाम उपयोग करें।
 
-    # वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+**क्या यह समाधान टेम्प्लेट‑आधारित प्रस्तुतियों और नई प्रस्तुतियों दोनों के साथ काम करता है?**
 
-    # एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
+हाँ। टेम्प्लेट के लिए प्लेसहोल्डर के आयाम और स्थिति का उपयोग करें। नई प्रस्तुति के लिए सीधे फ्रेम के आयाम और स्थिति निर्दिष्ट करें।
 
-## **दूसरा दृष्टिकोण**
+**क्या मैं इस उदाहरण को अन्य स्प्रेडशीट प्रोग्रामों में बनाए गए चार्ट के साथ उपयोग कर सकता हूँ?**
 
-इस दृष्टिकोण में, हम सीखेंगे कि एम्बेडेड Excel वर्कबुक में चार्ट का आकार कैसे सेट करें ताकि वह PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार से मेल खाए। यह दृष्टिकोण तब उपयोगी है जब चार्ट का आकार शुरू में ज्ञात हो और आगे नहीं बदलेगा।
+यह उदाहरण Aspose.Cells द्वारा निर्मित Excel वर्कबुक का उपयोग करता है। यह अन्य स्प्रेडशीट प्रोग्रामों के सक्रियण व्यवहार को प्रदर्शित नहीं करता।
 
-**Scenario 1**
-
-मान लें कि हमने एक टेम्पलेट परिभाषित किया है और उसके आधार पर प्रस्तुतियों को बनाना चाहते हैं। टेम्पलेट में इंडेक्स 2 पर एक शेप है जहाँ हम एम्बेडेड Excel वर्कबुक वाला OLE फ्रेम रखना चाहते हैं। इस परिदृश्य में OLE फ्रेम का आकार पहले से निर्धारित है—यह टेम्पलेट में इंडेक्स 2 पर शेप के आकार से मेल खाता है। हमें केवल वर्कबुक में चार्ट का आकार उसी शेप के आकार के बराबर सेट करना है। नीचे दिया गया कोड स्निपेट इस उद्देश्य की पूर्ति करता है:
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# चार्ट वाला Excel वर्कबुक लोड करें।
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # विंडो के बिना चार्ट का आकार निर्धारित करें।
-    chart.setSizeWithWindow(False)
-
-    # चार्ट का आकार पिक्सेल में सेट करें (Excel प्रत्येक इंच के लिए 96 पिक्सेल उपयोग करता है)।
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # चार्ट का प्रिंट आकार निर्धारित करें।
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Scenario 2**
-
-मान लें हम शून्य से एक प्रस्तुति बनाते हैं और किसी भी आकार के OLE ऑब्जेक्ट फ्रेम में एम्बेडेड Excel वर्कबुक शामिल करना चाहते हैं। नीचे दिए गए कोड स्निपेट में, हम स्लाइड पर x = 0.5 इंच और y = 1 इंच पर 4 इंच ऊँचा और 9.5 इंच चौड़ा OLE ऑब्जेक्ट फ्रेम बनाते हैं। हम साथ ही चार्ट का आकार भी उसी आयाम—ऊँचाई 4 इंच और चौड़ाई 9.5 इंच—पर सेट करते हैं।
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# चार्ट वाले Excel वर्कबुक को लोड करें।
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 इंच (4 * 72).
-    desired_width = 684  # 9.5 इंच (9.5 * 72).
-
-    # विंडो के बिना चार्ट का आकार निर्धारित करें।
-    chart.setSizeWithWindow(False)
-
-    # चार्ट का आकार पिक्सेल में सेट करें (Excel प्रति इंच 96 पिक्सेल उपयोग करता है)।
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **निष्कर्ष**
-
-चार्ट पुनः आकार समस्या को ठीक करने के दो दृष्टिकोण हैं। दृष्टिकोण का चयन आवश्यकताओं और उपयोग के केस पर निर्भर करता है। दोनों दृष्टिकोण समान रूप से काम करते हैं, चाहे प्रस्तुतियाँ टेम्पलेट से बनायीँ जाएँ या शून्य से। इस समाधान में OLE ऑब्जेक्ट फ्रेम के आकार पर कोई सीमा नहीं है।
-
-## **FAQ**
-
-**मेरे एम्बेडेड Excel चार्ट का आकार PowerPoint में सक्रिय करने के बाद क्यों बदल जाता है?**
-
-यह इसलिए होता है क्योंकि Excel पहली सक्रियता पर मूल विंडो आकार को पुनर्स्थापित करने की कोशिश करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ्रेम का अपना आकार होता है। PowerPoint और Excel आकार पर बातचीत करके अनुपात बनाए रखते हैं, जिससे पुनः आकार हो सकता है।
-
-**क्या इस पुनः आकार समस्या को पूरी तरह रोका जा सकता है?**
-
-हां। एम्बेड करने से पहले Excel वर्कबुक विंडो आकार या चार्ट आकार को OLE ऑब्जेक्ट फ्रेम के आकार से मिलाकर आप चार्ट आकार को स्थिर रख सकते हैं।
-
-**मुझे कौन सा दृष्टिकोण अपनाना चाहिए, विंडो आकार सेट करना या चार्ट आकार सेट करना?**
-
-यदि आप वर्कबुक के अनुपात को बनाए रखना चाहते हैं और बाद में संभवतः रीसाइज़ करना चाहते हैं तो **दृष्टिकोण 1 (विंडो आकार)** उपयोग करें।  
-यदि चार्ट के आयाम स्थिर हैं और एम्बेडिंग के बाद नहीं बदलेंगे तो **दृष्टिकोण 2 (चार्ट आकार)** उपयोग करें।
-
-**क्या ये विधियाँ टेम्पलेट-आधारित प्रस्तुतियों और नई प्रस्तुतियों दोनों में काम करती हैं?**
-
-हां। दोनों दृष्टिकोण टेम्पलेट से बनाई गई प्रस्तुतियों और शून्य से बनाई गई प्रस्तुतियों दोनों में समान रूप से काम करते हैं।
-
-**OLE ऑब्जेक्ट फ्रेम के आकार की कोई सीमा है क्या?**
-
-नहीं। आप OLE फ्रेम को किसी भी आकार में सेट कर सकते हैं, बशर्ते वह वर्कबुक या चार्ट आकार के अनुसार उचित रूप से स्केल हो।
-
-**क्या मैं इन विधियों को अन्य स्प्रेडशीट प्रोग्राम में बनाए गए चार्ट पर उपयोग कर सकता हूँ?**
-
-उदाहरण Excel चार्ट के लिए Aspose.Cells का उपयोग करके बनाए गए हैं, लेकिन सिद्धांत उन अन्य OLE‑संगत स्प्रेडशीट प्रोग्रामों पर भी लागू होते हैं जो समान आकार विकल्पों को समर्थन देते हैं।
-
-## **संयुक्त अनुभाग**
+## **संबंधित अनुभाग**
 
 - [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/hi/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

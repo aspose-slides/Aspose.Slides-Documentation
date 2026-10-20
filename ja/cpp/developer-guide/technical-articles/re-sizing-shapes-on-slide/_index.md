@@ -1,56 +1,65 @@
 ---
-title: スライド上のシェイプサイズ変更
+title: C++ のプレゼンテーション スライド上で形状をリサイズする
 type: docs
-weight: 100
-url: /ja/cpp/re-sizing-shapes-on-slide/
+weight: 130
+url: /ja/cpp/resizing-shapes-on-slide/
+aliases:
+  - /ja/cpp/re-sizing-shapes-on-slide/
+  /cpp/re-sizing-shapes-on-slide/
 keywords:
-- シェイプサイズ変更
-- シェイプサイズの変更
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- C++
-- Aspose.Slides
-description: "Aspose.Slides for C++ を使用して、PowerPoint および OpenDocument スライド上のシェイプを簡単にサイズ変更できます—スライドレイアウトの調整を自動化し、生産性を向上させます。"
+  - 形状のリサイズ
+  - 形状のサイズ変更
+  - PowerPoint
+  - OpenDocument
+  - プレゼンテーション
+  - C++
+  - Aspose.Slides
+description: "Aspose.Slides for C++ を使用して、PowerPoint および OpenDocument のスライド上の形状を簡単にリサイズし、スライドレイアウトの調整を自動化して生産性を向上させます。"
 ---
-
 ## **概要**
 
-Aspose.Slides for C++ のお客様から最もよくある質問のひとつは、スライドのサイズが変更されたときにデータが切り取られないようにシェイプのサイズを変更する方法です。この短い技術記事では、その手順を示します。
+プレゼンテーションのスライドサイズを変更すると、形状を新しいサイズに合わせてリサイズおよび再配置する必要がある場合があります。本記事では、形状を手動でスケーリングする方法と、スライド、マスター、レイアウト上のテーブルを処理する方法を示します。
 
-## **シェイプのサイズ変更**
+## **形状のリサイズ**
 
-スライドのサイズが変更されたときにシェイプがずれないように、各シェイプの位置とサイズを新しいスライドレイアウトに合わせて更新します。
+各形状の相対的な位置とサイズを保つには、水平座標と幅を新しいスライド幅と元の幅の比率で乗算します。垂直座標と高さには対応する高さの比率を適用します。
+
+最初の例は、テーブルを含まないスライドを持つプレゼンテーションを読み込み、スライドサイズをA4に変更し、結果を保存します。これは[SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) と[SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) を使用し、後続のループでスケーリングを制御します。比率は単位なしで、形状の位置とサイズはポイントで測定されます。幅と高さの比率が異なると形状が歪み、形状のサイズを変更してもフォントサイズはスケールされません。
+
 ```cpp
-// プレゼンテーションファイルを読み込みます。
-auto presentation = MakeObject<Presentation>(u"sample.ppt");
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
 
-// Get the original slide size.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Change the slide size without scaling existing shapes.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+// Calculate independent horizontal and vertical scale factors.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Get the new slide size.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-// Resize and reposition shapes on every slide.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // シェイプのサイズをスケーリングします。
-        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
-
-        // シェイプの位置をスケーリングします。
-        shape->set_Y(shape->get_Y() * heightRatio);
+        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
 }
 
@@ -58,118 +67,123 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+{{% alert color="info" title="Note" %}}
+テーブルは別途処理が必要です。テーブル全体の幅と高さを設定するのではなく、列幅と行高さをスケーリングします。セルの内容がより多くのスペースを必要とする場合、行高さは要求されたサイズより大きくなることがあります。
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
-
-スライドにテーブルが含まれている場合、上記のコードは正しく動作しません。その場合は、テーブル内の各セルをリサイズする必要があります。
-
-{{% /alert %}} 
-
-テーブルを含むスライドをリサイズするためのコードを以下に示します。テーブルの場合、幅や高さを設定するのは特殊ケースであり、テーブル全体のサイズを変更するには個々の行の高さと列の幅を調整する必要があります。
+2番目の例はテーブルをサポートし、リサイズされたプレゼンテーションを保存する前にマスターやレイアウト、個々のスライド上の形状も処理します。そのヘルパーは[ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) をそれぞれ処理し、[IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) と[IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/) をスケーリングします。その後、テーブル全体のサイズを個別にスケーリングせずにテーブルの位置をスケーリングします。
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// 元のスライドサイズを取得します。
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-// 既存のシェイプをスケーリングせずにスライドサイズを変更します。
+// 独立した水平および垂直スケール係数を計算します。
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Get the new slide size.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-for (auto&& master : presentation->get_Masters())
+auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, float heightRatio)
 {
-    for (auto&& shape : master->get_Shapes())
+    for (auto&& shape : shapes)
     {
-        // シェイプのサイズをスケーリングします。
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // シェイプの位置をスケーリングします。
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-    }
-
-    for (auto&& layoutSlide : master->get_LayoutSlides())
-    {
-        for (auto&& shape : layoutSlide->get_Shapes())
-        {
-            // シェイプのサイズをスケーリングします。
-            shape->set_Height(shape->get_Height() * heightRatio);
-            shape->set_Width(shape->get_Width() * widthRatio);
-
-            // シェイプの位置をスケーリングします。
-            shape->set_Y(shape->get_Y() * heightRatio);
-            shape->set_X(shape->get_X() * widthRatio);
-        }
-    }
-}
-
-for (auto&& slide : presentation->get_Slides())
-{
-    for (auto&& shape : slide->get_Shapes())
-    {
-        // シェイプのサイズをスケーリングします。
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // シェイプの位置をスケーリングします。
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-
         if (ObjectExt::Is<ITable>(shape))
         {
-            SharedPtr<ITable> table = ExplicitCast<ITable>(shape);
-            for (auto&& row : table->get_Rows())
-            {
-                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
-            }
+            auto table = ExplicitCast<ITable>(shape);
+            // テーブルのサイズは列幅と行高さで制御されます。
             for (auto&& column : table->get_Columns())
             {
                 column->set_Width(column->get_Width() * widthRatio);
             }
+
+            for (auto&& row : table->get_Rows())
+            {
+                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
+            }
         }
+        else
+        {
+            shape->set_Width(shape->get_Width() * widthRatio);
+            shape->set_Height(shape->get_Height() * heightRatio);
+        }
+
+        shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
+};
+
+// マスターとレイアウト、および個々のスライドで定義された形状をリサイズします。
+for (auto&& master : presentation->get_Masters())
+{
+    resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
+
+    for (auto&& layoutSlide : master->get_LayoutSlides())
+    {
+        resizeShapes(layoutSlide->get_Shapes(), widthRatio, heightRatio);
+    }
+}
+
+for (auto&& slide : presentation->get_Slides())
+{
+    resizeShapes(slide->get_Shapes(), widthRatio, heightRatio);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
 ## **よくある質問**
 
-**スライドのリサイズ後にシェイプが歪んだり切り取られたりするのはなぜですか？**
+**スライドのリサイズ後に形状が歪んだり切り取られたりするのはなぜですか？**
 
-スライドをリサイズすると、スケールが明示的に変更されない限り、シェイプは元の位置とサイズを保持します。その結果、コンテンツが切り取られたりシェイプがずれたりします。
+スライドサイズを変更しても形状をスケーリングしないと、形状は元の位置とサイズのままでスライドの外にはみ出すことがあります。幅と高さを異なる比率でスケーリングすると、形状が歪むこともあります。
 
-**提供されたコードはすべてのシェイプタイプで機能しますか？**
+**提供されたコードはすべての形状タイプで機能しますか？**
 
-基本的な例は、テキストボックス、画像、チャートなど多くのシェイプタイプで機能します。ただし、テーブルの場合は行と列を個別に処理する必要があります。テーブルの高さと幅は個々のセルの寸法によって決まるためです。
+最初の例は形状の境界を直接変更し、テーブルのないスライドを対象としています。2番目の例はテーブルを別途処理します。これらの例はフォントサイズをスケーリングせず、テーブルの内容が行の高さを制約する可能性があるため、結果のレイアウト、特にテキストとテーブルを確認してください。
 
-**スライドのリサイズ時にテーブルをどのようにリサイズすればよいですか？**
+**スライドのリサイズ時にテーブルをどのようにリサイズしますか？**
 
-テーブルのすべての行と列をループし、2 番目のコード例に示すように高さと幅を比例してリサイズする必要があります。
+列幅を幅の比率で、最小行高さを高さの比率でスケーリングし、次にテーブルの位置をスケーリングします。これは第2の例に示されています。
 
 **このリサイズはマスタースライドやレイアウトスライドでも機能しますか？**
 
-はい、マスタースライドやレイアウトスライドでも同様に [Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) と [Layout slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) をループし、シェイプに同じスケーリングロジックを適用すれば、プレゼンテーション全体で一貫性を保つことができます。
+はい。第2の例は[Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) と各マスターの[IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) を反復し、形状に同じリサイズロジックを適用します。
 
-**スライドの向き（縦長/横長）をリサイズと同時に変更できますか？**
+**リサイズと同時にスライドの向き（縦/横）を変更できますか？**
 
-はい。[presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/islidesize/set_orientation/) を使用して向きを変更できます。レイアウトを保つためにスケーリングロジックも合わせて設定してください。
+はい。スライドサイズを変更した後、ターゲットの寸法を取得する前に[SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) を設定すると、スケール係数が最終的な向きを反映します。
 
-**設定できるスライドサイズに上限はありますか？**
+**設定できるスライドサイズに制限はありますか？**
 
-Aspose.Slides はカスタムサイズをサポートしていますが、非常に大きなサイズはパフォーマンスに影響したり、一部の PowerPoint バージョンとの互換性に問題が生じる可能性があります。
+[SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) でカスタムスライドサイズを指定できます。サポートされる寸法はプレゼンテーション形式やファイルを開くアプリケーションにも依存します。
 
-**固定アスペクト比のシェイプが歪むのを防ぐにはどうすればよいですか？**
+**固定アスペクト比の形状が歪むのを防ぐにはどうすればよいですか？**
 
-スケーリング前にシェイプの `get_AspectRatioLocked` メソッドを確認してください。ロックされている場合は、幅と高さを個別にスケールするのではなく、比例して調整します。
+幅と高さに同じスケール係数を使用します。元のレイアウトを新しいスライドサイズに収めるには、幅と高さの比率のうち小さい方をサイズと位置の両方に使用します。これにより比率は保持されますが、一方の端に未使用スペースが残ることがあります。

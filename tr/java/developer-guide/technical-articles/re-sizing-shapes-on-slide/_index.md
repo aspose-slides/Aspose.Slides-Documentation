@@ -1,55 +1,50 @@
 ---
-title: Sunum Slaytlarında Şekilleri Yeniden Boyutlandırma
+title: Java'da Sunum Slaytlarındaki Şekilleri Yeniden Boyutlandırma
 type: docs
-weight: 110
-url: /tr/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /tr/java/resizing-shapes-on-slide/
+aliases:
+  - /tr/java/re-sizing-shapes-on-slide/
+  /java/re-sizing-shapes-on-slide/
 keywords:
 - şekli yeniden boyutlandır
-- şekil boyutunu değiştirme
+- şekil boyutunu değiştir
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument slaytlarındaki şekilleri kolayca yeniden boyutlandırın—slayt düzeni ayarlamalarını otomatikleştirin ve verimliliği artırın."
+description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument slaytlarındaki şekilleri kolayca yeniden boyutlandırın—slayt düzeni ayarlamalarını otomatikleştirin ve üretkenliği artırın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Java müşterilerinden en sık gelen sorulardan biri, slayt boyutu değiştiğinde verilerin kesilmemesi için şekillerin nasıl yeniden boyutlandırılacağıdır. Bu kısa teknik makale bunu nasıl yapacağınızı gösterir.
+Bir sunumun slayt boyutunu değiştirdiğinizde, şekillerin yeni boyutlara uyması için yeniden boyutlandırılması ve konumlandırılması gerekebilir. Bu makale, şekilleri manuel olarak nasıl ölçeklendireceğinizi ve slaytlarda, ana slaytlarda ve düzenlerdeki tabloları nasıl yöneteceğinizi gösterir.
 
 ## **Şekilleri Yeniden Boyutlandırma**
 
-Slayt boyutu değiştiğinde şekillerin hizalanmasının bozulmasını önlemek için, her şeklin konum ve boyutlarını yeni slayt düzenine uygun şekilde güncelleyin.
+Her şeklin göreceli konumunu ve boyutunu korumak için, yatay koordinatlarını ve genişliğini yeni slayt genişliğinin orijinal genişliğe oranı ile çarpın. Dikey koordinatları ve yüksekliğini ise ilgili yükseklik oranı ile uygulayın.
+
+İlk örnek, slaytlarında tablo bulunmayan bir sunumu yükler, slayt boyutunu A4 olarak değiştirir ve sonucu kaydeder. Sonraki döngünün ölçeklendirmeyi kontrol etmesi için [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) ile [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) kullanır. Oranlar birimsizdir; şekil konumları ve boyutları puan cinsinden ölçülür. Farklı genişlik ve yükseklik oranları şekilleri bozulmaya neden olabilir ve bir şeklin boyutlarını değiştirmek yazı tipi boyutlarını ölçeklendirmez.
 
 ```java
-// Sunum dosyasını yükle.
-Presentation presentation = new Presentation("sample.ppt");
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Orijinal slayt boyutunu al.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Mevcut şekilleri ölçeklendirmeden slayt boyutunu değiştir.
+    // Bağımsız yatay ve dikey ölçek faktörlerini hesaplayın.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Yeni slayt boyutunu al.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Her slaytta şekilleri yeniden boyutlandır ve konumlarını değiştir.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            
-            // Şekil boyutunu ölçekle.
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Şekil konumunu ölçekle.
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -60,75 +55,62 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-Eğer bir slayt bir tablo içeriyorsa, yukarıdaki kod doğru çalışmaz. Bu durumda tablodaki her hücre yeniden boyutlandırılmalıdır.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Tablolar ayrı bir işlem gerektirir: tablonun toplam genişlik ve yüksekliğini atamak yerine sütun genişliklerini ve satır yüksekliklerini ölçeklendirin. Hücre içeriği daha fazla alan gerektiriyorsa satır yükseklikleri istenenden daha büyük kalabilir.
+{{% /alert %}}
 
-Tablolar içeren slaytları yeniden boyutlandırmak için aşağıdaki kodu kullanın. Tablolar için genişlik veya yükseklik ayarlamak özel bir durumdur: tablonun genel boyutunu değiştirmek amacıyla her satır yüksekliğini ve sütun genişliğini ayrı ayrı ayarlamanız gerekir.
-
+İkinci örnek tabloları destekler ve yeniden boyutlandırılmış sunumu kaydetmeden önce ana slaytlardaki, düzenlerdeki ve tek tek slaytlardaki şekilleri işler. Yardımcısı, her [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) öğesini sütun genişliklerini [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) ve minimum satır yüksekliklerini [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-) ile ölçeklendirerek işler. Daha sonra tablonun konumunu, toplam boyutlarını ayrı ayrı ölçeklendirmeden ölçeklendirir.
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // Tablo boyutları sütun genişlikleri ve satır yükseklikleriyle kontrol edilir.
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Orijinal slayt boyutunu al.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Mevcut şekilleri ölçeklendirmeden slayt boyutunu değiştir.
+    // Bağımsız yatay ve dikey ölçek faktörlerini hesaplayın.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Yeni slayt boyutunu al.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    ShapeResizer resizer = new ShapeResizer();
 
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
+    // Ana slaytlarda ve düzenlerde tanımlı şekilleri ve bireysel slaytları yeniden boyutlandırın.
     for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // Şekil boyutunu ölçekle.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Şekil konumunu ölçekle.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // Şekil boyutunu ölçekle.
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // Şekil konumunu ölçekle.
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
         }
     }
 
     for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            // Şekil boyutunu ölçekle.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Şekil konumunu ölçekle.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
-        }
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
     }
 
     presentation.save("output.pptx", SaveFormat.Pptx);
@@ -140,30 +122,23 @@ finally {
 
 ## **SSS**
 
-**Bir slaytı yeniden boyutlandırdıktan sonra şekiller neden bozuluyor veya kesiliyor?**
+**Slaytı yeniden boyutlandırdıktan sonra şekiller neden bozuluyor veya kesiliyor?**  
+Slayt boyutunu şekilleri ölçeklendirmeden değiştirirseniz, şekiller orijinal konumlarını ve boyutlarını korur ve slayt dışına taşabilir. Genişlik ve yüksekliği farklı oranlarla ölçeklendirmek de şekilleri bozabilir.
 
-Bir slaytı yeniden boyutlandırdığınızda, ölçek açıkça değiştirilmedikçe şekiller orijinal konum ve boyutlarını korur. Bu durum içeriğin kırpılmasına veya şekillerin hizalanmasının bozulmasına neden olabilir.
+**Sağlanan kod tüm şekil türleri için çalışır mı?**  
+İlk örnek şekil sınırlarını doğrudan değiştirir ve tablo içermeyen slaytlar için tasarlanmıştır. İkinci örnek tabloları ayrı olarak ele alır. Sonuçtaki düzeni, özellikle metin ve tabloları kontrol edin; çünkü bu örnekler yazı tipi boyutlarını ölçeklendirmez ve tablo içeriği satır yüksekliğini kısıtlayabilir.
 
-**Sağlanan kod tüm şekil türleri için çalışıyor mu?**
+**Bir slaytı yeniden boyutlandırırken tabloları nasıl yeniden boyutlandırırım?**  
+Sütun genişliklerini genişlik oranı, minimum satır yüksekliklerini yükseklik oranı ile ölçeklendirin, ardından tablonun konumunu ölçeklendirin; bu, ikinci örnekte gösterilmiştir.
 
-Temel örnek çoğu şekil türü (metin kutuları, resimler, grafikler vb.) için çalışır. Ancak tablolar için satır ve sütunları ayrı ayrı ele almanız gerekir; çünkü bir tablonun yüksekliği ve genişliği bireysel hücrelerin boyutlarıyla belirlenir.
+**Bu yeniden boyutlandırma ana slaytlar ve düzen slaytları için çalışır mı?**  
+Evet. İkinci örnek, [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) ve her bir ana slaydın [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) üzerinden döner ve şekillerine aynı yeniden boyutlandırma mantığını uygular.
 
-**Bir slaytı yeniden boyutlandırırken tabloları nasıl yeniden boyutlandırırım?**
+**Yeniden boyutlandırmayla birlikte bir slaytın yönünü (dikey/yatay) değiştirebilir miyim?**  
+Evet. Slayt boyutunu değiştirdikten ve hedef boyutları okumadan önce [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) metodunu çağırın; böylece ölçek çarpanları son yönelime göre ayarlanır.
 
-Tablonun tüm satır ve sütunlarını dolaşmalı ve ikinci kod örneğinde gösterildiği gibi yüksekliğini ve genişliğini orantılı olarak yeniden boyutlandırmalısınız.
+**Ayarlayabileceğim slayt boyutu için bir limit var mı?**  
+[SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-) ile özel slayt boyutları belirleyebilirsiniz. Desteklenen boyutlar ayrıca sunum formatına ve dosyayı açmak için kullanılan uygulamaya bağlıdır.
 
-**Bu yeniden boyutlandırma, ana slaytlar ve yerleşim slaytları için de işe yarar mı?**
-
-Evet, ancak tutarlılığı sağlamak için [Üst slaytlar](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getMasters--) ve [Yerleşim slaytları](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getLayoutSlides--) üzerinden de döngü yapmalı ve şekillerine aynı ölçekleme mantığını uygulamalısınız.
-
-**Bir slaytın yönünü (dikey/yatay) yeniden boyutlandırma ile birlikte değiştirebilir miyim?**
-
-Evet. Yönü değiştirmek için [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidesize/#setOrientation-int-) yöntemini kullanabilirsiniz. Düzeni korumak için ölçekleme mantığını buna göre ayarladığınızdan emin olun.
-
-**Ayarlayabileceğim bir slayt boyutu sınırı var mı?**
-
-Aspose.Slides özel boyutları destekler, ancak çok büyük boyutlar performansı etkileyebilir veya bazı PowerPoint sürümleriyle uyumluluğu azaltabilir.
-
-**Sabitleştirilmiş en-boy oranına sahip şekillerin bozulmasını nasıl önleyebilirim?**
-
-Ölçeklendirmeden önce şeklin `getAspectRatioLocked` metodunu kontrol edebilirsiniz. Eğer oran kilitli ise, genişliği ve yüksekliği ayrı ayrı ölçeklendirmek yerine orantılı olarak ayarlayın.
+**Sabit en‑boy oranına sahip şekillerin bozulmasını nasıl önleyebilirim?**  
+Genişlik ve yükseklik için aynı ölçek çarpanını kullanın. Orijinal düzeni yeni slayt boyutlarına sığdırmak için, hem boyutlar hem de konumlar için genişlik ve yükseklik oranlarından en küçüğünü kullanın. Bu, oranları korur ancak bir kenarda kullanılmayan boşluk bırakabilir.

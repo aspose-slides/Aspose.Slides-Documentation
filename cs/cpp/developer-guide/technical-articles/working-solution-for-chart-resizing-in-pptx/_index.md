@@ -1,219 +1,145 @@
 ---
-title: Řešení pro změnu velikosti grafu v PPTX
+title: Fungující řešení pro změnu velikosti grafu v PPTX
 type: docs
 weight: 60
 url: /cs/cpp/working-solution-for-chart-resizing-in-pptx/
 keywords:
 - změna velikosti grafu
-- graf Excelu
-- OLE objekt
+- graf Excel
+- objekt OLE
 - vložit graf
 - PowerPoint
-- OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Opravte neočekávanou změnu velikosti grafu v PPTX při použití vložených OLE objektů Excelu s Aspose.Slides pro C++. Naučte se dvě metody s kódem, jak udržet velikosti konzistentní."
+description: "Opravte neočekávanou změnu velikosti grafu v PPTX při použití vložených objektů Excel OLE s Aspose.Slides pro C++. Nastavte pevné rozměry grafu, aby byly velikosti grafu a OLE rámečku konzistentní."
 ---
 ## **Pozadí**
 
-Bylo zaznamenáno, že grafy Excelu vložené jako OLE objekty v prezentaci PowerPoint prostřednictvím komponent Aspose jsou po svém prvním aktivování změněny na neurčitou velikost. Toto chování způsobuje výrazný vizuální rozdíl v prezentaci mezi stavem grafu před a po aktivaci. Tým Aspose problém podrobně prozkoumal a našel řešení. Tento článek popisuje příčiny problému a odpovídající opravu.
+Grafy Excel vložené jako objekty OLE v prezentacích PowerPoint pomocí komponent Aspose mohou po první aktivaci změnit velikost. To může způsobit výrazný rozdíl v vzhledu grafu před a po aktivaci. Tento článek vysvětluje, proč dochází k změně velikosti, a ukazuje, jak tomu zabránit tím, že pevné rozměry grafu přizpůsobíme OLE rámečku.
 
-V [předchozím článku](/slides/cs/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) jsme vysvětlili, jak vytvořit graf Excelu pomocí Aspose.Cells pro C++ a vložit jej do prezentace PowerPoint pomocí Aspose.Slides pro C++. Pro řešení [problému s náhledem objektu](/slides/cs/cpp/object-preview-issue-when-adding-oleobjectframe/) jsme přiřadili obrázek grafu k OLE objektovému rámečku grafu. V výstupní prezentaci, když dvakrát kliknete na OLE objektový rámeček zobrazující obrázek grafu, aktivuje se graf Excelu. Uživatelé mohou provést libovolné požadované změny v podkladovém sešitu Excel a poté se vrátit na příslušný snímek kliknutím mimo aktivovaný sešit. Velikost OLE objektového rámečku se po návratu uživatele na snímek změní a faktor změny velikosti se liší v závislosti na původních velikostech jak OLE objektového rámečku, tak vloženého sešitu Excel.
+V [Vytvořit grafy Excel a vložit je jako objekty OLE v prezentacích](/slides/cs/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) jsme vysvětlili, jak vytvořit graf Excel pomocí Aspose.Cells pro C++ a vložit jej do prezentace PowerPoint pomocí Aspose.Slides pro C++. Pro řešení [problém s náhledem objektu](/slides/cs/cpp/object-preview-issue-when-adding-oleobjectframe/) jsme přiřadili obrázek grafu k OLE objektovému rámečku grafu. Ve výstupní prezentaci, když dvakrát kliknete na OLE objektový rámeček zobrazující obrázek grafu, aktivuje se graf Excel. Uživatelé mohou editovat vložený sešit Excel a poté se vrátit na snímek kliknutím mimo aktivovaný sešit. Velikost OLE objektového rámečku se změní, když se uživatel vrátí na snímek, a faktor změny velikosti se liší v závislosti na původních rozměrech jak OLE rámečku, tak vloženého sešitu Excel.
 
 ## **Příčina změny velikosti**
 
-Protože má sešit Excelu vlastní velikost okna, snaží se při první aktivaci zachovat svou původní velikost. OLE objektový rámeček však má svou vlastní velikost. Podle Microsoftu, když je sešit Excelu aktivován, Excel a PowerPoint vyjednávají velikost a zachovávají správné proporce jako součást procesu vkládání. V závislosti na rozdílech mezi velikostí okna Excelu a velikostí nebo umístěním OLE objektového rámečku dochází k změně velikosti.
+Vložený sešit Excel má vlastní rozměry okna, které se Excel snaží zachovat při první aktivaci objektu. OLE rámeček na snímku má samostatně definované rozměry. Když je sešit Excel aktivován, Excel a PowerPoint dohodnou velikost objektu tak, aby zachovaly jeho proporce jako součást procesu vložení. Rozdíly mezi oknem sešitu a OLE rámečkem proto mohou způsobit změnu velikosti objektu.
 
-## **Fungující řešení**
+## **Funkční řešení**
 
-Existují dva možné scénáře pro vytváření prezentací PowerPoint pomocí Aspose.Slides pro C++.
+Přizpůsobte velikost grafu OLE rámečku na snímku a udržujte rozměry grafu nezávislé na okně sešitu. Toto řešení funguje jak s novou prezentací, tak s existujícím šablonou.
 
-**Scénář 1:** Vytvořit prezentaci na základě existující šablony.
+Příklad vyžaduje Aspose.Cells pro C++ a Aspose.Slides pro C++. Vytvoří jednoduchý sloupcový graf na aktivním listu grafu a vloží sešit ve formátu XLS. Náhledový obrázek grafu není přiřazen; graf se stane viditelným, když je OLE objekt aktivován v PowerPointu.
 
-**Scénář 2:** Vytvořit prezentaci od nuly.
+Umístěte ukázkový kód do vstupního bodu vaší aplikace, přičemž deklarace include umístěte v souborovém rozsahu. Inicializujte Aspose.Cells před vytvářením jeho objektů a uvolněte jeho zdroje po zničení těchto objektů. Příklad zkopíruje vektor bajtů sešitu vrácený Aspose.Cells do pole typu akceptovaného Aspose.Slides.
 
-Řešení, které zde poskytujeme, platí pro oba scénáře. Základem všech přístupů k řešení je stejné: **velikost okna vloženého OLE objektu by měla odpovídat OLE objektovému rámečku na snímku PowerPointu**. Nyní probereme dva přístupy k tomuto řešení.
-
-## **První přístup**
-
-V tomto přístupu se naučíme, jak nastavit velikost okna vloženého sešitu Excel tak, aby odpovídala velikosti OLE objektového rámečku na snímku PowerPointu.
-
-**Scénář 1**
-
-Předpokládejme, že máme definovanou šablonu a chceme na její základě vytvářet prezentace. Předpokládejme, že v šabloně je tvar na indexu 2, kam chceme umístit OLE rámec obsahující vložený sešit Excel. V tomto scénáři je velikost OLE objektového rámečku předdefinována – odpovídá velikosti tvaru na indexu 2 v šabloně. Stačí nastavit velikost okna sešitu na velikost tohoto tvaru. Následující úryvek kódu slouží tomuto účelu:
+Příklad vytvoří novou prezentaci s OLE rámečkem o velikosti 9,5 × 4 palce umístěným 0,5 palce od levého okraje a 1 palec od horního okraje. Souřadnice a rozměry snímku jsou v bodech (72 bodů na palec). Pro existující prezentaci viz [Použít šablonu](#use-a-template).
 
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <algorithm>
+#include <cstdint>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+Aspose::Cells::Startup();
 {
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"Data");
+    dataSheet.GetCells().Get(u"A1").PutValue(10);
+    dataSheet.GetCells().Get(u"A2").PutValue(20);
 
-    return outputStream;
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, 20, 10);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    chart.GetNSeries().Add(u"Data!A1:A2", true);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    // Souřadnice a rozměry snímku jsou v bodech (72 bodů na palec).
+    auto width = 684.f; // 9,5 palce.
+    auto height = 288.f; // 4 palce.
+
+    chart.SetSizeWithWindow(false);
+    // Převést body na pixely grafu pomocí 96 pixelů na palec.
+    chart.GetChartObject().SetWidth(static_cast<int32_t>(width / 72.f * 96.f));
+    chart.GetChartObject().SetHeight(static_cast<int32_t>(height / 72.f * 96.f));
+    chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
+
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
+    // Zkopírovat vektor bajtů Cells do typu pole akceptovaného Slides.
+    auto workbookBytes = System::MakeArray<uint8_t>(workbookData.GetLength(), 0);
+    std::copy(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength(), workbookBytes->data_ptr());
+    auto dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xls");
+    slide->get_Shapes()->AddOleObjectFrame(36, 72, width, height, dataInfo);
+
+    presentation->Save(u"chart-fixed-size.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
 }
+Aspose::Cells::Cleanup();
 ```
 
-```cpp
-// Definujte velikost grafu pomocí okna. 
-chart->SetSizeWithWindow(true);
+## **Nastavit pevnou velikost grafu**
 
-auto shape = slide->get_Shape(2);
+Nastavte [Chart::SetSizeWithWindow](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setsizewithwindow/) na false, aby rozměry grafu byly nezávislé na okně sešitu. Nastavte rozměry pomocí [Chart::GetChartObject](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/getchartobject/) skrze [Shape::SetWidth](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setwidth/) a [Shape::SetHeight](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setheight/), přičemž převádíte body na pixely pomocí 96 pixelů na palec: rámec o rozměrech 684 × 288 bodů odpovídá grafu o rozměrech 912 × 384 pixelů. Nastavte [Chart::SetPrintSize](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setprintsize/) na vlastní hodnotu [PrintSizeType](https://reference.aspose.com/cells/cpp/aspose.cells/printsizetype/). Příklad vloží sešit pomocí [IShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addoleobjectframe/) a uloží prezentaci s OLE rámečkem o rozměrech 9,5 × 4 palce.
 
-// Nastavte šířku okna sešitu v palcích (děleno 72, protože PowerPoint používá 72 pixelů na palec).
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
+## **Použít šablonu**
 
-// Nastavte výšku okna sešitu v palcích.
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
+Logika velikosti je stejná pro existující prezentaci. Pro úpravu příkladu:
 
-// Uložte sešit do paměťového proudu.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
+1. Načtěte šablonu prezentace místo vytváření prázdné prezentace.
+2. Zkontrolujte, že první snímek obsahuje alespoň tři objekty, a poté použijte objekt s indexem 2 jako zástupný.
+3. Vezměte šířku a výšku rámečku z tohoto objektu místo použití pevných hodnot 684 a 288. Nechte výpočty velikosti beze změny.
+4. Přidejte OLE rámeček na pozici zástupného místo pevných souřadnic 36 a 72.
+5. Odstraňte zástupný před uložením prezentace.
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+## **FAQ**
 
-// Vytvořte OLE objektový rámec s vloženými daty Excelu.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(), 
-    shape->get_Height(),
-    dataInfo);
-```
+**Proč se můj vložený graf Excel mění po aktivaci v PowerPointu?**
 
-**Scénář 2**
+K tomu dochází, protože Excel se při první aktivaci snaží obnovit původní velikost okna, zatímco OLE objektový rámeček v PowerPointu má vlastní rozměry. PowerPoint a Excel dohodnou velikost tak, aby zachovaly poměr stran, což může způsobit změnu velikosti.
 
-Řekněme, že chceme vytvořit prezentaci od nuly a zahrnout OLE objektový rámec libovolné velikosti s vloženým sešitem Excel. V následujícím úryvku kódu vytvoříme OLE objektový rámec vysoký 4 palce a široký 9,5 palce na souřadnicích x = 0,5 palce a y = 1 palce na snímku. Poté nastavíme okno sešitu Excel na stejnou velikost – 4 palce vysoké a 9,5 palce široké.
+**Jak mohu udržet velikosti grafu a OLE rámečku konzistentní?**
 
-```cpp
-// Naše požadovaná výška.
-int32_t desiredHeight = 288; // 4 palce (4 * 72)
+Nastavte pevné rozměry grafu, které odpovídají OLE rámečku, a použijte vlastní velikost tisku grafu před vložením sešitu. Výše uvedený příklad ukazuje požadovaná nastavení a převody jednotek.
 
-// Naše požadovaná šířka.
-int32_t desiredWidth = 684; // 9,5 palce (9.5 * 72)
+**Je přizpůsobení velikosti okna sešitu dostatečné?**
 
-// Definujte velikost grafu pomocí okna. 
-chart->SetSizeWithWindow(true);
+Pouhé přizpůsobení velikosti okna sešitu spolehlivě nebrání změně velikosti OLE rámečku po aktivaci. Použijte pevné rozměry grafu, jak je ukázáno v příkladu.
 
-// Nastavte šířku okna sešitu v palcích.
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
+**Funguje toto řešení jak pro prezentace založené na šabloně, tak pro nové prezentace?**
 
-// Nastavte výšku okna sešitu v palcích.
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
+Ano. Pro šablonu použijte rozměry a pozici zástupného. Pro novou prezentaci určete rozměry a pozici rámečku přímo.
 
-// Uložte sešit do paměťového proudu.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+**Mohu tento příklad použít s grafy vytvořenými v jiných tabulkových programech?**
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+Příklad používá sešit Excel vytvořený pomocí Aspose.Cells. Neukazuje chování aktivace pro jiné tabulkové programy.
 
-// Vytvořte OLE objektový rámec s vloženými daty Excelu.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f,
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
+## **Related Sections**
 
-## **Druhý přístup**
-
-V tomto přístupu se naučíme, jak nastavit velikost grafu ve vloženém sešitu Excel tak, aby odpovídala velikosti OLE objektového rámečku na snímku PowerPointu. Tento přístup je užitečný, když je velikost grafu známá předem a nikdy se nezmění.
-
-**Scénář 1**
-
-Předpokládejme, že máme definovanou šablonu a chceme na její základě vytvářet prezentace. Předpokládejme, že v šabloně je tvar na indexu 2, kam zamýšlíme umístit OLE rámec obsahující vložený sešit Excel. V tomto scénáři je velikost OLE rámce předdefinována – odpovídá velikosti tvaru na indexu 2 v šabloně. Stačí nastavit velikost grafu v sešitu tak, aby se rovnala velikosti tvaru. Následující úryvek kódu slouží tomuto účelu:
-
-```cpp
-// Definujte velikost grafu bez okna. 
-chart->SetSizeWithWindow(false);
-
-auto shape = slide->get_Shape(2);
-
-// Nastavte šířku grafu v pixelech (vynásobte 96, protože Excel používá 96 pixelů na palec).    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
-
-// Nastavte výšku grafu v pixelech.
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
-
-// Definujte velikost tisku grafu.
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
-
-// Uložte sešit do paměťového proudu.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Vytvořte OLE objektový rámec s vloženými daty Excelu.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(),
-    shape->get_Height(),
-    dataInfo);
-```
-
-**Scénář 2**
-
-Předpokládejme, že chceme vytvořit prezentaci od nuly a zahrnout OLE objektový rámec libovolné velikosti s vloženým sešitem Excel. V následujícím úryvku kódu vytvoříme OLE objektový rámec výšky 4 palce a šířky 9,5 palce na snímku na souřadnicích x = 0,5 palce a y = 1 palce. Také nastavíme odpovídající velikost grafu na stejné rozměry: výška 4 palce a šířka 9,5 palce.
-
-```cpp
-// Naše požadovaná výška.
-int32_t desiredHeight = 288; // 4 palce (4 * 576)
-
-// Naše požadovaná šířka.
-int32_t desiredWidth = 684; // 9,5 palce (9.5 * 576)
-
-// Definujte velikost grafu bez okna. 
-chart->SetSizeWithWindow(false);
-
-// Nastavte šířku grafu v pixelech.    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
-
-// Nastavte výšku grafu v pixelech.
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
-
-// Uložte sešit do paměťového proudu.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Vytvořte OLE objektový rámec s vloženými daty Excelu.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f, 
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-## **Závěr**
-
-Existují dva přístupy k řešení problému se změnou velikosti grafu. Výběr přístupu závisí na požadavcích a konkrétním použití. Oba přístupy fungují stejným způsobem, ať už jsou prezentace vytvořeny ze šablony nebo od nuly. Také neexistuje žádný limit velikosti OLE objektového rámce v tomto řešení.
-
-## **Často kladené otázky**
-
-**Proč se můj vložený graf Excelu po aktivaci v PowerPointu změní velikost?**
-
-K tomu dochází, protože Excel se při první aktivaci snaží obnovit původní velikost okna, zatímco OLE objektový rámec v PowerPointu má vlastní rozměry. PowerPoint a Excel vyjednávají velikost tak, aby zachovaly poměr stran, což může vést ke změně velikosti.
-
-**Je možné tomuto problému se změnou velikosti zcela předejít?**
-
-Ano. Pokud před vložením nastavíte velikost okna sešitu Excel nebo velikost grafu tak, aby odpovídala velikosti OLE objektového rámce, můžete udržet velikosti grafů konzistentní.
-
-**Který přístup mám zvolit, nastavit velikost okna sešitu nebo velikost grafu?**
-
-Použijte **přístup 1 (velikost okna)**, pokud chcete zachovat poměr stran sešitu a případně umožnit pozdější změnu velikosti. Použijte **přístup 2 (velikost grafu)**, pokud jsou rozměry grafu pevně dané a nebudou se po vložení měnit.
-
-**Budou tyto metody fungovat jak pro prezentace založené na šabloně, tak pro nové prezentace?**
-
-Ano. Oba přístupy fungují stejně pro prezentace vytvořené ze šablon i od nuly.
-
-**Existuje limit velikosti OLE objektového rámce?**
-
-Ne. OLE rámec můžete nastavit na libovolnou velikost, pokud se správně škáluje k velikosti sešitu nebo grafu.
-
-**Mohu tyto metody použít s grafy vytvořenými v jiných tabulkových programech?**
-
-Příklady jsou navrženy pro grafy Excelu vytvořené pomocí Aspose.Cells, ale principy platí i pro jiné OLE‑kompatibilní tabulkové programy, pokud podporují podobné možnosti nastavení velikosti.
-
-## **Související sekce**
-
-- [Vytváření grafů Excel a jejich vložení jako OLE objekty do prezentací](/slides/cs/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Vytvořit grafy Excel a vložit je jako objekty OLE v prezentacích](/slides/cs/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

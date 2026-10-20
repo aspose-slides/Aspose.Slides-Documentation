@@ -1,172 +1,191 @@
 ---
-title: Vytvoření grafů Excel a vložení do prezentací jako objekty OLE
+title: Vytvořit grafy Excel a vložit je do prezentací jako OLE objekty
 type: docs
 weight: 40
 url: /cs/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Excel graf
+- graf Excelu
 - vložit graf
-- objekt OLE
+- OLE objekt
 - PowerPoint
-- OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Vytvořte grafy Excel a vložte je jako objekty OLE do prezentací PowerPoint a OpenDocument v C++. Průvodce krok za krokem s ukázkami kódu."
+description: "Vytvořte graf Excel pomocí Aspose.Cells pro C++ a vložte sešit do prezentace PowerPoint s Aspose.Slides, včetně náhledu grafu."
 ---
-## **Pozadí**
+## **Přehled**
 
-V PowerPointu je běžnou praxí používat editovatelné grafy k vizuálnímu zobrazování dat. Aspose podporuje vytváření grafů Excel pomocí Aspose.Cells pro C++, a tyto grafy mohou být následně vloženy jako objekty OLE do snímků PowerPointu prostřednictvím Aspose.Slides pro C++. Tento článek popisuje potřebné kroky a poskytuje ukázky kódu C++ pro vytváření grafu Excel a jeho vložení jako objekt OLE do prezentace PowerPoint pomocí Aspose.Cells a Aspose.Slides.
+Tento článek ukazuje, jak vytvořit sloupcový graf Excelu pomocí Aspose.Cells pro C++ a vložit jeho sešit do prezentace PowerPoint pomocí Aspose.Slides pro C++. Vložený sešit obsahuje jak zdrojová data, tak graf. Samostatná ukázka PNG zobrazuje graf na snímku před aktivací objektu OLE.
 
-## **Požadované kroky**
+Výsledkem je vložený objekt Excel, nikoli nativní graf PowerPointu. Úprava sešitu přes OLE vyžaduje desktopovou aplikaci, která podporuje aktivaci OLE, a kompatibilní instalaci Excelu.
 
-Následující posloupnost kroků je vyžadována k vytvoření a vložení grafu Excel jako objektu OLE do snímku PowerPoint:
+## **Požadavky**
 
-1. Vytvořte graf Excel pomocí Aspose.Cells.
-1. Nastavte velikost OLE grafu Excel pomocí Aspose.Cells.
-1. Získejte obrázek grafu Excel pomocí Aspose.Cells.
-1. Vložte graf Excel jako objekt OLE do prezentace PPTX pomocí Aspose.Slides.
-1. Nahraďte obrázek „EMBEDDED OLE OBJECT“ obrázkem získaným ve třetím kroku, aby se vyřešil [object preview issue](/slides/cs/cpp/object-preview-issue-when-adding-oleobjectframe/).
-1. Uložte prezentaci na disk ve formátu PPTX.
+Nakonfigurujte svůj projekt C++ s hlavičkami a knihovnami pro Aspose.Cells pro C++ a Aspose.Slides pro C++. Umístěte ukázkový kód do vstupního bodu aplikace, s deklaracemi include na úrovni souboru. Microsoft Office není vyžadován pro generování prezentace s těmito knihovnami.
 
-## **Implementace požadovaných kroků**
+Nejsou vyžadovány vstupní soubory: ukázka vytvoří data a graf v paměti a poté zapíše `OutputChart.pptx` do aktuálního pracovního adresáře. Použijte licence pro oba produkty při spuštění mimo hodnotící režim.
 
-Implementace v C++ výše uvedených kroků je následující:
+## **Jak funguje vkládání**
 
-```cpp
-// Krok - 1: Vytvořit graf Excel pomocí Aspose.Cells.
-// ---------------------------------------------------
-// Vytvořte sešit.
-intrusive_ptr<Aspose::Cells::IWorkbook> workbook = Aspose::Cells::Factory::CreateIWorkbook();
-// Přidejte graf Excel.
-int32_t chartRows = 55;
-int32_t chartCols = 25;
-int32_t chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+1. Vytvořte sešit s listem dat a listem grafu.
+1. Nastavte list grafu jako aktivní, aby se sešit otevřel na grafu.
+1. Nastavte OLE zobrazovací oblast sešitu a vykreslete graf do PNG.
+1. Uložte sešit jako XLSX v paměti a vložte tyto bajty do snímku.
+1. Přiřaďte PNG jako náhled objektu OLE a uložte prezentaci jako PPTX.
 
-// Krok - 2: Nastavte velikost OLE grafu pomocí Aspose.Cells.
-// -----------------------------------------------------------
-workbook->GetIWorksheets()->SetOleSize(0, chartRows, 0, chartCols);
+Zobrazovací oblast sešitu a rámeček na snímku mají různé role. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) přijímá nulové indexy počátečního/koncového řádku a sloupce. [ChartCollection::Add](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chartcollection/add/) naopak přijímá horní řádek, levý sloupec, dolní řádek a pravý sloupec. Příklad používá index řádku 55 a index sloupce 25 jako pravé dolní hranice; tyto hodnoty jsou volby rozvržení, nikoli počet datových řádků nebo sloupců.
 
-// Krok - 3: Získejte obrázek grafu pomocí Aspose.Cells.
-// -------------------------------------------------------
-System::SharedPtr<System::Drawing::Bitmap> chartImage = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex)->GetICharts()->GetObjectByIndex(0)->ToImage();
-// Uložte sešit do proudu.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+Rámeček snímku používá jednotku point. Příklad jej umístí do snímku a vycentruje, přičemž zachovává poměr stran PNG, místo aby natahoval náhled tak, aby vyplnil snímek.
 
-// Krok - 4 A 5
-// ==============
-// Krok - 4: Vložte graf jako objekt OLE do prezentace .ppt pomocí Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// Krok - 5: Nahraďte obrázek "EMBEDDED OLE OBJECT" obrázkem získaným ve kroku 3, aby se vyřešil problém s náhledem objektu.
-// --------------------------------------------------------------------------------------------------------------------
-// Vytvořte prezentaci.
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-// Přidejte sešit do snímku.
-AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+## **Vytvoření a vložení grafu**
 
-// Krok - 6: Uložte výstupní prezentaci na disk.
-// -----------------------------------------------
-presentation->Save(u"OutputChart.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
+Následující kompletní příklad naplní `DataSheet` čtyřmi řádky a pěti sloupci hodnot. Každý řádek se stane řadou grafu. `ChartSheet` je vybrán jako aktivní list před uložením sešitu.
+
+Sešit je explicitně uložen jako XLSX, což odpovídá příponě `xlsx` předané do [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/). PNG je načteno z paměťového proudu bez mezi-konverze bitmapy. Aspose.Cells vrací vektory bajtů, které příklad kopíruje do pole typu akceptovaného Aspose.Slides. Inicializujte Aspose.Cells před použitím jeho objektů a uvolněte jeho prostředky po zničení těchto objektů. Přiřazení přes [IOleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/get_substitutepictureformat/) nahrazuje výchozí OLE zástupný obrázek.
 
 ```cpp
-void AddExcelChartInPresentation(System::SharedPtr<Presentation> presentation, System::SharedPtr<ISlide> slide, 
-                                 System::SharedPtr<System::IO::Stream> workbookStream, 
-                                 intrusive_ptr<Aspose::Cells::Systems::Drawing::Bitmap> chartImage)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <Util/Images.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <algorithm>
+#include <IImage.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// Inicializujte Cells před vytvořením jakýchkoli jeho objektů.
+Aspose::Cells::Startup();
 {
-    float oleWidth = presentation->get_SlideSize()->get_Size().get_Width();
-    float oleHeight = presentation->get_SlideSize()->get_Size().get_Height();
-    int32_t x = 0;
-    System::ArrayPtr<uint8_t> oleData = System::MakeArray<uint8_t>(workbookStream->get_Length(), 0);
-    workbookStream->set_Position(0);
-    workbookStream->Read(oleData, 0, oleData->get_Length());
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"DataSheet");
 
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(oleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleFrame;
-    oleFrame = slide->get_Shapes()->AddOleObjectFrame(static_cast<float>(x), 0.0f, oleWidth, oleHeight, dataInfo);
-
-    intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-    chartImage->Save(cellsOutputStream, Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-
-    auto slidesImage = Images::FromStream(ToSlidesMemoryStream(cellsOutputStream));
-    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(slidesImage));
-}
-```
-
-```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-``` cpp
-int32_t AddExcelChartInWorkbook(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t chartRows, int32_t chartCols)
-{
-    // Pole názvů buněk.
-    System::ArrayPtr<System::String> cellNames = System::MakeArray<System::String>(
-    { 
-        u"A1", u"A2", u"A3", u"A4", 
-        u"B1", u"B2", u"B3", u"B4",
-        u"C1", u"C2", u"C3", u"C4",
-        u"D1", u"D2", u"D3", u"D4",
-        u"E1", u"E2", u"E3", u"E4" 
-    });
-    
-    // Pole dat buněk.
-    System::ArrayPtr<int32_t> cellValues = System::MakeArray<int32_t>(
+    int32_t values[4][5] =
     {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25 
-    });
+        { 67, 44, 46, 43, 24 },
+        { 86, 64, 97, 29, 40 },
+        { 68, 89, 78, 69, 38 },
+        { 91, 48, 60, 26, 25 }
+    };
 
-    // Přidat nový list pro naplnění buněk daty.
-    int32_t dataSheetIndex = workbook->GetIWorksheets()->Add();
-    intrusive_ptr<Aspose::Cells::IWorksheet> dataSheet = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIndex);
-    intrusive_ptr<Aspose::Cells::Systems::String> sheetName = new Aspose::Cells::Systems::String("DataSheet");
-    dataSheet->SetName(sheetName);
-
-    // Naplnit datový list daty.
-    for (int32_t i = 0; i < cellNames->get_Length(); i++)
+    for (auto row = 0; row < 4; row++)
     {
-        System::String cellName = cellNames[i];
-        int32_t cellValue = cellValues[i];
-        dataSheet->GetICells()->GetObjectByIndex(new String(cellName.ToWCS().c_str()))->PutValue(cellValue);
+        for (auto column = 0; column < 5; column++)
+        {
+            dataSheet.GetCells().Get(row, column).PutValue(values[row][column]);
+        }
     }
 
-    // Přidat list s grafem.
-    int32_t chartSheetIndex = workbook->GetIWorksheets()->Add(Aspose::Cells::SheetType::SheetType_Chart);
-    intrusive_ptr<Aspose::Cells::IWorksheet> chartSheet = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex);
-    chartSheet->SetName(new String("ChartSheet"));
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    chartSheet.SetName(u"ChartSheet");
 
-    // Přidat graf do listu s grafem s datovými řadami z datového listu.
-    int32_t chartIndex = chartSheet->GetICharts()->Add(Aspose::Cells::Charts::ChartType::ChartType_Column, 0, chartRows, 0, chartCols);
-    intrusive_ptr<Aspose::Cells::Charts::IChart> chart = chartSheet->GetICharts()->GetObjectByIndex(chartIndex);
-    chart->GetNISeries()->Add(sheetName + "!A1:E1", false);
-    chart->GetNISeries()->Add(sheetName + "!A2:E2", false);
-    chart->GetNISeries()->Add(sheetName + "!A3:E3", false);
-    chart->GetNISeries()->Add(sheetName + "!A4:E4", false);
+    auto lastChartRow = 55;
+    auto lastChartColumn = 25;
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, lastChartRow, lastChartColumn);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    const char16_t* seriesRanges[] = { u"DataSheet!A1:E1", u"DataSheet!A2:E2", u"DataSheet!A3:E3", u"DataSheet!A4:E4" };
+    for (auto range : seriesRanges)
+    {
+        chart.GetNSeries().Add(range, false);
+    }
 
-    // Nastavit list s grafem jako aktivní list.
-    workbook->GetIWorksheets()->SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetOleSize(0, lastChartRow, 0, lastChartColumn);
 
-    return chartSheetIndex;
+    // Vykreslete náhled grafu a samostatně serializujte editovatelný sešit.
+    auto chartImageData = chart.ToImage(Aspose::Cells::Drawing::ImageType::Png);
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+
+    // Zkopírujte buffery Cells do typu pole používaného v Slides.
+    auto toSlidesArray = [](const Aspose::Cells::Vector<uint8_t>& buffer)
+    {
+        auto result = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+        std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), result->data_ptr());
+        return result;
+    };
+    auto chartImageBytes = toSlidesArray(chartImageData);
+    auto workbookBytes = toSlidesArray(workbookData);
+    auto chartImageStream = System::MakeObject<System::IO::MemoryStream>(chartImageBytes);
+    auto chartImage = Images::FromStream(chartImageStream);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto slideSize = presentation->get_SlideSize()->get_Size();
+
+    // Umístěte náhled do snímku bez změny poměru stran.
+    auto scale = (std::min)(slideSize.get_Width() / chartImage->get_Width(), slideSize.get_Height() / chartImage->get_Height());
+    auto frameWidth = chartImage->get_Width() * scale;
+    auto frameHeight = chartImage->get_Height() * scale;
+    auto frameX = (slideSize.get_Width() - frameWidth) / 2;
+    auto frameY = (slideSize.get_Height() - frameHeight) / 2;
+
+    auto embeddedData = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xlsx");
+    auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+    auto previewImage = presentation->get_Images()->AddImage(chartImage);
+    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(previewImage);
+
+    presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
+    chartImage->Dispose();
+    chartImageStream->Dispose();
 }
+ // Uvolněte prostředky Cells po zničení všech objektů Cells.
+Aspose::Cells::Cleanup();
 ```
 
-Prezentace vytvořená výše uvedeným způsobem bude obsahovat graf Excel jako objekt OLE, který lze aktivovat dvojitým kliknutím na rámec objektu OLE.
+## **Očekávaný výsledek**
 
-## **Závěr**
+`OutputChart.pptx` obsahuje jeden snímek s vloženým sešitem Excel a náhledem grafu. Sešit obsahuje původní data a sloupcový graf se čtyřmi řadami. Náhled je vycentrován na snímku a zachovává své proporce.
 
-Pomocí Aspose.Cells pro C++ společně s Aspose.Slides pro C++ můžeme vytvořit jakýkoli graf Excel podporovaný Aspose.Cells a vložit jej jako objekt OLE do snímku PowerPointu. Velikost OLE grafu Excel lze také definovat. Koneční uživatelé pak mohou upravovat graf Excel jako jakýkoli jiný objekt OLE.
+![Sloupcový graf Excel zobrazený jako náhled vloženého sešitu](excel-chart-ole-preview.png)
+
+V kompatibilním desktopovém prostředí PowerPoint s nainstalovaným Excelem, dvojklikněte na objekt pro aktivaci a úpravu vloženého sešitu. Aktivace a úpravy závisí na podpoře OLE hostitelské aplikace a nastavení zabezpečení.
+
+## **Často kladené dotazy**
+
+**Proč je potřeba obraz náhledu?**
+
+Vložený sešit a jeho náhled na snímku jsou oddělený obsah. Poskytněte obrázek grafu, aby snímek zobrazoval graf místo výchozího zástupného textu „EMBEDDED OLE OBJECT“. Viz [Problém s náhledem objektu při přidávání OleObjectFrame](/slides/cs/cpp/object-preview-issue-when-adding-oleobjectframe/).
+
+**Aktualizuje se náhled automaticky při změně sešitu v kódu?**
+
+Považujte náhled za snímek. Při programové aktualizaci dat sešitu vygenerujte znovu obrázek grafu a nahraďte náhled i data vloženého sešitu.
+
+**Mohu použít XLS místo XLSX?**
+
+Ano. Uložte sešit ve formátu XLS a použijte `xls` jako rozšíření vložených dat. Rozšíření musí odpovídat skutečnému formátu sešitu; změna rozšíření samotná data nepřevádí.
+
+**Proč se objekt může po aktivaci změnit velikost?**
+
+Hostitelská aplikace může aktualizovat prezentaci objektu OLE při aktivaci sešitu. Zobrazovací oblast OLE sešitu a rozměry rámečku snímku jsou oba důležité. Viz [Řešení pro změnu velikosti grafu v PPTX](/slides/cs/cpp/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Související sekce**
 

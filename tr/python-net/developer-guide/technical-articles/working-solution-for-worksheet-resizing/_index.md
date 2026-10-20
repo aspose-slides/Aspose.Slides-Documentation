@@ -1,48 +1,51 @@
 ---
-title: Çalışma Sayfası Yeniden Boyutlandırma İçin Çalışan Çözüm
+title: Çalışma Sayfası Yeniden Boyutlandırma İçin Çözüm
 type: docs
 weight: 40
 url: /tr/python-net/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- önizleme görüntüsü
-- görüntü yeniden boyutlandırma
+- önizleme resmi
+- görsel yeniden boyutlandırma
 - Excel
 - çalışma sayfası
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Sunumlarda Excel çalışma sayfası OLE yeniden boyutlandırmasını düzeltin: nesne çerçevelerini tutarlı tutmanın iki yolu—çerçeveyi veya sayfayı ölçeklendirin—PPT ve PPTX formatları boyunca."
+description: "Sunumlarda Excel çalışma sayfası OLE yeniden boyutlandırmasını düzeltin: nesne çerçevelerini tutarlı tutmanın iki yolu—çerçeveyi veya sayfayı ölçeklendirin—PPT ve PPTX formatlarında."
 ---
-{{% alert color="primary" %}} 
-
-Aspose bileşenleri aracılığıyla PowerPoint sunumuna OLE nesneleri olarak gömülen Excel çalışma sayfalarının, ilk etkinleştirmeden sonra tanımlanamayan bir ölçeğe yeniden boyutlandırıldığı gözlemlenmiştir. Bu davranış, OLE nesnesinin etkinleştirmeden önceki ve sonraki durumları arasında sunumda belirgin bir görsel fark yaratır. Bu sorunu ayrıntılı olarak araştırdık ve bu makalede ele alınan bir çözüm sağladık.
-
+{{% alert color="info" title="Note" %}}
+Excel çalışma sayfalarının Aspose bileşenleri kullanılarak bir PowerPoint sunumunda OLE nesneleri olarak gömülmesi, ilk etkinleştirmelerinden sonra beklenmedik şekilde yeniden boyutlandırılmasına neden olabilir. Bu davranış, OLE nesnesinin etkinleştirme öncesi ve sonrası arasında fark edilebilir bir görsel fark oluşturur. Bu makale sorunu açıklıyor ve iki çözüm yolunu anlatıyor.
 {{% /alert %}} 
 
 ## **Arka Plan**
 
-Makale [OLE'yi Yönet](/slides/tr/python-net/manage-ole/) içinde, Aspose.Slides for Python via .NET kullanarak bir PowerPoint sunumuna OLE çerçevesi eklemenin nasıl yapılacağını açıkladık. [nesne önizleme sorunu](/slides/tr/python-net/object-preview-issue-when-adding-oleobjectframe/) çözmek için, seçilen çalışma sayfası alanının bir görüntüsünü OLE nesne çerçevesine atadık. Çıktı sunumunda, çalışma sayfası görüntüsünü gösteren OLE nesne çerçevesine çift tıkladığınızda Excel çalışma kitabı etkinleştirilir. Son kullanıcılar gerçek Excel çalışma kitabında istedikleri değişiklikleri yapabilir ve etkinleştirilen Excel çalışma kitabının dışına tıklayarak slayta geri dönebilir. Kullanıcı slayta döndüğünde OLE nesne çerçevesinin boyutu değişecektir. Yeniden boyutlandırma faktörü, OLE nesne çerçevesinin ve gömülü Excel çalışma kitabının boyutuna bağlı olarak değişir.
+Bu makalede [OLE'yi Yönet](/slides/tr/python-net/manage-ole/) başlıklı bölümde, Aspose.Slides for Python via .NET kullanarak bir PowerPoint sunumuna OLE çerçevesi eklemenin nasıl yapılacağını açıkladık. [nesne önizleme sorunu](/slides/tr/python-net/object-preview-issue-when-adding-oleobjectframe/) sorununu çözmek için, seçilen çalışma sayfası alanının bir resmini OLE nesne çerçevesine atadık. Çıktı sunumunda, çalışma sayfası resmini gösteren OLE nesne çerçevesine çift tıkladığınızda Excel çalışma kitabı etkinleşir. Son kullanıcılar gerçek Excel çalışma kitabında istedikleri değişiklikleri yapabilir ve ardından etkinleştirilen Excel çalışma kitabının dışına tıklayarak slayta geri dönebilir. Kullanıcı slayta döndüğünde OLE nesne çerçevesinin boyutu değişecektir. Yeniden boyutlandırma faktörü, OLE nesne çerçevesinin ve gömülü Excel çalışma kitabının boyutuna bağlı olarak değişir.
 
-## **Yeniden Boyutlandırmanın Nedeni**
+## **Yeniden Boyutlandırma Nedeni**
 
-Excel çalışma kitabının kendi pencere boyutu olduğu için ilk etkinleştirmede orijinal boyutunu korumaya çalışır. Öte yandan, OLE nesne çerçevesinin kendi boyutu vardır. Microsoft'a göre, Excel çalışma kitabı etkinleştirildiğinde, Excel ve PowerPoint gömme işleminin bir parçası olarak doğru oranları korumasını sağlamak için boyut üzerinde anlaşır. Yeniden boyutlandırma, Excel pencere boyutu ile OLE nesne çerçevesinin boyut ve konumu arasındaki farklara dayanarak gerçekleşir.
+Excel çalışma kitabının kendi pencere boyutu olduğundan, ilk etkinleştirmede orijinal boyutunu korumaya çalışır. Öte yandan, OLE nesne çerçevesinin de kendi boyutu vardır. Microsoft'a göre, Excel çalışma kitabı etkinleştirildiğinde, Excel ve PowerPoint gömme sürecinin bir parçası olarak doğru oranları korumasını sağlamak için boyutu müzakere eder. Yeniden boyutlandırma, Excel pencere boyutu ile OLE nesne çerçevesinin boyut ve konumu arasındaki farklara dayanır.
 
 ## **Çözüm**
 
 Yeniden boyutlandırma etkisini önlemek için iki olası çözüm vardır.
 
-- OLE çerçevesinin yüksekliği ve genişliğini, OLE çerçevesinde istediğiniz satır ve sütun sayısına uygun olacak şekilde PowerPoint sunumunda ölçeklendirin.
-- OLE çerçevesi boyutunu sabit tutun ve katılan satır ve sütunların boyutunu seçilen OLE çerçevesi boyutuna sığacak şekilde ölçeklendirin.
+- PowerPoint sunumundaki OLE çerçevesini, seçilen satır ve sütunların toplam yüksekliği ve genişliğiyle eşleşecek şekilde ölçeklendirin.
+- OLE çerçevesi boyutunu sabit tutun ve seçilen satır ve sütunları içine sığacak şekilde ölçeklendirin.
 
 ### **OLE Çerçeve Boyutunu Ölçeklendirme**
 
-Bu yaklaşımda, gömülü Excel çalışma kitabının OLE çerçeve boyutunu, Excel çalışma sayfasındaki katılan satır ve sütunların toplam boyutuna eşitlemeyi öğreneceğiz.
+Bu yaklaşım, gömülü Excel çalışma sayfasındaki seçilen satır ve sütunların toplam yüksekliği ve genişliğiyle eşleşecek şekilde OLE çerçeve boyutunu ayarlar.
 
-Bir şablon Excel sayfamız olduğunu ve bunu bir OLE çerçevesi olarak bir sunuma eklemek istediğimizi varsayalım. Bu senaryoda, OLE nesne çerçevesinin boyutu önce çalışma kitabındaki katılan satırların yüksekliği ve sütunların genişliği toplamına göre hesaplanacaktır. Daha sonra, OLE çerçevesinin boyutunu bu hesaplanmış değere ayarlayacağız. PowerPoint'teki OLE çerçevesi için kırmızı "EMBEDDED OLE OBJECT" mesajını önlemek amacıyla, çalışma kitabındaki istenen satır ve sütun bölümlerinin bir görüntüsünü yakalayıp OLE çerçeve görüntüsü olarak ayarlayacağız.
+Örnek, mevcut bir Excel çalışma kitabını yükler ve sıfır tabanlı indeksler kullanarak ilk çalışma sayfasının ilk 10 satırını ve 13 sütununu seçer. [WorksheetCollection.set_ole_size](https://reference.aspose.com/cells/python-net/aspose.cells/worksheetcollection/set_ole_size/) görüntülenen aralığı tanımlar. Önizleme 96 DPI'de işlenir ve piksel boyutları inç başına 72 nokta kullanılarak puana dönüştürülür. [ShapeCollection.add_ole_object_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_ole_object_frame/) değiştirilmiş çalışma kitabını bu boyutlarda bir çerçeveye gömer. Önizleme, kaydedilen sunumdaki "EMBEDDED OLE OBJECT" yer tutucusunu değiştirmek için [OleObjectFrame.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/substitute_picture_format/) aracılığıyla atanır.
+
+Önizleme yardımcı programı, seçilen aralığa [PageSetup.print_area](https://reference.aspose.com/cells/python-net/aspose.cells/pagesetup/print_area/) ayarlar ve kenar boşluklarını, başlıkları ve dipnotları kaldırır. [ImageOrPrintOptions.only_area](https://reference.aspose.com/cells/python-net/aspose.cells.rendering/imageorprintoptions/only_area/) etkinleştirildiğinde, [SheetRender.to_image](https://reference.aspose.com/cells/python-net/aspose.cells.rendering/sheetrender/to_image/) aralığı PNG görüntüsü olarak işler. Yardımcı program, sunumda kullanılmak üzere döndürmeden önce görüntü akışını yeniden konumlandırır.
 
 ```py
+import io
+import aspose.cells as cells
+
 def create_ole_image(cell_range, image_resolution):
     page_setup = cell_range.worksheet.page_setup
     page_setup.print_area = cell_range.address
@@ -68,7 +71,37 @@ def create_ole_image(cell_range, image_resolution):
     return image_data
 ```
 
+Aşağıdaki tam örnek, yardımcı programları çalışma kitabı gömme ile birleştirir ve sunumu `output.pptx` olarak kaydeder.
+
 ```py
+import io
+import aspose.slides as slides
+import aspose.cells as cells
+
+def create_ole_image(cell_range, image_resolution):
+    page_setup = cell_range.worksheet.page_setup
+    page_setup.print_area = cell_range.address
+    page_setup.left_margin = 0.0
+    page_setup.right_margin = 0.0
+    page_setup.top_margin = 0.0
+    page_setup.bottom_margin = 0.0
+    page_setup.clear_header_footer()
+
+    image_options = cells.rendering.ImageOrPrintOptions()
+    image_options.image_type = cells.drawing.ImageType.PNG
+    image_options.vertical_resolution = image_resolution
+    image_options.horizontal_resolution = image_resolution
+    image_options.one_page_per_sheet = True
+    image_options.only_area = True
+
+    sheet_render = cells.rendering.SheetRender(cell_range.worksheet, image_options)
+    image_data = io.BytesIO()
+
+    sheet_render.to_image(0, image_data)
+    image_data.seek(0)
+
+    return image_data
+
 start_row, row_count = 0, 10
 start_column, column_count = 0, 13
 worksheet_index = 0
@@ -86,7 +119,7 @@ with cells.Workbook("sample.xlsx") as workbook:
     cell_range = worksheet.cells.create_range(start_row, start_column, row_count, column_count)
     image_stream = create_ole_image(cell_range, image_resolution)
 
-    # OLE görüntüsünün genişliğini ve yüksekliğini nokta biriminde alın.
+    # OLE görüntüsünün genişlik ve yüksekliğini puan cinsinden alın.
     with slides.Images.from_stream(image_stream) as image:
         image_width = image.width * 72 / image_resolution
         image_height = image.height * 72 / image_resolution
@@ -113,13 +146,17 @@ with cells.Workbook("sample.xlsx") as workbook:
 
 ### **Hücre Aralığı Boyutunu Ölçeklendirme**
 
-Bu yaklaşımda, katılan satırların yüksekliğini ve katılan sütunların genişliğini, özel bir OLE çerçeve boyutuna eşitlemek için nasıl ölçeklendireceğimizi öğreneceğiz.
+Bu yaklaşım, seçilen satırların yüksekliğini ve seçilen sütunların genişliğini özel bir OLE çerçeve boyutuyla eşleşecek şekilde ölçeklendirir.
 
-Bir şablon Excel sayfamız olduğunu ve bunu bir OLE çerçevesi olarak bir sunuma eklemek istediğimizi varsayalım. Bu senaryoda, OLE çerçevesinin boyutunu ayarlayacak ve OLE çerçevesi alanına katılan satır ve sütunların boyutunu ölçeklendireceğiz. Daha sonra, değişiklikleri uygulamak için çalışma kitabını bir akışa kaydedip OLE çerçevesine eklemek üzere bir bayt dizisine dönüştüreceğiz. PowerPoint'teki OLE çerçevesi için kırmızı "EMBEDDED OLE OBJECT" mesajını önlemek amacıyla, çalışma kitabındaki istenen satır ve sütun bölümlerinin bir görüntüsünü yakalayıp OLE çerçeve görüntüsü olarak ayarlayacağız.
+Örnek, mevcut bir Excel çalışma kitabını yükler ve sıfır tabanlı indeksler kullanarak ilk çalışma sayfasının ilk 10 satırını ve 13 sütununu seçer. [WorksheetCollection.set_ole_size](https://reference.aspose.com/cells/python-net/aspose.cells/worksheetcollection/set_ole_size/) görüntülenen aralığı tanımlar ve aşağıdaki yardımcı program bu aralığı 400 puan genişliğinde ve 100 puan yüksekliğinde bir çerçeveye sığacak şekilde ölçeklendirir. Değiştirilmiş çalışma kitabı bir akışa kaydedildikten sonra, [ShapeCollection.add_ole_object_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_ole_object_frame/) belirtilen boyutta gömer. 96 DPI'de işlenen bir önizleme, [OleObjectFrame.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/substitute_picture_format/) aracılığıyla atanır; böylece kaydedilen sunum, varsayılan yer tutucu yerine seçilen hücreleri gösterir.
+
+Ölçekleme yardımcı programı, seçilen aralık için ayrı genişlik ve yükseklik oranları hesaplar, sütunlarının göreli genişliklerini ve satırlarının göreli yüksekliklerini korur. Hesaplanan boyutları, [Cells.set_column_width_inch](https://reference.aspose.com/cells/python-net/aspose.cells/cells/set_column_width_inch/) ve [Cells.set_row_height_inch](https://reference.aspose.com/cells/python-net/aspose.cells/cells/set_row_height_inch/) ile uygulamadan önce puandan inçe dönüştürür. Seçilen aralığın genişliği ve yüksekliği sıfır olmamalıdır.
 
 ```py
-# <param name="width">Hücre aralığının nokta cinsinden beklenen genişliği.</param>
-# <param name="height">Hücre aralığının nokta cinsinden beklenen yüksekliği.</param>
+import aspose.cells as cells
+
+# <param name="width">Hücre aralığının puan cinsinden beklenen genişliği.</param>
+# <param name="height">Hücre aralığının puan cinsinden beklenen yüksekliği.</param>
 def scale_cell_range(cell_range, width, height):
     range_width = cell_range.width
     range_height = cell_range.height
@@ -141,7 +178,12 @@ def scale_cell_range(cell_range, width, height):
         cell_range.worksheet.cells.set_row_height_inch(row_index, height_in_inches)
 ```
 
+Bu önizleme yardımcı programı, yeniden boyutlandırılmış aralığı [SheetRender.to_image](https://reference.aspose.com/cells/python-net/aspose.cells.rendering/sheetrender/to_image/) kullanarak işler. [PageSetup.print_area](https://reference.aspose.com/cells/python-net/aspose.cells/pagesetup/print_area/) bu aralığa sınırlandırılır, kenar boşlukları, başlıklar ve dipnotlar kaldırılır ve başlangıcında konumlandırılmış bir PNG akışı döndürülür.
+
 ```py
+import io
+import aspose.cells as cells
+
 def create_ole_image(cell_range, image_resolution):
     page_setup = cell_range.worksheet.page_setup
     page_setup.print_area = cell_range.address
@@ -167,7 +209,59 @@ def create_ole_image(cell_range, image_resolution):
     return image_data
 ```
 
+Aşağıdaki tam örnek, yardımcı programları çalışma kitabı gömme ile birleştirir ve sunumu `output.pptx` olarak kaydeder.
+
 ```py
+import io
+import aspose.slides as slides
+import aspose.cells as cells
+
+# <param name="width">Hücre aralığının puan cinsinden beklenen genişliği.</param>
+# <param name="height">Hücre aralığının puan cinsinden beklenen yüksekliği.</param>
+def scale_cell_range(cell_range, width, height):
+    range_width = cell_range.width
+    range_height = cell_range.height
+
+    for i in range(cell_range.column_count):
+        column_index = cell_range.first_column + i
+        column_width = cell_range.worksheet.cells.get_column_width(column_index, False, cells.CellsUnitType.POINT)
+
+        new_column_width = column_width * width / range_width
+        width_in_inches = new_column_width / 72
+        cell_range.worksheet.cells.set_column_width_inch(column_index, width_in_inches)
+
+    for i in range(cell_range.row_count):
+        row_index = cell_range.first_row + i
+        row_height = cell_range.worksheet.cells.get_row_height(row_index, False, cells.CellsUnitType.POINT)
+
+        new_row_height = row_height * height / range_height
+        height_in_inches = new_row_height / 72
+        cell_range.worksheet.cells.set_row_height_inch(row_index, height_in_inches)
+
+def create_ole_image(cell_range, image_resolution):
+    page_setup = cell_range.worksheet.page_setup
+    page_setup.print_area = cell_range.address
+    page_setup.left_margin = 0.0
+    page_setup.right_margin = 0.0
+    page_setup.top_margin = 0.0
+    page_setup.bottom_margin = 0.0
+    page_setup.clear_header_footer()
+
+    image_options = cells.rendering.ImageOrPrintOptions()
+    image_options.image_type = cells.drawing.ImageType.PNG
+    image_options.vertical_resolution = image_resolution
+    image_options.horizontal_resolution = image_resolution
+    image_options.one_page_per_sheet = True
+    image_options.only_area = True
+
+    sheet_render = cells.rendering.SheetRender(cell_range.worksheet, image_options)
+    image_data = io.BytesIO()
+
+    sheet_render.to_image(0, image_data)
+    image_data.seek(0)
+
+    return image_data
+
 start_row, row_count = 0, 10
 start_column, column_count = 0, 13
 worksheet_index = 0
@@ -178,7 +272,7 @@ frame_width, frame_height = 400.0, 100.0
 with cells.Workbook("sample.xlsx") as workbook:
     worksheet = workbook.worksheets[worksheet_index]
 
-    # Çalışma kitabı dosyası PowerPoint'te OLE nesnesi olarak kullanıldığında görüntülenen boyutu ayarlayın.
+    # PowerPoint'te çalışma kitabı dosyası OLE nesnesi olarak kullanıldığında görüntülenen boyutu ayarlayın.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.worksheets.set_ole_size(start_row, last_row, start_column, last_column)
@@ -210,8 +304,26 @@ with cells.Workbook("sample.xlsx") as workbook:
 
 ## **Sonuç**
 
-{{% alert color="primary" %}}
-
-Çalışma sayfası yeniden boyutlandırma sorununu çözmek için iki yaklaşım vardır. Uygun yaklaşımın seçimi, belirli gereksinimlere ve kullanım durumuna bağlıdır. Her iki yaklaşım da aynı şekilde çalışır; sunumlar bir şablondan veya sıfırdan oluşturulmuş olsun fark etmez. Ayrıca, bu çözümde OLE nesne çerçevesinin boyutu için bir sınırlama yoktur.
-
+{{% alert color="info" title="Note" %}}
+Çalışma sayfası yeniden boyutlandırma sorununu çözmek için iki yaklaşım vardır. Gereksinimlerinize ve kullanım durumunuza en uygun yaklaşımı seçin. Her iki yaklaşım da, sunumlar bir şablondan veya sıfırdan oluşturulmuş olsun aynı şekilde çalışır. Ayrıca, bu çözümlerde OLE nesne çerçevesinin boyutu için bir sınır yoktur.
 {{% /alert %}}
+
+## **SSS**
+
+**Neden gömülü bir Excel çalışma sayfası PowerPoint'te ilk etkinleştirildiğinde boyut değiştirir?**  
+Bu, Excel'in etkinleştirildiğinde orijinal pencere boyutunu korumaya çalışması, PowerPoint'teki OLE nesne çerçevesinin ise kendi boyutlarına sahip olması nedeniyle olur. PowerPoint ve Excel, en boy oranını korumak için boyutu müzakere eder; bu da yeniden boyutlandırmaya neden olabilir.
+
+**Bu yeniden boyutlandırma sorunu tamamen önlenebilir mi?**  
+Evet. OLE çerçevesini Excel hücre aralığı boyutuna uygun şekilde ölçeklendirerek veya hücre aralığını istenen OLE çerçeve boyutuna sığacak şekilde ölçeklendirerek istenmeyen yeniden boyutlandırmayı önleyebilirsiniz.
+
+**Hangi ölçekleme yöntemini kullanmalıyım, OLE çerçeve ölçeklendirme mi yoksa hücre aralığı ölçeklendirme mi?**  
+Orijinal Excel satır ve sütun boyutlarını korumak istiyorsanız **OLE frame scaling** seçin. Sunumunuzda OLE çerçevesi için sabit bir boyut istiyorsanız **cell range scaling** seçin.
+
+**Bu çözümler, sunumum bir şablona dayalıysa çalışır mı?**  
+Evet. Her iki çözüm de şablondan veya sıfırdan oluşturulan sunumlarda çalışır.
+
+**Bu yöntemleri kullanırken OLE çerçevesinin boyutu için bir sınırlama var mı?**  
+Hayır. Ölçeği uygun şekilde ayarladığınız sürece OLE nesne çerçevesini istediğiniz boyuta getirebilirsiniz.
+
+**"EMBEDDED OLE OBJECT" yer tutucu metnini PowerPoint'te önlemek için bir yol var mı?**  
+Evet. Hedef Excel hücre aralığının bir anlık görüntüsünü alıp OLE çerçevesinin yer tutucu resmi olarak ayarlayarak varsayılan yer tutucu yerine özel bir önizleme resmi gösterebilirsiniz.

@@ -1,10 +1,10 @@
 ---
-title: Fungerande lösning för diagramomskalning i PPTX
+title: Fungerande lösning för diagramstorleksändring i PPTX
 type: docs
 weight: 60
 url: /sv/net/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- diagramomskalning
+- diagramstorleksändring
 - Excel-diagram
 - OLE-objekt
 - bädda in diagram
@@ -13,183 +13,100 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Åtgärda oväntad diagramomskalning i PPTX när du använder inbäddade Excel OLE-objekt med Aspose.Slides för .NET. Lär dig två metoder med kod för att hålla storlekarna konsekventa."
+description: "Fixa oväntad diagramstorleksändring i PPTX när inbäddade Excel OLE-objekt används med Aspose.Slides för .NET. Ställ in fasta diagrammått för att hålla diagrammets och OLE-ramens storlekar konsekventa."
 ---
 ## **Bakgrund**
 
-Det har observerats att Excel-diagram som bäddas in som OLE-objekt i en PowerPoint-presentation via Aspose-komponenter ändras till en ospecificerad skala efter deras första aktivering. Detta beteende orsakar en märkbar visuell skillnad i presentationen mellan diagrammets för- och efteraktiveringsstadier. Aspose-teamet har undersökt problemet i detalj och har hittat en lösning. Denna artikel beskriver orsakerna till problemet och den motsvarande åtgärden.
+Excel-diagram som bäddas in som OLE-objekt i PowerPoint-presentationer med Aspose-komponenter kan ändra storlek efter sin första aktivering. Detta kan leda till en märkbar skillnad i diagrammets utseende före och efter aktivering. Den här artikeln förklarar varför storleksändringen sker och visar hur du förhindrar den genom att matcha diagrammets fasta mått med OLE-ramen.
 
-I den [föregående artikeln](/slides/sv/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), förklarade vi hur man skapar ett Excel-diagram med Aspose.Cells för .NET och bäddar in det i en PowerPoint-presentation med Aspose.Slides för .NET. För att åtgärda [objektförhandsgranskningsproblemet](/slides/sv/net/object-preview-issue-when-adding-oleobjectframe/), tilldelade vi diagrambilden till diagrammets OLE-objektram. I den genererade presentationen, när du dubbelklickar på OLE-objektramen som visar diagrambilden, aktiveras Excel-diagrammet. Slutanvändare kan göra önskade ändringar i den underliggande Excel-arbetsboken och sedan återgå till motsvarande bild genom att klicka utanför den aktiverade arbetsboken. Storleken på OLE-objektramen förändras när användaren återvänder till bilden, och omdimensioneringsfaktorn varierar beroende på de ursprungliga storlekarna för både OLE-objektramen och den inbäddade Excel-arbetsboken.
+I [Skapa Excel-diagram och bädda in dem som OLE-objekt i presentationer](/slides/sv/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) förklarade vi hur man skapar ett Excel-diagram med Aspose.Cells for .NET och bäddar in det i en PowerPoint-presentation med Aspose.Slides for .NET. För att åtgärda [problem med objektförhandsgranskning](/slides/sv/net/object-preview-issue-when-adding-oleobjectframe/) tilldelade vi diagrambilden till diagrammets OLE-objektram. I den resulterande presentationen, när du dubbelklickar på OLE-objektramen som visar diagrambilden, aktiveras Excel-diagrammet. Användare kan redigera den inbäddade Excel-arbetsboken och sedan återgå till bilden genom att klicka utanför den aktiverade arbetsboken. Storleken på OLE-objektramen ändras när användaren återvänder till bilden, och omräkningsfaktorn varierar beroende på de ursprungliga storlekarna för både OLE-objektramen och den inbäddade Excel-arbetsboken.
 
-## **Orsak till omskalning**
+## **Orsak till storleksändring**
 
-Eftersom Excel-arbetsboken har sin egen fönsterstorlek försöker den behålla sin ursprungliga storlek vid första aktiveringen. OLE-objektramen har dock sin egen storlek. Enligt Microsoft, när Excel-arbetsboken aktiveras, förhandlar Excel och PowerPoint om storleken och behåller korrekta proportioner som en del av inbäddningsprocessen. Beroende på skillnaderna mellan Excel-fönstrets storlek och OLE-objektramens storlek eller position sker omskalning.
+Den inbäddade Excel-arbetsboken har egna fönstermått som Excel försöker bevara när objektet först aktiveras. OLE-ramen på bilden har oberoende definierade mått. När Excel-arbetsboken aktiveras förhandlar Excel och PowerPoint om objektets storlek för att behålla proportionerna som en del av inbäddningsprocessen. Skillnader mellan arbetsbokens fönster och OLE-ramen kan därför orsaka att objektet ändrar storlek.
 
 ## **Fungerande lösning**
 
-Det finns två möjliga scenarier för att skapa PowerPoint-presentationer med Aspose.Slides för .NET.
+Matcha diagrammets storlek med OLE-ramen på bilden och håll diagrammets mått oberoende av arbetsbokens fönster. Denna lösning fungerar med en ny presentation eller en befintlig mall.
 
-**Scenario 1:** Skapa en presentation baserad på en befintlig mall.
+Exemplet kräver Aspose.Cells for .NET och Aspose.Slides for .NET. Det skapar ett enkelt stapeldiagram på ett aktivt diagramblad och bäddar in arbetsboken i XLS-format. Ingen diagramförhandsgranskningsbild tilldelas; diagrammet blir synligt när OLE-objektet aktiveras i PowerPoint.
 
-**Scenario 2:** Skapa en presentation från början.
+Exemplet skapar en ny presentation med en 9,5 × 4 tum stor OLE-ram placerad 0,5 tum från vänsterkanten och 1 tum från toppen. Bildens koordinater och mått anges i punkt (72 punkt per tum). För en befintlig presentation, se [Använd en mall](#use-a-template).
 
-Lösningen vi tillhandahåller här gäller för båda scenarierna. Grunden för alla lösningsmetoder är densamma: **det inbäddade OLE-objektets fönsterstorlek ska matcha OLE-objektramen i PowerPoint-bilden**. Vi kommer nu att diskutera de två tillvägagångssätten för denna lösning.
+## **Ställ in en fast diagramstorlek**
 
-## **Första tillvägagångssättet**
-
-I detta tillvägagångssätt kommer vi att lära oss hur man ställer in fönsterstorleken för den inbäddade Excel-arbetsboken så att den matchar storleken på OLE-objektramen i PowerPoint-bilden.
-
-**Scenario 1**  
-
-Anta att vi har definierat en mall och vill skapa presentationer baserade på den. Anta att det finns en form på index 2 i mallen där vi vill placera en OLE-ram som innehåller en inbäddad Excel-arbetsbok. I detta scenario är storleken på OLE-objektramen fördefinierad — den matchar storleken på formen på index 2 i mallen. Allt vi behöver göra är att sätta arbetsbokens fönsterstorlek lika med den formens storlek. Följande kodavsnitt tjänar detta ändamål:
+Ställ in [SizeWithWindow](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/sizewithwindow/) till false så att diagrammets mått är oberoende av arbetsbokens fönster. Ställ in [ChartObject](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/chartobject/)-måtten via [Width](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/width/) och [Height](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/height/), konvertera punkt till pixlar med 96 pixlar per tum: en ram på 684 × 288 punkt motsvarar ett diagram på 912 × 384 pixlar. Ställ in [PrintSize](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/printsize/) till värdet Custom för [PrintSizeType](https://reference.aspose.com/cells/net/aspose.cells/printsizetype/). Exemplet bäddar in arbetsboken med [AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addoleobjectframe/) och sparar en presentation med en 9,5 × 4 tum OLE-ram.
 
 ```cs
-// Definiera diagrammets storlek med ett fönster. 
-chart.SizeWithWindow = true;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
 
-// Ange arbetsbokens fönsterbredd i tum (delat med 72 eftersom PowerPoint använder 72 pixlar per tum).
-workbook.Worksheets.WindowWidthInch = slide.Shapes[2].Width / 72f;
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "Data";
+dataSheet.Cells["A1"].PutValue(10);
+dataSheet.Cells["A2"].PutValue(20);
 
-// Ange arbetsbokens fönsterhöjd i tum.
-workbook.Worksheets.WindowHeightInch = slide.Shapes[2].Height / 72f;
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, 20, 10);
+var chart = chartSheet.Charts[chartIndex];
+chart.NSeries.Add("Data!A1:A2", true);
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
 
-// Spara arbetsboken till en minnesström.
-MemoryStream workbookStream = workbook.SaveToStream();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Skapa en OLE-objektram med de inbäddade Excel-data.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
+// Bildens koordinater och mått är i punkter (72 punkter per tum).
+var width = 684f; // 9,5 tum.
+var height = 288f; // 4 tum.
 
-**Scenario 2**  
-
-Låt oss säga att vi vill skapa en presentation från början och inkludera en OLE-objektram av valfri storlek med en inbäddad Excel-arbetsbok. I följande kodavsnitt skapar vi en OLE-objektram som är 4 tum hög och 9,5 tum bred vid x = 0,5 tum och y = 1 tum på bilden. Vi sätter sedan Excel-arbetsbokens fönster till samma storlek — 4 tum hög och 9,5 tum bred.
-
-```cs
-// Vår önskade höjd.
-int desiredHeight = 288; // 4 tum (4 * 72)
-
-// Vår önskade bredd.
-int desiredWidth = 684;//9.5 tum (9.5 * 72)
-
-// Definiera diagrammets storlek med ett fönster.
-chart.SizeWithWindow = true;
-
-// Ange arbetsbokens fönsterbredd i tum.
-workbook.Worksheets.WindowWidthInch = desiredWidth / 72f;
-
-// Ange arbetsbokens fönsterhöjd i tum.
-workbook.Worksheets.WindowHeightInch = desiredHeight / 72f;
-
-// Spara arbetsboken till en minnesström.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// Skapa en OLE-objektram med de inbäddade Excel-data.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
-
-## **Andra tillvägagångssättet**
-
-I detta tillvägagångssätt kommer vi att lära oss hur man ställer in diagrammets storlek i den inbäddade Excel-arbetsboken så att den matchar storleken på OLE-objektramen i PowerPoint-bilden. Detta tillvägagångssätt är användbart när diagrammets storlek är känd i förväg och aldrig kommer att förändras.
-
-**Scenario 1**  
-
-Anta att vi har definierat en mall och vill skapa presentationer baserade på den. Anta att det finns en form på index 2 i mallen där vi avser att placera en OLE-ram som innehåller en inbäddad Excel-arbetsbok. I detta scenario är OLE-ramens storlek fördefinierad — den matchar storleken på formen på index 2 i mallen. Allt vi behöver göra är att sätta diagrammets storlek i arbetsboken lika med formens storlek. Följande kodavsnitt tjänar detta ändamål:
-
-```cs
-// Definiera diagrammets storlek utan fönster. 
 chart.SizeWithWindow = false;
+// Konvertera punkter till diagrampixlar med 96 pixlar per tum.
+chart.ChartObject.Width = (int)(width / 72f * 96f);
+chart.ChartObject.Height = (int)(height / 72f * 96f);
+chart.PrintSize = Aspose.Cells.PrintSizeType.Custom;
 
-// Sätt diagrammets bredd i pixlar (multiplicera med 96 eftersom Excel använder 96 pixlar per tum).    
-chart.ChartObject.Width = (int)((slide.Shapes[2].Width / 72f) * 96f);
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Excel97To2003);
+var dataInfo = new OleEmbeddedDataInfo(workbookStream.ToArray(), "xls");
+slide.Shapes.AddOleObjectFrame(36, 72, width, height, dataInfo);
 
-// Sätt diagrammets höjd i pixlar.
-chart.ChartObject.Height = (int)((slide.Shapes[2].Height / 72f) * 96f);
-
-// Definiera diagrammets utskriftsstorlek.
-chart.PrintSize = PrintSizeType.Custom;
-
-// Spara arbetsboken till en minnesström.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// Skapa en OLE-objektram med de inbäddade Excel-data.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
+presentation.Save("chart-fixed-size.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-**Scenario 2**  
+## **Använd en mall**
 
-Anta att vi vill skapa en presentation från början och inkludera en OLE-objektram av valfri storlek med en inbäddad Excel-arbetsbok. I följande kodavsnitt skapar vi en OLE-objektram med en höjd på 4 tum och en bredd på 9,5 tum på bilden vid x = 0,5 tum och y = 1 tum. Vi sätter även det motsvarande diagrammets storlek till samma dimensioner: en höjd på 4 tum och en bredd på 9,5 tum.
+Storlekslogiken är densamma för en befintlig presentation. För att anpassa exemplet:
 
-```cs
- // Vår önskade höjd.
-int desiredHeight = 288; // 4 tum (4 * 576)
+1. Läs in mallpresentationen istället för att skapa en tom presentation.  
+2. Kontrollera att den första bilden innehåller minst tre former och använd formen med index 2 som platshållare.  
+3. Hämta ramens bredd och höjd från den formen istället för att använda de fasta värdena 684 och 288. Behåll beräkningarna oförändrade.  
+4. Lägg till OLE-ramen på platshållarens position istället för de fasta koordinaterna 36 och 72.  
+5. Ta bort platshållaren innan presentationen sparas.
 
-// Vår önskade bredd.
-int desiredWidth = 684; // 9.5 tum (9.5 * 576)
+## **Vanliga frågor**
 
-// Definiera diagrammets storlek utan fönster. 
-chart.SizeWithWindow = false;
+**Varför ändras mitt inbäddade Excel-diagram i storlek efter att det aktiverats i PowerPoint?**
 
-// Sätt diagrammets bredd i pixlar.   
-chart.ChartObject.Width = (int)((desiredWidth / 72f) * 96f);
+Detta beror på att Excel försöker återställa det ursprungliga fönsterstorleken vid första aktiveringen, medan OLE-objektramen i PowerPoint har egna mått. PowerPoint och Excel förhandlar om storleken för att behålla bildförhållandet, vilket kan leda till storleksändring.
 
-// Sätt diagrammets höjd i pixlar.    
-chart.ChartObject.Height = (int)((desiredHeight / 72f) * 96f);
+**Hur kan jag hålla diagrammets och OLE-ramens storlekar konsistenta?**
 
-// Spara arbetsboken till en minnesström.
-MemoryStream workbookStream = workbook.SaveToStream();
+Ange fasta diagrammått som matchar OLE-ramen och använd en anpassad diagramutskriftsstorlek innan du bäddar in arbetsboken. Exemplet ovan visar de nödvändiga inställningarna och enhetsomräkningarna.
 
-// Skapa en OLE-objektram med de inbäddade Excel-data.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
+**Är det tillräckligt att matcha arbetsbokens fönsterstorlek?**
 
-## **Slutsats**
+Att bara matcha arbetsbokens fönsterstorlek förhindrar inte på ett tillförlitligt sätt att OLE-ramen ändrar storlek efter aktivering. Använd fasta diagrammått som visas i exemplet.
 
-Det finns två tillvägagångssätt för att lösa problemet med diagramomskalning. Valet av tillvägagångssätt beror på krav och användningsfall. Båda tillvägagångssätten fungerar på samma sätt oavsett om presentationerna skapas från en mall eller från början. Dessutom finns det ingen gräns för storleken på OLE-objektramen i denna lösning.
+**Fungerar den här lösningen både för mallbaserade presentationer och nya presentationer?**
 
-## **FAQ**
+Ja. För en mall, använd platshållarens mått och position. För en ny presentation, ange ramens mått och position direkt.
 
-**Varför ändrar mitt inbäddade Excel-diagram storlek efter att det aktiverats i PowerPoint?**  
-Detta händer eftersom Excel försöker återställa den ursprungliga fönsterstorleken vid första aktivering, medan OLE‑objektramen i PowerPoint har sina egna dimensioner. PowerPoint och Excel förhandlar om storleken för att behålla bildförhållandet, vilket kan leda till omskalning.
+**Kan jag använda det här exemplet med diagram som skapats i andra kalkylprogram?**
 
-**Är det möjligt att helt förhindra detta omskalningsproblem?**  
-Ja. Genom att matcha Excel‑arbetsbokens fönsterstorlek eller diagrammets storlek till OLE‑objektramens storlek innan inbäddning kan du hålla diagrammens storlekar konsekventa.
-
-**Vilket tillvägagångssätt bör jag använda, att sätta arbetsbokens fönsterstorlek eller att sätta diagrammets storlek?**  
-Använd **Tillvägagångssätt 1 (fönsterstorlek)** om du vill behålla arbetsbokens bildförhållande och eventuellt tillåta storleksändring senare.  
-Använd **Tillvägagångssätt 2 (diagramstorlek)** om diagrammets dimensioner är fasta och inte kommer att förändras efter inbäddning.
-
-**Kommer dessa metoder att fungera med både mallbaserade presentationer och nya presentationer?**  
-Ja. Båda tillvägagångssätten fungerar på samma sätt för presentationer skapade från mallar och från början.
-
-**Finns det någon gräns för storleken på OLE‑objektramen?**  
-Nej. Du kan sätta OLE‑ramen till vilken storlek som helst så länge den skalas lämpligt till arbetsbokens eller diagrammets storlek.
-
-**Kan jag använda dessa metoder med diagram skapade i andra kalkylprogram?**  
-Exemplen är utformade för Excel‑diagram skapade med Aspose.Cells, men principerna gäller även för andra OLE‑kompatibla kalkylprogram så länge de stöder liknande storleksalternativ.
+Exemplet använder en Excel-arbetsbok skapad med Aspose.Cells. Det demonstrerar inte aktiveringsbeteende för andra kalkylprogram.
 
 ## **Relaterade avsnitt**
 

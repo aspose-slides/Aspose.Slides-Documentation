@@ -1,56 +1,56 @@
 ---
-title: 使用形状锁防止演示文稿编辑
-linktitle: 防止演示文稿编辑
+title: 使用形状锁在 Python 中限制演示文稿编辑
+linktitle: 限制演示文稿编辑
 type: docs
 weight: 60
 url: /zh/python-java/applying-protection-to-presentation/
 keywords:
 - 防止编辑
-- 防止被编辑
+- 防止修改
 - 锁定形状
 - 锁定位置
 - 锁定选择
-- 锁定大小
+- 锁定调整大小
 - 锁定分组
 - PowerPoint
-- OpenDocument
+- PPTX
 - 演示文稿
 - Python
 - Java
 - Aspose.Slides
-description: "了解 Aspose.Slides for Python via Java 如何在 PPT、PPTX 和 ODP 文件中锁定或解锁形状，保障演示文稿安全，同时实现受控编辑和更快交付。"
+description: "了解如何使用 Aspose.Slides for Python via Java 在 PPTX 演示文稿中锁定和解锁形状，以限制选择、移动、调整大小和分组。"
 ---
 ## **背景**
 
-Aspose.Slides 的一个常见用法是作为自动化工作流的一部分创建、更新并保存 Microsoft PowerPoint (PPTX) 演示文稿。以这种方式使用 Aspose.Slides 的应用程序的用户可以访问生成的演示文稿，因此保护它们不被编辑是一个常见的关注点。确保自动生成的演示文稿保留其原始格式和内容非常重要。
+在使用 Aspose.Slides for Python via Java 时，一个常见的用途是创建、更新并保存 PowerPoint (PPTX) 演示文稿，以实现自动化工作流。当用户收到这些演示文稿时，限制对形状的更改可以帮助保持预期的布局和内容。
 
-本文阐述了演示文稿和幻灯片的结构，以及 Aspose.Slides for Python via Java 如何对演示文稿应用保护并随后移除保护。它为开发人员提供了一种方式，来控制其应用程序生成的演示文稿的使用方式。
+本文说明了形状在幻灯片上的组织方式以及如何在 PPTX 演示文稿中应用和移除形状锁定。这些锁定允许您限制对单个形状的特定编辑操作。
 
 ## **幻灯片的组成**
 
-演示文稿的幻灯片由自动形状、表格、OLE 对象、组合形状、图片框、视频框、连接线以及用于构建演示文稿的其他元素等组件组成。在 Aspose.Slides for Python via Java 中，幻灯片上的每个元素都由继承自 [Shape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/) 类的对象表示。
+演示文稿幻灯片由自动形状、表格、OLE 对象、组合形状、图片框、视频框、连接线以及用于构建演示文稿的其他元素组成。在 Aspose.Slides for Python via Java 中，幻灯片上的每个元素都由继承自[Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/)类的对象表示。
 
-PPTX 的结构很复杂，因此不同于 PPT（可以对所有类型的形状使用通用锁），不同的形状类型需要不同的锁。[BaseShapeLock](https://reference.aspose.com/slides/zh/python-java/aspose.slides/baseshapelock/) 类是 PPTX 的通用锁定类。Aspose.Slides for Python via Java 在 PPTX 中支持以下类型的锁：
+不同的形状类型提供不同的锁定选项。[BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/)类是形状锁定的基类。Aspose.Slides for Python via Java 提供以下锁定类：
 
-- [AutoShapeLock](https://reference.aspose.com/slides/zh/python-java/aspose.slides/autoshapelock/) 锁定自动形状。  
-- [ConnectorLock](https://reference.aspose.com/slides/zh/python-java/aspose.slides/connectorlock/) 锁定连接线形状。  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/zh/python-java/aspose.slides/graphicalobjectlock/) 锁定图形对象。  
-- [GroupShapeLock](https://reference.aspose.com/slides/zh/python-java/aspose.slides/groupshapelock/) 锁定组合形状。  
-- [PictureFrameLock](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pictureframelock/) 锁定图片框。  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) 用于锁定自动形状。  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) 用于锁定连接线形状。  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) 用于锁定图形对象。  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) 用于锁定组合形状。  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) 用于锁定图片框。  
 
-对 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 对象中所有形状对象执行的任何操作都会应用于整个演示文稿。
+要在整个[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)中应用锁定，遍历其每张幻灯片并在每个受支持的形状上设置相应的锁定。
 
 ## **应用和移除保护**
 
-应用保护可确保演示文稿无法被编辑。这是一种保护演示文稿内容的有效技术。
+形状锁定限制诸如选择、移动和调整大小等操作。它们并不会使整个演示文稿不可编辑。
 
 ### **对 PPTX 形状应用保护**
 
-Aspose.Slides for Python via Java 提供了用于在幻灯片上操作形状的 [Shape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/) 类。
+Aspose.Slides for Python via Java 提供[Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/)类以操作幻灯片上的形状。
 
-如前所述，每个形状类都有对应的形状锁定类用于保护。本文重点介绍 NoSelect、NoMove 和 NoResize 锁。这些锁可确保形状无法被选中（通过鼠标点击或其他选择方式），并且不能被移动或调整大小。
+示例调用[setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked)、[setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked)和[setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked)，对自动形状传入`True`，对组合形状、连接线和图片框使用等效的锁定。连接线使用[setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove)来限制移动；组合形状还使用[setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked)来限制分组。
 
-下面的代码示例对演示文稿中的所有形状类型应用保护。
+示例加载现有的 PPTX 演示文稿，检查每张幻灯片的形状集合，并保存一个已应用这些限制的副本。四种处理类型之外的形状保持不变。循环不会遍历组合内部的子形状。
 
 ```python
 import jpype
@@ -61,12 +61,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# 实例化表示 PPTX 文件的 Presentation 类。
 presentation = Presentation("Sample.pptx")
 try:
-    # 遍历演示文稿中的所有幻灯片。
     for slide in presentation.getSlides():
-        # 遍历幻灯片中的所有形状。
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -90,7 +87,6 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # 保存演示文稿文件。
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -98,7 +94,7 @@ finally:
 
 ### **移除保护**
 
-要解锁形状，需要将已应用的锁的值设为 `False`。以下代码示例展示了如何在已锁定的演示文稿中解锁形状。
+要移除形状锁定，只需将其值设为`False`。以下示例加载一个带有形状锁定的演示文稿，并通过[AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/)、[GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/)、[ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/)和[PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/)清除选择、移动和调整大小的限制。它还通过将`False`传递给[GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked)来移除分组限制，并保存演示文稿的副本。其他锁定设置保持不变。
 
 ```python
 import jpype
@@ -109,12 +105,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# 实例化表示 PPTX 文件的 Presentation 类。
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # 遍历演示文稿中的所有幻灯片。
     for slide in presentation.getSlides():
-        # 遍历幻灯片中的所有形状。
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -138,26 +131,25 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # 保存演示文稿文件。
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **结论**
+### **结论**
 
-Aspose.Slides 提供了多种方式来保护演示文稿中的形状。您可以锁定单个形状，或遍历演示文稿中的所有形状并逐一锁定，从而有效地保护整个文件。通过将锁的值设为 `False`，即可移除保护。
+Aspose.Slides for Python via Java 让您能够对单个形状限制特定的编辑操作，或在整张幻灯片上应用相同的限制。选择每种形状类型支持的锁定，并在需要移除这些限制时将其值设为`False`。
 
 ## **常见问题**
 
-**我可以在同一演示文稿中同时使用形状锁和密码保护吗？**
+**我可以在同一演示文稿中同时使用形状锁定和密码保护吗？**
 
-可以。锁定限制文件内部对象的编辑，而 [password protection](/slides/zh/python-java/password-protected-presentation/) 控制打开和/或保存更改的访问权限。这两种机制相互补充并协同工作。
+可以。形状锁定限制特定的编辑操作，而[password protection](/slides/zh/python-java/password-protected-presentation/)可以限制打开或修改演示文稿。两者可以在同一个文件中共存。
 
-**我可以仅限制特定幻灯片的编辑，而不影响其他幻灯片吗？**
+**我能否仅对特定幻灯片进行编辑限制而不影响其他幻灯片？**
 
-可以。对选定幻灯片上的形状应用锁定，其余幻灯片仍保持可编辑。
+可以。仅对选定幻灯片上的形状应用锁定，这不会更改其他幻灯片的锁定设置。
 
-**形状锁是否适用于组合对象和连接线？**
+**如何对组合内部的单个形状应用锁定？**
 
-可以。针对组合、连接线、图形对象以及其他形状类型提供了专用的锁定类型。
+遍历组合的[getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes)方法返回的集合，并对每个子形状应用相应的锁定。对任何嵌套的组合重复此操作。上述示例仅处理幻灯片的形状集合，因此未对组合成员单独设置锁定。

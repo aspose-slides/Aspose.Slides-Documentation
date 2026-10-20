@@ -1,221 +1,145 @@
 ---
-title: PPTX のチャートリサイズの実用的解決策
+title: PPTX のチャートサイズ変更に対する実用的解決策
 type: docs
 weight: 60
 url: /ja/cpp/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- チャートリサイズ
+- チャート サイズ変更
 - Excel チャート
 - OLE オブジェクト
 - チャート埋め込み
 - PowerPoint
-- OpenDocument
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して埋め込み Excel OLE オブジェクトで PPTX の予期しないチャートリサイズを修正します。サイズを一貫させるための2つのコード付き手法を学びましょう。"
+description: "Aspose.Slides for C++ を使用して埋め込まれた Excel OLE オブジェクトで PPTX の予期しないチャートサイズ変更を修正します。チャートと OLE フレームのサイズを一貫させるために、固定のチャート寸法を設定します。"
 ---
-
 ## **背景**
 
-Excel のチャートを Aspose コンポーネントを使用して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込むと、最初にアクティブ化した後にスケールが不定になるようにサイズが変更されることが確認されています。この動作により、チャートのアクティベーション前後でプレゼンテーションの見た目に顕著な違いが生じます。Aspose チームは問題を詳細に調査し、解決策を見つけました。本記事では問題の原因と対応策について説明します。
+Aspose コンポーネントを使用して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込まれた Excel グラフは、最初にアクティブ化された後にサイズが変わることがあります。これにより、アクティブ化前後でグラフの外観に顕著な差が生じることがあります。本記事ではサイズ変更が発生する理由を説明し、固定されたチャートサイズを OLE フレームに合わせることでそれを防止する方法を示します。
 
-[前の記事](/slides/ja/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)では、Aspose.Cells for C++ を使って Excel チャートを作成し、Aspose.Slides for C++ を使って PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込む方法を解説しました。[オブジェクト プレビューの問題](/slides/ja/cpp/object-preview-issue-when-adding-oleobjectframe/)に対処するため、チャート画像をチャートの OLE オブジェクト フレームに割り当てました。出力されたプレゼンテーションで、チャート画像が表示された OLE オブジェクト フレームをダブルクリックすると Excel チャートがアクティブ化されます。エンドユーザーは基になる Excel ワークブックで任意の変更を行い、アクティブ化されたワークブックの外側をクリックして対応するスライドに戻ります。ユーザーがスライドに戻ると OLE オブジェクト フレームのサイズが変わり、リサイズ率は OLE オブジェクト フレームと埋め込まれた Excel ワークブックの元のサイズに依存します。
+In [PowerPoint プレゼンテーションに OLE オブジェクトとして Excel グラフを作成して埋め込む](/slides/ja/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), we explained how to create an Excel chart with Aspose.Cells for C++ and embed it in a PowerPoint presentation using Aspose.Slides for C++. To address the [オブジェクト プレビューの問題](/slides/ja/cpp/object-preview-issue-when-adding-oleobjectframe/), we assigned the chart image to the chart’s OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the chart image, the Excel chart is activated. Users can edit the embedded Excel workbook and then return to the slide by clicking outside the activated workbook. The size of the OLE object frame changes when the user returns to the slide, and the resizing factor varies depending on the original sizes of both the OLE object frame and the embedded Excel workbook.
 
-## **リサイズの原因**
+## **サイズ変更の原因**
 
-Excel ワークブックは独自のウィンドウサイズを持っているため、最初のアクティベーション時に元のサイズを保持しようとします。一方、OLE オブジェクト フレームにも独自のサイズがあります。Microsoft によると、Excel ワークブックがアクティブ化されると、Excel と PowerPoint がサイズを調整し、埋め込みプロセスの一部として正しい比率を保ちます。Excel ウィンドウサイズと OLE オブジェクト フレームのサイズまたは位置の違いに応じて、リサイズが発生します。
+埋め込まれた Excel ワークブックは独自のウィンドウサイズを持っており、Excel はオブジェクトが最初にアクティブ化されたときにそのサイズを維持しようとします。スライド上の OLE フレームは別個に定義されたサイズを持っています。Excel ワークブックがアクティブ化されると、Excel と PowerPoint がオブジェクトのサイズを交渉し、埋め込みプロセスの一部として比例を保ちます。ワークブックウィンドウと OLE フレーム間の違いが、オブジェクトのサイズ変更を引き起こす原因となります。
 
-## **実装可能な解決策**
+## **実用的な解決策**
 
-Aspose.Slides for C++ を使用して PowerPoint プレゼンテーションを作成するシナリオは主に 2 つあります。
+チャートのサイズをスライド上の OLE フレームに合わせ、チャートの寸法をワークブックウィンドウとは独立させます。このソリューションは新規プレゼンテーションでも既存のテンプレートでも機能します。
 
-**シナリオ 1:** 既存のテンプレートを基にプレゼンテーションを作成する。
+この例は Aspose.Cells for C++ と Aspose.Slides for C++ が必要です。アクティブなチャートシートにシンプルな縦棒グラフを作成し、ブックを XLS 形式で埋め込みます。プレビュー画像は割り当てず、PowerPoint で OLE オブジェクトがアクティブ化されたときにチャートが表示されます。
 
-**シナリオ 2:** ゼロからプレゼンテーションを作成する。
+例のコードはアプリケーションのエントリポイントに配置し、インクルード宣言はファイルスコープに置きます。Aspose.Cells のオブジェクトを作成する前に初期化し、オブジェクトが破棄された後にリソースを解放します。例では Aspose.Cells が返すブックのバイトベクターを Aspose.Slides が受け入れる配列型にコピーしています。
 
-ここで示す解決策は両シナリオに適用できます。すべてのアプローチの基本は同じです：**埋め込まれた OLE オブジェクトのウィンドウサイズを PowerPoint スライド上の OLE オブジェクト フレームと一致させる**ことです。以下で 2 つのアプローチを説明します。
+例は 9.5 × 4 インチの OLE フレームを左端から 0.5 インチ、上端から 1 インチの位置に作成します。スライド座標とサイズはポイント単位（1 インチ＝72 ポイント）です。既存のプレゼンテーションの場合は、[テンプレートの使用](#use-a-template) を参照してください。
 
-## **アプローチ 1**
-
-このアプローチでは、埋め込まれた Excel ワークブックのウィンドウサイズを PowerPoint スライド上の OLE オブジェクト フレームのサイズに合わせる方法を学びます。
-
-**シナリオ 1**
-
-テンプレートが定義済みで、テンプレートに基づいてプレゼンテーションを作成したいとします。テンプレートのインデックス 2 にあるシェイプに埋め込み Excel ワークブックを含む OLE フレームを配置したいと想定します。このシナリオでは、OLE オブジェクト フレームのサイズは事前に決まっており、インデックス 2 のシェイプのサイズと一致します。やるべきことは、ワークブックのウィンドウサイズをそのシェイプのサイズと同じに設定することです。以下のコードスニペットがその例です。
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <algorithm>
+#include <cstdint>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+Aspose::Cells::Startup();
 {
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"Data");
+    dataSheet.GetCells().Get(u"A1").PutValue(10);
+    dataSheet.GetCells().Get(u"A2").PutValue(20);
 
-    return outputStream;
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, 20, 10);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    chart.GetNSeries().Add(u"Data!A1:A2", true);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    // スライドの座標とサイズはポイント単位です（1 インチ = 72 ポイント）。
+    auto width = 684.f; // 9.5 インチです。
+    auto height = 288.f; // 4 インチです。
+
+    chart.SetSizeWithWindow(false);
+    // ポイントをインチあたり 96 ピクセルの比率でチャートのピクセルに変換します。
+    chart.GetChartObject().SetWidth(static_cast<int32_t>(width / 72.f * 96.f));
+    chart.GetChartObject().SetHeight(static_cast<int32_t>(height / 72.f * 96.f));
+    chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
+
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
+    // Cells のバイトベクターを Slides が受け入れる配列型にコピーします。
+    auto workbookBytes = System::MakeArray<uint8_t>(workbookData.GetLength(), 0);
+    std::copy(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength(), workbookBytes->data_ptr());
+    auto dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xls");
+    slide->get_Shapes()->AddOleObjectFrame(36, 72, width, height, dataInfo);
+
+    presentation->Save(u"chart-fixed-size.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
 }
+Aspose::Cells::Cleanup();
 ```
 
-```cpp
-// ウィンドウを使用してチャートのサイズを設定します。
-chart->SetSizeWithWindow(true);
+## **固定チャートサイズの設定**
 
-auto shape = slide->get_Shape(2);
+[Chart::SetSizeWithWindow](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setsizewithwindow/) を false に設定して、チャートの寸法がワークブックウィンドウに依存しないようにします。チャートオブジェクトのサイズは [Chart::GetChartObject](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/getchartobject/) から取得し、[Shape::SetWidth](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setwidth/) と [Shape::SetHeight](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setheight/) で設定します。ポイントをピクセルに変換する際は 1 インチ＝96 ピクセルを使用します。たとえば 684 × 288 ポイントのフレームは 912 × 384 ピクセルのチャートに相当します。[Chart::SetPrintSize](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setprintsize/) を [PrintSizeType](https://reference.aspose.com/cells/cpp/aspose.cells/printsizetype/) の Custom 値に設定します。例では [IShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addoleobjectframe/) を使用してブックを埋め込み、9.5 × 4 インチの OLE フレームを持つプレゼンテーションを保存します。
 
-// Set the window width of the workbook in inches (divided by 72 as PowerPoint uses 72 pixels per inch).
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
+## **テンプレートの使用**
 
-// Set the window height of the workbook in inches.
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
+既存のプレゼンテーションでも同様のサイズロジックを使用します。例を適用する手順は次のとおりです。
 
-// Save the workbook to a memory stream.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Create an OLE object frame with the embedded Excel data.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(), 
-    shape->get_Height(),
-    dataInfo);
-```
-
-
-**シナリオ 2**
-
-ゼロからプレゼンテーションを作成し、任意のサイズの OLE オブジェクト フレームに埋め込み Excel ワークブックを配置したいとします。以下のコードスニペットでは、スライド上の x = 0.5 インチ、y = 1 インチの位置に高さ 4 インチ、幅 9.5 インチの OLE オブジェクト フレームを作成し、Excel ワークブックのウィンドウも同じサイズ（高さ 4 インチ、幅 9.5 インチ）に設定します。
-```cpp
-// 目的の高さ。
-int32_t desiredHeight = 288; // 4 インチ (4 * 72)
-
-// 目的の幅。
-int32_t desiredWidth = 684; // 9.5 インチ (9.5 * 72)
-
-// ウィンドウでチャートサイズを定義する。 
-chart->SetSizeWithWindow(true);
-
-// ワークブックのウィンドウ幅をインチ単位で設定する。
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
-
-// ワークブックのウィンドウ高さをインチ単位で設定する。
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
-
-// ワークブックをメモリストリームに保存する。
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Create an OLE object frame with the embedded Excel data.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f,
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-
-## **アプローチ 2**
-
-このアプローチでは、埋め込まれた Excel ワークブック内のチャートサイズを PowerPoint スライド上の OLE オブジェクト フレームのサイズに合わせる方法を学びます。この方法は、チャートサイズが事前に分かっていて変更されない場合に有効です。
-
-**シナリオ 1**
-
-テンプレートが定義済みで、テンプレートに基づいてプレゼンテーションを作成したいとします。テンプレートのインデックス 2 にあるシェイプに埋め込み Excel ワークブックを含む OLE フレームを配置したいと想定します。このシナリオでは、OLE フレームのサイズは事前に決まっており、インデックス 2 のシェイプのサイズと一致します。やるべきことは、ワークブック内のチャートサイズをそのシェイプのサイズと同じに設定することです。以下のコードスニペットがその例です。
-```cpp
-// ウィンドウなしでチャートサイズを定義します。 
-chart->SetSizeWithWindow(false);
-
-auto shape = slide->get_Shape(2);
-
-// ピクセル単位でチャート幅を設定します（Excel は 1 インチあたり 96 ピクセルを使用するため、96 倍します）。    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
-
-// ピクセル単位でチャート高さを設定します。
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
-
-// チャートの印刷サイズを定義します。
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
-
-// ワークブックをメモリストリームに保存します。
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// 埋め込まれた Excel データで OLE オブジェクトフレームを作成します。
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(),
-    shape->get_Height(),
-    dataInfo);
-```
-
-
-**シナリオ 2**
-
-ゼロからプレゼンテーションを作成し、任意のサイズの OLE オブジェクト フレームに埋め込み Excel ワークブックを配置したいとします。以下のコードスニペットでは、スライド上の x = 0.5 インチ、y = 1 インチの位置に高さ 4 インチ、幅 9.5 インチの OLE オブジェクト フレームを作成し、対応するチャートサイズも同じ寸法（高さ 4 インチ、幅 9.5 インチ）に設定します。
-```cpp
-// 目的の高さ。
-int32_t desiredHeight = 288; // 4 インチ (4 * 576)
-
-// 目的の幅。
-int32_t desiredWidth = 684; // 9.5 インチ(9.5 * 576)
-
-// ウィンドウなしでチャートサイズを定義します。 
-chart->SetSizeWithWindow(false);
-
-// ピクセル単位でチャート幅を設定します。    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
-
-// ピクセル単位でチャート高さを設定します。
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
-
-// ワークブックをメモリストリームに保存します。
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// 埋め込まれた Excel データで OLE オブジェクトフレームを作成します。
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f, 
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-
-## **結論**
-
-チャートのリサイズ問題を修正する方法は 2 つあります。どちらのアプローチを選択するかは要件とユースケースに依存します。テンプレートから作成する場合でもゼロから作成する場合でも、両アプローチは同様に機能します。また、このソリューションでは OLE オブジェクト フレームのサイズに上限はありません。
+1. 空のプレゼンテーションを作成する代わりにテンプレートプレゼンテーションを読み込みます。  
+2. 最初のスライドに少なくとも 3 つのシェイプがあることを確認し、インデックス 2 のシェイプをプレースホルダーとして使用します。  
+3. 固定値 684 と 288 の代わりに、そのシェイプからフレームの幅と高さを取得します。サイズ計算は変更しません。  
+4. プレースホルダーの位置に OLE フレームを配置し、固定座標 36 と 72 は使用しません。  
+5. プレゼンテーションを保存する前にプレースホルダーを削除します。
 
 ## **FAQ**
 
-**埋め込んだ Excel チャートが PowerPoint でアクティブ化後にサイズが変わるのはなぜですか？**
+**PowerPoint でアクティブ化した後に埋め込み Excel グラフのサイズが変わるのはなぜですか？**
 
-Excel が最初にアクティブ化されたときに元のウィンドウサイズを復元しようとするのに対し、PowerPoint の OLE オブジェクト フレームは独自の寸法を持っているためです。PowerPoint と Excel がサイズを交渉し、アスペクト比を保つ過程でリサイズが発生します。
+Excel が最初にアクティブ化されたときに元のウィンドウサイズを復元しようとし、PowerPoint の OLE オブジェクトフレームは独自の寸法を持つためです。PowerPoint と Excel がサイズとアスペクト比を調整して交渉する結果、サイズ変更が発生します。
 
-**このリサイズ問題を完全に防ぐことはできますか？**
+**チャートと OLE フレームのサイズを一貫させるにはどうすればよいですか？**
 
-はい。埋め込む前に Excel ワークブックのウィンドウサイズまたはチャートサイズを OLE オブジェクト フレームのサイズと一致させれば、チャートサイズの一貫性を保つことができます。
+固定されたチャート寸法を OLE フレームに合わせ、埋め込む前にカスタムのチャート印刷サイズを設定します。上記の例に示す設定と単位変換を参照してください。
 
-**ウィンドウサイズを合わせる方法とチャートサイズを合わせる方法、どちらを選べばよいですか？**
+**ワークブックウィンドウのサイズを合わせるだけで十分ですか？**
 
-- ワークブックのアスペクト比を維持したい、または後からサイズ変更の余地を残したい場合は **アプローチ 1（ウィンドウサイズ）** を使用してください。  
-- チャートの寸法が固定で埋め込み後に変更しない場合は **アプローチ 2（チャートサイズ）** を使用してください。
+ワークブックウィンドウのサイズを合わせるだけでは、アクティブ化後に OLE フレームのサイズが変わることを確実に防げません。例にあるように固定チャート寸法を使用してください。
 
-**これらの方法はテンプレートベースのプレゼンテーションと新規プレゼンテーションの両方で機能しますか？**
+**このソリューションはテンプレートベースのプレゼンテーションと新規プレゼンテーションの両方で機能しますか？**
 
-はい。両アプローチはテンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも同様に機能します。
+はい。テンプレートの場合はプレースホルダーの寸法と位置を使用し、新規プレゼンテーションの場合はフレームの寸法と位置を直接指定します。
 
-**OLE オブジェクト フレームのサイズに制限はありますか？**
+**他のスプレッドシートプログラムで作成したチャートでもこの例を使用できますか？**
 
-いいえ。OLE フレームはワークブックまたはチャートのサイズに合わせて適切にスケーリングできる限り、任意のサイズに設定できます。
-
-**他のスプレッドシートプログラムで作成したチャートにもこの方法は使えますか？**
-
-例は Aspose.Cells で作成した Excel チャートを対象としていますが、同様のサイズ設定オプションをサポートする OLE 互換のスプレッドシートプログラムであれば、原則は適用できます。
+この例は Aspose.Cells で作成した Excel ワークブックを使用しています。他のスプレッドシートプログラムでのアクティブ化動作は示していません。
 
 ## **関連セクション**
 
-- [Excel チャートを作成し、OLE オブジェクトとしてプレゼンテーションに埋め込む](/slides/ja/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [PowerPoint プレゼンテーションに OLE オブジェクトとして Excel グラフを作成して埋め込む](/slides/ja/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

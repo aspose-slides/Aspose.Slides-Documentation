@@ -1,48 +1,41 @@
 ---
-title: PPTX 中图表缩放的可行解决方案
+title: PPTX 中图表大小调整的可行解决方案
 type: docs
 weight: 40
 url: /zh/python-java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- 图表缩放
+- 图表大小调整
 - Excel 图表
 - OLE 对象
 - 嵌入图表
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - Python
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via Java 嵌入的 Excel OLE 对象时，修复 PPTX 中意外的图表缩放问题。学习两种代码方法以保持尺寸一致。"
+description: "使用 Aspose.Slides for Python via Java 嵌入的 Excel OLE 对象时，修复 PPTX 中意外的图表大小调整。设置固定的图表尺寸以保持图表和 OLE 框尺寸一致。"
 ---
 ## **背景**
 
-已观察到，通过 Aspose 组件将 Excel 图表作为 OLE 对象嵌入 PowerPoint 演示文稿后，在首次激活后会被调整为不确定的比例。此行为导致图表在激活前后呈现出明显的视觉差异。Aspose 团队对该问题进行了深入调查，并找到了解决方案。本文描述了问题的原因以及相应的修复方法。
+在 PowerPoint 演示文稿中使用 Aspose 组件将 Excel 图表嵌入为 OLE 对象后，首次激活时可能会改变大小。这会导致图表在激活前后的外观出现显著差异。本文解释了产生大小调整的原因，并展示如何通过使固定图表尺寸与 OLE 框匹配来防止此问题。
 
-在[上一篇文章](/slides/zh/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)中，我们说明了如何使用 Aspose.Cells for Python via Java 创建 Excel 图表并使用 Aspose.Slides for Python via Java 将其嵌入到 PowerPoint 演示文稿中。为了解决[对象预览问题](/slides/zh/python-java/object-preview-issue-when-adding-oleobjectframe/)，我们将图表图像分配给图表的 OLE 对象框。在输出的演示文稿中，双击显示图表图像的 OLE 对象框时，Excel 图表会被激活。最终用户可以在底层 Excel 工作簿中进行任意更改，然后通过点击激活的工作簿之外的区域返回相应的幻灯片。用户返回幻灯片时，OLE 对象框的大小会发生变化，且缩放比例取决于 OLE 对象框和嵌入的 Excel 工作簿的原始尺寸。
+在[在演示文稿中创建 Excel 图表并将其嵌入为 OLE 对象](/slides/zh/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)，我们说明了如何使用 Aspose.Cells for Python via Java 创建 Excel 图表并使用 Aspose.Slides for Python via Java 将其嵌入 PowerPoint 演示文稿。为了解决[对象预览问题](/slides/zh/python-java/object-preview-issue-when-adding-oleobjectframe/)，我们将图表图像分配给图表的 OLE 对象框。在输出的演示文稿中，双击显示图表图像的 OLE 对象框会激活 Excel 图表。用户可以编辑嵌入的 Excel 工作簿，然后通过单击激活工作簿之外的区域返回幻灯片。用户返回幻灯片时，OLE 对象框的大小会发生变化，且调整系数取决于 OLE 对象框和嵌入的 Excel 工作簿的原始大小。
 
-## **调整原因**
+## **大小调整的原因**
 
-由于 Excel 工作簿拥有自己的窗口大小，它会在首次激活时尝试保留原始尺寸。而 OLE 对象框则有独立的大小。根据微软的说法，当 Excel 工作簿被激活时，Excel 与 PowerPoint 会协商尺寸，并在嵌入过程中保持正确的比例。根据 Excel 窗口尺寸与 OLE 对象框的尺寸或位置之间的差异，就会产生缩放。
+嵌入的 Excel 工作簿有其自身的窗口尺寸，Excel 在对象首次激活时会尝试保留该尺寸。幻灯片上的 OLE 框则有独立定义的尺寸。当 Excel 工作簿被激活时，Excel 与 PowerPoint 会协商对象的大小，以在嵌入过程中保持比例。因此，工作簿窗口与 OLE 框之间的差异会导致对象进行大小调整。
 
-## **可行方案**
+## **可行的解决方案**
 
-创建使用 Aspose.Slides for Python via Java 的 PowerPoint 演示文稿有两种可能的场景。
+将图表大小与幻灯片上的 OLE 框匹配，并使图表尺寸独立于工作簿窗口。此解决方案适用于新建演示文稿或已有模板。
 
-**场景 1：** 基于已有模板创建演示文稿。
+示例需要 Aspose.Cells for Python via Java 和 Aspose.Slides for Python via Java。它在活动图表工作表上创建一个简单的柱形图，并将工作簿以 XLS 格式嵌入。未分配图表预览图像；图表将在 PowerPoint 中激活 OLE 对象时可见。
 
-**场景 2：** 从零开始创建演示文稿。
+示例创建一个新的演示文稿，其中包含一个 9.5 × 4 英寸的 OLE 框，距左边缘 0.5 英寸，距顶部 1 英寸。幻灯片坐标和尺寸使用点 (每英寸 72 点) 表示。对于已有演示文稿，请参见[使用模板](#use-a-template)。
 
-本文提供的解决方案适用于这两种场景。所有解决思路的基础相同：**嵌入的 OLE 对象窗口大小应与 PowerPoint 幻灯片中的 OLE 对象框大小匹配**。下面将讨论实现此目标的两种方法。
+## **设置固定的图表大小**
 
-## **第一种方法**
-
-本方法演示如何设置嵌入的 Excel 工作簿窗口大小，使其与 PowerPoint 幻灯片中 OLE 对象框的大小保持一致。
-
-**场景 1**
-
-假设我们已经定义了一个模板，并希望基于该模板创建演示文稿。模板中索引为 2 的形状用于放置包含嵌入式 Excel 工作簿的 OLE 框。在此情形下，OLE 对象框的大小是预先定义好的——它与模板中索引为 2 的形状大小相同。我们只需将工作簿的窗口大小设为该形状的大小。以下代码片段实现了此目的：
+将 [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) 设置为 false，以使图表尺寸独立于工作簿窗口。通过 [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) 和 [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height) 设置 [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) 的尺寸，使用每英寸 96 像素将点转换为像素：684 × 288 点的框对应 912 × 384 像素的图表。将 [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) 设置为 [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/) 的 CUSTOM 值。示例使用 [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) 嵌入工作簿，并将演示文稿保存为带有 9.5 × 4 英寸 OLE 框的文件。
 
 ```python
 import jpype
@@ -52,214 +45,84 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# 加载包含图表的 Excel 工作簿。
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # 将工作簿窗口大小设置为英寸（PowerPoint 每英寸使用 72 点）。
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # 将工作簿保存到内存流。
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # 使用嵌入的 Excel 数据创建 OLE 对象框。
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # 幻灯片坐标和尺寸使用点表示（每英寸 72 点）。
+        width = 684.0  # 9.5 英寸。
+        height = 288.0  # 4 英寸。
+
+        chart.setSizeWithWindow(False)
+        # 将点转换为图表像素，使用每英寸 96 像素。
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**场景 2**
+## **使用模板**
 
-如果我们想从头创建演示文稿，并在其中加入任意大小的 OLE 对象框以及嵌入的 Excel 工作簿，可使用如下代码片段。代码在幻灯片上创建一个宽 9.5 英寸、高 4 英寸、左上角坐标为 x = 0.5 英寸、y = 1 英寸的 OLE 对象框，然后将 Excel 工作簿窗口大小设置为相同的 4 英寸高、9.5 英寸宽。
+现有演示文稿的尺寸逻辑相同。要改编示例：
 
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# 加载包含图表的 Excel 工作簿。
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 英寸 (4 * 72)。
-    desired_width = 684  # 9.5 英寸 (9.5 * 72)。
-
-    # 使用窗口定义图表大小。
-    chart.setSizeWithWindow(True)
-
-    # 将工作簿窗口大小设置为英寸（PowerPoint 每英寸使用 72 点）。
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # 将工作簿保存到内存流。
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # 使用嵌入的 Excel 数据创建 OLE 对象框。
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **第二种方法**
-
-本方法演示如何设置嵌入的 Excel 工作簿中图表的大小，使其与 PowerPoint 幻灯片中 OLE 对象框的大小保持一致。此方法适用于图表尺寸事先已知且固定不变的情况。
-
-**场景 1**
-
-假设我们已经定义了一个模板，并希望基于该模板创建演示文稿。模板中索引为 2 的形状用于放置包含嵌入式 Excel 工作簿的 OLE 框。在此情形下，OLE 框的大小是预先定义好的——它与模板中索引为 2 的形状大小相同。我们只需将工作簿中图表的大小设为该形状的大小。以下代码片段实现了此目的：
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# 加载包含图表的 Excel 工作簿。
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # 定义不使用窗口的图表大小。
-    chart.setSizeWithWindow(False)
-
-    # 以像素设置图表大小（Excel 每英寸使用 96 像素）。
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # 定义图表的打印大小。
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # 将工作簿保存到内存流。
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # 使用嵌入的 Excel 数据创建 OLE 对象框。
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**场景 2**：
-
-如果我们想从头创建演示文稿，并在其中加入任意大小的 OLE 对象框以及嵌入的 Excel 工作簿，可使用如下代码片段。代码在幻灯片上创建一个宽 9.5 英寸、高 4 英寸、左上角坐标为 x = 0.5 英寸、y = 1 英寸的 OLE 对象框，并将相应图表的尺寸设置为相同的 4 英寸高、9.5 英寸宽。
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# 加载包含图表的 Excel 工作簿。
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 英寸 (4 * 72)。
-    desired_width = 684  # 9.5 英寸 (9.5 * 72)。
-
-    # 定义不使用窗口的图表大小。
-    chart.setSizeWithWindow(False)
-
-    # 以像素设置图表大小（Excel 每英寸使用 96 像素）。
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # 将工作簿保存到内存流。
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # 使用嵌入的 Excel 数据创建 OLE 对象框。
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **结论**
-
-解决图表缩放问题有两种方法。选择哪种方法取决于具体需求和使用场景。无论是基于模板创建演示文稿还是从零开始创建，两种方法的实现方式相同。此外，此解决方案对 OLE 对象框的大小没有限制。
+1. 加载模板演示文稿，而不是创建空白演示文稿。  
+2. 检查第一张幻灯片是否至少包含三个形状，然后将索引为 2 的形状用作占位符。  
+3. 从该形状获取框宽度和高度，而不是使用固定值 684 和 288。保持尺寸计算不变。  
+4. 在占位符的位置添加 OLE 框，而不是使用固定坐标 36 和 72。  
+5. 保存演示文稿之前删除占位符。
 
 ## **常见问题**
 
 **为什么嵌入的 Excel 图表在 PowerPoint 中激活后会改变大小？**
 
-因为 Excel 在首次激活时会尝试恢复原始窗口大小，而 PowerPoint 中的 OLE 对象框拥有自己的尺寸。PowerPoint 与 Excel 会协商尺寸以保持纵横比，从而导致缩放。
+因为 Excel 在首次激活时尝试恢复原始窗口尺寸，而 PowerPoint 中的 OLE 对象框拥有自己的尺寸。PowerPoint 与 Excel 协商以保持宽高比，这会导致大小调整。
 
-**是否可以彻底防止此缩放问题？**
+**如何保持图表和 OLE 框的尺寸一致？**
 
-可以。通过在嵌入之前将 Excel 工作簿窗口大小或图表大小与 OLE 对象框大小匹配，就能保持图表尺寸一致。
+设置与 OLE 框匹配的固定图表尺寸，并在嵌入工作簿之前使用自定义图表打印大小。上面的示例展示了所需的设置和单位转换。
 
-**应该采用设置工作簿窗口大小还是设置图表大小的方案？**
+**仅匹配工作簿窗口尺寸足够吗？**
 
-如果希望保持工作簿的纵横比并可能在以后进行调整，请使用**方案 1（窗口大小）**。如果图表尺寸是固定的且嵌入后不会变化，请使用**方案 2（图表大小）**。
+仅匹配工作簿窗口尺寸并不能可靠地防止 OLE 框在激活后改变大小。请使用示例中显示的固定图表尺寸。
 
-**这些方法是否适用于基于模板的演示文稿和全新创建的演示文稿？**
+**此解决方案适用于基于模板的演示文稿和新建演示文稿吗？**
 
-是的。两种方法在基于模板创建和全新创建的演示文稿中表现相同。
+是的。对于模板，使用占位符的尺寸和位置。对于新建演示文稿，直接指定框的尺寸和位置。
 
-**OLE 对象框的大小是否有限制？**
+**我可以将此示例用于其他电子表格程序创建的图表吗？**
 
-没有限制。只要 OLE 框的尺寸能够相应地缩放到工作簿或图表的大小，即可任意设定。
-
-**这些方法能否用于其他电子表格程序创建的图表？**
-
-示例针对使用 Aspose.Cells 创建的 Excel 图表，但原理同样适用于其他支持 OLE 且提供相似尺寸设置选项的电子表格程序。
+示例使用的是使用 Aspose.Cells 创建的 Excel 工作簿。它未演示其他电子表格程序的激活行为。
 
 ## **相关章节**
 
-- [创建 Excel 图表并将其作为 OLE 对象嵌入演示文稿](/slides/zh/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [在演示文稿中创建 Excel 图表并将其嵌入为 OLE 对象](/slides/zh/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

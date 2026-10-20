@@ -1,48 +1,37 @@
 ---
-title: Arbeitslösung für Diagrammskalierung in PPTX
+title: Arbeitslösung für die Größenanpassung von Diagrammen in PPTX
 type: docs
 weight: 40
 url: /de/python-java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- Diagrammskalierung
+- Diagrammgrößenänderung
 - Excel-Diagramm
 - OLE-Objekt
 - Diagramm einbetten
 - PowerPoint
-- OpenDocument
 - Präsentation
 - Python
 - Java
 - Aspose.Slides
-description: "Unerwartete Diagrammskalierung in PPTX beheben, wenn eingebettete Excel OLE-Objekte mit Aspose.Slides for Python via Java verwendet werden. Lernen Sie zwei Methoden mit Code, um die Größen konsistent zu halten."
+description: "Unerwartete Größenänderungen von Diagrammen in PPTX beheben, wenn eingebettete Excel-OLE-Objekte mit Aspose.Slides for Python via Java verwendet werden. Feste Diagrammabmessungen festlegen, um Diagramm- und OLE-Rahmengrößen konsistent zu halten."
 ---
 ## **Hintergrund**
 
-Es wurde beobachtet, dass in PowerPoint‑Präsentationen eingebettete Excel‑Diagramme als OLE‑Objekte über Aspose‑Komponenten nach ihrer ersten Aktivierung auf einen nicht spezifizierten Maßstab skaliert werden. Dieses Verhalten führt zu einem auffälligen visuellen Unterschied in der Präsentation zwischen dem Zustand vor und nach der Aktivierung des Diagramms. Das Aspose‑Team hat das Problem ausführlich untersucht und eine Lösung gefunden. Dieser Artikel beschreibt die Ursachen des Problems und die entsprechende Behebung.
+Excel-Diagramme, die als OLE-Objekte in PowerPoint-Präsentationen mit Aspose-Komponenten eingebettet sind, können ihre Größe nach der ersten Aktivierung ändern. Dies kann zu einem deutlichen Unterschied im Aussehen des Diagramms vor und nach der Aktivierung führen. Dieser Artikel erklärt, warum die Größenänderung auftritt, und zeigt, wie man sie verhindert, indem man feste Diagrammgrößen an den OLE‑Rahmen anpasst.
 
-Im [vorherigen Artikel](/slides/de/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) haben wir erklärt, wie man mit Aspose.Cells for Python via Java ein Excel‑Diagramm erstellt und es mit Aspose.Slides for Python via Java in eine PowerPoint‑Präsentation einbettet. Um das [Objekt‑Vorschau‑Problem](/slides/de/python-java/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir das Diagrammbild dem OLE‑Objektrahmen des Diagramms zugewiesen. In der Ergebnis‑Präsentation wird das OLE‑Objekt‑Rahmen, das das Diagrammbild anzeigt, durch Doppelklick aktiviert. Endbenutzer können gewünschte Änderungen in der zugrunde liegenden Excel‑Arbeitsmappe vornehmen und dann zur entsprechenden Folie zurückkehren, indem sie außerhalb der aktivierten Arbeitsmappe klicken. Die Größe des OLE‑Objektrahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt, und der Skalierungsfaktor variiert abhängig von den ursprünglichen Größen sowohl des OLE‑Objektrahmens als auch der eingebetteten Excel‑Arbeitsmappe.
+In [Excel-Diagramme erstellen und als OLE-Objekte in Präsentationen einbetten](/slides/de/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), haben wir erklärt, wie man mit Aspose.Cells for Python via Java ein Excel-Diagramm erstellt und es mit Aspose.Slides for Python via Java in eine PowerPoint-Präsentation einbettet. Um das [Objekt-Vorschau-Problem](/slides/de/python-java/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir das Diagrammbild dem OLE-Objektrahmen des Diagramms zugewiesen. In der Ergebnispräsentation wird das OLE-Objekt, das das Diagrammbild anzeigt, durch Doppelklick aktiviert. Benutzer können die eingebettete Excel-Arbeitsmappe bearbeiten und anschließend zur Folie zurückkehren, indem sie außerhalb der aktivierten Arbeitsmappe klicken. Die Größe des OLE-Objektrahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt, und der Skalierungsfaktor variiert je nach den ursprünglichen Größen sowohl des OLE-Objektrahmens als auch der eingebetteten Excel-Arbeitsmappe.
 
-## **Ursache der Skalierung**
+## **Ursache der Größenänderung**
 
-Da die Excel‑Arbeitsmappe über eine eigene Fenstergröße verfügt, versucht sie bei der ersten Aktivierung, ihre ursprüngliche Größe beizubehalten. Der OLE‑Objektrahmen hat jedoch seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei Aktivierung der Arbeitsmappe die Größe und erhalten die korrekten Proportionen im Rahmen des Einbettungsprozesses. Abhängig von den Unterschieden zwischen der Excel‑Fenstergröße und der Größe bzw. Position des OLE‑Objektrahmens kommt es zur Größenanpassung.
+Die eingebettete Excel-Arbeitsmappe hat eigene Fensterdimensionen, die Excel bei der ersten Aktivierung des Objekts beizubehalten versucht. Der OLE-Rahmen auf der Folie hat unabhängig definierte Abmessungen. Wenn die Excel-Arbeitsmappe aktiviert wird, verhandeln Excel und PowerPoint die Objektgröße, um die Proportionen im Rahmen des Einbettungsprozesses beizubehalten. Unterschiede zwischen dem Arbeitsmappenfenster und dem OLE-Rahmen können daher das Objekt vergrößern/verkleinern.
 
-## **Lösungsansatz**
+## **Funktionsfähige Lösung**
 
-Es gibt zwei mögliche Szenarien für die Erstellung von PowerPoint‑Präsentationen mit Aspose.Slides for Python via Java.
+Passen Sie die Diagrammgröße an den OLE‑Rahmen auf der Folie an und halten Sie die Diagrammabmessungen unabhängig vom Arbeitsmappenfenster. Diese Lösung funktioniert sowohl mit einer neuen Präsentation als auch mit einer vorhandenen Vorlage.
 
-**Szenario 1:** Erstellung einer Präsentation basierend auf einer vorhandenen Vorlage.
+Das Beispiel benötigt Aspose.Cells for Python via Java und Aspose.Slides for Python via Java. Es erstellt ein einfaches Säulendiagramm auf einem aktiven Diagrammblatt und bettet die Arbeitsmappe im XLS-Format ein. Es wird kein Diagramm‑Vorschau‑Bild zugewiesen; das Diagramm wird sichtbar, wenn das OLE-Objekt in PowerPoint aktiviert wird.
 
-**Szenario 2:** Erstellung einer Präsentation von Grund auf.
-
-Die hier bereitgestellte Lösung gilt für beide Szenarien. Die Grundlage aller Lösungsansätze ist identisch: **die Fenstergröße des eingebetteten OLE‑Objekts muss der Größe des OLE‑Objektrahmens in der PowerPoint‑Folien entsprechen**. Im Folgenden werden die beiden Ansätze zu dieser Lösung erläutert.
-
-## **Erster Ansatz**
-
-In diesem Ansatz lernen wir, wie die Fenstergröße der eingebetteten Excel‑Arbeitsmappe so eingestellt wird, dass sie der Größe des OLE‑Objektrahmens in der PowerPoint‑Folien entspricht.
-
-**Szenario 1**
-
-Angenommen, wir haben eine Vorlage definiert und möchten darauf basierend Präsentationen erstellen. Nehmen wir an, in der Vorlage befindet sich an Index 2 eine Form, in der wir einen OLE‑Rahmen mit einer eingebetteten Excel‑Arbeitsmappe platzieren wollen. In diesem Szenario ist die Größe des OLE‑Objektrahmens vorgegeben – sie entspricht der Größe der Form an Index 2 in der Vorlage. Alles, was wir tun müssen, ist die Fenstergröße der Arbeitsmappe auf die Größe dieser Form zu setzen. Der folgende Code‑Abschnitt dient diesem Zweck:
+Das Beispiel erstellt eine neue Präsentation mit einem 9.5 × 4‑Zoll‑OLE‑Rahmen, der 0.5 Zoll vom linken Rand und 1 Zoll vom oberen Rand entfernt positioniert ist. Folienkoordinaten und -abmessungen werden in Punkten angegeben (72 Punkte pro Zoll). Für eine bestehende Präsentation siehe [Verwenden einer Vorlage](#use-a-template).
 
 ```python
 import jpype
@@ -52,215 +41,88 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# Laden Sie die Excel-Arbeitsmappe, die das Diagramm enthält.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # Setzen Sie die Fenstergröße der Arbeitsmappe in Zoll (PowerPoint verwendet 72 Punkte pro Zoll).
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # Speichern Sie die Arbeitsmappe in einen Speicherstream.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # Erstellen Sie einen OLE-Objektrahmen mit den eingebetteten Excel-Daten.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # Folienkoordinaten und -abmessungen sind in Punkten (72 Punkte pro Zoll).
+        width = 684.0  # 9,5 Zoll.
+        height = 288.0  # 4 Zoll.
+
+        chart.setSizeWithWindow(False)
+        # Punkte in Diagrammpixel umrechnen unter Verwendung von 96 Pixel pro Zoll.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Szenario 2**
+## **Feste Diagrammgröße festlegen**
 
-Nehmen wir an, wir möchten eine Präsentation von Grund auf erstellen und einen OLE‑Objektrahmen beliebiger Größe mit einer eingebetteten Excel‑Arbeitsmappe einfügen. Im folgenden Code‑Abschnitt erstellen wir einen OLE‑Objektrahmen mit einer Höhe von 4 Zoll und einer Breite von 9,5 Zoll bei x = 0,5 Zoll und y = 1 Zoll auf der Folie. Anschließend setzen wir das Fenster der Excel‑Arbeitsmappe auf dieselbe Größe – 4 Zoll hoch und 9,5 Zoll breit.
+Setzen Sie [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) auf false, damit die Diagrammabmessungen unabhängig vom Arbeitsmappenfenster sind. Legen Sie die Abmessungen von [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) über [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) und [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height) fest, wobei Punkte mit 96 Pixel pro Zoll in Pixel umgerechnet werden: Ein Rahmen von 684 × 288 Punkten entspricht einem Diagramm von 912 × 384 Pixeln. Setzen Sie [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) auf den Wert CUSTOM von [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/). Das Beispiel bettet die Arbeitsmappe mit [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) ein und speichert eine Präsentation mit einem 9.5 × 4‑Zoll‑OLE‑Rahmen.
 
-```python
-import jpype
-import asposecells
-import asposeslides
+## **Vorlage verwenden**
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+Die Größenlogik ist für eine bestehende Präsentation identisch. Um das Beispiel anzupassen:
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpide.JClass("java.io.ByteArrayOutputStream")
-
-# Laden Sie die Excel-Arbeitsmappe, die das Diagramm enthält.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 Zoll (4 * 72).
-    desired_width = 684  # 9,5 Zoll (9.5 * 72).
-
-    # Diagrammgröße mit Fenster festlegen.
-    chart.setSizeWithWindow(True)
-
-    # Setzen Sie die Fenstergröße der Arbeitsmappe in Zoll (PowerPoint verwendet 72 Punkte pro Zoll).
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # Arbeitsmappe in einen Speicherstream speichern.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # OLE-Objektrahmen mit den eingebetteten Excel-Daten erstellen.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Zweiter Ansatz**
-
-In diesem Ansatz lernen wir, wie die Größe des Diagramms in der eingebetteten Excel‑Arbeitsmappe so eingestellt wird, dass sie der Größe des OLE‑Objektrahmens in der PowerPoint‑Folien entspricht. Dieser Ansatz ist nützlich, wenn die Diagrammgröße im Voraus bekannt ist und sich nie ändern wird.
-
-**Szenario 1**
-
-Angenommen, wir haben eine Vorlage definiert und möchten darauf basierend Präsentationen erstellen. Nehmen wir an, in der Vorlage befindet sich an Index 2 eine Form, in der wir einen OLE‑Rahmen mit einer eingebetteten Excel‑Arbeitsmappe platzieren möchten. In diesem Szenario ist die Größe des OLE‑Rahmens vorgegeben – sie entspricht der Größe der Form an Index 2 in der Vorlage. Alles, was wir tun müssen, ist die Diagrammgröße in der Arbeitsmappe auf die Größe dieser Form zu setzen. Der folgende Code‑Abschnitt dient diesem Zweck:
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Laden Sie die Excel-Arbeitsmappe, die das Diagramm enthält.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # Definieren Sie die Diagrammgröße ohne Fenster.
-    chart.setSizeWithWindow(False)
-
-    # Setzen Sie die Diagrammgröße in Pixeln (Excel verwendet 96 Pixel pro Zoll).
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # Definieren Sie die Diagrammdruckgröße.
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # Speichern Sie die Arbeitsmappe in einen Speicherstream.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Erstellen Sie einen OLE-Objektrahmen mit den eingebetteten Excel-Daten.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Szenario 2**:
-
-Nehmen wir an, wir möchten eine Präsentation von Grund auf erstellen und einen OLE‑Objektrahmen beliebiger Größe mit einer eingebetteten Excel‑Arbeitsmappe einfügen. Im folgenden Code‑Abschnitt erstellen wir einen OLE‑Objektrahmen mit einer Höhe von 4 Zoll und einer Breite von 9,5 Zoll auf der Folie bei x = 0,5 Zoll und y = 1 Zoll. Wir setzen außerdem die zugehörige Diagrammgröße auf dieselben Abmessungen: eine Höhe von 4 Zoll und eine Breite von 9,5 Zoll.
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Laden Sie die Excel-Arbeitsmappe, die das Diagramm enthält.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 Zoll (4 * 72).
-    desired_width = 684  # 9.5 Zoll (9.5 * 72).
-
-    # Definieren Sie die Diagrammgröße ohne Fenster.
-    chart.setSizeWithWindow(False)
-
-    # Setzen Sie die Diagrammgröße in Pixeln (Excel verwendet 96 Pixel pro Zoll).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # Speichern Sie die Arbeitsmappe in einen Speicherstream.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Erstellen Sie einen OLE-Objektrahmen mit den eingebetteten Excel-Daten.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Fazit**
-
-Es gibt zwei Ansätze zur Behebung des Diagramm‑Skalierungsproblems. Die Wahl des Ansatzes hängt von den Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren gleichermaßen, egal ob die Präsentationen aus einer Vorlage oder von Grund auf erstellt werden. Außerdem gibt es in dieser Lösung keine Begrenzung der Größe des OLE‑Objektrahmens.
+1. Laden Sie die Vorlagenpräsentation anstelle einer leeren Präsentation.
+1. Überprüfen Sie, dass die erste Folie mindestens drei Formen enthält, und verwenden Sie dann die Form mit dem Index 2 als Platzhalter.
+1. Entnehmen Sie die Rahmenbreite und -höhe aus dieser Form, anstatt die festen Werte 684 und 288 zu verwenden. Halten Sie die Größenberechnungen unverändert.
+1. Fügen Sie den OLE‑Rahmen an der Position des Platzhalters statt an den festen Koordinaten 36 und 72 hinzu.
+1. Entfernen Sie den Platzhalter, bevor Sie die Präsentation speichern.
 
 ## **FAQ**
 
-**Warum ändert meine eingebettete Excel‑Diagramm nach der Aktivierung in PowerPoint die Größe?**
+**Warum ändert sich mein eingebettetes Excel-Diagramm nach der Aktivierung in PowerPoint?**
 
-Das passiert, weil Excel bei der ersten Aktivierung versucht, die ursprüngliche Fenstergröße wiederherzustellen, während der OLE‑Objektrahmen in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis beizubehalten, was zu einer Skalierung führen kann.
+Das passiert, weil Excel beim ersten Aktivieren versucht, die ursprüngliche Fenstergröße wiederherzustellen, während der OLE‑Objektrahmen in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis beizubehalten, was die Größenänderung verursachen kann.
 
-**Kann dieses Skalierungsproblem vollständig verhindert werden?**
+**Wie kann ich die Größen von Diagramm und OLE‑Rahmen konsistent halten?**
 
-Ja. Durch das Angleichen der Fenstergröße der Excel‑Arbeitsmappe oder der Diagrammgröße an die Größe des OLE‑Objektrahmens vor dem Einbetten können die Diagrammgrößen konsistent gehalten werden.
+Legen Sie feste Diagrammabmessungen fest, die dem OLE‑Rahmen entsprechen, und verwenden Sie vor dem Einbetten der Arbeitsmappe eine benutzerdefinierte Diagrammdruckgröße. Das obige Beispiel zeigt die erforderlichen Einstellungen und Einheitumrechnungen.
 
-**Welchen Ansatz sollte ich wählen, die Fenstergröße der Arbeitsmappe festzulegen oder die Diagrammgröße?**
+**Reicht es aus, die Größe des Arbeitsmappenfensters anzupassen?**
 
-Verwenden Sie **Ansatz 1 (Fenstergröße)**, wenn Sie das Seitenverhältnis der Arbeitsmappe beibehalten und ggf. später eine Größenänderung zulassen wollen.  
-Verwenden Sie **Ansatz 2 (Diagrammgröße)**, wenn die Diagrammabmessungen fest sind und sich nach dem Einbetten nicht mehr ändern.
+Das reine Anpassen der Größe des Arbeitsmappenfensters verhindert nicht zuverlässig, dass der OLE‑Rahmen nach der Aktivierung seine Größe ändert. Verwenden Sie feste Diagrammabmessungen wie im Beispiel gezeigt.
 
-**Werden diese Methoden sowohl bei vorlagenbasierten als auch bei neuen Präsentationen funktionieren?**
+**Funktioniert diese Lösung sowohl für vorlagenbasierte als auch für neue Präsentationen?**
 
-Ja. Beide Ansätze funktionieren gleichermaßen für aus Vorlagen erstellte und von Grund auf neu erstellte Präsentationen.
+Ja. Für eine Vorlage verwenden Sie die Abmessungen und die Position des Platzhalters. Für eine neue Präsentation geben Sie die Rahmenabmessungen und -position direkt an.
 
-**Gibt es eine Begrenzung der Größe des OLE‑Objektrahmens?**
+**Kann ich dieses Beispiel mit Diagrammen aus anderen Tabellenkalkulationsprogrammen verwenden?**
 
-Nein. Der OLE‑Rahmen kann auf jede Größe eingestellt werden, solange er angemessen zum Arbeitsmappen‑ oder Diagrammgröße skaliert.
-
-**Kann ich diese Methoden mit Diagrammen aus anderen Tabellenkalkulationsprogrammen verwenden?**
-
-Die Beispiele sind für Excel‑Diagramme konzipiert, die mit Aspose.Cells erstellt wurden, aber die Prinzipien gelten auch für andere OLE‑kompatible Tabellenkalkulationsprogramme, sofern sie ähnliche Größenoptionen unterstützen.
+Das Beispiel verwendet eine mit Aspose.Cells erstellte Excel‑Arbeitsmappe. Es demonstriert das Aktivierungsverhalten anderer Tabellenkalkulationsprogramme nicht.
 
 ## **Verwandte Abschnitte**
 
-- [Excel‑Diagramme erstellen und als OLE‑Objekte in Präsentationen einbetten](/slides/de/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Excel-Diagramme erstellen und als OLE-Objekte in Präsentationen einbetten](/slides/de/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

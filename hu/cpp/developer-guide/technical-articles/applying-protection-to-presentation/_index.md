@@ -1,184 +1,216 @@
 ---
-title: Prezentáció szerkesztésének megakadályozása alakzatzárolásokkal
-linktitle: Prezentáció szerkesztésének megakadályozása
+title: Prezentáció szerkesztésének korlátozása alakzatzárolásokkal C++-ban
+linktitle: Prezentáció szerkesztésének korlátozása
 type: docs
 weight: 10
 url: /hu/cpp/applying-protection-to-presentation/
 keywords:
 - szerkesztés megakadályozása
-- védelme a szerkesztéstől
+- védés a szerkesztéstől
 - alakzat zárolása
 - pozíció zárolása
-- kijelölés zárolása
-- méret zárolása
+- kiválasztás zárolása
+- átméretezés zárolása
 - csoportosítás zárolása
 - PowerPoint
-- OpenDocument
+- PPTX
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Fedezze fel, hogyan zárolja vagy oldja fel az Aspose.Slides for C++ az alakzatokat PPT, PPTX és ODP fájlokban, ezzel biztosítva a prezentációk védelmét, miközben lehetővé teszi a szabályozott szerkesztést és a gyorsabb szállítást."
+description: "Ismerje meg, hogyan lehet zárolni és feloldani az alakzatokat PPTX prezentációkban az Aspose.Slides for C++ segítségével, hogy korlátozza a kiválasztást, mozgatást, átméretezést és a csoportosítást."
 ---
 ## **Háttér**
 
-Az Aspose.Slides gyakori felhasználási módja, hogy automatikus munkafolyamat részeként Microsoft PowerPoint (PPTX) prezentációkat hozzon létre, frissítsen és mentse. Az Aspose.Slides-et ilyen módon használó alkalmazások felhasználói hozzáférnek a generált prezentációkhoz, így azok szerkesztésének megakadályozása gyakori aggodalom. Fontos, hogy az automatikusan létrehozott prezentációk megőrizzék eredeti formázásukat és tartalmukat.
+Az Aspose.Slides for C++ gyakori felhasználása a PowerPoint (PPTX) prezentációk létrehozása, frissítése és mentése egy automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a prezentációkat, a formák módosításának korlátozása segíthet megőrizni a kívánt elrendezést és tartalmat.
 
-Ez a cikk bemutatja, hogyan épülnek fel a prezentációk és diaelemek, valamint hogyan tudja az Aspose.Slides for C++ védelmet alkalmazni egy prezentáción, majd később eltávolítani azt. A fejlesztők számára lehetőséget kínál arra, hogy szabályozzák, hogyan használják fel az alkalmazásaik által generált prezentációkat.
+Ez a cikk bemutatja, hogyan vannak a formák elrendezve a diákon, és hogyan alkalmazhatók és távolíthatók el a formazárolások egy PPTX prezentációban. Ezek a zárolások lehetővé teszik, hogy bizonyos szerkesztési műveleteket korlátozzon az egyes formákon.
 
 ## **Dia felépítése**
 
-Egy prezentációs dia olyan összetevőkből áll, mint az automatikus alakzatok, táblázatok, OLE-objektumok, csoportos alakzatok, képkockák, videokockák, csatlakozók és egyéb elemek, amelyeket a prezentáció felépítéséhez használnak. Az Aspose.Slides for C++‑ben a dián lévő minden elem egy olyan objektummal van reprezentálva, amely implementálja a [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) interfészt, vagy egy olyan osztályból származik, amely ezt az interfészt megvalósítja.
+Egy prezentációs dia olyan összetevőkből áll, mint az automatikus formák, táblázatok, OLE‑objektumok, csoportosított formák, képkockák, videokockák, összekötők és egyéb elemek, amelyek a prezentáció felépítéséhez szükségesek. Az Aspose.Slides for C++‑ban egy dia minden eleme egy objektummal van reprezentálva, amely megvalósítja az [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interfészt, vagy örökli azt egy osztályból.
 
-A PPTX felépítése összetett, ezért a PPT‑vel ellentétben, ahol egy általános zár használható az összes alakzattípusra, a különböző alakzattípusok különféle zárolásokat igényelnek. A [IBaseShapeLock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseshapelock/) interfész a PPTX általános zárolási osztálya. Az Aspose.Slides for C++ a PPTX‑hez a következő zártípusokat támogatja:
+A különböző forma típusok különböző zárolási lehetőségeket kínálnak. Az [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) interfész a formazárolások alapinterfésze. Az Aspose.Slides for C++ a következő zárolási interfészeket biztosítja:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshapelock/) zárolja az automatikus alakzatokat.  
-- [IConnectorLock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iconnectorlock/) zárolja a csatlakozó alakzatokat.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igraphicalobjectlock/) zárolja a grafikus objektumokat.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/igroupshapelock/) zárolja a csoportos alakzatokat.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframelock/) zárolja a képkockákat.   
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) zárolja az automatikus formákat.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) zárolja a csatlakozó formákat.
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) zárolja a grafikus objektumokat.
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) zárolja a csoportosított formákat.
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) zárolja a képkockákat.
 
-Bármely művelet, amelyet egy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) objektum összes alakzaton hajtunk végre, az egész prezentációra vonatkozik.
+A [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) zárolások alkalmazásához iteráljon a diákon, és állítsa be a megfelelő zárolásokat minden támogatott formán.
 
 ## **Védelem alkalmazása és eltávolítása**
 
-A védelem alkalmazása biztosítja, hogy a prezentációt ne lehessen szerkeszteni. Hasznos technika a prezentáció tartalmának védelmére.
+A formazárolások korlátozzák az olyan műveleteket, mint a formák kiválasztása, mozgatása és átméretezése. Nem teszik a teljes prezentációt szerkeszthetetlenné.
 
-### **Védelem alkalmazása PPTX alakzatokra**
+### **Védelem alkalmazása PPTX formákra**
 
-Az Aspose.Slides for C++ a [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) interfészt biztosítja az alakzatokkal való munkához egy dián.
+Az Aspose.Slides for C++ biztosítja az [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interfészt a dián lévő formákkal való munkához.
 
-Ahogy korábban említettük, minden alakzat osztálynak van egy hozzá tartozó alakzat-záró osztálya a védelemhez. Ez a cikk a NoSelect, NoMove és NoResize zárakra összpontosít. Ezek a zárak biztosítják, hogy az alakzatok ne legyenek kiválaszthatók (egérkattintással vagy egyéb kiválasztási módszerekkel), és ne mozgathatók vagy átméretezhetők legyenek.
+A példa `true` értéket ad át a [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), a [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/), és a [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) metódusoknak az automatikus formák esetében, valamint ekvivalens zárolásokat a csoportosított formák, csatlakozók és képkockák számára. A csatlakozók a [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) metódust használják a mozgáshoz; a csoportok pedig a [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) metódust használják a csoportosítás korlátozásához.
 
-Az alábbi kódminták a prezentáció összes alakzattípusára alkalmazzák a védelmet.
+A példa betölt egy meglévő PPTX prezentációt, ellenőrzi a formákat minden dia forma gyűjteményében, és elment egy másolatot a alkalmazott korlátozásokkal. A négy kezelt típuson kívüli formák változatlanok maradnak. A ciklus nem járja be a csoporton belüli gyermekformákat.
 
 ```cpp
-// Példányosítsa a Presentation osztályt, amely egy PPTX fájlt képvisel.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-// Az összes diát végigjárja a prezentációban.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// Az összes alakzatot végigjárja a diában.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(true);
+            autoShapeLock->set_SelectLocked(true);
+            autoShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// Áttípusolja az alakzatot egy autoshape-re, és megszerzi annak shape lock-ját.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(true);
+            groupShapeLock->set_PositionLocked(true);
+            groupShapeLock->set_SelectLocked(true);
+            groupShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(true);
-			autoShapeLock->set_SelectLocked(true);
-			autoShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// Áttípusolja az alakzatot egy csoportos alakzatra, és megszerzi annak shape lock-ját.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(true);
+            connectorShapeLock->set_SelectLocked(true);
+            connectorShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(true);
-			groupShapeLock->set_PositionLocked(true);
-			groupShapeLock->set_SelectLocked(true);
-			groupShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// Áttípusolja az alakzatot egy csatlakozó alakzatra, és megszerzi annak shape lock-ját.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(true);
-			connectorShapeLock->set_SelectLocked(true);
-			connectorShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// Áttípusolja az alakzatot egy képkockára, és megszerzi annak shape lock-ját.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(true);
-			pictureFrameLock->set_SelectLocked(true);
-			pictureFrameLock->set_SizeLocked(true);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(true);
+            pictureFrameLock->set_SelectLocked(true);
+            pictureFrameLock->set_SizeLocked(true);
+        }
+    }
 }
 
-// Mentse a prezentációfájlt.
 presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ### **Védelem eltávolítása**
 
-Egy alakzat feloldásához állítsuk a alkalmazott zár értékét `false`‑ra. Az alábbi kódminta bemutatja, hogyan oldhatók fel a zárak egy zárolt prezentációban.
+A formazárolás eltávolításához állítsa az értékét `false`‑ra. A következő példa betölt egy prezentációt formazárolásokkal, és törli a kiválasztás, mozgás és átméretezés korlátozásait az [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), az [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), az [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/), és az [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) segítségével. Emellett törli a [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) beállítást, és elment egy másolatot a prezentációról. A többi zárolási beállítás változatlan marad.
 
 ```cpp
-// Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"ProtectedSample.pptx");
 
-// Az összes diát végigjárja a prezentációban.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// Az összes alakzatot végigjárja a diában.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(false);
+            autoShapeLock->set_SelectLocked(false);
+            autoShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// Áttípusolja az alakzatot autoshape-re, és megszerzi annak shape lock-ját.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(false);
+            groupShapeLock->set_PositionLocked(false);
+            groupShapeLock->set_SelectLocked(false);
+            groupShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(false);
-			autoShapeLock->set_SelectLocked(false);
-			autoShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// Áttípusolja az alakzatot csoportos alakzatra, és megszerzi annak shape lock-ját.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(false);
+            connectorShapeLock->set_SelectLocked(false);
+            connectorShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(false);
-			groupShapeLock->set_PositionLocked(false);
-			groupShapeLock->set_SelectLocked(false);
-			groupShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// Áttípusolja az alakzatot csatlakozó alakzatra, és megszerzi annak shape lock-ját.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(false);
-			connectorShapeLock->set_SelectLocked(false);
-			connectorShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// Áttípusolja az alakzatot képkockára, és megszerzi annak shape lock-ját.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(false);
-			pictureFrameLock->set_SelectLocked(false);
-			pictureFrameLock->set_SizeLocked(false);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(false);
+            pictureFrameLock->set_SelectLocked(false);
+            pictureFrameLock->set_SizeLocked(false);
+        }
+    }
 }
 
-// Mentse a prezentációfájlt.
 presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Következtetés**
+### **Következtetés**
 
-Az Aspose.Slides több lehetőséget is kínál az alakzatok prezentációban való védelmére. Egyedi alakzatot zárolhat, vagy végigiterálhat a prezentáció összes alakzatán, és mindegyiket lezárhatja, így hatékonyan védi az egész fájlt. A védelem eltávolítható a zár értékét `false`‑ra állítva.
+Az Aspose.Slides for C++ lehetővé teszi, hogy egyes formákon korlátozza a specifikus szerkesztési műveleteket, vagy ugyanazokat a korlátozásokat alkalmazza a diákon át. Válassza ki az egyes forma típusok által támogatott zárolásokat, és állítsa értéküket `false`‑ra, amikor el szeretné távolítani ezeket a korlátozásokat.
 
 ## **GYIK**
 
-**Kombinálhatok-e alakzat-zárolásokat és jelszóvédelmet ugyanabban a prezentációban?**
+**Összekapcsolhatom a formazárolókat és a jelszóvédelmet ugyanabban a prezentációban?**
 
-Igen. A zárak korlátozzák a fájlon belüli objektumok szerkesztését, míg a [password protection](/slides/hu/cpp/password-protected-presentation/) szabályozza a megnyitáshoz és/vagy a módosítások mentéséhez való hozzáférést. Ezek a mechanizmusok kiegészítik egymást, és együtt működnek.
+Igen. A formazárolások specifikus szerkesztési műveleteket korlátoznak, míg a [jelszóvédelem](/slides/hu/cpp/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettőt használhatja ugyanabban a fájlban.
 
-**Korlátozhatom-e a szerkesztést csak bizonyos diákra, anélkül, hogy a többit érinteném?**
+**Korlátozhatom a szerkesztést egyes diákon anélkül, hogy a többit befolyásolnám?**
 
-Igen. Alkalmazzon zárakat a kiválasztott diák alakzataira; a többi dia szerkeszthető marad.
+Igen. Csak a kiválasztott diákon lévő formákra alkalmazzon zárolásokat. Ez nem módosítja a többi dia zárolási beállításait.
 
-**Az alakzat-zárolások vonatkoznak-e csoportos objektumokra és csatlakozókra?**
+**Hogyan alkalmazhatok zárolásokat egy csoporton belüli egyedi formákra?**
 
-Igen. Külön dedikált zár típusok támogatottak csoportokra, csatlakozókra, grafikus objektumokra és más alakzatfajtákra.
+Iteráljon a csoport [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) metódusa által visszaadott gyűjteményen, és alkalmazza a megfelelő zárolásokat minden gyermekformára. Ismételje meg ezt minden beágyazott csoportnál. A fenti példák csak a dia forma gyűjteményét dolgozzák fel, így nem állítanak be zárolásokat az egyes csoporttagokra.

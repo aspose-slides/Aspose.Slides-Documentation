@@ -4,35 +4,45 @@ type: docs
 weight: 30
 url: /es/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- gráfico de Excel
+- Gráfico de Excel
 - incrustar gráfico
 - objeto OLE
 - PowerPoint
-- OpenDocument
 - presentación
 - Python
 - Java
 - Aspose.Slides
-description: "Crear gráficos de Excel e incrustarlos como objetos OLE en presentaciones de PowerPoint y OpenDocument con Python. Guía paso a paso con ejemplos de código."
+description: "Crear un gráfico de Excel con Aspose.Cells para Python a través de Java e incrustar el libro de trabajo en una presentación de PowerPoint con Aspose.Slides, incluida una vista previa del gráfico."
 ---
-## **Antecedentes**
+## **Descripción general**
 
-En PowerPoint, usar gráficos editables para mostrar datos de forma gráfica es una práctica habitual. Aspose permite crear gráficos de Excel con Aspose.Cells para Python a través de Java, y estos gráficos pueden incorporarse como objetos OLE en diapositivas de PowerPoint mediante Aspose.Slides para Python a través de Java. Este artículo aborda los pasos necesarios y proporciona un ejemplo de código Python para crear un gráfico de Excel e incrustarlo como objeto OLE en una presentación de PowerPoint usando Aspose.Cells y Aspose.Slides.
+Este artículo muestra cómo crear un gráfico de columnas de Excel con Aspose.Cells para Python a través de Java e incrustar su libro de trabajo en una presentación de PowerPoint con Aspose.Slides para Python a través de Java. El libro de trabajo incrustado contiene tanto los datos origen como el gráfico. Una vista previa PNG independiente muestra el gráfico en la diapositiva antes de que se active el objeto OLE.
 
-## **Pasos requeridos**
+El resultado es un objeto Excel incrustado, no un gráfico nativo de PowerPoint. Editar el libro de trabajo mediante OLE requiere una aplicación de escritorio que admita la activación OLE y una instalación compatible de Excel.
 
-La siguiente secuencia de pasos es necesaria para crear e incrustar un gráfico de Excel como objeto OLE en una diapositiva de PowerPoint:
+## **Requisitos previos**
 
-1. Crear un gráfico de Excel con Aspose.Cells.  
-1. Establecer el tamaño OLE del gráfico de Excel con Aspose.Cells.  
-1. Obtener una imagen del gráfico de Excel con Aspose.Cells.  
-1. Incrustar el gráfico de Excel como objeto OLE en una presentación PPTX con Aspose.Slides.  
-1. Reemplazar la imagen "EMBEDDED OLE OBJECT" con la imagen obtenida en el paso 3 para solucionar el [problema de vista previa del objeto](/slides/es/python-java/object-preview-issue-when-adding-oleobjectframe/).  
-1. Guardar la presentación en disco en formato PPTX.
+Instale los paquetes Python `aspose-cells` y `aspose-slides-java` y un runtime de Java compatible. Importe ambos paquetes antes de iniciar la JVM para que sus bibliotecas Java estén disponibles para JPype. No se requiere Microsoft Office para generar la presentación con estas librerías.
 
-## **Implementación de los pasos requeridos**
+No se necesitan archivos de entrada: el ejemplo crea los datos y el gráfico en memoria, luego escribe `OutputChart.pptx` en el directorio de trabajo actual. Aplique licencias para ambos productos cuando se ejecute fuera del modo de evaluación.
 
-La implementación en Python de los pasos anteriores es la siguiente:
+## **Cómo funciona la incrustación**
+
+1. Crear un libro de trabajo con una hoja de datos y una hoja de gráfico.  
+2. Hacer que la hoja de gráfico esté activa para que el libro de trabajo se abra en el gráfico.  
+3. Establecer el rango de visualización OLE del libro de trabajo y renderizar el gráfico a PNG.  
+4. Guardar el libro de trabajo como XLSX en memoria e incrustar esos bytes en una diapositiva.  
+5. Asignar el PNG como vista previa del objeto OLE y guardar la presentación como PPTX.
+
+El rango de visualización del libro de trabajo y el marco en la diapositiva tienen roles diferentes. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) toma índices de fila y columna de inicio/fin basados en cero. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) en su lugar recibe la fila superior, columna izquierda, fila inferior y columna derecha. El ejemplo usa el índice de fila 55 y el índice de columna 25 como límites inferiores derechos; estos valores son decisiones de diseño, no el número de filas o columnas de datos.
+
+El marco de la diapositiva usa puntos. El ejemplo lo ajusta dentro de la diapositiva y lo centra mientras preserva la proporción del PNG, en lugar de estirar la vista previa para llenar la diapositiva.
+
+## **Crear e incrustar el gráfico**
+
+El siguiente ejemplo completo rellena `DataSheet` con cuatro filas y cinco columnas de valores. Cada fila se convierte en una serie del gráfico. `ChartSheet` se selecciona como la hoja activa antes de guardar el libro de trabajo.
+
+El libro de trabajo se guarda explícitamente como XLSX, coincidiendo con la extensión `xlsx` pasada a [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/). Los flujos de matriz de bytes de Java mantienen el libro de trabajo y la imagen en memoria y proporcionan los arrays de bytes requeridos por las API de Java. El PNG se carga directamente desde sus bytes sin una conversión intermedia a bitmap. Asignarlo mediante [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) sustituye el marcador de posición OLE predeterminado.
 
 ```python
 import jpype
@@ -44,128 +54,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # Una matriz de nombres de celdas.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # Una matriz de datos de celdas.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # Agregar una nueva hoja de cálculo para rellenar celdas con datos.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # Rellenar la hoja de datos con información.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # Agregar una hoja de gráfico.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # Agregar un gráfico a la hoja de gráfico con series de datos de la hoja de datos.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # Establecer la hoja de gráfico como la hoja activa.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # Describir el libro de trabajo como datos OLE incrustados.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# Crear un libro de trabajo.
 workbook = Workbook()
-
-# Agregar un gráfico de Excel.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# Establecer el tamaño OLE del gráfico.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# Obtener la imagen del gráfico y guardarla en un flujo.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# Guardar el libro de trabajo en un flujo.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# Crear una presentación.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # Agregar el libro de trabajo a una diapositiva.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # Guardar la presentación en disco.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # Renderizar la vista previa del gráfico y serializar el libro de trabajo editable por separado.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # Ajustar la vista previa dentro de la diapositiva sin cambiar su proporción.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-La presentación creada con el método anterior contendrá el gráfico de Excel como objeto OLE que puede activarse haciendo doble clic en el marco del objeto OLE.
+## **Resultado esperado**
 
-## **Conclusión**
+`OutputChart.pptx` contiene una diapositiva con un libro de trabajo Excel incrustado y una vista previa del gráfico. El libro de trabajo contiene los datos originales y un gráfico de columnas con cuatro series. La vista previa está centrada en la diapositiva y conserva sus proporciones.
 
-Al utilizar Aspose.Cells para Python a través de Java junto con Aspose.Slides para Python a través de Java, podemos crear cualquier gráfico de Excel admitido por Aspose.Cells e incrustarlo como objeto OLE en una diapositiva de PowerPoint. También se puede definir el tamaño OLE del gráfico de Excel. Los usuarios finales pueden editar el gráfico de Excel como cualquier otro objeto OLE.
+![Gráfico de columnas de Excel mostrado como vista previa de un libro de trabajo incrustado](excel-chart-ole-preview.png)
 
-## **Secciones relacionadas**
-
-- [Solución funcional para el cambio de tamaño de gráficos en PPTX](/slides/es/python-java/working-solution-for-chart-resizing-in-pptx/)  
-- [Problema de vista previa del objeto al añadir OleObjectFrame](/slides/es/python-java/object-preview-issue-when-adding-oleobjectframe/)
+En un entorno de PowerPoint de escritorio compatible con Excel disponible, haga doble clic en el objeto para activarlo y editar el libro de trabajo incrustado. La activación y edición dependen del soporte OLE de la aplicación anfitriona y de la configuración de seguridad.
 
 ## **Preguntas frecuentes**
 
-**¿Qué bibliotecas se utilizan para crear e incrustar el gráfico de Excel?**
+**¿Por qué se necesita una imagen de vista previa?**
 
-Aspose.Cells para Python a través de Java crea el gráfico de Excel, y Aspose.Slides para Python a través de Java lo incrusta como objeto OLE en una diapositiva de PowerPoint.
+El libro de trabajo incrustado y su vista previa en la diapositiva son contenidos separados. Proporcione una imagen del gráfico para que la diapositiva muestre el gráfico en lugar del marcador de posición predeterminado "EMBEDDED OLE OBJECT". Consulte [Problema de vista previa del objeto al añadir OleObjectFrame](/slides/es/python-java/object-preview-issue-when-adding-oleobjectframe/).
 
-**¿Cómo pueden los usuarios editar el gráfico de Excel incrustado?**
+**¿Se actualiza automáticamente la vista previa cuando modifico el libro de trabajo en código?**
 
-Los usuarios pueden hacer doble clic en el marco del objeto OLE para activar el gráfico y editarlo como cualquier otro objeto OLE.
+Considere la vista previa como una captura instantánea. Al actualizar los datos del libro de trabajo programáticamente, regenere la imagen del gráfico y reemplace la vista previa, así como los datos del libro de trabajo incrustado.
 
-**¿Cómo se sustituye la vista previa predeterminada del objeto OLE?**
+**¿Puedo usar XLS en lugar de XLSX?**
 
-El ejemplo obtiene una imagen del gráfico de Excel con Aspose.Cells y la utiliza para reemplazar la imagen "EMBEDDED OLE OBJECT".
+Sí. Guarde el libro de trabajo en formato XLS y use `xls` como la extensión de datos incrustados. La extensión debe coincidir con el formato real del libro de trabajo; cambiar solo la extensión no convierte los datos.
+
+**¿Por qué el objeto podría cambiar de tamaño después de la activación?**
+
+La aplicación anfitriona puede actualizar la presentación del objeto OLE cuando activa el libro de trabajo. Tanto el rango de visualización OLE del libro de trabajo como las dimensiones del marco de la diapositiva son importantes. Consulte [Solución funcional para el cambio de tamaño de gráficos en PPTX](/slides/es/python-java/working-solution-for-chart-resizing-in-pptx/).
+
+## **Secciones relacionadas**
+
+- [Solución funcional para el cambio de tamaño de gráficos en PPTX](/slides/es/python-java/working-solution-for-chart-resizing-in-pptx/)
+- [Problema de vista previa del objeto al añadir OleObjectFrame](/slides/es/python-java/object-preview-issue-when-adding-oleobjectframe/)

@@ -1,201 +1,114 @@
 ---
-title: PPTX में चार्ट रिसाइज़िंग के लिए कार्य समाधान
+title: PPTX में चार्ट आकार बदलने के लिए कार्य समाधान
 type: docs
 weight: 60
 url: /hi/net/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- चार्ट रिसाइज़िंग
+- चार्ट आकार बदलना
 - Excel चार्ट
 - OLE ऑब्जेक्ट
-- चार्ट एम्बेड करें
+- चार्ट एम्बेड करना
 - PowerPoint
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET के साथ एम्बेडेड Excel OLE ऑब्जेक्ट्स का उपयोग करने पर PPTX में अनपेक्षित चार्ट रिसाइज़िंग को ठीक करें। आकार को समान रखने के लिए दो विधियों और कोड सीखें।"
+description: "Aspose.Slides for .NET के साथ एम्बेड किए गए Excel OLE ऑब्जेक्ट्स का उपयोग करने पर PPTX में अनपेक्षित चार्ट आकार बदलने को ठीक करें। चार्ट और OLE फ्रेम के आकार को स्थिर रखने के लिए निश्चित चार्ट आयाम सेट करें।"
 ---
 ## **पृष्ठभूमि**
 
-यह देखा गया है कि Aspose घटकों के माध्यम से PowerPoint प्रस्तुति में OLE वस्तुओं के रूप में एम्बेड किए गए Excel चार्ट को पहली सक्रियता के बाद एक अनिर्दिष्ट स्केल में बदल दिया जाता है। यह व्यवहार चार्ट की सक्रियता से पहले और बाद की स्थितियों के बीच प्रस्तुति में एक स्पष्ट दृश्य अंतर पैदा करता है। Aspose टीम ने इस मुद्दे की विस्तृत जाँच की है और समाधान पाया है। यह लेख समस्या के कारणों और संबंधित सुधार का वर्णन करता है।
+Aspose घटकों का उपयोग करके PowerPoint प्रस्तुतियों में OLE वस्तुओं के रूप में सम्मिलित Excel चार्ट्स पहली बार सक्रिय करने के बाद आकार बदल सकते हैं। यह सक्रिय करने से पहले और बाद में चार्ट के स्वरूप में स्पष्ट अंतर पैदा कर सकता है। यह लेख समझाता है कि आकार बदलना क्यों होता है और कैसे इसे OLE फ्रेम के साथ निश्चित चार्ट आयाम मिलाकर रोका जा सकता है।
 
-हमने [previous article](/slides/hi/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) में बताया था कि Aspose.Cells for .NET के साथ Excel चार्ट कैसे बनाएं और Aspose.Slides for .NET का उपयोग करके उसे PowerPoint प्रस्तुति में एम्बेड करें। [object preview issue](/slides/hi/net/object-preview-issue-when-adding-oleobjectframe/) को हल करने के लिए हमने चार्ट की छवि को चार्ट के OLE ऑब्जेक्ट फ्रेम को सौंपा। आउटपुट प्रस्तुति में, जब आप चार्ट छवि प्रदर्शित करने वाले OLE ऑब्जेक्ट फ्रेम पर दो बार क्लिक करते हैं, तो Excel चार्ट सक्रिय हो जाता है। अंतिम उपयोगकर्ता अंतर्निहित Excel वर्कबुक में इच्छित परिवर्तन कर सकते हैं और फिर सक्रिय वर्कबुक के बाहर क्लिक करके संबंधित स्लाइड पर वापस जा सकते हैं। उपयोगकर्ता के स्लाइड पर वापस आने पर OLE ऑब्जेक्ट फ्रेम का आकार बदल जाता है, और रिसाइज़िंग फ़ैक्टर दोनों OLE ऑब्जेक्ट फ्रेम और एम्बेडेड Excel वर्कबुक के मूल आकारों पर निर्भर करता है।
+[Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/hi/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) में हमने बताया कि Aspose.Cells for .NET के साथ Excel चार्ट कैसे बनाया जाए और Aspose.Slides for .NET का उपयोग करके उसे PowerPoint प्रस्तुति में एम्बेड किया जाए। [object preview issue](/slides/hi/net/object-preview-issue-when-adding-oleobjectframe/) को हल करने के लिए हमने चार्ट छवि को चार्ट के OLE ऑब्जेक्ट फ्रेम में असाइन किया। आउटपुट प्रस्तुति में, जब आप चार्ट छवि प्रदर्शित करने वाले OLE ऑब्जेक्ट फ्रेम पर डबल‑क्लिक करते हैं, तो Excel चार्ट सक्रिय हो जाता है। उपयोगकर्ता एम्बेडेड Excel वर्कबुक को संपादित कर सकते हैं और फिर सक्रिय वर्कबुक के बाहर क्लिक करके स्लाइड पर वापस आ सकते हैं। उपयोगकर्ता के स्लाइड पर वापस लौटने पर OLE ऑब्जेक्ट फ्रेम का आकार बदलता है, और पुनः आकार देने का कारक OLE ऑब्जेक्ट फ्रेम और एम्बेडेड Excel वर्कबुक दोनों के मूल आकारों पर निर्भर करता है।
 
-## **रीसाइज़िंग का कारण**
+## **आकार बदलने का कारण**
 
-क्योंकि Excel वर्कबुक का अपना विंडो आकार होता है, यह पहली सक्रियता पर अपने मूल आकार को बनाए रखने की कोशिश करता है। हालांकि, OLE ऑब्जेक्ट फ्रेम का अपना आकार होता है। माइक्रोसॉफ्ट के अनुसार, जब Excel वर्कबुक सक्रिय होती है, तो Excel और PowerPoint आकार पर बातचीत करते हैं और एम्बेडिंग प्रक्रिया के हिस्से के रूप में सही अनुपात बनाए रखते हैं। Excel विंडो के आकार और OLE ऑब्जेक्ट फ्रेम के आकार या स्थिति के बीच अंतर के आधार पर रीसाइज़िंग होती है।
+एंबेडेड Excel वर्कबुक की अपनी विंडो आयाम होती हैं, जिन्हें Excel पहली बार ऑब्जेक्ट सक्रिय होने पर बनाए रखने की कोशिश करता है। स्लाइड पर OLE फ्रेम के आयाम स्वतंत्र रूप से परिभाषित होते हैं। जब Excel वर्कबुक सक्रिय होती है, तो Excel और PowerPoint ऑब्जेक्ट के आकार को समन्वयित करते हैं ताकि एम्बेडिंग प्रक्रिया के हिस्से के रूप में अनुपात बनाए रखा जा सके। वर्कबुक विंडो और OLE फ्रेम के बीच अंतर के कारण ऑब्जेक्ट का आकार बदल सकता है।
 
-## **कार्यशील समाधान**
+## **काम करने वाला समाधान**
 
-Aspose.Slides for .NET का उपयोग करके PowerPoint प्रस्तुतियां बनाने के दो संभावित परिदृश्य हैं।
+स्लाइड पर OLE फ्रेम के साथ चार्ट आकार मिलाएँ और चार्ट आयाम को वर्कबुक विंडो से स्वतंत्र रखें। यह समाधान नई प्रस्तुति या मौजूदा टेम्पलेट दोनों के साथ काम करता है।
 
-**Scenario 1:** मौजूदा टेम्पलेट के आधार पर प्रस्तुति बनाना।
+यह उदाहरण Aspose.Cells for .NET और Aspose.Slides for .NET की आवश्यकता रखता है। यह सक्रिय चार्ट शीट पर एक सरल कॉलम चार्ट बनाता है और वर्कबुक को XLS प्रारूप में एम्बेड करता है। कोई चार्ट प्रीव्यू छवि असाइन नहीं की गई; चार्ट PowerPoint में OLE ऑब्जेक्ट सक्रिय होने पर दिखाई देता है।
 
-**Scenario 2:** शून्य से प्रस्तुति बनाना।
+उदाहरण 9.5 × 4‑इंच OLE फ्रेम के साथ नई प्रस्तुति बनाता है जो बाएँ किनारे से 0.5 इंच और शीर्ष से 1 इंच दूरी पर स्थित है। स्लाइड निर्देशांक और आयाम पॉइंट्स में होते हैं (प्रति इंच 72 पॉइंट)। मौजूदा प्रस्तुति के लिए, देखें [Use a Template](#use-a-template)।
 
-यहाँ दिया गया समाधान दोनों परिदृश्यों पर लागू होता है। सभी समाधान दृष्टिकोणों का आधार समान है: **एम्बेडेड OLE ऑब्जेक्ट का विंडो आकार PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के साथ मेल खाना चाहिए**। अब हम इस समाधान के दो दृष्टिकोणों पर चर्चा करेंगे।
+## **स्थिर चार्ट आकार सेट करें**
 
-## **पहला दृष्टिकोण**
-
-इस दृष्टिकोण में, हम सीखेंगे कि एम्बेडेड Excel वर्कबुक का विंडो आकार कैसे सेट किया जाए ताकि वह PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार से मेल खाए।
-
-**Scenario 1**  
-
-मान लीजिए हमने एक टेम्पलेट परिभाषित किया है और उसके आधार पर प्रस्तुतियां बनाना चाहते हैं। मानिए टेम्पलेट में इंडेक्स 2 पर एक आकार (shape) है जहाँ हम एम्बेडेड Excel वर्कबुक वाला OLE फ्रेम रखना चाहते हैं। इस परिदृश्य में, OLE ऑब्जेक्ट फ्रेम का आकार पूर्व-निर्धारित है—यह टेम्पलेट में इंडेक्स 2 पर आकार के आकार के समान है। हमें केवल वर्कबुक का विंडो आकार उस आकार के बराबर सेट करना है। निम्नलिखित कोड स्निपेट इस उद्देश्य की पूर्ति करता है:
+[SizeWithWindow](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/sizewithwindow/) को false सेट करें ताकि चार्ट आयाम वर्कबुक विंडो से स्वतंत्र रहें। [ChartObject](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/chartobject/) के आयाम को [Width](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/width/) और [Height](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/height/) के माध्यम से सेट करें, पॉइंट्स को 96 पिक्सेल प्रति इंच के उपयोग से पिक्सेल में परिवर्तित करें: 684 × 288 पॉइंट्स का फ्रेम 912 × 384 पिक्सेल के चार्ट के बराबर है। [PrintSize](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/printsize/) को [PrintSizeType](https://reference.aspose.com/cells/net/aspose.cells/printsizetype/) के Custom मान पर सेट करें। उदाहरण वर्कबुक को [AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addoleobjectframe/) के साथ एम्बेड करता है और 9.5 × 4‑इंच OLE फ्रेम वाले प्रस्तुति को सहेजता है।
 
 ```cs
-// विंडो के साथ चार्ट का आकार परिभाषित करें। 
-// वर्कबुक की विंडो चौड़ाई इंच में सेट करें (72 से विभाजित क्योंकि PowerPoint 72 पिक्सेल प्रति इंच उपयोग करता है)।
- // वर्कबुक की विंडो ऊँचाई इंच में सेट करें।
- // वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
- // एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-chart.SizeWithWindow = true;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
 
-// Set the window width of the workbook in inches (divided by 72 as PowerPoint uses 72 pixels per inch).
-workbook.Worksheets.WindowWidthInch = slide.Shapes[2].Width / 72f;
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "Data";
+dataSheet.Cells["A1"].PutValue(10);
+dataSheet.Cells["A2"].PutValue(20);
 
-// Set the window height of the workbook in inches.
-workbook.Worksheets.WindowHeightInch = slide.Shapes[2].Height / 72f;
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, 20, 10);
+var chart = chartSheet.Charts[chartIndex];
+chart.NSeries.Add("Data!A1:A2", true);
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
 
-// Save the workbook to a memory stream.
-MemoryStream workbookStream = workbook.SaveToStream();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Create an OLE object frame with the embedded Excel data.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
+// स्लाइड निर्देशांक और आयाम पॉइंट्स में हैं (प्रति इंच 72 पॉइंट्स)।
+var width = 684f; // 9.5 इंच।
+var height = 288f; // 4 इंच।
 
-**Scenario 2**  
-
-मान लीजिए हम शून्य से एक प्रस्तुति बनाना चाहते हैं और किसी भी आकार का OLE ऑब्जेक्ट फ्रेम एम्बेडेड Excel वर्कबुक के साथ शामिल करना चाहते हैं। निम्नलिखित कोड स्निपेट में, हम स्लाइड पर x = 0.5 इंच और y = 1 इंच पर 4 इंच ऊँची और 9.5 इंच चौड़ी OLE ऑब्जेक्ट फ्रेम बनाते हैं। फिर हम Excel वर्कबुक विंडो को उसी आकार—4 इंच ऊँची और 9.5 इंच चौड़ी—पर सेट करते हैं।
-
-```cs
-// हमारी वांछित ऊँचाई।
-int desiredHeight = 288; // 4 इंच (4 * 72)
-
-// हमारी वांछित चौड़ाई।
-int desiredWidth = 684;//9.5 इंच (9.5 * 72)
-
-// विंडो के साथ चार्ट का आकार परिभाषित करें।
-chart.SizeWithWindow = true;
-
-// वर्कबुक की विंडो चौड़ाई इंच में सेट करें।
-workbook.Worksheets.WindowWidthInch = desiredWidth / 72f;
-
-// वर्कबुक की विंडो ऊँचाई इंच में सेट करें।
-workbook.Worksheets.WindowHeightInch = desiredHeight / 72f;
-
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
-
-## **दूसरा दृष्टिकोण**
-
-इस दृष्टिकोण में, हम सीखेंगे कि एम्बेडेड Excel वर्कबुक में चार्ट का आकार कैसे सेट किया जाए ताकि वह PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार से मेल खाए। यह दृष्टिकोण तब उपयोगी है जब चार्ट का आकार प्रारंभ में ज्ञात हो और बाद में नहीं बदलता।
-
-**Scenario 1**  
-
-मान लीजिए हमने एक टेम्पलेट परिभाषित किया है और उसके आधार पर प्रस्तुतियां बनाना चाहते हैं। मानिए टेम्पलेट में इंडेक्स 2 पर एक आकार है जहाँ हम एम्बेडेड Excel वर्कबुक वाला OLE फ्रेम रखना चाहते हैं। इस परिदृश्य में, OLE फ्रेम का आकार पूर्व-निर्धारित है—टेम्पलेट में इंडेक्स 2 पर आकार के आकार के समान। हमें केवल वर्कबुक में चार्ट का आकार उस आकार के बराबर सेट करना है। निम्नलिखित कोड स्निपेट इस उद्देश्य की पूर्ति करता है:
-
-```cs
-// विंडो के बिना चार्ट का आकार परिभाषित करें। 
 chart.SizeWithWindow = false;
+// Convert points to chart pixels using 96 pixels per inch.
+chart.ChartObject.Width = (int)(width / 72f * 96f);
+chart.ChartObject.Height = (int)(height / 72f * 96f);
+chart.PrintSize = Aspose.Cells.PrintSizeType.Custom;
 
-// पिक्सेल में चार्ट की चौड़ाई सेट करें (Excel 96 पिक्सेल प्रति इंच उपयोग करता है, इसलिए 96 से गुणा करें)।    
-chart.ChartObject.Width = (int)((slide.Shapes[2].Width / 72f) * 96f);
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Excel97To2003);
+var dataInfo = new OleEmbeddedDataInfo(workbookStream.ToArray(), "xls");
+slide.Shapes.AddOleObjectFrame(36, 72, width, height, dataInfo);
 
-// पिक्सेल में चार्ट की ऊँचाई सेट करें।
-chart.ChartObject.Height = (int)((slide.Shapes[2].Height / 72f) * 96f);
-
-// चार्ट की प्रिंट आकार परिभाषित करें।
-chart.PrintSize = PrintSizeType.Custom;
-
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
+presentation.Save("chart-fixed-size.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-**Scenario 2**  
+## **टेम्पलेट का उपयोग करें**
 
-मान लीजिए हम शून्य से एक प्रस्तुति बनाना चाहते हैं और किसी भी आकार का OLE ऑब्जेक्ट फ्रेम एम्बेडेड Excel वर्कबुक के साथ शामिल करना चाहते हैं। निम्नलिखित कोड स्निपेट में, हम स्लाइड पर x = 0.5 इंच और y = 1 इंच पर 4 इंच ऊँची और 9.5 इंच चौड़ी OLE ऑब्जेक्ट फ्रेम बनाते हैं। हम संबंधित चार्ट आकार को भी उसी आयाम—4 इंच ऊँचा और 9.5 इंच चौड़ा—पर सेट करते हैं।
+मौजूदा प्रस्तुति में आकार निर्धारण तर्क समान है। उदाहरण को अनुकूलित करने के लिए:
 
-```cs
- // हमारी वांछित ऊँचाई।
-int desiredHeight = 288; // 4 इंच (4 * 576)
-
-// हमारी वांछित चौड़ाई।
-int desiredWidth = 684; // 9.5 इंच (9.5 * 576)
-
-// विंडो के बिना चार्ट का आकार परिभाषित करें। 
-chart.SizeWithWindow = false;
-
-// पिक्सेल में चार्ट की चौड़ाई सेट करें।   
-chart.ChartObject.Width = (int)((desiredWidth / 72f) * 96f);
-
-// पिक्सेल में चार्ट की ऊँचाई सेट करें।    
-chart.ChartObject.Height = (int)((desiredHeight / 72f) * 96f);
-
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
-
-## **निष्कर्ष**
-
-चार्ट रीसाइज़िंग समस्या को ठीक करने के दो तरीके हैं। दृष्टिकोण का चयन आवश्यकताओं और उपयोग केस पर निर्भर करता है। चाहे प्रस्तुतियां टेम्पलेट से बनाई गई हों या शून्य से, दोनों तरीकों का कार्य समान होता है। साथ ही, इस समाधान में OLE ऑब्जेक्ट फ्रेम के आकार पर कोई सीमा नहीं है।
+1. खाली प्रस्तुति बनाने के बजाय टेम्पलेट प्रस्तुति लोड करें।
+1. जांचें कि पहली स्लाइड में कम से कम तीन आकृतियाँ हैं, फिर इंडेक्स 2 की आकृति को प्लेसहोल्डर के रूप में उपयोग करें।
+1. निश्चित मान 684 और 288 के बजाय उस आकृति से फ्रेम की चौड़ाई और ऊँचाई लें। आकार गणनाएँ अपरिवर्तित रखें।
+1. निश्चित निर्देशांक 36 और 72 के बजाय प्लेसहोल्डर की स्थिति पर OLE फ्रेम जोड़ें।
+1. प्रस्तुति सहेजने से पहले प्लेसहोल्डर को हटाएँ।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Why does my embedded Excel chart change size after activating it in PowerPoint?**  
-यह इसलिए होता है क्योंकि Excel पहली सक्रियता पर मूल विंडो आकार को पुनर्स्थापित करने की कोशिश करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ्रेम का अपना आयाम होता है। PowerPoint और Excel आकार पर बातचीत करते हैं ताकि अनुपात बनाए रखा जा सके, जिससे रीसाइज़िंग हो सकती है।
+**PowerPoint में सक्रिय करने के बाद मेरा एम्बेडेड Excel चार्ट आकार क्यों बदलता है?**
 
-**Is it possible to prevent this resizing issue entirely?**  
-हाँ। एम्बेडिंग से पहले Excel वर्कबुक विंडो आकार या चार्ट आकार को OLE ऑब्जेक्ट फ्रेम आकार के साथ मेल करके, आप चार्ट आकार को स्थिर रख सकते हैं।
+यह इसलिए होता है क्योंकि Excel पहली बार सक्रिय होने पर मूल विंडो आकार को पुनर्स्थापित करने की कोशिश करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ्रेम की अपनी आयाम होती हैं। PowerPoint और Excel अनुपात बनाए रखने के लिए आकार पर बातचीत करते हैं, जिससे आकार बदलना हो सकता है।
 
-**Which approach should I take, setting the workbook window size or setting the chart size?**  
-यदि आप वर्कबुक के अनुपात को बनाए रखना चाहते हैं और बाद में रिसाइज़िंग की संभावना रखना चाहते हैं तो **Approach 1 (window size)** का उपयोग करें।  
-यदि चार्ट के आयाम निश्चित हैं और एम्बेडिंग के बाद नहीं बदलेंगे तो **Approach 2 (chart size)** का उपयोग करें।
+**मैं चार्ट और OLE फ्रेम के आकार को स्थिर कैसे रख सकता हूँ?**
 
-**Will these methods work with both template-based presentations and new presentations?**  
-हाँ। दोनों दृष्टिकोण टेम्पलेट-आधारित प्रस्तुतियों और शून्य से बनाई गई प्रस्तुतियों दोनों में समान रूप से काम करते हैं।
+स्थिर चार्ट आयाम सेट करें जो OLE फ्रेम से मेल खाते हों और वर्कबुक को एम्बेड करने से पहले कस्टम चार्ट प्रिंट आकार का उपयोग करें। ऊपर दिया उदाहरण आवश्यक सेटिंग्स और इकाई रूपांतरण दिखाता है।
 
-**Is there a limit to the size of the OLE object frame?**  
-नहीं। आप OLE फ्रेम को किसी भी आकार में सेट कर सकते हैं जब तक वह वर्कबुक या चार्ट आकार के अनुसार उचित रूप से स्केल हो।
+**क्या केवल वर्कबुक विंडो आकार मिलाना पर्याप्त है?**
 
-**Can I use these methods with charts created in other spreadsheet programs?**  
-उदाहरण Excel चार्ट्स के लिए Aspose.Cells के साथ तैयार किए गए हैं, लेकिन सिद्धांत अन्य OLE‑संगत स्प्रेडशीट प्रोग्राम्स पर भी लागू होते हैं, बशर्ते वे समान आकार विकल्प प्रदान करते हों।
+केवल वर्कबुक विंडो आकार मिलाने से OLE फ्रेम के सक्रिय करने के बाद आकार बदलने को विश्वसनीय रूप से रोका नहीं जा सकता। उदाहरण में दिखाए अनुसार स्थिर चार्ट आयाम का उपयोग करें।
+
+**क्या यह समाधान टेम्पलेट‑आधारित प्रस्तुतियों और नई प्रस्तुतियों दोनों के साथ काम करता है?**
+
+हाँ। टेम्पलेट के लिए प्लेसहोल्डर के आयाम और स्थिति का उपयोग करें। नई प्रस्तुति के लिए सीधे फ्रेम के आयाम और स्थिति निर्दिष्ट करें।
+
+**क्या मैं इस उदाहरण को अन्य स्प्रेडशीट प्रोग्रामों में बनाए गए चार्ट्स के साथ उपयोग कर सकता हूँ?**
+
+उदाहरण Aspose.Cells से बनाए गए Excel वर्कबुक का उपयोग करता है। यह अन्य स्प्रेडशीट प्रोग्रामों के सक्रियण व्यवहार को दर्शाता नहीं है।
 
 ## **संबंधित अनुभाग**
 
-- [Excel चार्ट बनाएं और उन्हें OLE ऑब्जेक्ट्स के रूप में प्रस्तुतियों में एम्बेड करें](/slides/hi/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
-- [PowerPoint ऐड‑इन का उपयोग करके OLE ऑब्जेक्ट्स को स्वचालित रूप से अपडेट करें](/slides/hi/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/hi/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Update OLE Objects Automatically Using a PowerPoint Add-In](/slides/hi/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

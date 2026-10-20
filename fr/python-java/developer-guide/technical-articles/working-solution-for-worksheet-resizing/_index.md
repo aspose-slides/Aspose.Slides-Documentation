@@ -14,34 +14,36 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Correction du redimensionnement OLE des feuilles de calcul Excel dans les présentations : deux méthodes pour maintenir la cohérence des cadres d'objet—redimensionner le cadre ou la feuille—dans les formats PPT et PPTX."
+description: "Corriger le redimensionnement OLE des feuilles de calcul Excel dans les présentations : deux façons de garder les cadres d'objet cohérents - redimensionner le cadre ou la feuille - sur les formats PPT et PPTX."
 ---
 {{% alert color="info" title="Note" %}}
 
-Il a été observé que les feuilles de calcul Excel intégrées en tant qu’objets OLE dans une présentation PowerPoint via les composants Aspose sont redimensionnées à une échelle non spécifiée après la première activation. Ce comportement crée une différence visuelle notable dans la présentation entre les états avant et après l’activation de l’objet OLE. Nous avons étudié ce problème en détail et fourni une solution, qui est présentée dans cet article.
+Les feuilles de calcul Excel integrees en tant qu'objets OLE dans une presentation PowerPoint utilisant les composants Aspose peuvent redimensionner de maniere inattendue apres leur premiere activation. Ce comportement cree une difference visuelle notable entre l'objet OLE avant et apres l'activation. Cet article explique le probleme et décrit deux façons de le résoudre.
 
 {{% /alert %}}
 
 ## **Contexte**
 
-Dans l’article [Gérer OLE](/slides/fr/python-java/manage-ole/), nous avons expliqué comment ajouter un cadre OLE à une présentation PowerPoint en utilisant Aspose.Slides for Python via Java. Pour résoudre le [problème d’aperçu d’objet](/slides/fr/python-java/object-preview-issue-when-adding-oleobjectframe/), nous avons affecté une image de la zone de feuille de calcul sélectionnée à la trame d’objet OLE. Dans la présentation générée, lorsque vous double‑cliquez sur la trame d’objet OLE affichant l’image de la feuille de calcul, le classeur Excel est activé. Les utilisateurs finaux peuvent apporter les modifications souhaitées au classeur Excel réel, puis revenir à la diapositive en cliquant en dehors du classeur Excel activé. La taille de la trame d’objet OLE changera lorsque l’utilisateur reviendra à la diapositive. Le facteur de redimensionnement variera en fonction de la taille de la trame d’objet OLE et du classeur Excel intégré.
+Dans l'article [Gérer OLE](/slides/fr/python-java/manage-ole/), nous avons explique comment ajouter un cadre OLE a une presentation PowerPoint en utilisant Aspose.Slides pour Python via Java. Pour résoudre le [problème d'aperçu d'objet](/slides/fr/python-java/object-preview-issue-when-adding-oleobjectframe/), nous avons assigné une image de la zone de la feuille de calcul sélectionnée au cadre de l'objet OLE. Dans la presentation resultante, lorsque vous double-cliquez sur le cadre d'objet OLE affichant l'image de la feuille, le classeur Excel est active. Les utilisateurs finaux peuvent apporter les modifications souhaitées au classeur Excel réel, puis revenir a la diapositive en cliquant en dehors du classeur Excel active. La taille du cadre d'objet OLE changera lorsque l'utilisateur revient a la diapositive. Le facteur de redimensionnement variera en fonction de la taille du cadre d'objet OLE et du classeur Excel incorpore.
 
 ## **Cause du redimensionnement**
 
-Comme le classeur Excel possède sa propre taille de fenêtre, il tente de conserver sa taille d’origine lors de la première activation. En revanche, la trame d’objet OLE a sa propre taille. Selon Microsoft, lorsque le classeur Excel est activé, Excel et PowerPoint négocient la taille afin de garantir le maintien des proportions correctes dans le cadre du processus d’intégration. Le redimensionnement se produit en fonction des différences entre la taille de la fenêtre Excel et la taille et la position de la trame d’objet OLE.
+Comme le classeur Excel possède sa propre taille de fenêtre, il tente de conserver sa taille originale lors de la premiere activation. En revanche, le cadre d'objet OLE a sa propre taille. Selon Microsoft, lorsque le classeur Excel est active, Excel et PowerPoint negocient la taille afin de garantir le maintien des bonnes proportions dans le cadre du processus d'integration. Le redimensionnement se produit en fonction des differences entre la taille de la fenêtre Excel et la taille et la position du cadre d'objet OLE.
 
 ## **Solution fonctionnelle**
 
-Deux solutions possibles permettent d’éviter l’effet de redimensionnement.
+Il existe deux solutions possibles pour eviter l'effet de redimensionnement.
 
-- Redimensionner la taille de la trame OLE dans la présentation PowerPoint pour qu’elle corresponde à la hauteur et à la largeur du nombre souhaité de lignes et de colonnes dans la trame OLE.
-- Conserver la taille de la trame OLE constante et redimensionner la taille des lignes et colonnes participantes pour qu’elles s’ajustent à la taille de trame OLE sélectionnée.
+- Redimensionner le cadre OLE dans la presentation PowerPoint pour correspondre a la hauteur et a la largeur totales des lignes et colonnes selectionnees.
+- Maintenir la taille du cadre OLE constante et redimensionner les lignes et colonnes selectionnees pour les faire tenir a l'interieur.
 
-### **Redimensionner la taille de la trame OLE**
+### **Redimensionner la taille du cadre OLE**
 
-Dans cette approche, nous apprendrons comment définir la taille de la trame OLE du classeur Excel intégré afin qu’elle corresponde à la taille cumulative des lignes et colonnes participantes dans la feuille de calcul Excel.
+Cette approche definit la taille du cadre OLE pour correspondre a la hauteur et a la largeur totales des lignes et colonnes selectionnees dans la feuille Excel integree.
 
-Supposons que nous disposions d’une feuille Excel modèle et que nous voulions l’ajouter à une présentation en tant que trame OLE. Dans ce scénario, la taille de la trame d’objet OLE sera d’abord calculée à partir des hauteurs cumulées des lignes et des largeurs cumulées des colonnes participantes dans le classeur. Ensuite, nous définirons la taille de la trame OLE à cette valeur calculée. Pour éviter le message rouge « EMBEDDED OLE OBJECT » pour la trame OLE dans PowerPoint, nous capturerons également une image des portions souhaitées des lignes et colonnes dans le classeur et l’utiliserons comme image de la trame OLE.
+Exemple charge un classeur Excel existant et selectionne les 10 premieres lignes et les 13 premieres colonnes de sa premiere feuille en utilisant des index a base zero. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) definit la plage affichee. L'aperçu est rendu a 96 DPI, et ses dimensions en pixels sont converties en points en utilisant 72 points par pouce. [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) integre le classeur modifie dans un cadre avec ces dimensions. L'aperçu est assigne via [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) pour remplacer l'espace reserve "EMBEDDED OLE OBJECT" dans la presentation enregistree.
+
+L'assistant d'aperçu definit [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) sur la plage selectionnee et supprime les marges, en-tetes et pieds de page. Avec [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea) active, [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) rend la plage sous forme d'image PNG. L'assistant renvoie un nouveau flux d'entree contenant l'image PNG, positionne au debut pour etre utilise dans la presentation.
 
 ```python
 import jpype
@@ -142,9 +144,13 @@ finally:
 
 ### **Redimensionner la taille de la plage de cellules**
 
-Dans cette approche, nous apprendrons comment redimensionner les hauteurs des lignes participantes et les largeurs des colonnes participantes pour correspondre à une taille de trame OLE personnalisée.
+Cette approche redimensionne les hauteurs des lignes selectionnees et les largeurs des colonnes selectionnees pour correspondre a une taille de cadre OLE personnalisee.
 
-Supposons que nous disposions d’une feuille Excel modèle et que nous voulions l’ajouter à une présentation en tant que trame OLE. Dans ce scénario, nous définirons la taille de la trame OLE et redimensionnerons la taille des lignes et colonnes qui participent à la zone de la trame OLE. Nous enregistrerons ensuite le classeur dans un flux afin d’appliquer les modifications et le convertirons en tableau d’octets pour l’ajouter à la trame OLE. Pour éviter le message rouge « EMBEDDED OLE OBJECT » pour la trame OLE dans PowerPoint, nous capturerons également une image des portions souhaitées des lignes et colonnes dans le classeur et l’utiliserons comme image de la trame OLE.
+L'exemple charge un classeur Excel existant et selectionne les 10 premieres lignes et les 13 premieres colonnes de sa premiere feuille en utilisant des index a base zero. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) definit la plage affichee, et l'assistant scale_cell_range redimensionne cette plage pour l'adapter a un cadre de 400 points de large et 100 points de haut. Apres avoir enregistre le classeur modifie dans un flux, [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) l'integre a la taille specifiee. Un apercu rendu a 96 DPI est assigne via [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat), de sorte que la presentation enregistree affiche les cellules selectionnees au lieu de l'espace reserve par defaut.
+
+L'assistant de mise a l'echelle calcule des ratios de largeur et de hauteur separes pour la plage selectionnee, en preservant les largeurs relatives de ses colonnes et les hauteurs relatives de ses lignes. Il convertit les dimensions calculees de points en pouces avant de les appliquer avec [Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) et [Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch). La plage selectionnee doit avoir une largeur et une hauteur non nulles.
+
+Cet assistant d'aperçu rend la plage redimensionnee en utilisant [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage). Il limite [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) a cette plage, supprime les marges, en-tetes et pieds de page, et renvoie un flux PNG positionne au debut.
 
 ```python
 import jpype
@@ -159,7 +165,7 @@ from asposecells.api import SaveFormat as CellsSaveFormat
 from asposeslides.api import Presentation, OleEmbeddedDataInfo, SaveFormat
 
 ByteArrayInputStream = jpype.JClass("java.io.ByteArrayInputStream")
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
+ByteArrayOutputStream = jpime.JClass("java.io.ByteArrayOutputStream")
 
 
 def create_ole_image(cell_range, image_resolution):
@@ -189,7 +195,7 @@ def create_ole_image(cell_range, image_resolution):
 
 
 def scale_cell_range(cell_range, width, height):
-    # La largeur et la hauteur attendues de la plage de cellules sont exprimées en points.
+    # La largeur et la hauteur attendues de la plage de cellules sont en points.
     range_width = cell_range.getWidth()
     range_height = cell_range.getHeight()
     cells = cell_range.getWorksheet().getCells()
@@ -224,7 +230,7 @@ try:
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
 
     cell_range = worksheet.getCells().createRange(start_row, start_column, row_count, column_count)
-    # Redimensionner la plage de cellules pour correspondre à la taille du cadre.
+    # Redimensionner la plage de cellules pour l'adapter à la taille du cadre.
     scale_cell_range(cell_range, frame_width, frame_height)
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
@@ -264,36 +270,38 @@ finally:
 
 {{% alert color="info" title="Note" %}} 
 
-Il existe deux approches pour résoudre le problème de redimensionnement de la feuille de calcul. Le choix de l’approche appropriée dépend des exigences spécifiques et du cas d’utilisation. Les deux approches fonctionnent de la même manière, que les présentations soient créées à partir d’un modèle ou à partir de zéro. De plus, il n’y a aucune limite à la taille de la trame d’objet OLE dans cette solution.
+Il existe deux approches pour resoudre le probleme de redimensionnement de la feuille de calcul. Choisissez l'approche qui correspond le mieux a vos exigences et a votre cas d'utilisation. Les deux approches fonctionnent de la meme facon, que les presentations soient creees a partir d'un modele ou a partir de zero. De plus, il n'y a aucune limite a la taille du cadre d'objet OLE dans cette solution.
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Pourquoi une feuille de calcul Excel intégrée change-t-elle de taille lors de sa première activation dans PowerPoint ?**
+**Pourquoi une feuille de calcul Excel integree change-t-elle de taille lors de sa premiere activation dans PowerPoint?**
 
-Cela se produit parce qu’Excel tente de conserver la taille originale de sa fenêtre lorsqu’il est activé, alors que la trame d’objet OLE dans PowerPoint possède ses propres dimensions. PowerPoint et Excel négocient la taille afin de maintenir le rapport d’aspect, ce qui peut entraîner le redimensionnement.
+Cela se produit parce qu'Excel essaie de conserver la taille originale de la fenetre lorsqu'il est active, alors que le cadre d'objet OLE dans PowerPoint possède ses propres dimensions. PowerPoint et Excel negocient la taille afin de conserver le ratio d'aspect, ce qui peut entraîner le redimensionnement.
 
-**Est‑il possible d’éliminer complètement ce problème de redimensionnement ?**
+**Est-il possible d'eviter complètement ce probleme de redimensionnement?**
 
-Oui. En redimensionnant la trame OLE pour correspondre à la taille de la plage de cellules Excel ou en redimensionnant la plage de cellules pour correspondre à la taille souhaitée de la trame OLE, vous pouvez éviter le redimensionnement indésirable.
+Oui. En redimensionnant le cadre OLE pour qu'il corresponde a la taille de la plage de cellules Excel ou en redimensionnant la plage de cellules pour qu'elle corresponde a la taille souhaitee du cadre OLE, vous pouvez eviter un redimensionnement indesirable.
 
-**Quelle méthode de redimensionnement dois‑je utiliser, le redimensionnement de la trame OLE ou celui de la plage de cellules ?**
+**Quelle methode de mise a l'echelle dois-je utiliser, le redimensionnement du cadre OLE ou le redimensionnement de la plage de cellules?**
 
-Choisissez **le redimensionnement de la trame OLE** si vous souhaitez conserver les tailles de lignes et colonnes Excel d’origine. Choisissez **le redimensionnement de la plage de cellules** si vous voulez une taille fixe pour la trame OLE dans votre présentation.
+Selectionnez **OLE frame scaling** si vous souhaitez conserver les tailles originales des lignes et colonnes Excel. Selectionnez **cell range scaling** si vous voulez une taille fixe pour le cadre OLE dans votre presentation.
 
-**Ces solutions fonctionneront‑elles si ma présentation est basée sur un modèle ?**
+**Ces solutions fonctionneront-elles si ma presentation est basee sur un modele?**
 
-Oui. Les deux solutions fonctionnent pour les présentations créées à partir de modèles et à partir de zéro.
+Oui. Les deux solutions fonctionnent pour les presentations creees a partir de modeles et a partir de zero.
 
-**Existe‑t‑il une limite à la taille de la trame OLE lorsqu’on utilise ces méthodes ?**
+**Existe-t-il une limite a la taille du cadre OLE lors de l'utilisation de ces methodes?**
 
-Non. Vous pouvez donner à la trame d’objet OLE n’importe quelle taille tant que vous définissez correctement l’échelle.
+Non. Vous pouvez donner au cadre d'objet OLE n'importe quelle taille tant que vous définissez correctement l'echelle.
 
-**Existe‑t‑il un moyen d’éviter le texte de remplacement « EMBEDDED OLE OBJECT » dans PowerPoint ?**
+**Existe-t-il un moyen d'eviter le texte d'espace reserve "EMBEDDED OLE OBJECT" dans PowerPoint?**
 
-Oui. En capturant un instantané de la plage de cellules Excel cible et en l’utilisant comme image de remplacement de la trame OLE, vous pouvez afficher une image d’aperçu personnalisée à la place du texte de substitution par défaut.
+Oui. En prenant une capture d'ecran de la plage de cellules Excel cible et en l'utilisant comme image d'espace reserve du cadre OLE, vous pouvez afficher une image d'aperçu personnalisee a la place de l'espace reserve par defaut.
 
-## **Articles associés**
+## **Articles liés**
 
-[Créer un graphique Excel et l’intégrer à une présentation en tant qu’objet OLE](/slides/fr/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Créer un graphique Excel et l'intégrer dans une présentation en tant qu'objet OLE](/slides/fr/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Mettre à jour les objets OLE automatiquement à l'aide d'un complement MS PowerPoint](/slides/fr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

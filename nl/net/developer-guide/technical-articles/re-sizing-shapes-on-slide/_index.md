@@ -1,10 +1,13 @@
 ---
-title: Vormen schalen op presentatiedia's in .NET
+title: Vormen verkleinen op presentatiedia's in .NET
 type: docs
 weight: 130
-url: /nl/net/re-sizing-shapes-on-slide/
+url: /nl/net/resizing-shapes-on-slide/
+aliases:
+  - /nl/net/re-sizing-shapes-on-slide/
+  /net/re-sizing-shapes-on-slide/
 keywords:
-- vorm schalen
+- vorm verkleinen
 - vormgrootte wijzigen
 - PowerPoint
 - OpenDocument
@@ -12,162 +15,137 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Gemakkelijk vormen schalen op PowerPoint- en OpenDocument-dia's met Aspose.Slides voor .NET - automatiseer dia-indelingaanpassingen en verhoog de productiviteit."
+description: "Verklein gemakkelijk vormen op PowerPoint- en OpenDocument-dia's met Aspose.Slides voor .NET - automatiseer dia‑lay‑outaanpassingen en verhoog de productiviteit."
 ---
 ## **Overzicht**
 
-Een van de meest voorkomende vragen van Aspose.Slides for .NET klanten is hoe ze vormen kunnen schalen zodat, wanneer de dia‑grootte verandert, de gegevens niet worden afgesneden. Dit korte technische artikel laat zien hoe je dat doet.
+Wanneer u de diaformaat van een presentatie wijzigt, moet u mogelijk ook de vormen verkleinen en opnieuw positioneren zodat ze passen binnen de nieuwe afmetingen. Dit artikel toont hoe u vormen handmatig kunt schalen en hoe u tabellen op dia's, masters en lay‑outs kunt behandelen.
 
-## **Vormen schalen**
+## **Vormen verkleinen**
 
-Om te voorkomen dat vormen uit positie raken wanneer de dia‑grootte verandert, moet je de positie en afmetingen van elke vorm bijwerken zodat ze passen bij de nieuwe dia‑indeling.
+Om de relatieve positie en grootte van elke vorm te behouden, vermenigvuldigt u de horizontale coördinaten en de breedte met de verhouding van de nieuwe dia‑breedte ten opzichte van de oorspronkelijke breedte. Pas de overeenkomstige hoogteverhouding toe op de verticale coördinaten en de hoogte.
 
-```c#
-// Laad het presentatiebestand.
-using (Presentation presentation = new Presentation("sample.pptx"))
+Het eerste voorbeeld laadt een presentatie waarvan de dia's geen tabellen bevatten, verandert de dia‑grootte naar A4 en slaat het resultaat op. Het gebruikt [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) met [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) zodat de daaropvolgende lus de schaal bepaalt. De verhoudingen zijn eenheidsloos; vormposities en -afmetingen worden gemeten in punten. Verschillende breedte‑ en hoogteverhoudingen kunnen vormen vervormen, en het wijzigen van de afmetingen van een vorm schaalt de lettergroottes niet.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Bereken onafhankelijke horizontale en verticale schaalfactoren.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // Haal de oorspronkelijke dia-grootte op.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // Verander de dia-grootte zonder de bestaande vormen te schalen.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Haal de nieuwe dia-grootte op.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Formaat en positie van vormen op elke dia aanpassen.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // Schaal de vormgrootte.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Schaal de vormpositie.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-Als een dia een tabel bevat, werkt de bovenstaande code niet correct. In dat geval moet elke cel in de tabel worden geschaald.
+{{% alert color="info" title="Note" %}}
+Tabellen vereisen afzonderlijke verwerking: schaal hun kolombreedtes en rijhoogtes in plaats van de totale breedte en hoogte van de tabel toe te wijzen. Rijhoogtes kunnen groter blijven dan aangevraagd als de celinhoud meer ruimte nodig heeft.
 {{% /alert %}}
 
-Gebruik de volgende code om dia's die tabellen bevatten te schalen. Voor tabellen is het instellen van de breedte of hoogte een speciaal geval: je moet de hoogtes van individuele rijen en de breedtes van kolommen aanpassen om de totale grootte van de tabel te wijzigen.
+Het tweede voorbeeld ondersteunt tabellen en verwerkt vormen op masters en lay‑outs, evenals individuele dia's, vóór het opslaan van de verkleinde presentatie. De helper behandelt elke [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) door [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) en [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) te schalen. Vervolgens schaalt hij de positie van de tabel zonder de totale afmetingen apart te schalen.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Bereken onafhankelijke horizontale en verticale schaalfactoren.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Schaal vormen die gedefinieerd zijn op masters en lay‑outs evenals individuele dia's.
+foreach (var master in presentation.Masters)
 {
-    // Haal de oorspronkelijke dia-grootte op.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Verander de dia-grootte zonder bestaande vormen te schalen.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Haal de nieuwe dia-grootte op.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Schaal de vormgrootte.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Schaal de vormpositie.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // Tabelafmetingen worden gecontroleerd door kolombreedtes en rijhoogtes.
+            foreach (var column in table.Columns)
             {
-                // Schaal de vormgrootte.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Schaal de vormpositie.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Schaal de vormgrootte.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Schaal de vormpositie.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Waarom zijn vormen vervormd of afgesneden na het schalen van een dia?**
+**Waarom zijn vormen vervormd of afgesneden na het verkleinen van een dia?**
 
-Wanneer je een dia schaalt, behouden vormen hun oorspronkelijke positie en grootte tenzij de schaal expliciet wordt aangepast. Dit kan ertoe leiden dat inhoud wordt bijgesneden of dat vormen uit positie raken.
+Als u de dia‑grootte wijzigt zonder de vormen te schalen, behouden ze hun oorspronkelijke posities en afmetingen en kunnen ze buiten de dia uitsteken. Het schalen van breedte en hoogte met verschillende verhoudingen kan ook vormen vervormen.
 
-**Werkt de meegeleverde code voor alle type vormen?**
+**Werkt de geleverde code voor alle vormtypen?**
 
-Het basisvoorbeeld werkt voor de meeste vormen (tekstvakken, afbeeldingen, grafieken, enz.). Voor tabellen moet je echter rijen en kolommen apart behandelen, omdat de hoogte en breedte van een tabel bepaald wordt door de afmetingen van de individuele cellen.
+Het eerste voorbeeld wijzigt de grenzen van vormen direct en is bedoeld voor dia's zonder tabellen. Het tweede voorbeeld behandelt tabellen afzonderlijk. Controleer de resulterende lay‑out, met name tekst en tabellen, omdat deze voorbeelden geen lettergroottes schalen en tabelinhoud de rijhoogtes kan beperken.
 
-**Hoe schaalt ik tabellen bij het schalen van een dia?**
+**Hoe kan ik tabellen verkleinen bij het verkleinen van een dia?**
 
-Je moet door alle rijen en kolommen van de tabel lopen en hun hoogte en breedte proportioneel aanpassen, zoals weergegeven in het tweede code‑voorbeeld.
+Schaal kolombreedtes met de breedteverhouding en minimale rijhoogtes met de hoogteverhouding, en schaal vervolgens de positie van de tabel, zoals weergegeven in het tweede voorbeeld.
 
-**Werkt deze schaalmethode voor master‑dia's en lay‑outdia's?**
+**Zal dit verkleinen werken voor masterdia's en lay‑outdia's?**
 
-Ja, maar je moet ook door [Mastern](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/masters/) en [Lay-outdia's](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/layoutslides/) lopen en dezelfde schaallogica toepassen op hun vormen om consistentie door de volledige presentatie te waarborgen.
+Ja. Het tweede voorbeeld doorloopt [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) en elke [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) van de master en past dezelfde verkleinlogica toe op hun vormen.
 
-**Kan ik de oriëntatie van een dia (portret/landschap) wijzigen tegelijk met het schalen?**
+**Kan ik de oriëntatie van een dia (portret/landscape) wijzigen tegelijk met het verkleinen?**
 
-Ja. Je kunt [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/nl/net/aspose.slides/islidesize/orientation/) instellen om de oriëntatie te wijzigen. Zorg ervoor dat je de schaallogica dienovereenkomstig aanpast om de lay-out te behouden.
+Ja. Stel [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) in nadat u de dia‑grootte hebt gewijzigd en voordat u de doelafmetingen leest, zodat de schaalfactoren de uiteindelijke oriëntatie weerspiegelen.
 
 **Is er een limiet aan de dia‑grootte die ik kan instellen?**
 
-Aspose.Slides ondersteunt aangepaste groottes, maar zeer grote afmetingen kunnen de prestaties beïnvloeden of de compatibiliteit met sommige versies van PowerPoint beperken.
+U kunt aangepaste dia‑afmetingen opgeven met [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). De ondersteunde afmetingen zijn ook afhankelijk van het presentatieformaat en de applicatie die wordt gebruikt om het bestand te openen.
 
-**Hoe kan ik voorkomen dat vormen met een vaste beeldverhouding vervormd raken?**
+**Hoe kan ik voorkomen dat vormen met een vaste beeldverhouding vervormen?**
 
-Controleer de `AspectRatioLocked`‑eigenschap van de vorm voordat je schaalt. Als deze vergrendeld is, pas dan de breedte of hoogte proportioneel aan in plaats van ze afzonderlijk te schalen.
+Gebruik dezelfde schaalfactor voor breedte en hoogte. Om de oorspronkelijke lay‑out binnen de nieuwe dia‑afmetingen te laten passen, gebruikt u de kleinste van de breedte‑ en hoogteverhoudingen voor zowel afmetingen als posities. Dit behoudt de verhoudingen, maar kan onbenutte ruimte langs één rand achterlaten.

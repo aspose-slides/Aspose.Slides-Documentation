@@ -1,184 +1,216 @@
 ---
-title: جلوگیری از ویرایش ارائه با قفل‌های شکل
-linktitle: جلوگیری از ویرایش ارائه
+title: محدود کردن ویرایش‌های ارائه با قفل‌گذاری شکل‌ها در C++
+linktitle: محدود کردن ویرایش‌های ارائه
 type: docs
 weight: 10
 url: /fa/cpp/applying-protection-to-presentation/
 keywords:
 - جلوگیری از ویرایش
-- محافظت در برابر ویرایش
-- قفل کردن شکل
+- حفاظت در برابر ویرایش
+- قفل شکل
 - قفل موقعیت
 - قفل انتخاب
-- قفل اندازه
+- قفل تغییر اندازه
 - قفل گروه‌بندی
 - PowerPoint
-- OpenDocument
+- PPTX
 - ارائه
 - C++
 - Aspose.Slides
-description: "کشف کنید چگونه Aspose.Slides برای C++ اشکال را در فایل‌های PPT، PPTX و ODP قفل یا بازقفل می‌کند، ارائه‌ها را ایمن می‌سازد در حالی که ویرایش‌های کنترل‌شده و تحویل سریع‌تر را امکان‌پذیر می‌سازد."
+description: "یاد بگیرید چگونه شکل‌ها را در ارائه‌های PPTX با Aspose.Slides برای C++ قفل و بازقفل کنید تا انتخاب، جابه‌جایی، تغییر اندازه و گروه‌بندی را محدود کنید."
 ---
-## **پس‌زمینه**
+## **پیش‌زمینه**
 
-یک استفاده رایج از Aspose.Slides ایجاد، به‌روزرسانی و ذخیرهٔ ارائه‌های Microsoft PowerPoint (PPTX) به عنوان بخشی از یک جریان کاری خودکار است. کاربران برنامه‌هایی که Aspose.Slides را به این شکل به کار می‌برند به ارائه‌های تولید شده دسترسی دارند، بنابراین محافظت از ویرایش آن‌ها یک نگرانی معمول است. مهم است که ارائه‌های به‌طور خودکار تولید شده قالب‌بندی و محتوای اولیه خود را حفظ کنند.
+یک استفاده رایج از Aspose.Slides برای C++ ایجاد، به‌روزرسانی و ذخیره ارائه‌های PowerPoint (PPTX) به عنوان بخشی از یک جریان کاری خودکار است. وقتی کاربران این ارائه‌ها را دریافت می‌کنند، محدود کردن تغییرات شکل‌ها می‌تواند به حفظ طرح و محتوای مورد نظر کمک کند.
 
-این مقاله توضیح می‌دهد ساختار ارائه‌ها و اسلایدها چگونه است و Aspose.Slides for C++ چگونه می‌تواند محافظت را بر روی یک ارائه اعمال کرده و سپس آن را حذف کند. این راهکار به توسعه‌دهندگان امکان می‌دهد نحوهٔ استفاده از ارائه‌هایی که برنامه‌هایشان تولید می‌کند را کنترل کنند.
+این مقاله توضیح می‌دهد که شکل‌ها چگونه در اسلایدها سازماندهی می‌شوند و چگونه می‌توانید قفل‌های شکل را در یک ارائه PPTX اعمال و حذف کنید. این قفل‌ها به شما اجازه می‌دهند عملیات ویرایشی خاصی را روی هر شکل به‌صورت جداگانه محدود کنید.
 
-## **ترکیب یک اسلاید**
+## **ترکیب اسلاید**
 
-یک اسلاید ارائه از اجزایی مانند اشکال خودکار، جدول‌ها، اشیای OLE، اشکال گروهی، فریم‌های تصویر، فریم‌های ویدئو، کانکتورها و سایر عناصر استفاده‑شده برای ساخت ارائه تشکیل شده است. در Aspose.Slides for C++، هر عنصر روی اسلاید توسط شیئی که رابط [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) را پیاده‌سازی می‌کند یا از کلاسی که از آن ارث‌برده است، نمایان می‌شود.
+یک اسلاید ارائه از اجزایی مانند اشکال خودکار، جداول، اشیای OLE، اشکال گروه‌بندی‌شده، فریم‌های تصویر، فریم‌های ویدئو، اتصال‌دهنده‌ها و سایر عناصر مورد استفاده برای ساخت یک ارائه تشکیل شده است. در Aspose.Slides برای C++، هر عنصر در یک اسلاید با شیئی نمایان می‌شود که رابط [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) را پیاده‌سازی می‌کند یا از کلاسی که این رابط را ارث‌بری کرده است، مشتق شده است.
 
-ساختار PPTX پیچیده است، بنابراین بر خلاف PPT که می‌توان از یک قفل عمومی برای تمام انواع اشکال استفاده کرد، انواع مختلف اشکال به قفل‌های متفاوتی نیاز دارند. رابط [IBaseShapeLock](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseshapelock/) کلاس قفل عمومی برای PPTX است. انواع قفل‌های زیر در Aspose.Slides for C++ برای PPTX پشتیبانی می‌شوند:
+انواع مختلف شکل‌ها گزینه‌های قفل‌گذاری متفاوتی ارائه می‌دهند. رابط [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) رابط پایه برای قفل‌های شکل است. Aspose.Slides برای C++ رابط‌های قفل زیر را فراهم می‌کند:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshapelock/) اشکال خودکار را قفل می‌کند.  
-- [IConnectorLock](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iconnectorlock/) اشکال کانکتور را قفل می‌کند.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igraphicalobjectlock/) اشیای گرافیکی را قفل می‌کند.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igroupshapelock/) اشکال گروهی را قفل می‌کند.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipictureframelock/) فریم‌های تصویر را قفل می‌کند.   
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) قفل‌گذاری بر اشکال خودکار.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) قفل‌گذاری بر اشکال اتصال‌دهنده.
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) قفل‌گذاری بر اشیای گرافیکی.
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) قفل‌گذاری بر اشکال گروهی.
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) قفل‌گذاری بر فریم‌های تصویر.
 
-هر عملیاتی که بر روی تمام اشیای شکل در یک شیء [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) انجام شود، بر کل ارائه اعمال می‌شود.
+برای اعمال قفل‌ها به یک [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)، اسلایدهای آن را پیمایش کنید و قفل‌های مناسب را بر هر شکل پشتیبانی‌شده تنظیم کنید.
 
-## **اعمال و حذف محافظت**
+## **اعمال و حذف حفاظت**
 
-اعمال محافظت تضمین می‌کند که یک ارائه قابل ویرایش نیست. این تکنیکی مفید برای حفاظت از محتوای ارائه است.
+قفل‌های شکل عملیات‌هایی مانند انتخاب، جابه‌جایی و تغییر اندازه شکل‌ها را محدود می‌کنند. آنها کل ارائه را غیرقابل ویرایش نمی‌سازند.
 
-### **اعمال محافظت بر اشکال PPTX**
+### **اعمال حفاظت بر اشکال PPTX**
 
-Aspose.Slides for C++ رابط [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) را برای کار با اشکال روی اسلاید فراهم می‌کند.
+Aspose.Slides برای C++ رابط [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) را برای کار با شکل‌ها در یک اسلاید فراهم می‌کند.
 
-همان‌طور که پیش‌تر اشاره شد، هر کلاس شکل یک کلاس قفل‑شکل مرتبط برای محافظت دارد. این مقاله بر قفل‌های NoSelect، NoMove و NoResize تمرکز دارد. این قفل‌ها اطمینان می‌دهند که اشکال نمی‌توانند انتخاب شوند (از طریق کلیک ماوس یا روش‌های انتخاب دیگر) و نمی‌توانند جابه‌جا یا اندازه‑شان تغییر یابد.
+در مثال مقدار `true` به متدهای [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/)، [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) و [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) برای اشکال خودکار ارسال می‌شود، با قفل‌های معادل برای اشکال گروهی، اتصال‌دهنده‌ها و فریم‌های تصویر. برای جابه‌جایی، اتصال‌دهنده‌ها از [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) استفاده می‌کنند؛ گروه‌ها همچنین از [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) برای محدود کردن گروه‌بندی استفاده می‌کنند.
 
-نمونه کد زیر محافظت را بر تمام انواع اشکال در یک ارائه اعمال می‌کند.
+مثال یک ارائه PPTX موجود را بارگذاری می‌کند، شکل‌های موجود در مجموعهٔ شکل‌های هر اسلاید را بررسی می‌کند و یک کپی با این محدودیت‌ها ذخیره می‌نماید. شکل‌هایی که جزو چهار نوع پشتیبانی‌شده نیستند بدون تغییر باقی می‌مانند. حلقهٔ پیمایش اشکال فرزند داخل یک گروه را در نظر نمی‌گیرد.
 
 ```cpp
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-// پیمایش تمام اسلایدها در ارائه.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// پیمایش تمام اشکال در اسلاید.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(true);
+            autoShapeLock->set_SelectLocked(true);
+            autoShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// تبدیل نوع شکل به یک autoshape و دریافت قفل شکل آن.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(true);
+            groupShapeLock->set_PositionLocked(true);
+            groupShapeLock->set_SelectLocked(true);
+            groupShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(true);
-			autoShapeLock->set_SelectLocked(true);
-			autoShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// تبدیل نوع شکل به یک group shape و دریافت قفل شکل آن.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(true);
+            connectorShapeLock->set_SelectLocked(true);
+            connectorShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(true);
-			groupShapeLock->set_PositionLocked(true);
-			groupShapeLock->set_SelectLocked(true);
-			groupShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// تبدیل نوع شکل به یک connector shape و دریافت قفل شکل آن.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(true);
-			connectorShapeLock->set_SelectLocked(true);
-			connectorShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// تبدیل نوع شکل به یک picture frame و دریافت قفل شکل آن.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(true);
-			pictureFrameLock->set_SelectLocked(true);
-			pictureFrameLock->set_SizeLocked(true);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(true);
+            pictureFrameLock->set_SelectLocked(true);
+            pictureFrameLock->set_SizeLocked(true);
+        }
+    }
 }
 
-// ذخیرهٔ فایل ارائه.
 presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **حذف محافظت**
+### **حذف حفاظت**
 
-برای باز کردن قفل یک شکل، مقدار قفل اعمال‌شده را به `false` تنظیم کنید. نمونه کد زیر نشان می‌دهد چگونه اشکال را در یک ارائه قفل‌دار باز کنید.
+برای حذف یک قفل شکل، مقدار آن را به `false` تنظیم کنید. مثال زیر یک ارائه با قفل‌های شکل را بارگذاری می‌کند و محدودیت‌های انتخاب، جابه‌جایی و تغییر اندازه را از طریق [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/)، [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/)، [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) و [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) پاک می‌سازد. همچنین [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) را پاک کرده و یک کپی از ارائه را ذخیره می‌کند. سایر تنظیمات قفل بدون تغییر باقی می‌مانند.
 
 ```cpp
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"ProtectedSample.pptx");
 
-// پیمایش تمام اسلایدهای موجود در ارائه.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// پیمایش تمام اشکال موجود در اسلاید.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(false);
+            autoShapeLock->set_SelectLocked(false);
+            autoShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// تبدیل نوع شکل به یک autoshape و دریافت قفل شکل آن.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(false);
+            groupShapeLock->set_PositionLocked(false);
+            groupShapeLock->set_SelectLocked(false);
+            groupShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(false);
-			autoShapeLock->set_SelectLocked(false);
-			autoShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// تبدیل نوع شکل به یک group shape و دریافت قفل شکل آن.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(false);
+            connectorShapeLock->set_SelectLocked(false);
+            connectorShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(false);
-			groupShapeLock->set_PositionLocked(false);
-			groupShapeLock->set_SelectLocked(false);
-			groupShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// تبدیل نوع شکل به یک connector shape و دریافت قفل شکل آن.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(false);
-			connectorShapeLock->set_SelectLocked(false);
-			connectorShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// تبدیل نوع شکل به یک picture frame و دریافت قفل شکل آن.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(false);
-			pictureFrameLock->set_SelectLocked(false);
-			pictureFrameLock->set_SizeLocked(false);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(false);
+            pictureFrameLock->set_SelectLocked(false);
+            pictureFrameLock->set_SizeLocked(false);
+        }
+    }
 }
 
-// ذخیرهٔ فایل ارائه.
 presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **نتیجه‌گیری**
+### **نتیجه‌گیری**
 
-Aspose.Slides گزینه‌های متعددی برای محافظت از اشکال در یک ارائه ارائه می‌دهد. می‌توانید یک شکل را به‌تنهایی قفل کنید یا به‌صورت حلقه‌ای بر تمام اشکال در یک ارائه مرور کنید و هرکدام را قفل کنید تا به‌صورت مؤثر کل فایل را امن کنید. می‌توانید با تنظیم مقدار قفل به `false` محافظت را حذف کنید.
+Aspose.Slides برای C++ به شما امکان می‌دهد عملیات‌های ویرایشی خاص را بر شکل‌های فردی محدود کنید یا همان محدودیت‌ها را بر روی اسلایدهای متعدد اعمال کنید. قفل‌های پشتیبانی‌شده توسط هر نوع شکل را انتخاب کنید و مقادیر آن‌ها را به `false` تنظیم کنید زمانی که نیاز به حذف این محدودیت‌ها دارید.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم قفل‌های شکل و محافظت با رمز عبور را در یک ارائه ترکیب کنم؟**
+**آیا می‌توانم قفل‌های شکل و حفاظت با رمز عبور را در یک ارائه ترکیب کنم؟**
 
-بله. قفل‌ها ویرایش اشیاء داخل فایل را محدود می‌کنند، در حالی که [حفاظت با رمز عبور](/slides/fa/cpp/password-protected-presentation/) دسترسی به باز کردن و/یا ذخیرهٔ تغییرات را کنترل می‌کند. این مکانیزم‌ها یکدیگر را تکمیل کرده و به‌صورت همزمان کار می‌کنند.
+بله. قفل‌های شکل عملیات‌های ویرایشی خاص را محدود می‌کنند، در حالی که [password protection](/slides/fa/cpp/password-protected-presentation/) می‌تواند باز کردن یا تغییر ارائه را محدود کند. می‌توانید هر دو را در یک فایل استفاده کنید.
 
-**آیا می‌توانم ویرایش را فقط بر اسلایدهای خاص محدود کنم بدون اینکه بر دیگران تأثیر بگذارد؟**
+**آیا می‌توانم ویرایش را بر اسلایدهای خاص محدود کنم بدون اینکه بر دیگران تأثیر بگذارد؟**
 
-بله. قفل‌ها را بر اشکال اسلایدهای انتخاب‌شده اعمال کنید؛ اسلایدهای باقی‌مانده قابل ویرایش خواهند ماند.
+بله. قفل‌ها را فقط بر شکل‌های اسلایدهای منتخب اعمال کنید. این کار تنظیمات قفل را در اسلایدهای دیگر تغییر نمی‌دهد.
 
-**آیا قفل‌های شکل بر اشیای گروهی و کانکتورها اعمال می‌شود؟**
+**چگونه می‌توانم قفل‌ها را بر اشکال فردی داخل یک گروه اعمال کنم؟**
 
-بله. انواع قفل اختصاصی برای گروه‌ها، کانکتورها، اشیای گرافیکی و سایر انواع اشکال پشتیبانی می‌شود.
+از مجموعه‌ای که توسط متد [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) گروه برگردانده می‌شود، پیمایش کنید و قفل‌های مناسب را بر هر شکل فرزند اعمال کنید. این کار را برای هر گروه تو در تو تکرار کنید. مثال‌های بالا فقط مجموعهٔ شکل‌های اسلاید را پردازش می‌کنند، لذا قفل‌ها را بر اعضای فردی گروه تنظیم نمی‌کنند.

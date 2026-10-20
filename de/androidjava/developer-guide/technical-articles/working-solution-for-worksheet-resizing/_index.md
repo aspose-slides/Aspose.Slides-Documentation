@@ -1,12 +1,12 @@
 ---
-title: Lösungsansatz für die Größenänderung von Arbeitsblättern
+title: Lösungsansatz für Arbeitsblattgrößenänderung
 type: docs
 weight: 20
 url: /de/androidjava/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - Vorschaubild
-- Bildgrößenanpassung
+- Bildgrößenänderung
 - Excel
 - Arbeitsblatt
 - PowerPoint
@@ -14,37 +14,42 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Behebt die OLE‑Größenänderung von Excel‑Arbeitsblättern in Präsentationen: zwei Methoden, um Objektrahmen konsistent zu halten – den Rahmen oder das Blatt skalieren – in den PPT‑ und PPTX‑Formaten."
+description: "Beheben Sie die OLE‑Größenänderung von Excel‑Arbeitsblättern in Präsentationen: zwei Möglichkeiten, Objekt‑Frames konsistent zu halten — den Frame oder das Blatt skalieren — für PPT‑ und PPTX‑Formate."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}}
-
-Es wurde beobachtet, dass Excel‑Arbeitsblätter, die als OLE‑Objekte in einer PowerPoint‑Präsentation über Aspose‑Komponenten eingebettet sind, nach der ersten Aktivierung auf eine nicht identifizierte Skalierung skaliert werden. Dieses Verhalten erzeugt einen deutlich sichtbaren Unterschied in der Präsentation zwischen den Vor‑ und Nachaktivierungs‑Zuständen des OLE‑Objekts. Wir haben das Problem eingehend untersucht und eine Lösung bereitgestellt, die in diesem Artikel behandelt wird.
+Excel‑Arbeitsblätter, die als OLE‑Objekte in einer PowerPoint‑Präsentation mit Aspose‑Komponenten eingebettet sind, können nach ihrer ersten Aktivierung unerwartet ihre Größe ändern. Dieses Verhalten erzeugt einen sichtbaren Unterschied zwischen dem OLE‑Objekt vor und nach der Aktivierung. Dieser Artikel erklärt das Problem und beschreibt zwei Möglichkeiten, es zu beheben.
 
 {{% /alert %}}
 
 ## **Hintergrund**
 
-Im Artikel [Manage OLE](/slides/de/androidjava/manage-ole/) erklärten wir, wie man mit Aspose.Slides für Android via Java einen OLE‑Rahmen zu einer PowerPoint‑Präsentation hinzufügt. Um das [object preview issue](/slides/de/androidjava/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir ein Bild des ausgewählten Arbeitsblattbereichs dem OLE‑Objekt‑Rahmen zugeordnet. In der erzeugten Präsentation wird das Excel‑Arbeitsbuch aktiviert, wenn Sie den OLE‑Objekt‑Rahmen, der das Arbeitsblatt‑Bild anzeigt, doppelklicken. Endbenutzer können beliebige Änderungen am eigentlichen Excel‑Arbeitsbuch vornehmen und dann zur Folie zurückkehren, indem sie außerhalb des aktivierten Excel‑Arbeitsbuchs klicken. Die Größe des OLE‑Objekt‑Rahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor variiert je nach Größe des OLE‑Objekt‑Rahmens und des eingebetteten Excel‑Arbeitsbuchs.
+Im Artikel [OLE verwalten](/slides/de/androidjava/manage-ole/) haben wir erklärt, wie man mit Aspose.Slides für Android via Java einen OLE‑Rahmen zu einer PowerPoint‑Präsentation hinzufügt. Um das [object preview issue](/slides/de/androidjava/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir dem OLE‑Objekt‑Rahmen ein Bild des ausgewählten Arbeitsblattbereichs zugewiesen. In der Ausgabepäsentation wird beim Doppelklick auf den OLE‑Objekt‑Rahmen, der das Arbeitsblatt‑Bild zeigt, die Excel‑Arbeitsmappe aktiviert. Endbenutzer können beliebige Änderungen an der tatsächlichen Excel‑Arbeitsmappe vornehmen und dann zur Folie zurückkehren, indem sie außerhalb der aktivierten Excel‑Arbeitsmappe klicken. Die Größe des OLE‑Objekt‑Rahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Vergrößerungs‑ bzw. Verkleinerungsfaktor variiert je nach Größe des OLE‑Objekt‑Rahmens und der eingebetteten Excel‑Arbeitsmappe.
 
 ## **Ursache der Größenänderung**
 
-Da das Excel‑Arbeitsbuch eine eigene Fenstergröße hat, versucht es, seine ursprüngliche Größe bei der ersten Aktivierung beizubehalten. Der OLE‑Objekt‑Rahmen hingegen hat seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung des Arbeitsbuchs die Größe, um sicherzustellen, dass die korrekten Proportionen im Einbettungsprozess erhalten bleiben. Die Größenänderung entsteht aufgrund der Unterschiede zwischen der Excel‑Fenstergröße und der Größe und Position des OLE‑Objekt‑Rahmens.
+Da die Excel‑Arbeitsmappe ihr eigenes Fenster hat, versucht sie, bei der ersten Aktivierung ihre ursprüngliche Größe beizubehalten. Der OLE‑Objekt‑Rahmen hat hingegen seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Arbeitsmappe die Größe, um das korrekte Seitenverhältnis im Einbettungsprozess sicherzustellen. Die Größenänderung entsteht durch die Unterschiede zwischen der Excel‑Fenstergröße und der Größe bzw. Position des OLE‑Objekt‑Rahmens.
 
 ## **Lösungsansatz**
 
-Es gibt zwei mögliche Lösungen, um den Skalierungseffekt zu vermeiden.
+Es gibt zwei mögliche Lösungen, um den Größenänderungseffekt zu vermeiden.
 
-- Skalieren Sie die OLE‑Rahmengröße in der PowerPoint‑Präsentation, um die Höhe und Breite der gewünschten Anzahl von Zeilen und Spalten im OLE‑Rahmen zu erreichen.
-- Behalten Sie die OLE‑Rahmengröße konstant und skalieren Sie die Größe der beteiligten Zeilen und Spalten, damit sie in die ausgewählte OLE‑Rahmengröße passen.
+- Skalieren Sie den OLE‑Rahmen in der PowerPoint‑Präsentation, sodass er die gesamte Höhe und Breite der ausgewählten Zeilen und Spalten abdeckt.
+- Halten Sie die Größe des OLE‑Rahmens konstant und skalieren Sie die ausgewählten Zeilen und Spalten, damit sie darin passen.
 
-### **Skalieren der OLE‑Rahmengröße**
+### **OLE‑Rahmengröße skalieren**
 
-In diesem Ansatz lernen wir, wie man die OLE‑Rahmengröße des eingebetteten Excel‑Arbeitsbuchs so einstellt, dass sie der kumulierten Größe der beteiligten Zeilen und Spalten im Excel‑Arbeitsblatt entspricht.
+Dieser Ansatz setzt die OLE‑Rahmengröße so, dass sie die gesamte Höhe und Breite der ausgewählten Zeilen und Spalten im eingebetteten Excel‑Arbeitsblatt entspricht.
 
-Nehmen wir an, wir haben ein Excel‑Vorlagensheet und möchten es als OLE‑Rahmen zu einer Präsentation hinzufügen. In diesem Szenario wird die Größe des OLE‑Objekt‑Rahmens zunächst anhand der kumulierten Zeilenhöhen und Spaltenbreiten der beteiligten Zeilen und Spalten im Arbeitsbuch berechnet. Anschließend setzen wir die OLE‑Rahmengröße auf diesen berechneten Wert. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Rahmen in PowerPoint zu vermeiden, erfassen wir außerdem ein Bild der gewünschten Zeilen‑ und Spaltenbereiche im Arbeitsbuch und setzen es als OLE‑Rahmen‑Bild.
+Das Beispiel lädt eine vorhandene Excel‑Arbeitsmappe und wählt die ersten 10 Zeilen und 13 Spalten ihres ersten Arbeitsblatts anhand von nullbasierten Indizes aus. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) definiert den angezeigten Bereich. Die Vorschau wird mit 96 DPI gerendert und ihre Pixelabmessungen werden mit 72 Punkten pro Zoll in Punkte umgerechnet. [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) bettet die modifizierte Arbeitsmappe in einen Rahmen mit diesen Abmessungen ein. Die Vorschau wird über [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) zugewiesen, um den Platzhalter „EMBEDDED OLE OBJECT“ in der gespeicherten Präsentation zu ersetzen.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -54,7 +59,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Legen Sie die angezeigte Größe fest, wenn die Arbeitsmappendatei als OLE-Objekt in PowerPoint verwendet wird.
+// Festlegen der angezeigten Größe, wenn die Arbeitsmappendatei als OLE-Objekt in PowerPoint verwendet wird.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -62,10 +67,10 @@ workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Ermitteln Sie die Breite und Höhe des OLE-Bildes in Punkten.
+// Breite und Höhe des OLE-Bildes in Punkten ermitteln.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
 // Wir müssen die modifizierte Arbeitsmappe verwenden.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
@@ -75,12 +80,12 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Fügen Sie das OLE-Bild zu den Präsentationsressourcen hinzu.
+// OLE-Bild zu den Präsentationsressourcen hinzufügen.
 imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Erstellen Sie den OLE-Objektrahmen.
+// OLE-Objekt-Rahmen erstellen.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -91,7 +96,13 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+Der Vorschau‑Helper setzt [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) auf den ausgewählten Bereich und entfernt Ränder, Kopf‑ und Fußzeilen. Mit aktiviertem [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/java/com.aspose.cells/imageorprintoptions/#setOnlyArea-boolean-) rendert [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-) den Bereich als PNG‑Bild. Der Helper gibt einen neuen Input‑Stream zurück, der das PNG‑Bild enthält und am Anfang positioniert ist, um ihn in der Präsentation zu verwenden.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -116,14 +127,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
+### **Zellbereichsgröße skalieren**
 
-### **Skalieren der Zellbereichsgröße**
+Dieser Ansatz skaliert die Höhen der ausgewählten Zeilen und die Breiten der ausgewählten Spalten, sodass sie zu einer benutzerdefinierten OLE‑Rahmengröße passen.
 
-In diesem Ansatz lernen wir, wie man die Höhen der beteiligten Zeilen und die Breite der beteiligten Spalten so skaliert, dass sie einer benutzerdefinierten OLE‑Rahmengröße entsprechen.
-
-Nehmen wir an, wir haben ein Excel‑Vorlagensheet und möchten es als OLE‑Rahmen zu einer Präsentation hinzufügen. In diesem Szenario setzen wir die Größe des OLE‑Rahmens und skalieren die Größe der Zeilen und Spalten, die im OLE‑Rahmen‑Bereich verwendet werden. Anschließend speichern wir das Arbeitsbuch in einen Stream, um die Änderungen zu übernehmen, und konvertieren es in ein Byte‑Array, um es dem OLE‑Rahmen hinzuzufügen. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Rahmen in PowerPoint zu vermeiden, erfassen wir außerdem ein Bild der gewünschten Zeilen‑ und Spaltenbereiche im Arbeitsbuch und setzen es als OLE‑Rahmen‑Bild.
+Das Beispiel lädt eine vorhandene Excel‑Arbeitsmappe und wählt die ersten 10 Zeilen und 13 Spalten ihres ersten Arbeitsblatts anhand von nullbasierten Indizes aus. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) definiert den angezeigten Bereich, und der nachfolgende Helper skaliert diesen Bereich, damit er in einen Rahmen von 400 Punkten Breite und 100 Punkten Höhe passt. Nach dem Speichern der modifizierten Arbeitsmappe in einen Stream bettet [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) ihn mit der angegebenen Größe ein. Eine bei 96 DPI gerenderte Vorschau wird über [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) zugewiesen, sodass die gespeicherte Präsentation die ausgewählten Zellen anstelle des Standard‑Platzhalters anzeigt.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -134,12 +148,12 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Legen Sie die angezeigte Größe fest, wenn die Arbeitsmappendatei als OLE-Objekt in PowerPoint verwendet wird.
+// Festlegen der angezeigten Größe, wenn die Arbeitsmappendatei als OLE-Objekt in PowerPoint verwendet wird.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Skalieren Sie den Zellbereich, um die Rahmengröße anzupassen.
+// Den Zellbereich skalieren, damit er in die Rahmengröße passt.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -153,11 +167,11 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Fügen Sie das OLE-Bild zu den Präsentationsressourcen hinzu.
+// OLE-Bild zu den Präsentationsressourcen hinzufügen.
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Erstellen Sie den OLE-Objektrahmen.
+// OLE-Objekt-Rahmen erstellen.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -167,6 +181,8 @@ oleStream.close();
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
+
+Der Skalierungs‑Helper berechnet separate Breiten‑ und Höhenverhältnisse für den ausgewählten Bereich und erhält dabei die relativen Breiten seiner Spalten sowie die relativen Höhen seiner Zeilen. Die berechneten Abmessungen werden von Punkten in Zoll umgerechnet, bevor sie mit [Cells.setColumnWidthInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setColumnWidthInch-int-double-) und [Cells.setRowHeightInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setRowHeightInch-int-double-) angewendet. Der ausgewählte Bereich muss eine Breite und Höhe ungleich null aufweisen.
 
 ```java
 /**
@@ -205,7 +221,13 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 }
 ```
 
+Dieser Vorschau‑Helper rendert den skalierten Bereich mithilfe von [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-). Er begrenzt [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) auf diesen Bereich, entfernt Ränder, Kopf‑ und Fußzeilen und gibt einen PNG‑Stream zurück, der am Anfang positioniert ist.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -230,12 +252,11 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-
 ## **Fazit**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Es gibt zwei Ansätze, um das Problem der Größenänderung des Arbeitsblatts zu beheben. Die Wahl des passenden Ansatzes hängt von den konkreten Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren gleich, unabhängig davon, ob die Präsentationen aus einer Vorlage oder von Grund auf erstellt werden. Zusätzlich gibt es in dieser Lösung keine Begrenzung für die Größe des OLE‑Objekt‑Rahmens.
+Es gibt zwei Ansätze, um das Problem der Arbeitsblatt‑Größenänderung zu beheben. Wählen Sie den Ansatz, der Ihren Anforderungen und Ihrem Anwendungsfall am besten entspricht. Beide Ansätze funktionieren gleich, unabhängig davon, ob die Präsentationen aus einer Vorlage oder von Grund auf erstellt werden. Zusätzlich gibt es in dieser Lösung keine Begrenzung der Größe des OLE‑Objekt‑Rahmens.
 
 {{% /alert %}}
 
@@ -243,24 +264,30 @@ Es gibt zwei Ansätze, um das Problem der Größenänderung des Arbeitsblatts zu
 
 **Warum ändert ein eingebettetes Excel‑Arbeitsblatt seine Größe, wenn es in PowerPoint zum ersten Mal aktiviert wird?**
 
-Dies geschieht, weil Excel versucht, beim Aktivieren die ursprüngliche Fenstergröße beizubehalten, während der OLE‑Objekt‑Rahmen in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis zu bewahren, was zu einer Größenänderung führen kann.
+Das passiert, weil Excel versucht, bei der Aktivierung die ursprüngliche Fenstergröße beizubehalten, während der OLE‑Objekt‑Rahmen in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis zu erhalten, was zu einer Größenänderung führen kann.
 
-**Ist es möglich, dieses Skalierungsproblem vollständig zu verhindern?**
+**Lässt sich dieses Größenproblem vollständig verhindern?**
 
-Ja. Durch das Skalieren des OLE‑Rahmens auf die Größe des Excel‑Zellbereichs oder das Skalieren des Zellbereichs auf die gewünschte OLE‑Rahmengröße können Sie unerwünschte Größenänderungen verhindern.
+Ja. Durch Skalieren des OLE‑Rahmens auf die Größe des Excel‑Zellbereichs oder durch Skalieren des Zellbereichs auf die gewünschte OLE‑Rahmengröße können unerwünschte Größenänderungen vermieden werden.
 
-**Welche Skalierungsmethode sollte ich verwenden, OLE‑Rahmenskalierung oder Zellbereichsskalierung?**
+**Welche Skalierungsmethode sollte ich verwenden, OLE‑Rahmenskalierung oder Zellbereichskalierung?**
 
-Wählen Sie **OLE‑Rahmenskalierung**, wenn Sie die ursprünglichen Zeilen‑ und Spaltengrößen von Excel beibehalten wollen. Wählen Sie **Zellbereichsskalierung**, wenn Sie eine feste Größe für den OLE‑Rahmen in Ihrer Präsentation benötigen.
+Wählen Sie **OLE‑Rahmenskalierung**, wenn Sie die ursprünglichen Zeilen‑ und Spaltengrößen von Excel beibehalten möchten. Wählen Sie **Zellbereichskalierung**, wenn Sie eine feste Größe für den OLE‑Rahmen in Ihrer Präsentation benötigen.
 
 **Werden diese Lösungen funktionieren, wenn meine Präsentation auf einer Vorlage basiert?**
 
-Ja. Beide Lösungen funktionieren für Präsentationen, die aus Vorlagen oder von Grund auf erstellt wurden.
+Ja. Beide Lösungen funktionieren für Präsentationen, die aus Vorlagen sowie von Grund auf erstellt wurden.
 
 **Gibt es eine Begrenzung für die Größe des OLE‑Rahmens bei Verwendung dieser Methoden?**
 
 Nein. Sie können den OLE‑Objekt‑Rahmen beliebig groß machen, solange Sie die Skalierung entsprechend einstellen.
 
-**Gibt es eine Möglichkeit, den Platzhaltertext „EMBEDDED OLE OBJECT“ in PowerPoint zu vermeiden?**
+**Gibt es eine Möglichkeit, den Platzhalter‑Text „EMBEDDED OLE OBJECT“ in PowerPoint zu vermeiden?**
 
-Ja. Indem Sie einen Schnappschuss des gewünschten Excel‑Zellbereichs aufnehmen und ihn als Platzhalter‑Bild des OLE‑Rahmens festlegen, können Sie ein benutzerdefiniertes Vorschaubild anstelle des Standard‑Platzhalters anzeigen.
+Ja. Indem Sie einen Schnappschuss des gewünschten Excel‑Zellbereichs erstellen und ihn als Platzhalterbild des OLE‑Rahmens festlegen, können Sie ein individuelles Vorschau‑Bild anstelle des Standard‑Platzhalters anzeigen.
+
+## **Verwandte Artikel**
+
+[Erstellen eines Excel‑Diagramms und Einbetten in eine Präsentation als OLE‑Objekt](/slides/de/androidjava/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Aktualisieren von OLE‑Objekten automatisch mithilfe eines MS PowerPoint‑Add‑Ins](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

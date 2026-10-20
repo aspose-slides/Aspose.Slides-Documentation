@@ -1,161 +1,189 @@
 ---
-title: Создание диаграммы Excel и встраивание её в презентацию в качестве OLE-объекта
+title: Создание диаграмм Excel и их встраивание в презентации как OLE-объекты
 type: docs
 weight: 40
 url: /ru/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+keywords:
+- Диаграмма Excel
+- встроить диаграмму
+- OLE-объект
+- PowerPoint
+- презентация
+- C++
+- Aspose.Slides
+description: "Создайте диаграмму Excel с помощью Aspose.Cells для C++ и встроите рабочую книгу в презентацию PowerPoint с использованием Aspose.Slides, включая предварительный просмотр диаграммы."
 ---
+## **Обзор**
 
-{{% alert color="primary" %}} 
+В этой статье показано, как создать столбчатую диаграмму Excel с помощью Aspose.Cells для C++ и встроить её рабочую книгу в презентацию PowerPoint с помощью Aspose.Slides для C++. Встроенная рабочая книга содержит как исходные данные, так и диаграмму. Отдельный PNG‑просмотр отображает диаграмму на слайде до активации OLE‑объекта.
 
-В слайдах PowerPoint использование редактируемых диаграмм для графического отображения данных является распространенной практикой. Aspose предоставляет поддержку создания диаграмм Excel с использованием Aspose.Cells для C++, и эти диаграммы могут быть встроены в слайд PowerPoint в качестве OLE-объекта с помощью Aspose.Slides для C++. Эта статья охватывает необходимые шаги вместе с реализацией на C++ для создания и встраивания диаграммы MS Excel в качестве OLE-объекта в презентацию PowerPoint с использованием Aspose.Cells для C++ и Aspose.Slides для C++.
+В результате получается встроенный объект Excel, а не нативная диаграмма PowerPoint. Редактирование рабочей книги через OLE требует настольного приложения, поддерживающего активацию OLE, и совместимой установки Excel.
 
-{{% /alert %}} 
-## **Необходимые шаги**
-Следующая последовательность шагов необходима для создания и встраивания диаграммы Excel в качестве OLE-объекта в слайд PowerPoint:
+## **Требования**
 
-1. Создать диаграмму Excel с использованием Aspose.Cells для C++.
-2. Установить размер OLE диаграммы Excel с использованием Aspose.Cells для C++. 
-3. Получить изображение диаграммы Excel с помощью Aspose.Cells для C++. 
-4. Встроить диаграмму Excel в качестве OLE-объекта в презентацию PPTX с помощью Aspose.Slides для C++. 
-5. Заменить изменённое изображение объекта изображением, полученным на шаге 3, чтобы устранить проблему изменения объекта.
-6. Записать выходную презентацию на диск в формате PPTX.
+Настройте ваш проект C++ с заголовками и библиотеками Aspose.Cells для C++ и Aspose.Slides для C++. Поместите пример кода в точку входа вашего приложения, разместив объявления include на уровне файла. Для создания презентации с помощью этих библиотек Microsoft Office не требуется.
 
-## **Реализация необходимых шагов**
-Реализация вышеуказанных шагов на C++ выглядит следующим образом:
+Входные файлы не требуются: пример создает данные и диаграмму в памяти, затем записывает `OutputChart.pptx` в текущий рабочий каталог. Применяйте лицензии для обоих продуктов при работе вне режима оценки.
 
-``` cpp
-//Шаг - 1: Создать диаграмму Excel с использованием Aspose.Cells
-//--------------------------------------------------
-//Создать рабочую книгу
-intrusive_ptr<Aspose::Cells::IWorkbook> wb = Aspose::Cells::Factory::CreateIWorkbook();
-//Добавить диаграмму Excel
-int32_t chartRows = 55;
-int32_t chartCols = 25;
-int32_t chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Шаг - 2: Установить размер OLE диаграммы с использованием Aspose.Cells
-//-----------------------------------------------------------
-wb->GetIWorksheets()->SetOleSize(0, chartRows, 0, chartCols);
-//Шаг - 3: Получить изображение диаграммы с помощью Aspose.Cells
-//-----------------------------------------------------------
-//System::SharedPtr<System::Drawing::Bitmap>
-auto imgChart = wb->GetIWorksheets()->GetObjectByIndex(chartSheetIndex)->GetICharts()->GetObjectByIndex(0)->ToImage();
-//Сохранить рабочую книгу в поток
-System::SharedPtr<System::IO::MemoryStream> wbStream = ToSlidesMemoryStream(wb->SaveToStream());
-//Шаг - 4 И 5
-//-----------------------------------------------------------
-//Шаг - 4: Встроить диаграмму в качестве OLE-объекта в презентацию .ppt с помощью Aspose.Slides
-//-----------------------------------------------------------
-//Шаг - 5: Заменить изменённое изображение объекта изображением, полученным на шаге 3, чтобы устранить проблему изменения объекта
-//-----------------------------------------------------------
-//Создать презентацию
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-System::SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+## **Как работает встраивание**
 
-// Добавить рабочую книгу на слайд
-AddExcelChartInPresentation(pres, slide, wbStream, imgChart);
+1. Создайте рабочую книгу с листом данных и листом диаграммы.  
+2. Сделайте лист диаграммы активным, чтобы рабочая книга открывалась на диаграмме.  
+3. Установите диапазон отображения OLE рабочей книги и визуализируйте диаграмму в PNG.  
+4. Сохраните рабочую книгу как XLSX в памяти и встроите эти байты в слайд.  
+5. Назначьте PNG в качестве предварительного просмотра OLE‑объекта и сохраните презентацию как PPTX.
 
-//Шаг - 6: Записать выходную презентацию на диск
-//-----------------------------------------------------------
-pres->Save(u"d:/OutputChart.pptx", SaveFormat::Pptx);
-```
+Диапазон отображения рабочей книги и рамка на слайде выполняют разные функции. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) принимает нулевые индексы начальной/конечной строки и столбца. [ChartCollection::Add](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chartcollection/add/) же принимает верхнюю строку, левый столбец, нижнюю строку и правый столбец. В примере в качестве правых нижних границ используется индекс строки 55 и индекс столбца 25; эти значения являются параметрами макета, а не количеством строк или столбцов данных.
 
-``` cpp
-void AddExcelChartInPresentation(System::SharedPtr<Presentation> pres, System::SharedPtr<ISlide> sld, 
-                                    System::SharedPtr<System::IO::Stream> wbStream, 
-                                    intrusive_ptr<Aspose::Cells::Systems::Drawing::Bitmap> imgChart)
+Рамка слайда использует единицы измерения — пункты. Пример помещает её в границы слайда и центрирует, сохраняет соотношение сторон PNG, вместо того чтобы растягивать предварительный просмотр для заполнения слайда.
+
+## **Создание и встраивание диаграммы**
+
+Следующий полный пример заполняет `DataSheet` четырьмя строками и пятью столбцами значений. Каждая строка становится серией диаграммы. `ChartSheet` выбран как активный лист перед сохранением рабочей книги.
+
+Рабочая книга явно сохраняется как XLSX, соответствуя расширению `xlsx`, переданному в [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/). PNG загружается из потока в памяти без промежуточного преобразования в bitmap. Aspose.Cells возвращает вектор байтов, который пример копирует в массивный тип, принимаемый Aspose.Slides. Инициализируйте Aspose.Cells перед использованием его объектов и освобождайте ресурсы после их уничтожения. Назначение через [IOleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/get_substitutepictureformat/) заменяет стандартный заполнитель OLE.
+
+```cpp
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <Util/Images.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <algorithm>
+#include <IImage.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// Инициализировать Cells перед созданием любых его объектов.
+Aspose::Cells::Startup();
 {
-    float oleWidth = pres->get_SlideSize()->get_Size().get_Width();
-    float oleHeight = pres->get_SlideSize()->get_Size().get_Height();
-    int32_t x = 0;
-    System::ArrayPtr<uint8_t> chartOleData = System::MakeArray<uint8_t>(wbStream->get_Length(), 0);
-    wbStream->set_Position(0);
-    wbStream->Read(chartOleData, 0, chartOleData->get_Length());
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"DataSheet");
 
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(chartOleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oof;
-    oof = sld->get_Shapes()->AddOleObjectFrame(static_cast<float>(x), 0.0f, oleWidth, oleHeight, dataInfo);
-
-    intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-    imgChart->Save(cellsOutputStream, Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-
-    auto imgChartSlides = Images::FromStream(ToSlidesMemoryStream(cellsOutputStream));
-    oof->get_SubstitutePictureFormat()->get_Picture()->set_Image(pres->get_Images()->AddImage(imgChartSlides));
-}
-```
-
-``` cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-``` cpp
-int32_t AddExcelChartInWorkbook(intrusive_ptr<Aspose::Cells::IWorkbook> wb, int32_t chartRows, int32_t chartCols)
-{
-    // Массив имен ячеек
-    System::ArrayPtr<System::String> cellsName = System::MakeArray<System::String>(
-        { u"A1", u"A2", u"A3", u"A4", 
-            u"B1", u"B2", u"B3", u"B4",
-            u"C1", u"C2", u"C3", u"C4",
-            u"D1", u"D2", u"D3", u"D4",
-            u"E1", u"E2", u"E3", u"E4" });
-    
-    // Массив значений ячеек
-    System::ArrayPtr<int32_t> cellsValue = System::MakeArray<int32_t>(
-        { 67, 86, 68, 91,
-            44, 64, 89, 48,
-            46, 97, 78, 60,
-            43, 29, 69, 26,
-            24, 40, 38, 25 });
-
-    // Добавить новый лист для заполнения ячеек данными
-    int32_t dataSheetIdx = wb->GetIWorksheets()->Add();
-    intrusive_ptr<Aspose::Cells::IWorksheet> dataSheet = wb->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
-    intrusive_ptr<Aspose::Cells::Systems::String> sheetName = new Aspose::Cells::Systems::String("DataSheet");
-    dataSheet->SetName(sheetName);
-
-    // Заполнить DataSheet данными
-    for (int32_t i = 0; i < cellsName->get_Length(); i++)
+    int32_t values[4][5] =
     {
-        System::String cellName = cellsName[i];
-        int32_t cellValue = cellsValue[i];
-        dataSheet->GetICells()->GetObjectByIndex(new String(cellName.ToWCS().c_str()))->PutValue(cellValue);
+        { 67, 44, 46, 43, 24 },
+        { 86, 64, 97, 29, 40 },
+        { 68, 89, 78, 69, 38 },
+        { 91, 48, 60, 26, 25 }
+    };
+
+    for (auto row = 0; row < 4; row++)
+    {
+        for (auto column = 0; column < 5; column++)
+        {
+            dataSheet.GetCells().Get(row, column).PutValue(values[row][column]);
+        }
     }
 
-    // Добавить лист диаграммы
-    int32_t chartSheetIdx = wb->GetIWorksheets()->Add(Aspose::Cells::SheetType::SheetType_Chart);
-    intrusive_ptr<Aspose::Cells::IWorksheet> chartSheet = wb->GetIWorksheets()->GetObjectByIndex(chartSheetIdx);
-    chartSheet->SetName(new String("ChartSheet"));
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    chartSheet.SetName(u"ChartSheet");
 
-    // Добавить диаграмму в ChartSheet с сериями данных из DataSheet
-    int32_t chartIdx = chartSheet->GetICharts()->Add(Aspose::Cells::Charts::ChartType::ChartType_Column, 0, chartRows, 0, chartCols);
-    intrusive_ptr<Aspose::Cells::Charts::IChart> chart = chartSheet->GetICharts()->GetObjectByIndex(chartIdx);
-    chart->GetNISeries()->Add(sheetName + "!A1:E1", false);
-    chart->GetNISeries()->Add(sheetName + "!A2:E2", false);
-    chart->GetNISeries()->Add(sheetName + "!A3:E3", false);
-    chart->GetNISeries()->Add(sheetName + "!A4:E4", false);
+    auto lastChartRow = 55;
+    auto lastChartColumn = 25;
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, lastChartRow, lastChartColumn);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    const char16_t* seriesRanges[] = { u"DataSheet!A1:E1", u"DataSheet!A2:E2", u"DataSheet!A3:E3", u"DataSheet!A4:E4" };
+    for (auto range : seriesRanges)
+    {
+        chart.GetNSeries().Add(range, false);
+    }
 
-    // Установить ChartSheet как активный лист
-    wb->GetIWorksheets()->SetActiveSheetIndex(chartSheetIdx);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetOleSize(0, lastChartRow, 0, lastChartColumn);
 
-    return chartSheetIdx;
+    // Отобразить предварительный просмотр диаграммы и отдельно сериализовать редактируемую рабочую книгу.
+    auto chartImageData = chart.ToImage(Aspose::Cells::Drawing::ImageType::Png);
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+
+    // Скопировать буферы Cells в тип массива, используемый Slides.
+    auto toSlidesArray = [](const Aspose::Cells::Vector<uint8_t>& buffer)
+    {
+        auto result = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+        std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), result->data_ptr());
+        return result;
+    };
+    auto chartImageBytes = toSlidesArray(chartImageData);
+    auto workbookBytes = toSlidesArray(workbookData);
+    auto chartImageStream = System::MakeObject<System::IO::MemoryStream>(chartImageBytes);
+    auto chartImage = Images::FromStream(chartImageStream);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto slideSize = presentation->get_SlideSize()->get_Size();
+
+    // Поместить предварительный просмотр в слайд без изменения его пропорций.
+    auto scale = (std::min)(slideSize.get_Width() / chartImage->get_Width(), slideSize.get_Height() / chartImage->get_Height());
+    auto frameWidth = chartImage->get_Width() * scale;
+    auto frameHeight = chartImage->get_Height() * scale;
+    auto frameX = (slideSize.get_Width() - frameWidth) / 2;
+    auto frameY = (slideSize.get_Height() - frameHeight) / 2;
+
+    auto embeddedData = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xlsx");
+    auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+    auto previewImage = presentation->get_Images()->AddImage(chartImage);
+    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(previewImage);
+
+    presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
+    chartImage->Dispose();
+    chartImageStream->Dispose();
 }
+// Освободить ресурсы Cells после уничтожения всех объектов Cells.
+Aspose::Cells::Cleanup();
 ```
 
-{{% alert color="primary" %}} 
+## **Ожидаемый результат**
 
-Презентация, созданная указанным выше методом, будет содержать диаграмму Excel в качестве OLE-объекта, который можно активировать, дважды щелкнув на рамке OLE-объекта.
+`OutputChart.pptx` содержит один слайд с встроенной рабочей книгой Excel и предварительным просмотром диаграммы. Рабочая книга содержит исходные данные и столбчатую диаграмму с четырьмя сериями. Предпросмотр центрирован на слайде и сохраняет свои пропорции.
 
-{{% /alert %}} 
-## **Заключение**
-{{% alert color="primary" %}} 
+![Столбчатая диаграмма Excel, отображаемая как предварительный просмотр встроенной рабочей книги](excel-chart-ole-preview.png)
 
-Используя Aspose.Cells для C++ вместе с Aspose.Slides для C++, мы можем создать любую из диаграмм Excel, поддерживаемых Aspose.Cells для C++, и встроить созданную диаграмму в качестве OLE-объекта в слайд PowerPoint. Размер OLE диаграммы Excel также может быть определён. Конечные пользователи могут дополнительно редактировать диаграмму Excel, как любой другой OLE-объект.
+В совместимой настольной среде PowerPoint с установленным Excel двойным щелчком по объекту можно активировать и редактировать встроенную рабочую книгу. Активация и редактирование зависят от поддержки OLE и настроек безопасности хост‑приложения.
 
-{{% /alert %}} 
+## **Вопросы и ответы**
+
+**Зачем требуется изображение предварительного просмотра?**  
+Встроенная рабочая книга и её предварительный просмотр на слайде — отдельный контент. Предоставьте изображение диаграммы, чтобы слайд показывал диаграмму вместо стандартного заполнителя «EMBEDDED OLE OBJECT». См. [Проблема предварительного просмотра объекта при добавлении OleObjectFrame](/slides/ru/cpp/object-preview-issue-when-adding-oleobjectframe/).
+
+**Обновляется ли предварительный просмотр автоматически при изменении рабочей книги в коде?**  
+Считайте предварительный просмотр как снимок. При программном обновлении данных рабочей книги необходимо заново создать изображение диаграммы и заменить как предварительный просмотр, так и данные встроенной рабочей книги.
+
+**Можно ли использовать XLS вместо XLSX?**  
+Да. Сохраните рабочую книгу в формате XLS и используйте `xls` в качестве расширения встроенных данных. Расширение должно соответствовать реальному формату рабочей книги; изменение только расширения не конвертирует данные.
+
+**Почему объект может изменить размер после активации?**  
+Хост‑приложение может обновлять представление OLE‑объекта при активации рабочей книги. И диапазон отображения OLE рабочей книги, и размеры рамки на слайде имеют значение. См. [Рабочее решение для изменения размера диаграммы в PPTX](/slides/ru/cpp/working-solution-for-chart-resizing-in-pptx/).
+
 ## **Связанные разделы**
-[Рабочее решение для изменения размера диаграммы](https://docs.aspose.com/slides/cpp/working-solution-for-chart-resizing-in-pptx/)
+
+- [Рабочее решение для изменения размера диаграммы в PPTX](/slides/ru/cpp/working-solution-for-chart-resizing-in-pptx/)
+- [Проблема предварительного просмотра объекта при добавлении OleObjectFrame](/slides/ru/cpp/object-preview-issue-when-adding-oleobjectframe/)

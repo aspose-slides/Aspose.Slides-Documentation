@@ -1,11 +1,14 @@
 ---
-title: 調整投影片上的形狀大小
+title: 在 Java 中調整簡報投影片的形狀大小
 type: docs
-weight: 110
-url: /zh-hant/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /zh-hant/java/resizing-shapes-on-slide/
+aliases:
+  - /zh-hant/java/re-sizing-shapes-on-slide/
+  /java/re-sizing-shapes-on-slide/
 keywords:
-- 調整形狀
-- 變更形狀大小
+- 調整形狀大小
+- 更改形狀尺寸
 - PowerPoint
 - OpenDocument
 - 簡報
@@ -13,43 +16,35 @@ keywords:
 - Aspose.Slides
 description: "使用 Aspose.Slides for Java 輕鬆調整 PowerPoint 與 OpenDocument 投影片上的形狀大小——自動化投影片版面調整，提高工作效率。"
 ---
-## **概述**
+## **概觀**
 
-Aspose.Slides for Java 客戶最常問的問題之一是如何調整形狀大小，使得在投影片尺寸變更時，內容不會被截斷。本文簡短的技術說明將展示如何做到這一點。
+當您變更簡報的投影片大小時，可能也需要調整形狀的大小並重新定位，以符合新的尺寸。本文說明如何手動縮放形狀，以及如何在投影片、母片與佈局中處理表格。
 
 ## **調整形狀大小**
 
-為了防止投影片尺寸變更時形狀錯位，請更新每個形狀的位置與尺寸，使其符合新的投影片版面配置。
+為了保留每個形狀相對的位置與大小，將其水平座標與寬度乘以新投影片寬度與原始寬度的比例。對其垂直座標與高度套用相應的高度比例。
+
+第一個範例載入一個投影片中不含表格的簡報，將投影片大小變更為 A4，並儲存結果。它使用[SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) 搭配[SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) 以便讓隨後的迴圈控制縮放。比例是無單位的；形狀的位置與尺寸以點為單位。不同的寬度與高度比例會造成形狀失真，且變更形狀的尺寸不會縮放其字型大小。
 
 ```java
-// 載入簡報檔案。
-Presentation presentation = new Presentation("sample.ppt");
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // 取得原始投影片尺寸。
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // 在不縮放現有形狀的情況下變更投影片尺寸。
+    // 計算水平與垂直的獨立縮放比例。
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // 取得新的投影片尺寸。
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // 調整每張投影片上形狀的大小與位置。
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            
-            // 縮放形狀尺寸。
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // 縮放形狀位置。
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -60,75 +55,63 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-如果投影片中包含表格，上述程式碼將無法正確運作。在此情況下，必須調整表格中每個儲存格的大小。 
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+表格需要單獨處理：以縮放其欄寬和列高取代直接指定表格的整體寬度與高度。如果儲存格內容需要更多空間，列高可能會維持大於要求的大小。
+{{% /alert %}}
 
-使用以下程式碼在您的環境中調整包含表格的投影片。對於表格而言，設定寬度或高度是特殊情況：您必須調整各列高度和欄寬，以改變表格的整體大小。
+第二個範例支援表格，並在儲存已調整大小的簡報之前，處理母片、佈局以及各個投影片上的形狀。它的輔助程式會針對每個[ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) 透過[IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) 縮放欄寬，並以[IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-) 縮放最小列高。接著會縮放表格的位置，但不會單獨縮放其整體尺寸。
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // 表格尺寸受欄寬與列高控制。
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // 取得原始投影片尺寸。
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // 在不縮放現有形狀的情況下變更投影片尺寸。
+    // 計算水平與垂直的獨立縮放比例。
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // 取得新的投影片尺寸。
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    ShapeResizer resizer = new ShapeResizer();
 
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
+    // 調整在母片、版面與個別投影片上定義的形狀大小。
     for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // 縮放形狀尺寸。
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // 縮放形狀位置。
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // 縮放形狀尺寸。
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // 縮放形狀位置。
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
         }
     }
 
     for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            // 縮放形狀尺寸。
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // 縮放形狀位置。
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
-        }
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
     }
 
     presentation.save("output.pptx", SaveFormat.Pptx);
@@ -140,30 +123,30 @@ finally {
 
 ## **常見問題**
 
-**為什麼在調整投影片大小後形狀會變形或被截斷？**  
+**為何在調整投影片大小後形狀會失真或被截斷？**
 
-在調整投影片時，形狀會保留原始位置與尺寸，除非明確變更比例。這可能導致內容被裁切或形狀錯位。
+如果在變更投影片大小時未對形狀進行縮放，形狀會保持原始的位置與尺寸，可能會超出投影片範圍。使用不同的寬度與高度比例進行縮放也會導致形狀失真。
 
-**提供的程式碼適用於所有形狀類型嗎？**  
+**提供的程式碼是否適用於所有形狀類型？**
 
-基本範例適用於大多數形狀類型（文字方塊、影像、圖表等）。然而，針對表格，需要分別處理列與欄，因為表格的高度與寬度是由各儲存格的尺寸決定的。
+第一個範例直接變更形狀的邊界，適用於不含表格的投影片。第二個範例則單獨處理表格。請檢查產生的版面配置，尤其是文字與表格，因為這些範例不會縮放字型大小，且表格內容可能限制列高。
 
-**在調整投影片時如何調整表格？**  
+**在調整投影片時，如何重新調整表格大小？**
 
-必須遍歷表格的所有列與欄，比例調整它們的高度與寬度，如第二段程式碼所示。
+如第二個範例所示，先以寬度比例縮放欄寬、以高度比例縮放最小列高，最後再縮放表格的位置。
 
-**此調整方法適用於母片投影片和版面配置投影片嗎？**  
+**此調整大小也適用於母片與版面投影片嗎？**
 
-是的，但您也應該遍歷[Masters](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getMasters--)和[Layout slides](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getLayoutSlides--)，對它們的形狀套用相同的比例邏輯，以確保整個簡報的一致性。
+會的。第二個範例會遍歷[Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--)以及每個母片的[IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--)，並對它們的形狀套用相同的調整大小邏輯。
 
-**我可以在調整大小的同時更改投影片方向（直式/橫式）嗎？**  
+**我可以在調整大小的同時變更投影片方向（直向/橫向）嗎？**
 
-可以。您可以使用[presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/islidesize/#setOrientation-int-) 來變更方向。請確保相應調整比例邏輯，以保留版面配置。
+可以。於變更投影片大小後、讀取目標尺寸前，呼叫[SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-)，如此縮放係數會以最終的方向為基礎。
 
-**投影片大小有上限嗎？**  
+**我可以設定的投影片大小有上限嗎？**
 
-Aspose.Slides 支援自訂尺寸，但過大的尺寸可能會影響效能或與某些 PowerPoint 版本的相容性。
+您可以使用[SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-) 指定自訂的投影片尺寸。支援的尺寸亦受簡報格式以及開啟檔案的應用程式限制。
 
-**如何防止固定長寬比的形狀變形？**  
+**如何防止具有固定長寬比的形狀變形？**
 
-在縮放前，可檢查形狀的 `getAspectRatioLocked` 方法。如果被鎖定，請比例調整寬度或高度，而不是分別縮放它們。
+對寬度與高度使用相同的縮放係數。若要在新投影片尺寸內保留原始版面，請以寬度與高度比例中較小的那個作為兩者及位置的縮放係數。這樣可維持比例，但可能在某一側留下未使用的空間。

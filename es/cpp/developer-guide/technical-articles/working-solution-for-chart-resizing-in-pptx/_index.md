@@ -1,213 +1,144 @@
 ---
-title: Solución funcional para el redimensionamiento de gráficos en PPTX
+title: Solución práctica para el redimensionado de gráficos en PPTX
 type: docs
 weight: 60
 url: /es/cpp/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- redimensionamiento de gráficos
+- redimensionado de gráfico
 - gráfico de Excel
 - objeto OLE
 - incrustar gráfico
 - PowerPoint
-- OpenDocument
 - presentación
 - C++
 - Aspose.Slides
-description: "Soluciona el inesperado redimensionamiento de gráficos en PPTX al usar objetos OLE de Excel incrustados con Aspose.Slides para C++. Aprende dos métodos con código para mantener los tamaños consistentes."
+description: "Corrija el redimensionado inesperado de gráficos en PPTX al usar objetos OLE de Excel incrustados con Aspose.Slides para C++. Establezca dimensiones fijas del gráfico para mantener consistentes los tamaños del gráfico y del marco OLE."
 ---
-
 ## **Antecedentes**
 
-Se ha observado que los gráficos de Excel incrustados como objetos OLE en una presentación de PowerPoint a través de los componentes Aspose se redimensionan a una escala no especificada después de su primera activación. Este comportamiento provoca una diferencia visual notable en la presentación entre los estados antes y después de la activación del gráfico. El equipo de Aspose ha investigado el problema en detalle y ha encontrado una solución. Este artículo describe las causas del problema y la corrección correspondiente.
+Los gráficos de Excel incrustados como objetos OLE en presentaciones de PowerPoint mediante los componentes Aspose pueden cambiar de tamaño tras su primera activación. Esto puede provocar una diferencia notable en la apariencia del gráfico antes y después de la activación. Este artículo explica por qué se produce el cambio de tamaño y muestra cómo evitarlo haciendo coincidir las dimensiones fijas del gráfico con el marco OLE.
 
-En el [artículo anterior](/slides/es/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), explicamos cómo crear un gráfico de Excel con Aspose.Cells para C++ e incrustarlo en una presentación de PowerPoint usando Aspose.Slides para C++. Para abordar el [problema de vista previa del objeto](/slides/es/cpp/object-preview-issue-when-adding-oleobjectframe/), asignamos la imagen del gráfico al marco del objeto OLE del gráfico. En la presentación resultante, cuando se hace doble clic en el marco del objeto OLE que muestra la imagen del gráfico, se activa el gráfico de Excel. Los usuarios pueden realizar cualquier cambio deseado en el libro de Excel subyacente y luego volver a la diapositiva correspondiente haciendo clic fuera del libro activado. El tamaño del marco del objeto OLE cambia cuando el usuario vuelve a la diapositiva, y el factor de redimensionamiento varía según los tamaños originales tanto del marco del objeto OLE como del libro de Excel incrustado.
+En [Crear gráficos de Excel e incrustarlos como objetos OLE en presentaciones](/slides/es/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), explicamos cómo crear un gráfico de Excel con Aspose.Cells para C++ e incrustarlo en una presentación de PowerPoint usando Aspose.Slides para C++. Para abordar el [problema de vista previa del objeto](/slides/es/cpp/object-preview-issue-when-adding-oleobjectframe/), asignamos la imagen del gráfico al marco del objeto OLE del gráfico. En la presentación resultante, al hacer doble clic en el marco del objeto OLE que muestra la imagen del gráfico, se activa el gráfico de Excel. Los usuarios pueden editar el libro de trabajo de Excel incrustado y luego volver a la diapositiva haciendo clic fuera del libro de trabajo activado. El tamaño del marco del objeto OLE cambia cuando el usuario vuelve a la diapositiva, y el factor de redimensionado varía según los tamaños originales tanto del marco del objeto OLE como del libro de trabajo de Excel incrustado.
 
-## **Causa del redimensionamiento**
+## **Causa del cambio de tamaño**
 
-Debido a que el libro de Excel tiene su propio tamaño de ventana, intenta conservar su tamaño original en su primera activación. Sin embargo, el marco del objeto OLE tiene su propio tamaño. Según Microsoft, cuando se activa el libro de Excel, Excel y PowerPoint negocian el tamaño y mantienen las proporciones correctas como parte del proceso de incrustación. Dependiendo de las diferencias entre el tamaño de la ventana de Excel y el tamaño o posición del marco del objeto OLE, se produce el redimensionamiento.
+El libro de trabajo de Excel incrustado tiene sus propias dimensiones de ventana, que Excel intenta conservar cuando el objeto se activa por primera vez. El marco OLE en la diapositiva tiene dimensiones definidas de forma independiente. Cuando el libro de trabajo de Excel se activa, Excel y PowerPoint negocian el tamaño del objeto para mantener sus proporciones como parte del proceso de incrustación. Por lo tanto, las diferencias entre la ventana del libro de trabajo y el marco OLE pueden provocar que el objeto cambie de tamaño.
 
 ## **Solución funcional**
 
-Existen dos escenarios posibles para crear presentaciones de PowerPoint usando Aspose.Slides para C++.
+Haga coincidir el tamaño del gráfico con el marco OLE en la diapositiva y mantenga las dimensiones del gráfico independientes de la ventana del libro de trabajo. Esta solución funciona con una presentación nueva o con una plantilla existente.
 
-**Scenario 1:** Crear una presentación basada en una plantilla existente.  
-**Scenario 2:** Crear una presentación desde cero.
+El ejemplo requiere Aspose.Cells para C++ y Aspose.Slides para C++. Crea un gráfico de columnas sencillo en una hoja de gráficos activa e incrusta el libro de trabajo en formato XLS. No se asigna ninguna imagen de vista previa del gráfico; el gráfico se vuelve visible cuando el objeto OLE se activa en PowerPoint.
 
-La solución que proporcionamos aquí se aplica a ambos escenarios. La base de todos los enfoques de solución es la misma: **el tamaño de ventana del objeto OLE incrustado debe coincidir con el marco del objeto OLE en la diapositiva de PowerPoint**. Ahora discutiremos los dos enfoques de esta solución.
+Coloque el código de ejemplo en el punto de entrada de su aplicación, con las declaraciones de inclusión a nivel de archivo. Inicialice Aspose.Cells antes de crear sus objetos y libere sus recursos después de que dichos objetos hayan sido destruidos. El ejemplo copia el vector de bytes del libro de trabajo devuelto por Aspose.Cells en el tipo de arreglo aceptado por Aspose.Slides.
 
-## **Primer enfoque**
+El ejemplo crea una nueva presentación con un marco OLE de 9,5 × 4 pulgadas ubicado a 0,5 pulgadas del borde izquierdo y a 1 pulgada de la parte superior. Las coordenadas y dimensiones de la diapositiva están en puntos (72 puntos por pulgada). Para una presentación existente, consulte [Usar una plantilla](#use-a-template).
 
-En este enfoque, aprenderemos cómo establecer el tamaño de ventana del libro de Excel incrustado para que coincida con el tamaño del marco del objeto OLE en la diapositiva de PowerPoint.
+## **Establecer un tamaño de gráfico fijo**
 
-**Escenario 1**  
+Establezca [Chart::SetSizeWithWindow](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setsizewithwindow/) a false para que las dimensiones del gráfico sean independientes de la ventana del libro de trabajo. Establezca las dimensiones del [Chart::GetChartObject](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/getchartobject/) a través de [Shape::SetWidth](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setwidth/) y [Shape::SetHeight](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setheight/), convirtiendo puntos a píxeles usando 96 píxeles por pulgada: un marco de 684 × 288 puntos corresponde a un gráfico de 912 × 384 píxeles. Establezca [Chart::SetPrintSize](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setprintsize/) al valor Custom de [PrintSizeType](https://reference.aspose.com/cells/cpp/aspose.cells/printsizetype/). El ejemplo incrusta el libro de trabajo con [IShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addoleobjectframe/) y guarda una presentación con un marco OLE de 9,5 × 4 pulgadas.
 
-Supongamos que hemos definido una plantilla y queremos crear presentaciones basadas en ella. Asumamos que hay una forma en el índice 2 de la plantilla donde queremos colocar un marco OLE que contiene un libro de Excel incrustado. En este escenario, el tamaño del marco del objeto OLE está predefinido — coincide con el tamaño de la forma en el índice 2 de la plantilla. Todo lo que necesitamos hacer es establecer el tamaño de ventana del libro igual al tamaño de esa forma. El siguiente fragmento de código cumple este propósito:
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <algorithm>
+#include <cstdint>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+Aspose::Cells::Startup();
 {
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"Data");
+    dataSheet.GetCells().Get(u"A1").PutValue(10);
+    dataSheet.GetCells().Get(u"A2").PutValue(20);
 
-    return outputStream;
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, 20, 10);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    chart.GetNSeries().Add(u"Data!A1:A2", true);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    // Las coordenadas y dimensiones de la diapositiva están en puntos (72 puntos por pulgada).
+    auto width = 684.f; // 9,5 pulgadas.
+    auto height = 288.f; // 4 pulgadas.
+
+    chart.SetSizeWithWindow(false);
+    // Convertir puntos a píxeles del gráfico usando 96 píxeles por pulgada.
+    chart.GetChartObject().SetWidth(static_cast<int32_t>(width / 72.f * 96.f));
+    chart.GetChartObject().SetHeight(static_cast<int32_t>(height / 72.f * 96.f));
+    chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
+
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
+    // Copiar el vector de bytes de Cells en el tipo de arreglo aceptado por Slides.
+    auto workbookBytes = System::MakeArray<uint8_t>(workbookData.GetLength(), 0);
+    std::copy(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength(), workbookBytes->data_ptr());
+    auto dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xls");
+    slide->get_Shapes()->AddOleObjectFrame(36, 72, width, height, dataInfo);
+
+    presentation->Save(u"chart-fixed-size.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
 }
+Aspose::Cells::Cleanup();
 ```
 
-```cpp
-// Definir el tamaño del gráfico con una ventana. 
-chart->SetSizeWithWindow(true);
+## **Usar una plantilla**
 
-auto shape = slide->get_Shape(2);
+La lógica de dimensionado es la misma para una presentación existente. Para adaptar el ejemplo:
 
-// Establecer el ancho de la ventana del libro de trabajo en pulgadas (dividido por 72 ya que PowerPoint usa 72 píxeles por pulgada).
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
-
-// Establecer la altura de la ventana del libro de trabajo en pulgadas.
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
-
-// Guardar el libro de trabajo en un flujo de memoria.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Crear un marco de objeto OLE con los datos de Excel incrustados.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(), 
-    shape->get_Height(),
-    dataInfo);
-```
-
-
-**Escenario 2**  
-
-Digamos que queremos crear una presentación desde cero e incluir un marco de objeto OLE de cualquier tamaño con un libro de Excel incrustado. En el siguiente fragmento de código, creamos un marco de objeto OLE de 4 pulgadas de alto y 9,5 pulgadas de ancho en x = 0,5 pulgadas y y = 1 pulgada en la diapositiva. Luego establecemos la ventana del libro de Excel al mismo tamaño — 4 pulgadas de alto y 9,5 pulgadas de ancho.
-```cpp
-// Nuestra altura deseada.
-int32_t desiredHeight = 288; // 4 pulgadas (4 * 72)
-
-// Nuestro ancho deseado.
-int32_t desiredWidth = 684; // 9.5 pulgadas (9.5 * 72)
-
-// Define el tamaño del gráfico con una ventana. 
-chart->SetSizeWithWindow(true);
-
-// Establece el ancho de la ventana del libro de trabajo en pulgadas.
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
-
-// Establece la altura de la ventana del libro de trabajo en pulgadas.
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
-
-// Guarda el libro de trabajo en un flujo de memoria.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Crea un marco de objeto OLE con los datos de Excel incrustados.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f,
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-
-## **Segundo enfoque**
-
-En este enfoque, aprenderemos cómo establecer el tamaño del gráfico en el libro de Excel incrustado para que coincida con el tamaño del marco del objeto OLE en la diapositiva de PowerPoint. Este enfoque es útil cuando el tamaño del gráfico se conoce de antemano y nunca cambiará.
-
-**Escenario 1**  
-
-Supongamos que hemos definido una plantilla y queremos crear presentaciones basadas en ella. Asumamos que hay una forma en el índice 2 de la plantilla donde pretendemos colocar un marco OLE que contiene un libro de Excel incrustado. En este escenario, el tamaño del marco OLE está predefinido — coincide con el tamaño de la forma en el índice 2 de la plantilla. Todo lo que necesitamos hacer es establecer el tamaño del gráfico en el libro igual al tamaño de esa forma. El siguiente fragmento de código cumple este propósito:
-```cpp
-// Definir el tamaño del gráfico sin ventana. 
-chart->SetSizeWithWindow(false);
-
-auto shape = slide->get_Shape(2);
-
-// Establecer el ancho del gráfico en píxeles (multiplicar por 96 ya que Excel usa 96 píxeles por pulgada).    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
-
-// Establecer la altura del gráfico en píxeles.
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
-
-// Definir el tamaño de impresión del gráfico.
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
-
-// Guardar el libro de trabajo en un flujo de memoria.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Crear un marco de objeto OLE con los datos de Excel incrustados.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(),
-    shape->get_Height(),
-    dataInfo);
-```
-
-
-**Escenario 2**  
-
-Supongamos que queremos crear una presentación desde cero e incluir un marco de objeto OLE de cualquier tamaño con un libro de Excel incrustado. En el siguiente fragmento de código, creamos un marco de objeto OLE con una altura de 4 pulgadas y una anchura de 9,5 pulgadas en la diapositiva en x = 0,5 pulgadas y y = 1 pulgada. También establecemos el tamaño del gráfico correspondiente a las mismas dimensiones: una altura de 4 pulgadas y una anchura de 9,5 pulgadas.
-```cpp
-// Nuestra altura deseada.
-int32_t desiredHeight = 288; // 4 pulgadas (4 * 576)
-
-// Nuestro ancho deseado.
-int32_t desiredWidth = 684; // 9.5 pulgadas (9.5 * 576)
-
-// Definir el tamaño del gráfico sin ventana. 
-chart->SetSizeWithWindow(false);
-
-// Establecer el ancho del gráfico en píxeles.    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
-
-// Establecer la altura del gráfico en píxeles.
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
-
-// Guardar el libro de trabajo en un flujo de memoria.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Crear un marco de objeto OLE con los datos de Excel incrustados.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f, 
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-
-## **Conclusión**
-
-Existen dos enfoques para solucionar el problema de redimensionamiento del gráfico. La elección del enfoque depende de los requisitos y del caso de uso. Ambos enfoques funcionan de la misma manera, ya sea que las presentaciones se creen a partir de una plantilla o se creen desde cero. Además, no hay límite al tamaño del marco del objeto OLE en esta solución.
+1. Cargue la presentación de plantilla en lugar de crear una presentación vacía.
+1. Compruebe que la primera diapositiva contenga al menos tres formas y luego use la forma en el índice 2 como marcador de posición.
+1. Obtenga el ancho y alto del marco de esa forma en lugar de usar los valores fijos 684 y 288. Mantenga los cálculos de dimensionado sin cambios.
+1. Añada el marco OLE en la posición del marcador de posición en lugar de las coordenadas fijas 36 y 72.
+1. Elimine el marcador de posición antes de guardar la presentación.
 
 ## **Preguntas frecuentes**
 
-**¿Por qué mi gráfico de Excel incrustado cambia de tamaño después de activarlo en PowerPoint?**  
-Esto ocurre porque Excel intenta restaurar el tamaño original de la ventana cuando se activa por primera vez, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la proporción, lo que puede provocar el redimensionamiento.
+**¿Por qué mi gráfico de Excel incrustado cambia de tamaño después de activarlo en PowerPoint?**
 
-**¿Es posible evitar este problema de redimensionamiento por completo?**  
-Sí. Al hacer coincidir el tamaño de ventana del libro de Excel o el tamaño del gráfico con el tamaño del marco del objeto OLE antes de incrustar, puedes mantener los tamaños del gráfico consistentes.
+Esto ocurre porque Excel intenta restaurar el tamaño original de la ventana al activarse por primera vez, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la proporción, lo que puede provocar el redimensionado.
 
-**¿Qué enfoque debo usar, establecer el tamaño de ventana del libro o establecer el tamaño del gráfico?**  
-Utilice **Enfoque 1 (tamaño de ventana)** si desea mantener la proporción del libro y posiblemente permitir redimensionamientos posteriores.  
-Utilice **Enfoque 2 (tamaño del gráfico)** si las dimensiones del gráfico son fijas y no cambiarán después de la incrustación.
+**¿Cómo puedo mantener consistentes los tamaños del gráfico y del marco OLE?**
 
-**¿Estos métodos funcionan tanto con presentaciones basadas en plantillas como con presentaciones nuevas?**  
-Sí. Ambos enfoques funcionan de la misma manera para presentaciones creadas a partir de plantillas y desde cero.
+Establezca dimensiones fijas del gráfico que coincidan con el marco OLE y use un tamaño de impresión de gráfico personalizado antes de incrustar el libro de trabajo. El ejemplo anterior muestra la configuración necesaria y las conversiones de unidades.
 
-**¿Hay un límite al tamaño del marco del objeto OLE?**  
-No. Puede establecer el marco OLE a cualquier tamaño siempre que se escale adecuadamente al tamaño del libro o del gráfico.
+**¿Es suficiente igualar el tamaño de la ventana del libro de trabajo?**
 
-**¿Puedo usar estos métodos con gráficos creados en otros programas de hojas de cálculo?**  
-Los ejemplos están diseñados para gráficos de Excel creados con Aspose.Cells, pero los principios se aplican a otros programas de hoja de cálculo compatibles con OLE siempre que admitan opciones de dimensionado similares.
+Igualar solo el tamaño de la ventana del libro de trabajo no garantiza que el marco OLE no cambie de tamaño tras la activación. Utilice dimensiones fijas del gráfico como se muestra en el ejemplo.
+
+**¿Esta solución funciona tanto con presentaciones basadas en plantillas como con presentaciones nuevas?**
+
+Sí. Para una plantilla, utilice las dimensiones y la posición del marcador de posición. Para una presentación nueva, especifique directamente las dimensiones y la posición del marco.
+
+**¿Puedo usar este ejemplo con gráficos creados en otros programas de hoja de cálculo?**
+
+El ejemplo usa un libro de trabajo de Excel creado con Aspose.Cells. No muestra el comportamiento de activación para otros programas de hoja de cálculo.
 
 ## **Secciones relacionadas**
 

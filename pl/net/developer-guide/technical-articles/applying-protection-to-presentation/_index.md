@@ -1,66 +1,66 @@
 ---
-title: Zapobieganie edycjom prezentacji przy użyciu blokad kształtów w .NET
-linktitle: Zapobieganie edycjom prezentacji
+title: Ogranicz edycję prezentacji przy użyciu blokad kształtów w .NET
+linktitle: Ogranicz edycję prezentacji
 type: docs
 weight: 70
 url: /pl/net/applying-protection-to-presentation/
 keywords:
-- zapobiegać edycjom
+- zapobiegać edycji
 - chronić przed edycją
-- blokada kształtu
-- blokada położenia
-- blokada wyboru
-- blokada rozmiaru
-- blokada grupowania
+- zablokuj kształt
+- zablokuj pozycję
+- zablokuj wybór
+- zablokuj zmianę rozmiaru
+- zablokuj grupowanie
 - PowerPoint
-- OpenDocument
+- PPTX
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak Aspose.Slides dla .NET blokuje i odblokowuje kształty w plikach PPT, PPTX i ODP, zabezpieczając prezentacje, jednocześnie umożliwiając kontrolowaną edycję."
+description: "Dowiedz się, jak blokować i odblokowywać kształty w prezentacjach PPTX za pomocą Aspose.Slides dla .NET, aby ograniczyć wybór, przemieszczanie, zmianę rozmiaru i grupowanie."
 ---
 ## **Tło**
 
-Częstym zastosowaniem Aspose.Slides jest tworzenie, aktualizowanie i zapisywanie prezentacji Microsoft PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Użytkownicy aplikacji wykorzystujących Aspose.Slides w ten sposób mają dostęp do wygenerowanych prezentacji, więc ochronę przed edycją stanowi powszechny problem. Ważne jest, aby automatycznie generowane prezentacje zachowały pierwotne formatowanie i zawartość.
+Typowym zastosowaniem Aspose.Slides for .NET jest tworzenie, aktualizacja i zapisywanie prezentacji PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Gdy użytkownicy otrzymują te prezentacje, ograniczenie zmian kształtów może pomóc zachować zamierzony układ i zawartość.
 
-W tym artykule wyjaśniono, jak zbudowane są prezentacje i slajdy oraz jak Aspose.Slides dla .NET może zastosować ochronę prezentacji i później ją usunąć. Dostarcza on programistom sposób kontrolowania sposobu użycia prezentacji generowanych przez ich aplikacje.
+Ten artykuł wyjaśnia, jak kształty są organizowane na slajdach oraz jak zastosować i usunąć blokady kształtów w prezentacji PPTX. Te blokady umożliwiają ograniczenie konkretnych operacji edycji na poszczególnych kształtach.
 
-## **Budowa slajdu**
+## **Kompozycja slajdu**
 
-Slajd prezentacji składa się z komponentów, takich jak autoshapes, tabele, obiekty OLE, grupowane kształty, ramki obrazów, ramki wideo, łączniki i inne elementy używane do tworzenia prezentacji. W Aspose.Slides dla .NET każdy element na slajdzie jest reprezentowany przez obiekt implementujący interfejs [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/) lub dziedziczący po klasie, która to robi.
+Slajd prezentacji składa się z elementów takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazu, ramki wideo, łącza i inne elementy używane do budowy prezentacji. W Aspose.Slides for .NET każdy element na slajdzie jest reprezentowany przez obiekt, który implementuje interfejs [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) lub dziedziczy z klasy, która to robi.
 
-Struktura PPTX jest złożona, więc w przeciwieństwie do PPT, gdzie można używać ogólnego blokowania dla wszystkich typów kształtów, różne typy kształtów wymagają różnych blokad. Interfejs [IBaseShapeLock](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseshapelock/) jest ogólną klasą blokującą dla PPTX. W Aspose.Slides dla .NET obsługiwane są następujące typy blokad dla PPTX:
+Różne typy kształtów udostępniają różne opcje blokowania. Interfejs [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) jest podstawowym interfejsem dla blokad kształtów. Aspose.Slides for .NET udostępnia następujące interfejsy blokad:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshapelock/) blokuje autoshapes.  
-- [IConnectorLock](https://reference.aspose.com/slides/pl/net/aspose.slides/iconnectorlock/) blokuje kształty łączników.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/pl/net/aspose.slides/igraphicalobjectlock/) blokuje obiekty graficzne.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/pl/net/aspose.slides/igroupshapelock/) blokuje grupowane kształty.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/pl/net/aspose.slides/ipictureframelock/) blokuje ramki obrazów.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) blokuje autokształty.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) blokuje kształty łączników.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) blokuje obiekty graficzne.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) blokuje grupowane kształty.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) blokuje ramki obrazu.  
 
-Każda akcja wykonana na wszystkich obiektach kształtów w obiekcie [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) jest stosowana do całej prezentacji.
+Aby zastosować blokady w całej [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), przeiteruj jej slajdy i ustaw odpowiednie blokady na każdym obsługiwanym kształcie.
 
 ## **Zastosowanie i usunięcie ochrony**
 
-Zastosowanie ochrony zapewnia, że prezentacja nie może być edytowana. Jest to przydatna technika ochrony zawartości prezentacji.
+Blokady kształtów ograniczają operacje takie jak wybieranie, przenoszenie i zmiana rozmiaru kształtów. Nie sprawiają, że cała prezentacja jest nieedytowalna.
 
 ### **Zastosowanie ochrony do kształtów PPTX**
 
-Aspose.Slides dla .NET udostępnia interfejs [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/) do pracy z kształtami na slajdzie.
+Aspose.Slides for .NET udostępnia interfejs [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) do pracy z kształtami na slajdzie.
 
-Jak wspomniano wcześniej, każda klasa kształtu ma powiązaną klasę blokady kształtu w celu ochrony. Ten artykuł koncentruje się na blokadach NoSelect, NoMove i NoResize. Blokady te zapewniają, że kształty nie mogą być wybierane (przez kliknięcia myszy lub inne metody zaznaczania) oraz że nie mogą być przemieszczane ani zmieniane ich rozmiary.
+Przykład ustawia [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) i [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) na `true` dla autokształtów, z równoważnymi blokadami dla grupowanych kształtów, łączników i ramek obrazu. Łączniki używają [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) do przemieszczania; grupy również używają [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) aby ograniczyć grupowanie.
 
-Przykład kodu poniżej stosuje ochronę do wszystkich typów kształtów w prezentacji.
+Przykład ładuje istniejącą prezentację PPTX, sprawdza kształty w kolekcji kształtów każdego slajdu i zapisuje kopię z zastosowanymi ograniczeniami. Kształty nie należące do czterech obsługiwanych typów pozostają niezmienione. Pętla nie przegląda kształtów podrzędnych wewnątrz grupy.
 
 ```cs
-// Utwórz klasę Presentation, która reprezentuje plik PPTX.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Przeglądanie wszystkich slajdów w prezentacji.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Iterowanie po wszystkich kształtach na slajdzie.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Zapisywanie pliku prezentacji.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Usunięcie ochrony**
 
-Aby odblokować kształt, ustaw wartość zastosowanej blokady na `false`. Poniższy przykład kodu pokazuje, jak odblokować kształty w zablokowanej prezentacji.
+Aby usunąć blokadę kształtu, ustaw jej wartość na `false`. Poniższy przykład ładuje prezentację z blokadami kształtów i usuwa ograniczenia wyboru, przemieszczania i zmiany rozmiaru za pomocą [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) oraz [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). Usuwa również [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) i zapisuje kopię prezentacji. Inne ustawienia blokad pozostają niezmienione.
 
 ```cs
-// Utwórz klasę Presentation, która reprezentuje plik PPTX.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Przeglądanie wszystkich slajdów w prezentacji.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Przeglądanie wszystkich kształtów na slajdzie.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,24 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Zapisywanie pliku prezentacji.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
-### **Wnioski**
+### **Podsumowanie**
 
-Aspose.Slides oferuje kilka opcji ochrony kształtów w prezentacji. Możesz zablokować pojedynczy kształt lub iterować po wszystkich kształtach w prezentacji i zablokować każdy z nich, aby skutecznie zabezpieczyć cały plik. Ochronę można usunąć, ustawiając wartość blokady na `false`.
+Aspose.Slides for .NET umożliwia ograniczenie konkretnych operacji edycji na pojedynczych kształtach lub zastosowanie tych samych ograniczeń na wielu slajdach. Wybierz blokady obsługiwane przez dany typ kształtu i ustaw ich wartości na `false`, gdy potrzebujesz usunąć te ograniczenia.
 
 ## **FAQ**
 
-**Czy mogę łączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
+**Czy mogę połączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
 
-Tak. Blokady ograniczają edycję obiektów wewnątrz pliku, podczas gdy [password protection](/slides/pl/net/password-protected-presentation/) kontroluje dostęp do otwierania i/lub zapisywania zmian. Te mechanizmy uzupełniają się i działają razem.
+Tak. Blokady kształtów ograniczają określone operacje edycji, podczas gdy [password protection](/slides/pl/net/password-protected-presentation/) może ograniczyć otwieranie lub modyfikację prezentacji. Możesz używać obu w tym samym pliku.
 
-**Czy mogę ograniczyć edycję na konkretnych slajdach bez wpływu na inne?**
+**Czy mogę ograniczyć edycję na konkretnych slajdach, nie wpływając na inne?**
 
-Tak. Zastosuj blokady do kształtów na wybranych slajdach; pozostałe slajdy pozostaną edytowalne.
+Tak. Zastosuj blokady tylko do kształtów na wybranych slajdach. Nie zmieni to ustawień blokad na innych slajdach.
 
-**Czy blokady kształtów dotyczą grupowanych obiektów i łączników?**
+**Jak mogę zastosować blokady do poszczególnych kształtów wewnątrz grupy?**
 
-Tak. Obsługiwane są dedykowane typy blokad dla grup, łączników, obiektów graficznych i innych rodzajów kształtów.
+Iteruj przez kolekcję [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) grupy i zastosuj odpowiednie blokady do każdego kształtu podrzędnego. Powtórz to dla wszystkich zagnieżdżonych grup. Powyższe przykłady przetwarzają tylko kolekcję kształtów slajdu, więc nie ustawiają blokad na poszczególnych elementach grupy.

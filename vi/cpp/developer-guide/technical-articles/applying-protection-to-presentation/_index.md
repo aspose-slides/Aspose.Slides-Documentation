@@ -1,6 +1,6 @@
 ---
-title: Ngăn Chặn Việc Chỉnh Sửa Bản Trình Bày Bằng Khóa Hình Dạng
-linktitle: Ngăn Chặn Việc Chỉnh Sửa Bản Trình Bày
+title: Hạn chế chỉnh sửa bản trình bày bằng khóa hình dạng trong C++
+linktitle: Hạn chế chỉnh sửa bản trình bày
 type: docs
 weight: 10
 url: /vi/cpp/applying-protection-to-presentation/
@@ -9,176 +9,208 @@ keywords:
 - bảo vệ khỏi việc chỉnh sửa
 - khóa hình dạng
 - khóa vị trí
-- khóa chọn
-- khóa kích thước
+- khóa lựa chọn
+- khóa thay đổi kích thước
 - khóa nhóm
 - PowerPoint
-- OpenDocument
+- PPTX
 - bản trình bày
 - C++
 - Aspose.Slides
-description: "Khám phá cách Aspose.Slides cho C++ khóa hoặc mở khóa các hình dạng trong tập tin PPT, PPTX và ODP, bảo vệ bản trình bày đồng thời cho phép chỉnh sửa có kiểm soát và giao hàng nhanh hơn."
+description: "Tìm hiểu cách khóa và mở khóa các hình dạng trong bản trình bày PPTX bằng Aspose.Slides cho C++ để hạn chế việc lựa chọn, di chuyển, thay đổi kích thước và nhóm."
 ---
 ## **Bối cảnh**
 
-Một mục đích phổ biến của Aspose.Slides là tạo, cập nhật và lưu các bản trình bày Microsoft PowerPoint (PPTX) như một phần của quy trình tự động. Người dùng các ứng dụng sử dụng Aspose.Slides theo cách này có quyền truy cập vào các bản trình bày đã tạo, do đó bảo vệ chúng khỏi việc chỉnh sửa là một mối quan tâm chung. Điều quan trọng là các bản trình bày được tạo tự động phải giữ nguyên định dạng và nội dung ban đầu.
+Một cách sử dụng phổ biến của Aspose.Slides for C++ là tạo, cập nhật và lưu các bản trình bày PowerPoint (PPTX) như một phần của quy trình tự động. Khi người dùng nhận được các bản trình bày này, việc hạn chế thay đổi các hình dạng có thể giúp bảo tồn bố cục và nội dung dự định.
 
-Bài viết này giải thích cách cấu trúc của bản trình bày và slide, cũng như cách Aspose.Slides for C++ có thể áp dụng bảo vệ cho một bản trình bày và sau đó gỡ bỏ nó. Nó cung cấp cho nhà phát triển một cách để kiểm soát cách các bản trình bày do ứng dụng của họ tạo ra được sử dụng.
+Bài viết này giải thích cách các hình dạng được tổ chức trên các slide và cách áp dụng và loại bỏ khóa hình dạng trong bản trình bày PPTX. Các khóa này cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng.
 
-## **Thành phần của một slide**
+## **Thành phần của một Slide**
 
-Một slide trong bản trình bày được tạo thành từ các thành phần như hình tự động, bảng, đối tượng OLE, các hình dạng nhóm, khung ảnh, khung video, kết nối và các yếu tố khác được sử dụng để xây dựng một bản trình bày. Trong Aspose.Slides for C++, mỗi thành phần trên slide được biểu diễn bằng một đối tượng thực thi giao diện [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) hoặc kế thừa từ một lớp thực hiện giao diện này.
+Một slide trong bản trình bày được tạo thành từ các thành phần như hình tự động, bảng, đối tượng OLE, các hình dạng nhóm, khung ảnh, khung video, connector, và các yếu tố khác được sử dụng để xây dựng một bản trình bày. Trong Aspose.Slides for C++, mỗi yếu tố trên slide được đại diện bởi một đối tượng triển khai giao diện [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) hoặc kế thừa từ một lớp thực hiện giao diện này.
 
-Cấu trúc của PPTX rất phức tạp, vì vậy không giống như PPT, nơi một khóa chung có thể được sử dụng cho mọi loại hình dạng, các loại hình dạng khác nhau yêu cầu các khóa khác nhau. Giao diện [IBaseShapeLock](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseshapelock/) là lớp khóa chung cho PPTX. Các loại khóa sau được hỗ trợ trong Aspose.Slides for C++ cho PPTX:
+Các loại hình dạng khác nhau cung cấp các tùy chọn khóa khác nhau. Giao diện [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) là giao diện cơ sở cho các khóa hình dạng. Aspose.Slides for C++ cung cấp các giao diện khóa sau:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshapelock/) khóa các hình tự động.  
-- [IConnectorLock](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iconnectorlock/) khóa các hình kết nối.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/vi/cpp/aspose.slides/igraphicalobjectlock/) khóa các đối tượng đồ họa.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/vi/cpp/aspose.slides/igroupshapelock/) khóa các hình nhóm.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipictureframelock/) khóa các khung ảnh.   
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) khóa các hình tự động.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) khóa các hình connector.
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) khóa các đối tượng đồ họa.
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) khóa các hình nhóm.
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) khóa các khung ảnh.
 
-Bất kỳ hành động nào được thực hiện trên tất cả các đối tượng hình dạng trong một đối tượng [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) sẽ được áp dụng cho toàn bộ bản trình bày.
+Để áp dụng khóa cho toàn bộ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/), hãy lặp qua các slide của nó và đặt các khóa phù hợp cho mỗi hình dạng được hỗ trợ.
 
-## **Áp dụng và gỡ bảo vệ**
+## **Áp dụng và Xóa Bảo vệ**
 
-Áp dụng bảo vệ đảm bảo rằng bản trình bày không thể bị chỉnh sửa. Đây là một kỹ thuật hữu ích để bảo vệ nội dung của bản trình bày.
+Các khóa hình dạng hạn chế các thao tác như chọn, di chuyển và thay đổi kích thước các hình dạng. Chúng không làm cho toàn bộ bản trình bày không thể chỉnh sửa.
 
-### **Áp dụng bảo vệ cho các hình dạng PPTX**
+### **Áp dụng Bảo vệ cho Các Hình dạng PPTX**
 
-Aspose.Slides for C++ cung cấp giao diện [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) để làm việc với các hình dạng trên một slide.
+Aspose.Slides for C++ cung cấp giao diện [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) để làm việc với các hình dạng trên một slide.
 
-Như đã đề cập ở trên, mỗi lớp hình dạng có một lớp khóa hình dạng tương ứng để thực hiện bảo vệ. Bài viết này tập trung vào các khóa NoSelect, NoMove và NoResize. Các khóa này đảm bảo rằng các hình dạng không thể được chọn (bằng cách nhấp chuột hoặc các phương pháp chọn khác) và không thể di chuyển hoặc thay đổi kích thước.
+Ví dụ này truyền `true` vào [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) và [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) cho các hình tự động, cùng với các khóa tương đương cho hình nhóm, connector và khung ảnh. Connectors sử dụng [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) cho việc di chuyển; các nhóm cũng sử dụng [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) để hạn chế việc nhóm.
 
-Mẫu mã sau áp dụng bảo vệ cho tất cả các loại hình dạng trong một bản trình bày.
+Ví dụ tải một bản trình bày PPTX hiện có, kiểm tra các hình dạng trong bộ sưu tập hình dạng của mỗi slide, và lưu một bản sao với các hạn chế này đã được áp dụng. Các hình dạng không thuộc bốn loại được xử lý sẽ được để nguyên. Vòng lặp không duyệt qua các hình dạng con bên trong một nhóm.
 
 ```cpp
-// Tạo một đối tượng Presentation đại diện cho tệp PPTX.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-// Duyệt qua tất cả các slide trong bản trình bày.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// Duyệt qua tất cả các hình dạng trong slide.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(true);
+            autoShapeLock->set_SelectLocked(true);
+            autoShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// Ép kiểu hình dạng thành autoshape và lấy khóa hình dạng của nó.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(true);
+            groupShapeLock->set_PositionLocked(true);
+            groupShapeLock->set_SelectLocked(true);
+            groupShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(true);
-			autoShapeLock->set_SelectLocked(true);
-			autoShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// Ép kiểu hình dạng thành group shape và lấy khóa hình dạng của nó.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(true);
+            connectorShapeLock->set_SelectLocked(true);
+            connectorShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(true);
-			groupShapeLock->set_PositionLocked(true);
-			groupShapeLock->set_SelectLocked(true);
-			groupShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// Ép kiểu hình dạng thành connector shape và lấy khóa hình dạng của nó.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(true);
-			connectorShapeLock->set_SelectLocked(true);
-			connectorShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// Ép kiểu hình dạng thành picture frame và lấy khóa hình dạng của nó.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(true);
-			pictureFrameLock->set_SelectLocked(true);
-			pictureFrameLock->set_SizeLocked(true);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(true);
+            pictureFrameLock->set_SelectLocked(true);
+            pictureFrameLock->set_SizeLocked(true);
+        }
+    }
 }
 
-// Lưu tệp bản trình bày.
 presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Gỡ bảo vệ**
+### **Xóa Bảo vệ**
 
-Để mở khóa một hình dạng, đặt giá trị của khóa đã áp dụng thành `false`. Mẫu mã dưới đây cho thấy cách mở khóa các hình dạng trong một bản trình bày đã khóa.
+Để xóa một khóa hình dạng, đặt giá trị của nó thành `false`. Ví dụ dưới đây tải một bản trình bày có các khóa hình dạng và xóa các hạn chế về lựa chọn, di chuyển và thay đổi kích thước thông qua [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) và [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Nó cũng xóa [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) và lưu một bản sao của bản trình bày. Các cài đặt khóa khác được để nguyên.
 
 ```cpp
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"ProtectedSample.pptx");
 
-// Duyệt qua tất cả các slide trong bản trình bày.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// Duyệt qua tất cả các hình dạng trong slide.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(false);
+            autoShapeLock->set_SelectLocked(false);
+            autoShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// Ép kiểu hình dạng thành autoshape và lấy khóa hình dạng của nó.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(false);
+            groupShapeLock->set_PositionLocked(false);
+            groupShapeLock->set_SelectLocked(false);
+            groupShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(false);
-			autoShapeLock->set_SelectLocked(false);
-			autoShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// Ép kiểu hình dạng thành group shape và lấy khóa hình dạng của nó.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(false);
+            connectorShapeLock->set_SelectLocked(false);
+            connectorShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(false);
-			groupShapeLock->set_PositionLocked(false);
-			groupShapeLock->set_SelectLocked(false);
-			groupShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// Ép kiểu hình dạng thành connector shape và lấy khóa hình dạng của nó.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(false);
-			connectorShapeLock->set_SelectLocked(false);
-			connectorShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// Ép kiểu hình dạng thành picture frame và lấy khóa hình dạng của nó.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(false);
-			pictureFrameLock->set_SelectLocked(false);
-			pictureFrameLock->set_SizeLocked(false);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(false);
+            pictureFrameLock->set_SelectLocked(false);
+            pictureFrameLock->set_SizeLocked(false);
+        }
+    }
 }
 
-// Lưu tệp bản trình bày.
 presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Kết luận**
+### **Kết luận**
 
-Aspose.Slides cung cấp một số tùy chọn để bảo vệ các hình dạng trong một bản trình bày. Bạn có thể khóa một hình dạng riêng lẻ hoặc duyệt qua tất cả các hình dạng trong bản trình bày và khóa từng cái để bảo vệ hiệu quả toàn bộ tệp. Bạn có thể gỡ bảo vệ bằng cách đặt giá trị khóa thành `false`.
+Aspose.Slides for C++ cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng riêng lẻ hoặc áp dụng cùng một hạn chế trên nhiều slide. Chọn các khóa được hỗ trợ bởi mỗi loại hình dạng, và đặt giá trị của chúng thành `false` khi bạn cần xóa các hạn chế đó.
 
 ## **Câu hỏi thường gặp**
 
 **Tôi có thể kết hợp khóa hình dạng và bảo vệ bằng mật khẩu trong cùng một bản trình bày không?**
 
-Có. Các khóa hạn chế việc chỉnh sửa các đối tượng trong tệp, trong khi [password protection](/slides/vi/cpp/password-protected-presentation/) kiểm soát quyền truy cập để mở và/hoặc lưu các thay đổi. Hai cơ chế này bổ trợ lẫn nhau và hoạt động đồng thời.
+Có. Các khóa hình dạng hạn chế các thao tác chỉnh sửa cụ thể, trong khi [bảo vệ bằng mật khẩu](/slides/vi/cpp/password-protected-presentation/) có thể hạn chế việc mở hoặc sửa đổi bản trình bày. Bạn có thể sử dụng cả hai trong cùng một tệp.
 
-**Tôi có thể hạn chế việc chỉnh sửa trên các slide cụ thể mà không ảnh hưởng đến các slide khác không?**
+**Tôi có thể hạn chế chỉnh sửa trên các slide cụ thể mà không ảnh hưởng đến các slide khác không?**
 
-Có. Áp dụng các khóa cho các hình dạng trên các slide đã chọn; các slide còn lại sẽ vẫn có thể chỉnh sửa.
+Có. Áp dụng khóa chỉ cho các hình dạng trên các slide được chọn. Điều này không thay đổi cài đặt khóa trên các slide khác.
 
-**Các khóa hình dạng có áp dụng cho các đối tượng nhóm và kết nối không?**
+**Làm thế nào tôi có thể áp dụng khóa cho các hình dạng riêng lẻ bên trong một nhóm?**
 
-Có. Các loại khóa riêng được hỗ trợ cho các nhóm, kết nối, đối tượng đồ họa và các loại hình dạng khác.
+Lặp qua bộ sưu tập trả về bởi phương thức [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) của nhóm và áp dụng các khóa phù hợp cho mỗi hình dạng con. Lặp lại cho bất kỳ nhóm lồng nhau nào. Các ví dụ trên chỉ xử lý bộ sưu tập hình dạng của slide, vì vậy chúng không đặt khóa cho các thành viên nhóm riêng lẻ.

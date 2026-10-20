@@ -1,221 +1,145 @@
 ---
-title: PPTX 中图表调整大小的可行解决方案
+title: PowerPoint 中图表大小调整的工作方案
 type: docs
 weight: 60
 url: /zh/cpp/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- 图表调整大小
+- 图表大小调整
 - Excel 图表
 - OLE 对象
 - 嵌入图表
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 嵌入的 Excel OLE 对象时，修复 PPTX 中意外的图表调整大小。学习两种代码方法以保持尺寸一致。"
+description: "使用 Aspose.Slides for C++ 嵌入的 Excel OLE 对象时，修复 PPTX 中意外的图表大小调整。设置固定的图表尺寸，以保持图表和 OLE 框尺寸一致。"
 ---
-
 ## **背景**
 
-已观察到，通过 Aspose 组件将 Excel 图表作为 OLE 对象嵌入 PowerPoint 幻灯片后，在首次激活后会被调整为未指定的比例。这种行为导致图表在激活前后在演示文稿中出现明显的视觉差异。Aspose 团队对该问题进行了详细调查并找到了解决方案。本文描述了问题的原因及相应的修复方法。
+使用 Aspose 组件在 PowerPoint 演示文稿中嵌入为 OLE 对象的 Excel 图表在首次激活后可能会改变大小。这会导致图表在激活前后的外观出现明显差异。本文解释了导致大小调整的原因，并展示了通过将固定的图表尺寸匹配到 OLE 框来防止此问题的方法。
 
-在[上一篇文章](/slides/zh/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)中，我们介绍了如何使用 Aspose.Cells for C++ 创建 Excel 图表并使用 Aspose.Slides for C++ 将其嵌入 PowerPoint 演示文稿。为了解决[对象预览问题](/slides/zh/cpp/object-preview-issue-when-adding-oleobjectframe/)，我们将图表图像分配给图表的 OLE 对象帧。在输出的演示文稿中，当双击显示图表图像的 OLE 对象帧时，Excel 图表会被激活。最终用户可以在底层 Excel 工作簿中进行任意更改，然后通过单击激活的工作簿之外的区域返回相应幻灯片。用户返回幻灯片时，OLE 对象帧的大小会发生变化，且调整比例取决于 OLE 对象帧和嵌入的 Excel 工作簿原始大小的差异。
+在[创建 Excel 图表并将其嵌入为 OLE 对象的演示文稿](/slides/zh/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)中，我们解释了如何使用 Aspose.Cells for C++ 创建 Excel 图表并使用 Aspose.Slides for C++ 将其嵌入到 PowerPoint 演示文稿。为了解决[对象预览问题](/slides/zh/cpp/object-preview-issue-when-adding-oleobjectframe/)，我们将图表图像分配给图表的 OLE 对象框。在输出的演示文稿中，双击显示图表图像的 OLE 对象框时，Excel 图表会被激活。用户可以编辑嵌入的 Excel 工作簿，然后通过单击激活的工作簿外部返回幻灯片。用户返回幻灯片时，OLE 对象框的大小会发生变化，且调整因子取决于 OLE 对象框和嵌入的 Excel 工作簿的原始尺寸。
 
-## **调整大小的原因**
+## **大小调整的原因**
 
-由于 Excel 工作簿拥有自己的窗口大小，它会尝试在首次激活时保留原始大小。而 OLE 对象帧也有其自身的尺寸。根据 Microsoft 的说明，当 Excel 工作簿被激活时，Excel 与 PowerPoint 会协商尺寸并在嵌入过程中保持正确的比例。由于 Excel 窗口大小与 OLE 对象帧的大小或位置存在差异，便会产生调整大小的现象。
+嵌入的 Excel 工作簿拥有自己的窗口尺寸，Excel 在对象首次激活时会尝试保留该尺寸。幻灯片上的 OLE 框则有独立定义的尺寸。当 Excel 工作簿被激活时，Excel 与 PowerPoint 协商对象的大小，以在嵌入过程中保持其比例。因此，工作簿窗口与 OLE 框之间的差异会导致对象调整大小。
 
 ## **可行的解决方案**
 
-使用 Aspose.Slides for C++ 创建 PowerPoint 演示文稿有两种可能的场景。
+将图表尺寸匹配到幻灯片上的 OLE 框，并使图表尺寸独立于工作簿窗口。此解决方案适用于新建演示文稿或现有模板。
 
-**场景 1：** 基于现有模板创建演示文稿。
+示例需要 Aspose.Cells for C++ 和 Aspose.Slides for C++。它在活动图表工作表上创建一个简单的柱形图并以 XLS 格式嵌入工作簿。未分配图表预览图像；图表在 PowerPoint 中激活 OLE 对象时可见。
 
-**场景 2：** 从零开始创建演示文稿。
+将示例代码放在应用程序入口点，并在文件作用域声明 include。创建对象前先初始化 Aspose.Cells，销毁对象后释放其资源。示例将 Aspose.Cells 返回的工作簿字节向量复制到 Aspose.Slides 接受的数组类型中。
 
-我们在此提供的解决方案适用于两种场景。所有解决方案的核心都是相同的：**嵌入的 OLE 对象窗口大小应匹配 PowerPoint 幻灯片中的 OLE 对象帧**。下面将讨论此解决方案的两种实现方式。
+示例创建了一个新的演示文稿，其中 OLE 框大小为 9.5 × 4 英寸，位置距左边缘 0.5 英寸，距顶部 1 英寸。幻灯片坐标和尺寸使用点 (每英寸 72 点) 表示。对于已有演示文稿，请参见[使用模板](#use-a-template)。
 
-## **第一种方法**
+## **设置固定的图表尺寸**
 
-在此方法中，我们将学习如何设置嵌入的 Excel 工作簿窗口大小，使其与 PowerPoint 幻灯片中 OLE 对象帧的大小相匹配。
+将 [Chart::SetSizeWithWindow](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setsizewithwindow/) 设置为 false，以使图表尺寸独立于工作簿窗口。通过 [Chart::GetChartObject](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/getchartobject/) 并使用 [Shape::SetWidth](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setwidth/) 和 [Shape::SetHeight](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setheight/) 来设置其尺寸，将点转换为每英寸 96 像素：尺寸为 684 × 288 点的框对应于 912 × 384 像素的图表。将 [Chart::SetPrintSize](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setprintsize/) 设置为 [PrintSizeType](https://reference.aspose.com/cells/cpp/aspose.cells/printsizetype/) 的 Custom 值。示例使用 [IShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addoleobjectframe/) 嵌入工作簿，并保存一个具有 9.5 × 4 英寸 OLE 框的演示文稿。
 
-**场景 1**
-
-假设我们已定义模板，想基于该模板创建演示文稿。设模板中索引为 2 的形状用于放置包含嵌入 Excel 工作簿的 OLE 帧。在此场景下，OLE 对象帧的大小是预定义的——与模板中索引为 2 的形状大小相同。我们只需将工作簿的窗口大小设为该形状的大小。以下代码片段实现此目的：
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <algorithm>
+#include <cstdint>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+Aspose::Cells::Startup();
 {
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"Data");
+    dataSheet.GetCells().Get(u"A1").PutValue(10);
+    dataSheet.GetCells().Get(u"A2").PutValue(20);
 
-    return outputStream;
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, 20, 10);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    chart.GetNSeries().Add(u"Data!A1:A2", true);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    // 幻灯片坐标和尺寸以点为单位（每英寸 72 点）。
+    auto width = 684.f; // 9.5 英寸。
+    auto height = 288.f; // 4 英寸。
+
+    chart.SetSizeWithWindow(false);
+    // 使用每英寸 96 像素将点转换为图表像素。
+    chart.GetChartObject().SetWidth(static_cast<int32_t>(width / 72.f * 96.f));
+    chart.GetChartObject().SetHeight(static_cast<int32_t>(height / 72.f * 96.f));
+    chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
+
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
+    // 将 Cells 字节向量复制到 Slides 接受的数组类型中。
+    auto workbookBytes = System::MakeArray<uint8_t>(workbookData.GetLength(), 0);
+    std::copy(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength(), workbookBytes->data_ptr());
+    auto dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xls");
+    slide->get_Shapes()->AddOleObjectFrame(36, 72, width, height, dataInfo);
+
+    presentation->Save(u"chart-fixed-size.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
 }
+Aspose::Cells::Cleanup();
 ```
 
-```cpp
-// 使用窗口定义图表大小。 
-chart->SetSizeWithWindow(true);
+## **使用模板**
 
-auto shape = slide->get_Shape(2);
+现有演示文稿的尺寸逻辑相同。要改编示例：
 
-// 设置工作簿的窗口宽度（单位为英寸），除以 72，因为 PowerPoint 使用每英寸 72 像素。
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
+1. 加载模板演示文稿，而不是创建空白演示文稿。
+2. 检查第一张幻灯片是否至少包含三个形状，然后使用索引为 2 的形状作为占位符。
+3. 从该形状获取框的宽度和高度，而不是使用固定值 684 和 288。保持尺寸计算不变。
+4. 在占位符的位置添加 OLE 框，而不是使用固定坐标 36 和 72。
+5. 在保存演示文稿之前删除占位符。
 
-// 设置工作簿的窗口高度（单位为英寸）。
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
+## **常见问题**
 
-// 将工作簿保存到内存流。
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
+**为什么我的嵌入式 Excel 图表在 PowerPoint 中激活后会改变大小？**
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+因为 Excel 在首次激活时尝试恢复原始窗口大小，而 PowerPoint 中的 OLE 对象框有自己的尺寸。PowerPoint 与 Excel 协商尺寸以保持宽高比，这可能导致大小调整。
 
-// 使用嵌入的 Excel 数据创建 OLE 对象框架。
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(), 
-    shape->get_Height(),
-    dataInfo);
-```
+**如何保持图表和 OLE 框的尺寸一致？**
 
+将图表设置为固定尺寸以匹配 OLE 框，并在嵌入工作簿之前使用自定义的图表打印尺寸。上述示例展示了所需的设置和单位换算。
 
-**场景 2**
+**仅匹配工作簿窗口大小是否足够？**
 
-假设我们想从零开始创建演示文稿，并在其中加入任意大小的 OLE 对象帧以及嵌入的 Excel 工作簿。以下代码片段在幻灯片上创建一个宽 9.5 英寸、高 4 英寸、左上坐标为 x = 0.5 英寸、y = 1 英寸的 OLE 对象帧。随后将 Excel 工作簿窗口设置为相同的大小——高 4 英寸、宽 9.5 英寸。
-```cpp
-// 我们期望的高度。
-int32_t desiredHeight = 288; // 4 英寸 (4 * 72)
+仅匹配工作簿窗口大小并不能可靠地防止 OLE 框在激活后改变尺寸。请使用示例中所示的固定图表尺寸。
 
-// 我们期望的宽度。
-int32_t desiredWidth = 684; // 9.5 英寸 (9.5 * 72)
+**此解决方案是否适用于基于模板的演示文稿和新建演示文稿？**
 
-// 使用窗口定义图表大小。 
-chart->SetSizeWithWindow(true);
+是的。对于模板，使用占位符的尺寸和位置。对于新建演示文稿，直接指定框的尺寸和位置。
 
-// 设置工作簿的窗口宽度（单位为英寸）。
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
+**我可以将此示例用于其他电子表格程序创建的图表吗？**
 
-// 设置工作簿的窗口高度（单位为英寸）。
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
-
-// 将工作簿保存到内存流。
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// 使用嵌入的 Excel 数据创建 OLE 对象框架。
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f,
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-
-## **第二种方法**
-
-在此方法中，我们将学习如何将嵌入 Excel 工作簿中图表的大小设置为与 PowerPoint 幻灯片中 OLE 对象帧的大小相匹配。当图表大小事先已知且不会变化时，此方法尤为适用。
-
-**场景 1**
-
-同样假设我们已定义模板，想基于该模板创建演示文稿。设模板中索引为 2 的形状用于放置包含嵌入 Excel 工作簿的 OLE 帧。此时 OLE 帧大小已预定义——与该形状大小相同。我们只需将工作簿中图表的大小设为该形状的大小。以下代码片段实现此目的：
-```cpp
-// 在没有窗口的情况下定义图表大小。 
-chart->SetSizeWithWindow(false);
-
-auto shape = slide->get_Shape(2);
-
-// 以像素设置图表宽度（乘以 96，因为 Excel 每英寸使用 96 像素）。    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
-
-// 以像素设置图表高度。
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
-
-// 定义图表打印尺寸。
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
-
-// 将工作簿保存到内存流。
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// 使用嵌入的 Excel 数据创建 OLE 对象框架。
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(),
-    shape->get_Height(),
-    dataInfo);
-```
-
-
-**场景 2**
-
-假设我们从零开始创建演示文稿，并在其中加入任意大小的 OLE 对象帧以及嵌入的 Excel 工作簿。以下代码片段在幻灯片上创建一个宽 9.5 英寸、高 4 英寸、左上坐标为 x = 0.5 英寸、y = 1 英寸的 OLE 对象帧，并将相应图表的大小设置为相同的尺寸：高 4 英寸、宽 9.5 英寸。
-```cpp
-// 我们期望的高度。
-int32_t desiredHeight = 288; // 4 英寸 (4 * 576)
-
-// 我们期望的宽度。
-int32_t desiredWidth = 684; // 9.5 英寸 (9.5 * 576)
-
-// 在没有窗口的情况下定义图表大小。 
-chart->SetSizeWithWindow(false);
-
-// 以像素设置图表宽度。    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
-
-// 以像素设置图表高度。
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
-
-// 将工作簿保存到内存流。
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// 使用嵌入的 Excel 数据创建 OLE 对象框架。
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f, 
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-
-## **结论**
-
-解决图表调整大小问题有两种方法。选择哪种方法取决于需求和使用场景。无论是基于模板创建演示文稿还是从头创建，两种方法的工作方式相同，并且对 OLE 对象帧的大小没有限制。
-
-## **常见问答**
-
-**为什么嵌入的 Excel 图表在 PowerPoint 中激活后会改变大小？**
-
-这是因为 Excel 在首次激活时尝试恢复原始窗口大小，而 PowerPoint 中的 OLE 对象帧拥有自己的尺寸。PowerPoint 与 Excel 会协商尺寸以保持宽高比，从而导致调整大小。
-
-**是否可以彻底防止此调整大小问题？**
-
-可以。通过在嵌入前将 Excel 工作簿窗口大小或图表大小匹配到 OLE 对象帧的尺寸，即可保持图表尺寸一致。
-
-**应该采用哪种方法：设置工作簿窗口大小还是设置图表大小？**
-
-如果希望保持工作簿的宽高比并可能以后进行调整，请使用**方法 1（窗口大小）**。  
-如果图表尺寸固定且在嵌入后不会改变，请使用**方法 2（图表大小）**。
-
-**这些方法是否适用于基于模板的演示文稿和全新创建的演示文稿？**
-
-是的。两种方法在基于模板创建和全新创建的演示文稿中均表现相同。
-
-**OLE 对象帧的大小是否有限制？**
-
-没有限制。只要 OLE 帧的尺寸能够适当地映射到工作簿或图表尺寸，即可设置为任意大小。
-
-**这些方法能否用于其他电子表格程序创建的图表？**
-
-示例针对使用 Aspose.Cells 创建的 Excel 图表，但原理同样适用于其他支持 OLE 的电子表格程序，只要它们提供类似的尺寸设置选项。
+示例使用 Aspose.Cells 创建的 Excel 工作簿。它未演示其他电子表格程序的激活行为。
 
 ## **相关章节**
 
-- [在演示文稿中创建 Excel 图表并将其作为 OLE 对象嵌入](/slides/zh/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [创建 Excel 图表并将其嵌入为 OLE 对象的演示文稿](/slides/zh/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

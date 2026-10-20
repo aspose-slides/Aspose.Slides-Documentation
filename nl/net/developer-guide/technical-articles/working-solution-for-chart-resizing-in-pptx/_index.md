@@ -1,10 +1,10 @@
 ---
-title: Werkende oplossing voor het herschalen van grafieken in PPTX
+title: Werkende oplossing voor het aanpassen van de grafiekgrootte in PPTX
 type: docs
 weight: 60
 url: /nl/net/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- grafiek herschalen
+- grafiekgrootte-aanpassing
 - Excel-grafiek
 - OLE-object
 - grafiek insluiten
@@ -13,185 +13,102 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Los onverwacht herschalen van grafieken in PPTX op bij gebruik van ingebedde Excel OLE-objecten met Aspose.Slides voor .NET. Leer twee methoden met code om de afmetingen consistent te houden."
+description: "Los onverwachte grootteaanpassing van grafieken op in PPTX bij het gebruik van ingesloten Excel OLE-objecten met Aspose.Slides voor .NET. Stel vaste grafiekafmetingen in om de grafiek- en OLE-frame-groottes consistent te houden."
 ---
 ## **Achtergrond**
 
-Er is geconstateerd dat Excel‑grafieken die als OLE‑objecten in een PowerPoint‑presentatie via Aspose‑componenten zijn ingebed, na hun eerste activatie naar een onbepaalde schaal worden herschaald. Dit gedrag veroorzaakt een duidelijk visueel verschil in de presentatie tussen de staat vóór en ná de activatie van de grafiek. Het Aspose‑team heeft het probleem grondig onderzocht en een oplossing gevonden. Dit artikel beschrijft de oorzaken van het probleem en de bijbehorende oplossing.
+Excel‑grafieken die als OLE‑objecten in PowerPoint‑presentaties zijn ingesloten via Aspose‑componenten, kunnen na de eerste activering van grootte veranderen. Dit kan een merkbaar verschil in het uiterlijk van de grafiek vóór en na activering veroorzaken. Dit artikel legt uit waarom de groottewijziging optreedt en toont hoe je dit kunt voorkomen door de vaste grafiekafmetingen op het OLE‑frame af te stemmen.
 
-In het[vorige artikel](/slides/nl/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) hebben we uitgelegd hoe je een Excel‑grafiek maakt met Aspose.Cells voor .NET en deze in een PowerPoint‑presentatie verwerkt met Aspose.Slides voor .NET. Om het[objectvoorvertoningsprobleem](/slides/nl/net/object-preview-issue-when-adding-oleobjectframe/) op te lossen, hebben we de grafiekafbeelding toegewezen aan het OLE‑objectframe van de grafiek. In de geproduceerde presentatie wordt, wanneer je dubbelklikt op het OLE‑objectframe dat de grafiekafbeelding toont, de Excel‑grafiek geactiveerd. Eindgebruikers kunnen gewenste wijzigingen aanbrengen in de onderliggende Excel‑werkmap en vervolgens terugkeren naar de bijbehorende dia door buiten de geactiveerde werkmap te klikken. De grootte van het OLE‑objectframe verandert wanneer de gebruiker terugkeert naar de dia, en de herschaalfactor varieert afhankelijk van de oorspronkelijke afmetingen van zowel het OLE‑objectframe als de ingebedde Excel‑werkmap.
+In [Maak Excel‑grafieken en embed ze als OLE‑objecten in presentaties](/slides/nl/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) legden we uit hoe je met Aspose.Cells voor .NET een Excel‑grafiek maakt en deze via Aspose.Slides voor .NET in een PowerPoint‑presentatie opneemt. Om het [object‑preview‑probleem](/slides/nl/net/object-preview-issue-when-adding-oleobjectframe/) aan te pakken, hebben we de grafiekafbeelding toegewezen aan het OLE‑objectframe van de grafiek. In de resulterende presentatie, wanneer je dubbelklikt op het OLE‑objectframe dat de grafiekafbeelding toont, wordt de Excel‑grafiek geactiveerd. Gebruikers kunnen de ingesloten Excel‑werkmap bewerken en vervolgens terugkeren naar de dia door buiten de geactiveerde werkmap te klikken. De grootte van het OLE‑objectframe verandert wanneer de gebruiker terugkeert naar de dia, en de factor van de groottewijziging varieert afhankelijk van de oorspronkelijke afmetingen van zowel het OLE‑objectframe als de ingesloten Excel‑werkmap.
 
-## **Oorzaak van het herschalen**
+## **Oorzaak van groottewijziging**
 
-Omdat de Excel‑werkmap een eigen venstergrootte heeft, probeert deze bij de eerste activatie zijn oorspronkelijke grootte te behouden. Het OLE‑objectframe heeft echter zijn eigen afmetingen. Volgens Microsoft onderhandelen Excel en PowerPoint bij activatie van de werkmap over de grootte en behouden ze de juiste verhoudingen als onderdeel van het insluitingsproces. Afhankelijk van de verschillen tussen de grootte van het Excel‑venster en de grootte of positie van het OLE‑objectframe, vindt het herschalen plaats.
+De ingesloten Excel‑werkmap heeft eigen venstergrootte, die Excel probeert te behouden wanneer het object voor de eerste keer wordt geactiveerd. Het OLE‑frame op de dia heeft onafhankelijk gedefinieerde afmetingen. Wanneer de Excel‑werkmap wordt geactiveerd, onderhandelen Excel en PowerPoint over de grootte van het object om de verhoudingen te behouden als onderdeel van het embed‑proces. Verschillen tussen het werkmapvenster en het OLE‑frame kunnen derhalve leiden tot een aanpassing van de objectgrootte.
 
 ## **Werkende oplossing**
 
-Er zijn twee mogelijke scenario’s voor het maken van PowerPoint‑presentaties met Aspose.Slides voor .NET.
+Stem de grafiekgrootte af op het OLE‑frame op de dia en houd de grafiekafmetingen onafhankelijk van het werkmapvenster. Deze oplossing werkt zowel met een nieuwe presentatie als met een bestaande sjabloon.
 
-**Scenario 1:** Een presentatie maken op basis van een bestaand sjabloon.
+Het voorbeeld vereist Aspose.Cells voor .NET en Aspose.Slides voor .NET. Het maakt een eenvoudige kolomgrafiek op een actief grafiekblad en embedde de werkmap in XLS‑formaat. Er wordt geen grafiek‑preview‑afbeelding toegewezen; de grafiek wordt zichtbaar wanneer het OLE‑object in PowerPoint wordt geactiveerd.
 
-**Scenario 2:** Een presentatie vanaf nul maken.
+Het voorbeeld maakt een nieuwe presentatie met een OLE‑frame van 9,5 × 4 inch, geplaatst 0,5 inch van de linkerrand en 1 inch van de bovenkant. Dia‑coördinaten en afmetingen worden in points opgegeven (72 points per inch). Voor een bestaande presentatie, zie [Gebruik een sjabloon](#use-a-template).
 
-De oplossing die we hier bieden, is toepasbaar op beide scenario’s. De basis van alle oplossingsmethoden is dezelfde: **de venstergrootte van het ingebedde OLE‑object moet overeenkomen met het OLE‑objectframe in de PowerPoint‑dia**. We bespreken nu de twee benaderingen van deze oplossing.
+## **Stel een vaste grafiekgrootte in**
 
-## **Eerste benadering**
-
-In deze benadering leren we hoe we de venstergrootte van de ingebedde Excel‑werkmap kunnen instellen zodat deze overeenkomt met de grootte van het OLE‑objectframe in de PowerPoint‑dia.
-
-**Scenario 1**
-
-Stel dat we een sjabloon hebben gedefinieerd en presentaties op basis daarvan willen maken. Neem aan dat er een vorm op index 2 in het sjabloon staat waar we een OLE‑frame met een ingebedde Excel‑werkmap willen plaatsen. In dit scenario is de grootte van het OLE‑objectframe vooraf gedefinieerd — deze komt overeen met de grootte van de vorm op index 2 in het sjabloon. Het enige wat we hoeven te doen is de venstergrootte van de werkmap gelijk te maken aan die vormgrootte. Het volgende codefragment dient dit doel:
+Stel [SizeWithWindow](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/sizewithwindow/) in op false zodat de grafiekafmetingen onafhankelijk zijn van het werkmapvenster. Stel de [ChartObject](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/chartobject/) afmetingen in via [Width](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/width/) en [Height](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/height/), waarbij points naar pixels worden omgerekend met 96 pixels per inch: een frame van 684 × 288 points komt overeen met een grafiek van 912 × 384 pixels. Stel [PrintSize](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/printsize/) in op de Custom‑waarde van [PrintSizeType](https://reference.aspose.com/cells/net/aspose.cells/printsizetype/). Het voorbeeld embedde de werkmap met [AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addoleobjectframe/) en slaat een presentatie op met een OLE‑frame van 9,5 × 4 inch.
 
 ```cs
-// Definieer de grafiekgrootte met een venster. 
-chart.SizeWithWindow = true;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
 
-// Stel de breedte van het werkmapvenster in inches in (gedeeld door 72 aangezien PowerPoint 72 pixels per inch gebruikt).
-workbook.Worksheets.WindowWidthInch = slide.Shapes[2].Width / 72f;
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "Data";
+dataSheet.Cells["A1"].PutValue(10);
+dataSheet.Cells["A2"].PutValue(20);
 
-// Stel de hoogte van het werkmapvenster in inches in.
-workbook.Worksheets.WindowHeightInch = slide.Shapes[2].Height / 72f;
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, 20, 10);
+var chart = chartSheet.Charts[chartIndex];
+chart.NSeries.Add("Data!A1:A2", true);
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
 
-// Sla de werkmap op naar een geheugenstroom.
-MemoryStream workbookStream = workbook.SaveToStream();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Maak een OLE-objectframe met de ingebedde Excel-gegevens.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
+// Dia-coördinaten en afmetingen zijn in points (72 points per inch).
+var width = 684f; // 9,5 inches.
+var height = 288f; // 4 inches.
 
-**Scenario 2**
-
-Stel dat we een presentatie vanaf nul willen maken en een OLE‑objectframe van willekeurige grootte met een ingebedde Excel‑werkmap willen opnemen. In het onderstaande codefragment maken we een OLE‑objectframe van 4 inch hoog en 9,5 inch breed op x = 0,5 inch en y = 1 inch op de dia. Vervolgens stellen we het Excel‑werkmapvenster in op dezelfde afmetingen — 4 inch hoog en 9,5 inch breed.
-
-```cs
-// Onze gewenste hoogte.
-int desiredHeight = 288; // 4 inch (4 * 72)
-
-// Onze gewenste breedte.
-int desiredWidth = 684;//9.5 inch (9.5 * 72)
-
-// Definieer de grafiekgrootte met een venster.
-chart.SizeWithWindow = true;
-
-// Stel de breedte van het werkmapvenster in inches in.
-workbook.Worksheets.WindowWidthInch = desiredWidth / 72f;
-
-// Stel de hoogte van het werkmapvenster in inches in.
-workbook.Worksheets.WindowHeightInch = desiredHeight / 72f;
-
-// Sla de werkmap op naar een geheugenstroom.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// Maak een OLE-objectframe met de ingebedde Excel-gegevens.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
-
-## **Tweede benadering**
-
-In deze benadering leren we hoe we de grootte van de grafiek in de ingebedde Excel‑werkmap kunnen instellen zodat deze overeenkomt met de grootte van het OLE‑objectframe in de PowerPoint‑dia. Deze benadering is nuttig wanneer de grafiekgrootte van tevoren bekend is en nooit zal veranderen.
-
-**Scenario 1**
-
-Stel dat we een sjabloon hebben gedefinieerd en presentaties op basis daarvan willen maken. Neem aan dat er een vorm op index 2 in het sjabloon staat waar we een OLE‑frame met een ingebedde Excel‑werkmap willen plaatsen. In dit scenario is de grootte van het OLE‑frame vooraf gedefinieerd — deze komt overeen met de grootte van de vorm op index 2 in het sjabloon. Het enige wat we hoeven te doen is de grafiekgrootte in de werkmap gelijk te maken aan de vormgrootte. Het volgende codefragment dient dit doel:
-
-```cs
-// Definieer de grafiekgrootte zonder venster.
 chart.SizeWithWindow = false;
+// Converteer points naar grafiekpixels met 96 pixels per inch.
+chart.ChartObject.Width = (int)(width / 72f * 96f);
+chart.ChartObject.Height = (int)(height / 72f * 96f);
+chart.PrintSize = Aspose.Cells.PrintSizeType.Custom;
 
-// Stel de breedte van de grafiek in pixels in (vermenigvuldig met 96 aangezien Excel 96 pixels per inch gebruikt).    
-chart.ChartObject.Width = (int)((slide.Shapes[2].Width / 72f) * 96f);
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Excel97To2003);
+var dataInfo = new OleEmbeddedDataInfo(workbookStream.ToArray(), "xls");
+slide.Shapes.AddOleObjectFrame(36, 72, width, height, dataInfo);
 
-// Stel de hoogte van de grafiek in pixels in.
-chart.ChartObject.Height = (int)((slide.Shapes[2].Height / 72f) * 96f);
-
-// Definieer de afdrukgrootte van de grafiek.
-chart.PrintSize = PrintSizeType.Custom;
-
-// Sla de werkmap op naar een geheugenstroom.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// Maak een OLE-objectframe met de ingebedde Excel-gegevens.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
+presentation.Save("chart-fixed-size.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-**Scenario 2**
+## **Gebruik een sjabloon**
 
-Stel dat we een presentatie vanaf nul willen maken en een OLE‑objectframe van willekeurige grootte met een ingebedde Excel‑werkmap willen opnemen. In het onderstaande codefragment maken we een OLE‑objectframe met een hoogte van 4 inch en een breedte van 9,5 inch op de dia op x = 0,5 inch en y = 1 inch. Daarnaast stellen we de overeenkomstige grafiekgrootte in op dezelfde afmetingen: een hoogte van 4 inch en een breedte van 9,5 inch.
+De logica voor de afmetingen is hetzelfde voor een bestaande presentatie. Om het voorbeeld aan te passen:
 
-```cs
- // Onze gewenste hoogte.
-int desiredHeight = 288; // 4 inch (4 * 576)
-
-// Onze gewenste breedte.
-int desiredWidth = 684; // 9.5 inch (9.5 * 576)
-
-// Definieer de grafiekgrootte zonder venster. 
-chart.SizeWithWindow = false;
-
-// Stel de breedte van de grafiek in pixels in.   
-chart.ChartObject.Width = (int)((desiredWidth / 72f) * 96f);
-
-// Stel de hoogte van de grafiek in pixels in.    
-chart.ChartObject.Height = (int)((desiredHeight / 72f) * 96f);
-
-// Sla de werkmap op naar een geheugenstroom.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// Maak een OLE-objectframe met de ingebedde Excel-gegevens.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
-
-## **Conclusie**
-
-Er zijn twee benaderingen om het probleem van het herschalen van de grafiek op te lossen. De keuze van benadering hangt af van de eisen en het gebruiksscenario. Beide benaderingen werken op dezelfde manier, ongeacht of de presentaties van een sjabloon of van nul worden gemaakt. Bovendien is er geen limiet aan de grootte van het OLE‑objectframe in deze oplossing.
+1. Laad de sjabloonpresentatie in plaats van een lege presentatie te maken.
+1. Controleer dat de eerste dia minstens drie vormen bevat, en gebruik vervolgens de vorm op index 2 als tijdelijke aanduiding.
+1. Neem de frame‑breedte en -hoogte van die vorm in plaats van de vaste waarden 684 en 288. Houd de berekeningen ongewijzigd.
+1. Voeg het OLE‑frame toe op de positie van de tijdelijke aanduiding in plaats van de vaste coördinaten 36 en 72.
+1. Verwijder de tijdelijke aanduiding voordat je de presentatie opslaat.
 
 ## **FAQ**
 
-**Waarom verandert de grootte van mijn ingebedde Excel‑grafiek na activatie in PowerPoint?**  
-Dit gebeurt omdat Excel bij de eerste activatie probeert de oorspronkelijke venstergrootte te herstellen, terwijl het OLE‑objectframe in PowerPoint zijn eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat kan leiden tot herschaling.
+**Waarom verandert mijn ingesloten Excel‑grafiek van grootte nadat hij in PowerPoint is geactiveerd?**
 
-**Is het mogelijk om dit herschalingsprobleem volledig te voorkomen?**  
-Ja. Door de venstergrootte van de Excel‑werkmap of de grafiekgrootte af te stemmen op de grootte van het OLE‑objectframe vóór het insluiten, kun je de grafiekgroottes consistent houden.
+Dit gebeurt omdat Excel probeert de oorspronkelijke venstergrootte te herstellen bij de eerste activering, terwijl het OLE‑objectframe in PowerPoint eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat kan leiden tot een aanpassing van de grootte.
 
-**Welke benadering moet ik kiezen, venstergrootte van de werkmap of grafiekgrootte?**  
-Gebruik **Benadering 1 (venstergrootte)** als je de beeldverhouding van de werkmap wilt behouden en eventueel later wilt kunnen schalen.  
-Gebruik **Benadering 2 (grafiekgrootte)** als de grafiekafmetingen vaststaan en niet zullen veranderen na het insluiten.
+**Hoe kan ik de grafiek‑ en OLE‑frame‑groottes consistent houden?**
 
-**Werken deze methoden zowel voor sjabloongebaseerde presentaties als voor nieuwe presentaties?**  
-Ja. Beide benaderingen werken op dezelfde manier voor presentaties die van sjablonen of vanaf nul zijn gemaakt.
+Stel vaste grafiekafmetingen in die overeenkomen met het OLE‑frame en gebruik een aangepaste grafiek‑printgrootte voordat je de werkmap embedt. Het voorbeeld hierboven toont de benodigde instellingen en eenhedenconversies.
 
-**Is er een limiet aan de grootte van het OLE‑objectframe?**  
-Nee. Je kunt het OLE‑frame op elke gewenste grootte instellen, zolang het passend wordt geschaald naar de werkmap of grafiek.
+**Is het afstemmen van de werkmap‑venstergrootte voldoende?**
 
-**Kan ik deze methoden gebruiken met grafieken die zijn gemaakt in andere spreadsheet‑programma’s?**  
-De voorbeelden zijn ontworpen voor Excel‑grafieken gemaakt met Aspose.Cells, maar de principes gelden ook voor andere OLE‑compatibele spreadsheet‑programma’s, mits zij vergelijkbare dimensioneringsopties ondersteunen.
+Alleen het afstemmen van de werkmap‑venstergrootte voorkomt niet betrouwbaar dat het OLE‑frame van grootte verandert na activering. Gebruik vaste grafiekafmetingen zoals in het voorbeeld.
+
+**Werkt deze oplossing zowel voor sjabloon‑gebaseerde presentaties als voor nieuwe presentaties?**
+
+Ja. Voor een sjabloon gebruik je de afmetingen en positie van de tijdelijke aanduiding. Voor een nieuwe presentatie specificeer je de frame‑afmetingen en positie direct.
+
+**Kan ik dit voorbeeld gebruiken met grafieken die zijn gemaakt in andere spreadsheet‑programma’s?**
+
+Het voorbeeld maakt gebruik van een Excel‑werkmap die is aangemaakt met Aspose.Cells. Het demonstreert geen activatie‑gedrag voor andere spreadsheet‑programma’s.
 
 ## **Gerelateerde secties**
 
-- [Excel‑grafieken maken en insluiten als OLE‑objecten in presentaties](/slides/nl/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
-- [OLE‑objecten automatisch bijwerken met een PowerPoint‑add‑in](/slides/nl/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Maak Excel‑grafieken en embed ze als OLE‑objecten in presentaties](/slides/nl/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Update OLE‑objecten automatisch met een PowerPoint‑add‑in](/slides/nl/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

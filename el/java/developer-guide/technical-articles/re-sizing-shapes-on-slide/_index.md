@@ -1,55 +1,50 @@
 ---
-title: "Αλλαγή Μεγέθους Σχημάτων σε Διαφάνειες Παρουσίασης"
+title: Αλλαγή Μεγέθους Σχημάτων σε Διαφάνειες Παρουσίασης σε Java
 type: docs
-weight: 110
-url: /el/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /el/java/resizing-shapes-on-slide/
+aliases:
+  - /el/java/re-sizing-shapes-on-slide/
+  /java/re-sizing-shapes-on-slide/
 keywords:
-- "αλλαγή μεγέθους σχήματος"
-- "αλλαγή μεγέθους σχήματος"
+- αλλαγή μεγέθους σχήματος
+- αλλαγή μεγέθους σχήματος
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Εύκολη αλλαγή μεγέθους σχημάτων σε διαφάνειες PowerPoint και OpenDocument με Aspose.Slides for Java—αυτοματοποιήστε τις προσαρμογές διάταξης διαφανειών και αυξήστε την παραγωγικότητα."
+description: "Απλά αλλάξτε το μέγεθος των σχημάτων σε διαφάνειες PowerPoint και OpenDocument με το Aspose.Slides για Java—αυτοματοποιήστε τις προσαρμογές διάταξης διαφάνειας και αυξήστε την παραγωγικότητα."
 ---
 ## **Επισκόπηση**
 
-Μία από τις πιο συχνές ερωτήσεις από τους πελάτες του Aspose.Slides for Java είναι πώς να αλλάξουν το μέγεθος των σχημάτων έτσι ώστε, όταν αλλάξει το μέγεθος της διαφάνειας, τα δεδομένα να μην περικοπούν. Αυτό το σύντομο τεχνικό άρθρο δείχνει πώς να το κάνετε.
+Όταν αλλάζετε το μέγεθος της διαφάνειας μιας παρουσίασης, μπορεί επίσης να χρειαστεί να αλλάξετε το μέγεθος και τη θέση των σχημάτων της ώστε να ταιριάζουν με τις νέες διαστάσεις. Αυτό το άρθρο δείχνει πώς να κλιμακώσετε τα σχήματα χειροκίνητα και πώς να διαχειριστείτε τους πίνακες σε διαφάνειες, κύριες διαφάνειες και διατάξεις.
 
 ## **Αλλαγή Μεγέθους Σχημάτων**
 
-Για να αποτραπεί η μετατόπιση των σχημάτων όταν αλλάζει το μέγεθος της διαφάνειας, ενημερώστε τη θέση και τις διαστάσεις κάθε σχήματος ώστε να ταιριάζουν με τη νέα διάταξη της διαφάνειας.
+Για να διατηρήσετε τη σχετική θέση και το μέγεθος κάθε σχήματος, πολλαπλασιάστε τις οριζόντιες συντεταγμένες και το πλάτος του με το λόγο του νέου πλάτους της διαφάνειας προς το αρχικό πλάτος. Εφαρμόστε το αντίστοιχο λόγο του ύψους στις κάθετες συντεταγμένες και το ύψος.
+
+Το πρώτο παράδειγμα φορτώνει μια παρουσίαση των οποίων οι διαφάνειες δεν περιέχουν πίνακες, αλλάζει το μέγεθος της διαφάνειας σε A4 και αποθηκεύει το αποτέλεσμα. Χρησιμοποιεί [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) με [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) ώστε η επόμενη βρόχος να ελέγχει την κλιμάκωση. Οι λόγοι δεν έχουν μονάδα· οι θέσεις και οι διαστάσεις των σχημάτων μετρώνται σε σημεία. Διαφορετικοί λόγοι πλάτους και ύψους μπορούν να παραμορφώσουν τα σχήματα, και η αλλαγή των διαστάσεων ενός σχήματος δεν κλιμακώνει τα μεγέθη γραμματοσειράς του.
 
 ```java
-// Φορτώστε το αρχείο παρουσίασης.
-Presentation presentation = new Presentation("sample.ppt");
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Λάβετε το αρχικό μέγεθος της διαφάνειας.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Αλλάξτε το μέγεθος της διαφάνειας χωρίς κλιμάκωση των υπαρχόντων σχημάτων.
+    // Υπολογίστε ανεξάρτητους οριζόντιους και κάθετους συντελεστές κλίμακας.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Λάβετε το νέο μέγεθος της διαφάνειας.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Αλλάξτε το μέγεθος και την θέση των σχημάτων σε κάθε διαφάνεια.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            
-            // Κλιμακώστε το μέγεθος του σχήματος.
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Κλιμακώστε τη θέση του σχήματος.
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -60,75 +55,63 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-Αν μια διαφάνεια περιέχει πίνακα, ο παραπάνω κώδικας δεν θα λειτουργήσει σωστά. Σε αυτήν την περίπτωση, κάθε κελί του πίνακα πρέπει να αλλάξει το μέγεθός του.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Οι πίνακες απαιτούν ξεχωριστή διαχείριση: κλιμακώνετε τα πλάτη των στηλών και τα ύψη των γραμμών αντί να ορίζετε το συνολικό πλάτος και ύψος του πίνακα. Τα ύψη των γραμμών μπορεί να παραμείνουν μεγαλύτερα από το ζητούμενο εάν το περιεχόμενο του κελιού απαιτεί περισσότερο χώρο.
+{{% /alert %}}
 
-Χρησιμοποιήστε τον παρακάτω κώδικα για να αλλάξετε το μέγεθος των διαφανειών που περιέχουν πίνακες. Για πίνακες, η ρύθμιση του πλάτους ή του ύψους είναι ειδική περίπτωση: πρέπει να προσαρμόσετε τα ύψη των ξεχωριστών σειρών και τα πλάτη των στηλών για να αλλάξετε το συνολικό μέγεθος του πίνακα.
+Το δεύτερο παράδειγμα υποστηρίζει πίνακες και επεξεργάζεται σχήματα σε κύριες διαφάνειες και διατάξεις, καθώς και σε μεμονωμένες διαφάνειες, πριν αποθηκεύσει την αλλαγμένη παρουσίαση. Ο βοηθός του επεξεργάζεται κάθε [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) κλιμακώνοντας τα πλάτη των στηλών με [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) και τα ελάχιστα ύψη των γραμμών με [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-). Στη συνέχεια κλιμακώνει τη θέση του πίνακα χωρίς να κλιμακώσει ξεχωριστά τις συνολικές του διαστάσεις.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // Οι διαστάσεις του πίνακα ελέγχονται από τα πλάτη των στηλών και τα ύψη των γραμμών.
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Λάβετε το αρχικό μέγεθος της διαφάνειας.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Αλλάξτε το μέγεθος της διαφάνειας χωρίς κλιμάκωση των υπαρχόντων σχημάτων.
+    // Υπολογίστε ανεξάρτητους οριζόντιους και κάθετους συντελεστές κλίμακας.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Λάβετε το νέο μέγεθος της διαφάνειας.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    ShapeResizer resizer = new ShapeResizer();
 
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
+    // Αλλάξτε το μέγεθος των σχημάτων που ορίζονται σε κύριες διαφάνειες και διατάξεις, καθώς και σε μεμονωμένες διαφάνειες.
     for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // Κλιμακώστε το μέγεθος του σχήματος.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Κλιμακώστε τη θέση του σχήματος.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // Κλιμακώστε το μέγεθος του σχήματος.
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // Κλιμακώστε τη θέση του σχήματος.
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
         }
     }
 
     for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            // Κλιμακώστε το μέγεθος του σχήματος.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Κλιμακώστε τη θέση του σχήματος.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
-        }
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
     }
 
     presentation.save("output.pptx", SaveFormat.Pptx);
@@ -140,30 +123,30 @@ finally {
 
 ## **Συχνές Ερωτήσεις**
 
-**Γιατί τα σχήματα παραμορφώνονται ή περικόπτονται μετά την αλλαγή μεγέθους μιας διαφάνειας;**
+**Γιατί τα σχήματα παραμορφώνονται ή κόβονται μετά την αλλαγή μεγέθους μιας διαφάνειας;**
 
-Κατά την αλλαγή μεγέθους μιας διαφάνειας, τα σχήματα διατηρούν την αρχική τους θέση και μέγεθος εκτός εάν η κλίμακα αλλάξει ρητά. Αυτό μπορεί να οδηγήσει σε περικοπή του περιεχομένου ή σε μη ευθυγραμμισμένα σχήματα.
+Εάν αλλάξετε το μέγεθος της διαφάνειας χωρίς να κλιμακώσετε τα σχήματα, αυτά διατηρούν τις αρχικές τους θέσεις και διαστάσεις και μπορεί να εκτεινόμενα εκτός της διαφάνειας. Η κλιμάκωση του πλάτους και του ύψους με διαφορετικούς λόγους μπορεί επίσης να παραμορφώσει τα σχήματα.
 
-**Λειτουργεί ο παρεχόμενος κώδικας για όλους τους τύπους σχημάτων;**
+**Δουλεύει ο παρεχόμενος κώδικας για όλους τους τύπους σχημάτων;**
 
-Το βασικό παράδειγμα λειτουργεί για τους περισσότερους τύπους σχημάτων (πλαίσια κειμένου, εικόνες, διαγράμματα κ.λπ.). Ωστόσο, για πίνακες, πρέπει να διαχειριστείτε τις σειρές και τις στήλες ξεχωριστά, καθώς το ύψος και το πλάτος ενός πίνακα καθορίζονται από τις διαστάσεις των μεμονωμένων κελιών.
+Το πρώτο παράδειγμα αλλάζει απευθείας τα όρια των σχημάτων και προορίζεται για διαφάνειες χωρίς πίνακες. Το δεύτερο παράδειγμα διαχειρίζεται τους πίνακες ξεχωριστά. Ελέγξτε τη διαρρύθμιση που προκύπτει, ιδιαίτερα το κείμενο και τους πίνακες, επειδή αυτά τα παραδείγματα δεν κλιμακώνουν τα μεγέθη γραμματοσειράς και το περιεχόμενο των πινάκων μπορεί να περιορίσει τα ύψη των γραμμών.
 
-**Πώς αλλάζω το μέγεθος των πινάκων όταν αλλάζει το μέγεθος μιας διαφάνειας;**
+**Πώς να αλλάξω το μέγεθος των πινάκων όταν αλλάζει το μέγεθος μιας διαφάνειας;**
 
-Πρέπει να επαναλάβετε για όλες τις σειρές και στήλες του πίνακα και να αλλάξετε το ύψος και το πλάτος τους αναλογικά, όπως φαίνεται στο δεύτερο παράδειγμα κώδικα.
+Κλιμακώστε τα πλάτη των στηλών με τον λόγο πλάτους και τα ελάχιστα ύψη των γραμμών με τον λόγο ύψους, έπειτα κλιμακώστε τη θέση του πίνακα, όπως φαίνεται στο δεύτερο παράδειγμα.
 
-**Θα λειτουργήσει αυτή η αλλαγή μεγέθους για τις Κύριες διαφάνειες και τις Διαφάνειες διάταξης;**
+**Θα λειτουργήσει αυτή η αλλαγή μεγέθους και για κύριες διαφάνειες και διατάξεις;**
 
-Ναι, αλλά θα πρέπει επίσης να επαναλάβετε για τις [Κύριες διαφάνειες](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getMasters--) και τις [Διαφάνειες διάταξης](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getLayoutSlides--) και να εφαρμόσετε την ίδια λογική κλιμάκωσης στα σχήματά τους για να εξασφαλίσετε συνέπεια σε όλη την παρουσίαση.
+Ναι. Το δεύτερο παράδειγμα διατρέχει το [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) και τις [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) κάθε κύριας διαφάνειας και εφαρμόζει την ίδια λογική αλλαγής μεγέθους στα σχήματά τους.
 
-**Μπορώ να αλλάξω τον προσανατολισμό μιας διαφάνειας (κάτοπτρο/τοπίο) μαζί με την αλλαγή μεγέθους;**
+**Μπορώ να αλλάξω τον προσανατολισμό μιας διαφάνειας (κατακόρυφο/οριζόντιο) μαζί με την αλλαγή μεγέθους;**
 
-Ναι. Μπορείτε να χρησιμοποιήσετε το [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/el/java/com.aspose.slides/islidesize/#setOrientation-int-) για να αλλάξετε τον προσανατολισμό. Βεβαιωθείτε ότι ορίσατε τη λογική κλιμάκωσης αναλόγως ώστε να διατηρηθεί η διάταξη.
+Ναι. Καλέστε το [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) μετά την αλλαγή του μεγέθους της διαφάνειας και πριν διαβάσετε τις στοχευμένες διαστάσεις, ώστε οι συντελεστές κλίμακας να αντανακλούν τον τελικό προσανατολισμό.
 
 **Υπάρχει όριο στο μέγεθος της διαφάνειας που μπορώ να ορίσω;**
 
-Το Aspose.Slides υποστηρίζει προσαρμοσμένα μεγέθη, αλλά πολύ μεγάλα μεγέθη μπορεί να επηρεάσουν την απόδοση ή τη συμβατότητα με ορισμένες εκδόσεις του PowerPoint.
+Μπορείτε να ορίσετε προσαρμοσμένες διαστάσεις διαφάνειας με το [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-). Οι υποστηριζόμενες διαστάσεις εξαρτώνται επίσης από τη μορφή της παρουσίασης και την εφαρμογή που χρησιμοποιείται για το άνοιγμα του αρχείου.
 
-**Πώς μπορώ να αποτρέψω τα σχήματα σταθερής αναλογίας διαστάσεων από το να παραμορφώνονται;**
+**Πώς μπορώ να αποτρέψω τα σχήματα με σταθερή αναλογία διαστάσεων να παραμορφώνονται;**
 
-Μπορείτε να ελέγξετε τη μέθοδο `getAspectRatioLocked` του σχήματος πριν από την κλιμάκωση. Εάν είναι κλειδωμένη, προσαρμόστε το πλάτος ή το ύψος αναλογικά αντί να τα κλιμακώσετε χωριστά.
+Χρησιμοποιήστε τον ίδιο συντελεστή κλίμακας για το πλάτος και το ύψος. Για να προσαρμοστεί η αρχική διάταξη στις νέες διαστάσεις της διαφάνειας, χρησιμοποιήστε το μικρότερο από τους λόγους πλάτους και ύψους και για τις δύο διαστάσεις και θέσεις. Αυτό διατηρεί τις αναλογίες αλλά μπορεί να αφήσει ανεχόμενο χώρο κατά μία από τις πλευρές.

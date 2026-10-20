@@ -1,12 +1,12 @@
 ---
-title: Funktionsfähige Lösung für die Größenänderung von Arbeitsblättern
+title: Arbeitslösung für die Größenänderung von Arbeitsblättern
 type: docs
 weight: 40
 url: /de/net/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- Vorschaubild
-- Bildskalierung
+- Vorschau‑Bild
+- Bildgrößenänderung
 - Excel
 - Arbeitsblatt
 - PowerPoint
@@ -14,36 +14,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Behebe die OLE-Größenänderung von Excel-Arbeitsblättern in Präsentationen: zwei Methoden, um Objekt‑Frames konsistent zu halten – den Frame oder das Blatt skalieren – in den Formaten PPT und PPTX."
+description: "Excel‑Arbeitsblatt‑OLE‑Größenänderung in Präsentationen beheben: zwei Möglichkeiten, Objekt‑Frames konsistent zu halten — den Rahmen oder das Blatt skalieren — für PPT‑ und PPTX‑Formate."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
-
-Es wurde beobachtet, dass in PowerPoint‑Präsentationen eingebettete Excel‑Arbeitsblätter als OLE‑Objekte durch Aspose‑Komponenten nach der ersten Aktivierung auf eine nicht erkennbare Skalierung geändert werden. Dieses Verhalten führt zu einem auffälligen visuellen Unterschied in der Präsentation zwischen dem Zustand vor und nach der Aktivierung des OLE‑Objekts. Wir haben das Problem ausführlich untersucht und eine Lösung bereitgestellt, die in diesem Artikel behandelt wird.
+Excel‑Arbeitsblätter, die als OLE‑Objekte in einer PowerPoint‑Präsentation mithilfe von Aspose‑Komponenten eingebettet sind, können sich nach ihrer ersten Aktivierung unerwartet in der Größe ändern. Dieses Verhalten führt zu einem deutlich sichtbaren Unterschied zwischen dem OLE‑Objekt vor und nach der Aktivierung. Dieser Artikel erklärt das Problem und beschreibt zwei Möglichkeiten, es zu beheben.
 
 {{% /alert %}} 
 
 ## **Hintergrund**
 
-Im Artikel [OLE verwalten](/slides/de/net/manage-ole/) haben wir erklärt, wie man mit Aspose.Slides für .NET einen OLE‑Rahmen zu einer PowerPoint‑Präsentation hinzufügt. Um das [Objekt‑Vorschauproblem](/slides/de/net/object-preview-issue-when-adding-oleobjectframe/) zu lösen, haben wir dem OLE‑Objektrahmen ein Bild des ausgewählten Arbeitsblattbereichs zugewiesen. Im ausgegebenen Präsentationsdokument wird beim Doppelklick auf den OLE‑Objektrahmen, der das Arbeitsblatt‑Bild anzeigt, die Excel‑Arbeitsmappe aktiviert. Endbenutzer können beliebige Änderungen an der eigentlichen Excel‑Arbeitsmappe vornehmen und dann zur Folie zurückkehren, indem sie außerhalb der aktivierten Excel‑Arbeitsmappe klicken. Beim Zurückkehren zur Folie ändert sich die Größe des OLE‑Objektrahmens. Der Skalierungsfaktor variiert je nach Größe des OLE‑Objektrahmens und der eingebetteten Excel‑Arbeitsmappe. 
+In dem Artikel [OLE verwalten](/slides/de/net/manage-ole/) haben wir erklärt, wie man mit Aspose.Slides für .NET einen OLE‑Rahmen zu einer PowerPoint‑Präsentation hinzufügt. Um das [Objektvorschau‑Problem](/slides/de/net/object-preview-issue-when-adding-oleobjectframe/) zu beheben, haben wir dem OLE‑Objekt‑Rahmen ein Bild des ausgewählten Arbeitsblattbereichs zugewiesen. In der Ausgabepäsentation wird beim Doppelklick auf den OLE‑Objekt‑Rahmen, der das Arbeitsblatt‑Bild anzeigt, die Excel‑Arbeitsmappe aktiviert. Endbenutzer können beliebige Änderungen an der eigentlichen Excel‑Arbeitsmappe vornehmen und dann zur Folie zurückkehren, indem sie außerhalb der aktivierten Excel‑Arbeitsmappe klicken. Die Größe des OLE‑Objekt‑Rahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Vergrößerungs‑ bzw. Verkleinerungsfaktor variiert je nach Größe des OLE‑Objekt‑Rahmens und der eingebetteten Excel‑Arbeitsmappe. 
 
 ## **Ursache der Größenänderung**
 
-Da die Excel‑Arbeitsmappe ihr eigenes Fenster hat, versucht sie, bei der ersten Aktivierung ihre ursprüngliche Größe beizubehalten. Der OLE‑Objektrahmen hingegen besitzt eine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint beim Aktivieren der Arbeitsmappe die Größe, um die korrekten Proportionen im Einbettungsprozess sicherzustellen. Die Größenänderung entsteht durch die Unterschiede zwischen der Fenstergröße von Excel und der Größe bzw. Position des OLE‑Objektrahmens. 
+Da die Excel‑Arbeitsmappe ihr eigenes Fenster hat, versucht sie, beim ersten Aktivieren ihre ursprüngliche Fenstergröße beizubehalten. Der OLE‑Objekt‑Rahmen hat hingegen seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Arbeitsmappe die Größe, um das korrekte Seitenverhältnis im Einbettungsprozess zu erhalten. Die Größenänderung entsteht durch die Unterschiede zwischen der Excel‑Fenstergröße und der Größe sowie Position des OLE‑Objekt‑Rahmens. 
 
-## **Funktionsfähige Lösung**
+## **Lösungsansatz**
 
-Es gibt zwei mögliche Ansätze, um den Skalierungseffekt zu vermeiden.
+Es gibt zwei mögliche Lösungen, um den Größenänderungseffekt zu vermeiden.
 
-- Skalieren Sie die Größe des OLE‑Rahmens in der PowerPoint‑Präsentation, sodass sie der gewünschten Anzahl von Zeilen und Spalten im OLE‑Rahmen entspricht.  
-- Halten Sie die Größe des OLE‑Rahmens konstant und skalieren Sie die Größe der beteiligten Zeilen und Spalten, sodass sie in die festgelegte OLE‑Rahmengröße passen.  
+- Skalieren Sie den OLE‑Rahmen in der PowerPoint‑Präsentation, sodass er der Gesamthöhe und -breite der ausgewählten Zeilen und Spalten entspricht.  
+- Halten Sie die Größe des OLE‑Rahmens konstant und skalieren Sie die ausgewählten Zeilen und Spalten, damit sie hineinpassen.  
 
 ### **OLE‑Rahmengröße skalieren**
 
-In diesem Ansatz lernen wir, wie man die OLE‑Rahmengröße der eingebetteten Excel‑Arbeitsmappe so einstellt, dass sie der kumulierten Größe der beteiligten Zeilen und Spalten im Excel‑Arbeitsblatt entspricht.
+Dieser Ansatz setzt die Größe des OLE‑Rahmens so, dass sie der Gesamthöhe und -breite der ausgewählten Zeilen und Spalten im eingebetteten Excel‑Arbeitsblatt entspricht.
 
-Angenommen, wir haben ein Excel‑Vorlagenblatt und möchten es als OLE‑Rahmen zu einer Präsentation hinzufügen. In diesem Szenario wird die Größe des OLE‑Objektrahmens zunächst basierend auf den kumulierten Zeilenhöhen und Spaltenbreiten der beteiligten Zeilen und Spalten der Arbeitsmappe berechnet. Anschließend setzen wir die Größe des OLE‑Rahmens auf diesen berechneten Wert. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Rahmen in PowerPoint zu vermeiden, erfassen wir zudem ein Bild der gewünschten Zeilen‑ und Spaltenanteile der Arbeitsmappe und verwenden es als OLE‑Rahmenbild.
+Das Beispiel lädt eine vorhandene Excel‑Arbeitsmappe und wählt die ersten 10 Zeilen und 13 Spalten des ersten Arbeitsblatts anhand von nullbasierten Indizes aus. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) definiert den angezeigten Bereich. Die Vorschau wird mit 96 DPI gerendert und ihre Pixeldimensionen werden mit 72 Punkten pro Zoll in Punkte umgerechnet. [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) bettet die modifizierte Arbeitsmappe in einen Rahmen mit diesen Abmessungen ein. Die Vorschau wird über [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) zugewiesen, um den Platzhalter „EMBEDDED OLE OBJECT“ in der gespeicherten Präsentation zu ersetzen.
+
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -53,7 +58,7 @@ int imageResolution = 96;
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
-// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
+// Setze die angezeigte Größe, wenn die Arbeitsmappendatei als OLE-Objekt in PowerPoint verwendet wird.
 var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,23 +66,23 @@ workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 var imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Get the width and height of the OLE image in points.
+// Erhalte die Breite und Höhe des OLE-Bildes in Punkten.
 using var image = Image.FromStream(imageStream);
 var imageWidth = image.Width * 72 / imageResolution;
 var imageHeight = image.Height * 72 / imageResolution;
 
-// We need to use the modified workbook.
+// Wir müssen die modifizierte Arbeitsmappe verwenden.
 using var oleStream = new MemoryStream();
 workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
 
 using var presentation = new Presentation();
 var slide = presentation.Slides.First();
 
-// Add the OLE image to the presentation resources.
+// Füge das OLE-Bild zu den Präsentationsressourcen hinzu.
 imageStream.Seek(0, SeekOrigin.Begin);
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// Create the OLE object frame.
+// Erstelle den OLE-Objekt-Rahmen.
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -85,6 +90,8 @@ oleFrame.IsObjectIcon = false;
 
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+Der Vorschau‑Helper setzt [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) auf den ausgewählten Bereich und entfernt Ränder, Kopf‑ und Fußzeilen. Mit aktiviertem [ImageOrPrintOptions.OnlyArea](https://reference.aspose.com/cells/net/aspose.cells.rendering/imageorprintoptions/onlyarea/) rendert [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/) den Bereich als PNG‑Bild. Der Helper spult den Bild‑Stream zurück, bevor er ihn für die Verwendung in der Präsentation zurückgibt.
 
 ```cs
 static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
@@ -116,13 +123,17 @@ static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolu
 }
 ```
 
-
 ### **Zellbereichsgröße skalieren**
 
-In diesem Ansatz lernen wir, wie man die Höhen der beteiligten Zeilen und die Breite der beteiligten Spalten so skaliert, dass sie einer benutzerdefinierten OLE‑Rahmengröße entsprechen.
+Dieser Ansatz skaliert die Höhen der ausgewählten Zeilen und die Breiten der ausgewählten Spalten, sodass sie zu einer benutzerdefinierten OLE‑Rahmengröße passen.
 
-Angenommen, wir haben ein Excel‑Vorlagenblatt und möchten es als OLE‑Rahmen zu einer Präsentation hinzufügen. In diesem Szenario setzen wir die Größe des OLE‑Rahmens und skalieren die Größe der Zeilen und Spalten, die zum OLE‑Rahmenbereich gehören. Danach speichern wir die Arbeitsmappe in einen Stream, um die Änderungen anzuwenden, und konvertieren sie in ein Byte‑Array, um sie dem OLE‑Rahmen hinzuzufügen. Um die rote Meldung „EMBEDDED OLE OBJECT“ für den OLE‑Rahmen in PowerPoint zu vermeiden, erfassen wir zudem ein Bild der gewünschten Zeilen‑ und Spaltenanteile der Arbeitsmappe und setzen es als OLE‑Rahmenbild.
+Das Beispiel lädt eine vorhandene Excel‑Arbeitsmappe und wählt die ersten 10 Zeilen und 13 Spalten des ersten Arbeitsblatts anhand von nullbasierten Indizes aus. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) definiert den angezeigten Bereich, und der untenstehende Helper skaliert diesen Bereich, sodass er in einen Rahmen von 400 Punkten Breite und 100 Punkten Höhe passt. Nach dem Speichern der modifizierten Arbeitsmappe in einen Stream bettet [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) sie mit der angegebenen Größe ein. Eine bei 96 DPI gerenderte Vorschau wird über [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) zugewiesen, sodass die gespeicherte Präsentation die ausgewählten Zellen anstelle des Standard‑Platzhalters anzeigt.
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -138,7 +149,7 @@ var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Skaliere den Zellbereich, um in die Rahmengröße zu passen.
+// Skaliere den Zellbereich, damit er in die Rahmengröße passt.
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -154,7 +165,7 @@ var slide = presentation.Slides.First();
 // Füge das OLE-Bild zu den Präsentationsressourcen hinzu.
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// Erstelle den OLE-Objektrahmen.
+// Erstelle den OLE-Objekt-Rahmen.
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -162,6 +173,8 @@ oleFrame.IsObjectIcon = false;
 
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+Der Skalierungs‑Helper berechnet separate Breiten‑ und Höhen‑Verhältnisse für den ausgewählten Bereich und bewahrt dabei die relativen Spaltenbreiten und Zeilenhöhen. Die berechneten Abmessungen werden von Punkten in Zoll umgerechnet, bevor sie mit [Cells.SetColumnWidthInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setcolumnwidthinch/) und [Cells.SetRowHeightInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setrowheightinch/) angewendet werden. Der ausgewählte Bereich muss eine von null verschiedene Breite und Höhe besitzen.
 
 ```cs
 /// <param name="width">Die erwartete Breite des Zellbereichs in Punkten.</param>
@@ -193,6 +206,8 @@ static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float heig
 }
 ```
 
+Dieser Vorschau‑Helper rendert den skalierten Bereich mittels [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/). Er begrenzt [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) auf diesen Bereich, entfernt Ränder, Kopf‑ und Fußzeilen und gibt einen PNG‑Stream zurück, der am Anfang positioniert ist.
+
 ```cs
 static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
@@ -223,37 +238,42 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 }
 ```
 
-
 ## **Fazit**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-Es gibt zwei Ansätze, um das Problem mit der Größenänderung des Arbeitsblatts zu beheben. Die Wahl des geeigneten Ansatzes hängt von den jeweiligen Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren identisch, egal ob die Präsentationen aus einer Vorlage oder von Grund auf erstellt werden. Zusätzlich gibt es in dieser Lösung keine Begrenzung für die Größe des OLE‑Objektrahmens.
+Es gibt zwei Ansätze, um das Problem der Größenänderung von Arbeitsblättern zu beheben. Wählen Sie den Ansatz, der am besten zu Ihren Anforderungen und Ihrem Anwendungsfall passt. Beide Ansätze funktionieren gleich, egal ob die Präsentationen aus einer Vorlage oder von Grund auf neu erstellt werden. Darüber hinaus gibt es in dieser Lösung keine Begrenzung für die Größe des OLE‑Objekt‑Rahmens.
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Warum ändert ein eingebettetes Excel‑Arbeitsblatt nach der ersten Aktivierung in PowerPoint seine Größe?**  
-Das passiert, weil Excel versucht, bei der Aktivierung die ursprüngliche Fenstergröße beizubehalten, während der OLE‑Objektrahmen in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis zu erhalten, was zu einer Größenänderung führen kann.
+**Warum ändert ein eingebettetes Excel‑Arbeitsblatt seine Größe, wenn es in PowerPoint zum ersten Mal aktiviert wird?**
 
-**Lässt sich dieses Skalierungsproblem vollständig verhindern?**  
-Ja. Durch Skalieren des OLE‑Rahmens an die Größe des Excel‑Zellbereichs oder durch Skalieren des Zellbereichs an die gewünschte OLE‑Rahmengröße kann eine ungewollte Skalierung vermieden werden.
+Dies passiert, weil Excel versucht, bei der Aktivierung die ursprüngliche Fenstergröße beizubehalten, während der OLE‑Rahmen in PowerPoint eigene Abmessungen hat. PowerPoint und Excel verhandeln die Größe, um das Seitenverhältnis zu erhalten, was zu einer Größenänderung führen kann.
 
-**Welches Skalierungsverfahren sollte ich verwenden, OLE‑Rahmenskalierung oder Zellbereichskalierung?**  
-Wählen Sie **OLE‑Rahmenskalierung**, wenn Sie die originalen Zeilen‑ und Spaltengrößen von Excel beibehalten möchten. Wählen Sie **Zellbereichskalierung**, wenn Sie eine feste Größe für den OLE‑Rahmen in Ihrer Präsentation benötigen.
+**Ist es möglich, dieses Größenänderungsproblem vollständig zu verhindern?**
 
-**Funktionieren diese Lösungen, wenn meine Präsentation auf einer Vorlage basiert?**  
-Ja. Beide Lösungen funktionieren sowohl für Präsentationen, die aus Vorlagen, als auch für solche, die von Grund auf erstellt wurden.
+Ja. Durch Skalieren des OLE‑Rahmens auf die Größe des Excel‑Zellbereichs oder durch Skalieren des Zellbereichs auf die gewünschte OLE‑Rahmengröße können unerwünschte Größenänderungen vermieden werden.
 
-**Gibt es eine Obergrenze für die Größe des OLE‑Rahmens bei Verwendung dieser Methoden?**  
-Nein. Der OLE‑Objektrahmen kann beliebig groß sein, solange die Skalierung entsprechend eingestellt wird.
+**Welche Skalierungsmethode sollte ich verwenden, OLE‑Rahmen‑Skalierung oder Zellbereichs‑Skalierung?**
 
-**Wie kann man den Platzhaltertext „EMBEDDED OLE OBJECT“ in PowerPoint vermeiden?**  
-Indem Sie einen Schnappschuss des gewünschten Excel‑Zellbereichs aufnehmen und diesen als Platzhalterbild des OLE‑Rahmens festlegen, können Sie ein benutzerdefiniertes Vorschaubild anstelle des Standard‑Platzhalters anzeigen.
+Wählen Sie **OLE‑Rahmen‑Skalierung**, wenn Sie die ursprünglichen Zeilen‑ und Spaltengrößen von Excel beibehalten möchten. Wählen Sie **Zellbereichs‑Skalierung**, wenn Sie eine feste Größe für den OLE‑Rahmen in Ihrer Präsentation benötigen.
 
-## **Verwandte Artikel**
+**Werden diese Lösungen funktionieren, wenn meine Präsentation auf einer Vorlage basiert?**
+
+Ja. Beide Lösungen funktionieren sowohl für Präsentationen, die aus Vorlagen als auch für solche, die von Grund auf neu erstellt werden.
+
+**Gibt es eine Begrenzung für die Größe des OLE‑Rahmens bei Verwendung dieser Methoden?**
+
+Nein. Der OLE‑Objekt‑Rahmen kann beliebig groß sein, solange Sie die Skalierung entsprechend einstellen.
+
+**Gibt es eine Möglichkeit, den Platzhaltertext „EMBEDDED OLE OBJECT“ in PowerPoint zu vermeiden?**
+
+Ja. Indem Sie einen Schnappschuss des gewünschten Excel‑Zellbereichs erstellen und ihn als Platzhalterbild des OLE‑Rahmens festlegen, können Sie ein benutzerdefiniertes Vorschau­bild anstelle des Standard‑Platzhalters anzeigen.
+
+## **Related Articles**
 
 [Erstellen eines Excel‑Diagramms und Einbetten in eine Präsentation als OLE‑Objekt](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[OLE‑Objekte automatisch mit einem MS PowerPoint‑Add‑In aktualisieren](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Automatisches Aktualisieren von OLE‑Objekten mit einem MS PowerPoint‑Add‑In](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

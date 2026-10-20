@@ -1,135 +1,128 @@
 ---
-title: Предотвращение редактирования презентаций с помощью блокировок фигур в Python
-linktitle: Предотвращение редактирования презентации
+title: Ограничение редактирования презентаций блокировкой фигур в Python
+linktitle: Ограничить редактирование презентации
 type: docs
 weight: 70
 url: /ru/python-net/applying-protection-to-presentation/
 keywords:
-- предотвращение редактирования
-- защита от редактирования
-- блокировка фигуры
-- блокировка позиции
-- блокировка выбора
-- блокировка размера
-- блокировка группировки
+- предотвратить редактирование
+- защитить от редактирования
+- заблокировать фигуру
+- заблокировать позицию
+- заблокировать выбор
+- заблокировать изменение размеров
+- заблокировать группировку
 - PowerPoint
-- OpenDocument
+- PPTX
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как Aspose.Slides для Python через .NET блокирует или разблокирует фигуры в файлах PPT, PPTX и ODP, обеспечивая безопасность презентаций при возможности контролируемого редактирования и более быстрой доставки."
+description: "Узнайте, как блокировать и разблокировать фигуры в презентациях PPTX с помощью Aspose.Slides for Python via .NET, чтобы ограничить выбор, перемещение, изменение размеров и группировку."
 ---
+## **Предыстория**
 
-## **Обзор**
+Распространённое применение Aspose.Slides for Python via .NET — создание, обновление и сохранение презентаций PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Когда пользователи получают такие презентации, ограничение изменений фигур помогает сохранить задуманную компоновку и содержимое.
 
-Распространённое применение Aspose.Slides — создание, обновление и сохранение презентаций Microsoft PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложений, использующих Aspose.Slides таким образом, имеют доступ к сгенерированным презентациям, поэтому защита их от редактирования является актуальной проблемой. Важно, чтобы автоматически созданные презентации сохраняли своё оригинальное форматирование и содержимое.
-
-В этой статье объясняется, как структурированы презентации и слайды, а также как Aspose.Slides for Python может применить защиту к презентации и затем снять её. Она предоставляет разработчикам возможность контролировать использование презентаций, генерируемых их приложениями.
+В этой статье объясняется, как фигурки организованы на слайдах и как применить и удалить блокировки фигур в презентации PPTX. Эти блокировки позволяют ограничить определённые операции редактирования отдельных фигур.
 
 ## **Состав слайда**
 
-Слайд презентации состоит из компонентов, таких как автоконтуры, таблицы, OLE‑объекты, сгруппированные фигуры, рамки изображений, видеокадры, соединители и другие элементы, используемые для создания презентации. В Aspose.Slides for Python каждый элемент на слайде представлен объектом, наследующим класс [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/).
+Слайд презентации состоит из компонентов, таких как автограммы, таблицы, OLE‑объекты, группированные фигуры, рамки изображений, видеорамки, соединители и другие элементы, используемые при построении презентации. В Aspose.Slides for Python via .NET каждый элемент на слайде представлен объектом, наследующим класс [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) .
 
-Структура PPTX сложна, поэтому, в отличие от PPT, где можно использовать универсальный замок для всех типов фигур, разные типы фигур требуют разных замков. Класс [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) является универсальным классом блокировки для PPTX. В Aspose.Slides for Python для PPTX поддерживаются следующие типы замков:
+Разные типы фигур предоставляют различные варианты блокировки. Класс [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) является базовым классом для блокировок фигур. Aspose.Slides for Python via .NET предоставляет следующие классы блокировок:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) блокирует автоконтуры.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) блокирует автограммы.  
 - [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) блокирует соединительные фигуры.  
 - [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) блокирует графические объекты.  
-- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) блокирует сгруппированные фигуры.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) блокирует групповые фигуры.  
 - [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) блокирует рамки изображений.  
 
-Любое действие, выполненное над всеми объектами фигур в объекте [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), применяется ко всей презентации.
+Чтобы применить блокировки ко всей [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), пройдите по её слайдам и установите соответствующие блокировки для каждой поддерживаемой фигуры.
 
 ## **Применение и удаление защиты**
 
-Применение защиты гарантирует, что презентацию нельзя будет редактировать. Это полезный приём для защиты содержимого презентации.
+Блокировки фигур ограничивают такие операции, как выбор, перемещение и изменение размеров фигур. Они не делают всю презентацию недоступной для редактирования.
 
-### **Применить защиту к фигурам PPTX**
+### **Применение защиты к объектам PPTX**
 
-Aspose.Slides for Python предоставляет класс [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) для работы с фигурами на слайде.
+Aspose.Slides for Python via .NET предоставляет класс [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) , позволяющий работать с фигурами на слайде.
 
-Как упоминалось ранее, каждый класс фигуры имеет связанный класс блокировки формы для защиты. В этой статье рассматриваются блокировки NoSelect, NoMove и NoResize. Эти блокировки гарантируют, что фигуры нельзя будет выбрать (щелчком мыши или другими методами выбора) и что их нельзя будет перемещать или изменять в размере.
+В примере свойства [select_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/select_locked/), [position_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/position_locked/) и [size_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/size_locked/) устанавливаются в `True` для автограмм, с аналогичными блокировками для групповых фигур, соединителей и рамок изображений. Соединители используют [position_move](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/position_move/) для перемещения; группы также используют [grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) , чтобы ограничить группировку.
 
-Пример кода ниже применяет защиту ко всем типам фигур в презентации.
-```py
+Пример загружает существующую PPTX‑презентацию, проверяет фигуры в коллекции фигур каждого слайда и сохраняет копию с применёнными ограничениями. Фигуры, не относящиеся к четырём поддерживаемым типам, остаются без изменений. Цикл не проходит по вложенным фигурам внутри группы.
+
+```python
 import aspose.slides as slides
 
-# Создайте объект класса Presentation, представляющий файл PPTX.
 with slides.Presentation("Sample.pptx") as presentation:
-    # Проходим все слайды в презентации.
     for slide in presentation.slides:
-        # Проходим все фигуры на слайде.
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = True
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-    # Сохраняем файл презентации.
+
     presentation.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Удаление защиты**
 
-### **Удалить защиту**
+Чтобы снять блокировку фигуры, установите её значение в `False`. В следующем примере загружается презентация с блокировками фигур и очищаются ограничения выбора, перемещения и изменения размеров через [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) и [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/). Также очищается [GroupShapeLock.grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) и сохраняется копия презентации. Другие настройки блокировок оставляются без изменений.
 
-Чтобы разблокировать фигуру, установите значение соответствующего замка в `False`. В следующем примере кода показано, как разблокировать фигуры в заблокированной презентации.
-```py
+```python
 import aspose.slides as slides
 
-# Создайте объект класса Presentation, представляющий файл PPTX.
 with slides.Presentation("ProtectedSample.pptx") as presentation:
-    # Проходим все слайды в презентации.
     for slide in presentation.slides:
-        # Проходим все фигуры на слайде.
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = False
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-    # Сохраняем файл презентации.
+
     presentation.save("RemovedProtectionSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ### **Заключение**
 
-Aspose.Slides предоставляет несколько вариантов защиты фигур в презентации. Вы можете заблокировать отдельную фигуру или пройтись по всем фигурам в презентации и заблокировать каждую, чтобы эффективно защитить весь файл. Защиту можно снять, установив значение замка в `False`.
+Aspose.Slides for Python via .NET позволяет ограничивать конкретные операции редактирования отдельных фигур или применять одинаковые ограничения ко всем слайдам. Выбирайте блокировки, поддерживаемые типом каждой фигуры, и устанавливайте их значения в `False`, когда нужно снять эти ограничения.
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Могу ли я комбинировать блокировки фигур и защиту паролем в одной презентации?**
+**Можно ли комбинировать блокировки фигур и защиту паролем в одной презентации?**
 
-Да. Блокировки ограничивают редактирование объектов внутри файла, тогда как [password protection](/slides/ru/python-net/password-protected-presentation/) контролирует доступ к открытию и/или сохранению изменений. Эти механизмы дополняют друг друга и работают совместно.
+Да. Блокировки фигур ограничивают конкретные операции редактирования, тогда как [защита паролем](/slides/ru/python-net/password-protected-presentation/) может ограничивать открытие или изменение презентации. Вы можете использовать оба способа в одном файле.
 
-**Могу ли я ограничить редактирование на отдельных слайдах, не затрагивая остальные?**
+**Можно ли ограничить редактирование на отдельных слайдах, не затрагивая остальные?**
 
-Да. Примените блокировки к фигурам на выбранных слайдах; остальные слайды останутся редактируемыми.
+Да. Применяйте блокировки только к фигурам на выбранных слайдах. Это не меняет настройки блокировок на остальных слайдах.
 
-**Применяются ли блокировки фигур к сгруппированным объектам и соединителям?**
+**Как применить блокировки к отдельным фигурам внутри группы?**
 
-Да. Для групп, соединителей, графических объектов и других типов фигур поддерживаются специальные типы блокировок.
+Пройдите по коллекции [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) группы и примените соответствующие блокировки к каждой дочерней фигуре. Повторите это для любых вложенных групп. Приведённые выше примеры обрабатывают только коллекцию фигур слайда, поэтому они не устанавливают блокировки для отдельных членов группы.

@@ -8,40 +8,42 @@ keywords:
 - immagine di anteprima
 - ridimensionamento immagine
 - Excel
-- foglio di lavoro
+- foglio di calcolo
 - PowerPoint
 - presentazione
 - Python
 - Java
 - Aspose.Slides
-description: "Correggi il ridimensionamento OLE del foglio di lavoro Excel nelle presentazioni: due modi per mantenere i frame degli oggetti coerenti—scala il frame o il foglio—nei formati PPT e PPTX."
+description: "Risolvi il ridimensionamento OLE dei fogli di lavoro Excel nelle presentazioni: due modi per mantenere i frame degli oggetti coerenti—scala il frame o il foglio—nei formati PPT e PPTX."
 ---
 {{% alert color="info" title="Nota" %}}
 
-È stato osservato che i fogli di lavoro Excel incorporati come oggetti OLE in una presentazione PowerPoint tramite i componenti Aspose vengono ridimensionati a una scala non specificata dopo la prima attivazione. Questo comportamento crea una differenza visiva evidente nella presentazione tra gli stati pre‑ e post‑attivazione dell'oggetto OLE. Abbiamo esaminato dettagliatamente il problema e fornito una soluzione, descritta in questo articolo.
+Le schede di Excel incorporate come oggetti OLE in una presentazione PowerPoint utilizzando i componenti Aspose possono ridimensionarsi in modo imprevisto dopo la prima attivazione. Questo comportamento crea una differenza visiva evidente tra l'oggetto OLE prima e dopo l'attivazione. Questo articolo spiega il problema e descrive due modi per risolverlo.
 
 {{% /alert %}}
 
 ## **Contesto**
 
-Nell'articolo [Gestire OLE](/slides/it/python-java/manage-ole/), abbiamo spiegato come aggiungere un frame OLE a una presentazione PowerPoint usando Aspose.Slides for Python via Java. Per affrontare il [problema di anteprima dell'oggetto](/slides/it/python-java/object-preview-issue-when-adding-oleobjectframe/), abbiamo assegnato un'immagine dell'area del foglio di lavoro selezionata al frame OLE. Nella presentazione di output, quando si fa doppio clic sul frame OLE che mostra l'immagine del foglio, il workbook di Excel viene attivato. Gli utenti finali possono apportare le modifiche desiderate al vero workbook di Excel e poi tornare alla diapositiva facendo clic al di fuori del workbook attivato. Le dimensioni del frame OLE cambieranno quando l'utente ritorna alla diapositiva. Il fattore di ridimensionamento varierà in base alle dimensioni del frame OLE e del workbook Excel incorporato.
+Nell'articolo [Manage OLE](/slides/it/python-java/manage-ole/), abbiamo spiegato come aggiungere un frame OLE a una presentazione PowerPoint utilizzando Aspose.Slides per Python via Java. Per affrontare il [object preview issue](/slides/it/python-java/object-preview-issue-when-adding-oleobjectframe/), abbiamo assegnato un'immagine dell'area del foglio di lavoro selezionata al frame dell'oggetto OLE. Nella presentazione di output, quando fai doppio clic sul frame dell'oggetto OLE che mostra l'immagine del foglio di lavoro, il cartellino di Excel viene attivato. Gli utenti finali possono apportare tutte le modifiche desiderate al vero cartellino di Excel e poi tornare alla diapositiva facendo clic al di fuori del cartellino di Excel attivato. Le dimensioni del frame dell'oggetto OLE cambieranno quando l'utente tornerà alla diapositiva. Il fattore di ridimensionamento varierà a seconda delle dimensioni del frame dell'oggetto OLE e del foglio di lavoro Excel incorporato.
 
-## **Cause del ridimensionamento**
+## **Causa del ridimensionamento**
 
-Poiché il workbook di Excel dispone della propria dimensione della finestra, tenta di mantenere la sua dimensione originale alla prima attivazione. D'altra parte, il frame OLE ha le proprie dimensioni. Secondo Microsoft, quando il workbook di Excel è attivato, Excel e PowerPoint negoziano la dimensione per garantire che mantenga le proporzioni corrette come parte del processo di incorporamento. Il ridimensionamento avviene in base alle differenze tra la dimensione della finestra di Excel e le dimensioni e la posizione del frame OLE.
+Poiché il cartellino di Excel ha la propria dimensione della finestra, tenta di mantenere la sua dimensione originale alla prima attivazione. D'altra parte, il frame dell'oggetto OLE ha la propria dimensione. Secondo Microsoft, quando il cartellino di Excel è attivato, Excel e PowerPoint negoziano la dimensione per garantire che mantenga le proporzioni corrette come parte del processo di incorporamento. Il ridimensionamento avviene in base alle differenze tra la dimensione della finestra di Excel e le dimensioni e la posizione del frame dell'oggetto OLE.
 
 ## **Soluzione funzionante**
 
-Esistono due possibili soluzioni per evitare l'effetto di ridimensionamento.
+Esistono due soluzioni possibili per evitare l'effetto di ridimensionamento.
 
-- Scala le dimensioni del frame OLE nella presentazione PowerPoint per corrispondere all'altezza e alla larghezza del numero desiderato di righe e colonne nel frame OLE.
-- Mantieni costanti le dimensioni del frame OLE e scala le dimensioni delle righe e colonne partecipanti in modo da adattarle alle dimensioni del frame OLE selezionato.
+- Ridimensiona il frame OLE nella presentazione PowerPoint per corrispondere all'altezza e alla larghezza totali delle righe e colonne selezionate.
+- Mantieni costante la dimensione del frame OLE e ridimensiona le righe e le colonne selezionate per adattarle al suo interno.
 
-### **Scala le dimensioni del frame OLE**
+### **Ridimensiona le dimensioni del frame OLE**
 
-In questo approccio, impareremo come impostare le dimensioni del frame OLE del workbook Excel incorporato per corrispondere alla dimensione cumulativa delle righe e colonne partecipanti nel foglio di lavoro Excel.
+Questo approccio imposta le dimensioni del frame OLE per corrispondere all'altezza e alla larghezza totali delle righe e colonne selezionate nel foglio di lavoro Excel incorporato.
 
-Supponiamo di avere un foglio Excel modello e di volerlo aggiungere a una presentazione come frame OLE. In questo scenario, le dimensioni del frame OLE verranno prima calcolate sulla base dell'altezza cumulativa delle righe e della larghezza cumulativa delle colonne partecipanti nel workbook. Successivamente, imposteremo le dimensioni del frame OLE su questo valore calcolato. Per evitare il messaggio rosso "EMBEDDED OLE OBJECT" per il frame OLE in PowerPoint, cattureremo anche un'immagine delle porzioni desiderate delle righe e colonne nel workbook e la imposteremo come immagine del frame OLE.
+L'esempio carica un cartellino Excel esistente e seleziona le prime 10 righe e le prime 13 colonne del suo primo foglio di lavoro usando indici a base zero. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) definisce l'intervallo visualizzato. L'anteprima è renderizzata a 96 DPI e le sue dimensioni in pixel vengono convertite in punti usando 72 punti per pollice. [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) incorpora il cartellino modificato in un frame con quelle dimensioni. L'anteprima è assegnata tramite [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) per sostituire il segnaposto "EMBEDDED OLE OBJECT" nella presentazione salvata.
+
+L'helper di anteprima imposta [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) sull'intervallo selezionato e rimuove i margini, le intestazioni e i piè di pagina. Con [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea) abilitato, [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) renderizza l'intervallo come immagine PNG. L'helper restituisce un nuovo flusso di input contenente l'immagine PNG, posizionato all'inizio per l'uso nella presentazione.
 
 ```python
 import jpype
@@ -94,7 +96,7 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # Imposta la dimensione visualizzata quando il workbook è usato come oggetto OLE in PowerPoint.
+    # Imposta la dimensione visualizzata quando il cartellino viene usato come oggetto OLE in PowerPoint.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
@@ -109,7 +111,7 @@ try:
         frame_width = image.getWidth() * 72.0 / image_resolution
         frame_height = image.getHeight() * 72.0 / image_resolution
 
-        # Usa il workbook modificato.
+        # Usa il cartellino modificato.
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -140,11 +142,15 @@ finally:
     workbook.dispose()
 ```
 
-### **Scala le dimensioni dell'intervallo di celle**
+### **Ridimensiona le dimensioni dell'intervallo di celle**
 
-In questo approccio, impareremo come scalare le altezze delle righe partecipanti e le larghezze delle colonne partecipanti per corrispondere a una dimensione personalizzata del frame OLE.
+Questo approccio dimensiona le altezze delle righe selezionate e le larghezze delle colonne selezionate per corrispondere a una dimensione personalizzata del frame OLE.
 
-Supponiamo di avere un foglio Excel modello e di volerlo aggiungere a una presentazione come frame OLE. In questo scenario, imposteremo le dimensioni del frame OLE e scaleremo le dimensioni delle righe e colonne che partecipano all'area del frame OLE. Salveremo poi il workbook in uno stream per applicare le modifiche e lo converteremo in un array di byte per aggiungerlo al frame OLE. Per evitare il messaggio rosso "EMBEDDED OLE OBJECT" per il frame OLE in PowerPoint, cattureremo anche un'immagine delle porzioni desiderate delle righe e colonne nel workbook e la imposteremo come immagine del frame OLE.
+L'esempio carica un cartellino Excel esistente e seleziona le prime 10 righe e le prime 13 colonne del suo primo foglio di lavoro usando indici a base zero. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) definisce l'intervallo visualizzato, e l'helper scale_cell_range dimensiona quell'intervallo per adattarlo a un frame largo 400 punti e alto 100 punti. Dopo aver salvato il cartellino modificato in un flusso, [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) lo incorpora nella dimensione specificata. Un'anteprima renderizzata a 96 DPI è assegnata tramite [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat), così la presentazione salvata mostra le celle selezionate invece del segnaposto predefinito.
+
+L'helper di scaling calcola rapporti separati di larghezza e altezza per l'intervallo selezionato, preservando le larghezze relative delle sue colonne e le altezze relative delle sue righe. Converte le dimensioni calcolate da punti a pollici prima di applicarle con [Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) e [Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch). L'intervallo selezionato deve avere larghezza e altezza non zero.
+
+Questo helper di anteprima renderizza l'intervallo ridimensionato usando [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage). Limita [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) a quell'intervallo, rimuove i margini, le intestazioni e i piè di pagina, e restituisce un flusso PNG posizionato all'inizio.
 
 ```python
 import jpype
@@ -218,18 +224,18 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # Imposta la dimensione visualizzata quando il workbook è usato come oggetto OLE in PowerPoint.
+    # Imposta la dimensione visualizzata quando il cartellino viene usato come oggetto OLE in PowerPoint.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
 
     cell_range = worksheet.getCells().createRange(start_row, start_column, row_count, column_count)
-    # Scala l'intervallo di celle per adattarlo alle dimensioni del frame.
+    # Dimensiona l'intervallo di celle per adattarlo alla dimensione del frame.
     scale_cell_range(cell_range, frame_width, frame_height)
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
 
-        # Usa il workbook modificato.
+        # Usa il cartellino modificato.
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -264,36 +270,38 @@ finally:
 
 {{% alert color="info" title="Nota" %}} 
 
-Esistono due approcci per risolvere il problema di ridimensionamento del foglio di lavoro. La scelta dell'approccio appropriato dipende dai requisiti specifici e dal caso d'uso. Entrambi gli approcci funzionano allo stesso modo, sia che le presentazioni siano create da un modello sia da zero. Inoltre, non vi è alcun limite alle dimensioni del frame OLE in questa soluzione.
+Esistono due approcci per risolvere il problema di ridimensionamento del foglio di lavoro. Scegli l'approccio che meglio si adatta ai tuoi requisiti e caso d'uso. Entrambi gli approcci funzionano allo stesso modo, sia che le presentazioni siano create da un modello o da zero. Inoltre, non vi è alcun limite alle dimensioni del frame dell'oggetto OLE in questa soluzione.
 
 {{% /alert %}}
 
-## **FAQ**
+## **Domande frequenti**
 
-**Perché un foglio di lavoro Excel incorporato cambia dimensione alla prima attivazione in PowerPoint?**
+**Perché un foglio di lavoro Excel incorporato cambia dimensione quando viene attivato per la prima volta in PowerPoint?**
 
-Ciò avviene perché Excel tenta di mantenere la dimensione originale della finestra quando viene attivato, mentre il frame OLE in PowerPoint ha proprie dimensioni. PowerPoint ed Excel negoziano la dimensione per mantenere il rapporto d'aspetto, il che può causare il ridimensionamento.
+Ciò accade perché Excel tenta di mantenere la dimensione originale della finestra quando viene attivato, mentre il frame dell'oggetto OLE in PowerPoint ha le proprie dimensioni. PowerPoint ed Excel negoziano la dimensione per mantenere le proporzioni, il che può causare il ridimensionamento.
 
-**È possibile prevenire completamente questo problema di ridimensionamento?**
+**È possibile evitare del tutto questo problema di ridimensionamento?**
 
-Sì. Ridimensionando il frame OLE per adattarlo alla dimensione dell'intervallo di celle di Excel o ridimensionando l'intervallo di celle per adattarlo alla dimensione desiderata del frame OLE, si può evitare il ridimensionamento indesiderato.
+Sì. Ridimensionando il frame OLE per adattarlo alle dimensioni dell'intervallo di celle Excel o ridimensionando l'intervallo di celle per adattarlo alla dimensione desiderata del frame OLE, è possibile evitare il ridimensionamento indesiderato.
 
-**Quale metodo di scaling dovrei utilizzare, scaling del frame OLE o scaling dell'intervallo di celle?**
+**Quale metodo di ridimensionamento dovrei usare, il ridimensionamento del frame OLE o il ridimensionamento dell'intervallo di celle?**
 
-Seleziona **scaling del frame OLE** se desideri mantenere le dimensioni originali delle righe e colonne di Excel. Seleziona **scaling dell'intervallo di celle** se desideri una dimensione fissa per il frame OLE nella tua presentazione.
+Seleziona **ridimensionamento del frame OLE** se desideri mantenere le dimensioni originali delle righe e colonne di Excel. Seleziona **ridimensionamento dell'intervallo di celle** se desideri una dimensione fissa per il frame OLE nella tua presentazione.
 
-**Queste soluzioni funzioneranno se la presentazione è basata su un modello?**
+**Queste soluzioni funzioneranno se la mia presentazione è basata su un modello?**
 
-Sì. Entrambe le soluzioni funzionano per presentazioni create da modelli e da zero.
+Sì. Entrambe le soluzioni funzionano per le presentazioni create da modelli e da zero.
 
-**Esiste un limite alle dimensioni del frame OLE quando si usano questi metodi?**
+**Esiste un limite alle dimensioni del frame OLE quando si utilizzano questi metodi?**
 
-No. Puoi impostare il frame OLE a qualsiasi dimensione, purché tu regoli correttamente lo scaling.
+No. Puoi impostare il frame dell'oggetto OLE di qualsiasi dimensione, purché la scala sia impostata correttamente.
 
 **C'è un modo per evitare il testo segnaposto "EMBEDDED OLE OBJECT" in PowerPoint?**
 
-Sì. Catturando un'istantanea dell'intervallo di celle Excel di destinazione e impostandola come immagine segnaposto del frame OLE, puoi visualizzare un'immagine di anteprima personalizzata al posto del segnaposto predefinito.
+Sì. Scattando un'istantanea dell'intervallo di celle Excel di destinazione e impostandola come immagine segnaposto del frame OLE, è possibile visualizzare un'immagine di anteprima personalizzata al posto del segnaposto predefinito.
 
 ## **Articoli correlati**
 
 [Creare un grafico Excel e incorporarlo in una presentazione come oggetto OLE](/slides/it/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Aggiornare automaticamente gli oggetti OLE usando un add-in MS PowerPoint](/slides/it/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

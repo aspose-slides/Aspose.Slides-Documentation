@@ -1,49 +1,54 @@
 ---
-title: कार्यपत्रक रिसाइज़िंग के लिए कार्यशील समाधान
+title: वर्कशीट आकार बदलने के लिए कार्य समाधान
 type: docs
 weight: 40
 url: /hi/net/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - पूर्वावलोकन छवि
-- छवि रिसाइज़िंग
+- छवि आकार बदलना
 - Excel
-- कार्यपत्रक
+- वर्कशीट
 - PowerPoint
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "प्रस्तुतियों में Excel कार्यपत्रक OLE रिसाइज़िंग को ठीक करें: दो तरीके जिससे ऑब्जेक्ट फ्रेम को सुसंगत रखा जा सके—फ्रेम को स्केल करें या शीट को—PPT और PPTX फ़ॉर्मैट्स में।"
+description: "प्रस्तुतियों में Excel वर्कशीट OLE आकार बदलने की समस्या को ठीक करें: वस्तु फ़्रेम को स्थिर रखने के दो तरीके—फ़्रेम को स्केल करें या शीट को—PPT और PPTX फ़ॉर्मैट्स में।"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-यह देखा गया है कि Aspose घटकों के माध्यम से PowerPoint प्रस्तुति में OLE ऑब्जेक्ट के रूप में एम्बेड किए गए Excel वर्कशीट को पहली सक्रियता के बाद एक अज्ञात स्केल में बदल दिया जाता है। यह व्यवहार OLE ऑब्जेक्ट की पूर्व और पश्च सक्रियता स्थितियों के बीच एक स्पष्ट दृश्य अंतर उत्पन्न करता है। हमने इस समस्या की विस्तृत जांच की है और एक समाधान प्रदान किया है, जिसका विवरण इस लेख में दिया गया है।
+Aspose घटकों का उपयोग करके PowerPoint प्रस्तुति में OLE ऑब्जेक्ट के रूप में एम्बेड किए गए Excel कार्यपत्रक पहली सक्रियता के बाद अप्रत्याशित रूप से आकार बदल सकते हैं। यह व्यवहार OLE ऑब्जेक्ट के सक्रियण से पहले और बाद के बीच एक स्पष्ट दृश्य अंतर बनाता है। यह लेख इस समस्या को समझाता है और इसे हल करने के दो तरीकों का वर्णन करता है।
 
 {{% /alert %}} 
 
 ## **पृष्ठभूमि**
 
-लेख में[OLE प्रबंधन](/slides/hi/net/manage-ole/) में हमने बताया था कि Aspose.Slides for .NET का उपयोग करके PowerPoint प्रस्तुति में OLE फ्रेम कैसे जोड़ा जाए।[ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/net/object-preview-issue-when-adding-oleobjectframe/) को दूर करने के लिए हमने OLE ऑब्जेक्ट फ्रेम को चयनित वर्कशीट क्षेत्र की छवि से सेट किया। आउटपुट प्रस्तुति में, जब आप OLE ऑब्जेक्ट फ्रेम पर डबल‑क्लिक करते हैं जो वर्कशीट छवि दिखा रहा है, तो Excel कार्यपुस्तिका सक्रिय हो जाती है। अंतिम उपयोगकर्ता वास्तविक Excel कार्यपुस्तिका में वांछित परिवर्तन कर सकते हैं और फिर सक्रिय Excel कार्यपुस्तिका के बाहर क्लिक करके स्लाइड पर वापस आ सकते हैं। उपयोगकर्ता के स्लाइड पर लौटने पर OLE ऑब्जेक्ट फ्रेम का आकार बदल जाएगा। रिसाइज़िंग कारक OLE ऑब्जेक्ट फ्रेम और एम्बेडेड Excel कार्यपुस्तिका के आकार पर निर्भर करेगा। 
+लेख [OLE प्रबंधन](/slides/hi/net/manage-ole/) में हमने बताया कि Aspose.Slides for .NET का उपयोग करके PowerPoint प्रस्तुति में OLE फ़्रेम कैसे जोड़ें। [ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/net/object-preview-issue-when-adding-oleobjectframe/) को हल करने के लिए, हमने चयनित कार्यपत्रक क्षेत्र की एक छवि को OLE ऑब्जेक्ट फ़्रेम को सौंपा। आउटपुट प्रस्तुति में, जब आप कार्यपत्रक छवि दिखाने वाले OLE ऑब्जेक्ट फ़्रेम पर दो बार क्लिक करते हैं, तो Excel वर्कबुक सक्रिय हो जाती है। उपयोगकर्ता वास्तविक Excel वर्कबुक में आवश्यक परिवर्तन कर सकते हैं और फिर सक्रिय Excel वर्कबुक के बाहर क्लिक करके स्लाइड पर लौट सकते हैं। उपयोगकर्ता स्लाइड पर लौटने पर OLE ऑब्जेक्ट फ़्रेम का आकार बदल जाएगा। आकार बदलने का अनुपात OLE ऑब्जेक्ट फ़्रेम और एम्बेडेड Excel वर्कबुक के आकार पर निर्भर करेगा।
 
-## **रिसाइज़िंग का कारण**
+## **आकार बदलने का कारण**
 
-चूंकि Excel कार्यपुस्तिका की अपनी विंडो आकार होता है, यह पहली सक्रियता पर अपना मूल आकार बनाए रखने की कोशिश करती है। दूसरी ओर, OLE ऑब्जेक्ट फ्रेम का अपना आकार होता है। माइक्रोसॉफ्ट के अनुसार, जब Excel कार्यपुस्तिका सक्रिय होती है, तो Excel और PowerPoint आकार की बातचीत करके एम्बेडिंग प्रक्रिया के हिस्से के रूप में उचित अनुपात बनाए रखते हैं। रिसाइज़िंग Excel विंडो आकार और OLE ऑब्जेक्ट फ्रेम के आकार तथा स्थिति के अंतर के आधार पर होती है।
+चूंकि Excel वर्कबुक का अपना विंडो आकार होता है, यह पहली सक्रियता पर अपना मूल आकार बनाए रखने का प्रयास करता है। दूसरी ओर, OLE ऑब्जेक्ट फ़्रेम का अपना आकार होता है। माइक्रोसॉफ्ट के अनुसार, जब Excel वर्कबुक सक्रिय होती है, तो Excel और PowerPoint आकार पर बातचीत करते हैं ताकि एम्बेडिंग प्रक्रिया के हिस्से के रूप में सही अनुपात बनाए रखा जा सके। आकार बदलना Excel विंडो आकार और OLE ऑब्जेक्ट फ़्रेम के आकार व स्थिति के बीच के अंतर के आधार पर होता है।
 
 ## **कार्यशील समाधान**
 
-रिसाइज़िंग प्रभाव से बचने के दो संभावित समाधान हैं।
+आकार बदलने के प्रभाव को टालने के दो संभावित समाधान हैं।
 
-- OLE फ्रेम का आकार PowerPoint प्रस्तुति में उस वांछित पंक्तियों और स्तंभों की ऊँचाई और चौड़ाई से मेल करने के लिए स्केल करें।
-- OLE फ्रेम का आकार स्थिर रखें और चयनित OLE फ्रेम के भीतर फिट होने के लिए भाग लेने वाली पंक्तियों और स्तंभों का आकार स्केल करें।
+- PowerPoint प्रस्तुति में OLE फ़्रेम को चयनित पंक्तियों और स्तंभों की कुल ऊँचाई और चौड़ाई के अनुसार स्केल करें।
+- OLE फ़्रेम का आकार स्थिर रखें और चयनित पंक्तियों और स्तंभों को उसके भीतर फिट होने के लिए स्केल करें।
 
-### **OLE फ्रेम आकार स्केल करें**
+### **OLE फ़्रेम आकार स्केल करें**
 
-इस दृष्टिकोण में हम सीखेंगे कि एम्बेडेड Excel कार्यपुस्तिका का OLE फ्रेम आकार कैसे सेट करें ताकि वह Excel वर्कशीट में भाग लेने वाली पंक्तियों और स्तंभों के सम्मिलित आकार के बराबर हो।
+यह विधि एम्बेडेड Excel कार्यपत्रक में चयनित पंक्तियों और स्तंभों की कुल ऊँचाई और चौड़ाई के अनुसार OLE फ़्रेम का आकार सेट करती है।
 
-मान लीजिए हमारे पास एक टेम्पलेट Excel शीट है और हम इसे OLE फ्रेम के रूप में प्रस्तुति में जोड़ना चाहते हैं। इस स्थिति में, OLE ऑब्जेक्ट फ्रेम का आकार पहले कार्यपुस्तिका में भाग लेने वाली पंक्तियों की कुल ऊँचाइयों और स्तंभों की कुल चौड़ाइयों के आधार पर गणना किया जाएगा। फिर हम OLE फ्रेम का आकार इस गणना किए गए मान पर सेट करेंगे। PowerPoint में OLE फ्रेम के लिए लाल "EMBEDDED OLE OBJECT" संदेश से बचने के लिए, हम कार्यपुस्तिका में पंक्तियों और स्तंभों के वांछित हिस्सों की छवि कैप्चर करेंगे और उसे OLE फ्रेम छवि के रूप में सेट करेंगे।
+उदाहरण मौजूदा Excel वर्कबुक को लोड करता है और शून्य-आधारित इंडेक्स का उपयोग करके उसकी पहली कार्यपत्रक की पहली 10 पंक्तियों और 13 स्तंभों का चयन करता है। [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) प्रदर्शित रेंज को निर्धारित करता है। प्रीव्यू 96 DPI पर रेंडर किया जाता है, और उसके पिक्सेल आयामों को 72 पॉइंट प्रति इंच का उपयोग करके पॉइंट में परिवर्तित किया जाता है। [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) संशोधित वर्कबुक को उन आयामों वाले फ़्रेम में एम्बेड करता है। प्रीव्यू को [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) के माध्यम से असाइन किया जाता है ताकि सहेजी गई प्रस्तुति में "EMBEDDED OLE OBJECT" प्लेसहोल्डर को बदल सके।
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -53,7 +58,7 @@ int imageResolution = 96;
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
-// जब कार्यपुस्तिका फ़ाइल को PowerPoint में OLE ऑब्जेक्ट के रूप में उपयोग किया जाता है तो प्रदर्शित आकार निर्धारित करें।
+// जब वर्कबुक फ़ाइल को PowerPoint में OLE ऑब्जेक्ट के रूप में उपयोग किया जाता है तो प्रदर्शित आकार सेट करें।
 var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,12 +66,12 @@ workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 var imageStream = CreateOleImage(cellRange, imageResolution);
 
-// OLE छवि की चौड़ाई और ऊँचाई को पॉइंट्स में प्राप्त करें।
+// OLE छवि की चौड़ाई और ऊँचाई को पॉइंट में प्राप्त करें।
 using var image = Image.FromStream(imageStream);
 var imageWidth = image.Width * 72 / imageResolution;
 var imageHeight = image.Height * 72 / imageResolution;
 
-// हमें संशोधित कार्यपुस्तिका का उपयोग करना होगा।
+// हमें संशोधित वर्कबुक का उपयोग करना है।
 using var oleStream = new MemoryStream();
 workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
 
@@ -77,7 +82,7 @@ var slide = presentation.Slides.First();
 imageStream.Seek(0, SeekOrigin.Begin);
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// OLE ऑब्जेक्ट फ्रेम बनाएँ।
+// OLE ऑब्जेक्ट फ़्रेम बनाएं।
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -85,6 +90,8 @@ oleFrame.IsObjectIcon = false;
 
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+प्रीव्यू हेल्पर चयनित रेंज के लिए [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) सेट करता है और मार्जिन, हेडर और फुटर को हटाता है। [ImageOrPrintOptions.OnlyArea](https://reference.aspose.com/cells/net/aspose.cells.rendering/imageorprintoptions/onlyarea/) सक्षम होने पर, [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/) रेंज को PNG छवि के रूप में रेंडर करता है। हेल्पर प्रस्तुति में उपयोग के लिए लौटाने से पहले इमेज स्ट्रीम को रीवाइंड करता है।
 
 ```cs
 static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
@@ -118,11 +125,15 @@ static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolu
 
 ### **सेल रेंज आकार स्केल करें**
 
-इस दृष्टिकोण में हम सीखेंगे कि भाग लेने वाली पंक्तियों की ऊँचाइयों और भाग लेने वाले स्तंभों की चौड़ाइयों को कैसे स्केल करें ताकि वह एक कस्टम OLE फ्रेम आकार से मेल खाए।
+यह विधि चयनित पंक्तियों की ऊँचाई और चयनित स्तंभों की चौड़ाई को एक कस्टम OLE फ़्रेम आकार के अनुसार स्केल करती है।
 
-मान लीजिए हमारे पास एक टेम्पलेट Excel शीट है और हम इसे OLE फ्रेम के रूप में प्रस्तुति में जोड़ना चाहते हैं। इस स्थिति में, हम OLE फ्रेम का आकार सेट करेंगे और OLE फ्रेम क्षेत्र में भाग लेने वाली पंक्तियों और स्तंभों के आकार को स्केल करेंगे। फिर हम परिवर्तनों को लागू करने के लिए कार्यपुस्तिका को स्ट्रीम में सहेजेंगे और OLE फ्रेम में जोड़ने के लिए उसे बाइट ऐरे में बदलेंगे। PowerPoint में OLE फ्रेम के लिए लाल "EMBEDDED OLE OBJECT" संदेश से बचने के लिए, हम कार्यपुस्तिका में पंक्तियों और स्तंभों के वांछित हिस्सों की छवि कैप्चर करेंगे और उसे OLE फ्रेम छवि के रूप में सेट करेंगे।
+उदाहरण मौजूदा Excel वर्कबुक को लोड करता है और शून्य-आधारित इंडेक्स का उपयोग करके उसकी पहली कार्यपत्रक की पहली 10 पंक्तियों और 13 स्तंभों का चयन करता है। [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) प्रदर्शित रेंज को निर्धारित करता है, और नीचे दिया गया हेल्पर उस रेंज को 400 पॉइंट चौड़ी और 100 पॉइंट ऊँची फ़्रेम में फिट होने के लिए स्केल करता है। संशोधित वर्कबुक को स्ट्रीम में सहेजने के बाद, [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) निर्दिष्ट आकार पर एम्बेड किया जाता है। 96 DPI पर रेंडर किया गया प्रीव्यू [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) के माध्यम से असाइन किया जाता है, ताकि सहेजी गई प्रस्तुति चयनित कोशिकाओं को डिफ़ॉल्ट प्लेसहोल्डर के बजाय दिखाए।
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -133,18 +144,18 @@ float frameWidth = 400, frameHeight = 100;
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
-// जब कार्यपुस्तिका फ़ाइल को PowerPoint में OLE ऑब्जेक्ट के रूप में उपयोग किया जाता है तो प्रदर्शित आकार निर्धारित करें।
+// जब वर्कबुक फ़ाइल को PowerPoint में OLE ऑब्जेक्ट के रूप में उपयोग किया जाता है तो प्रदर्शित आकार सेट करें।
 var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// फ्रेम आकार में फिट होने के लिए सेल रेंज को स्केल करें।
+// फ़्रेम आकार में फिट होने के लिए सेल रेंज को स्केल करें।
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 var imageStream = CreateOleImage(cellRange, imageResolution);
 
-// हमें संशोधित कार्यपुस्तिका का उपयोग करना होगा।
+// हमें संशोधित वर्कबुक का उपयोग करना है।
 using var oleStream = new MemoryStream();
 workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
 
@@ -154,7 +165,7 @@ var slide = presentation.Slides.First();
 // प्रस्तुति संसाधनों में OLE छवि जोड़ें।
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// OLE ऑब्जेक्ट फ्रेम बनाएं।
+// OLE ऑब्जेक्ट फ़्रेम बनाएं।
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -163,9 +174,11 @@ oleFrame.IsObjectIcon = false;
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+स्केलिंग हेल्पर चयनित रेंज के लिए अलग-अलग चौड़ाई और ऊँचाई अनुपात गणना करता है, जिससे उसके स्तंभों की सापेक्ष चौड़ाई और पंक्तियों की सापेक्ष ऊँचाई बनी रहे। यह गणना किए गए आयामों को पॉइंट से इंच में परिवर्तित करता है और फिर उन्हें [Cells.SetColumnWidthInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setcolumnwidthinch/) और [Cells.SetRowHeightInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setrowheightinch/) के साथ लागू करता है। चयनित रेंज का चौड़ाई और ऊँचाई दोनों शून्य से अधिक होना चाहिए।
+
 ```cs
-/// <param name="width">सेल रेंज की अपेक्षित चौड़ाई पॉइंट्स में।</param>
-/// <param name="height">सेल रेंज की अपेक्षित ऊँचाई पॉइंट्स में।</param>
+/// <param name="width">सेल रेंज की अपेक्षित चौड़ाई पॉइंट में।</param>
+/// <param name="height">सेल रेंज की अपेक्षित ऊँचाई पॉइंट में।</param>
 static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float height)
 {
     var rangeWidth = cellRange.Width;
@@ -192,6 +205,8 @@ static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float heig
     }
 }
 ```
+
+यह प्रीव्यू हेल्पर [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/) का उपयोग करके बदलिए हुए रेंज को रेंडर करता है। यह [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) को उस रेंज तक सीमित करता है, मार्जिन, हेडर और फुटर को हटाता है, और शुरुआत में स्थित PNG स्ट्रीम लौटाता है।
 
 ```cs
 static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
@@ -225,34 +240,40 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 
 ## **निष्कर्ष**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-वर्कशीट रिसाइज़िंग समस्या को ठीक करने के दो तरीके हैं। उपयुक्त तरीका चयन विशिष्ट आवश्यकताओं और उपयोग मामले पर निर्भर करता है। दोनों तरीके समान रूप से काम करते हैं, चाहे प्रस्तुति टेम्पलेट से बनाई गई हो या शुरू से। अतिरिक्त रूप से, इस समाधान में OLE ऑब्जेक्ट फ्रेम के आकार पर कोई सीमा नहीं है।
+वर्कशीट आकार बदलने की समस्या को ठीक करने के दो तरीके हैं। अपनी आवश्यकताओं और उपयोग केस के अनुसार सबसे उपयुक्त तरीका चुनें। दोनों तरीके समान रूप से काम करते हैं, चाहे प्रस्तुतियों को टेम्पलेट से बनाया गया हो या शुरुआत से। अतिरिक्त रूप से, इस समाधान में OLE ऑब्जेक्ट फ़्रेम के आकार पर कोई सीमा नहीं है।
 
 {{% /alert %}}
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**पहली सक्रियता के बाद PowerPoint में एम्बेडेड Excel वर्कशीट का आकार क्यों बदलता है?**  
-यह इसलिए होता है क्योंकि Excel सक्रिय होने पर अपना मूल विंडो आकार बनाए रखने की कोशिश करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ्रेम का अपना आकार होता है। PowerPoint और Excel अनुपात बनाए रखने के लिए आकार पर बातचीत करते हैं, जिससे रिसाइज़िंग हो सकती है।
+**एक्सेल कार्यपत्रक पहली बार PowerPoint में सक्रिय होने पर आकार क्यों बदलता है?**
 
-**क्या इस रिसाइज़िंग समस्या को पूरी तरह रोका जा सकता है?**  
-हां। OLE फ्रेम को Excel सेल रेंज आकार के अनुरूप स्केल करके या सेल रेंज को इच्छित OLE फ्रेम आकार के अनुरूप स्केल करके अनचाहे रिसाइज़िंग को रोका जा सकता है।
+यह इसलिए होता है क्योंकि Excel सक्रियण के समय अपने मूल विंडो आकार को बनाए रखने की कोशिश करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ़्रेम का अपना आकार होता है। आकार बनाए रखने के लिए PowerPoint और Excel अनुपात को समायोजित करने के लिए बातचीत करते हैं, जिससे आकार बदलना उत्पन्न होता है।
 
-**कौन‑सा स्केलिंग तरीका अपनाना चाहिए, OLE फ्रेम स्केलिंग या सेल रेंज स्केलिंग?**  
-यदि आप मूल Excel पंक्तियों और स्तंभों के आकार को बनाए रखना चाहते हैं तो **OLE फ्रेम स्केलिंग** चुनें। यदि आप प्रस्तुति में OLE फ्रेम का आकार स्थिर रखना चाहते हैं तो **सेल रेंज स्केलिंग** चुनें।
+**क्या इस आकार बदलने की समस्या को पूरी तरह रोकना संभव है?**
 
-**क्या ये समाधान टेम्पलेट‑आधारित प्रस्तुतियों के लिए भी काम करेंगे?**  
-हां। दोनों समाधान टेम्पलेट से निर्मित प्रस्तुतियों और शून्य से निर्मित प्रस्तुतियों दोनों पर कार्य करते हैं।
+हाँ। OLE फ़्रेम को Excel सेल रेंज आकार के अनुसार स्केल करके या सेल रेंज को इच्छित OLE फ़्रेम आकार में स्केल करके आप अनचाहे आकार बदलने से बच सकते हैं।
 
-**इन तरीकों का उपयोग करते समय OLE फ्रेम के आकार पर कोई सीमा है क्या?**  
-नहीं। आप OLE ऑब्जेक्ट फ्रेम को किसी भी आकार में बना सकते हैं, बस स्केल को उचित रूप से सेट करना होगा।
+**कौन सा स्केलिंग तरीका उपयोग करना चाहिए, OLE फ़्रेम स्केलिंग या सेल रेंज स्केलिंग?**
 
-**PowerPoint में "EMBEDDED OLE OBJECT" प्लेसहोल्डर टेक्स्ट से कैसे बचा जाए?**  
-हां। लक्ष्य Excel सेल रेंज की स्नैपशॉट लेकर उसे OLE फ्रेम की प्लेसहोल्डर छवि के रूप में सेट करने से आप डिफ़ॉल्ट प्लेसहोल्डर के स्थान पर एक कस्टम प्रीव्यू छवि प्रदर्शित कर सकते हैं।
+यदि आप मूल Excel पंक्तियों और स्तंभों के आकार को बनाए रखना चाहते हैं तो **OLE फ़्रेम स्केलिंग** चुनें। यदि आप प्रस्तुति में OLE फ़्रेम के लिए एक निश्चित आकार चाहते हैं तो **सेल रेंज स्केलिंग** चुनें।
+
+**क्या ये समाधान मेरे टेम्पलेट-आधारित प्रस्तुति पर भी काम करेंगे?**
+
+हाँ। दोनों समाधान टेम्पलेट से बनाई गई प्रस्तुतियों और शून्य से शुरू की गई प्रस्तुतियों दोनों में काम करते हैं।
+
+**इन तरीकों का उपयोग करते समय OLE फ़्रेम के आकार पर कोई सीमा है क्या?**
+
+नहीं। आप OLE ऑब्जेक्ट फ़्रेम को किसी भी आकार का बना सकते हैं, बशर्ते आप स्केल को उचित रूप से सेट करें।
+
+**PowerPoint में "EMBEDDED OLE OBJECT" प्लेसहोल्डर टेक्स्ट से बचने का कोई तरीका है?**
+
+हाँ। लक्ष्य Excel सेल रेंज की एक स्नैपशॉट लेकर उसे OLE फ़्रेम के प्लेसहोल्डर चित्र के रूप में सेट करके आप डिफ़ॉल्ट प्लेसहोल्डर के बजाय कस्टम प्रीव्यू छवि दिखा सकते हैं।
 
 ## **संबंधित लेख**
 
-[एक Excel चार्ट बनाकर उसे OLE ऑब्जेक्ट के रूप में प्रस्तुति में एम्बेड करना](/slides/hi/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[एक्सेल चार्ट बनाना और उसे प्रस्तुति में OLE ऑब्जेक्ट के रूप में एम्बेड करना](/slides/hi/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[MS PowerPoint ऐड‑इन का उपयोग करके OLE ऑब्जेक्ट्स को स्वचालित रूप से अपडेट करना](/slides/hi/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[MS PowerPoint ऐड-इन का उपयोग करके OLE ऑब्जेक्ट्स को स्वचालित रूप से अपडेट करना](/slides/hi/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

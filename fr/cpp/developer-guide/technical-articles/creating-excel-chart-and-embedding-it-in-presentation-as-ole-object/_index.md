@@ -1,161 +1,193 @@
 ---
-title: Création d'un graphique Excel et son intégration dans une présentation en tant qu'objet OLE
+title: Créer des diagrammes Excel et les intégrer dans des présentations en tant qu'objets OLE
 type: docs
 weight: 40
 url: /fr/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+keywords:
+- Diagramme Excel
+- intégrer le diagramme
+- objet OLE
+- PowerPoint
+- présentation
+- C++
+- Aspose.Slides
+description: "Créer un diagramme Excel avec Aspose.Cells for C++ et intégrer le classeur dans une présentation PowerPoint avec Aspose.Slides, incluant un aperçu du diagramme."
 ---
+## **Vue d'ensemble**
 
-{{% alert color="primary" %}} 
+Cet article montre comment créer un diagramme à barres Excel avec Aspose.Cells for C++ et intégrer son classeur dans une présentation PowerPoint avec Aspose.Slides for C++. Le classeur intégré contient à la fois les données source et le diagramme. Un aperçu PNG séparé affiche le diagramme sur la diapositive avant l'activation de l'objet OLE.
 
-Dans les diapositives PowerPoint, l'utilisation de graphiques modifiables pour l'affichage graphique des données est une activité courante. Aspose fournit le support de la création de graphiques Excel avec l'utilisation d'Aspose.Cells pour C++ et ces graphiques peuvent ensuite être intégrés en tant qu'objet OLE dans la diapositive PowerPoint via Aspose.Slides pour C++. Cet article couvre les étapes requises ainsi que l'implémentation en C++ pour créer et intégrer un graphique MS Excel en tant qu'objet OLE dans une présentation PowerPoint en utilisant Aspose.Cells pour C++ et Aspose.Slides pour C++.
+Le résultat est un objet Excel intégré, et non un diagramme PowerPoint natif. La modification du classeur via OLE nécessite une application de bureau qui prend en charge l'activation OLE et une installation Excel compatible.
 
-{{% /alert %}} 
-## **Étapes requises**
-La séquence suivante d'étapes est requise pour créer et intégrer un graphique Excel en tant qu'objet OLE dans la diapositive PowerPoint :
+## **Prérequis**
 
-1. Créer un graphique Excel en utilisant Aspose.Cells pour C++.
-2. Définir la taille OLE du graphique Excel en utilisant Aspose.Cells pour C++. 
-3. Obtenir l'image du graphique Excel avec Aspose.Cells pour C++. 
-4. Intégrer le graphique Excel en tant qu'objet OLE à l'intérieur de la présentation PPTX en utilisant Aspose.Slides pour C++. 
-5. Remplacer l'image de l'objet modifié par l'image obtenue à l'étape 3 pour résoudre le problème de l'objet modifié.
-6. Écrire la présentation de sortie sur le disque au format PPTX.
+Configurez votre projet C++ avec les en‑têtes et les bibliothèques d'Aspose.Cells for C++ et d'Aspose.Slides for C++. Placez le code d'exemple dans le point d'entrée de votre application, avec les déclarations d'inclusion au niveau du fichier. Microsoft Office n'est pas requis pour générer la présentation avec ces bibliothèques.
 
-## **Implémentation des étapes requises**
-L'implémentation des étapes ci-dessus en C++ est la suivante :
+Aucun fichier d'entrée n'est requis : l'exemple crée les données et le diagramme en mémoire, puis écrit `OutputChart.pptx` dans le répertoire de travail actuel. Appliquez les licences pour les deux produits lors de l'exécution hors mode d'évaluation.
 
-``` cpp
-//Étape - 1 : Créer un graphique Excel en utilisant Aspose.Cells
-//--------------------------------------------------
-//Créer un classeur
-intrusive_ptr<Aspose::Cells::IWorkbook> wb = Aspose::Cells::Factory::CreateIWorkbook();
-//Ajouter un graphique Excel
-int32_t chartRows = 55;
-int32_t chartCols = 25;
-int32_t chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Étape - 2 : Définir la taille OLE du graphique. utilisant Aspose.Cells
-//----------------------------------------------------------- 
-wb->GetIWorksheets()->SetOleSize(0, chartRows, 0, chartCols);
-//Étape - 3 : Obtenir l'image du graphique avec Aspose.Cells
-//-----------------------------------------------------------
-//System::SharedPtr<System::Drawing::Bitmap>
-auto imgChart = wb->GetIWorksheets()->GetObjectByIndex(chartSheetIndex)->GetICharts()->GetObjectByIndex(0)->ToImage();
-//Sauvegarder le classeur dans un flux
-System::SharedPtr<System::IO::MemoryStream> wbStream = ToSlidesMemoryStream(wb->SaveToStream());
-//Étape - 4  ET 5
-//-----------------------------------------------------------
-//Étape - 4 : Intégrer le graphique en tant qu'objet OLE à l'intérieur de la présentation .ppt en utilisant Aspose.Slides
-//-----------------------------------------------------------
-//Étape - 5 : Remplacer l'image de l'objet modifié par l'image obtenue à l'étape 3 pour résoudre le problème de l'objet modifié
-//-----------------------------------------------------------
-//Créer une présentation
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-System::SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+## **Fonctionnement de l'intégration**
 
-// Ajouter le classeur sur la diapositive
-AddExcelChartInPresentation(pres, slide, wbStream, imgChart);
+1. Créer un classeur avec une feuille de données et une feuille de diagramme.  
+2. Rendre la feuille de diagramme active afin que le classeur s'ouvre sur le diagramme.  
+3. Définir la plage d'affichage OLE du classeur et rendre le diagramme en PNG.  
+4. Enregistrer le classeur au format XLSX en mémoire et intégrer ces octets dans une diapositive.  
+5. Attribuer le PNG comme aperçu de l'objet OLE et enregistrer la présentation au format PPTX.
 
-//Étape - 6 : Écrire la présentation de sortie sur le disque
-//----------------------------------------------------------- 
-pres->Save(u"d:/OutputChart.pptx", SaveFormat::Pptx);
-```
+La plage d'affichage du classeur et le cadre sur la diapositive ont des rôles différents. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) prend des indices de ligne et de colonne de début/fin basés sur zéro. [ChartCollection::Add](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chartcollection/add/) prend quant à lui la ligne supérieure, la colonne gauche, la ligne inférieure et la colonne droite. L'exemple utilise l'indice de ligne 55 et l'indice de colonne 25 comme limites inférieure‑droite ; ces valeurs sont des choix de mise en page, pas le nombre de lignes ou de colonnes de données.
 
-``` cpp
-void AddExcelChartInPresentation(System::SharedPtr<Presentation> pres, System::SharedPtr<ISlide> sld, 
-                                    System::SharedPtr<System::IO::Stream> wbStream, 
-                                    intrusive_ptr<Aspose::Cells::Systems::Drawing::Bitmap> imgChart)
+Le cadre de la diapositive utilise des points. L'exemple l'adapte à la diapositive et le centre tout en conservant le ratio d'aspect du PNG, plutôt que d'étirer l'aperçu pour remplir la diapositive.
+
+## **Créer et intégrer le diagramme**
+
+L'exemple complet suivant remplit `DataSheet` avec quatre lignes et cinq colonnes de valeurs. Chaque ligne devient une série de diagramme. `ChartSheet` est sélectionnée comme feuille active avant l'enregistrement du classeur.
+
+Le classeur est explicitement enregistré au format XLSX, correspondant à l'extension `xlsx` transmise à [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/). Le PNG est chargé à partir d'un flux en mémoire sans conversion bitmap intermédiaire. Aspose.Cells renvoie des vecteurs d'octets, que l'exemple copie dans le type de tableau accepté par Aspose.Slides. Initialisez Aspose.Cells avant d'utiliser ses objets, et libérez ses ressources après la destruction de ces objets. L'assignation via [IOleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/get_substitutepictureformat/) remplace le substitut OLE par défaut.
+
+```cpp
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <Util/Images.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <algorithm>
+#include <IImage.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// Initialize Cells before creating any of its objects.
+Aspose::Cells::Startup();
 {
-    float oleWidth = pres->get_SlideSize()->get_Size().get_Width();
-    float oleHeight = pres->get_SlideSize()->get_Size().get_Height();
-    int32_t x = 0;
-    System::ArrayPtr<uint8_t> chartOleData = System::MakeArray<uint8_t>(wbStream->get_Length(), 0);
-    wbStream->set_Position(0);
-    wbStream->Read(chartOleData, 0, chartOleData->get_Length());
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"DataSheet");
 
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(chartOleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oof;
-    oof = sld->get_Shapes()->AddOleObjectFrame(static_cast<float>(x), 0.0f, oleWidth, oleHeight, dataInfo);
-
-    intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-    imgChart->Save(cellsOutputStream, Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-
-    auto imgChartSlides = Images::FromStream(ToSlidesMemoryStream(cellsOutputStream));
-    oof->get_SubstitutePictureFormat()->get_Picture()->set_Image(pres->get_Images()->AddImage(imgChartSlides));
-}
-```
-
-``` cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-``` cpp
-int32_t AddExcelChartInWorkbook(intrusive_ptr<Aspose::Cells::IWorkbook> wb, int32_t chartRows, int32_t chartCols)
-{
-    // Tableau des noms de cellules
-    System::ArrayPtr<System::String> cellsName = System::MakeArray<System::String>(
-        { u"A1", u"A2", u"A3", u"A4", 
-            u"B1", u"B2", u"B3", u"B4",
-            u"C1", u"C2", u"C3", u"C4",
-            u"D1", u"D2", u"D3", u"D4",
-            u"E1", u"E2", u"E3", u"E4" });
-    
-    // Tableau des données des cellules
-    System::ArrayPtr<int32_t> cellsValue = System::MakeArray<int32_t>(
-        { 67, 86, 68, 91,
-            44, 64, 89, 48,
-            46, 97, 78, 60,
-            43, 29, 69, 26,
-            24, 40, 38, 25 });
-
-    // Ajouter une nouvelle feuille de calcul pour peupler les cellules avec des données
-    int32_t dataSheetIdx = wb->GetIWorksheets()->Add();
-    intrusive_ptr<Aspose::Cells::IWorksheet> dataSheet = wb->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
-    intrusive_ptr<Aspose::Cells::Systems::String> sheetName = new Aspose::Cells::Systems::String("DataSheet");
-    dataSheet->SetName(sheetName);
-
-    // Peupler la DataSheet avec des données
-    for (int32_t i = 0; i < cellsName->get_Length(); i++)
+    int32_t values[4][5] =
     {
-        System::String cellName = cellsName[i];
-        int32_t cellValue = cellsValue[i];
-        dataSheet->GetICells()->GetObjectByIndex(new String(cellName.ToWCS().c_str()))->PutValue(cellValue);
+        { 67, 44, 46, 43, 24 },
+        { 86, 64, 97, 29, 40 },
+        { 68, 89, 78, 69, 38 },
+        { 91, 48, 60, 26, 25 }
+    };
+
+    for (auto row = 0; row < 4; row++)
+    {
+        for (auto column = 0; column < 5; column++)
+        {
+            dataSheet.GetCells().Get(row, column).PutValue(values[row][column]);
+        }
     }
 
-    // Ajouter une feuille de graphique
-    int32_t chartSheetIdx = wb->GetIWorksheets()->Add(Aspose::Cells::SheetType::SheetType_Chart);
-    intrusive_ptr<Aspose::Cells::IWorksheet> chartSheet = wb->GetIWorksheets()->GetObjectByIndex(chartSheetIdx);
-    chartSheet->SetName(new String("ChartSheet"));
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    chartSheet.SetName(u"ChartSheet");
 
-    // Ajouter un graphique dans ChartSheet avec des séries de données de DataSheet
-    int32_t chartIdx = chartSheet->GetICharts()->Add(Aspose::Cells::Charts::ChartType::ChartType_Column, 0, chartRows, 0, chartCols);
-    intrusive_ptr<Aspose::Cells::Charts::IChart> chart = chartSheet->GetICharts()->GetObjectByIndex(chartIdx);
-    chart->GetNISeries()->Add(sheetName + "!A1:E1", false);
-    chart->GetNISeries()->Add(sheetName + "!A2:E2", false);
-    chart->GetNISeries()->Add(sheetName + "!A3:E3", false);
-    chart->GetNISeries()->Add(sheetName + "!A4:E4", false);
+    auto lastChartRow = 55;
+    auto lastChartColumn = 25;
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, lastChartRow, lastChartColumn);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    const char16_t* seriesRanges[] = { u"DataSheet!A1:E1", u"DataSheet!A2:E2", u"DataSheet!A3:E3", u"DataSheet!A4:E4" };
+    for (auto range : seriesRanges)
+    {
+        chart.GetNSeries().Add(range, false);
+    }
 
-    // Définir ChartSheet comme feuille active
-    wb->GetIWorksheets()->SetActiveSheetIndex(chartSheetIdx);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetOleSize(0, lastChartRow, 0, lastChartColumn);
 
-    return chartSheetIdx;
+    // Rendu de l'aperçu du diagramme et sérialisation du classeur modifiable séparément.
+    auto chartImageData = chart.ToImage(Aspose::Cells::Drawing::ImageType::Png);
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+
+    // Copier les tampons Cells dans le type de tableau utilisé par Slides.
+    auto toSlidesArray = [](const Aspose::Cells::Vector<uint8_t>& buffer)
+    {
+        auto result = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+        std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), result->data_ptr());
+        return result;
+    };
+    auto chartImageBytes = toSlidesArray(chartImageData);
+    auto workbookBytes = toSlidesArray(workbookData);
+    auto chartImageStream = System::MakeObject<System::IO::MemoryStream>(chartImageBytes);
+    auto chartImage = Images::FromStream(chartImageStream);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto slideSize = presentation->get_SlideSize()->get_Size();
+
+    // Adapter l'aperçu à la diapositive sans modifier son ratio d'aspect.
+    auto scale = (std::min)(slideSize.get_Width() / chartImage->get_Width(), slideSize.get_Height() / chartImage->get_Height());
+    auto frameWidth = chartImage->get_Width() * scale;
+    auto frameHeight = chartImage->get_Height() * scale;
+    auto frameX = (slideSize.get_Width() - frameWidth) / 2;
+    auto frameY = (slideSize.get_Height() - frameHeight) / 2;
+
+    auto embeddedData = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xlsx");
+    auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+    auto previewImage = presentation->get_Images()->AddImage(chartImage);
+    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(previewImage);
+
+    presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
+    chartImage->Dispose();
+    chartImageStream->Dispose();
 }
+// Libérer les ressources Cells après que tous les objets Cells ont été détruits.
+Aspose::Cells::Cleanup();
 ```
 
-{{% alert color="primary" %}} 
+## **Résultat attendu**
 
-La présentation créée par la méthode ci-dessus contiendra le graphique Excel en tant qu'objet OLE qui peut être activé en double-cliquant sur le cadre de l'objet OLE.
+`OutputChart.pptx` contient une diapositive avec un classeur Excel intégré et un aperçu du diagramme. Le classeur contient les données originales et un diagramme à colonnes avec quatre séries. L'aperçu est centré sur la diapositive et conserve ses proportions.
 
-{{% /alert %}} 
-## **Conclusion**
-{{% alert color="primary" %}} 
+![Diagramme à colonnes Excel affiché comme aperçu d'un classeur intégré](excel-chart-ole-preview.png)
 
-En utilisant Aspose.Cells pour C++ ainsi qu'Aspose.Slides pour C++, nous pouvons créer l'un des graphiques Excel pris en charge par Aspose.Cells pour C++ et intégrer le graphique créé en tant qu'objet OLE dans une diapositive PowerPoint. La taille OLE du graphique Excel peut également être définie. Les utilisateurs finaux peuvent de plus éditer le graphique Excel comme n'importe quel autre objet OLE.
+Dans un environnement PowerPoint de bureau compatible avec Excel disponible, double-cliquez sur l'objet pour activer et modifier le classeur intégré. L'activation et la modification dépendent de la prise en charge OLE de l'application hôte et de ses paramètres de sécurité.
 
-{{% /alert %}} 
-## **Sections connexes**
-[Solution fonctionnelle pour le redimensionnement des graphiques](https://docs.aspose.com/slides/cpp/working-solution-for-chart-resizing-in-pptx/)
+## **FAQ**
+
+**Pourquoi une image d'aperçu est‑elle nécessaire ?**
+
+Le classeur intégré et son aperçu sur la diapositive sont des contenus séparés. Fournissez une image de diagramme afin que la diapositive montre le diagramme au lieu du substitut par défaut « EMBEDDED OLE OBJECT ». Voir [Problème d'aperçu d'objet lors de l'ajout d'OleObjectFrame](/slides/fr/cpp/object-preview-issue-when-adding-oleobjectframe/).
+
+**L'aperçu se met‑il à jour automatiquement lorsque je modifie le classeur dans le code ?**
+
+Considérez l'aperçu comme une capture. Lors de la mise à jour des données du classeur par programme, régénérez l'image du diagramme et remplacez à la fois l'aperçu et les données du classeur intégré.
+
+**Puis‑je utiliser XLS au lieu de XLSX ?**
+
+Oui. Enregistrez le classeur au format XLS et utilisez `xls` comme extension des données intégrées. L'extension doit correspondre au format réel du classeur ; modifier uniquement l'extension ne convertit pas les données.
+
+**Pourquoi l'objet peut‑il changer de taille après activation ?**
+
+L'application hôte peut mettre à jour la présentation de l'objet OLE lorsqu'elle active le classeur. La plage d'affichage OLE du classeur et les dimensions du cadre de la diapositive sont toutes deux importantes. Voir [Solution fonctionnelle pour le redimensionnement du diagramme dans PPTX](/slides/fr/cpp/working-solution-for-chart-resizing-in-pptx/).
+
+## **Sections associées**
+
+- [Solution fonctionnelle pour le redimensionnement du diagramme dans PPTX](/slides/fr/cpp/working-solution-for-chart-resizing-in-pptx/)
+- [Problème d'aperçu d'objet lors de l'ajout d'OleObjectFrame](/slides/fr/cpp/object-preview-issue-when-adding-oleobjectframe/)

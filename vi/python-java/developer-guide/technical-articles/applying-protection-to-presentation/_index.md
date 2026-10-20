@@ -1,56 +1,56 @@
 ---
-title: Ngăn chỉnh sửa bản trình bày bằng Khóa Shape
-linktitle: Ngăn chỉnh sửa bản trình bày
+title: Hạn chế chỉnh sửa bản trình chiếu bằng khóa hình dạng trong Python
+linktitle: Hạn chế chỉnh sửa bản trình chiếu
 type: docs
 weight: 60
 url: /vi/python-java/applying-protection-to-presentation/
 keywords:
-- ngăn chỉnh sửa
+- ngăn chặn chỉnh sửa
 - bảo vệ khỏi việc chỉnh sửa
-- khóa shape
+- khóa hình dạng
 - khóa vị trí
-- khóa chọn
-- khóa kích thước
+- khóa lựa chọn
+- khóa thay đổi kích thước
 - khóa nhóm
 - PowerPoint
-- OpenDocument
-- bản trình bày
+- PPTX
+- bản trình chiếu
 - Python
 - Java
 - Aspose.Slides
-description: "Khám phá cách Aspose.Slides for Python via Java khóa hoặc mở khóa các shape trong tệp PPT, PPTX và ODP, bảo mật bản trình bày đồng thời cho phép chỉnh sửa có kiểm soát và giao hàng nhanh hơn."
+description: "Tìm hiểu cách khóa và mở khóa các hình dạng trong bản trình chiếu PPTX bằng Aspose.Slides cho Python qua Java để hạn chế việc lựa chọn, di chuyển, thay đổi kích thước và nhóm."
 ---
 ## **Bối cảnh**
 
-Một cách sử dụng phổ biến của Aspose.Slides là tạo, cập nhật và lưu các bản trình bày Microsoft PowerPoint (PPTX) như một phần của quy trình tự động. Người dùng các ứng dụng sử dụng Aspose.Slides theo cách này có quyền truy cập vào các bản trình bày được tạo, do đó việc bảo vệ chúng khỏi việc chỉnh sửa là một mối quan tâm chung. Điều quan trọng là các bản trình bày được tạo tự động phải giữ nguyên định dạng và nội dung ban đầu.
+Một cách sử dụng phổ biến của Aspose.Slides for Python via Java là tạo, cập nhật và lưu các bản trình chiếu PowerPoint (PPTX) như một phần của quy trình tự động. Khi người dùng nhận được các bản trình chiếu này, việc hạn chế thay đổi các hình dạng có thể giúp bảo toàn bố cục và nội dung dự định.
 
-Bài viết này giải thích cách cấu trúc của bản trình bày và các slide, cũng như cách Aspose.Slides for Python via Java có thể áp dụng bảo vệ cho một bản trình bày và sau đó gỡ bỏ. Nó cung cấp cho các nhà phát triển một cách để kiểm soát cách sử dụng các bản trình bày mà ứng dụng của họ tạo ra.
+Bài viết này giải thích cách các hình dạng được tổ chức trên các slide và cách áp dụng và gỡ bỏ khóa hình dạng trong một bản trình chiếu PPTX. Các khóa này cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng.
 
 ## **Cấu trúc của một Slide**
 
-Một slide trong bản trình bày được tạo thành từ các thành phần như autoshapes, bảng, đối tượng OLE, các hình dạng nhóm, khung hình ảnh, khung video, connector và các yếu tố khác được sử dụng để xây dựng bản trình bày. Trong Aspose.Slides for Python via Java, mỗi yếu tố trên slide được đại diện bằng một đối tượng kế thừa từ lớp [Shape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/) .
+Một slide trong bản trình chiếu được tạo thành từ các thành phần như autoshapes, bảng, đối tượng OLE, nhóm hình dạng, khung hình, khung video, connector và các yếu tố khác được dùng để xây dựng bản trình chiếu. Trong Aspose.Slides for Python via Java, mỗi yếu tố trên slide được biểu diễn bằng một đối tượng kế thừa từ lớp [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) .
 
-Cấu trúc của PPTX khá phức tạp, vì vậy không giống như PPT, nơi có thể sử dụng một khóa chung cho mọi loại hình dạng, các loại hình dạng khác nhau yêu cầu các khóa khác nhau. Lớp [BaseShapeLock](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseshapelock/) là lớp khóa chung cho PPTX. Các loại khóa sau được hỗ trợ trong Aspose.Slides for Python via Java cho PPTX:
+Các loại hình dạng khác nhau cung cấp các tùy chọn khóa khác nhau. Lớp [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) là lớp cơ sở cho các khóa hình dạng. Aspose.Slides for Python via Java cung cấp các lớp khóa sau:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshapelock/) khóa các autoshape.  
-- [ConnectorLock](https://reference.aspose.com/slides/vi/python-java/aspose.slides/connectorlock/) khóa các connector.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/vi/python-java/aspose.slides/graphicalobjectlock/) khóa các đối tượng đồ họa.  
-- [GroupShapeLock](https://reference.aspose.com/slides/vi/python-java/aspose.slides/groupshapelock/) khóa các nhóm hình dạng.  
-- [PictureFrameLock](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframelock/) khóa các khung hình ảnh.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) khóa các autoshape.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) khóa các connector shape.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) khóa các đối tượng đồ họa.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) khóa các nhóm hình dạng.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) khóa các khung hình.  
 
-Bất kỳ hành động nào được thực hiện trên tất cả các đối tượng shape trong một đối tượng [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) sẽ được áp dụng cho toàn bộ bản trình bày.
+Để áp dụng khóa cho toàn bộ một [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), hãy lặp qua các slide của nó và đặt các khóa thích hợp cho mỗi hình dạng được hỗ trợ.
 
-## **Áp dụng và Gỡ bỏ Bảo vệ**
+## **Áp dụng và Gỡ bỏ bảo vệ**
 
-Việc áp dụng bảo vệ đảm bảo rằng một bản trình bày không thể bị chỉnh sửa. Đây là một kỹ thuật hữu ích để bảo vệ nội dung của bản trình bày.
+Các khóa hình dạng hạn chế các thao tác như chọn, di chuyển và thay đổi kích thước các hình dạng. Chúng không làm cho toàn bộ bản trình chiếu trở nên không thể chỉnh sửa.
 
-### **Áp dụng Bảo vệ cho Các Shape trong PPTX**
+### **Áp dụng bảo vệ cho các hình dạng PPTX**
 
-Aspose.Slides for Python via Java cung cấp lớp [Shape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/) để làm việc với các shape trên slide.
+Aspose.Slides for Python via Java cung cấp lớp [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) để làm việc với các hình dạng trên một slide.
 
-Như đã đề cập ở trên, mỗi lớp shape đều có một lớp shape‑lock tương ứng để bảo vệ. Bài viết này tập trung vào các khóa NoSelect, NoMove và NoResize. Các khóa này đảm bảo rằng các shape không thể được chọn (bằng cách nhấp chuột hoặc các phương pháp chọn khác) và không thể di chuyển hoặc thay đổi kích thước.
+Ví dụ gọi [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked), và [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) với `True` cho các autoshape, với các khóa tương đương cho nhóm hình dạng, connector và picture frame. Các connector sử dụng [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) để di chuyển; các nhóm cũng sử dụng [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) để hạn chế việc nhóm.
 
-Mẫu mã sau áp dụng bảo vệ cho tất cả các loại shape trong một bản trình bày.
+Ví dụ tải một bản trình chiếu PPTX hiện có, kiểm tra các hình dạng trong bộ sưu tập hình dạng của mỗi slide, và lưu một bản sao với các hạn chế này được áp dụng. Các hình dạng ngoài bốn loại được xử lý sẽ không bị thay đổi. Vòng lặp không duyệt các hình dạng con bên trong một nhóm.
 
 ```python
 import jpype
@@ -61,12 +61,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Khởi tạo lớp Presentation đại diện cho tệp PPTX.
 presentation = Presentation("Sample.pptx")
 try:
-    # Duyệt qua tất cả các slide trong bản trình bày.
     for slide in presentation.getSlides():
-        # Duyệt qua tất cả các shape trong slide.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -90,15 +87,14 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # Lưu tệp bản trình bày.
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Gỡ bỏ Bảo vệ**
+### **Gỡ bỏ bảo vệ**
 
-Để mở khóa một shape, đặt giá trị của khóa đã áp dụng thành `False`. Mẫu mã dưới đây cho thấy cách mở khóa các shape trong một bản trình bày đã bị khóa.
+Để gỡ bỏ một khóa hình dạng, đặt giá trị của nó thành `False`. Ví dụ sau tải một bản trình chiếu có các khóa hình dạng và xóa các hạn chế lựa chọn, di chuyển và thay đổi kích thước thông qua [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/), và [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Nó cũng gỡ bỏ hạn chế nhóm bằng cách truyền `False` cho [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked), và lưu một bản sao của bản trình chiếu. Các cài đặt khóa khác sẽ không bị thay đổi.
 
 ```python
 import jpype
@@ -109,12 +105,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Khởi tạo lớp Presentation đại diện cho tệp PPTX.
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # Duyệt qua tất cả các slide trong bản trình bày.
     for slide in presentation.getSlides():
-        # Duyệt qua tất cả các shape trong slide.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -138,26 +131,25 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # Lưu tệp bản trình bày.
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Kết luận**
+### **Kết luận**
 
-Aspose.Slides cung cấp một số tùy chọn để bảo vệ các shape trong một bản trình bày. Bạn có thể khóa một shape riêng lẻ hoặc duyệt qua tất cả các shape trong bản trình bày và khóa từng shape để bảo vệ toàn bộ tệp một cách hiệu quả. Bạn có thể gỡ bỏ bảo vệ bằng cách đặt giá trị khóa thành `False`.
+Aspose.Slides for Python via Java cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng hình dạng riêng lẻ hoặc áp dụng cùng một hạn chế trên toàn bộ các slide. Chọn các khóa được hỗ trợ bởi mỗi loại hình dạng, và đặt giá trị của chúng thành `False` khi bạn cần gỡ bỏ các hạn chế đó.
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể kết hợp các khóa shape và bảo vệ bằng mật khẩu trong cùng một bản trình bày không?**
+**Tôi có thể kết hợp khóa hình dạng và bảo vệ bằng mật khẩu trong cùng một bản trình chiếu không?**
 
-Có. Các khóa giới hạn việc chỉnh sửa các đối tượng bên trong tệp, trong khi [password protection](/slides/vi/python-java/password-protected-presentation/) kiểm soát quyền truy cập để mở và/hoặc lưu các thay đổi. Các cơ chế này bổ trợ lẫn nhau và hoạt động cùng nhau.
+Có. Khóa hình dạng hạn chế các thao tác chỉnh sửa cụ thể, trong khi [bảo vệ bằng mật khẩu](/slides/vi/python-java/password-protected-presentation/) có thể hạn chế việc mở hoặc sửa đổi bản trình chiếu. Bạn có thể sử dụng cả hai trong cùng một tệp.
 
-**Tôi có thể hạn chế việc chỉnh sửa trên các slide cụ thể mà không ảnh hưởng đến các slide khác không?**
+**Tôi có thể hạn chế chỉnh sửa trên các slide cụ thể mà không ảnh hưởng đến các slide khác không?**
 
-Có. Áp dụng khóa cho các shape trên các slide đã chọn; các slide còn lại sẽ vẫn có thể chỉnh sửa.
+Có. Áp dụng khóa chỉ cho các hình dạng trên các slide đã chọn. Điều này không thay đổi cài đặt khóa trên các slide khác.
 
-**Các khóa shape có áp dụng cho các đối tượng nhóm và connector không?**
+**Làm thế nào tôi có thể áp dụng khóa cho các hình dạng riêng lẻ bên trong một nhóm?**
 
-Có. Các loại khóa riêng được hỗ trợ cho nhóm, connector, đối tượng đồ họa và các loại shape khác.
+Lặp qua bộ sưu tập được trả về bởi phương thức [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) của nhóm và áp dụng các khóa thích hợp cho từng hình dạng con. Lặp lại quá trình này cho bất kỳ nhóm lồng nhau nào. Các ví dụ ở trên chỉ xử lý bộ sưu tập hình dạng của slide, vì vậy chúng không đặt khóa cho các thành viên riêng lẻ trong nhóm.

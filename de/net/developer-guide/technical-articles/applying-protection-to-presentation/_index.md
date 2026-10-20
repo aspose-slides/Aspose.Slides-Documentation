@@ -1,66 +1,66 @@
 ---
-title: Verhindern der Bearbeitung von Präsentationen mit Formschlössern in .NET
-linktitle: Präsentationsbearbeitung verhindern
+title: Einschränken von Präsentationsbearbeitungen mit Form-Sperren in .NET
+linktitle: Einschränken von Präsentationsbearbeitungen
 type: docs
 weight: 70
 url: /de/net/applying-protection-to-presentation/
 keywords:
 - Bearbeitung verhindern
-- Vor Bearbeitung schützen
+- vor Bearbeitung schützen
 - Form sperren
 - Position sperren
 - Auswahl sperren
-- Größe sperren
+- Größenänderung sperren
 - Gruppierung sperren
 - PowerPoint
-- OpenDocument
+- PPTX
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Entdecken Sie, wie Aspose.Slides für .NET Formen in PPT-, PPTX- und ODP-Dateien sperrt oder entsperrt, Präsentationen sichert und gleichzeitig kontrollierte Bearbeitungen ermöglicht."
+description: "Erfahren Sie, wie Sie Formen in PPTX-Präsentationen mit Aspose.Slides für .NET sperren und entsperren, um Auswahl, Bewegung, Größenänderung und Gruppierung zu beschränken."
 ---
-
 ## **Hintergrund**
 
-Eine häufige Verwendung von Aspose.Slides besteht darin, Microsoft PowerPoint (PPTX)-Präsentationen im Rahmen eines automatisierten Workflows zu erstellen, zu aktualisieren und zu speichern. Anwender von Anwendungen, die Aspose.Slides auf diese Weise einsetzen, haben Zugriff auf die erzeugten Präsentationen, sodass der Schutz vor Bearbeitung ein häufiges Anliegen ist. Es ist wichtig, dass automatisch erzeugte Präsentationen ihre ursprüngliche Formatierung und ihren Inhalt beibehalten.
+Eine häufige Verwendung von Aspose.Slides für .NET besteht darin, PowerPoint‑(PPTX‑)Präsentationen zu erstellen, zu aktualisieren und zu speichern, als Teil eines automatisierten Workflows. Wenn Benutzer diese Präsentationen erhalten, kann das Einschränken von Änderungen an Formen helfen, das beabsichtigte Layout und den Inhalt zu bewahren.
 
-Dieser Artikel erklärt, wie Präsentationen und Folien aufgebaut sind und wie Aspose.Slides für .NET Schutz auf eine Präsentation anwenden und später entfernen kann. Er bietet Entwicklern eine Möglichkeit, zu steuern, wie die von ihren Anwendungen erzeugten Präsentationen verwendet werden.
+Dieser Artikel erklärt, wie Formen auf Folien organisiert sind und wie Form‑Sperren in einer PPTX‑Präsentation angewendet und entfernt werden. Mit diesen Sperren können Sie bestimmte Bearbeitungs‑Operationen für einzelne Formen einschränken.
 
 ## **Zusammensetzung einer Folie**
 
-Eine Folie einer Präsentation besteht aus Komponenten wie Autoformen, Tabellen, OLE-Objekten, gruppierten Formen, Bildrahmen, Video‑Frames, Verbindungselementen und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides für .NET wird jedes Element einer Folie durch ein Objekt repräsentiert, das das [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) Interface implementiert oder von einer entsprechenden Klasse erbt.
+Eine Präsentationsfolie besteht aus Komponenten wie Autoformen, Tabellen, OLE‑Objekten, gruppierten Formen, Bildrahmen, Video‑Frames, Verbindungs‑Linien und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides für .NET wird jedes Element auf einer Folie durch ein Objekt dargestellt, das das [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)‑Interface implementiert oder von einer Klasse erbt, die dies tut.
 
-Die Struktur von PPTX ist komplex, sodass im Gegensatz zu PPT, wo ein generischer Sperre für alle Formtypen verwendet werden kann, verschiedene Formtypen unterschiedliche Sperren benötigen. Das [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) Interface ist die generische Sperrklasse für PPTX. Die folgenden Sperrtypen werden in Aspose.Slides für .NET für PPTX unterstützt:
+Verschiedene Formtypen bieten unterschiedliche Sperr‑Optionen. Das [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/)‑Interface ist das Basisschnittstelle für Form‑Sperren. Aspose.Slides für .NET stellt die folgenden Sperr‑Interfaces bereit:
 
 - [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) sperrt Autoformen.  
-- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) sperrt Verbindungselemente.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) sperrt Connector‑Formen.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) sperrt grafische Objekte.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) sperrt gruppierte Formen.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) sperrt Gruppenformen.  
 - [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) sperrt Bildrahmen.  
 
-Jede auf alle Formobjekte in einem [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Objekt ausgeführte Aktion wird auf die gesamte Präsentation angewendet.
+Um Sperren für eine [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) anzuwenden, iterieren Sie über deren Folien und setzen die entsprechenden Sperren für jede unterstützte Form.
 
 ## **Schutz anwenden und entfernen**
 
-Das Anwenden von Schutz stellt sicher, dass eine Präsentation nicht bearbeitet werden kann. Es ist eine nützliche Technik zum Schutz des Inhalts einer Präsentation.
+Form‑Sperren beschränken Vorgänge wie das Auswählen, Verschieben und Ändern der Größe von Formen. Sie machen die gesamte Präsentation nicht uneditierbar.
 
 ### **Schutz auf PPTX‑Formen anwenden**
 
-Aspose.Slides für .NET stellt das [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) Interface bereit, um mit Formen auf einer Folie zu arbeiten.
+Aspose.Slides für .NET stellt das [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)‑Interface bereit, um mit Formen auf einer Folie zu arbeiten.
 
-Wie bereits erwähnt, verfügt jede Formklasse über eine zugehörige Form‑Sperrklasse zum Schutz. Dieser Artikel konzentriert sich auf die Sperren NoSelect, NoMove und NoResize. Diese Sperren stellen sicher, dass Formen nicht ausgewählt (durch Mausklicks oder andere Auswahlmethoden) und nicht verschoben oder in der Größe verändert werden können.
+Das Beispiel setzt [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) und [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) für Autoformen auf `true` und verwendet entsprechende Sperren für Gruppenformen, Connectoren und Bildrahmen. Connectoren nutzen [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) für Bewegungen; Gruppen verwenden außerdem [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/), um das Gruppieren zu beschränken.
 
-Das nachfolgende Code‑Beispiel wendet Schutz auf alle Formtypen in einer Präsentation an.
+Das Beispiel lädt eine vorhandene PPTX‑Präsentation, prüft die Formen in der Form‑Sammlung jeder Folie und speichert eine Kopie mit den angewendeten Einschränkungen. Formen, die nicht zu den vier behandelten Typen gehören, bleiben unverändert. Die Schleife durchläuft nicht die Kindformen innerhalb einer Gruppe.
+
 ```cs
-// Instanziieren der Presentation-Klasse, die eine PPTX-Datei repräsentiert.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Durchlaufen aller Folien in der Präsentation.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Durchlaufen aller Formen in der Folie.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Speichern der Präsentationsdatei.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-
 ### **Schutz entfernen**
 
-Um eine Form zu entsperren, setzen Sie den Wert der angewendeten Sperre auf `false`. Das folgende Code‑Beispiel zeigt, wie Formen in einer gesperrten Präsentation entsperrt werden.
-```cs
-// Instanziieren der Presentation-Klasse, die eine PPTX-Datei darstellt.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+Um eine Form‑Sperre zu entfernen, setzen Sie ihren Wert auf `false`. Das folgende Beispiel lädt eine Präsentation mit Form‑Sperren und entfernt die Auswahl‑, Bewegungs‑ und Größenbeschränkungen über [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) und [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). Es löscht außerdem [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) und speichert eine Kopie der Präsentation. Andere Sperreinstellungen bleiben unverändert.
 
-// Durchlaufen aller Folien in der Präsentation.
-foreach (ISlide slide in presentation.Slides)
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Durchlaufen aller Formen in der Folie.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,25 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Speichern der Präsentationsdatei.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
-
 ### **Fazit**
 
-Aspose.Slides bietet mehrere Optionen zum Schutz von Formen in einer Präsentation. Sie können eine einzelne Form sperren oder alle Formen in einer Präsentation durchlaufen und jede einzeln sperren, um die gesamte Datei effektiv zu sichern. Der Schutz kann entfernt werden, indem der Sperrwert auf `false` gesetzt wird.
+Aspose.Slides für .NET ermöglicht es Ihnen, bestimmte Bearbeitungs‑Operationen für einzelne Formen zu beschränken oder dieselben Einschränkungen über Folien hinweg anzuwenden. Wählen Sie die für den jeweiligen Formtyp unterstützten Sperren und setzen Sie deren Werte auf `false`, wenn Sie diese Einschränkungen entfernen müssen.
 
 ## **FAQ**
 
 **Kann ich Form‑Sperren und Passwortschutz in derselben Präsentation kombinieren?**
 
-Ja. Sperren beschränken die Bearbeitung von Objekten innerhalb der Datei, während [password protection](/slides/de/net/password-protected-presentation/) den Zugriff auf das Öffnen und/oder das Speichern von Änderungen steuert. Diese Mechanismen ergänzen sich und arbeiten zusammen.
+Ja. Form‑Sperren beschränken bestimmte Bearbeitungs‑Operationen, während [Passwortschutz](/slides/de/net/password-protected-presentation/) das Öffnen oder Ändern der Präsentation einschränken kann. Sie können beide in derselben Datei verwenden.
 
-**Kann ich die Bearbeitung auf bestimmten Folien einschränken, ohne andere zu beeinflussen?**
+**Kann ich die Bearbeitung bestimmter Folien einschränken, ohne andere zu beeinflussen?**
 
-Ja. Sperren Sie die Formen auf den ausgewählten Folien; die übrigen Folien bleiben bearbeitbar.
+Ja. Wenden Sie Sperren nur auf Formen der ausgewählten Folien an. Dadurch werden die Sperreinstellungen anderer Folien nicht verändert.
 
-**Gelten Form‑Sperren für gruppierte Objekte und Verbindungen?**
+**Wie kann ich Sperren auf einzelne Formen innerhalb einer Gruppe anwenden?**
 
-Ja. Für Gruppen, Verbindungen, Grafik‑Objekte und andere Formarten werden dedizierte Sperrtypen unterstützt.
+Iterieren Sie durch die [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)‑Sammlung der Gruppe und setzen die entsprechenden Sperren für jede Kindform. Wiederholen Sie dies für verschachtelte Gruppen. Die obigen Beispiele verarbeiten nur die Form‑Sammlung der Folie, sodass sie keine Sperren für einzelne Gruppenmitglieder setzen.

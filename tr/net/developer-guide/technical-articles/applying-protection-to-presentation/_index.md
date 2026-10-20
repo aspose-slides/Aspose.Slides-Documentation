@@ -1,6 +1,6 @@
 ---
-title: Sunum Düzenlemelerini .NET'te Şekil Kilitleriyle Önleme
-linktitle: Sunum Düzenlemelerini Önleme
+title: .NET'te Şekil Kilitleri ile Sunum Düzenlemelerini Kısıtla
+linktitle: Sunum Düzenlemelerini Kısıtla
 type: docs
 weight: 70
 url: /tr/net/applying-protection-to-presentation/
@@ -10,57 +10,57 @@ keywords:
 - şekli kilitle
 - konumu kilitle
 - seçimi kilitle
-- boyutu kilitle
+- yeniden boyutlandırmayı kilitle
 - gruplamayı kilitle
 - PowerPoint
-- OpenDocument
+- PPTX
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'in PPT, PPTX ve ODP dosyalarında şekilleri nasıl kilitlediğini veya kilidini kaldırdığını keşfedin; sunumları güvenli hale getirirken kontrollü düzenlemelere izin verir."
+description: "Aspose.Slides for .NET ile PPTX sunumlarında şekilleri nasıl kilitleyeceğinizi ve kilidini kaldıracağınızı öğrenin; seçim, hareket, yeniden boyutlandırma ve gruplamayı kısıtlamak için."
 ---
 ## **Arka Plan**
 
-Aspose.Slides'in yaygın bir kullanımı, otomatik bir iş akışının parçası olarak Microsoft PowerPoint (PPTX) sunumları oluşturmak, güncellemek ve kaydetmektir. Aspose.Slides'i bu şekilde kullanan uygulamaların kullanıcıları oluşturulan sunumlara erişir, bu nedenle bunları düzenlemeden korumak yaygın bir endişedir. Otomatik olarak oluşturulan sunumların özgün biçimlendirmesini ve içeriğini koruması önemlidir.
+Aspose.Slides for .NET'in yaygın bir kullanımı, otomatik bir iş akışının parçası olarak PowerPoint (PPTX) sunumları oluşturmak, güncellemek ve kaydetmektir. Kullanıcılar bu sunumları aldıklarında, şekillerdeki değişiklikleri kısıtlamak, istenen düzeni ve içeriği korumaya yardımcı olabilir.
 
-Bu makale, sunumların ve slaytların nasıl yapılandırıldığını ve Aspose.Slides for .NET'in bir sunuma koruma nasıl uygulayabileceğini ve daha sonra nasıl kaldırabileceğini açıklar. Geliştiricilere, uygulamalarının ürettiği sunumların nasıl kullanılacağını kontrol etme imkanı sağlar.
+Bu makale, şekillerin slaytlarda nasıl düzenlendiğini ve bir PPTX sunumunda şekil kilitlerinin nasıl uygulanıp kaldırılacağını açıklar. Bu kilitler, tek tek şekillerde belirli düzenleme işlemlerini kısıtlamanızı sağlar.
 
-## **Slayt Bileşimi**
+## **Bir Slaytın Bileşimi**
 
-Bir sunum slaytı, otomatik şekiller, tablolar, OLE nesneleri, grup şekilleri, resim çerçeveleri, video çerçeveleri, bağlayıcılar ve bir sunum oluşturmak için kullanılan diğer öğeler gibi bileşenlerden oluşur. Aspose.Slides for .NET'te, bir slayttaki her öğe, [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) arayüzünü uygulayan veya bu arayüzü uygulayan bir sınıftan türeyen bir nesneyle temsil edilir.
+Bir sunum slaytı, otomatik şekiller, tablolar, OLE nesneleri, gruplanmış şekiller, resim çerçeveleri, video çerçeveleri, bağlayıcılar ve bir sunum oluşturmak için kullanılan diğer öğeler gibi bileşenlerden oluşur. Aspose.Slides for .NET'te, slayttaki her öğe, [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) arayüzünü uygulayan veya bu arayüzü miras alan bir nesneyle temsil edilir.
 
-PPTX yapısı karmaşıktır, bu yüzden tüm şekil türleri için genel bir kilit kullanılabilen PPT'den farklı olarak, farklı şekil tipleri farklı kilitler gerektirir. [IBaseShapeLock](https://reference.aspose.com/slides/tr/net/aspose.slides/ibaseshapelock/) arayüzü, PPTX için genel kilitleme sınıfıdır. Aspose.Slides for .NET, PPTX için aşağıdaki kilit türlerini destekler:
+Farklı şekil türleri farklı kilitleme seçenekleri sunar. [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) arayüzü, şekil kilitleri için temel arayüzdür. Aspose.Slides for .NET aşağıdaki kilit arayüzlerini sağlar:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshapelock/) otomatik şekilleri kilitler.  
-- [IConnectorLock](https://reference.aspose.com/slides/tr/net/aspose.slides/iconnectorlock/) bağlayıcı şekilleri kilitler.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/tr/net/aspose.slides/igraphicalobjectlock/) grafik nesneleri kilitler.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/tr/net/aspose.slides/igroupshapelock/) grup şekilleri kilitler.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframelock/) resim çerçevelerini kilitler.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) otomatik şekilleri kilitler.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) bağlayıcı şekilleri kilitler.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) grafik nesneleri kilitler.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) grup şekillerini kilitler.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) resim çerçevelerini kilitler.  
 
-Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) nesnesindeki tüm şekil nesnelerine yapılan herhangi bir işlem, tüm sunuma uygulanır.
+Bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) içinde kilitleri uygulamak için, slaytlarını dolaşın ve her desteklenen şekil üzerinde uygun kilitleri ayarlayın.
 
 ## **Koruma Uygulama ve Kaldırma**
 
-Koruma uygulamak, bir sunumun düzenlenememesini sağlar. Sunum içeriğini korumak için yararlı bir tekniktir.
+Şekil kilitleri, şekilleri seçme, taşıma ve yeniden boyutlandırma gibi işlemleri kısıtlar. Tüm sunumu düzenlenemez hâle getirmez.
 
 ### **PPTX Şekillerine Koruma Uygulama**
 
-Aspose.Slides for .NET, bir slayttaki şekillerle çalışmak için [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) arayüzünü sunar.
+Aspose.Slides for .NET, bir slayttaki şekillerle çalışmak için [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) arayüzünü sağlar.
 
-Daha önce belirtildiği gibi, her şekil sınıfının koruma için ilişkili bir shape-lock sınıfı vardır. Bu makale NoSelect, NoMove ve NoResize kilitlerine odaklanır. Bu kilitler, şekillerin (fare tıklamaları veya diğer seçim yöntemleriyle) seçilememesini ve taşınamamasını veya yeniden boyutlandırılamamasını sağlar.
+Örnek, otomatik şekiller için [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) ve [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) özelliklerini `true` olarak ayarlar; grup şekilleri, bağlayıcılar ve resim çerçeveleri için eşdeğer kilitler bulunur. Bağlayıcılar hareket için [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) kullanır; gruplar ayrıca gruplamayı sınırlamak için [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) kullanır.
 
-Aşağıdaki kod örneği, bir sunumdaki tüm şekil türlerine koruma uygular.
+Örnek, mevcut bir PPTX sunumunu yükler, her slaydın şekil koleksiyonundaki şekilleri kontrol eder ve bu kısıtlamalar uygulanmış bir kopyasını kaydeder. Dört işlenen tür dışındaki şekiller değişmeden kalır. Döngü, bir grup içindeki alt şekilleri dolaşmaz.
 
 ```cs
-// PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Sunumdaki tüm slaytları dolaşıyor.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Slayttaki tüm şekilleri dolaşıyor.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Sunum dosyasını kaydediyor.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Koruma Kaldırma**
 
-Bir şeklin kilidini açmak için, uygulanan kilidin değerini `false` olarak ayarlayın. Aşağıdaki kod örneği, kilitli bir sunumda şekillerin kilidini nasıl açacağınızı gösterir.
+Bir şekil kilidini kaldırmak için, değerini `false` olarak ayarlayın. Aşağıdaki örnek, şekil kilitleri olan bir sunumu yükler ve [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) ve [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) aracılığıyla seçim, hareket ve yeniden boyutlandırma kısıtlamalarını temizler. Ayrıca [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) özelliğini temizler ve sunumun bir kopyasını kaydeder. Diğer kilit ayarları değişmeden kalır.
 
 ```cs
-// PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Sunumdaki tüm slaytları dolaşıyor.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Slayttaki tüm şekilleri dolaşıyor.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,24 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Sunum dosyasını kaydediyor.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Sonuç**
 
-Aspose.Slides, bir sunumdaki şekilleri korumak için çeşitli seçenekler sunar. Tek bir şekli kilitleyebilir veya bir sunumdaki tüm şekiller üzerinde döngü yaparak her birini kilitleyebilir ve böylece tüm dosyayı etkili bir şekilde güvene alabilirsiniz. Kilit değerini `false` olarak ayarlayarak korumayı kaldırabilirsiniz.
+Aspose.Slides for .NET, tek tek şekillerde belirli düzenleme işlemlerini kısıtlamanıza veya aynı kısıtlamaları slaytlar arasında uygulamanıza olanak tanır. Her şekil türü tarafından desteklenen kilitleri seçin ve bu kısıtlamaları kaldırmanız gerektiğinde değerlerini `false` olarak ayarlayın.
 
 ## **SSS**
 
 **Aynı sunumda şekil kilitlerini ve şifre korumasını birleştirebilir miyim?**
 
-Evet. Kilitler, dosya içindeki nesnelerin düzenlenmesini sınırlar, [password protection](/slides/tr/net/password-protected-presentation/) ise açma ve/veya değişiklikleri kaydetme erişimini kontrol eder. Bu mekanizmalar birbirini tamamlar ve birlikte çalışır.
+Evet. Şekil kilitleri belirli düzenleme işlemlerini kısıtlarken, [password protection](/slides/tr/net/password-protected-presentation/) sunumun açılmasını veya değiştirilmesini kısıtlayabilir. İkisini aynı dosyada kullanabilirsiniz.
 
-**Belirli slaytlarda düzenlemeyi kısıtlayabilir, diğerlerini etkilemeden bırakabilir miyim?**
+**Diğer slaytları etkilemeden belirli slaytlarda düzenlemeyi kısıtlayabilir miyim?**
 
-Evet. Seçili slaytlardaki şekillere kilitler uygulayın; kalan slaytlar düzenlenebilir kalır.
+Evet. Kilitleri yalnızca seçilen slaytlardaki şekillere uygulayın. Bu, diğer slaytlardaki kilit ayarlarını değiştirmez.
 
-**Şekil kilitleri grup nesneleri ve bağlayıcılar için geçerli mi?**
+**Bir grup içinde tek tek şekillere nasıl kilit uygulayabilirim?**
 
-Evet. Gruplar, bağlayıcılar, grafik nesneler ve diğer şekil türleri için özel kilit tipleri desteklenir.
+Grup'un [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) koleksiyonunda dolaşın ve her alt şekle uygun kilitleri uygulayın. İç içe gruplar için de bu işlemi tekrarlayın. Yukarıdaki örnekler yalnızca slaydın şekil koleksiyonunu işler, bu yüzden bireysel grup üyelerine kilit uygulamaz.

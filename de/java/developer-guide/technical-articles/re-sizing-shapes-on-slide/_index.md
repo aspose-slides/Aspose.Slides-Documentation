@@ -1,8 +1,11 @@
 ---
-title: Formen auf Präsentationsfolien skalieren
+title: Formen auf Präsentationsfolien in Java skalieren
 type: docs
-weight: 110
-url: /de/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /de/java/resizing-shapes-on-slide/
+aliases:
+  - /de/java/re-sizing-shapes-on-slide/
+  /java/re-sizing-shapes-on-slide/
 keywords:
 - Form skalieren
 - Formgröße ändern
@@ -11,123 +14,37 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Skalieren Sie Formen auf PowerPoint- und OpenDocument-Folien ganz einfach mit Aspose.Slides für Java—automatisieren Sie Folienlayout-Anpassungen und steigern Sie die Produktivität."
+description: "Einfach Formen auf PowerPoint- und OpenDocument-Folien mit Aspose.Slides für Java skalieren – die Folienlayout-Anpassungen automatisieren und die Produktivität steigern."
 ---
-
 ## **Übersicht**
 
-Eine der häufigsten Fragen von Aspose.Slides‑für‑Java‑Kunden ist, wie Formen skaliert werden können, damit beim Ändern der Foliengröße die Daten nicht abgeschnitten werden. Dieser kurze technische Artikel zeigt, wie das funktioniert.
+Wenn Sie die Foliengröße einer Präsentation ändern, müssen Sie möglicherweise auch die Formen an die neuen Abmessungen anpassen und ihre Position neu festlegen. Dieser Artikel zeigt, wie Formen manuell skaliert werden können und wie Tabellen auf Folien, Masterfolien und Layouts behandelt werden.
 
 ## **Formen skalieren**
 
-Um zu verhindern, dass Formen bei Änderungen der Foliengröße verschoben werden, aktualisieren Sie die Position und Größe jeder Form, sodass sie dem neuen Folienlayout entsprechen.
+Um die relative Position und Größe jeder Form beizubehalten, multiplizieren Sie ihre horizontalen Koordinaten und die Breite mit dem Verhältnis der neuen Folienbreite zur ursprünglichen Breite. Wenden Sie das entsprechende Höhenverhältnis auf die vertikalen Koordinaten und die Höhe an.
+
+Das erste Beispiel lädt eine Präsentation, deren Folien keine Tabellen enthalten, ändert die Foliengröße auf A4 und speichert das Ergebnis. Es verwendet [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) mit [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale), sodass die nachfolgende Schleife die Skalierung steuert. Die Verhältnisse sind ohne Einheit; Positionen und Abmessungen von Formen werden in Punkten gemessen. Unterschiedliche Breiten‑ und Höhenverhältnisse können Formen verzerren, und das Ändern der Formabmessungen skaliert nicht die Schriftgrößen.
+
 ```java
-// Präsentationsdatei laden.
-Presentation presentation = new Presentation("sample.ppt");
-try {
-    // Originale Foliengröße abrufen.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-    // Foliengröße ändern, ohne vorhandene Formen zu skalieren.
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Neue Foliengröße abrufen.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Formen auf jeder Folie skalieren und neu positionieren.
-    for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            
-            // Formgröße skalieren.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Formposition skalieren.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
-    }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-
-{{% alert color="primary" %}} 
-Enthält eine Folie eine Tabelle, funktioniert der obige Code nicht korrekt. In diesem Fall muss jede Zelle der Tabelle skaliert werden.
-{{% /alert %}} 
-
-Verwenden Sie den folgenden Code, um Folien, die Tabellen enthalten, zu skalieren. Für Tabellen ist das Festlegen von Breite oder Höhe ein Sonderfall: Sie müssen die einzelnen Zeilenhöhen und Spaltenbreiten anpassen, um die Gesamtabmessungen der Tabelle zu ändern.
-```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Originale Foliengröße abrufen.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Foliengröße ändern, ohne vorhandene Formen zu skalieren.
+    // Unabhängige horizontale und vertikale Skalierungsfaktoren berechnen.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
-
-    // Neue Foliengröße abrufen.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // Formgröße skalieren.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Formposition skalieren.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
-
-        for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // Formgröße skalieren.
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // Formposition skalieren.
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
-        }
-    }
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            // Formgröße skalieren.
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Formposition skalieren.
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -138,33 +55,98 @@ finally {
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+Tabellen erfordern eine separate Behandlung: Skalieren Sie die Spaltenbreiten und Zeilenhöhen, anstatt die Gesamtbreite und -höhe der Tabelle zuzuweisen. Zeilenhöhen können größer bleiben als angefordert, wenn der Zellinhalt mehr Platz benötigt.
+{{% /alert %}}
+
+Das zweite Beispiel unterstützt Tabellen und verarbeitet Formen auf Masterfolien und Layouts sowie einzelne Folien, bevor die skalierte Präsentation gespeichert wird. Sein Helfer verarbeitet jedes [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) indem er die Spaltenbreiten mit [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) und die minimalen Zeilenhöhen mit [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-) skaliert. Anschließend wird die Position der Tabelle skaliert, ohne ihre Gesamtabmessungen separat zu skalieren.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // Tabellendimensionen werden über Spaltenbreiten und Zeilenhöhen gesteuert.
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    // Unabhängige horizontale und vertikale Skalierungsfaktoren berechnen.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
+    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
+
+    ShapeResizer resizer = new ShapeResizer();
+
+    // Formen, die auf Master‑Folien und Layouts sowie einzelnen Folien definiert sind, skalieren.
+    for (IMasterSlide master : presentation.getMasters()) {
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
+
+        for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
+        }
+    }
+
+    for (ISlide slide : presentation.getSlides()) {
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+}
+finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**Warum werden Formen nach dem Skalieren einer Folie verzerrt oder abgeschnitten?**
+**Warum werden Formen nach dem Ändern der Foliengröße verzerrt oder abgeschnitten?**
 
-Beim Skalieren einer Folie behalten Formen ihre ursprüngliche Position und Größe bei, sofern die Skalierung nicht explizit geändert wird. Das kann dazu führen, dass Inhalte beschnitten oder Formen verschoben werden.
+Wenn Sie die Foliengröße ändern, ohne die Formen zu skalieren, behalten sie ihre ursprünglichen Positionen und Abmessungen bei und können über die Folie hinausgehen. Das Skalieren von Breite und Höhe mit unterschiedlichen Verhältnissen kann Formen ebenfalls verzerren.
 
 **Funktioniert der bereitgestellte Code für alle Formtypen?**
 
-Das Grundbeispiel funktioniert für die meisten Formtypen (Textfelder, Bilder, Diagramme usw.). Für Tabellen muss jedoch jede Zeile und Spalte separat behandelt werden, da die Höhe und Breite einer Tabelle durch die Abmessungen der einzelnen Zellen bestimmt werden.
+Das erste Beispiel ändert die Formgrenzen direkt und ist für Folien ohne Tabellen gedacht. Das zweite Beispiel behandelt Tabellen separat. Überprüfen Sie das resultierende Layout, insbesondere Text und Tabellen, da diese Beispiele die Schriftgrößen nicht skalieren und Tabelleninhalte die Zeilenhöhen einschränken können.
 
-**Wie skalieren Sie Tabellen beim Skalieren einer Folie?**
+**Wie kann ich Tabellen beim Ändern der Foliengröße skalieren?**
 
-Sie müssen alle Zeilen und Spalten der Tabelle durchlaufen und deren Höhe und Breite proportional anpassen, wie im zweiten Codebeispiel gezeigt.
+Skalieren Sie die Spaltenbreiten mit dem Breitenverhältnis und die minimalen Zeilenhöhen mit dem Höhenverhältnis und anschließend die Position der Tabelle, wie im zweiten Beispiel gezeigt.
 
-**Funktioniert dieses Skalieren für Masterfolien und Layoutfolien?**
+**Wird dieses Skalieren für Masterfolien und Layoutfolien funktionieren?**
 
-Ja, aber Sie sollten auch durch [Masterfolien](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) und [Layoutfolien](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) iterieren und dieselbe Skalierungslogik auf deren Formen anwenden, um Konsistenz über die gesamte Präsentation hinweg zu gewährleisten.
+Ja. Das zweite Beispiel iteriert über [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) und über die [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) jeder Masterfolie und wendet dieselbe Skalierungslogik auf deren Formen an.
 
-**Kann ich die Ausrichtung einer Folie (Portrait/Landschaft) zusammen mit dem Skalieren ändern?**
+**Kann ich die Ausrichtung einer Folie (Hochformat/Querformat) zusammen mit der Skalierung ändern?**
 
-Ja. Sie können [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/islidesize/#setOrientation-int-) verwenden, um die Ausrichtung zu ändern. Stellen Sie sicher, dass Sie die Skalierungslogik entsprechend anpassen, um das Layout beizubehalten.
+Ja. Rufen Sie [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) auf, nachdem Sie die Foliengröße geändert haben und bevor Sie die Zielabmessungen lesen, damit die Skalierungsfaktoren die endgültige Ausrichtung berücksichtigen.
 
-**Gibt es eine Grenze für die Foliengröße, die ich einstellen kann?**
+**Gibt es eine Obergrenze für die Foliengröße, die ich festlegen kann?**
 
-Aspose.Slides unterstützt benutzerdefinierte Größen, aber sehr große Größen können die Leistung beeinträchtigen oder die Kompatibilität mit manchen PowerPoint‑Versionen einschränken.
+Sie können benutzerdefinierte Folienabmessungen mit [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-) festlegen. Die unterstützten Abmessungen hängen außerdem vom Präsentationsformat und von der Anwendung ab, mit der die Datei geöffnet wird.
 
 **Wie kann ich verhindern, dass Formen mit festem Seitenverhältnis verzerrt werden?**
 
-Sie können vor dem Skalieren die Methode `getAspectRatioLocked` der Form prüfen. Ist sie gesperrt, passen Sie Breite oder Höhe proportional an, anstatt sie einzeln zu skalieren.
+Verwenden Sie denselben Skalierungsfaktor für Breite und Höhe. Um das ursprüngliche Layout in die neuen Folienabmessungen einzupassen, verwenden Sie das kleinere der beiden Verhältnisse für beide Dimensionen und Positionen. Dadurch bleiben die Proportionen erhalten, es kann jedoch entlang einer Kante ungenutzter Raum verbleiben.

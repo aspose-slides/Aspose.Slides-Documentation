@@ -1,48 +1,41 @@
 ---
-title: Werkende oplossing voor grafiek‑schaling in PPTX
+title: Werkende oplossing voor grafiekgrootte aanpassen in PPTX
 type: docs
 weight: 40
 url: /nl/python-java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- grafiek schalen
-- Excel‑grafiek
-- OLE‑object
+- grafiekgrootte aanpassen
+- Excel-grafiek
+- OLE-object
 - grafiek insluiten
 - PowerPoint
-- OpenDocument
 - presentatie
 - Python
 - Java
 - Aspose.Slides
-description: "Los onverwachte grafiek‑schaling op in PPTX bij gebruik van ingebedde Excel OLE‑objecten met Aspose.Slides voor Python via Java. Leer twee methoden met code om de afmetingen consistent te houden."
+description: "Los onverwachte wijziging van grafiekgrootte in PPTX op bij het gebruik van ingebedde Excel OLE-objecten met Aspose.Slides for Python via Java. Stel vaste grafiekafmetingen in om de grafiek- en OLE-framegroottes consistent te houden."
 ---
 ## **Achtergrond**
 
-Er is geconstateerd dat Excel‑grafieken die als OLE‑objecten in een PowerPoint‑presentatie zijn ingebed via Aspose‑componenten, na hun eerste activering worden geschaald naar een ongedefinieerde grootte. Dit gedrag veroorzaakt een duidelijke visuele afwijking in de presentatie tussen de voor‑ en na‑activeringsstatus van de grafiek. Het Aspose‑team heeft het probleem grondig onderzocht en een oplossing gevonden. Dit artikel beschrijft de oorzaken van het probleem en de bijbehorende oplossing.
+Excel‑grafieken die als OLE‑objecten in PowerPoint‑presentaties zijn ingebed met behulp van Aspose‑componenten, kunnen van grootte veranderen na hun eerste activering. Dit kan een merkbaar verschil veroorzaken in het uiterlijk van de grafiek vóór en na activering. Dit artikel legt uit waarom het formaat verandert en laat zien hoe dit te voorkomen door vaste grafiekafmetingen af te stemmen op het OLE‑frame.
 
-In het [vorige artikel](/slides/nl/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), legden we uit hoe je een Excel‑grafiek maakt met Aspose.Cells voor Python via Java en deze in een PowerPoint‑presentatie embedden met Aspose.Slides voor Python via Java. Om het [object‑preview‑probleem](/slides/nl/python-java/object-preview-issue-when-adding-oleobjectframe/) aan te pakken, hebben we de grafiekafbeelding toegewezen aan het OLE‑objectframe van de grafiek. In de resulterende presentatie wordt, wanneer je dubbelklikt op het OLE‑objectframe dat de grafiekafbeelding toont, de Excel‑grafiek geactiveerd. Eindgebruikers kunnen gewenste wijzigingen aanbrengen in de onderliggende Excel‑werkmap en vervolgens terugkeren naar de betreffende dia door buiten de geactiveerde werkmap te klikken. De grootte van het OLE‑objectframe verandert wanneer de gebruiker terugkeert naar de dia, en de vergrotingsfactor varieert afhankelijk van de oorspronkelijke afmetingen van zowel het OLE‑objectframe als de ingebedde Excel‑werkmap.
+In [Maak Excel‑grafieken en embed ze als OLE‑objecten in presentaties](/slides/nl/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), legden we uit hoe je een Excel‑grafiek maakt met Aspose.Cells for Python via Java en deze in een PowerPoint‑presentatie embed met Aspose.Slides for Python via Java. Om het [probleem met voorbeeldweergave van object](/slides/nl/python-java/object-preview-issue-when-adding-oleobjectframe/) aan te pakken, hebben we de grafiekafbeelding toegewezen aan het OLE‑objectframe van de grafiek. In de gegenereerde presentatie, wanneer je dubbelklikt op het OLE‑objectframe dat de grafiekafbeelding toont, wordt de Excel‑grafiek geactiveerd. Gebruikers kunnen de ingebedde Excel‑werkmap bewerken en daarna terugkeren naar de dia door buiten de geactiveerde werkmap te klikken. De grootte van het OLE‑objectframe verandert wanneer de gebruiker terugkeert naar de dia, en de schaalfactor varieert afhankelijk van de oorspronkelijke afmetingen van zowel het OLE‑objectframe als de ingebedde Excel‑werkmap.
 
-## **Oorzaak van de grootte‑aanpassing**
+## **Oorzaak van formaatverandering**
 
-Omdat de Excel‑werkmap zijn eigen venstergrootte heeft, probeert hij bij de eerste activering zijn oorspronkelijke grootte te behouden. Het OLE‑objectframe heeft echter zijn eigen afmetingen. Volgens Microsoft onderhandelen Excel en PowerPoint over de grootte wanneer de Excel‑werkmap wordt geactiveerd en behouden ze de juiste verhoudingen als onderdeel van het insluitingsproces. Afhankelijk van de verschillen tussen de grootte van het Excel‑venster en die van het OLE‑objectframe (of de positie), treedt de aanpassing op.
+De ingebedde Excel‑werkmap heeft eigen venstergrootte, die Excel probeert te behouden wanneer het object voor het eerst wordt geactiveerd. Het OLE‑frame op de dia heeft onafhankelijk gedefinieerde afmetingen. Wanneer de Excel‑werkmap wordt geactiveerd, onderhandelen Excel en PowerPoint over de grootte van het object om de verhoudingen te behouden als onderdeel van het embedproces. Verschillen tussen het werkmapvenster en het OLE‑frame kunnen daarom zorgen dat het object van grootte verandert.
 
 ## **Werkende oplossing**
 
-Er zijn twee mogelijke scenario’s voor het maken van PowerPoint‑presentaties met Aspose.Slides voor Python via Java.
+Stem de grafiekgrootte af op het OLE‑frame op de dia en houd de grafiekafmetingen onafhankelijk van het werkmapvenster. Deze oplossing werkt met een nieuwe presentatie of een bestaande sjabloon.
 
-**Scenario 1:** Een presentatie maken op basis van een bestaand sjabloon.
+Het voorbeeld vereist Aspose.Cells for Python via Java en Aspose.Slides for Python via Java. Het maakt een eenvoudige kolomgrafiek op een actief grafiekblad en embed de werkmap in XLS‑formaat. Er wordt geen voorbeeldafbeelding van de grafiek toegewezen; de grafiek wordt zichtbaar wanneer het OLE‑object wordt geactiveerd in PowerPoint.
 
-**Scenario 2:** Een presentatie vanaf nul maken.
+Het voorbeeld maakt een nieuwe presentatie met een 9,5 × 4‑inch OLE‑frame dat 0,5 inch van de linkerkant en 1 inch van de bovenkant is gepositioneerd. Diacoördinaten en afmetingen zijn in points (72 points per inch). Voor een bestaande presentatie, zie [Gebruik een sjabloon](#use-a-template).
 
-De oplossing die we hier bieden, is van toepassing op beide scenario’s. De basis van alle oplossingsbenaderingen is dezelfde: **de venstergrootte van het ingebedde OLE‑object moet overeenkomen met het OLE‑objectframe in de PowerPoint‑dia**. We bespreken nu de twee benaderingen van deze oplossing.
+## **Stel een vaste grafiekgrootte in**
 
-## **Eerste aanpak**
-
-In deze aanpak leren we hoe we de venstergrootte van de ingebedde Excel‑werkmap kunnen instellen zodat deze overeenkomt met de grootte van het OLE‑objectframe in de PowerPoint‑dia.
-
-**Scenario 1**
-
-Stel dat we een sjabloon hebben gedefinieerd en presentaties willen maken op basis daarvan. Veronderstel dat er een vorm op index 2 in het sjabloon staat waar we een OLE‑frame met een ingebedde Excel‑werkmap willen plaatsen. In dit scenario is de grootte van het OLE‑objectframe vooraf bepaald ‑ deze komt overeen met de grootte van de vorm op index 2 in het sjabloon. Het enige wat we hoeven te doen is de venstergrootte van de werkmap gelijk te stellen aan die vormgrootte. Het volgende codefragment dient dit doel:
+Stel [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) in op false zodat de grafiekafmetingen onafhankelijk zijn van het werkmapvenster. Stel de afmetingen van [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) in via [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) en [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height), waarbij points worden omgezet naar pixels met 96 pixels per inch: een frame van 684 × 288 points komt overeen met een grafiek van 912 × 384 pixels. Stel [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) in op de CUSTOM‑waarde van [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/). Het voorbeeld embedde de werkmap met [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) en slaat een presentatie op met een 9,5 × 4‑inch OLE‑frame.
 
 ```python
 import jpype
@@ -52,215 +45,84 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# Laad de Excel-werkmap die de grafiek bevat.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # Stel de venstergrootte van de werkmap in inches in (PowerPoint gebruikt 72 punten per inch).
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # Sla de werkmap op naar een geheugen-stroom.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # Maak een OLE-objectframe met de ingebedde Excel-gegevens.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # Dia‑coördinaten en afmetingen zijn in points (72 points per inch).
+        width = 684.0  # 9,5 inch.
+        height = 288.0  # 4 inch.
+
+        chart.setSizeWithWindow(False)
+        # Converteer points naar grafiekpixels met 96 pixels per inch.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Scenario 2**
+## **Gebruik een sjabloon**
 
-Stel dat we een presentatie vanaf nul willen maken en een OLE‑objectframe van willekeurige grootte willen opnemen met een ingebedde Excel‑werkmap. In het onderstaande codefragment maken we een OLE‑objectframe van 4 inch hoog en 9,5 inch breed op x = 0,5 inch en y = 1 inch op de dia. Vervolgens stellen we het Excel‑werkmapvenster in op dezelfde afmetingen ‑ 4 inch hoog en 9,5 inch breed.
+De logica voor de afmetingen is hetzelfde voor een bestaande presentatie. Om het voorbeeld aan te passen:
 
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Laad de Excel-werkmap die de grafiek bevat.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 inches (4 * 72).
-    desired_width = 684  # 9.5 inches (9.5 * 72).
-
-    # Definieer de grootte van de grafiek met een venster.
-    chart.setSizeWithWindow(True)
-
-    # Stel de venstergrootte van de werkmap in inches in (PowerPoint gebruikt 72 punten per inch).
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # Sla de werkmap op naar een geheugenstroom.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Maak een OLE-objectframe met de ingebedde Excel-gegevens.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Tweede aanpak**
-
-In deze aanpak leren we hoe we de grootte van de grafiek in de ingebedde Excel‑werkmap kunnen instellen zodat deze overeenkomt met de grootte van het OLE‑objectframe in de PowerPoint‑dia. Deze aanpak is handig wanneer de grafiekgrootte vooraf bekend is en nooit zal veranderen.
-
-**Scenario 1**
-
-Stel dat we een sjabloon hebben gedefinieerd en presentaties willen maken op basis daarvan. Veronderstel dat er een vorm op index 2 in het sjabloon staat waar we een OLE‑frame met een ingebedde Excel‑werkmap willen plaatsen. In dit scenario is de grootte van het OLE‑frame vooraf bepaald ‑ deze komt overeen met de grootte van de vorm op index 2 in het sjabloon. Het enige wat we hoeven te doen is de grafiekgrootte in de werkmap gelijk te stellen aan de vormgrootte. Het volgende codefragment dient dit doel:
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Laad de Excel-werkmap die de grafiek bevat.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # Definieer de grootte van de grafiek zonder venster.
-    chart.setSizeWithWindow(False)
-
-    # Stel de grafiekgrootte in pixels in (Excel gebruikt 96 pixels per inch).
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # Definieer de afdrukgrootte van de grafiek.
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # Sla de werkmap op naar een geheugenstroom.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Maak een OLE-objectframe met de ingebedde Excel-gegevens.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Scenario 2**:
-
-Stel dat we een presentatie vanaf nul willen maken en een OLE‑objectframe van willekeurige grootte willen opnemen met een ingebedde Excel‑werkmap. In het onderstaande codefragment maken we een OLE‑objectframe met een hoogte van 4 inch en een breedte van 9,5 inch op de dia op x = 0,5 inch en y = 1 inch. We stellen tevens de overeenkomstige grafiekgrootte in op dezelfde afmetingen: een hoogte van 4 inch en een breedte van 9,5 inch.
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Laad de Excel-werkmap die de grafiek bevat.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 inches (4 * 72).
-    desired_width = 684  # 9,5 inches (9,5 * 72).
-
-    # Definieer de grootte van de grafiek zonder venster.
-    chart.setSizeWithWindow(False)
-
-    # Stel de grafiekgrootte in pixels in (Excel gebruikt 96 pixels per inch).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # Sla de werkmap op naar een geheugenstroom.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Maak een OLE-objectframe met de ingebedde Excel-gegevens.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Conclusie**
-
-Er zijn twee benaderingen om het probleem met het herschalen van de grafiek op te lossen. De keuze van de benadering hangt af van de vereisten en het gebruiksscenario. Beide benaderingen werken op dezelfde manier, ongeacht of de presentaties uit een sjabloon of vanaf nul worden gemaakt. Bovendien is er geen limiet aan de grootte van het OLE‑objectframe in deze oplossing.
+1. Laad de sjabloonpresentatie in plaats van een lege presentatie te maken.
+1. Controleer of de eerste dia minstens drie shapes bevat, en gebruik vervolgens de shape op index 2 als de placeholder.
+1. Neem de framebreedte en -hoogte van die shape in plaats van de vaste waarden 684 en 288 te gebruiken. Houd de berekeningen voor de afmetingen ongewijzigd.
+1. Voeg het OLE‑frame toe op de positie van de placeholder in plaats van de vaste coördinaten 36 en 72.
+1. Verwijder de placeholder vóór het opslaan van de presentatie.
 
 ## **FAQ**
 
-**Waarom verandert de grootte van mijn ingebedde Excel‑grafiek nadat deze in PowerPoint is geactiveerd?**
+**Waarom verandert mijn ingebedde Excel‑grafiek van grootte na activering in PowerPoint?**
 
-Dit gebeurt omdat Excel bij de eerste activering probeert de oorspronkelijke venstergrootte te herstellen, terwijl het OLE‑objectframe in PowerPoint zijn eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat kan leiden tot een aanpassing.
+Dit gebeurt omdat Excel bij de eerste activering probeert de oorspronkelijke venstergrootte te herstellen, terwijl het OLE‑objectframe in PowerPoint zijn eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat kan leiden tot het aanpassen van de grootte.
 
-**Is het mogelijk om dit aanpassingsprobleem volledig te voorkomen?**
+**Hoe kan ik de grafiek‑ en OLE‑framegroottes consistent houden?**
 
-Ja. Door de venstergrootte van de Excel‑werkmap of de grafiekgrootte te laten overeenkomen met de grootte van het OLE‑objectframe vóór het insluiten, kun je de grafiekgroottes consistent houden.
+Stel vaste grafiekafmetingen in die overeenkomen met het OLE‑frame en gebruik een aangepaste grafiekprintgrootte voordat je de werkmap embedt. Het bovenstaande voorbeeld toont de benodigde instellingen en eenhedenconversies.
 
-**Welke benadering moet ik kiezen, de venstergrootte van de werkmap instellen of de grafiekgrootte?**
+**Is het afstemmen van de werkmapvenstergrootte voldoende?**
 
-Gebruik **aanpak 1 (venstergrootte)** als je de beeldverhouding van de werkmap wilt behouden en eventueel later wil kunnen schalen.  
-Gebruik **aanpak 2 (grafiekgrootte)** als de grafiekafmetingen vast staan en niet zullen wijzigen na het insluiten.
+Alleen de werkmapvenstergrootte afstemmen voorkomt niet betrouwbaar dat het OLE‑frame van grootte verandert na activering. Gebruik vaste grafiekafmetingen zoals in het voorbeeld.
 
-**Werken deze methoden zowel voor sjabloon‑gebaseerde presentaties als voor nieuwe presentaties?**
+**Werkt deze oplossing zowel met sjabloongebaseerde presentaties als met nieuwe presentaties?**
 
-Ja. Beide benaderingen werken op dezelfde manier voor presentaties die uit sjablonen zijn gemaakt en voor presentaties die vanaf nul zijn opgebouwd.
+Ja. Voor een sjabloon gebruik je de afmetingen en positie van de placeholder. Voor een nieuwe presentatie specificeer je de frame‑afmetingen en positie direct.
 
-**Is er een limiet aan de grootte van het OLE‑objectframe?**
+**Kan ik dit voorbeeld gebruiken met grafieken die in andere spreadsheet‑programma's zijn gemaakt?**
 
-Nee. Je kunt het OLE‑frame op elke gewenste grootte instellen, zolang het proportioneel blijft ten opzichte van de werkmap‑ of grafiekgrootte.
-
-**Kan ik deze methoden gebruiken met grafieken die in andere spreadsheet‑programma’s zijn gemaakt?**
-
-De voorbeelden zijn bedoeld voor Excel‑grafieken gemaakt met Aspose.Cells, maar de principes zijn ook toepasbaar op andere OLE‑compatibele spreadsheet‑programma’s, zolang ze vergelijkbare grootte‑opties ondersteunen.
+Het voorbeeld gebruikt een Excel‑werkmap gemaakt met Aspose.Cells. Het toont geen activatie‑gedrag voor andere spreadsheet‑programma's.
 
 ## **Gerelateerde secties**
 
-- [Grafieken maken in Excel en insluiten als OLE‑objecten in presentaties](/slides/nl/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Maak Excel‑grafieken en embed ze als OLE‑objecten in presentaties](/slides/nl/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

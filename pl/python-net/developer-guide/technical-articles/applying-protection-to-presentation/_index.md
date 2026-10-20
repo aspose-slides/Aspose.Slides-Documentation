@@ -1,6 +1,6 @@
 ---
-title: Zapobiegaj edycjom prezentacji za pomocą blokad kształtów w Pythonie
-linktitle: Zapobiegaj edycjom prezentacji
+title: Ogranicz edycję prezentacji przy użyciu blokad kształtów w Pythonie
+linktitle: Ogranicz edycję prezentacji
 type: docs
 weight: 70
 url: /pl/python-net/applying-protection-to-presentation/
@@ -10,125 +10,119 @@ keywords:
 - blokada kształtu
 - blokada pozycji
 - blokada zaznaczania
-- blokada rozmiaru
+- blokada zmiany rozmiaru
 - blokada grupowania
 - PowerPoint
-- OpenDocument
+- PPTX
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak Aspose.Slides for Python via .NET blokuje lub odblokowuje kształty w plikach PPT, PPTX i ODP, zabezpieczając prezentacje, jednocześnie umożliwiając kontrolowane edycje i szybsze dostarczanie."
+description: "Dowiedz się, jak blokować i odblokowywać kształty w prezentacjach PPTX przy użyciu Aspose.Slides for Python via .NET, aby ograniczyć zaznaczanie, przemieszczanie, zmianę rozmiaru i grupowanie."
 ---
 ## **Tło**
 
-Typowym zastosowaniem Aspose.Slides jest tworzenie, aktualizacja i zapisywanie prezentacji Microsoft PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Użytkownicy aplikacji wykorzystujących Aspose.Slides w ten sposób mają dostęp do wygenerowanych prezentacji, dlatego ochrona ich przed edycją jest powszechnym zagadnieniem. Ważne jest, aby automatycznie generowane prezentacje zachowały pierwotne formatowanie i treść.
+Typowym zastosowaniem Aspose.Slides for Python via .NET jest tworzenie, aktualizowanie i zapisywanie prezentacji PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Gdy użytkownicy otrzymują te prezentacje, ograniczenie zmian kształtów może pomóc zachować zamierzony układ i treść.
 
-Ten artykuł wyjaśnia, jak zbudowane są prezentacje i slajdy oraz jak Aspose.Slides for Python może zastosować ochronę do prezentacji i później ją usunąć. Dostarcza programistom sposób na kontrolowanie sposobu wykorzystywania prezentacji generowanych przez ich aplikacje.
+Ten artykuł wyjaśnia, jak kształty są organizowane na slajdach oraz jak zastosować i usunąć blokady kształtów w prezentacji PPTX. Te blokady pozwalają ograniczyć określone operacje edycyjne na pojedynczych kształtach.
 
-## **Budowa slajdu**
+## **Kompozycja slajdu**
 
-Slajd prezentacji składa się z komponentów, takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazów, ramki wideo, łączniki i inne elementy używane do tworzenia prezentacji. W Aspose.Slides for Python każdy element na slajdzie jest reprezentowany przez obiekt dziedziczący po klasie [Shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/).
+Slajd prezentacji składa się z elementów takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazów, ramki wideo, łączniki oraz inne elementy używane do tworzenia prezentacji. W Aspose.Slides for Python via .NET każdy element na slajdzie jest reprezentowany przez obiekt dziedziczący po klasie [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) .
 
-Struktura pliku PPTX jest złożona, dlatego w przeciwieństwie do PPT, gdzie można użyć ogólnego blokowania dla wszystkich typów kształtów, różne typy kształtów wymagają różnych blokad. Klasa [BaseShapeLock](https://reference.aspose.com/slides/pl/python-net/aspose.slides/baseshapelock/) jest ogólną klasą blokującą dla PPTX. W Aspose.Slides for Python dla PPTX obsługiwane są następujące typy blokad:
+Różne typy kształtów udostępniają różne opcje blokowania. Klasa [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) jest klasą bazową dla blokad kształtów. Aspose.Slides for Python via .NET udostępnia następujące klasy blokad:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshapelock/) blokuje autokształty.  
-- [ConnectorLock](https://reference.aspose.com/slides/pl/python-net/aspose.slides/connectorlock/) blokuje kształty łączników.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/pl/python-net/aspose.slides/graphicalobjectlock/) blokuje obiekty graficzne.  
-- [GroupShapeLock](https://reference.aspose.com/slides/pl/python-net/aspose.slides/groupshapelock/) blokuje grupowane kształty.  
-- [PictureFrameLock](https://reference.aspose.com/slides/pl/python-net/aspose.slides/pictureframelock/) blokuje ramki obrazów.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) blokuje autokształty.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) blokuje kształty łączników.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) blokuje obiekty graficzne.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) blokuje grupowane kształty.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) blokuje ramki obrazów.  
 
-Każda akcja wykonana na wszystkich obiektach kształtów w obiekcie [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) jest stosowana do całej prezentacji.
+Aby zastosować blokady w całej [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), przeglądnij jej slajdy i ustaw odpowiednie blokady na każdym obsługiwanym kształcie.
 
 ## **Zastosowanie i usunięcie ochrony**
 
-Zastosowanie ochrony zapewnia, że prezentacja nie może być edytowana. Jest to przydatna technika ochrony treści prezentacji.
+Blokady kształtów ograniczają operacje takie jak zaznaczanie, przemieszczanie i zmienianie rozmiaru kształtów. Nie powodują, że cała prezentacja jest nieedytowalna.
 
 ### **Zastosowanie ochrony do kształtów PPTX**
 
-Aspose.Slides for Python udostępnia klasę [Shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/) do pracy z kształtami na slajdzie.
+Aspose.Slides for Python via .NET udostępnia klasę [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) do pracy z kształtami na slajdzie.
 
-Jak wspomniano wcześniej, każda klasa kształtu ma powiązaną klasę blokady kształtu służącą do ochrony. W tym artykule skupiamy się na blokadach NoSelect, NoMove i NoResize. Blokady te zapewniają, że kształty nie mogą być zaznaczane (za pomocą kliknięć myszy lub innych metod zaznaczania) oraz nie mogą być przemieszczane ani zmieniane rozmiarowo.
+Przykład ustawia [select_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/select_locked/), [position_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/position_locked/) i [size_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/size_locked/) na `True` dla autokształtów, z równoważnymi blokadami dla grupowanych kształtów, łączników i ramek obrazów. Łączniki używają [position_move](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/position_move/) do przemieszczania; grupy także używają [grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) aby ograniczyć grupowanie.
 
-Poniższy przykład kodu stosuje ochronę do wszystkich typów kształtów w prezentacji.
+Przykład ładuje istniejącą prezentację PPTX, sprawdza kształty w kolekcji kształtów każdego slajdu i zapisuje kopię z zastosowanymi ograniczeniami. Kształty spoza czterech obsługiwanych typów pozostają niezmienione. Pętla nie przegląda kształtów potomnych wewnątrz grupy.
 
-```py
+```python
 import aspose.slides as slides
 
-# Utwórz instancję klasy Presentation reprezentującej plik PPTX.
 with slides.Presentation("Sample.pptx") as presentation:
-    # Przeglądanie wszystkich slajdów w prezentacji.
     for slide in presentation.slides:
-        # Przeglądanie wszystkich kształtów na slajdzie.
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = True
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-    # Zapisanie pliku prezentacji.
+
     presentation.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Usunięcie ochrony**
 
-Aby odblokować kształt, ustaw wartość zastosowanej blokady na `False`. Poniższy przykład kodu pokazuje, jak odblokować kształty w zablokowanej prezentacji.
+Aby usunąć blokadę kształtu, ustaw jej wartość na `False`. Poniższy przykład ładuje prezentację z blokadami kształtów i usuwa ograniczenia zaznaczania, przemieszczania i zmiany rozmiaru za pomocą [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) oraz [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/). Usuwa także [GroupShapeLock.grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) i zapisuje kopię prezentacji. Inne ustawienia blokad pozostają niezmienione.
 
-```py
+```python
 import aspose.slides as slides
 
-# Utwórz instancję klasy Presentation, która reprezentuje plik PPTX.
 with slides.Presentation("ProtectedSample.pptx") as presentation:
-    # Przeglądanie wszystkich slajdów w prezentacji.
     for slide in presentation.slides:
-        # Przeglądanie wszystkich kształtów na slajdzie.
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = False
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-    # Zapisanie pliku prezentacji.
+
     presentation.save("RemovedProtectionSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Wnioski**
+### **Podsumowanie**
 
-Aspose.Slides oferuje kilka opcji ochrony kształtów w prezentacji. Możesz zablokować pojedynczy kształt lub przejść przez wszystkie kształty w prezentacji i zablokować każdy z nich, aby skutecznie zabezpieczyć cały plik. Ochronę można usunąć, ustawiając wartość blokady na `False`.
+Aspose.Slides for Python via .NET pozwala ograniczyć określone operacje edycyjne na pojedynczych kształtach lub zastosować te same ograniczenia w całej prezentacji. Wybierz blokady obsługiwane przez dany typ kształtu i ustaw ich wartości na `False`, gdy potrzebujesz usunąć te ograniczenia.
 
 ## **FAQ**
 
-**Czy mogę łączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
+**Czy mogę połączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
 
-Tak. Blokady ograniczają edycję obiektów w pliku, podczas gdy [password protection](/slides/pl/python-net/password-protected-presentation/) kontroluje dostęp do otwierania i/lub zapisywania zmian. Mechanizmy te uzupełniają się nawzajem i działają razem.
+Tak. Blokady kształtów ograniczają określone operacje edycyjne, podczas gdy [ochrona hasłem](/slides/pl/python-net/password-protected-presentation/) może ograniczyć otwieranie lub modyfikację prezentacji. Można używać obu w tym samym pliku.
 
-**Czy mogę ograniczyć edycję na konkretnych slajdach bez wpływu na pozostałe?**
+**Czy mogę ograniczyć edycję na konkretnych slajdach bez wpływu na inne?**
 
-Tak. Zastosuj blokady do kształtów na wybranych slajdach; pozostałe slajdy pozostaną edytowalne.
+Tak. Zastosuj blokady tylko do kształtów na wybranych slajdach. Nie zmienia to ustawień blokad na innych slajdach.
 
-**Czy blokady kształtów dotyczą grupowanych obiektów i łączników?**
+**Jak mogę zastosować blokady do pojedynczych kształtów wewnątrz grupy?**
 
-Tak. Dedykowane typy blokad są obsługiwane dla grup, łączników, obiektów graficznych i innych rodzajów kształtów.
+Iteruj przez kolekcję [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) grupy i zastosuj odpowiednie blokady do każdego kształtu potomnego. Powtórz to dla wszelkich zagnieżdżonych grup. Powyższe przykłady przetwarzają tylko kolekcję kształtów slajdu, więc nie ustawiają blokad na pojedynczych elementach grupy.

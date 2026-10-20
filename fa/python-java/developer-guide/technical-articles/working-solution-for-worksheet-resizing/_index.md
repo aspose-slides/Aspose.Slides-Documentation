@@ -1,5 +1,5 @@
 ---
-title: راه‌حل عملی برای تغییر اندازه برگه کاری
+title: راه‌حل عملی برای تغییر اندازه ورق کاری
 type: docs
 weight: 20
 url: /fa/python-java/working-solution-for-worksheet-resizing/
@@ -8,40 +8,42 @@ keywords:
 - تصویر پیش‌نمایش
 - تغییر اندازه تصویر
 - Excel
-- برگه کاری
+- ورق کاری
 - PowerPoint
 - ارائه
 - Python
 - Java
 - Aspose.Slides
-description: "رفع تغییر اندازه OLE برگه کاری Excel در ارائه‌ها: دو روش برای حفظ سازگاری فریم‌های شی—مقیاس‌بندی فریم یا برگه—در فرمت‌های PPT و PPTX."
+description: "رفع مشکل تغییر اندازه OLE ورق کاری Excel در ارائه‌ها: دو روش برای حفظ یکنواختی فریم‌های شی—مقیاس‌بندی فریم یا شیت—در فرمت‌های PPT و PPTX."
 ---
-{{% alert color="info" title="توجه" %}}
+{{% alert color="info" title="Note" %}}
 
-مشاهده شده است که صفحات کاری Excel که به‌عنوان اشیای OLE در یک ارائه PowerPoint از طریق مؤلفه‌های Aspose جاسازی می‌شوند، پس از اولین فعال‌سازی به مقیاس نامشخصی تغییر اندازه می‌دهند. این رفتار تفاوت بصری قابل‌توجهی بین حالت قبل و بعد از فعال‌سازی شی OLE در ارائه ایجاد می‌کند. ما این مشکل را به‌طور دقیق بررسی کرده و راه‌حلی ارائه کرده‌ایم که در این مقاله پوشش داده شده است.
+ورق‌های Excel که به‌عنوان اشیاء OLE در ارائه PowerPoint با استفاده از مؤلفه‌های Aspose تعبیه می‌شوند، ممکن است پس از اولین فعال‌سازی به‌صورت غیرمنتظره اندازه خود را تغییر دهند. این رفتار تفاوت بصری مشهودی بین شی OLE قبل و بعد از فعال‌سازی ایجاد می‌کند. این مقاله مشکل را توضیح می‌دهد و دو روش برای رفع آن را شرح می‌دهد.
 
 {{% /alert %}}
 
 ## **پیش‌زمینه**
 
-در مقاله [Manage OLE](/slides/fa/python-java/manage-ole/) توضیح دادیم چگونه یک فریم OLE را به ارائه PowerPoint با استفاده از Aspose.Slides for Python via Java اضافه کنیم. برای رفع [object preview issue](/slides/fa/python-java/object-preview-issue-when-adding-oleobjectframe/)، یک تصویر از ناحیه صفحه کاری انتخاب‌شده به فریم شی OLE اختصاص دادیم. در ارائه خروجی، وقتی بر روی فریم شی OLE که تصویر صفحه کاری را نشان می‌دهد دوبار کلیک کنید، کتاب‌کار Excel فعال می‌شود. کاربران نهایی می‌توانند تغییرات دلخواه خود را در کتاب‌کار واقعی Excel انجام دهند و سپس با کلیک خارج از کتاب‌کار فعال‌شده به اسلاید بازگردند. اندازه فریم شی OLE هنگام بازگشت کاربر به اسلاید تغییر خواهد کرد. عامل تغییر اندازه بسته به اندازه فریم شی OLE و کتاب‌کار Excel جاسازی‌شده متفاوت خواهد بود.
+در مقاله [Manage OLE](/slides/fa/python-java/manage-ole/) توضیح دادیم که چگونه یک فریم OLE را به یک ارائه PowerPoint با استفاده از Aspose.Slides for Python via Java اضافه کنیم. برای رفع [object preview issue](/slides/fa/python-java/object-preview-issue-when-adding-oleobjectframe/) تصویری از ناحیه انتخاب‌شده ورق کاری را به فریم شی OLE اختصاص دادیم. در ارائه خروجی، هنگامی که فریم شی OLE که تصویر ورق کاری را نمایش می‌دهد دو بار کلیک می‌شود، کتاب‌کار Excel فعال می‌شود. کاربران نهایی می‌توانند هر تغییر دلخواهی را در کتاب‌کار واقعی انجام دهند و سپس با کلیک خارج از کتاب‌کار فعال به اسلاید بازگردند. اندازه فریم شی OLE هنگام بازگشت کاربر به اسلاید تغییر خواهد کرد. ضریب تغییر اندازه بسته به اندازه فریم شی OLE و کتاب‌کار Excel تعبیه‌شده متفاوت خواهد بود.
 
 ## **دلیل تغییر اندازه**
 
-از آنجا که کتاب‌کار Excel اندازهٔ پنجره خود را دارد، سعی می‌کند پس از اولین فعال‌سازی اندازهٔ اصلی خود را حفظ کند. از سوی دیگر، فریم شی OLE اندازهٔ خاص خود را دارد. طبق گفته مایکروسافت، زمانی که کتاب‌کار Excel فعال می‌شود، Excel و PowerPoint برای اطمینان از حفظ نسبت‌های صحیح در فرآیند جاسازی، اندازه را مذاکره می‌کنند. تغییر اندازه بر اساس تفاوت‌های بین اندازهٔ پنجره Excel و اندازه و موقعیت فریم شی OLE رخ می‌دهد.
+از آنجا که کتاب‌کار Excel دارای اندازه پنجره خودش است، سعی می‌کند پس از اولین فعال‌سازی اندازهٔ اصلی خود را حفظ کند. از سوی دیگر، فریم شی OLE اندازهٔ خود را دارد. بر اساس گفته مایکروسافت، هنگامی که کتاب‌کار Excel فعال می‌شود، Excel و PowerPoint برای اطمینان از حفظ نسبت‌های صحیح در فرآیند تعبیه، اندازه را مذاکره می‌کنند. تغییر اندازه بر اساس اختلافات بین اندازهٔ پنجره Excel و اندازه و موقعیت فریم شی OLE رخ می‌دهد.
 
-## **راه‌حل کاری**
+## **راه‌حل عملی**
 
 دو راه‌حل ممکن برای جلوگیری از اثر تغییر اندازه وجود دارد.
 
-- مقیاس‌بندی اندازهٔ فریم OLE در ارائه PowerPoint برای مطابقت با ارتفاع و عرض تعداد ردیف‌ها و ستون‌های موردنظر در فریم OLE.
-- ثابت نگه داشتن اندازهٔ فریم OLE و مقیاس‌بندی اندازهٔ ردیف‌ها و ستون‌های مشارکت‌کننده برای تناسب با اندازهٔ فریم OLE انتخاب‌شده.
+- مقیاس‌بندی فریم OLE در ارائه PowerPoint برای مطابقت با کل ارتفاع و عرض ردیف‌ها و ستون‌های انتخاب‌شده.
+- حفظ اندازه ثابت فریم OLE و مقیاس‌بندی ردیف‌ها و ستون‌های انتخاب‌شده برای جا شدن در داخل آن.
 
-### **مقیاس‌بندی اندازهٔ فریم OLE**
+### **مقیاس‌بندی اندازه فریم OLE**
 
-در این روش، نحوه تنظیم اندازهٔ فریم OLE کتاب‌کار Excel جاسازی‌شده به‌گونه‌ای که با مجموع اندازهٔ ردیف‌ها و ستون‌های مشارکت‌کننده در برگه Excel مطابق باشد، را یاد می‌گیریم.
+این رویکرد اندازه فریم OLE را طوری تنظیم می‌کند که کل ارتفاع و عرض ردیف‌ها و ستون‌های انتخاب‌شده در ورق کاری Excel تعبیه‌شده را مطابقت دهد.
 
-فرض کنید یک برگه Excel قالب داریم و می‌خواهیم آن را به‌عنوان فریم OLE به ارائه اضافه کنیم. در این سناریو، ابتدا اندازهٔ فریم شی OLE بر اساس مجموع ارتفاع ردیف‌ها و عرض ستون‌های مشارکت‌کننده در کتاب‌کار محاسبه می‌شود. سپس اندازهٔ فریم OLE را به این مقدار محاسبه‌شده تنظیم می‌کنیم. برای جلوگیری از پیام قرمز «EMBEDDED OLE OBJECT» برای فریم OLE در PowerPoint، همچنین تصویری از بخش‌های مطلوب ردیف‌ها و ستون‌ها در کتاب‌کار می‌گیریم و به‌عنوان تصویر فریم OLE تنظیم می‌کنیم.
+مثال یک کتاب‌کار Excel موجود را بارگذاری می‌کند و اولین ۱۰ ردیف و ۱۳ ستون اولین ورق کاری آن را با استفاده از شاخص‌های صفر-پایه انتخاب می‌نماید. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) محدودهٔ نمایش داده‌شده را تعریف می‌کند. پیش‌نمایش با ۹۶ DPI رندر می‌شود و ابعاد پیکسلی آن با استفاده از ۷۲ پوینت بر اینچ به پوینت تبدیل می‌شود. [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) کتاب‌کار اصلاح‌شده را در یک فریم با آن ابعاد تعبیه می‌کند. پیش‌نمایش از طریق [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) اختصاص یافته تا جایگزین متن نگه‌دارندهٔ «EMBEDDED OLE OBJECT» در ارائهٔ ذخیره‌شده شود.
+
+کمک‌کنندهٔ پیش‌نمایش [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) را برای محدودهٔ انتخاب‌شده تنظیم می‌کند و حاشیه‌ها، سرصفحه‌ها و پاصفحه‌ها را حذف می‌نماید. با فعال بودن [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea)، [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) محدوده را به‌صورت تصویر PNG رندر می‌کند. این کمک‌کننده یک جریان ورودی جدید حاوای تصویر PNG برمی‌گرداند که در ابتدای خود موقعیت‌گذاری شده تا در ارائه استفاده شود.
 
 ```python
 import jpype
@@ -94,7 +96,7 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # اندازه نمایش داده شده را وقتی کتاب‌کار به‌عنوان شی OLE در PowerPoint استفاده می‌شود تنظیم کنید.
+    # اندازهٔ نمایش داده‌شده را زمانی که کتاب‌کار به‌عنوان شی OLE در PowerPoint استفاده می‌شود تنظیم کنید.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
@@ -103,13 +105,13 @@ try:
 
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
-        # عرض و ارتفاع تصویر OLE را بر حسب نقطه دریافت کنید.
+        # عرض و ارتفاع تصویر OLE را بر حسب پوینت دریافت کنید.
         image_io = jpype.JClass("javax.imageio.ImageIO")
         image = image_io.read(image_stream)
         frame_width = image.getWidth() * 72.0 / image_resolution
         frame_height = image.getHeight() * 72.0 / image_resolution
 
-        # از کتاب‌کار تغییر یافته استفاده کنید.
+        # از کتاب‌کار اصلاح‌شده استفاده کنید.
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -140,11 +142,15 @@ finally:
     workbook.dispose()
 ```
 
-### **مقیاس‌بندی اندازهٔ بازهٔ سلول‌ها**
+### **مقیاس‌بندی اندازه بازه سلولی**
 
-در این روش، نحوه مقیاس‌بندی ارتفاع ردیف‌های مشارکت‌کننده و عرض ستون‌های مشارکت‌کننده برای مطابقت با یک اندازهٔ سفارشی فریم OLE را می‌آموزیم.
+این رویکرد ارتفاع ردیف‌های انتخاب‌شده و عرض ستون‌های انتخاب‌شده را طوری مقیاس‌بندی می‌کند که با اندازهٔ سفارشی فریم OLE مطابقت داشته باشد.
 
-فرض کنید یک برگه Excel قالب داریم و می‌خواهیم آن را به‌عنوان فریم OLE به ارائه اضافه کنیم. در این سناریو، اندازهٔ فریم OLE را تنظیم می‌کنیم و اندازهٔ ردیف‌ها و ستون‌هایی که در ناحیه فریم OLE مشارکت دارند را مقیاس‌بندی می‌کنیم. سپس کتاب‌کار را به‌صورت جریان ذخیره می‌کنیم تا تغییرات اعمال شود و آن را به‌یک آرایه بایت تبدیل می‌کنیم تا به فریم OLE اضافه شود. برای جلوگیری از پیام قرمز «EMBEDDED OLE OBJECT» برای فریم OLE در PowerPoint، همچنین تصویری از بخش‌های مطلوب ردیف‌ها و ستون‌ها در کتاب‌کار می‌گیریم و به‌عنوان تصویر فریم OLE تنظیم می‌کنیم.
+مثال یک کتاب‌کار Excel موجود را بارگذاری می‌کند و اولین ۱۰ ردیف و ۱۳ ستون اولین ورق کاری آن را با استفاده از شاخص‌های صفر-پایه انتخاب می‌نماید. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) محدودهٔ نمایش داده‌شده را تعریف می‌کند و کمک‌کنندهٔ scale_cell_range آن محدوده را برای متناسب شدن با فریمی به عرض ۴۰۰ پوینت و ارتفاع ۱۰۰ پوینت مقیاس‌بندی می‌کند. پس از ذخیرهٔ کتاب‌کار اصلاح‌شده در یک جریان، [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) آن را با اندازهٔ مشخص‌شده تعبیه می‌کند. پیش‌نمایشی که با ۹۶ DPI رندر شده از طریق [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) اختصاص یافته تا در ارائهٔ ذخیره‌شده به‌جای نگه‌دارندهٔ پیش‌فرض نشان داده شود.
+
+کمک‌کنندهٔ مقیاس‌بندی نسبت‌های عرض و ارتفاع جداگانه‌ای برای محدودهٔ انتخاب‌شده محاسبه می‌کند تا عرض نسبی ستون‌ها و ارتفاع نسبی ردیف‌ها حفظ شود. ابعاد محاسبه‌شده را قبل از اعمال با [Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) و [Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch) از پوینت به اینچ تبدیل می‌کند. محدودهٔ انتخاب‌شده باید عرض و ارتفاع غیرصفر داشته باشد.
+
+این کمک‌کنندهٔ پیش‌نمایش بازهٔ تغییر اندازه‌داده‌شده را با استفاده از [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) رندر می‌کند. [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) را به همان محدوده محدود می‌نماید، حاشیه‌ها، سرصفحه‌ها و پاصفحه‌ها را حذف می‌کند و یک جریان PNG که در ابتدای خود موقعیت‌گذاری شده برمی‌گرداند.
 
 ```python
 import jpype
@@ -152,7 +158,7 @@ import asposecells
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpase.startJVM()
 
 from asposecells.api import Workbook, ImageOrPrintOptions, ImageType, SheetRender, CellsUnitType
 from asposecells.api import SaveFormat as CellsSaveFormat
@@ -189,7 +195,7 @@ def create_ole_image(cell_range, image_resolution):
 
 
 def scale_cell_range(cell_range, width, height):
-    # عرض و ارتفاع مورد انتظار بازهٔ سلول بر حسب نقاط است.
+    # عرض و ارتفاع مورد انتظار بازهٔ سلولی بر حسب پوینت است.
     range_width = cell_range.getWidth()
     range_height = cell_range.getHeight()
     cells = cell_range.getWorksheet().getCells()
@@ -218,18 +224,18 @@ workbook = Workbook("sample.xlsx")
 try:
     worksheet = workbook.getWorksheets().get(worksheet_index)
 
-    # اندازهٔ نمایش داده‌شده را هنگام استفاده از کتاب‌کار به‌عنوان شی OLE در PowerPoint تنظیم کنید.
+    # اندازهٔ نمایش داده‌شده را زمانی که کتاب‌کار به‌عنوان شی OLE در PowerPoint استفاده می‌شود تنظیم کنید.
     last_row = start_row + row_count - 1
     last_column = start_column + column_count - 1
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
 
     cell_range = worksheet.getCells().createRange(start_row, start_column, row_count, column_count)
-    # بازهٔ سلول را برای تناسب با اندازهٔ فریم مقیاس‌بندی کنید.
+    # بازهٔ سلولی را برای متناسب شدن با اندازهٔ فریم مقیاس‌بندی کنید.
     scale_cell_range(cell_range, frame_width, frame_height)
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
 
-        # از کتاب‌کار تغییر یافته استفاده کنید.
+        # از کتاب‌کار اصلاح‌شده استفاده کنید.
         ole_stream = ByteArrayOutputStream()
         try:
             workbook.save(ole_stream, CellsSaveFormat.XLSX)
@@ -262,38 +268,40 @@ finally:
 
 ## **نتیجه‌گیری**
 
-{{% alert color="info" title="توجه" %}} 
+{{% alert color="info" title="Note" %}} 
 
-دو رویکرد برای رفع مشکل تغییر اندازه صفحه کاری وجود دارد. انتخاب رویکرد مناسب بستگی به نیازها و مورد استفاده خاص دارد. هر دو رویکرد به‌یک‌شکل عمل می‌کنند، چه ارائه‌ها از قالب ساخته شوند و چه از ابتدا. علاوه بر این، هیچ محدودیتی برای اندازهٔ فریم شی OLE در این راه‌حل وجود ندارد.
+دو رویکرد برای رفع مشکل تغییر اندازهٔ ورق کاری وجود دارد. رویکردی را انتخاب کنید که بهترین تطابق را با نیازها و سناریوی استفاده شما داشته باشد. هر دو رویکرد به‌یک‌نحو کار می‌کنند، چه ارائه‌ها از قالب ایجاد شوند و چه از ابتدا. علاوه بر این، در این راه‌حل هیچ محدودیتی برای اندازهٔ فریم شی OLE وجود ندارد.
 
 {{% /alert %}}
 
 ## **سوالات متداول**
 
-**چرا یک صفحه کاری Excel جاسازی‌شده هنگام اولین فعال‌سازی در PowerPoint اندازهٔ خود را تغییر می‌دهد؟**
+**چرا یک ورق کاری Excel تعبیه‌شده هنگام اولین فعال‌سازی در PowerPoint اندازه‌اش تغییر می‌کند؟**
 
-این به دلیل این است که Excel سعی می‌کند اندازهٔ اصلی پنجره خود را هنگام فعال‌سازی حفظ کند، در حالی که فریم شی OLE در PowerPoint ابعاد خود را دارد. PowerPoint و Excel برای حفظ نسبت ابعاد مذاکره می‌کنند که می‌تواند منجر به تغییر اندازه شود.
+این به این دلیل است که Excel سعی می‌کند اندازهٔ اصلی پنجره را حفظ کند، در حالی که فریم شی OLE در PowerPoint ابعاد مخصوص خود را دارد. PowerPoint و Excel برای حفظ نسبت تصویر مذاکره می‌کنند که می‌تواند منجر به تغییر اندازه شود.
 
-**آیا می‌توان این مشکل تغییر اندازه را کاملاً جلوگیری کرد؟**
+**آیا می‌توان این مشکل تغییر اندازه را به‌طور کامل جلوگیری کرد؟**
 
-بله. با مقیاس‌بندی فریم OLE برای متناسب شدن با اندازهٔ بازهٔ سلول‌های Excel یا مقیاس‌بندی بازهٔ سلول‌ها برای متناسب شدن با اندازهٔ فریم OLE موردنظر، می‌توان از تغییر اندازه ناخواسته جلوگیری کرد.
+بله. با مقیاس‌بندی فریم OLE برای متناسب شدن با اندازهٔ بازهٔ سلولی Excel یا مقیاس‌بندی بازهٔ سلولی برای متناسب شدن با اندازهٔ دلخواه فریم OLE، می‌توانید از تغییر اندازه ناخواسته جلوگیری کنید.
 
-**کدام روش مقیاس‌بندی را باید استفاده کنم، مقیاس‌بندی فریم OLE یا مقیاس‌بندی بازهٔ سلول‌ها؟**
+**کدام روش مقیاس‌بندی را باید استفاده کنم، مقیاس‌بندی فریم OLE یا مقیاس‌بندی بازهٔ سلولی؟**
 
-اگر می‌خواهید اندازهٔ ردیف‌ها و ستون‌های اصلی Excel را حفظ کنید، **مقیاس‌بندی فریم OLE** را انتخاب کنید. اگر به یک اندازهٔ ثابت برای فریم OLE در ارائه خود احتیاج دارید، **مقیاس‌بندی بازهٔ سلول‌ها** را انتخاب کنید.
+اگر می‌خواهید اندازهٔ ردیف‌ها و ستون‌های اصلی Excel را حفظ کنید، **مقیاس‌بندی فریم OLE** را انتخاب کنید. اگر نیاز به اندازهٔ ثابت برای فریم OLE در ارائه‌تان دارید، **مقیاس‌بندی بازهٔ سلولی** را انتخاب کنید.
 
-**آیا این راه‌حل‌ها در صورتی که ارائه من بر پایه قالب باشد کار می‌کند؟**
+**آیا این راه‌حل‌ها در صورتی که ارائه من بر پایهٔ یک قالب باشد کار می‌کنند؟**
 
-بله. هر دو راه‌حل برای ارائه‌های ساخته‌شده از قالب‌ها و همچنین از ابتدا کار می‌کنند.
+بله. هر دو راه‌حل برای ارائه‌های ایجاد‌شده از قالب‌ها و همچنین از ابتدا کار می‌کنند.
 
 **آیا محدودیتی برای اندازهٔ فریم OLE هنگام استفاده از این روش‌ها وجود دارد؟**
 
-خیر. می‌توانید فریم شی OLE را به هر اندازه‌ای تنظیم کنید، به‌شرط آن که مقیاس را به‌درستی تنظیم کنید.
+خیر. می‌توانید فریم شی OLE را به هر اندازه‌ای تنظیم کنید، به‌شرط اینکه مقیاس را به‌درستی تنظیم کنید.
 
-**آیا راهی برای جلوگیری از متن جایگزین «EMBEDDED OLE OBJECT» در PowerPoint وجود دارد؟**
+**آیا راهی برای حذف متن نگه‌دارندهٔ «EMBEDDED OLE OBJECT» در PowerPoint وجود دارد؟**
 
-بله. با گرفتن یک عکس از بازهٔ سلول هدف در Excel و تنظیم آن به‌عنوان تصویر جایگزین فریم OLE، می‌توانید یک تصویر پیش‌نمایش سفارشی به‌جای متن پیش‌فرض نمایش دهید.
+بله. با گرفتن یک تصویر از بازهٔ سلولی هدف Excel و تنظیم آن به‌عنوان تصویر نگه‌دارندهٔ فریم OLE، می‌توانید به‌جای نگه‌دارندهٔ پیش‌فرض، یک تصویر پیش‌نمایش سفارشی نمایش دهید.
 
 ## **مقالات مرتبط**
 
 [Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/fa/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Updating OLE Objects Automatically Using an MS PowerPoint Add-In](/slides/fa/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

@@ -1,56 +1,56 @@
 ---
-title: Verhindern von Präsentationsbearbeitungen mit Form‑Sperren
-linktitle: Verhindern von Präsentationsbearbeitungen
+title: Einschränken von Präsentationsbearbeitungen mit Form‑Sperren in Python
+linktitle: Einschränken von Präsentationsbearbeitungen
 type: docs
 weight: 60
 url: /de/python-java/applying-protection-to-presentation/
 keywords:
 - Bearbeitungen verhindern
-- Schutz vor Bearbeitung
+- vor Bearbeitung schützen
 - Form sperren
 - Position sperren
 - Auswahl sperren
-- Größe sperren
+- Größenänderung sperren
 - Gruppierung sperren
 - PowerPoint
-- OpenDocument
+- PPTX
 - Präsentation
 - Python
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Aspose.Slides für Python über Java Formen in PPT-, PPTX- und ODP-Dateien sperrt oder entsperrt, Präsentationen sichert und gleichzeitig kontrollierte Bearbeitungen sowie eine schnellere Bereitstellung ermöglicht."
+description: "Erfahren Sie, wie Sie Formen in PPTX‑Präsentationen mit Aspose.Slides for Python via Java sperren und entsperren, um Auswahl, Bewegung, Größenänderung und Gruppierung zu beschränken."
 ---
 ## **Hintergrund**
 
-Eine häufige Verwendung von Aspose.Slides ist das Erstellen, Aktualisieren und Speichern von Microsoft PowerPoint (PPTX)-Präsentationen im Rahmen eines automatisierten Workflows. Benutzer von Anwendungen, die Aspose.Slides auf diese Weise einsetzen, haben Zugriff auf die erzeugten Präsentationen, sodass der Schutz vor Bearbeitung ein gängiges Anliegen ist. Es ist wichtig, dass automatisch erzeugte Präsentationen ihr ursprüngliches Format und ihren Inhalt beibehalten.
+Ein gängiger Anwendungsfall für Aspose.Slides for Python via Java ist das Erstellen, Aktualisieren und Speichern von PowerPoint (PPTX)-Präsentationen im Rahmen eines automatisierten Workflows. Wenn Benutzer diese Präsentationen erhalten, kann das Einschränken von Änderungen an Formen helfen, das beabsichtigte Layout und den Inhalt zu erhalten.
 
-Dieser Artikel erklärt, wie Präsentationen und Folien strukturiert sind und wie Aspose.Slides für Python über Java Schutz auf eine Präsentation anwenden und später entfernen kann. Er bietet Entwicklern eine Möglichkeit, zu steuern, wie die von ihren Anwendungen erzeugten Präsentationen verwendet werden.
+Dieser Artikel erklärt, wie Formen auf Folien organisiert sind und wie man Form‑Sperren in einer PPTX‑Präsentation anwendet und entfernt. Diese Sperren ermöglichen es, bestimmte Bearbeitungsoperationen für einzelne Formen einzuschränken.
 
 ## **Zusammensetzung einer Folie**
 
-Eine Präsentationsfolie besteht aus Komponenten wie Autoformen, Tabellen, OLE-Objekten, Gruppierten Formen, Bildrahmen, Video‑Frames, Verbindern und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides für Python über Java wird jedes Element einer Folie durch ein Objekt dargestellt, das von der [Shape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/)‑Klasse erbt.
+Eine Präsentationsfolie besteht aus Komponenten wie Autoformen, Tabellen, OLE‑Objekten, gruppierten Formen, Bildrahmen, Video‑Frames, Verbindern und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides for Python via Java wird jedes Element einer Folie durch ein Objekt repräsentiert, das von der [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/)-Klasse erbt.
 
-Die Struktur von PPTX ist komplex, daher kann im Gegensatz zu PPT, wo ein generischer Sperrmechanismus für alle Formenarten verwendet werden kann, für verschiedene Formenarten unterschiedliche Sperren erforderlich sein. Die Klasse [BaseShapeLock](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseshapelock/) ist die generische Sperrklasse für PPTX. Die folgenden Sperrtypen werden in Aspose.Slides für Python über Java für PPTX unterstützt:
+Verschiedene Formtypen bieten unterschiedliche Sperroptionen. Die [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/)-Klasse ist die Basisklasse für Form‑Sperren. Aspose.Slides for Python via Java stellt die folgenden Sperrklassen bereit:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshapelock/) sperrt Autoformen.  
-- [ConnectorLock](https://reference.aspose.com/slides/de/python-java/aspose.slides/connectorlock/) sperrt Verbindungselemente.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/de/python-java/aspose.slides/graphicalobjectlock/) sperrt grafische Objekte.  
-- [GroupShapeLock](https://reference.aspose.com/slides/de/python-java/aspose.slides/groupshapelock/) sperrt Gruppenformen.  
-- [PictureFrameLock](https://reference.aspose.com/slides/de/python-java/aspose.slides/pictureframelock/) sperrt Bildrahmen.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) sperrt Autoformen.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) sperrt Verbinderformen.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) sperrt grafische Objekte.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) sperrt Gruppierungen von Formen.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) sperrt Bildrahmen.  
 
-Jede Aktion, die an allen Formobjekten in einem [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/)‑Objekt durchgeführt wird, gilt für die gesamte Präsentation.
+Um Sperren für eine gesamte [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) anzuwenden, iterieren Sie über ihre Folien und setzen die entsprechenden Sperren für jede unterstützte Form.
 
 ## **Schutz anwenden und entfernen**
 
-Das Anwenden von Schutz stellt sicher, dass eine Präsentation nicht bearbeitet werden kann. Es ist eine nützliche Technik, um den Inhalt der Präsentation zu schützen.
+Form‑Sperren beschränken Vorgänge wie das Auswählen, Verschieben und Ändern der Größe von Formen. Sie machen die gesamte Präsentation nicht uneditierbar.
 
 ### **Schutz auf PPTX‑Formen anwenden**
 
-Aspose.Slides für Python über Java stellt die [Shape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/)‑Klasse zur Arbeit mit Formen auf einer Folie bereit.
+Aspose.Slides for Python via Java stellt die [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/)-Klasse zur Arbeit mit Formen auf einer Folie bereit.
 
-Wie bereits erwähnt, hat jede Formklasse eine zugehörige Form‑Sperrklasse zum Schutz. Dieser Artikel konzentriert sich auf die Sperren NoSelect, NoMove und NoResize. Diese Sperren stellen sicher, dass Formen nicht ausgewählt (durch Mausklicks oder andere Auswahlmethoden) und nicht verschoben oder in der Größe geändert werden können.
+Das Beispiel ruft [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) und [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) mit `True` für Autoformen auf, sowie gleichwertige Sperren für Gruppierungsformen, Verbinder und Bildrahmen. Verbinder verwenden [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) für Bewegungen; Gruppen verwenden zudem [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked), um die Gruppierung zu beschränken.
 
-Das folgende Codebeispiel wendet Schutz auf alle Formtypen in einer Präsentation an.
+Das Beispiel lädt eine vorhandene PPTX‑Präsentation, prüft die Formen in der Form‑Sammlung jeder Folie und speichert eine Kopie mit den angewendeten Beschränkungen. Formen, die nicht zu den vier behandelten Typen gehören, bleiben unverändert. Die Schleife durchläuft nicht die Kindformen innerhalb einer Gruppe.
 
 ```python
 import jpype
@@ -61,12 +61,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Instanziieren Sie die Presentation-Klasse, die eine PPTX-Datei darstellt.
 presentation = Presentation("Sample.pptx")
 try:
-    # Durchlaufen Sie alle Folien in der Präsentation.
     for slide in presentation.getSlides():
-        # Durchlaufen Sie alle Formen auf der Folie.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -90,7 +87,6 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # Speichern Sie die Präsentationsdatei.
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -98,7 +94,7 @@ finally:
 
 ### **Schutz entfernen**
 
-Um eine Form zu entsperren, setzen Sie den Wert der angewendeten Sperre auf `False`. Das folgende Codebeispiel zeigt, wie Formen in einer gesperrten Präsentation entsperrt werden können.
+Um eine Form‑Sperre zu entfernen, setzen Sie ihren Wert auf `False`. Das folgende Beispiel lädt eine Präsentation mit Form‑Sperren und löscht die Auswahl‑, Bewegungs‑ und Größenänderungs‑Beschränkungen über [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) und [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Sie entfernt zudem die Gruppierungsbeschränkung, indem `False` an [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) übergeben wird, und speichert eine Kopie der Präsentation. Andere Sperreinstellungen bleiben unverändert.
 
 ```python
 import jpype
@@ -109,12 +105,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Instanziieren Sie die Presentation-Klasse, die eine PPTX-Datei darstellt.
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # Durchlaufen Sie alle Folien in der Präsentation.
     for slide in presentation.getSlides():
-        # Durchlaufen Sie alle Formen in der Folie.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -138,26 +131,25 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # Speichern Sie die Präsentationsdatei.
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Fazit**
+### **Fazit**
 
-Aspose.Slides bietet mehrere Möglichkeiten, Formen in einer Präsentation zu schützen. Sie können eine einzelne Form sperren oder alle Formen in einer Präsentation durchlaufen und jede einzeln sperren, um die gesamte Datei wirksam zu sichern. Sie können den Schutz entfernen, indem Sie den Sperrwert auf `False` setzen.
+Aspose.Slides for Python via Java ermöglicht es, bestimmte Bearbeitungsoperationen für einzelne Formen einzuschränken oder dieselben Beschränkungen über mehrere Folien hinweg anzuwenden. Wählen Sie die für jeden Formtyp unterstützten Sperren aus und setzen Sie deren Werte auf `False`, wenn Sie diese Beschränkungen entfernen müssen.
 
 ## **FAQ**
 
-**Kann ich Form‑Sperren und Kennwortschutz in derselben Präsentation kombinieren?**
+**Kann ich Form‑Sperren und Passwortschutz in derselben Präsentation kombinieren?**
 
-Ja. Sperren beschränken die Bearbeitung von Objekten innerhalb der Datei, während der [Kennwortschutz](/slides/de/python-java/password-protected-presentation/) den Zugriff auf das Öffnen und/oder das Speichern von Änderungen steuert. Diese Mechanismen ergänzen sich gegenseitig und arbeiten zusammen.
+Ja. Form‑Sperren beschränken bestimmte Bearbeitungsoperationen, während [Passwortschutz](/slides/de/python-java/password-protected-presentation/) das Öffnen oder Ändern der Präsentation einschränken kann. Sie können beide in derselben Datei verwenden.
 
 **Kann ich die Bearbeitung auf bestimmten Folien einschränken, ohne andere zu beeinflussen?**
 
-Ja. Wenden Sie Sperren auf die Formen der ausgewählten Folien an; die übrigen Folien bleiben bearbeitbar.
+Ja. Wenden Sie Sperren nur auf die Formen der ausgewählten Folien an. Dies ändert die Sperreinstellungen anderer Folien nicht.
 
-**Gilt der Form‑Sperrmechanismus für gruppierte Objekte und Verbinder?**
+**Wie kann ich Sperren auf einzelne Formen innerhalb einer Gruppe anwenden?**
 
-Ja. Spezielle Sperrtypen werden für Gruppen, Verbinder, Grafikobjekte und andere Formarten unterstützt.
+Iterieren Sie über die Sammlung, die von der [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes)-Methode der Gruppe zurückgegeben wird, und wenden Sie die entsprechenden Sperren auf jede Kindform an. Wiederholen Sie dies für verschachtelte Gruppen. Die obigen Beispiele verarbeiten nur die Form‑Sammlung der Folie, daher setzen sie keine Sperren für einzelne Gruppenmitglieder.

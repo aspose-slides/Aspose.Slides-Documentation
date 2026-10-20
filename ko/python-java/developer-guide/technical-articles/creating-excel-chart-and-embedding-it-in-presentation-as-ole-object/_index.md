@@ -1,38 +1,48 @@
 ---
-title: Excel 차트를 만들고 프레젠테이션에 OLE 객체로 삽입하기
+title: Excel 차트를 생성하고 OLE 개체로 프레젠테이션에 삽입하기
 type: docs
 weight: 30
 url: /ko/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
 - Excel 차트
 - 차트 삽입
-- OLE 객체
+- OLE 개체
 - PowerPoint
-- OpenDocument
 - 프레젠테이션
 - Python
 - Java
 - Aspose.Slides
-description: "Python을 사용하여 Excel 차트를 만들고 PowerPoint 및 OpenDocument 프레젠테이션에 OLE 객체로 삽입합니다. 단계별 가이드와 코드 샘플을 제공합니다."
+description: "Aspose.Cells for Python via Java를 사용해 Excel 차트를 생성하고, Aspose.Slides를 사용해 워크북을 PowerPoint 프레젠테이션에 삽입합니다. 차트 미리 보기가 포함됩니다."
 ---
-## **배경**
+## **개요**
 
-PowerPoint에서는 데이터를 그래픽으로 표시하기 위해 편집 가능한 차트를 사용하는 것이 일반적인 방법입니다. Aspose는 Python via Java용 Aspose.Cells를 사용하여 Excel 차트를 생성할 수 있으며, 이러한 차트를 Aspose.Slides for Python via Java를 통해 OLE 객체로 PowerPoint 슬라이드에 삽입할 수 있습니다. 이 문서에서는 필요한 단계를 설명하고 Aspose.Cells와 Aspose.Slides를 사용하여 Excel 차트를 만들고 이를 PowerPoint 프레젠테이션에 OLE 객체로 삽입하는 Python 코드 샘플을 제공합니다.
+이 문서에서는 Aspose.Cells for Python via Java를 사용하여 Excel 세로 막대형 차트를 만든 다음, Aspose.Slides for Python via Java를 사용해 해당 워크북을 PowerPoint 프레젠테이션에 삽입하는 방법을 보여줍니다. 삽입된 워크북에는 원본 데이터와 차트가 모두 포함됩니다. 별도의 PNG 미리 보기가 OLE 개체가 활성화되기 전에 슬라이드에 차트를 표시합니다.
 
-## **필요한 단계**
+결과는 PowerPoint 기본 차트가 아니라 삽입된 Excel 개체입니다. OLE을 통해 워크북을 편집하려면 OLE 활성화를 지원하는 데스크톱 응용 프로그램과 호환되는 Excel이 설치되어 있어야 합니다.
 
-PowerPoint 슬라이드에 OLE 객체로 Excel 차트를 만들고 삽입하기 위해 다음과 같은 순서대로 단계가 필요합니다:
+## **전제 조건**
 
-1. Aspose.Cells를 사용하여 Excel 차트를 생성합니다.
-1. Aspose.Cells를 사용하여 Excel 차트의 OLE 크기를 설정합니다.
-1. Aspose.Cells로 Excel 차트의 이미지를 가져옵니다.
-1. Aspose.Slides를 사용하여 PPTX 프레젠테이션에 Excel 차트를 OLE 객체로 삽입합니다.
-1. 단계 3에서 얻은 이미지로 "EMBEDDED OLE OBJECT" 이미지를 교체하여 [객체 미리보기 문제](/slides/ko/python-java/object-preview-issue-when-adding-oleobjectframe/)를 해결합니다.
-1. 프레젠테이션을 PPTX 형식으로 디스크에 저장합니다.
+`aspose-cells`와 `aspose-slides-java` Python 패키지 및 호환 가능한 Java 런타임을 설치합니다. JVM을 시작하기 전에 두 패키지를 모두 임포트하여 JPype에서 Java 라이브러리를 사용할 수 있도록 합니다. 이러한 라이브러리를 사용하여 프레젠테이션을 생성하는 데 Microsoft Office는 필요하지 않습니다.
 
-## **필요한 단계 구현**
+입력 파일이 필요하지 않습니다. 예제는 메모리에서 데이터와 차트를 생성한 후 `OutputChart.pptx`를 현재 작업 디렉터리에 씁니다. 평가 모드가 아닌 경우 두 제품 모두에 대한 라이선스를 적용하십시오.
 
-위 단계들의 Python 구현은 다음과 같습니다:
+## **삽입 작동 방식**
+
+1. 데이터 워크시트와 차트 시트가 포함된 워크북을 생성합니다.  
+1. 차트 시트를 활성화하여 워크북이 차트에서 열리도록 합니다.  
+1. 워크북의 OLE 표시 범위를 설정하고 차트를 PNG로 렌더링합니다.  
+1. 워크북을 메모리 내 XLSX 형태로 저장하고 해당 바이트를 슬라이드에 삽입합니다.  
+1. PNG를 OLE 개체의 미리 보기로 지정하고 프레젠테이션을 PPTX로 저장합니다.
+
+워크북 표시 범위와 슬라이드의 프레임은 서로 다른 역할을 합니다. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) 은 0 기반 시작/끝 행 및 열 인덱스를 사용합니다. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) 은 대신 상단 행, 왼쪽 열, 하단 행, 오른쪽 열을 사용합니다. 예제에서는 오른쪽 아래 경계값으로 행 인덱스 55와 열 인덱스 25를 사용합니다; 이 값들은 레이아웃 선택이며 데이터 행 또는 열 수를 의미하지 않습니다.
+
+슬라이드 프레임은 포인트 단위로 지정됩니다. 예제는 슬라이드 안에 프레임을 맞추고 PNG의 가로세로 비율을 유지하면서 가운데 정렬합니다. 미리 보기를 슬라이드 전체에 늘리지 않습니다.
+
+## **차트 만들기 및 삽입**
+
+다음 완전한 예제는 `DataSheet`에 4행 5열의 값을 채웁니다. 각 행은 차트 시리즈가 됩니다. `ChartSheet`를 활성 시트로 선택한 후 워크북을 저장합니다.
+
+워크북은 `xlsx` 확장자를 전달하는 [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/)와 일치하도록 명시적으로 XLSX 형식으로 저장됩니다. Java 바이트 배열 스트림은 워크북과 이미지를 메모리 내에 보관하고 Java API에 필요한 바이트 배열을 제공합니다. PNG는 중간 비트맵 변환 없이 바이트에서 직접 로드됩니다. [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) 을 통해 할당하면 기본 OLE 자리 표시자가 교체됩니다.
 
 ```python
 import jpype
@@ -44,128 +54,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # 셀 이름 배열.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # 셀 데이터 배열.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # 데이터로 셀을 채우기 위해 새 워크시트를 추가합니다.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # 데이터 시트를 데이터로 채웁니다.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # 차트 시트를 추가합니다.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # 데이터 시트의 데이터 시리즈를 사용하여 차트 시트에 차트를 추가합니다.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # 차트 시트를 활성 시트로 설정합니다.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # 워크북을 포함된 OLE 데이터로 설명합니다.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# 워크북을 생성합니다.
 workbook = Workbook()
-
-# Excel 차트를 추가합니다.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# 차트의 OLE 크기를 설정합니다.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# 차트 이미지를 가져와 스트림에 저장합니다.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# 워크북을 스트림에 저장합니다.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# 프레젠테이션을 생성합니다.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # 워크북을 슬라이드에 추가합니다.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # 프레젠테이션을 디스크에 저장합니다.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # 차트 미리 보기를 렌더링하고 편집 가능한 워크북을 별도로 직렬화합니다.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # 미리 보기를 슬라이드 안에 맞추되 종횡비를 변경하지 않습니다.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-위 방법으로 만든 프레젠테이션에는 OLE 객체 프레임을 더블 클릭하면 활성화되는 OLE 객체 형태의 Excel 차트가 포함됩니다.
+## **예상 결과**
 
-## **결론**
+`OutputChart.pptx`에는 삽입된 Excel 워크북과 차트 미리 보기가 포함된 슬라이드가 하나 들어 있습니다. 워크북에는 원본 데이터와 4개의 시리즈가 있는 세로 막대형 차트가 들어 있습니다. 미리 보기는 슬라이드 가운데에 위치하고 비율을 유지합니다.
 
-Python via Java용 Aspose.Cells와 Aspose.Slides를 함께 사용하면 Aspose.Cells에서 지원하는 모든 Excel 차트를 생성하고 이를 PowerPoint 슬라이드에 OLE 객체로 삽입할 수 있습니다. Excel 차트의 OLE 크기도 정의할 수 있습니다. 최종 사용자는 다른 OLE 객체와 마찬가지로 Excel 차트를 편집할 수 있습니다.
+![Excel column chart displayed as the preview of an embedded workbook](excel-chart-ole-preview.png)
+
+호환 가능한 데스크톱 PowerPoint 환경에서 Excel이 설치되어 있으면 개체를 두 번 클릭하여 활성화하고 삽입된 워크북을 편집할 수 있습니다. 활성화 및 편집은 호스트 응용 프로그램의 OLE 지원 및 보안 설정에 따라 달라집니다.
+
+## **FAQ**
+
+**미리 보기 이미지가 필요한 이유는?**
+
+삽입된 워크북과 슬라이드 미리 보기는 별개의 콘텐츠입니다. 슬라이드가 기본 "EMBEDDED OLE OBJECT" 자리 표시자가 아닌 차트를 표시하도록 차트 이미지를 제공하십시오. 자세한 내용은 [OleObjectFrame 추가 시 객체 미리 보기 문제](/slides/ko/python-java/object-preview-issue-when-adding-oleobjectframe/)를 참조하십시오.
+
+**코드에서 워크북을 변경하면 미리 보기가 자동으로 업데이트되나요?**
+
+미리 보기는 스냅샷으로 취급합니다. 프로그램matically 워크북 데이터를 업데이트할 때 차트 이미지를 다시 생성하고 미리 보기와 삽입된 워크북 데이터를 모두 교체해야 합니다.
+
+**XLS 대신 XLSX를 사용할 수 있나요?**
+
+예. 워크북을 XLS 형식으로 저장하고 `xls`를 삽입된 데이터 확장자로 사용하십시오. 확장자는 실제 워크북 형식과 일치해야 하며, 확장자만 변경해도 데이터가 변환되지 않습니다.
+
+**활성화 후 개체 크기가 변할 수 있는 이유는?**
+
+호스트 응용 프로그램은 워크북을 활성화할 때 OLE 개체의 표시를 업데이트할 수 있습니다. 워크북의 OLE 표시 범위와 슬라이드 프레임 크기 모두가 영향을 미칩니다. 자세한 내용은 [PPTX에서 차트 크기 조정에 대한 작업 솔루션](/slides/ko/python-java/working-solution-for-chart-resizing-in-pptx/)을 확인하십시오.
 
 ## **관련 섹션**
 
 - [PPTX에서 차트 크기 조정에 대한 작업 솔루션](/slides/ko/python-java/working-solution-for-chart-resizing-in-pptx/)
-- [OleObjectFrame 추가 시 객체 미리보기 문제](/slides/ko/python-java/object-preview-issue-when-adding-oleobjectframe/)
-
-## **FAQ**
-
-**Excel 차트를 생성하고 삽입하는 데 사용되는 라이브러리는 무엇인가요?**
-
-Python via Java용 Aspose.Cells가 Excel 차트를 생성하고, Python via Java용 Aspose.Slides가 PowerPoint 슬라이드에 OLE 객체로 삽입합니다.
-
-**사용자는 삽입된 Excel 차트를 어떻게 편집할 수 있나요?**
-
-사용자는 OLE 객체 프레임을 더블 클릭하여 차트를 활성화하고 다른 OLE 객체와 마찬가지로 편집할 수 있습니다.
-
-**기본 OLE 객체 미리보기는 어떻게 교체되나요?**
-
-예제에서는 Aspose.Cells로 Excel 차트의 이미지를 얻은 다음 이를 사용하여 "EMBEDDED OLE OBJECT" 이미지를 교체합니다.
+- [OleObjectFrame 추가 시 객체 미리 보기 문제](/slides/ko/python-java/object-preview-issue-when-adding-oleobjectframe/)

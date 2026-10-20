@@ -1,56 +1,56 @@
 ---
-title: Zapobiegaj edycji prezentacji przy użyciu blokad kształtów
-linktitle: Zapobiegaj edycji prezentacji
+title: Ogranicz edycję prezentacji za pomocą blokad kształtów w Pythonie
+linktitle: Ogranicz edycję prezentacji
 type: docs
 weight: 60
 url: /pl/python-java/applying-protection-to-presentation/
 keywords:
-- zapobiegaj edycji
+- zapobieganie edycji
 - ochrona przed edycją
-- zablokuj kształt
-- zablokuj pozycję
-- zablokuj zaznaczanie
-- zablokuj rozmiar
-- zablokuj grupowanie
+- blokada kształtu
+- blokada pozycji
+- blokada zaznaczania
+- blokada zmiany rozmiaru
+- blokada grupowania
 - PowerPoint
-- OpenDocument
+- PPTX
 - prezentacja
 - Python
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak Aspose.Slides for Python via Java blokuje lub odblokowuje kształty w plikach PPT, PPTX i ODP, zabezpieczając prezentacje przy jednoczesnym umożliwieniu kontrolowanych edycji i szybszego dostarczania."
+description: "Dowiedz się, jak blokować i odblokowywać kształty w prezentacjach PPTX przy użyciu Aspose.Slides for Python via Java, aby ograniczyć zaznaczanie, przemieszczanie, zmianę rozmiaru i grupowanie."
 ---
 ## **Tło**
 
-Częstym zastosowaniem Aspose.Slides jest tworzenie, aktualizowanie i zapisywanie prezentacji Microsoft PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Użytkownicy aplikacji wykorzystujących Aspose.Slides w ten sposób mają dostęp do wygenerowanych prezentacji, więc ochrona ich przed edycją jest powszechnym problemem. Ważne jest, aby automatycznie generowane prezentacje zachowywały pierwotne formatowanie i treść.
+Typowym zastosowaniem Aspose.Slides for Python via Java jest tworzenie, aktualizowanie i zapisywanie prezentacji PowerPoint (PPTX) w ramach zautomatyzowanego przepływu pracy. Gdy użytkownicy otrzymują te prezentacje, ograniczenie zmian w kształtach może pomóc zachować zamierzony układ i zawartość.
 
-Ten artykuł wyjaśnia, jak zbudowane są prezentacje i slajdy oraz jak Aspose.Slides for Python via Java może zastosować ochronę do prezentacji i później ją usunąć. Dostarcza programistom sposób kontrolowania, w jaki sposób prezentacje generowane przez ich aplikacje są używane.
+Ten artykuł wyjaśnia, jak kształty są organizowane na slajdach oraz jak zastosować i usunąć blokady kształtów w prezentacji PPTX. Te blokady umożliwiają ograniczenie konkretnych operacji edycji na poszczególnych kształtach.
 
-## **Skład slajdu**
+## **Kompozycja slajdu**
 
-Slajd prezentacji składa się z elementów takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazu, ramki wideo, łączniki i inne elementy używane do budowy prezentacji. W Aspose.Slides for Python via Java każdy element na slajdzie jest reprezentowany przez obiekt dziedziczący po klasie [Shape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/) .
+Slajd prezentacji składa się z komponentów takich jak autokształty, tabele, obiekty OLE, grupowane kształty, ramki obrazu, ramki wideo, łącza i inne elementy używane do budowy prezentacji. W Aspose.Slides for Python via Java każdy element na slajdzie jest reprezentowany przez obiekt dziedziczący po klasie [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) .
 
-Struktura pliku PPTX jest skomplikowana, dlatego w przeciwieństwie do PPT, gdzie można użyć ogólnej blokady dla wszystkich typów kształtów, różne typy kształtów wymagają różnych blokad. Klasa [BaseShapeLock](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseshapelock/) jest ogólną klasą blokującą dla PPTX. Następujące typy blokad są obsługiwane w Aspose.Slides for Python via Java dla PPTX:
+Różne typy kształtów udostępniają różne opcje blokowania. Klasa [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) jest klasą bazową dla blokad kształtów. Aspose.Slides for Python via Java udostępnia następujące klasy blokad:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshapelock/) blokuje autokształty.  
-- [ConnectorLock](https://reference.aspose.com/slides/pl/python-java/aspose.slides/connectorlock/) blokuje kształty łączników.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/pl/python-java/aspose.slides/graphicalobjectlock/) blokuje obiekty graficzne.  
-- [GroupShapeLock](https://reference.aspose.com/slides/pl/python-java/aspose.slides/groupshapelock/) blokuje grupowane kształty.  
-- [PictureFrameLock](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframelock/) blokuje ramki obrazu.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) blokuje autokształty.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) blokuje łącza.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) blokuje obiekty graficzne.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) blokuje grupowane kształty.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) blokuje ramki obrazu.  
 
-Każde działanie wykonane na wszystkich obiektach kształtów w obiekcie [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) jest stosowane do całej prezentacji.
+Aby zastosować blokady w całej [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), iteruj po jej slajdach i ustaw odpowiednie blokady na każdym obsługiwanym kształcie.
 
 ## **Zastosowanie i usunięcie ochrony**
 
-Zastosowanie ochrony zapewnia, że prezentacja nie może być edytowana. Jest to przydatna technika ochrony zawartości prezentacji.
+Blokady kształtów ograniczają operacje takie jak zaznaczanie, przemieszczanie i zmiana rozmiaru kształtów. Nie sprawiają, że cała prezentacja jest nieedytowalna.
 
-### **Zastosuj ochronę do kształtów PPTX**
+### **Zastosowanie ochrony do kształtów PPTX**
 
-Aspose.Slides for Python via Java udostępnia klasę [Shape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/) do pracy z kształtami na slajdzie.
+Aspose.Slides for Python via Java udostępnia klasę [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) , aby pracować z kształtami na slajdzie.
 
-Jak wspomniano wcześniej, każda klasa kształtu ma powiązaną klasę blokady kształtu służącą do ochrony. Ten artykuł koncentruje się na blokadach NoSelect, NoMove i NoResize. Blokady te zapewniają, że kształty nie mogą być zaznaczane (za pomocą kliknięć myszy lub innych metod zaznaczania) oraz że nie mogą być przenoszone ani zmieniane rozmiarowo.
+Przykład wywołuje [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) i [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) z wartością `True` dla autokształtów, oraz równoważne blokady dla grupowanych kształtów, łączy i ramek obrazu. Łącza używają [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) do przemieszczania; grupy także używają [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked), aby ograniczyć grupowanie.
 
-Poniższy przykład kodu stosuje ochronę do wszystkich typów kształtów w prezentacji.
+Przykład ładuje istniejącą prezentację PPTX, sprawdza kształty w kolekcji kształtów każdego slajdu i zapisuje kopię z zastosowanymi ograniczeniami. Kształty spoza czterech obsługiwanych typów pozostają niezmienione. Pętla nie przegląda kształtów potomnych wewnątrz grupy.
 
 ```python
 import jpype
@@ -61,12 +61,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Utwórz instancję klasy Presentation, która reprezentuje plik PPTX.
 presentation = Presentation("Sample.pptx")
 try:
-    # Przejdź po wszystkich slajdach w prezentacji.
     for slide in presentation.getSlides():
-        # Przejdź po wszystkich kształtach na slajdzie.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -90,15 +87,14 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # Zapisz plik prezentacji.
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Usuń ochronę**
+### **Usunięcie ochrony**
 
-Aby odblokować kształt, ustaw wartość zastosowanej blokady na `False`. Poniższy przykład kodu pokazuje, jak odblokować kształty w zablokowanej prezentacji.
+Aby usunąć blokadę kształtu, ustaw jej wartość na `False`. Poniższy przykład ładuje prezentację z blokadami kształtów i usuwa ograniczenia zaznaczania, przemieszczania i zmiany rozmiaru za pomocą [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) i [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Usuwa także ograniczenie grupowania, przekazując `False` do [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked), i zapisuje kopię prezentacji. Inne ustawienia blokad pozostają niezmienione.
 
 ```python
 import jpype
@@ -109,12 +105,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Utwórz instancję klasy Presentation, która reprezentuje plik PPTX.
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # Przejdź po wszystkich slajdach w prezentacji.
     for slide in presentation.getSlides():
-        # Przejdź po wszystkich kształtach na slajdzie.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -138,26 +131,25 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # Zapisz plik prezentacji.
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Podsumowanie**
+### **Podsumowanie**
 
-Aspose.Slides oferuje kilka opcji ochrony kształtów w prezentacji. Można zablokować pojedynczy kształt lub przeiterować wszystkie kształty w prezentacji i zablokować każdy z nich, aby skutecznie zabezpieczyć cały plik. Ochronę można usunąć, ustawiając wartość blokady na `False`.
+Aspose.Slides for Python via Java pozwala ograniczyć określone operacje edycji na pojedynczych kształtach lub zastosować te same ograniczenia na wielu slajdach. Wybierz blokady obsługiwane przez dany typ kształtu i ustaw ich wartości na `False`, gdy potrzebujesz usunąć te ograniczenia.
 
 ## **FAQ**
 
-**Czy mogę połączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
+**Czy mogę łączyć blokady kształtów i ochronę hasłem w tej samej prezentacji?**
 
-Tak. Blokady ograniczają edycję obiektów wewnątrz pliku, podczas gdy [ochrona hasłem](/slides/pl/python-java/password-protected-presentation/) kontroluje dostęp do otwierania i/lub zapisywania zmian. Mechanizmy te uzupełniają się nawzajem i współdziałają.
+Tak. Blokady kształtów ograniczają określone operacje edycji, podczas gdy [ochrona hasłem](/slides/pl/python-java/password-protected-presentation/) może ograniczyć otwieranie lub modyfikowanie prezentacji. Możesz używać obu w tym samym pliku.
 
 **Czy mogę ograniczyć edycję na konkretnych slajdach bez wpływu na inne?**
 
-Tak. Zastosuj blokady do kształtów na wybranych slajdach; pozostałe slajdy pozostaną edytowalne.
+Tak. Zastosuj blokady tylko do kształtów na wybranych slajdach. Nie zmieni to ustawień blokad na innych slajdach.
 
-**Czy blokady kształtów dotyczą obiektów grupowanych i łączników?**
+**Jak mogę zastosować blokady do pojedynczych kształtów wewnątrz grupy?**
 
-Tak. Dedykowane typy blokad są obsługiwane dla grup, łączników, obiektów graficznych i innych rodzajów kształtów.
+Iteruj po kolekcji zwróconej przez metodę [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) grupy i zastosuj odpowiednie blokady do każdego kształtu podrzędnego. Powtórz to dla wszelkich zagnieżdżonych grup. Powyższe przykłady przetwarzają tylko kolekcję kształtów slajdu, więc nie ustawiają blokad na poszczególnych elementach grupy.

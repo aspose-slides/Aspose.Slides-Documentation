@@ -1,166 +1,136 @@
 ---
-title: "สร้างแผนภูมิ Excel และฝังลงในงานนำเสนอเป็นอ็อบเจ็กต์ OLE"
+title: สร้างแผนภูมิ Excel และฝังลงในงานนำเสนอเป็นอ็อบเจกต์ OLE
 type: docs
 weight: 50
 url: /th/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- "แผนภูมิ Excel"
-- "ฝังแผนภูมิ"
-- "อ็อบเจ็กต์ OLE"
-- "PowerPoint"
-- "OpenDocument"
-- "งานนำเสนอ"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "สร้างแผนภูมิ Excel และฝังเป็นอ็อบเจ็กต์ OLE ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย C#/.NET คู่มือขั้นตอนอย่างละเอียดพร้อมตัวอย่างโค้ด"
+- แผนภูมิ Excel
+- ฝังแผนภูมิ
+- อ็อบเจกต์ OLE
+- PowerPoint
+- งานนำเสนอ
+- .NET
+- C#
+- Aspose.Slides
+description: "สร้างแผนภูมิ Excel ด้วย Aspose.Cells for .NET และฝังเวิร์กบุ๊กลงในงานนำเสนอ PowerPoint ด้วย Aspose.Slides พร้อมภาพตัวอย่างของแผนภูมิ."
 ---
-## **พื้นหลัง**
+## **ภาพรวม**
 
-ใน PowerPoint การใช้แผนภูมิที่แก้ไขได้เพื่อแสดงข้อมูลเป็นกราฟิกเป็นการปฏิบัติที่พบบ่อย Aspose รองรับการสร้างแผนภูมิ Excel ด้วย Aspose.Cells สำหรับ .NET และแผนภูมิเหล่านี้สามารถฝังเป็นอ็อบเจ็กต์ OLE ในสไลด์ PowerPoint ผ่าน Aspose.Slides สำหรับ .NET บทความนี้ครอบคลุมขั้นตอนที่จำเป็นและให้ตัวอย่างโค้ด C# สำหรับการสร้างแผนภูมิ Excel และฝังเป็นอ็อบเจ็กต์ OLE ในงานนำเสนอ PowerPoint ด้วย Aspose.Cells และ Aspose.Slides.
+บทความนี้แสดงวิธีสร้างแผนภูมิคอลัมน์ Excel ด้วย Aspose.Cells for .NET และฝังเวิร์กบุ๊กของมันลงในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for .NET เวิร์กบุ๊กที่ฝังมานี้ประกอบด้วยข้อมูลต้นฉบับและแผนภูมิด้วย ภาพตัวอย่าง PNG แยกต่างหากจะแสดงแผนภูมิบนสไลด์ก่อนที่อ็อบเจกต์ OLE จะถูกเปิดใช้งาน. ผลลัพธ์คืออ็อบเจกต์ Excel ที่ฝังอยู่ ไม่ใช่แผนภูมิ PowerPoint แบบดั้งเดิม การแก้ไขเวิร์กบุ๊กผ่าน OLE จำเป็นต้องใช้แอปพลิเคชันบนเดสก์ทอปที่รองรับการเปิดใช้งาน OLE และการติดตั้ง Excel ที่เข้ากันได้.
 
-## **ขั้นตอนที่ต้องทำ**
+## **ข้อกำหนดเบื้องต้น**
 
-ลำดับขั้นตอนต่อไปนี้จำเป็นต้องทำเพื่อสร้างและฝังแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ในสไลด์ PowerPoint:
+เพิ่มการอ้างอิงไปยัง Aspose.Cells for .NET และ Aspose.Slides for .NET ในโปรเจกต์ C# ของคุณ ตัวอย่างนี้ใช้ top-level statements และต้องการ C# 9 หรือใหม่กว่า ไม่จำเป็นต้องติดตั้ง Microsoft Office เพื่อสร้างงานนำเสนอด้วยไลบรารีเหล่านี้. ไม่จำเป็นต้องมีไฟล์อินพุตใด ๆ: ตัวอย่างสร้างข้อมูลและแผนภูมิในหน่วยความจำ แล้วเขียนไฟล์ `OutputChart.pptx` ไปยังไดเรกทรีทำงานปัจจุบัน ให้ใส่ล licenses สำหรับผลิตภัณฑ์ทั้งสองเมื่อรันนอกโหมดประเมินผล.
 
-1. สร้างแผนภูมิ Excel ด้วย Aspose.Cells.
-2. ตั้งค่าขนาด OLE ของแผนภูมิ Excel ด้วย Aspose.Cells.
-3. ดึงรูปภาพของแผนภูมิ Excel ด้วย Aspose.Cells.
-4. ฝังแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ในงานนำเสนอ PPTX ด้วย Aspose.Slides.
-5. แทนที่รูปภาพ "EMBEDDED OLE OBJECT" ด้วยรูปภาพที่ได้จากขั้นตอนที่ 3 เพื่อแก้ไขปัญหา [object preview issue](/slides/th/net/object-preview-issue-when-adding-oleobjectframe/).
-6. บันทึกงานนำเสนอลงดิสก์ในรูปแบบ PPTX.
+## **วิธีการทำงานของการฝัง**
 
-## **การดำเนินการของขั้นตอนที่ต้องทำ**
+1. สร้างเวิร์กบุ๊กที่มีแผ่นงานข้อมูลและแผ่นงานแผนภูมิ.
+2. ทำให้แผ่นงานแผนภูมิกำลังใช้งานเพื่อให้เวิร์กบุ๊กเปิดที่แผนภูมิ.
+3. กำหนดช่วงการแสดงผล OLE ของเวิร์กบุ๊กและเรนเดอร์แผนภูมิเป็น PNG.
+4. บันทึกเวิร์กบุ๊กเป็น XLSX ในหน่วยความจำและฝังไบต์เหล่านั้นลงในสไลด์.
+5. กำหนด PNG เป็นภาพตัวอย่างของอ็อบเจกต์ OLE แล้วบันทึกงานนำเสนอเป็น PPTX.
 
-การทำงานด้วย C# ของขั้นตอนด้านบนมีดังต่อไปนี้:
+ช่วงการแสดงผลของเวิร์กบุ๊กและกรอบบนสไลด์มีบทบาทที่แตกต่างกัน [SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) ใช้ดัชนีแถวและคอลัมน์เริ่ม/สิ้นสุดแบบศูนย์ฐาน. [ChartCollection.Add](https://reference.aspose.com/cells/net/aspose.cells.charts/chartcollection/add/) แทนที่จะใช้จะรับแถวบน, คอลัมน์ซ้าย, แถวล่าง, และคอลัมน์ขวา. ตัวอย่างใช้ดัชนีแถว 55 และดัชนีคอลัมน์ 25 เป็นขอบเขตด้านขวาล่าง; ค่าดังกล่าวเป็นการเลือกการจัดวาง ไม่ใช่จำนวนแถวหรือคอลัมน์ของข้อมูล. กรอบสไลด์ใช้หน่วยจุด ตัวอย่างทำให้พอดีกับสไลด์และจัดกึ่งกลางโดยคงอัตราส่วนของ PNG ไว้ แทนการยืดภาพตัวอย่างให้เต็มสไลด์.
 
-```cs
-// ขั้นตอนที่ 1: สร้างแผนภูมิ Excel โดยใช้ Aspose.Cells.
-// ---------------------------------------------------
-// Create a workbook.
-Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook();
-// Add an Excel chart.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+## **สร้างและฝังแผนภูมิ**
 
-// ขั้นตอนที่ 2: ตั้งค่าขนาด OLE ของแผนภูมิโดยใช้ Aspose.Cells.
-// -----------------------------------------------------------
-workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-
-// ขั้นตอนที่ 3: ดึงรูปภาพของแผนภูมิด้วย Aspose.Cells.
-// -------------------------------------------------------
-Bitmap chartImage = workbook.Worksheets[chartSheetIndex].Charts[0].ToImage();
-// Save the workbook to a stream.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// ขั้นตอนที่ 4 และ 5
-// ==============
-// ขั้นตอนที่ 4: ฝังแผนภูมิเป็นอ็อบเจ็กต์ OLE ภายในงานนำเสนอ .ppt โดยใช้ Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// ขั้นตอนที่ 5: แทนที่รูปภาพ "EMBEDDED OLE OBJECT" ด้วยรูปภาพที่ได้จากขั้นตอนที่ 3 เพื่อแก้ไขปัญหา Object Preview Issue.
-// --------------------------------------------------------------------------------------------------------------------
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    // Add the workbook to the slide.
-    AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
-
-    // ขั้นตอนที่ 6: บันทึกงานนำเสนอผลลัพธ์ลงดิสก์.
-    // -----------------------------------------------
-    presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
+ตัวอย่างเต็มต่อไปนี้จะเติมค่าใน `DataSheet` ด้วยแถวสี่แถวและคอลัมน์ห้าคอลัมน์ แต่ละแถวจะเป็นซีรีส์ของแผนภูมิ `ChartSheet` ถูกเลือกเป็นแผ่นงานที่ใช้งานก่อนที่เวิร์กบุ๊กจะถูกบันทึก. เวิร์กบุ๊กถูกบันทึกเป็น XLSX อย่างชัดเจน โดยสอดคล้องกับส่วนขยาย `xlsx` ที่ส่งให้กับ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/). PNG จะถูกโหลดโดยตรงจากสตรีมโดยไม่ต้องแปลงเป็นบิตแมพกลาง การกำหนดผ่าน [SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/substitutepictureformat/) จะเปลี่ยนตำแหน่งเก็บข้อมูล OLE เริ่มต้น.
 
 ```cs
-static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows, int chartCols)
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "DataSheet";
+
+int[,] values =
 {
-    // อาเรย์ของชื่อเซลล์.
-    string[] cellNames = new string[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+    { 67, 44, 46, 43, 24 },
+    { 86, 64, 97, 29, 40 },
+    { 68, 89, 78, 69, 38 },
+    { 91, 48, 60, 26, 25 }
+};
 
-    // อาเรย์ของข้อมูลเซลล์.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
-
-    // เพิ่มเวิร์กชีตใหม่เพื่อเติมข้อมูลในเซลล์.
-    int dataSheetIndex = workbook.Worksheets.Add();
-    Aspose.Cells.Worksheet dataSheet = workbook.Worksheets[dataSheetIndex];
-    string sheetName = "DataSheet";
-    dataSheet.Name = sheetName;
-
-    // เติมข้อมูลลงในแผ่นข้อมูล.
-    for (int i = 0; i < cellNames.Length; i++)
-    {
-        string cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.Cells[cellName].PutValue(cellValue);
-    }
-
-    // เพิ่มแผ่นแผนภูมิ.
-    int chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
-    Aspose.Cells.Worksheet chartSheet = workbook.Worksheets[chartSheetIndex];
-    chartSheet.Name = "ChartSheet";
-
-    // เพิ่มแผนภูมิลงในแผ่นแผนภูมิโดยใช้ชุดข้อมูลจากแผ่นข้อมูล.
-    int chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
-    Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIndex];
-    chart.NSeries.Add(sheetName + "!A1:E1", false);
-    chart.NSeries.Add(sheetName + "!A2:E2", false);
-    chart.NSeries.Add(sheetName + "!A3:E3", false);
-    chart.NSeries.Add(sheetName + "!A4:E4", false);
-
-    // กำหนดแผ่นแผนภูมิให้เป็นแผ่นทำงานที่ใช้งาน.
-    workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
-    return chartSheetIndex;
-}
-```
-
-```cs
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
+for (var row = 0; row < values.GetLength(0); row++)
 {
-    float oleWidth = presentation.SlideSize.Size.Width;
-    float oleHeight = presentation.SlideSize.Size.Height;
-
-    byte[] oleData = new byte[workbookStream.Length];
-    workbookStream.Position = 0;
-    workbookStream.Read(oleData, 0, oleData.Length);
-
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xls");
-    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
-
-    using (MemoryStream imageStream = new MemoryStream())
+    for (var column = 0; column < values.GetLength(1); column++)
     {
-        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
-
-	    imageStream.Position = 0;
-        IPPImage ppImage = presentation.Images.AddImage(imageStream);
-
-        oleFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+        dataSheet.Cells[row, column].PutValue(values[row, column]);
     }
 }
+
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+chartSheet.Name = "ChartSheet";
+
+var lastChartRow = 55;
+var lastChartColumn = 25;
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, lastChartRow, lastChartColumn);
+var chart = chartSheet.Charts[chartIndex];
+for (var row = 1; row <= values.GetLength(0); row++)
+{
+    chart.NSeries.Add($"DataSheet!A{row}:E{row}", false);
+}
+
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
+workbook.Worksheets.SetOleSize(0, lastChartRow, 0, lastChartColumn);
+
+// เรนเดอร์ภาพตัวอย่างของแผนภูมิและทำการบันทึกเวิร์กบุ๊กที่แก้ไขได้แยกส่วน.
+using var chartImageStream = new MemoryStream();
+chart.ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+using var chartImage = Images.FromStream(chartImageStream);
+
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Xlsx);
+var workbookBytes = workbookStream.ToArray();
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var slideSize = presentation.SlideSize.Size;
+
+// Fit the preview within the slide without changing its aspect ratio.
+var scale = Math.Min(slideSize.Width / chartImage.Width, slideSize.Height / chartImage.Height);
+var frameWidth = chartImage.Width * scale;
+var frameHeight = chartImage.Height * scale;
+var frameX = (slideSize.Width - frameWidth) / 2;
+var frameY = (slideSize.Height - frameHeight) / 2;
+
+var embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+var previewImage = presentation.Images.AddImage(chartImage);
+oleFrame.SubstitutePictureFormat.Picture.Image = previewImage;
+
+presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-งานนำเสนอที่สร้างโดยวิธีข้างต้นจะมีแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ซึ่งสามารถเปิดใช้งานได้โดยการคลิกสองครั้งที่เฟรมอ็อบเจ็กต์ OLE.
+## **ผลลัพธ์ที่คาดหวัง**
 
-## **สรุป**
+`OutputChart.pptx` มีหนึ่งสไลด์ที่ฝังเวิร์กบุ๊ก Excel และภาพตัวอย่างของแผนภูมิ เวิร์กบุ๊กมีข้อมูลต้นฉบับและแผนภูมิคอลัมน์ที่มีสี่ซีรีส์ ภาพตัวอย่างถูกจัดกึ่งกลางบนสไลด์และคงอัตราส่วนไว้.
 
-โดยการใช้ Aspose.Cells สำหรับ .NET ร่วมกับ Aspose.Slides สำหรับ .NET เราสามารถสร้างแผนภูมิ Excel ใด ๆ ที่รองรับโดย Aspose.Cells และฝังแผนภูมิเป็นอ็อบเจ็กต์ OLE ในสไลด์ PowerPoint ได้ ขนาด OLE ของแผนภูมิ Excel ยังสามารถกำหนดได้ ผู้ใช้ปลายทางจึงสามารถแก้ไขแผนภูมิ Excel เหมือนกับอ็อบเจ็กต์ OLE อื่น ๆ.
+![แผนภูมิคอลัมน์ Excel แสดงเป็นภาพตัวอย่างของเวิร์กบุ๊กที่ฝังอยู่](excel-chart-ole-preview.png)
+
+ในสภาพแวดล้อม PowerPoint บนเดสก์ท็อปที่รองรับและมี Excel อยู่ให้ใช้ได้ ให้คลิกสองครั้งที่อ็อบเจกต์เพื่อเปิดใช้งานและแก้ไขเวิร์กบุ๊กที่ฝัง การเปิดใช้งานและการแก้ไขขึ้นอยู่กับการสนับสนุน OLE ของแอปพลิเคชันโฮสต์และการตั้งค่าความปลอดภัย.
+
+## **คำถามที่พบบ่อย**
+
+**ทำไมต้องมีภาพตัวอย่าง?**  
+เวิร์กบุ๊กที่ฝังและภาพตัวอย่างบนสไลด์เป็นเนื้อหาแยกกัน ให้จัดเตรียมภาพแผนภูมิเพื่อให้สไลด์แสดงแผนภูมิแทนตำแหน่งที่กำหนดค่าเริ่มต้นของ "EMBEDDED OLE OBJECT" ดูที่ [Object Preview Issue when Adding OleObjectFrame](/slides/th/net/object-preview-issue-when-adding-oleobjectframe/).
+
+**ภาพตัวอย่างอัปเดตอัตโนมัติเมื่อฉันเปลี่ยนเวิร์กบุ๊กในโค้ดหรือไม่?**  
+ถือว่าภาพตัวอย่างเป็นสแนปชอต เมื่ออัปเดตข้อมูลเวิร์กบุ๊กโดยโปรแกรม ให้สร้างภาพแผนภูมิใหม่และเปลี่ยนภาพตัวอย่างพร้อมกับข้อมูลเวิร์กบุ๊กที่ฝัง.
+
+**ฉันสามารถใช้ XLS แทน XLSX ได้หรือไม่?**  
+ได้. บันทึกเวิร์กบุ๊กในรูปแบบ XLS และใช้ `xls` เป็นส่วนขยายของข้อมูลที่ฝัง ส่วนขยายต้องตรงกับรูปแบบเวิร์กบุ๊กจริง; การเปลี่ยนส่วนขยายอย่างเดียวไม่ทำให้ข้อมูลแปลงรูปแบบ.
+
+**ทำไมอ็อบเจกต์ถึงอาจเปลี่ยนขนาดหลังจากเปิดใช้งาน?**  
+แอปพลิเคชันโฮสต์สามารถอัปเดตการแสดงผลของอ็อบเจกต์ OLE เมื่อเปิดใช้งานเวิร์กบุ๊ก ช่วงการแสดงผล OLE ของเวิร์กบุ๊กและมิติของกรอบสไลด์มีความสำคัญทั้งสอง ดูที่ [Working Solution for Chart Resizing in PPTX](/slides/th/net/working-solution-for-chart-resizing-in-pptx/).
 
 ## **ส่วนที่เกี่ยวข้อง**
 
-- [วิธีแก้ปัญหาการปรับขนาดแผนภูมิใน PPTX](/slides/th/net/working-solution-for-chart-resizing-in-pptx/)
-- [ปัญหาการแสดงตัวอย่างอ็อบเจ็กต์เมื่อเพิ่ม OleObjectFrame](/slides/th/net/object-preview-issue-when-adding-oleobjectframe/)
-- [อัพเดตอ็อบเจ็กต์ OLE อัตโนมัติด้วยแอดอิน PowerPoint](/slides/th/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [โซลูชันที่ทำงานได้สำหรับการปรับขนาดแผนภูมิใน PPTX](/slides/th/net/working-solution-for-chart-resizing-in-pptx/)
+- [ปัญหาภาพตัวอย่างอ็อบเจกต์เมื่อเพิ่ม OleObjectFrame](/slides/th/net/object-preview-issue-when-adding-oleobjectframe/)
+- [อัปเดตอ็อบเจกต์ OLE อัตโนมัติด้วยส่วนเสริม PowerPoint](/slides/th/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

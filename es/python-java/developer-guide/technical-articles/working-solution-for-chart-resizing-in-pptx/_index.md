@@ -9,40 +9,33 @@ keywords:
 - objeto OLE
 - incrustar gráfico
 - PowerPoint
-- OpenDocument
 - presentación
 - Python
 - Java
 - Aspose.Slides
-description: "Corrige el redimensionado inesperado de gráficos en PPTX al usar objetos OLE de Excel incrustados con Aspose.Slides for Python via Java. Aprende dos métodos con código para mantener los tamaños consistentes."
+description: "Corrija el redimensionado inesperado de gráficos en PPTX al usar objetos OLE de Excel incrustados con Aspose.Slides para Python a través de Java. Establezca dimensiones fijas del gráfico para mantener coherentes los tamaños del gráfico y del marco OLE."
 ---
-## **Antecedentes**
+## **Contexto**
 
-Se ha observado que los gráficos de Excel incrustados como objetos OLE en una presentación de PowerPoint mediante los componentes de Aspose se redimensionan a una escala no especificada después de su primera activación. Este comportamiento produce una diferencia visual notable en la presentación entre los estados antes y después de activar el gráfico. El equipo de Aspose ha investigado el problema en detalle y ha encontrado una solución. Este artículo describe las causas del problema y la corrección correspondiente.
+Los gráficos de Excel incrustados como objetos OLE en presentaciones de PowerPoint mediante los componentes Aspose pueden cambiar de tamaño después de su primera activación. Esto puede provocar una diferencia notable en la apariencia del gráfico antes y después de la activación. Este artículo explica por qué ocurre el redimensionado y muestra cómo evitarlo haciendo coincidir las dimensiones fijas del gráfico con el marco OLE.
 
-En el [artículo anterior](/slides/es/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), explicamos cómo crear un gráfico de Excel con Aspose.Cells for Python via Java e incrustarlo en una presentación de PowerPoint usando Aspose.Slides for Python via Java. Para abordar el [problema de vista previa del objeto](/slides/es/python-java/object-preview-issue-when-adding-oleobjectframe/), asignamos la imagen del gráfico al marco del objeto OLE del gráfico. En la presentación resultante, al hacer doble clic en el marco del objeto OLE que muestra la imagen del gráfico, se activa el gráfico de Excel. Los usuarios finales pueden realizar los cambios que deseen en el libro de Excel subyacente y luego volver a la diapositiva correspondiente haciendo clic fuera del libro activado. El tamaño del marco del objeto OLE cambia cuando el usuario regresa a la diapositiva, y el factor de redimensionado varía según los tamaños originales tanto del marco del objeto OLE como del libro de Excel incrustado.
+En [Crear gráficos de Excel e incrustarlos como objetos OLE en presentaciones](/slides/es/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), explicamos cómo crear un gráfico de Excel con Aspose.Cells for Python via Java e incrustarlo en una presentación de PowerPoint usando Aspose.Slides for Python via Java. Para abordar el [problema de vista previa del objeto](/slides/es/python-java/object-preview-issue-when-adding-oleobjectframe/), asignamos la imagen del gráfico al marco del objeto OLE del gráfico. En la presentación resultante, cuando hace doble clic en el marco del objeto OLE que muestra la imagen del gráfico, el gráfico de Excel se activa. Los usuarios pueden editar el libro de trabajo de Excel incrustado y luego volver a la diapositiva haciendo clic fuera del libro activado. El tamaño del marco del objeto OLE cambia cuando el usuario vuelve a la diapositiva, y el factor de redimensionado varía según los tamaños originales tanto del marco OLE como del libro de trabajo de Excel incrustado.
 
 ## **Causa del redimensionado**
 
-Como el libro de Excel tiene su propio tamaño de ventana, intenta conservar su tamaño original en su primera activación. El marco del objeto OLE, sin embargo, tiene su propio tamaño. Según Microsoft, cuando se activa el libro de Excel, Excel y PowerPoint negocian el tamaño y mantienen las proporciones correctas como parte del proceso de incrustación. Dependiendo de las diferencias entre el tamaño de la ventana de Excel y el tamaño o posición del marco del objeto OLE, se produce el redimensionado.
+El libro de trabajo de Excel incrustado tiene sus propias dimensiones de ventana, que Excel intenta conservar cuando el objeto se activa por primera vez. El marco OLE en la diapositiva tiene dimensiones definidas de forma independiente. Cuando el libro de trabajo se activa, Excel y PowerPoint negocian el tamaño del objeto para mantener sus proporciones como parte del proceso de incrustado. Las diferencias entre la ventana del libro y el marco OLE pueden, por tanto, provocar el redimensionado del objeto.
 
 ## **Solución funcional**
 
-Existen dos escenarios posibles para crear presentaciones de PowerPoint usando Aspose.Slides for Python via Java.
+Haga coincidir el tamaño del gráfico con el marco OLE de la diapositiva y mantenga las dimensiones del gráfico independientes de la ventana del libro de trabajo. Esta solución funciona con una presentación nueva o con una plantilla existente.
 
-**Escenario 1:** Crear una presentación a partir de una plantilla existente.
+El ejemplo requiere Aspose.Cells for Python via Java y Aspose.Slides for Python via Java. Crea un gráfico de columnas simple en una hoja de gráfico activa e incrusta el libro de trabajo en formato XLS. No se asigna una imagen de vista previa del gráfico; el gráfico se vuelve visible cuando el objeto OLE se activa en PowerPoint.
 
-**Escenario 2:** Crear una presentación desde cero.
+El ejemplo crea una nueva presentación con un marco OLE de 9,5 × 4 pulgadas situado a 0,5 pulgadas del borde izquierdo y a 1 pulgada de la parte superior. Las coordenadas y dimensiones de la diapositiva están en puntos (72 puntos por pulgada). Para una presentación existente, vea [Usar una plantilla](#use-a-template).
 
-La solución que ofrecemos aquí se aplica a ambos escenarios. La base de todos los enfoques de solución es la misma: **el tamaño de ventana del objeto OLE incrustado debe coincidir con el marco del objeto OLE en la diapositiva de PowerPoint**. A continuación se describen los dos enfoques de esta solución.
+## **Establecer un tamaño fijo para el gráfico**
 
-## **Primer enfoque**
-
-En este enfoque, aprenderemos cómo establecer el tamaño de ventana del libro de Excel incrustado para que coincida con el tamaño del marco del objeto OLE en la diapositiva de PowerPoint.
-
-**Escenario 1**
-
-Supongamos que hemos definido una plantilla y queremos crear presentaciones basadas en ella. Imaginemos que hay una forma en el índice 2 de la plantilla donde queremos colocar un marco OLE que contenga un libro de Excel incrustado. En este escenario, el tamaño del marco del objeto OLE está predefinido; coincide con el tamaño de la forma en el índice 2 de la plantilla. Todo lo que necesitamos es establecer el tamaño de ventana del libro de trabajo igual al tamaño de esa forma. El fragmento de código siguiente cumple este propósito:
+Establezca [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) a false para que las dimensiones del gráfico sean independientes de la ventana del libro de trabajo. Establezca las dimensiones del [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) a través de [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) y [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height), convirtiendo puntos a píxeles usando 96 píxeles por pulgada: un marco que mide 684 × 288 puntos corresponde a un gráfico que mide 912 × 384 píxeles. Establezca [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) al valor CUSTOM de [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/). El ejemplo incrusta el libro de trabajo con [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) y guarda una presentación con un marco OLE de 9,5 × 4 pulgadas.
 
 ```python
 import jpype
@@ -52,215 +45,84 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# Cargar el libro de Excel que contiene el gráfico.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # Establecer el tamaño de ventana del libro en pulgadas (PowerPoint usa 72 puntos por pulgada).
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # Guardar el libro en un flujo de memoria.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # Crear un marco de objeto OLE con los datos de Excel incrustados.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # Las coordenadas y dimensiones de la diapositiva están en puntos (72 puntos por pulgada).
+        width = 684.0  # 9,5 pulgadas.
+        height = 288.0  # 4 pulgadas.
+
+        chart.setSizeWithWindow(False)
+        # Convertir puntos a píxeles del gráfico usando 96 píxeles por pulgada.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Escenario 2**
+## **Usar una plantilla**
 
-Digamos que queremos crear una presentación desde cero e incluir un marco de objeto OLE de cualquier tamaño con un libro de Excel incrustado. En el fragmento de código siguiente, creamos un marco de objeto OLE de 4 pulgadas de alto y 9,5 pulgadas de ancho en x = 0,5 pulgadas e y = 1 pulgada en la diapositiva. Luego establecemos la ventana del libro de Excel al mismo tamaño: 4 pulgadas de alto y 9,5 pulgadas de ancho.
+La lógica de dimensionado es la misma para una presentación existente. Para adaptar el ejemplo:
 
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Cargar el libro de Excel que contiene el gráfico.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 pulgadas (4 * 72).
-    desired_width = 684  # 9,5 pulgadas (9,5 * 72).
-
-    # Definir el tamaño del gráfico con una ventana.
-    chart.setSizeWithWindow(True)
-
-    # Establecer el tamaño de ventana del libro en pulgadas (PowerPoint usa 72 puntos por pulgada).
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # Guardar el libro en un flujo de memoria.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Crear un marco de objeto OLE con los datos de Excel incrustados.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Segundo enfoque**
-
-En este enfoque, aprenderemos cómo establecer el tamaño del gráfico en el libro de Excel incrustado para que coincida con el tamaño del marco del objeto OLE en la diapositiva de PowerPoint. Este enfoque es útil cuando el tamaño del gráfico se conoce de antemano y nunca cambiará.
-
-**Escenario 1**
-
-Supongamos que hemos definido una plantilla y queremos crear presentaciones basadas en ella. Imaginemos que hay una forma en el índice 2 de la plantilla donde pretendemos colocar un marco OLE que contenga un libro de Excel incrustado. En este escenario, el tamaño del marco OLE está predefinido; coincide con el tamaño de la forma en el índice 2 de la plantilla. Todo lo que necesitamos es establecer el tamaño del gráfico en el libro de trabajo igual al tamaño de esa forma. El fragmento de código siguiente cumple este propósito:
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Cargar el libro de Excel que contiene el gráfico.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # Definir el tamaño del gráfico sin ventana.
-    chart.setSizeWithWindow(False)
-
-    # Establecer el tamaño del gráfico en píxeles (Excel usa 96 píxeles por pulgada).
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # Definir el tamaño de impresión del gráfico.
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # Guardar el libro en un flujo de memoria.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Crear un marco de objeto OLE con los datos de Excel incrustados.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Escenario 2**:
-
-Supongamos que queremos crear una presentación desde cero e incluir un marco de objeto OLE de cualquier tamaño con un libro de Excel incrustado. En el fragmento de código siguiente, creamos un marco de objeto OLE con una altura de 4 pulgadas y una anchura de 9,5 pulgadas en la diapositiva en x = 0,5 pulgadas e y = 1 pulgada. También establecemos el tamaño del gráfico correspondiente a las mismas dimensiones: una altura de 4 pulgadas y una anchura de 9,5 pulgadas.
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Cargar el libro de Excel que contiene el gráfico.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 pulgadas (4 * 72).
-    desired_width = 684  # 9.5 pulgadas (9.5 * 72).
-
-    # Definir el tamaño del gráfico sin ventana.
-    chart.setSizeWithWindow(False)
-
-    # Establecer el tamaño del gráfico en píxeles (Excel usa 96 píxeles por pulgada).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # Guardar el libro en un flujo de memoria.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Crear un marco de objeto OLE con los datos de Excel incrustados.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Conclusión**
-
-Existen dos enfoques para solucionar el problema de redimensionado del gráfico. La elección del enfoque depende de los requisitos y del caso de uso. Ambos enfoques funcionan de la misma manera, ya sea que las presentaciones se creen a partir de una plantilla o desde cero. Además, no hay límite al tamaño del marco del objeto OLE en esta solución.
+1. Cargue la presentación de plantilla en lugar de crear una presentación vacía.  
+1. Verifique que la primera diapositiva contenga al menos tres formas y utilice la forma en el índice 2 como marcador de posición.  
+1. Obtenga el ancho y alto del marco de esa forma en lugar de usar los valores fijos 684 y 288. Mantenga los cálculos de dimensiones sin cambios.  
+1. Añada el marco OLE en la posición del marcador de posición en lugar de las coordenadas fijas 36 y 72.  
+1. Elimine el marcador de posición antes de guardar la presentación.
 
 ## **Preguntas frecuentes**
 
 **¿Por qué mi gráfico de Excel incrustado cambia de tamaño después de activarlo en PowerPoint?**
 
-Esto ocurre porque Excel intenta restaurar el tamaño original de la ventana al activarse por primera vez, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la relación de aspecto, lo que puede provocar el redimensionado.
+Esto ocurre porque Excel intenta restaurar el tamaño original de la ventana cuando se activa por primera vez, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la relación de aspecto, lo que puede provocar el redimensionado.
 
-**¿Es posible prevenir este problema de redimensionado por completo?**
+**¿Cómo puedo mantener consistentes los tamaños del gráfico y del marco OLE?**
 
-Sí. Igualando el tamaño de la ventana del libro de Excel o el tamaño del gráfico al del marco del objeto OLE antes de incrustarlo, se pueden mantener los tamaños del gráfico consistentes.
+Establezca dimensiones fijas para el gráfico que coincidan con el marco OLE y use un tamaño de impresión de gráfico personalizado antes de incrustar el libro de trabajo. El ejemplo anterior muestra la configuración requerida y las conversiones de unidades.
 
-**¿Qué enfoque debo usar, establecer el tamaño de ventana del libro o establecer el tamaño del gráfico?**
+**¿Es suficiente igualar el tamaño de la ventana del libro de trabajo?**
 
-Utilice **Enfoque 1 (tamaño de ventana)** si desea preservar la relación de aspecto del libro y permitir un posible redimensionado posterior.  
-Utilice **Enfoque 2 (tamaño del gráfico)** si las dimensiones del gráfico son fijas y no cambiarán tras la incrustación.
+Igualar únicamente el tamaño de la ventana del libro de trabajo no evita de forma fiable que el marco OLE cambie de tamaño después de la activación. Utilice dimensiones fijas del gráfico como se muestra en el ejemplo.
 
-**¿Funcionarán estos métodos tanto con presentaciones basadas en plantillas como con presentaciones nuevas?**
+**¿Funciona esta solución tanto con presentaciones basadas en plantillas como con presentaciones nuevas?**
 
-Sí. Ambos enfoques funcionan igual para presentaciones creadas a partir de plantillas y para presentaciones creadas desde cero.
+Sí. Para una plantilla, use las dimensiones y la posición del marcador de posición. Para una presentación nueva, especifique directamente las dimensiones y la posición del marco.
 
-**¿Existe un límite al tamaño del marco del objeto OLE?**
+**¿Puedo usar este ejemplo con gráficos creados en otros programas de hoja de cálculo?**
 
-No. Puede establecer el marco OLE a cualquier tamaño siempre que se escale de forma adecuada al tamaño del libro o del gráfico.
-
-**¿Puedo usar estos métodos con gráficos creados en otros programas de hojas de cálculo?**
-
-Los ejemplos están diseñados para gráficos de Excel creados con Aspose.Cells, pero los principios se aplican a otros programas de hojas de cálculo compatibles con OLE siempre que soporten opciones de dimensionado similares.
+El ejemplo utiliza un libro de trabajo de Excel creado con Aspose.Cells. No muestra el comportamiento de activación para otros programas de hoja de cálculo.
 
 ## **Secciones relacionadas**
 
-- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/es/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Crear gráficos de Excel e incrustarlos como objetos OLE en presentaciones](/slides/es/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

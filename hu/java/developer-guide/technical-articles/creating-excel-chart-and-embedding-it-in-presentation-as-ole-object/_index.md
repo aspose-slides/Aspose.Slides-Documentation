@@ -8,147 +8,168 @@ keywords:
 - diagram beágyazása
 - OLE objektum
 - PowerPoint
-- OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Excel diagramok létrehozása és beágyazása OLE objektumként PowerPoint és OpenDocument prezentációkba Java-val. Lépésről lépésre útmutató kódrészletekkel."
+description: "Excel diagram létrehozása az Aspose.Cells for Java segítségével, és a munkafüzet beágyazása egy PowerPoint prezentációba az Aspose.Slides-val, diagram előnézettel."
 ---
-## **Háttér**
+## **Áttekintés**
 
-A PowerPointban a szerkeszthető diagramok használata az adatok grafikus megjelenítésére gyakori gyakorlat. Az Aspose támogatja az Excel-diagramok létrehozását az Aspose.Cells for Java segítségével, és ezeket a diagramokat OLE objektumként be lehet ágyazni a PowerPoint diákba az Aspose.Slides for Java segítségével. Ez a cikk bemutatja a szükséges lépéseket, és Java kódrészleteket biztosít egy Excel-diagram létrehozásához és OLE objektumként való beágyazásához egy PowerPoint‑prezentációba az Aspose.Cells és az Aspose.Slides használatával.
+Ez a cikk bemutatja, hogyan hozhat létre egy Excel oszlopdiagramot az Aspose.Cells for Java segítségével, és ágyazhatja be a munkafüzetet egy PowerPoint bemutatóba az Aspose.Slides for Java segítségével. A beágyazott munkafüzet tartalmazza a forrásadatokat és a diagramot is. Egy külön PNG előnézet jeleníti meg a diagramot a dián, mielőtt az OLE objektum aktiválódna.
 
-## **Szükséges lépések**
+Az eredmény egy beágyazott Excel objektum, nem natív PowerPoint diagram. A munkafüzet OLE-on keresztüli szerkesztéséhez olyan asztali alkalmazás szükséges, amely támogatja az OLE aktiválást, és kompatibilis Excel telepítéssel.
 
-Az alábbi lépéssorozatra van szükség egy Excel-diagram OLE objektumként való létrehozásához és beágyazásához egy PowerPoint diára:
+## **Előfeltételek**
 
-1. Hozzon létre egy Excel-diagramot az Aspose.Cells segítségével.
-1. Állítsa be az Excel-diagram OLE méretét az Aspose.Cells használatával.
-1. Szerezzen képet az Excel-diagramból az Aspose.Cells segítségével.
-1. Ágyazza be az Excel-diagramot OLE objektumként egy PPTX prezentációba az Aspose.Slides használatával.
-1. Cserélje le a "EMBEDDED OLE OBJECT" képet a 3. lépésben kapott képre a [objektum előnézeti probléma](/slides/hu/java/object-preview-issue-when-adding-oleobjectframe/) megoldásához.
-1. Mentse a prezentációt lemezre PPTX formátumban.
+Adja hozzá az Aspose.Cells for Java‑t és az Aspose.Slides for Java‑t a projektfüggőségekhez. Futtassa a példát egy Java metódusban. A Microsoft Office nem szükséges a bemutató előállításához ezekkel a könyvtárakkal.
 
-## **A szükséges lépések megvalósítása**
+Nincs szükség bemeneti fájlokra: a példa memóriában hozza létre az adatokat és a diagramot, majd a `OutputChart.pptx` fájlt a jelenlegi munkakönyvtárba írja. Licencet kell alkalmazni mindkét termékre, ha a kiértékelési módon kívül fut.
 
-Az előbbiekben ismertetett lépések Java megvalósítása a következő:
+## **Hogyan működik a beágyazás**
 
-```java
-// Munkafüzet létrehozása.
-Workbook workbook = new Workbook();
+1. Hozzon létre egy munkafüzetet egy adat munkalappal és egy diagramlaplappal.  
+1. Tegye a diagramlapot aktívvá, hogy a munkafüzet a diagramon nyíljon meg.  
+1. Állítsa be a munkafüzet OLE megjelenítési tartományát, és renderelje a diagramot PNG‑be.  
+1. Mentse a munkafüzetet XLSX formátumban memóriába, és ágyazza be ezeket a bájtokat egy diára.  
+1. Rendelje hozzá a PNG‑t az OLE objektum előnézeteként, és mentse a bemutatót PPTX‑ként.
 
-// Excel-diagram hozzáadása.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+A munkafüzet megjelenítési tartománya és a dián lévő keret különböző szerepeket töltenek be. [setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) nulláralapú kezdő/ befejező sor- és oszlopindexeket vár. A [ChartCollection.add](https://reference.aspose.com/cells/java/com.aspose.cells/chartcollection/#add-int-int-int-int-int-) ehelyett a felső sort, bal oszlopot, alsó sort és jobb oszlopot veszi. A példa a 55‑ös sorszámot és a 25‑ös oszlopszámot használja alsó‑jobb határként; ezek az értékek elrendezési választások, nem az adat sorok vagy oszlopok száma.
 
-// A diagram OLE méretének beállítása.
-workbook.getWorksheets().setOleSize(0, chartRows, 0, chartCols);
+A diakeret pontokat használ. A példa a dián belül méretezi, és középre helyezi, miközben megőrzi a PNG arányait, ahelyett, hogy a előnézetet a dia kitöltésére nyújtaná.
 
-// A diagram képének lekérése és streambe mentése.
-com.aspose.cells.ImageOrPrintOptions printOptions = new com.aspose.cells.ImageOrPrintOptions();
-printOptions.setImageFormat(com.aspose.cells.ImageFormat.getPng());
-ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
-workbook.getWorksheets().get(chartSheetIndex).getCharts().get(0).toImage(imageStream, printOptions);
+## **Diagram létrehozása és beágyazása**
 
-// Munkafüzet mentése streambe.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream(); 
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
+Az alábbi teljes példa a `DataSheet`‑t négy sorral és öt oszloppal tölti fel értékekkel. Minden sor diagram sorozattá válik. A `ChartSheet` kerül kiválasztásra aktív munkalapként a munkafüzet mentése előtt.
 
-// Prezentáció létrehozása.
-Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Munkafüzet hozzáadása egy diára.
-AddExcelChartInPresentation(presentation, slide, workbookStream.toByteArray(), imageStream.toByteArray());
-
-// Prezentáció mentése lemezre.
-presentation.save("OutputChart.pptx", SaveFormat.Pptx);
-presentation.dispose();
-```
+A munkafüzet kifejezetten XLSX‑ként mentésre kerül, ami megfelel a [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/oleembeddeddatainfo/)‑nek átadott `xlsx` kiterjesztésnek. A PNG közvetlenül a bájtjaiból töltődik be köztes bitmap átalakítás nélkül. A [getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--)‑on keresztüli hozzárendelés felülírja az alapértelmezett OLE helykitöltőt.
 
 ```java
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
-{
-    double oleHeight = presentation.getSlideSize().getSize().getHeight();
-    double oleWidth = presentation.getSlideSize().getSize().getWidth();
- 
-    // EXCEL_97_TO_2003 LoadOptions objektum létrehozása.
-    com.aspose.cells.LoadOptions loadOptions = new com.aspose.cells.LoadOptions(com.aspose.cells.FileFormatType.EXCEL_97_TO_2003);         
-    Workbook workbook = new Workbook(new ByteArrayInputStream(workbookArray),loadOptions);
- 
-    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, "Excel.Sheet.8", workbookArray);
-    oleFrame.getSubstitutePictureFormat().getPicture().setImage(presentation.getImages().addImage(new ByteArrayInputStream(chartImage)));
-}
-```
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import static com.aspose.cells.SaveFormat.XLSX;
+import static com.aspose.slides.SaveFormat.Pptx;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.IImage;
+import com.aspose.slides.Images;
+import com.aspose.slides.IOleObjectFrame;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayOutputStream;
 
-```java
-static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
-{
-    // A cellanevek tömbje.
-    String[] cellNames = new String[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+try {
+    Workbook workbook = new Workbook();
+    try {
+        Worksheet dataSheet = workbook.getWorksheets().get(0);
+        dataSheet.setName("DataSheet");
 
-    // A cellák adatainak tömbje.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
+        int[][] values = {
+            { 67, 44, 46, 43, 24 },
+            { 86, 64, 97, 29, 40 },
+            { 68, 89, 78, 69, 38 },
+            { 91, 48, 60, 26, 25 }
+        };
 
-    // Új munkalap hozzáadása a cellák adatokkal való feltöltéséhez.
-    int dataSheetIndex = workbook.getWorksheets().add();
-    Worksheet dataSheet = workbook.getWorksheets().get(dataSheetIndex);
-    String sheetName = "DataSheet";
-    dataSheet.setName(sheetName);
+        for (int row = 0; row < values.length; row++) {
+            for (int column = 0; column < values[row].length; column++) {
+                dataSheet.getCells().get(row, column).putValue(values[row][column]);
+            }
+        }
 
-    // A adatlap feltöltése adatokkal.
-    int size = Array.getLength(cellNames);
-    for (int i = 0; i < size; i++)
-    {
-        String cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.getCells().get(cellName).setValue(cellValue);
+        int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+        Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+        chartSheet.setName("ChartSheet");
+
+        int lastChartRow = 55;
+        int lastChartColumn = 25;
+        int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, lastChartRow, lastChartColumn);
+        Chart chart = chartSheet.getCharts().get(chartIndex);
+        for (int row = 1; row <= values.length; row++) {
+            chart.getNSeries().add("DataSheet!A" + row + ":E" + row, false);
+        }
+
+        workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+        workbook.getWorksheets().setOleSize(0, lastChartRow, 0, lastChartColumn);
+
+        // A diagram előnézetének renderelése és a szerkeszthető munkafüzet külön sorosítása.
+        ImageOrPrintOptions imageOptions = new ImageOrPrintOptions();
+        imageOptions.setImageType(ImageType.PNG);
+        ByteArrayOutputStream chartImageStream = new ByteArrayOutputStream();
+        chart.toImage(chartImageStream, imageOptions);
+        byte[] chartImageBytes = chartImageStream.toByteArray();
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, XLSX);
+        byte[] workbookBytes = workbookStream.toByteArray();
+
+        IImage chartImage = Images.fromData(chartImageBytes);
+        try {
+            Presentation presentation = new Presentation();
+            try {
+                ISlide slide = presentation.getSlides().get_Item(0);
+                double slideWidth = presentation.getSlideSize().getSize().getWidth();
+                double slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+                // Illessze a előnézetet a diára az arányok megváltoztatása nélkül.
+                double scale = Math.min(slideWidth / chartImage.getWidth(), slideHeight / chartImage.getHeight());
+                float frameWidth = (float) (chartImage.getWidth() * scale);
+                float frameHeight = (float) (chartImage.getHeight() * scale);
+                float frameX = (float) ((slideWidth - frameWidth) / 2);
+                float frameY = (float) ((slideHeight - frameHeight) / 2);
+
+                OleEmbeddedDataInfo embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+                IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+                IPPImage previewImage = presentation.getImages().addImage(chartImage);
+                oleFrame.getSubstitutePictureFormat().getPicture().setImage(previewImage);
+
+                presentation.save("OutputChart.pptx", Pptx);
+            } finally {
+                presentation.dispose();
+            }
+        } finally {
+            chartImage.dispose();
+        }
+    } finally {
+        workbook.dispose();
     }
-
-    // Diagramlap hozzáadása.
-    int worksheetIndex = workbook.getWorksheets().add(SheetType.CHART);
-    Worksheet chartSheet = workbook.getWorksheets().get(worksheetIndex);
-    chartSheet.setName("ChartSheet");
-    int chartSheetIndex = chartSheet.getIndex();
-
-    // Diagram hozzáadása a diagramlaphoz a adatlap sorozataival.
-    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, chartRows, 0, chartCols);
-    Chart chart = chartSheet.getCharts().get(chartIndex);
-    
-    chart.getNSeries().add(sheetName + "!A1:E1", false);
-    chart.getNSeries().add(sheetName + "!A2:E2", false);
-    chart.getNSeries().add(sheetName + "!A3:E3", false);
-    chart.getNSeries().add(sheetName + "!A4:E4", false);
-
-    // A diagramlap beállítása aktív lapként.
-    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
-    return chartSheetIndex;
+} catch (Exception exception) {
+    System.err.println("Could not create the presentation: " + exception.getMessage());
 }
 ```
 
-A fenti módszerrel létrehozott prezentáció tartalmazni fogja az Excel-diagramot OLE objektumként, amely az OLE objektumkeret dupla kattintásával aktiválható.
+## **Várt eredmény**
 
-## **Következtetés**
+`OutputChart.pptx` egy diát tartalmaz egy beágyazott Excel munkafüzettel és egy diagram előnézettel. A munkafüzet az eredeti adatokat és egy négy sorozatos oszlopdiagramot tartalmaz. Az előnézet középre van helyezve a dián, és megtartja arányait.
 
-Az Aspose.Cells for Java és az Aspose.Slides for Java együttes használatával bármilyen, az Aspose.Cells által támogatott Excel-diagramot létrehozhatunk, és beágyazhatjuk a diagramot OLE objektumként egy PowerPoint-diára. Az Excel-diagram OLE mérete is meghatározható. A végfelhasználók ezután a diagramot bármely más OLE objektumhoz hasonlóan szerkeszthetik.
+![Excel oszlopdiagram, amely a beágyazott munkafüzet előnézeteként jelenik meg](excel-chart-ole-preview.png)
+
+Egy kompatibilis asztali PowerPoint környezetben, ahol az Excel elérhető, duplakattintással aktiválhatja és szerkesztheti a beágyazott munkafüzetet. Az aktiválás és a szerkesztés a hostalkalmazás OLE‑támogatásától és biztonsági beállításaitól függ.
+
+## **GYIK**
+
+**Miért szükséges egy előnézeti kép?**
+
+A beágyazott munkafüzet és a dián lévő előnézet külön tartalom. Biztosítson egy diagramképet, hogy a dia a diagramot mutassa az alapértelmezett „EMBEDDED OLE OBJECT” helykitöltő helyett. Lásd a [Objektum előnézeti probléma az OleObjectFrame hozzáadásakor](/slides/hu/java/object-preview-issue-when-adding-oleobjectframe/).
+
+**Frissül automatikusan az előnézet, ha a kódban módosítom a munkafüzetet?**
+
+Kezelje az előnézetet pillanatként. Ha programozottan frissíti a munkafüz let adatokat, generálja újra a diagramképet, és cserélje ki az előnézetet, valamint a beágyazott munkafüzet adatokat.
+
+**Használhatok XLS‑et XLSX helyett?**
+
+Igen. Mentse a munkafüzetet XLS formátumban, és használja a `xls` kiterjesztést a beágyazott adatként. A kiterjesztésnek meg kell egyeznie a tényleges munkafüzet formátummal; a kiterjesztés önmagában nem konvertálja az adatot.
+
+**Miért változhat meg az objektum mérete aktiválás után?**
+
+A hostalkalmazás frissítheti az OLE objektum megjelenését, amikor aktiválja a munkafüzetet. A munkafüzet OLE megjelenítési tartománya és a diakeret méretei is számítanak. Lásd a [Működő megoldás a diagram átméretezésére PPTX‑ben](/slides/hu/java/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Kapcsolódó szakaszok**
 
-- [Működő megoldás a diagram átméretezésére PPTX-ben](/slides/hu/java/working-solution-for-chart-resizing-in-pptx/)
-- [Objektum előnézeti probléma OleObjectFrame hozzáadásakor](/slides/hu/java/object-preview-issue-when-adding-oleobjectframe/)
-- [OLE objektumok automatikus frissítése PowerPoint kiegészítő használatával](/slides/hu/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Működő megoldás a diagram átméretezésére PPTX‑ben](/slides/hu/java/working-solution-for-chart-resizing-in-pptx/)
+- [Objektum előnézeti probléma az OleObjectFrame hozzáadásakor](/slides/hu/java/object-preview-issue-when-adding-oleobjectframe/)
+- [OLE objektumok automatikus frissítése PowerPoint kiegészítővel](/slides/hu/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

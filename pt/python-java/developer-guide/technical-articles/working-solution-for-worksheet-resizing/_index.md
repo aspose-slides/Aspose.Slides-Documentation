@@ -1,5 +1,5 @@
 ---
-title: Solução Funcional para Redimensionamento de Planilhas
+title: Solução Funcional para Redimensionamento de Planilha
 type: docs
 weight: 20
 url: /pt/python-java/working-solution-for-worksheet-resizing/
@@ -14,34 +14,36 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Corrija o redimensionamento de planilhas do Excel OLE em apresentações: duas maneiras de manter os quadros de objetos consistentes—escalar a moldura ou a planilha—nos formatos PPT e PPTX."
+description: "Corrija o redimensionamento de OLE de planilhas do Excel em apresentações: duas maneiras de manter as molduras de objetos consistentes—dimensionando a moldura ou a planilha—nos formatos PPT e PPTX."
 ---
-{{% alert color="info" title="Observação" %}}
+{{% alert color="info" title="Note" %}}
 
-Foi observado que planilhas do Excel incorporadas como objetos OLE em uma apresentação do PowerPoint através dos componentes Aspose são redimensionadas para uma escala não especificada após a primeira ativação. Esse comportamento cria uma diferença visual notável na apresentação entre os estados antes e depois da ativação do objeto OLE. Investigamos esse problema em detalhes e fornecemos uma solução, que está descrita neste artigo.
+Planilhas do Excel incorporadas como objetos OLE em uma apresentação do PowerPoint usando componentes Aspose podem redimensionar inesperadamente após sua primeira ativação. Esse comportamento cria uma diferença visual perceptível entre o objeto OLE antes e depois da ativação. Este artigo explica o problema e descreve duas maneiras de resolvê‑lo.
 
 {{% /alert %}}
 
 ## **Contexto**
 
-No artigo [Gerenciar OLE](/slides/pt/python-java/manage-ole/), explicamos como adicionar uma moldura OLE a uma apresentação do PowerPoint usando Aspose.Slides para Python via Java. Para resolver o [problema de visualização do objeto](/slides/pt/python-java/object-preview-issue-when-adding-oleobjectframe/), atribuimos uma imagem da área da planilha selecionada à moldura do objeto OLE. Na apresentação resultante, ao clicar duas vezes na moldura do objeto OLE que exibe a imagem da planilha, a pasta de trabalho do Excel é ativada. Os usuários finais podem fazer as alterações desejadas na pasta de trabalho real do Excel e, em seguida, retornar ao slide clicando fora da pasta de trabalho do Excel ativada. O tamanho da moldura do objeto OLE mudará quando o usuário retornar ao slide. O fator de redimensionamento variará dependendo do tamanho da moldura do objeto OLE e da pasta de trabalho do Excel incorporada.
+No artigo [Gerenciar OLE](/slides/pt/python-java/manage-ole/), explicamos como adicionar uma moldura OLE a uma apresentação do PowerPoint usando Aspose.Slides para Python via Java. Para resolver o [problema de visualização do objeto](/slides/pt/python-java/object-preview-issue-when-adding-oleobjectframe/), atribuimos uma imagem da área da planilha selecionada à moldura do objeto OLE. Na apresentação resultante, ao clicar duas vezes na moldura do objeto OLE que exibe a imagem da planilha, a pasta de trabalho do Excel é ativada. Os usuários finais podem fazer quaisquer alterações desejadas na pasta de trabalho real do Excel e, em seguida, retornar ao slide clicando fora da pasta de trabalho do Excel ativada. O tamanho da moldura do objeto OLE mudará quando o usuário retornar ao slide. O fator de redimensionamento variará dependendo do tamanho da moldura do objeto OLE e da pasta de trabalho do Excel incorporada.
 
 ## **Causa do Redimensionamento**
 
-Como a pasta de trabalho do Excel tem seu próprio tamanho de janela, ela tenta manter seu tamanho original na primeira ativação. Por outro lado, a moldura do objeto OLE tem seu próprio tamanho. De acordo com a Microsoft, quando a pasta de trabalho do Excel é ativada, o Excel e o PowerPoint negociam o tamanho para garantir que ele mantenha as proporções corretas como parte do processo de incorporação. O redimensionamento ocorre com base nas diferenças entre o tamanho da janela do Excel e o tamanho e a posição da moldura do objeto OLE.
+Como a pasta de trabalho do Excel possui seu próprio tamanho de janela, ela tenta manter seu tamanho original na primeira ativação. Por outro lado, a moldura do objeto OLE tem seu próprio tamanho. De acordo com a Microsoft, quando a pasta de trabalho do Excel é ativada, o Excel e o PowerPoint negociam o tamanho para garantir que ele mantenha as proporções corretas como parte do processo de incorporação. O redimensionamento ocorre com base nas diferenças entre o tamanho da janela do Excel e o tamanho e posição da moldura do objeto OLE.
 
 ## **Solução Funcional**
 
 Existem duas soluções possíveis para evitar o efeito de redimensionamento.
 
-- Redimensionar o tamanho da moldura OLE na apresentação do PowerPoint para corresponder à altura e largura do número desejado de linhas e colunas na moldura OLE.
-- Manter o tamanho da moldura OLE constante e redimensionar o tamanho das linhas e colunas participantes para caber dentro do tamanho da moldura OLE selecionada.
+- Dimensionar a moldura OLE na apresentação do PowerPoint para corresponder à altura e largura totais das linhas e colunas selecionadas.
+- Manter o tamanho da moldura OLE constante e dimensionar as linhas e colunas selecionadas para caber dentro dela.
 
 ### **Dimensionar o Tamanho da Moldura OLE**
 
-Nesta abordagem, aprenderemos como definir o tamanho da moldura OLE da pasta de trabalho do Excel incorporada para corresponder ao tamanho cumulativo das linhas e colunas participantes na planilha do Excel.
+Essa abordagem define o tamanho da moldura OLE para corresponder à altura e largura totais das linhas e colunas selecionadas na planilha do Excel incorporada.
 
-Suponha que tenhamos uma planilha Excel modelo e desejamos adicioná‑la a uma apresentação como uma moldura OLE. Neste cenário, o tamanho da moldura do objeto OLE será primeiro calculado com base nas alturas cumulativas das linhas e larguras das colunas das linhas e colunas participantes na pasta de trabalho. Em seguida, definiremos o tamanho da moldura OLE para esse valor calculado. Para evitar a mensagem vermelha "EMBEDDED OLE OBJECT" da moldura OLE no PowerPoint, também capturaremos uma imagem das porções desejadas das linhas e colunas na pasta de trabalho e a definiremos como imagem da moldura OLE.
+O exemplo carrega uma pasta de trabalho do Excel existente e seleciona as primeiras 10 linhas e 13 colunas da sua primeira planilha usando índices baseados em zero. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) define a faixa exibida. A visualização é renderizada a 96 DPI, e suas dimensões em pixels são convertidas para pontos usando 72 pontos por polegada. [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) incorpora a pasta de trabalho modificada em uma moldura com essas dimensões. A visualização é atribuída por meio de [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) para substituir o marcador de posição "EMBEDDED OLE OBJECT" na apresentação salva.
+
+O auxílio de visualização define [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) para a faixa selecionada e remove margens, cabeçalhos e rodapés. Com [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea) habilitado, [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) renderiza a faixa como uma imagem PNG. O auxílio devolve um novo fluxo de entrada contendo a imagem PNG, posicionado no início para uso na apresentação.
 
 ```python
 import jpype
@@ -140,11 +142,15 @@ finally:
     workbook.dispose()
 ```
 
-### **Dimensionar o Tamanho do Intervalo de Células**
+### **Dimensionar o Tamanho da Faixa de Células**
 
-Nesta abordagem, aprenderemos como dimensionar as alturas das linhas participantes e as larguras das colunas participantes para corresponder a um tamanho customizado da moldura OLE.
+Essa abordagem dimensiona as alturas das linhas selecionadas e as larguras das colunas selecionadas para corresponder a um tamanho de moldura OLE personalizado.
 
-Suponha que tenhamos uma planilha Excel modelo e desejamos adicioná‑la a uma apresentação como uma moldura OLE. Neste cenário, definiremos o tamanho da moldura OLE e dimensionaremos o tamanho das linhas e colunas que participam da área da moldura OLE. Em seguida, salvaremos a pasta de trabalho em um stream para aplicar as alterações e convertê‑la em um array de bytes para adicioná‑la à moldura OLE. Para evitar a mensagem vermelha "EMBEDDED OLE OBJECT" da moldura OLE no PowerPoint, também capturaremos uma imagem das porções desejadas das linhas e colunas na pasta de trabalho e a definiremos como imagem da moldura OLE.
+O exemplo carrega uma pasta de trabalho do Excel existente e seleciona as primeiras 10 linhas e 13 colunas da sua primeira planilha usando índices baseados em zero. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) define a faixa exibida, e o auxílio scale_cell_range dimensiona essa faixa para caber em uma moldura de 400 pontos de largura por 100 pontos de altura. Após salvar a pasta de trabalho modificada em um fluxo, [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) a incorpora no tamanho especificado. Uma visualização renderizada a 96 DPI é atribuída por meio de [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat), de modo que a apresentação salva exiba as células selecionadas em vez do marcador de posição padrão.
+
+O auxílio de dimensionamento calcula razões de largura e altura separadas para a faixa selecionada, preservando as larguras relativas de suas colunas e as alturas relativas de suas linhas. Ele converte as dimensões calculadas de pontos para polegadas antes de aplicá‑las com [Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) e [Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch). A faixa selecionada deve ter largura e altura diferentes de zero.
+
+Esse auxílio de visualização renderiza a faixa redimensionada usando [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage). Ele limita [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) a essa faixa, remove margens, cabeçalhos e rodapés, e devolve um fluxo PNG posicionado no início.
 
 ```python
 import jpype
@@ -189,7 +195,7 @@ def create_ole_image(cell_range, image_resolution):
 
 
 def scale_cell_range(cell_range, width, height):
-    # A largura e a altura esperadas do intervalo de células estão em pontos.
+    # A largura e altura esperadas da faixa de células estão em pontos.
     range_width = cell_range.getWidth()
     range_height = cell_range.getHeight()
     cells = cell_range.getWorksheet().getCells()
@@ -224,7 +230,7 @@ try:
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
 
     cell_range = worksheet.getCells().createRange(start_row, start_column, row_count, column_count)
-    # Dimensione o intervalo de células para caber no tamanho da moldura.
+    # Dimensione a faixa de células para caber no tamanho da moldura.
     scale_cell_range(cell_range, frame_width, frame_height)
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
@@ -262,25 +268,25 @@ finally:
 
 ## **Conclusão**
 
-{{% alert color="info" title="Observação" %}} 
+{{% alert color="info" title="Note" %}} 
 
-Existem duas abordagens para corrigir o problema de redimensionamento da planilha. A escolha da abordagem apropriada depende dos requisitos específicos e do caso de uso. Ambas as abordagens funcionam da mesma forma, independentemente de as apresentações serem criadas a partir de um modelo ou do zero. Além disso, não há limite para o tamanho da moldura do objeto OLE nesta solução.
+Existem duas abordagens para corrigir o problema de redimensionamento da planilha. Escolha a abordagem que melhor se adapta aos seus requisitos e caso de uso. Ambas as abordagens funcionam da mesma forma, tanto se as apresentações forem criadas a partir de um modelo quanto do zero. Além disso, não há limite para o tamanho da moldura do objeto OLE nesta solução.
 
 {{% /alert %}}
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**Por que uma planilha do Excel incorporada altera o tamanho na primeira ativação no PowerPoint?**
+**Por que uma planilha do Excel incorporada altera o tamanho quando é ativada pela primeira vez no PowerPoint?**
 
-Isso ocorre porque o Excel tenta manter o tamanho original da janela ao ser ativado, enquanto a moldura do objeto OLE no PowerPoint tem suas próprias dimensões. PowerPoint e Excel negociam o tamanho para manter a proporção, o que pode causar o redimensionamento.
+Isso ocorre porque o Excel tenta manter o tamanho original da janela ao ser ativado, enquanto a moldura do objeto OLE no PowerPoint possui suas próprias dimensões. PowerPoint e Excel negociam o tamanho para manter a proporção, o que pode causar o redimensionamento.
 
-**É possível evitar completamente esse problema de redimensionamento?**
+**É possível impedir totalmente esse problema de redimensionamento?**
 
-Sim. Redimensionando a moldura OLE para caber no tamanho do intervalo de células do Excel ou dimensionando o intervalo de células para caber no tamanho desejado da moldura OLE, você pode evitar o redimensionamento indesejado.
+Sim. Dimensionando a moldura OLE para caber no tamanho da faixa de células do Excel ou dimensionando a faixa de células para caber no tamanho desejado da moldura OLE, você pode evitar o redimensionamento indesejado.
 
-**Qual método de dimensionamento devo usar, dimensionamento da moldura OLE ou dimensionamento do intervalo de células?**
+**Qual método de dimensionamento devo usar, dimensionamento da moldura OLE ou dimensionamento da faixa de células?**
 
-Selecione **OLE frame scaling** se quiser manter os tamanhos originais das linhas e colunas do Excel. Selecione **cell range scaling** se desejar um tamanho fixo para a moldura OLE na sua apresentação.
+Selecione **dimensionamento da moldura OLE** se desejar manter os tamanhos originais das linhas e colunas do Excel. Selecione **dimensionamento da faixa de células** se quiser um tamanho fixo para a moldura OLE em sua apresentação.
 
 **Essas soluções funcionarão se minha apresentação for baseada em um modelo?**
 
@@ -290,10 +296,12 @@ Sim. Ambas as soluções funcionam para apresentações criadas a partir de mode
 
 Não. Você pode definir a moldura do objeto OLE em qualquer tamanho, desde que ajuste a escala adequadamente.
 
-**Existe uma maneira de evitar o texto de espaço reservado “EMBEDDED OLE OBJECT” no PowerPoint?**
+**Existe uma maneira de evitar o texto de marcador de posição "EMBEDDED OLE OBJECT" no PowerPoint?**
 
-Sim. Capturando uma captura de tela do intervalo de células do Excel de destino e configurando‑a como a imagem de espaço reservado da moldura OLE, você pode exibir uma imagem de pré‑visualização personalizada no lugar do espaço reservado padrão.
+Sim. Capturando uma imagem da faixa de células do Excel alvo e definindo‑a como a imagem de marcador de posição da moldura OLE, você pode exibir uma imagem de visualização personalizada no lugar do marcador de posição padrão.
 
 ## **Artigos Relacionados**
 
-[Criando um Gráfico do Excel e Incorporando‑o em uma Apresentação como um Objeto OLE](/slides/pt/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Criando um Gráfico do Excel e Incorporando‑lo em uma Apresentação como um Objeto OLE](/slides/pt/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Atualizando Objetos OLE Automaticamente Usando um Complemento do MS PowerPoint](/slides/pt/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

@@ -4,164 +4,145 @@ type: docs
 weight: 50
 url: /vi/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- biểu đồ Excel
+- Biểu đồ Excel
 - nhúng biểu đồ
 - đối tượng OLE
 - PowerPoint
-- OpenDocument
 - bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Tạo biểu đồ Excel và nhúng chúng dưới dạng đối tượng OLE trong các bản trình chiếu PowerPoint và OpenDocument bằng C#/.NET. Hướng dẫn từng bước kèm mẫu mã."
+description: "Tạo một biểu đồ Excel bằng Aspose.Cells cho .NET và nhúng workbook vào bản trình chiếu PowerPoint với Aspose.Slides, bao gồm cả bản xem trước biểu đồ."
 ---
-## **Bối cảnh**
+## **Tổng quan**
 
-Trong PowerPoint, việc sử dụng biểu đồ có thể chỉnh sửa để hiển thị dữ liệu một cách đồ họa là thực hành phổ biến. Aspose hỗ trợ tạo biểu đồ Excel bằng Aspose.Cells cho .NET, và các biểu đồ này sau đó có thể được nhúng dưới dạng đối tượng OLE trong các slide PowerPoint thông qua Aspose.Slides cho .NET. Bài viết này trình bày các bước cần thiết và cung cấp các mẫu mã C# để tạo biểu đồ Excel và nhúng nó dưới dạng đối tượng OLE trong bản trình bày PowerPoint bằng Aspose.Cells và Aspose.Slides.
+Bài viết này hướng dẫn cách tạo biểu đồ cột Excel bằng Aspose.Cells for .NET và nhúng workbook của nó vào bản trình chiếu PowerPoint bằng Aspose.Slides for .NET. Workbook được nhúng chứa cả dữ liệu nguồn và biểu đồ. Một bản xem trước PNG riêng hiển thị biểu đồ trên slide trước khi đối tượng OLE được kích hoạt.
 
-## **Các bước cần thiết**
+Kết quả là một đối tượng Excel được nhúng, không phải biểu đồ PowerPoint gốc. Việc chỉnh sửa workbook qua OLE yêu cầu một ứng dụng desktop hỗ trợ kích hoạt OLE và cài đặt Excel tương thích.
 
-Các bước sau đây là cần thiết để tạo và nhúng một biểu đồ Excel dưới dạng đối tượng OLE trong một slide PowerPoint:
+## **Yêu cầu trước**
 
-1. Tạo biểu đồ Excel bằng Aspose.Cells.
-1. Đặt kích thước OLE cho biểu đồ Excel bằng Aspose.Cells.
-1. Lấy hình ảnh của biểu đồ Excel bằng Aspose.Cells.
-1. Nhúng biểu đồ Excel dưới dạng đối tượng OLE vào bản trình bày PPTX bằng Aspose.Slides.
-1. Thay thế hình ảnh "EMBEDDED OLE OBJECT" bằng hình ảnh lấy được ở bước 3 để giải quyết vấn đề[object preview issue](/slides/vi/net/object-preview-issue-when-adding-oleobjectframe/).
-1. Lưu bản trình bày vào đĩa ở định dạng PPTX.
+Thêm tham chiếu tới Aspose.Cells for .NET và Aspose.Slides for .NET trong dự án C# của bạn. Ví dụ sử dụng các câu lệnh cấp cao nhất và yêu cầu C# 9 trở lên. Microsoft Office không bắt buộc để tạo bản trình chiếu với các thư viện này.
 
-## **Triển khai các bước cần thiết**
+Không cần tệp đầu vào: ví dụ tạo dữ liệu và biểu đồ trong bộ nhớ, rồi ghi `OutputChart.pptx` vào thư mục làm việc hiện tại. Áp dụng giấy phép cho cả hai sản phẩm khi chạy ngoài chế độ đánh giá.
 
-Việc triển khai C# cho các bước trên như sau:
+## **Cách nhúng hoạt động**
 
-```cs
-// Bước - 1: Tạo biểu đồ Excel bằng Aspose.Cells.
-// ---------------------------------------------------
-// Tạo một workbook.
-Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook();
-// Thêm một biểu đồ Excel.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+1. Tạo một workbook với một worksheet dữ liệu và một chart sheet.  
+2. Đánh dấu chart sheet là active để workbook mở trên biểu đồ.  
+3. Đặt phạm vi hiển thị OLE của workbook và render biểu đồ thành PNG.  
+4. Lưu workbook dưới dạng XLSX trong bộ nhớ và nhúng các byte đó vào một slide.  
+5. Gán PNG làm bản xem trước của đối tượng OLE và lưu bản trình chiếu dưới dạng PPTX.  
 
-// Bước - 2: Đặt kích thước OLE cho biểu đồ bằng Aspose.Cells.
-// -----------------------------------------------------------
-workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
+Phạm vi hiển thị của workbook và khung trên slide có các vai trò khác nhau. [SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) nhận các chỉ số hàng và cột bắt đầu/kết thúc dựa trên chỉ số không. [ChartCollection.Add](https://reference.aspose.com/cells/net/aspose.cells.charts/chartcollection/add/) thay vào đó nhận hàng trên cùng, cột trái, hàng dưới và cột phải. Ví dụ sử dụng chỉ số hàng 55 và chỉ số cột 25 làm giới hạn góc dưới‑phải; các giá trị này là lựa chọn bố cục, không phải số lượng hàng hoặc cột dữ liệu.
 
-// Bước - 3: Lấy hình ảnh của biểu đồ bằng Aspose.Cells.
-// -------------------------------------------------------
-Bitmap chartImage = workbook.Worksheets[chartSheetIndex].Charts[0].ToImage();
-// Lưu workbook vào một stream.
-MemoryStream workbookStream = workbook.SaveToStream();
+Khung slide sử dụng đơn vị điểm. Ví dụ vừa khít nó trong slide và căn giữa trong khi duy trì tỷ lệ khung hình của PNG, thay vì kéo dài bản xem trước để lấp đầy slide.
 
-// Bước - 4 VÀ 5
-// ==============
- // Bước - 4: Nhúng biểu đồ dưới dạng đối tượng OLE vào bản trình chiếu .ppt bằng Aspose.Slides.
- // ------------------------------------------------------------------------------------------
- // Bước - 5: Thay thế hình ảnh "EMBEDDED OLE OBJECT" bằng hình ảnh lấy được ở bước 3 để khắc phục Vấn đề Xem trước Đối tượng.
- // --------------------------------------------------------------------------------------------------------------------
- // Tạo một presentation.
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    // Thêm workbook vào slide.
-    AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+## **Tạo và Nhúng Biểu Đồ**
 
-    // Bước - 6: Lưu bản trình chiếu đầu ra vào đĩa.
-    // -----------------------------------------------
-    presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
+Ví dụ hoàn chỉnh sau đây điền `DataSheet` với bốn hàng và năm cột giá trị. Mỗi hàng trở thành một series biểu đồ. `ChartSheet` được chọn làm sheet hoạt động trước khi workbook được lưu.
+
+Workbook được lưu một cách rõ ràng dưới dạng XLSX, khớp với phần mở rộng `xlsx` được truyền tới [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/). PNG được tải trực tiếp từ luồng của nó mà không cần chuyển đổi bitmap trung gian. Gán nó thông qua [SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/substitutepictureformat/) thay thế placeholder OLE mặc định.
 
 ```cs
-static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows, int chartCols)
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "DataSheet";
+
+int[,] values =
 {
-    // Một mảng các tên ô.
-    string[] cellNames = new string[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+    { 67, 44, 46, 43, 24 },
+    { 86, 64, 97, 29, 40 },
+    { 68, 89, 78, 69, 38 },
+    { 91, 48, 60, 26, 25 }
+};
 
-    // Một mảng dữ liệu cho các ô.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
-
-    // Thêm một worksheet mới để điền dữ liệu vào các ô.
-    int dataSheetIndex = workbook.Worksheets.Add();
-    Aspose.Cells.Worksheet dataSheet = workbook.Worksheets[dataSheetIndex];
-    string sheetName = "DataSheet";
-    dataSheet.Name = sheetName;
-
-    // Điền dữ liệu vào sheet dữ liệu.
-    for (int i = 0; i < cellNames.Length; i++)
-    {
-        string cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.Cells[cellName].PutValue(cellValue);
-    }
-
-    // Thêm một sheet biểu đồ.
-    int chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
-    Aspose.Cells.Worksheet chartSheet = workbook.Worksheets[chartSheetIndex];
-    chartSheet.Name = "ChartSheet";
-
-    // Thêm một biểu đồ vào sheet biểu đồ với các chuỗi dữ liệu từ sheet dữ liệu.
-    int chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
-    Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIndex];
-    chart.NSeries.Add(sheetName + "!A1:E1", false);
-    chart.NSeries.Add(sheetName + "!A2:E2", false);
-    chart.NSeries.Add(sheetName + "!A3:E3", false);
-    chart.NSeries.Add(sheetName + "!A4:E4", false);
-
-    // Đặt sheet biểu đồ làm sheet hoạt động.
-    workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
-    return chartSheetIndex;
-}
-```
-
-```cs
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
+for (var row = 0; row < values.GetLength(0); row++)
 {
-    float oleWidth = presentation.SlideSize.Size.Width;
-    float oleHeight = presentation.SlideSize.Size.Height;
-
-    byte[] oleData = new byte[workbookStream.Length];
-    workbookStream.Position = 0;
-    workbookStream.Read(oleData, 0, oleData.Length);
-
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xls");
-    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
-
-    using (MemoryStream imageStream = new MemoryStream())
+    for (var column = 0; column < values.GetLength(1); column++)
     {
-        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
-
-	    imageStream.Position = 0;
-        IPPImage ppImage = presentation.Images.AddImage(imageStream);
-
-        oleFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+        dataSheet.Cells[row, column].PutValue(values[row, column]);
     }
 }
+
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+chartSheet.Name = "ChartSheet";
+
+var lastChartRow = 55;
+var lastChartColumn = 25;
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, lastChartRow, lastChartColumn);
+var chart = chartSheet.Charts[chartIndex];
+for (var row = 1; row <= values.GetLength(0); row++)
+{
+    chart.NSeries.Add($"DataSheet!A{row}:E{row}", false);
+}
+
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
+workbook.Worksheets.SetOleSize(0, lastChartRow, 0, lastChartColumn);
+
+// Render bản xem trước biểu đồ và tuần tự hoá workbook có thể chỉnh sửa riêng biệt.
+using var chartImageStream = new MemoryStream();
+chart.ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+using var chartImage = Images.FromStream(chartImageStream);
+
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Xlsx);
+var workbookBytes = workbookStream.ToArray();
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var slideSize = presentation.SlideSize.Size;
+
+// Fit the preview within the slide without changing its aspect ratio.
+var scale = Math.Min(slideSize.Width / chartImage.Width, slideSize.Height / chartImage.Height);
+var frameWidth = chartImage.Width * scale;
+var frameHeight = chartImage.Height * scale;
+var frameX = (slideSize.Width - frameWidth) / 2;
+var frameY = (slideSize.Height - frameHeight) / 2;
+
+var embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+var previewImage = presentation.Images.AddImage(chartImage);
+oleFrame.SubstitutePictureFormat.Picture.Image = previewImage;
+
+presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-Bản trình bày được tạo bằng phương pháp trên sẽ chứa biểu đồ Excel dưới dạng đối tượng OLE có thể được kích hoạt bằng cách nhấp đúp vào khung đối tượng OLE.
+## **Kết Quả Mong Đợi**
 
-## **Kết luận**
+`OutputChart.pptx` chứa một slide với một workbook Excel được nhúng và bản xem trước biểu đồ. Workbook chứa dữ liệu gốc và một biểu đồ cột với bốn series. Bản xem trước được căn giữa trên slide và giữ nguyên tỷ lệ của nó.
 
-Bằng cách sử dụng Aspose.Cells cho .NET kết hợp với Aspose.Slides cho .NET, chúng ta có thể tạo bất kỳ biểu đồ Excel nào được Aspose.Cells hỗ trợ và nhúng biểu đồ đó dưới dạng đối tượng OLE trong một slide PowerPoint. Kích thước OLE của biểu đồ Excel cũng có thể được xác định. Người dùng cuối sau đó có thể chỉnh sửa biểu đồ Excel như bất kỳ đối tượng OLE nào khác.
+![Biểu đồ cột Excel hiển thị như bản xem trước của một workbook được nhúng](excel-chart-ole-preview.png)
+
+Trong môi trường PowerPoint desktop tương thích có Excel, nhấp đúp vào đối tượng để kích hoạt và chỉnh sửa workbook được nhúng. Việc kích hoạt và chỉnh sửa phụ thuộc vào hỗ trợ OLE và cài đặt bảo mật của ứng dụng chủ.
+
+## **Câu hỏi thường gặp**
+
+**Tại sao cần hình ảnh xem trước?**
+
+Workbook được nhúng và bản xem trước trên slide là các nội dung riêng biệt. Cung cấp một hình ảnh biểu đồ để slide hiển thị biểu đồ thay vì placeholder mặc định "EMBEDDED OLE OBJECT". Xem [Vấn đề xem trước đối tượng khi thêm OleObjectFrame](/slides/vi/net/object-preview-issue-when-adding-oleobjectframe/).
+
+**Bản xem trước có được cập nhật tự động khi tôi thay đổi workbook trong mã không?**
+
+Xem bản xem trước như một ảnh chụp nhanh. Khi cập nhật dữ liệu workbook bằng chương trình, tạo lại hình ảnh biểu đồ và thay thế bản xem trước cũng như dữ liệu workbook được nhúng.
+
+**Tôi có thể sử dụng XLS thay vì XLSX không?**
+
+Có. Lưu workbook ở định dạng XLS và sử dụng `xls` làm phần mở rộng dữ liệu được nhúng. Phần mở rộng phải khớp với định dạng workbook thực tế; chỉ thay đổi phần mở rộng mà không chuyển đổi dữ liệu sẽ không có hiệu lực.
+
+**Tại sao đối tượng có thể thay đổi kích thước sau khi kích hoạt?**
+
+Ứng dụng chủ có thể cập nhật cách trình bày của đối tượng OLE khi nó kích hoạt workbook. Cả phạm vi hiển thị OLE của workbook và kích thước khung slide đều quan trọng. Xem [Giải pháp hoạt động cho việc thay đổi kích thước biểu đồ trong PPTX](/slides/vi/net/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Các phần liên quan**
 
 - [Giải pháp hoạt động cho việc thay đổi kích thước biểu đồ trong PPTX](/slides/vi/net/working-solution-for-chart-resizing-in-pptx/)
 - [Vấn đề xem trước đối tượng khi thêm OleObjectFrame](/slides/vi/net/object-preview-issue-when-adding-oleobjectframe/)
-- [Tự động cập nhật đối tượng OLE bằng Add-In PowerPoint](/slides/vi/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Cập nhật đối tượng OLE tự động bằng Add‑In PowerPoint](/slides/vi/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

@@ -9,40 +9,33 @@ keywords:
 - OLEオブジェクト
 - チャート埋め込み
 - PowerPoint
-- OpenDocument
 - プレゼンテーション
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java で埋め込んだ Excel OLE オブジェクトを使用する際に、PPTX の予期しないチャートリサイズを修正します。サイズを一貫させるためのコード付き2つの方法を学びましょう。"
+description: "Aspose.Slides for Python via Java を使用して埋め込まれた Excel OLE オブジェクトで PPTX の予期しないチャートリサイズを修正します。チャートと OLE フレームのサイズを一貫させるために、固定チャート寸法を設定します。"
 ---
 ## **背景**
 
-Aspose コンポーネントを使用して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込まれた Excel グラフが、最初にアクティブ化された後に不特定のスケールにリサイズされることが確認されています。この動作により、グラフのアクティブ化前後でプレゼンテーションの見た目に顕著な差が生じます。Aspose チームは問題を詳細に調査し、解決策を見つけました。本記事では問題の原因と対応策について説明します。
+Aspose コンポーネントを使用して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込まれた Excel グラフは、最初にアクティブ化された後にサイズが変わることがあります。これにより、アクティブ化前後でグラフの外観に目立つ違いが生じます。本記事では、リサイズが発生する原因と、固定されたグラフサイズを OLE フレームに合わせることでそれを防止する方法を説明します。
 
-[previous article](/slides/ja/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) では、Aspose.Cells for Python via Java で Excel グラフを作成し、Aspose.Slides for Python via Java で PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込む方法を解説しました。[object preview issue](/slides/ja/python-java/object-preview-issue-when-adding-oleobjectframe/) に対処するため、グラフ画像をグラフの OLE オブジェクトフレームに割り当てました。出力されたプレゼンテーションで、グラフ画像を表示している OLE オブジェクトフレームをダブルクリックすると、Excel グラフがアクティブ化されます。エンドユーザーは基になる Excel ワークブックで任意の変更を行い、アクティブ化されたワークブックの外側をクリックすると対応するスライドに戻ります。ユーザーがスライドに戻ると OLE オブジェクトフレームのサイズが変わり、リサイズ率は OLE オブジェクトフレームと埋め込まれた Excel ワークブックの元々のサイズに依存します。
+[Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/ja/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) では、Aspose.Cells for Python via Java を使用して Excel グラフを作成し、Aspose.Slides for Python via Java を使用して PowerPoint プレゼンテーションに埋め込む方法を解説しました。[object preview issue](/slides/ja/python-java/object-preview-issue-when-adding-oleobjectframe/) に対処するため、グラフ画像をチャートの OLE オブジェクトフレームに割り当てました。出力されたプレゼンテーションで、グラフ画像を表示する OLE オブジェクトフレームをダブルクリックすると Excel グラフがアクティブ化されます。ユーザーは埋め込まれた Excel ブックを編集でき、アクティブ化されたブックの外側をクリックするとスライドに戻ります。ユーザーがスライドに戻る際に OLE オブジェクトフレームのサイズが変わり、リサイズ率は OLE オブジェクトフレームと埋め込まれた Excel ブックの元のサイズに依存します。
 
-## **サイズ変更の原因**
+## **リサイズの原因**
 
-Excel ワークブックは独自のウィンドウサイズを持っており、最初のアクティブ化時に元のサイズを保持しようとします。一方、OLE オブジェクトフレームにも独自のサイズがあります。Microsoft によると、Excel ワークブックがアクティブ化されると、Excel と PowerPoint がサイズを協議し、埋め込みプロセスの一部として正しい比率を維持します。Excel ウィンドウサイズと OLE オブジェクトフレームのサイズまたは位置の違いに応じて、リサイズが発生します。
+埋め込まれた Excel ブックは独自のウィンドウサイズを持ち、オブジェクトが最初にアクティブ化されるときに Excel がそのサイズを保持しようとします。スライド上の OLE フレームは別個に定義されたサイズを持ちます。Excel ブックがアクティブ化されると、Excel と PowerPoint がオブジェクトのサイズを協議し、埋め込みプロセスの一部として比例を維持します。ブックウィンドウと OLE フレーム間の違いがオブジェクトのリサイズを引き起こすことがあります。
 
 ## **実装ソリューション**
 
-Aspose.Slides for Python via Java を使用して PowerPoint プレゼンテーションを作成するシナリオは 2 つあります。
+チャートのサイズをスライド上の OLE フレームに合わせ、チャートの寸法をブックウィンドウとは独立させます。このソリューションは新規プレゼンテーションでも既存テンプレートでも機能します。
 
-**Scenario 1:** 既存のテンプレートを基にプレゼンテーションを作成する。
+このサンプルは Aspose.Cells for Python via Java と Aspose.Slides for Python via Java が必要です。アクティブなチャートシートにシンプルな縦棒グラフを作成し、ブックを XLS 形式で埋め込みます。チャートプレビュー画像は割り当てず、OLE オブジェクトが PowerPoint でアクティブ化されたときにグラフが表示されます。
 
-**Scenario 2:** ゼロからプレゼンテーションを作成する。
+サンプルは左端から 0.5 インチ、上端から 1 インチの位置に、9.5 × 4 インチの OLE フレームを持つ新規プレゼンテーションを作成します。スライド座標とサイズはポイント単位（1 インチ＝72 ポイント）です。既存プレゼンテーションの場合は [Use a Template](#use-a-template) を参照してください。
 
-ここで提示する解決策は両シナリオに適用できます。すべてのアプローチの基本は同じです：**埋め込まれた OLE オブジェクトのウィンドウサイズを PowerPoint スライド上の OLE オブジェクトフレームに合わせる**ことです。以下で 2 つのアプローチを説明します。
+## **固定チャートサイズの設定**
 
-## **第一のアプローチ**
-
-このアプローチでは、埋め込まれた Excel ワークブックのウィンドウサイズを PowerPoint スライド上の OLE オブジェクトフレームのサイズに合わせる方法を学びます。
-
-**Scenario 1**
-
-テンプレートが定義されており、そのテンプレートに基づいてプレゼンテーションを作成したいとします。テンプレートのインデックス 2 にあるシェイプに、埋め込まれた Excel ワークブックを含む OLE フレームを配置したいと想定します。このシナリオでは OLE オブジェクトフレームのサイズは事前に決まっており、テンプレートのインデックス 2 のシェイプのサイズと一致しています。必要なのは、ワークブックのウィンドウサイズをそのシェイプのサイズに設定することだけです。以下のコードスニペットがその目的を果たします。
+[setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) を false に設定し、チャート寸法がブックウィンドウと独立するようにします。[getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) の寸法は [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) と [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height) で設定し、96 ピクセル／インチでポイントをピクセルに変換します：684 × 288 ポイントのフレームは 912 × 384 ピクセルのチャートに相当します。[setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) を [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/) の CUSTOM 値に設定します。例では [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) でブックを埋め込み、9.5 × 4 インチの OLE フレームを持つプレゼンテーションを保存します。
 
 ```python
 import jpype
@@ -52,214 +45,79 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# チャートを含む Excel ワークブックをロードします。
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # ワークブックのウィンドウサイズをインチ単位で設定します (PowerPoint は 1 インチあたり 72 ポイントを使用)。
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # ワークブックをメモリストリームに保存します。
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # 埋め込み Excel データで OLE オブジェクトフレームを作成します。
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # スライドの座標とサイズはポイント単位です（1インチ＝72ポイント）。
+        width = 684.0  # 9.5 インチ。
+        height = 288.0  # 4 インチ。
+
+        chart.setSizeWithWindow(False)
+        # ポイントを 96 ピクセル/インチでチャートピクセルに変換します。
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Scenario 2**
+## **テンプレートの使用**
 
-ゼロからプレゼンテーションを作成し、任意のサイズの OLE オブジェクトフレームに埋め込まれた Excel ワークブックを含めたいとします。以下のコードスニペットでは、スライド上の x=0.5 インチ、y=1 インチの位置に高さ 4 インチ、幅 9.5 インチの OLE オブジェクトフレームを作成し、Excel ワークブックのウィンドウも同じサイズ（高さ 4 インチ、幅 9.5 インチ）に設定します。
+既存プレゼンテーションでもサイズロジックは同じです。例を適用する手順は次のとおりです。
 
-```python
-import jpype
-import asposecells
-import asposeslides
+1. 空のプレゼンテーションを作成する代わりにテンプレートプレゼンテーションを読み込む。
+2. 最初のスライドに少なくとも 3 つのシェイプがあることを確認し、インデックス 2 のシェイプをプレースホルダーとして使用する。
+3. 固定値 684 と 288 を使用する代わりに、そのシェイプからフレームの幅と高さを取得する。サイズ計算は変更しないままにする。
+4. 固定座標 36 と 72 の代わりに、プレースホルダーの位置に OLE フレームを追加する。
+5. プレゼンテーションを保存する前にプレースホルダーを削除する。
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+## **よくある質問**
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+**なぜ埋め込まれた Excel グラフは PowerPoint でアクティブ化した後にサイズが変わるのですか？**  
+Excel は最初にアクティブ化されたときに元のウィンドウサイズを復元しようとしますが、PowerPoint の OLE オブジェクトフレームは独自のサイズを持っています。PowerPoint と Excel がサイズを協議してアスペクト比を維持しようとするため、リサイズが発生します。
 
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
+**チャートと OLE フレームのサイズを一貫させるにはどうすればよいですか？**  
+固定されたチャート寸法を OLE フレームに合わせ、埋め込む前にカスタムのチャート印刷サイズを設定します。上記の例に示した設定と単位変換を使用してください。
 
-# チャートを含む Excel ワークブックをロードします。
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
+**ブックウィンドウのサイズを合わせるだけで十分ですか？**  
+ブックウィンドウのサイズを合わせるだけでは、アクティブ化後に OLE フレームのサイズ変化を確実に防げません。例に示したように固定チャート寸法を使用してください。
 
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 インチ (4 * 72)。
-    desired_width = 684  # 9.5 インチ (9.5 * 72)。
+**このソリューションはテンプレートベースのプレゼンテーションと新規プレゼンテーションの両方で機能しますか？**  
+はい。テンプレートの場合はプレースホルダーの寸法と位置を使用し、新規プレゼンテーションの場合はフレームの寸法と位置を直接指定します。
 
-    # ウィンドウを使用してチャートサイズを設定します。
-    chart.setSizeWithWindow(True)
+**他のスプレッドシートプログラムで作成したチャートでもこの例を使用できますか？**  
+この例は Aspose.Cells で作成した Excel ブックを使用しています。他のスプレッドシートプログラムで作成したチャートのアクティブ化動作は示していません。
 
-    # ワークブックのウィンドウサイズをインチ単位で設定します (PowerPoint は 1 インチあたり 72 ポイントを使用)。
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # ワークブックをメモリストリームに保存します。
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # 埋め込み Excel データで OLE オブジェクトフレームを作成します。
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **第二のアプローチ**
-
-このアプローチでは、埋め込まれた Excel ワークブック内のグラフのサイズを PowerPoint スライド上の OLE オブジェクトフレームのサイズに合わせる方法を学びます。この方法は、事前にグラフサイズが分かっていて変更されない場合に有用です。
-
-**Scenario 1**
-
-テンプレートが定義されており、そのテンプレートに基づいてプレゼンテーションを作成したいとします。テンプレートのインデックス 2 にあるシェイプに、埋め込まれた Excel ワークブックを含む OLE フレームを配置したいと想定します。このシナリオでは OLE フレームのサイズは事前に決まっており、テンプレートのインデックス 2 のシェイプのサイズと一致しています。必要なのは、ワークブック内のグラフサイズをそのシェイプのサイズに設定することだけです。以下のコードスニペットがその目的を果たします。
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# チャートを含む Excel ワークブックをロードします。
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # ウィンドウなしでチャートサイズを定義します。
-    chart.setSizeWithWindow(False)
-
-    # ピクセル単位でチャートサイズを設定します (Excel は 1 インチあたり 96 ピクセルを使用)。
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # チャートの印刷サイズを定義します。
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # ワークブックをメモリストリームに保存します。
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # 埋め込み Excel データで OLE オブジェクトフレームを作成します。
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Scenario 2**:
-
-ゼロからプレゼンテーションを作成し、任意のサイズの OLE オブジェクトフレームに埋め込まれた Excel ワークブックを含めたいとします。以下のコードスニペットでは、スライド上の x=0.5 インチ、y=1 インチの位置に高さ 4 インチ、幅 9.5 インチの OLE オブジェクトフレームを作成し、対応するグラフサイズも同じ寸法（高さ 4 インチ、幅 9.5 インチ）に設定します。
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# チャートを含む Excel ワークブックをロードします。
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 インチ (4 * 72).
-    desired_width = 684  # 9.5 インチ (9.5 * 72).
-
-    # ウィンドウなしでチャートサイズを定義します。
-    chart.setSizeWithWindow(False)
-
-    # ピクセル単位でチャートサイズを設定します (Excel は 1 インチあたり 96 ピクセルを使用)。
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # ワークブックをメモリストリームに保存します。
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # 埋め込み Excel データで OLE オブジェクトフレームを作成します。
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **結論**
-
-グラフのサイズ変更問題を解決する方法は 2 つあります。どちらのアプローチを選択するかは要件と使用ケースに依存します。両方のアプローチは、テンプレートから作成する場合でもゼロから作成する場合でも同様に機能します。また、このソリューションでは OLE オブジェクトフレームのサイズに制限はありません。
-
-## **FAQ**
-
-**埋め込んだ Excel グラフは、PowerPoint でアクティブ化するとサイズが変わるのはなぜですか？**
-
-Excel は最初にアクティブ化されたときに元のウィンドウサイズを復元しようとしますが、PowerPoint の OLE オブジェクトフレームは独自の寸法を持っています。PowerPoint と Excel がサイズを協議してアスペクト比を維持するため、リサイズが発生します。
-
-**このリサイズ問題を完全に防ぐことはできますか？**
-
-はい。埋め込む前に Excel ワークブックのウィンドウサイズまたはグラフサイズを OLE オブジェクトフレームのサイズと合わせれば、サイズの不一致を防げます。
-
-**どちらのアプローチ（ウィンドウサイズ設定 vs. グラフサイズ設定）を選ぶべきですか？**
-
-ワークブックのアスペクト比を保持し、後でリサイズを許可したい場合は **アプローチ 1（ウィンドウサイズ）** を使用してください。グラフの寸法が固定で埋め込み後に変更しない場合は **アプローチ 2（グラフサイズ）** を使用してください。
-
-**これらの方法はテンプレートベースのプレゼンテーションと新規プレゼンテーションの両方で機能しますか？**
-
-はい。両アプローチはテンプレートから作成したプレゼンテーションでもゼロから作成したプレゼンテーションでも同様に機能します。
-
-**OLE オブジェクトフレームのサイズに制限はありますか？**
-
-いいえ。ワークブックまたはグラフのサイズに適切に合わせさえすれば、任意のサイズの OLE フレームを設定できます。
-
-**他のスプレッドシートプログラムで作成したチャートでもこの方法は使えますか？**
-
-例は Aspose.Cells で作成した Excel チャートを対象としていますが、同様のサイズ設定オプションをサポートする OLE 互換のスプレッドシートプログラムであれば原理は同じです。
-
-## **Related Sections**
+## **関連セクション**
 
 - [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/ja/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

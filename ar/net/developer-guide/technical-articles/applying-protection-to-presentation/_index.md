@@ -1,65 +1,66 @@
 ---
-title: منع تعديل العروض باستخدام أقفال الشكل في .NET
-linktitle: منع تعديل العرض
+title: تقييد تحرير العروض باستخدام أقفال الشكل في .NET
+linktitle: تقييد تحرير العروض
 type: docs
 weight: 70
 url: /ar/net/applying-protection-to-presentation/
 keywords:
-- منع التعديلات
-- حماية من التعديل
+- منع التحرير
+- الحماية من التحرير
 - قفل الشكل
 - قفل الموضع
 - قفل الاختيار
-- قفل الحجم
+- قفل تغيير الحجم
 - قفل التجميع
 - PowerPoint
-- OpenDocument
-- العرض
+- PPTX
+- عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides for .NET بقفل أو إلغاء قفل الأشكال في ملفات PPT و PPTX و ODP، مما يؤمن العروض مع السماح بتعديلات مُتحكم فيها."
+description: "تعلم كيفية قفل وإلغاء قفل الأشكال في عروض PPTX باستخدام Aspose.Slides for .NET لتقييد الاختيار والحركة وتغيير الحجم والتجميع."
 ---
-
 ## **الخلفية**
 
-استخدام شائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint (PPTX) كجزء من سير عمل آلي. يحصل مستخدمو التطبيقات التي تستخدم Aspose.Slides بهذه الطريقة على الوصول إلى العروض المولدة، لذا فإن حماية هذه العروض من التعديل تُعدّ مصدر قلق شائع. من المهم أن تحتفظ العروض التي تُنشأ تلقائيًا بالتنسيق والمحتوى الأصليين.
+استخدام شائع لـ Aspose.Slides for .NET هو إنشاء وتحديث وحفظ عروض PowerPoint (PPTX) كجزء من سير عمل آلي. عند تلقي المستخدمين لهذه العروض، يمكن أن يساعد تقييد التغييرات على الأشكال في الحفاظ على التخطيط والمحتوى المقصود.
 
-تشرح هذه المقالة كيفية هيكلة العروض والشرائح وكيف يمكن لـ Aspose.Slides for .NET تطبيق الحماية على عرض ثم إزالتها لاحقًا. إنها توفر للمطورين وسيلة للتحكم في كيفية استخدام العروض التي تولدها تطبيقاتهم.
+تشرح هذه المقالة كيفية تنظيم الأشكال على الشرائح وكيفية تطبيق وإزالة أقفال الأشكال في عرض PPTX. تسمح هذه الأقفال لك بتقييد عمليات تحرير محددة على أشكال فردية.
 
-## **تكوين الشريحة**
+## **تكوين شريحة**
 
-تتكون شريحة العرض من مكوّنات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء العرض. في Aspose.Slides for .NET، يُمثَّل كل عنصر على الشريحة بواسطة كائن يُطبق واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) أو يرث من فئة تقوم بذلك.
+شريحة العرض تتكون من مكونات مثل الأشكال التلقائية، الجداول، كائنات OLE، الأشكال المجمعة، إطارات الصور، إطارات الفيديو، الموصلات، وعناصر أخرى تُستخدم لبناء العرض. في Aspose.Slides for .NET، يتم تمثيل كل عنصر على الشريحة بكائن ينفذ واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) أو يرث من فئة تقوم بذلك.
 
-بنية PPTX معقدة، لذا على عكس PPT حيث يمكن استخدام قفل عام لجميع أنواع الأشكال، تتطلب أنواع الأشكال المختلفة أقفالًا مختلفة. تُعد واجهة [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) الفئة العامة للقفل في PPTX. الأنواع التالية من الأقفال مدعومة في Aspose.Slides for .NET لـ PPTX:
-- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) أقفال الأشكال التلقائية.
-- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) أقفال أشكال الموصل.
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) أقفال الكائنات الرسومية.
-- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) أقفال الأشكال المجمعة.
-- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) أقفال إطارات الصورة.
+أنواع الأشكال المختلفة تكشف عن خيارات قفل مختلفة. واجهة [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) هي الواجهة الأساسية لأقفال الأشكال. يقدم Aspose.Slides for .NET الواجهات القفل التالية:
 
-أي عمل يُجرى على جميع كائنات الشكل في كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) يُطبق على العرض بأكمله.
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) يقفل الأشكال التلقائية.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) يقفل أشكال الموصلات.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) يقفل الكائنات الرسومية.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) يقفل الأشكال المجمعة.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) يقفل إطارات الصور.  
+
+لتطبيق أقفال عبر [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)، قم بالتكرار خلال شرائحه واضبط الأقفال المناسبة على كل شكل مدعوم.
 
 ## **تطبيق وإزالة الحماية**
 
-يضمن تطبيق الحماية عدم إمكانية تحرير العرض. إنها تقنية مفيدة لحماية محتوى العرض.
+أقفال الأشكال تقيد عمليات مثل اختيار الأشكال، نقلها، وتغيير حجمها. هي لا تجعل العرض بالكامل غير قابل للتحرير.
 
 ### **تطبيق الحماية على أشكال PPTX**
 
-توفر Aspose.Slides for .NET واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) للعمل مع الأشكال على الشريحة.
+يوفر Aspose.Slides for .NET واجهة [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) للعمل مع الأشكال على الشريحة.
 
-كما ذكرنا سابقًا، كل فئة شكل لها فئة قفل شكل مرتبطة لها للحماية. تركّز هذه المقالة على أقفال NoSelect و NoMove و NoResize. تضمن هذه الأقفال عدم إمكانية اختيار الأشكال (من خلال نقرات الفأرة أو طرق اختيار أخرى) وعدم إمكانية تحريكها أو تغيير حجمها.
+يضبط المثال [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/)، [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/)، و[SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) إلى `true` للأشكال التلقائية، مع أقفال مكافئة لأشكال المجموعات، الموصلات، وإطارات الصور. تستخدم الموصلات [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) للحركة؛ المجموعات تستخدم أيضًا [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) لتقييد التجميع.
 
-عينة الشيفرة التالية تُطبق الحماية على جميع أنواع الأشكال في عرض.
+يقوم المثال بتحميل عرض PPTX موجود، يتحقق من الأشكال في مجموعة الأشكال لكل شريحة، ويحفظ نسخة مع تطبيق هذه القيود. تُترك الأشكال خارج الأنواع الأربعة المعالجة دون تغيير. لا يتجول الحلقة داخل الأشكال الفرعية داخل مجموعة.
+
 ```cs
-// إنشاء كائن Presentation الذي يمثل ملف PPTX.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// التنقل عبر جميع الشرائح في العرض.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // التنقل عبر جميع الأشكال في الشريحة.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -89,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// حفظ ملف العرض.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-
 ### **إزالة الحماية**
 
-لفك قفل شكل، اضبط قيمة القفل المطبق إلى `false`. تُظهر عينة الشيفرة التالية كيفية فك قفل الأشكال في عرض مقفل.
-```cs
-// إنشاء كائن Presentation الذي يمثل ملف PPTX.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+لإزالة قفل شكل، اضبط قيمته إلى `false`. يحمل المثال التالي عرضًا يحتوي على أقفال أشكال ويزيل قيود الاختيار، النقل، وتغيير الحجم عبر [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/)، [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/)، [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/)، و[IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). كما يزيل [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) ويحفظ نسخة من العرض. تُترك إعدادات الأقفال الأخرى دون تغيير.
 
-// التنقل عبر جميع الشرائح في العرض.
-foreach (ISlide slide in presentation.Slides)
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // التنقل عبر جميع الأشكال في الشريحة.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -135,25 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// حفظ ملف العرض.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
-
 ### **الخلاصة**
 
-توفر Aspose.Slides عدة خيارات لحماية الأشكال في عرض. يمكنك قفل شكل فردي أو تكرار جميع الأشكال في العرض وقفل كلٍ منها لتأمين الملف بالكامل بفعالية. يمكنك إزالة الحماية بضبط قيمة القفل إلى `false`.
+يتيح Aspose.Slides for .NET لك تقييد عمليات تحرير محددة على أشكال فردية أو تطبيق نفس القيود عبر الشرائح. اختر الأقفال المدعومة من كل نوع شكل، واضبط قيمها إلى `false` عندما تحتاج إلى إزالة تلك القيود.
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني دمج أقفال الشكل وحماية كلمة المرور في نفس العرض؟**
+**هل يمكنني دمج أقفال الأشكال وحماية كلمة المرور في نفس العرض؟**
 
-نعم. تُقيد الأقفال تحرير الكائنات داخل الملف، بينما [حماية كلمة المرور](/slides/ar/net/password-protected-presentation/) يتحكم في الوصول إلى فتح العرض و/أو حفظ التغييرات. تكمل هذه الآليات بعضها البعض وتعمل معًا.
+نعم. أقفال الأشكال تقيد عمليات تحرير محددة، بينما [حماية كلمة المرور](/slides/ar/net/password-protected-presentation/) يمكن أن تقيد فتح أو تعديل العرض. يمكنك استخدام كليهما في نفس الملف.
 
-**هل يمكنني تقييد التحرير على شرائح محددة دون التأثير على غيرها؟**
+**هل يمكنني تقييد التحرير على شرائح محددة دون التأثير على الآخرين؟**
 
-نعم. يُطبق الأقفال على الأشكال في الشرائح المحددة؛ الشرائح المتبقية ستظل قابلة للتحرير.
+نعم. طبّق الأقفال فقط على الأشكال في الشرائح المختارة. هذا لا يغيّر إعدادات الأقفال في الشرائح الأخرى.
 
-**هل تنطبق أقفال الأشكال على الكائنات المجمعة والموصلات؟**
+**كيف يمكنني تطبيق أقفال على أشكال فردية داخل مجموعة؟**
 
-نعم. تُدعم أنواع أقفال مخصصة للمجموعات والموصلات والكائنات الرسومية وأنواع الأشكال الأخرى.
+قم بالتكرار عبر مجموعة [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) الخاصة بالمجموعة وطبق الأقفال المناسبة على كل شكل فرعي. كرّر ذلك لأي مجموعات متداخلة. الأمثلة أعلاه تعالج فقط مجموعة أشكال الشريحة، لذا فهي لا تضبط أقفالًا على أعضاء المجموعة الفرديين.

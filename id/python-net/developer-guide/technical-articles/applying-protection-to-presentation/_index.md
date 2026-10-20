@@ -1,134 +1,128 @@
 ---
-title: Mencegah Pengeditan Presentasi dengan Kunci Shape di Python
-linktitle: Mencegah Pengeditan Presentasi
+title: Membatasi Penyuntingan Presentasi dengan Kunci Bentuk di Python
+linktitle: Membatasi Penyuntingan Presentasi
 type: docs
 weight: 70
 url: /id/python-net/applying-protection-to-presentation/
 keywords:
-- mencegah pengeditan
-- melindungi dari pengeditan
-- mengunci shape
-- mengunci posisi
-- mengunci pemilihan
-- mengunci ukuran
-- mengunci pengelompokan
+- mencegah penyuntingan
+- melindungi dari penyuntingan
+- kunci bentuk
+- kunci posisi
+- kunci pilih
+- kunci mengubah ukuran
+- kunci pengelompokan
 - PowerPoint
-- OpenDocument
+- PPTX
 - presentasi
 - Python
 - Aspose.Slides
-description: "Temukan bagaimana Aspose.Slides for Python via .NET mengunci atau membuka kunci shape dalam file PPT, PPTX, dan ODP, mengamankan presentasi sekaligus memungkinkan pengeditan terkontrol dan pengiriman lebih cepat."
+description: Pelajari cara mengunci dan membuka kunci bentuk dalam presentasi PPTX dengan Aspose.Slides for Python via .NET untuk membatasi pemilihan, pergerakan, pengubahan ukuran, dan pengelompokan.
 ---
 ## **Latar Belakang**
 
-Penggunaan umum Aspose.Slides adalah untuk membuat, memperbarui, dan menyimpan presentasi Microsoft PowerPoint (PPTX) sebagai bagian dari alur kerja otomatis. Pengguna aplikasi yang memanfaatkan Aspose.Slides dengan cara ini memiliki akses ke presentasi yang dihasilkan, sehingga melindungi mereka dari pengeditan menjadi perhatian umum. Penting agar presentasi yang dihasilkan secara otomatis mempertahankan format dan kontennya yang asli.
+Penggunaan umum Aspose.Slides for Python via .NET adalah untuk membuat, memperbarui, dan menyimpan presentasi PowerPoint (PPTX) sebagai bagian dari alur kerja otomatis. Ketika pengguna menerima presentasi ini, membatasi perubahan pada bentuk dapat membantu mempertahankan tata letak dan konten yang dimaksud.
 
-Artikel ini menjelaskan bagaimana presentasi dan slide disusun serta bagaimana Aspose.Slides for Python dapat menerapkan proteksi pada sebuah presentasi dan kemudian menghapusnya. Ini memberi pengembang cara mengendalikan bagaimana presentasi yang dihasilkan aplikasi mereka digunakan.
+Artikel ini menjelaskan bagaimana bentuk diatur pada slide dan cara menerapkan serta menghapus kunci bentuk dalam presentasi PPTX. Kunci ini memungkinkan Anda membatasi operasi penyuntingan tertentu pada bentuk individu.
 
 ## **Komposisi Slide**
 
-Slide presentasi terdiri dari komponen seperti autoshape, tabel, objek OLE, shape yang dikelompokkan, bingkai gambar, bingkai video, penghubung, dan elemen lain yang digunakan untuk membangun sebuah presentasi. Dalam Aspose.Slides for Python, setiap elemen pada slide direpresentasikan oleh objek yang mewarisi kelas [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/).
+Sebuah slide presentasi terdiri dari komponen seperti autoshapes, tabel, objek OLE, bentuk yang digabungkan, bingkai gambar, bingkai video, konektor, dan elemen lain yang digunakan untuk membangun sebuah presentasi. Dalam Aspose.Slides for Python via .NET, setiap elemen pada slide direpresentasikan oleh sebuah objek yang mewarisi dari kelas [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) .
 
-Struktur PPTX bersifat kompleks, sehingga tidak seperti PPT, di mana kunci generik dapat digunakan untuk semua jenis shape, tipe shape yang berbeda memerlukan kunci yang berbeda. Kelas [BaseShapeLock](https://reference.aspose.com/slides/id/python-net/aspose.slides/baseshapelock/) adalah kelas kunci generik untuk PPTX. Jenis kunci berikut didukung dalam Aspose.Slides for Python untuk PPTX:
+Berbagai tipe bentuk menampilkan opsi penguncian yang berbeda. Kelas [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) adalah kelas dasar untuk kunci bentuk. Aspose.Slides for Python via .NET menyediakan kelas kunci berikut:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshapelock/) mengunci autoshape.  
-- [ConnectorLock](https://reference.aspose.com/slides/id/python-net/aspose.slides/connectorlock/) mengunci shape penghubung.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/id/python-net/aspose.slides/graphicalobjectlock/) mengunci objek grafis.  
-- [GroupShapeLock](https://reference.aspose.com/slides/id/python-net/aspose.slides/groupshapelock/) mengunci shape grup.  
-- [PictureFrameLock](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframelock/) mengunci bingkai gambar.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) mengunci autoshapes.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) mengunci bentuk konektor.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) mengunci objek grafis.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) mengunci bentuk grup.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) mengunci bingkai gambar.  
 
-Setiap tindakan yang dilakukan pada semua objek shape dalam sebuah objek [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) diterapkan pada seluruh presentasi.
+Untuk menerapkan kunci pada seluruh [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), iterasikan slide‑slidenya dan tetapkan kunci yang sesuai pada setiap bentuk yang didukung.
 
 ## **Terapkan dan Hapus Proteksi**
 
-Menerapkan proteksi memastikan bahwa sebuah presentasi tidak dapat diedit. Ini merupakan teknik yang berguna untuk melindungi konten presentasi.
+Kunci bentuk membatasi operasi seperti memilih, memindahkan, dan mengubah ukuran bentuk. Mereka tidak membuat seluruh presentasi tidak dapat diedit.
 
-### **Terapkan Proteksi ke Shape PPTX**
+### **Terapkan Proteksi pada Bentuk PPTX**
 
-Aspose.Slides for Python menyediakan kelas [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/) untuk bekerja dengan shape pada slide.
+Aspose.Slides for Python via .NET menyediakan kelas [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) untuk bekerja dengan bentuk pada slide.
 
-Seperti disebutkan sebelumnya, setiap kelas shape memiliki kelas shape‑lock terkait untuk proteksi. Artikel ini berfokus pada kunci NoSelect, NoMove, dan NoResize. Kunci‑kunci ini memastikan bahwa shape tidak dapat dipilih (melalui klik mouse atau metode pemilihan lainnya) serta tidak dapat dipindahkan atau diubah ukurannya.
+Contoh mengatur [select_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/select_locked/), [position_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/position_locked/) , dan [size_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/size_locked/) menjadi `True` untuk autoshapes, dengan kunci serupa untuk bentuk grup, konektor, dan bingkai gambar. Konektor menggunakan [position_move](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/position_move/) untuk pergerakan; grup juga menggunakan [grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) untuk membatasi pengelompokan.
 
-Contoh kode berikut menerapkan proteksi pada semua tipe shape dalam sebuah presentasi.
+Contoh memuat presentasi PPTX yang ada, memeriksa bentuk‑bentuk dalam koleksi bentuk setiap slide, dan menyimpan salinan dengan pembatasan ini diterapkan. Bentuk di luar empat tipe yang ditangani dibiarkan tidak berubah. Loop tidak menelusuri bentuk anak di dalam grup.
 
-```py
+```python
 import aspose.slides as slides
 
-# Membuat instance kelas Presentation yang mewakili file PPTX.
 with slides.Presentation("Sample.pptx") as presentation:
-    # Menelusuri semua slide dalam presentasi.
     for slide in presentation.slides:
-        # Menelusuri semua shape dalam slide.
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = True
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-    # Menyimpan file presentasi.
+
     presentation.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Hapus Proteksi**
 
-Untuk membuka kunci sebuah shape, setel nilai kunci yang diterapkan menjadi `False`. Contoh kode berikut menunjukkan cara membuka kunci shape dalam presentasi yang terkunci.
+Untuk menghapus kunci bentuk, setel nilainya menjadi `False`. Contoh berikut memuat presentasi dengan kunci bentuk dan menghapus pembatasan pemilihan, pergerakan, serta perubahan ukuran melalui [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/), dan [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/). Ia juga menghapus [GroupShapeLock.grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) dan menyimpan salinan presentasi. Pengaturan kunci lainnya dibiarkan tidak berubah.
 
-```py
+```python
 import aspose.slides as slides
 
-# Membuat instance kelas Presentation yang mewakili file PPTX.
 with slides.Presentation("ProtectedSample.pptx") as presentation:
-    # Menelusuri semua slide dalam presentasi.
     for slide in presentation.slides:
-        # Menelusuri semua shape dalam slide.
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = False
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-    # Menyimpan file presentasi.
+
     presentation.save("RemovedProtectionSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **Kesimpulan**
 
-Aspose.Slides menawarkan beberapa opsi untuk melindungi shape dalam sebuah presentasi. Anda dapat mengunci shape individu atau mengiterasi semua shape dalam sebuah presentasi dan mengunci masing‑masing untuk secara efektif mengamankan seluruh file. Anda dapat menghapus proteksi dengan mengatur nilai kunci menjadi `False`.
+Aspose.Slides for Python via .NET memungkinkan Anda membatasi operasi penyuntingan tertentu pada bentuk individu atau menerapkan pembatasan yang sama pada seluruh slide. Pilih kunci yang didukung oleh tiap tipe bentuk, dan setel nilainya ke `False` bila Anda perlu menghapus pembatasan tersebut.
 
 ## **FAQ**
 
-**Apakah saya dapat menggabungkan kunci shape dan proteksi kata sandi dalam satu presentasi?**
+**Apakah saya dapat menggabungkan kunci bentuk dan proteksi kata sandi dalam satu presentasi?**
 
-Ya. Kunci membatasi pengeditan objek di dalam file, sementara [perlindungan kata sandi](/slides/id/python-net/password-protected-presentation/) mengendalikan akses untuk membuka dan/atau menyimpan perubahan. Kedua mekanisme ini saling melengkapi dan bekerja bersama.
+Ya. Kunci bentuk membatasi operasi penyuntingan tertentu, sementara [password protection](/slides/id/python-net/password-protected-presentation/) dapat membatasi pembukaan atau modifikasi presentasi. Anda dapat menggunakan keduanya dalam satu berkas.
 
-**Apakah saya dapat membatasi pengeditan pada slide tertentu tanpa memengaruhi slide lain?**
+**Apakah saya dapat membatasi penyuntingan pada slide tertentu tanpa memengaruhi slide lain?**
 
-Ya. Terapkan kunci pada shape di slide yang dipilih; slide yang tersisa tetap dapat diedit.
+Ya. Terapkan kunci hanya pada bentuk di slide yang dipilih. Hal ini tidak mengubah pengaturan kunci pada slide lain.
 
-**Apakah kunci shape berlaku untuk objek yang dikelompokkan dan penghubung?**
+**Bagaimana cara menerapkan kunci pada bentuk individu di dalam sebuah grup?**
 
-Ya. Tipe kunci khusus didukung untuk grup, penghubung, objek grafis, dan jenis shape lainnya.
+Iterasikan koleksi [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) grup dan terapkan kunci yang sesuai pada tiap bentuk anak. Ulangi proses ini untuk setiap grup bersarang. Contoh di atas hanya memproses koleksi bentuk slide, sehingga tidak mengatur kunci pada anggota grup individu.
