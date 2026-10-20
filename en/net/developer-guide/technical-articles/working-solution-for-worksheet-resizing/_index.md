@@ -17,9 +17,9 @@ keywords:
 description: "Fix Excel worksheet OLE resizing in presentations: two ways to keep object frames consistent—scale the frame or the sheet—across the PPT and PPTX formats."
 ---
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-It has been observed that Excel worksheets embedded as OLE objects in a PowerPoint presentation through Aspose components are resized to an unidentified scale after the first activation. This behavior creates a noticeable visual difference in the presentation between the pre- and post-activation states of the OLE object. We have investigated this issue in detail and provided a solution, which is covered in this article.
+Excel worksheets embedded as OLE objects in a PowerPoint presentation using Aspose components may resize unexpectedly after their first activation. This behavior creates a noticeable visual difference between the OLE object before and after activation. This article explains the issue and describes two ways to address it.
 
 {{% /alert %}} 
 
@@ -35,14 +35,14 @@ Since the Excel workbook has its own window size, it tries to retain its origina
 
 There are two possible solutions to avoid the resizing effect.
 
-- Scale the OLE frame size in the PowerPoint presentation to match the height and width of the desired number of rows and columns in the OLE frame.
-- Keep the OLE frame size constant and scale the size of the participating rows and columns to fit within the selected OLE frame size.
+- Scale the OLE frame in the PowerPoint presentation to match the total height and width of the selected rows and columns.
+- Keep the OLE frame size constant and scale the selected rows and columns to fit within it.
 
 ### **Scale the OLE Frame Size**
 
-In this approach, we will learn how to set the OLE frame size of the embedded Excel workbook to match the cumulative size of the participating rows and columns in the Excel worksheet.
+This approach sets the OLE frame size to match the total height and width of the selected rows and columns in the embedded Excel worksheet.
 
-Suppose we have a template Excel sheet and want to add it to a presentation as an OLE frame. In this scenario, the size of the OLE object frame will first be calculated based on the cumulative row heights and column widths of the participating rows and columns in the workbook. Then, we will set the size of the OLE frame to this calculated value. To avoid the red "EMBEDDED OLE OBJECT" message for the OLE frame in PowerPoint, we will also capture an image of the desired portions of the rows and columns in the workbook and set it as the OLE frame image.
+The example loads an existing Excel workbook and selects the first 10 rows and 13 columns of its first worksheet using zero-based indices. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) defines the displayed range. The preview is rendered at 96 DPI, and its pixel dimensions are converted to points using 72 points per inch. [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) embeds the modified workbook in a frame with those dimensions. The preview is assigned through [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) to replace the "EMBEDDED OLE OBJECT" placeholder in the saved presentation.
 
 ```cs
 using System.Drawing;
@@ -92,6 +92,8 @@ oleFrame.IsObjectIcon = false;
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+The preview helper sets [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) to the selected range and removes margins, headers, and footers. With [ImageOrPrintOptions.OnlyArea](https://reference.aspose.com/cells/net/aspose.cells.rendering/imageorprintoptions/onlyarea/) enabled, [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/) renders the range as a PNG image. The helper rewinds the image stream before returning it for use in the presentation.
+
 ```cs
 static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
@@ -124,9 +126,9 @@ static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolu
 
 ### **Scale the Cell Range Size**
 
-In this approach, we will learn how to scale the heights of the participating rows and the width of the participating columns to match a custom OLE frame size.
+This approach scales the heights of the selected rows and the widths of the selected columns to match a custom OLE frame size.
 
-Suppose we have a template Excel sheet and want to add it to a presentation as an OLE frame. In this scenario, we will set the size of the OLE frame and scale the size of the rows and columns that participate in the OLE frame area. We will then save the workbook to a stream to apply the changes and convert it to a byte array for adding it to the OLE frame. To avoid the red "EMBEDDED OLE OBJECT" message for the OLE frame in PowerPoint, we will also capture an image of the desired portions of the rows and columns in the workbook and set it as the OLE frame image.
+The example loads an existing Excel workbook and selects the first 10 rows and 13 columns of its first worksheet using zero-based indices. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) defines the displayed range, and the helper below scales that range to fit a frame 400 points wide and 100 points high. After saving the modified workbook to a stream, [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) embeds it at the specified size. A preview rendered at 96 DPI is assigned through [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/), so the saved presentation displays the selected cells instead of the default placeholder.
 
 ```cs
 using Aspose.Slides;
@@ -173,6 +175,8 @@ oleFrame.IsObjectIcon = false;
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+The scaling helper calculates separate width and height ratios for the selected range, preserving the relative widths of its columns and the relative heights of its rows. It converts the calculated dimensions from points to inches before applying them with [Cells.SetColumnWidthInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setcolumnwidthinch/) and [Cells.SetRowHeightInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setrowheightinch/). The selected range must have nonzero width and height.
+
 ```cs
 /// <param name="width">The expected width of the cell range in points.</param>
 /// <param name="height">The expected height of the cell range in points.</param>
@@ -202,6 +206,8 @@ static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float heig
     }
 }
 ```
+
+This preview helper renders the resized range using [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/). It limits [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) to that range, removes margins, headers, and footers, and returns a PNG stream positioned at its beginning.
 
 ```cs
 static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
@@ -235,30 +241,36 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 
 ## **Conclusion**
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
-There are two approaches to fix the worksheet resizing issue. The selection of the appropriate approach depends on the specific requirements and use case. Both approaches work the same way, whether the presentations are created from a template or from scratch. Additionally, there is no limit on the size of the OLE object frame in this solution.
+There are two approaches to fix the worksheet resizing issue. Choose the approach that best fits your requirements and use case. Both approaches work the same way, whether the presentations are created from a template or from scratch. Additionally, there is no limit on the size of the OLE object frame in this solution.
 
 {{% /alert %}}
 
 ## **FAQ**
 
-### Why does an embedded Excel worksheet change size when first activated in PowerPoint?
-This happens because Excel tries to maintain the original window size when activated, while the OLE object frame in PowerPoint has its own dimensions. PowerPoint and Excel negotiate the size to maintain aspect ratio, which can cause the resizing.
+**Why does an embedded Excel worksheet change size when first activated in PowerPoint?**
 
-### Is it possible to prevent this resizing issue entirely?
+This happens because Excel tries to maintain the original window size when activated, while the OLE object frame in PowerPoint has its own dimensions. PowerPoint and Excel negotiate the size to maintain the aspect ratio, which can cause the resizing.
+
+**Is it possible to prevent this resizing issue entirely?**
+
 Yes. By scaling the OLE frame to fit the Excel cell range size or scaling the cell range to fit the desired OLE frame size, you can prevent unwanted resizing.
 
-### Which scaling method should I use, OLE frame scaling or cell range scaling?
+**Which scaling method should I use, OLE frame scaling or cell range scaling?**
+
 Select **OLE frame scaling** if you want to maintain the original Excel row and column sizes. Select **cell range scaling** if you want a fixed size for the OLE frame in your presentation.
 
-### Will these solutions work if my presentation is based on a template?
+**Will these solutions work if my presentation is based on a template?**
+
 Yes. Both solutions work for presentations created from templates and from scratch.
 
-### Is there a limit to the size of the OLE frame when using these methods?
+**Is there a limit to the size of the OLE frame when using these methods?**
+
 No. You can make the OLE object frame any size as long as you set the scale appropriately.
 
-### Is there a way to avoid the "EMBEDDED OLE OBJECT" placeholder text in PowerPoint?
+**Is there a way to avoid the "EMBEDDED OLE OBJECT" placeholder text in PowerPoint?**
+
 Yes. By taking a snapshot of the target Excel cell range and setting it as the OLE frame's placeholder image, you can display a custom preview image in place of the default placeholder.
 
 ## **Related Articles**
