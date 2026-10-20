@@ -2,7 +2,9 @@
 title: تغيير حجم الأشكال على شرائح العرض باستخدام Python عبر Java
 type: docs
 weight: 110
-url: /ar/python-java/re-sizing-shapes-on-slide/
+url: /ar/python-java/resizing-shapes-on-slide/
+aliases:
+  - /ar/python-java/re-sizing-shapes-on-slide/
 keywords:
 - تحجيم الشكل
 - تغيير حجم الشكل
