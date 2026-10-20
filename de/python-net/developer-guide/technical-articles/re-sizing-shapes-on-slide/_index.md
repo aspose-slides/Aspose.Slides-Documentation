@@ -1,9 +1,11 @@
 ---
-title: Formen in Präsentationen mit Python skalieren
-linktitle: Formen skalieren
+title: Formen auf Präsentationsfolien in Python skalieren
 type: docs
 weight: 130
-url: /de/python-net/re-sizing-shapes-on-slide/
+url: /de/python-net/resizing-shapes-on-slide/
+aliases:
+  - /de/python-net/re-sizing-shapes-on-slide/
+  /python-net/re-sizing-shapes-on-slide/
 keywords:
 - Form skalieren
 - Formgröße ändern
@@ -12,139 +14,106 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Einfach Formen auf PowerPoint- und OpenDocument-Folien mit Aspose.Slides für Python über .NET skalieren — automatisieren Sie die Anpassung des Folienlayouts und steigern Sie die Produktivität."
+description: "Einfach Formen auf PowerPoint- und OpenDocument‑Folien mit Aspose.Slides für Python via .NET skalieren — automatisieren Sie Folienlayout‑Anpassungen und steigern Sie die Produktivität."
 ---
-
 ## **Übersicht**
 
-Eine der häufigsten Fragen von Aspose.Slides for Python‑Kunden ist, wie man Formen so skaliert, dass bei einer Änderung der Foliengröße die Daten nicht abgeschnitten werden. Dieser kurze technische Beitrag zeigt, wie das geht.
+Wenn Sie die Foliengröße einer Präsentation ändern, müssen Sie möglicherweise auch die Formen neu skalieren und neu positionieren, damit sie in die neuen Abmessungen passen. Dieser Artikel zeigt, wie Sie Formen manuell skalieren und wie Sie Tabellen auf Folien, Masterfolien und Layouts behandeln.
 
 ## **Formen skalieren**
 
-Damit sich Formen bei einer Änderung der Foliengröße nicht verschieben, aktualisieren Sie die Position und die Abmessungen jeder Form, sodass sie zum neuen Folienlayout passen.
-```py
-import aspose.slides as slides
+Um die relative Position und Größe jeder Form beizubehalten, multiplizieren Sie ihre horizontalen Koordinaten und Breite mit dem Verhältnis der neuen Folienbreite zur ursprünglichen Breite. Wenden Sie das entsprechende Höhenverhältnis auf ihre vertikalen Koordinaten und Höhe an.
 
-    # Präsentationsdatei laden.
-    with slides.Presentation("sample.pptx") as presentation:
-        # Originalgröße der Folie abrufen.
-        current_height = presentation.slide_size.size.height
-        current_width = presentation.slide_size.size.width
+Es verwendet [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) mit [SlideSizeScaleType.DO_NOT_SCALE](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/), sodass die nachfolgende Schleife die Skalierung steuert. Die Verhältnisse sind dimensionslos; Formpositionen und -abmessungen werden in Punkten gemessen. Unterschiedliche Breiten- und Höhenverhältnisse können Formen verzerren, und das Ändern der Formabmessungen skaliert die Schriftgrößen nicht.
 
-        # Foliengröße ändern, ohne vorhandene Formen zu skalieren.
-        presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
-
-        # Neue Foliengröße abrufen.
-        new_height = presentation.slide_size.size.height
-        new_width = presentation.slide_size.size.width
-
-        height_ratio = new_height / current_height
-        width_ratio = new_width / current_width
-
-        # Formen auf jeder Folie skalieren und neu positionieren.
-        for slide in presentation.slides:
-            for shape in slide.shapes:
-                # Größe der Form skalieren.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # Position der Form skalieren.
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-{{% alert color="primary" %}} 
-Wenn eine Folie eine Tabelle enthält, funktioniert der obige Code nicht korrekt. In diesem Fall muss jede Zelle der Tabelle skaliert werden.
-{{% /alert %}} 
-
-Verwenden Sie den folgenden Code, um Folien mit Tabellen zu skalieren. Bei Tabellen ist das Setzen von Breite oder Höhe ein Sonderfall: Sie müssen die einzelnen Zeilenhöhen und Spaltenbreiten anpassen, um die Gesamtabmessungen der Tabelle zu ändern.
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation("sample.pptx") as presentation:
-    # Originale Foliengröße abrufen.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Foliengröße ändern, ohne vorhandene Formen zu skalieren.
+    # Unabhängige horizontale und vertikale Skalierungsfaktoren berechnen.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
-
-    # Neue Foliengröße abrufen.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    for master in presentation.masters:
-        for shape in master.shapes:
-            # Formgröße skalieren.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Formposition skalieren.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
-        for layout_slide in master.layout_slides:
-            for shape in layout_slide.shapes:
-                # Formgröße skalieren.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # Formposition skalieren.
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # Formgröße skalieren.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Formposition skalieren.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
-            if type(shape) is slides.Table:
-                for row in shape.rows:
-                    row.minimal_height = row.minimal_height * height_ratio
-                for column in shape.columns:
-                    column.width = column.width * width_ratio
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+            shape.x *= width_ratio
+            shape.y *= height_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+{{% alert color="info" title="Note" %}}
+Tabellen erfordern eine separate Behandlung: Skalieren Sie ihre Spaltenbreiten und Zeilenhöhen, anstatt die Gesamtbreite und -höhe der Tabelle zuzuweisen. Zeilenhöhen können größer bleiben als angefordert, wenn der Zellinhalt mehr Platz benötigt.
+{{% /alert %}}
+
+Das zweite Beispiel unterstützt Tabellen und verarbeitet Formen auf Masterfolien und Layouts sowie einzelne Folien, bevor die skalierte Präsentation gespeichert wird. Seine Hilfsmethode behandelt jede [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) , indem sie [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) und [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) skaliert. Anschließend skaliert sie die Position der Tabelle, ohne ihre Gesamtabmessungen separat zu skalieren.
+
+```python
+import aspose.slides as slides
+
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, slides.Table):
+            # Tabellendimensionen werden durch Spaltenbreiten und Zeilenhöhen gesteuert.
+            for column in shape.columns:
+                column.width *= width_ratio
+
+            for row in shape.rows:
+                row.minimal_height *= height_ratio
+        else:
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+
+        shape.x *= width_ratio
+        shape.y *= height_ratio
+
+
+with slides.Presentation("sample.pptx") as presentation:
+    # Unabhängige horizontale und vertikale Skalierungsfaktoren berechnen.
+    original_size = presentation.slide_size.size
+    presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
+
+    # Formen, die auf Mastern und Layouts sowie einzelnen Folien definiert sind, skalieren.
+    for master in presentation.masters:
+        resize_shapes(master.shapes, width_ratio, height_ratio)
+
+        for layout_slide in master.layout_slides:
+            resize_shapes(layout_slide.shapes, width_ratio, height_ratio)
+
+    for slide in presentation.slides:
+        resize_shapes(slide.shapes, width_ratio, height_ratio)
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **FAQ**
 
-**Warum werden Formen nach dem Skalieren einer Folie verzerrt oder abgeschnitten?**
+**Warum werden Formen nach dem Ändern der Foliengröße verzerrt oder abgeschnitten?**  
+Wenn Sie die Foliengröße ändern, ohne die Formen zu skalieren, behalten sie ihre ursprünglichen Positionen und Abmessungen bei und können über die Folie hinausgehen. Das Skalieren von Breite und Höhe mit unterschiedlichen Verhältnissen kann Formen ebenfalls verzerren.
 
-Beim Skalieren einer Folie behalten Formen ihre ursprüngliche Position und Größe, sofern die Skalierung nicht explizit geändert wird. Das kann dazu führen, dass Inhalte abgeschnitten oder Formen missaligned werden.
+**Funktioniert der bereitgestellte Code für alle Formtypen?**  
+Das erste Beispiel ändert die Begrenzungen der Formen direkt und ist für Folien ohne Tabellen gedacht. Das zweite Beispiel behandelt Tabellen separat. Überprüfen Sie das resultierende Layout, insbesondere Text und Tabellen, da diese Beispiele die Schriftgrößen nicht skalieren und Tabellinhalte die Zeilenhöhen einschränken können.
 
-**Funktioniert der bereitgestellte Code für alle Formtypen?**
+**Wie kann ich Tabellen beim Ändern der Foliengröße skalieren?**  
+Skalieren Sie die Spaltenbreiten mit dem Breitenverhältnis und die minimalen Zeilenhöhen mit dem Höhenverhältnis und anschließend die Position der Tabelle, wie im zweiten Beispiel gezeigt.
 
-Das Basisbeispiel funktioniert für die meisten Formtypen (Textfelder, Bilder, Diagramme usw.). Bei Tabellen müssen Sie jedoch Zeilen und Spalten separat behandeln, da Höhe und Breite einer Tabelle durch die Abmessungen der einzelnen Zellen bestimmt werden.
+**Funktioniert diese Skalierung für Masterfolien und Layoutfolien?**  
+Ja. Das zweite Beispiel iteriert über [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) und über die [MasterSlide.layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) jedes Masters und wendet dieselbe Skalierlogik auf deren Formen an.
 
-**Wie skaliere ich Tabellen beim Skalieren einer Folie?**
+**Kann ich die Ausrichtung einer Folie (Hochformat/Querformat) zusammen mit der Skalierung ändern?**  
+Ja. Setzen Sie [SlideSize.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/orientation/) nach dem Ändern der Foliengröße und bevor Sie die Zielabmessungen auslesen, sodass die Skalierungsfaktoren die endgültige Ausrichtung berücksichtigen.
 
-Sie müssen alle Zeilen und Spalten der Tabelle durchlaufen und deren Höhe und Breite proportional anpassen, wie im zweiten Codebeispiel gezeigt.
+**Gibt es eine Begrenzung für die Foliengröße, die ich festlegen kann?**  
+Sie können benutzerdefinierte Folienabmessungen mit [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) festlegen. Die unterstützten Abmessungen hängen außerdem vom Präsentationsformat und von der Anwendung ab, mit der die Datei geöffnet wird.
 
-**Funktioniert dieses Skalieren auch für Master‑Folien und Layout‑Folien?**
-
-Ja, Sie sollten außerdem durch [Masterfolien](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) und [Layoutfolien](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) iterieren und dieselbe Skalierungslogik auf deren Formen anwenden, um Konsistenz in der gesamten Präsentation sicherzustellen.
-
-**Kann ich die Orientierung einer Folie (Portrait/Landscape) zusammen mit dem Skalieren ändern?**
-
-Ja. Sie können [presentation.slide_size.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/islidesize/orientation/) verwenden, um die Orientierung zu ändern. Stellen Sie sicher, dass Sie die Skalierungslogik entsprechend anpassen, um das Layout beizubehalten.
-
-**Gibt es ein Limit für die Foliengröße, die ich festlegen kann?**
-
-Aspose.Slides unterstützt benutzerdefinierte Größen, aber sehr große Größen können die Leistung oder die Kompatibilität mit einigen PowerPoint‑Versionen beeinträchtigen.
-
-**Wie kann ich verhindern, dass Formen mit festem Seitenverhältnis verzerrt werden?**
-
-Sie können die Eigenschaft `aspect_ratio_locked` der Form vor dem Skalieren prüfen. Ist sie gesperrt, passen Sie Breite oder Höhe proportional an, anstatt sie einzeln zu skalieren.
+**Wie kann ich verhindern, dass Formen mit festem Seitenverhältnis verzerrt werden?**  
+Verwenden Sie denselben Skalierungsfaktor für Breite und Höhe. Um das ursprüngliche Layout in die neuen Folienabmessungen einzupassen, nutzen Sie das kleinere der Breiten- und Höhenverhältnisse für beide Dimensionen und Positionen. Damit bleiben die Proportionen erhalten, es kann jedoch an einer Kante ungenutzter Raum verbleiben.

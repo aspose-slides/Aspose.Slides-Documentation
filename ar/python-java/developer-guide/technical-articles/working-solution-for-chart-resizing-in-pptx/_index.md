@@ -1,5 +1,5 @@
 ---
-title: الحل العملي لتغيير حجم المخطط في PPTX
+title: حل عملي لتغيير حجم المخطط في PPTX
 type: docs
 weight: 40
 url: /ar/python-java/working-solution-for-chart-resizing-in-pptx/
@@ -9,40 +9,33 @@ keywords:
 - كائن OLE
 - تضمين المخطط
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "إصلاح تغيّر حجم المخطط غير المتوقع في ملفات PPTX عند استخدام كائنات OLE المدمجة من Excel مع Aspose.Slides لبايثون عبر جافا. تعرف على طريقتين مع الشيفرة للحفاظ على التناسق في الأحجام."
+description: "إصلاح مشكلة تغيير حجم المخطط غير المتوقعة في ملفات PPTX عند استخدام كائنات Excel OLE المضمنة مع Aspose.Slides for Python via Java. اضبط أبعاد المخطط الثابتة للحفاظ على تناسق أحجام المخطط وإطار OLE."
 ---
 ## **الخلفية**
 
-لقد لوحظ أن المخططات في Excel المُدمجة ككائنات OLE في عرض PowerPoint عبر مكوّنات Aspose يتم تغيير حجمها إلى مقياس غير محدد بعد تفعيلها لأول مرة. يتسبب هذا السلوك في فرق مرئي ملحوظ في العرض بين حالة المخطط قبل التفعيل وبعده. قام فريق Aspose بالتحقيق في المشكلة بالتفصيل ووجد حلاً. تصف هذه المقالة أسباب المشكلة والإصلاح المقابل.
+يمكن أن تتغير أبعاد مخططات Excel المضمنة ككائنات OLE في عروض PowerPoint التقديمية باستخدام مكونات Aspose بعد تفعيلها للمرة الأولى. وهذا قد يسبب فرقًا ملحوظًا في مظهر المخطط قبل وبعد التفعيل. يوضح هذا المقال سبب حدوث تعديل الحجم وكيفية منعه عن طريق مطابقة أبعاد المخطط الثابتة مع إطار OLE.
 
-في [المقال السابق](/slides/ar/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، شرحنا كيفية إنشاء مخطط Excel باستخدام Aspose.Cells for Python via Java ودمجه في عرض PowerPoint باستخدام Aspose.Slides for Python via Java. لمعالجة [مشكلة معاينة الكائن](/slides/ar/python-java/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة المخطط إلى إطار كائن OLE الخاص بالمخطط. في العرض الناتج، عند النقر المزدوج على إطار كائن OLE الذي يعرض صورة المخطط، يتم تفعيل مخطط Excel. يمكن للمستخدمين إجراء أي تغييرات مرغوبة في دفتر عمل Excel الأساسي ثم العودة إلى الشريحة المقابلة بالنقر خارج دفتر العمل المفعل. يتغير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة، وتختلف قيمة تعديل الحجم اعتمادًا على الأحجام الأصلية لكل من إطار كائن OLE ودفتر عمل Excel المدمج.
+في [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/ar/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، شرحنا طريقة إنشاء مخطط Excel باستخدام Aspose.Cells for Python via Java وتضمينه في عرض PowerPoint باستخدام Aspose.Slides for Python via Java. لمعالجة [object preview issue](/slides/ar/python-java/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة المخطط إلى إطار كائن OLE الخاص بالمخطط. في العرض الناتج، عندما تنقر مزدوجًا على إطار كائن OLE الذي يعرض صورة المخطط، يتم تفعيل مخطط Excel. يمكن للمستخدمين تحرير دفتر عمل Excel المضمن ثم العودة إلى الشريحة بالنقر خارج دفتر العمل المفعل. يتغير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة، وتختلف نسبة التغيير بحسب الأحجام الأصلية لكل من إطار كائن OLE ودفتر عمل Excel المضمن.
 
-## **سبب تغيير الحجم**
+## **سبب تعديل الحجم**
 
-نظرًا لأن دفتر عمل Excel له حجم نافذة خاص به، فإنه يحاول الاحتفاظ بحجمه الأصلي عند تفعيله لأول مرة. ومع ذلك، لإطار كائن OLE حجمه الخاص. وفقًا لمايكروسوفت، عندما يتم تفعيل دفتر عمل Excel، يتفاوض Excel وPowerPoint على الحجم ويحافظان على النسب الصحيحة كجزء من عملية الدمج. بناءً على الفروقات بين حجم نافذة Excel وحجم أو موقع إطار كائن OLE، يحدث تغيير في الحجم.
+لدى دفتر عمل Excel المضمن أبعاده الخاصة للنافذة، التي يحاول Excel الاحتفاظ بها عند تفعيل الكائن لأول مرة. ويملك إطار OLE على الشريحة أبعادًا معرفة بشكل مستقل. عندما يتم تفعيل دفتر عمل Excel، يتفاوض Excel وPowerPoint على حجم الكائن للحفاظ على نسبه كجزء من عملية التضمين. لذا يمكن لاختلاف أبعاد نافذة دفتر العمل وإطار OLE أن يسبب تعديل حجم الكائن.
 
 ## **الحل العملي**
 
-هناك سيناريوهين محتملين لإنشاء عروض PowerPoint باستخدام Aspose.Slides for Python via Java.
+طابق حجم المخطط مع إطار OLE على الشريحة وابقِ أبعاد المخطط مستقلة عن نافذة دفتر العمل. يعمل هذا الحل مع عرض تقديمي جديد أو قالب موجود.
 
-**السيناريو 1:** إنشاء عرض بناءً على قالب موجود.
+يتطلب المثال Aspose.Cells for Python via Java وAspose.Slides for Python via Java. فهو ينشئ مخطط عمودي بسيط على ورقة مخطط نشطة ويضمّن دفتر العمل بتنسيق XLS. لا يتم تعيين صورة معاينة للمخطط؛ يصبح المخطط مرئيًا عند تفعيل كائن OLE في PowerPoint.
 
-**السيناريو 2:** إنشاء عرض من الصفر.
+ينشئ المثال عرضًا تقديميًا جديدًا بإطار OLE بحجم 9.5 × 4 بوصة يُوضع على بعد 0.5 بوصة من الحافة اليسرى و1 بوصة من الأعلى. إحداثيات الشريحة وأبعادها بوحدة النقاط (72 نقطة لكل بوصة). للعروض التقديمية الموجودة، راجع [Use a Template](#use-a-template).
 
-الحل الذي نقدمه هنا ينطبق على كلا السيناريوهين. أساس جميع نهج الحل هو نفسه: **يجب أن يتطابق حجم نافذة الكائن OLE المدمج مع إطار كائن OLE في شريحة PowerPoint**. سنناقش الآن النهجين لهذا الحل.
+## **تعيين حجم مخطط ثابت**
 
-## **النهج الأول**
-
-في هذا النهج، سنتعلم كيفية ضبط حجم نافذة دفتر عمل Excel المدمج بحيث يتطابق مع حجم إطار كائن OLE في شريحة PowerPoint.
-
-**السيناريو 1**
-
-افترض أننا عرّفنا قالبًا ونريد إنشاء عروض بناءً عليه. لنفترض أن هناك شكلًا في الفهرس 2 داخل القالب حيث نريد وضع إطار OLE يحتوي على دفتر عمل Excel مدمج. في هذا السيناريو، حجم إطار كائن OLE محدد مسبقًا — يتطابق مع حجم الشكل في الفهرس 2 داخل القالب. كل ما نحتاجه هو ضبط حجم نافذة دفتر العمل ليتساوى مع حجم ذلك الشكل. يحقق الشفرة التالية هذا الغرض:
+عيّن [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) على false حتى تكون أبعاد المخطط مستقلة عن نافذة دفتر العمل. اضبط أبعاد [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) عبر [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) و[setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height)، محوّلاً النقاط إلى بكسل باستخدام 96 بكسل لكل بوصة: الإطار الذي قياسه 684 × 288 نقطة يعادل مخططًا حجمه 912 × 384 بكسل. عيّن [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) إلى القيمة CUSTOM من [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/). يضمّن المثال دفتر العمل عبر [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) ويحفظ عرضًا تقديميًا بإطار OLE بحجم 9.5 × 4 بوصة.
 
 ```python
 import jpype
@@ -52,215 +45,84 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# تحميل دفتر عمل Excel الذي يحتوي على المخطط.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # ضبط حجم نافذة دفتر العمل بالبوصة (PowerPoint يستخدم 72 نقطة لكل بوصة).
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # حفظ دفتر العمل إلى تدفق ذاكرة.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # إنشاء إطار كائن OLE مع البيانات المدمجة من Excel.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # إحداثيات الشريحة وأبعادها بوحدة النقاط (72 نقطة لكل بوصة).
+        width = 684.0  # 9.5 بوصة.
+        height = 288.0  # 4 بوصة.
+
+        chart.setSizeWithWindow(False)
+        # تحويل النقاط إلى بكسلات المخطط باستخدام 96 بكسل لكل بوصة.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**السيناريو 2**
+## **استخدام قالب**
 
-لنفترض أننا نريد إنشاء عرض من الصفر وتضمين إطار كائن OLE بحجم أي كان مع دفتر عمل Excel مدمج. في الشفرة التالية، ننشئ إطار كائن OLE بارتفاع 4 بوصات وعرض 9.5 بوصة عند x = 0.5 بوصة و y = 1 بوصة على الشريحة. ثم نضبط نافذة دفتر عمل Excel لتكون بنفس الحجم — ارتفاع 4 بوصات وعرض 9.5 بوصة.
+منطق تحديد الحجم نفسه ينطبق على عرض تقديمي موجود. لتكييف المثال:
 
-```python
-import jpype
-import asposecells
-import asposeslides
+1. حمّل قالب العرض التقديمي بدلًا من إنشاء عرض تقديمي فارغ.
+1. تأكد من أن الشريحة الأولى تحتوي على ما لا يقل عن ثلاث أشكال، ثم استخدم الشكل عند الفهرس 2 كعنصر نائب.
+1. خذ عرض وإرتفاع الإطار من ذلك الشكل بدلًا من القيم الثابتة 684 و288. احتفظ بحسابات الحجم دون تغيير.
+1. أضف إطار OLE في موضع العنصر النائب بدلًا من الإحداثيات الثابتة 36 و72.
+1. احذف العنصر النائب قبل حفظ العرض التقديمي.
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+## **الأسئلة المتكررة**
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+**لماذا يتغير حجم مخطط Excel المضمن بعد تفعيله في PowerPoint؟**
 
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
+يحدث هذا لأن Excel يحاول استعادة حجم النافذة الأصلي عند التفعيل الأول، بينما يمتلك إطار كائن OLE في PowerPoint أبعادًا خاصة به. يتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة العرض إلى الارتفاع، مما قد يسبب تعديل الحجم.
 
-# تحميل دفتر عمل Excel الذي يحتوي على المخطط.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
+**كيف يمكن الحفاظ على اتساق أحجام المخطط وإطار OLE؟**
 
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 بوصات (4 * 72).
-    desired_width = 684  # 9.5 بوصة (9.5 * 72).
+عيّن أبعاد مخطط ثابتة تطابق إطار OLE واستخدم حجم طباعة مخطط مخصص قبل تضمين دفتر العمل. يظهر المثال أعلاه الإعدادات المطلوبة وتحويل الوحدات.
 
-    # تعريف حجم المخطط باستخدام نافذة.
-    chart.setSizeWithWindow(True)
+**هل مطابقة حجم نافذة دفتر العمل كافية؟**
 
-    # ضبط حجم نافذة دفتر العمل بالبوصة (PowerPoint يستخدم 72 نقطة لكل بوصة).
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
+مطابقة حجم نافذة دفتر العمل وحدها لا تمنع بشكل موثوق تغيير حجم إطار OLE بعد التفعيل. استخدم أبعاد مخطط ثابتة كما هو موضح في المثال.
 
-    # حفظ دفتر العمل إلى تدفق ذاكرة.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+**هل يعمل هذا الحل مع العروض التقديمية القائمة على القوالب والعروض الجديدة؟**
 
-    # إنشاء إطار كائن OLE مع البيانات المدمجة من Excel.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
+نعم. بالنسبة للقالب، استخدم أبعاد وموقع العنصر النائب. بالنسبة لعرض جديد، حدد أبعاد الإطار وموقعه مباشرة.
 
-## **النهج الثاني**
+**هل يمكنني استخدام هذا المثال مع مخططات أنشئتها برامج جداول بيانات أخرى؟**
 
-في هذا النهج، سنتعلم كيفية ضبط حجم المخطط في دفتر عمل Excel المدمج ليتطابق مع حجم إطار كائن OLE في شريحة PowerPoint. هذا النهج مفيد عندما يكون حجم المخطط معروفًا مسبقًا ولن يتغير.
-
-**السيناريو 1**
-
-افترض أننا عرّفنا قالبًا ونريد إنشاء عروض بناءً عليه. لنفترض أن هناك شكلًا في الفهرس 2 داخل القالب حيث نعتزم وضع إطار OLE يحتوي على دفتر عمل Excel مدمج. في هذا السيناريو، حجم إطار OLE محدد مسبقًا — يتطابق مع حجم الشكل في الفهرس 2 داخل القالب. كل ما نحتاجه هو ضبط حجم المخطط في دفتر العمل ليتساوى مع حجم الشكل. يحقق الشفرة التالية هذا الغرض:
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# تحميل دفتر عمل Excel الذي يحتوي على المخطط.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # تعريف حجم المخطط بدون نافذة.
-    chart.setSizeWithWindow(False)
-
-    # ضبط حجم المخطط بالبكسل (Excel يستخدم 96 بكسل لكل بوصة).
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # تعريف حجم طباعة المخطط.
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # حفظ دفتر العمل إلى تدفق ذاكرة.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # إنشاء إطار كائن OLE مع البيانات المدمجة من Excel.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**السيناريو 2**:
-
-لنفترض أننا نريد إنشاء عرض من الصفر وتضمين إطار كائن OLE بحجم أي كان مع دفتر عمل Excel مدمج. في الشفرة التالية، ننشئ إطار كائن OLE بارتفاع 4 بوصات وعرض 9.5 بوصة على الشريحة عند x = 0.5 بوصة و y = 1 بوصة. كما نضبط حجم المخطط المقابل لنفس الأبعاد: ارتفاع 4 بوصات وعرض 9.5 بوصة.
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# تحميل دفتر عمل Excel الذي يحتوي على المخطط.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 بوصات (4 * 72).
-    desired_width = 684  # 9.5 بوصة (9.5 * 72).
-
-    # تعريف حجم المخطط بدون نافذة.
-    chart.setSizeWithWindow(False)
-
-    # ضبط حجم المخطط بالبكسل (Excel يستخدم 96 بكسل لكل بوصة).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # حفظ دفتر العمل إلى تدفق ذاكرة.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # إنشاء إطار كائن OLE مع البيانات المدمجة من Excel.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **الخلاصة**
-
-هناك نهجان لحل مشكلة تغيير حجم المخطط. يعتمد اختيار النهج على المتطلبات وحالة الاستخدام. كلا النهجين يعملان بنفس الطريقة سواء تم إنشاء العروض من قالب أو من الصفر. أيضًا، لا يوجد حد لحجم إطار كائن OLE في هذا الحل.
-
-## **الأسئلة المتداولة**
-
-**لماذا يتغير حجم مخطط Excel المدمج بعد تفعيله في PowerPoint؟**
-
-يحدث هذا لأن Excel يحاول استعادة حجم النافذة الأصلي عند التفعيل الأول، في حين أن إطار كائن OLE في PowerPoint له أبعاده الخاصة. يتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة الأبعاد، مما قد يسبب تعديل الحجم.
-
-**هل يمكن منع هذه المشكلة تمامًا؟**
-
-نعم. من خلال مطابقة حجم نافذة دفتر عمل Excel أو حجم المخطط مع حجم إطار كائن OLE قبل الدمج، يمكنك الحفاظ على حجم المخطط ثابتًا.
-
-**أي نهج ينبغي أن أختار، ضبط حجم النافذة أم ضبط حجم المخطط؟**
-
-استخدم **النهج 1 (حجم النافذة)** إذا كنت تريد الحفاظ على نسبة أبعاد دفتر العمل وربما السماح بإعادة الحجم لاحقًا.  
-استخدم **النهج 2 (حجم المخطط)** إذا كانت أبعاد المخطط ثابتة ولن تتغير بعد الدمج.
-
-**هل هذه الطرق تعمل مع العروض القائمة على القوالب والجديدة على حد سواء؟**
-
-نعم. كلا النهجين يعملان بنفس الطريقة للعروض التي تم إنشاؤها من القوالب أو من الصفر.
-
-**هل هناك حد لحجم إطار كائن OLE؟**
-
-لا. يمكنك ضبط إطار OLE إلى أي حجم طالما أنه يتناسب بشكل مناسب مع حجم دفتر العمل أو المخطط.
-
-**هل يمكنني استخدام هذه الطرق مع المخططات التي تم إنشاؤها في برامج جداول بيانات أخرى؟**
-
-تم تصميم الأمثلة لمخططات Excel التي تم إنشاؤها باستخدام Aspose.Cells، لكن المبادئ تنطبق على برامج جداول بيانات أخرى متوافقة مع OLE طالما أنها تدعم خيارات حجم مماثلة.
+يستخدم المثال دفتر عمل Excel تم إنشاؤه باستخدام Aspose.Cells. ولا يوضح سلوك التفعيل لبرامج جداول بيانات أخرى.
 
 ## **الأقسام ذات الصلة**
 
-- [إنشاء مخططات Excel وتضمينها ككائنات OLE في العروض](/slides/ar/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/ar/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

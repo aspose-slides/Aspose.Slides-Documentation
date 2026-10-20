@@ -1,5 +1,5 @@
 ---
-title: Λύση λειτουργίας για αλλαγή μεγέθους φύλλου εργασίας
+title: Λύση λειτουργίας για την αλλαγή μεγέθους του φύλλου εργασίας
 type: docs
 weight: 130
 url: /el/cpp/working-solution-for-worksheet-resizing/
@@ -12,37 +12,51 @@ keywords:
 - PowerPoint
 - παρουσίαση
 - C++
-- Aspose.Slides for C++
-description: "Λύση λειτουργίας για αλλαγή μεγέθους φύλλου εργασίας σε παρουσιάσεις PowerPoint χρησιμοποιώντας C++"
+- Aspose.Slides για C++
+description: "Λύση λειτουργίας για την αλλαγή μεγέθους του φύλλου εργασίας σε παρουσιάσεις PowerPoint χρησιμοποιώντας C++"
 ---
-{{% alert color="primary" %}}
-
-Έχει παρατηρηθεί ότι τα φύλλα Excel που είναι ενσωματωμένα ως αντικείμενα OLE σε παρουσίαση PowerPoint μέσω των στοιχείων Aspose αλλάζουν μέγεθος σε άγνωστη κλίμακα μετά την πρώτη ενεργοποίηση. Αυτή η συμπεριφορά δημιουργεί ορατή διαφορά στην παρουσίαση μεταξύ των καταστάσεων πριν και μετά την ενεργοποίηση του αντικειμένου OLE. Έχουμε διερευνήσει το πρόβλημα αναλυτικά και παρέχουμε μια λύση, η οποία περιγράφεται σε αυτό το άρθρο.
-
+{{% alert color="info" title="Σημείωση" %}}
+Τα φύλλα εργασίας του Excel που είναι ενσωματωμένα ως αντικείμενα OLE σε παρουσίαση PowerPoint χρησιμοποιώντας τα στοιχεία Aspose ενδέχεται να αλλάξουν μέγεθος απρόσμενα μετά την πρώτη ενεργοποίησή τους. Αυτή η συμπεριφορά δημιουργεί μια εμφανή οπτική διαφορά μεταξύ του αντικειμένου OLE πριν και μετά την ενεργοποίηση. Το άρθρο αυτό εξηγεί το πρόβλημα και περιγράφει δύο τρόπους αντιμετώπισής του.
 {{% /alert %}}
 
-## **Παρασκήνιο**
+## **Υπόβαθρο**
 
-Στο άρθρο [Manage OLE](/slides/el/cpp/manage-ole/) εξηγήσαμε πώς να προσθέσετε ένα πλαίσιο OLE σε μια παρουσίαση PowerPoint χρησιμοποιώντας το Aspose.Slides for C++. Για να αντιμετωπίσουμε το [object preview issue](/slides/el/cpp/object-preview-issue-when-adding-oleobjectframe/), αναθέσαμε μια εικόνα της περιοχής του επιλεγμένου φύλλου στο πλαίσιο αντικειμένου OLE. Στην τελική παρουσίαση, όταν κάνετε διπλό κλικ στο πλαίσιο αντικειμένου OLE που εμφανίζει την εικόνα του φύλλου, το βιβλίο εργασίας του Excel ενεργοποιείται. Οι τελικοί χρήστες μπορούν να κάνουν τις επιθυμητές αλλαγές στο πραγματικό βιβλίο εργασίας του Excel και, στη συνέχεια, να επιστρέψουν στη διαφάνεια κάνοντας κλικ εκτός του ενεργοποιημένου βιβλίου εργασίας. Το μέγεθος του πλαισίου αντικειμένου OLE θα αλλάξει όταν ο χρήστης επιστρέψει στη διαφάνειά του. Ο παράγοντας αλλαγής μεγέθους θα διαφέρει ανάλογα με το μέγεθος του πλαισίου αντικειμένου OLE και του ενσωματωμένου βιβλίου εργασίας Excel. 
+Στο άρθρο [Διαχείριση OLE](/slides/el/cpp/manage-ole/), εξηγήσαμε πώς να προσθέσετε ένα πλαίσιο OLE σε παρουσίαση PowerPoint χρησιμοποιώντας το Aspose.Slides για C++. Για να αντιμετωπίσουμε το [πρόβλημα προεπισκόπησης αντικειμένου](/slides/el/cpp/object-preview-issue-when-adding-oleobjectframe/), αντιστοιχίσαμε μια εικόνα της επιλεγμένης περιοχής φύλλου εργασίας στο πλαίσιο αντικειμένου OLE. Στην τελική παρουσίαση, όταν κάνετε διπλό κλικ στο πλαίσιο αντικειμένου OLE που εμφανίζει την εικόνα του φύλλου, το βιβλίο εργασίας του Excel ενεργοποιείται. Οι τελικοί χρήστες μπορούν να κάνουν τις επιθυμητές αλλαγές στο πραγματικό βιβλίο εργασίας του Excel και στη συνέχεια να επιστρέψουν στη διαφάνεια κάνοντας κλικ εκτός του ενεργοποιημένου βιβλίου εργασίας του Excel. Το μέγεθος του πλαισίου αντικειμένου OLE θα αλλάξει όταν ο χρήστης επιστρέψει στη διαφάνεια. Ο παράγοντας αλλαγής μεγέθους θα διαφέρει ανάλογα με το μέγεθος του πλαισίου αντικειμένου OLE και του ενσωματωμένου βιβλίου εργασίας του Excel.
 
 ## **Αιτία αλλαγής μεγέθους**
 
-Δεδομένου ότι το βιβλίο εργασίας του Excel διαθέτει το δικό του μέγεθος παραθύρου, προσπαθεί να διατηρήσει το αρχικό του μέγεθος κατά την πρώτη ενεργοποίηση. Από την άλλη πλευρά, το πλαίσιο αντικειμένου OLE έχει το δικό του μέγεθος. Σύμφωνα με τη Microsoft, όταν το βιβλίο εργασίας του Excel ενεργοποιείται, το Excel και το PowerPoint διαπραγματεύονται το μέγεθος ώστε να διατηρηθούν οι σωστές αναλογίες ως μέρος της διαδικασίας ενσωμάτωσης. Η αλλαγή μεγέθους συμβαίνει με βάση τις διαφορές μεταξύ του μεγέθους του παραθύρου του Excel και του μεγέθους και της θέσης του πλαισίου αντικειμένου OLE.
+Δεδομένου ότι το βιβλίο εργασίας του Excel έχει το δικό του μέγεθος παραθύρου, προσπαθεί να διατηρήσει το αρχικό του μέγεθος κατά την πρώτη ενεργοποίηση. Από την άλλη πλευρά, το πλαίσιο αντικειμένου OLE έχει το δικό του μέγεθος. Σύμφωνα με τη Microsoft, όταν το βιβλίο εργασίας του Excel ενεργοποιείται, το Excel και το PowerPoint διαπραγματεύονται το μέγεθος ώστε να διατηρούν τις σωστές αναλογίες ως μέρος της διαδικασίας ενσωμάτωσης. Η αλλαγή μεγέθους συμβαίνει βάσει των διαφορών μεταξύ του μεγέθους του παραθύρου του Excel και του μεγέθους και της θέσης του πλαισίου αντικειμένου OLE.
 
-## **Λύση λειτουργίας**
+## **Λύση**
 
 Υπάρχουν δύο πιθανές λύσεις για την αποφυγή του φαινομένου αλλαγής μεγέθους.
 
-- Κλιμακώστε το μέγεθος του πλαισίου OLE στην παρουσίαση PowerPoint ώστε να ταιριάζει με το ύψος και το πλάτος του επιθυμητού αριθμού γραμμών και στηλών στο πλαίσιο OLE.
-- Κρατήστε το μέγεθος του πλαισίου OLE σταθερό και κλιμακώστε το μέγεθος των συμμετέχουσων γραμμών και στηλών ώστε να χωράει στο επιλεγμένο μέγεθος πλαισίου OLE.
+- Κλιμακώστε το πλαίσιο OLE στην παρουσίαση PowerPoint ώστε να ταιριάζει με το συνολικό ύψος και πλάτος των επιλεγμένων γραμμών και στηλών.
+- Διατηρήστε το μέγεθος του πλαισίου OLE σταθερό και κλιμακώστε τις επιλεγμένες γραμμές και στήλες ώστε να ταιριάζουν μέσα σε αυτό.
 
-### **Κλιμάκωση του Μεγέθους Πλαισίου OLE**
+### **Κλιμάκωση του μεγέθους του πλαισίου OLE**
 
-Σε αυτήν την προσέγγιση, θα μάθουμε πώς να ορίζουμε το μέγεθος του πλαισίου OLE του ενσωματωμένου βιβλίου εργασίας Excel ώστε να ταιριάζει με το συνολικό μέγεθος των συμμετέχουσων γραμμών και στηλών στο φύλλο Excel.
+Αυτή η προσέγγιση ορίζει το μέγεθος του πλαισίου OLE ώστε να ταιριάζει με το συνολικό ύψος και πλάτος των επιλεγμένων γραμμών και στηλών στο ενσωματωμένο φύλλο εργασίας του Excel.
 
-Έστω ότι έχουμε ένα πρότυπο φύλλο Excel και θέλουμε να το προσθέσουμε σε μια παρουσίαση ως πλαίσιο OLE. Σε αυτό το σενάριο, το μέγεθος του πλαισίου αντικειμένου OLE θα υπολογιστεί πρώτα με βάση το συνολικό ύψος των γραμμών και το συνολικό πλάτος των στηλών που συμμετέχουν στο βιβλίο εργασίας. Στη συνέχεια, θα ορίσουμε το μέγεθος του πλαισίου OLE σε αυτήν την υπολογισμένη τιμή. Για να αποφύγουμε το κόκκινο μήνυμα «EMBEDDED OLE OBJECT» για το πλαίσιο OLE στο PowerPoint, θα καταγράψουμε επίσης μια εικόνα των επιθυμητών τμημάτων των γραμμών και στηλών στο βιβλίο εργασίας και θα την ορίσουμε ως εικόνα πλαισίου OLE.
+Το παράδειγμα φορτώνει ένα υπάρχον βιβλίο εργασίας Excel και επιλέγει τις πρώτες 10 γραμμές και 13 στήλες του πρώτου φύλλου του χρησιμοποιώντας δείκτες μηδενικής βάσης. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) ορίζει το εμφανιζόμενο εύρος. Η προεπισκόπηση αποδίδεται στα 96 DPI, και οι διαστάσεις των εικονοστοιχείων της μετατρέπονται σε πόντους χρησιμοποιώντας 72 πόντους ανά ίντσα. [ShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addoleobjectframe/) ενσωματώνει το τροποποιημένο βιβλίο εργασίας σε ένα πλαίσιο με αυτές τις διαστάσεις. Η προεπισκόπηση αντιστοιχίζεται μέσω [OleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/get_substitutepictureformat/) για την αντικατάσταση του κράτηματος θέσης "EMBEDDED OLE OBJECT" στην αποθηκευμένη παρουσίαση.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/image.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -54,7 +68,7 @@ int imageResolution = 96;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Ορίστε το εμφανιζόμενο μέγεθος όταν το αρχείο βιβλίου εργασίας χρησιμοποιείται ως αντικείμενο OLE στο PowerPoint.
+// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -62,12 +76,12 @@ workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Λάβετε το πλάτος και το ύψος της εικόνας OLE σε μονάδες point.
+// Get the width and height of the OLE image in points.
 auto image = Image::FromStream(imageStream);
 auto imageWidth = image->get_Width() * 72.0f / imageResolution;
 auto imageHeight = image->get_Height() * 72.0f / imageResolution;
 
-// Πρέπει να χρησιμοποιήσουμε το τροποποιημένο βιβλίο εργασίας.
+// We need to use the modified workbook.
 auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
 auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
 workbook.Dispose();
@@ -75,11 +89,11 @@ workbook.Dispose();
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε την εικόνα OLE στους πόρους της παρουσίασης.
+// Add the OLE image to the presentation resources.
 auto oleImage = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// Δημιουργήστε το πλαίσιο αντικειμένου OLE.
+// Create the OLE object frame.
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
 auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
@@ -91,7 +105,22 @@ presentation->Dispose();
 Aspose::Cells::Cleanup();
 ```
 
+Ο βοηθός προεπισκόπησης χρησιμοποιεί το [PageSetup::SetPrintArea](https://reference.aspose.com/cells/cpp/aspose.cells/pagesetup/setprintarea/) για την επιλογή του εύρους και αφαιρεί τα περιθώρια, τις κεφαλίδες και τα υποσέλιδα. Με ενεργοποιημένο το [ImageOrPrintOptions::SetOnlyArea](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/imageorprintoptions/setonlyarea/), το [SheetRender::ToImage](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/sheetrender/toimage/) αποδίδει το εύρος ως εικόνα PNG. Ο βοηθός αντιγράφει τα δεδομένα της αποδοθείσας εικόνας σε μια νέα ροή μνήμης τοποθετημένη στην αρχή της για χρήση στην παρουσίαση.
+
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -119,13 +148,27 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
-### **Κλιμάκωση του Μεγέθους Περιοχής Κελιών**
+### **Κλιμάκωση του μεγέθους του εύρους κελιών**
 
-Σε αυτήν την προσέγγιση, θα μάθουμε πώς να κλιμακώσουμε το ύψος των συμμετέχουσων γραμμών και το πλάτος των συμμετέχουσων στηλών ώστε να ταιριάζει με ένα προσαρμοσμένο μέγεθος πλαισίου OLE.
+Αυτή η προσέγγιση κλιμακώνει τα ύψη των επιλεγμένων γραμμών και τα πλάτη των επιλεγμένων στηλών ώστε να ταιριάζουν με ένα προσαρμοσμένο μέγεθος πλαισίου OLE.
 
-Έστω ότι έχουμε ένα πρότυπο φύλλο Excel και θέλουμε να το προσθέσουμε σε μια παρουσίαση ως πλαίσιο OLE. Σε αυτό το σενάριο, θα ορίσουμε το μέγεθος του πλαισίου OLE και θα κλιμακώσουμε το μέγεθος των γραμμών και στηλών που συμμετέχουν στην περιοχή του πλαισίου OLE. Στη συνέχεια, θα αποθηκεύσουμε το βιβλίο εργασίας σε ροή για να εφαρμόσουμε τις αλλαγές και θα το μετατρέψουμε σε πίνακα byte ώστε να το προσθέσουμε στο πλαίσιο OLE. Για να αποφύγουμε το κόκκινο μήνυμα «EMBEDDED OLE OBJECT» για το πλαίσιο OLE στο PowerPoint, θα καταγράψουμε επίσης μια εικόνα των επιθυμητών τμημάτων των γραμμών και στηλών στο βιβλίο εργασίας και θα την ορίσουμε ως εικόνα πλαισίου OLE.
+Το παράδειγμα φορτώνει ένα υπάρχον βιβλίο εργασίας Excel και επιλέγει τις πρώτες 10 γραμμές και 13 στήλες του πρώτου φύλλου του χρησιμοποιώντας δείκτες μηδενικής βάσης. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) ορίζει το εμφανιζόμενο εύρος, και ο παρακάτω βοηθός κλιμακώνει αυτό το εύρος ώστε να χωρέσει σε ένα πλαίσιο 400 πόντων πλάτος και 100 πόντων ύψος. Μετά την αποθήκευση του τροποποιημένου βιβλίου εργασίας σε έναν πίνακα byte, το [ShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addoleobjectframe/) το ενσωματώνει στο καθορισμένο μέγεθος. Μια προεπισκόπηση αποδίδεται στα 96 DPI και αντιστοιχίζεται μέσω [OleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/get_substitutepictureformat/), έτσι ώστε η αποθηκευμένη παρουσίαση να εμφανίζει τα επιλεγμένα κελιά αντί του προεπιλεγμένου κράτηματος θέσης.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -143,7 +186,7 @@ auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Κλιμακώστε την περιοχή κελιών ώστε να ταιριάζει με το μέγεθος του πλαισίου.
+// Κλιμακώστε το εύρος κελιών ώστε να ταιριάζει στο μέγεθος του πλαισίου.
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -173,9 +216,16 @@ presentation->Dispose();
 Aspose::Cells::Cleanup();
 ```
 
+Ο βοηθός κλιμάκωσης υπολογίζει ξεχωριστά λόγους πλάτους και ύψους για το επιλεγμένο εύρος, διατηρώντας τις σχετικές αναλογίες πλάτους των στηλών του και ύψους των γραμμών του. Μετατρέπει τις υπολογιζόμενες διαστάσεις από πόντους σε ίντσες πριν τις εφαρμόσει με [Cells::SetColumnWidthInch](https://reference.aspose.com/cells/cpp/aspose.cells/cells/setcolumnwidthinch/) και [Cells::SetRowHeightInch](https://reference.aspose.com/cells/cpp/aspose.cells/cells/setrowheightinch/). Το επιλεγμένο εύρος πρέπει να έχει μη μηδενικό πλάτος και ύψος.
+
 ```cpp
-/// <param name="width">Το αναμενόμενο πλάτος της περιοχής κελιών σε μονάδες point.</param>
-/// <param name="height">Το αναμενόμενο ύψος της περιοχής κελιών σε μονάδες point.</param>
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/CellsUnitType.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/Worksheet.h"
+
+/// <param name="width">Το αναμενόμενο πλάτος του εύρους κελιών σε πόντους.</param>
+/// <param name="height">Το αναμενόμενο ύψος του εύρους κελιών σε πόντους.</param>
 void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 {
     auto rangeWidth = cellRange.GetWidth();
@@ -203,7 +253,22 @@ void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 }
 ```
 
+Αυτός ο βοηθός προεπισκόπησης αποδίδει το επαναμεγεθυμένο εύρος χρησιμοποιώντας το [SheetRender::ToImage](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/sheetrender/toimage/). Χρησιμοποιεί το [PageSetup::SetPrintArea](https://reference.aspose.com/cells/cpp/aspose.cells/pagesetup/setprintarea/) για τον περιορισμό της εκτύπωσης σε εκείνο το εύρος, αφαιρεί τα περιθώρια, τις κεφαλίδες και τα υποσέλιδα, και επιστρέφει μια ροή PNG τοποθετημένη στην αρχή της.
+
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -233,38 +298,36 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 
 ## **Συμπέρασμα**
 
-{{% alert color="primary" %}}
-
-Υπάρχουν δύο προσεγγίσεις για την επίλυση του προβλήματος αλλαγής μεγέθους του φύλλου εργασίας. Η επιλογή της κατάλληλης προσέγγισης εξαρτάται από τις συγκεκριμένες απαιτήσεις και την περίπτωση χρήσης. Και οι δύο προσεγγίσεις λειτουργούν με τον ίδιο τρόπο, ανεξάρτητα από το αν οι παρουσιάσεις δημιουργούνται από πρότυπο ή από την αρχή. Επιπλέον, δεν υπάρχει όριο στο μέγεθος του πλαισίου αντικειμένου OLE σε αυτή τη λύση.
-
+{{% alert color="info" title="Σημείωση" %}}
+Υπάρχουν δύο προσεγγίσεις για τη διόρθωση του προβλήματος αλλαγής μεγέθους των φύλλων εργασίας. Επιλέξτε την προσέγγιση που ταιριάζει καλύτερα στις απαιτήσεις και τη χρήση σας. Και οι δύο προσεγγίσεις λειτουργούν με τον ίδιο τρόπο, είτε οι παρουσιάσεις δημιουργούνται από πρότυπο είτε από το μηδέν. Επιπλέον, δεν υπάρχει όριο στο μέγεθος του πλαισίου αντικειμένου OLE σε αυτήν τη λύση.
 {{% /alert %}}
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Γιατί ένα ενσωματωμένο φύλλο Excel αλλάζει μέγεθος όταν ενεργοποιείται για πρώτη φορά στο PowerPoint;**
+**Γιατί το ενσωματωμένο φύλλο εργασίας Excel αλλάζει μέγεθος όταν ενεργοποιείται για πρώτη φορά στο PowerPoint;**
 
-Αυτό συμβαίνει επειδή το Excel προσπαθεί να διατηρήσει το αρχικό μέγεθος του παραθύρου όταν ενεργοποιείται, ενώ το πλαίσιο αντικειμένου OLE στο PowerPoint έχει τις δικές του διαστάσεις. Το PowerPoint και το Excel διαπραγματεύονται το μέγεθος ώστε να διατηρηθεί η αναλογία διαστάσεων, κάτι που μπορεί να προκαλέσει αλλαγή μεγέθους.
+Αυτό συμβαίνει επειδή το Excel προσπαθεί να διατηρήσει το αρχικό μέγεθος παραθύρου όταν ενεργοποιείται, ενώ το πλαίσιο αντικειμένου OLE στο PowerPoint έχει τις δικές του διαστάσεις. Το PowerPoint και το Excel διαπραγματεύονται το μέγεθος για να διατηρήσουν την αναλογία διαστάσεων, κάτι που μπορεί να προκαλέσει αλλαγή μεγέθους.
 
-**Μπορεί κανείς να αποτρέψει εντελώς αυτήν την αλλαγή μεγέθους;**
+**Μπορεί να αποτραπεί εντελώς αυτό το πρόβλημα αλλαγής μεγέθους;**
 
-Ναι. Με την κλιμάκωση του πλαισίου OLE ώστε να ταιριάζει με το μέγεθος της περιοχής κελιών του Excel ή με την κλιμάκωση της περιοχής κελιών ώστε να ταιριάζει με το επιθυμητό μέγεθος πλαισίου OLE, μπορείτε να αποτρέψετε την ανεπιθύμητη αλλαγή μεγέθους.
+Ναι. Με την κλιμάκωση του πλαισίου OLE ώστε να ταιριάζει στο μέγεθος του εύρους κελιών του Excel ή με την κλιμάκωση του εύρους κελιών ώστε να ταιριάζει στο επιθυμητό μέγεθος πλαισίου OLE, μπορείτε να αποτρέψετε ανεπιθύμητες αλλαγές μεγέθους.
 
-**Ποια μέθοδο κλιμάκωσης πρέπει να χρησιμοποιήσω, κλιμάκωση πλαισίου OLE ή κλιμάκωση περιοχής κελιών;**
+**Ποια μέθοδο κλιμάκωσης πρέπει να χρησιμοποιήσω, κλιμάκωση πλαισίου OLE ή κλιμάκωση εύρους κελιών;**
 
 Επιλέξτε **OLE frame scaling** εάν θέλετε να διατηρήσετε τα αρχικά μεγέθη γραμμών και στηλών του Excel. Επιλέξτε **cell range scaling** εάν θέλετε ένα σταθερό μέγεθος για το πλαίσιο OLE στην παρουσίασή σας.
 
 **Θα λειτουργούν αυτές οι λύσεις αν η παρουσίασή μου βασίζεται σε πρότυπο;**
 
-Ναι. Και οι δύο λύσεις λειτουργούν για παρουσιάσεις που δημιουργούνται από πρότυπα καθώς και από την αρχή.
+Ναι. Και οι δύο λύσεις λειτουργούν για παρουσιάσεις που δημιουργούνται από πρότυπα και από το μηδέν.
 
-**Υπάρχει όριο στο μέγεθος του πλαισίου OLE όταν χρησιμοποιούνται αυτές οι μέθοδοι;**
+**Υπάρχει κάποιο όριο στο μέγεθος του πλαισίου OLE όταν χρησιμοποιούνται αυτές οι μέθοδοι;**
 
-Όχι. Μπορείτε να ορίσετε το πλαίσιο αντικειμένου OLE σε οποιοδήποτε μέγεθος, αρκεί να προσαρμόσετε τη κλίμακα αναλόγως.
+Όχι. Μπορείτε να ορίσετε το πλαίσιο αντικειμένου OLE σε οποιοδήποτε μέγεθος όσο το κλιμακώνετε κατάλληλα.
 
-**Υπάρχει τρόπος να αποφευχθεί το κείμενο αντικατάστασης «EMBEDDED OLE OBJECT» στο PowerPoint;**
+**Υπάρχει τρόπος να αποτραπεί το κείμενο κράτησης θέσης "EMBEDDED OLE OBJECT" στο PowerPoint;**
 
-Ναι. Λαμβάνοντας ένα στιγμιότυπο της επιθυμητής περιοχής κελιών του Excel και ορίζοντάς το ως εικόνα κράτησης θέσης του πλαισίου OLE, μπορείτε να εμφανίσετε μια προσαρμοσμένη εικόνα προεπισκόπησης αντί του προεπιλεγμένου κειμένου.
+Ναι. Με τη λήψη στιγμιότυπου του επιθυμητού εύρους κελιών του Excel και ορισμό του ως εικόνα κράτησης θέσης του πλαισίου OLE, μπορείτε να εμφανίσετε μια προσαρμοσμένη εικόνα προεπισκόπησης αντί του προεπιλεγμένου κράτηματος θέσης.
 
-## **Σχετικά Άρθρα**
+## **Σχετικά άρθρα**
 
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/el/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Δημιουργία γραφήματος Excel και ενσωμάτωσή του σε παρουσίαση ως αντικείμενο OLE](/slides/el/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

@@ -1,5 +1,5 @@
 ---
-title: Solução Funcional para Redimensionamento de Gráficos em PPTX
+title: Solução Funcional para Redimensionamento de Gráfico em PPTX
 type: docs
 weight: 40
 url: /pt/python-java/working-solution-for-chart-resizing-in-pptx/
@@ -9,40 +9,31 @@ keywords:
 - objeto OLE
 - incorporar gráfico
 - PowerPoint
-- OpenDocument
 - apresentação
 - Python
 - Java
 - Aspose.Slides
-description: "Corrija o redimensionamento inesperado de gráficos em PPTX ao usar objetos OLE do Excel incorporados com Aspose.Slides for Python via Java. Aprenda dois métodos com código para manter os tamanhos consistentes."
+description: "Corrija o redimensionamento inesperado de gráficos em PPTX ao usar objetos OLE do Excel incorporados com Aspose.Slides para Python via Java. Defina dimensões de gráfico fixas para manter os tamanhos do gráfico e do quadro OLE consistentes."
 ---
 ## **Contexto**
 
-Foi observado que gráficos do Excel incorporados como objetos OLE em uma apresentação do PowerPoint por meio dos componentes Aspose são redimensionados para uma escala não especificada após sua primeira ativação. Esse comportamento causa uma diferença visual perceptível na apresentação entre os estados antes e depois da ativação do gráfico. A equipe da Aspose investigou o problema em detalhes e encontrou uma solução. Este artigo descreve as causas do problema e a correção correspondente.
+Gráficos do Excel incorporados como objetos OLE em apresentações do PowerPoint usando componentes Aspose podem mudar de tamanho após sua primeira ativação. Isso pode causar uma diferença perceptível na aparência do gráfico antes e depois da ativação. Este artigo explica por que o redimensionamento ocorre e mostra como evitá-lo correspondendo as dimensões fixas do gráfico ao quadro OLE.
 
-No [artigo anterior](/slides/pt/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), explicamos como criar um gráfico do Excel com Aspose.Cells for Python via Java e incorporá‑lo em uma apresentação do PowerPoint usando Aspose.Slides for Python via Java. Para resolver o [problema de visualização do objeto](/slides/pt/python-java/object-preview-issue-when-adding-oleobjectframe/), atribuímos a imagem do gráfico ao quadro do objeto OLE do gráfico. Na apresentação de saída, ao clicar duas vezes no quadro do objeto OLE que exibe a imagem do gráfico, o gráfico do Excel é ativado. Os usuários finais podem fazer quaisquer alterações desejadas na pasta de trabalho do Excel subjacente e, em seguida, retornar ao slide correspondente clicando fora da pasta de trabalho ativada. O tamanho do quadro do objeto OLE muda quando o usuário volta ao slide, e o fator de redimensionamento varia dependendo dos tamanhos originais tanto do quadro do objeto OLE quanto da pasta de trabalho do Excel incorporada.
+Em [Criar Gráficos do Excel e Incorporá-los como Objetos OLE em Apresentações](/slides/pt/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), explicamos como criar um gráfico do Excel com Aspose.Cells para Python via Java e incorporá‑lo em uma apresentação do PowerPoint usando Aspose.Slides para Python via Java. Para resolver o [problema de visualização do objeto](/slides/pt/python-java/object-preview-issue-when-adding-oleobjectframe/), atribuimos a imagem do gráfico ao quadro de objeto OLE do gráfico. Na apresentação resultante, ao clicar duas vezes no quadro de objeto OLE que exibe a imagem do gráfico, o gráfico do Excel é ativado. Os usuários podem editar a pasta de trabalho do Excel incorporada e então retornar ao slide clicando fora da pasta de trabalho ativada. O tamanho do quadro de objeto OLE muda quando o usuário retorna ao slide, e o fator de redimensionamento varia dependendo dos tamanhos originais tanto do quadro de objeto OLE quanto da pasta de trabalho do Excel incorporada.
 
 ## **Causa do Redimensionamento**
 
-Como a pasta de trabalho do Excel possui seu próprio tamanho de janela, ela tenta manter seu tamanho original na primeira ativação. O quadro do objeto OLE, porém, tem seu próprio tamanho. Segundo a Microsoft, quando a pasta de trabalho do Excel é ativada, Excel e PowerPoint negociam o tamanho e mantêm as proporções corretas como parte do processo de incorporação. Dependendo das diferenças entre o tamanho da janela do Excel e o tamanho ou posição do quadro do objeto OLE, ocorre o redimensionamento.
+A pasta de trabalho do Excel incorporada tem suas próprias dimensões de janela, que o Excel tenta manter quando o objeto é ativado pela primeira vez. O quadro OLE no slide tem dimensões definidas de forma independente. Quando a pasta de trabalho do Excel é ativada, o Excel e o PowerPoint negociam o tamanho do objeto para manter suas proporções como parte do processo de incorporação. Diferenças entre a janela da pasta de trabalho e o quadro OLE podem, portanto, causar o redimensionamento do objeto.
 
 ## **Solução Funcional**
 
-Existem dois cenários possíveis para criar apresentações do PowerPoint usando Aspose.Slides for Python via Java.
+O exemplo requer Aspose.Cells para Python via Java e Aspose.Slides para Python via Java. Ele cria um gráfico de colunas simples em uma planilha de gráfico ativa e incorpora a pasta de trabalho no formato XLS. Nenhuma imagem de visualização do gráfico é atribuída; o gráfico torna‑se visível quando o objeto OLE é ativado no PowerPoint.
 
-**Cenário 1:** Criar uma apresentação com base em um modelo existente.
+O exemplo cria uma nova apresentação com um quadro OLE de 9,5 × 4 polegadas posicionado a 0,5 polegadas da borda esquerda e 1 polegada do topo. As coordenadas e dimensões dos slides estão em pontos (72 pontos por polegada). Para uma apresentação existente, veja [Usar um Modelo](#use-a-template).
 
-**Cenário 2:** Criar uma apresentação do zero.
+## **Definir um Tamanho de Gráfico Fixo**
 
-A solução que fornecemos aqui se aplica a ambos os cenários. O fundamento de todas as abordagens de solução é o mesmo: **o tamanho da janela do objeto OLE incorporado deve corresponder ao quadro do objeto OLE no slide do PowerPoint**. Agora discutiremos as duas abordagens para essa solução.
-
-## **Primeira Abordagem**
-
-Nesta abordagem, aprenderemos como definir o tamanho da janela da pasta de trabalho do Excel incorporada de modo que ele corresponda ao tamanho do quadro do objeto OLE no slide do PowerPoint.
-
-**Cenário 1**
-
-Suponha que tenhamos definido um modelo e queiramos criar apresentações com base nele. Imagine que exista uma forma no índice 2 do modelo onde desejamos colocar um quadro OLE contendo uma pasta de trabalho do Excel incorporada. Nesse cenário, o tamanho do quadro do objeto OLE é pré‑definido — corresponde ao tamanho da forma no índice 2 do modelo. Tudo o que precisamos fazer é definir o tamanho da janela da pasta de trabalho igual ao tamanho dessa forma. O trecho de código a seguir cumpre esse propósito:
+Defina [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) como false para que as dimensões do gráfico sejam independentes da janela da pasta de trabalho. Defina as dimensões do [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) através de [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) e [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height), convertendo pontos em pixels usando 96 pixels por polegada: um quadro medindo 684 × 288 pontos corresponde a um gráfico medindo 912 × 384 pixels. Defina [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) para o valor CUSTOM de [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/). O exemplo incorpora a pasta de trabalho com [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) e salva uma apresentação com um quadro OLE de 9,5 × 4 polegadas.
 
 ```python
 import jpype
@@ -52,215 +43,84 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# Carregue a pasta de trabalho do Excel que contém o gráfico.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # Defina o tamanho da janela da pasta de trabalho em polegadas (PowerPoint usa 72 pontos por polegada).
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # Salve a pasta de trabalho em um fluxo de memória.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # Crie um quadro de objeto OLE com os dados do Excel incorporados.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # Coordenadas e dimensões do slide estão em pontos (72 pontos por polegada).
+        width = 684.0  # 9.5 polegadas.
+        height = 288.0  # 4 polegadas.
+
+        chart.setSizeWithWindow(False)
+        # Converta pontos em pixels do gráfico usando 96 pixels por polegada.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Cenário 2**
+## **Usar um Modelo**
 
-Vamos supor que queiramos criar uma apresentação do zero e incluir um quadro OLE de qualquer tamanho com uma pasta de trabalho do Excel incorporada. No trecho de código a seguir, criamos um quadro OLE com 4 polegadas de altura e 9,5 polegadas de largura em x = 0,5 polegadas e y = 1 polegada no slide. Em seguida, definimos a janela da pasta de trabalho do Excel para o mesmo tamanho — 4 polegadas de altura e 9,5 polegadas de largura.
+A lógica de dimensionamento é a mesma para uma apresentação existente. Para adaptar o exemplo:
 
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Carregue a pasta de trabalho do Excel que contém o gráfico.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 polegadas (4 * 72).
-    desired_width = 684  # 9.5 polegadas (9.5 * 72).
-
-    # Defina o tamanho do gráfico com uma janela.
-    chart.setSizeWithWindow(True)
-
-    # Defina o tamanho da janela da pasta de trabalho em polegadas (PowerPoint usa 72 pontos por polegada).
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # Salve a pasta de trabalho em um fluxo de memória.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Crie um quadro de objeto OLE com os dados do Excel incorporados.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Segunda Abordagem**
-
-Nesta abordagem, aprenderemos como definir o tamanho do gráfico na pasta de trabalho do Excel incorporada para que ele corresponda ao tamanho do quadro do objeto OLE no slide do PowerPoint. Essa abordagem é útil quando o tamanho do gráfico é conhecido antecipadamente e nunca mudará.
-
-**Cenário 1**
-
-Suponha que tenhamos definido um modelo e queiramos criar apresentações com base nele. Imagine que exista uma forma no índice 2 do modelo onde pretendemos colocar um quadro OLE contendo uma pasta de trabalho do Excel incorporada. Nesse cenário, o tamanho do quadro OLE é pré‑definido — corresponde ao tamanho da forma no índice 2 do modelo. Tudo o que precisamos fazer é definir o tamanho do gráfico na pasta de trabalho igual ao tamanho dessa forma. O trecho de código a seguir cumpre esse propósito:
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Carregue a pasta de trabalho do Excel que contém o gráfico.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # Defina o tamanho do gráfico sem uma janela.
-    chart.setSizeWithWindow(False)
-
-    # Defina o tamanho do gráfico em pixels (Excel usa 96 pixels por polegada).
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # Defina o tamanho de impressão do gráfico.
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # Salve a pasta de trabalho em um fluxo de memória.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Crie um quadro de objeto OLE com os dados do Excel incorporados.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Cenário 2**:
-
-Suponha que queiramos criar uma apresentação do zero e incluir um quadro OLE de qualquer tamanho com uma pasta de trabalho do Excel incorporada. No trecho de código a seguir, criamos um quadro OLE com altura de 4 polegadas e largura de 9,5 polegadas no slide em x = 0,5 polegadas e y = 1 polegada. Também definimos o tamanho correspondente do gráfico para as mesmas dimensões: altura de 4 polegadas e largura de 9,5 polegadas.
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Carregue a pasta de trabalho do Excel que contém o gráfico.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 polegadas (4 * 72).
-    desired_width = 684  # 9.5 polegadas (9.5 * 72).
-
-    # Defina o tamanho do gráfico sem uma janela.
-    chart.setSizeWithWindow(False)
-
-    # Defina o tamanho do gráfico em pixels (Excel usa 96 pixels por polegada).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # Salve a pasta de trabalho em um fluxo de memória.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Crie um quadro de objeto OLE com os dados do Excel incorporados.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Conclusão**
-
-Existem duas abordagens para corrigir o problema de redimensionamento do gráfico. A escolha da abordagem depende dos requisitos e do caso de uso. Ambas as abordagens funcionam da mesma forma, seja quando as apresentações são criadas a partir de um modelo ou do zero. Além disso, não há limite para o tamanho do quadro do objeto OLE nessa solução.
+1. Carregue a apresentação modelo em vez de criar uma apresentação vazia.
+1. Verifique se o primeiro slide contém pelo menos três formas, então use a forma no índice 2 como o marcador de posição.
+1. Obtenha a largura e a altura do quadro a partir dessa forma em vez de usar os valores fixos 684 e 288. Mantenha os cálculos de dimensionamento inalterados.
+1. Adicione o quadro OLE na posição do marcador de posição em vez das coordenadas fixas 36 e 72.
+1. Remova o marcador de posição antes de salvar a apresentação.
 
 ## **Perguntas Frequentes**
 
-**Por que o gráfico do Excel incorporado muda de tamanho após ser ativado no PowerPoint?**
+**Por que meu gráfico do Excel incorporado muda de tamanho após ser ativado no PowerPoint?**
 
-Isso ocorre porque o Excel tenta restaurar o tamanho original da janela na primeira ativação, enquanto o quadro do objeto OLE no PowerPoint possui dimensões próprias. PowerPoint e Excel negociam o tamanho para manter a proporção, o que pode causar o redimensionamento.
+Isso acontece porque o Excel tenta restaurar o tamanho original da janela quando ativado pela primeira vez, enquanto o quadro do objeto OLE no PowerPoint tem suas próprias dimensões. O PowerPoint e o Excel negociam o tamanho para manter a proporção, o que pode causar o redimensionamento.
 
-**É possível evitar esse problema de redimensionamento totalmente?**
+**Como posso manter os tamanhos do gráfico e do quadro OLE consistentes?**
 
-Sim. Ao fazer com que o tamanho da janela da pasta de trabalho do Excel ou o tamanho do gráfico correspondam ao tamanho do quadro OLE antes da incorporação, você pode manter os tamanhos dos gráficos consistentes.
+Defina dimensões de gráfico fixas que correspondam ao quadro OLE e use um tamanho de impressão de gráfico personalizado antes de incorporar a pasta de trabalho. O exemplo acima mostra as configurações necessárias e as conversões de unidades.
 
-**Qual abordagem devo adotar, ajustar o tamanho da janela da pasta de trabalho ou ajustar o tamanho do gráfico?**
+**Correspondência do tamanho da janela da pasta de trabalho é suficiente?**
 
-Use **Abordagem 1 (tamanho da janela)** se desejar manter a proporção da pasta de trabalho e possivelmente permitir redimensionamento futuro.  
-Use **Abordagem 2 (tamanho do gráfico)** se as dimensões do gráfico forem fixas e não mudarem após a incorporação.
+Apenas corresponder ao tamanho da janela da pasta de trabalho não impede de forma confiável que o quadro OLE mude de tamanho após a ativação. Use dimensões de gráfico fixas conforme mostrado no exemplo.
 
-**Esses métodos funcionam tanto com apresentações baseadas em modelo quanto com apresentações novas?**
+**Esta solução funciona tanto com apresentações baseadas em modelo quanto com novas apresentações?**
 
-Sim. Ambas as abordagens funcionam da mesma forma para apresentações criadas a partir de modelos e a partir do zero.
+Sim. Para um modelo, use as dimensões e a posição do marcador de posição. Para uma nova apresentação, indique diretamente as dimensões e a posição do quadro.
 
-**Existe um limite para o tamanho do quadro do objeto OLE?**
+**Posso usar este exemplo com gráficos criados em outros programas de planilha?**
 
-Não. Você pode definir o quadro OLE em qualquer tamanho, contanto que ele seja dimensionado adequadamente em relação ao tamanho da pasta de trabalho ou do gráfico.
-
-**Posso usar esses métodos com gráficos criados em outros programas de planilha?**
-
-Os exemplos são projetados para gráficos do Excel criados com Aspose.Cells, mas os princípios se aplicam a outros programas de planilha compatíveis com OLE, desde que suportem opções de dimensionamento semelhantes.
+O exemplo usa uma pasta de trabalho do Excel criada com Aspose.Cells. Ele não demonstra o comportamento de ativação para outros programas de planilha.
 
 ## **Seções Relacionadas**
 
-- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/pt/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Criar Gráficos do Excel e Incorporá-los como Objetos OLE em Apresentações](/slides/pt/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

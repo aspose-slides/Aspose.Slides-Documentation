@@ -1,66 +1,66 @@
 ---
-title: Zabránit úpravám prezentace pomocí zamykání tvarů v .NET
-linktitle: Zabránit úpravám prezentace
+title: Omezte úpravy prezentace pomocí zámků tvarů v .NET
+linktitle: Omezte úpravy prezentace
 type: docs
 weight: 70
 url: /cs/net/applying-protection-to-presentation/
 keywords:
 - zabránit úpravám
 - chránit před úpravami
-- zamknout tvar
-- zamknout polohu
-- zamknout výběr
-- zamknout velikost
-- zamknout seskupení
+- zámek tvaru
+- zámek polohy
+- zámek výběru
+- zámek změny velikosti
+- zámek seskupování
 - PowerPoint
-- OpenDocument
+- PPTX
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Objevte, jak Aspose.Slides pro .NET zamyká nebo odemyká tvary v souborech PPT, PPTX a ODP, zabezpečuje prezentace a umožňuje řízené úpravy."
+description: "Naučte se, jak zamknout a odblokovat tvary v PPTX prezentacích pomocí Aspose.Slides pro .NET, aby bylo možné omezit výběr, přesun, změnu velikosti a seskupování."
 ---
-## **Background**
+## **Pozadí**
 
-Běžným využitím Aspose.Slides je vytváření, aktualizace a ukládání prezentací Microsoft PowerPoint (PPTX) jako součást automatizovaného pracovního postupu. Uživatelé aplikací, které používají Aspose.Slides tímto způsobem, mají přístup k vygenerovaným prezentacím, takže jejich ochrana před úpravami je častou starostí. Je důležité, aby automaticky generované prezentace zachovávaly původní formátování a obsah.
+Běžné využití Aspose.Slides pro .NET je vytváření, aktualizace a ukládání prezentací PowerPoint (PPTX) jako součást automatizovaného pracovního postupu. Když uživatelé obdrží tyto prezentace, omezení změn tvarů může pomoci zachovat zamýšlené rozvržení a obsah.
 
-Tento článek vysvětluje, jak jsou prezentace a snímky strukturovány a jak může Aspose.Slides pro .NET aplikovat ochranu na prezentaci a později ji odstranit. Poskytuje vývojářům způsob, jak kontrolovat, jak jsou prezentace generované jejich aplikacemi používány.
+Tento článek vysvětluje, jak jsou tvary organizovány na snímcích a jak v PPTX prezentaci použít a odstranit zámky tvarů. Tyto zámky vám umožňují omezit konkrétní úpravy jednotlivých tvarů.
 
-## **Composition of a Slide**
+## **Složení snímku**
 
-Prezentace snímku se skládá z komponent, jako jsou automatické tvary, tabulky, OLE objekty, seskupené tvary, rámečky obrázků, video rámečky, propojení a další prvky použité při tvorbě prezentace. V Aspose.Slides pro .NET je každý prvek na snímku reprezentován objektem, který implementuje rozhraní [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/) nebo dědí z třídy, která ho implementuje.
+Snímek prezentace se skládá z komponent, jako jsou automatické tvary, tabulky, OLE objekty, seskupené tvary, rámečky obrázků, video rámečky, propojení a další prvky používané k vytvoření prezentace. V Aspose.Slides pro .NET je každý prvek na snímku reprezentován objektem, který implementuje rozhraní [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) nebo dědí z třídy, která tak činí.
 
-Struktura PPTX je složitá, takže na rozdíl od PPT, kde lze použít obecný zámek pro všechny typy tvarů, různé typy tvarů vyžadují odlišné zámky. Rozhraní [IBaseShapeLock](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseshapelock/) je obecná třída pro zamykání v PPTX. Následující typy zámků jsou v Aspose.Slides pro .NET pro PPTX podporovány:
+Různé typy tvarů nabízejí různé možnosti zamykání. Rozhraní [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) je základním rozhraním pro zámky tvarů. Aspose.Slides pro .NET poskytuje následující rozhraní zámků:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshapelock/) zablokuje automatické tvary.  
-- [IConnectorLock](https://reference.aspose.com/slides/cs/net/aspose.slides/iconnectorlock/) zablokuje tvary propojení.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/cs/net/aspose.slides/igraphicalobjectlock/) zablokuje grafické objekty.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/cs/net/aspose.slides/igroupshapelock/) zablokuje skupinové tvary.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframelock/) zablokuje rámečky obrázků.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) zamyká automatické tvary.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) zamyká tvary propojení.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) zamyká grafické objekty.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) zamyká skupinové tvary.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) zamyká rámečky obrázků.  
 
-Jakákoli akce provedená na všech objektech tvarů v objektu [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) se aplikuje na celou prezentaci.
+Pro použití zámků napříč [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), procházejte jejích snímky a nastavte příslušné zámky na každém podporovaném tvaru.
 
-## **Apply and Remove Protection**
+## **Použití a odebrání ochrany**
 
-Aplikace ochrany zajišťuje, že prezentaci nelze upravovat. Jedná se o užitečnou techniku pro ochranu obsahu prezentace.
+Zámky tvarů omezují operace, jako je výběr, přesouvání a změna velikosti tvarů. Nečiní celou prezentaci needitovatelnou.
 
-### **Apply Protection to PPTX Shapes**
+### **Použití ochrany na tvary PPTX**
 
-Aspose.Slides pro .NET poskytuje rozhraní [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/) pro práci s tvary na snímku.
+Aspose.Slides pro .NET poskytuje rozhraní [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) , které umožňuje pracovat s tvary na snímku.
 
-Jak bylo zmíněno výše, každá třída tvaru má přiřazenou třídu zamykání tvaru pro ochranu. Tento článek se zaměřuje na zámky NoSelect, NoMove a NoResize. Tyto zámky zajišťují, že tvary nelze vybrat (kliknutím myši nebo jinými metodami výběru) a že je nelze přesunout ani změnit jejich velikost.
+Příklad nastavuje [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) a [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) na `true` pro automatické tvary, s ekvivalentními zámky pro skupinové tvary, propojení a rámečky obrázků. Propojení používají [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) pro pohyb; skupiny také používají [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) , aby omezily seskupování.
 
-Ukázkový kód níže aplikuje ochranu na všechny typy tvarů v prezentaci.
+Příklad načte existující PPTX prezentaci, prověří tvary v kolekci tvarů každého snímku a uloží kopii s těmito aplikovanými omezeními. Tvary mimo čtyři zpracovávané typy zůstávají nezměněny. Smyčka neprochází podřízené tvary uvnitř skupiny.
 
 ```cs
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Procházení všech snímků v prezentaci.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Procházení všech tvarů na snímku.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Ukládání souboru prezentace.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-### **Remove Protection**
+### **Odebrání ochrany**
 
-Pro odemknutí tvaru nastavte hodnotu použitého zámku na `false`. Následující ukázkový kód ukazuje, jak odemknout tvary v zamčené prezentaci.
+Pro odebrání zámku tvaru nastavte jeho hodnotu na `false`. Následující příklad načte prezentaci se zámky tvarů a vymaže omezení výběru, přesunu a změny velikosti pomocí [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/), a [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). Také vymaže [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) a uloží kopii prezentace. Ostatní nastavení zámků zůstávají nezměněna.
 
 ```cs
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Procházení všech snímků v prezentaci.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Procházení všech tvarů na snímku.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,24 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Ukládání souboru prezentace.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
-### **Conclusion**
+### **Závěr**
 
-Aspose.Slides nabízí několik možností, jak chránit tvary v prezentaci. Můžete zamknout jednotlivý tvar nebo projít všechny tvary v prezentaci a zamknout je, čímž efektivně zabezpečíte celý soubor. Ochranu můžete odstranit nastavením hodnoty zámku na `false`.
+Aspose.Slides pro .NET vám umožňuje omezit konkrétní úpravy jednotlivých tvarů nebo použít stejné omezení napříč snímky. Vyberte zámky podporované daným typem tvaru a nastavte jejich hodnoty na `false`, když chcete tato omezení odstranit.
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Can I combine shape locks and password protection in the same presentation?**
+**Mohu kombinovat zámky tvarů a ochranu heslem ve stejné prezentaci?**
 
-Ano. Zámky omezují úpravy objektů uvnitř souboru, zatímco [password protection](/slides/cs/net/password-protected-presentation/) řídí přístup k otevření a/nebo uložení změn. Tyto mechanismy se doplňují a pracují společně.
+Ano. Zámky tvarů omezují konkrétní úpravy, zatímco [ochrana heslem](/slides/cs/net/password-protected-presentation/) může omezit otevření nebo úpravu prezentace. Můžete používat oba ve stejném souboru.
 
-**Can I restrict editing on specific slides without affecting others?**
+**Mohu omezit úpravy na konkrétních snímcích, aniž by to ovlivnilo ostatní?**
 
-Ano. Aplikujte zámky na tvary na vybraných snímcích; zbylé snímky zůstanou editovatelné.
+Ano. Použijte zámky pouze na tvary na vybraných snímcích. Tím se nezmění nastavení zámků na ostatních snímcích.
 
-**Do shape locks apply to grouped objects and connectors?**
+**Jak mohu použít zámky na jednotlivé tvary uvnitř skupiny?**
 
-Ano. Pro skupiny, propojení, grafické objekty a další typy tvarů jsou podporovány dedikované typy zámků.
+Procházejte kolekci [Tvary](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) skupiny a aplikujte příslušné zámky na každý podřízený tvar. Opakujte to pro všechny vnořené skupiny. Výše uvedené příklady zpracovávají pouze kolekci tvarů snímku, takže nenastavují zámky na jednotlivé členy skupiny.

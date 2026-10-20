@@ -1,66 +1,66 @@
 ---
-title: Förhindra presentationredigering med formlås i .NET
-linktitle: Förhindra presentationredigering
+title: Begränsa redigering av presentationer med formlås i .NET
+linktitle: Begränsa redigering av presentation
 type: docs
 weight: 70
 url: /sv/net/applying-protection-to-presentation/
 keywords:
 - förhindra redigering
 - skydda mot redigering
-- lås form
-- lås position
-- lås markering
-- lås storlek
-- lås gruppering
+- låsa form
+- låsa position
+- låsa urval
+- låsa storleksändring
+- låsa gruppering
 - PowerPoint
-- OpenDocument
+- PPTX
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Upptäck hur Aspose.Slides för .NET låser eller låser upp former i PPT-, PPTX- och ODP-filer, och säkrar presentationer samtidigt som kontrollerade redigeringar tillåts."
+description: "Lär dig hur du låser och låser upp former i PPTX-presentationer med Aspose.Slides för .NET för att begränsa urval, rörelse, storleksändring och gruppering."
 ---
 ## **Bakgrund**
 
-En vanlig användning av Aspose.Slides är att skapa, uppdatera och spara Microsoft PowerPoint (PPTX)-presentationer som en del av ett automatiserat arbetsflöde. Användare av applikationer som använder Aspose.Slides på detta sätt har åtkomst till de genererade presentationerna, så att skydda dem från redigering är en vanlig oro. Det är viktigt att automatiskt genererade presentationer behåller sin ursprungliga formatering och sitt innehåll.
+En vanlig användning för Aspose.Slides for .NET är att skapa, uppdatera och spara PowerPoint (PPTX)-presentationer som en del av ett automatiserat arbetsflöde. När användare får dessa presentationer kan begränsning av ändringar i former hjälpa till att bevara den avsedda layouten och innehållet.
 
-Den här artikeln förklarar hur presentationer och bilder är strukturerade och hur Aspose.Slides för .NET kan tillämpa skydd på en presentation och senare ta bort det. Den ger utvecklare ett sätt att kontrollera hur de presentationer som deras applikationer genererar används.
+Den här artikeln förklarar hur former är organiserade på bilder och hur man tillämpar och tar bort formlås i en PPTX-presentation. Dessa lås låter dig begränsa specifika redigeringsoperationer på enskilda former.
 
 ## **Komposition av en bild**
 
-En presentationsbild består av komponenter som autoshapes, tabeller, OLE-objekt, grupperade former, bildramar, videoramar, anslutningar och andra element som används för att bygga en presentation. I Aspose.Slides för .NET representeras varje element på en bild av ett objekt som implementerar [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/)-gränssnittet eller ärver från en klass som gör det.
+En presentationsbild består av komponenter såsom autoshapes, tabeller, OLE-objekt, grupperade former, bildramar, videoramar, anslutningar och andra element som används för att bygga en presentation. I Aspose.Slides for .NET representeras varje element på en bild av ett objekt som implementerar gränssnittet [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) eller ärver från en klass som gör det.
 
-Strukturen för PPTX är komplex, så till skillnad från PPT, där ett generiskt lås kan användas för alla typer av former, kräver olika formtyper olika lås. [IBaseShapeLock](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseshapelock/)-gränssnittet är den generiska låsklassen för PPTX. Följande typer av lås stöds i Aspose.Slides för .NET för PPTX:
+Olika formtyper har olika låsalternativ. Gränssnittet [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) är basgränssnittet för formlås. Aspose.Slides for .NET tillhandahåller följande låsgränssnitt:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshapelock/) låser autoshapes.  
-- [IConnectorLock](https://reference.aspose.com/slides/sv/net/aspose.slides/iconnectorlock/) låser anslutningsformer.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/sv/net/aspose.slides/igraphicalobjectlock/) låser grafiska objekt.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/sv/net/aspose.slides/igroupshapelock/) låser grupperade former.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/sv/net/aspose.slides/ipictureframelock/) låser bildramar.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) låser autoshapes.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) låser anslutningsformer.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) låser grafiska objekt.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) låser gruppformer.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) låser bildramar.  
 
-Alla åtgärder som utförs på alla formobjekt i ett [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)-objekt tillämpas på hela presentationen.
+För att tillämpa lås på en [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), iterera genom dess bilder och ange rätt lås på varje stödd form.
 
 ## **Tillämpa och ta bort skydd**
 
-Att tillämpa skydd säkerställer att en presentation inte kan redigeras. Det är en användbar teknik för att skydda presentationens innehåll.
+Formlås begränsar operationer såsom att välja, flytta och ändra storlek på former. De gör inte hela presentationen oredigerbar.
 
-### **Tillämpa skydd på PPTX‑former**
+### **Tillämna skydd på PPTX-former**
 
-Aspose.Slides för .NET tillhandahåller [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/)-gränssnittet för att arbeta med former på en bild.
+Aspose.Slides for .NET tillhandahåller gränssnittet [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) för att arbeta med former på en bild.
 
-Som nämnts tidigare har varje formklass en associerad låsklass för skydd. Den här artikeln fokuserar på låsen NoSelect, NoMove och NoResize. Dessa lås säkerställer att former inte kan väljas (genom musklick eller andra urvalsmetoder) och att de inte kan flyttas eller ändra storlek.
+Exemplet anger [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/), och [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) till `true` för autoshapes, med motsvarande lås för gruppformer, anslutningar och bildramar. Anslutningar använder [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) för rörelse; grupper använder även [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) för att begränsa gruppering.
 
-Kodexemplet som följer tillämpar skydd på alla formtyper i en presentation.
+Exemplet laddar en befintlig PPTX-presentation, kontrollerar formerna i varje bilds formsamling och sparar en kopia med dessa begränsningar tillämpade. Former utanför de fyra behandlade typerna lämnas oförändrade. Loopen traverserar inte de underordnade formerna i en grupp.
 
 ```cs
-// Instansiera Presentation-klassen som representerar en PPTX-fil.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Gå igenom alla bilder i presentationen.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Gå igenom alla former i bilden.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Spara presentationsfilen.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Ta bort skydd**
 
-För att låsa upp en form, sätt det tillämpade låsets värde till `false`. Följande kodexempel visar hur man låser upp former i en låst presentation.
+För att ta bort ett formlås, sätt dess värde till `false`. Följande exempel laddar en presentation med formlås och rensar urval, rörelse och storleksändringsrestriktioner via [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/), och [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). Det rensar också [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) och sparar en kopia av presentationen. Övriga låsinställningar lämnas oförändrade.
 
 ```cs
-// Instansiera Presentation-klassen som representerar en PPTX-fil.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Traversera alla bilder i presentationen.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Traversera alla former i bilden.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,24 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Sparar presentationsfilen.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Slutsats**
 
-Aspose.Slides erbjuder flera alternativ för att skydda former i en presentation. Du kan låsa en enskild form eller iterera genom alla former i en presentation och låsa varje en för att effektivt säkra hela filen. Du kan ta bort skyddet genom att sätta låsvärdet till `false`.
+Aspose.Slides for .NET låter dig begränsa specifika redigeringsoperationer på enskilda former eller tillämpa samma begränsningar på alla bilder. Välj de lås som stöds av varje formtyp och sätt deras värden till `false` när du behöver ta bort dessa begränsningar.
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Kan jag kombinera formulås och lösenordsskydd i samma presentation?**
+**Kan jag kombinera formlås och lösenordsskydd i samma presentation?**
 
-Ja. Lås begränsar redigering av objekt i filen, medan [lösenordsskydd](/slides/sv/net/password-protected-presentation/) styr åtkomst till att öppna och/eller spara ändringar. Dessa mekanismer kompletterar varandra och fungerar tillsammans.
+Ja. Formlås begränsar specifika redigeringsoperationer, medan [lösenordsskydd](/slides/sv/net/password-protected-presentation/) kan begränsa öppning eller ändring av presentationen. Du kan använda båda i samma fil.
 
 **Kan jag begränsa redigering på specifika bilder utan att påverka andra?**
 
-Ja. Tillämpa lås på formerna på de valda bilderna; de återstående bilderna förblir redigerbara.
+Ja. Tilldela lås endast till former på de valda bilderna. Detta ändrar inte låsinställningarna på andra bilder.
 
-**Gäller formulås för grupperade objekt och anslutningar?**
+**Hur kan jag tillämpa lås på enskilda former i en grupp?**
 
-Ja. Dedikerade låstyper stöds för grupper, anslutningar, grafiska objekt och andra formtyper.
+Iterera genom gruppens [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)-samling och tillämpa lämpliga lås på varje underliggande form. Upprepa detta för eventuella nästlade grupper. Exemplen ovan bearbetar endast bildens formsamling, så de sätter inte lås på enskilda gruppmedlemmar.

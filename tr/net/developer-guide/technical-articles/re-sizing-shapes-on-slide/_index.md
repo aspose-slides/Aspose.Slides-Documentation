@@ -1,173 +1,151 @@
 ---
-title: Sunum Slaytlarındaki Şekilleri .NET'te Yeniden Boyutlandırma
+title: PowerPoint Sunum Slaytlarında Şekilleri .NET ile Yeniden Boyutlandırma
 type: docs
 weight: 130
-url: /tr/net/re-sizing-shapes-on-slide/
+url: /tr/net/resizing-shapes-on-slide/
+aliases:
+  - /tr/net/re-sizing-shapes-on-slide/
+  /net/re-sizing-shapes-on-slide/
 keywords:
-- şekil yeniden boyutlandırma
-- şekil boyutunu değiştirme
-- PowerPoint
-- OpenDocument
-- sunum
-- .NET
-- C#
-- Aspose.Slides
+  - şekil yeniden boyutlandırma
+  - şekil boyutunu değiştir
+  - PowerPoint
+  - OpenDocument
+  - sunum
+  - .NET
+  - C#
+  - Aspose.Slides
 description: "Aspose.Slides for .NET ile PowerPoint ve OpenDocument slaytlarındaki şekilleri kolayca yeniden boyutlandırın—slayt düzeni ayarlamalarını otomatikleştirin ve verimliliği artırın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for .NET müşterilerinin en sık sorduğu sorulardan biri, slayt boyutu değiştiğinde verinin kesilmemesi için şekillerin nasıl yeniden boyutlandırılacağıdır. Bu kısa teknik makale bunu nasıl yapacağınızı gösterir.
+Bir sunumun slayt boyutunu değiştirdiğinizde, şekilleri yeni boyutlara sığdırmak için yeniden boyutlandırmanız ve konumlarını yeniden ayarlamanız gerekebilir. Bu makale, şekilleri manuel olarak nasıl ölçeklendireceğinizi ve slaytlarda, ana slaytlarda ve düzenlerdeki tabloları nasıl ele alacağınızı gösterir.
 
-## **Şekilleri Yeniden Boyutlandır**
+## **Şekilleri Yeniden Boyutlandırma**
 
-Slayt boyutu değiştiğinde şekillerin hizalanmış kalmasını sağlamak için, her şeklin konumunu ve boyutlarını yeni slayt düzenine göre güncelleyin.
+Her şeklin göreceli konumunu ve boyutunu korumak için, yatay koordinatlarını ve genişliğini yeni slayt genişliğinin orijinal genişliğe oranı ile çarpın. İlgili yükseklik oranını da dikey koordinatlarına ve yüksekliğine uygulayın.
 
-```c#
-// Sunum dosyasını yükle.
-using (Presentation presentation = new Presentation("sample.pptx"))
+İlk örnek, slaytlarında tablo bulunmayan bir sunumu yükler, slayt boyutunu A4 olarak değiştirir ve sonucu kaydeder. Ölçeklemeyi sonraki döngünün kontrol etmesi için [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) ile [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) kullanır. Oranlar birimsizdir; şekil konumları ve boyutları nokta cinsinden ölçülür. Farklı genişlik ve yükseklik oranları şekilleri bozabilir ve bir şeklin boyutlarını değiştirmek yazı tipi boyutlarını ölçeklendirmez.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Bağımsız yatay ve dikey ölçek faktörlerini hesaplayın.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // Orijinal slayt boyutunu al.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // Mevcut şekilleri ölçeklemeden slayt boyutunu değiştir.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Yeni slayt boyutunu al.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Her slayttaki şekilleri yeniden boyutlandır ve yeniden konumlandır.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // Şekil boyutunu ölçekle.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Şekil konumunu ölçekle.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-Bir slayt bir tablo içeriyorsa, yukarıdaki kod doğru çalışmaz. Bu durumda tablodaki her hücre yeniden boyutlandırılmalıdır.
+{{% alert color="info" title="Note" %}}
+Tablolar ayrı bir işlem gerektirir: tablo genişliği ve yüksekliği yerine sütun genişliklerini ve satır yüksekliklerini ölçeklendirin. Hücre içeriği daha fazla alan gerektiriyorsa satır yükseklikleri istenenden büyük kalabilir.
 {{% /alert %}}
 
-Tabloları içeren slaytları yeniden boyutlandırmak için aşağıdaki kodu kullanın. Tablolar için genişlik veya yüksekliği ayarlamak özel bir durumdur: tablonun genel boyutunu değiştirmek adına satır yüksekliklerini ve sütun genişliklerini ayrı ayrı ayarlamanız gerekir.
+İkinci örnek tabloları destekler ve yeniden boyutlandırılmış sunumu kaydetmeden önce ana slaytlardaki ve düzenlerdeki şekilleri ve bireysel slaytları işler. Yardımcısı, her [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) öğesini [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) ve [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) ölçeklendirerek işler. Daha sonra tablonun konumunu, genel boyutlarını ayrı ayrı ölçeklendirmeden ölçeklendirir.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Bağımsız yatay ve dikey ölçek faktörlerini hesaplayın.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Ana slaytlar ve düzenlerde tanımlı şekilleri ve bireysel slaytları yeniden boyutlandırın.
+foreach (var master in presentation.Masters)
 {
-    // Orijinal slayt boyutunu al.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Mevcut şekilleri ölçeklemeden slayt boyutunu değiştir.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Yeni slayt boyutunu al.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Şekil boyutunu ölçekle.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Şekil konumunu ölçekle.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // Tablo boyutları sütun genişlikleri ve satır yükseklikleriyle kontrol edilir.
+            foreach (var column in table.Columns)
             {
-                // Şekil boyutunu ölçekle.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Şekil konumunu ölçekle.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Şekil boyutunu ölçekle.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Şekil konumunu ölçekle.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
 ## **SSS**
 
-**Bir slaytı yeniden boyutlandırdıktan sonra şekiller neden bozuluyor ya da kesiliyor?**
+**Slayt yeniden boyutlandırıldıktan sonra şekiller neden bozuluyor veya kesiliyor?**
 
-Bir slaytı yeniden boyutlandırdığınızda, ölçek açıkça değiştirilmediyse şekiller orijinal konum ve boyutlarını korur. Bu, içeriğin kesilmesine veya şekillerin hizalanmamasına neden olabilir.
+Şekilleri ölçeklendirmeden slayt boyutunu değiştirirseniz, şekiller orijinal konumlarını ve boyutlarını korur ve slayt dışına çıkabilir. Genişlik ve yüksekliği farklı oranlarla ölçeklemek de şekilleri bozabilir.
 
 **Sağlanan kod tüm şekil türleri için çalışıyor mu?**
 
-Temel örnek çoğu şekil türü (metin kutuları, resimler, grafikler vb.) için çalışır. Ancak, tablolar için satır ve sütunları ayrı ayrı ele almanız gerekir; çünkü bir tablonun yüksekliği ve genişliği bireysel hücrelerin boyutlarıyla belirlenir.
+İlk örnek şekil sınırlarını doğrudan değiştirir ve tabloları olmayan slaytlar için tasarlanmıştır. İkinci örnek tabloları ayrı olarak işler. Son düzeni, özellikle metin ve tabloları kontrol edin; çünkü bu örnekler yazı tipi boyutlarını ölçeklendirmez ve tablo içeriği satır yüksekliklerini kısıtlayabilir.
 
 **Bir slaytı yeniden boyutlandırırken tabloları nasıl yeniden boyutlandırırım?**
 
-Tablonun tüm satır ve sütunlarını dolaşarak yüksekliğini ve genişliğini orantılı olarak yeniden boyutlandırmanız gerekir; bu ikinci kod örneğinde gösterildiği gibi.
+Sütun genişliklerini genişlik oranı ile, minimum satır yüksekliğini ise yükseklik oranı ile ölçeklendirin, ardından tablonun konumunu ölçeklendirin; bu ikinci örnekte gösterilmiştir.
 
-**Bu yeniden boyutlandırma, master slaytlar ve layout slaytları için de geçerli mi?**
+**Bu yeniden boyutlandırma ana slaytlar ve düzen slaytları için çalışacak mı?**
 
-Evet, aynı ölçeklendirme mantığını uygulamak için [Masters](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/masters/) ve [LayoutSlides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/layoutslides/) üzerinden de dolaşmalı ve şekillerine aynı işlemi uygulamalısınız; böylece sunum genelinde tutarlılık sağlanır.
+Evet. İkinci örnek [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) ve her bir ana slaytın [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) üzerinden döner ve şekillerine aynı yeniden boyutlandırma mantığını uygular.
 
-**Slayt yönünü (portre/landscape) yeniden boyutlandırma ile birlikte değiştirebilir miyim?**
+**Yeniden boyutlandırma sırasında bir slaytın yönünü (dikey/yatay) değiştirebilir miyim?**
 
-Evet. Yönü değiştirmek için [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/tr/net/aspose.slides/islidesize/orientation/) ayarlayabilirsiniz. Düzeni korumak için ölçeklendirme mantığını buna göre ayarladığınızdan emin olun.
+Evet. Slayt boyutunu değiştirdikten ve hedef boyutları okumadan önce [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) ayarlayın, böylece ölçek faktörleri son yönelimi yansıtır.
 
 **Ayarlayabileceğim slayt boyutu için bir sınırlama var mı?**
 
-Aspose.Slides özel boyutları destekler, ancak çok büyük boyutlar performansı etkileyebilir veya bazı PowerPoint sürümleriyle uyumluluk sorunları yaratabilir.
+[SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) ile özel slayt boyutları belirleyebilirsiniz. Desteklenen boyutlar ayrıca sunum biçimine ve dosyayı açmak için kullanılan uygulamaya bağlıdır.
 
 **Sabit en-boy oranına sahip şekillerin bozulmasını nasıl önleyebilirim?**
 
-Şekli ölçeklendirmeden önce `AspectRatioLocked` özelliğini kontrol edebilirsiniz. Eğer kilitliyse, genişliği veya yüksekliği ayrı ayrı değil, orantılı olarak ayarlayın.
+Genişlik ve yükseklik için aynı ölçek faktörünü kullanın. Orijinal yerleşimi yeni slayt boyutlarına sığdırmak için, her iki boyut ve konum için genişlik ve yükseklik oranlarından daha küçük olanı kullanın. Bu, oranları korur ancak bir kenarda kullanılmayan boşluk bırakabilir.

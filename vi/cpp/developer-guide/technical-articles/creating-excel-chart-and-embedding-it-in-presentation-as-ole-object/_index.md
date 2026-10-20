@@ -1,170 +1,191 @@
 ---
-title: Tạo biểu đồ Excel và nhúng chúng vào bản trình bày dưới dạng đối tượng OLE
+title: Tạo biểu đồ Excel và nhúng chúng vào bản thuyết trình dưới dạng đối tượng OLE
 type: docs
 weight: 40
 url: /vi/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Biểu đồ Excel
+- biểu đồ Excel
 - nhúng biểu đồ
 - đối tượng OLE
 - PowerPoint
-- OpenDocument
-- bản trình bày
+- bản thuyết trình
 - C++
 - Aspose.Slides
-description: "Tạo biểu đồ Excel và nhúng chúng dưới dạng đối tượng OLE trong các bản trình bày PowerPoint và OpenDocument bằng C++. Hướng dẫn chi tiết kèm mẫu mã."
+description: "Tạo biểu đồ Excel bằng Aspose.Cells cho C++ và nhúng sổ làm việc vào bản thuyết trình PowerPoint bằng Aspose.Slides, bao gồm ảnh xem trước biểu đồ."
 ---
-## **Bối cảnh**
+## **Tổng quan**
 
-Trong PowerPoint, việc sử dụng biểu đồ có thể chỉnh sửa để hiển thị dữ liệu một cách đồ họa là một thực hành phổ biến. Aspose hỗ trợ tạo biểu đồ Excel bằng Aspose.Cells cho C++, và các biểu đồ này có thể được nhúng dưới dạng đối tượng OLE trong các slide PowerPoint thông qua Aspose.Slides cho C++. Bài viết này trình bày các bước cần thiết và cung cấp mẫu mã C++ để tạo biểu đồ Excel và nhúng nó dưới dạng đối tượng OLE trong một bản trình bày PowerPoint bằng Aspose.Cells và Aspose.Slides.
+Bài viết này mô tả cách tạo biểu đồ cột Excel bằng Aspose.Cells for C++ và nhúng sổ làm việc của nó vào bài thuyết trình PowerPoint bằng Aspose.Slides for C++. Sổ làm việc được nhúng chứa cả dữ liệu nguồn và biểu đồ. Một ảnh PNG riêng biệt hiển thị biểu đồ trên slide trước khi đối tượng OLE được kích hoạt.
 
-## **Các bước cần thiết**
+Kết quả là một đối tượng Excel được nhúng, không phải là biểu đồ PowerPoint gốc. Việc chỉnh sửa sổ làm việc qua OLE đòi hỏi một ứng dụng desktop hỗ trợ kích hoạt OLE và cài đặt Excel tương thích.
 
-1. Tạo biểu đồ Excel bằng Aspose.Cells.
-1. Đặt kích thước OLE của biểu đồ Excel bằng Aspose.Cells.
-1. Lấy hình ảnh của biểu đồ Excel bằng Aspose.Cells.
-1. Nhúng biểu đồ Excel dưới dạng đối tượng OLE trong bản trình bày PPTX bằng Aspose.Slides.
-1. Thay thế hình ảnh "EMBEDDED OLE OBJECT" bằng hình ảnh thu được ở bước 3 để giải quyết vấn đề [object preview issue](/slides/vi/cpp/object-preview-issue-when-adding-oleobjectframe/).
-1. Lưu bản trình bày vào đĩa ở định dạng PPTX.
+## **Yêu cầu trước**
 
-## **Triển khai các bước cần thiết**
+Cấu hình dự án C++ của bạn với các tệp header và thư viện cho Aspose.Cells for C++ và Aspose.Slides for C++. Đặt mã mẫu vào điểm vào của ứng dụng, với các khai báo include ở phạm vi tệp. Microsoft Office không bắt buộc để tạo bản thuyết trình bằng các thư viện này.
 
-Việc triển khai C++ của các bước trên như sau:
+Không cần tệp đầu vào: ví dụ tạo dữ liệu và biểu đồ trong bộ nhớ, sau đó ghi `OutputChart.pptx` vào thư mục làm việc hiện tại. Áp dụng giấy phép cho cả hai sản phẩm khi chạy ngoài chế độ đánh giá.
 
-```cpp
-// Bước - 1: Tạo biểu đồ Excel bằng Aspose.Cells.
-// ---------------------------------------------------
-// Tạo một workbook.
-intrusive_ptr<Aspose::Cells::IWorkbook> workbook = Aspose::Cells::Factory::CreateIWorkbook();
-// Thêm một biểu đồ Excel.
-int32_t chartRows = 55;
-int32_t chartCols = 25;
-int32_t chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+## **Cách nhúng hoạt động**
 
-// Bước - 2: Đặt kích thước OLE của biểu đồ bằng Aspose.Cells.
-// -----------------------------------------------------------
-workbook->GetIWorksheets()->SetOleSize(0, chartRows, 0, chartCols);
+1. Tạo một sổ làm việc với một worksheet dữ liệu và một chart sheet.  
+1. Đặt chart sheet làm active để sổ mở ở biểu đồ.  
+1. Đặt phạm vi hiển thị OLE của sổ và render biểu đồ ra PNG.  
+1. Lưu sổ dưới dạng XLSX trong bộ nhớ và nhúng các byte này vào một slide.  
+1. Gán PNG làm ảnh xem trước của đối tượng OLE và lưu bản thuyết trình dưới dạng PPTX.
 
-// Bước - 3: Lấy hình ảnh của biểu đồ bằng Aspose.Cells.
-// -------------------------------------------------------
-System::SharedPtr<System::Drawing::Bitmap> chartImage = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex)->GetICharts()->GetObjectByIndex(0)->ToImage();
-// Lưu workbook vào một luồng.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+Phạm vi hiển thị của sổ và khung trên slide có vai trò khác nhau. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) nhận chỉ số hàng và cột bắt đầu/kết thúc dựa trên chỉ số 0. [ChartCollection::Add](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chartcollection/add/) thay vào đó nhận hàng trên cùng, cột trái, hàng dưới cùng và cột phải. Ví dụ sử dụng chỉ số hàng 55 và chỉ số cột 25 làm giới hạn góc dưới‑phải; các giá trị này là lựa chọn bố cục, không phải số lượng hàng hoặc cột dữ liệu.
 
-// Bước - 4 VÀ 5
-// ==============
-// Bước - 4: Nhúng biểu đồ dưới dạng đối tượng OLE vào bản trình bày .ppt bằng Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// Bước - 5: Thay thế hình ảnh "EMBEDDED OLE OBJECT" bằng hình ảnh thu được ở bước 3 để giải quyết vấn đề Xem trước Đối tượng.
-// --------------------------------------------------------------------------------------------------------------------
-// Tạo một bản trình bày.
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-// Thêm workbook vào slide.
-AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+Khung slide sử dụng đơn vị điểm. Ví dụ điều chỉnh nó để vừa trong slide và căn giữa trong khi giữ tỉ lệ khung hình của PNG, thay vì kéo dài ảnh xem trước để lấp đầy slide.
 
-// Bước - 6: Lưu bản trình bày đầu ra vào đĩa.
-// -----------------------------------------------
-presentation->Save(u"OutputChart.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
+## **Tạo và nhúng biểu đồ**
+
+Ví dụ hoàn chỉnh sau đây điền `DataSheet` với bốn hàng và năm cột giá trị. Mỗi hàng trở thành một series biểu đồ. `ChartSheet` được chọn làm sheet hoạt động trước khi sổ được lưu.
+
+Sổ được lưu rõ ràng dưới dạng XLSX, khớp với phần mở rộng `xlsx` được truyền cho [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/). PNG được tải từ luồng bộ nhớ mà không cần chuyển đổi qua bitmap trung gian. Aspose.Cells trả về các vector byte, ví dụ sao chép chúng vào kiểu mảng mà Aspose.Slides chấp nhận. Khởi tạo Aspose.Cells trước khi sử dụng các đối tượng của nó, và giải phóng tài nguyên sau khi các đối tượng này bị hủy. Gán nó qua [IOleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/get_substitutepictureformat/) sẽ thay thế ảnh chờ OLE mặc định.
 
 ```cpp
-void AddExcelChartInPresentation(System::SharedPtr<Presentation> presentation, System::SharedPtr<ISlide> slide, 
-                                 System::SharedPtr<System::IO::Stream> workbookStream, 
-                                 intrusive_ptr<Aspose::Cells::Systems::Drawing::Bitmap> chartImage)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <Util/Images.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <algorithm>
+#include <IImage.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// Khởi tạo Cells trước khi tạo bất kỳ đối tượng nào của nó.
+Aspose::Cells::Startup();
 {
-    float oleWidth = presentation->get_SlideSize()->get_Size().get_Width();
-    float oleHeight = presentation->get_SlideSize()->get_Size().get_Height();
-    int32_t x = 0;
-    System::ArrayPtr<uint8_t> oleData = System::MakeArray<uint8_t>(workbookStream->get_Length(), 0);
-    workbookStream->set_Position(0);
-    workbookStream->Read(oleData, 0, oleData->get_Length());
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"DataSheet");
 
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(oleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleFrame;
-    oleFrame = slide->get_Shapes()->AddOleObjectFrame(static_cast<float>(x), 0.0f, oleWidth, oleHeight, dataInfo);
-
-    intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-    chartImage->Save(cellsOutputStream, Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-
-    auto slidesImage = Images::FromStream(ToSlidesMemoryStream(cellsOutputStream));
-    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(slidesImage));
-}
-```
-
-```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-``` cpp
-int32_t AddExcelChartInWorkbook(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t chartRows, int32_t chartCols)
-{
-    // Mảng các tên ô.
-    System::ArrayPtr<System::String> cellNames = System::MakeArray<System::String>(
-    { 
-        u"A1", u"A2", u"A3", u"A4", 
-        u"B1", u"B2", u"B3", u"B4",
-        u"C1", u"C2", u"C3", u"C4",
-        u"D1", u"D2", u"D3", u"D4",
-        u"E1", u"E2", u"E3", u"E4" 
-    });
-    
-    // Mảng dữ liệu ô.
-    System::ArrayPtr<int32_t> cellValues = System::MakeArray<int32_t>(
+    int32_t values[4][5] =
     {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25 
-    });
+        { 67, 44, 46, 43, 24 },
+        { 86, 64, 97, 29, 40 },
+        { 68, 89, 78, 69, 38 },
+        { 91, 48, 60, 26, 25 }
+    };
 
-    // Thêm một worksheet mới để điền dữ liệu vào các ô.
-    int32_t dataSheetIndex = workbook->GetIWorksheets()->Add();
-    intrusive_ptr<Aspose::Cells::IWorksheet> dataSheet = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIndex);
-    intrusive_ptr<Aspose::Cells::Systems::String> sheetName = new Aspose::Cells::Systems::String("DataSheet");
-    dataSheet->SetName(sheetName);
-
-    // Điền dữ liệu vào worksheet dữ liệu.
-    for (int32_t i = 0; i < cellNames->get_Length(); i++)
+    for (auto row = 0; row < 4; row++)
     {
-        System::String cellName = cellNames[i];
-        int32_t cellValue = cellValues[i];
-        dataSheet->GetICells()->GetObjectByIndex(new String(cellName.ToWCS().c_str()))->PutValue(cellValue);
+        for (auto column = 0; column < 5; column++)
+        {
+            dataSheet.GetCells().Get(row, column).PutValue(values[row][column]);
+        }
     }
 
-    // Thêm một sheet biểu đồ.
-    int32_t chartSheetIndex = workbook->GetIWorksheets()->Add(Aspose::Cells::SheetType::SheetType_Chart);
-    intrusive_ptr<Aspose::Cells::IWorksheet> chartSheet = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex);
-    chartSheet->SetName(new String("ChartSheet"));
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    chartSheet.SetName(u"ChartSheet");
 
-    // Thêm một biểu đồ vào sheet biểu đồ với chuỗi dữ liệu từ sheet dữ liệu.
-    int32_t chartIndex = chartSheet->GetICharts()->Add(Aspose::Cells::Charts::ChartType::ChartType_Column, 0, chartRows, 0, chartCols);
-    intrusive_ptr<Aspose::Cells::Charts::IChart> chart = chartSheet->GetICharts()->GetObjectByIndex(chartIndex);
-    chart->GetNISeries()->Add(sheetName + "!A1:E1", false);
-    chart->GetNISeries()->Add(sheetName + "!A2:E2", false);
-    chart->GetNISeries()->Add(sheetName + "!A3:E3", false);
-    chart->GetNISeries()->Add(sheetName + "!A4:E4", false);
+    auto lastChartRow = 55;
+    auto lastChartColumn = 25;
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, lastChartRow, lastChartColumn);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    const char16_t* seriesRanges[] = { u"DataSheet!A1:E1", u"DataSheet!A2:E2", u"DataSheet!A3:E3", u"DataSheet!A4:E4" };
+    for (auto range : seriesRanges)
+    {
+        chart.GetNSeries().Add(range, false);
+    }
 
-    // Đặt sheet biểu đồ làm sheet hoạt động.
-    workbook->GetIWorksheets()->SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetOleSize(0, lastChartRow, 0, lastChartColumn);
 
-    return chartSheetIndex;
+    // Render ảnh xem trước của biểu đồ và tuần tự hóa sổ làm việc có thể chỉnh sửa riêng biệt.
+    auto chartImageData = chart.ToImage(Aspose::Cells::Drawing::ImageType::Png);
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+
+    // Sao chép các bộ đệm Cells vào kiểu mảng được Slides sử dụng.
+    auto toSlidesArray = [](const Aspose::Cells::Vector<uint8_t>& buffer)
+    {
+        auto result = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+        std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), result->data_ptr());
+        return result;
+    };
+    auto chartImageBytes = toSlidesArray(chartImageData);
+    auto workbookBytes = toSlidesArray(workbookData);
+    auto chartImageStream = System::MakeObject<System::IO::MemoryStream>(chartImageBytes);
+    auto chartImage = Images::FromStream(chartImageStream);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto slideSize = presentation->get_SlideSize()->get_Size();
+
+    // Điều chỉnh ảnh xem trước vừa trong slide mà không thay đổi tỷ lệ khung hình.
+    auto scale = (std::min)(slideSize.get_Width() / chartImage->get_Width(), slideSize.get_Height() / chartImage->get_Height());
+    auto frameWidth = chartImage->get_Width() * scale;
+    auto frameHeight = chartImage->get_Height() * scale;
+    auto frameX = (slideSize.get_Width() - frameWidth) / 2;
+    auto frameY = (slideSize.get_Height() - frameHeight) / 2;
+
+    auto embeddedData = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xlsx");
+    auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+    auto previewImage = presentation->get_Images()->AddImage(chartImage);
+    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(previewImage);
+
+    presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
+    chartImage->Dispose();
+    chartImageStream->Dispose();
 }
+// Giải phóng tài nguyên Cells sau khi tất cả các đối tượng Cells đã được hủy.
+Aspose::Cells::Cleanup();
 ```
 
-Bản trình bày được tạo bằng phương pháp trên sẽ chứa biểu đồ Excel dưới dạng đối tượng OLE có thể kích hoạt bằng cách nhấp đúp vào khung đối tượng OLE.
+## **Kết quả mong đợi**
 
-## **Kết luận**
+`OutputChart.pptx` chứa một slide với một sổ Excel được nhúng và một ảnh xem trước biểu đồ. Sổ làm việc chứa dữ liệu gốc và một biểu đồ cột với bốn series. Ảnh xem trước được căn giữa trên slide và giữ tỉ lệ nguyên bản.
 
-Bằng cách sử dụng Aspose.Cells cho C++ cùng với Aspose.Slides cho C++, chúng ta có thể tạo bất kỳ biểu đồ Excel nào được Aspose.Cells hỗ trợ và nhúng biểu đồ đó dưới dạng đối tượng OLE trong một slide PowerPoint. Kích thước OLE của biểu đồ Excel cũng có thể được định nghĩa. Người dùng cuối sau đó có thể chỉnh sửa biểu đồ Excel giống như bất kỳ đối tượng OLE nào khác.
+![Biểu đồ cột Excel hiển thị làm ảnh xem trước của sổ làm việc được nhúng](excel-chart-ole-preview.png)
+
+Trong môi trường PowerPoint desktop tương thích có Excel, nhấp đúp vào đối tượng để kích hoạt và chỉnh sửa sổ làm việc được nhúng. Việc kích hoạt và chỉnh sửa phụ thuộc vào hỗ trợ OLE và cài đặt bảo mật của ứng dụng host.
+
+## **Câu hỏi thường gặp**
+
+**Tại sao cần ảnh xem trước?**
+
+Sổ làm việc được nhúng và ảnh xem trước trên slide là hai nội dung riêng biệt. Cung cấp ảnh biểu đồ để slide hiển thị biểu đồ thay vì ảnh chờ mặc định "EMBEDDED OLE OBJECT". Xem [Vấn đề xem trước đối tượng khi thêm OleObjectFrame](/slides/vi/cpp/object-preview-issue-when-adding-oleobjectframe/).
+
+**Ảnh xem trước có tự động cập nhật khi tôi thay đổi sổ làm việc trong mã không?**
+
+Xem ảnh trước như một ảnh chụp nhanh. Khi cập nhật dữ liệu sổ làm việc bằng mã, hãy tạo lại ảnh biểu đồ và thay thế ảnh xem trước cũng như dữ liệu sổ làm việc được nhúng.
+
+**Tôi có thể dùng XLS thay cho XLSX không?**
+
+Có. Lưu sổ làm việc ở định dạng XLS và dùng `xls` làm phần mở rộng dữ liệu được nhúng. Phần mở rộng phải khớp với định dạng sổ thực tế; chỉ thay đổi phần mở rộng mà không chuyển đổi dữ liệu sẽ không hiệu quả.
+
+**Tại sao đối tượng có thể thay đổi kích thước sau khi kích hoạt?**
+
+Ứng dụng host có thể cập nhật cách hiển thị của đối tượng OLE khi nó kích hoạt sổ. Cả phạm vi hiển thị OLE của sổ và kích thước khung slide đều quan trọng. Xem [Giải pháp hoạt động cho việc thay đổi kích thước biểu đồ trong PPTX](/slides/vi/cpp/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Các phần liên quan**
 

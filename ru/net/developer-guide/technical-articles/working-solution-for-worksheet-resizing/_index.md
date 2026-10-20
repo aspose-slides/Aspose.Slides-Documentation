@@ -14,36 +14,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Исправление изменения размера OLE листа Excel в презентациях: два способа сохранить согласованность рамок объектов — масштабировать рамку или лист — в форматах PPT и PPTX."
+description: "Исправьте изменение размера OLE листа Excel в презентациях: два способа сохранить согласованность рамок объектов — масштабировать рамку или лист — для форматов PPT и PPTX."
 ---
+{{% alert color="info" title="Примечание" %}}
 
-{{% alert color="primary" %}} 
-
-Было обнаружено, что листы Excel, встроенные в презентацию PowerPoint в виде OLE‑объектов с помощью компонентов Aspose, изменяют размер до неопределённого масштаба после первой активации. Такое поведение создаёт заметную визуальную разницу в презентации между состоянием OLE‑объекта до и после активации. Мы подробно исследовали эту проблему и предоставили решение, которое описано в этой статье.
+Встроенные в презентацию PowerPoint листы Excel в виде OLE‑объектов с использованием компонентов Aspose могут неожиданно менять размер после первой активации. Такое поведение создаёт заметную визуальную разницу между OLE‑объектом до и после активации. В этой статье описывается проблема и два способа её решения.
 
 {{% /alert %}} 
 
-## **Предыстория**
+## **Фон**
 
-В статье [Управление OLE](/slides/ru/net/manage-ole/) мы объяснили, как добавить OLE‑кадр в презентацию PowerPoint с помощью Aspose.Slides for .NET. Чтобы решить проблему [проблема предварительного просмотра объекта](/slides/ru/net/object-preview-issue-when-adding-oleobjectframe/), мы назначили изображение выбранной области листа OLE‑кадру. В выходной презентации, если дважды щёлкнуть OLE‑кадр, отображающий изображение листа, активируется рабочая книга Excel. Пользователи могут вносить любые желаемые изменения в реальную рабочую книгу Excel, а затем вернуться к слайду, щёлкнув вне активированной рабочей книги Excel. Размер OLE‑кадра изменится, когда пользователь вернётся к слайду. Коэффициент изменения размера будет зависеть от размеров OLE‑кадра и встроенной рабочей книги Excel.
+В статье [Управление OLE](/slides/ru/net/manage-ole/) мы объяснили, как добавить OLE‑рамку в презентацию PowerPoint с использованием Aspose.Slides для .NET. Чтобы решить [проблема предварительного просмотра объекта](/slides/ru/net/object-preview-issue-when-adding-oleobjectframe/), мы назначили изображение выбранной области листа OLE‑рамке. В полученной презентации, когда вы дважды щёлкните по OLE‑рамке, отображающей изображение листа, активируется рабочая книга Excel. Пользователи могут вносить любые изменения в реальную книгу Excel, а затем вернуться к слайду, щёлкнув за пределами активированной книги Excel. Размер OLE‑рамки изменится, когда пользователь вернётся к слайду. Коэффициент изменения размера будет зависеть от размеров OLE‑рамки и встроенной рабочей книги Excel.
 
 ## **Причина изменения размера**
 
-Поскольку у рабочей книги Excel есть собственный размер окна, при первой активации она пытается сохранить свой исходный размер. С другой стороны, OLE‑кадр имеет собственный размер. Согласно Microsoft, когда рабочая книга Excel активируется, Excel и PowerPoint согласовывают размер, чтобы обеспечить правильные пропорции в процессе встраивания. Изменение размера происходит из‑за различий между размером окна Excel и размером и положением OLE‑кадра.
+Поскольку у рабочей книги Excel есть собственный размер окна, при первой активации она пытается сохранить свой исходный размер. С другой стороны, OLE‑объект имеет собственный размер. По данным Microsoft, когда рабочая книга Excel активируется, Excel и PowerPoint согласовывают размер, чтобы обеспечить правильные пропорции в процессе встраивания. Изменение размера происходит из‑за различий между размером окна Excel и размером и положением OLE‑рамки.
 
 ## **Рабочее решение**
 
 Существует два возможных решения, позволяющих избежать эффекта изменения размера.
 
-- Масштабировать размер OLE‑кадра в презентации PowerPoint, чтобы он соответствовал высоте и ширине необходимого количества строк и столбцов в OLE‑кадре.
-- Оставить размер OLE‑кадра постоянным и масштабировать размер участвующих строк и столбцов, чтобы они помещались в выбранный размер OLE‑кадра.
+- Масштабировать OLE‑рамку в презентации PowerPoint так, чтобы она соответствовала общей высоте и ширине выбранных строк и столбцов.
+- Оставить размер OLE‑рамки постоянным и масштабировать выбранные строки и столбцы, чтобы они помещались внутри неё.
 
-### **Масштабировать размер OLE‑кадра**
+### **Масштабировать размер OLE‑рамки**
 
-В этом подходе мы узнаем, как задать размер OLE‑кадра встроенной рабочей книги Excel, чтобы он соответствовал суммарному размеру участвующих строк и столбцов листа Excel.
+Этот подход задаёт размер OLE‑рамки, соответствующий общей высоте и ширине выбранных строк и столбцов во встроенном листе Excel.
 
-Предположим, у нас есть шаблон листа Excel, который мы хотим добавить в презентацию в виде OLE‑кадра. В этом случае размер OLE‑кадра сначала будет вычислен на основе суммарных высот строк и ширин столбцов участвующих в книге. Затем мы зададим размер OLE‑кадра этим вычисленным значением. Чтобы избежать красного сообщения «EMBEDDED OLE OBJECT» для OLE‑кадра в PowerPoint, мы также сделаем снимок нужных частей строк и столбцов в книге и установим его как изображение OLE‑кадра.
+В примере загружается существующая рабочая книга Excel и выбираются первые 10 строк и 13 столбцов первого листа с использованием нулевых индексов. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) определяет отображаемый диапазон. Предпросмотр отрисовывается с разрешением 96 DPI, а его пиксельные размеры преобразуются в пункты, используя 72 пункта на дюйм. [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) внедряет изменённую книгу в рамку с этими размерами. Предпросмотр назначается через [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) для замены заполнителя «EMBEDDED OLE OBJECT» в сохранённой презентации.
+
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -53,7 +58,7 @@ int imageResolution = 96;
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
-// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
+// Установить отображаемый размер, когда файл рабочей книги используется как OLE‑объект в PowerPoint.
 var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,23 +66,23 @@ workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 var imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Get the width and height of the OLE image in points.
+// Получить ширину и высоту OLE‑изображения в пунктах.
 using var image = Image.FromStream(imageStream);
 var imageWidth = image.Width * 72 / imageResolution;
 var imageHeight = image.Height * 72 / imageResolution;
 
-// We need to use the modified workbook.
+// Нам необходимо использовать изменённую рабочую книгу.
 using var oleStream = new MemoryStream();
 workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
 
 using var presentation = new Presentation();
 var slide = presentation.Slides.First();
 
-// Add the OLE image to the presentation resources.
+// Добавить OLE‑изображение в ресурсы презентации.
 imageStream.Seek(0, SeekOrigin.Begin);
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// Create the OLE object frame.
+// Создать рамку OLE‑объекта.
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -85,6 +90,8 @@ oleFrame.IsObjectIcon = false;
 
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+Помощник предварительного просмотра задаёт [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) выбранному диапазону и удаляет поля, колонтитулы и нижние колонтитулы. При включённом [ImageOrPrintOptions.OnlyArea](https://reference.aspose.com/cells/net/aspose.cells.rendering/imageorprintoptions/onlyarea/) [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/) создаёт изображение диапазона в формате PNG. Помощник откатывает поток изображения перед возвратом для использования в презентации.
 
 ```cs
 static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
@@ -116,13 +123,17 @@ static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolu
 }
 ```
 
-
 ### **Масштабировать размер диапазона ячеек**
 
-В этом подходе мы узнаем, как масштабировать высоты участвующих строк и ширину участвующих столбцов, чтобы они соответствовали пользовательскому размеру OLE‑кадра.
+Этот подход масштабирует высоту выбранных строк и ширину выбранных столбцов, чтобы они соответствовали пользовательскому размеру OLE‑рамки.
 
-Предположим, у нас есть шаблон листа Excel, который мы хотим добавить в презентацию в виде OLE‑кадра. В этом случае мы зададим размер OLE‑кадра и масштабируем размер строк и столбцов, участвующих в области OLE‑кадра. Затем мы сохраним рабочую книгу в поток, чтобы применить изменения, и преобразуем её в массив байтов для добавления в OLE‑кадр. Чтобы избежать красного сообщения «EMBEDDED OLE OBJECT» для OLE‑кадра в PowerPoint, мы также сделаем снимок нужных частей строк и столбцов в книге и установим его как изображение OLE‑кадра.
+В примере загружается существующая рабочая книга Excel и выбираются первые 10 строк и 13 столбцов первого листа с использованием нулевых индексов. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) определяет отображаемый диапазон, а нижеприведённый помощник масштабирует этот диапазон до рамки шириной 400 пунктов и высотой 100 пунктов. После сохранения изменённой книги в поток, [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) внедряет её с указанными размерами. Предпросмотр, отрисованный с разрешением 96 DPI, назначается через [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/), поэтому сохранённая презентация отображает выбранные ячейки вместо стандартного заполнителя.
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -133,7 +144,7 @@ float frameWidth = 400, frameHeight = 100;
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
-// Установить отображаемый размер, когда файл книги используется как OLE‑объект в PowerPoint.
+// Установить отображаемый размер, когда файл рабочей книги используется как OLE‑объект в PowerPoint.
 var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -144,7 +155,7 @@ ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 var imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Нужно использовать изменённую книгу.
+// Нам необходимо использовать изменённую рабочую книгу.
 using var oleStream = new MemoryStream();
 workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
 
@@ -154,7 +165,7 @@ var slide = presentation.Slides.First();
 // Добавить OLE‑изображение в ресурсы презентации.
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// Создать OLE‑объектную рамку.
+// Создать рамку OLE‑объекта.
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -162,6 +173,8 @@ oleFrame.IsObjectIcon = false;
 
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+Помощник масштабирования вычисляет отдельные коэффициенты ширины и высоты для выбранного диапазона, сохраняющие относительные ширины его столбцов и относительные высоты его строк. Он преобразует вычисленные размеры из пунктов в дуймы перед применением их с помощью [Cells.SetColumnWidthInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setcolumnwidthinch/) и [Cells.SetRowHeightInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setrowheightinch/). Выбранный диапазон должен иметь ненулевую ширину и высоту.
 
 ```cs
 /// <param name="width">Ожидаемая ширина диапазона ячеек в пунктах.</param>
@@ -193,6 +206,8 @@ static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float heig
 }
 ```
 
+Этот помощник предварительного просмотра отрисовывает изменённый диапазон с использованием [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/). Он ограничивает [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) этим диапазоном, удаляет поля, колонтитулы и нижние колонтитулы и возвращает поток PNG, установленный в начало.
+
 ```cs
 static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
@@ -223,37 +238,42 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 }
 ```
 
-
 ## **Заключение**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Примечание" %}}
 
-Существует два подхода к исправлению проблемы изменения размера листа. Выбор подходящего подхода зависит от конкретных требований и сценария использования. Оба подхода работают одинаково, независимо от того, создаются ли презентации из шаблона или с нуля. Кроме того, в этом решении нет ограничений на размер OLE‑кадра.
+Существует два подхода к исправлению проблемы изменения размера листа. Выберите подход, который лучше всего соответствует вашим требованиям и сценариям использования. Оба подхода работают одинаково, независимо от того, создаются ли презентации из шаблона или «с нуля». Кроме того, в данном решении нет ограничений по размеру OLE‑рамки.
 
 {{% /alert %}}
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Почему встроенный лист Excel меняет размер при первой активации в PowerPoint?**  
-Это происходит потому, что Excel пытается сохранить исходный размер окна при активации, тогда как OLE‑кадр в PowerPoint имеет свои собственные размеры. PowerPoint и Excel согласовывают размер, чтобы сохранить соотношение сторон, что может вызвать изменение масштаба.
+**Почему встроенный лист Excel меняет размер при первой активации в PowerPoint?**
 
-**Можно ли полностью предотвратить эту проблему изменения размера?**  
-Да. Масштабировав OLE‑кадр под размер диапазона ячеек Excel или масштабировав диапазон ячеек под желаемый размер OLE‑кадра, можно избежать нежелательного изменения масштаба.
+Это происходит because Excel пытается сохранить исходный размер окна при активации, тогда как OLE‑рамка в PowerPoint имеет свои собственные размеры. PowerPoint и Excel согласовывают размер, чтобы сохранить соотношение сторон, что может вызвать изменение размера.
 
-**Какой метод масштабирования выбрать: масштабирование OLE‑кадра или диапазона ячеек?**  
-Выберите **масштабирование OLE‑кадра**, если хотите сохранить оригинальные размеры строк и столбцов Excel. Выберите **масштабирование диапазона ячеек**, если вам нужен фиксированный размер OLE‑кадра в презентации.
+**Можно ли полностью предотвратить эту проблему с изменением размера?**
 
-**Работают ли эти решения, если моя презентация основана на шаблоне?**  
+Да. Масштабируя OLE‑рамку под размер диапазона ячеек Excel или масштабируя диапазон ячеек под требуемый размер OLE‑рамки, можно полностью избавиться от нежелательного изменения размера.
+
+**Какой метод масштабирования следует использовать: масштабирование OLE‑рамки или масштабирование диапазона ячеек?**
+
+Выбирайте **масштабирование OLE‑рамки**, если хотите сохранить исходные размеры строк и столбцов Excel. Выбирайте **масштабирование диапазона ячеек**, если вам нужен фиксированный размер OLE‑рамки в презентации.
+
+**Будут ли эти решения работать, если моя презентация основана на шаблоне?**
+
 Да. Оба решения работают как для презентаций, созданных из шаблонов, так и для создаваемых с нуля.
 
-**Есть ли ограничение по размеру OLE‑кадра при использовании этих методов?**  
-Нет. Вы можете задать любой размер OLE‑кадра, при условии правильной настройки масштаба.
+**Существует ли ограничение размера OLE‑рамки при использовании этих методов?**
 
-**Можно ли избавиться от текста‑заменителя «EMBEDDED OLE OBJECT» в PowerPoint?**  
-Да. Сделав снимок целевого диапазона ячеек Excel и установив его в качестве изображения‑заменителя OLE‑кадра, можно отобразить пользовательское превью вместо стандартного текста‑заменителя.
+Нет. Вы можете задать любой размер OLE‑объекта, если корректно зададите масштаб.
+
+**Можно ли избавиться от текста заполнителя «EMBEDDED OLE OBJECT» в PowerPoint?**
+
+Да. Сделав снимок целевого диапазона Excel и установив его в качестве изображения‑заполнителя OLE‑рамки, вы можете отображать пользовательское изображение вместо стандартного заполнителя.
 
 ## **Связанные статьи**
 
-[Создание диаграммы Excel и встраивание её в презентацию как OLE‑объект](/slides/ru/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Создание диаграммы Excel и внедрение её в презентацию как OLE‑объект](/slides/ru/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
 [Автоматическое обновление OLE‑объектов с помощью надстройки MS PowerPoint](/slides/ru/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

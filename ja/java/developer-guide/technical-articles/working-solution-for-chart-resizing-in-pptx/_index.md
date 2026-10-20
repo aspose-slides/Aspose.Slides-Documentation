@@ -1,215 +1,124 @@
 ---
-title: PPTX のチャートリサイズに対する実用的な解決策
+title: PPTX のチャートサイズ変更に対する実践的解決策
 type: docs
 weight: 40
 url: /ja/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- チャート リサイズ
+- チャート サイズ変更
 - Excel チャート
 - OLE オブジェクト
-- チャート 埋め込み
+- チャートの埋め込み
 - PowerPoint
-- OpenDocument
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して埋め込み Excel OLE オブジェクトを利用する際の、PPTX における予期しないチャートリサイズを修正します。サイズを一貫させるための 2 つのコード付き手法をご紹介します。"
+description: "Aspose.Slides for Java を使用して埋め込まれた Excel OLE オブジェクトで PPTX の予期せぬチャートサイズ変更を修正します。チャートと OLE フレームのサイズを一貫させるために、固定のチャート寸法を設定します。"
 ---
 ## **背景**
 
-Aspose コンポーネントを使用して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込まれた Excel グラフが、最初にアクティブ化された後に不特定のスケールにリサイズされることが確認されています。この挙動により、グラフのアクティブ化前後でプレゼンテーションの見た目に顕著な違いが生じます。Aspose チームはこの問題を詳細に調査し、解決策を見つけました。本記事では問題の原因と対応策を説明します。
+Aspose コンポーネントを使用して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込まれた Excel チャートは、最初にアクティブ化された後にサイズが変わることがあります。これにより、アクティブ化前後でチャートの外観に顕著な違いが生じます。本記事では、サイズ変更が発生する理由を説明し、固定されたチャートサイズを OLE フレームに合わせることでそれを防止する方法を示します。
 
-前回の記事[/slides/ja/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/](前回の記事)では、Aspose.Cells for Java を使用して Excel グラフを作成し、Aspose.Slides for Java で PowerPoint プレゼンテーションに埋め込む方法を解説しました。[オブジェクト プレビューの問題](/slides/ja/java/object-preview-issue-when-adding-oleobjectframe/)に対処するため、グラフ画像をグラフの OLE オブジェクト フレームに割り当てました。出力されたプレゼンテーションで、グラフ画像を表示している OLE オブジェクト フレームをダブルクリックすると Excel グラフがアクティブ化されます。エンド ユーザーは基になる Excel ワークブックで任意の変更を行い、アクティブ化されたワークブックの外側をクリックすると対応するスライドに戻ります。ユーザーがスライドに戻ったときに OLE オブジェクト フレームのサイズが変わり、リサイズ率は OLE オブジェクト フレームと埋め込まれた Excel ワークブックの元のサイズに依存します。
+In [プレゼンテーションに OLE オブジェクトとして埋め込む Excel チャートの作成](/slides/ja/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), we explained how to create an Excel chart with Aspose.Cells for Java and embed it in a PowerPoint presentation using Aspose.Slides for Java. To address the [オブジェクト プレビューの問題](/slides/ja/java/object-preview-issue-when-adding-oleobjectframe/), we assigned the chart image to the chart’s OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the chart image, the Excel chart is activated. Users can edit the embedded Excel workbook and then return to the slide by clicking outside the activated workbook. The size of the OLE object frame changes when the user returns to the slide, and the resizing factor varies depending on the original sizes of both the OLE object frame and the embedded Excel workbook.
 
-## **リサイズの原因**
+## **サイズ変更の原因**
 
-Excel ワークブックは独自のウィンドウサイズを持っており、最初のアクティブ化時に元のサイズを保持しようとします。一方、OLE オブジェクト フレームは独自のサイズを持っています。Microsoft によると、Excel ワークブックがアクティブ化されると、Excel と PowerPoint がサイズを協議し、埋め込みプロセスの一部として正しい比率を維持します。Excel ウィンドウのサイズと OLE オブジェクト フレームのサイズまたは位置の違いに応じて、リサイズが発生します。
+埋め込まれた Excel ワークブックは独自のウィンドウサイズを持ち、オブジェクトが最初にアクティブ化されたときに Excel がそのサイズを保持しようとします。スライド上の OLE フレームは別個に定義されたサイズを持ちます。Excel ワークブックがアクティブになると、Excel と PowerPoint がオブジェクトのサイズを協議し、埋め込みプロセスの一部として比例を保とうとします。ワークブックウィンドウと OLE フレームのサイズが異なるため、オブジェクトがリサイズされることがあります。
 
-## **実装可能な解決策**
+## **実装方法**
 
-Aspose.Slides for Java を使用して PowerPoint プレゼンテーションを作成するシナリオは 2 つあります。
+チャートのサイズをスライド上の OLE フレームに合わせ、チャートの寸法をワークブックウィンドウとは独立させます。このソリューションは新規プレゼンテーションでも既存のテンプレートでも機能します。
 
-**シナリオ 1:** 既存のテンプレートを基にプレゼンテーションを作成する。
+この例は Aspose.Cells for Java と Aspose.Slides for Java が必要です。アクティブなチャートシートにシンプルな縦棒グラフを作成し、ワークブックを XLS 形式で埋め込みます。チャートプレビュー画像は割り当てず、PowerPoint で OLE オブジェクトがアクティブ化されたときにチャートが表示されます。
 
-**シナリオ 2:** ゼロからプレゼンテーションを作成する。
+例では、左端から 0.5 インチ、上端から 1 インチの位置に、サイズ 9.5 × 4 インチ (684 × 288 ポイント) の OLE フレームを持つ新しいプレゼンテーションを作成します。スライド座標と寸法はポイント単位 (1 インチ = 72 ポイント) です。既存のプレゼンテーションの場合は、[テンプレートの使用](#use-a-template) を参照してください。
 
-ここで提示する解決策は両シナリオに適用できます。すべての解決策の基本は同じです：**埋め込まれた OLE オブジェクトのウィンドウサイズを PowerPoint スライド上の OLE オブジェクト フレームと一致させる**。以下で 2 つのアプローチを説明します。
+## **固定チャートサイズの設定**
 
-## **アプローチ 1**
-
-このアプローチでは、埋め込まれた Excel ワークブックのウィンドウサイズを PowerPoint スライド上の OLE オブジェクト フレームのサイズに合わせる方法を学びます。
-
-**シナリオ 1**
-
-テンプレートを定義し、それに基づいてプレゼンテーションを作成したいとします。テンプレートのインデックス 2 にあるシェイプに埋め込み Excel ワークブックを含む OLE フレームを配置したいと想定します。このシナリオでは、OLE オブジェクト フレームのサイズは事前に決まっており、テンプレートのインデックス 2 のシェイプのサイズと一致します。必要なのは、ワークブックのウィンドウサイズをそのシェイプのサイズと同じに設定することだけです。以下のコードスニペットがその目的を果たします。
+[setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) を false に設定して、チャートの寸法をワークブックウィンドウから独立させます。[getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) の寸法は [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) と [setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-) で設定し、96 ピクセル/インチの換算でポイントからピクセルに変換します。たとえば、684 × 288 ポイントのフレームは 912 × 384 ピクセルのチャートに相当します。[setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) を [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/) の CUSTOM 値に設定します。例では [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) でワークブックを埋め込み、9.5 × 4 インチの OLE フレームを持つプレゼンテーションを保存します。
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// ワークブックのウィンドウ幅をインチ単位で設定します（PowerPoint は 1 インチあたり 72 ポイントを使用するため、72 で除算します）。
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// ワークブックのウィンドウ高さをインチ単位で設定します。
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// ワークブックをメモリ ストリームに保存します。
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// 埋め込み Excel データで OLE オブジェクト フレームを作成します。
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // スライドの座標と寸法はポイント単位です (1 インチ = 72 ポイント)。
+        float width = 684f; // 9.5 インチ。
+        float height = 288f; // 4 インチ。
+
+        chart.setSizeWithWindow(false);
+        // ポイントを 96 ピクセル/インチで換算してチャートのピクセルに変換します。
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**シナリオ 2**
+## **テンプレートの使用**
 
-ゼロからプレゼンテーションを作成し、任意のサイズの OLE オブジェクト フレームに埋め込み Excel ワークブックを含めたいとします。以下のコードスニペットでは、スライド上の x=0.5 インチ、y=1 インチの位置に高さ 4 インチ、幅 9.5 インチの OLE オブジェクト フレームを作成し、Excel ワークブックのウィンドウも同じサイズ（高さ 4 インチ、幅 9.5 インチ）に設定します。
+既存のプレゼンテーションでも同様のサイズロジックを使用します。例を適用する手順は次のとおりです。
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+1. 空のプレゼンテーションを作成する代わりにテンプレート プレゼンテーションをロードします。  
+2. 最初のスライドに少なくとも 3 つのシェイプがあることを確認し、インデックス 2 のシェイプをプレースホルダーとして使用します。  
+3. 固定値 684 と 288 の代わりに、そのシェイプからフレームの幅と高さを取得します。サイズ計算は変更しません。  
+4. 固定座標 36 と 72 の代わりに、プレースホルダーの位置に OLE フレームを追加します。  
+5. 保存する前にプレースホルダーを削除します。
 
-// 希望する高さです。
-int desiredHeight = 288; // 4 インチ (4 * 72)
- 
-// 希望する幅です。
-int desiredWidth = 684; // 9.5 インチ (9.5 * 72)
- 
-// ウィンドウ付きでチャートサイズを定義します。
-chart.setSizeWithWindow(true);
- 
-// ワークブックのウィンドウ幅をインチ単位で設定します（PowerPoint は 1 インチあたり 72 ポイントを使用するため、72 で除算します）。
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// ワークブックのウィンドウ高さをインチ単位で設定します。
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// ワークブックをメモリ ストリームに保存します。
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// 埋め込み Excel データで OLE オブジェクト フレームを作成します。
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 インチ (0.5 * 72)
-    72,  // y = 1 インチ (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
+## **よくある質問**
 
-## **アプローチ 2**
+**PowerPoint でアクティブ化した後に埋め込んだ Excel チャートのサイズが変わるのはなぜですか？**  
+Excel は最初にアクティブ化されたときに元のウィンドウサイズを復元しようとしますが、PowerPoint の OLE オブジェクト フレームは独自のサイズを持ちます。PowerPoint と Excel がアスペクト比を保つためにサイズを協議するため、リサイズが発生します。
 
-このアプローチでは、埋め込まれた Excel ワークブック内のグラフのサイズを PowerPoint スライド上の OLE オブジェクト フレームのサイズに合わせる方法を学びます。このアプローチは、グラフのサイズが事前に分かっていて変更されない場合に有効です。
+**チャートと OLE フレームのサイズを一致させるにはどうすればよいですか？**  
+固定されたチャート寸法を OLE フレームに合わせ、埋め込む前にカスタムのチャート印刷サイズを設定します。上記の例に必要な設定と単位変換が示されています。
 
-**シナリオ 1**
+**ワークブックウィンドウのサイズを合わせるだけで十分ですか？**  
+ワークブックウィンドウのサイズを合わせるだけでは、アクティブ化後に OLE フレームのサイズ変更を確実に防止できません。例に示すように固定チャート寸法を使用してください。
 
-テンプレートを定義し、それに基づいてプレゼンテーションを作成したいとします。テンプレートのインデックス 2 にあるシェイプに埋め込み Excel ワークブックを含む OLE フレームを配置したいと想定します。このシナリオでは、OLE フレームのサイズは事前に決まっており、テンプレートのインデックス 2 のシェイプのサイズと一致します。必要なのは、ワークブック内のグラフサイズをそのシェイプのサイズと同じに設定することだけです。以下のコードスニペットがその目的を果たします。
+**このソリューションはテンプレートベースのプレゼンテーションと新規プレゼンテーションの両方で機能しますか？**  
+はい。テンプレートを使用する場合はプレースホルダーの寸法と位置を使用し、新規プレゼンテーションの場合はフレームの寸法と位置を直接指定します。
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// ウィンドウなしでチャートサイズを定義します。
-chart.setSizeWithWindow(false);
- 
-// ピクセル単位でチャート幅を設定します（Excel は 1 インチあたり 96 ピクセルを使用するため 96 倍します）。
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// ピクセル単位でチャート高さを設定します。
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// チャートの印刷サイズを定義します。
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// ワークブックをメモリ ストリームに保存します。
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// 埋め込み Excel データで OLE オブジェクト フレームを作成します。
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
-
-**シナリオ 2**:
-
-ゼロからプレゼンテーションを作成し、任意のサイズの OLE オブジェクト フレームに埋め込み Excel ワークブックを含めたいとします。以下のコードスニペットでは、スライド上の x=0.5 インチ、y=1 インチの位置に高さ 4 インチ、幅 9.5 インチの OLE オブジェクト フレームを作成し、対応するグラフサイズも同じ寸法（高さ 4 インチ、幅 9.5 インチ）に設定します。
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// 希望する高さです。
-int desiredHeight = 288; // 4 インチ (4 * 72)
- 
-// 希望する幅です。
-int desiredWidth = 684; // 9.5 インチ (9.5 * 72)
- 
-// ウィンドウなしでチャートサイズを定義します。
-chart.setSizeWithWindow(false);
- 
-// ピクセル単位でチャート幅を設定します（72 で除算してインチに変換し、Excel は 1 インチあたり 96 ピクセルを使用するため 96 倍します）。
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// ピクセル単位でチャート高さを設定します。
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// ワークブックをメモリ ストリームに保存します。
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// 埋め込み Excel データで OLE オブジェクト フレームを作成します。
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 インチ (0.5 * 72)
-    72,  // y = 1 インチ (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **結論**
-
-グラフのリサイズ問題を解決するには 2 つのアプローチがあります。どちらのアプローチを選択するかは要件とユースケースに依存します。テンプレートベースでもゼロから作成したプレゼンテーションでも、両アプローチは同様に機能します。また、このソリューションでは OLE オブジェクト フレームのサイズに上限はありません。
-
-## **FAQ**
-
-### 埋め込んだ Excel グラフは、PowerPoint でアクティブ化するとサイズが変わるのはなぜですか？
-
-Excel は最初にアクティブ化されたときに元のウィンドウサイズを復元しようとしますが、PowerPoint の OLE オブジェクト フレームは独自の寸法を持っています。PowerPoint と Excel がサイズを協議してアスペクト比を維持するため、リサイズが発生します。
-
-### このリサイズ問題を完全に防ぐことはできますか？
-
-はい。埋め込む前に Excel ワークブックのウィンドウサイズまたはグラフサイズを OLE オブジェクト フレームのサイズと一致させることで、グラフサイズを一定に保つことができます。
-
-### ワークブックのウィンドウサイズを設定すべきか、グラフサイズを設定すべきか、どちらのアプローチを選ぶべきですか？
-
-**アプローチ 1（ウィンドウサイズ）** は、ワークブックのアスペクト比を維持し、後でリサイズを許可したい場合に使用します。  
-**アプローチ 2（グラフサイズ）** は、グラフの寸法が固定されており、埋め込み後に変更しない場合に使用します。
-
-### これらの方法はテンプレートベースのプレゼンテーションと新規プレゼンテーションの両方で機能しますか？
-
-はい。両アプローチはテンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも同様に機能します。
-
-### OLE オブジェクト フレームのサイズに制限はありますか？
-
-いいえ。ワークブックまたはグラフのサイズに合わせて適切にスケールできる限り、任意のサイズに設定できます。
-
-### 他のスプレッドシート プログラムで作成したグラフにもこの方法は使えますか？
-
-例は Aspose.Cells で作成した Excel グラフを対象としていますが、同様のサイズ設定オプションをサポートする OLE 互換のスプレッドシート プログラムでも原理は適用可能です。
+**他のスプレッドシートプログラムで作成したチャートでもこの例を使用できますか？**  
+この例は Aspose.Cells で作成した Excel ワークブックを使用しています。他のスプレッドシートプログラムでのアクティブ化動作は示していません。
 
 ## **関連セクション**
 
-- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/ja/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [プレゼンテーションに OLE オブジェクトとして埋め込む Excel チャートの作成](/slides/ja/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

@@ -2,173 +2,143 @@
 title: 在 .NET 中调整演示文稿幻灯片上的形状大小
 type: docs
 weight: 130
-url: /zh/net/re-sizing-shapes-on-slide/
+url: /zh/net/resizing-shapes-on-slide/
+aliases:
+  - /zh/net/re-sizing-shapes-on-slide/
+  /net/re-sizing-shapes-on-slide/
 keywords:
-- 调整形状大小
-- 更改形状尺寸
+- 调整形状
+- 更改形状大小
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 轻松调整 PowerPoint 和 OpenDocument 幻灯片上的形状大小——自动化幻灯片布局调整，提高生产力。"
+description: "轻松使用 Aspose.Slides for .NET 调整 PowerPoint 和 OpenDocument 幻灯片上的形状大小——自动化幻灯片布局调整并提升生产力。"
 ---
-
 ## **概述**
 
-Aspose.Slides for .NET 客户最常问的问题之一是如何在幻灯片尺寸变化时调整形状大小，以避免数据被截断。本文简短技术文章展示了实现方法。
+当您更改演示文稿的幻灯片尺寸时，可能还需要调整形状的大小并重新定位，以适应新的尺寸。本文展示了如何手动缩放形状以及如何处理幻灯片、母版和布局上的表格。
 
-## **调整形状大小**
+## **调整形状**
 
-为了防止幻灯片尺寸变化后形状错位，需要更新每个形状的位置和尺寸，使其符合新的幻灯片布局。
-```c#
-// 加载演示文稿文件。
-using (Presentation presentation = new Presentation("sample.pptx"))
+为了保持每个形状的相对位置和大小，将其水平坐标和宽度乘以新幻灯片宽度与原始宽度的比例。对其垂直坐标和高度应用相应的高度比例。
+
+第一个示例加载一个幻灯片中不包含表格的演示文稿，将幻灯片尺寸更改为 A4，并保存结果。它使用 [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) 与 [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) ，以便后续循环控制缩放。比例是无单位的；形状的位置和尺寸以点为单位。不同的宽度和高度比例会导致形状失真，并且更改形状的尺寸不会缩放其字体大小。
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// 计算独立的水平和垂直缩放因子。
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // 获取原始幻灯片尺寸。
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // 更改幻灯片尺寸但不缩放现有形状。
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // 获取新的幻灯片尺寸。
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // 对每张幻灯片上的形状进行大小调整和重新定位。
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // 缩放形状大小。
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // 缩放形状位置。
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-
-{{% alert color="primary" %}}
-如果幻灯片中包含表格，上述代码将无法正常工作。此时必须对表格中的每个单元格进行大小调整。
+{{% alert color="info" title="Note" %}}
+表格需要单独处理：按列宽和行高进行缩放，而不是直接设置表格的整体宽度和高度。如果单元格内容需要更多空间，行高可能会保持大于请求的大小。
 {{% /alert %}}
 
-使用下面的代码来调整包含表格的幻灯片。对于表格，设置宽度或高度属于特殊情况：必须分别调整行高和列宽，以改变表格的整体尺寸。
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+第二个示例支持表格，并在保存调整大小的演示文稿之前处理母版和布局以及单个幻灯片上的形状。它的辅助工具通过缩放每个 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) 的 [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) 和 [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) 来处理表格。随后，它会在不单独缩放整体尺寸的情况下缩放表格的位置。
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// 计算独立的水平和垂直缩放因子。
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// 调整在母版、布局以及各个幻灯片上定义的形状大小。
+foreach (var master in presentation.Masters)
 {
-    // 获取原始幻灯片尺寸。
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // 在不缩放现有形状的情况下更改幻灯片尺寸。
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // 获取新的幻灯片尺寸。
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // 缩放形状大小。
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // 缩放形状位置。
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // 表格尺寸由列宽和行高控制。
+            foreach (var column in table.Columns)
             {
-                // 缩放形状大小。
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // 缩放形状位置。
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // 缩放形状大小。
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // 缩放形状位置。
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
-
 
 ## **常见问题**
 
 **为什么在调整幻灯片大小后形状会失真或被截断？**
-
-在调整幻灯片大小时，除非显式更改比例，否则形状会保持原来的位置和尺寸，这可能导致内容被裁剪或形状错位。
+如果在更改幻灯片尺寸时未对形状进行缩放，它们会保持原始位置和尺寸，可能会超出幻灯片范围。使用不同的宽度和高度比例进行缩放也会导致形状失真。
 
 **提供的代码适用于所有形状类型吗？**
+第一个示例直接更改形状的边界，适用于没有表格的幻灯片。第二个示例单独处理表格。请检查生成的布局，特别是文本和表格，因为这些示例不缩放字体大小，并且表格内容可能会限制行高。
 
-基本示例适用于多数形状类型（文本框、图像、图表等）。但对于表格，需要单独处理行和列，因为表格的高度和宽度由各单元格的尺寸决定。
+**在调整幻灯片大小时如何调整表格？**
+按宽度比例缩放列宽，按高度比例缩放最小行高，然后如第二个示例所示缩放表格的位置。
 
-**在调整幻灯片大小时如何调整表格大小？**
-
-需要遍历表格的所有行和列，并按比例调整它们的高度和宽度，正如第二段代码示例所示。
-
-**此调整适用于母版幻灯片和布局幻灯片吗？**
-
-是的，但还应遍历[母版]（https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/）和[布局幻灯片]（https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/），对它们的形状应用相同的缩放逻辑，以确保整个演示文稿的一致性。
+**此调整大小方法对母版幻灯片和布局幻灯片也适用吗？**
+是的。第二个示例遍历 [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) 以及每个母版的 [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/)，并对其形状应用相同的调整大小逻辑。
 
 **我可以在调整大小的同时更改幻灯片的方向（纵向/横向）吗？**
+可以。请在更改幻灯片尺寸后、读取目标尺寸之前设置 [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/)，以便缩放系数反映最终的方向。
 
-可以。可以设置[presentation.SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/islidesize/orientation/)来更改方向。请相应地调整缩放逻辑，以保持布局不变。
+**我可以设置的幻灯片尺寸是否有限制？**
+您可以使用 [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) 指定自定义幻灯片尺寸。支持的尺寸还取决于演示文稿的格式以及用于打开文件的应用程序。
 
-**我可以设置的幻灯片尺寸有上限吗？**
-
-Aspose.Slides 支持自定义尺寸，但极大的尺寸可能会影响性能或与某些 PowerPoint 版本的兼容性。
-
-**如何防止固定宽高比的形状被拉伸失真？**
-
-在缩放之前，可以检查形状的 `AspectRatioLocked` 属性。如果已锁定，则应按比例调整宽度或高度，而不是分别单独缩放。
+**如何防止具有固定宽高比的形状变形？**
+对宽度和高度使用相同的缩放因子。若要使原始布局适配新的幻灯片尺寸，请对宽度和高度以及位置都使用宽高比例中较小的那个。这可以保持比例，但可能在某一边留下未使用的空间。

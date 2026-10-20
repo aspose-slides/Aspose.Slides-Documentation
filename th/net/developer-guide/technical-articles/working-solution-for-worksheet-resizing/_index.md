@@ -1,12 +1,12 @@
 ---
-title: วิธีแก้ปัญหาที่ใช้งานได้สำหรับการปรับขนาดแผ่นงาน
+title: วิธีแก้ปัญหาการปรับขนาดแผ่นงาน
 type: docs
 weight: 40
 url: /th/net/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - ภาพตัวอย่าง
-- การปรับขนาดภาพ
+- ปรับขนาดภาพ
 - Excel
 - แผ่นงาน
 - PowerPoint
@@ -14,36 +14,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "แก้ไขการปรับขนาด OLE ของแผ่นงาน Excel ในการนำเสนอ: สองวิธีเพื่อให้เฟรมออบเจ็กต์คงที่—ปรับสเกลเฟรมหรือแผ่นงาน—ในรูปแบบ PPT และ PPTX"
+description: "แก้ไขการปรับขนาด OLE ของแผ่นงาน Excel ในการนำเสนอ: วิธีสองวิธีเพื่อทำให้กรอบอ็อบเจกต์คงที่—ปรับขนาดกรอบหรือแผ่นงาน—ในรูปแบบ PPT และ PPTX"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-พบว่าเวิร์กชีต Excel ที่ฝังเป็นออบเจ็กต์ OLE ในการนำเสนอ PowerPoint ผ่านคอมโพเนนต์ของ Aspose จะถูกปรับขนาดเป็นสเกลที่ไม่ระบุหลังจากการเปิดใช้งานครั้งแรก พฤติกรรมนี้ทำให้เกิดความแตกต่างที่เห็นได้ชัดระหว่างสถานะก่อนและหลังการเปิดใช้ออบเจ็กต์ OLE ในการนำเสนอ เราได้สอบสวนปัญหานี้อย่างละเอียดและจัดเตรียมวิธีแก้ไข ซึ่งอธิบายในบทความนี้
+แผ่นงาน Excel ที่ฝังเป็นอ็อบเจกต์ OLE ในการนำเสนอ PowerPoint โดยใช้คอมโพเนนต์ของ Aspose อาจเปลี่ยนขนาดโดยไม่คาดคิดหลังจากการเปิดใช้งานครั้งแรก การกระทำนี้ทำให้เกิดความแตกต่างทางภาพที่เห็นได้ระหว่างอ็อบเจกต์ OLE ก่อนและหลังการเปิดใช้งาน บทความนี้อธิบายปัญหาและอธิบายวิธีแก้สองวิธี
 
 {{% /alert %}} 
 
-## **เบื้องหลัง**
+## **พื้นฐาน**
 
-ในบทความ [จัดการ OLE](/slides/th/net/manage-ole/) เราได้อธิบายวิธีการเพิ่มเฟรม OLE ลงในการนำเสนอ PowerPoint ด้วย Aspose.Slides for .NET เพื่อแก้ไข [ปัญหาการแสดงตัวอย่างออบเจ็กต์](/slides/th/net/object-preview-issue-when-adding-oleobjectframe/) เราได้กำหนดภาพของพื้นที่เวิร์กชีตที่เลือกให้กับเฟรมออบเจ็กต์ OLE ในการนำเสนอผลลัพธ์ เมื่อคุณดับเบิลคลิกที่เฟรมออบเจ็กต์ OLE ที่แสดงภาพเวิร์กชีต Excel เวิร์กบุ๊กจะถูกเปิดใช้งาน ผู้ใช้สามารถทำการเปลี่ยนแปลงใด ๆ กับเวิร์กบุ๊ก Excel จริงได้ แล้วกลับไปที่สไลด์โดยคลิกนอกเวิร์กบุ๊ก Excel ที่เปิดใช้งาน ขนาดของเฟรมออบเจ็กต์ OLE จะเปลี่ยนเมื่อผู้ใช้กลับไปที่สไลด์ ปัจจัยการปรับขนาดจะแตกต่างกันไปตามขนาดของเฟรมออบเจ็กต์ OLE และเวิร์กบุ๊ก Excel ที่ฝังอยู่
+ในบทความ [จัดการ OLE](/slides/th/net/manage-ole/) เราอธิบายวิธีการเพิ่มกรอบ OLE ลงในการนำเสนอ PowerPoint โดยใช้ Aspose.Slides for .NET เพื่อตอบสนองต่อ [ปัญหาการแสดงตัวอย่างอ็อบเจกต์](/slides/th/net/object-preview-issue-when-adding-oleobjectframe/) เราได้กำหนดรูปภาพของพื้นที่แผ่นงานที่เลือกให้กับกรอบอ็อบเจกต์ OLE ในการนำเสนอผลลัพธ์ เมื่อคุณดับเบิลคลิกที่กรอบอ็อบเจกต์ OLE ที่แสดงรูปภาพของแผ่นงาน แผ่นงาน Excel จะถูกเปิดใช้งาน ผู้ใช้ขั้นสุดท้ายสามารถทำการเปลี่ยนแปลงใดๆ ที่ต้องการกับแผ่นงาน Excel จริงและจากนั้นกลับไปยังสไลด์โดยคลิกนอกแผ่นงาน Excel ที่เปิดใช้งาน ขนาดของกรอบอ็อบเจกต์ OLE จะเปลี่ยนแปลงเมื่อผู้ใช้กลับไปยังสไลด์ ปัจจัยการปรับขนาดจะแตกต่างกันขึ้นอยู่กับขนาดของกรอบอ็อบเจกต์ OLE และแผ่นงาน Excel ที่ฝังอยู่
 
-## **สาเหตุของการปรับขนาด**
+## **สาเหตุของการเปลี่ยนขนาด**
 
-เนื่องจากเวิร์กบุ๊ก Excel มีขนาดหน้าต่างของตนเอง มันพยายามรักษาขนาดเดิมไว้เมื่อตอนเปิดใช้งานครั้งแรก ในขณะเดียวกันเฟรมออบเจ็กต์ OLE มีขนาดของมันเอง ตามที่ Microsoft ระบุ เมื่อเวิร์กบุ๊ก Excel ถูกเปิดใช้งาน Excel และ PowerPoint จะเจรจาขนาดเพื่อให้แน่ใจว่ามันรักษาสัดส่วนที่ถูกต้องเป็นส่วนหนึ่งของกระบวนการฝัง การปรับขนาดเกิดจากความแตกต่างระหว่างขนาดหน้าต่าง Excel กับขนาดและตำแหน่งของเฟรมออบเจ็กต์ OLE
+เนื่องจากแผ่นงาน Excel มีขนาดหน้าต่างของตนเอง มันพยายามรักษาขนาดเดิมเมื่อเปิดใช้งานครั้งแรก ในทางกลับกัน กรอบอ็อบเจกต์ OLE มีขนาดของมันเอง ตามข้อมูลของ Microsoft เมื่อแผ่นงาน Excel ถูกเปิดใช้งาน Excel และ PowerPoint จะเจรจาข้อกำหนดขนาดเพื่อให้รักษาสัดส่วนที่ถูกต้องเป็นส่วนหนึ่งของกระบวนการฝัง การเปลี่ยนขนาดเกิดขึ้นเนื่องจากความแตกต่างระหว่างขนาดหน้าต่าง Excel กับขนาดและตำแหน่งของกรอบอ็อบเจกต์ OLE
 
-## **วิธีแก้ที่ใช้งานได้**
+## **วิธีแก้ไขที่ทำงาน**
 
-มีสองวิธีแก้ที่เป็นไปได้เพื่อหลีกเลี่ยงผลกระทบของการปรับขนาด
+มีวิธีแก้ไขสองวิธีที่สามารถหลีกเลี่ยงผลกระทบจากการเปลี่ยนขนาดได้
 
-- ปรับสเกลขนาดเฟรม OLE ในการนำเสนอ PowerPoint ให้ตรงกับความสูงและความกว้างของจำนวนแถวและคอลัมน์ที่ต้องการในเฟรม OLE
-- คงขนาดเฟรม OLE ไว้คงที่และปรับสเกลขนาดของแถวและคอลัมน์ที่เข้าร่วมให้พอดีกับขนาดเฟรม OLE ที่เลือก
+- ปรับขนาดกรอบ OLE ในการนำเสนอ PowerPoint ให้ตรงกับความสูงและความกว้างรวมของแถวและคอลัมน์ที่เลือก
+- คงขนาดกรอบ OLE ไว้คงที่และปรับขนาดแถวและคอลัมน์ที่เลือกให้พอดีกับกรอบนั้น
 
-### **ปรับสเกลขนาดเฟรม OLE**
+### **ปรับขนาดกรอบ OLE**
 
-ในแนวทางนี้ เราจะเรียนรู้วิธีตั้งค่าขนาดเฟรม OLE ของเวิร์กบุ๊ก Excel ที่ฝังไว้ให้ตรงกับขนาดรวมของแถวและคอลัมน์ที่เข้าร่วมในเวิร์กชีต
+วิธีการนี้ตั้งค่าขนาดกรอบ OLE ให้ตรงกับความสูงและความกว้างรวมของแถวและคอลัมน์ที่เลือกในแผ่นงาน Excel ที่ฝังอยู่
 
-สมมติว่าเรามีเทมเพลตเวิร์กชีต Excel และต้องการเพิ่มลงในการนำเสนอเป็นเฟรม OLE ในสถานการณ์นี้ ขนาดของเฟรมออบเจ็กต์ OLE จะถูกคำนวณเป็นครั้งแรกโดยอิงจากความสูงรวมของแถวและความกว้างรวมของคอลัมน์ที่เข้าร่วมในเวิร์กบุ๊ก จากนั้นเราจะตั้งค่าขนาดของเฟรม OLE ให้เป็นค่าที่คำนวณได้ เพื่อหลีกเลี่ยงข้อความสีแดง "EMBEDDED OLE OBJECT" สำหรับเฟรม OLE ใน PowerPoint เราจะจับภาพส่วนที่ต้องการของแถวและคอลัมน์ในเวิร์กบุ๊กและตั้งค่าเป็นภาพของเฟรม OLE
+ตัวอย่างนี้โหลดแผ่นงาน Excel ที่มีอยู่แล้วและเลือกแถวแรก 10 แถวและคอลัมน์แรก 13 คอลัมน์ของแผ่นงานแรกโดยใช้ดัชนีเริ่มจากศูนย์ [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) กำหนดช่วงที่จะแสดง ตัวอย่างภาพพรีวิวถูกเรนเดอร์ที่ 96 DPI และมิติโพิกเซลของมันจะถูกแปลงเป็นพอยท์โดยใช้ 72 พอยท์ต่อความนิ้ว [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) ฝังแผ่นงานที่แก้ไขในกรอบที่มีขนาดดังกล่าว ตัวอย่างพรีวิวถูกกำหนดผ่าน [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) เพื่อแทนที่ตัวแทนข้อความ "EMBEDDED OLE OBJECT" ในการนำเสนอที่บันทึก
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -53,7 +58,7 @@ int imageResolution = 96;
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
-// ตั้งค่าขนาดที่แสดงเมื่อไฟล์เวิร์กบุ๊กถูกใช้เป็นออบเจ็กต์ OLE ใน PowerPoint.
+// ตั้งค่าขนาดที่แสดงเมื่อไฟล์ workbook ถูกใช้เป็นอ็อบเจกต์ OLE ใน PowerPoint.
 var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,12 +66,12 @@ workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 var imageStream = CreateOleImage(cellRange, imageResolution);
 
-// รับความกว้างและความสูงของภาพ OLE ในหน่วยจุด.
+// รับความกว้างและความสูงของภาพ OLE เป็นหน่วยพอยท์.
 using var image = Image.FromStream(imageStream);
 var imageWidth = image.Width * 72 / imageResolution;
 var imageHeight = image.Height * 72 / imageResolution;
 
-// เราต้องใช้เวิร์กบุ๊กที่แก้ไขแล้ว.
+// เราต้องใช้ workbook ที่ปรับแก้แล้ว.
 using var oleStream = new MemoryStream();
 workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
 
@@ -77,7 +82,7 @@ var slide = presentation.Slides.First();
 imageStream.Seek(0, SeekOrigin.Begin);
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// สร้างเฟรมออบเจ็กต์ OLE.
+// สร้างกรอบอ็อบเจกต์ OLE.
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -85,6 +90,8 @@ oleFrame.IsObjectIcon = false;
 
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+ตัวช่วยพรีวิวตั้งค่าที่ [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) ให้เป็นช่วงที่เลือกและลบขอบเขต ส่วนหัวส่วนท้ายออก เมื่อเปิดใช้ [ImageOrPrintOptions.OnlyArea](https://reference.aspose.com/cells/net/aspose.cells.rendering/imageorprintoptions/onlyarea/) [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/) จะเรนเดอร์ช่วงเป็นภาพ PNG ตัวช่วยจะรีแวินด์สตรีมของภาพก่อนส่งกลับเพื่อใช้ในการนำเสนอ
 
 ```cs
 static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
@@ -116,13 +123,17 @@ static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolu
 }
 ```
 
-### **ปรับสเกลขนาดช่วงเซลล์**
+### **ปรับขนาดช่วงเซลล์**
 
-ในแนวทางนี้ เราจะเรียนรู้วิธีปรับสเกลความสูงของแถวที่เข้าร่วมและความกว้างของคอลัมน์ที่เข้าร่วมให้ตรงกับขนาดเฟรม OLE ที่กำหนดเอง
+วิธีการนี้ปรับความสูงของแถวที่เลือกและความกว้างของคอลัมน์ที่เลือกให้ตรงกับขนาดกรอบ OLE ที่กำหนดเอง
 
-สมมติว่าเรามีเทมเพลตเวิร์กชีต Excel และต้องการเพิ่มลงในการนำเสนอเป็นเฟรม OLE ในสถานการณ์นี้ เราจะตั้งค่าขนาดของเฟรม OLE และปรับสเกลขนาดของแถวและคอลัมน์ที่เข้าร่วมในพื้นที่เฟรม OLE จากนั้นเราจะบันทึกเวิร์กบุ๊กเป็นสตรีมเพื่อใช้การเปลี่ยนแปลงและแปลงเป็นอาเรย์ไบต์เพื่อเพิ่มลงในเฟรม OLE เพื่อหลีกเลี่ยงข้อความสีแดง "EMBEDDED OLE OBJECT" สำหรับเฟรม OLE ใน PowerPoint เราจะจับภาพส่วนที่ต้องการของแถวและคอลัมน์ในเวิร์กบุ๊กและตั้งค่าเป็นภาพของเฟรม OLE
+ตัวอย่างนี้โหลดแผ่นงาน Excel ที่มีอยู่แล้วและเลือกแถวแรก 10 แถวและคอลัมน์แรก 13 คอลัมน์ของแผ่นงานแรกโดยใช้ดัชนีเริ่มจากศูนย์ [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) กำหนดช่วงที่จะแสดง และตัวช่วยด้านล่างจะปรับสัดส่วนของช่วงนั้นให้พอดีกับกรอบที่กว้าง 400 พอยท์ และสูง 100 พอยท์ หลังจากบันทึกแผ่นงานที่แก้ไขลงในสตรีมแล้ว [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) จะฝังมันในขนาดที่ระบุ ตัวอย่างพรีวิวที่เรนเดอร์ที่ 96 DPI จะถูกกำหนดผ่าน [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) ทำให้การนำเสนอที่บันทึกแสดงเซลล์ที่เลือกแทนตัวแทนข้อความเริ่มต้น
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -133,18 +144,18 @@ float frameWidth = 400, frameHeight = 100;
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
-// ตั้งค่าขนาดที่แสดงเมื่อไฟล์เวิร์กบุ๊กถูกใช้เป็นออบเจ็กต์ OLE ใน PowerPoint.
+// ตั้งค่าขนาดที่แสดงเมื่อไฟล์ workbook ถูกใช้เป็นอ็อบเจกต์ OLE ใน PowerPoint.
 var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// ปรับสเกลช่วงเซลล์ให้พอดีกับขนาดเฟรม.
+// ปรับขนาดช่วงเซลล์ให้พอดีกับขนาดกรอบ.
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 var imageStream = CreateOleImage(cellRange, imageResolution);
 
-// เราต้องใช้เวิร์กบุ๊กที่แก้ไขแล้ว.
+// เราต้องใช้ workbook ที่ปรับแก้แล้ว.
 using var oleStream = new MemoryStream();
 workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
 
@@ -154,7 +165,7 @@ var slide = presentation.Slides.First();
 // เพิ่มภาพ OLE ลงในทรัพยากรของการนำเสนอ.
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// สร้างเฟรมออบเจ็กต์ OLE.
+// สร้างกรอบอ็อบเจกต์ OLE.
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -163,9 +174,11 @@ oleFrame.IsObjectIcon = false;
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+ตัวช่วยการปรับขนาดคำนวณอัตราส่วนความกว้างและความสูงแยกกันสำหรับช่วงที่เลือก โดยคงอัตราส่วนความกว้างของคอลัมน์และความสูงของแถวไว้ จากนั้นจะแปลงมิติที่คำนวณได้จากพอยท์เป็นนิ้วก่อนนำไปใช้กับ [Cells.SetColumnWidthInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setcolumnwidthinch/) และ [Cells.SetRowHeightInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setrowheightinch/). ช่วงที่เลือกต้องมีความกว้างและความสูงที่ไม่เป็นศูนย์
+
 ```cs
-/// <param name="width">ความกว้างที่คาดหวังของช่วงเซลล์ในหน่วยจุด.</param>
-/// <param name="height">ความสูงที่คาดหวังของช่วงเซลล์ในหน่วยจุด.</param>
+/// <param name="width">ความกว้างที่คาดหวังของช่วงเซลล์เป็นหน่วยพอยท์.</param>
+/// <param name="height">ความสูงที่คาดหวังของช่วงเซลล์เป็นหน่วยพอยท์.</param>
 static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float height)
 {
     var rangeWidth = cellRange.Width;
@@ -192,6 +205,8 @@ static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float heig
     }
 }
 ```
+
+ตัวช่วยพรีวิวนี้เรนเดอร์ช่วงที่ปรับขนาดใหม่โดยใช้ [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/). มันจำกัด [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) ไว้ที่ช่วงนั้น ลบขอบเขต ส่วนหัวส่วนท้ายออกและส่งคืนสตรีม PNG ที่ตำแหน่งเริ่มต้น
 
 ```cs
 static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
@@ -225,34 +240,40 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 
 ## **สรุป**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-มีสองวิธีในการแก้ไขปัญหาการปรับขนาดเวิร์กชีต การเลือกวิธีที่เหมาะสมขึ้นอยู่กับความต้องการเฉพาะและกรณีการใช้งาน ทั้งสองวิธีทำงานแบบเดียวกันไม่ว่าการนำเสนอจะสร้างจากเทมเพลตหรือจากศูนย์ นอกจากนี้ไม่มีข้อจำกัดเรื่องขนาดของเฟรมออบเจ็กต์ OLE ในวิธีแก้นี้
+มีสองแนวทางเพื่อแก้ไขปัญหาการปรับขนาดแผ่นงาน เลือกแนวทางที่เหมาะกับความต้องการและกรณีการใช้งานของคุณ ทั้งสองแนวทางทำงานในลักษณะเดียวกัน ไม่ว่าจะเป็นการสร้างการนำเสนอจากเทมเพลตหรือจากศูนย์ นอกจากนี้ไม่มีขีดจำกัดขนาดของกรอบอ็อบเจกต์ OLE ในวิธีแก้นี้
 
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**ทำไมเวิร์กชีต Excel ที่ฝังไว้ถึงเปลี่ยนขนาดเมื่อเปิดใช้งานครั้งแรกใน PowerPoint?**  
-เกิดจาก Excel พยายามรักษาขนาดหน้าต่างเดิมเมื่อเปิดใช้งาน ในขณะที่เฟรมออบเจ็กต์ OLE ใน PowerPoint มีมิติของมันเอง PowerPoint และ Excel จะเจรจาขนาดเพื่อรักษาอัตราส่วน ซึ่งอาจทำให้เกิดการปรับขนาด
+**ทำไมแผ่นงาน Excel ที่ฝังอยู่จึงเปลี่ยนขนาดเมื่อเปิดใช้งานครั้งแรกใน PowerPoint?**
 
-**สามารถป้องกันปัญหาการปรับขนาดนี้ได้โดยสมบูรณ์หรือไม่?**  
-ได้โดยการปรับสเกลเฟรม OLE ให้พอดีกับขนาดช่วงเซลล์ Excel หรือปรับสเกลช่วงเซลล์ให้พอดีกับขนาดเฟรม OLE ที่ต้องการ สามารถป้องกันการปรับขนาดที่ไม่ต้องการได้
+นี่เกิดขึ้นเพราะ Excel พยายามรักษาขนาดหน้าต่างเดิมเมื่อเปิดใช้งาน ส่วนกรอบอ็อบเจกต์ OLE ใน PowerPoint มีขนาดของตัวเอง PowerPoint และ Excel จะเจรจาขนาดเพื่อรักษาอัตราส่วนภาพ ซึ่งอาจทำให้เกิดการปรับขนาดที่ไม่ต้องการ
 
-**ควรใช้วิธีการสเกลแบบใด ระหว่างการสเกลเฟรม OLE หรือการสเกลช่วงเซลล์?**  
-เลือก **การสเกลเฟรม OLE** หากต้องการคงขนาดแถวและคอลัมน์ของ Excel ดั้งเดิม เลือก **การสเกลช่วงเซลล์** หากต้องการขนาดคงที่สำหรับเฟรม OLE ในการนำเสนอของคุณ
+**สามารถป้องกันปัญหาการปรับขนาดนี้ได้ทั้งหมดหรือไม่?**
 
-**วิธีแก้เหล่านี้จะทำงานได้หรือไม่หากการนำเสนอของฉันสร้างจากเทมเพลต?**  
-ทำงานได้ ทั้งสองวิธีทำงานกับการนำเสนอที่สร้างจากเทมเพลตและจากศูนย์
+ได้เลย โดยการปรับขนาดกรอบ OLE ให้พอดีกับขนาดช่วงเซลล์ Excel หรือปรับขนาดช่วงเซลล์ให้พอดีกับขนาดกรอบ OLE ที่ต้องการ คุณสามารถป้องกันการปรับขนาดที่ไม่ต้องการได้
 
-**มีขีดจำกัดขนาดของเฟรม OLE หรือไม่เมื่อใช้วิธีเหล่านี้?**  
-ไม่มี คุณสามารถกำหนดขนาดของเฟรมออบเจ็กต์ OLE ได้ตามต้องการตราบใดที่ตั้งค่าสเกลอย่างเหมาะสม
+**ควรใช้วิธีการปรับขนาดใด OLE frame scaling หรือ cell range scaling?**
 
-**มีวิธีหลีกเลี่ยงข้อความตัวอย่าง "EMBEDDED OLE OBJECT" ใน PowerPoint หรือไม่?**  
-ได้ โดยการจับภาพช่วงเซลล์ Excel ที่ต้องการและตั้งเป็นภาพแทนที่ของเฟรม OLE คุณสามารถแสดงภาพตัวอย่างที่กำหนดเองแทนข้อความตัวอย่างเริ่มต้นได้
+เลือก **OLE frame scaling** หากคุณต้องการรักษาขนาดแถวและคอลัมน์เดิมของ Excel เลือก **cell range scaling** หากคุณต้องการขนาดคงที่สำหรับกรอบ OLE ในการนำเสนอของคุณ
+
+**วิธีแก้เหล่านี้จะทำงานได้หรือไม่หากการนำเสนอของฉันสร้างจากเทมเพลต?**
+
+ใช่ ทั้งสองวิธีทำงานได้กับการนำเสนอที่สร้างจากเทมเพลตและจากศูนย์
+
+**มีขีดจำกัดขนาดของกรอบ OLE เมื่อใช้วิธีเหล่านี้หรือไม่?**
+
+ไม่ คุณสามารถตั้งขนาดกรอบอ็อบเจกต์ OLE ได้ตามต้องการตราบใดที่ตั้งสเกลอย่างเหมาะสม
+
+**มีวิธีหลีกเลี่ยงข้อความตัวแทน "EMBEDDED OLE OBJECT" ใน PowerPoint หรือไม่?**
+
+มี โดยการถ่ายสแนปช็อตของช่วงเซลล์ Excel ที่ต้องการและตั้งเป็นภาพตัวแทนของกรอบ OLE คุณสามารถแสดงภาพพรีวิวที่กำหนดเองแทนตัวแทนค่าเริ่มต้นได้
 
 ## **บทความที่เกี่ยวข้อง**
 
-[สร้างแผนภูมิ Excel และฝังลงในการนำเสนอเป็นออบเจ็กต์ OLE](/slides/th/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[สร้างแผนภูมิ Excel และฝังเข้าในการนำเสนอเป็นอ็อบเจกต์ OLE](/slides/th/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[อัปเดตออบเจ็กต์ OLE อัตโนมัติโดยใช้ Add‑In ของ MS PowerPoint](/slides/th/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[อัปเดตอ็อบเจกต์ OLE โดยอัตโนมัติด้วย MS PowerPoint Add-In](/slides/th/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

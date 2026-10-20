@@ -1,8 +1,11 @@
 ---
-title: Ubah Ukuran Bentuk pada Slide Presentasi
+title: Ubah Ukuran Bentuk pada Slide Presentasi di C++
 type: docs
-weight: 100
-url: /id/cpp/re-sizing-shapes-on-slide/
+weight: 130
+url: /id/cpp/resizing-shapes-on-slide/
+aliases:
+  - /id/cpp/re-sizing-shapes-on-slide/
+  /cpp/re-sizing-shapes-on-slide/
 keywords:
 - ubah ukuran bentuk
 - ubah ukuran bentuk
@@ -11,46 +14,52 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
+description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++—otomatisasi penyesuaian tata letak slide dan meningkatkan produktivitas."
 ---
-## **Ikhtisar**
+## **Ringkasan**
 
-Salah satu pertanyaan paling umum dari pelanggan Aspose.Slides untuk C++ adalah bagaimana mengubah ukuran bentuk sehingga, ketika ukuran slide berubah, data tidak terpotong. Artikel teknis singkat ini menunjukkan cara melakukannya.
+Saat Anda mengubah ukuran slide presentasi, Anda mungkin juga perlu mengubah ukuran dan memposisikan kembali bentuk‑bentuknya agar sesuai dengan dimensi baru. Artikel ini menunjukkan cara memperbesar bentuk secara manual serta cara menangani tabel pada slide, master, dan tata letak.
 
 ## **Ubah Ukuran Bentuk**
 
-Untuk mencegah bentuk menjadi tidak selaras saat ukuran slide berubah, perbarui posisi dan dimensi setiap bentuk agar sesuai dengan tata letak slide yang baru.
+Untuk mempertahankan posisi dan ukuran relatif setiap bentuk, kalikan koordinat horizontal dan lebar bentuk dengan rasio lebar slide baru terhadap lebar asli. Terapkan rasio tinggi yang sesuai pada koordinat vertikal dan tinggi bentuk.
+
+Contoh pertama memuat presentasi yang slide‑nya tidak mengandung tabel, mengubah ukuran slide menjadi A4, dan menyimpan hasilnya. Contoh ini menggunakan [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) dengan [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) sehingga perulangan berikutnya mengontrol skala. Rasio‑rasio tersebut tanpa satuan; posisi dan dimensi bentuk diukur dalam poin. Rasio lebar dan tinggi yang berbeda dapat mendistorsi bentuk, dan mengubah dimensi bentuk tidak mengubah ukuran font.
 
 ```cpp
-// Muat file presentasi.
-auto presentation = MakeObject<Presentation>(u"sample.ppt");
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
 
-// Dapatkan ukuran slide asli.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Ubah ukuran slide tanpa menskalakan bentuk yang ada.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+// Calculate independent horizontal and vertical scale factors.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Dapatkan ukuran slide baru.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-// Skala ukuran bentuk.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // Skala ukuran bentuk.
-        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Skala posisi bentuk.
-        shape->set_Y(shape->get_Y() * heightRatio);
+        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
 }
 
@@ -58,81 +67,92 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}Jika sebuah slide berisi tabel, kode di atas tidak akan berfungsi dengan benar. Dalam kasus tersebut, setiap sel dalam tabel harus diubah ukurannya.{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Tabel memerlukan penanganan terpisah: skala lebar kolom dan tinggi baris alih‑alih menetapkan lebar dan tinggi keseluruhan tabel. Tinggi baris dapat tetap lebih besar dari yang diminta jika konten sel memerlukan ruang lebih.
+{{% /alert %}}
 
-Gunakan kode berikut di sisi Anda untuk mengubah ukuran slide yang berisi tabel. Untuk tabel, mengatur lebar atau tinggi merupakan kasus khusus: Anda harus menyesuaikan tinggi baris individu dan lebar kolom untuk mengubah ukuran keseluruhan tabel.
+Contoh kedua mendukung tabel dan memproses bentuk pada master dan tata letak serta slide individu sebelum menyimpan presentasi yang telah diubah ukurannya. Pembantuannya menangani setiap [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) dengan men‑scale [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) dan [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/). Selanjutnya, contoh ini men‑scale posisi tabel tanpa men‑scale dimensi keseluruhan secara terpisah.
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Dapatkan ukuran slide asli.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-// Ubah ukuran slide tanpa menskalakan bentuk yang ada.
+// Hitung faktor skala horizontal dan vertikal secara independen.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Dapatkan ukuran slide baru.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
+auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, float heightRatio)
+{
+    for (auto&& shape : shapes)
+    {
+        if (ObjectExt::Is<ITable>(shape))
+        {
+            auto table = ExplicitCast<ITable>(shape);
+            // Dimensi tabel dikendalikan oleh lebar kolom dan tinggi baris.
+            for (auto&& column : table->get_Columns())
+            {
+                column->set_Width(column->get_Width() * widthRatio);
+            }
 
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
+            for (auto&& row : table->get_Rows())
+            {
+                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
+            }
+        }
+        else
+        {
+            shape->set_Width(shape->get_Width() * widthRatio);
+            shape->set_Height(shape->get_Height() * heightRatio);
+        }
 
+        shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
+    }
+};
+
+// Resize shapes defined on masters and layouts as well as individual slides.
 for (auto&& master : presentation->get_Masters())
 {
-    for (auto&& shape : master->get_Shapes())
-    {
-        // Skala ukuran bentuk.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Skala posisi bentuk.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-    }
+    resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
 
     for (auto&& layoutSlide : master->get_LayoutSlides())
     {
-        for (auto&& shape : layoutSlide->get_Shapes())
-        {
-            // Skala ukuran bentuk.
-            shape->set_Height(shape->get_Height() * heightRatio);
-            shape->set_Width(shape->get_Width() * widthRatio);
-
-            // Skala posisi bentuk.
-            shape->set_Y(shape->get_Y() * heightRatio);
-            shape->set_X(shape->get_X() * widthRatio);
-        }
+        resizeShapes(layoutSlide->get_Shapes(), widthRatio, heightRatio);
     }
 }
 
 for (auto&& slide : presentation->get_Slides())
 {
-    for (auto&& shape : slide->get_Shapes())
-    {
-        // Skala ukuran bentuk.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Skala posisi bentuk.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-
-        if (ObjectExt::Is<ITable>(shape))
-        {
-            SharedPtr<ITable> table = ExplicitCast<ITable>(shape);
-            for (auto&& row : table->get_Rows())
-            {
-                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
-            }
-            for (auto&& column : table->get_Columns())
-            {
-                column->set_Width(column->get_Width() * widthRatio);
-            }
-        }
-    }
+    resizeShapes(slide->get_Shapes(), widthRatio, heightRatio);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
@@ -143,28 +163,28 @@ presentation->Dispose();
 
 **Mengapa bentuk terdistorsi atau terpotong setelah mengubah ukuran slide?**
 
-Saat mengubah ukuran slide, bentuk mempertahankan posisi dan ukuran aslinya kecuali skala diubah secara eksplisit. Hal ini dapat menyebabkan konten terpotong atau bentuk tidak selaras.
+Jika Anda mengubah ukuran slide tanpa men‑scale bentuk, bentuk akan tetap pada posisi dan dimensi asli sehingga dapat melampaui batas slide. Men‑scale lebar dan tinggi dengan rasio yang berbeda juga dapat mendistorsi bentuk.
 
-**Apakah kode yang diberikan bekerja untuk semua jenis bentuk?**
+**Apakah kode yang disediakan berfungsi untuk semua jenis bentuk?**
 
-Contoh dasar bekerja untuk sebagian besar jenis bentuk (kotak teks, gambar, diagram, dll.). Namun, untuk tabel, Anda perlu menangani baris dan kolom secara terpisah, karena tinggi dan lebar tabel ditentukan oleh dimensi sel‑sel individual.
+Contoh pertama mengubah batas bentuk secara langsung dan ditujukan untuk slide tanpa tabel. Contoh kedua menangani tabel secara terpisah. Periksa tata letak hasil, terutama teks dan tabel, karena contoh‑contoh ini tidak men‑scale ukuran font dan konten tabel dapat membatasi tinggi baris.
 
 **Bagaimana cara mengubah ukuran tabel saat mengubah ukuran slide?**
 
-Anda harus melintasi semua baris dan kolom tabel dan mengubah ukuran tinggi serta lebar mereka secara proporsional, seperti yang ditunjukkan pada contoh kode kedua.
+Skala lebar kolom dengan rasio lebar dan tinggi baris minimal dengan rasio tinggi, kemudian skala posisi tabel, seperti yang ditunjukkan pada contoh kedua.
 
-**Apakah perubahan ukuran ini bekerja untuk master slide dan layout slide?**
+**Apakah perubahan ukuran ini bekerja untuk slide master dan slide tata letak?**
 
-Ya, tetapi Anda juga harus melintasi [Masters](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_masters/) dan [Layout slides](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_layoutslides/) serta menerapkan logika skala yang sama pada bentuk‑bentuk mereka untuk memastikan konsistensi di seluruh presentasi.
+Ya. Contoh kedua mengiterasi melalui [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) dan setiap master’s [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) serta menerapkan logika pengubahan ukuran yang sama pada bentuk‑bentuk mereka.
 
-**Bisakah saya mengubah orientasi slide (potret/landskap) bersama dengan mengubah ukuran?**
+**Bisakah saya mengubah orientasi slide (potret/lanskap) bersamaan dengan mengubah ukuran?**
 
-Ya. Anda dapat menggunakan [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/id/cpp/aspose.slides/islidesize/set_orientation/) untuk mengubah orientasi. Pastikan Anda menyesuaikan logika skala secara tepat untuk mempertahankan tata letak.
+Ya. Tetapkan [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) setelah mengubah ukuran slide dan sebelum membaca dimensi target, sehingga faktor skala mencerminkan orientasi akhir.
 
-**Apakah ada batasan ukuran slide yang dapat saya atur?**
+**Apakah ada batasan ukuran slide yang dapat saya tetapkan?**
 
-Aspose.Slides mendukung ukuran khusus, tetapi ukuran yang sangat besar dapat memengaruhi kinerja atau kompatibilitas dengan beberapa versi PowerPoint.
+Anda dapat menentukan dimensi slide khusus dengan [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/). Dimensi yang didukung juga bergantung pada format presentasi dan aplikasi yang digunakan untuk membuka berkas.
 
 **Bagaimana saya dapat mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
 
-Anda dapat memeriksa metode `get_AspectRatioLocked` pada bentuk sebelum melakukan skala. Jika terkunci, sesuaikan lebar atau tinggi secara proporsional alih‑alih men-skala keduanya secara terpisah.
+Gunakan faktor skala yang sama untuk lebar dan tinggi. Untuk menyesuaikan tata letak asli dalam dimensi slide baru, gunakan rasio yang lebih kecil antara rasio lebar dan tinggi untuk kedua dimensi serta posisi. Ini mempertahankan proporsi tetapi mungkin meninggalkan ruang kosong di salah satu sisi.

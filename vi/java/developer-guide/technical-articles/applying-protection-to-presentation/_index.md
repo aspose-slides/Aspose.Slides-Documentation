@@ -1,176 +1,158 @@
 ---
-title: Ngăn Chặn Việc Chỉnh Sửa Bản Trình Bày Bằng Khóa Shape
-linktitle: Ngăn Chặn Việc Chỉnh Sửa Bản Trình Bày
+title: Hạn chế chỉnh sửa bài thuyết trình với Khóa Shape trong Java
+linktitle: Hạn chế chỉnh sửa bài thuyết trình
 type: docs
 weight: 60
 url: /vi/java/applying-protection-to-presentation/
 keywords:
 - ngăn chặn chỉnh sửa
-- bảo vệ khỏi chỉnh sửa
+- bảo vệ khỏi việc chỉnh sửa
 - khóa shape
 - khóa vị trí
-- khóa chọn
-- khóa kích thước
+- khóa lựa chọn
+- khóa thay đổi kích thước
 - khóa nhóm
 - PowerPoint
-- OpenDocument
-- bản trình bày
+- PPTX
+- bài thuyết trình
 - Java
 - Aspose.Slides
-description: "Khám phá cách Aspose.Slides for Java khóa hoặc mở khóa các shape trong tệp PPT, PPTX và ODP, bảo mật bản trình bày đồng thời cho phép chỉnh sửa kiểm soát và giao hàng nhanh hơn."
+description: "Tìm hiểu cách khóa và mở khóa các shape trong bài thuyết trình PPTX bằng Aspose.Slides cho Java để hạn chế việc lựa chọn, di chuyển, thay đổi kích thước và nhóm."
 ---
-## **Bối cảnh**
+## **Nền tảng**
 
-Một cách sử dụng phổ biến của Aspose.Slides là tạo, cập nhật và lưu các bản trình bày Microsoft PowerPoint (PPTX) trong một quy trình tự động. Người dùng các ứng dụng sử dụng Aspose.Slides theo cách này có quyền truy cập vào các bản trình bày đã tạo, vì vậy việc bảo vệ chúng khỏi việc chỉnh sửa là mối quan tâm chung. Điều quan trọng là các bản trình bày được tạo tự động phải giữ nguyên định dạng và nội dung gốc.
+Một cách sử dụng phổ biến của Aspose.Slides for Java là tạo, cập nhật và lưu các bài thuyết trình PowerPoint (PPTX) như một phần của quy trình tự động. Khi người dùng nhận được các bài thuyết trình này, việc hạn chế thay đổi các shape có thể giúp bảo tồn bố cục và nội dung dự định.
 
-Bài viết này giải thích cách cấu trúc của bản trình bày và các slide, cũng như cách Aspose.Slides for Java có thể áp dụng bảo vệ cho một bản trình bày và sau đó gỡ bỏ nó. Nó cung cấp cho nhà phát triển một cách để kiểm soát cách sử dụng các bản trình bày do ứng dụng của họ tạo ra.
+Bài viết này giải thích cách các shape được tổ chức trên slide và cách áp dụng cũng như xóa bỏ khóa shape trong một bài thuyết trình PPTX. Các khóa này cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng shape riêng lẻ.
 
-## **Thành phần của một slide**
+## **Cấu trúc của một slide**
 
-Một slide trong bản trình bày được cấu thành từ các thành phần như autoshapes, bảng, đối tượng OLE, các shape nhóm, khung hình ảnh, khung video, connector và các yếu tố khác được sử dụng để xây dựng bản trình bày. Trong Aspose.Slides for Java, mỗi yếu tố trên slide được biểu diễn bằng một đối tượng triển khai giao diện [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/) hoặc kế thừa từ một lớp thực hiện giao diện này.
+Một slide trong bài thuyết trình được tạo thành từ các thành phần như autoshape, bảng, đối tượng OLE, shape nhóm, khung hình, khung video, connector và các yếu tố khác dùng để xây dựng bài thuyết trình. Trong Aspose.Slides for Java, mỗi yếu tố trên slide được đại diện bởi một đối tượng thực thi giao diện [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) hoặc kế thừa từ một lớp thực hiện giao diện này.
 
-Cấu trúc của PPTX phức tạp, vì vậy khác với PPT, nơi một khóa chung có thể được sử dụng cho mọi loại shape, các loại shape khác nhau yêu cầu các khóa riêng. Giao diện [IBaseShapeLock](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseshapelock/) là lớp khóa chung cho PPTX. Các loại khóa sau được hỗ trợ trong Aspose.Slides for Java cho PPTX:
+Các loại shape khác nhau cung cấp các tùy chọn khóa khác nhau. Giao diện [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) là giao diện cơ bản cho các khóa shape. Aspose.Slides for Java cung cấp các giao diện khóa sau:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshapelock/) khóa các autoshapes.  
-- [IConnectorLock](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iconnectorlock/) khóa các shape connector.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igraphicalobjectlock/) khóa các đối tượng đồ họa.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/vi/java/com.aspose.slides/igroupshapelock/) khóa các shape nhóm.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipictureframelock/) khóa các khung hình ảnh.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) khóa autoshape.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) khóa các connector shape.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) khóa các đối tượng đồ họa.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) khóa shape nhóm.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) khóa các khung hình.  
 
-Bất kỳ hành động nào được thực hiện trên tất cả các đối tượng shape trong một đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) sẽ được áp dụng cho toàn bộ bản trình bày.
+Để áp dụng khóa trên một [Bản trình chiếu](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), duyệt qua các slide của nó và thiết lập các khóa phù hợp trên mỗi shape được hỗ trợ.
 
-## **Áp dụng và gỡ bỏ bảo vệ**
+## **Áp dụng và Xóa bảo vệ**
 
-Áp dụng bảo vệ đảm bảo rằng bản trình bày không thể được chỉnh sửa. Đây là một kỹ thuật hữu ích để bảo vệ nội dung của bản trình bày.
+Các khóa shape hạn chế các thao tác như chọn, di chuyển và thay đổi kích thước shape. Chúng không làm cho toàn bộ bài thuyết trình không thể chỉnh sửa.
 
 ### **Áp dụng bảo vệ cho các shape PPTX**
 
-Aspose.Slides for Java cung cấp giao diện [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/) để làm việc với các shape trên slide.
+Aspose.Slides for Java cung cấp giao diện [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) để làm việc với các shape trên một slide.
 
-Như đã đề cập ở trên, mỗi lớp shape có một lớp shape-lock tương ứng để bảo vệ. Bài viết này tập trung vào các khóa NoSelect, NoMove và NoResize. Những khóa này đảm bảo rằng các shape không thể được chọn (qua nhấp chuột hoặc các phương pháp chọn khác) và cũng không thể di chuyển hoặc thay đổi kích thước.
+Ví dụ gọi [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-), và [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) với giá trị `true` cho autoshape, với các khóa tương đương cho shape nhóm, connector và picture frame. Các connector sử dụng [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) để di chuyển; các nhóm cũng sử dụng [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) để hạn chế việc nhóm.
 
-Mẫu mã dưới đây áp dụng bảo vệ cho tất cả các loại shape trong một bản trình bày.
+Ví dụ tải một bài thuyết trình PPTX hiện có, kiểm tra các shape trong bộ sưu tập shape của mỗi slide, và lưu một bản sao với các hạn chế này được áp dụng. Các shape không thuộc bốn loại được xử lý sẽ được giữ nguyên. Vòng lặp không duyệt qua các shape con bên trong một nhóm.
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Sample.pptx");
-
-// Duyệt qua tất cả các slide trong bản trình bày.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Duyệt qua tất cả các shape trong slide.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Ép kiểu shape thành autoshape và lấy khóa shape của nó.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(true);
-            autoShapeLock.setSelectLocked(true);
-            autoShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IGroupShape) {
-            // Ép kiểu shape thành group shape và lấy khóa shape của nó.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(true);
-            groupShapeLock.setPositionLocked(true);
-            groupShapeLock.setSelectLocked(true);
-            groupShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IConnector) {
-            // Ép kiểu shape thành connector và lấy khóa shape của nó.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(true);
-            connectorShapeLock.setSelectLocked(true);
-            connectorShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IPictureFrame) {
-            // Ép kiểu shape thành picture frame và lấy khóa shape của nó.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(true);
-            pictureFrameLock.setSelectLocked(true);
-            pictureFrameLock.setSizeLocked(true);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(true);
+                autoShapeLock.setSelectLocked(true);
+                autoShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(true);
+                groupShapeLock.setPositionLocked(true);
+                groupShapeLock.setSelectLocked(true);
+                groupShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(true);
+                connectorShapeLock.setSelectLocked(true);
+                connectorShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(true);
+                pictureFrameLock.setSelectLocked(true);
+                pictureFrameLock.setSizeLocked(true);
+            }
         }
     }
-}
 
-// Lưu tệp bản trình bày.
-presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Gỡ bỏ bảo vệ**
+### **Xóa bảo vệ**
 
-Để bỏ khóa một shape, đặt giá trị của khóa đã áp dụng thành `false`. Mẫu mã dưới đây minh họa cách bỏ khóa các shape trong một bản trình bày đã được khóa.
+Để xóa một khóa shape, đặt giá trị của nó thành `false`. Ví dụ sau tải một bản trình chiếu có khóa shape và xóa các hạn chế về chọn, di chuyển và thay đổi kích thước thông qua [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/), và [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Nó cũng loại bỏ hạn chế nhóm bằng cách truyền `false` cho [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) và lưu một bản sao của bài thuyết trình. Các cài đặt khóa khác được giữ nguyên.
 
 ```java
-// Tạo đối tượng lớp Presentation đại diện cho tệp PPTX.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ProtectedSample.pptx");
-
-// Duyệt qua tất cả các slide trong bản trình bày.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Duyệt qua tất cả các shape trong slide.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Ép kiểu shape thành autoshape và lấy khóa shape của nó.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(false);
-            autoShapeLock.setSelectLocked(false);
-            autoShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IGroupShape) {
-            // Ép kiểu shape thành group shape và lấy khóa shape của nó.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(false);
-            groupShapeLock.setPositionLocked(false);
-            groupShapeLock.setSelectLocked(false);
-            groupShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IConnector) {
-            // Ép kiểu shape thành connector và lấy khóa shape của nó.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(false);
-            connectorShapeLock.setSelectLocked(false);
-            connectorShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IPictureFrame) {
-            // Ép kiểu shape thành picture frame và lấy khóa shape của nó.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(false);
-            pictureFrameLock.setSelectLocked(false);
-            pictureFrameLock.setSizeLocked(false);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(false);
+                autoShapeLock.setSelectLocked(false);
+                autoShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(false);
+                groupShapeLock.setPositionLocked(false);
+                groupShapeLock.setSelectLocked(false);
+                groupShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(false);
+                connectorShapeLock.setSelectLocked(false);
+                connectorShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(false);
+                pictureFrameLock.setSelectLocked(false);
+                pictureFrameLock.setSizeLocked(false);
+            }
         }
     }
-}
 
-// Lưu tệp bản trình bày.
-presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Kết luận**
+### **Kết luận**
 
-Aspose.Slides cung cấp một số tùy chọn để bảo vệ các shape trong một bản trình bày. Bạn có thể khóa một shape riêng lẻ hoặc duyệt qua tất cả các shape trong bản trình bày và khóa từng shape để bảo vệ toàn bộ tệp một cách hiệu quả. Bạn có thể gỡ bỏ bảo vệ bằng cách đặt giá trị khóa thành `false`.
+Aspose.Slides for Java cho phép bạn hạn chế các thao tác chỉnh sửa cụ thể trên từng shape riêng lẻ hoặc áp dụng cùng một hạn chế trên nhiều slide. Chọn các khóa được hỗ trợ bởi mỗi loại shape, và đặt giá trị của chúng thành `false` khi cần xóa các hạn chế đó.
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Can I combine shape locks and password protection in the same presentation?**
+**Tôi có thể kết hợp khóa shape và bảo vệ bằng mật khẩu trong cùng một bản trình chiếu không?**
 
-Có. Các khóa hạn chế việc chỉnh sửa các đối tượng bên trong tệp, trong khi [password protection](/slides/vi/java/password-protected-presentation/) kiểm soát quyền truy cập để mở và/hoặc lưu các thay đổi. Những cơ chế này bổ trợ lẫn nhau và hoạt động đồng thời.
+Có. Khóa shape hạn chế các thao tác chỉnh sửa cụ thể, trong khi [bảo vệ bằng mật khẩu](/slides/vi/java/password-protected-presentation/) có thể hạn chế việc mở hoặc sửa đổi bản trình chiếu. Bạn có thể sử dụng cả hai trong cùng một tệp.
 
-**Can I restrict editing on specific slides without affecting others?**
+**Tôi có thể hạn chế chỉnh sửa trên các slide cụ thể mà không ảnh hưởng đến các slide khác không?**
 
-Có. Áp dụng khóa cho các shape trên các slide đã chọn; các slide còn lại sẽ vẫn có thể chỉnh sửa.
+Có. Áp dụng khóa chỉ cho các shape trên các slide đã chọn. Điều này không thay đổi cài đặt khóa trên các slide khác.
 
-**Do shape locks apply to grouped objects and connectors?**
+**Làm thế nào tôi có thể áp dụng khóa cho các shape riêng lẻ bên trong một nhóm?**
 
-Có. Các loại khóa riêng biệt được hỗ trợ cho nhóm, connector, đối tượng đồ họa và các loại shape khác.
+Duyệt qua bộ sưu tập được trả về bởi phương thức [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) của nhóm và áp dụng các khóa phù hợp cho mỗi shape con. Lặp lại cho bất kỳ nhóm lồng nhau nào. Các ví dụ ở trên chỉ xử lý bộ sưu tập shape của slide, vì vậy chúng không đặt khóa cho các thành viên riêng lẻ của nhóm.

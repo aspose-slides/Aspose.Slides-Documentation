@@ -8,41 +8,57 @@ keywords:
 - изображение предпросмотра
 - изменение размера изображения
 - Excel
-- лист
+- рабочий лист
 - PowerPoint
 - презентация
 - C++
-- Aspose.Slides for C++
+- Aspose.Slides для C++
 description: "Рабочее решение для изменения размера листа в презентациях PowerPoint с использованием C++"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}}
-
-Было обнаружено, что листы Excel, встроенные как OLE‑объекты в презентацию PowerPoint с помощью компонентов Aspose, изменяются до неизвестного масштаба после первой активации. Это приводит к заметному визуальному различию между состоянием OLE‑объекта до и после активации. Мы подробно исследовали эту проблему и предложили решение, которое изложено в этой статье.
+Встраиваемые в презентацию PowerPoint листы Excel в виде OLE‑объектов с использованием компонентов Aspose могут изменять размер неожиданно после первого активации. Такое поведение создает заметную визуальную разницу между OLE‑объектом до и после активации. В этой статье объясняется проблема и описываются два способа её решения.
 
 {{% /alert %}}
 
-## **Фон**
+## **Предыстория**
 
-В статье [Управление OLE](/slides/ru/cpp/manage-ole/) мы объяснили, как добавить OLE‑кадр в презентацию PowerPoint с помощью Aspose.Slides for C++. Чтобы решить проблему [просмотра объекта](/slides/ru/cpp/object-preview-issue-when-adding-oleobjectframe/), мы присвоили изображение выбранной области листа OLE‑кадру. В полученной презентации, когда вы дважды щёлкните OLE‑кадр, отображающий изображение листа, активируется рабочая книга Excel. Пользователи могут вносить любые изменения в реальную рабочую книгу Excel, а затем возвращаться к слайду, щёлкнув за пределами активированной рабочей книги. Размер OLE‑кадра изменится, когда пользователь вернётся к слайду. Коэффициент изменения размера будет различаться в зависимости от размеров OLE‑кадра и встроенной рабочей книги Excel. 
+В статье [Управление OLE](/slides/ru/cpp/manage-ole/) мы объяснили, как добавить OLE‑кадр в презентацию PowerPoint с использованием Aspose.Slides для C++. Чтобы решить [проблему предварительного просмотра объекта](/slides/ru/cpp/object-preview-issue-when-adding-oleobjectframe/), мы назначили изображение выбранной области листа OLE‑кадру. В полученной презентации, когда вы дважды щелкнете OLE‑кадр, отображающий изображение листа, активируется рабочая книга Excel. Конечные пользователи могут вносить любые желаемые изменения в реальную рабочую книгу Excel, а затем вернуться к слайду, щёлкнув за пределами активированной рабочей книги Excel. Размер OLE‑кадра изменится, когда пользователь вернётся к слайду. Коэффициент изменения размера будет зависеть от размера OLE‑кадра и встроенной рабочей книги Excel.
 
 ## **Причина изменения размера**
 
-Поскольку у рабочей книги Excel имеется собственный размер окна, она пытается сохранить исходный размер при первой активации. С другой стороны, OLE‑кадр имеет собственный размер. По данным Microsoft, когда рабочая книга Excel активируется, Excel и PowerPoint согласуют размер, чтобы обеспечить правильные пропорции в процессе внедрения. Изменение размера происходит из‑за различий между размером окна Excel и размером и положением OLE‑кадра.
+Поскольку у рабочей книги Excel есть собственный размер окна, она пытается сохранить оригинальный размер при первой активации. С другой стороны, OLE‑кадр имеет свой собственный размер. По словам Microsoft, когда рабочая книга Excel активируется, Excel и PowerPoint согласовывают размер, чтобы обеспечить правильные пропорции в процессе встраивания. Изменение размера происходит на основе различий между размером окна Excel и размером и положением OLE‑кадра.
 
 ## **Рабочее решение**
 
 Существует два возможных решения, позволяющих избежать эффекта изменения размера.
 
-- Масштабировать размер OLE‑кадра в презентации PowerPoint, чтобы он соответствовал высоте и ширине требуемого количества строк и столбцов в OLE‑кадре.
-- Сохранить постоянный размер OLE‑кадра и масштабировать размеры участвующих строк и столбцов, чтобы они помещались в выбранный размер OLE‑кадра.
+- Масштабировать OLE‑кадр в презентации PowerPoint, чтобы он соответствовал общей высоте и ширине выбранных строк и столбцов.
+- Сохранить постоянный размер OLE‑кадра и масштабировать выбранные строки и столбцы, чтобы они помещались внутри него.
 
-### **Масштабировать размер OLE‑кадра**
+### **Scale the OLE Frame Size**
 
-В этом подходе мы узнаем, как установить размер OLE‑кадра встроенной рабочей книги Excel, чтобы он соответствовал совокупному размеру участвующих строк и столбцов в листе Excel.
+Этот подход устанавливает размер OLE‑кадра так, чтобы он соответствовал общей высоте и ширине выбранных строк и столбцов во встроенном листе Excel.
 
-Предположим, у нас есть шаблонный лист Excel, и мы хотим добавить его в презентацию в виде OLE‑кадра. В этом сценарии размер OLE‑кадра сначала будет рассчитан на основе совокупных высот строк и ширин столбцов участвующих строк и столбцов в рабочей книге. Затем мы установим размер OLE‑кадра в полученное значение. Чтобы избавиться от красного сообщения «EMBEDDED OLE OBJECT» для OLE‑кадра в PowerPoint, мы также захватим изображение нужных частей строк и столбцов в рабочей книге и зададим его в качестве изображения OLE‑кадра.
+В примере загружается существующая рабочая книга Excel и выбираются первые 10 строк и 13 столбцов первого листа с использованием нулевой индексации. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) определяет отображаемый диапазон. Предпросмотр рендерится с разрешением 96 DPI, а его пиксельные размеры преобразуются в пункты с использованием 72 пункта на дюйм. [ShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addoleobjectframe/) внедряет изменённую рабочую книгу в кадр с этими размерами. Предпросмотр назначается через [OleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/get_substitutepictureformat/) для замены заполнителя "EMBEDDED OLE OBJECT" в сохранённой презентации.
+
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/image.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -54,7 +70,7 @@ int imageResolution = 96;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Установить отображаемый размер, когда файл рабочей книги используется как OLE‑объект в PowerPoint.
+// Установите отображаемый размер, когда файл рабочей книги используется как OLE‑объект в PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -62,12 +78,12 @@ workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Получить ширину и высоту OLE‑изображения в пунктах.
+// Получите ширину и высоту OLE‑изображения в пунктах.
 auto image = Image::FromStream(imageStream);
 auto imageWidth = image->get_Width() * 72.0f / imageResolution;
 auto imageHeight = image->get_Height() * 72.0f / imageResolution;
 
-// Нужно использовать изменённую рабочую книгу.
+// Нам нужно использовать изменённую рабочую книгу.
 auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
 auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
 workbook.Dispose();
@@ -75,11 +91,11 @@ workbook.Dispose();
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Добавить OLE‑изображение в ресурсы презентации.
+// Добавьте OLE‑изображение в ресурсы презентации.
 auto oleImage = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// Создать кадр OLE‑объекта.
+// Создайте кадр OLE‑объекта.
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
 auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
@@ -91,7 +107,22 @@ presentation->Dispose();
 Aspose::Cells::Cleanup();
 ```
 
+Вспомогательная функция предварительного просмотра использует [PageSetup::SetPrintArea](https://reference.aspose.com/cells/cpp/aspose.cells/pagesetup/setprintarea/) для выбора диапазона и удаляет поля, колонтитулы и верхние колонтитулы. При включённой опции [ImageOrPrintOptions::SetOnlyArea](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/imageorprintoptions/setonlyarea/) [SheetRender::ToImage](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/sheetrender/toimage/) рендерит диапазон как PNG‑изображение. Вспомогательная функция копирует отрисованные данные изображения в новый поток памяти, позиционированный в начале, для использования в презентации.
+
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -119,13 +150,27 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
+### **Scale the Cell Range Size**
 
-### **Масштабировать размер диапазона ячеек**
+Этот подход масштабирует высоты выбранных строк и ширины выбранных столбцов, чтобы соответствовать пользовательскому размеру OLE‑кадра.
 
-В этом подходе мы узнаем, как масштабировать высоты участвующих строк и ширины участвующих столбцов, чтобы они соответствовали пользовательскому размеру OLE‑кадра.
+В примере загружается существующая рабочая книга Excel и выбираются первые 10 строк и 13 столбцов первого листа с использованием нулевой индексации. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) определяет отображаемый диапазон, а приведённая ниже вспомогательная функция масштабирует этот диапазон так, чтобы он помещался в кадр шириной 400 пунктов и высотой 100 пунктов. После сохранения изменённой рабочей книги в массив байтов, [ShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addoleobjectframe/) внедряет её с указанными размерами. Предпросмотр, отрендеренный при 96 DPI, назначается через [OleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/get_substitutepictureformat/), поэтому сохранённая презентация отображает выбранные ячейки вместо стандартного заполнителя.
 
-Предположим, у нас есть шаблонный лист Excel, и мы хотим добавить его в презентацию в виде OLE‑кадра. В этом сценарии мы зададим размер OLE‑кадра и масштабируем размер строк и столбцов, участвующих в области OLE‑кадра. Затем мы сохраним рабочую книгу в поток, чтобы применить изменения, и преобразуем её в массив байтов для добавления в OLE‑кадр. Чтобы избавиться от красного сообщения «EMBEDDED OLE OBJECT» для OLE‑кадра в PowerPoint, мы также захватим изображение нужных частей строк и столбцов в рабочей книге и зададим его в качестве изображения OLE‑кадра.
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -138,7 +183,7 @@ float frameWidth = 400, frameHeight = 100;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Установить отображаемый размер, когда файл рабочей книги используется как OLE‑объект в PowerPoint.
+// Установите отображаемый размер, когда файл рабочей книги используется как OLE‑объект в PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -149,7 +194,7 @@ ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Необходимо использовать изменённую рабочую книгу.
+// Нужно использовать изменённую рабочую книгу.
 auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
 auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
 workbook.Dispose();
@@ -157,11 +202,11 @@ workbook.Dispose();
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Добавить OLE‑изображение в ресурсы презентации.
+// Добавьте OLE‑изображение в ресурсы презентации.
 auto oleImage = presentation->get_Images()->AddImage(imageStream);
 imageStream->Dispose();
 
-// Создать кадр OLE‑объекта.
+// Создайте кадр OLE‑объекта.
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
 auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
@@ -173,7 +218,14 @@ presentation->Dispose();
 Aspose::Cells::Cleanup();
 ```
 
+Вспомогательная функция масштабирования вычисляет отдельные коэффициенты ширины и высоты для выбранного диапазона, сохраняя относительные ширины его столбцов и относительные высоты его строк. Она преобразует рассчитанные размеры из пунктов в дюймы перед применением их с помощью [Cells::SetColumnWidthInch](https://reference.aspose.com/cells/cpp/aspose.cells/cells/setcolumnwidthinch/) и [Cells::SetRowHeightInch](https://reference.aspose.com/cells/cpp/aspose.cells/cells/setrowheightinch/). Выбранный диапазон должен иметь ненулевую ширину и высоту.
+
 ```cpp
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/CellsUnitType.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/Worksheet.h"
+
 /// <param name="width">Ожидаемая ширина диапазона ячеек в пунктах.</param>
 /// <param name="height">Ожидаемая высота диапазона ячеек в пунктах.</param>
 void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
@@ -203,7 +255,22 @@ void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 }
 ```
 
+Эта вспомогательная функция предварительного просмотра рендерит изменённый диапазон с использованием [SheetRender::ToImage](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/sheetrender/toimage/). Она использует [PageSetup::SetPrintArea](https://reference.aspose.com/cells/cpp/aspose.cells/pagesetup/setprintarea/) для ограничения печати этим диапазоном, удаляет поля, колонтитулы и верхние колонтитулы и возвращает PNG‑поток, позиционированный в начале.
+
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -231,41 +298,40 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
+## **Заключение**
 
-## **Вывод**
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}}
-
-Существует два подхода к устранению проблемы изменения размера листа. Выбор подходящего зависит от конкретных требований и сценария использования. Оба подхода работают одинаково, независимо от того, создаётся ли презентация из шаблона или «с нуля». Кроме того, в этом решении нет ограничения на размер OLE‑кадра.
+Существует два подхода к устранению проблемы изменения размера листа. Выберите подход, который лучше всего соответствует вашим требованиям и сценариям использования. Оба подхода работают одинаково, независимо от того, созданы ли презентации из шаблона или с нуля. Кроме того, в этом решении нет ограничений на размер OLE‑кадра.
 
 {{% /alert %}}
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Почему встроенный лист Excel изменяется в размере при первой активации в PowerPoint?**
+**Почему встроенный лист Excel меняет размер при первой активации в PowerPoint?**
 
-Это происходит, потому что Excel пытается сохранить исходный размер окна при активации, тогда как OLE‑кадр в PowerPoint имеет свои собственные размеры. PowerPoint и Excel согласуют размер, чтобы сохранить соотношение сторон, что может вызвать изменение масштаба.
+Это происходит потому, что Excel пытается сохранить оригинальный размер окна при активации, тогда как OLE‑кадр в PowerPoint имеет свои собственные размеры. PowerPoint и Excel согласуют размер, чтобы сохранить соотношение сторон, что может привести к изменению размера.
 
 **Можно ли полностью предотвратить эту проблему изменения размера?**
 
-Да. Масштабируя OLE‑кадр под размер диапазона ячеек Excel или масштабируя диапазон ячеек под требуемый размер OLE‑кадра, можно избежать нежелательного изменения размера.
+Да. Масштабируя OLE‑кадр под размер диапазона ячеек Excel или масштабируя диапазон ячеек под нужный размер OLE‑кадра, можно избежать нежелательного изменения размера.
 
-**Какой метод масштабирования следует использовать: масштабирование OLE‑кадра или диапазона ячеек?**
+**Какой метод масштабирования использовать: масштабирование OLE‑кадра или масштабирование диапазона ячеек?**
 
-Выберите **масштабирование OLE‑кадра**, если хотите сохранить оригинальные размеры строк и столбцов Excel. Выберите **масштабирование диапазона ячеек**, если хотите зафиксировать размер OLE‑кадра в презентации.
+Выберите **OLE frame scaling**, если хотите сохранить оригинальные размеры строк и столбцов Excel. Выберите **cell range scaling**, если нужен фиксированный размер OLE‑кадра в вашей презентации.
 
 **Будут ли эти решения работать, если моя презентация основана на шаблоне?**
 
-Да. Оба решения работают как для презентаций, созданных из шаблонов, так и для созданных «с нуля».
+Да. Оба решения работают как для презентаций, созданных из шаблонов, так и с нуля.
 
-**Есть ли ограничение по размеру OLE‑кадра при использовании этих методов?**
+**Есть ли ограничение размера OLE‑кадра при использовании этих методов?**
 
-Нет. Вы можете задать любой размер OLE‑кадра, если правильно установите коэффициент масштабирования.
+Нет. Вы можете задать любой размер OLE‑кадра, при условии правильной установки масштаба.
 
-**Можно ли избавиться от текста‑заполнителя «EMBEDDED OLE OBJECT» в PowerPoint?**
+**Можно ли избежать текста‑заполнителя «EMBEDDED OLE OBJECT» в PowerPoint?**
 
-Да. Сделав снимок целевого диапазона ячеек Excel и задав его в качестве изображения‑заполнителя OLE‑кадра, вы можете отобразить собственное предварительное изображение вместо стандартного заполнителя.
+Да. Сделав снимок целевого диапазона ячеек Excel и установив его в качестве изображения‑заполнителя OLE‑кадра, можно отобразить пользовательское изображение предварительного просмотра вместо стандартного заполнителя.
 
 ## **Связанные статьи**
 
-[Создание диаграммы Excel и встраивание её в презентацию как OLE‑объект](/slides/ru/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Создание диаграммы Excel и её встраивание в презентацию как OLE‑объект](/slides/ru/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

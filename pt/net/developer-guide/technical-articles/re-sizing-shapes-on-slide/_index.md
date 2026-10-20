@@ -2,7 +2,10 @@
 title: Redimensionar formas em slides de apresentação no .NET
 type: docs
 weight: 130
-url: /pt/net/re-sizing-shapes-on-slide/
+url: /pt/net/resizing-shapes-on-slide/
+aliases:
+  - /pt/net/re-sizing-shapes-on-slide/
+  /net/re-sizing-shapes-on-slide/
 keywords:
 - redimensionar forma
 - alterar tamanho da forma
@@ -12,133 +15,108 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Redimensione facilmente formas em slides do PowerPoint e OpenDocument com Aspose.Slides para .NET — automatize ajustes de layout de slides e aumente a produtividade."
+description: "Redimensione facilmente formas em slides PowerPoint e OpenDocument com Aspose.Slides para .NET—automatize ajustes de layout de slides e aumente a produtividade."
 ---
 ## **Visão geral**
 
-Uma das perguntas mais comuns dos clientes do Aspose.Slides para .NET é como redimensionar formas de modo que, quando o tamanho do slide mudar, os dados não sejam cortados. Este breve artigo técnico mostra como fazer isso.
+Ao alterar o tamanho do slide de uma apresentação, pode ser necessário redimensionar e reposicionar suas formas para que se ajustem às novas dimensões. Este artigo mostra como escalar formas manualmente e como lidar com tabelas em slides, mestres e layouts.
 
 ## **Redimensionar formas**
 
-Para evitar que as formas fiquem desalinhadas quando o tamanho do slide mudar, atualize a posição e as dimensões de cada forma para que se ajustem ao novo layout do slide.
+Para preservar a posição e o tamanho relativos de cada forma, multiplique suas coordenadas horizontais e a largura pela razão entre a nova largura do slide e a largura original. Aplique a razão de altura correspondente às coordenadas verticais e à altura.
 
-```c#
-// Carregar o arquivo de apresentação.
-using (Presentation presentation = new Presentation("sample.pptx"))
+O primeiro exemplo carrega uma apresentação cujos slides não contêm tabelas, altera o tamanho do slide para A4 e salva o resultado. Ele usa [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) com [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) para que o loop subsequente controle a escala. As razões são adimensionais; as posições e dimensões das formas são medidas em pontos. Razões diferentes de largura e altura podem distorcer as formas, e alterar as dimensões de uma forma não escala os tamanhos das fontes.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Calcule fatores de escala horizontais e verticais independentes.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // Obter o tamanho original do slide.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // Alterar o tamanho do slide sem dimensionar as formas existentes.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Obter o novo tamanho do slide.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Redimensionar e reposicionar as formas em cada slide.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // Dimensionar o tamanho da forma.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Dimensionar a posição da forma.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-Se um slide contiver uma tabela, o código acima não funcionará corretamente. Nesse caso, cada célula da tabela deve ser redimensionada.
+{{% alert color="info" title="Nota" %}}
+Tabelas exigem tratamento separado: escale as larguras das colunas e as alturas das linhas em vez de atribuir a largura e a altura gerais da tabela. As alturas das linhas podem permanecer maiores que o solicitado se o conteúdo da célula precisar de mais espaço.
 {{% /alert %}}
 
-Use o código a seguir para redimensionar slides que contêm tabelas. Para tabelas, definir a largura ou a altura é um caso especial: você deve ajustar as alturas das linhas individuais e as larguras das colunas para alterar o tamanho geral da tabela.
+O segundo exemplo suporta tabelas e processa formas em mestres e layouts, bem como em slides individuais, antes de salvar a apresentação redimensionada. Seu auxiliar trata cada [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) escalando [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) e [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/). Em seguida, escala a posição da tabela sem escalar separadamente suas dimensões gerais.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Calcule fatores de escala horizontais e verticais independentes.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Redimensione formas definidas em mestres e layouts, bem como em slides individuais.
+foreach (var master in presentation.Masters)
 {
-    // Obter o tamanho original do slide.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Alterar o tamanho do slide sem dimensionar as formas existentes.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Obter o novo tamanho do slide.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Dimensionar o tamanho da forma.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Dimensionar a posição da forma.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // As dimensões da tabela são controladas pelas larguras das colunas e pelas alturas das linhas.
+            foreach (var column in table.Columns)
             {
-                // Dimensionar o tamanho da forma.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Dimensionar a posição da forma.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Dimensionar o tamanho da forma.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Dimensionar a posição da forma.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
@@ -146,28 +124,28 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 **Por que as formas ficam distorcidas ou cortadas após redimensionar um slide?**
 
-Ao redimensionar um slide, as formas mantêm sua posição e tamanho originais, a menos que a escala seja alterada explicitamente. Isso pode fazer com que o conteúdo seja recortado ou as formas fiquem desalinhadas.
+Se você alterar o tamanho do slide sem escalar as formas, elas mantêm suas posições e dimensões originais e podem ultrapassar o slide. Escalar largura e altura por razões diferentes também pode distorcer as formas.
 
 **O código fornecido funciona para todos os tipos de forma?**
 
-O exemplo básico funciona para a maioria dos tipos de forma (caixas de texto, imagens, gráficos etc.). No entanto, para tabelas, é necessário tratar linhas e colunas separadamente, pois a altura e a largura de uma tabela são determinadas pelas dimensões das células individuais.
+O primeiro exemplo altera os limites da forma diretamente e destina‑se a slides sem tabelas. O segundo exemplo trata as tabelas separadamente. Verifique o layout resultante, particularmente texto e tabelas, pois esses exemplos não escalam tamanhos de fonte e o conteúdo da tabela pode restringir as alturas das linhas.
 
 **Como redimensionar tabelas ao redimensionar um slide?**
 
-É preciso percorrer todas as linhas e colunas da tabela e redimensionar suas alturas e larguras proporcionalmente, conforme mostrado no segundo exemplo de código.
+Escale as larguras das colunas pela razão de largura e as alturas mínimas das linhas pela razão de altura, depois escale a posição da tabela, como mostrado no segundo exemplo.
 
 **Esse redimensionamento funciona para slides mestres e slides de layout?**
 
-Sim, mas você também deve percorrer [Masters](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/masters/) e [LayoutSlides](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/layoutslides/) e aplicar a mesma lógica de escala às suas formas para garantir consistência em toda a apresentação.
+Sim. O segundo exemplo itera através de [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) e de cada [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) do mestre, aplicando a mesma lógica de redimensionamento às suas formas.
 
-**Posso mudar a orientação de um slide (retrato/paisagem) junto com o redimensionamento?**
+**Posso alterar a orientação de um slide (retrato/paisagem) junto com o redimensionamento?**
 
-Sim. Você pode definir [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/pt/net/aspose.slides/islidesize/orientation/) para mudar a orientação. Certifique‑se de ajustar a lógica de escala adequadamente para preservar o layout.
+Sim. Defina [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) após alterar o tamanho do slide e antes de ler as dimensões-alvo, para que os fatores de escala reflitam a orientação final.
 
-**Existe um limite para o tamanho de slide que posso definir?**
+**Existe um limite para o tamanho do slide que posso definir?**
 
-O Aspose.Slides suporta tamanhos personalizados, mas tamanhos muito grandes podem afetar o desempenho ou a compatibilidade com algumas versões do PowerPoint.
+Você pode especificar dimensões de slide personalizadas com [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). As dimensões suportadas também dependem do formato da apresentação e da aplicação usada para abrir o arquivo.
 
 **Como impedir que formas com proporção fixa fiquem distorcidas?**
 
-Você pode verificar a propriedade `AspectRatioLocked` da forma antes de escalar. Se estiver bloqueada, ajuste a largura ou a altura proporcionalmente em vez de escalá‑las individualmente.
+Use o mesmo fator de escala para largura e altura. Para ajustar o layout original dentro das novas dimensões do slide, use a menor das duas razões (largura ou altura) para ambas as dimensões e posições. Isso preserva as proporções, mas pode deixar espaço não utilizado em uma das bordas.

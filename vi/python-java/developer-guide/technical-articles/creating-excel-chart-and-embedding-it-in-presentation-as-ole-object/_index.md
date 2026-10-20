@@ -8,34 +8,44 @@ keywords:
 - Nhúng biểu đồ
 - Đối tượng OLE
 - PowerPoint
-- OpenDocument
 - Bản trình chiếu
 - Python
 - Java
 - Aspose.Slides
-description: "Tạo biểu đồ Excel và nhúng chúng dưới dạng đối tượng OLE trong các bản trình chiếu PowerPoint và OpenDocument bằng Python. Hướng dẫn chi tiết kèm mẫu mã."
+description: "Tạo một biểu đồ Excel bằng Aspose.Cells cho Python qua Java và nhúng sổ làm việc vào bản trình chiếu PowerPoint với Aspose.Slides, bao gồm một bản xem trước biểu đồ."
 ---
-## **Bối cảnh**
+## **Tổng quan**
 
-Trong PowerPoint, việc sử dụng biểu đồ có thể chỉnh sửa để hiển thị dữ liệu dưới dạng đồ họa là một thực tiễn phổ biến. Aspose hỗ trợ tạo biểu đồ Excel bằng Aspose.Cells for Python via Java, và các biểu đồ này có thể được nhúng dưới dạng đối tượng OLE trong các slide PowerPoint thông qua Aspose.Slides for Python via Java. Bài viết này trình bày các bước cần thiết và cung cấp một mẫu mã Python để tạo biểu đồ Excel và nhúng nó dưới dạng đối tượng OLE trong bản trình chiếu PowerPoint bằng Aspose.Cells và Aspose.Slides.
+Bài viết này hướng dẫn cách tạo biểu đồ cột Excel bằng Aspose.Cells cho Python qua Java và nhúng sổ làm việc của nó vào bản trình chiếu PowerPoint bằng Aspose.Slides cho Python qua Java. Sổ làm việc đã nhúng chứa cả dữ liệu nguồn và biểu đồ. Một bản xem trước PNG riêng biệt hiển thị biểu đồ trên slide trước khi đối tượng OLE được kích hoạt.
 
-## **Các bước cần thiết**
+Kết quả là một đối tượng Excel được nhúng, không phải biểu đồ PowerPoint gốc. Việc chỉnh sửa sổ làm việc qua OLE yêu cầu một ứng dụng máy tính để bàn hỗ trợ kích hoạt OLE và cài đặt Excel tương thích.
 
-Các bước theo thứ tự sau là cần thiết để tạo và nhúng một biểu đồ Excel dưới dạng đối tượng OLE trong slide PowerPoint:
+## **Yêu cầu**
 
-1. Tạo biểu đồ Excel bằng Aspose.Cells.  
-2. Đặt kích thước OLE của biểu đồ Excel bằng Aspose.Cells.  
-3. Lấy hình ảnh của biểu đồ Excel bằng Aspose.Cells.  
-4. Nhúng biểu đồ Excel dưới dạng đối tượng OLE trong bản trình chiếu PPTX bằng Aspose.Slides.  
-5. Thay thế hình ảnh "EMBEDDED OLE OBJECT" bằng hình ảnh lấy được ở bước 3 để giải quyết vấn đề [object preview issue](/slides/vi/python-java/object-preview-issue-when-adding-oleobjectframe/).  
-6. Lưu bản trình chiếu vào đĩa ở định dạng PPTX.
+Cài đặt các gói Python `aspose-cells` và `aspose-slides-java` cùng môi trường chạy Java tương thích. Nhập cả hai gói trước khi khởi động JVM để các thư viện Java của chúng có sẵn cho JPype. Microsoft Office không bắt buộc để tạo bản trình chiếu với các thư viện này.
 
-## **Triển khai các bước cần thiết**
+Không cần tệp đầu vào: ví dụ tạo dữ liệu và biểu đồ trong bộ nhớ, sau đó ghi `OutputChart.pptx` vào thư mục làm việc hiện tại. Áp dụng giấy phép cho cả hai sản phẩm khi chạy ngoài chế độ đánh giá.
 
-Việc triển khai bằng Python cho các bước trên như sau:
+## **Cách hoạt động của việc nhúng**
+
+1. Tạo một sổ làm việc với một bảng dữ liệu và một bảng biểu đồ.  
+2. Đặt bảng biểu đồ làm bảng hoạt động để sổ làm việc mở ở biểu đồ.  
+3. Đặt phạm vi hiển thị OLE của sổ làm việc và chuyển đổi biểu đồ sang PNG.  
+4. Lưu sổ làm việc dưới dạng XLSX trong bộ nhớ và nhúng các byte đó vào một slide.  
+5. Gán PNG làm bản xem trước của đối tượng OLE và lưu bản trình chiếu dưới dạng PPTX.
+
+Phạm vi hiển thị của sổ làm việc và khung trên slide có các vai trò khác nhau. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) nhận các chỉ số hàng và cột bắt đầu/kết thúc dựa trên chỉ số zero-based. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) thay vào đó nhận hàng trên cùng, cột trái, hàng dưới cùng và cột phải. Ví dụ sử dụng chỉ số hàng 55 và chỉ số cột 25 làm giới hạn góc dưới bên phải; các giá trị này là lựa chọn bố cục, không phải số lượng hàng hoặc cột dữ liệu.
+
+Khung slide sử dụng đơn vị điểm. Ví dụ điều chỉnh nó vào trong slide và căn giữa trong khi giữ tỷ lệ khung hình của PNG, thay vì kéo dài bản xem trước để lấp đầy slide.
+
+## **Tạo và Nhúng Biểu Đồ**
+
+Ví dụ hoàn chỉnh dưới đây điền `DataSheet` với bốn hàng và năm cột giá trị. Mỗi hàng trở thành một chuỗi biểu đồ. `ChartSheet` được chọn làm bảng hoạt động trước khi sổ làm việc được lưu.
+
+Sổ làm việc được lưu một cách rõ ràng dưới dạng XLSX, phù hợp với phần mở rộng `xlsx` được truyền cho [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/). Các luồng mảng byte Java giữ sổ làm việc và hình ảnh trong bộ nhớ và cung cấp các mảng byte cần thiết cho các API Java. PNG được tải trực tiếp từ các byte mà không qua chuyển đổi bitmap trung gian. Gán nó thông qua [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) thay thế placeholder OLE mặc định.
 
 ```python
-import jpype
+import jpate
 import asposecells
 import asposeslides
 
@@ -44,128 +54,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # Mảng các tên ô.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # Mảng dữ liệu ô.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # Thêm một worksheet mới để điền dữ liệu vào các ô.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # Đổ dữ liệu vào sheet dữ liệu.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # Thêm một sheet biểu đồ.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # Thêm biểu đồ vào sheet biểu đồ với chuỗi dữ liệu từ sheet dữ liệu.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # Đặt sheet biểu đồ làm sheet hoạt động.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # Mô tả workbook dưới dạng dữ liệu OLE được nhúng.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# Tạo một workbook.
 workbook = Workbook()
-
-# Thêm biểu đồ Excel.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# Đặt kích thước OLE cho biểu đồ.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# Lấy hình ảnh biểu đồ và lưu nó vào stream.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# Lưu workbook vào stream.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# Tạo một bản trình chiếu.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # Thêm workbook vào slide.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # Lưu bản trình chiếu vào đĩa.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # Kết xuất bản xem trước biểu đồ và tuần tự hóa sổ làm việc có thể chỉnh sửa riêng biệt.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # Đưa bản xem trước vào trong slide mà không thay đổi tỷ lệ khung hình.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-Bản trình chiếu được tạo bằng phương pháp trên sẽ chứa biểu đồ Excel dưới dạng đối tượng OLE, có thể kích hoạt bằng cách nhấp đúp vào khung đối tượng OLE.
+## **Kết Quả Mong Đợi**
 
-## **Kết luận**
+`OutputChart.pptx` chứa một slide với một sổ làm việc Excel được nhúng và một bản xem trước biểu đồ. Sổ làm việc chứa dữ liệu gốc và một biểu đồ cột với bốn chuỗi. Bản xem trước được căn giữa trên slide và giữ tỷ lệ của nó.
 
-Bằng cách sử dụng Aspose.Cells for Python via Java cùng với Aspose.Slides for Python via Java, chúng ta có thể tạo bất kỳ biểu đồ Excel nào mà Aspose.Cells hỗ trợ và nhúng biểu đồ đó dưới dạng đối tượng OLE trong slide PowerPoint. Kích thước OLE của biểu đồ Excel cũng có thể được xác định. Người dùng cuối sau đó có thể chỉnh sửa biểu đồ Excel như bất kỳ đối tượng OLE nào khác.
+![Biểu đồ cột Excel hiển thị như bản xem trước của sổ làm việc đã nhúng](excel-chart-ole-preview.png)
 
-## **Các phần liên quan**
+Trong môi trường PowerPoint máy tính để bàn tương thích có Excel sẵn có, nhấp đúp vào đối tượng để kích hoạt và chỉnh sửa sổ làm việc đã nhúng. Việc kích hoạt và chỉnh sửa phụ thuộc vào hỗ trợ OLE và cài đặt bảo mật của ứng dụng chủ.
+
+## **FAQ**
+
+**Tại sao cần hình ảnh xem trước?**
+
+Sổ làm việc đã nhúng và bản xem trước slide của nó là nội dung riêng biệt. Cung cấp một hình ảnh biểu đồ để slide hiển thị biểu đồ thay vì placeholder mặc định "EMBEDDED OLE OBJECT". Xem [Vấn đề Xem trước Đối tượng khi Thêm OleObjectFrame](/slides/vi/python-java/object-preview-issue-when-adding-oleobjectframe/).
+
+**Bản xem trước có được cập nhật tự động khi tôi thay đổi sổ làm việc trong mã không?**
+
+Xem bản xem trước như một ảnh chụp. Khi cập nhật dữ liệu sổ làm việc bằng chương trình, hãy tạo lại hình ảnh biểu đồ và thay thế bản xem trước cũng như dữ liệu sổ làm việc đã nhúng.
+
+**Tôi có thể dùng XLS thay vì XLSX không?**
+
+Có. Lưu sổ làm việc ở định dạng XLS và sử dụng `xls` làm phần mở rộng dữ liệu nhúng. Phần mở rộng phải khớp với định dạng thực tế của sổ làm việc; chỉ thay đổi phần mở rộng không chuyển đổi dữ liệu.
+
+**Tại sao đối tượng có thể thay đổi kích thước sau khi kích hoạt?**
+
+Ứng dụng chủ có thể cập nhật cách trình bày của đối tượng OLE khi nó kích hoạt sổ làm việc. Cả phạm vi hiển thị OLE của sổ làm việc và kích thước khung slide đều quan trọng. Xem [Giải pháp hoạt động cho việc thay đổi kích thước biểu đồ trong PPTX](/slides/vi/python-java/working-solution-for-chart-resizing-in-pptx/).
+
+## **Các Phần Liên Quan**
 
 - [Giải pháp hoạt động cho việc thay đổi kích thước biểu đồ trong PPTX](/slides/vi/python-java/working-solution-for-chart-resizing-in-pptx/)
-- [Vấn đề xem trước đối tượng khi thêm OleObjectFrame](/slides/vi/python-java/object-preview-issue-when-adding-oleobjectframe/)
-
-## **Câu hỏi thường gặp**
-
-**Các thư viện nào được sử dụng để tạo và nhúng biểu đồ Excel?**
-
-Aspose.Cells for Python via Java tạo biểu đồ Excel, và Aspose.Slides for Python via Java nhúng nó dưới dạng đối tượng OLE trong slide PowerPoint.
-
-**Người dùng có thể chỉnh sửa biểu đồ Excel đã nhúng như thế nào?**
-
-Người dùng có thể nhấp đúp vào khung đối tượng OLE để kích hoạt biểu đồ và chỉnh sửa nó như bất kỳ đối tượng OLE nào khác.
-
-**Làm thế nào để thay thế hình ảnh xem trước mặc định của đối tượng OLE?**
-
-Ví dụ lấy hình ảnh của biểu đồ Excel bằng Aspose.Cells và dùng nó để thay thế hình ảnh "EMBEDDED OLE OBJECT".
+- [Vấn đề Xem trước Đối tượng khi Thêm OleObjectFrame](/slides/vi/python-java/object-preview-issue-when-adding-oleobjectframe/)

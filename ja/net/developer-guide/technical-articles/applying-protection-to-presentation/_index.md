@@ -1,66 +1,66 @@
 ---
-title: .NET のシェイプレックでプレゼンテーションの編集を防止
-linktitle: プレゼンテーションの編集防止
+title: .NET のシェイプ ロックでプレゼンテーションの編集を制限する
+linktitle: プレゼンテーションの編集を制限する
 type: docs
 weight: 70
 url: /ja/net/applying-protection-to-presentation/
 keywords:
-- 編集防止
+- 編集の防止
 - 編集から保護
-- シェイプレック
-- 位置ロック
-- 選択ロック
-- サイズロック
-- グループ化ロック
+- シェイプのロック
+- 位置のロック
+- 選択のロック
+- サイズ変更のロック
+- グループ化のロック
 - PowerPoint
-- OpenDocument
+- PPTX
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET が PPT、PPTX、ODP ファイル内のシェイプをロックまたはアンロックする方法を確認し、プレゼンテーションを保護しつつ、制御された編集を可能にします。"
+description: "Aspose.Slides for .NET を使用して PPTX プレゼンテーションのシェイプをロックおよびアンロックし、選択、移動、サイズ変更、グループ化を制限する方法を学びます。"
 ---
-
 ## **背景**
 
-Aspose.Slides の一般的な使用例は、Microsoft PowerPoint (PPTX) プレゼンテーションを自動化ワークフローの一部として作成、更新、保存することです。このように Aspose.Slides を使用するアプリケーションのユーザーは生成されたプレゼンテーションにアクセスできるため、編集から保護することがよく求められます。自動生成されたプレゼンテーションが元の書式や内容を保持することが重要です。
+Aspose.Slides for .NET の一般的な使用例は、PowerPoint (PPTX) プレゼンテーションを自動化ワークフローの一部として作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際、シェイプへの変更を制限することで、意図したレイアウトやコンテンツを保護できます。
 
-この記事では、プレゼンテーションとスライドの構造と、Aspose.Slides for .NET でプレゼンテーションに保護を適用し、後で解除する方法を説明します。開発者は、アプリケーションが生成するプレゼンテーションの使用方法を制御できます。
+この記事では、スライド上のシェイプの構成方法と、PPTX プレゼンテーションでシェイプ ロックを適用および解除する方法を説明します。これらのロックにより、個々のシェイプに対する特定の編集操作を制限できます。
 
 ## **スライドの構成**
 
-プレゼンテーションスライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ形状、画像フレーム、ビデオフレーム、コネクタ、その他の要素で構成されます。Aspose.Slides for .NET では、スライド上の各要素は [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) インターフェイスを実装するか、そこから継承したクラスのオブジェクトとして表現されます。
+プレゼンテーションのスライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化シェイプ、画像フレーム、ビデオフレーム、コネクタ、その他の要素で構成されます。Aspose.Slides for .NET では、スライド上の各要素は [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) インターフェイスを実装するオブジェクト、またはそれを継承したクラスで表されます。
 
-PPTX の構造は複雑で、PPT のようにすべての形状タイプに対して汎用ロックを使用できません。形状タイプごとに異なるロックが必要です。[IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) インターフェイスが PPTX 用の汎用ロッククラスです。Aspose.Slides for .NET が PPTX でサポートするロックの種類は次のとおりです。
+シェイプの種類に応じて異なるロックオプションが提供されます。[IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) インターフェイスはシェイプ ロックの基本インターフェイスです。Aspose.Slides for .NET は以下のロックインターフェイスを提供します：
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) はオートシェイプをロックします。  
-- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) はコネクタ形状をロックします。  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) はグラフィックオブジェクトをロックします。  
-- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) はグループ形状をロックします。  
-- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) は画像フレームをロックします。  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) オートシェイプをロックします。  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) コネクタ シェイプをロックします。  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) グラフィカル オブジェクトをロックします。  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) グループ シェイプをロックします。  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) 画像フレームをロックします。  
 
-[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) オブジェクト内のすべての形状オブジェクトに対して実行される操作は、プレゼンテーション全体に適用されます。
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 全体にロックを適用するには、スライドを走査し、各サポートされているシェイプに適切なロックを設定します。
 
 ## **保護の適用と解除**
 
-保護を適用すると、プレゼンテーションを編集できなくなります。これはコンテンツを守るための有用な手法です。
+シェイプ ロックは、シェイプの選択、移動、サイズ変更などの操作を制限します。プレゼンテーション全体を編集不可にするわけではありません。
 
-### **PPTX 形状への保護の適用**
+### **PPTX シェイプへの保護の適用**
 
-Aspose.Slides for .NET はスライド上の形状を操作するために [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) インターフェイスを提供します。
+Aspose.Slides for .NET はスライド上のシェイプを操作するために [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) インターフェイスを提供します。
 
-前述のとおり、各形状クラスには保護用の形状ロッククラスが対応しています。本稿では NoSelect、NoMove、NoResize ロックに焦点を当てます。これらのロックにより、形状を選択（マウスクリックやその他の選択方法）できず、移動やサイズ変更もできなくなります。
+サンプルでは、オートシェイプに対して [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/)、[PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/)、[SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) を `true` に設定し、グループ シェイプ、コネクタ、画像フレームにも同等のロックを適用します。コネクタは移動に [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) を使用し、グループはグループ化を制限するために [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) を使用します。
 
-以下のコードサンプルは、プレゼンテーション内のすべての形状タイプに保護を適用します。
+このサンプルは既存の PPTX プレゼンテーションを読み込み、各スライドのシェイプ コレクションをチェックし、これらの制限を適用したコピーを保存します。対象の4つのタイプ以外のシェイプは変更されません。ループはグループ内の子シェイプは走査しません。
+
 ```cs
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// プレゼンテーション内のすべてのスライドを走査します。
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // スライド内のすべてのシェイプを走査します。
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// プレゼンテーション ファイルを保存します。
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-
 ### **保護の解除**
 
-形状のロックを解除するには、適用されたロックの値を `false` に設定します。次のコードサンプルは、ロックされたプレゼンテーション内の形状のロックを解除する方法を示しています。
-```cs
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+シェイプ ロックを解除するには、その値を `false` に設定します。以下のサンプルはロックされたシェイプを含むプレゼンテーションを読み込み、[IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/)、[IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/)、[IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/)、[IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) を使用して選択、移動、サイズ変更の制限をクリアします。また、[IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) もクリアし、プレゼンテーションのコピーを保存します。他のロック設定は変更されません。
 
-// プレゼンテーション内のすべてのスライドを走査します。
-foreach (ISlide slide in presentation.Slides)
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // スライド内のすべてのシェイプを走査します。
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,25 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// プレゼンテーション ファイルを保存します。
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
-
 ### **結論**
 
-Aspose.Slides はプレゼンテーション内の形状を保護するための複数のオプションを提供します。個々の形状にロックを設定することも、プレゼンテーション内のすべての形状を走査してそれぞれにロックを設定することで、ファイル全体を効果的に保護することもできます。ロックの値を `false` に設定すれば、保護を解除できます。
+Aspose.Slides for .NET を使用すると、個々のシェイプに対する特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。シェイプの種類がサポートするロックを選択し、制限を解除したい場合はその値を `false` に設定してください。
 
 ## **FAQ**
 
-**同じプレゼンテーションで形状ロックとパスワード保護を組み合わせられますか？**
+**同じプレゼンテーションでシェイプ ロックとパスワード保護を組み合わせることはできますか？**
 
-はい。ロックはファイル内部のオブジェクトの編集を制限し、[パスワード保護](/slides/ja/net/password-protected-presentation/) は開封や変更の保存に対するアクセスを制御します。これらのメカニズムは相補的に機能します。
+はい。シェイプ ロックは特定の編集操作を制限し、[パスワード保護](/slides/ja/net/password-protected-presentation/) はプレゼンテーションの開封や変更を制限できます。両方を同じファイルで使用できます。
 
-**特定のスライドだけ編集を制限し、他のスライドはそのままにできますか？**
+**特定のスライドだけで編集を制限し、他のスライドに影響を与えないようにできますか？**
 
-はい。選択したスライド上の形状にロックを適用すれば、残りのスライドは引き続き編集可能です。
+はい。選択したスライドのシェイプにのみロックを適用します。これにより他のスライドのロック設定は変更されません。
 
-**形状ロックはグループ化されたオブジェクトやコネクタにも適用されますか？**
+**グループ内の個々のシェイプにロックを適用するにはどうすればよいですか？**
 
-はい。グループ、コネクタ、グラフィックオブジェクト、その他の形状種別に対応した専用のロックタイプがサポートされています。
+グループの [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) コレクションを走査し、各子シェイプに適切なロックを適用します。入れ子になったグループがある場合は同様に繰り返します。上記の例はスライドのシェイプ コレクションのみを処理しているため、個々のグループ メンバーにはロックが設定されません。

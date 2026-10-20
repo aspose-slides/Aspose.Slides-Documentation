@@ -5,217 +5,141 @@ weight: 60
 url: /ar/cpp/working-solution-for-chart-resizing-in-pptx/
 keywords:
 - تغيير حجم المخطط
-- مخطط إكسل
+- مخطط Excel
 - كائن OLE
 - تضمين المخطط
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "إصلاح تغيير حجم المخطط غير المتوقع في PPTX عند استخدام كائنات OLE مضمّنة من إكسل مع Aspose.Slides للـ C++. تعرف على طريقتين مع الشيفرة للحفاظ على تناسق الأحجام."
+description: "إصلاح تغيير حجم المخطط غير المتوقع في ملفات PPTX عند استخدام كائنات OLE Excel المدمجة مع Aspose.Slides لـ C++. حدد أبعاد مخطط ثابتة للحفاظ على تناسق حجم المخطط وإطار OLE."
 ---
+## **الخلفية**
 
-## ** الخلفية**
+يمكن أن تتغير حجم مخططات Excel المدمجة ككائنات OLE في عروض PowerPoint باستخدام مكونات Aspose بعد تفعيلها لأول مرة. يمكن أن يتسبب ذلك في اختلاف ملحوظ في مظهر المخطط قبل وبعد التفعيل. يشرح هذا المقال سبب حدوث تغيير الحجم ويظهر كيفية منعه عبر مطابقة أبعاد المخطط الثابتة مع إطار OLE.
 
-تمت ملاحظة أن مخططات إكسل المضمنة ككائنات OLE في عرض PowerPoint عبر مكونات Aspose يتم تغيير حجمها إلى مقياس غير محدد بعد تنشيطها لأول مرة. يتسبب هذا السلوك في اختلاف بصري ملحوظ في العرض بين حالة المخطط قبل وبعد التنشيط. قامت فريق Aspose بالتحقيق في المشكلة بالتفصيل ووجد حلاً. تصف هذه المقالة أسباب المشكلة والإصلاح المقابل.
+في [إنشاء مخططات Excel وتضمينها ككائنات OLE في العروض التقديمية](/slides/ar/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، شرحنا كيفية إنشاء مخطط Excel باستخدام Aspose.Cells لـ C++ وتضمينه في عرض PowerPoint باستخدام Aspose.Slides لـ C++. لمعالجة [مشكلة معاينة الكائن](/slides/ar/cpp/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة المخطط إلى إطار كائن OLE الخاص بالمخطط. في العرض الناتج، عندما تنقر مرتين على إطار كائن OLE الذي يعرض صورة المخطط، يتم تفعيل مخطط Excel. يمكن للمستخدمين تعديل مصنف Excel المدمج ثم العودة إلى الشريحة بالنقر خارج المصنف المفعل. يتغير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة، ويتفاوت عامل تغيير الحجم اعتمادًا على الأحجام الأصلية لكل من إطار كائن OLE ومصنف Excel المدمج.
 
-في [المقال السابق](/slides/ar/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، شرحنا كيفية إنشاء مخطط إكسل باستخدام Aspose.Cells for C++ وتضمينه في عرض PowerPoint باستخدام Aspose.Slides for C++. لمعالجة [مشكلة معاينة الكائن](/slides/ar/cpp/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة المخطط إلى إطار كائن OLE الخاص بالمخطط. في العرض الناتج، عند النقر المزدوج على إطار كائن OLE الذي يعرض صورة المخطط، يتم تنشيط مخطط إكسل. يمكن للمستخدمين إجراء أي تغييرات مرغوبة في دفتر إكسل الأساسي ثم الرجوع إلى الشريحة المقابلة بالنقر خارج دفتر العمل النشط. يتغير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة، وتختلف نسبة إعادة الحجم وفقًا للأحجام الأصلية لكل من إطار كائن OLE ودفتر إكسل المضمن.
+## **سبب تغيير الحجم**
 
-## ** سبب تغيير الحجم**
+يحتوي مصنف Excel المدمج على أبعاد نافذة خاصة به، ويحاول Excel الحفاظ عليها عند تفعيل الكائن لأول مرة. يحتوي إطار OLE على الشريحة على أبعاد محددة بشكل مستقل. عندما يتم تفعيل مصنف Excel، يتفاوض Excel وPowerPoint على حجم الكائن للحفاظ على نسبه كجزء من عملية التضمين. وبالتالي قد تتسبب الاختلافات بين نافذة المصنف وإطار OLE في تغيير حجم الكائن.
 
-نظرًا لأن دفتر إكسل له حجمه الخاص للنافذة، فإنه يحاول الاحتفاظ بحجمه الأصلي عند التنشيط الأول. ومع ذلك، فإن إطار كائن OLE له حجمه الخاص. وفقًا لمايكروسوفت، عند تنشيط دفتر إكسل، يتفاوض إكسل وPowerPoint على الحجم ويحافظان على النسب الصحيحة كجزء من عملية التضمين. بناءً على الاختلافات بين حجم نافذة إكسل وحجم أو موضع إطار كائن OLE، يحدث تغيير الحجم.
+## **الحل العملي**
 
-## ** حل عملي**
+قم بمطابقة حجم المخطط مع إطار OLE على الشريحة واحفظ أبعاد المخطط مستقلة عن نافذة المصنف. يعمل هذا الحل مع عرض تقديمي جديد أو قالب موجود.
 
-هناك سيناريوهين محتملين لإنشاء عروض PowerPoint باستخدام Aspose.Slides for C++.
+يتطلب المثال Aspose.Cells لـ C++ وAspose.Slides لـ C++. يقوم بإنشاء مخطط عمودي بسيط على ورقة مخطط نشطة ويضمّن المصنف بصيغة XLS. لا يتم تعيين صورة معاينة للمخطط؛ يصبح المخطط مرئيًا عندما يتم تفعيل كائن OLE في PowerPoint.
 
-**السيناريو 1:** إنشاء عرض بناءً على قالب موجود.
+ضع كود المثال في نقطة دخول التطبيق، مع إعلانات include على مستوى الملف. قم بتهيئة Aspose.Cells قبل إنشاء كائنه وحرّر موارده بعد تدمير تلك الكائنات. ينسخ المثال متجه البايتات للمصنف الذي تُرجعه Aspose.Cells إلى نوع المصفوفة الذي تقبله Aspose.Slides.
 
-**السيناريو 2:** إنشاء عرض من الصفر.
+يقوم المثال بإنشاء عرض تقديمي جديد بإطار OLE بحجم 9.5 × 4 بوصة يتم وضعه على بعد 0.5 بوصة من الحافة اليسرى و1 بوصة من الأعلى. إحداثيات وأبعاد الشريحة تكون بالنقاط (72 نقطة لكل بوصة). للحصول على عرض تقديمي موجود، راجع [استخدام قالب](#use-a-template).
 
-الحل الذي نقدمه هنا ينطبق على كلا السيناريوهين. أساس جميع نهج الحل هو نفسه: **يجب أن يتطابق حجم نافذة كائن OLE المضمن مع إطار كائن OLE في شريحة PowerPoint**. سنناقش الآن النهجين لهذا الحل.
-
-## ** النهج الأول**
-
-في هذا النهج، سنتعلم كيفية ضبط حجم نافذة دفتر إكسل المضمن بحيث يتطابق مع حجم إطار كائن OLE في شريحة PowerPoint.
-
-**السيناريو 1**
-
-نفترض أننا حددنا قالبًا ونريد إنشاء عروض بناءً عليه. افترض وجود شكل في الفهرس 2 داخل القالب حيث نريد وضع إطار OLE يحتوي على دفتر إكسل مضمّن. في هذا السيناريو، يكون حجم إطار كائن OLE محددًا مسبقًا—يتطابق مع حجم الشكل في الفهرس 2 في القالب. كل ما علينا فعله هو ضبط حجم نافذة دفتر العمل ليتساوى مع حجم ذلك الشكل. المقتطف البرمجي التالي يحقق ذلك:
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <algorithm>
+#include <cstdint>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+Aspose::Cells::Startup();
 {
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"Data");
+    dataSheet.GetCells().Get(u"A1").PutValue(10);
+    dataSheet.GetCells().Get(u"A2").PutValue(20);
 
-    return outputStream;
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, 20, 10);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    chart.GetNSeries().Add(u"Data!A1:A2", true);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    // إحداثيات الشريحة وأبعادها بالنقاط (72 نقطة لكل بوصة).
+    auto width = 684.f; // 9.5 بوصة.
+    auto height = 288.f; // 4 بوصة.
+
+    chart.SetSizeWithWindow(false);
+    // تحويل النقاط إلى بكسلات المخطط باستخدام 96 بكسل لكل بوصة.
+    chart.GetChartObject().SetWidth(static_cast<int32_t>(width / 72.f * 96.f));
+    chart.GetChartObject().SetHeight(static_cast<int32_t>(height / 72.f * 96.f));
+    chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
+
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
+    // نسخ متجه بايتات Cells إلى نوع المصفوفة الذي تقبله Slides.
+    auto workbookBytes = System::MakeArray<uint8_t>(workbookData.GetLength(), 0);
+    std::copy(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength(), workbookBytes->data_ptr());
+    auto dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xls");
+    slide->get_Shapes()->AddOleObjectFrame(36, 72, width, height, dataInfo);
+
+    presentation->Save(u"chart-fixed-size.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
 }
+Aspose::Cells::Cleanup();
 ```
 
-```cpp
-// حدد حجم المخطط باستخدام نافذة. 
-chart->SetSizeWithWindow(true);
+## **تعيين حجم مخطط ثابت**
 
-auto shape = slide->get_Shape(2);
+عيّن [Chart::SetSizeWithWindow](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setsizewithwindow/) إلى false بحيث تكون أبعاد المخطط مستقلة عن نافذة المصنف. حدّد أبعاد [Chart::GetChartObject](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/getchartobject/) عبر [Shape::SetWidth](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setwidth/) و[Shape::SetHeight](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setheight/)، محوّلًا النقاط إلى بكسل باستخدام 96 بكسل لكل بوصة: الإطار الذي يقيِّس 684 × 288 نقطة يساوي مخططًا بـ 912 × 384 بكسل. عيّن [Chart::SetPrintSize](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setprintsize/) إلى القيمة Custom من [PrintSizeType](https://reference.aspose.com/cells/cpp/aspose.cells/printsizetype/). يضمّن المثال المصنف باستخدام [IShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addoleobjectframe/) ويحفظ عرضًا تقديميًا بإطار OLE بحجم 9.5 × 4 بوصة.
 
-// حدد عرض نافذة دفتر العمل بالبوصة (قسم على 72 لأن PowerPoint يستخدم 72 بكسل لكل بوصة).
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
+## **استخدام قالب**
 
-// حدد ارتفاع نافذة دفتر العمل بالبوصة.
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
+منطق تحديد الحجم هو نفسه للعرض التقديمي الموجود. لتكييف المثال:
 
-// احفظ دفتر العمل إلى تدفق ذاكرة.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
+1. حمّل عرض القالب بدلاً من إنشاء عرض فارغ.
+2. تحقق أن الشريحة الأولى تحتوي على ثلاث أشكال على الأقل، ثم استخدم الشكل الموجود في الفهرس 2 كعنصر نائب.
+3. خذ عرض الإطار وارتفاعه من ذلك الشكل بدلاً من استخدام القيم الثابتة 684 و288. حافظ على حسابات الحجم دون تغيير.
+4. أضف إطار OLE عند موضع العنصر النائب بدلاً من الإحداثيات الثابتة 36 و72.
+5. احذف العنصر النائب قبل حفظ العرض التقديمي.
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+## **الأسئلة المتكررة**
 
-// أنشئ إطار كائن OLE مع بيانات Excel المضمنة.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(), 
-    shape->get_Height(),
-    dataInfo);
-```
+**لماذا يتغير حجم مخطط Excel المدمج بعد تفعيله في PowerPoint؟**
 
+يحدث ذلك لأن Excel يحاول استعادة حجم النافذة الأصلي عند التفعيل الأول، بينما يمتلك إطار كائن OLE في PowerPoint أبعادًا خاصة به. يتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة العرض إلى الارتفاع، مما قد يسبب تغيير الحجم.
 
-**السيناريو 2**
+**كيف يمكنني الحفاظ على تناسق حجم المخطط وإطار OLE؟**
 
-لنفترض أننا نريد إنشاء عرض من الصفر وإدراج إطار OLE بأي حجم مع دفتر إكسل مضمّن. في المقتطف البرمجي التالي، ننشئ إطار OLE بارتفاع 4 بوصات وعرض 9.5 بوصة عند x = 0.5 بوصة و y = 1 بوصة على الشريحة. ثم نضبط نافذة دفتر إكسل لتكون بنفس الحجم—4 بوصات ارتفاع و9.5 بوصة عرض.
-```cpp
-// الارتفاع المطلوب.
-int32_t desiredHeight = 288; // 4 بوصة (4 * 72)
+حدد أبعاد مخطط ثابتة تتطابق مع إطار OLE واستخدم حجم طباعة مخصص للمخطط قبل تضمين المصنف. يوضح المثال أعلاه الإعدادات المطلوبة وتحويل الوحدات.
 
-// العرض المطلوب.
-int32_t desiredWidth = 684; // 9.5 بوصة (9.5 * 72)
+**هل مطابقة حجم نافذة المصنف كافية؟**
 
-// حدد حجم المخطط باستخدام نافذة. 
-chart->SetSizeWithWindow(true);
+مطابقة حجم نافذة المصنف وحده لا يمنع تغيير حجم إطار OLE بشكل موثوق بعد التفعيل. استخدم أبعاد مخطط ثابتة كما هو موضح في المثال.
 
-// حدد عرض نافذة دفتر العمل بالبوصة.
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
+**هل يُطبق هذا الحل على العروض التقديمية القائمة على القالب وعلى العروض الجديدة؟**
 
-// حدد ارتفاع نافذة دفتر العمل بالبوصة.
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
+نعم. بالنسبة للقالب، استخدم أبعاد وموقع العنصر النائب. بالنسبة للعرض الجديد، حدّد أبعاد الإطار وموقعه مباشرة.
 
-// احفظ دفتر العمل إلى تدفق ذاكرة.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+**هل يمكنني استخدام هذا المثال مع المخططات التي تم إنشاؤها في برامج جداول بيانات أخرى؟**
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+يستخدم المثال مصنف Excel تم إنشاؤه باستخدام Aspose.Cells. لا يُظهر سلوك التفعيل لبرامج جداول البيانات الأخرى.
 
-// أنشئ إطار كائن OLE مع بيانات Excel المضمنة.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f,
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
+## **الأقسام ذات الصلة**
 
-
-## ** النهج الثاني**
-
-في هذا النهج، سنتعلم كيفية ضبط حجم المخطط في دفتر إكسل المضمن ليتطابق مع حجم إطار كائن OLE في شريحة PowerPoint. هذا النهج مفيد عندما يكون حجم المخطط معروفًا مسبقًا ولن يتغير.
-
-**السيناريو 1**
-
-نفترض أننا حددنا قالبًا ونريد إنشاء عروض بناءً عليه. افترض وجود شكل في الفهرس 2 داخل القالب حيث نعتزم وضع إطار OLE يحتوي على دفتر إكسل مضمّن. في هذا السيناريو، يكون حجم إطار OLE محددًا مسبقًا—متطابقًا مع حجم الشكل في الفهرس 2. كل ما نحتاجه هو ضبط حجم المخطط في دفتر العمل ليكون مساويًا لحجم الشكل. المقتطف البرمجي التالي يحقق ذلك:
-```cpp
-// حدد حجم المخطط دون نافذة. 
-chart->SetSizeWithWindow(false);
-
-auto shape = slide->get_Shape(2);
-
-// حدد عرض المخطط بالبكسل (اضرب في 96 لأن Excel يستخدم 96 بكسل لكل بوصة).    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
-
-// حدد ارتفاع المخطط بالبكسل.
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
-
-// حدد حجم طباعة المخطط.
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
-
-// احفظ دفتر العمل إلى تدفق ذاكرة.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Create an OLE object frame with the embedded Excel data.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(),
-    shape->get_Height(),
-    dataInfo);
-```
-
-
-**السيناريو 2**
-
-نفترض أننا نريد إنشاء عرض من الصفر وإدراج إطار OLE بأي حجم مع دفتر إكسل مضمّن. في المقتطف البرمجي التالي، ننشئ إطار OLE بارتفاع 4 بوصات وعرض 9.5 بوصة على الشريحة عند x = 0.5 بوصة و y = 1 بوصة. كما نضبط حجم المخطط المقابل إلى نفس الأبعاد: ارتفاع 4 بوصات وعرض 9.5 بوصة.
-```cpp
-// الارتفاع المطلوب.
-int32_t desiredHeight = 288; // 4 بوصة (4 * 576)
-
-// العرض المطلوب.
-int32_t desiredWidth = 684; // 9.5 بوصة (9.5 * 576)
-
-// حدد حجم المخطط دون نافذة. 
-chart->SetSizeWithWindow(false);
-
-// حدد عرض المخطط بالبكسل.    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
-
-// حدد ارتفاع المخطط بالبكسل.
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
-
-// احفظ دفتر العمل إلى تدفق ذاكرة.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// أنشئ إطار كائن OLE مع بيانات Excel المضمنة.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f, 
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-
-## ** الاستنتاج**
-
-هناك نهجين لإصلاح مشكلة تغيير حجم المخطط. يعتمد اختيار النهج على المتطلبات وحالة الاستخدام. كلا النهجين يعملان بنفس الطريقة سواء تم إنشاء العروض من قالب أو من الصفر. أيضًا، لا يوجد حد لحجم إطار كائن OLE في هذا الحل.
-
-## ** الأسئلة المتداولة**
-
-**لماذا يتغير حجم مخطط إكسل المضمّن بعد تنشيطه في PowerPoint؟**
-
-يحدث هذا لأن إكسل يحاول استعادة حجم النافذة الأصلي عند التنشيط الأول، بينما يمتلك إطار كائن OLE في PowerPoint أبعاده الخاصة. يتفاوض PowerPoint وإكسل على الحجم للحفاظ على نسبة الأبعاد، مما قد يؤدي إلى تغيير الحجم.
-
-**هل يمكن منع هذه المشكلة بالكامل؟**
-
-نعم. من خلال مطابقة حجم نافذة دفتر إكسل أو حجم المخطط مع حجم إطار كائن OLE قبل التضمين، يمكنك الحفاظ على أحجام المخططات ثابتة.
-
-**أي نهج ينبغي أن أختار، ضبط حجم نافذة دفتر العمل أم ضبط حجم المخطط؟**
-
-استخدم **النهج 1 (حجم النافذة)** إذا أردت الحفاظ على نسبة أبعاد دفتر العمل وربما السماح بإعادة الحجم لاحقًا.  
-استخدم **النهج 2 (حجم المخطط)** إذا كانت أبعاد المخطط ثابتة ولن تتغير بعد التضمين.
-
-**هل ستعمل هذه الطرق مع العروض القائمة على القوالب والجديدة على حد سواء؟**
-
-نعم. كلا النهجين يعملان بنفس الطريقة للعروض التي تم إنشاؤها من القوالب أو من الصفر.
-
-**هل هناك حد لحجم إطار كائن OLE؟**
-
-لا. يمكنك ضبط إطار OLE لأي حجم طالما أنه يتم تحجيمه بشكل مناسب مع حجم دفتر العمل أو المخطط.
-
-**هل يمكنني استخدام هذه الطرق مع المخططات التي تم إنشاؤها في برامج جدول بيانات أخرى؟**
-
-الأمثلة مصممة لمخططات إكسل التي تم إنشاؤها باستخدام Aspose.Cells، لكن المبادئ تنطبق على برامج جدول بيانات أخرى متوافقة مع OLE طالما تدعم خيارات حجم مماثلة.
-
-## ** أقسام ذات صلة**
-
-- [إنشاء مخططات إكسل وتضمينها ككائنات OLE في العروض](/slides/ar/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [إنشاء مخططات Excel وتضمينها ككائنات OLE في العروض التقديمية](/slides/ar/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

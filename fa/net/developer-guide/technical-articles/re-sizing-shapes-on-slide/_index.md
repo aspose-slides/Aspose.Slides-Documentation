@@ -1,173 +1,151 @@
 ---
-title: "تغییر اندازه اشکال در اسلایدهای ارائه در .NET"
+title: تغییر اندازه اشکال در اسلایدهای ارائه با .NET
 type: docs
 weight: 130
-url: /fa/net/re-sizing-shapes-on-slide/
+url: /fa/net/resizing-shapes-on-slide/
+aliases:
+  - /fa/net/re-sizing-shapes-on-slide/
+  /net/re-sizing-shapes-on-slide/
 keywords:
-- "تغییر اندازه شکل"
-- "تغییر اندازهٔ شکل"
-- "PowerPoint"
-- "OpenDocument"
-- "ارائه"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "به‌راحتی اشکال را در اسلایدهای PowerPoint و OpenDocument با Aspose.Slides برای .NET—تنظیمات چیدمان اسلاید را خودکار کنید و بهره‌وری را افزایش دهید."
+- تغییر اندازه شکل
+- تغییر اندازهٔ شکل
+- PowerPoint
+- OpenDocument
+- ارائه
+- .NET
+- C#
+- Aspose.Slides
+description: "به راحتی اشکال را در اسلایدهای PowerPoint و OpenDocument با Aspose.Slides برای .NET تغییر اندازه دهید—تنظیمات طرح‌بندی اسلایدها را خودکار کنید و بهره‌وری را افزایش دهید."
 ---
 ## **مرور کلی**
 
-یکی از رایج‌ترین سؤالات مشتریان Aspose.Slides برای .NET این است که چگونه اشکال را تغییر اندازه دهند به‌گونه‌ای که هنگام تغییر اندازه اسلاید، داده‌ها بریده نشوند. این مقاله فنی کوتاه نشان می‌دهد چگونه این کار را انجام دهید.
+هنگامی که اندازه اسلاید یک ارائه را تغییر می‌دهید، ممکن است نیاز داشته باشید شکل‌ها را باز اندازه‌گیری و مکان‌یابی کنید تا با ابعاد جدید منطبق شوند. این مقاله نشان می‌دهد چطور شکل‌ها را به صورت دستی مقیاس‌بندی کنید و چطور جدول‌ها را در اسلایدها، مسترها و طرح‌بندی‌ها مدیریت کنید.
 
 ## **تغییر اندازه اشکال**
 
-برای جلوگیری از مغشوش شدن اشکال هنگام تغییر اندازه اسلاید، موقعیت و ابعاد هر شکل را به‌روزرسانی کنید تا با طرح جدید اسلاید مطابقت داشته باشند.
+برای حفظ موقعیت و اندازه نسبی هر شکل، مختصات افقی و عرض آن را در نسبت عرض اسلاید جدید به عرض اصلی ضرب کنید. نسبت ارتفاع متناظر را بر مختصات عمودی و ارتفاع آن اعمال کنید.
 
-```c#
-// بارگذاری فایل ارائه.
-using (Presentation presentation = new Presentation("sample.pptx"))
+مثال اول ارائه‌ای را بارگذاری می‌کند که اسلایدهای آن حاوی جدول نیستند، اندازه اسلاید را به A4 تغییر می‌دهد و نتیجه را ذخیره می‌کند. این مثال از [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) همراه با [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) استفاده می‌کند تا حلقهٔ بعدی مقیاس‌بندی را کنترل کند. نسبت‌ها بدون واحد هستند؛ موقعیت و ابعاد اشکال بر حسب نقاط اندازه‌گیری می‌شود. نسبت‌های متفاوت عرض و ارتفاع می‌توانند باعث تغییر شکل اشکال شوند، و تغییر ابعاد یک شکل اندازهٔ قلم‌ها را مقیاس‌بندی نمی‌کند.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// محاسبه ضریب‌های مقیاس افقی و عمودی مستقل.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // دریافت اندازه اسلاید اصلی.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // تغییر اندازه اسلاید بدون مقیاس‌گذاری اشکال موجود.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // دریافت اندازه جدید اسلاید.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // تغییر اندازه و موقعیت‌گذاری مجدد اشکال در هر اسلاید.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // مقیاس‌گذاری اندازه شکل.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // مقیاس‌گذاری موقعیت شکل.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-اگر یک اسلاید شامل جدول باشد، کد بالا به‌درستی کار نخواهد کرد. در این حالت باید اندازه هر سلول جدول به‌صورت جداگانه تنظیم شود.
+{{% alert color="info" title="Note" %}}
+جدول‌ها نیاز به پردازش جداگانه دارند: عرض ستون‌ها و ارتفاع ردیف‌ها را مقیاس‌بندی کنید به جای اختصاص کل عرض و ارتفاع جدول. ارتفاع ردیف‌ها ممکن است بزرگتر از مقدار درخواست‌شده باقی بماند اگر محتویات سلول به فضای بیشتری نیاز داشته باشد.
 {{% /alert %}}
 
-از کد زیر در پروژه خود برای تغییر اندازه اسلایدهایی که شامل جداول هستند استفاده کنید. برای جداول، تنظیم عرض یا ارتفاع یک مورد خاص است: باید ارتفاع ردیف‌ها و عرض ستون‌ها را به‌صورت جداگانه تنظیم کنید تا اندازه کلی جدول تغییر کند.
+مثال دوم از جدول‌ها پشتیبانی می‌کند و شکل‌ها را در مسترها و طرح‌بندی‌ها و همچنین اسلایدهای جداگانه قبل از ذخیرهٔ ارائهٔ تغییر اندازه‌داده‌شده پردازش می‌کند. ابزار کمکی آن هر [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) را با مقیاس‌بندی [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) و [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) مدیریت می‌کند. سپس موقعیت جدول را بدون مقیاس‌بندی جداگانهٔ ابعاد کلی آن مقیاس می‌دهد.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// محاسبه ضریب‌های مقیاس افقی و عمودی مستقل.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// تغییر اندازه اشکال تعریف‌شده در مسترها و طرح‌بندی‌ها و همچنین اسلایدهای جداگانه.
+foreach (var master in presentation.Masters)
 {
-    // دریافت اندازهٔ اولیهٔ اسلاید.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // تغییر اندازه اسلاید بدون مقیاس‌گذاری اشکال موجود.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // دریافت اندازهٔ جدید اسلاید.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // مقیاس‌گذاری اندازهٔ شکل.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // مقیاس‌گذاری موقعیت شکل.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // ابعاد جدول توسط عرض ستون‌ها و ارتفاع ردیف‌ها کنترل می‌شود.
+            foreach (var column in table.Columns)
             {
-                // مقیاس‌گذاری اندازهٔ شکل.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // مقیاس‌گذاری موقعیت شکل.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // مقیاس‌گذاری اندازهٔ شکل.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // مقیاس‌گذاری موقعیت شکل.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
 ## **پرسش‌های متداول**
 
-**چرا پس از تغییر اندازه اسلاید، اشکال کشیده یا بریده می‌شوند؟**
+**چرا پس از تغییر اندازه اسلاید، شکل‌ها خراب یا بریده می‌شوند؟**
 
-هنگام تغییر اندازه اسلاید، اشکال موقعیت و اندازهٔ اولیهٔ خود را حفظ می‌کنند مگر اینکه مقیاس به‌صورت صریح تغییر داده شود. این می‌تواند منجر به برش محتوا یا ناهماهنگی اشکال شود.
+اگر بدون مقیاس‌بندی شکل‌ها اندازه اسلاید را تغییر دهید، موقعیت و ابعاد اصلی آن‌ها حفظ می‌شود و ممکن است از حدود اسلاید فراتر بروند. مقیاس‌بندی عرض و ارتفاع با نسبت‌های متفاوت نیز می‌تواند باعث تغییر شکل شود.
 
-**آیا کد ارائه‌شده برای تمام انواع اشکال کار می‌کند؟**
+**آیا کد ارائه‌شده برای تمام انواع شکل‌ها کار می‌کند؟**
 
-مثال پایه برای اکثر انواع اشکال (جعبه‌های متن، تصاویر، نمودارها و غیره) کار می‌کند. اما برای جداول، باید ردیف‌ها و ستون‌ها را به‌صورت جداگانه مدیریت کنید، زیرا ارتفاع و عرض جدول توسط ابعاد سلول‌های فردی تعیین می‌شود.
+مثال اول به‌ طور مستقیم مرزهای شکل را تغییر می‌دهد و برای اسلایدهای بدون جدول در نظر گرفته شده است. مثال دوم جدول‌ها را جداگانه مدیریت می‌کند. طرح‌بندی حاصل را به‌ خصوص متن و جدول‌ها بررسی کنید، زیرا این مثال‌ها اندازهٔ قلم‌ها را مقیاس‌بندی نمی‌کنند و محتوای جدول می‌تواند ارتفاع ردیف‌ها را محدود کند.
 
-**چگونه هنگام تغییر اندازه اسلاید، جداول را تغییر اندازه دهم؟**
+**چگونه هنگام تغییر اندازهٔ اسلاید، جدول‌ها را باز اندازه‌گیری کنم؟**
 
-باید در تمام ردیف‌ها و ستون‌های جدول حلقه بزنید و ارتفاع و عرض آن‌ها را به‌صورت متناسب تنظیم کنید، همان‌طور که در مثال دوم کد نشان داده شده است.
+عرض ستون‌ها را با نسبت عرض و ارتفاع حداقل ردیف‌ها را با نسبت ارتفاع مقیاس‌بندی کنید، سپس موقعیت جدول را همانند مثال دوم مقیاس دهید.
 
-**آیا این تغییر اندازه برای اسلایدهای اصلی (Master) و اسلایدهای طرح‌بندی (Layout) نیز کار می‌کند؟**
+**آیا این باز اندازه‌گیری برای اسلایدهای مستر و اسلایدهای طرح‌بندی نیز کار خواهد کرد؟**
 
-بله، اما باید همچنین در [Masters](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/masters/) و [LayoutSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/layoutslides/) حلقه بزنید و منطق مقیاس‌بندی را بر روی اشکال آن‌ها اعمال کنید تا سازگاری در تمام ارائه حفظ شود.
+بله. مثال دوم از طریق [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) و هر [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) از مسترها پیمایش می‌کند و همان منطق باز اندازه‌گیری را بر روی شکل‌های آن‌ها اعمال می‌نماید.
 
-**آیا می‌توانم همراه با تغییر اندازه، جهت اسلاید (عمودی/افقی) را نیز تغییر دهم؟**
+**آیا می‌توانم جهت اسلاید (عمودی/افقی) را همراه با باز اندازه‌گیری تغییر دهم؟**
 
-بله. می‌توانید با تنظیم [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/fa/net/aspose.slides/islidesize/orientation/) جهت اسلاید را تغییر دهید. اطمینان حاصل کنید که منطق مقیاس‌بندی را به‌طور متناسب تنظیم کنید تا طرح حفظ شود.
+بله. پس از تغییر اندازهٔ اسلاید و قبل از خواندن ابعاد هدف، [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) را تنظیم کنید تا عوامل مقیاس جهت نهایی را منعکس کنند.
 
 **آیا محدودیتی برای اندازهٔ اسلایدی که می‌توانم تنظیم کنم وجود دارد؟**
 
-Aspose.Slides از اندازه‌های سفارشی پشتیبانی می‌کند، اما اندازه‌های بسیار بزرگ ممکن است بر عملکرد یا سازگاری با برخی نسخه‌های PowerPoint تأثیر بگذارد.
+می‌توانید ابعاد سفارشی اسلاید را با [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) مشخص کنید. ابعاد پشتیبانی‌شده همچنین به فرمت ارائه و برنامه‌ای که برای باز کردن فایل استفاده می‌شود وابسته است.
 
-**چگونه می‌توانم از کشیده شدن اشکال با نسبت ابعاد ثابت جلوگیری کنم؟**
+**چگونه می‌توانم از مخدوش شدن شکل‌هایی با نسبت ثابت جلوگیری کنم؟**
 
-قبل از مقیاس‌بندی می‌توانید ویژگی `AspectRatioLocked` شکل را بررسی کنید. اگر قفل شده باشد، به‌جای مقیاس‌بندی جداگانهٔ عرض و ارتفاع، آنها را به‌صورت متناسب تنظیم کنید.
+از همان عامل مقیاس برای عرض و ارتفاع استفاده کنید. برای متناسب کردن طرح‌بندی اصلی با ابعاد جدید اسلاید، نسبت کوچک‌تر بین عرض و ارتفاع را برای هر دو بعد و موقعیت‌ها به‌ کار ببرید. این کار نسبت‌ها را حفظ می‌کند اما ممکن است در یک سمت فضای استفاده‌نشده باقی بگذارد.

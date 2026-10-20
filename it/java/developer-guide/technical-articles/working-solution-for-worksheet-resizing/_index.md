@@ -13,34 +13,42 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Risolvi il ridimensionamento OLE dei fogli di lavoro Excel nelle presentazioni: due modi per mantenere i frame degli oggetti coerenti—scala il frame o il foglio—nei formati PPT e PPTX."
+description: "Correggi il ridimensionamento OLE del foglio di lavoro Excel nelle presentazioni: due modi per mantenere i frame degli oggetti coerenti—scala il frame o il foglio—nei formati PPT e PPTX."
 ---
-{{% alert color="primary" %}}
-È stato osservato che i fogli di lavoro Excel incorporati come oggetti OLE in una presentazione PowerPoint tramite componenti Aspose vengono ridimensionati a una scala non identificata dopo la prima attivazione. Questo comportamento crea una differenza visiva evidente nella presentazione tra gli stati pre‑ e post‑attivazione dell’oggetto OLE. Abbiamo indagato a fondo questo problema e fornito una soluzione, descritta in questo articolo.
+{{% alert color="info" title="Nota" %}}
+
+I fogli di lavoro Excel incorporati come oggetti OLE in una presentazione PowerPoint utilizzando i componenti Aspose possono ridimensionarsi in modo inatteso dopo la prima attivazione. Questo comportamento crea una differenza visiva evidente tra l'oggetto OLE prima e dopo l'attivazione. Questo articolo spiega il problema e descrive due modi per risolverlo.
+
 {{% /alert %}}
 
 ## **Contesto**
 
-Nell'articolo [Gestisci OLE](/slides/it/java/manage-ole/), abbiamo spiegato come aggiungere un frame OLE a una presentazione PowerPoint usando Aspose.Slides per Java. Per affrontare il [problema di anteprima dell'oggetto](/slides/it/java/object-preview-issue-when-adding-oleobjectframe/), abbiamo assegnato un'immagine dell'area del foglio di lavoro selezionata al frame dell'oggetto OLE. Nella presentazione risultante, quando si fa doppio clic sul frame OLE che mostra l'immagine del foglio, il workbook Excel viene attivato. Gli utenti finali possono apportare le modifiche desiderate al workbook Excel reale e quindi tornare alla diapositiva facendo clic al di fuori del workbook Excel attivato. La dimensione del frame OLE cambierà quando l'utente tornerà alla diapositiva. Il fattore di ridimensionamento varierà a seconda della dimensione del frame OLE e del workbook Excel incorporato.
+Nell'articolo [Gestire OLE](/slides/it/java/manage-ole/), abbiamo spiegato come aggiungere un frame OLE a una presentazione PowerPoint usando Aspose.Slides per Java. Per affrontare il [problema di anteprima dell'oggetto](/slides/it/java/object-preview-issue-when-adding-oleobjectframe/), abbiamo assegnato un'immagine dell'area del foglio di lavoro selezionata al frame dell'oggetto OLE. Nella presentazione di output, quando si fa doppio clic sul frame OLE che mostra l'immagine del foglio di lavoro, il file Excel viene attivato. Gli utenti finali possono apportare qualsiasi modifica desiderata al vero file Excel e quindi tornare alla diapositiva facendo clic al di fuori del file Excel attivato. Le dimensioni del frame OLE cambieranno quando l'utente ritorna alla diapositiva. Il fattore di ridimensionamento varierà in base alle dimensioni del frame OLE e del file Excel incorporato.
 
 ## **Causa del ridimensionamento**
 
-Poiché il workbook Excel ha la propria dimensione della finestra, tenta di mantenere la dimensione originale al primo avvio. D'altra parte, il frame dell'oggetto OLE ha le proprie dimensioni. Secondo Microsoft, quando il workbook Excel viene attivato, Excel e PowerPoint negoziano la dimensione per garantire che mantenga le proporzioni corrette nell'ambito del processo di incorporamento. Il ridimensionamento avviene in base alle differenze tra la dimensione della finestra di Excel e le dimensioni e la posizione del frame OLE.
+Poiché il file Excel ha le proprie dimensioni della finestra, tenta di mantenere le dimensioni originali al momento della prima attivazione. D'altra parte, il frame OLE ha le proprie dimensioni. Secondo Microsoft, quando il file Excel è attivato, Excel e PowerPoint negoziano le dimensioni per garantire che mantengano le proporzioni corrette come parte del processo di incorporamento. Il ridimensionamento avviene in base alle differenze tra le dimensioni della finestra di Excel e le dimensioni e la posizione del frame OLE.
 
 ## **Soluzione funzionante**
 
 Esistono due soluzioni possibili per evitare l'effetto di ridimensionamento.
 
-- Scala le dimensioni del frame OLE nella presentazione PowerPoint per corrispondere all'altezza e alla larghezza del numero desiderato di righe e colonne nel frame OLE.
-- Mantieni costante la dimensione del frame OLE e scala le dimensioni delle righe e delle colonne partecipanti per adattarle alla dimensione del frame OLE selezionato.
+- Ridimensionare il frame OLE nella presentazione PowerPoint per corrispondere all'altezza e larghezza totali delle righe e colonne selezionate.  
+- Mantenere costante la dimensione del frame OLE e ridimensionare le righe e colonne selezionate per adattarle al suo interno.
 
-### **Scala la dimensione del frame OLE**
+### **Scala le dimensioni del frame OLE**
 
-In questo approccio, impareremo come impostare la dimensione del frame OLE del workbook Excel incorporato in modo da corrispondere alla dimensione cumulativa delle righe e delle colonne partecipanti nel foglio di lavoro Excel.
+Questo approccio imposta le dimensioni del frame OLE per corrispondere all'altezza e larghezza totali delle righe e colonne selezionate nel foglio Excel incorporato.
 
-Supponiamo di avere un foglio Excel modello e di volerlo aggiungere a una presentazione come frame OLE. In questo scenario, la dimensione del frame OLE verrà prima calcolata in base all'altezza cumulativa delle righe e alla larghezza cumulativa delle colonne partecipanti nel workbook. Successivamente, imposteremo la dimensione del frame OLE su questo valore calcolato. Per evitare il messaggio rosso "EMBEDDED OLE OBJECT" per il frame OLE in PowerPoint, cattureremo anche un'immagine delle porzioni desiderate delle righe e delle colonne nel workbook e la imposteremo come immagine del frame OLE.
+L'esempio carica un file Excel esistente e seleziona le prime 10 righe e 13 colonne del primo foglio usando indici basati su zero. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) definisce l'intervallo visualizzato. L'anteprima è renderizzata a 96 DPI e le sue dimensioni in pixel sono convertite in punti usando 72 punti per pollice. [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) incorpora il workbook modificato in un frame con quelle dimensioni. L'anteprima è assegnata tramite [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) per sostituire il segnaposto "EMBEDDED OLE OBJECT" nella presentazione salvata.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -50,7 +58,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Imposta la dimensione visualizzata quando il file workbook viene usato come oggetto OLE in PowerPoint.
+// Imposta la dimensione visualizzata quando il file di cartella di lavoro viene usato come oggetto OLE in PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -63,7 +71,7 @@ Image image = ImageIO.read(imageStream);
 float imageWidth = image.getWidth(null) * 72f / imageResolution;
 float imageHeight = image.getHeight(null) * 72f / imageResolution;
 
-// È necessario utilizzare il workbook modificato.
+// Abbiamo bisogno di usare la cartella di lavoro modificata.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -87,7 +95,13 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+L'helper di anteprima imposta [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) sull'intervallo selezionato e rimuove margini, intestazioni e piè di pagina. Con [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/java/com.aspose.cells/imageorprintoptions/#setOnlyArea-boolean-) abilitato, [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-) renderizza l'intervallo come immagine PNG. L'helper restituisce un nuovo stream di input contenente l'immagine PNG, posizionato all'inizio per l'uso nella presentazione.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -112,13 +126,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-### **Scala la dimensione dell'intervallo di celle**
+### **Scala le dimensioni dell'intervallo di celle**
 
-In questo approccio, impareremo come scalare le altezze delle righe partecipanti e la larghezza delle colonne partecipanti per corrispondere a una dimensione personalizzata del frame OLE.
+Questo approccio scala le altezze delle righe selezionate e le larghezze delle colonne selezionate per corrispondere a una dimensione personalizzata del frame OLE.
 
-Supponiamo di avere un foglio Excel modello e di volerlo aggiungere a una presentazione come frame OLE. In questo scenario, imposteremo la dimensione del frame OLE e scaleremo le dimensioni delle righe e delle colonne che partecipano all'area del frame OLE. Salveremo quindi il workbook in uno stream per applicare le modifiche e lo convertiremo in un array di byte per aggiungerlo al frame OLE. Per evitare il messaggio rosso "EMBEDDED OLE OBJECT" per il frame OLE in PowerPoint, cattureremo anche un'immagine delle porzioni desiderate delle righe e delle colonne nel workbook e la imposteremo come immagine del frame OLE.
+L'esempio carica un file Excel esistente e seleziona le prime 10 righe e 13 colonne del primo foglio usando indici basati su zero. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) definisce l'intervallo visualizzato, e l'helper sottostante scala quell'intervallo per adattarlo a un frame largo 400 punti e alto 100 punti. Dopo aver salvato il workbook modificato in uno stream, [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) lo incorpora nelle dimensioni specificate. Un'anteprima renderizzata a 96 DPI è assegnata tramite [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--), così la presentazione salvata mostra le celle selezionate invece del segnaposto predefinito.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -129,7 +147,7 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Imposta la dimensione visualizzata quando il file workbook viene usato come oggetto OLE in PowerPoint.
+// Imposta la dimensione visualizzata quando il file di cartella di lavoro viene usato come oggetto OLE in PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -140,7 +158,7 @@ ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// È necessario utilizzare il workbook modificato.
+// Abbiamo bisogno di usare la cartella di lavoro modificata.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -162,6 +180,8 @@ oleStream.close();
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
+
+L'helper di scaling calcola rapporti di larghezza e altezza separati per l'intervallo selezionato, preservando le larghezze relative delle colonne e le altezze relative delle righe. Converte le dimensioni calcolate da punti a pollici prima di applicarle con [Cells.setColumnWidthInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setColumnWidthInch-int-double-) e [Cells.setRowHeightInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setRowHeightInch-int-double-). L'intervallo selezionato deve avere larghezza e altezza diverse da zero.
 
 ```java
 /**
@@ -200,7 +220,13 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 }
 ```
 
+Questo helper di anteprima renderizza l'intervallo ridimensionato usando [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-). Limita [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) a quel intervallo, rimuove margini, intestazioni e piè di pagina, e restituisce uno stream PNG posizionato all'inizio.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -226,38 +252,41 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 ```
 
 ## **Conclusione**
-{{% alert color="primary" %}} 
-Esistono due approcci per risolvere il problema di ridimensionamento del foglio di lavoro. La scelta dell'approccio appropriato dipende dai requisiti specifici e dal caso d'uso. Entrambi gli approcci funzionano allo stesso modo, sia che le presentazioni siano create da un modello sia da zero. Inoltre, non vi è alcun limite alla dimensione del frame OLE in questa soluzione.
+
+{{% alert color="info" title="Nota" %}}
+
+Esistono due approcci per risolvere il problema di ridimensionamento del foglio di lavoro. Scegli l'approccio che meglio si adatta ai tuoi requisiti e al caso d'uso. Entrambi gli approcci funzionano allo stesso modo, sia che le presentazioni siano create da un modello sia da zero. Inoltre, non vi è alcun limite alla dimensione del frame OLE in questa soluzione.
+
 {{% /alert %}}
 
 ## **FAQ**
 
 **Perché un foglio di lavoro Excel incorporato cambia dimensione quando viene attivato per la prima volta in PowerPoint?**
 
-Ciò avviene perché Excel tenta di mantenere la dimensione originale della finestra quando viene attivato, mentre il frame OLE in PowerPoint ha le proprie dimensioni. PowerPoint ed Excel negoziano la dimensione per mantenere le proporzioni, il che può causare il ridimensionamento.
+Questo accade perché Excel tenta di mantenere le dimensioni originali della finestra quando è attivato, mentre il frame OLE in PowerPoint ha le proprie dimensioni. PowerPoint ed Excel negoziano le dimensioni per mantenere le proporzioni, il che può causare il ridimensionamento.
 
 **È possibile evitare completamente questo problema di ridimensionamento?**
 
-Sì. Scalando il frame OLE per adattarlo alla dimensione dell'intervallo di celle Excel o scalando l'intervallo di celle per adattarlo alla dimensione desiderata del frame OLE, è possibile evitare il ridimensionamento indesiderato.
+Sì. Ridimensionando il frame OLE per adattarlo alle dimensioni dell'intervallo di celle Excel o scalando l'intervallo di celle per adattarlo alla dimensione desiderata del frame OLE, è possibile prevenire il ridimensionamento indesiderato.
 
-**Quale metodo di scaling dovrei utilizzare, scaling del frame OLE o scaling dell'intervallo di celle?**
+**Quale metodo di scaling devo usare, il scaling del frame OLE o quello dell'intervallo di celle?**
 
-Seleziona **scaling del frame OLE** se desideri mantenere le dimensioni originali delle righe e delle colonne Excel. Seleziona **scaling dell'intervallo di celle** se desideri una dimensione fissa per il frame OLE nella tua presentazione.
+Seleziona **scala del frame OLE** se desideri mantenere le dimensioni originali delle righe e colonne di Excel. Seleziona **scala dell'intervallo di celle** se desideri una dimensione fissa per il frame OLE nella tua presentazione.
 
-**Queste soluzioni funzioneranno se la mia presentazione è basata su un modello?**
+**Queste soluzioni funzionano se la presentazione è basata su un modello?**
 
 Sì. Entrambe le soluzioni funzionano per presentazioni create da modelli e da zero.
 
-**Esiste un limite alla dimensione del frame OLE quando si utilizzano questi metodi?**
+**Esiste un limite alla dimensione del frame OLE quando si usano questi metodi?**
 
-No. È possibile impostare il frame OLE a qualsiasi dimensione, purché la scala sia impostata correttamente.
+No. Puoi impostare il frame OLE a qualsiasi dimensione purché il fattore di scala sia adeguato.
 
-**È possibile evitare il testo segnaposto "EMBEDDED OLE OBJECT" in PowerPoint?**
+**C'è un modo per evitare il testo segnaposto "EMBEDDED OLE OBJECT" in PowerPoint?**
 
-Sì. Catturando un'immagine dell'intervallo di celle Excel desiderato e impostandola come immagine segnaposto del frame OLE, è possibile visualizzare un'immagine di anteprima personalizzata al posto del segnaposto predefinito.
+Sì. Acquisendo uno snapshot dell'intervallo di celle Excel di destinazione e impostandolo come immagine segnaposto del frame OLE, puoi visualizzare un'immagine di anteprima personalizzata al posto del segnaposto predefinito.
 
 ## **Articoli correlati**
 
 [Creare un grafico Excel e incorporarlo in una presentazione come oggetto OLE](/slides/it/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Aggiornare gli oggetti OLE automaticamente usando un add-in MS PowerPoint](/slides/it/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Aggiornare gli oggetti OLE automaticamente usando un componente aggiuntivo MS PowerPoint](/slides/it/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

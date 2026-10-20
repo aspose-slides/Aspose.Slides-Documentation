@@ -1,6 +1,6 @@
 ---
-title: Verhindern von Präsentationsbearbeitungen mit Form-Sperren
-linktitle: Präsentationsbearbeitungen verhindern
+title: Einschränkung von Präsentationsbearbeitungen mit Form‑Sperren in C++
+linktitle: Präsentationsbearbeitungen einschränken
 type: docs
 weight: 10
 url: /de/cpp/applying-protection-to-presentation/
@@ -10,176 +10,207 @@ keywords:
 - Form sperren
 - Position sperren
 - Auswahl sperren
-- Größe sperren
+- Größenänderung sperren
 - Gruppierung sperren
 - PowerPoint
-- OpenDocument
+- PPTX
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Entdecken Sie, wie Aspose.Slides für C++ Formen in PPT-, PPTX- und ODP-Dateien sperrt oder entsperrt, Präsentationen sichert und gleichzeitig kontrollierte Bearbeitungen sowie eine schnellere Bereitstellung ermöglicht."
+description: "Erfahren Sie, wie Sie Formen in PPTX‑Präsentationen mit Aspose.Slides für C++ sperren und entsperren, um Auswahl, Bewegung, Größenänderung und Gruppierung einzuschränken."
 ---
-
 ## **Hintergrund**
 
-Ein häufiger Anwendungsfall für Aspose.Slides ist das Erstellen, Aktualisieren und Speichern von Microsoft PowerPoint (PPTX)-Präsentationen im Rahmen eines automatisierten Workflows. Benutzer von Anwendungen, die Aspose.Slides auf diese Weise einsetzen, haben Zugriff auf die generierten Präsentationen, sodass der Schutz vor Bearbeitung ein gängiges Anliegen ist. Es ist wichtig, dass automatisch erstellte Präsentationen ihre ursprüngliche Formatierung und ihren Inhalt beibehalten.
+Ein häufiger Anwendungsfall von Aspose.Slides für C++ besteht darin, PowerPoint‑Präsentationen (PPTX) zu erstellen, zu aktualisieren und zu speichern, z. B. im Rahmen eines automatisierten Workflows. Wenn Benutzer diese Präsentationen erhalten, kann das Einschränken von Änderungen an Formen dazu beitragen, das beabsichtigte Layout und den Inhalt zu erhalten.
 
-Dieser Artikel erklärt, wie Präsentationen und Folien aufgebaut sind und wie Aspose.Slides für C++ einen Schutz auf eine Präsentation anwenden und später entfernen kann. Er bietet Entwicklern eine Möglichkeit, die Verwendung der von ihren Anwendungen erzeugten Präsentationen zu steuern.
+Dieser Artikel erklärt, wie Formen auf Folien organisiert sind und wie Form‑Sperren in einer PPTX‑Präsentation angewendet und entfernt werden. Mit diesen Sperren können Sie bestimmte Bearbeitungsoperationen für einzelne Formen einschränken.
 
-## **Aufbau einer Folie**
+## **Zusammensetzung einer Folie**
 
-Eine Präsentationsfolie besteht aus Komponenten wie Autoformen, Tabellen, OLE-Objekten, Gruppierten Formen, Bildrahmen, Video‑Frames, Verbindungs­linien und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides für C++ wird jedes Element einer Folie durch ein Objekt repräsentiert, das das [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)‑Interface implementiert oder von einer entsprechenden Klasse erbt.
+Eine Präsentationsfolie besteht aus Komponenten wie Autoformen, Tabellen, OLE‑Objekten, Gruppierten Formen, Bildrahmen, Video‑Frames, Verbindern und anderen Elementen, die zum Erstellen einer Präsentation verwendet werden. In Aspose.Slides für C++ wird jedes Element einer Folie durch ein Objekt repräsentiert, das die [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) Schnittstelle implementiert oder von einer Klasse erbt, die dies tut.
 
-Die Struktur von PPTX ist komplex, sodass im Gegensatz zu PPT, wo ein generischer Lock für alle Formtypen verwendet werden kann, unterschiedliche Formtypen unterschiedliche Locks benötigen. Das [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/)‑Interface ist die generische Sperrklasse für PPTX. Die folgenden Lock‑Typen werden in Aspose.Slides für C++ für PPTX unterstützt:
+Verschiedene Formtypen bieten unterschiedliche Sperroptionen. Die [IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) Schnittstelle ist die Basisschnittstelle für Form‑Sperren. Aspose.Slides für C++ stellt die folgenden Sperrschnittstellen bereit:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) sperrt Autoformen.  
-- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) sperrt Verbindungs­formen.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) sperrt grafische Objekte.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) sperrt Gruppierte Formen.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) sperrt Bildrahmen.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) sperrt Autoformen.
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) sperrt Verbinderformen.
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) sperrt grafische Objekte.
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) sperrt Gruppierungsformen.
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) sperrt Bildrahmen.
 
-Jede auf alle Formobjekte in einem [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑Objekt ausgeführte Aktion wird auf die gesamte Präsentation angewendet.
+Um Sperren für eine [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) anzuwenden, iterieren Sie über deren Folien und setzen die entsprechenden Sperren für jede unterstützte Form.
 
 ## **Schutz anwenden und entfernen**
 
-Der Schutz stellt sicher, dass eine Präsentation nicht bearbeitet werden kann. Es ist eine nützliche Technik, um den Inhalt der Präsentation zu schützen.
+Form‑Sperren beschränken Vorgänge wie das Auswählen, Bewegen und Ändern der Größe von Formen. Sie machen die gesamte Präsentation nicht unveränderlich.
 
 ### **Schutz auf PPTX‑Formen anwenden**
 
-Aspose.Slides für C++ stellt das [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/)‑Interface bereit, um mit Formen auf einer Folie zu arbeiten.
+Aspose.Slides für C++ stellt die [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) Schnittstelle zur Arbeit mit Formen auf einer Folie bereit.
 
-Wie bereits erwähnt, besitzt jede Formklasse eine zugehörige Form‑Lock‑Klasse zum Schutz. Dieser Artikel konzentriert sich auf die Locks NoSelect, NoMove und NoResize. Diese Locks verhindern, dass Formen ausgewählt (durch Mausklicks oder andere Auswahlmethoden) sowie verschoben oder in ihrer Größe geändert werden können.
+Das Beispiel übergibt `true` an [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/), [set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) und [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/) für Autoformen, mit entsprechenden Sperren für Gruppierungsformen, Verbinder und Bildrahmen. Verbinder verwenden [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) für Bewegungen; Gruppen verwenden zudem [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/), um das Gruppieren einzuschränken.
 
-Der nachfolgende Code‑Beispiel wendet Schutz auf alle Formtypen in einer Präsentation an.
+Das Beispiel lädt eine vorhandene PPTX‑Präsentation, prüft die Formen in der Form‑Sammlung jeder Folie und speichert eine Kopie mit den angewendeten Einschränkungen. Formen außerhalb der vier behandelten Typen bleiben unverändert. Die Schleife durchläuft nicht die Kindformen innerhalb einer Gruppe.
+
 ```cpp
-// Instanziieren der Presentation-Klasse, die eine PPTX-Datei darstellt.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-// Durchlaufen aller Folien in der Präsentation.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// Durchlaufen aller Formen in der Folie.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(true);
+            autoShapeLock->set_SelectLocked(true);
+            autoShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// Typumwandlung der Form zu einer Autoform und Abrufen ihrer Form-Sperre.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(true);
+            groupShapeLock->set_PositionLocked(true);
+            groupShapeLock->set_SelectLocked(true);
+            groupShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(true);
-			autoShapeLock->set_SelectLocked(true);
-			autoShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// Typumwandlung der Form zu einer Gruppierten Form und Abrufen ihrer Form-Sperre.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(true);
+            connectorShapeLock->set_SelectLocked(true);
+            connectorShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(true);
-			groupShapeLock->set_PositionLocked(true);
-			groupShapeLock->set_SelectLocked(true);
-			groupShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// Typumwandlung der Form zu einer Verbindungslinie und Abrufen ihrer Form-Sperre.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(true);
-			connectorShapeLock->set_SelectLocked(true);
-			connectorShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// Typumwandlung der Form zu einem Bildrahmen und Abrufen ihrer Form-Sperre.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(true);
-			pictureFrameLock->set_SelectLocked(true);
-			pictureFrameLock->set_SizeLocked(true);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(true);
+            pictureFrameLock->set_SelectLocked(true);
+            pictureFrameLock->set_SizeLocked(true);
+        }
+    }
 }
 
-// Speichern der Präsentationsdatei.
 presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
 ### **Schutz entfernen**
 
-Um eine Form zu entsperren, setzen Sie den Wert des angewendeten Locks auf `false`. Der folgende Code‑Beispiel zeigt, wie Formen in einer gesperrten Präsentation entsperrt werden.
+Um eine Form‑Sperre zu entfernen, setzen Sie deren Wert auf `false`. Das folgende Beispiel lädt eine Präsentation mit Form‑Sperren und entfernt die Auswahl-, Bewegungs- und Größenänderungs‑Einschränkungen über [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) und [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/). Es löscht zudem [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) und speichert eine Kopie der Präsentation. Andere Sperreinstellungen bleiben unverändert.
+
 ```cpp
-// Instanziieren der Presentation-Klasse, die eine PPTX-Datei darstellt.
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"ProtectedSample.pptx");
 
-// Durchlaufen aller Folien in der Präsentation.
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// Durchlaufen aller Formen in der Folie.
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(false);
+            autoShapeLock->set_SelectLocked(false);
+            autoShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// Typumwandlung der Form zu einer Autoform und Abrufen ihrer Form-Sperre.
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(false);
+            groupShapeLock->set_PositionLocked(false);
+            groupShapeLock->set_SelectLocked(false);
+            groupShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(false);
-			autoShapeLock->set_SelectLocked(false);
-			autoShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// Typumwandlung der Form zu einer Gruppierten Form und Abrufen ihrer Form-Sperre.
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(false);
+            connectorShapeLock->set_SelectLocked(false);
+            connectorShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(false);
-			groupShapeLock->set_PositionLocked(false);
-			groupShapeLock->set_SelectLocked(false);
-			groupShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// Typumwandlung der Form zu einer Verbindungslinie und Abrufen ihrer Form-Sperre.
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(false);
-			connectorShapeLock->set_SelectLocked(false);
-			connectorShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// Typumwandlung der Form zu einem Bildrahmen und Abrufen ihrer Form-Sperre.
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(false);
-			pictureFrameLock->set_SelectLocked(false);
-			pictureFrameLock->set_SizeLocked(false);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(false);
+            pictureFrameLock->set_SelectLocked(false);
+            pictureFrameLock->set_SizeLocked(false);
+        }
+    }
 }
 
-// Speichern der Präsentationsdatei.
 presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Fazit**
 
-## **Fazit**
-
-Aspose.Slides bietet mehrere Optionen zum Schutz von Formen in einer Präsentation. Sie können eine einzelne Form sperren oder durch alle Formen einer Präsentation iterieren und jede einzelne sperren, um die gesamte Datei effektiv zu sichern. Der Schutz kann entfernt werden, indem der Lock‑Wert auf `false` gesetzt wird.
+Aspose.Slides für C++ ermöglicht es Ihnen, bestimmte Bearbeitungsoperationen für einzelne Formen einzuschränken oder dieselben Einschränkungen über mehrere Folien hinweg anzuwenden. Wählen Sie die von jedem Formtyp unterstützten Sperren und setzen Sie deren Werte auf `false`, wenn Sie diese Einschränkungen entfernen müssen.
 
 ## **FAQ**
 
-**Kann ich Form‑Locks und Passwortschutz in derselben Präsentation kombinieren?**
+**Kann ich Form‑Sperren und Kennwortschutz in derselben Präsentation kombinieren?**
 
-Ja. Locks beschränken die Bearbeitung von Objekten innerhalb der Datei, während [Passwortschutz](/slides/de/cpp/password-protected-presentation/) den Zugriff beim Öffnen und/oder Speichern von Änderungen steuert. Diese Mechanismen ergänzen sich und funktionieren zusammen.
+Ja. Form‑Sperren beschränken bestimmte Bearbeitungsoperationen, während [Kennwortschutz](/slides/de/cpp/password-protected-presentation/) das Öffnen oder Ändern der Präsentation einschränken kann. Sie können beide im selben Dokument verwenden.
 
 **Kann ich die Bearbeitung auf bestimmten Folien einschränken, ohne andere zu beeinflussen?**
 
-Ja. Wenden Sie Locks auf die Formen der ausgewählten Folien an; die übrigen Folien bleiben bearbeitbar.
+Ja. Wenden Sie die Sperren nur auf die Formen der ausgewählten Folien an. Dadurch werden die Sperreinstellungen anderer Folien nicht geändert.
 
-**Gelten Form‑Locks für gruppierte Objekte und Verbindungs­linien?**
+**Wie kann ich Sperren auf einzelne Formen innerhalb einer Gruppe anwenden?**
 
-Ja. Spezielle Lock‑Typen werden für Gruppen, Verbindungs­linien, Grafik‑Objekte und andere Form­arten unterstützt.
+Iterieren Sie über die Sammlung, die von der [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) Methode der Gruppe zurückgegeben wird, und wenden Sie die entsprechenden Sperren auf jede Kindform an. Wiederholen Sie dies für alle verschachtelten Gruppen. Die obigen Beispiele verarbeiten nur die Form‑Sammlung der Folie, sodass sie keine Sperren für einzelne Gruppenmitglieder setzen.

@@ -4,171 +4,190 @@ type: docs
 weight: 40
 url: /pl/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Wykres Excel
+- wykres Excel
 - osadzanie wykresu
 - obiekt OLE
 - PowerPoint
-- OpenDocument
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Twórz wykresy Excel i osadzaj je jako obiekty OLE w prezentacjach PowerPoint i OpenDocument przy użyciu C++. Przewodnik krok po kroku z przykładami kodu."
+description: "Utwórz wykres Excel przy użyciu Aspose.Cells dla C++ i osadź skoroszyt w prezentacji PowerPoint przy użyciu Aspose.Slides, w tym podgląd wykresu."
 ---
-## **Tło**
+## **Przegląd**
 
-W programie PowerPoint powszechną praktyką jest używanie edytowalnych wykresów do graficznego przedstawiania danych. Aspose umożliwia tworzenie wykresów Excel przy użyciu Aspose.Cells dla C++, a następnie ich osadzanie jako obiektów OLE w slajdach PowerPoint przy pomocy Aspose.Slides dla C++. Ten artykuł opisuje niezbędne kroki i zawiera przykłady kodu w C++ dotyczące tworzenia wykresu Excel oraz osadzania go jako obiektu OLE w prezentacji PowerPoint przy użyciu Aspose.Cells i Aspose.Slides.
+Ten artykuł pokazuje, jak stworzyć wykres słupkowy w Excelu przy użyciu Aspose.Cells for C++ i osadzić jego skoroszyt w prezentacji PowerPoint przy użyciu Aspose.Slides for C++. Osadzony skoroszyt zawiera zarówno dane źródłowe, jak i wykres. Osobny podgląd PNG wyświetla wykres na slajdzie przed aktywacją obiektu OLE.
 
-## **Wymagane kroki**
+Wynikiem jest osadzony obiekt Excel, a nie natywny wykres PowerPoint. Edycja skoroszytu przez OLE wymaga aplikacji desktopowej obsługującej aktywację OLE oraz kompatybilnej instalacji Excela.
 
-Kolejność działań potrzebna do utworzenia i osadzenia wykresu Excel jako obiektu OLE w slajdzie PowerPoint:
+## **Wymagania wstępne**
 
-1. Utwórz wykres Excel przy użyciu Aspose.Cells.
-1. Ustaw rozmiar OLE wykresu Excel przy użyciu Aspose.Cells.
-1. Pobierz obraz wykresu Excel za pomocą Aspose.Cells.
-1. Osadź wykres Excel jako obiekt OLE w prezentacji PPTX przy użyciu Aspose.Slides.
-1. Zastąp obraz „EMBEDDED OLE OBJECT” obrazem uzyskanym w kroku 3, aby rozwiązać [object preview issue](/slides/pl/cpp/object-preview-issue-when-adding-oleobjectframe/).
-1. Zapisz prezentację na dysku w formacie PPTX.
+Skonfiguruj swój projekt C++ z nagłówkami i bibliotekami dla Aspose.Cells for C++ oraz Aspose.Slides for C++. Umieść przykładowy kod w punkcie wejścia aplikacji, z deklaracjami include na poziomie pliku. Microsoft Office nie jest wymagany do generowania prezentacji przy użyciu tych bibliotek.
 
-## **Implementacja wymaganych kroków**
+Nie są wymagane pliki wejściowe: przykład tworzy dane i wykres w pamięci, a następnie zapisuje `OutputChart.pptx` w bieżącym katalogu roboczym. Zastosuj licencje dla obu produktów podczas uruchamiania poza trybem ewaluacji.
 
-Implementacja w C++ powyższych kroków przedstawia się następująco:
+## **Jak działa osadzanie**
 
-```cpp
-// Krok - 1: Utwórz wykres Excel przy użyciu Aspose.Cells.
-// ---------------------------------------------------
-// Utwórz skoroszyt.
-intrusive_ptr<Aspose::Cells::IWorkbook> workbook = Aspose::Cells::Factory::CreateIWorkbook();
-// Dodaj wykres Excel.
-int32_t chartRows = 55;
-int32_t chartCols = 25;
-int32_t chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+1. Utwórz skoroszyt z arkuszem danych i arkuszem wykresu.  
+1. Ustaw arkusz wykresu jako aktywny, aby skoroszyt otwierał się na wykresie.  
+1. Ustaw zakres wyświetlania OLE skoroszytu i wyrenderuj wykres do PNG.  
+1. Zapisz skoroszyt jako XLSX w pamięci i osadź te bajty w slajdzie.  
+1. Przypisz PNG jako podgląd obiektu OLE i zapisz prezentację jako PPTX.
 
-// Krok - 2: Ustaw rozmiar OLE wykresu przy użyciu Aspose.Cells.
-// -----------------------------------------------------------
-workbook->GetIWorksheets()->SetOleSize(0, chartRows, 0, chartCols);
+Zakres wyświetlania skoroszytu i ramka na slajdzie mają różne role. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) przyjmuje indeksy wierszy i kolumn zaczynające się od zera. [ChartCollection::Add](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chartcollection/add/) przyjmuje natomiast górny wiersz, lewą kolumnę, dolny wiersz i prawą kolumnę. Przykład używa indeksu wiersza 55 i indeksu kolumny 25 jako dolno‑prawego granic; te wartości są decyzjami układu, a nie liczbą wierszy lub kolumn danych.
 
-// Krok - 3: Pobierz obraz wykresu przy użyciu Aspose.Cells.
-// -------------------------------------------------------
-System::SharedPtr<System::Drawing::Bitmap> chartImage = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex)->GetICharts()->GetObjectByIndex(0)->ToImage();
-// Zapisz skoroszyt do strumienia.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
+Rama slajdu używa punktów. Przykład dopasowuje ją do slajdu i centrował, zachowując proporcje PNG, zamiast rozciągać podgląd, aby wypełnić slajd.
 
-// Krok - 4 I 5
-// ==============
-// Krok - 4: Osadź wykres jako obiekt OLE w prezentacji .ppt przy użyciu Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// Krok - 5: Zastąp obraz "EMBEDDED OLE OBJECT" obrazem uzyskanym w kroku 3, aby rozwiązać problem podglądu obiektu.
-// --------------------------------------------------------------------------------------------------------------------
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-// Utwórz prezentację.
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-// Dodaj skoroszyt do slajdu.
-AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+## **Utwórz i osadź wykres**
 
-// Krok - 6: Zapisz wynikową prezentację na dysku.
-// -----------------------------------------------
-presentation->Save(u"OutputChart.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
+Podany kompletny przykład wypełnia `DataSheet` czterema wierszami i pięcioma kolumnami wartości. Każdy wiersz staje się serią wykresu. `ChartSheet` jest wybierany jako aktywny arkusz przed zapisaniem skoroszytu.
+
+Skoroszyt jest jawnie zapisywany jako XLSX, co odpowiada rozszerzeniu `xlsx` przekazywanemu do [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/). PNG jest ładowany ze strumienia w pamięci bez pośredniej konwersji bitmapy. Aspose.Cells zwraca wektory bajtów, które przykład kopiuje do typu tablicy akceptowanego przez Aspose.Slides. Zainicjuj Aspose.Cells przed użyciem jego obiektów i zwolnij jego zasoby po zniszczeniu tych obiektów. Przypisanie przez [IOleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/get_substitutepictureformat/) zastępuje domyślny placeholder OLE.
 
 ```cpp
-void AddExcelChartInPresentation(System::SharedPtr<Presentation> presentation, System::SharedPtr<ISlide> slide, 
-                                 System::SharedPtr<System::IO::Stream> workbookStream, 
-                                 intrusive_ptr<Aspose::Cells::Systems::Drawing::Bitmap> chartImage)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <Util/Images.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <algorithm>
+#include <IImage.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+// Zainicjalizuj Cells przed tworzeniem jakichkolwiek jego obiektów.
+Aspose::Cells::Startup();
 {
-    float oleWidth = presentation->get_SlideSize()->get_Size().get_Width();
-    float oleHeight = presentation->get_SlideSize()->get_Size().get_Height();
-    int32_t x = 0;
-    System::ArrayPtr<uint8_t> oleData = System::MakeArray<uint8_t>(workbookStream->get_Length(), 0);
-    workbookStream->set_Position(0);
-    workbookStream->Read(oleData, 0, oleData->get_Length());
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"DataSheet");
 
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(oleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleFrame;
-    oleFrame = slide->get_Shapes()->AddOleObjectFrame(static_cast<float>(x), 0.0f, oleWidth, oleHeight, dataInfo);
-
-    intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-    chartImage->Save(cellsOutputStream, Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-
-    auto slidesImage = Images::FromStream(ToSlidesMemoryStream(cellsOutputStream));
-    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(slidesImage));
-}
-```
-
-```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-```cpp
-int32_t AddExcelChartInWorkbook(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t chartRows, int32_t chartCols)
-{
-    // Tablica nazw komórek.
-    System::ArrayPtr<System::String> cellNames = System::MakeArray<System::String>(
-    { 
-        u"A1", u"A2", u"A3", u"A4", 
-        u"B1", u"B2", u"B3", u"B4",
-        u"C1", u"C2", u"C3", u"C4",
-        u"D1", u"D2", u"D3", u"D4",
-        u"E1", u"E2", u"E3", u"E4" 
-    });
-    
-    // Tablica danych komórek.
-    System::ArrayPtr<int32_t> cellValues = System::MakeArray<int32_t>(
+    int32_t values[4][5] =
     {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25 
-    });
+        { 67, 44, 46, 43, 24 },
+        { 86, 64, 97, 29, 40 },
+        { 68, 89, 78, 69, 38 },
+        { 91, 48, 60, 26, 25 }
+    };
 
-    // Dodaj nowy arkusz, aby wypełnić komórki danymi.
-    int32_t dataSheetIndex = workbook->GetIWorksheets()->Add();
-    intrusive_ptr<Aspose::Cells::IWorksheet> dataSheet = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIndex);
-    intrusive_ptr<Aspose::Cells::Systems::String> sheetName = new Aspose::Cells::Systems::String("DataSheet");
-    dataSheet->SetName(sheetName);
-
-    // Wypełnij arkusz danymi.
-    for (int32_t i = 0; i < cellNames->get_Length(); i++)
+    for (auto row = 0; row < 4; row++)
     {
-        System::String cellName = cellNames[i];
-        int32_t cellValue = cellValues[i];
-        dataSheet->GetICells()->GetObjectByIndex(new String(cellName.ToWCS().c_str()))->PutValue(cellValue);
+        for (auto column = 0; column < 5; column++)
+        {
+            dataSheet.GetCells().Get(row, column).PutValue(values[row][column]);
+        }
     }
 
-    // Dodaj arkusz wykresu.
-    int32_t chartSheetIndex = workbook->GetIWorksheets()->Add(Aspose::Cells::SheetType::SheetType_Chart);
-    intrusive_ptr<Aspose::Cells::IWorksheet> chartSheet = workbook->GetIWorksheets()->GetObjectByIndex(chartSheetIndex);
-    chartSheet->SetName(new String("ChartSheet"));
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    chartSheet.SetName(u"ChartSheet");
 
-    // Dodaj wykres do arkusza wykresu z serią danych z arkusza danych.
-    int32_t chartIndex = chartSheet->GetICharts()->Add(Aspose::Cells::Charts::ChartType::ChartType_Column, 0, chartRows, 0, chartCols);
-    intrusive_ptr<Aspose::Cells::Charts::IChart> chart = chartSheet->GetICharts()->GetObjectByIndex(chartIndex);
-    chart->GetNISeries()->Add(sheetName + "!A1:E1", false);
-    chart->GetNISeries()->Add(sheetName + "!A2:E2", false);
-    chart->GetNISeries()->Add(sheetName + "!A3:E3", false);
-    chart->GetNISeries()->Add(sheetName + "!A4:E4", false);
+    auto lastChartRow = 55;
+    auto lastChartColumn = 25;
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, lastChartRow, lastChartColumn);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    const char16_t* seriesRanges[] = { u"DataSheet!A1:E1", u"DataSheet!A2:E2", u"DataSheet!A3:E3", u"DataSheet!A4:E4" };
+    for (auto range : seriesRanges)
+    {
+        chart.GetNSeries().Add(range, false);
+    }
 
-    // Ustaw arkusz wykresu jako aktywny.
-    workbook->GetIWorksheets()->SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+    workbook.GetWorksheets().SetOleSize(0, lastChartRow, 0, lastChartColumn);
 
-    return chartSheetIndex;
+    // Renderuj podgląd wykresu i osobno serializuj edytowalny skoroszyt.
+    auto chartImageData = chart.ToImage(Aspose::Cells::Drawing::ImageType::Png);
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+
+    // Skopiuj bufory Cells do typu tablicy używanego przez Slides.
+    auto toSlidesArray = [](const Aspose::Cells::Vector<uint8_t>& buffer)
+    {
+        auto result = System::MakeArray<uint8_t>(buffer.GetLength(), 0);
+        std::copy(buffer.GetData(), buffer.GetData() + buffer.GetLength(), result->data_ptr());
+        return result;
+    };
+    auto chartImageBytes = toSlidesArray(chartImageData);
+    auto workbookBytes = toSlidesArray(workbookData);
+    auto chartImageStream = System::MakeObject<System::IO::MemoryStream>(chartImageBytes);
+    auto chartImage = Images::FromStream(chartImageStream);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+    auto slideSize = presentation->get_SlideSize()->get_Size();
+
+    // Dopasuj podgląd do slajdu bez zmiany proporcji.
+    auto scale = (std::min)(slideSize.get_Width() / chartImage->get_Width(), slideSize.get_Height() / chartImage->get_Height());
+    auto frameWidth = chartImage->get_Width() * scale;
+    auto frameHeight = chartImage->get_Height() * scale;
+    auto frameX = (slideSize.get_Width() - frameWidth) / 2;
+    auto frameY = (slideSize.get_Height() - frameHeight) / 2;
+
+    auto embeddedData = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xlsx");
+    auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+    auto previewImage = presentation->get_Images()->AddImage(chartImage);
+    oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(previewImage);
+
+    presentation->Save(u"OutputChart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
+    chartImage->Dispose();
+    chartImageStream->Dispose();
 }
+// Zwolnij zasoby Cells po zniszczeniu wszystkich obiektów Cells.
+Aspose::Cells::Cleanup();
 ```
 
-Prezentacja utworzona w powyższy sposób będzie zawierać wykres Excel jako obiekt OLE, który można aktywować podwójnym kliknięciem ramki obiektu OLE.
+## **Oczekiwany wynik**
 
-## **Podsumowanie**
+`OutputChart.pptx` zawiera jeden slajd z osadzonym skoroszytem Excel oraz podglądem wykresu. Skoroszyt zawiera oryginalne dane i wykres słupkowy z czterema seriami. Podgląd jest wyśrodkowany na slajdzie i zachowuje proporcje.
 
-Korzystając z Aspose.Cells dla C++ oraz Aspose.Slides dla C++, możemy utworzyć dowolny wykres Excel obsługiwany przez Aspose.Cells i osadzić go jako obiekt OLE w slajdzie PowerPoint. Można również określić rozmiar OLE wykresu Excel. Użytkownicy końcowi mogą następnie edytować wykres Excel tak jak każdy inny obiekt OLE.
+![Wykres słupkowy Excel wyświetlany jako podgląd osadzonego skoroszytu](excel-chart-ole-preview.png)
+
+W zgodnym środowisku desktopowym PowerPoint z dostępnym Excelem, dwukrotne kliknięcie obiektu aktywuje i umożliwi edycję osadzonego skoroszytu. Aktywacja i edycja zależą od obsługi OLE oraz ustawień zabezpieczeń aplikacji hosta.
+
+## **FAQ**
+
+**Dlaczego potrzebny jest obraz podglądu?**
+
+Osadzony skoroszyt i jego podgląd slajdu to osobne treści. Dostarcz obraz wykresu, aby slajd pokazywał wykres zamiast domyślnego placeholdera "EMBEDDED OLE OBJECT". Zobacz [Problem z podglądem obiektu przy dodawaniu OleObjectFrame](/slides/pl/cpp/object-preview-issue-when-adding-oleobjectframe/).
+
+**Czy podgląd aktualizuje się automatycznie po zmianie skoroszytu w kodzie?**
+
+Traktuj podgląd jako migawkę. Przy programowej aktualizacji danych skoroszytu, odtwórz obraz wykresu i zastąp podgląd oraz osadzone dane skoroszytu.
+
+**Czy mogę używać XLS zamiast XLSX?**
+
+Tak. Zapisz skoroszyt w formacie XLS i użyj `xls` jako rozszerzenia danych osadzonych. Rozszerzenie musi odpowiadać rzeczywistemu formatowi skoroszytu; samo zmienienie rozszerzenia nie konwertuje danych.
+
+**Dlaczego obiekt może zmienić rozmiar po aktywacji?**
+
+Aplikacja hosta może zaktualizować wygląd obiektu OLE po aktywacji skoroszytu. Zakres wyświetlania OLE skoroszytu i wymiary ramki slajdu mają znaczenie. Zobacz [Działające rozwiązanie dla zmiany rozmiaru wykresu w PPTX](/slides/pl/cpp/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Powiązane sekcje**
 
-- [Working Solution for Chart Resizing in PPTX](/slides/pl/cpp/working-solution-for-chart-resizing-in-pptx/)
-- [Object Preview Issue when Adding OleObjectFrame](/slides/pl/cpp/object-preview-issue-when-adding-oleobjectframe/)
+- [Działające rozwiązanie dla zmiany rozmiaru wykresu w PPTX](/slides/pl/cpp/working-solution-for-chart-resizing-in-pptx/)
+- [Problem z podglądem obiektu przy dodawaniu OleObjectFrame](/slides/pl/cpp/object-preview-issue-when-adding-oleobjectframe/)

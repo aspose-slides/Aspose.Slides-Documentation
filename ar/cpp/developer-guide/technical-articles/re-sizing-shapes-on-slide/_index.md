@@ -1,56 +1,65 @@
 ---
-title: تغيير حجم الأشكال في شرائح العرض التقديمي
+title: تحجيم الأشكال على شرائح العرض التقديمي في C++
 type: docs
-weight: 100
-url: /ar/cpp/re-sizing-shapes-on-slide/
+weight: 130
+url: /ar/cpp/resizing-shapes-on-slide/
+aliases:
+  - /ar/cpp/re-sizing-shapes-on-slide/
+  /cpp/re-sizing-shapes-on-slide/
 keywords:
-- تغيير حجم الشكل
-- تعديل حجم الشكل
-- PowerPoint
-- OpenDocument
-- عرض تقديمي
-- C++
-- Aspose.Slides
-description: "قُم بتغيير حجم الأشكال بسهولة في شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++ - قم بأتمتة تعديل تخطيط الشرائح وزيادة الإنتاجية."
+  - تحجيم الشكل
+  - تغيير حجم الشكل
+  - PowerPoint
+  - OpenDocument
+  - عرض تقديمي
+  - C++
+  - Aspose.Slides
+description: "قم بتحجيم الأشكال بسهولة على شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides لـ C++ — أتمتة تعديل تخطيط الشرائح وزيادة الإنتاجية."
 ---
-
 ## **نظرة عامة**
 
-إحدى أكثر الأسئلة شيوعًا من عملاء Aspose.Slides للغة C++ هي كيفية تغيير حجم الأشكال بحيث لا يتم قطع البيانات عندما يتغير حجم الشريحة. تُظهر هذه المقالة التقنية المختصرة كيفية القيام بذلك.
+عند تغيير حجم شريحة عرض تقديمي، قد تحتاج أيضًا إلى تغيير حجم الأشكال وإعادة وضعها لتناسب الأبعاد الجديدة. يوضح هذا المقال كيفية تحجيم الأشكال يدويًا وكيفية التعامل مع الجداول في الشرائح، والماسترات، والتخطيطات.
 
-## **تغيير حجم الأشكال**
+## **تحجيم الأشكال**
 
-لمنع تشويه الأشكال عندما يتغير حجم الشريحة، قم بتحديث موضع كل شكل وأبعاده لتتوافق مع تخطيط الشريحة الجديد.
+للحفاظ على الوضع النسبي وحجم كل شكل، اضرب إحداثياته الأفقية وعرضه في نسبة عرض الشريحة الجديد إلى العرض الأصلي. طبق نسبة الارتفاع المقابلة على إحداثياته الرأسية وارتفاعه.
+
+المثال الأول يحمل عرضًا تقديميًا لا تحتوي شرائحه على جداول، يغير حجم الشريحة إلى A4، ويحفظ النتيجة. يستخدم [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) مع [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/) بحيث يتحكم الحلقة اللاحقة في التحجيم. النسب ليست ذات وحدة؛ مواضع الأشكال وأبعادها تُقاس بالنقاط. يمكن أن تُشوه النسب المختلفة للعرض والارتفاع الأشكال، وتغيير أبعاد الشكل لا يغير أحجام الخطوط الخاصة به.
+
 ```cpp
-// تحميل ملف العرض التقديمي.
-auto presentation = MakeObject<Presentation>(u"sample.ppt");
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
 
-// الحصول على حجم الشريحة الأصلي.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// تغيير حجم الشريحة دون تعديل حجم الأشكال الحالية.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+// Calculate independent horizontal and vertical scale factors.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// الحصول على حجم الشريحة الجديد.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-// إعادة تحجيم وإعادة وضع الأشكال على كل شريحة.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // تحجيم حجم الشكل.
-        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
-
-        // تحجيم موضع الشكل.
-        shape->set_Y(shape->get_Y() * heightRatio);
+        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
 }
 
@@ -58,118 +67,124 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+{{% alert color="info" title="Note" %}}
+تتطلب الجداول معالجة منفصلة: قم بتحجيم أعرض الأعمدة وارتفاعات الصفوف بدلاً من تعيين العرض والارتفاع الكلي للجدول. قد تظل ارتفاعات الصفوف أكبر مما طُلب إذا كان محتوى الخلية يحتاج إلى مساحة إضافية.
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
+يدعم المثال الثاني الجداول ويعالج الأشكال في الماسترات والتخطيطات بالإضافة إلى الشرائح الفردية قبل حفظ العرض التقديمي المُعدل. يتعامل المساعد الخاص به مع كل [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) من خلال تحجيم [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) و[IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/). ثم يحجم موضع الجدول دون تحجيم أبعاده الكلية بشكل منفصل.
 
-إذا احتوت الشريحة على جدول، فإن الكود أعلاه لن يعمل بشكل صحيح. في هذه الحالة، يجب تغيير حجم كل خلية في الجدول.
-
-{{% /alert %}} 
-
-استخدم الكود التالي لتغيير حجم الشرائح التي تحتوي على جداول. بالنسبة للجداول، يُعد ضبط العرض أو الارتفاع حالة خاصة: يجب تعديل ارتفاعات الصفوف وعروض الأعمدة الفردية لتغيير الحجم الكلي للجدول.
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// احصل على حجم الشريحة الأصلي.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-// غيّر حجم الشريحة دون تعديل حجم الأشكال الحالية.
+// احسب عوامل التحجيم الأفقية والعمودية المستقلة.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// احصل على حجم الشريحة الجديد.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-for (auto&& master : presentation->get_Masters())
+auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, float heightRatio)
 {
-    for (auto&& shape : master->get_Shapes())
+    for (auto&& shape : shapes)
     {
-        // تحجيم حجم الشكل.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // تحجيم موضع الشكل.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-    }
-
-    for (auto&& layoutSlide : master->get_LayoutSlides())
-    {
-        for (auto&& shape : layoutSlide->get_Shapes())
-        {
-            // تحجيم حجم الشكل.
-            shape->set_Height(shape->get_Height() * heightRatio);
-            shape->set_Width(shape->get_Width() * widthRatio);
-
-            // تحجيم موضع الشكل.
-            shape->set_Y(shape->get_Y() * heightRatio);
-            shape->set_X(shape->get_X() * widthRatio);
-        }
-    }
-}
-
-for (auto&& slide : presentation->get_Slides())
-{
-    for (auto&& shape : slide->get_Shapes())
-    {
-        // تحجيم حجم الشكل.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // تحجيم موضع الشكل.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-
         if (ObjectExt::Is<ITable>(shape))
         {
-            SharedPtr<ITable> table = ExplicitCast<ITable>(shape);
-            for (auto&& row : table->get_Rows())
-            {
-                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
-            }
+            auto table = ExplicitCast<ITable>(shape);
+            // أبعاد الجدول تتحكم فيها أعرض الأعمدة وارتفاعات الصفوف.
             for (auto&& column : table->get_Columns())
             {
                 column->set_Width(column->get_Width() * widthRatio);
             }
+
+            for (auto&& row : table->get_Rows())
+            {
+                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
+            }
         }
+        else
+        {
+            shape->set_Width(shape->get_Width() * widthRatio);
+            shape->set_Height(shape->get_Height() * heightRatio);
+        }
+
+        shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
+};
+
+// تحجيم الأشكال المعرفة على الماسترات والتخطيطات وكذلك الشرائح الفردية.
+for (auto&& master : presentation->get_Masters())
+{
+    resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
+
+    for (auto&& layoutSlide : master->get_LayoutSlides())
+    {
+        resizeShapes(layoutSlide->get_Shapes(), widthRatio, heightRatio);
+    }
+}
+
+for (auto&& slide : presentation->get_Slides())
+{
+    resizeShapes(slide->get_Shapes(), widthRatio, heightRatio);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **الأسئلة الشائعة**
 
-## **الأسئلة المتكررة**
+**لماذا تُشوه الأشكال أو تُقطع بعد تغيير حجم الشريحة؟**
 
-**لماذا تتشوه الأشكال أو تُقَطَع بعد تغيير حجم الشريحة؟**  
+إذا غيرت حجم الشريحة دون تحجيم الأشكال، فإنها تحتفظ بمواضعها وأبعادها الأصلية وقد تمتد خارج حدود الشريحة. يمكن أن يؤدي تحجيم العرض والارتفاع بنسب مختلفة إلى تشويه الأشكال.
 
-عند تغيير حجم الشريحة، تحتفظ الأشكال بموقعها وحجمها الأصليين ما لم يتم تغيير المقياس صراحةً. قد يؤدي ذلك إلى قص المحتوى أو تشويه الأشكال.
+**هل يعمل الكود المقدم مع جميع أنواع الأشكال؟**
 
-**هل يعمل الكود المقدم مع جميع أنواع الأشكال؟**  
+المثال الأول يغير حدود الشكل مباشرةً ومُصمم للشرائح التي لا تحتوي على جداول. المثال الثاني يتعامل مع الجداول بشكل منفصل. تحقق من التخطيط الناتج، خاصة النص والجداول، لأن هذه الأمثلة لا تحجم أحجام الخطوط ويمكن لمحتوى الجدول أن يقيّد ارتفاعات الصفوف.
 
-المثال الأساسي يعمل مع معظم أنواع الأشكال (صناديق النص، الصور، المخططات، إلخ). ومع ذلك، بالنسبة للجداول، تحتاج إلى التعامل مع الصفوف والأعمدة بشكل منفصل، لأن ارتفاع وعرض الجدول يُحدَّدان بأبعاد الخلايا الفردية.
+**كيف يمكنني تحجيم الجداول عند تغيير حجم الشريحة؟**
 
-**كيف أقوم بتغيير حجم الجداول عند تغيير حجم الشريحة؟**  
+قم بتحجيم أعرض الأعمدة بنسبة عرض الشريحة وارتفاعات الصفوف الدنيا بنسبة ارتفاع الشريحة، ثم حجم موضع الجدول، كما هو موضح في المثال الثاني.
 
-يجب عليك المرور على جميع الصفوف والأعمدة في الجدول وتغيير ارتفاعها وعرضها بصورة نسبة، كما هو موضح في مثال الكود الثاني.
+**هل سيعمل هذا التحجيم مع شرائح الماستر وشرائح التخطيط؟**
 
-**هل سيعمل هذا التغيير على الشرائح الرئيسية وشرائح التخطيط؟**  
+نعم. يت iterates المثال الثاني عبر [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) وكل [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) للماستر ويطبق نفس منطق التحجيم على أشكالها.
 
-نعم، لكن عليك أيضًا المرور على [الماسترات](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) و[شرائح التخطيط](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) وتطبيق نفس منطق التحجيم على أشكالها لضمان التناسق عبر العرض التقديمي.
+**هل يمكنني تغيير اتجاه الشريحة (عمودي/أفقي) مع التحجيم؟**
 
-**هل يمكنني تغيير اتجاه الشريحة (عمودي/أفقي) مع تغيير الحجم؟**  
+نعم. اضبط [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) بعد تغيير حجم الشريحة وقبل قراءة الأبعاد المستهدفة، بحيث تعكس عوامل التحجيم الاتجاه النهائي.
 
-نعم. يمكنك استخدام [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/islidesize/set_orientation/) لتغيير الاتجاه. تأكد من ضبط منطق التحجيم وفقًا لذلك للحفاظ على التخطيط.
+**هل هناك حد لحجم الشريحة الذي يمكنني تحديده؟**
 
-**هل هناك حد لحجم الشريحة الذي يمكن تحديده؟**  
+يمكنك تحديد أبعاد شريحة مخصصة باستخدام [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/). تعتمد الأبعاد المدعومة أيضًا على تنسيق العرض التقديمي والتطبيق المستخدم لفتح الملف.
 
-يدعم Aspose.Slides أحجامًا مخصصة، لكن الأحجام الكبيرة جدًا قد تؤثر على الأداء أو التوافق مع بعض إصدارات PowerPoint.
+**كيف يمكنني منع الأشكال ذات النسبة الثابتة من التشويه؟**
 
-**كيف يمكنني منع تشويه الأشكال ذات نسبة الأبعاد الثابتة؟**  
-
-يمكنك فحص طريقة `get_AspectRatioLocked` للشكل قبل التحجيم. إذا كانت مُقَفلة، قم بضبط العرض أو الارتفاع بشكل نسبي بدلاً من تحجيمهما بشكل منفصل.
+استخدم عامل التحجيم نفسه للعرض والارتفاع. لتناسب التخطيط الأصلي ضمن أبعاد الشريحة الجديدة، استخدم الأصغر بين نسب العرض والارتفاع لكل من الأبعاد والمواضع. هذا يحافظ على النسب ولكنه قد يترك مساحة غير مستخدمة على أحد الجوانب.

@@ -9,205 +9,137 @@ keywords:
 - OLE objektum
 - diagram beágyazása
 - PowerPoint
-- OpenDocument
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Javítsa a PPTX-ben a beágyazott Excel OLE objektumok használatakor előforduló váratlan diagram átméretezést az Aspose.Slides for C++ segítségével. Ismerjen meg két módszert kóddal a méretek egységességének megtartásához."
+description: "Javítsa a PPTX-ben előforduló váratlan diagram átméretezést a beágyazott Excel OLE objektumok használatakor az Aspose.Slides for C++ segítségével. Állítson be rögzített diagramméreteket, hogy a diagram és az OLE keret méretei konzisztens maradjanak."
 ---
 ## **Háttér**
 
-Megfigyelés szerint az Aspose komponenseken keresztül PowerPoint‑prezentációba OLE objektumként beágyazott Excel‑diagramok az első aktiválásuk után nem meghatározott méretarámba kerülnek. Ez a viselkedés észrevehető vizuális eltérést okoz a diagram aktiválás előtti és utáni állapota között. Az Aspose csapata részletesen vizsgálta a problémát, és megoldást talált. Ez a cikk leírja a probléma okait és a megfelelő javítást.
+Az Aspose komponensekkel PowerPoint‑prezentációkba beágyazott OLE objektumként megjelenő Excel-diagramok az első aktiválásuk után módosíthatják méretüket. Ez a diagram megjelenésének jelentős különbségét okozhat aktiválás előtt és után. Ez a cikk elmagyarázza, miért fordul elő az átméretezés, és bemutatja, hogyan lehet megelőzni a diagram rögzített méretének az OLE kerethez való illesztésével.
 
-Az [előző cikkben](/slides/hu/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) elmagyaráztuk, hogyan hozhatunk létre Excel‑diagramot az Aspose.Cells for C++ segítségével, és hogyan ágyazhatjuk be azt PowerPoint‑prezentációba az Aspose.Slides for C++ használatával. Az [objektum előnézeti problémájának](/slides/hu/cpp/object-preview-issue-when-adding-oleobjectframe/) megoldásaként a diagram képét az OLE objektumkerethez rendeltük. A kimeneti prezentációban, ha duplán kattintunk a diagram képet megjelenítő OLE objektumkeretre, az Excel‑diagram aktiválódik. A végfelhasználók a háttérben lévő Excel‑munkafüzetben tetszőleges módosításokat végezhetnek, majd az aktivált munkafüzeten kívül kattintva visszatérhetnek a megfelelő diára. Az OLE objektumkeret mérete megváltozik, amikor a felhasználó visszatér a diára, és az átméretezési arány a OLE objektumkeret és a beágyazott Excel‑munkafüzet eredeti méreteitől függ.
+A [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/hu/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) című cikkben bemutattuk, hogyan hozhatunk létre egy Excel-diagramot az Aspose.Cells for C++ segítségével, és ágyazhatjuk be egy PowerPoint‑prezentációba az Aspose.Slides for C++ használatával. Az [object preview issue](/slides/hu/cpp/object-preview-issue-when-adding-oleobjectframe/) kezelésére a diagram képét rendeltük a diagram OLE objektumkeretéhez. A kimeneti prezentációban, ha duplán rákattint a diagramképet megjelenítő OLE objektumkeretre, az Excel-diagram aktiválódik. A felhasználók szerkeszthetik a beágyazott Excel‑könyvtárat, majd a aktivált könyvtáron kívülre kattintva visszatérhetnek a diára. Az OLE objektumkeret mérete megváltozik, amikor a felhasználó visszatér a diára, és az átméretezési tényező az OLE objektumkeret és a beágyazott Excel‑könyvtár eredeti méreteitől függ.
 
 ## **Az átméretezés oka**
 
-Mivel az Excel‑munkafüzetnek saját ablakmérete van, az első aktiváláskor megpróbálja megtartani az eredeti méretét. Az OLE objektumkeretnek azonban saját mérete van. A Microsoft szerint, amikor az Excel‑munkafüzet aktiválódik, az Excel és a PowerPoint egyeztetik a méretet, és az ágyazási folyamat részeként megőrzik a helyes arányokat. Az Excel‑ablakméret és az OLE objektumkeret mérete vagy pozíciója közötti eltérések hatására történik az átméretezés.
+A beágyazott Excel‑könyvtár saját ablakmérettel rendelkezik, amelyet az Excel megpróbál megtartani az objektum első aktiválásakor. A dián lévő OLE‑keret önállóan definiált méretekkel bír. Amikor az Excel‑könyvtár aktiválódik, az Excel és a PowerPoint egyeztetik az objektum méretét, hogy megőrizzék az arányait a beágyazási folyamat részeként. Így a könyvtárablak és az OLE‑keret közötti eltérések okozhatják az objektum átméretezését.
 
 ## **Működő megoldás**
 
-Az Aspose.Slides for C++ használatával PowerPoint‑prezentációk létrehozására két lehetséges forgatókönyv létezik.
+Illesszük a diagram méretét a dián lévő OLE‑kerethez, és tartsuk a diagram méreteit függetlenül a könyvtárablaktól. Ez a megoldás új prezentációval vagy meglévő sablonnal egyaránt működik.
 
-**Scenario 1:** Létrehozni egy prezentációt meglévő sablon alapján.  
-**Scenario 2:** Újról, semmiből létrehozni egy prezentációt.
+A példához az Aspose.Cells for C++ és az Aspose.Slides for C++ szükséges. Egy egyszerű oszlopdiagramot hoz létre egy aktív diagramlapon, és beágyazza a könyvtárat XLS formátumban. Nem kerül diagram előnézeti kép hozzárendelésre; a diagram a PowerPointban aktivált OLE‑objektusnál válik láthatóvá.
 
-Az itt bemutatott megoldás mindkét forgatókönyvre alkalmazható. Minden megoldási megközelítés alappillére ugyanaz: **a beágyazott OLE objektum ablakméretének meg kell egyeznie a PowerPoint‑dia OLE objektumkeretével**. Most a megoldás két megközelítését fogjuk bemutatni.
+Tegye a példakódot az alkalmazás belépési pontjába, a include deklarációkat a fájl szintjén. Az Aspose.Cells-et inicializálja a objektumok létrehozása előtt, és szabadítsa fel erőforrásait, miután az objektumok meg lettek semmisítve. A példában a Aspose.Cells által visszaadott munkafüzet bájtvektort másolják az Aspose.Slides által elfogadott tömbtípusba.
 
-## **Első megközelítés**
+A példa új prezentációt hoz létre egy 9,5 × 4 hüvelykes OLE‑kerettel, amely 0,5 hüvelyk távolságra van a bal szélétől és 1 hüvelykre a tetejétől. A dia koordinátái és méretei pontokban vannak megadva (72 pont per hüvelyk). Meglévő prezentáció esetén tekintse meg a [Use a Template](#use-a-template) szakaszt.
 
-Ebben a megközelítésben megtanuljuk, hogyan állítsuk be a beágyazott Excel‑munkafüzet ablakméretét úgy, hogy az megegyezzen a PowerPoint‑dia OLE objektumkeretének méretével.
+## **Rögzített diagramméret beállítása**
 
-**Scenario 1**
-
-Tegyük fel, hogy definiáltunk egy sablont, és annak alapján kívánunk prezentációkat létrehozni. Feltételezzük, hogy a sablonban a 2. indexű alakzatnál OLE‑keretet szeretnénk elhelyezni, amely beágyazott Excel‑munkafüzetet tartalmaz. Ebben a forgatókönyvben az OLE objektumkeret mérete előre meghatározott – megegyezik a sablonban a 2. indexű alakzat méretével. Csak annyi a teendő, hogy a munkafüzet ablakméretét egyenlővé tegyük ezzel az alakzattal. A következő kódrészlet erre szolgál:
+Állítsa a [Chart::SetSizeWithWindow](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setsizewithwindow/) értékét false-ra, hogy a diagram méretei függetlenek legyenek a munkafüzet ablakától. Állítsa be a [Chart::GetChartObject](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/getchartobject/) méreteit a [Shape::SetWidth](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setwidth/) és a [Shape::SetHeight](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setheight/) segítségével, pontokat pixelre konvertálva 96 pixel per hüvelyk értékkel: egy 684 × 288 pont méretű keret egy 912 × 384 pixel méretű diagramnak felel meg. Állítsa a [Chart::SetPrintSize](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setprintsize/) értékét a [PrintSizeType](https://reference.aspose.com/cells/cpp/aspose.cells/printsizetype/) Custom értékére. A példa az [IShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addoleobjectframe/) segítségével ágyazza be a munkafüzetet, és egy 9,5 × 4 hüvelykes OLE‑kerettel menti a prezentációt.
 
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <algorithm>
+#include <cstdint>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+Aspose::Cells::Startup();
 {
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"Data");
+    dataSheet.GetCells().Get(u"A1").PutValue(10);
+    dataSheet.GetCells().Get(u"A2").PutValue(20);
 
-    return outputStream;
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, 20, 10);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    chart.GetNSeries().Add(u"Data!A1:A2", true);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    // A dia koordinátái és méretei pontban vannak megadva (72 pont per hüvelyk).
+    auto width = 684.f; // 9,5 hüvelyk.
+    auto height = 288.f; // 4 hüvelyk.
+
+    chart.SetSizeWithWindow(false);
+    // Konvertálja a pontokat diagram pixelekre 96 pixel per hüvelyk használatával.
+    chart.GetChartObject().SetWidth(static_cast<int32_t>(width / 72.f * 96.f));
+    chart.GetChartObject().SetHeight(static_cast<int32_t>(height / 72.f * 96.f));
+    chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
+
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
+    // Másolja a Cells bájtvektort a Slides által elfogadott tömb típusba.
+    auto workbookBytes = System::MakeArray<uint8_t>(workbookData.GetLength(), 0);
+    std::copy(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength(), workbookBytes->data_ptr());
+    auto dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xls");
+    slide->get_Shapes()->AddOleObjectFrame(36, 72, width, height, dataInfo);
+
+    presentation->Save(u"chart-fixed-size.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
 }
+Aspose::Cells::Cleanup();
 ```
 
-```cpp
-// Definiálja a diagram méretét egy ablakban. 
-chart->SetSizeWithWindow(true);
+## **Sablon használata**
 
-auto shape = slide->get_Shape(2);
+Az átméretezési logika ugyanaz meglévő prezentáció esetén is. A példa adaptálásához:
 
-// Állítsa be a munkafüzet ablakszélességét hüvelykben (72-tel osztva, mivel a PowerPoint hüvelykenként 72 képpontot használ).
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
-
-// Állítsa be a munkafüzet ablakmagasságát hüvelykben.
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
-
-// Mentse a munkafüzetet egy memóriaáramra.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Hozzon létre egy OLE objektumkeretet a beágyazott Excel adatokkal.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(), 
-    shape->get_Height(),
-    dataInfo);
-```
-
-**Scenario 2**
-
-Tegyük fel, hogy semmiből szeretnénk prezentációt készíteni, és tetszőleges méretű OLE objektumkeretet szeretnénk hozzáadni beágyazott Excel‑munkafüzettel. A következő kódrészletben létrehozunk egy 4 hüvelyk magas és 9,5 hüvelyk széles OLE objektumkeretet az x = 0,5 hüvelyk, y = 1 hüvelyk pozícióban a dián. Ezután az Excel‑munkafüzet ablakát ugyanarra a méretre állítjuk – 4 hüvelyk magasra és 9,5 hüvelyk szélesre.
-
-```cpp
-// A kívánt magasság.
-int32_t desiredHeight = 288; // 4 hüvelyk (4 * 72)
-
-// A kívánt szélesség.
-int32_t desiredWidth = 684; // 9,5 hüvelyk (9.5 * 72)
-
-// Definiálja a diagram méretét egy ablakban. 
-chart->SetSizeWithWindow(true);
-
-// Állítsa be a munkafüzet ablakszélességét hüvelykben.
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
-
-// Állítsa be a munkafüzet ablakmagasságát hüvelykben.
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
-
-// Mentse a munkafüzetet egy memóriaáramra.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Hozzon létre egy OLE objektumkeretet a beágyazott Excel adatokkal.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f,
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-## **Második megközelítés**
-
-Ebben a megközelítésben megtanuljuk, hogyan állítsuk be a beágyazott Excel‑munkafüzetben lévő diagram méretét úgy, hogy az megegyezzen a PowerPoint‑dia OLE objektumkeretének méretével. Ez a megközelítés akkor hasznos, ha a diagram mérete előre ismert, és soha nem változik.
-
-**Scenario 1**
-
-Tegyük fel, hogy definiáltunk egy sablont, és annak alapján szeretnénk prezentációkat létrehozni. Feltételezzük, hogy a sablonban a 2. indexű alakzatnál OLE‑keretet kívánunk elhelyezni, amely beágyazott Excel‑munkafüzetet tartalmaz. Ebben a forgatókönyvben az OLE keret mérete előre meghatározott – megegyezik a 2. indexű alakzat méretével a sablonban. Csak annyi a feladat, hogy a munkafüzetben a diagram méretét ugyanolyanra állítsuk, mint az alakzat mérete. A következő kódrészlet erre szolgál:
-
-```cpp
-// Határozza meg a diagram méretét ablak nélkül. 
-chart->SetSizeWithWindow(false);
-
-auto shape = slide->get_Shape(2);
-
-// Állítsa be a diagram szélességét pixelben (szorozza 96-tal, mivel az Excel hüvelykenként 96 pixelt használ).    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
-
-// Állítsa be a diagram magasságát pixelben.
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
-
-// Határozza meg a diagram nyomtatási méretét.
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
-
-// Mentse a munkafüzetet memóriaáramra.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Hozzon létre egy OLE objektumkeretet a beágyazott Excel adatokkal.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(),
-    shape->get_Height(),
-    dataInfo);
-```
-
-**Scenario 2**
-
-Tegyük fel, hogy semmiből szeretnénk prezentációt létrehozni, és tetszőleges méretű OLE objektumkeretet adunk hozzá beágyazott Excel‑munkafüzettel. A következő kódrészletben létrehozunk egy 4 hüvelyk magas és 9,5 hüvelyk széles OLE objektumkeretet a dián, ahol x = 0,5 hüvelyk, y = 1 hüvelyk. A megfelelő diagram méretét is ugyanarra a méretre állítjuk: 4 hüvelyk magasra és 9,5 hüvelyk szélesre.
-
-```cpp
-// A kívánt magasság.
-int32_t desiredHeight = 288; // 4 hüvelyk (4 * 576)
-
-// A kívánt szélesség.
-int32_t desiredWidth = 684; // 9,5 hüvelyk(9.5 * 576)
-
-// Határozza meg a diagram méretét ablak nélkül. 
-chart->SetSizeWithWindow(false);
-
-// Állítsa be a diagram szélességét pixelben.    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
-
-// Állítsa be a diagram magasságát pixelben.
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
-
-// Mentse a munkafüzetet memóriaáramra.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// Hozzon létre egy OLE objektumkeretet a beágyazott Excel adatokkal.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f, 
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-## **Következtetés**
-
-Két megközelítés létezik a diagram-átméretezési probléma megoldására. A választott megközelítés a követelményektől és az esettől függ. Mindkét módszer ugyanúgy működik, függetlenül attól, hogy a prezentációt sablonból vagy semmiből hozták létre. Emellett nincs korlátozás az OLE objektumkeret méretére ebben a megoldásban.
+1. Töltse be a sablonprezentációt egy üres prezentáció létrehozása helyett.
+2. Ellenőrizze, hogy az első dián legalább három alakzat szerepel, majd használja a 2. indexű alakzatot helyőrzőként.
+3. Vegye a keret szélességét és magasságát ebből az alakzatból a 684 és 288 rögzített értékek helyett. Tartsa változatlanul a méretezési számításokat.
+4. Adja hozzá az OLE‑keretet a helyőrző pozíciójához a 36 és 72 rögzített koordináták helyett.
+5. Távolítsa el a helyőrzőt a prezentáció mentése előtt.
 
 ## **GYIK**
 
-**Miért változik méretben a beágyazott Excel‑diagram a PowerPoint‑ban történő aktiválás után?**  
-Ez azért történik, mert az Excel az első aktiváláskor megpróbálja visszaállítani az eredeti ablakméretét, míg a PowerPoint‑ban az OLE objektumkeret saját méretekkel rendelkezik. A PowerPoint és az Excel egyeztetik a méretet, hogy megőrizzék az arányt, ami az átméretezést okozhat.
+**Miért változik a beágyazott Excel-diagram mérete a PowerPointban történő aktiválás után?**
 
-**Lehetséges-e teljesen megakadályozni ezt az átméretezési problémát?**  
-Igen. Az Excel‑munkafüzet ablakméretének vagy a diagram méretének a OLE objektumkeret méretéhez igazításával a beágyazás előtt a diagram méretei konzisztensen maradhatnak.
+Ez azért történik, mert az Excel az első aktiváláskor megpróbálja visszaállítani az eredeti ablakméretet, míg a PowerPointban az OLE‑objektumkeret saját méretekkel rendelkezik. A PowerPoint és az Excel egyeztetik a méretet az arányok megtartása érdekében, ami átméretezést okozhat.
 
-**Melyik megközelítést válasszam, a munkafüzet ablakméretének beállítását vagy a diagram méretének beállítását?**  
-Használja a **1. megközelítést (ablakméret)**, ha meg szeretné őrizni a munkafüzet arányait, és esetleg később engedélyezni a méretezést.  
-Használja a **2. megközelítést (diagramméret)**, ha a diagram méretei rögzítettek, és a beágyazás után nem változnak.
+**Hogyan tarthatom konzisztensnek a diagram és az OLE‑keret méreteit?**
 
-**Működnek-e ezek a módszerek sablon‑alapú és új prezentációkkal egyaránt?**  
-Igen. Mindkét megközelítés ugyanúgy működik a sablonból és a semmiből létrehozott prezentációk esetében.
+Állítson be rögzített diagramméreteket, amelyek megegyeznek az OLE‑keret méreteivel, és az ágyazás előtt használjon egy egyedi diagramnyomtatási méretet. A fenti példa bemutatja a szükséges beállításokat és egységkonverziókat.
 
-**Van korlátozás az OLE objektumkeret méretére?**  
-Nincs. Az OLE keretet bármilyen méretre beállíthatja, ameddig megfelelően skálázódik a munkafüzet vagy a diagram méretéhez.
+**Elégséges-e a munkafüzet-ablak méretének illesztése?**
 
-**Használhatom ezeket a módszereket más táblázatkezelő programokkal létrehozott diagramokkal is?**  
-A példák Excel‑diagramokra vonatkoznak, amelyeket az Aspose.Cells készít, de az elvek más OLE‑kompatibilis táblázatprogramokra is alkalmazhatók, ha támogatják a hasonló méretezési beállításokat.
+A munkafüzet-ablak méretének csak önmagában történő illesztése nem biztosítja megbízhatóan, hogy az OLE‑keret ne változtassa meg méretét aktiválás után. Használjon rögzített diagramméreteket, ahogy a példában látható.
+
+**Működik ez a megoldás sablon‑alapú és új prezentációk esetén is?**
+
+Igen. Sablonnál a helyőrző méreteit és pozícióját használja. Új prezentáció esetén közvetlenül adja meg a keret méreteit és pozícióját.
+
+**Használhatom ezt a példát más táblázatkezelő programok által készített diagramokkal?**
+
+A példa egy Aspose.Cells által létrehozott Excel‑könyvtárat használ. Nem mutat be aktiválási viselkedést más táblázatkezelő programok esetén.
 
 ## **Kapcsolódó szakaszok**
 
-- [Excel diagramok létrehozása és OLE objektumként való beágyazása prezentációkba](/slides/hu/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/hu/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

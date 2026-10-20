@@ -1,12 +1,12 @@
 ---
-title: Werkende oplossing voor het aanpassen van de grootte van werkbladen
+title: Werkende oplossing voor werkbladgrootte‑aanpassing
 type: docs
 weight: 20
 url: /nl/androidjava/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- previewafbeelding
-- afbeeldingsgrootte aanpassen
+- voorbeeldafbeelding
+- afbeeldingsgrootte wijzigen
 - Excel
 - werkblad
 - PowerPoint
@@ -14,34 +14,42 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Los het OLE‑schalingprobleem van Excel‑werkbladen in presentaties op: twee methoden om objectframes consistent te houden—schaal het frame of het werkblad—over de PPT‑ en PPTX‑formaten."
+description: "Los het OLE-grootte‑aanpassingsprobleem van Excel-werkbladen in presentaties op: twee manieren om objectframes consistent te houden — schaal het frame of het blad — over de PPT‑ en PPTX‑formaten."
 ---
-{{% alert color="primary" %}}
-Er is geconstateerd dat Excel‑werkbladen die als OLE‑objecten in een PowerPoint‑presentatie zijn ingebed via Aspose‑componenten, na de eerste activering worden geschaald naar een onbekende schaal. Dit gedrag leidt tot een duidelijk visueel verschil in de presentatie tussen de voor‑ en na‑activatiestatus van het OLE‑object. We hebben dit probleem uitgebreid onderzocht en een oplossing geboden, die in dit artikel wordt behandeld.
+{{% alert color="info" title="Opmerking" %}}
+
+Excel‑werkbladen die als OLE‑objecten in een PowerPoint‑presentatie zijn ingebed met behulp van Aspose‑componenten, kunnen onverwacht van grootte veranderen na hun eerste activering. Dit gedrag veroorzaakt een opvallend visueel verschil tussen het OLE‑object vóór en na de activering. Dit artikel legt het probleem uit en beschrijft twee manieren om het op te lossen.
+
 {{% /alert %}}
 
 ## **Achtergrond**
 
-In het artikel [OLE beheren](/slides/nl/androidjava/manage-ole/) legden we uit hoe je een OLE‑frame aan een PowerPoint‑presentatie toevoegt met Aspose.Slides voor Android via Java. Om het [probleem met voorbeeldweergave van object](/slides/nl/androidjava/object-preview-issue-when-adding-oleobjectframe/) aan te pakken, hebben we een afbeelding van het geselecteerde werkbladgedeelte aan het OLE‑objectframe toegewezen. In de geproduceerde presentatie wordt, wanneer je dubbelklikt op het OLE‑objectframe dat de werkbladafbeelding toont, het Excel‑werkboek geactiveerd. Eindgebruikers kunnen gewenste wijzigingen aanbrengen in het daadwerkelijke Excel‑werkboek en vervolgens terugkeren naar de dia door buiten het geactiveerde Excel‑werkboek te klikken. De grootte van het OLE‑objectframe verandert wanneer de gebruiker terugkeert naar de dia. De schaalfactor varieert afhankelijk van de grootte van het OLE‑objectframe en het ingebedde Excel‑werkboek.
+In het artikel [Manage OLE](/slides/nl/androidjava/manage-ole/) legden we uit hoe een OLE‑frame aan een PowerPoint‑presentatie kan worden toegevoegd met Aspose.Slides voor Android via Java. Om het [object preview issue](/slides/nl/androidjava/object-preview-issue-when-adding-oleobjectframe/) aan te pakken, hebben we een afbeelding van het geselecteerde werkbladgebied aan het OLE‑objectframe toegewezen. In de resulterende presentatie wordt, wanneer je dubbelklikt op het OLE‑objectframe dat de werkbladafbeelding toont, de Excel‑werkmap geactiveerd. Eindgebruikers kunnen gewenste wijzigingen aanbrengen in de daadwerkelijke Excel‑werkmap en vervolgens terugkeren naar de dia door buiten de geactiveerde werkmap te klikken. De grootte van het OLE‑objectframe verandert wanneer de gebruiker terugkeert naar de dia. De factor van de grootte‑aanpassing varieert afhankelijk van de grootte van het OLE‑objectframe en de ingebedde Excel‑werkmap.
 
-## **Oorzaak van de schaalverandering**
+## **Oorzaak van het formaat wijzigen**
 
-Aangezien het Excel‑werkboek zijn eigen venstergrootte heeft, probeert het bij de eerste activering zijn originele grootte te behouden. Het OLE‑objectframe heeft echter zijn eigen afmetingen. Volgens Microsoft, wanneer het Excel‑werkboek wordt geactiveerd, onderhandelen Excel en PowerPoint over de grootte om de juiste verhoudingen te behouden als onderdeel van het insluitingsproces. De schaalverandering ontstaat door de verschillen tussen de Excel‑venstergrootte en de grootte en positie van het OLE‑objectframe.
+Aangezien de Excel‑werkmap zijn eigen venstergrootte heeft, probeert deze bij de eerste activering zijn oorspronkelijke grootte te behouden. Aan de andere kant heeft het OLE‑objectframe zijn eigen afmetingen. Volgens Microsoft, wanneer de Excel‑werkmap wordt geactiveerd, onderhandelen Excel en PowerPoint over de grootte om ervoor te zorgen dat de juiste verhoudingen behouden blijven als onderdeel van het insluitingsproces. De aanpassing gebeurt op basis van de verschillen tussen de Excel‑venstergrootte en de grootte en positie van het OLE‑objectframe.
 
 ## **Werkende oplossing**
 
-Er zijn twee mogelijke oplossingen om het schaalveranderingseffect te vermijden.
+Er zijn twee mogelijke oplossingen om het formaat‑wijzigingseffect te voorkomen.
 
-- Schaal de OLE‑framegrootte in de PowerPoint‑presentatie zodat deze overeenkomt met de hoogte en breedte van het gewenste aantal rijen en kolommen in het OLE‑frame.
-- Houd de OLE‑framegrootte constant en schaal de grootte van de deelnemende rijen en kolommen zodat ze binnen de geselecteerde OLE‑framegrootte passen.
+- Schaal het OLE‑frame in de PowerPoint‑presentatie zodat het overeenkomt met de totale hoogte en breedte van de geselecteerde rijen en kolommen.
+- Houd de OLE‑framegrootte constant en schaal de geselecteerde rijen en kolommen zodat ze erin passen.
 
 ### **Schaal de OLE‑framegrootte**
 
-In deze benadering leren we hoe we de OLE‑framegrootte van het ingebedde Excel‑werkboek instellen zodat deze overeenkomt met de cumulatieve grootte van de deelnemende rijen en kolommen in het Excel‑werkblad.
+Deze aanpak stelt de OLE‑framegrootte in zodat deze overeenkomt met de totale hoogte en breedte van de geselecteerde rijen en kolommen in het ingebedde Excel‑werkblad.
 
-Stel dat we een sjabloon‑Excel‑blad hebben en dit willen toevoegen aan een presentatie als OLE‑frame. In dit scenario wordt de grootte van het OLE‑objectframe eerst berekend op basis van de cumulatieve rijhoogtes en kolombreedtes van de deelnemende rijen en kolommen in het werkboek. Vervolgens stellen we de grootte van het OLE‑frame in op deze berekende waarde. Om het rode “EMBEDDED OLE OBJECT”-bericht voor het OLE‑frame in PowerPoint te voorkomen, leggen we ook een afbeelding vast van de gewenste delen van de rijen en kolommen in het werkboek en stellen we deze in als OLE‑frame‑afbeelding.
+Het voorbeeld laadt een bestaande Excel‑werkmap en selecteert de eerste 10 rijen en 13 kolommen van het eerste werkblad met nul‑gebaseerde indexen. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) definieert het weergegeven bereik. De preview wordt gerenderd op 96 DPI en de pixelafmetingen worden omgezet naar punten met 72 punten per inch. [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) embedde de aangepaste werkmap in een frame met die afmetingen. De preview wordt toegewezen via [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) om de “EMBEDDED OLE OBJECT”‑plaatsvervanger in de opgeslagen presentatie te vervangen.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -51,7 +59,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Stel de weergegeven grootte in wanneer het werkboekbestand wordt gebruikt als OLE-object in PowerPoint.
+// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,10 +69,10 @@ InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
 // Get the width and height of the OLE image in points.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
-// We moeten het aangepaste werkboek gebruiken.
+// We need to use the modified workbook.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -72,12 +80,12 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Voeg de OLE-afbeelding toe aan de presentatieresources.
+// Add the OLE image to the presentation resources.
 imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Maak het OLE-objectframe aan.
+// Create the OLE object frame.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -88,7 +96,13 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+De preview‑helper stelt [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) in op het geselecteerde bereik en verwijdert marges, kopteksten en voetteksten. Met [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/java/com.aspose.cells/imageorprintoptions/#setOnlyArea-boolean-) ingeschakeld, rendert [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-) het bereik als een PNG‑afbeelding. De helper retourneert een nieuwe invoerstroom die de PNG‑afbeelding bevat, gepositioneerd aan het begin voor gebruik in de presentatie.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -113,13 +127,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-### **Schaal de grootte van het cellenbereik**
+### **Schaal de celbereikgrootte**
 
-In deze benadering leren we hoe we de hoogtes van de deelnemende rijen en de breedtes van de deelnemende kolommen schalen zodat ze overeenkomen met een aangepaste OLE‑framegrootte.
+Deze aanpak schaalt de hoogtes van de geselecteerde rijen en de breedtes van de geselecteerde kolommen zodat ze overeenkomen met een aangepaste OLE‑framegrootte.
 
-Stel dat we een sjabloon‑Excel‑blad hebben en dit willen toevoegen aan een presentatie als OLE‑frame. In dit scenario stellen we de grootte van het OLE‑frame in en schalen we de grootte van de rijen en kolommen die deelnemen aan het OLE‑frame‑gebied. Vervolgens slaan we het werkboek op in een stream om de wijzigingen toe te passen en converteren we het naar een byte‑array om toe te voegen aan het OLE‑frame. Om het rode “EMBEDDED OLE OBJECT”-bericht voor het OLE‑frame in PowerPoint te vermijden, leggen we ook een afbeelding vast van de gewenste delen van de rijen en kolommen in het werkboek en stellen we deze in als OLE‑frame‑afbeelding.
+Het voorbeeld laadt een bestaande Excel‑werkmap en selecteert de eerste 10 rijen en 13 kolommen van het eerste werkblad met nul‑gebaseerde indexen. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) definieert het weergegeven bereik, en de helper hieronder schaalt dat bereik zodat het in een frame van 400 punten breed en 100 punten hoog past. Na het opslaan van de aangepaste werkmap naar een stroom, embedde [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) deze op de opgegeven grootte. Een preview gerenderd op 96 DPI wordt toegewezen via [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) zodat de opgeslagen presentatie de geselecteerde cellen weergeeft in plaats van de standaardplaatsvervanger.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -135,8 +153,36 @@ int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Scha… (the original comment line)
+// Schaal het celbereik zodat het in de framegrootte past.
+com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
+ScaleCellRange(cellRange, frameWidth, frameHeight);
+
+InputStream imageStream = CreateOleImage(cellRange, imageResolution);
+
+// We moeten het aangepaste werkboek gebruiken.
+ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
+workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
+workbook.dispose();
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+// Voeg de OLE-afbeelding toe aan de presentatieresources.
+IPPImage oleImage = presentation.getImages().addImage(imageStream);
+imageStream.close();
+
+// Maak het OLE-objectframe.
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
+IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
+oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
+oleFrame.setObjectIcon(false);
+oleStream.close();
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
+
+De schaal‑helper berekent afzonderlijke breedte‑ en hoogteratio’s voor het geselecteerde bereik, waardoor de relatieve breedtes van de kolommen en de relatieve hoogtes van de rijen behouden blijven. De berekende dimensies worden van punten naar inches omgezet voordat ze worden toegepast met [Cells.setColumnWidthInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setColumnWidthInch-int-double-) en [Cells.setRowHeightInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setRowHeightInch-int-double-). Het geselecteerde bereik moet een niet‑nul breedte en hoogte hebben.
 
 ```java
 /**
@@ -175,7 +221,13 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 }
 ```
 
+Deze preview‑helper rendert het gewijzigde bereik met [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-). Hij beperkt [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) tot dat bereik, verwijdert marges, kopteksten en voetteksten, en retourneert een PNG‑stroom die aan het begin is gepositioneerd.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -202,26 +254,40 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 
 ## **Conclusie**
 
-{{% alert color="primary" %}} 
-Er zijn twee benaderingen om het schaalprobleem van het werkblad op te lossen. De keuze voor de juiste benadering hangt af van de specifieke eisen en het gebruiksscenario. Beide benaderingen werken op dezelfde manier, ongeacht of de presentaties vanuit een sjabloon of vanaf nul worden aangemaakt. Bovendien is er geen limiet aan de grootte van het OLE‑objectframe in deze oplossing.
+{{% alert color="info" title="Opmerking" %}}
+
+Er zijn twee benaderingen om het probleem met de grootte‑aanpassing van het werkblad op te lossen. Kies de benadering die het beste past bij uw vereisten en gebruiksscenario. Beide benaderingen werken op dezelfde manier, of de presentaties nu vanuit een sjabloon of vanaf nul worden gemaakt. Bovendien is er geen limiet aan de grootte van het OLE‑objectframe in deze oplossing.
+
 {{% /alert %}}
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Waarom verandert de grootte van een ingebed Excel‑werkblad bij de eerste activering in PowerPoint?**  
-Dit gebeurt omdat Excel bij het activeren probeert de oorspronkelijke venstergrootte te behouden, terwijl het OLE‑objectframe in PowerPoint zijn eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat kan leiden tot schaalverandering.
+**Waarom verandert een ingebed Excel‑werkblad van grootte bij de eerste activering in PowerPoint?**
 
-**Is het mogelijk om dit schaalprobleem volledig te voorkomen?**  
-Ja. Door het OLE‑frame te schalen naar de grootte van het Excel‑cellenbereik of door het cellenbereik te schalen naar de gewenste OLE‑framegrootte, kun je ongewenste schaalverandering voorkomen.
+Dit gebeurt omdat Excel probeert de oorspronkelijke venstergrootte te behouden bij activatie, terwijl het OLE‑objectframe in PowerPoint zijn eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat de resizing kan veroorzaken.
 
-**Welke schaalmethode moet ik gebruiken, OLE‑frame­schaal of cellenbereik­schaal?**  
-Kies **OLE frame scaling** als je de oorspronkelijke Excel‑rij‑ en kolomgroottes wilt behouden. Kies **cell range scaling** als je een vaste grootte voor het OLE‑frame in je presentatie wilt.
+**Is het mogelijk om dit resizing‑probleem volledig te voorkomen?**
 
-**Werken deze oplossingen ook als mijn presentatie gebaseerd is op een sjabloon?**  
-Ja. Beide oplossingen werken voor presentaties die zijn gemaakt op basis van sjablonen en voor presentaties die vanaf nul worden opgebouwd.
+Ja. Door het OLE‑frame te schalen zodat het past bij de grootte van het Excel‑celbereik, of door het celbereik te schalen zodat het past binnen de gewenste OLE‑framegrootte, kun je ongewenste grootte‑aanpassingen voorkomen.
 
-**Is er een limiet aan de grootte van het OLE‑frame bij het gebruik van deze methoden?**  
-Nee. Je kunt het OLE‑objectframe zo groot maken als je wilt, zolang je de schaal correct instelt.
+**Welke schaal‑methode moet ik gebruiken, OLE‑frame schalen of celbereik schalen?**
 
-**Is er een manier om de “EMBEDDED OLE OBJECT”-plaatsaanduidingstekst in PowerPoint te vermijden?**  
-Ja. Door een snapshot van het beoogde Excel‑cellenbereik te nemen en deze in te stellen als de plaatsaanduidingsafbeelding van het OLE‑frame, kun je een aangepaste voorbeeldafbeelding weergeven in plaats van de standaardtekst.
+Kies **OLE‑frame schalen** als je de oorspronkelijke Excel‑rij‑ en kolomgroottes wilt behouden. Kies **celbereik schalen** als je een vaste grootte voor het OLE‑frame in je presentatie wilt.
+
+**Werken deze oplossingen als mijn presentatie gebaseerd is op een sjabloon?**
+
+Ja. Beide oplossingen werken voor presentaties die zijn gemaakt vanuit sjablonen en voor presentaties die vanaf nul zijn opgebouwd.
+
+**Is er een limiet aan de grootte van het OLE‑frame bij gebruik van deze methoden?**
+
+Nee. Je kunt het OLE‑objectframe elke gewenste grootte geven, zolang je de schaal correct instelt.
+
+**Is er een manier om de “EMBEDDED OLE OBJECT”‑plaatsvervangertekst in PowerPoint te vermijden?**
+
+Ja. Door een snapshot van het doel‑Excel‑celbereik te maken en deze in te stellen als de placeholder‑afbeelding van het OLE‑frame, kun je een aangepast preview‑beeld weergeven in plaats van de standaardplaatsvervanger.
+
+## **Gerelateerde artikelen**
+
+[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/nl/androidjava/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Updating OLE Objects Automatically Using an MS PowerPoint Add-In](/slides/nl/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

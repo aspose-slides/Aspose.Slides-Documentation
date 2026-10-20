@@ -1,134 +1,128 @@
 ---
-title: "جلوگیری از ویرایش ارائه با قفل‌های شکل در پایتون"
-linktitle: "جلوگیری از ویرایش ارائه"
+title: محدود کردن ویرایش‌های ارائه با قفل‌های شکل در پایتون
+linktitle: محدود کردن ویرایش‌های ارائه
 type: docs
 weight: 70
 url: /fa/python-net/applying-protection-to-presentation/
 keywords:
-- "جلوگیری از ویرایش"
-- "محافظت در برابر ویرایش"
-- "قفل شکل"
-- "قفل موقعیت"
-- "قفل انتخاب"
-- "قفل اندازه"
-- "قفل گروه‌بندی"
-- PowerPoint
-- OpenDocument
-- "ارائه"
-- Python
+- جلوگیری از ویرایش
+- محافظت در برابر ویرایش
+- قفل کردن شکل
+- قفل موقعیت
+- قفل انتخاب
+- قفل تغییر اندازه
+- قفل گروه‌بندی
+- پاورپوینت
+- PPTX
+- ارائه
+- پایتون
 - Aspose.Slides
-description: "کشف کنید چگونه Aspose.Slides برای پایتون از طریق .NET، شکل‌ها را در فایل‌های PPT، PPTX و ODP قفل یا بازقفل می‌کند، ارائه‌ها را ایمن می‌سازد در حالی که ویرایش‌های کنترل‌شده و تحویل سریعتر را امکان‌پذیر می‌سازد."
+description: "نحوه قفل و بازقفل کردن اشکال در ارائه‌های PPTX با Aspose.Slides for Python via .NET را برای محدود کردن انتخاب، حرکت، تغییر اندازه و گروه‌بندی بیاموزید."
 ---
 ## **پیش‌زمینه**
 
-یک کاربرد رایج Aspose.Slides ایجاد، به‌روزرسانی و ذخیره ارائه‌های Microsoft PowerPoint (PPTX) به عنوان بخشی از یک گردش کار خودکار است. کاربران برنامه‌هایی که Aspose.Slides را به این شکل به کار می‌برند به ارائه‌های تولید شده دسترسی دارند، بنابراین محافظت از آنها در برابر ویرایش یک نگرانی معمول است. مهم است که ارائه‌های به‌طور خودکار تولید شده قالب‌بندی و محتوای اصلی خود را حفظ کنند.
+یک استفاده رایج از Aspose.Slides for Python via .NET ایجاد، به‌روزرسانی و ذخیره ارائه‌های PowerPoint (PPTX) به عنوان بخشی از یک گردش کار خودکار است. هنگامی که کاربران این ارائه‌ها را دریافت می‌کنند، محدود کردن تغییرات اشکال می‌تواند به حفظ طرح‌بندی و محتوای مورد نظر کمک کند.
 
-این مقاله توضیح می‌دهد که ارائه‌ها و اسلایدها چگونه ساختاربندی می‌شوند و Aspose.Slides for Python چگونه می‌تواند محافظت را به یک ارائه اعمال کرده و بعداً آن را حذف کند. این به توسعه‌دهندگان روشی برای کنترل نحوه استفاده از ارائه‌هایی که برنامه‌هایشان تولید می‌کنند، ارائه می‌دهد.
+این مقاله توضیح می‌دهد که اشکال چگونه در اسلایدها سازماندهی می‌شوند و چگونه قفل‌های اشکال را در یک ارائه PPTX اعمال و حذف کنید. این قفل‌ها به شما امکان می‌دهند عملیات‌های ویرایشی خاصی را بر روی اشکال تک‌تکی محدود کنید.
 
-## **ترکیب اسلاید**
+## **ساختار یک اسلاید**
 
-یک اسلاید ارائه شامل اجزائی مانند autoshapes، جدول‌ها، اشیاء OLE، شکل‌های گروه‌بندی‌شده، فریم‌های تصویر، فریم‌های ویدئو، کانکتورها و سایر عناصری است که برای ساخت یک ارائه استفاده می‌شوند. در Aspose.Slides for Python، هر عنصر در یک اسلاید توسط آبجکتی که از کلاس [Shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/) ارث‌بری می‌کند، نمایان می‌شود.
+یک اسلاید ارائه شامل اجزایی مانند اتو‌شکل‌ها، جدول‌ها، اشیای OLE، اشکال گروه‌بندی شده، قاب‌های تصویر، قاب‌های ویدئویی، کانکتورها و سایر عناصری است که برای ساخت یک ارائه استفاده می‌شوند. در Aspose.Slides for Python via .NET، هر عنصر در یک اسلاید توسط شیئی نمایش داده می‌شود که از کلاس [شکل](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) ارث می‌برد.
 
-ساختار PPTX پیچیده است، به‌طوری‌که بر خلاف PPT که می‌توان از یک قفل عمومی برای تمام انواع شکل‌ها استفاده کرد، انواع مختلف شکل‌ها به قفل‌های متفاوتی نیاز دارند. کلاس [BaseShapeLock](https://reference.aspose.com/slides/fa/python-net/aspose.slides/baseshapelock/) کلاس قفل‌گذاری عمومی برای PPTX است. انواع قفل‌های زیر در Aspose.Slides for Python برای PPTX پشتیبانی می‌شوند:
+انواع مختلف اشکال گزینه‌های قفل‌گذاری متفاوتی ارائه می‌دهند. کلاس [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) کلاس پایه برای قفل‌های اشکال است. Aspose.Slides for Python via .NET کلاس‌های قفل زیر را فراهم می‌کند:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/fa/python-net/aspose.slides/autoshapelock/) قفل autoshapes را اعمال می‌کند.  
-- [ConnectorLock](https://reference.aspose.com/slides/fa/python-net/aspose.slides/connectorlock/) قفل connector shapes را اعمال می‌کند.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/fa/python-net/aspose.slides/graphicalobjectlock/) قفل graphic objects را اعمال می‌کند.  
-- [GroupShapeLock](https://reference.aspose.com/slides/fa/python-net/aspose.slides/groupshapelock/) قفل group shapes را اعمال می‌کند.  
-- [PictureFrameLock](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pictureframelock/) قفل picture frames را اعمال می‌کند.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) قفل اتوشکل‌ها.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) قفل اشکال کانکتور.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) قفل اشیای گرافیکی.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) قفل اشکال گروهی.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) قفل قاب‌های تصویر.  
 
-هر عملی که بر روی تمام اشیاء shape در یک شیء [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) انجام شود، بر کل ارائه اعمال می‌شود.
+برای اعمال قفل‌ها بر روی یک [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، اسلایدهای آن را پیمایش کنید و قفل‌های مناسب را بر روی هر شکل پشتیبانی‌شده تنظیم کنید.
 
-## **اعمال و حذف محافظت**
+## **اعمال و حذف حفاظت**
 
-اعمال محافظت اطمینان می‌دهد که یک ارائه نمی‌تواند ویرایش شود. این یک تکنیک مفید برای محافظت از محتوای ارائه است.
+قفل‌های شکل عملیات‌هایی مانند انتخاب، جابجایی و تغییر اندازه اشکال را محدود می‌کنند. این قفل‌ها کل ارائه را غیرقابل ویرایش نمی‌کنند.
 
-### **اعمال محافظت بر شکل‌های PPTX**
+### **اعمال حفاظت به اشکال PPTX**
 
-Aspose.Slides for Python کلاس [Shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/) را برای کار با شکل‌ها در یک اسلاید فراهم می‌کند.
+Aspose.Slides for Python via .NET کلاس [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) را برای کار با اشکال در یک اسلاید فراهم می‌کند.
 
-همان‌طور که پیش‌تر اشاره شد، هر کلاس shape یک کلاس shape‑lock مرتبط برای محافظت دارد. این مقاله بر قفل‌های NoSelect، NoMove و NoResize متمرکز است. این قفل‌ها اطمینان می‌دهند که شکل‌ها نمی‌توانند انتخاب شوند (از طریق کلیک ماوس یا روش‌های دیگر انتخاب) و نمی‌توانند جابجا یا اندازه‌شان تغییر یابد.
+در این مثال، ویژگی‌های [select_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/select_locked/)، [position_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/position_locked/)، و [size_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/size_locked/) برای اتوشکل‌ها به مقدار `True` تنظیم می‌شوند، و قفل‌های معادل برای اشکال گروهی، کانکتورها و قاب‌های تصویر اعمال می‌شود. برای جابجایی، کانکتورها از [position_move](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/position_move/) استفاده می‌کنند؛ گروه‌ها نیز از [grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) برای محدود کردن گروه‌بندی استفاده می‌کنند.
 
-نمونه کد زیر محافظت را بر روی تمام انواع shapeها در یک ارائه اعمال می‌کند.
+این مثال یک ارائه PPTX موجود را بارگذاری می‌کند، اشکال موجود در مجموعه اشکال هر اسلاید را بررسی می‌کند و نسخه‌ای با این محدودیت‌ها ذخیره می‌نماید. اشکالی که خارج از چهار نوع پشتیبانی‌شده هستند بدون تغییر می‌مانند. این حلقه به اشکال فرزند داخل یک گروه پیمایش نمی‌کند.
 
-```py
+```python
 import aspose.slides as slides
 
-# نمونه‌سازی کلاس Presentation که نمایانگر یک فایل PPTX است.
 with slides.Presentation("Sample.pptx") as presentation:
-    # پیمایش تمام اسلایدهای موجود در ارائه.
     for slide in presentation.slides:
-        # پیمایش تمام شکل‌ها در اسلاید.
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = True
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-    # ذخیره کردن فایل ارائه.
+
     presentation.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **حذف محافظت**
+### **حذف حفاظت**
 
-برای باز کردن قفل یک shape، مقدار قفل اعمال‌شده را به `False` تنظیم کنید. نمونه کد زیر نشان می‌دهد چطور shapeها را در یک ارائهٔ قفل‌شده باز کنید.
+برای حذف یک قفل شکل، مقدار آن را به `False` تنظیم کنید. مثال زیر یک ارائه همراه با قفل‌های شکل را بارگذاری می‌کند و محدودیت‌های انتخاب، حرکت و تغییر اندازه را از طریق [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/)، [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/)، [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) و [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) پاک می‌نماید. همچنین [GroupShapeLock.grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) را پاک می‌کند و نسخه‌ای از ارائه را ذخیره می‌نماید. سایر تنظیمات قفل بدون تغییر می‌مانند.
 
-```py
+```python
 import aspose.slides as slides
 
-# نمونه‌سازی کلاس Presentation که نمایانگر یک فایل PPTX است.
 with slides.Presentation("ProtectedSample.pptx") as presentation:
-    # پیمایش تمام اسلایدهای موجود در ارائه.
     for slide in presentation.slides:
-        # پیمایش تمام شکل‌ها در اسلاید.
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = False
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-    # ذخیره کردن فایل ارائه.
+
     presentation.save("RemovedProtectionSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **نتیجه‌گیری**
 
-Aspose.Slides چند گزینه برای محافظت از shapeها در یک ارائه ارائه می‌دهد. می‌توانید یک shape جداگانه را قفل کنید یا بر تمام shapeهای یک ارائه پیمایش کنید و هر یک را قفل کنید تا به‌طور مؤثر کل فایل را ایمن کنید. می‌توانید با تنظیم مقدار قفل به `False` محافظت را حذف کنید.
+Aspose.Slides for Python via .NET به شما امکان می‌دهد عملیات‌های ویرایشی خاص را بر روی اشکال تک‌تکی محدود کنید یا همان محدودیت‌ها را در سراسر اسلایدها اعمال کنید. قفل‌های پشتیبانی‌شده توسط هر نوع شکل را انتخاب کنید و مقادیر آن‌ها را به `False` تنظیم کنید هنگامی که نیاز به حذف این محدودیت‌ها دارید.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم قفل‌های shape و محافظت با رمز عبور را در یک ارائه ترکیب کنم؟**
+**آیا می‌توانم قفل‌های شکل و حفاظت با رمز عبور را در یک ارائه ترکیب کنم؟**
 
-بله. قفل‌ها محدودیت ویرایش اشیاء داخل فایل را اعمال می‌کنند، در حالی که [password protection](/slides/fa/python-net/password-protected-presentation/) دسترسی به باز کردن و/یا ذخیرهٔ تغییرات را کنترل می‌کند. این مکانیزم‌ها یکدیگر را تکمیل می‌کنند و همراه هم کار می‌کنند.
+بله. قفل‌های شکل عملیات‌های ویرایشی خاصی را محدود می‌کنند، در حالی که [حفاظت با رمز عبور](/slides/fa/python-net/password-protected-presentation/) می‌تواند باز کردن یا ویرایش ارائه را محدود کند. می‌توانید هر دو را در یک فایل استفاده کنید.
 
-**آیا می‌توانم ویرایش را در اسلایدهای خاص محدود کنم بدون اینکه بر دیگران تأثیر بگذارد؟**
+**آیا می‌توانم ویرایش را در اسلایدهای خاص بدون تأثیر بر دیگر اسلایدها محدود کنم؟**
 
-بله. قفل‌ها را بر روی shapeهای اسلایدهای انتخاب‌شده اعمال کنید؛ اسلایدهای باقی‌مانده قابل ویرایش باقی می‌مانند.
+بله. قفل‌ها را فقط بر روی اشکال اسلایدهای انتخاب شده اعمال کنید. این کار تنظیمات قفل در سایر اسلایدها را تغییر نمی‌دهد.
 
-**آیا قفل‌های shape بر روی اشیاء گروه‌بندی‌شده و کانکتورها اعمال می‌شود؟**
+**چگونه می‌توانم قفل‌ها را بر روی اشکال تک‌تکی داخل یک گروه اعمال کنم؟**
 
-بله. انواع قفل‌های مخصوص برای گروه‌ها، کانکتورها، اشیاء گرافیکی و سایر انواع shapeها پشتیبانی می‌شوند.
+مجموعه [اشکال](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) گروه را پیمایش کنید و قفل‌های مناسب را بر هر شکل فرزند اعمال کنید. این کار را برای هر گروه تو در تو تکرار کنید. مثال‌های بالا تنها مجموعه اشکال اسلاید را پردازش می‌کنند، بنابراین قفل‌هایی روی اعضای تک‌تک گروه تنظیم نمی‌شوند.

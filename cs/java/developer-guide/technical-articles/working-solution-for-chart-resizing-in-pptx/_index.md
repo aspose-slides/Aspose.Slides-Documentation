@@ -1,215 +1,129 @@
 ---
-title: "Fungující řešení pro změnu velikosti grafu v PPTX"
+title: Funkční řešení pro změnu velikosti grafu v PPTX
 type: docs
 weight: 40
 url: /cs/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- "změna velikosti grafu"
-- "graf Excelu"
-- "OLE objekt"
-- "vložit graf"
-- "PowerPoint"
-- "OpenDocument"
-- "prezentace"
-- "Java"
-- "Aspose.Slides"
-description: "Opravte neočekávanou změnu velikosti grafu v PPTX při použití vložených OLE objektů Excelu s Aspose.Slides pro Java. Naučte se dvě metody s kódem, jak zachovat konzistentní velikosti."
+- změna velikosti grafu
+- graf Excel
+- OLE objekt
+- vložit graf
+- PowerPoint
+- prezentace
+- Java
+- Aspose.Slides
+description: "Opravte neočekávanou změnu velikosti grafu v PPTX při použití vložených OLE objektů Excel s Aspose.Slides pro Java. Nastavte pevné rozměry grafu, aby byly velikosti grafu a rámce OLE konzistentní."
 ---
 ## **Pozadí**
 
-Bylo zaznamenáno, že grafy Excelu vložené jako OLE objekty v prezentaci PowerPoint pomocí komponent Aspose jsou po své první aktivaci změněny na neurčené měřítko. Toto chování způsobuje výrazný vizuální rozdíl v prezentaci mezi před- a po‑aktivačním stavem grafu. Tým Aspose problém podrobně prozkoumal a našel řešení. Tento článek popisuje příčiny problému a odpovídající opravu.
+Grafy Excel vložené jako OLE objekty v prezentacích PowerPoint pomocí komponent Aspose mohou po první aktivaci změnit velikost. To může způsobit výrazný rozdíl ve vzhledu grafu před a po aktivaci. Tento článek vysvětluje, proč dochází k změně velikosti, a ukazuje, jak tomu předejít nastavením pevných rozměrů grafu tak, aby odpovídaly rámci OLE.
 
-V [předchozím článku](/slides/cs/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) jsme vysvětlili, jak vytvořit graf Excelu pomocí Aspose.Cells pro Java a vložit jej do prezentace PowerPoint pomocí Aspose.Slides pro Java. Pro řešení [problému s náhledem objektu](/slides/cs/java/object-preview-issue-when-adding-oleobjectframe/) jsme přiřadili obrázek grafu k OLE objektovému rámci grafu. V výstupní prezentaci, když dvakrát kliknete na OLE objektový rámec zobrazující obrázek grafu, aktivuje se graf Excelu. Koneční uživatelé mohou provádět jakékoli požadované změny v podkladovém sešitu Excelu a poté se vrátit na odpovídající snímek kliknutím mimo aktivovaný sešit. Velikost OLE objektového rámce se po návratu uživatele na snímek změní a faktor změny velikosti se liší v závislosti na původních rozměrech jak OLE objektového rámce, tak vloženého sešitu Excelu.
+V [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/cs/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) jsme vysvětlili, jak vytvořit graf Excel pomocí Aspose.Cells for Java a vložit jej do prezentace PowerPoint pomocí Aspose.Slides for Java. Pro řešení [object preview issue](/slides/cs/java/object-preview-issue-when-adding-oleobjectframe/) jsme přiřadili obrázek grafu rámci OLE objektu grafu. V výstupní prezentaci, když dvakrát kliknete na rámec OLE objektu zobrazující obrázek grafu, aktivuje se graf Excel. Uživatelé mohou upravovat vložený sešit Excel a poté se vrátit na snímek kliknutím mimo aktivovaný sešit. Velikost rámce OLE objektu se změní, když se uživatel vrátí na snímek, a faktor změny velikosti se liší v závislosti na původních velikostech jak rámce OLE objektu, tak vloženého sešitu Excel.
 
 ## **Příčina změny velikosti**
 
-Protože má sešit Excelu vlastní velikost okna, snaží se při první aktivaci zachovat svou původní velikost. OLE objektový rámec však má vlastní rozměry. Podle Microsoftu, když je sešit Excelu aktivován, Excel a PowerPoint si vyjednávají velikost a udržují správné proporce jako součást procesu vkládání. V závislosti na rozdílech mezi velikostí okna Excelu a velikostí nebo pozicí OLE objektového rámce dochází ke změně velikosti.
+Vložený sešit Excel má své vlastní rozměry okna, které se Excel snaží zachovat při první aktivaci objektu. Rámec OLE na snímku má samostatně definované rozměry. Když je sešit Excel aktivován, Excel a PowerPoint vyjednávají velikost objektu tak, aby zachovaly proporce jako součást procesu vkládání. Rozdíly mezi oknem sešitu a rámcem OLE tak mohou způsobit změnu velikosti objektu.
 
-## **Řešení fungující**
+## **Fungující řešení**
 
-Existují dva možné scénáře pro vytváření prezentací PowerPoint pomocí Aspose.Slides pro Java.
+Nastavte velikost grafu tak, aby odpovídala rámci OLE na snímku, a ponechte rozměry grafu nezávislé na okně sešitu. Toto řešení funguje jak s novou prezentací, tak s existující šablonou.
 
-**Scénář 1:** Vytvořit prezentaci na základě existující šablony.
+Příklad vyžaduje Aspose.Cells for Java a Aspose.Slides for Java. Vytvoří jednoduchý sloupcový graf na aktivním listu grafu a vloží sešit ve formátu XLS. Žádný obrázek náhledu grafu není přiřazen; graf se zobrazí, když je OLE objekt v PowerPointu aktivován.
 
-**Scénář 2:** Vytvořit prezentaci od nuly.
+Příklad vytvoří novou prezentaci s OLE rámcem o velikosti 9,5 × 4 palce umístěným 0,5 palce od levého okraje a 1 palec od horního okraje. Souřadnice a rozměry snímku jsou v bodech (72 bodů na palec). Pro existující prezentaci viz [Use a Template](#use-a-template).
 
-Řešení, které zde poskytujeme, platí pro oba scénáře. Základ všech přístupů řešení je stejný: **okno vloženého OLE objektu by mělo odpovídat velikosti OLE objektového rámce na snímku PowerPointu**. Nyní probereme oba přístupy k tomuto řešení.
+## **Nastavte pevnou velikost grafu**
 
-## **První přístup**
-
-V tomto přístupu se naučíte, jak nastavit velikost okna vloženého sešitu Excelu tak, aby odpovídala velikosti OLE objektového rámce na snímku PowerPointu.
-
-**Scénář 1**
-
-Předpokládejme, že máme definovanou šablonu a chceme vytvářet prezentace na jejím základě. Předpokládejme, že v šabloně je na indexu 2 tvar, kam chceme umístit OLE rámec obsahující vložený sešit Excelu. V tomto scénáři je velikost OLE objektového rámce předdefinovaná – odpovídá velikosti tvaru na indexu 2 v šabloně. Stačí nastavit velikost okna sešitu tak, aby byla stejná jako velikost tohoto tvaru. Následující úryvek kódu slouží tomuto účelu:
+Nastavte [setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) na false, aby rozměry grafu byly nezávislé na okně sešitu. Rozměry [getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) nastavte pomocí [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) a [setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-), přičemž převedete body na pixely při 96 pixelech na palec: rámec měřící 684 × 288 bodů odpovídá grafu měřícímu 912 × 384 pixelů. Nastavte [setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) na hodnotu CUSTOM typu [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/). Příklad vloží sešit pomocí [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) a uloží prezentaci s OLE rámcem o velikosti 9,5 × 4 palce.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// Nastavte šířku okna sešitu v palcích (děleno 72, protože PowerPoint používá 72 bodů na palec).
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// Nastavte výšku okna sešitu v palcích.
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// Uložte sešit do paměťového proudu.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Vytvořte OLE objektový rámec s vloženými daty Excelu.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // Souřadnice a rozměry snímku jsou v bodech (72 bodů na palec).
+        float width = 684f; // 9,5 palce.
+        float height = 288f; // 4 palce.
+
+        chart.setSizeWithWindow(false);
+        // Převést body na pixely grafu při 96 pixelech na palec.
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**Scénář 2**
+## **Použít šablonu**
 
-Řekněme, že chceme vytvořit prezentaci od nuly a zahrnout OLE objektový rámec libovolné velikosti s vloženým sešitem Excelu. V následujícím úryvku kódu vytvoříme OLE objektový rámec vysoký 4 palce a široký 9,5 palce na souřadnicích x = 0,5 palce a y = 1 palce na snímku. Poté nastavíme okno sešitu Excelu na stejnou velikost – 4 palce vysoké a 9,5 palce široké.
+Logika velikosti je stejná pro existující prezentaci. Pro úpravu příkladu:
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+1. Načtěte šablonu prezentace místo vytváření prázdné prezentace.  
+2. Ověřte, že první snímek obsahuje alespoň tři tvary, a použijte tvar s indexem 2 jako zástupný znak.  
+3. Vezměte šířku a výšku rámce z tohoto tvaru místo pevně zadaných hodnot 684 a 288. Nechte výpočty velikosti beze změny.  
+4. Přidejte OLE rámec na pozici zástupného znaku místo pevných souřadnic 36 a 72.  
+5. Odstraňte zástupný znak před uložením prezentace.
 
-// Požadovaná výška.
-int desiredHeight = 288; // 4 palce (4 * 72)
- 
-// Požadovaná šířka.
-int desiredWidth = 684; // 9,5 palce (9.5 * 72)
- 
-// Definujte velikost grafu s oknem.
-chart.setSizeWithWindow(true);
- 
-// Nastavte šířku okna sešitu v palcích (děleno 72, protože PowerPoint používá 72 bodů na palec).
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// Nastavte výšku okna sešitu v palcích.
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// Uložte sešit do paměťového proudu.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Vytvořte OLE objektový rámec s vloženými daty Excelu.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0,5 palce (0.5 * 72)
-    72,  // y = 1 palec (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
+## **FAQ**
 
-## **Druhý přístup**
+**Proč se můj vložený graf Excel po aktivaci v PowerPointu změní velikost?**
 
-V tomto přístupu se naučíte, jak nastavit velikost grafu ve vloženém sešitu Excelu tak, aby odpovídala velikosti OLE objektového rámce na snímku PowerPointu. Tento přístup je užitečný, když je velikost grafu známa předem a nikdy se nezmění.
+Stane se tak, protože Excel se pokouší obnovit původní velikost okna při první aktivaci, zatímco rámec OLE objektu v PowerPointu má své vlastní rozměry. PowerPoint a Excel vyjednávají velikost tak, aby zachovaly poměr stran, což může vést ke změně velikosti.
 
-**Scénář 1**
+**Jak udržet velikosti grafu a rámce OLE konzistentní?**
 
-Předpokládejme, že máme definovanou šablonu a chceme vytvářet prezentace na jejím základě. Předpokládejme, že v šabloně je na indexu 2 tvar, kam máme v úmyslu umístit OLE rámec obsahující vložený sešit Excelu. V tomto scénáři je velikost OLE rámce předdefinovaná – odpovídá velikosti tvaru na indexu 2 v šabloně. Stačí nastavit velikost grafu v sešitě tak, aby byla rovna velikosti tvaru. Následující úryvek kódu tomuto slouží:
+Nastavte pevné rozměry grafu, které odpovídají rámci OLE, a použijte vlastní velikost tisku grafu před vložením sešitu. Výše uvedený příklad ukazuje potřebná nastavení a převody jednotek.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+**Je nastavení velikosti okna sešitu dostačující?**
 
-// Definujte velikost grafu bez okna.
-chart.setSizeWithWindow(false);
- 
-// Nastavte šířku grafu v pixelech (vynásobte 96, protože Excel používá 96 pixelů na palec).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// Nastavte výšku grafu v pixelech.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// Definujte tiskovou velikost grafu.
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// Uložte sešit do paměťového proudu.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Vytvořte OLE objektový rámec s vloženými daty Excelu.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
+Pouze nastavení velikosti okna sešitu spolehlivě nebrání změně velikosti rámce OLE po aktivaci. Použijte pevné rozměry grafu, jak je ukázáno v příkladu.
 
-**Scénář 2**:
+**Funguje toto řešení jak pro prezentace založené na šabloně, tak pro nové prezentace?**
 
-Předpokládejme, že chceme vytvořit prezentaci od nuly a zahrnout OLE objektový rámec libovolné velikosti s vloženým sešitem Excelu. V následujícím úryvku kódu vytvoříme OLE objektový rámec výšky 4 palce a šířky 9,5 palce na snímku na souřadnicích x = 0,5 palce a y = 1 palce. Také nastavíme odpovídající velikost grafu na stejné rozměry: výšku 4 palce a šířku 9,5 palce.
+Ano. Pro šablonu použijte rozměry a pozici zástupného znaku. Pro novou prezentaci zadejte rozměry a pozici rámce přímo.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+**Mohu použít tento příklad s grafy vytvořenými v jiných tabulkových programech?**
 
-// Naše požadovaná výška.
-int desiredHeight = 288; // 4 palce (4 * 72)
- 
-// Naše požadovaná šířka.
-int desiredWidth = 684; // 9,5 palce (9.5 * 72)
- 
-// Definujte velikost grafu bez okna.
-chart.setSizeWithWindow(false);
- 
-// Nastavte šířku grafu v pixelech (děleno 72 pro získání palců, vynásobeno 96, protože Excel používá 96 pixelů na palec).
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// Nastavte výšku grafu v pixelech.
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// Uložte sešit do paměťového proudu.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Vytvořte OLE objektový rámec s vloženými daty Excelu.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0,5 palce (0.5 * 72)
-    72,  // y = 1 palec (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **Závěr**
-
-Existují dva přístupy k odstranění problému změny velikosti grafu. Volba přístupu závisí na požadavcích a konkrétním použití. Oba přístupy fungují stejně, ať už jsou prezentace vytvářeny ze šablony nebo od nuly. Navíc neexistuje žádný limit velikosti OLE objektového rámce v tomto řešení.
-
-## **Často kladené otázky**
-
-### Proč se po aktivaci v PowerPointu změří velikost mého vloženého grafu Excelu?
-
-K tomu dochází, protože Excel se při první aktivaci snaží obnovit původní velikost okna, zatímco OLE objektový rámec v PowerPointu má své vlastní rozměry. PowerPoint a Excel si vyjednávají velikost tak, aby zachovaly poměr stran, což může vést ke změně velikosti.
-
-### Je možné tomuto problému se změnou velikosti zcela předejít?
-
-Ano. Pokud před vložením nastavíte velikost okna sešitu Excelu nebo velikost grafu tak, aby odpovídala velikosti OLE objektového rámce, můžete zachovat konstantní rozměry grafu.
-
-### Který přístup mám zvolit, nastavení velikosti okna sešitu nebo nastavení velikosti grafu?
-
-Použijte **Přístup 1 (velikost okna)**, pokud chcete zachovat poměr stran sešitu a případně umožnit pozdější změnu velikosti.  
-Použijte **Přístup 2 (velikost grafu)**, pokud jsou rozměry grafu pevně dané a po vložení se nebudou měnit.
-
-### Budou tyto metody fungovat jak pro prezentace založené na šabloně, tak pro nové prezentace?
-
-Ano. Oba přístupy fungují stejně pro prezentace vytvořené ze šablon i pro nově vytvořené prezentace.
-
-### Existuje limit velikosti OLE objektového rámce?
-
-Ne. OLE rámec můžete nastavit na libovolnou velikost, pokud se správně škáluje k velikosti sešitu nebo grafu.
-
-### Mohu tyto metody použít s grafy vytvořenými v jiných tabulkových programech?
-
-Příklady jsou navrženy pro grafy Excelu vytvořené pomocí Aspose.Cells, ale principy platí i pro jiné OLE‑kompatibilní tabulkové programy, pokud podporují podobné možnosti nastavení velikosti.
+Příklad používá sešit Excel vytvořený pomocí Aspose.Cells. Nepředstavuje chování aktivace pro jiné tabulkové programy.
 
 ## **Související sekce**
 
-- [Vytvořit grafy Excelu a vložit je jako OLE objekty do prezentací](/slides/cs/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/cs/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

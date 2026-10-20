@@ -6,7 +6,7 @@ url: /cs/python-java/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - náhledový obrázek
-- škálování obrázku
+- změna velikosti obrázku
 - Excel
 - list
 - PowerPoint
@@ -14,34 +14,36 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Opravte změnu velikosti OLE listu Excel v prezentacích: dva způsoby, jak zachovat konzistentní rámce objektů – škálováním rámce nebo listu – napříč formáty PPT a PPTX."
+description: "Opravte změnu velikosti OLE listu Excel v prezentacích: dva způsoby, jak udržet rámce objektů konzistentní — škálovat rámec nebo list — v formátech PPT a PPTX."
 ---
 {{% alert color="info" title="Note" %}}
 
-Bylo zjištěno, že listy aplikace Excel vložené jako OLE objekty v prezentaci PowerPoint prostřednictvím komponent Aspose jsou po první aktivaci změněny na neurčitou velikost. Toto chování vytváří znatelný vizuální rozdíl v prezentaci mezi stavem OLE objektu před a po aktivaci. Problém jsme detailně prozkoumali a poskytli řešení, které je popsáno v tomto článku.
+Tabulky Excel vložené jako OLE objekty v prezentaci PowerPoint pomocí komponent Aspose se mohou po první aktivaci neočekávaně změnit velikost. Toto chování vytváří znatelný vizuální rozdíl mezi OLE objektem před a po aktivaci. Tento článek vysvětluje problém a popisuje dva způsoby, jak jej řešit.
 
 {{% /alert %}}
 
 ## **Pozadí**
 
-V článku [Správa OLE](/slides/cs/python-java/manage-ole/) jsme vysvětlili, jak přidat OLE rámec do prezentace PowerPoint pomocí Aspose.Slides for Python via Java. Pro řešení [problém s náhledem objektu](/slides/cs/python-java/object-preview-issue-when-adding-oleobjectframe/) jsme přiřadili obrázek vybrané oblasti listu OLE objektu. V výstupní prezentaci, když dvakrát kliknete na OLE rámec zobrazující obrázek listu, aktivuje se sešit Excelu. Koneční uživatelé mohou provést libovolné změny ve skutečném sešitu Excel a poté se vrátí na snímek kliknutím mimo aktivovaný sešit Excel. Velikost OLE rámce se změní, když se uživatel vrátí na snímek. Faktor změny velikosti se bude lišit v závislosti na velikosti OLE rámce a vloženého sešitu Excel.
+V článku [Spravovat OLE](/slides/cs/python-java/manage-ole/) jsme vysvětlili, jak přidat OLE rámec do prezentace PowerPoint pomocí Aspose.Slides pro Python přes Java. Pro řešení [problému s náhledem objektu](/slides/cs/python-java/object-preview-issue-when-adding-oleobjectframe/) jsme přiřadili obrázek vybrané oblasti listu do OLE rámce. Ve výstupní prezentaci, když dvakrát kliknete na OLE rámec zobrazující obrázek listu, aktivuje se sešit Excel. Uživatelé mohou provádět libovolné změny v reálném sešitu Excel a poté se vrátit na snímek kliknutím mimo aktivovaný sešit Excel. Velikost OLE rámce se změní, když se uživatel vrátí na snímek. Faktor změny velikosti se bude lišit v závislosti na velikosti OLE rámce a vloženého sešitu Excel.
 
 ## **Příčina změny velikosti**
 
-Protože sešit Excel má vlastní velikost okna, snaží se po první aktivaci zachovat původní velikost. Na druhé straně OLE objektový rámec má svou velikost. Podle Microsoftu, když je sešit Excel aktivován, Excel a PowerPoint vyjednávají velikost, aby zachovaly správné proporce jako součást procesu vkládání. Změna velikosti nastává na základě rozdílů mezi velikostí okna Excel a velikostí a polohou OLE objektového rámce.
+Protože má sešit Excel vlastní velikost okna, snaží se při první aktivaci zachovat svou původní velikost. Naopak OLE objektový rámec má vlastní rozměry. Podle Microsoftu, když je sešit Excel aktivován, Excel a PowerPoint vyjednávají velikost tak, aby zachovaly správné proporce jako součást procesu vložení. Změna velikosti nastává na základě rozdílů mezi velikostí okna Excel a velikostí a polohou OLE objektového rámce.
 
-## **Fungující řešení**
+## **Řešení**
 
-Existují dva možné řešení, jak zabránit efektu změny velikosti.
+Existují dvě možná řešení, jak se vyhnout efektu změny velikosti.
 
-- Změňte velikost OLE rámce v prezentaci PowerPoint tak, aby odpovídala výšce a šířce požadovaného počtu řádků a sloupců v OLE rámci.
-- Udržujte velikost OLE rámce konstantní a škálujte velikost zapojených řádků a sloupců tak, aby se vešly do vybrané velikosti OLE rámce.
+- Změřte OLE rámec v prezentaci PowerPoint tak, aby odpovídal celkové výšce a šířce vybraných řádků a sloupců.
+- Udržujte velikost OLE rámce konstantní a přizpůsobte vybrané řádky a sloupce tak, aby do něj pasovaly.
 
-### **Škálování velikosti OLE rámce**
+### **Změna velikosti OLE rámce**
 
-V tomto přístupu se naučíme, jak nastavit velikost OLE rámce vloženého sešitu Excel tak, aby odpovídala kumulativní velikosti zapojených řádků a sloupců v listu Excel.
+Tento přístup nastaví velikost OLE rámce tak, aby odpovídala celkové výšce a šířce vybraných řádků a sloupců v vloženém listu Excel.
 
-Řekněme, že máme šablonu listu Excel a chceme jej přidat do prezentace jako OLE rámec. V tomto scénáři bude velikost OLE objektového rámce nejprve vypočítána na základě kumulativních výšek řádků a šířek sloupců zapojených řádků a sloupců v sešitu. Poté nastavíme velikost OLE rámce na tuto vypočtenou hodnotu. Abychom se vyhnuli červené zprávě „EMBEDDED OLE OBJECT“ pro OLE rámec v PowerPointu, také zachytíme obrázek požadovaných částí řádků a sloupců v sešitu a nastavíme jej jako obrázek OLE rámce.
+Příklad načte existující sešit Excel a vybere prvních 10 řádků a 13 sloupců jeho prvního listu pomocí nulových indexů. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) určuje zobrazovaný rozsah. Náhled je vykreslen při 96 DPI a jeho rozměry v pixelech jsou převedeny na body pomocí 72 bodů na palec. [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) vloží upravený sešit do rámce s těmito rozměry. Náhled je přiřazen pomocí [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) k nahrazení zástupného textu „EMBEDDED OLE OBJECT“ v uložené prezentaci.
+
+Pomocník pro náhled nastaví [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) na vybraný rozsah a odstraní okraje, záhlaví a zápatí. S povoleným [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/python-java/asposecells.api/imageorprintoptions/#onlyarea) [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage) vykreslí rozsah jako PNG obrázek. Pomocník vrátí nový vstupní stream obsahující PNG obrázek, umístěný na jeho začátku pro použití v prezentaci.
 
 ```python
 import jpype
@@ -103,7 +105,7 @@ try:
 
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
-        # Získat šířku a výšku OLE obrázku v bodech.
+        # Získejte šířku a výšku OLE obrázku v bodech.
         image_io = jpype.JClass("javax.imageio.ImageIO")
         image = image_io.read(image_stream)
         frame_width = image.getWidth() * 72.0 / image_resolution
@@ -140,11 +142,15 @@ finally:
     workbook.dispose()
 ```
 
-### **Škálování velikosti rozsahu buněk**
+### **Změna velikosti rozsahu buněk**
 
-V tomto přístupu se naučíme, jak škálovat výšky zapojených řádků a šířky zapojených sloupců, aby odpovídaly vlastní velikosti OLE rámce.
+Tento přístup mění výšky vybraných řádků a šířky vybraných sloupců tak, aby odpovídaly vlastní velikosti OLE rámce.
 
-Řekněme, že máme šablonu listu Excel a chceme jej přidat do prezentace jako OLE rámec. V tomto scénáři nastavíme velikost OLE rámce a škálujeme velikost řádků a sloupců, které se podílejí na oblasti OLE rámce. Pak uložíme sešit do proudu, abychom změny aplikovali, a převedeme jej na pole bajtů pro přidání do OLE rámce. Abychom se vyhnuli červené zprávě „EMBEDDED OLE OBJECT“ pro OLE rámec v PowerPointu, také zachytíme obrázek požadovaných částí řádků a sloupců v sešitu a nastavíme jej jako obrázek OLE rámce.
+Příklad načte existující sešit Excel a vybere prvních 10 řádků a 13 sloupců jeho prvního listu pomocí nulových indexů. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) určuje zobrazovaný rozsah a pomocník scale_cell_range přizpůsobí tento rozsah tak, aby pasoval do rámce širokého 400 bodů a vysokého 100 bodů. Po uložení upraveného sešitu do proudu [ShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) jej vloží s určenou velikostí. Náhled vykreslený při 96 DPI je přiřazen pomocí [OleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat), takže uložená prezentace zobrazí vybrané buňky místo výchozího zástupného textu.
+
+Pomocník pro měřítko vypočítá samostatné poměry šířky a výšky pro vybraný rozsah, zachovává relativní šířky jeho sloupců a relativní výšky jeho řádků. Převádí vypočtené rozměry z bodů na palce před jejich použitím pomocí [Cells.setColumnWidthInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setcolumnwidthinch) a [Cells.setRowHeightInch](https://reference.aspose.com/cells/python-java/asposecells.api/cells/#setrowheightinch). Vybraný rozsah musí mít nenulovou šířku i výšku.
+
+Tento pomocník pro náhled vykresluje změněný rozsah pomocí [SheetRender.toImage](https://reference.aspose.com/cells/python-java/asposecells.api/sheetrender/#toimage). Omezí [PageSetup.setPrintArea](https://reference.aspose.com/cells/python-java/asposecells.api/pagesetup/#printarea) na tento rozsah, odstraní okraje, záhlaví a zápatí a vrátí PNG stream umístěný na jeho začátku.
 
 ```python
 import jpype
@@ -224,7 +230,7 @@ try:
     workbook.getWorksheets().setOleSize(start_row, last_row, start_column, last_column)
 
     cell_range = worksheet.getCells().createRange(start_row, start_column, row_count, column_count)
-    # Škálujte rozsah buněk tak, aby odpovídal velikosti rámce.
+    # Změňte velikost rozsahu buněk tak, aby odpovídal velikosti rámce.
     scale_cell_range(cell_range, frame_width, frame_height)
     image_stream = create_ole_image(cell_range, image_resolution)
     try:
@@ -264,36 +270,38 @@ finally:
 
 {{% alert color="info" title="Note" %}} 
 
-Existují dva přístupy k vyřešení problému se změnou velikosti listu. Výběr vhodného přístupu závisí na konkrétních požadavcích a použití. Oba přístupy fungují stejným způsobem, ať už jsou prezentace vytvořeny ze šablony nebo od nuly. Navíc v tomto řešení neexistuje žádný limit velikosti OLE objektového rámce.
+Existují dva přístupy k opravě problému se změnou velikosti listu. Vyberte přístup, který nejlépe vyhovuje vašim požadavkům a použití. Oba přístupy fungují stejně, ať už jsou prezentace vytvořeny ze šablony nebo od nuly. Navíc neexistuje žádný limit velikosti OLE objektového rámce v tomto řešení.
 
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Proč se vložený list Excel mění po první aktivaci v PowerPointu?**
+**Proč se vložený list Excel změní ve velikosti při první aktivaci v PowerPointu?**
 
-Tento jev nastává, protože Excel se při aktivaci snaží zachovat původní velikost okna, zatímco OLE objektový rámec v PowerPointu má své vlastní rozměry. PowerPoint a Excel vyjednávají velikost, aby zachovaly poměr stran, což může způsobit změnu velikosti.
+Stane se to, protože Excel se při aktivaci snaží zachovat původní velikost okna, zatímco OLE objektový rámec v PowerPointu má vlastní rozměry. PowerPoint a Excel vyjednávají velikost, aby udržely poměr stran, což může způsobit změnu velikosti.
 
 **Je možné tomuto problému se změnou velikosti zcela zabránit?**
 
-Ano. Škálováním OLE rámce tak, aby odpovídal velikosti rozsahu buněk Excel, nebo škálováním rozsahu buněk tak, aby odpovídal požadované velikosti OLE rámce, můžete zabránit nechtěné změně velikosti.
+Ano. Škálováním OLE rámce tak, aby odpovídal velikosti Excelového rozsahu buněk, nebo škálováním rozsahu buněk tak, aby odpovídal požadované velikosti OLE rámce, můžete zabránit nechtěné změně velikosti.
 
 **Kterou metodu škálování mám použít, škálování OLE rámce nebo škálování rozsahu buněk?**
 
-Zvolte **škálování OLE rámce**, pokud chcete zachovat původní velikosti řádků a sloupců v Excelu. Zvolte **škálování rozsahu buněk**, pokud chcete v prezentaci pevnou velikost OLE rámce.
+Vyberte **škálování OLE rámce**, pokud chcete zachovat původní velikosti řádků a sloupců v Excelu. Vyberte **škálování rozsahu buněk**, pokud chcete mít v prezentaci pevnou velikost OLE rámce.
 
 **Budou tato řešení fungovat, pokud je moje prezentace založena na šabloně?**
 
-Ano. Obě řešení fungují pro prezentace vytvořené ze šablon i od nuly.
+Ano. Obě řešení fungují pro prezentace vytvořené ze šablon i od začátku.
 
-**Existuje limit velikosti OLE rámce při používání těchto metod?**
+**Existuje limit velikosti OLE rámce při použití těchto metod?**
 
-Ne. OLE objektový rámec můžete nastavit na libovolnou velikost, pokud nastavíte škálování správně.
+Ne. OLE objektový rámec může mít libovolnou velikost, pokud nastavíte škálování odpovídajícím způsobem.
 
-**Je možné se vyhnout textu zástupce „EMBEDDED OLE OBJECT“ v PowerPointu?**
+**Existuje způsob, jak se vyhnout textu „EMBEDDED OLE OBJECT“ jako zástupnému textu v PowerPointu?**
 
-Ano. Pořízením snímku cílového rozsahu buněk v Excelu a nastavením tohoto snímku jako obrázku zástupce OLE rámce můžete zobrazit vlastní náhledový obrázek místo výchozího zástupce.
+Ano. Pořízením snímku cílového Excelového rozsahu buněk a nastavením tohoto snímku jako zástupného obrázku OLE rámce můžete v prezentaci zobrazit vlastní náhled místo výchozího zástupného textu.
 
-## **Související články**
+## **Related Articles**
 
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/cs/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Vytvoření grafu Excel a vložení do prezentace jako OLE objekt](/slides/cs/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+
+[Automatická aktualizace OLE objektů pomocí doplňku MS PowerPoint](/slides/cs/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

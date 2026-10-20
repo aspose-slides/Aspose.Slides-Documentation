@@ -1,6 +1,6 @@
 ---
-title: Voorkom bewerkingen van presentaties met vormvergrendelingen
-linktitle: Voorkom bewerkingen van presentaties
+title: Beperk bewerkingen van presentaties met vormvergrendelingen in Java
+linktitle: Beperk bewerkingen van presentaties
 type: docs
 weight: 60
 url: /nl/java/applying-protection-to-presentation/
@@ -13,164 +13,146 @@ keywords:
 - grootte vergrendelen
 - groepering vergrendelen
 - PowerPoint
-- OpenDocument
+- PPTX
 - presentatie
 - Java
 - Aspose.Slides
-description: "Ontdek hoe Aspose.Slides for Java vormen in PPT-, PPTX- en ODP-bestanden vergrendelt of ontgrendelt, waardoor presentaties worden beveiligd terwijl gecontroleerde bewerkingen mogelijk zijn en een snellere levering wordt bereikt."
+description: "Leer hoe u vormen in PPTX-presentaties kunt vergrendelen en ontgrendelen met Aspose.Slides for Java om selectie, verplaatsing, grootte‑aanpassing en groepering te beperken."
 ---
 ## **Achtergrond**
 
-Een veelvoorkomende toepassing van Aspose.Slides is het maken, bijwerken en opslaan van Microsoft PowerPoint (PPTX)-presentaties als onderdeel van een geautomatiseerde workflow. Gebruikers van applicaties die Aspose.Slides op deze manier inzetten, hebben toegang tot de gegenereerde presentaties, dus het beschermen tegen bewerking is een veelvoorkomend zorgpunt. Het is belangrijk dat automatisch gegenereerde presentaties hun oorspronkelijke opmaak en inhoud behouden.
+Een veelvoorkomend gebruik van Aspose.Slides for Java is het maken, bijwerken en opslaan van PowerPoint (PPTX)-presentaties als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen de beoogde lay-out en inhoud te behouden.
 
-Dit artikel legt uit hoe presentaties en dia's zijn gestructureerd en hoe Aspose.Slides for Java bescherming kan toepassen op een presentatie en deze later kan verwijderen. Het biedt ontwikkelaars een manier om te bepalen hoe de presentaties die hun applicaties genereren, worden gebruikt.
+Dit artikel legt uit hoe vormen zijn georganiseerd op dia's en hoe u vormvergrendelingen kunt toepassen en verwijderen in een PPTX‑presentatie. Deze vergrendelingen stellen u in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken.
 
 ## **Samenstelling van een dia**
 
-Een presentatiedia bestaat uit componenten zoals autovormen, tabellen, OLE-objecten, gegroepeerde vormen, afbeeldingframes, video‑frames, connectoren en andere elementen die worden gebruikt om een presentatie op te bouwen. In Aspose.Slides for Java wordt elk element op een dia vertegenwoordigd door een object dat de [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/) interface implementeert of ervan erft.
+Een presentatiedia bestaat uit componenten zoals autovormen, tabellen, OLE‑objecten, gegroepeerde vormen, foto‑frames, video‑frames, connectoren en andere elementen die worden gebruikt om een presentatie te bouwen. In Aspose.Slides for Java wordt elk element op een dia vertegenwoordigd door een object dat de [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)‑interface implementeert of er van erft.
 
-De structuur van PPTX is complex, dus in tegenstelling tot PPT, waar een generieke vergrendeling voor alle vormtypen kan worden gebruikt, vereisen verschillende vormtypen verschillende vergrendelingen. De [IBaseShapeLock](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseshapelock/) interface is de generieke vergrendelingsklasse voor PPTX. De volgende soorten vergrendelingen worden ondersteund in Aspose.Slides for Java voor PPTX:
+Verschillende vormtypen bieden verschillende vergrendelingsopties. De [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/)‑interface is de basis‑interface voor vormvergrendelingen. Aspose.Slides for Java biedt de volgende vergrendelings‑interfaces:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iautoshapelock/) vergrendelt autovormen.  
-- [IConnectorLock](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iconnectorlock/) vergrendelt connectorvormen.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igraphicalobjectlock/) vergrendelt grafische objecten.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/nl/java/com.aspose.slides/igroupshapelock/) vergrendelt gegroepeerde vormen.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipictureframelock/) vergrendelt afbeeldingframes.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) vergrendelt autovormen.  
+- [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) vergrendelt connector‑vormen.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) vergrendelt grafische objecten.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) vergrendelt groepsvormen.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) vergrendelt foto‑frames.  
 
-Elke handeling die wordt uitgevoerd op alle vormobjecten in een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/) object, wordt toegepast op de volledige presentatie.
+Om vergrendelingen toe te passen op een [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), doorloopt u de dia's en stelt u de juiste vergrendelingen in op elke ondersteunde vorm.
 
-## **Bescherming toepassen en verwijderen**
+## **Toepassen en verwijderen van bescherming**
 
-Het toepassen van bescherming zorgt ervoor dat een presentatie niet bewerkt kan worden. Het is een handige techniek om de inhoud van de presentatie te beveiligen.
+Vormvergrendelingen beperken bewerkingen zoals het selecteren, verplaatsen en wijzigen van de grootte van vormen. Ze maken de hele presentatie niet niet-bewerkbaar.
 
 ### **Bescherming toepassen op PPTX‑vormen**
 
-Aspose.Slides for Java biedt de [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/) interface om met vormen op een dia te werken.
+Aspose.Slides for Java biedt de [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)‑interface om te werken met vormen op een dia.
 
-Zoals eerder vermeld, heeft elke vormklasse een gekoppelde shape-lock-klasse voor bescherming. Dit artikel richt zich op de NoSelect-, NoMove- en NoResize-vergrendelingen. Deze vergrendelingen zorgen ervoor dat vormen niet geselecteerd kunnen worden (via muisklikken of andere selectiemethoden) en dat ze niet verplaatst of van grootte kunnen worden veranderd.
+Het voorbeeld roept [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-) , [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) en [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) aan met `true` voor autovormen, met equivalente vergrendelingen voor groepsvormen, connectoren en foto‑frames. Connectoren gebruiken [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) voor beweging; groepen gebruiken ook [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) om groeperen te beperken.
 
-De volgende codevoorbeelden passen bescherming toe op alle vormtypen in een presentatie.
+Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormverzameling van elke dia en slaat een kopie op met deze beperkingen toegepast. Vormen buiten de vier behandelde typen blijven ongewijzigd. De lus doorloopt niet de onderliggende vormen binnen een groep.
 
 ```java
-// Maak een instantie van de Presentation-klasse die een PPTX-bestand vertegenwoordigt.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Sample.pptx");
-
-// Doorloop alle dia's in de presentatie.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Doorloop alle vormen in de dia.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Cast de vorm naar een autovorm en verkrijg de vormvergrendeling.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(true);
-            autoShapeLock.setSelectLocked(true);
-            autoShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IGroupShape) {
-            // Cast de vorm naar een gegroepeerde vorm en verkrijg de vormvergrendeling.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(true);
-            groupShapeLock.setPositionLocked(true);
-            groupShapeLock.setSelectLocked(true);
-            groupShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IConnector) {
-            // Cast de vorm naar een connectorvorm en verkrijg de vormvergrendeling.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(true);
-            connectorShapeLock.setSelectLocked(true);
-            connectorShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IPictureFrame) {
-            // Cast de vorm naar een afbeeldingframe en verkrijg de vormvergrendeling.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(true);
-            pictureFrameLock.setSelectLocked(true);
-            pictureFrameLock.setSizeLocked(true);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(true);
+                autoShapeLock.setSelectLocked(true);
+                autoShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(true);
+                groupShapeLock.setPositionLocked(true);
+                groupShapeLock.setSelectLocked(true);
+                groupShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(true);
+                connectorShapeLock.setSelectLocked(true);
+                connectorShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(true);
+                pictureFrameLock.setSelectLocked(true);
+                pictureFrameLock.setSizeLocked(true);
+            }
         }
     }
-}
 
-// Sla het presentatiebestand op.
-presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Bescherming verwijderen**
 
-Om een vorm te ontgrendelen, stel je de waarde van de toegepaste vergrendeling in op `false`. Het volgende codevoorbeeld laat zien hoe je vormen in een vergrendelde presentatie kunt ontgrendelen.
+Om een vormvergrendeling te verwijderen, stelt u de waarde in op `false`. Het volgende voorbeeld laadt een presentatie met vormvergrendelingen en wist de selectie‑, verplaatsings‑ en grootte‑beperkingen via [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) en [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Het verwijdert ook de groeperingsbeperking door `false` door te geven aan [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
 
 ```java
-// Maak een instantie van de Presentation-klasse die een PPTX-bestand vertegenwoordigt.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ProtectedSample.pptx");
-
-// Doorloop alle dia's in de presentatie.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Doorloop alle vormen in de dia.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Cast de vorm naar een autovorm en verkrijg de vormvergrendeling.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(false);
-            autoShapeLock.setSelectLocked(false);
-            autoShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IGroupShape) {
-            // Cast de vorm naar een gegroepeerde vorm en verkrijg de vormvergrendeling.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(false);
-            groupShapeLock.setPositionLocked(false);
-            groupShapeLock.setSelectLocked(false);
-            groupShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IConnector) {
-            // Cast de vorm naar een connectorvorm en verkrijg de vormvergrendeling.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(false);
-            connectorShapeLock.setSelectLocked(false);
-            connectorShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IPictureFrame) {
-            // Cast de vorm naar een afbeeldingframe en verkrijg de vormvergrendeling.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(false);
-            pictureFrameLock.setSelectLocked(false);
-            pictureFrameLock.setSizeLocked(false);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(false);
+                autoShapeLock.setSelectLocked(false);
+                autoShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(false);
+                groupShapeLock.setPositionLocked(false);
+                groupShapeLock.setSelectLocked(false);
+                groupShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(false);
+                connectorShapeLock.setSelectLocked(false);
+                connectorShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(false);
+                pictureFrameLock.setSelectLocked(false);
+                pictureFrameLock.setSizeLocked(false);
+            }
         }
     }
-}
 
-// Sla het presentatiebestand op.
-presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Conclusie**
+### **Conclusie**
 
-Aspose.Slides biedt verschillende opties om vormen in een presentatie te beschermen. Je kunt een individuele vorm vergrendelen of door alle vormen in een presentatie itereren en elke vorm vergrendelen om het hele bestand effectief te beveiligen. Je kunt de bescherming verwijderen door de vergrendelingswaarde in te stellen op `false`.
+Aspose.Slides for Java stelt u in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken of dezelfde beperkingen over dia's toe te passen. Kies de vergrendelingen die door elk vormtype worden ondersteund en stel hun waarden in op `false` wanneer u die beperkingen wilt verwijderen.
 
 ## **FAQ**
 
 **Kan ik vormvergrendelingen en wachtwoordbeveiliging combineren in dezelfde presentatie?**
 
-Ja. Vergrendelingen beperken het bewerken van objecten binnen het bestand, terwijl [password protection](/slides/nl/java/password-protected-presentation/) de toegang tot het openen en/of opslaan van wijzigingen beheert. Deze mechanismen vullen elkaar aan en werken samen.
+Ja. Vormvergrendelingen beperken specifieke bewerkingsbewerkingen, terwijl [wachtwoordbeveiliging](/slides/nl/java/password-protected-presentation/) het openen of wijzigen van de presentatie kan beperken. U kunt beide in hetzelfde bestand gebruiken.
 
-**Kan ik bewerken beperken op specifieke dia’s zonder andere te beïnvloeden?**
+**Kan ik bewerking beperken op specifieke dia's zonder andere te beïnvloeden?**
 
-Ja. Pas vergrendelingen toe op de vormen op de geselecteerde dia’s; de overige dia’s blijven bewerkbaar.
+Ja. Pas vergrendelingen alleen toe op vormen op de geselecteerde dia's. Dit verandert de vergrendelingsinstellingen op andere dia's niet.
 
-**Geldt vormvergrendeling voor gegroepeerde objecten en connectoren?**
+**Hoe kan ik vergrendelingen toepassen op individuele vormen binnen een groep?**
 
-Ja. Er worden speciale vergrendelingssoorten ondersteund voor groepen, connectoren, grafische objecten en andere vormcategorieën.
+Doorloop de collectie die wordt geretourneerd door de [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--)‑methode van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor eventuele geneste groepen. De bovenstaande voorbeelden verwerken alleen de vormverzameling van de dia, waardoor ze geen vergrendelingen instellen op individuele groepsleden.

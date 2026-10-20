@@ -1,154 +1,174 @@
 ---
-title: Tạo biểu đồ Excel và nhúng chúng vào bản trình chiếu dưới dạng đối tượng OLE
+title: Tạo biểu đồ Excel và nhúng chúng vào bản trình bày dưới dạng OLE Object
 type: docs
 weight: 30
 url: /vi/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- biểu đồ Excel
-- nhúng biểu đồ
-- đối tượng OLE
+- Biểu đồ Excel
+- Nhúng biểu đồ
+- Đối tượng OLE
 - PowerPoint
-- OpenDocument
-- bản trình chiếu
+- Bản trình bày
 - Java
 - Aspose.Slides
-description: "Tạo biểu đồ Excel và nhúng chúng dưới dạng đối tượng OLE trong các bản trình chiếu PowerPoint và OpenDocument bằng Java. Hướng dẫn chi tiết từng bước với các mẫu mã."
+description: "Tạo một biểu đồ Excel bằng Aspose.Cells for Java và nhúng sổ làm việc vào bản trình bày PowerPoint với Aspose.Slides, bao gồm ảnh xem trước biểu đồ."
 ---
-## **Bối cảnh**
+## **Tổng quan**
 
-Trong PowerPoint, việc sử dụng biểu đồ có thể chỉnh sửa để hiển thị dữ liệu một cách đồ họa là thực tiễn phổ biến. Aspose hỗ trợ tạo biểu đồ Excel bằng Aspose.Cells cho Java, và những biểu đồ này sau đó có thể được nhúng dưới dạng đối tượng OLE trong các slide PowerPoint thông qua Aspose.Slides cho Java. Bài viết này đề cập đến các bước cần thiết và cung cấp các mẫu mã Java để tạo một biểu đồ Excel và nhúng nó dưới dạng đối tượng OLE trong bản trình bày PowerPoint bằng Aspose.Cells và Aspose.Slides.
+Bài viết này hướng dẫn cách tạo biểu đồ cột Excel bằng Aspose.Cells for Java và nhúng sổ làm việc của nó vào bản trình bày PowerPoint bằng Aspose.Slides for Java. Sổ làm việc được nhúng chứa cả dữ liệu nguồn và biểu đồ. Một ảnh xem trước dạng PNG riêng biệt hiển thị biểu đồ trên slide trước khi đối tượng OLE được kích hoạt.
 
-## **Các bước bắt buộc**
+Kết quả là một đối tượng Excel được nhúng, không phải là biểu đồ PowerPoint gốc. Việc chỉnh sửa sổ làm việc thông qua OLE yêu cầu một ứng dụng desktop hỗ trợ kích hoạt OLE và cài đặt Excel tương thích.
 
-Các bước sau đây là cần thiết để tạo và nhúng một biểu đồ Excel dưới dạng đối tượng OLE trong một slide PowerPoint:
+## **Yêu cầu trước**
 
-1. Tạo biểu đồ Excel bằng Aspose.Cells.
-1. Đặt kích thước OLE cho biểu đồ Excel bằng Aspose.Cells.
-1. Lấy hình ảnh của biểu đồ Excel bằng Aspose.Cells.
-1. Nhúng biểu đồ Excel dưới dạng đối tượng OLE vào bản trình bày PPTX bằng Aspose.Slides.
-1. Thay thế hình ảnh "EMBEDDED OLE OBJECT" bằng hình ảnh thu được ở bước 3 để giải quyết vấn đề [vấn đề xem trước đối tượng](/slides/vi/java/object-preview-issue-when-adding-oleobjectframe/).
-1. Lưu bản trình bày ra đĩa ở định dạng PPTX.
+Thêm Aspose.Cells for Java và Aspose.Slides for Java vào các phụ thuộc dự án của bạn. Chạy ví dụ trong một phương thức Java. Microsoft Office không cần thiết để tạo bản trình bày với các thư viện này.
 
-## **Triển khai các bước bắt buộc**
+Không cần tệp đầu vào: ví dụ tạo dữ liệu và biểu đồ trong bộ nhớ, sau đó ghi `OutputChart.pptx` vào thư mục làm việc hiện tại. Áp dụng giấy phép cho cả hai sản phẩm khi chạy ngoài chế độ đánh giá.
 
-Triển khai Java cho các bước trên như sau:
+## **Cách nhúng hoạt động**
 
-```java
-// Tạo một workbook.
-Workbook workbook = new Workbook();
+1. Tạo một sổ làm việc với một worksheet dữ liệu và một worksheet biểu đồ.  
+2. Đặt worksheet biểu đồ làm hoạt động để sổ làm việc mở ở biểu đồ.  
+3. Đặt phạm vi hiển thị OLE của sổ làm việc và vẽ biểu đồ thành PNG.  
+4. Lưu sổ làm việc dưới dạng XLSX trong bộ nhớ và nhúng các byte đó vào một slide.  
+5. Gán PNG làm ảnh xem trước của đối tượng OLE và lưu bản trình bày dưới dạng PPTX.
 
-// Thêm một biểu đồ Excel.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+Phạm vi hiển thị của sổ làm việc và khung trên slide có vai trò khác nhau. [setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) nhận các chỉ số dòng và cột bắt đầu/kết thúc dựa trên chỉ số không. [ChartCollection.add](https://reference.aspose.com/cells/java/com.aspose.cells/chartcollection/#add-int-int-int-int-int-) lại nhận dòng trên cùng, cột trái, dòng dưới cùng và cột phải. Ví dụ sử dụng chỉ số dòng 55 và chỉ số cột 25 làm giới hạn phía dưới‑phải; các giá trị này là lựa chọn bố cục, không phải số lượng dòng hoặc cột dữ liệu.
 
-// Đặt kích thước OLE của biểu đồ.
-workbook.getWorksheets().setOleSize(0, chartRows, 0, chartCols);
+Khung slide sử dụng đơn vị point. Ví dụ điều chỉnh nó để vừa trong slide và căn giữa đồng thời giữ tỷ lệ khung hình của PNG, thay vì kéo căng ảnh xem trước để lấp đầy slide.
 
-// Lấy hình ảnh biểu đồ và lưu nó vào một luồng.
-com.aspose.cells.ImageOrPrintOptions printOptions = new com.aspose.cells.ImageOrPrintOptions();
-printOptions.setImageFormat(com.aspose.cells.ImageFormat.getPng());
-ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
-workbook.getWorksheets().get(chartSheetIndex).getCharts().get(0).toImage(imageStream, printOptions);
+## **Tạo và nhúng biểu đồ**
 
-// Lưu workbook vào một luồng.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream(); 
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
+Ví dụ hoàn chỉnh bên dưới điền `DataSheet` với bốn dòng và năm cột giá trị. Mỗi dòng trở thành một series biểu đồ. `ChartSheet` được chọn làm worksheet hoạt động trước khi sổ làm việc được lưu.
 
-// Tạo một bản trình chiếu.
-Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Thêm workbook vào một slide.
-AddExcelChartInPresentation(presentation, slide, workbookStream.toByteArray(), imageStream.toByteArray());
-
-// Lưu bản trình chiếu vào ổ đĩa.
-presentation.save("OutputChart.pptx", SaveFormat.Pptx);
-presentation.dispose();
-```
+Sổ làm việc được lưu rõ ràng dưới dạng XLSX, phù hợp với phần mở rộng `xlsx` được truyền vào [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/oleembeddeddatainfo/). PNG được tải trực tiếp từ các byte của nó mà không qua bước chuyển đổi bitmap trung gian. Gán nó thông qua [getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) thay thế cho hình giữ chỗ OLE mặc định.
 
 ```java
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
-{
-    double oleHeight = presentation.getSlideSize().getSize().getHeight();
-    double oleWidth = presentation.getSlideSize().getSize().getWidth();
- 
-    // Tạo một đối tượng LoadOptions cho EXCEL_97_TO_2003.
-    com.aspose.cells.LoadOptions loadOptions = new com.aspose.cells.LoadOptions(com.aspose.cells.FileFormatType.EXCEL_97_TO_2003);         
-    Workbook workbook = new Workbook(new ByteArrayInputStream(workbookArray),loadOptions);
- 
-    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, "Excel.Sheet.8", workbookArray);
-    oleFrame.getSubstitutePictureFormat().getPicture().setImage(presentation.getImages().addImage(new ByteArrayInputStream(chartImage)));
-}
-```
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import static com.aspose.cells.SaveFormat.XLSX;
+import static com.aspose.slides.SaveFormat.Pptx;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.IImage;
+import com.aspose.slides.Images;
+import com.aspose.slides.IOleObjectFrame;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayOutputStream;
 
-```java
-static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
-{
-    // Một mảng các tên ô.
-    String[] cellNames = new String[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+try {
+    Workbook workbook = new Workbook();
+    try {
+        Worksheet dataSheet = workbook.getWorksheets().get(0);
+        dataSheet.setName("DataSheet");
 
-    // Một mảng các dữ liệu ô.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
+        int[][] values = {
+            { 67, 44, 46, 43, 24 },
+            { 86, 64, 97, 29, 40 },
+            { 68, 89, 78, 69, 38 },
+            { 91, 48, 60, 26, 25 }
+        };
 
-    // Thêm một worksheet mới để điền dữ liệu vào các ô.
-    int dataSheetIndex = workbook.getWorksheets().add();
-    Worksheet dataSheet = workbook.getWorksheets().get(dataSheetIndex);
-    String sheetName = "DataSheet";
-    dataSheet.setName(sheetName);
+        for (int row = 0; row < values.length; row++) {
+            for (int column = 0; column < values[row].length; column++) {
+                dataSheet.getCells().get(row, column).putValue(values[row][column]);
+            }
+        }
 
-    // Đổ dữ liệu vào worksheet dữ liệu.
-    int size = Array.getLength(cellNames);
-    for (int i = 0; i < size; i++)
-    {
-        String cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.getCells().get(cellName).setValue(cellValue);
+        int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+        Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+        chartSheet.setName("ChartSheet");
+
+        int lastChartRow = 55;
+        int lastChartColumn = 25;
+        int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, lastChartRow, lastChartColumn);
+        Chart chart = chartSheet.getCharts().get(chartIndex);
+        for (int row = 1; row <= values.length; row++) {
+            chart.getNSeries().add("DataSheet!A" + row + ":E" + row, false);
+        }
+
+        workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+        workbook.getWorksheets().setOleSize(0, lastChartRow, 0, lastChartColumn);
+
+        // Kết xuất ảnh xem trước biểu đồ và tuần tự hóa sổ làm việc có thể chỉnh sửa riêng biệt.
+        ImageOrPrintOptions imageOptions = new ImageOrPrintOptions();
+        imageOptions.setImageType(ImageType.PNG);
+        ByteArrayOutputStream chartImageStream = new ByteArrayOutputStream();
+        chart.toImage(chartImageStream, imageOptions);
+        byte[] chartImageBytes = chartImageStream.toByteArray();
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, XLSX);
+        byte[] workbookBytes = workbookStream.toByteArray();
+
+        IImage chartImage = Images.fromData(chartImageBytes);
+        try {
+            Presentation presentation = new Presentation();
+            try {
+                ISlide slide = presentation.getSlides().get_Item(0);
+                double slideWidth = presentation.getSlideSize().getSize().getWidth();
+                double slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+                // Điều chỉnh ảnh xem trước vừa trong slide mà không thay đổi tỷ lệ khung hình.
+                double scale = Math.min(slideWidth / chartImage.getWidth(), slideHeight / chartImage.getHeight());
+                float frameWidth = (float) (chartImage.getWidth() * scale);
+                float frameHeight = (float) (chartImage.getHeight() * scale);
+                float frameX = (float) ((slideWidth - frameWidth) / 2);
+                float frameY = (float) ((slideHeight - frameHeight) / 2);
+
+                OleEmbeddedDataInfo embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+                IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+                IPPImage previewImage = presentation.getImages().addImage(chartImage);
+                oleFrame.getSubstitutePictureFormat().getPicture().setImage(previewImage);
+
+                presentation.save("OutputChart.pptx", Pptx);
+            } finally {
+                presentation.dispose();
+            }
+        } finally {
+            chartImage.dispose();
+        }
+    } finally {
+        workbook.dispose();
     }
-
-    // Thêm một chart sheet.
-    int worksheetIndex = workbook.getWorksheets().add(SheetType.CHART);
-    Worksheet chartSheet = workbook.getWorksheets().get(worksheetIndex);
-    chartSheet.setName("ChartSheet");
-    int chartSheetIndex = chartSheet.getIndex();
-
-    // Thêm một biểu đồ vào chart sheet với series dữ liệu từ worksheet dữ liệu.
-    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, chartRows, 0, chartCols);
-    Chart chart = chartSheet.getCharts().get(chartIndex);
-    
-    chart.getNSeries().add(sheetName + "!A1:E1", false);
-    chart.getNSeries().add(sheetName + "!A2:E2", false);
-    chart.getNSeries().add(sheetName + "!A3:E3", false);
-    chart.getNSeries().add(sheetName + "!A4:E4", false);
-
-    // Đặt chart sheet làm worksheet hoạt động.
-    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
-    return chartSheetIndex;
+} catch (Exception exception) {
+    System.err.println("Could not create the presentation: " + exception.getMessage());
 }
 ```
+## **Kết quả mong đợi**
 
-Bản trình bày được tạo bằng phương pháp trên sẽ chứa biểu đồ Excel dưới dạng đối tượng OLE có thể được kích hoạt bằng cách nhấp đúp vào khung đối tượng OLE.
+`OutputChart.pptx` chứa một slide với sổ làm việc Excel được nhúng và ảnh xem trước biểu đồ. Sổ làm việc chứa dữ liệu gốc và một biểu đồ cột với bốn series. Ảnh xem trước được căn giữa trên slide và giữ nguyên tỷ lệ của nó.
 
-## **Kết luận**
+![Biểu đồ cột Excel hiển thị dưới dạng ảnh xem trước của sổ làm việc được nhúng](excel-chart-ole-preview.png)
 
-Bằng cách sử dụng Aspose.Cells cho Java kết hợp với Aspose.Slides cho Java, chúng ta có thể tạo bất kỳ biểu đồ Excel nào được Aspose.Cells hỗ trợ và nhúng biểu đồ đó dưới dạng đối tượng OLE trong một slide PowerPoint. Kích thước OLE của biểu đồ Excel cũng có thể được xác định. Người dùng cuối sau đó có thể chỉnh sửa biểu đồ Excel như bất kỳ đối tượng OLE nào khác.
+Trong môi trường PowerPoint desktop tương thích có sẵn Excel, nhấp đúp vào đối tượng để kích hoạt và chỉnh sửa sổ làm việc được nhúng. Việc kích hoạt và chỉnh sửa phụ thuộc vào hỗ trợ OLE và cài đặt bảo mật của ứng dụng chủ.
 
-## **Các phần liên quan**
+## **Câu hỏi thường gặp**
+
+**Tại sao cần hình ảnh xem trước?**
+
+Sổ làm việc được nhúng và ảnh xem trước trên slide là nội dung riêng biệt. Cung cấp một hình ảnh biểu đồ để slide hiển thị biểu đồ thay vì hình giữ chỗ mặc định "EMBEDDED OLE OBJECT". Xem [Vấn đề xem trước đối tượng khi thêm OleObjectFrame](/slides/vi/java/object-preview-issue-when-adding-oleobjectframe/).
+
+**Ảnh xem trước có tự động cập nhật khi tôi thay đổi sổ làm việc trong mã không?**
+
+Xem ảnh xem trước như một bản chụp. Khi cập nhật dữ liệu sổ làm việc bằng chương trình, cần tạo lại hình ảnh biểu đồ và thay thế ảnh xem trước cùng với dữ liệu sổ làm việc được nhúng.
+
+**Tôi có thể dùng XLS thay vì XLSX không?**
+
+Có. Lưu sổ làm việc ở định dạng XLS và sử dụng `xls` làm phần mở rộng dữ liệu được nhúng. Phần mở rộng phải khớp với định dạng thực tế của sổ làm việc; chỉ thay đổi phần mở rộng mà không chuyển đổi dữ liệu sẽ không có hiệu quả.
+
+**Tại sao đối tượng có thể thay đổi kích thước sau khi kích hoạt?**
+
+Ứng dụng chủ có thể cập nhật cách trình bày của đối tượng OLE khi nó kích hoạt sổ làm việc. Cả phạm vi hiển thị OLE của sổ làm việc và kích thước khung slide đều quan trọng. Xem [Giải pháp hoạt động cho việc thay đổi kích thước biểu đồ trong PPTX](/slides/vi/java/working-solution-for-chart-resizing-in-pptx/).
+
+## **Các mục liên quan**
 
 - [Giải pháp hoạt động cho việc thay đổi kích thước biểu đồ trong PPTX](/slides/vi/java/working-solution-for-chart-resizing-in-pptx/)
-- [Vấn đề xem trước đối tượng khi Thêm OleObjectFrame](/slides/vi/java/object-preview-issue-when-adding-oleobjectframe/)
-- [Tự động cập nhật Đối tượng OLE bằng Add-In PowerPoint](/slides/vi/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Vấn đề xem trước đối tượng khi thêm OleObjectFrame](/slides/vi/java/object-preview-issue-when-adding-oleobjectframe/)
+- [Cập nhật tự động các đối tượng OLE bằng Add-In PowerPoint](/slides/vi/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

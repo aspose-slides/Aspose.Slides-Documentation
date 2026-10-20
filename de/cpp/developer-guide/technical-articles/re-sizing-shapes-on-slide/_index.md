@@ -1,8 +1,11 @@
 ---
-title: Formen auf Präsentationsfolien skalieren
+title: Formen auf Präsentationsfolien in C++ skalieren
 type: docs
-weight: 100
-url: /de/cpp/re-sizing-shapes-on-slide/
+weight: 130
+url: /de/cpp/resizing-shapes-on-slide/
+aliases:
+  - /de/cpp/re-sizing-shapes-on-slide/
+  /cpp/re-sizing-shapes-on-slide/
 keywords:
 - Form skalieren
 - Formgröße ändern
@@ -11,46 +14,52 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Skalieren Sie Formen auf PowerPoint- und OpenDocument-Folien einfach mit Aspose.Slides für C++ — automatisieren Sie die Anpassung des Folienlayouts und steigern Sie die Produktivität."
+description: "Skalieren Sie Formen auf PowerPoint- und OpenDocument-Folien mit Aspose.Slides für C++ ganz einfach – automatisieren Sie die Anpassung von Folienlayouts und steigern Sie die Produktivität."
 ---
-
 ## **Übersicht**
 
-Eine der häufigsten Fragen von Aspose.Slides für C++‑Kunden ist, wie man Formen so skaliert, dass bei einer Änderung der Foliengröße die Inhalte nicht abgeschnitten werden. Dieser kurze technische Artikel zeigt, wie das funktioniert.
+Wenn Sie die Foliengröße einer Präsentation ändern, müssen Sie möglicherweise auch die Formen skalieren und neu positionieren, damit sie in die neuen Abmessungen passen. Dieser Artikel zeigt, wie Formen manuell skaliert werden und wie Tabellen auf Folien, Masterfolien und Layouts behandelt werden.
 
 ## **Formen skalieren**
 
-Damit Formen bei einer Änderung der Foliengröße nicht verschoben werden, aktualisieren Sie für jede Form Position und Abmessungen, sodass sie dem neuen Folienlayout entsprechen.
+Um die relative Position und Größe jeder Form beizubehalten, multiplizieren Sie ihre horizontalen Koordinaten und die Breite mit dem Verhältnis der neuen Folienbreite zur ursprünglichen Breite. Wenden Sie das entsprechende Höhenverhältnis auf ihre vertikalen Koordinaten und die Höhe an.
+
+Das erste Beispiel lädt eine Präsentation, deren Folien keine Tabellen enthalten, ändert die Foliengröße auf A4 und speichert das Ergebnis. Es verwendet [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) mit [SlideSizeScaleType::DoNotScale](https://reference.aspose.com/slides/cpp/aspose.slides/slidesizescaletype/), sodass die nachfolgende Schleife die Skalierung steuert. Die Verhältnisse sind einheitenlos; Formpositionen und -abmessungen werden in Punkten gemessen. Unterschiedliche Breiten‑ und Höhenverhältnisse können Formen verzerren, und das Ändern der Formabmessungen skaliert die Schriftgrößen nicht.
+
 ```cpp
-// Präsentationsdatei laden.
-auto presentation = MakeObject<Presentation>(u"sample.ppt");
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
 
-// Get the original slide size.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Change the slide size without scaling existing shapes.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+// Calculate independent horizontal and vertical scale factors.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Get the new slide size.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-// Resize and reposition shapes on every slide.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // Größe der Form skalieren.
-        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Position der Form skalieren.
-        shape->set_Y(shape->get_Y() * heightRatio);
+        shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
 }
 
@@ -58,116 +67,123 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+{{% alert color="info" title="Note" %}}
+Tabellen erfordern eine separate Behandlung: Skalieren Sie ihre Spaltenbreiten und Zeilenhöhen, anstatt die gesamte Breite und Höhe der Tabelle zuzuweisen. Zeilenhöhen können größer bleiben als angefordert, wenn der Zelleninhalt mehr Platz benötigt.
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
-Wenn eine Folie eine Tabelle enthält, funktioniert der obige Code nicht korrekt. In diesem Fall muss jede Zelle der Tabelle skaliert werden.
-{{% /alert %}} 
-
-Verwenden Sie den folgenden Code, um Folien mit Tabellen zu skalieren. Für Tabellen ist das Festlegen von Breite oder Höhe ein Sonderfall: Sie müssen die Höhen einzelner Zeilen und die Breiten einzelner Spalten anpassen, um die Gesamtabmessungen der Tabelle zu ändern.
+Das zweite Beispiel unterstützt Tabellen und verarbeitet Formen auf Master‑ und Layout‑Folien sowie einzelne Folien, bevor die skalierte Präsentation gespeichert wird. Sein Helfer behandelt jede [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) durch Skalieren von [IColumn::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/icolumn/set_width/) und [IRow::set_MinimalHeight](https://reference.aspose.com/slides/cpp/aspose.slides/irow/set_minimalheight/). Anschließend wird die Position der Tabelle skaliert, ohne ihre Gesamtabmessungen separat zu skalieren.
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Originale Foliengröße abrufen.
-float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-// Foliengröße ändern, ohne vorhandene Formen zu skalieren.
+// Berechnen Sie unabhängige horizontale und vertikale Skalierungsfaktoren.
+auto originalSize = presentation->get_SlideSize()->get_Size();
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
-//presentation.SlideSize.Orientation = SlideOrienation.Portrait;
+auto targetSize = presentation->get_SlideSize()->get_Size();
+auto widthRatio = targetSize.get_Width() / originalSize.get_Width();
+auto heightRatio = targetSize.get_Height() / originalSize.get_Height();
 
-// Neue Foliengröße abrufen.
-float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
-float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
-
-float heightRatio = newHeight / currentHeight;
-float widthRatio = newWidth / currentWidth;
-
-for (auto&& master : presentation->get_Masters())
+auto resizeShapes = [](SharedPtr<IShapeCollection> shapes, float widthRatio, float heightRatio)
 {
-    for (auto&& shape : master->get_Shapes())
+    for (auto&& shape : shapes)
     {
-        // Formgröße skalieren.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Formposition skalieren.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-    }
-
-    for (auto&& layoutSlide : master->get_LayoutSlides())
-    {
-        for (auto&& shape : layoutSlide->get_Shapes())
-        {
-            // Formgröße skalieren.
-            shape->set_Height(shape->get_Height() * heightRatio);
-            shape->set_Width(shape->get_Width() * widthRatio);
-
-            // Formposition skalieren.
-            shape->set_Y(shape->get_Y() * heightRatio);
-            shape->set_X(shape->get_X() * widthRatio);
-        }
-    }
-}
-
-for (auto&& slide : presentation->get_Slides())
-{
-    for (auto&& shape : slide->get_Shapes())
-    {
-        // Formgröße skalieren.
-        shape->set_Height(shape->get_Height() * heightRatio);
-        shape->set_Width(shape->get_Width() * widthRatio);
-
-        // Formposition skalieren.
-        shape->set_Y(shape->get_Y() * heightRatio);
-        shape->set_X(shape->get_X() * widthRatio);
-
         if (ObjectExt::Is<ITable>(shape))
         {
-            SharedPtr<ITable> table = ExplicitCast<ITable>(shape);
-            for (auto&& row : table->get_Rows())
-            {
-                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
-            }
+            auto table = ExplicitCast<ITable>(shape);
+            // Die Tabellendimensionen werden durch Spaltenbreiten und Zeilenhöhen gesteuert.
             for (auto&& column : table->get_Columns())
             {
                 column->set_Width(column->get_Width() * widthRatio);
             }
+
+            for (auto&& row : table->get_Rows())
+            {
+                row->set_MinimalHeight(row->get_MinimalHeight() * heightRatio);
+            }
         }
+        else
+        {
+            shape->set_Width(shape->get_Width() * widthRatio);
+            shape->set_Height(shape->get_Height() * heightRatio);
+        }
+
+        shape->set_X(shape->get_X() * widthRatio);
+        shape->set_Y(shape->get_Y() * heightRatio);
     }
+};
+
+// Formen, die auf Master- und Layoutfolien definiert sind, sowie einzelne Folien skalieren.
+for (auto&& master : presentation->get_Masters())
+{
+    resizeShapes(master->get_Shapes(), widthRatio, heightRatio);
+
+    for (auto&& layoutSlide : master->get_LayoutSlides())
+    {
+        resizeShapes(layoutSlide->get_Shapes(), widthRatio, heightRatio);
+    }
+}
+
+for (auto&& slide : presentation->get_Slides())
+{
+    resizeShapes(slide->get_Shapes(), widthRatio, heightRatio);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
 ## **FAQ**
 
-**Warum werden Formen nach dem Skalieren einer Folie verzerrt oder abgeschnitten?**
+**Warum sind Formen nach dem Ändern der Foliengröße verzerrt oder abgeschnitten?**
 
-Beim Skalieren einer Folie behalten Formen ihre ursprüngliche Position und Größe bei, sofern die Skalierung nicht explizit geändert wird. Das kann dazu führen, dass Inhalte beschnitten oder Formen missaligned sind.
+Wenn Sie die Foliengröße ändern, ohne die Formen zu skalieren, behalten sie ihre ursprünglichen Positionen und Abmessungen bei und können über die Folie hinausragen. Das Skalieren von Breite und Höhe mit unterschiedlichen Verhältnissen kann Formen ebenfalls verzerren.
 
 **Funktioniert der bereitgestellte Code für alle Formtypen?**
 
-Das Basisbeispiel funktioniert für die meisten Formtypen (Textfelder, Bilder, Diagramme usw.). Für Tabellen müssen jedoch Zeilen und Spalten separat behandelt werden, da Höhe und Breite einer Tabelle durch die Abmessungen der einzelnen Zellen bestimmt werden.
+Das erste Beispiel ändert die Formgrenzen direkt und ist für Folien ohne Tabellen gedacht. Das zweite Beispiel behandelt Tabellen separat. Überprüfen Sie das resultierende Layout, insbesondere Text und Tabellen, da diese Beispiele die Schriftgrößen nicht skalieren und Tabelleninhalte die Zeilenhöhen einschränken können.
 
-**Wie skalieren ich Tabellen, wenn ich eine Folie skaliere?**
+**Wie skalieren ich Tabellen beim Ändern der Foliengröße?**
 
-Sie müssen durch alle Zeilen und Spalten der Tabelle iterieren und deren Höhe bzw. Breite proportional anpassen, wie im zweiten Codebeispiel gezeigt.
+Skalieren Sie die Spaltenbreiten mit dem Breitenverhältnis und die minimalen Zeilenhöhen mit dem Höhenverhältnis, dann skalieren Sie die Position der Tabelle, wie im zweiten Beispiel gezeigt.
 
-**Funktioniert diese Skalierung auch für Master‑Folien und Layout‑Folien?**
+**Funktioniert diese Skalierung für Master‑Folien und Layout‑Folien?**
 
-Ja, Sie sollten außerdem durch [Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) und [Layout slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) iterieren und dieselbe Skalierungslogik auf deren Formen anwenden, um Konsistenz in der gesamten Präsentation zu gewährleisten.
+Ja. Das zweite Beispiel iteriert über [Presentation::get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) und über die [IMasterSlide::get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslide/get_layoutslides/) jedes Masters und wendet dieselbe Skalierungslogik auf deren Formen an.
 
-**Kann ich die Ausrichtung einer Folie (Porträt/Landschaft) zusammen mit der Skalierung ändern?**
+**Kann ich die Ausrichtung einer Folie (Hochformat/Landschaft) zusammen mit der Skalierung ändern?**
 
-Ja. Sie können [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/islidesize/set_orientation/) verwenden, um die Ausrichtung zu ändern. Stellen Sie sicher, dass Sie die Skalierungslogik entsprechend anpassen, um das Layout beizubehalten.
+Ja. Setzen Sie [SlideSize::set_Orientation](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/set_orientation/) nach dem Ändern der Foliengröße und bevor Sie die Zielabmessungen lesen, damit die Skalierungsfaktoren die endgültige Ausrichtung berücksichtigen.
 
-**Gibt es eine Obergrenze für die Foliengröße, die ich festlegen kann?**
+**Gibt es ein Limit für die Foliengröße, die ich festlegen kann?**
 
-Aspose.Slides unterstützt benutzerdefinierte Größen, aber sehr große Abmessungen können die Leistung beeinflussen oder die Kompatibilität mit einigen PowerPoint‑Versionen beeinträchtigen.
+Sie können benutzerdefinierte Folienabmessungen mit [SlideSize::SetSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/setsize/) angeben. Die unterstützten Abmessungen hängen zudem vom Präsentationsformat und der Anwendung ab, mit der die Datei geöffnet wird.
 
 **Wie kann ich verhindern, dass Formen mit festem Seitenverhältnis verzerrt werden?**
 
-Sie können die Methode `get_AspectRatioLocked` der Form prüfen, bevor Sie skalieren. Ist sie gesperrt, passen Sie Breite oder Höhe proportional an, anstatt sie einzeln zu skalieren.
+Verwenden Sie denselben Skalierungsfaktor für Breite und Höhe. Um das ursprüngliche Layout innerhalb der neuen Folienabmessungen zu erhalten, nutzen Sie das kleinere der beiden Verhältnisse für beide Dimensionen und Positionen. Dies bewahrt die Proportionen, kann jedoch an einem Rand ungenutzten Raum hinterlassen.

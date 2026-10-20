@@ -1,11 +1,11 @@
 ---
-title: 워크시트 크기 조정 해결을 위한 작업 솔루션
+title: 워크시트 크기 조정에 대한 작업 솔루션
 type: docs
 weight: 20
 url: /ko/java/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- 미리보기 이미지
+- 미리 보기 이미지
 - 이미지 크기 조정
 - Excel
 - 워크시트
@@ -13,34 +13,42 @@ keywords:
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "프레젠테이션에서 Excel 워크시트 OLE 크기 조정을 수정합니다: 객체 프레임을 일관되게 유지하는 두 가지 방법—프레임을 스케일링하거나 시트를 스케일링—PPT 및 PPTX 형식 모두 적용."
+description: "프레젠테이션에서 Excel 워크시트 OLE 크기 조정을 해결합니다: 개체 프레임을 일관되게 유지하는 두 가지 방법—프레임을 스케일링하거나 시트를 스케일링—PPT 및 PPTX 형식 전반에 걸쳐 적용됩니다."
 ---
-{{% alert color="primary" %}}
-Aspose 구성 요소를 통해 PowerPoint 프레젠테이션에 OLE 객체로 삽입된 Excel 워크시트가 처음 활성화된 후 식별할 수 없는 비율로 크기가 조정되는 것이 관찰되었습니다. 이 동작으로 인해 OLE 객체의 활성화 전후 상태 사이에 눈에 띄는 시각적 차이가 발생합니다. 우리는 이 문제를 상세히 조사했고, 해결책을 제공했으며, 해당 내용은 이 기사에 수록되어 있습니다.
+{{% alert color="info" title="Note" %}}
+
+Aspose 구성 요소를 사용하여 PowerPoint 프레젠테이션에 OLE 개체로 삽입된 Excel 워크시트는 첫 번째 활성화 후 예상치 못하게 크기가 변경될 수 있습니다. 이 동작으로 인해 OLE 개체가 활성화 전과 후에 눈에 띄는 시각적 차이가 발생합니다. 이 문서에서는 문제를 설명하고 해결 방법 두 가지를 제시합니다.
+
 {{% /alert %}}
 
 ## **배경**
 
-[OLE 관리](/slides/ko/java/manage-ole/) 기사에서 Aspose.Slides for Java를 사용하여 PowerPoint 프레젠테이션에 OLE 프레임을 추가하는 방법을 설명했습니다. [객체 미리보기 문제](/slides/ko/java/object-preview-issue-when-adding-oleobjectframe/)를 해결하기 위해 선택된 워크시트 영역의 이미지를 OLE 객체 프레임에 할당했습니다. 출력 프레젠테이션에서 워크시트 이미지를 표시하는 OLE 객체 프레임을 더블 클릭하면 Excel 통합 문서가 활성화됩니다. 최종 사용자는 실제 Excel 통합 문서를 원하는대로 수정한 뒤 활성화된 Excel 통합 문서 밖을 클릭하여 슬라이드로 돌아갈 수 있습니다. 사용자가 슬라이드로 돌아올 때 OLE 객체 프레임의 크기가 변경됩니다. 크기 조정 비율은 OLE 객체 프레임과 삽입된 Excel 통합 문서의 크기에 따라 달라집니다.
+[OLE 관리](/slides/ko/java/manage-ole/) 문서에서는 Aspose.Slides for Java를 사용하여 PowerPoint 프레젠테이션에 OLE 프레임을 추가하는 방법을 설명했습니다. [객체 미리 보기 문제](/slides/ko/java/object-preview-issue-when-adding-oleobjectframe/)를 해결하기 위해 선택한 워크시트 영역의 이미지를 OLE 개체 프레임에 할당했습니다. 출력 프레젠테이션에서 워크시트 이미지를 표시하는 OLE 개체 프레임을 두 번 클릭하면 Excel 통합 문서가 활성화됩니다. 최종 사용자는 실제 Excel 통합 문서에서 원하는 변경을 한 뒤 활성화된 Excel 통합 문서 외부를 클릭하여 슬라이드로 돌아갈 수 있습니다. 사용자가 슬라이드로 돌아올 때 OLE 개체 프레임의 크기가 변경됩니다. 크기 조정 비율은 OLE 개체 프레임과 삽입된 Excel 통합 문서의 크기에 따라 달라집니다.
 
 ## **크기 조정 원인**
 
-Excel 통합 문서는 자체 창 크기를 가지고 있어 첫 번째 활성화 시 원래 크기를 유지하려고 합니다. 반면 OLE 객체 프레임은 자체 크기를 가지고 있습니다. Microsoft에 따르면 Excel 통합 문서가 활성화될 때 Excel과 PowerPoint가 크기를 협상하여 삽입 프로세스의 일환으로 올바른 비율을 유지합니다. 크기 조정은 Excel 창 크기와 OLE 객체 프레임의 크기 및 위치 차이에 기반하여 발생합니다.
+Excel 통합 문서는 자체 창 크기를 가지고 있어 첫 번째 활성화 시 원래 크기를 유지하려고 합니다. 반면 OLE 개체 프레임은 자체 크기를 가지고 있습니다. Microsoft에 따르면 Excel 통합 문서가 활성화되면 Excel과 PowerPoint가 삽입 프로세스의 일부로 적절한 비율을 유지하도록 크기를 협상합니다. 크기 조정은 Excel 창 크기와 OLE 개체 프레임의 크기 및 위치 차이에 기반하여 발생합니다.
 
-## **해결 방법**
+## **작동 해결책**
 
-크기 조정 효과를 방지하기 위한 두 가지 가능한 솔루션이 있습니다.
+크기 조정 효과를 피하기 위한 두 가지 가능한 해결책이 있습니다.
 
-- OLE 프레임의 크기를 PowerPoint 프레젠테이션에서 원하는 행 및 열 수에 맞는 높이와 너비로 맞춥니다.
-- OLE 프레임 크기를 고정하고, 해당 프레임에 들어갈 행과 열의 크기를 조정합니다.
+- PowerPoint 프레젠테이션에서 OLE 프레임을 선택한 행과 열의 전체 높이와 너비에 맞게 조정합니다.
+- OLE 프레임 크기를 고정하고 선택한 행과 열을 프레임에 맞게 스케일링합니다.
 
-### **OLE 프레임 크기 조정**
+### **OLE 프레임 크기 스케일링**
 
-이 접근 방식에서는 삽입된 Excel 통합 문서의 OLE 프레임 크기를 워크시트에 포함된 행과 열의 누적 크기에 맞추는 방법을 배웁니다.
+이 방법은 삽입된 Excel 워크시트에서 선택한 행과 열의 전체 높이와 너비에 맞게 OLE 프레임 크기를 설정합니다.
 
-템플릿 Excel 시트가 있고 이를 OLE 프레임으로 프레젠테이션에 추가하려고 한다고 가정해 보겠습니다. 이 경우 OLE 객체 프레임의 크기는 워크북에 포함된 행 높이와 열 너비의 누적값을 기반으로 먼저 계산됩니다. 그런 다음 계산된 값으로 OLE 프레임의 크기를 설정합니다. PowerPoint에서 OLE 프레임에 표시되는 빨간색 “EMBEDDED OLE OBJECT” 메시지를 피하기 위해 워크북의 원하는 행 및 열 부분을 이미지로 캡처하여 OLE 프레임 이미지로 설정합니다.
+예제에서는 기존 Excel 통합 문서를 로드하고 첫 번째 워크시트의 처음 10행과 13열을 0 기반 인덱스로 선택합니다. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-)이 표시 범위를 정의합니다. 미리 보기는 96 DPI로 렌더링되며, 픽셀 크기는 인치당 72포인트를 사용하여 포인트로 변환됩니다. [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-)는 해당 차원으로 프레임에 수정된 통합 문서를 삽입합니다. 미리 보기 이미지는 저장된 프레젠테이션의 "EMBEDDED OLE OBJECT" 자리 표시자를 교체하기 위해 [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--)을 통해 할당됩니다.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -50,7 +58,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// 워크북 파일을 PowerPoint에서 OLE 객체로 사용할 때 표시되는 크기를 설정합니다.
+// 워크북 파일이 PowerPoint에서 OLE 개체로 사용될 때 표시 크기를 설정합니다.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -76,7 +84,7 @@ imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// OLE 객체 프레임을 생성합니다.
+// OLE 개체 프레임을 생성합니다.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -87,7 +95,13 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+미리 보기 도우미는 [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-)을 선택한 범위로 설정하고 여백, 머리글 및 바닥글을 제거합니다. [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/java/com.aspose.cells/imageorprintoptions/#setOnlyArea-boolean-)가 활성화된 상태에서 [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-)는 범위를 PNG 이미지로 렌더링합니다. 도우미는 프레젠테이션에서 사용할 수 있도록 PNG 이미지를 포함하는 새로운 입력 스트림을 반환합니다.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -112,13 +126,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-### **셀 범위 크기 조정**
+### **셀 범위 크기 스케일링**
 
-이 접근 방식에서는 사용자 지정 OLE 프레임 크기에 맞게 포함된 행의 높이와 열의 너비를 조정하는 방법을 배웁니다.
+이 방법은 선택한 행의 높이와 열의 너비를 사용자 정의 OLE 프레임 크기에 맞게 스케일링합니다.
 
-템플릿 Excel 시트가 있고 이를 OLE 프레임으로 프레젠테이션에 추가하려고 한다고 가정해 보겠습니다. 이 경우 OLE 프레임의 크기를 설정하고, OLE 프레임 영역에 포함되는 행과 열의 크기를 조정합니다. 그런 다음 워크북을 스트림에 저장하여 변경 사항을 적용하고, OLE 프레임에 추가하기 위해 바이트 배열로 변환합니다. PowerPoint에서 OLE 프레임에 표시되는 빨간색 “EMBEDDED OLE OBJECT” 메시지를 피하기 위해 워크북의 원하는 행 및 열 부분을 이미지로 캡처하여 OLE 프레임 이미지로 설정합니다.
+예제에서는 기존 Excel 통합 문서를 로드하고 첫 번째 워크시트의 처음 10행과 13열을 0 기반 인덱스로 선택합니다. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-)이 표시 범위를 정의하고, 아래 도우미는 해당 범위를 가로 400포인트, 세로 100포인트인 프레임에 맞게 스케일링합니다. 수정된 통합 문서를 스트림에 저장한 후 [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-)를 사용하여 지정된 크기로 삽입합니다. 96 DPI로 렌더링된 미리 보기는 [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--)을 통해 할당되므로 저장된 프레젠테이션은 기본 자리 표시자 대신 선택한 셀을 표시합니다.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -129,7 +147,7 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// 워크북 파일을 PowerPoint에서 OLE 객체로 사용할 때 표시되는 크기를 설정합니다.
+// 워크북 파일이 PowerPoint에서 OLE 개체로 사용될 때 표시 크기를 설정합니다.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -152,7 +170,7 @@ ISlide slide = presentation.getSlides().get_Item(0);
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// OLE 객체 프레임을 생성합니다.
+// OLE 개체 프레임을 생성합니다.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -163,10 +181,12 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+스케일링 도우미는 선택된 범위에 대해 별도의 너비와 높이 비율을 계산하여 열의 상대 너비와 행의 상대 높이를 유지합니다. 계산된 차원을 포인트에서 인치로 변환한 후 [Cells.setColumnWidthInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setColumnWidthInch-int-double-)와 [Cells.setRowHeightInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setRowHeightInch-int-double-)을 사용하여 적용합니다. 선택된 범위는 너비와 높이가 0이 아니어야 합니다.
+
 ```java
 /**
- * @param width     셀 범위의 예상 너비(포인트 단위).
- * @param height    셀 범위의 예상 높이(포인트 단위).
+ * @param width     셀 범위의 예상 너비(포인트).
+ * @param height    셀 범위의 예상 높이(포인트).
  */
 static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float height) {
     double rangeWidth = cellRange.getWidth();
@@ -200,7 +220,13 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 }
 ```
 
+이 미리 보기 도우미는 [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-)를 사용하여 크기가 조정된 범위를 렌더링합니다. [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-)을 해당 범위로 제한하고, 여백, 머리글 및 바닥글을 제거한 뒤 PNG 스트림을 처음 위치에 두고 반환합니다.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -226,38 +252,41 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 ```
 
 ## **결론**
-{{% alert color="primary" %}} 
-워크시트 크기 조정 문제를 해결하는 두 가지 접근 방식이 있습니다. 적절한 접근 방식의 선택은 특정 요구 사항 및 사용 사례에 따라 달라집니다. 두 접근 방식 모두 템플릿에서 만들든 처음부터 만들든 동일하게 작동합니다. 또한 이 솔루션에서는 OLE 객체 프레임 크기에 제한이 없습니다.
+
+{{% alert color="info" title="Note" %}}
+
+워크시트 크기 조정 문제를 해결하는 두 가지 접근 방식이 있습니다. 요구 사항 및 사용 사례에 가장 적합한 접근 방식을 선택하세요. 두 접근 방식은 템플릿 기반이든 처음부터 만든 프레젠테이션이든 동일하게 작동합니다. 또한 이 해결책에서는 OLE 개체 프레임 크기에 제한이 없습니다.
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**PowerPoint에서 처음 활성화될 때 삽입된 Excel 워크시트의 크기가 왜 변하나요?**
+**PowerPoint에서 처음 활성화될 때 삽입된 Excel 워크시트가 크기가 변하는 이유는 무엇인가요?**
 
-Excel이 활성화될 때 원래 창 크기를 유지하려고 하고, PowerPoint의 OLE 객체 프레임은 자체 차원을 가지기 때문에 발생합니다. PowerPoint와 Excel이 비율을 유지하도록 크기를 협상하면서 크기 조정이 발생합니다.
+Excel은 활성화될 때 원래 창 크기를 유지하려고 하며, PowerPoint의 OLE 개체 프레임은 자체 치수를 가지고 있기 때문입니다. PowerPoint와 Excel이 비율을 유지하도록 크기를 협상하면서 크기 조정이 발생합니다.
 
 **이 크기 조정 문제를 완전히 방지할 수 있나요?**
 
-예. OLE 프레임을 Excel 셀 범위 크기에 맞추거나 셀 범위를 원하는 OLE 프레임 크기에 맞추어 스케일링하면 원치 않는 크기 조정을 방지할 수 있습니다.
+예. OLE 프레임을 Excel 셀 범위 크기에 맞게 스케일링하거나, 셀 범위를 원하는 OLE 프레임 크기에 맞게 스케일링하면 원치 않는 크기 조정을 방지할 수 있습니다.
 
 **어떤 스케일링 방법을 사용해야 하나요, OLE 프레임 스케일링인가 셀 범위 스케일링인가요?**
 
-원본 Excel 행과 열 크기를 유지하려면 **OLE 프레임 스케일링**을 선택하십시오. 프레젠테이션에서 OLE 프레임의 고정 크기를 원한다면 **셀 범위 스케일링**을 선택하십시오.
+원본 Excel 행과 열 크기를 유지하고 싶다면 **OLE 프레임 스케일링**을 선택하십시오. 프레젠테이션에서 OLE 프레임의 크기를 고정하고 싶다면 **셀 범위 스케일링**을 선택하십시오.
 
-**템플릿 기반 프레젠테이션에도 이 솔루션이 적용되나요?**
+**템플릿 기반 프레젠테이션에서도 이 솔루션이 작동하나요?**
 
-예. 두 솔루션 모두 템플릿에서 만든 프레젠테이션과 처음부터 만든 프레젠테이션 모두에 적용됩니다.
+예. 두 솔루션 모두 템플릿을 사용한 프레젠테이션과 처음부터 만든 프레젠테이션 모두에서 작동합니다.
 
 **이 방법을 사용할 때 OLE 프레임 크기에 제한이 있나요?**
 
-아니요. 스케일을 적절히 설정하면 OLE 객체 프레임을 원하는 어느 크기로든 만들 수 있습니다.
+없습니다. 적절히 스케일을 지정하면 OLE 개체 프레임을 원하는 어떤 크기로도 만들 수 있습니다.
 
-**PowerPoint에서 “EMBEDDED OLE OBJECT” 자리 표시자 텍스트를 피할 수 있는 방법이 있나요?**
+**PowerPoint에서 "EMBEDDED OLE OBJECT" 자리 표시자 텍스트를 피하는 방법이 있나요?**
 
-예. 대상 Excel 셀 범위의 스냅샷을 캡처하여 OLE 프레임의 자리 표시자 이미지로 설정하면 기본 자리 표시자 대신 사용자 정의 미리보기 이미지를 표시할 수 있습니다.
+예. 대상 Excel 셀 범위의 스냅샷을 가져와 OLE 프레임의 자리 표시자 이미지로 설정하면 기본 자리 표시자 대신 사용자 지정 미리 보기 이미지를 표시할 수 있습니다.
 
-## **관련 기사**
+## **관련 문서**
 
-[Excel 차트를 만들고 OLE 객체로 프레젠테이션에 삽입](/slides/ko/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Excel 차트를 만들고 OLE 개체로 프레젠테이션에 삽입](/slides/ko/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[MS PowerPoint 추가 기능을 사용하여 OLE 객체 자동 업데이트](/slides/ko/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[MS PowerPoint 애드인으로 OLE 개체 자동 업데이트](/slides/ko/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

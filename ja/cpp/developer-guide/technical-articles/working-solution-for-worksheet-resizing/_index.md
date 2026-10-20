@@ -13,36 +13,50 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides for C++
-description: "C++ を使用した PowerPoint プレゼンテーションでのワークシートリサイズに対する実装済みソリューション"
+description: "C++ を使用した PowerPoint プレゼンテーションにおけるワークシートリサイズの実装済みソリューション"
 ---
-
-{{% alert color="primary" %}}
-
-Excel ワークシートを OLE オブジェクトとして Aspose コンポーネント経由で PowerPoint プレゼンテーションに埋め込むと、最初にアクティブ化した後に不明なスケールでサイズが変更されることが確認されています。この動作により、OLE オブジェクトのアクティブ化前後でプレゼンテーションの見た目に顕著な差が生じます。本記事ではこの問題を詳細に調査し、解決策をご紹介します。
-
+{{% alert color="info" title="Note" %}}
+Aspose コンポーネントを使用して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込まれた Excel ワークシートは、最初にアクティブ化された後に予期せずサイズが変わることがあります。この動作により、アクティブ化前後の OLE オブジェクトに目立つ視覚的な違いが生じます。本記事ではこの問題を説明し、対処する2つの方法を紹介します。
 {{% /alert %}}
 
 ## **背景**
 
-記事 [OLE の管理](/slides/ja/cpp/manage-ole/) で、Aspose.Slides for C++ を使用して PowerPoint プレゼンテーションに OLE フレームを追加する方法を説明しました。[オブジェクト プレビューの問題](/slides/ja/cpp/object-preview-issue-when-adding-oleobjectframe/) に対処するため、選択したワークシート領域の画像を OLE オブジェクト フレームに割り当てました。出力されたプレゼンテーションで、ワークシート画像を表示している OLE オブジェクト フレームをダブルクリックすると Excel ブックがアクティブ化されます。エンドユーザーは実際の Excel ブックで任意の変更を行い、アクティブ化された Excel ブックの外側をクリックしてスライドに戻ります。スライドに戻ると OLE オブジェクト フレームのサイズが変わります。リサイズの係数は OLE オブジェクト フレームと埋め込まれた Excel ブックのサイズに応じて変わります。
+記事[OLE の管理](/slides/ja/cpp/manage-ole/)では、Aspose.Slides for C++ を使用して PowerPoint プレゼンテーションに OLE フレームを追加する方法を説明しました。[オブジェクト プレビューの問題](/slides/ja/cpp/object-preview-issue-when-adding-oleobjectframe/)に対処するため、選択したワークシート領域の画像を OLE オブジェクトフレームに割り当てました。出力されたプレゼンテーションで、ワークシート画像を表示する OLE オブジェクトフレームをダブルクリックすると、Excel ブックがアクティブ化されます。エンドユーザーは実際の Excel ブックに任意の変更を加え、アクティブ化された Excel ブックの外側をクリックしてスライドに戻ることができます。ユーザーがスライドに戻ると OLE オブジェクトフレームのサイズが変わります。リサイズの係数は OLE オブジェクトフレームと埋め込まれた Excel ブックのサイズに応じて変わります。
 
 ## **リサイズの原因**
 
-Excel ブックは独自のウィンドウサイズを持っているため、最初のアクティブ化時に元のサイズを保持しようとします。一方、OLE オブジェクト フレームには独自のサイズがあります。Microsoft によると、Excel ブックがアクティブ化されると、Excel と PowerPoint がサイズを協議し、埋め込みプロセスの一部として正しい比率を保つようにします。リサイズは、Excel ウィンドウサイズと OLE オブジェクト フレームのサイズ・位置の差に基づいて発生します。
+Excel ブックには独自のウィンドウサイズがあるため、最初にアクティブ化された際には元のサイズを保持しようとします。一方、OLE オブジェクトフレームには独自のサイズがあります。Microsoft によると、Excel ブックがアクティブ化されると、Excel と PowerPoint がサイズを調整し、埋め込みプロセスの一部として正しい比率を保つように交渉します。リサイズは、Excel ウィンドウのサイズと OLE オブジェクトフレームのサイズ・位置の差に基づいて発生します。
 
-## **実装済みの解決策**
+## **実装済みソリューション**
 
-リサイズ効果を回避するための 2 つの解決策があります。
+リサイズ効果を回避するための2つの解決策があります。
 
-- OLE フレームのサイズを PowerPoint プレゼンテーション内で、目的の行数と列数に合わせた高さと幅にスケーリングする。
-- OLE フレームのサイズを固定し、対象となる行と列のサイズをスケーリングしてフレーム内に収める。
+- PowerPoint プレゼンテーション内の OLE フレームを、選択した行と列の合計高さと幅に合わせてスケーリングする。
+- OLE フレームのサイズを固定したまま、選択した行と列をスケーリングしてフレーム内に収める。
 
-### **OLE フレーム サイズのスケーリング**
+### **OLE フレームサイズのスケーリング**
 
-このアプローチでは、埋め込まれた Excel ブックの OLE フレームサイズを、Excel ワークシート内の対象行と列の合計サイズに合わせて設定する方法を学びます。
+この方法は、埋め込まれた Excel ワークシートの選択された行と列の合計高さと幅に合わせて OLE フレームサイズを設定します。
 
-テンプレート Excel シートがあり、プレゼンテーションに OLE フレームとして追加したいとします。このシナリオでは、まずブック内の対象行の高さと列の幅を合計して OLE オブジェクト フレームのサイズを計算します。その後、計算された値で OLE フレームのサイズを設定します。PowerPoint の OLE フレームに表示される赤い「EMBEDDED OLE OBJECT」メッセージを回避するため、ブック内の対象行と列の画像を取得し、OLE フレーム画像として設定します。
+この例では、既存の Excel ワークブックを読み込み、0 ベースのインデックスを使用して最初のワークシートの最初の 10 行と 13 列を選択します。[WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) が表示範囲を定義します。プレビューは 96 DPI でレンダリングされ、ピクセル寸法は 1 インチ当たり 72 ポイントを使用してポイントに変換されます。[ShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addoleobjectframe/) は、変更されたワークブックをその寸法のフレームに埋め込みます。プレビューは [OleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/get_substitutepictureformat/) を通じて割り当てられ、保存されたプレゼンテーションの「EMBEDDED OLE OBJECT」プレースホルダーを置き換えます。
+
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/image.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -54,7 +68,7 @@ int imageResolution = 96;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// ワークブック ファイルが PowerPoint で OLE オブジェクトとして使用されるときの表示サイズを設定します。
+// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -62,12 +76,12 @@ workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-// OLE 画像の幅と高さをポイント単位で取得します。
+// Get the width and height of the OLE image in points.
 auto image = Image::FromStream(imageStream);
 auto imageWidth = image->get_Width() * 72.0f / imageResolution;
 auto imageHeight = image->get_Height() * 72.0f / imageResolution;
 
-// 修正されたワークブックを使用する必要があります。
+// We need to use the modified workbook.
 auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
 auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
 workbook.Dispose();
@@ -75,11 +89,11 @@ workbook.Dispose();
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// OLE 画像をプレゼンテーションのリソースに追加します。
+// Add the OLE image to the presentation resources.
 auto oleImage = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// OLE オブジェクト フレームを作成します。
+// Create the OLE object frame.
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
 auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
@@ -91,7 +105,22 @@ presentation->Dispose();
 Aspose::Cells::Cleanup();
 ```
 
+プレビュー ヘルパーは [PageSetup::SetPrintArea](https://reference.aspose.com/cells/cpp/aspose.cells/pagesetup/setprintarea/) を使用して範囲を選択し、余白、ヘッダー、フッターを削除します。[ImageOrPrintOptions::SetOnlyArea](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/imageorprintoptions/setonlyarea/) を有効にすると、[SheetRender::ToImage](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/sheetrender/toimage/) が範囲を PNG 画像としてレンダリングします。ヘルパーはレンダリングされた画像データを新しいメモリストリームにコピーし、先頭に位置付けてプレゼンテーションで使用できるようにします。
+
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -119,13 +148,27 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
+### **セル範囲のスケーリング**
 
-### **セル範囲サイズのスケーリング**
+この方法は、選択した行の高さと列の幅をスケーリングして、カスタム OLE フレームサイズに合わせます。
 
-このアプローチでは、対象行の高さと対象列の幅をカスタム OLE フレーム サイズに合わせてスケーリングする方法を学びます。
+この例では、既存の Excel ワークブックを読み込み、0 ベースのインデックスを使用して最初のワークシートの最初の 10 行と 13 列を選択します。[WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) が表示範囲を定義し、以下のヘルパーがその範囲を幅 400 ポイント、高さ 100 ポイントのフレームに合わせてスケーリングします。変更されたワークブックをバイト配列に保存した後、[ShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addoleobjectframe/) が指定サイズで埋め込みます。96 DPI でレンダリングされたプレビューは [OleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/get_substitutepictureformat/) を介して割り当てられ、保存されたプレゼンテーションはデフォルトのプレースホルダーではなく選択されたセルを表示します。
 
-テンプレート Excel シートがあり、プレゼンテーションに OLE フレームとして追加したいとします。このシナリオでは、まず OLE フレームのサイズを設定し、フレーム領域に参加する行と列のサイズをスケーリングします。その後、ブックをストリームに保存して変更を適用し、OLE フレームに追加するためにバイト配列に変換します。PowerPoint の OLE フレームに表示される赤い「EMBEDDED OLE OBJECT」メッセージを回避するため、ブック内の対象行と列の画像を取得し、OLE フレーム画像として設定します。
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -138,12 +181,12 @@ float frameWidth = 400, frameHeight = 100;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// ワークブック ファイルが PowerPoint で OLE オブジェクトとして使用されるときの表示サイズを設定します。
+// PowerPoint でワークブック ファイルが OLE オブジェクトとして使用される場合の表示サイズを設定します。
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// セル範囲をフレームサイズに合わせてスケーリングします。
+// フレームサイズに合わせてセル範囲をスケーリングします。
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -173,9 +216,16 @@ presentation->Dispose();
 Aspose::Cells::Cleanup();
 ```
 
+スケーリング ヘルパーは選択範囲の幅と高さの比率を個別に計算し、列の相対幅と行の相対高さを保持します。計算された寸法はポイントからインチに変換され、[Cells::SetColumnWidthInch](https://reference.aspose.com/cells/cpp/aspose.cells/cells/setcolumnwidthinch/) と [Cells::SetRowHeightInch](https://reference.aspose.com/cells/cpp/aspose.cells/cells/setrowheightinch/) を使用して適用されます。選択範囲の幅と高さはゼロであってはなりません。
+
 ```cpp
-/// <param name="width">セル範囲の期待幅（ポイント単位）。</param>
-/// <param name="height">セル範囲の期待高さ（ポイント単位）。</param>
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/CellsUnitType.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/Worksheet.h"
+
+/// <param name="width">セル範囲の期待される幅（ポイント単位）。</param>
+/// <param name="height">セル範囲の期待される高さ（ポイント単位）。</param>
 void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 {
     auto rangeWidth = cellRange.GetWidth();
@@ -203,7 +253,22 @@ void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 }
 ```
 
+このプレビュー ヘルパーは [SheetRender::ToImage](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/sheetrender/toimage/) を使用してリサイズされた範囲をレンダリングします。[PageSetup::SetPrintArea](https://reference.aspose.com/cells/cpp/aspose.cells/pagesetup/setprintarea/) を使用して印刷をその範囲に限定し、余白、ヘッダー、フッターを削除し、先頭に位置付けた PNG ストリームを返します。
+
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -231,41 +296,38 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
-
 ## **結論**
 
-{{% alert color="primary" %}}
-
-ワークシートのリサイズ問題を解決する方法は 2 つあります。どちらのアプローチを選択するかは、具体的な要件とユースケースに依存します。プレゼンテーションがテンプレートから作成された場合でも、ゼロから作成された場合でも、両方の方法は同様に機能します。また、このソリューションでは OLE オブジェクト フレームのサイズに制限はありません。
-
+{{% alert color="info" title="Note" %}}
+ワークシートのリサイズ問題を解決するためのアプローチは2つあります。要件やユースケースに最適な方法を選択してください。どちらのアプローチも、テンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも同じように機能します。さらに、このソリューションでは OLE オブジェクトフレームのサイズに制限はありません。
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**埋め込まれた Excel ワークシートは、PowerPoint で最初にアクティブ化するとサイズが変わるのはなぜですか？**
+**PowerPoint で最初にアクティブ化されたときに埋め込まれた Excel ワークシートのサイズが変わるのはなぜですか？**
 
-Excel はアクティブ化時に元のウィンドウサイズを保持しようとし、PowerPoint の OLE オブジェクト フレームは独自の寸法を持っています。PowerPoint と Excel がサイズを協議してアスペクト比を保つため、リサイズが発生します。
+これは、Excel がアクティブ化時に元のウィンドウサイズを維持しようとする一方で、PowerPoint の OLE オブジェクトフレームは独自のサイズを持つために起こります。PowerPoint と Excel がサイズを交渉してアスペクト比を保つため、リサイズが発生することがあります。
 
-**このリサイズ問題を完全に防ぐことはできますか？**
+**このリサイズ問題を完全に防ぐことは可能ですか？**
 
-はい。OLE フレームを Excel のセル範囲サイズに合わせてスケーリングするか、セル範囲を目的の OLE フレームサイズに合わせてスケーリングすることで、不要なリサイズを防止できます。
+はい。OLE フレームを Excel のセル範囲サイズに合わせてスケーリングするか、セル範囲を希望の OLE フレームサイズに合わせてスケーリングすることで、不要なリサイズを防止できます。
 
-**どちらのスケーリング方法を選べばよいですか、OLE フレーム スケーリングですかセル範囲 スケーリングですか？**
+**どちらのスケーリング方法を使用すべきですか、OLE フレームのスケーリングですか、セル範囲のスケーリングですか？**
 
-元の Excel の行・列サイズを保持したい場合は **OLE フレーム スケーリング** を選択してください。プレゼンテーション内で OLE フレームのサイズを固定したい場合は **セル範囲 スケーリング** を選択してください。
+元の Excel の行・列サイズを維持したい場合は **OLE フレームのスケーリング** を選択してください。プレゼンテーションで OLE フレームのサイズを固定したい場合は **セル範囲のスケーリング** を選択してください。
 
-**テンプレートをベースにしたプレゼンテーションでもこれらの解決策は機能しますか？**
+**プレゼンテーションがテンプレートベースの場合でもこれらのソリューションは機能しますか？**
 
-はい。両方の解決策はテンプレートから作成されたプレゼンテーションでも、ゼロから作成されたプレゼンテーションでも機能します。
+はい。テンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも、両方のソリューションは機能します。
 
-**これらの方法を使用した場合、OLE フレームのサイズに制限はありますか？**
+**これらの方法を使用する際、OLE フレームのサイズに制限はありますか？**
 
-いいえ。スケールを適切に設定すれば、OLE オブジェクト フレームは任意のサイズにできます。
+いいえ。スケールを適切に設定すれば、OLE オブジェクトフレームを任意のサイズにすることができます。
 
-**PowerPoint の「EMBEDDED OLE OBJECT」プレースホルダー文字列を回避する方法はありますか？**
+**PowerPoint の「EMBEDDED OLE OBJECT」プレースホルダー テキストを回避する方法はありますか？**
 
-はい。対象の Excel セル範囲のスナップショットを取得し、プレースホルダー画像として設定すれば、デフォルトのプレースホルダーの代わりにカスタムプレビュー画像を表示できます。
+はい。対象の Excel セル範囲のスナップショットを取得し、OLE フレームのプレースホルダー画像として設定することで、デフォルトのプレースホルダーの代わりにカスタムプレビュー画像を表示できます。
 
 ## **関連記事**
 
-[Excel グラフを作成し、OLE オブジェクトとしてプレゼンテーションに埋め込む](/slides/ja/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Excel チャートを作成し、OLE オブジェクトとしてプレゼンテーションに埋め込む](/slides/ja/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

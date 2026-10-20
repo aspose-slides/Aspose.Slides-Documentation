@@ -1,215 +1,129 @@
 ---
-title: PPTX में चार्ट पुनः आकार के लिए कार्यात्मक समाधान
+title: PPTX में चार्ट आकार बदलने के लिए कार्यशील समाधान
 type: docs
 weight: 40
 url: /hi/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- चार्ट पुनः आकार
+- चार्ट आकार परिवर्तन
 - Excel चार्ट
 - OLE ऑब्जेक्ट
 - चार्ट एम्बेड करें
 - PowerPoint
-- OpenDocument
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java के साथ एम्बेडेड Excel OLE ऑब्जेक्ट्स का उपयोग करते समय PPTX में अप्रत्याशित चार्ट पुनः आकार को ठीक करें। आकारों को स्थिर रखने के लिए दो विधियाँ कोड सहित सीखें।"
+description: "Aspose.Slides for Java के साथ एम्बेडेड Excel OLE ऑब्जेक्ट्स का उपयोग करते समय PPTX में अप्रत्याशित चार्ट आकार परिवर्तन को ठीक करें। चार्ट और OLE फ्रेम के आकार को सुसंगत रखने के लिए स्थिर चार्ट आयाम सेट करें।"
 ---
 ## **पृष्ठभूमि**
 
-यह देखा गया है कि Aspose घटकों के माध्यम से PowerPoint प्रस्तुति में OLE ऑब्जेक्ट के रूप में एम्बेड किए गए Excel चार्ट पहली सक्रियता के बाद एक अनिर्दिष्ट स्केल पर पुन: आकारित हो जाते हैं। यह व्यवहार चार्ट की सक्रियता से पहले और बाद के स्थितियों के बीच प्रस्तुति में एक स्पष्ट दृश्य अंतर पैदा करता है। Aspose टीम ने इस समस्या की विस्तृत जांच की है और एक समाधान पाया है। यह लेख समस्या के कारणों और संबंधित समाधान का वर्णन करता है।
+Excel चार्ट को OLE ऑब्जेक्ट्स के रूप में PowerPoint प्रस्तुतियों में Aspose घटकों का उपयोग करके एम्बेड करने पर पहली सक्रियता के बाद आकार बदल सकता है। इससे सक्रियता से पहले और बाद में चार्ट की उपस्थिति में एक उल्लेखनीय अंतर दिख सकता है। यह लेख बताता है कि आकार परिवर्तन क्यों होता है और कैसे OLE फ्रेम के साथ फ़िक्स्ड चार्ट आयाम मिलाकर इसे रोका जाए।
 
-[पिछला लेख](/slides/hi/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) में, हमने बताया था कि Aspose.Cells for Java का उपयोग करके एक Excel चार्ट कैसे बनाएं और Aspose.Slides for Java का उपयोग करके इसे PowerPoint प्रस्तुति में एम्बेड करें। [ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/java/object-preview-issue-when-adding-oleobjectframe/) को संबोधित करने के लिए, हमने चार्ट छवि को चार्ट के OLE ऑब्जेक्ट फ्रेम को सौंपा। आउटपुट प्रस्तुति में, जब आप चार्ट छवि दिखाने वाले OLE ऑब्जेक्ट फ्रेम पर डबल-क्लिक करते हैं, तो Excel चार्ट सक्रिय हो जाता है। अंतिम उपयोगकर्ता बेसवर्कबुक में वांछित कोई भी परिवर्तन कर सकते हैं और फिर सक्रिय वर्कबुक के बाहर क्लिक करके संबंधित स्लाइड पर वापस जा सकते हैं। जब उपयोगकर्ता स्लाइड पर वापस आता है तो OLE ऑब्जेक्ट फ्रेम का आकार बदलता है, और री-साइज़िंग कारक OLE ऑब्जेक्ट फ्रेम और एम्बेडेड Excel वर्कबुक दोनों के मूल आकारों पर निर्भर करता है।
+[एक्सेल चार्ट बनाएं और उन्हें OLE ऑब्जेक्ट्स के रूप में प्रस्तुतियों में एम्बेड करें](/slides/hi/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) में हमने बताया था कि Aspose.Cells for Java का उपयोग करके Excel चार्ट कैसे बनाएं और Aspose.Slides for Java का उपयोग करके उसे PowerPoint प्रस्तुति में एम्बेड करें। [ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/java/object-preview-issue-when-adding-oleobjectframe/) को हल करने के लिए हमने चार्ट छवि को चार्ट के OLE ऑब्जेक्ट फ्रेम से जोड़ा। आउटपुट प्रस्तुति में, जब आप OLE ऑब्जेक्ट फ्रेम (जिसमें चार्ट छवि दिखाई देती है) पर डबल‑क्लिक करते हैं, तो Excel चार्ट सक्रिय हो जाता है। उपयोगकर्ता एम्बेडेड Excel वर्कबुक को संपादित कर सकते हैं और फिर सक्रिय वर्कबुक के बाहर क्लिक करके स्लाइड पर वापस आ सकते हैं। उपयोगकर्ता के लौटने पर OLE ऑब्जेक्ट फ़्रेम का आकार बदल जाता है, और यह री‑साइज़िंग फ़ैक्टर OLE ऑब्जेक्ट फ़्रेम और एम्बेडेड Excel वर्कबुक के मूल आकारों पर निर्भर करता है।
 
-## **पुन: आकार के कारण**
+## **आकार परिवर्तन का कारण**
 
-चूंकि Excel वर्कबुक का अपना विंडो आकार होता है, यह पहली सक्रियता पर अपना मूल आकार बनाए रखने का प्रयास करता है। OLE ऑब्जेक्ट फ्रेम का अपना आकार होता है। Microsoft के अनुसार, जब Excel वर्कबुक सक्रिय होती है, तो Excel और PowerPoint आकार पर बातचीत करते हैं और एम्बेडिंग प्रक्रिया के भाग के रूप में सही अनुपात बनाए रखते हैं। Excel विंडो आकार और OLE ऑब्जेक्ट फ्रेम के आकार या स्थिति के बीच अंतर के आधार पर पुन: आकार होता है।
+एंबेडेड Excel वर्कबुक का अपना विंडो आयाम होता है, जिसे Excel पहली सक्रियता पर बनाए रखने की कोशिश करता है। स्लाइड पर OLE फ्रेम के अपने निर्धारित आयाम होते हैं। जब Excel वर्कबुक सक्रिय होती है, तो Excel और PowerPoint ऑब्जेक्ट के आकार को उसके अनुपात बनाए रखने के लिए वार्ता करते हैं, जो एम्बेडिंग प्रक्रिया का हिस्सा है। वर्कबुक विंडो और OLE फ्रेम के बीच के अंतर के कारण ऑब्जेक्ट का आकार बदल सकता है।
 
-## **कार्यात्मक समाधान**
+## **कार्यान्वित समाधान**
 
-Aspose.Slides for Java का उपयोग करके PowerPoint प्रस्तुतियाँ बनाने के दो संभावित परिदृश्य हैं।
+चार्ट का आकार स्लाइड पर OLE फ्रेम से मिलाएँ और चार्ट आयामों को वर्कबुक विंडो से स्वतंत्र रखें। यह समाधान नई प्रस्तुति या मौजूदा टेम्पलेट दोनों के साथ काम करता है।
 
-**Scenario 1:** मौजूदा टेम्पलेट के आधार पर प्रस्तुति बनाना।
+उदाहरण के लिए Aspose.Cells for Java और Aspose.Slides for Java की आवश्यकता होती है। यह एक सरल कॉलम चार्ट को सक्रिय चार्ट शीट पर बनाता है और वर्कबुक को XLS फ़ॉर्मेट में एम्बेड करता है। कोई चार्ट प्रीव्यू छवि नहीं जोड़ी गई है; चार्ट PowerPoint में OLE ऑब्जेक्ट सक्रिय होने पर दिखाई देगा।
 
-**Scenario 2:** शून्य से प्रस्तुति बनाना।
+उदाहरण एक नई प्रस्तुति बनाता है जिसमें 9.5 × 4‑इंच का OLE फ्रेम बाएँ किनारे से 0.5 इंच और शीर्ष से 1 इंच की स्थिति पर रहता है। स्लाइड निर्देशांक और आयाम पॉइंट्स में होते हैं (प्रति इंच 72 पॉइंट)। मौजूदा प्रस्तुति के लिए, देखें [टेम्पलेट का उपयोग करें](#use-a-template)।
 
-यहाँ प्रदान किया गया समाधान दोनों परिदृश्यों पर लागू होता है। सभी समाधान दृष्टिकोणों का आधार समान है: **एम्बेडेड OLE ऑब्जेक्ट का विंडो आकार PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार के समान होना चाहिए**। अब हम इस समाधान के दो दृष्टिकोणों पर चर्चा करेंगे।
+## **फ़िक्स्ड चार्ट आकार सेट करें**
 
-## **पहला तरीका**
-
-इस दृष्टिकोण में, हम सीखेंगे कि एम्बेडेड Excel वर्कबुक का विंडो आकार कैसे सेट किया जाए ताकि वह PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार के समान हो।
-
-**Scenario 1**
-
-मान लीजिए हमने एक टेम्पलेट परिभाषित किया है और इसके आधार पर प्रस्तुतियों को बनाना चाहते हैं। मान लीजिए टेम्पलेट में इंडेक्स 2 पर एक आकार (shape) है जहाँ हम एक OLE फ्रेम रखना चाहते हैं जिसमें एम्बेडेड Excel वर्कबुक हो। इस परिदृश्य में, OLE ऑब्जेक्ट फ्रेम का आकार पूर्वनिर्धारित है—यह टेम्पलेट में इंडेक्स 2 के आकार के समान है। हमें केवल वर्कबुक के विंडो आकार को उस आकार के बराबर सेट करना है। निम्नलिखित कोड स्निपेट इस उद्देश्य की पूर्ति करता है:
+[setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) को false सेट करें ताकि चार्ट आयाम वर्कबुक विंडो से स्वतंत्र रहें। [getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) के आयामों को [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) और [setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-) के माध्यम से सेट करें, 96 पिक्सेल प्रति इंच का उपयोग करके पॉइंट को पिक्सेल में बदलते हुए: 684 × 288 पॉइंट का फ्रेम 912 × 384 पिक्सेल के चार्ट के बराबर होता है। [setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) को [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/) के CUSTOM मान पर सेट करें। उदाहरण वर्कबुक को [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) द्वारा एम्बेड करता है और 9.5 × 4‑इंच के OLE फ्रेम के साथ प्रस्तुति को सहेजता है।
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// वर्कबुक की विंडो चौड़ाई को इंच में सेट करें (PowerPoint प्रति इंच 72 पॉइंट उपयोग करता है, इसलिए 72 से विभाजित किया गया है)।
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// वर्कबुक की विंडो ऊँचाई को इंच में सेट करें।
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// एम्बेडेड Excel डेटा के साथ एक OLE ऑब्जेक्ट फ्रेम बनाएं।
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // स्लाइड के निर्देशांक और आयाम पॉइंट्स में हैं (प्रति इंच 72 पॉइंट)।
+        float width = 684f; // 9.5 इंच।
+        float height = 288f; // 4 इंच।
+
+        chart.setSizeWithWindow(false);
+        // पॉइंट्स को चार्ट पिक्सेल में बदलें, 96 पिक्सेल प्रति इंच का उपयोग करके।
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**Scenario 2**
+## **टेम्पलेट का उपयोग करें**
 
-मान लीजिए हम शून्य से एक प्रस्तुति बनाना चाहते हैं और किसी भी आकार के OLE ऑब्जेक्ट फ्रेम को एम्बेडेड Excel वर्कबुक के साथ शामिल करना चाहते हैं। निम्नलिखित कोड स्निपेट में, हम स्लाइड पर x = 0.5 इंच और y = 1 इंच पर 4 इंच ऊँचाई और 9.5 इंच चौड़ाई वाला OLE ऑब्जेक्ट फ्रेम बनाते हैं। फिर हम Excel वर्कबुक विंडो को समान आकार—4 इंच ऊँचाई और 9.5 इंच चौड़ाई—से सेट करते हैं।
+आकार निर्धारण तर्क मौजूदा प्रस्तुति के लिए भी समान है। उदाहरण को अनुकूलित करने के लिए:
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// इच्छित ऊँचाई।
-int desiredHeight = 288; // 4 इंच (4 * 72)
- 
-// इच्छित चौड़ाई।
-int desiredWidth = 684; // 9.5 इंच (9.5 * 72)
- 
-// विंडो के साथ चार्ट आकार निर्धारित करें।
-chart.setSizeWithWindow(true);
- 
-// वर्कबुक की विंडो चौड़ाई को इंच में सेट करें (PowerPoint प्रति इंच 72 पॉइंट उपयोग करता है, इसलिए 72 से विभाजित किया गया है)।
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// वर्कबुक की विंडो ऊँचाई को इंच में सेट करें।
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 इंच (0.5 * 72)
-    72,  // y = 1 इंच (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **दूसरा तरीका**
-
-इस दृष्टिकोण में, हम सीखेंगे कि एम्बेडेड Excel वर्कबुक में चार्ट का आकार कैसे सेट किया जाए ताकि वह PowerPoint स्लाइड में OLE ऑब्जेक्ट फ्रेम के आकार के समान हो। यह तरीका तब उपयोगी होता है जब चार्ट का आकार पहले से ज्ञात हो और कभी नहीं बदलेगा।
-
-**Scenario 1**
-
-मान लीजिए हमने एक टेम्पलेट परिभाषित किया है और इसके आधार पर प्रस्तुति बनाना चाहते हैं। मान लीजिए टेम्पलेट में इंडेक्स 2 पर एक आकार है जहाँ हम एक OLE फ्रेम रखना चाहते हैं जिसमें एम्बेडेड Excel वर्कबुक होगा। इस परिदृश्य में, OLE फ्रेम का आकार पूर्वनिर्धारित है—जो टेम्पलेट में इंडेक्स 2 के आकार के समान है। हमें केवल वर्कबुक में चार्ट का आकार उस आकार के बराबर सेट करना है। निम्नलिखित कोड स्निपेट इस उद्देश्य की पूर्ति करता है:
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// विंडो के बिना चार्ट आकार निर्धारित करें।
-chart.setSizeWithWindow(false);
- 
-// चार्ट की चौड़ाई को पिक्सेल में सेट करें (Excel प्रति इंच 96 पिक्सेल उपयोग करता है, इसलिए 96 से गुणा करें)।
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// चार्ट की ऊँचाई को पिक्सेल में सेट करें।
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// चार्ट प्रिंट आकार निर्धारित करें।
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
-
-**Scenario 2**:
-
-मान लीजिए हम शून्य से एक प्रस्तुति बनाना चाहते हैं और किसी भी आकार के OLE ऑब्जेक्ट फ्रेम को एम्बेडेड Excel वर्कबुक के साथ शामिल करना चाहते हैं। निम्नलिखित कोड स्निपेट में, हम स्लाइड पर x = 0.5 इंच और y = 1 इंच पर 4 इंच ऊँचाई और 9.5 इंच चौड़ाई वाला OLE ऑब्जेक्ट फ्रेम बनाते हैं। हम संबंधित चार्ट का आकार भी समान आयामों पर सेट करते हैं: 4 इंच ऊँचाई और 9.5 इंच चौड़ाई।
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// हमारी इच्छित ऊँचाई।
-int desiredHeight = 288; // 4 इंच (4 * 72)
- 
-// हमारी इच्छित चौड़ाई।
-int desiredWidth = 684; // 9.5 इंच (9.5 * 72)
- 
-// विंडो के बिना चार्ट आकार परिभाषित करें।
-chart.setSizeWithWindow(false);
- 
-// चार्ट की चौड़ाई को पिक्सेल में सेट करें (इंच प्राप्त करने के लिए 72 से विभाजित, फिर Excel 96 पिक्सेल प्रति इंच उपयोग करता है इसलिए 96 से गुणा)।
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// चार्ट की ऊँचाई को पिक्सेल में सेट करें।
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// वर्कबुक को मेमोरी स्ट्रीम में सहेजें।
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// एम्बेडेड Excel डेटा के साथ OLE ऑब्जेक्ट फ्रेम बनाएं।
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 इंच (0.5 * 72)
-    72,  // y = 1 इंच (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **निष्कर्ष**
-
-चार्ट पुन: आकार समस्या को ठीक करने के दो तरीके हैं। तरीका चुनना आवश्यकताओं और उपयोग केस पर निर्भर करता है। दोनों तरीके उसी तरह काम करते हैं चाहे प्रस्तुतियाँ टेम्पलेट से बनाई गई हों या शून्य से बनाई गई हों। साथ ही, इस समाधान में OLE ऑब्जेक्ट फ्रेम के आकार पर कोई सीमा नहीं है।
+1. खाली प्रस्तुति बनाने के बजाय टेम्पलेट प्रस्तुति लोड करें।
+1. सुनिश्चित करें कि पहली स्लाइड में कम से कम तीन शैप्स हैं, फिर इंडेक्स 2 वाले शैप को प्लेसहोल्डर के रूप में उपयोग करें।
+1. स्थिर मान 684 और 288 के बजाय उस शैप से फ्रेम की चौड़ाई और ऊँचाई प्राप्त करें। आकार गणनाएँ अपरिवर्तित रखें।
+1. स्थिर निर्देशांक 36 और 72 के बजाय प्लेसहोल्डर की स्थिति पर OLE फ्रेम जोड़ें।
+1. प्रस्तुति सहेजने से पहले प्लेसहोल्डर को हटा दें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-### PowerPoint में सक्रिय करने के बाद मेरा एम्बेडेड Excel चार्ट आकार क्यों बदलता है?
+**क्यों मेरे एम्बेडेड एक्सेल चार्ट को पावरपॉइंट में सक्रिय करने के बाद आकार बदल जाता है?**
 
-यह इसलिए होता है क्योंकि Excel पहली बार सक्रिय होने पर मूल विंडो आकार को पुनर्स्थापित करने का प्रयास करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ्रेम का अपना आकार होता है। PowerPoint और Excel आकार पर बातचीत करते हैं ताकि अनुपात बनाए रखा जा सके, जिससे पुन: आकार हो सकता है।
+यह इसलिए होता है क्योंकि Excel पहली सक्रियता पर मूल विंडो आकार बहाल करने की कोशिश करता है, जबकि PowerPoint में OLE ऑब्जेक्ट फ्रेम का अपना आयाम होता है। PowerPoint और Excel आकार को अनुपात बनाए रखने के लिए वार्ता करते हैं, जिससे आकार परिवर्तन हो सकता है।
 
-### क्या इस पुन: आकार समस्या को पूरी तरह से रोकना संभव है?
+**मैं चार्ट और OLE फ्रेम के आकार को समान कैसे रख सकता हूं?**
 
-हाँ। एम्बेड करने से पहले Excel वर्कबुक विंडो आकार या चार्ट आकार को OLE ऑब्जेक्ट फ्रेम के आकार के साथ मिलाकर, आप चार्ट के आकार को स्थिर रख सकते हैं।
+फ़िक्स्ड चार्ट आयाम सेट करें जो OLE फ्रेम से मेल खाते हों और वर्कबुक एम्बेड करने से पहले कस्टम चार्ट प्रिंट आकार उपयोग करें। ऊपर दिया गया उदाहरण आवश्यक सेटिंग्स और यूनिट परिवर्तन दर्शाता है।
 
-### कौन सा तरीका चुनूँ, वर्कबुक विंडो आकार सेट करना या चार्ट आकार सेट करना?
+**क्या केवल वर्कबुक विंडो आकार मिलाना पर्याप्त है?**
 
-यदि आप वर्कबुक के अनुपात को बनाए रखना चाहते हैं और बाद में संभवतः आकार बदलने की अनुमति देना चाहते हैं तो **Approach 1 (window size)** का उपयोग करें।  
-यदि चार्ट के आयाम निश्चित हैं और एम्बेड करने के बाद बदलेंगे नहीं, तो **Approach 2 (chart size)** का उपयोग करें।
+केवल वर्कबुक विंडो आकार मिलाना OLE फ्रेम के सक्रियता के बाद आकार बदलने को भरोसेमंद रूप से रोक नहीं सकता। उदाहरण में दिखाए अनुसार फ़िक्स्ड चार्ट आयाम उपयोग करें।
 
-### क्या ये विधियाँ टेम्पलेट-आधारित प्रस्तुतियों और नई प्रस्तुतियों दोनों पर काम करेंगी?
+**क्या यह समाधान टेम्पलेट‑आधारित प्रस्तुतियों और नई प्रस्तुतियों दोनों में काम करता है?**
 
-हाँ। दोनों तरीके टेम्पलेट से बनाई गई प्रस्तुतियों और शून्य से बनाई गई प्रस्तुतियों दोनों के लिए समान रूप से काम करते हैं।
+हां। टेम्पलेट के लिए प्लेसहोल्डर के आयाम और स्थिति उपयोग करें। नई प्रस्तुति के लिए सीधे फ्रेम की आयाम और स्थिति निर्दिष्ट करें।
 
-### OLE ऑब्जेक्ट फ्रेम के आकार पर कोई सीमा है क्या?
+**क्या मैं इस उदाहरण को अन्य स्प्रेडशीट प्रोग्राम्स में बनाए गए चार्ट के साथ उपयोग कर सकता हूं?**
 
-नहीं। आप OLE फ्रेम को किसी भी आकार पर सेट कर सकते हैं जब तक कि वह वर्कबुक या चार्ट आकार के अनुसार उपयुक्त रूप से स्केल हो।
-
-### क्या मैं इन विधियों को अन्य स्प्रेडशीट प्रोग्रामों में बनाए गए चार्ट्स के साथ उपयोग कर सकता हूँ?
-
-उदाहरण Aspose.Cells के साथ बनाए गए Excel चार्ट्स के लिए डिज़ाइन किए गए हैं, लेकिन सिद्धांत उन अन्य OLE-समर्थित स्प्रेडशीट प्रोग्रामों पर भी लागू होते हैं जो समान आकार विकल्पों का समर्थन करते हैं।
+उदाहरण एक Excel वर्कबुक का उपयोग करता है जो Aspose.Cells द्वारा निर्मित है। यह अन्य स्प्रेडशीट प्रोग्राम्स के लिए सक्रियता व्यवहार नहीं दर्शाता।
 
 ## **संबंधित अनुभाग**
 
-- [Excel चार्ट बनाएं और उन्हें OLE ऑब्जेक्ट्स के रूप में प्रस्तुतियों में एम्बेड करें](/slides/hi/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [एक्सेल चार्ट बनाएं और उन्हें OLE ऑब्जेक्ट्स के रूप में प्रस्तुतियों में एम्बेड करें](/slides/hi/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

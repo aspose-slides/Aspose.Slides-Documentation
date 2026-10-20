@@ -1,149 +1,119 @@
 ---
-title: Ridimensiona le forme nelle presentazioni con Python
-linktitle: Ridimensionamento delle forme
+title: Ridimensionare le forme nelle diapositive della presentazione in Python
 type: docs
 weight: 130
-url: /it/python-net/re-sizing-shapes-on-slide/
+url: /it/python-net/resizing-shapes-on-slide/
+aliases:
+  - /it/python-net/re-sizing-shapes-on-slide/
+  /python-net/re-sizing-shapes-on-slide/
 keywords:
 - ridimensionare forma
-- modificare dimensione forma
+- cambiare dimensione forma
 - PowerPoint
 - OpenDocument
 - presentazione
 - Python
 - Aspose.Slides
-description: "Ridimensiona facilmente forme su diapositive PowerPoint e OpenDocument con Aspose.Slides per Python via .NET—automatizza le regolazioni del layout delle diapositive e aumenta la produttività."
+description: "Ridimensiona facilmente le forme su diapositive PowerPoint e OpenDocument con Aspose.Slides per Python via .NET—automatizza le regolazioni del layout delle diapositive e aumenta la produttività."
 ---
 ## **Panoramica**
 
-Una delle domande più comuni dei clienti di Aspose.Slides per Python è come ridimensionare le forme in modo che, quando le dimensioni della diapositiva cambiano, i dati non vengano ritagliati. Questo breve articolo tecnico mostra come farlo.
+Quando modifichi la dimensione delle diapositive di una presentazione, potresti dover anche ridimensionare e riposizionare le forme per adattarle alle nuove dimensioni. Questo articolo mostra come scalare manualmente le forme e come gestire le tabelle su diapositive, master e layout.
 
-## **Ridimensiona le forme**
+## **Ridimensionare le forme**
 
-Per evitare che le forme si disallineino quando le dimensioni della diapositiva cambiano, aggiorna la posizione e le dimensioni di ciascuna forma affinché si conformino al nuovo layout della diapositiva.
+Per preservare la posizione e la dimensione relative di ciascuna forma, moltiplica le sue coordinate orizzontali e la larghezza per il rapporto tra la nuova larghezza della diapositiva e la larghezza originale. Applica il corrispondente rapporto di altezza alle sue coordinate verticali e all'altezza.
 
-```py
+Il primo esempio carica una presentazione le cui diapositive non contengono tabelle, cambia la dimensione della diapositiva in A4 e salva il risultato. Utilizza [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) con [SlideSizeScaleType.DO_NOT_SCALE](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/) in modo che il ciclo successivo controlli la scala. I rapporti non hanno unità; le posizioni e le dimensioni delle forme sono misurate in punti. Rapporti diversi di larghezza e altezza possono distorcere le forme e modificare le dimensioni di una forma non ridimensiona le dimensioni dei caratteri.
+
+```python
 import aspose.slides as slides
 
-# Carica il file di presentazione.
 with slides.Presentation("sample.pptx") as presentation:
-    # Ottieni le dimensioni originali della diapositiva.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Modifica le dimensioni della diapositiva senza ridimensionare le forme esistenti.
+    # Calcolare fattori di scala orizzontali e verticali indipendenti.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Ottieni le nuove dimensioni della diapositiva.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # Ridimensiona e riposiziona le forme su ogni diapositiva.
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # Scala le dimensioni della forma.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Scala la posizione della forma.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+            shape.x *= width_ratio
+            shape.y *= height_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
-Se una diapositiva contiene una tabella, il codice sopra non funzionerà correttamente. In tal caso, ogni cella della tabella deve essere ridimensionata.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Le tabelle richiedono una gestione separata: ridimensionare le larghezze delle colonne e le altezze delle righe invece di assegnare la larghezza e l'altezza complessive della tabella. Le altezze delle righe possono rimanere più grandi di quanto richiesto se il contenuto delle celle richiede più spazio.
+{{% /alert %}}
 
-Utilizza il codice seguente per ridimensionare le diapositive che contengono tabelle. Per le tabelle, impostare la larghezza o l'altezza è un caso speciale: è necessario regolare le altezze delle righe e le larghezze delle colonne singolarmente per modificare la dimensione complessiva della tabella.
+Il secondo esempio supporta le tabelle e elabora le forme su master e layout così come su diapositive individuali prima di salvare la presentazione ridimensionata. Il suo helper gestisce ogni [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) ridimensionando [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) e [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/). Quindi ridimensiona la posizione della tabella senza ridimensionare separatamente le sue dimensioni complessive.
 
-```py
+```python
 import aspose.slides as slides
 
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, slides.Table):
+            # Le dimensioni della tabella sono controllate dalle larghezze delle colonne e dalle altezze delle righe.
+            for column in shape.columns:
+                column.width *= width_ratio
+
+            for row in shape.rows:
+                row.minimal_height *= height_ratio
+        else:
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+
+        shape.x *= width_ratio
+        shape.y *= height_ratio
+
+
 with slides.Presentation("sample.pptx") as presentation:
-    # Ottieni le dimensioni originali della diapositiva.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Modifica le dimensioni della diapositiva senza ridimensionare le forme esistenti.
+    # Calcolare fattori di scala orizzontali e verticali indipendenti.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Ottieni le nuove dimensioni della diapositiva.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # Ridimensionare le forme definite su master e layout così come su diapositive individuali.
     for master in presentation.masters:
-        for shape in master.shapes:
-            # Scala le dimensioni della forma.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Scala la posizione della forma.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+        resize_shapes(master.shapes, width_ratio, height_ratio)
 
         for layout_slide in master.layout_slides:
-            for shape in layout_slide.shapes:
-                # Scala le dimensioni della forma.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # Scala la posizione della forma.
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
+            resize_shapes(layout_slide.shapes, width_ratio, height_ratio)
 
     for slide in presentation.slides:
-        for shape in slide.shapes:
-            # Scala le dimensioni della forma.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Scala la posizione della forma.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
-            if type(shape) is slides.Table:
-                for row in shape.rows:
-                    row.minimal_height = row.minimal_height * height_ratio
-                for column in shape.columns:
-                    column.width = column.width * width_ratio
+        resize_shapes(slide.shapes, width_ratio, height_ratio)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Domande frequenti**
 
-**Perché le forme sono distorte o ritagliate dopo il ridimensionamento di una diapositiva?**
+**Perché le forme sono distorte o tagliate dopo aver ridimensionato una diapositiva?**  
+Se cambi la dimensione della diapositiva senza ridimensionare le forme, mantengono le loro posizioni e dimensioni originali e possono estendersi oltre la diapositiva. Scalare larghezza e altezza con rapporti diversi può inoltre distorcere le forme.
 
-Quando si ridimensiona una diapositiva, le forme mantengono la loro posizione e dimensione originali a meno che la scala non venga modificata esplicitamente. Ciò può provocare il ritaglio del contenuto o il disallineamento delle forme.
+**Il codice fornito funziona per tutti i tipi di forma?**  
+Il primo esempio modifica direttamente i confini delle forme ed è destinato a diapositive senza tabelle. Il secondo esempio gestisce le tabelle separatamente. Verifica il layout risultante, in particolare testo e tabelle, poiché questi esempi non ridimensionano le dimensioni dei caratteri e il contenuto della tabella può vincolare le altezze delle righe.
 
-**Il codice fornito funziona per tutti i tipi di forma?**
+**Come ridimensionare le tabelle quando si ridimensiona una diapositiva?**  
+Ridimensiona le larghezze delle colonne usando il rapporto di larghezza e le altezze minime delle righe usando il rapporto di altezza, quindi ridimensiona la posizione della tabella, come mostrato nel secondo esempio.
 
-L'esempio di base funziona per la maggior parte dei tipi di forma (caselle di testo, immagini, grafici, ecc.). Tuttavia, per le tabelle è necessario gestire riga e colonna separatamente, poiché l'altezza e la larghezza di una tabella sono determinate dalle dimensioni delle singole celle.
+**Questo ridimensionamento funzionerà per le diapositive master e per le diapositive di layout?**  
+Sì. Il secondo esempio itera attraverso [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) e le [MasterSlide.layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/) di ciascun master e applica la stessa logica di ridimensionamento alle loro forme.
 
-**Come ridimensionare le tabelle quando si ridimensiona una diapositiva?**
+**Posso modificare l'orientamento di una diapositiva (ritratto/paesaggio) insieme al ridimensionamento?**  
+Sì. Imposta [SlideSize.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/orientation/) dopo aver cambiato la dimensione della diapositiva e prima di leggere le dimensioni target, in modo che i fattori di scala riflettano l'orientamento finale.
 
-È necessario iterare tutte le righe e le colonne della tabella e ridimensionare la loro altezza e larghezza in proporzione, come mostrato nel secondo esempio di codice.
+**Esiste un limite alle dimensioni della diapositiva che posso impostare?**  
+È possibile specificare dimensioni personalizzate della diapositiva con [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/). Le dimensioni supportate dipendono anche dal formato della presentazione e dall'applicazione utilizzata per aprire il file.
 
-**Questo ridimensionamento funziona per le diapositive master e le diapositive layout?**
-
-Sì, ma dovresti anche iterare le [Masters](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/masters/) e le [Layout slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/layout_slides/) e applicare la stessa logica di scala alle loro forme per garantire la coerenza nella presentazione.
-
-**Posso cambiare l'orientamento di una diapositiva (ritratto/orizzontale) insieme al ridimensionamento?**
-
-Sì. Puoi utilizzare [presentation.slide_size.orientation](https://reference.aspose.com/slides/it/python-net/aspose.slides/islidesize/orientation/) per cambiare l'orientamento. Assicurati di impostare la logica di scala di conseguenza per preservare il layout.
-
-**Esiste un limite alle dimensioni della diapositiva che posso impostare?**
-
-Aspose.Slides supporta dimensioni personalizzate, ma dimensioni molto grandi possono influire sulle prestazioni o sulla compatibilità con alcune versioni di PowerPoint.
-
-**Come posso impedire che le forme a rapporto d'aspetto fisso vengano distorte?**
-
-Puoi verificare la proprietà `aspect_ratio_locked` della forma prima di ridimensionare. Se è bloccata, regola la larghezza o l'altezza proporzionalmente invece di scalarle singolarmente.
+**Come posso impedire che le forme con rapporto d'aspetto fisso vengano distorte?**  
+Usa lo stesso fattore di scala per larghezza e altezza. Per adattare il layout originale alle nuove dimensioni della diapositiva, utilizza il più piccolo tra i rapporti di larghezza e altezza per entrambe le dimensioni e le posizioni. Questo preserva le proporzioni ma può lasciare spazio inutilizzato lungo un bordo.

@@ -1,56 +1,56 @@
 ---
-title: シェイプ ロックでプレゼンテーションの編集を防止
-linktitle: プレゼンテーションの編集防止
+title: Python で形状ロックを使用してプレゼンテーションの編集を制限する
+linktitle: プレゼンテーション編集の制限
 type: docs
 weight: 60
 url: /ja/python-java/applying-protection-to-presentation/
 keywords:
 - 編集防止
 - 編集から保護
-- シェイプのロック
-- 位置のロック
-- 選択のロック
-- サイズのロック
-- グループ化のロック
+- 形状ロック
+- 位置ロック
+- 選択ロック
+- サイズ変更ロック
+- グループ化ロック
 - PowerPoint
-- OpenDocument
+- PPTX
 - プレゼンテーション
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java が PPT、PPTX、ODP ファイルのシェイプをロックまたはアンロックする方法を紹介し、プレゼンテーションを保護しながら、制御された編集と迅速な配信を可能にします。"
+description: "Aspose.Slides for Python via Java を使用して PPTX プレゼンテーションの形状をロックおよびアンロックし、選択、移動、サイズ変更、グループ化を制限する方法を学びます。"
 ---
 ## **背景**
 
-Aspose.Slides の一般的な使用例は、Microsoft PowerPoint（PPTX）プレゼンテーションを自動化ワークフローの一部として作成、更新、保存することです。Aspose.Slides をこのように使用するアプリケーションのユーザーは生成されたプレゼンテーションにアクセスできるため、編集から保護することが共通の懸念事項となります。自動生成されたプレゼンテーションが元の書式やコンテンツを保持することが重要です。
+Aspose.Slides for Python via Java の一般的な使用例は、PowerPoint (PPTX) プレゼンテーションを自動化されたワークフローの一部として作成、更新、保存することです。ユーザーがこれらのプレゼンテーションを受け取る際に、形状への変更を制限することで、意図したレイアウトやコンテンツを保持できます。
 
-本記事では、プレゼンテーションとスライドの構造、および Aspose.Slides for Python via Java がプレゼンテーションに保護を適用し、後でそれを解除する方法について説明します。開発者は、アプリケーションが生成するプレゼンテーションの使用方法を制御する手段を得られます。
+この記事では、スライド上での形状の構成方法と、PPTX プレゼンテーション内で形状ロックを適用および削除する方法について説明します。これらのロックにより、個々の形状に対する特定の編集操作を制限できます。
 
 ## **スライドの構成**
 
-プレゼンテーション スライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化シェイプ、画像フレーム、ビデオ フレーム、コネクタ、その他の要素などのコンポーネントで構成されます。Aspose.Slides for Python via Java では、スライド上の各要素は [Shape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/) クラスから派生したオブジェクトで表されます。
+プレゼンテーションのスライドは、オートシェイプ、テーブル、OLE オブジェクト、グループ化された形状、画像フレーム、ビデオフレーム、コネクタ、およびプレゼンテーションを構成するその他の要素で構成されます。Aspose.Slides for Python via Java では、スライド上の各要素は [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) クラスを継承したオブジェクトとして表されます。
 
-PPTX の構造は複雑なため、すべてのシェイプタイプに共通のロックを使用できる PPT とは異なり、シェイプタイプごとに異なるロックが必要です。[BaseShapeLock](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseshapelock/) クラスは PPTX 用の汎用ロック クラスです。Aspose.Slides for Python via Java が PPTX でサポートするロックの種類は次のとおりです。
+形状の種類に応じて異なるロックオプションが提供されます。[BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) クラスは形状ロックの基底クラスです。Aspose.Slides for Python via Java は次のロッククラスを提供します：
 
-- [AutoShapeLock](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshapelock/) はオートシェイプをロックします。  
-- [ConnectorLock](https://reference.aspose.com/slides/ja/python-java/aspose.slides/connectorlock/) はコネクタ シェイプをロックします。  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/ja/python-java/aspose.slides/graphicalobjectlock/) はグラフィカル オブジェクトをロックします。  
-- [GroupShapeLock](https://reference.aspose.com/slides/ja/python-java/aspose.slides/groupshapelock/) はグループ シェイプをロックします。  
-- [PictureFrameLock](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframelock/) は画像フレームをロックします。  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) オートシェイプをロックします。  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) コネクタ形状をロックします。  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) グラフィカルオブジェクトをロックします。  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) グループ形状をロックします。  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) 画像フレームをロックします。  
 
-[Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) オブジェクト内のすべてのシェイプ オブジェクトに対して実行される操作は、プレゼンテーション全体に適用されます。
+[Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 全体にロックを適用するには、スライドを反復処理し、サポートされている各形状に適切なロックを設定します。
 
 ## **保護の適用と削除**
 
-保護を適用すると、プレゼンテーションを編集できなくなります。これはプレゼンテーションの内容を保護する有用な手法です。
+形状ロックは、形状の選択、移動、サイズ変更などの操作を制限します。プレゼンテーション全体が編集できなくなるわけではありません。
 
-### **PPTX シェイプへの保護の適用**
+### **PPTX 形状への保護の適用**
 
-Aspose.Slides for Python via Java は、スライド上のシェイプを操作するために [Shape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/) クラスを提供します。
+Aspose.Slides for Python via Java は、スライド上の形状を操作するために [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) クラスを提供します。
 
-前述のとおり、各シェイプ クラスには保護用のシェイプ ロック クラスが関連付けられています。本記事では NoSelect、NoMove、NoResize ロックに焦点を当てます。これらのロックは、シェイプが選択（マウスクリックやその他の選択方法）できず、移動やサイズ変更もできないようにします。
+この例では、オートシェイプに対して `True` を指定して [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked)、[setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked)、[setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) を呼び出します。また、グループ形状、コネクタ、画像フレームにも同等のロックを適用します。コネクタは移動に [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) を使用し、グループは [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) を使用してグループ化を制限します。
 
-以下のコード サンプルは、プレゼンテーション内のすべてのシェイプ タイプに保護を適用します。
+この例では既存の PPTX プレゼンテーションを読み込み、各スライドの形状コレクション内の形状をチェックし、これらの制限が適用されたコピーを保存します。取り扱い対象の 4 種類以外の形状は変更されません。ループはグループ内の子形状を走査しません。
 
 ```python
 import jpype
@@ -61,12 +61,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
 presentation = Presentation("Sample.pptx")
 try:
-    # プレゼンテーション内のすべてのスライドを走査します。
     for slide in presentation.getSlides():
-        # スライド内のすべてのシェイプを走査します。
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -90,7 +87,6 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # プレゼンテーション ファイルを保存します。
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -98,7 +94,7 @@ finally:
 
 ### **保護の解除**
 
-シェイプのロックを解除するには、適用されたロックの値を `False` に設定します。次のコード サンプルは、ロックされたプレゼンテーション内のシェイプのロックを解除する方法を示します。
+形状ロックを解除するには、その値を `False` に設定します。以下の例では、形状ロックが設定されたプレゼンテーションを読み込み、[AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/)、[GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/)、[ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/)、[PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) を使用して選択、移動、サイズ変更の制限をクリアします。また、[GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) に `False` を渡すことでグループ化の制限も解除し、プレゼンテーションのコピーを保存します。その他のロック設定は変更されません。
 
 ```python
 import jpype
@@ -109,12 +105,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # プレゼンテーション内のすべてのスライドを走査します。
     for slide in presentation.getSlides():
-        # スライド内のすべてのシェイプを走査します。
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -138,26 +131,25 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # プレゼンテーション ファイルを保存します。
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **結論**
+### **結論**
 
-Aspose.Slides では、プレゼンテーション内のシェイプを保護するためのさまざまなオプションが用意されています。個々のシェイプにロックをかけることも、プレゼンテーション内のすべてのシェイプを列挙して各シェイプにロックをかけることもでき、ファイル全体を実質的に保護できます。ロックの値を `False` に設定すれば、保護を解除できます。
+Aspose.Slides for Python via Java を使用すると、個々の形状に対して特定の編集操作を制限したり、スライド全体に同じ制限を適用したりできます。各形状タイプがサポートするロックを選択し、制限を解除したい場合はその値を `False` に設定してください。
 
-## **よくある質問**
+## **FAQ**
 
-**シェイプ ロックとパスワード保護を同じプレゼンテーションで組み合わせられますか？**
+**同じプレゼンテーションで形状ロックとパスワード保護を組み合わせることはできますか？**
 
-はい。ロックはファイル内のオブジェクトの編集を制限し、[password protection](/slides/ja/python-java/password-protected-presentation/) は開く際や変更を保存する際のアクセスを制御します。これらの仕組みは相補的に機能します。
+はい。形状ロックは特定の編集操作を制限し、[パスワード保護](/slides/ja/python-java/password-protected-presentation/) はプレゼンテーションの開封や変更を制限できます。両方を同じファイルで使用できます。
 
-**特定のスライドだけ編集を制限し、他のスライドはそのままにできますか？**
+**特定のスライドだけで編集を制限し、他のスライドに影響を与えないようにできますか？**
 
-はい。対象スライドのシェイプにロックを適用すれば、残りのスライドは編集可能なままです。
+はい。選択したスライドの形状にのみロックを適用します。これにより、他のスライドのロック設定は変更されません。
 
-**シェイプ ロックはグループ化オブジェクトやコネクタにも適用されますか？**
+**グループ内の個々の形状にロックを適用するにはどうすればよいですか？**
 
-はい。グループ、コネクタ、グラフィック オブジェクト、およびその他のシェイプ種別に対応した専用ロック タイプがサポートされています。
+グループの [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) メソッドが返すコレクションを反復処理し、各子形状に適切なロックを適用します。ネストしたグループがある場合も同様に繰り返します。上記の例はスライドの形状コレクションのみを処理しているため、個々のグループメンバーへのロックは設定されません。

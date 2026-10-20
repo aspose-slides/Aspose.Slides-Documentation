@@ -1,5 +1,5 @@
 ---
-title: 建立 Excel 圖表並將其嵌入簡報為 OLE 物件
+title: 建立 Excel 圖表並將其嵌入簡報作為 OLE 物件
 type: docs
 weight: 30
 url: /zh-hant/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
@@ -8,29 +8,41 @@ keywords:
 - 嵌入圖表
 - OLE 物件
 - PowerPoint
-- OpenDocument
 - 簡報
 - Python
 - Java
 - Aspose.Slides
-description: "使用 Python 在 PowerPoint 與 OpenDocument 簡報中建立 Excel 圖表並將其嵌入為 OLE 物件。提供逐步說明和程式碼範例。"
+description: "使用 Aspose.Cells for Python via Java 建立 Excel 圖表，並將工作簿嵌入使用 Aspose.Slides 的 PowerPoint 簡報中，包含圖表預覽。"
 ---
-## **背景**
+## **概覽**
 
-在 PowerPoint 中，使用可編輯的圖表以圖形方式顯示資料是常見的做法。Aspose 支援使用 Aspose.Cells for Python via Java 建立 Excel 圖表，然後可透過 Aspose.Slides for Python via Java 將這些圖表嵌入為 PowerPoint 投影片中的 OLE 物件。本文說明必要的步驟，並提供一個 Python 程式碼範例，用於建立 Excel 圖表並將其作為 OLE 物件嵌入 PowerPoint 簡報，使用 Aspose.Cells 與 Aspose.Slides。
+本文說明如何使用 Aspose.Cells for Python via Java 建立 Excel 柱狀圖，並將其工作簿嵌入使用 Aspose.Slides for Python via Java 的 PowerPoint 簡報中。嵌入的工作簿同時包含來源資料與圖表。另一個 PNG 預覽會在 OLE 物件被啟動前於投影片上顯示圖表。
 
-## **必要步驟**
+結果是一個嵌入的 Excel 物件，而非原生的 PowerPoint 圖表。透過 OLE 編輯工作簿需要支援 OLE 啟動的桌面應用程式，以及相容的 Excel 安裝。
 
-1. 使用 Aspose.Cells 建立 Excel 圖表。
-1. 使用 Aspose.Cells 設定 Excel 圖表的 OLE 大小。
-1. 使用 Aspose.Cells 取得 Excel 圖表的圖像。
-1. 使用 Aspose.Slides 將 Excel 圖表以 OLE 物件嵌入 PPTX 簡報中。
-1. 以步驟 3 取得的圖像取代「EMBEDDED OLE OBJECT」圖像，以解決[object preview issue](/slides/zh-hant/python-java/object-preview-issue-when-adding-oleobjectframe/)。
-1. 將簡報以 PPTX 格式儲存至磁碟。
+## **先決條件**
 
-## **必要步驟的實作**
+安裝 `aspose-cells` 與 `aspose-slides-java` Python 套件以及相容的 Java 執行環境。於啟動 JVM 之前匯入這兩個套件，以確保其 Java 函式庫可供 JPype 使用。產生簡報時不需要 Microsoft Office。
 
-上述步驟的 Python 實作如下：
+不需要任何輸入檔案：範例在記憶體中建立資料與圖表，然後將 `OutputChart.pptx` 寫入目前工作目錄。於非評估模式下執行時，請為兩個產品套用授權。
+
+## **嵌入工作原理**
+
+1. 建立包含資料工作表與圖表工作表的工作簿。
+1. 將圖表工作表設為使用中，使工作簿開啟時直接顯示圖表。
+1. 設定工作簿的 OLE 顯示範圍，並將圖表渲染為 PNG。
+1. 將工作簿以 XLSX 格式儲存於記憶體，並將其位元組嵌入投影片中。
+1. 將 PNG 指定為 OLE 物件的預覽，並將簡報儲存為 PPTX。
+
+工作簿的顯示範圍與投影片上的框架扮演不同的角色。[setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) 采用零基的起始／結束列與行索引。[ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) 則使用顶部行、左侧列、底部行和右侧列。範例將第 55 行和第 25 列作為右下邊界；這些值僅為版面配置選擇，並非資料列或欄的數量。
+
+投影片框架使用點 (points)。範例將其調整至投影片內部並置中，同時保持 PNG 的長寬比，而不是將預覽圖拉伸至填滿投影片。
+
+## **建立並嵌入圖表**
+
+以下完整範例會在 `DataSheet` 中填入四列五欄的數值。每一列會成為圖表的一個系列。儲存工作簿前，會將 `ChartSheet` 設為使用中的工作表。
+
+工作簿會明確以 XLSX 格式儲存，並匹配傳遞給 [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/) 的 `xlsx` 副檔名。Java 位元組陣列串流將工作簿與影像保留在記憶體中，並提供 Java API 所需的位元組陣列。PNG 直接從位元組載入，無需中間的 bitmap 轉換。透過 [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) 指派可取代預設的 OLE 佔位圖。
 
 ```python
 import jpype
@@ -42,128 +54,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # 儲存格名稱陣列。
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # 儲存格資料陣列。
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # 新增工作表以填入資料至儲存格。
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # 將資料填入資料工作表。
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # 新增圖表工作表。
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # 在圖表工作表加入圖表，資料系列來源於資料工作表。
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # 設定圖表工作表為使用中的工作表。
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # 將活頁簿描述為嵌入的 OLE 資料。
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# 建立活頁簿。
 workbook = Workbook()
-
-# 新增 Excel 圖表。
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# 設定圖表的 OLE 大小。
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# 取得圖表影像並儲存至串流。
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# 將活頁簿儲存至串流。
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# 建立簡報。
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # 將活頁簿加入投影片。
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # 將簡報儲存至磁碟。
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # 渲染圖表預覽並將可編輯的工作簿另行序列化。
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # 在投影片內調整預覽大小，保持長寬比不變。
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-上述方法建立的簡報將包含作為 OLE 物件的 Excel 圖表，使用者可透過雙擊 OLE 物件框架來啟動並編輯圖表。
+## **預期結果**
 
-## **結論**
+`OutputChart.pptx` 包含一張含有嵌入 Excel 工作簿與圖表預覽的投影片。工作簿內有原始資料以及包含四個系列的柱狀圖。預覽圖置於投影片中心，並保留其比例。
 
-透過結合 Aspose.Cells for Python via Java 與 Aspose.Slides for Python via Java，我們可以建立 Aspose.Cells 支援的任何 Excel 圖表，並將該圖表嵌入為 PowerPoint 投影片中的 OLE 物件。也可以自行定義 Excel 圖表的 OLE 大小。最終使用者即可像編輯其他 OLE 物件一樣編輯此 Excel 圖表。
+![以嵌入工作簿預覽方式顯示的 Excel 柱狀圖](excel-chart-ole-preview.png)
 
-## **相關章節**
-
-- [在 PPTX 中調整圖表大小的可行解決方案](/slides/zh-hant/python-java/working-solution-for-chart-resizing-in-pptx/)
-- [加入 OleObjectFrame 時的物件預覽問題](/slides/zh-hant/python-java/object-preview-issue-when-adding-oleobjectframe/)
+在具備 Excel 的相容桌面 PowerPoint 環境中，雙擊該物件即可啟動並編輯嵌入的工作簿。啟動與編輯取決於主機應用程式的 OLE 支援與安全性設定。
 
 ## **常見問題**
 
-**使用哪些程式庫來建立與嵌入 Excel 圖表？**
+**為什麼需要預覽圖？**
 
-Aspose.Cells for Python via Java 用於建立 Excel 圖表，Aspose.Slides for Python via Java 則將其作為 OLE 物件嵌入 PowerPoint 投影片中。
+嵌入的工作簿與投影片預覽屬於不同的內容。提供圖表影像可讓投影片顯示圖表，而非預設的「EMBEDDED OLE OBJECT」佔位圖。請參閱 [加入 OleObjectFrame 時的物件預覽問題](/slides/zh-hant/python-java/object-preview-issue-when-adding-oleobjectframe/)。
 
-**使用者如何編輯嵌入的 Excel 圖表？**
+**當我在程式碼中變更工作簿時，預覽會自動更新嗎？**
 
-使用者可雙擊 OLE 物件框架以啟動圖表，並像編輯其他 OLE 物件一樣進行編輯。
+將預覽視為快照。當以程式方式更新工作簿資料時，需要重新產生圖表影像，並同時替換預覽與嵌入的工作簿資料。
 
-**預設的 OLE 物件預覽是如何被取代的？**
+**我可以使用 XLS 而非 XLSX 嗎？**
 
-範例使用 Aspose.Cells 取得 Excel 圖表的圖像，並以此取代「EMBEDDED OLE OBJECT」圖像。
+可以。將工作簿儲存為 XLS 格式，並使用 `xls` 作為嵌入資料的副檔名。副檔名必須與實際的工作簿格式相符；僅更改副檔名不會轉換資料。
+
+**為什麼物件在啟動後會改變大小？**
+
+主機應用程式在啟動工作簿時可能會更新 OLE 物件的呈現方式。工作簿的 OLE 顯示範圍與投影片框架的尺寸皆會影響結果。請參閱 [PPTX 中圖表調整大小的可行解決方案](/slides/zh-hant/python-java/working-solution-for-chart-resizing-in-pptx/)。
+
+## **相關章節**
+
+- [PPTX 中圖表調整大小的可行解決方案](/slides/zh-hant/python-java/working-solution-for-chart-resizing-in-pptx/)
+- [加入 OleObjectFrame 時的物件預覽問題](/slides/zh-hant/python-java/object-preview-issue-when-adding-oleobjectframe/)

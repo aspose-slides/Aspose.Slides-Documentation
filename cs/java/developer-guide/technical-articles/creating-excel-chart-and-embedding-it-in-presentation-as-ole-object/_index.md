@@ -1,154 +1,175 @@
 ---
-title: Vytvořte Excelové grafy a vložte je do prezentací jako OLE objekty
+title: Vytvořte grafy v Excelu a vložte je do prezentací jako OLE objekty
 type: docs
 weight: 30
 url: /cs/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Excel graf
+- Graf Excel
 - vložit graf
 - OLE objekt
 - PowerPoint
-- OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-description: "Vytvořte Excelové grafy a vložte je jako OLE objekty do prezentací PowerPoint a OpenDocument pomocí Javy. Podrobný návod s ukázkovým kódem."
+description: "Vytvořte graf v Excelu pomocí Aspose.Cells pro Java a vložte sešit do prezentace PowerPoint s Aspose.Slides, včetně náhledového obrázku grafu."
 ---
-## **Pozadí**
+## **Přehled**
 
-V PowerPointu je běžnou praxí používat editovatelné grafy k vizuálnímu zobrazení dat. Aspose podporuje vytváření Excel grafů pomocí Aspose.Cells pro Java a tyto grafy lze následně vložit jako OLE objekty do snímků PowerPointu pomocí Aspose.Slides pro Java. Tento článek popisuje nezbytné kroky a poskytuje ukázky kódu v Javě pro vytvoření Excel grafu a vložení jej jako OLE objekt do prezentace PowerPoint pomocí Aspose.Cells a Aspose.Slides.
+Tento článek ukazuje, jak vytvořit sloupcový graf v Excelu pomocí Aspose.Cells for Java a vložit sešit do prezentace PowerPoint pomocí Aspose.Slides for Java. Vložený sešit obsahuje jak zdrojová data, tak graf. Samostatná náhledová PNG zobrazí graf na snímku před aktivací OLE objektu.
 
-## **Požadované kroky**
+Výsledkem je vložený objekt Excel, ne původní graf PowerPoint. Úprava sešitu přes OLE vyžaduje desktopovou aplikaci podporující aktivaci OLE a kompatibilní instalaci Excelu.
 
-Následující posloupnost kroků je nutná k vytvoření a vložení Excel grafu jako OLE objektu do snímku PowerPoint:
+## **Požadavky**
 
-1. Vytvořit Excel graf pomocí Aspose.Cells.
-1. Nastavit velikost OLE objektu Excel grafu pomocí Aspose.Cells.
-1. Získat obrázek Excel grafu pomocí Aspose.Cells.
-1. Vložit Excel graf jako OLE objekt do prezentace PPTX pomocí Aspose.Slides.
-1. Nahradit obrázek „EMBEDDED OLE OBJECT“ obrázkem získaným ve třetím kroku, aby se vyřešil [problém s náhledem objektu](/slides/cs/java/object-preview-issue-when-adding-oleobjectframe/).
-1. Uložit prezentaci na disk ve formátu PPTX.
+Přidejte Aspose.Cells for Java a Aspose.Slides for Java do závislostí projektu. Spusťte příklad uvnitř metody Java. K vygenerování prezentace s těmito knihovnami není nutný Microsoft Office.
 
-## **Implementace požadovaných kroků**
+Nejsou vyžadovány vstupní soubory: příklad vytvoří data a graf v paměti a poté zapíše `OutputChart.pptx` do aktuálního pracovního adresáře. Použijte licence pro oba produkty, pokud neběžíte v režimu hodnocení.
 
-Java implementace výše uvedených kroků je následující:
+## **Jak funguje vkládání**
 
-```java
-// Vytvořte sešit.
-Workbook workbook = new Workbook();
+1. Vytvořte sešit s listem dat a listem grafu.  
+1. Nastavte list grafu jako aktivní, aby se sešit otevřel na grafu.  
+1. Nastavte OLE zobrazovací oblast sešitu a vykreslete graf do PNG.  
+1. Uložte sešit jako XLSX v paměti a vložte tyto bajty do snímku.  
+1. Přiřaďte PNG jako náhled OLE objektu a uložte prezentaci jako PPTX.
 
-// Přidejte Excel graf.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+Oblast zobrazení sešitu a rámec na snímku mají různé role. [setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) používá nulové indexy počátečního a koncového řádku a sloupce. [ChartCollection.add](https://reference.aspose.com/cells/java/com.aspose.cells/chartcollection/#add-int-int-int-int-int-) naproti tomu přijímá horní řádek, levý sloupec, dolní řádek a pravý sloupec. Příklad používá řádkový index 55 a sloupcový index 25 jako pravý dolní roh; tyto hodnoty jsou volby rozložení, ne počet řádků nebo sloupců dat.
 
-// Nastavte velikost OLE objektu grafu.
-workbook.getWorksheets().setOleSize(0, chartRows, 0, chartCols);
+Rámec snímku používá body. Příklad jej umístí do snímku a vystředí, přičemž zachová poměr stran PNG, místo aby náhled roztahoval po celé ploše snímku.
 
-// Získejte obrázek grafu a uložte jej do proudu.
-com.aspose.cells.ImageOrPrintOptions printOptions = new com.aspose.cells.ImageOrPrintOptions();
-printOptions.setImageFormat(com.aspose.cells.ImageFormat.getPng());
-ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
-workbook.getWorksheets().get(chartSheetIndex).getCharts().get(0).toImage(imageStream, printOptions);
+## **Vytvoření a vložení grafu**
 
-// Uložte sešit do proudu.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream(); 
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
+Následující kompletní příklad naplní `DataSheet` čtyřmi řádky a pěti sloupci hodnot. Každý řádek se stane sérií grafu. `ChartSheet` je vybrán jako aktivní list před uložením sešitu.
 
-// Vytvořte prezentaci.
-Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Přidejte sešit do snímku.
-AddExcelChartInPresentation(presentation, slide, workbookStream.toByteArray(), imageStream.toByteArray());
-
-// Uložte prezentaci na disk.
-presentation.save("OutputChart.pptx", SaveFormat.Pptx);
-presentation.dispose();
-```
+Sešit je explicitně uložen jako XLSX, což odpovídá příponě `xlsx` předané do [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/oleembeddeddatainfo/). PNG je načten přímo z bajtů bez mezikroku bitmapové konverze. Přiřazením přes [getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) se nahradí výchozí OLE zástupce.
 
 ```java
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
-{
-    double oleHeight = presentation.getSlideSize().getSize().getHeight();
-    double oleWidth = presentation.getSlideSize().getSize().getWidth();
- 
-    // Vytvořte objekt LoadOptions pro EXCEL_97_TO_2003.
-    com.aspose.cells.LoadOptions loadOptions = new com.aspose.cells.LoadOptions(com.aspose.cells.FileFormatType.EXCEL_97_TO_2003);         
-    Workbook workbook = new Workbook(new ByteArrayInputStream(workbookArray),loadOptions);
- 
-    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, "Excel.Sheet.8", workbookArray);
-    oleFrame.getSubstitutePictureFormat().getPicture().setImage(presentation.getImages().addImage(new ByteArrayInputStream(chartImage)));
-}
-```
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import static com.aspose.cells.SaveFormat.XLSX;
+import static com.aspose.slides.SaveFormat.Pptx;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.IImage;
+import com.aspose.slides.Images;
+import com.aspose.slides.IOleObjectFrame;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayOutputStream;
 
-```java
-static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
-{
-    // Pole názvů buněk.
-    String[] cellNames = new String[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+try {
+    Workbook workbook = new Workbook();
+    try {
+        Worksheet dataSheet = workbook.getWorksheets().get(0);
+        dataSheet.setName("DataSheet");
 
-    // Pole dat buněk.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
+        int[][] values = {
+            { 67, 44, 46, 43, 24 },
+            { 86, 64, 97, 29, 40 },
+            { 68, 89, 78, 69, 38 },
+            { 91, 48, 60, 26, 25 }
+        };
 
-    // Přidejte nový list pro vyplnění buněk daty.
-    int dataSheetIndex = workbook.getWorksheets().add();
-    Worksheet dataSheet = workbook.getWorksheets().get(dataSheetIndex);
-    String sheetName = "DataSheet";
-    dataSheet.setName(sheetName);
+        for (int row = 0; row < values.length; row++) {
+            for (int column = 0; column < values[row].length; column++) {
+                dataSheet.getCells().get(row, column).putValue(values[row][column]);
+            }
+        }
 
-    // Vyplňte datový list daty.
-    int size = Array.getLength(cellNames);
-    for (int i = 0; i < size; i++)
-    {
-        String cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.getCells().get(cellName).setValue(cellValue);
+        int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+        Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+        chartSheet.setName("ChartSheet");
+
+        int lastChartRow = 55;
+        int lastChartColumn = 25;
+        int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, lastChartRow, lastChartColumn);
+        Chart chart = chartSheet.getCharts().get(chartIndex);
+        for (int row = 1; row <= values.length; row++) {
+            chart.getNSeries().add("DataSheet!A" + row + ":E" + row, false);
+        }
+
+        workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+        workbook.getWorksheets().setOleSize(0, lastChartRow, 0, lastChartColumn);
+
+        // Vykreslete náhled grafu a odděleně serializujte editovatelný sešit.
+        ImageOrPrintOptions imageOptions = new ImageOrPrintOptions();
+        imageOptions.setImageType(ImageType.PNG);
+        ByteArrayOutputStream chartImageStream = new ByteArrayOutputStream();
+        chart.toImage(chartImageStream, imageOptions);
+        byte[] chartImageBytes = chartImageStream.toByteArray();
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, XLSX);
+        byte[] workbookBytes = workbookStream.toByteArray();
+
+        IImage chartImage = Images.fromData(chartImageBytes);
+        try {
+            Presentation presentation = new Presentation();
+            try {
+                ISlide slide = presentation.getSlides().get_Item(0);
+                double slideWidth = presentation.getSlideSize().getSize().getWidth();
+                double slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+                // Přizpůsobte náhled rozměrům snímku při zachování poměru stran.
+                double scale = Math.min(slideWidth / chartImage.getWidth(), slideHeight / chartImage.getHeight());
+                float frameWidth = (float) (chartImage.getWidth() * scale);
+                float frameHeight = (float) (chartImage.getHeight() * scale);
+                float frameX = (float) ((slideWidth - frameWidth) / 2);
+                float frameY = (float) ((slideHeight - frameHeight) / 2);
+
+                OleEmbeddedDataInfo embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+                IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+                IPPImage previewImage = presentation.getImages().addImage(chartImage);
+                oleFrame.getSubstitutePictureFormat().getPicture().setImage(previewImage);
+
+                presentation.save("OutputChart.pptx", Pptx);
+            } finally {
+                presentation.dispose();
+            }
+        } finally {
+            chartImage.dispose();
+        }
+    } finally {
+        workbook.dispose();
     }
-
-    // Přidejte list s grafem.
-    int worksheetIndex = workbook.getWorksheets().add(SheetType.CHART);
-    Worksheet chartSheet = workbook.getWorksheets().get(worksheetIndex);
-    chartSheet.setName("ChartSheet");
-    int chartSheetIndex = chartSheet.getIndex();
-
-    // Přidejte graf do listu s grafem s řadou dat z datového listu.
-    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, chartRows, 0, chartCols);
-    Chart chart = chartSheet.getCharts().get(chartIndex);
-    
-    chart.getNSeries().add(sheetName + "!A1:E1", false);
-    chart.getNSeries().add(sheetName + "!A2:E2", false);
-    chart.getNSeries().add(sheetName + "!A3:E3", false);
-    chart.getNSeries().add(sheetName + "!A4:E4", false);
-
-    // Nastavte list s grafem jako aktivní list.
-    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
-    return chartSheetIndex;
+} catch (Exception exception) {
+    System.err.println("Could not create the presentation: " + exception.getMessage());
 }
 ```
 
-Prezentace vytvořená výše uvedenou metodou bude obsahovat Excel graf jako OLE objekt, který lze aktivovat dvojitým kliknutím na rámec OLE objektu.
+## **Očekávaný výsledek**
 
-## **Závěr**
+`OutputChart.pptx` obsahuje jeden snímek s vloženým sešitem Excel a náhledem grafu. Sešit obsahuje původní data a sloupcový graf se čtyřmi sériemi. Náhled je vystředěn na snímku a zachovává své proporce.
 
-Pomocí Aspose.Cells pro Java v kombinaci s Aspose.Slides pro Java můžeme vytvořit libovolný Excel graf podporovaný Aspose.Cells a vložit jej jako OLE objekt do snímku PowerPoint. Velikost OLE objektu Excel grafu lze také definovat. Koneční uživatelé pak mohou upravovat Excel graf jako jakýkoli jiný OLE objekt.
+![Excel sloupcový graf zobrazený jako náhled vloženého sešitu](excel-chart-ole-preview.png)
+
+V kompatibilním desktopovém prostředí PowerPoint s dostupným Excelem dvojkliknutím na objekt aktivujete a upravíte vložený sešit. Aktivace a úpravy závisí na podpoře OLE hostitelské aplikace a na nastavení zabezpečení.
+
+## **Často kladené otázky**
+
+**Proč je potřeba náhledový obrázek?**
+
+Vložený sešit a jeho náhled na snímku jsou oddělený obsah. Poskytněte obrázek grafu, aby snímek zobrazoval graf místo výchozího zástupce „EMBEDDED OLE OBJECT“. Viz [Problém s náhledem objektu při přidávání OleObjectFrame](/slides/cs/java/object-preview-issue-when-adding-oleobjectframe/).
+
+**Aktualizuje se náhled automaticky při změně sešitu v kódu?**
+
+Náhled považujte za snímek. Při programovém aktualizování dat sešitu vygenerujte znovu obrázek grafu a nahraďte náhled i data vloženého sešitu.
+
+**Můžu použít XLS místo XLSX?**
+
+Ano. Uložte sešit ve formátu XLS a použijte `xls` jako příponu vložených dat. Přípona musí odpovídat skutečnému formátu sešitu; změna pouhého názvu přípony neprovádí konverzi dat.
+
+**Proč se objekt může po aktivaci změnit velikost?**
+
+Hostitelská aplikace může aktualizovat vzhled OLE objektu při aktivaci sešitu. Oblast OLE zobrazení sešitu a rozměry rámce snímku mají oba vliv. Viz [Řešení pro změnu velikosti grafu v PPTX](/slides/cs/java/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Související sekce**
 
-- [Funkční řešení pro změnu velikosti grafu v PPTX](/slides/cs/java/working-solution-for-chart-resizing-in-pptx/)
+- [Řešení pro změnu velikosti grafu v PPTX](/slides/cs/java/working-solution-for-chart-resizing-in-pptx/)
 - [Problém s náhledem objektu při přidávání OleObjectFrame](/slides/cs/java/object-preview-issue-when-adding-oleobjectframe/)
-- [Automatická aktualizace OLE objektů pomocí doplňku PowerPoint](/slides/cs/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Automatická aktualizace OLE objektů pomocí PowerPoint Add-In](/slides/cs/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

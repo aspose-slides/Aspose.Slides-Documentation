@@ -1,55 +1,50 @@
 ---
-title: Ändra storlek på former på presentationsbilder
+title: Ändra storlek på former på presentationsbilder i Java
 type: docs
-weight: 110
-url: /sv/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /sv/java/resizing-shapes-on-slide/
+aliases:
+  - /sv/java/re-sizing-shapes-on-slide/
+  /java/re-sizing-shapes-on-slide/
 keywords:
-- ändra storlek på form
-- ändra formens storlek
-- PowerPoint
-- OpenDocument
-- presentation
-- Java
-- Aspose.Slides
-description: "Skala enkelt former på PowerPoint- och OpenDocument-bilder med Aspose.Slides för Java—automatisera justeringar av bildlayout och öka produktiviteten."
+  - ändra storlek på form
+  - ändra formstorlek
+  - PowerPoint
+  - OpenDocument
+  - presentation
+  - Java
+  - Aspose.Slides
+description: "Enkelt ändra storlek på former i PowerPoint- och OpenDocument-slides med Aspose.Slides för Java – automatisera justeringar av bildlayout och öka produktiviteten."
 ---
 ## **Översikt**
 
-En av de vanligaste frågorna från Aspose.Slides för Java‑kunder är hur man ändrar storlek på former så att, när bildens storlek ändras, informationen inte kapas bort. Denna korta tekniska artikel visar hur man gör det.
+När du ändrar en presentations bildstorlek kan du också behöva ändra storlek på och flytta dess former så att de passar de nya dimensionerna. Den här artikeln visar hur du skalar former manuellt och hur du hanterar tabeller på bilder, masterbilder och layouts.
 
 ## **Ändra storlek på former**
 
-För att förhindra att former blir feljusterade när bildens storlek ändras, uppdatera varje forms position och dimensioner så att de anpassas till den nya bildlayouten.
+För att bevara varje formas relativa position och storlek, multiplicera dess horisontella koordinater och bredd med förhållandet mellan den nya bildbredden och den ursprungliga bredden. Applicera motsvarande höjdförhållande på dess vertikala koordinater och höjd.
+
+Det första exemplet laddar en presentation vars bilder inte innehåller några tabeller, ändrar bildstorleken till A4 och sparar resultatet. Det använder [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) med [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) så att den efterföljande loopen styr skalningen. Förhållandena är enhetslösa; formernas positioner och dimensioner mäts i punkter. Olika bredd- och höjdförhållanden kan förvränga former, och att ändra en forms dimensioner skalar inte dess teckenstorlekar.
 
 ```java
-// Ladda presentationsfilen.
-Presentation presentation = new Presentation("sample.ppt");
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Hämta den ursprungliga bildstorleken.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Ändra bildstorleken utan att skala befintliga former.
+    // Beräkna oberoende horisontella och vertikala skalningsfaktorer.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Hämta den nya bildstorleken.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Ändra storlek och ompositionera former på varje bild.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            
-            // Skala formens storlek.
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Skala formens position.
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -60,75 +55,63 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-Om en bild innehåller en tabell kommer koden ovan inte att fungera korrekt. I så fall måste varje cell i tabellen ändras i storlek.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Tabeller kräver separat hantering: skala deras kolumnbredder och radhöjder istället för att tilldela tabellens totala bredd och höjd. Radhöjder kan förbli större än begärt om cellinnehållet kräver mer utrymme.
+{{% /alert %}}
 
-Använd följande kod på din sida för att ändra storlek på bilder som innehåller tabeller. För tabeller är det en speciell situation att sätta bredd eller höjd: du måste justera enskilda radhöjder och kolumnbredder för att ändra tabellens totala storlek.
+Det andra exemplet stödjer tabeller och bearbetar former på masterbilder och layouts samt enskilda bilder innan den sparar den ändrade presentationen. Dess hjälpfunktion hanterar varje [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) genom att skala kolumnbredder med [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) och minsta radhöjder med [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-). Den skalar sedan tabellens position utan att separat skala dess totala dimensioner.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // Tabellens dimensioner styrs av kolumnbredder och radhöjder.
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
+
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
+
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Hämta den ursprungliga bildstorleken.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // Ändra bildstorleken utan att skala befintliga former.
+    // Beräkna oberoende horisontella och vertikala skalningsfaktorer.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-    // Hämta den nya bildstorleken.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    ShapeResizer resizer = new ShapeResizer();
 
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
+    // Ändra storlek på former definierade på masterbilder och layouter samt enskilda bilder.
     for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // Skala formens storlek.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Skala formens position.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // Skala formens storlek.
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // Skala formens position.
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
         }
     }
 
     for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            // Skala formens storlek.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // Skala formens position.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
-        }
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
     }
 
     presentation.save("output.pptx", SaveFormat.Pptx);
@@ -142,28 +125,28 @@ finally {
 
 **Varför blir former förvrängda eller avklippta efter att en bild har ändrats i storlek?**
 
-När en bild ändras i storlek behåller former sina ursprungliga position och storlek om skalan inte uttryckligen ändras. Detta kan leda till att innehållet beskärs eller att former blir feljusterade.
+Om du ändrar bildens storlek utan att skala formerna behåller de sina ursprungliga positioner och dimensioner och kan sträcka sig utanför bilden. Att skala bredd och höjd med olika förhållanden kan också förvränga former.
 
 **Fungerar den medföljande koden för alla typer av former?**
 
-Det grundläggande exemplet fungerar för de flesta former (textrutor, bilder, diagram osv.). För tabeller måste du dock hantera rader och kolumner separat, eftersom en tabells höjd och bredd bestäms av dimensionerna på de enskilda cellerna.
+Det första exemplet ändrar formernas gränser direkt och är avsett för bilder utan tabeller. Det andra exemplet hanterar tabeller separat. Kontrollera den resulterande layouten, särskilt text och tabeller, eftersom dessa exempel inte skalar teckenstorlekar och tabellinnehåll kan begränsa radhöjder.
 
-**Hur ändrar jag storlek på tabeller när jag ändrar storlek på en bild?**
+**Hur ändrar jag storlek på tabeller när jag ändrar bildens storlek?**
 
-Du måste iterera igenom alla rader och kolumner i tabellen och ändra deras höjd och bredd proportionellt, som visas i det andra kodexemplet.
+Skala kolumnbredder med breddförhållandet och minsta radhöjder med höjdförhållandet, skala sedan tabellens position, enligt det andra exemplet.
 
-**Kommer denna storleksändring att fungera för masterbilder och layoutbilder?**
+**Fungerar denna storleksändring för masterbilder och layoutbilder?**
 
-Ja, men du bör också iterera genom [Masterbilder](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getMasters--) och [Layoutbilder](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/#getLayoutSlides--) och tillämpa samma skalningslogik på deras former för att säkerställa konsistens i hela presentationen.
+Ja. Det andra exemplet itererar genom [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) och varje masters [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) och tillämpar samma storleksändringslogik på deras former.
 
-**Kan jag ändra orienteringen på en bild (porträtt/landskaps) samtidigt som jag ändrar storlek?**
+**Kan jag ändra bildens orientering (porträtt/landskap) samtidigt som jag ändrar storlek?**
 
-Ja. Du kan använda [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islidesize/#setOrientation-int-) för att ändra orienteringen. Se till att du anpassar skalningslogiken så att layouten bevaras.
+Ja. Anropa [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) efter att bildstorleken har ändrats och innan mål­dimensionerna läses, så att skalningsfaktorerna återspeglar den slutgiltiga orienteringen.
 
-**Finns det någon gräns för den bildstorlek jag kan ange?**
+**Finns det någon gräns för hur stor bild jag kan ange?**
 
-Aspose.Slides stöder anpassade storlekar, men mycket stora storlekar kan påverka prestanda eller kompatibilitet med vissa versioner av PowerPoint.
+Du kan specificera anpassade bilddimensioner med [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-). De stödda dimensionerna beror också på presentationsformatet och det program som används för att öppna filen.
 
 **Hur kan jag förhindra att former med fast bildförhållande blir förvrängda?**
 
-Du kan kontrollera metoden `getAspectRatioLocked` för formen innan du skalar. Om den är låst, justera bredden eller höjden proportionellt i stället för att skala dem individuellt.
+Använd samma skalningsfaktor för bredd och höjd. För att få den ursprungliga layouten att passa in i de nya bilddimensionerna, använd det mindre av bredd‑ och höjdförhållandena för både dimensioner och positioner. Detta bevarar proportionerna men kan lämna oanvänt utrymme längs en kant.

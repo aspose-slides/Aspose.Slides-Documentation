@@ -1,214 +1,124 @@
 ---
-title: PPTX 中图表缩放的可行解决方案
+title: PPTX 中图表大小调整的可行方案
 type: docs
 weight: 40
 url: /zh/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- 图表缩放
+- 图表大小调整
 - Excel 图表
 - OLE 对象
 - 嵌入图表
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 嵌入的 Excel OLE 对象时，修复 PPTX 中意外的图表缩放。学习两种保持尺寸一致的方法并附带代码示例。"
+description: "使用 Aspose.Slides for Java 嵌入的 Excel OLE 对象时，修复 PPTX 中意外的图表大小调整。设置固定图表尺寸，以保持图表和 OLE 框尺寸一致。"
 ---
 ## **背景**
 
-已观察到，通过 Aspose 组件将 Excel 图表作为 OLE 对象嵌入 PowerPoint 演示文稿后，首次激活后会被重新缩放到未指定的比例。此行为导致图表在激活前后的视觉效果出现明显差异。Aspose 团队对该问题进行了深入调查并找到了解决方案。本文介绍了问题产生的原因以及相应的修复方法。
+使用 Aspose 组件将 Excel 图表作为 OLE 对象嵌入到 PowerPoint 演示文稿中后，首次激活时可能会改变大小。这会导致图表在激活前后的外观出现明显差异。本文解释了产生尺寸变化的原因，并展示通过将固定图表尺寸与 OLE 框匹配来防止此问题的方法。
 
-在[上一篇文章](/slides/zh/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)中，我们说明了如何使用 Aspose.Cells for Java 创建 Excel 图表并通过 Aspose.Slides for Java 将其嵌入 PowerPoint 演示文稿。为了解决[对象预览问题](/slides/zh/java/object-preview-issue-when-adding-oleobjectframe/)，我们将图表图像分配给图表的 OLE 对象框。在输出的演示文稿中，双击显示图表图像的 OLE 对象框会激活 Excel 图表。最终用户可以在底层 Excel 工作簿中进行任意修改，然后点击激活工作簿之外的区域返回对应幻灯片。用户返回幻灯片时 OLE 对象框的大小会发生变化，缩放比例取决于 OLE 对象框和嵌入的 Excel 工作簿原始大小的不同。
+在[创建 Excel 图表并将其作为 OLE 对象嵌入演示文稿](/slides/zh/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)中，我们解释了如何使用 Aspose.Cells for Java 创建 Excel 图表并使用 Aspose.Slides for Java 将其嵌入到 PowerPoint 演示文稿。为了解决[对象预览问题](/slides/zh/java/object-preview-issue-when-adding-oleobjectframe/)，我们将图表图像分配给图表的 OLE 对象框。在输出的演示文稿中，当双击显示图表图像的 OLE 对象框时，Excel 图表会被激活。用户可以编辑嵌入的 Excel 工作簿，然后通过点击已激活工作簿之外的区域返回到幻灯片。用户返回幻灯片时，OLE 对象框的大小会发生变化，且调整比例因原始 OLE 对象框和嵌入的 Excel 工作簿的尺寸而异。
 
-## **缩放原因**
+## **尺寸调整原因**
 
-由于 Excel 工作簿有自己的窗口大小，它会在首次激活时尝试保留原始大小。而 OLE 对象框也有自己的尺寸。根据 Microsoft 的说法，当 Excel 工作簿被激活时，Excel 与 PowerPoint 会协商尺寸并在嵌入过程中保持正确比例。Excel 窗口大小与 OLE 对象框的大小或位置存在差异时，就会发生缩放。
+嵌入的 Excel 工作簿有其自己的窗口尺寸，Excel 会尝试在对象首次激活时保留该尺寸。幻灯片上的 OLE 框则拥有独立定义的尺寸。当 Excel 工作簿被激活时，Excel 与 PowerPoint 会协商对象的大小，以在嵌入过程中保持其比例。因此，工作簿窗口与 OLE 框之间的差异可能导致对象重新调整大小。
 
 ## **可行方案**
 
-使用 Aspose.Slides for Java 创建 PowerPoint 演示文稿有两种可能的场景。
+将图表尺寸与幻灯片上的 OLE 框匹配，并使图表尺寸独立于工作簿窗口。此方案可用于新建演示文稿或现有模板。
 
-**场景 1：** 基于现有模板创建演示文稿。
+示例需要 Aspose.Cells for Java 和 Aspose.Slides for Java。它在活动图表工作表上创建一个简单的柱形图，并以 XLS 格式嵌入工作簿。未分配图表预览图像；图表将在 PowerPoint 中激活 OLE 对象时可见。
 
-**场景 2：** 从头创建演示文稿。
-
-本文提供的解决方案适用于两种场景。所有方案的核心相同：**嵌入的 OLE 对象窗口大小应与 PowerPoint 幻灯片中的 OLE 对象框大小匹配**。下面将讨论两种实现方式。
-
-## **方法一**
-
-本方法演示如何设置嵌入的 Excel 工作簿窗口大小，使其与 PowerPoint 幻灯片中 OLE 对象框的大小保持一致。
-
-**场景 1**
-
-假设我们已定义模板并希望基于该模板创建演示文稿。模板中索引为 2 的形状用于放置包含嵌入式 Excel 工作簿的 OLE 框。在此场景下，OLE 对象框的大小是预定义的——与模板中索引为 2 的形状大小相同。我们只需将工作簿的窗口大小设置为该形状的大小。以下代码片段实现此功能：
+示例创建了一个带有 9.5 × 4 英寸 OLE 框的新演示文稿，框左侧距左边缘 0.5 英寸，顶部距上边缘 1 英寸。幻灯片坐标和尺寸使用点（每英寸 72 点）。有关现有演示文稿的用法，请参阅[使用模板](#use-a-template)。
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// 将工作簿的窗口宽度设置为英寸（除以 72，因为 PowerPoint 每英寸使用 72 点）。
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// 将工作簿的窗口高度设置为英寸。
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// 将工作簿保存到内存流。
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// 创建包含嵌入式 Excel 数据的 OLE 对象框。
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // 幻灯片坐标和尺寸使用点（每英寸 72 点）表示。
+        float width = 684f; // 9.5 英寸。
+        float height = 288f; // 4 英寸。
+
+        chart.setSizeWithWindow(false);
+        // 使用每英寸 96 像素将点转换为图表像素。
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**场景 2**
+## **设置固定图表尺寸**
 
-假设我们要从头创建演示文稿，并在其中包含任意大小的 OLE 对象框和嵌入的 Excel 工作簿。在下面的代码片段中，我们在幻灯片上创建一个高 4 英寸、宽 9.5 英寸、左上角坐标为 x=0.5 英寸、y=1 英寸的 OLE 对象框，然后将 Excel 工作簿窗口大小设置为相同的尺寸——高 4 英寸、宽 9.5 英寸。
+将[setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-)设为 false，以使图表尺寸独立于工作簿窗口。通过[setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-)和[setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-)设置[getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--)的尺寸，使用 96 像素/英寸将点转换为像素：一个 684 × 288 点的框对应 912 × 384 像素的图表。将[setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-)设为[PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/)的 CUSTOM 值。示例使用[addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-)嵌入工作簿，并保存一个带有 9.5 × 4 英寸 OLE 框的演示文稿。
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+## **使用模板**
 
-// 我们期望的高度。
-int desiredHeight = 288; // 4 英寸 (4 * 72)
- 
-// 我们期望的宽度。
-int desiredWidth = 684; // 9.5 英寸 (9.5 * 72)
- 
-// 使用窗口定义图表大小。
-chart.setSizeWithWindow(true);
- 
-// 设置工作簿窗口宽度（单位为英寸），除以 72 因为 PowerPoint 每英寸使用 72 点。
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// 设置工作簿窗口高度（单位为英寸）。
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// 将工作簿保存到内存流。
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// 创建包含嵌入式 Excel 数据的 OLE 对象框。
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 英寸 (0.5 * 72)
-    72,  // y = 1 英寸 (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
+现有演示文稿的尺寸逻辑相同。要适配示例：
 
-## **方法二**
-
-本方法演示如何设置嵌入的 Excel 工作簿中图表的大小，使其与 PowerPoint 幻灯片中 OLE 对象框的大小相匹配。在图表尺寸已知且不会变化的情况下，此方法非常实用。
-
-**场景 1**
-
-假设我们已定义模板并希望基于该模板创建演示文稿。模板中索引为 2 的形状用于放置包含嵌入式 Excel 工作簿的 OLE 框。在此场景下，OLE 框的大小是预定义的——与模板中索引为 2 的形状大小相同。我们只需将工作簿中图表的大小设置为该形状的大小。以下代码片段实现此功能：
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// 在没有窗口的情况下定义图表大小。
-chart.setSizeWithWindow(false);
- 
-// 以像素设置图表宽度（乘以 96，因为 Excel 使用每英寸 96 像素）。
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// 以像素设置图表高度。
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// 定义图表打印尺寸。
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// 将工作簿保存到内存流。
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// 创建包含嵌入式 Excel 数据的 OLE 对象框。
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
-
-**场景 2**:
-
-假设我们要从头创建演示文稿，并在其中包含任意大小的 OLE 对象框和嵌入的 Excel 工作簿。在下面的代码片段中，我们在幻灯片上创建一个高 4 英寸、宽 9.5 英寸、左上角坐标为 x=0.5 英寸、y=1 英寸的 OLE 对象框，并将相应的图表大小同样设置为高 4 英寸、宽 9.5 英寸。
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// 我们期望的高度。
-int desiredHeight = 288; // 4 英寸 (4 * 72)
- 
-// 我们期望的宽度。
-int desiredWidth = 684; // 9.5 英寸 (9.5 * 72)
- 
-// 在没有窗口的情况下定义图表大小。
-chart.setSizeWithWindow(false);
- 
-// 以像素设置图表宽度（除以 72 得到英寸，乘以 96 因为 Excel 使用每英寸 96 像素）。
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// 以像素设置图表高度。
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// 将工作簿保存到内存流。
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// 创建包含嵌入式 Excel 数据的 OLE 对象框。
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 英寸 (0.5 * 72)
-    72,  // y = 1 英寸 (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **结论**
-
-解决图表缩放问题有两种方法。选择哪种方法取决于具体需求和使用场景。无论是基于模板创建还是从头创建演示文稿，两种方法的效果相同。此外，该解决方案对 OLE 对象框的大小没有限制。
+1. 加载模板演示文稿，而不是创建空白演示文稿。  
+2. 检查第一张幻灯片至少包含三个形状，然后使用索引为 2 的形状作为占位符。  
+3. 从该形状获取框宽度和高度，而不是使用固定值 684 和 288。保持计算方式不变。  
+4. 在占位符的位置添加 OLE 框，而不是使用固定坐标 36 和 72。  
+5. 保存演示文稿前删除占位符。
 
 ## **常见问题**
 
-### 为什么嵌入的 Excel 图表在 PowerPoint 中激活后会改变大小？
+**为什么我的嵌入 Excel 图表在 PowerPoint 中激活后会改变大小？**  
+因为 Excel 在首次激活时尝试恢复原始窗口尺寸，而 PowerPoint 中的 OLE 对象框有自己的尺寸。PowerPoint 与 Excel 协商尺寸以保持长宽比，从而导致尺寸调整。
 
-因为 Excel 在首次激活时尝试恢复原始窗口大小，而 PowerPoint 中的 OLE 对象框拥有自己的尺寸。PowerPoint 与 Excel 会协商尺寸以保持宽高比，这可能导致缩放。
+**如何保持图表和 OLE 框尺寸一致？**  
+设置与 OLE 框匹配的固定图表尺寸，并在嵌入工作簿前使用自定义图表打印尺寸。上面的示例展示了所需的设置和单位换算。
 
-### 能否彻底避免此缩放问题？
+**仅匹配工作簿窗口尺寸是否足够？**  
+仅匹配工作簿窗口尺寸并不能可靠地防止 OLE 框在激活后改变大小。请使用示例中展示的固定图表尺寸。
 
-可以。通过在嵌入前将 Excel 工作簿窗口大小或图表大小设置为与 OLE 对象框大小匹配，可保持图表尺寸一致。
+**此方案是否同时适用于基于模板的演示文稿和新建演示文稿？**  
+是的。对于模板，使用占位符的尺寸和位置；对于新建演示文稿，直接指定框的尺寸和位置。
 
-### 应该使用设置工作簿窗口大小还是设置图表大小的方法？
-
-如果希望保持工作簿的宽高比并可能以后进行缩放，请使用**方法一（窗口大小）**。如果图表尺寸固定且嵌入后不会改变，请使用**方法二（图表大小）**。
-
-### 这些方法是否适用于基于模板的演示文稿和新建演示文稿？
-
-是的。两种方法在基于模板创建和从头创建的演示文稿中表现相同。
-
-### OLE 对象框的大小是否有限制？
-
-没有限制。只要 OLE 框的尺寸能够恰当地映射到工作簿或图表大小，即可任意设置。
-
-### 能否将这些方法用于其他电子表格程序创建的图表？
-
-示例针对使用 Aspose.Cells 创建的 Excel 图表，但原理同样适用于其他支持类似尺寸选项的 OLE 兼容电子表格程序。
+**我可以将此示例用于其他电子表格程序创建的图表吗？**  
+示例使用 Aspose.Cells 创建的 Excel 工作簿。它未演示其他电子表格程序的激活行为。
 
 ## **相关章节**
 
-- [在演示文稿中创建 Excel 图表并将其作为 OLE 对象嵌入](/slides/zh/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [创建 Excel 图表并将其作为 OLE 对象嵌入演示文稿](/slides/zh/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

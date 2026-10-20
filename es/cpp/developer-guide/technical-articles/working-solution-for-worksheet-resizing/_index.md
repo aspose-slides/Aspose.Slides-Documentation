@@ -1,5 +1,5 @@
 ---
-title: Solución práctica para el redimensionamiento de hojas de cálculo
+title: Solución funcional para el redimensionamiento de la hoja de cálculo
 type: docs
 weight: 130
 url: /es/cpp/working-solution-for-worksheet-resizing/
@@ -13,36 +13,52 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides para C++
-description: "Solución práctica para el redimensionamiento de hojas de cálculo en presentaciones de PowerPoint usando C++"
+description: "Solución funcional para el redimensionamiento de la hoja de cálculo en presentaciones de PowerPoint usando C++"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}}
-
-Se ha observado que las hojas de cálculo de Excel incrustadas como objetos OLE en una presentación de PowerPoint mediante los componentes Aspose se redimensionan a una escala no identificada después de la primera activación. Este comportamiento crea una diferencia visual notable en la presentación entre los estados antes y después de la activación del objeto OLE. Hemos investigado este problema en detalle y proporcionado una solución, que se cubre en este artículo.
+Las hojas de cálculo de Excel incrustadas como objetos OLE en una presentación de PowerPoint mediante los componentes Aspose pueden cambiar de tamaño de forma inesperada después de su primera activación. Este comportamiento crea una diferencia visual notable entre el objeto OLE antes y después de la activación. Este artículo explica el problema y describe dos formas de solucionarlo.
 
 {{% /alert %}}
 
 ## **Antecedentes**
 
-En el artículo [Manage OLE](/slides/es/cpp/manage-ole/), explicamos cómo añadir un marco OLE a una presentación de PowerPoint usando Aspose.Slides for C++. Para abordar el [object preview issue](/slides/es/cpp/object-preview-issue-when-adding-oleobjectframe/), asignamos una imagen del área de hoja de cálculo seleccionada al marco del objeto OLE. En la presentación resultante, cuando se hace doble clic en el marco del objeto OLE que muestra la imagen de la hoja, se activa el libro de Excel. Los usuarios finales pueden realizar los cambios deseados en el libro de Excel real y luego volver a la diapositiva haciendo clic fuera del libro de Excel activado. El tamaño del marco del objeto OLE cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionado variará según el tamaño del marco del objeto OLE y del libro de Excel incrustado.
+En el artículo [Gestionar OLE](/slides/es/cpp/manage-ole/), explicamos cómo añadir un marco OLE a una presentación de PowerPoint usando Aspose.Slides para C++. Para abordar el [problema de vista previa del objeto](/slides/es/cpp/object-preview-issue-when-adding-oleobjectframe/), asignamos una imagen del área de la hoja de cálculo seleccionada al marco del objeto OLE. En la presentación resultante, cuando haces doble clic en el marco del objeto OLE que muestra la imagen de la hoja, se activa el libro de Excel. Los usuarios finales pueden realizar los cambios que deseen en el libro de Excel real y luego volver a la diapositiva haciendo clic fuera del libro de Excel activado. El tamaño del marco del objeto OLE cambiará cuando el usuario regrese a la diapositiva. El factor de cambio de tamaño variará según el tamaño del marco del objeto OLE y del libro de Excel incrustado.
 
-## **Causa del redimensionado**
+## **Causa del cambio de tamaño**
 
-Dado que el libro de Excel tiene su propio tamaño de ventana, intenta conservar su tamaño original tras la primera activación. Por otro lado, el marco del objeto OLE tiene su propio tamaño. Según Microsoft, cuando el libro de Excel se activa, Excel y PowerPoint negocian el tamaño para garantizar que mantenga las proporciones correctas como parte del proceso de incrustación. El redimensionado ocurre en función de las diferencias entre el tamaño de la ventana de Excel y el tamaño y posición del marco del objeto OLE.
+Dado que el libro de Excel tiene su propio tamaño de ventana, intenta conservar su tamaño original al activarse por primera vez. Por otro lado, el marco del objeto OLE tiene su propio tamaño. Según Microsoft, cuando se activa el libro de Excel, Excel y PowerPoint negocian el tamaño para asegurarse de que mantenga las proporciones correctas como parte del proceso de incrustación. El cambio de tamaño ocurre en función de las diferencias entre el tamaño de la ventana de Excel y el tamaño y posición del marco del objeto OLE.
 
 ## **Solución funcional**
 
-Existen dos posibles soluciones para evitar el efecto de redimensionado.
+Existen dos soluciones posibles para evitar el efecto de cambio de tamaño.
 
-- Escalar el tamaño del marco OLE en la presentación de PowerPoint para que coincida con la altura y anchura del número deseado de filas y columnas en el marco OLE.
-- Mantener constante el tamaño del marco OLE y escalar el tamaño de las filas y columnas participantes para que encajen dentro del tamaño seleccionado del marco OLE.
+- Escalar el marco OLE en la presentación de PowerPoint para que coincida con la altura y anchura totales de las filas y columnas seleccionadas.
+- Mantener el tamaño del marco OLE constante y escalar las filas y columnas seleccionadas para que se ajusten a él.
 
 ### **Escalar el tamaño del marco OLE**
 
-En este enfoque, aprenderemos a establecer el tamaño del marco OLE del libro de Excel incrustado para que coincida con el tamaño acumulado de las filas y columnas participantes en la hoja de Excel.
+Este enfoque establece el tamaño del marco OLE para que coincida con la altura y anchura totales de las filas y columnas seleccionadas en la hoja de cálculo de Excel incrustada.
 
-Supongamos que tenemos una hoja de Excel plantilla y queremos añadirla a una presentación como un marco OLE. En este escenario, el tamaño del marco del objeto OLE se calculará primero en función de la altura acumulada de las filas y el ancho acumulado de las columnas participantes en el libro. Luego, estableceremos el tamaño del marco OLE a este valor calculado. Para evitar el mensaje rojo “EMBEDDED OLE OBJECT” para el marco OLE en PowerPoint, también capturaremos una imagen de las porciones deseadas de las filas y columnas en el libro y la estableceremos como la imagen del marco OLE.
+El ejemplo carga un libro de Excel existente y selecciona las primeras 10 filas y 13 columnas de su primera hoja de cálculo usando índices basados en cero. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) define el rango mostrado. La vista previa se renderiza a 96 DPI, y sus dimensiones en píxeles se convierten a puntos utilizando 72 puntos por pulgada. [ShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addoleobjectframe/) incrusta el libro modificado en un marco con esas dimensiones. La vista previa se asigna mediante [OleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/get_substitutepictureformat/) para sustituir el marcador de posición "EMBEDDED OLE OBJECT" en la presentación guardada.
+
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/image.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -54,7 +70,7 @@ int imageResolution = 96;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
+// Establecer el tamaño mostrado cuando el archivo de libro de trabajo se utiliza como objeto OLE en PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -62,12 +78,12 @@ workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Get the width and height of the OLE image in points.
+// Obtener el ancho y la altura de la imagen OLE en puntos.
 auto image = Image::FromStream(imageStream);
 auto imageWidth = image->get_Width() * 72.0f / imageResolution;
 auto imageHeight = image->get_Height() * 72.0f / imageResolution;
 
-// We need to use the modified workbook.
+// Necesitamos usar el libro de trabajo modificado.
 auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
 auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
 workbook.Dispose();
@@ -75,11 +91,11 @@ workbook.Dispose();
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Add the OLE image to the presentation resources.
+// Añadir la imagen OLE a los recursos de la presentación.
 auto oleImage = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// Create the OLE object frame.
+// Crear el marco del objeto OLE.
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
 auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
@@ -91,7 +107,22 @@ presentation->Dispose();
 Aspose::Cells::Cleanup();
 ```
 
+El ayudante de vista previa utiliza [PageSetup::SetPrintArea](https://reference.aspose.com/cells/cpp/aspose.cells/pagesetup/setprintarea/) para seleccionar el rango y elimina márgenes, encabezados y pies de página. Con [ImageOrPrintOptions::SetOnlyArea](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/imageorprintoptions/setonlyarea/) habilitado, [SheetRender::ToImage](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/sheetrender/toimage/) renderiza el rango como una imagen PNG. El ayudante copia los datos de la imagen renderizada a un nuevo flujo de memoria situado al inicio para su uso en la presentación.
+
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -119,13 +150,27 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
-
 ### **Escalar el tamaño del rango de celdas**
 
-En este enfoque, aprenderemos a escalar las alturas de las filas participantes y el ancho de las columnas participantes para que coincidan con un tamaño de marco OLE personalizado.
+Este enfoque escala las alturas de las filas seleccionadas y las anchuras de las columnas seleccionadas para que coincidan con un tamaño de marco OLE personalizado.
 
-Supongamos que tenemos una hoja de Excel plantilla y queremos añadirla a una presentación como un marco OLE. En este escenario, estableceremos el tamaño del marco OLE y escalaremos el tamaño de las filas y columnas que participan en el área del marco OLE. Luego guardaremos el libro en un flujo para aplicar los cambios y lo convertiremos en una matriz de bytes para añadirlo al marco OLE. Para evitar el mensaje rojo “EMBEDDED OLE OBJECT” para el marco OLE en PowerPoint, también capturaremos una imagen de las porciones deseadas de las filas y columnas en el libro y la estableceremos como la imagen del marco OLE.
+El ejemplo carga un libro de Excel existente y selecciona las primeras 10 filas y 13 columnas de su primera hoja de cálculo usando índices basados en cero. [WorksheetCollection::SetOleSize](https://reference.aspose.com/cells/cpp/aspose.cells/worksheetcollection/setolesize/) define el rango mostrado, y el ayudante a continuación escala ese rango para ajustarse a un marco de 400 puntos de ancho y 100 puntos de alto. Después de guardar el libro modificado en una matriz de bytes, [ShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/addoleobjectframe/) lo incrusta con el tamaño especificado. Una vista previa renderizada a 96 DPI se asigna mediante [OleObjectFrame::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/get_substitutepictureformat/), de modo que la presentación guardada muestra las celdas seleccionadas en lugar del marcador de posición predeterminado.
+
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -138,7 +183,7 @@ float frameWidth = 400, frameHeight = 100;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Establecer el tamaño visible cuando el archivo del libro de trabajo se usa como un objeto OLE en PowerPoint.
+// Establecer el tamaño mostrado cuando el archivo de libro de trabajo se usa como objeto OLE en PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -157,7 +202,7 @@ workbook.Dispose();
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-// Agregar la imagen OLE a los recursos de la presentación.
+// Añadir la imagen OLE a los recursos de la presentación.
 auto oleImage = presentation->get_Images()->AddImage(imageStream);
 imageStream->Dispose();
 
@@ -173,9 +218,16 @@ presentation->Dispose();
 Aspose::Cells::Cleanup();
 ```
 
+El ayudante de escalado calcula ratios de ancho y alto por separado para el rango seleccionado, preservando las anchuras relativas de sus columnas y las alturas relativas de sus filas. Convierte las dimensiones calculadas de puntos a pulgadas antes de aplicarlas con [Cells::SetColumnWidthInch](https://reference.aspose.com/cells/cpp/aspose.cells/cells/setcolumnwidthinch/) y [Cells::SetRowHeightInch](https://reference.aspose.com/cells/cpp/aspose.cells/cells/setrowheightinch/). El rango seleccionado debe tener ancho y alto diferentes de cero.
+
 ```cpp
-/// <param name="width">El ancho esperado del rango de celdas en puntos.</param>
-/// <param name="height">La altura esperada del rango de celdas en puntos.</param>
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/CellsUnitType.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/Worksheet.h"
+
+/// <param name="width">Ancho esperado del rango de celdas en puntos.</param>
+/// <param name="height">Altura esperada del rango de celdas en puntos.</param>
 void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 {
     auto rangeWidth = cellRange.GetWidth();
@@ -203,7 +255,22 @@ void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 }
 ```
 
+Este ayudante de vista previa renderiza el rango redimensionado usando [SheetRender::ToImage](https://reference.aspose.com/cells/cpp/aspose.cells.rendering/sheetrender/toimage/). Utiliza [PageSetup::SetPrintArea](https://reference.aspose.com/cells/cpp/aspose.cells/pagesetup/setprintarea/) para limitar la impresión a ese rango, elimina márgenes, encabezados y pies de página, y devuelve un flujo PNG situado al inicio.
+
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -231,12 +298,11 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
-
 ## **Conclusión**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
 
-Existen dos enfoques para corregir el problema de redimensionado de la hoja de cálculo. La selección del enfoque apropiado depende de los requisitos específicos y del caso de uso. Ambos enfoques funcionan de la misma manera, ya sea que las presentaciones se creen a partir de una plantilla o desde cero. Además, no hay límite para el tamaño del marco del objeto OLE en esta solución.
+Existen dos enfoques para solucionar el problema de cambio de tamaño de la hoja de cálculo. Elige el enfoque que mejor se adapte a tus requisitos y caso de uso. Ambos enfoques funcionan de la misma manera, tanto si las presentaciones se crean a partir de una plantilla como desde cero. Además, no hay límite en el tamaño del marco del objeto OLE en esta solución.
 
 {{% /alert %}}
 
@@ -244,28 +310,28 @@ Existen dos enfoques para corregir el problema de redimensionado de la hoja de c
 
 **¿Por qué una hoja de cálculo de Excel incrustada cambia de tamaño al activarse por primera vez en PowerPoint?**
 
-Esto ocurre porque Excel intenta mantener el tamaño original de su ventana al activarse, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la proporción de aspecto, lo que puede provocar el redimensionado.
+Esto ocurre porque Excel intenta conservar el tamaño original de la ventana al activarse, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la relación de aspecto, lo que puede provocar el cambio de tamaño.
 
-**¿Es posible evitar este problema de redimensionado por completo?**
+**¿Es posible evitar este problema de cambio de tamaño por completo?**
 
-Sí. Escalando el marco OLE para que se ajuste al tamaño del rango de celdas de Excel o escalando el rango de celdas para que se ajuste al tamaño deseado del marco OLE, se puede evitar el redimensionado no deseado.
+Sí. Escalando el marco OLE para que se ajuste al tamaño del rango de celdas de Excel o escalando el rango de celdas para que se ajuste al tamaño deseado del marco OLE, puedes evitar el cambio de tamaño no deseado.
 
 **¿Qué método de escalado debo usar, escalado del marco OLE o escalado del rango de celdas?**
 
-Seleccione **escalado del marco OLE** si desea mantener los tamaños originales de filas y columnas de Excel. Seleccione **escalado del rango de celdas** si desea un tamaño fijo para el marco OLE en su presentación.
+Selecciona **escalado del marco OLE** si deseas mantener los tamaños originales de filas y columnas de Excel. Selecciona **escalado del rango de celdas** si deseas un tamaño fijo para el marco OLE en tu presentación.
 
 **¿Funcionarán estas soluciones si mi presentación se basa en una plantilla?**
 
 Sí. Ambas soluciones funcionan para presentaciones creadas a partir de plantillas y desde cero.
 
-**¿Existe un límite para el tamaño del marco OLE al usar estos métodos?**
+**¿Existe un límite al tamaño del marco OLE al usar estos métodos?**
 
-No. Puede hacer el marco del objeto OLE del tamaño que desee siempre que establezca la escala apropiadamente.
+No. Puedes hacer que el marco del objeto OLE tenga cualquier tamaño siempre que establezcas la escala de forma adecuada.
 
-**¿Hay alguna forma de evitar el texto de marcador de posición “EMBEDDED OLE OBJECT” en PowerPoint?**
+**¿Hay alguna manera de evitar el texto del marcador de posición "EMBEDDED OLE OBJECT" en PowerPoint?**
 
-Sí. Capturando una instantánea del rango de celdas de Excel objetivo y estableciéndola como la imagen de marcador de posición del marco OLE, puede mostrar una imagen de vista previa personalizada en lugar del marcador de posición predeterminado.
+Sí. Capturando una instantánea del rango de celdas de Excel objetivo y configurándola como la imagen de marcador de posición del marco OLE, puedes mostrar una imagen de vista previa personalizada en lugar del marcador de posición predeterminado.
 
 ## **Artículos relacionados**
 
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/es/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Crear un gráfico de Excel e incrustarlo en una presentación como objeto OLE](/slides/es/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

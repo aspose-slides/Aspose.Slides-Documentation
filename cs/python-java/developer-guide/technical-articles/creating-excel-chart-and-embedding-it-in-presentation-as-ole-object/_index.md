@@ -1,38 +1,48 @@
 ---
-title: Vytvoření grafů Excel a jejich vložení do prezentací jako OLE objekty
+title: Vytvořte grafy Excel a vložte je do prezentací jako OLE objekty
 type: docs
 weight: 30
 url: /cs/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Graf Excel
+- Excel graf
 - vložit graf
 - OLE objekt
 - PowerPoint
-- OpenDocument
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Vytvořte grafy Excel a vložte je jako OLE objekty do prezentací PowerPoint a OpenDocument pomocí Pythonu. Průvodce krok za krokem s ukázkami kódu."
+description: "Vytvořte graf Excel pomocí Aspose.Cells pro Python přes Java a vložte sešit do prezentace PowerPoint s Aspose.Slides, včetně náhledu grafu."
 ---
-## **Pozadí**
+## **Přehled**
 
-V PowerPointu je běžnou praxí používat editovatelné grafy k vizuálnímu zobrazení dat. Aspose podporuje vytváření grafů Excel pomocí Aspose.Cells for Python via Java a tyto grafy lze poté vložit jako OLE objekty do snímků PowerPointu prostřednictvím Aspose.Slides for Python via Java. Tento článek popisuje potřebné kroky a poskytuje ukázkový kód v Pythonu pro vytvoření grafu Excel a jeho vložení jako OLE objektu do prezentace PowerPoint pomocí Aspose.Cells a Aspose.Slides.
+Tento článek ukazuje, jak vytvořit sloupcový graf Excel pomocí Aspose.Cells pro Python přes Java a vložit jeho sešit do prezentace PowerPoint s Aspose.Slides pro Python přes Java. Vložený sešit obsahuje jak zdrojová data, tak graf. Samostatná náhledová PNG zobrazuje graf na snímku před aktivací objektu OLE.
 
-## **Požadované kroky**
+Výsledkem je vložený objekt Excel, nikoli nativní graf PowerPoint. Úprava sešitu prostřednictvím OLE vyžaduje desktopovou aplikaci, která podporuje aktivaci OLE, a kompatibilní instalaci Excelu.
 
-Následující sekvence kroků je nutná k vytvoření a vložení grafu Excel jako OLE objektu do snímku PowerPoint:
+## **Předpoklady**
 
-1. Vytvořte graf Excel pomocí Aspose.Cells.
-2. Nastavte velikost OLE grafu Excel pomocí Aspose.Cells.
-3. Získejte obrázek grafu Excel pomocí Aspose.Cells.
-4. Vložte graf Excel jako OLE objekt do PPTX prezentace pomocí Aspose.Slides.
-5. Nahraďte obrázek „EMBEDDED OLE OBJECT“ obrázkem získaným ve kroku 3, aby se vyřešil [object preview issue](/slides/cs/python-java/object-preview-issue-when-adding-oleobjectframe/).
-6. Uložte prezentaci na disk ve formátu PPTX.
+Nainstalujte balíčky Python `aspose-cells` a `aspose-slides-java` a kompatibilní běhové prostředí Java. Naimportujte oba balíčky před spuštěním JVM, aby jejich Java knihovny byly k dispozici pro JPype. Microsoft Office není vyžadován k vytvoření prezentace s těmito knihovnami.
 
-## **Implementace požadovaných kroků**
+Žádné vstupní soubory nejsou vyžadovány: příklad vytvoří data a graf v paměti a poté zapíše `OutputChart.pptx` do aktuálního pracovního adresáře. Použijte licence pro oba produkty při provozu mimo evaluační režim.
 
-Python implementace výše uvedených kroků vypadá následovně:
+## **Jak funguje vkládání**
+
+1. Vytvořte sešit s listem dat a listem grafu.  
+2. Aktivujte list grafu, aby se sešit otevřel na grafu.  
+3. Nastavte OLE zobrazovací rozsah sešitu a vykreslete graf do PNG.  
+4. Uložte sešit jako XLSX v paměti a vložte tyto bajty do snímku.  
+5. Přiřaďte PNG jako náhled objektu OLE a uložte prezentaci jako PPTX.
+
+Zobrazovací rozsah sešitu a rámec na snímku mají různé role. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) používá nulové indexy počátečního/konečného řádku a sloupce. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) místo toho používá horní řádek, levý sloupec, dolní řádek a pravý sloupec. Příklad používá index řádku 55 a index sloupce 25 jako pravé dolní hranice; tyto hodnoty jsou volby rozvržení, nikoli počet řádků nebo sloupců v datech.
+
+Rámec snímku používá body. Příklad jej umístí do snímku a vycentruje, přičemž zachová poměr stran PNG, místo aby natahoval náhled tak, aby vyplnil snímek.
+
+## **Vytvoření a vložení grafu**
+
+Následující úplný příklad naplní `DataSheet` čtyřmi řádky a pěti sloupci hodnot. Každý řádek se stane sérií grafu. `ChartSheet` je vybrán jako aktivní list před uložením sešitu.
+
+Sešit je explicitně uložen jako XLSX, což odpovídá příponě `xlsx` předané do [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/). Java proudy bajtových polí uchovávají sešit a obrázek v paměti a poskytují bajtová pole požadovaná Java API. PNG je načten přímo z jeho bajtů bez mezikroku bitmapové konverze. Přiřazením prostřednictvím [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) se nahradí výchozí OLE placeholder.
 
 ```python
 import jpype
@@ -44,128 +54,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # Pole názvů buněk.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # Pole dat buněk.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # Přidejte nový pracovní list pro naplnění buněk daty.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # Naplněte datový list daty.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # Přidejte list s grafem.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # Přidejte graf do listu s grafem pomocí datových řad z datového listu.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # Nastavte list s grafem jako aktivní list.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # Popište sešit jako vložená OLE data.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# Vytvořte sešit.
 workbook = Workbook()
-
-# Přidejte graf Excel.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# Nastavte velikost OLE grafu.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# Získejte obrázek grafu a uložte jej do proudu.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# Uložte sešit do proudu.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# Vytvořte prezentaci.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # Přidejte sešit do snímku.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # Uložte prezentaci na disk.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # Vygenerujte náhled grafu a samostatně serializujte editovatelný sešit.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # Přizpůsobte náhled snímku bez změny poměru stran.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-Prezentace vytvořená výše uvedenou metodou bude obsahovat graf Excel jako OLE objekt, který lze aktivovat dvojitým klepnutím na rámec OLE objektu.
+## **Očekávaný výsledek**
 
-## **Závěr**
+`OutputChart.pptx` obsahuje jeden snímek s vloženým sešitem Excel a náhledem grafu. Sešit obsahuje původní data a sloupcový graf se čtyřmi sériemi. Náhled je vycentrován na snímku a zachovává své proporce.
 
-Používáním Aspose.Cells for Python via Java spolu s Aspose.Slides for Python via Java můžeme vytvořit libovolný graf Excel podporovaný Aspose.Cells a vložit jej jako OLE objekt do snímku PowerPointu. Velikost OLE grafu Excel lze také definovat. Koneční uživatelé pak mohou graf Excel upravovat jako jakýkoli jiný OLE objekt.
+![Sloupcový graf Excel zobrazený jako náhled vloženého sešitu](excel-chart-ole-preview.png)
 
-## **Související sekce**
-
-- [Working Solution for Chart Resizing in PPTX](/slides/cs/python-java/working-solution-for-chart-resizing-in-pptx/)
-- [Object Preview Issue when Adding OleObjectFrame](/slides/cs/python-java/object-preview-issue-when-adding-oleobjectframe/)
+V kompatibilním desktopovém prostředí PowerPoint s dostupným Excelem dvojklikněte na objekt pro aktivaci a úpravu vloženého sešitu. Aktivace a úpravy závisí na podpoře OLE hostitelské aplikace a bezpečnostních nastaveních.
 
 ## **Často kladené otázky**
 
-**Které knihovny se používají k vytvoření a vložení grafu Excel?**
+**Proč je potřeba obrázek náhledu?**
 
-Aspose.Cells for Python via Java vytváří graf Excel a Aspose.Slides for Python via Java jej vkládá jako OLE objekt do snímku PowerPoint.
+Vložený sešit a jeho náhled na snímku jsou oddělený obsah. Poskytněte obrázek grafu, aby snímek zobrazoval graf místo výchozího placeholderu „EMBEDDED OLE OBJECT“. Viz [Object Preview Issue when Adding OleObjectFrame](/slides/cs/python-java/object-preview-issue-when-adding-oleobjectframe/).
 
-**Jak mohou uživatelé upravit vložený graf Excel?**
+**Aktualizuje se náhled automaticky při změně sešitu v kódu?**
 
-Uživatelé mohou dvojitým klepnutím na rámec OLE objektu aktivovat graf a upravit jej jako jakýkoli jiný OLE objekt.
+Považujte náhled za snímek. Při programové aktualizaci dat sešitu vygenerujte znovu obrázek grafu a nahraďte náhled i data vloženého sešitu.
 
-**Jak je nahrazen výchozí náhled OLE objektu?**
+**Mohu použít XLS místo XLSX?**
 
-Příklad získá obrázek grafu Excel pomocí Aspose.Cells a použije jej k nahrazení obrázku „EMBEDDED OLE OBJECT“.
+Ano. Uložte sešit ve formátu XLS a použijte `xls` jako příponu vložených dat. Přípona musí odpovídat skutečnému formátu sešitu; pouhá změna přípony data nekonvertuje.
+
+**Proč může objekt po aktivaci změnit velikost?**
+
+Hostitelská aplikace může aktualizovat prezentaci objektu OLE při aktivaci sešitu. Na OLE zobrazovacím rozsahu sešitu i rozměrech rámce snímku záleží. Viz [Working Solution for Chart Resizing in PPTX](/slides/cs/python-java/working-solution-for-chart-resizing-in-pptx/).
+
+## **Související sekce**
+
+- [Řešení pro změnu velikosti grafu v PPTX](/slides/cs/python-java/working-solution-for-chart-resizing-in-pptx/)
+- [Problém s náhledem objektu při přidávání OleObjectFrame](/slides/cs/python-java/object-preview-issue-when-adding-oleobjectframe/)

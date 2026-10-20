@@ -1,5 +1,5 @@
 ---
-title: Działające rozwiązanie problemu zmiany rozmiaru wykresu w PPTX
+title: Działające rozwiązanie dla zmiany rozmiaru wykresu w PPTX
 type: docs
 weight: 40
 url: /pl/python-java/working-solution-for-chart-resizing-in-pptx/
@@ -7,42 +7,35 @@ keywords:
 - zmiana rozmiaru wykresu
 - wykres Excel
 - obiekt OLE
-- osadzanie wykresu
+- osadź wykres
 - PowerPoint
-- OpenDocument
 - prezentacja
 - Python
 - Java
 - Aspose.Slides
-description: "Napraw nieoczekiwaną zmianę rozmiaru wykresu w plikach PPTX przy użyciu osadzonych obiektów Excel OLE z Aspose.Slides for Python via Java. Poznaj dwie metody z kodem, aby zachować spójne rozmiary."
+description: "Napraw nieoczekiwaną zmianę rozmiaru wykresu w pliku PPTX przy użyciu osadzonych obiektów OLE Excel z Aspose.Slides for Python via Java. Ustaw stałe wymiary wykresu, aby utrzymać spójność rozmiarów wykresu i ramki OLE."
 ---
 ## **Tło**
 
-Zaobserwowano, że wykresy Excel osadzone jako obiekty OLE w prezentacji PowerPoint przy użyciu komponentów Aspose są skalowane do nieokreślonego rozmiaru po ich pierwszej aktywacji. Zachowanie to powoduje zauważalną różnicę wizualną w prezentacji między stanem wykresu przed i po aktywacji. Zespół Aspose dokładnie zbadał problem i znalazł rozwiązanie. Ten artykuł opisuje przyczyny problemu oraz odpowiadające im rozwiązanie.
+Wykresy Excel osadzone jako obiekty OLE w prezentacjach PowerPoint przy użyciu komponentów Aspose mogą zmieniać rozmiar po pierwszej aktywacji. Może to powodować zauważalną różnicę w wyglądzie wykresu przed i po aktywacji. Ten artykuł wyjaśnia, dlaczego zachodzi zmiana rozmiaru i pokazuje, jak jej zapobiec, dopasowując stałe wymiary wykresu do ramki OLE.
 
-W [poprzednim artykule](/slides/pl/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) wyjaśniliśmy, jak stworzyć wykres Excel przy użyciu Aspose.Cells for Python via Java i osadzić go w prezentacji PowerPoint przy użyciu Aspose.Slides for Python via Java. Aby rozwiązać [problem podglądu obiektu](/slides/pl/python-java/object-preview-issue-when-adding-oleobjectframe/), przypisaliśmy obraz wykresu do ramki obiektu OLE wykresu. W wygenerowanej prezentacji, po dwukrotnym kliknięciu ramki obiektu OLE wyświetlającej obraz wykresu, wykres Excel zostaje aktywowany. Użytkownicy mogą wprowadzać dowolne zmiany w podstawowym skoroszycie Excel, a następnie powrócić do odpowiedniego slajdu, klikając poza aktywowanym skoroszytem. Rozmiar ramki obiektu OLE zmienia się po powrocie użytkownika do slajdu, a współczynnik skalowania zależy od oryginalnych rozmiarów zarówno ramki obiektu OLE, jak i osadzonego skoroszytu Excel.
+W [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/pl/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), wyjaśniliśmy, jak utworzyć wykres Excel przy użyciu Aspose.Cells for Python via Java i osadzić go w prezentacji PowerPoint przy pomocy Aspose.Slides for Python via Java. Aby rozwiązać [object preview issue](/slides/pl/python-java/object-preview-issue-when-adding-oleobjectframe/), przypisaliśmy obraz wykresu do ramki obiektu OLE wykresu. W wyjściowej prezentacji, po dwukrotnym kliknięciu ramki obiektu OLE wyświetlającej obraz wykresu, wykres Excel zostaje aktywowany. Użytkownicy mogą edytować osadzony skoroszyt Excel, a następnie powrócić do slajdu, klikając poza aktywowanym skoroszytem. Rozmiar ramki obiektu OLE zmienia się, gdy użytkownik wraca do slajdu, a współczynnik zmiany rozmiaru zależy od pierwotnych rozmiarów zarówno ramki OLE, jak i osadzonego skoroszytu Excel.
 
 ## **Przyczyna zmiany rozmiaru**
 
-Ponieważ skoroszyt Excel ma własny rozmiar okna, przy pierwszej aktywacji próbuje zachować swój pierwotny rozmiar. Rama obiektu OLE ma natomiast własny rozmiar. Zgodnie z informacjami od Microsoft, gdy skoroszyt Excel jest aktywowany, Excel i PowerPoint negocjują rozmiar i utrzymują poprawne proporcje w ramach procesu osadzania. W zależności od różnic między rozmiarem okna Excel a rozmiarem lub pozycją ramki obiektu OLE, zachodzi zmiana rozmiaru.
+Osadzony skoroszyt Excel ma własne wymiary okna, które Excel stara się zachować przy pierwszej aktywacji obiektu. Ramka OLE na slajdzie ma niezależnie określone wymiary. Gdy skoroszyt Excel jest aktywowany, Excel i PowerPoint negocjują rozmiar obiektu, aby utrzymać jego proporcje w ramach procesu osadzania. Różnice między oknem skoroszytu a ramką OLE mogą więc powodować zmianę rozmiaru obiektu.
 
-## **Rozwiązanie**
+## **Rozwiązanie działające**
 
-Istnieją dwa możliwe scenariusze tworzenia prezentacji PowerPoint przy użyciu Aspose.Slides for Python via Java.
+Dopasuj rozmiar wykresu do ramki OLE na slajdzie i utrzymaj wymiary wykresu niezależne od okna skoroszytu. To rozwiązanie działa zarówno z nową prezentacją, jak i istniejącym szablonem.
 
-**Scenariusz 1:** Utworzenie prezentacji na podstawie istniejącego szablonu.
+Przykład wymaga Aspose.Cells for Python via Java oraz Aspose.Slides for Python via Java. Tworzy prosty wykres kolumnowy na aktywnym arkuszu wykresu i osadza skoroszyt w formacie XLS. Nie jest przypisany żaden obraz podglądu wykresu; wykres staje się widoczny po aktywacji obiektu OLE w PowerPoint.
 
-**Scenariusz 2:** Utworzenie prezentacji od zera.
+Przykład tworzy nową prezentację z ramką OLE o wymiarach 9,5 × 4 cala, umieszczoną 0,5 cala od lewej krawędzi i 1 cala od góry. Współrzędne i wymiary slajdu podawane są w punktach (72 punkty na cal). Dla istniejącej prezentacji zobacz [Use a Template](#use-a-template).
 
-Podane tutaj rozwiązanie ma zastosowanie do obu scenariuszy. Podstawą wszystkich podejść jest to samo: **rozmiar okna osadzonego obiektu OLE powinien odpowiadać ramce obiektu OLE w slajdzie PowerPoint**. Omówimy teraz dwa podejścia do tego rozwiązania.
+## **Ustaw stały rozmiar wykresu**
 
-## **Pierwsze podejście**
-
-W tym podejściu nauczymy się, jak ustawić rozmiar okna osadzonego skoroszytu Excel tak, aby odpowiadał rozmiarowi ramki obiektu OLE w slajdzie PowerPoint.
-
-**Scenariusz 1**
-
-Załóżmy, że zdefiniowaliśmy szablon i chcemy tworzyć prezentacje na jego podstawie. Przypuśćmy, że w szablonie znajduje się kształt o indeksie 2, w którym chcemy umieścić ramkę OLE zawierającą osadzony skoroszyt Excel. W tym scenariuszu rozmiar ramki obiektu OLE jest z góry określony – odpowiada rozmiarowi kształtu o indeksie 2 w szablonie. Wszystko, co musimy zrobić, to ustawić rozmiar okna skoroszytu równy rozmiarowi tego kształtu. Poniższy fragment kodu spełnia to zadanie:
+Ustaw [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) na false, aby wymiary wykresu były niezależne od okna skoroszytu. Ustaw wymiary [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) przez [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) i [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height), konwertując punkty na piksele przy użyciu 96 pikseli na cal: ramka o wymiarach 684 × 288 punktów odpowiada wykresowi o wymiarach 912 × 384 pikseli. Ustaw [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) na wartość CUSTOM typu [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/). Przykład osadza skoroszyt za pomocą [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) i zapisuje prezentację z ramką OLE o wymiarach 9,5 × 4 cala.
 
 ```python
 import jpype
@@ -52,187 +45,61 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# Załaduj skoroszyt Excel zawierający wykres.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # Ustaw rozmiar okna skoroszytu w calach (PowerPoint używa 72 punktów na cal).
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # Zapisz skoroszyt do strumienia pamięci.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # Utwórz ramkę obiektu OLE z osadzonymi danymi Excel.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # Współrzędne i wymiary slajdu podane są w punktach (72 punkty na cal).
+        width = 684.0  # 9,5 cala.
+        height = 288.0  # 4 cale.
+
+        chart.setSizeWithWindow(False)
+        # Konwertuj punkty na piksele wykresu używając 96 pikseli na cal.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Scenariusz 2**
+## **Użyj szablonu**
 
-Powiedzmy, że chcemy utworzyć prezentację od zera i dodać ramkę OLE dowolnego rozmiaru z osadzonym skoroszytem Excel. W poniższym fragmencie kodu tworzymy ramkę OLE o wysokości 4 cali i szerokości 9,5 cala w pozycji x = 0,5 cala oraz y = 1 cal na slajdzie. Następnie ustawiamy okno skoroszytu Excel na ten sam rozmiar – 4 cale wysokości i 9,5 cala szerokości.
+Logika określania rozmiaru jest taka sama dla istniejącej prezentacji. Aby dostosować przykład:
 
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Załaduj skoroszyt Excel zawierający wykres.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 cale (4 * 72).
-    desired_width = 684  # 9,5 cala (9.5 * 72).
-
-    # Zdefiniuj rozmiar wykresu z oknem.
-    chart.setSizeWithWindow(True)
-
-    # Ustaw rozmiar okna skoroszytu w calach (PowerPoint używa 72 punktów na cal).
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # Zapisz skoroszyt do strumienia pamięci.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Utwórz ramkę obiektu OLE z osadzonymi danymi Excel.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Drugie podejście**
-
-W tym podejściu nauczymy się, jak ustawić rozmiar wykresu w osadzonym skoroszycie Excel tak, aby odpowiadał rozmiarowi ramki obiektu OLE w slajdzie PowerPoint. To podejście jest przydatne, gdy rozmiar wykresu jest znany z góry i nie będzie się zmieniał.
-
-**Scenariusz 1**
-
-Załóżmy, że zdefiniowaliśmy szablon i chcemy tworzyć prezentacje na jego podstawie. Przypuśćmy, że w szablonie znajduje się kształt o indeksie 2, w którym zamierzamy umieścić ramkę OLE zawierającą osadzony skoroszyt Excel. W tym scenariuszu rozmiar ramki OLE jest z góry określony – odpowiada rozmiarowi kształtu o indeksie 2 w szablonie. Wszystko, co musimy zrobić, to ustawić rozmiar wykresu w skoroszycie równy rozmiarowi tego kształtu. Poniższy fragment kodu spełnia to zadanie:
-
-```python
-import jpage
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-    # Załaduj skoroszyt Excel zawierający wykres.
-    workbook = Workbook("chart.xls")
-    chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # Zdefiniuj rozmiar wykresu bez okna.
-    chart.setSizeWithWindow(False)
-
-    # Ustaw rozmiar wykresu w pikselach (Excel używa 96 pikseli na cal).
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # Zdefiniuj rozmiar wydruku wykresu.
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # Zapisz skoroszyt do strumienia pamięci.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Utwórz ramkę obiektu OLE z osadzonymi danymi Excel.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Scenariusz 2**:
-
-Załóżmy, że chcemy utworzyć prezentację od zera i dodać ramkę OLE dowolnego rozmiaru z osadzonym skoroszytem Excel. W poniższym fragmencie kodu tworzymy ramkę OLE o wysokości 4 cali i szerokości 9,5 cala na slajdzie w pozycji x = 0,5 cala oraz y = 1 cal. Jednocześnie ustawiamy rozmiar wykresu na te same wymiary: wysokość 4 cale i szerokość 9,5 cala.
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# Załaduj skoroszyt Excel zawierający wykres.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 cale (4 * 72).
-    desired_width = 684  # 9,5 cala (9.5 * 72).
-
-    # Zdefiniuj rozmiar wykresu bez okna.
-    chart.setSizeWithWindow(False)
-
-    # Ustaw rozmiar wykresu w pikselach (Excel używa 96 pikseli na cal).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # Zapisz skoroszyt do strumienia pamięci.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # Utwórz ramkę obiektu OLE z osadzonymi danymi Excel.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **Wniosek**
-
-Istnieją dwa podejścia do rozwiązania problemu zmiany rozmiaru wykresu. Wybór podejścia zależy od wymagań i konkretnego przypadku użycia. Oba podejścia działają tak samo, niezależnie od tego, czy prezentacje są tworzone na podstawie szablonu, czy od zera. Dodatkowo nie ma ograniczeń co do rozmiaru ramki obiektu OLE w tym rozwiązaniu.
+1. Załaduj prezentację szablonową zamiast tworzyć pustą prezentację.  
+1. Sprawdź, czy pierwszy slajd zawiera co najmniej trzy kształty, a następnie użyj kształtu o indeksie 2 jako miejsca wstawienia.  
+1. Pobierz szerokość i wysokość ramki z tego kształtu zamiast używać stałych wartości 684 i 288. Zachowaj niezmienione obliczenia rozmiaru.  
+1. Dodaj ramkę OLE w miejscu placeholdera zamiast stałych współrzędnych 36 i 72.  
+1. Usuń placeholder przed zapisaniem prezentacji.
 
 ## **FAQ**
 
@@ -240,26 +107,21 @@ Istnieją dwa podejścia do rozwiązania problemu zmiany rozmiaru wykresu. Wybó
 
 Dzieje się tak, ponieważ Excel próbuje przywrócić pierwotny rozmiar okna przy pierwszej aktywacji, podczas gdy ramka obiektu OLE w PowerPoint ma własne wymiary. PowerPoint i Excel negocjują rozmiar, aby zachować proporcje, co może powodować zmianę rozmiaru.
 
-**Czy można całkowicie zapobiec temu problemowi ze zmianą rozmiaru?**
+**Jak mogę utrzymać spójność rozmiarów wykresu i ramki OLE?**
 
-Tak. Dopasowując rozmiar okna skoroszytu Excel lub rozmiar wykresu do rozmiaru ramki obiektu OLE przed osadzeniem, można utrzymać spójny rozmiar wykresu.
+Ustaw stałe wymiary wykresu, które odpowiadają ramce OLE, i użyj niestandardowego rozmiaru wydruku wykresu przed osadzeniem skoroszytu. Powyższy przykład pokazuje wymagane ustawienia i przeliczenia jednostek.
 
-**Które podejście wybrać – ustawić rozmiar okna skoroszytu czy rozmiar wykresu?**
+**Czy dopasowanie rozmiaru okna skoroszytu wystarczy?**
 
-Użyj **podejścia 1 (rozmiar okna)**, jeśli chcesz zachować proporcje skoroszytu i ewentualnie umożliwić późniejsze skalowanie.  
-Użyj **podejścia 2 (rozmiar wykresu)**, jeśli wymiary wykresu są stałe i nie będą się zmieniały po osadzeniu.
+Samo dopasowanie rozmiaru okna skoroszytu nie zapewnia niezawodnej ochrony przed zmianą rozmiaru ramki OLE po aktywacji. Należy używać stałych wymiarów wykresu, jak pokazano w przykładzie.
 
-**Czy te metody działają zarówno w prezentacjach opartych na szablonie, jak i w nowych prezentacjach?**
+**Czy to rozwiązanie działa zarówno z prezentacjami opartymi na szablonie, jak i z nowymi prezentacjami?**
 
-Tak. Oba podejścia działają identycznie zarówno dla prezentacji tworzonych na podstawie szablonów, jak i od zera.
+Tak. W przypadku szablonu użyj wymiarów i pozycji placeholdera. W nowej prezentacji podaj wymiary i pozycję ramki bezpośrednio.
 
-**Czy istnieje limit rozmiaru ramki obiektu OLE?**
+**Czy mogę używać tego przykładu z wykresami utworzonymi w innych programach arkuszowych?**
 
-Nie. Możesz ustawić ramkę OLE na dowolny rozmiar, pod warunkiem że odpowiednio skalujesz ją względem rozmiaru skoroszytu lub wykresu.
-
-**Czy mogę używać tych metod z wykresami utworzonymi w innych programach arkuszy?**
-
-Przykłady są przeznaczone dla wykresów Excel tworzonych przy użyciu Aspose.Cells, ale zasady mają zastosowanie również do innych programów arkuszy zgodnych z OLE, o ile obsługują podobne opcje rozmiaru.
+Przykład używa skoroszytu Excel utworzonego za pomocą Aspose.Cells. Nie demonstruje zachowania aktywacji dla innych programów arkuszowych.
 
 ## **Powiązane sekcje**
 

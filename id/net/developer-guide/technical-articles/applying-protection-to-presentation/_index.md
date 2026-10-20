@@ -1,66 +1,66 @@
 ---
-title: Mencegah Penyuntingan Presentasi dengan Kunci Shape di .NET
-linktitle: Mencegah Penyuntingan Presentasi
+title: Batasi Penyuntingan Presentasi dengan Kunci Bentuk di .NET
+linktitle: Batasi Penyuntingan Presentasi
 type: docs
 weight: 70
 url: /id/net/applying-protection-to-presentation/
 keywords:
 - mencegah penyuntingan
 - melindungi dari penyuntingan
-- kunci shape
+- kunci bentuk
 - kunci posisi
-- kunci seleksi
-- kunci ukuran
+- kunci pemilihan
+- kunci pengubahan ukuran
 - kunci pengelompokan
 - PowerPoint
-- OpenDocument
+- PPTX
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Temukan bagaimana Aspose.Slides untuk .NET mengunci atau membuka kunci shape dalam file PPT, PPTX, dan ODP, mengamankan presentasi sambil memungkinkan penyuntingan terkontrol."
+description: "Pelajari cara mengunci dan membuka kunci bentuk dalam presentasi PPTX dengan Aspose.Slides untuk .NET untuk membatasi pemilihan, pergerakan, pengubahan ukuran, dan pengelompokan."
 ---
 ## **Latar Belakang**
 
-Penggunaan umum Aspose.Slides adalah untuk membuat, memperbarui, dan menyimpan presentasi Microsoft PowerPoint (PPTX) sebagai bagian dari alur kerja otomatis. Pengguna aplikasi yang memanfaatkan Aspose.Slides dengan cara ini memiliki akses ke presentasi yang dihasilkan, sehingga melindungi mereka dari penyuntingan menjadi perhatian umum. Penting agar presentasi yang dibuat secara otomatis mempertahankan format dan kontennya yang asli.
+Penggunaan umum Aspose.Slides for .NET adalah untuk membuat, memperbarui, dan menyimpan presentasi PowerPoint (PPTX) sebagai bagian dari alur kerja otomatis. Ketika pengguna menerima presentasi ini, pembatasan perubahan pada bentuk dapat membantu mempertahankan tata letak dan konten yang dimaksud.
 
-Artikel ini menjelaskan bagaimana presentasi dan slide disusun serta bagaimana Aspose.Slides untuk .NET dapat menerapkan perlindungan pada sebuah presentasi dan kemudian menghapusnya. Ini memberikan pengembang cara mengendalikan bagaimana presentasi yang dihasilkan aplikasi mereka digunakan.
+Artikel ini menjelaskan bagaimana bentuk diatur pada slide dan cara menerapkan serta menghapus kunci bentuk dalam presentasi PPTX. Kunci ini memungkinkan Anda membatasi operasi penyuntingan tertentu pada bentuk individual.
 
 ## **Komposisi Slide**
 
-Sebuah slide presentasi terdiri dari komponen seperti autoshape, tabel, objek OLE, grup shape, bingkai gambar, bingkai video, konektor, dan elemen lain yang digunakan untuk membangun presentasi. Di Aspose.Slides untuk .NET, setiap elemen pada slide direpresentasikan oleh objek yang mengimplementasikan antarmuka [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/) atau mewarisi dari kelas yang melakukannya.
+Sebuah slide presentasi terdiri dari komponen seperti autoshape, tabel, objek OLE, bentuk yang dikelompokkan, bingkai gambar, bingkai video, konektor, dan elemen lain yang digunakan untuk membangun presentasi. Di Aspose.Slides for .NET, setiap elemen pada slide diwakili oleh objek yang mengimplementasikan antarmuka [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) atau mewarisi dari kelas yang melakukannya.
 
-Struktur PPTX kompleks, sehingga tidak seperti PPT, di mana kunci generik dapat digunakan untuk semua jenis shape, tipe shape yang berbeda memerlukan kunci yang berbeda. Antarmuka [IBaseShapeLock](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseshapelock/) adalah kelas kunci generik untuk PPTX. Tipe kunci berikut didukung dalam Aspose.Slides untuk .NET untuk PPTX:
+Berbagai tipe bentuk menyediakan opsi penguncian yang berbeda. Antarmuka [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) adalah antarmuka dasar untuk kunci bentuk. Aspose.Slides for .NET menyediakan antarmuka kunci berikut:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshapelock/) mengunci autoshape.  
-- [IConnectorLock](https://reference.aspose.com/slides/id/net/aspose.slides/iconnectorlock/) mengunci shape konektor.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/id/net/aspose.slides/igraphicalobjectlock/) mengunci objek grafis.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/id/net/aspose.slides/igroupshapelock/) mengunci grup shape.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframelock/) mengunci bingkai gambar.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) mengunci autoshapes.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) mengunci bentuk konektor.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) mengunci objek grafis.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) mengunci bentuk grup.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) mengunci bingkai gambar.  
 
-Setiap aksi yang dilakukan pada semua objek shape dalam objek [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) diterapkan pada seluruh presentasi.
+Untuk menerapkan kunci pada seluruh [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), iterasi melalui slide‑slidenya dan tetapkan kunci yang sesuai pada setiap bentuk yang didukung.
 
-## **Terapkan dan Hapus Perlindungan**
+## **Menerapkan dan Menghapus Perlindungan**
 
-Menerapkan perlindungan memastikan bahwa sebuah presentasi tidak dapat diedit. Ini merupakan teknik yang berguna untuk melindungi konten presentasi.
+Kunci bentuk membatasi operasi seperti memilih, memindahkan, dan mengubah ukuran bentuk. Kunci ini tidak membuat seluruh presentasi tidak dapat diedit.
 
-### **Terapkan Perlindungan pada Shape PPTX**
+### **Menerapkan Perlindungan pada Bentuk PPTX**
 
-Aspose.Slides untuk .NET menyediakan antarmuka [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/) untuk bekerja dengan shape pada slide.
+Aspose.Slides for .NET menyediakan antarmuka [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) untuk bekerja dengan bentuk pada slide.
 
-Seperti yang disebutkan sebelumnya, setiap kelas shape memiliki kelas kunci shape terkait untuk perlindungan. Artikel ini fokus pada kunci NoSelect, NoMove, dan NoResize. Kunci ini memastikan bahwa shape tidak dapat dipilih (melalui klik mouse atau metode seleksi lainnya) serta tidak dapat dipindahkan atau diubah ukurannya.
+Contoh ini menetapkan [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/), dan [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) menjadi `true` untuk autoshapes, dengan kunci yang setara untuk bentuk grup, konektor, dan bingkai gambar. Konektor menggunakan [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) untuk pergerakan; grup juga menggunakan [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) untuk membatasi pengelompokan.
 
-Contoh kode berikut menerapkan perlindungan pada semua tipe shape dalam sebuah presentasi.
+Contoh ini memuat presentasi PPTX yang ada, memeriksa bentuk‑bentuk dalam koleksi bentuk setiap slide, dan menyimpan salinan dengan pembatasan ini diterapkan. Bentuk di luar empat tipe yang ditangani dibiarkan tidak berubah. Loop ini tidak menelusuri bentuk anak di dalam grup.
 
 ```cs
-// Membuat instance kelas Presentation yang mewakili file PPTX.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Menelusuri semua slide dalam presentasi.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Menelusuri semua shape dalam slide.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Menyimpan file presentasi.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-### **Hapus Perlindungan**
+### **Menghapus Perlindungan**
 
-Untuk membuka kunci sebuah shape, tetapkan nilai kunci yang diterapkan menjadi `false`. Contoh kode berikut menunjukkan cara membuka kunci shape dalam presentasi yang terkunci.
+Untuk menghapus kunci bentuk, setel nilainya menjadi `false`. Contoh berikut memuat presentasi dengan kunci bentuk dan menghapus pembatasan pemilihan, pergerakan, dan pengubahan ukuran melalui [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/), dan [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). Ini juga menghapus [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) dan menyimpan salinan presentasi. Pengaturan kunci lainnya dibiarkan tidak berubah.
 
 ```cs
-// Membuat instance kelas Presentation yang mewakili file PPTX.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Menelusuri semua slide dalam presentasi.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Menelusuri semua shape dalam slide.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,24 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Menyimpan file presentasi.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Kesimpulan**
 
-Aspose.Slides menawarkan beberapa opsi untuk melindungi shape dalam sebuah presentasi. Anda dapat mengunci satu shape atau mengiterasi semua shape dalam presentasi dan mengunci masing‑masing untuk secara efektif mengamankan seluruh berkas. Anda dapat menghapus perlindungan dengan mengatur nilai kunci menjadi `false`.
+Aspose.Slides for .NET memungkinkan Anda membatasi operasi penyuntingan tertentu pada bentuk individual atau menerapkan pembatasan yang sama pada seluruh slide. Pilih kunci yang didukung oleh setiap tipe bentuk, dan setel nilainya menjadi `false` ketika Anda perlu menghapus pembatasan tersebut.
 
 ## **FAQ**
 
-**Apakah saya dapat menggabungkan kunci shape dan perlindungan password dalam satu presentasi?**
+**Apakah saya dapat menggabungkan kunci bentuk dan perlindungan kata sandi dalam presentasi yang sama?**
 
-Ya. Kunci membatasi penyuntingan objek di dalam berkas, sementara [perlindungan password](/slides/id/net/password-protected-presentation/) mengontrol akses untuk membuka dan/atau menyimpan perubahan. Kedua mekanisme ini saling melengkapi dan bekerja bersama.
+Ya. Kunci bentuk membatasi operasi penyuntingan tertentu, sementara [password protection](/slides/id/net/password-protected-presentation/) dapat membatasi pembukaan atau modifikasi presentasi. Anda dapat menggunakan keduanya dalam satu file.
 
 **Apakah saya dapat membatasi penyuntingan pada slide tertentu tanpa memengaruhi slide lain?**
 
-Ya. Terapkan kunci pada shape di slide yang dipilih; slide lainnya tetap dapat diedit.
+Ya. Terapkan kunci hanya pada bentuk di slide yang dipilih. Ini tidak mengubah pengaturan kunci pada slide lain.
 
-**Apakah kunci shape berlaku untuk objek grup dan konektor?**
+**Bagaimana cara menerapkan kunci pada bentuk individual di dalam suatu grup?**
 
-Ya. Tipe kunci khusus didukung untuk grup, konektor, objek grafis, dan jenis shape lainnya.
+Iterasi melalui koleksi [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) grup dan terapkan kunci yang sesuai pada setiap bentuk anak. Ulangi proses ini untuk grup yang bersarang. Contoh di atas hanya memproses koleksi bentuk slide, sehingga tidak menetapkan kunci pada anggota grup individual.

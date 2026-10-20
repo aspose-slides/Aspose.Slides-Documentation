@@ -14,34 +14,39 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Napraw zmianę rozmiaru arkusza Excel OLE w prezentacjach: dwa sposoby, aby utrzymać ramki obiektów spójne — skaluj ramkę lub arkusz — w formatach PPT i PPTX."
+description: "Napraw rozmiarowanie OLE arkusza Excel w prezentacjach: dwa sposoby utrzymania spójności ramek obiektów — skalowanie ramki lub arkusza — w formatach PPT i PPTX."
 ---
-{{% alert color="primary" %}} 
-Zaobserwowano, że arkusze Excel osadzone jako obiekty OLE w prezentacji PowerPoint przy użyciu komponentów Aspose są skalowane do nieokreślonej wartości po pierwszej aktywacji. To zachowanie powoduje zauważalną różnicę wizualną w prezentacji pomiędzy stanem przed i po aktywacji obiektu OLE. Zbadaliśmy ten problem szczegółowo i przedstawiliśmy rozwiązanie, które opisano w tym artykule.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Arkusze Excel osadzone jako obiekty OLE w prezentacji PowerPoint przy użyciu komponentów Aspose mogą nieoczekiwanie zmienić rozmiar po ich pierwszej aktywacji. To zachowanie tworzy zauważalną różnicę wizualną między obiektem OLE przed i po aktywacji. Ten artykuł wyjaśnia problem i opisuje dwa sposoby jego rozwiązania.
+{{% /alert %}}
 
 ## **Tło**
 
-W artykule [Zarządzanie OLE](/slides/pl/net/manage-ole/) wyjaśniliśmy, jak dodać ramkę OLE do prezentacji PowerPoint przy użyciu Aspose.Slides for .NET. Aby rozwiązać [problem podglądu obiektu](/slides/pl/net/object-preview-issue-when-adding-oleobjectframe/), przypisaliśmy obraz wybranego obszaru arkusza do ramki obiektu OLE. W prezentacji wyjściowej, po dwukrotnym kliknięciu ramki obiektu OLE wyświetlającej obraz arkusza, aktywowany jest skoroszyt Excel. Użytkownicy mogą wprowadzić dowolne zmiany w rzeczywistym skoroszycie Excel, a następnie wrócić do slajdu, klikając poza aktywowanym skoroszytem. Rozmiar ramki obiektu OLE zmieni się, gdy użytkownik powróci do slajdu. Współczynnik zmiany rozmiaru będzie się różnił w zależności od rozmiaru ramki obiektu OLE oraz osadzonego skoroszytu Excel.
+W artykule [Manage OLE](/slides/pl/net/manage-ole/) wyjaśniliśmy, jak dodać ramkę OLE do prezentacji PowerPoint przy użyciu Aspose.Slides dla .NET. Aby rozwiązać [problem podglądu obiektu](/slides/pl/net/object-preview-issue-when-adding-oleobjectframe/), przypisaliśmy obraz wybranego obszaru arkusza do ramki obiektu OLE. W wygenerowanej prezentacji, po dwukrotnym kliknięciu ramki obiektu OLE wyświetlającej obraz arkusza, aktywowany jest skoroszyt Excel. Użytkownicy mogą wprowadzić dowolne zmiany w rzeczywistym skoroszycie Excel, a następnie wrócić do slajdu, klikając poza aktywowanym skoroszytem Excel. Rozmiar ramki obiektu OLE zmieni się, gdy użytkownik wróci do slajdu. Współczynnik zmiany rozmiaru będzie się różnić w zależności od rozmiaru ramki obiektu OLE i osadzonego skoroszytu Excel.
 
 ## **Przyczyna zmiany rozmiaru**
 
-Ponieważ skoroszyt Excel posiada własny rozmiar okna, próbuje zachować swój pierwotny rozmiar po pierwszej aktywacji. Z drugiej strony ramka obiektu OLE ma własny rozmiar. Według Microsoft, gdy skoroszyt Excel jest aktywowany, Excel i PowerPoint negocjują rozmiar, aby zapewnić prawidłowe proporcje w ramach procesu osadzania. Zmiana rozmiaru zachodzi w oparciu o różnice pomiędzy rozmiarem okna Excel a rozmiarem i pozycją ramki obiektu OLE.
+Ponieważ skoroszyt Excel ma własny rozmiar okna, stara się zachować pierwotny rozmiar po pierwszej aktywacji. Z drugiej strony ramka obiektu OLE ma własny rozmiar. Zgodnie z informacjami Microsoftu, gdy skoroszyt Excel jest aktywowany, Excel i PowerPoint negocjują rozmiar, aby zapewnić utrzymanie prawidłowych proporcji w ramach procesu osadzania. Zmiana rozmiaru zachodzi na podstawie różnic między rozmiarem okna Excel a rozmiarem i pozycją ramki obiektu OLE.
 
-## **Rozwiązanie działające**
+## **Rozwiązanie**
 
 Istnieją dwa możliwe rozwiązania, aby uniknąć efektu zmiany rozmiaru.
 
-- Skaluj rozmiar ramki OLE w prezentacji PowerPoint, aby odpowiadał wysokości i szerokości żądanej liczby wierszy i kolumn w ramce OLE.
-- Zachowaj stały rozmiar ramki OLE i skaluj rozmiar uczestniczących wierszy i kolumn, aby mieściły się w wybranym rozmiarze ramki OLE.
+- Skaluj ramkę OLE w prezentacji PowerPoint, aby dopasować całkowitą wysokość i szerokość wybranych wierszy i kolumn.
+- Utrzymaj stały rozmiar ramki OLE i skaluj wybrane wiersze i kolumny, aby pasowały do niej.
 
 ### **Skalowanie rozmiaru ramki OLE**
 
-W tym podejściu dowiemy się, jak ustawić rozmiar ramki OLE osadzonego skoroszytu Excel, aby odpowiadał łącznemu rozmiarowi uczestniczących wierszy i kolumn w arkuszu Excel.
+To podejście ustawia rozmiar ramki OLE tak, aby odpowiadał całkowitej wysokości i szerokości wybranych wierszy i kolumn w osadzonym arkuszu Excel.
 
-Załóżmy, że mamy szablonowy arkusz Excel i chcemy dodać go do prezentacji jako ramkę OLE. W tym scenariuszu rozmiar ramki obiektu OLE zostanie najpierw obliczony na podstawie łącznych wysokości wierszy i szerokości kolumn uczestniczących w skoroszycie. Następnie ustawimy rozmiar ramki OLE na tę obliczoną wartość. Aby uniknąć czerwonego komunikatu „EMBEDDED OLE OBJECT” dla ramki OLE w PowerPoint, przechwycimy również obraz żądanych fragmentów wierszy i kolumn w skoroszycie i ustawimy go jako obraz ramki OLE.
+Przykład ładuje istniejący skoroszyt Excel i wybiera pierwsze 10 wierszy oraz 13 kolumn pierwszego arkusza, używając indeksów zerowych. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) definiuje wyświetlany zakres. Podgląd jest renderowany w 96 DPI, a jego wymiary w pikselach są konwertowane na punkty przy użyciu 72 punktów na cal. [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) osadza zmodyfikowany skoroszyt w ramce o tych wymiarach. Podgląd jest przypisany przez [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/) w celu zastąpienia symbolu zastępczego „EMBEDDED OLE OBJECT” w zapisanej prezentacji.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -84,6 +89,8 @@ oleFrame.IsObjectIcon = false;
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+Pomocnik podglądu ustawia [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) na wybrany zakres i usuwa marginesy, nagłówki oraz stopki. Po włączeniu [ImageOrPrintOptions.OnlyArea](https://reference.aspose.com/cells/net/aspose.cells.rendering/imageorprintoptions/onlyarea/) [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/) renderuje zakres jako obraz PNG. Pomocnik przewija strumień obrazu przed jego zwróceniem do użycia w prezentacji.
+
 ```cs
 static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
@@ -116,11 +123,15 @@ static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolu
 
 ### **Skalowanie rozmiaru zakresu komórek**
 
-W tym podejściu dowiemy się, jak skalować wysokości uczestniczących wierszy i szerokość uczestniczących kolumn, aby pasowały do niestandardowego rozmiaru ramki OLE.
+To podejście skaluje wysokości wybranych wierszy i szerokości wybranych kolumn, aby dopasować je do niestandardowego rozmiaru ramki OLE.
 
-Załóżmy, że mamy szablonowy arkusz Excel i chcemy dodać go do prezentacji jako ramkę OLE. W tym scenariuszu ustawimy rozmiar ramki OLE i skalujemy rozmiar wierszy oraz kolumn, które uczestniczą w obszarze ramki OLE. Następnie zapisujemy skoroszyt do strumienia, aby zastosować zmiany, i konwertujemy go na tablicę bajtów w celu dodania go do ramki OLE. Aby uniknąć czerwonego komunikatu „EMBEDDED OLE OBJECT” dla ramki OLE w PowerPoint, przechwycimy również obraz żądanych fragmentów wierszy i kolumn w skoroszycie i ustawimy go jako obraz ramki OLE.
+Przykład ładuje istniejący skoroszyt Excel i wybiera pierwsze 10 wierszy oraz 13 kolumn pierwszego arkusza, używając indeksów zerowych. [WorksheetCollection.SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) definiuje wyświetlany zakres, a poniższy pomocnik skaluje ten zakres, aby pasował do ramki o szerokości 400 punktów i wysokości 100 punktów. Po zapisaniu zmodyfikowanego skoroszytu do strumienia, [ShapeCollection.AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/shapecollection/addoleobjectframe/) osadza go w określonym rozmiarze. Podgląd renderowany w 96 DPI jest przypisany przez [OleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe/substitutepictureformat/), dzięki czemu zapisana prezentacja wyświetla wybrane komórki zamiast domyślnego symbolu zastępczego.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -136,7 +147,7 @@ var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Skaluj zakres komórek, aby dopasować go do rozmiaru ramki.
+// Skaluj zakres komórek, aby pasował do rozmiaru ramki.
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -160,6 +171,8 @@ oleFrame.IsObjectIcon = false;
 
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+Pomocnik skalowania oblicza osobne współczynniki szerokości i wysokości dla wybranego zakresu, zachowując względne szerokości kolumn i względne wysokości wierszy. Przed zastosowaniem ich przy użyciu [Cells.SetColumnWidthInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setcolumnwidthinch/) i [Cells.SetRowHeightInch](https://reference.aspose.com/cells/net/aspose.cells/cells/setrowheightinch/) konwertuje obliczone wymiary z punktów na cale. Wybrany zakres musi mieć niezerową szerokość i wysokość.
 
 ```cs
 /// <param name="width">Oczekiwana szerokość zakresu komórek w punktach.</param>
@@ -191,6 +204,8 @@ static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float heig
 }
 ```
 
+Ten pomocnik podglądu renderuje przeskalowany zakres przy użyciu [SheetRender.ToImage](https://reference.aspose.com/cells/net/aspose.cells.rendering/sheetrender/toimage/). Ogranicza [PageSetup.PrintArea](https://reference.aspose.com/cells/net/aspose.cells/pagesetup/printarea/) do tego zakresu, usuwa marginesy, nagłówki i stopki oraz zwraca strumień PNG ustawiony na początek.
+
 ```cs
 static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
@@ -221,33 +236,31 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 }
 ```
 
-## **Wniosek**
+## **Wnioski**
 
-{{% alert color="primary" %}}
-
-Istnieją dwa podejścia do naprawy problemu zmiany rozmiaru arkusza. Wybór odpowiedniego podejścia zależy od konkretnych wymagań i scenariusza użycia. Oba podejścia działają tak samo, niezależnie od tego, czy prezentacje są tworzone na podstawie szablonu, czy od podstaw. Dodatkowo nie ma ograniczenia co do rozmiaru ramki obiektu OLE w tym rozwiązaniu.
-
+{{% alert color="info" title="Note" %}}
+Istnieją dwa podejścia do rozwiązania problemu zmiany rozmiaru arkusza. Wybierz podejście, które najlepiej odpowiada Twoim wymaganiom i przypadkowi użycia. Oba podejścia działają tak samo, niezależnie od tego, czy prezentacje są tworzone z szablonu, czy od podstaw. Dodatkowo w tym rozwiązaniu nie ma ograniczenia wielkości ramki obiektu OLE.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Dlaczego osadzony arkusz Excel zmienia rozmiar po pierwszej aktywacji w PowerPoint?**
-Dzieje się tak, ponieważ Excel próbuje zachować pierwotny rozmiar okna po aktywacji, podczas gdy ramka obiektu OLE w PowerPoint ma własne wymiary. PowerPoint i Excel negocjują rozmiar, aby utrzymać proporcje, co może powodować zmianę rozmiaru.
+**Dlaczego osadzony arkusz Excel zmienia rozmiar przy pierwszej aktywacji w PowerPoint?**  
+Dzieje się tak, ponieważ Excel stara się zachować oryginalny rozmiar okna przy aktywacji, podczas gdy ramka obiektu OLE w PowerPoint ma własne wymiary. PowerPoint i Excel negocjują rozmiar, aby utrzymać proporcje, co może powodować zmianę rozmiaru.
 
-**Czy można całkowicie zapobiec temu problemowi ze zmianą rozmiaru?**
-Tak. Skalując ramkę OLE tak, aby pasowała do rozmiaru zakresu komórek Excel, lub skalując zakres komórek, aby pasował do żądanego rozmiaru ramki OLE, można zapobiec niepożądanej zmianie rozmiaru.
+**Czy można całkowicie zapobiec temu problemowi ze zmianą rozmiaru?**  
+Tak. Skalując ramkę OLE tak, aby pasowała do rozmiaru zakresu komórek Excel, lub skalując zakres komórek tak, aby pasował do żądanego rozmiaru ramki OLE, można całkowicie zapobiec niechcianej zmianie rozmiaru.
 
-**Którą metodę skalowania powinienem wybrać, skalowanie ramki OLE czy skalowanie zakresu komórek?**
-Wybierz **skalowanie ramki OLE**, jeśli chcesz zachować oryginalne rozmiary wierszy i kolumn w Excelu. Wybierz **skalowanie zakresu komórek**, jeśli potrzebujesz stałego rozmiaru ramki OLE w prezentacji.
+**Którą metodę skalowania powinienem wybrać, skalowanie ramki OLE czy skalowanie zakresu komórek?**  
+Wybierz **skalowanie ramki OLE**, jeśli chcesz zachować oryginalne rozmiary wierszy i kolumn w Excelu. Wybierz **skalowanie zakresu komórek**, jeśli chcesz mieć stały rozmiar ramki OLE w swojej prezentacji.
 
-**Czy te rozwiązania będą działać, jeśli moja prezentacja oparta jest na szablonie?**
-Tak. Oba rozwiązania działają zarówno dla prezentacji tworzonych na szablonach, jak i od podstaw.
+**Czy te rozwiązania będą działać, jeśli moja prezentacja opiera się na szablonie?**  
+Tak. Oba rozwiązania działają zarówno dla prezentacji tworzonych z szablonów, jak i od podstaw.
 
-**Czy istnieje limit rozmiaru ramki OLE przy użyciu tych metod?**
-Nie. Możesz ustawić dowolny rozmiar ramki obiektu OLE, pod warunkiem odpowiedniego skalowania.
+**Czy istnieje limit rozmiaru ramki OLE przy użyciu tych metod?**  
+Nie. Możesz ustawić ramkę obiektu OLE na dowolny rozmiar, pod warunkiem odpowiedniego ustawienia skali.
 
-**Czy istnieje sposób, aby uniknąć tekstu zastępczego „EMBEDDED OLE OBJECT” w PowerPoint?**
-Tak. Przechwycając zrzut docelowego zakresu komórek Excel i ustawiając go jako obraz zastępczy ramki OLE, możesz wyświetlić własny podgląd zamiast domyślnego tekstu zastępczego.
+**Czy istnieje sposób na uniknięcie tekstu zastępczego „EMBEDDED OLE OBJECT” w PowerPoint?**  
+Tak. Pobierając migawkę docelowego zakresu komórek Excel i ustawiając ją jako obraz zastępczy ramki OLE, możesz wyświetlić własny obraz podglądu zamiast domyślnego symbolu zastępczego.
 
 ## **Powiązane artykuły**
 

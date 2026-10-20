@@ -1,5 +1,5 @@
 ---
-title: PPTX에서 차트 크기 조정을 위한 작업 솔루션
+title: PPTX에서 차트 크기 조정을 위한 실용적인 해결책
 type: docs
 weight: 60
 url: /ko/net/working-solution-for-chart-resizing-in-pptx/
@@ -13,184 +13,102 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET을 사용하여 삽입된 Excel OLE 개체와 함께 PPTX에서 발생하는 예기치 않은 차트 크기 조정을 수정합니다. 코드를 포함한 두 가지 방법을 배우고 크기를 일관되게 유지하세요."
+description: "PPTX에서 Aspose.Slides for .NET을 사용하여 삽입된 Excel OLE 개체를 사용할 때 발생하는 예기치 않은 차트 크기 조정을 해결합니다. 차트와 OLE 프레임 크기를 일관되게 유지하기 위해 차트의 고정 차원을 설정합니다."
 ---
 ## **배경**
 
-Aspose 구성 요소를 통해 PowerPoint 프레젠테이션에 OLE 개체로 삽입된 Excel 차트가 처음 활성화된 후 지정되지 않은 비율로 크기가 조정되는 것이 관찰되었습니다. 이 동작으로 인해 차트가 활성화되기 전과 후의 프레젠테이션 사이에 눈에 띄는 시각적 차이가 발생합니다. Aspose 팀은 이 문제를 자세히 조사하고 해결책을 찾았습니다. 이 문서에서는 문제의 원인과 해당 해결 방법을 설명합니다.
+Aspose 구성 요소를 사용하여 PowerPoint 프레젠테이션에 OLE 개체로 삽입된 Excel 차트가 처음 활성화된 후 크기가 변경될 수 있습니다. 이로 인해 차트가 활성화 전후에 보이는 모습에 눈에 띄는 차이가 발생합니다. 이 문서는 크기 조정이 발생하는 이유를 설명하고, 차트 크기를 OLE 프레임에 맞게 고정하여 이를 방지하는 방법을 보여줍니다.
 
-이전 기사[이전 기사](/slides/ko/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)에서는 Aspose.Cells for .NET을 사용하여 Excel 차트를 생성하고 Aspose.Slides for .NET을 사용해 PowerPoint 프레젠테이션에 삽입하는 방법을 설명했습니다. 개체 미리보기 문제[개체 미리보기 문제](/slides/ko/net/object-preview-issue-when-adding-oleobjectframe/)를 해결하기 위해 차트 이미지를 차트의 OLE 개체 프레임에 할당했습니다. 출력 프레젠테이션에서 차트 이미지를 표시하는 OLE 개체 프레임을 두 번 클릭하면 Excel 차트가 활성화됩니다. 최종 사용자는 기본 Excel 워크북에서 원하는 변경을 수행한 후 활성화된 워크북 외부를 클릭하여 해당 슬라이드로 돌아갈 수 있습니다. 사용자가 슬라이드로 돌아오면 OLE 개체 프레임의 크기가 변경되며, 크기 조정 비율은 OLE 개체 프레임과 삽입된 Excel 워크북의 원래 크기에 따라 달라집니다.
+[Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/ko/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) 에서는 Aspose.Cells for .NET을 사용해 Excel 차트를 만들고 Aspose.Slides for .NET을 통해 PowerPoint 프레젠테이션에 삽입하는 방법을 설명했습니다. [object preview issue](/slides/ko/net/object-preview-issue-when-adding-oleobjectframe/) 를 해결하기 위해 차트 이미지를 차트의 OLE 개체 프레임에 할당했습니다. 출력 프레젠테이션에서 차트 이미지를 표시하는 OLE 개체 프레임을 더블 클릭하면 Excel 차트가 활성화됩니다. 사용자는 삽입된 Excel 워크북을 편집한 뒤 활성화된 워크북 밖을 클릭해 슬라이드로 돌아갈 수 있습니다. 사용자가 슬라이드로 돌아올 때 OLE 개체 프레임의 크기가 변경되며, 이 크기 조정 비율은 OLE 개체 프레임과 삽입된 Excel 워크북의 원래 크기에 따라 달라집니다.
 
 ## **크기 조정 원인**
 
-Excel 워크북은 자체 창 크기를 가지고 있기 때문에 처음 활성화될 때 원래 크기를 유지하려고 합니다. 하지만 OLE 개체 프레임은 자체 크기를 가지고 있습니다. Microsoft에 따르면 Excel 워크북이 활성화될 때 Excel과 PowerPoint가 크기를 협상하여 삽입 과정의 일환으로 올바른 비율을 유지합니다. Excel 창 크기와 OLE 개체 프레임의 크기 또는 위치 차이에 따라 크기 조정이 발생합니다.
+삽입된 Excel 워크북은 자체 창 크기를 가지고 있으며, Excel은 개체가 처음 활성화될 때 이 크기를 유지하려 합니다. 슬라이드상의 OLE 프레임은 별도로 정의된 크기를 갖습니다. Excel 워크북이 활성화되면 Excel과 PowerPoint가 개체의 비율을 유지하기 위해 크기를 협상합니다. 워크북 창과 OLE 프레임 사이의 차이 때문에 개체가 크기가 조정될 수 있습니다.
 
-## **작동 솔루션**
+## **작동 해결책**
 
-Aspose.Slides for .NET을 사용하여 PowerPoint 프레젠테이션을 만들 때 두 가지 가능한 시나리오가 있습니다.
+차트 크기를 슬라이드상의 OLE 프레임에 맞추고, 차트 차원을 워크북 창과 무관하게 유지합니다. 이 솔루션은 새 프레젠테이션이든 기존 템플릿이든 적용됩니다.
 
-**Scenario 1:** Create a presentation based on an existing template.
-**Scenario 2:** Create a presentation from scratch.
+예제는 Aspose.Cells for .NET과 Aspose.Slides for .NET이 필요합니다. 활성 차트 시트에 간단한 세로 막대 차트를 만들고 워크북을 XLS 형식으로 삽입합니다. 차트 미리보기 이미지는 할당되지 않으며, PowerPoint에서 OLE 개체가 활성화될 때 차트가 표시됩니다.
 
-여기서 제공하는 해결책은 두 시나리오 모두에 적용됩니다. 모든 해결 접근 방식의 기본은 동일합니다: **삽입된 OLE 개체의 창 크기가 PowerPoint 슬라이드의 OLE 개체 프레임과 일치해야 합니다**. 이제 이 해결책의 두 가지 접근 방식을 논의하겠습니다.
+예제는 왼쪽 가장자리에서 0.5인치, 위쪽 가장자리에서 1인치 떨어진 위치에 9.5 × 4인치 OLE 프레임을 만들고 새로운 프레젠테이션을 생성합니다. 슬라이드 좌표와 크기는 포인트 단위(인치당 72 포인트)로 지정됩니다. 기존 프레젠테이션의 경우, [Use a Template](#use-a-template) 을 참조하십시오.
 
-## **첫 번째 접근 방식**
+## **고정 차트 크기 설정**
 
-이 접근 방식에서는 삽입된 Excel 워크북의 창 크기를 설정하여 PowerPoint 슬라이드의 OLE 개체 프레임 크기와 일치하도록 하는 방법을 배웁니다.
-
-**Scenario 1**
-
-템플릿을 정의하고 이를 기반으로 프레젠테이션을 만들고 싶다고 가정해 보겠습니다. 템플릿의 인덱스 2에 OLE 프레임을 배치하여 삽입된 Excel 워크북을 포함하려는 도형이 있다고 가정합니다. 이 시나리오에서는 OLE 개체 프레임의 크기가 미리 정의되어 있으며—템플릿의 인덱스 2 도형 크기와 동일합니다. 해야 할 일은 워크북의 창 크기를 해당 도형 크기와 동일하게 설정하는 것입니다. 아래 코드 스니펫이 이를 수행합니다:
+[SizeWithWindow](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/sizewithwindow/)을 false 로 설정하여 차트 차원이 워크북 창과 무관하도록 합니다. [ChartObject](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/chartobject/)의 차원은 [Width](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/width/)와 [Height](https://reference.aspose.com/cells/net/aspose.cells.drawing/shape/height/)를 통해 설정하고, 인치당 96 픽셀을 사용해 포인트를 픽셀로 변환합니다: 684 × 288 포인트 프레임은 912 × 384 픽셀 차트에 해당합니다. [PrintSize](https://reference.aspose.com/cells/net/aspose.cells.charts/chart/printsize/)를 [PrintSizeType](https://reference.aspose.com/cells/net/aspose.cells/printsizetype/)의 Custom 값으로 설정합니다. 예제는 [AddOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addoleobjectframe/)을 사용해 워크북을 삽입하고 9.5 × 4인치 OLE 프레임이 포함된 프레젠테이션을 저장합니다.
 
 ```cs
-// 차트 크기를 창과 함께 정의합니다. 
-chart.SizeWithWindow = true;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
 
-// 워크북의 창 너비를 인치 단위로 설정합니다 (PowerPoint가 인치당 72픽셀을 사용하므로 72로 나눕니다).
-workbook.Worksheets.WindowWidthInch = slide.Shapes[2].Width / 72f;
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "Data";
+dataSheet.Cells["A1"].PutValue(10);
+dataSheet.Cells["A2"].PutValue(20);
 
-// 워크북의 창 높이를 인치 단위로 설정합니다.
-workbook.Worksheets.WindowHeightInch = slide.Shapes[2].Height / 72f;
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, 20, 10);
+var chart = chartSheet.Charts[chartIndex];
+chart.NSeries.Add("Data!A1:A2", true);
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
 
-// 워크북을 메모리 스트림에 저장합니다.
-MemoryStream workbookStream = workbook.SaveToStream();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// 삽입된 Excel 데이터를 사용하여 OLE 개체 프레임을 생성합니다.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
+// 슬라이드 좌표와 크기는 포인트 단위(인치당 72 포인트)입니다.
+var width = 684f; // 9.5인치.
+var height = 288f; // 4인치.
 
-**Scenario 2**
-
-새 프레젠테이션을 처음부터 만들고 어떤 크기의 OLE 개체 프레임에 삽입된 Excel 워크북을 포함하고 싶다고 가정해 보겠습니다. 아래 코드 스니펫에서는 슬라이드의 x = 0.5인치, y = 1인치 위치에 높이 4인치, 너비 9.5인치인 OLE 개체 프레임을 생성합니다. 그런 다음 Excel 워크북 창을 동일한 크기인 높이 4인치, 너비 9.5인치로 설정합니다.
-
-```cs
-// 원하는 높이.
-int desiredHeight = 288; // 4 인치 (4 * 72)
-
-// 원하는 너비.
-int desiredWidth = 684;//9.5 인치 (9.5 * 72)
-
-// 창과 함께 차트 크기를 정의합니다.
-chart.SizeWithWindow = true;
-
-// 워크북의 창 너비를 인치 단위로 설정합니다.
-workbook.Worksheets.WindowWidthInch = desiredWidth / 72f;
-
-// 워크북의 창 높이를 인치 단위로 설정합니다.
-workbook.Worksheets.WindowHeightInch = desiredHeight / 72f;
-
-// 워크북을 메모리 스트림에 저장합니다.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// 삽입된 Excel 데이터를 사용하여 OLE 개체 프레임을 생성합니다.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
-
-## **두 번째 접근 방식**
-
-이 접근 방식에서는 삽입된 Excel 워크북에 있는 차트의 크기를 PowerPoint 슬라이드의 OLE 개체 프레임 크기와 일치하도록 설정하는 방법을 배웁니다. 차트 크기가 미리 알려져 있고 이후 변경되지 않을 경우에 유용합니다.
-
-**Scenario 1**
-
-템플릿을 정의하고 이를 기반으로 프레젠테이션을 만들고 싶다고 가정해 보겠습니다. 템플릿의 인덱스 2에 OLE 프레임을 배치하여 삽입된 Excel 워크북을 포함하려고 합니다. 이 시나리오에서는 OLE 프레임 크기가 미리 정의되어 있으며—템플릿의 인덱스 2 도형 크기와 동일합니다. 해야 할 일은 워크북 내 차트 크기를 해당 도형 크기와 동일하게 설정하는 것입니다. 아래 코드 스니펫이 이를 수행합니다:
-
-```cs
-// 창 없이 차트 크기를 정의합니다. 
 chart.SizeWithWindow = false;
+// 포인트를 인치당 96픽셀을 사용해 차트 픽셀로 변환합니다.
+chart.ChartObject.Width = (int)(width / 72f * 96f);
+chart.ChartObject.Height = (int)(height / 72f * 96f);
+chart.PrintSize = Aspose.Cells.PrintSizeType.Custom;
 
-// 차트 너비를 픽셀 단위로 설정합니다 (Excel이 인치당 96픽셀을 사용하므로 96을 곱합니다).    
-chart.ChartObject.Width = (int)((slide.Shapes[2].Width / 72f) * 96f);
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Excel97To2003);
+var dataInfo = new OleEmbeddedDataInfo(workbookStream.ToArray(), "xls");
+slide.Shapes.AddOleObjectFrame(36, 72, width, height, dataInfo);
 
-// 차트 높이를 픽셀 단위로 설정합니다.
-chart.ChartObject.Height = (int)((slide.Shapes[2].Height / 72f) * 96f);
-
-// 차트 인쇄 크기를 정의합니다.
-chart.PrintSize = PrintSizeType.Custom;
-
-// 워크북을 메모리 스트림에 저장합니다.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// 삽입된 Excel 데이터를 사용하여 OLE 개체 프레임을 생성합니다.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    slide.Shapes[2].X,
-    slide.Shapes[2].Y,
-    slide.Shapes[2].Width,
-    slide.Shapes[2].Height,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
+presentation.Save("chart-fixed-size.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-**Scenario 2**
+## **템플릿 사용**
 
-새 프레젠테이션을 처음부터 만들고 어떤 크기의 OLE 개체 프레임에 삽입된 Excel 워크북을 포함하고 싶다고 가정해 보겠습니다. 아래 코드 스니펫에서는 슬라이드의 x = 0.5인치, y = 1인치 위치에 높이 4인치, 너비 9.5인치인 OLE 개체 프레임을 생성합니다. 또한 해당 차트 크기를 같은 차원인 높이 4인치, 너비 9.5인치로 설정합니다.
+기존 프레젠테이션에서도 동일한 크기 지정 로직을 적용합니다. 예제를 다음과 같이 조정합니다:
 
-```cs
- // 원하는 높이.
-int desiredHeight = 288; // 4인치 (4 * 576)
-
-// 원하는 너비.
-int desiredWidth = 684; // 9.5인치 (9.5 * 576)
-
-// 창 없이 차트 크기를 정의합니다. 
-chart.SizeWithWindow = false;
-
-// 픽셀 단위로 차트 너비를 설정합니다.   
-chart.ChartObject.Width = (int)((desiredWidth / 72f) * 96f);
-
-// 픽셀 단위로 차트 높이를 설정합니다.    
-chart.ChartObject.Height = (int)((desiredHeight / 72f) * 96f);
-
-// 워크북을 메모리 스트림에 저장합니다.
-MemoryStream workbookStream = workbook.SaveToStream();
-
-// 삽입된 Excel 데이터를 사용하여 OLE 개체 프레임을 생성합니다.
-Aspose.Slides.OleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(
-    36,
-    72,
-    desiredWidth,
-    desiredHeight,
-	"Excel.Sheet.8",
-	workbookStream.ToArray());
-```
-
-## **결론**
-
-차트 크기 조정 문제를 해결하는 데는 두 가지 접근 방식이 있습니다. 접근 방식 선택은 요구 사항 및 사용 사례에 따라 달라집니다. 두 접근 방식 모두 프레젠테이션을 템플릿에서 만들든 처음부터 만들든 동일하게 작동합니다. 또한 이 솔루션에서는 OLE 개체 프레임 크기에 제한이 없습니다.
+1. 빈 프레젠테이션을 만드는 대신 템플릿 프레젠테이션을 로드합니다.
+1. 첫 번째 슬라이드에 최소 세 개의 도형이 있는지 확인하고, 인덱스 2에 해당하는 도형을 자리표시자로 사용합니다.
+1. 고정값 684와 288 대신 해당 도형의 프레임 너비와 높이를 사용합니다. 크기 계산은 그대로 유지합니다.
+1. 고정 좌표 36과 72 대신 자리표시자의 위치에 OLE 프레임을 추가합니다.
+1. 프레젠테이션을 저장하기 전에 자리표시자를 제거합니다.
 
 ## **FAQ**
 
-**왜 내 삽입된 Excel 차트가 PowerPoint에서 활성화된 후 크기가 변합니까?**  
-이는 Excel이 처음 활성화될 때 원래 창 크기를 복원하려고 시도하고, PowerPoint의 OLE 개체 프레임은 자체적인 차원을 가지고 있기 때문입니다. PowerPoint와 Excel이 크기를 협상하여 비율을 유지하므로 크기 조정이 발생할 수 있습니다.
+**PowerPoint에서 활성화된 후 삽입된 Excel 차트의 크기가 변하는 이유는 무엇인가요?**
 
-**이 크기 조정 문제를 완전히 방지할 수 있나요?**  
-예. 삽입하기 전에 Excel 워크북 창 크기 또는 차트 크기를 OLE 개체 프레임 크기와 일치시키면 차트 크기를 일관되게 유지할 수 있습니다.
+Excel이 처음 활성화될 때 원래 창 크기를 복원하려고 시도하고, PowerPoint의 OLE 개체 프레임은 자체 크기를 가지고 있기 때문입니다. PowerPoint와 Excel이 비율을 유지하기 위해 크기를 협상하면서 크기 변경이 발생합니다.
 
-**어떤 접근 방식을 선택해야 하나요, 워크북 창 크기 설정인가 차트 크기 설정인가?**  
-**접근 방식 1 (창 크기)**을 사용하세요. 워크북의 종횡비를 유지하고 추후에 크기 조정이 가능하도록 하려면 이 방법을 선택합니다.  
-**접근 방식 2 (차트 크기)**를 사용하세요. 차트 크기가 고정되어 삽입 후 변경되지 않을 경우 이 방법이 적합합니다.
+**차트와 OLE 프레임 크기를 일관되게 유지하려면 어떻게 해야 하나요?**
 
-**이 방법들은 템플릿 기반 프레젠테이션과 새 프레젠테이션 모두에 적용됩니까?**  
-예. 두 접근 방식 모두 템플릿에서 만든 프레젠테이션과 처음부터 만든 프레젠테이션에 동일하게 적용됩니다.
+OLE 프레임과 일치하는 고정 차트 차원을 설정하고, 워크북을 삽입하기 전에 사용자 정의 차트 인쇄 크기를 사용합니다. 위 예제에 필요한 설정 및 단위 변환이 포함되어 있습니다.
 
-**OLE 개체 프레임의 크기에 제한이 있나요?**  
-아니요. 워크북 또는 차트 크기에 맞게 적절히 스케일링할 수 있는 한 OLE 프레임을 원하는 크기로 설정할 수 있습니다.
+**워크북 창 크기만 맞추면 충분한가요?**
 
-**다른 스프레드시트 프로그램에서 만든 차트에도 이 방법을 사용할 수 있나요?**  
-예제는 Aspose.Cells로 만든 Excel 차트를 대상으로 하지만, 유사한 크기 지정 옵션을 지원하는 다른 OLE 호환 스프레드시트 프로그램에도 동일한 원리가 적용됩니다.
+워크북 창 크기만 맞추어도 활성화 후 OLE 프레임 크기가 변하는 현상을 안정적으로 방지할 수 없습니다. 예제와 같이 고정 차트 차원을 사용해야 합니다.
+
+**이 솔루션은 템플릿 기반 프레젠테이션과 새 프레젠테이션 모두에서 작동하나요?**
+
+예. 템플릿을 사용할 경우 자리표시자의 차원과 위치를 사용하고, 새로운 프레젠테이션을 만들 때는 프레임 차원과 위치를 직접 지정합니다.
+
+**다른 스프레드시트 프로그램으로 만든 차트에도 이 예제를 사용할 수 있나요?**
+
+이 예제는 Aspose.Cells 로 만든 Excel 워크북을 사용합니다. 다른 스프레드시트 프로그램에 대한 활성화 동작은 보여주지 않습니다.
 
 ## **관련 섹션**
 
-- [Excel 차트를 만들고 OLE 개체로 프레젠테이션에 삽입하기](/slides/ko/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
-- [PowerPoint 추가 기능을 사용하여 OLE 개체 자동 업데이트](/slides/ko/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/ko/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Update OLE Objects Automatically Using a PowerPoint Add-In](/slides/ko/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

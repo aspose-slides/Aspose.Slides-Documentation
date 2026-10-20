@@ -1,56 +1,56 @@
 ---
-title: Zabránit úpravám prezentace pomocí uzamčení tvarů
-linktitle: Zabránit úpravám prezentace
+title: Omezit úpravy prezentace pomocí zamykání tvarů v Pythonu
+linktitle: Omezit úpravy prezentace
 type: docs
 weight: 60
 url: /cs/python-java/applying-protection-to-presentation/
 keywords:
 - zabránit úpravám
-- ochránit před úpravami
+- chránit před úpravami
 - uzamknout tvar
 - uzamknout pozici
 - uzamknout výběr
-- uzamknout velikost
+- uzamknout změnu velikosti
 - uzamknout seskupování
 - PowerPoint
-- OpenDocument
+- PPTX
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Objevte, jak Aspose.Slides for Python via Java zamyká nebo odemyká tvary v souborech PPT, PPTX a ODP, zabezpečuje prezentace a zároveň umožňuje řízené úpravy a rychlejší doručení."
+description: "Naučte se, jak zamknout a odemknout tvary v PPTX prezentacích pomocí Aspose.Slides for Python via Java pro omezení výběru, přesunu, změny velikosti a seskupování."
 ---
 ## **Pozadí**
 
-Běžným využitím Aspose.Slides je vytváření, aktualizace a ukládání prezentací Microsoft PowerPoint (PPTX) jako součást automatizovaného pracovního postupu. Uživatelé aplikací, které Aspose.Slides takto používají, mají přístup k vygenerovaným prezentacím, takže ochrana před úpravami je běžnou starostí. Je důležité, aby automaticky generované prezentace zachovaly původní formátování a obsah.
+Běžné využití Aspose.Slides for Python via Java je vytvářet, aktualizovat a ukládat prezentace PowerPoint (PPTX) jako součást automatizovaného pracovního postupu. Když uživatelé obdrží tyto prezentace, omezení změn tvarů může pomoci zachovat zamýšlené rozvržení a obsah.
 
-Tento článek vysvětluje, jak jsou prezentace a snímky strukturovány a jak Aspose.Slides for Python via Java může na prezentaci použít ochranu a později ji odebrat. Poskytuje vývojářům způsob, jak kontrolovat, jak jsou prezentace generované jejich aplikacemi používány.
+Tento článek vysvětluje, jak jsou tvary uspořádány na snímcích a jak aplikovat a odebrat zámky tvarů v PPTX prezentaci. Tyto zámky vám umožňují omezit konkrétní operace úprav na jednotlivých tvarech.
 
 ## **Složení snímku**
 
-Snímek prezentace se skládá z komponent, jako jsou autoshapes, tabulky, OLE objekty, seskupené tvary, rámy obrázků, video rámy, propojení a další prvky používané pro tvorbu prezentace. V Aspose.Slides for Python via Java je každý prvek na snímku reprezentován objektem, který dědí od třídy [Shape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/).
+Prezentace snímku se skládá z komponent, jako jsou automatické tvary, tabulky, OLE objekty, seskupené tvary, rámečky obrázků, video rámečky, spojky a další prvky používané k vytvoření prezentace. V Aspose.Slides for Python via Java je každý prvek na snímku reprezentován objektem, který dědí ze třídy [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/).
 
-Struktura PPTX je složitá, takže na rozdíl od PPT, kde lze použít obecný zámek pro všechny typy tvarů, různé typy tvarů vyžadují odlišné zámky. Třída [BaseShapeLock](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseshapelock/) je obecná třída zámku pro PPTX. Následující typy zámků jsou v Aspose.Slides for Python via Java pro PPTX podporovány:
+Různé typy tvarů poskytují různé možnosti zamykání. Třída [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) je základní třídou pro zámky tvarů. Aspose.Slides for Python via Java poskytuje následující třídy zámků:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshapelock/) zamyká autoshapes.  
-- [ConnectorLock](https://reference.aspose.com/slides/cs/python-java/aspose.slides/connectorlock/) zamyká tvary propojení.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/cs/python-java/aspose.slides/graphicalobjectlock/) zamyká grafické objekty.  
-- [GroupShapeLock](https://reference.aspose.com/slides/cs/python-java/aspose.slides/groupshapelock/) zamyká seskupené tvary.  
-- [PictureFrameLock](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframelock/) zamyká rámy obrázků.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) uzamyká automatické tvary.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) uzamyká spojovací tvary.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) uzamyká grafické objekty.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) uzamyká seskupené tvary.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) uzamyká rámečky obrázků.  
 
-Jakákoli akce provedená na všech objektech tvarů v objektu [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) se aplikuje na celou prezentaci.
+Pro aplikaci zámků napříč [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) iterujte přes jeho snímky a nastavte příslušné zámky na každý podporovaný tvar.
 
 ## **Použití a odebrání ochrany**
 
-Aplikace ochrany zajišťuje, že prezentaci nelze upravovat. Je to užitečná technika pro ochranu obsahu prezentace.
+Zámky tvarů omezují operace, jako je výběr, přesun a změna velikosti tvarů. Neznamenají, že celá prezentace bude needitovatelná.
 
-### **Použít ochranu na tvary PPTX**
+### **Aplikovat ochranu na PPTX tvary**
 
-Aspose.Slides for Python via Java poskytuje třídu [Shape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/) pro práci s tvary na snímku.
+Aspose.Slides for Python via Java poskytuje třídu [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) pro práci s tvary na snímku.
 
-Jak bylo zmíněno dříve, každá třída tvaru má přiřazenou třídu shape-lock pro ochranu. Tento článek se zaměřuje na zámky NoSelect, NoMove a NoResize. Tyto zámky zajišťují, že tvary nelze vybrat (kliknutím myši nebo jinými metodami výběru) a že je nelze přesunout ani změnit jejich velikost.
+Příklad volá [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) a [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) s hodnotou `True` pro automatické tvary, s ekvivalentními zámky pro seskupené tvary, spojky a rámečky obrázků. Spojky používají [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) pro přesun; skupiny také používají [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) k omezení seskupování.
 
-Následující ukázkový kód aplikuje ochranu na všechny typy tvarů v prezentaci.
+Příklad načte existující PPTX prezentaci, zkontroluje tvary v kolekci tvarů každého snímku a uloží kopii s těmito omezeními. Tvary mimo čtyři zpracovávané typy zůstávají beze změny. Smyčka neprochází podřízené tvary uvnitř skupiny.
 
 ```python
 import jpype
@@ -61,12 +61,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Vytvořte instanci třídy Presentation, která představuje soubor PPTX.
 presentation = Presentation("Sample.pptx")
 try:
-    # Procházejte všechny snímky v prezentaci.
     for slide in presentation.getSlides():
-        # Procházejte všechny tvary na snímku.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -90,15 +87,14 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # Uložte soubor prezentace.
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-### **Odebrat ochranu**
+### **Odebrání ochrany**
 
-Pro odemčení tvaru nastavte hodnotu použitého zámku na `False`. Následující ukázkový kód ukazuje, jak odemknout tvary v zamčené prezentaci.
+Pro odebrání zámku tvaru nastavte jeho hodnotu na `False`. Následující příklad načte prezentaci se zámky tvarů a vymaže omezení výběru, přesunu a změny velikosti pomocí [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) a [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). Také odstraní omezení seskupování předáním `False` do [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) a uloží kopii prezentace. Ostatní nastavení zámků zůstávají beze změny.
 
 ```python
 import jpype
@@ -109,12 +105,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Vytvořte instanci třídy Presentation, která představuje soubor PPTX.
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # Procházejte všechny snímky v prezentaci.
     for slide in presentation.getSlides():
-        # Procházejte všechny tvary na snímku.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -138,26 +131,25 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # Uložte soubor prezentace.
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Závěr**
+### **Závěr**
 
-Aspose.Slides nabízí několik možností pro ochranu tvarů v prezentaci. Můžete zamknout jednotlivý tvar nebo projít všechny tvary v prezentaci a zamknout je, čímž efektivně zabezpečíte celý soubor. Ochranu můžete odstranit nastavením hodnoty zámku na `False`.
+Aspose.Slides for Python via Java vám umožňuje omezit konkrétní operace úprav na jednotlivých tvarech nebo aplikovat stejná omezení napříč snímky. Vyberte zámky podporované daným typem tvaru a nastavte jejich hodnoty na `False`, když potřebujete tato omezení odebrat.
 
 ## **Často kladené otázky**
 
 **Mohu kombinovat zámky tvarů a ochranu heslem ve stejné prezentaci?**
 
-**Ano.** Zámky omezují úpravy objektů uvnitř souboru, zatímco [ochrana heslem](/slides/cs/python-java/password-protected-presentation/) řídí přístup k otevírání a/nebo ukládání změn. Tyto mechanismy se doplňují a fungují společně.
+Ano. Zámky tvarů omezují konkrétní operace úprav, zatímco [ochranu heslem](/slides/cs/python-java/password-protected-presentation/) může omezit otevření nebo úpravu prezentace. Obě můžete použít ve stejném souboru.
 
-**Mohu omezit úpravy na konkrétních snímcích bez ovlivnění ostatních?**
+**Mohu omezit úpravy na konkrétních snímcích, aniž by to ovlivnilo ostatní?**
 
-**Ano.** Použijte zámky na tvary na vybraných snímcích; zbytkové snímky zůstanou upravitelné.
+Ano. Aplikujte zámky pouze na tvary na vybraných snímcích. Tím se nezmění nastavení zámků na ostatních snímcích.
 
-**Platí zámky tvarů i pro seskupené objekty a propojení?**
+**Jak mohu aplikovat zámky na jednotlivé tvary uvnitř skupiny?**
 
-**Ano.** Pro skupiny, propojení, grafické objekty a další typy tvarů jsou podporovány specializované typy zámků.
+Iterujte přes kolekci vrácenou metodou [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) skupiny a aplikujte příslušné zámky na každý podřazený tvar. Opakujte to pro všechny vnořené skupiny. Výše uvedené příklady zpracovávají pouze kolekci tvarů snímku, takže nenastavují zámky na jednotlivé členy skupiny.

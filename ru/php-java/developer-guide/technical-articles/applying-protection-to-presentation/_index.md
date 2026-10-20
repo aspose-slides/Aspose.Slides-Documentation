@@ -1,44 +1,152 @@
 ---
-title: Применение защиты к презентации
+title: Ограничение редактирования презентаций с помощью блокировок фигур в PHP
+linktitle: Ограничить редактирование презентаций
 type: docs
 weight: 60
 url: /ru/php-java/applying-protection-to-presentation/
+keywords:
+- предотвратить редактирование
+- защитить от редактирования
+- блокировать фигуру
+- блокировать положение
+- блокировать выбор
+- блокировать изменение размера
+- блокировать группировку
+- PowerPoint
+- PPTX
+- презентация
+- PHP
+- Aspose.Slides
+description: "Узнайте, как блокировать и разблокировать фигуры в PPTX‑презентациях с помощью Aspose.Slides for PHP via Java, чтобы ограничить выбор, перемещение, изменение размера и группировку."
 ---
+## **Обзор**
 
-{{% alert color="primary" %}} 
+Распространённое применение Aspose.Slides for PHP via Java — создание, обновление и сохранение презентаций PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Когда пользователи получают такие презентации, ограничение изменений фигур может помочь сохранить предполагаемое расположение и содержание.
 
-Один из распространенных способов использования Aspose.Slides заключается в создании, обновлении и сохранении презентаций Microsoft PowerPoint 2007 (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложения, использующего Aspose.Slides таким образом, получают доступ к выходным презентациям. Защита их от редактирования является общей проблемой. Важно, чтобы автоматически сгенерированные презентации сохраняли свое исходное форматирование и содержимое.
+Эта статья объясняет, как фигуры организованы на слайдах и как применять и удалять блокировки фигур в презентации PPTX. Эти блокировки позволяют ограничивать определённые операции редактирования отдельных фигур.
 
-В этой статье объясняется, как [конструируются презентации и слайды](/slides/ru/php-java/applying-protection-to-presentation/) и как Aspose.Slides для PHP через Java может [применить защиту к](/slides/ru/php-java/applying-protection-to-presentation/), а затем [удалить ее из](/slides/ru/php-java/applying-protection-to-presentation/) презентации. Эта функция уникальна для Aspose.Slides и на момент написания недоступна в Microsoft PowerPoint. Она предоставляет разработчикам способ контролировать, как используются презентации, создаваемые их приложениями.
-
-{{% /alert %}} 
 ## **Состав слайда**
-Слайд PPTX состоит из множества компонентов, таких как автофигуры, таблицы, OLE-объекты, сгруппированные фигуры, рамки для изображений, видеокадры, соединители и различные другие элементы, доступные для создания презентации. В Aspose.Slides для PHP через Java каждый элемент на слайде превращается в объект Shape. Другими словами, каждый элемент на слайде является либо объектом Shape, либо объектом, производным от объекта Shape. Структура PPTX сложна, поэтому, в отличие от PPT, где можно использовать универсальную блокировку для всех типов фигур, для разных типов фигур существуют разные виды блокировок. Класс BaseShapeLock является универсальным классом блокировки PPTX. В Aspose.Slides для PHP через Java поддерживаются следующие типы блокировок для PPTX.
 
-- AutoShapeLock блокирует автофигуры.
-- ConnectorLock блокирует соединительные фигуры.
-- GraphicalObjectLock блокирует графические объекты.
-- GroupshapeLock блокирует групповые фигуры.
-- PictureFrameLock блокирует рамки для изображений.
-  Любое действие, выполняемое над всеми объектами Shape в объекте Presentation, применяется ко всей презентации.
-## **Применение и удаление защиты**
-Применение защиты гарантирует, что презентацию нельзя редактировать. Это полезная техника для защиты содержимого презентации.
-## **Применение защиты к фигурам PPTX**
-Aspose.Slides для PHP через Java предоставляет класс Shape для обработки фигуры на слайде.
+Слайд презентации состоит из компонентов, таких как автоконтуры, таблицы, объекты OLE, сгруппированные фигуры, рамки изображений, видеорамки, соединители и другие элементы, используемые для построения презентации. В Aspose.Slides for PHP via Java каждый элемент на слайде представлен объектом, наследующимся от класса [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) .
 
-Как упоминалось ранее, для каждого класса формы есть соответствующий класс блокировки формы для защиты. Эта статья сосредоточена на блокировках NoSelect, NoMove и NoResize. Эти блокировки гарантируют, что фигуры нельзя выбрать (через щелчки мышью или другие методы выбора), а также нельзя перемещать или изменять размер.
+Разные типы фигур предоставляют разные варианты блокировки. Класс [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) является базовым классом для блокировок фигур. Aspose.Slides for PHP via Java предоставляет следующие классы блокировок:
 
-Примеры кода, которые следуют, применяют защиту ко всем типам фигур в презентации.
+- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) блокирует автоконтуры.  
+- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) блокирует соединительные фигуры.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) блокирует графические объекты.  
+- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) блокирует сгруппированные фигуры.  
+- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) блокирует рамки изображений.  
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Saving-ApplyProtection-ApplyProtection.java" >}}
-## **Удаление защиты**
-Защита, примененная с помощью Aspose.Slides для .NET/Java, может быть удалена только с помощью Aspose.Slides для .NET/Java. Чтобы разблокировать фигуру, установите значение примененной блокировки в false. Пример кода, который следует, показывает, как разблокировать фигуры в заблокированной презентации.
+Чтобы применить блокировки ко всей [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), пройдите по её слайдам и установите соответствующие блокировки для каждой поддерживаемой фигуры.
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Saving-RemoveProtection-RemoveProtection.java" >}}
+## **Применить и удалить защиту**
 
-## **Резюме**
-{{% alert color="primary" %}} 
+Блокировки фигур ограничивают такие операции, как выбор, перемещение и изменение размера фигур. Они не делают всю презентацию недоступной для редактирования.
 
-Aspose.Slides предоставляет несколько вариантов для применения защиты к фигурам в презентации. Можно заблокировать конкретную фигуру или пройти по всем фигурам в презентации и заблокировать их все, чтобы эффективно заблокировать презентацию. Только Aspose.Slides для PHP через Java может удалить защиту из презентации, которую она ранее защищала. Удалите защиту, установив значение блокировки в false.
+### **Применить защиту к фигурам PPTX**
 
-{{% /alert %}}
+Aspose.Slides for PHP via Java предоставляет класс [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) для работы с фигурами на слайде.
+
+В примере вызываются [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) и [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) со значением `true` для автоконтуров, а также аналогичные блокировки для сгруппированных фигур, соединителей и рамок изображений. Для соединителей используется [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) для перемещения; для групп также используется [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked), чтобы ограничить группировку.
+
+Пример загружает существующую PPTX‑презентацию, проверяет фигуры в коллекции фигур каждого слайда и сохраняет копию с применёнными ограничениями. Фигуры, не входящие в четыре обработанных типа, остаются без изменений. Цикл не обходит дочерние фигуры внутри группы.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        foreach ($slide->getShapes()->toArray() as $shape) {
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionLocked(true);
+                $shapeLock->setSelectLocked(true);
+                $shapeLock->setSizeLocked(true);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.GroupShape"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setGroupingLocked(true);
+                $shapeLock->setPositionLocked(true);
+                $shapeLock->setSelectLocked(true);
+                $shapeLock->setSizeLocked(true);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionMove(true);
+                $shapeLock->setSelectLocked(true);
+                $shapeLock->setSizeLocked(true);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionLocked(true);
+                $shapeLock->setSelectLocked(true);
+                $shapeLock->setSizeLocked(true);
+            }
+        }
+    }
+
+    $presentation->save("ProtectedSample.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Удалить защиту**
+
+Чтобы удалить блокировку фигуры, установите её значение в `false`. Ниже приведён пример, который загружает презентацию с блокировками фигур и снимает ограничения выбора, перемещения и изменения размера через [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) и [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/). Он также снимает ограничение группировки, передав `false` в [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked), и сохраняет копию презентации. Другие настройки блокировок остаются без изменений.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("ProtectedSample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        foreach ($slide->getShapes()->toArray() as $shape) {
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionLocked(false);
+                $shapeLock->setSelectLocked(false);
+                $shapeLock->setSizeLocked(false);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.GroupShape"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setGroupingLocked(false);
+                $shapeLock->setPositionLocked(false);
+                $shapeLock->setSelectLocked(false);
+                $shapeLock->setSizeLocked(false);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionMove(false);
+                $shapeLock->setSelectLocked(false);
+                $shapeLock->setSizeLocked(false);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionLocked(false);
+                $shapeLock->setSelectLocked(false);
+                $shapeLock->setSizeLocked(false);
+            }
+        }
+    }
+
+    $presentation->save("RemovedProtectionSample.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Заключение**
+
+Aspose.Slides for PHP via Java позволяет ограничивать конкретные операции редактирования отдельных фигур или применять те же ограничения ко всем слайдам. Выбирайте блокировки, поддерживаемые типом фигуры, и устанавливайте их значения в `false`, когда необходимо снять ограничения.
+
+## **Часто задаваемые вопросы**
+
+**Могу ли я комбинировать блокировки фигур и парольную защиту в одной презентации?**
+
+Да. Блокировки фигур ограничивают конкретные операции редактирования, тогда как [парольная защита](/slides/ru/php-java/password-protected-presentation/) может ограничить открытие или изменение презентации. Вы можете использовать оба метода в одном файле.
+
+**Могу ли я ограничить редактирование на отдельных слайдах без влияния на остальные?**
+
+Да. Применяйте блокировки только к фигурам на выбранных слайдах. Это не меняет настройки блокировок на остальных слайдах.
+
+**Как применить блокировки к отдельным фигурам внутри группы?**
+
+Пройдите по коллекции, возвращаемой методом [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) группы, и примените соответствующие блокировки к каждой дочерней фигуре. Повторите это для всех вложенных групп. Приведённые выше примеры обрабатывают только коллекцию фигур слайда, поэтому они не устанавливают блокировки для отдельных членов группы.

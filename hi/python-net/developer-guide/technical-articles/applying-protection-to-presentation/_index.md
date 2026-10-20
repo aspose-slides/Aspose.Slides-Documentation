@@ -1,134 +1,128 @@
 ---
-title: Python में Shape Locks के साथ प्रस्तुति संपादन को रोकें
-linktitle: प्रस्तुति संपादन को रोकें
+title: Python में शैप लॉक के साथ प्रस्तुतिकरण संपादनों को प्रतिबंधित करें
+linktitle: प्रस्तुतिकरण संपादनों को प्रतिबंधित करें
 type: docs
 weight: 70
 url: /hi/python-net/applying-protection-to-presentation/
 keywords:
 - संपादन रोकें
 - संपादन से सुरक्षा
-- आकार लॉक करें
-- स्थिति लॉक करें
-- चयन लॉक करें
-- आकार लॉक करें
-- समूह लॉक करें
+- शैप लॉक
+- स्थिति लॉक
+- चयन लॉक
+- आकार परिवर्तन लॉक
+- समूहबद्धता लॉक
 - PowerPoint
-- OpenDocument
+- PPTX
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "जानिए कैसे Aspose.Slides for Python via .NET PPT, PPTX और ODP फ़ाइलों में शेप्स को लॉक या अनलॉक करता है, प्रस्तुतियों को सुरक्षित बनाते हुए नियंत्रित संपादन और तेज़ डिलीवरी की अनुमति देता है।"
+description: "Aspose.Slides for Python via .NET के साथ PPTX प्रस्तुतियों में शैप्स को लॉक और अनलॉक करना सीखें ताकि चयन, स्थानांतरण, आकार परिवर्तन और समूहबद्धता को प्रतिबंधित किया जा सके।"
 ---
 ## **पृष्ठभूमि**
 
-Aspose.Slides का एक सामान्य उपयोग माइक्रोसॉफ्ट पॉवरपॉइंट (PPTX) प्रस्तुतियों को बनाना, अपडेट करना और सहेजना है, जो एक स्वचालित कार्यप्रवाह का हिस्सा है। इस प्रकार Aspose.Slides का उपयोग करने वाले एप्लिकेशन के उपयोगकर्ताओं को उत्पन्न प्रस्तुतियों तक पहुँच मिलती है, इसलिए उन्हें संपादन से बचाना एक सामान्य चिंता है। यह महत्वपूर्ण है कि स्वचालित रूप से निर्मित प्रस्तुतियों में उनका मूल स्वरूप और सामग्री बनी रहे।
+Aspose.Slides for Python via .NET का एक सामान्य उपयोग स्वचालित कार्यप्रवाह के भाग के रूप में PowerPoint (PPTX) प्रस्तुतियों को बनाना, अपडेट करना और सहेजना है। जब उपयोगकर्ता इन प्रस्तुतियों को प्राप्त करते हैं, तो शैप्स में परिवर्तन को प्रतिबंधित करने से इच्छित लेआउट और सामग्री को संरक्षित रखने में मदद मिलती है।
 
-यह लेख समझाता है कि प्रस्तुतियों और स्लाइड्स की संरचना कैसे होती है और Aspose.Slides for Python कैसे एक प्रस्तुति पर सुरक्षा लागू कर सकता है और बाद में उसे हटा सकता है। यह डेवलपर्स को एक तरीका प्रदान करता है जिससे वे नियंत्रित कर सकें कि उनके एप्लिकेशन द्वारा निर्मित प्रस्तुतियों का कैसे उपयोग किया जाए।
+यह लेख समझाता है कि शैप्स स्लाइड्स पर कैसे व्यवस्थित होते हैं और PPTX प्रस्तुति में शैप लॉक कैसे लागू और हटाए जा सकते हैं। ये लॉक आपको व्यक्तिगत शैप्स पर विशिष्ट संपादन क्रियाओं को सीमित करने की अनुमति देते हैं।
 
-## **स्लाइड की संरचना**
+## **स्लाइड का संयोजन**
 
-एक प्रस्तुति स्लाइड में ऑटोज़ैप, टेबल, OLE ऑब्जेक्ट, ग्रुप्ड शेप्स, पिक्चर फ्रेम, वीडियो फ्रेम, कनेक्टर और अन्य तत्व जैसे घटक होते हैं जो प्रस्तुति बनाने के लिए उपयोग होते हैं। Aspose.Slides for Python में स्लाइड पर प्रत्येक तत्व को एक ऑब्जेक्ट द्वारा दर्शाया जाता है जो [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) क्लास से विरासत में मिलता है।
+एक प्रस्तुति स्लाइड में ऑटोषेप्स, तालिकाएँ, OLE ऑब्जेक्ट्स, समूहित शैप्स, पिक्चर फ्रेम, वीडियो फ्रेम, कनेक्टर और अन्य तत्व जैसे घटक होते हैं जो प्रस्तुति बनाने के लिए उपयोग होते हैं। Aspose.Slides for Python via .NET में, स्लाइड पर प्रत्येक तत्व एक ऑब्जेक्ट द्वारा प्रतिनिधित्व किया जाता है जो [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) क्लास से विरासत में प्राप्त करता है।
 
-PPTX की संरचना जटिल है, इसलिए PPT के विपरीत, जहाँ सभी प्रकार के शेप्स के लिए एक सामान्य लॉक उपयोग किया जा सकता है, विभिन्न शेप प्रकारों के लिए अलग-अलग लॉक आवश्यक होते हैं। [BaseShapeLock](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseshapelock/) क्लास PPTX के लिए सामान्य लॉकिंग क्लास है। निम्न प्रकार के लॉक Aspose.Slides for Python में PPTX के लिए समर्थित हैं:
+विभिन्न शैप प्रकार अलग-अलग लॉक विकल्प प्रदान करते हैं। [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) क्लास शैप लॉक का बेस क्लास है। Aspose.Slides for Python via .NET निम्नलिखित लॉक क्लास प्रदान करता है:
 
-- [AutoShapeLock] ऑटोज़ैप को लॉक करता है।  
-- [ConnectorLock] कनेक्टर शेप्स को लॉक करता है।  
-- [GraphicalObjectLock] ग्राफिकल ऑब्जेक्ट्स को लॉक करता है।  
-- [GroupShapeLock] ग्रुप शेप्स को लॉक करता है।  
-- [PictureFrameLock] पिक्चर फ्रेम्स को लॉक करता है।  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) ऑटोषेप्स को लॉक करता है।  
+- [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) कनेक्टर शैप्स को लॉक करता है।  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) ग्राफ़िकल ऑब्जेक्ट्स को लॉक करता है।  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) समूह शैप्स को लॉक करता है।  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) पिक्चर फ़्रेम को लॉक करता है।  
 
-एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) ऑब्जेक्ट में सभी शेप ऑब्जेक्ट्स पर किया गया कोई भी कार्य पूरी प्रस्तुति पर लागू होता है।
+एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) पर लॉक लागू करने के लिए, उसकी स्लाइड्स पर क्रम में जाकर प्रत्येक समर्थित शैप पर उपयुक्त लॉक सेट करें।
 
-## **सुरक्षा लागू करना और हटाना**
+## **सुरक्षा लागू करें और हटाएँ**
 
-सुरक्षा लागू करने से यह सुनिश्चित होता है कि प्रस्तुति को संपादित नहीं किया जा सकता। यह प्रस्तुति की सामग्री को सुरक्षित रखने की एक उपयोगी तकनीक है।
+शैप लॉक चयन, स्थानांतरण और आकार परिवर्तन जैसी क्रियाओं को सीमित करते हैं। वे पूरी प्रस्तुति को अपरिवर्तनीय नहीं बनाते।
 
-### **PPTX शेप्स पर सुरक्षा लागू करें**
+### **PPTX शैप्स पर सुरक्षा लागू करें**
 
-Aspose.Slides for Python [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) क्लास प्रदान करता है ताकि स्लाइड पर शेप्स के साथ काम किया जा सके।
+Aspose.Slides for Python via .NET स्लाइड पर शैप्स के साथ काम करने के लिए [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) क्लास प्रदान करता है।
 
-जैसा कि पहले बताया गया, प्रत्येक शेप क्लास के साथ एक संबंधित शेप‑लॉक क्लास सुरक्षा के लिए जुड़ी होती है। यह लेख NoSelect, NoMove, और NoResize लॉक पर केंद्रित है। ये लॉक सुनिश्चित करते हैं कि शेप्स को चुना नहीं जा सके (माउस क्लिक या अन्य चयन विधियों द्वारा) और उन्हें नहीं घुमा या आकार बदल सकें।
+उदाहरण में [select_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/select_locked/), [position_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/position_locked/) और [size_locked](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/size_locked/) को ऑटोषेप्स के लिए `True` सेट किया गया है, और समूह शैप्स, कनेक्टर और पिक्चर फ्रेम के लिए समान लॉक लागू किए गए हैं। कनेक्टर स्थानान्तरण के लिए [position_move](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/position_move/) का उपयोग करता है; समूह भी समूह बनाने को प्रतिबंधित करने के लिए [grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) उपयोग करते हैं।
 
-नीचे दिया गया कोड स्निपेट प्रस्तुति में सभी शेप प्रकारों पर सुरक्षा लागू करता है।
+उदाहरण एक मौजूदा PPTX प्रस्तुति लोड करता है, प्रत्येक स्लाइड की शैप कलेक्शन में शैप्स की जाँच करता है, और इन प्रतिबंधों के साथ एक कॉपी सहेजता है। चार संभाले गए प्रकारों के बाहर के शैप्स अपरिवर्तित रहते हैं। लूप समूह के अंदर की चाइल्ड शैप्स को नहीं पार करता।
 
-```py
+```python
 import aspose.slides as slides
 
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
 with slides.Presentation("Sample.pptx") as presentation:
-    # प्रस्तुति में सभी स्लाइड्स को पार करें।
     for slide in presentation.slides:
-        # स्लाइड में सभी आकारों को पार करें।
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = True
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = True
                 shape.shape_lock.select_locked = True
                 shape.shape_lock.size_locked = True
-    # प्रस्तुति फ़ाइल को सहेज रहे हैं।
+
     presentation.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **सुरक्षा हटाएँ**
 
-किसी शेप को अनलॉक करने के लिए, लागू किए गए लॉक का मान `False` सेट करें। नीचे दिया गया कोड स्निपेट दर्शाता है कि लॉक की गई प्रस्तुति में शेप्स को कैसे अनलॉक किया जाए।
+शैप लॉक को हटाने के लिए, उसके मान को `False` सेट करें। निम्न उदाहरण एक ऐसी प्रस्तुति लोड करता है जिसमें शैप लॉक हैं और [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) और [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) के माध्यम से चयन, स्थानांतरण और आकार परिवर्तन प्रतिबंधों को साफ़ करता है। यह [GroupShapeLock.grouping_locked](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/grouping_locked/) को भी साफ़ करता है और प्रस्तुति की एक कॉपी सहेजता है। अन्य लॉक सेटिंग्स अपरिवर्तित रहती हैं।
 
-```py
+```python
 import aspose.slides as slides
 
-# PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
 with slides.Presentation("ProtectedSample.pptx") as presentation:
-    # प्रस्तुति में सभी स्लाइड्स को पार कर रहे हैं।
     for slide in presentation.slides:
-        # स्लाइड में सभी आकारों को पार कर रहे हैं।
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
+            if isinstance(shape, slides.AutoShape):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.GroupShape:
+            elif isinstance(shape, slides.GroupShape):
                 shape.shape_lock.grouping_locked = False
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.Connector:
+            elif isinstance(shape, slides.Connector):
                 shape.shape_lock.position_move = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-            elif type(shape) is slides.PictureFrame:
+            elif isinstance(shape, slides.PictureFrame):
                 shape.shape_lock.position_locked = False
                 shape.shape_lock.select_locked = False
                 shape.shape_lock.size_locked = False
-    # प्रस्तुति फ़ाइल को सहेजा जा रहा है।
+
     presentation.save("RemovedProtectionSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ### **निष्कर्ष**
 
-Aspose.Slides प्रस्तुतियों में शेप्स को सुरक्षित करने के कई विकल्प प्रदान करता है। आप एक व्यक्तिगत शेप को लॉक कर सकते हैं या प्रस्तुति में सभी शेप्स को इटरनेट करके प्रत्येक को लॉक कर सकते हैं ताकि पूरी फ़ाइल प्रभावी रूप से सुरक्षित हो सके। आप लॉक के मान को `False` सेट करके सुरक्षा हटा सकते हैं।
+Aspose.Slides for Python via .NET आपको व्यक्तिगत शैप्स पर विशिष्ट संपादन क्रियाओं को सीमित करने या स्लाइड्स के पार समान प्रतिबंध लागू करने की अनुमति देता है। प्रत्येक शैप प्रकार द्वारा समर्थित लॉक चुनें, और जब आपको उन प्रतिबंधों को हटाना हो तो मान को `False` सेट करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं एक ही प्रस्तुति में शेप लॉक और पासवर्ड सुरक्षा को संयोजित कर सकता हूँ?**
+**क्या मैं एक ही प्रस्तुति में शैप लॉक और पासवर्ड सुरक्षा दोनों को संयोजित कर सकता हूँ?**
 
-हाँ। लॉक फ़ाइल के अंदर ऑब्जेक्ट्स के संपादन को सीमित करते हैं, जबकि [पासवर्ड सुरक्षा](/slides/hi/python-net/password-protected-presentation/) खोलने और/या परिवर्तन सहेजने की पहुँच को नियंत्रित करता है। ये तंत्र एक‑दूसरे को पूरक होते हैं और साथ मिलकर काम करते हैं।
+हां। शैप लॉक विशिष्ट संपादन क्रियाओं को सीमित करते हैं, जबकि [पासवर्ड सुरक्षा](/slides/hi/python-net/password-protected-presentation/) प्रस्तुति को खोलने या संशोधित करने को प्रतिबंधित कर सकती है। आप दोनों का एक ही फ़ाइल में उपयोग कर सकते हैं।
 
-**क्या मैं विशिष्ट स्लाइड्स पर संपादन को प्रतिबंधित कर सकता हूँ बिना अन्य को प्रभावित किए?**
+**क्या मैं विशिष्ट स्लाइड्स पर संपादन को प्रतिबंधित कर सकता हूँ बिना अन्य स्लाइड्स को प्रभावित किए?**
 
-हाँ। चयनित स्लाइड्स पर शेप्स को लॉक करें; शेष स्लाइड्स संपादन योग्य रहेंगी।
+हां। केवल चयनित स्लाइडों के शैप्स पर लॉक लागू करें। इससे अन्य स्लाइडों की लॉक सेटिंग्स नहीं बदलतीं।
 
-**क्या शेप लॉक ग्रुपेड ऑब्जेक्ट्स और कनेक्टर्स पर लागू होते हैं?**
+**मैं समूह के अंदर व्यक्तिगत शैप्स पर लॉक कैसे लागू कर सकता हूँ?**
 
-हाँ। ग्रुप, कनेक्टर, ग्राफिकल ऑब्जेक्ट्स और अन्य शेप प्रकारों के लिए समर्पित लॉक प्रकार समर्थित हैं।
+समूह की [शेप्स](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) कलेक्शन के माध्यम से क्रमबद्ध करके प्रत्येक चाइल्ड शैप पर उपयुक्त लॉक लागू करें। नेस्टेड समूहों के लिए यह प्रक्रिया दोहराएँ। ऊपर के उदाहरण केवल स्लाइड की शैप कलेक्शन को प्रोसेस करते हैं, इसलिए वे व्यक्तिगत समूह सदस्य पर लॉक नहीं लगाते।

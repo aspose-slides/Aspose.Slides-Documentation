@@ -1,6 +1,6 @@
 ---
-title: Αποτροπή Επεξεργασιών Παρουσίασης με Κλειδώματα Σχημάτων στην .NET
-linktitle: Αποτροπή Επεξεργασιών Παρουσίασης
+title: Περιορισμός Επεξεργασιών Παρουσίασης με Κλειδώματα Σχημάτων σε .NET
+linktitle: Περιορισμός Επεξεργασιών Παρουσίασης
 type: docs
 weight: 70
 url: /el/net/applying-protection-to-presentation/
@@ -10,57 +10,57 @@ keywords:
 - κλείδωμα σχήματος
 - κλείδωμα θέσης
 - κλείδωμα επιλογής
-- κλείδωμα μεγέθους
+- κλείδωμα αλλαγής μεγέθους
 - κλείδωμα ομαδοποίησης
 - PowerPoint
-- OpenDocument
+- PPTX
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανακαλύψτε πώς το Aspose.Slides για .NET κλειδώνει ή ξεκλειδώνει σχήματα σε αρχεία PPT, PPTX και ODP, εξασφαλίζοντας τις παρουσιάσεις ενώ επιτρέπει ελεγχόμενες επεξεργασίες."
+description: "Μάθετε πώς να κλειδώνετε και να ξεκλειδώνετε σχήματα σε παρουσιάσεις PPTX με το Aspose.Slides for .NET ώστε να περιορίζετε την επιλογή, τη μετακίνηση, την αλλαγή μεγέθους και την ομαδοποίηση."
 ---
 ## **Ιστορικό**
 
-Μια κοινή χρήση του Aspose.Slides είναι η δημιουργία, ενημέρωση και αποθήκευση παρουσιάσεων Microsoft PowerPoint (PPTX) ως μέρος μιας αυτοματοποιημένης ροής εργασίας. Οι χρήστες εφαρμογών που χρησιμοποιούν το Aspose.Slides με αυτόν τον τρόπο έχουν πρόσβαση στις δημιουργημένες παρουσιάσεις, επομένως η προστασία τους από επεξεργασία αποτελεί κοινή ανησυχία. Είναι σημαντικό οι αυτόματα δημιουργημένες παρουσιάσεις να διατηρούν την αρχική μορφοποίηση και το περιεχόμενό τους.
+Μία κοινή χρήση του Aspose.Slides for .NET είναι η δημιουργία, ενημέρωση και αποθήκευση παρουσιάσεων PowerPoint (PPTX) ως μέρος μιας αυτοματοποιημένης ροής εργασίας. Όταν οι χρήστες λαμβάνουν αυτές τις παρουσιάσεις, ο περιορισμός των αλλαγών στα σχήματα μπορεί να βοηθήσει στη διατήρηση της προνοημένης διάταξης και του περιεχομένου.
 
-Αυτό το άρθρο εξηγεί πώς δομούνται οι παρουσιάσεις και οι διαφάνειες και πώς το Aspose.Slides για .NET μπορεί να εφαρμόσει προστασία σε μια παρουσίαση και στη συνέχεια να την αφαιρέσει. Παρέχει στους προγραμματιστές έναν τρόπο να ελέγχουν πώς χρησιμοποιούνται οι παρουσιάσεις που δημιουργούν οι εφαρμογές τους.
+Αυτό το άρθρο εξηγεί πώς οργανώνονται τα σχήματα σε διαφάνειες και πώς να εφαρμόσετε και να αφαιρέσετε κλειδώματα σχημάτων σε μια παρουσίαση PPTX. Αυτά τα κλειδώματα σας επιτρέπουν να περιορίσετε συγκεκριμένες λειτουργίες επεξεργασίας σε μεμονωμένα σχήματα.
 
 ## **Σύνθεση μιας Διαφάνειας**
 
-Μια διαφάνεια παρουσίασης αποτελείται από στοιχεία όπως αυτόματα σχήματα, πίνακες, αντικείμενα OLE, ομαδοποιημένα σχήματα, πλαίσια εικόνας, πλαίσια βίντεο, συνδέσεις και άλλα στοιχεία που χρησιμοποιούνται για τη δημιουργία μιας παρουσίασης. Στο Aspose.Slides για .NET, κάθε στοιχείο σε μια διαφάνεια αντιπροσωπεύεται από ένα αντικείμενο που υλοποιεί τη διεπαφή [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/) ή κληρονομεί από μια κλάση που το κάνει.
+Μια διαφάνεια παρουσίασης αποτελείται από στοιχεία όπως αυτόματα σχήματα, πίνακες, αντικείμενα OLE, ομαδοποιημένα σχήματα, πλαίσια εικόνων, πλαίσια βίντεο, συνδέσμους και άλλα στοιχεία που χρησιμοποιούνται για τη δημιουργία μιας παρουσίασης. Στο Aspose.Slides for .NET, κάθε στοιχείο σε μια διαφάνεια αντιπροσωπεύεται από ένα αντικείμενο που υλοποιεί τη διεπαφή [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) ή κληρονομεί από μια κλάση που το κάνει.
 
-Η δομή του PPTX είναι πολύπλοκη, επομένως, σε αντίθεση με το PPT, όπου μπορεί να χρησιμοποιηθεί ένα γενικό κλείδωμα για όλους τους τύπους σχημάτων, διαφορετικοί τύποι σχημάτων απαιτούν διαφορετικά κλειδώματα. Η διεπαφή [IBaseShapeLock](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseshapelock/) είναι η γενική κλάση κλειδώματος για το PPTX. Οι παρακάτω τύποι κλειδωμάτων υποστηρίζονται στο Aspose.Slides για .NET για το PPTX:
+Διαφορετικοί τύποι σχημάτων εκθέτουν διαφορετικές επιλογές κλειδώματος. Η διεπαφή [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) είναι η βασική διεπαφή για τα κλειδώματα σχημάτων. Το Aspose.Slides for .NET παρέχει τις παρακάτω διεπαφές κλειδώματος:
 
-- Το [IAutoShapeLock](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshapelock/) κλειδώνει τα αυτόματα σχήματα.  
-- Το [IConnectorLock](https://reference.aspose.com/slides/el/net/aspose.slides/iconnectorlock/) κλειδώνει τα σχήματα συνδέσεων.  
-- Το [IGraphicalObjectLock](https://reference.aspose.com/slides/el/net/aspose.slides/igraphicalobjectlock/) κλειδώνει τα γραφικά αντικείμενα.  
-- Το [IGroupShapeLock](https://reference.aspose.com/slides/el/net/aspose.slides/igroupshapelock/) κλειδώνει τα ομαδοποιημένα σχήματα.  
-- Το [IPictureFrameLock](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframelock/) κλειδώνει τα πλαίσια εικόνας.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) κλειδώνει τα αυτόματα σχήματα.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) κλειδώνει τα σχήματα συνδέσμου.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) κλειδώνει τα γραφικά αντικείμενα.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) κλειδώνει τα ομαδοποιημένα σχήματα.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) κλειδώνει τα πλαίσια εικόνας.  
 
-Οποιαδήποτε ενέργεια εκτελεστεί σε όλα τα αντικείμενα σχήματος σε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) εφαρμόζεται σε ολόκληρη την παρουσίαση.
+Για να εφαρμόσετε κλειδώματα σε ολόκληρη μια [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), επαναλάβετε τις διαφάνειες της και ορίστε τα κατάλληλα κλειδώματα σε κάθε υποστηριζόμενο σχήμα.
 
-## **Εφαρμογή και Κατάργηση Προστασίας**
+## **Εφαρμογή και Αφαίρεση Προστασίας**
 
-Η εφαρμογή προστασίας διασφαλίζει ότι μια παρουσίαση δεν μπορεί να επεξεργαστεί. Είναι μια χρήσιμη τεχνική για την προστασία του περιεχομένου της παρουσίασης.
+Τα κλειδώματα σχημάτων περιορίζουν ενέργειες όπως η επιλογή, η μετακίνηση και η αλλαγή μεγέθους των σχημάτων. Δεν καθιστούν ολόκληρη την παρουσίαση μη επεξεργάσιμη.
 
 ### **Εφαρμογή Προστασίας σε Σχήματα PPTX**
 
-Το Aspose.Slides για .NET παρέχει τη διεπαφή [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/) για εργασία με σχήματα σε μια διαφάνεια.
+Το Aspose.Slides for .NET παρέχει τη διεπαφή [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) για εργασία με σχήματα σε μια διαφάνεια.
 
-Όπως αναφέρθηκε νωρίτερα, κάθε κλάση σχήματος έχει μια συνδεδεμένη κλάση κλειδώματος σχήματος για προστασία. Αυτό το άρθρο εστιάζει στα κλειδώματα NoSelect, NoMove και NoResize. Αυτά τα κλειδώματα διασφαλίζουν ότι τα σχήματα δεν μπορούν να επιλεγούν (μέσω κλικ του ποντικιού ή άλλων μεθόδων επιλογής) και ότι δεν μπορούν να μετακινηθούν ή να αλλάξουν μέγεθος.
+Το παράδειγμα ορίζει τα [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) και [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) σε `true` για αυτόματα σχήματα, με αντίστοιχα κλειδώματα για ομαδοποιημένα σχήματα, συνδέσμους και πλαίσια εικόνας. Οι σύνδεσμοι χρησιμοποιούν το [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) για μετακίνηση· οι ομάδες χρησιμοποιούν επίσης το [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) για περιορισμό της ομαδοποίησης.
 
-Το παρακάτω παράδειγμα κώδικα εφαρμόζει προστασία σε όλους τους τύπους σχημάτων σε μια παρουσίαση.
+Το παράδειγμα φορτώνει μια υπάρχουσα παρουσίαση PPTX, ελέγχει τα σχήματα στη συλλογή σχημάτων κάθε διαφάνειας και αποθηκεύει ένα αντίγραφο με αυτές τις περιορισμούς εφαρμοσμένους. Τα σχήματα εκτός των τεσσάρων επεξεργασμένων τύπων αφήνονται αμετάβλητα. Η επανάληψη δεν διασχίζει τα παιδικά σχήματα μέσα σε μια ομάδα.
 
 ```cs
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Περιήγηση σε όλες τις διαφάνειες της παρουσίασης.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Περιήγηση σε όλα τα σχήματα της διαφάνειας.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Αποθήκευση του αρχείου παρουσίασης.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-### **Κατάργηση Προστασίας**
+### **Αφαίρεση Προστασίας**
 
-Για να ξεκλειδώσετε ένα σχήμα, ορίστε την τιμή του εφαρμόσμενου κλειδώματος σε `false`. Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ξεκλειδώσετε σχήματα σε μια κλειδωμένη παρουσίαση.
+Για να αφαιρέσετε ένα κλείδωμα σχήματος, ορίστε την τιμή του σε `false`. Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση με κλειδώματα σχημάτων και αφαιρεί τους περιορισμούς επιλογής, μετακίνησης και αλλαγής μεγέθους μέσω των [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) και [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). Επίσης αφαιρεί το [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) και αποθηκεύει ένα αντίγραφο της παρουσίασης. Οι άλλες ρυθμίσεις κλειδώματος παραμένουν αμετάβλητες.
 
 ```cs
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Περιήγηση σε όλες τις διαφάνειες της παρουσίασης.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Περιήγηση σε όλα τα σχήματα της διαφάνειας.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,24 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Αποθήκευση του αρχείου παρουσίασης.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Συμπέρασμα**
 
-Το Aspose.Slides προσφέρει αρκετές επιλογές για την προστασία σχημάτων σε μια παρουσίαση. Μπορείτε να κλειδώσετε ένα μεμονωμένο σχήμα ή να επαναλάβετε όλα τα σχήματα σε μια παρουσίαση και να κλειδώσετε καθένα ώστε να ασφαλιστεί αποτελεσματικά ολόκληρο το αρχείο. Μπορείτε να αφαιρέσετε την προστασία ορίζοντας την τιμή του κλειδώματος σε `false`.
+Το Aspose.Slides for .NET σας επιτρέπει να περιορίζετε συγκεκριμένες λειτουργίες επεξεργασίας σε μεμονωμένα σχήματα ή να εφαρμόζετε τους ίδιους περιορισμούς σε όλες τις διαφάνειες. Επιλέξτε τα κλειδώματα που υποστηρίζονται από κάθε τύπο σχήματος και θέστε τις τιμές τους σε `false` όταν χρειάζεται να αφαιρέσετε αυτούς τους περιορισμούς.
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Μπορώ να συνδυάσω τα κλειδώματα σχημάτων και την προστασία με κωδικό στην ίδια παρουσίαση;**
+**Μπορώ να συνδυάσω κλειδώματα σχημάτων και προστασία κωδικού στην ίδια παρουσίαση;**
 
-Ναι. Τα κλειδώματα περιορίζουν την επεξεργασία των αντικειμένων μέσα στο αρχείο, ενώ η [προστασία με κωδικό](/slides/el/net/password-protected-presentation/) ελέγχει την πρόσβαση στο άνοιγμα και/ή στην αποθήκευση αλλαγών. Αυτοί οι μηχανισμοί συμπληρώνουν ο ένας τον άλλον και λειτουργούν μαζί.
+Ναι. Τα κλειδώματα σχημάτων περιορίζουν συγκεκριμένες λειτουργίες επεξεργασίας, ενώ η [προστασία κωδικού](/slides/el/net/password-protected-presentation/) μπορεί να περιορίσει το άνοιγμα ή την τροποποίηση της παρουσίασης. Μπορείτε να χρησιμοποιήσετε και τα δύο στο ίδιο αρχείο.
 
 **Μπορώ να περιορίσω την επεξεργασία σε συγκεκριμένες διαφάνειες χωρίς να επηρεάσω τις άλλες;**
 
-Ναι. Εφαρμόστε κλειδώματα στα σχήματα των επιλεγμένων διαφανειών· οι υπόλοιπες διαφάνειες θα παραμείνουν επεξεργάσιμες.
+Ναι. Εφαρμόστε κλειδώματα μόνο στα σχήματα των επιλεγμένων διαφανειών. Αυτό δεν αλλάζει τις ρυθμίσεις κλειδώματος στις άλλες διαφάνειες.
 
-**Εφαρμόζονται τα κλειδώματα σχημάτων σε ομαδοποιημένα αντικείμενα και συνδέσμους;**
+**Πώς μπορώ να εφαρμόσω κλειδώματα σε μεμονωμένα σχήματα μέσα σε μια ομάδα;**
 
-Ναι. Υποστηρίζονται ειδικοί τύποι κλειδωμάτων για ομάδες, συνδέσμους, γραφικά αντικείμενα και άλλα είδη σχημάτων.
+Διασχίστε τη συλλογή [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) της ομάδας και εφαρμόστε τα κατάλληλα κλειδώματα σε κάθε παιδικό σ_shape. Επαναλάβετε αυτό για τυχόν ένθετες ομάδες. Τα παραπάνω παραδείγματα επεξεργάζονται μόνο τη συλλογή σχημάτων της διαφάνειας, οπότε δεν ορίζουν κλειδώματα σε επιμέρους μέλη της ομάδας.

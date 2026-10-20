@@ -1,184 +1,216 @@
 ---
-title: 使用形狀鎖定防止簡報編輯
-linktitle: 防止簡報編輯
+title: 使用形狀鎖定限制 C++ 簡報編輯
+linktitle: 限制簡報編輯
 type: docs
 weight: 10
 url: /zh-hant/cpp/applying-protection-to-presentation/
 keywords:
 - 防止編輯
-- 保護免於編輯
+- 防止被編輯
 - 鎖定形狀
 - 鎖定位置
 - 鎖定選取
-- 鎖定大小
-- 鎖定群組
+- 鎖定調整大小
+- 鎖定分組
 - PowerPoint
-- OpenDocument
+- PPTX
 - 簡報
 - C++
 - Aspose.Slides
-description: "了解 Aspose.Slides for C++ 如何在 PPT、PPTX 與 ODP 檔案中鎖定或解除鎖定形狀，保護簡報安全，同時允許受控的編輯並加速交付。"
+description: "了解如何使用 Aspose.Slides for C++ 在 PPTX 簡報中鎖定與解鎖形狀，以限制選取、移動、調整大小和分組。"
 ---
 ## **背景**
 
-Aspose.Slides 的常見用途是於自動化工作流程中建立、更新並儲存 Microsoft PowerPoint (PPTX) 試算表。以此方式使用 Aspose.Slides 的應用程式使用者會取得產生的簡報，因此防止簡報被編輯是一項常見需求。自動產生的簡報必須保留其原始格式與內容，這點非常重要。
+Aspose.Slides for C++ 的常見用途是建立、更新與保存 PowerPoint (PPTX) 簡報，作為自動化工作流程的一部分。當使用者收到這些簡報時，限制對圖形的變更可以協助保留預期的版面配置與內容。
 
-本文說明簡報與投影片的結構，以及 Aspose.Slides for C++ 如何對簡報套用保護並稍後移除保護。它為開發人員提供了一種方式，讓應用程式產生的簡報使用方式可受控。
+本文說明圖形在投影片上的組織方式，以及如何在 PPTX 簡報中套用與移除圖形鎖定。這些鎖定讓您能限制對單一圖形的特定編輯操作。
 
 ## **投影片的組成**
 
-簡報投影片由自動圖形、表格、OLE 物件、群組圖形、圖片框、影片框、連接線以及其他用於建構簡報的元素組成。在 Aspose.Slides for C++ 中，投影片上的每個元素皆以實作了[IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/)介面或繼承自其子類別的物件表示。
+投影片由自動圖形、表格、OLE 物件、群組圖形、圖片框、影片框、連接線以及其他用於建立簡報的元素所組成。在 Aspose.Slides for C++ 中，投影片上的每個元素皆由實作 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 介面或繼承自該介面的類別之物件表示。
 
-PPTX 的結構相當複雜，與 PPT 不同，PPTX 不能使用單一通用的鎖定方式套用於所有圖形類型，不同圖形類型需要不同的鎖定。[IBaseShapeLock](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ibaseshapelock/) 介面是 PPTX 的通用鎖定類別。Aspose.Slides for C++ 在 PPTX 中支援以下類型的鎖定：
+不同的圖形類型提供不同的鎖定選項。[IBaseShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/) 介面是圖形鎖定的基礎介面。Aspose.Slides for C++ 提供以下鎖定介面：
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshapelock/) 鎖定自動圖形。  
-- [IConnectorLock](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iconnectorlock/) 鎖定連接線圖形。  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/igraphicalobjectlock/) 鎖定圖形物件。  
-- [IGroupShapeLock](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/igroupshapelock/) 鎖定群組圖形。  
-- [IPictureFrameLock](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipictureframelock/) 鎖定圖片框。   
+- [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/) 鎖定自動圖形。
+- [IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/) 鎖定連接線圖形。
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/cpp/aspose.slides/igraphicalobjectlock/) 鎖定圖形物件。
+- [IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/) 鎖定群組圖形。
+- [IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) 鎖定圖片框。
 
-對 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 物件中所有圖形物件執行的任何操作，都會套用到整個簡報。
+若要在整個 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 上套用鎖定，請遍歷其投影片，並對每個受支援的圖形設定相應的鎖定。
 
 ## **套用與移除保護**
 
-套用保護可確保簡報無法被編輯。這是一項用於保護簡報內容的實用技巧。
+圖形鎖定會限制選取、移動與調整大小等操作。它們不會使整個簡報無法編輯。
 
-### **將保護套用於 PPTX 圖形**
+### **套用保護至 PPTX 圖形**
 
-Aspose.Slides for C++ 提供了[IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/)介面，以操作投影片上的圖形。
+Aspose.Slides for C++ 提供 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 介面，以在投影片上操作圖形。
 
-如前所述，每個圖形類別都有對應的圖形鎖定類別用於保護。本文聚焦於 NoSelect、NoMove 與 NoResize 鎖定。這些鎖定可防止圖形被選取（透過滑鼠點擊或其他選取方式），以及防止圖形被移動或調整大小。
+範例將 `true` 傳遞給自動圖形的 [set_SelectLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_selectlocked/)、[set_PositionLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_positionlocked/) 與 [set_SizeLocked](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/set_sizelocked/)，對群組圖形、連接線與圖片框則使用相應的鎖定。連接線使用 [set_PositionMove](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/set_positionmove/) 以限制移動；群組亦使用 [set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/) 以限制分組。
 
-以下程式碼範例會將保護套用至簡報中所有圖形類型。
+範例載入現有的 PPTX 簡報，檢查每張投影片的圖形集合，並儲存套用這些限制的副本。未屬於上述四種處理類型的圖形將保持不變。此迴圈不會遍歷群組內的子圖形。
 
 ```cpp
-// 實例化代表 PPTX 檔案的 Presentation 類別。
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-// 遍歷簡報中的所有投影片。
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// 遍歷投影片中的所有圖形。
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(true);
+            autoShapeLock->set_SelectLocked(true);
+            autoShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// 把圖形型別轉換為自動圖形並取得其形狀鎖定。
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(true);
+            groupShapeLock->set_PositionLocked(true);
+            groupShapeLock->set_SelectLocked(true);
+            groupShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(true);
-			autoShapeLock->set_SelectLocked(true);
-			autoShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// 把圖形型別轉換為群組圖形並取得其形狀鎖定。
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(true);
+            connectorShapeLock->set_SelectLocked(true);
+            connectorShapeLock->set_SizeLocked(true);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(true);
-			groupShapeLock->set_PositionLocked(true);
-			groupShapeLock->set_SelectLocked(true);
-			groupShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// 把圖形型別轉換為連接線圖形並取得其形狀鎖定。
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(true);
-			connectorShapeLock->set_SelectLocked(true);
-			connectorShapeLock->set_SizeLocked(true);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// 把圖形型別轉換為圖片框並取得其形狀鎖定。
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(true);
-			pictureFrameLock->set_SelectLocked(true);
-			pictureFrameLock->set_SizeLocked(true);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(true);
+            pictureFrameLock->set_SelectLocked(true);
+            pictureFrameLock->set_SizeLocked(true);
+        }
+    }
 }
 
-// 儲存簡報檔案。
 presentation->Save(u"ProtectedSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ### **移除保護**
 
-若要解除圖形的鎖定，只需將已套用的鎖定值設為`false`。下列程式碼範例示範如何在已鎖定的簡報中解除圖形的鎖定。
+若要移除圖形鎖定，將其值設為 `false`。以下範例載入帶有圖形鎖定的簡報，並透過 [IAutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshapelock/)、[IGroupShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/)、[IConnectorLock](https://reference.aspose.com/slides/cpp/aspose.slides/iconnectorlock/)、[IPictureFrameLock](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframelock/) 來清除選取、移動與調整大小的限制。它亦會清除 [IGroupShapeLock::set_GroupingLocked](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshapelock/set_groupinglocked/)，並儲存簡報的副本。其他鎖定設定保持不變。
 
 ```cpp
-// 實例化代表 PPTX 檔案的 Presentation 類別。
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IConnector.h>
+#include <DOM/IConnectorLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"ProtectedSample.pptx");
 
-// 遍歷簡報中的所有投影片。
-for (auto&& slide : presentation->get_Slides())	{
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+{
+    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
 
-	// 遍歷投影片中的所有圖形。
-	for (auto&& shape : slide->get_Shapes()) {
+            autoShapeLock->set_PositionLocked(false);
+            autoShapeLock->set_SelectLocked(false);
+            autoShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IGroupShape>(shape))
+        {
+            auto groupShape = ExplicitCast<IGroupShape>(shape);
+            auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
 
-		if (ObjectExt::Is<IAutoShape>(shape)) {
-			// 將圖形類型轉換為自動圖形並取得其形狀鎖定。
-			auto autoShape = ExplicitCast<IAutoShape>(shape);
-			auto autoShapeLock = ExplicitCast<IAutoShapeLock>(autoShape->get_ShapeLock());
+            groupShapeLock->set_GroupingLocked(false);
+            groupShapeLock->set_PositionLocked(false);
+            groupShapeLock->set_SelectLocked(false);
+            groupShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IConnector>(shape))
+        {
+            auto connectorShape = ExplicitCast<IConnector>(shape);
+            auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
 
-			autoShapeLock->set_PositionLocked(false);
-			autoShapeLock->set_SelectLocked(false);
-			autoShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IGroupShape>(shape)) {
-			// 將圖形類型轉換為群組圖形並取得其形狀鎖定。
-			auto groupShape = ExplicitCast<IGroupShape>(shape);
-			auto groupShapeLock = ExplicitCast<IGroupShapeLock>(groupShape->get_ShapeLock());
+            connectorShapeLock->set_PositionMove(false);
+            connectorShapeLock->set_SelectLocked(false);
+            connectorShapeLock->set_SizeLocked(false);
+        }
+        else if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
 
-			groupShapeLock->set_GroupingLocked(false);
-			groupShapeLock->set_PositionLocked(false);
-			groupShapeLock->set_SelectLocked(false);
-			groupShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IConnector>(shape)) {
-			// 將圖形類型轉換為連接線圖形並取得其形狀鎖定。
-			auto connectorShape = ExplicitCast<IConnector>(shape);
-			auto connectorShapeLock = ExplicitCast<IConnectorLock>(connectorShape->get_ShapeLock());
-			
-			connectorShapeLock->set_PositionMove(false);
-			connectorShapeLock->set_SelectLocked(false);
-			connectorShapeLock->set_SizeLocked(false);
-		}
-		else if (ObjectExt::Is<IPictureFrame>(shape)) {
-			// 將圖形類型轉換為圖片框並取得其形狀鎖定。
-			auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
-			auto pictureFrameLock = ExplicitCast<IPictureFrameLock>(pictureFrame->get_ShapeLock());
-		
-			pictureFrameLock->set_PositionLocked(false);
-			pictureFrameLock->set_SelectLocked(false);
-			pictureFrameLock->set_SizeLocked(false);
-		}
-	}
+            pictureFrameLock->set_PositionLocked(false);
+            pictureFrameLock->set_SelectLocked(false);
+            pictureFrameLock->set_SizeLocked(false);
+        }
+    }
 }
 
-// 儲存簡報檔案。
 presentation->Save(u"RemovedProtectionSample.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **結論**
+### **結論**
 
-Aspose.Slides 提供多種方式來保護簡報中的圖形。您可以鎖定單一圖形，或遍歷簡報中的所有圖形並逐一鎖定，以有效保護整個檔案。亦可透過將鎖定值設為`false` 來移除保護。
+Aspose.Slides for C++ 讓您能限制單一圖形的特定編輯操作，或在多張投影片間套用相同的限制。選擇每種圖形類型支援的鎖定，並在需要移除這些限制時將其值設為 `false`。
 
 ## **常見問答**
 
 **我可以在同一個簡報中同時使用圖形鎖定與密碼保護嗎？**
 
-可以。鎖定限制檔案內物件的編輯，而[密碼保護](/slides/zh-hant/cpp/password-protected-presentation/)則控制開啟與/或儲存變更的存取權限。這兩種機制彼此補足，協同運作。
+可以。圖形鎖定會限制特定的編輯操作，而 [密碼保護](/slides/zh-hant/cpp/password-protected-presentation/) 可以限制開啟或修改簡報。您可以在同一個檔案中同時使用兩者。
 
 **我可以限制特定投影片的編輯而不影響其他投影片嗎？**
 
-可以。只對選定投影片上的圖形套用鎖定，其餘投影片仍保持可編輯。
+可以。僅對所選投影片上的圖形套用鎖定，這不會改變其他投影片的鎖定設定。
 
-**圖形鎖定是否適用於群組物件與連接線？**
+**如何對群組內的單一圖形套用鎖定？**
 
-是的。針對群組、連接線、圖形物件以及其他圖形類型皆支援專屬的鎖定類型。
+遍歷群組的 [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) 方法所返回的集合，並對每個子圖形套用適當的鎖定。對任何巢狀群組重複此步驟。上面的範例僅處理投影片的圖形集合，因此未對個別群組成員設定鎖定。

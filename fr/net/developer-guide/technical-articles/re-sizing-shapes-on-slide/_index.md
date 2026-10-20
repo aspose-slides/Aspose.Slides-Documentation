@@ -2,7 +2,10 @@
 title: Redimensionner les formes sur les diapositives de présentation en .NET
 type: docs
 weight: 130
-url: /fr/net/re-sizing-shapes-on-slide/
+url: /fr/net/resizing-shapes-on-slide/
+aliases:
+  - /fr/net/re-sizing-shapes-on-slide/
+  /net/re-sizing-shapes-on-slide/
 keywords:
 - redimensionner forme
 - modifier la taille de la forme
@@ -12,163 +15,137 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Redimensionnez facilement les formes sur les diapositives PowerPoint et OpenDocument avec Aspose.Slides pour .NET - automatisez les ajustements de mise en page des diapositives et améliorez la productivité."
+description: "Redimensionnez facilement les formes sur les diapositives PowerPoint et OpenDocument avec Aspose.Slides pour .NET — automatisez les ajustements de mise en page des diapositives et augmentez la productivité."
 ---
-
 ## **Vue d'ensemble**
 
-L'une des questions les plus fréquentes des clients d'Aspose.Slides for .NET porte sur la façon de redimensionner les formes afin que, lorsque la taille de la diapositive change, les données ne soient pas tronquées. Cet article technique court montre comment procéder.
+Lorsque vous modifiez la taille des diapositives d’une présentation, il peut également être nécessaire de redimensionner et de repositionner ses formes pour qu’elles s’adaptent aux nouvelles dimensions. Cet article montre comment mettre à l’échelle les formes manuellement et comment gérer les tableaux sur les diapositives, les maîtres et les mises en page.
 
 ## **Redimensionner les formes**
 
-Pour éviter que les formes ne se désalignent lorsque la taille de la diapositive change, mettez à jour la position et les dimensions de chaque forme afin qu’elles s’adaptent à la nouvelle mise en page de la diapositive.
-```c#
-// Charger le fichier de présentation.
-using (Presentation presentation = new Presentation("sample.pptx"))
+Pour conserver la position et la taille relatives de chaque forme, multipliez ses coordonnées horizontales et sa largeur par le rapport entre la nouvelle largeur de la diapositive et la largeur d’origine. Appliquez le rapport de hauteur correspondant à ses coordonnées verticales et à sa hauteur.
+
+Le premier exemple charge une présentation dont les diapositives ne contiennent aucun tableau, modifie la taille de la diapositive en A4 et enregistre le résultat. Il utilise [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) avec [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) afin que la boucle suivante contrôle la mise à l’échelle. Les rapports sont sans unité ; les positions et dimensions des formes sont mesurées en points. Des rapports de largeur et de hauteur différents peuvent déformer les formes, et la modification des dimensions d’une forme ne met pas à l’échelle la taille de sa police.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Calculer les facteurs d'échelle horizontaux et verticaux indépendants.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // Obtenir la taille d'origine de la diapositive.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // Modifier la taille de la diapositive sans mettre à l'échelle les formes existantes.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Obtenir la nouvelle taille de la diapositive.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Redimensionner et repositionner les formes sur chaque diapositive.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // Mettre à l'échelle la taille de la forme.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Mettre à l'échelle la position de la forme.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-
-{{% alert color="primary" %}}
-Si une diapositive contient un tableau, le code ci‑dessus ne fonctionnera pas correctement. Dans ce cas, chaque cellule du tableau doit être redimensionnée.
+{{% alert color="info" title="Note" %}}
+Les tableaux nécessitent une prise en charge distincte : mettez à l’échelle leurs largeurs de colonnes et hauteurs de lignes au lieu d’attribuer la largeur et la hauteur globales du tableau. Les hauteurs de lignes peuvent rester supérieures à la valeur demandée si le contenu des cellules requiert plus d’espace.
 {{% /alert %}}
 
-Utilisez le code suivant de votre côté pour redimensionner les diapositives contenant des tableaux. Pour les tableaux, définir la largeur ou la hauteur est un cas particulier : vous devez ajuster les hauteurs des lignes individuelles et les largeurs des colonnes pour modifier la taille globale du tableau.
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+Le deuxième exemple prend en charge les tableaux et traite les formes sur les maîtres et les mises en page ainsi que sur les diapositives individuelles avant d’enregistrer la présentation redimensionnée. Son assistant gère chaque [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) en mettant à l’échelle [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) et [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/). Il met ensuite à l’échelle la position du tableau sans mettre séparément à l’échelle ses dimensions globales.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Calculer les facteurs d'échelle horizontaux et verticaux indépendants.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Redimensionner les formes définies sur les maîtres et les mises en page ainsi que sur les diapositives individuelles.
+foreach (var master in presentation.Masters)
 {
-    // Obtenir la taille d'origine de la diapositive.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Modifier la taille de la diapositive sans mettre à l'échelle les formes existantes.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Obtenir la nouvelle taille de la diapositive.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Mettre à l'échelle la taille de la forme.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Mettre à l'échelle la position de la forme.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // Les dimensions du tableau sont contrôlées par les largeurs des colonnes et les hauteurs des lignes.
+            foreach (var column in table.Columns)
             {
-                // Mettre à l'échelle la taille de la forme.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Mettre à l'échelle la position de la forme.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Mettre à l'échelle la taille de la forme.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Mettre à l'échelle la position de la forme.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
-
 
 ## **FAQ**
 
-**Pourquoi les formes sont‑elles déformées ou tronquées après le redimensionnement d’une diapositive ?**
+**Pourquoi les formes sont‑elles déformées ou coupées après le redimensionnement d’une diapositive ?**
 
-Lors du redimensionnement d’une diapositive, les formes conservent leur position et leur taille d’origine à moins que l’échelle ne soit explicitement modifiée. Cela peut entraîner le recadrage du contenu ou le désalignement des formes.
+Si vous modifiez la taille de la diapositive sans mettre à l’échelle les formes, elles conservent leurs positions et dimensions d’origine et peuvent dépasser de la diapositive. Mettre à l’échelle la largeur et la hauteur avec des rapports différents peut également déformer les formes.
 
 **Le code fourni fonctionne‑t‑il pour tous les types de formes ?**
 
-L’exemple de base fonctionne pour la plupart des types de formes (zones de texte, images, graphiques, etc.). Cependant, pour les tableaux, vous devez gérer les lignes et les colonnes séparément, car la hauteur et la largeur d’un tableau sont déterminées par les dimensions des cellules individuelles.
+Le premier exemple modifie directement les limites des formes et est destiné aux diapositives sans tableaux. Le deuxième exemple gère les tableaux séparément. Vérifiez la mise en page résultante, en particulier le texte et les tableaux, car ces exemples ne mettent pas à l’échelle les tailles de police et le contenu des tableaux peut contraindre les hauteurs de lignes.
 
 **Comment redimensionner les tableaux lors du redimensionnement d’une diapositive ?**
 
-Vous devez parcourir toutes les lignes et colonnes du tableau et redimensionner leur hauteur et largeur proportionnellement, comme le montre le deuxième exemple de code.
+Mettez à l’échelle les largeurs des colonnes selon le rapport de largeur et les hauteurs minimales des lignes selon le rapport de hauteur, puis mettez à l’échelle la position du tableau comme indiqué dans le deuxième exemple.
 
-**Ce redimensionnement fonctionnera‑t‑il pour les maîtres de diapositive et les diapositives de mise en page ?**
+**Ce redimensionnement fonctionnera‑t‑il pour les diapositives maîtres et les diapositives de mise en page ?**
 
-Oui, mais vous devez également parcourir les [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) et les [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) et appliquer la même logique de mise à l’échelle à leurs formes afin d’assurer la cohérence de l’ensemble de la présentation.
+Oui. Le deuxième exemple parcourt [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) et les [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) de chaque maître et applique la même logique de redimensionnement à leurs formes.
 
 **Puis‑je changer l’orientation d’une diapositive (portrait/paysage) lors du redimensionnement ?**
 
-Oui. Vous pouvez définir [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/islidesize/orientation/) pour modifier l’orientation. Veillez à ajuster la logique de mise à l’échelle en conséquence afin de préserver la mise en page.
+Oui. Définissez [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) après avoir modifié la taille de la diapositive et avant de lire les dimensions cibles, afin que les facteurs d’échelle reflètent l’orientation finale.
 
-**Y a‑t‑il une limite à la taille de diapositive que je peux définir ?**
+**Existe‑t‑il une limite à la taille de diapositive que je peux définir ?**
 
-Aspose.Slides prend en charge les tailles personnalisées, mais des tailles très importantes peuvent affecter les performances ou la compatibilité avec certaines versions de PowerPoint.
+Vous pouvez spécifier des dimensions de diapositive personnalisées avec [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). Les dimensions prises en charge dépendent également du format de la présentation et de l’application utilisée pour ouvrir le fichier.
 
-**Comment éviter que les formes à ratio d’aspect fixe ne se déforment ?**
+**Comment empêcher les formes avec un rapport d’aspect fixe de se déformer ?**
 
-Vous pouvez vérifier la propriété `AspectRatioLocked` de la forme avant de la mettre à l’échelle. Si elle est verrouillée, ajustez la largeur ou la hauteur proportionnellement plutôt que de les mettre à l’échelle séparément.
+Utilisez le même facteur d’échelle pour la largeur et la hauteur. Pour adapter la mise en page originale aux nouvelles dimensions de la diapositive, utilisez le plus petit des rapports de largeur et de hauteur pour les deux dimensions et les positions. Cela préserve les proportions mais peut laisser un espace inutilisé le long d’un bord.

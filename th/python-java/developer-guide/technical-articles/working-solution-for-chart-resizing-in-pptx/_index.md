@@ -1,48 +1,41 @@
 ---
-title: วิธีแก้ปัญหาการปรับขนาดกราฟใน PPTX
+title: วิธีแก้ปัญหาการปรับขนาดแผนภูมิใน PPTX
 type: docs
 weight: 40
 url: /th/python-java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- การปรับขนาดกราฟ
-- กราฟ Excel
-- วัตถุ OLE
-- ฝังกราฟ
+- การปรับขนาดแผนภูมิ
+- แผนภูมิ Excel
+- อ็อบเจกต์ OLE
+- ฝังแผนภูมิ
 - PowerPoint
-- OpenDocument
 - งานนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "แก้ไขการปรับขนาดกราฟที่ไม่คาดคิดใน PPTX เมื่อใช้วัตถุ Excel OLE ที่ฝังไว้กับ Aspose.Slides for Python via Java เรียนรู้สองวิธีพร้อมโค้ดเพื่อคงขนาดให้สม่ำเสมอ"
+description: "แก้ไขปัญหาการปรับขนาดแผนภูมิที่ไม่คาดคิดใน PPTX เมื่อใช้วัตถุ OLE ของ Excel ที่ฝังอยู่ร่วมกับ Aspose.Slides สำหรับ Python ผ่าน Java. ตั้งค่าขนาดแผนภูมิคงที่เพื่อให้ขนาดแผนภูมิและกรอบ OLE สอดคล้องกัน."
 ---
 ## **พื้นหลัง**
 
-พบว่ากราฟ Excel ที่ฝังเป็นวัตถุ OLE ในงานนำเสนอ PowerPoint ผ่านคอมโพเนนต์ของ Aspose จะถูกปรับขนาดเป็นสเกลที่ไม่ระบุหลังจากการเปิดใช้งานครั้งแรก พฤติกรรมนี้ทำให้เกิดความแตกต่างด้านภาพที่เห็นได้ชัดในงานนำเสนอระหว่างสถานะก่อนและหลังการเปิดใช้งานของกราฟ ทีมงาน Aspose ได้ตรวจสอบปัญหาอย่างละเอียดและพบวิธีแก้ไข บทความนี้อธิบายสาเหตุของปัญหาและการแก้ไขที่สอดคล้องกัน
+แผนภูมิ Excel ที่ฝังเป็นอ็อบเจกต์ OLE ในงานนำเสนอ PowerPoint โดยใช้คอมโพเนนต์ของ Aspose สามารถเปลี่ยนขนาดได้หลังจากการเปิดใช้งานครั้งแรก ซึ่งอาจทำให้เกิดความแตกต่างที่เห็นได้ชัดในลักษณะของแผนภูมิก่อนและหลังการเปิดใช้งาน บทความนี้อธิบายสาเหตุที่ทำให้ขนาดเปลี่ยนและแสดงวิธีป้องกันโดยการทำให้ขนาดแผนภูมิที่กำหนดตรงกับกรอบ OLE
 
-ใน[บทความก่อนหน้า](/slides/th/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), เราอธิบายวิธีการสร้างกราฟ Excel ด้วย Aspose.Cells for Python via Java และฝังลงในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides for Python via Java เพื่อแก้ไข[ปัญหาการแสดงตัวอย่างวัตถุ](/slides/th/python-java/object-preview-issue-when-adding-oleobjectframe/), เราได้กำหนดภาพกราฟให้กับกรอบวัตถุ OLE ของกราฟ ในงานนำเสนอผลลัพธ์ เมื่อคุณดับเบิลคลิกที่กรอบวัตถุ OLE ที่แสดงภาพกราฟ Excel จะถูกเปิดใช้งาน ผู้ใช้ขั้นสุดท้ายสามารถทำการเปลี่ยนแปลงใด ๆ ที่ต้องการในเวิร์กบุ๊ก Excel ที่อยู่เบื้องหลังและจากนั้นกลับไปยังสไลด์ที่เกี่ยวข้องโดยคลิกนอกเวิร์กบุ๊กที่เปิดใช้งาน ขนาดของกรอบวัตถุ OLE จะเปลี่ยนแปลงเมื่อผู้ใช้กลับไปยังสไลด์และปัจจัยการปรับขนาดจะแตกต่างกันไปขึ้นอยู่กับขนาดเดิมของกรอบวัตถุ OLE และเวิร์กบุ๊ก Excel ที่ฝังอยู่
+ใน [สร้างแผนภูมิ Excel และฝังเป็นอ็อบเจกต์ OLE ในงานนำเสนอ](/slides/th/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) เราอธิบายวิธีสร้างแผนภูมิ Excel ด้วย Aspose.Cells for Python via Java และฝังลงในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for Python via Java เพื่อแก้ไขปัญหา[ปัญหาการแสดงตัวอย่างอ็อบเจกต์](/slides/th/python-java/object-preview-issue-when-adding-oleobjectframe/) เราได้กำหนดภาพแผนภูมิให้กับกรอบอ็อบเจกต์ OLE ของแผนภูมิ ในงานนำเสนอที่ได้ผลลัพธ์ เมื่อคุณดับเบิลคลิกที่กรอบอ็อบเจกต์ OLE ที่แสดงภาพแผนภูมิ แผนภูมิ Excel จะถูกเปิดใช้งาน ผู้ใช้สามารถแก้ไขสมุดงาน Excel ที่ฝังไว้แล้วคลิกนอกสมุดงานที่เปิดใช้งานเพื่อกลับไปยังสไลด์ได้ ขนาดของกรอบอ็อบเจกต์ OLE จะเปลี่ยนเมื่อผู้ใช้กลับไปยังสไลด์ และอัตราการเปลี่ยนขนาดจะแตกต่างกันตามขนาดเดิมของกรอบอ็อบเจกต์ OLE และสมุดงาน Excel ที่ฝังอยู่
 
-## **สาเหตุของการปรับขนาด**
+## **สาเหตุของการเปลี่ยนขนาด**
 
-เนื่องจากเวิร์กบุ๊ก Excel มีขนาดหน้าต่างของมันเอง มันพยายามคงขนาดเดิมไว้ในครั้งแรกที่เปิดใช้งาน กรอบวัตถุ OLE แต่ละกรอบมีขนาดของมันเอง ตามข้อมูลของ Microsoft เมื่อเวิร์กบุ๊ก Excel ถูกเปิดใช้งาน Excel และ PowerPoint จะเจรจาขนาดและรักษาสัดส่วนที่เหมาะสมเป็นส่วนหนึ่งของกระบวนการฝัง ขึ้นอยู่กับความแตกต่างระหว่างขนาดหน้าต่าง Excel กับขนาดหรือสถานที่ของกรอบวัตถุ OLE การปรับขนาดจึงเกิดขึ้น
+สมุดงาน Excel ที่ฝังไว้มีขนาดหน้าต่างของตนเอง ซึ่ง Excel พยายามเก็บไว้เมื่ออ็อบเจกต์ถูกเปิดใช้งานครั้งแรก กรอบ OLE บนสไลด์มีขนาดที่กำหนดแยกกัน เมื่อสมุดงาน Excel ถูกเปิดใช้งาน Excel และ PowerPoint จะเจรจากขนาดของอ็อบเจกต์เพื่อรักษาส่วนอัตราส่วนเป็นส่วนหนึ่งของกระบวนการฝัง ความแตกต่างระหว่างหน้าต่างสมุดงานและกรอบ OLE จึงอาจทำให้เกิดการเปลี่ยนขนาดของอ็อบเจกต์ได้
 
-## **วิธีแก้ไขที่ใช้งานได้**
+## **วิธีแก้ที่ใช้งานได้**
 
-มีสองสถานการณ์ที่เป็นไปได้สำหรับการสร้างงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides for Python via Java  
+ทำให้ขนาดแผนภูมิตรงกับกรอบ OLE บนสไลด์และทำให้ขนาดของแผนภูมิเป็นอิสระจากหน้าต่างสมุดงาน วิธีแก้นี้ทำงานได้กับงานนำเสนอใหม่หรือเทมเพลตที่มีอยู่แล้ว
 
-**Scenario 1:** สร้างงานนำเสนอจากเทมเพลตที่มีอยู่  
+ตัวอย่างนี้ต้องใช้ Aspose.Cells for Python via Java และ Aspose.Slides for Python via Java โดยจะสร้างแผนภูมิคอลัมน์ง่ายบนชีตแผนภูมิที่เปิดใช้งานและฝังสมุดงานในรูปแบบ XLS ไม่ได้กำหนดภาพแสดงตัวอย่างของแผนภูมิ; แผนภูมิจะปรากฏเมื่ออ็อบเจกต์ OLE ถูกเปิดใช้งานใน PowerPoint
 
-**Scenario 2:** สร้างงานนำเสนอจากศูนย์  
+ตัวอย่างสร้างงานนำเสนอใหม่โดยมีกรอบ OLE ขนาด 9.5 × 4 นิ้ว ตั้งไว้ห่างจากขอบซ้าย 0.5 นิ้วและห่างจากด้านบน 1 นิ้ว พิกัดและขนาดของสไลด์ใช้หน่วยเป็นพอยต์ (72 พอยต์ต่อหนึ่งนิ้ว) สำหรับงานนำเสนอที่มีอยู่แล้ว, ดูที่ [ใช้เทมเพลต](#use-a-template)
 
-วิธีแก้ที่เรานำเสนอที่นี่ใช้ได้กับทั้งสองสถานการณ์ พื้นฐานของวิธีแก้ทั้งหมดคือเดียวกัน: **ขนาดหน้าต่างของวัตถุ OLE ที่ฝังควรตรงกับกรอบวัตถุ OLE ในสไลด์ PowerPoint** เราจะพูดถึงสองวิธีแก้นี้ต่อไป
+## **ตั้งขนาดแผนภูมิคงที่**
 
-## **วิธีการแรก**
-
-ในวิธีนี้ เราจะเรียนรู้วิธีตั้งค่าขนาดหน้าต่างของเวิร์กบุ๊ก Excel ที่ฝังให้ตรงกับขนาดของกรอบวัตถุ OLE ในสไลด์ PowerPoint
-
-**Scenario 1**
-
-สมมติว่าเราได้กำหนดเทมเพลตและต้องการสร้างงานนำเสนอจากเทมเพลตดังกล่าว สมมติว่ามีรูปทรงที่ตำแหน่งที่ 2 ในเทมเพลตที่เราต้องการวางกรอบ OLE ที่มีเวิร์กบุ๊ก Excel ฝังอยู่ ในสถานการณ์นี้ขนาดของกรอบวัตถุ OLE ถูกกำหนดไว้ล่วงหน้า — ตรงกับขนาดของรูปทรงที่ตำแหน่งที่ 2 ในเทมเพลต เพียงแค่ตั้งค่าขนาดหน้าต่างของเวิร์กบุ๊กให้เท่ากับขนาดของรูปทรงนั้นเท่านั้น โค้ดตัวอย่างต่อไปนี้ทำหน้าที่ดังกล่าว
+ตั้งค่า [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) เป็น false เพื่อให้ขนาดแผนภูมิเป็นอิสระจากหน้าต่างสมุดงาน ตั้งค่าขนาดของ [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) ผ่าน [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) และ [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height) โดยแปลงพอยต์เป็นพิกเซลโดยใช้ 96 พิกเซลต่อหนึ่งนิ้ว: กรอบที่วัดได้ 684 × 288 พอยต์ตรงกับแผนภูมิขนาด 912 × 384 พิกเซล ตั้งค่า [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) เป็นค่า CUSTOM ของ [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/) ตัวอย่างฝังสมุดงานด้วย [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) และบันทึกงานนำเสนอที่มีกรอบ OLE ขนาด 9.5 × 4 นิ้ว
 
 ```python
 import jpype
@@ -52,209 +45,84 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# โหลด workbook Excel ที่มีกราฟ
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # ตั้งขนาดหน้าต่าง workbook เป็นนิ้ว (PowerPoint ใช้ 72 จุดต่อหนึ่งนิ้ว)
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # บันทึก workbook ไปยังสตรีมหน่วยความจำ
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # สร้างกรอบวัตถุ OLE พร้อมข้อมูล Excel ที่ฝังอยู่
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # พิกัดและขนาดของสไลด์ใช้หน่วยเป็นพอยต์ (72 พอยต์ต่อหนึ่งนิ้ว).
+        width = 684.0  # 9.5 นิ้ว.
+        height = 288.0  # 4 นิ้ว.
+
+        chart.setSizeWithWindow(False)
+        # แปลงพอยต์เป็นพิกเซลของแผนภูมิโดยใช้ 96 พิกเซลต่อหนึ่งนิ้ว.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**Scenario 2**
+## **ใช้เทมเพลต**
 
-สมมติว่าเราต้องการสร้างงานนำเสนอจากศูนย์และเพิ่มกรอบวัตถุ OLE ขนาดใดก็ได้พร้อมเวิร์กบุ๊ก Excel ฝังไว้ ในโค้ดตัวอย่างต่อไปนี้ เราสร้างกรอบวัตถุ OLE สูง 4 นิ้วและกว้าง 9.5 นิ้ว ที่ตำแหน่ง x = 0.5 นิ้ว และ y = 1 นิ้วบนสไลด์ แล้วตั้งค่าหน้าต่างเวิร์กบุ๊ก Excel ให้มีขนาดเดียวกัน — สูง 4 นิ้วและกว้าง 9.5 นิ้ว
+ตรรกะการกำหนดขนาดเหมือนกันสำหรับงานนำเสนอที่มีอยู่แล้ว เพื่อปรับตัวอย่างให้ทำตามขั้นตอนต่อไปนี้:
 
-```python
-import jpype
-import asposecells
-import asposeslides
+1. โหลดงานนำเสนอเทมเพลตแทนการสร้างงานนำเสนอเปล่า
+1. ตรวจสอบให้แน่ใจว่าหนังสือเล่มแรกมีรูปร่างอย่างน้อยสามรูป แล้วใช้รูปร่างที่ตำแหน่งดัชนี 2 เป็นตัวแทนที่วางไว้
+1. ดึงความกว้างและความสูงของกรอบจากรูปร่างนั้นแทนการใช้ค่าคงที่ 684 และ 288 คำนวณขนาดโดยไม่เปลี่ยนแปลง
+1. เพิ่มกรอบ OLE ที่ตำแหน่งของตัวแทนแทนการใช้พิกัดคงที่ 36 และ 72
+1. ลบตัวแทนก่อนบันทึกงานนำเสนอ
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+## **FAQ**
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+**ทำไมแผนภูมิ Excel ที่ฝังไว้ถึงเปลี่ยนขนาดหลังจากเปิดใช้งานใน PowerPoint?**
 
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
+เกิดจาก Excel พยายามคืนขนาดหน้าต่างเดิมเมื่อเปิดใช้งานครั้งแรก ในขณะที่กรอบอ็อบเจกต์ OLE ใน PowerPoint มีขนาดของตนเอง PowerPoint และ Excel จะเจรจาขนาดเพื่อรักษาอัตราส่วน ซึ่งอาจทำให้เกิดการเปลี่ยนขนาดได้
 
-# โหลด workbook Excel ที่มีกราฟ
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
+**ฉันจะทำให้ขนาดของแผนภูมิและกรอบ OLE สอดคล้องกันได้อย่างไร?**
 
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 นิ้ว (4 * 72).
-    desired_width = 684  # 9.5 นิ้ว (9.5 * 72).
+กำหนดขนาดแผนภูมิคงที่ให้ตรงกับกรอบ OLE และใช้ขนาดการพิมพ์ของแผนภูมิแบบกำหนดเองก่อนฝังสมุดงาน ตัวอย่างด้านบนแสดงการตั้งค่าที่จำเป็นและการแปลงหน่วย
 
-    # กำหนดขนาดกราฟด้วยหน้าต่าง
-    chart.setSizeWithWindow(True)
+**การทำให้ขนาดหน้าต่างสมุดงานตรงกันพอหรือไม่?**
 
-    # ตั้งค่าขนาดหน้าต่าง workbook เป็นนิ้ว (PowerPoint ใช้ 72 จุดต่อหนึ่งนิ้ว)
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
+การทำให้ขนาดหน้าต่างสมุดงานตรงกันเพียงอย่างเดียวไม่สามารถป้องกันกรอบ OLE จากการเปลี่ยนขนาดหลังจากเปิดใช้งานได้อย่างเชื่อถือได้ ให้ใช้ขนาดแผนภูมิคงที่ตามที่แสดงในตัวอย่าง
 
-    # บันทึก workbook ไปยังสตรีมหน่วยความจำ
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+**วิธีแก้นี้ทำงานได้กับงานนำเสนอที่ใช้เทมเพลตและงานนำเสนอใหม่ทั้งสองหรือไม่?**
 
-    # สร้างกรอบวัตถุ OLE พร้อมข้อมูล Excel ที่ฝังอยู่
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
+ใช่ สำหรับเทมเพลตให้ใช้ขนาดและตำแหน่งของตัวแทน สำหรับงานนำเสนอใหม่ให้ระบุขนาดและตำแหน่งของกรอบโดยตรง
 
-## **วิธีการที่สอง**
+**ฉันสามารถใช้ตัวอย่างนี้กับแผนภูมิที่สร้างจากโปรแกรมสเปรดชีตอื่นได้หรือไม่?**
 
-ในวิธีนี้ เราจะเรียนรู้วิธีตั้งค่าขนาดของกราฟในเวิร์กบุ๊ก Excel ที่ฝังให้ตรงกับขนาดของกรอบวัตถุ OLE ในสไลด์ PowerPoint วิธีนี้เป็นประโยชน์เมื่อขนาดของกราฟทราบล่วงหน้าและจะไม่เปลี่ยนแปลง
+ตัวอย่างใช้สมุดงาน Excel ที่สร้างด้วย Aspose.Cells ไม่ได้แสดงพฤติกรรมการเปิดใช้งานสำหรับโปรแกรมสเปรดชีตอื่น
 
-**Scenario 1**
+## **ส่วนที่เกี่ยวข้อง**
 
-สมมติว่าเราได้กำหนดเทมเพลตและต้องการสร้างงานนำเสนอจากเทมเพลตดังกล่าว สมมติว่ามีรูปทรงที่ตำแหน่งที่ 2 ในเทมเพลตที่เราตั้งใจจะวางกรอบ OLE ที่มีเวิร์กบุ๊ก Excel ฝังอยู่ ในสถานการณ์นี้ขนาดของกรอบ OLE ถูกกำหนดไว้ล่วงหน้า — ตรงกับขนาดของรูปทรงที่ตำแหน่งที่ 2 ในเทมเพลต เพียงแค่ตั้งค่าขนาดของกราฟในเวิร์กบุ๊กให้เท่ากับขนาดของรูปทรงนั้น โค้ดตัวอย่างต่อไปนี้ทำหน้าที่ดังกล่าว
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# โหลด workbook Excel ที่มีกราฟ
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # กำหนดขนาดกราฟโดยไม่ใช้หน้าต่าง
-    chart.setSizeWithWindow(False)
-
-    # ตั้งค่าขนาดกราฟเป็นพิกเซล (Excel ใช้ 96 พิกเซลต่อหนึ่งนิ้ว)
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # กำหนดขนาดการพิมพ์ของกราฟ
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # บันทึก workbook ไปยังสตรีมหน่วยความจำ
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # สร้างกรอบวัตถุ OLE พร้อมข้อมูล Excel ที่ฝังอยู่
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**Scenario 2**:
-
-สมมติว่าเราต้องการสร้างงานนำเสนอจากศูนย์และเพิ่มกรอบวัตถุ OLE ขนาดใดก็ได้พร้อมเวิร์กบุ๊ก Excel ฝังไว้ ในโค้ดตัวอย่างต่อไปนี้ เราสร้างกรอบวัตถุ OLE สูง 4 นิ้วและกว้าง 9.5 นิ้ว ที่ตำแหน่ง x = 0.5 นิ้ว และ y = 1 นิ้วบนสไลด์ พร้อมตั้งค่าขนาดของกราฟที่สอดคล้องให้มีขนาดเดียวกัน — สูง 4 นิ้วและกว้าง 9.5 นิ้ว
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpime.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# โหลด workbook Excel ที่มีกราฟ.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 นิ้ว (4 * 72).
-    desired_width = 684  # 9.5 นิ้ว (9.5 * 72).
-
-    # กำหนดขนาดกราฟโดยไม่ใช้หน้าต่าง.
-    chart.setSizeWithWindow(False)
-
-    # ตั้งค่าขนาดกราฟเป็นพิกเซล (Excel ใช้ 96 พิกเซลต่อหนึ่งนิ้ว).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # บันทึก workbook ไปยังสตรีมหน่วยความจำ.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # สร้างกรอบวัตถุ OLE พร้อมข้อมูล Excel ที่ฝังอยู่.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **สรุป**
-
-มีสองวิธีแก้ปัญหาการปรับขนาดของกราฟ ทั้งสองวิธีขึ้นกับความต้องการและกรณีการใช้งาน ตัวเลือกใดตัวเลือกหนึ่งทำงานได้เช่นเดียวกันไม่ว่าการสร้างงานนำเสนอจะมาจากเทมเพลตหรือจากศูนย์ นอกจากนี้ไม่มีขีดจำกัดขนาดของกรอบวัตถุ OLE ในวิธีแก้นี้
-
-## **คำถามที่พบบ่อย**
-
-**ทำไมกราฟ Excel ที่ฝังอยู่จึงเปลี่ยนขนาดหลังจากเปิดใช้งานใน PowerPoint?**  
-เนื่องจาก Excel พยายามคืนค่าขนาดหน้าต่างเดิมเมื่อเปิดใช้งานครั้งแรก ส่วนกรอบวัตถุ OLE ใน PowerPoint มีขนาดของมันเอง PowerPoint และ Excel จะแก้ไขขนาดเพื่อรักษาอัตราส่วน ซึ่งอาจทำให้เกิดการปรับขนาดได้
-
-**สามารถป้องกันปัญหาการปรับขนาดนี้ได้โดยสมบูรณ์หรือไม่?**  
-ได้ โดยการทำให้ขนาดหน้าต่างเวิร์กบุ๊ก Excel หรือขนาดกราฟตรงกับขนาดของกรอบวัตถุ OLE ก่อนทำการฝัง จะทำให้ขนาดกราฟคงที่
-
-**ควรเลือกวิธีใด การตั้งค่าขนาดหน้าต่างเวิร์กบุ๊กหรือการตั้งค่าขนาดกราฟ?**  
-ใช้ **วิธีที่ 1 (ขนาดหน้าต่าง)** หากต้องการรักษาอัตราส่วนของเวิร์กบุ๊กและอาจต้องการให้ผู้ใช้ปรับขนาดได้ในภายหลัง  
-ใช้ **วิธีที่ 2 (ขนาดกราฟ)** หากขนาดของกราฟเป็นค่าคงที่และจะไม่เปลี่ยนแปลงหลังการฝัง
-
-**วิธีเหล่านี้จะทำงานกับงานนำเสนอแบบเทมเพลตและงานนำเสนอใหม่หรือไม่?**  
-ใช่ ทั้งสองวิธีทำงานเช่นเดียวกันสำหรับงานนำเสนอที่สร้างจากเทมเพลตและจากศูนย์
-
-**มีขีดจำกัดขนาดของกรอบวัตถุ OLE หรือไม่?**  
-ไม่มี คุณสามารถตั้งค่ากรอบ OLE ให้เป็นขนาดใดก็ได้ตราบใดที่สัดส่วนสอดคล้องกับขนาดของเวิร์กบุ๊กหรือกราฟ
-
-**สามารถใช้วิธีเหล่านี้กับกราฟที่สร้างจากโปรแกรมสเปรดชีตอื่นได้หรือไม่?**  
-ตัวอย่างออกแบบมาสำหรับกราฟ Excel ที่สร้างด้วย Aspose.Cells แต่หลักการเดียวกันสามารถนำไปใช้กับโปรแกรมสเปรดชีตอื่นที่รองรับ OLE และให้ตัวเลือกการกำหนดขนาดที่คล้ายกันได้
-
-## **Related Sections**
-
-- [สร้างกราฟ Excel และฝังเป็นวัตถุ OLE ในงานนำเสนอ](/slides/th/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [สร้างแผนภูมิ Excel และฝังเป็นอ็อบเจกต์ OLE ในงานนำเสนอ](/slides/th/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

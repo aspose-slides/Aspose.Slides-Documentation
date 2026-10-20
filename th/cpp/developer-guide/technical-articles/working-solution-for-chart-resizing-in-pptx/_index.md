@@ -1,220 +1,144 @@
 ---
-title: วิธีแก้ปัญหาการปรับขนาดแผนภูมิใน PPTX
+title: โซลูชันการทำงานสำหรับการปรับขนาดแผนภูมิใน PPTX
 type: docs
 weight: 60
 url: /th/cpp/working-solution-for-chart-resizing-in-pptx/
 keywords:
 - การปรับขนาดแผนภูมิ
 - แผนภูมิ Excel
-- อ็อบเจ็กต์ OLE
+- วัตถุ OLE
 - ฝังแผนภูมิ
 - PowerPoint
-- OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "แก้ไขการปรับขนาดแผนภูมิที่ไม่คาดคิดใน PPTX เมื่อใช้วัตถุ OLE ของ Excel ที่ฝังอยู่กับ Aspose.Slides สำหรับ C++. เรียนรู้สองวิธีพร้อมโค้ดเพื่อรักษาขนาดให้สม่ำเสมอ."
+description: "แก้ไขการปรับขนาดแผนภูมิที่ไม่คาดคิดใน PPTX เมื่อใช้วัตถุ Excel OLE ที่ฝังอยู่กับ Aspose.Slides for C++. ตั้งค่าขนาดแผนภูมิคงที่เพื่อให้ขนาดแผนภูมิและกรอบ OLE สอดคล้องกัน."
 ---
-## **พื้นหลัง**
+## **Background**
 
-พบว่าแผนภูมิ Excel ที่ฝังเป็นอ็อบเจ็กต์ OLE ในการนำเสนอ PowerPoint ผ่านคอมโพเนนท์ของ Aspose จะถูกปรับขนาดเป็นสเกลที่ไม่ระบุหลังจากการเปิดใช้งานครั้งแรก พฤติกรรมนี้ทำให้เกิดความแตกต่างทางภาพที่ชัดเจนในการนำเสนอระหว่างสถานะก่อนและหลังการเปิดใช้งานของแผนภูมิ ทีมงาน Aspose ได้ทำการตรวจสอบปัญหาอย่างละเอียดและพบวิธีแก้ บทความนี้อธิบายสาเหตุของปัญหาและวิธีแก้ที่สอดคล้องกัน
+แผนภูมิ Excel ที่ฝังเป็นวัตถุ OLE ในงานนำเสนอ PowerPoint โดยใช้คอมโพเนนต์ของ Aspose สามารถเปลี่ยนขนาดได้หลังจากการเปิดใช้งานครั้งแรก สิ่งนี้อาจทำให้เกิดความแตกต่างที่สังเกตได้ในลักษณะของแผนภูมิก่อนและหลังการเปิดใช้งาน บทความนี้อธิบายเหตุผลที่เกิดการปรับขนาดและแสดงวิธีป้องกันโดยการจับคู่ขนาดแผนภูมิคงที่กับกรอบ OLE
 
-ใน[บทความก่อนหน้า](/slides/th/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), เราได้อธิบายวิธีการสร้างแผนภูมิ Excel ด้วย Aspose.Cells for C++ และฝังมันในการนำเสนอ PowerPoint ด้วย Aspose.Slides for C++ เพื่อแก้ไข[ปัญหาการแสดงตัวอย่างอ็อบเจ็กต์](/slides/th/cpp/object-preview-issue-when-adding-oleobjectframe/), เราได้กำหนดภาพของแผนภูมิให้กับกรอบอ็อบเจ็กต์ OLE ของแผนภูมิ ในการนำเสนอที่ออกมา เมื่อคุณดับเบิลคลิกที่กรอบอ็อบเจ็กต์ OLE ที่แสดงภาพแผนภูมิ แผนภูมิ Excel จะถูกเปิดใช้งาน ผู้ใช้สามารถทำการเปลี่ยนแปลงใดๆ ที่ต้องการในสมุดงาน Excel ด้านล่างและจากนั้นกลับไปยังสไลด์ที่สอดคล้องกันโดยการคลิกนอกสมุดงานที่เปิดใช้งาน ขนาดของกรอบอ็อบเจ็กต์ OLE จะเปลี่ยนแปลงเมื่อผู้ใช้กลับไปยังสไลด์ และปัจจัยการปรับขนาดจะแตกต่างกันขึ้นอยู่กับขนาดดั้งเดิมของทั้งกรอบอ็อบเจ็กต์ OLE และสมุดงาน Excel ที่ฝังอยู่
+ใน [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/th/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) เราอธิบายวิธีสร้างแผนภูมิ Excel ด้วย Aspose.Cells for C++ และฝังลงในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides for C++. เพื่อแก้ไขปัญหา [object preview issue](/slides/th/cpp/object-preview-issue-when-adding-oleobjectframe/) เราได้กำหนดภาพแผนภูมิให้กับกรอบวัตถุ OLE ของแผนภูมิ. ในงานนำเสนอผลลัพธ์ เมื่อคุณดับเบิลคลิกที่กรอบวัตถุ OLE ที่แสดงภาพแผนภูมิ แผนภูมิ Excel จะถูกเปิดใช้งาน ผู้ใช้สามารถแก้ไขเวิร์กบุ๊ก Excel ที่ฝังอยู่และจากนั้นกลับไปยังสไลด์โดยคลิกนอกเวิร์กบุ๊กที่เปิดใช้งาน ขนาดของกรอบวัตถุ OLE จะเปลี่ยนแปลงเมื่อผู้ใช้กลับไปยังสไลด์ และปัจจัยการปรับขนาดจะแตกต่างกันขึ้นอยู่กับขนาดเดิมของกรอบวัตถุ OLE และเวิร์กบุ๊ก Excel ที่ฝังอยู่
 
-## **สาเหตุของการปรับขนาด**
+## **Cause of Resizing**
 
-เนื่องจากสมุดงาน Excel มีขนาดหน้าต่างของตนเอง มันพยายามรักษาขนาดเดิมไว้ในการเปิดใช้งานครั้งแรก อย่างไรก็ตามกรอบอ็อบเจ็กต์ OLE มีขนาดของตัวเอง ตามที่ Microsoft ระบุ เมื่อสมุดงาน Excel ถูกเปิดใช้งาน Excel และ PowerPoint จะเจรจาขนาดและรักษาสัดส่วนที่ถูกต้องเป็นส่วนหนึ่งของกระบวนการฝัง ขึ้นอยู่กับความแตกต่างระหว่างขนาดหน้าต่าง Excel กับขนาดหรือสถานะของกรอบอ็อบเจ็กต์ OLE การปรับขนาดจะเกิดขึ้น
+เวิร์กบุ๊ก Excel ที่ฝังอยู่มีขนาดหน้าต่างของตนเอง ซึ่ง Excel พยายามรักษาขนาดนั้นเมื่อวัตถุถูกเปิดใช้งานครั้งแรก กรอบ OLE บนสไลด์มีขนาดที่กำหนดแยกออกมา เมื่อเวิร์กบุ๊ก Excel ถูกเปิดใช้งาน, Excel และ PowerPoint จะเจรจาขนาดของวัตถุเพื่อรักษาสัดส่วนเป็นส่วนหนึ่งของกระบวนการฝัง ความแตกต่างระหว่างหน้าต่างเวิร์กบุ๊กและกรอบ OLE จึงอาจทำให้วัตถุปรับขนาด
 
-## **วิธีแก้ที่ใช้งานได้**
+## **Working Solution**
 
-มีสองสถานการณ์ที่เป็นไปได้สำหรับการสร้างการนำเสนอ PowerPoint ด้วย Aspose.Slides for C++.
+จับคู่ขนาดแผนภูมิกับกรอบ OLE บนสไลด์และทำให้ขนาดแผนภูมิเป็นอิสระจากหน้าต่างเวิร์กบุ๊ก วิธีแก้ปัญหานี้ทำงานกับงานนำเสนอใหม่หรือเทมเพลตที่มีอยู่ ตัวอย่างนี้ต้องใช้ Aspose.Cells for C++ และ Aspose.Slides for C++. มันสร้างแผนภูมิคอลัมน์ง่ายบนแผ่นแผนภูมิที่ทำงานอยู่และฝังเวิร์กบุ๊กในรูปแบบ XLS ไม่มีการกำหนดภาพแสดงตัวอย่างของแผนภูมิ; แผนภูมิจะปรากฏเมื่อวัตถุ OLE ถูกเปิดใช้งานใน PowerPoint
 
-**สถานการณ์ 1:** สร้างการนำเสนอจากเทมเพลตที่มีอยู่แล้ว.
+วางโค้ดตัวอย่างในจุดเริ่มต้นของแอปพลิเคชันของคุณ โดยมีการประกาศ include ที่ระดับไฟล์ เริ่มต้น Aspose.Cells ก่อนสร้างอ็อบเจ็กต์ของมันและปลดปล่อยทรัพยากรหลังจากอ็อบเจ็กต์เหล่านั้นถูกทำลาย ตัวอย่างจะคัดลอกเวกเตอร์ไบต์ของเวิร์กบุ๊กที่ Aspose.Cells คืนค่าไปยังอาร์เรย์ประเภทที่ Aspose.Slides ยอมรับ
 
-**สถานการณ์ 2:** สร้างการนำเสนอจากศูนย์.
+ตัวอย่างสร้างงานนำเสนอใหม่ที่มีกรอบ OLE ขนาด 9.5 × 4 นิ้ว วางตำแหน่งห่างจากขอบซ้าย 0.5 นิ้วและจากด้านบน 1 นิ้ว พิกัดและขนาดของสไลด์ใช้หน่วยพอยต์ (72 พอยต์ต่อหนึ่งนิ้ว) หากเป็นงานนำเสนอที่มีอยู่แล้ว ดูที่ [Use a Template](#use-a-template).
 
-วิธีแก้ที่เรานำเสนอที่นี่ใช้ได้กับทั้งสองสถานการณ์ พื้นฐานของแนวทางการแก้ทั้งหมดคือเดียวกัน: **ขนาดหน้าต่างของอ็อบเจ็กต์ OLE ที่ฝังควรตรงกับกรอบอ็อบเจ็กต์ OLE ในสไลด์ PowerPoint** เราจะอธิบายสองวิธีการแก้ไขต่อไปนี้
+## **Set a Fixed Chart Size**
 
-## **วิธีการที่หนึ่ง**
+Set [Chart::SetSizeWithWindow](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setsizewithwindow/) to false so that the chart dimensions are independent of the workbook window. ตั้งค่า Chart::SetSizeWithWindow เป็น false เพื่อให้ขนาดแผนภูมิเป็นอิสระจากหน้าต่างเวิร์กบุ๊ก
 
-ในวิธีการนี้ เราจะเรียนรู้วิธีการตั้งค่าขนาดหน้าต่างของสมุดงาน Excel ที่ฝังให้ตรงกับขนาดของกรอบอ็อบเจ็กต์ OLE ในสไลด์ PowerPoint.
+Set the [Chart::GetChartObject](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/getchartobject/) dimensions through [Shape::SetWidth](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setwidth/) and [Shape::SetHeight](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setheight/), converting points to pixels using 96 pixels per inch: a frame measuring 684 × 288 points corresponds to a chart measuring 912 × 384 pixels. ตั้งค่าขนาดของ Chart::GetChartObject ผ่าน Shape::SetWidth และ Shape::SetHeight โดยแปลงจากพอยต์เป็นพิกเซลโดยใช้ 96 พิกเซลต่อหนึ่งนิ้ว: กรอบที่มีขนาด 684 × 288 พอยต์จะเทียบเท่ากับแผนภูมิขนาด 912 × 384 พิกเซล
 
-**สถานการณ์ 1**
+Set [Chart::SetPrintSize](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setprintsize/) to the Custom value of [PrintSizeType](https://reference.aspose.com/cells/cpp/aspose.cells/printsizetype/). ตั้งค่า Chart::SetPrintSize ให้เป็นค่า Custom ของ PrintSizeType
 
-สมมติว่าเรามีการกำหนดเทมเพลตและต้องการสร้างการนำเสนอจากเทมเพลตนั้น สมมติว่ามีรูปร่างที่ดัชนี 2 ในเทมเพลตที่เราต้องการวางกรอบ OLE ที่บรรจุสมุดงาน Excel ที่ฝังไว้ ในสถานการณ์นี้ขนาดของกรอบอ็อบเจ็กต์ OLE ถูกกำหนดล่วงหน้า—ตรงกับขนาดของรูปร่างที่ดัชนี 2 ในเทมเพลต สิ่งที่เราต้องทำคือกำหนดขนาดหน้าต่างของสมุดงานให้เท่ากับขนาดของรูปร่างนั้น โค้ดตัวอย่างต่อไปนี้ทำหน้าที่ดังกล่าว:
+The example embeds the workbook with [IShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addoleobjectframe/) and saves a presentation with a 9.5 × 4-inch OLE frame. ตัวอย่างฝังเวิร์กบุ๊กด้วย IShapeCollection::AddOleObjectFrame และบันทึกงานนำเสนอที่มีกรอบ OLE ขนาด 9.5 × 4 นิ้ว
 
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <algorithm>
+#include <cstdint>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+Aspose::Cells::Startup();
 {
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"Data");
+    dataSheet.GetCells().Get(u"A1").PutValue(10);
+    dataSheet.GetCells().Get(u"A2").PutValue(20);
 
-    return outputStream;
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, 20, 10);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    chart.GetNSeries().Add(u"Data!A1:A2", true);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    // พิกัดและขนาดของสไลด์ใช้หน่วยพอยต์ (72 พอยต์ต่อหนึ่งนิ้ว).
+    auto width = 684.f; // 9.5 นิ้ว.
+    auto height = 288.f; // 4 นิ้ว.
+
+    chart.SetSizeWithWindow(false);
+    // แปลงพอยต์เป็นพิกเซลของแผนภูมิโดยใช้ 96 พิกเซลต่อหนึ่งนิ้ว.
+    chart.GetChartObject().SetWidth(static_cast<int32_t>(width / 72.f * 96.f));
+    chart.GetChartObject().SetHeight(static_cast<int32_t>(height / 72.f * 96.f));
+    chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
+
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
+    // คัดลอกเวกเตอร์ไบต์ของ Cells ไปยังชนิดอาร์เรย์ที่ Slides ยอมรับ.
+    auto workbookBytes = System::MakeArray<uint8_t>(workbookData.GetLength(), 0);
+    std::copy(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength(), workbookBytes->data_ptr());
+    auto dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xls");
+    slide->get_Shapes()->AddOleObjectFrame(36, 72, width, height, dataInfo);
+
+    presentation->Save(u"chart-fixed-size.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
 }
+Aspose::Cells::Cleanup();
 ```
 
-```cpp
-// กำหนดขนาดแผนภูมิด้วยหน้าต่าง. 
-chart->SetSizeWithWindow(true);
+## **Use a Template**
 
-auto shape = slide->get_Shape(2);
+ตรรกะการกำหนดขนาดเหมือนกันสำหรับงานนำเสนอที่มีอยู่แล้ว เพื่อปรับตัวอย่างให้เข้ากับ:
 
-// ตั้งค่าความกว้างของหน้าต่างสมุดงานเป็นนิ้ว (หารด้วย 72 เนื่องจาก PowerPoint ใช้ 72 พิกเซลต่ออินช.).
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
+1. โหลดงานนำเสนอเทมเพลตแทนการสร้างงานนำเสนอเปล่า
+2. ตรวจสอบว่าหนังสือสไลด์แรกมีรูปร่างอย่างน้อยสามรูป แล้วใช้รูปร่างที่ดัชนี 2เป็นตำแหน่งตัวแทน
+3. นำความกว้างและความสูงของกรอบจากรูปร่างนั้นแทนการใช้ค่าคงที่ 684 และ 288. คำนวณขนาดให้คงเดิม
+4. เพิ่มกรอบ OLE ที่ตำแหน่งของตัวแทนแทนการใช้พิกัดคงที่ 36 และ 72
+5. ลบตัวแทนก่อนบันทึกงานนำเสนอ
 
-// ตั้งค่าความสูงของหน้าต่างสมุดงานเป็นนิ้ว.
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
+## **FAQ**
 
-// บันทึกสมุดงานไปยังสตรีมหน่วยความจำ.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
+**ทำไมแผนภูมิ Excel ที่ฝังอยู่ของฉันจึงเปลี่ยนขนาดหลังจากเปิดใช้งานใน PowerPoint?**  
+สิ่งนี้เกิดขึ้นเนื่องจาก Excel พยายามคืนขนาดหน้าต่างเดิมเมื่อเปิดใช้งานครั้งแรก, ขณะที่กรอบวัตถุ OLE ใน PowerPoint มีขนาดของตนเอง PowerPoint และ Excel จะเจรจาขนาดเพื่อรักษาอัตราส่วนภาพ ซึ่งอาจทำให้เกิดการปรับขนาด
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
+**ฉันจะทำอย่างไรให้ขนาดของแผนภูมิและกรอบ OLE สอดคล้องกัน?**  
+กำหนดขนาดแผนภูมิคงที่ที่ตรงกับกรอบ OLE และใช้ขนาดการพิมพ์แผนภูมิกำหนดเองก่อนฝังเวิร์กบุ๊ก ตัวอย่างข้างต้นแสดงการตั้งค่าที่จำเป็นและการแปลงหน่วย
 
-// สร้างเฟรมอ็อบเจ็กต์ OLE พร้อมข้อมูล Excel ที่ฝังอยู่.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(), 
-    shape->get_Height(),
-    dataInfo);
-```
+**การจับคู่ขนาดหน้าต่างเวิร์กบุ๊กเพียงอย่างเดียวเพียงพอหรือไม่?**  
+การจับคู่ขนาดหน้าต่างเวิร์กบุ๊กเพียงอย่างเดียวไม่ได้ป้องกันการเปลี่ยนขนาดของกรอบ OLE หลังจากเปิดใช้งานอย่างเชื่อถือได้ ใช้ขนาดแผนภูมิคงที่ตามที่แสดงในตัวอย่าง
 
-**สถานการณ์ 2**
+**วิธีแก้ปัญหานี้ทำงานกับงานนำเสนอที่ใช้เทมเพลตและงานนำเสนอใหม่หรือไม่?**  
+ใช่ สำหรับเทมเพลต ใช้ขนาดและตำแหน่งของตัวแทน สำหรับงานนำเสนอใหม่ ให้ระบุกรอบและตำแหน่งโดยตรง
 
-สมมติว่าเราต้องการสร้างการนำเสนอจากศูนย์และรวมกรอบอ็อบเจ็กต์ OLE ขนาดใดก็ได้พร้อมสมุดงาน Excel ที่ฝังไว้ ในโค้ดตัวอย่างต่อไปนี้ เราจะสร้างกรอบอ็อบเจ็ต OLE สูง 4 นิ้ว และกว้าง 9.5 นิ้ว ที่ตำแหน่ง x = 0.5 นิ้ว y = 1 นิ้วบนสไลด์ จากนั้นเราจะตั้งค่าหน้าต่างสมุดงาน Excel ให้มีขนาดเดียวกัน—สูง 4 นิ้ว และกว้าง 9.5 นิ้ว
+**ฉันสามารถใช้ตัวอย่างนี้กับแผนภูมิที่สร้างจากโปรแกรมสเปรดชีตอื่นได้หรือไม่?**  
+ตัวอย่างใช้เวิร์กบุ๊ก Excel ที่สร้างด้วย Aspose.Cells ไม่ได้แสดงพฤติกรรมการเปิดใช้งานสำหรับโปรแกรมสเปรดชีตอื่น
 
-```cpp
-// ความสูงที่ต้องการของเรา.
-int32_t desiredHeight = 288; // 4 นิ้ว (4 * 72)
+## **Related Sections**
 
-// ความกว้างที่ต้องการของเรา.
-int32_t desiredWidth = 684; // 9.5 นิ้ว (9.5 * 72)
-
-// กำหนดขนาดแผนภูมิด้วยหน้าต่าง. 
-chart->SetSizeWithWindow(true);
-
-// ตั้งค่าความกว้างของหน้าต่างสมุดงานเป็นนิ้ว.
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
-
-// ตั้งค่าความสูงของหน้าต่างสมุดงานเป็นนิ้ว.
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
-
-// บันทึกสมุดงานไปยังสตรีมหน่วยความจำ.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// สร้างเฟรมอ็อบเจ็กต์ OLE พร้อมข้อมูล Excel ที่ฝังอยู่.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f,
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-## **วิธีการที่สอง**
-
-ในวิธีการนี้ เราจะเรียนรู้วิธีการกำหนดขนาดของแผนภูมิในสมุดงาน Excel ที่ฝังให้ตรงกับขนาดของกรอบอ็อบเจ็กต์ OLE ในสไลด์ PowerPoint วิธีนี้มีประโยชน์เมื่อขนาดของแผนภูมิรู้ล่วงหน้าและจะไม่เปลี่ยนแปลง
-
-**สถานการณ์ 1**
-
-สมมติว่าเรามีการกำหนดเทมเพลตและต้องการสร้างการนำเสนอจากเทมเพลตนั้น สมมติว่ามีรูปร่างที่ดัชนี 2 ในเทมเพลตที่เราตั้งใจจะวางกรอบ OLE ที่บรรจุสมุดงาน Excel ที่ฝังไว้ ในสถานการณ์นี้ขนาดของกรอบ OLE ถูกกำหนดล่วงหน้า—ตรงกับขนาดของรูปร่างที่ดัชนี 2 ในเทมเพลต สิ่งที่เราต้องทำคือกำหนดขนาดของแผนภูมิในสมุดงานให้เท่ากับขนาดของรูปร่างนั้น โค้ดตัวอย่างต่อไปนี้ทำหน้าที่ดังกล่าว:
-
-```cpp
-// กำหนดขนาดแผนภูมิโดยไม่มีหน้าต่าง. 
-chart->SetSizeWithWindow(false);
-
-auto shape = slide->get_Shape(2);
-
-// ตั้งค่าความกว้างของแผนภูมิเป็นพิกเซล (คูณด้วย 96 เนื่องจาก Excel ใช้ 96 พิกเซลต่อหนึ่งอินช.)    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
-
-// ตั้งค่าความสูงของแผนภูมิเป็นพิกเซล.
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
-
-// กำหนดขนาดการพิมพ์ของแผนภูมิ.
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
-
-// บันทึกสมุดงานไปยังสตรีมหน่วยความจำ.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// สร้างเฟรมอ็อบเจ็กต์ OLE ด้วยข้อมูล Excel ที่ฝังอยู่.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(),
-    shape->get_Height(),
-    dataInfo);
-```
-
-**สถานการณ์ 2**
-
-สมมติว่าเราต้องการสร้างการนำเสนอจากศูนย์และรวมกรอบอ็อบเจ็กต์ OLE ขนาดใดก็ได้พร้อมสมุดงาน Excel ที่ฝังไว้ ในโค้ดตัวอย่างต่อไปนี้ เราจะสร้างกรอบอ็อบเจ็กต์ OLE ที่มีความสูง 4 นิ้วและความกว้าง 9.5 นิ้วบนสไลด์ที่ตำแหน่ง x = 0.5 นิ้ว y = 1 นิ้ว เราก็จะตั้งค่าขนาดของแผนภูมิให้ตรงกับมิติเดียวกัน: ความสูง 4 นิ้วและความกว้าง 9.5 นิ้ว
-
-```cpp
-// ความสูงที่ต้องการของเรา.
-int32_t desiredHeight = 288; // 4 นิ้ว (4 * 576)
-
-// ความกว้างที่ต้องการของเรา.
-int32_t desiredWidth = 684; // 9.5 นิ้ว(9.5 * 576)
-
-// กำหนดขนาดแผนภูมิโดยไม่มีหน้าต่าง. 
-chart->SetSizeWithWindow(false);
-
-// ตั้งค่าความกว้างของแผนภูมิเป็นพิกเซล.    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
-
-// ตั้งค่าความสูงของแผนภูมิเป็นพิกเซล.
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
-
-// บันทึกสมุดงานไปยังสตรีมหน่วยความจำ.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// สร้างเฟรมอ็อบเจ็กต์ OLE พร้อมข้อมูล Excel ที่ฝังอยู่.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f, 
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-## **สรุป**
-
-มีสองวิธีการแก้ไขปัญหาการปรับขนาดแผนภูมิ การเลือกวิธีขึ้นอยู่กับความต้องการและกรณีการใช้งาน ทั้งสองวิธีทำงานแบบเดียวกันไม่ว่าจะสร้างการนำเสนอจากเทมเพลตหรือจากศูนย์ นอกจากนี้ไม่มีขีดจำกัดขนาดของกรอบอ็อบเจ็กต์ OLE ในวิธีการนี้
-
-## **คำถามที่พบบ่อย**
-
-**ทำไมแผนภูมิ Excel ที่ฝังอยู่จึงเปลี่ยนขนาดหลังจากเปิดใช้งานใน PowerPoint?**
-
-เกิดจาก Excel พยายามคืนค่าขนาดหน้าต่างเดิมเมื่อเปิดใช้งานครั้งแรก ในขณะที่กรอบอ็อบเจ็กต์ OLE ใน PowerPoint มีขนาดของตัวเอง PowerPoint และ Excel จะเจรจาขนาดเพื่อรักษาอัตราส่วน ซึ่งอาจทำให้เกิดการปรับขนาด
-
-**สามารถป้องกันปัญหาการปรับขนาดนี้ได้ทั้งหมดหรือไม่?**
-
-ทำได้โดยการตรงกับขนาดหน้าต่างของสมุดงาน Excel หรือขนาดแผนภูมิให้เท่ากรอบอ็อบเจ็กต์ OLE ก่อนการฝัง จะทำให้ขนาดแผนภูมิคงที่
-
-**ควรเลือกวิธีใด ระหว่างการตั้งค่าขนาดหน้าต่างสมุดงานหรือการตั้งค่าขนาดแผนภูมิ?**
-
-ใช้ **วิธีที่ 1 (ขนาดหน้าต่าง)** หากต้องการรักษาอัตราส่วนของสมุดงานและอาจให้ผู้ใช้ปรับขนาดต่อไปในภายหลัง  
-ใช้ **วิธีที่ 2 (ขนาดแผนภูมิ)** หากขนาดแผนภูมิมีค่าคงที่และจะไม่เปลี่ยนแปลงหลังการฝัง
-
-**วิธีเหล่านี้จะทำงานกับการนำเสนอที่สร้างจากเทมเพลตและการนำเสนอใหม่หรือไม่?**
-
-ใช่ ทั้งสองวิธีทำงานเช่นเดียวกันสำหรับการนำเสนอที่สร้างจากเทมเพลตและจากศูนย์
-
-**มีขีดจำกัดขนาดของกรอบอ็อบเจ็กต์ OLE หรือไม่?**
-
-ไม่มี คุณสามารถตั้งค่ากรอบ OLE เป็นขนาดใดก็ได้ตราบใดที่สเกลอย่างเหมาะสมกับขนาดของสมุดงานหรือแผนภูมิ
-
-**สามารถใช้วิธีเหล่านี้กับแผนภูมิที่สร้างด้วยโปรแกรมสเปรดชีตอื่นได้หรือไม่?**
-
-ตัวอย่างออกแบบมาสำหรับแผนภูมิ Excel ที่สร้างด้วย Aspose.Cells แต่หลักการสามารถใช้ได้กับโปรแกรมสเปรดชีตที่เข้ากันได้กับ OLE หากรองรับตัวเลือกการกำหนดขนาดที่คล้ายกัน
-
-## **ส่วนที่เกี่ยวข้อง**
-
-- [สร้างแผนภูมิ Excel และฝังเป็นอ็อบเจ็กต์ OLE ในการนำเสนอ](/slides/th/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [สร้างแผนภูมิ Excel และฝังเป็นวัตถุ OLE ในงานนำเสนอ](/slides/th/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

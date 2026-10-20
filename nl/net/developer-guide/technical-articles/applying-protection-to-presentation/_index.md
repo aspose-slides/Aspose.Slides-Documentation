@@ -1,6 +1,6 @@
 ---
-title: Voorkom bewerkingen van presentaties met vormvergrendelingen in .NET
-linktitle: Voorkom bewerkingen van presentaties
+title: Beperk bewerkingen van presentaties met vormvergrendelingen in .NET
+linktitle: Beperk bewerkingen van presentaties
 type: docs
 weight: 70
 url: /nl/net/applying-protection-to-presentation/
@@ -13,54 +13,54 @@ keywords:
 - grootte vergrendelen
 - groepering vergrendelen
 - PowerPoint
-- OpenDocument
+- PPTX
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Ontdek hoe Aspose.Slides voor .NET vormen vergrendelt of ontgrendelt in PPT-, PPTX- en ODP-bestanden, presentaties beveiligt en toch gecontroleerde bewerkingen toestaat."
+description: "Leer hoe u vormen in PPTX‑presentaties kunt vergrendelen en ontgrendelen met Aspose.Slides voor .NET om selectie, verplaatsing, grootte aanpassen en groeperen te beperken."
 ---
 ## **Achtergrond**
 
-Een veelvoorkomend gebruik van Aspose.Slides is om Microsoft PowerPoint (PPTX)-presentaties te maken, bij te werken en op te slaan als onderdeel van een geautomatiseerde workflow. Gebruikers van applicaties die Aspose.Slides op deze manier inzetten hebben toegang tot de gegenereerde presentaties, waardoor bescherming tegen bewerken een veelvoorkomend aandachtspunt is. Het is belangrijk dat automatisch gegenereerde presentaties hun oorspronkelijke opmaak en inhoud behouden.
+Een veelvoorkomend gebruik van Aspose.Slides for .NET is het creëren, bijwerken en opslaan van PowerPoint (PPTX)‑presentaties als onderdeel van een geautomatiseerde workflow. Wanneer gebruikers deze presentaties ontvangen, kan het beperken van wijzigingen aan vormen helpen om de beoogde lay‑out en inhoud te behouden.
 
-Dit artikel legt uit hoe presentaties en dia’s zijn opgebouwd en hoe Aspose.Slides for .NET bescherming kan toepassen op een presentatie en deze later kan verwijderen. Het biedt ontwikkelaars een manier om te bepalen hoe de presentaties die hun applicaties genereren worden gebruikt.
+Dit artikel legt uit hoe vormen op dia's zijn georganiseerd en hoe u vormvergrendelingen kunt toepassen en verwijderen in een PPTX‑presentatie. Deze vergrendelingen stellen u in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken.
 
 ## **Samenstelling van een dia**
 
-Een presentatiedia bestaat uit componenten zoals autovormen, tabellen, OLE‑objecten, gegroepeerde vormen, afbeelding‑frames, video‑frames, connectoren en andere elementen die worden gebruikt om een presentatie op te bouwen. In Aspose.Slides for .NET wordt elk element op een dia weergegeven door een object dat de [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/)‑interface implementeert of van een klasse erft die dat doet.
+Een presentatiedia bestaat uit componenten zoals autoshapes, tabellen, OLE‑objecten, gegroepeerde vormen, afbeeldingsframes, videoframes, connectoren en andere elementen die gebruikt worden om een presentatie samen te stellen. In Aspose.Slides for .NET wordt elk element op een dia vertegenwoordigd door een object dat de [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)‑interface implementeert of ervan erft.
 
-De structuur van PPTX is complex, zodat in tegenstelling tot PPT, waar een algemene vergrendeling kan worden gebruikt voor alle type vormen, verschillende vormtypes verschillende vergrendelingen vereisen. De [IBaseShapeLock](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseshapelock/)‑interface is de generieke vergrendelingsklasse voor PPTX. De volgende soorten vergrendelingen worden ondersteund in Aspose.Slides for .NET voor PPTX:
+Verschillende vormtypen bieden verschillende vergrendelingsopties. De [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/)‑interface is de basisklasse voor vormvergrendelingen. Aspose.Slides for .NET biedt de volgende vergrendelings‑interfaces:
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshapelock/) vergrendelt autovormen.  
-- [IConnectorLock](https://reference.aspose.com/slides/nl/net/aspose.slides/iconnectorlock/) vergrendelt connectorvormen.  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/nl/net/aspose.slides/igraphicalobjectlock/) vergrendelt grafische objecten.  
-- [IGroupShapeLock](https://reference.aspose.com/slides/nl/net/aspose.slides/igroupshapelock/) vergrendelt gegroepeerde vormen.  
-- [IPictureFrameLock](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframelock/) vergrendelt afbeelding‑frames.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) vergrendelt autoshapes.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) vergrendelt connector‑vormen.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) vergrendelt grafische objecten.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) vergrendelt gegroepeerde vormen.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) vergrendelt afbeeldingsframes.  
 
-Elke handeling die wordt uitgevoerd op alle vormobjecten in een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑object wordt toegepast op de volledige presentatie.
+Om vergrendelingen toe te passen op een [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), doorloopt u de dia's en stelt u de juiste vergrendelingen in voor elke ondersteunde vorm.
 
-## **Bescherming toepassen en verwijderen**
+## **Vergrendeling toepassen en verwijderen**
 
-Bescherming toepassen zorgt ervoor dat een presentatie niet kan worden bewerkt. Het is een bruikbare techniek om de inhoud van de presentatie te beveiligen.
+Vormvergrendelingen beperken bewerkingen zoals het selecteren, verplaatsen en van grootte veranderen van vormen. Ze maken de gehele presentatie niet onbewerkbaar.
 
-### **Bescherming toepassen op PPTX-vormen**
+### **Vergrendeling toepassen op PPTX‑vormen**
 
-Aspose.Slides for .NET biedt de [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/)‑interface om met vormen op een dia te werken.
+Aspose.Slides for .NET biedt de [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)‑interface om met vormen op een dia te werken.
 
-Zoals eerder vermeld, heeft elke vormklasse een bijbehorende vorm‑vergrendelingsklasse voor bescherming. Dit artikel richt zich op de vergrendelingen NoSelect, NoMove en NoResize. Deze vergrendelingen zorgen ervoor dat vormen niet kunnen worden geselecteerd (via muiskliks of andere selectiemethoden) en dat ze niet kunnen worden verplaatst of van grootte veranderd.
+Het voorbeeld stelt [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/), [PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) en [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) in op `true` voor autoshapes, met overeenkomstige vergrendelingen voor gegroepeerde vormen, connectoren en afbeeldingsframes. Connectoren gebruiken [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) voor verplaatsing; groepen gebruiken tevens [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) om groeperen te beperken.
 
-De onderstaande code‑voorbeeld past bescherming toe op alle vormtypes in een presentatie.
+Het voorbeeld laadt een bestaande PPTX‑presentatie, controleert de vormen in de vormverzameling van elke dia en slaat een kopie op met deze beperkingen toegepast. Vormen buiten de vier behandelde typen blijven ongewijzigd. De lus doorloopt niet de onderliggende vormen binnen een groep.
 
 ```cs
-// Instantieer de Presentation‑klasse die een PPTX‑bestand voorstelt.
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Doorloop alle dia's in de presentatie.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Doorloop alle vormen in de dia.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Sla het presentatie‑bestand op.
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-### **Bescherming verwijderen**
+### **Vergrendeling verwijderen**
 
-Om een vorm te ontgrendelen, stel je de waarde van de toegepaste vergrendeling in op `false`. De volgende code‑voorbeeld toont hoe je vormen in een vergrendelde presentatie kunt ontgrendelen.
+Om een vormvergrendeling te verwijderen, stelt u de waarde in op `false`. Het volgende voorbeeld laadt een presentatie met vormvergrendelingen en wist de selecteer‑, verplaats‑ en grootte‑beperkingen via [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) en [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/). Het wist tevens [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) en slaat een kopie van de presentatie op. Andere vergrendelingsinstellingen blijven ongewijzigd.
 
 ```cs
-// Instantieer de Presentation‑klasse die een PPTX‑bestand voorstelt.
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Doorloop alle dia's in de presentatie.
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // Doorloop alle vormen in de dia.
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,24 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// Sla het presentatie‑bestand op.
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
 ### **Conclusie**
 
-Aspose.Slides biedt verschillende mogelijkheden om vormen in een presentatie te beveiligen. Je kunt een individuele vorm vergrendelen of door alle vormen in een presentatie itereren en elk afzonderlijk vergrendelen om het volledige bestand effectief te beveiligen. Je kunt de bescherming verwijderen door de vergrendelingswaarde op `false` te zetten.
+Aspose.Slides for .NET stelt u in staat specifieke bewerkingsbewerkingen op individuele vormen te beperken of dezelfde beperkingen over meerdere dia's toe te passen. Kies de vergrendelingen die door elk vormtype worden ondersteund en stel hun waarden in op `false` wanneer u die beperkingen wilt verwijderen.
 
 ## **Veelgestelde vragen**
 
-**Kan ik vormvergrendelingen combineren met wachtwoordbeveiliging in dezelfde presentatie?**
+**Kan ik vormvergrendelingen en wachtwoordbeveiliging combineren in dezelfde presentatie?**
 
-Ja. Vergrendelingen beperken het bewerken van objecten binnen het bestand, terwijl [password protection](/slides/nl/net/password-protected-presentation/) de toegang regelt tot het openen en/of opslaan van wijzigingen. Deze mechanismen vullen elkaar aan en werken samen.
+Ja. Vormvergrendelingen beperken specifieke bewerkingsbewerkingen, terwijl [password protection](/slides/nl/net/password-protected-presentation/) het openen of wijzigen van de presentatie kan beperken. U kunt beide in hetzelfde bestand gebruiken.
 
-**Kan ik het bewerken op specifieke dia’s beperken zonder de andere te beïnvloeden?**
+**Kan ik bewerking op specifieke dia's beperken zonder de andere te beïnvloeden?**
 
-Ja. Pas vergrendelingen toe op de vormen van de geselecteerde dia’s; de overige dia’s blijven bewerkbaar.
+Ja. Pas vergrendelingen alleen toe op vormen op de geselecteerde dia's. Dit verandert de vergrendelingsinstellingen op andere dia's niet.
 
-**Worden vormvergrendelingen ook toegepast op gegroepeerde objecten en connectoren?**
+**Hoe kan ik vergrendelingen toepassen op individuele vormen binnen een groep?**
 
-Ja. Er worden speciale vergrendelingstypes ondersteund voor groepen, connectoren, grafische objecten en andere vormsoorten.
+Doorloop de [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)‑verzameling van de groep en pas de juiste vergrendelingen toe op elke onderliggende vorm. Herhaal dit voor geneste groepen. De bovenstaande voorbeelden verwerken alleen de vormverzameling van de dia, waardoor geen vergrendelingen op individuele groepsleden worden ingesteld.

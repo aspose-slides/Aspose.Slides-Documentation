@@ -5,44 +5,37 @@ weight: 40
 url: /fa/python-java/working-solution-for-chart-resizing-in-pptx/
 keywords:
 - تغییر اندازه نمودار
-- نمودار اکسل
-- شیء OLE
+- نمودار Excel
+- شی OLE
 - جاسازی نمودار
 - PowerPoint
-- OpenDocument
 - ارائه
 - Python
 - Java
 - Aspose.Slides
-description: "رفع مشکل تغییر اندازه غیرمنتظره نمودار در PPTX هنگام استفاده از اشیای OLE اکسل جاسازی‌شده با Aspose.Slides برای Python از طریق Java. دو روش همراه با کد برای حفظ سازگاری اندازه‌ها را بیاموزید."
+description: "رفع تغییر اندازه ناخواسته نمودار در PPTX هنگام استفاده از اشیاء OLE Excel جاسازی‌شده با Aspose.Slides برای Python از طریق Java. تعیین ابعاد ثابت نمودار برای حفظ سازگاری اندازه‌های نمودار و فریم OLE."
 ---
 ## **پیش‌زمینه**
 
-مشاهده شده است که نمودارهای Excel که به‌عنوان اشیای OLE در یک ارائه PowerPoint از طریق اجزای Aspose جاسازی می‌شوند، پس از اولین فعال‌سازی به مقیاس نامشخصی تغییر اندازه می‌یابند. این رفتار باعث تفاوت بصری قابل‌توجهی در ارائه بین حالت‌های پیش و پس از فعال‌سازی نمودار می‌شود. تیم Aspose به‌صورت جزئیات به بررسی این مشکل پرداخته و راه‌حلی پیدا کرده است. این مقاله علل مشکل و راه‌حل مربوطه را توصیف می‌کند.
+نمودارهای Excel که به عنوان اشیاء OLE در ارائه‌های PowerPoint با استفاده از مؤلفه‌های Aspose جاسازی می‌شوند، می‌توانند پس از اولین فعال‌سازی اندازه خود را تغییر دهند. این می‌تواند باعث تفاوت قابل‌مشاهده‌ای در ظاهر نمودار قبل و بعد از فعال‌سازی شود. این مقاله توضیح می‌دهد چرا تغییر اندازه رخ می‌دهد و نشان می‌دهد چگونه می‌توان با هماهنگ‌سازی ابعاد ثابت نمودار با فریم OLE از آن جلوگیری کرد.
 
-در [مقاله قبلی](/slides/fa/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، ما توضیح دادیم که چگونه یک نمودار Excel را با Aspose.Cells برای Python از طریق Java ایجاد کرده و آن را به‌عنوان شیء OLE در یک ارائه PowerPoint با استفاده از Aspose.Slides برای Python از طریق Java جاسازی کنیم. برای رفع [مشکل پیش‌نمایش شیء](/slides/fa/python-java/object-preview-issue-when-adding-oleobjectframe/)، تصویر نمودار را به قاب شیء OLE آن اختصاص دادیم. در ارائه خروجی، وقتی دو بار کلیک کنید روی قاب شیء OLE که تصویر نمودار را نمایش می‌دهد، نمودار Excel فعال می‌شود. کاربران نهایی می‌توانند تغییرات دلخواه خود را در کار‑پوشه Excel زیرین اعمال کنند و سپس با کلیک خارج از کار‑پوشه فعال شده به اسلاید مربوطه بازگردند. اندازهٔ قاب شیء OLE هنگام بازگشت کاربر به اسلاید تغییر می‌کند و ضریب تغییر اندازه بسته به اندازه‌های اولیهٔ هر دو قاب شیء OLE و کار‑پوشه Excel جاسازی‌شده متفاوت است.
+در [ایجاد نمودارهای Excel و جاسازی آن‌ها به عنوان اشیاء OLE در ارائه‌ها](/slides/fa/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، ما توضیح دادیم چگونه یک نمودار Excel را با Aspose.Cells برای Python از طریق Java ایجاد کرده و آن را در یک ارائه PowerPoint با استفاده از Aspose.Slides برای Python از طریق Java جاسازی کنیم. برای رفع [مشکل پیش‌نمایش شی](/slides/fa/python-java/object-preview-issue-when-adding-oleobjectframe/)، تصویر نمودار را به فریم شی OLE نمودار اختصاص دادیم. در ارائه خروجی، هنگامی که فریم شی OLE که تصویر نمودار را نشان می‌دهد را دو بار کلیک می‌کنید، نمودار Excel فعال می‌شود. کاربران می‌توانند کتاب‌کار Excel جاسازی‌شده را ویرایش کنند و سپس با کلیک کردن خارج از کتاب‌کار فعال به اسلاید بازگردند. اندازه فریم شی OLE هنگام بازگشت کاربر به اسلاید تغییر می‌کند و عامل تغییر اندازه بسته به اندازه‌های اولیه هر دو فریم شی OLE و کتاب‌کار Excel جاسازی‌شده متفاوت است.
 
 ## **دلیل تغییر اندازه**
 
-زیرا کار‑پوشه Excel اندازهٔ پنجرهٔ خود را دارد، سعی می‌کند هنگام اولین فعال‌سازی اندازهٔ اصلی خود را حفظ کند. اما قاب شیء OLE اندازهٔ خود را دارد. بر اساس گفته مایکروسافت، وقتی کار‑پوشه Excel فعال می‌شود، Excel و PowerPoint اندازه را مورد توافق قرار می‌دهند و نسبت‌های صحیح را به‌عنوان بخشی از فرآیند جاسازی نگه می‌دارند. با توجه به اختلافات بین اندازهٔ پنجرهٔ Excel و اندازه یا موقعیت قاب شیء OLE، تغییر اندازه رخ می‌دهد.
+کتاب‌کار Excel جاسازی‌شده ابعاد خود را دارد که Excel سعی می‌کند هنگام اولین فعال‌سازی شی آن را حفظ کند. فریم OLE در اسلاید ابعاد مستقل خود را دارد. وقتی کتاب‌کار Excel فعال می‌شود، Excel و PowerPoint برای حفظ نسبت‌های آن، اندازه شی را مذاکره می‌کنند؛ این بخشی از فرایند جاسازی است. بنابراین تفاوت بین پنجره کتاب‌کار و فریم OLE می‌تواند موجب تغییر اندازه شی شود.
 
 ## **راه‌حل عملی**
 
-دو سناریوی ممکن برای ایجاد ارائه‌های PowerPoint با استفاده از Aspose.Slides برای Python از طریق Java وجود دارد.
+اندازه نمودار را با فریم OLE در اسلاید مطابقت دهید و ابعاد نمودار را مستقل از پنجره کتاب‌کار نگه دارید. این راه‌حل برای ارائه جدید یا قالب موجود کار می‌کند.
 
-**سناریو 1:** ایجاد ارائه بر پایه یک الگوی موجود.
+این مثال به Aspose.Cells برای Python از طریق Java و Aspose.Slides برای Python از طریق Java نیاز دارد. یک نمودار ستونی ساده در یک برگه نمودار فعال ایجاد می‌کند و کتاب‌کار را در قالب XLS جاسازی می‌کند. هیچ تصویر پیش‌نمایش نموداری اختصاص داده نشده است؛ نمودار وقتی شی OLE در PowerPoint فعال می‌شود، قابل مشاهده می‌شود.
 
-**سناریو 2:** ایجاد ارائه از صفر.
+این مثال یک ارائه جدید با فریم OLE به اندازه 9.5 × 4 اینچ ایجاد می‌کند که 0.5 اینچ از لبه چپ و 1 اینچ از بالا قرار دارد. مختصات و ابعاد اسلاید بر حسب پوینت هستند (72 پوینت در هر اینچ). برای یک ارائه موجود، به [استفاده از قالب](#use-a-template) مراجعه کنید.
 
-راه‌حلی که در اینجا ارائه می‌دهیم برای هر دو سناریو کاربرد دارد. پایهٔ تمام روش‌های حل مسئله یکسان است: **اندازهٔ پنجرهٔ شیء OLE جاسازی‌شده باید با قاب شیء OLE در اسلاید PowerPoint مطابقت داشته باشد**. در ادامه دو رویکرد برای این راه‌حل را بررسی می‌کنیم.
+## **تنظیم اندازه ثابت نمودار**
 
-## **رویکرد اول**
-
-در این رویکرد، نحوه تنظیم اندازهٔ پنجرهٔ کار‑پوشه Excel جاسازی‌شده را طوری که با اندازهٔ قاب شیء OLE در اسلاید PowerPoint مطابقت داشته باشد، یاد می‌گیریم.
-
-**سناریو 1**
-
-فرض کنید قالبی تعریف کرده‌ایم و می‌خواهیم ارائه‌هایی بر پایهٔ آن ایجاد کنیم. فرض کنید در قالب یک شکل در ایندکس 2 وجود دارد که می‌خواهیم یک قاب OLE حاوی یک کار‑پوشه Excel جاسازی‌شده در آن قرار دهیم. در این سناریو، اندازهٔ قاب شیء OLE از پیش تعریف شده است—که با اندازهٔ شکل در ایندکس 2 قالب مطابقت دارد. تنها کاری که باید انجام دهیم این است که اندازهٔ پنجرهٔ کار‑پوشه را برابر با اندازهٔ آن شکل تنظیم کنیم. قطعه کد زیر این منظور را برآورده می‌کند:
+Set [setSizeWithWindow](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#sizewithwindow) را روی false تنظیم کنید تا ابعاد نمودار مستقل از پنجره کتاب‌کار باشد. ابعاد [getChartObject](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#chartobject) را از طریق [setWidth](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#width) و [setHeight](https://reference.aspose.com/cells/python-java/asposecells.api/shape/#height) تنظیم کنید، با تبدیل پوینت‌ها به پیکسل با استفاده از 96 پیکسل در هر اینچ: فریمی با اندازه 684 × 288 پوینت به نموداری با اندازه 912 × 384 پیکسل متناظر است. [setPrintSize](https://reference.aspose.com/cells/python-java/asposecells.api/chart/#printsize) را بر روی مقدار CUSTOM از [PrintSizeType](https://reference.aspose.com/cells/python-java/asposecells.api/printsizetype/) تنظیم کنید. مثال کتاب‌کار را با [addOleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addOleObjectFrame) جاسازی می‌کند و ارائه‌ای با فریم OLE به اندازه 9.5 × 4 اینچ ذخیره می‌نماید.
 
 ```python
 import jpype
@@ -52,215 +45,84 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
+from asposecells.api import ChartType, FileFormatType, PrintSizeType, SheetType, Workbook
+from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-# بارگذاری کتاب‌کار Excel حاوی نمودار.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
+workbook = Workbook()
 try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("Data")
+    data_sheet.getCells().get("A1").putValue(10)
+    data_sheet.getCells().get("A2").putValue(20)
 
-    # تنظیم اندازهٔ پنجرهٔ کتاب‌کار بر حسب اینچ (PowerPoint هر اینچ را ۷۲ پوینت می‌شمارد).
-    workbook.getSettings().setWindowWidthInch(shape.getWidth() / 72.0)
-    workbook.getSettings().setWindowHeightInch(shape.getHeight() / 72.0)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10)
+    chart = chart_sheet.getCharts().get(chart_index)
+    chart.getNSeries().add("Data!A1:A2", True)
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
 
-    # ذخیره کتاب‌کار در یک جریان حافظه.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
 
-    # ایجاد یک قاب شیء OLE با داده‌های Excel جاسازی‌شده.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
+        # مختصات و ابعاد اسلاید بر حسب نقطه هستند (۷۲ نقطه در هر اینچ).
+        width = 684.0  # ۹.۵ اینچ.
+        height = 288.0  # ۴ اینچ.
+
+        chart.setSizeWithWindow(False)
+        # نقطه‌ها را به پیکسل‌های نمودار با استفاده از ۹۶ پیکسل در هر اینچ تبدیل کنید.
+        chart.getChartObject().setWidth(int(width / 72.0 * 96.0))
+        chart.getChartObject().setHeight(int(height / 72.0 * 96.0))
+        chart.setPrintSize(PrintSizeType.CUSTOM)
+
+        workbook_stream = ByteArrayOutputStream()
+        workbook.save(workbook_stream, FileFormatType.EXCEL_97_TO_2003)
+        workbook_data = workbook_stream.toByteArray()
+        data_info = OleEmbeddedDataInfo(workbook_data, "xls")
+        slide.getShapes().addOleObjectFrame(36.0, 72.0, width, height, data_info)
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-**سناریو 2**
+## **استفاده از قالب**
 
-فرض کنید می‌خواهیم یک ارائه از صفر ایجاد کنیم و یک قاب شیء OLE با هر اندازه‌ای که حاوی یک کار‑پوشه Excel جاسازی‌شده باشد، اضافه کنیم. در قطعه کد زیر، یک قاب شیء OLE با ارتفاع ۴ اینچ و عرض ۹٫۵ اینچ در موقعیت x = ۰٫۵ اینچ و y = ۱ اینچ روی اسلاید ایجاد می‌کنیم. سپس پنجرهٔ کار‑پوشه Excel را به همان اندازه تنظیم می‌کنیم—ارتفاع ۴ اینچ و عرض ۹٫۵ اینچ.
+منطق اندازه‌گذاری برای یک ارائه موجود نیز یکسان است. برای سازگار کردن مثال:
 
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# بارگذاری کتاب‌کار Excel که شامل نمودار است.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 اینچ (4 * 72).
-    desired_width = 684  # 9.5 اینچ (9.5 * 72).
-
-    # تعریف اندازهٔ نمودار با یک پنجره.
-    chart.setSizeWithWindow(True)
-
-    # تنظیم اندازهٔ پنجرهٔ کتاب‌کار بر حسب اینچ (PowerPoint هر اینچ را ۷۲ پوینت می‌شمارد).
-    workbook.getSettings().setWindowWidthInch(desired_width / 72.0)
-    workbook.getSettings().setWindowHeightInch(desired_height / 72.0)
-
-    # ذخیره کتاب‌کار در یک جریان حافظه.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # ایجاد یک قاب شیء OLE با داده‌های Excel جاسازی‌شده.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **رویکرد دوم**
-
-در این رویکرد، نحوه تنظیم اندازهٔ نمودار در کار‑پوشه Excel جاسازی‌شده را طوری که با اندازهٔ قاب شیء OLE در اسلاید PowerPoint مطابقت داشته باشد، یاد می‌گیریم. این روش زمانی مفید است که اندازهٔ نمودار از پیش شناخته شده باشد و هرگز تغییر نکند.
-
-**سناریو 1**
-
-فرض کنید قالبی تعریف کرده‌ایم و می‌خواهیم ارائه‌هایی بر پایهٔ آن ایجاد کنیم. فرض کنید در قالب یک شکل در ایندکس ۲ وجود دارد که قصد داریم یک قاب OLE حاوی یک کار‑پوشه Excel جاسازی‌شده در آن قرار دهیم. در این سناریو، اندازهٔ قاب OLE از پیش تعریف شده است—که با اندازهٔ شکل در ایندکس ۲ قالب مطابقت دارد. تنها کاری که باید انجام دهیم این است که اندازهٔ نمودار را در کار‑پوشه برابر با اندازهٔ آن شکل تنظیم کنیم. قطعه کد زیر این منظور را برآورده می‌کند:
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# بارگذاری کتاب‌کار Excel که شامل نمودار است.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation("template.pptx")
-try:
-    slide = presentation.getSlides().get_Item(0)
-    shape = slide.getShapes().get_Item(2)
-
-    # تعریف اندازهٔ نمودار بدون پنجره.
-    chart.setSizeWithWindow(False)
-
-    # تنظیم اندازهٔ نمودار بر حسب پیکسل (Excel هر اینچ را ۹۶ پیکسل در نظر می‌گیرد).
-    chart.getChartObject().setWidth(int((shape.getWidth() / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((shape.getHeight() / 72.0) * 96.0))
-
-    # تعریف اندازهٔ چاپ نمودار.
-    chart.setPrintSize(PrintSizeType.CUSTOM)
-
-    # ذخیره کتاب‌کار در یک جریان حافظه.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # ایجاد یک قاب شیء OLE با داده‌های Excel جاسازی‌شده.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), data_info)
-finally:
-    presentation.dispose()
-```
-
-**سناریو 2**:
-
-فرض کنید می‌خواهیم یک ارائه از صفر ایجاد کنیم و یک قاب شیء OLE با هر اندازه‌ای که حاوی یک کار‑پوشه Excel جاسازی‌شده باشد، اضافه کنیم. در قطعه کد زیر، یک قاب شیء OLE با ارتفاع ۴ اینچ و عرض ۹٫۵ اینچ در موقعیت x = ۰٫۵ اینچ و y = ۱ اینچ روی اسلاید ایجاد می‌کنیم. همچنین اندازهٔ نمودار مربوطه را به همان ابعاد تنظیم می‌کنیم: ارتفاع ۴ اینچ و عرض ۹٫۵ اینچ.
-
-```python
-import jpype
-import asposecells
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposecells.api import Workbook, PrintSizeType
-from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation
-
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
-
-# بارگذاری کتاب‌کار Excel که شامل نمودار است.
-workbook = Workbook("chart.xls")
-chart = workbook.getWorksheets().get(0).getCharts().get(0)
-
-presentation = Presentation()
-try:
-    slide = presentation.getSlides().get_Item(0)
-    desired_height = 288  # 4 اینچ (4 * 72).
-    desired_width = 684  # 9.5 اینچ (9.5 * 72).
-
-    # تعریف اندازهٔ نمودار بدون پنجره.
-    chart.setSizeWithWindow(False)
-
-    # تنظیم اندازهٔ نمودار بر حسب پیکسل (Excel هر اینچ را 96 پیکسل می‌گیرد).
-    chart.getChartObject().setWidth(int((desired_width / 72.0) * 96.0))
-    chart.getChartObject().setHeight(int((desired_height / 72.0) * 96.0))
-
-    # ذخیره کتاب‌کار در یک جریان حافظه.
-    workbook_stream = ByteArrayOutputStream()
-    workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-
-    # ایجاد یک قاب شیء OLE با داده‌های Excel جاسازی‌شده.
-    workbook_data = workbook_stream.toByteArray()
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(36.0, 72.0, desired_width, desired_height, data_info)
-finally:
-    presentation.dispose()
-```
-
-## **نتیجه‌گیری**
-
-دو رویکرد برای حل مشکل تغییر اندازهٔ نمودار وجود دارد. انتخاب رویکرد بستگی به نیازها و مورد استفاده دارد. هر دو رویکرد به‌همین شکل عمل می‌کنند، چه ارائه‌ها از یک قالب ایجاد شوند و چه از صفر ساخته شوند. همچنین، در این راه‌حل هیچ محدودیتی برای اندازهٔ قاب شیء OLE وجود ندارد.
+1. ارائه قالب را بارگذاری کنید به جای ایجاد یک ارائه خالی.
+2. بررسی کنید که اسلاید اول حداقل شامل سه شکل باشد، سپس شکل با شاخص 2 را به عنوان جای‌گیر استفاده کنید.
+3. عرض و ارتفاع فریم را از آن شکل بگیرید به جای استفاده از مقادیر ثابت 684 و 288. محاسبات اندازه‌گیری را دست نخورده نگه دارید.
+4. فریم OLE را در موقعیت جای‌گر اضافه کنید به جای مختصات ثابت 36 و 72.
+5. قبل از ذخیره‌سازی ارائه، جای‌گر را حذف کنید.
 
 ## **سوالات متداول**
 
 **چرا نمودار Excel جاسازی‌شده من پس از فعال‌سازی در PowerPoint اندازه‌اش را تغییر می‌دهد؟**
 
-این اتفاق به این دلیل رخ می‌دهد که Excel سعی می‌کند هنگام اولین فعال‌سازی، اندازهٔ اصلی پنجرهٔ خود را بازگرداند، در حالی که قاب شیء OLE در PowerPoint ابعاد خود را دارد. PowerPoint و Excel برای حفظ نسبت تصویر، اندازه را مورد توافق قرار می‌دهند که می‌تواند باعث تغییر اندازه شود.
+این به این دلیل رخ می‌دهد که Excel سعی می‌کند هنگام اولین فعال‌سازی، اندازه اصلی پنجره را بازگرداند، در حالی که فریم شی OLE در PowerPoint ابعاد خود را دارد. PowerPoint و Excel برای حفظ نسبت عرض به ارتفاع، اندازه را مذاکره می‌کنند که می‌تواند منجر به تغییر اندازه شود.
 
-**آیا می‌توان این مشکل تغییر اندازه را به‌طور کامل جلوگیری کرد؟**
+**چگونه می‌توانم ابعاد نمودار و فریم OLE را ثابت نگه دارم؟**
 
-بله. با تطبیق اندازهٔ پنجرهٔ کار‑پوشه Excel یا اندازهٔ نمودار با اندازهٔ قاب شیء OLE قبل از جاسازی، می‌توانید اندازهٔ نمودارها را ثابت نگه دارید.
+ابعاد ثابت نمودار را طوری تنظیم کنید که با فریم OLE مطابقت داشته باشد و قبل از جاسازی کتاب‌کار، از یک اندازه چاپ سفارشی برای نمودار استفاده کنید. مثال بالا تنظیمات لازم و تبدیل واحدها را نشان می‌دهد.
 
-**کدام رویکرد را باید انتخاب کنم، تنظیم اندازهٔ پنجرهٔ کار‑پوشه یا تنظیم اندازهٔ نمودار؟**
+**آیا تطبیق اندازه پنجره کتاب‌کار کافی است؟**
 
-از **رویکرد 1 (اندازهٔ پنجره)** استفاده کنید اگر می‌خواهید نسبت تصویر کار‑پوشه را حفظ کنید و احتمالاً بعداً امکان تغییر اندازه را داشته باشید.  
-از **رویکرد 2 (اندازهٔ نمودار)** استفاده کنید اگر ابعاد نمودار ثابت هستند و پس از جاسازی تغییر نمی‌کنند.
+تنها تطبیق اندازه پنجره کتاب‌کار به طور قابل‌اعتمادی مانع تغییر اندازه فریم OLE پس از فعال‌سازی نمی‌شود. همان‌طور که در مثال آمده، از ابعاد ثابت نمودار استفاده کنید.
 
-**آیا این روش‌ها با هر دو نوع ارائه مبتنی بر قالب و ارائه‌های جدید کار می‌کنند؟**
+**آیا این راه‌حل برای ارائه‌های مبتنی بر قالب و ارائه‌های جدید کار می‌کند؟**
 
-بله. هر دو رویکرد به‌صورت مشابه برای ارائه‌های ساخته‌شده از قالب‌ها و از ابتدا کار می‌کنند.
+بله. برای قالب، از ابعاد و موقعیت جای‌گر استفاده کنید. برای یک ارائه جدید، مستقیماً ابعاد و موقعیت فریم را مشخص کنید.
 
-**آیا محدودیتی برای اندازهٔ قاب شیء OLE وجود دارد؟**
+**آیا می‌توانم از این مثال با نمودارهای ایجاد شده در برنامه‌های صفحه‌گسترده دیگر استفاده کنم؟**
 
-خیر. می‌توانید قاب OLE را به هر اندازه‌ای تنظیم کنید به شرطی که به‌درستی با اندازهٔ کار‑پوشه یا نمودار مقیاس‌بندی شود.
-
-**آیا می‌توانم از این روش‌ها با نمودارهای ساخته‌شده در برنامه‌های صفحه‌گسترده دیگر استفاده کنم؟**
-
-مثال‌ها برای نمودارهای Excel ایجاد شده با Aspose.Cells طراحی شده‌اند، اما اصول برای برنامه‌های صفحه‌گسترده دیگر که با OLE سازگارند و گزینه‌های مشابهی برای تنظیم اندازه دارند، نیز اعمال می‌شود.
+این مثال از یک کتاب‌کار Excel ایجاد شده با Aspose.Cells استفاده می‌کند. رفتار فعال‌سازی برای برنامه‌های صفحه‌گسترده دیگر را نشان نمی‌دهد.
 
 ## **بخش‌های مرتبط**
 
-- [ایجاد نمودارهای Excel و جاسازی آن‌ها به‌عنوان اشیای OLE در ارائه‌ها](/slides/fa/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [ایجاد نمودارهای Excel و جاسازی آن‌ها به عنوان اشیاء OLE در ارائه‌ها](/slides/fa/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

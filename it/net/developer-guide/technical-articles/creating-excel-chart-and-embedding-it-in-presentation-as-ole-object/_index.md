@@ -1,164 +1,141 @@
 ---
-title: Creare grafici Excel e incorporarli in presentazioni come oggetti OLE
+title: Crea grafici Excel e incorporali nelle presentazioni come oggetti OLE
 type: docs
 weight: 50
 url: /it/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- grafico Excel
+- Grafico Excel
 - incorporare grafico
 - oggetto OLE
 - PowerPoint
-- OpenDocument
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Creare grafici Excel e incorporarli come oggetti OLE in presentazioni PowerPoint e OpenDocument con C#/.NET. Guida passo passo con esempi di codice."
+description: "Crea un grafico Excel con Aspose.Cells per .NET e incorpora la cartella di lavoro in una presentazione PowerPoint con Aspose.Slides, includendo un'anteprima del grafico."
 ---
-## **Contesto**
+## **Panoramica**
 
-In PowerPoint, l'uso di grafici modificabili per visualizzare i dati in modo grafico è una pratica comune. Aspose supporta la creazione di grafici Excel con Aspose.Cells per .NET, e questi grafici possono poi essere incorporati come oggetti OLE nelle diapositive PowerPoint tramite Aspose.Slides per .NET. Questo articolo descrive i passaggi necessari e fornisce esempi di codice C# per creare un grafico Excel e incorporarlo come oggetto OLE in una presentazione PowerPoint usando Aspose.Cells e Aspose.Slides.
+Questo articolo mostra come creare un grafico a colonne di Excel con Aspose.Cells per .NET e incorporare la sua cartella di lavoro in una presentazione PowerPoint con Aspose.Slides per .NET. La cartella di lavoro incorporata contiene sia i dati di origine sia il grafico. Un'anteprima PNG separata visualizza il grafico nella diapositiva prima che l'oggetto OLE sia attivato.
 
-## **Passaggi necessari**
+Il risultato è un oggetto Excel incorporato, non un grafico PowerPoint nativo. Modificare la cartella di lavoro tramite OLE richiede un'applicazione desktop che supporti l'attivazione OLE e un'installazione di Excel compatibile.
 
-La seguente sequenza di passaggi è necessaria per creare e incorporare un grafico Excel come oggetto OLE in una diapositiva PowerPoint:
+## **Prerequisiti**
 
-1. Creare un grafico Excel utilizzando Aspose.Cells.
-1. Impostare le dimensioni OLE del grafico Excel utilizzando Aspose.Cells.
-1. Ottenere un'immagine del grafico Excel con Aspose.Cells.
-1. Incorporare il grafico Excel come oggetto OLE in una presentazione PPTX utilizzando Aspose.Slides.
-1. Sostituire l'immagine "EMBEDDED OLE OBJECT" con l'immagine ottenuta al passo 3 per risolvere il [problema di anteprima dell'oggetto](/slides/it/net/object-preview-issue-when-adding-oleobjectframe/).
-1. Salvare la presentazione su disco in formato PPTX.
+Aggiungi riferimenti ad Aspose.Cells per .NET e Aspose.Slides per .NET nel tuo progetto C#. L'esempio utilizza le istruzioni di livello superiore e richiede C# 9 o versioni successive. Microsoft Office non è necessario per generare la presentazione con queste librerie.
 
-## **Implementazione dei passaggi necessari**
+Non sono richiesti file di input: l'esempio crea i dati e il grafico in memoria, quindi scrive `OutputChart.pptx` nella directory di lavoro corrente. Applica le licenze per entrambi i prodotti quando si esegue al di fuori della modalità di valutazione.
 
-L'implementazione C# dei passaggi precedenti è la seguente:
+## **Come funziona l'incorporamento**
 
-```cs
-// Passo - 1: Creare un grafico Excel utilizzando Aspose.Cells.
-// ---------------------------------------------------
-// Creare una cartella di lavoro.
-Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook();
-// Aggiungere un grafico Excel.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+1. Crea una cartella di lavoro con un foglio di dati e un foglio grafico.  
+1. Rendi attivo il foglio grafico in modo che la cartella di lavoro si apra sul grafico.  
+1. Imposta l'intervallo di visualizzazione OLE della cartella di lavoro e rendi il grafico in PNG.  
+1. Salva la cartella di lavoro come XLSX in memoria e incorpora quei byte in una diapositiva.  
+1. Assegna il PNG come anteprima dell'oggetto OLE e salva la presentazione come PPTX.
 
-// Passo - 2: Impostare le dimensioni OLE del grafico utilizzando Aspose.Cells.
-// -----------------------------------------------------------
-workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
+L'intervallo di visualizzazione della cartella di lavoro e il riquadro sulla diapositiva hanno ruoli diversi. [SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) utilizza indici di riga e colonna di inizio/fine basati su zero. [ChartCollection.Add](https://reference.aspose.com/cells/net/aspose.cells.charts/chartcollection/add/) invece utilizza la riga superiore, la colonna sinistra, la riga inferiore e la colonna destra. L'esempio utilizza l'indice di riga 55 e l'indice di colonna 25 come confini in basso a destra; questi valori sono scelte di layout, non il numero di righe o colonne dei dati.
 
-// Passo - 3: Ottenere l'immagine del grafico con Aspose.Cells.
-// -------------------------------------------------------
-Bitmap chartImage = workbook.Worksheets[chartSheetIndex].Charts[0].ToImage();
-// Save the workbook to a stream.
-MemoryStream workbookStream = workbook.SaveToStream();
+Il riquadro della diapositiva utilizza i punti. L'esempio lo adatta all'interno della diapositiva e lo centra mantenendo le proporzioni del PNG, invece di allungare l'anteprima per riempire la diapositiva.
 
-// Passo - 4 E 5
-// ==============
-// Passo - 4: Incorporare il grafico come oggetto OLE all'interno di una presentazione .ppt utilizzando Aspose.Slides.
-// ------------------------------------------------------------------------------------------
-// Passo - 5: Sostituire l'immagine "EMBEDDED OLE OBJECT" con l'immagine ottenuta al passo 3 per risolvere il problema di anteprima dell'oggetto.
-// --------------------------------------------------------------------------------------------------------------------
-// Create a presentation.
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    // Aggiungere la cartella di lavoro alla diapositiva.
-    AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+## **Crea e incorpora il grafico**
 
-    // Passo - 6: Salvare la presentazione di output su disco.
-    // -----------------------------------------------
-    presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
+Il seguente esempio completo popola `DataSheet` con quattro righe e cinque colonne di valori. Ogni riga diventa una serie del grafico. `ChartSheet` è selezionato come foglio attivo prima di salvare la cartella di lavoro.
+
+La cartella di lavoro viene salvata esplicitamente come XLSX, corrispondente all'estensione `xlsx` passata a [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/). Il PNG è caricato direttamente dal suo stream senza una conversione bitmap intermedia. L'assegnazione tramite [SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/substitutepictureformat/) sostituisce il segnaposto OLE predefinito.
 
 ```cs
-static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows, int chartCols)
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "DataSheet";
+
+int[,] values =
 {
-    // Un array di nomi di celle.
-    string[] cellNames = new string[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+    { 67, 44, 46, 43, 24 },
+    { 86, 64, 97, 29, 40 },
+    { 68, 89, 78, 69, 38 },
+    { 91, 48, 60, 26, 25 }
+};
 
-    // Un array di dati delle celle.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
-
-    // Aggiungere un nuovo foglio di lavoro per popolare le celle con i dati.
-    int dataSheetIndex = workbook.Worksheets.Add();
-    Aspose.Cells.Worksheet dataSheet = workbook.Worksheets[dataSheetIndex];
-    string sheetName = "DataSheet";
-    dataSheet.Name = sheetName;
-
-    // Popolare il foglio dati con i dati.
-    for (int i = 0; i < cellNames.Length; i++)
-    {
-        string cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.Cells[cellName].PutValue(cellValue);
-    }
-
-    // Aggiungere un foglio del grafico.
-    int chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
-    Aspose.Cells.Worksheet chartSheet = workbook.Worksheets[chartSheetIndex];
-    chartSheet.Name = "ChartSheet";
-
-    // Aggiungere un grafico al foglio del grafico con le serie dati dal foglio dati.
-    int chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
-    Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIndex];
-    chart.NSeries.Add(sheetName + "!A1:E1", false);
-    chart.NSeries.Add(sheetName + "!A2:E2", false);
-    chart.NSeries.Add(sheetName + "!A3:E3", false);
-    chart.NSeries.Add(sheetName + "!A4:E4", false);
-
-    // Impostare il foglio del grafico come foglio attivo.
-    workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
-    return chartSheetIndex;
-}
-```
-
-```cs
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
+for (var row = 0; row < values.GetLength(0); row++)
 {
-    float oleWidth = presentation.SlideSize.Size.Width;
-    float oleHeight = presentation.SlideSize.Size.Height;
-
-    byte[] oleData = new byte[workbookStream.Length];
-    workbookStream.Position = 0;
-    workbookStream.Read(oleData, 0, oleData.Length);
-
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xls");
-    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
-
-    using (MemoryStream imageStream = new MemoryStream())
+    for (var column = 0; column < values.GetLength(1); column++)
     {
-        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
-
-	    imageStream.Position = 0;
-        IPPImage ppImage = presentation.Images.AddImage(imageStream);
-
-        oleFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+        dataSheet.Cells[row, column].PutValue(values[row, column]);
     }
 }
+
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+chartSheet.Name = "ChartSheet";
+
+var lastChartRow = 55;
+var lastChartColumn = 25;
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, lastChartRow, lastChartColumn);
+var chart = chartSheet.Charts[chartIndex];
+for (var row = 1; row <= values.GetLength(0); row++)
+{
+    chart.NSeries.Add($"DataSheet!A{row}:E{row}", false);
+}
+
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
+workbook.Worksheets.SetOleSize(0, lastChartRow, 0, lastChartColumn);
+
+// Renderizza l'anteprima del grafico e serializza separatamente la cartella di lavoro modificabile.
+using var chartImageStream = new MemoryStream();
+chart.ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+using var chartImage = Images.FromStream(chartImageStream);
+
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Xlsx);
+var workbookBytes = workbookStream.ToArray();
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var slideSize = presentation.SlideSize.Size;
+
+// Fit the preview within the slide without changing its aspect ratio.
+var scale = Math.Min(slideSize.Width / chartImage.Width, slideSize.Height / chartImage.Height);
+var frameWidth = chartImage.Width * scale;
+var frameHeight = chartImage.Height * scale;
+var frameX = (slideSize.Width - frameWidth) / 2;
+var frameY = (slideSize.Height - frameHeight) / 2;
+
+var embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+var previewImage = presentation.Images.AddImage(chartImage);
+oleFrame.SubstitutePictureFormat.Picture.Image = previewImage;
+
+presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-La presentazione creata con il metodo sopra conterrà il grafico Excel come oggetto OLE, che può essere attivato facendo doppio clic sul frame dell'oggetto OLE.
+## **Risultato previsto**
 
-## **Conclusione**
+`OutputChart.pptx` contiene una diapositiva con una cartella di lavoro Excel incorporata e un'anteprima del grafico. La cartella di lavoro contiene i dati originali e un grafico a colonne con quattro serie. L'anteprima è centrata sulla diapositiva e ne mantiene le proporzioni.
 
-Utilizzando Aspose.Cells per .NET insieme ad Aspose.Slides per .NET, è possibile creare qualsiasi grafico Excel supportato da Aspose.Cells e incorporare il grafico come oggetto OLE in una diapositiva PowerPoint. Le dimensioni OLE del grafico Excel possono anche essere definite. Gli utenti finali possono quindi modificare il grafico Excel come qualsiasi altro oggetto OLE.
+![Grafico a colonne di Excel visualizzato come anteprima di una cartella di lavoro incorporata](excel-chart-ole-preview.png)
+
+In un ambiente PowerPoint desktop compatibile con Excel disponibile, fai doppio clic sull'oggetto per attivare e modificare la cartella di lavoro incorporata. L'attivazione e la modifica dipendono dal supporto OLE dell'applicazione host e dalle impostazioni di sicurezza.
+
+## **FAQ**
+
+**Perché è necessaria un'immagine di anteprima?**  
+La cartella di lavoro incorporata e la sua anteprima nella diapositiva sono contenuti separati. Fornisci un'immagine del grafico in modo che la diapositiva mostri il grafico invece del segnaposto predefinito "EMBEDDED OLE OBJECT". Vedi [Problema di anteprima dell'oggetto quando si aggiunge OleObjectFrame](/slides/it/net/object-preview-issue-when-adding-oleobjectframe/).
+
+**L'anteprima si aggiorna automaticamente quando modifico la cartella di lavoro nel codice?**  
+Considera l'anteprima come un'istantanea. Quando aggiorni i dati della cartella di lavoro programmaticamente, rigenera l'immagine del grafico e sostituisci l'anteprima così come i dati della cartella di lavoro incorporata.
+
+**Posso usare XLS invece di XLSX?**  
+Sì. Salva la cartella di lavoro in formato XLS e usa `xls` come estensione dei dati incorporati. L'estensione deve corrispondere al formato effettivo della cartella di lavoro; modificare solo l'estensione non converte i dati.
+
+**Perché l'oggetto potrebbe cambiare dimensione dopo l'attivazione?**  
+L'applicazione host può aggiornare la presentazione dell'oggetto OLE quando attiva la cartella di lavoro. L'intervallo di visualizzazione OLE della cartella di lavoro e le dimensioni del riquadro della diapositiva sono entrambi importanti. Vedi [Soluzione funzionante per il ridimensionamento dei grafici in PPTX](/slides/it/net/working-solution-for-chart-resizing-in-pptx/).
 
 ## **Sezioni correlate**
 

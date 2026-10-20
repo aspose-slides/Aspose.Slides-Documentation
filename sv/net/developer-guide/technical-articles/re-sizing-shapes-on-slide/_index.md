@@ -1,173 +1,144 @@
 ---
-title: Ändra storlek på former i presentationsbilder i .NET
+title: Ändra storlek på former på presentationsbilder i .NET
 type: docs
 weight: 130
-url: /sv/net/re-sizing-shapes-on-slide/
+url: /sv/net/resizing-shapes-on-slide/
+aliases:
+  - /sv/net/re-sizing-shapes-on-slide/
+  /net/storleksanpassning-av-former-pa-bild/
 keywords:
+- ändra storlek på form
 - ändra formstorlek
-- ändra formens storlek
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Enkelt ändra storlek på former i PowerPoint- och OpenDocument-bilder med Aspose.Slides för .NET—automatisera justeringar av bildlayout och öka produktiviteten."
+description: "Lätt att ändra storlek på former i PowerPoint och OpenDocument‑bilder med Aspose.Slides för .NET—automatisera bildlayoutjusteringar och öka produktiviteten."
 ---
 ## **Översikt**
 
-En av de vanligaste frågorna från Aspose.Slides för .NET-kunder är hur man ändrar storlek på former så att data inte klipps av när bildens storlek ändras. Denna korta tekniska artikel visar hur man gör det.
+När du ändrar en presentations bildstorlek kan du också behöva ändra storlek på och flytta dess former så att de passar de nya dimensionerna. Denna artikel visar hur du skalar former manuellt och hur du hanterar tabeller på bilder, masterbilder och layouter.
 
 ## **Ändra storlek på former**
 
-För att förhindra att former blir felplacerade när bildens storlek ändras, uppdatera varje formas position och dimension så att de följer den nya bildlayouten.
+För att bevara varje formas relativa position och storlek multiplicerar du dess horisontella koordinater och bredd med förhållandet mellan den nya bildens bredd och den ursprungliga bredden. Applicera motsvarande höjdförhållande på dess vertikala koordinater och höjd.
 
-```c#
-// Ladda presentationsfilen.
-using (Presentation presentation = new Presentation("sample.pptx"))
+Det första exemplet laddar en presentation vars bilder inte innehåller några tabeller, ändrar bildstorleken till A4 och sparar resultatet. Det använder [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) med [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) så att den efterföljande loopen styr skalningen. Förhållandena är enhetsoberoende; formens positioner och dimensioner mäts i punkter. Olika bredd- och höjdförhållanden kan förvränga former, och att ändra en forms dimensioner skalar inte dess teckenstorlek.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Beräkna oberoende horisontella och vertikala skalfaktorer.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // Hämta den ursprungliga bildstorleken.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // Ändra bildstorleken utan att skala befintliga former.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // Hämta den nya bildstorleken.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // Ändra storlek och position på former på varje bild.
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // Skala formens storlek.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Skala formens position.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-Om en bild innehåller en tabell fungerar koden ovan inte korrekt. I så fall måste varje cell i tabellen ändras i storlek.
+{{% alert color="info" title="Note" %}}
+Tabeller kräver separat hantering: skala deras kolumnbredder och radhöjder istället för att tilldela tabellens totala bredd och höjd. Radhöjder kan förbli större än begärda om cellinnehållet kräver mer utrymme.
 {{% /alert %}}
 
-Använd följande kod på din sida för att ändra storlek på bilder som innehåller tabeller. För tabeller är inställning av bredd eller höjd ett specialfall: du måste justera enskilda radhöjder och kolumnbredder för att ändra tabellens totala storlek.
+Det andra exemplet stöder tabeller och bearbetar former på masterbilder och layouter samt enskilda bilder innan den sparar den omdimensionerade presentationen. Dess hjälpfunktion hanterar varje [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) genom att skala [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) och [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/). Den skalar sedan tabellens position utan att separat skala dess totala dimensioner.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Beräkna oberoende horisontella och vertikala skalfaktorer.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Ändra storlek på former som definierats på masterbilder och layouter samt enskilda bilder.
+foreach (var master in presentation.Masters)
 {
-    // Hämta den ursprungliga bildstorleken.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Ändra bildstorleken utan att skala befintliga former.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Hämta den nya bildstorleken.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Skala formens storlek.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Skala formens position.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // Tabellens dimensioner styrs av kolumnbredder och radhöjder.
+            foreach (var column in table.Columns)
             {
-                // Skala formens storlek.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Skala formens position.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Skala formens storlek.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Skala formens position.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Varför blir former förvrängda eller avkapade efter att en bild har ändrats i storlek?**
+**Varför blir former förvrängda eller avklippta efter att en bild har ändrats i storlek?**  
+Om du ändrar bildstorleken utan att skala formerna behåller de sina ursprungliga positioner och dimensioner och kan sträcka sig utanför bilden. Att skala bredd och höjd med olika förhållanden kan också förvränga former.
 
-När du ändrar storlek på en bild behåller former sina ursprungliga position och storlek om inte skalan ändras explicit. Detta kan leda till att innehåll beskärs eller att former blir felplacerade.
+**Fungerar den medföljande koden för alla formtyper?**  
+Det första exemplet ändrar formens gränser direkt och är avsett för bilder utan tabeller. Det andra exemplet hanterar tabeller separat. Kontrollera den resulterande layouten, särskilt text och tabeller, eftersom dessa exempel inte skalar teckenstorlekar och tabellinnehåll kan begränsa radhöjder.
 
-**Fungerar den medföljande koden för alla formtyper?**
+**Hur ändrar jag storlek på tabeller när jag ändrar bildens storlek?**  
+Skala kolumnbredder med breddförhållandet och minsta radhöjder med höjdförhållandet, och skala sedan tabellens position, som visat i det andra exemplet.
 
-Det grundläggande exemplet fungerar för de flesta formtyper (textrutor, bilder, diagram osv.). För tabeller måste du dock hantera rader och kolumner separat, eftersom höjden och bredden på en tabell bestäms av dimensionerna på enskilda celler.
+**Kommer denna storleksändring att fungera för masterbilder och layoutbilder?**  
+Ja. Det andra exemplet itererar genom [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) och varje masters [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) och tillämpar samma storleksändringslogik på deras former.
 
-**Hur ändrar jag storlek på tabeller när jag ändrar storlek på en bild?**
+**Kan jag ändra orienteringen på en bild (porträtt/landskap) samtidigt som jag ändrar storlek?**  
+Ja. Ställ in [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) efter att du ändrat bildstorleken och innan du läser mål-dimensionerna, så att skalningsfaktorerna speglar den slutliga orienteringen.
 
-Du måste loopa igenom alla rader och kolumner i tabellen och ändra deras höjd och bredd proportionellt, enligt det andra kodexemplet.
+**Finns det någon gräns för den bildstorlek jag kan ange?**  
+Du kan ange egna bilddimensioner med [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/). De stödjade dimensionerna beror också på presentationsformatet och det program som används för att öppna filen.
 
-**Fungerar denna storleksändring för masterbilder och layoutbilder?**
-
-Ja, men du bör också loopa igenom [Masters](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/masters/) och [LayoutSlides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/layoutslides/) och tillämpa samma skalningslogik på deras former för att säkerställa konsistens i hela presentationen.
-
-**Kan jag ändra orienteringen på en bild (porträtt/landskap) samtidigt som jag ändrar storlek?**
-
-Ja. Du kan sätta [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/sv/net/aspose.slides/islidesize/orientation/) för att ändra orienteringen. Se till att du anpassar skalningslogiken därefter för att bevara layouten.
-
-**Finns det någon begränsning för den bildstorlek jag kan ange?**
-
-Aspose.Slides stöder anpassade storlekar, men mycket stora storlekar kan påverka prestanda eller kompatibilitet med vissa versioner av PowerPoint.
-
-**Hur kan jag förhindra att former med fast bildförhållande blir förvrängda?**
-
-Du kan kontrollera egenskapen `AspectRatioLocked` för formen innan du skalar. Om den är låst, justera bredd eller höjd proportionellt i stället för att skala dem individuellt.
+**Hur kan jag förhindra att former med ett fast bildförhållande blir förvrängda?**  
+Använd samma skalfaktor för bredd och höjd. För att få den ursprungliga layouten att passa in i de nya bilddimensionerna, använd det mindre av bredd- och höjdförhållandena för både dimensioner och positioner. Detta bevarar proportionerna men kan lämna oanvänt utrymme längs en kant.

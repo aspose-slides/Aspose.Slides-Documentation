@@ -9,200 +9,116 @@ keywords:
 - كائن OLE
 - تضمين المخطط
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "إصلاح تغيير حجم المخطط غير المتوقع في PPTX عند استخدام كائنات OLE لـ Excel المدمجة مع Aspose.Slides for Java. تعرّف على طريقتين مع الشيفرة للحفاظ على الأحجام متسقة."
+description: "إصلاح تعديل حجم المخطط غير المتوقع في ملفات PPTX عند استخدام كائنات OLE داخلية من Excel مع Aspose.Slides for Java. ضبط أبعاد المخطط الثابتة للحفاظ على اتساق أحجام المخطط وإطار OLE."
 ---
 ## **الخلفية**
 
-لوحظ أن مخططات Excel المدمجة ككائنات OLE في عرض تقديمي PowerPoint عبر مكونات Aspose يتم تغيير حجمها إلى مقياس غير محدد بعد تنشيطها الأول. هذا السلوك يتسبب في اختلاف بصري ملحوظ في العرض بين حالتي المخطط قبل وبعد التنشيط. قام فريق Aspose بالتحقيق في المشكلة بالتفصيل ووجد حلاً. تصف هذه المقالة أسباب المشكلة والإصلاح المقابل.
+يمكن أن تتغير أحجام الرسوم البيانية في Excel المدمجة ككائنات OLE في عروض PowerPoint باستخدام مكونات Aspose بعد التفعيل الأول لها. قد يتسبب ذلك في فرق ملحوظ في مظهر الرسم البياني قبل وبعد التفعيل. تشرح هذه المقالة لماذا يحدث تعديل الحجم وتظهر كيفية منعه من خلال مطابقة أبعاد الرسم البياني الثابتة مع إطار OLE.
 
-في [المقال السابق](/slides/ar/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، شرحنا كيفية إنشاء مخطط Excel باستخدام Aspose.Cells for Java وتضمينه في عرض تقديمي PowerPoint باستخدام Aspose.Slides for Java. لمعالجة [مشكلة معاينة الكائن](/slides/ar/java/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة المخطط إلى إطار كائن OLE الخاص بالمخطط. في العرض الناتج، عندما تنقر مزدوجاً على إطار كائن OLE الذي يعرض صورة المخطط، يتم تنشيط مخطط Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة في مصنف Excel الأساسي ثم العودة إلى الشريحة المقابلة بالنقر خارج المصنف النشط. يتغير حجم إطار كائن OLE عندما يعيد المستخدم إلى الشريحة، وعامل التحجيم يختلف اعتمادًا على الأحجام الأصلية لكل من إطار كائن OLE ومصنف Excel المدمج.
+في [إنشاء رسوم Excel وتضمينها ككائنات OLE في العروض](/slides/ar/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، شرحنا كيفية إنشاء رسم Excel باستخدام Aspose.Cells for Java وتضمينه في عرض PowerPoint باستخدام Aspose.Slides for Java. لمعالجة [مشكلة معاينة الكائن](/slides/ar/java/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة الرسم إلى إطار كائن OLE الخاص به. في العرض الناتج، عندما تنقر نقرًا مزدوجًا على إطار كائن OLE الذي يعرض صورة الرسم، يتم تفعيل رسم Excel. يمكن للمستخدمين تحرير دفتر العمل المدمج ثم العودة إلى الشريحة بالنقر خارج دفتر العمل المفعّل. يتغير حجم إطار كائن OLE عند عودة المستخدم إلى الشريحة، وعامل تعديل الحجم يختلف اعتمادًا على الأحجام الأصلية لكل من إطار كائن OLE ودفة عمل Excel المدمجة.
 
-## **سبب التحجيم**
+## **سبب تعديل الحجم**
 
-نظرًا لأن مصنف Excel له حجمه الخاص في النافذة، فإنه يحاول الحفاظ على حجمه الأصلي عند تنشيطه الأول. ومع ذلك، فإن إطار كائن OLE له حجمه الخاص. وفقًا لمايكروسوفت، عند تنشيط مصنف Excel، يتفاوض Excel وPowerPoint على الحجم ويحافظان على النسب الصحيحة كجزء من عملية الإدماج. اعتمادًا على الفروق بين حجم نافذة Excel وحجم أو موقع إطار كائن OLE، يحدث التحجيم.
+لدى دفتر عمل Excel المدمج أبعاده الخاصة للنافذة، ويحاول Excel الحفاظ عليها عند تفعيل الكائن للمرة الأولى. يحتوي إطار OLE على الشريحة على أبعاد معرفة بشكل مستقل. عندما يتم تفعيل دفتر عمل Excel، يتفاوض Excel وPowerPoint على حجم الكائن للحفاظ على نسبه كجزء من عملية التضمين. الاختلاف بين نافذة دفتر العمل وإطار OLE يمكن أن يتسبب في تعديل حجم الكائن.
 
 ## **الحل العملي**
 
-هناك سيناريوهان محتملان لإنشاء عروض PowerPoint باستخدام Aspose.Slides for Java.  
-**السيناريو 1:** إنشاء عرض تقديمي استنادًا إلى قالب موجود.  
-**السيناريو 2:** إنشاء عرض تقديمي من الصفر.  
-الحل الذي نقدمه هنا ينطبق على كلا السيناريوهين. أساس جميع منهجيات الحل هو نفسه: **يجب أن يكون حجم نافذة كائن OLE المدمج متطابقًا مع إطار كائن OLE في شريحة PowerPoint**. سنناقش الآن النهجين لهذا الحل.
+قم بمطابقة حجم الرسم مع إطار OLE على الشريحة واحرص على أن تكون أبعاد الرسم مستقلة عن نافذة دفتر العمل. يعمل هذا الحل مع عرض جديد أو قالب موجود.
 
-## **النهج الأول**
+المثال يتطلب Aspose.Cells for Java وAspose.Slides for Java. ينشئ رسمًا عموديًا بسيطًا على ورقة رسم نشطة ويضمّن دفتر العمل بصيغة XLS. لا يتم تعيين صورة معاينة للرسم؛ يصبح الرسم مرئيًا عندما يتم تفعيل كائن OLE في PowerPoint.
 
-في هذا النهج، سنتعلم كيفية ضبط حجم نافذة مصنف Excel المدمج بحيث يتطابق مع حجم إطار كائن OLE في شريحة PowerPoint.
+ينشئ المثال عرضًا جديدًا بإطار OLE مقاسه 9.5 × 4 بوصة موضعه 0.5 بوصة من الحافة اليسرى و1 بوصة من الأعلى. إحداثيات وأبعاد الشريحة بالنقاط (72 نقطة لكل بوصة). بالنسبة لعرض موجود، راجع [استخدام قالب](#use-a-template).
 
-**السيناريو 1**  
-نفترض أننا قد عرّفنا قالبًا ونريد إنشاء عروض تقديمية استنادًا إليه. افترض وجود شكل في الفهرس 2 داخل القالب حيث نرغب في وضع إطار OLE يحتوي على مصنف Excel مدمج. في هذا السيناريو، يكون حجم إطار كائن OLE محددًا مسبقًا—يتطابق مع حجم الشكل في الفهرس 2 داخل القالب. كل ما نحتاجه هو ضبط حجم نافذة المصنف ليكون مساويًا لحجم ذلك الشكل. يخدم شفرة الكود التالية هذا الغرض:
+## **تحديد حجم ثابت للرسم**
+
+عيّن [setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) إلى false لجعل أبعاد الرسم مستقلة عن نافذة دفتر العمل. عيّن أبعاد [getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) عبر [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) و[setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-)، محولًا النقاط إلى بكسلات باستخدام 96 بكسل لكل بوصة: إطار يبلغ 684 × 288 نقطة ي correspond إلى رسم بحجم 912 × 384 بكسل. عيّن [setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) إلى القيمة CUSTOM من [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/). يضمّن المثال دفتر العمل باستخدام [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) ويحفظ عرضًا بإطار OLE مقاسه 9.5 × 4 بوصة.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// ضبط عرض نافذة المصنف بالبوصة (مقسم على 72 لأن PowerPoint يستخدم 72 نقطة لكل بوصة).
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// ضبط ارتفاع نافذة المصنف بالبوصة.
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// حفظ المصنف إلى تدفق ذاكرة.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// إنشاء إطار كائن OLE مع بيانات Excel المدمجة.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // إحداثيات الشريحة وأبعادها بالنقاط (72 نقطة لكل بوصة).
+        float width = 684f; // 9.5 بوصة.
+        float height = 288f; // 4 بوصة.
+
+        chart.setSizeWithWindow(false);
+        // تحويل النقاط إلى بكسلات الرسم باستخدام 96 بكسل لكل بوصة.
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**السيناريو 2**  
-لنفترض أننا نريد إنشاء عرض تقديمي من الصفر وتضمين إطار OLE بأي حجم يحتوي على مصنف Excel مدمج. في شفرة الكود التالية، نقوم بإنشاء إطار OLE بارتفاع 4 بوصات وعرض 9.5 بوصة عند x = 0.5 بوصة وy = 1 بوصة على الشريحة. ثم نضبط نافذة مصنف Excel لتكون بنفس الحجم—ارتفاع 4 بوصات وعرض 9.5 بوصة.
+## **استخدام قالب**
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+منطق التحجيم هو نفسه لعرض موجود. لتكييف المثال:
 
-// الارتفاع المطلوب.
-int desiredHeight = 288; // 4 بوصة (4 * 72)
- 
-// العرض المطلوب.
-int desiredWidth = 684; // 9.5 بوصة (9.5 * 72)
- 
-// تعريف حجم المخطط باستخدام النافذة.
-chart.setSizeWithWindow(true);
- 
-// ضبط عرض نافذة المصنف بالبوصة (مقسم على 72 لأن PowerPoint يستخدم 72 نقطة لكل بوصة).
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// ضبط ارتفاع نافذة المصنف بالبوصة.
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// حفظ المصنف إلى تدفق ذاكرة.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// إنشاء إطار كائن OLE مع بيانات Excel المدمجة.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 بوصة (0.5 * 72)
-    72,  // y = 1 بوصة (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
+1. حمّل قالب العرض بدلاً من إنشاء عرض فارغ.  
+2. تأكد من أن الشريحة الأولى تحتوي على ثلاثة أشكال على الأقل، ثم استخدم الشكل بالفهرس 2 كعنصر نائب.  
+3. خذ عرض وإرتفاع الإطار من ذلك الشكل بدلاً من استخدام القيم الثابتة 684 و288. احفظ حسابات التحجيم كما هي.  
+4. أضف إطار OLE في موضع العنصر النائب بدلاً من الإحداثيات الثابتة 36 و72.  
+5. احذف العنصر النائب قبل حفظ العرض.
 
-## **النهج الثاني**
+## **الأسئلة الشائعة**
 
-في هذا النهج، سنتعلم كيفية ضبط حجم المخطط في مصنف Excel المدمج ليطابق حجم إطار OLE في شريحة PowerPoint. هذا النهج مفيد عندما يكون حجم المخطط معروفًا مسبقًا ولن يتغير.
+**لماذا يتغير حجم رسم Excel المدمج بعد تفعيله في PowerPoint؟**  
+يحدث ذلك لأن Excel يحاول استعادة حجم النافذة الأصلي عند التفعيل الأول، بينما يمتلك إطار كائن OLE في PowerPoint أبعاده الخاصة. يتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة العرض إلى الارتفاع، مما قد يؤدي إلى تعديل الحجم.
 
-**السيناريو 1**  
-نفترض أننا قد عرّفنا قالبًا ونريد إنشاء عروض تقديمية استنادًا إليه. افترض وجود شكل في الفهرس 2 داخل القالب حيث نعتزم وضع إطار OLE يحتوي على مصنف Excel مدمج. في هذا السيناريو، يكون حجم إطار OLE محددًا مسبقًا—يتطابق مع حجم الشكل في الفهرس 2 داخل القالب. كل ما نحتاجه هو ضبط حجم المخطط في المصنف ليكون مساويًا لحجم ذلك الشكل. يخدم شفرة الكود التالية هذا الغرض:
+**كيف يمكن الحفاظ على تناسق حجم الرسم وإطار OLE؟**  
+حدد أبعاد رسم ثابتة تطابق إطار OLE واستخدم حجم طباعة مخصص للرسم قبل تضمين دفتر العمل. يوضح المثال أعلاه الإعدادات المطلوبة وتحويل الوحدات.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+**هل يكفي مطابقة حجم نافذة دفتر العمل؟**  
+مجاراة حجم نافذة دفتر العمل وحدها لا تضمن منع إطار OLE من تغيير حجمه بعد التفعيل. استخدم أبعاد رسم ثابتة كما هو موضح في المثال.
 
-// تعريف حجم المخطط بدون نافذة.
-chart.setSizeWithWindow(false);
- 
-// ضبط عرض المخطط بالبكسل (اضرب في 96 لأن Excel يستخدم 96 بكسل لكل بوصة).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// ضبط ارتفاع المخطط بالبكسل.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// تعريف حجم الطباعة للمخطط.
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// حفظ المصنف إلى تدفق ذاكرة.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// إنشاء إطار كائن OLE مع بيانات Excel المدمجة.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
+**هل يعمل هذا الحل مع العروض القائمة على القالب والعروض الجديدة؟**  
+نعم. بالنسبة للقالب، استخدم أبعاد وموقع العنصر النائب. بالنسبة لعرض جديد، حدد أبعاد وموقع الإطار مباشرة.
 
-**السيناريو 2**:  
-لنفترض أننا نريد إنشاء عرض تقديمي من الصفر وتضمين إطار OLE بأي حجم يحتوي على مصنف Excel مدمج. في شفرة الكود التالية، نقوم بإنشاء إطار OLE بارتفاع 4 بوصات وعرض 9.5 بوصة على الشريحة عند x = 0.5 بوصة وy = 1 بوصة. كما نضبط حجم المخطط المقابل ليكون بنفس الأبعاد: ارتفاع 4 بوصات وعرض 9.5 بوصة.
-
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
-
-// الارتفاع المطلوب.
-int desiredHeight = 288; // 4 بوصة (4 * 72)
- 
-// العرض المطلوب.
-int desiredWidth = 684; // 9.5 بوصة (9.5 * 72)
- 
-// تعريف حجم المخطط بدون نافذة.
-chart.setSizeWithWindow(false);
- 
-// تعيين عرض المخطط بالبكسل (مقسوم على 72 للحصول على البوصة، مضروبًا في 96 لأن Excel يستخدم 96 بكسل لكل بوصة).
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// تعيين ارتفاع المخطط بالبكسل.
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// حفظ المصنف إلى تدفق ذاكرة.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// إنشاء إطار كائن OLE مع بيانات Excel المدمجة.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 بوصة (0.5 * 72)
-    72,  // y = 1 بوصة (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **الخلاصة**
-
-هناك نهجان لحل مشكلة تغيير حجم المخطط. يعتمد اختيار النهج على المتطلبات وحالة الاستخدام. كلا النهجين يعملان بنفس الطريقة سواء تم إنشاء العروض من قالب أو من الصفر. أيضًا، لا يوجد حد لحجم إطار كائن OLE في هذا الحل.
-
-## **الأسئلة المتكررة**
-
-### لماذا يتغير حجم مخطط Excel المدمج بعد تنشيطه في PowerPoint؟
-
-يحدث ذلك لأن Excel يحاول استعادة حجم النافذة الأصلي عند تنشيطه الأول، بينما يمتلك إطار OLE في PowerPoint أبعاده الخاصة. يتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة الأبعاد، مما قد يسبب التحجيم.
-
-### هل من الممكن منع هذه المشكلة تمامًا؟
-
-نعم. من خلال مطابقة حجم نافذة مصنف Excel أو حجم المخطط مع حجم إطار OLE قبل الإدماج، يمكنك الحفاظ على أبعاد المخطط ثابتة.
-
-### أي نهج يجب أن أختار، ضبط حجم نافذة المصنف أم ضبط حجم المخطط؟
-
-استخدم **Approach 1 (window size)** إذا كنت تريد الحفاظ على نسبة أبعاد المصنف وربما السماح بإعادة التحجيم لاحقًا.  
-استخدم **Approach 2 (chart size)** إذا كانت أبعاد المخطط ثابتة ولن تتغير بعد الإدماج.
-
-### هل ستعمل هذه الأساليب مع العروض المستندة إلى القوالب والعروض الجديدة على حد سواء؟
-
-نعم. كلا النهجين يعملان بنفس الطريقة للعروض التي تم إنشاؤها من القوالب أو من الصفر.
-
-### هل هناك حد لحجم إطار OLE؟
-
-لا. يمكنك ضبط إطار OLE على أي حجم طالما أنه يتناسب بشكل مناسب مع حجم المصنف أو المخطط.
-
-### هل يمكنني استخدام هذه الأساليب مع المخططات التي تم إنشاؤها في برامج جداول بيانات أخرى؟
-
-تم تصميم الأمثلة لمخططات Excel التي تم إنشاؤها باستخدام Aspose.Cells، ولكن المبادئ تنطبق على برامج جداول البيانات المتوافقة مع OLE الأخرى طالما أنها تدعم خيارات التحجيم المشابهة.
+**هل يمكنني استخدام هذا المثال مع الرسوم التي تم إنشاؤها في برامج جداول بيانات أخرى؟**  
+يستخدم المثال دفتر عمل Excel تم إنشاؤه باستخدام Aspose.Cells. لا يوضح سلوك التفعيل لبرامج جداول بيانات أخرى.
 
 ## **الأقسام ذات الصلة**
 
-- [إنشاء مخططات Excel وتضمينها ككائنات OLE في العروض التقديمية](/slides/ar/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [إنشاء رسوم Excel وتضمينها ككائنات OLE في العروض](/slides/ar/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

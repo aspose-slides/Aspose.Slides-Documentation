@@ -1,49 +1,152 @@
 ---
-title: Appliquer la Protection à la Présentation
+title: Restreindre les éditions de présentation avec des verrous de forme en PHP
+linktitle: Restreindre les éditions de présentation
 type: docs
 weight: 60
 url: /fr/php-java/applying-protection-to-presentation/
+keywords:
+- empêcher les modifications
+- protéger contre la modification
+- verrouiller la forme
+- verrouiller la position
+- verrouiller la sélection
+- verrouiller le redimensionnement
+- verrouiller le groupement
+- PowerPoint
+- PPTX
+- présentation
+- PHP
+- Aspose.Slides
+description: "Apprenez comment verrouiller et déverrouiller les formes dans les présentations PPTX avec Aspose.Slides for PHP via Java afin de restreindre la sélection, le déplacement, le redimensionnement et le groupement."
 ---
+## **Vue d'ensemble**
 
-{{% alert color="primary" %}} 
+Une utilisation courante d'Aspose.Slides for PHP via Java consiste à créer, mettre à jour et enregistrer des présentations PowerPoint (PPTX) dans le cadre d'un flux de travail automatisé. Lorsque les utilisateurs reçoivent ces présentations, restreindre les modifications des formes peut aider à préserver la disposition et le contenu prévus.
 
-Une utilisation courante d'Aspose.Slides est de créer, mettre à jour et enregistrer des présentations Microsoft PowerPoint 2007 (PPTX) dans le cadre d'un flux de travail automatisé. Les utilisateurs de l'application qui utilise Aspose.Slides de cette manière ont accès aux présentations produites. Les protéger de l'édition est une préoccupation courante. Il est important que les présentations auto-générées conservent leur formatage et leur contenu d'origine.
+Cet article explique comment les formes sont organisées sur les diapositives et comment appliquer et supprimer les verrous de forme dans une présentation PPTX. Ces verrous vous permettent de restreindre des opérations d'édition spécifiques sur des formes individuelles.
 
-Cet article explique comment [les présentations et les diapositives sont construites](/slides/fr/php-java/applying-protection-to-presentation/) et comment Aspose.Slides pour PHP via Java peut [appliquer une protection à](/slides/fr/php-java/applying-protection-to-presentation/), et ensuite [la retirer de](/slides/fr/php-java/applying-protection-to-presentation/) une présentation. Cette fonctionnalité est unique à Aspose.Slides et, au moment de l'écriture, n'est pas disponible dans Microsoft PowerPoint. Elle offre aux développeurs un moyen de contrôler comment les présentations créées par leurs applications sont utilisées.
+## **Composition d'une diapositive**
 
-{{% /alert %}} 
-## **Composition d'une Diapositive**
-Une diapositive PPTX est composée de plusieurs composants tels que des formes automatiques, des tableaux, des objets OLE, des formes groupées, des cadres d'image, des cadres vidéo, des connecteurs et divers autres éléments disponibles pour construire une présentation. Dans Aspose.Slides pour PHP via Java, chaque élément d'une diapositive est transformé en objet Shape. En d'autres termes, chaque élément de la diapositive est soit un objet Shape, soit un objet dérivé de l'objet Shape. La structure de PPTX est complexe, donc à la différence de PPT, où un verrou générique peut être utilisé pour tous les types de formes, il existe différents types de verrous pour différents types de formes. La classe BaseShapeLock est la classe de verrouillage générique pour PPTX. Les types de verrous suivants sont pris en charge dans Aspose.Slides pour PHP via Java pour PPTX.
+Une diapositive de présentation est composée d'éléments tels que des formes automatiques, des tableaux, des objets OLE, des formes groupées, des cadres d'image, des cadres vidéo, des connecteurs et d'autres éléments utilisés pour créer une présentation. Dans Aspose.Slides for PHP via Java, chaque élément d'une diapositive est représenté par un objet qui hérite de la classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) .
 
-- AutoShapeLock verrouille les formes automatiques.
-- ConnectorLock verrouille les formes connecteurs.
-- GraphicalObjectLock verrouille les objets graphiques.
-- GroupshapeLock verrouille les formes groupées.
-- PictureFrameLock verrouille les cadres d'image.
-  Toute action effectuée sur tous les objets Shape dans un objet Presentation est appliquée à l'ensemble de la présentation.
-## **Application et Suppression de Protection**
-L'application de protection garantit qu'une présentation ne peut pas être éditée. C'est une technique utile pour protéger le contenu d'une présentation.
-## **Application de la Protection aux Formes PPTX**
-Aspose.Slides pour PHP via Java fournit la classe Shape pour gérer une forme sur la diapositive.
+Différents types de forme offrent différentes options de verrouillage. La classe [BaseShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/baseshapelock/) est la classe de base pour les verrous de forme. Aspose.Slides for PHP via Java fournit les classes de verrou suivantes :
 
-Comme mentionné précédemment, chaque classe de forme a une classe de verrou associé pour la protection. Cet article se concentre sur les verrous NoSelect, NoMove et NoResize. Ces verrous garantissent que les formes ne peuvent pas être sélectionnées (via des clics de souris ou d'autres méthodes de sélection), et qu'elles ne peuvent pas être déplacées ou redimensionnées.
+- [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/) verrouille les formes automatiques.  
+- [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) verrouille les formes de connecteur.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/php-java/aspose.slides/graphicalobjectlock/) verrouille les objets graphiques.  
+- [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/) verrouille les formes groupées.  
+- [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/) verrouille les cadres d'image.  
 
-Les exemples de code qui suivent appliquent une protection à tous les types de formes dans une présentation.
+Pour appliquer des verrous à travers une [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), parcourez ses diapositives et définissez les verrous appropriés sur chaque forme prise en charge.
 
+## **Appliquer et supprimer la protection**
 
+Les verrous de forme restreignent des opérations telles que la sélection, le déplacement et le redimensionnement des formes. Ils ne rendent pas l'ensemble de la présentation non modifiable.
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Saving-ApplyProtection-ApplyProtection.java" >}}
-## **Suppression de la Protection**
-La protection appliquée à l'aide d'Aspose.Slides pour .NET/Java ne peut être retirée qu'avec Aspose.Slides pour .NET/Java. Pour déverrouiller une forme, définissez la valeur du verrou appliqué sur faux. L'exemple de code qui suit montre comment déverrouiller des formes dans une présentation verrouillée.
+### **Appliquer la protection aux formes PPTX**
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Saving-RemoveProtection-RemoveProtection.java" >}}
+Aspose.Slides for PHP via Java fournit la classe [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) pour travailler avec les formes sur une diapositive.
 
+L'exemple appelle [setSelectLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setPositionLocked) et [setSizeLocked](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/#setSizeLocked) avec `true` pour les formes automatiques, avec des verrous équivalents pour les formes groupées, les connecteurs et les cadres d'image. Les connecteurs utilisent [setPositionMove](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/#setPositionMove) pour le déplacement ; les groupes utilisent également [setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) pour restreindre le groupement.
 
+L'exemple charge une présentation PPTX existante, vérifie les formes dans la collection de formes de chaque diapositive, et enregistre une copie avec ces restrictions appliquées. Les formes en dehors des quatre types gérés restent inchangées. La boucle ne parcourt pas les formes enfants à l'intérieur d'un groupe.
 
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-## **Résumé**
-{{% alert color="primary" %}} 
+$presentation = new Presentation("Sample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        foreach ($slide->getShapes()->toArray() as $shape) {
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionLocked(true);
+                $shapeLock->setSelectLocked(true);
+                $shapeLock->setSizeLocked(true);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.GroupShape"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setGroupingLocked(true);
+                $shapeLock->setPositionLocked(true);
+                $shapeLock->setSelectLocked(true);
+                $shapeLock->setSizeLocked(true);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionMove(true);
+                $shapeLock->setSelectLocked(true);
+                $shapeLock->setSizeLocked(true);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionLocked(true);
+                $shapeLock->setSelectLocked(true);
+                $shapeLock->setSizeLocked(true);
+            }
+        }
+    }
 
-Aspose.Slides fournit plusieurs options pour appliquer une protection aux formes dans une présentation. Il est possible de verrouiller une forme particulière, ou de parcourir toutes les formes dans une présentation et de les verrouiller toutes pour verrouiller effectivement la présentation. Seule Aspose.Slides pour PHP via Java peut retirer la protection d'une présentation qui a été précédemment protégée. Retirez la protection en définissant la valeur d'un verrou sur faux.
+    $presentation->save("ProtectedSample.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-{{% /alert %}}
+### **Supprimer la protection**
+
+Pour supprimer un verrou de forme, définissez sa valeur sur `false`. L'exemple suivant charge une présentation avec des verrous de forme et supprime les restrictions de sélection, de déplacement et de redimensionnement via [AutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/php-java/aspose.slides/connectorlock/) et [PictureFrameLock](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframelock/). Il supprime également la restriction de groupement en passant `false` à [GroupShapeLock::setGroupingLocked](https://reference.aspose.com/slides/php-java/aspose.slides/groupshapelock/#setGroupingLocked) et enregistre une copie de la présentation. Les autres paramètres de verrouillage restent inchangés.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("ProtectedSample.pptx");
+try {
+    foreach ($presentation->getSlides()->toArray() as $slide) {
+        foreach ($slide->getShapes()->toArray() as $shape) {
+            if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionLocked(false);
+                $shapeLock->setSelectLocked(false);
+                $shapeLock->setSizeLocked(false);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.GroupShape"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setGroupingLocked(false);
+                $shapeLock->setPositionLocked(false);
+                $shapeLock->setSelectLocked(false);
+                $shapeLock->setSizeLocked(false);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionMove(false);
+                $shapeLock->setSelectLocked(false);
+                $shapeLock->setSizeLocked(false);
+            } elseif (java_instanceof($shape, new JavaClass("com.aspose.slides.PictureFrame"))) {
+                $shapeLock = $shape->getShapeLock();
+                $shapeLock->setPositionLocked(false);
+                $shapeLock->setSelectLocked(false);
+                $shapeLock->setSizeLocked(false);
+            }
+        }
+    }
+
+    $presentation->save("RemovedProtectionSample.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Conclusion**
+
+Aspose.Slides for PHP via Java vous permet de restreindre des opérations d'édition spécifiques sur des formes individuelles ou d'appliquer les mêmes restrictions à travers les diapositives. Choisissez les verrous pris en charge par chaque type de forme, et définissez leurs valeurs sur `false` lorsque vous devez supprimer ces restrictions.
+
+## **FAQ**
+
+**Puis-je combiner les verrous de forme et la protection par mot de passe dans la même présentation ?**
+
+Oui. Les verrous de forme restreignent des opérations d'édition spécifiques, tandis que la [protection par mot de passe](/slides/fr/php-java/password-protected-presentation/) peut restreindre l'ouverture ou la modification de la présentation. Vous pouvez utiliser les deux dans le même fichier.
+
+**Puis-je restreindre l'édition sur des diapositives spécifiques sans affecter les autres ?**
+
+Oui. Appliquez les verrous uniquement aux formes des diapositives sélectionnées. Cela ne modifie pas les paramètres de verrouillage des autres diapositives.
+
+**Comment appliquer des verrous aux formes individuelles à l'intérieur d'un groupe ?**
+
+Parcourez la collection renvoyée par la méthode [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) du groupe et appliquez les verrous appropriés à chaque forme enfant. Répétez cela pour tous les groupes imbriqués. Les exemples ci‑dessus traitent uniquement la collection de formes de la diapositive, ils ne définissent donc pas de verrous sur les membres individuels d'un groupe.

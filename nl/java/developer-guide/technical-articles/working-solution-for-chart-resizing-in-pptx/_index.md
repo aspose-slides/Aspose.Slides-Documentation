@@ -1,215 +1,129 @@
 ---
-title: Werkende oplossing voor grafiek‑schaalverandering in PPTX
+title: Werkende oplossing voor grafiekgrootte‑aanpassing in PPTX
 type: docs
 weight: 40
 url: /nl/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- grafiek schalen
-- Excel‑grafiek
-- OLE‑object
+- grafiekgrootte aanpassen
+- Excel-grafiek
+- OLE-object
 - grafiek insluiten
 - PowerPoint
-- OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Los onverwacht schalen van grafieken in PPTX op bij het gebruik van ingebedde Excel OLE‑objecten met Aspose.Slides voor Java. Leer twee methoden met code om de afmetingen consistent te houden."
+description: "Los onverwachte aanpassing van grafiekgrootte in PPTX op wanneer ingebedde Excel OLE-objecten worden gebruikt met Aspose.Slides for Java. Stel vaste grafiekafmetingen in om de grafiek- en OLE-kadergroottes consistent te houden."
 ---
 ## **Achtergrond**
 
-Er is geconstateerd dat Excel‑grafieken die als OLE‑objecten in een PowerPoint‑presentatie zijn ingevoegd via Aspose‑componenten, na hun eerste activering worden geschaald naar een onbepaalde schaal. Dit gedrag veroorzaakt een duidelijk zichtbaar verschil in de presentatie tussen de voor‑ en na‑activeringsstatus van de grafiek. Het Aspose‑team heeft het probleem grondig onderzocht en een oplossing gevonden. Dit artikel beschrijft de oorzaken van het probleem en de bijbehorende oplossing.
+Excel‑grafieken die als OLE‑objecten in PowerPoint‑presentaties zijn ingebed met behulp van Aspose‑componenten, kunnen van grootte veranderen na hun eerste activering. Dit kan een duidelijk verschil veroorzaken in het uiterlijk van de grafiek vóór en na de activering. Dit artikel legt uit waarom het formaat wijzigt en toont hoe u dit kunt voorkomen door vaste grafiekafmetingen af te stemmen op het OLE‑kader.
 
-In het [vorige artikel](/slides/nl/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) hebben we uitgelegd hoe je met Aspose.Cells voor Java een Excel‑grafiek maakt en deze in een PowerPoint‑presentatie embed met Aspose.Slides voor Java. Om het [object‑preview‑probleem](/slides/nl/java/object-preview-issue-when-adding-oleobjectframe/) aan te pakken, hebben we de grafiekafbeelding toegewezen aan het OLE‑objectframe van de grafiek. In de resulterende presentatie, wanneer je dubbelklikt op het OLE‑objectframe dat de grafiekafbeelding weergeeft, wordt de Excel‑grafiek geactiveerd. Eindgebruikers kunnen gewenste wijzigingen aanbrengen in de onderliggende Excel‑werkmap en vervolgens terugkeren naar de betreffende dia door buiten de geactiveerde werkmap te klikken. De grootte van het OLE‑objectframe verandert wanneer de gebruiker terugkeert naar de dia, en de schaalfactor varieert afhankelijk van de oorspronkelijke afmetingen van zowel het OLE‑objectframe als de ingevoegde Excel‑werkmap.
+In [Maak Excel‑grafieken en embed ze als OLE‑objecten in presentaties](/slides/nl/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), hebben we uitgelegd hoe u een Excel‑grafiek maakt met Aspose.Cells for Java en deze in een PowerPoint‑presentatie embed met Aspose.Slides for Java. Om het [objectpreview‑probleem](/slides/nl/java/object-preview-issue-when-adding-oleobjectframe/) aan te pakken, hebben we de grafiekafbeelding toegewezen aan het OLE‑objectkader van de grafiek. In de uitvoerpresentatie, wanneer u dubbelklikt op het OLE‑objectkader dat de grafiekafbeelding weergeeft, wordt de Excel‑grafiek geactiveerd. Gebruikers kunnen het ingebedde Excel‑werkboek bewerken en vervolgens terugkeren naar de dia door buiten het geopende werkboek te klikken. De grootte van het OLE‑objectkader verandert wanneer de gebruiker terugkeert naar de dia, en de vergrotingsfactor varieert afhankelijk van de oorspronkelijke afmetingen van zowel het OLE‑objectkader als het ingebedde Excel‑werkboek.
 
-## **Oorzaak van schalen**
+## **Oorzaak van de groottewijziging**
 
-Omdat de Excel‑werkmap zijn eigen venstergrootte heeft, probeert hij bij de eerste activering zijn oorspronkelijke afmeting te behouden. Het OLE‑objectframe heeft echter zijn eigen afmetingen. Volgens Microsoft onderhandelen Excel en PowerPoint over de grootte wanneer de Excel‑werkmap wordt geactiveerd en handhaven ze de juiste verhoudingen als onderdeel van het insluitingsproces. Afhankelijk van de verschillen tussen de grootte van het Excel‑venster en de grootte of positie van het OLE‑objectframe treedt er een schaalverandering op.
+Het ingebedde Excel‑werkboek heeft eigen vensterafmetingen, die Excel probeert te behouden wanneer het object voor het eerst wordt geactiveerd. Het OLE‑kader op de dia heeft onafhankelijk gedefinieerde afmetingen. Wanneer het Excel‑werkboek wordt geactiveerd, onderhandelen Excel en PowerPoint over de grootte van het object om de verhoudingen te behouden als onderdeel van het embedproces. Verschillen tussen het werkboekvenster en het OLE‑kader kunnen daardoor leiden tot een wijziging van de objectgrootte.
 
 ## **Werkende oplossing**
 
-Er zijn twee mogelijke scenario’s voor het maken van PowerPoint‑presentaties met Aspose.Slides voor Java.
+Stem de grafiekgrootte af op het OLE‑kader op de dia en houd de grafiekafmetingen onafhankelijk van het werkboekvenster. Deze oplossing werkt zowel met een nieuwe presentatie als met een bestaand sjabloon.
 
-**Scenario 1:** Maak een presentatie op basis van een bestaand sjabloon.
+Het voorbeeld vereist Aspose.Cells for Java en Aspose.Slides for Java. Het maakt een eenvoudige kolomgrafiek op een actief grafiekblad en embed het werkboek in XLS‑formaat. Er wordt geen voorbeeldafbeelding voor de grafiek toegewezen; de grafiek wordt zichtbaar wanneer het OLE‑object wordt geactiveerd in PowerPoint.
 
-**Scenario 2:** Maak een presentatie vanaf nul.
+Het voorbeeld creëert een nieuwe presentatie met een OLE‑kader van 9,5 × 4 inch, gepositioneerd 0,5 inch vanaf de linkerrand en 1 inch vanaf de bovenkant. Dia‑coördinaten en afmetingen worden uitgedrukt in points (72 points per inch). Voor een bestaande presentatie, zie [Gebruik een sjabloon](#gebruik-een-sjabloon).
 
-De oplossing die we hier bieden, is van toepassing op beide scenario’s. De basis van alle oplossingsbenaderingen is hetzelfde: **de venstergrootte van het ingebedde OLE‑object moet overeenkomen met het OLE‑objectframe in de PowerPoint‑dia**. We bespreken nu de twee benaderingen van deze oplossing.
+## **Stel een vaste grafiekgrootte in**
 
-## **Eerste benadering**
-
-In deze benadering leren we hoe we de venstergrootte van de ingebedde Excel‑werkmap kunnen instellen zodat deze overeenkomt met de afmeting van het OLE‑objectframe in de PowerPoint‑dia.
-
-**Scenario 1**
-
-Stel dat we een sjabloon hebben gedefinieerd en presentaties op basis daarvan willen maken. Er is een shape op index 2 in het sjabloon waar we een OLE‑frame met een ingebedde Excel‑werkmap willen plaatsen. In dit scenario is de grootte van het OLE‑objectframe vooraf bepaald – hij komt overeen met de grootte van de shape op index 2 in het sjabloon. Alles wat we hoeven te doen is de venstergrootte van de werkmap gelijk te stellen aan die shape‑grootte. De volgende code‑fragment dient dit doel:
+Stel [setSizeWithWindow](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setSizeWithWindow-boolean-) in op false zodat de grafiekafmetingen onafhankelijk zijn van het werkboekvenster. Stel de afmetingen van [getChartObject](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#getChartObject--) in via [setWidth](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setWidth-int-) en [setHeight](https://reference.aspose.com/cells/java/com.aspose.cells/shape/#setHeight-int-), waarbij points worden omgezet naar pixels met 96 pixels per inch: een kader van 684 × 288 points komt overeen met een grafiek van 912 × 384 pixels. Stel [setPrintSize](https://reference.aspose.com/cells/java/com.aspose.cells/chart/#setPrintSize-int-) in op de CUSTOM‑waarde van [PrintSizeType](https://reference.aspose.com/cells/java/com.aspose.cells/printsizetype/). Het voorbeeld embed het werkboek met [addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) en slaat een presentatie op met een OLE‑kader van 9,5 × 4 inch.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.FileFormatType;
+import com.aspose.cells.PrintSizeType;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.ByteArrayOutputStream;
 
-// Stel de breedte van het werkmapvenster in inches in (gedeeld door 72 omdat PowerPoint 72 punten per inch gebruikt).
-workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
- 
-// Stel de hoogte van het werkmapvenster in inches in.
-workbook.getSettings().setWindowHeightInch(slide.getShapes().get_Item(2).getHeight() / 72f);
- 
-// Sla de werkmap op in een geheugenstroom.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Maak een OLE‑objectframe aan met de ingebedde Excel‑gegevens.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
+Workbook workbook = new Workbook();
+try {
+    Worksheet dataSheet = workbook.getWorksheets().get(0);
+    dataSheet.setName("Data");
+    dataSheet.getCells().get("A1").putValue(10);
+    dataSheet.getCells().get("A2").putValue(20);
+
+    int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+    Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, 20, 10);
+    Chart chart = chartSheet.getCharts().get(chartIndex);
+    chart.getNSeries().add("Data!A1:A2", true);
+    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // Dia‑coördinaten en afmetingen zijn in points (72 points per inch).
+        float width = 684f; // 9,5 inch.
+        float height = 288f; // 4 inch.
+
+        chart.setSizeWithWindow(false);
+        // Zet points om naar grafiekpixels met 96 pixels per inch.
+        chart.getChartObject().setWidth((int)(width / 72f * 96f));
+        chart.getChartObject().setHeight((int)(height / 72f * 96f));
+        chart.setPrintSize(PrintSizeType.CUSTOM);
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, FileFormatType.EXCEL_97_TO_2003);
+        OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
+        slide.getShapes().addOleObjectFrame(36, 72, width, height, dataInfo);
+
+        presentation.save("chart-fixed-size.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    workbook.dispose();
+}
 ```
 
-**Scenario 2**
+## **Gebruik een sjabloon**
 
-Stel dat we een presentatie vanaf nul willen maken en een OLE‑objectframe van willekeurige afmeting met een ingebedde Excel‑werkmap willen opnemen. In het onderstaande code‑fragment maken we een OLE‑objectframe van 4 inch hoog en 9,5 inch breed op x = 0,5 inch en y = 1 inch op de dia. Vervolgens stellen we het Excel‑werkmapvenster in op dezelfde afmeting – 4 inch hoog en 9,5 inch breed.
+De logica voor het bepalen van de grootte is hetzelfde voor een bestaande presentatie. Pas het voorbeeld als volgt aan:
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+1. Laad de sjabloonpresentatie in plaats van een lege presentatie te maken.  
+2. Controleer of de eerste dia ten minste drie vormen bevat, en gebruik vervolgens de vorm op index 2 als de tijdelijke aanduiding.  
+3. Neem de kaderbreedte en -hoogte uit die vorm in plaats van de vaste waarden 684 en 288 te gebruiken. Houd de berekeningen voor de afmetingen ongewijzigd.  
+4. Voeg het OLE‑kader toe op de positie van de tijdelijke aanduiding in plaats van op de vaste coördinaten 36 en 72.  
+5. Verwijder de tijdelijke aanduiding voordat u de presentatie opslaat.
 
-// Onze gewenste hoogte.
-int desiredHeight = 288; // 4 duim (4 * 72)
- 
-// Onze gewenste breedte.
-int desiredWidth = 684; // 9.5 duim (9.5 * 72)
- 
-// Definieer de grafiekgrootte met een venster.
-chart.setSizeWithWindow(true);
- 
-// Stel de breedte van het werkmapvenster in inches in (gedeeld door 72 omdat PowerPoint 72 punten per inch gebruikt).
-workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
- 
-// Stel de hoogte van het werkmapvenster in inches in.
-workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
- 
-// Sla de werkmap op in een geheugenstroom.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Maak een OLE‑objectframe aan met de ingebedde Excel‑gegevens.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 duim (0.5 * 72)
-    72,  // y = 1 duim (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
+## **Veelgestelde vragen**
 
-## **Tweede benadering**
+**Waarom verandert mijn ingebedde Excel‑grafiek van grootte na activering in PowerPoint?**
 
-In deze benadering leren we hoe we de grootte van de grafiek in de ingebedde Excel‑werkmap kunnen instellen zodat deze overeenkomt met de grootte van het OLE‑objectframe in de PowerPoint‑dia. Deze benadering is nuttig wanneer de grafiekgrootte van tevoren bekend is en nooit zal veranderen.
+Dit gebeurt omdat Excel bij de eerste activering probeert de oorspronkelijke venstergrootte te herstellen, terwijl het OLE‑objectkader in PowerPoint eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat de groottewijziging kan veroorzaken.
 
-**Scenario 1**
+**Hoe kan ik de grafiek‑ en OLE‑kadergroottes consistent houden?**
 
-Stel dat we een sjabloon hebben gedefinieerd en presentaties op basis daarvan willen maken. Er is een shape op index 2 in het sjabloon waar we een OLE‑frame met een ingebedde Excel‑werkmap willen plaatsen. In dit scenario is de grootte van het OLE‑frame vooraf bepaald – hij komt overeen met de grootte van de shape op index 2 in het sjabloon. Alles wat we hoeven te doen is de grafiekgrootte in de werkmap gelijk te stellen aan die shape‑grootte. De volgende code‑fragment dient dit doel:
+Stel vaste grafiekafmetingen in die overeenkomen met het OLE‑kader en gebruik een aangepaste afdrukgrootte voor de grafiek voordat u het werkboek embedt. Het bovenstaande voorbeeld toont de benodigde instellingen en eenhedenconversies.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+**Is het afstemmen op de werkboekvenstergrootte voldoende?**
 
-// Definieer de grafiekgrootte zonder venster.
-chart.setSizeWithWindow(false);
- 
-// Stel de breedte van de grafiek in pixels in (vermenigvuldig met 96 omdat Excel 96 pixels per duim gebruikt).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
- 
-// Stel de hoogte van de grafiek in pixels in.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
- 
-// Definieer de afdrukgrootte van de grafiek.
-chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
- 
-// Sla de werkmap op in een geheugenstroom.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Maak een OLE‑objectframe aan met de ingebedde Excel‑gegevens.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    slide.getShapes().get_Item(2).getX(),
-    slide.getShapes().get_Item (2).getY(),
-    slide.getShapes().get_Item (2).getWidth(),
-    slide.getShapes().get_Item (2).getHeight(),
-    dataInfo);
-```
+Alleen het afstemmen op de werkboekvenstergrootte voorkomt niet betrouwbaar dat het OLE‑kader van grootte verandert na activering. Gebruik vaste grafiekafmetingen zoals getoond in het voorbeeld.
 
-**Scenario 2**:
+**Werkt deze oplossing zowel voor sjabloongebaseerde presentaties als voor nieuwe presentaties?**
 
-Stel dat we een presentatie vanaf nul willen maken en een OLE‑objectframe van willekeurige afmeting met een ingebedde Excel‑werkmap willen opnemen. In het onderstaande code‑fragment maken we een OLE‑objectframe met een hoogte van 4 inch en een breedte van 9,5 inch op de dia op x = 0,5 inch en y = 1 inch. We stellen ook de bijbehorende grafiekgrootte in op dezelfde afmetingen: een hoogte van 4 inch en een breedte van 9,5 inch.
+Ja. Voor een sjabloon gebruikt u de afmetingen en positie van de tijdelijke aanduiding. Voor een nieuwe presentatie specificeert u de kaderafmetingen en positie direct.
 
-```java
-import com.aspose.slides.*;
-import java.io.ByteArrayOutputStream;
+**Kan ik dit voorbeeld gebruiken met grafieken die zijn gemaakt in andere spreadsheet‑programma’s?**
 
-// Onze gewenste hoogte.
-int desiredHeight = 288; // 4 duim (4 * 72)
- 
-// Onze gewenste breedte.
-int desiredWidth = 684; // 9.5 duim (9.5 * 72)
- 
-// Definieer de grafiekgrootte zonder venster.
-chart.setSizeWithWindow(false);
- 
-// Stel de breedte van de grafiek in pixels in (gedeeld door 72 om duimen te krijgen, vermenigvuldigd met 96 omdat Excel 96 pixels per duim gebruikt).
-chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
- 
-// Stel de hoogte van de grafiek in pixels in.
-chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
- 
-// Sla de werkmap op in een geheugenstroom.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
- 
-// Maak een OLE‑objectframe met de ingebedde Excel‑gegevens.
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
-IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    36,  // x = 0.5 duim (0.5 * 72)
-    72,  // y = 1 duim (1 * 72)
-    desiredWidth,
-    desiredHeight,
-    dataInfo);
-```
-
-## **Conclusie**
-
-Er zijn twee benaderingen om het probleem met het schalen van de grafiek op te lossen. De keuze van de benadering hangt af van de vereisten en het gebruiksscenario. Beide benaderingen werken op dezelfde manier, ongeacht of de presentaties worden gemaakt vanuit een sjabloon of vanaf nul. Daarnaast is er geen limiet aan de grootte van het OLE‑objectframe in deze oplossing.
-
-## **FAQ**
-
-### Waarom verandert mijn ingebedde Excel‑grafiek van grootte nadat deze in PowerPoint is geactiveerd?
-
-Dit gebeurt omdat Excel bij de eerste activering probeert de oorspronkelijke venstergrootte te herstellen, terwijl het OLE‑objectframe in PowerPoint zijn eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat kan leiden tot een schaalverandering.
-
-### Is het mogelijk om dit schaalprobleem volledig te voorkomen?
-
-Ja. Door de venstergrootte of de grafiekgrootte van de Excel‑werkmap overeen te laten komen met de grootte van het OLE‑objectframe vóór het insluiten, kun je de grafiekgroottes consistent houden.
-
-### Welke benadering moet ik kiezen, de venstergrootte van de werkmap instellen of de grafiekgrootte instellen?
-
-Gebruik **benadering 1 (venstergrootte)** als je de beeldverhouding van de werkmap wilt behouden en eventueel later wilt kunnen schalen.  
-Gebruik **benadering 2 (grafiekgrootte)** als de grafiekafmetingen vaststaan en niet zullen veranderen na het insluiten.
-
-### Werken deze methoden zowel met sjabloongebaseerde presentaties als met nieuwe presentaties?
-
-Ja. Beide benaderingen werken hetzelfde voor presentaties die zijn gemaakt vanuit sjablonen en voor presentaties die vanaf nul zijn gemaakt.
-
-### Is er een limiet aan de grootte van het OLE‑objectframe?
-
-Nee. Je kunt het OLE‑frame op elke gewenste grootte instellen, zolang het passend schaalt naar de werkmap‑ of grafiekgrootte.
-
-### Kan ik deze methoden gebruiken met grafieken die zijn gemaakt in andere spreadsheet‑programma’s?
-
-De voorbeelden zijn ontworpen voor Excel‑grafieken gemaakt met Aspose.Cells, maar de principes gelden ook voor andere OLE‑compatibele spreadsheet‑programma’s zolang ze vergelijkbare grootte‑opties bieden.
+Het voorbeeld maakt gebruik van een Excel‑werkboek dat is aangemaakt met Aspose.Cells. Het demonstreert niet het activatie‑gedrag voor andere spreadsheet‑programma’s.
 
 ## **Gerelateerde secties**
 
-- [Excel‑grafieken maken en insluiten als OLE‑objecten in presentaties](/slides/nl/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [Maak Excel‑grafieken en embed ze als OLE‑objecten in presentaties](/slides/nl/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

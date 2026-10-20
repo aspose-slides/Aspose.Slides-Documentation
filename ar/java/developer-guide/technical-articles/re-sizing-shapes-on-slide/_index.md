@@ -1,133 +1,50 @@
 ---
-title: تغيير حجم الأشكال على شرائح العرض التقديمي
+title: تحجيم الأشكال على شرائح العرض التقديمي في Java
 type: docs
-weight: 110
-url: /ar/java/re-sizing-shapes-on-slide/
+weight: 130
+url: /ar/java/resizing-shapes-on-slide/
+aliases:
+  - /ar/java/re-sizing-shapes-on-slide/
+  /java/تحجيم-الأشكال-على-الشريحة/
 keywords:
+- تحجيم الشكل
 - تغيير حجم الشكل
-- تعديل حجم الشكل
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "قم بسهولة بإعادة تحجيم الأشكال على شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Java — أتمتة تعديل تخطيط الشرائح وزيادة الإنتاجية."
+description: "قم بتحجيم الأشكال بسهولة على شرائح PowerPoint وOpenDocument باستخدام Aspose.Slides for Java—قم بأتمتة تعديل تخطيط الشرائح وزيادة الإنتاجية."
 ---
-
 ## **نظرة عامة**
 
-أحد أكثر الأسئلة شيوعًا من عملاء Aspose.Slides for Java هو كيفية تغيير حجم الأشكال بحيث لا يتم قطع البيانات عندما يتغير حجم الشريحة. يوضح هذا المقال التقني القصير كيفية القيام بذلك.
+عند تغيير حجم شريحة العرض التقديمي، قد تحتاج أيضًا إلى تغيير حجم الأشكال وإعادة وضعها لتناسب الأبعاد الجديدة. يوضح هذا المقال كيفية تحجيم الأ shapes يدويًا وكيفية التعامل مع الجداول في الشرائح، والماستر، والتنسيقات.
 
-## **تغيير حجم الأشكال**
+## **تحجيم الأشكال**
 
-لمنع حدوث اختلال في محاذاة الأشكال عندما يتغير حجم الشريحة، قم بتحديث موضع كل شكل وأبعاده لتتوافق مع تخطيط الشريحة الجديد.
+للحفاظ على موضع وحجم كل شكل نسبةً إلى الآخر، اضرب إحداثياته الأفقية وعرضه في نسبة عرض الشريحة الجديد إلى العرض الأصلي. طبّق نسبة الارتفاع المقابلة على إحداثياته الرأسية وارتفاعه.
+
+يقوم المثال الأول بتحميل عرض تقديمي لا تحتوي شرائحه على جداول، ويغيّر حجم الشريحة إلى A4، ثم يحفظ النتيجة. يستخدم [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-int-int-) مع [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/#DoNotScale) بحيث تتحكم الحلقة اللاحقة في التحجيم. النسب لا تحمل وحدات؛ يتم قياس مواضع الأشكال وأبعادها بالنقاط. يمكن أن تشوه النسب المختلفة للعرض والارتفاع الأشكال، وتغيير أبعاد الشكل لا يحوّل أحجام الخطوط.
+
 ```java
-// تحميل ملف العرض التقديمي.
-Presentation presentation = new Presentation("sample.ppt");
-try {
-    // الحصول على حجم الشريحة الأصلي.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-    // تغيير حجم الشريحة دون تحجيم الأشكال الموجودة.
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // الحصول على حجم الشريحة الجديد.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // تعديل حجم وإعادة وضع الأشكال على كل شريحة.
-    for (ISlide slide : presentation.getSlides()) {
-        for (IShape shape : slide.getShapes()) {
-            
-            // تحجيم حجم الشكل.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // تحجيم موضع الشكل.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
-    }
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-
-{{% alert color="primary" %}} 
-إذا احتوت الشريحة على جدول، فإن الشيفرة أعلاه لن تعمل بشكل صحيح. في هذه الحالة، يجب تغيير حجم كل خلية في الجدول.
-{{% /alert %}} 
-
-استخدم الشيفرة التالية على جانبك لتغيير حجم الشرائح التي تحتوي على جداول. بالنسبة للجداول، يُعد ضبط العرض أو الارتفاع حالة خاصة: يجب تعديل ارتفاعات الصفوف الفردية وعرض الأعمدة لتغيير الحجم الإجمالي للجدول.
-```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // الحصول على حجم الشريحة الأصلي.
-    float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    // تغيير حجم الشريحة دون تحجيم الأشكال الموجودة.
+    // احسب عوامل التحجيم الأفقية والرأسية المستقلة.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
-
-    // الحصول على حجم الشريحة الجديد.
-    float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
-    float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    for (IMasterSlide master : presentation.getMasters()) {
-        for (IShape shape : master.getShapes()) {
-            // تحجيم حجم الشكل.
-            shape.setHeight(shape.getHeight() * heightRatio);
-            shape.setWidth(shape.getWidth() * widthRatio);
-
-            // تحجيم موضع الشكل.
-            shape.setY(shape.getY() * heightRatio);
-            shape.setX(shape.getX() * widthRatio);
-        }
-
-        for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
-            for (IShape shape : layoutSlide.getShapes()) {
-                // تحجيم حجم الشكل.
-                shape.setHeight(shape.getHeight() * heightRatio);
-                shape.setWidth(shape.getWidth() * widthRatio);
-
-                // تحجيم موضع الشكل.
-                shape.setY(shape.getY() * heightRatio);
-                shape.setX(shape.getX() * widthRatio);
-            }
-        }
-    }
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            // تحجيم حجم الشكل.
-            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
-
-            // تحجيم موضع الشكل.
-            shape.setY(shape.getY() * heightRatio);
+            shape.setHeight(shape.getHeight() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
+            shape.setY(shape.getY() * heightRatio);
         }
     }
 
@@ -138,33 +55,98 @@ finally {
 }
 ```
 
+{{% alert color="info" title="Note" %}}
+تتطلب الجداول معالجة منفصلة: قم بتحجيم أعمدةها وعرضها وارتفاعات الصفوف بدلاً من تعيين العرض والارتفاع الكلي للجدول. قد تبقى ارتفاعات الصفوف أكبر من المطلوبة إذا كان محتوى الخلية يحتاج إلى مساحة أكبر.
+{{% /alert %}}
 
-## **الأسئلة الشائعة**
+يدعم المثال الثاني الجداول ويعالج الأشكال في الماستر والتنسيقات وكذلك الشرائح الفردية قبل حفظ العرض التقديمي معاد التحجيم. يتعامل المساعد الخاص به مع كل [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) من خلال تحجيم عرض الأعمدة باستخدام [IColumn.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icolumn/#setWidth-double-) وارتفاعات الصف الأدنى باستخدام [IRow.setMinimalHeight](https://reference.aspose.com/slides/java/com.aspose.slides/irow/#setMinimalHeight-double-). ثم يحوّل موضع الجدول دون تحجيم أبعاده الكلية بشكل منفصل.
 
-**لماذا يتم تشويه الأشكال أو قطعها بعد تغيير حجم الشريحة؟**
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-عند تغيير حجم الشريحة، تحتفظ الأشكال بموقعها وحجمها الأصلي ما لم يتم تغيير المقياس صراحة. يمكن أن يؤدي ذلك إلى اقتصاص المحتوى أو اختلال محاذاة الأشكال.
+class ShapeResizer {
+    void resizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio) {
+        for (IShape shape : shapes) {
+            if (shape instanceof ITable) {
+                ITable table = (ITable) shape;
+                // أبعاد الجدول يتم التحكم فيها بواسطة عرض الأعمدة وارتفاعات الصفوف.
+                for (IColumn column : table.getColumns()) {
+                    column.setWidth(column.getWidth() * widthRatio);
+                }
 
-**هل تعمل الشيفرة المقدمة مع جميع أنواع الأشكال؟**
+                for (IRow row : table.getRows()) {
+                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
+                }
+            }
+            else {
+                shape.setWidth(shape.getWidth() * widthRatio);
+                shape.setHeight(shape.getHeight() * heightRatio);
+            }
 
-المثال الأساسي يعمل مع معظم أنواع الأشكال (مربعات النص، الصور، المخططات، إلخ). ومع ذلك، بالنسبة للجداول، تحتاج إلى التعامل مع الصفوف والأعمدة بشكل منفصل، لأن ارتفاع وعرض الجدول يحددان بابعاد الخلايا الفردية.
+            shape.setX(shape.getX() * widthRatio);
+            shape.setY(shape.getY() * heightRatio);
+        }
+    }
+}
 
-**كيف أقوم بتغيير حجم الجداول عند تغيير حجم الشريحة؟**
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    // احسب عوامل التحجيم الأفقية والرأسية المستقلة.
+    Dimension2D originalSize = presentation.getSlideSize().getSize();
+    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+    Dimension2D targetSize = presentation.getSlideSize().getSize();
+    float widthRatio = (float) (targetSize.getWidth() / originalSize.getWidth());
+    float heightRatio = (float) (targetSize.getHeight() / originalSize.getHeight());
 
-يتعين عليك المرور عبر جميع الصفوف والأعمدة في الجدول وتغيير ارتفاعها وعرضها بنسبية، كما هو موضح في مثال الشيفرة الثاني.
+    ShapeResizer resizer = new ShapeResizer();
 
-**هل سيعمل هذا التغيير مع الشرائح الرئيسية وشرائح التخطيط؟**
+    // تحجيم الأشكال المعرفة على الماستر والتنسيقات بالإضافة إلى الشرائح الفردية.
+    for (IMasterSlide master : presentation.getMasters()) {
+        resizer.resizeShapes(master.getShapes(), widthRatio, heightRatio);
 
-نعم، ولكن يجب عليك أيضًا المرور عبر [الرئيسيات](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) و[شرائح التخطيط](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) وتطبيق نفس منطق المقياس على أشكالها لضمان التناسق عبر العرض التقديمي بأكمله.
+        for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
+            resizer.resizeShapes(layoutSlide.getShapes(), widthRatio, heightRatio);
+        }
+    }
 
-**هل يمكنني تغيير اتجاه الشريحة (عمودي/عرضي) مع تغيير الحجم؟**
+    for (ISlide slide : presentation.getSlides()) {
+        resizer.resizeShapes(slide.getShapes(), widthRatio, heightRatio);
+    }
 
-نعم. يمكنك استخدام [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/islidesize/#setOrientation-int-) لتغيير الاتجاه. تأكد من ضبط منطق المقياس وفقًا لذلك للحفاظ على التخطيط.
+    presentation.save("output.pptx", SaveFormat.Pptx);
+}
+finally {
+    presentation.dispose();
+}
+```
 
-**هل هناك حد لحجم الشريحة يمكنني تحديده؟**
+## **الأسئلة المتكررة**
 
-يدعم Aspose.Slides الأحجام المخصصة، لكن الأحجام الكبيرة جدًا قد تؤثر على الأداء أو التوافق مع بعض إصدارات PowerPoint.
+**لماذا تتشوه أو تُقَطَع الأشكال بعد تغيير حجم الشريحة؟**
 
-**كيف يمكنني منع تشوه الأشكال ذات النسبة الثابتة؟**
+إذا قمت بتغيير حجم الشريحة دون تحجيم الأشكال، فإنها تحتفظ بمواضعها وأبعادها الأصلية وقد تمتد خارج حدود الشريحة. يمكن أن يؤدي تحجيم العرض والارتفاع بنسب مختلفة إلى تشوه الأشكال أيضاً.
 
-يمكنك التحقق من طريقة `getAspectRatioLocked` للشكل قبل التحجيم. إذا كانت مقفلة، قم بضبط العرض أو الارتفاع بنسبية بدلاً من تحجيمهما بشكل منفصل.
+**هل يعمل الكود المقدم لجميع أنواع الأشكال؟**
+
+المثال الأول يغيّر حدود الشكل مباشرةً وهو مخصص للشرائح التي لا تحتوي على جداول. المثال الثاني يتعامل مع الجداول بشكل منفصل. تحقق من التخطيط الناتج، لا سيما النصوص والجداول، لأن هذه الأمثلة لا تحوّل أحجام الخط ويمكن لمحتوى الجدول أن يحد من ارتفاعات الصفوف.
+
+**كيف يمكنني تغيير حجم الجداول عند تغيير حجم الشريحة؟**
+
+احسب عرض الأعمدة بنسبة عرض الشريحة الجديدة، وارتفاعات الصف الأدنى بنسبة الارتفاع، ثم قم بتحجيم موضع الجدول كما هو موضح في المثال الثاني.
+
+**هل سيعمل هذا التحجيم على شرائح الماستر وشرائح التخطيط؟**
+
+نعم. يتنقل المثال الثاني عبر [Presentation.getMasters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) وكل [IMasterSlide.getLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/#getLayoutSlides--) لكل ماستر، ويطبق نفس منطق التحجيم على أعضائه.
+
+**هل يمكنني تغيير اتجاه الشريحة (عمودي/أفقي) مع التحجيم؟**
+
+نعم. استدعِ [SlideSize.setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setOrientation-int-) بعد تغيير حجم الشريحة وقبل قراءة الأبعاد المستهدفة، بحيث تعكس عوامل التحجيم الاتجاه النهائي.
+
+**هل هناك حد لحجم الشريحة الذي يمكنني تحديده؟**
+
+يمكنك تحديد أبعاد شريحة مخصصة باستخدام [SlideSize.setSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#setSize-float-float-int-). تعتمد الأبعاد المدعومة أيضاً على تنسيق العرض التقديمي والتطبيق المستخدم لفتح الملف.
+
+**كيف يمكنني منع تشوه الأشكال ذات نسبة الأبعاد الثابتة؟**
+
+استخدم نفس عامل التحجيم للعرض والارتفاع. لتناسب التخطيط الأصلي داخل أبعاد الشريحة الجديدة، استخدم الأصغر بين نسب العرض والارتفاع لكلا البعدين والمواضع. هذا يحافظ على النسب ولكنه قد يترك مساحة غير مُستخدمة على أحد الجوانب.

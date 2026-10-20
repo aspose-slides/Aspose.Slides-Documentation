@@ -1,6 +1,6 @@
 ---
-title: Megakadályozza a prezentáció szerkesztését alakzatzárakkal
-linktitle: Prezentáció szerkesztésének megakadályozása
+title: Prezentációs szerkesztések korlátozása alakzatzárolásokkal Pythonban
+linktitle: Prezentációs szerkesztések korlátozása
 type: docs
 weight: 60
 url: /hu/python-java/applying-protection-to-presentation/
@@ -10,47 +10,47 @@ keywords:
 - alakzat zárolása
 - pozíció zárolása
 - kijelölés zárolása
-- méret zárolása
+- átméretezés zárolása
 - csoportosítás zárolása
 - PowerPoint
-- OpenDocument
+- PPTX
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan zárolja vagy oldja fel az Aspose.Slides for Python via Java az alakzatokat PPT, PPTX és ODP fájlokban, ezzel védve a prezentációkat, miközben ellenőrzött szerkesztéseket és gyorsabb szállítást tesz lehetővé."
+description: "Ismerje meg, hogyan lehet zárolni és feloldani az alakzatokat PPTX prezentációkban az Aspose.Slides for Python via Java használatával, hogy korlátozzák a kijelölést, mozgatást, átméretezést és csoportosítást."
 ---
 ## **Háttér**
 
-Az Aspose.Slides gyakori felhasználása Microsoft PowerPoint (PPTX) prezentációk létrehozása, frissítése és mentése automatizált munkafolyamat részeként. Azoknak az alkalmazásoknak a felhasználói, amelyek ilyen módon használják az Aspose.Slides‑t, hozzáférnek a generált prezentációkhoz, ezért a szerkesztés elleni védelem gyakori aggály. Fontos, hogy az automatikusan létrehozott prezentációk megőrizzék az eredeti formázásukat és tartalmukat.
+Az Aspose.Slides for Python via Java gyakori felhasználása, hogy PowerPoint (PPTX) prezentációkat hozzon létre, frissítsen és mentse egy automatizált munkafolyamat részeként. Amikor a felhasználók megkapják ezeket a prezentációkat, a formák módosításának korlátozása segíthet megőrizni a tervezett elrendezést és tartalmat.
 
-Ez a cikk elmagyarázza, hogyan vannak felépítve a prezentációk és diák, valamint hogyan alkalmazhat védelem egy prezentációra az Aspose.Slides for Python via Java, és hogyan távolítható el később. A fejlesztők számára lehetőséget biztosít arra, hogy szabályozzák, hogyan használják az alkalmazásaik által generált prezentációkat.
+Ez a cikk bemutatja, hogyan szerveződnek a formák a diákon, valamint hogyan alkalmazhatók és távolíthatók el a formazárolások egy PPTX prezentációban. Ezek a zárolások lehetővé teszik, hogy egyes formákon adott szerkesztési műveleteket korlátozzon.
 
-## **Dia összetétele**
+## **Dia felépítése**
 
-Egy prezentációs diát alkotó elemek közé tartoznak az automatikus alakzatok, táblázatok, OLE objektumok, csoportos alakzatok, képkeretek, videókeretek, csatlakozók és egyéb, a prezentáció építéséhez használt elemek. Az Aspose.Slides for Python via Java esetén a dia minden elemét egy olyan objektum képviseli, amely a [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/) osztályból származik.
+Egy prezentációs dia olyan összetevőkből áll, mint az automatikus alakzatok, táblázatok, OLE objektumok, csoportosított formák, képkockák, videokockák, csatlakozók és más, a prezentáció építéséhez használt elemek. Az Aspose.Slides for Python via Java-ban a dia minden eleme egy olyan objektum által van reprezentálva, amely a [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) osztályból származik.
 
-A PPTX struktúrája összetett, ezért a PPT-vel ellentétben, ahol általános zárat lehet használni minden alakzattípusra, a különböző alakzatfajták különféle zárakat igényelnek. A [BaseShapeLock](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseshapelock/) osztály az általános záróosztály a PPTX számára. Az alábbi zártípusok támogatottak az Aspose.Slides for Python via Java-ban a PPTX-hez:
+A különböző forma típusok különböző zárolási lehetőségeket kínálnak. A [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) osztály a formazárolások alaposztálya. Az Aspose.Slides for Python via Java a következő zárolási osztályokat biztosítja:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshapelock/) zárja az automatikus alakzatokat.  
-- [ConnectorLock](https://reference.aspose.com/slides/hu/python-java/aspose.slides/connectorlock/) zárja a csatlakozó alakzatokat.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/hu/python-java/aspose.slides/graphicalobjectlock/) zárja a grafikus objektumokat.  
-- [GroupShapeLock](https://reference.aspose.com/slides/hu/python-java/aspose.slides/groupshapelock/) zárja a csoportos alakzatokat.  
-- [PictureFrameLock](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pictureframelock/) zárja a képkockákat.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) zárolja az automatikus alakzatokat.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) zárolja a csatlakozó formákat.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) zárolja a grafikus objektumokat.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) zárolja a csoportosított formákat.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) zárolja a képkockákat.  
 
-Az [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) objektumban végzett bármely művelet, amely az összes alakzaton történik, a teljes prezentációra vonatkozik.
+A [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) során történő zárolások alkalmazásához iteráljon a diáknál, és állítsa be a megfelelő zárolásokat minden támogatott formára.
 
 ## **Védelem alkalmazása és eltávolítása**
 
-A védelem alkalmazása biztosítja, hogy a prezentációt ne lehessen szerkeszteni. Hasznos technika a prezentáció tartalmának védelmére.
+A formazárolások korlátozzák a műveleteket, például a formák kijelölését, mozgatását és átméretezését. Nem teszik a teljes prezentációt szerkeszthetetlenné.
 
-### **Védelem alkalmazása PPTX alakzatokra**
+### **Védelem alkalmazása PPTX formákra**
 
-Az Aspose.Slides for Python via Java biztosítja a [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/) osztályt a dián lévő alakzatok kezeléséhez.
+Az Aspose.Slides for Python via Java biztosítja a [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) osztályt a dián lévő formákkal való munkához.
 
-Ahogy korábban említettük, minden alakzat osztályhoz tartozik egy megfelelő alakzat-zár osztály a védelemhez. Ez a cikk a NoSelect, NoMove és NoResize zárakra koncentrál. Ezek a zárak biztosítják, hogy az alakzatok ne legyenek kiválaszthatók (egérkattintással vagy egyéb kiválasztási módszerekkel), és ne mozgathatók vagy méretezhetők.
+A példa a [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), a [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) és a [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) metódusokat hívja meg `True` értékkel az automatikus alakzatokra, a csoportosított formákra, csatlakozókra és képkockákra vonatkozó megfelelő zárolásokkal. A csatlakozók a [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) metódust használják a mozgatáshoz; a csoportok a [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) metódust is használják a csoportosítás korlátozásához.
 
-Az alábbi kódrészlet védelem alkalmazását mutatja be minden alakzattípusra egy prezentációban.
+A példa betölt egy meglévő PPTX prezentációt, ellenőrzi a formákat minden dia forma gyűjteményében, és elment egy másolatot a beállított korlátozásokkal. A négy kezelt típuson kívüli formák változatlanok maradnak. A ciklus nem járja be a csoporton belüli gyermekformákat.
 
 ```python
 import jpype
@@ -61,12 +61,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# A Presentation osztály példányosítása, amely egy PPTX fájlt képvisel.
 presentation = Presentation("Sample.pptx")
 try:
-    # A prezentáció összes diájának bejárása.
     for slide in presentation.getSlides():
-        # A dián lévő összes alakzat bejárása.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -90,7 +87,6 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # A prezentáció fájl mentése.
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -98,7 +94,7 @@ finally:
 
 ### **Védelem eltávolítása**
 
-Egy alakzat feloldásához állítsa a beállított zár értékét `False`-ra. Az alábbi kódrészlet bemutatja, hogyan oldható fel a zár egy lezárt prezentációban lévő alakzatok.
+Egy formazárolás eltávolításához állítsa az értékét `False`-ra. A következő példa betölt egy prezentációt formazárolásokkal, és törli a kijelölés, a mozgatás és az átméretezés korlátozásait a [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), a [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), a [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) és a [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) segítségével. A csoportosítási korlátozást is eltávolítja a [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) `False` értékkel történő átadása után, majd elment egy másolatot a prezentációról. A többi zárolási beállítás változatlan marad.
 
 ```python
 import jpype
@@ -109,12 +105,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Példányosítja a Presentation osztályt, amely egy PPTX fájlt képvisel.
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # A prezentáció összes diájának bejárása.
     for slide in presentation.getSlides():
-        # A dián lévő összes alakzat bejárása.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -138,26 +131,22 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # A prezentáció fájl mentése.
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Következtetés**
+### **Összegzés**
 
-Az Aspose.Slides több lehetőséget kínál a prezentációban lévő alakzatok védelmére. Lezárhat egyetlen alakzatot, vagy végigiterálhat az összes alakzaton a prezentációban, és mindegyiket lezárhatja, így hatékonyan biztosítva a teljes fájl védelmét. A védelmet úgy távolíthatja el, hogy a zár értékét `False`-ra állítja.
+Az Aspose.Slides for Python via Java lehetővé teszi, hogy egyes formákon adott szerkesztési műveleteket korlátozzon, vagy ugyanazokat a korlátozásokat alkalmazza a diákon. Válassza ki az egyes forma típusok által támogatott zárolásokat, és állítsa az értéküket `False`-ra, amikor el szeretné távolítani ezeket a korlátozásokat.
 
 ## **GYIK**
 
-**Kombinálhatok alakzatzárakat és jelszóvédelmet ugyanabban a prezentációban?**
+**Kombinálhatok formazárolásokat és jelszóvédelmet ugyanabban a prezentációban?**  
+Igen. A formazárolások adott szerkesztési műveleteket korlátoznak, míg a [jelszóvédelem](/slides/hu/python-java/password-protected-presentation/) korlátozhatja a prezentáció megnyitását vagy módosítását. Mindkettő használható ugyanabban a fájlban.
 
-Igen. A zárak korlátozzák a fájlon belüli objektumok szerkesztését, míg a [jelszóvédelem](/slides/hu/python-java/password-protected-presentation/) a megnyitási és/vagy mentési hozzáférést szabályozza. Ezek a mechanizmusok kiegészítik egymást és együtt működnek.
+**Korlátozhatom a szerkesztést bizonyos diákon anélkül, hogy másokra hatásuk lenne?**  
+Igen. Csak a kiválasztott diákon található formákra alkalmazzon zárolásokat. Ez nem változtatja meg a többi dia zárolási beállításait.
 
-**Korlátozhatom a szerkesztést bizonyos diákon anélkül, hogy másokra hatással lenne?**
-
-Igen. Alkalmazzon zárakat a kiválasztott diákon lévő alakzatokra; a többi dia szerkeszthető marad.
-
-**Az alakzatzárak vonatkoznak a csoportos objektumokra és csatlakozókra?**
-
-Igen. Külön zár típusok támogatottak a csoportokra, csatlakozókra, grafikus objektumokra és egyéb alakzatfajtákra.
+**Hogyan alkalmazhatok zárolásokat egyes formákra egy csoporton belül?**  
+Iteráljon a csoport által visszaadott [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) metódus gyűjteményén, és alkalmazza a megfelelő zárolásokat minden gyermekformára. Ismételje meg ezt a beágyazott csoportok esetén is. A fenti példák csak a dia forma gyűjteményét dolgozzák fel, így nem állítanak be zárolásokat az egyes csoporttagokra.

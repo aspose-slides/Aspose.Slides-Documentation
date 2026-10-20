@@ -1,9 +1,11 @@
 ---
-title: Python ile Sunumlarda Şekilleri Yeniden Boyutlandırma
-linktitle: Şekilleri Yeniden Boyutlandırma
+title: Python'da Sunum Slaytlarındaki Şekilleri Yeniden Boyutlandır
 type: docs
 weight: 130
-url: /tr/python-net/re-sizing-shapes-on-slide/
+url: /tr/python-net/resizing-shapes-on-slide/
+aliases:
+  - /tr/python-net/re-sizing-shapes-on-slide/
+  /python-net/re-sizing-shapes-on-slide/
 keywords:
 - şekil yeniden boyutlandırma
 - şekil boyutunu değiştirme
@@ -12,131 +14,113 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument slaytlarında şekilleri kolayca yeniden boyutlandırın—slayt düzeni ayarlamalarını otomatikleştirin ve verimliliği artırın."
+description: "Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument slaytlarındaki şekilleri kolayca yeniden boyutlandırın—slayt düzeni ayarlamalarını otomatikleştirin ve verimliliği artırın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Python müşterilerinin en sık sorduğu sorulardan biri, slayt boyutu değiştiğinde verilerin kesilmemesi için şekillerin nasıl yeniden boyutlandırılacağıdır. Bu kısa teknik makale, bunu nasıl yapacağınızı gösterir.
+Bir sunumun slayt boyutunu değiştirdiğinizde, şekillerin yeni boyutlara uyması için yeniden boyutlandırılması ve konumlandırılması gerekebilir. Bu makale, şekilleri manuel olarak nasıl ölçeklendireceğinizi ve slaytlarda, ana slaytlarda ve düzenlerdeki tabloları nasıl ele alacağınızı gösterir.
 
-## **Şekilleri Yeniden Boyutlandırma**
+## **Şekilleri Yeniden Boyutlandır**
 
-Slayt boyutu değiştiğinde şekillerin hizalanmasını korumak için, her şeklin konumunu ve boyutlarını yeni slayt düzenine göre güncelleyin.
+Her şeklin göreli konum ve boyutunu korumak için, yatay koordinatlarını ve genişliğini yeni slayt genişliği ile orijinal genişlik arasındaki oranla çarpın. Aynı şekilde, dikey koordinatlarını ve yüksekliğini yüksekliği oranı ile uygulayın.
 
-```py
+İlk örnek, slaytlarında tablo bulunmayan bir sunumu yükler, slayt boyutunu A4 olarak değiştirir ve sonucu kaydeder. `[SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/)` metodunu `[SlideSizeScaleType.DO_NOT_SCALE](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/)` ile kullanır; böylece sonraki döngü ölçeklemeyi kontrol eder. Oranlar birimsizdir; şekil konumları ve boyutları puan cinsindendir. Farklı genişlik ve yükseklik oranları şekilleri bozabilir ve bir şeklin boyutlarını değiştirmek yazı tiplerinin boyutunu ölçeklendirmez.
+
+```python
 import aspose.slides as slides
 
-# Sunum dosyasını yükle.
 with slides.Presentation("sample.pptx") as presentation:
-    # Orijinal slayt boyutunu al.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Mevcut şekilleri ölçeklendirmeden slayt boyutunu değiştir.
+    # Bağımsız yatay ve dikey ölçek faktörlerini hesapla.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Yeni slayt boyutunu al.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # Her slaytta şekilleri yeniden boyutlandır ve konumlandır.
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # Şekil boyutunu ölçeklendir.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Şekil konumunu ölçeklendir.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+            shape.x *= width_ratio
+            shape.y *= height_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
-Bir slayt bir tablo içeriyorsa, yukarıdaki kod doğru çalışmaz. Bu durumda, tablodaki her hücre yeniden boyutlandırılmalıdır.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Tablolar ayrı bir işlem gerektirir: tablonun toplam genişlik ve yüksekliğini atamak yerine sütun genişliklerini ve satır yüksekliklerini ölçeklendirin. Hücre içeriği daha fazla alan gerektiriyorsa satır yükseklikleri istenen değerden daha büyük kalabilir.
+{{% /alert %}}
 
-Tablo içeren slaytları yeniden boyutlandırmak için aşağıdaki kodu kullanın. Tablolar için genişlik veya yükseklik ayarlamak özel bir durumdur: tablonun genel boyutunu değiştirmek için bireysel satır yüksekliği ve sütun genişliğini ayarlamanız gerekir.
+İkinci örnek, tabloları destekler ve bireysel slaytların yanı sıra ana slaytlar ve düzenlerdeki şekilleri işleyerek yeniden boyutlandırılmış sunumu kaydeder. Yardımcısı, her `[Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)` öğesini `[Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/)` ve `[Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/)` değerlerini ölçeklendirerek işler. Ardından, tablonun toplam boyutlarını ayrı ayrı ölçeklendirmeden konumunu ölçeklendirir.
 
-```py
+```python
 import aspose.slides as slides
 
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, slides.Table):
+            # Tablo boyutları sütun genişlikleri ve satır yükseklikleriyle kontrol edilir.
+            for column in shape.columns:
+                column.width *= width_ratio
+
+            for row in shape.rows:
+                row.minimal_height *= height_ratio
+        else:
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+
+        shape.x *= width_ratio
+        shape.y *= height_ratio
+
+
 with slides.Presentation("sample.pptx") as presentation:
-    # Orijinal slayt boyutunu al.
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # Mevcut şekilleri ölçeklendirmeden slayt boyutunu değiştir.
+    # Bağımsız yatay ve dikey ölçek faktörlerini hesapla.
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # Yeni slayt boyutunu al.
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # Ana slaytlarda ve düzenlerde tanımlı şekilleri, ayrıca tek tek slaytlardaki şekilleri yeniden boyutlandır.
     for master in presentation.masters:
-        for shape in master.shapes:
-            # Şekil boyutunu ölçeklendir.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Şekil konumunu ölçeklendir.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+        resize_shapes(master.shapes, width_ratio, height_ratio)
 
         for layout_slide in master.layout_slides:
-            for shape in layout_slide.shapes:
-                # Şekil boyutunu ölçeklendir.
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # Şekil konumunu ölçeklendir.
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
+            resize_shapes(layout_slide.shapes, width_ratio, height_ratio)
 
     for slide in presentation.slides:
-        for shape in slide.shapes:
-            # Şekil boyutunu ölçeklendir.
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # Şekil konumunu ölçeklendir.
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
-            if type(shape) is slides.Table:
-                for row in shape.rows:
-                    row.minimal_height = row.minimal_height * height_ratio
-                for column in shape.columns:
-                    column.width = column.width * width_ratio
+        resize_shapes(slide.shapes, width_ratio, height_ratio)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **SSS**
 
-**Kaydırma yeniden boyutlandırıldıktan sonra şekiller neden bozuluyor veya kesiliyor?**  
-Kaydırma yeniden boyutlandırıldığında, şekiller ölçek açıkça değiştirildiği sürece orijinal konum ve boyutlarını korur. Bu, içeriğin kırpılmasına veya şekillerin hizalanmamasına neden olabilir.
+**Slaytı yeniden boyutlandırdıktan sonra şekiller neden bozuluyor veya kesiliyor?**
 
-**Sağlanan kod tüm şekil tipleri için çalışıyor mu?**  
-Temel örnek, metin kutuları, görüntüler, grafikler vb. çoğu şekil tipi için çalışır. Ancak tablolar için satır ve sütunları ayrı ayrı ele almanız gerekir; çünkü bir tablonun yüksekliği ve genişliği ayrı hücrelerin boyutlarıyla belirlenir.
+Slayt boyutunu şekilleri ölçeklendirmeden değiştirirseniz, şekiller orijinal konum ve boyutlarını korur ve slayt dışına taşabilir. Genişlik ve yüksekliği farklı oranlarla ölçeklendirmek de şekilleri bozar.
 
-**Kaydırma yeniden boyutlandırıldığında tabloları nasıl yeniden boyutlandırırım?**  
-Tablonun tüm satır ve sütunları üzerinden döngü kurarak, ikinci kod örneğinde gösterildiği gibi yükseklik ve genişliklerini orantılı olarak yeniden boyutlandırmalısınız.
+**Sağlanan kod tüm şekil türleri için çalışıyor mu?**
 
-**Bu yeniden boyutlandırma ana slaytlar ve düzen slaytları için işe yarar mı?**  
-Evet, aynı ölçekleme mantığını uygulamak için [Ustalar](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/masters/) ve [Düzen slaytları](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/layout_slides/) üzerinden de döngü kurmalı ve şekillerine aynı mantığı uygulamalısınız.
+İlk örnek, şekil sınırlarını doğrudan değiştirir ve tabloları içermeyen slaytlar için tasarlanmıştır. İkinci örnek tabloları ayrı olarak işler. Sonuç düzenini, özellikle metin ve tabloları kontrol edin; bu örnekler yazı tipi boyutlarını ölçeklendirmez ve tablo içeriği satır yüksekliklerini kısıtlayabilir.
 
-**Kaydırmayı yeniden boyutlandırırken slaytın yönünü (dikey/yatay) değiştirebilir miyim?**  
-Evet. Yönü değiştirmek için [presentation.slide_size.orientation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/islidesize/orientation/) özelliğini kullanabilirsiniz. Yerleşimi korumak için ölçekleme mantığını buna göre ayarladığınızdan emin olun.
+**Slaytı yeniden boyutlandırırken tabloları nasıl yeniden boyutlandırırım?**
 
-**Ayarlayabileceğim slayt boyutu için bir limit var mı?**  
-Aspose.Slides özelleştirilmiş boyutları destekler, ancak çok büyük boyutlar performansı etkileyebilir veya bazı PowerPoint sürümleriyle uyumluluk sorunları yaratabilir.
+Sütun genişliklerini genişlik oranıyla, minimum satır yüksekliklerini ise yükseklik oranıyla ölçeklendirin, ardından tablonun konumunu ölçeklendirin; ikinci örnekte gösterildiği gibi.
 
-**Sabit en-boy oranına sahip şekillerin bozulmasını nasıl önleyebilirim?**  
-Şeklin `aspect_ratio_locked` özelliğini ölçeklemeden önce kontrol edebilirsiniz. Eğer kilitli ise, genişlik veya yüksekliği bireysel olarak ölçeklemek yerine orantılı olarak ayarlayın.
+**Bu yeniden boyutlandırma ana slaytlar ve düzen slaytları için de çalışır mı?**
+
+Evet. İkinci örnek `[Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/)` ve her bir ana slaydın `[MasterSlide.layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/)` koleksiyonları üzerinde döner ve şekillerine aynı yeniden boyutlandırma mantığını uygular.
+
+**Slaytın yönünü (dikey/yatay) yeniden boyutlandırma sırasında değiştirebilir miyim?**
+
+Evet. Slayt boyutunu değiştirdikten ve hedef boyutları okumadan önce `[SlideSize.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/orientation/)` ayarlayın; böylece ölçek faktörleri son yönelime göre hesaplanır.
+
+**Ayarlayabileceğim bir slayt boyutu sınırı var mı?**
+
+`[SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/)` ile özel slayt boyutları belirleyebilirsiniz. Desteklenen boyutlar, sunum formatına ve dosyayı açan uygulamaya da bağlıdır.
+
+**Sabit en-boy oranına sahip şekillerin bozulmasını nasıl önleyebilirim?**
+
+Genişlik ve yükseklik için aynı ölçek faktörünü kullanın. Orijinal düzeni yeni slayt boyutlarına sığdırmak için genişlik ve yükseklik oranlarından küçüğünü her iki boyut ve konum için de kullanın. Bu, oranı korur ancak bir kenarda kullanılmayan boşluk bırakabilir.

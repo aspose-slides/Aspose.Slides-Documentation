@@ -1,177 +1,158 @@
 ---
-title: Предотвращение редактирования презентаций с помощью блокировок фигур
-linktitle: Предотвращение редактирования презентаций
+title: Ограничение редактирования презентаций с помощью блокировок фигур в Java
+linktitle: Ограничение редактирования презентаций
 type: docs
 weight: 60
 url: /ru/java/applying-protection-to-presentation/
 keywords:
-- предотвращение редактирования
+- предотвратить редактирование
 - защита от редактирования
-- блокировка фигуры
-- блокировка положения
-- блокировка выбора
-- блокировка размера
-- блокировка группировки
+- блокировать фигуру
+- блокировать позицию
+- блокировать выбор
+- блокировать изменение размера
+- блокировать группировку
 - PowerPoint
-- OpenDocument
+- PPTX
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как Aspose.Slides for Java блокирует или разблокирует фигуры в файлах PPT, PPTX и ODP, защищая презентации и позволяя контролировать редактирование и ускорять поставку."
+description: "Узнайте, как блокировать и разблокировать фигуры в PPTX‑презентациях с помощью Aspose.Slides for Java, чтобы ограничить выбор, перемещение, изменение размера и группировку."
 ---
+## **Фон**
 
-## **Предыстория**
+Обычное применение Aspose.Slides for Java — создание, обновление и сохранение презентаций PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Когда пользователи получают такие презентации, ограничение изменений фигур помогает сохранить задуманную компоновку и содержимое.
 
-Распространённое применение Aspose.Slides — создание, обновление и сохранение презентаций Microsoft PowerPoint (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложений, использующих Aspose.Slides таким образом, имеют доступ к сгенерированным презентациям, поэтому защита их от редактирования является актуальной задачей. Важно, чтобы автоматически созданные презентации сохраняли исходное форматирование и содержимое.
+В этой статье объясняется, как фигуры упорядочены на слайдах и как применять и удалять блокировки фигур в презентации PPTX. Эти блокировки позволяют ограничить определённые операции редактирования для отдельных фигур.
 
-В этой статье объясняется, как устроены презентации и слайды, а также как Aspose.Slides for Java может применить защиту к презентации и впоследствии снять её. Это даёт разработчикам возможность контролировать использование презентаций, генерируемых их приложениями.
+## **Состав слайда**
 
-## **Составляющие слайда**
+Слайд презентации состоит из компонентов, таких как автофигуры, таблицы, OLE‑объекты, группы фигур, рамки изображений, видеорамки, соединители и другие элементы, используемые для построения презентации. В Aspose.Slides for Java каждый элемент на слайде представлен объектом, реализующим интерфейс [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) или наследующим класс, реализующий его.
 
-Слайд презентации состоит из таких компонентов, как автоконтуры, таблицы, OLE‑объекты, сгруппированные фигуры, рамки изображений, видеокадры, соединители и другие элементы, используемые для построения презентации. В Aspose.Slides for Java каждый элемент на слайде представлен объектом, реализующим интерфейс [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) или наследующим класс, реализующий его.
+Разные типы фигур предоставляют разные варианты блокировок. Интерфейс [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) является базовым для блокировок фигур. Aspose.Slides for Java предоставляет следующие интерфейсы блокировок:
 
-Структура PPTX сложна, поэтому, в отличие от PPT, где можно использовать общий замок для всех типов фигур, различные типы фигур требуют разных замков. Интерфейс [IBaseShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseshapelock/) является универсальным классом блокировки для PPTX. В Aspose.Slides for Java для PPTX поддерживаются следующие типы замков:
-
-- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) блокирует автоконтуры.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/) блокирует автофигуры.  
 - [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) блокирует соединительные фигуры.  
 - [IGraphicalObjectLock](https://reference.aspose.com/slides/java/com.aspose.slides/igraphicalobjectlock/) блокирует графические объекты.  
 - [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/) блокирует группы фигур.  
 - [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/) блокирует рамки изображений.  
 
-Любое действие, выполненное со всеми объектами фигур в объекте [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), применяется ко всей презентации.
+Чтобы применить блокировки к [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), пройдитесь по её слайдам и задайте соответствующие блокировки каждому поддерживаемому типу фигур.
 
-## **Применение и снятие защиты**
+## **Применение и удаление защиты**
 
-Применение защиты гарантирует, что презентацию нельзя редактировать. Это полезный приём для защиты содержимого презентации.
+Блокировки фигур ограничивают такие операции, как выбор, перемещение и изменение размера фигур. Они не делают всю презентацию недоступной для редактирования.
 
-### **Применить защиту к фигурам PPTX**
+### **Применение защиты к объектам PPTX**
 
 Aspose.Slides for Java предоставляет интерфейс [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) для работы с фигурами на слайде.
 
-Как упомянуто ранее, каждый класс фигуры имеет сопутствующий класс‑замок для защиты. В этой статье рассматриваются блокировки NoSelect, NoMove и NoResize. Эти замки гарантируют, что фигуры нельзя выбрать (кликнув мышью или другими способами) и что их нельзя перемещать или изменять размер.
+В примере вызываются методы [setSelectLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSelectLocked-boolean-), [setPositionLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setPositionLocked-boolean-) и [setSizeLocked](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/#setSizeLocked-boolean-) со значением `true` для автофигур, аналогичные блокировки применяются к группам, соединителям и рамкам изображений. Для соединителей используется [setPositionMove](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/#setPositionMove-boolean-) для перемещения; группы также используют [setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) для ограничения группировки.
 
-Пример кода ниже применяет защиту ко всем типам фигур в презентации.
+Пример загружает существующую PPTX‑презентацию, проверяет фигуры в коллекции фигур каждого слайда и сохраняет копию с применёнными ограничениями. Фигуры, не относящиеся к четырём обрабатываемым типам, остаются без изменений. Цикл не проходит по вложенным фигурам внутри группы.
+
 ```java
-// Создайте экземпляр класса Presentation, представляющего файл PPTX.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Sample.pptx");
-
-// Перебор всех слайдов в презентации.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Перебор всех фигур на слайде.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Приведение типа фигуры к автоконтурной и получение её блокировки.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(true);
-            autoShapeLock.setSelectLocked(true);
-            autoShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IGroupShape) {
-            // Приведение типа фигуры к группе фигур и получение её блокировки.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(true);
-            groupShapeLock.setPositionLocked(true);
-            groupShapeLock.setSelectLocked(true);
-            groupShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IConnector) {
-            // Приведение типа фигуры к соединителю и получение её блокировки.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(true);
-            connectorShapeLock.setSelectLocked(true);
-            connectorShapeLock.setSizeLocked(true);
-        } else if (shape instanceof IPictureFrame) {
-            // Приведение типа фигуры к рамке изображения и получение её блокировки.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(true);
-            pictureFrameLock.setSelectLocked(true);
-            pictureFrameLock.setSizeLocked(true);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(true);
+                autoShapeLock.setSelectLocked(true);
+                autoShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(true);
+                groupShapeLock.setPositionLocked(true);
+                groupShapeLock.setSelectLocked(true);
+                groupShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(true);
+                connectorShapeLock.setSelectLocked(true);
+                connectorShapeLock.setSizeLocked(true);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(true);
+                pictureFrameLock.setSelectLocked(true);
+                pictureFrameLock.setSizeLocked(true);
+            }
         }
     }
-}
 
-// Сохранение файла презентации.
-presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("ProtectedSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **Удаление защиты**
 
-### **Снять защиту**
+Чтобы снять блокировку с фигуры, установите её значение в `false`. В следующем примере загружается презентация с блокировками фигур и снимаются ограничения выбора, перемещения и изменения размера через [IAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshapelock/), [IGroupShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/), [IConnectorLock](https://reference.aspose.com/slides/java/com.aspose.slides/iconnectorlock/) и [IPictureFrameLock](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframelock/). Также удаляется ограничение группировки путем передачи `false` в [IGroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshapelock/#setGroupingLocked-boolean-) и сохраняется копия презентации. Другие настройки блокировок остаются без изменения.
 
-Чтобы разблокировать фигуру, установите значение соответствующего замка в `false`. Следующий пример кода показывает, как разблокировать фигуры в защищённой презентации.
 ```java
-// Создайте экземпляр класса Presentation, представляющего файл PPTX.
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("ProtectedSample.pptx");
-
-// Перебор всех слайдов в презентации.
-for (ISlide slide : presentation.getSlides()) {
-
-    // Перебор всех фигур на слайде.
-    for (IShape shape : slide.getShapes()) {
-        if (shape instanceof IAutoShape) {
-            // Приведение типа фигуры к автоконтурной и получение её блокировки.
-            IAutoShape autoShape = (IAutoShape) shape;
-            IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
-
-            autoShapeLock.setPositionLocked(false);
-            autoShapeLock.setSelectLocked(false);
-            autoShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IGroupShape) {
-            // Приведение типа фигуры к группе фигур и получение её блокировки.
-            IGroupShape groupShape = (IGroupShape) shape;
-            IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
-
-            groupShapeLock.setGroupingLocked(false);
-            groupShapeLock.setPositionLocked(false);
-            groupShapeLock.setSelectLocked(false);
-            groupShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IConnector) {
-            // Приведение типа фигуры к соединителю и получение её блокировки.
-            IConnector connectorShape = (IConnector) shape;
-            IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
-
-            connectorShapeLock.setPositionMove(false);
-            connectorShapeLock.setSelectLocked(false);
-            connectorShapeLock.setSizeLocked(false);
-        } else if (shape instanceof IPictureFrame) {
-            // Приведение типа фигуры к рамке изображения и получение её блокировки.
-            IPictureFrame pictureFrame = (IPictureFrame) shape;
-            IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
-
-            pictureFrameLock.setPositionLocked(false);
-            pictureFrameLock.setSelectLocked(false);
-            pictureFrameLock.setSizeLocked(false);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                IAutoShapeLock autoShapeLock = (IAutoShapeLock) autoShape.getShapeLock();
+                autoShapeLock.setPositionLocked(false);
+                autoShapeLock.setSelectLocked(false);
+                autoShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IGroupShape) {
+                IGroupShape groupShape = (IGroupShape) shape;
+                IGroupShapeLock groupShapeLock = (IGroupShapeLock) groupShape.getShapeLock();
+                groupShapeLock.setGroupingLocked(false);
+                groupShapeLock.setPositionLocked(false);
+                groupShapeLock.setSelectLocked(false);
+                groupShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IConnector) {
+                IConnector connectorShape = (IConnector) shape;
+                IConnectorLock connectorShapeLock = connectorShape.getShapeLock();
+                connectorShapeLock.setPositionMove(false);
+                connectorShapeLock.setSelectLocked(false);
+                connectorShapeLock.setSizeLocked(false);
+            } else if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                IPictureFrameLock pictureFrameLock = (IPictureFrameLock) pictureFrame.getShapeLock();
+                pictureFrameLock.setPositionLocked(false);
+                pictureFrameLock.setSelectLocked(false);
+                pictureFrameLock.setSizeLocked(false);
+            }
         }
     }
-}
 
-// Сохранение файла презентации.
-presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **Заключение**
 
-## **Заключение**
+Aspose.Slides for Java позволяет ограничивать конкретные операции редактирования для отдельных фигур или применять одинаковые ограничения ко всем слайдам. Выбирайте блокировки, поддерживаемые конкретным типом фигуры, и устанавливайте их значение в `false`, когда необходимо снять ограничения.
 
-Aspose.Slides предлагает несколько вариантов защиты фигур в презентации. Вы можете заблокировать отдельную фигуру или пройтись по всем фигурам в презентации и заблокировать каждую, эффективно защищая весь файл. Защиту можно снять, установив значение замка в `false`.
+## **Часто задаваемые вопросы**
 
-## **FAQ**
+**Могу ли я комбинировать блокировки фигур и защиту паролем в одной презентации?**
 
-**Можно ли сочетать блокировки фигур и защиту паролем в одной презентации?**
+Да. Блокировки фигур ограничивают определённые операции редактирования, тогда как [password protection](/slides/ru/java/password-protected-presentation/) может ограничивать открытие или изменение презентации. Вы можете использовать оба механизма в одном файле.
 
-Да. Блокировки ограничивают редактирование объектов внутри файла, тогда как [password protection](/slides/ru/java/password-protected-presentation/) контролирует доступ к открытию и/или сохранению изменений. Эти механизмы дополняют друг друга и работают совместно.
+**Могу ли я ограничить редактирование только на определённых слайдах, не затрагивая остальные?**
 
-**Можно ли ограничить редактирование отдельных слайдов, не влияя на остальные?**
+Да. Применяйте блокировки только к фигурам на выбранных слайдах. Это не изменит настройки блокировок на остальных слайдах.
 
-Да. Применяйте блокировки к фигурам на выбранных слайдах; остальные слайды останутся редактируемыми.
+**Как применить блокировки к отдельным фигурам внутри группы?**
 
-**Применяются ли блокировки фигур к сгруппированным объектам и соединителям?**
-
-Да. Для групп, соединителей, графических объектов и других типов фигур поддерживаются специальные типы блокировок.
+Итерируйте коллекцию, возвращаемую методом группы [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) и задавайте соответствующие блокировки каждой дочерней фигуре. Повторите процесс для вложенных групп. Приведённые выше примеры обрабатывают только коллекцию фигур слайда, поэтому они не устанавливают блокировки отдельным членам группы.

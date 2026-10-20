@@ -1,47 +1,130 @@
 ---
-title: حل عملي لتغيير حجم المخططات في PPTX
+title: حل عملي لإعادة تحجيم المخطط في PPTX
 type: docs
 weight: 40
 url: /ar/php-java/working-solution-for-chart-resizing-in-pptx/
+keywords:
+- إعادة تحجيم المخطط
+- مخطط Excel
+- كائن OLE
+- تضمين المخطط
+- PowerPoint
+- عرض تقديمي
+- PHP
+- Aspose.Slides
+description: "إصلاح تغيير الحجم غير المتوقع للمخطط في PPTX عند استخدام كائنات Excel OLE المضمنة مع Aspose.Slides لـ PHP عبر Java. ضبط أبعاد المخطط ثابتة للحفاظ على تناسق أحجام المخطط وإطار OLE."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+يمكن أن تتغير أحجام مخططات Excel المدمجة ككائنات OLE في عروض PowerPoint باستخدام مكونات Aspose بعد تفعيلها لأول مرة. يمكن أن يؤدي ذلك إلى فرق ملحوظ في مظهر المخطط قبل وبعد التفعيل. تُوضح هذه المقالة سبب حدوث تغيير الحجم وتظهر كيفية منعه عن طريق مطابقة أبعاد المخطط الثابتة مع إطار OLE.
 
-لوحظ أن مخططات Excel المدمجة كـ OLE في عرض PowerPoint من خلال مكونات Aspose يتم تغيير حجمها إلى مقياس غير محدد بعد التفعيل للمرة الأولى. هذه السلوك يخلق فرقًا بصريًا كبيرًا في العرض بين حالات تفعيل المخطط المسبق واللاحق. قامت فريق Aspose بمساعدة فريق Microsoft بالتحقيق في هذه القضية بالتفصيل ووجدت الحل لهذه المشكلة. يغطي هذا المقال الأسباب والحل لهذه القضية.
+في [إنشاء مخططات Excel وتضمينها ككائنات OLE في العروض التقديمية](/slides/ar/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، شرحنا كيفية إنشاء مخطط Excel باستخدام Aspose.Cells for PHP via Java وتضمينه في عرض PowerPoint باستخدام Aspose.Slides for PHP via Java. لمعالجة [مشكلة معاينة الكائن](/slides/ar/php-java/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة المخطط إلى إطار كائن OLE الخاص بالمخطط. في العرض الناتج، عندما تنقر مزدوجًا على إطار كائن OLE الذي يعرض صورة المخطط، يتم تفعيل مخطط Excel. يمكن للمستخدمين تحرير دفتر العمل المضمّن ثم العودة إلى الشريحة بالنقر خارج دفتر العمل المفعَّل. يتغيير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة، وتختلف نسبة تغيير الحجم اعتمادًا على الأحجام الأصلية لكل من إطار كائن OLE ودفتر عمل Excel المضمّن.
 
-{{% /alert %}} 
-## **الخلفية**
-في [المقال السابق](/slides/ar/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) ، شرحنا كيفية إنشاء مخطط Excel باستخدام Aspose.Cells لـ Java ودمج هذا المخطط في عرض PowerPoint باستخدام Aspose.Slides لـ PHP عبر Java. من أجل التعامل مع [قضية تغيير الكائن](/slides/ar/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) ، قمنا بتعيين صورة المخطط إلى إطار كائن OLE للمخطط. في العرض الناتج، عند النقر المزدوج على إطار الكائن OLE الذي يعرض صورة المخطط، يتم تفعيل مخطط Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة في دفتر العمل Excel الفعلي ثم العودة إلى الشريحة المعنية عن طريق النقر خارج دفتر العمل Excel المActivated. سيتغير حجم إطار الكائن OLE عندما يعود المستخدم إلى الشريحة. سيكون عامل تغيير الحجم مختلفًا لأحجام مختلفة من إطار الكائن OLE ودفتر العمل Excel المدمج.
 ## **سبب تغيير الحجم**
-نظرًا لأن دفتر العمل Excel له حجمه الخاص، فإنه يحاول الحفاظ على حجمه الأصلي عند التفعيل للمرة الأولى. من ناحية أخرى، سيكون لإطار الكائن OLE حجمه الخاص. وفقًا لمايكروسوفت، عند تفعيل دفتر العمل Excel، يتفاوض Excel وPowerPoint على الحجم ويضمن أنه في النسب الصحيحة كجزء من عملية الدمج. استنادًا إلى الاختلافات في حجم نافذة Excel وحجم / موضع إطار الكائن OLE، يحدث تغيير الحجم.
-## **حل عملي**
-هناك سيناريوهين محتملين لإنشاء عروض PowerPoint باستخدام Aspose.Slides لـ PHP عبر Java.**السيناريو 1:** إنشاء العرض استنادًا إلى قالب موجود**السيناريو 2:** إنشاء العرض من الصفر. الحل الذي سنقدمه هنا سيكون ساري المفعول لكلا السيناريوهين. ستكون أساس جميع طرق الحلول هو نفسه. وهي: **يجب أن يكون حجم نافذة كائن OLE المدمج هو نفسه حجم إطار كائن OLE** **في شريحة PowerPoint** . الآن، سنناقش نهجين للحل.
-## **النهج الأول**
-في هذا النهج، سنتعلم كيفية تعيين حجم نافذة دفتر العمل Excel المدمج ليكون معادلًا لحجم إطار كائن OLE في شريحة PowerPoint.**السيناريو 1**لنفرض أننا قد حددنا قالبًا ونرغب في إنشاء العروض استنادًا إلى هذا القالب. لنقل أنه هناك شكل ما في الفهرس 2 في القالب حيث نرغب في وضع إطار OLE يحمل دفتر عمل Excel المدمج. في هذا السيناريو، سيتم اعتبار حجم إطار الكائن OLE محدد مسبقًا (وهو حجم الشكل في الفهرس 2 في القالب). كل ما علينا فعله: تعيين حجم نافذة دفتر العمل ليكون مساوياً لحجم الشكل. ستخدم الكود التالي هذه الغرض:
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ResizeChartWithExistingTemplate-ResizeChartWithExistingTemplate.java" >}}
+يملك دفتر العمل المضمّن أبعاد نافذة خاصة به، تحاول Excel الحفاظ عليها عند تفعيل الكائن لأول مرة. يمتلك إطار OLE على الشريحة أبعادًا معرفة بشكل مستقل. عند تفعيل دفتر العمل، تتفاوض Excel وPowerPoint على حجم الكائن للحفاظ على نسبه كجزء من عملية التضمين. لذلك يمكن للاختلافات بين نافذة دفتر العمل وإطار OLE أن تتسبب في تغيير حجم الكائن.
 
+## **الحل العملي**
 
+طابق حجم المخطط مع إطار OLE على الشريحة واحتفظ بأبعاد المخطط مستقلة عن نافذة دفتر العمل. يعمل هذا الحل مع عرض جديد أو قالب موجود.
 
+يتطلب المثال Aspose.Cells for PHP via Java وAspose.Slides for PHP via Java. قم بتكوين المنتجين باستخدام نفس مثال PHP/Java Bridge، وحمِّل كلاّ الغلافين PHP، واجعل مكتبتَي Java متاحتين للجسر. لا توجد ملفات إدخال مطلوبة. ينشئ مثالًا بسيطًا لمخطط عمودي على ورقة مخطط نشطة ويضمّن دفتر العمل بصيغة XLS. لا يتم تعيين صورة معاينة للمخطط؛ يصبح المخطط مرئيًا عندما يتم تفعيل كائن OLE في PowerPoint.
 
+ينشئ المثال عرضًا جديدًا بإطار OLE مقاسه 9.5 × 4 بوصة موضعه 0.5 بوصة من الحافة اليسرى و1 بوصة من الأعلى. إحداثيات وأبعاد الشريحة بوحدات النقاط (72 نقطة لكل بوصة). بالنسبة لعرض موجود، راجع [استخدام قالب](#use-a-template).
 
-**السيناريو 2
-**لنفرض أننا نرغب في إنشاء تقديم من الصفر ونرغب في إطار كائن OLE بأي حجم مع دفتر عمل Excel مدمج. في الكود التالي، أنشأنا إطار كائن OLE بارتفاع 4 بوصات وعرض 9.5 بوصات في الشريحة عند المحور س=0.5 بوصة ومحور ص=1 بوصة. علاوة على ذلك، قمنا بتعيين حجم نافذة دفتر العمل Excel المعادل، أي: ارتفاع 4 بوصات وعرض 9.5 بوصات.
+## **تعيين حجم مخطط ثابت**
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ResizeChartFromScratch-ResizeChartFromScratch.java" >}}
+قم بتعيين [Chart::setSizeWithWindow](https://reference.aspose.com/cells/php/aspose.cells/chart/#sizewithwindow) إلى false بحيث تكون أبعاد المخطط مستقلة عن نافذة دفتر العمل. عيّن أبعاد [Chart::getChartObject](https://reference.aspose.com/cells/php/aspose.cells/chart/#chartobject) عبر [Shape::setWidth](https://reference.aspose.com/cells/php/aspose.cells/shape/#width) و[Shape::setHeight](https://reference.aspose.com/cells/php/aspose.cells/shape/#height)، مع تحويل النقاط إلى بكسلات باستخدام 96 بكسل لكل بوصة: إطار بمقاس 684 × 288 نقطة يعادل مخططًا بمقاس 912 × 384 بكسل. عيّن [Chart::setPrintSize](https://reference.aspose.com/cells/php/aspose.cells/chart/#printsize) إلى القيمة CUSTOM من [PrintSizeType](https://reference.aspose.com/cells/php/aspose.cells/printsizetype/). يضمّن المثال دفتر العمل باستخدام [ShapeCollection::addOleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addOleObjectFrame) ويحفظ عرضًا بإطار OLE مقاسه 9.5 × 4 بوصة.
 
+يتم تحويل القيم الرقمية في Java باستخدام `java_values` قبل استخدامها كمؤشرات PHP. تظل بايتات دفتر العمل في مصفوفة بايتات Java عند تمريرها إلى [OleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/).
 
-## **النهج الثاني**
-في هذا النهج، سنتعلم كيفية تعيين حجم المخطط الموجود في دفتر العمل Excel المدمج ليكون معادلًا لحجم إطار كائن OLE في شريحة PowerPoint. هذا النهج مفيد عندما يكون حجم المخطط معروفًا مسبقًا ولن يتغير أبدًا.**السيناريو 1**لنفرض أننا قد حددنا قالبًا ونرغب في إنشاء العروض استنادًا إلى هذا القالب. لنقل أنه يوجد شكل ما في الفهرس 2 في القالب حيث نريد وضع إطار OLE يحمل دفتر عمل Excel المدمج. في هذا السيناريو، سيتم اعتبار حجم إطار OLE محدد مسبقًا (وهو حجم الشكل في الفهرس 2 في القالب). كل ما علينا فعله: تعيين حجم المخطط في دفتر العمل ليكون مساويًا لحجم الشكل. ستخدم الكود التالي هذه الغرض:
+```php
+<?php
+use aspose\cells\ChartType;
+use aspose\cells\FileFormatType;
+use aspose\cells\PrintSizeType;
+use aspose\cells\SheetType;
+use aspose\cells\Workbook;
+use aspose\slides\OleEmbeddedDataInfo;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use Java as JavaObject;
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ResizeChartWithExistingTemplateSecondApproach-ResizeChartWithExistingTemplateSecondApproach.java" >}}
+$workbook = new Workbook();
+try {
+    $dataSheet = $workbook->getWorksheets()->get(0);
+    $dataSheet->setName("Data");
+    $dataSheet->getCells()->get("A1")->putValue(10);
+    $dataSheet->getCells()->get("A2")->putValue(20);
 
-**السيناريو 2**: لنفترض أننا نريد إنشاء تقديم من الصفر ونرغب في إطار كائن OLE بأي حجم مع دفتر عمل Excel مدمج. في الكود التالي، أنشأنا إطار كائن OLE بارتفاع 4 بوصات وعرض 9.5 بوصات في الشريحة عند المحور س=0.5 بوصة ومحور ص=1 بوصة. علاوة على ذلك، قمنا بتعيين حجم المخطط المعادل، أي: ارتفاع 4 بوصات وعرض 9.5 بوصات.
+    $chartSheetIndex = java_values($workbook->getWorksheets()->add(SheetType::CHART));
+    $chartSheet = $workbook->getWorksheets()->get($chartSheetIndex);
+    $chartIndex = java_values($chartSheet->getCharts()->add(ChartType::COLUMN, 0, 0, 20, 10));
+    $chart = $chartSheet->getCharts()->get($chartIndex);
+    $chart->getNSeries()->add("Data!A1:A2", true);
+    $workbook->getWorksheets()->setActiveSheetIndex($chartSheetIndex);
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ResizeChartFromScratchSecondApproach-ResizeChartFromScratchSecondApproach.java" >}}
-## **الخاتمة**
-{{% alert color="primary" %}} 
+    $presentation = new Presentation();
+    try {
+        $slide = $presentation->getSlides()->get_Item(0);
 
-هناك نهجين لحل مشكلة تغيير حجم المخطط. يعتمد اختيار النهج المناسب على المتطلبات وحالة الاستخدام. يعمل كلا النهجين بنفس الطريقة سواء تم إنشاء العروض من قالب أو من الصفر. أيضًا، لا يوجد حد لحجم إطار الكائن OLE في الحل.
+        // إحداثيات الشريحة وأبعادها بوحدات النقاط (72 نقطة لكل بوصة).
+        $width = 684; // 9.5 بوصة.
+        $height = 288; // 4 بوصة.
 
-{{% /alert %}}
+        $chart->setSizeWithWindow(false);
+        // تحويل النقاط إلى بكسلات المخطط باستخدام 96 بكسل لكل بوصة.
+        $chart->getChartObject()->setWidth((int)($width / 72 * 96));
+        $chart->getChartObject()->setHeight((int)($height / 72 * 96));
+        $chart->setPrintSize(PrintSizeType::CUSTOM);
+
+        $workbookStream = new JavaObject("java.io.ByteArrayOutputStream");
+        $workbook->save($workbookStream, FileFormatType::EXCEL_97_TO_2003);
+        $workbookBytes = $workbookStream->toByteArray();
+        $dataInfo = new OleEmbeddedDataInfo($workbookBytes, "xls");
+        $slide->getShapes()->addOleObjectFrame(36, 72, $width, $height, $dataInfo);
+
+        $presentation->save("chart-fixed-size.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+} finally {
+    $workbook->dispose();
+}
+```
+
+## **استخدام قالب**
+
+منطق التحجيم هو نفسه للعرض الموجود. لتكييف المثال:
+
+1. حمّل عرض القالب بدلاً من إنشاء عرض فارغ.  
+1. تأكد من أن الشريحة الأولى تحتوي على ثلاثة أشكال على الأقل، ثم استخدم الشكل ذو الفهرس 2 كعنصر نائب.  
+1. خذ عرض وإرتفاع الإطار من ذلك الشكل بدلاً من القيم الثابتة 684 و288. احتفظ بحسابات التحجيم دون تغيير.  
+1. أضف إطار OLE في موضع عنصر النائب بدلاً من الإحداثيات الثابتة 36 و72.  
+1. احذف عنصر النائب قبل حفظ العرض.
+
+## **الأسئلة المتكررة**
+
+**لماذا يتغير حجم مخطط Excel المضمّن بعد تفعيله في PowerPoint؟**
+
+يحدث هذا لأن Excel تحاول استعادة حجم النافذة الأصلي عند التفعيل الأول، في حين أن إطار كائن OLE في PowerPoint له أبعاده الخاصة. تتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة الأبعاد، مما قد يسبب تغيير الحجم.
+
+**كيف يمكن الحفاظ على تناسق أحجام المخطط وإطار OLE؟**
+
+عيّن أبعاد مخطط ثابتة تتطابق مع إطار OLE واستخدم حجم طباعة مخصص للمخطط قبل تضمين دفتر العمل. يوضح المثال أعلاه الإعدادات المطلوبة وتحويل الوحدات.
+
+**هل يكفي مطابقة حجم نافذة دفتر العمل؟**
+
+مراجعة حجم نافذة دفتر العمل وحدها لا تمنع تغيّر حجم إطار OLE بعد التفعيل بشكل موثوق. استخدم أبعاد مخطط ثابتة كما هو موضح في المثال.
+
+**هل يعمل هذا الحل مع العروض القائمة على القوالب والعروض الجديدة؟**
+
+نعم. بالنسبة للقالب، استخدم أبعاد وموقع عنصر النائب. بالنسبة للعرض الجديد، حدد أبعاد الإطار وموقعه مباشرة.
+
+**هل يمكنني استخدام هذا المثال مع مخططات تم إنشاؤها في برامج جداول بيانات أخرى؟**
+
+يستخدم المثال دفتر عمل Excel تم إنشاؤه باستخدام Aspose.Cells. لا يوضح سلوك التفعيل لبرامج جداول بيانات أخرى.
+
+## **الأقسام ذات الصلة**
+
+- [إنشاء مخططات Excel وتضمينها ككائنات OLE في العروض التقديمية](/slides/ar/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

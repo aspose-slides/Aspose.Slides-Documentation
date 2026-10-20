@@ -1,154 +1,175 @@
 ---
-title: สร้างแผนภูมิ Excel และฝังลงในงานนำเสนอเป็นอ็อบเจ็กต์ OLE
+title: สร้างแผนภูมิ Excel และฝังลงในงานนำเสนอเป็นวัตถุ OLE
 type: docs
 weight: 30
 url: /th/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
 - แผนภูมิ Excel
 - ฝังแผนภูมิ
-- อ็อบเจ็กต์ OLE
+- วัตถุ OLE
 - PowerPoint
-- OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "สร้างแผนภูมิ Excel และฝังเป็นอ็อบเจ็กต์ OLE ในการนำเสนอ PowerPoint และ OpenDocument ด้วย Java คู่มือขั้นตอนต่อขั้นตอนพร้อมตัวอย่างโค้ด."
+description: "สร้างแผนภูมิ Excel ด้วย Aspose.Cells สำหรับ Java และฝังเวิร์กบุ๊กในงานนำเสนอ PowerPoint ด้วย Aspose.Slides พร้อมภาพพรีวิวของแผนภูมิ"
 ---
-## **พื้นหลัง**
+## **ภาพรวม**
 
-ใน PowerPoint การใช้แผนภูมิที่สามารถแก้ไขได้เพื่อแสดงข้อมูลในรูปแบบกราฟิกเป็นการปฏิบัติบ่อย Aspose รองรับการสร้างแผนภูมิ Excel ด้วย Aspose.Cells for Java และแผนภูมิเหล่านี้สามารถฝังเป็นอ็อบเจ็กต์ OLE ลงในสไลด์ PowerPoint ผ่าน Aspose.Slides for Java บทความนี้ครอบคลุมขั้นตอนที่จำเป็นและให้ตัวอย่างโค้ด Java สำหรับสร้างแผนภูมิ Excel และฝังเป็นอ็อบเจ็กต์ OLE ในการนำเสนอ PowerPoint ด้วย Aspose.Cells และ Aspose.Slides.
+บทความนี้แสดงวิธีการสร้างแผนภูมิคอลัมน์ Excel ด้วย Aspose.Cells for Java และฝังเวิร์กบุ๊กของมันในงานนำเสนอ PowerPoint ด้วย Aspose.Slides for Java. เวิร์กบุ๊กที่ฝังรวมข้อมูลต้นฉบับและแผนภูมิไว้ด้วยกัน. การแสดงภาพล่วงหน้า PNG แยกต่างหากจะแสดงแผนภูมิบนสไลด์ก่อนที่วัตถุ OLE จะเปิดใช้งาน.
 
-## **ขั้นตอนที่จำเป็น**
+ผลลัพธ์คือวัตถุ Excel ที่ฝังอยู่, ไม่ใช่แผนภูมิ PowerPoint แท้. การแก้ไขเวิร์กบุ๊กผ่าน OLE จำเป็นต้องใช้แอปพลิเคชันเดสก์ท็อปที่รองรับการเปิดใช้งาน OLE และการติดตั้ง Excel ที่เข้ากันได้.
 
-ขั้นตอนต่อไปนี้จำเป็นต้องทำเพื่อสร้างและฝังแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ในสไลด์ PowerPoint:
+## **ข้อกำหนดเบื้องต้น**
 
-1. สร้างแผนภูมิ Excel ด้วย Aspose.Cells.
-1. ตั้งค่าขนาด OLE ของแผนภูมิ Excel ด้วย Aspose.Cells.
-1. รับภาพของแผนภูมิ Excel ด้วย Aspose.Cells.
-1. ฝังแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ในงานนำเสนอ PPTX ด้วย Aspose.Slides.
-1. แทนที่ภาพ "EMBEDDED OLE OBJECT" ด้วยภาพที่ได้จากขั้นตอนที่ 3 เพื่อแก้ไขปัญหา [ปัญหาการแสดงตัวอย่างอ็อบเจ็กต์](/slides/th/java/object-preview-issue-when-adding-oleobjectframe/).
-1. บันทึกการนำเสนอลงดิสก์ในรูปแบบ PPTX.
+เพิ่ม Aspose.Cells for Java และ Aspose.Slides for Java ไปยังการพึ่งพาของโปรเจกต์ของคุณ. รันตัวอย่างภายในเมธอด Java. ไม่จำเป็นต้องใช้ Microsoft Office เพื่อสร้างงานนำเสนอด้วยไลบรารีเหล่านี้.
 
-## **การดำเนินการตามขั้นตอนที่จำเป็น**
+ไม่ต้องใช้ไฟล์อินพุตใด ๆ: ตัวอย่างสร้างข้อมูลและแผนภูมิในหน่วยความจำ, จากนั้นเขียน `OutputChart.pptx` ไปยังไดเรกทอรีทำงานปัจจุบัน. ใช้ไลเซนส์สำหรับทั้งสองผลิตภัณฑ์เมื่อต้องการเรียกใช้ในโหมดนอกการประเมินผล.
 
-การทำงานของ Java สำหรับขั้นตอนข้างต้นมีดังต่อไปนี้:
+## **วิธีการฝังทำงาน**
 
-```java
-// สร้างเวิร์กบุ๊ก.
-Workbook workbook = new Workbook();
+1. สร้างเวิร์กบุ๊กที่มีแผ่นงานข้อมูลและแผ่นงานแผนภูมิ.
+1. ทำให้แผ่นงานแผนภูมิเข้าเป็นแอคทีฟเพื่อให้เวิร์กบุ๊กเปิดที่แผนภูมิ.
+1. กำหนดช่วงการแสดงผล OLE ของเวิร์กบุ๊กและเรนเดอร์แผนภูมิเป็น PNG.
+1. บันทึกเวิร์กบุ๊กเป็น XLSX ในหน่วยความจำและฝังไบท์เหล่านั้นในสไลด์.
+1. กำหนด PNG เป็นภาพล่วงหน้าของวัตถุ OLE และบันทึกงานนำเสนอเป็น PPTX.
 
-// เพิ่มแผนภูมิ Excel.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+ช่วงการแสดงผลของเวิร์กบุ๊กและกรอบบนสไลด์มีบทบาทที่แตกต่างกัน. [setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) รับดัชนีแถวและคอลัมน์เริ่มต้น/สิ้นสุดแบบเริ่มจากศูนย์. [ChartCollection.add](https://reference.aspose.com/cells/java/com.aspose.cells/chartcollection/#add-int-int-int-int-int-) แทนที่จะรับแถวบน, คอลัมน์ซ้าย, แถวล่าง, และคอลัมน์ขวา. ตัวอย่างใช้ดัชนีแถว 55 และดัชนีคอลัมน์ 25 เป็นขอบล่างขวา; ค่าดังกล่าวเป็นการเลือกรูปแบบการจัดวาง, ไม่ใช่จำนวนแถวหรือคอลัมน์ของข้อมูล.
 
-// ตั้งค่าขนาด OLE ของแผนภูมิ.
-workbook.getWorksheets().setOleSize(0, chartRows, 0, chartCols);
+กรอบสไลด์ใช้หน่วยจุด. ตัวอย่างทำให้พอดีภายในสไลด์และจัดกึ่งกลางโดยคงอัตราส่วนของ PNG, แทนการยืดภาพล่วงหน้าให้เต็มสไลด์.
 
-// ดึงภาพแผนภูมิและบันทึกลงสตรีม.
-com.aspose.cells.ImageOrPrintOptions printOptions = new com.aspose.cells.ImageOrPrintOptions();
-printOptions.setImageFormat(com.aspose.cells.ImageFormat.getPng());
-ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
-workbook.getWorksheets().get(chartSheetIndex).getCharts().get(0).toImage(imageStream, printOptions);
+## **สร้างและฝังแผนภูมิ**
 
-// บันทึกเวิร์กบุ๊กลงสตรีม.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream(); 
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
+ตัวอย่างเต็มต่อไปนี้เติมค่าลงใน `DataSheet` ด้วยแถวสี่แถวและคอลัมน์ห้าคอลัมน์. แต่ละแถวจะกลายเป็นซีรีส์ของแผนภูมิ. `ChartSheet` ถูกเลือกเป็นแผ่นงานที่ใช้งานอยู่ก่อนบันทึกเวิร์กบุ๊ก.
 
-// สร้างงานนำเสนอ.
-Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// เพิ่มเวิร์กบุ๊กลงสไลด์.
-AddExcelChartInPresentation(presentation, slide, workbookStream.toByteArray(), imageStream.toByteArray());
-
-// บันทึกงานนำเสนอลงดิสก์.
-presentation.save("OutputChart.pptx", SaveFormat.Pptx);
-presentation.dispose();
-```
+เวิร์กบุ๊กถูกบันทึกเป็น XLSX อย่างชัดเจน, ตรงกับส่วนต่อท้าย `xlsx` ที่ส่งไปยัง [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/oleembeddeddatainfo/). PNG ถูกโหลดโดยตรงจากไบท์โดยไม่มีการแปลงบิตแมปกลาง. การกำหนดผ่าน [getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) จะแทนที่ตัวจัดตำแหน่ง OLE เริ่มต้น.
 
 ```java
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
-{
-    double oleHeight = presentation.getSlideSize().getSize().getHeight();
-    double oleWidth = presentation.getSlideSize().getSize().getWidth();
- 
-    // สร้างวัตถุ LoadOptions สำหรับ EXCEL_97_TO_2003.
-    com.aspose.cells.LoadOptions loadOptions = new com.aspose.cells.LoadOptions(com.aspose.cells.FileFormatType.EXCEL_97_TO_2003);         
-    Workbook workbook = new Workbook(new ByteArrayInputStream(workbookArray),loadOptions);
- 
-    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, "Excel.Sheet.8", workbookArray);
-    oleFrame.getSubstitutePictureFormat().getPicture().setImage(presentation.getImages().addImage(new ByteArrayInputStream(chartImage)));
-}
-```
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import static com.aspose.cells.SaveFormat.XLSX;
+import static com.aspose.slides.SaveFormat.Pptx;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.IImage;
+import com.aspose.slides.Images;
+import com.aspose.slides.IOleObjectFrame;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayOutputStream;
 
-```java
-static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
-{
-    // อาเรย์ของชื่อเซลล์.
-    String[] cellNames = new String[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+try {
+    Workbook workbook = new Workbook();
+    try {
+        Worksheet dataSheet = workbook.getWorksheets().get(0);
+        dataSheet.setName("DataSheet");
 
-    // อาเรย์ของข้อมูลเซลล์.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
+        int[][] values = {
+            { 67, 44, 46, 43, 24 },
+            { 86, 64, 97, 29, 40 },
+            { 68, 89, 78, 69, 38 },
+            { 91, 48, 60, 26, 25 }
+        };
 
-    // เพิ่มเวิร์กชีทใหม่เพื่อใส่ข้อมูลลงในเซลล์.
-    int dataSheetIndex = workbook.getWorksheets().add();
-    Worksheet dataSheet = workbook.getWorksheets().get(dataSheetIndex);
-    String sheetName = "DataSheet";
-    dataSheet.setName(sheetName);
+        for (int row = 0; row < values.length; row++) {
+            for (int column = 0; column < values[row].length; column++) {
+                dataSheet.getCells().get(row, column).putValue(values[row][column]);
+            }
+        }
 
-    // เติมข้อมูลในแผ่นงานข้อมูล.
-    int size = Array.getLength(cellNames);
-    for (int i = 0; i < size; i++)
-    {
-        String cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.getCells().get(cellName).setValue(cellValue);
+        int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+        Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+        chartSheet.setName("ChartSheet");
+
+        int lastChartRow = 55;
+        int lastChartColumn = 25;
+        int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, lastChartRow, lastChartColumn);
+        Chart chart = chartSheet.getCharts().get(chartIndex);
+        for (int row = 1; row <= values.length; row++) {
+            chart.getNSeries().add("DataSheet!A" + row + ":E" + row, false);
+        }
+
+        workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+        workbook.getWorksheets().setOleSize(0, lastChartRow, 0, lastChartColumn);
+
+        // เรนเดอร์ภาพพรีวิวของแผนภูมิและทำการซีเรียลไลซ์เวิร์กบุ๊กที่แก้ไขได้แยกต่างหาก.
+        ImageOrPrintOptions imageOptions = new ImageOrPrintOptions();
+        imageOptions.setImageType(ImageType.PNG);
+        ByteArrayOutputStream chartImageStream = new ByteArrayOutputStream();
+        chart.toImage(chartImageStream, imageOptions);
+        byte[] chartImageBytes = chartImageStream.toByteArray();
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, XLSX);
+        byte[] workbookBytes = workbookStream.toByteArray();
+
+        IImage chartImage = Images.fromData(chartImageBytes);
+        try {
+            Presentation presentation = new Presentation();
+            try {
+                ISlide slide = presentation.getSlides().get_Item(0);
+                double slideWidth = presentation.getSlideSize().getSize().getWidth();
+                double slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+                // ปรับภาพพรีวิวให้พอดีภายในสไลด์โดยไม่เปลี่ยนอัตราส่วนของมัน.
+                double scale = Math.min(slideWidth / chartImage.getWidth(), slideHeight / chartImage.getHeight());
+                float frameWidth = (float) (chartImage.getWidth() * scale);
+                float frameHeight = (float) (chartImage.getHeight() * scale);
+                float frameX = (float) ((slideWidth - frameWidth) / 2);
+                float frameY = (float) ((slideHeight - frameHeight) / 2);
+
+                OleEmbeddedDataInfo embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+                IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+                IPPImage previewImage = presentation.getImages().addImage(chartImage);
+                oleFrame.getSubstitutePictureFormat().getPicture().setImage(previewImage);
+
+                presentation.save("OutputChart.pptx", Pptx);
+            } finally {
+                presentation.dispose();
+            }
+        } finally {
+            chartImage.dispose();
+        }
+    } finally {
+        workbook.dispose();
     }
-
-    // เพิ่มแผ่นงานแผนภูมิ.
-    int worksheetIndex = workbook.getWorksheets().add(SheetType.CHART);
-    Worksheet chartSheet = workbook.getWorksheets().get(worksheetIndex);
-    chartSheet.setName("ChartSheet");
-    int chartSheetIndex = chartSheet.getIndex();
-
-    // เพิ่มแผนภูมิลงในแผ่นงานแผนภูมิด้วยชุดข้อมูลจากแผ่นงานข้อมูล.
-    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, chartRows, 0, chartCols);
-    Chart chart = chartSheet.getCharts().get(chartIndex);
-    
-    chart.getNSeries().add(sheetName + "!A1:E1", false);
-    chart.getNSeries().add(sheetName + "!A2:E2", false);
-    chart.getNSeries().add(sheetName + "!A3:E3", false);
-    chart.getNSeries().add(sheetName + "!A4:E4", false);
-
-    // ตั้งค่าแผ่นงานแผนภูมิเป็นแผ่นงานที่ทำงานอยู่.
-    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
-    return chartSheetIndex;
+} catch (Exception exception) {
+    System.err.println("Could not create the presentation: " + exception.getMessage());
 }
 ```
 
-การนำเสนอที่สร้างด้วยวิธีข้างต้นจะมีแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ที่สามารถเปิดใช้งานได้โดยการดับเบิลคลิกที่กรอบอ็อบเจ็กต์ OLE.
+## **ผลลัพธ์ที่คาดหวัง**
 
-## **สรุป**
+`OutputChart.pptx` มีสไลด์หนึ่งที่ฝังเวิร์กบุ๊ก Excel และภาพล่วงหน้าแผนภูมิ. เวิร์กบุ๊กมีข้อมูลต้นฉบับและแผนภูมิคอลัมน์ที่มีสี่ซีรีส์. ภาพล่วงหน้าถูกจัดกึ่งกลางบนสไลด์และคงอัตราส่วนไว้.
 
-โดยการใช้ Aspose.Cells for Java ร่วมกับ Aspose.Slides for Java เราสามารถสร้างแผนภูมิ Excel ใด ๆ ที่ Aspose.Cells รองรับและฝังแผนภูมินั้นเป็นอ็อบเจ็กต์ OLE ในสไลด์ PowerPoint ได้ ขนาด OLE ของแผนภูมิ Excel ยังสามารถกำหนดได้ ผู้ใช้ขั้นสุดท้ายสามารถแก้ไขแผนภูมิ Excel เช่นเดียวกับอ็อบเจ็กต์ OLE อื่น ๆ.
+![แผนภูมิคอลัมน์ Excel แสดงเป็นภาพล่วงหน้าของเวิร์กบุ๊กที่ฝังอยู่](excel-chart-ole-preview.png)
+
+ในสภาพแวดล้อม PowerPoint บนเดสก์ท็อปที่เข้ากันได้และมี Excel อยู่, ดับเบิลคลิกวัตถุเพื่อเปิดใช้งานและแก้ไขเวิร์กบุ๊กที่ฝังไว้. การเปิดใช้งานและการแก้ไขขึ้นอยู่กับการสนับสนุน OLE ของแอปพลิเคชันโฮสต์และการตั้งค่าความปลอดภัย.
+
+## **คำถามที่พบบ่อย**
+
+**ทำไมต้องการภาพล่วงหน้า?**
+
+เวิร์กบุ๊กที่ฝังและภาพล่วงหน้าของสไลด์เป็นเนื้อหาแยกกัน. ให้ภาพแผนภูมิเพื่อให้สไลด์แสดงแผนภูมิแทนตัวจัดตำแหน่งเริ่มต้น "EMBEDDED OLE OBJECT". ดู [Object Preview Issue when Adding OleObjectFrame](/slides/th/java/object-preview-issue-when-adding-oleobjectframe/).
+
+**ภาพล่วงหน้าจะอัพเดตโดยอัตโนมัติหรือไม่เมื่อฉันเปลี่ยนเวิร์กบุ๊กในโค้ด?**
+
+ถือภาพล่วงหน้าเป็นสแนปช็อต. เมื่ออัพเดตข้อมูลเวิร์กบุ๊กด้วยโปรแกรม, ให้สร้างภาพแผนภูมิใหม่และแทนที่ภาพล่วงหน้าและข้อมูลเวิร์กบุ๊กที่ฝัง.
+
+**ฉันสามารถใช้ XLS แทน XLSX ได้หรือไม่?**
+
+ใช่. บันทึกเวิร์กบุ๊กในรูปแบบ XLS และใช้ `xls` เป็นส่วนต่อท้ายของข้อมูลที่ฝัง. ส่วนต่อท้ายต้องตรงกับรูปแบบเวิร์กบุ๊กจริง; การเปลี่ยนส่วนต่อท้ายอย่างเดียวไม่แปลงข้อมูล.
+
+**ทำไมวัตถุอาจเปลี่ยนขนาดหลังจากเปิดใช้งาน?**
+
+แอปพลิเคชันโฮสต์อาจอัปเดตการนำเสนอของวัตถุ OLE เมื่อเปิดใช้งานเวิร์กบุ๊ก. ทั้งช่วงการแสดงผล OLE ของเวิร์กบุ๊กและขนาดของกรอบสไลด์มีความสำคัญ. ดู [Working Solution for Chart Resizing in PPTX](/slides/th/java/working-solution-for-chart-resizing-in-pptx/).
 
 ## **ส่วนที่เกี่ยวข้อง**
 
 - [วิธีแก้ปัญหาการปรับขนาดแผนภูมิใน PPTX](/slides/th/java/working-solution-for-chart-resizing-in-pptx/)
-- [ปัญหาการแสดงตัวอย่างอ็อบเจ็กต์เมื่อเพิ่ม OleObjectFrame](/slides/th/java/object-preview-issue-when-adding-oleobjectframe/)
-- [อัปเดตอ็อบเจ็กต์ OLE อัตโนมัติด้วย PowerPoint Add-In](/slides/th/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [ปัญหาภาพล่วงหน้าของวัตถุเมื่อเพิ่ม OleObjectFrame](/slides/th/java/object-preview-issue-when-adding-oleobjectframe/)
+- [อัปเดตวัตถุ OLE อัตโนมัติโดยใช้ PowerPoint Add-In](/slides/th/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

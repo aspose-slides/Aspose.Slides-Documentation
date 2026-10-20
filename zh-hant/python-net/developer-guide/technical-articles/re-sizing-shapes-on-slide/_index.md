@@ -1,149 +1,126 @@
 ---
-title: 使用 Python 在簡報中調整形狀大小
-linktitle: 調整形狀大小
+title: 在 Python 中調整簡報投影片上的形狀大小
 type: docs
 weight: 130
-url: /zh-hant/python-net/re-sizing-shapes-on-slide/
+url: /zh-hant/python-net/resizing-shapes-on-slide/
+aliases:
+  - /zh-hant/python-net/re-sizing-shapes-on-slide/
+  /python-net/re-sizing-shapes-on-slide/
 keywords:
-- 重新調整形狀
-- 變更形狀大小
+- 調整形狀大小
+- 變更形狀尺寸
 - PowerPoint
 - OpenDocument
 - 簡報
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python 透過 .NET 輕鬆調整 PowerPoint 與 OpenDocument 投影片上的形狀大小——自動化投影片版面配置調整，提升生產力。"
+description: "使用 Aspose.Slides for Python 透過 .NET，輕鬆調整 PowerPoint 與 OpenDocument 投影片上的形狀大小——自動化投影片版面調整並提升生產力。"
 ---
-## **概覽**
+## **概觀**
 
-Aspose.Slides for Python 的客戶中最常見的問題之一是如何調整形狀大小，以免在變更投影片尺寸時資料被裁切。這篇簡短的技術文章說明了如何做到這一點。
+當您變更簡報的投影片尺寸時，可能還需要調整形狀的大小與位置，以符合新的尺寸。本文說明如何手動縮放形狀，以及如何在投影片、母片和版面配置上處理表格。
 
-## **調整形狀大小**
+## **調整形狀**
 
-為了避免投影片尺寸變更時形狀錯位，請更新每個形狀的位置與尺寸，使其符合新的投影片版面配置。
+為了保留每個形狀的相對位置與大小，需將其水平座標與寬度乘以新投影片寬度與原始寬度的比例。再將相同的高度比例套用於其垂直座標與高度。
 
-```py
+第一個範例載入一個投影片中不包含表格的簡報，將投影片大小變更為 A4，並儲存結果。它使用 [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) 搭配 [SlideSizeScaleType.DO_NOT_SCALE](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/) 以便之後的迴圈負責縮放。比例是無單位的；形狀的位置與尺寸以點 (point) 為單位。不同的寬度與高度比例會導致形狀變形，且變更形狀尺寸不會縮放其字型大小。
+
+```python
 import aspose.slides as slides
 
-# 載入簡報檔案。
 with slides.Presentation("sample.pptx") as presentation:
-    # 取得原始投影片大小。
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # 在不縮放現有形狀的情況下變更投影片大小。
+    # 計算水平與垂直的獨立縮放因子。
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # 取得新的投影片大小。
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
-    # 在每張投影片上重新調整形狀大小並重新定位。
     for slide in presentation.slides:
         for shape in slide.shapes:
-            # 縮放形狀大小。
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # 縮放形狀位置。
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+            shape.x *= width_ratio
+            shape.y *= height_ratio
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
-如果投影片中包含表格，上述程式碼將無法正確運作。此時必須調整表格中每個儲存格的大小。
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+表格需要單獨處理：必須縮放其欄寬與列高，而不是直接設定表格的整體寬度與高度。如果儲存格內容需要更多空間，列高可能會大於要求的尺寸。
+{{% /alert %}}
 
-在您的環境中使用以下程式碼來調整包含表格的投影片。對於表格而言，設定寬度或高度屬於特殊情況：必須調整各列高度和欄寬，才能改變表格的整體大小。
+第二個範例支援表格，且在儲存調整大小的簡報之前，會處理母片、版面配置以及個別投影片上的形狀。其輔助程式會對每個 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) 透過縮放 [Column.width](https://reference.aspose.com/slides/python-net/aspose.slides/column/width/) 與 [Row.minimal_height](https://reference.aspose.com/slides/python-net/aspose.slides/row/minimal_height/) 來處理。之後會僅縮放表格的位置，而不會單獨縮放其整體尺寸。
 
-```py
+```python
 import aspose.slides as slides
 
+
+def resize_shapes(shapes, width_ratio, height_ratio):
+    for shape in shapes:
+        if isinstance(shape, slides.Table):
+            # 表格的尺寸由欄寬和列高控制。
+            for column in shape.columns:
+                column.width *= width_ratio
+
+            for row in shape.rows:
+                row.minimal_height *= height_ratio
+        else:
+            shape.width *= width_ratio
+            shape.height *= height_ratio
+
+        shape.x *= width_ratio
+        shape.y *= height_ratio
+
+
 with slides.Presentation("sample.pptx") as presentation:
-    # 取得原始投影片大小。
-    current_height = presentation.slide_size.size.height
-    current_width = presentation.slide_size.size.width
-
-    # 在不縮放現有形狀的情況下變更投影片大小。
+    # 計算水平與垂直的獨立縮放因子。
+    original_size = presentation.slide_size.size
     presentation.slide_size.set_size(slides.SlideSizeType.A4_PAPER, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    target_size = presentation.slide_size.size
+    width_ratio = target_size.width / original_size.width
+    height_ratio = target_size.height / original_size.height
 
-    # 取得新的投影片大小。
-    new_height = presentation.slide_size.size.height
-    new_width = presentation.slide_size.size.width
-
-    height_ratio = new_height / current_height
-    width_ratio = new_width / current_width
-
+    # 調整在母片、版面配置以及個別投影片上定義的形狀大小。
     for master in presentation.masters:
-        for shape in master.shapes:
-            # 縮放形狀大小。
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # 縮放形狀位置。
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
+        resize_shapes(master.shapes, width_ratio, height_ratio)
 
         for layout_slide in master.layout_slides:
-            for shape in layout_slide.shapes:
-                # 縮放形狀大小。
-                shape.height = shape.height * height_ratio
-                shape.width = shape.width * width_ratio
-
-                # 縮放形狀位置。
-                shape.y = shape.y * height_ratio
-                shape.x = shape.x * width_ratio
+            resize_shapes(layout_slide.shapes, width_ratio, height_ratio)
 
     for slide in presentation.slides:
-        for shape in slide.shapes:
-            # 縮放形狀大小。
-            shape.height = shape.height * height_ratio
-            shape.width = shape.width * width_ratio
-
-            # 縮放形狀位置。
-            shape.y = shape.y * height_ratio
-            shape.x = shape.x * width_ratio
-
-            if type(shape) is slides.Table:
-                for row in shape.rows:
-                    row.minimal_height = row.minimal_height * height_ratio
-                for column in shape.columns:
-                    column.width = column.width * width_ratio
+        resize_shapes(slide.shapes, width_ratio, height_ratio)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **常見問題**
 
-**在調整投影片大小後，為什麼形狀會變形或被裁切？**
+**為什麼在調整投影片大小後，形狀會變形或被截斷？**
 
-在調整投影片時，形狀會保留原始位置與尺寸，除非明確修改比例。這可能導致內容被裁切或形狀錯位。
+如果在變更投影片大小時未對形狀進行縮放，形狀會保留原始位置與尺寸，可能會延伸至投影片之外。以不同的比例縮放寬度與高度也會導致形狀變形。
 
-**提供的程式碼適用於所有形狀類型嗎？**
+**提供的程式碼是否適用於所有形狀類型？**
 
-基本範例適用於大多數形狀類型（文字方塊、圖像、圖表等）。但對於表格，需要分別處理列與欄，因為表格的高度與寬度是由各儲存格的尺寸決定的。
+第一個範例直接變更形狀的邊界，適用於沒有表格的投影片。第二個範例則會單獨處理表格。請檢查最終的版面配置，特別是文字與表格，因為這些範例不會縮放字型大小，且表格內容可能會限制列高。
 
-**在調整投影片時，如何調整表格大小？**
+**在調整投影片大小時，該如何調整表格的尺寸？**
 
-必須遍歷表格的所有列與欄，按比例調整它們的高度與寬度，如第二段程式碼所示。
+如第二個範例所示，先以寬度比例縮放欄寬，並以高度比例縮放最小列高，最後再縮放表格的位置。
 
-**此調整方式適用於母片與佈局投影片嗎？**
+**此調整大小方式是否適用於母片與版面配置投影片？**
 
-是的，但也應該遍歷[Masters](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/masters/)和[Layout slides](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/layout_slides/)，對它們的形狀套用相同的比例邏輯，以確保整個簡報的一致性。
+是的。第二個範例會遍歷 [Presentation.masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) 以及每個母片的 [MasterSlide.layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/layout_slides/)，並對其形狀套用相同的調整大小邏輯。
 
-**我可以在調整大小的同時改變投影片的方向（直式/橫式）嗎？**
+**我可以在調整大小的同時變更投影片的方向（直向/橫向）嗎？**
 
-可以。您可以使用[presentation.slide_size.orientation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/islidesize/orientation/)來變更方向。請確保相應調整比例邏輯，以保留版面配置。
+可以。先變更投影片大小後，在讀取目標尺寸之前設定 [SlideSize.orientation](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/orientation/)，如此縮放係數會反映最終的方向。
 
-**投影片尺寸有設定上限嗎？**
+**我可以設定的投影片尺寸是否有限制？**
 
-Aspose.Slides 支援自訂尺寸，但過大的尺寸可能會影響效能或與某些 PowerPoint 版本的相容性。
+您可以使用 [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) 來指定自訂的投影片尺寸。支援的尺寸亦取決於簡報格式及開啟檔案的應用程式。
 
-**如何防止固定長寬比的形狀變形？**
+**如何防止具有固定長寬比的形狀被扭曲？**
 
-在縮放之前，先檢查形狀的`aspect_ratio_locked`屬性。如果已鎖定，請比例調整寬度或高度，而非分別單獨縮放。
+對寬度與高度使用相同的縮放係數。若要在新投影片尺寸內保留原始版面配置，請同時取寬度與高度比例較小的那個作為縮放係數，套用於尺寸與位置。此方法可維持比例，但可能會在某一側留下未使用的空間。

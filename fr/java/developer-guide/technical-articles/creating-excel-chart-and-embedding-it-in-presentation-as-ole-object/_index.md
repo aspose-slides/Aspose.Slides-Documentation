@@ -1,44 +1,175 @@
----  
-title: Création d'un graphique Excel et intégration dans la présentation en tant qu'objet OLE  
-type: docs  
-weight: 30  
-url: /fr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/  
----  
+---
+title: Créer des graphiques Excel et les intégrer dans des présentations en tant qu'objets OLE
+type: docs
+weight: 30
+url: /fr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+keywords:
+- Graphique Excel
+- intégrer le graphique
+- objet OLE
+- PowerPoint
+- présentation
+- Java
+- Aspose.Slides
+description: "Créer un graphique Excel avec Aspose.Cells for Java et intégrer le classeur dans une présentation PowerPoint avec Aspose.Slides, incluant un aperçu du graphique."
+---
+## **Vue d'ensemble**
 
-{{% alert color="primary" %}}  
+Cet article montre comment créer un graphique à barres Excel avec Aspose.Cells for Java et intégrer son classeur dans une présentation PowerPoint avec Aspose.Slides for Java. Le classeur intégré contient à la fois les données source et le graphique. Un aperçu PNG séparé affiche le graphique sur la diapositive avant que l'objet OLE ne soit activé.
 
-Dans les diapositives PowerPoint, l'utilisation de graphiques modifiables pour l'affichage graphique des données est une activité courante. Aspose fournit le support de la création de graphiques Excel à l'aide d'Aspose.Cells pour Java et ces graphiques peuvent ensuite être intégrés en tant qu'objet OLE dans la diapositive PowerPoint via Aspose.Slides pour Java. Cet article couvre les étapes nécessaires ainsi que l'implémentation en Java pour créer et intégrer un graphique MS Excel en tant qu'objet OLE dans une présentation PowerPoint en utilisant Aspose.Cells pour Java et Aspose.Slides pour Java.  
+Le résultat est un objet Excel intégré, et non un graphique PowerPoint natif. La modification du classeur via OLE nécessite une application de bureau qui prend en charge l'activation OLE et une installation Excel compatible.
 
-{{% /alert %}}  
-## **Étapes Nécessaires**  
-La séquence suivante d'étapes est requise pour créer et intégrer un graphique Excel en tant qu'objet OLE dans la diapositive PowerPoint :  
-# Créer un graphique Excel en utilisant Aspose.Cells pour Java.  
-# Définir la taille OLE du graphique Excel en utilisant Aspose.Cells pour Java.  
-# Obtenir l'image du graphique Excel avec Aspose.Cells pour Java.  
-# Intégrer le graphique Excel en tant qu'objet OLE dans la présentation PPTX en utilisant Aspose.Slides pour Java.  
-# Remplacer l'image de l'objet modifié par l'image obtenue à l'étape 3 pour résoudre le problème d'objet modifié.  
-# Enregistrer la présentation de sortie sur le disque au format PPTX.  
-## **Implémentation des Étapes Nécessaires**  
-L'implémentation des étapes ci-dessus en Java est comme suit :  
+## **Prérequis**
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-EmbedChartAsOLEObject-EmbedChartAsOLEObject.java" >}}  
+Ajoutez Aspose.Cells for Java et Aspose.Slides for Java aux dépendances de votre projet. Exécutez l'exemple dans une méthode Java. Microsoft Office n'est pas requis pour générer la présentation avec ces bibliothèques.
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-EmbedChartAsOLEObject-AddExcelChartInPresentation.java" >}}  
+Aucun fichier d'entrée n'est requis: l'exemple crée les données et le graphique en mémoire, puis écrit `OutputChart.pptx` dans le répertoire de travail actuel. Appliquez les licences pour les deux produits lors de l'exécution hors mode d'évaluation.
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-EmbedChartAsOLEObject-AddExcelChartInWorkbook.java" >}}  
+## **Comment l'intégration fonctionne**
 
-{{% alert color="primary" %}}  
+1. Créer un classeur contenant une feuille de données et une feuille de graphique.
+1. Rendre la feuille de graphique active afin que le classeur s'ouvre sur le graphique.
+1. Définir la plage d'affichage OLE du classeur et rendre le graphique en PNG.
+1. Enregistrer le classeur au format XLSX en mémoire et intégrer ces octets dans une diapositive.
+1. Attribuer le PNG comme aperçu de l'objet OLE et enregistrer la présentation au format PPTX.
 
-La présentation créée par la méthode ci-dessus comportera le graphique Excel en tant qu'objet OLE qui peut être activé en double-cliquant sur le cadre de l'objet OLE.  
+La plage d'affichage du classeur et le cadre sur la diapositive ont des rôles différents. [setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) utilise des indices de ligne et de colonne de début/fin basés sur zéro. [ChartCollection.add](https://reference.aspose.com/cells/java/com.aspose.cells/chartcollection/#add-int-int-int-int-int-) prend quant à lui la ligne supérieure, la colonne gauche, la ligne inférieure et la colonne droite. L'exemple utilise l'index de ligne 55 et l'index de colonne 25 comme limites inférieure droite; ces valeurs sont des choix de mise en page, et non le nombre de lignes ou de colonnes de données.
 
-{{% /alert %}}  
-## **Conclusion**  
-{{% alert color="primary" %}}  
+Le cadre de la diapositive utilise des points. L'exemple l'adapte à la diapositive et le centre tout en préservant le ratio d'aspect du PNG, au lieu d'étirer l'aperçu pour remplir la diapositive.
 
-En utilisant Aspose.Cells pour Java avec Aspose.Slides pour Java, nous pouvons créer n'importe lequel des graphiques Excel pris en charge par Aspose.Cells pour Java et intégrer le graphique créé en tant qu'objet OLE dans une diapositive PowerPoint. La taille OLE du graphique Excel peut également être définie. Les utilisateurs finaux peuvent ensuite modifier le graphique Excel comme tout autre objet OLE.  
+## **Créer et intégrer le graphique**
 
-{{% /alert %}}  
-## **Sections Connexes**  
-[Solution Fonctionnelle pour le Redimensionnement de Graphiques](/slides/fr/java/working-solution-for-chart-resizing-in-pptx/)  
+L'exemple complet suivant remplit `DataSheet` avec quatre lignes et cinq colonnes de valeurs. Chaque ligne devient une série de graphique. `ChartSheet` est sélectionnée comme feuille active avant d'enregistrer le classeur.
 
-[Problème d'Objet Modifié](/slides/fr/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)  
+Le classeur est explicitement enregistré au format XLSX, correspondant à l'extension `xlsx` transmise à [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/oleembeddeddatainfo/). Le PNG est chargé directement à partir de ses octets sans conversion bitmap intermédiaire. L'assigner via [getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) remplace le texte de remplacement OLE par défaut.
+
+```java
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import static com.aspose.cells.SaveFormat.XLSX;
+import static com.aspose.slides.SaveFormat.Pptx;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.IImage;
+import com.aspose.slides.Images;
+import com.aspose.slides.IOleObjectFrame;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayOutputStream;
+
+try {
+    Workbook workbook = new Workbook();
+    try {
+        Worksheet dataSheet = workbook.getWorksheets().get(0);
+        dataSheet.setName("DataSheet");
+
+        int[][] values = {
+            { 67, 44, 46, 43, 24 },
+            { 86, 64, 97, 29, 40 },
+            { 68, 89, 78, 69, 38 },
+            { 91, 48, 60, 26, 25 }
+        };
+
+        for (int row = 0; row < values.length; row++) {
+            for (int column = 0; column < values[row].length; column++) {
+                dataSheet.getCells().get(row, column).putValue(values[row][column]);
+            }
+        }
+
+        int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+        Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+        chartSheet.setName("ChartSheet");
+
+        int lastChartRow = 55;
+        int lastChartColumn = 25;
+        int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, lastChartRow, lastChartColumn);
+        Chart chart = chartSheet.getCharts().get(chartIndex);
+        for (int row = 1; row <= values.length; row++) {
+            chart.getNSeries().add("DataSheet!A" + row + ":E" + row, false);
+        }
+
+        workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+        workbook.getWorksheets().setOleSize(0, lastChartRow, 0, lastChartColumn);
+
+        // Rendu de l'aperçu du graphique et sérialisation du classeur modifiable séparément.
+        ImageOrPrintOptions imageOptions = new ImageOrPrintOptions();
+        imageOptions.setImageType(ImageType.PNG);
+        ByteArrayOutputStream chartImageStream = new ByteArrayOutputStream();
+        chart.toImage(chartImageStream, imageOptions);
+        byte[] chartImageBytes = chartImageStream.toByteArray();
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, XLSX);
+        byte[] workbookBytes = workbookStream.toByteArray();
+
+        IImage chartImage = Images.fromData(chartImageBytes);
+        try {
+            Presentation presentation = new Presentation();
+            try {
+                ISlide slide = presentation.getSlides().get_Item(0);
+                double slideWidth = presentation.getSlideSize().getSize().getWidth();
+                double slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+                // Adapter l'aperçu à la diapositive sans modifier son ratio d'aspect.
+                double scale = Math.min(slideWidth / chartImage.getWidth(), slideHeight / chartImage.getHeight());
+                float frameWidth = (float) (chartImage.getWidth() * scale);
+                float frameHeight = (float) (chartImage.getHeight() * scale);
+                float frameX = (float) ((slideWidth - frameWidth) / 2);
+                float frameY = (float) ((slideHeight - frameHeight) / 2);
+
+                OleEmbeddedDataInfo embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+                IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+                IPPImage previewImage = presentation.getImages().addImage(chartImage);
+                oleFrame.getSubstitutePictureFormat().getPicture().setImage(previewImage);
+
+                presentation.save("OutputChart.pptx", Pptx);
+            } finally {
+                presentation.dispose();
+            }
+        } finally {
+            chartImage.dispose();
+        }
+    } finally {
+        workbook.dispose();
+    }
+} catch (Exception exception) {
+    System.err.println("Could not create the presentation: " + exception.getMessage());
+}
+```
+
+## **Résultat attendu**
+
+`OutputChart.pptx` contient une diapositive avec un classeur Excel intégré et un aperçu du graphique. Le classeur contient les données d'origine et un graphique à colonnes avec quatre séries. L'aperçu est centré sur la diapositive et conserve ses proportions.
+
+![Graphique à colonnes Excel affiché comme aperçu d'un classeur intégré](excel-chart-ole-preview.png)
+
+Dans un environnement PowerPoint de bureau compatible avec Excel disponible, double-cliquez sur l'objet pour activer et modifier le classeur intégré. L'activation et la modification dépendent de la prise en charge OLE de l'application hôte et des paramètres de sécurité.
+
+## **FAQ**
+
+**Pourquoi une image d'aperçu est-elle nécessaire ?**
+
+Le classeur intégré et son aperçu de diapositive sont des contenus distincts. Fournissez une image du graphique afin que la diapositive affiche le graphique au lieu du texte de remplacement par défaut «EMBEDDED OLE OBJECT». Voir [Problème d'aperçu d'objet lors de l'ajout d'OleObjectFrame](/slides/fr/java/object-preview-issue-when-adding-oleobjectframe/).
+
+**L'aperçu se met-il à jour automatiquement lorsque je modifie le classeur dans le code ?**
+
+Considérez l'aperçu comme une capture instantanée. Lors de la mise à jour des données du classeur par programme, régénérez l'image du graphique et remplacez l'aperçu ainsi que les données du classeur intégré.
+
+**Puis-je utiliser XLS au lieu de XLSX ?**
+
+Oui. Enregistrez le classeur au format XLS et utilisez `xls` comme extension des données intégrées. L'extension doit correspondre au format réel du classeur; la modifier seule ne convertit pas les données.
+
+**Pourquoi l'objet peut-il changer de taille après activation ?**
+
+L'application hôte peut mettre à jour la présentation de l'objet OLE lorsqu'elle active le classeur. La plage d'affichage OLE du classeur et les dimensions du cadre de la diapositive sont toutes deux importantes. Voir [Solution fonctionnelle pour le redimensionnement de graphique dans PPTX](/slides/fr/java/working-solution-for-chart-resizing-in-pptx/).
+
+## **Sections associées**
+
+- [Solution fonctionnelle pour le redimensionnement de graphique dans PPTX](/slides/fr/java/working-solution-for-chart-resizing-in-pptx/)
+- [Problème d'aperçu d'objet lors de l'ajout d'OleObjectFrame](/slides/fr/java/object-preview-issue-when-adding-oleobjectframe/)
+- [Mettre à jour les objets OLE automatiquement à l'aide d'un add-in PowerPoint](/slides/fr/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

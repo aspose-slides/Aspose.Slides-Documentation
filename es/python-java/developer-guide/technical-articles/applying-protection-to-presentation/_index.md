@@ -1,56 +1,56 @@
 ---
-title: Impedir ediciones de presentaciones con bloqueos de forma
-linktitle: Impedir ediciones de presentación
+title: Restringir ediciones de presentaciones con bloqueos de forma en Python
+linktitle: Restringir ediciones de presentación
 type: docs
 weight: 60
 url: /es/python-java/applying-protection-to-presentation/
 keywords:
-- impedir ediciones
-- proteger contra la edición
+- evitar ediciones
+- proteger de la edición
 - bloquear forma
 - bloquear posición
 - bloquear selección
-- bloquear tamaño
+- bloquear cambio de tamaño
 - bloquear agrupación
 - PowerPoint
-- OpenDocument
+- PPTX
 - presentación
 - Python
 - Java
 - Aspose.Slides
-description: "Descubra cómo Aspose.Slides for Python via Java bloquea o desbloquea formas en archivos PPT, PPTX y ODP, asegurando presentaciones mientras permite ediciones controladas y una entrega más rápida."
+description: "Aprenda cómo bloquear y desbloquear formas en presentaciones PPTX con Aspose.Slides for Python via Java para restringir la selección, el movimiento, el cambio de tamaño y la agrupación."
 ---
-## **Contexto**
+## **Antecedentes**
 
-Un uso frecuente de Aspose.Slides es crear, actualizar y guardar presentaciones de Microsoft PowerPoint (PPTX) como parte de un flujo de trabajo automatizado. Los usuarios de aplicaciones que emplean Aspose.Slides de esta manera tienen acceso a las presentaciones generadas, por lo que protegerlas contra la edición es una preocupación habitual. Es importante que las presentaciones generadas automáticamente mantengan su formato y contenido original.
+Un uso común de Aspose.Slides for Python via Java es crear, actualizar y guardar presentaciones PowerPoint (PPTX) como parte de un flujo de trabajo automatizado. Cuando los usuarios reciben estas presentaciones, restringir los cambios en las formas puede ayudar a preservar el diseño y el contenido previstos.
 
-Este artículo explica cómo están estructuradas las presentaciones y diapositivas y cómo Aspose.Slides for Python via Java puede aplicar protección a una presentación y eliminarla posteriormente. Proporciona a los desarrolladores una forma de controlar el uso de las presentaciones que sus aplicaciones generan.
+Este artículo explica cómo se organizan las formas en las diapositivas y cómo aplicar y eliminar bloqueos de forma en una presentación PPTX. Estos bloqueos le permiten restringir operaciones de edición específicas en formas individuales.
 
 ## **Composición de una diapositiva**
 
-Una diapositiva de presentación está compuesta por componentes como autoshapes, tablas, objetos OLE, formas agrupadas, marcos de imagen, marcos de vídeo, conectores y otros elementos utilizados para construir una presentación. En Aspose.Slides for Python via Java, cada elemento de una diapositiva está representado por un objeto que hereda de la clase [Shape](https://reference.aspose.com/slides/es/python-java/aspose.slides/shape/).
+Una diapositiva de presentación está compuesta por componentes como autoshapes, tablas, objetos OLE, formas agrupadas, marcos de imagen, marcos de vídeo, conectores y otros elementos utilizados para crear una presentación. En Aspose.Slides for Python via Java, cada elemento de una diapositiva está representado por un objeto que hereda de la clase [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/).
 
-La estructura de PPTX es compleja, por lo que, a diferencia de PPT, donde se puede usar un bloqueo genérico para todos los tipos de formas, diferentes tipos de forma requieren bloqueos diferentes. La clase [BaseShapeLock](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseshapelock/) es la clase de bloqueo genérica para PPTX. Los siguientes tipos de bloqueos son compatibles en Aspose.Slides for Python via Java para PPTX:
+Los diferentes tipos de forma ofrecen distintas opciones de bloqueo. La clase [BaseShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/baseshapelock/) es la clase base para los bloqueos de forma. Aspose.Slides for Python via Java proporciona las siguientes clases de bloqueo:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/es/python-java/aspose.slides/autoshapelock/) bloquea las formas automáticas.  
-- [ConnectorLock](https://reference.aspose.com/slides/es/python-java/aspose.slides/connectorlock/) bloquea las formas conectoras.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/es/python-java/aspose.slides/graphicalobjectlock/) bloquea los objetos gráficos.  
-- [GroupShapeLock](https://reference.aspose.com/slides/es/python-java/aspose.slides/groupshapelock/) bloquea los grupos de formas.  
-- [PictureFrameLock](https://reference.aspose.com/slides/es/python-java/aspose.slides/pictureframelock/) bloquea los marcos de imagen.  
+- [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/) bloquea los autoshapes.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) bloquea los conectores.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-java/aspose.slides/graphicalobjectlock/) bloquea los objetos gráficos.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/) bloquea los grupos de formas.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/) bloquea los marcos de imagen.  
 
-Cualquier acción realizada sobre todos los objetos de forma en un objeto [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/) se aplica a toda la presentación.
+Para aplicar bloqueos en una [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/), recorra sus diapositivas y establezca los bloqueos apropiados en cada forma admitida.
 
 ## **Aplicar y eliminar protección**
 
-Aplicar protección garantiza que una presentación no pueda ser editada. Es una técnica útil para proteger el contenido de la presentación.
+Los bloqueos de forma restringen operaciones como seleccionar, mover y cambiar el tamaño de las formas. No hacen que toda la presentación sea ineditable.
 
 ### **Aplicar protección a formas PPTX**
 
-Aspose.Slides for Python via Java proporciona la clase [Shape](https://reference.aspose.com/slides/es/python-java/aspose.slides/shape/) para trabajar con las formas de una diapositiva.
+Aspose.Slides for Python via Java proporciona la clase [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) para trabajar con formas en una diapositiva.
 
-Como se mencionó anteriormente, cada clase de forma tiene una clase de bloqueo de forma asociada para la protección. Este artículo se centra en los bloqueos NoSelect, NoMove y NoResize. Estos bloqueos garantizan que las formas no puedan ser seleccionadas (mediante clics del ratón u otros métodos de selección) y que no puedan desplazarse ni redimensionarse.
+El ejemplo llama a [setSelectLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSelectLocked), [setPositionLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setPositionLocked) y [setSizeLocked](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/#setSizeLocked) con `True` para los autoshapes, con bloqueos equivalentes para grupos de formas, conectores y marcos de imagen. Los conectores usan [setPositionMove](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/#setPositionMove) para el movimiento; los grupos también usan [setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) para restringir la agrupación.
 
-El siguiente fragmento de código aplica protección a todos los tipos de forma en una presentación.
+El ejemplo carga una presentación PPTX existente, verifica las formas en la colección de formas de cada diapositiva y guarda una copia con estas restricciones aplicadas. Las formas que no pertenecen a los cuatro tipos manejados se dejan sin cambios. El bucle no recorre las formas hijas dentro de un grupo.
 
 ```python
 import jpype
@@ -61,12 +61,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Instanciar la clase Presentation que representa un archivo PPTX.
 presentation = Presentation("Sample.pptx")
 try:
-    # Recorrer todas las diapositivas de la presentación.
     for slide in presentation.getSlides():
-        # Recorrer todas las formas de la diapositiva.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -90,7 +87,6 @@ try:
                 picture_frame_lock.setSelectLocked(True)
                 picture_frame_lock.setSizeLocked(True)
 
-    # Guardar el archivo de presentación.
     presentation.save("ProtectedSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -98,7 +94,7 @@ finally:
 
 ### **Eliminar protección**
 
-Para desbloquear una forma, establezca el valor del bloqueo aplicado a `False`. El siguiente fragmento de código muestra cómo desbloquear formas en una presentación bloqueada.
+Para eliminar un bloqueo de forma, establezca su valor a `False`. El siguiente ejemplo carga una presentación con bloqueos de forma y elimina las restricciones de selección, movimiento y cambio de tamaño mediante [AutoShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/autoshapelock/), [GroupShapeLock](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/), [ConnectorLock](https://reference.aspose.com/slides/python-java/aspose.slides/connectorlock/) y [PictureFrameLock](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframelock/). También elimina la restricción de agrupación pasando `False` a [GroupShapeLock.setGroupingLocked](https://reference.aspose.com/slides/python-java/aspose.slides/groupshapelock/#setGroupingLocked) y guarda una copia de la presentación. Los demás ajustes de bloqueo se dejan sin cambios.
 
 ```python
 import jpype
@@ -109,12 +105,9 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import AutoShape, Connector, GroupShape, PictureFrame, Presentation, SaveFormat
 
-# Instanciar la clase Presentation que representa un archivo PPTX.
 presentation = Presentation("ProtectedSample.pptx")
 try:
-    # Recorrer todas las diapositivas de la presentación.
     for slide in presentation.getSlides():
-        # Recorrer todas las formas de la diapositiva.
         for shape in slide.getShapes():
             if isinstance(shape, AutoShape):
                 auto_shape_lock = shape.getShapeLock()
@@ -138,26 +131,22 @@ try:
                 picture_frame_lock.setSelectLocked(False)
                 picture_frame_lock.setSizeLocked(False)
 
-    # Guardar el archivo de presentación.
     presentation.save("RemovedProtectionSample.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Conclusión**
+### **Conclusión**
 
-Aspose.Slides ofrece varias opciones para proteger las formas en una presentación. Puede bloquear una forma individual o iterar sobre todas las formas de una presentación y bloquear cada una para asegurar eficazmente todo el archivo. Puede eliminar la protección estableciendo el valor del bloqueo a `False`.
+Aspose.Slides for Python via Java le permite restringir operaciones de edición específicas en formas individuales o aplicar las mismas restricciones en varias diapositivas. Elija los bloqueos compatibles con cada tipo de forma y establezca sus valores a `False` cuando necesite eliminar esas restricciones.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo combinar bloqueos de forma y protección con contraseña en la misma presentación?**
+**¿Puedo combinar los bloqueos de forma y la protección con contraseña en la misma presentación?**  
+Sí. Los bloqueos de forma restringen operaciones de edición específicas, mientras que la [protección con contraseña](/slides/es/python-java/password-protected-presentation/) puede restringir la apertura o modificación de la presentación. Puede usar ambos en el mismo archivo.
 
-Sí. Los bloqueos limitan la edición de objetos dentro del archivo, mientras que la [protección con contraseña](/slides/es/python-java/password-protected-presentation/) controla el acceso para abrir y/o guardar cambios. Estos mecanismos se complementan y funcionan juntos.
+**¿Puedo restringir la edición en diapositivas específicas sin afectar a otras?**  
+Sí. Aplique los bloqueos solo a las formas en las diapositivas seleccionadas. Esto no cambia la configuración de bloqueos en otras diapositivas.
 
-**¿Puedo restringir la edición en diapositivas específicas sin afectar a las demás?**
-
-Sí. Aplique bloqueos a las formas de las diapositivas seleccionadas; el resto de las diapositivas permanecerá editable.
-
-**¿Los bloqueos de forma se aplican a objetos agrupados y conectores?**
-
-Sí. Se admiten tipos de bloqueo dedicados para grupos, conectores, objetos gráficos y otros tipos de forma.
+**¿Cómo puedo aplicar bloqueos a formas individuales dentro de un grupo?**  
+Recorra la colección devuelta por el método [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) del grupo y aplique los bloqueos apropiados a cada forma hija. Repita esto para cualquier grupo anidado. Los ejemplos anteriores procesan solo la colección de formas de la diapositiva, por lo que no establecen bloqueos en los miembros individuales del grupo.

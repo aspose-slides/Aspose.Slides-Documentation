@@ -1,167 +1,140 @@
 ---
-title: Excel-diagramok létrehozása és beágyazása prezentációkba OLE objektumként
+title: Excel diagramok létrehozása és beágyazása prezentációkba OLE objektumként
 type: docs
 weight: 50
 url: /hu/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Excel-diagram
+- Excel diagram
 - diagram beágyazása
-- OLE-objektum
+- OLE objektum
 - PowerPoint
-- OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Excel-diagramok létrehozása és beágyazása OLE objektumként PowerPoint és OpenDocument prezentációkba C#/.NET használatával. Lépésről lépésre útmutató kódmintákkal."
+description: "Excel diagram létrehozása Aspose.Cells for .NET használatával és a munkafüzet beágyazása PowerPoint prezentációba Aspose.Slides segítségével, diagram előnézettel."
 ---
-## **Háttér**
+## **Áttekintés**
 
-A PowerPointban a szerkeszthető diagramok használata az adatok grafikus megjelenítésére gyakori gyakorlat. Az Aspose támogatja az Excel-diagramok létrehozását az Aspose.Cells for .NET segítségével, és ezeket a diagramokat OLE objektumokként be lehet ágyazni a PowerPoint diákba az Aspose.Slides for .NET-en keresztül. Ez a cikk bemutatja a szükséges lépéseket, és C# kódmintákat biztosít egy Excel-diagram létrehozásához és OLE objektumként történő beágyazásához egy PowerPoint prezentációba az Aspose.Cells és az Aspose.Slides használatával.
+Ez a cikk bemutatja, hogyan hozhat létre oszlopdiagramot Excelben az Aspose.Cells for .NET segítségével, és ágyazhatja be a munkafüzetet egy PowerPoint bemutatóba az Aspose.Slides for .NET segítségével. A beágyazott munkafüzet tartalmazza a forrásadatokat és a diagramot is. Egy külön PNG előnézet jeleníti meg a diagramot a dián, mielőtt az OLE objektum aktiválódna. Az eredmény egy beágyazott Excel objektum, nem natív PowerPoint diagram. A munkafüzet OLE‑on keresztüli szerkesztéséhez olyan asztali alkalmazás szükséges, amely támogatja az OLE aktiválást és kompatibilis Excel telepítéssel rendelkezik.
 
-## **Szükséges lépések**
+## **Előfeltételek**
 
-A következő lépéssorozatra van szükség egy Excel-diagram OLE objektumként történő létrehozásához és beágyazásához egy PowerPoint diára:
+Adjon hozzá hivatkozásokat az Aspose.Cells for .NET és az Aspose.Slides for .NET könyvtárakhoz a C# projektjében. A példában felső szintű utasítások (top-level statements) vannak használva, és C# 9 vagy újabb szükséges. A Microsoft Office nem szükséges a bemutató generálásához ezekkel a könyvtárakkal. Nem szükséges bemeneti fájl: a példa a memóriában hozza létre az adatokat és a diagramot, majd a `OutputChart.pptx` fájlt a jelenlegi munkakönyvtárba írja. Licencet kell alkalmazni mindkét termékre, ha értékelő módból kívül futtatja.
 
-1. Hozzon létre egy Excel-diagramot az Aspose.Cells használatával.
-2. Állítsa be az Excel-diagram OLE méretét az Aspose.Cells segítségével.
-3. Szerezzen képet az Excel-diagramról az Aspose.Cells segítségével.
-4. Ágyazza be az Excel-diagramot OLE objektumként egy PPTX prezentációba az Aspose.Slides használatával.
-5. Cserélje ki az "EMBEDDED OLE OBJECT" képet a 3. lépésben megszerzett képre a [objektum előnézeti probléma](/slides/hu/net/object-preview-issue-when-adding-oleobjectframe/) megoldásához.
-6. Mentse a prezentációt a lemezre PPTX formátumban.
+## **Hogyan Működik a Beágyazás**
 
-## **A szükséges lépések megvalósítása**
+1. Hozzon létre egy munkafüzetet egy adat munkalappal és egy diagramlapra.  
+1. Tegye a diagramlapot aktívvá, hogy a munkafüzet a diagramon nyíljon meg.  
+1. Állítsa be a munkafüzet OLE megjelenítési tartományát, és renderelje a diagramot PNG‑re.  
+1. Mentse a munkafüzetet XLSX formátumban a memóriába, és ágyazza be ezeket a bájtokat egy diára.  
+1. Állítsa be a PNG‑t az OLE objektum előnézeteként, és mentse a bemutatót PPTX‑ként.  
 
-A fenti lépések C# megvalósítása a következő:
+A munkafüzet megjelenítési tartománya és a dián lévő keret különböző szerepeket töltenek be. [SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) nulláról induló kezdő/észső sor- és oszlopindexeket vár. A [ChartCollection.Add](https://reference.aspose.com/cells/net/aspose.cells.charts/chartcollection/add/) ezzel szemben a felső sor, bal oszlop, alsó sor és jobb oszlop értékét veszi. A példa a 55‑ös sorindexet és a 25‑ös oszlopindexet használja alsó‑jobb határként; ezek az értékek elrendezési választások, nem az adatsorok vagy oszlopok számát jelentik.  
 
-```cs
-// 1. lépés: Excel-diagram létrehozása az Aspose.Cells használatával.
-// ---------------------------------------------------
-// Munkafüzet létrehozása.
-Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook();
-// Excel-diagram hozzáadása.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+A diakeret pontokban van megadva. A példa a dián belül elhelyezi és középre helyezi, miközben megtartja a PNG képarányát, ahelyett, hogy az előnézetet a dia teljes kitöltésére nyújtaná.
 
-// 2. lépés: A diagram OLE méretének beállítása az Aspose.Cells használatával.
-// -----------------------------------------------------------
-workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
+## **Diagram Létrehozása és Beágyazása**
 
-// 3. lépés: A diagram képének lekérése az Aspose.Cells használatával.
-// -------------------------------------------------------
-Bitmap chartImage = workbook.Worksheets[chartSheetIndex].Charts[0].ToImage();
-// A munkafüzet mentése stream-be.
-MemoryStream workbookStream = workbook.SaveToStream();
+Az alábbi teljes példa a `DataSheet`‑et négy sorral és öt oszloppal tölti fel értékekkel. Minden sor egy diagram sorozattá válik. A `ChartSheet` van kiválasztva aktív lapon, mielőtt a munkafüzet mentésre kerül.  
 
-// 4. és 5. lépés
-// ==============
- // 4. lépés: A diagram beágyazása OLE objektumként egy .ppt prezentációba az Aspose.Slides használatával.
-// ------------------------------------------------------------------------------------------
-// 5. lépés: Az "EMBEDDED OLE OBJECT" képet cserélje ki a 3. lépésben kapott képre az objektum előnézeti probléma megoldásához.
-// --------------------------------------------------------------------------------------------------------------------
-// Prezentáció létrehozása.
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    // A munkafüzet hozzáadása a diára.
-    AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
-
-    // 6. lépés: A kimeneti prezentáció mentése lemezre.
-    // -----------------------------------------------
-    presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
+A munkafüzet kifejezetten XLSX‑ként van mentve, amely egyezik a `xlsx` kiterjesztéssel, amelyet a [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) kap. A PNG közvetlenül a folyamatából van betöltve, anélkül, hogy köztes bitmap konverzióra lenne szükség. A [SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/substitutepictureformat/) segítségével történő hozzárendelés felülírja az alapértelmezett OLE helyőrzőt.  
 
 ```cs
-static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows, int chartCols)
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "DataSheet";
+
+int[,] values =
 {
-    // A cellanevek tömbje.
-    string[] cellNames = new string[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+    { 67, 44, 46, 43, 24 },
+    { 86, 64, 97, 29, 40 },
+    { 68, 89, 78, 69, 38 },
+    { 91, 48, 60, 26, 25 }
+};
 
-    // A cellák adatainak tömbje.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
-
-    // Új munkalap hozzáadása a cellák adatkitöltéséhez.
-    int dataSheetIndex = workbook.Worksheets.Add();
-    Aspose.Cells.Worksheet dataSheet = workbook.Worksheets[dataSheetIndex];
-    string sheetName = "DataSheet";
-    dataSheet.Name = sheetName;
-
-    // Az adatlap feltöltése adatokkal.
-    for (int i = 0; i < cellNames.Length; i++)
-    {
-        string cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.Cells[cellName].PutValue(cellValue);
-    }
-
-    // Diagramműlap hozzáadása.
-    int chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
-    Aspose.Cells.Worksheet chartSheet = workbook.Worksheets[chartSheetIndex];
-    chartSheet.Name = "ChartSheet";
-
-    // Diagram hozzáadása a diagramműlaphoz az adatlap adatsorával.
-    int chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
-    Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIndex];
-    chart.NSeries.Add(sheetName + "!A1:E1", false);
-    chart.NSeries.Add(sheetName + "!A2:E2", false);
-    chart.NSeries.Add(sheetName + "!A3:E3", false);
-    chart.NSeries.Add(sheetName + "!A4:E4", false);
-
-    // A diagramműlap beállítása aktív munkalapként.
-    workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
-    return chartSheetIndex;
-}
-```
-
-```cs
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
+for (var row = 0; row < values.GetLength(0); row++)
 {
-    float oleWidth = presentation.SlideSize.Size.Width;
-    float oleHeight = presentation.SlideSize.Size.Height;
-
-    byte[] oleData = new byte[workbookStream.Length];
-    workbookStream.Position = 0;
-    workbookStream.Read(oleData, 0, oleData.Length);
-
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xls");
-    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
-
-    using (MemoryStream imageStream = new MemoryStream())
+    for (var column = 0; column < values.GetLength(1); column++)
     {
-        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
-
-	    imageStream.Position = 0;
-        IPPImage ppImage = presentation.Images.AddImage(imageStream);
-
-        oleFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+        dataSheet.Cells[row, column].PutValue(values[row, column]);
     }
 }
+
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+chartSheet.Name = "ChartSheet";
+
+var lastChartRow = 55;
+var lastChartColumn = 25;
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, lastChartRow, lastChartColumn);
+var chart = chartSheet.Charts[chartIndex];
+for (var row = 1; row <= values.GetLength(0); row++)
+{
+    chart.NSeries.Add($"DataSheet!A{row}:E{row}", false);
+}
+
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
+workbook.Worksheets.SetOleSize(0, lastChartRow, 0, lastChartColumn);
+
+// A diagram előnézetet rendereli, és külön menti a szerkeszthető munkafüzetet.
+using var chartImageStream = new MemoryStream();
+chart.ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+using var chartImage = Images.FromStream(chartImageStream);
+
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Xlsx);
+var workbookBytes = workbookStream.ToArray();
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var slideSize = presentation.SlideSize.Size;
+
+// Az előnézetet a dián belül elhelyezi a képarány megváltoztatása nélkül.
+var scale = Math.Min(slideSize.Width / chartImage.Width, slideSize.Height / chartImage.Height);
+var frameWidth = chartImage.Width * scale;
+var frameHeight = chartImage.Height * scale;
+var frameX = (slideSize.Width - frameWidth) / 2;
+var frameY = (slideSize.Height - frameHeight) / 2;
+
+var embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+var previewImage = presentation.Images.AddImage(chartImage);
+oleFrame.SubstitutePictureFormat.Picture.Image = previewImage;
+
+presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-A fenti módszerrel létrehozott prezentáció tartalmazni fogja az Excel-diagramot OLE objektumként, amely a OLE objektumkeret duplakattintásával aktiválható.
+## **Várható Eredmény**
 
-## **Összegzés**
+A `OutputChart.pptx` egy diát tartalmaz, amely beágyazott Excel munkafüzettel és egy diagram előnézettel rendelkezik. A munkafüzet az eredeti adatokat és egy négy sorozatú oszlopdiagramot tartalmaz. Az előnézet a dián középre van helyezve, és megtartja arányait.  
 
-Az Aspose.Cells for .NET és az Aspose.Slides for .NET együttes használatával létrehozhatunk bármilyen, az Aspose.Cells által támogatott Excel-diagramot, és beágyazhatjuk a diagramot OLE objektumként egy PowerPoint diára. Az Excel-diagram OLE mérete is meghatározható. A végfelhasználók ezután a Excel-diagramot a többi OLE objektumhoz hasonlóan szerkeszthetik.
+![Excel oszlopdiagram, amely beágyazott munkafüzet előnézeteként jelenik meg](excel-chart-ole-preview.png)  
+
+Kompatibilis asztali PowerPoint környezetben, ahol az Excel elérhető, duplán kattintson az objektumra az aktiváláshoz és a beágyazott munkafüzet szerkesztéséhez. Az aktiválás és a szerkesztés a gazda alkalmazás OLE‑támogatásától és biztonsági beállításaitól függ.  
+
+## **GYIK**
+
+**Miért szükséges előnézeti kép?**  
+A beágyazott munkafüzet és a dián lévő előnézet különálló tartalom. Adj meg egy diagramképet, így a dia a diagramot jeleníti meg az alapértelmezett "EMBEDDED OLE OBJECT" helyőrző helyett. Lásd a [Object Preview Issue when Adding OleObjectFrame](/slides/hu/net/object-preview-issue-when-adding-oleobjectframe/).  
+
+**Frissül automatikusan az előnézet, ha a kódban módosítom a munkafüzetet?**  
+Kezeld az előnézetet egy pillanatképként. Ha programozottan frissíted a munkafüzet adatait, újból generáld a diagramképet, és cseréld le az előnézetet, valamint a beágyazott munkafüzet adatát.  
+
+**Használhatok XLS‑et XLSX helyett?**  
+Igen. Mentse a munkafüzetet XLS formátumban, és használja az `xls` kiterjesztést a beágyazott adatként. A kiterjesztésnek meg kell egyeznie a tényleges munkafüzet formátummal; csak a kiterjesztés megváltoztatása nem konvertálja az adatot.  
+
+**Miért változhat meg az objektum mérete aktiválás után?**  
+A gazda alkalmazás frissítheti az OLE objektum megjelenését, amikor aktiválja a munkafüzetet. A munkafüzet OLE megjelenítési tartománya és a diakeret méretei egyaránt fontosak. Lásd a [Working Solution for Chart Resizing in PPTX](/slides/hu/net/working-solution-for-chart-resizing-in-pptx/).  
 
 ## **Kapcsolódó szakaszok**
 
-- [Működő megoldás a diagram átméretezésére PPTX-ben](/slides/hu/net/working-solution-for-chart-resizing-in-pptx/)
-- [Objektum előnézeti probléma OleObjectFrame hozzáadásakor](/slides/hu/net/object-preview-issue-when-adding-oleobjectframe/)
-- [OLE-objektumok automatikus frissítése PowerPoint kiegészítő használatával](/slides/hu/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Working Solution for Chart Resizing in PPTX](/slides/hu/net/working-solution-for-chart-resizing-in-pptx/)
+- [Object Preview Issue when Adding OleObjectFrame](/slides/hu/net/object-preview-issue-when-adding-oleobjectframe/)
+- [Update OLE Objects Automatically Using a PowerPoint Add-In](/slides/hu/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

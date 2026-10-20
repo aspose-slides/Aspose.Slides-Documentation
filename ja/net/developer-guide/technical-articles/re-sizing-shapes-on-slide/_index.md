@@ -1,174 +1,151 @@
 ---
-title: .NET のプレゼンテーション スライド上のシェイプサイズ変更
+title: .NET でプレゼンテーション スライドのシェイプをリサイズ
 type: docs
 weight: 130
-url: /ja/net/re-sizing-shapes-on-slide/
+url: /ja/net/resizing-shapes-on-slide/
+aliases:
+  - /ja/net/re-sizing-shapes-on-slide/
+  /net/re-sizing-shapes-on-slide/
 keywords:
 - シェイプのサイズ変更
 - シェイプサイズの変更
 - PowerPoint
 - OpenDocument
-- プレゼンテーション
+- presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument のスライド上のシェイプを簡単にサイズ変更し、スライドレイアウトの調整を自動化して生産性を向上させます。"
+description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument のスライド上のシェイプを簡単にリサイズできます。スライドレイアウトの調整を自動化し、生産性を向上させます。"
 ---
-
 ## **概要**
 
-Aspose.Slides for .NET のお客様から最もよくある質問のひとつは、スライドサイズが変更されたときにデータが切り取られないようにシェイプのサイズを変更する方法です。この短い技術記事では、その手順を示します。
+プレゼンテーションのスライドサイズを変更すると、新しいサイズに合わせてシェイプのサイズ変更や位置再設定が必要になる場合があります。本記事では、シェイプを手動で拡大縮小する方法と、スライド、マスター、レイアウト上のテーブルの扱い方を示します。
 
 ## **シェイプのサイズ変更**
 
-スライドサイズが変更されたときにシェイプがずれないようにするには、各シェイプの位置とサイズを新しいスライドレイアウトに合わせて更新します。
-```c#
- // プレゼンテーション ファイルを読み込みます。
-using (Presentation presentation = new Presentation("sample.pptx"))
+各シェイプの相対的な位置とサイズを維持するには、水平座標と幅に新しいスライド幅と元の幅の比率を掛けます。垂直座標と高さには、対応する高さの比率を掛けます。
+
+最初の例は、テーブルを含まないスライドを持つプレゼンテーションを読み込み、スライドサイズを A4 に変更し、結果を保存します。[SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) を [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) と共に使用し、以降のループで拡大縮小を制御します。比率は単位を持たず、シェイプの位置とサイズはポイントで測定されます。幅と高さの比率が異なるとシェイプが歪み、シェイプのサイズを変更してもフォントサイズは拡大縮小されません。
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// 独立した水平および垂直の拡大縮小係数を計算します。
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+foreach (var slide in presentation.Slides)
 {
-    // 元のスライドサイズを取得します。
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
-
-    // 既存のシェイプをスケーリングせずにスライドサイズを変更します。
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-
-    // 新しいスライドサイズを取得します。
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    // すべてのスライドでシェイプのサイズと位置をリサイズします。
-    foreach (ISlide slide in presentation.Slides)
+    foreach (var shape in slide.Shapes)
     {
-        foreach (IShape shape in slide.Shapes)
-        {
-            // シェイプのサイズをスケールします。
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // シェイプの位置をスケールします。
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
     }
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
 }
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-
-{{% alert color="primary" %}}
-スライドにテーブルが含まれている場合、上記のコードは正しく動作しません。その場合は、テーブル内の各セルのサイズを変更する必要があります。
+{{% alert color="info" title="Note" %}}
+テーブルは別途処理が必要です：テーブル全体の幅と高さを設定するのではなく、列幅と行高さを拡大縮小します。セルの内容がより多くのスペースを必要とする場合、行の高さは要求されたより大きくなることがあります。
 {{% /alert %}}
 
-テーブルを含むスライドのサイズを変更するには、以下のコードを使用してください。テーブルの場合、幅または高さを設定するのは特別なケースであり、テーブル全体のサイズを変更するには個々の行の高さと列の幅を調整する必要があります。
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+2 番目の例はテーブルをサポートし、個々のスライドだけでなくマスターとレイアウト上のシェイプも処理してから、サイズ変更したプレゼンテーションを保存します。そのヘルパーは各 [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) を [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) と [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) を拡大縮小して処理します。その後、テーブル全体のサイズを個別に拡大縮小することなく、テーブルの位置を拡大縮小します。
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// 独立した水平および垂直の拡大縮小係数を計算します。
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// マスターとレイアウト、そして個々のスライドに定義されたシェイプをリサイズします。
+foreach (var master in presentation.Masters)
 {
-    // 元のスライドサイズを取得します。
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // 既存のシェイプをスケーリングせずにスライドサイズを変更します。
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // 新しいスライドサイズを取得します。
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // シェイプのサイズをスケールします。
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // シェイプの位置をスケールします。
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // テーブルの寸法は列幅と行高さで制御されます。
+            foreach (var column in table.Columns)
             {
-                // シェイプのサイズをスケールします。
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // シェイプの位置をスケールします。
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // シェイプのサイズをスケールします。
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // シェイプの位置をスケールします。
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
+## **よくある質問**
 
-## **FAQ**
+**スライドのサイズを変更した後、シェイプが歪んだり切れたりするのはなぜですか？**
 
-**スライドのサイズ変更後にシェイプが歪んだり切り取られたりするのはなぜですか？**
-
-スライドのサイズを変更すると、スケールが明示的に変更されない限り、シェイプは元の位置とサイズのままです。そのため、コンテンツが切り取られたりシェイプがずれたりすることがあります。
+スライドサイズを変更してシェイプを拡大縮小しないと、シェイプは元の位置とサイズのまま残り、スライドの外側にはみ出す可能性があります。幅と高さの比率が異なるとシェイプも歪みます。
 
 **提供されたコードはすべてのシェイプタイプで動作しますか？**
 
-基本的な例はほとんどのシェイプタイプ（テキストボックス、画像、チャートなど）で機能します。ただし、テーブルの場合はセルごとのサイズがテーブル全体の幅と高さを決定するため、行と列を個別に処理する必要があります。
+最初の例はシェイプの境界を直接変更し、テーブルを含まないスライドを対象としています。2 番目の例はテーブルを別途処理します。これらの例はフォントサイズを拡大縮小しないため、特にテキストやテーブルのレイアウトを確認してください。
 
-**スライドのサイズ変更時にテーブルのサイズを変更するにはどうすればよいですか？**
+**スライドのサイズ変更時にテーブルをどのようにリサイズすればよいですか？**
 
-テーブルのすべての行と列をループし、2 番目のコード例に示すように高さと幅を比例して変更する必要があります。
+列幅は幅の比率で、行の最小高さは高さの比率で拡大縮小し、最後にテーブル全体の位置を拡大縮小します。これは 2 番目の例に示されています。
 
-**このサイズ変更はマスタースライドやレイアウトスライドでも機能しますか？**
+**このリサイズはマスタースライドやレイアウトスライドでも機能しますか？**
 
-はい、ただし [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) と [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) もループし、同じスケーリングロジックをシェイプに適用してプレゼンテーション全体の一貫性を保つ必要があります。
+はい。2 番目の例は [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) と各マスターの [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) を走査し、同じリサイズロジックをシェイプに適用します。
 
-**スライドの向き（縦/横）もサイズ変更と同時に変更できますか？**
+**スライドの向き（縦向き/横向き）をリサイズと同時に変更できますか？**
 
-はい。[presentation.SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/islidesize/orientation/) を設定して向きを変更できます。レイアウトを保つためにスケーリングロジックも合わせて設定してください。
+はい。スライドサイズを変更した後、対象の寸法を取得する前に [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) を設定すれば、拡大縮小係数が最終的な向きを反映します。
 
 **設定できるスライドサイズに上限はありますか？**
 
-Aspose.Slides はカスタムサイズをサポートしていますが、非常に大きなサイズはパフォーマンスや一部の PowerPoint バージョンとの互換性に影響を与える可能性があります。
+[SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) を使用してカスタムスライド寸法を指定できます。サポートされる寸法はプレゼンテーションの形式やファイルを開くアプリケーションにも依存します。
 
-**固定アスペクト比のシェイプが歪むのを防ぐにはどうすればよいですか？**
+**固定アスペクト比を持つシェイプが歪むのを防ぐにはどうすればよいですか？**
 
-スケーリング前にシェイプの `AspectRatioLocked` プロパティを確認してください。ロックされている場合は、幅や高さを個別にスケーリングするのではなく、比例して調整します。
+幅と高さに同じ拡大縮小係数を使用します。元のレイアウトを新しいスライド寸法に収めるには、幅比率と高さ比率のうち小さい方を両方の寸法と位置に適用します。これにより比例は保たれますが、片側に未使用領域が残ることがあります。

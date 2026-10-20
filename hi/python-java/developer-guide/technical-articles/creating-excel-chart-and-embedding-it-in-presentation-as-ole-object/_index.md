@@ -1,38 +1,48 @@
 ---
-title: Excel चार्ट बनाएं और उन्हें प्रेजेंटेशन में OLE ऑब्जेक्ट के रूप में एंबेड करें
+title: Excel चार्ट बनाएं और उन्हें प्रस्तुतियों में OLE ऑब्जेक्ट के रूप में एम्बेड करें
 type: docs
 weight: 30
 url: /hi/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
 - Excel चार्ट
-- चार्ट एंबेड करें
+- चार्ट एम्बेड करें
 - OLE ऑब्जेक्ट
 - PowerPoint
-- OpenDocument
-- प्रेजेंटेशन
+- प्रस्तुति
 - Python
 - Java
 - Aspose.Slides
-description: "Python के साथ Excel चार्ट बनाएं और उन्हें PowerPoint और OpenDocument प्रेजेंटेशन में OLE ऑब्जेक्ट के रूप में एंबेड करें। कोड नमूने सहित चरण-दर-चरण गाइड।"
+description: "Aspose.Cells for Python via Java का उपयोग करके एक Excel चार्ट बनाएं और Aspose.Slides के साथ PowerPoint प्रस्तुति में वर्कबुक को एम्बेड करें, जिसमें चार्ट का प्रीव्यू शामिल है।"
 ---
-## **पृष्ठभूमि**
+## **अवलोकन**
 
-PowerPoint में, डेटा को ग्राफ़िक रूप से प्रदर्शित करने के लिए संपादन योग्य चार्ट्स का उपयोग एक सामान्य प्रथा है। Aspose, Aspose.Cells for Python via Java के साथ Excel चार्ट बनाने का समर्थन करता है, और इन चार्ट्स को फिर Aspose.Slides for Python via Java के माध्यम से PowerPoint स्लाइड्स में OLE ऑब्जेक्ट के रूप में एंबेड किया जा सकता है। यह लेख आवश्यक चरणों को कवर करता है और Aspose.Cells और Aspose.Slides का उपयोग करके Excel चार्ट बनाने और उसे PowerPoint प्रेजेंटेशन में OLE ऑब्जेक्ट के रूप में एंबेड करने के लिए एक Python कोड उदाहरण प्रदान करता है।
+यह लेख दिखाता है कि Aspose.Cells for Python via Java के साथ Excel कॉलम चार्ट कैसे बनाया जाए और इसे Aspose.Slides for Python via Java के साथ PowerPoint प्रस्तुति में एम्बेड किया जाए। एम्बेडेड वर्कबुक में स्रोत डेटा और चार्ट दोनों होते हैं। एक अलग PNG प्रीव्यू स्लाइड पर चार्ट को दिखाता है, इससे पहले कि OLE ऑब्जेक्ट सक्रिय हो।
 
-## **आवश्यक चरण**
+परिणाम एक एम्बेडेड Excel ऑब्जेक्ट होता है, न कि मूल PowerPoint चार्ट। OLE के माध्यम से वर्कबुक को संपादित करने के लिए एक डेस्कटॉप एप्लिकेशन चाहिए जो OLE सक्रियण का समर्थन करता हो और संगत Excel इंस्टॉलेशन हो।
 
-PowerPoint स्लाइड में Excel चार्ट को OLE ऑब्जेक्ट के रूप में बनाने और एंबेड करने के लिए निम्न क्रम में चरणों की आवश्यकता है:
+## **आवश्यकताएँ**
 
-1. Aspose.Cells का उपयोग करके Excel चार्ट बनाएं।
-1. Aspose.Cells का उपयोग करके Excel चार्ट का OLE आकार सेट करें।
-1. Aspose.Cells से Excel चार्ट की छवि प्राप्त करें।
-1. Aspose.Slides का उपयोग करके Excel चार्ट को PPTX प्रेजेंटेशन में OLE ऑब्जेक्ट के रूप में एंबेड करें।
-1. स्टेप 3 में प्राप्त छवि के साथ "EMBEDDED OLE OBJECT" छवि को बदलें ताकि [ऑब्जेक्ट पूर्वावलोकन समस्या](/slides/hi/python-java/object-preview-issue-when-adding-oleobjectframe/) को हल किया जा सके।
-1. प्रेजेंटेशन को डिस्क पर PPTX फ़ॉर्मेट में सहेजें।
+`aspose-cells` और `aspose-slides-java` Python पैकेज और एक संगत Java रनटाइम स्थापित करें। दोनों पैकेज को JVM शुरू करने से पहले इम्पोर्ट करें ताकि उनके Java लाइब्रेरी JPype के लिए उपलब्ध हों। इन लाइब्रेरीज़ के साथ प्रस्तुति उत्पन्न करने के लिए Microsoft Office की आवश्यकता नहीं है।
 
-## **आवश्यक चरणों का कार्यान्वयन**
+कोई इनपुट फ़ाइल आवश्यक नहीं है: उदाहरण डेटा और चार्ट को मेमोरी में बनाता है, फिर `OutputChart.pptx` को वर्तमान कार्य निर्देशिका में लिखता है। मूल्यांकन मोड के बाहर चलाते समय दोनों उत्पादों के लिए लाइसेंस लागू करें।
 
-उपरोक्त चरणों की Python कार्यान्वयन इस प्रकार है:
+## **एम्बेडिंग कैसे काम करती है**
+
+1. डेटा कार्यपत्रक और चार्ट शीट के साथ एक वर्कबुक बनाएं।
+2. चार्ट शीट को सक्रिय करें ताकि वर्कबुक चार्ट पर खुले।
+3. वर्कबुक की OLE डिस्प्ले रेंज सेट करें और चार्ट को PNG में रेंडर करें।
+4. वर्कबुक को मेमोरी में XLSX के रूप में सहेजें और उन बाइट्स को स्लाइड में एम्बेड करें।
+5. PNG को OLE ऑब्जेक्ट के प्रीव्यू के रूप में असाइन करें और प्रस्तुति को PPTX के रूप में सहेजें।
+
+वर्कबुक डिस्प्ले रेंज और स्लाइड पर फ्रेम की अलग-अलग भूमिकाएँ होती हैं। [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) शून्य-आधारित प्रारंभ/समाप्ति पंक्ति और स्तंभ सूचकांक लेता है। [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) इसके बजाय शीर्ष पंक्ति, बायाँ स्तंभ, निचली पंक्ति और दायाँ स्तंभ लेता है। उदाहरण में पंक्ति सूचकांक 55 और स्तंभ सूचकांक 25 को निचले-दाएँ सीमाओं के रूप में उपयोग किया गया है; ये मान लेआउट विकल्प हैं, न कि डेटा पंक्तियों या स्तंभों की संख्या।
+
+स्लाइड फ्रेम पॉइंट्स में होता है। उदाहरण इसे स्लाइड के भीतर फिट करता है और केंद्रित करता है जबकि PNG के अनुपात को बनाए रखता है, बजाय इसके कि प्रीव्यू को स्लाइड भरने के लिए खींचा जाए।
+
+## **चार्ट बनाएं और एम्बेड करें**
+
+नीचे दिया गया पूर्ण उदाहरण `DataSheet` को चार पंक्तियों और पाँच स्तंभों के मानों से भरता है। प्रत्येक पंक्ति एक चार्ट सीरीज़ बनती है। `ChartSheet` को वर्कबुक सहेजने से पहले सक्रिय शीट के रूप में चुना जाता है।
+
+वर्कबुक को स्पष्ट रूप से XLSX के रूप में सहेजा जाता है, जो `xlsx` एक्सटेन्शन के साथ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/) को पास किया जाता है। Java बाइट-एरे स्ट्रीम वर्कबुक और इमेज को मेमोरी में रखती हैं और Java API द्वारा आवश्यक बाइट एरे प्रदान करती हैं। PNG को उसके बाइट्स से सीधे लोड किया जाता है बिना किसी मध्यवर्ती बिटमैप रूपांतरण के। इसे [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) के माध्यम से असाइन करने से डिफ़ॉल्ट OLE प्लेसहोल्डर बदल जाता है।
 
 ```python
 import jpype
@@ -40,132 +50,110 @@ import asposecells
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpime.startJVM()
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # सेल नामों की एक सूची।
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # सेल डेटा की एक सूची।
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # डेटा के साथ कोशिकाओं को भरने के लिए एक नया वर्कशीट जोड़ें।
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # डेटा शीट को डेटा से भरें।
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # एक चार्ट शीट जोड़ें।
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # डेटा शीट से डेटा सीरीज़ के साथ चार्ट शीट में एक चार्ट जोड़ें।
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # चार्ट शीट को सक्रिय शीट सेट करें।
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # वर्कबुक को एम्बेडेड OLE डेटा के रूप में वर्णित करें।
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# वर्कबुक बनाएं।
 workbook = Workbook()
-
-# एक Excel चार्ट जोड़ें।
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# चार्ट का OLE आकार सेट करें।
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# चार्ट की छवि प्राप्त करें और उसे स्ट्रीम में सहेजें।
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# वर्कबुक को स्ट्रीम में सहेजें।
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# एक प्रेजेंटेशन बनाएं।
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # वर्कबुक को एक स्लाइड में जोड़ें।
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # प्रेजेंटेशन को डिस्क पर सहेजें।
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # चार्ट का प्रीव्यू रेंडर करें और संपादन योग्य वर्कबुक को अलग से सीरियलाइज़ करें।
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # प्रीव्यू को स्लाइड के भीतर फिट करें बिना उसके अनुपात को बदले।
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-उपरोक्त विधि द्वारा निर्मित प्रेजेंटेशन में Excel चार्ट OLE ऑब्जेक्ट के रूप में होगा, जिसे OLE ऑब्जेक्ट फ्रेम पर डबल-क्लिक करके सक्रिय किया जा सकता है।
+## **अपेक्षित परिणाम**
 
-## **निष्कर्ष**
+`OutputChart.pptx` में एक स्लाइड होती है जिसमें एम्बेडेड Excel वर्कबुक और चार्ट प्रीव्यू होता है। वर्कबुक में मूल डेटा और चार पंक्तियों वाला कॉलम चार्ट होता है। प्रीव्यू स्लाइड पर केंद्रित होता है और अपने अनुपात को बनाए रखता है।
 
-Aspose.Cells for Python via Java को Aspose.Slides for Python via Java के साथ उपयोग करके, हम Aspose.Cells द्वारा समर्थित कोई भी Excel चार्ट बना सकते हैं और चार्ट को PowerPoint स्लाइड में OLE ऑब्जेक्ट के रूप में एंबेड कर सकते हैं। Excel चार्ट का OLE आकार भी परिभाषित किया जा सकता है। अंत उपयोगकर्ता तब Excel चार्ट को किसी अन्य OLE ऑब्जेक्ट की तरह संपादित कर सकते हैं।
+![एक्सेल कॉलम चार्ट जो एम्बेडेड वर्कबुक के प्रीव्यू के रूप में दिखाया गया है](excel-chart-ole-preview.png)
+
+एक संगत डेस्कटॉप PowerPoint वातावरण में जहाँ Excel उपलब्ध है, ऑब्जेक्ट को डबल‑क्लिक करके एम्बेडेड वर्कबुक को सक्रिय और संपादित किया जा सकता है। सक्रियण और संपादन होस्ट एप्लिकेशन के OLE समर्थन और सुरक्षा सेटिंग्स पर निर्भर करता है।
+
+## **FAQ**
+
+**प्रिव्यू इमेज की आवश्यकता क्यों है?**
+
+एम्बेडेड वर्कबुक और उसकी स्लाइड प्रीव्यू अलग‑अलग सामग्री हैं। चार्ट इमेज प्रदान करने से स्लाइड पर डिफ़ॉल्ट "EMBEDDED OLE OBJECT" प्लेसहोल्डर के बजाय चार्ट दिखता है। देखें [ऑब्जेक्ट प्रीव्यू इश्यू जब OleObjectFrame जोड़ रहे हैं](/slides/hi/python-java/object-preview-issue-when-adding-oleobjectframe/)।
+
+**क्या कोड में वर्कबुक बदलने पर प्रीव्यू स्वचालित रूप से अपडेट होता है?**
+
+प्रीव्यू को स्नैपशॉट के रूप में माना जाता है। जब प्रोग्रामेटिक रूप से वर्कबुक डेटा अपडेट किया जाता है, तो चार्ट इमेज को फिर से जनरेट करना और प्रीव्यू तथा एम्बेडेड वर्कबुक डेटा दोनों को बदलना आवश्यक है।
+
+**क्या मैं XLS को XLSX की जगह उपयोग कर सकता हूँ?**
+
+हां। वर्कबुक को XLS फ़ॉर्मेट में सहेजें और एम्बेडेड डेटा एक्सटेन्शन के रूप में `xls` उपयोग करें। एक्सटेन्शन को वास्तविक वर्कबुक फ़ॉर्मेट से मेल खाना चाहिए; केवल एक्सटेन्शन बदलने से डेटा नहीं बदलता।
+
+**सक्रियण के बाद ऑब्जेक्ट का आकार क्यों बदल सकता है?**
+
+होस्ट एप्लिकेशन वर्कबुक सक्रिय होने पर OLE ऑब्जेक्ट की प्रस्तुति को अपडेट कर सकता है। वर्कबुक की OLE डिस्प्ले रेंज और स्लाइड फ्रेम आयाम दोनों ही महत्वपूर्ण हैं। देखें [पीपीटीएक्स में चार्ट रिसाइज़िंग के लिए कार्यकारी समाधान](/slides/hi/python-java/working-solution-for-chart-resizing-in-pptx/)।
 
 ## **संबंधित अनुभाग**
 
-- [PPTX में चार्ट आकार बदलने के लिए कार्यशील समाधान](/slides/hi/python-java/working-solution-for-chart-resizing-in-pptx/)
-- [OleObjectFrame जोड़ते समय ऑब्जेक्ट पूर्वावलोकन समस्या](/slides/hi/python-java/object-preview-issue-when-adding-oleobjectframe/)
-
-## **अक्सर पूछे जाने वाले प्रश्न**
-
-**Excel चार्ट बनाने और एंबेड करने के लिए कौन सी लाइब्रेरीज़ उपयोग की जाती हैं?**
-
-Aspose.Cells for Python via Java Excel चार्ट बनाता है, और Aspose.Slides for Python via Java इसे PowerPoint स्लाइड में OLE ऑब्जेक्ट के रूप में एंबेड करता है।
-
-**उपयोगकर्ता एंबेड किए गए Excel चार्ट को कैसे संपादित कर सकते हैं?**
-
-उपयोगकर्ता OLE ऑब्जेक्ट फ्रेम पर डबल-क्लिक करके चार्ट को सक्रिय कर सकते हैं और इसे किसी अन्य OLE ऑब्जेक्ट की तरह संपादित कर सकते हैं।
-
-**डिफ़ॉल्ट OLE ऑब्जेक्ट पूर्वावलोकन को कैसे बदलते हैं?**
-
-उदाहरण Aspose.Cells से Excel चार्ट की छवि प्राप्त करता है और इसे "EMBEDDED OLE OBJECT" छवि को बदलने के लिए उपयोग करता है।
+- [पीपीटीएक्स में चार्ट रिसाइज़िंग के लिए कार्यकारी समाधान](/slides/hi/python-java/working-solution-for-chart-resizing-in-pptx/)
+- [ऑब्जेक्ट प्रीव्यू इश्यू जब OleObjectFrame जोड़ रहे हैं](/slides/hi/python-java/object-preview-issue-when-adding-oleobjectframe/)

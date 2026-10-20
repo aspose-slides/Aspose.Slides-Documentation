@@ -1,5 +1,5 @@
 ---
-title: Excel चार्ट बनाएं और उन्हें OLE ऑब्जेक्ट के रूप में प्रस्तुतियों में एम्बेड करें
+title: "Excel चार्ट बनाएं और उन्हें प्रस्तुति में OLE ऑब्जेक्ट के रूप में एम्बेड करें"
 type: docs
 weight: 30
 url: /hi/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
@@ -8,145 +8,164 @@ keywords:
 - चार्ट एम्बेड करें
 - OLE ऑब्जेक्ट
 - PowerPoint
-- OpenDocument
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Java के साथ Excel चार्ट बनाएं और उन्हें PowerPoint और OpenDocument प्रस्तुतियों में OLE ऑब्जेक्ट के रूप में एम्बेड करें। चरण-दर-चरण मार्गदर्शिका कोड नमूनों के साथ."
+description: "Aspose.Cells for Java के साथ एक Excel चार्ट बनाएं और Aspose.Slides के साथ PowerPoint प्रस्तुति में वर्कबुक को एम्बेड करें, जिसमें चार्ट का प्रीव्यू शामिल हो।"
 ---
-## **पृष्ठभूमि**
+## **अवलोकन**
 
-PowerPoint में, डेटा को ग्राफ़िकल रूप से प्रदर्शित करने के लिए संपादन योग्य चार्ट का उपयोग सामान्य प्रथा है। Aspose, Aspose.Cells for Java के साथ Excel चार्ट बनाने का समर्थन करता है, और इन चार्ट को फिर Aspose.Slides for Java के माध्यम से PowerPoint स्लाइड्स में OLE वस्तुओं के रूप में सम्मिलित किया जा सकता है। यह लेख आवश्यक चरणों को कवर करता है और Java कोड नमूने प्रदान करता है जो Aspose.Cells और Aspose.Slides का उपयोग करके Excel चार्ट बनाने और उसे PowerPoint प्रस्तुति में OLE वस्तु के रूप में सम्मिलित करता है।
+यह लेख दिखाता है कि Aspose.Cells for Java के साथ एक Excel कॉलम चार्ट कैसे बनाएं और उसके वर्कबुक को Aspose.Slides for Java के साथ एक PowerPoint प्रस्तुति में एम्बेड करें। एम्बेडेड वर्कबुक में स्रोत डेटा और चार्ट दोनों शामिल होते हैं। एक अलग PNG प्रीव्यू स्लाइड पर चार्ट को दिखाता है इससे पहले कि OLE ऑब्जेक्ट सक्रिय किया जाए।
 
-## **आवश्यक चरण**
+परिणाम एक एम्बेडेड Excel ऑब्जेक्ट है, न कि मूल PowerPoint चार्ट। OLE के माध्यम से वर्कबुक को संपादित करने के लिए एक डेस्कटॉप एप्लिकेशन चाहिए जो OLE सक्रियण का समर्थन करता हो और एक संगत Excel इंस्टॉलेशन हो।
 
-1. Aspose.Cells का उपयोग करके Excel चार्ट बनाएँ।  
-2. Aspose.Cells का उपयोग करके Excel चार्ट का OLE आकार सेट करें।  
-3. Aspose.Cells के साथ Excel चार्ट की छवि प्राप्त करें।  
-4. Aspose.Slides का उपयोग करके PPTX प्रस्तुति में Excel चार्ट को OLE वस्तु के रूप में एम्बेड करें।  
-5. चरण 3 में प्राप्त छवि के साथ "EMBEDDED OLE OBJECT" छवि को बदलें ताकि [object preview issue](/slides/hi/java/object-preview-issue-when-adding-oleobjectframe/) को संबोधित किया जा सके।  
-6. प्रस्तुति को PPTX स्वरूप में डिस्क पर सहेजें।
+## **पूर्वापेक्षाएँ**
 
-## **आवश्यक चरणों का कार्यान्वयन**
+अपने प्रोजेक्ट निर्भरताओं में Aspose.Cells for Java और Aspose.Slides for Java जोड़ें। उदाहरण को एक Java मेथड के भीतर चलाएँ। इन लाइब्रेरीज़ के साथ प्रस्तुति उत्पन्न करने के लिए Microsoft Office की आवश्यकता नहीं है।
 
-उपरोक्त चरणों का Java कार्यान्वयन निम्नलिखित है:
+कोई इनपुट फ़ाइल आवश्यक नहीं है: उदाहरण डेटा और चार्ट को मेमोरी में बनाता है, फिर `OutputChart.pptx` को वर्तमान कार्य निर्देशिका में लिखता है। मूल्यांकन मोड के बाहर चलाते समय दोनों उत्पादों के लिए लाइसेंस लागू करें।
 
-```java
-// एक वर्कबुक बनाएं.
-Workbook workbook = new Workbook();
+## **एम्बेडिंग कैसे कार्य करता है**
 
-// एक Excel चार्ट जोड़ें.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+1. डेटा वर्कशीट और चार्ट शीट के साथ एक वर्कबुक बनाएं।  
+2. चार्ट शीट को सक्रिय करें ताकि वर्कबुक चार्ट पर खुले।  
+3. वर्कबुक की OLE डिस्प्ले रेंज सेट करें और चार्ट को PNG में रेंडर करें।  
+4. वर्कबुक को मेमोरी में XLSX के रूप में सहेजें और उन बाइट्स को स्लाइड में एम्बेड करें।  
+5. PNG को OLE ऑब्जेक्ट का प्रीव्यू असाइन करें और प्रस्तुति को PPTX के रूप में सहेजें।  
 
-// चार्ट का OLE आकार सेट करें.
-workbook.getWorksheets().setOleSize(0, chartRows, 0, chartCols);
+वर्कबुक डिस्प्ले रेंज और स्लाइड पर फ्रेम की अलग-अलग भूमिकाएँ होती हैं। [setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) शून्य-आधारित प्रारम्भ/समाप्ति पंक्ति और स्तम्भ सूचकांक लेता है। [ChartCollection.add](https://reference.aspose.com/cells/java/com.aspose.cells/chartcollection/#add-int-int-int-int-int-) इसके बजाय शीर्ष पंक्ति, बायाँ स्तम्भ, नीचे की पंक्ति और दायाँ स्तम्भ लेता है। उदाहरण पंक्ति सूचकांक 55 और स्तम्भ सूचकांक 25 को निचले‑दाएँ सीमा के रूप में उपयोग करता है; ये मान लेआउट विकल्प हैं, न कि डेटा पंक्तियों या स्तम्भों की संख्या।  
 
-// चार्ट छवि प्राप्त करें और उसे स्ट्रीम में सहेजें.
-com.aspose.cells.ImageOrPrintOptions printOptions = new com.aspose.cells.ImageOrPrintOptions();
-printOptions.setImageFormat(com.aspose.cells.ImageFormat.getPng());
-ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
-workbook.getWorksheets().get(chartSheetIndex).getCharts().get(0).toImage(imageStream, printOptions);
+स्लाइड फ्रेम पॉइंट्स में मापा जाता है। उदाहरण इसे स्लाइड के भीतर फिट करता है और केंद्र में रखता है जबकि PNG के अनुपात को बरकरार रखता है, बजाय प्रीव्यू को स्लाइड भरने के लिए विस्तारित करने के।
 
-// वर्कबुक को स्ट्रीम में सहेजें.
-ByteArrayOutputStream workbookStream = new ByteArrayOutputStream(); 
-workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
+## **चार्ट बनाना और एम्बेड करना**
 
-// एक प्रस्तुति बनाएं.
-Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
+निम्नलिखित पूर्ण उदाहरण `DataSheet` को चार पंक्तियों और पाँच स्तम्भों के मानों से भरता है। प्रत्येक पंक्ति एक चार्ट श्रृंखला बनती है। वर्कबुक को सहेजने से पहले `ChartSheet` को सक्रिय शीट के रूप में चुना जाता है।  
 
-// वर्कबुक को स्लाइड में जोड़ें.
-AddExcelChartInPresentation(presentation, slide, workbookStream.toByteArray(), imageStream.toByteArray());
-
-// प्रस्तुति को डिस्क पर सहेजें.
-presentation.save("OutputChart.pptx", SaveFormat.Pptx);
-presentation.dispose();
-```
+वर्कबुक को स्पष्ट रूप से XLSX के रूप में सहेजा जाता है, जो `xlsx` एक्सटेंशन से मेल खाता है जो [OleEmbeddedDataInfo](https://reference.aspose.com/slides/java/com.aspose.slides/oleembeddeddatainfo/) को पास किया गया है। PNG को उसके बाइट्स से सीधे लोड किया जाता है बिना किसी मध्यवर्ती बिटमैप रूपांतरण के। इसे [getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) के माध्यम से असाइन करने से डिफॉल्ट OLE प्लेसहोल्डर बदल जाता है।
 
 ```java
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, byte[] workbookArray, byte[] chartImage) throws Exception
-{
-    double oleHeight = presentation.getSlideSize().getSize().getHeight();
-    double oleWidth = presentation.getSlideSize().getSize().getWidth();
- 
-    // EXCEL_97_TO_2003 LoadOptions ऑब्जेक्ट बनाएं।
-    com.aspose.cells.LoadOptions loadOptions = new com.aspose.cells.LoadOptions(com.aspose.cells.FileFormatType.EXCEL_97_TO_2003);         
-    Workbook workbook = new Workbook(new ByteArrayInputStream(workbookArray),loadOptions);
- 
-    IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(0f, 0f, (float)oleWidth, (float)oleHeight, "Excel.Sheet.8", workbookArray);
-    oleFrame.getSubstitutePictureFormat().getPicture().setImage(presentation.getImages().addImage(new ByteArrayInputStream(chartImage)));
-}
-```
+import com.aspose.cells.Chart;
+import com.aspose.cells.ChartType;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import static com.aspose.cells.SaveFormat.XLSX;
+import static com.aspose.slides.SaveFormat.Pptx;
+import com.aspose.cells.SheetType;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import com.aspose.slides.IImage;
+import com.aspose.slides.Images;
+import com.aspose.slides.IOleObjectFrame;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.OleEmbeddedDataInfo;
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayOutputStream;
 
-```java
-static int AddExcelChartInWorkbook(Workbook workbook, int chartRows, int chartCols)
-{
-    // सेल नामों की एक array.
-    String[] cellNames = new String[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+try {
+    Workbook workbook = new Workbook();
+    try {
+        Worksheet dataSheet = workbook.getWorksheets().get(0);
+        dataSheet.setName("DataSheet");
 
-    // सेल डेटा की एक array.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
+        int[][] values = {
+            { 67, 44, 46, 43, 24 },
+            { 86, 64, 97, 29, 40 },
+            { 68, 89, 78, 69, 38 },
+            { 91, 48, 60, 26, 25 }
+        };
 
-    // डेटा के साथ कोशिकाओं को भरने के लिए एक नया worksheet जोड़ें.
-    int dataSheetIndex = workbook.getWorksheets().add();
-    Worksheet dataSheet = workbook.getWorksheets().get(dataSheetIndex);
-    String sheetName = "DataSheet";
-    dataSheet.setName(sheetName);
+        for (int row = 0; row < values.length; row++) {
+            for (int column = 0; column < values[row].length; column++) {
+                dataSheet.getCells().get(row, column).putValue(values[row][column]);
+            }
+        }
 
-    // डेटा शीट को डेटा से पॉप्युलेट करें.
-    int size = Array.getLength(cellNames);
-    for (int i = 0; i < size; i++)
-    {
-        String cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.getCells().get(cellName).setValue(cellValue);
+        int chartSheetIndex = workbook.getWorksheets().add(SheetType.CHART);
+        Worksheet chartSheet = workbook.getWorksheets().get(chartSheetIndex);
+        chartSheet.setName("ChartSheet");
+
+        int lastChartRow = 55;
+        int lastChartColumn = 25;
+        int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, 0, lastChartRow, lastChartColumn);
+        Chart chart = chartSheet.getCharts().get(chartIndex);
+        for (int row = 1; row <= values.length; row++) {
+            chart.getNSeries().add("DataSheet!A" + row + ":E" + row, false);
+        }
+
+        workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
+        workbook.getWorksheets().setOleSize(0, lastChartRow, 0, lastChartColumn);
+
+        // चार्ट प्रीव्यू रेंडर करें और संपादन योग्य वर्कबुक को अलग से सीरियलाइज़ करें।
+        ImageOrPrintOptions imageOptions = new ImageOrPrintOptions();
+        imageOptions.setImageType(ImageType.PNG);
+        ByteArrayOutputStream chartImageStream = new ByteArrayOutputStream();
+        chart.toImage(chartImageStream, imageOptions);
+        byte[] chartImageBytes = chartImageStream.toByteArray();
+
+        ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
+        workbook.save(workbookStream, XLSX);
+        byte[] workbookBytes = workbookStream.toByteArray();
+
+        IImage chartImage = Images.fromData(chartImageBytes);
+        try {
+            Presentation presentation = new Presentation();
+            try {
+                ISlide slide = presentation.getSlides().get_Item(0);
+                double slideWidth = presentation.getSlideSize().getSize().getWidth();
+                double slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+                // स्लाइड के भीतर प्रीव्यू को फिट करें बिना उसके अनुपात को बदले।
+                double scale = Math.min(slideWidth / chartImage.getWidth(), slideHeight / chartImage.getHeight());
+                float frameWidth = (float) (chartImage.getWidth() * scale);
+                float frameHeight = (float) (chartImage.getHeight() * scale);
+                float frameX = (float) ((slideWidth - frameWidth) / 2);
+                float frameY = (float) ((slideHeight - frameHeight) / 2);
+
+                OleEmbeddedDataInfo embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+                IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+                IPPImage previewImage = presentation.getImages().addImage(chartImage);
+                oleFrame.getSubstitutePictureFormat().getPicture().setImage(previewImage);
+
+                presentation.save("OutputChart.pptx", Pptx);
+            } finally {
+                presentation.dispose();
+            }
+        } finally {
+            chartImage.dispose();
+        }
+    } finally {
+        workbook.dispose();
     }
-
-    // एक chart sheet जोड़ें.
-    int worksheetIndex = workbook.getWorksheets().add(SheetType.CHART);
-    Worksheet chartSheet = workbook.getWorksheets().get(worksheetIndex);
-    chartSheet.setName("ChartSheet");
-    int chartSheetIndex = chartSheet.getIndex();
-
-    // डेटा शीट से डेटा श्रृंखला के साथ chart sheet पर chart जोड़ें.
-    int chartIndex = chartSheet.getCharts().add(ChartType.COLUMN, 0, chartRows, 0, chartCols);
-    Chart chart = chartSheet.getCharts().get(chartIndex);
-    
-    chart.getNSeries().add(sheetName + "!A1:E1", false);
-    chart.getNSeries().add(sheetName + "!A2:E2", false);
-    chart.getNSeries().add(sheetName + "!A3:E3", false);
-    chart.getNSeries().add(sheetName + "!A4:E4", false);
-
-    // chart sheet को सक्रिय शीट के रूप में सेट करें.
-    workbook.getWorksheets().setActiveSheetIndex(chartSheetIndex);
-    return chartSheetIndex;
+} catch (Exception exception) {
+    System.err.println("Could not create the presentation: " + exception.getMessage());
 }
 ```
 
-उपरोक्त विधि द्वारा निर्मित प्रस्तुति में Excel चार्ट OLE वस्तु के रूप में शामिल होगा, जिसे OLE वस्तु फ्रेम पर डबल-क्लिक करके सक्रिय किया जा सकता है।
+## **अपेक्षित परिणाम**
 
-## **निष्कर्ष**
+`OutputChart.pptx` में एक स्लाइड है जिसमें एम्बेडेड Excel वर्कबुक और चार्ट का प्रीव्यू होता है। वर्कबुक में मूल डेटा और चार श्रृंखलाओं वाला कॉलम चार्ट होता है। प्रीव्यू स्लाइड के केंद्र में रहता है और अपने अनुपात को बरकरार रखता है।
 
-Aspose.Cells for Java को Aspose.Slides for Java के साथ उपयोग करके, हम Aspose.Cells द्वारा समर्थित कोई भी Excel चार्ट बना सकते हैं और उसे PowerPoint स्लाइड में OLE वस्तु के रूप में एम्बेड कर सकते हैं। Excel चार्ट का OLE आकार भी परिभाषित किया जा सकता है। अंत उपयोगकर्ता फिर Excel चार्ट को किसी अन्य OLE वस्तु की तरह संपादित कर सकते हैं।
+![एम्बेडेड वर्कबुक के प्रीव्यू के रूप में प्रदर्शित Excel कॉलम चार्ट](excel-chart-ole-preview.png)
+
+एक संगत डेस्कटॉप PowerPoint वातावरण में जहाँ Excel उपलब्ध है, ऑब्जेक्ट पर डबल‑क्लिक करें ताकि एम्बेडेड वर्कबुक सक्रिय हो और संपादित किया जा सके। सक्रियण और संपादन होस्ट एप्लिकेशन के OLE समर्थन और सुरक्षा सेटिंग्स पर निर्भर करता है।
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**प्रीव्यू इमेज की आवश्यकता क्यों है?**  
+एंबेडेड वर्कबुक और उसका स्लाइड प्रीव्यू अलग-अलग सामग्री हैं। एक चार्ट इमेज प्रदान करें ताकि स्लाइड डिफॉल्ट "EMBEDDED OLE OBJECT" प्लेसहोल्डर के बजाय चार्ट दिखाए। देखें [OleObjectFrame जोड़ते समय ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/java/object-preview-issue-when-adding-oleobjectframe/)।
+
+**क्या कोड में वर्कबुक बदलने पर प्रीव्यू स्वतः अपडेट हो जाता है?**  
+प्रीव्यू को एक स्नैपशॉट मानें। जब प्रोग्रामेटिक रूप से वर्कबुक डेटा अपडेट करते हैं, तो चार्ट इमेज को पुनः उत्पन्न करें और प्रीव्यू के साथ-साथ एम्बेडेड वर्कबुक डेटा को भी बदलें।
+
+**क्या मैं XLS को XLSX के बजाय उपयोग कर सकता हूँ?**  
+हां। वर्कबुक को XLS फॉर्मेट में सहेजें और एम्बेडेड डेटा एक्सटेंशन के रूप में `xls` उपयोग करें। एक्सटेंशन को वास्तविक वर्कबुक फॉर्मेट से मेल खाना चाहिए; केवल एक्सटेंशन बदलने से डेटा परिवर्तित नहीं होता।
+
+**सक्रियण के बाद ऑब्जेक्ट का आकार क्यों बदल सकता है?**  
+होस्ट एप्लिकेशन वर्कबुक को सक्रिय करने पर OLE ऑब्जेक्ट की प्रस्तुति को अपडेट कर सकता है। वर्कबुक की OLE डिस्प्ले रेंज और स्लाइड फ्रेम के आयाम दोनों महत्वपूर्ण हैं। देखें [PPTX में चार्ट रिसाइज़िंग के लिए कार्यशील समाधान](/slides/hi/java/working-solution-for-chart-resizing-in-pptx/)।
 
 ## **संबंधित अनुभाग**
 
-- [PPTX में चार्ट आकार बदलने के लिए कार्य समाधान](/slides/hi/java/working-solution-for-chart-resizing-in-pptx/)
-- [OleObjectFrame जोड़ते समय वस्तु पूर्वावलोकन समस्या](/slides/hi/java/object-preview-issue-when-adding-oleobjectframe/)
-- [PowerPoint ऐड-इन का उपयोग करके OLE वस्तुओं को स्वचालित रूप से अपडेट करना](/slides/hi/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [PPTX में चार्ट रिसाइज़िंग के लिए कार्यशील समाधान](/slides/hi/java/working-solution-for-chart-resizing-in-pptx/)
+- [OleObjectFrame जोड़ते समय ऑब्जेक्ट प्रीव्यू समस्या](/slides/hi/java/object-preview-issue-when-adding-oleobjectframe/)
+- [PowerPoint ऐड‑इन का उपयोग करके OLE ऑब्जेक्ट को स्वचालित रूप से अपडेट करें](/slides/hi/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

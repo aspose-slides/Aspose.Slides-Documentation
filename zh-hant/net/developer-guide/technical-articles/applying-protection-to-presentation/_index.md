@@ -1,66 +1,66 @@
 ---
-title: 在 .NET 中使用形狀鎖定防止簡報編輯
-linktitle: 防止簡報編輯
+title: 使用 Shape Locks 限制 .NET 中的簡報編輯
+linktitle: 限制簡報編輯
 type: docs
 weight: 70
 url: /zh-hant/net/applying-protection-to-presentation/
 keywords:
 - 防止編輯
-- 防止編輯
+- 防止被編輯
 - 鎖定形狀
 - 鎖定位置
 - 鎖定選取
-- 鎖定大小
+- 鎖定調整大小
 - 鎖定群組
 - PowerPoint
-- OpenDocument
+- PPTX
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "了解 Aspose.Slides for .NET 如何在 PPT、PPTX 與 ODP 檔案中鎖定或解除鎖定形狀，保護簡報安全，同時允許受控的編輯。"
+description: "了解如何使用 Aspose.Slides for .NET 在 PPTX 簡報中鎖定與解除鎖定形狀，以限制選取、移動、調整大小和群組操作。"
 ---
-## **Background**
+## **背景**
 
-Aspose.Slides 的常見用途是於自動化工作流程中建立、更新與儲存 Microsoft PowerPoint (PPTX) 簡報。以此方式使用 Aspose.Slides 的應用程式使用者能取得產生的簡報，因而保護其不被編輯是一項常見的顧慮。確保自動產生的簡報保留原始的格式與內容非常重要。
+Aspose.Slides for .NET 的常見用途之一是於自動化工作流程中建立、更新與儲存 PowerPoint (PPTX) 簡報。當使用者收到這些簡報時，限制形狀的變更可以協助維持預期的版面配置與內容。
 
-本文件說明簡報與投影片的結構，以及 Aspose.Slides for .NET 如何對簡報套用保護並在之後移除保護。它提供開發人員一種方式來控制應用程式產生的簡報的使用方式。
+本文說明形狀在投影片上的組織方式，以及如何在 PPTX 簡報中套用與移除形狀鎖定。這些鎖定讓您能限制對個別形狀的特定編輯操作。
 
-## **Composition of a Slide**
+## **投影片的組成**
 
-投影片由自動圖形、表格、OLE 物件、群組圖形、圖片框、影片框、連接線以及其他用於建構簡報的元件組成。在 Aspose.Slides for .NET 中，投影片上的每個元件皆以實作 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 介面的物件或繼承自該類別的物件表示。
+簡報投影片由自動圖形、表格、OLE 物件、群組形狀、圖片框、影片框、連接線以及其他用於建構簡報的元件組成。在 Aspose.Slides for .NET 中，投影片上的每個元件皆由實作 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) 介面或繼承自該類別的物件表示。
 
-PPTX 的結構相當複雜，與 PPT 不同，PPT 中可使用通用鎖定來處理所有類型的圖形，而 PPTX 必須針對不同的圖形類型使用不同的鎖定。[IBaseShapeLock](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ibaseshapelock/) 介面是 PPTX 的通用鎖定類別。Aspose.Slides for .NET 在 PPTX 中支援以下類型的鎖定：
+不同的形狀類型會公開不同的鎖定選項。[IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) 介面是形狀鎖定的基礎介面。Aspose.Slides for .NET 提供以下鎖定介面：
 
-- [IAutoShapeLock](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshapelock/) 鎖定自動圖形。  
-- [IConnectorLock](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iconnectorlock/) 鎖定連接線圖形。  
-- [IGraphicalObjectLock](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/igraphicalobjectlock/) 鎖定圖形物件。  
-- [IGroupShapeLock](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/igroupshapelock/) 鎖定群組圖形。  
-- [IPictureFrameLock](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframelock/) 鎖定圖片框。  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) 鎖定自動圖形。  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) 鎖定連接線形狀。  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) 鎖定圖形物件。  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) 鎖定群組形狀。  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) 鎖定圖片框。  
 
-對 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 物件中所有圖形物件執行的任何動作，都會套用至整個簡報。
+若要在整個 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 中套用鎖定，請遍歷其投影片，並對每個支援的形狀設定相應的鎖定。
 
-## **Apply and Remove Protection**
+## **套用與移除保護**
 
-套用保護可確保簡報無法被編輯。這是一種保護簡報內容的有效技術。
+形狀鎖定會限制選取、移動與調整大小等操作，但不會使整個簡報無法編輯。
 
-### **Apply Protection to PPTX Shapes**
+### **套用 PPTX 形狀保護**
 
-Aspose.Slides for .NET 提供 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 介面以操作投影片上的圖形。
+Aspose.Slides for .NET 提供 [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) 介面以在投影片上操作形狀。
 
-如前所述，每個圖形類別都有對應的圖形鎖定類別以實現保護。本文聚焦於 NoSelect、NoMove 與 NoResize 鎖定。這些鎖定確保圖形無法被選取（透過滑鼠點擊或其他選取方式），也無法被移動或調整大小。
+範例將 [SelectLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/selectlocked/)、[PositionLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/positionlocked/) 與 [SizeLocked](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/sizelocked/) 設為 `true` 以鎖定自動圖形，並對群組形狀、連接線與圖片框套用等效的鎖定。連接線使用 [PositionMove](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/positionmove/) 來限制移動；群組同時使用 [GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/) 以限制群組操作。
 
-以下程式碼範例會對簡報中的所有圖形類型套用保護。
+範例會載入現有的 PPTX 簡報，檢查每張投影片的形狀集合，並儲存套用這些限制的副本。未屬於上述四種處理類型的形狀則保持不變。此迴圈不會遍歷群組內的子形狀。
 
 ```cs
-// 實例化代表 PPTX 檔案的 Presentation 類別。
-using Presentation presentation = new Presentation("Sample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 遍歷簡報中的所有投影片。
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("Sample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // 遍歷投影片中的所有圖形。
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -90,23 +90,22 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// 儲存簡報檔案。
 presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 ```
 
-### **Remove Protection**
+### **移除保護**
 
-若要解除圖形的鎖定，只需將已套用的鎖定值設為 `false`。以下程式碼範例說明如何解除已鎖定簡報中的圖形。
+若要移除形狀鎖定，只需將其值設為 `false`。以下範例載入一個含有形狀鎖定的簡報，透過 [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/)、[IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/)、[IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) 與 [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) 清除選取、移動與調整大小的限制。它也會清除 [IGroupShapeLock.GroupingLocked](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/groupinglocked/)，並儲存簡報的副本。其他鎖定設定則保持不變。
 
 ```cs
-// 實例化代表 PPTX 檔案的 Presentation 類別。
-using Presentation presentation = new Presentation("ProtectedSample.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 遍歷簡報中的所有投影片。
-foreach (ISlide slide in presentation.Slides)
+using var presentation = new Presentation("ProtectedSample.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    // 遍歷投影片中的所有圖形。
-    foreach (IShape shape in slide.Shapes)
+    foreach (var shape in slide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
@@ -136,24 +135,23 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-// 儲存簡報檔案。
 presentation.Save("RemovedProtectionSample.pptx", SaveFormat.Pptx);
 ```
 
-### **Conclusion**
+### **結論**
 
-Aspose.Slides 提供多種方式來保護簡報中的圖形。您可以鎖定單一圖形，或遍歷簡報中的所有圖形並逐一鎖定，以有效保護整個檔案。若要移除保護，只需將鎖定值設為 `false`。
+Aspose.Slides for .NET 讓您能限制個別形狀的特定編輯操作，或在多張投影片上套用相同的限制。請選擇每種形狀類型支援的鎖定，並在需要移除限制時將其值設為 `false`。
 
-## **FAQ**
+## **常見問題**
 
-**Can I combine shape locks and password protection in the same presentation?**
+**我可以在同一簡報中同時使用形狀鎖定與密碼保護嗎？**
 
-可以。鎖定限制檔案內物件的編輯，而 [password protection](/slides/zh-hant/net/password-protected-presentation/) 控制開啟與/或儲存變更的權限。這兩種機制相輔相成，協同運作。
+可以。形狀鎖定會限制特定的編輯操作，而 [password protection](/slides/zh-hant/net/password-protected-presentation/) 則可限制開啟或修改簡報。您可以在同一檔案中同時使用兩者。
 
-**Can I restrict editing on specific slides without affecting others?**
+**我可以只限制特定投影片的編輯而不影響其他投影片嗎？**
 
-可以。對選取的投影片上的圖形套用鎖定，其他投影片仍可編輯。
+可以。僅對選取的投影片上的形狀套用鎖定，這不會改變其他投影片的鎖定設定。
 
-**Do shape locks apply to grouped objects and connectors?**
+**如何對群組內的個別形狀套用鎖定？**
 
-可以。對群組、連接線、圖形物件以及其他圖形類型皆支援專屬的鎖定類別。
+遍歷群組的 [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) 集合，並對每個子形狀套用相應的鎖定。對任何巢狀群組重複此程序。上述範例僅處理投影片的形狀集合，因此不會對個別群組成員設定鎖定。

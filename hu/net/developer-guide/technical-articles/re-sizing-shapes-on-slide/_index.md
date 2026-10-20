@@ -1,173 +1,151 @@
 ---
-title: Alakzatok átméretezése a prezentáció diákon .NET-ben
+title: Alakzatok átméretezése a bemutató diákon .NET-ben
 type: docs
 weight: 130
-url: /hu/net/re-sizing-shapes-on-slide/
+url: /hu/net/resizing-shapes-on-slide/
+aliases:
+  - /hu/net/re-sizing-shapes-on-slide/
+  /net/re-sizing-shapes-on-slide/
 keywords:
 - alakzat átméretezése
 - alakzat méretének módosítása
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - .NET
 - C#
 - Aspose.Slides
-description: "Könnyedén átméretezheti az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for .NET segítségével – automatizálja a diaterv módosítását és növelje a termelékenységet."
+description: "Könnyedén átméretezheti az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for .NET segítségével – automatizálja a diaelrendezés módosítását és növelje a hatékonyságot."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for .NET ügyfelei egyik leggyakoribb kérdése, hogy hogyan lehet átméretezni az alakzatokat úgy, hogy a diaméret változásakor az adatok ne vágódjanak le. Ez a rövid technikai cikk bemutatja, hogyan lehet ezt megvalósítani.
+Amikor megváltoztatja egy bemutató diaméreteit, előfordulhat, hogy át kell méretezni és át kell helyezni a benne lévő alakzatokat, hogy illeszkedjenek az új méretekhez. Ez a cikk bemutatja, hogyan skálázhatja az alakzatokat manuálisan, valamint hogyan kell kezelni a táblázatokat diákon, mestereken és elrendezéseken.
 
 ## **Alakzatok átméretezése**
 
-Az alakzatok eltolódásának megakadályozása érdekében, amikor a diaméret változik, frissíteni kell minden alakzat pozícióját és méreteit, hogy azok megfeleljenek az új diakiosztásnak.
+Az egyes alakzatok relatív pozíciójának és méretének megőrzéséhez szorozza meg a vízszintes koordinátákat és a szélességet az új dia szélességének és az eredeti szélességnek arányával. A magasságaránnyal szorozza meg a függőleges koordinátákat és a magasságot.
 
-```c#
- // Töltsd be a prezentációfájlt.
- using (Presentation presentation = new Presentation("sample.pptx"))
- {
-     // Szerezd meg az eredeti dia méretét.
-     float currentHeight = presentation.SlideSize.Size.Height;
-     float currentWidth = presentation.SlideSize.Size.Width;
+Az első példa betölti azt a bemutatót, amelynek diái nem tartalmaznak táblázatot, A4-re módosítja a dia méretét, és elmenti az eredményt. A [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) metódust a [SlideSizeScaleType.DoNotScale](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) értékkel használja, hogy a későbbi ciklus vezérelje a skálázást. Az arányok egység nélküli értékek; az alakzat pozíciói és méretei pontban vannak megadva. A különböző szélesség‑ és magasságarányok torzíthatják az alakzatokat, és az alakzat méretének módosítása nem skálázza a betűméreteket.
 
-     // Módosítsd a dia méretét a meglévő alakzatok méretezése nélkül.
-     presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-     // Szerezd meg az új dia méretét.
-     float newHeight = presentation.SlideSize.Size.Height;
-     float newWidth = presentation.SlideSize.Size.Width;
+using var presentation = new Presentation("sample.pptx");
 
-     float heightRatio = newHeight / currentHeight;
-     float widthRatio = newWidth / currentWidth;
+// Számítsa ki a független vízszintes és függőleges skálázási tényezőket.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
 
-     // Átméretezd és áthelyezd az alakzatokat minden dián.
-     foreach (ISlide slide in presentation.Slides)
-     {
-         foreach (IShape shape in slide.Shapes)
-         {
-             // Méretezd az alakzat méretét.
-             shape.Height *= heightRatio;
-             shape.Width *= widthRatio;
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        shape.Width *= widthRatio;
+        shape.Height *= heightRatio;
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
+}
 
-             // Méretezd az alakzat helyzetét.
-             shape.Y *= heightRatio;
-             shape.X *= widthRatio;
-         }
-     }
-
-     presentation.Save("output.pptx", SaveFormat.Pptx);
- }
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="primary" %}}
-Ha egy dián táblázat van, a fenti kód nem fog megfelelően működni. Ebben az esetben a táblázat minden celláját át kell méretezni.
+{{% alert color="info" title="Note" %}}
+A táblázatokat külön kell kezelni: a táblázat oszlopszélességeit és sormagasságait kell skálázni, nem a táblázat teljes szélességét és magasságát. A sormagasságok nagyobbak lehetnek a kért értéknél, ha a cellatartalom több helyet igényel.
 {{% /alert %}}
 
-Használja a következő kódot a saját oldalán, hogy átméretezze a táblázatot tartalmazó diákot. Táblázatok esetén a szélesség vagy magasság beállítása különleges eset: egyes sorok magasságát és oszlopok szélességét kell módosítani a táblázat teljes méretének megváltoztatásához.
+A második példa támogatja a táblázatokat, és a mestereken és elrendezéseken lévő alakzatokat is feldolgozza, mielőtt elmentené a átméretezett bemutatót. Segédprogramja minden [ITable](https://reference.aspose.com/slides/net/aspose.slides/itable/) esetén a [IColumn.Width](https://reference.aspose.com/slides/net/aspose.slides/icolumn/width/) és a [IRow.MinimalHeight](https://reference.aspose.com/slides/net/aspose.slides/irow/minimalheight/) skálázásával kezeli a táblázatot. Ezután a táblázat pozícióját skálázza anélkül, hogy a teljes méreteket külön skálázná.
 
-```c#
-using (Presentation presentation = new Presentation("sample.pptx"))
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("sample.pptx");
+
+// Számítsa ki a független vízszintes és függőleges skálázási tényezőket.
+var originalSize = presentation.SlideSize.Size;
+presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
+var targetSize = presentation.SlideSize.Size;
+var widthRatio = targetSize.Width / originalSize.Width;
+var heightRatio = targetSize.Height / originalSize.Height;
+
+// Átméretezze a mestereken és elrendezéseken, valamint az egyes diákon definiált alakzatokat.
+foreach (var master in presentation.Masters)
 {
-    // Szerezd meg az eredeti dia méretét.
-    float currentHeight = presentation.SlideSize.Size.Height;
-    float currentWidth = presentation.SlideSize.Size.Width;
+    ResizeShapes(master.Shapes, widthRatio, heightRatio);
 
-    // Módosítsd a dia méretét a meglévő alakzatok átméretezése nélkül.
-    presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
-    // presentation.SlideSize.Orientation = SlideOrienation.Portrait;
-
-    // Szerezd meg az új dia méretét.
-    float newHeight = presentation.SlideSize.Size.Height;
-    float newWidth = presentation.SlideSize.Size.Width;
-
-    float heightRatio = newHeight / currentHeight;
-    float widthRatio = newWidth / currentWidth;
-
-    foreach (IMasterSlide master in presentation.Masters)
+    foreach (var layoutSlide in master.LayoutSlides)
     {
-        foreach (IShape shape in master.Shapes)
-        {
-            // Méretezd az alakzat méretét.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
+        ResizeShapes(layoutSlide.Shapes, widthRatio, heightRatio);
+    }
+}
 
-            // Méretezd az alakzat helyzetét.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-        }
+foreach (var slide in presentation.Slides)
+{
+    ResizeShapes(slide.Shapes, widthRatio, heightRatio);
+}
 
-        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
+presentation.Save("output.pptx", SaveFormat.Pptx);
+
+static void ResizeShapes(IShapeCollection shapes, float widthRatio, float heightRatio)
+{
+    foreach (var shape in shapes)
+    {
+        if (shape is ITable table)
         {
-            foreach (IShape shape in layoutSlide.Shapes)
+            // A táblázat méreteit az oszlopszélességek és a sormagasságok szabályozzák.
+            foreach (var column in table.Columns)
             {
-                // Méretezd az alakzat méretét.
-                shape.Height *= heightRatio;
-                shape.Width *= widthRatio;
+                column.Width *= widthRatio;
+            }
 
-                // Méretezd az alakzat helyzetét.
-                shape.Y *= heightRatio;
-                shape.X *= widthRatio;
+            foreach (var row in table.Rows)
+            {
+                row.MinimalHeight *= heightRatio;
             }
         }
-    }
-
-    foreach (ISlide slide in presentation.Slides)
-    {
-        foreach (IShape shape in slide.Shapes)
+        else
         {
-            // Méretezd az alakzat méretét.
-            shape.Height *= heightRatio;
             shape.Width *= widthRatio;
-
-            // Méretezd az alakzat helyzetét.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
-            if (shape is ITable)
-            {
-                ITable table = (ITable)shape;
-                foreach (IRow row in table.Rows)
-                {
-                    row.MinimalHeight *= heightRatio;
-                }
-                foreach (IColumn column in table.Columns)
-                {
-                    column.Width *= widthRatio;
-                }
-            }
+            shape.Height *= heightRatio;
         }
-    }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+        shape.X *= widthRatio;
+        shape.Y *= heightRatio;
+    }
 }
 ```
 
 ## **GYIK**
 
-**Miért torzulnak vagy vágódnak le az alakzatok a dia átméretezése után?**
+**Miért torzul vagy vágódik le az alakzat a dia átméretezése után?**
 
-A dia átméretezésekor az alakzatok megtartják eredeti pozíciójukat és méretüket, hacsak a méretezés nincs kifejezetten módosítva. Ez a tartalom levágásához vagy az alakzatok eltolódásához vezethet.
+Ha a dia méretét átméretezés nélkül változtatja meg, az alakzatok megtartják eredeti pozíciójukat és méretüket, és a dia szélén túl is nyúlhatnak. A szélesség és magasság különböző aránnyal történő skálázása szintén torzíthatja az alakzatokat.
 
-**A megadott kód minden alakzat típusra működik?**
+**Működik a megadott kód minden alakzattípussal?**
 
-Az alap példa a legtöbb alakzat típusra (szövegdobozok, képek, diagramok stb.) működik. Azonban táblázatok esetén külön kell kezelni a sorokat és oszlopokat, mivel a táblázat magassága és szélessége az egyes cellák dimenzióiból származik.
+Az első példa közvetlenül módosítja az alakzat határait, és diákra van szánva, amelyek nem tartalmaznak táblázatot. A második példa a táblázatokat külön kezeli. Ellenőrizze a kapott elrendezést, különösen a szöveget és a táblázatokat, mivel ezek a példák nem skálázzák a betűméreteket, és a táblázattartalom befolyásolhatja a sormagasságokat.
 
-**Hogyan lehet átméretezni a táblázatokat a dia átméretezésekor?**
+**Hogyan méretezhetem át a táblázatokat a dia átméretezésekor?**
 
-Az összes soron és oszlopon végig kell iterálni, és arányosan át kell méretezni a magasságukat és szélességüket, ahogy a második kódrészletben látható.
+Skálázza az oszlopszélességeket a szélességi aránnyal, a minimális sormagasságokat a magassági aránnyal, majd skálázza a táblázat pozícióját, ahogyan a második példában is látható.
 
-**Ez az átméretezés működik mesterdiák és elrendezési diák esetén is?**
+**Ez az átméretezés működik‑e mester- és elrendezésdíákon is?**
 
-Igen, de a [Mesterek](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/masters/) és a [ElrendezésiDiák](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/layoutslides/) esetén is végig kell iterálni, és ugyanazt a méretezési logikát alkalmazni kell az alakzataikra, hogy a teljes bemutató egységes legyen.
+Igen. A második példa bejárja a [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) és minden mester [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/layoutslides/) elemeit, és ugyanazt az átméretezési logikát alkalmazza az alakzataikon.
 
-**Megváltoztathatom a dia orientációját (álló/fekvő) az átméretezéssel együtt?**
+**Megváltoztathatom a dia tájolását (álló/fekvő) az átméretezés során?**
 
-Igen. A [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/hu/net/aspose.slides/islidesize/orientation/) beállításával módosíthatja az orientációt. Ügyeljen arra, hogy a méretezési logikát ennek megfelelően állítsa be a elrendezés megőrzéséhez.
+Igen. Állítsa be a [SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/slidesize/orientation/) értékét a dia méretének módosítása után, a célméretek beolvasása előtt, hogy a skálázási tényezők a végleges tájolásnak megfelelően legyenek.
 
-**Van korlátozás a beállítható diaméretre?**
+**Van korlátozás a beállítható dia méretre?**
 
-Az Aspose.Slides egyedi méreteket támogat, de a nagyon nagy méretek befolyásolhatják a teljesítményt vagy a PowerPoint egyes verzióival való kompatibilitást.
+A [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) segítségével egyedi dia méreteket adhat meg. A támogatott méretek a bemutató formátumától és a fájlt megnyitó alkalmazástól is függenek.
 
-**Hogyan akadályozhatom meg, hogy a rögzített képarányú alakzatok torzuljanak?**
+**Hogyan kerülhetem el, hogy a rögzített képarányú alakzatok torzuljanak?**
 
-Az átméretezés előtt ellenőrizze az alakzat `AspectRatioLocked` tulajdonságát. Ha zárolt, akkor a szélességet vagy magasságot arányosan kell módosítani, ahelyett, hogy egyenként skálázná őket.
+Használja ugyanazt a skálázási tényezőt a szélességhez és a magassághoz. Az eredeti elrendezés új dia méretekhez való illesztéséhez alkalmazza a kisebbik arányt mindkét dimenzióra és pozícióra. Ez megőrzi az arányokat, de az egyik oldalon előfordulhat üres tér.

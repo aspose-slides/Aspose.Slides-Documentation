@@ -1,166 +1,148 @@
 ---
-title: Excel Grafiklerini Oluşturun ve Sunumlarda OLE Nesneleri Olarak Yerleştirin
+title: Excel Grafiklerini Oluşturun ve Sunumlarda OLE Nesneleri Olarak Gömün
 type: docs
 weight: 50
 url: /tr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
 - Excel grafiği
-- grafiği yerleştir
+- grafik gömme
 - OLE nesnesi
 - PowerPoint
-- OpenDocument
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Excel grafiklerini oluşturun ve C#/.NET ile PowerPoint ve OpenDocument sunumlarına OLE nesneleri olarak yerleştirin. Adım adım kılavuz ve kod örnekleri."
+description: "Aspose.Cells for .NET ile bir Excel grafiği oluşturun ve Aspose.Slides ile bir PowerPoint sunumuna çalışma kitabını gömün, grafik ön izlemesi dahil."
 ---
-## **Arka Plan**
+## **Genel Bakış**
 
-PowerPoint’te, düzenlenebilir grafikler kullanarak verileri görsel olarak göstermek yaygın bir uygulamadır. Aspose, Aspose.Cells for .NET ile Excel grafikleri oluşturmayı destekler ve bu grafikler daha sonra Aspose.Slides for .NET aracılığıyla PowerPoint slaytlarına OLE nesneleri olarak yerleştirilebilir. Bu makale gerekli adımları kapsar ve Aspose.Cells ve Aspose.Slides kullanarak bir Excel grafiği oluşturup bunu PowerPoint sunumuna OLE nesnesi olarak yerleştirmek için C# kod örnekleri sağlar.
+Bu makale, Aspose.Cells for .NET ile bir Excel sütun grafiği oluşturmayı ve bu çalışma kitabını Aspose.Slides for .NET ile bir PowerPoint sunumuna yerleştirmeyi gösterir. Gömülü çalışma kitabı hem kaynak verileri hem de grafiği içerir. Ayrı bir PNG ön izleme, OLE nesnesi etkinleştirilmeden önce slaytta grafiği gösterir.
 
-## **Gerekli Adımlar**
+Sonuç bir yerleştirilmiş Excel nesnesi olur, yerel bir PowerPoint grafiği değil. OLE aracılığıyla çalışma kitabını düzenlemek, OLE etkinleştirmesini destekleyen bir masaüstü uygulaması ve uyumlu bir Excel kurulumunu gerektirir.
 
-Aşağıdaki adım sırası, bir Excel grafiğini OLE nesnesi olarak bir PowerPoint slaydına oluşturmak ve yerleştirmek için gereklidir:
+## **Ön Koşullar**
 
-1. Aspose.Cells kullanarak bir Excel grafiği oluşturun.
-1. Aspose.Cells kullanarak Excel grafiğinin OLE boyutunu ayarlayın.
-1. Aspose.Cells ile Excel grafiğinin bir görüntüsünü alın.
-1. Aspose.Slides kullanarak Excel grafiğini bir PPTX sunumunda OLE nesnesi olarak yerleştirin.
-1. Adım 3'te elde edilen görüntüyle "EMBEDDED OLE OBJECT" görüntüsünü değiştirerek [nesne önizleme sorunu](/slides/tr/net/object-preview-issue-when-adding-oleobjectframe/) sorununu giderin.
-1. Sunumu PPTX formatında diske kaydedin.
+C# projenize Aspose.Cells for .NET ve Aspose.Slides for .NET referanslarını ekleyin. Örnek, üst düzey ifadeler kullanır ve C# 9 veya daha yeni bir sürüm gerektirir. Bu kütüphanelerle sunumu oluşturmak için Microsoft Office gerekli değildir.
 
-## **Gerekli Adımların Uygulanması**
+Hiçbir girdi dosyasına ihtiyaç yoktur: örnek, veriyi ve grafiği bellek içinde oluşturur, ardından `OutputChart.pptx` dosyasını geçerli çalışma dizinine yazar. Değerlendirme modunun dışındayken her iki ürün için de lisansları uygulayın.
 
-Yukarıdaki adımların C# uygulaması aşağıdaki gibidir:
+## **Yerleştirmenin Nasıl Çalıştığı**
 
-```cs
-// Adım - 1: Aspose.Cells kullanarak bir Excel grafiği oluşturun.
-// ---------------------------------------------------
-// Bir çalışma kitabı oluşturun.
-Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook();
-// Bir Excel grafiği ekleyin.
-int chartRows = 55;
-int chartCols = 25;
-int chartSheetIndex = AddExcelChartInWorkbook(workbook, chartRows, chartCols);
+1. Veri çalışma sayfası ve grafik sayfası içeren bir çalışma kitabı oluşturun.  
+2. Grafik sayfasını aktif hale getirerek çalışma kitabının grafikte açılmasını sağlayın.  
+3. Çalışma kitabının OLE görüntüleme aralığını ayarlayın ve grafiği PNG olarak render edin.  
+4. Çalışma kitabını bellek içinde XLSX olarak kaydedin ve bu baytları bir slayta yerleştirin.  
+5. PNG'yi OLE nesnesinin ön izlemesi olarak atayın ve sunumu PPTX olarak kaydedin.
 
-// Adım - 2: Aspose.Cells kullanarak grafiğin OLE boyutunu ayarlayın.
-// -----------------------------------------------------------
-workbook.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
+Çalışma kitabı görüntüleme aralığı ile slayttaki çerçeve farklı görevler üstlenir. [SetOleSize](https://reference.aspose.com/cells/net/aspose.cells/worksheetcollection/setolesize/) sıfır tabanlı başlangıç/bitiriş satır ve sütun indekslerini alır. [ChartCollection.Add](https://reference.aspose.com/cells/net/aspose.cells.charts/chartcollection/add/) ise üst satır, sol sütun, alt satır ve sağ sütunu alır. Örnek, alt sağ sınırlar olarak satır indeksi 55 ve sütun indeksi 25 kullanır; bu değerler düzen tercihidir, veri satırları veya sütun sayısı değildir.
 
-// Adım - 3: Aspose.Cells ile grafiğin görüntüsünü alın.
-// -------------------------------------------------------
-Bitmap chartImage = workbook.Worksheets[chartSheetIndex].Charts[0].ToImage();
-// Çalışma kitabını bir akışa kaydedin.
-MemoryStream workbookStream = workbook.SaveToStream();
+Slayt çerçevesi puan (point) birimini kullanır. Örnek, çerçeveyi slayt içinde sığdırır ve PNG'nin en‑boy oranını koruyarak ortalar; ön izlemeyi slaytı dolduracak şekilde uzatmaz.
 
-// Adım - 4 VE 5
-// ==============
- // Adım - 4: Grafiği Aspose.Slides kullanarak bir .ppt sunumuna OLE nesnesi olarak yerleştirin.
-// ------------------------------------------------------------------------------------------
- // Adım - 5: "EMBEDDED OLE OBJECT" görüntüsünü adım 3'te elde edilen görüntü ile değiştirerek Nesne Önizleme Sorununu giderin.
-// --------------------------------------------------------------------------------------------------------------------
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-    // Çalışma kitabını slayta ekleyin.
-    AddExcelChartInPresentation(presentation, slide, workbookStream, chartImage);
+## **Grafiği Oluşturma ve Yerleştirme**
 
-    // Adım - 6: Çıktı sunumunu diske kaydedin.
-    // -----------------------------------------------
-    presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
-```
+Aşağıdaki tam örnek, `DataSheet`'i dört satır ve beş sütun değerle doldurur. Her satır bir grafik serisi olur. Çalışma kitabı kaydedilmeden önce `ChartSheet` aktif sayfa olarak seçilir.
+
+Çalışma kitabı, [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/)’ye geçirilen `xlsx` uzantısı ile eşleşecek şekilde açıkça XLSX olarak kaydedilir. PNG, ara bir bitmap dönüşümü olmadan doğrudan akışından yüklenir. [SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/substitutepictureformat/) aracılığıyla atama, varsayılan OLE yer tutucusunu değiştirir.
 
 ```cs
-static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows, int chartCols)
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
+using var workbook = new Aspose.Cells.Workbook();
+var dataSheet = workbook.Worksheets[0];
+dataSheet.Name = "DataSheet";
+
+int[,] values =
 {
-    // Hücre adlarının bir dizisi.
-    string[] cellNames = new string[]
-    {
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4"
-    };
+    { 67, 44, 46, 43, 24 },
+    { 86, 64, 97, 29, 40 },
+    { 68, 89, 78, 69, 38 },
+    { 91, 48, 60, 26, 25 }
+};
 
-    // Hücre verilerinin bir dizisi.
-    int[] cellValues = new int[]
-    {
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25
-    };
-
-    // Hücreleri veriyle doldurmak için yeni bir çalışma sayfası ekleyin.
-    int dataSheetIndex = workbook.Worksheets.Add();
-    Aspose.Cells.Worksheet dataSheet = workbook.Worksheets[dataSheetIndex];
-    string sheetName = "DataSheet";
-    dataSheet.Name = sheetName;
-
-    // Veri sayfasını veriyle doldurun.
-    for (int i = 0; i < cellNames.Length; i++)
-    {
-        string cellName = cellNames[i];
-        int cellValue = cellValues[i];
-        dataSheet.Cells[cellName].PutValue(cellValue);
-    }
-
-    // Bir grafik sayfası ekleyin.
-    int chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
-    Aspose.Cells.Worksheet chartSheet = workbook.Worksheets[chartSheetIndex];
-    chartSheet.Name = "ChartSheet";
-
-    // Veri sayfasından veri serileriyle grafik sayfasına bir grafik ekleyin.
-    int chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
-    Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIndex];
-    chart.NSeries.Add(sheetName + "!A1:E1", false);
-    chart.NSeries.Add(sheetName + "!A2:E2", false);
-    chart.NSeries.Add(sheetName + "!A3:E3", false);
-    chart.NSeries.Add(sheetName + "!A4:E4", false);
-
-    // Grafik sayfasını etkin sayfa olarak ayarlayın.
-    workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
-    return chartSheetIndex;
-}
-```
-
-```cs
-static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
+for (var row = 0; row < values.GetLength(0); row++)
 {
-    float oleWidth = presentation.SlideSize.Size.Width;
-    float oleHeight = presentation.SlideSize.Size.Height;
-
-    byte[] oleData = new byte[workbookStream.Length];
-    workbookStream.Position = 0;
-    workbookStream.Read(oleData, 0, oleData.Length);
-
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xls");
-    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
-
-    using (MemoryStream imageStream = new MemoryStream())
+    for (var column = 0; column < values.GetLength(1); column++)
     {
-        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
-
-	    imageStream.Position = 0;
-        IPPImage ppImage = presentation.Images.AddImage(imageStream);
-
-        oleFrame.SubstitutePictureFormat.Picture.Image = ppImage;
+        dataSheet.Cells[row, column].PutValue(values[row, column]);
     }
 }
+
+var chartSheetIndex = workbook.Worksheets.Add(Aspose.Cells.SheetType.Chart);
+var chartSheet = workbook.Worksheets[chartSheetIndex];
+chartSheet.Name = "ChartSheet";
+
+var lastChartRow = 55;
+var lastChartColumn = 25;
+var chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, 0, lastChartRow, lastChartColumn);
+var chart = chartSheet.Charts[chartIndex];
+for (var row = 1; row <= values.GetLength(0); row++)
+{
+    chart.NSeries.Add($"DataSheet!A{row}:E{row}", false);
+}
+
+workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
+workbook.Worksheets.SetOleSize(0, lastChartRow, 0, lastChartColumn);
+
+// Grafik ön izlemesini oluştur ve düzenlenebilir çalışma kitabını ayrı olarak seri hale getir.
+using var chartImageStream = new MemoryStream();
+chart.ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+using var chartImage = Images.FromStream(chartImageStream);
+
+using var workbookStream = new MemoryStream();
+workbook.Save(workbookStream, Aspose.Cells.SaveFormat.Xlsx);
+var workbookBytes = workbookStream.ToArray();
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var slideSize = presentation.SlideSize.Size;
+
+// Fit the preview within the slide without changing its aspect ratio.
+var scale = Math.Min(slideSize.Width / chartImage.Width, slideSize.Height / chartImage.Height);
+var frameWidth = chartImage.Width * scale;
+var frameHeight = chartImage.Height * scale;
+var frameX = (slideSize.Width - frameWidth) / 2;
+var frameY = (slideSize.Height - frameHeight) / 2;
+
+var embeddedData = new OleEmbeddedDataInfo(workbookBytes, "xlsx");
+var oleFrame = slide.Shapes.AddOleObjectFrame(frameX, frameY, frameWidth, frameHeight, embeddedData);
+var previewImage = presentation.Images.AddImage(chartImage);
+oleFrame.SubstitutePictureFormat.Picture.Image = previewImage;
+
+presentation.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
-Yukarıdaki yöntemle oluşturulan sunum, OLE nesne çerçevesine çift tıklanarak etkinleştirilebilen bir OLE nesnesi olarak Excel grafiğini içerir.
+## **Beklenen Sonuç**
 
-## **Sonuç**
+`OutputChart.pptx`, yerleştirilmiş bir Excel çalışma kitabı ve bir grafik ön izlemesi içeren bir slayt barındırır. Çalışma kitabı orijinal veriyi ve dört serili bir sütun grafiğini içerir. Ön izleme slaytın ortasında yer alır ve oranlarını korur.
 
-Aspose.Cells for .NET ile Aspose.Slides for .NET’i birleştirerek Aspose.Cells tarafından desteklenen herhangi bir Excel grafiği oluşturabilir ve grafiği bir PowerPoint slaydına OLE nesnesi olarak yerleştirebiliriz. Excel grafiğinin OLE boyutu da tanımlanabilir. Son kullanıcılar, Excel grafiğini diğer OLE nesneleri gibi düzenleyebilir.
+![Excel sütun grafiği, yerleştirilmiş bir çalışma kitabının ön izlemesi olarak gösterilir](excel-chart-ole-preview.png)
+
+Excel'in mevcut olduğu uyumlu bir masaüstü PowerPoint ortamında, nesneyi çift tıklayarak yerleştirilmiş çalışma kitabını etkinleştirebilir ve düzenleyebilirsiniz. Aktivasyon ve düzenleme, ana uygulamanın OLE desteği ve güvenlik ayarlarına bağlıdır.
+
+## **SSS**
+
+**Neden bir ön izleme görüntüsü gerekir?**
+
+Gömülü çalışma kitabı ve slayt ön izlemesi ayrı içeriklerdir. Slaytın varsayılan "EMBEDDED OLE OBJECT" yer tutucusu yerine grafiği göstermesi için bir grafik resmi sağlayın. Bakınız [OleObjectFrame Eklerken Nesne Ön İzleme Sorunu](/slides/tr/net/object-preview-issue-when-adding-oleobjectframe/).
+
+**Kodda çalışma kitabını değiştirdiğimde ön izleme otomatik olarak güncellenir mi?**
+
+Ön izlemeyi bir anlık görüntü olarak düşünün. Çalışma kitabı verileri programlı olarak güncellendiğinde, grafik resmini yeniden oluşturun ve ön izlemeyi ve yerleştirilmiş çalışma kitabı verilerini değiştirin.
+
+**XLSX yerine XLS kullanabilir miyim?**
+
+Evet. Çalışma kitabını XLS formatında kaydedin ve yerleştirilmiş veri uzantısı olarak `xls` kullanın. Uzantı, gerçek çalışma kitabı formatıyla eşleşmelidir; sadece uzantıyı değiştirmek veriyi dönüştürmez.
+
+**Aktivasyondan sonra nesne neden boyut değiştirir?**
+
+Ana uygulama, çalışma kitabını etkinleştirdiğinde OLE nesnesinin sunumunu güncelleyebilir. Çalışma kitabının OLE görüntüleme aralığı ve slayt çerçevesi boyutları her ikisi de önemlidir. Bakınız [PPTX'te Grafik Yeniden Boyutlandırma için Çözüm](/slides/tr/net/working-solution-for-chart-resizing-in-pptx/).
 
 ## **İlgili Bölümler**
 
-- [PPTX'te Grafik Yeniden Boyutlandırma için Çalışan Çözüm](/slides/tr/net/working-solution-for-chart-resizing-in-pptx/)
-- [OleObjectFrame Eklerken Nesne Önizleme Sorunu](/slides/tr/net/object-preview-issue-when-adding-oleobjectframe/)
+- [PPTX'te Grafik Yeniden Boyutlandırma için Çözüm](/slides/tr/net/working-solution-for-chart-resizing-in-pptx/)
+- [OleObjectFrame Eklerken Nesne Ön İzleme Sorunu](/slides/tr/net/object-preview-issue-when-adding-oleobjectframe/)
 - [PowerPoint Eklentisi Kullanarak OLE Nesnelerini Otomatik Güncelleme](/slides/tr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

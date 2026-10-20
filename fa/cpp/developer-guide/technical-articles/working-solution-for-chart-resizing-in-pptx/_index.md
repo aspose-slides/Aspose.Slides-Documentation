@@ -1,220 +1,145 @@
 ---
-title: راه حل عملی برای تغییر اندازه نمودار در PPTX
+title: راه‌حل عملی برای تغییر اندازه نمودار در PPTX
 type: docs
 weight: 60
 url: /fa/cpp/working-solution-for-chart-resizing-in-pptx/
 keywords:
 - تغییر اندازه نمودار
-- نمودار Excel
+- نمودار اکسل
 - شیء OLE
 - جاسازی نمودار
 - PowerPoint
-- OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "رفع تغییر اندازه ناخواستهٔ نمودار در PPTX هنگام استفاده از اشیاء OLE Excel جاسازی‌شده با Aspose.Slides for C++. دو روش با کد برای حفظ سایزهای سازگار را بیاموزید."
+description: "رفع تغییر اندازه غیرمنتظره نمودار در فایل PPTX هنگام استفاده از اشیاء OLE اکسل جاسازی‌شده با Aspose.Slides برای C++. تنظیم ابعاد ثابت نمودار برای حفظ سازگاری اندازه‌های نمودار و فریم OLE."
 ---
 ## **پس‌زمینه**
 
-در مشاهده‌ها مشخص شده است که نمودارهای Excel که به عنوان اشیاء OLE در یک ارائه PowerPoint از طریق اجزای Aspose جاسازی می‌شوند، پس از اولین فعال‌سازی به مقیاسی نامشخص تغییر اندازه می‌دهند. این رفتار باعث ایجاد تفاوت بصری مشهودی بین حالت قبل و بعد از فعال‌سازی نمودار در ارائه می‌شود. تیم Aspose این مشکل را به‌تفصیل بررسی کرده و راه‌حلی پیدا کرده است. این مقاله علل مشکل و اصلاح مربوطه را شرح می‌دهد.
+نمودارهای اکسل که به عنوان اشیاء OLE در ارائه‌های PowerPoint با استفاده از اجزای Aspose جاسازی می‌شوند، ممکن است پس از اولین فعال‌سازی اندازه‌شان تغییر کند. این می‌تواند اختلاف قابل‌توجهی در ظاهر نمودار قبل و بعد از فعال‌سازی ایجاد کند. این مقاله توضیح می‌دهد چرا تغییر اندازه رخ می‌دهد و نشان می‌دهد چگونه می‌توان با تطبیق ابعاد ثابت نمودار با فریم OLE از آن جلوگیری کرد.
 
-در [مقالهٔ قبلی](/slides/fa/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)، ما نحوهٔ ایجاد یک نمودار Excel با Aspose.Cells for C++ و جاسازی آن در یک ارائه PowerPoint با استفاده از Aspose.Slides for C++ را توضیح دادیم. برای رفع [مشکل پیش‌نمایش شیء](/slides/fa/cpp/object-preview-issue-when-adding-oleobjectframe/)، تصویر نمودار را به قاب شیء OLE اختصاص دادیم. در ارائه خروجی، وقتی روی قاب شیء OLE که تصویر نمودار را نشان می‌دهد دوبار کلیک می‌کنید، نمودار Excel فعال می‌شود. کاربران نهایی می‌توانند تغییرات دلخواه خود را در کتاب‌کار Excel زیرین اعمال کرده و سپس با کلیک کردن خارج از کتاب‌کار فعال شده به اسلاید مربوطه بازگردند. هنگام بازگشت کاربر به اسلاید، اندازهٔ قاب شیء OLE تغییر می‌کند و ضریب تغییر اندازه بسته به اندازهٔ اولیهٔ هر دو قاب شیء OLE و کتاب‌کار Excel جاسازی‌شده متفاوت است.
+در [ایجاد نمودارهای اکسل و جاسازی آن‌ها به صورت اشیاء OLE در ارائه‌ها](/slides/fa/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) ما توضیح دادیم که چگونه یک نمودار اکسل را با Aspose.Cells for C++ ایجاد و آن را با Aspose.Slides for C++ در یک ارائه PowerPoint جاسازی کنیم. برای رفع [مشکل پیش‌نمایش شیء](/slides/fa/cpp/object-preview-issue-when-adding-oleobjectframe/) ما تصویر نمودار را به فریم OLE شیء اختصاص دادیم. در ارائه خروجی، وقتی فریم OLE که تصویر نمودار را نمایش می‌دهد دوبار کلیک می‌شود، نمودار اکسل فعال می‌شود. کاربران می‌توانند کتاب کار جاسازی‌شده را ویرایش کنند و سپس با کلیک خارج از کتاب کار فعال‌شده به اسلاید برگردند. اندازه فریم OLE هنگام بازگشت کاربر به اسلاید تغییر می‌کند و عامل تغییر اندازه بسته به اندازه‌های اولیه هر دو فریم OLE و کتاب کار جاسازی‌شده متفاوت است.
 
 ## **دلیل تغییر اندازه**
 
-به دلیل این‌که کتاب‌کار Excel اندازهٔ پنجرهٔ مخصوص به خود را دارد، سعی می‌کند اندازهٔ اصلی خود را در اولین فعال‌سازی حفظ کند. اما قاب شیء OLE اندازهٔ خاص خود را دارد. بر اساس گفته مایکروسافت، هنگامی که کتاب‌کار Excel فعال می‌شود، Excel و PowerPoint اندازه را مذاکره می‌کنند و نسبت‌های صحیح را به‌عنوان بخشی از فرایند جاسازی نگه می‌دارند. بسته به تفاوت بین اندازهٔ پنجرهٔ Excel و اندازه یا موقعیت قاب شیء OLE، تغییر اندازه رخ می‌دهد.
+کتاب کار اکسل جاسازی‌شده ابعاد پنجره خود را دارد که اکسل سعی می‌کند هنگام اولین فعال‌سازی شیء آن را حفظ کند. فریم OLE روی اسلاید ابعاد مستقلی دارد. وقتی کتاب کار اکسل فعال می‌شود، اکسل و PowerPoint اندازه شیء را برای حفظ نسبت‌ها در فرآیند جاسازی مذاکره می‌کنند. تفاوت بین پنجره کتاب کار و فریم OLE می‌تواند منجر به تغییر اندازه شیء شود.
 
 ## **راه‌حل عملی**
 
-دو سناریوی ممکن برای ایجاد ارائه‌های PowerPoint با Aspose.Slides for C++ وجود دارد.
+ابعاد نمودار را با فریم OLE روی اسلاید تطبیق دهید و ابعاد نمودار را مستقل از پنجره کتاب کار نگه دارید. این راه‌حل برای یک ارائه جدید یا یک قالب موجود کار می‌کند.
 
-**سناریو 1:** ایجاد ارائه بر پایهٔ یک قالب موجود.
+مثال نیاز به Aspose.Cells for C++ و Aspose.Slides for C++ دارد. این مثال یک نمودار ستونی ساده بر روی یک شیت نمودار فعال ایجاد کرده و کتاب کار را در قالب XLS جاساز می‌کند. هیچ تصویر پیش‌نمایش نموداری اختصاص داده نمی‌شود؛ نمودار زمانی که شیء OLE در PowerPoint فعال می‌شود قابل مشاهده می‌شود.
 
-**سناریو 2:** ایجاد ارائه از ابتدا.
+کد مثال را در نقطه ورودی برنامه خود قرار دهید و اعلان‌های include را در سطح فایل بنویسید. Aspose.Cells را قبل از ایجاد اشیاء آن مقداردهی اولیه کنید و پس از نابودی آن اشیاء منابع را آزاد کنید. مثال بردار بایتی کتاب کار برگشتی از Aspose.Cells را به نوع آرایه‌ای که Aspose.Slides می‌پذیرد، کپی می‌کند.
 
-راه‌حلی که در اینجا ارائه می‌کنیم برای هر دو سناریو اعمال می‌شود. پایهٔ تمام روش‌های حل همان است: **اندازهٔ پنجرهٔ شیء OLE جاسازی‌شده باید با قاب شیء OLE در اسلاید PowerPoint تطابق داشته باشد**. اکنون دو رویکرد به این حل را بررسی می‌کنیم.
+مثال یک ارائه جدید با فریم OLE به اندازه 9.5 × 4 اینچ ایجاد می‌کند که 0.5 اینچ از لبه چپ و 1 اینچ از بالا موقعیت دارد. مختصات و ابعاد اسلاید بر حسب پوینت (72 پوینت در هر اینچ) هستند. برای ارائه موجود، به [استفاده از قالب](#use-a-template) مراجعه کنید.
 
-## **رویکرد اول**
+## **تنظیم اندازه ثابت نمودار**
 
-در این رویکرد، می‌آموزیم چگونه اندازهٔ پنجرهٔ کتاب‌کار Excel جاسازی‌شده را تنظیم کنیم تا با اندازهٔ قاب شیء OLE در اسلاید PowerPoint منطبق شود.
-
-**سناریو 1**
-
-فرض کنید یک قالب تعریف کرده‌ایم و می‌خواهیم ارائه‌هایی بر پایهٔ آن ایجاد کنیم. فرض کنید در قالب یک Shape‌ با ایندکس 2 وجود دارد که می‌خواهیم یک قاب OLE حاوی کتاب‌کار Excel جاسازی‌شده در آن قرار دهیم. در این سناریو، اندازهٔ قاب شیء OLE از پیش تعریف شده است—که با اندازهٔ Shape‌ با ایندکس 2 در قالب منطبق است. تنها کاری که باید انجام دهیم این است که اندازهٔ پنجرهٔ کتاب‌کار را برابر با اندازهٔ آن Shape تنظیم کنیم. قطعه کد زیر این منظور را انجام می‌دهد:
+Set [Chart::SetSizeWithWindow](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setsizewithwindow/) را روی false تنظیم کنید تا ابعاد نمودار مستقل از پنجره کتاب کار باشد. ابعاد [Chart::GetChartObject](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/getchartobject/) را از طریق [Shape::SetWidth](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setwidth/) و [Shape::SetHeight](https://reference.aspose.com/cells/cpp/aspose.cells.drawing/shape/setheight/) تنظیم کنید و پوینت‌ها را با استفاده از 96 پیکسل در هر اینچ به پیکسل تبدیل کنید: فریمی با اندازه 684 × 288 پوینت معادل نموداری با اندازه 912 × 384 پیکسل است. [Chart::SetPrintSize](https://reference.aspose.com/cells/cpp/aspose.cells.charts/chart/setprintsize/) را به مقدار Custom از [PrintSizeType](https://reference.aspose.com/cells/cpp/aspose.cells/printsizetype/) تنظیم کنید. مثال کتاب کار را با [IShapeCollection::AddOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addoleobjectframe/) جاسازی می‌کند و یک ارائه با فریم OLE به اندازه 9.5 × 4 اینچ ذخیره می‌کند.
 
 ```cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Chart.h"
+#include "Aspose.Cells/ChartCollection.h"
+#include "Aspose.Cells/ChartShape.h"
+#include "Aspose.Cells/ChartType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/PrintSizeType.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/SeriesCollection.h"
+#include "Aspose.Cells/SheetType.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <algorithm>
+#include <cstdint>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+
+Aspose::Cells::Startup();
 {
-    auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+    Aspose::Cells::Workbook workbook;
+    auto dataSheet = workbook.GetWorksheets().Get(0);
+    dataSheet.SetName(u"Data");
+    dataSheet.GetCells().Get(u"A1").PutValue(10);
+    dataSheet.GetCells().Get(u"A2").PutValue(20);
 
-    return outputStream;
+    auto chartSheetIndex = workbook.GetWorksheets().Add(Aspose::Cells::SheetType::Chart);
+    auto chartSheet = workbook.GetWorksheets().Get(chartSheetIndex);
+    auto chartIndex = chartSheet.GetCharts().Add(Aspose::Cells::Charts::ChartType::Column, 0, 0, 20, 10);
+    auto chart = chartSheet.GetCharts().Get(chartIndex);
+    chart.GetNSeries().Add(u"Data!A1:A2", true);
+    workbook.GetWorksheets().SetActiveSheetIndex(chartSheetIndex);
+
+    auto presentation = System::MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
+
+    // مختصات و ابعاد اسلاید بر حسب پوینت هستند (۷۲ پوینت در هر اینچ).
+    auto width = 684.f; // 9.5 اینچ.
+    auto height = 288.f; // 4 اینچ.
+
+    chart.SetSizeWithWindow(false);
+    // تبدیل پوینت‌ها به پیکسل‌های نمودار با استفاده از ۹۶ پیکسل در هر اینچ.
+    chart.GetChartObject().SetWidth(static_cast<int32_t>(width / 72.f * 96.f));
+    chart.GetChartObject().SetHeight(static_cast<int32_t>(height / 72.f * 96.f));
+    chart.SetPrintSize(Aspose::Cells::PrintSizeType::Custom);
+
+    auto workbookData = workbook.Save(Aspose::Cells::SaveFormat::Excel97To2003);
+    // بردار بایت‌های Cells را به نوع آرایه‌ای که Slides می‌پذیرد کپی کنید.
+    auto workbookBytes = System::MakeArray<uint8_t>(workbookData.GetLength(), 0);
+    std::copy(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength(), workbookBytes->data_ptr());
+    auto dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookBytes, u"xls");
+    slide->get_Shapes()->AddOleObjectFrame(36, 72, width, height, dataInfo);
+
+    presentation->Save(u"chart-fixed-size.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+    presentation->Dispose();
 }
+Aspose::Cells::Cleanup();
 ```
 
-```cpp
-// اندازه نمودار را با یک پنجره تعریف کنید.
-chart->SetSizeWithWindow(true);
+## **استفاده از قالب**
 
-auto shape = slide->get_Shape(2);
+منطق اندازه‌گیری برای یک ارائه موجود همانند است. برای تطبیق مثال:
 
-// عرض پنجره کتاب‌کار را به اینچ تنظیم کنید (به‌وسیله ۷۲ تقسیم می‌شود زیرا PowerPoint از ۷۲ پیکسل در هر اینچ استفاده می‌کند).
-workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
-
-// ارتفاع پنجره کتاب‌کار را به اینچ تنظیم کنید.
-workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
-
-// کتاب‌کار را به یک حافظه موقت ذخیره کنید.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// یک قاب شیء OLE با داده‌های Excel جاسازی‌شده ایجاد کنید.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(), 
-    shape->get_Height(),
-    dataInfo);
-```
-
-**سناریو 2**
-
-فرض کنید می‌خواهیم یک ارائه از ابتدا ایجاد کنیم و یک قاب OLE با هر اندازه‌ای که می‌خواهیم شامل کتاب‌کار Excel جاسازی‌شده داشته باشیم. در قطعه کد زیر، یک قاب OLE با ارتفاع 4 اینچ و عرض 9.5 اینچ در موقعیت x = 0.5 اینچ و y = 1 اینچ روی اسلاید ایجاد می‌کنیم. سپس پنجرهٔ کتاب‌کار Excel را به همان اندازه—ارتفاع 4 اینچ و عرض 9.5 اینچ—تنظیم می‌کنیم.
-
-```cpp
-// ارتفاع مطلوب ما.
-int32_t desiredHeight = 288; // 4 اینچ (4 * 72)
-
-// عرض مطلوب ما.
-int32_t desiredWidth = 684; // 9.5 اینچ (9.5 * 72)
-
-// اندازه نمودار را با یک پنجره تعریف کنید. 
-chart->SetSizeWithWindow(true);
-
-// پنجره عرض کتاب‌کار را به اینچ تنظیم کنید.
-workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
-
-// پنجره ارتفاع کتاب‌کار را به اینچ تنظیم کنید.
-workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
-
-// کتاب‌کار را به یک جریان حافظه ذخیره کنید.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// یک قاب شیء OLE با داده‌های Excel جاسازی‌شده ایجاد کنید.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f,
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-## **رویکرد دوم**
-
-در این رویکرد، می‌آموزیم چگونه اندازهٔ نمودار در کتاب‌کار Excel جاسازی‌شده را تنظیم کنیم تا با اندازهٔ قاب شیء OLE در اسلاید PowerPoint مطابقت داشته باشد. این رویکرد زمانی مفید است که اندازهٔ نمودار از پیش مشخص باشد و هرگز تغییر نکند.
-
-**سناریو 1**
-
-فرض کنید یک قالب تعریف کرده‌ایم و می‌خواهیم ارائه‌هایی بر پایهٔ آن ایجاد کنیم. فرض کنید در قالب یک Shape‌ با ایندکس 2 وجود دارد که قصد داریم یک قاب OLE حاوی کتاب‌کار Excel جاسازی‌شده در آن قرار دهیم. در این سناریو، اندازهٔ قاب OLE از پیش تعریف شده است—که با اندازهٔ Shape‌ با ایندکس 2 منطبق است. تنها کاری که باید انجام دهیم این است که اندازهٔ نمودار در کتاب‌کار را برابر با اندازهٔ آن Shape تنظیم کنیم. قطعه کد زیر این کار را انجام می‌دهد:
-
-```cpp
-// اندازه نمودار را بدون پنجره تعریف کنید. 
-chart->SetSizeWithWindow(false);
-
-auto shape = slide->get_Shape(2);
-
-// عرض نمودار را برحسب پیکسل تنظیم کنید (در 96 ضرب کنید زیرا Excel از 96 پیکسل در هر اینچ استفاده می‌کند).    
-chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
-
-// ارتفاع نمودار را برحسب پیکسل تنظیم کنید.
-chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
-
-// اندازه چاپ نمودار را تعریف کنید.
-chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
-
-// کتاب‌کار را به یک جریان حافظه ذخیره کنید.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// یک قاب شیء OLE با داده‌های Excel جاسازی‌شده ایجاد کنید.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    shape->get_X(), 
-    shape->get_Y(), 
-    shape->get_Width(),
-    shape->get_Height(),
-    dataInfo);
-```
-
-**سناریو 2**
-
-فرض کنید می‌خواهیم یک ارائه از ابتدا ایجاد کنیم و یک قاب OLE با هر اندازه‌ای که می‌خواهیم شامل کتاب‌کار Excel جاسازی‌شده داشته باشیم. در قطعه کد زیر، یک قاب OLE با ارتفاع 4 اینچ و عرض 9.5 اینچ در موقعیت x = 0.5 اینچ و y = 1 اینچ روی اسلاید ایجاد می‌کنیم. همچنین اندازهٔ نمودار متناظر را به همان ابعاد تنظیم می‌کنیم: ارتفاع 4 اینچ و عرض 9.5 اینچ.
-
-```cpp
-// ارتفاع مورد نظر ما.
-int32_t desiredHeight = 288; // 4 اینچ (4 * 576)
-
-// عرض مورد نظر ما.
-int32_t desiredWidth = 684; // 9.5 اینچ (9.5 * 576)
-
-// اندازه نمودار را بدون پنجره تعریف کنید. 
-chart->SetSizeWithWindow(false);
-
-// عرض نمودار را به پیکسل تنظیم کنید.    
-chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
-
-// ارتفاع نمودار را به پیکسل تنظیم کنید.
-chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
-
-// کتاب‌کار را به یک جریان حافظه ذخیره کنید.
-System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
-
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
-
-// یک قاب شیء OLE با داده‌های Excel جاسازی‌شده ایجاد کنید.
-System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
-    36.0f, 
-    72.0f, 
-    desiredWidth, 
-    desiredHeight,
-    dataInfo);
-```
-
-## **نتیجه‌گیری**
-
-دو رویکرد برای رفع مشکل تغییر اندازهٔ نمودار وجود دارد. انتخاب رویکرد بستگی به نیازها و مورد استفاده دارد. هر دو رویکرد به همان شیوه کار می‌کنند چه ارائه‌ها از قالب ساخته شوند و چه از ابتدا. همچنین در این راه‌حل هیچ محدودیتی برای اندازهٔ قاب شیء OLE وجود ندارد.
+1. قالب ارائه را بارگذاری کنید به جای ایجاد یک ارائه خالی.
+2. بررسی کنید که اسلاید اول حداقل سه شکل داشته باشد، سپس شکل با شاخص 2 را به عنوان نگهدارنده استفاده کنید.
+3. عرض و ارتفاع فریم را از آن شکل بگیرید به جای استفاده از مقادیر ثابت 684 و 288. محاسبات اندازه‌گیری را بدون تغییر نگه دارید.
+4. فریم OLE را در موقعیت نگهدارنده اضافه کنید به جای مختصات ثابت 36 و 72.
+5. قبل از ذخیره ارائه، نگهدارنده را حذف کنید.
 
 ## **سوالات متداول**
 
-**چرا پس از فعال‌سازی نمودار Excel جاسازی‌شده در PowerPoint اندازه‌اش تغییر می‌کند؟**
+**چرا نمودار اکسل جاسازی‌شده من پس از فعال‌سازی در PowerPoint اندازه‌اش تغییر می‌کند؟**
 
-این به این دلیل است که Excel سعی می‌کند اندازهٔ پنجرهٔ اصلی خود را در اولین فعال‌سازی بازیابی کند، در حالی که قاب شیء OLE در PowerPoint ابعاد خاص خود را دارد. PowerPoint و Excel اندازه را مذاکره می‌کنند تا نسبت ابعاد حفظ شود و این می‌تواند منجر به تغییر اندازه شود.
+این به این دلیل است که اکسل سعی می‌کند اندازه اصلی پنجره را هنگام اولین فعال‌سازی بازگرداند، در حالی که فریم OLE در PowerPoint ابعاد مستقلی دارد. PowerPoint و اکسل برای حفظ نسبت ابعاد مذاکره می‌کنند که می‌تواند منجر به تغییر اندازه شود.
 
-**آیا می‌توان این مشکل تغییر اندازه را به‌طور کامل جلوگیری کرد؟**
+**چگونه می‌توانم اندازه‌های نمودار و فریم OLE را سازگار نگه دارم؟**
 
-بله. با منطبق کردن اندازهٔ پنجرهٔ کتاب‌کار Excel یا اندازهٔ نمودار با اندازهٔ قاب شیء OLE قبل از جاسازی، می‌توانید اندازهٔ نمودارها را ثابت نگه دارید.
+ابعاد ثابت نمودار که با فریم OLE مطابقت دارد تنظیم کنید و قبل از جاسازی کتاب کار، اندازه چاپ سفارشی نمودار را اعمال کنید. مثال بالا تنظیمات لازم و تبدیل واحدها را نشان می‌دهد.
 
-**کدام رویکرد را باید انتخاب کنم، تنظیم اندازهٔ پنجرهٔ کتاب‌کار یا تنظیم اندازهٔ نمودار؟**
+**آیا مطابقت اندازه پنجره کتاب کار کافی است؟**
 
-از **رویکرد 1 (اندازهٔ پنجره)** استفاده کنید اگر می‌خواهید نسبت ابعاد کتاب‌کار حفظ شود و احتمالاً بعداً امکان تغییر اندازه وجود داشته باشد.
-از **رویکرد 2 (اندازهٔ نمودار)** استفاده کنید اگر ابعاد نمودار ثابت هستند و پس از جاسازی تغییر نمی‌کنند.
+فقط مطابقت اندازه پنجره کتاب کار به‌طور قابل‌اعتمادی از تغییر اندازه فریم OLE پس از فعال‌سازی جلوگیری نمی‌کند. از ابعاد ثابت نمودار همان‌طور که در مثال نشان داده شده استفاده کنید.
 
-**آیا این روش‌ها برای هر دو نوع ارائه—بر پایهٔ قالب و جدید—عمل می‌کنند؟**
+**آیا این راه‌حل برای ارائه‌های مبتنی بر قالب و ارائه‌های جدید کار می‌کند؟**
 
-بله. هر دو رویکرد برای ارائه‌های ساخته‌شده از قالب و از ابتدا به‌یکسان کار می‌کنند.
+بله. برای قالب، از ابعاد و موقعیت نگهدارنده استفاده کنید. برای ارائه جدید، ابعاد و موقعیت فریم را مستقیماً مشخص کنید.
 
-**آیا محدودیتی برای اندازهٔ قاب شیء OLE وجود دارد؟**
+**آیا می‌توانم از این مثال با نمودارهای ساخته‌شده در برنامه‌های صفحه‌گسترده دیگر استفاده کنم؟**
 
-خیر. می‌توانید قاب OLE را به هر اندازه‌ای تنظیم کنید به شرط آنکه به‌درستی نسبت به اندازهٔ کتاب‌کار یا نمودار مقیاس‌بندی شود.
-
-**آیا می‌توان از این روش‌ها برای نمودارهای ساخته‌شده در برنامه‌های صفحه‌گسترده دیگر استفاده کرد؟**
-
-نمونه‌ها برای نمودارهای Excel ساخته‌شده با Aspose.Cells طراحی شده‌اند، اما اصول به‌کار رفته برای برنامه‌های صفحه‌گسترده سازگار با OLE که گزینه‌های مشابهی برای تنظیم اندازه دارند، نیز قابل اعمال هستند.
+این مثال از یک کتاب کار اکسل ایجاد‌شده با Aspose.Cells استفاده می‌کند و رفتار فعال‌سازی برنامه‌های صفحه‌گسترده دیگر را نشان نمی‌دهد.
 
 ## **بخش‌های مرتبط**
 
-- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/fa/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+- [ایجاد نمودارهای اکسل و جاسازی آن‌ها به صورت اشیاء OLE در ارائه‌ها](/slides/fa/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

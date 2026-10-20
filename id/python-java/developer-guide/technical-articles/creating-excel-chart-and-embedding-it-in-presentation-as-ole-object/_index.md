@@ -1,38 +1,48 @@
 ---
-title: Buat Bagan Excel dan Sematkan ke Presentasi sebagai Objek OLE
+title: Buat Diagram Excel dan Sematkan ke Presentasi sebagai Objek OLE
 type: docs
 weight: 30
 url: /id/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 keywords:
-- Bagan Excel
-- sematkan bagan
+- Diagram Excel
+- menyematkan diagram
 - objek OLE
 - PowerPoint
-- OpenDocument
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Buat bagan Excel dan sematkan sebagai objek OLE dalam presentasi PowerPoint dan OpenDocument menggunakan Python. Panduan langkah demi langkah dengan contoh kode."
+description: "Buat diagram Excel dengan Aspose.Cells untuk Python via Java dan sematkan buku kerja ke dalam presentasi PowerPoint dengan Aspose.Slides, termasuk pratinjau diagram."
 ---
-## **Latar Belakang**
+## **Gambaran Umum**
 
-Di PowerPoint, menggunakan bagan yang dapat diedit untuk menampilkan data secara grafis adalah praktik umum. Aspose mendukung pembuatan bagan Excel dengan Aspose.Cells for Python via Java, dan bagan ini kemudian dapat disematkan sebagai objek OLE dalam slide PowerPoint melalui Aspose.Slides for Python via Java. Artikel ini membahas langkah‑langkah yang diperlukan dan menyediakan contoh kode Python untuk membuat bagan Excel dan menyematkannya sebagai objek OLE dalam presentasi PowerPoint menggunakan Aspose.Cells dan Aspose.Slides.
+Artikel ini menunjukkan cara membuat diagram kolom Excel dengan Aspose.Cells untuk Python via Java dan menyematkan buku kerja ke dalam presentasi PowerPoint dengan Aspose.Slides untuk Python via Java. Buku kerja yang disematkan berisi data sumber dan diagram. Pratinjau PNG terpisah menampilkan diagram pada slide sebelum objek OLE diaktifkan.
 
-## **Langkah-Langkah yang Diperlukan**
+Hasilnya adalah objek Excel yang disematkan, bukan diagram PowerPoint asli. Mengedit buku kerja melalui OLE memerlukan aplikasi desktop yang mendukung aktivasi OLE dan instalasi Excel yang kompatibel.
 
-Urutan langkah berikut diperlukan untuk membuat dan menyematkan bagan Excel sebagai objek OLE dalam slide PowerPoint:
+## **Prasyarat**
 
-1. Buat bagan Excel menggunakan Aspose.Cells.
-1. Atur ukuran OLE bagan Excel menggunakan Aspose.Cells.
-1. Dapatkan gambar bagan Excel dengan Aspose.Cells.
-1. Sematkan bagan Excel sebagai objek OLE dalam presentasi PPTX menggunakan Aspose.Slides.
-1. Ganti gambar "EMBEDDED OLE OBJECT" dengan gambar yang diperoleh pada langkah 3 untuk mengatasi [masalah pratinjau objek](/slides/id/python-java/object-preview-issue-when-adding-oleobjectframe/).
-1. Simpan presentasi ke disk dalam format PPTX.
+Instal paket Python `aspose-cells` dan `aspose-slides-java` serta runtime Java yang kompatibel. Impor kedua paket sebelum memulai JVM sehingga pustaka Java mereka tersedia untuk JPype. Microsoft Office tidak diperlukan untuk menghasilkan presentasi dengan pustaka ini.
 
-## **Implementasi Langkah-Langkah yang Diperlukan**
+Tidak diperlukan berkas masukan: contoh ini membuat data dan diagram dalam memori, kemudian menulis `OutputChart.pptx` ke direktori kerja saat ini. Terapkan lisensi untuk kedua produk saat dijalankan di luar mode evaluasi.
 
-Implementasi Python dari langkah‑langkah di atas adalah sebagai berikut:
+## **Cara Kerja Penyematan**
+
+1. Buat buku kerja dengan lembar kerja data dan lembar diagram.  
+2. Aktifkan lembar diagram sehingga buku kerja terbuka pada diagram.  
+3. Atur rentang tampilan OLE buku kerja dan render diagram ke PNG.  
+4. Simpan buku kerja sebagai XLSX dalam memori dan sematkan byte tersebut ke dalam slide.  
+5. Tetapkan PNG sebagai pratinjau objek OLE dan simpan presentasi sebagai PPTX.  
+
+Rentang tampilan buku kerja dan bingkai pada slide memiliki peran yang berbeda. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) menerima indeks baris dan kolom mulai/akhir yang berbasis nol. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) sebaliknya menerima baris atas, kolom kiri, baris bawah, dan kolom kanan. Contoh ini menggunakan indeks baris 55 dan indeks kolom 25 sebagai batas kanan-bawah; nilai tersebut adalah pilihan tata letak, bukan jumlah baris atau kolom data.
+
+Bingkai slide menggunakan poin. Contoh ini menyesuaikannya agar muat dalam slide dan menengahkannya sambil mempertahankan rasio aspek PNG, alih-alih meregangkan pratinjau untuk mengisi slide.
+
+## **Buat dan Sematkan Diagram**
+
+Contoh lengkap berikut mengisi `DataSheet` dengan empat baris dan lima kolom nilai. Setiap baris menjadi seri diagram. `ChartSheet` dipilih sebagai lembar aktif sebelum buku kerja disimpan.
+
+Buku kerja disimpan secara eksplisit sebagai XLSX, cocok dengan ekstensi `xlsx` yang diteruskan ke [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/). Aliran byte-array Java mempertahankan buku kerja dan gambar dalam memori serta menyediakan byte array yang dibutuhkan oleh API Java. PNG dimuat langsung dari byte-nya tanpa konversi bitmap perantara. Menetapkannya melalui [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) menggantikan placeholder OLE default.
 
 ```python
 import jpype
@@ -44,128 +54,102 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
-ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
+ByteArrayOutputStream = jpile.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # Sebuah array nama sel.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # Sebuah array data sel.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # Tambahkan lembar kerja baru untuk mengisi sel dengan data.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # Isi lembar data dengan data.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # Tambahkan lembar bagan.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # Tambahkan bagan ke lembar bagan dengan rangkaian data dari lembar data.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # Atur lembar bagan sebagai lembar aktif.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # Deskripsikan buku kerja sebagai data OLE yang disematkan.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# Buat buku kerja.
 workbook = Workbook()
-
-# Tambahkan bagan Excel.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# Atur ukuran OLE bagan.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# Dapatkan gambar bagan dan simpan ke aliran.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# Simpan buku kerja ke aliran.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# Buat presentasi.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # Tambahkan buku kerja ke slide.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # Simpan presentasi ke disk.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # Render pratinjau diagram dan serialisasikan buku kerja yang dapat diedit secara terpisah.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # Sesuaikan pratinjau dalam slide tanpa mengubah rasio aspeknya.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-Presentasi yang dibuat dengan metode di atas akan berisi bagan Excel sebagai objek OLE yang dapat diaktifkan dengan mengklik dua kali frame objek OLE.
+## **Hasil yang Diharapkan**
 
-## **Kesimpulan**
+`OutputChart.pptx` berisi satu slide dengan buku kerja Excel yang disematkan dan pratinjau diagram. Buku kerja berisi data asli dan diagram kolom dengan empat seri. Pratinjau tersebut ditempatkan di tengah slide dan mempertahankan proporsinya.
 
-Dengan menggunakan Aspose.Cells for Python via Java bersama dengan Aspose.Slides for Python via Java, kita dapat membuat bagan Excel apa pun yang didukung oleh Aspose.Cells dan menyematkan bagan tersebut sebagai objek OLE dalam slide PowerPoint. Ukuran OLE bagan Excel juga dapat ditentukan. Pengguna akhir kemudian dapat mengedit bagan Excel seperti objek OLE lainnya.
+![Diagram kolom Excel ditampilkan sebagai pratinjau buku kerja yang disematkan](excel-chart-ole-preview.png)
 
-## **Bagian Terkait**
-
-- [Solusi yang Berhasil untuk Mengubah Ukuran Bagan di PPTX](/slides/id/python-java/working-solution-for-chart-resizing-in-pptx/)
-- [Masalah Pratinjau Objek saat Menambahkan OleObjectFrame](/slides/id/python-java/object-preview-issue-when-adding-oleobjectframe/)
+Dalam lingkungan PowerPoint desktop yang kompatibel dengan Excel tersedia, klik ganda objek untuk mengaktifkan dan mengedit buku kerja yang disematkan. Aktivasi dan penyuntingan bergantung pada dukungan OLE aplikasi host serta pengaturan keamanannya.
 
 ## **FAQ**
 
-**Perpustakaan mana yang digunakan untuk membuat dan menyematkan bagan Excel?**
+**Mengapa diperlukan gambar pratinjau?**  
+Buku kerja yang disematkan dan pratinjau slide-nya merupakan konten terpisah. Sediakan gambar diagram sehingga slide menampilkan diagram alih-alih placeholder default "EMBEDDED OLE OBJECT". Lihat [Masalah Pratinjau Objek saat Menambahkan OleObjectFrame](/slides/id/python-java/object-preview-issue-when-adding-oleobjectframe/).
 
-Aspose.Cells for Python via Java membuat bagan Excel, dan Aspose.Slides for Python via Java menyematkannya sebagai objek OLE dalam slide PowerPoint.
+**Apakah pratinjau diperbarui secara otomatis ketika saya mengubah buku kerja dalam kode?**  
+Anggap pratinjau sebagai snapshot. Saat memperbarui data buku kerja secara programatik, buat kembali gambar diagram dan ganti pratinjau serta data buku kerja yang disematkan.
 
-**Bagaimana pengguna dapat mengedit bagan Excel yang disematkan?**
+**Apakah saya dapat menggunakan XLS alih-alih XLSX?**  
+Ya. Simpan buku kerja dalam format XLS dan gunakan `xls` sebagai ekstensi data yang disematkan. Ekstensi harus sesuai dengan format buku kerja yang sebenarnya; mengubah ekstensi saja tidak mengkonversi data.
 
-Pengguna dapat mengklik dua kali frame objek OLE untuk mengaktifkan bagan dan mengeditnya seperti objek OLE lainnya.
+**Mengapa objek dapat berubah ukuran setelah aktivasi?**  
+Aplikasi host dapat memperbarui tampilan objek OLE ketika mengaktifkan buku kerja. Rentang tampilan OLE buku kerja dan dimensi bingkai slide keduanya penting. Lihat [Solusi Bekerja untuk Mengubah Ukuran Diagram dalam PPTX](/slides/id/python-java/working-solution-for-chart-resizing-in-pptx/).
 
-**Bagaimana pratinjau default objek OLE diganti?**
+## **Bagian Terkait**
 
-Contoh ini memperoleh gambar bagan Excel dengan Aspose.Cells dan menggunakannya untuk mengganti gambar "EMBEDDED OLE OBJECT".
+- [Solusi Bekerja untuk Mengubah Ukuran Diagram dalam PPTX](/slides/id/python-java/working-solution-for-chart-resizing-in-pptx/)
+- [Masalah Pratinjau Objek saat Menambahkan OleObjectFrame](/slides/id/python-java/object-preview-issue-when-adding-oleobjectframe/)

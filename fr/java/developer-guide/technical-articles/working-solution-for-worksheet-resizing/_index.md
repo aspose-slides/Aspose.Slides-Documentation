@@ -1,5 +1,5 @@
 ---
-title: Solution fonctionnelle pour le redimensionnement d’une feuille de calcul
+title: Solution fonctionnelle pour le redimensionnement de la feuille de calcul
 type: docs
 weight: 20
 url: /fr/java/working-solution-for-worksheet-resizing/
@@ -9,39 +9,46 @@ keywords:
 - redimensionnement d'image
 - Excel
 - feuille de calcul
+- PowerPoint
 - présentation
 - Java
 - Aspose.Slides
-description: "Correction du redimensionnement OLE des feuilles de calcul Excel dans les présentations : deux méthodes pour garder les cadres d’objet cohérents—mettre à l’échelle le cadre ou la feuille—dans les formats PPT et PPTX."
+description: "Corrigez le redimensionnement OLE des feuilles de calcul Excel dans les présentations : deux façons de garder les cadres d'objet cohérents—redimensionner le cadre ou la feuille—dans les formats PPT et PPTX."
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}}
-
-Il a été observé que les feuilles de calcul Excel intégrées en tant qu'objets OLE dans une présentation PowerPoint via les composants Aspose sont redimensionnées à une échelle indéterminée après la première activation. Ce comportement crée une différence visuelle notable dans la présentation entre les états avant et après activation de l'objet OLE. Nous avons étudié ce problème en détail et fourni une solution, qui est décrite dans cet article.
+Les feuilles de calcul Excel intégrées en tant qu'objets OLE dans une présentation PowerPoint à l'aide des composants Aspose peuvent être redimensionnées de manière inattendue après leur première activation. Ce comportement crée une différence visuelle notable entre l'objet OLE avant et après l'activation. Cet article explique le problème et décrit deux solutions pour le résoudre.
 
 {{% /alert %}}
 
 ## **Contexte**
 
-Dans l’article [Gérer OLE](/slides/fr/java/manage-ole/), nous avons expliqué comment ajouter un cadre OLE à une présentation PowerPoint à l'aide d'Aspose.Slides for Java. Pour résoudre le [problème d'aperçu d'objet](/slides/fr/java/object-preview-issue-when-adding-oleobjectframe/), nous avons attribué une image de la zone de feuille de calcul sélectionnée au cadre d'objet OLE. Dans la présentation générée, lorsque vous double-cliquez sur le cadre d'objet OLE affichant l'image de la feuille, le classeur Excel est activé. Les utilisateurs peuvent apporter toutes les modifications souhaitées au classeur Excel réel, puis revenir à la diapositive en cliquant en dehors du classeur Excel activé. La taille du cadre d'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement variera en fonction de la taille du cadre d'objet OLE et du classeur Excel intégré.
+Dans l'article [Gérer OLE](/slides/fr/java/manage-ole/), nous avons expliqué comment ajouter un cadre OLE à une présentation PowerPoint en utilisant Aspose.Slides for Java. Pour résoudre le [problème d'aperçu d'objet](/slides/fr/java/object-preview-issue-when-adding-oleobjectframe/), nous avons attribué une image de la zone de la feuille de calcul sélectionnée au cadre de l'objet OLE. Dans la présentation générée, lorsque vous double-cliquez sur le cadre d'objet OLE affichant l'image de la feuille, le classeur Excel est activé. Les utilisateurs finaux peuvent apporter toutes les modifications souhaitées au classeur Excel réel, puis revenir à la diapositive en cliquant en dehors du classeur Excel activé. La taille du cadre d'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement variera en fonction de la taille du cadre d'objet OLE et du classeur Excel intégré.
 
 ## **Cause du redimensionnement**
 
-Étant donné que le classeur Excel possède sa propre taille de fenêtre, il essaie de conserver sa taille d'origine lors de la première activation. En revanche, le cadre d'objet OLE a sa propre taille. Selon Microsoft, lorsque le classeur Excel est activé, Excel et PowerPoint négocient la taille afin de garantir le maintien des proportions correctes dans le cadre du processus d'intégration. Le redimensionnement se produit en fonction des différences entre la taille de la fenêtre Excel et la taille et la position du cadre d'objet OLE.
+Comme le classeur Excel possède sa propre taille de fenêtre, il tente de conserver sa taille d'origine lors de la première activation. En revanche, le cadre de l'objet OLE a sa propre taille. Selon Microsoft, lorsque le classeur Excel est activé, Excel et PowerPoint négocient la taille afin de garantir le maintien des proportions correctes dans le cadre du processus d'intégration. Le redimensionnement se produit en fonction des différences entre la taille de la fenêtre Excel et la taille et la position du cadre de l'objet OLE.
 
 ## **Solution fonctionnelle**
 
 Il existe deux solutions possibles pour éviter l'effet de redimensionnement.
 
-- Redimensionner la taille du cadre OLE dans la présentation PowerPoint pour correspondre à la hauteur et à la largeur du nombre souhaité de lignes et colonnes dans le cadre OLE.
-- Conserver la taille du cadre OLE constante et redimensionner la taille des lignes et colonnes participantes pour qu'elle s'adapte à la taille du cadre OLE sélectionné.
+- Redimensionner le cadre OLE dans la présentation PowerPoint pour qu'il corresponde à la hauteur et à la largeur totales des lignes et colonnes sélectionnées.  
+- Conserver la taille du cadre OLE constante et redimensionner les lignes et colonnes sélectionnées pour qu'elles s'adaptent.
 
 ### **Redimensionner la taille du cadre OLE**
 
-Dans cette approche, nous apprendrons comment définir la taille du cadre OLE du classeur Excel intégré afin qu'elle corresponde à la taille cumulative des lignes et colonnes participantes dans la feuille Excel.
+Cette approche définit la taille du cadre OLE pour qu'elle corresponde à la hauteur et à la largeur totales des lignes et colonnes sélectionnées dans la feuille Excel intégrée.
 
-Supposons que nous disposions d'une feuille Excel modèle et que nous souhaitions l'ajouter à une présentation en tant que cadre OLE. Dans ce scénario, la taille du cadre d'objet OLE sera d'abord calculée à partir des hauteurs cumulatives des lignes et des largeurs cumulatives des colonnes des lignes et colonnes participantes du classeur. Ensuite, nous définirons la taille du cadre OLE à cette valeur calculée. Pour éviter le message rouge « EMBEDDED OLE OBJECT » du cadre OLE dans PowerPoint, nous capturerons également une image des portions souhaitées des lignes et colonnes du classeur et l'utiliserons comme image du cadre OLE.
+L'exemple charge un classeur Excel existant et sélectionne les 10 premières lignes et les 13 premières colonnes de sa première feuille en utilisant des indices zéro‑basés. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) définit la plage affichée. L'aperçu est rendu à 96 DPI, et ses dimensions en pixels sont converties en points en utilisant 72 points par pouce. [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) intègre le classeur modifié dans un cadre avec ces dimensions. L'aperçu est assigné via [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) pour remplacer le texte de l'espace réservé "EMBEDDED OLE OBJECT" dans la présentation enregistrée.
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -51,7 +58,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Définir la taille affichée lorsque le fichier de classeur est utilisé comme objet OLE dans PowerPoint.
+// Définir la taille affichée lorsque le fichier classeur est utilisé comme objet OLE dans PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -59,7 +66,7 @@ workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Obtenir la largeur et la hauteur de l'image OLE en points.
+// Get the width and height of the OLE image in points.
 Image image = ImageIO.read(imageStream);
 float imageWidth = image.getWidth(null) * 72f / imageResolution;
 float imageHeight = image.getHeight(null) * 72f / imageResolution;
@@ -72,12 +79,12 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Add the OLE image to the presentation resources.
+// Ajouter l'image OLE aux ressources de la présentation.
 imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Create the OLE object frame.
+// Créer le cadre d'objet OLE.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -88,7 +95,13 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
+L'assistant d'aperçu définit [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) sur la plage sélectionnée et supprime les marges, en‑têtes et pieds de page. Avec [ImageOrPrintOptions.setOnlyArea](https://reference.aspose.com/cells/java/com.aspose.cells/imageorprintoptions/#setOnlyArea-boolean-) activé, [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-) rend la plage sous forme d'image PNG. L'assistant renvoie un nouveau flux d'entrée contenant l'image PNG, positionné au début pour être utilisé dans la présentation.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -113,13 +126,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-
 ### **Redimensionner la taille de la plage de cellules**
 
-Dans cette approche, nous apprendrons comment redimensionner les hauteurs des lignes participantes et la largeur des colonnes participantes afin de correspondre à une taille de cadre OLE personnalisée.
+Cette approche redimensionne la hauteur des lignes sélectionnées et la largeur des colonnes sélectionnées pour correspondre à une taille de cadre OLE personnalisée.
 
-Supposons que nous disposions d'une feuille Excel modèle et que nous souhaitions l'ajouter à une présentation en tant que cadre OLE. Dans ce scénario, nous définirons la taille du cadre OLE et redimensionnerons la taille des lignes et colonnes qui participent à la zone du cadre OLE. Nous enregistrerons ensuite le classeur dans un flux pour appliquer les modifications et le convertirons en tableau d'octets afin de l'ajouter au cadre OLE. Pour éviter le message rouge « EMBEDDED OLE OBJECT » du cadre OLE dans PowerPoint, nous capturerons également une image des portions souhaitées des lignes et colonnes du classeur et l'utiliserons comme image du cadre OLE.
+L'exemple charge un classeur Excel existant et sélectionne les 10 premières lignes et les 13 premières colonnes de sa première feuille en utilisant des indices zéro‑basés. [WorksheetCollection.setOleSize](https://reference.aspose.com/cells/java/com.aspose.cells/worksheetcollection/#setOleSize-int-int-int-int-) définit la plage affichée, et l'assistant ci‑dessous redimensionne cette plage pour qu'elle s'adapte à un cadre de 400 points de largeur et 100 points de hauteur. Après avoir enregistré le classeur modifié dans un flux, [IShapeCollection.addOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addOleObjectFrame-float-float-float-float-com.aspose.slides.IOleEmbeddedDataInfo-) l'intègre à la taille spécifiée. Un aperçu rendu à 96 DPI est assigné via [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--), de sorte que la présentation enregistrée affiche les cellules sélectionnées au lieu de l'espace réservé par défaut.
+
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -130,12 +147,12 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Définir la taille affichée lorsque le fichier de classeur est utilisé comme objet OLE dans PowerPoint.
+// Définir la taille affichée lorsque le fichier classeur est utilisé comme objet OLE dans PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Redimensionner la plage de cellules pour l'adapter à la taille du cadre.
+// Redimensionner la plage de cellules pour correspondre à la taille du cadre.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -163,6 +180,8 @@ oleStream.close();
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
+
+L'assistant de mise à l'échelle calcule des rapports de largeur et de hauteur distincts pour la plage sélectionnée, en préservant les largeurs relatives de ses colonnes et les hauteurs relatives de ses lignes. Il convertit les dimensions calculées de points en pouces avant de les appliquer avec [Cells.setColumnWidthInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setColumnWidthInch-int-double-) et [Cells.setRowHeightInch](https://reference.aspose.com/cells/java/com.aspose.cells/cells/#setRowHeightInch-int-double-). La plage sélectionnée doit avoir une largeur et une hauteur non nulles.
 
 ```java
 /**
@@ -201,7 +220,13 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 }
 ```
 
+L'assistant d'aperçu rend la plage redimensionnée en utilisant [SheetRender.toImage](https://reference.aspose.com/cells/java/com.aspose.cells/sheetrender/#toImage-int-java.io.OutputStream-). Il limite [PageSetup.setPrintArea](https://reference.aspose.com/cells/java/com.aspose.cells/pagesetup/#setPrintArea-java.lang.String-) à cette plage, supprime les marges, en‑têtes et pieds de page, et renvoie un flux PNG positionné au début.
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -226,12 +251,11 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-
 ## **Conclusion**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Il existe deux approches pour résoudre le problème de redimensionnement de la feuille de calcul. Le choix de l'approche appropriée dépend des exigences spécifiques et du cas d'utilisation. Les deux approches fonctionnent de la même manière, que les présentations soient créées à partir d'un modèle ou à partir de zéro. De plus, il n'y a aucune limite à la taille du cadre d'objet OLE dans cette solution.
+Il existe deux approches pour résoudre le problème de redimensionnement de la feuille de calcul. Choisissez l'approche qui correspond le mieux à vos exigences et à votre cas d'utilisation. Les deux approches fonctionnent de la même manière, que les présentations soient créées à partir d'un modèle ou à partir de zéro. De plus, il n'y a aucune limite à la taille du cadre d'objet OLE dans cette solution.
 
 {{% /alert %}}
 
@@ -239,30 +263,30 @@ Il existe deux approches pour résoudre le problème de redimensionnement de la 
 
 **Pourquoi une feuille de calcul Excel intégrée change-t-elle de taille lors de sa première activation dans PowerPoint ?**
 
-Ça se produit parce qu'Excel tente de conserver la taille originale de la fenêtre lorsqu'il est activé, alors que le cadre d'objet OLE dans PowerPoint a ses propres dimensions. PowerPoint et Excel négocient la taille pour maintenir le rapport d'aspect, ce qui peut entraîner le redimensionnement.
+Cela se produit parce qu'Excel essaie de conserver la taille d'origine de la fenêtre lorsqu'il est activé, tandis que le cadre de l'objet OLE dans PowerPoint a ses propres dimensions. PowerPoint et Excel négocient la taille pour maintenir le rapport d'aspect, ce qui peut entraîner le redimensionnement.
 
 **Est-il possible d'éviter complètement ce problème de redimensionnement ?**
 
-Oui. En redimensionnant le cadre OLE pour correspondre à la taille de la plage de cellules Excel ou en redimensionnant la plage de cellules pour correspondre à la taille souhaitée du cadre OLE, vous pouvez éviter le redimensionnement indésirable.
+Oui. En redimensionnant le cadre OLE pour qu'il corresponde à la taille de la plage de cellules Excel ou en redimensionnant la plage de cellules pour qu'elle corresponde à la taille souhaitée du cadre OLE, vous pouvez éviter les redimensionnements indésirables.
 
-**Quelle méthode de redimensionnement dois‑je utiliser, le redimensionnement du cadre OLE ou le redimensionnement de la plage de cellules ?**
+**Quelle méthode de mise à l'échelle devrais-je utiliser, le redimensionnement du cadre OLE ou le redimensionnement de la plage de cellules ?**
 
-Sélectionnez **le redimensionnement du cadre OLE** si vous souhaitez conserver les tailles des lignes et colonnes Excel d'origine. Sélectionnez **le redimensionnement de la plage de cellules** si vous voulez une taille fixe pour le cadre OLE dans votre présentation.
+Sélectionnez **le redimensionnement du cadre OLE** si vous souhaitez conserver les tailles d'origine des lignes et colonnes Excel. Sélectionnez **le redimensionnement de la plage de cellules** si vous souhaitez une taille fixe pour le cadre OLE dans votre présentation.
 
-**Ces solutions fonctionneront‑elles si ma présentation est basée sur un modèle ?**
+**Ces solutions fonctionneront-elles si ma présentation est basée sur un modèle ?**
 
-Oui. Les deux solutions fonctionnent pour les présentations créées à partir de modèles et à partir de zéro.
+Oui. Les deux solutions fonctionnent pour les présentations créées à partir de modèles ou à partir de zéro.
 
-**Existe‑t‑il une limite à la taille du cadre OLE lors de l'utilisation de ces méthodes ?**
+**Y a-t-il une limite à la taille du cadre OLE lors de l'utilisation de ces méthodes ?**
 
-Non. Vous pouvez définir le cadre d'objet OLE à n'importe quelle taille tant que vous ajustez l'échelle correctement.
+Non. Vous pouvez définir le cadre d'objet OLE à n'importe quelle taille tant que vous ajustez correctement l'échelle.
 
-**Existe‑t‑il un moyen d'éviter le texte de l'espace réservé « EMBEDDED OLE OBJECT » dans PowerPoint ?**
+**Existe-t-il un moyen d'éviter le texte d'espace réservé "EMBEDDED OLE OBJECT" dans PowerPoint ?**
 
-Oui. En prenant une capture de la plage de cellules Excel cible et en l'utilisant comme image d'espace réservé du cadre OLE, vous pouvez afficher une image d'aperçu personnalisée à la place du texte par défaut.
+Oui. En capturant une image de la plage de cellules Excel cible et en la définissant comme image d'espace réservé du cadre OLE, vous pouvez afficher une image d'aperçu personnalisée à la place de l'espace réservé par défaut.
 
 ## **Articles associés**
 
-[Créer un graphique Excel et l'intégrer à une présentation en tant qu'objet OLE](/slides/fr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Créer un graphique Excel et l'intégrer dans une présentation en tant qu'objet OLE](/slides/fr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Mettre à jour les objets OLE automatiquement à l'aide d'un add‑in MS PowerPoint](/slides/fr/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Mettre à jour les objets OLE automatiquement à l'aide d'un add‑in MS PowerPoint](/slides/fr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

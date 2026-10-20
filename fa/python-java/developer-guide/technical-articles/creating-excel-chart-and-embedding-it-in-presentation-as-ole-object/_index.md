@@ -1,5 +1,5 @@
 ---
-title: ایجاد نمودارهای Excel و جاسازی آن‌ها در ارائه‌ها به عنوان شیء OLE
+title: ایجاد نمودارهای Excel و جاسازی آن‌ها در ارائه‌ها به‌عنوان اشیاء OLE
 type: docs
 weight: 30
 url: /fa/python-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
@@ -8,29 +8,41 @@ keywords:
 - جاسازی نمودار
 - شیء OLE
 - PowerPoint
-- OpenDocument
 - ارائه
 - Python
 - Java
 - Aspose.Slides
-description: "نمودارهای Excel را ایجاد کنید و به‌عنوان شیء OLE در ارائه‌های PowerPoint و OpenDocument با Python جاسازی کنید. راهنمای گام‌به‌گام با نمونه کدها."
+description: یک نمودار Excel را با Aspose.Cells برای Python از طریق Java ایجاد کنید و کتاب‌کار را در یک ارائه PowerPoint با Aspose.Slides جاسازی کنید، شامل پیش‌نمایش نمودار.
 ---
-## **پیش‌زمینه**
+## **مرور کلی**
 
-در PowerPoint، استفاده از نمودارهای قابل ویرایش برای نمایش گرافیکی داده‌ها رایج است. Aspose امکان ایجاد نمودارهای Excel را با Aspose.Cells for Python via Java فراهم می‌کند و این نمودارها می‌توانند به عنوان اشیاء OLE در اسلایدهای PowerPoint از طریق Aspose.Slides for Python via Java جاسازی شوند. این مقاله مراحل لازم را پوشش می‌دهد و نمونه کد پایتون برای ایجاد یک نمودار Excel و جاسازی آن به عنوان شیء OLE در یک ارائه PowerPoint با استفاده از Aspose.Cells و Aspose.Slides ارائه می‌دهد.
+این مقاله نشان می‌دهد چگونه یک نمودار ستونی اکسل با Aspose.Cells برای Python از طریق Java ایجاد کرده و کتاب‌کار آن را در یک ارائه PowerPoint با Aspose.Slides برای Python از طریق Java جاسازی کنید. کتاب‌کار جاسازی‌شده شامل داده‌های منبع و نمودار است. یک پیش‌نمایش PNG جداگانه نمودار را بر روی اسلاید قبل از فعال‌سازی شی OLE نمایش می‌دهد.
 
-## **مراحل مورد نیاز**
+نتیجه یک شیء Excel جاسازی‌شده است، نه یک نمودار بومی PowerPoint. ویرایش کتاب‌کار از طریق OLE به یک برنامه دسکتاپ که از فعال‌سازی OLE پشتیبانی می‌کند و یک نصب Excel سازگار نیاز دارد.
 
-1. یک نمودار Excel را با استفاده از Aspose.Cells ایجاد کنید.
-1. اندازه OLE نمودار Excel را با Aspose.Cells تنظیم کنید.
-1. یک تصویر از نمودار Excel با Aspose.Cells دریافت کنید.
-1. نمودار Excel را به عنوان یک شیء OLE در ارائه PPTX با استفاده از Aspose.Slides جاسازی کنید.
-1. تصویر «EMBEDDED OLE OBJECT» را با تصویری که در مرحله 3 به دست آمده است، جایگزین کنید تا مشکل [object preview issue](/slides/fa/python-java/object-preview-issue-when-adding-oleobjectframe/) رفع شود.
-1. ارائه را در فرمت PPTX روی دیسک ذخیره کنید.
+## **پیش‌نیازها**
 
-## **پیاده‌سازی مراحل مورد نیاز**
+پکیج‌های Python `aspose-cells` و `aspose-slides-java` و یک محیط اجرایی Java سازگار را نصب کنید. هر دو پکیج را قبل از شروع JVM وارد کنید تا کتابخانه‌های Java آن‌ها برای JPype در دسترس باشند. برای تولید ارائه با این کتابخانه‌ها Microsoft Office لازم نیست.
 
-پیاده‌سازی پایتون مراحل فوق به شکل زیر است:
+هیچ فایل ورودی‌ای لازم نیست: مثال داده‌ها و نمودار را در حافظه ایجاد می‌کند، سپس `OutputChart.pptx` را در پوشهٔ کاری فعلی می‌نویسد. هنگام اجرای برنامه خارج از حالت ارزیابی، برای هر دو محصول لایسنس اعمال کنید.
+
+## **نحوهٔ کار جاسازی**
+
+1. یک کتاب‌کار با یک کاربرگ داده و یک شیت نمودار ایجاد کنید.
+2. شیت نمودار را فعال کنید تا کتاب‌کار بر روی نمودار باز شود.
+3. محدوده نمایش OLE کتاب‌کار را تنظیم کرده و نمودار را به PNG رندر کنید.
+4. کتاب‌کار را به صورت XLSX در حافظه ذخیره کنید و آن بایت‌ها را در یک اسلاید جاسازی کنید.
+5. PNG را به عنوان پیش‌نمایش شیء OLE اختصاص دهید و ارائه را به صورت PPTX ذخیره کنید.
+
+محدوده نمایش کتاب‌کار و قاب اسلاید نقش‌های متفاوتی دارند. [setOleSize](https://reference.aspose.com/cells/python-java/asposecells.api/worksheetcollection/#setolesize) شاخص‌های ردیف و ستون شروع/پایان را به صورت صفر-محور می‌گیرد. [ChartCollection.add](https://reference.aspose.com/cells/python-java/asposecells.api/chartcollection/#add) در عوض ردیف بالایی، ستون چپ، ردیف پایینی و ستون راست را می‌گیرد. در این مثال، شاخص ردیف 55 و شاخص ستون 25 به عنوان مرزهای پایین‑راست استفاده شده‌اند؛ این مقادیر انتخاب‌های چیدمانی هستند، نه تعداد ردیف‌ها یا ستون‌های داده.
+
+قاب اسلاید از نقاط (points) استفاده می‌کند. این مثال آن را در داخل اسلاید قرار می‌دهد و در مرکز می‌چسباند در حالی که نسبت تصویری PNG را حفظ می‌کند، به‌جای کشیدن پیش‌نمایش برای پر کردن کل اسلاید.
+
+## **ایجاد و جاسازی نمودار**
+
+مثال کامل زیر `DataSheet` را با چهار ردیف و پنج ستون مقادیر پر می‌کند. هر ردیف تبدیل به یک سری نموداری می‌شود. قبل از ذخیره کتاب‌کار، `ChartSheet` به عنوان شیت فعال انتخاب می‌شود.
+
+کتاب‌کار به‌صورت صریح به عنوان XLSX ذخیره می‌شود، به‌طوری که پسوند `xlsx` که به [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/) پاس داده می‌شود مطابقت داشته باشد. جریان‌های بایت‌آرایه‌ای جاوا کتاب‌کار و تصویر را در حافظه نگه می‌دارند و آرایه‌های بایتی مورد نیاز APIهای جاوا را فراهم می‌کنند. PNG مستقیماً از بایت‌های خود بدون تبدیل بیتی‌مپ میانه‌ای بارگیری می‌شود. اختصاص آن از طریق [getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/#getSubstitutePictureFormat) جایگزین تصویر پیش‌فرض OLE می‌شود.
 
 ```python
 import jpype
@@ -42,128 +54,106 @@ if not jpype.isJVMStarted():
 
 from asposecells.api import Workbook, ChartType, SheetType, ImageOrPrintOptions, ImageType
 from asposecells.api import SaveFormat as CellsSaveFormat
-from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
+from asposeslides.api import Images, OleEmbeddedDataInfo, Presentation, SaveFormat
 
 ByteArrayOutputStream = jpype.JClass("java.io.ByteArrayOutputStream")
 
-
-def add_excel_chart_in_workbook(workbook, chart_rows, chart_columns):
-    # یک آرایه از نام‌های سلول.
-    cell_names = [
-        "A1", "A2", "A3", "A4",
-        "B1", "B2", "B3", "B4",
-        "C1", "C2", "C3", "C4",
-        "D1", "D2", "D3", "D4",
-        "E1", "E2", "E3", "E4",
-    ]
-
-    # یک آرایه از داده‌های سلول.
-    cell_values = [
-        67, 86, 68, 91,
-        44, 64, 89, 48,
-        46, 97, 78, 60,
-        43, 29, 69, 26,
-        24, 40, 38, 25,
-    ]
-
-    # یک Worksheet جدید اضافه کنید تا سلول‌ها را با داده‌ها پر کند.
-    data_sheet_index = workbook.getWorksheets().add()
-    data_sheet = workbook.getWorksheets().get(data_sheet_index)
-    sheet_name = "DataSheet"
-    data_sheet.setName(sheet_name)
-
-    # Sheet داده را با داده‌ها پر کنید.
-    for cell_name, cell_value in zip(cell_names, cell_values):
-        data_sheet.getCells().get(cell_name).setValue(jpype.JInt(cell_value))
-
-    # یک sheet نمودار اضافه کنید.
-    worksheet_index = workbook.getWorksheets().add(SheetType.CHART)
-    chart_sheet = workbook.getWorksheets().get(worksheet_index)
-    chart_sheet.setName("ChartSheet")
-    chart_sheet_index = chart_sheet.getIndex()
-
-    # یک نمودار به sheet نمودار اضافه کنید با سری‌های داده از sheet داده.
-    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, chart_rows, 0, chart_columns)
-    chart = chart_sheet.getCharts().get(chart_index)
-    chart.getNSeries().add(sheet_name + "!A1:E1", False)
-    chart.getNSeries().add(sheet_name + "!A2:E2", False)
-    chart.getNSeries().add(sheet_name + "!A3:E3", False)
-    chart.getNSeries().add(sheet_name + "!A4:E4", False)
-
-    # Sheet نمودار را به عنوان sheet فعال تنظیم کنید.
-    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
-    return chart_sheet_index
-
-
-def add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image):
-    ole_height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
-    ole_width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
-
-    # Workbook را به‌عنوان داده OLE جاسازی‌شده توصیف کنید.
-    data_info = OleEmbeddedDataInfo(workbook_data, "xls")
-    ole_frame = slide.getShapes().addOleObjectFrame(0.0, 0.0, ole_width, ole_height, data_info)
-    image = presentation.getImages().addImage(chart_image)
-    ole_frame.getSubstitutePictureFormat().getPicture().setImage(image)
-
-
-# یک Workbook ایجاد کنید.
 workbook = Workbook()
-
-# یک نمودار Excel اضافه کنید.
-chart_rows = 55
-chart_columns = 25
-chart_sheet_index = add_excel_chart_in_workbook(workbook, chart_rows, chart_columns)
-
-# اندازه OLE نمودار را تنظیم کنید.
-workbook.getWorksheets().setOleSize(0, chart_rows, 0, chart_columns)
-
-# تصویر نمودار را دریافت کنید و آن را در یک Stream ذخیره کنید.
-print_options = ImageOrPrintOptions()
-print_options.setImageType(ImageType.PNG)
-image_stream = ByteArrayOutputStream()
-workbook.getWorksheets().get(chart_sheet_index).getCharts().get(0).toImage(image_stream, print_options)
-chart_image = image_stream.toByteArray()
-
-# Workbook را در یک Stream ذخیره کنید.
-workbook_stream = ByteArrayOutputStream()
-workbook.save(workbook_stream, CellsSaveFormat.EXCEL_97_TO_2003)
-workbook_data = workbook_stream.toByteArray()
-
-# یک ارائه (Presentation) ایجاد کنید.
-presentation = Presentation()
 try:
-    slide = presentation.getSlides().get_Item(0)
+    data_sheet = workbook.getWorksheets().get(0)
+    data_sheet.setName("DataSheet")
 
-    # Workbook را به یک اسلاید اضافه کنید.
-    add_excel_chart_in_presentation(presentation, slide, workbook_data, chart_image)
+    values = [
+        [67, 44, 46, 43, 24],
+        [86, 64, 97, 29, 40],
+        [68, 89, 78, 69, 38],
+        [91, 48, 60, 26, 25],
+    ]
+    for row, row_values in enumerate(values):
+        for column, value in enumerate(row_values):
+            data_sheet.getCells().get(row, column).putValue(jpype.JInt(value))
 
-    # ارائه را روی دیسک ذخیره کنید.
-    presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+    chart_sheet_index = workbook.getWorksheets().add(SheetType.CHART)
+    chart_sheet = workbook.getWorksheets().get(chart_sheet_index)
+    chart_sheet.setName("ChartSheet")
+
+    last_chart_row = 55
+    last_chart_column = 25
+    chart_index = chart_sheet.getCharts().add(ChartType.COLUMN, 0, 0, last_chart_row, last_chart_column)
+    chart = chart_sheet.getCharts().get(chart_index)
+    for row in range(1, len(values) + 1):
+        chart.getNSeries().add(f"DataSheet!A{row}:E{row}", False)
+
+    workbook.getWorksheets().setActiveSheetIndex(chart_sheet_index)
+    workbook.getWorksheets().setOleSize(0, last_chart_row, 0, last_chart_column)
+
+    # پیش‌نمایش نمودار را رندر کنید و کتاب‌کار قابل ویرایش را به‌صورت جداگانه سریال‌سازی کنید.
+    image_options = ImageOrPrintOptions()
+    image_options.setImageType(ImageType.PNG)
+    chart_image_stream = ByteArrayOutputStream()
+    chart.toImage(chart_image_stream, image_options)
+    chart_image_bytes = chart_image_stream.toByteArray()
+
+    workbook_stream = ByteArrayOutputStream()
+    workbook.save(workbook_stream, CellsSaveFormat.XLSX)
+    workbook_bytes = workbook_stream.toByteArray()
+
+    chart_image = Images.fromData(chart_image_bytes)
+    try:
+        presentation = Presentation()
+        try:
+            slide = presentation.getSlides().get_Item(0)
+            slide_width = presentation.getSlideSize().getSize().getWidth()
+            slide_height = presentation.getSlideSize().getSize().getHeight()
+
+            # پیش‌نمایش را در اسلاید جاگذاری کنید بدون تغییر نسبت ابعاد.
+            scale = min(slide_width / chart_image.getWidth(), slide_height / chart_image.getHeight())
+            frame_width = chart_image.getWidth() * scale
+            frame_height = chart_image.getHeight() * scale
+            frame_x = (slide_width - frame_width) / 2
+            frame_y = (slide_height - frame_height) / 2
+
+            embedded_data = OleEmbeddedDataInfo(workbook_bytes, "xlsx")
+            ole_frame = slide.getShapes().addOleObjectFrame(frame_x, frame_y, frame_width, frame_height, embedded_data)
+            preview_image = presentation.getImages().addImage(chart_image)
+            ole_frame.getSubstitutePictureFormat().getPicture().setImage(preview_image)
+
+            presentation.save("OutputChart.pptx", SaveFormat.Pptx)
+        finally:
+            presentation.dispose()
+    finally:
+        chart_image.dispose()
 finally:
-    presentation.dispose()
+    workbook.dispose()
 ```
 
-ارائه‌ای که با روش بالا ایجاد می‌شود شامل نمودار Excel به عنوان یک شیء OLE خواهد بود که می‌توان آن را با دوبار کلیک بر روی فریم شیء OLE فعال و ویرایش کرد.
+## **نتیجهٔ مورد انتظار**
 
-## **نتیجه‌گیری**
+`OutputChart.pptx` شامل یک اسلاید با یک کتاب‌کار Excel جاسازی‌شده و یک پیش‌نمایش نمودار است. کتاب‌کار شامل داده‌های اصلی و یک نمودار ستونی با چهار سری است. پیش‌نمایش در مرکز اسلاید قرار گرفته و نسبت‌های خود را حفظ می‌کند.
 
-با استفاده از Aspose.Cells for Python via Java به همراه Aspose.Slides for Python via Java می‌توان هر نمودار Excelی که توسط Aspose.Cells پشتیبانی می‌شود ایجاد کرده و به عنوان شیء OLE در یک اسلاید PowerPoint جاسازی کرد. اندازه OLE نمودار Excel نیز قابل تعریف است. کاربران نهایی می‌توانند همانند هر شیء OLE دیگری نمودار Excel جاسازی‌شده را ویرایش کنند.
+![نمودار ستونی اکسل نمایش داده شده به‌عنوان پیش‌نمایش کتاب‌کار جاسازی‌شده](excel-chart-ole-preview.png)
 
-## **بخش‌های مرتبط**
-
-- [راه‌حل کارآمد برای تغییر اندازه نمودار در PPTX](/slides/fa/python-java/working-solution-for-chart-resizing-in-pptx/)
-- [مشکل پیش‌نمایش شیء هنگام افزودن OleObjectFrame](/slides/fa/python-java/object-preview-issue-when-adding-oleobjectframe/)
+در یک محیط دسکتاپ PowerPoint سازگار که Excel در دسترس باشد، روی شیء دوبار کلیک کنید تا کتاب‌کار جاسازی‌شده فعال و ویرایش شود. فعال‌سازی و ویرایش به پشتیبانی OLE برنامهٔ میزبان و تنظیمات امنیتی آن وابسته است.
 
 ## **سوالات متداول**
 
-**کدام کتابخانه‌ها برای ایجاد و جاسازی نمودار Excel استفاده می‌شوند؟**
+**چرا تصویر پیش‌نمایش مورد نیاز است؟**
 
-Aspose.Cells for Python via Java نمودار Excel را ایجاد می‌کند و Aspose.Slides for Python via Java آن را به عنوان یک شیء OLE در اسلاید PowerPoint جاسازی می‌نماید.
+کتاب‌کار جاسازی‌شده و پیش‌نمایش اسلاید آن محتواهای جداگانه‌ای هستند. یک تصویر نمودار فراهم کنید تا اسلاید به‌جای جای‌گیر پیش‌فرض "EMBEDDED OLE OBJECT"، نمودار را نمایش دهد. See [Object Preview Issue when Adding OleObjectFrame](/slides/fa/python-java/object-preview-issue-when-adding-oleobjectframe/).
 
-**چگونه کاربران می‌توانند نمودار Excel جاسازی شده را ویرایش کنند؟**
+**آیا پیش‌نمایش به‌صورت خودکار هنگام تغییر کتاب‌کار در کد به‌روز می‌شود؟**
 
-کاربران می‌توانند با دوبار کلیک بر روی فریم شیء OLE، نمودار را فعال کرده و همانند هر شیء OLE دیگری آن را ویرایش کنند.
+پیش‌نمایش را به‌عنوان یک تصویر ثابت در نظر بگیرید. هنگام به‌روزرسانی داده‌های کتاب‌کار به‌صورت برنامه‌نویسی، تصویر نمودار را دوباره تولید کنید و پیش‌نمایش و همچنین داده‌های کتاب‌کار جاسازی‌شده را جایگزین کنید.
 
-**پیش‌نمایش پیش‌فرض شیء OLE چگونه جایگزین می‌شود؟**
+**آیا می‌توانم به‌جای XLSX از XLS استفاده کنم؟**
 
-مثال با استفاده از Aspose.Cells یک تصویر از نمودار Excel دریافت می‌کند و از آن برای جایگزینی تصویر «EMBEDDED OLE OBJECT» استفاده می‌نماید.
+بله. کتاب‌کار را با فرمت XLS ذخیره کنید و از پسوند `xls` به‌عنوان پسوند دادهٔ جاسازی‌شده استفاده کنید. پسوند باید با فرمت واقعی کتاب‌کار مطابقت داشته باشد؛ صرفاً تغییر پسوند باعث تبدیل داده‌ها نمی‌شود.
+
+**چرا ممکن است پس از فعال‌سازی اندازهٔ شیء تغییر کند؟**
+
+برنامهٔ میزبان می‌تواند هنگام فعال‌سازی کتاب‌کار، نمایش شیء OLE را به‌روز کند. هر دو محدوده نمایش OLE کتاب‌کار و ابعاد قاب اسلاید مهم هستند. ببینید [Working Solution for Chart Resizing in PPTX](/slides/fa/python-java/working-solution-for-chart-resizing-in-pptx/).
+
+## **بخش‌های مرتبط**
+
+- [راه‌حل کارا برای تغییر اندازهٔ نمودار در PPTX](/slides/fa/python-java/working-solution-for-chart-resizing-in-pptx/)
+- [مسئله پیش‌نمایش شیء هنگام افزودن OleObjectFrame](/slides/fa/python-java/object-preview-issue-when-adding-oleobjectframe/)
