@@ -102,6 +102,26 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
     presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
+### **Automatically Select Image Compression**
+
+When a presentation contains many photographs or screenshots, reducing the size of the exported PDF can make it easier to email or download. Set [PdfOptions.best_images_compression_ratio](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/best_images_compression_ratio/) to `True` to automatically select the most appropriate compression algorithm for each image during PDF export.
+
+The following example loads an existing presentation, enables automatic image compression selection, and saves it as a PDF document. All other PDF export settings retain their default values.
+
+```python
+import aspose.slides as slides
+
+pdf_options = slides.export.PdfOptions()
+pdf_options.best_images_compression_ratio = True
+
+with slides.Presentation("image-heavy.pptx") as presentation:
+    presentation.save("image-heavy.pdf", slides.export.SaveFormat.PDF, pdf_options)
+```
+
+This option selects a compression algorithm for each image. Lowering [jpeg_quality](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/jpeg_quality/) instead reduces JPEG image quality, while lowering [sufficient_resolution](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/sufficient_resolution/) allows images to be downsampled to a lower resolution, which can reduce detail. Enabling automatic compression selection does not itself lower either of these settings.
+
+Selecting image compression algorithms requires additional processing time and memory. The size reduction depends on the presentation's images and export settings; a fixed reduction is not guaranteed for every presentation.
+
 ### **Preserve Embedded OLE Files as PDF Attachments**
 
 If a presentation contains an embedded Excel workbook, you may want PDF recipients to access the workbook's data as well as view the slides. Set [PdfOptions.include_ole_data](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/include_ole_data/) to `True` to preserve embedded OLE files as attachments in the resulting PDF.

@@ -68,8 +68,6 @@ Aspose.Slides exports presentations to PDF, ensuring the resulting PDFs closely 
 
 The standard conversion uses the default PDF export settings. Use custom options when you need to control image quality, page content, or PDF compliance.
 
-Install [Aspose.Slides for Python via Java](/slides/python-java/installation/) and a compatible Java runtime before running the examples. Each example reads `presentation.pptx` from the current working directory; replace it with your PPT, PPTX, or ODP file. Start the JVM once per Python process.
-
 The following example loads a presentation and saves all visible slides to PDF using the default export settings.
 
 ```python
@@ -126,6 +124,35 @@ try:
 finally:
     presentation.dispose()
 ```
+
+### **Automatically Select Image Compression**
+
+When a presentation contains many photographs or screenshots, reducing the size of the exported PDF can make it easier to email or download. Call [PdfOptions.setBestImagesCompressionRatio](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setBestImagesCompressionRatio) with `True` to automatically select the most appropriate compression algorithm for each image during PDF export.
+
+The following example loads an existing presentation, enables automatic image compression selection, and saves it as a PDF document. All other PDF export settings retain their default values.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PdfOptions, Presentation, SaveFormat
+
+pdf_options = PdfOptions()
+pdf_options.setBestImagesCompressionRatio(True)
+
+presentation = Presentation("image-heavy.pptx")
+try:
+    presentation.save("image-heavy.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+This option selects a compression algorithm for each image. Lowering the value passed to [setJpegQuality](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setJpegQuality) instead reduces JPEG image quality, while lowering the value passed to [setSufficientResolution](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSufficientResolution) allows images to be downsampled to a lower resolution, which can reduce detail. Enabling automatic compression selection does not itself lower either of these settings.
+
+Selecting image compression algorithms requires additional processing time and memory. The size reduction depends on the presentation's images and export settings; a fixed reduction is not guaranteed for every presentation.
 
 ### **Preserve Embedded OLE Files as PDF Attachments**
 
