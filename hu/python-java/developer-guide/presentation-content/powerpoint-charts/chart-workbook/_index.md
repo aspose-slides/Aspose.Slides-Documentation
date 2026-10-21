@@ -1,12 +1,12 @@
 ---
-title: Prezentációkban lévő diagram munkafüzetek kezelése Python via Java használatával
+title: Diagrammunkafüzetek kezelése bemutatókban Python via Java használatával
 linktitle: Diagram munkafüzet
 type: docs
 weight: 70
 url: /hu/python-java/chart-workbook/
 keywords:
 - diagram munkafüzet
-- diagram adatok
+- diagramadat
 - munkafüzet cella
 - adatcímke
 - munkalap
@@ -16,25 +16,25 @@ keywords:
 - diagram gyorsítótár
 - munkafüzet helyreállítás
 - PowerPoint
-- prezentáció
+- bemutató
 - Python
 - Java
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for Python via Java-t: könnyedén kezelje a diagram munkafüzeteket PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse prezentációi adatait."
+description: "Ismerje meg az Aspose.Slides for Python via Java megoldást: könnyedén kezelje a diagrammunkafüzeteket a PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse bemutatóadatait."
 ---
 ## **Áttekintés**
 
-Ez a cikk azt magyarázza el, hogyan lehet a diagram munkafüzetekkel dolgozni az Aspose.Slides-ben. Bemutatja, hogyan lehet a diagram adatokat munkafüzet adatfolyamokon keresztül olvasni és írni, a munkafüzet cellákat diagram adatcímkeként használni, a munkalap gyűjteményekhez hozzáférni, és meghatározni az adatforrás típusát a diagram értékekhez.
+Ez a cikk bemutatja, hogyan dolgozhat a diagram munkafüzetekkel az Aspose.Slides-ban. Megmutatja, hogyan olvashat és írhat diagramadatokat munkafüzet-áramokon keresztül, hogyan használhat munkafüzetcellákat diagramadat‑címkékként, hogyan érheti el a munkalap‑gyűjteményeket, és hogyan adhatja meg az adatforrás típusát a diagramértékekhez.
 
-A külső munkafüzetek diagram adatforrásként történő használatát is bemutatja. A példák demonstrálják, hogyan lehet külső munkafüzetet létrehozni és hozzárendelni, lekérni a diagramhoz csatolt külső munkafüzet útvonalát, és szerkeszteni a diagram adatokat, amikor a munkafüzet elérhető.
+Továbbá kiterjed a külső munkafüzetek diagramadat‑forrásként való használatára. A példák bemutatják, hogyan hozhat létre és rendelhet hozzá egy külső munkafüzetet, hogyan szerezheti meg a diagramhoz kapcsolt külső munkafüzet útvonalát, és hogyan szerkesztheti a diagramadatokat, ha a munkafüzet elérhető.
 
-A hiányzó adatot képviselő munkafüzetcellák esetén lásd [Az üres cellák megjelenítésének szabályozása](/slides/hu/python-java/chart-series/) a különbségért az üres cella és a nulla között, valamint egy vonaldiagram összehasonlítást a rendelkezésre álló megjelenítési módokról.
+A hiányzó adatot jelző munkafüzetcellák esetén lásd a [Üres cellák megjelenítésének szabályozása](/slides/hu/python-java/chart-series/) oldalt az üres cella és a nulla közti különbségért, valamint egy vonaldiagram-összehasonlítást a rendelkezésre álló megjelenítési módokról.
 
-## **Rejtett sorok és oszlopok adatainak belefoglalása**
+## **Rejtett sorok és oszlopok adatainak belevonása**
 
-Használja a [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) metódust annak szabályozására, hogy a diagram rejtett munkalap sorokból és oszlopokból származó adatokat jelenítsen-e meg. Állítsa `True`-ra, hogy csak a látható cellákat ábrázolja, vagy `False`-ra, hogy a látható és rejtett cellákat egyaránt belefoglalja. Ez a beállítás a diagram ábrázolását szabályozza; nem rejti el vagy jeleníti meg a munkalap sorait vagy oszlopait.
+Használja a [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) metódust, hogy szabályozza, a diagram a rejtett munkalap‑sorok és -oszlopok adatait ábrázolja‑e. Állítsa `True`‑ra, ha csak a látható cellákat szeretné ábrázolni, vagy `False`‑ra, ha mind a látható, mind a rejtett cellákat bele akarja venni. Ez a beállítás a diagram ábrázolását vezérli; nem rejt el vagy jelenít meg munkalap‑sorokat vagy -oszlopokat.
 
-A [példa prezentáció](hidden-source-data.pptx) tartalmaz egy oszlopdiagramot, mint az első alakzatot az első diájon. A beágyazott munkalap, `Sheet1`, a következő forrás tartományt tartalmazza: `A1:C4`. A 3. sor és a C oszlop rejtett, de a celláik továbbra is értékeket tartalmaznak.
+A [példa bemutató](hidden-source-data.pptx) egy oszlopdiagramot tartalmaz első alakzatként az első diáján. A beágyazott munkalap, `Sheet1`, a következő forrás‑tartományt tartalmazza: `A1:C4`. A 3. sor és a C oszlop rejtett, de celláik továbbra is tartalmaznak értékeket.
 
 | Munkalap sor | A: Hónap | B: Kiskereskedelem | C: Nagykereskedelem (rejtett oszlop) |
 | --- | --- | --- | --- |
@@ -42,16 +42,16 @@ A [példa prezentáció](hidden-source-data.pptx) tartalmaz egy oszlopdiagramot,
 | 3 (rejtett sor) | február | 40 | 60 |
 | 4 | március | 20 | 50 |
 
-A forráscellákhoz hozzáférhet a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) segítségével, és olvashatja a [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) metódussal a rejtett státuszuk ellenőrzéséhez. Ez a metódus a rejtett státuszt anélkül jelzi, hogy módosítaná azt. Ebben a fájlban a B2 látható, a B3 a rejtett sorhoz tartozik, a C2 a rejtett oszlophoz; a példa a `False`, `True`, `True` értékeket írja ki.
+A forráscellák eléréséhez használja a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) metódust, és olvassa a [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) értékét a rejtett állapot vizsgálatához. Ez a metódus a rejtett állapotot anélkül jelzi, hogy módosítaná azt. Ebben a fájlban a B2 látható, a B3 a rejtett sorhoz, a C2 pedig a rejtett oszlophoz tartozik; a példa `False`, `True` és `True` értékeket ír ki.
 
-Ehhez a példához a diagramadatot frissíteni kell a ábrázolási beállítás megváltoztatása után: a beágyazott munkafüzetet megtartja a [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) segítségével, és újratölti a [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) használatával. Az összes cella belefoglalásakor használja még a [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) metódust a teljes tartomány, beleértve a rejtett februári kategóriát, visszaállításához. A zászló egyszerű módosítása nem elegendő a minta gyorsítótárazott diagramadatai és kategóriacímkéi frissítéséhez.
+Ehhez a példához frissítse a diagramadatokat a ábrázolási beállítás változtatása után: tartsa meg a beágyazott munkafüzetet a [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) használatával, és töltse be újra a [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) segítségével. Az összes cella belevonásakor használja a [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) metódust is, hogy visszaállítsa a teljes tartományt, beleértve a rejtett februári kategóriát. Egyszerűen a jelző módosítása nem elegendő a mintában cache‑elt diagramadatok és kategória címkék frissítéséhez.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpway.startJVM()
 
 from asposeslides.api import Chart, Presentation, SaveFormat
 
@@ -71,10 +71,10 @@ try:
         for visible_only in (True, False):
             chart.setPlotVisibleCellsOnly(visible_only)
 
-            # Frissítse a diagram adatokat a beágyazott munkafüzetről.
+            # Frissítse a diagramadatokat a beágyazott munkafüzetről.
             chart.getChartData().writeWorkbookStream(workbook_data)
             if not visible_only:
-                # Állítsa vissza a teljes forrás tartományt, beleértve a rejtett kategóriákat.
+                # Állítsa vissza a teljes forrástartományt, beleértve a rejtett kategóriákat.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4")
 
             presentation.save(f"hidden_cells_{visible_only}.pptx", SaveFormat.Pptx)
@@ -84,21 +84,21 @@ finally:
     presentation.dispose()
 ```
 
-A példa két változatban menti a prezentációt: az egyik csak a látható kiskereskedelmi értékekkel (10 és 20), a másik minden hat értékkel. Az alábbi képek a két ábrázolási módot illusztrálják. A 3. sor és a C oszlop mindkét beágyazott munkafüzetben rejtett marad.
+A példa két változatban menti a bemutatót: egyben csak a látható Kiskereskedelem értékekkel (10 és 20), a másikban mind a hat értékkel. Az alábbi képek a két ábrázolási módot illusztrálják. A 3. sor és a C oszlop mindkét beágyazott munkafüzetben rejtett marad.
 
 | Csak látható cellák (`True`) | Minden cella (`False`) |
 | --- | --- |
-| ![Csak látható cellák: Kiskereskedelmi értékek 10 és 20 januárra és márciusra.](hidden_cells_True.png) | ![Minden cella: Kiskereskedelmi és Nagykereskedelmi értékek januárra, februárra és márciusra.](hidden_cells_False.png) |
+| ![Csak látható cellák: Kiskereskedelem értékek 10 és 20 januárra és márciusra.](hidden_cells_True.png) | ![Minden cella: Kiskereskedelem és Nagykereskedelem értékek januárra, februárra és márciusra.](hidden_cells_False.png) |
 
-Egy értéket tartalmazó rejtett cella különbözik egy üres cellától. A [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) szabályozza, hogyan jelenjenek meg a hiányzó értékek; nem foglalja bele vagy zárja ki a rejtett forrásadatokat. Lásd [Az üres cellák megjelenítésének szabályozása](/slides/hu/python-java/chart-series/#control-the-display-of-empty-cells) egy példáért.
+Egy rejtett cella, amely értéket tartalmaz, különbözik egy üres cellától. A [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) szabályozza, hogy a hiányzó értékek hogyan jelennek meg; nem vonja be vagy zárja ki a rejtett forrásadatokat. Lásd a [Üres cellák megjelenítésének szabályozása](/slides/hu/python-java/chart-series/#control-the-display-of-empty-cells) példát.
 
-## **Diagram adat tartományának lekérdezése**
+## **Diagram adat‑tartományának lekérése**
 
-Mielőtt egy meglévő prezentációban frissítené a munkafüzet adatokat, ellenőrizze a forrás tartományokat, hogy azonosítsa, mely munkalap cellákat használja az egyes diagramok. A [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) metódus a jelenlegi adat tartományt adja vissza munkalap-kvótált képletként, például `Sheet1!$A$1:$D$5`. Itt a `Sheet1` a munkalap neve, a `!` választja el a cellatartománytól, a `$A$1:$D$5` pedig a $A$1‑től $D$5‑ig terjedő cellákat jelöli. A dollárjelek abszolút sor- és oszlophivatkozásokat jelölnek.
+Mielőtt frissítené a munkafüzet adatait egy meglévő bemutatóban, ellenőrizze a forrás‑tartományokat, hogy azonosítsa, mely munkalap‑cellákat használja az egyes diagramok. A [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) metódus visszaadja az aktuális adat‑tartományt munkalap‑kvalifikált képletként, például `Sheet1!$A$1:$D$5`. Itt a `Sheet1` a munkalap neve, a `!` választja el a cellatartománytól, a `$A$1:$D$5` pedig az A1‑től D5‑ig terjedő cellákat jelöli, mindkettő tartalmazva. A dollárjelek abszolút sor‑ és oszlop‑hivatkozásokat jeleznek.
 
-A metódus a jelenlegi tartományt olvassa anélkül, hogy módosítaná a diagramot vagy annak munkafüzetét. Ha a diagram nem munkafüzetet használ adatforrásként, `InvalidOperationException`-t dob. További információért lásd a [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) oldalt.
+A metódus a jelenlegi tartományt anélkül olvassa, hogy módosítaná a diagramot vagy annak munkafüzetét. Ha a diagram nem használ munkafüzetet adatforrásként, `InvalidOperationException`‑t dob. További információért lásd a [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) oldalt.
 
-Ez a példa megnyit egy prezentációt, és közvetlenül minden dián ellenőrzi az alakzatokat diagramok után. Kiírja minden diagram nevét és forrás tartományát. Ha egy diagram nem használ munkafüzetet, üzenetet ír ki, és a következő diagramra lép.
+Ez a példa megnyit egy bemutatót, és közvetlenül minden dián ellenőrzi az alakzatokat diagramok után. Kiírja minden diagram nevét és forrás‑tartományát. Ha egy diagram nem használ munkafüzetet, üzenetet ír ki, és a következő diagramra lép.
 
 ```python
 import jpype
@@ -125,11 +125,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Diagram adatok olvasása és írása munkafüzetből**
+## **Diagramadatok olvasása és írása munkafüzetből**
 
-Az Aspose.Slides for Python via Java biztosítja a [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) és a [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) metódusokat, amelyek lehetővé teszik a diagram adat munkafüzetek (az Aspose.Cells‑szel szerkesztett diagram adatokkal) olvasását és írását. **Megjegyzés**: a diagram adatainak ugyanúgy kell felépülniük, vagy hasonló struktúrával kell rendelkezniük, mint a forrás.
+Az Aspose.Slides for Python via Java biztosítja a [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) és a [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) metódusokat, amelyek lehetővé teszik a diagramadat‑munkafüzetek (az Aspose.Cells‑szel szerkesztett diagramadatok) be‑ és kimenetét. **Megjegyzés**: a diagramadatot ugyanolyan módon vagy hasonló szerkezettel kell rendezni, mint a forrás.
 
-Ez a példa egy olyan prezentációt használ, amelynek első alakzata egy diagram az első dián. A beágyazott munkafüzetet bájt tömbbe olvassa, kitörli a meglévő sorozatokat és kategóriákat, majd ugyanazt a munkafüzetet visszaírja. A változtatások a memóriában maradnak; a példa nem menti a prezentációt.
+Ez a példa egy bemutatót használ, amelynek első alakzata az első dián egy diagram. Beolvassa a beágyazott munkafüzetet egy byte‑tömbbe, törli a meglévő sorozatokat és kategóriákat, majd visszaírja ugyanazt a munkafüzetet. A módosítások memóriában maradnak; a példa nem menti a bemutatót.
 
 ```python
 import jpype
@@ -160,9 +160,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Diagram elrendezés ellenőrzése a munkafüzet módosítása után**
+### **Diagram elrendezésének érvényesítése a munkafüzet módosítása után**
 
-Amikor egy beágyazott munkafüzetet egy módosított változattal helyettesít, a diagram megtartja az eredeti sorozat- és kategóriagyűjteményeit. Ez az eltérés a [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) hibához vezethet, amely index‑out‑of‑range hibát dob. Törölje a meglévő sorozatokat és kategóriákat a módosított munkafüzet visszaírása előtt. Ez a példa egy olyan diagramot használ, amely az első dián az első alakzat. A megjegyzés azt jelzi, hol történne a munkafüzet szerkesztése; a futtatható példa visszaírja az eredeti munkafüzetet, és a memóriában ellenőrzi az elrendezést.
+Ha egy beágyazott munkafüzetet egy módosítottval helyettesít, a diagram megtartja az eredeti sorozat‑ és kategória‑gyűjteményeit. Ez a nem egyezés a [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) hibához vezethet, ha index‑túl‑nagy hiba lép fel. Törölje a meglévő sorozatokat és kategóriákat, mielőtt a frissített munkafüzetet visszaírná a diagramba. Ez a példa egy diagramot használ, amely az első dián az első alakzat. A megjegyzés jelzi, hol történne a munkafüzet‑szerkesztés; a futtatható példa visszaírja az eredeti munkafüzetet, és memóriában ellenőrzi az elrendezést.
 
 ```python
 import jpype
@@ -183,7 +183,7 @@ try:
         chart_data = chart.getChartData()
         workbook_data = chart_data.readWorkbookStream()
 
-        # Módosítsa itt a munkafüzet bájtjait, például az Aspose.Cells használatával.
+        # Módosítsa a munkafüzet bájtjait itt, például az Aspose.Cells használatával.
 
         chart_data.getSeries().clear()
         chart_data.getCategories().clear()
@@ -196,13 +196,82 @@ finally:
     presentation.dispose()
 ```
 
-A gyűjtemények törlése megakadályozza a elavult adat hivatkozásait, mielőtt a munkafüzet visszaíródna. Újra kell építeni a szükséges sorozat- és kategória-leképezéseket a módosított munkafüzethez, mielőtt a diagramot használja.
+A gyűjtemények törlése megszünteti a megromlott adat‑hivatkozásokat, mielőtt a munkafüzet visszaírásra kerül. Az új, frissített munkafüzethez építsen fel minden szükséges sorozat‑ és kategória‑leképezést, mielőtt a diagramot használja.
 
-## **Munkafüzetcellát beállítani diagram adatcímkeként**
+## **Egyéni számformátumok beállítása a munkafüzet celláira**
 
-Szöveget használhat a munkafüzetcellákból diagram adatcímkeként.
+Használja a [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) metódust, hogy szabályozza, a numerikus értékek hogyan jelennek meg egy diagram beágyazott munkafüzetében. Például egy jelentésnek lehet szüksége a konverziós arány megjelenítésére százalékosan négy tizedesjeggyel, valamint egy együttható megjelenítésére öt tizedesjeggyel. Tartsa mindkét értéket numerikus formában, hogy elérhetőek maradjanak a számításokhoz és a diagram ábrázolásához.
 
-Ez a példa buborékdiagramot ad hozzá alapértelmezett adatokkal a meglévő prezentáció első diájához. Az 0‑as munkalap A10:A12 celláit használja az első sorozat első három címkéjéhez, engedélyezi a cellákból származó címkéket, és menti a frissített prezentációt.
+A számformátum a megjelenítést változtatja, nem a tárolt értéket. A `0.0000%` formátum `0.125`‑et `12.5000%`‑ként jelenít meg; nem cseréli le a tárolt számot `12.5`‑re. Hasonlóan, a `0.00000` formátum `0.1234567`‑et `0.12346`‑ként jelenít meg anélkül, hogy a tárolt értéket kerekítené. Ha az egyéni formátum egy üres karakterlánc (`""`), akkor a [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) által visszaadott formátumot használja helyette.
+
+Az alábbi példa egy oszlopdiagramot hoz létre, és a celláit a [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) segítségével érheti el. Az 0‑s munkalapon a B2 a konverziós arányt, a C2 pedig az együtthatót tartalmazza. Mindkét cella diagramértékeket szolgáltat. A példa emellett engedélyezi a forrás‑formátumokra hivatkozó értékcímkéket.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 270, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 20, 620, 210)
+    chart.setTitle(False)
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
+    chart.getAxes().getVerticalAxis().setNumberFormat("0.00")
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(False)
+    chart.getAxes().getVerticalAxis().setMinValue(0)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    category_cell = workbook.getCell(0, "A2", "Sample")
+    chart.getChartData().getCategories().add(category_cell)
+
+    percentage_cell = workbook.getCell(0, "B2", jpype.JDouble(0.125))
+    percentage_cell.setCustomNumberFormat("0.0000%")
+    percentage_name = workbook.getCell(0, "B1", "Conversion rate")
+    percentage_series = chart.getChartData().getSeries().add(percentage_name, chart.getType())
+    percentage_series.getDataPoints().addDataPointForBarSeries(percentage_cell)
+
+    precision_cell = workbook.getCell(0, "C2", jpype.JDouble(0.1234567))
+    precision_cell.setCustomNumberFormat("0.00000")
+    precision_name = workbook.getCell(0, "C1", "Coefficient")
+    precision_series = chart.getChartData().getSeries().add(precision_name, chart.getType())
+    precision_series.getDataPoints().addDataPointForBarSeries(precision_cell)
+
+    for series in chart.getChartData().getSeries():
+        label_format = series.getDataPoints().get_Item(0).getLabel().getDataLabelFormat()
+        label_format.setShowValue(True)
+        label_format.setNumberFormatLinkedToSource(True)
+
+    presentation.save("CustomCellFormats.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+A munkafüzet‑cellák formátumai elkülönülnek a diagram tengelyeire vagy adatcímkéire közvetlenül beállított formátumoktól. Ebben a példában minden címke a forrás‑cellájának értékét jeleníti meg, mert a [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) `True`‑ra van állítva, és a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) is `True`. A mentés és újranyitás után a címkék `12.5000%`‑et és `0.12346`‑t jelenítenek meg, ahogy lent látható. A függőleges tengely saját számformátumot használ, amelyet a [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) `0.00`‑ra állít, a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) pedig `False`.
+
+Egy adatcímke független formázásához állítsa a forrás‑hivatkozás zászlót `False`‑ra, és adjon meg formátumot a [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) segítségével. Ez nem módosítja a munkafüzet‑cellához tartozó formátumot. Például egy független címkeformátum `0.00` az első értéket `0.13`‑ként jeleníti meg, míg a B2 továbbra is `12.5000%`‑t mutat. Lásd a [Diagram adatcímkék](/slides/hu/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) oldalt a közvetlen címkeformázáshoz.
+
+Az alábbi kép a mentett bemutató újranyitása után készült:
+
+![Oszlopdiagram a forrásra hivatkozó címkékkel, amelyek `12.5000%` és `0.12346` értékeket mutatnak, valamint egy önállóan formázott numerikus tengellyel.](custom-cell-formats.png)
+
+## **Munkafüzet cella beállítása diagram adatcímkeként**
+
+A munkafüzet celláiból származó szöveget használhatja diagram adatcímkékként.
+
+Ez a példa egy buborékdiagramot ad hozzá alapértelmezett adatokkal az első diára egy meglévő bemutatóban. Az 0‑s munkalap A10‑A12 celláit használja az első sorozat első három címkéjéhez, engedélyezi a címkéket a cellákból, és elmenti a frissített bemutatót.
 
 ```python
 import jpype
@@ -234,7 +303,7 @@ finally:
 
 ## **Munkalapok kezelése**
 
-A [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) metódus hozzáférést biztosít a diagram munkafüzetben lévő munkalapokhoz. Ez a példa kördiagramot hoz létre alapértelmezett adatokkal, és a konzolra írja minden munkalap nevét.
+A [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) metódus hozzáférést biztosít a diagram munkafüzetében lévő munkalapokhoz. Ez a példa egy kördiagramot hoz létre alapértelmezett adatokkal, és kiírja minden munkalap nevét a konzolra.
 
 ```python
 import jpype
@@ -259,7 +328,7 @@ finally:
 
 ## **Az adatforrás típusának megadása**
 
-Ez a példa háromdimenziós oszlopdiagramot hoz létre alapértelmezett adatokkal, és két sorozat nevet állít be különböző adatforrások használatával. Az első név egy karakterlánc literál, a második a 0‑as munkalap C1 celláját használja. A [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) felsorolt típus választja ki a forrást minden névhez. A példa a frissített sorozatnevekkel menti a prezentációt.
+Ez a példa egy 3D oszlopdiagramot hoz létre alapértelmezett adatokkal, és két sorozatnevet állít be különböző adatforrásokkal. Az első név egy karakterlánc‑literál; a második a 0‑s munkalap C1 cellájából származik. A [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) felsorolás választja ki az egyes nevek forrását. A példa elmenti a bemutatót a frissített sorozatnevekkel.
 
 ```python
 import jpype
@@ -288,9 +357,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Nem támogatott beágyazott munkafüzet formátumok felderítése**
+## **Nem támogatott beágyazott munkafüzetformátumok észlelése**
 
-Az Aspose.Slides nem támogatja az Excel bináris munkafüzet (.xlsb) formátumot, amely bizonyos diagramokban beágyazható. A [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) metódust a [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) osztályon a [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) felsorolással együtt használva felderítheti a nem támogatott formátumokat, és kihagyhatja az érintett diagramokat. Ez a példa az első dián ellenőrzi a alakzatokat egy meglévő prezentációban, kihagyja a nem diagram alakzatokat, és diagnosztikus üzenetet ír ki minden .xlsb munkafüzettel beágyazott diagramra.
+Az Aspose.Slides nem támogatja az Excel bináris munkafüzet (.xlsb) formátumot, amely néhány diagramba beágyazható. A [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) metódust a [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/)‑on együtt a [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) felsorolással használhatja a nem támogatott formátumok felismerésére és az érintett diagramok kihagyására. Ez a példa az első dián lévő alakzatokat vizsgálja egy meglévő bemutatóban, kihagyja a diagram‑tól eltérő alakzatokat, és diagnosztikai üzenetet ír ki minden .xlsb‑t tartalmazó diagramhoz.
 
 ```python
 import jpype
@@ -317,20 +386,20 @@ try:
         if is_internal_workbook and is_binary_macro:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # Olvassa vagy módosítsa a támogatott diagram munkafüzet adatokat itt.
+        # Olvassa vagy módosítsa a támogatott diagram munkafüzet adatait itt.
 finally:
     presentation.dispose()
 ```
 
 ## **Külső munkafüzet**
 
-Az Aspose.Slides támogatja a külső munkafüzetek diagram adatforrásként történő használatát.
+Az Aspose.Slides támogatja a külső munkafüzetelek diagramok adatforrásaként való használatát.
 
 ### **Külső munkafüzet létrehozása**
 
-Használja a [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) és a [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) metódusokat egy beágyazott diagram munkafüzet exportálásához fájlba, és a diagram külső munkafüzethez való csatolásához.
+Használja a [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) és a [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) metódusokat, hogy exportálja a beágyazott diagram munkafüzetét egy fájlba, majd a diagramot erre a külső munkafüzetre hivatkoztassa.
 
-Ez a példa kördiagramot hoz létre alapértelmezett adatokkal, és exportálja a munkafüzetét. A fájlírás befejezése után rendeli hozzá a külső munkafüzetet diagram adatforrásként, majd menti a hivatkozott prezentációt.
+Ez a példa egy kördiagramot hoz létre alapértelmezett adatokkal, és exportálja a munkafüzetét. A fájlírás befejezése után állítja be a külső munkafüzetet diagram adatforrásként, majd elmenti a hivatkozott bemutatót.
 
 ```python
 import jpype
@@ -360,11 +429,11 @@ finally:
 
 ### **Külső munkafüzet beállítása**
 
-A [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) metódus segítségével egy külső munkafüzetet rendelhet egy diagramhoz adatforrásként. Ez a metódus felhasználható a külső munkafüzet útvonalának frissítésére is (ha a fájlt áthelyezték).
+A [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) metódussal egy külső munkafüzetet rendelhet egy diagramhoz adatforrásként. Ezzel a metódussal frissítheti a külső munkafüzet útvonalát is (ha az áthelyezésre került).
 
-Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatait nem lehet szerkeszteni, továbbra is használhatók külső adatforrásként. Ha relatív útvonalat ad meg a külső munkafüzethez, az automatikusan teljes úttá konvertálódik.
+Bár a távoli helyen vagy erőforrásban tárolt munkafüzetelek adatainak szerkesztése nem lehetséges, továbbra is használhatja ezeket külső adatforrásként. Ha relatív útvonalat ad meg egy külső munkafüzethez, az automatikusan teljes útra konvertálódik.
 
-Ez a példa egy külső munkafüzetet használ, amelynek `Sheet1` nevű munkalapja B1‑ben tartalmaz egy sorozatnevet, A2:A4‑ben kategória neveket, és B2:B4‑ben számértékeket. A példa kördiagramot hoz létre, csatolja a munkafüzetet, és a [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) metódussal az A1:B4 tartományt egy sorozatra és három kategóriára képezi le. A prezentációt a hivatkozott diagrammal menti.
+Ez a példa egy külső munkafüzetet használ, amelynek `Sheet1` nevű munkalapja B1‑ben egy sorozatnevet, A2‑A4‑ben kategória neveket, és B2‑B4‑ben numerikus értékeket tartalmaz. A példa egy kördiagramot hoz létre, a munkafüzetet összekapcsolja, és a [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) segítségével A1:B4‑et egy sorozathoz és három kategóriához rendeli. A bemutatót a hivatkozott diagrammal menti.
 
 ```python
 import jpype
@@ -392,12 +461,12 @@ finally:
     presentation.dispose()
 ```
 
-A `updateChartData` paraméter a [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) metódusban vezérli, hogy a munkafüzet betöltődik‑e.
+A [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) `updateChartData` paramétere szabályozza, hogy a munkafüzet be legyen‑töltve.
 
-* Ha `updateChartData` **False**, csak a munkafüzet útvonalát frissíti. A diagram adat nem töltődik be vagy frissül a célmunkafüzetről, így a munkafüzet hiányozhat.
-* Ha `updateChartData` **True**, a diagram adat frissül a célmunkafüzetről.
+* Ha `updateChartData` **False**, csak a munkafüzet útvonalát frissíti. A diagramadatok nem töltődnek be vagy frissülnek a célmunkafüzetről, ezért a munkafüzet lehet elérhetetlen.
+* Ha `updateChartData` **True**, a diagramadatok a célmunkafüzetről frissülnek.
 
-A következő példa egy helyőrző URL‑t ad meg, a `updateChartData` **False** értékkel. Megőrzi a kördiagram alapértelmezett adatait, és a prezentációt a nem betöltött munkafüzet nélkül menti.
+Az alábbi példa egy helyettesítő URL‑t ad meg `updateChartData` **False** értékkel. A kördiagram alapértelmezett adatait megtartja, és a bemutatót anélkül menti, hogy a nem elérhető munkafüzetet betöltené.
 
 ```python
 import jpype
@@ -421,11 +490,11 @@ finally:
     presentation.dispose()
 ```
 
-### **A diagram külső adatforrás munkafüzet útvonalának lekérdezése**
+### **A diagram külső adatforrás munkafüzetejének útvonalának lekérése**
 
-A diagramhoz csatolt munkafüzet azonosításához ellenőrizze, hogy a diagram külső adatforrást használ‑e, és kérje le a munkafüzet útvonalát.
+A diagramhoz kapcsolt munkafüzet azonosításához ellenőrizze, hogy a diagram külső adatforrást használ‑e, és kérdezze le a munkafüzet útvonalát.
 
-Ez a példa az első dián lévő első alakzatot ellenőrzi egy hivatkozott külső munkafüzettel rendelkező prezentációban. Ha diagramról van szó, amely külső munkafüzethez van csatolva, a példa a [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) útvonalat írja a konzolra. Ezután ment egy másolatot a prezentációról.
+Ez a példa az első dián az első alakzatot vizsgálja egy hivatkozott külső munkafüzettel rendelkező bemutatóban. Ha egy diagram külső munkafüzettel van összekapcsolva, a példa a [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) értékét írja a konzolra. Ezután egy másolatot ment a bemutatóról.
 
 ```python
 import jpype
@@ -456,11 +525,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Diagram adat szerkesztése**
+### **Diagramadatok szerkesztése**
 
-A külső munkafüzetek adatait ugyanúgy szerkesztheti, mint a belső munkafüzetekét. Ha egy külső munkafüzetet nem lehet betölteni, kivétel keletkezik.
+A külső munkafüzetek adatait ugyanúgy szerkesztheti, mint a belső munkafüzetek tartalmát. Ha egy külső munkafüzetet nem lehet betölteni, kivétel keletkezik.
 
-Ez a példa egy diagramot használ, amely az első dián az első alakzat, és hozzáférhető külső munkafüzethez van csatolva. Beállítja az első sorozat első adatpontjának cella‑alapú értékét 100‑ra, majd menti a frissített prezentációt. A cellaértékek szerkesztése frissítheti a hivatkozott külső XLSX fájlt, ezért használjon másolatot, ha az eredeti munkafüzetet meg akarja őrizni.
+Ez a példa egy diagramot használ, amely az első dián az első alakzat, és hozzáférhető külső munkafüzethez van csatolva. Az első sorozat első adatpontjának cella‑alapú értékét 100‑ra állítja, majd elmenti a frissített bemutatót. A cellaértékek szerkesztése frissítheti a kapcsolt külső XLSX‑fájlt, ezért használjon másolatot, ha az eredeti munkafüzetet meg kell őrizni.
 
 ```python
 import jpype
@@ -496,9 +565,9 @@ finally:
 
 ### **Munkafüzet helyreállítása a diagram gyorsítótárából**
 
-Ha egy diagram külső, hiányzó vagy nem elérhető munkafüzetet használ, az Aspose.Slides helyreállíthatja a diagram munkafüzetet a prezentáció gyorsítótárában tárolt adatokból. Hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/) objektumot, hívja meg a [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) metódust, és állítsa a [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) tulajdonságot **True**‑ra a prezentáció megnyitása előtt.
+Ha egy diagram olyan külső munkafüzetet használ, amely hiányzik vagy nem érhető el, az Aspose.Slides képes rekonstruálni a diagram munkafüzetét a bemutatóban cache‑elt adatokból. Hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/) objektumot, hívja meg a [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions)‑t, és állítsa a [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache)‑t **True**‑ra, mielőtt megnyitná a bemutatót.
 
-Az alábbi Python példa helyreállítja a munkafüzet adatokat egy olyan diagramhoz, amely az első dián az első alakzat, és egy nem elérhető külső munkafüzetre hivatkozik. A helyreállított adatokat a [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) és a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) segítségével érheti el:
+A következő Python‑példa helyreállítja a munkafüzet‑adatokat egy diagramhoz, amely az első dián az első alakzat, és egy nem elérhető külső munkafüzert hivatkozik. A helyreállított adatot a [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) és a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) segítségével éri el:
 
 ```python
 import jpype
@@ -524,37 +593,37 @@ try:
         chart = slide.getShapes().get_Item(0)
         recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-        # Olvassa vagy módosítsa a helyreállított munkafüzet adatokat itt.
+        # Olvassa vagy módosítsa a helyreállított munkafüzet adatait itt.
     else:
         print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-Ha a külső munkafüzet nem érhető el, és a helyreállítás ki van kapcsolva, az Aspose.Slides kivételt dob. Csak akkor engedélyezze a helyreállítást, ha a gyorsítótárból származó diagramadatok használata elfogadható megoldás, mivel a gyorsítótár nem feltétlenül tartalmazza a külső munkafüzeten végzett módosításokat a legutóbbi prezentációfrissítés után.
+Ha a külső munkafüzet nem érhető el, és a helyreállítás ki van kapcsolva, az Aspose.Slides kivételt dob. Engedélyezze a helyreállítást csak akkor, ha a cache‑elt diagramadat használata elfogadható tartalék, mivel a gyorsítótár nem feltétlenül tartalmazza a külső munkafüzetben a diagram utolsó frissítése után végzett változtatásokat.
 
-## **FAQ**
+## **GYIK**
 
-**Megállapíthatom, hogy egy adott diagram külső vagy beágyazott munkafüzethez van‑e csatolva?**
+**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzettel van‑e összekapcsolva?**
 
-Igen. A diagramnek van egy [data source type](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) és egy [path to an external workbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); ha a forrás egy külső munkafüzet, a teljes útvonalat leolvashatja, hogy megbizonyosodjon a külső fájl használatáról.
+Igen. A diagramnek van egy [data source type](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) és egy [path to an external workbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); ha a forrás egy külső munkafüzet, a teljes útvonalat kiolvashatja, hogy megbizonyosodjon arról, egy külső fájlt használ‑e.
 
 **Támogatottak a relatív útvonalak a külső munkafüzetekhez, és hogyan tárolódnak?**
 
-Igen. Ha relatív útvonalat ad meg, az automatikusan átalakul abszolút úttá. A prezentáció az abszolút útvonalat tárolja a PPTX fájlban, ezért a munkafüzet áthelyezése esetén frissíteni kell a hivatkozást.
+Igen. Ha relatív útvonalat ad meg, az automatikusan átalakul abszolút útvonallá. A bemutató az abszolút útvonalat a PPTX‑fájlban tárolja, így a munkafüzet áthelyezése esetén a hivatkozás frissítése szükséges lehet.
 
-**Használhatok munkafüzeteket hálózati erőforrásokon/megosztásokon?**
+**Használhatok hálózati erőforrásokon/megosztott helyeken lévő munkafüzete­ket?**
 
-Igen, ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑ből nem támogatott – csak forrásként használhatók.
+Igen, az ilyen munkafüzete­ket használhatja külső adatforrásként. Azonban a távoli munkafüzete­k közvetlen szerkesztése az Aspose.Slides‑ből nem támogatott – csak forrásként használhatók.
 
-**Az Aspose.Slides felülírja a külső XLSX‑et a prezentáció mentésekor?**
+**Az Aspose.Slides felülírja a külső XLSX‑fájlt a bemutató mentésekor?**
 
-A prezentáció egy [link to the external file](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) tárol. A cella‑alapú diagramadatok szerkesztése frissítheti a hivatkozott helyi XLSX fájlt. Használjon másolatot a munkafüzetről, ha az eredetit változatlanul kell hagyni.
+A bemutató egy [link to the external file](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)‑et tárol. A cella‑alapú diagramadatok szerkesztése frissítheti a kapcsolt helyi XLSX‑fájlt is. Használjon másolatot a munkafüzetről, ha az eredetit változatlanul kell hagyni.
 
-**Mit tegyek, ha a külső fájl jelszóval védett?**
+**Mit tegyek, ha a külső fájl jelszó‑védett?**
 
-Az Aspose.Slides nem fogad jelszót a hivatkozás során. Gyakori megoldás a védelem előzetes eltávolítása vagy egy dekódolt másolat (például az [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) létrehozása, majd arra a másolatra való hivatkozás.
+Az Aspose.Slides nem fogad jelszót a hivatkozáshoz. Egy gyakori megoldás, hogy előre eltávolítja a védelmet, vagy egy dekódolt másolatot (például az [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) készít, majd arra hivatkozik.
 
 **Több diagram hivatkozhat ugyanarra a külső munkafüzetre?**
 
-Igen. Minden diagram saját hivatkozást tárol. Ha mind ugyanarra a fájlra mutatnak, a fájl frissítése minden diagramra kihat a következő adatbetöltéskor.
+Igen. Minden diagram saját hivatkozást tárol. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése minden diagramon megjelenik a következő adatbetöltéskor.

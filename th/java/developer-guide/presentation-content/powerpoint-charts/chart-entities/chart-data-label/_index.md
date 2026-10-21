@@ -1,5 +1,5 @@
 ---
-title: จัดการป้ายข้อมูลแผนภูมิในงานนำเสนอด้วย Java
+title: จัดการป้ายข้อมูลแผนภูมิในการนำเสนอโดยใช้ Java
 linktitle: ป้ายข้อมูล
 type: docs
 url: /th/java/chart-data-label/
@@ -11,18 +11,18 @@ keywords:
 - ระยะห่างของป้าย
 - ตำแหน่งป้าย
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ Java เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น."
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในการนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ Java เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น."
 ---
 ## **บทนำ**
 
-ป้ายข้อมูลจะแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีการจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความของป้าย การควบคุมป้ายให้แสดงเกินค่าสูงสุดของแกน การปรับระยะห่างของป้ายแกนประเภท และการกำหนดตำแหน่งของป้ายบนแผนภูมิวงกลม
+ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีการจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย การควบคุมป้ายที่อยู่นอกค่ามากสุดของแกน การปรับระยะห่างของป้ายแกนประเภท และการกำหนดตำแหน่งป้ายของแผนภูมิบาร์พาย
 
-## **ตั้งค่าความแม่นยำของข้อมูลในป้ายแผนภูมิ**
+## **กำหนดความแม่นยำของข้อมูลในป้ายแผนภูมิ**
 
-ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) เพื่อจัดรูปแบบค่าชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของแผนภูมิ และเปิดใช้งานป้ายค่าให้กับชุดข้อมูลแรก รูปแบบ `#,##0.00` แสดงตัวคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าตามฐาน
+ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) เพื่อจัดรูปแบบค่าชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของแผนภูมิ และเปิดการแสดงป้ายค่าให้กับชุดแรก รูปแบบ `#,##0.00` แสดงเครื่องหมายคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าเดิม
 
 ```java
 import com.aspose.slides.*;
@@ -44,9 +44,11 @@ try {
 }
 ```
 
+หากต้องการจัดรูปแบบเซลล์ตัวเลขในตารางงานที่ฝังอยู่ของแผนภูมิ ให้ดู [Set Custom Number Formats for Workbook Cells](/slides/th/java/chart-workbook/#set-custom-number-formats-for-workbook-cells) ตัวอย่างนั้นยังแสดงให้เห็นว่าป้ายค่าจะใช้รูปแบบเซลล์ต้นทางโดยคงค่าตัวเลขเดิมไว้
+
 ## **แสดงเปอร์เซ็นต์เป็นป้าย**
 
-สำหรับแผนภูมิคอลัมน์แบบซ้อนกัน ให้คำนวณค่าต่าง ๆ เป็นเปอร์เซ็นต์ของรวมประเภทของแต่ละคอลัมน์และกำหนดข้อความไปยังกรอบข้อความที่คืนค่าจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). ตัวอย่างนี้ใช้ข้อมูลแผนภูมิเบื้องต้นและแสดงเปอร์เซ็นต์โดยมีทศนิยมสองตำแหน่งพร้อมขนาดฟอนต์ 8 จุด หมวดที่มีผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ คำนวณข้อความป้ายที่กำหนดเองใหม่หากข้อมูลแผนภูมมีการเปลี่ยนแปลง
+สำหรับแผนภูมิคอลัมน์แบบซ้อนกัน ให้คำนวณแต่ละค่าเป็นเปอร์เซ็นต์ของผลรวมประเภทและกำหนดข้อความให้กับกรอบข้อความที่คืนโดย [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) ตัวอย่างนี้ใช้ข้อมูลแผนภูมิโด้นเริ่มต้นและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งในฟอนต์ขนาด 8 จุด ประเภทที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ หากข้อมูลแผนภูมิมีการเปลี่ยนแปลง ให้คำนวณข้อความป้ายที่กำหนดใหม่
 
 ```java
 import com.aspose.slides.*;
@@ -103,11 +105,11 @@ try {
 }
 ```
 
-## **ตั้งสัญลักษณ์เปอร์เซ็นต์ในป้ายแผนภูมิ**
+## **ตั้งสัญลักษณ์เปอร์เซ็นต์กับป้ายแผนภูมิ**
 
-เมื่อค่าถูกเก็บเป็นเศษส่วน ให้ใช้ [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) เพื่อแสดงเป็นเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) เพื่อใช้รูปแบบป้ายอย่างอิสระจากเซลล์ต้นทาง
+เมื่อค่าถูกจัดเก็บเป็นเศษส่วน ให้ใช้ [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) เพื่อแสดงเป็นเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) เพื่อให้รูปแบบป้ายทำงานแยกจากเซลล์ต้นทาง
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซ้อน 100% ด้วยชุดข้อมูลสีแดงและสีน้ำเงินในสี่ประเภท แต่ละคู่ค่ารวมกันเป็น 1 รูปแบบป้าย `0.0%` แสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งแสดงสองตำแหน่งทศนิยม ทั้งสองชุดข้อมูลใช้ข้อความป้ายสีขาวขนาด 10 จุด
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซ้อน 100% ที่มีซีรีส์สีแดงและสีน้ำเงินสี่ประเภท แต่ละคู่ค่ารวมกันเท่ากับ 1 รูปแบบป้าย `0.0%` จะทำให้ค่า 0.30 แสดงเป็น 30.0% ในขณะที่แกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองซีรีส์ใช้ข้อความป้ายสีขาว ขนาด 10 จุด
 
 ```java
 import com.aspose.slides.*;
@@ -164,7 +166,7 @@ try {
 
 ## **อ่านข้อความจริงของป้ายข้อมูล**
 
-ใช้ [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าของป้ายข้อมูล วิธีนี้มีประโยชน์เมื่อดึงป้ายสำหรับรายงาน ค้นหาเนื้อหาการนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบป้ายข้อมูลเริ่มต้น [data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) จะรวมชื่อประเภท ชื่อชุดข้อมูล และค่าไว้ด้วยกัน จุดหนึ่งจัดรูปแบบค่าของมันเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความที่กำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--)
+ใช้ [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล วิธีนี้มีประโยชน์เมื่อต้องดึงป้ายสำหรับรายงาน ค้นหาเนื้อหาในการนำเสนอ หรือทำการตรวจสอบแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบ [data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) เริ่มต้นจะรวมชื่อประเภท ชื่อซีรีส์ และค่า จุดหนึ่งจัดรูปแบบค่าเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--)
 
 ```java
 import com.aspose.slides.*;
@@ -224,15 +226,15 @@ try {
 }
 ```
 
-จำนวนที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายจะแสดง `75%` พร้อมกับชื่อประเภทและชุดข้อมูล ข้อความที่กำหนดเองจะทับข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) จะส่งคืนสตริงของป้ายที่ได้ในกรณีใดกรณีหนึ่ง ตรวจสอบ [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) แยกต่างหากตามที่แสดงข้างบน เมื่อคุณต้องการดึงเฉพาะป้ายที่มองเห็นได้
+ค่าที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายจะแสดง `75%` พร้อมชื่อประเภทและชื่อซีรีส์ ข้อความกำหนดเองจะแทนที่ข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) จะคืนสตริงป้ายในทั้งสองกรณี ตรวจสอบ [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) แยกต่างหากตามที่แสดงด้านบนเมื่อคุณต้องการดึงเฉพาะป้ายที่มองเห็นได้
 
-## **ควบคุมป้ายข้อมูลให้แสดงเกินค่าสูงสุดของแกน**
+## **ควบคุมป้ายข้อมูลที่อยู่นอกค่ามากสุดของแกน**
 
-เมื่อคุณจำกัดช่วงของแกนด้วยตนเอง จุดข้อมูลบางจุดอาจเกินค่าสูงสุดของแกน ใช้ [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) เพื่อควบคุมว่าจะให้แสดงป้ายข้อมูลของพวกมันหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้ายเท่านั้น ไม่ได้เปลี่ยนช่วงของแกนหรือค่าข้อมูลพื้นฐาน
+เมื่อคุณกำหนดช่วงแกนด้วยมือ บางจุดข้อมูลอาจเกินค่ามากสุด ใช้ [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) เพื่อควบคุมว่าป้ายของจุดเหล่านั้นจะแสดงหรือไม่ การตั้งค่านี้เปลี่ยนการมองเห็นของป้ายเท่านั้น ไม่ได้เปลี่ยนช่วงแกนหรือค่าข้อมูลที่อยู่ภายใต้
 
-ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์แบบจัดกลุ่ม 2D ด้วยค่าที่ 60 และ 120 มันส่งค่า `false` ไปยัง [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) และตั้งค่าสูงสุดเป็น 100 ด้วย [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) บนแกนแนวตั้ง สไลด์แรกอนุญาตให้ป้ายแสดงเกินค่าสูงสุด; สำเนาของสไลด์นั้นปิดการแสดงป้าย ทั้งสองสไลด์ถูกบันทึกเป็น `DataLabelsOverMaximum.pptx`
+ตัวอย่างด้านล่างสร้างแผนภูมิคอลัมน์แบบคลัสเตอร์ 2D ด้วยค่าที่ 60 และ 120 มันส่ง `false` ไปยัง [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) และตั้งค่ามากสุดเป็น 100 ด้วย [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) บนแกนแนวตั้ง สไลด์แรกเปิดให้แสดงป้ายที่อยู่นอกค่ามากสุด; การทำสำเนาของสไลด์นั้นปิดการแสดงผล ทั้งสองสไลด์ถูกบันทึกเป็น `DataLabelsOverMaximum.pptx`
 
-เปิดใช้งานป้ายค่าโดยใช้ [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). การตั้งค่าระดับแผนภูมิไม่ทำให้แสดงค่าด้วยตัวเองหรือทำให้การแสดงค่าของป้ายแต่ละอันที่ถูกปิดใช้งานเปลี่ยนแปลง ตัวอย่างนี้เปิดใช้งานค่าสำหรับทั้งชุดข้อมูลและใช้ [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) เพื่อวางป้ายที่ปลายด้านนอกของแต่ละคอลัมน์
+เปิดป้ายค่าโดยใช้ [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) การตั้งค่าระดับแผนภูมิไม่ได้เปิดการแสดงค่าด้วยตนเองหรือเขียนทับการปิดการแสดงค่าของป้ายเดี่ยว ๆ ตัวอย่างนี้เปิดค่าทั้งซีรีส์และใช้ [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) เพื่อวางป้ายที่ปลายนอกของแต่ละคอลัมน์
 
 ```java
 import com.aspose.slides.*;
@@ -281,19 +283,19 @@ try {
 }
 ```
 
-รูปภาพต่อไปนี้แสดงสไลด์ที่บันทึกแล้วซึ่งเรนเดอร์โดย Microsoft PowerPoint เมื่อใช้ค่า `true` ป้าย **120** จะมองเห็นได้ที่ขอบบน; เมื่อใช้ค่า `false` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ ค่าสูงสุดของแกนอยู่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
+ภาพต่อไปนี้แสดงสไลด์ที่บันทึกโดย Microsoft PowerPoint ด้วย `true` ป้าย **120** จะมองเห็นได้ที่ขอบบน; ด้วย `false` ป้ายจะถูกซ่อน ป้าย **60** ยังคงมองเห็นได้ แกนสูงสุดคงอยู่ที่ **100** และจุดข้อมูลที่สองยังคงเป็น **120** ในทั้งสองกรณี
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2D พร้อมแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิกลมและแผนภูมิโดนัท จะไม่มีค่าสูงสุดของแกนให้จำกัดในลักษณะนี้
+ตัวอย่างนี้ใช้แผนภูมิคอลัมน์ 2D พร้อมแกนค่า แผนภูมิที่ไม่มีแกนค่า เช่น แผนภูมิเพียและโดนัท จะไม่มีค่ามากสุดของแกนให้กำหนดในลักษณะนี้
 {{% /alert %}}
 
-## **ตั้งค่าระยะห่างของป้ายจากแกน**
+## **กำหนดระยะห่างของป้ายจากแกน**
 
-ใช้ [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทกับแกน ค่าที่กำหนดเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบจัดกลุ่มและตั้งค่าการชดเชยป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภท แทนที่จะเป็นป้ายที่แนบกับจุดข้อมูลแต่ละจุด
+ใช้ [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทกับแกน ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบคลัสเตอร์และตั้งค่าออฟเซ็ตของป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภท ไม่ใช่ป้ายที่แนบกับจุดข้อมูลแต่ละจุด
 
 ```java
 import com.aspose.slides.*;
@@ -311,11 +313,11 @@ try {
 }
 ```
 
-## **ปรับตำแหน่งของป้าย**
+## **ปรับตำแหน่งป้าย**
 
-บนแผนภูมิกลม ปรับตำแหน่งป้ายข้อมูลเพื่อปรับระยะห่างและสร้างพื้นที่สำหรับเส้นนำ
+บนแผนภูมิเพีย ปรับตำแหน่งป้ายข้อมูลเพื่อให้มีช่องว่างและสร้างที่ว่างสำหรับเส้นนำ
 
-ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายนอกส่วนของแผนภูมิและปรับการชดเชยแนวนอนและแนวตั้งโดยใช้ [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) และ [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-). การชดเชี่ยงเหล่านี้เป็นอัตราส่วนต่อความกว้างและความสูงของแผนภูมิตามลำดับ
+ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายนอกส่วนของพาย และปรับออฟเซ็ตแนวนอนและแนวตั้งโดยใช้ [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) และ [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) ออฟเซ็ตเหล่านี้เป็นสัดส่วนของความกว้างและความสูงของแผนภูมิ
 
 ```java
 import com.aspose.slides.*;
@@ -343,13 +345,13 @@ try {
 
 ## **จัดรูปแบบเส้นนำ**
 
-เมื่อป้ายแผนภูมิกลมอยู่ด้านนอกส่วนของแต่ละชั้น เส้นนำช่วยให้ผู้อ่านเชื่อมโยงค่าต่าง ๆ กับส่วนที่ถูกต้อง สีที่ตัดกันและเส้นที่หนากว่านิดหน่อยทำให้การเชื่อมต่อเหล่านี้ง่ายต่อการติดตาม ส่วนความโปร่งใสและสไตล์เป็นเส้นประทำให้เส้นดูไม่รบกวนสายตา
+เมื่อป้ายแผนภูมิปายอยู่ด้านนอกส่วนของพาย เส้นนำช่วยให้ผู้อ่านจับคู่ค่าแต่ละค่ากับส่วนที่ถูกต้อง สีตัดกันและเส้นหนานิดหน่อยทำให้การเชื่อมต่อดูง่ายขึ้น ส่วนความโปร่งใสและสไตล์เป็นเส้นประทำให้เส้นไม่โดดเด่นเกินไป
 
-ใช้ [getLeaderLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) เพื่อจัดรูปแบบเส้นนำระดับชุดข้อมูลของคอลเลกชันป้ายข้อมูล การตั้งค่าใน `series.getLabels().getLeaderLinesFormat().getLine()` จะนำไปใช้กับคอลเลกชันทั้งหมด แทนที่จะเป็นป้ายเดี่ยว
+ใช้ [getLeaderLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) เพื่อจัดรูปแบบเส้นนำระดับคอลเลกชันป้ายข้อมูลของซีรีส์ การตั้งค่าใน `series.getLabels().getLeaderLinesFormat().getLine()` จะใช้กับคอลเลกชันทั้งหมด ไม่ใช่ป้ายเดี่ยว
 
-ตัวอย่างนี้สร้างแผนภูมิกลมด้วยข้อมูลเริ่มต้น แสดงค่าที่ด้านนอกส่วนและเปิดใช้งาน [setShowLeaderLines](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). มันย้ายป้ายสองอันให้ห่างจากส่วนมากขึ้นโดยใช้การชดเชย [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) และ [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) ซึ่งระบุเป็นส่วนส่วนของความกว้างและความสูงของแผนภูมิ ไม่จำเป็นต้องมีการนำเสนอเข้า
+ตัวอย่างนี้สร้างแผนภูมิปายด้วยข้อมูลเริ่มต้น แสดงค่าอยู่นอกส่วนของพาย และเปิดใช้งาน [setShowLeaderLines](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-) ย้ายสองป้ายไกลจากส่วนของพายด้วยออฟเซ็ต [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) และ [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) เป็นส่วนของความกว้างและความสูงของแผนภูมิ ไม่ต้องใช้การนำเสนออินพุต
 
-ฟังก์ชัน [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) ของเส้นกำหนดสีฟ้าเป็นสีทึบโดยมีค่าอัลฟ่า 191 จาก 255 ให้ความโปร่งใสประมาณ 25% [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) กำหนดความหนาเป็น 2 จุด และ [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) ทำให้เส้นเป็นเส้นประ
+เมธอด [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) ของเส้นกำหนดสีฟ้าโทนเดียวที่มีค่าอัลฟ่า 191 จาก 255 ประมาณ 25% โปร่งแสง [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) ตั้งความหนาเป็น 2 จุด และ [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) ทำให้เส้นเป็นเส้นประ
 
 ```java
 import com.aspose.slides.*;
@@ -369,7 +371,7 @@ try {
     labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // ย้ายป้ายสองอันให้ห่างออกจากส่วนของมันมากขึ้น.
+    // ย้ายป้ายสองรายการให้ไกลออกจากชิ้นส่วนของพายมากขึ้น.
     series.getLabels().get_Item(0).setX(0.10f);
     series.getLabels().get_Item(0).setY(-0.05f);
     series.getLabels().get_Item(1).setX(-0.10f);
@@ -387,17 +389,17 @@ try {
 }
 ```
 
-การเปิดใช้งานเส้นนำไม่ได้รับประกันว่าเส้นจะปรากฏสำหรับทุกป้าย การมองเห็นขึ้นอยู่กับตำแหน่งของป้ายและพฤติกรรมการจัดวางของแผนภูมิ ในตัวอย่างนี้ ป้ายสองอันที่ย้ายตำแหน่งมีเส้นนำมองเห็นได้ แต่ป้ายที่อยู่ใกล้ส่วนของมันไม่จำเป็นต้องมีเส้นนำ
+การเปิดใช้งานเส้นนำไม่ได้รับประกันว่าจะมีเส้นสำหรับทุกป้าย ความมองเห็นขึ้นอยู่กับตำแหน่งป้ายและพฤติกรรมการจัดวางของแผนภูมิ ในตัวอย่างนี้สองป้ายที่ถูกย้ายไกลมีเส้นนำที่มองเห็นได้; ป้ายที่อยู่ใกล้ส่วนของพายไม่จำเป็นต้องมีเส้นนำ
 
-รูปภาพต่อไปนี้แสดงไฟล์ `FormattedLeaderLines.pptx` ที่บันทึกแล้วและเรนเดอร์ด้วย Aspose.Slides:
+ภาพต่อไปนี้แสดงไฟล์ `FormattedLeaderLines.pptx` ที่บันทึกแล้วและเรนเดอร์ด้วย Aspose.Slides:
 
 ![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
 ## **เพิ่มหลายแถวของป้ายข้อมูลเหนือแผนภูมิคอลัมน์**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์พร้อมสองแถวของป้ายข้อมูลเหนือพื้นที่พล็อต ชุดข้อมูล A แสดงคอลัมน์ที่มองเห็นได้ ในขณะที่ชุดข้อมูล B และ C ให้ป้ายเพิ่มเติม คอลัมน์ของพวกมันถูกซ่อนไปโดยลบการเติมสีและเส้นขอบ วิธี [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) จัดตำแหน่งชุดข้อมูลทั้งสามให้ศูนย์กลางประเภทเดียวกัน
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ที่มีสองแถวของป้ายข้อมูลเหนือพื้นที่พล็อต Series A แสดงคอลัมน์ที่มองเห็นได้ ส่วน Series B และ Series C ให้ป้ายเพิ่มเติม คอลัมน์ของพวกมันถูกซ่อนโดยลบการเติมสีและขอบ วิธี [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) ทำให้สามซีรีส์ทั้งหมดตรงศูนย์กลางประเภทเดียวกัน
 
-การตั้งค่า [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) สำรองพื้นที่สำหรับแถวของป้าย หลังจากที่ [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) คำนวณตำแหน่งเริ่มต้นแล้ว [DataLabel.setXและ DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) จะรักษาการจัดแนวแนวนอนและใช้การชดเชยแนวตั้งเพื่อจัดเรียงป้ายในสองแถว ตัวเลขยังคงเป็นป้ายข้อมูลที่เชื่อมโยงกับค่าชุดข้อมูล; ส่วนหัวแถวเป็นรูปแบบข้อความแยกต่างหาก
+การตั้งค่า [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) สงวนพื้นที่สำหรับแถวป้าย หลังจากที่ [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) คำนวนตำแหน่งเริ่มต้นแล้ว [DataLabel.setX and DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) จะรักษาการจัดแนวแนวนอนและใช้ค่าลอยแนวตั้งเพื่อจัดแถวป้ายเป็นสองแถว ตัวเลขยังคงเป็นป้ายข้อมูลที่เชื่อมโยงกับค่าซีรีส์; ส่วนหัวแถวเป็นรูปข้อความแยกต่างหาก
 
 ```java
 Presentation presentation = new Presentation();
@@ -440,7 +442,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // ซ่อนคอลัมน์ของ B และ C แต่คงป้ายข้อมูลไว้
+            // ซ่อนคอลัมน์ของ B และ C แต่คงป้ายข้อมูลไว้.
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -455,15 +457,15 @@ try {
         }
     }
 
-    // จัดตำแหน่งชุดข้อมูลทั้งสามให้ศูนย์กลางประเภทเดียวกัน
+    // จัดแนวทั้งหมดสามซีรีส์ให้ตรงกับศูนย์กลางประเภทเดียวกัน.
     chart.getChartData().getSeries().get_Item(0)
             .getParentSeriesGroup().setOverlap((byte) 100);
 
-    // ใช้เส้นกริดน้อยลงสำหรับตัวอย่างที่กระชับนี้
+    // ใช้เส้นกริดน้อยลงสำหรับตัวอย่างที่กะทัดรัดนี้.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // สงวนพื้นที่เหนือพื้นที่พล็อตสำหรับสองแถวของป้ายข้อมูล
+    // สงวนพื้นที่เหนือพื้นที่พล็อตสำหรับสองแถวของป้ายข้อมูล.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -477,13 +479,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // คงตำแหน่งแนวนอนเริ่มต้น. Y เป็นการชดเชยจาก
-            // ตำแหน่งป้ายเริ่มต้น, แสดงเป็นส่วนของความสูงแผนภูมิ
+            // คงตำแหน่งแนวนอนเริ่มต้นไว้. Y คือการเยื้องจาก
+            // ตำแหน่งป้ายเริ่มต้น, แสดงเป็นส่วนของความสูงแผนภูมิ.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // เฉพาะส่วนหัวของแถวเป็นรูปข้อความแยกต่างหาก
+        // เฉพาะหัวแถวเป็นรูปร่างข้อความแยกต่างหาก.
         IAutoShape rowHeading = slide.getShapes().addAutoShape(
                 ShapeType.Rectangle, chart.getX(),
                 chart.getY() + rowTop * chart.getHeight(), 85, 18);
@@ -509,14 +511,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนกันในแผนภูมิที่แน่นได้อย่างไร?**
+**ทำอย่างไรจึงจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนกันในแผนภูมิที่หนาแน่น?**
 
-รวมการวางป้ายอัตโนมัติ, เส้นนำ, และลดขนาดฟอนต์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น ประเภท) หรือแสดงป้ายเฉพาะค่าที่สุดหรือจุดสำคัญ
+ผสานการวางป้ายอัตโนมัติ, เส้นนำ, และลดขนาดฟอนต์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น ประเภท) หรือแสดงป้ายเฉพาะค่าตำแหน่งสุดขีดหรือจุดสำคัญ
 
-**ฉันจะปิดการแสดงป้ายเฉพาะสำหรับค่าที่เป็นศูนย์, ค่าเป็นลบ, หรือค่าไม่มีได้อย่างไร?**
+**ทำอย่างไรจึงจะปิดการแสดงป้ายสำหรับค่าเป็นศูนย์, ลบ, หรือค่าว่างเท่านั้น?**
 
-กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงผลสำหรับค่าที่เป็น 0, ค่าที่เป็นลบ, หรือค่าที่ขาดหายตามกฎที่กำหนด
+กรองจุดข้อมูลก่อนเปิดป้ายและปิดการแสดงสำหรับค่าที่เป็น 0, ค่าลบ, หรือค่าที่หายไปตามกฎที่กำหนด
 
-**ฉันจะทำให้สไตล์ของป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**
+**ทำอย่างไรจึงจะทำให้สไตล์ป้ายคงที่เมื่อส่งออกเป็น PDF/ภาพ?**
 
-กำหนดฟอนต์และขนาดอย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีอยู่ในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง
+กำหนดฟอนต์แบบชัดเจนทั้งครอบครัวและขนาด และตรวจสอบว่าฟอนต์พร้อมใช้งานในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง

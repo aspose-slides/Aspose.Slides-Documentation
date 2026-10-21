@@ -14,15 +14,15 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "了解如何在 PowerPoint 演示文稿中使用 Aspose.Slides for PHP via Java 添加和格式化图表数据标签，以制作更具吸引力的幻灯片。"
+description: "了解如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
 ---
 ## **介绍**
 
-数据标签显示有关图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文解释了如何格式化数值、显示百分比、读取标签文本、控制超出轴最大值的标签、调整类别轴标签间距以及定位饼图标签。
+数据标签显示图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文说明如何格式化数值、显示百分比、读取标签文本、控制轴最大值之外的标签、调整分类坐标轴标签间距以及定位饼图标签。
 
 ## **设置图表数据标签的数据精度**
 
-使用[setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/)来格式化系列值。此示例创建一个带有默认数据的折线图，显示其数据表，并为第一个系列启用值标签。格式`#,##0.00`显示千位分隔符和两位小数，而不更改底层值。
+使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) 来格式化系列数值。此示例创建一个默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，而不更改底层数值。
 
 ```php
 use aspose\slides\Presentation;
@@ -46,9 +46,11 @@ try {
 }
 ```
 
-## **显示百分比为标签**
+若要格式化图表嵌入工作簿中的数值单元格，请参阅 [Set Custom Number Formats for Workbook Cells](/slides/zh/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells)。该示例还展示了数值标签遵循其来源单元格格式，同时保留存储的数值。
 
-对于堆积柱形图，计算每个值相对于其类别总计的百分比，并将文本分配给[getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/)返回的文本框。此示例使用默认图表数据，并以8磅字体显示两位小数的百分比。总计为零的类别将被跳过，以避免除以零。如果图表数据更改，请重新计算自定义标签文本。
+## **将百分比显示为标签**
+
+对于堆积柱形图，计算每个数值占其类别总和的百分比，并将文本分配给由 [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) 返回的文本框。本示例使用默认图表数据，使用 8 磅字体显示两位小数的百分比。总和为零的类别会被跳过，以避免除以零。当图表数据变化时，需要重新计算自定义标签文本。
 
 ```php
 use aspose\slides\Presentation;
@@ -110,9 +112,9 @@ try {
 
 ## **使用图表数据标签设置百分号**
 
-当数值以分数形式存储时，使用[setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/)来显示百分比。向[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/)传递`false`，以使标签格式独立于源单元格应用。
+当数值以分数形式存储时，使用 [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) 显示百分比。将 `false` 传递给 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) 以使标签格式独立于来源单元格。
 
-此示例创建一个100%堆积柱形图，四个类别中包含红色和蓝色系列。每对数值之和为1。标签格式`0.0%`将0.30显示为30.0%，而垂直轴使用两位小数。两个系列的标签文字均为白色、10磅。
+此示例创建一个 100% 堆积柱形图，四个类别分别包含红色和蓝色系列。每对数值的总和为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而垂直轴使用两位小数。两个系列均使用白色、10 磅的标签文本。
 
 ```php
 use aspose\slides\Presentation;
@@ -172,7 +174,7 @@ try {
 
 ## **读取数据标签的实际文本**
 
-使用[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/)检索由数据标签设置生成的文本。这在提取报告标签、搜索演示文稿内容或验证生成的图表时非常有用。在下面的示例中，默认的[data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/)将每个类别名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一个使用[getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/)的自定义文本。
+使用 [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) 获取由数据标签设置生成的文本。这在提取报告标签、搜索演示文稿内容或验证生成的图表时非常有用。在下面的示例中，默认的 [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) 将每个类别名称、系列名称和数值组合在一起。一个点将其数值格式化为百分比，另一个使用来自 [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) 的自定义文本。
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +238,15 @@ try {
 }
 ```
 
-数据点中存储的数值仍为`0.75`，即使其标签显示`75%`以及类别和系列名称。自定义文本会替代生成的标签文本。无论哪种情况，[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/)都会返回相应的标签字符串。当您只想提取可见标签时，请单独检查[isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/)，如上所示。
+数据点中存储的数值仍为 `0.75`，即使其标签显示为 `75%` 并附带类别和系列名称。自定义文本会替代生成的标签文本。无论哪种情况，[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) 都返回最终的标签字符串。请单独检查 [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/)，如上例所示，以在只提取可见标签时使用。
 
 ## **控制轴最大值之外的数据标签**
 
-当手动限制坐标轴范围时，某些数据点可能超出其最大值。使用[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/)来控制是否显示它们的数据标签。此设置会改变标签的可见性，但不会更改坐标轴范围或底层数据值。
+当手动限制坐标轴范围时，某些数据点可能超出其最大值。使用 [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) 来控制是否显示这些数据标签。该设置仅更改标签可见性；不会更改坐标轴范围或底层数据数值。
 
-下面的示例创建一个值为60和120的二维簇状柱形图。它向[setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/)传递`false`，并在垂直坐标轴上使用[setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/)将最大值设为100。第一张幻灯片允许超出最大值的标签；该幻灯片的副本禁用这些标签。两张幻灯片均保存为`DataLabelsOverMaximum.pptx`。
+下面的示例创建一个二维聚簇柱形图，数值为 60 和 120。它对垂直轴调用 [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) 并传入 `false`，随后使用 [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) 将最大值设为 100。第一张幻灯片允许标签超出最大值；复制的幻灯片则禁用此功能。两张幻灯片均保存在 `DataLabelsOverMaximum.pptx` 中。
 
-使用[setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/)启用值标签。图表级别的设置本身并不会启用数值显示，也不会覆盖单个标签已禁用的数值显示。此示例为整个系列启用数值，并使用[setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/)将标签放置在每个柱形的外端。
+使用 [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) 启用数值标签。图表级别的设置本身并不会启用数值显示，也不会覆盖单个标签已禁用的数值显示。此示例为整个系列启用数值，并使用 [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) 将标签放置在每根柱形的外端。
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +298,19 @@ try {
 }
 ```
 
-下图显示了 Microsoft PowerPoint 渲染的保存幻灯片。`true` 时，标签**120**在上边界可见；`false` 时，它被隐藏。标签**60**仍然可见，坐标轴最大值保持为**100**，第二个数据点在两种情况下均为**120**。
+以下图片显示了 Microsoft PowerPoint 渲染的保存幻灯片。`true` 时，标签 **120** 在上边界可见；`false` 时，它被隐藏。标签 **60** 保持可见，坐标轴最大值仍为 **100**，第二个数据点在两种情况下仍为 **120**。
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint 图表显示值标签 120，轴最大值为 100](data-labels-over-maximum-true.png) | ![PowerPoint 图表隐藏值标签 120，轴最大值为 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-此示例使用带有数值轴的 2D 柱形图。没有数值轴的图表，如饼图和环形图，无法以这种方式限制轴最大值。
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
 ## **设置标签与坐标轴的距离**
 
-使用[setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/)控制类别坐标轴标签与坐标轴之间的距离。该值是坐标轴标签最大字体大小的百分比。此示例创建一个簇状柱形图，并将水平坐标轴标签偏移设为 500。此设置影响类别坐标轴标签，而不是附加到单个数据点的标签。
+使用 [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) 控制分类坐标轴标签与坐标轴之间的距离。该值是标签最大字体大小的百分比。本示例创建一个聚簇柱形图，并将水平坐标轴标签偏移设置为 500。此设置影响分类坐标轴标签，而不是附加到单个数据点的标签。
 
 ```php
 use aspose\slides\Presentation;
@@ -330,9 +332,9 @@ try {
 
 ## **调整标签位置**
 
-在饼图上，调整数据标签位置以改善间距并为引线留出空间。
+在饼图上，调整数据标签位置以改善间距并为引导线留出空间。
 
-此示例显示第一个数据点的数值，将其标签置于扇形之外，并使用[setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/)和[setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/)调整水平和垂直偏移。这些偏移相对于图表的宽度和高度。
+本示例显示第一个数据点的数值，将其标签放在切片外部，并使用 [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) 和 [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) 调整水平和垂直偏移。这些偏移分别相对于图表宽度和高度。
 
 ```php
 use aspose\slides\Presentation;
@@ -359,17 +361,17 @@ try {
 }
 ```
 
-![调整后数据标签位置的饼图](pie-chart-adjusted-label.png)
+![饼图的调整后数据标签位置](pie-chart-adjusted-label.png)
 
-## **格式化引线**
+## **格式化引导线**
 
-当饼图标签位于扇形之外时，引线帮助读者将每个数值匹配到正确的扇形。使用对比色和略粗的线条可以使这些连接更易于辨认，而透明度和虚线样式则使线条在视觉上不显突兀。
+当饼图标签位于切片外部时，引导线帮助读者将每个数值与对应切片匹配。使用对比色和略微加粗的线条可以让这些连接更易辨认，而透明度和虚线样式则使线条保持视觉上的不突兀。
 
-使用[getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/)在系列的数据标签集合层面格式化引线。`$series->getLabels()->getLeaderLinesFormat()->getLine()`中的设置适用于整个集合，而不是单个标签。
+使用 [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) 在系列数据标签集合级别格式化引导线。`$series->getLabels()->getLeaderLinesFormat()->getLine()` 中的设置作用于整个集合，而不是单个标签。
 
-此示例创建一个带有默认数据的饼图，在扇形外显示数值，并启用[setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/)。它使用[setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/)和[setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/)偏移，将两个标签进一步移离其扇形，偏移量以图表宽高的比例表示。无需输入演示文稿。
+本示例创建一个默认数据的饼图，显示切片外的数值，并启用 [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/)。它使用 [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) 和 [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) 将两个标签进一步移离切片，偏移以图表宽度和高度的比例表示。无需输入演示文稿。
 
-该线条的[getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/)将颜色设为纯蓝色，透明度为 191/255，约为 25% 透明。[setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/)将粗细设为 2 磅，而[setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/)将线条设为虚线。
+线条的 [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) 将颜色设为不透明度为 191（满值 255）的纯蓝色，约为 25% 透明度。[setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) 将粗细设为 2 磅，[setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) 将线条设为虚线。
 
 ```php
 use aspose\slides\Presentation;
@@ -393,7 +395,7 @@ try {
     $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
     $labelFormat->setShowLeaderLines(true);
 
-    // 将两个标签从它们的扇形向外移动更远。
+    // 将两个标签向外移动，使其更远离切片。
     $series->getLabels()->get_Item(0)->setX(0.10);
     $series->getLabels()->get_Item(0)->setY(-0.05);
     $series->getLabels()->get_Item(1)->setX(-0.10);
@@ -412,17 +414,17 @@ try {
 }
 ```
 
-启用引线并不保证每个标签都会出现引线。可见性取决于标签位置和图表的布局行为。在本例中，两个偏离的标签有可见的引线；靠近扇形的标签则不需要引线。
+启用引导线并不保证每个标签都会出现引导线。可见性取决于标签位置和图表的布局行为。在本示例中，两个移位的标签拥有可见的引导线；靠近切片的标签则不需要。
 
-下图显示了使用 Aspose.Slides 渲染的已保存 `FormattedLeaderLines.pptx`：
+以下图片显示了由 Aspose.Slides 渲染的保存文件 `FormattedLeaderLines.pptx`：
 
-![饼图，蓝色半透明虚线引线将两个外部标签连接到对应的扇形](formatted-leader-lines.png)
+![饼图的蓝色、半透明、虚线引导线，将两个外部标签连接到对应切片](formatted-leader-lines.png)
 
 ## **在柱形图上方添加多行数据标签**
 
-此示例创建一个柱形图，在绘图区域上方设置两行数据标签。Series A 显示可见的柱形，而 Series B 和 Series C 提供额外的标签。通过去除填充和轮廓来隐藏它们的柱形。[ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/)方法使三个系列在相同的类别中心对齐。
+本示例创建一个柱形图，在绘图区上方放置两行数据标签。Series A 显示可见的柱形，Series B 和 Series C 提供额外的标签。通过移除填充和轮廓将它们的柱形隐藏。使用 [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) 方法使三个系列在相同的类别中心对齐。
 
-[ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/)设置为标签行预留空间。调用[Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/)计算默认位置后，[DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/)和[DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/)保持水平对齐并应用垂直偏移，以将标签排列成两行。数字仍然是链接到系列数值的数据标签；只有行标题是独立的文本形状。
+[ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) 设置为标签行预留空间。调用 [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) 计算默认位置后，使用 [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) 和 [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) 保持水平对齐并施加垂直偏移，以将标签排列成两行。数字仍然是链接到系列数值的数据标签；只有行标题是独立的文本形状。
 
 ```php
 use aspose\slides\Presentation;
@@ -493,7 +495,7 @@ try {
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // 在绘图区域上方预留空间以放置两行数据标签。
+    // 为绘图区上方预留两行数据标签的空间。
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -511,13 +513,13 @@ try {
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
             // 保持默认的水平位置。Y 是相对于
-            // 默认标签位置的偏移量，以图表高度的比例表示。
+            // 默认标签位置的偏移，以图表高度的比例表示。
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
         }
 
-        // 只有行标题是单独的文本形状。
+        // 仅行标题是单独的文本形状。
         $rowHeading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $chartX, $chartY + $rowTop * $chartHeight, 85, 18);
         $rowHeading->getFillFormat()->setFillType(FillType::NoFill);
         $rowHeading->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
@@ -536,18 +538,15 @@ try {
 }
 ```
 
-![柱形图，绘图区域上方有两行数据标签](multiple-rows-of-labels.png)
+![柱形图的绘图区上方有两行数据标签](multiple-rows-of-labels.png)
 
 ## **常见问题**
 
-**如何防止密集图表上的数据标签重叠？**
+**如何防止在密集图表中数据标签重叠？**  
+结合自动标签布局、引导线和减小字体大小；必要时隐藏某些字段（例如类别），或仅为极值或关键点显示标签。
 
-结合自动标签布局、引线和减小字体大小；如有必要，隐藏某些字段（例如类别），或仅对极值或关键点显示标签。
+**如何仅对零、负数或空值禁用标签？**  
+在启用标签之前过滤数据点，并根据定义的规则关闭对值为 0、负数或缺失的显示。
 
-**如何仅对零、负值或空值禁用标签？**
-
-在启用标签之前过滤数据点，并根据定义的规则关闭对值为 0、负值或缺失值的显示。
-
-**在导出为 PDF/图像时，如何确保标签样式一致？**
-
-明确设置字体族和大小，并确保渲染环境中存在该字体，以避免使用回退字体。
+**如何确保导出为 PDF/图像时标签样式一致？**  
+显式设置字体族和大小，并验证渲染环境中已安装该字体，以避免回退。

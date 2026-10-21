@@ -10,7 +10,7 @@ keywords:
 - cella del workbook
 - etichetta dati
 - foglio di lavoro
-- fonte dati
+- origine dati
 - workbook esterno
 - dati esterni
 - cache del grafico
@@ -20,23 +20,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Scopri Aspose.Slides per .NET: gestisci facilmente i workbook dei grafici in formati PowerPoint e OpenDocument per ottimizzare i dati della tua presentazione."
+description: "Scopri Aspose.Slides per .NET: gestisci facilmente i workbook dei grafici in formato PowerPoint e OpenDocument per ottimizzare i dati della tua presentazione."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con i workbook dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite stream di workbook, utilizzare le celle del workbook come etichette dei dati del grafico, accedere alle collezioni di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
+Questo articolo spiega come lavorare con i workbook dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite flussi di workbook, utilizzare le celle del workbook come etichette dei dati del grafico, accedere alle raccolte di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
 
-Copre inoltre l'uso di workbook esterni come origini dati per i grafici. Gli esempi dimostrano come creare e assegnare un workbook esterno, recuperare il percorso di un workbook esterno collegato a un grafico e modificare i dati del grafico quando il workbook è disponibile.
+Copre inoltre l'utilizzo dei workbook esterni come origini dati per i grafici. Gli esempi dimostrano come creare e assegnare un workbook esterno, recuperare il percorso di un workbook esterno collegato a un grafico e modificare i dati del grafico quando il workbook è disponibile.
 
-Per le celle del workbook che rappresentano dati mancanti, vedere [Controllare la visualizzazione delle celle vuote](/slides/it/net/chart-series/) per la differenza tra una cella vuota e zero, e un confronto a linee dei modi di visualizzazione disponibili.
+Per le celle del workbook che rappresentano dati mancanti, vedere [Controlla la visualizzazione delle celle vuote](/slides/it/net/chart-series/) per la differenza tra una cella vuota e zero, e un confronto di grafico a linee delle modalità di visualizzazione disponibili.
 
-## **Includere dati da righe e colonne nascoste**
+## **Includi dati da righe e colonne nascoste**
 
-Usa [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) per controllare se un grafico traccia dati da righe e colonne nascoste del foglio di lavoro. Impostalo su `true` per tracciare solo le celle visibili, o su `false` per includere sia le celle visibili sia quelle nascoste. Questa impostazione controlla il tracciamento del grafico; non nasconde né mostra righe o colonne del foglio di lavoro.
+Usa [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) per controllare se un grafico traccia dati da righe e colonne nascoste del foglio di lavoro. Impostalo su `true` per tracciare solo le celle visibili, o `false` per includere sia le celle visibili che quelle nascoste. Questa impostazione controlla il tracciamento del grafico; non nasconde né mostra righe o colonne del foglio.
 
-La [presentazione di esempio](hidden-source-data.pptx) contiene un grafico a colonne come prima forma nella sua prima diapositiva. Il foglio di lavoro incorporato, `Sheet1`, contiene il seguente intervallo di origine, `A1:C4`. La riga 3 e la colonna C sono nascoste, ma le loro celle contengono ancora valori.
+La [presentazione di esempio](hidden-source-data.pptx) contiene un grafico a colonne come prima forma nella sua prima diapositiva. Il foglio di lavoro incorporato, `Sheet1`, contiene l'intervallo di origine seguente, `A1:C4`. La riga 3 e la colonna C sono nascoste, ma le loro celle contengono ancora valori.
 
-| Riga foglio di lavoro | A: Mese | B: Vendita al dettaglio | C: Vendita all'ingrosso (colonna nascosa) |
+| RIGA DEL FOGLIO | A: Mese | B: Vendita al dettaglio | C: Ingrosso (colonna nascosta) |
 | --- | --- | --- | --- |
 | 2 | Gennaio | 10 | 30 |
 | 3 (riga nascosta) | Febbraio | 40 | 60 |
@@ -44,7 +44,7 @@ La [presentazione di esempio](hidden-source-data.pptx) contiene un grafico a col
 
 Accedi alle celle di origine tramite [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) e leggi [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) per ispezionare il loro stato di nascondimento. Questa proprietà è di sola lettura. In questo file, B2 è visibile, B3 appartiene alla riga nascosta e C2 appartiene alla colonna nascosta; l'esempio stampa `False`, `True` e `True`, rispettivamente.
 
-Per questo esempio, aggiorna i dati del grafico dopo aver modificato l'impostazione di tracciamento: mantieni il workbook incorporato con [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e ricaricalo con [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Quando includi tutte le celle, usa anche [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) per ripristinare l'intervallo completo, inclusa la categoria di febbraio nascosta. Cambiare semplicemente il flag non è sufficiente a aggiornare i dati del grafico memorizzati nella cache di questo esempio e le etichette delle categorie.
+Per questo esempio, aggiorna i dati del grafico dopo aver modificato l'impostazione di tracciamento: conserva il workbook incorporato con [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e ricaricalo con [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Quando si includono tutte le celle, usa anche [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) per ripristinare l'intervallo completo, inclusa la categoria di febbraio nascosta. Modificare semplicemente il flag non è sufficiente per aggiornare i dati del grafico in cache e le etichette delle categorie di questo esempio.
 
 ```csharp
 using System;
@@ -72,8 +72,8 @@ if (slide.Shapes[0] is IChart chart)
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // Ripristina l'intervallo di origine completo, incluse le categorie nascoste.
-            chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
+                // Ripristina l'intero intervallo di origine, incluse le categorie nascoste.
+                chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
         presentation.Save($"hidden_cells_{visibleOnly}.pptx", SaveFormat.Pptx);
@@ -85,21 +85,21 @@ else
 }
 ```
 
-L'esempio salva due versioni della presentazione: una con solo i valori di vendita al dettaglio visibili (10 e 20) e un'altra con tutti e sei i valori. Le immagini sotto sono state generate dalle presentazioni salvate dopo averle riaperte; entrambi i file conservano l'impostazione di tracciamento assegnata. La riga 3 e la colonna C rimangono nascoste in entrambi i workbook incorporati.
+L'esempio salva due versioni della presentazione: una con solo i valori di Vendita al dettaglio visibili (10 e 20) e un'altra con tutti e sei i valori. Le immagini sotto sono state generate dalle presentazioni salvate dopo averle riaperte; entrambi i file conservano l'impostazione di tracciamento assegnata. La riga 3 e la colonna C rimangono nascoste in entrambi i workbook incorporati.
 
 | Solo celle visibili (`true`) | Tutte le celle (`false`) |
 | --- | --- |
-| ![Solo celle visibili: valori di vendita al dettaglio 10 e 20 per Gennaio e Marzo.](hidden_cells_True.png) | ![Tutte le celle: valori di vendita al dettaglio e all'ingrosso per Gennaio, Febbraio e Marzo.](hidden_cells_False.png) |
+| ![Solo celle visibili: valori Vendita al dettaglio 10 e 20 per Gennaio e Marzo.](hidden_cells_True.png) | ![Tutte le celle: valori Vendita al dettaglio e Ingrosso per Gennaio, Febbraio e Marzo.](hidden_cells_False.png) |
 
-Una cella nascosta contenente un valore è diversa da una cella vuota. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) controlla come vengono visualizzati i valori mancanti; non include né esclude dati di origine nascosti. Vedere [Controllare la visualizzazione delle celle vuote](/slides/it/net/chart-series/#control-the-display-of-empty-cells) per un esempio.
+Una cella nascosta contenente un valore è diversa da una cella vuota. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) controlla come vengono visualizzati i valori mancanti; non include né esclude i dati di origine nascosti. Vedi [Controlla la visualizzazione delle celle vuote](/slides/it/net/chart-series/#control-the-display-of-empty-cells) per un esempio.
 
-## **Recuperare l’intervallo di dati di un grafico**
+## **Recupera l'intervallo di dati di un grafico**
 
-Prima di aggiornare i dati del workbook in una presentazione esistente, ispeziona gli intervalli di origine per identificare quali celle del foglio di lavoro utilizza ogni grafico. Il metodo [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) restituisce l'intervallo di dati corrente come formula qualificata dal foglio di lavoro, ad esempio `Sheet1!$A$1:$D$5`. Qui, `Sheet1` è il nome del foglio di lavoro, `!` lo separa dall'intervallo di celle e `$A$1:$D$5` identifica le celle da A1 a D5, inclusive. I segni di dollaro indicano riferimenti assoluti di riga e colonna.
+Prima di aggiornare i dati del workbook in una presentazione esistente, ispeziona gli intervalli di origine per identificare quali celle del foglio di lavoro utilizza ciascun grafico. Il metodo [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) restituisce l'intervallo di dati corrente come formula qualificata per il foglio di lavoro, ad esempio `Sheet1!$A$1:$D$5`. Qui, `Sheet1` è il nome del foglio, `!` lo separa dall'intervallo di celle, e `$A$1:$D$5` identifica le celle da A1 a D5, inclusi. I segni di dollaro indicano riferimenti assoluti di riga e colonna.
 
-Se il grafico non utilizza un workbook come origine dati, genera un'eccezione [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Per ulteriori informazioni, vedere il [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
+Il metodo legge l'intervallo corrente senza modificare il grafico o il suo workbook. Se il grafico non utilizza un workbook come origine dati, genera un'eccezione [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Per ulteriori informazioni, consulta il [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
 
-Questo esempio apre una presentazione e verifica le forme direttamente su ogni diapositiva per trovare i grafici. Stampa il nome di ogni grafico e il relativo intervallo di origine. Se un grafico non utilizza un workbook, stampa un messaggio e passa al grafico successivo.
+Questo esempio apre una presentazione e controlla le forme direttamente su ogni diapositiva alla ricerca di grafici. Stampa il nome di ciascun grafico e il suo intervallo di origine. Se un grafico non utilizza un workbook, stampa un messaggio e passa al grafico successivo.
 
 ```csharp
 using System;
@@ -128,11 +128,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Leggere e scrivere dati del grafico da un workbook**
+## **Leggi e scrivi dati del grafico da un workbook**
 
-Aspose.Slides for .NET fornisce i metodi [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) che consentono di leggere e scrivere i workbook dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Note** che i dati del grafico devono essere organizzati nello stesso modo o avere una struttura simile a quella di origine.
+Aspose.Slides for .NET fornisce i metodi [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) che consentono di leggere e scrivere i workbook dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati nello stesso modo o devono avere una struttura simile a quella di origine.
 
-Questo esempio utilizza una presentazione con un grafico come prima forma nella sua prima diapositiva. Legge il workbook incorporato in uno stream, cancella le serie e le categorie esistenti e riscrive lo stesso workbook. Le modifiche rimangono in memoria; l'esempio non salva la presentazione.
+Questo esempio utilizza una presentazione con un grafico come prima forma nella sua prima diapositiva. Legge il workbook incorporato in un flusso, cancella le serie e le categorie esistenti e scrive nuovamente lo stesso workbook. Le modifiche rimangono in memoria; l'esempio non salva la presentazione.
 
 ```csharp
 using System;
@@ -160,9 +160,9 @@ else
 }
 ```
 
-### **Convalidare il layout del grafico dopo la modifica del workbook**
+### **Convalida il layout del grafico dopo la modifica del workbook**
 
-Quando sostituisci un workbook incorporato con uno modificato, il grafico mantiene le collezioni originali di serie e categorie. Questa incongruenza può causare il fallimento di [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) con un errore di indice fuori intervallo. Cancella le serie e le categorie esistenti prima di scrivere il workbook aggiornato di nuovo nel grafico. Questo esempio usa un grafico che è la prima forma nella prima diapositiva. Il commento segna dove avverrebbe la modifica del workbook; l'esempio eseguibile riscrive il workbook originale e convalida il layout in memoria.
+Quando sostituisci un workbook incorporato con uno modificato, il grafico mantiene le collezioni originali di serie e categorie. Questa discrepanza può causare il fallimento di [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) con un errore di indice fuori intervallo. Cancella le serie e le categorie esistenti prima di scrivere nuovamente il workbook aggiornato nel grafico. Questo esempio utilizza un grafico che è la prima forma nella prima diapositiva. Il commento indica dove avverrebbe la modifica del workbook; l'esempio eseguibile scrive nuovamente il workbook originale e convalida il layout in memoria.
 
 ```csharp
 using System;
@@ -178,7 +178,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // Modifica lo stream del workbook qui, ad esempio, usando Aspose.Cells.
+    // Modifica lo stream del workbook qui, ad esempio, utilizzando Aspose.Cells.
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -193,13 +193,77 @@ else
 }
 ```
 
-Cancellare le collezioni rimuove i riferimenti a dati obsoleti prima che il workbook sia riscritto. Ricostruisci tutte le mappature di serie e categorie necessarie per il workbook aggiornato prima di utilizzare il grafico.
+Cancellare le collezioni rimuove i riferimenti a dati obsoleti prima che il workbook venga scritto di nuovo. Ricostruisci eventuali mappature di serie e categorie necessarie per il workbook aggiornato prima di utilizzare il grafico.
 
-## **Impostare una cella del workbook come etichetta dei dati del grafico**
+## **Imposta formati numerici personalizzati per le celle del workbook**
 
-Puoi utilizzare il testo delle celle del workbook come etichette dei dati del grafico.
+Usa [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) per controllare come i valori numerici appaiono nel workbook incorporato del grafico. Per esempio, un report potrebbe richiedere un tasso di conversione mostrato come percentuale con quattro cifre decimali e un coefficiente mostrato con cinque cifre decimali. Mantieni entrambi i valori numerici affinché rimangano disponibili per i calcoli e il tracciamento del grafico.
 
-Questo esempio aggiunge un grafico a bolle con dati predefiniti alla prima diapositiva di una presentazione esistente. Usa le celle A10:A12 nel foglio di lavoro 0 per le prime tre etichette della prima serie, abilita le etichette dalle celle e salva la presentazione aggiornata.
+Un formato numerico modifica la visualizzazione, non il valore memorizzato. Il formato `0.0000%` visualizza `0.125` come `12.5000%`; non sostituisce il numero memorizzato con `12.5`. Allo stesso modo, `0.00000` visualizza `0.1234567` come `0.12346` senza arrotondare il valore memorizzato. Se il formato personalizzato è una stringa vuota (`""`), viene usato [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/).
+
+L'esempio seguente crea un grafico a colonne e accede alle sue celle tramite [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/). Nel foglio 0, B2 contiene il tasso di conversione e C2 contiene il coefficiente. Entrambe le celle forniscono valori per il grafico. L'esempio abilita anche le etichette dei valori collegate ai formati di origine.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 270, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 20, 620, 210);
+chart.HasTitle = false;
+
+chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
+chart.Axes.VerticalAxis.NumberFormat = "0.00";
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = 0;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var categoryCell = workbook.GetCell(0, "A2", "Sample");
+chart.ChartData.Categories.Add(categoryCell);
+
+var percentageCell = workbook.GetCell(0, "B2", 0.125);
+percentageCell.CustomNumberFormat = "0.0000%";
+var percentageName = workbook.GetCell(0, "B1", "Conversion rate");
+var percentageSeries = chart.ChartData.Series.Add(percentageName, chart.Type);
+percentageSeries.DataPoints.AddDataPointForBarSeries(percentageCell);
+
+var precisionCell = workbook.GetCell(0, "C2", 0.1234567);
+precisionCell.CustomNumberFormat = "0.00000";
+var precisionName = workbook.GetCell(0, "C1", "Coefficient");
+var precisionSeries = chart.ChartData.Series.Add(precisionName, chart.Type);
+precisionSeries.DataPoints.AddDataPointForBarSeries(precisionCell);
+
+foreach (var series in chart.ChartData.Series)
+{
+    var labelFormat = series.DataPoints[0].Label.DataLabelFormat;
+    labelFormat.ShowValue = true;
+    labelFormat.IsNumberFormatLinkedToSource = true;
+}
+
+presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
+```
+
+I formati delle celle del workbook sono separati dai formati impostati direttamente sugli assi del grafico o sulle etichette dei dati. In questo esempio, ogni etichetta visualizza il valore della cella di origine perché [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) è attivo, e segue il formato numerico di origine perché [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) è `true`. Dopo aver salvato e riaperto la presentazione, le etichette mostrano `12.5000%` e `0.12346`, come mostrato sotto. L'asse verticale utilizza il proprio [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) `0.00`, con [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) impostato su `false`.
+
+Per formattare indipendentemente un'etichetta dei dati, imposta il flag di collegamento alla fonte su `false` e assegna il suo [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/). Questo non modifica il formato della cella del workbook. Per esempio, un formato indipendente di etichetta `0.00` visualizza il primo valore come `0.13`, mentre B2 continua a visualizzare `12.5000%`. Vedi [Chart Data Labels](/slides/it/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) per la formattazione diretta delle etichette.
+
+L'immagine sotto è stata generata dalla presentazione salvata dopo averla riaperta:
+
+![Grafico a colonne con etichette collegate alla fonte che mostrano 12.5000% e 0.12346 e un asse numerico formattato in modo indipendente.](custom-cell-formats.png)
+
+## **Imposta una cella del workbook come etichetta dati del grafico**
+
+Puoi utilizzare il testo delle celle del workbook come etichette dati del grafico.
+
+Questo esempio aggiunge un grafico a bolle con dati predefiniti alla prima diapositiva di una presentazione esistente. Utilizza le celle A10:A12 nel foglio 0 per le prime tre etichette della prima serie, abilita le etichette dalle celle e salva la presentazione aggiornata.
 
 ```csharp
 using Aspose.Slides;
@@ -221,9 +285,9 @@ series.Labels[2].ValueFromCell = workbook.GetCell(0, "A12", "Label 2 cell value"
 presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 ```
 
-## **Gestire i fogli di lavoro**
+## **Gestisci i fogli di lavoro**
 
-La proprietà [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) fornisce l'accesso ai fogli di lavoro in un workbook di grafico. Questo esempio crea un grafico a torta con dati predefiniti e stampa il nome di ogni foglio di lavoro sulla console.
+La proprietà [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) fornisce l'accesso ai fogli di lavoro in un workbook di grafico. Questo esempio crea un grafico a torta con dati predefiniti e stampa il nome di ciascun foglio di lavoro nella console.
 
 ```csharp
 using System;
@@ -242,9 +306,9 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 }
 ```
 
-## **Specificare il tipo di origine dati**
+## **Specifica il tipo di origine dati**
 
-Questo esempio crea un grafico a colonne 3D con dati predefiniti e imposta due nomi di serie utilizzando diverse origini dati. Il primo nome utilizza un literal di stringa; il secondo utilizza la cella C1 nel foglio di lavoro 0. L'enumerazione [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) seleziona l'origine per ciascun nome. L'esempio salva la presentazione con i nomi delle serie aggiornati.
+Questo esempio crea un grafico a colonne 3D con dati predefiniti e imposta due nomi di serie utilizzando origini dati diverse. Il primo nome utilizza una stringa letterale; il secondo utilizza la cella C1 nel foglio 0. L'enumerazione [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) seleziona l'origine per ciascun nome. L'esempio salva la presentazione con i nomi di serie aggiornati.
 
 ```csharp
 using Aspose.Slides;
@@ -268,9 +332,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Rilevare formati di workbook incorporati non supportati**
+## **Rileva formati di workbook incorporati non supportati**
 
-Aspose.Slides non supporta il formato workbook binario Excel (.xlsb) che può essere incorporato in alcuni grafici. Puoi usare la proprietà [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) su [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) insieme all'enumerazione [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) per rilevare formati non supportati e saltare quei grafici. Questo esempio ispeziona le forme nella prima diapositiva di una presentazione esistente, ignora le forme non grafiche e stampa un messaggio diagnostico per ogni grafico con un workbook .xlsb incorporato.
+Aspose.Slides non supporta il formato di workbook Excel binario (.xlsb) che può essere incorporato in alcuni grafici. Puoi utilizzare la proprietà [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) su [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) insieme all'enumerazione [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) per rilevare i formati non supportati e ignorare quei grafici. Questo esempio ispeziona le forme nella prima diapositiva di una presentazione esistente, ignora le forme non grafico e stampa un messaggio diagnostico per ogni grafico con un workbook .xlsb incorporato.
 
 ```csharp
 using System;
@@ -303,13 +367,13 @@ foreach (var shape in slide.Shapes)
 
 ## **Workbook esterno**
 
-Aspose.Slides supporta l'uso di workbook esterni come fonte dati per i grafici.
+Aspose.Slides supporta l'uso di workbook esterni come origine dati per i grafici.
 
-### **Creare un workbook esterno**
+### **Crea un workbook esterno**
 
-Usa [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) per esportare un workbook di grafico incorporato in un file e collegare il grafico a quel workbook esterno.
+Usa [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) e [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) per esportare un workbook di un grafico incorporato in un file e collegare il grafico a quel workbook esterno.
 
-Questo esempio crea un grafico a torta con dati predefiniti ed esporta il suo workbook. Chiude lo stream di output prima di assegnare il workbook esterno come origine dati del grafico, quindi salva la presentazione collegata.
+Questo esempio crea un grafico a torta con dati predefiniti ed esporta il relativo workbook. Chiude lo stream di output prima di assegnare il workbook esterno come origine dati del grafico, quindi salva la presentazione collegata.
 
 ```csharp
 using System.IO;
@@ -333,13 +397,13 @@ chart.ChartData.SetExternalWorkbook(workbookPath);
 presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-### **Impostare un workbook esterno**
+### **Imposta un workbook esterno**
 
-Utilizzando il metodo [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/), è possibile assegnare un workbook esterno a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso al workbook esterno (se quest'ultimo è stato spostato).
+Utilizzando il metodo [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/), puoi assegnare un workbook esterno a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso del workbook esterno (se quest'ultimo è stato spostato).
 
-Sebbene non sia possibile modificare i dati nei workbook memorizzati in posizioni remote o risorse, è comunque possibile usarli come fonte dati esterna. Se viene fornito un percorso relativo per un workbook esterno, viene convertito automaticamente in un percorso assoluto.
+Sebbene non sia possibile modificare i dati nei workbook archiviati in posizioni remote o risorse, è comunque possibile utilizzare tali workbook come fonte dati esterna. Se viene fornito un percorso relativo per un workbook esterno, viene automaticamente convertito in un percorso assoluto.
 
-Questo esempio utilizza un workbook esterno il cui foglio di lavoro denominato `Sheet1` contiene un nome di serie in B1, nomi di categoria in A2:A4 e valori numerici in B2:B4. L'esempio crea un grafico a torta, collega il workbook e usa [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) per mappare A1:B4 a una serie e tre categorie. Salva la presentazione con il grafico collegato.
+Questo esempio utilizza un workbook esterno il cui foglio denominato `Sheet1` contiene un nome di serie in B1, nomi di categoria in A2:A4 e valori numerici in B2:B4. L'esempio crea un grafico a torta, collega il workbook e usa [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) per mappare A1:B4 a una serie e tre categorie. Salva la presentazione con il grafico collegato.
 
 ```csharp
 using System.IO;
@@ -362,10 +426,10 @@ presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 
 Il parametro `updateChartData` di [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) controlla se il workbook viene caricato.
 
-* Quando `updateChartData` è `false`, viene aggiornato solo il percorso del workbook. I dati del grafico non vengono caricati né aggiornati dal workbook di destinazione, quindi il workbook può risultare non disponibile.  
+* Quando `updateChartData` è `false`, viene aggiornato solo il percorso del workbook. I dati del grafico non vengono caricati o aggiornati dal workbook di destinazione, quindi il workbook può essere non disponibile.
 * Quando `updateChartData` è `true`, i dati del grafico vengono aggiornati dal workbook di destinazione.
 
-Il seguente esempio assegna un URL segnaposto con `updateChartData` impostato su `false`. Mantiene i dati predefiniti del grafico a torta e salva la presentazione senza caricare il workbook non disponibile.
+L'esempio seguente assegna un URL segnaposto con `updateChartData` impostato su `false`. Mantiene i dati predefiniti del grafico a torta e salva la presentazione senza caricare il workbook non disponibile.
 
 ```csharp
 using Aspose.Slides;
@@ -381,11 +445,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **Ottenere il percorso del workbook della fonte dati esterna di un grafico**
+### **Ottieni il percorso del workbook di origine dati esterno di un grafico**
 
 Per identificare il workbook collegato a un grafico, verifica se il grafico utilizza una fonte dati esterna e recupera il suo percorso.
 
-Questo esempio ispeziona la prima forma nella prima diapositiva di una presentazione con un workbook esterno collegato. Se è un grafico collegato a un workbook esterno, l'esempio stampa [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) sulla console. Successivamente salva una copia della presentazione.
+Questo esempio ispeziona la prima forma nella prima diapositiva di una presentazione con un workbook esterno collegato. Se è un grafico collegato a un workbook esterno, stampa [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) nella console. Quindi salva una copia della presentazione.
 
 ```csharp
 using System;
@@ -417,11 +481,11 @@ else
 presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
-### **Modificare i dati del grafico**
+### **Modifica i dati del grafico**
 
-È possibile modificare i dati nei workbook esterni allo stesso modo in cui si modificano i contenuti dei workbook interni. Quando un workbook esterno non può essere caricato, viene generata un'eccezione.
+Puoi modificare i dati nei workbook esterni nello stesso modo in cui apporti modifiche al contenuto dei workbook interni. Quando un workbook esterno non può essere caricato, viene generata un'eccezione.
 
-Questo esempio utilizza un grafico che è la prima forma nella prima diapositiva e è collegato a un workbook esterno accessibile. Imposta il valore basato su cella del primo punto dati della prima serie a 100 e salva la presentazione aggiornata. La modifica dei valori di cella può aggiornare il file XLSX esterno collegato, perciò utilizzare una copia se è necessario conservare il workbook originale.
+Questo esempio utilizza un grafico che è la prima forma nella prima diapositiva ed è collegato a un workbook esterno accessibile. Imposta il valore basato su cella del primo punto dati nella prima serie a 100 e salva la presentazione aggiornata. Modificare i valori delle celle può aggiornare il file XLSX esterno collegato, quindi usa una copia se devi preservare il workbook originale.
 
 ```csharp
 using System;
@@ -460,9 +524,9 @@ else
 }
 ```
 
-### **Recuperare un workbook dalla cache del grafico**
+### **Recupera un workbook dalla cache del grafico**
 
-Se un grafico utilizza un workbook esterno mancante o non disponibile, Aspose.Slides può ricostruire il workbook del grafico dai dati memorizzati nella cache della presentazione. Crea [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), configura le sue [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), e imposta [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) su `true` prima di aprire la presentazione.
+Se un grafico utilizza un workbook esterno mancante o non disponibile, Aspose.Slides può ricostruire il workbook del grafico dai dati memorizzati nella presentazione. Crea un [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), configura le sue [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), e imposta [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) su `true` prima di aprire la presentazione.
 
 Il seguente esempio C# recupera i dati del workbook per un grafico che è la prima forma nella prima diapositiva e fa riferimento a un workbook esterno non disponibile. Accede ai dati recuperati tramite [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) e [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
@@ -496,27 +560,27 @@ else
 }
 ```
 
-Se il workbook esterno non è disponibile e il recupero è disabilitato, Aspose.Slides genera un'eccezione [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Abilita il recupero solo quando l'uso dei dati del grafico nella cache è un'alternativa accettabile, perché la cache potrebbe non contenere le modifiche apportate al workbook esterno dopo l'ultimo aggiornamento della presentazione.
+Se il workbook esterno è non disponibile e il recupero è disabilitato, Aspose.Slides genera un'[InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Abilita il recupero solo quando l'uso dei dati del grafico in cache è un'alternativa accettabile, perché la cache potrebbe non contenere le modifiche apportate al workbook esterno dopo l'ultimo aggiornamento della presentazione.
 
 ## **FAQ**
 
 **Posso determinare se un grafico specifico è collegato a un workbook esterno o incorporato?**
 
-Sì. Un grafico ha un [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) e un [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); se l'origine è un workbook esterno, è possibile leggere il percorso completo per assicurarsi che venga utilizzato un file esterno.
+Sì. Un grafico ha un [tipo di origine dati](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) e un [percorso a un workbook esterno](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); se l'origine è un workbook esterno, puoi leggere il percorso completo per assicurarti che venga utilizzato un file esterno.
 
-**I percorsi relativi ai workbook esterni sono supportati e come vengono memorizzati?**
+**Sono supportati i percorsi relativi ai workbook esterni e come vengono archiviati?**
 
-Sì. Se si specifica un percorso relativo, viene convertito automaticamente in un percorso assoluto. La presentazione memorizza il percorso assoluto nel file PPTX, quindi spostare il workbook potrebbe richiedere l'aggiornamento del collegamento.
+Sì. Se specifichi un percorso relativo, viene automaticamente convertito in un percorso assoluto. La presentazione archivia il percorso assoluto nel file PPTX, quindi spostare il workbook potrebbe richiedere l'aggiornamento del collegamento.
 
-**Posso usare workbook situati su risorse/Condivisioni di rete?**
+**Posso utilizzare workbook situati su risorse/condivisioni di rete?**
 
-Sì, tali workbook possono essere usati come fonte dati esterna. Tuttavia, la modifica diretta di workbook remoti da Aspose.Slides non è supportata—possono essere usati solo come fonte.
+Sì, tali workbook possono essere usati come fonte dati esterna. Tuttavia, la modifica diretta di workbook remoti da Aspose.Slides non è supportata: possono essere solo usati come fonte.
 
-**Aspose.Slides sovrascrive il file XLSX esterno quando salva la presentazione?**
+**Aspose.Slides sovrascrive l'XLSX esterno quando salva la presentazione?**
 
-La presentazione memorizza un [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Modificare i dati del grafico basati su celle può anche aggiornare il file XLSX locale collegato. Usa una copia del workbook se l'originale deve rimanere invariato.
+La presentazione archivia un [collegamento al file esterno](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Modificare i dati del grafico basati su celle può anche aggiornare il file XLSX locale collegato. Usa una copia del workbook se l'originale deve rimanere invariato.
 
-**Cosa devo fare se il file esterno è protetto da password?**
+** Cosa devo fare se il file esterno è protetto da password?**
 
 Aspose.Slides non accetta una password durante il collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, usando [Aspose.Cells](https://reference.aspose.com/cells/net/)) e collegarsi a quella copia.
 

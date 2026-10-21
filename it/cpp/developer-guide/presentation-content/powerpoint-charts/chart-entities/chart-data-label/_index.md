@@ -1,5 +1,5 @@
 ---
-title: Gestire le etichette dei dati dei grafici nelle presentazioni con C++
+title: Gestisci le etichette dei dati del grafico nelle presentazioni usando C++
 linktitle: Etichetta dati
 type: docs
 url: /it/cpp/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Scopri come aggiungere e formattare le etichette dei dati dei grafici nelle presentazioni PowerPoint usando Aspose.Slides per C++ per diapositive più coinvolgenti."
+description: "Impara ad aggiungere e formattare le etichette dei dati del grafico nelle presentazioni PowerPoint usando Aspose.Slides per C++ per slide più coinvolgenti."
 ---
 ## **Introduzione**
 
-Le etichette dei dati visualizzano informazioni sulle serie del grafico e sui singoli punti dati, aiutando i lettori a identificare i valori e a comprendere il grafico. Questo articolo spiega come formattare i valori, visualizzare le percentuali, leggere il testo delle etichette, controllare le etichette oltre il valore massimo dell'asse, regolare la spaziatura delle etichette dell'asse delle categorie e posizionare le etichette dei grafici a torta.
+Le etichette dei dati mostrano informazioni sulle serie del grafico e sui singoli punti dati, aiutando i lettori a identificare i valori e a comprendere il grafico. Questo articolo spiega come formattare i valori, visualizzare le percentuali, leggere il testo delle etichette, controllare le etichette oltre il valore massimo dell'asse, regolare la spaziatura delle etichette dell'asse delle categorie e posizionare le etichette del grafico a torta.
 
-## **Imposta la precisione dei dati nelle etichette dei grafici**
+## **Imposta la precisione dei dati nelle etichette del grafico**
 
-Utilizza [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) per formattare i valori della serie. Questo esempio crea un grafico a linee con dati predefiniti, visualizza la sua tabella dei dati e abilita le etichette dei valori per la prima serie. Il formato `#,##0.00` visualizza un separatore delle migliaia e due cifre decimali senza modificare i valori sottostanti.
+Usa [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) per formattare i valori della serie. Questo esempio crea un grafico a linee con dati predefiniti, visualizza la sua tabella dei dati e abilita le etichette dei valori per la prima serie. La formattazione `#,##0.00` visualizza un separatore delle migliaia e due cifre decimali senza modificare i valori sottostanti.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,9 +57,11 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
+Per formattare le celle numeriche nel workbook incorporato di un grafico, vedi [Imposta formati numerici personalizzati per le celle della cartella di lavoro](/slides/it/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells). quell’esempio mostra anche le etichette dei valori che seguono i formati delle celle di origine preservando i valori numerici memorizzati.
+
 ## **Visualizza la percentuale come etichette**
 
-Per un grafico a colonne impilate, calcola ogni valore come percentuale del totale della sua categoria e assegna il testo al frame di testo restituito da [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Questo esempio utilizza i dati predefiniti del grafico e visualizza le percentuali con due cifre decimali in un carattere da 8 punti. Le categorie con un totale pari a zero vengono omesse per evitare divisioni per zero. Ricalcola il testo dell'etichetta personalizzata se i dati del grafico cambiano.
+Per un grafico a colonne impilate, calcola ogni valore come percentuale del totale della sua categoria e assegna il testo al riquadro di testo restituito da [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Questo esempio utilizza i dati predefiniti del grafico e visualizza le percentuali con due cifre decimali in un carattere da 8 punti. Le categorie con un totale pari a zero vengono ignorate per evitare divisioni per zero. Ricalcola il testo personalizzato dell’etichetta se i dati del grafico cambiano.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -147,11 +149,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Imposta il segno percentuale con le etichette dei grafici**
+## **Imposta il simbolo percentuale con le etichette dei dati del grafico**
 
-Quando i valori sono memorizzati come frazioni, utilizza [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) per visualizzare le percentuali. Passa `false` a [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) per applicare il formato dell'etichetta in modo indipendente dalle celle di origine.
+Quando i valori sono memorizzati come frazioni, usa [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) per visualizzare le percentuali. Passa `false` a [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) per applicare il formato dell’etichetta in modo indipendente dalle celle di origine.
 
-Questo esempio crea un grafico a colonne impilate al 100% con serie rosse e blu in quattro categorie. Ogni coppia di valori somma a 1. Il formato dell'etichetta `0.0%` visualizza 0,30 come 30,0%, mentre l'asse verticale utilizza due cifre decimali. Entrambe le serie utilizzano testo dell'etichetta bianco, di 10 punti.
+Questo esempio crea un grafico a colonne impilate al 100 % con serie rosse e blu su quattro categorie. Ogni coppia di valori somma a 1. Il formato etichetta `0.0%` visualizza 0.30 come 30.0 %, mentre l’asse verticale utilizza due cifre decimali. Entrambe le serie usano testo etichetta bianco da 10 punti.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -238,7 +240,7 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **Leggi il testo effettivo delle etichette dei dati**
 
-Utilizza [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) per recuperare il testo prodotto dalle impostazioni di un'etichetta dati. È utile quando si estraggono etichette per report, si ricerca il contenuto di una presentazione o si convalidano i grafici generati. nell'esempio seguente, il formato predefinito delle [etichette dei dati](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) combina il nome di ciascuna categoria, il nome della serie e il valore. Un punto formatta il suo valore come percentuale, e un altro utilizza un testo personalizzato da [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Usa [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) per recuperare il testo prodotto dalle impostazioni di un’etichetta dati. Questo è utile quando si estraggono etichette per report, si ricerca contenuto nelle presentazioni o si validano grafici generati. Nell’esempio seguente, il formato predefinito delle [etichette dei dati](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) combina il nome di ciascuna categoria, il nome della serie e il valore. Un punto formatta il suo valore come percentuale, e un altro utilizza testo personalizzato da [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +328,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Il numero memorizzato in un punto dati rimane `0.75`, anche quando la sua etichetta mostra `75%` insieme ai nomi della categoria e della serie. Il testo personalizzato sostituisce il testo dell'etichetta generato. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) restituisce la stringa dell'etichetta risultante in entrambi i casi. Verifica [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separatamente, come mostrato sopra, quando desideri estrarre solo le etichette visibili.
+Il numero memorizzato in un punto dati rimane `0.75`, anche quando la sua etichetta mostra `75 %` insieme ai nomi di categoria e serie. Il testo personalizzato sostituisce il testo dell’etichetta generata. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) restituisce la stringa di etichetta risultante in entrambi i casi. Controlla [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separatamente, come mostrato sopra, quando desideri estrarre solo le etichette visibili.
 
 ## **Controlla le etichette dei dati oltre il valore massimo dell'asse**
 
-Quando limiti manualmente l'intervallo di un asse, alcuni punti dati possono superare il valore massimo. Utilizza [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) per controllare se le loro etichette dei dati sono visualizzate. Questa impostazione cambia la visibilità delle etichette; non modifica l'intervallo dell'asse né i valori dei dati sottostanti.
+Quando limiti manualmente l’intervallo di un asse, alcuni punti dati possono superare il suo valore massimo. Usa [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) per controllare se le loro etichette dei dati vengono visualizzate. Questa impostazione modifica la visibilità delle etichette; non modifica l’intervallo dell’asse né i valori dei dati sottostanti.
 
-L'esempio seguente crea un grafico a colonne raggruppate 2D con valori 60 e 120. Imposta [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) su `false` e [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) a 100 sull'asse verticale. La prima diapositiva consente etichette oltre il massimo; una copia di quella diapositiva le disabilita. Entrambe le diapositive sono salvate in `DataLabelsOverMaximum.pptx`.
+L’esempio qui sotto crea un grafico a colonne raggruppate 2D con valori 60 e 120. Imposta [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) su `false` e [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) a 100 sull’asse verticale. La prima diapositiva consente etichette oltre il massimo; una copia di quella diapositiva le disabilita. Entrambe le diapositive sono salvate in `DataLabelsOverMaximum.pptx`.
 
-Abilita le etichette dei valori con [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). L'impostazione a livello di grafico non abilita la visualizzazione dei valori da sola né sovrascrive la visualizzazione dei valori disabilitata di un'etichetta individuale. Questo esempio abilita i valori per l'intera serie e utilizza [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) per posizionare le etichette all'estremità esterna di ogni colonna.
+Abilita le etichette dei valori con [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). L’impostazione a livello di grafico non abilita la visualizzazione dei valori di per sé né sovrascrive la disabilitazione della visualizzazione del valore di un’etichetta individuale. Questo esempio abilita i valori per l’intera serie e utilizza [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) per posizionare le etichette all’estremità esterna di ogni colonna.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,19 +407,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-Le immagini seguenti mostrano le diapositive salvate renderizzate da Microsoft PowerPoint. Con `true`, l'etichetta **120** è visibile al limite superiore; con `false`, è nascosta. L'etichetta **60** rimane visibile, il valore massimo dell'asse rimane a **100**, e il secondo punto dati rimane **120** in entrambi i casi.
+Le immagini seguenti mostrano le diapositive salvate renderizzate da Microsoft PowerPoint. Con `true`, l’etichetta **120** è visibile al confine superiore; con `false`, è nascosta. L’etichetta **60** rimane visibile, il valore massimo dell’asse resta **100** e il secondo punto dati rimane **120** in entrambi i casi.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![Grafico PowerPoint che mostra l'etichetta valore 120 con un massimo dell'asse di 100](data-labels-over-maximum-true.png) | ![Grafico PowerPoint che nasconde l'etichetta valore 120 con un massimo dell'asse di 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Chart Type" %}}
-Questo esempio utilizza un grafico a colonne 2D con un asse dei valori. I grafici senza un asse dei valori, come i grafici a torta e a ciambella, non hanno un valore massimo dell'asse da limitare in questo modo.
+{{% alert color="info" title="Tipo di grafico" %}}
+Questo esempio utilizza un grafico a colonne 2D con asse dei valori. I grafici senza asse dei valori, come i grafici a torta e a ciambella, non hanno un valore massimo dell’asse da limitare in questo modo.
 {{% /alert %}}
 
 ## **Imposta la distanza dell'etichetta da un asse**
 
-Utilizza [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) per controllare la distanza tra le etichette dell'asse delle categorie e l'asse. Il valore è una percentuale della dimensione massima del carattere delle etichette dell'asse. Questo esempio crea un grafico a colonne raggruppate e imposta lo spostamento delle etichette dell'asse orizzontale a 500. Questa impostazione influisce sulle etichette dell'asse delle categorie anziché sulle etichette associate a singoli punti dati.
+Usa [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) per controllare la distanza tra le etichette dell’asse di categoria e l’asse. Il valore è una percentuale della dimensione massima del carattere delle etichette dell’asse. Questo esempio crea un grafico a colonne raggruppate e imposta lo scostamento dell’etichetta dell’asse orizzontale a 500. Questa impostazione influisce sulle etichette dell’asse di categoria piuttosto che sulle etichette associate a singoli punti dati.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -447,9 +449,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **Regola la posizione dell'etichetta**
 
-In un grafico a torta, regola le posizioni delle etichette dati per migliorare la spaziatura e creare spazio per le linee guida.
+Su un grafico a torta, regola le posizioni delle etichette dei dati per migliorare la spaziatura e creare spazio per le linee guida.
 
-Questo esempio mostra il valore del primo punto dati, posiziona la sua etichetta all'esterno della fetta e utilizza [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) per regolare i suoi offset. Questi offset sono relativi alla larghezza e all'altezza del grafico, rispettivamente.
+Questo esempio visualizza il valore del primo punto dati, posiziona la sua etichetta fuori dalla fetta e utilizza [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) per regolare i loro offset. Questi offset sono relativi alla larghezza e all’altezza del grafico, rispettivamente.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -487,17 +489,17 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Grafico a torta con posizione dell'etichetta dati regolata](pie-chart-adjusted-label.png)
+![Grafico a torta con posizione etichetta dati regolata](pie-chart-adjusted-label.png)
 
 ## **Formatta le linee guida**
 
-Quando le etichette dei grafici a torta si trovano all'esterno delle loro fette, le linee guida aiutano i lettori a collegare ogni valore alla fetta corretta. Un colore di contrasto e una linea leggermente più spessa possono rendere questi collegamenti più facili da seguire, mentre trasparenza e uno stile tratteggiato mantengono le linee visivamente discrete.
+Quando le etichette di un grafico a torta si trovano fuori dalle fette, le linee guida aiutano i lettori a associare ogni valore alla fetta corretta. Un colore di contrasto e una linea leggermente più spessa possono rendere queste connessioni più facili da seguire, mentre trasparenza e stile tratteggiato mantengono le linee visivamente discrete.
 
-Utilizza [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) per formattare le linee guida a livello della collezione di etichette dei dati della serie. Le impostazioni in `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` si applicano alla collezione, piuttosto che a un'etichetta individuale.
+Usa [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) per formattare le linee guida a livello della collezione di etichette dei dati della serie. Le impostazioni in `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` si applicano alla collezione, non a un’etichetta individuale.
 
-Questo esempio crea un grafico a torta con dati predefiniti, visualizza i valori all'esterno delle fette e abilita le linee guida con [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Sposta due etichette più lontano dalle loro fette usando gli offset [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), espressi come frazioni della larghezza e dell'altezza del grafico. Non è necessaria alcuna presentazione di input.
+Questo esempio crea un grafico a torta con dati predefiniti, visualizza i valori fuori dalle fette e abilita le linee guida con [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Sposta due etichette più lontano dalle loro fette usando gli offset [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), espressi come frazioni della larghezza e altezza del grafico. Non è necessaria alcuna presentazione di input.
 
-Il formato di riempimento restituito da [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) viene utilizzato per impostare un colore blu solido con un valore alfa di 191 su 255, fornendo circa il 25% di trasparenza. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) imposta lo spessore a 2 punti, e [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) rende la linea tratteggiata.
+Il formato di riempimento restituito da [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) è usato per impostare un colore solido blu con valore alfa 191 su 255, fornendo circa il 25 % di trasparenza. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) imposta lo spessore a 2 punti, e [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) rende la linea tratteggiata.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -557,18 +559,17 @@ line->set_DashStyle(LineDashStyle::Dash);
 presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
 ```
 
+Abilitare le linee guida non garantisce che una linea appaia per ogni etichetta. La visibilità dipende dal posizionamento delle etichette e dal comportamento di layout del grafico. In questo esempio, le due etichette spostate hanno linee guida visibili; le etichette che rimangono vicine alle loro fette non ne hanno bisogno.
 
-Abilitare le linee guida non garantisce che una linea appaia per ogni etichetta. La visibilità dipende dal posizionamento dell'etichetta e dal comportamento di layout del grafico. In questo esempio, le due etichette spostate hanno linee guida visibili; le etichette che rimangono vicine alle loro fette non ne hanno bisogno.
-
-L'immagine seguente mostra il file `FormattedLeaderLines.pptx` salvato e renderizzato con Aspose.Slides:
+L’immagine seguente mostra il file `FormattedLeaderLines.pptx` salvato e renderizzato con Aspose.Slides:
 
 ![Grafico a torta con linee guida blu, semitrasparenti e tratteggiate che collegano due etichette esterne alle loro fette](formatted-leader-lines.png)
 
 ## **Aggiungi più righe di etichette dei dati sopra un grafico a colonne**
 
-Questo esempio crea un grafico a colonne con due righe di etichette dei dati sopra l'area del grafico. La Serie A visualizza le colonne visibili, mentre le Serie B e C forniscono le etichette aggiuntive. Le loro colonne sono nascoste rimuovendo il riempimento e il contorno. Il metodo [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) allinea tutte e tre le serie con gli stessi centri di categoria.
+Questo esempio crea un grafico a colonne con due righe di etichette dei dati sopra l’area del tracciato. La Serie A visualizza le colonne visibili, mentre le Serie B e Serie C forniscono le etichette aggiuntive. Le loro colonne sono nascoste rimuovendo riempimento e contorno. Il metodo [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) allinea tutte e tre le serie con gli stessi centri di categoria.
 
-Le impostazioni di [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) riservano spazio per le righe di etichette. Dopo che [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) calcola le posizioni predefinite, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) preservano l'allineamento orizzontale e applicano offset verticali per disporre le etichette in due righe. I numeri rimangono etichette dei dati collegate ai valori delle serie; solo le intestazioni delle righe sono forme di testo separate.
+Le impostazioni di [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) riservano spazio per le righe di etichette. Dopo che [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) calcola le posizioni predefinite, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) e [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) preservano l’allineamento orizzontale e applicano offset verticali per disporre le etichette in due righe. I numeri rimangono etichette dei dati collegate ai valori delle serie; solo le intestazioni di riga sono forme di testo separate.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -662,27 +663,20 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // Nascondi le colonne di B e C, ma mantieni le loro etichette dati.
-        series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
-        series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
-        auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
-        labelFormat->set_ShowValue(true);
-        labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
-        auto labelFill = labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat();
-        labelFill->set_FillType(FillType::Solid);
-        labelFill->get_SolidFillColor()->set_Color(Color::get_Black());
-        labelFormat->set_Position(LegendDataLabelPosition::InsideBase);
+            // Nascondi le colonne di B e C, ma conserva le loro etichette dati.
+            series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
+            series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
+            auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+            labelFormat->set_ShowValue(true);
+            labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(12);
+            auto labelFill = labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat();
+            labelFill->set_FillType(FillType::Solid);
+            labelFill->get_SolidFillColor()->set_Color(Color::get_Black());
+            labelFormat->set_Position(LegendDataLabelPosition::InsideBase);
     }
 }
 
-// Allinea tutte e tre le serie con gli stessi centri di categoria.
-chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
-
-// Usa meno linee della griglia per questo esempio compatto.
-chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
-chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
-
-// Riserva spazio sopra il tracciato per due righe di etichette dei dati.
+// Riserva spazio sopra il tracciato per due righe di etichette dati.
 chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
 chart->get_PlotArea()->set_X(0.15f);
 chart->get_PlotArea()->set_Y(0.32f);
@@ -704,7 +698,7 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
     }
 
-    // Solo il titolo della riga è una forma di testo separata.
+    // Solo l'intestazione della riga è una forma di testo separata.
     auto rowHeading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, chart->get_X(), chart->get_Y() + rowTop * chart->get_Height(), 85, 18);
     rowHeading->get_FillFormat()->set_FillType(FillType::NoFill);
     rowHeading->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -720,18 +714,15 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
 presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 ```
 
-![Grafico a colonne con due righe di etichette dei dati sopra l'area del grafico](multiple-rows-of-labels.png)
+![Grafico a colonne con due righe di etichette dei dati sopra l’area del tracciato](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Come posso evitare che le etichette dei dati si sovrappongano su grafici densi?**
+**Come posso impedire la sovrapposizione delle etichette dei dati su grafici densi?**  
+Combina il posizionamento automatico delle etichette, le linee guida e una dimensione del carattere ridotta; se necessario, nascondi alcuni campi (ad esempio la categoria) o mostra le etichette solo per valori estremi o punti chiave.
 
-Combina il posizionamento automatico delle etichette, le linee guida e una riduzione della dimensione del carattere; se necessario, nascondi alcuni campi (ad esempio, la categoria) o mostra le etichette solo per i valori estremi o i punti chiave.
+**Come posso disabilitare le etichette solo per valori zero, negativi o vuoti?**  
+Filtra i punti dati prima di abilitare le etichette e disattiva la visualizzazione per valori pari a 0, valori negativi o valori mancanti secondo una regola definita.
 
-**Come posso disabilitare le etichette solo per valori zero, negativi o vuoti?**
-
-Filtra i punti dati prima di abilitare le etichette e disattiva la visualizzazione per i valori pari a 0, per i valori negativi o per i valori mancanti secondo una regola definita.
-
-**Come posso garantire uno stile di etichetta coerente durante l'esportazione in PDF/immagini?**
-
-Imposta esplicitamente la famiglia e la dimensione del carattere e verifica che il carattere sia disponibile nell'ambiente di rendering per evitare il fallback.
+**Come posso garantire uno stile di etichette coerente durante l'esportazione in PDF/immagini?**  
+Imposta esplicitamente la famiglia e la dimensione del carattere e verifica che il carattere sia disponibile nell’ambiente di rendering per evitare fallback.

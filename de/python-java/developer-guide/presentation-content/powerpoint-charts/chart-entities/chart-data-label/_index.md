@@ -17,13 +17,13 @@ keywords:
 - Aspose.Slides
 description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint‑Präsentationen mit Aspose.Slides für Python via Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
-## **Einführung**
+## **Einleitung**
 
-Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen Lesern, Werte zu erkennen und das Diagramm zu verstehen. Dieser Artikel erklärt, wie Werte formatiert, Prozentsätze angezeigt, Beschriftungstexte gelesen, Beschriftungen über das Achsenmaximum hinaus gesteuert, der Abstand von Achsenbeschriftungen angepasst und Beschriftungen von Kreisdiagrammen positioniert werden.
+Datenbeschriftungen zeigen Informationen über Diagrammreihen und einzelne Datenpunkte an und helfen den Lesern, Werte zu identifizieren und das Diagramm zu verstehen. Dieser Artikel erklärt, wie man Werte formatiert, Prozentsätze anzeigt, Beschriftungstext liest, Beschriftungen jenseits des Achsenmaximums steuert, den Abstand von Achsenkategorienbeschriftungen anpasst und Positionen von Kreisdiagrammbeschriftungen festlegt.
 
 ## **Datenpräzision in Diagrammdatenbeschriftungen festlegen**
 
-Verwenden Sie [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt seine Datentabelle an und aktiviert Wertebeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen, ohne die zugrunde liegenden Werte zu ändern.
+Verwenden Sie [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues), um die Werte der Reihen zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt dessen Datentabelle an und aktiviert Wertebeschriftungen für die erste Reihe. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu ändern.
 
 ```python
 import jpype
@@ -50,9 +50,11 @@ finally:
     presentation.dispose()
 ```
 
+Um die numerischen Zellen in der eingebetteten Arbeitsmappe eines Diagramms zu formatieren, siehe [Benutzerdefinierte Zahlenformate für Arbeitsmappenzellen festlegen](/slides/de/python-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dieses Beispiel zeigt außerdem, dass Wertebeschriftungen den Formaten ihrer Quellzellen folgen, wobei die gespeicherten numerischen Werte erhalten bleiben.
+
 ## **Prozentsatz als Beschriftungen anzeigen**
 
-Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz seiner Kategorietotal und weisen den Text dem Textfeld zu, das von [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer Schriftgröße von 8 pt an. Kategorien mit einem Gesamtsumme von null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
+Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz des Gesamtsumme seiner Kategorie und weisen den Text dem Textfeld zu, das von [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
 
 ```python
 import jpype
@@ -108,11 +110,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Prozentzeichen mit Diagrammdatenbeschriftungen festlegen**
+## **Prozentzeichen mit Diagramm-Datenbeschriftungen festlegen**
 
 Wenn Werte als Brüche gespeichert sind, verwenden Sie [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat), um Prozentsätze anzuzeigen. Übergeben Sie `False` an [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource), um das Beschriftungsformat unabhängig von den Quellzellen anzuwenden.
 
-Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jede Wertepaarung summiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0,30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungstexte mit 10 pt.
+Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Reihen über vier Kategorien. Jede Wertepaare summieren sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0,30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Reihen verwenden weißen Beschriftungstext mit 10 Punkten.
 
 ```python
 import jpype
@@ -173,7 +175,7 @@ finally:
 
 ## **Den tatsächlichen Text von Datenbeschriftungen lesen**
 
-Verwenden Sie [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText), um den durch die Einstellungen einer Datenbeschriftung erzeugten Text abzurufen. Das ist nützlich beim Extrahieren von Beschriftungen für Berichte, beim Durchsuchen von Präsentationsinhalten oder beim Validieren erzeugter Diagramme. Im folgenden Beispiel kombiniert das Standard-[data label format](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) jeden Kategorienamen, Seriennamen und Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text von [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+Verwenden Sie [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText), um den von den Einstellungen einer Datenbeschriftung erzeugten Text abzurufen. Dies ist nützlich, wenn Sie Beschriftungen für Berichte extrahieren, Präsentationsinhalte durchsuchen oder generierte Diagramme validieren. Im nachstehenden Beispiel kombiniert das Standard-[Datenbeschriftungsformat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) jeden Kategorienamen, Seriennamen und Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text von [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
 
 ```python
 import jpype
@@ -234,15 +236,15 @@ finally:
     presentation.dispose()
 ```
 
-Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn seine Beschriftung `75 %` zusammen mit den Kategorie‑ und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den generierten Beschriftungstext. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) liefert in beiden Fällen die resultierende Beschriftungszeichenkette zurück. Prüfen Sie [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
+Die in einem Datenpunkt gespeicherte Nummer bleibt `0.75`, selbst wenn ihre Beschriftung `75%` zusammen mit den Kategorie‑ und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den generierten Beschriftungstext. [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) gibt in beiden Fällen die resultierende Beschriftungszeichenkette zurück. Prüfen Sie [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
 
-## **Datenbeschriftungen über das Achsenmaximum hinaus steuern**
+## **Datenbeschriftungen jenseits des Achsenmaximums steuern**
 
-Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte sein Maximum überschreiten. Verwenden Sie [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum), um zu steuern, ob deren Datenbeschriftungen angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftungen; sie ändert weder den Achsenbereich noch die zugrunde liegenden Datenwerte.
+Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte das Maximum überschreiten. Verwenden Sie [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum), um zu steuern, ob deren Datenbeschriftungen angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftung; sie ändert nicht den Achsenbereich oder die zugrunde liegenden Datenwerte.
 
-Das folgende Beispiel erstellt ein 2D‑ gruppiertes Säulendiagramm mit Werten 60 und 120. Es übergibt `False` an [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) und setzt das Maximum auf 100 mit [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) auf der vertikalen Achse. Die erste Folie erlaubt Beschriftungen über dem Maximum; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
+Das nachstehende Beispiel erstellt ein 2D gruppiertes Säulendiagramm mit Werten 60 und 120. Es übergibt `False` an [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) und setzt das Maximum auf 100 mit [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) auf der vertikalen Achse. Die erste Folie erlaubt Beschriftungen jenseits des Maximums; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
 
-Aktivieren Sie Wertebeschriftungen mit [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Die diagrammbasierte Einstellung aktiviert die Wertanzeige nicht von selbst und überschreibt nicht die deaktivierte Wertanzeige einer einzelnen Beschriftung. Dieses Beispiel aktiviert Werte für die gesamte Serie und verwendet [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition), um Beschriftungen am äußeren Ende jeder Säule zu platzieren.
+Aktivieren Sie Wertebeschriftungen mit [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Die Diagramm‑Ebene‑Einstellung aktiviert die Anzeige von Werten nicht von selbst und überschreibt nicht die deaktivierte Werteanzeige einer einzelnen Beschriftung. Dieses Beispiel aktiviert Werte für die gesamte Reihe und verwendet [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition), um Beschriftungen am äußeren Ende jeder Säule zu platzieren.
 
 ```python
 import jpype
@@ -296,21 +298,19 @@ finally:
     presentation.dispose()
 ```
 
-Die folgenden Bilder zeigen die gespeicherten Folien, gerendert von Microsoft PowerPoint. Bei `True` ist die Beschriftung **120** an der oberen Grenze sichtbar; bei `False` ist sie verborgen. Die Beschriftung **60** bleibt sichtbar, das Achsenmaximum bleibt bei **100**, und der zweite Datenpunkt bleibt in beiden Fällen **120**.
+Die folgenden Bilder zeigen die gespeicherten Folien, die von Microsoft PowerPoint gerendert wurden. Mit `True` ist die Beschriftung **120** an der oberen Grenze sichtbar; mit `False` ist sie ausgeblendet. Die Beschriftung **60** bleibt sichtbar, das Achsenmaximum bleibt bei **100**, und der zweite Datenpunkt bleibt in beiden Fällen **120**.
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
-| ![PowerPoint‑Diagramm, das die Werte‑Beschriftung 120 bei einem Achsenmaximum von 100 zeigt](data-labels-over-maximum-true.png) | ![PowerPoint‑Diagramm, das die Werte‑Beschriftung 120 bei einem Achsenmaximum von 100 ausblendet](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-
-Dieses Beispiel verwendet ein 2D‑Säulendiagramm mit einer Wertachse. Diagramme ohne Wertachse, wie Kreis‑ und Donut‑Diagramme, besitzen kein Achsenmaximum, das auf diese Weise begrenzt werden kann.
-
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
 ## **Abstand der Beschriftung von einer Achse festlegen**
 
-Verwenden Sie [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset), um den Abstand zwischen Achsenbeschriftungen der Kategorienachse und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsenbeschriftungs‑Offset auf 500. Diese Einstellung wirkt sich auf die Kategorienachsenbeschriftungen aus, nicht auf Beschriftungen, die einzelnen Datenpunkten zugeordnet sind.
+Verwenden Sie [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset), um den Abstand zwischen den Kategorienachsen‑Beschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den Horizontalachsen‑Beschriftungsversatz auf 500. Diese Einstellung wirkt sich auf die Kategorienachsen‑Beschriftungen aus, nicht auf Beschriftungen, die an einzelnen Datenpunkten befestigt sind.
 
 ```python
 import jpype
@@ -335,9 +335,9 @@ finally:
 
 ## **Beschriftungsposition anpassen**
 
-Bei einem Kreisdiagramm können Sie die Position der Datenbeschriftungen anpassen, um den Abstand zu verbessern und Platz für Führungs‑Linien zu schaffen.
+In einem Kreisdiagramm passen Sie die Positionen der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Führungs‑Linien zu schaffen.
 
-Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segments und passt die horizontalen sowie vertikalen Versätze mit [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) und [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) an. Diese Versätze beziehen sich jeweils auf die Diagrammbreite bzw. -höhe.
+Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segments und passt seine horizontalen und vertikalen Versätze mit [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) und [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) an. Diese Versätze beziehen sich jeweils auf die Diagrammbreite bzw. -höhe.
 
 ```python
 import jpype
@@ -366,17 +366,17 @@ finally:
     presentation.dispose()
 ```
 
-![Kreisdiagramm mit angepasster Datenbeschriftungs‑Position](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **Führungs‑Linien formatieren**
 
-Wenn Kreisdiagrammbeschriftungen außerhalb ihrer Segmente liegen, helfen Führungs‑Linien den Lesern, jeden Wert dem richtigen Segment zuzuordnen. Eine kontrastierende Farbe und eine leicht dickere Linie können diese Verbindungen leichter nachvollziehbar machen, während Transparenz und ein gestricheltes Muster die Linien optisch unaufdringlich halten.
+Wenn Kreisdiagrammbeschriftungen außerhalb ihrer Segmente liegen, helfen Führungs‑Linien den Lesern, jeden Wert dem richtigen Segment zuzuordnen. Eine kontrastierende Farbe und eine leicht dickere Linie können diese Verbindungen leichter nachvollziehbar machen, während Transparenz und ein gestrichelter Stil die Linien visuell unaufdringlich halten.
 
-Verwenden Sie [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat), um Führungs‑Linien auf Ebene der Datenbeschriftungs‑Sammlung einer Serie zu formatieren. Die Einstellungen in `series.getLabels().getLeaderLinesFormat().getLine()` gelten für die Sammlung, nicht für einzelne Beschriftungen.
+Verwenden Sie [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat), um Führungs‑Linien auf Ebene der Datenbeschriftungssammlung einer Reihe zu formatieren. Die Einstellungen in `series.getLabels().getLeaderLinesFormat().getLine()` gelten für die Sammlung, nicht für eine einzelne Beschriftung.
 
-Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten, zeigt Werte außerhalb der Segmente an und aktiviert [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines). Es verschiebt zwei Beschriftungen weiter von ihren Segmenten mit [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) und [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) Versätzen, ausgedrückt als Bruchteile der Diagrammbreite und -höhe. Keine Eingabepräsentation ist erforderlich.
+Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten, zeigt Werte außerhalb der Segmente an und aktiviert [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines). Es verschiebt zwei Beschriftungen weiter von ihren Segmenten weg mittels [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) und [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY)-Versätzen, ausgedrückt als Bruchteile der Diagrammbreite und -höhe. Keine Eingabepräsentation ist erforderlich.
 
-Die [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) der Linie setzt eine durchgehende blaue Farbe mit einem Alphawert von 191 von 255, was etwa 25 % Transparenz ergibt. [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) legt die Dicke auf 2 pt fest, und [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) macht die Linie gestrichelt.
+Die Linien‑[getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) setzt eine solide blaue Farbe mit einem Alpha‑Wert von 191 von 255, was etwa 25 % Transparenz ergibt. [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) stellt die Dicke auf 2 Punkte ein, und [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) macht die Linie gestrichelt.
 
 ```python
 import jpype
@@ -403,7 +403,7 @@ try:
     label_format.setPosition(LegendDataLabelPosition.OutsideEnd)
     label_format.setShowLeaderLines(True)
 
-    # Verschiebe zwei Beschriftungen weiter von ihren Segmenten weg.
+    # Verschiebe zwei Beschriftungen weiter von ihren Segmenten.
     series.getLabels().get_Item(0).setX(0.10)
     series.getLabels().get_Item(0).setY(-0.05)
     series.getLabels().get_Item(1).setX(-0.10)
@@ -421,17 +421,17 @@ finally:
     presentation.dispose()
 ```
 
-Das Aktivieren von Führungs‑Linien garantiert nicht, dass für jede Beschriftung eine Linie erscheint. Die Sichtbarkeit hängt von der Beschriftungsposition und dem Layoutverhalten des Diagramms ab. In diesem Beispiel haben die beiden verschobenen Beschriftungen sichtbare Führungs‑Linien; die Beschriftungen, die nahe an ihren Segmenten bleiben, benötigen keine.
+Das Aktivieren von Führungs‑Linien garantiert nicht, dass für jede Beschriftung eine Linie erscheint. Die Sichtbarkeit hängt von der Beschriftungsposition und dem Layout‑Verhalten des Diagramms ab. In diesem Beispiel haben die beiden versetzten Beschriftungen sichtbare Führungs‑Linien; die Beschriftungen, die nah an ihren Segmenten bleiben, benötigen keine.
 
-Das folgende Bild zeigt die gespeicherte `FormattedLeaderLines.pptx`, gerendert mit Aspose.Slides:
+Das folgende Bild zeigt das gespeicherte `FormattedLeaderLines.pptx`, das mit Aspose.Slides gerendert wurde:
 
 ![Kreisdiagramm mit blauen, halbtransparenten, gestrichelten Führungs‑Linien, die zwei äußere Beschriftungen mit ihren Segmenten verbinden](formatted-leader-lines.png)
 
 ## **Mehrere Zeilen von Datenbeschriftungen über einem Säulendiagramm hinzufügen**
 
-Dieses Beispiel erstellt ein Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Plot‑Bereich. Serie A zeigt die sichtbaren Säulen, während Serie B und Serie C die zusätzlichen Beschriftungen bereitstellen. Ihre Säulen werden ausgeblendet, indem Füllung und Kontur entfernt werden. Die Methode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) richtet alle drei Serien an den gleichen Kategorien‑Mittelpunkten aus.
+Dieses Beispiel erstellt ein Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Plot‑Bereich. Serie A zeigt die sichtbaren Säulen, während Serie B und Serie C die zusätzlichen Beschriftungen bereitstellen. Ihre Säulen werden ausgeblendet, indem Füllung und Kontur entfernt werden. Die Methode [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) richtet alle drei Serien an denselben Kategoriezentren aus.
 
-Die [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/)‑Einstellungen reservieren Platz für die Beschriftungs‑Zeilen. Nach [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) werden die Standardpositionen berechnet, und [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) sowie [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) bewahren die horizontale Ausrichtung und wenden vertikale Versätze an, um die Beschriftungen in zwei Zeilen anzuordnen. Die Zahlen bleiben Datenbeschriftungen, die mit den Serienwerten verknüpft sind; nur die Zeilenüberschriften sind separate Textformen.
+Die [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/)-Einstellungen reservieren Platz für die Beschriftungszeilen. Nachdem [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) die Standardpositionen berechnet hat, bewahren [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) und [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) die horizontale Ausrichtung und wenden vertikale Versätze an, um die Beschriftungen in zwei Reihen anzuordnen. Die Zahlen bleiben Datenbeschriftungen, die mit den Reihenwerten verknüpft sind; nur die Zeilenüberschriften sind separate Textformen.
 
 ```python
 import jpype
@@ -476,7 +476,7 @@ try:
             series.getDataPoints().addDataPointForBarSeries(value_cell)
 
         if series_index > 0:
-            # Verstecke die Spalten von B und C, aber behalte ihre Datenbeschriftungen bei.
+            # Verstecke die Spalten von B und C, aber behalte ihre Datenbeschriftungen.
             series.getFormat().getFill().setFillType(FillType.NoFill)
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
             label_format = series.getLabels().getDefaultDataLabelFormat()
@@ -487,14 +487,14 @@ try:
             label_fill.getSolidFillColor().setColor(Color.BLACK)
             label_format.setPosition(LegendDataLabelPosition.InsideBase)
 
-    # Richte alle drei Serien an den gleichen Kategorienzentren aus.
+    # Richte alle drei Reihen anhand der gleichen Kategorienmitten aus.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
 
     # Verwende weniger Gitternetzlinien für dieses kompakte Beispiel.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setMajorUnit(10)
 
-    # Reserviere Platz oberhalb des Diagrammbereichs für zwei Zeilen Datenbeschriftungen.
+    # Reserviere Platz über dem Diagramm für zwei Zeilen von Datenbeschriftungen.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
     chart.getPlotArea().setX(0.15)
     chart.getPlotArea().setY(0.32)
@@ -508,8 +508,8 @@ try:
 
         for category_index in range(len(categories)):
             data_label = series.getDataPoints().get_Item(category_index).getLabel()
-            # Behalte die Standard-horizontale Position bei. Y ist ein Versatz von
-            # der Standard-Beschriftungsposition, ausgedrückt als Bruchteil der Diagrammhöhe.
+            # Behalte die Standard‑Horizontale‑Position bei. Y ist ein Versatz von
+            # der Standard‑Beschriftungsposition, ausgedrückt als ein Bruchteil der Diagrammhöhe.
             data_label.setX(0)
             data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
 
@@ -537,12 +537,12 @@ finally:
 
 **Wie kann ich verhindern, dass Datenbeschriftungen in dichten Diagrammen überlappen?**
 
-Kombinieren Sie die automatische Beschriftungsplatzierung, Führungs‑Linien und reduzierte Schriftgröße; bei Bedarf einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für Extremwerte bzw. Schlüsselpunkte anzeigen.
+Automatische Beschriftungsplatzierung, Führungs‑Linien und reduzierte Schriftgröße kombinieren; bei Bedarf einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme Werte bzw. Schlüssel­punkte anzeigen.
 
-**Wie kann ich Beschriftungen nur für Null‑, Negative‑ oder Leere‑Werte deaktivieren?**
+**Wie kann ich Beschriftungen nur für Null‑, negative oder leere Werte deaktivieren?**
 
 Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
 
-**Wie stelle ich einen konsistenten Beschriftungsstil bei der Exportierung nach PDF/Bildern sicher?**
+**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
 
-Setzen Sie explizit Schriftfamilie und -größe und prüfen Sie, dass die Schrift im Render‑Umfeld verfügbar ist, um Fallbacks zu vermeiden.
+Setzen Sie explizit die Schriftfamilie und -größe und prüfen Sie, dass die Schrift im Rendering‑Umfeld verfügbar ist, um ein Ausweichen zu vermeiden.

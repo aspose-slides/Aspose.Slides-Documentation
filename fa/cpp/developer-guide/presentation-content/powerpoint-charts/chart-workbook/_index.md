@@ -9,41 +9,41 @@ keywords:
 - داده‌های نمودار
 - سلول کتاب‌کار
 - برچسب داده
-- کاربرگ
+- ورق‌کار
 - منبع داده
 - کتاب‌کار خارجی
-- داده‌های خارجی
+- دادهٔ خارجی
 - کش نمودار
 - بازیابی کتاب‌کار
 - PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "Aspose.Slides برای C++ را کشف کنید: به‌صورت آسان کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
+description: "Aspose.Slides برای C++ را کشف کنید: به‌راحتی کتاب‌کارهای نمودار را در قالب‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه‌ی خود را به‌صورت یکپارچه سازماندهی کنید."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله نحوه کار با کتاب‌کارهای نمودار در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه می‌توان داده‌های نمودار را از طریق جریان‌های کتاب‌کار خواند و نوشت، از سلول‌های کتاب‌کار به عنوان برچسب‌های داده نمودار استفاده کرد، به مجموعه‌های شیت دسترسی یافت و نوع منبع داده برای مقادیر نمودار را مشخص کرد.
+این مقاله توضیح می‌دهد چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار بخوانید و بنویسید، از سلول‌های کتاب‌کار به عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های ورق‌کاری دسترسی پیدا کنید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
 
-همچنین کار با کتاب‌کارهای خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. نمونه‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص داده شود، مسیر کتاب‌کار خارجی مرتبط با نمودار دریافت شود و داده‌های نمودار هنگام در دسترس بودن کتاب‌کار ویرایش شود.
+همچنین کار با کتاب‌کارهای خارجی به عنوان منابع داده نمودار را پوشش می‌دهد. نمونه‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص داده شود، مسیر کتاب‌کار خارجی پیوست‌شده به یک نمودار بازیابی شود و داده‌های نمودار هنگام در دسترس بودن کتاب‌کار ویرایش شود.
 
-برای سلول‌های کتاب‌کاری که نمایانگر داده‌های مفقودی هستند، به [کنترل نمایش سلول‌های خالی](/slides/fa/cpp/chart-series/) مراجعه کنید تا تفاوت بین سلول خالی و صفر، و مقایسه نمودار خطی حالت‌های نمایش موجود را ببینید.
+برای سلول‌های کتاب‌کاری که نمایانگر داده‌های گمشده هستند، به [Control the Display of Empty Cells](/slides/fa/cpp/chart-series/) مراجعه کنید تا تفاوت بین سلول خالی و صفر و مقایسه‌ای خطی از حالت‌های نمایش موجود را ببینید.
 
-## **شامل کردن داده‌ها از ردیف‌ها و ستون‌های مخفی**
+## **گنجاندن داده‌ها از ردیف‌ها و ستون‌های مخفی**
 
-از [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) برای کنترل اینکه آیا نمودار فقط داده‌های ردیف‌ها و ستون‌های مخفی شیت را رسم کند یا نه، استفاده کنید. برای رسم تنها سلول‌های قابل مشاهده مقدار `true` را تنظیم کنید، یا برای شامل کردن هر دو سلول قابل مشاهده و مخفی مقدار `false` را تنظیم کنید. این تنظیم فقط نحوه رسم نمودار را کنترل می‌کند؛ ردیف‌ها یا ستون‌های شیت را مخفی یا نمایان نمی‌کند.
+از [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) برای کنترل این که آیا یک نمودار داده‌ها را از ردیف‌ها و ستون‌های مخفی ورق‌کاری ترسیم می‌کند یا نه استفاده کنید. آن را به `true` تنظیم کنید تا فقط سلول‌های قابل مشاهده ترسیم شوند، یا به `false` تنظیم کنید تا هر دو سلول قابل مشاهده و مخفی گنجانده شوند. این تنظیم فقط ترسیم نمودار را کنترل می‌کند؛ ردیف‌ها یا ستون‌های ورق‌کاری را مخفی یا نمایان نمی‌کند.
 
-[پرزنتیشن نمونه](hidden-source-data.pptx) شامل یک نمودار ستونی است که اولین شکل در اسلاید اول آن می‌باشد. شیت جاسازی‌شده، `Sheet1`، محدوده منبع زیر را دارد: `A1:C4`. ردیف 3 و ستون C مخفی هستند، اما سلول‌های آنها هنوز مقدار دارند.
+[پرزنتیشن نمونه](hidden-source-data.pptx) شامل یک نمودار ستونی به‌عنوان اولین شکل در اولین اسلاید خود است. ورق‌کاری جاسازی‌شده، `Sheet1`، محدوده منبع زیر را دارد: `A1:C4`. ردیف 3 و ستون C مخفی هستند، اما سلول‌های آن‌ها هنوز مقادیر دارند.
 
-| ردیف شیت | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون مخفی) |
+| ردیف ورق‌کاری | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون مخفی) |
 | --- | --- | --- | --- |
 | 2 | ژانویه | 10 | 30 |
 | 3 (ردیف مخفی) | فوریه | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-از طریق [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) به سلول‌های منبع دسترسی یافته و با [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) وضعیت مخفی بودن آنها را بررسی کنید. این خصوصیت فقط خواندنی است. در این مثال، B2 قابل مشاهده است، B3 متعلق به ردیف مخفی است و C2 متعلق به ستون مخفی؛ مثال مقادیر `False`، `True` و `True` را به ترتیب چاپ می‌کند.
+به سلول‌های منبع از طریق [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) دسترسی پیدا کنید و با خواندن [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) وضعیت مخفی بودن آن‌ها را بررسی کنید. این ویژگی فقط‑خواندنی است. در این فایل، B2 قابل مشاهده است، B3 متعلق به ردیف مخفی است و C2 متعلق به ستون مخفی؛ مثال `False`، `True` و `True` را به ترتیب چاپ می‌کند.
 
-برای این مثال، پس از تغییر تنظیم رسم، داده‌های نمودار را تازه‌سازی کنید: کتاب‌کار جاسازی‌شده را با [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) حفظ کنید و با [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) دوباره بارگذاری کنید. هنگام شامل کردن تمام سلول‌ها، از [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) نیز برای بازگرداندن محدوده کامل، شامل دسته‌فی فوریه مخفی، استفاده کنید. تنها تغییر پرچم برای تازه‌سازی داده‌های کش‌شده نمودار و برچسب‌های دسته کافی نیست.
+برای این مثال، پس از تغییر تنظیم ترسیم، داده‌های نمودار را تازه کنید: کتاب‌کار جاسازی‌شده را با [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) حفظ کنید و با [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) دوباره بارگذاری کنید. هنگام گنجاندن همه سلول‌ها، همچنین از [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) برای بازیابی محدوده کامل، شامل دستهٔ مخفی فوریه، استفاده کنید. صرفاً تغییر پرچم برای تازه‌سازی داده‌های کش‌شدهٔ این نمونه و برچسب‌های دسته کافی نیست.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -79,7 +79,7 @@ if (chart != nullptr)
     {
         chart->set_PlotVisibleCellsOnly(visibleOnly);
 
-        // داده‌های نمودار را از کتاب‌کار جاسازی‌شده تازه‌سازی کنید.
+        // داده‌های نمودار را از کتاب‌کار جاسازی‌شده تازه کنید.
         workbookStream->set_Position(0);
         chart->get_ChartData()->WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
@@ -94,26 +94,25 @@ if (chart != nullptr)
 }
 else
 {
-    // اولین شکل یک نمودار نیست.
     Console::WriteLine(u"The first shape is not a chart.");
 }
 ```
 
-مثال دو نسخه از پرزنتیشن را ذخیره می‌کند: یکی فقط با مقادیر خرده‌فروشی قابل مشاهده (10 و 20) و دیگری با تمام شش مقدار. تصاویر زیر دو حالت رسم را نشان می‌دهند. ردیف 3 و ستون C در هر دو کتاب‌کار جاسازی‌شده مخفی می‌مانند.
+مثال دو نسخه از پرزنتیشن را ذخیره می‌کند: یک نسخه فقط با مقادیر قابل مشاهدهٔ خرده‌فروشی (10 و 20) و نسخهٔ دیگر با تمام شش مقدار. تصاویر زیر دو حالت ترسیم را نشان می‌دهند. ردیف 3 و ستون C در هر دو کتاب‌کار جاسازی‌شده مخفی می‌مانند.
 
-| فقط سلول‌های قابل مشاهده (`true`) | تمام سلول‌ها (`false`) |
+| فقط سلول‌های قابل مشاهده (`true`) | همه سلول‌ها (`false`) |
 | --- | --- |
 | ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-یک سلول مخفی که دارای مقدار است متفاوت از یک سلول خالی است. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) کنترل می‌کند مقادیر گمشده چگونه نمایش داده شوند؛ این تنظیم شامل یا مستثنی کردن داده منبع مخفی نمی‌شود. برای مثال به [کنترل نمایش سلول‌های خالی](/slides/fa/cpp/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
+یک سلول مخفی حاوی مقدار با یک سلول خالی متفاوت است. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) کنترل می‌کند مقادیر گمشده چگونه نمایش داده شوند؛ این تنظیم شامل یا حذف داده منبع مخفی نمی‌شود. برای مثال به [Control the Display of Empty Cells](/slides/fa/cpp/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
 
-## ** واکشی محدوده داده‌های یک نمودار**
+## **بازیابی محدودهٔ دادهٔ نمودار**
 
-قبل از به‌روزرسانی داده‌های کتاب‌کار در یک پرزنتیشن موجود، محدوده‌های منبع را بررسی کنید تا مشخص شود هر نمودار از چه سلول‌های شیتی استفاده می‌کند. متد [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) محدوده دادهٔ فعلی را به صورت فرمول شیت‌شناسی برمی‌گرداند، مانند `Sheet1!$A$1:$D$5`. در اینجا، `Sheet1` نام شیت است، `!` آن را از محدوده سلول جدا می‌کند و `$A$1:$D$5` سلول‌های A1 تا D5 را شامل می‌شود. علامت دلار نشان‌دهنده ارجاع مطلق ردیف و ستون است.
+قبل از به‌روزرسانی داده‌های کتاب‌کار در یک پرزنتیشن موجود، محدوده‌های منبع را بررسی کنید تا تعیین کنید هر نمودار از چه سلول‌های ورق‌کاری استفاده می‌کند. متد [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) محدودهٔ دادهٔ فعلی را به‌صورت فرمولی شناسایی‌شده توسط ورق‌کاری برمی‌گرداند، مانند `Sheet1!$A$1:$D$5`. در اینجا، `Sheet1` نام ورق‌کاری است، `!` آن را از بازهٔ سلولی جدا می‌کند و `$A$1:$D$5` سلول‌های A1 تا D5 را شامل می‌شود. علامت‌های دلار مرجع سطر و ستون را مطلق می‌کند.
 
-این متد محدودهٔ فعلی را می‌خواند بدون اینکه نمودار یا کتاب‌کار آن را تغییر دهد. اگر نمودار از کتاب‌کاری به عنوان منبع داده استفاده نکند، یک [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) پرتاب می‌شود. برای اطلاعات بیشتر، به [مرجع API ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/) مراجعه کنید.
+این متد محدودهٔ فعلی را می‌خواند بدون اینکه نمودار یا کتاب‌کار آن تغییر کند. اگر نمودار از کتاب‌کاری به عنوان منبع داده استفاده نکند، [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) پرتاب می‌شود. برای اطلاعات بیشتر به [ChartData API Reference](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/) مراجعه کنید.
 
-این مثال یک پرزنتیشن را باز می‌کند و شکل‌های هر اسلاید را برای یافتن نمودارها بررسی می‌کند. نام هر نمودار و محدوده منبع آن را چاپ می‌کند. اگر یک نمودار از کتاب‌کاری استفاده نکند، پیام مربوطه چاپ شده و به نمودار بعدی ادامه می‌دهد.
+این مثال یک پرزنتیشن را باز می‌کند و شکل‌های هر اسلاید را برای یافتن نمودارها بررسی می‌گیرد. نام هر نمودار و محدودهٔ منبع آن را چاپ می‌کند. اگر یک نمودار از کتاب‌کار استفاده نکند، پیغامی چاپ می‌کند و به نمودار بعدی ادامه می‌دهد.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -154,11 +153,11 @@ for (auto slide : IterateOver(presentation->get_Slides()))
 }
 ```
 
-## **خواندن و نوشتن داده‌های نمودار از یک کتاب‌کار**
+## **خواندن و نوشتن دادهٔ نمودار از کتاب‌کار**
 
-Aspose.Slides for C++ متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) را فراهم می‌کند که به شما امکان خواندن و نوشتن کتاب‌کارهای دادهٔ نمودار (شامل داده‌های ویرایش‌شده با Aspose.Cells) را می‌دهد. **نکته** این است که داده‌های نمودار باید به همان شیوه سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+Aspose.Slides برای C++ متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) را فراهم می‌کند که امکان خواندن و نوشتن کتاب‌کارهای دادهٔ نمودار (حاوی داده‌های ویرایش‌شده با Aspose.Cells) را می‌دهند. **توجه** داشته باشید که دادهٔ نمودار باید به همان شیوه سازماندهی شده باشد یا ساختاری مشابه منبع داشته باشد.
 
-این مثال یک پرزنتیشن با یک نمودار به عنوان اولین شکل در اسلاید اول استفاده می‌کند. کتاب‌کار جاسازی‌شده را به یک جریان می‌خواند، سری‌ها و دسته‌ها را پاک می‌کند و همان کتاب‌کار را دوباره می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال پرزنتیشن را ذخیره نمی‌کند.
+این مثال از یک پرزنتیشن با نمودار به‌عنوان اولین شکل در اولین اسلاید استفاده می‌کند. کتاب‌کار جاسازی‌شده را به یک جریان می‌خواند، سری‌ها و دسته‌های موجود را پاک می‌کند و همان کتاب‌کار را دوباره می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال پرزنتیشن را ذخیره نمی‌کند.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -199,7 +198,7 @@ else
 
 ### **اعتبارسنجی چیدمان نمودار پس از تغییر کتاب‌کار**
 
-زمانی که کتاب‌کار جاسازی‌شده را با یک کتاب‌کار اصلاح‌شده جایگزین می‌کنید، نمودار مجموعهٔ سری‌ها و دسته‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شکست [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) با خطای out-of-range شود. قبل از نوشتن کتاب‌کار به‌روز شده، سری‌ها و دسته‌های موجود را پاک کنید. این مثال از نموداری استفاده می‌کند که اولین شکل در اسلاید اول است. کامنت محل ویرایش کتاب‌کار را نشان می‌دهد؛ مثال اجرایی کتاب‌کار اصلی را دوباره می‌نویسد و چیدمان را در حافظه اعتبارسنجی می‌کند.
+هنگامی که یک کتاب‌کار جاسازی‌شده را با یک نسخهٔ تغییر یافته جایگزین می‌کنید، نمودار مجموعهٔ سری‌ها و دسته‌های اصلی خود را حفظ می‌کند. این ناهماهنگی می‌تواند باعث شکست [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) با خطای «index‑out‑of‑range» شود. قبل از نوشتن کتاب‌کار به‌روزشده به نمودار، سری‌ها و دسته‌های موجود را پاک کنید. این مثال از یک نمودار که اولین شکل در اولین اسلاید است استفاده می‌کند. توضیحاتی نشان می‌دهد که ویرایش کتاب‌کار در کجا رخ می‌دهد؛ مثال قابل اجرا کتاب‌کار اصلی را برمی‌گرداند و چیدمان را در حافظه اعتبارسنجی می‌کند.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -226,7 +225,7 @@ if (chart != nullptr)
     auto chartData = chart->get_ChartData();
     auto workbookStream = chartData->ReadWorkbookStream();
 
-    // جریان کتاب‌کار را در اینجا تغییر دهید، برای مثال با استفاده از Aspose.Cells.
+    // در اینجا جریان کتاب‌کار را اصلاح کنید، برای مثال با استفاده از Aspose.Cells.
 
     chartData->get_Series()->Clear();
     chartData->get_Categories()->Clear();
@@ -241,13 +240,100 @@ else
 }
 ```
 
-پاک‌سازی مجموعه‌ها قبل از نوشتن کتاب‌کار، مراجع دادهٔ منقضی‌شده را حذف می‌کند. پیش از استفاده از نمودار، سری‌ها و نگاشت‌های دسته‌ی مورد نیاز برای کتاب‌کار به‌روزرسانی شده را بازسازی کنید.
+پاک‌سازی مجموعه‌ها مراجع دادهٔ منسوخ را پیش از نوشتن کتاب‌کار حذف می‌کند. پیش از استفاده از نمودار، هر سری و نگاشت دستهٔ موردنیاز برای کتاب‌کار به‌روزشده را بازسازی کنید.
 
-## **تنظیم یک سلول کتاب‌کار به عنوان برچسب دادهٔ نمودار**
+## **تنظیم قالب‌های عددی سفارشی برای سلول‌های کتاب‌کار**
 
-می‌توانید از متن سلول‌های کتاب‌کار به عنوان برچسب‌های دادهٔ نمودار استفاده کنید.
+از [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) برای کنترل نحوهٔ نمایش مقادیر عددی در کتاب‌کار جاسازی‌شدهٔ نمودار استفاده کنید. برای مثال، یک گزارش ممکن است نیاز به نرخ تبدیل نشان داده‌شده به‌صورت درصد با چهار رقم اعشار و یک ضریب با پنج رقم اعشار داشته باشد. هر دو مقدار باید عددی باقی بمانند تا برای محاسبات و ترسیم نمودار در دسترس باشند.
 
-این مثال یک نمودار حبابی با داده‌های پیش‌فرض به اسلاید اول یک پرزنتیشن موجود اضافه می‌کند. از سلول‌های A10:A12 در شیت 0 برای اولین سه برچسب در سری اول استفاده می‌کند، برچسب‌ها را از سلول‌ها فعال می‌کند و پرزنتیشن به‌روزرسانی‌شده را ذخیره می‌کند.
+قالب عددی نمایش را تغییر می‌دهد، نه مقدار ذخیره‌شده. قالب `0.0000%` مقدار `0.125` را به‌صورت `12.5000%` نمایش می‌دهد؛ عدد ذخیره‌شده همچنان `0.125` است. به‌طور مشابه، `0.00000` مقدار `0.1234567` را به‌صورت `0.12346` نشان می‌دهد بدون اینکه مقدار ذخیره‌شده رند شود. اگر قالب سفارشی یک رشتهٔ خالی (`""`) باشد، قالب اختصاص‌داده‌شده توسط [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) استفاده می‌شود.
+
+مثال زیر یک نمودار ستونی ایجاد می‌کند و سلول‌های آن را از طریق [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) دسترسی می‌یابد. در ورق‌کاری 0، B2 نرخ تبدیل و C2 ضریب را داراست. هر دو سلول مقدارهای نمودار را فراهم می‌کنند. مثال همچنین برچسب‌های مقدار را فعال می‌کند که به قالب‌های منبع متصل هستند.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(720, 270, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 20, 620, 210);
+chart->set_HasTitle(false);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00");
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMinValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MinValue(0);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto categoryCell = workbook->GetCell(0, u"A2", ObjectExt::Box<String>(u"Sample"));
+chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+auto percentageCell = workbook->GetCell(0, u"B2", ObjectExt::Box<double>(0.125));
+percentageCell->set_CustomNumberFormat(u"0.0000%");
+auto percentageName = workbook->GetCell(0, u"B1", ObjectExt::Box<String>(u"Conversion rate"));
+auto percentageSeries = chart->get_ChartData()->get_Series()->Add(percentageName, chart->get_Type());
+percentageSeries->get_DataPoints()->AddDataPointForBarSeries(percentageCell);
+
+auto precisionCell = workbook->GetCell(0, u"C2", ObjectExt::Box<double>(0.1234567));
+precisionCell->set_CustomNumberFormat(u"0.00000");
+auto precisionName = workbook->GetCell(0, u"C1", ObjectExt::Box<String>(u"Coefficient"));
+auto precisionSeries = chart->get_ChartData()->get_Series()->Add(precisionName, chart->get_Type());
+precisionSeries->get_DataPoints()->AddDataPointForBarSeries(precisionCell);
+
+for (auto series : IterateOver(chart->get_ChartData()->get_Series()))
+{
+    auto labelFormat = series->get_DataPoint(0)->get_Label()->get_DataLabelFormat();
+    labelFormat->set_ShowValue(true);
+    labelFormat->set_IsNumberFormatLinkedToSource(true);
+}
+
+presentation->Save(u"CustomCellFormats.pptx", Export::SaveFormat::Pptx);
+```
+
+قالب‌های سلول کتاب‌کار جدا از قالب‌های تنظیم‌شده مستقیماً بر محورهای نمودار یا برچسب‌های داده هستند. در این مثال، هر برچسب مقدار سلول منبع خود را نمایش می‌دهد زیرا [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) با `true` فراخوانی شده و به قالب عددی منبع پیوند دارد چون [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) با `true` تنظیم شده است. پس از ذخیره و باز کردن مجدد پرزنتیشن، برچسب‌ها `12.5000%` و `0.12346` را نشان می‌دهند همان‌طور که در زیر مشاهده می‌شود. محور عمودی قالب خود را `0.00` دارد که از طریق [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/) اختصاص یافته و [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) با `false` فراخوانی شده است.
+
+برای قالب‌بندی مستقل یک برچسب داده، پرچم پیوند به منبع را به `false` تنظیم کنید و قالب آن را از طریق [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) اختصاص دهید. این کار قالب سلول کتاب‌کار را تغییر نمی‌دهد. به‌عنوان مثال، قالب مستقل برچسب `0.00` مقدار اول را به‌صورت `0.13` نمایش می‌دهد، در حالی که B2 همچنان `12.5000%` را نشان می‌دهد. برای قالب‌بندی مستقیم برچسب‌ها، به [Chart Data Labels](/slides/fa/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) مراجعه کنید.
+
+تصویر زیر پس از باز کردن مجدد پرزنتیشن ذخیره‌شده رندر شده است:
+
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
+
+## **استفاده از یک سلول کتاب‌کار به‌عنوان برچسب دادهٔ نمودار**
+
+می‌توانید متن سلول‌های کتاب‌کار را به‌عنوان برچسب‌های دادهٔ نمودار استفاده کنید.
+
+این مثال یک نمودار حبابی با داده‌های پیش‌فرض به اولین اسلاید یک پرزنتیشن موجود اضافه می‌کند. از سلول‌های A10:A12 در ورق‌کاری 0 برای اولین سه برچسب در اولین سری استفاده می‌کند، برچسب‌ها از سلول‌ها فعال می‌شوند و پرزنتیشن به‌روز شده را ذخیره می‌کند.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -288,9 +374,9 @@ series->get_Labels()->idx_get(2)->set_ValueFromCell(thirdLabelCell);
 presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **مدیریت شیت‌ها**
+## **مدیریت ورق‌های کاری**
 
-متد [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) دسترسی به شیت‌های موجود در کتاب‌کار نمودار را فراهم می‌کند. این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و نام هر شیت را در کنسول چاپ می‌نماید.
+متد [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) دسترسی به ورق‌های کاری در یک کتاب‌کار نمودار را فراهم می‌کند. این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و نام هر ورق کاری را در کنسول چاپ می‌کند.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -321,9 +407,9 @@ for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 }
 ```
 
-## **مشخص‌کردن نوع منبع داده**
+## **مشخص کردن نوع منبع داده**
 
-این مثال یک نمودار ستونی 3D با داده‌های پیش‌فرض ایجاد می‌کند و دو نام سری را با منابع داده مختلف تنظیم می‌کند. نام اول از یک رشتهٔ متنی استفاده می‌کند؛ نام دوم از سلول C1 در شیت 0 می‌گیرد. شمارندهٔ [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) منبع هر نام را انتخاب می‌کند. مثال پرزنتیشن را با نام‌های به‌روزرسانی‌شده سری ذخیره می‌کند.
+این مثال یک نمودار ستونی سه‌بعدی با داده‌های پیش‌فرض ایجاد می‌کند و دو نام سری را با منابع داده متفاوت تنظیم می‌کند. نام اول از یک رشتهٔ واضح استفاده می‌کند؛ نام دوم از سلول C1 در ورق‌کاری 0 استفاده می‌کند. شمارنده [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) منبع هر نام را انتخاب می‌کند. مثال پرزنتیشن را با نام‌های سری به‌روزشده ذخیره می‌کند.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -364,7 +450,7 @@ presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 
 ## **تشخیص قالب‌های کتاب‌کار جاسازی‌شدهٔ پشتیبانی‌نشده**
 
-Aspose.Slides از قالب کتاب‌کار باینری اکسل (.xlsb) که می‌تواند در برخی نمودارها جاسازی شود، پشتیبانی نمی‌کند. می‌توانید با استفاده از متد [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) بر روی [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) همراه با شمارندهٔ [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) قالب‌های پشتیبانی‌نشده را تشخیص داده و از آن نمودارها عبور کنید. این مثال شکل‌های اسلاید اول یک پرزنتیشن موجود را بررسی می‌کند، شکل‌های غیرنموداری را عبور می‌دهد و برای هر نمودار با کتاب‌کار .xlsb جاسازی‌شده یک پیام تشخیص چاپ می‌کند.
+Aspose.Slides از قالب کتاب‌کار باینری اکسل (.xlsb) که ممکن است در برخی نمودارها جاسازی شود، پشتیبانی نمی‌کند. می‌توانید با استفاده از متد [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) در [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) همراه با شمارنده [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) قالب‌های پشتیبانی‌نشده را شناسایی کرده و آن نمودارها را نادیده بگیرید. این مثال شکل‌های اولین اسلاید یک پرزنتیشن موجود را بررسی می‌کند، شکل‌های غیرنموداری را نادیده می‌گیرد و برای هر نمودار دارای کتاب‌کار .xlsb یک پیام تشخیص چاپ می‌کند.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -403,19 +489,19 @@ for (auto shape : IterateOver(slide->get_Shapes()))
         continue;
     }
 
-    // در اینجا داده‌های کتاب‌کار نمودار پشتیبانی‌شده را بخوانید یا اصلاح کنید.
+    // در اینجا داده‌های کتاب‌کار پشتیبانی‌شدهٔ نمودار را بخوانید یا تغییر دهید.
 }
 ```
 
 ## **کتاب‌کار خارجی**
 
-Aspose.Slides پشتیبانی می‌کند از کتاب‌کارهای خارجی به عنوان منبع داده برای نمودارها.
+Aspose.Slides از استفاده از کتاب‌کارهای خارجی به‌عنوان منبع داده برای نمودارها پشتیبانی می‌کند.
 
 ### **ایجاد یک کتاب‌کار خارجی**
 
-از [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) برای استخراج یک کتاب‌کار نمودار جاسازی‌شده به یک فایل و پیوند نمودار به آن کتاب‌کار خارجی استفاده کنید.
+از [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) و [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) برای استخراج کتاب‌کار نمودار جاسازی‌شده به یک فایل و پیوست نمودار به آن کتاب‌کار خارجی استفاده کنید.
 
-این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و کتاب‌کار آن را استخراج می‌نماید. قبل از اختصاص کتاب‌کار خارجی به عنوان منبع دادهٔ نمودار، جریان خروجی را بسته و سپس پرزنتیشن پیوندشده را ذخیره می‌کند.
+این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و کتاب‌کار آن را استخراج می‌کند. قبل از اختصاص کتاب‌کار خارجی به عنوان منبع دادهٔ نمودار، جریان خروجی را می‌بندد و سپس پرزنتیشن پیوست‌شده را ذخیره می‌کند.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -451,11 +537,11 @@ presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 
 ### **تنظیم یک کتاب‌کار خارجی**
 
-با استفاده از متد [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) می‌توانید یک کتاب‌کار خارجی را به یک نمودار به عنوان منبع دادهٔ آن اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی (اگر جابجا شده باشد) استفاده شود.
+با استفاده از متد [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) می‌توانید یک کتاب‌کار خارجی را به یک نمودار به‌عنوان منبع داده‌اش اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب‌کار خارجی (اگر منتقل شده باشد) به‌کار رود.
 
-در حالی که نمی‌توانید داده‌ها را در کتاب‌کارهایی که در مکان‌های راه دور یا منابع ذخیره شده‌اند، ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌گردد.
+اگرچه نمی‌توانید داده‌ها را در کتاب‌کارهای ذخیره‌شده در مکان‌های دوردست یا منابع ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به‌عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای یک کتاب‌کار خارجی ارائه شود، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود.
 
-این مثال از یک کتاب‌کار خارجی استفاده می‌کند که شیتی به نام `Sheet1` دارد؛ نام سری در B1، نام دسته‌ها در A2:A4 و مقادیر عددی در B2:B4 قرار دارند. مثال یک نمودار دایره‌ای می‌سازد، کتاب‌کار را پیوند می‌دهد و از [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) برای نگاشت A1:B4 به یک سری و سه دسته استفاده می‌کند. پرزنتیشن را با نمودار پیوندشده ذخیره می‌کند.
+این مثال از یک کتاب‌کار خارجی استفاده می‌کند که در ورق‌کاری با نام `Sheet1`، نام سری در B1، نام دسته‌ها در A2:A4 و مقادیر عددی در B2:B4 وجود دارد. مثال یک نمودار دایره‌ای ایجاد می‌کند، کتاب‌کار را پیوست می‌کند و با استفاده از [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) A1:B4 را به یک سری و سه دسته متصل می‌کند. سپس پرزنتیشن با نمودار پیوست‌شده را ذخیره می‌کند.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -484,12 +570,12 @@ chartData->SetRange(u"Sheet1!$A$1:$B$4");
 presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-پارامتر `updateChartData` متد [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) تعیین می‌کند که آیا کتاب‌کار بارگذاری شود یا نه.
+پارامتر `updateChartData` متد [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) تعیین می‌کند آیا کتاب‌کار بارگذاری شود یا نه.
 
-* وقتی `updateChartData` برابر با `false` باشد، فقط مسیر کتاب‌کار به‌روزرسانی می‌شود. دادهٔ نمودار از کتاب‌کار هدف بارگذاری یا به‌روزرسانی نمی‌شود، بنابراین کتاب‌کار می‌تواند در دسترس نباشد.
-* وقتی `updateChartData` برابر با `true` باشد، دادهٔ نمودار از کتاب‌کار هدف به‌روزرسانی می‌شود.
+* وقتی `updateChartData` برابر `false` باشد، فقط مسیر کتاب‌کار به‌روزرسانی می‌شود. داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روزرسانی نمی‌شوند، بنابراین کتاب‌کار می‌تواند در دسترس نباشد.
+* وقتی `updateChartData` برابر `true` باشد، داده‌های نمودار از کتاب‌کار هدف به‌روز می‌شوند.
 
-مثال زیر یک URL جایگزین با `updateChartData` برابر `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار دایره‌ای حفظ می‌شود و پرزنتیشن بدون بارگذاری کتاب‌کار در دسترس ذخیره می‌شود.
+مثال زیر یک URL جایگزین با `updateChartData` تنظیم‌شده به `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار دایره‌ای حفظ می‌شود و پرزنتیشن بدون بارگذاری کتاب‌کار در دسترس نیست ذخیره می‌شود.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -515,9 +601,9 @@ presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveF
 
 ### **دریافت مسیر کتاب‌کار منبع دادهٔ خارجی یک نمودار**
 
-برای شناسایی کتاب‌کار پیوندشده به یک نمودار، بررسی کنید که آیا نمودار از منبع دادهٔ خارجی استفاده می‌کند و مسیر کتاب‌کار آن را دریافت کنید.
+برای شناسایی کتاب‌کاری که به یک نمودار پیوست شده است، بررسی کنید آیا نمودار از منبع دادهٔ خارجی استفاده می‌کند و مسیر کتاب‌کار آن را دریافت کنید.
 
-این مثال اولین شکل در اسلاید اول یک پرزنتیشن با کتاب‌کار خارجی پیوندشده را بررسی می‌کند. اگر این شکل یک نمودار پیوندشده به کتاب‌کار خارجی باشد، [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) را در کنسول چاپ می‌کند. سپس یک نسخهٔ کپی از پرزنتیشن ذخیره می‌نماید.
+این مثال اولین شکل در اولین اسلاید یک پرزنتیشن با کتاب‌کار خارجی پیوست‌شده را بررسی می‌کند. اگر شکل یک نمودار پیوست‌شده به کتاب‌کار خارجی باشد، [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) را در کنسول چاپ می‌کند. سپس یک نسخهٔ کپی از پرزنتیشن را ذخیره می‌کند.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -560,9 +646,9 @@ presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 
 ### **ویرایش دادهٔ نمودار**
 
-می‌توانید داده‌های کتاب‌کارهای خارجی را همانند تغییر محتویات کتاب‌کارهای داخلی ویرایش کنید. وقتی کتاب‌کار خارجی بارگذاری نشود، یک استثنا پرتاب می‌شود.
+می‌توانید داده‌های کتاب‌کارهای خارجی را همان‌گونه که داده‌های کتاب‌کارهای داخلی را ویرایش می‌کنید، تغییر دهید. زمانی که یک کتاب‌کار خارجی قابل بارگذاری نباشد، یک استثنا پرتاب می‌شود.
 
-این مثال از یک نمودار استفاده می‌کند که اولین شکل در اسلاید اول است و به یک کتاب‌کار خارجی قابل دسترسی پیوند دارد. مقدار پشتیبانی‌شده توسط سلول برای اولین نقطهٔ داده در اولین سری را به 100 تنظیم می‌کند و پرزنتیشن به‌روزرسانی‌شده را ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی پیوندشده را به‌روز کند؛ بنابراین برای حفظ کتاب‌کار اصلی، از یک نسخهٔ کپی استفاده کنید.
+این مثال از یک نمودار که اولین شکل در اولین اسلاید است و به یک کتاب‌کار خارجی در دسترس پیوست شده، استفاده می‌کند. مقدار پشتیبانی‌شده از سلول اولین نقطه داده در اولین سری را به 100 تنظیم می‌کند و پرزنتیشن به‌روزشده را ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی پیوست‌شده را به‌روز کند، بنابراین در صورت نیاز به حفظ کتاب‌کار اصلی یک کپی استفاده کنید.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -618,9 +704,9 @@ else
 
 ### **بازیابی کتاب‌کار از کش نمودار**
 
-اگر یک نمودار از کتاب‌کار خارجی که گم شده یا در دسترس نیست استفاده می‌کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در پرزنتیشن بازسازی کند. یک [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) ایجاد کنید، آن را با [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) پیکربندی کنید و قبل از باز کردن پرزنتیشن، [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) را بر `true` تنظیم کنید.
+اگر یک نمودار از کتاب‌کار خارجی که گم شده یا در دسترس نیست استفاده کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در پرزنتیشن بازسازی کند. [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) را ایجاد کنید، با [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) پیکربندی کنید و قبل از باز کردن پرزنتیشن، [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) را به `true` تنظیم کنید.
 
-مثال C++ زیر داده‌های کتاب‌کار را برای یک نمودار که اولین شکل در اسلاید اول است و به یک کتاب‌کار خارجی در دسترس نیست، بازمی‌یابد. داده‌های بازسازی‌شده را از طریق [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) و [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) دسترسی می‌کند:
+مثال زیر C++ کتاب‌کار داده‌ها را برای یک نمودار که اولین شکل در اولین اسلاید است و به یک کتاب‌کار خارجی در دسترس نیست، بازیابی می‌کند. داده‌های بازیابی‌شده را از طریق [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) و [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) دسترسی می‌یابد:
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -652,7 +738,7 @@ if (chart != nullptr)
 {
     auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    // داده‌های کتاب‌کار بازیابی‌شده را در اینجا بخوانید یا اصلاح کنید.
+    // در اینجا داده‌های کتاب‌کار بازیابی‌شده را بخوانید یا اصلاح کنید.
 }
 else
 {
@@ -660,30 +746,30 @@ else
 }
 ```
 
-اگر کتاب‌کار خارجی در دسترس نباشد و بازسازی غیرفعال باشد، Aspose.Slides یک [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) پرتاب می‌کند. بازسازی را فقط زمانی فعال کنید که استفاده از داده‌های کش‌شده نمودار یک راه‌حل قابل قبول باشد، زیرا کش ممکن است شامل تغییرات انجام شده بر روی کتاب‌کار خارجی پس از آخرین به‌روزرسانی پرزنتیشن نشود.
+اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیر فعال باشد، Aspose.Slides یک [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) پرتاب می‌کند. فقط زمانی که استفاده از داده‌های کش‌شدهٔ نمودار گزینهٔ پذیرشی باشد، بازیابی را فعال کنید، زیرا کش ممکن است شامل تغییرات انجام شده بر روی کتاب‌کار خارجی پس از آخرین به‌روزرسانی پرزنتیشن نشود.
 
-## **سؤال‌های متداول**
+## **سوالات متداول**
 
-**آیا می‌توانم تعیین کنم که آیا یک نمودار خاص به یک کتاب‌کار خارجی یا جاسازی‌شده پیوند دارد؟**
+**آیا می‌توانم تعیین کنم یک نمودار خاص به کتاب‌کار خارجی یا جاسازی‌شده پیوست است؟**
 
-بله. یک نمودار دارای [نوع منبع داده](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) و [مسیر کتاب‌کار خارجی](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایلی خارجی استفاده می‌شود.
+بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) و [path to an external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایل خارجی استفاده می‌شود.
 
 **آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
 
 بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. پرزنتیشن مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابجایی کتاب‌کار ممکن است نیاز به به‌روزرسانی پیوند داشته باشد.
 
-**آیا می‌توانم از کتاب‌کارهایی که بر روی منابع/به‌اشتراک‌گذاری‌های شبکه قرار دارند استفاده کنم؟**
+**آیا می‌توانم از کتاب‌کارهایی که روی منابع/اشتراک‌های شبکه قرار دارند استفاده کنم؟**
 
-بله، چنین کتاب‌کارهایی می‌توانند به عنوان منبع دادهٔ خارجی استفاده شوند. با این حال، ویرایش مستقیم کتاب‌کارهای راه دور از Aspose.Slides پشتیبانی نمی‌شود؛ آنها فقط می‌توانند به عنوان منبع استفاده شوند.
+بله، چنین کتاب‌کارهایی می‌توانند به‌عنوان منبع دادهٔ خارجی استفاده شوند. با این حال، ویرایش مستقیم کتاب‌کارهای راه دور از Aspose.Slides پشتیبانی نمی‌شود؛ آن‌ها فقط می‌توانند به‌عنوان منبع استفاده شوند.
 
 **آیا Aspose.Slides هنگام ذخیرهٔ پرزنتیشن فایل XLSX خارجی را بازنویسی می‌کند؟**
 
-پرزنتیشن یک [پیوند به فایل خارجی](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) ذخیره می‌کند. ویرایش داده‌های نموداری که مبتنی بر سلول هستند می‌تواند فایل XLSX محلی پیوندشده را به‌روزرسانی کند. اگر کتاب‌کار اصلی باید بدون تغییر بماند، از یک نسخهٔ کپی استفاده کنید.
+پرزنتیشن یک [link to the external file](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) ذخیره می‌کند. ویرایش داده‌های نمودار مبتنی بر سلول می‌تواند فایل XLSX محلی پیوست‌شده را نیز به‌روزرسانی کند. اگر کتاب‌کار اصلی باید دست‌نخورده بماند، یک کپی از آن استفاده کنید.
 
-**اگر فایل خارجی با رمز عبور محافظت شده باشد چه باید کرد؟**
+**اگر فایل خارجی دارای رمز عبور باشد چه باید کرد؟**
 
-Aspose.Slides هنگام پیوند دادن رمز عبور را نمی‌پذیرد. یک روش رایج این است که قبل از پیوند، محافظت را حذف کنید یا یک نسخهٔ رمزگشایی‌شده (به عنوان مثال با استفاده از [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) تهیه کنید و به آن پیوند دهید.
+Aspose.Slides هنگام پیوست کردن رمز عبوری نمی‌پذیرد. یک روش رایج این است که پیش از آن محافظت را حذف کنید یا یک کپی رمزگشایی‌شده (به‌عنوان مثال با استفاده از [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) تهیه کنید و به آن پیوست کنید.
 
 **آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی اشاره کنند؟**
 
-بله. هر نمودار پیوند خود را ذخیره می‌کند. اگر همه به یک فایل اشاره داشته باشند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در تمام نمودارها منعکس می‌شود.
+بله. هر نمودار پیوند خود را ذخیره می‌کند. اگر همگی به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در هر نمودار منعکس می‌شود.

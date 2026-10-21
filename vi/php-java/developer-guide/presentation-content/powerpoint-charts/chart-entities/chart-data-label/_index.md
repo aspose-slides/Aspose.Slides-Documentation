@@ -1,5 +1,5 @@
 ---
-title: Quản lý Nhãn dữ liệu biểu đồ trong Bản trình bày bằng PHP
+title: Quản lý nhãn dữ liệu biểu đồ trong bản trình chiếu bằng PHP
 linktitle: Nhãn Dữ liệu
 type: docs
 url: /vi/php-java/chart-data-label/
@@ -11,16 +11,16 @@ keywords:
 - khoảng cách nhãn
 - vị trí nhãn
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bản trình bày PowerPoint bằng Aspose.Slides cho PHP thông qua Java để tạo các slide hấp dẫn hơn."
+description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong bản trình chiếu PowerPoint bằng Aspose.Slides cho PHP thông qua Java để tạo các slide hấp dẫn hơn."
 ---
 ## **Giới thiệu**
 
-Nhãn dữ liệu hiển thị thông tin về chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc nhận dạng giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, kiểm soát nhãn vượt quá giá trị tối đa của trục, điều chỉnh khoảng cách nhãn trục danh mục, và định vị nhãn biểu đồ tròn.
+Nhãn dữ liệu hiển thị thông tin về các chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, kiểm soát nhãn vượt quá giá trị tối đa của trục, điều chỉnh khoảng cách nhãn trục danh mục và đặt vị trí nhãn biểu đồ tròn.
 
-## **Đặt độ chính xác dữ liệu trong Nhãn dữ liệu biểu đồ**
+## **Đặt độ chính xác dữ liệu trong nhãn dữ liệu biểu đồ**
 
 Sử dụng [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) để định dạng giá trị của chuỗi. Ví dụ này tạo một biểu đồ đường với dữ liệu mặc định, hiển thị bảng dữ liệu của nó và bật nhãn giá trị cho chuỗi đầu tiên. Định dạng `#,##0.00` hiển thị dấu phân cách hàng nghìn và hai chữ số thập phân mà không thay đổi giá trị gốc.
 
@@ -46,9 +46,11 @@ try {
 }
 ```
 
-## **Hiển thị phần trăm dưới dạng Nhãn**
+Để định dạng các ô số trong workbook nhúng của biểu đồ, xem [Set Custom Number Formats for Workbook Cells](/slides/vi/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ví dụ đó cũng cho thấy các nhãn giá trị tuân theo định dạng ô nguồn trong khi giữ nguyên các giá trị số đã lưu.
 
-Đối với biểu đồ cột xếp chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục và gán văn bản vào khung văn bản được trả về bởi [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng không sẽ bị bỏ qua để tránh chia cho zero. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
+## **Hiển thị phần trăm dưới dạng nhãn**
+
+Đối với biểu đồ cột chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục và gán văn bản vào khung văn bản được trả về bởi [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng không sẽ bị bỏ qua để tránh chia cho zero. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
 
 ```php
 use aspose\slides\Presentation;
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **Đặt ký hiệu phần trăm với Nhãn dữ liệu biểu đồ**
+## **Đặt ký hiệu phần trăm trong nhãn dữ liệu biểu đồ**
 
-Khi giá trị được lưu dưới dạng phân số, sử dụng [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) để hiển thị phần trăm. Truyền `false` tới [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) để áp dụng định dạng nhãn độc lập với các ô nguồn.
+Khi các giá trị được lưu dưới dạng phân số, sử dụng [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) để hiển thị phần trăm. Truyền `false` vào [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) để áp dụng định dạng nhãn một cách độc lập với các ô nguồn.
 
-Ví dụ này tạo một biểu đồ cột xếp chồng 100% với các chuỗi màu đỏ và xanh lam trên bốn danh mục. Mỗi cặp giá trị cộng lại thành 1. Định dạng nhãn `0.0%` hiển thị 0.30 thành 30.0%, trong khi trục dọc sử dụng hai chữ số thập phân. Cả hai chuỗi đều sử dụng văn bản nhãn màu trắng, kích thước 10 điểm.
+Ví dụ này tạo một biểu đồ cột chồng 100% với các chuỗi màu đỏ và xanh dương trên bốn danh mục. Mỗi cặp giá trị cộng lại thành 1. Định dạng nhãn `0.0%` hiển thị 0.30 thành 30.0%, trong khi trục dọc sử dụng hai chữ số thập phân. Cả hai chuỗi đều sử dụng văn bản nhãn màu trắng, kích thước 10 điểm.
 
 ```php
 use aspose\slides\Presentation;
@@ -170,9 +172,9 @@ try {
 }
 ```
 
-## **Đọc Văn bản Thực tế của Nhãn Dữ liệu**
+## **Đọc văn bản thực tế của nhãn dữ liệu**
 
-Sử dụng [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) để lấy văn bản được tạo ra bởi các cài đặt của nhãn dữ liệu. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản trình bày, hoặc xác thực các biểu đồ được tạo. Trong ví dụ dưới đây, [định dạng nhãn dữ liệu](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) mặc định kết hợp mỗi tên danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị của nó dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Sử dụng [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) để lấy văn bản được tạo ra từ cài đặt của nhãn dữ liệu. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản thuyết trình hoặc xác thực các biểu đồ được tạo. Trong ví dụ dưới đây, [định dạng nhãn dữ liệu](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) mặc định kết hợp mỗi tên danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị của nó dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +238,15 @@ try {
 }
 ```
 
-Số lưu trong một điểm dữ liệu vẫn là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và chuỗi. Văn bản tùy chỉnh thay thế văn bản nhãn được tạo. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) trả về chuỗi nhãn kết quả trong bất kỳ trường hợp nào. Kiểm tra [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) riêng biệt, như đã chỉ ra ở trên, khi bạn muốn chỉ trích xuất các nhãn hiển thị.
+Số được lưu trong một điểm dữ liệu vẫn là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và tên chuỗi. Văn bản tùy chỉnh thay thế văn bản nhãn được tạo ra. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) trả về chuỗi nhãn kết quả trong cả hai trường hợp. Kiểm tra [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) riêng biệt, như đã chỉ ra ở trên, khi bạn muốn trích xuất chỉ các nhãn hiển thị.
 
-## **Kiểm soát Nhãn Dữ liệu vượt quá Giá trị Tối đa Trục**
+## **Kiểm soát nhãn dữ liệu vượt quá giá trị tối đa của trục**
 
-Khi bạn giới hạn phạm vi trục bằng tay, một số điểm dữ liệu có thể vượt quá giá trị tối đa của nó. Sử dụng [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) để kiểm soát việc hiển thị nhãn dữ liệu của chúng. Cài đặt này thay đổi tính hiển thị của nhãn; nó không thay đổi phạm vi trục hay giá trị dữ liệu gốc.
+Khi bạn giới hạn phạm vi trục một cách thủ công, một số điểm dữ liệu có thể vượt quá giá trị tối đa của nó. Sử dụng [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) để điều khiển việc hiển thị nhãn dữ liệu của chúng. Cài đặt này thay đổi khả năng hiển thị nhãn; nó không thay đổi phạm vi trục hoặc các giá trị dữ liệu gốc.
 
-Ví dụ dưới đây tạo một biểu đồ cột cụm 2D với các giá trị 60 và 120. Nó truyền `false` tới [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) và đặt giá trị tối đa thành 100 bằng [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) trên trục dọc. Bản slide đầu tiên cho phép nhãn vượt quá tối đa; một bản sao của slide đó tắt tính năng này. Cả hai slide đều được lưu trong `DataLabelsOverMaximum.pptx`.
+Ví dụ dưới đây tạo một biểu đồ cột cụm 2D với các giá trị 60 và 120. Nó truyền `false` vào [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) và đặt giá trị tối đa thành 100 bằng [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) trên trục dọc. Bản trình chiếu đầu tiên cho phép nhãn vượt quá giá trị tối đa; một bản sao của bản trình chiếu đó vô hiệu hoá chúng. Cả hai bản trình chiếu đều được lưu trong `DataLabelsOverMaximum.pptx`.
 
-Bật nhãn giá trị bằng [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Cài đặt mức biểu đồ không tự động bật hiển thị giá trị hoặc ghi đè lên việc tắt hiển thị giá trị của một nhãn riêng lẻ. Ví dụ này bật giá trị cho toàn bộ chuỗi và sử dụng [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) để đặt nhãn ở phía ngoài cuối mỗi cột.
+Bật nhãn giá trị bằng [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Cài đặt ở mức biểu đồ không tự động bật hiển thị giá trị hoặc ghi đè cài đặt hiển thị giá trị bị tắt của một nhãn riêng lẻ. Ví dụ này bật giá trị cho toàn bộ chuỗi và sử dụng [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) để đặt nhãn ở đầu ngoài của mỗi cột.
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +298,19 @@ try {
 }
 ```
 
-Các hình ảnh sau hiển thị các slide đã lưu được render bởi Microsoft PowerPoint. Với `true`, nhãn **120** hiển thị ở rìa trên; với `false`, nó bị ẩn. Nhãn **60** vẫn hiển thị, giá trị tối đa của trục vẫn ở **100**, và điểm dữ liệu thứ hai vẫn là **120** trong cả hai trường hợp.
+Các hình ảnh sau đây hiển thị các slide đã lưu được Microsoft PowerPoint render. Với `true`, nhãn **120** hiển thị ở ranh giới trên; với `false`, nó bị ẩn. Nhãn **60** vẫn hiển thị, giá trị tối đa của trục vẫn ở **100**, và điểm dữ liệu thứ hai vẫn là **120** trong cả hai trường hợp.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![Biểu đồ PowerPoint hiển thị nhãn giá trị 120 với giá trị tối đa của trục là 100](data-labels-over-maximum-true.png) | ![Biểu đồ PowerPoint ẩn nhãn giá trị 120 với giá trị tối đa của trục là 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Ví dụ này sử dụng một biểu đồ cột 2D có trục giá trị. Các biểu đồ không có trục giá trị, chẳng hạn như biểu đồ tròn và bánh donuts, không có giá trị tối đa của trục để giới hạn theo cách này.
+Ví dụ này sử dụng biểu đồ cột 2D có trục giá trị. Các biểu đồ không có trục giá trị, như biểu đồ tròn và vòng donut, không có giá trị tối đa của trục để giới hạn theo cách này.
 {{% /alert %}}
 
-## **Đặt Khoảng cách Nhãn tính từ Trục**
+## **Đặt khoảng cách nhãn từ trục**
 
-Sử dụng [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) để kiểm soát khoảng cách giữa nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột cụm và đặt độ lệch nhãn trục ngang thành 500. Cài đặt này ảnh hưởng tới nhãn trục danh mục hơn là nhãn gắn vào các điểm dữ liệu riêng lẻ.
+Sử dụng [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) để điều khiển khoảng cách giữa các nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột cụm và đặt độ dịch nhãn trục ngang là 500. Cài đặt này ảnh hưởng đến nhãn trục danh mục hơn là nhãn đính kèm vào các điểm dữ liệu riêng lẻ.
 
 ```php
 use aspose\slides\Presentation;
@@ -328,11 +330,11 @@ try {
 }
 ```
 
-## **Điều chỉnh Vị trí Nhãn**
+## **Điều chỉnh vị trí nhãn**
 
-Trên biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo chỗ cho các đường dẫn.
+Trong biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo chỗ cho các đường dẫn.
 
-Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn của nó ra ngoài lát cắt, và điều chỉnh độ lệch ngang và dọc bằng cách sử dụng [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) và [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). Các độ lệch này được tính tương đối với chiều rộng và chiều cao của biểu đồ.
+Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn của nó ngoài lát cắt, và điều chỉnh độ dịch ngang và dọc bằng cách sử dụng [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) và [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). Các độ dịch này tương đối với chiều rộng và chiều cao của biểu đồ, tương ứng.
 
 ```php
 use aspose\slides\Presentation;
@@ -359,17 +361,17 @@ try {
 }
 ```
 
-![Biểu đồ tròn với vị trí nhãn dữ liệu được điều chỉnh](pie-chart-adjusted-label.png)
+![Biểu đồ tròn với vị trí nhãn dữ liệu đã điều chỉnh](pie-chart-adjusted-label.png)
 
-## **Định dạng Đường Dẫn**
+## **Định dạng các đường dẫn**
 
-Khi nhãn biểu đồ tròn nằm ngoài các lát cắt, các đường dẫn giúp người đọc khớp mỗi giá trị với lát cắt chính xác. Một màu tương phản và đường hơi dày hơn có thể làm cho các kết nối này dễ theo dõi hơn, trong khi độ trong suốt và kiểu gạch chấm giữ cho các đường không gây mất tập trung.
+Khi nhãn biểu đồ tròn nằm ngoài các lát cắt của chúng, các đường dẫn giúp người đọc ghép mỗi giá trị với lát cắt tương ứng. Một màu đối lập và một đường hơi dày hơn có thể làm cho các kết nối này dễ theo dõi hơn, trong khi độ trong suốt và kiểu gạch đứt giữ cho các đường không gây mất thẩm mỹ.
 
-Sử dụng [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) để định dạng các đường dẫn ở mức bộ sưu tập nhãn dữ liệu của chuỗi. Các cài đặt trong `$series->getLabels()->getLeaderLinesFormat()->getLine()` áp dụng cho toàn bộ bộ sưu tập, không phải cho từng nhãn riêng lẻ.
+Sử dụng [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) để định dạng các đường dẫn ở mức bộ sưu tập nhãn dữ liệu của chuỗi. Các cài đặt trong `$series->getLabels()->getLeaderLinesFormat()->getLine()` áp dụng cho toàn bộ bộ sưu tập, không phải cho một nhãn riêng lẻ.
 
-Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định, hiển thị các giá trị ngoài các lát cắt và bật [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). Nó di chuyển hai nhãn xa hơn các lát cắt bằng các độ lệch [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) và [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/), được biểu diễn dưới dạng phân số của chiều rộng và chiều cao biểu đồ. Không cần bản trình bày đầu vào.
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định, hiển thị các giá trị ngoài các lát cắt, và bật [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). Nó di chuyển hai nhãn xa hơn các lát cắt của chúng bằng cách sử dụng độ dịch [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) và [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/), biểu thị dưới dạng phần của chiều rộng và chiều cao biểu đồ. Không cần bản trình chiếu đầu vào.
 
-Định dạng [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) của đường đặt màu xanh dương đồng nhất với giá trị alpha 191 trên 255, tương đương khoảng 25% độ trong suốt. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) đặt độ dày thành 2 điểm, và [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) làm cho đường nét thành gạch chấm.
+Định dạng [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) của đường đặt màu xanh đậm đặc với giá trị alpha 191 trong số 255, tạo ra khoảng 25% độ trong suốt. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) đặt độ dày thành 2 điểm, và [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) làm cho đường nét gạch đứt.
 
 ```php
 use aspose\slides\Presentation;
@@ -393,7 +395,7 @@ try {
     $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
     $labelFormat->setShowLeaderLines(true);
 
-    // Di chuyển hai nhãn ra xa hơn so với các lát cắt của chúng.
+    // Di chuyển hai nhãn ra xa hơn các lát cắt của chúng.
     $series->getLabels()->get_Item(0)->setX(0.10);
     $series->getLabels()->get_Item(0)->setY(-0.05);
     $series->getLabels()->get_Item(1)->setX(-0.10);
@@ -412,17 +414,17 @@ try {
 }
 ```
 
-Bật các đường dẫn không bảo đảm sẽ có đường cho mọi nhãn. Tính hiển thị phụ thuộc vào vị trí nhãn và hành vi bố cục của biểu đồ. Trong ví dụ này, hai nhãn đã được di chuyển có đường dẫn hiển thị; các nhãn còn gần lát cắt không cần chúng.
+Bật các đường dẫn không đảm bảo rằng sẽ có đường cho mỗi nhãn. Khả năng hiển thị phụ thuộc vào vị trí nhãn và cách bố trí biểu đồ. Trong ví dụ này, hai nhãn được di chuyển có đường dẫn hiển thị; các nhãn còn gần các lát cắt của chúng không cần đường dẫn.
 
-Hình ảnh sau hiển thị file `FormattedLeaderLines.pptx` đã lưu và được render bằng Aspose.Slides:
+Hình ảnh sau đây hiển thị file `FormattedLeaderLines.pptx` đã lưu, được render bằng Aspose.Slides:
 
-![Biểu đồ tròn với các đường dẫn màu xanh, bán trong suốt, gạch chấm kết nối hai nhãn ngoài với lát cắt của chúng](formatted-leader-lines.png)
+![Biểu đồ tròn với các đường dẫn màu xanh, bán trong suốt, gạch đứt nối hai nhãn bên ngoài với các lát cắt của chúng](formatted-leader-lines.png)
 
-## **Thêm Nhiều Hàng Nhãn Dữ liệu Trên Biểu Đồ Cột**
+## **Thêm nhiều hàng nhãn dữ liệu phía trên biểu đồ cột**
 
-Ví dụ này tạo một biểu đồ cột với hai hàng nhãn dữ liệu ở phía trên khu vực vẽ. Chuỗi A hiển thị các cột có thể nhìn thấy, trong khi Chuỗi B và Chuỗi C cung cấp các nhãn bổ sung. Các cột của chúng bị ẩn bằng cách loại bỏ màu nền và đường viền. Phương thức [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) căn chỉnh cả ba chuỗi sao cho trung tâm danh mục trùng nhau.
+Ví dụ này tạo một biểu đồ cột với hai hàng nhãn dữ liệu phía trên vùng vẽ. Chuỗi A hiển thị các cột có thể nhìn thấy, trong khi Chuỗi B và Chuỗi C cung cấp các nhãn bổ sung. Các cột của chúng bị ẩn bằng cách xóa phần tô và viền. Phương thức [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) căn chỉnh cả ba chuỗi với cùng một trục trung tâm danh mục.
 
-Cài đặt [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) dành chỗ cho các hàng nhãn. Sau khi [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) tính toán vị trí mặc định, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) và [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) duy trì căn chỉnh ngang và áp dụng độ lệch dọc để sắp xếp các nhãn thành hai hàng. Các số vẫn là nhãn dữ liệu liên kết với giá trị chuỗi; chỉ các tiêu đề hàng là các hình dạng văn bản riêng.
+Cài đặt [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) dành không gian cho các hàng nhãn. Sau khi [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) tính toán vị trí mặc định, [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) và [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) giữ căn chỉnh ngang và áp dụng độ dịch dọc để sắp xếp các nhãn thành hai hàng. Các số vẫn là nhãn dữ liệu liên kết với giá trị chuỗi; chỉ tiêu đề hàng là các hình dạng văn bản riêng.
 
 ```php
 use aspose\slides\Presentation;
@@ -486,14 +488,14 @@ try {
         }
     }
 
-    // Căn chỉnh cả ba chuỗi sao cho các trung tâm danh mục trùng nhau.
+    // Căn chỉnh cả ba chuỗi sao cho trung tâm danh mục giống nhau.
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
     // Sử dụng ít đường lưới hơn cho ví dụ gọn này.
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // Dành không gian phía trên vùng vẽ cho hai hàng nhãn dữ liệu.
+    // Dự trữ không gian phía trên vùng vẽ cho hai hàng nhãn dữ liệu.
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -510,8 +512,8 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // Giữ vị trí ngang mặc định. Y là một độ lệch từ
-            // vị trí nhãn mặc định, được biểu diễn dưới dạng phân số chiều cao biểu đồ.
+            // Giữ vị trí ngang mặc định. Y là độ dịch từ
+            // vị trí nhãn mặc định, biểu thị dưới dạng tỷ lệ phần chiều cao biểu đồ.
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
@@ -536,18 +538,19 @@ try {
 }
 ```
 
-![Biểu đồ cột với hai hàng nhãn dữ liệu ở phía trên khu vực vẽ](multiple-rows-of-labels.png)
+![Biểu đồ cột với hai hàng nhãn dữ liệu phía trên vùng vẽ](multiple-rows-of-labels.png)
 
-## **CÂU HỎI THƯỜNG GẶP**
 
-**Làm thế nào để ngăn nhãn dữ liệu chồng chéo trên các biểu đồ dày đặc?**
+## **Câu hỏi thường gặp**
 
-Kết hợp việc đặt nhãn tự động, các đường dẫn và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc các điểm quan trọng.
+**Làm sao tôi có thể ngăn nhãn dữ liệu bị chồng lên nhau trên các biểu đồ dày đặc?**
 
-**Làm thế nào để tắt nhãn chỉ cho các giá trị bằng zero, âm hoặc trống?**
+Kết hợp việc đặt nhãn tự động, các đường dẫn và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc các điểm chính.
 
-Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị 0, giá trị âm hoặc giá trị thiếu theo quy tắc đã định.
+**Làm sao tôi có thể vô hiệu hoá nhãn chỉ cho các giá trị bằng zero, âm hoặc rỗng?**
 
-**Làm thế nào để đảm bảo phong cách nhãn nhất quán khi xuất ra PDF/hình ảnh?**
+Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm hoặc giá trị thiếu theo quy tắc đã định.
 
-Đặt rõ ràng họ phông chữ và kích thước, đồng thời xác minh phông chữ có sẵn trong môi trường render để tránh việc thay thế ngẫu nhiên.
+**Làm sao tôi có thể đảm bảo phong cách nhãn nhất quán khi xuất ra PDF/hình ảnh?**
+
+Cụ thể đặt họ phông chữ và kích thước và xác minh rằng phông chữ có sẵn trong môi trường render để tránh sử dụng phông chữ dự phòng.

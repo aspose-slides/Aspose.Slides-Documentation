@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android를 Java를 통해 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 서식 지정하는 방법을 배우고, 보다 매력적인 슬라이드를 만들 수 있습니다."
+description: "Aspose.Slides for Android via Java를 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 서식 지정하는 방법을 배우고, 보다 매력적인 슬라이드를 만드세요."
 ---
 ## **소개**
 
-데이터 레이블은 차트 시리즈와 개별 데이터 포인트에 대한 정보를 표시하여 독자가 값을 식별하고 차트를 이해하도록 도와줍니다. 이 문서에서는 값 형식 지정, 백분율 표시, 레이블 텍스트 읽기, 축 최대값을 초과하는 레이블 제어, 범주 축 레이블 간격 조정 및 파이 차트 레이블 위치 지정 방법을 설명합니다.
+데이터 레이블은 차트 시리즈와 개별 데이터 포인트에 대한 정보를 표시하여 독자가 값을 식별하고 차트를 이해하도록 돕습니다. 이 문서는 값 서식 지정, 백분율 표시, 레이블 텍스트 읽기, 축 최대값을 초과하는 레이블 제어, 범주 축 레이블 간격 조정 및 원형 차트 레이블 위치 지정 방법을 설명합니다.
 
 ## **차트 데이터 레이블에서 데이터 정밀도 설정**
 
-시리즈 값을 형식 지정하려면 [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) 를 사용합니다. 이 예제는 기본 데이터로 선 차트를 만들고, 데이터 테이블을 표시하며, 첫 번째 시리즈에 값 레이블을 활성화합니다. `#,##0.00` 형식은 천 단위 구분기호와 두 자리 소수점을 표시하지만 기본값은 변경하지 않습니다.
+[setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-)을 사용하여 시리즈 값을 서식 지정합니다. 이 예제는 기본 데이터가 포함된 꺾은선형 차트를 만들고, 데이터 테이블을 표시하며, 첫 번째 시리즈에 값 레이블을 활성화합니다. `#,##0.00` 형식은 천 단위 구분 기호와 두 자리 소수점을 표시하지만 기본 값을 변경하지는 않습니다.
 
 ```java
 import com.aspose.slides.*;
@@ -45,9 +45,11 @@ try {
 }
 ```
 
-## **백분율을 레이블로 표시**
+차트에 포함된 워크북의 숫자 셀을 서식 지정하려면 [워크북 셀에 대한 사용자 정의 숫자 형식 설정](/slides/ko/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells)를 참조하세요. 해당 예제는 원본 셀 서식을 유지하면서 저장된 숫자 값을 보존하는 레이블을 보여줍니다.
 
-스택형 열 차트에 대해 각 값을 해당 범주의 총합에 대한 백분율로 계산하고, [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) 이 반환하는 텍스트 프레임에 텍스트를 할당합니다. 이 예제는 기본 차트 데이터를 사용하고 8포인트 폰트에 소수점 두 자리까지 백분율을 표시합니다. 총합이 0인 범주는 나눗셈 오류를 방지하기 위해 건너뜁니다. 차트 데이터가 변경되면 사용자 정의 레이블 텍스트를 다시 계산해야 합니다.
+## **레이블에 백분율 표시**
+
+스택형 세로 막대 차트의 경우 각 값을 해당 범주의 총계에 대한 백분율로 계산하고, [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--)이 반환하는 텍스트 프레임에 텍스트를 할당합니다. 이 예제는 기본 차트 데이터를 사용하고, 8포인트 글꼴에 소수점 두 자리까지 표시되는 백분율을 보여줍니다. 총계가 0인 범주는 나눗셈 오류를 방지하기 위해 건너뜁니다. 차트 데이터가 변경되면 사용자 정의 레이블 텍스트를 다시 계산해야 합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -106,9 +108,9 @@ try {
 
 ## **차트 데이터 레이블에 백분율 기호 설정**
 
-값이 분수 형태로 저장된 경우, [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) 를 사용하여 백분율을 표시합니다. 레이블 형식을 원본 셀과 독립적으로 적용하려면 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) 에 `false` 를 전달합니다.
+값이 분수 형태로 저장된 경우 [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-)을 사용하여 백분율을 표시합니다. 소스 셀과 독립적으로 레이블 형식을 적용하려면 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-)에 `false`를 전달합니다.
 
-이 예제는 네 개 범주에 걸쳐 빨간색과 파란색 시리즈를 가진 100% 스택형 열 차트를 만듭니다. 각 값 쌍의 합은 1이 됩니다. 레이블 형식 `0.0%` 은 0.30을 30.0% 로 표시하고, 수직 축은 소수점 두 자리까지 사용합니다. 두 시리즈 모두 흰색 10포인트 레이블 텍스트를 사용합니다.
+이 예제는 네 개 범주에 걸쳐 빨간색 및 파란색 시리즈가 있는 100% 스택형 세로 막대 차트를 만듭니다. 각 값 쌍은 합계가 1이 됩니다. 레이블 형식 `0.0%`는 0.30을 30.0%로 표시하고, 수직 축은 소수점 두 자리로 표시합니다. 두 시리즈 모두 흰색 10포인트 레이블 텍스트를 사용합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -163,9 +165,9 @@ try {
 }
 ```
 
-## **데이터 레이블의 실제 텍스트 읽기**
+## **데이터 레이블 실제 텍스트 읽기**
 
-[data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) 에서 생성된 텍스트를 가져오려면 [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) 를 사용합니다. 레이블을 보고서에 추출하거나 프레젠테이션 콘텐츠를 검색하거나 생성된 차트를 검증할 때 유용합니다. 아래 예제에서는 기본 데이터 레이블 형식이 각 범주 이름, 시리즈 이름 및 값을 결합합니다. 하나의 포인트는 값을 백분율로 형식화하고, 다른 포인트는 [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) 에서 가져온 사용자 정의 텍스트를 사용합니다.
+[getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--)을 사용하여 데이터 레이블 설정에 의해 생성된 텍스트를 가져옵니다. 이 기능은 보고서를 위한 레이블 추출, 프레젠테이션 내용 검색 또는 생성된 차트 검증에 유용합니다. 아래 예제에서는 기본 [데이터 레이블 형식](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/)이 각 범주 이름, 시리즈 이름 및 값을 결합합니다. 한 포인트는 값을 백분율로 형식 지정하고, 다른 포인트는 [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--)에서 사용자 정의 텍스트를 사용합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +227,15 @@ try {
 }
 ```
 
-데이터 포인트에 저장된 숫자는 `0.75` 로 유지되며, 레이블에 `75%` 와 범주 및 시리즈 이름이 함께 표시됩니다. 사용자 정의 텍스트는 생성된 레이블 텍스트를 대체합니다. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) 은 두 경우 모두 결과 레이블 문자열을 반환합니다. 보이는 레이블만 추출하려면 위에 표시된 대로 [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) 를 별도로 확인하십시오.
+데이터 포인트에 저장된 숫자는 `0.75`이며, 레이블이 `75%`와 함께 범주 및 시리즈 이름을 표시하더라도 값 자체는 변하지 않습니다. 사용자 정의 텍스트가 생성된 레이블 텍스트를 대체합니다. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--)은 두 경우 모두 결과 레이블 문자열을 반환합니다. 표시된 레이블만 추출하려면 위에서 보여준 대로 [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--)을 별도로 확인하세요.
 
 ## **축 최대값을 초과하는 데이터 레이블 제어**
 
-축 범위를 수동으로 제한하면 일부 데이터 포인트가 최대값을 초과할 수 있습니다. [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) 를 사용하여 이러한 데이터 레이블을 표시할지 여부를 제어합니다. 이 설정은 레이블 가시성을 변경하지만 축 범위나 기본 데이터 값은 변경하지 않습니다.
+축 범위를 수동으로 제한하면 일부 데이터 포인트가 최대값을 초과할 수 있습니다. [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-)을 사용하여 해당 데이터 레이블을 표시할지를 제어합니다. 이 설정은 레이블 가시성을 변경하지만 축 범위나 기본 데이터 값은 변경하지 않습니다.
 
-아래 예제는 값이 60과 120인 2D 클러스터형 열 차트를 만들고, 수직 축에 대해 [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) 에 `false` 를 전달한 뒤 [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) 로 최대값을 100으로 설정합니다. 첫 번째 슬라이드는 최대값을 초과하는 레이블을 허용하고, 해당 슬라이드 복사본은 이를 비활성화합니다. 두 슬라이드는 `DataLabelsOverMaximum.pptx` 로 저장됩니다.
+아래 예제는 값이 60과 120인 2D 클러스터형 세로 막대 차트를 만들고, 수직 축에 대해 [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-)에 `false`를 전달한 뒤 [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-)로 최대값을 100으로 설정합니다. 첫 번째 슬라이드는 최대값을 초과하는 레이블을 허용하고, 복사본 슬라이드는 이를 비활성화합니다. 두 슬라이드는 `DataLabelsOverMaximum.pptx`에 저장됩니다.
 
-값 레이블을 활성화하려면 [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) 를 사용합니다. 차트 수준 설정만으로는 값 표시가 자동으로 활성화되지 않으며 개별 레이블의 비활성화된 값 표시를 무시하지도 않습니다. 이 예제는 전체 시리즈에 값을 활성화하고 [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) 을 사용해 각 열의 외부 끝에 레이블을 배치합니다.
+값 레이블을 활성화하려면 [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-)을 사용합니다. 차트 수준 설정만으로는 개별 레이블의 비활성화된 값 표시를 재정의하지 않으며, 값 표시 자체를 자동으로 활성화하지도 않습니다. 이 예제는 전체 시리즈에 값을 활성화하고, [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-)을 사용해 각 열의 외부 끝에 레이블을 배치합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -282,21 +284,19 @@ try {
 }
 ```
 
-다음 이미지는 Microsoft PowerPoint에서 렌더링된 저장된 슬라이드를 보여줍니다. `true` 로 설정하면 레이블 **120** 이 상한선에 표시되고, `false` 로 설정하면 숨겨집니다. 레이블 **60** 은 계속 보이며, 축 최대값은 **100** 으로 유지되고 두 번째 데이터 포인트는 두 경우 모두 **120** 입니다.
+다음 이미지는 Microsoft PowerPoint에서 렌더링한 저장된 슬라이드를 보여줍니다. `true`인 경우 레이블 **120**이 상단 경계에 표시되고, `false`인 경우 숨겨집니다. 레이블 **60**은 계속 표시되며, 축 최대값은 **100**으로 유지되고, 두 번째 데이터 포인트는 두 경우 모두 **120**으로 남습니다.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![축 최대값 100에서 값 레이블 120이 표시된 PowerPoint 차트](data-labels-over-maximum-true.png) | ![축 최대값 100에서 값 레이블 120이 숨겨진 PowerPoint 차트](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="차트 유형" %}}
-
-이 예제는 값 축이 있는 2D 열 차트를 사용합니다. 파이 차트나 도넛 차트와 같이 값 축이 없는 차트는 이와 같은 축 최대값 제한이 적용되지 않습니다.
-
+{{% alert color="info" title="Chart Type" %}}
+이 예제는 값 축이 있는 2D 세로 막대 차트를 사용합니다. 파이 차트 및 도넛 차트와 같이 값 축이 없는 차트는 이러한 방식으로 제한할 축 최대값이 없습니다.
 {{% /alert %}}
 
-## **축에서 레이블 거리 설정**
+## **축에서 레이블 간격 설정**
 
-[setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) 을 사용해 범주 축 레이블과 축 사이의 거리를 제어합니다. 값은 축 레이블 최대 글꼴 크기의 백분율입니다. 이 예제는 클러스터형 열 차트를 만들고 수평 축 레이블 오프셋을 500으로 설정합니다. 이 설정은 개별 데이터 포인트에 부착된 레이블이 아니라 범주 축 레이블에 영향을 줍니다.
+[setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-)을 사용하여 범주 축 레이블과 축 사이의 거리를 제어합니다. 값은 축 레이블 최대 글꼴 크기의 백분율입니다. 이 예제는 클러스터형 세로 막대 차트를 만들고 수평 축 레이블 오프셋을 500으로 설정합니다. 이 설정은 개별 데이터 포인트에 연결된 레이블이 아니라 범주 축 레이블에 영향을 줍니다.
 
 ```java
 import com.aspose.slides.*;
@@ -316,9 +316,9 @@ try {
 
 ## **레이블 위치 조정**
 
-파이 차트에서 데이터 레이블 위치를 조정해 간격을 개선하고 리더 라인에 여유를 둡니다.
+파이 차트에서 데이터 레이블 위치를 조정하여 간격을 개선하고 연결선이 들어갈 공간을 확보합니다.
 
-이 예제는 첫 번째 데이터 포인트의 값을 표시하고, 레이블을 슬라이스 밖에 배치하며, [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) 와 [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) 로 수평 및 수직 오프셋을 조정합니다. 이 오프셋은 차트 너비와 높이에 대한 비율입니다.
+이 예제는 첫 번째 데이터 포인트의 값을 표시하고 레이블을 슬라이스 외부에 배치하며, [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-)와 [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-)를 사용해 수평 및 수직 오프셋을 조정합니다. 이러한 오프셋은 차트 너비와 높이에 대한 비율로 지정됩니다.
 
 ```java
 import com.aspose.slides.*;
@@ -342,17 +342,17 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![조정된 데이터 레이블 위치가 적용된 파이 차트](pie-chart-adjusted-label.png)
 
 ## **리더 라인 서식 지정**
 
-파이 차트 레이블이 슬라이스 밖에 있을 때, 리더 라인은 각 값을 해당 슬라이스와 연결하는 데 도움이 됩니다. 대비되는 색상과 약간 두꺼운 라인은 연결을 더 쉽게 인식하게 하고, 투명도와 점선 스타일은 라인을 시각적으로 눈에 띄지 않게 합니다.
+파이 차트 레이블이 슬라이스 외부에 있을 때 리더 라인은 각 값을 해당 슬라이스와 연결해 독자가 쉽게 매치할 수 있도록 도와줍니다. 대비되는 색상과 약간 두꺼운 선은 연결을 더 명확하게 만들고, 투명도와 점선 스타일은 시각적으로 방해되지 않게 합니다.
 
-시리즈의 데이터 레이블 컬렉션 수준에서 리더 라인을 서식 지정하려면 [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) 를 사용합니다. `series.getLabels().getLeaderLinesFormat().getLine()` 에 대한 설정은 개별 레이블이 아니라 컬렉션에 적용됩니다.
+[ getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--)을 사용하여 시리즈 데이터 레이블 컬렉션 수준에서 리더 라인을 서식 지정합니다. `series.getLabels().getLeaderLinesFormat().getLine()`에 대한 설정은 개별 레이블이 아닌 컬렉션 전체에 적용됩니다.
 
-이 예제는 기본 데이터를 가진 파이 차트를 만들고, 슬라이스 밖에 값을 표시하며, [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-) 을 활성화합니다. 두 레이블을 슬라이스에서 더 멀리 이동시키기 위해 차트 너비와 높이에 대한 비율로 [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) 와 [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) 오프셋을 사용합니다. 입력 프레젠테이션은 필요하지 않습니다.
+이 예제는 기본 데이터를 가진 파이 차트를 만들고, 슬라이스 외부에 값을 표시하며, [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-)을 활성화합니다. 두 레이블을 슬라이스에서 더 멀리 떨어뜨리기 위해 차트 너비와 높이에 대한 비율로 [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-)와 [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) 오프셋을 적용합니다. 입력 프레젠테이션은 필요하지 않습니다.
 
-라인의 [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) 은 알파 값 191(255 중)인 순수 파란색을 설정해 약 25% 투명도를 제공합니다. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) 은 두께를 2포인트로 설정하고, [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) 은 라인을 점선으로 만듭니다.
+라인의 [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--)은 알파값 191(255 중)인 고체 파란색을 설정하여 약 25% 투명도를 제공합니다. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-)은 두께를 2포인트로, [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-)는 선을 점선으로 지정합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -390,17 +390,17 @@ try {
 }
 ```
 
-리더 라인을 활성화해도 모든 레이블에 라인이 표시되는 것은 아닙니다. 가시성은 레이블 배치와 차트 레이아웃 동작에 따라 달라집니다. 이 예제에서는 두 개의 이동된 레이블에만 리더 라인이 표시되고, 슬라이스에 가까운 레이블은 필요하지 않습니다.
+리더 라인을 활성화해도 모든 레이블에 선이 표시되는 것은 아닙니다. 가시성은 레이블 배치와 차트 레이아웃 동작에 따라 달라집니다. 이 예제에서는 이동된 두 레이블에만 리더 라인이 표시되고, 슬라이스에 가깝게 남은 레이블은 필요하지 않습니다.
 
-다음 이미지는 Aspose.Slides 로 렌더링한 저장된 `FormattedLeaderLines.pptx` 를 보여줍니다.
+다음 이미지는 Aspose.Slides로 렌더링한 저장된 `FormattedLeaderLines.pptx`를 보여줍니다.
 
-![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+![두 개 외부 레이블을 슬라이스에 연결하는 파란색 반투명 점선 리더 라인이 적용된 파이 차트](formatted-leader-lines.png)
 
 ## **열 차트 위에 여러 행의 데이터 레이블 추가**
 
-이 예제는 플롯 영역 위에 두 행의 데이터 레이블을 가진 열 차트를 만듭니다. Series A는 보이는 열을 표시하고, Series B와 Series C는 추가 레이블을 제공합니다. 이들의 열은 채우기와 외곽선을 제거하여 숨깁니다. [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) 메서드는 세 시리즈 모두를 동일한 범주 중심에 정렬합니다.
+이 예제는 플롯 영역 위에 두 행의 데이터 레이블이 있는 열 차트를 생성합니다. 시리즈 A는 보이는 열을 표시하고, 시리즈 B와 C는 추가 레이블을 제공합니다. 이들의 열은 채우기와 외곽선을 제거하여 숨깁니다. [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) 메서드는 세 시리즈를 동일한 범주 중심에 정렬합니다.
 
-[ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) 설정은 레이블 행을 위한 공간을 예약합니다. [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) 이 기본 위치를 계산한 후, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) 와 [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) 가 수평 정렬을 유지하고 수직 오프셋을 적용해 레이블을 두 행으로 배치합니다. 숫자는 여전히 시리즈 값에 연결된 데이터 레이블이며, 행 헤딩만 별도의 텍스트 도형입니다.
+[ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) 설정은 레이블 행을 위한 공간을 예약합니다. [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--)이 기본 위치를 계산한 후, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-)와 [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-)가 수평 정렬을 유지하면서 수직 오프셋을 적용해 레이블을 두 행으로 배치합니다. 숫자는 시리즈 값에 연결된 데이터 레이블이며, 행 머리글은 별도의 텍스트 도형입니다.
 
 ```java
 import com.aspose.slides.*;
@@ -444,7 +444,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // B와 C의 열을 숨기되, 데이터 레이블은 유지합니다.
+            // B와 C의 열을 숨기지만 데이터 레이블은 유지합니다.
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -456,14 +456,14 @@ try {
         }
     }
 
-    // 세 시리즈를 모두 동일한 범주 중심에 정렬합니다.
+    // 세 시리즈를 동일한 범주 중심에 정렬합니다.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
 
-    // 이 간결한 예제를 위해 눈금선을 줄입니다.
+    // 이 간결한 예제에서 그리드라인 수를 줄입니다.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // 플롯 영역 위에 두 행의 데이터 레이블을 위한 공간을 확보합니다.
+    // 플롯 위에 두 행의 데이터 레이블 공간을 확보합니다.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -477,13 +477,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // 기본 수평 위치를 유지합니다. Y는 다음으로부터의 오프셋입니다.
-            // 기본 레이블 위치이며, 차트 높이 비율로 표현됩니다.
+            // 기본 수평 위치를 유지합니다. Y는 다음에서 오프셋입니다
+            // 기본 레이블 위치에서 차트 높이 비율로 표현된 값입니다.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // 행 헤딩만 별도의 텍스트 도형입니다.
+        // 행 머리글만 별도의 텍스트 도형입니다.
         IAutoShape rowHeading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
         rowHeading.getFillFormat().setFillType(FillType.NoFill);
         rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
@@ -502,18 +502,18 @@ try {
 }
 ```
 
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![플롯 영역 위에 두 행의 데이터 레이블이 배치된 열 차트](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**데이터 레이블이 밀집된 차트에서 겹치는 것을 방지하려면 어떻게 해야 하나요?**
+**데이터 레이블이 촘촘한 차트에서 겹치는 것을 어떻게 방지할 수 있나요?**
 
-자동 레이블 배치, 리더 라인 및 폰트 크기 축소를 결합하고, 필요하면 일부 필드(예: 범주)를 숨기거나 극값 또는 주요 포인트에만 레이블을 표시합니다.
+자동 레이블 배치, 리더 라인, 글꼴 크기 축소를 조합하고, 필요하면 일부 필드(예: 범주)를 숨기거나 극값 및 핵심 포인트에만 레이블을 표시합니다.
 
-**값이 0, 음수 또는 비어 있는 경우에만 레이블을 비활성화하려면 어떻게 해야 하나요?**
+**값이 0, 음수 또는 비어 있는 경우 레이블만 비활성화하려면 어떻게 해야 하나요?**
 
 레이블을 활성화하기 전에 데이터 포인트를 필터링하고, 0, 음수 또는 누락된 값에 대해 표시를 끄는 규칙을 적용합니다.
 
 **PDF/이미지로 내보낼 때 일관된 레이블 스타일을 보장하려면 어떻게 해야 하나요?**
 
-폰트 패밀리와 크기를 명시적으로 설정하고, 렌더링 환경에 해당 폰트가 존재하는지 확인해 폰트 대체가 발생하지 않도록 합니다.
+폰트 패밀리와 크기를 명시적으로 설정하고, 렌더링 환경에 해당 폰트가 존재하는지 확인하여 폰트 대체가 발생하지 않도록 합니다.

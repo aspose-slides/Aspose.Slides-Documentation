@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie etykietami danych wykresu w prezentacjach przy użyciu C++
+title: Zarządzaj etykietami danych wykresu w prezentacjach przy użyciu C++
 linktitle: Etykieta danych
 type: docs
 url: /pl/cpp/chart-data-label/
@@ -14,15 +14,15 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++, aby uzyskać bardziej angażujące slajdy."
+description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++, aby tworzyć bardziej angażujące slajdy."
 ---
 ## **Wprowadzenie**
 
-Etykiety danych wyświetlają informacje o seriach wykresu i poszczególnych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiety, kontrolować etykiety poza maksymalną wartością osi, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresu kołowego.
+Etykiety danych wyświetlają informacje o seriach wykresu i poszczególnych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiety, kontrolować etykiety poza maksymalnym zakresem osi, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresu kołowego.
 
-## **Ustaw precyzję danych w etykietach wykresu**
+## **Ustaw precyzję danych w etykietach danych wykresu**
 
-Użyj [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) do formatowania wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwie miejsca po przecinku bez zmiany podstawowych wartości.
+Użyj [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/), aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwie cyfry po przecinku bez zmiany wartości podstawowych.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,9 +57,11 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
+Aby sformatować komórki numeryczne w osadzonym skoroszycie wykresu, zobacz [Ustaw niestandardowe formaty liczb dla komórek skoroszytu](/slides/pl/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells). Ten przykład również pokazuje etykiety wartości zgodne z formatem ich komórek źródłowych, zachowując przechowywane wartości liczbowe.
+
 ## **Wyświetl procent jako etykiety**
 
-Za wykres słupkowy skumulowany, oblicz każdą wartość jako procent całkowitej sumy swojej kategorii i przypisz tekst do ramki tekstowej zwróconej przez [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce o rozmiarze 8 punktów. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
+Dla wykresu słupkowego warstwowego oblicz każdą wartość jako procent sumy w swojej kategorii i przypisz tekst do ramki tekstowej zwróconej przez [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce 8‑punktowej. Kategorie o łącznej sumie równej zero są pomijane, aby uniknąć dzielenia przez zero. Ponownie oblicz niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -149,9 +151,9 @@ presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 
 ## **Ustaw znak procenta w etykietach danych wykresu**
 
-Gdy wartości są przechowywane jako ułamki, użyj [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) do wyświetlania procentów. Przekaż `false` do [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/), aby zastosować format etykiety niezależnie od komórek źródłowych.
+Gdy wartości są przechowywane jako ułamki, użyj [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/), aby wyświetlać procenty. Przekaż `false` do [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/), aby zastosować format etykiety niezależnie od komórek źródłowych.
 
-Ten przykład tworzy wykres słupkowy skumulowany 100 % z czerwonymi i niebieskimi seriami w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0.30 jako 30.0 %, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
+Ten przykład tworzy wykres słupkowy 100 % warstwowy z serią czerwoną i niebieską w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0.30 jako 30.0 %, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety 10 punktów.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -238,7 +240,7 @@ presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 
 ## **Odczytaj rzeczywisty tekst etykiet danych**
 
-Użyj [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) aby pobrać tekst wygenerowany na podstawie ustawień etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, wyszukiwaniu treści prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) łączy nazwę każdej kategorii, nazwę serii i wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa niestandardowego tekstu z [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Użyj [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/), aby pobrać tekst wygenerowany przez ustawienia etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu treści prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) łączy nazwę każdej kategorii, nazwę serii i wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa tekstu niestandardowego z [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +328,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta pokazuje `75 %` wraz z nazwami kategorii i serii. Niestandardowy tekst zastępuje wygenerowany tekst etykiety. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdź [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta pokazuje `75%` wraz z nazwą kategorii i serii. Tekst niestandardowy zastępuje wygenerowany tekst etykiety. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) zwraca wynikowy ciąg etykiety w obu przypadkach. Sprawdź [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
 
-## **Kontroluj etykiety danych poza maksymalną wartością osi**
+## **Kontroluj etykiety danych poza maksymalnym zakresem osi**
 
-Kiedy ręcznie ograniczasz zakres osi, niektóre punkty danych mogą przekraczać jej maksimum. Użyj [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) aby kontrolować, czy ich etykiety danych są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani podstawowych wartości danych.
+Gdy ręcznie ograniczysz zakres osi, niektóre punkty danych mogą przekraczać jej maksymalny limit. Użyj [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/), aby kontrolować, czy ich etykiety danych są wyświetlane. To ustawienie zmienia widoczność etykiet; nie zmienia zakresu osi ani wartości danych podstawowych.
 
-Poniższy przykład tworzy dwuwymiarowy wykres słupkowy grupowany z wartościami 60 i 120. Ustawia [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) na `false` i [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) na 100 na osi pionowej. Pierwszy slajd pozwala na etykiety poza maksimum; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w `DataLabelsOverMaximum.pptx`.
+Poniższy przykład tworzy wykres słupkowy grupowany 2D z wartościami 60 i 120. Ustawia [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) na `false` oraz [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) na 100 na osi pionowej. Pierwszy slajd zezwala na etykiety poza maksimum; kopia tego slajdu wyłącza je. Oba slajdy są zapisane w pliku `DataLabelsOverMaximum.pptx`.
 
-Włącz etykiety wartości za pomocą [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Ustawienie na poziomie wykresu nie włącza wyświetlania wartości samo w sobie ani nie nadpisuje wyłączonego wyświetlania wartości indywidualnej etykiety. Ten przykład włącza wartości dla całej serii i używa [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) aby umieścić etykiety na zewnętrznym końcu każdego słupka.
+Włącz etykiety wartości za pomocą [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Ustawienie na poziomie wykresu nie włącza wyświetlania wartości samo w sobie ani nie nadpisuje wyłączonego wyświetlania wartości dla pojedynczej etykiety. Ten przykład włącza wartości dla całej serii i używa [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/), aby umieścić etykiety na zewnętrznym końcu każdego słupka.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,17 +407,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
+Poniższe obrazy przedstawiają zapisane slajdy renderowane przez Microsoft PowerPoint. Przy `true` etykieta **120** jest widoczna przy górnej granicy; przy `false` jest ukryta. Etykieta **60** pozostaje widoczna, maksimum osi wynosi **100**, a drugi punkt danych pozostaje **120** w obu przypadkach.
+
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![Wykres PowerPoint pokazujący etykietę wartości 120 przy maksymalnej wartości osi 100](data-labels-over-maximum-true.png) | ![Wykres PowerPoint ukrywający etykietę wartości 120 przy maksymalnej wartości osi 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Ten przykład używa wykresu słupkowego 2D z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnej wartości osi, którą można w ten sposób ograniczyć.
+Przykład używa wykresu kolumnowego 2D z osią wartości. Wykresy bez osi wartości, takie jak wykresy kołowe i pierścieniowe, nie mają maksymalnego zakresu osi, który można by w ten sposób ograniczyć.
 {{% /alert %}}
 
 ## **Ustaw odległość etykiety od osi**
 
-Użyj [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) aby kontrolować odległość między etykietami osi kategorii a samą osią. Wartość jest podawana jako procent maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy grupowany i ustawia przesunięcie etykiet osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przyłączone do poszczególnych punktów danych.
+Użyj [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/), aby kontrolować odległość między etykietami osi kategorii a osią. Wartość jest wyrażona procentowo względem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy grupowany i ustawia offset etykiet osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do poszczególnych punktów danych.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -443,11 +447,11 @@ chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
 presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Dostosuj położenie etykiety**
+## **Dostosuj położenie etykiet**
 
-Na wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić rozmieszczenie i zrobić miejsce dla linii prowadzących.
+Wykres kołowy: dostosuj pozycje etykiet danych, aby poprawić rozmieszczenie i zrobić miejsce dla linii prowadzących.
 
-Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza wycinkiem i używa [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) oraz [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) do regulacji przesunięć. Przesunięcia te są względne względem szerokości i wysokości wykresu.
+Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza fragmentem i używa [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) oraz [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) do regulacji ich przemieszczeń. Te offsety są względne względem szerokości i wysokości wykresu.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -485,15 +489,15 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Wykres kołowy z dostosowanym położeniem etykiety danych](pie-chart-adjusted-label.png)
+![Wykres kołowy z dostosowaną pozycją etykiety danych](pie-chart-adjusted-label.png)
 
 ## **Formatuj linie prowadzące**
 
-Kiedy etykiety wykresu kołowego znajdują się poza wycinkami, linie prowadzące pomagają czytelnikom dopasować każdą wartość do właściwego segmentu. Kontrastowy kolor i nieco grubsza linia mogą ułatwić śledzenie połączeń, a przezroczystość oraz styl przerywany sprawiają, że linie pozostają dyskretne.
+Gdy etykiety wykresu kołowego znajdują się poza fragmentami, linie prowadzące pomagają czytelnikom powiązać każdą wartość z odpowiednim fragmentem. Kontrastowy kolor i nieco grubsza linia mogą ułatwić śledzenie tych połączeń, natomiast przezroczystość i styl przerywany utrzymują linie w tle.
 
-Użyj [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) aby sformatować linie prowadzące na poziomie kolekcji etykiet danych serii. Ustawienia w `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` mają zastosowanie do całej kolekcji, a nie do pojedynczej etykiety.
+Użyj [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/), aby formatować linie prowadzące na poziomie kolekcji etykiet danych serii. Ustawienia w `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` mają zastosowanie do całej kolekcji, a nie do pojedynczej etykiety.
 
-Ten przykład tworzy wykres kołowy z domyślnymi danymi, wyświetla wartości poza wycinkami i włącza linie prowadzące za pomocą [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Przesuwa dwie etykiety dalej od ich wycinków przy użyciu przesunięć [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) i [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), wyrażonych jako ułamki szerokości i wysokości wykresu. Nie jest wymagana żadna prezentacja wejściowa.
+Ten przykład tworzy wykres kołowy z domyślnymi danymi, wyświetla wartości poza fragmentami i włącza linie prowadzące za pomocą [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Przesuwa dwa etykiety dalej od ich fragmentów, używając offsetów [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) i [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), wyrażonych jako ułamki szerokości i wysokości wykresu. Nie wymaga żadnej prezentacji wejściowej.
 
 Format wypełnienia zwrócony przez [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) jest używany do ustawienia jednolitego niebieskiego koloru z wartością alfa 191 z 255, co daje około 25 % przezroczystości. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) ustawia grubość na 2 punkty, a [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) sprawia, że linia jest przerywana.
 
@@ -540,7 +544,7 @@ labelFormat->set_ShowValue(true);
 labelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
 labelFormat->set_ShowLeaderLines(true);
 
-// Przesuń dwie etykiety dalej od ich wycinków.
+// Przesuń dwie etykiety dalej od ich fragmentów.
 series->get_Label(0)->set_X(0.10f);
 series->get_Label(0)->set_Y(-0.05f);
 series->get_Label(1)->set_X(-0.10f);
@@ -555,17 +559,17 @@ line->set_DashStyle(LineDashStyle::Dash);
 presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
 ```
 
-Włączenie linii prowadzących nie gwarantuje, że linia pojawi się przy każdej etykiecie. Widoczność zależy od położenia etykiety oraz zachowania układu wykresu. W tym przykładzie dwie przesunięte etykiety mają widoczne linie prowadzące; etykiety pozostające blisko swoich wycinków nie potrzebują ich.
+Włączenie linii prowadzących nie gwarantuje, że linia pojawi się dla każdej etykiety. Widoczność zależy od położenia etykiety i zachowania układu wykresu. W tym przykładzie dwa przemieszone etykiety mają widoczne linie prowadzące; etykiety pozostające blisko swoich fragmentów nie potrzebują ich.
 
-Poniższy obrazek przedstawia zapisany `FormattedLeaderLines.pptx` renderowany przy pomocy Aspose.Slides:
+Poniższy obraz przedstawia zapisany plik `FormattedLeaderLines.pptx` renderowany przy pomocy Aspose.Slides:
 
-![Wykres kołowy z niebieskimi, półprzezroczystymi, przerywanymi liniami prowadzącymi łączącymi dwie zewnętrzne etykiety z ich segmentami](formatted-leader-lines.png)
+![Wykres kołowy z niebieskimi, półprzezroczystymi, przerywanymi liniami prowadzącymi łączącymi dwie zewnętrzne etykiety z ich fragmentami](formatted-leader-lines.png)
 
-## **Dodaj wiele wierszy etykiet danych nad wykresem słupkowym**
+## **Dodaj wiele wierszy etykiet danych nad wykresem kolumnowym**
 
-Ten przykład tworzy wykres słupkowy z dwoma wierszami etykiet danych nad obszarem wykresu. Seria A wyświetla widoczne słupki, natomiast Serie B i C dostarczają dodatkowe etykiety. Ich słupki są ukryte przez usunięcie wypełnienia i konturu. Metoda [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) wyrównuje wszystkie trzy serie względem tych samych środków kategorii.
+Ten przykład tworzy wykres kolumnowy z dwoma wierszami etykiet danych nad obszarem wykresu. Seria A wyświetla widoczne kolumny, natomiast serie B i C zapewniają dodatkowe etykiety. Ich kolumny są ukryte poprzez usunięcie wypełnienia i konturu. Metoda [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) wyrównuje wszystkie trzy serie względem tych samych centrów kategorii.
 
-Ustawienia [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) rezerwują miejsce dla wierszy etykiet. Po obliczeniu domyślnych pozycji przez [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/), [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) i [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) zachowują wyrównanie poziome i stosują pionowe przesunięcia, aby ułożyć etykiety w dwóch wierszach. Liczby pozostają etykietami danych powiązanymi z wartościami serii; tylko nagłówki wierszy są odrębnymi kształtami tekstowymi.
+Ustawienia [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) rezerwują miejsce na wiersze etykiet. Po obliczeniu domyślnych pozycji przez [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/), [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) i [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) zachowują wyrównanie poziome i stosują pionowe offsety, aby ułożyć etykiety w dwóch wierszach. Liczby pozostają etykietami danych powiązanymi z wartościami serii; jedynie nagłówki wierszy są oddzielnymi kształtami tekstowymi.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -695,7 +699,7 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
     for (auto categoryIndex = 0; categoryIndex < 4; categoryIndex++)
     {
         auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
-        // Zachowaj domyślną pozycję poziomą. Y jest przesunięciem od
+        // Zachowaj domyślną pozycję poziomą. Y jest offsetem od
         // domyślnej pozycji etykiety, wyrażonego jako ułamek wysokości wykresu.
         dataLabel->set_X(0);
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
@@ -717,15 +721,18 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
 presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 ```
 
-![Wykres słupkowy z dwoma wierszami etykiet danych nad obszarem wykresu](multiple-rows-of-labels.png)
+![Wykres kolumnowy z dwoma wierszami etykiet danych nad obszarem wykresu](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**  
-Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszenie rozmiaru czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla skrajnych wartości lub kluczowych punktów.
+**Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
 
-**Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**  
-Filtruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, ujemnych lub brakujących zgodnie z określoną regułą.
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszenie rozmiaru czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
 
-**Jak zapewnić spójny styl etykiet przy eksporcie do PDF/obrazów?**  
-Jawnie ustaw rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderującym, aby uniknąć zastępowania.
+**Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**
+
+Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, ujemnych lub brakujących zgodnie z określoną regułą.
+
+**Jak zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
+
+Explicitnie ustaw rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderującym, aby uniknąć automatycznego zastępowania.

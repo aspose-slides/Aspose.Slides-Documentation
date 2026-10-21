@@ -14,15 +14,15 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk C++ untuk slide yang lebih menarik."
+description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk C++ agar slide lebih menarik."
 ---
 ## **Pendahuluan**
 
-Label data menampilkan informasi tentang seri diagram dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami diagram. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengontrol label di luar maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram lingkaran.
+Label data menampilkan informasi tentang serangkaian diagram dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami diagram. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, mengontrol label di luar maksimum sumbu, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram pai.
 
-## **Set Data Precision in Chart Data Labels**
+## **Atur Presisi Data dalam Label Data Diagram**
 
-Gunakan [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai sebenarnya.
+Gunakan [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua digit desimal tanpa mengubah nilai yang mendasarinya.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,9 +57,11 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Display Percentage as Labels**
+Untuk memformat sel numerik dalam buku kerja tersemat diagram, lihat [Atur Format Angka Kustom untuk Sel Buku Kerja](/slides/id/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells). Contoh itu juga menunjukkan label nilai mengikuti format sel sumber mereka sambil mempertahankan nilai numerik yang disimpan.
 
-Untuk diagram kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teks ke kerangka teks yang dikembalikan oleh [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua tempat desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data diagram berubah.
+## **Tampilkan Persentase sebagai Label**
+
+Untuk diagram kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teks ke bingkai teks yang dikembalikan oleh [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua digit desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data diagram berubah.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -147,11 +149,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Set Percentage Sign with Chart Data Labels**
+## **Atur Simbol Persentase dengan Label Data Diagram**
 
-Ketika nilai disimpan sebagai pecahan, gunakan [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) untuk menampilkan persentase. Berikan `false` ke [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) agar format label diterapkan secara independen dari sel sumber.
+Ketika nilai disimpan sebagai pecahan, gunakan [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) untuk menampilkan persentase. Berikan `false` ke [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) untuk menerapkan format label secara terpisah dari sel sumber.
 
-Contoh ini membuat diagram kolom 100% bertumpuk dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai berjumlah 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label putih berukuran 10 poin.
+Contoh ini membuat diagram kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlah menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua digit desimal. Kedua seri menggunakan teks label putih berukuran 10 poin.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -236,9 +238,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Read the Actual Text of Data Labels**
+## **Baca Teks Aktual Label Data**
 
-Gunakan [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Pada contoh di bawah, format [data label](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) default menggabungkan nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks khusus dari [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+Gunakan [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Pada contoh di bawah, [format label data](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) default menggabungkan nama setiap kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks khusus dari [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +328,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-Angka yang disimpan di titik data tetap `0.75`, bahkan ketika labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) secara terpisah, seperti ditunjukkan di atas, ketika Anda hanya ingin mengekstrak label yang terlihat.
+Angka yang disimpan dalam titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
 
-## **Control Data Labels Beyond the Axis Maximum**
+## **Kendalikan Label Data di Luar Maksimum Sumbu**
 
-Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data mungkin melampaui maksimum sumbu. Gunakan [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) untuk mengontrol apakah label datanya ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data yang mendasarinya.
+Ketika Anda membatasi rentang sumbu secara manual, beberapa titik data mungkin melebihi maksimumannya. Gunakan [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) untuk mengontrol apakah label data mereka ditampilkan. Pengaturan ini mengubah visibilitas label; tidak mengubah rentang sumbu atau nilai data yang mendasarinya.
 
-Contoh di bawah membuat diagram kolom berkelompok 2D dengan nilai 60 dan 120. Ia menetapkan [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) ke `false` dan [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) ke 100 pada sumbu vertikal. Slide pertama memperbolehkan label melewati maksimum; salinan slide tersebut menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
+Contoh di bawah membuat diagram kolom berkelompok 2D dengan nilai 60 dan 120. Itu mengatur [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) menjadi `false` dan [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) menjadi 100 pada sumbu vertikal. Slide pertama memperbolehkan label di luar maksimum; salinan slide tersebut menonaktifkannya. Kedua slide disimpan dalam `DataLabelsOverMaximum.pptx`.
 
-Aktifkan label nilai dengan [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Pengaturan pada tingkat diagram tidak mengaktifkan tampilan nilai secara otomatis atau menggantikan penonaktifan tampilan nilai pada label individu. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) untuk menempatkan label di ujung luar setiap kolom.
+Aktifkan label nilai dengan [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Pengaturan pada tingkat diagram tidak mengaktifkan tampilan nilai secara mandiri atau menggantikan tampilan nilai yang dinonaktifkan pada label individu. Contoh ini mengaktifkan nilai untuk seluruh seri dan menggunakan [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) untuk menempatkan label di ujung luar setiap kolom.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,19 +407,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-Gambar berikut menunjukkan slide yang disimpan dan dirender oleh Microsoft PowerPoint. Dengan `true`, label **120** terlihat di batas atas; dengan `false`, label tersebut tersembunyi. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** dalam kedua kasus.
+Gambar berikut menunjukkan slide yang disimpan yang dirender oleh Microsoft PowerPoint. Dengan `true`, label **120** terlihat pada batas atas; dengan `false`, label tersebut disembunyikan. Label **60** tetap terlihat, maksimum sumbu tetap **100**, dan titik data kedua tetap **120** dalam kedua kasus.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Diagram PowerPoint menampilkan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-true.png) | ![Diagram PowerPoint menyembunyikan label nilai 120 dengan maksimum sumbu 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Contoh ini menggunakan diagram kolom 2D dengan sumbu nilai. Diagram tanpa sumbu nilai, seperti diagram lingkaran dan donat, tidak memiliki maksimum sumbu yang dapat dibatasi dengan cara ini.
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
-## **Set Label Distance from an Axis**
+## **Atur Jarak Label dari Sumbu**
 
-Gunakan [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom berkelompok dan menetapkan offset label sumbu horizontal ke 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terpasang pada titik data individual.
+Gunakan [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya berupa persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom berkelompok dan mengatur offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori bukan label yang terlampir pada titik data individu.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -445,11 +447,11 @@ chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
 presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Adjust Label Location**
+## **Sesuaikan Lokasi Label**
 
-Pada diagram lingkaran, sesuaikan posisi label data untuk memperbaiki jarak dan memberi ruang bagi garis penunjuk.
+Pada diagram pai, sesuaikan posisi label data untuk memperbaiki jarak dan memberi ruang bagi garis penghubung.
 
-Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar potongan, dan menggunakan [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) serta [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) untuk menyesuaikan offsetnya. Offset ini relatif terhadap lebar dan tinggi diagram.
+Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menggunakan [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) serta [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) untuk menyesuaikan offsetnya. Offset ini relatif terhadap lebar dan tinggi diagram, masing-masing.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -487,17 +489,17 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Diagram pai dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
 
-## **Format Leader Lines**
+## **Format Garis Penghubung**
 
-Ketika label diagram lingkaran berada di luar potongan, garis penunjuk membantu pembaca mencocokkan setiap nilai dengan potongan yang benar. Warna kontras dan garis yang sedikit lebih tebal dapat membuat koneksi ini lebih mudah diikuti, sementara transparansi dan gaya garis putus-putus menjaga agar garis tidak terlalu menonjol.
+Ketika label diagram pai berada di luar irisan, garis penghubung membantu pembaca mencocokkan setiap nilai dengan irisan yang tepat. Warna yang kontras dan garis yang sedikit lebih tebal dapat membuat koneksi ini lebih mudah diikuti, sementara transparansi dan gaya putus‑putus menjaga garis tetap tidak mengganggu secara visual.
 
-Gunakan [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) untuk memformat garis penunjuk pada tingkat koleksi label data seri. Pengaturan di `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` berlaku untuk seluruh koleksi, bukan untuk label individu.
+Gunakan [get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) untuk memformat garis penghubung pada tingkat koleksi label data seri. Pengaturan dalam `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` diterapkan pada koleksi, bukan pada label individu.
 
-Contoh ini membuat diagram lingkaran dengan data default, menampilkan nilai di luar potongan, dan mengaktifkan garis penunjuk dengan [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Ia memindahkan dua label lebih jauh dari potongan menggunakan offset [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) dan [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), yang dinyatakan sebagai pecahan lebar dan tinggi diagram. Tidak diperlukan presentasi input.
+Contoh ini membuat diagram pai dengan data default, menampilkan nilai di luar irisan, dan mengaktifkan garis penghubung dengan [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/). Ia memindahkan dua label lebih jauh dari irisan mereka menggunakan offset [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) dan [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/), yang dinyatakan sebagai fraksi lebar dan tinggi diagram. Tidak diperlukan presentasi masukan.
 
-Format isian yang dikembalikan oleh [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) digunakan untuk menetapkan warna biru solid dengan nilai alfa 191 dari 255, menghasilkan transparansi sekitar 25%. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) mengatur ketebalan menjadi 2 poin, dan [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) menjadikan garis putus-putus.
+Format isi yang dikembalikan oleh [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) digunakan untuk mengatur warna biru padat dengan nilai alfa 191 dari 255, memberikan transparansi sekitar 25%. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) mengatur ketebalan menjadi 2 poin, dan [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) membuat garis menjadi putus‑putus.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -557,17 +559,17 @@ line->set_DashStyle(LineDashStyle::Dash);
 presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
 ```
 
-Mengaktifkan garis penunjuk tidak menjamin akan muncul untuk setiap label. Visibilitas tergantung pada penempatan label dan perilaku tata letak diagram. Dalam contoh ini, dua label yang dipindahkan memiliki garis penunjuk yang terlihat; label yang tetap dekat dengan potongan tidak memerlukannya.
+Mengaktifkan garis penghubung tidak menjamin sebuah garis akan muncul untuk setiap label. Visibilitas tergantung pada penempatan label dan perilaku tata letak diagram. Pada contoh ini, dua label yang dipindahkan memiliki garis penghubung yang terlihat; label yang tetap dekat dengan irisan mereka tidak memerlukannya.
 
 Gambar berikut menunjukkan `FormattedLeaderLines.pptx` yang disimpan dan dirender dengan Aspose.Slides:
 
-![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+![Diagram pai dengan garis penghubung biru, semi‑transparan, putus‑putus yang menghubungkan dua label luar ke irisan mereka](formatted-leader-lines.png)
 
-## **Add Multiple Rows of Data Labels Above a Column Chart**
+## **Tambahkan Beberapa Baris Label Data di Atas Diagram Kolom**
 
 Contoh ini membuat diagram kolom dengan dua baris label data di atas area plot. Seri A menampilkan kolom yang terlihat, sementara Seri B dan Seri C menyediakan label tambahan. Kolom mereka disembunyikan dengan menghapus isi dan garis tepi. Metode [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) menyelaraskan ketiga seri dengan pusat kategori yang sama.
 
-Pengaturan [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) menyisakan ruang untuk baris label. Setelah [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) menghitung posisi default, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) dan [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) mempertahankan perataan horizontal dan menerapkan offset vertikal untuk menata label dalam dua baris. Angka-angka tetap menjadi label data yang terhubung ke nilai seri; hanya judul baris yang berupa bentuk teks terpisah.
+Pengaturan [get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) menyediakan ruang untuk baris label. Setelah [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) menghitung posisi default, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) dan [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) mempertahankan penyelarasan horizontal dan menerapkan offset vertikal untuk menyusun label dalam dua baris. Angka tetap menjadi label data yang terhubung ke nilai seri; hanya judul baris yang merupakan bentuk teks terpisah.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -677,11 +679,11 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
 // Selaraskan ketiga seri dengan pusat kategori yang sama.
 chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
 
-// Gunakan lebih sedikit garis kisi untuk contoh yang kompak ini.
+// Gunakan lebih sedikit garis kisi untuk contoh kompak ini.
 chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
 chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
 
-// Sediakan ruang di atas plot untuk dua baris label data.
+// Cadangkan ruang di atas area plot untuk dua baris label data.
 chart->get_PlotArea()->set_LayoutTargetType(LayoutTargetType::Inner);
 chart->get_PlotArea()->set_X(0.15f);
 chart->get_PlotArea()->set_Y(0.32f);
@@ -698,7 +700,7 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
     {
         auto dataLabel = series->get_DataPoint(categoryIndex)->get_Label();
         // Pertahankan posisi horizontal default. Y adalah offset dari
-        // posisi label default, dinyatakan sebagai fraksi tinggi diagram.
+        // posisi label default, yang dinyatakan sebagai fraksi tinggi diagram.
         dataLabel->set_X(0);
         dataLabel->set_Y(rowTop - dataLabel->get_ActualY() / chart->get_Height());
     }
@@ -719,18 +721,18 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
 presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 ```
 
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![Diagram kolom dengan dua baris label data di atas area plot](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Bagaimana cara mencegah label data saling tumpang tindih pada diagram yang padat?**
+**Bagaimana saya dapat mencegah label data saling tumpang tindih pada diagram yang padat?**
 
-Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang lebih kecil; jika perlu, sembunyikan beberapa bidang (misalnya kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik penting.
+Gabungkan penempatan label otomatis, garis penghubung, dan ukuran font yang diperkecil; bila perlu, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik kunci.
 
-**Bagaimana cara menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
+**Bagaimana saya dapat menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
 
-Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
+Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai dengan aturan yang ditentukan.
 
-**Bagaimana cara memastikan gaya label konsisten saat mengekspor ke PDF/gambar?**
+**Bagaimana saya dapat memastikan gaya label yang konsisten saat mengekspor ke PDF/gambar?**
 
-Tetapkan secara eksplisit keluarga font dan ukuran, serta pastikan font tersedia di lingkungan rendering untuk menghindari fallback.
+Tetapkan secara eksplisit keluarga dan ukuran font serta pastikan font tersedia di lingkungan rendering untuk menghindari fallback.

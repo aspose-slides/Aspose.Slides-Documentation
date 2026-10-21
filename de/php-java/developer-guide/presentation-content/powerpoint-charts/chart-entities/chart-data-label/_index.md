@@ -14,15 +14,15 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint-Präsentationen mithilfe von Aspose.Slides für PHP über Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
+description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint-Präsentationen mithilfe von Aspose.Slides für PHP via Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
-## **Einführung**
+## **Einleitung**
 
-Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu erkennen und das Diagramm zu verstehen. Dieser Artikel erklärt, wie man Werte formatiert, Prozentsätze anzeigt, den Beschriftungstext liest, Beschriftungen über das Achsenmaximum hinaus steuert, den Abstand der Kategorienachsenbeschriftungen anpasst und Beschriftungen für Kreisdiagramme positioniert.
+Datenbeschriftungen zeigen Informationen über Diagrammserien und einzelne Datenpunkte an und helfen den Lesern, Werte zu identifizieren und das Diagramm zu verstehen. Dieser Artikel erklärt, wie Werte formatiert, Prozentsätze angezeigt, Beschriftungstexte gelesen, Beschriftungen über das Achsenmaximum hinaus gesteuert, der Abstand der Kategorienachsenbeschriftungen angepasst und Beschriftungen von Kreisdiagrammen positioniert werden.
 
-## **Festlegen der Datenpräzision in Diagrammdatenbeschriftungen**
+## **Datenpräzision in Diagrammdbeschriftungen festlegen**
 
-Verwenden Sie [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt dessen Datentabelle an und aktiviert Wertebeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu ändern.
+Verwenden Sie [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt dessen Datentabelle an und aktiviert Wertebeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu verändern.
 
 ```php
 use aspose\slides\Presentation;
@@ -46,9 +46,11 @@ try {
 }
 ```
 
+Um die numerischen Zellen in der eingebetteten Arbeitsmappe eines Diagramms zu formatieren, siehe [Set Custom Number Formats for Workbook Cells](/slides/de/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dieses Beispiel zeigt außerdem, dass Wertebeschriftungen den Formaten ihrer Quellzelle folgen, während die gespeicherten numerischen Werte erhalten bleiben.
+
 ## **Prozentsatz als Beschriftungen anzeigen**
 
-Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz des Gesamtsummens der Kategorie und weisen den Text dem Textfeld zu, das von [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
+Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz seiner Gesamtkategorie und weisen den Text dem Textfeld zu, das von [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8-Punkt-Schrift an. Kategorien mit einer Gesamtsumme von null werden übersprungen, um eine Division durch null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
 
 ```php
 use aspose\slides\Presentation;
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **Prozentzeichen mit Diagrammdatenbeschriftungen festlegen**
+## **Prozentzeichen mit Diagrammbeschriftungen festlegen**
 
 Wenn Werte als Brüche gespeichert sind, verwenden Sie [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/), um Prozentsätze anzuzeigen. Übergeben Sie `false` an [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/), um das Beschriftungsformat unabhängig von den Quellzellen anzuwenden.
 
-Dieses Beispiel erstellt ein zu 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. jedes Wertepaar summiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0.30 als 30.0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit 10 Punkt.
+Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jedes Wertepaar summiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0,30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit 10 Punkten.
 
 ```php
 use aspose\slides\Presentation;
@@ -172,7 +174,7 @@ try {
 
 ## **Den tatsächlichen Text von Datenbeschriftungen lesen**
 
-Verwenden Sie [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/), um den durch die Einstellungen einer Datenbeschriftung erzeugten Text abzurufen. Dies ist nützlich beim Extrahieren von Beschriftungen für Berichte, bei der Durchsuchung von Präsentationsinhalten oder beim Validieren generierter Diagramme. Im folgenden Beispiel kombiniert das Standard-[Datenbeschriftungsformat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) den Namen jeder Kategorie, den Namen der Serie und den Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, ein anderer verwendet benutzerdefinierten Text aus [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Verwenden Sie [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/), um den von den Einstellungen einer Datenbeschriftung erzeugten Text abzurufen. Dies ist nützlich beim Extrahieren von Beschriftungen für Berichte, beim Durchsuchen von Präsentationsinhalten oder beim Validieren erzeugter Diagramme. Im folgenden Beispiel kombiniert das Standard-[Datenbeschriftungsformat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) jeden Kategorienamen, Seriennamen und Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, und ein anderer verwendet benutzerdefinierten Text von [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +238,15 @@ try {
 }
 ```
 
-Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn seine Beschriftung `75 %` zusammen mit den Kategorien- und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den generierten Beschriftungstext. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) gibt in beiden Fällen die resultierende Beschriftungszeichenfolge zurück. Prüfen Sie [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
+Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn seine Beschriftung `75%` zusammen mit dem Kategorien‑ und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den erzeugten Beschriftungstext. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) gibt in beiden Fällen die resultierende Beschriftungszeichenfolge zurück. Prüfen Sie [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
 
 ## **Datenbeschriftungen über das Achsenmaximum hinaus steuern**
 
-Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte dessen Maximum überschreiten. Verwenden Sie [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/), um zu steuern, ob deren Datenbeschriftungen angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftungen; sie ändert weder den Achsenbereich noch die zugrunde liegenden Datenwerte.
+Wenn Sie einen Achsenbereich manuell begrenzen, können einige Datenpunkte ihr Maximum überschreiten. Verwenden Sie [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/), um zu steuern, ob ihre Datenbeschriftungen angezeigt werden. Diese Einstellung ändert die Sichtbarkeit der Beschriftungen; sie ändert weder den Achsenbereich noch die zugrunde liegenden Datenwerte.
 
-Das nachfolgende Beispiel erstellt ein 2D‑gruppiertes Säulendiagramm mit Werten von 60 und 120. Es übergibt `false` an [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) und setzt das Maximum auf 100 mit [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) auf der vertikalen Achse. Die erste Folie erlaubt Beschriftungen über dem Maximum; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
+Das nachstehende Beispiel erstellt ein 2D gruppiertes Säulendiagramm mit den Werten 60 und 120. Es übergibt `false` an [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) und setzt das Maximum auf 100 mit [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) auf der vertikalen Achse. Die erste Folie erlaubt Beschriftungen über dem Maximum; eine Kopie dieser Folie deaktiviert sie. Beide Folien werden in `DataLabelsOverMaximum.pptx` gespeichert.
 
-Aktivieren Sie Wertebeschriftungen mit [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Die Einstellungen auf Diagrammebene aktivieren die Anzeige von Werten nicht von selbst und überschreiben nicht die deaktivierte Anzeige eines einzelnen Labels. Dieses Beispiel aktiviert Werte für die gesamte Serie und verwendet [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/), um Beschriftungen am äußeren Ende jeder Säule zu platzieren.
+Aktivieren Sie Wertebeschriftungen mit [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Die Diagrammebene-Einstellung aktiviert die Anzeige von Werten nicht von selbst und überschreibt nicht die deaktivierte Wertanzeige einer einzelnen Beschriftung. Dieses Beispiel aktiviert Werte für die gesamte Serie und verwendet [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/), um die Beschriftungen am äußeren Ende jeder Spalte zu platzieren.
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +298,19 @@ try {
 }
 ```
 
-Die folgenden Bilder zeigen die gespeicherten Folien, gerendert von Microsoft PowerPoint. Bei `true` ist die Beschriftung **120** an der oberen Grenze sichtbar; bei `false` ist sie verborgen. Die Beschriftung **60** bleibt sichtbar, das Achsenmaximum bleibt bei **100**, und der zweite Datenpunkt bleibt in beiden Fällen **120**.
+Die folgenden Bilder zeigen die gespeicherten Folien, die von Microsoft PowerPoint gerendert wurden. Bei `true` ist die Beschriftung **120** an der oberen Grenze sichtbar; bei `false` ist sie ausgeblendet. Die Beschriftung **60** bleibt sichtbar, das Achsenmaximum bleibt bei **100** und der zweite Datenpunkt bleibt in beiden Fällen **120**.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint‑Diagramm, das die Wertebeschriftung 120 bei einem Achsenmaximum von 100 zeigt](data-labels-over-maximum-true.png) | ![PowerPoint‑Diagramm, das die Wertebeschriftung 120 bei einem Achsenmaximum von 100 ausblendet](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Diagrammtyp" %}}
-Dieses Beispiel verwendet ein 2D‑Säulendiagramm mit einer Wertachse. Diagramme ohne Wertachse, wie Kreis‑ und Donut‑Diagramme, besitzen kein Achsenmaximum, das auf diese Weise begrenzt werden könnte.
+{{% alert color="info" title="Chart Type" %}}
+Dieses Beispiel verwendet ein 2D Säulendiagramm mit einer Wertachse. Diagramme ohne Wertachse, wie Kreis- und Donutdiagramme, haben kein Achsenmaximum, das auf diese Weise begrenzt werden kann.
 {{% /alert %}}
 
-## **Abstand der Beschriftung von einer Achse festlegen**
+## **Beschriftungsabstand von einer Achse festlegen**
 
-Verwenden Sie [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/), um den Abstand zwischen den Kategorienachsenbeschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsenbeschriftungs‑Offset auf 500. Diese Einstellung wirkt sich auf die Kategorienachsenbeschriftungen aus, nicht auf Beschriftungen, die einzelnen Datenpunkten zugeordnet sind.
+Verwenden Sie [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/), um den Abstand zwischen den Beschriftungen der Kategorienachse und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den Beschriftungsversatz der Horizontalen Achse auf 500. Diese Einstellung wirkt sich auf die Kategorienachsenbeschriftungen aus, nicht auf Beschriftungen, die einzelnen Datenpunkten zugeordnet sind.
 
 ```php
 use aspose\slides\Presentation;
@@ -330,9 +332,9 @@ try {
 
 ## **Beschriftungsposition anpassen**
 
-Bei einem Kreisdiagramm passen Sie die Position der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Führungslinien zu schaffen.
+Bei einem Kreisdiagramm passen Sie die Positionen der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Verbindungslinien zu schaffen.
 
-Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segments und passt seine horizontalen und vertikalen Offsets mit [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) bzw. [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) an. Diese Offsets beziehen sich jeweils auf die Diagrammbreite und -höhe.
+Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segments und passt seine horizontalen und vertikalen Versätze mit [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) und [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) an. Diese Versätze beziehen sich jeweils auf die Diagrammbreite bzw. -höhe.
 
 ```php
 use aspose\slides\Presentation;
@@ -359,17 +361,17 @@ try {
 }
 ```
 
-![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
+![Kreisdiagramm mit angepasster Datenbeschriftungsposition](pie-chart-adjusted-label.png)
 
-## **Führungsleitungen formatieren**
+## **Verbindungslinien formatieren**
 
-Wenn Kreisdiagrammbeschriftungen außerhalb ihrer Segmente platziert werden, helfen Führungslinien den Lesern, jeden Wert dem richtigen Segment zuzuordnen. Eine kontrastierende Farbe und eine leicht dickere Linie können diese Verbindungen leichter nachvollziehbar machen, während Transparenz und ein Strich‑Stil die Linien visuell unauffällig halten.
+Wenn Kreisdiagrammbeschriftungen außerhalb ihrer Segmente liegen, helfen Verbindungslinien den Lesern, jeden Wert dem richtigen Segment zuzuordnen. Eine kontrastierende Farbe und eine etwas dickere Linie können diese Verbindungen leichter nachvollziehbar machen, während Transparenz und ein gestrichelter Stil die Linien visuell unauffällig halten.
 
-Verwenden Sie [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/), um Führungslinien auf Ebene der Datenbeschriftungssammlung einer Serie zu formatieren. Die Einstellungen in `$series->getLabels()->getLeaderLinesFormat()->getLine()` gelten für die Sammlung, nicht für ein einzelnes Label.
+Verwenden Sie [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/), um Verbindungslinien auf Ebene der Datenbeschriftungssammlung einer Serie zu formatieren. Die Einstellungen in `$series->getLabels()->getLeaderLinesFormat()->getLine()` gelten für die Sammlung und nicht für eine einzelne Beschriftung.
 
-Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten, zeigt Werte außerhalb der Segmente an und aktiviert [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). Es verschiebt zwei Beschriftungen weiter von ihren Segmenten mittels [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) und [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/)-Offsets, ausgedrückt als Bruchteile der Diagrammbreite und -höhe. Eine Eingabepräsentation ist nicht erforderlich.
+Dieses Beispiel erstellt ein Kreisdiagramm mit Standarddaten, zeigt Werte außerhalb der Segmente an und aktiviert [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/). Es verschiebt zwei Beschriftungen weiter von ihren Segmenten weg, indem es [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) und [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) Versätze verwendet, ausgedrückt als Bruchteile der Diagrammbreite und -höhe. Keine Eingabepräsentation ist erforderlich.
 
-Der [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/)-Aufruf der Linie setzt eine feste blaue Farbe mit einem Alpha‑Wert von 191 von 255, was etwa 25 % Transparenz ergibt. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) legt die Dicke auf 2 Punkt fest, und [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) macht die Linie gestrichelt.
+Das [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) der Linie legt eine durchgehend blaue Farbe mit einem Alpha‑Wert von 191 von 255 fest, was etwa 25 % Transparenz ergibt. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) setzt die Dicke auf 2 Punkte, und [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) macht die Linie gestrichelt.
 
 ```php
 use aspose\slides\Presentation;
@@ -393,7 +395,7 @@ try {
     $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
     $labelFormat->setShowLeaderLines(true);
 
-    // Bewege zwei Beschriftungen weiter von ihren Segmenten entfernt.
+    // Verschieben Sie zwei Beschriftungen weiter von ihren Segmenten entfernt.
     $series->getLabels()->get_Item(0)->setX(0.10);
     $series->getLabels()->get_Item(0)->setY(-0.05);
     $series->getLabels()->get_Item(1)->setX(-0.10);
@@ -412,17 +414,17 @@ try {
 }
 ```
 
-Das Aktivieren von Führungslinien garantiert nicht, dass für jede Beschriftung eine Linie erscheint. Die Sichtbarkeit hängt von der Beschriftungsposition und dem Layoutverhalten des Diagramms ab. In diesem Beispiel haben die beiden versetzten Beschriftungen sichtbare Führungslinien; die Beschriftungen, die nahe an ihren Segmenten bleiben, benötigen keine.
+Das Aktivieren von Verbindungslinien garantiert nicht, dass für jede Beschriftung eine Linie erscheint. Die Sichtbarkeit hängt von der Platzierung der Beschriftung und dem Layoutverhalten des Diagramms ab. In diesem Beispiel haben die beiden versetzten Beschriftungen sichtbare Verbindungslinien; die Beschriftungen, die nahe ihren Segmenten bleiben, benötigen keine.
 
-Das folgende Bild zeigt die gespeicherte `FormattedLeaderLines.pptx`, gerendert mit Aspose.Slides:
+Das folgende Bild zeigt die gespeicherte `FormattedLeaderLines.pptx`, die mit Aspose.Slides gerendert wurde:
 
-![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
+![Kreisdiagramm mit blauen, halbtransparenten, gestrichelten Verbindungslinien, die zwei externe Beschriftungen mit ihren Segmenten verbinden](formatted-leader-lines.png)
 
 ## **Mehrere Zeilen von Datenbeschriftungen über einem Säulendiagramm hinzufügen**
 
-Dieses Beispiel erstellt ein Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Plot‑Bereich. Serie A zeigt die sichtbaren Säulen, während Serie B und Serie C die zusätzlichen Beschriftungen bereitstellen. Ihre Säulen werden ausgeblendet, indem Füllung und Kontur entfernt werden. Die Methode [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) richtet alle drei Serien an den gleichen Kategorienzentren aus.
+Dieses Beispiel erstellt ein Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Plot‑Bereich. Serie A zeigt die sichtbaren Spalten, während Serie B und Serie C die zusätzlichen Beschriftungen bereitstellen. Ihre Spalten werden ausgeblendet, indem Füllung und Kontur entfernt werden. Die Methode [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) richtet alle drei Serien an den gleichen Kategorienzentren aus.
 
-Die Einstellungen des [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) reservieren Platz für die Beschriftungszeilen. Nach der Berechnung der Standardpositionen durch [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) erhalten [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) und [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) die horizontale Ausrichtung und wenden vertikale Offsets an, um die Beschriftungen in zwei Zeilen anzuordnen. Die Zahlen bleiben Datenbeschriftungen, die mit den Serienwerten verknüpft sind; nur die Zeilenüberschriften sind separate Textformen.
+Die Einstellungen des [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) reservieren Platz für die Beschriftungszeilen. Nachdem [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) die Standardpositionen berechnet hat, bewahren [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) und [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) die horizontale Ausrichtung und wenden vertikale Versätze an, um die Beschriftungen in zwei Zeilen anzuordnen. Die Zahlen bleiben Datenbeschriftungen, die mit den Serienwerten verknüpft sind; nur die Zeilenüberschriften sind separate Textformen.
 
 ```php
 use aspose\slides\Presentation;
@@ -486,14 +488,14 @@ try {
         }
     }
 
-    // Richte alle drei Serien an denselben Kategorienzentren aus.
+    // Alle drei Serien an den gleichen Kategorienzentren ausrichten.
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
-    // Verwende weniger Gitterlinien für dieses kompakte Beispiel.
+    // Weniger Gitternetzlinien für dieses kompakte Beispiel verwenden.
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // Reserviere Platz über dem Plot für zwei Zeilen von Datenbeschriftungen.
+    // Platz über dem Diagrammbereich für zwei Zeilen Datenbeschriftungen reservieren.
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -510,8 +512,8 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // Behalte die Standard‑Horizontale‑Position bei. Y ist ein Versatz von
-            // der Standard‑Beschriftungsposition, ausgedrückt als Bruchteil der Diagrammhöhe.
+            // Behalte die Standard‑Horizontposition bei. Y ist ein Versatz von der
+            // Standard‑Beschriftungsposition, ausgedrückt als Bruchteil der Diagrammhöhe.
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
@@ -536,18 +538,19 @@ try {
 }
 ```
 
-![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
+![Säulendiagramm mit zwei Zeilen von Datenbeschriftungen über dem Plot‑Bereich](multiple-rows-of-labels.png)
+
 
 ## **FAQ**
 
-**Wie kann ich verhindern, dass Datenbeschriftungen bei dichten Diagrammen überlappen?**
+**Wie kann ich verhindern, dass Datenbeschriftungen in dichten Diagrammen überlappen?**
 
-Kombinieren Sie automatische Beschriftungsplatzierung, Führungslinien und reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für Extremwerte bzw. Schlüssel‑punkte anzeigen.
+Kombinieren Sie automatische Beschriftungsplatzierung, Verbindungslinien und reduzierte Schriftgröße; bei Bedarf Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für Extremwerte bzw. Schlüsselpunkte anzeigen.
 
-**Wie kann ich Beschriftungen nur für Null‑, negative‑ oder leere Werte deaktivieren?**
+**Wie kann ich Beschriftungen nur für Null-, Negative‑ oder Leere‑Werte deaktivieren?**
 
 Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
 
-**Wie kann ich einen konsistenten Beschriftungsstil beim Export in PDF/Bilder sicherstellen?**
+**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
 
-Setzen Sie explizit Schriftfamilie und Größe und vergewissern Sie sich, dass die Schrift im Rendering‑Umfeld verfügbar ist, um Fallbacks zu vermeiden.
+Setzen Sie explizit die Schriftfamilie und -größe und stellen Sie sicher, dass die Schrift im Rendering‑Umfeld verfügbar ist, um ein Zurückgreifen auf Ersatzschriften zu vermeiden.

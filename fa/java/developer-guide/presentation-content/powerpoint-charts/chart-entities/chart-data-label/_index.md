@@ -4,25 +4,25 @@ linktitle: برچسب داده
 type: docs
 url: /fa/java/chart-data-label/
 keywords:
-- نمودار
-- برچسب داده
-- دقت داده
-- درصد
-- فاصله برچسب
-- موقعیت برچسب
-- پاورپوینت
-- ارائه
-- جاوا
-- Aspose.Slides
-description: "یاد بگیرید چگونه برچسب‌های دادهٔ نمودار را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای جاوا اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
+  - نمودار
+  - برچسب داده
+  - دقت داده
+  - درصد
+  - فاصله برچسب
+  - موقعیت برچسب
+  - پاورپوینت
+  - ارائه
+  - جاوا
+  - Aspose.Slides
+description: "یادگیری افزودن و قالب‌بندی برچسب‌های دادهٔ نمودار در ارائه‌های پاورپوینت با استفاده از Aspose.Slides برای جاوا برای اسلایدهای جذاب‌تر."
 ---
 ## **مقدمه**
 
-برچسب‌های داده اطلاعاتی دربارهٔ سری‌های نمودار و نقاط دادهٔ فردی را نمایش می‌دهند و به خوانندگان کمک می‌کنند تا مقادیر را شناسایی کرده و نمودار را درک کنند. این مقاله نحوهٔ قالب‌بندی مقادیر، نمایش درصدها، خواندن متن برچسب، کنترل برچسب‌ها فراتر از حداکثر محور، تنظیم فاصلهٔ برچسب محور دسته‌بندی و موقعیت‌دهی به برچسب‌های نمودار دایره‌ای را توضیح می‌دهد.
+برچسب‌های داده اطلاعاتی دربارهٔ مجموعه‌های نمودار و نقاط دادهٔ منفرد را نمایش می‌دهند و به خوانندگان کمک می‌کنند مقادیر را شناسایی و نمودار را درک کنند. این مقاله توضیح می‌دهد چگونه مقادیر را قالب‌بندی کنید، درصدها را به‌صورت برچسب نمایش دهید، متن برچسب را بخوانید، برچسب‌ها را فراتر از حداکثر محور کنترل کنید، فاصلهٔ برچسب محور دسته‌بندی را تنظیم کنید و برچسب‌های نمودار دایره‌ای را موقعیت‌دهی کنید.
 
-## **تنظیم دقت عددی در برچسب‌های دادهٔ نمودار**
+## **تنظیم دقت داده در برچسب‌های دادهٔ نمودار**
 
-از [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) برای قالب‌بندی مقادیر سری‌ها استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول دادهٔ آن را نمایش می‌دهد و برچسب‌های مقداری را برای اولین سری فعال می‌سازد. قالب `#,##0.00` جداکنندهٔ هزارگان و دو رقم اعشار را بدون تغییر مقادیر پایه نشان می‌دهد.
+از [setNumberFormatOfValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) برای قالب‌بندی مقادیر مجموعه استفاده کنید. این مثال یک نمودار خطی با دادهٔ پیش‌فرض ایجاد می‌کند، جدول دادهٔ آن را نمایش می‌دهد و برچسب‌های مقدار را برای مجموعهٔ اول فعال می‌سازد. قالب `#,##0.00` یک جداکنندهٔ هزارگان و دو رقم اعشار را بدون تغییر مقادیر پایه نمایش می‌دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -44,9 +44,11 @@ try {
 }
 ```
 
-## **نمایش درصد به‌عنوان برچسب‌ها**
+برای قالب‌بندی سلول‌های عددی در کتاب‌کار جاسازی‌شدهٔ یک نمودار، به [Set Custom Number Formats for Workbook Cells](/slides/fa/java/chart-workbook/#set-custom-number-formats-for-workbook-cells) مراجعه کنید. آن مثال همچنین نشان می‌دهد که برچسب‌های مقدار فرمت سلول منبع خود را دنبال می‌کنند در حالی که مقادیر عددی ذخیره‌شده حفظ می‌شوند.
 
-برای یک نمودار ستونی انباشته، هر مقدار را به‌عنوان درصدی از مجموع دستهٔ خود محاسبه کنید و متن را به قاب متنی که توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) برگردانده می‌شود اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم 8 نقطه‌ای نشان می‌دهد. دسته‌هایی که مجموعشان صفر است برای جلوگیری از تقسیم بر صفر نادیده گرفته می‌شوند. اگر داده‌های نمودار تغییر کند، متن برچسب سفارشی را دوباره محاسبه کنید.
+## **نمایش درصد به‌عنوان برچسب**
+
+برای یک نمودار ستونی انباشته، هر مقدار را به‌عنوان درصدی از مجموع دسته خود محاسبه کنید و متن را به فریم متنی که توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) برگردانده می‌شود، اختصاص دهید. این مثال از دادهٔ پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم ۸ پوینت نمایش می‌دهد. دسته‌هایی که مجموعشان صفر است برای جلوگیری از تقسیم بر صفر رد می‌شوند. اگر دادهٔ نمودار تغییر کند متن برچسب سفارشی را مجدداً محاسبه کنید.
 
 ```java
 import com.aspose.slides.*;
@@ -105,9 +107,9 @@ try {
 
 ## **تنظیم علامت درصد با برچسب‌های دادهٔ نمودار**
 
-زمانی که مقادیر به‌صورت کسر ذخیره می‌شوند، برای نمایش درصدها از [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) استفاده کنید. برای اعمال قالب برچسب مستقل از سلول‌های منبع، مقدار `false` را به [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) پاس دهید.
+زمانی که مقادیر به صورت کسر ذخیره می‌شوند، از [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) برای نمایش درصدها استفاده کنید. برای اعمال قالب برچسب مستقل از سلول‌های منبع، `false` را به [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) پاس دهید.
 
-این مثال یک نمودار ستونی 100٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار به‌همین ترتیب به 1 می‌رسند. قالب برچسب `0.0%` مقدار 0.30 را به‌صورت 30.0٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید با اندازهٔ 10 نقطه استفاده می‌کنند.
+این مثال یک نمودار ستونی ۱۰۰٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار به ۱ می‌رسد. قالب برچسب `0.0%` مقدار ۰٫۳۰ را به‌صورت ۳۰٫۰٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید ۱۰ پوینت استفاده می‌کنند.
 
 ```java
 import com.aspose.slides.*;
@@ -164,7 +166,7 @@ try {
 
 ## **خواندن متن واقعی برچسب‌های داده**
 
-از [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) برای دریافت متنی که توسط تنظیمات برچسب داده تولید شده است، استفاده کنید. این کار هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجو در محتوای ارائه یا اعتبارسنجی نمودارهای تولیدشده مفید است. در مثال زیر، قالب پیش‌فرض [data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) نام هر دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به‌صورت درصد قالب‌بندی می‌کند و دیگری از متن سفارشی که توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) برگردانده می‌شود، استفاده می‌کند.
+از [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) برای دریافت متنی که توسط تنظیمات برچسب داده تولید می‌شود استفاده کنید. این هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجو در محتوای ارائه یا اعتبارسنجی نمودارهای تولیدشده مفید است. در مثال زیر، قالب پیش‌فرض [data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) هر نام دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به‌صورت درصد قالب‌بندی می‌کند و نقطهٔ دیگر متن سفارشی را از [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) دریافت می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -224,15 +226,15 @@ try {
 }
 ```
 
-عدد ذخیره‌شده در یک نقطهٔ داده همچنان `0.75` می‌ماند، حتی وقتی برچسب آن `75%` را همراه با نام‌های دسته و سری نشان می‌دهد. متن سفارشی متن تولیدی برچسب را جایگزین می‌کند. [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) در هر دو حالت رشتهٔ برچسب نهایی را برمی‌گرداند. برای استخراج فقط برچسب‌های قابل مشاهده، همان‌طور که در بالا نشان داده شد، به‌صورت جداگانه به [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) نگاه کنید.
+عدد ذخیره‌شده در یک نقطهٔ داده به‌صورت `0.75` باقی می‌ماند، حتی زمانی که برچسب آن `75%` به‌همراه نام‌های دسته و سری نشان می‌دهد. متن سفارشی متن برچسب تولیدشده را جایگزین می‌کند. [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) در هر دو حالت رشتهٔ برچسب نهایی را برمی‌گرداند. همان‌طور که در بالا نشان داده شد، برای استخراج فقط برچسب‌های قابل مشاهده، به‌طور جداگانه [isVisible](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#isVisible--) را بررسی کنید.
 
 ## **کنترل برچسب‌های داده فراتر از حداکثر محور**
 
-زمانی که بازهٔ محور را به‌صورت دستی محدود می‌کنید، ممکن است برخی نقاط داده از حداکثر آن فراتر روند. برای کنترل نمایش یا عدم نمایش برچسب‌های دادهٔ آنها از [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) استفاده کنید. این تنظیم فقط قابلیت مشاهده برچسب را تغییر می‌دهد؛ بازهٔ محور یا مقادیر پایه داده را تغییر نمی‌دهد.
+زمانی که بازهٔ محور را به‌صورت دستی محدود می‌کنید، ممکن است برخی نقاط داده از حداکثر آن فراتر روند. از [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) برای کنترل نمایش یا عدم نمایش برچسب‌های دادهٔ آنها استفاده کنید. این تنظیم فقط نمایش برچسب را تغییر می‌دهد؛ بازهٔ محور یا مقادیر دادهٔ پایه را تغییر نمی‌دهد.
 
-مثال زیر یک نمودار ستونی خوشه‌ای دو‌بعدی با مقادیر 60 و 120 ایجاد می‌کند. مقدار `false` به [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) پاس می‌دهد و حداکثر را به 100 تنظیم می‌کند با استفاده از [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) بر روی محور عمودی. اسلاید اول اجازه نشان دادن برچسب‌ها فراتر از حداکثر را می‌دهد؛ یک کپی از آن اسلاید این ویژگی را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
+مثال زیر یک نمودار ستونی خوشه‌ای ۲D با مقادیر ۶۰ و ۱۲۰ ایجاد می‌کند. `false` به [setAutomaticMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) منتقل می‌شود و حداکثر به ۱۰۰ با [setMaxValue](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setMaxValue-double-) بر روی محور عمودی تنظیم می‌شود. اسلاید اول اجازه می‌دهد برچسب‌ها فراتر از حداکثر باشند؛ یک نسخهٔ دیگر آن اسلاید این گزینه را غیرفعال می‌کند. هر دو اسلاید در `DataLabelsOverMaximum.pptx` ذخیره می‌شوند.
 
-برچسب‌های مقدار را با [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) فعال کنید. تنظیم سطح نمودار به‌تنهایی نمایش مقدار را فعال نمی‌کند و همچنین نمایش مقدار غیرفعال شدهٔ یک برچسب خاص را پوشش نمی‌دهد. این مثال مقادیر را برای تمام سری فعال می‌کند و با [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) برچسب‌ها را در انتهای بیرونی هر ستون قرار می‌دهد.
+برچسب‌های مقدار را با [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) فعال کنید. این تنظیم سطح نمودار به‌تنهایی مقدار را نشان نمی‌دهد و باز هم نمی‌تواند نمایش مقدار غیرفعال‌شدهٔ یک برچسب منفرد را نادیده بگیرد. این مثال مقدارها را برای تمام مجموعه فعال می‌کند و با [setPosition](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setPosition-int-) برچسب‌ها را در انتهای بیرونی هر ستون قرار می‌دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -281,19 +283,21 @@ try {
 }
 ```
 
-تصاویر زیر اسلایدهای ذخیره‌شده را که توسط Microsoft PowerPoint رندر شده‌اند نشان می‌دهند. با `true`، برچسب **120** در مرز بالایی قابل مشاهده است؛ با `false`، مخفی می‌شود. برچسب **60** همچنان قابل مشاهده است، حداکثر محور در **100** می‌ماند و نقطهٔ دادهٔ دوم در هر دو حالت **120** می‌ماند.
+تصاویر زیر اسلایدهای ذخیره‌شده را که توسط Microsoft PowerPoint رندر شده‌اند نشان می‌دهند. با `true`، برچسب **120** در مرز بالایی قابل مشاهده است؛ با `false` مخفی می‌شود. برچسب **60** همچنان قابل مشاهده است، حداکثر محور در **100** باقی می‌ماند و نقطهٔ دادهٔ دوم در هر دو حالت **120** است.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
 | ![نمودار PowerPoint که برچسب مقدار 120 را با حداکثر محور 100 نشان می‌دهد](data-labels-over-maximum-true.png) | ![نمودار PowerPoint که برچسب مقدار 120 را با حداکثر محور 100 مخفی می‌کند](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-این مثال از یک نمودار ستونی دو‌بعدی با محور مقدار استفاده می‌کند. نمودارهایی که محور مقدار ندارند، مانند نمودارهای دایره‌ای و دونات، حداکثر محور برای محدودسازی ندارند.
+
+این مثال از یک نمودار ستونی ۲D با محور مقدار استفاده می‌کند. نمودارهایی بدون محور مقدار، مانند نمودارهای دایره‌ای و دونات، حداکثر محوری برای محدود کردن به این شکل ندارند.
+
 {{% /alert %}}
 
-## **تنظیم فاصلهٔ برچسب از محور**
+## **تنظیم فاصله برچسب از محور**
 
-از [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) برای کنترل فاصلهٔ بین برچسب‌های محور دسته‌بندی و خود محور استفاده کنید. مقدار، درصدی از حداکثر اندازهٔ قلم برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و فاصلهٔ برچسب محور افقی را به 500 تنظیم می‌کند. این تنظیم برچسب‌های محور دسته‌بندی را تحت تأثیر قرار می‌دهد نه برچسب‌های متصل به نقاط دادهٔ فردی.
+از [setLabelOffset](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setLabelOffset-int-) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و محور استفاده کنید. مقدار بر حسب درصد از بیشینهٔ اندازهٔ قلم برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و فاصلهٔ برچسب محور افقی را برابر ۵۰۰ تنظیم می‌کند. این تنظیم برچسب‌های محور دسته‌بندی را تحت تأثیر قرار می‌دهد نه برچسب‌های متصل به نقاط دادهٔ منفرد.
 
 ```java
 import com.aspose.slides.*;
@@ -311,11 +315,11 @@ try {
 }
 ```
 
-## **تنظیم مکان برچسب**
+## **تنظیم موقعیت برچسب**
 
-در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را برای بهبود فاصله و ایجاد فضای کافی برای خطوط راهنما تنظیم کنید.
+در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را برای بهبود فاصله و گذاشتن فضا برای خطوط راهنما تنظیم کنید.
 
-این مثال مقدار اولین نقطه داده را نشان می‌دهد، برچسب آن را بیرون از برش قرار می‌دهد و افست‌های افقی و عمودی آن را با استفاده از [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) و [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) تنظیم می‌کند. این افست‌ها به‌صورت نسبی به عرض و ارتفاع نمودار هستند.
+این مثال مقدار اولین نقطهٔ داده را نمایش می‌دهد، برچسب آن را خارج از قطعه قرار می‌دهد و افست‌های افقی و عمودی آن را با استفاده از [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) و [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) تنظیم می‌کند. این افست‌ها به‌صورت نسبی به عرض و ارتفاع نمودار هستند.
 
 ```java
 import com.aspose.slides.*;
@@ -343,13 +347,13 @@ try {
 
 ## **قالب‌بندی خطوط راهنما**
 
-زمانی که برچسب‌های نمودار دایره‌ای بیرون از برش‌ها قرار می‌گیرند، خطوط راهنما به خوانندگان کمک می‌کند تا هر مقدار را به برش صحیح مرتبط کنند. استفاده از رنگ متقابل و خطی کمی ضخیم‌تر می‌تواند این ارتباطات را واضح‌تر کند، در حالی که شفافیت و سبک خط چین خطوط را به‌صورت بصری کم‌رنگ نگه می‌دارد.
+هنگامی که برچسب‌های نمودار دایره‌ای خارج از قطعات قرار می‌گیرند، خطوط راهنما به خوانندگان کمک می‌کند تا هر مقدار را با قطعهٔ مربوطه مطابقت دهند. رنگی متضاد و خطی کمی ضخیم‌تر می‌تواند این اتصال‌ها را پیگیری‌پذیرتر کند، در حالی که شفافیت و سبک خط‌چین خطوط را به‌صورت ظاهری کم‌تداخل نگه می‌دارد.
 
-از [getLeaderLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) برای قالب‌بندی خطوط راهنما در سطح مجموعهٔ برچسب‌های دادهٔ سری استفاده کنید. تنظیمات موجود در `series.getLabels().getLeaderLinesFormat().getLine()` بر روی کل مجموعه اعمال می‌شوند، نه بر روی برچسب منفرد.
+از [getLeaderLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) برای قالب‌بندی خطوط راهنما در سطح مجموعهٔ برچسب‌های دادهٔ سری استفاده کنید. تنظیمات موجود در `series.getLabels().getLeaderLinesFormat().getLine()` به کل مجموعه اعمال می‌شود، نه به برچسب منفرد.
 
-این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند، مقادیر را بیرون از برش‌ها نمایش می‌دهد و [setShowLeaderLines](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-) را فعال می‌کند. دو برچسب با استفاده از افست‌های [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) و [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) از برش‌های خود دورتر جابجا می‌شوند؛ این افست‌ها به‌عنوان کسرهایی از عرض و ارتفاع نمودار بیان می‌شوند. برای این مثال نیازی به ارائهٔ ورودی نیست.
+این مثال یک نمودار دایره‌ای با دادهٔ پیش‌فرض ایجاد می‌کند، مقادیر را خارج از قطعات نشان می‌دهد و با [setShowLeaderLines](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-) خطوط راهنما را فعال می‌کند. دو برچسب با استفاده از افست‌های [setX](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setX-float-) و [setY](https://reference.aspose.com/slides/java/com.aspose.slides/ilayoutable/#setY-float-) دورتر از قطعاتشان جابه‌جا می‌شوند؛ این افست‌ها به‌صورت کسری از عرض و ارتفاع نمودار بیان می‌شوند. ارائه ورودی موردنیاز نیست.
 
-متد [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) خط را با رنگ آبی ثابت و مقدار آلفای 191 از 255 (حدود 25٪ شفافیت) تنظیم می‌کند. [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) ضخامت را به 2 پوینت تنظیم می‌کند و [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) خط را به حالت خط چین در می‌آورد.
+متد [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) خط را به رنگ آبی مایل به شفاف با مقدار آلفای ۱۹۱ از ۲۵۵ تنظیم می‌کند که تقریباً ۲۵٪ شفافیت می‌دهد. [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) ضخامت را به ۲ پوینت تنظیم می‌کند و [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) خط را خط‌چین می‌سازد.
 
 ```java
 import com.aspose.slides.*;
@@ -369,7 +373,7 @@ try {
     labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // دو برچسب را دورتر از برش‌هایشان جابه‌جا کنید.
+    // دو برچسب را از قطعاتشان دورتر جابجا کنید.
     series.getLabels().get_Item(0).setX(0.10f);
     series.getLabels().get_Item(0).setY(-0.05f);
     series.getLabels().get_Item(1).setX(-0.10f);
@@ -387,17 +391,17 @@ try {
 }
 ```
 
-فعال‌سازی خطوط راهنما تضمین نمی‌کند که برای هر برچسب خطی ظاهر شود. قابلیت دیدن به موقعیت برچسب و رفتار چینش نمودار بستگی دارد. در این مثال، دو برچسب جابجا شده خطوط راهنمای قابل مشاهده دارند؛ برچسب‌هایی که نزدیک به برش‌های خود می‌مانند به خطوط نیاز ندارند.
+فعال کردن خطوط راهنما تضمین نمی‌کند که برای هر برچسب یک خط ظاهر شود. قابلیت مشاهده به موقعیت برچسب و رفتار چیدمان نمودار بستگی دارد. در این مثال، دو برچسب جابجا شده خطوط راهنمای قابل مشاهده دارند؛ برچسب‌هایی که نزدیک به قطعاتشان می‌مانند به آنها نیازی ندارند.
 
-تصویر زیر `FormattedLeaderLines.pptx` ذخیره‌شده را که توسط Aspose.Slides رندر شده نشان می‌دهد:
+تصویر زیر فایل `FormattedLeaderLines.pptx` ذخیره‌شده را که با Aspose.Slides رندر شده نشان می‌دهد:
 
-![نمودار دایره‌ای با خطوط راهنمای آبی، نیمه‌شفاف و خط‌چین که دو برچسب بیرونی را به برش‌های خود متصل می‌کند](formatted-leader-lines.png)
+![نمودار دایره‌ای با خطوط راهنمای آبی، نیمه‌شفاف و خط‌چین که دو برچسب خارجی را به قطعاتشان متصل می‌کند](formatted-leader-lines.png)
 
-## **افزودن چند ردیف برچسب داده بالای یک نمودار ستونی**
+## **افزودن چند ردیف برچسب داده بالای نمودار ستونی**
 
-این مثال یک نمودار ستونی با دو ردیف برچسب داده بالای ناحیهٔ نمودار ایجاد می‌کند. سری A ستون‌های قابل مشاهده را نشان می‌دهد، در حالی که سری‌های B و C برچسب‌های اضافی را فراهم می‌کنند. ستون‌های آنها با حذف پر و حاشیه مخفی می‌شوند. متد [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) همهٔ سه سری را با مراکز دسته‌ای یکسان هماهنگ می‌کند.
+این مثال یک نمودار ستونی با دو ردیف برچسب داده بالای ناحیهٔ نمودار ایجاد می‌کند. سری A ستون‌های قابل مشاهده را نشان می‌دهد، در حالی که سری‌های B و C برچسب‌های اضافی را فراهم می‌کنند. ستون‌های آنها با حذف پر و خط پیرامونی مخفی می‌شوند. روش [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/chartseriesgroup/) تمام سه سری را با مراکز دستهٔ یکسان تراز می‌کند.
 
-تنظیمات [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) فضای لازم برای ردیف‌های برچسب را رزرو می‌کند. پس از محاسبهٔ موقعیت‌های پیش‌فرض توسط [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/)، متدهای [DataLabel.setX and DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) تراز افقی را حفظ کرده و افست‌های عمودی را اعمال می‌کنند تا برچسب‌ها در دو ردیف تنظیم شوند. اعداد همچنان برچسب‌های دادهٔ مرتبط با مقادیر سری‌ها هستند؛ تنها سرصفحه‌های ردیف به‌صورت شکل‌های متنی جداگانه‌اند.
+تنظیمات [ChartPlotArea](https://reference.aspose.com/slides/java/com.aspose.slides/chartplotarea/) فضای لازم برای ردیف‌های برچسب را رزرو می‌کند. پس از اینکه [Chart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/chart/) موقعیت پیش‌فرض‌ها را محاسبه کرد، [DataLabel.setX and DataLabel.setY](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/) تراز افقی را حفظ کرده و افست‌های عمودی را برای چینش برچسب‌ها در دو ردیف اعمال می‌کند. اعداد همچنان برچسب‌های دادهٔ مرتبط با مقادیر سری هستند؛ فقط سرصفحه‌های ردیف به‌صورت اشکال متنی جداگانه‌اند.
 
 ```java
 Presentation presentation = new Presentation();
@@ -440,7 +444,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // ستون‌های B و C را مخفی کنید، اما برچسب‌های دادهٔ آنها را حفظ کنید.
+            // ستون‌های B و C را مخفی کنید، اما برچسب‌های دادهٔ آنها را نگه دارید.
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -455,15 +459,15 @@ try {
         }
     }
 
-    // تمام سه سری را با مراکز دسته‌ای یکسان هم‌راستا کنید.
+    // تمامی سه مجموعه را با مراکز دستهٔ یکسان تراز کنید.
     chart.getChartData().getSeries().get_Item(0)
             .getParentSeriesGroup().setOverlap((byte) 100);
 
-    // برای این مثال فشرده از خطوط شبکه کمتر استفاده کنید.
+    // در این مثال فشرده از خطوط شبکهٔ کمتری استفاده کنید.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // فضایی بالای نمودار رزرو کنید برای دو ردیف برچسب داده.
+    // فضای لازم در بالای ناحیهٔ نمودار را برای دو ردیف برچسب داده اختصاص دهید.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -477,13 +481,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // موقعیت افقی پیش‌فرض را حفظ کنید. Y یک جابجا از
-            // موقعیت پیش‌فرض برچسب، به‌صورت کسر ارتفاع نمودار بیان شده است.
+            // موقعیت افقی پیش‌فرض را حفظ کنید. Y یک افست از
+            // موقعیت پیش‌فرض برچسب است که به‌صورت کسری از ارتفاع نمودار بیان می‌شود.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // فقط عنوان ردیف یک شکل متنی جداگانه است.
+        // فقط سرعنوان ردیف یک شکل متنی جداگانه است.
         IAutoShape rowHeading = slide.getShapes().addAutoShape(
                 ShapeType.Rectangle, chart.getX(),
                 chart.getY() + rowTop * chart.getHeight(), 85, 18);
@@ -509,14 +513,14 @@ try {
 
 ## **سوالات متداول**
 
-**چگونه می‌توان از هم‌پوشانی برچسب‌های داده در نمودارهای پرجمعیت جلوگیری کرد؟**
+**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای متراکم جلوگیری کنم؟**
 
-از ترکیب قراردهی خودکار برچسب، خطوط راهنما و کاهش اندازهٔ قلم استفاده کنید؛ در صورت نیاز برخی فیلدها (مثلاً دسته) را مخفی کنید یا فقط برچسب‌های مقادیر نهایی یا نقاط کلیدی را نشان دهید.
+از قرار دادن خودکار برچسب، خطوط راهنما و کاهش اندازهٔ قلم ترکیب کنید؛ در صورت نیاز برخی فیلدها (مثلاً دسته) را مخفی کنید یا فقط برچسب‌های مقادیر انتها یا نقاط کلیدی را نمایش دهید.
 
-**چگونه می‌توان برچسب‌ها را تنها برای مقادیر صفر، منفی یا خالی غیرفعال کرد؟**
+**چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
 
-پیش از فعال‌سازی برچسب‌ها، نقاط داده را فیلتر کنید و نمایش مقادیر 0، مقادیر منفی یا مقادیر گمشده را بر اساس قوانین تعریف‌شده غیرفعال کنید.
+قبل از فعال‌سازی برچسب‌ها نقاط داده را فیلتر کنید و نمایش را برای مقادیر ۰، مقادیر منفی یا مقادیر گمشده بر اساس قانونی تعریف‌شده غیرفعال کنید.
 
-**چگونه می‌توان اطمینان حاصل کرد که سبک برچسب به‌صورت یکنواخت هنگام خروجی به PDF/تصاویر حفظ می‌شود؟**
+**چگونه می‌توانم سبک برچسب را به‌صورت یکسان هنگام صادرات به PDF/تصاویر حفظ کنم؟**
 
-قابلوتاً خانواده و اندازهٔ قلم را تنظیم کنید و اطمینان حاصل کنید که قلم در محیط رندر موجود است تا از استفادهٔ جایگزین جلوگیری شود.
+قابلاً قلم و اندازه را به‌طور صریح تنظیم کنید و اطمینان حاصل کنید که قلم در محیط رندر موجود است تا از استفاده از قلم جایگزین جلوگیری شود.

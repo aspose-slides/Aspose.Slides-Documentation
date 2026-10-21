@@ -1,6 +1,6 @@
 ---
 title: Διαχείριση ετικετών δεδομένων διαγράμματος σε παρουσιάσεις στο .NET
-linktitle: Ετικέτα δεδομένων
+linktitle: Ετικέτα Δεδομένων
 type: docs
 url: /el/net/chart-data-label/
 keywords:
@@ -15,15 +15,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγραμμάτων σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για .NET, ώστε οι διαφάνειες να είναι πιο ελκυστικές."
+description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγραμμάτων σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για .NET, ώστε οι διαφάνειες να γίνονται πιο ελκυστικές."
 ---
 ## **Εισαγωγή**
 
-Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές διαγραμμάτων και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να ταυτοποιήσουν τις τιμές και να κατανοήσουν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε τις τιμές, να εμφανίσετε τα ποσοστά, να διαβάσετε το κείμενο της ετικέτας, να ελέγξετε τις ετικέτες πέρα από το μέγιστο του άξονα, να προσαρμόσετε την απόσταση των ετικετών του άξονα κατηγορίας και να τοποθετήσετε τις ετικέτες του κυκλικού διαγράμματος.
+Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές του διαγράμματος και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να αναγνωρίζουν τις τιμές και να κατανοούν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε τις τιμές, να εμφανίζετε τα ποσοστά, να διαβάζετε το κείμενο των ετικετών, να ελέγχετε τις ετικέτες πέρα από το μέγιστο του άξονα, να ρυθμίζετε την απόσταση των ετικετών του άξονα κατηγορίας και να τοποθετείτε τις ετικέτες σε διάγραμμα πίτας.
 
 ## **Ορισμός ακρίβειας δεδομένων στις ετικέτες δεδομένων του διαγράμματος**
 
-Χρησιμοποιήστε [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα γράφημα γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
+Χρησιμοποιήστε [NumberFormatOfValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/numberformatofvalues/) για να μορφοποιήσετε τις τιμές της σειράς. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
 
 ```csharp
 using Aspose.Slides;
@@ -43,9 +43,11 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
+Για να μορφοποιήσετε τα αριθμητικά κελιά σε ενσωματωμένο βιβλίο εργασίας ενός διαγράμματος, δείτε [Set Custom Number Formats for Workbook Cells](/slides/el/net/chart-workbook/#set-custom-number-formats-for-workbook-cells). Αυτό το παράδειγμα δείχνει επίσης τις ετικέτες τιμών να ακολουθούν τις μορφές των κελιά τους ενώ διατηρούν τις αποθηκευμένες αριθμητικές τιμές.
+
 ## **Εμφάνιση ποσοστού ως ετικέτες**
 
-Για ένα στοίβαγμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού ποσού της κατηγορίας της και αναθέστε το κείμενο στο [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με συνολικό μηδέν παραλείπονται για να αποφευχθεί διαίρεση με το μηδέν. Υπολογίστε ξανά το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
+Για ένα στοίβαγμα στηλών, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού της κατηγορίας και εκχωρήστε το κείμενο στο [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα του διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Κατηγορίες με συνολικό μηδέν παραλείπονται για να αποφευχθεί διαίρεση με το μηδέν. Υπολογίστε ξανά το προσαρμοσμένο κείμενο ετικέτας εάν αλλάξουν τα δεδομένα του διαγράμματος.
 
 ```csharp
 using System;
@@ -106,11 +108,11 @@ for (int x = 0; x < chart.ChartData.Series.Count; x++)
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Ορισμός συμβόλου ποσοστού με ετικέτες δεδομένων διαγράμματος**
+## **Ορισμός του συμβόλου ποσοστού με τις ετικέτες δεδομένων του διαγράμματος**
 
-Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) για να εμφανίσετε τα ποσοστά. Ορίστε το [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) σε `false` ώστε η μορφή της ετικέτας να εφαρμοστεί ανεξάρτητα από τα κελιά προέλευσης.
+Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε το [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) για να εμφανίσετε ποσοστά. Ορίστε το [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) σε `false` ώστε η μορφοποίηση της ετικέτας να εφαρμοστεί ανεξάρτητα από τα κελιά προέλευσης.
 
-Αυτό το παράδειγμα δημιουργεί ένα στοίβαγμα στήλης 100% με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζει στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κάθετος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στοίβαξης στηλών 100% με κόκκινη και μπλε σειρά σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζεται σε 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
 
 ```csharp
 using System.Drawing;
@@ -168,7 +170,7 @@ presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 
 ## **Ανάγνωση του πραγματικού κειμένου των ετικετών δεδομένων**
 
-Χρησιμοποιήστε το [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) για να ανακτήσετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επικυρώνετε τα παραγόμενα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [μορφή ετικέτας δεδομένων](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, ενώ ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από το [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+Χρησιμοποιήστε το [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) για να ανακτήσετε το κείμενο που δημιουργείται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επαληθεύετε παραγόμενα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [μορφή ετικέτας δεδομένων](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, και ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από το [TextFrameForOverriding](https://reference.aspose.com/slides/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
 ```csharp
 using System;
@@ -222,15 +224,15 @@ foreach (var series in chart.ChartData.Series)
 }
 ```
 
-Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα κατηγορίας και σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) επιστρέφει τη σειρά ετικέτας που προέκυψε σε κάθε περίπτωση. Ελέγξτε το [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
+Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμα και όταν η ετικέτα του δείχνει `75%` μαζί με τα ονόματα της κατηγορίας και της σειράς. Προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [GetActualLabelText](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/getactuallabeltext/) επιστρέφει το τελικό κείμενο ετικέτας σε κάθε περίπτωση. Ελέγξτε το [IsVisible](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabel/isvisible/) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο ορατές ετικέτες.
 
 ## **Έλεγχος ετικετών δεδομένων πέρα από το μέγιστο του άξονα**
 
-Όταν περιορίζετε το εύρος ενός άξονα χειροκίνητα, ορισμένα σημεία δεδομένων μπορεί να υπερβούν το μέγιστό του. Χρησιμοποιήστε το [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) για να ελέγξετε εάν οι ετικέτες δεδομένων τους εμφανίζονται. Αυτή η ρύθμιση αλλάζει την ορατότητα της ετικέτας· δεν αλλάζει το εύρος του άξονα ή τις υποκείμενες τιμές δεδομένων.
+Όταν περιορίζετε το εύρος ενός άξονα χειροκίνητα, ορισμένα σημεία δεδομένων ενδέχεται να υπερβούν το μέγιστο. Χρησιμοποιήστε το [ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/showdatalabelsovermaximum/) για να ελέγξετε εάν οι ετικέτες δεδομένων τους εμφανίζονται. Αυτή η ρύθμιση αλλάζει την ορατότητα των ετικετών· δεν αλλάζει το εύρος του άξονα ή τις υποκείμενες τιμές δεδομένων.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα 2Δ σύμπλεχτο γράφημα στήλης με τιμές 60 και 120. Ορίζει το [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) σε `false` και το [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) σε 100 στον κάθετο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο αυτής της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο αρχείο `DataLabelsOverMaximum.pptx`.
+Το παρακάτω παράδειγμα δημιουργεί ένα 2Δ στήλης ομαδοποιημένο διάγραμμα με τιμές 60 και 120. Ορίζει το [IsAutomaticMaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticmaxvalue/) σε `false` και το [MaxValue](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/maxvalue/) σε 100 στον κατακόρυφο άξονα. Η πρώτη διαφάνεια επιτρέπει ετικέτες πέρα από το μέγιστο· ένα αντίγραφο της διαφάνειας τις απενεργοποιεί. Και οι δύο διαφάνειες αποθηκεύονται στο `DataLabelsOverMaximum.pptx`.
 
-Ενεργοποιήστε τις ετικέτες τιμών με το [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Η ρύθμιση επιπέδου διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμών από μόνη της ή δεν παρακάμπτει την απενεργοποίηση της εμφάνισης τιμής μιας μεμονωμένης ετικέτας. Αυτό το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
+Ενεργοποιήστε τις ετικέτες τιμών με το [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Η ρύθμιση σε επίπεδο διαγράμματος δεν ενεργοποιεί την εμφάνιση τιμών από μόνη της ή δεν παρακάμπτει την απενεργοποίηση εμφάνισης τιμής μιας μεμονωμένης ετικέτας. Αυτό το παράδειγμα ενεργοποιεί τις τιμές για ολόκληρη τη σειρά και χρησιμοποιεί το [Position](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/position/) για να τοποθετήσει τις ετικέτες στο εξωτερικό άκρο κάθε στήλης.
 
 ```csharp
 using Aspose.Slides;
@@ -277,19 +279,19 @@ secondChart.ShowDataLabelsOverMaximum = false;
 presentation.Save("DataLabelsOverMaximum.pptx", SaveFormat.Pptx);
 ```
 
-Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες που αποδόθηκαν από το Microsoft PowerPoint. Με `true`, η ετικέτα **120** είναι ορατή στο άνω όριο· με `false`, είναι κρυφή. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει στο **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
+Οι παρακάτω εικόνες δείχνουν τις αποθηκευμένες διαφάνειες που αποδίδονται από το Microsoft PowerPoint. Με `true`, η ετικέτα **120** είναι ορατή στο άνω όριο· με `false`, κρύβεται. Η ετικέτα **60** παραμένει ορατή, το μέγιστο του άξονα παραμένει **100**, και το δεύτερο σημείο δεδομένων παραμένει **120** και στις δύο περιπτώσεις.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Αυτό το παράδειγμα χρησιμοποιεί ένα 2Δ γράφημα στήλης με άξονα τιμών. Τα διαγράμματα χωρίς άξονα τιμών, όπως τα κυκλικά και τα δακτυλιοειδή, δεν έχουν μέγιστο άξονα που να περιορίζεται με αυτόν τον τρόπο.
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
 ## **Ορισμός απόστασης ετικέτας από άξονα**
 
-Χρησιμοποιήστε το [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα σύμπλεχτο γράφημα στήλης και ορίζει την απόσταση ετικετών του οριζόντιου άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας αντί για τις ετικέτες που συνδέονται με μεμονωμένα σημεία δεδομένων.
+Χρησιμοποιήστε το [LabelOffset](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/labeloffset/) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα στήλης ομαδοποιημένο διάγραμμα και ορίζει την απόσταση ετικετών του οριζόντιου άξονα στα 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας αντί για τις ετικέτες που είναι προσαρτημένες σε μεμονωμένα σημεία δεδομένων.
 
 ```csharp
 using Aspose.Slides;
@@ -305,11 +307,11 @@ chart.Axes.HorizontalAxis.LabelOffset = 500;
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Προσαρμογή θέσης ετικέτας**
+## **Ρύθμιση θέσης ετικέτας**
 
-Σε ένα κυκλικό διάγραμμα, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε την απόσταση και να δημιουργήσετε χώρο για τις γραμμές οδηγούς.
+Σε ένα κυκλικό διάγραμμα, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε την απόσταση και να δημιουργήσετε χώρο για τις γραμμές καθοδήγησης.
 
-Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και προσαρμόζει τις απομετρήσεις του [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) και [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Οι απομετρήσεις αυτές είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του εκτός του τμήματος και προσαρμόζει τις μετατοπίσεις του [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) και [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/). Αυτές οι μετατοπίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
 
 ```csharp
 using Aspose.Slides;
@@ -331,17 +333,17 @@ label.Y = 0.04f;
 presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![Διάγραμμα πίτας με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Μορφοποίηση γραμμών οδηγών**
+## **Μορφοποίηση γραμμών καθοδήγησης**
 
-Όταν οι ετικέτες του κυκλικού διαγράμματος βρίσκονται έξω από τα τμήματα τους, οι γραμμές οδηγών βοηθούν τους αναγνώστες να αντιστοιχίσουν κάθε τιμή στο σωστό τμήμα. Ένα αντίθετο χρώμα και μια ελαφρώς παχύτερη γραμμή μπορούν να κάνουν αυτές τις συνδέσεις πιο ευανάγνωστες, ενώ η διαφάνεια και το γραμμοσκίασμα διατηρούν τις γραμμές οπτικά αδιάκριτες.
+Όταν οι ετικέτες ενός κυκλικού διαγράμματος βρίσκονται εκτός των τμημάτων τους, οι γραμμές καθοδήγησης βοηθούν τους αναγνώστες να αντιστοιχίσουν κάθε τιμή στο σωστό τμήμα. Ένα αντίθετο χρώμα και μια ελαφρώς πιο παχιά γραμμή μπορούν να κάνουν αυτές τις συνδέσεις πιο εύκολες στην παρακολούθηση, ενώ η διαφάνεια και το διακεκομμένο στυλ διατηρούν τις γραμμές οπτικά αδιάφορες.
 
-Χρησιμοποιήστε το [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) για να μορφοποιήσετε τις γραμμές οδηγών σε επίπεδο συλλογής ετικετών δεδομένων της σειράς. Οι ρυθμίσεις στο `series.Labels.LeaderLinesFormat.Line` εφαρμόζονται στη συλλογή, όχι σε μεμονωμένη ετικέτα.
+Χρησιμοποιήστε το [LeaderLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabelcollection/leaderlinesformat/) για να μορφοποιήσετε τις γραμμές καθοδήγησης σε επίπεδο συλλογής ετικετών δεδομένων της σειράς. Οι ρυθμίσεις στο `series.Labels.LeaderLinesFormat.Line` εφαρμόζονται στη συλλογή, όχι σε μεμονωμένη ετικέτα.
 
-Αυτό το παράδειγμα δημιουργεί ένα κυκλικό διάγραμμα με προεπιλεγμένα δεδομένα, εμφανίζει τις τιμές έξω από τα τμήματα και ενεργοποιεί το [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). Μετακινεί δύο ετικέτες πιο μακριά από τα τμήματά τους χρησιμοποιώντας τις απομετρήσεις [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) και [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/), εκφρασμένες ως κλάσματα του πλάτους και του ύψους του διαγράμματος. Δεν απαιτείται παρουσίαση εισόδου.
+Αυτό το παράδειγμα δημιουργεί ένα κυκλικό διάγραμμα με προεπιλεγμένα δεδομένα, εμφανίζει τις τιμές εκτός των τμημάτων και ενεργοποιεί το [ShowLeaderLines](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showleaderlines/). Μετακινεί δύο ετικέτες πιο μακριά από τα τμήματά τους χρησιμοποιώντας τις μετατοπίσεις [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) και [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/), εκφρασμένες ως κλάσματα του πλάτους και του ύψους του διαγράμματος. Δεν απαιτείται παρουσίαση εισόδου.
 
-Το [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) της γραμμής ορίζει στερεό μπλε χρώμα με τιμή άλφα 191 από 255, προσφέροντας περίπου 25% διαφάνεια. Το [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) ορίζει το πάχος σε 2 σημεία και το [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) κάνει τη γραμμή διακεκομμένη.
+Το [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) της γραμμής ορίζει ένα συμπαγές μπλε χρώμα με τιμή άλφα 191 από 255, παρέχοντας περίπου 25 % διαφάνεια. Το [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) ορίζει το πάχος στα 2 σημεία και το [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) κάνει τη γραμμή διακεκομμένη.
 
 ```csharp
 using System.Drawing;
@@ -377,17 +379,17 @@ line.DashStyle = LineDashStyle.Dash;
 presentation.Save("FormattedLeaderLines.pptx", SaveFormat.Pptx);
 ```
 
-Η ενεργοποίηση των γραμμών οδηγών δεν εγγυάται ότι μια γραμμή θα εμφανιστεί για κάθε ετικέτα. Η ορατότητα εξαρτάται από τη θέση της ετικέτας και τη συμπεριφορά διάταξης του διαγράμματος. Σε αυτό το παράδειγμα, οι δύο μετακινητές ετικέτες έχουν ορατές γραμμές οδηγών· οι ετικέτες που παραμένουν κοντά στα τμήματά τους δεν τις χρειάζονται.
+Η ενεργοποίηση των γραμμών καθοδήγησης δεν εγγυάται ότι θα εμφανιστεί γραμμή για κάθε ετικέτα. Η ορατότητα εξαρτάται από τη θέση της ετικέτας και τη συμπεριφορά διάταξης του διαγράμματος. Σε αυτό το παράδειγμα, οι δύο μετατοπισμένες ετικέτες έχουν ορατές γραμμές καθοδήγησης· οι ετικέτες που παραμένουν κοντά στα τμήματά τους δεν τις χρειάζονται.
 
-Η παρακάτω εικόνα δείχνει το αποθηκευμένο `FormattedLeaderLines.pptx` που αποδόθηκε με το Aspose.Slides:
+Η παρακάτω εικόνα δείχνει το αποθηκευμένο `FormattedLeaderLines.pptx` που αποδίδεται με το Aspose.Slides:
 
-![Κυκλικό διάγραμμα με μπλε, ημιδιαφανείς, διακεκομμένες γραμμές οδηγούς που συνδέουν δύο εξωτερικές ετικέτες με τα τμήματά τους](formatted-leader-lines.png)
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-## **Προσθήκη πολλαπλών σειρών ετικετών δεδομένων πάνω από γράφημα στήλης**
+## **Προσθήκη πολλαπλών σειρών ετικετών δεδομένων πάνω από διάγραμμα στήλης**
 
-Αυτό το παράδειγμα δημιουργεί ένα γράφημα στήλης με δύο σειρές ετικετών δεδομένων πάνω από την περιοχή σχεδίασης. Η Σειρά A εμφανίζει τις ορατές στήλες, ενώ οι Σειρές B και C παρέχουν τις πρόσθετες ετικέτες. Οι στήλες τους κρύβονται αφαιρώντας τη γέμιση και το περίγραμμα. Η ιδιότητα [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) ευθυγραμμίζει και τις τρεις σειρές με τα ίδια κέντρα κατηγοριών.
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στήλης με δύο σειρές ετικετών δεδομένων πάνω από την περιοχή σχεδίασης. Η Σειρά A εμφανίζει τις ορατές στήλες, ενώ οι Σειρές B και C παρέχουν τις πρόσθετες ετικέτες. Οι στήλες τους κρύβονται αφαιρώντας το γέμισμα και το περίγραμμα. Η ιδιότητα [Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) ευθυγραμμίζει και τις τρεις σειρές στο ίδιο κέντρο κατηγορίας.
 
-Οι ρυθμίσεις του [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) κρατούν χώρο για τις σειρές ετικετών. Μετά τον υπολογισμό των προεπιλεγμένων θέσεων από το [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/), τα [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) και [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) διατηρούν την οριζόντια στοίχιση και εφαρμόζουν κατακόρυφες απομετρήσεις για να τοποθετήσουν τις ετικέτες σε δύο σειρές. Οι αριθμοί παραμένουν ετικέτες δεδομένων συνδεδεμένες με τις τιμές των σειρών· μόνο οι επικεφαλίδες των σειρών είναι ξεχωριστά σχήματα κειμένου.
+Οι ρυθμίσεις του [PlotArea](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotarea/) διατηρούν χώρο για τις σειρές ετικετών. Μετά το [ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) που υπολογίζει τις προεπιλεγμένες θέσεις, τα [X](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/x/) και [Y](https://reference.aspose.com/slides/net/aspose.slides.charts/ilayoutable/y/) διατηρούν την οριζόντια ευθυγράμμιση και εφαρμόζουν κατακόρυφες μετατοπίσεις για να οργανώσουν τις ετικέτες σε δύο σειρές. Οι αριθμοί παραμένουν ετικέτες δεδομένων συνδεδεμένες με τις τιμές των σειρών· μόνο οι επικεφαλίδες των σειρών είναι ξεχωριστά σχήματα κειμένου.
 
 ```csharp
 using System.Drawing;
@@ -436,7 +438,7 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // Απόκρυψη των στηλών B και C, αλλά διατήρηση των ετικετών δεδομένων.
+        // Κρύψτε τις στήλες των B και C, αλλά διατηρήστε τις ετικέτες δεδομένων τους.
         series.Format.Fill.FillType = FillType.NoFill;
         series.Format.Line.FillFormat.FillType = FillType.NoFill;
         var labelFormat = series.Labels.DefaultDataLabelFormat;
@@ -449,14 +451,14 @@ for (int seriesIndex = 0; seriesIndex < seriesNames.Length; seriesIndex++)
     }
 }
 
-// Στοίχιση και των τριών σειρών με τα ίδια κέντρα κατηγοριών.
+// Ευθυγραμμίστε και τις τρεις σειρές με τα ίδια κέντρα κατηγοριών.
 chart.ChartData.Series[0].ParentSeriesGroup.Overlap = 100;
 
-// Χρήση λιγότερων γραμμών πλέγματος για αυτό το συμπαγές παράδειγμα.
+// Χρησιμοποιήστε λιγότερες γραμμές πλέγματος για αυτό το συμπαγές παράδειγμα.
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.MajorUnit = 10;
 
-// Δέσμευση χώρου πάνω από το γράφημα για δύο σειρές ετικετών δεδομένων.
+// Κρατήστε χώρο πάνω από την περιοχή σχεδίασης για δύο σειρές ετικετών δεδομένων.
 chart.PlotArea.LayoutTargetType = LayoutTargetType.Inner;
 chart.PlotArea.X = 0.15f;
 chart.PlotArea.Y = 0.32f;
@@ -472,8 +474,8 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
     for (int categoryIndex = 0; categoryIndex < categories.Length; categoryIndex++)
     {
         var dataLabel = series.DataPoints[categoryIndex].Label;
-        // Διατήρηση της προεπιλεγμένης οριζόντιας θέσης. Το Y είναι μια μετατόπιση από
-        // τη προεπιλεγμένη θέση ετικέτας, εκφρασμένη ως κλάσμα του ύψους του διαγράμματος.
+        // Διατηρήστε την προεπιλεγμένη οριζόντια θέση. Το Y είναι μετατόπιση από
+        // την προεπιλεγμένη θέση ετικέτας, εκφρασμένη ως κλάσμα του ύψους του διαγράμματος.
         dataLabel.X = 0;
         dataLabel.Y = rowTop - dataLabel.ActualY / chart.Height;
     }
@@ -494,18 +496,18 @@ for (int seriesIndex = 1; seriesIndex < seriesNames.Length; seriesIndex++)
 presentation.Save("multiple-rows-of-labels.pptx", SaveFormat.Pptx);
 ```
 
-![Γράφημα στήλης με δύο σειρές ετικετών δεδομένων πάνω από την περιοχή σχεδίασης](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **Συχνές ερωτήσεις**
 
 **Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά διαγράμματα;**
 
-Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγούς και μειωμένο μέγεθος γραμματοσειράς· αν χρειάζεται, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή σημαντικά σημεία.
+Συνδυάστε την αυτόματη τοποθέτηση ετικετών, τις γραμμές καθοδήγησης και τη μείωση του μεγέθους γραμματοσειράς· εάν χρειαστεί, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή βασικά σημεία.
 
-**Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για τιμές μηδέν, αρνητικές ή κενές;**
+**Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για μηδενικές, αρνητικές ή κενές τιμές;**
 
-Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν ορισμένο κανόνα.
+Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλείπουσες τιμές σύμφωνα με έναν καθορισμένο κανόνα.
 
-**Πώς μπορώ να εξασφαλίσω μια συνεπή μορφή ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
+**Πώς μπορώ να διασφαλίσω ένα συνεπές στυλ ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
 
-Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και επαληθεύστε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε την εναλλακτική.
+Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης για να αποφύγετε την εναλλακτική.

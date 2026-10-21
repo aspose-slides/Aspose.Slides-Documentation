@@ -1,39 +1,39 @@
 ---
-title: Gerenciar Livros de Trabalho de Gráficos em Apresentações Usando PHP
-linktitle: Livro de Trabalho de Gráfico
+title: Gerenciar Pastas de Trabalho de Gráficos em Apresentações Usando PHP
+linktitle: Pasta de Trabalho de Gráfico
 type: docs
 weight: 70
 url: /pt/php-java/chart-workbook/
 keywords:
-- livro de trabalho de gráfico
+- pasta de trabalho de gráfico
 - dados de gráfico
-- célula de livro de trabalho
+- célula de pasta de trabalho
 - rótulo de dados
 - planilha
 - fonte de dados
-- livro de trabalho externo
+- pasta de trabalho externa
 - dados externos
 - cache de gráfico
-- recuperação de livro de trabalho
+- recuperação de pasta de trabalho
 - PowerPoint
 - apresentação
 - PHP
 - Aspose.Slides
-description: "Descubra Aspose.Slides for PHP via Java: gerencie facilmente livros de trabalho de gráficos em formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
+description: "Descubra o Aspose.Slides para PHP via Java: gerencie facilmente pastas de trabalho de gráficos nos formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com livros de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos por meio de fluxos de livros de trabalho, usar células do livro de trabalho como rótulos de dados de gráfico, acessar coleções de planilhas e especificar o tipo de origem de dados para os valores do gráfico.
+Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos através de fluxos de pastas de trabalho, usar células de pasta de trabalho como rótulos de dados de gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para valores de gráfico.
 
-Ele também aborda o trabalho com livros de trabalho externos como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir um livro de trabalho externo, recuperar o caminho de um livro de trabalho externo vinculado a um gráfico e editar os dados do gráfico quando o livro de trabalho está disponível.
+Ele também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
 
-Para células de livro de trabalho que representam dados ausentes, consulte [Controlar a Exibição de Células Vazias](/slides/pt/php-java/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação de gráfico de linhas dos modos de exibição disponíveis.
+Para células de pasta de trabalho que representam dados ausentes, consulte [Controlar a Exibição de Células Vazias](/slides/pt/php-java/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação de gráfico de linhas dos modos de exibição disponíveis.
 
 ## **Incluir Dados de Linhas e Colunas Ocultas**
 
-Use [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) para controlar se um gráfico traça dados de linhas e colunas de planilha ocultas. Defina como `true` para traçar apenas células visíveis ou `false` para incluir tanto células visíveis quanto ocultas. Esta configuração controla a plotagem do gráfico; não oculta nem exibe linhas ou colunas da planilha.
+Use [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) para controlar se um gráfico plota dados de linhas e colunas de planilha ocultas. Defina como `true` para plotar apenas células visíveis, ou `false` para incluir tanto células visíveis quanto ocultas. Essa configuração controla a plotagem do gráfico; ela não oculta ou exibe linhas ou colunas da planilha.
 
-A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de colunas como a primeira forma no seu primeiro slide. A planilha embutida, `Sheet1`, contém o seguinte intervalo de origem, `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
+A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de colunas como a primeira forma no primeiro slide. A planilha incorporada, `Sheet1`, contém o intervalo de origem a seguir, `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
 
 | Linha da planilha | A: Mês | B: Varejo | C: Atacado (coluna oculta) |
 | --- | --- | --- | --- |
@@ -41,9 +41,9 @@ A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de co
 | 3 (linha oculta) | Fevereiro | 40 | 60 |
 | 4 | Março | 20 | 50 |
 
-Acesse as células de origem através de [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) e leia [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) para inspecionar seu status oculto. Este método relata o status oculto sem alterá‑lo. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `false`, `true` e `true`, respectivamente.
+Acesse as células de origem através de [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) e leia [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) para inspecionar seu status de ocultação. Esse método relata o status de ocultação sem alterá‑lo. Neste exemplo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `false`, `true` e `true`, respectivamente.
 
-Para este exemplo, atualize os dados do gráfico após alterar a configuração de plotagem: retenha o livro de trabalho embutido com [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) e recarregue‑o com [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/). Ao incluir todas as células, também use [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para restaurar o intervalo completo, incluindo a categoria de fevereiro oculta. Apenas mudar a bandeira não é suficiente para atualizar os dados de gráfico em cache deste exemplo e os rótulos de categoria.
+Para este exemplo, atualize os dados do gráfico após alterar a configuração de plotagem: retenha a pasta de trabalho incorporada com [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) e recarregue‑a com [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/). Ao incluir todas as células, use também [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para restaurar o intervalo completo, incluindo a categoria de fevereiro oculta. Simplesmente mudar a flag não é suficiente para atualizar os dados em cache do gráfico e os rótulos de categoria deste exemplo.
 
 ```php
 use aspose\slides\Presentation;
@@ -65,7 +65,7 @@ try {
         foreach ([true, false] as $visibleOnly) {
             $chart->setPlotVisibleCellsOnly($visibleOnly);
 
-            // Atualizar os dados do gráfico a partir do livro de trabalho embutido.
+            // Atualizar os dados do gráfico a partir da pasta de trabalho incorporada.
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
                 // Restaurar o intervalo de origem completo, incluindo categorias ocultas.
@@ -82,21 +82,21 @@ try {
 }
 ```
 
-O exemplo salva duas versões da apresentação: uma com apenas os valores de Varejo visíveis (10 e 20) e outra com todos os seis valores. As imagens abaixo ilustram os dois modos de plotagem. A linha 3 e a coluna C permanecem ocultas em ambos os livros de trabalho embutidos.
+O exemplo salva duas versões da apresentação: uma contendo apenas os valores de Varejo visíveis (10 e 20) e outra com todos os seis valores. As imagens abaixo ilustram os dois modos de plotagem. A linha 3 e a coluna C permanecem ocultas em ambas as pastas de trabalho incorporadas.
 
 | Apenas células visíveis (`true`) | Todas as células (`false`) |
 | --- | --- |
 | ![Apenas células visíveis: valores de Varejo 10 e 20 para Janeiro e Março.](hidden_cells_True.png) | ![Todas as células: valores de Varejo e Atacado para Janeiro, Fevereiro e Março.](hidden_cells_False.png) |
 
-Uma célula oculta contendo um valor é diferente de uma célula vazia. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) controla como os valores ausentes são exibidos; não inclui nem exclui dados de origem ocultos. Consulte [Controlar a Exibição de Células Vazias](/slides/pt/php-java/chart-series/#control-the-display-of-empty-cells) para um exemplo.
+Uma célula oculta que contém um valor é diferente de uma célula vazia. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) controla como valores ausentes são exibidos; ele não inclui ou exclui dados de origem ocultos. Consulte [Controlar a Exibição de Células Vazias](/slides/pt/php-java/chart-series/#control-the-display-of-empty-cells) para um exemplo.
 
 ## **Recuperar o Intervalo de Dados de um Gráfico**
 
-Antes de atualizar os dados do livro de trabalho em uma apresentação existente, inspecione os intervalos de origem para identificar quais células da planilha cada gráfico usa. O método [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) retorna o intervalo de dados atual como uma fórmula qualificada da planilha, como `Sheet1!$A$1:$D$5`. Aqui, `Sheet1` é o nome da planilha, `!` a separa do intervalo de células e `$A$1:$D$5` identifica as células de A1 a D5, inclusive. Os sinais de dólar indicam referências absolutas de linha e coluna.
+Antes de atualizar os dados da pasta de trabalho em uma apresentação existente, inspecione os intervalos de origem para identificar quais células da planilha cada gráfico usa. O método [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) retorna o intervalo de dados atual como uma fórmula qualificada pela planilha, como `Sheet1!$A$1:$D$5`. Aqui, `Sheet1` é o nome da planilha, `!` separa‑o do intervalo de células, e `$A$1:$D$5` identifica as células de A1 a D5, inclusive. Os sinais de dólar indicam referências absolutas de linha e coluna.
 
-O método lê o intervalo atual sem alterar o gráfico ou seu livro de trabalho. Se o gráfico não usar um livro de trabalho como fonte de dados, ele lança uma exceção. Para mais informações, consulte a [Referência da API ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
+O método lê o intervalo atual sem alterar o gráfico ou sua pasta de trabalho. Se o gráfico não usar uma pasta de trabalho como fonte de dados, ele lança uma exceção. Para mais informações, veja a [Referência da API ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
 
-Este exemplo abre uma apresentação e verifica as formas diretamente em cada slide em busca de gráficos. Ele imprime o nome de cada gráfico e seu intervalo de origem. Se um gráfico não usar um livro de trabalho, ele imprime uma mensagem e continua para o próximo gráfico.
+Este exemplo abre uma apresentação e verifica as formas diretamente em cada slide em busca de gráficos. Ele imprime o nome de cada gráfico e seu intervalo de origem. Se um gráfico não usar uma pasta de trabalho, ele imprime uma mensagem e continua para o próximo gráfico.
 
 ```php
 use aspose\slides\Presentation;
@@ -129,11 +129,11 @@ try {
 }
 ```
 
-## **Ler e Gravar Dados de Gráfico a Partir de um Livro de Trabalho**
+## **Ler e Gravar Dados de Gráfico a partir de uma Pasta de Trabalho**
 
-Aspose.Slides for PHP via Java fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) e [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) que permitem ler e gravar livros de trabalho de dados de gráficos (contendo dados de gráficos editados com Aspose.Cells). **Nota** que os dados do gráfico devem estar organizados da mesma maneira ou devem ter uma estrutura semelhante à origem.
+Aspose.Slides for PHP via Java fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) e [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) que permitem ler e gravar pastas de trabalho de dados de gráficos (contendo dados de gráfico editados com Aspose.Cells). **Nota** que os dados do gráfico precisam estar organizados da mesma forma ou ter uma estrutura semelhante à fonte.
 
-Este exemplo usa uma apresentação com um gráfico como a primeira forma no seu primeiro slide. Ele lê o livro de trabalho embutido em um array de bytes, limpa as séries e categorias existentes e grava o mesmo livro de trabalho de volta. As alterações permanecem na memória; o exemplo não salva a apresentação.
+Este exemplo usa uma apresentação com um gráfico como a primeira forma no primeiro slide. Ele lê a pasta de trabalho incorporada para um array de bytes, limpa as séries e categorias existentes e grava a mesma pasta de trabalho de volta. As alterações permanecem em memória; o exemplo não salva a apresentação.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,9 @@ try {
 }
 ```
 
-### **Validar o Layout do Gráfico Após a Modificação do Livro de Trabalho**
+### **Validar o Layout do Gráfico Após Modificação da Pasta de Trabalho**
 
-Ao substituir um livro de trabalho embutido por um modificado, o gráfico mantém suas coleções originais de séries e categorias. Essa incompatibilidade pode fazer com que [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar o livro de trabalho atualizado de volta no gráfico. Este exemplo usa um gráfico que é a primeira forma no primeiro slide. O comentário marca onde a edição do livro de trabalho ocorreria; o exemplo executável grava o livro de trabalho original de volta e valida o layout na memória.
+Ao substituir uma pasta de trabalho incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa incompatibilidade pode fazer com que [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a pasta de trabalho atualizada de volta no gráfico. Este exemplo usa um gráfico que é a primeira forma no primeiro slide. O comentário indica onde a edição da pasta de trabalho ocorreria; o exemplo executável grava a pasta de trabalho original de volta e valida o layout na memória.
 
 ```php
 use aspose\slides\Presentation;
@@ -177,7 +177,7 @@ try {
         $chartData = $chart->getChartData();
         $workbookData = $chartData->readWorkbookStream();
 
-        // Modifique os bytes do livro de trabalho aqui, por exemplo, usando Aspose.Cells.
+        // Modifique os bytes da pasta de trabalho aqui, por exemplo, usando Aspose.Cells.
 
         $chartData->getSeries()->clear();
         $chartData->getCategories()->clear();
@@ -192,11 +192,80 @@ try {
 }
 ```
 
-Limpar as coleções remove referências de dados obsoletas antes que o livro de trabalho seja gravado de volta. Reconstrua quaisquer mapeamentos de séries e categorias necessários para o livro de trabalho atualizado antes de usar o gráfico.
+Limpar as coleções remove referências a dados obsoletos antes que a pasta de trabalho seja gravada de volta. Reconstrua quaisquer mapeamentos de séries e categorias necessários para a pasta de trabalho atualizada antes de usar o gráfico.
 
-## **Definir uma Célula de Livro de Trabalho como Rótulo de Dados do Gráfico**
+## **Definir Formatos Numéricos Customizados para Células da Pasta de Trabalho**
 
-Você pode usar texto de células de livro de trabalho como rótulos de dados do gráfico.
+Use [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) para controlar como valores numéricos aparecem na pasta de trabalho incorporada ao gráfico. Por exemplo, um relatório pode precisar exibir uma taxa de conversão como percentual com quatro casas decimais e um coeficiente com cinco casas decimais. Mantenha ambos os valores numéricos para que permaneçam disponíveis para cálculos e plotagem de gráficos.
+
+Um formato numérico altera a exibição, não o valor armazenado. O formato `0.0000%` exibe `0.125` como `12.5000%`; ele não substitui o número armazenado por `12.5`. Da mesma forma, `0.00000` exibe `0.1234567` como `0.12346` sem arredondar o valor armazenado. Se o formato customizado for uma cadeia vazia (`""`), o formato retornado por [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/) será usado.
+
+O exemplo a seguir cria um gráfico de colunas e acessa suas células através de [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/). Na planilha 0, B2 contém a taxa de conversão e C2 contém o coeficiente. Ambas as células fornecem valores ao gráfico. O exemplo também habilita rótulos de valor vinculados aos formatos de origem.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SlideSizeScaleType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(720, 270, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 20, 620, 210);
+    $chart->setTitle(false);
+
+    $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
+    $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00");
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
+    $chart->getAxes()->getVerticalAxis()->setMinValue(0);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $categoryCell = $workbook->getCell(0, "A2", "Sample");
+    $chart->getChartData()->getCategories()->add($categoryCell);
+
+    $percentageCell = $workbook->getCell(0, "B2", 0.125);
+    $percentageCell->setCustomNumberFormat("0.0000%");
+    $percentageName = $workbook->getCell(0, "B1", "Conversion rate");
+    $percentageSeries = $chart->getChartData()->getSeries()->add($percentageName, $chart->getType());
+    $percentageSeries->getDataPoints()->addDataPointForBarSeries($percentageCell);
+
+    $precisionCell = $workbook->getCell(0, "C2", 0.1234567);
+    $precisionCell->setCustomNumberFormat("0.00000");
+    $precisionName = $workbook->getCell(0, "C1", "Coefficient");
+    $precisionSeries = $chart->getChartData()->getSeries()->add($precisionName, $chart->getType());
+    $precisionSeries->getDataPoints()->addDataPointForBarSeries($precisionCell);
+
+    for ($seriesIndex = 0; $seriesIndex < java_values($chart->getChartData()->getSeries()->size()); $seriesIndex++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($seriesIndex);
+        $labelFormat = $series->getDataPoints()->get_Item(0)->getLabel()->getDataLabelFormat();
+        $labelFormat->setShowValue(true);
+        $labelFormat->setNumberFormatLinkedToSource(true);
+    }
+
+    $presentation->save("CustomCellFormats.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Os formatos de célula da pasta de trabalho são independentes dos formatos definidos diretamente nos eixos do gráfico ou nos rótulos de dados. Neste exemplo, cada rótulo exibe o valor da célula de origem porque [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) está definido como `true`, e segue o formato numérico de origem porque [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) está definido como `true`. Após salvar e reabrir a apresentação, os rótulos exibem `12.5000%` e `0.12346`, conforme mostrado abaixo. O eixo vertical usa seu próprio formato numérico, atribuído com [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) como `0.00`, com [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) definido como `false`.
+
+Para formatar um rótulo de dados de forma independente, defina sua flag de vínculo à fonte como `false` e atribua um formato com [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/). Isso não altera o formato da célula da pasta de trabalho. Por exemplo, um formato de rótulo independente `0.00` exibe o primeiro valor como `0.13`, enquanto B2 ainda exibe `12.5000%`. Veja [Rótulos de Dados do Gráfico](/slides/pt/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) para formatação direta de rótulos.
+
+A imagem abaixo foi renderizada a partir da apresentação salva após reabri‑la:
+
+![Gráfico de colunas com rótulos vinculados à origem mostrando 12.5000% e 0.12346 e eixo numérico formatado de forma independente.](custom-cell-formats.png)
+
+## **Definir uma Célula da Pasta de Trabalho como Rótulo de Dados do Gráfico**
+
+Você pode usar o texto de células da pasta de trabalho como rótulos de dados do gráfico.
 
 Este exemplo adiciona um gráfico de bolhas com dados padrão ao primeiro slide de uma apresentação existente. Ele usa as células A10:A12 na planilha 0 para os três primeiros rótulos da primeira série, habilita rótulos a partir de células e salva a apresentação atualizada.
 
@@ -226,7 +295,7 @@ try {
 
 ## **Gerenciar Planilhas**
 
-O método [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) fornece acesso às planilhas em um livro de trabalho de gráfico. Este exemplo cria um gráfico de pizza com dados padrão e imprime cada nome de planilha no console.
+O método [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) fornece acesso às planilhas em uma pasta de trabalho de gráfico. Este exemplo cria um gráfico de pizza com dados padrão e imprime o nome de cada planilha no console.
 
 ```php
 use aspose\slides\Presentation;
@@ -249,7 +318,7 @@ try {
 
 ## **Especificar o Tipo de Fonte de Dados**
 
-Este exemplo cria um gráfico de colunas 3D com dados padrão e define dois nomes de série usando diferentes fontes de dados. O primeiro nome usa um literal de string; o segundo usa a célula C1 na planilha 0. O enumerador [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) seleciona a fonte para cada nome. O exemplo salva a apresentação com os nomes de série atualizados.
+Este exemplo cria um gráfico de colunas 3D com dados padrão e define dois nomes de série usando fontes de dados diferentes. O primeiro nome usa um literal de string; o segundo usa a célula C1 na planilha 0. O enumerador [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) seleciona a fonte para cada nome. O exemplo salva a apresentação com os nomes de série atualizados.
 
 ```php
 use aspose\slides\Presentation;
@@ -278,9 +347,9 @@ try {
 }
 ```
 
-## **Detectar Formatos de Livro de Trabalho Embutidos Não Compatíveis**
+## **Detectar Formatos de Pasta de Trabalho Incorporados Não Suportados**
 
-Aspose.Slides não oferece suporte ao formato de livro de trabalho binário Excel (.xlsb) que pode ser embutido em alguns gráficos. Você pode usar o método `getEmbeddedWorkbookType` em [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) junto com o enumerador [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) para detectar formatos não compatíveis e pular esses gráficos. Este exemplo inspeciona as formas no primeiro slide de uma apresentação existente, ignora formas que não são gráficos e imprime uma mensagem de diagnóstico para cada gráfico com um livro de trabalho .xlsb embutido.
+Aspose.Slides não oferece suporte ao formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método `getEmbeddedWorkbookType` em [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) juntamente com o enumerador [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) para detectar formatos não suportados e pular esses gráficos. Este exemplo inspeciona as formas no primeiro slide de uma apresentação existente, ignora formas que não são gráficos e imprime uma mensagem diagnóstica para cada gráfico com uma pasta de trabalho .xlsb incorporada.
 
 ```php
 use aspose\slides\Presentation;
@@ -308,22 +377,22 @@ try {
             continue;
         }
 
-        // Ler ou modificar os dados do livro de trabalho de gráfico suportados aqui.
+        // Ler ou modificar dados de pasta de trabalho de gráfico suportados aqui.
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Livro de Trabalho Externo**
+## **Pasta de Trabalho Externa**
 
-Aspose.Slides oferece suporte ao uso de livros de trabalho externos como fonte de dados para gráficos.
+Aspose.Slides suporta o uso de pastas de trabalho externas como fonte de dados para gráficos.
 
-### **Criar um Livro de Trabalho Externo**
+### **Criar uma Pasta de Trabalho Externa**
 
-Use [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) e [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) para exportar um livro de trabalho de gráfico embutido para um arquivo e vincular o gráfico a esse livro de trabalho externo.
+Use [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) e [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) para exportar uma pasta de trabalho de gráfico incorporada para um arquivo e vincular o gráfico a essa pasta de trabalho externa.
 
-Este exemplo cria um gráfico de pizza com dados padrão e exporta seu livro de trabalho. Ele conclui a gravação do arquivo antes de atribuir o livro de trabalho externo como fonte de dados do gráfico, então salva a apresentação vinculada.
+Este exemplo cria um gráfico de pizza com dados padrão e exporta sua pasta de trabalho. Ele conclui a gravação do arquivo antes de atribuir a pasta de trabalho externa como fonte de dados do gráfico, então salva a apresentação vinculada.
 
 ```php
 use aspose\slides\Presentation;
@@ -355,13 +424,13 @@ try {
 }
 ```
 
-### **Definir um Livro de Trabalho Externo**
+### **Definir uma Pasta de Trabalho Externa**
 
-Usando o método [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/), você pode atribuir um livro de trabalho externo a um gráfico como sua fonte de dados. Este método também pode ser usado para atualizar um caminho para o livro de trabalho externo (se este foi movido).
+Usando o método [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se o arquivo tiver sido movido).
 
-Embora você não possa editar os dados em livros de trabalho armazenados em locais remotos ou recursos, ainda pode usar esses livros como fonte de dados externa. Se for fornecido um caminho relativo para um livro de trabalho externo, ele será convertido automaticamente em um caminho completo.
+Embora você não possa editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda pode usar essas pastas de trabalho como fonte de dados externa. Se o caminho relativo para uma pasta de trabalho externa for fornecido, ele será convertido automaticamente para um caminho completo.
 
-Este exemplo usa um livro de trabalho externo cuja planilha chamada `Sheet1` contém um nome de série em B1, nomes de categoria em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula o livro de trabalho e usa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para mapear A1:B4 para uma série e três categorias. Ele salva a apresentação com o gráfico vinculado.
+Este exemplo usa uma pasta de trabalho externa cuja planilha chamada `Sheet1` contém um nome de série em B1, nomes de categoria em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula a pasta de trabalho e usa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para mapear A1:B4 para uma série e três categorias. Ele salva a apresentação com o gráfico vinculado.
 
 ```php
 use aspose\slides\Presentation;
@@ -386,12 +455,12 @@ try {
 }
 ```
 
-O parâmetro `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) controla se o livro de trabalho é carregado.
+O parâmetro `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) controla se a pasta de trabalho é carregada.
 
-* Quando `updateChartData` for `false`, somente o caminho do livro de trabalho é atualizado. Os dados do gráfico não são carregados nem atualizados a partir do livro de trabalho de destino, de modo que o livro de trabalho pode estar indisponível.
-* Quando `updateChartData` for `true`, os dados do gráfico são atualizados a partir do livro de trabalho de destino.
+* Quando `updateChartData` é `false`, somente o caminho da pasta de trabalho é atualizado. Os dados do gráfico não são carregados ou atualizados a partir da pasta de trabalho de destino, de modo que a pasta de trabalho pode estar indisponível.
+* Quando `updateChartData` é `true`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
 
-O exemplo a seguir atribui uma URL de espaço reservado com `updateChartData` definido como `false`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar o livro de trabalho indisponível.
+O exemplo a seguir atribui uma URL placeholder com `updateChartData` definido como `false`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar a pasta de trabalho indisponível.
 
 ```php
 use aspose\slides\Presentation;
@@ -411,11 +480,11 @@ try {
 }
 ```
 
-### **Obter o Caminho do Livro de Trabalho da Fonte de Dados Externa de um Gráfico**
+### **Obter o Caminho da Pasta de Trabalho Fonte de Dados Externa de um Gráfico**
 
-Para identificar o livro de trabalho vinculado a um gráfico, verifique se o gráfico usa uma fonte de dados externa e recupere seu caminho de livro de trabalho.
+Para identificar a pasta de trabalho vinculada a um gráfico, verifique se o gráfico usa uma fonte de dados externa e recupere seu caminho de pasta de trabalho.
 
-Este exemplo inspeciona a primeira forma no primeiro slide de uma apresentação com um livro de trabalho externo vinculado. Se for um gráfico vinculado a um livro de trabalho externo, o exemplo imprime [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) no console. Em seguida, salva uma cópia da apresentação.
+Este exemplo inspeciona a primeira forma no primeiro slide de uma apresentação com uma pasta de trabalho externa vinculada. Se for um gráfico vinculado a uma pasta de trabalho externa, o exemplo imprime [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) no console. Em seguida, salva uma cópia da apresentação.
 
 ```php
 use aspose\slides\Presentation;
@@ -447,9 +516,9 @@ try {
 
 ### **Editar Dados do Gráfico**
 
-Você pode editar os dados em livros de trabalho externos da mesma forma que faz alterações no conteúdo de livros de trabalho internos. Quando um livro de trabalho externo não pode ser carregado, uma exceção é lançada.
+Você pode editar os dados em pastas de trabalho externas da mesma forma que altera o conteúdo de pastas de trabalho internas. Quando uma pasta de trabalho externa não pode ser carregada, uma exceção é lançada.
 
-Este exemplo usa um gráfico que é a primeira forma no primeiro slide e está vinculado a um livro de trabalho externo acessível. Ele define o valor respaldado por célula do primeiro ponto de dados da primeira série para 100 e salva a apresentação atualizada. A edição de valores de célula pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar o livro de trabalho original.
+Este exemplo usa um gráfico que é a primeira forma no primeiro slide e está vinculado a uma pasta de trabalho externa acessível. Ele define o valor baseado em célula do primeiro ponto de dados da primeira série como 100 e salva a apresentação atualizada. Editar valores de célula pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar a pasta de trabalho original.
 
 ```php
 use aspose\slides\Presentation;
@@ -482,11 +551,11 @@ try {
 }
 ```
 
-### **Recuperar um Livro de Trabalho do Cache do Gráfico**
+### **Recuperar uma Pasta de Trabalho a partir do Cache do Gráfico**
 
-Se um gráfico usa um livro de trabalho externo que está ausente ou indisponível, Aspose.Slides pode reconstruir o livro de trabalho do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), chame [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/), e defina [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) como `true` antes de abrir a apresentação.
+Se um gráfico usa uma pasta de trabalho externa que está ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), chame [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) e defina [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) como `true` antes de abrir a apresentação.
 
-O exemplo PHP a seguir recupera dados de livro de trabalho para um gráfico que é a primeira forma no primeiro slide e referencia um livro de trabalho externo indisponível. Ele acessa os dados recuperados através de [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) e [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):
+O exemplo PHP a seguir recupera dados de pasta de trabalho para um gráfico que é a primeira forma no primeiro slide e referencia uma pasta de trabalho externa indisponível. Ele acessa os dados recuperados através de [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) e [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```php
 use aspose\slides\Presentation;
@@ -508,7 +577,7 @@ try {
         $chart = $slide->getShapes()->get_Item(0);
         $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-        // Ler ou modificar os dados do livro de trabalho recuperado aqui.
+        // Ler ou modificar os dados da pasta de trabalho recuperada aqui.
     } else {
         echo "The first shape is not a chart.", PHP_EOL;
     }
@@ -517,30 +586,30 @@ try {
 }
 ```
 
-Se o livro de trabalho externo estiver indisponível e a recuperação estiver desativada, Aspose.Slides lançará uma exceção. Ative a recuperação somente quando o uso dos dados de gráfico em cache for um fallback aceitável, pois o cache pode não conter alterações feitas no livro de trabalho externo após a última atualização da apresentação.
+Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma exceção. Habilite a recuperação somente quando usar os dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
 
 ## **FAQ**
 
-**Posso determinar se um gráfico específico está vinculado a um livro de trabalho externo ou embutido?**
+**Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou incorporada?**
 
-Sim. Um gráfico possui um [tipo de fonte de dados](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) e um [caminho para um livro de trabalho externo](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); se a fonte for um livro de trabalho externo, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
+Sim. Um gráfico tem um [data source type](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) e um [path to an external workbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); se a fonte for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Os caminhos relativos para livros de trabalho externos são suportados e como são armazenados?**
+**Caminhos relativos para pastas de trabalho externas são suportados, e como eles são armazenados?**
 
-Sim. Se você especificar um caminho relativo, ele será convertido automaticamente em um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, portanto mover o livro de trabalho pode exigir a atualização do link.
+Sim. Se você especificar um caminho relativo, ele é convertido automaticamente para um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, portanto mover a pasta de trabalho pode exigir a atualização do link.
 
-**Posso usar livros de trabalho localizados em recursos ou compartilhamentos de rede?**
+**Posso usar pastas de trabalho localizadas em recursos ou compartilhamentos de rede?**
 
-Sim, esses livros de trabalho podem ser usados como fonte de dados externa. Entretanto, editar livros de trabalho remotos diretamente do Aspose.Slides não é suportado — eles só podem ser usados como fonte.
+Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. No entanto, editar pastas de trabalho remotas diretamente a partir do Aspose.Slides não é suportado — elas podem ser usadas apenas como fonte.
 
 **O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Editar dados de gráfico respaldados por célula também pode atualizar o arquivo XLSX local vinculado. Use uma cópia do livro de trabalho se o original precisar permanecer inalterado.
+A apresentação armazena um [link to the external file](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Editar dados de gráfico baseados em célula também pode atualizar o arquivo XLSX local vinculado. Use uma cópia da pasta de trabalho se o original precisar permanecer inalterado.
 
 **O que devo fazer se o arquivo externo estiver protegido por senha?**
 
-Aspose.Slides não aceita uma senha ao vincular. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/java/)) e vincular a essa cópia.
+Aspose.Slides não aceita uma senha ao criar o vínculo. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/java/)) e vincular a essa cópia.
 
-**Vários gráficos podem referenciar o mesmo livro de trabalho externo?**
+**Vários gráficos podem referenciar a mesma pasta de trabalho externa?**
 
-Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, atualizar esse arquivo será refletido em cada gráfico na próxima vez que os dados forem carregados.
+Sim. Cada gráfico armazena seu próprio vínculo. Se todos apontarem para o mesmo arquivo, atualizar esse arquivo será refletido em cada gráfico na próxima vez que os dados forem carregados.
