@@ -164,6 +164,67 @@ with slides.Presentation("chart.pptx") as presentation:
 
 Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
+## **Set Custom Number Formats for Workbook Cells**
+
+Use [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
+
+A number format changes the display, not the stored value. The format `0.0000%` displays `0.125` as `12.5000%`; it does not replace the stored number with `12.5`. Similarly, `0.00000` displays `0.1234567` as `0.12346` without rounding the stored value. If the custom format is an empty string (`""`), [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) is used instead.
+
+The following example creates a column chart and accesses its cells through [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/). On worksheet 0, B2 contains the conversion rate and C2 contains the coefficient. Both cells supply chart values. The example also enables value labels linked to the source formats.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(720, 270, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 20, 620, 210)
+    chart.has_title = False
+
+    chart.axes.vertical_axis.is_number_format_linked_to_source = False
+    chart.axes.vertical_axis.number_format = "0.00"
+    chart.axes.vertical_axis.is_automatic_min_value = False
+    chart.axes.vertical_axis.min_value = 0
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    category_cell = workbook.get_cell(0, "A2", "Sample")
+    chart.chart_data.categories.add(category_cell)
+
+    percentage_cell = workbook.get_cell(0, "B2", 0.125)
+    percentage_cell.custom_number_format = "0.0000%"
+    percentage_name = workbook.get_cell(0, "B1", "Conversion rate")
+    percentage_series = chart.chart_data.series.add(percentage_name, chart.type)
+    percentage_series.data_points.add_data_point_for_bar_series(percentage_cell)
+
+    precision_cell = workbook.get_cell(0, "C2", 0.1234567)
+    precision_cell.custom_number_format = "0.00000"
+    precision_name = workbook.get_cell(0, "C1", "Coefficient")
+    precision_series = chart.chart_data.series.add(precision_name, chart.type)
+    precision_series.data_points.add_data_point_for_bar_series(precision_cell)
+
+    for series in chart.chart_data.series:
+        label_format = series.data_points[0].label.data_label_format
+        label_format.show_value = True
+        label_format.is_number_format_linked_to_source = True
+
+    presentation.save("CustomCellFormats.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Workbook cell formats are separate from formats set directly on chart axes or data labels. In this example, each label displays its source cell's value because [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) is enabled, and follows the source number format because [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) is `True`. After saving and reopening the presentation, the labels display `12.5000%` and `0.12346`, as shown below. The vertical axis uses its own [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) of `0.00`, with [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) set to `False`.
+
+To format a data label independently, set its source-link flag to `False` and assign its [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/). This does not change the workbook cell's format. For example, an independent label format of `0.00` displays the first value as `0.13`, while B2 still displays `12.5000%`. See [Chart Data Labels](/slides/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) for direct label formatting.
+
+The image below was rendered from the saved presentation after reopening it:
+
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
+
 ## **Set a Workbook Cell as a Chart Data Label**
 
 You can use text from workbook cells as chart data labels.

@@ -188,6 +188,71 @@ try {
 
 Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
+## **Set Custom Number Formats for Workbook Cells**
+
+Use [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
+
+A number format changes the display, not the stored value. The format `0.0000%` displays `0.125` as `12.5000%`; it does not replace the stored number with `12.5`. Similarly, `0.00000` displays `0.1234567` as `0.12346` without rounding the stored value. If the custom format is an empty string (`""`), the format returned by [getPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) is used instead.
+
+The following example creates a column chart and accesses its cells through [getChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--). On worksheet 0, B2 contains the conversion rate and C2 contains the coefficient. Both cells supply chart values. The example also enables value labels linked to the source formats.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 270, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 20, 620, 210);
+    chart.setTitle(false);
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
+    chart.getAxes().getVerticalAxis().setNumberFormat("0.00");
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+    chart.getAxes().getVerticalAxis().setMinValue(0);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartDataCell categoryCell = workbook.getCell(0, "A2", "Sample");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    IChartDataCell percentageCell = workbook.getCell(0, "B2", 0.125);
+    percentageCell.setCustomNumberFormat("0.0000%");
+    IChartDataCell percentageName = workbook.getCell(0, "B1", "Conversion rate");
+    IChartSeries percentageSeries = chart.getChartData().getSeries().add(percentageName, chart.getType());
+    percentageSeries.getDataPoints().addDataPointForBarSeries(percentageCell);
+
+    IChartDataCell precisionCell = workbook.getCell(0, "C2", 0.1234567);
+    precisionCell.setCustomNumberFormat("0.00000");
+    IChartDataCell precisionName = workbook.getCell(0, "C1", "Coefficient");
+    IChartSeries precisionSeries = chart.getChartData().getSeries().add(precisionName, chart.getType());
+    precisionSeries.getDataPoints().addDataPointForBarSeries(precisionCell);
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        IDataLabelFormat labelFormat = series.getDataPoints().get_Item(0).getLabel().getDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(true);
+    }
+
+    presentation.save("CustomCellFormats.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Workbook cell formats are separate from formats set directly on chart axes or data labels. In this example, each label displays its source cell's value because [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) is set to `true`, and follows the source number format because [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) is set to `true`. After saving and reopening the presentation, the labels display `12.5000%` and `0.12346`, as shown below. The vertical axis uses its own number format, assigned with [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) as `0.00`, with [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) set to `false`.
+
+To format a data label independently, set its source-link flag to `false` and assign a format with [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-). This does not change the workbook cell's format. For example, an independent label format of `0.00` displays the first value as `0.13`, while B2 still displays `12.5000%`. See [Chart Data Labels](/slides/androidjava/chart-data-label/#set-the-percentage-sign-with-chart-data-labels) for direct label formatting.
+
+The image below was rendered from the saved presentation after reopening it:
+
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
+
 ## **Set a Workbook Cell as a Chart Data Label**
 
 You can use text from workbook cells as chart data labels.

@@ -196,6 +196,70 @@ else
 
 Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
+## **Set Custom Number Formats for Workbook Cells**
+
+Use [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
+
+A number format changes the display, not the stored value. The format `0.0000%` displays `0.125` as `12.5000%`; it does not replace the stored number with `12.5`. Similarly, `0.00000` displays `0.1234567` as `0.12346` without rounding the stored value. If the custom format is an empty string (`""`), [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) is used instead.
+
+The following example creates a column chart and accesses its cells through [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/). On worksheet 0, B2 contains the conversion rate and C2 contains the coefficient. Both cells supply chart values. The example also enables value labels linked to the source formats.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 270, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 20, 620, 210);
+chart.HasTitle = false;
+
+chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
+chart.Axes.VerticalAxis.NumberFormat = "0.00";
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = 0;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var categoryCell = workbook.GetCell(0, "A2", "Sample");
+chart.ChartData.Categories.Add(categoryCell);
+
+var percentageCell = workbook.GetCell(0, "B2", 0.125);
+percentageCell.CustomNumberFormat = "0.0000%";
+var percentageName = workbook.GetCell(0, "B1", "Conversion rate");
+var percentageSeries = chart.ChartData.Series.Add(percentageName, chart.Type);
+percentageSeries.DataPoints.AddDataPointForBarSeries(percentageCell);
+
+var precisionCell = workbook.GetCell(0, "C2", 0.1234567);
+precisionCell.CustomNumberFormat = "0.00000";
+var precisionName = workbook.GetCell(0, "C1", "Coefficient");
+var precisionSeries = chart.ChartData.Series.Add(precisionName, chart.Type);
+precisionSeries.DataPoints.AddDataPointForBarSeries(precisionCell);
+
+foreach (var series in chart.ChartData.Series)
+{
+    var labelFormat = series.DataPoints[0].Label.DataLabelFormat;
+    labelFormat.ShowValue = true;
+    labelFormat.IsNumberFormatLinkedToSource = true;
+}
+
+presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
+```
+
+Workbook cell formats are separate from formats set directly on chart axes or data labels. In this example, each label displays its source cell's value because [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) is enabled, and follows the source number format because [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) is `true`. After saving and reopening the presentation, the labels display `12.5000%` and `0.12346`, as shown below. The vertical axis uses its own [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) of `0.00`, with [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) set to `false`.
+
+To format a data label independently, set its source-link flag to `false` and assign its [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/). This does not change the workbook cell's format. For example, an independent label format of `0.00` displays the first value as `0.13`, while B2 still displays `12.5000%`. See [Chart Data Labels](/slides/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) for direct label formatting.
+
+The image below was rendered from the saved presentation after reopening it:
+
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
+
 ## **Set a Workbook Cell as a Chart Data Label**
 
 You can use text from workbook cells as chart data labels.
