@@ -243,6 +243,93 @@ else
 
 Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
+## **Set Custom Number Formats for Workbook Cells**
+
+Use [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
+
+A number format changes the display, not the stored value. The format `0.0000%` displays `0.125` as `12.5000%`; it does not replace the stored number with `12.5`. Similarly, `0.00000` displays `0.1234567` as `0.12346` without rounding the stored value. If the custom format is an empty string (`""`), the format assigned through [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) is used instead.
+
+The following example creates a column chart and accesses its cells through [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/). On worksheet 0, B2 contains the conversion rate and C2 contains the coefficient. Both cells supply chart values. The example also enables value labels linked to the source formats.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(720, 270, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 20, 620, 210);
+chart->set_HasTitle(false);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00");
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMinValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MinValue(0);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto categoryCell = workbook->GetCell(0, u"A2", ObjectExt::Box<String>(u"Sample"));
+chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+auto percentageCell = workbook->GetCell(0, u"B2", ObjectExt::Box<double>(0.125));
+percentageCell->set_CustomNumberFormat(u"0.0000%");
+auto percentageName = workbook->GetCell(0, u"B1", ObjectExt::Box<String>(u"Conversion rate"));
+auto percentageSeries = chart->get_ChartData()->get_Series()->Add(percentageName, chart->get_Type());
+percentageSeries->get_DataPoints()->AddDataPointForBarSeries(percentageCell);
+
+auto precisionCell = workbook->GetCell(0, u"C2", ObjectExt::Box<double>(0.1234567));
+precisionCell->set_CustomNumberFormat(u"0.00000");
+auto precisionName = workbook->GetCell(0, u"C1", ObjectExt::Box<String>(u"Coefficient"));
+auto precisionSeries = chart->get_ChartData()->get_Series()->Add(precisionName, chart->get_Type());
+precisionSeries->get_DataPoints()->AddDataPointForBarSeries(precisionCell);
+
+for (auto series : IterateOver(chart->get_ChartData()->get_Series()))
+{
+    auto labelFormat = series->get_DataPoint(0)->get_Label()->get_DataLabelFormat();
+    labelFormat->set_ShowValue(true);
+    labelFormat->set_IsNumberFormatLinkedToSource(true);
+}
+
+presentation->Save(u"CustomCellFormats.pptx", Export::SaveFormat::Pptx);
+```
+
+Workbook cell formats are separate from formats set directly on chart axes or data labels. In this example, each label displays its source cell's value because [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) is called with `true`, and follows the source number format because [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) is called with `true`. After saving and reopening the presentation, the labels display `12.5000%` and `0.12346`, as shown below. The vertical axis uses its own format of `0.00`, assigned through [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/), with [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) called with `false`.
+
+To format a data label independently, set its source-link flag to `false` and assign its format through [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/). This does not change the workbook cell's format. For example, an independent label format of `0.00` displays the first value as `0.13`, while B2 still displays `12.5000%`. See [Chart Data Labels](/slides/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) for direct label formatting.
+
+The image below was rendered from the saved presentation after reopening it:
+
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
+
 ## **Set a Workbook Cell as a Chart Data Label**
 
 You can use text from workbook cells as chart data labels.

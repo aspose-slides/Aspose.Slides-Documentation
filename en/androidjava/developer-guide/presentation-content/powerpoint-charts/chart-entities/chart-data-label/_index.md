@@ -46,6 +46,8 @@ try {
 }
 ```
 
+To format the numeric cells in a chart's embedded workbook, see [Set Custom Number Formats for Workbook Cells](/slides/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). That example also shows value labels following their source cell formats while preserving the stored numeric values.
+
 ## **Display Percentages as Labels**
 
 For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
