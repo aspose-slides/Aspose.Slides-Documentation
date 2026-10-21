@@ -1,5 +1,5 @@
 ---
-title: Управление подписями данных диаграммы в презентациях на Android
+title: Управление подписями данных диаграмм в презентациях на Android
 linktitle: Подпись данных
 type: docs
 url: /ru/androidjava/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для Android на Java, чтобы сделать слайды более привлекательными."
+description: "Узнайте, как добавлять и форматировать подписи данных диаграмм в презентациях PowerPoint с помощью Aspose.Slides для Android через Java, чтобы сделать слайды более увлекательными."
 ---
 ## **Введение**
 
-Подписи данных отображают информацию о рядах диаграммы и отдельных точках данных, помогая читателям определить значения и понять диаграмму. В этой статье объясняется, как формировать значения, отображать проценты, считывать текст подписи, управлять подписями за пределами максимального значения оси, настраивать интервал подписей категориальной оси и позиционировать подписи круговой диаграммы.
+Подписи данных отображают информацию о сериях диаграммы и отдельных точках данных, помогая читателям идентифицировать значения и понимать диаграмму. В этой статье объясняется, как форматировать значения, отображать проценты, читать текст подписи, управлять подписями за пределами максимального значения оси, регулировать расстояние между подписями оси категории и позиционировать подписи круговой диаграммы.
 
-## **Установить точность данных в подписи диаграммы**
+## **Установка точности данных в подписи диаграммы**
 
-Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) для форматирования значений рядов. В этом примере создаётся линейная диаграмма с данными по умолчанию, отображается её таблица данных и включаются подписи значений для первого ряда. Формат `#,##0.00` выводит разделитель тысяч и два знака после запятой, не изменяя исходные значения.
+Используйте [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) для форматирования значений серии. Этот пример создаёт линейную диаграмму с данными по умолчанию, отображает её таблицу данных и включает подписи значений для первой серии. Формат `#,##0.00` отображает разделитель тысяч и две десятичные цифры без изменения хранимых значений.
 
 ```java
 import com.aspose.slides.*;
@@ -45,9 +45,11 @@ try {
 }
 ```
 
-## **Отображать проценты в виде подписей**
+Для форматирования числовых ячеек в встроенной книге диаграммы см. [Set Custom Number Formats for Workbook Cells](/slides/ru/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). Этот пример также показывает подписи значений, следующие за форматами исходных ячеек, при сохранении числовых значений.
 
-Для сложенной столбчатой диаграммы вычислите каждый элемент как процент от общей суммы категории и присвойте полученный текст фрейму текста, возвращённому методом [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). В примере используется диаграмма с данными по умолчанию, проценты выводятся с двумя знаками после запятой шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. При изменении данных диаграммы пере‑вычисляйте пользовательский текст подписи.
+## **Отображение процентов в виде подписей**
+
+Для сложенной столбчатой диаграммы вычислите каждое значение как процент от общей суммы категории и назначьте текст в текстовый фрейм, возвращаемый методом [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Этот пример использует данные диаграммы по умолчанию и отображает проценты с двумя десятичными знаками шрифтом 8 пунктов. Категории с нулевой суммой пропускаются, чтобы избежать деления на ноль. Перерасчитайте пользовательский текст подписи, если данные диаграммы изменятся.
 
 ```java
 import com.aspose.slides.*;
@@ -104,11 +106,11 @@ try {
 }
 ```
 
-## **Установить знак процента в подписях данных диаграммы**
+## **Установка знака процента в подписях диаграммы**
 
-Когда значения хранятся в виде долей, используйте [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) для отображения процентов. Передайте `false` в [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) — это применит формат подписи независимо от исходных ячеек.
+Когда значения хранятся в виде дробей, используйте [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) для отображения процентов. Передайте `false` в [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) чтобы применить формат подписи независимо от исходных ячеек.
 
-В примере создаётся 100 % сложенная столбчатая диаграмма с красным и синим рядами по четырём категориям. Каждая пара значений в сумме равна 1. Формат подписи `0.0%` выводит 0.30 как 30.0 %, тогда как вертикальная ось использует два знака после запятой. Оба ряда используют белый текст подписи 10 пунктов.
+Этот пример создаёт 100 % сложенную столбчатую диаграмму с красными и синими сериями по четырём категориям. Каждая пара значений в сумме даёт 1. Формат подписи `0.0%` отображает 0.30 как 30.0 %, в то время как вертикальная ось использует два десятичных знака. Обе серии используют белый текст подписи размером 10 пунктов.
 
 ```java
 import com.aspose.slides.*;
@@ -163,9 +165,9 @@ try {
 }
 ```
 
-## **Получить фактический текст подписей данных**
+## **Чтение фактического текста подписей данных**
 
-Используйте [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) — он возвращает текст, полученный в результате настроек подписи данных. Это полезно при извлечении подписей для отчетов, поиске содержимого презентации или валидации сгенерированных диаграмм. В примере ниже стандартный [формат подписи данных](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) сочетает имя категории, имя ряда и значение. Одна точка форматирует своё значение как процент, другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+Используйте [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) для получения текста, сформированного настройками подписи данных. Это полезно при извлечении подписей для отчётов, поиске содержимого презентации или проверке сгенерированных диаграмм. В примере ниже стандартный [data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) комбинирует имя категории, имя серии и значение. Одна точка форматирует своё значение как процент, а другая использует пользовательский текст из [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +227,15 @@ try {
 }
 ```
 
-Число, хранящееся в точке данных, остаётся `0.75`, даже если её подпись показывает `75%` вместе с именами категории и ряда. Пользовательский текст заменяет сгенерированный текст подписи. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) возвращает итоговую строку подписи в любом случае. Проверяйте [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) отдельно, как показано выше, когда нужно извлекать только видимые подписи.
+Число, хранящееся в точке данных, остаётся `0.75`, даже когда её подпись показывает `75%` вместе с именами категории и серии. Пользовательский текст заменяет сгенерированный текст подписи. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) возвращает полученную строку подписи в любом случае. Проверьте [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) отдельно, как показано выше, когда требуется извлекать только видимые подписи.
 
 ## **Управление подписями данных за пределами максимума оси**
 
-При ручном ограничении диапазона оси некоторые точки данных могут выходить за её максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) — он управляет отображением их подписей. Эта настройка меняет только видимость подписи, не изменяя диапазон оси и исходные значения.
+Когда вы ограничиваете диапазон оси вручную, некоторые точки данных могут превышать её максимум. Используйте [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) для управления тем, отображаются ли их подписи. Эта настройка изменяет видимость подписи; она не меняет диапазон оси и не изменяет исходные числовые значения.
 
-В примере ниже создаётся 2‑D сгруппированная столбчатая диаграмма со значениями 60 и 120. Метод [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) получает `false`, а [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) задаёт максимум 100 на вертикальной оси. На первом слайде подписи отображаются за пределами максимума; копия слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
+В примере ниже создаётся 2D сгруппированная столбчатая диаграмма со значениями 60 и 120. Метод передаёт `false` в [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) и задаёт максимум 100 с помощью [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) по вертикальной оси. На первом слайде подписи за пределами максимума отображаются; копия этого слайда отключает их. Оба слайда сохраняются в `DataLabelsOverMaximum.pptx`.
 
-Включите подписи значений с помощью [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Настройка уровня диаграммы сама по себе не включает отображение значений и не переопределяет отключение отображения у отдельной подписи. В примере включаются значения для всего ряда и используется [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) — подписи размещаются в наружном конце каждого столбца.
+Включите подписи значений с помощью [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Настройка уровня диаграммы не включает отображение значений сама по себе и не переопределяет отключённое отображение значения отдельной подписи. Этот пример включает значения для всей серии и использует [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) для размещения подписей с внешней стороны каждого столбца.
 
 ```java
 import com.aspose.slides.*;
@@ -282,19 +284,19 @@ try {
 }
 ```
 
-Следующие изображения показывают сохранённые слайды, отрендеренные в Microsoft PowerPoint. При `true` подпись **120** видна у верхней границы; при `false` она скрыта. Подпись **60** остаётся видимой, максимум оси остаётся **100**, а второй пункт данных остаётся **120** в обоих случаях.
+Следующие изображения показывают сохранённые слайды, отрисованные Microsoft PowerPoint. При `true` подпись **120** видна у верхней границы; при `false` она скрыта. Подпись **60** остаётся видимой, максимум оси остаётся **100**, а вторая точка данных остаётся **120** в обоих случаях.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![Диаграмма PowerPoint, отображающая подпись со значением 120 при максимуме оси 100](data-labels-over-maximum-true.png) | ![Диаграмма PowerPoint, скрывающая подпись со значением 120 при максимуме оси 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Тип диаграммы" %}}
-Этот пример использует 2‑D столбчатую диаграмму с осью значений. Диаграммы без оси значений, такие как круговые и кольцевые, не имеют максимума оси, ограничиваемого таким образом.
+Этот пример использует 2D столбчатую диаграмму с осью значений. Диаграммы без оси значений, такие как круговые и кольцевые диаграммы, не имеют максимума оси, который можно ограничить таким образом.
 {{% /alert %}}
 
-## **Установить расстояние подписи от оси**
+## **Установка расстояния подписи от оси**
 
-Используйте [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) — он управляет расстоянием между подписями категориальной оси и самой осью. Значение задаётся в процентах от максимального размера шрифта подписей оси. В примере создаётся сгруппированная столбчатая диаграмма, и горизонтальному смещению подписи оси задаётся 500. Эта настройка влияет на подписи категориальной оси, а не на подписи, привязанные к отдельным точкам данных.
+Используйте [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) для управления расстоянием между подписями оси категории и самой осью. Значение задаётся в процентах от максимального размера шрифта подписей оси. Этот пример создаёт сгруппированную столбчатую диаграмму и задаёт смещение подписи горизонтальной оси равным 500. Настройка влияет на подписи оси категории, а не на подписи, привязанные к отдельным точкам данных.
 
 ```java
 import com.aspose.slides.*;
@@ -312,11 +314,11 @@ try {
 }
 ```
 
-## **Настроить расположение подписи**
+## **Регулировка положения подписи**
 
-Для круговой диаграммы отрегулируйте позиции подписей данных, чтобы улучшить интервалы и освободить место для линий‑выноски.
+На круговой диаграмме отрегулируйте позиции подписей данных, чтобы улучшить распределение и освободить место для линий‑выносок.
 
-В этом примере выводится значение первой точки данных, подпись размещается за пределами сектора, а её горизонтальное и вертикальное смещение задаются методами [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) и [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Смещения задаются относительно ширины и высоты диаграммы соответственно.
+Этот пример отображает значение первой точки данных, размещает её подпись за пределами сектора и корректирует горизонтальное и вертикальное смещение с помощью [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) и [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Эти смещения задаются относительно ширины и высоты диаграммы соответственно.
 
 ```java
 import com.aspose.slides.*;
@@ -342,15 +344,15 @@ try {
 
 ![Круговая диаграмма с отрегулированным положением подписи данных](pie-chart-adjusted-label.png)
 
-## **Форматировать линии-выноски**
+## **Форматирование линий‑выносок**
 
-Когда подписи круговой диаграммы находятся за пределами секторов, линии‑выноски помогают читателю сопоставить каждое значение с соответствующим сектором. Контрастный цвет и слегка более толстая линия делают такие соединения более разборчивыми, а прозрачность и пунктирный стиль сохраняют их визуально ненавязчивыми.
+Когда подписи круговой диаграммы находятся за пределами своих секторов, линии‑выноски помогают читателям сопоставить каждое значение с соответствующим сектором. Контрастный цвет и слегка утолщённая линия могут упростить восприятие соединений, а прозрачность и пунктирный стиль сохраняют линии незаметными визуально.
 
-Используйте [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) — он формирует линии‑выноски на уровне коллекции подписей ряда. Параметры в `series.getLabels().getLeaderLinesFormat().getLine()` применяются к всей коллекции, а не к отдельной подписи.
+Используйте [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) для форматирования линий‑выносок на уровне коллекции подписей серии. Настройки в `series.getLabels().getLeaderLinesFormat().getLine()` применяются к коллекции, а не к отдельной подписи.
 
-В примере создаётся круговая диаграмма с данными по умолчанию, подписи выводятся за пределами секторов, и включается [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Две подписи отодвигаются дальше от своих секторов с помощью смещений [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) и [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-), задаваемых в долях ширины и высоты диаграммы. Входная презентация не требуется.
+Этот пример создаёт круговую диаграмму с данными по умолчанию, отображает значения за пределами секторов и включает [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). Он перемещает две подписи дальше от их секторов с помощью смещений [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) и [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-), выраженных в долях ширины и высоты диаграммы. Исходная презентация не требуется.
 
-Метод [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) линии задаёт сплошной синий цвет с альфа‑значением 191 из 255, что даёт примерно 25 % прозрачности. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) устанавливает толщину в 2 пункта, а [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) делает линию пунктирной.
+Линия [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) задаёт сплошной синий цвет с альфа‑значением 191 из 255, что даёт примерно 25 % прозрачности. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) устанавливает толщину в 2 пункта, а [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) делает линию пунктирной.
 
 ```java
 import com.aspose.slides.*;
@@ -388,17 +390,17 @@ try {
 }
 ```
 
-Включение линий‑выноски не гарантирует появление линии у каждой подписи. Видимость зависит от размещения подписи и поведения раскладки диаграммы. В данном примере две смещённые подписи имеют видимые линии‑выноски; подписи, оставшиеся рядом с секторами, их не требуют.
+Включение линий‑выносок не гарантирует появление линии для каждой подписи. Видимость зависит от размещения подписи и поведения компоновки диаграммы. В этом примере две смещённые подписи имеют видимые линии‑выноски; подписи, оставшиеся близко к секторам, их не требуют.
 
-Следующее изображение показывает сохранённый `FormattedLeaderLines.pptx`, отрендеренный с помощью Aspose.Slides:
+Следующее изображение демонстрирует сохранённый `FormattedLeaderLines.pptx`, отрисованный с помощью Aspose.Slides:
 
-![Круговая диаграмма с синими полупрозрачными пунктирными линиями‑выносками, соединяющими две внешние подписи с их секторами](formatted-leader-lines.png)
+![Круговая диаграмма с синими, полупрозрачными пунктирными линиями‑выносок, соединяющими две внешние подписи с их секциями](formatted-leader-lines.png)
 
-## **Добавить несколько строк подписей над столбчатой диаграммой**
+## **Добавление нескольких строк подписей над столбчатой диаграммой**
 
-В этом примере создаётся столбчатая диаграмма с двумя строками подписей над областью построения. Ряд A отображает видимые столбцы, а ряды B и C предоставляют дополнительные подписи. Их столбцы скрыты за счёт удаления заливки и контура. Метод [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) выравнивает все три ряда относительно одинаковых центров категорий.
+Этот пример создаёт столбчатую диаграмму с двумя строками подписей над областью построения. Серия A отображает видимые столбцы, а серии B и C предоставляют дополнительные подписи. Их столбцы скрыты удалением заливки и контура. Метод [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) выравнивает все три серии по центральным точкам категорий.
 
-Настройки [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) резервируют место для строк подписей. После расчёта позиций по умолчанию методом [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) методы [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) и [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) сохраняют горизонтальное выравнивание и применяют вертикальные смещения для размещения подписей в две строки. Числа остаются подписью, привязанной к значениям рядов; только заголовки строк являются отдельными текстовыми фигурами.
+Настройки [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) резервируют место для строк подписей. После того как [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) вычислит позиции по умолчанию, методы [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) и [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) сохраняют горизонтальное выравнивание и применяют вертикальные смещения для размещения подписей в две строки. Числа остаются подписями, связанными со значениями серии; только заголовки строк являются отдельными текстовыми фигурами.
 
 ```java
 import com.aspose.slides.*;
@@ -454,14 +456,14 @@ try {
         }
     }
 
-    // Выравнивать все три ряда по одинаковым центрам категорий.
+    // Выровнять все три серии по центрам категорий.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
 
-    // Использовать меньше вспомогательных линий для этого компактного примера.
+    // Использовать меньше линий сетки для этого компактного примера.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // Зарезервировать пространство над областью построения для двух строк подписей данных.
+    // Зарезервировать место над областью построения для двух строк подписей данных.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -475,8 +477,8 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // Сохранить горизонтальное положение по умолчанию. Y — смещение от
-            // позиции подписи по умолчанию, выраженное как доля высоты диаграммы.
+            // Сохранить положение по умолчанию по горизонтали.
+            // Y — смещение от положения подписи по умолчанию, выраженное как доля высоты диаграммы.
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
@@ -504,11 +506,14 @@ try {
 
 ## **FAQ**
 
-**Как предотвратить наложение подписей данных на плотных диаграммах?**  
-Сочетайте автоматическое размещение подписей, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывайте отдельные поля (например, категорию) или отображайте подписи только для экстремальных или ключевых точек.
+**Как предотвратить перекрытие подписей данных на плотных диаграммах?**
 
-**Как отключить подписи только для нулевых, отрицательных или пустых значений?**  
-Фильтруйте точки данных перед включением подписей и отключайте отображение для значений 0, отрицательных или отсутствующих согласно заданному правилу.
+Сочетайте автоматическое размещение подписей, линии‑выноски и уменьшенный размер шрифта; при необходимости скрывайте некоторые поля (например, категорию) или показывайте подписи только для экстремальных значений или ключевых точек.
 
-**Как обеспечить единый стиль подписи при экспорте в PDF/изображения?**  
-Явно задавайте семейство шрифта и размер, а также проверяйте наличие шрифта в среде рендеринга, чтобы избежать подстановки.
+**Как отключить подписи только для нулевых, отрицательных или пустых значений?**
+
+Отфильтруйте точки данных перед включением подписей и отключите отображение для значений 0, отрицательных значений или отсутствующих данных согласно заданному правилу.
+
+**Как обеспечить одинаковый стиль подписи при экспорте в PDF/изображения?**
+
+Явно задайте семейство шрифта и размер и убедитесь, что шрифт доступен в среде рендеринга, чтобы избежать автоматической замены.

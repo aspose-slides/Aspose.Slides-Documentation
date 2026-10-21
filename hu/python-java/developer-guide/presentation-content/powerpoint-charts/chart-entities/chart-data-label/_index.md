@@ -1,5 +1,5 @@
 ---
-title: Diagram adatcímkék kezelése prezentációkban Python segítségével
+title: Diagram adatcímkék kezelése prezentációkban Python használatával
 linktitle: Adatcímke
 type: docs
 url: /hu/python-java/chart-data-label/
@@ -9,21 +9,21 @@ keywords:
 - adat pontosság
 - százalék
 - címke távolság
-- címke helye
+- címke elhelyezés
 - PowerPoint
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan adhat hozzá és formázhat diagram adatcímkéket PowerPoint prezentációkban az Aspose.Slides for Python via Java segítségével, hogy a diák még figyelemfelkeltőbbek legyenek."
+description: "Ismerje meg, hogyan adhat hozzá és formázhat diagram adatcímkéket PowerPoint prezentációkban az Aspose.Slides for Python via Java használatával, hogy még figyelemfelkeltőbb diák készüljenek."
 ---
 ## **Bevezetés**
 
-Az adatcímkék információkat jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk magyarázza, hogyan formázzuk az értékeket, jelenítsünk meg százalékokat, olvassuk el a címkeszöveget, kezeljük a címkéket a tengelymaximumon túl, állítsuk be a kategóriatengely címkéinek távolságát, és pozícionáljuk a kördiagram címkéket.
+Az adatcímkék megjelenítik a diagram sorozataival és az egyes adatpontokkal kapcsolatos információkat, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk ismerteti, hogyan formázhatja az értékeket, jeleníthet meg százalékokat, olvashatja a címke szöveget, vezérelheti a címkéket a tengely maximumán túl, állíthatja a kategória tengely címkéinek távolságát, és elhelyezheti a kördiagram címkéket.
 
-## **Az adatcímke pontosságának beállítása a diagram adatcímkéiben**
+## **Adatok pontosságának beállítása a diagram adatcímkéiben**
 
-Használja a [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) metódust a sorozatértékek formázásához. Ez a példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozathoz. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná a mögöttes értékeket.
+Használja a [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) függvényt a sorozat értékeinek formázásához. Ez a példa egy alapértelmezett adatú vonaldiagramot hoz létre, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozatnál. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná a mögöttes értékeket.
 
 ```python
 import jpype
@@ -50,9 +50,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Százalék megjelenítése címkéként**
+A diagram beágyazott munkafüzetének numerikus celláinak formázásához lásd a [Egyéni számformátumok beállítása a munkafüzet celláiban](/slides/hu/python-java/chart-workbook/#set-custom-number-formats-for-workbook-cells) cikket. Az a példa szintén mutatja, hogy az értékcímkék a forráscellák formátuma szerint jelennek meg, miközben megőrzik a tárolt numerikus értékeket.
 
-Halmozott oszlopdiagram esetén számítsa ki az egyes értékeket a kategória összegének százalékában, és rendelje hozzá a szöveget a [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) által visszaadott szövegkerethez. Ez a példa az alapértelmezett diagram adatokat használja, és a százalékokat két tizedesjeggyel, 8 pontos betűmérettel jeleníti meg. A nulla összegű kategóriákat kihagyja, hogy elkerülje a nullával való osztást. Ha a diagram adatai változnak, számolja újra az egyedi címkeszöveget.
+## **Százalék megjelenítése címkéken**
+
+Halmozott oszlopdiagram esetén számolja ki az egyes értékeket a kategória összegének százalékaként, és rendelje a szöveget a [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) által visszaadott szövegkerethez. Ez a példa az alapértelmezett diagramadatokat használja, és a százalékokat két tizedesjeggyel, 8 pontos betűmérettel jeleníti meg. A nullára jövő összegű kategóriákat kihagyja, hogy elkerülje a nullával való osztást. Ha a diagram adatai változnak, számolja újra az egyéni címkeszöveget.
 
 ```python
 import jpype
@@ -108,11 +110,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Százalékjel beállítása a diagram adatcímkékkel**
+## **Százalékjel beállítása a diagram adatcímkéiben**
 
-Ha az értékek törtként vannak tárolva, használja a [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) metódust a százalékok megjelenítéséhez. Adjon át `False` értéket a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) metódusnak, hogy a címkek formátuma független legyen a forráscelláktól.
+Ha az értékek törtként vannak tárolva, használja a [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) függvényt a százalékok megjelenítéséhez. Adjon `False` értéket a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) hívásnak, hogy a címkeformátum a forráscelláktól függetlenül alkalmazásra kerüljön.
 
-Ez a példa egy 100%-os halmozott oszlopdiagramot hoz létre piros és kék sorozattal négy kategórián. Minden értékpár összege 1. A `0.0%` címkeformátum a 0.30-at 30.0%-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
+Ez a példa egy 100%-os halmozott oszlopdiagramot hoz létre, piros és kék sorozatokkal négy kategóriában. Minden értékpár összege 1. A címkeformátum `0.0%` 0.30-at 30.0%-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget használ.
 
 ```python
 import jpype
@@ -171,9 +173,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Az adatcímkék tényleges szövegének kiolvasása**
+## **Az adatcímkék tényleges szövegének beolvasása**
 
-Használja a [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) metódust az adatcímke beállításai által előállított szöveg lekéréséhez. Ez hasznos címkék kinyerésekor jelentésekhez, a bemutató tartalmának keresésekor vagy a generált diagramok ellenőrzésekor. Az alábbi példában az alapértelmezett [adatcímke formátum](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) egyesíti a kategórianév, sorozatnév és érték minden elemét. Egy pont az értékét százalékos formátumban jeleníti meg, a másik egyedi szöveget használ a [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) metódusból.
+Használja a [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) metódust az adatcímke beállításai által előállított szöveg lekéréséhez. Ez hasznos jelentésekhez címkék kinyerésekor, a prezentáció tartalmának keresésekor vagy a generált diagramok ellenőrzésekor. Az alábbi példában az alapértelmezett [data label format](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) összevonja minden kategórianév, sorozatnév és érték. Egy pont értékét százalékos formátumban jeleníti meg, a másik egyéni szöveget használ a [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) segítségével.
 
 ```python
 import jpype
@@ -234,15 +236,15 @@ finally:
     presentation.dispose()
 ```
 
-Az adatpontban tárolt szám `0.75` marad, még akkor is, ha a címkéje `75%`-ot mutat a kategória- és sorozatnevekkel együtt. Az egyedi szöveg felülírja a generált címkeszöveget. A [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) mindkét esetben visszaadja a kapott címke karakterláncot. Ellenőrizze külön a [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) metódust, ahogy fent látható, ha csak a látható címkéket szeretné kinyerni.
+Az adatpontban tárolt szám `0.75` marad, még akkor is, ha a címkéje `75%`-ot mutat a kategória és sorozat nevekkel együtt. Az egyéni szöveg felülírja a generált címkeszöveget. A [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) akár ebben, akár abban az esetben visszaadja a kapott címkeszöveget. Ellenőrizze külön a [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible) metódust, ahogy fent mutattuk, ha csak a látható címkéket szeretné kinyerni.
 
-## **Adatcímkék kezelése a tengelymaximumon túl**
+## **Adatcímkék vezérlése a tengely maximumán túl**
 
-Ha manuálisan korlátozza egy tengely tartományát, egyes adatpontok meghaladhatják a maximumot. Használja a [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) metódust annak szabályozására, hogy a címkék megjelenjenek-e. Ez a beállítás a címke láthatóságát változtatja; nem módosítja a tengely tartományát vagy a mögöttes adatértékeket.
+Ha manuálisan korlátozza a tengely tartományt, egyes adatpontok meghaladhatják a maximumot. Használja a [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) függvényt annak szabályozásához, hogy megjelenjenek-e azok adatcímkéi. Ez a beállítás a címke láthatóságát módosítja; nem változtatja meg a tengely tartományát vagy a mögöttes adatértékeket.
 
-Az alábbi példa egy 2D csoportosított oszlopdiagramot hoz létre 60 és 120 értékekkel. `False` értéket ad át a [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) metódusnak, és a függőleges tengelyen a [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) metódussal 100-ra állítja a maximumot. Az első dián a maximumon túli címkék engedélyezettek; egy másolat letiltja őket. Mindkét dia a `DataLabelsOverMaximum.pptx` fájlban kerül mentésre.
+Az alábbi példa egy 2D klaszteres oszlopdiagramot hoz létre 60 és 120 értékekkel. A [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue) hívásnak `False` értéket ad, és a függőleges tengelyen a [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) segítségével 100-ra állítja a maximumot. Az első dián engedélyezi a maximumon túli címkéket; egy másolat letiltja őket. Mindkét dia a `DataLabelsOverMaximum.pptx` fájlba kerül mentésre.
 
-A [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) metódussal engedélyezze az értékcímkéket. A diagram szintű beállítás önmagában nem engedélyezi az értékek megjelenítését, vagy nem írja felül egy adott címke letiltott értékmegjelenítését. Ez a példa a teljes sorozatra engedélyezi az értékeket, és a [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) metódust használja a címkék elhelyezéséhez az egyes oszlopok külső végén.
+A [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) használatával aktiválhatja az értékcímkéket. A diagram szintű beállítás önmagában nem engedélyezi az érték megjelenítését, és nem ír felül egy adott címke letiltott értékmegjelenítését. Ez a példa a teljes sorozatra engedélyezi az értékek megjelenítését, és a [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) segítségével a címkéket az egyes oszlopok külső végére helyezi.
 
 ```python
 import jpype
@@ -296,19 +298,19 @@ finally:
     presentation.dispose()
 ```
 
-Az alábbi képek a Microsoft PowerPoint által renderelt mentett diákat mutatják. `True` esetén a **120** címke látható a felső határon; `False` esetén rejtett. A **60** címke látható marad, a tengelymaximum **100** marad, és a második adatpont mindkét esetben **120**.
+Az alábbi képek a Microsoft PowerPoint által renderelt mentett diákot mutatják. `True` esetén a **120** címke látható a felső határnál; `False` esetén rejtve van. A **60** címke továbbra is látható, a tengely maximum **100** marad, és a második adatpont **120** mindkét esetben.
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
-| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint-diagram, amely a 120 értékcímkét mutatja 100-as tengelymaximummal](data-labels-over-maximum-true.png) | ![PowerPoint-diagram, amely elrejti a 120 értékcímkét 100-as tengelymaximummal](data-labels-over-maximum-false.png) |
 
-{{% alert color="info" title="Diagram típusa" %}}
-Ez a példa egy 2D oszlopdiagramot használ érték tengellyel. Az olyan diagramok, amelyeknek nincs érték tengelye, például kör- és fánkdiagramok, nem rendelkeznek tengelymaximumszal, amelyet így korlátozni lehetne.
+{{% alert color="info" title="Chart Type" %}}
+Ez a példa egy 2D oszlopdiagramot használ érték tengellyel. Az érték tengellyel nem rendelkező diagramok, például a kör- és gyűrűdiagramok, nem rendelkeznek tengelymaximumkal, amelyet így lehetne korlátozni.
 {{% /alert %}}
 
-## **Címketávolság beállítása a tengelytől**
+## **Címke távolságának beállítása a tengelytől**
 
-Használja a [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) metódust a kategóriatengely címkéi és a tengely közötti távolság szabályozására. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportosított oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolásra 500-at állít. Ez a beállítás a kategóriatengely címkéire vonatkozik, nem pedig az egyedi adatpontokhoz csatolt címkékre.
+Használja a [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) függvényt a kategória tengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy klaszteres oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategória tengely címkéire hat, nem az egyes adatpontokhoz csatolt címkékre.
 
 ```python
 import jpype
@@ -331,11 +333,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Címkehelyzet módosítása**
+## **Címke helyének módosítása**
 
-Kördiagramon állítsa be az adatcímkék pozícióját a távolság javítása és a vezetővonalak számára hely biztosítása érdekében.
+Kördiagram esetén állítsa be az adatcímkék pozícióját a távolság javítása és a vezetővonalak számára hely kialakítása érdekében.
 
-Ez a példa az első adatpont értékét jeleníti meg, a címkét a szelet kívülre helyezi, és a [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) és [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) metódusokkal állítja be a vízszintes és függőleges eltolásokat. Ezek az eltolások a diagram szélességéhez és magasságához viszonyítva vannak.
+Ez a példa az első adatpont értékét jeleníti meg, a címkét a szelet kívülre helyezi, és a vízszintes és függőleges eltolásokat a [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) és a [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) segítségével állítja be. Ezek az eltolások a diagram szélességéhez és magasságához viszonyítva értendők.
 
 ```python
 import jpype
@@ -364,17 +366,17 @@ finally:
     presentation.dispose()
 ```
 
-![Kördiagram a módosított adatcímke pozícióval](pie-chart-adjusted-label.png)
+![Kördiagram módosított adatcímke pozícióval](pie-chart-adjusted-label.png)
 
 ## **Vezetővonalak formázása**
 
-Ha a kördiagram címkéi kívül helyezkednek el a szeleteken, a vezetővonalak segítik az olvasókat, hogy az egyes értékeket a megfelelő szelethez társítsák. Egy kontrasztos szín és egy kissé vastagabb vonal megkönnyíti a kapcsolat követését, míg a átlátszóság és a szaggatott stílus a vonalakat vizuálisan visszafogottá teszi.
+Ha a kördiagram címkéi a szeletek kívül helyezkednek el, a vezetővonalak segítik az olvasót, hogy az adott értéket a megfelelő szelethez kapcsolja. Egy kontrasztos szín és egy kissé vastagabb vonal könnyebbé teheti a kapcsolat követését, míg az áttetszőség és a szaggatott stílus a vonalakat vizuálisan visszafogottá teszi.
 
-Használja a [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) metódust a sorozat adatcímke-gyűjtemény szintjén a vezetővonalak formázásához. A `series.getLabels().getLeaderLinesFormat().getLine()` beállítások a gyűjteményre, nem egyéni címkére vonatkoznak.
+Használja a [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) metódust a vezetővonalak formázásához a sorozat adatcímke-gyűjtemény szintjén. A `series.getLabels().getLeaderLinesFormat().getLine()` beállításai a gyűjteményre vonatkoznak, nem egyéni címkére.
 
-Ez a példa egy alapértelmezett adatokkal rendelkező kördiagramot hoz létre, a szeleteken kívül jeleníti meg az értékeket, és engedélyezi a [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines) metódust. Két címkét távolabb helyez a szeleteiktől a [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) és [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) eltolások segítségével, amelyeket a diagram szélességének és magasságának tört részeként ad meg. Bemeneti prezentációra nincs szükség.
+Ez a példa egy alapértelmezett adatokkal rendelkező kördiagramot hoz létre, az értékeket a szeletek kívülre jeleníti meg, és engedélyezi a [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines) használatát. Két címkét távolabb helyez a szeletektől a [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) és a [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) eltolásokkal, amelyek a diagram szélességének és magasságának törtjei. Bemutató prezentáció nem szükséges.
 
-A vonal [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) metódusa szilárd kék színt állít be 191 alfa értékkel a 255-ből, körülbelül 25% átlátszóságot biztosítva. A [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) a vastagságot 2 pontra állítja, a [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) pedig szaggatottá teszi a vonalat.
+A vonal [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) egy átlátszatlan kék színt állít be 191 alfaértékkel a 255-ből, ami körülbelül 25% átlátszatlanságot jelent. A [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) a vastagságot 2 pontra, a [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) a vonalat szaggatottá teszi.
 
 ```python
 import jpype
@@ -401,7 +403,7 @@ try:
     label_format.setPosition(LegendDataLabelPosition.OutsideEnd)
     label_format.setShowLeaderLines(True)
 
-    # Két címkét helyezzen el távolabb a szeleteiktől.
+    # Két címkét távolabb helyez a szeletektől.
     series.getLabels().get_Item(0).setX(0.10)
     series.getLabels().get_Item(0).setY(-0.05)
     series.getLabels().get_Item(1).setX(-0.10)
@@ -419,17 +421,15 @@ finally:
     presentation.dispose()
 ```
 
-A vezetővonalak engedélyezése nem garantálja, hogy minden címkéhez vonal jelenik meg. A láthatóság a címke elhelyezésétől és a diagram elrendezési viselkedésétől függ. Ebben a példában a két eltolódott címke látható vezetővonalakkal rendelkezik; a szeletekhez közel maradt címkéknek nincs szükségük rájuk.
+A vezetővonalak engedélyezése nem garantálja, hogy minden címkéhez megjelenik vonal. A láthatóság a címke elhelyezésétől és a diagram elrendezési viselkedésétől függ. Ebben a példában a két elmozdított címke látható vezetővonalakkal rendelkezik; a szeletekhez közel maradó címkéknek nincs szükségük rájuk.
 
-Az alábbi kép a mentett `FormattedLeaderLines.pptx` Aspose.Slides által renderelt változatát mutatja:
+![Kördiagram kék, félig áttetsző szaggatott vezetővonalakkal, amelyek két külső címkét összekötnek a szeletekkel](formatted-leader-lines.png)
 
-![Kördiagram kék, félig átlátszó szaggatott vezetővonalakkal, amelyek két külső címkét kapcsolnak a szeleteikhez](formatted-leader-lines.png)
+## **Több soros adatcímkék hozzáadása az oszlopdiagram felett**
 
-## **Több sor adatcímke hozzáadása oszlopdiagram felett**
+Ez a példa egy oszlopdiagramot hoz létre két sor adatcímkével a diagramterület felett. Az A sorozat a látható oszlopokat jeleníti meg, míg a B és C sorozatok a további címkéket biztosítják. Az ő oszlopaik el vannak rejtve a kitöltés és a körvonal eltávolításával. A [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) metódus az összes három sorozatot ugyanazokkal a kategória középpontokkal igazítja.
 
-Ez a példa egy oszlopdiagramot hoz létre, amely a diagramterület felett két sor adatcímkét tartalmaz. Az A sorozat a látható oszlopokat jeleníti meg, míg a B és C sorozatok a további címkéket biztosítják. Az ő oszlopaikat a kitöltés és a körvonal eltávolításával rejtik el. A [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) metódus az összes három sorozatot ugyanazokkal a kategóriaközéppontokkal igazítja.
-
-A [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) beállítások helyet foglalnak a címkesorok számára. A [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) a alapértelmezett pozíciókat számolja ki, ezután a [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) és [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) megőrzik a vízszintes igazítást és függőleges eltolásokat alkalmaznak a címkék két sorba rendezéséhez. A számok továbbra is adatcímkék maradnak, amelyek a sorozatértékekhez vannak kapcsolva; csak a sorfejek külön szöveges alakzatok.
+A [ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) beállításai helyet foglalnak a címkesoroknak. A [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) kiszámítja az alapértelmezett pozíciókat, majd a [DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) és a [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) megőrzi a vízszintes igazítást és függőleges eltolásokat alkalmaz a címkék két sorba rendezéséhez. A számok továbbra is adatcímkék maradnak, amelyek a sorozat értékéhez vannak kapcsolva; csak a sorfejlécek különálló szövegformák.
 
 ```python
 import jpype
@@ -474,7 +474,7 @@ try:
             series.getDataPoints().addDataPointForBarSeries(value_cell)
 
         if series_index > 0:
-            # Rejtse el a B és C oszlopait, de tartsa meg az adatcímkéiket.
+            # Rejtse el a B és C oszlopokat, de hagyja meg az adatcímkéiket.
             series.getFormat().getFill().setFillType(FillType.NoFill)
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
             label_format = series.getLabels().getDefaultDataLabelFormat()
@@ -485,14 +485,14 @@ try:
             label_fill.getSolidFillColor().setColor(Color.BLACK)
             label_format.setPosition(LegendDataLabelPosition.InsideBase)
 
-    # Igazítsa a három sorozatot ugyanarra a kategóriaközéppontra.
+    # Igazítsa az összes három sorozatot ugyanarra a kategória középpontra.
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
 
-    # Használjon kevesebb hálóvonalat ebben a kompakt példában.
+    # Kevesebb rácsvonalat használjon ebben a kompakt példában.
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setMajorUnit(10)
 
-    # Foglaljon helyet a diagram felett két sor adatcímke számára.
+    # Foglaljon helyet a diagram felett két sor adatcímkének.
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
     chart.getPlotArea().setX(0.15)
     chart.getPlotArea().setY(0.32)
@@ -506,12 +506,12 @@ try:
 
         for category_index in range(len(categories)):
             data_label = series.getDataPoints().get_Item(category_index).getLabel()
-            # Tartsa meg az alapértelmezett vízszintes pozíciót. Az Y egy eltolás a
-            # alapértelmezett címkepozíciótól, a diagram magasságának tört részében kifejezve.
+            # Tartsa meg az alapértelmezett vízszintes pozíciót. Y egy eltolás a
+            # alapértelmezett címkehelyzettől, amely a diagrammagasság törtje.
             data_label.setX(0)
             data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
 
-        # Csak a sorfejléc egy külön szöveg alakzat.
+        # Csak a sorfejléc egy külön szöveges alakzat.
         heading_y = chart.getY() + row_top * chart.getHeight()
         row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
         row_heading.getFillFormat().setFillType(FillType.NoFill)
@@ -529,18 +529,15 @@ finally:
     presentation.dispose()
 ```
 
-![Oszlopdiagram két sor adatcímkével a diagramterület felett](multiple-rows-of-labels.png)
+![Oszlopdiagram két soros adatcímkékkel a diagramterület felett](multiple-rows-of-labels.png)
 
 ## **GYIK**
 
-**Hogyan lehet megelőzni, hogy az adatcímkék átfedjék egymást sűrű diagramokon?**
+**Hogyan lehet megakadályozni az adatcímkék átfedését zsúfolt diagramokon?**  
+Kombinálja az automatikus címkeelhelyezést, a vezetővonalakat és a kisebb betűméretet; szükség esetén rejtsen el néhány mezőt (például a kategóriát), vagy csak a szélső értékekhez vagy kulcspontokhoz jelenítsen meg címkéket.
 
-Kombinálja az automatikus címkeelhelyezést, a vezetővonalakat és a kisebb betűméretet; ha szükséges, rejtsen el bizonyos mezőket (például a kategóriát), vagy csak a szélső értékekhez vagy kulcspontokhoz jelenítse meg a címkéket.
+**Hogyan lehet a címkéket csak a null, negatív vagy üres értékeknél letiltani?**  
+Szűrje a adatpontokat a címkék engedélyezése előtt, és a meghatározott szabály szerint kapcsolja ki a megjelenítést a 0, negatív vagy hiányzó értékeknél.
 
-**Hogyan lehet letiltani a címkéket csak a nulla, negatív vagy üres értékeknél?**
-
-Szűrje le az adatpontokat a címkék engedélyezése előtt, és a meghatározott szabály alapján kapcsolja ki a megjelenítést a 0, a negatív vagy a hiányzó értékeknél.
-
-**Hogyan biztosítható a konzisztens címkestílus PDF- vagy kép exportálásakor?**
-
-Kifejezetten állítsa be a betűcsaládot és méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelő környezetben, hogy elkerülje a helyettesítést.
+**Hogyan biztosítható a címkestílus következetessége PDF/ képek exportálásakor?**  
+Határozza meg kifejezetten a betűtípust és a méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelési környezetben, hogy elkerülje az alapértelmezett helyettesítést.

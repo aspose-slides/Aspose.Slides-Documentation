@@ -1,5 +1,5 @@
 ---
-title: Správa sešitů grafů v prezentacích pomocí JavaScriptu
+title: Spravovat sešity grafů v prezentacích pomocí JavaScriptu
 linktitle: Sešit grafu
 type: docs
 weight: 70
@@ -14,37 +14,37 @@ keywords:
 - externí sešit
 - externí data
 - mezipaměť grafu
-- obnova sešitu
+- obnovení sešitu
 - PowerPoint
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Objevte Aspose.Slides pro Node.js přes Java: snadno spravujte sešity grafů ve formátech PowerPoint a OpenDocument, abyste zjednodušili data vaší prezentace."
+description: "Objevte Aspose.Slides pro Node.js přes Java: snadno spravujte sešity grafů v formátech PowerPoint a OpenDocument a zjednodušte data své prezentace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s sešity grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu prostřednictvím proudů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat ke kolekcím listů a určovat typ zdroje dat pro hodnoty grafu.
+Tento článek vysvětluje, jak pracovat s sešity grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu pomocí streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat ke kolekcím listů a specifikovat typ zdroje dat pro hodnoty grafu.
 
-Také se zabývá prací s externími sešity jako zdroji dat pro grafy. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit dostupný.
+Také se zabývá prací s externími sešity jako zdroji dat pro grafy. Příklady demonstrují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit k dispozici.
 
-Pro buňky sešitu, které představují chybějící data, viz [Ovládání zobrazení prázdných buněk](/slides/cs/nodejs-java/chart-series/) pro rozdíl mezi prázdnou buňkou a nulou a porovnání čárových grafů dostupných režimů zobrazení.
+Pro buňky sešitu, které představují chybějící data, viz [Řízení zobrazení prázdných buněk](/slides/cs/nodejs-java/chart-series/) pro rozdíl mezi prázdnou buňkou a nulou a srovnání režimů zobrazení u čárového grafu.
 
 ## **Zahrnout data ze skrytých řádků a sloupců**
 
-Použijte [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setPlotVisibleCellsOnly) k řízení, zda graf vykresluje data ze skrytých řádků a sloupců listu. Nastavte na `true`, aby se vykreslovaly pouze viditelné buňky, nebo na `false`, aby byly zahrnuty jak viditelné, tak skryté buňky. Toto nastavení řídí vykreslování grafu; neškrtá ani nezobrazí skryté řádky nebo sloupce listu.
+Použijte [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) ke kontrole, zda graf vykresluje data ze skrytých řádků a sloupců listu. Nastavte na `true`, aby se vykreslovaly pouze viditelné buňky, nebo na `false`, aby se zahrnovaly jak viditelné, tak skryté buňky. Toto nastavení řídí vykreslování grafu; neprovádí skrytí nebo zobrazení řádků či sloupců listu.
 
-[ukázková prezentace](hidden-source-data.pptx) obsahuje sloupcový graf jako první tvar na první snímku. Vložený list `Sheet1` obsahuje následující zdrojový rozsah `A1:C4`. Řádek 3 a sloupec C jsou skryté, ale jejich buňky stále obsahují hodnoty.
+Ukázková prezentace ([sample presentation](hidden-source-data.pptx)) obsahuje sloupcový graf jako první tvar na první snímku. Vložený list `Sheet1` obsahuje následující zdrojový rozsah `A1:C4`. Řádek 3 a sloupec C jsou skryté, ale jejich buňky stále obsahují hodnoty.
 
 | Řádek listu | A: Měsíc | B: Maloobchod | C: Velkoobchod (skrytý sloupec) |
 | --- | --- | --- | --- |
-| 2 | leden | 10 | 30 |
-| 3 (skrytý řádek) | únor | 40 | 60 |
-| 4 | březen | 20 | 50 |
+| 2 | Leden | 10 | 30 |
+| 3 (hidden row) | Únor | 40 | 60 |
+| 4 | Březen | 20 | 50 |
 
-Přistupujte ke zdrojovým buňkám pomocí [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) a čtěte [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#isHidden) pro kontrolu jejich skrytého stavu. Tato metoda hlásí stav skrytí bez jeho změny. V tomto souboru je B2 viditelná, B3 patří ke skrytému řádku a C2 patří ke skrytému sloupci; příklad vytiskne `false`, `true` a `true`.
+Přístup ke zdrojovým buňkám získáte přes [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) a přečtěte [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) pro kontrolu jejich skrytého stavu. Tato metoda vrací stav skrytí, aniž by jej měnila. V tomto souboru je B2 viditelný, B3 patří ke skrytému řádku a C2 ke skrytému sloupci; příklad vypíše `false`, `true` a `true`.
 
-Pro tento příklad obnovte data grafu po změně nastavení vykreslování: zachovejte vložený sešit pomocí [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) a načtěte jej znovu pomocí [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream). Při zahrnutí všech buněk také použijte [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) k obnovení úplného rozsahu, včetně skryté kategorie únor. Pouhé změnění příznaku není dostatečné pro obnovení keše dat grafu a popisků kategorií v tomto příkladu. Příklad převádí vrácený Node.js buffer na Java pole bajtů před předáním do zápisové metody.
+Pro tento příklad obnovte data grafu po změně nastavení vykreslování: zachovejte vložený sešit pomocí [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) a načtěte jej znovu pomocí [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/). Při zahrnutí všech buněk použijte také [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) k obnovení úplného rozsahu, včetně skryté kategorie únor. Pouhé změnění příznaku není dostačující k obnovení kešovaných dat grafu a popisků kategorií v tomto vzorku. Příklad převádí vrácený Node.js buffer na Java pole bajtů před předáním metodě zápisu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -85,21 +85,21 @@ try {
 }
 ```
 
-Příklad ukládá dvě verze prezentace: jednu pouze s viditelnými hodnotami Maloobchodu (10 a 20) a druhou se všemi šesti hodnotami. Obrázky níže ilustrují dva režimy vykreslování. Řádek 3 a sloupec C zůstávají skryté v obou vložených sešitech.
+Příklad uloží dvě verze prezentace: jednu pouze s viditelnými hodnotami maloobchodu (10 a 20) a druhou se všemi šesti hodnotami. Obrázky níže ilustrují dva režimy vykreslování. Řádek 3 a sloupec C zůstávají skryté v obou vložených sešitech.
 
 | Pouze viditelné buňky (`true`) | Všechny buňky (`false`) |
 | --- | --- |
-| ![Pouze viditelné buňky: Hodnoty maloobchodu 10 a 20 pro leden a březen.](hidden_cells_True.png) | ![Všechny buňky: Hodnoty maloobchodu a velkoobchodu pro leden, únor a březen.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Skrytá buňka obsahující hodnotu je odlišná od prázdné buňky. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) řídí, jak se zobrazují chybějící hodnoty; neobsahuje ani nevynechává skrytá zdrojová data. Viz [Ovládání zobrazení prázdných buněk](/slides/cs/nodejs-java/chart-series/#control-the-display-of-empty-cells) pro příklad.
+Skrytá buňka obsahující hodnotu se liší od prázdné buňky. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) řídí, jak se zobrazují chybějící hodnoty; nevyřazuje ani nezahrnuje skrytá zdrojová data. Viz [Řízení zobrazení prázdných buněk](/slides/cs/nodejs-java/chart-series/#control-the-display-of-empty-cells) pro příklad.
 
-## **Získat rozsah dat grafu**
+## **Získat datový rozsah grafu**
 
-Před aktualizací dat sešitu v existující prezentaci zkontrolujte zdrojové rozsahy, abyste zjistili, které buňky listu každý graf používá. Metoda [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getRange) vrací aktuální datový rozsah jako formulář kvalifikovaný listem, například `Sheet1!$A$1:$D$5`. Zde `Sheet1` je název listu, `!` jej odděluje od rozsahu buněk a `$A$1:$D$5` identifikuje buňky A1 až D5 včetně. Znak `$` označuje absolutní odkazy na řádky a sloupce.
+Před aktualizací dat sešitu v existující prezentaci zkontrolujte zdrojové rozsahy, abyste zjistili, které buňky listu každá graf používá. Metoda [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) vrací aktuální datový rozsah jako formulář kvalifikovaný listem, např. `Sheet1!$A$1:$D$5`. Zde `Sheet1` je název listu, `!` jej odděluje od rozsahu buněk a `$A$1:$D$5` určuje buňky A1 až D5 včetně. Znak `$` označuje absolutní odkazy na řádek a sloupec.
 
-Metoda načte aktuální rozsah bez změny grafu nebo jeho sešitu. Pokud graf nepoužívá sešit jako zdroj dat, vyhodí `InvalidOperationException`. Další informace naleznete v [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/).
+Metoda načte aktuální rozsah, aniž by měnila graf nebo jeho sešit. Pokud graf nepoužívá sešit jako zdroj dat, vyvolá `InvalidOperationException`. Další informace naleznete v [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/).
 
-Tento příklad otevírá prezentaci a kontroluje tvary přímo na každém snímku pro grafy. Vypíše název každého grafu a zdrojový rozsah. Pokud graf nepoužívá sešit, vypíše zprávu a pokračuje k dalšímu grafu.
+Tento příklad otevře prezentaci a přímo na každém snímku prověří tvary, zda se jedná o grafy. Vypíše název každého grafu a jeho zdrojový rozsah. Pokud graf nevyužívá sešit, vypíše zprávu a pokračuje k dalšímu grafu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -131,11 +131,11 @@ try {
 }
 ```
 
-## **Číst a zapisovat data grafu ze sešitu**
+## **Čtení a zápis dat grafu ze sešitu**
 
-Aspose.Slides for Node.js via Java poskytuje metody [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) a [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream), které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka** že data grafu musí být uspořádána stejným způsobem nebo mít podobnou strukturu jako zdroj.
+Aspose.Slides pro Node.js přes Java poskytuje metody [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) a [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/), které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka**: data grafu musejí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
 
-Tento příklad používá prezentaci s grafem jako první tvar na první snímku. Načte vložený sešit do pole bajtů, vymaže existující řady a kategorie a zapíše stejný sešit zpět. Změny zůstávají v paměti; příklad prezentaci neukládá.
+Tento příklad používá prezentaci s grafem jako první tvar na první snímku. Načte vložený sešit do pole bajtů, vymaže existující řady a kategorie a zapíše zpět stejný sešit. Změny zůstávají v paměti; příklad neukládá prezentaci.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-### **Ověřit rozvržení grafu po úpravě sešitu**
+### **Ověření rozvržení grafu po úpravě sešitu**
 
-Když nahradíte vložený sešit upraveným, graf si ponechá původní kolekce řad a kategorií. Tato nesrovnalost může způsobit selhání [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#validateChartLayout) s chybou indexu mimo rozsah. Vymažte existující řady a kategorie před zápisem aktualizovaného sešitu zpět do grafu. Tento příklad používá graf, který je první tvar na první snímku. Komentář označuje, kde by úprava sešitu proběhla; spustitelný příklad zapíše původní sešit zpět a ověří rozvržení v paměti.
+Když nahradíte vložený sešit upraveným, graf si zachová původní kolekce řad a kategorií. Tento nesoulad může způsobit selhání [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) s chybou indexu mimo rozsah. Před zápisem aktualizovaného sešitu do grafu vymažte existující řady a kategorie. Tento příklad používá graf jako první tvar na první snímku. Komentář označuje místo, kde by úprava sešitu proběhla; spustitelný příklad zapíše zpět původní sešit a v paměti ověří rozvržení.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // Upravte bajty sešitu zde, například pomocí Aspose.Cells.
+        // Upravit bajty sešitu zde, například pomocí Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -200,7 +200,71 @@ try {
 }
 ```
 
-Vymazání kolekcí odstraňuje zastaralé odkazy na data před zápisem sešitu zpět. Znovu vytvořte potřebné mapování řad a kategorií pro aktualizovaný sešit před použitím grafu.
+Vymazání kolekcí odstraní zastaralé odkazy na data před zpětným zápisem sešitu. Před použitím grafu obnovte všechny potřebné mapování řad a kategorií pro aktualizovaný sešit.
+
+## **Nastavit vlastní formáty čísel pro buňky sešitu**
+
+Použijte [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) pro kontrolu, jak se číselné hodnoty zobrazují ve vloženém sešitu grafu. Například zpráva může vyžadovat zobrazit konverzní poměr jako procenta se čtyřmi desetinnými místy a koeficient s pěti desetinnými místy. Uchovejte obě hodnoty jako číselné, aby byly k dispozici pro výpočty a vykreslování grafu.
+
+Formát čísla mění pouze zobrazení, ne uloženou hodnotu. Formát `0.0000%` zobrazí `0.125` jako `12.5000%`; nenahrazuje uložené číslo `12.5`. Podobně `0.00000` zobrazí `0.1234567` jako `0.12346` bez zaokrouhlení uložené hodnoty. Pokud je vlastní formát prázdný řetězec (`""`), použije se formát vrácený metodou [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/).
+
+Následující příklad vytvoří sloupcový graf a přistupuje k jeho buňkám přes [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/). Na listu 0 obsahuje B2 konverzní poměr a C2 koeficient. Obě buňky poskytují hodnoty grafu. Příklad také povolí popisky hodnot propojené se zdrojovými formáty.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 270, aspose.slides.SlideSizeScaleType.DoNotScale);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 20, 620, 210);
+    chart.setTitle(false);
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
+    chart.getAxes().getVerticalAxis().setNumberFormat("0.00");
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+    chart.getAxes().getVerticalAxis().setMinValue(0);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const categoryCell = workbook.getCell(0, "A2", "Sample");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    const percentageCell = workbook.getCell(0, "B2", 0.125);
+    percentageCell.setCustomNumberFormat("0.0000%");
+    const percentageName = workbook.getCell(0, "B1", "Conversion rate");
+    const percentageSeries = chart.getChartData().getSeries().add(percentageName, chart.getType());
+    percentageSeries.getDataPoints().addDataPointForBarSeries(percentageCell);
+
+    const precisionCell = workbook.getCell(0, "C2", 0.1234567);
+    precisionCell.setCustomNumberFormat("0.00000");
+    const precisionName = workbook.getCell(0, "C1", "Coefficient");
+    const precisionSeries = chart.getChartData().getSeries().add(precisionName, chart.getType());
+    precisionSeries.getDataPoints().addDataPointForBarSeries(precisionCell);
+
+    for (let seriesIndex = 0; seriesIndex < chart.getChartData().getSeries().size(); seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const labelFormat = series.getDataPoints().get_Item(0).getLabel().getDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(true);
+    }
+
+    presentation.save("CustomCellFormats.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Formáty buněk sešitu jsou oddělené od formátů nastavených přímo na osách grafu nebo popiscích dat. V tomto příkladu každý popisek zobrazuje hodnotu své zdrojové buňky, protože [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) je nastaven na `true`, a používá zdrojový formát čísla, protože [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) je nastaven na `true`. Po uložení a opětovném otevření prezentace popisky zobrazí `12.5000%` a `0.12346`, jak je vidět níže. Vertikální osa používá vlastní formát čísla, přiřazený pomocí [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) jako `0.00`, přičemž [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) je nastaven na `false`.
+
+Pro samostatné formátování popisku dat nastavte jeho příznak propojení na `false` a přiřaďte formát pomocí [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/). Tím se nezmění formát buňky sešitu. Například nezávislý formát popisku `0.00` zobrazí první hodnotu jako `0.13`, zatímco B2 stále ukazuje `12.5000%`. Viz [Chart Data Labels](/slides/cs/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) pro přímé formátování popisků.
+
+![Sloupcový graf se zdrojově propojenými popisky ukazujícími 12.5000% a 0.12346 a nezávisle naformátovanou číselnou osou.](custom-cell-formats.png)
 
 ## **Nastavit buňku sešitu jako popisek dat grafu**
 
@@ -232,7 +296,7 @@ try {
 
 ## **Spravovat listy**
 
-Metoda [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getWorksheets) poskytuje přístup k listům v sešitu grafu. Tento příklad vytváří koláčový graf s výchozími daty a vypisuje každý název listu do konzole.
+Metoda [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) poskytuje přístup k listům v sešitu grafu. Tento příklad vytvoří koláčový graf s výchozími daty a vypíše názvy jednotlivých listů do konzoly.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -254,7 +318,7 @@ try {
 
 ## **Určit typ zdroje dat**
 
-Tento příklad vytváří 3D sloupcový graf s výchozími daty a nastavuje dva názvy řad pomocí různých zdrojů dat. První název používá řetězcový literál; druhý používá buňku C1 na listu 0. Výčtový typ [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) vybírá zdroj pro každý název. Příklad uloží prezentaci s aktualizovanými názvy řad.
+Tento příklad vytvoří 3D sloupcový graf s výchozími daty a nastaví dva názvy řad pomocí různých zdrojů dat. První název používá řetězcový literál; druhý používá buňku C1 na listu 0. Výčtový typ [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) vybírá zdroj pro každý název. Příklad uloží prezentaci s aktualizovanými názvy řad.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,7 +346,7 @@ try {
 
 ## **Detekovat nepodporované formáty vložených sešitů**
 
-Aspose.Slides nepodporuje binární formát Excel sešitu (.xlsb), který může být vložen v některých grafech. Můžete použít metodu [getEmbeddedWorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) na [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) pro detekci nepodporovaných formátů a přeskočení těchto grafů. Tento příklad kontroluje tvary na prvním snímku existující prezentace, přeskočí tvary, které nejsou grafy, a vypíše diagnostickou zprávu pro každý graf s vloženým .xlsb sešitem.
+Aspose.Slides nepodporuje binární formát Excel sešitu (.xlsb), který může být vložen v některých grafech. Můžete použít metodu `getEmbeddedWorkbookType` na [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) pro detekci nepodporovaných formátů a přeskočení těchto grafů. Tento příklad prověří tvary na první snímku existující prezentace, přeskočí tvary, které nejsou grafy, a vypíše diagnostickou zprávu pro každý graf s vloženým sešitem .xlsb.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -308,7 +372,7 @@ try {
             continue;
         }
 
-        // Zde načtěte nebo upravte podporovaná data sešitu grafu.
+        // Přečíst nebo upravit podporovaná data sešitu grafu zde.
     }
 } finally {
     presentation.dispose();
@@ -317,13 +381,13 @@ try {
 
 ## **Externí sešit**
 
-Aspose.Slides podporuje používání externích sešitů jako zdroje dat pro grafy.
+Aspose.Slides podporuje použití externích sešitů jako zdroje dat pro grafy.
 
 ### **Vytvořit externí sešit**
 
-Použijte [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) a [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) k exportu vloženého sešitu grafu do souboru a propojení grafu s tímto externím sešitem.
+Použijte [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) a [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) k exportu vloženého sešitu grafu do souboru a propojení grafu s tímto externím sešitem.
 
-Tento příklad vytváří koláčový graf s výchozími daty a exportuje jeho sešit. Dokončí zápis souboru před přiřazením externího sešitu jako zdroje dat grafu, poté uloží propojenou prezentaci.
+Tento příklad vytvoří koláčový graf s výchozími daty a exportuje jeho sešit. Po dokončení zápisu souboru přiřadí externí sešit jako zdroj dat grafu a následně uloží propojenou prezentaci.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -352,11 +416,11 @@ try {
 
 ### **Nastavit externí sešit**
 
-Pomocí metody [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) můžete přiřadit externí sešit grafu jako jeho zdroj dat. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
+Pomocí metody [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) můžete přiřadit externí sešit k grafu jako jeho zdroj dat. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
 
-I když nemůžete upravovat data v sešitech uložených na vzdálených místech nebo zdrojích, můžete takové sešity nadále používat jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
+I když nemůžete upravovat data v sešitech uložených na vzdálených místech nebo prostředcích, můžete takové sešity i nadále použít jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
 
-Tento příklad používá externí sešit, jehož list pojmenovaný `Sheet1` obsahuje název řady v B1, názvy kategorií v A2:A4 a číselné hodnoty v B2:B4. Příklad vytvoří koláčový graf, propojí sešit a použije [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) k namapování A1:B4 na jednu řadu a tři kategorie. Uloží prezentaci s propojeným grafem.
+Tento příklad používá externí sešit, jehož list pojmenovaný `Sheet1` obsahuje název řady v B1, názvy kategorií v A2:A4 a číselné hodnoty v B2:B4. Příklad vytvoří koláčový graf, propojí sešit a použije [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) k mapování A1:B4 na jednu řadu a tři kategorie. Uloží prezentaci s propojeným grafem.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -379,12 +443,12 @@ try {
 }
 ```
 
-Parametr `updateChartData` metody [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) řídí, zda je sešit načten.
+Parametr `updateChartData` metody [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) řídí, zda je sešit načten.
 
-* Když je `updateChartData` `false`, aktualizuje se pouze cesta k sešitu. Data grafu nejsou načtena ani aktualizována z cílového sešitu, takže sešit může být nedostupný.
-* Když je `updateChartData` `true`, data grafu jsou aktualizována z cílového sešitu.
+* Když je `updateChartData` `false`, aktualizuje se pouze cesta k sešitu. Data grafu nejsou načtena ani aktualizována ze cílového sešitu, takže sešit může být nedostupný.
+* Když je `updateChartData` `true`, data grafu jsou aktualizována ze cílového sešitu.
 
-Následující příklad přiřadí zástupnou URL s nastavením `updateChartData` na `false`. Uchová výchozí data koláčového grafu a uloží prezentaci bez načítání nedostupného sešitu.
+Následující příklad přiřadí zástupnou URL s `updateChartData` nastaveným na `false`. Zachová výchozí data koláčového grafu a uloží prezentaci bez načtení nedostupného sešitu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -404,9 +468,9 @@ try {
 
 ### **Získat cestu k externímu sešitu datového zdroje grafu**
 
-Chcete‑li zjistit, který sešit je propojen s grafem, ověřte, zda graf používá externí datový zdroj, a získejte jeho cestu.
+Pro identifikaci sešitu propojeného s grafem zkontrolujte, zda graf používá externí zdroj dat, a získejte cestu k jeho sešitu.
 
-Tento příklad kontroluje první tvar na prvním snímku prezentace s propojeným externím sešitem. Pokud jde o graf propojený s externím sešitem, vypíše [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) do konzole. Poté uloží kopii prezentace.
+Tento příklad prověří první tvar na první snímku prezentace s propojeným externím sešitem. Pokud se jedná o graf propojený s externím sešitem, příklad vypíše [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) do konzoly. Poté uloží kopii prezentace.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -436,9 +500,9 @@ try {
 
 ### **Upravit data grafu**
 
-Můžete upravovat data v externích sešitech stejným způsobem, jako měníte obsah interních sešitů. Když externí sešit nelze načíst, vyvolá se výjimka.
+Data v externích sešitech můžete upravovat stejným způsobem jako obsah interních sešitů. Když není externí sešit možné načíst, vyvolá se výjimka.
 
-Tento příklad používá graf, který je první tvar na prvním snímku a je propojen s přístupným externím sešitem. Nastaví hodnotu podporovanou buňkou pro první datový bod první řady na 100 a uloží aktualizovanou prezentaci. Úprava hodnot buněk může aktualizovat propojený externí soubor XLSX, proto použijte kopii, pokud potřebujete zachovat originální sešit.
+Tento příklad používá graf jako první tvar na první snímku, který je propojen s přístupným externím sešitem. Nastaví hodnotu první datové položky v první řadě na 100 a uloží aktualizovanou prezentaci. Úprava hodnot v buňkách může aktualizovat propojený externí soubor XLSX, proto použijte kopii, pokud potřebujete zachovat původní sešit.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -473,9 +537,9 @@ try {
 
 ### **Obnovit sešit z mezipaměti grafu**
 
-Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit grafu z dat uložených v keši prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), zavolejte [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions) a nastavte [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) na `true` před otevřením prezentace.
+Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), zavolejte [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) a nastavte [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) na `true` před otevřením prezentace.
 
-Následující JavaScriptový příklad obnovuje data sešitu pro graf, který je první tvar na prvním snímku a odkazuje na nedostupný externí sešit. Přistupuje k obnoveným datům pomocí [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getChartData) a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Následující JavaScriptový příklad obnoví data sešitu pro graf, který je první tvar na první snímku a odkazuje na nedostupný externí sešit. Přistupuje k obnoveným datům pomocí [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) a [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -496,7 +560,7 @@ try {
         const chart = slide.getShapes().get_Item(0);
         const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Přečtěte nebo upravte obnovená data sešitu zde.
+        // Přečíst nebo upravit obnovená data sešitu zde.
     } else {
         console.log("The first shape is not a chart.");
     }
@@ -505,30 +569,30 @@ try {
 }
 ```
 
-Pokud je externí sešit nedostupný a obnovení je zakázáno, Aspose.Slides vyvolá výjimku. Povolit obnovení použijte pouze tehdy, když je použití kešovaných dat grafu přijatelnou náhradou, protože keš nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
+Pokud je externí sešit nedostupný a obnova je zakázána, Aspose.Slides vyvolá výjimku. Povolit obnovu jen v případě, že použití dat z mezipaměti grafu je přijatelnou náhradou, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Mohu určit, zda je konkrétní graf propojen s externím nebo vloženým sešitem?**
 
-Ano. Graf má [typ zdroje dat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getDataSourceType) a [cestu k externímu sešitu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je používán externí soubor.
+Ano. Graf má [typ zdroje dat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) a [cestu k externímu sešitu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je používán externí soubor.
 
 **Jsou relativní cesty k externím sešitům podporovány a jak jsou uloženy?**
 
-Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. Prezentace ukládá absolutní cestu v souboru PPTX, takže při přesunu sešitu může být nutné aktualizovat odkaz.
+Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. Prezentace uloží absolutní cestu do souboru PPTX, takže při přesunu sešitu může být nutné aktualizovat odkaz.
 
-**Mohu použít sešity umístěné na síťových zdrojích/úložištích?**
+**Mohu používat sešity umístěné na síťových zdrojích/úložištích?**
 
-Ano, takové sešity mohou být použity jako externí zdroj dat. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována – mohou být použity pouze jako zdroj.
+Ano, takové sešity lze použít jako externí zdroj dat. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována – lze je použít jen jako zdroj.
 
 **Přepisuje Aspose.Slides externí XLSX při ukládání prezentace?**
 
-Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath). Úprava dat grafu podporovaných buňkami může také aktualizovat propojený lokální soubor XLSX. Použijte kopii sešitu, pokud originál musí zůstat nezměněn.
+Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). Úprava dat grafu založených na buňkách může také aktualizovat propojený lokální soubor XLSX. Použijte kopii sešitu, pokud má originál zůstat nezměněn.
 
 **Co mám dělat, pokud je externí soubor chráněn heslem?**
 
-Aspose.Slides nepřijímá heslo při vytváření odkazu. Běžný postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](https://reference.aspose.com/cells/java/)) a odkazovat na tuto kopii.
+Aspose.Slides nepřijímá heslo při propojování. Běžný postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](https://reference.aspose.com/cells/java/)) a odkazovat na tuto kopii.
 
-**Mohou více grafů odkazovat na stejný externí sešit?**
+**Může více grafů odkazovat na stejný externí sešit?**
 
-Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny ukazují na stejný soubor, aktualizace tohoto souboru se projeví ve všech grafech při dalším načtení dat.
+Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny odkazují na stejný soubor, aktualizace tohoto souboru se projeví v každém grafu při dalším načtení dat.

@@ -1,50 +1,50 @@
 ---
-title: จัดการสมุดงานแผนภูมิในงานนำเสนอด้วย .NET
-linktitle: สมุดงานแผนภูมิ
+title: จัดการเวิร์กบุ๊กแผนภูมิในงานนำเสนอใน .NET
+linktitle: เวิร์กบุ๊กแผนภูมิ
 type: docs
 weight: 70
 url: /th/net/chart-workbook/
 keywords:
-- สมุดงานแผนภูมิ
+- เวิร์กบุ๊กแผนภูมิ
 - ข้อมูลแผนภูมิ
-- เซลล์สมุดงาน
-- ป้ายข้อมูล
+- เซลล์เวิร์กบุ๊ก
+- ป้ายกำกับข้อมูล
 - ชีตงาน
 - แหล่งข้อมูล
-- สมุดงานภายนอก
+- เวิร์กบุ๊กภายนอก
 - ข้อมูลภายนอก
 - แคชแผนภูมิ
-- การกู้คืนสมุดงาน
+- การกู้คืนเวิร์กบุ๊ก
 - PowerPoint
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides for .NET: จัดการสมุดงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลการนำเสนอของคุณ."
+description: "ค้นพบ Aspose.Slides สำหรับ .NET: จัดการเวิร์กบุ๊กแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีทำงานกับแผนภูมิที่ใช้สมุดงานใน Aspose.Slides แสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของสมุดงาน ใช้เซลล์ของสมุดงานเป็นป้ายข้อมูลของแผนภูมิ เข้าถึงคอลเลกชันของชีตงาน และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีทำงานกับเวิร์กบุ๊กของแผนภูมิใน Aspose.Slides โดยแสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของเวิร์กบุ๊ก ใช้เซลล์ของเวิร์กบุ๊กเป็นป้ายกำกับข้อมูลแผนภูมิ เข้าถึงคอลเลกชันของชีตงาน และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-ยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีสร้างและกำหนดสมุดงานภายนอก ดึงเส้นทางของสมุดงานภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิเมื่อสมุดงานพร้อมใช้งาน
+นอกจากนี้ยังครอบคลุมการทำงานกับเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีสร้างและกำหนดเวิร์กบุ๊กภายนอก การดึงเส้นทางของเวิร์กบุ๊กภายนอกที่เชื่อมโยงกับแผนภูมิ และการแก้ไขข้อมูลแผนภูมิเมื่อเวิร์กบุ๊กพร้อมใช้งาน
 
-สำหรับเซลล์ของสมุดงานที่แสดงข้อมูลหายไป ดูที่ [ควบคุมการแสดงผลของเซลล์ที่ว่างเปล่า](/slides/th/net/chart-series/) เพื่อเปรียบเทียบความแตกต่างระหว่างเซลล์ว่างและศูนย์ รวมถึงการเปรียบเทียบแบบแผนภูมิเส้นของโหมดการแสดงผลที่มีให้
+สำหรับเซลล์เวิร์กบุ๊กที่แทนค่าข้อมูลที่หายไป โปรดดู [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/net/chart-series/) เพื่อดูความแตกต่างระหว่างเซลล์ว่างกับศูนย์ และการเปรียบเทียบกราฟเส้นของโหมดการแสดงผลที่มีให้
 
 ## **รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อน**
 
-ใช้ [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) เพื่อควบคุมว่าข้อความของแผนภูมิจะพล็อตข้อมูลจากแถวและคอลัมน์ของชีตงานที่ซ่อนหรือไม่ ตั้งค่าเป็น `true` เพื่อพล็อตเฉพาะเซลล์ที่มองเห็นได้ หรือ `false` เพื่อรวมเซลล์ที่มองเห็นและที่ซ่อนไว้ การตั้งค่านี้ส่งผลต่อการพล็อตของแผนภูมิเท่านั้น ไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ของชีตงาน
+ใช้ [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) เพื่อควบคุมว่ากราฟจะพล็อตข้อมูลจากแถวและคอลัมน์ของชีตที่ซ่อนหรือไม่ ตั้งค่าเป็น `true` เพื่อพล็อตเฉพาะเซลล์ที่มองเห็นได้ หรือ `false` เพื่อรวมทั้งเซลล์ที่มองเห็นและที่ซ่อน การตั้งค่านี้ควบคุมการพล็อตของกราฟ; ไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ของชีต
 
-ดาวน์โหลดไฟล์ [hidden-source-data.pptx](hidden-source-data.pptx) และวางไว้ในโฟลเดอร์ทำงาน สไลด์แรกมีแผนภูมิคอลัมน์เป็นรูปร่างแรก ชีตงานที่ฝังอยู่ `Sheet1` มีช่วงข้อมูลต้นแบบ `A1:C4` แถว 3 และคอลัมน์ C ถูกซ่อน แต่เซลล์ยังคงมีค่า
+[การนำเสนอตัวอย่าง](hidden-source-data.pptx) มีแผนภูมิคอลัมน์เป็นรูปร่างแรกบนสไลด์แรกของมัน ชีตที่ฝังอยู่ `Sheet1` มีช่วงข้อมูลต้นแบบต่อไปนี้ `A1:C4` แถวที่ 3 และคอลัมน์ C ถูกซ่อน แต่เซลล์ของพวกมันยังคงมีค่า
 
-| แถวของชีตงาน | A: เดือน | B: ขายปลีก | C: ขายส่ง (คอลัมน์ที่ซ่อน) |
+| แถวของชีตงาน | A: เดือน | B: ร้านค้าปลีก | C: ค้าส่ง (คอลัมน์ซ่อน) |
 | --- | --- | --- | --- |
-| 2 | January | 10 | 30 |
-| 3 (แถวที่ซ่อน) | February | 40 | 60 |
-| 4 | March | 20 | 50 |
+| 2 | มกราคม | 10 | 30 |
+| 3 (แถวซ่อน) | กุมภาพันธ์ | 40 | 60 |
+| 4 | มีนาคม | 20 | 50 |
 
-เข้าถึงเซลล์ต้นแบบผ่าน [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/chartdataworkbook/) และอ่านคุณสมบัติ [IChartDataCell.IsHidden](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdatacell/ishidden/) เพื่อดูสถานะการซ่อน คุณสมบัตินี้เป็นแบบอ่านอย่างเดียว ในไฟล์นี้ B2 มองเห็นได้, B3 อยู่ในแถวที่ซ่อน, และ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างจะแสดงผล `False`, `True`, และ `True` ตามลำดับ
+เข้าถึงเซลล์ต้นทางผ่าน [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) และอ่านค่า [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) เพื่อตรวจสอบสถานะการซ่อนของพวกมัน คุณสมบัตินี้เป็นแบบอ่านอย่างเดียว ในไฟล์นี้ B2 มองเห็นได้, B3 อยู่ในแถวที่ซ่อน, และ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างพิมพ์ค่า `False`, `True`, และ `True` ตามลำดับ
 
-สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการพล็อต: รักษาสมุดงานที่ฝังอยู่ด้วย [ReadWorkbookStream](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/readworkbookstream/) แล้วโหลดใหม่ด้วย [WriteWorkbookStream](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/writeworkbookstream/) เมื่อรวมทุกเซลล์ ให้ใช้ [SetRange](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/setrange/) เพื่อคืนช่วงข้อมูลเต็มรวมถึงหมวดเดือน February ที่ซ่อนอยู่ การเปลี่ยนค่าสถานะอย่างเดียวไม่เพียงพอที่จะรีเฟรชข้อมูลแผนภูมิและป้ายหมวดที่แคชไว้ในตัวอย่างนี้
+สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการพล็อต: รักษาเวิร์กบุ๊กที่ฝังไว้ด้วย [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) และโหลดใหม่ด้วย [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) เมื่อรวมทุกเซลล์ ให้ใช้ [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) เพื่อคืนช่วงข้อมูลทั้งหมดรวมถึงหมวดหมู่เดือนกุมภาพันธ์ที่ซ่อน การเปลี่ยนค่าสถานะเพียงอย่างเดียวไม่เพียงพอในการรีเฟรชข้อมูลแผนภูมิที่ถูกแคชและป้ายกำกับหมวดหมู่ของตัวอย่างนี้
 
 ```csharp
 using System;
@@ -67,12 +67,12 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // รีเฟรชข้อมูลแผนภูมิจากสมุดงานที่ฝังอยู่.
+        // รีเฟรชข้อมูลแผนภูมิจากเวิร์กบุ๊กที่ฝังอยู่.
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // คืนช่วงต้นฉบับทั้งหมดรวมถึงหมวดที่ซ่อนอยู่.
+            // คืนช่วงข้อมูลต้นทางทั้งหมดรวมถึงหมวดหมู่ที่ซ่อนอยู่.
             chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
@@ -85,19 +85,54 @@ else
 }
 ```
 
-ตัวอย่างจะบันทึก `hidden_cells_True.pptx` ที่มีเฉพาะค่าขายปลีกที่มองเห็น (`10` และ `20`) และ `hidden_cells_False.pptx` ที่มีค่าทั้งหกค่า รูปภาพด้านล่างแสดงจากการเปิดนำเสนอที่บันทึกแล้ว; ทั้งสองไฟล์รักษาการตั้งค่าการพล็อตของตนเอง แถว 3 และคอลัมน์ C ยังคงซ่อนอยู่ในสมุดงานที่ฝังทั้งสอง
+ตัวอย่างบันทึกรุ่นสองเวอร์ชันของการนำเสนอ: หนึ่งเวอร์ชันที่มีเฉพาะค่าร้านค้าปลีกที่มองเห็นได้ (10 และ 20) และอีกหนึ่งเวอร์ชันที่มีค่าทั้งหกค่า รูปภาพด้านล่างถูกสร้างจากการนำเสนอที่บันทึกและเปิดใหม่; ทั้งสองไฟล์คงการตั้งค่าการพล็อตที่กำหนดไว้ แถวที่ 3 และคอลัมน์ C ยังคงซ่อนอยู่ในทั้งสองเวิร์กบุ๊กที่ฝัง
 
-| เฉพาะเซลล์ที่มองเห็น (`true`) | ทุกเซลล์ (`false`) |
+| เฉพาะเซลล์ที่มองเห็น (`true`) | เซลล์ทั้งหมด (`false`) |
 | --- | --- |
-| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
+| ![เฉพาะเซลล์ที่มองเห็น: ค่าร้านค้าปลีก 10 และ 20 สำหรับเดือนมกราคมและมีนาคม.](hidden_cells_True.png) | ![เซลล์ทั้งหมด: ค่าร้านค้าปลีกและค้าส่งสำหรับเดือนมกราคม, กุมภาพันธ์, และมีนาคม.](hidden_cells_False.png) |
 
-เซลล์ที่ซ่อนและมีค่าแตกต่างจากเซลล์ว่างเปล่า [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/displayblanksas/) ควบคุมวิธีการแสดงค่าที่หายไป; มันไม่ได้รวมหรือยกเว้นข้อมูลต้นแบบที่ซ่อน ดูที่ [ควบคุมการแสดงผลของเซลล์ที่ว่างเปล่า](/slides/th/net/chart-series/#control-the-display-of-empty-cells) สำหรับตัวอย่าง
+เซลล์ที่ซ่อนและมีค่าแตกต่างจากเซลล์ว่าง [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) ควบคุมวิธีการแสดงค่าที่หายไป; ไม่ได้รวมหรือไม่รวมข้อมูลต้นทางที่ซ่อน ดูตัวอย่างที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/net/chart-series/#control-the-display-of-empty-cells)
 
-## **อ่านและเขียนข้อมูลแผนภูมิจากสมุดงาน**
+## **ดึงช่วงข้อมูลของแผนภูมิ**
 
-Aspose.Slides for .NET มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/readworkbookstream/) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/writeworkbookstream/) ที่ให้คุณอ่านและเขียนสมุดงานข้อมูลแผนภูมิ (ซึ่งอาจถูกแก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างที่คล้ายกับต้นแบบ
+ก่อนที่จะอัปเดตข้อมูลเวิร์กบุ๊กในงานนำเสนอที่มีอยู่ ให้ตรวจสอบช่วงต้นทางเพื่อระบุว่าเซลล์ของชีตงานใดที่แต่ละแผนภูมิใช้ วิธีการ [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) จะคืนค่าช่วงข้อมูลปัจจุบันเป็นสูตรที่ระบุชีต เช่น `Sheet1!$A$1:$D$5` ที่นี่ `Sheet1` คือชื่อชีต, `!` แยกจากช่วงเซลล์, และ `$A$1:$D$5` ระบุเซลล์ A1 ถึง D5 รวมทั้งสองตำแหน่ง สัญลักษณ์ดอลลาร์บ่งบอกการอ้างอิงแถวและคอลัมน์แบบสัมบูรณ์
 
-ตัวอย่างนี้เปิด `chart.pptx` ซึ่งต้องมีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรก มันจะอ่านสมุดงานที่ฝังอยู่เป็นสตรีม ล้างชุดข้อมูลและหมวดหมู่เดิม แล้วเขียนสมุดงานเดิมกลับเข้าไป การเปลี่ยนแปลงอยู่ในหน่วยความจำ; ตัวอย่างไม่ได้บันทึกการนำเสนอ
+เมธอดนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือเวิร์กบุ๊กของมัน หากแผนภูมิไม่ใช้เวิร์กบุ๊กเป็นแหล่งข้อมูล จะทำให้เกิดข้อยกเว้น [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) สำหรับข้อมูลเพิ่มเติม ดู [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/)
+
+ตัวอย่างนี้เปิดงานนำเสนอและตรวจสอบรูปร่างบนแต่ละสไลด์โดยตรงเพื่อหาแผนภูมิ พิมพ์ชื่อและช่วงต้นทางของแต่ละแผนภูมิ หากแผนภูมิไม่ใช้เวิร์กบุ๊ก จะพิมพ์ข้อความและดำเนินการต่อไปยังแผนภูมิถัดไป
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            try
+            {
+                var range = chart.ChartData.GetRange();
+                Console.WriteLine($"{chart.Name}: {range}");
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine($"{chart.Name}: The chart does not use a workbook as its data source.");
+            }
+        }
+    }
+}
+```
+
+## **อ่านและเขียนข้อมูลแผนภูมิจากเวิร์กบุ๊ก**
+
+Aspose.Slides for .NET มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) และ [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) ที่ให้คุณอ่านและเขียนเวิร์กบุ๊กข้อมูลแผนภูมิ (ซึ่งมีข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิจำเป็นต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างที่คล้ายกับต้นแบบ
+
+ตัวอย่างนี้ใช้งานนำเสนอที่มีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรก อ่านเวิร์กบุ๊กที่ฝังอยู่ลงในสตรีม, ลบ series และ category ที่มีอยู่, แล้วเขียนเวิร์กบุ๊กเดิมกลับไป การเปลี่ยนแปลงอยู่ในหน่วยความจำ; ตัวอย่างไม่ได้บันทึกงานนำเสนอ
 
 ```csharp
 using System;
@@ -125,9 +160,9 @@ else
 }
 ```
 
-### **ตรวจสอบโครงสร้างแผนภูมิหลังการแก้ไขสมุดงาน**
+### **ตรวจสอบโครงสร้างแผนภูมิหลังจากแก้ไขเวิร์กบุ๊ก**
 
-เมื่อคุณแทนที่สมุดงานที่ฝังอยู่ด้วยสมุดงานที่แก้ไขแล้ว แผนภูมิจะคงชุดข้อมูลและคอลเลกชันหมวดเดิมไว้ ความไม่ตรงกันนี้อาจทำให้ [IChart.ValidateChartLayout](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/validatechartlayout/) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ให้ล้างชุดข้อมูลและหมวดเดิมก่อนเขียนสมุดงานที่อัปเดตกลับเข้ากับแผนภูมิ ตัวอย่างนี้ต้องการไฟล์ `chart.pptx` ที่มีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรก คอมเมนต์ระบุจุดที่การแก้ไขสมุดงานจะเกิดขึ้น; ตัวอย่างทำงานจะเขียนสมุดงานต้นฉบับกลับและตรวจสอบโครงสร้างในหน่วยความจำ
+เมื่อคุณแทนที่เวิร์กบุ๊กที่ฝังด้วยเวิร์กบุ๊กที่แก้ไขแล้ว แผนภูมิจะคง series และ collection ของ category ดั้งเดิม ความไม่ตรงกันนี้อาจทำให้ [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ให้ลบ series และ category ที่มีอยู่ก่อนเขียนเวิร์กบุ๊กที่อัปเดตกลับไปยังแผนภูมิ ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรก คอมเมนต์บ่งชี้จุดที่ควรแก้ไขเวิร์กบุ๊ก; ตัวอย่างที่สามารถรันได้เขียนเวิร์กบุ๊กเดิมกลับและตรวจสอบโครงสร้างในหน่วยความจำ
 
 ```csharp
 using System;
@@ -143,7 +178,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // แก้ไขสตรีมสมุดงานที่นี่, เช่น ใช้ Aspose.Cells.
+    // แก้ไขสตรีมเวิร์กบุ๊กที่นี่, เช่น การใช้ Aspose.Cells.
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -158,20 +193,77 @@ else
 }
 ```
 
-การล้างคอลเลกชันจะลบการอ้างอิงข้อมูลเก่าออกก่อนเขียนสมุดงานกลับมา สร้างการแม็พชุดข้อมูลและหมวดใหม่ตามสมุดงานที่อัปเดตก่อนใช้งานแผนภูมิ
+การลบ collection จะลบการอ้างอิงข้อมูลเก่าออกก่อนที่เวิร์กบุ๊กจะถูกเขียนกลับ เรียกสร้าง series และการแมป category ที่จำเป็นสำหรับเวิร์กบุ๊กที่อัปเดตก่อนใช้แผนภูมิ
 
-## **กำหนดเซลล์ของสมุดงานเป็นป้ายข้อมูลแผนภูมิ**
+## **กำหนดรูปแบบตัวเลขแบบกำหนดเองสำหรับเซลล์เวิร์กบุ๊ก**
 
-คุณสามารถใช้ข้อความจากเซลล์ของสมุดงานเป็นป้ายข้อมูลแผนภูมิ ขั้นตอนต่อไปนี้แสดงวิธีเชื่อมป้ายในแผนภูมิบับเบิลกับเซลล์ในสมุดข้อมูลของมัน
+ใช้ [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) เพื่อควบคุมวิธีการแสดงค่าตัวเลขในเวิร์กบุ๊กที่ฝังของแผนภูมิ ตัวอย่างเช่น รายงานอาจต้องการอัตราแปลงที่แสดงเป็นเปอร์เซ็นต์ด้วยทศนิยมสี่ตำแหน่งและค่าสัมประสิทธิ์ที่แสดงด้วยทศนิยมห้าตำแหน่ง ให้ค่าสองค่าเป็นตัวเลขเพื่อให้ยังสามารถใช้ในการคำนวณและพล็อตแผนภูมิได้
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) 
-1. เข้าถึงสไลด์แรกโดยใช้ดัชนีเริ่มจากศูนย์ 
-1. เพิ่มแผนภูมิบับเบิลด้วยข้อมูลเริ่มต้น 
-1. เข้าถึงชุดข้อมูลของแผนภูมิ 
-1. ตั้งค่าเซลล์ของสมุดงานเป็นป้ายข้อมูล 
-1. บันทึกการนำเสนอ
+รูปแบบตัวเลขจะเปลี่ยนการแสดงผล ไม่ใช่ค่าที่เก็บไว้ รูปแบบ `0.0000%` จะทำให้แสดง `0.125` เป็น `12.5000%`; ไม่ได้แทนที่ตัวเลขที่เก็บไว้ด้วย `12.5` เช่นเดียวกัน `0.00000` จะแสดง `0.1234567` เป็น `0.12346` โดยไม่ทำการปัดเศษค่าที่เก็บ หากรูปแบบกำหนดเองเป็นสตริงว่าง (`""`) จะใช้ [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) แทน
 
-ตัวอย่างนี้เปิด `chart2.pptx` ซึ่งต้องมีสไลด์อย่างน้อยหนึ่งสไลด์และเพิ่มแผนภูมิบับเบิลด้วยข้อมูลเริ่มต้น มันใช้เซลล์ A10:A12 ในชีตที่ 0 สำหรับป้ายสามอันแรกของชุดแรก เปิดใช้งานป้ายจากเซลล์ และบันทึกผลลัพธ์เป็น `resultchart.pptx`
+ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์และเข้าถึงเซลล์ผ่าน [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) ในชีตงาน 0, B2 มีอัตราการแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์เป็นแหล่งค่าของแผนภูมิ ตัวอย่างยังเปิดใช้ป้ายกำกับค่าที่เชื่อมต่อกับรูปแบบต้นทาง
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 270, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 20, 620, 210);
+chart.HasTitle = false;
+
+chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
+chart.Axes.VerticalAxis.NumberFormat = "0.00";
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = 0;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var categoryCell = workbook.GetCell(0, "A2", "Sample");
+chart.ChartData.Categories.Add(categoryCell);
+
+var percentageCell = workbook.GetCell(0, "B2", 0.125);
+percentageCell.CustomNumberFormat = "0.0000%";
+var percentageName = workbook.GetCell(0, "B1", "Conversion rate");
+var percentageSeries = chart.ChartData.Series.Add(percentageName, chart.Type);
+percentageSeries.DataPoints.AddDataPointForBarSeries(percentageCell);
+
+var precisionCell = workbook.GetCell(0, "C2", 0.1234567);
+precisionCell.CustomNumberFormat = "0.00000";
+var precisionName = workbook.GetCell(0, "C1", "Coefficient");
+var precisionSeries = chart.ChartData.Series.Add(precisionName, chart.Type);
+precisionSeries.DataPoints.AddDataPointForBarSeries(precisionCell);
+
+foreach (var series in chart.ChartData.Series)
+{
+    var labelFormat = series.DataPoints[0].Label.DataLabelFormat;
+    labelFormat.ShowValue = true;
+    labelFormat.IsNumberFormatLinkedToSource = true;
+}
+
+presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
+```
+
+รูปแบบเซลล์ของเวิร์กบุ๊กแยกจากรูปแบบที่ตั้งตรงบนแกนแผนภูมิหรือป้ายกำกับข้อมูล ในตัวอย่างนี้แต่ละป้ายแสดงค่าของเซลล์ต้นทางเนื่องจาก [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) เปิดใช้งานและปฏิบัติตามรูปแบบตัวเลขของต้นทางเนื่องจาก [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) เป็น `true` หลังจากบันทึกและเปิดงานนำเสนอใหม่ ป้ายจะแสดง `12.5000%` และ `0.12346` ตามที่แสดงด้านล่าง แกนแนวตั้งใช้ [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) ของตัวเองเป็น `0.00` โดยตั้งค่า [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) เป็น `false`
+
+หากต้องการจัดรูปแบบป้ายกำกับข้อมูลอย่างอิสระ ให้ตั้งค่าสถานะเชื่อมต่อกับต้นทางเป็น `false` และกำหนด [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) ของมัน การทำเช่นนี้จะไม่เปลี่ยนรูปแบบของเซลล์เวิร์กบุ๊ก ตัวอย่างรูปแบบป้ายอิสระ `0.00` จะแสดงค่าตัวแรกเป็น `0.13` ในขณะที่ B2 ยังคงแสดง `12.5000%` ดูที่ [Chart Data Labels](/slides/th/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) สำหรับการจัดรูปแบบป้ายโดยตรง
+
+รูปภาพด้านล่างถูกสร้างจากงานนำเสนอที่บันทึกแล้วเปิดใหม่:
+
+![แผนภูมิคอลัมน์ที่มีป้ายกำกับเชื่อมต่อกับต้นทางแสดง 12.5000% และ 0.12346 และแกนตัวเลขที่จัดรูปแบบอย่างอิสระ](custom-cell-formats.png)
+
+## **ตั้งค่าเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลของแผนภูมิ**
+
+คุณสามารถใช้ข้อความจากเซลล์ของเวิร์กบุ๊กเป็นป้ายกำกับข้อมูลของแผนภูมิ
+
+ตัวอย่างนี้เพิ่มแผนภูมิบับเบิลพร้อมข้อมูลเริ่มต้นบนสไลด์แรกของงานนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 บนชีตงาน 0 สำหรับป้ายชื่อสามตัวแรกใน series แรก เปิดใช้งานป้ายจากเซลล์และบันทึกงานนำเสนอที่อัปเดต
 
 ```csharp
 using Aspose.Slides;
@@ -195,7 +287,7 @@ presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 
 ## **จัดการชีตงาน**
 
-คุณสมบัติ [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdataworkbook/worksheets/) ให้เข้าถึงชีตงานในสมุดงานแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิเส้นวงกลมด้วยข้อมูลเริ่มต้นและพิมพ์ชื่อชีตงานแต่ละชื่อไปยังคอนโซล
+คุณสมบัติ [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) ให้เข้าถึงชีตงานในเวิร์กบุ๊กของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิวงกลมพร้อมข้อมูลเริ่มต้นและพิมพ์ชื่อชีตงานแต่ละรายการลงคอนโซล
 
 ```csharp
 using System;
@@ -216,7 +308,7 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 
 ## **ระบุประเภทแหล่งข้อมูล**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 3 มิติด้วยข้อมูลเริ่มต้นและตั้งชื่อสองชุดโดยใช้แหล่งข้อมูลต่างกัน ชื่อแรกใช้สตริงลิเทรัล; ชื่อที่สองใช้เซลล์ C1 ในชีตที่ 0 ค่าธรรมชาติ [DataSourceType](https://reference.aspose.com/slides/th/net/aspose.slides.charts/datasourcetype/) จะเลือกแหล่งสำหรับแต่ละชื่อ ผลลัพธ์บันทึกเป็น `pres.pptx`
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 3D พร้อมข้อมูลเริ่มต้นและตั้งชื่อ series สองชื่อโดยใช้แหล่งข้อมูลที่แตกต่างกัน ชื่อแรกใช้สตริงลิเทรัล; ชื่อที่สองใช้เซลล์ C1 บนชีตงาน 0 ค่าตัวนับ [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) เลือกแหล่งสำหรับแต่ละชื่อ ตัวอย่างบันทึกงานนำเสนอพร้อมชื่อ series ที่อัปเดต
 
 ```csharp
 using Aspose.Slides;
@@ -240,9 +332,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **ตรวจจับรูปแบบสมุดงานที่ฝังไม่รองรับ**
+## **ตรวจจับรูปแบบเวิร์กบุ๊กที่ฝังไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบสมุดงาน Excel แบบไบนารี (.xlsb) ที่อาจฝังในบางแผนภูมิ คุณสามารถใช้คุณสมบัติ [EmbeddedWorkbookType](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) บน [IChartData](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/) ร่วมกับค่ำ enumerations [WorkbookType](https://reference.aspose.com/slides/th/net/aspose.slides.charts/workbooktype/) เพื่อค้นหารูปแบบที่ไม่รองรับและข้ามแผนภูมิเหล่านั้น ตัวอย่างนี้ตรวจสอบรูปร่างบนสไลด์แรกของ `sample.pptx` ข้ามรูปร่างที่ไม่ใช่แผนภูมิ และพิมพ์ข้อความวินิจฉัยสำหรับแต่ละแผนภูมิที่มีสมุดงาน .xlsb ฝังอยู่
+Aspose.Slides ไม่รองรับรูปแบบเวิร์กบุ๊กไบนารีของ Excel (.xlsb) ที่สามารถฝังอยู่ในบางแผนภูมิ คุณสามารถใช้คุณสมบัติ [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) บน [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) ร่วมกับตัวนับ [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น ตัวอย่างนี้ตรวจสอบรูปร่างบนสไลด์แรกของงานนำเสนอที่มีอยู่ ข้ามรูปร่างที่ไม่ใช่แผนภูมิ และพิมพ์ข้อความการวินิจฉัยสำหรับแต่ละแผนภูมิที่มีเวิร์กบุ๊ก .xlsb ฝังอยู่
 
 ```csharp
 using System;
@@ -269,19 +361,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // อ่านหรือแก้ไขข้อมูลสมุดงานแผนภูมิที่รองรับที่นี่.
+    // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กของแผนภูมิที่สนับสนุนที่นี่.
 }
 ```
 
-## **สมุดงานภายนอก**
+## **เวิร์กบุ๊กภายนอก**
 
-Aspose.Slides รองรับการใช้สมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ
+Aspose.Slides รองรับการใช้เวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
 
-### **สร้างสมุดงานภายนอก**
+### **สร้างเวิร์กบุ๊กภายนอก**
 
-ใช้ [ReadWorkbookStream](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/readworkbookstream/) และ [SetExternalWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/setexternalworkbook/) เพื่อส่งออกสมุดงานแผนภูมิที่ฝังเป็นไฟล์และเชื่อมแผนภูมิกับสมุดงานภายนอกนั้น
+ใช้ [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) และ [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) เพื่อส่งออกเวิร์กบุ๊กแผนภูมิที่ฝังเป็นไฟล์และเชื่อมแผนภูมิไปยังเวิร์กบุ๊กภายนอกนั้น
 
-ตัวอย่างนี้สร้างแผนภูมิวงกลมด้วยข้อมูลเริ่มต้น เขียนสมุดงานของมันไปที่ `externalWorkbook1.xlsx` แล้วปิดสตรีมผลลัพธ์ก่อนกำหนดไฟล์เป็นแหล่งข้อมูลของแผนภูมิ บันทึกการนำเสนอที่เชื่อมโยงเป็น `externalWorkbook.pptx`
+ตัวอย่างนี้สร้างแผนภูมิวงกลมพร้อมข้อมูลเริ่มต้นและส่งออกเวิร์กบุ๊กของมัน ปิดสตรีมเอาต์พุตก่อนกำหนดเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ แล้วบันทึกงานนำเสนอที่มีการเชื่อมโยง
 
 ```csharp
 using System.IO;
@@ -305,13 +397,13 @@ chart.ChartData.SetExternalWorkbook(workbookPath);
 presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-### **กำหนดสมุดงานภายนอก**
+### **กำหนดเวิร์กบุ๊กภายนอก**
 
-โดยใช้เมธอด [SetExternalWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/setexternalworkbook/) คุณสามารถกำหนดสมุดงานภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังใช้เพื่ออัปเดตเส้นทางไปยังสมุดงานภายนอก (หากไฟล์นั้นถูกย้าย)
+โดยใช้เมธอด [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) คุณสามารถกำหนดเวิร์กบุ๊กภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลของมันได้ เมธอดนี้ยังสามารถใช้เพื่ออัปเดตเส้นทางไปยังเวิร์กบุ๊กภายนอก (หากเวิร์กบุ๊กนั้นถูกย้าย)
 
-แม้ว่าจะไม่สามารถแก้ไขข้อมูลในสมุดงานที่อยู่บนทรัพยากรระยะไกลได้ แต่ยังสามารถใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพัทธ์สำหรับสมุดงานภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
+แม้ว่าคุณไม่สามารถแก้ไขข้อมูลในเวิร์กบุ๊กที่เก็บไว้ในตำแหน่งหรือทรัพยากรระยะไกลได้ คุณยังสามารถใช้เวิร์กบุ๊กเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพัทธ์สำหรับเวิร์กบุ๊กภายนอก ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ
 
-ตัวอย่างนี้ต้องการไฟล์ `externalWorkbook.xlsx` ในโฟลเดอร์ทำงาน ชีตที่ชื่อ `Sheet1` ต้องมีชื่อชุดข้อมูลใน B1, ชื่อหมวดใน A2:A4, และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิวงกลม เชื่อมสมุดงาน และใช้ [SetRange](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/setrange/) เพื่อแม็พ A1:B4 เป็นชุดข้อมูลหนึ่งชุดและสามหมวด บันทึกผลลัพธ์เป็น `Presentation_with_externalWorkbook.pptx`
+ตัวอย่างนี้ใช้เวิร์กบุ๊กภายนอกที่มีชีตงานชื่อ `Sheet1` ซึ่งมีชื่อ series อยู่ใน B1, ชื่อหมวดหมู่ใน A2:A4, และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิวงกลม, เชื่อมเวิร์กบุ๊ก, และใช้ [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) เพื่อแมพ A1:B4 เป็น series หนึ่งและหมวดหมู่สามรายการ จากนั้นบันทึกงานนำเสนอพร้อมแผนภูมิที่เชื่อม
 
 ```csharp
 using System.IO;
@@ -332,12 +424,12 @@ chartData.SetRange("Sheet1!$A$1:$B$4");
 presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-พารามิเตอร์ `updateChartData` ของ [SetExternalWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/setexternalworkbook/) ควบคุมว่าจะแปลงสมุดงานหรือไม่
+พารามิเตอร์ `updateChartData` ของ [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) ควบคุมว่ามีการโหลดเวิร์กบุ๊กหรือไม่
 
-* เมื่อ `updateChartData` เป็น `false` จะอัปเดตเพียงเส้นทางของสมุดงาน แผนภูมิจะไม่โหลดหรืออัปเดตข้อมูลจากสมุดงานเป้าหมาย ดังนั้นสมุดงานอาจไม่พร้อมใช้งาน
-* เมื่อ `updateChartData` เป็น `true` แผนภูมิจะอัปเดตข้อมูลจากสมุดงานเป้าหมาย
+* เมื่อ `updateChartData` เป็น `false` จะอัพเดตเฉพาะเส้นทางของเวิร์กบุ๊กเท่านั้น ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากเวิร์กบุ๊กเป้าหมาย ดังนั้นเวิร์กบุ๊กอาจไม่มีอยู่
+* เมื่อ `updateChartData` เป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากเวิร์กบุ๊กเป้าหมาย
 
-ตัวอย่างต่อไปกำหนด URL ตัวแทนด้วย `updateChartData` เป็น `false` รักษาข้อมูลเริ่มต้นของแผนภูมิวงกลมและบันทึกการนำเสนอโดยไม่โหลดสมุดงานที่ไม่มี
+ตัวอย่างต่อไปนี้กำหนด URL ตัวแทนพร้อมตั้งค่า `updateChartData` เป็น `false` จะรักษาข้อมูลเริ่มต้นของแผนภูมิวงกลมและบันทึกงานนำเสนอโดยไม่โหลดเวิร์กบุ๊กที่ไม่มีอยู่
 
 ```csharp
 using Aspose.Slides;
@@ -353,17 +445,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **รับเส้นทางของสมุดงานแหล่งข้อมูลภายนอกของแผนภูมิ**
+### **รับเส้นทางเวิร์กบุ๊กแหล่งข้อมูลภายนอกของแผนภูมิ**
 
-เพื่อตรวจสอบสมุดงานที่เชื่อมโยงกับแผนภูมิ ให้ตรวจสอบก่อนว่าแผนภูมิใช้แหล่งข้อมูลภายนอกหรือไม่ หากใช่ ให้ดึงเส้นทางของสมุดงานตามขั้นตอนต่อไปนี้
+เพื่อระบุเวิร์กบุ๊กที่เชื่อมกับแผนภูมิ ตรวจสอบว่าแผนภูมิใช้แหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทางเวิร์กบุ๊กของมัน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) 
-1. เข้าถึงสไลด์แรกโดยใช้ดัชนีเริ่มจากศูนย์ 
-1. ตรวจสอบว่ารูปร่างแรกเป็นแผนภูมิหรือไม่ 
-1. อ่านประเภทแหล่งข้อมูลของแผนภูมิ 
-1. หากเป็นสมุดงานภายนอก ให้อ่านเส้นทางของมัน
-
-ตัวอย่างนี้เปิด `externalWorkbook.pptx` ที่สร้างจากตัวอย่างก่อนหน้า และตรวจสอบรูปร่างแรกบนสไลด์แรก หากเป็นแผนภูมิที่เชื่อมกับสมุดงานภายนอก ตัวอย่างจะแสดงผล [ExternalWorkbookPath](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/externalworkbookpath/) ไปยังคอนโซล จากนั้นบันทึกสำเนาการนำเสนอเป็น `Result.pptx`
+ตัวอย่างนี้ตรวจสอบรูปร่างแรกบนสไลด์แรกของงานนำเสนอที่มีเวิร์กบุ๊กภายนอกเชื่อมอยู่ หากเป็นแผนภูมิที่เชื่อมกับเวิร์กบุ๊กภายนอก ตัวอย่างจะพิมพ์ค่า [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) ลงคอนโซล แล้วบันทึกสำเนาของงานนำเสนอ
 
 ```csharp
 using System;
@@ -397,9 +483,9 @@ presentation.Save("Result.pptx", SaveFormat.Pptx);
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในสมุดงานภายนอกได้เช่นเดียวกับการแก้ไขข้อมูลในสมุดงานภายใน หากไม่สามารถโหลดสมุดงานภายนอกได้ จะเกิดข้อยกเว้น
+คุณสามารถแก้ไขข้อมูลในเวิร์กบุ๊กภายนอกได้เช่นเดียวกับที่คุณเปลี่ยนแปลงเนื้อหาของเวิร์กบุ๊กภายใน หากเวิร์กบุ๊กภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
 
-ตัวอย่างนี้ต้องการไฟล์ `presentation.pptx` ที่มีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรกและสมุดงานภายนอกที่เข้าถึงได้ มันตั้งค่าค่าที่ได้จากเซลล์ของจุดข้อมูลแรกในชุดแรกเป็น 100 และบันทึกการนำเสนอเป็น `presentation_out.pptx` การแก้ไขค่าผ่านเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมโยง ดังนั้นควรใช้สำเนาไฟล์หากต้องการรักษาสมุดงานต้นฉบับไว้
+ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและเชื่อมกับเวิร์กบุ๊กภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่สนับสนุนโดยเซลล์ของจุดข้อมูลแรกใน series แรกเป็น 100 และบันทึกงานนำเสนอที่อัปเดต การแก้ไขค่าของเซลล์สามารถอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมได้ ดังนั้นให้ใช้สำเนาหากต้องการรักษาเวิร์กบุ๊กต้นฉบับ
 
 ```csharp
 using System;
@@ -438,11 +524,11 @@ else
 }
 ```
 
-### **กู้คืนสมุดงานจากแคชของแผนภูมิ**
+### **กู้คืนเวิร์กบุ๊กจากแคชของแผนภูมิ**
 
-หากแผนภูมิใช้สมุดงานภายนอกที่หายไปหรือไม่สามารถเข้าถึงได้ Aspose.Slides สามารถสร้างสมุดงานแผนภูมิจากข้อมูลที่แคชไว้ในไฟล์นำเสนอได้ สร้างอ็อบเจ็กต์ [LoadOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/) ตั้งค่า [SpreadsheetOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/spreadsheetoptions/) และกำหนด [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/th/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) เป็น `true` ก่อนเปิดไฟล์นำเสนอ
+หากแผนภูมิใช้เวิร์กบุ๊กภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างเวิร์กบุ๊กของแผนภูมิใหม่จากข้อมูลที่แคชไว้ในงานนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) ตั้งค่า [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/) และกำหนดค่า [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) เป็น `true` ก่อนเปิดงานนำเสนอ
 
-ตัวอย่าง C# ด้านล่างเปิด `presentation.pptx` ซึ่งรูปร่างแรกบนสไลด์แรกต้องเป็นแผนภูมิที่อ้างอิงสมุดงานภายนอกที่ไม่สามารถเข้าถึงได้และเข้าถึงข้อมูลที่กู้คืนผ่าน [IChart.ChartData](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/chartdata/) และ [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+ตัวอย่าง C# ต่อไปนี้กู้คืนข้อมูลเวิร์กบุ๊กสำหรับแผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและอ้างอิงเวิร์กบุ๊กภายนอกที่ไม่สามารถใช้ได้ เข้าถึงข้อมูลที่กู้คืนผ่าน [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) และ [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
 using System;
@@ -466,7 +552,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
 {
     var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-    // อ่านหรือแก้ไขข้อมูลสมุดงานที่กู้คืนได้ที่นี่.
+    // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กที่กู้คืนที่นี่.
 }
 else
 {
@@ -474,30 +560,30 @@ else
 }
 ```
 
-หากสมุดงานภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิด, Aspose.Slides จะโยนข้อยกเว้น [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) ให้เปิดใช้งานการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแคชของแผนภูมิเป็นวิธีสำรองที่ยอมรับได้ เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำในสมุดงานภายนอกหลังจากที่นำเสนออัปเดตครั้งสุดท้าย
+หากเวิร์กบุ๊กภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้ Aspose.Slides จะทำให้เกิด [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแผนภูมิที่แคชเป็นวิธีสำรองที่ยอมรับได้ เพราะแคชอาจไม่มีการเปลี่ยนแปลงที่ทำในเวิร์กบุ๊กภายนอกหลังจากอัปเดตงานนำเสนอครั้งล่าสุด
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถระบุได้หรือไม่ว่าแผนภูมิเฉพาะเชื่อมโยงกับสมุดงานภายนอกหรือที่ฝังไว้?**
+**ฉันสามารถตรวจสอบได้หรือไม่ว่าแผนภูมิเฉพาะเจาะจงเชื่อมกับเวิร์กบุ๊กภายนอกหรือเวิร์กบุ๊กที่ฝังอยู่?**
 
-ใช่ แผนภูมิมี [ประเภทแหล่งข้อมูล](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdata/datasourcetype/) และ [เส้นทางไปยังสมุดงานภายนอก](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdata/externalworkbookpath/) หากแหล่งเป็นสมุดงานภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ามีไฟล์ภายนอกถูกใช้
+ใช่ แผนภูมิมี [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) และ [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) หากแหล่งเป็นเวิร์กบุ๊กภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ากำลังใช้ไฟล์ภายนอก
 
-**รองรับเส้นทางสัมพัทธ์ไปยังสมุดงานภายนอกหรือไม่ และมันถูกจัดเก็บอย่างไร?**
+**รองรับการใช้เส้นทางสัมพัทธ์ไปยังเวิร์กบุ๊กภายนอกหรือไม่ และจัดเก็บอย่างไร?**
 
-รองรับ หากระบุเส้นทางสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ การนำเสนอจะเก็บเส้นทางเต็มในไฟล์ PPTX ดังนั้นการย้ายสมุดงานอาจต้องอัปเดตลิงก์
+ใช่ หากคุณระบุเส้นทางสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ งานนำเสนอจะเก็บเส้นทางเต็มในไฟล์ PPTX ดังนั้นการย้ายเวิร์กบุ๊กอาจต้องอัปเดตลิงก์
 
-**ฉันสามารถใช้สมุดงานที่อยู่บนเครือข่ายหรือแชร์ได้หรือไม่?**
+**ฉันสามารถใช้เวิร์กบุ๊กที่ตั้งอยู่บนทรัพยากรเครือข่ายหรือแชร์ได้หรือไม่?**
 
-ได้ สมุดงานเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขสมุดงานระยะไกลโดยตรงจาก Aspose.Slides ไม่รองรับ – สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+ได้ เวิร์กบุ๊กเช่นนั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขเวิร์กบุ๊กระยะไกลโดยตรงจาก Aspose.Slides ไม่รองรับ — สามารถใช้เป็นแหล่งข้อมูลได้เท่านั้น
 
-**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกการนำเสนอหรือไม่?**
+**Aspose.Slides เขียนทับไฟล์ XLSX ภายนอกเมื่อตบลงงานนำเสนอหรือไม่?**
 
-การนำเสนอจะเก็บ [ลิงก์ไปยังไฟล์ภายนอก](https://reference.aspose.com/slides/th/net/aspose.slides.charts/chartdata/externalworkbookpath/) การแก้ไขข้อมูลแผนภูมิที่มาจากเซลล์อาจอัปเดตไฟล์ XLSX ภายในเครื่องด้วย ใช้สำเนาของสมุดงานหากต้องการให้ไฟล์ต้นฉบับคงเดิม
+งานนำเสนอเก็บ [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) การแก้ไขข้อมูลแผนภูมิที่สนับสนุนโดยเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกในเครื่องได้ ใช้สำเนาของเวิร์กบุ๊กหากต้องการให้ต้นฉบับคงเดิม
 
-**ถ้าไฟล์ภายนอกมีการป้องกันด้วยรหัสผ่านฉันควรทำอย่างไร?**
+**ฉันควรทำอย่างไรถ้าไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน?**
 
-Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการเชื่อมโยง วิธีทั่วไปคือเอาการป้องกันออกล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสแล้ว (เช่น โดยใช้ [Aspose.Cells](https://reference.aspose.com/cells/net/)) แล้วเชื่อมโยงกับสำเนานั้น
+Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการเชื่อมต่อ วิธีทั่วไปคือการลบการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสไว้ (เช่น ใช้ [Aspose.Cells](https://reference.aspose.com/cells/net/)) แล้วเชื่อมไปยังสำเนานั้น
 
-**หลายแผนภูมิสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**
+**หลายแผนภูมิสามารถอ้างอิงเวิร์กบุ๊กภายนอกเดียวกันได้หรือไม่?**
 
-ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปที่ไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในทุกแผนภูมิในครั้งต่อไปที่โหลดข้อมูล**
+ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปที่ไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิเมื่อมีการโหลดข้อมูลครั้งถัดไป

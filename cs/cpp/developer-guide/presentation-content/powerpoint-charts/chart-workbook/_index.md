@@ -1,39 +1,39 @@
 ---
-title: Spravovat sešity diagramů v prezentacích pomocí C++
-linktitle: Sešit diagramu
+title: Správa sešitů grafů v prezentacích pomocí C++
+linktitle: Sešit grafu
 type: docs
 weight: 70
 url: /cs/cpp/chart-workbook/
 keywords:
-- sešit diagramu
-- data diagramu
+- sešit grafu
+- data grafu
 - buňka sešitu
 - popisek dat
 - pracovní list
-- zdroj dat
+- datový zdroj
 - externí sešit
 - externí data
-- cache diagramu
+- mezipaměť grafu
 - obnovení sešitu
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Objevte Aspose.Slides pro C++: snadno spravujte sešity diagramů v formátech PowerPoint a OpenDocument a zjednodušte data své prezentace."
+description: "Objevte Aspose.Slides pro C++: snadno spravujte sešity grafů ve formátech PowerPoint a OpenDocument a zefektivněte data své prezentace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s sešity diagramů v Aspose.Slides. Ukazuje, jak číst a zapisovat data diagramu pomocí proudů sešitu, používat buňky sešitu jako popisky dat diagramu, přistupovat k kolekcím pracovních listů a specifikovat typ zdroje dat pro hodnoty diagramu.
+Tento článek vysvětluje, jak pracovat s sešity grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu pomocí streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat ke kolekcím pracovních listů a specifikovat typ datového zdroje pro hodnoty grafu.
 
-Také se zabývá používáním externích sešitů jako zdrojů dat diagramu. Příklady demonstrují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu připojenému k diagramu a upravit data diagramu, když je sešit k dispozici.
+Také se zabývá prací s externími sešity jako datovými zdroji pro grafy. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit dostupný.
 
-Pro buňky sešitu, které představují chybějící data, viz [Ovládání zobrazení prázdných buněk](/slides/cs/cpp/chart-series/) pro rozdíl mezi prázdnou buňkou a nulou a porovnání liniového diagramu dostupných režimů zobrazení.
+Pro buňky sešitu, které představují chybějící data, viz [Řízení zobrazení prázdných buněk](/slides/cs/cpp/chart-series/) pro rozdíl mezi prázdnou buňkou a nulou a porovnání lineárního grafu dostupných režimů zobrazení.
 
 ## **Zahrnout data ze skrytých řádků a sloupců**
 
-Použijte [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) k řízení, zda diagram vykresluje data ze skrytých řádků a sloupců pracovního listu. Nastavte jej na `true`, aby se vykreslovaly jen viditelné buňky, nebo na `false`, aby se zahrnovaly i viditelné i skryté buňky. Toto nastavení řídí vykreslování diagramu; neskryje ani neodkryje řádky či sloupce pracovního listu.
+Použijte [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) k řízení, zda graf vykresluje data ze skrytých řádků a sloupců pracovního listu. Nastavte na `true`, aby se vykreslovaly pouze viditelné buňky, nebo na `false`, aby se zahrnuly jak viditelné, tak skryté buňky. Toto nastavení řídí vykreslování grafu; neskrývá ani nezobrazí řádky nebo sloupce pracovního listu.
 
-[Vzorková prezentace](hidden-source-data.pptx) obsahuje sloupcový diagram jako první tvar na první snímku. Vložený pracovní list `Sheet1` obsahuje následující zdrojový rozsah `A1:C4`. Řádek 3 a sloupec C jsou skryté, ale jejich buňky stále obsahují hodnoty.
+Ukázková prezentace [sample presentation](hidden-source-data.pptx) obsahuje sloupcový graf jako první tvar na první snímku. Vložený list `Sheet1` obsahuje následující zdrojový rozsah `A1:C4`. Řádek 3 a sloupec C jsou skryté, ale jejich buňky stále obsahují hodnoty.
 
 | Řádek listu | A: Měsíc | B: Maloobchod | C: Velkoobchod (skrytý sloupec) |
 | --- | --- | --- | --- |
@@ -41,9 +41,9 @@ Použijte [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides
 | 3 (skrytý řádek) | Únor | 40 | 60 |
 | 4 | Březen | 20 | 50 |
 
-Přístup ke zdrojovým buňkám získáte přes [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) a čtením [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) pro kontrolu jejich skrytého stavu. Tato vlastnost je pouze pro čtení. V tomto souboru je B2 viditelná, B3 patří ke skrytému řádku a C2 ke skrytému sloupci; příklad vytiskne `False`, `True` a `True`.
+Přístup ke zdrojovým buňkám získáte pomocí [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) a přečtěte [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) pro kontrolu jejich skrytého stavu. Tato vlastnost je jen pro čtení. V tomto souboru je B2 viditelný, B3 patří ke skrytému řádku a C2 patří ke skrytému sloupci; příklad vytiskne `False`, `True` a `True`.
 
-Pro tento příklad obnovte data diagramu po změně nastavení vykreslování: zachovejte vložený sešit pomocí [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) a načtěte jej pomocí [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). Když zahrnujete všechny buňky, použijte také [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) k obnovení kompletního rozsahu, včetně skryté kategorie Únor. Pouze změna příznaku není dostačující k obnovení uložených dat diagramu a popisků kategorií v tomto příkladu.
+Pro tento příklad obnovte data grafu po změně nastavení vykreslování: zachovejte vložený sešit pomocí [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) a znovu jej načtěte pomocí [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). Při zahrnutí všech buněk také použijte [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) k obnovení kompletního rozsahu, včetně skryté kategorie únor. Pouhé změnění příznaku není dostatečné k obnovení kešovaných dat grafu a popisků kategorií v tomto příkladu.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -79,7 +79,7 @@ if (chart != nullptr)
     {
         chart->set_PlotVisibleCellsOnly(visibleOnly);
 
-        // Obnovit data diagramu z vloženého sešitu.
+        // Obnovit data grafu z vloženého sešitu.
         workbookStream->set_Position(0);
         chart->get_ChartData()->WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
@@ -94,25 +94,25 @@ if (chart != nullptr)
 }
 else
 {
-    Console::WriteLine(u"První tvar není diagram.");
+    Console::WriteLine(u"The first shape is not a chart.");
 }
 ```
 
-Příklad ukládá dvě verze prezentace: jednu pouze s viditelnými hodnotami maloobchodu (10 a 20) a druhou se všemi šesti hodnotami. Obrázky níže ilustrují oba režimy vykreslování. Řádek 3 a sloupec C zůstávají skryté v obou vložených sešitech.
+Příklad uloží dvě verze prezentace: jednu pouze s viditelnými hodnotami Maloobchodu (10 a 20) a druhou se všemi šesti hodnotami. Níže uvedené obrázky ilustrují dva režimy vykreslování. Řádek 3 a sloupec C zůstávají skryté v obou vložených sešitech.
 
 | Pouze viditelné buňky (`true`) | Všechny buňky (`false`) |
 | --- | --- |
-| ![Pouze viditelné buňky: Hodnoty maloobchodu 10 a 20 pro leden a březen.](hidden_cells_True.png) | ![Všechny buňky: Hodnoty maloobchodu a velkoobchodu pro leden, únor a březen.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Skrytá buňka obsahující hodnotu se liší od prázdné buňky. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) řídí, jak se zobrazují chybějící hodnoty; nezahrnuje ani nevynechává skrytá zdrojová data. Viz [Ovládání zobrazení prázdných buněk](/slides/cs/cpp/chart-series/#control-the-display-of-empty-cells) pro příklad.
+Skrytá buňka obsahující hodnotu se liší od prázdné buňky. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) řídí, jak se zobrazují chybějící hodnoty; nezahrnuje ani nevynechává skrytá zdrojová data. Viz [Řízení zobrazení prázdných buněk](/slides/cs/cpp/chart-series/#control-the-display-of-empty-cells) pro příklad.
 
-## **Získat rozsah dat diagramu**
+## **Získat rozsah dat grafu**
 
-Před aktualizací dat sešitu v existující prezentaci prozkoumejte zdrojové rozsahy, abyste identifikovali, které buňky pracovního listu každý diagram používá. Metoda [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) vrací aktuální rozsah dat jako vzorec kvalifikovaný pracovním listem, např. `Sheet1!$A$1:$D$5`. Zde `Sheet1` je název listu, `!` jej odděluje od rozsahu buněk a `$A$1:$D$5` určuje buňky A1 až D5 včetně. Znak `$` označuje absolutní odkazy na řádky a sloupce.
+Před aktualizací dat sešitu v existující prezentaci prověřte zdrojové rozsahy, abyste zjistili, které buňky pracovního listu používá každý graf. Metoda [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) vrací aktuální datový rozsah jako vzorec omezený pracovním listem, například `Sheet1!$A$1:$D$5`. Zde `Sheet1` je název listu, `!` jej odděluje od rozsahu buněk a `$A$1:$D$5` určuje buňky A1 až D5 včetně. Znaky dolaru značí absolutní odkazy na řádky a sloupce.
 
-Metoda čte aktuální rozsah, aniž by měnila diagram nebo jeho sešit. Pokud diagram nepoužívá sešit jako zdroj dat, vyvolá [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Další informace najdete v [referenci API ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
+Metoda přečte aktuální rozsah, aniž by měnila graf nebo jeho sešit. Pokud graf nepoužívá sešit jako datový zdroj, vyvolá [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Další informace najdete v [ChartData API Reference](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
 
-Tento příklad otevře prezentaci a zkontroluje tvary přímo na každém snímku, zda jsou diagramy. Vytiskne název každého diagramu a jeho zdrojový rozsah. Pokud diagram nepoužívá sešit, vytiskne zprávu a pokračuje k dalšímu diagramu.
+Tento příklad otevře prezentaci a kontroluje tvary přímo na každém snímku, zda jsou grafy. Vytiskne název každého grafu a jeho zdrojový rozsah. Pokud graf nepoužívá sešit, vytiskne zprávu a pokračuje dalším grafem.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -153,11 +153,11 @@ for (auto slide : IterateOver(presentation->get_Slides()))
 }
 ```
 
-## **Číst a zapisovat data diagramu ze sešitu**
+## **Číst a zapisovat data grafu ze sešitu**
 
-Aspose.Slides for C++ poskytuje metody [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) a [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), které umožňují číst a zapisovat sešity dat diagramu (obsahující data diagramu upravená pomocí Aspose.Cells). **Poznámka** – data diagramu musí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
+Aspose.Slides pro C++ poskytuje metody [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) a [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/), které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka**: data grafu musí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
 
-Tento příklad používá prezentaci s diagramem jako první tvar na první snímku. Načte vložený sešit do proudu, vymaže existující řady a kategorie a zapíše stejný sešit zpět. Změny zůstávají v paměti; příklad neukládá prezentaci.
+Tento příklad používá prezentaci s grafem jako první tvar na první snímku. Načte vložený sešit do streamu, vymaže existující řady a kategorie a zapíše stejný sešit zpět. Změny zůstávají v paměti; příklad neukládá prezentaci.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -196,9 +196,9 @@ else
 }
 ```
 
-### **Ověřit rozložení diagramu po úpravě sešitu**
+### **Ověřit rozvržení grafu po úpravě sešitu**
 
-Když nahradíte vložený sešit upraveným, diagram si ponechá původní kolekce řad a kategorií. Tento nesoulad může způsobit selhání [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) s chybou indexu mimo rozsah. Před zápisem aktualizovaného sešitu do diagramu vymažte existující řady a kategorie. Tento příklad používá diagram, který je první tvar na první snímku. Komentář označuje místo, kde by úprava sešitu proběhla; spustitelný příklad zapíše původní sešit zpět a ověří rozložení v paměti.
+Když nahradíte vložený sešit upraveným, graf si ponechá své původní kolekce řad a kategorií. Tato nesrovnalost může způsobit selhání [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) s chybou indexu mimo rozsah. Před zápisem aktualizovaného sešitu do grafu vymažte existující řady a kategorie. Tento příklad používá graf, který je první tvar na první snímku. Komentář označuje místo, kde by probíhala úprava sešitu; spustitelný příklad zapíše zpět původní sešit a ověří rozvržení v paměti.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -225,7 +225,7 @@ if (chart != nullptr)
     auto chartData = chart->get_ChartData();
     auto workbookStream = chartData->ReadWorkbookStream();
 
-    // Upravte zde proud sešitu, například pomocí Aspose.Cells.
+    // Upravte zde stream sešitu, například pomocí Aspose.Cells.
 
     chartData->get_Series()->Clear();
     chartData->get_Categories()->Clear();
@@ -240,13 +240,100 @@ else
 }
 ```
 
-Vymazání kolekcí odstraní zastaralé odkazy na data před zápisem sešitu zpět. Před použitím diagramu znovu vytvořte potřebné mapování řad a kategorií pro aktualizovaný sešit.
+Vymazání kolekcí odstraní zastaralé odkazy na data před zápisem sešitu zpět. Před použitím grafu znovu sestavte potřebné mapování řad a kategorií pro aktualizovaný sešit.
 
-## **Nastavit buňku sešitu jako popisek dat diagramu**
+## **Nastavit vlastní formáty čísel pro buňky sešitu**
 
-Můžete použít text z buněk sešitu jako popisky dat diagramu.
+Použijte [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) k řízení, jak se číselné hodnoty zobrazují ve vloženém sešitu grafu. Například zpráva může požadovat, aby konverzní poměr byl zobrazen jako procenta se čtyřmi desetinnými místy a koeficient se pěti desetinnými místy. Udržujte obě hodnoty číselné, aby byly dostupné pro výpočty a vykreslování grafu.
 
-Tento příklad přidá bublinový diagram s výchozími daty na první snímek existující prezentace. Použije buňky A10:A12 na listu 0 pro první tři popisky v první řadě, povolí popisky z buněk a uloží aktualizovanou prezentaci.
+Formát čísla mění pouze zobrazení, nikoli uloženou hodnotu. Formát `0.0000%` zobrazí `0.125` jako `12.5000%`; nenahradí uložené číslo `12.5`. Podobně `0.00000` zobrazí `0.1234567` jako `0.12346` bez zaokrouhlení uložené hodnoty. Pokud je vlastní formát prázdný řetězec (`""`), použije se formát přiřazený přes [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/).
+
+Následující příklad vytvoří sloupcový graf a přistupuje k jeho buňkám přes [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/). V listu 0 B2 obsahuje konverzní poměr a C2 obsahuje koeficient. Obě buňky poskytují hodnoty pro graf. Příklad také povolí popisky hodnot propojené se zdrojovými formáty.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(720, 270, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 20, 620, 210);
+chart->set_HasTitle(false);
+
+chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00");
+chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMinValue(false);
+chart->get_Axes()->get_VerticalAxis()->set_MinValue(0);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto categoryCell = workbook->GetCell(0, u"A2", ObjectExt::Box<String>(u"Sample"));
+chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+auto percentageCell = workbook->GetCell(0, u"B2", ObjectExt::Box<double>(0.125));
+percentageCell->set_CustomNumberFormat(u"0.0000%");
+auto percentageName = workbook->GetCell(0, u"B1", ObjectExt::Box<String>(u"Conversion rate"));
+auto percentageSeries = chart->get_ChartData()->get_Series()->Add(percentageName, chart->get_Type());
+percentageSeries->get_DataPoints()->AddDataPointForBarSeries(percentageCell);
+
+auto precisionCell = workbook->GetCell(0, u"C2", ObjectExt::Box<double>(0.1234567));
+precisionCell->set_CustomNumberFormat(u"0.00000");
+auto precisionName = workbook->GetCell(0, u"C1", ObjectExt::Box<String>(u"Coefficient"));
+auto precisionSeries = chart->get_ChartData()->get_Series()->Add(precisionName, chart->get_Type());
+precisionSeries->get_DataPoints()->AddDataPointForBarSeries(precisionCell);
+
+for (auto series : IterateOver(chart->get_ChartData()->get_Series()))
+{
+    auto labelFormat = series->get_DataPoint(0)->get_Label()->get_DataLabelFormat();
+    labelFormat->set_ShowValue(true);
+    labelFormat->set_IsNumberFormatLinkedToSource(true);
+}
+
+presentation->Save(u"CustomCellFormats.pptx", Export::SaveFormat::Pptx);
+```
+
+Formáty buněk sešitu jsou oddělené od formátů nastavených přímo na osách grafu nebo popiscích dat. V tomto příkladu každý popisek zobrazuje hodnotu ze zdrojové buňky, protože [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) je voláno s `true`, a dodržuje zdrojový číselný formát, protože [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) je voláno s `true`. Po uložení a opětovném otevření prezentace popisky zobrazí `12.5000%` a `0.12346`, jak je ukázáno níže. Svislá osa používá vlastní formát `0.00`, přiřazený přes [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/), s [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) voláno s `false`.
+
+Aby byl popisek dat formátován nezávisle, nastavte jeho příznak propojení se zdrojem na `false` a přiřaďte formát přes [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/). Tím se nezmění formát buňky sešitu. Například nezávislý formát popisku `0.00` zobrazí první hodnotu jako `0.13`, zatímco B2 stále zobrazuje `12.5000%`. Viz [Popisky dat grafu](/slides/cs/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) pro přímé formátování popisků.
+
+Níže uvedený obrázek byl vytvořen ze uložené prezentace po jejím opětovném otevření:
+
+![Sloupcový graf s popisky propojenými na zdroj zobrazující 12.5000% a 0.12346 a s nezávisle formátovanou číselnou osou.](custom-cell-formats.png)
+
+## **Nastavit buňku sešitu jako popisek dat grafu**
+
+Můžete použít text z buněk sešitu jako popisky dat grafu.
+
+Tento příklad přidá bublinový graf s výchozími daty na první snímek existující prezentace. Použije buňky A10:A12 na listu 0 pro první tři popisky v první řadě, povolí popisky z buněk a uloží aktualizovanou prezentaci.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -287,9 +374,9 @@ series->get_Labels()->idx_get(2)->set_ValueFromCell(thirdLabelCell);
 presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Správa pracovních listů**
+## **Spravovat pracovní listy**
 
-Metoda [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) poskytuje přístup k pracovním listům v sešitu diagramu. Tento příklad vytvoří koláčový diagram s výchozími daty a vytiskne název každého pracovního listu do konzole.
+Metoda [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) poskytuje přístup k pracovním listům v sešitu grafu. Tento příklad vytvoří koláčový graf s výchozími daty a vytiskne název každého pracovního listu do konzole.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -320,9 +407,9 @@ for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 }
 ```
 
-## **Specifikovat typ zdroje dat**
+## **Zadat typ datového zdroje**
 
-Tento příklad vytvoří 3D sloupcový diagram s výchozími daty a nastaví dva názvy řad pomocí různých zdrojů dat. První název používá řetězcový literál; druhý používá buňku C1 na listu 0. Výčtový typ [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) vybírá zdroj pro každý název. Příklad uloží prezentaci s aktualizovanými názvy řad.
+Tento příklad vytvoří 3D sloupcový graf s výchozími daty a nastaví dva názvy řad pomocí různých zdrojů dat. První název používá řetězcový literál; druhý používá buňku C1 na listu 0. Výčtový typ [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) vybírá zdroj pro každý název. Příklad uloží prezentaci s aktualizovanými názvy řad.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -361,9 +448,9 @@ cellName->set_Data(nameCell);
 presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Detekce nepodporovaných formátů vložených sešitů**
+## **Detekovat nepodporované formáty vložených sešitů**
 
-Aspose.Slides nepodporuje formát Excel binárního sešitu (.xlsb), který může být vložen v některých diagramech. Můžete použít metodu [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) na [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) k detekci nepodporovaných formátů a přeskočení těchto diagramů. Tento příklad prozkoumá tvary na první snímku existující prezentace, přeskočí tvary, které nejsou diagramy, a vytiskne diagnostickou zprávu pro každý diagram s vloženým sešitem .xlsb.
+Aspose.Slides nepodporuje binární formát Excelu (.xlsb), který může být vložen v některých grafech. Můžete použít metodu [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) na [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) společně s výčtem [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) k detekci nepodporovaných formátů a přeskočení těchto grafů. Tento příklad kontroluje tvary na prvním snímku existující prezentace, přeskočí tvary, které nejsou grafy, a vytiskne diagnostickou zprávu pro každý graf s vloženým sešitem .xlsb.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -402,19 +489,19 @@ for (auto shape : IterateOver(slide->get_Shapes()))
         continue;
     }
 
-    // Přečtěte nebo upravte podporovaná data sešitu diagramu zde.
+    // Zde přečtěte nebo upravte podporovaná data sešitu grafu.
 }
 ```
 
 ## **Externí sešit**
 
-Aspose.Slides podporuje použití externích sešitů jako zdroje dat pro diagramy.
+Aspose.Slides podporuje používání externích sešitů jako datového zdroje pro grafy.
 
 ### **Vytvořit externí sešit**
 
-Použijte [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) a [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) k exportu vloženého sešitu diagramu do souboru a propojení diagramu s tímto externím sešitem.
+Použijte [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) a [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) k exportu vloženého sešitu grafu do souboru a propojení grafu s tímto externím sešitem.
 
-Tento příklad vytvoří koláčový diagram s výchozími daty a exportuje jeho sešit. Před přiřazením externího sešitu jako zdroje dat diagramu uzavře výstupní proud a poté uloží propojenou prezentaci.
+Tento příklad vytvoří koláčový graf s výchozími daty a exportuje jeho sešit. Uzavře výstupní stream před přiřazením externího sešitu jako zdroje dat grafu, poté uloží propojenou prezentaci.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -450,11 +537,11 @@ presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 
 ### **Nastavit externí sešit**
 
-Pomocí metody [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) můžete přiřadit externí sešit diagramu jako jeho zdroj dat. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
+Pomocí metody [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) můžete přiřadit externí sešit grafu jako jeho datový zdroj. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
 
-I když nelze upravovat data v sešitech uložených na vzdálených místech nebo zdrojích, lze takové sešity stále použít jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na plnou cestu.
+I když nemůžete upravovat data v sešitech uložených na vzdálených místech nebo zdrojích, můžete takové sešity i nadále použít jako externí datový zdroj. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
 
-Tento příklad používá externí sešit, jehož pracovní list pojmenovaný `Sheet1` obsahuje název řady v B1, názvy kategorií v A2:A4 a číselné hodnoty v B2:B4. Příklad vytvoří koláčový diagram, propojí sešit a použije [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) k namapování A1:B4 na jednu řadu a tři kategorie. Uloží prezentaci s propojeným diagramem.
+Tento příklad používá externí sešit, jehož list s názvem `Sheet1` obsahuje název řady v B1, názvy kategorií v A2:A4 a číselné hodnoty v B2:B4. Příklad vytvoří koláčový graf, propojí sešit a použije [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) k mapování A1:B4 na jednu řadu a tři kategorie. Uloží prezentaci s propojeným grafem.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -483,12 +570,12 @@ chartData->SetRange(u"Sheet1!$A$1:$B$4");
 presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-Parametr `updateChartData` metody [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) určuje, zda se sešit načte.
+Parametr `updateChartData` metody [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) řídí, zda je sešit načten.
 
-* Když je `updateChartData` `false`, aktualizuje se pouze cesta k sešitu. Data diagramu nejsou načtena ani aktualizována ze cílového sešitu, takže sešit může být nedostupný.
-* Když je `updateChartData` `true`, data diagramu jsou aktualizována ze cílového sešitu.
+* Když je `updateChartData` `false`, aktualizuje se jen cesta k sešitu. Data grafu nejsou načtena ani aktualizována ze cílového sešitu, takže sešit může být nedostupný.
+* Když je `updateChartData` `true`, data grafu jsou aktualizována ze cílového sešitu.
 
-Následující příklad přiřadí zástupnou URL s `updateChartData` nastaveným na `false`. Zachová výchozí data koláčového diagramu a uloží prezentaci bez načtení nedostupného sešitu.
+Následující příklad přiřadí zástupnou URL s `updateChartData` nastaveným na `false`. Zachová výchozí data koláčového grafu a uloží prezentaci bez načtení nedostupného sešitu.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -512,11 +599,11 @@ chart->get_ChartData()->SetExternalWorkbook(u"https://example.com/unavailable-wo
 presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Získat cestu k externímu zdroji dat sešitu diagramu**
+### **Získat cestu k externímu sešitu datového zdroje grafu**
 
-Pro identifikaci sešitu připojeného k diagramu zkontrolujte, zda diagram používá externí zdroj dat, a získejte jeho cestu.
+Pro identifikaci sešitu propojeného s grafem zkontrolujte, zda graf používá externí datový zdroj, a získejte jeho cestu.
 
-Tento příklad prozkoumá první tvar na první snímku prezentace s propojeným externím sešitem. Pokud se jedná o diagram propojený s externím sešitem, vytiskne [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) do konzole. Poté uloží kopii prezentace.
+Tento příklad kontroluje první tvar na první snímku prezentace s propojeným externím sešitem. Pokud je to graf propojený s externím sešitem, příklad vytiskne [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) do konzole. Poté uloží kopii prezentace.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -557,11 +644,11 @@ else
 presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Upravit data diagramu**
+### **Upravit data grafu**
 
-Můžete upravovat data v externích sešitech stejným způsobem, jako měníte obsah interních sešitů. Když externí sešit nelze načíst, je vyvolána výjimka.
+Data v externích sešitech můžete upravovat stejným způsobem, jako provádíte změny v obsahu vnitřních sešitů. Když externí sešit nelze načíst, vyvolá se výjimka.
 
-Tento příklad používá diagram, který je první tvar na první snímku a je propojen s dostupným externím sešitem. Nastaví hodnotu založenou na buňce prvního datového bodu v první řadě na 100 a uloží aktualizovanou prezentaci. Úprava hodnot buněk může aktualizovat propojený externí soubor XLSX, proto použijte kopii, pokud potřebujete zachovat původní sešit.
+Tento příklad používá graf, který je první tvar na prvním snímku a je propojen s dostupným externím sešitem. Nastaví hodnotu první datové položky v první řadě, která je podložena buňkou, na 100 a uloží aktualizovanou prezentaci. Úprava hodnot buněk může aktualizovat propojený externí soubor XLSX, takže použijte kopii, pokud potřebujete zachovat originální sešit.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -615,11 +702,11 @@ else
 }
 ```
 
-### **Obnovit sešit z vyrovnávací paměti diagramu**
+### **Obnovit sešit z mezipaměti grafu**
 
-Pokud diagram používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit diagramu z dat uložených v cache prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), nakonfigurujte jej pomocí [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), a zavolejte [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) s `true` před otevřením prezentace.
+Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), nakonfigurujte jej pomocí [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), a před otevřením prezentace zavolejte [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) s `true`.
 
-Následující C++ příklad obnoví data sešitu pro diagram, který je první tvar na první snímku a odkazuje na nedostupný externí sešit. Přistupuje k obnoveným datům přes [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) a [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+Následující C++ příklad obnoví data sešitu pro graf, který je první tvar na prvním snímku a odkazuje na nedostupný externí sešit. Přistupuje k obnoveným datům přes [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) a [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -651,7 +738,7 @@ if (chart != nullptr)
 {
     auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    // Přečtěte nebo upravte zde obnovená data sešitu.
+    // Zde přečtěte nebo upravte obnovená data sešitu.
 }
 else
 {
@@ -659,30 +746,30 @@ else
 }
 ```
 
-Pokud je externí sešit nedostupný a obnovení je zakázáno, Aspose.Slides vyvolá [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Povolit obnovení použijte pouze tehdy, když je použití uložených dat diagramu přijatelnou alternativou, protože cache nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
+Pokud je externí sešit nedostupný a obnovení je vypnuté, Aspose.Slides vyvolá [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Povolit obnovení jen když použití dat z mezipaměti grafu je přijatelná náhradní možnost, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Mohu zjistit, zda je konkrétní diagram propojen s externím nebo vloženým sešitem?**
+**Mohu zjistit, zda je konkrétní graf propojen s externím nebo vloženým sešitem?**
 
-Ano. Diagram má [typ zdroje dat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) a [cestu k externímu sešitu](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že se používá externí soubor.
+Ano. Graf má [typ datového zdroje](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) a [cestu k externímu sešitu](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je použita externí soubor.
 
-**Jsou podporovány relativní cesty k externím sešitum a jak jsou uloženy?**
+**Jsou podporovány relativní cesty k externím sešitům a jak jsou uloženy?**
 
-Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. Prezentace ukládá absolutní cestu v souboru PPTX, takže přesunutí sešitu může vyžadovat aktualizaci odkazu.
+Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. Prezentace ukládá absolutní cestu v souboru PPTX, takže při přesunu sešitu může být nutné aktualizovat odkaz.
 
-**Mohou být sešity umístěny na síťových zdrojích/sdílených složkách?**
+**Mohu používat sešity umístěné na síťových zdrojích/sdílených složkách?**
 
-Ano, takové sešity lze použít jako externí zdroj dat. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována – mohou být použity jen jako zdroj.
+Ano, takové sešity mohou být použity jako externí datový zdroj. Úpravy vzdálených sešitů přímo z Aspose.Slides však nejsou podporovány – lze je použít pouze jako zdroj.
 
-**Přepisuje Aspose.Slides externí soubor XLSX při ukládání prezentace?**
+**Přepisuje Aspose.Slides externí XLSX při ukládání prezentace?**
 
-Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Úpravy dat diagramu založených na buňkách mohou také aktualizovat propojený lokální soubor XLSX. Použijte kopii sešitu, pokud musí originál zůstat beze změny.
+Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Úprava dat grafu podložených buňkami může také aktualizovat propojený lokální soubor XLSX. Použijte kopii sešitu, pokud originál musí zůstat nezměněn.
 
 **Co mám dělat, pokud je externí soubor chráněn heslem?**
 
-Aspose.Slides neakceptuje heslo při propojení. Běžný přístup je odstranit ochranu předem nebo připravit dešifrovanou kopii (např. pomocí [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) a propojit se na tuto kopii.
+Aspose.Slides nepřijímá heslo při vytváření odkazu. Běžný přístup je odstranit ochranu předem nebo připravit dešifrovanou kopii (např. pomocí [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) a odkazovat na tuto kopii.
 
-**Může více diagramů odkazovat na stejný externí sešit?**
+**Může více grafů odkazovat na stejný externí sešit?**
 
-Ano. Každý diagram ukládá svůj vlastní odkaz. pokud všechny odkazují na stejný soubor, aktualizace tohoto souboru se projeví ve všech diagramech při dalším načtení dat.
+Ano. Každý graf ukládá vlastní odkaz. Pokud všechny ukazují na stejný soubor, aktualizace tohoto souboru se projeví v každém grafu při dalším načtení dat.

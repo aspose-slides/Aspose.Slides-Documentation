@@ -14,15 +14,15 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 서식 지정하는 방법을 배우고, 보다 매력적인 슬라이드를 만들 수 있습니다."
+description: "Aspose.Slides for C++를 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 서식 지정하는 방법을 배우고, 보다 매력적인 슬라이드를 제작하세요."
 ---
 ## **소개**
 
-데이터 레이블은 차트 시리즈 및 개별 데이터 포인트에 대한 정보를 표시하여 독자가 값을 식별하고 차트를 이해하는 데 도움을 줍니다. 이 문서에서는 값 서식 지정, 백분율 표시, 레이블 텍스트 읽기, 축 최대값을 초과하는 레이블 제어, 카테고리 축 레이블 간격 조정 및 원형 차트 레이블 위치 지정 방법을 설명합니다.
+데이터 레이블은 차트 시리즈와 개별 데이터 포인트에 대한 정보를 표시하여 독자가 값을 식별하고 차트를 이해하도록 도와줍니다. 이 문서에서는 값 서식 지정, 백분율 표시, 레이블 텍스트 읽기, 축 최대값을 넘어서는 레이블 제어, 카테고리 축 레이블 간격 조정 및 파이 차트 레이블 위치 지정 방법을 설명합니다.
 
 ## **차트 데이터 레이블에서 데이터 정밀도 설정**
 
-시리즈 값을 서식 지정하려면 [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/)를 사용합니다. 이 예제는 기본 데이터로 선 차트를 만들고, 데이터 표를 표시하며, 첫 번째 시리즈에 값 레이블을 활성화합니다. `#,##0.00` 서식은 천 단위 구분 기호와 소수점 둘째 자리까지 표시하지만 기본값은 변경하지 않습니다.
+시리즈 값을 서식 지정하려면 [set_NumberFormatOfValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) 를 사용합니다. 이 예제는 기본 데이터로 라인 차트를 만들고, 데이터 테이블을 표시하며, 첫 번째 시리즈에 값 레이블을 활성화합니다. `#,##0.00` 서식은 천 단위 구분 기호와 소수점 둘째 자리까지 표시하지만 기본 값은 변경하지 않습니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -57,9 +57,11 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
+차트에 포함된 워크북의 숫자 셀을 서식 지정하려면 [워크북 셀에 대한 사용자 정의 숫자 서식 설정](/slides/ko/cpp/chart-workbook/#set-custom-number-formats-for-workbook-cells) 을 참조하십시오. 해당 예제에서는 저장된 숫자 값은 유지하면서 소스 셀 서식을 따르는 값 레이블도 보여줍니다.
+
 ## **백분율을 레이블로 표시**
 
-누적 세로 막대 차트에서 각 값을 해당 카테고리 총계의 백분율로 계산하고, [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/)이 반환하는 텍스트 프레임에 텍스트를 할당합니다. 이 예제는 기본 차트 데이터를 사용하고 8포인트 글꼴로 소수점 둘째 자리까지 백분율을 표시합니다. 총합이 0인 카테고리는 0으로 나누는 오류를 방지하기 위해 건너뜁니다. 차트 데이터가 변경되면 사용자 지정 레이블 텍스트를 다시 계산합니다.
+누적된 열 차트에서 각 값을 해당 카테고리 총합에 대한 백분율로 계산하고, [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) 이 반환하는 텍스트 프레임에 텍스트를 할당합니다. 이 예제는 기본 차트 데이터를 사용하고, 8포인트 글꼴로 소수점 두 자리까지 백분율을 표시합니다. 총합이 0인 카테고리는 나눗셈 오류를 방지하기 위해 건너뜁니다. 차트 데이터가 변경되면 사용자 지정 레이블 텍스트를 다시 계산해야 합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -147,11 +149,11 @@ for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
 presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **차트 데이터 레이블에 퍼센트 기호 설정**
+## **차트 데이터 레이블에 백분율 기호 설정**
 
-값이 분수 형태로 저장된 경우, [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/)을 사용하여 백분율을 표시합니다. 레이블 서식을 원본 셀과 독립적으로 적용하려면 [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/)에 `false`를 전달합니다.
+값이 분수 형태로 저장된 경우, 백분율을 표시하려면 [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) 를 사용합니다. 레이블 서식을 소스 셀과 독립적으로 적용하려면 [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) 에 `false` 를 전달합니다.
 
-이 예제는 네 개 카테고리에 걸쳐 빨간색과 파란색 시리즈가 있는 100% 누적 세로 막대 차트를 생성합니다. 각 값 쌍은 합이 1이 됩니다. 레이블 서식 `0.0%`는 0.30을 30.0%로 표시하고, 세로 축은 소수점 둘째 자리까지 사용합니다. 두 시리즈 모두 흰색 10포인트 레이블 텍스트를 사용합니다.
+이 예제는 네 개 카테고리에 걸쳐 빨간색 및 파란색 시리즈가 있는 100% 누적 열 차트를 생성합니다. 각 값 쌍은 합이 1이 됩니다. 레이블 서식 `0.0%` 는 0.30을 30.0% 로 표시하고, 수직 축은 소수점 두 자리까지 사용합니다. 두 시리즈 모두 흰색 10포인트 레이블 텍스트를 사용합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -236,9 +238,9 @@ for (auto i = 0; i < 2; i++)
 presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **데이터 레이블 실제 텍스트 읽기**
+## **데이터 레이블의 실제 텍스트 읽기**
 
-[GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/)를 사용하여 데이터 레이블 설정으로 생성된 텍스트를 가져옵니다. 이는 보고서용 레이블 추출, 프레젠테이션 내용 검색 또는 생성된 차트 검증에 유용합니다. 아래 예제에서 기본 [데이터 레이블 서식](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/)은 각 카테고리 이름, 시리즈 이름 및 값을 결합합니다. 하나의 점은 값을 백분율로 서식화하고, 다른 점은 [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/)에서 가져온 사용자 지정 텍스트를 사용합니다.
+데이터 레이블 설정으로 생성된 텍스트를 가져오려면 [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) 를 사용합니다. 이는 레이블을 보고서에 추출하거나 프레젠테이션 내용 검색, 생성된 차트 검증 등에 유용합니다. 아래 예제에서는 기본 [data label format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/) 이 각 카테고리 이름, 시리즈 이름 및 값을 결합합니다. 한 포인트는 값을 백분율로 서식 지정하고, 다른 포인트는 [get_TextFrameForOverriding](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) 로부터 사용자 지정 텍스트를 사용합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -326,15 +328,15 @@ for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
 }
 ```
 
-데이터 포인트에 저장된 숫자는 `0.75` 그대로이며, 레이블에 `75%`와 카테고리 및 시리즈 이름이 표시될 수 있습니다. 사용자 지정 텍스트가 생성된 레이블 텍스트를 대체합니다. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/)는 상황에 관계없이 결과 레이블 문자열을 반환합니다. 표시된 레이블만 추출하려면 위와 같이 별도로 [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/)를 확인하십시오.
+데이터 포인트에 저장된 숫자는 `0.75` 로 유지되며, 레이블에 카테고리 및 시리즈 이름과 함께 `75%` 로 표시될 수 있습니다. 사용자 지정 텍스트가 생성된 레이블 텍스트를 대체합니다. [GetActualLabelText](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) 은 두 경우 모두 결과 레이블 문자열을 반환합니다. 표시된 레이블만 추출하려면 위와 같이 [get_IsVisible](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabel/get_isvisible/) 를 별도로 확인하십시오.
 
-## **축 최대값을 초과하는 데이터 레이블 제어**
+## **축 최대값을 넘어서는 데이터 레이블 제어**
 
-축 범위를 수동으로 제한하면 일부 데이터 포인트가 최대값을 초과할 수 있습니다. [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/)를 사용하여 해당 데이터 레이블을 표시할지 여부를 제어합니다. 이 설정은 레이블 표시 여부만 바꾸며 축 범위나 기본 데이터 값은 변경하지 않습니다.
+축 범위를 수동으로 제한하면 일부 데이터 포인트가 최대값을 초과할 수 있습니다. 해당 데이터 레이블을 표시할지 여부를 제어하려면 [set_ShowDataLabelsOverMaximum](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_showdatalabelsovermaximum/) 를 사용합니다. 이 설정은 레이블 가시성을 변경하지만 축 범위나 기본 데이터 값은 변경하지 않습니다.
 
-아래 예제는 값이 60과 120인 2D 클러스터형 세로 막대 차트를 생성합니다. 세로 축에 대해 [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/)를 `false`로, [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/)를 100으로 설정합니다. 첫 번째 슬라이드는 최대값을 초과하는 레이블을 허용하고, 해당 슬라이드 복사본에서는 이를 비활성화합니다. 두 슬라이드 모두 `DataLabelsOverMaximum.pptx`에 저장됩니다.
+아래 예제는 값 60과 120을 가진 2D 클러스터형 열 차트를 생성합니다. 수직 축에 대해 [set_IsAutomaticMaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticmaxvalue/) 를 `false` 로, [set_MaxValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_maxvalue/) 를 100으로 설정합니다. 첫 번째 슬라이드에서는 최대값을 초과하는 레이블을 허용하고, 해당 슬라이드 복제본에서는 이를 비활성화합니다. 두 슬라이드 모두 `DataLabelsOverMaximum.pptx` 로 저장됩니다.
 
-[set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/)를 사용하여 값 레이블을 활성화합니다. 차트 수준 설정만으로는 값을 표시하지 않으며 개별 레이블의 표시 비활성화를 무시하지도 않습니다. 이 예제는 전체 시리즈에 값을 활성화하고 [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/)을 사용하여 각 열의 외부 끝에 레이블을 배치합니다.
+[set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) 로 값 레이블을 활성화합니다. 차트 수준 설정만으로 값 표시가 자동으로 활성화되지는 않으며 개별 레이블의 비활성값 표시를 무시하지도 않습니다. 이 예제는 전체 시리즈에 대해 값을 활성화하고, [set_Position](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_position/) 을 사용해 각 열의 외부 끝에 레이블을 배치합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -405,19 +407,19 @@ secondChart->set_ShowDataLabelsOverMaximum(false);
 presentation->Save(u"DataLabelsOverMaximum.pptx", SaveFormat::Pptx);
 ```
 
-다음 이미지는 Microsoft PowerPoint에서 렌더링된 저장된 슬라이드를 보여줍니다. `true`인 경우 레이블 **120**이 상단 경계에 표시되고, `false`인 경우 숨겨집니다. 레이블 **60**은 계속 표시되며, 축 최대값은 **100**으로 유지되고 두 번째 데이터 포인트는 두 경우 모두 **120**입니다.
+다음 이미지는 Microsoft PowerPoint에서 렌더링된 저장된 슬라이드를 보여줍니다. `true` 인 경우 레이블 **120** 이 상단 경계에 표시되고, `false` 인 경우 숨겨집니다. 레이블 **60** 은 계속 표시되며, 축 최대값은 **100** 으로 유지되고, 두 번째 데이터 포인트는 두 경우 모두 **120** 으로 남습니다.
 
 | ShowDataLabelsOverMaximum = true | ShowDataLabelsOverMaximum = false |
 | --- | --- |
 | ![축 최대값이 100인 상태에서 값 레이블 120을 표시하는 PowerPoint 차트](data-labels-over-maximum-true.png) | ![축 최대값이 100인 상태에서 값 레이블 120을 숨기는 PowerPoint 차트](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-이 예제는 값 축이 있는 2D 세로 막대 차트를 사용합니다. 원형 차트와 도넛 차트와 같이 값 축이 없는 차트는 이렇게 축 최대값을 제한할 수 없습니다.
+이 예제는 값 축이 있는 2D 열 차트를 사용합니다. 파이 차트 및 도넛 차트와 같이 값 축이 없는 차트는 이러한 방식으로 축 최대값을 제한할 수 없습니다.
 {{% /alert %}}
 
 ## **축으로부터 레이블 거리 설정**
 
-[set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/)을 사용하여 카테고리 축 레이블과 축 사이의 거리를 제어합니다. 값은 축 레이블 최대 글꼴 크기의 백분율입니다. 이 예제는 클러스터형 세로 막대 차트를 만들고 가로 축 레이블 오프셋을 500으로 설정합니다. 이 설정은 개별 데이터 포인트에 붙은 레이블이 아니라 카테고리 축 레이블에 적용됩니다.
+카테고리 축 레이블과 축 사이의 거리를 제어하려면 [set_LabelOffset](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_labeloffset/) 를 사용합니다. 값은 축 레이블 최대 글꼴 크기의 퍼센트입니다. 이 예제는 클러스터형 열 차트를 생성하고 가로 축 레이블 오프셋을 500으로 설정합니다. 이 설정은 개별 데이터 포인트에 붙은 레이블이 아니라 카테고리 축 레이블에 적용됩니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -447,9 +449,9 @@ presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 
 ## **레이블 위치 조정**
 
-원형 차트에서 데이터 레이블 위치를 조정하여 간격을 개선하고 리더 라인을 위한 공간을 확보합니다.
+파이 차트에서는 데이터 레이블 위치를 조정하여 간격을 개선하고 리더 라인 공간을 확보합니다.
 
-이 예제는 첫 번째 데이터 포인트의 값을 표시하고 레이블을 슬라이스 외부에 배치하며, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/)와 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/)를 사용하여 오프셋을 조정합니다. 이러한 오프셋은 차트 너비와 높이에 각각 상대적입니다.
+이 예제는 첫 번째 데이터 포인트의 값을 표시하고, 레이블을 조각 외부에 배치하며, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) 와 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) 를 사용해 오프셋을 조정합니다. 이러한 오프셋은 차트 너비와 높이에 각각 비례합니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -487,17 +489,17 @@ label->set_Y(0.04f);
 presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![조정된 데이터 레이블 위치가 있는 원형 차트](pie-chart-adjusted-label.png)
+![조정된 데이터 레이블 위치가 있는 파이 차트](pie-chart-adjusted-label.png)
 
 ## **리더 라인 서식 지정**
 
-원형 차트 레이블이 슬라이스 외부에 있을 때, 리더 라인은 각 값을 해당 슬라이스와 연결하는 데 도움이 됩니다. 대비되는 색상과 약간 두꺼운 선은 연결을 더 쉽게 따라갈 수 있게 하며, 투명도와 점선 스타일은 라인을 시각적으로 눈에 띄지 않게 유지합니다.
+파이 차트 레이블이 조각 외부에 배치될 때, 리더 라인은 각 값을 올바른 조각과 연결하는 데 도움이 됩니다. 대비되는 색상과 약간 두꺼운 선은 연결을 더 쉽게 따라갈 수 있게 하고, 투명도와 점선 스타일은 라인을 시각적으로 눈에 띄지 않게 합니다.
 
-[get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/)을 사용하여 시리즈의 데이터 레이블 컬렉션 수준에서 리더 라인을 서식 지정합니다. `series->get_Labels()->get_LeaderLinesFormat()->get_Line()`에 있는 설정은 개별 레이블이 아니라 컬렉션에 적용됩니다.
+[get_LeaderLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelcollection/get_leaderlinesformat/) 를 사용해 시리즈 데이터 레이블 컬렉션 수준에서 리더 라인을 서식 지정합니다. `series->get_Labels()->get_LeaderLinesFormat()->get_Line()` 에서 설정한 내용은 개별 레이블이 아니라 컬렉션 전체에 적용됩니다.
 
-이 예제는 기본 데이터로 원형 차트를 만들고 슬라이스 외부에 값을 표시하며 [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/)를 사용하여 리더 라인을 활성화합니다. [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/)와 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) 오프셋을 사용해 두 레이블을 슬라이스에서 더 멀리 이동시키는데, 오프셋은 차트 너비와 높이의 비율로 표현됩니다. 입력 프레젠테이션은 필요하지 않습니다.
+이 예제는 기본 데이터로 파이 차트를 만들고, 조각 외부에 값을 표시하며, [set_ShowLeaderLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showleaderlines/) 로 리더 라인을 활성화합니다. [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) 와 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) 오프셋을 사용해 두 레이블을 조각보다 더 멀리 이동시키며, 오프셋은 차트 너비와 높이에 대한 비율로 표현됩니다. 입력 프레젠테이션은 필요하지 않습니다.
 
-[get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/)이 반환하는 채우기 서식을 사용하여 알파 값 191(255 중)인 고체 파란색을 설정하고, 약 25% 투명도를 제공합니다. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/)은 두께를 2포인트로 설정하고, [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/)은 선을 점선으로 만듭니다.
+[get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) 이 반환하는 채우기 서식은 알파 값 255 중 191 로 약 25% 투명도를 갖는 순수 파란색을 설정하는 데 사용됩니다. [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) 로 두께를 2포인트로 지정하고, [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) 로 선을 점선으로 만듭니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -542,7 +544,7 @@ labelFormat->set_ShowValue(true);
 labelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
 labelFormat->set_ShowLeaderLines(true);
 
-// 두 레이블을 슬라이스에서 더 멀리 이동합니다.
+// 두 레이블을 조각에서 더 멀리 이동합니다.
 series->get_Label(0)->set_X(0.10f);
 series->get_Label(0)->set_Y(-0.05f);
 series->get_Label(1)->set_X(-0.10f);
@@ -557,17 +559,17 @@ line->set_DashStyle(LineDashStyle::Dash);
 presentation->Save(u"FormattedLeaderLines.pptx", SaveFormat::Pptx);
 ```
 
-리더 라인을 활성화한다고 해서 모든 레이블에 라인이 표시되는 것은 아닙니다. 가시성은 레이블 배치와 차트 레이아웃 동작에 따라 달라집니다. 이 예제에서는 두 개의 이동된 레이블에 가시적인 리더 라인이 있고, 슬라이스에 가깝게 남은 레이블은 필요하지 않습니다.
+리더 라인을 활성화한다고 해서 모든 레이블에 라인이 표시되는 것은 아닙니다. 가시성은 레이블 배치와 차트 레이아웃 동작에 따라 달라집니다. 이 예제에서는 두 개의 이동된 레이블에 리더 라인이 표시되고, 조각에 가까이 남은 레이블은 필요하지 않습니다.
 
-다음 이미지는 Aspose.Slides로 렌더링된 저장된 `FormattedLeaderLines.pptx`를 보여줍니다.
+다음 이미지는 Aspose.Slides 로 렌더링된 저장된 `FormattedLeaderLines.pptx` 를 보여줍니다.
 
-![두 외부 레이블을 슬라이스와 연결하는 파란색 반투명 점선 리더 라인이 있는 원형 차트](formatted-leader-lines.png)
+![파이 차트에서 파란색, 반투명 점선 리더 라인이 두 외부 레이블을 각각의 조각에 연결](formatted-leader-lines.png)
 
-## **컬럼 차트 위에 여러 행의 데이터 레이블 추가**
+## **열 차트 위에 다중 행 데이터 레이블 추가**
 
-이 예제는 플롯 영역 위에 두 행의 데이터 레이블이 있는 컬럼 차트를 생성합니다. 시리즈 A는 보이는 컬럼을 표시하고, 시리즈 B와 시리즈 C는 추가 레이블을 제공합니다. 이들의 컬럼은 채우기와 외곽선을 제거하여 숨깁니다. [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) 메서드는 세 시리즈를 동일한 카테고리 중심에 맞춥니다.
+이 예제는 플롯 영역 위에 두 행의 데이터 레이블을 배치한 열 차트를 생성합니다. Series A는 보이는 열을 표시하고, Series B와 Series C는 추가 레이블을 제공합니다. 해당 열은 채우기와 외곽선을 제거해 숨깁니다. [set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) 메서드는 세 시리즈를 동일한 카테고리 중심에 맞춥니다.
 
-[get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) 설정은 레이블 행을 위한 공간을 예약합니다. [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/)이 기본 위치를 계산한 후, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/)와 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/)는 수평 정렬을 유지하고 수직 오프셋을 적용하여 레이블을 두 행으로 배치합니다. 숫자는 시리즈 값에 연결된 데이터 레이블이며, 행 헤더만 별도의 텍스트 도형입니다.
+[get_PlotArea](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_plotarea/) 설정은 레이블 행을 위한 공간을 예약합니다. [ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) 이 기본 위치를 계산한 후, [set_X](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_x/) 와 [set_Y](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilayoutable/set_y/) 가 가로 정렬을 유지하고 수직 오프셋을 적용해 레이블을 두 행으로 배치합니다. 숫자는 시리즈 값에 연결된 데이터 레이블로 남으며, 행 머리글만 별도의 텍스트 도형입니다.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -661,7 +663,7 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
 
     if (seriesIndex > 0)
     {
-        // B와 C의 열을 숨기지만 데이터 레이블은 유지합니다.
+        // B와 C의 열을 숨기되 데이터 레이블은 유지합니다.
         series->get_Format()->get_Fill()->set_FillType(FillType::NoFill);
         series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
         auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
@@ -677,7 +679,7 @@ for (auto seriesIndex = 0; seriesIndex < 3; seriesIndex++)
 // 세 시리즈를 동일한 카테고리 중심에 맞춥니다.
 chart->get_ChartData()->get_Series()->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(100);
 
-// 이 간결한 예제에서는 눈금선을 적게 사용합니다.
+// 이 간소화된 예제에서는 눈금선을 적게 사용합니다.
 chart->get_Axes()->get_VerticalAxis()->set_IsAutomaticMajorUnit(false);
 chart->get_Axes()->get_VerticalAxis()->set_MajorUnit(10);
 
@@ -719,18 +721,18 @@ for (auto seriesIndex = 1; seriesIndex < 3; seriesIndex++)
 presentation->Save(u"multiple-rows-of-labels.pptx", SaveFormat::Pptx);
 ```
 
-![플롯 영역 위에 두 행의 데이터 레이블이 있는 컬럼 차트](multiple-rows-of-labels.png)
+![플롯 영역 위에 두 행의 데이터 레이블이 있는 열 차트](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
 **밀집된 차트에서 데이터 레이블이 겹치는 것을 어떻게 방지할 수 있나요?**
 
-자동 레이블 배치, 리더 라인, 폰트 크기 감소를 결합하십시오; 필요 시 일부 필드(예: 카테고리)를 숨기거나 극값 또는 핵심 포인트에만 레이블을 표시합니다.
+자동 레이블 배치, 리더 라인, 그리고 글꼴 크기 축소를 결합합니다; 필요하다면 일부 필드(예: 카테고리)를 숨기거나 극값 또는 핵심 포인트에만 레이블을 표시합니다.
 
-**0, 음수 또는 빈 값에 대해서만 레이블을 비활성화하려면 어떻게 해야 하나요?**
+**제로, 음수 또는 빈 값에 대해서만 레이블을 비활성화하려면 어떻게 해야 하나요?**
 
-레이블을 활성화하기 전에 데이터 포인트를 필터링하고, 정의된 규칙에 따라 0, 음수 또는 누락된 값에 대한 표시를 끄십시오.
+레벨을 활성화하기 전에 데이터 포인트를 필터링하고, 정의된 규칙에 따라 0, 음수 또는 누락된 값에 대한 표시를 끕니다.
 
 **PDF/이미지로 내보낼 때 일관된 레이블 스타일을 보장하려면 어떻게 해야 하나요?**
 
-폰트 패밀리와 크기를 명시적으로 설정하고, 렌더링 환경에 해당 폰트가 존재하는지 확인하여 대체 폰트 사용을 방지하십시오.
+글꼴 패밀리와 크기를 명시적으로 설정하고, 렌더링 환경에 해당 글꼴이 존재하는지 확인하여 대체 글꼴 사용을 방지합니다.

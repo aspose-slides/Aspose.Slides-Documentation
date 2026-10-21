@@ -1,50 +1,50 @@
 ---
-title: .NET のプレゼンテーションでチャート ワークブックを管理する
-linktitle: チャート ワークブック
+title: ".NET のプレゼンテーションでチャート ワークブックを管理する"
+linktitle: "チャート ワークブック"
 type: docs
 weight: 70
 url: /ja/net/chart-workbook/
 keywords:
-- チャート ワークブック
-- チャート データ
-- ワークブック セル
-- データ ラベル
-- ワークシート
-- データ ソース
-- 外部 ワークブック
-- 外部 データ
-- チャート キャッシュ
-- ワークブック 復元
-- PowerPoint
-- プレゼンテーション
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET を発見：PowerPoint と OpenDocument 形式でチャートワークブックを簡単に管理し、プレゼンテーション データを合理化します。"
+- "チャート ワークブック"
+- "チャート データ"
+- "ワークブック セル"
+- "データ ラベル"
+- "ワークシート"
+- "データ ソース"
+- "外部ワークブック"
+- "外部データ"
+- "チャート キャッシュ"
+- "ワークブック 復元"
+- "PowerPoint"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET を発見し、PowerPoint および OpenDocument 形式でチャート ワークブックを簡単に管理して、プレゼンテーション データを効率化しましょう。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides のチャートワークブックの操作方法を説明します。ワークブックストリームを介してチャートデータを読み書きする方法、ワークブックのセルをチャートデータラベルとして使用する方法、ワークシートコレクションへのアクセス方法、およびチャート値のデータソースタイプを指定する方法を示します。
+この記事では、Aspose.Slides でチャート ワークブックを操作する方法を説明します。ワークブック ストリームを介してチャート データの読み取りと書き込みを行い、ワークブック セルをチャート データ ラベルとして使用し、ワークシートコレクションにアクセスし、チャート値のデータ ソース タイプを指定する方法を示します。
 
-また、外部ワークブックをチャートのデータソースとして使用する方法もカバーします。例では、外部ワークブックの作成と割り当て、チャートにリンクされた外部ワークブックのパス取得、ワークブックが利用可能な場合のチャートデータの編集方法を示します。
+また、外部ワークブックをチャート データ ソースとして使用する方法についても説明します。例では、外部ワークブックを作成して割り当てる方法、チャートにリンクされた外部ワークブックのパスを取得する方法、およびワークブックが利用可能なときにチャート データを編集する方法を示します。
 
-欠損データを表すワークブックセルについては、[空白セルの表示制御](/slides/ja/net/chart-series/) を参照し、空白セルとゼロの違い、利用可能な表示モードの折れ線グラフ比較をご確認ください。
+欠損データを表すワークブック セルについては、[空白セルの表示制御](/slides/ja/net/chart-series/) を参照してください。空白セルとゼロの違いや、利用可能な表示モードの折れ線グラフ比較が示されています。
 
-## **非表示行と列からデータを含める**
+## **非表示の行と列からデータを含める**
 
-[IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) を使用して、チャートが非表示のワークシート行や列からデータをプロットするかどうかを制御できます。`true` に設定すると表示セルのみをプロットし、`false` に設定すると表示セルと非表示セルの両方を含めます。この設定はチャートのプロットにのみ影響し、ワークシートの行や列の非表示/表示状態を変更するものではありません。
+[IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) を使用して、チャートが非表示のワークシート行や列のデータをプロットするかどうかを制御します。`true` に設定すると表示セルのみがプロットされ、`false` に設定すると表示セルと非表示セルの両方が含まれます。この設定はチャートのプロット方法を制御しますが、ワークシートの行や列を非表示または表示にするものではありません。
 
-[sample presentation](hidden-source-data.pptx) には、最初のスライドの最初のシェイプとして列グラフが含まれています。埋め込みワークシート `Sheet1` には `A1:C4` のソース範囲があります。3 行目と C 列は非表示ですが、セルには値が入っています。
+この[サンプル プレゼンテーション](hidden-source-data.pptx)には、最初のスライドの最初のシェイプとして縦棒グラフが含まれています。埋め込みワークシート `Sheet1` には、ソース範囲 `A1:C4` が含まれています。行 3 と列 C は非表示ですが、セルにはまだ値が含まれています。
 
-| ワークシート 行 | 月 | 小売 | 卸売 (非表示列) |
+| ワークシート行 | A: 月 | B: 小売 | C: 卸売（非表示列） |
 | --- | --- | --- | --- |
 | 2 | 1月 | 10 | 30 |
 | 3 (非表示行) | 2月 | 40 | 60 |
 | 4 | 3月 | 20 | 50 |
 
-[IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) でソースセルにアクセスし、[IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) を読み取って非表示ステータスを調べます。このプロパティは読み取り専用です。このファイルでは B2 は表示、B3 は非表示行に属し、C2 は非表示列に属します。例ではそれぞれ `False`、`True`、`True` が出力されます。
+[IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) を使用してソース セルにアクセスし、[IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) を読み取って非表示ステータスを調べます。このプロパティは読み取り専用です。このファイルでは、B2 は表示され、B3 は非表示行に属し、C2 は非表示列に属します。例ではそれぞれ `False`、`True`、`True` が出力されます。
 
-この例では、プロット設定を変更した後にチャートデータを更新します。埋め込みワークブックは [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) で保持し、[WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) で再ロードします。すべてのセルを含める場合は、[SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) を使用して、非表示の 2 月カテゴリを含む完全な範囲を復元します。フラグを変更するだけでは、このサンプルのキャッシュされたチャートデータとカテゴリラベルは更新されません。
+この例では、プロット設定を変更した後にチャート データを更新します。[ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/)で埋め込みワークブックを保持し、[WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/)で再ロードします。すべてのセルを含める場合は、[SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) を使用して、非表示の 2 月カテゴリを含む完全な範囲を復元します。フラグを変更するだけでは、このサンプルのキャッシュされたチャート データとカテゴリ ラベルを更新するには不十分です。
 
 ```csharp
 using System;
@@ -67,12 +67,12 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // 埋め込みワークブックからチャートデータを更新します。
+        // 埋め込みワークブックからチャート データを更新します。
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // 非表示カテゴリを含む完全なソース範囲を復元します。
+            // 非表示のカテゴリを含む完全なソース範囲を復元します。
             chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
@@ -85,21 +85,21 @@ else
 }
 ```
 
-例は、表示セルのみ（小売値 10 と 20）だけを含むプレゼンテーションと、すべての 6 つの値を含むプレゼンテーションの 2 つのバージョンを保存します。下の画像は、保存後に再度開いたプレゼンテーションからレンダリングしたものです。両方のファイルは割り当てられたプロット設定を保持しています。3 行目と C 列は両方の埋め込みワークブックで非表示のままです。
+この例では、プレゼンテーションを 2 つのバージョンで保存します。1 つは表示されている小売値 (10 と 20) のみ、もう 1 つはすべての 6 つの値です。以下の画像は、保存したプレゼンテーションを再度開いた後にレンダリングしたものです。両方のファイルは割り当てられたプロット設定を保持しています。行 3 と列 C は両方の埋め込みワークブックで引き続き非表示です。
 
 | 表示セルのみ (`true`) | すべてのセル (`false`) |
 | --- | --- |
-| ![表示セルのみ: 1月と3月の小売値 10 と 20.](hidden_cells_True.png) | ![すべてのセル: 1月、2月、3月の小売と卸売の値.](hidden_cells_False.png) |
+| ![表示セルのみ: 1月と3月の小売値 10 と 20](hidden_cells_True.png) | ![すべてのセル: 1月、2月、3月の小売および卸売値](hidden_cells_False.png) |
 
-値を含む非表示セルは、空白セルとは異なります。[IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) は欠損値の表示方法を制御しますが、非表示ソースデータの含有・除外は行いません。例については、[空白セルの表示制御](/slides/ja/net/chart-series/#control-the-display-of-empty-cells) を参照してください。
+値を含む非表示セルは空白セルとは異なります。[IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) は欠落値の表示方法を制御しますが、非表示のソース データを含めたり除外したりはしません。例については、[空白セルの表示制御](/slides/ja/net/chart-series/#control-the-display-of-empty-cells) を参照してください。
 
-## **チャートのデータ範囲の取得**
+## **チャートのデータ範囲を取得する**
 
-既存のプレゼンテーションでワークブックデータを更新する前に、ソース範囲を調べて各チャートが使用しているワークシートセルを特定します。[IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) メソッドは、現在のデータ範囲をワークシート限定の数式として返します。例: `Sheet1!$A$1:$D$5`。ここで `Sheet1` がシート名、`!` がセル範囲との区切り、`$A$1:$D$5` が絶対参照のセル範囲です。
+既存のプレゼンテーションでワークブック データを更新する前に、ソース範囲を検査して各チャートが使用しているワークシートセルを特定します。[IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) メソッドは、現在のデータ範囲をワークシート限定の数式として返します。たとえば `Sheet1!$A$1:$D$5` のようになります。ここで `Sheet1` はワークシート名、`!` がセル範囲と区切り、`$A$1:$D$5` は A1 から D5（含む）までのセルを示します。ドル記号は絶対行・列参照を示します。
 
-このメソッドはチャートやそのワークブックを変更せずに現在の範囲を取得します。チャートがワークブックをデータソースとして使用していない場合は、[InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) がスローされます。詳細は [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/) を参照してください。
+このメソッドは、チャートやワークブックを変更することなく現在の範囲を読み取ります。チャートがデータ ソースとしてワークブックを使用していない場合、[InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) がスローされます。詳細は[ChartData API リファレンス](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/)をご覧ください。
 
-この例はプレゼンテーションを開き、各スライドのシェイプを直接調べてチャートを検出します。各チャートの名前とソース範囲を出力し、ワークブックを使用しないチャートはメッセージを出力して次のチャートへ進みます。
+この例では、プレゼンテーションを開き、各スライド上のシェイプを直接チェックしてチャートを探します。各チャートの名前とソース範囲を出力します。チャートがワークブックを使用していない場合、メッセージを出力して次のチャートへ進みます。
 
 ```csharp
 using System;
@@ -128,11 +128,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **ワークブックからチャートデータを読み書きする**
+## **ワークブックからチャート データを読み書きする**
 
-Aspose.Slides for .NET は、[ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) および [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) メソッドを提供し、チャートデータワークブック（Aspose.Cells で編集されたチャートデータを含む）を読み書きできます。**注:** チャートデータは同じ構造で整理されているか、元データに類似した構造である必要があります。
+Aspose.Slides for .NET は、[ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) と [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) メソッドを提供し、チャート データワークブック（Aspose.Cells で編集されたチャート データを含む）を読み書きできます。**注意**: チャート データは同じ形式で構成するか、ソースに類似した構造である必要があります。
 
-この例は、最初のスライドの最初のシェイプとしてチャートを含むプレゼンテーションを使用します。埋め込みワークブックをストリームに読み込み、既存の系列とカテゴリをクリアし、同じワークブックを再度書き戻します。変更はメモリ上に残り、プレゼンテーションは保存されません。
+この例では、最初のスライドの最初のシェイプとしてチャートが含まれるプレゼンテーションを使用します。埋め込みワークブックをストリームに読み取り、既存の系列とカテゴリをクリアし、同じワークブックを再度書き戻します。変更はメモリ内に残り、例ではプレゼンテーションは保存されません。
 
 ```csharp
 using System;
@@ -160,9 +160,9 @@ else
 }
 ```
 
-### **ワークブック変更後のチャートレイアウトの検証**
+### **ワークブック変更後のチャート レイアウトの検証**
 
-埋め込みワークブックを変更済みのものに置き換えると、チャートは元の系列とカテゴリコレクションを保持します。この不整合により [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) がインデックス範囲外エラーで失敗することがあります。更新されたワークブックを書き戻す前に、既存の系列とカテゴリをクリアしてください。この例は最初のスライドの最初のシェイプとしてのチャートを使用します。コメント位置にワークブック編集が入ることを示しており、実行可能な例は元のワークブックを書き戻し、メモリ内でレイアウトを検証します。
+埋め込みワークブックを変更されたものに置き換えると、チャートは元の系列とカテゴリ コレクションを保持します。この不一致により、[IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) がインデックス範囲外エラーで失敗することがあります。更新されたワークブックを書き戻す前に、既存の系列とカテゴリをクリアします。この例では、最初のスライドの最初のシェイプとしてチャートを使用します。コメントはワークブック編集が行われる場所を示しています。実行可能な例は元のワークブックを書き戻し、メモリ内でレイアウトを検証します。
 
 ```csharp
 using System;
@@ -178,7 +178,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // ワークブックストリームをここで変更します。たとえば、Aspose.Cells を使用します。
+    // ここでワークブック ストリームを変更します。たとえば、Aspose.Cells を使用します。
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -193,13 +193,77 @@ else
 }
 ```
 
-コレクションをクリアすることで、ワークブックを書き戻す前に古いデータ参照が削除されます。更新されたワークブックに対して必要な系列やカテゴリのマッピングを再構築してからチャートを使用してください。
+コレクションをクリアすると、ワークブックを書き戻す前に古いデータ参照が削除されます。チャートを使用する前に、更新されたワークブック用に必要な系列およびカテゴリのマッピングを再構築してください。
 
-## **ワークブックセルをチャートデータラベルとして設定する**
+## **ワークブックセルのカスタム数値書式を設定する**
 
-ワークブックセルのテキストをチャートデータラベルとして使用できます。
+[ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) を使用して、チャートの埋め込みワークブック内の数値の表示方法を制御します。たとえば、レポートで変換率を小数点以下4桁のパーセンテージで、係数を小数点以下5桁で表示する必要がある場合があります。両方の値は数値のまま保持し、計算やチャートのプロットで使用できるようにします。
 
-この例は、既存のプレゼンテーションの最初のスライドにデフォルトデータのバブルチャートを追加し、ワークシート 0 のセル A10:A12 を最初の系列の最初の 3 つのラベルとして使用し、セルからのラベルを有効にして更新されたプレゼンテーションを保存します。
+数値書式は表示を変更するだけで、保存された値は変わりません。書式 `0.0000%` は `0.125` を `12.5000%` と表示しますが、保存された数値を `12.5` に置き換えるわけではありません。同様に、`0.00000` は `0.1234567` を `0.12346` と表示し、保存値は丸められません。カスタム書式が空文字列 (`""`) の場合は、[PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) が使用されます。
+
+以下の例では、縦棒グラフを作成し、[ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) を通じてセルにアクセスします。ワークシート 0 の B2 には変換率が、C2 には係数が格納されています。両方のセルがチャート値として使用されます。例では、ソース書式にリンクされた値ラベルも有効にしています。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 270, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 20, 620, 210);
+chart.HasTitle = false;
+
+chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
+chart.Axes.VerticalAxis.NumberFormat = "0.00";
+chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+chart.Axes.VerticalAxis.MinValue = 0;
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var categoryCell = workbook.GetCell(0, "A2", "Sample");
+chart.ChartData.Categories.Add(categoryCell);
+
+var percentageCell = workbook.GetCell(0, "B2", 0.125);
+percentageCell.CustomNumberFormat = "0.0000%";
+var percentageName = workbook.GetCell(0, "B1", "Conversion rate");
+var percentageSeries = chart.ChartData.Series.Add(percentageName, chart.Type);
+percentageSeries.DataPoints.AddDataPointForBarSeries(percentageCell);
+
+var precisionCell = workbook.GetCell(0, "C2", 0.1234567);
+precisionCell.CustomNumberFormat = "0.00000";
+var precisionName = workbook.GetCell(0, "C1", "Coefficient");
+var precisionSeries = chart.ChartData.Series.Add(precisionName, chart.Type);
+precisionSeries.DataPoints.AddDataPointForBarSeries(precisionCell);
+
+foreach (var series in chart.ChartData.Series)
+{
+    var labelFormat = series.DataPoints[0].Label.DataLabelFormat;
+    labelFormat.ShowValue = true;
+    labelFormat.IsNumberFormatLinkedToSource = true;
+}
+
+presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
+```
+
+ワークブックセルの書式は、チャートの軸やデータ ラベルに直接設定された書式とは別です。この例では、[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) が有効になっているため各ラベルはソースセルの値を表示し、[IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) が `true` のためソースの数値書式に従います。プレゼンテーションを保存して再度開くと、ラベルは下図のように `12.5000%` と `0.12346` を表示します。縦軸は独自の [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) `0.00` を使用し、[IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) は `false` に設定されています。
+
+データ ラベルを個別に書式設定するには、ソースリンク フラグを `false` に設定し、[NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) を割り当てます。これによりワークブックセルの書式は変更されません。たとえば、独立したラベル書式を `0.00` に設定すると、最初の値は `0.13` と表示されますが、B2 は依然として `12.5000%` を表示します。直接的なラベル書式設定については、[チャート データ ラベル](/slides/ja/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) を参照してください。
+
+以下の画像は、保存したプレゼンテーションを再度開いた後にレンダリングしたものです。
+
+![ソースリンクされたラベルが 12.5000% と 0.12346 を表示し、独立して書式設定された数値軸](custom-cell-formats.png)
+
+## **ワークブックセルをチャート データ ラベルとして設定する**
+
+ワークブックセルのテキストをチャート データ ラベルとして使用できます。
+
+この例では、既存のプレゼンテーションの最初のスライドにデフォルト データのバブル チャートを追加します。ワークシート 0 のセル A10:A12 を最初の系列の最初の 3 つのラベルとして使用し、セルからのラベルを有効にして、更新されたプレゼンテーションを保存します。
 
 ```csharp
 using Aspose.Slides;
@@ -223,7 +287,7 @@ presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 
 ## **ワークシートの管理**
 
-[IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) プロパティは、チャートワークブック内のワークシートへのアクセスを提供します。この例はデフォルトデータの円グラフを作成し、各ワークシート名をコンソールに出力します。
+[IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) プロパティは、チャート ワークブック内のワークシートへのアクセスを提供します。この例では、デフォルト データの円グラフを作成し、各ワークシート名をコンソールに出力します。
 
 ```csharp
 using System;
@@ -242,9 +306,9 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 }
 ```
 
-## **データソースタイプを指定する**
+## **データ ソース タイプを指定する**
 
-この例はデフォルトデータの 3D 列グラフを作成し、異なるデータソースを使用して 2 つの系列名を設定します。最初の名前は文字列リテラル、2 番目の名前はワークシート 0 のセル C1 を使用します。[DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) 列挙体で各名前のソースを選択します。例は更新された系列名でプレゼンテーションを保存します。
+この例では、デフォルト データの 3D 縦棒グラフを作成し、異なるデータ ソースを使用して 2 つの系列名を設定します。最初の名前は文字列リテラルを使用し、2 番目の名前はワークシート 0 のセル C1 を使用します。[DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) 列挙体で各名前のソースを選択します。例では、更新された系列名でプレゼンテーションを保存します。
 
 ```csharp
 using Aspose.Slides;
@@ -270,7 +334,7 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **サポートされていない埋め込みワークブック形式の検出**
 
-Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリワークブック（.xlsb）形式をサポートしていません。[EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) プロパティを [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) と共に、[WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) 列挙体で使用して、サポートされていない形式を検出し、該当チャートをスキップできます。この例は既存のプレゼンテーションの最初のスライドのシェイプを調べ、非チャートシェイプをスキップし、埋め込み .xlsb ワークブックを持つ各チャートに診断メッセージを出力します。
+Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリ ワークブック（.xlsb）形式をサポートしていません。[IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) の [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) プロパティと [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) 列挙体を組み合わせて、サポートされていない形式を検出し、該当チャートをスキップできます。この例では、既存のプレゼンテーションの最初のスライド上のシェイプを調査し、チャートでないシェイプをスキップし、埋め込み .xlsb ワークブックを持つ各チャートに診断メッセージを出力します。
 
 ```csharp
 using System;
@@ -297,19 +361,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // ここでサポートされているチャートワークブックデータを読み取るか変更します。
+    // ここでサポートされているチャート ワークブック データを読み取りまたは変更します。
 }
 ```
 
 ## **外部ワークブック**
 
-Aspose.Slides は、外部ワークブックをチャートのデータソースとして使用することをサポートします。
+Aspose.Slides は、外部ワークブックをチャートのデータ ソースとして使用することをサポートします。
 
 ### **外部ワークブックの作成**
 
-[ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) と [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) を使用して、埋め込みチャートワークブックをファイルにエクスポートし、チャートをその外部ワークブックにリンクします。
+[ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) と [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) を使用して、埋め込みチャート ワークブックをファイルにエクスポートし、チャートをその外部ワークブックにリンクします。
 
-この例はデフォルトデータの円グラフを作成し、ワークブックをエクスポートします。外部ワークブックをチャートデータソースとして割り当てる前に出力ストリームを閉じ、リンクされたプレゼンテーションを保存します。
+この例では、デフォルト データの円グラフを作成し、ワークブックをエクスポートします。外部ワークブックをチャート データ ソースとして割り当てる前に出力ストリームを閉じ、リンクされたプレゼンテーションを保存します。
 
 ```csharp
 using System.IO;
@@ -335,11 +399,11 @@ presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 
 ### **外部ワークブックの設定**
 
-[SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) メソッドを使用すると、外部ワークブックをチャートのデータソースとして割り当てることができます。このメソッドは、外部ワークブックのパスを更新する際（ワークブックが移動された場合）にも使用できます。
+[SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) メソッドを使用すると、外部ワークブックをチャートのデータ ソースとして割り当てることができます。このメソッドは、外部ワークブックのパスが変更された場合（移動された場合）にパスを更新するためにも使用できます。
 
-リモートロケーションやリソースに保存されたワークブックのデータを編集することはできませんが、外部データソースとして使用することは可能です。相対パスが指定された場合、フルパスに自動変換されます。
+リモート場所やリソースに保存されたワークブックのデータは編集できませんが、外部データ ソースとして使用することは可能です。外部ワークブックの相対パスが指定された場合、自動的に絶対パスに変換されます。
 
-この例は、`Sheet1` という名前のワークシートに B1 に系列名、A2:A4 にカテゴリ名、B2:B4 に数値を持つ外部ワークブックを使用します。例は円グラフを作成し、ワークブックをリンクし、[SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) を使用して A1:B4 を 1 系列と 3 カテゴリにマッピングします。リンクされたチャートでプレゼンテーションを保存します。
+この例では、`Sheet1` という名前のワークシートに B1 に系列名、A2:A4 にカテゴリ名、B2:B4 に数値が格納された外部ワークブックを使用します。例では円グラフを作成し、ワークブックをリンクし、[SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) を使用して A1:B4 を 1 つの系列と 3 つのカテゴリにマッピングします。リンクされたチャートを含むプレゼンテーションを保存します。
 
 ```csharp
 using System.IO;
@@ -362,10 +426,10 @@ presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 
 [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) の `updateChartData` パラメータは、ワークブックをロードするかどうかを制御します。
 
-* `updateChartData` が `false` の場合、ワークブックパスのみが更新されます。チャートデータは対象ワークブックからロードまたは更新されないため、ワークブックが利用できない状態でも構いません。
-* `updateChartData` が `true` の場合、対象ワークブックからチャートデータが更新されます。
+* `updateChartData` が `false` の場合、ワークブック パスのみが更新されます。チャート データは対象ワークブックからロードまたは更新されないため、ワークブックが利用できなくても構いません。
+* `updateChartData` が `true` の場合、チャート データは対象ワークブックから更新されます。
 
-以下の例は `updateChartData` を `false` に設定したプレースホルダー URL を割り当てます。円グラフのデフォルトデータは保持され、利用できないワークブックをロードせずにプレゼンテーションを保存します。
+以下の例では、`updateChartData` を `false` に設定したプレースホルダー URL を割り当てます。円グラフのデフォルト データを保持し、利用できないワークブックをロードせずにプレゼンテーションを保存します。
 
 ```csharp
 using Aspose.Slides;
@@ -381,11 +445,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **チャートの外部データソースワークブックパスを取得する**
+### **チャートの外部データ ソース ワークブック パスの取得**
 
-チャートにリンクされたワークブックを特定するには、チャートが外部データソースを使用しているか確認し、ワークブックパスを取得します。
+チャートにリンクされたワークブックを特定するには、チャートが外部データ ソースを使用しているか確認し、ワークブック パスを取得します。
 
-この例は、外部ワークブックがリンクされたプレゼンテーションの最初のスライドの最初のシェイプを調べます。外部ワークブックにリンクされたチャートであれば、[ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) をコンソールに出力し、プレゼンテーションのコピーを保存します。
+この例では、外部ワークブックがリンクされたプレゼンテーションの最初のスライドの最初のシェイプを調査します。外部ワークブックにリンクされたチャートであれば、[ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) をコンソールに出力します。その後、プレゼンテーションのコピーを保存します。
 
 ```csharp
 using System;
@@ -417,11 +481,11 @@ else
 presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
-### **チャートデータの編集**
+### **チャート データの編集**
 
-外部ワークブックのデータは、内部ワークブックと同様に編集できます。外部ワークブックをロードできない場合は例外がスローされます。
+外部ワークブックのデータは、内部ワークブックの内容を変更するのと同様に編集できます。外部ワークブックがロードできない場合は例外がスローされます。
 
-この例は、最初のスライドの最初のシェイプとしてのチャートを使用し、アクセス可能な外部ワークブックにリンクしています。最初の系列の最初のデータポイントのセルバック値を 100 に設定し、更新されたプレゼンテーションを保存します。セル値の編集はリンクされた外部 XLSX ファイルを更新できるため、元のワークブックを残したい場合はコピーを使用してください。
+この例では、最初のスライドの最初のシェイプとしてのチャートを使用し、アクセス可能な外部ワークブックにリンクしています。最初の系列の最初のデータ ポイントのセル裏付け値を 100 に設定し、更新されたプレゼンテーションを保存します。セルの値を編集すると、リンクされた外部 XLSX ファイルが更新される可能性があるため、元のワークブックを保持したい場合はコピーを使用してください。
 
 ```csharp
 using System;
@@ -462,9 +526,9 @@ else
 
 ### **チャートキャッシュからワークブックを復元する**
 
-チャートが欠損または利用不可の外部ワークブックを使用している場合、Aspose.Slides はプレゼンテーションにキャッシュされているデータからチャートワークブックを再構築できます。[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) を作成し、[SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/) を構成し、[ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) を `true` に設定してからプレゼンテーションを開きます。
+チャートが欠落または利用できない外部ワークブックを使用している場合、Aspose.Slides はプレゼンテーションにキャッシュされたデータからチャート ワークブックを再構築できます。プレゼンテーションを開く前に、[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) を作成し、その [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/) を構成し、[ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) を `true` に設定します。
 
-以下の C# 例は、最初のスライドの最初のシェイプとしてのチャートが利用不可の外部ワークブックを参照している場合に、ワークブックデータを復元します。復元されたデータは [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) と [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) を介してアクセスします。
+以下の C# の例は、最初のスライドの最初のシェイプとしてのチャートで、利用できない外部ワークブックを参照している場合にワークブック データを復元します。復元されたデータは [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) と [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) を介してアクセスします。
 
 ```csharp
 using System;
@@ -488,7 +552,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
 {
     var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-    // ここで復元されたワークブックデータを読み取るか変更します。
+    // ここで復元されたワークブック データを読み取りまたは変更します。
 }
 else
 {
@@ -496,30 +560,30 @@ else
 }
 ```
 
-外部ワークブックが利用不可で復元が無効な場合、Aspose.Slides は [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) をスローします。キャッシュされたチャートデータを使用することが許容できる場合にのみ復元を有効にしてください。キャッシュには外部ワークブックが最後に更新された後の変更が含まれていない可能性があります。
+外部ワークブックが利用できず、復元が無効になっている場合、Aspose.Slides は [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) をスローします。キャッシュされたチャート データの使用が許容できるフォールバックである場合にのみ復元を有効にしてください。キャッシュには、プレゼンテーションが最後に更新された後に外部ワークブックで行われた変更が含まれていない可能性があります。
 
 ## **よくある質問**
 
-**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックかを判別できますか？**
+**特定のチャートが外部ワークブックまたは埋め込みワークブックにリンクされているかどうかを判別できますか？**
 
-はい。チャートには [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) と [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) があり、外部ワークブックが使用されている場合はフルパスを読み取って外部ファイルが使用されていることを確認できます。
+はい。チャートは[data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) と[外部ワークブックへのパス](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) を持っています。ソースが外部ワークブックである場合、完全なパスを読み取ることで外部ファイルが使用されていることを確認できます。
 
-**外部ワークブックへの相対パスはサポートされていますか？ それらはどのように保存されますか？**
+**外部ワークブックへの相対パスはサポートされていますか？また、どのように保存されますか？**
 
 はい。相対パスを指定すると、自動的に絶対パスに変換されます。プレゼンテーションは PPTX ファイル内に絶対パスを保存するため、ワークブックを移動した場合はリンクの更新が必要になることがあります。
 
-**ネットワークリソース/共有上のワークブックを使用できますか？**
+**ネットワーク リソース/共有上にあるワークブックを使用できますか？**
 
-はい、そのようなワークブックは外部データソースとして使用できます。ただし、Aspose.Slides からリモートワークブックを直接編集することはサポートされていません。ソースとしてのみ使用可能です。
+はい、そのようなワークブックは外部データ ソースとして使用できます。ただし、Aspose.Slides からリモートワークブックを直接編集することはサポートされていません。ソースとしてのみ使用可能です。
 
-**プレゼンテーションを保存するときに Aspose.Slides は外部 XLSX を上書きしますか？**
+**プレゼンテーションを保存すると、Aspose.Slides は外部 XLSX を上書きしますか？**
 
-プレゼンテーションは外部ファイルへの [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) を保持します。セルバックチャートデータの編集はリンクされたローカル XLSX ファイルも更新する可能性があります。元のワークブックを変更したくない場合は、コピーを使用してください。
+プレゼンテーションは[外部ファイルへのリンク](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) を保存します。セル裏付けのチャート データを編集すると、リンクされたローカル XLSX ファイルも更新される可能性があります。元のファイルを変更せずに残す必要がある場合は、ワークブックのコピーを使用してください。
 
-**外部ファイルがパスワードで保護されている場合はどうすべきですか？**
+**外部ファイルがパスワードで保護されている場合はどうすればよいですか？**
 
-Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策は、事前に保護を解除するか、[Aspose.Cells](https://reference.aspose.com/cells/net/) などで復号化したコピーを作成し、そのコピーにリンクすることです。
+Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策として、事前に保護を解除するか、復号化したコピー（たとえば [Aspose.Cells](https://reference.aspose.com/cells/net/) を使用）を作成し、そのコピーにリンクします。
 
 **複数のチャートが同じ外部ワークブックを参照できますか？**
 
-はい。各チャートは独自のリンクを保持します。すべてが同じファイルを指していれば、そのファイルを更新することで次回データが読み込まれる際にすべてのチャートに反映されます。
+はい。各チャートはそれぞれリンクを保持します。すべてが同じファイルを指している場合、そのファイルを更新すると、次回データがロードされる際に各チャートに反映されます。

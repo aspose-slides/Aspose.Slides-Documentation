@@ -14,15 +14,15 @@ keywords:
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "PowerPoint प्रस्तुतियों में Aspose.Slides for Python via .NET का उपयोग करके चार्ट डेटा लेबल जोड़ने और फ़ॉर्मेट करने के बारे में जानें, ताकि अधिक आकर्षक स्लाइड्स बन सकें।"
+description: "PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और फ़ॉर्मेट करने के लिए Aspose.Slides for Python via .NET का उपयोग करके अधिक आकर्षक स्लाइड्स बनाना सीखें।"
 ---
 ## **परिचय**
 
-डेटा लेबल चार्ट श्रृंखलाओं और व्यक्तिगत डेटा बिंदुओं के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे फ़ॉर्मेट करें, प्रतिशत कैसे दिखाएँ, लेबल पाठ को कैसे पढ़ें, अक्ष अधिकतम से परे लेबल कैसे नियंत्रित करें, श्रेणी अक्ष लेबल स्पेसिंग समायोजित करें, और पाई चार्ट लेबल की स्थिति कैसे निर्धारित करें।
+डेटा लेबल चार्ट की श्रृंखलाओं और व्यक्तिगत डेटा बिंदुओं की जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में सहायता मिलती है। यह लेख बताता है कि मानों को कैसे फ़ॉर्मेट करें, प्रतिशत कैसे प्रदर्शित करें, लेबल पाठ कैसे पढ़ें, अक्ष अधिकतम से परे लेबल को कैसे नियंत्रण करें, श्रेणी अक्ष लेबल स्पेसिंग को कैसे समायोजित करें, और पाई चार्ट लेबल को कैसे स्थित करें।
 
 ## **चार्ट डेटा लेबल में डेटा सटीकता सेट करें**
 
-Use [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) to format series values. यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसका डेटा टेबल दिखाता है, और पहली श्रृंखला के लिए वैल्यू लेबल सक्षम करता है। फ़ॉर्मेट `#,##0.00` हजारों विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
+Use [number_format_of_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/number_format_of_values/) to format series values. यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसका डेटा टेबल प्रदर्शित करता है, और पहली श्रृंखला के लिए मान लेबल सक्षम करता है। फ़ॉर्मेट `#,##0.00` हज़ारों विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
 
 ```python
 import aspose.slides as slides
@@ -41,9 +41,11 @@ with slides.Presentation() as presentation:
     presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **लेबल के रूप में प्रतिशत दिखाएँ**
+To format the numeric cells in a chart's embedded workbook, see [Set Custom Number Formats for Workbook Cells](/slides/hi/python-net/chart-workbook/#set-custom-number-formats-for-workbook-cells). वह उदाहरण भी दिखाता है कि कैसे स्रोत सेल फ़ॉर्मेट का पालन करते हुए मान लेबल प्रदर्शित किए जाते हैं जबकि संग्रहीत संख्यात्मक मान संरक्षित रहते हैं।
 
-एक स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल के प्रतिशत के रूप में गणना करें और टेक्स्ट को [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) को असाइन करें। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8 पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ा जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
+## **लेबल के रूप में प्रतिशत प्रदर्शित करें**
+
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8‑पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत प्रदर्शित करता है। शून्य कुल वाले वर्गों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल पाठ को पुनः गणना करें।
 
 ```python
 import aspose.slides as slides
@@ -92,9 +94,9 @@ with slides.Presentation() as presentation:
 
 ## **चार्ट डेटा लेबल के साथ प्रतिशत चिह्न सेट करें**
 
-जब मान अंश के रूप में संग्रहीत होते हैं, तो प्रतिशत दिखाने के लिए [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) को `False` सेट करें।
+When values are stored as fractions, use [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) to display percentages. Set [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) to `False` to apply the label format independently of the source cells.
 
-यह उदाहरण चार श्रेणियों में लाल और नीले श्रृंखलाओं के साथ 100% स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान का जोड़ा 1 के बराबर होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0% के रूप में दिखाता है, जबकि वर्टिकल अक्ष दो दशमलव स्थान का उपयोग करता है। दोनों श्रृंखलाएँ सफेद, 10 पॉइंट लेबल टेक्स्ट का उपयोग करती हैं।
+This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
 ```python
 import aspose.slides as slides
@@ -143,9 +145,9 @@ with slides.Presentation() as presentation:
     presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **डेटा लेबल का वास्तविक टेक्स्ट पढ़ें**
+## **डेटा लेबल के वास्तविक पाठ को पढ़ें**
 
-डेटा लेबल सेटिंग्स द्वारा उत्पन्न टेक्स्ट को पुनः प्राप्त करने के लिए [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) का उपयोग करें। रिपोर्टों के लिए लेबल निकालते समय, प्रस्तुति सामग्री खोजते समय, या उत्पन्न चार्ट को मान्य करते समय यह उपयोगी है। नीचे दिए गए उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) प्रत्येक श्रेणी नाम, श्रृंखला नाम, और मान को संयोजित करता है। एक बिंदु अपना मान प्रतिशत के रूप में फ़ॉर्मेट करता है, और दूसरा [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) से कस्टम टेक्स्ट का उपयोग करता है।
+Use [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) to retrieve the text produced by a data label's settings. यह रिपोर्ट के लिए लेबल निकालने, प्रेज़ेंटेशन सामग्री खोजने, या उत्पन्न चार्ट को वैधता देने में उपयोगी है। नीचे के उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/) प्रत्येक वर्ग नाम, श्रृंखला नाम, और मान को मिलाता है। एक बिंदु अपना मान प्रतिशत के रूप में फ़ॉर्मेट करता है, और दूसरा कस्टम टेक्स्ट को [text_frame_for_overriding](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) से उपयोग करता है।
 
 ```python
 import aspose.slides as slides
@@ -196,15 +198,15 @@ with slides.Presentation() as presentation:
             print(f"Value: {point.value.data}; label: {label_text}")
 ```
 
-डेटा बिंदु में संग्रहीत संख्या `0.75` बनी रहती है, भले ही उसका लेबल श्रेणी और श्रृंखला नामों के साथ `75%` दिखाए। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को बदल देता है। [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) दोनों मामलों में परिणत लेबल स्ट्रिंग वापस करता है। केवल दृश्यमान लेबल निकालना चाहने पर ऊपर दिखाए अनुसार [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) को अलग से जाँचें।
+डेटा बिंदु में संग्रहीत संख्या `0.75` बनी रहती है, भले ही उसका लेबल `75%` दिखाए और वर्ग तथा श्रृंखला नामों के साथ हो। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को प्रतिस्थापित करता है। [get_actual_label_text](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। केवल दृश्यमान लेबल निकालने के लिए ऊपर दिखाए अनुसार [is_visible](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/is_visible/) को अलग से जांचें।
 
-## **अक्ष अधिकतम से परे डेटा लेबल नियंत्रण**
+## **अक्ष अधिकतम से परे डेटा लेबल को नियंत्रित करें**
 
-When आप मैन्युअल रूप से अक्ष रेंज सीमित करते हैं, तो कुछ डेटा बिंदु अधिकतम से अधिक हो सकते हैं। यह नियंत्रित करने के लिए [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) का उपयोग करें कि उनके डेटा लेबल दिखाए जाएँ या नहीं। यह सेटिंग लेबल की दृश्यमानता बदलती है; यह अक्ष रेंज या अंतर्निहित डेटा मानों को नहीं बदलती।
+When you limit an axis range manually, some data points may exceed its maximum. Use [show_data_labels_over_maximum](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/show_data_labels_over_maximum/) to control whether their data labels are shown. यह सेटिंग लेबल की दृश्यमानता बदलती है; यह अक्ष रेंज या अंतर्निहित डेटा मानों को नहीं बदलती।
 
-नीचे का उदाहरण 60 और 120 मानों के साथ 2D क्लस्टर्ड कॉलम चार्ट बनाता है। यह वर्टिकल अक्ष पर [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) को `False` और [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) को 100 सेट करता है। पहला स्लाइड अधिकतम से परे लेबल की अनुमति देता है; उस स्लाइड की एक प्रति उन्हें निष्क्रिय करती है। दोनों स्लाइड्स `DataLabelsOverMaximum.pptx` में सहेजी गई हैं।
+The example below creates a 2D clustered column chart with values of 60 and 120. It sets [is_automatic_max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_max_value/) to `False` and [max_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/max_value/) to 100 on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
 
-[show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) के साथ वैल्यू लेबल सक्षम करें। चार्ट-स्तर की सेटिंग स्वयं वैल्यू डिस्प्ले को सक्षम नहीं करती या व्यक्तिगत लेबल के निष्क्रिय वैल्यू डिस्प्ले को ओवरराइड नहीं करती। यह उदाहरण संपूर्ण श्रृंखला के लिए वैल्यू सक्षम करता है और [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) का उपयोग करके प्रत्येक कॉलम के बाहरी अंत में लेबल रखता है।
+Enable value labels with [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [position](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/position/) to place labels at the outside end of each column.
 
 ```python
 import aspose.slides as slides
@@ -250,19 +252,21 @@ with slides.Presentation() as presentation:
     presentation.save("DataLabelsOverMaximum.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-निम्न छवियां सहेजे गए स्लाइड्स को Microsoft PowerPoint द्वारा रेंडर किए हुए दिखाती हैं। `True` के साथ, लेबल **120** ऊपर की सीमा पर दिखाई देता है; `False` के साथ, यह छिपा रहता है। लेबल **60** दृश्यमान रहता है, अक्ष अधिकतम **100** पर बना रहता है, और दूसरा डेटा बिंदु दोनों मामलों में **120** रहता है।
+The following images show the saved slides rendered by Microsoft PowerPoint. With `True`, the label **120** is visible at the upper boundary; with `False`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
 
 | show_data_labels_over_maximum = True | show_data_labels_over_maximum = False |
 | --- | --- |
 | ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-यह उदाहरण मान अक्ष के साथ 2D कॉलम चार्ट का उपयोग करता है। मान अक्ष के बिना चार्ट, जैसे पाई और डोनेट चार्ट, इस तरह से सीमित करने के लिए किसी अक्ष अधिकतम नहीं रखते हैं।
+
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
+
 {{% /alert %}}
 
-## **अक्ष से लेबल दूरी सेट करें**
+## **अक्ष से लेबल की दूरी सेट करें**
 
-श्रेणी अक्ष लेबल और अक्ष के बीच दूरी नियंत्रित करने के लिए [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) का उपयोग करें। मान अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा बिंदुओं से जुड़े लेबलों के बजाय श्रेणी अक्ष लेबलों को प्रभावित करती है।
+Use [label_offset](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/label_offset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
 ```python
 import aspose.slides as slides
@@ -279,9 +283,9 @@ with slides.Presentation() as presentation:
 
 ## **लेबल स्थान समायोजित करें**
 
-पाई चार्ट पर, स्पेसिंग सुधारने और लीडर लाइनों के लिये जगह बनाने हेतु डेटा लेबल की स्थितियों को समायोजित करें।
+On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
 
-यह उदाहरण पहले डेटा बिंदु का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और उसके [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) और [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) ऑफ़सेट को समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
+This example displays the value of the first data point, places its label outside the slice, and adjusts its [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) offsets. These offsets are relative to the chart width and height, respectively.
 
 ```python
 import aspose.slides as slides
@@ -302,17 +306,17 @@ with slides.Presentation() as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![समायोजित डेटा लेबल स्थिति के साथ पाई चार्ट](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **लीडर लाइन्स फ़ॉर्मेट करें**
+## **लीडर लाइनों का स्वरूप**
 
-जब पाई चार्ट लेबल अपने स्लाइस के बाहर स्थित होते हैं, तो लीडर लाइन्स पाठकों को प्रत्येक मान को सही स्लाइस से मिलाने में मदद करती हैं। विरोधी रंग और थोड़ा मोटी लाइन इन कनेक्शनों को आसानी से अनुसरण करने योग्य बना सकती है, जबकि पारदर्शिता और डैश्ड शैली लाइनों को दृश्य रूप से अप्रभावी रखती है।
+When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
 
-सीरीज़ के डेटा लेबल कलेक्शन स्तर पर लीडर लाइन्स को फ़ॉर्मेट करने के लिए [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) का उपयोग करें। `series.labels.leader_lines_format.line` में स्थित सेटिंग्स कलेक्शन पर लागू होती हैं, न कि व्यक्तिगत लेबल पर।
+Use [leader_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelcollection/leader_lines_format/) to format leader lines at the series' data label collection level. The settings in `series.labels.leader_lines_format.line` apply to the collection, rather than to an individual label.
 
-यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है, स्लाइस के बाहर मान दिखाता है, और [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/) को सक्षम करता है। यह दो लेबलों को उनके स्लाइस से अधिक दूर ले जाता है, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) और [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) ऑफ़सेट का उपयोग करके, जो चार्ट की चौड़ाई और ऊँचाई के अंश के रूप में व्यक्त होते हैं। कोई इनपुट प्रस्तुति आवश्यक नहीं है।
+This example creates a pie chart with default data, displays values outside the slices, and enables [show_leader_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_leader_lines/). It moves two labels farther from their slices using [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) offsets, expressed as fractions of the chart width and height. No input presentation is required.
 
-लाइन की [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) एक ठोस नीला रंग सेट करती है जिसमें 255 में से 191 का अल्फ़ा मान है, लगभग 25% पारदर्शिता देता है। [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) मोटाई को 2 पॉइंट सेट करता है, और [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) लाइन को डैश्ड बनाता है।
+The line's [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) sets the thickness to 2 points, and [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) makes the line dashed.
 
 ```python
 import aspose.slides as slides
@@ -332,7 +336,7 @@ with slides.Presentation() as presentation:
     label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
     label_format.show_leader_lines = True
 
-    # दो लेबलों को उनके स्लाइस से अधिक दूर ले जाएँ।
+    # दो लेबल को उनके स्लाइस से अधिक दूर ले जाएँ।
     series.labels[0].x = 0.10
     series.labels[0].y = -0.05
     series.labels[1].x = -0.10
@@ -347,16 +351,17 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedLeaderLines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-लीडर लाइन्स को सक्षम करने से यह गारंटी नहीं मिलती कि प्रत्येक लेबल के लिए लाइन दिखाई देगी। दृश्यमानता लेबल की स्थिति और चार्ट के लेआउट व्यवहार पर निर्भर करती है। इस उदाहरण में, दो दूरस्थ लेबलों के पास दृश्यमान लीडर लाइन्स हैं; जो लेबल अपने स्लाइस के करीब रहते हैं उन्हें इसकी आवश्यकता नहीं है।
+Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
 
-नीचे की छवि सहेजे गए `FormattedLeaderLines.pptx` को Aspose.Slides के साथ रेंडर दिखाती है:
-![नीले, अर्ध-पार्दर्शी डैश्ड लीडर लाइन्स के साथ पाई चार्ट, जो दो बाहर के लेबलों को उनके स्लाइस से जोड़ती हैं](formatted-leader-lines.png)
+The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
+
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
 ## **कॉलम चार्ट के ऊपर कई पंक्तियों के डेटा लेबल जोड़ें**
 
-यह उदाहरण प्लॉट एरिया के ऊपर दो पंक्तियों के डेटा लेबल के साथ एक कॉलम चार्ट बनाता है। सीरीज़ A दृश्यमान कॉलम दिखाता है, जबकि सीरीज़ B और सीरीज़ C अतिरिक्त लेबल प्रदान करते हैं। उनके कॉलम को भराव और आउटलाइन हटाकर छिपा दिया जाता है। [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) प्रॉपर्टी सभी तीन श्रृंखलाओं को समान श्रेणी केंद्रों के साथ संरेखित करती है।
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) property aligns all three series with the same category centers.
 
-[plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) सेटिंग्स लेबल पंक्तियों के लिए जगह आरक्षित करती हैं। [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) डिफ़ॉल्ट स्थितियों की गणना करने के बाद, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) और [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) क्षैतिज संरेखण को बनाए रखते हैं और लेबल को दो पंक्तियों में व्यवस्थित करने के लिए ऊर्ध्वरित ऑफ़सेट लागू करते हैं। संख्याएँ श्रृंखला मानों से जुड़ी डेटा लेबल रहती हैं; केवल पंक्ति शीर्षक अलग टेक्स्ट शेप होते हैं।
+The [plot_area](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_area/) settings reserve space for the label rows. After [validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) calculates the default positions, [x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/x/) and [y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabel/y/) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
 
 ```python
 import aspose.slides as slides
@@ -398,7 +403,7 @@ with slides.Presentation() as presentation:
             series.data_points.add_data_point_for_bar_series(value_cell)
 
         if series_index > 0:
-            # B और C के कॉलम को छिपाएँ, लेकिन उनके डेटा लेबल रखें।
+            # B और C के कॉलम को छिपाएँ, लेकिन उनके डेटा लेबल बनाए रखें।
             series.format.fill.fill_type = slides.FillType.NO_FILL
             series.format.line.fill_format.fill_type = slides.FillType.NO_FILL
             label_format = series.labels.default_data_label_format
@@ -409,14 +414,14 @@ with slides.Presentation() as presentation:
             label_fill.solid_fill_color.color = drawing.Color.black
             label_format.position = charts.LegendDataLabelPosition.INSIDE_BASE
 
-    # सभी तीन श्रृंखलाओं को एक ही श्रेणी केंद्रों के साथ संरेखित करें।
+    # तीनों श्रृंखलाओं को समान श्रेणी केंद्रों के साथ संरेखित करें।
     chart.chart_data.series[0].parent_series_group.overlap = 100
 
     # इस संक्षिप्त उदाहरण के लिए कम ग्रिडलाइन का उपयोग करें।
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.major_unit = 10
 
-    # प्लॉट के ऊपर दो पंक्तियों के डेटा लेबल के लिए जगह आरक्षित करें।
+    # प्लॉट के ऊपर दो पंक्तियों के डेटा लेबल के लिए स्थान आरक्षित करें।
     chart.plot_area.layout_target_type = charts.LayoutTargetType.INNER
     chart.plot_area.x = 0.15
     chart.plot_area.y = 0.32
@@ -430,12 +435,12 @@ with slides.Presentation() as presentation:
 
         for category_index in range(len(categories)):
             data_label = series.data_points[category_index].label
-            # डिफ़ॉल्ट क्षैतिज स्थिति रखें। Y का ऑफ़सेट है
-            # डिफ़ॉल्ट लेबल स्थिति से, जो चार्ट-ऊँचाई अंश के रूप में व्यक्त है।
+            # डिफ़ॉल्ट क्षैतिज स्थिति बनाए रखें। Y एक ऑफसेट है
+            # डिफ़ॉल्ट लेबल स्थिति से, जो चार्ट-ऊँचाई के अंश के रूप में व्यक्त है।
             data_label.x = 0
             data_label.y = row_top - data_label.actual_y / chart.height
 
-        # केवल पंक्ति शीर्षक एक अलग टेक्स्ट शॅप है।
+        # केवल पंक्ति शीर्षक एक अलग टेक्स्ट आकार है।
         row_heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, chart.x, chart.y + row_top * chart.height, 85, 18)
         row_heading.fill_format.fill_type = slides.FillType.NO_FILL
         row_heading.line_format.fill_format.fill_type = slides.FillType.NO_FILL
@@ -450,18 +455,15 @@ with slides.Presentation() as presentation:
     presentation.save("multiple-rows-of-labels.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![प्लॉट एरिया के ऊपर दो पंक्तियों के डेटा लेबल के साथ कॉलम चार्ट](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**भारी चार्टों पर डेटा लेबल के ओवरलैप को कैसे रोकूं?**
+**मैं घनी चार्ट्स पर डेटा लेबल के ओवरलैप को कैसे रोक सकता हूँ?**  
+ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइनों और छोटे फ़ॉन्ट आकार को मिलाएँ; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे वर्ग) को छुपाएँ या केवल अत्यधिक मानों या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
 
-स्वचालित लेबल प्लेसमेंट, लीडर लाइन्स, और छोटे फ़ॉन्ट आकार को मिलाएं; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) को छिपाएँ या केवल अत्यधिक मान या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
+**मैं शून्य, नकारात्मक या खाली मानों के लिए लेबल केवल कैसे अक्षम कर सकता हूँ?**  
+लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए प्रदर्शन बंद करें।
 
-**शून्य, नकारात्मक, या खाली मानों के लिए लेबल केवल कैसे निष्क्रिय करें?**
-
-लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और 0, नकारात्मक या गायब मानों के लिए डिस्प्ले को बंद करें, एक निर्धारित नियम के अनुसार।
-
-**PDF/छवियों में निर्यात करते समय लेबल शैली को सुसंगत कैसे रखें?**
-
-फ़ॉन्ट फ़ैमिली और आकार स्पष्ट रूप से सेट करें और रेंडरिंग वातावरण में फ़ॉन्ट उपलब्ध है यह सत्यापित करें ताकि फॉलबैक न हो।
+**PDF/इमेजेज में निर्यात करते समय लेबल शैली को स्थिर कैसे सुनिश्चित करूँ?**  
+फ़ॉन्ट परिवार और आकार को स्पष्ट रूप से सेट करें और सुनिश्चित करें कि रेंडरिंग वातावरण में फ़ॉन्ट उपलब्ध है ताकि फ़ॉलबैक न हो।

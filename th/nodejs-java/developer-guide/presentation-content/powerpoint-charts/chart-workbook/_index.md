@@ -1,50 +1,50 @@
 ---
-title: จัดการ Workbook ของแผนภูมิในงานนำเสนอด้วย JavaScript
+title: จัดการ Workbook ของแผนภูมิในงานนำเสนอโดยใช้ JavaScript
 linktitle: Workbook ของแผนภูมิ
 type: docs
 weight: 70
 url: /th/nodejs-java/chart-workbook/
 keywords:
-- workbook ของแผนภูมิ
+- Workbook ของแผนภูมิ
 - ข้อมูลแผนภูมิ
-- เซลล์ workbook
-- ป้ายกำกับข้อมูล
-- แผ่นงาน
+- เซลล์ Workbook
+- ป้ายข้อมูล
+- Worksheet
 - แหล่งข้อมูล
-- workbook ภายนอก
+- Workbook ภายนอก
 - ข้อมูลภายนอก
 - แคชของแผนภูมิ
-- การกู้คืน workbook
+- การกู้คืน Workbook
 - PowerPoint
 - งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ Node.js ผ่าน Java: จัดการ workbook ของแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ."
+description: "ค้นพบ Aspose.Slides สำหรับ Node.js ผ่าน Java: จัดการ Workbook ของแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับ workbook ของแผนภูมิใน Aspose.Slides ซึ่งแสดงวิธีการอ่านและเขียนข้อมูลแผนภูมผ่านสตรีมของ workbook, ใช้เซลล์ของ workbook เป็นป้ายกำกับข้อมูลแผนภูมิ, เข้าถึงคอลเลกชันของ worksheet, และระบุประเภทของแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีทำงานกับ workbook ของแผนภูมิใน Aspose.Slides แสดงวิธีอ่านและเขียนข้อมูลแผนภูมิโดยใช้สตรีมของ workbook ใช้เซลล์ของ workbook เป็นป้ายข้อมูลของแผนภูมิ เข้าถึงคอลเลกชันของ worksheet และระบุประเภทของแหล่งข้อมูลสำหรับค่าแผนภูมิ
 
-นอกจากนี้ยังครอบคลุมการทำงานกับ workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีสร้างและกำหนด workbook ภายนอก, ดึงเส้นทางของ workbook ภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อ workbook มีให้ใช้
+นอกจากนี้ยังครอบคลุมการทำงานกับ workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีสร้างและกำหนด workbook ภายนอก ดึงเส้นทางของ workbook ภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิเมื่อ workbook พร้อมใช้งาน
 
-สำหรับเซลล์ของ workbook ที่แทนค่าข้อมูลที่หายไป ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/nodejs-java/chart-series/) เพื่อทำความเข้าใจความแตกต่างระหว่างเซลล์ว่างกับค่าเป็นศูนย์ และเปรียบเทียบแบบแผนภูมิเส้นของโหมดการแสดงผลที่มีอยู่
+สำหรับเซลล์ workbook ที่เป็นข้อมูลที่หายไป ให้ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/nodejs-java/chart-series/) เพื่อเปรียบเทียบความแตกต่างระหว่างเซลล์ว่างกับศูนย์ และดูการเปรียบเทียบแบบแผนภูมิเส้นของโหมดการแสดงผลที่มีให้
 
-## **รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่**
+## **รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อน**
 
-ใช้ [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setPlotVisibleCellsOnly) เพื่อควบคุมว่าถูกต้องหรือไม่ว่าแผนภูมิจะพล็อตข้อมูลจากแถวและคอลัมน์ของ worksheet ที่ซ่อนอยู่ ตั้งค่าเป็น `true` เพื่อพล็อตเฉพาะเซลล์ที่มองเห็นได้ หรือ `false` เพื่อรวมทั้งเซลล์ที่มองเห็นและซ่อน การตั้งค่านี้ควบคุมการพล็อตของแผนภูมิ; ไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ของ worksheet
+ใช้ [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) เพื่อควบคุมว่าระบบวาดแผนภูมิจะแสดงข้อมูลจากแถวและคอลัมน์ของ worksheet ที่ซ่อนหรือไม่ ตั้งค่าเป็น `true` เพื่อวาดเฉพาะเซลล์ที่มองเห็นได้ หรือ `false` เพื่อรวมเซลล์ที่มองเห็นและซ่อน ทั้งสองค่าเป็นการกำหนดพฤติกรรมการวาดแผนภูมิ ไม่ได้ทำให้แถวหรือคอลัมน์ของ worksheet ซ่อนหรือแสดง
 
-[ตัวอย่างงานนำเสนอ](hidden-source-data.pptx) มีแผนภูมิคอลัมน์เป็นรูปร่างแรกบนสไลด์แรกของมัน worksheet ที่ฝังอยู่, `Sheet1`, มีช่วงแหล่งข้อมูล `A1:C4`. แถว 3 และคอลัมน์ C ถูกซ่อน, แต่เซลล์ของพวกมันยังคงมีค่า
+[ตัวอย่างการนำเสนอ](hidden-source-data.pptx) มีแผนภูมิแท่งเป็นวัตถุปแรกบนสไลด์แรก Worksheet ที่ฝังอยู่คือ `Sheet1` มีช่วงข้อมูลต้นทาง `A1:C4` แถวที่ 3 และคอลัมน์ C ถูกซ่อน แต่เซลล์เหล่านั้นยังคงมีค่าอยู่
 
-| แถวของ Worksheet | A: เดือน | B: ปลีก | C: ขายส่ง (คอลัมน์ที่ซ่อน) |
+| แถวใน Worksheet | A: เดือน | B: การค้าปลีก | C: การค้าส่ง (คอลัมน์ที่ซ่อน) |
 | --- | --- | --- | --- |
 | 2 | มกราคม | 10 | 30 |
-| 3 (แถวซ่อน) | กุมภาพันธ์ | 40 | 60 |
+| 3 (แถวที่ซ่อน) | กุมภาพันธ์ | 40 | 60 |
 | 4 | มีนาคม | 20 | 50 |
 
-เข้าถึงเซลล์แหล่งข้อมูลผ่าน [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) และอ่าน [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#isHidden) เพื่อสอบสถานะการซ่อนของเซลล์ วิธีนี้รายงานสถานะการซ่อนโดยไม่เปลี่ยนแปลง ในไฟล์นี้ B2 มองเห็นได้, B3 อยู่ในแถวที่ซ่อน, และ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างพิมพ์ `false`, `true`, และ `true` ตามลำดับ
+เข้าถึงเซลล์ต้นทางผ่าน [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) และอ่าน [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) เพื่อตรวจสอบสถานะการซ่อน วิธีนี้รายงานสถานะโดยไม่เปลี่ยนแปลงค่า ในไฟล์นี้ B2 มองเห็นได้, B3 อยู่ในแถวที่ซ่อน, และ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างพิมพ์ค่า `false`, `true`, และ `true` ตามลำดับ
 
-สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการพล็อต: รักษา workbook ที่ฝังอยู่ด้วย [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) และโหลดใหม่ด้วย [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) เมื่อรวมทุกเซลล์, ใช้ [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) เพื่อคืนช่วงทั้งหมด, รวมถึงประเภทเดือนกุมภาพันธ์ที่ซ่อนอยู่ การเปลี่ยนแค่แฟล็กไม่เพียงพอในการรีเฟรชข้อมูลแผนภูมิที่แคชและป้ายชื่อประเภทของตัวอย่างนี้ ตัวอย่างจะแปลงบัฟเฟอร์ Node.js เป็นอาเรย์ของไบต์ Java ก่อนส่งให้เมธอดเขียน
+สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการวาด: รักษา workbook ที่ฝังอยู่ด้วย [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) และโหลดใหม่ด้วย [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) เมื่อรวมทุกเซลล์ ให้ใช้ [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) เพื่อคืนช่วงข้อมูลเต็มรวมถึงหมวดเดือนกุมภาพันธ์ที่ซ่อน การเปลี่ยนแค่ค่าธงไม่เพียงพอเพื่อรีเฟรชข้อมูลและป้ายหมวดที่แคชไว้ในตัวอย่างนี้ ตัวอย่างแปลงบัฟเฟอร์ Node.js ที่คืนค่าเป็นอาร์เรย์ไบต์ของ Java ก่อนส่งต่อให้เมธอดเขียน
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -71,7 +71,7 @@ try {
             // รีเฟรชข้อมูลแผนภูมิจาก workbook ที่ฝังอยู่.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // คืนค่าช่วงแหล่งข้อมูลทั้งหมด รวมถึงประเภทที่ซ่อนอยู่.
+                // คืนช่วงแหล่งข้อมูลทั้งหมด รวมถึงหมวดที่ซ่อนอยู่.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -85,21 +85,21 @@ try {
 }
 ```
 
-ตัวอย่างบันทึกสองเวอร์ชันของงานนำเสนอ: เวอร์ชันหนึ่งมีค่า Retail ที่มองเห็นได้เท่านั้น (10 และ 20), อีกเวอร์ชันหนึ่งมีค่าทั้งหกค่า รูปภาพด้านล่างแสดงสองโหมดการพล็อต แถว 3 และคอลัมน์ C ยังคงซ่อนอยู่ในทั้งสอง workbook ที่ฝัง
+ตัวอย่างบันทึกสองเวอร์ชันของการนำเสนอ: เวอร์ชันหนึ่งมีเฉพาะค่าการค้าปลีกที่มองเห็นได้ (10 และ 20) และอีกเวอร์ชันหนึ่งมีค่าทั้งหกค่า รูปด้านล่างแสดงสองโหมดการวาด แถวที่ 3 และคอลัมน์ C ยังคงซ่อนในทั้งสอง workbook ที่ฝังอยู่
 
 | เฉพาะเซลล์ที่มองเห็น (`true`) | ทุกเซลล์ (`false`) |
 | --- | --- |
-| ![เฉพาะเซลล์ที่มองเห็น: ค่าปลีก 10 และ 20 สำหรับเดือนมกราคมและมีนาคม.](hidden_cells_True.png) | ![ทุกเซลล์: ค่าปลีกและขายส่งสำหรับเดือนมกราคม, กุมภาพันธ์, และมีนาคม.](hidden_cells_False.png) |
+| ![เฉพาะเซลล์ที่มองเห็น: ค่า Retail 10 และ 20 สำหรับเดือนมกราคมและมีนาคม.](hidden_cells_True.png) | ![ทุกเซลล์: ค่า Retail และ Wholesale สำหรับเดือนมกราคม, กุมภาพันธ์, และมีนาคม.](hidden_cells_False.png) |
 
-เซลล์ที่ซ่อนและมีค่าแตกต่างจากเซลล์ที่ว่างเปล่า [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) ควบคุมวิธีการแสดงค่าที่หายไป; ไม่ได้รวมหรือแยกข้อมูลแหล่งที่มาที่ซ่อน ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/nodejs-java/chart-series/#control-the-display-of-empty-cells) เพื่อดูตัวอย่าง
+เซลล์ที่ซ่อนไว้ซึ่งมีค่า แตกต่างจากเซลล์ว่าง [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) ควบคุมวิธีการแสดงค่าที่หายไป; ไม่ได้รวมหรือยกเว้นข้อมูลแหล่งที่ซ่อน ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/nodejs-java/chart-series/#control-the-display-of-empty-cells) สำหรับตัวอย่าง
 
 ## **ดึงช่วงข้อมูลของแผนภูมิ**
 
-ก่อนอัปเดตข้อมูล workbook ในงานนำเสนอที่มีอยู่, ตรวจสอบช่วงแหล่งข้อมูลเพื่อระบุว่า worksheet ใดที่แผนภูมิแต่ละอันใช้ [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getRange) จะคืนค่าช่วงข้อมูลปัจจุบันเป็นสูตรที่ระบุ worksheet, เช่น `Sheet1!$A$1:$D$5`. ที่นี่ `Sheet1` คือชื่อ worksheet, `!` แยกจากช่วงเซลล์, และ `$A$1:$D$5` ระบุเซลล์ A1 ถึง D5 รวมถึงเครื่องหมายดอลลาร์แสดงการอ้างอิงแบบสัมบูรณ์
+ก่อนอัปเดตข้อมูล workbook ในการนำเสนอที่มีอยู่ ตรวจสอบช่วงข้อมูลต้นทางเพื่อระบุว่า worksheet ใดที่แผนภูมิใช้ วิธี [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) คืนค่าช่วงข้อมูลปัจจุบันในรูปสูตรที่ระบุ worksheet เช่น `Sheet1!$A$1:$D$5` ที่นี่ `Sheet1` คือชื่อ worksheet, `!` คั่นกับช่วงเซลล์, และ `$A$1:$D$5` ระบุเซลล์ A1 ถึง D5 รวมสัญลักษณ์ `$` แสดงการอ้างอิงคงที่ของแถวและคอลัมน์
 
-เมธอดนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือ workbook ของมัน หากแผนภูมิไม่ใช้ workbook เป็นแหล่งข้อมูล, จะโยน `InvalidOperationException` สำหรับข้อมูลเพิ่มเติมดูที่ [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/)
+เมธอดนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือ workbook หากแผนภูมิไม่ใช้ workbook เป็นแหล่งข้อมูล จะโยน `InvalidOperationException` สำหรับข้อมูลเพิ่มเติม ดูที่ [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/)
 
-ตัวอย่างนี้เปิดงานนำเสนอและตรวจสอบรูปร่างโดยตรงบนแต่ละสไลด์เพื่อค้นหาแผนภูมิ พิมพ์ชื่อและช่วงแหล่งข้อมูลของแต่ละแผนภูมิ หากแผนภูมิไม่ใช้ workbook, จะพิมพ์ข้อความและดำเนินการต่อไปยังแผนภูมืถัดไป
+ตัวอย่างนี้เปิดการนำเสนอและตรวจสอบรูปทรงบนแต่ละสไลด์เพื่อหาแผนภูมิ พิมพ์ชื่อแผนภูมิและช่วงต้นทาง หากแผนภูมิไม่ใช้ workbook จะพิมพ์ข้อความและดำเนินการต่อไปยังแผนภูมิถัดไป
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -133,9 +133,9 @@ try {
 
 ## **อ่านและเขียนข้อมูลแผนภูมิจาก Workbook**
 
-Aspose.Slides for Node.js via Java ให้เมธอด [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) และ [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#writeWorkbookStream) ที่ช่วยให้คุณอ่านและเขียน workbook ของข้อมูลแผนภูมิ (ซึ่งมีข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิจะต้องจัดระเบียบในลักษณะเดียวกันหรือมีโครงสร้างที่คล้ายกับแหล่งข้อมูลต้นทาง
+Aspose.Slides for Node.js via Java มีเมธอด [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) และ [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) ที่ช่วยให้คุณอ่านและเขียน workbook ของข้อมูลแผนภูมิ (ซึ่งอาจแก้ไขด้วย Aspose.Cells) **Note** ข้อมูลแผนภูมิต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูล
 
-ตัวอย่างนี้ใช้งานนำเสนอที่มีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรก อ่าน workbook ที่ฝังอยู่เป็นอาเรย์ของไบต์, ลบ series และ categories ปัจจุบัน, แล้วเขียน workbook เดิมกลับเข้าไป การเปลี่ยนแปลงคงอยู่ในหน่วยความจำ; ตัวอย่างไม่ได้บันทึกงานนำเสนอ
+ตัวอย่างนี้ใช้การนำเสนอที่มีแผนภูมิเป็นวัตถุปแรกบนสไลด์แรก อ่าน workbook ที่ฝังอยู่เป็นอาร์เรย์ไบต์ ล้างชุดข้อมูลและหมวดหมู่เดิม แล้วเขียน workbook เดิมกลับไป การเปลี่ยนแปลงคงอยู่ในหน่วยความจำ; ตัวอย่างไม่บันทึกการนำเสนอ
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-### **ตรวจสอบการจัดวางแผนภูมิหลังการแก้ไข Workbook**
+### **ตรวจสอบ Layout ของแผนภูมิหลังการแก้ไข Workbook**
 
-เมื่อคุณแทนที่ workbook ที่ฝังด้วยเวอร์ชันที่แก้ไข, แผนภูมิก็จะยังคงเก็บ series และคอลเลกชันประเภทเดิม ความไม่ตรงกันนี้อาจทำให้ [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#validateChartLayout) ล้มเหลวด้วยข้อผิดพลาดดัชนีอยู่นอกช่วง ควรลบ series และ categories ที่มีอยู่ก่อนเขียน workbook ที่อัปเดตกลับไปยังแผนภูมิ ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรก คอมเมนต์ทำเครื่องหมายตำแหน่งที่การแก้ไข workbook จะเกิดขึ้น; ตัวอย่างที่รันได้เขียน workbook ดั้งเดิมกลับเข้าไปและตรวจสอบการจัดวางในหน่วยความจำ
+เมื่อคุณแทนที่ workbook ที่ฝังไว้ด้วย workbook ที่แก้ไขแล้ว แผนภูมิจะยังคงมีชุดข้อมูลและคอลเลกชันหมวดเดิม ความไม่ตรงนี้อาจทำให้ [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ให้ล้างชุดข้อมูลและหมวดเดิมก่อนเขียน workbook ที่อัปเดตกลับไปยังแผนภูมิ ตัวอย่างใช้แผนภูมิที่เป็นวัตถุปแรกบนสไลด์แรก คอมเมนต์ระบุจุดที่ควรแก้ไข workbook; ตัวอย่างที่ทำงานได้เขียน workbook ดั้งเดิมกลับและตรวจสอบ Layout ในหน่วยความจำ
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // แก้ไขไบต์ของ workbook ที่นี่, ตัวอย่างเช่น โดยใช้ Aspose.Cells.
+        // แก้ไขไบต์ของ workbook ที่นี่, ตัวอย่างเช่น ใช้ Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -200,13 +200,77 @@ try {
 }
 ```
 
-การลบคอลเลกชันจะเอาการอ้างอิงข้อมูลที่ล้าสมัยออกก่อนที่ workbook จะถูกเขียนกลับ สร้าง mapping ของ series และ category ที่จำเป็นสำหรับ workbook ที่อัปเดตก่อนใช้แผนภูมิ
+การล้างคอลเลกชันจะลบการอ้างอิงข้อมูลค้างก่อนที่ workbook จะถูกเขียนกลับ สร้างชุดข้อมูลและการแมปหมวดใหม่ตามที่จำเป็นสำหรับ workbook ที่อัปเดตก่อนใช้แผนภูมิ
 
-## **ตั้งค่าเซลล์ของ Workbook เป็นป้ายกำกับข้อมูลแผนภูมิ**
+## **กำหนดรูปแบบตัวเลขแบบกำหนดเองสำหรับเซลล์ Workbook**
 
-คุณสามารถใช้ข้อความจากเซลล์ของ workbook เป็นป้ายกำกับข้อมูลแผนภูมิได้
+ใช้ [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) เพื่อควบคุมวิธีแสดงค่าตัวเลขใน workbook ที่ฝังอยู่ของแผนภูมิ ตัวอย่างเช่น รายงานอาจต้องแสดงอัตราแปลงเป็นเปอร์เซ็นต์ด้วยทศนิยมสี่ตำแหน่งและค่าสัมประสิทธิ์ด้วยทศนิยมห้าตำแหน่ง ควรรักษาค่าทั้งสองเป็นตัวเลขเพื่อให้ยังคงใช้ในการคำนวณและวาดแผนภูมิได้
 
-ตัวอย่างนี้เพิ่มแผนภูมิบับที่มีข้อมูลเริ่มต้นบนสไลด์แรกของงานนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 บน worksheet 0 เป็นป้ายกำกับสามค่าแรกของ series แรก, เปิดใช้งานป้ายกำกับจากเซลล์, แล้วบันทึกงานนำเสนอที่อัปเดต
+รูปแบบตัวเลขเปลี่ยนการแสดงผล ไม่ได้เปลี่ยนค่าที่เก็บไว้ รูปแบบ `0.0000%` แสดง `0.125` เป็น `12.5000%`; ไม่ได้แทนที่ตัวเลขที่เก็บเป็น `12.5` เช่นเดียวกัน `0.00000` แสดง `0.1234567` เป็น `0.12346` โดยไม่ปัดเศษค่าที่เก็บไว้ หากรูปแบบกำหนดเองเป็นสตริงว่าง (`""`) จะใช้รูปแบบที่ได้จาก [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) แทน
+
+ตัวอย่างต่อไปสร้างแผนภูมิแท่งและเข้าถึงเซลล์ผ่าน [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/). บน worksheet 0, B2 มีอัตราแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์เป็นค่าแผนภูมิ ตัวอย่างยังเปิดใช้ป้ายค่าที่เชื่อมกับรูปแบบต้นทาง
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 270, aspose.slides.SlideSizeScaleType.DoNotScale);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 20, 620, 210);
+    chart.setTitle(false);
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
+    chart.getAxes().getVerticalAxis().setNumberFormat("0.00");
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+    chart.getAxes().getVerticalAxis().setMinValue(0);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    const categoryCell = workbook.getCell(0, "A2", "Sample");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    const percentageCell = workbook.getCell(0, "B2", 0.125);
+    percentageCell.setCustomNumberFormat("0.0000%");
+    const percentageName = workbook.getCell(0, "B1", "Conversion rate");
+    const percentageSeries = chart.getChartData().getSeries().add(percentageName, chart.getType());
+    percentageSeries.getDataPoints().addDataPointForBarSeries(percentageCell);
+
+    const precisionCell = workbook.getCell(0, "C2", 0.1234567);
+    precisionCell.setCustomNumberFormat("0.00000");
+    const precisionName = workbook.getCell(0, "C1", "Coefficient");
+    const precisionSeries = chart.getChartData().getSeries().add(precisionName, chart.getType());
+    precisionSeries.getDataPoints().addDataPointForBarSeries(precisionCell);
+
+    for (let seriesIndex = 0; seriesIndex < chart.getChartData().getSeries().size(); seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const labelFormat = series.getDataPoints().get_Item(0).getLabel().getDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(true);
+    }
+
+    presentation.save("CustomCellFormats.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+รูปแบบของเซลล์ workbook แยกจากรูปแบบที่ตั้งโดยตรงบนแกนหรือป้ายข้อมูล ในตัวอย่างนี้แต่ละป้ายจะแสดงค่าจากเซลล์ต้นทางเพราะ [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) ตั้งเป็น `true` และเชื่อมรูปแบบตัวเลขกับแหล่งที่มาด้วย [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) ตั้งเป็น `true` หลังจากบันทึกและเปิดการนำเสนอใหม่ ป้ายจะแสดง `12.5000%` และ `0.12346` ตามด้านล่าง แกนแนวตั้งใช้รูปแบบตัวเลขของตนเอง ตั้งด้วย [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) เป็น `0.00` และตั้ง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) เป็น `false`
+
+หากต้องการกำหนดรูปแบบป้ายข้อมูลแยกจากแหล่ง ให้ตั้งค่าสถานะเชื่อมกับแหล่งเป็น `false` แล้วกำหนดรูปแบบด้วย [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) วิธีนี้ไม่ทำให้รูปแบบของเซลล์ workbook เปลี่ยน ตัวอย่างเช่น ป้ายที่มีรูปแบบอิสระ `0.00` จะทำให้ค่าแรกแสดงเป็น `0.13` ในขณะที่ B2 ยังคงแสดง `12.5000%` ดูที่ [Chart Data Labels](/slides/th/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) สำหรับการกำหนดรูปแบบป้ายโดยตรง
+
+![แผนภูมิแท่งพร้อมป้ายที่เชื่อมกับแหล่งแสดง 12.5000% และ 0.12346 พร้อมแกนตัวเลขที่กำหนดรูปแบบแยกกัน.](custom-cell-formats.png)
+
+## **กำหนดเซลล์ Workbook เป็นป้ายข้อมูลของแผนภูมิ**
+
+คุณสามารถใช้ข้อความจากเซลล์ workbook เป็นป้ายข้อมูลของแผนภูมิได้
+
+ตัวอย่างนี้เพิ่มแผนภูมิบับเบิลพร้อมข้อมูลเริ่มต้นบนสไลด์แรกของการนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 บน worksheet 0 สำหรับสามป้ายแรกของชุดข้อมูลแรก เปิดใช้ป้ายจากเซลล์และบันทึกการนำเสนอที่อัปเดต
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -232,7 +296,7 @@ try {
 
 ## **จัดการ Worksheets**
 
-เมธอด [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getWorksheets) ให้การเข้าถึง worksheets ใน workbook ของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิพายที่มีข้อมูลเริ่มต้นและพิมพ์ชื่อแต่ละ worksheet ไปยังคอนโซล
+เมธอด [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) ให้การเข้าถึง worksheets ใน workbook ของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิพายด้วยข้อมูลเริ่มต้นและพิมพ์ชื่อ worksheet แต่ละรายการลงคอนโซล
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -254,7 +318,7 @@ try {
 
 ## **ระบุประเภทของแหล่งข้อมูล**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 3 มิติที่มีข้อมูลเริ่มต้นและตั้งค่า two series name โดยใช้แหล่งข้อมูลที่แตกต่างกัน ชื่อแรกใช้สตริงตัวอักษร; ชื่อที่สองใช้เซลล์ C1 ใน worksheet 0 การนำเข้า [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) เลือกแหล่งข้อมูลสำหรับแต่ละชื่อ ตัวอย่างบันทึกงานนำเสนอพร้อมชื่อ series ที่อัปเดต
+ตัวอย่างนี้สร้างแผนภูมิแท่ง 3 มิติด้วยข้อมูลเริ่มต้นและตั้งค่าชื่อชุดข้อมูลสองชุดโดยใช้แหล่งข้อมูลต่างกัน ชื่อแรกใช้สตริงลิตเตรัล; ชื่อที่สองใช้เซลล์ C1 บน worksheet 0 รุ่น [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) ระบุแหล่งสำหรับแต่ละชื่อ ตัวอย่างบันทึกการนำเสนอพร้อมชื่อชุดข้อมูลที่อัปเดต
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -280,9 +344,9 @@ try {
 }
 ```
 
-## **ตรวจจับรูปแบบ Workbook ที่ฝังไม่รองรับ**
+## **ตรวจจับรูปแบบ Workbook ฝังที่ไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบ workbook Excel ไบเนารี (.xlsb) ที่อาจฝังในบางแผนภูมิ คุณสามารถใช้เมธอด [getEmbeddedWorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) บน [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) เพื่อตรวจสอบรูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น ตัวอย่างตรวจสอบรูปร่างบนสไลด์แรกของงานนำเสนอที่มีอยู่ ข้ามรูปร่างที่ไม่ใช่แผนภูมิ และพิมพ์ข้อความวินิจฉัยสำหรับแต่ละแผนภูมิที่ฝัง workbook .xlsb
+Aspose.Slides ไม่รองรับรูปแบบ workbook ไบนารีของ Excel (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้เมธอด `getEmbeddedWorkbookType` บน [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) ร่วมกับรุ่น [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น ตัวอย่างตรวจสอบรูปทรงบนสไลด์แรกของการนำเสนอที่มีอยู่ ข้ามรูปร่างที่ไม่ใช่แผนภูมิและพิมพ์ข้อความวินิจฉัยสำหรับแต่ละแผนภูมิที่มี workbook .xlsb ฝังอยู่
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,13 +381,13 @@ try {
 
 ## **Workbook ภายนอก**
 
-Aspose.Slides รองรับการใช้ workbook ภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
+Aspose.Slides รองรับการใช้ workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ
 
 ### **สร้าง Workbook ภายนอก**
 
-ใช้ [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#readWorkbookStream) และ [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) เพื่อส่งออก workbook ของแผนภูมิที่ฝังเป็นไฟล์และเชื่อมโยงแผนภูมิไปยัง workbook ภายนอกนั้น
+ใช้ [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) และ [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) เพื่อส่งออก workbook ของแผนภูมิที่ฝังเป็นไฟล์และเชื่อมแผนภูมิกับ workbook ภายนอกนั้น
 
-ตัวอย่างนี้สร้างแผนภูมิเส้นพายที่มีข้อมูลเริ่มต้นและส่งออก workbook ของมัน เสร็จสิ้นการเขียนไฟล์ก่อนกำหนด workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ, แล้วบันทึกงานนำเสนอที่ลิงก์ไว้
+ตัวอย่างนี้สร้างแผนภูมิพายด้วยข้อมูลเริ่มต้นและส่งออก workbook ของมัน เสร็จสิ้นการเขียนไฟล์ก่อนกำหนด workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ แล้วบันทึกการนำเสนอที่เชื่อมโยง
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -350,13 +414,13 @@ try {
 }
 ```
 
-### **ตั้งค่า Workbook ภายนอก**
+### **กำหนด Workbook ภายนอก**
 
-โดยใช้เมธอด [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) คุณสามารถกำหนด workbook ภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังใช้เพื่ออัปเดตเส้นทางไปยัง workbook ภายนอก (หากไฟล์ถูกย้าย)
+โดยใช้เมธอด [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) คุณสามารถกำหนด workbook ภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังใช้เพื่ออัปเดตเส้นทางไปยัง workbook ภายนอก (หากไฟล์ถูกย้าย)
 
-แม้คุณจะไม่สามารถแก้ไขข้อมูลใน workbook ที่จัดเก็บบนตำแหน่งระยะไกลหรือทรัพยากรได้, แต่คุณยังสามารถใช้ workbook เหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพัทธ์สำหรับ workbook ภายนอก, ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
+แม้ว่าจะไม่สามารถแก้ไขข้อมูลใน workbook ที่จัดเก็บในตำแหน่งระยะไกลหรือแหล่งทรัพยากรได้ คุณยังคงใช้ workbook ดังกล่าวเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางเชิงสัมพันธ์สำหรับ workbook ภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
 
-ตัวอย่างนี้ใช้ workbook ภายนอกที่ worksheet ชื่อ `Sheet1` มีชื่อ series ใน B1, ชื่อประเภทใน A2:A4, และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิเส้นพาย, ลิงก์ workbook, และใช้ [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setRange) เพื่อแมป A1:B4 ไปยัง series หนึ่งและประเภทสามประเภท บันทึกงานนำเสนอพร้อมแผนภูมิลิงก์
+ตัวอย่างนี้ใช้ workbook ภายนอกที่ worksheet ชื่อ `Sheet1` มีชื่อชุดข้อมูลใน B1, ชื่อหมวดใน A2:A4 และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิพาย เชื่อม workbook แล้วใช้ [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) เพื่อแมป A1:B4 ไปยังชุดข้อมูลหนึ่งชุดและสามหมวด บันทึกการนำเสนอพร้อมแผนภูมิที่เชื่อมโยง
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -379,12 +443,12 @@ try {
 }
 ```
 
-พารามิเตอร์ `updateChartData` ของเมธอด [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#setExternalWorkbook) ควบคุมว่าจะโหลด workbook หรือไม่
+พารามิเตอร์ `updateChartData` ของ [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) ควบคุมว่าจะโหลด workbook หรือไม่
 
-* เมื่อ `updateChartData` เป็น `false`, จะอัปเดตเฉพาะเส้นทางของ workbook เท่านั้น ข้อมูลแผนภูมิไม่ถูกโหลดหรืออัปเดตจาก workbook ปลายทาง, ดังนั้น workbook สามารถไม่มีอยู่ได้
-* เมื่อ `updateChartData` เป็น `true`, ข้อมูลแผนภูมิจะอัปเดตจาก workbook ปลายทาง
+* เมื่อ `updateChartData` เป็น `false` จะอัปเดตเฉพาะเส้นทางของ workbook เท่านั้น ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจาก workbook เป้าหมาย ดังนั้น workbook สามารถไม่มีอยู่ได้
+* เมื่อ `updateChartData` เป็น `true` ข้อมูลแผนภูมิจะได้รับการอัปเดตจาก workbook เป้าหมาย
 
-ตัวอย่างต่อไปกำหนด URL placeholder โดยตั้งค่า `updateChartData` เป็น `false`. จะรักษาข้อมูลเริ่มต้นของแผนภูมิพายและบันทึกงานนำเสนอโดยไม่ได้โหลด workbook ที่ไม่มีอยู่
+ตัวอย่างต่อไปกำหนด URL ตัวอย่างโดยตั้ง `updateChartData` เป็น `false` การนำเสนอยังคงมีข้อมูลพายเริ่มต้นและบันทึกโดยไม่โหลด workbook ที่ไม่มีอยู่
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -402,11 +466,11 @@ try {
 }
 ```
 
-### **ดึงเส้นทาง Workbook แหล่งข้อมูลภายนอกของแผนภูมิ**
+### **ดึงเส้นทาง Workbook ของแหล่งข้อมูลภายนอกของแผนภูมิ**
 
-เพื่อระบุ workbook ที่เชื่อมโยงกับแผนภูมิ, ตรวจสอบว่าแผนภูมิใช้แหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทาง workbook ของมัน
+เพื่อระบุ workbook ที่เชื่อมกับแผนภูมิ ตรวจสอบว่าแผนภูมิใช้แหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทาง workbook ของมัน
 
-ตัวอย่างนี้ตรวจสอบรูปร่างแรกบนสไลด์แรกของงานนำเสนอที่มี workbook ภายนอกเชื่อมโยง หากเป็นแผนภูมิที่เชื่อมกับ workbook ภายนอก, ตัวอย่างจะแสดงผล [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath) ไปยังคอนโซล จากนั้นบันทึกสำเนาของงานนำเสนอ
+ตัวอย่างนี้ตรวจสอบวัตถุปแรกบนสไลด์แรกของการนำเสนอที่มี workbook ภายนอกเชื่อมอยู่ หากเป็นแผนภูมิที่เชื่อมกับ workbook ภายนอก ตัวอย่างพิมพ์ [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) ลงคอนโซล แล้วบันทึกสำเนาของการนำเสนอ
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -436,9 +500,9 @@ try {
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลใน workbook ภายนอกได้เช่นเดียวกับการเปลี่ยนแปลงเนื้อหาใน workbook ภายใน หากไม่สามารถโหลด workbook ภายนอกได้, จะเกิดข้อยกเว้น
+คุณสามารถแก้ไขข้อมูลใน workbook ภายนอกได้เช่นเดียวกับที่ทำการเปลี่ยนแปลงใน workbook ภายใน เมื่อไม่สามารถโหลด workbook ภายนอกได้ ระบบจะโยนข้อยกเว้น
 
-ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและเชื่อมโยงกับ workbook ภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่อิงจากเซลล์ของจุดข้อมูลแรกใน series แรกเป็น 100 แล้วบันทึกงานนำเสนอที่อัปเดต การแก้ไขค่าของเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมโยง, ดังนั้นให้ใช้สำเนาหากต้องการเก็บ workbook ดั้งเดิมไว้
+ตัวอย่างนี้ใช้แผนภูมิที่เป็นวัตถุปแรกบนสไลด์แรกและเชื่อมกับ workbook ภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่สนับสนุนโดยเซลล์ของจุดข้อมูลแรกในชุดข้อมูลแรกเป็น 100 แล้วบันทึกการนำเสนอที่อัปเดต การแก้ไขค่าจากเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมไว้ ดังนั้นควรใช้สำเนาหากต้องการรักษา workbook ดั้งเดิม
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -473,9 +537,9 @@ try {
 
 ### **กู้คืน Workbook จากแคชของแผนภูมิ**
 
-หากแผนภูมิใช้ workbook ภายนอกที่หายไปหรือไม่มีให้ใช้งาน, Aspose.Slides สามารถสร้างใหม่ workbook ของแผนภูมิจากข้อมูลที่แคชไว้ในงานนำเสนอ สร้าง [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), เรียก [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions), แล้วตั้งค่า [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) เป็น `true` ก่อนเปิดงานนำเสนอ
+หากแผนภูมิใช้ workbook ภายนอกที่หายไปหรือไม่มีอยู่ Aspose.Slides สามารถสร้าง workbook ของแผนภูมิจากข้อมูลที่แคชไว้ในไฟล์การนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), เรียก [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/), และตั้งค่า [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) เป็น `true` ก่อนเปิดการนำเสนอ
 
-ตัวอย่าง JavaScript ด้านล่างกู้คืนข้อมูล workbook สำหรับแผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและอ้างอิง workbook ภายนอกที่ไม่มีให้ใช้งาน เข้าถึงข้อมูลที่กู้คืนผ่าน [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getChartData) และ [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+ตัวอย่าง JavaScript ด้านล่างกู้คืนข้อมูล workbook สำหรับแผนภูมิที่เป็นวัตถุปแรกบนสไลด์แรกและอ้างอิง workbook ภายนอกที่ไม่มีอยู่ เข้าถึงข้อมูลที่กู้คืนผ่าน [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) และ [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -505,30 +569,30 @@ try {
 }
 ```
 
-หาก workbook ภายนอกไม่มีให้ใช้งานและการกู้คืนถูกปิด, Aspose.Slides จะโยนข้อยกเว้น เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแคชของแผนภูมิเป็นวิธีสำรองที่ยอมรับได้, เพราะแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับ workbook ภายนอกหลังจากที่งานนำเสนออัปเดตครั้งสุดท้าย
+หาก workbook ภายนอกไม่มีอยู่และการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยนข้อยกเว้น เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแคชของแผนภูมิเพื่อเป็นวิธีสำรองที่ยอมรับได้ เพราะแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับ workbook ภายนอกหลังจากการนำเสนออัปเดตครั้งสุดท้าย
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถตรวจสอบได้หรือไม่ว่าแผนภูมิใดเชื่อมโยงกับ workbook ภายนอกหรือที่ฝังอยู่?**
+**ฉันจะตรวจสอบได้หรือไม่ว่าแผนภูมิเฉพาะเชื่อมกับ workbook ภายนอกหรือที่ฝังไว้?**
 
-ได้. แผนภูมิมี [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getDataSourceType) และ [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath); หากแหล่งเป็น workbook ภายนอก, คุณสามารถอ่านเส้นทางเต็มเพื่อให้แน่ใจว่าไฟล์ภายนอกกำลังถูกใช้
+ได้. แผนภูมิมี [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) และ [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); หากแหล่งเป็น workbook ภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าใช้ไฟล์ภายนอกหรือไม่
 
-**รองรับเส้นทางสัมพัทธ์ไปยัง workbook ภายนอกหรือไม่, แล้วจัดเก็บอย่างไร?**
+**รองรับเส้นทางเชิงสัมพันธ์ไปยัง workbook ภายนอกหรือไม่และเก็บอย่างไร?**
 
-ได้. หากคุณระบุเส้นทางสัมพัทธ์, ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ งานนำเสนอเก็บเส้นทางเต็มในไฟล์ PPTX, ดังนั้นการย้าย workbook อาจต้องอัปเดตลิงก์
+รองรับ. หากระบุเส้นทางเชิงสัมพันธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ การนำเสนอเก็บเส้นทางเต็มในไฟล์ PPTX ดังนั้นการย้าย workbook อาจต้องอัปเดตลิงก์
 
 **ฉันสามารถใช้ workbook ที่อยู่บนทรัพยากรเครือข่าย/แชร์ได้หรือไม่?**
 
-ได้, workbook เหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม, การแก้ไข workbook ระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน – สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+ได้, workbook ดังกล่าวสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตามการแก้ไข workbook ระยะไกลโดยตรงจาก Aspose.Slides ไม่รองรับ – สามารถใช้เป็นแหล่งข้อมูลได้เท่านั้น
 
-**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกงานนำเสนอหรือไม่?**
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกการนำเสนอหรือไม่?**
 
-งานนำเสนอเก็บ [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/#getExternalWorkbookPath). การแก้ไขข้อมูลแผนภูมิที่อิงเซลล์อาจอัปเดตไฟล์ XLSX ภายในเครื่องที่เชื่อมโยง ใช้สำเนาของ workbook หากต้องการให้ไฟล์ต้นฉบับคงเดิม
+การนำเสนอเก็บ [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). การแก้ไขค่าที่สนับสนุนโดยเซลล์ของแผนภูมิอาจอัปเดตไฟล์ XLSX ภายในที่เชื่อมอยู่ ใช้สำเนาของ workbook หากต้องการให้ไฟล์ต้นฉบับคงที่
 
-**ถ้าไฟล์ภายนอกถูกตั้งรหัสผ่านควรทำอย่างไร?**
+**จะทำอย่างไรหากไฟล์ภายนอกถูกตั้งรหัสผ่าน?**
 
-Aspose.Slides ไม่รับพาสเวิร์ดเมื่อทำการลิงก์ วิธีทั่วไปคือถอดรหัสล่วงหน้าหรือเตรียมสำเนาที่ไม่ได้เข้ารหัส (เช่น ใช้ [Aspose.Cells](https://reference.aspose.com/cells/java/)) แล้วลิงก์ไปยังสำเนานั้น
+Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการเชื่อมโยง วิธีทั่วไปคือเอาการป้องกันออกล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสแล้ว (เช่นโดยใช้ [Aspose.Cells](https://reference.aspose.com/cells/java/)) แล้วเชื่อมโยงไปยังสำเนานั้น
 
 **หลายแผนภูมิสามารถอ้างอิง workbook ภายนอกเดียวกันได้หรือไม่?**
 
-ได้. แต่ละแผนภูมิเก็บลิงก์ของมันเอง หากทุกแผนภูมิอ้างอิงไฟล์เดียวกัน, การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งถัดไปที่โหลดข้อมูล
+ได้. แต่ละแผนภูมิเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิเมื่่อโหลดข้อมูลใหม่อีกครั้ง

@@ -1,29 +1,29 @@
 ---
-title: Android のプレゼンテーションでチャート データ ラベルを管理する
+title: Android でのプレゼンテーションにおけるチャート データ ラベルの管理
 linktitle: データ ラベル
 type: docs
 url: /ja/androidjava/chart-data-label/
 keywords:
 - チャート
 - データ ラベル
-- データ精度
+- データ 精度
 - パーセンテージ
-- ラベル距離
-- ラベル位置
+- ラベル 距離
+- ラベル 位置
 - PowerPoint
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を Java で使用し、PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定して、より魅力的なスライドを作成する方法を学びます。"
+description: "Aspose.Slides for Android を Java で使用し、PowerPoint プレゼンテーションにチャート データ ラベルを追加・書式設定して、より魅力的なスライドを作成する方法を学びます。"
 ---
 ## **はじめに**
 
-データ ラベルは、チャートのシリーズと個々のデータ ポイントに関する情報を表示し、読者が値を識別しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、軸の最大値を超えたラベルの制御、カテゴリ 軸ラベルの間隔調整、そして円グラフラベルの位置決め方法について説明します。
+データ ラベルは、チャートの系列や個々のデータ ポイントに関する情報を表示し、読者が値を識別しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、軸の最大値を超えるラベルの制御、カテゴリ軸ラベルの間隔調整、円グラフラベルの位置設定について説明します。
 
-## **チャート データ ラベルのデータ精度を設定する**
+## **チャート データ ラベルでデータの精度を設定する**
 
-シリーズの値の書式設定には、[setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) を使用します。この例では、デフォルト データで折れ線グラフを作成し、データ テーブルを表示し、最初のシリーズの値ラベルを有効にします。書式 `#,##0.00` は、千位区切りと小数点以下 2 桁を表示し、基礎となる値は変更しません。
+Use [setNumberFormatOfValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
 ```java
 import com.aspose.slides.*;
@@ -45,9 +45,11 @@ try {
 }
 ```
 
-## **パーセンテージをラベルとして表示する**
+To format the numeric cells in a chart's embedded workbook, see [ワークブック セルのカスタム数値形式の設定](/slides/ja/androidjava/chart-workbook/#set-custom-number-formats-for-workbook-cells). That example also shows value labels following their source cell formats while preserving the stored numeric values.
 
-積み上げ縦棒グラフの場合、各値をそのカテゴリ合計のパーセンテージとして計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) が返すテキストフレームにテキストを割り当てます。この例ではデフォルトのチャート データを使用し、8 ポイント フォントで小数点以下 2 桁のパーセンテージを表示します。合計がゼロのカテゴリは、除算エラーを防ぐためにスキップされます。チャート データが変更された場合は、カスタム ラベル テキストを再計算してください。
+## **ラベルとしてパーセンテージを表示する**
+
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
 
 ```java
 import com.aspose.slides.*;
@@ -106,9 +108,9 @@ try {
 
 ## **チャート データ ラベルでパーセンテージ記号を設定する**
 
-値が分数で格納されている場合、[setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) を使用してパーセンテージを表示します。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) に `false` を渡すと、ソースセルとは独立してラベル書式を適用できます。
+When values are stored as fractions, use [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) to display percentages. Pass `false` to [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) to apply the label format independently of the source cells.
 
-この例では、4 つのカテゴリにわたって赤と青のシリーズを持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値は合計で 1 になります。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下 2 桁を使用します。両シリーズとも白色の 10 ポイント ラベル テキストを使用します。
+This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
 ```java
 import com.aspose.slides.*;
@@ -165,7 +167,7 @@ try {
 
 ## **データ ラベルの実際のテキストを取得する**
 
-[data label settings] が生成するテキストを取得するには、[getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) を使用します。これは、レポート用にラベルを抽出したり、プレゼンテーション コンテンツを検索したり、生成されたチャートを検証したりする際に便利です。下の例では、デフォルトの[data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) が各カテゴリ名、シリーズ名、値を組み合わせます。あるポイントは値をパーセンテージで書式設定し、別のポイントは [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) から取得したカスタム テキストを使用します。
+Use [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [getTextFrameForOverriding](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
 import com.aspose.slides.*;
@@ -225,15 +227,15 @@ try {
 }
 ```
 
-データ ポイントに格納されている数値は `0.75` のままですが、ラベルはカテゴリ名とシリーズ名に加えて `75%` と表示されます。カスタム テキストは生成されたラベル テキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) は、どちらの場合でも結果のラベル文字列を返します。表示されているラベルだけを抽出したい場合は、上記のように [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) を別途確認してください。
+The number stored in a data point remains `0.75`, even when its label shows `75%` along with the category and series names. Custom text replaces the generated label text. [getActualLabelText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) returns the resulting label string in either case. Check [isVisible](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabel/#isVisible--) separately, as shown above, when you want to extract only visible labels.
 
 ## **軸の最大値を超えるデータ ラベルを制御する**
 
-軸範囲を手動で制限すると、いくつかのデータ ポイントが最大値を超えることがあります。[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) を使用して、これらのデータ ラベルを表示するかどうかを制御します。この設定はラベルの表示/非表示を変更しますが、軸範囲や基礎データの値は変更しません。
+When you limit an axis range manually, some data points may exceed its maximum. Use [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setShowDataLabelsOverMaximum-boolean-) to control whether their data labels are shown. This setting changes label visibility; it does not change the axis range or the underlying data values.
 
-以下の例では、値が 60 と 120 の 2D クラスタ化縦棒グラフを作成します。縦軸では [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) に `false` を渡し、[setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) で最大値を 100 に設定しています。最初のスライドは最大値を超えるラベルを許可し、コピーされたスライドはそれらを無効化します。両方のスライドは `DataLabelsOverMaximum.pptx` に保存されます。
+The example below creates a 2D clustered column chart with values of 60 and 120. It passes `false` to [setAutomaticMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticMaxValue-boolean-) and sets the maximum to 100 with [setMaxValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setMaxValue-double-) on the vertical axis. The first slide allows labels beyond the maximum; a copy of that slide disables them. Both slides are saved in `DataLabelsOverMaximum.pptx`.
 
-値ラベルは [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) で有効化します。チャート レベルの設定だけでは個々のラベルの表示を強制せず、個別に無効化された値表示も上書きしません。この例ではシリーズ全体の値を有効にし、[setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) を使用して各列の外側端にラベルを配置します。
+Enable value labels with [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). The chart-level setting does not enable value display by itself or override an individual label's disabled value display. This example enables values for the entire series and uses [setPosition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setPosition-int-) to place labels at the outside end of each column.
 
 ```java
 import com.aspose.slides.*;
@@ -282,19 +284,19 @@ try {
 }
 ```
 
-以下の画像は Microsoft PowerPoint でレンダリングされた保存スライドです。`true` の場合、ラベル **120** が上端に表示され、`false` の場合は非表示になります。ラベル **60** は常に表示され、軸の最大値は **100** のままで、2 番目のデータ ポイントはどちらの場合も **120** のままです。
+The following images show the saved slides rendered by Microsoft PowerPoint. With `true`, the label **120** is visible at the upper boundary; with `false`, it is hidden. The label **60** remains visible, the axis maximum stays at **100**, and the second data point remains **120** in both cases.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![軸の最大値が 100 のとき、値ラベル 120 を表示した PowerPoint のチャート](data-labels-over-maximum-true.png) | ![軸の最大値が 100 のとき、値ラベル 120 を非表示にした PowerPoint のチャート](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-この例は値軸を持つ 2D 縦棒グラフを使用しています。円グラフやドーナツ グラフのように値軸がないチャートは、この方法で制限できる軸の最大値を持ちません。
+This example uses a 2D column chart with a value axis. Charts without a value axis, such as pie and doughnut charts, do not have an axis maximum to limit in this way.
 {{% /alert %}}
 
-## **軸からラベルまでの距離を設定する**
+## **軸からのラベル距離を設定する**
 
-[setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) を使用して、カテゴリ軸ラベルと軸との距離を制御します。値は軸ラベルの最大フォント サイズのパーセンテージです。この例ではクラスタ化縦棒グラフを作成し、水平軸ラベルオフセットを 500 に設定します。この設定は個々のデータ ポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
+Use [setLabelOffset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
 ```java
 import com.aspose.slides.*;
@@ -312,11 +314,11 @@ try {
 }
 ```
 
-## **ラベルの位置を調整する**
+## **ラベル位置の調整**
 
-円グラフでは、データ ラベルの位置を調整して間隔を確保し、リーダーライン用の余白を作ります。
+On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
 
-この例では、最初のデータ ポイントの値を表示し、ラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) と [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) を使用して水平および垂直オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対値です。
+This example displays the value of the first data point, places its label outside the slice, and adjusts its horizontal and vertical offsets using [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) and [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-). These offsets are relative to the chart width and height, respectively.
 
 ```java
 import com.aspose.slides.*;
@@ -340,17 +342,17 @@ try {
 }
 ```
 
-![調整されたデータ ラベル位置の円グラフ](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **リーダーラインの書式設定**
+## **リーダー ラインの書式設定**
 
-円グラフのラベルがスライスの外側に配置されている場合、リーダーラインは各値と対応したスライスを結び付けるのに役立ちます。コントラストのある色とやや太めの線にすると、接続が視覚的に分かりやすくなります。一方、透明度と破線スタイルを使用すれば、ラインが目立ちすぎないように抑えられます。
+When pie chart labels sit outside their slices, leader lines help readers match each value to the correct slice. A contrasting color and a slightly thicker line can make these connections easier to follow, while transparency and a dashed style keep the lines visually unobtrusive.
 
-リーダーラインは、シリーズのデータ ラベル コレクションレベルで [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) を使用して書式設定します。`series.getLabels().getLeaderLinesFormat().getLine()` の設定は個々のラベルではなく、コレクション全体に適用されます。
+Use [getLeaderLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelcollection/#getLeaderLinesFormat--) to format leader lines at the series' data label collection level. The settings in `series.getLabels().getLeaderLinesFormat().getLine()` apply to the collection, rather than to an individual label.
 
-この例では、デフォルト データの円グラフを作成し、スライスの外側に値を表示し、[setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-) を有効化します。[setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) と [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) のオフセットで 2 つのラベルをスライスから遠ざけます。入力プレゼンテーションは不要です。
+This example creates a pie chart with default data, displays values outside the slices, and enables [setShowLeaderLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowLeaderLines-boolean-). It moves two labels farther from their slices using [setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setX-float-) and [setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutable/#setY-float-) offsets, expressed as fractions of the chart width and height. No input presentation is required.
 
-ラインの [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) は、不透明度 191/255 のソリッド ブルーカラーを設定し、約 25% の透明度になります。[setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) で太さを 2 ポイントに、[setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) で破線にします。
+The line's [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) sets a solid blue color with an alpha value of 191 out of 255, giving approximately 25% transparency. [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) sets the thickness to 2 points, and [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) makes the line dashed.
 
 ```java
 import com.aspose.slides.*;
@@ -370,7 +372,7 @@ try {
     labelFormat.setPosition(LegendDataLabelPosition.OutsideEnd);
     labelFormat.setShowLeaderLines(true);
 
-    // ラベル2つをスライスからさらに離す。
+    // 2つのラベルをスライスからさらに遠くに移動します。
     series.getLabels().get_Item(0).setX(0.10f);
     series.getLabels().get_Item(0).setY(-0.05f);
     series.getLabels().get_Item(1).setX(-0.10f);
@@ -388,17 +390,17 @@ try {
 }
 ```
 
-リーダーラインを有効にしても、すべてのラベルにラインが表示されるわけではありません。表示はラベルの配置とチャートのレイアウト動作に依存します。この例では、離れた 2 つのラベルに可視なリーダーラインがあり、スライスに近いラベルはラインを必要としません。
+Enabling leader lines does not guarantee that a line will appear for every label. Visibility depends on label placement and the chart's layout behavior. In this example, the two displaced labels have visible leader lines; the labels that remain close to their slices do not need them.
 
-以下の画像は Aspose.Slides でレンダリングされた保存済み `FormattedLeaderLines.pptx` です。
+The following image shows the saved `FormattedLeaderLines.pptx` rendered with Aspose.Slides:
 
-![外側ラベル 2 つをそれぞれのスライスに接続する、青色の半透明破線リーダーラインを持つ円グラフ](formatted-leader-lines.png)
+![Pie chart with blue, semitransparent dashed leader lines connecting two outside labels to their slices](formatted-leader-lines.png)
 
-## **列グラフの上に複数行のデータ ラベルを追加する**
+## **列チャートの上に複数行のデータ ラベルを追加する**
 
-この例では、プロット領域の上に 2 行のデータ ラベルを持つ列グラフを作成します。Series A は可視列を表示し、Series B と Series C が追加ラベルを提供します。列は塗りつぶしと輪郭を削除して非表示にします。[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) メソッドにより、3 つのシリーズすべてが同じカテゴリ中心に揃えられます。
+This example creates a column chart with two rows of data labels above the plot area. Series A displays the visible columns, while Series B and Series C provide the additional labels. Their columns are hidden by removing the fill and outline. The [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseriesgroup/#setOverlap-byte-) method aligns all three series with the same category centers.
 
-[ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) の設定でラベル行用のスペースを確保します。[Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) がデフォルト位置を計算した後、[DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) と [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) が水平揃えを保持し、垂直オフセットを適用してラベルを 2 行に配置します。数値はシリーズ値にリンクしたデータ ラベルのままで、行見出しだけが別個のテキスト シェイプです。
+The [ChartPlotArea](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartplotarea/) settings reserve space for the label rows. After [Chart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#validateChartLayout--) calculates the default positions, [DataLabel.setX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setX-float-) and [DataLabel.setY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datalabel/#setY-float-) preserve the horizontal alignment and apply vertical offsets to arrange the labels in two rows. The numbers remain data labels linked to the series values; only the row headings are separate text shapes.
 
 ```java
 import com.aspose.slides.*;
@@ -442,7 +444,7 @@ try {
         }
 
         if (seriesIndex > 0) {
-            // B と C の列を非表示にするが、データラベルは保持する。
+            // B と C の列を非表示にしますが、データ ラベルは保持します。
             series.getFormat().getFill().setFillType(FillType.NoFill);
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
             series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
@@ -454,14 +456,14 @@ try {
         }
     }
 
-    // 3 つのシリーズすべてを同じカテゴリ中心に合わせる。
+    // 3 つの系列すべてを同じカテゴリ中心に揃えます。
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap((byte) 100);
 
-    // このコンパクトな例では目盛線を少なくする。
+    // このコンパクトな例ではグリッド線を少なくします。
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
     chart.getAxes().getVerticalAxis().setMajorUnit(10);
 
-    // プロット上部にデータラベル用の 2 行分のスペースを確保する。
+    // プロット上部にデータ ラベル用の 2 行分のスペースを確保します。
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
     chart.getPlotArea().setX(0.15f);
     chart.getPlotArea().setY(0.32f);
@@ -475,13 +477,13 @@ try {
 
         for (int categoryIndex = 0; categoryIndex < categories.length; categoryIndex++) {
             IDataLabel dataLabel = series.getDataPoints().get_Item(categoryIndex).getLabel();
-            // デフォルトの水平位置を保持する。Y は次からのオフセット
-            // デフォルトラベル位置で、チャート高さの比率で表す。
+            // デフォルトの水平位置を保持します。Y は次からのオフセットです
+            // デフォルト ラベル位置へのオフセットで、チャートの高さの割合として表されます。
             dataLabel.setX(0);
             dataLabel.setY(rowTop - dataLabel.getActualY() / chart.getHeight());
         }
 
-        // 行見出しだけが別個のテキストシェイプになる。
+        // 行見出しだけが別個のテキスト シェイプです。
         IAutoShape rowHeading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), chart.getY() + rowTop * chart.getHeight(), 85, 18);
         rowHeading.getFillFormat().setFillType(FillType.NoFill);
         rowHeading.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
@@ -500,15 +502,15 @@ try {
 }
 ```
 
-![プロット領域の上に 2 行のデータ ラベルを持つ列グラフ](multiple-rows-of-labels.png)
+![Column chart with two rows of data labels above the plot area](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**密集したチャートでデータ ラベルが重なるのを防ぐにはどうすればよいですか？**  
-自動ラベル配置、リーダーライン、フォント サイズの縮小を組み合わせます。必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要ポイントのみラベルを表示します。
+**データ ラベルが密集したチャートで重なるのを防止するにはどうすればよいですか？**  
+自動ラベル配置、リーダー ライン、フォントサイズの縮小を組み合わせ、必要に応じて一部の項目（例: カテゴリ）を非表示にするか、極端な値や重要なポイントのみラベルを表示します。
 
-**ゼロ、負、または空の値に対してだけラベルを無効にするにはどうすればよいですか？**  
-ラベルを有効化する前にデータ ポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを設定します。
+**ゼロ、負、または空の値に対してラベルだけを無効にするにはどうすればよいですか？**  
+ラベルを有効にする前にデータ ポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを適用します。
 
-**PDF/画像にエクスポートする際にラベルのスタイルを一貫させるにはどうすればよいですか？**  
-フォント ファミリとサイズを明示的に設定し、レンダリング環境にそのフォントが存在することを確認してフォールバックを防止します。
+**PDF/画像にエクスポートする際に一貫したラベルスタイルを確保するにはどうすればよいですか？**  
+フォントファミリとサイズを明示的に設定し、レンダリング環境にフォントが存在することを確認してフォントのフォールバックを防止します。

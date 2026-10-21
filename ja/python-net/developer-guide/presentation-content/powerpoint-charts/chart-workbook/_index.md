@@ -14,26 +14,26 @@ keywords:
 - 外部ワークブック
 - 外部データ
 - チャート キャッシュ
-- ワークブック 復元
+- ワークブック 復旧
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使って、PowerPoint と OpenDocument 形式のチャート ワークブックを簡単に管理し、プレゼンテーション データを効率化しましょう。"
+description: "Aspose.Slides for Python via .NET を使って、PowerPoint や OpenDocument 形式のチャート ワークブックを簡単に管理し、プレゼンテーション データを効率化しましょう。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides でチャートワークブックを操作する方法を説明します。ワークブック ストリームを介してチャート データの読み書き、ワークブック セルをチャート データ ラベルとして使用、ワークシート コレクションへのアクセス、チャート値のデータ ソース タイプの指定方法を示します。
+このドキュメントでは Aspose.Slides におけるチャート ワークブックの操作方法を説明します。ワークブック ストリームを介したチャート データの読み込みと書き込み、ワークブック セルをチャート データ ラベルとして使用、ワークシート コレクションへのアクセス、チャート 値のデータ ソース タイプの指定方法を示します。
 
-また、外部ワークブックをチャートのデータ ソースとして使用する方法も扱います。例では、外部ワークブックの作成と割り当て、チャートにリンクされた外部ワークブックのパス取得、ワークブックが利用可能な場合のチャート データの編集方法を示します。
+また、外部ワークブックをチャート データ ソースとして使用する方法も取り上げます。例では外部ワークブックの作成と割り当て、チャートにリンクされた外部ワークブックのパス取得、ワークブックが利用可能な場合のチャート データ編集を実演します。
 
-ワークブック セルが欠落データを表す場合は、[空のセルの表示制御](/slides/ja/python-net/chart-series/) を参照して、空のセルとゼロの違い、および利用可能な表示モードの折れ線グラフ比較をご確認ください。
+欠損データを表すワークブック セルについては、[Control the Display of Empty Cells](/slides/ja/python-net/chart-series/) を参照し、空セルとゼロの違い、利用可能な表示モードの折れ線グラフ比較をご確認ください。
 
 ## **非表示の行と列からデータを含める**
 
-[Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) を使用して、チャートが非表示のワークシート 行と列のデータをプロットするかどうかを制御します。`True` に設定すると表示セルのみをプロットし、`False` に設定すると表示セルと非表示セルの両方を含めます。この設定はチャートのプロットにのみ影響し、ワークシートの行や列を非表示または表示にするものではありません。
+[Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) を使用して、チャートが非表示のワークシート行および列のデータをプロットするかどうかを制御します。`True` に設定すると表示セルのみをプロットし、`False` に設定すると表示セルと非表示セルの両方を含めます。この設定はチャートのプロットにのみ影響し、ワークシートの行や列を非表示にしたり表示にしたりはしません。
 
-[sample presentation](hidden-source-data.pptx) には、最初のスライドの最初の形状として列グラフが含まれています。埋め込みワークシート `Sheet1` には次のソース範囲 `A1:C4` が含まれます。行 3 と列 C は非表示ですが、セルには値が保持されています。
+[sample presentation](hidden-source-data.pptx) には、最初のスライドの最初のシェイプとして列チャートが含まれています。埋め込みワークシート `Sheet1` にはソース範囲 `A1:C4` があり、行 3 と列 C は非表示ですが、セルには値が保持されています。
 
 | ワークシート行 | A: 月 | B: 小売 | C: 卸売 (非表示列) |
 | --- | --- | --- | --- |
@@ -41,9 +41,9 @@ description: "Aspose.Slides for Python via .NET を使って、PowerPoint と Op
 | 3 (非表示行) | 2月 | 40 | 60 |
 | 4 | 3月 | 20 | 50 |
 
-[ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) でソースセルにアクセスし、[ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) で非表示状態を確認します。このプロパティは読み取り専用です。このファイルでは B2 が表示、B3 が非表示行に属し、C2 が非表示列に属します。例ではそれぞれ `False`、`True`、`True` が出力されます。
+[ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) でソースセルにアクセスし、[ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) で非表示ステータスを確認します。このプロパティは読み取り専用です。このサンプルでは B2 が表示、B3 が非表示行に属し、C2 が非表示列に属します。例はそれぞれ `False`, `True`, `True` を出力します。
 
-この例では、プロット設定を変更した後にチャート データを更新します: 埋め込みワークブックを [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) で取得し、[write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) で再ロードします。すべてのセルを含める場合は、[set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) を使用して非表示の 2 月カテゴリを含む完全な範囲を復元します。フラグだけを変更しても、このサンプルのキャッシュされたチャート データとカテゴリ ラベルは更新されません。
+この例では、プロット設定を変更した後にチャート データを更新します: [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) で埋め込みワークブックを保持し、[write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) で再ロードします。すべてのセルを含める場合は、[set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) を使用して非表示の 2 月カテゴリを含む完全な範囲を復元します。フラグだけを変更しても、このサンプルのキャッシュされたチャート データおよびカテゴリ ラベルは更新されません。
 
 ```python
 import aspose.slides as slides
@@ -75,21 +75,21 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-例では、表示セルのみ（10 と 20）のプレゼンテーションと、すべての 6 つの値を含むプレゼンテーションの 2 つのバージョンを保存します。下の画像は、保存後に再度開いたプレゼンテーションからレンダリングしたもので、両方のファイルとも割り当てられたプロット設定を保持しています。行 3 と列 C は両方の埋め込みワークブックで非表示のままです。
+例はプレゼンテーションを 2 つのバージョンで保存します。1 つは表示セルのみ（小売値 10 と 20）で、もう 1 つはすべての 6 つの値を含みます。下の画像は再度開いた保存済みプレゼンテーションからレンダリングしたもので、両方のファイルが割り当てられたプロット設定を保持しています。行 3 と列 C は両方の埋め込みワークブックで非表示のままです。
 
 | 表示セルのみ (`True`) | すべてのセル (`False`) |
 | --- | --- |
-| ![表示セルのみ: 1月と3月の小売値 10 と 20.](hidden_cells_True.png) | ![すべてのセル: 1月、2月、3月の小売および卸売値.](hidden_cells_False.png) |
+| ![表示セルのみ: 1月と3月の小売値 10 と 20.](hidden_cells_True.png) | ![すべてのセル: 1月、2月、3月の小売と卸売の値.](hidden_cells_False.png) |
 
-値を持つ非表示セルは空のセルとは異なります。[Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) は欠落値の表示方法を制御しますが、非表示のソース データを含めたり除外したりはしません。[空のセルの表示制御](/slides/ja/python-net/chart-series/#control-the-display-of-empty-cells) を参照してください。
+値を含む非表示セルは空セルとは異なります。[Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) は欠損値の表示方法を制御しますが、非表示ソース データの含有・除外は行いません。例については [Control the Display of Empty Cells](/slides/ja/python-net/chart-series/#control-the-display-of-empty-cells) を参照してください。
 
-## **チャートのデータ範囲の取得**
+## **チャートのデータ範囲を取得する**
 
-既存のプレゼンテーションでワークブック データを更新する前に、ソース範囲を確認して各チャートが使用しているワークシート セルを特定します。[ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) メソッドは、現在のデータ範囲をワークシート限定の数式として返します（例: `Sheet1!$A$1:$D$5`）。ここで `Sheet1` はワークシート名、`!` はセル範囲から区切り、`$A$1:$D$5` は A1 から D5 までのセルを絶対参照で示しています。
+既存のプレゼンテーションでワークブック データを更新する前に、各チャートが使用しているワークシート セルのソース範囲を確認してください。[ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) メソッドは現在のデータ範囲をワークシート限定の数式として返します（例: `Sheet1!$A$1:$D$5`）。ここで `Sheet1` はワークシート名、`!` がセル範囲と分離し、`$A$1:$D$5` が絶対参照のセル範囲を示します。
 
-このメソッドはチャートやワークブックを変更せずに現在の範囲を取得します。チャートがワークブックをデータ ソースとして使用していない場合は例外がスローされます。詳細は [ChartData API リファレンス](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) を参照してください。
+このメソッドはチャートやワークブックを変更せずに現在の範囲を取得します。チャートがワークブックをデータ ソースとして使用していない場合は例外がスローされます。詳細は [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) を参照してください。
 
-この例ではプレゼンテーションを開き、各スライドの形状を直接チェックしてチャートを探します。各チャートの名前とソース範囲を出力し、範囲が取得できない場合は診断メッセージを表示して次のチャートへ進みます。
+この例ではプレゼンテーションを開き、各スライドのシェイプを直接走査してチャートを探します。チャート名とソース範囲を出力し、範囲が取得できない場合は診断メッセージを出力して次のチャートへ進みます。
 
 ```python
 import aspose.slides as slides
@@ -106,11 +106,11 @@ with slides.Presentation("presentation.pptx") as presentation:
                     print(f"{shape.name}: Unable to retrieve the chart data range. {error}")
 ```
 
-## **ワークブックからチャート データの読み書き**
+## **ワークブックからチャート データを読み書きする**
 
-Aspose.Slides for Python via .NET は、[read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) と [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) メソッドを提供し、チャート データワークブック（Aspose.Cells で編集されたチャート データを含む）の読み書きが可能です。**Note** チャート データは同じ構造であるか、ソースに類似した構造である必要があります。
+Aspose.Slides for Python via .NET は、[read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) および [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) メソッドを提供し、チャート データ ワークブック（Aspose.Cells で編集されたデータを含む）を読み書きできます。**注**: チャート データは同じ形式で配置するか、ソースに類似した構造である必要があります。
 
-この例では、最初のスライドの最初の形状としてチャートを含むプレゼンテーションを使用します。埋め込みワークブックをストリームに読み取り、既存の系列とカテゴリをクリアし、同じワークブックを再度書き戻します。変更はメモリ上に残り、プレゼンテーションは保存されません。
+この例は最初のスライドの最初のシェイプとしてチャートを含むプレゼンテーションを使用します。埋め込みワークブックをストリームに読み込み、既存の系列とカテゴリをクリアし、同じワークブックを書き戻します。変更はメモリ内に残り、プレゼンテーションは保存しません。
 
 ```python
 import aspose.slides as slides
@@ -133,9 +133,9 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **ワークブック変更後のチャート レイアウト検証**
+### **ワークブック変更後のチャート レイアウトを検証する**
 
-埋め込みワークブックを変更済みのものに置き換えると、チャートは元の系列とカテゴリコレクションを保持したままになります。この不一致により [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) がインデックス範囲外エラーで失敗することがあります。更新したワークブックを書き戻す前に既存の系列とカテゴリをクリアしてください。この例では最初のスライドの最初の形状としてチャートを使用します。コメントはワークブック編集が行われる場所を示しています。実行可能な例は元のワークブックを書き戻し、メモリ上でレイアウトを検証します。
+埋め込みワークブックを変更版に差し替えると、チャートは元の系列とカテゴリ コレクションを保持します。この不一致により [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) がインデックス範囲外エラーで失敗することがあります。更新されたワークブックを書き戻す前に既存の系列とカテゴリをクリアしてください。この例は最初のスライドの最初のシェイプとしてチャートを使用します。コメントはワークブック編集が行われる場所を示しています。実行可能な例は元のワークブックを書き戻し、メモリ内でレイアウトを検証します。
 
 ```python
 import aspose.slides as slides
@@ -149,8 +149,7 @@ with slides.Presentation("chart.pptx") as presentation:
         chart_data = chart.chart_data
         workbook_stream = chart_data.read_workbook_stream()
 
-        # ここでワークブック ストリームを変更します。例として Aspose.Cells を使用します。
-
+        # ここでワークブック ストリームを変更します（例: Aspose.Cells を使用）。
         chart_data.series.clear()
         chart_data.categories.clear()
 
@@ -161,13 +160,74 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-コレクションをクリアすると、ワークブックを書き戻す前に古いデータ参照が除去されます。更新されたワークブックに対して必要な系列とカテゴリのマッピングを再構築してください。
+コレクションをクリアすると、ワークブックを書き戻す前に古いデータ参照が除去されます。更新されたワークブックに対して必要な系列およびカテゴリ マッピングを再構築してからチャートを使用してください。
 
-## **ワークブック セルをチャート データ ラベルとして設定**
+## **ワークブック セルのカスタム数値書式を設定する**
+
+[ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) を使用して、チャートの埋め込みワークブック内の数値の表示形式を制御できます。例として、変換率を小数点以下 4 桁のパーセンテージで、係数を小数点以下 5 桁で表示したい場合があります。両方の値は数値のまま保持し、計算やチャート プロットに利用できるようにします。
+
+数値書式は表示を変更するだけで、保存される値は変わりません。書式 `0.0000%` は `0.125` を `12.5000%` と表示しますが、保存された数値は `0.125` のままです。同様に `0.00000` は `0.1234567` を `0.12346` と表示しますが、保存値は丸められません。カスタム書式が空文字列 (`""`) の場合は、[preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) が使用されます。
+
+以下の例は列チャートを作成し、[ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) を介してセルにアクセスします。ワークシート 0 の B2 に変換率、C2 に係数が格納され、両方のセルがチャート値として使用されます。例ではソース書式にリンクした値ラベルも有効にしています。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(720, 270, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 20, 620, 210)
+    chart.has_title = False
+
+    chart.axes.vertical_axis.is_number_format_linked_to_source = False
+    chart.axes.vertical_axis.number_format = "0.00"
+    chart.axes.vertical_axis.is_automatic_min_value = False
+    chart.axes.vertical_axis.min_value = 0
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    category_cell = workbook.get_cell(0, "A2", "Sample")
+    chart.chart_data.categories.add(category_cell)
+
+    percentage_cell = workbook.get_cell(0, "B2", 0.125)
+    percentage_cell.custom_number_format = "0.0000%"
+    percentage_name = workbook.get_cell(0, "B1", "Conversion rate")
+    percentage_series = chart.chart_data.series.add(percentage_name, chart.type)
+    percentage_series.data_points.add_data_point_for_bar_series(percentage_cell)
+
+    precision_cell = workbook.get_cell(0, "C2", 0.1234567)
+    precision_cell.custom_number_format = "0.00000"
+    precision_name = workbook.get_cell(0, "C1", "Coefficient")
+    precision_series = chart.chart_data.series.add(precision_name, chart.type)
+    precision_series.data_points.add_data_point_for_bar_series(precision_cell)
+
+    for series in chart.chart_data.series:
+        label_format = series.data_points[0].label.data_label_format
+        label_format.show_value = True
+        label_format.is_number_format_linked_to_source = True
+
+    presentation.save("CustomCellFormats.pptx", slides.export.SaveFormat.PPTX)
+```
+
+ワークブックセルの書式は、チャート 軸やデータ ラベルに直接設定された書式とは別物です。この例では、[show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) が有効で、[is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) が `True` のため、各ラベルはソースセルの数値書式に従って表示されます。プレゼンテーションを保存して再度開くと、ラベルは `12.5000%` と `0.12346` を表示します。縦軸は独自の [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) `0.00` を使用し、[is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) は `False` に設定されています。
+
+データラベルを独立して書式設定するには、ソースリンク フラグを `False` に設定し、[number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) を割り当てます。これによりワークブックセルの書式は変更されません。たとえば独立書式 `0.00` は最初の値を `0.13` と表示し、B2 は依然として `12.5000%` を表示します。直接ラベル書式設定の例は [Chart Data Labels](/slides/ja/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) を参照してください。
+
+以下の画像はプレゼンテーションを保存し、再度開いた後にレンダリングしたものです。
+
+![ソースリンクラベルが 12.5000% と 0.12346 を表示し、独立書式の数値軸を持つ列チャート.](custom-cell-formats.png)
+
+## **ワークブック セルをチャート データ ラベルとして設定する**
 
 ワークブック セルのテキストをチャート データ ラベルとして使用できます。
 
-この例では、既存のプレゼンテーションの最初のスライドにバブル チャート（デフォルト データ）を追加し、ワークシート 0 のセル A10:A12 を最初の系列の最初の 3 つのラベルとして使用し、セルからのラベルを有効にして更新されたプレゼンテーションを保存します。
+この例は既存のプレゼンテーションの最初のスライドにバブル チャートを追加し、ワークシート 0 のセル A10:A12 を最初の系列の最初の 3 つのラベルとして使用し、セル ラベルを有効にして更新されたプレゼンテーションを保存します。
 
 ```python
 import aspose.slides as slides
@@ -190,7 +250,7 @@ with slides.Presentation("chart2.pptx") as presentation:
 
 ## **ワークシートの管理**
 
-[ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) プロパティは、チャート ワークブック内のワークシートへのアクセスを提供します。この例ではデフォルト データの円グラフを作成し、各ワークシート名をコンソールに出力します。
+[ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) プロパティは、チャート ワークブック内のワークシートへのアクセスを提供します。この例はデフォルト データを持つ円グラフを作成し、各ワークシート名をコンソールに出力します。
 
 ```python
 import aspose.slides as slides
@@ -206,9 +266,9 @@ with slides.Presentation() as presentation:
         print(worksheet.name)
 ```
 
-## **データ ソース タイプの指定**
+## **データ ソース タイプを指定する**
 
-この例ではデフォルト データの 3D 列グラフを作成し、異なるデータ ソースを使用して 2 つの系列名を設定します。最初の名前は文字列リテラル、2 番目の名前はワークシート 0 のセル C1 を使用します。[DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) 列挙型で各名前のソースを選択します。例では更新された系列名でプレゼンテーションを保存します。
+この例はデフォルト データを持つ 3D 列チャートを作成し、異なるデータ ソースを使用して 2 つの系列名を設定します。最初の名前は文字列リテラル、2 番目の名前はワークシート 0 のセル C1 を使用します。[DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) 列挙体で各名前のソースを選択します。例は更新された系列名でプレゼンテーションを保存します。
 
 ```python
 import aspose.slides as slides
@@ -231,9 +291,9 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **サポートされていない埋め込みワークブック形式の検出**
+## **サポートされていない埋め込みワークブック形式を検出する**
 
-Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリ ワークブック（.xlsb）形式をサポートしていません。[ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) の [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) プロパティと [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) 列挙型を組み合わせて、サポートされていない形式を検出し、該当チャートをスキップできます。この例では既存のプレゼンテーションの最初のスライドの形状を調べ、非チャート形状をスキップし、.xlsb 埋め込みワークブックを持つ各チャートに診断メッセージを出力します。
+Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリ ワークブック (.xlsb) 形式をサポートしていません。[ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) の [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) プロパティと [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) 列挙体を組み合わせて、サポートされていない形式を検出し、該当チャートをスキップできます。この例は既存のプレゼンテーションの最初のスライドのシェイプを調べ、非チャート シェイプをスキップし、.xlsb 埋め込みワークブックを持つ各チャートに診断メッセージを出力します。
 
 ```python
 import aspose.slides as slides
@@ -254,18 +314,18 @@ with slides.Presentation("sample.pptx") as presentation:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
 
-        # ここでサポートされているチャート ワークブック データを読み取るか、変更します。
+        # ここでサポートされているチャート ワークブック データを読み取るか変更します。
 ```
 
 ## **外部ワークブック**
 
-Aspose.Slides は、外部ワークブックをチャートのデータ ソースとして使用することをサポートします。
+Aspose.Slides は外部ワークブックをチャートのデータ ソースとして使用することをサポートします。
 
 ### **外部ワークブックの作成**
 
 [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) と [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) を使用して、埋め込みチャート ワークブックをファイルにエクスポートし、チャートをその外部ワークブックにリンクします。
 
-この例ではデフォルト データの円グラフを作成し、ワークブックをエクスポートします。外部ワークブックをチャートのデータ ソースとして割り当てる前に出力ストリームを閉じ、リンクされたプレゼンテーションを保存します。
+この例はデフォルト データを持つ円グラフを作成し、ワークブックをエクスポートします。出力ストリームを閉じてから外部ワークブックをチャート データ ソースとして割り当て、リンクされたプレゼンテーションを保存します。
 
 ```python
 from pathlib import Path
@@ -290,11 +350,11 @@ with slides.Presentation() as presentation:
 
 ### **外部ワークブックの設定**
 
-[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) メソッドを使用すると、外部ワークブックをチャートのデータ ソースとして割り当てることができます。このメソッドは、外部ワークブックのパスが変更された場合（移動された場合）にも更新に利用できます。
+[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) メソッドを使用して、外部ワークブックをチャートのデータ ソースとして割り当てられます。このメソッドは、外部ワークブックのパスが変更された場合（移動された場合）にも更新に使用できます。
 
-リモート ロケーションやリソースに保存されているワークブックのデータを直接編集することはできませんが、外部データ ソースとして使用することは可能です。外部ワークブックの相対パスが指定されている場合は、自動的にフル パスに変換されます。
+リモート ロケーションやリソースに保存されたワークブックのデータを直接編集することはできませんが、外部データ ソースとして使用することは可能です。相対パスが指定された場合、フル パスに自動変換されます。
 
-この例では、ワークシート `Sheet1` に B1 に系列名、A2:A4 にカテゴリ名、B2:B4 に数値が格納された外部ワークブックを使用します。円グラフを作成し、ワークブックをリンクし、[set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) を使用して A1:B4 を 1 系列と 3 カテゴリにマップします。リンクされたチャートでプレゼンテーションを保存します。
+この例は、ワークシート `Sheet1` に B1 に系列名、A2:A4 にカテゴリ名、B2:B4 に数値が格納された外部ワークブックを使用します。円グラフを作成し、ワークブックをリンクし、[set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) を使用して A1:B4 を 1 系列と 3 カテゴリにマッピングします。リンクされたチャートでプレゼンテーションを保存します。
 
 ```python
 from pathlib import Path
@@ -314,12 +374,12 @@ with slides.Presentation() as presentation:
     presentation.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) の `update_chart_data` パラメーターは、ワークブックがロードされるかどうかを制御します。
+[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) の `update_chart_data` パラメータは、ワークブックのロード有無を制御します。
 
-* `update_chart_data` が `False` の場合、ワークブック パスのみが更新されます。チャート データはターゲット ワークブックからロードまたは更新されないため、ワークブックが利用できなくても構いません。
-* `update_chart_data` が `True` の場合、チャート データはターゲット ワークブックから更新されます。
+* `update_chart_data` が `False` の場合、ワークブック パスのみが更新されます。チャート データは対象ワークブックからロードまたは更新されないため、ワークブックが利用不可でも問題ありません。
+* `update_chart_data` が `True` の場合、チャート データは対象ワークブックから更新されます。
 
-以下の例は、`update_chart_data` を `False` に設定したプレースホルダー URL を割り当てます。円グラフのデフォルト データは保持され、利用できないワークブックをロードせずにプレゼンテーションが保存されます。
+以下の例は `update_chart_data` を `False` に設定し、プレースホルダー URL を割り当てます。円グラフはデフォルト データのままで、利用不可のワークブックをロードせずにプレゼンテーションを保存します。
 
 ```python
 import aspose.slides as slides
@@ -334,11 +394,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **チャートの外部データ ソース ワークブック パスの取得**
+### **チャートの外部データソース ワークブック パスを取得する**
 
-チャートにリンクされたワークブックを特定するには、チャートが外部データ ソースを使用しているか確認し、そのワークブック パスを取得します。
+チャートにリンクされたワークブックを特定するには、チャートが外部データ ソースを使用しているかどうかを確認し、ワークブック パスを取得します。
 
-この例では、外部ワークブックにリンクされたプレゼンテーションの最初のスライドの最初の形状を調べます。外部ワークブックにリンクされたチャートであれば、[external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) をコンソールに出力し、プレゼンテーションのコピーを保存します。
+この例は外部ワークブックにリンクされたチャートを含むプレゼンテーションの最初のスライドの最初のシェイプを調べます。外部ワークブックにリンクされたチャートであれば、[external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) をコンソールに出力し、プレゼンテーションのコピーを保存します。
 
 ```python
 import aspose.slides as slides
@@ -362,9 +422,9 @@ with slides.Presentation("externalWorkbook.pptx") as presentation:
 
 ### **チャート データの編集**
 
-外部ワークブックのデータは、内部ワークブックと同様に編集できます。外部ワークブックがロードできない場合、例外がスローされます。
+外部ワークブックのデータは、内部ワークブックと同様に編集できます。外部ワークブックをロードできない場合は例外がスローされます。
 
-この例では、最初のスライドの最初の形状としてチャートを使用し、アクセス可能な外部ワークブックにリンクしています。最初の系列の最初のデータ ポイントのセル バック値を 100 に設定し、更新されたプレゼンテーションを保存します。セル値の編集はリンクされた外部 XLSX ファイルを更新できるため、元のワークブックを保持したい場合はコピーを使用してください。
+この例は最初のスライドの最初のシェイプとしてチャートを使用し、アクセス可能な外部ワークブックにリンクされています。最初の系列の最初のデータ ポイントのセルバック値を 100 に設定し、更新されたプレゼンテーションを保存します。セル値の編集はリンクされた外部 XLSX ファイルを更新できるため、元のワークブックを保持したい場合はコピーを使用してください。
 
 ```python
 import aspose.slides as slides
@@ -389,11 +449,11 @@ with slides.Presentation("presentation.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **チャート キャッシュからワークブックを回復**
+### **チャート キャッシュからワークブックを復元する**
 
-チャートが欠落または利用できない外部ワークブックを使用している場合、Aspose.Slides はプレゼンテーションにキャッシュされたデータからチャート ワークブックを再構築できます。[LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) を作成し、その [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/) を構成し、[SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) を `True` に設定してプレゼンテーションを開く前に設定してください。
+チャートが欠損または利用不可の外部ワークブックを使用している場合、Aspose.Slides はプレゼンテーションにキャッシュされたデータからチャート ワークブックを再構築できます。[LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) を作成し、その [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/) を構成し、[SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) を `True` に設定してプレゼンテーションを開く前に設定してください。
 
-以下の Python 例は、最初のスライドの最初の形状としてチャートを使用し、利用できない外部ワークブックを参照している場合にワークブック データを回復します。回復したデータは [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) と [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) を介してアクセスできます。
+以下の Python 例は、最初のスライドの最初のシェイプとしてチャートを使用し、利用不可の外部ワークブックを参照している場合にワークブック データを復元します。復元されたデータは [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) と [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) を介してアクセスします。
 
 ```python
 import aspose.slides as slides
@@ -409,35 +469,35 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
         chart = slide.shapes[0]
         recovered_workbook = chart.chart_data.chart_data_workbook
 
-        # ここで回復されたワークブック データを読み取るか、変更します。
+        # ここで復元されたワークブック データを読み取るか変更します。
     else:
         print("The first shape is not a chart.")
 ```
 
-外部ワークブックが利用できず、回復が無効になっている場合、Aspose.Slides は例外をスローします。キャッシュされたチャート データの使用が許容できる場合にのみ回復を有効にしてください。キャッシュには外部ワークブックが最後に更新された後の変更が含まれていない可能性があります。
+外部ワークブックが利用不可で復元が無効な場合、Aspose.Slides は例外をスローします。キャッシュされたチャート データの使用が許容できる場合にのみ復元を有効にしてください。キャッシュには外部ワークブックが最後に更新された後の変更が含まれていない可能性があります。
 
 ## **FAQ**
 
 **特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックにリンクされているかを判別できますか？**
 
-はい。チャートには [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) と [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) があり、外部ワークブックがソースである場合はフル パスを読み取って外部ファイルが使用されていることを確認できます。
+はい。チャートには [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) と [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) があり、外部ワークブックであれば完全なパスを読み取って外部ファイルが使用されていることを確認できます。
 
-**外部ワークブックへの相対パスはサポートされていますか？ それらはどのように保存されますか？**
+**外部ワークブックへの相対パスはサポートされますか？また、どのように保存されますか？**
 
 はい。相対パスを指定すると自動的に絶対パスに変換されます。プレゼンテーションは PPTX ファイル内に絶対パスを保存するため、ワークブックを移動した場合はリンクの更新が必要になることがあります。
 
-**ネットワーク リソース/共有上のワークブックを使用できますか？**
+**ネットワーク共有やリモートリソース上のワークブックを使用できますか？**
 
-はい、そのようなワークブックは外部データ ソースとして使用できます。ただし、Aspose.Slides からリモート ワークブックを直接編集することはサポートされていません。ソースとしてのみ使用できます。
+はい。そのようなワークブックは外部データ ソースとして使用できます。ただし、Aspose.Slides からリモートワークブックを直接編集することはサポートされていません。ソースとしてのみ使用可能です。
 
-**プレゼンテーションを保存すると、外部 XLSX が上書きされますか？**
+**プレゼンテーションを保存するときに Aspose.Slides は外部 XLSX を上書きしますか？**
 
-プレゼンテーションは [外部ファイルへのリンク](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) を保存します。セル バックされたチャート データを編集すると、リンクされたローカル XLSX ファイルも更新される可能性があります。元のワークブックを変更したくない場合は、コピーを使用してください。
+プレゼンテーションは外部ファイルへの [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) を保持します。セルバックのチャート データを編集すると、リンクされたローカル XLSX ファイルも更新される可能性があります。元のワークブックを変更したくない場合は、コピーを使用してください。
 
 **外部ファイルがパスワードで保護されている場合はどうすればよいですか？**
 
-Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策は、事前に保護を解除するか、[Aspose.Cells](https://reference.aspose.com/cells/python-net/) などを使用して復号化したコピーを作成し、そのコピーにリンクすることです。
+Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策として、事前に保護を解除するか、[Aspose.Cells](https://reference.aspose.com/cells/python-net/) などで復号化したコピーを作成してからリンクしてください。
 
 **複数のチャートが同じ外部ワークブックを参照できますか？**
 
-はい。各チャートはそれぞれのリンクを保持します。すべてが同じファイルを指している場合、そのファイルを更新すると次回データがロードされるときにすべてのチャートに反映されます。
+はい。各チャートは独自のリンクを保持します。すべてが同じファイルを指していれば、そのファイルを更新することで次回データがロードされる際にすべてのチャートに反映されます。

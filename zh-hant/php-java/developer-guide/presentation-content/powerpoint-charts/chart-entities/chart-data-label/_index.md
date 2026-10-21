@@ -14,15 +14,15 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "學習如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 簡報中加入與格式化圖表資料標籤，打造更具吸引力的投影片。"
+description: "學會在 PowerPoint 簡報中使用 Aspose.Slides for PHP via Java 新增與格式化圖表資料標籤，讓投影片更具吸引力。"
 ---
 ## **簡介**
 
-資料標籤會顯示圖表系列與個別資料點的資訊，協助讀者辨識數值與了解圖表。本篇說明如何格式化數值、以百分比顯示、讀取標籤文字、在軸上限之外控制標籤、調整類別軸標籤間距以及設定圓餅圖標籤的位置。
+資料標籤顯示圖表系列與個別資料點的資訊，協助讀者辨識數值並了解圖表。本文章說明如何設定值的格式、顯示百分比、讀取標籤文字、在軸上限之外控制標籤、調整類別軸標籤間距，以及定位圓餅圖標籤。
 
-## **設定圖表資料標籤的數據精度**
+## **設定圖表資料標籤的數值精度**
 
-使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) 來格式化系列數值。此範例建立一個使用預設資料的折線圖，顯示其資料表，並為第一個系列啟用數值標籤。格式 `#,##0.00` 會顯示千位分隔符與兩位小數，而不會更改底層數值。
+使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) 來設定系列值的格式。此範例建立一個使用預設資料的折線圖，顯示其資料表，並為第一個系列啟用值標籤。格式 `#,##0.00` 會顯示千位分隔符號與兩位小數，且不會更改底層的值。
 
 ```php
 use aspose\slides\Presentation;
@@ -46,9 +46,11 @@ try {
 }
 ```
 
-## **以百分比顯示標籤**
+若要格式化圖表內嵌工作簿中的數值儲存格，請參閱 [Set Custom Number Formats for Workbook Cells](/slides/zh-hant/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells)。該範例亦示範標籤會遵循來源儲存格的格式，同時保留儲存的數值。
 
-對於堆疊柱狀圖，計算每個數值佔其類別總和的百分比，並將文字指派給 [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) 回傳的文字框。此範例使用預設圖表資料，並以 8 點字型顯示保留兩位小數的百分比。總和為零的類別會被跳過，以避免除以零。若圖表資料變更，請重新計算自訂標籤文字。
+## **顯示百分比作為標籤**
+
+對於堆疊直條圖，將每個值計算為其類別總和的百分比，並將文字指派給由 [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) 回傳的文字框。此範例使用預設圖表資料，並以 8 點字型顯示兩位小數的百分比。總計為零的類別會被跳過，以避免除以零。若圖表資料變更，請重新計算自訂標籤文字。
 
 ```php
 use aspose\slides\Presentation;
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **使用圖表資料標籤設定百分比符號**
+## **設定圖表資料標籤的百分比符號**
 
-當值以分數形式儲存時，使用 [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) 來顯示百分比。將 `false` 傳遞給 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) 可讓標籤格式獨立於來源儲存格。
+當值以分數形式儲存時，請使用 [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/)。將 `false` 傳遞給 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) 以使標籤格式獨立於來源儲存格。
 
-此範例建立一個 100% 堆疊柱狀圖，四個類別分別使用紅色和藍色系列。每對數值加總為 1。標籤格式 `0.0%` 會將 0.30 顯示為 30.0%，而垂直軸使用兩位小數。兩個系列的標籤文字皆為白色、10 點字型。
+此範例建立一個 100% 堆疊直條圖，包含紅色與藍色系列，分佈於四個類別。每對值的總和為 1。標籤格式 `0.0%` 會將 0.30 顯示為 30.0%，而垂直軸使用兩位小數。兩個系列的標籤文字皆為白色、10 點字型。
 
 ```php
 use aspose\slides\Presentation;
@@ -172,7 +174,7 @@ try {
 
 ## **讀取資料標籤的實際文字**
 
-使用 [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) 取得資料標籤設定產生的文字。這在為報告擷取標籤、搜尋簡報內容或驗證產生的圖表時非常有用。以下範例中，預設的 [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) 結合了每個類別名稱、系列名稱與數值。某一個點將其數值格式化為百分比，另一個則使用 [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) 取得的自訂文字。
+使用 [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) 來取得資料標籤設定所產生的文字。這在擷取報告用標籤、搜尋簡報內容或驗證產生的圖表時很有幫助。以下範例中，預設的 [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) 結合了每個類別名稱、系列名稱與值。某個資料點將值格式化為百分比，另一個則使用來自 [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/) 的自訂文字。
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +238,15 @@ try {
 }
 ```
 
-資料點中儲存的數值仍為 `0.75`，即使其標籤顯示 `75%` 並加上類別與系列名稱。自訂文字會取代產生的標籤文字。無論哪種情況，[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) 都會回傳最終的標籤字串。若只想擷取可見標籤，請另行檢查 [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) 如前所示。
+資料點中儲存的數值仍為 `0.75`，即使其標籤顯示 `75%` 並加入類別與系列名稱。自訂文字會取代產生的標籤文字。無論哪種情況，[getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) 都會回傳結果標籤字串。欲僅擷取可見標籤時，請如上例另外檢查 [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/)。
 
 ## **在軸上限之外控制資料標籤**
 
-當手動限制軸範圍時，某些資料點可能會超出其最大值。使用 [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) 來控制是否顯示這些資料標籤。此設定僅改變標籤可見性，不會改變軸範圍或底層資料值。
+當手動限制軸範圍時，某些資料點可能會超過其最大值。使用 [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) 來控制是否顯示其資料標籤。此設定會變更標籤的可見性，但不會改變軸範圍或底層資料值。
 
-以下範例建立一個 2D 叢集柱狀圖，數值分別為 60 與 120。它將 `false` 傳給 [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) 並用 [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) 將垂直軸的最大值設定為 100。第一張投影片允許標籤超出上限，複製的投影片則停用此功能。兩張投影片皆儲存為 `DataLabelsOverMaximum.pptx`。
+以下範例建立一個 2D 群組直條圖，值為 60 與 120。它對 [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) 傳入 `false`，並在垂直軸上使用 [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) 設定最大值為 100。第一張投影片允許超出最大值的標籤；其副本則停用此功能。兩張投影片皆儲存在 `DataLabelsOverMaximum.pptx` 中。
 
-使用 [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) 啟用數值標籤。圖表層級的設定本身不會啟用數值顯示，也不會覆寫單一標籤被停用的數值顯示。此範例為整個系列啟用數值，並使用 [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) 將標籤放置在每根柱狀的外側端點。
+使用 [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) 來啟用值標籤。圖表層級的設定不會自行啟用值顯示，也不會覆寫個別標籤的停用設定。此範例為整個系列啟用值，並使用 [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) 將標籤放置於每個柱狀的外側末端。
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +298,19 @@ try {
 }
 ```
 
-以下圖像顯示由 Microsoft PowerPoint 產生的已儲存投影片。`true` 時，標籤 **120** 會在上邊界可見；`false` 時則隱藏。標籤 **60** 仍保持可見，軸上限仍為 **100**，第二個資料點在兩種情況下皆為 **120**。
+以下圖片顯示 Microsoft PowerPoint 渲染的已儲存投影片。使用 `true` 時，標籤 **120** 會在上緣顯示；使用 `false` 時則隱藏。標籤 **60** 仍保持可見，軸上限維持在 **100**，且第二個資料點在兩種情況下皆為 **120**。
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint 圖表顯示值標籤 120，軸上限為 100](data-labels-over-maximum-true.png) | ![PowerPoint 圖表隱藏值標籤 120，軸上限為 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint chart showing the value label 120 with an axis maximum of 100](data-labels-over-maximum-true.png) | ![PowerPoint chart hiding the value label 120 with an axis maximum of 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-此範例使用具有數值軸的 2D 柱狀圖。沒有數值軸的圖表（例如圓餅圖與環形圖），無法以此方式設定軸上限限制。
+此範例使用具有值軸的 2D 直條圖。沒有值軸的圖表（例如圓餅圖與環形圖）並無此種方式的軸上限可限制。
 {{% /alert %}}
 
 ## **設定標籤與軸的距離**
 
-使用 [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) 來控制類別軸標籤與軸之間的距離。此值為軸標籤最大字型大小的百分比。此範例建立一個叢集柱狀圖，並將水平軸標籤偏移設為 500。此設定會影響類別軸標籤，而非附加於個別資料點的標籤。
+使用 [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) 來控制類別軸標籤與軸之間的距離。該值是類別軸標籤最大字型大小的百分比。此範例建立一個群組直條圖，將水平軸標籤偏移設定為 500。此設定影響類別軸標籤，而非附加在個別資料點上的標籤。
 
 ```php
 use aspose\slides\Presentation;
@@ -330,9 +332,9 @@ try {
 
 ## **調整標籤位置**
 
-在圓餅圖上，調整資料標籤的位置以改善間距並為指引線騰出空間。
+在圓餅圖上，調整資料標籤位置以改善間距並為指示線留出空間。
 
-此範例顯示第一個資料點的數值，將其標籤放置在切片外側，並使用 [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) 與 [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) 調整其水平與垂直偏移。這些偏移分別相對於圖表的寬度與高度。
+此範例顯示第一個資料點的值，將其標籤放置在切片外側，並使用 [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) 與 [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) 調整水平與垂直偏移。這些偏移分別以圖表寬度與高度的比例表示。
 
 ```php
 use aspose\slides\Presentation;
@@ -359,17 +361,17 @@ try {
 }
 ```
 
-![經調整資料標籤位置的圓餅圖](pie-chart-adjusted-label.png)
+![調整資料標籤位置的圓餅圖](pie-chart-adjusted-label.png)
 
-## **格式化指引線**
+## **格式化指示線**
 
-當圓餅圖的標籤位於切片之外時，指引線可協助讀者將每個數值對應到正確的切片。對比色與稍微粗一點的線條可以讓連結更易於辨識，而透明度與虛線樣式則可使線條不顯眼。
+當圓餅圖標籤位於切片外側時，指示線可協助讀者將每個數值與正確的切片對應。對比色與稍粗的線條可讓連接更易於追蹤，而透明度與虛線樣式則可使線條保持不顯眼。
 
-使用 [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) 在系列的資料標籤集合層級格式化指引線。`$series->getLabels()->getLeaderLinesFormat()->getLine()` 中的設定會套用到整個集合，而非單一標籤。
+使用 [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) 在系列的資料標籤集合層級格式化指示線。`$series->getLabels()->getLeaderLinesFormat()->getLine()` 中的設定套用於整個集合，而非單一標籤。
 
-此範例建立一個使用預設資料的圓餅圖，將數值顯示在切片外側，並啟用 [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/)。它使用 [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) 與 [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) 偏移（以圖表寬高的比例表示）將兩個標籤移離切片更遠。此範例不需要輸入簡報。
+此範例建立一個使用預設資料的圓餅圖，將值顯示在切片外側，並啟用 [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/)。它使用 [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) 與 [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) 將兩個標籤遠離切片，偏移以圖表寬度與高度的比例表示。此範例不需要輸入簡報。
 
-線條的 [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) 設為實心藍色，透明度為 191（255 為滿值），約 25% 透明度。[setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) 設定粗細為 2 點，[setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) 則使線條為虛線。
+線條的 [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) 設定為實心藍色，Alpha 值為 191（255 為滿值），大約 25% 透明度。[setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) 將粗細設為 2 點，[setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) 則將線條設為虛線。
 
 ```php
 use aspose\slides\Presentation;
@@ -393,7 +395,7 @@ try {
     $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
     $labelFormat->setShowLeaderLines(true);
 
-    // 將兩個標籤從切片移得更遠。
+    // 將兩個標籤向遠離其切片的方向移動。
     $series->getLabels()->get_Item(0)->setX(0.10);
     $series->getLabels()->get_Item(0)->setY(-0.05);
     $series->getLabels()->get_Item(1)->setX(-0.10);
@@ -412,17 +414,17 @@ try {
 }
 ```
 
-啟用指引線並不保證每個標籤都會出現線條。可見性取決於標籤放置位置與圖表的版面配置行為。在此範例中，兩個被移離的標籤具有可見的指引線；靠近切片的標籤則不需要指引線。
+啟用指示線並不保證每個標籤都會顯示線條。可見性取決於標籤的放置與圖表的版面配置行為。此範例中，兩個被移動的標籤具有可見的指示線；靠近切片的標籤則不需要指示線。
 
-以下影像顯示使用 Aspose.Slides 呈現的已儲存 `FormattedLeaderLines.pptx`：
+以下圖片顯示使用 Aspose.Slides 渲染的已儲存 `FormattedLeaderLines.pptx`：
 
-![圓餅圖，藍色半透明虛線指引線將兩個外部標籤連接到相應切片](formatted-leader-lines.png)
+![使用藍色、半透明虛線指示線將兩個外部標籤與其切片連接的圓餅圖](formatted-leader-lines.png)
 
-## **在直條圖上方新增多列資料標籤**
+## **在直條圖上方加入多列資料標籤**
 
-此範例建立一個直條圖，於圖表區上方放置兩列資料標籤。Series A 顯示可見的柱子，Series B 與 Series C 則提供額外的標籤。透過移除填滿與輪廓將它們的柱子隱藏。使用 [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) 方法可讓三個系列在相同的類別中心對齊。
+此範例建立一個直條圖，於繪圖區上方放置兩列資料標籤。系列 A 顯示可見的柱狀，Series B 與 Series C 提供額外的標籤。透過移除填色與輪廓，將它們的柱狀隱藏。使用 [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) 方法可使三個系列的類別中心對齊。
 
-[ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) 設定會為標籤列保留空間。經過 [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) 計算預設位置後，使用 [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) 與 [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) 保持水平對齊，並套用垂直偏移以將標籤排列成兩列。數字仍然是連結至系列值的資料標籤；只有列標題是獨立的文字圖形。
+[ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) 的設定保留標籤列的空間。於 [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) 計算預設位置後，透過 [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) 與 [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) 保持水平對齊，並套用垂直偏移以將標籤排列成兩列。數字仍為連結至系列值的資料標籤；僅有列標題是獨立的文字形狀。
 
 ```php
 use aspose\slides\Presentation;
@@ -473,7 +475,7 @@ try {
         }
 
         if ($seriesIndex > 0) {
-            // 隱藏 B 與 C 的柱形，但保留它們的資料標籤。
+            // 隱藏 B 與 C 的柱狀，但保留它們的資料標籤。
             $series->getFormat()->getFill()->setFillType(FillType::NoFill);
             $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
             $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
@@ -486,14 +488,14 @@ try {
         }
     }
 
-    // 將所有三個系列對齊至相同的類別中心。
+    // 將三個系列對齊至相同的類別中心。
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
     // 在此緊湊範例中使用較少的格線。
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // 在圖表繪圖區上方保留空間，以放置兩列資料標籤。
+    // 在繪圖區上方保留空間以放置兩列資料標籤。
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -510,14 +512,14 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // 保留預設的水平位置。Y 為相對於
-            // 預設標籤位置的偏移，以圖表高度的比例表示。
+            // 保持預設的水平位置。Y 為相對於
+            // 預設標籤位置的偏移量，以圖表高度比例表示。
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
         }
 
-        // 僅列標題為獨立的文字圖案。
+        // 只有列標題是獨立的文字形狀。
         $rowHeading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $chartX, $chartY + $rowTop * $chartHeight, 85, 18);
         $rowHeading->getFillFormat()->setFillType(FillType::NoFill);
         $rowHeading->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
@@ -536,18 +538,18 @@ try {
 }
 ```
 
-![直條圖，圖表區上方有兩列資料標籤](multiple-rows-of-labels.png)
+![在繪圖區上方有兩列資料標籤的直條圖](multiple-rows-of-labels.png)
 
 ## **常見問題**
 
-**如何防止資料標籤在密集圖表上重疊？**
+**如何防止在密集圖表上資料標籤重疊？**
 
-結合自動標籤放置、指引線與縮小字型大小；必要時可隱藏某些欄位（例如類別），或僅對極值或關鍵點顯示標籤。
+結合自動標籤放置、指示線與縮小字型；如有需要，可隱藏某些欄位（例如類別），或僅對極端值或關鍵點顯示標籤。
 
-**如何僅對零、負值或空值禁用標籤？**
+**如何僅對零、負值或空值停用標籤？**
 
-在啟用標籤前先篩選資料點，並根據定義的規則對值為 0、負值或缺失的資料點關閉顯示。
+在啟用標籤前先過濾資料點，並依照定義的規則關閉對 0、負值或缺失值的顯示。
 
-**如何在匯出為 PDF/影像時確保標籤樣式一致？**
+**如何在匯出為 PDF/圖片時確保標籤樣式一致？**
 
-明確設定字型族與大小，並確認該字型在渲染環境中可用，以避免回退。
+明確設定字型族與大小，並確認渲染環境中已安裝該字型，以避免備援字型的使用。

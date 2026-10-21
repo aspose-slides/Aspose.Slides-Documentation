@@ -1,49 +1,49 @@
 ---
-title: จัดการเวิร์กชีตแผนภูมิในการนำเสนอโดยใช้ Java
-linktitle: เวิร์กชีตแผนภูมิ
+title: จัดการสมุดงานแผนภูมิในงานพรีเซนเทชันด้วย Java
+linktitle: สมุดงานแผนภูมิ
 type: docs
 weight: 70
 url: /th/java/chart-workbook/
 keywords:
-- เวิร์กชีตแผนภูมิ
+- สมุดงานแผนภูมิ
 - ข้อมูลแผนภูมิ
-- เซลล์เวิร์กชีต
-- ป้ายกำกับข้อมูล
+- เซลล์สมุดงาน
+- ป้ายข้อมูล
 - แผ่นงาน
 - แหล่งข้อมูล
-- เวิร์กชีตภายนอก
+- สมุดงานภายนอก
 - ข้อมูลภายนอก
 - แคชแผนภูมิ
-- การกู้คืนเวิร์กชีต
+- การกู้คืนสมุดงาน
 - PowerPoint
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ Java: จัดการเวิร์กชีตแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลการนำเสนอของคุณ."
+description: "ค้นพบ Aspose.Slides สำหรับ Java: จัดการสมุดงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลการนำเสนอของคุณ"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับหนังสือเวิร์กชีตของแผนภูมิใน Aspose.Slides แสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของเวิร์กชีต, ใช้เซลล์ของเวิร์กชีตเป็นป้ายกำกับข้อมูลแผนภูมิ, เข้าถึงคอลเลกชันของแผ่นงาน, และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีทำงานกับสมุดงานแผนภูมิใน Aspose.Slides โดยจะแสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของสมุดงาน, ใช้เซลล์ของสมุดงานเป็นป้ายชื่อข้อมูลแผนภูมิ, เข้าถึงชุดคอลเลกชันของแผ่นงาน, และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-บทความนี้ยังครอบคลุมการทำงานกับเวิร์กชีตภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีสร้างและกำหนดเวิร์กชีตภายนอก, ดึงเส้นทางของเวิร์กชีตภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อมีเวิร์กชีตพร้อมใช้งาน
+นอกจากนี้ยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีสร้างและกำหนดสมุดงานภายนอก, ดึงเส้นทางของสมุดงานภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อสมุดงานพร้อมใช้งาน
 
-สำหรับเซลล์เวิร์กชีตที่เป็นตัวแทนของข้อมูลที่ขาดหาย ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/java/chart-series/) เพื่อเปรียบเทียบความแตกต่างระหว่างเซลล์ว่างและค่า ศูนย์, รวมถึงการเปรียบเทียบแบบเส้นกราฟของโหมดการแสดงผลที่มีให้เลือก
+สำหรับเซลล์สมุดงานที่แสดงข้อมูลที่ขาดหายไป ให้ดูที่ [Control the Display of Empty Cells](/slides/th/java/chart-series/) เพื่อเปรียบเทียบระหว่างเซลล์ว่างกับค่าเป็นศูนย์ รวมถึงการเปรียบเทียบแบบกราฟเส้นของโหมดการแสดงผลที่มีอยู่
 
 ## **รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่**
 
-ใช้ [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) เพื่อควบคุมว่าชาร์ตจะพล็อตข้อมูลจากแถวและคอลัมน์ของแผ่นงานที่ซ่อนอยู่หรือไม่ ตั้งค่าเป็น `true` เพื่อพล็อตเฉพาะเซลล์ที่มองเห็นได้, หรือ `false` เพื่อรวมทั้งเซลล์ที่มองเห็นและที่ซ่อนอยู่ การตั้งค่านี้ควบคุมการพล็อตของแผนภูมิ; ไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ของแผ่นงาน
+ใช้ [IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) เพื่อควบคุมว่ากราฟจะพล็อตข้อมูลจากแถวและคอลัมน์ของแผ่นงานที่ซ่อนอยู่หรือไม่ ตั้งเป็น `true` เพื่อพล็อตเฉพาะเซลล์ที่มองเห็นได้ หรือ `false` เพื่อรวมทั้งเซลล์ที่มองเห็นและซ่อน การตั้งค่านี้ควบคุมการพล็อตของกราฟ; ไม่ได้ทำการซ่อนหรือแสดงแถวหรือคอลัมน์ของแผ่นงาน
 
-[ตัวอย่างการนำเสนอ](hidden-source-data.pptx) มีแผนภูมิคอลัมน์เป็นรูปทรงแรกในสไลด์แรก แผ่นงานฝังตัว `Sheet1` มีช่วงแหล่งข้อมูล `A1:C4` โดยแถว 3 และคอลัมน์ C ถูกซ่อน, แต่เซลล์ของพวกมันยังคงมีค่า
+[ตัวอย่างการพรีเซนเทชัน](hidden-source-data.pptx) มีกราฟแท่งเป็นรูปร่างแรกบนสไลด์แรก แผ่นงานฝังตัว `Sheet1` มีช่วงข้อมูลต้นทาง `A1:C4` แถวที่ 3 และคอลัมน์ C ถูกซ่อนอยู่ แต่เซลล์ของพวกมันยังคงมีค่า
 
-| แถวของแผ่นงาน | A: เดือน | B: รายละเอียดการขายปลีก | C: การขายส่ง (คอลัมน์ที่ซ่อน) |
+| แถวของแผ่นงาน | A: เดือน | B: รายละเอียดการขายปลีก | C: รายละเอียดการขายส่ง (คอลัมน์ซ่อน) |
 | --- | --- | --- | --- |
 | 2 | มกราคม | 10 | 30 |
-| 3 (แถวที่ซ่อน) | กุมภาพันธ์ | 40 | 60 |
+| 3 (แถวซ่อน) | กุมภาพันธ์ | 40 | 60 |
 | 4 | มีนาคม | 20 | 50 |
 
-เข้าถึงเซลล์แหล่งข้อมูลผ่าน [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) และอ่าน [IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) เพื่อสืบตรวจสถานะการซ่อน วิธีนี้รายงานสถานะการซ่อนโดยไม่เปลี่ยนแปลงค่า ในไฟล์นี้ B2 มองเห็นได้, B3 属於แถวที่ซ่อน, และ C2 属於คอลัมน์ที่ซ่อน; ตัวอย่างจะพิมพ์ค่า `false`, `true`, และ `true` ตามลำดับ
+เข้าถึงเซลล์ต้นทางผ่าน [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) และอ่าน [IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) เพื่อตรวจสอบสถานะซ่อนของเซลล์ วิธีนี้รายงานสถานะโดยไม่เปลี่ยนแปลง ในไฟล์นี้ B2 มองเห็นได้, B3 อยู่ในแถวซ่อน, และ C2 อยู่ในคอลัมน์ซ่อน; ตัวอย่างจะแสดงผล `false`, `true`, และ `true` ตามลำดับ
 
-สำหรับตัวอย่างนี้, รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการพล็อต: เก็บเวิร์กชีตฝังไว้ด้วย [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) และโหลดใหม่ด้วย [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) เมื่อรวมทุกเซลล์, ใช้ [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) เพื่อกู้คืนช่วงทั้งหมดรวมถึงหมวดเดือน กุมภาพันธ์ที่ซ่อนอยู่ การเปลี่ยนค่าสถานะอย่างเดียวไม่เพียงพอสำหรับการรีเฟรชข้อมูลแผนภูมิและป้ายกำกับหมวดของตัวอย่างนี้
+สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการพล็อต: รักษาสมุดงานฝังด้วย [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) และโหลดใหม่ด้วย [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) เมื่อต้องรวมทุกเซลล์ ให้ใช้ [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) เพื่อคืนค่าช่วงเต็มรวมถึงประเภทเดือนกุมภาพันธ์ที่ซ่อนอยู่ การเปลี่ยนเพียงค่าสถานะไม่เพียงพอที่จะรีเฟรชข้อมูลแคชของแผนภูมิและป้ายชื่อประเภทในตัวอย่างนี้
 
 ```java
 import com.aspose.slides.*;
@@ -64,10 +64,10 @@ try {
         for (boolean visibleOnly : new boolean[] { true, false }) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // รีเฟรชข้อมูลแผนภูมิจากเวิร์กชีตที่ฝังอยู่.
+            // รีเฟรชข้อมูลแผนภูมิจากสมุดงานที่ฝังอยู่.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // คืนค่าช่วงแหล่งข้อมูลทั้งหมด รวมถึงหมวดที่ซ่อนอยู่.
+                // คืนค่าช่วงต้นทางเต็มรวมถึงประเภทที่ซ่อนอยู่.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -81,21 +81,21 @@ try {
 }
 ```
 
-ตัวอย่างบันทึกสองเวอร์ชันของการนำเสนอ: เวอร์ชันหนึ่งมีเฉพาะค่าการขายปลีกที่มองเห็น (`10` และ `20`), อีกเวอร์ชันหนึ่งมีค่าทั้งหกค่า ภาพด้านล่างแสดงสองโหมดการพล็อต แถว 3 และคอลัมน์ C ยังคงซ่อนอยู่ในทั้งสองเวิร์กชีตฝัง
+ตัวอย่างนี้บันทึกรูปแบบพรีเซนเทชันสองเวอร์ชัน: เวอร์ชันแรกมีค่า Retail ที่มองเห็นได้เพียงค่า 10 และ 20, อีกเวอร์ชันมีค่าทั้งหมดหกค่า ภาพด้านล่างแสดงสองโหมดการพล็อต แถวที่ 3 และคอลัมน์ C ยังคงซ่อนอยู่ในสมุดงานฝังทั้งสองเวอร์ชัน
 
-| เฉพาะเซลล์ที่มองเห็น (`true`) | ทั้งหมด (`false`) |
+| เฉพาะเซลล์ที่มองเห็น (`true`) | ทุกเซลล์ (`false`) |
 | --- | --- |
 | ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-เซลล์ที่ซ่อนและมีค่าแตกต่างจากเซลล์ว่าง [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) ควบคุมวิธีการแสดงค่าที่ขาดหาย; ไม่ได้รวมหรือยกเว้นข้อมูลแหล่งที่ซ่อน ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/java/chart-series/#control-the-display-of-empty-cells) สำหรับตัวอย่าง
+เซลล์ซ่อนที่มีค่าแตกต่างจากเซลล์ว่าง [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) ควบคุมวิธีแสดงค่าที่หายไป; ไม่ได้รวมหรือยกเว้นข้อมูลต้นทางที่ซ่อนอยู่ ดูที่ [Control the Display of Empty Cells](/slides/th/java/chart-series/#control-the-display-of-empty-cells) สำหรับตัวอย่าง
 
 ## **ดึงช่วงข้อมูลของแผนภูมิ**
 
-ก่อนอัปเดตข้อมูลเวิร์กชีตในการนำเสนอที่มีอยู่, ตรวจสอบช่วงแหล่งข้อมูลเพื่อระบุว่าแผ่นงานใดบ้างที่แต่ละแผนภูมิใช้ วิธี [IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) จะคืนค่าช่วงข้อมูลปัจจุบันเป็นสูตรที่อ้างอิงแผ่นงาน, เช่น `Sheet1!$A$1:$D$5` ที่นี่ `Sheet1` คือชื่อแผ่นงาน, `!` แยกจากช่วงเซลล์, `$A$1:$D$5` ระบุเซลล์ตั้งแต่ A1 ถึง D5 รวมทั้งสองค่า เครื่องหมายดอลลาร์บ่งบอกการอ้างอิงแถวและคอลัมน์แบบสัมบูรณ์
+ก่อนอัปเดตข้อมูลสมุดงานในพรีเซนเทชันที่มีอยู่ ให้ตรวจสอบช่วงข้อมูลต้นทางเพื่อระบุว่าแผ่นงานใดบ้างที่แต่ละแผนภูมิใช้ วิธี [IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) ส่งคืนช่วงข้อมูลปัจจุบันในรูปแบบสูตรที่รวมชื่อแผ่นงาน เช่น `Sheet1!$A$1:$D$5` โดย `Sheet1` คือชื่อแผ่นงาน, `!` คั่นกับช่วงเซลล์, และ `$A$1:$D$5` ระบุเซลล์ตั้งแต่ A1 ถึง D5 รวมทั้งสองด้าน สัญลักษณ์ `$` แสดงการอ้างอิงคงที่ของแถวและคอลัมน์
 
-วิธีนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือเวิร์กชีตของมัน หากแผนภูมิไม่ได้ใช้เวิร์กชีตเป็นแหล่งข้อมูล, จะเกิดข้อผิดพลาด `InvalidOperationException` ดูรายละเอียดเพิ่มเติมใน [ChartData API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/)
+วิธีนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือสมุดงาน หากแผนภูมิไม่ได้ใช้สมุดงานเป็นแหล่งข้อมูล จะเกิดข้อยกเว้น `InvalidOperationException` ดูข้อมูลเพิ่มเติมที่ [ChartData API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/)
 
-ตัวอย่างนี้เปิดการนำเสนอและตรวจสอบรูปทรงบนแต่ละสไลด์เพื่อหาแผนภูมิ พิมพ์ชื่อและช่วงแหล่งข้อมูลของแต่ละแผนภูมิ หากแผนภูมิไม่ได้ใช้เวิร์กชีต, จะพิมพ์ข้อความและดำเนินต่อไปยังแผนภูมถัดไป
+ตัวอย่างนี้เปิดพรีเซนเทชันและตรวจสอบรูปร่างบนแต่ละสไลด์เพื่อค้นหาแผนภูมิ จะแสดงชื่อแผนภูมิและช่วงข้อมูลต้นทาง หากแผนภูมิไม่ได้ใช้สมุดงาน จะพิมพ์ข้อความและดำเนินการต่อไปยังแผนภูมิต่อไป
 
 ```java
 import com.aspose.slides.*;
@@ -121,11 +121,11 @@ try {
 }
 ```
 
-## **อ่านและเขียนข้อมูลแผนภูมิจากเวิร์กชีต**
+## **อ่านและเขียนข้อมูลแผนภูมิจากสมุดงาน**
 
-Aspose.Slides for Java มีเมธอด [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) และ [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) ที่ให้คุณอ่านและเขียนเวิร์กชีตข้อมูลแผนภูมิ (ซึ่งประกอบด้วยข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างที่คล้ายกับแหล่งข้อมูลต้นฉบับ
+Aspose.Slides for Java มีเมธอด [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) และ [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) ที่ให้คุณอ่านและเขียนสมุดงานข้อมูลแผนภูมิ (ซึ่งอาจแก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดระเบียบในรูปแบบเดียวกันหรือมีโครงสร้างที่คล้ายกับแหล่งข้อมูล
 
-ตัวอย่างนี้ใช้การนำเสนอที่มีแผนภูมิเป็นรูปทรงแรกบนสไลด์แรก มันทอดเวิร์กชีตฝังเข้าเป็นอาเรย์ไบต์, ลบชุดข้อมูลและหมวดหมู่เดิม, จากนั้นเขียนเวิร์กชีตเดิมกลับเข้าไป การเปลี่ยนแปลงจะอยู่ในหน่วยความจำ; ตัวอย่างจะไม่บันทึกการนำเสนอ
+ตัวอย่างนี้ใช้พรีเซนเทชันที่มีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรก อ่านสมุดงานฝังเป็นอาร์เรย์ไบต์, ลบซีรีส์และประเภทที่มีอยู่, แล้วเขียนสมุดงานเดียวกันกลับเข้าไป การเปลี่ยนแปลงคงอยู่ในหน่วยความจำ; ตัวอย่างไม่บันทึกพรีเซนเทชัน
 
 ```java
 import com.aspose.slides.*;
@@ -152,9 +152,9 @@ try {
 }
 ```
 
-### **ตรวจสอบการจัดวางของแผนภูมิหลังการแก้ไขเวิร์กชีต**
+### **ตรวจสอบโครงร่างแผนภูมิหลังการแก้ไขสมุดงาน**
 
-เมื่อคุณแทนที่เวิร์กชีตฝังด้วยเวิร์กชีตที่ถูกแก้ไข, แผนภูมิจะยังคงเก็บคอลเลกชันชุดข้อมูลและหมวดหมู่เดิมไว้ ความไม่ตรงกันนี้อาจทำให้ [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) ล้มเหลวด้วยข้อผิดพลาดดัชนีเกินช่วง ก่อนเขียนเวิร์กชีตที่อัปเดตกลับไปให้ล้างชุดข้อมูลและหมวดหมู่เดิม ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปทรงแรกบนสไลด์แรก คอมเมนต์ระบุจุดที่การแก้ไขเวิร์กชีตจะเกิดขึ้น; ตัวอย่างที่รันได้จะเขียนเวิร์กชีตเดิมกลับและตรวจสอบการจัดวางในหน่วยความจำ
+เมื่อคุณแทนที่สมุดงานฝังด้วยสมุดงานที่แก้ไขแล้ว แผนภูมิจะยังคงรักษาคอลเลกชันซีรีส์และประเภทเดิมไว้ ความไม่ตรงนี้อาจทำให้ [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) ล้มเหลวด้วยข้อผิดพลาดดัชนีเกินขอบเขต ลบซีรีส์และประเภทเดิมก่อนเขียนสมุดงานอัปเดตกลับเข้าไปในแผนภูมิ ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรก ส่วนคอมเมนท์บ่งชี้จุดที่การแก้ไขสมุดงานจะเกิดขึ้น; ตัวอย่างรันไทม์เขียนสมุดงานต้นกลับและตรวจสอบโครงร่างในหน่วยความจำ
 
 ```java
 import com.aspose.slides.*;
@@ -169,7 +169,7 @@ try {
         IChartData chartData = chart.getChartData();
         byte[] workbookData = chartData.readWorkbookStream();
 
-        // แก้ไขไบต์ของเวิร์กบุ๊กที่นี่, ตัวอย่างเช่นโดยใช้ Aspose.Cells.
+        // แก้ไขไบต์ของสมุดงานที่นี่, ตัวอย่างเช่น ใช้ Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -184,13 +184,78 @@ try {
 }
 ```
 
-การล้างคอลเลกชันจะเอาการอ้างอิงข้อมูลที่เก่าออกก่อนที่เวิร์กชีตจะถูกเขียนกลับ สร้างชุดข้อมูลและการแม็ปหมวดหมู่ใหม่ตามที่ต้องการสำหรับเวิร์กชีตที่อัปเดตก่อนใช้แผนภูมิ
+การลบคอลเลกชันจะเอาการอ้างอิงข้อมูลเก่าออกก่อนที่สมุดงานจะถูกเขียนกลับ สร้างการแมปซีรีส์และประเภทใหม่ตามสมุดงานที่อัปเดตก่อนใช้แผนภูมิ
 
-## **กำหนดเซลล์เวิร์กชีตเป็นป้ายกำกับข้อมูลของแผนภูมิ**
+## **กำหนดรูปแบบตัวเลขแบบกำหนดเองสำหรับเซลล์สมุดงาน**
 
-คุณสามารถใช้ข้อความจากเซลล์เวิร์กชีตเป็นป้ายกำกับข้อมูลของแผนภูมิ
+ใช้ [IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) เพื่อควบคุมวิธีการแสดงค่าตัวเลขในสมุดงานฝังของแผนภูมิ ตัวอย่างเช่น รายงานอาจต้องการอัตราการแปลงเป็นเปอร์เซ็นต์ด้วยทศนิยมสี่ตำแหน่งและค่าสัมประสิทธิ์ด้วยทศนิยมห้าตำแหน่ง ทั้งสองค่าควรเก็บเป็นตัวเลขเพื่อให้ยังคงใช้งานในการคำนวณและพล็อตกราฟได้
 
-ตัวอย่างนี้เพิ่มแผนภูมิบับอากาศ (bubble chart) ที่มีข้อมูลเริ่มต้นบนสไลด์แรกของการนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 ในแผ่นงาน 0 เป็นป้ายกำกับสามค่าแรกของชุดแรก, เปิดใช้งานป้ายกำกับจากเซลล์, แล้วบันทึกการนำเสนอที่อัปเดต
+รูปแบบตัวเลขเปลี่ยนการแสดงผล ไม่ได้เปลี่ยนค่าที่เก็บไว้ รูปแบบ `0.0000%` จะทำให้ `0.125` แสดงเป็น `12.5000%`; ไม่ได้แทนที่ตัวเลขที่เก็บเป็น `12.5` เช่นเดียวกัน `0.00000` จะทำให้ `0.1234567` แสดงเป็น `0.12346` โดยไม่ปัดเศษค่าที่เก็บ หากรูปแบบกำหนดเองเป็นสตริงว่าง (`""`) จะใช้รูปแบบที่คืนค่าจาก [getPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) แทน
+
+ตัวอย่างต่อไปสร้างกราฟแท่งและเข้าถึงเซลล์ผ่าน [getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) ในแผ่นงานที่ 0, B2 มีอัตราการแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์เป็นค่าแหล่งข้อมูลของกราฟ ตัวอย่างยังเปิดใช้งานป้ายค่าที่เชื่อมโยงกับรูปแบบต้นทาง
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 270, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 20, 620, 210);
+    chart.setTitle(false);
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
+    chart.getAxes().getVerticalAxis().setNumberFormat("0.00");
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+    chart.getAxes().getVerticalAxis().setMinValue(0);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartDataCell categoryCell = workbook.getCell(0, "A2", "Sample");
+    chart.getChartData().getCategories().add(categoryCell);
+
+    IChartDataCell percentageCell = workbook.getCell(0, "B2", 0.125);
+    percentageCell.setCustomNumberFormat("0.0000%");
+    IChartDataCell percentageName = workbook.getCell(0, "B1", "Conversion rate");
+    IChartSeries percentageSeries = chart.getChartData().getSeries().add(percentageName, chart.getType());
+    percentageSeries.getDataPoints().addDataPointForBarSeries(percentageCell);
+
+    IChartDataCell precisionCell = workbook.getCell(0, "C2", 0.1234567);
+    precisionCell.setCustomNumberFormat("0.00000");
+    IChartDataCell precisionName = workbook.getCell(0, "C1", "Coefficient");
+    IChartSeries precisionSeries = chart.getChartData().getSeries().add(precisionName, chart.getType());
+    precisionSeries.getDataPoints().addDataPointForBarSeries(precisionCell);
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        IDataLabelFormat labelFormat = series.getDataPoints().get_Item(0).getLabel().getDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(true);
+    }
+
+    presentation.save("CustomCellFormats.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+รูปแบบเซลล์สมุดงานแยกจากรูปแบบที่กำหนดโดยตรงบนแกนหรือป้ายข้อมูล ในตัวอย่างนี้แต่ละป้ายแสดงค่าจากเซลล์ต้นทางเพราะ [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) ตั้งเป็น `true` และทำตามรูปแบบตัวเลขต้นทางเพราะ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) ตั้งเป็น `true` หลังจากบันทึกและเปิดพรีเซนเทชันใหม่ ป้ายจะแสดง `12.5000%` และ `0.12346` ตามด้านล่าง แกนแนวตั้งใช้รูปแบบตัวเลขของตนเองที่กำหนดด้วย [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) เป็น `0.00` พร้อมกับ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) ตั้งเป็น `false`
+
+หากต้องการกำหนดรูปแบบป้ายข้อมูลอย่างอิสระ ให้ตั้งค่าสถานะเชื่อมโยงต้นทางเป็น `false` แล้วกำหนดรูปแบบด้วย [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) วิธีนี้ไม่กระทบกับรูปแบบของเซลล์ในสมุดงาน ตัวอย่างเช่น รูปแบบป้ายข้อมูลอิสระ `0.00` จะทำให้ค่าที่แรกแสดงเป็น `0.13` ขณะที่ B2 ยังคงแสดง `12.5000%` ดูที่ [Chart Data Labels](/slides/th/java/chart-data-label/#set-percentage-sign-with-chart-data-labels) สำหรับการกำหนดรูปแบบป้ายโดยตรง
+
+รูปภาพด้านล่างได้ทำการเรนเดอร์จากพรีเซนเทชันที่บันทึกแล้วและเปิดใหม่อีกครั้ง:
+
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
+
+## **ตั้งค่าเซลล์สมุดงานเป็นป้ายข้อมูลแผนภูมิ**
+
+คุณสามารถใช้ข้อความจากเซลล์สมุดงานเป็นป้ายข้อมูลแผนภูมิได้
+
+ตัวอย่างนี้เพิ่มกราฟบับเบิลกับข้อมูลเริ่มต้นลงบนสไลด์แรกของพรีเซนเทชันที่มีอยู่ ใช้เซลล์ A10:A12 ในแผ่นงานที่ 0 สำหรับป้ายแรกสามป้ายในซีรีส์แรก เปิดใช้งานป้ายจากเซลล์และบันทึกพรีเซนเทชันที่อัปเดต
 
 ```java
 import com.aspose.slides.*;
@@ -216,7 +281,7 @@ try {
 
 ## **จัดการแผ่นงาน**
 
-เมธอด [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) ให้การเข้าถึงแผ่นงานในเวิร์กชีตของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิเสี้ยวงกลม (pie chart) ที่มีข้อมูลเริ่มต้นและพิมพ์ชื่อแผ่นงานแต่ละชื่อไปยังคอนโซล
+เมธอด [IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) ให้เข้าถึงแผ่นงานในสมุดงานแผนภูมิ ตัวอย่างนี้สร้างกราฟพายด้วยข้อมูลเริ่มต้นและพิมพ์ชื่อแต่ละแผ่นงานลงคอนโซล
 
 ```java
 import com.aspose.slides.*;
@@ -238,7 +303,7 @@ try {
 
 ## **ระบุประเภทแหล่งข้อมูล**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 3 มิติที่มีข้อมูลเริ่มต้นและตั้งชื่อชุดข้อมูลสองชุดโดยใช้แหล่งข้อมูลที่ต่างกัน ชื่อแรกใช้สตริงลิเทรัล; ชื่อที่สองใช้เซลล์ C1 ในแผ่นงาน 0 ตัวเลือกจาก enumeration [DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) จะกำหนดแหล่งสำหรับแต่ละชื่อ ตัวอย่างบันทึกการนำเสนอพร้อมชื่อชุดข้อมูลที่อัปเดต
+ตัวอย่างนี้สร้างกราฟแท่ง 3D ด้วยข้อมูลเริ่มต้นและตั้งชื่อซีรีส์สองชื่อโดยใช้แหล่งข้อมูลที่แตกต่างกัน ชื่อแรกใช้สตริงลิเทอรัล; ชื่อที่สองใช้เซลล์ C1 ในแผ่นงานที่ 0. การจัดการประเภทแหล่งข้อมูลทำได้ด้วย enumeration [DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) ตัวอย่างบันทึกพรีเซนเทชันพร้อมชื่อซีรีส์ที่อัปเดต
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +329,9 @@ try {
 }
 ```
 
-## **ตรวจจับรูปแบบเวิร์กชีตฝังที่ไม่รองรับ**
+## **ตรวจจับรูปแบบสมุดงานฝังที่ไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบเวิร์กชีตไบเนอรี Excel (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้เมธอด [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) บน [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมิเหล่านั้น ตัวอย่างนี้ตรวจสอบรูปทรงบนสไลด์แรกของการนำเสนอที่มีอยู่, ข้ามรูปทรงที่ไม่ใช่แผนภูมิ, แล้วพิมพ์ข้อความวินิจฉัยสำหรับแต่ละแผนภูมิที่มีเวิร์กชีต .xlsb ฝังอยู่
+Aspose.Slides ไม่รองรับรูปแบบสมุดงาน Excel แบบไบนารี (.xlsb) ที่อาจถูกฝังในบางแผนภูมิ คุณสามารถใช้เมธอด [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) บน [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมิที่เกี่ยวข้อง ตัวอย่างนี้ตรวจสอบรูปร่างบนสไลด์แรกของพรีเซนเทชันที่มีอยู่, ข้ามรูปร่างที่ไม่ใช่แผนภูมิ, และพิมพ์ข้อความวินิจฉัยสำหรับแต่ละแผนภูมิที่มีสมุดงาน .xlsb ฝังอยู่
 
 ```java
 import com.aspose.slides.*;
@@ -290,22 +355,22 @@ try {
             continue;
         }
 
-        // อ่านหรือปรับแก้ข้อมูลเวิร์กชีตแผนภูมิที่สนับสนุนที่นี่.
+        // อ่านหรือแก้ไขข้อมูลสมุดงานแผนภูมิที่รองรับที่นี่.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **เวิร์กชีตภายนอก**
+## **สมุดงานภายนอก**
 
-Aspose.Slides รองรับการใช้เวิร์กชีตภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
+Aspose.Slides รองรับการใช้สมุดงานภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
 
-### **สร้างเวิร์กชีตภายนอก**
+### **สร้างสมุดงานภายนอก**
 
-ใช้เมธอด [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) และ [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) เพื่อส่งออกเวิร์กชีตแผนภูมิฝังเป็นไฟล์และเชื่อมแผนภูมิกับเวิร์กชีตภายนอกนั้น
+ใช้ [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) และ [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) เพื่อส่งออกสมุดงานแผนภูมิที่ฝังเป็นไฟล์และเชื่อมโยงแผนภูมิกับสมุดงานภายนอกนั้น
 
-ตัวอย่างนี้สร้างแผนภูมิเสี้ยวงกลมที่มีข้อมูลเริ่มต้นและส่งออกเวิร์กชีตของมัน ตัวอย่างทำการเขียนไฟล์ให้เสร็จก่อนกำหนดเวิร์กชีตภายนอกเป็นแหล่งข้อมูลของแผนภูมิ, จากนั้นบันทึกการนำเสนอที่เชื่อมต่อ
+ตัวอย่างนี้สร้างกราฟพายด้วยข้อมูลเริ่มต้นและส่งออกสมุดงานของมัน ดำเนินการเขียนไฟล์ให้เสร็จก่อนกำหนดสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ แล้วบันทึกพรีเซนเทชันที่เชื่อมโยง
 
 ```java
 import com.aspose.slides.*;
@@ -333,14 +398,13 @@ try {
 }
 ```
 
+### **กำหนดสมุดงานภายนอก**
 
-### **กำหนดเวิร์กชีตภายนอก**
+ด้วยเมธอด [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) คุณสามารถกำหนดสมุดงานภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ วิธีนี้ยังใช้อัปเดตเส้นทางไปยังสมุดงานภายนอก (หากไฟล์ถูกย้าย)
 
-โดยใช้เมธอด [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) คุณสามารถกำหนดเวิร์กชีตภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลของมันได้ เมธอดนี้ยังใช้เพื่ออัปเดตเส้นทางไปยังเวิร์กชีตภายนอก (หากไฟล์นั้นถูกย้าย)
+แม้ว่าจะไม่สามารถแก้ไขข้อมูลในสมุดงานที่จัดเก็บในตำแหน่งระยะไกลหรือทรัพยากรได้ คุณก็ยังใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากให้เส้นทางแบบสัมพันธ์กับสมุดงานภายนอก ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ
 
-แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลในเวิร์กชีตที่จัดเก็บในตำแหน่งระยะไกลหรือทรัพยากรอื่นได้, คุณยังคงใช้เวิร์กชีตเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากกำหนดเส้นทางแบบสัมพัทธ์สำหรับเวิร์กชีตภายนอก, ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
-
-ตัวอย่างนี้ใช้เวิร์กชีตภายนอกที่มีแผ่นงานชื่อ `Sheet1` ซึ่งมีชื่อชุดข้อมูลใน B1, ชื่อหมวดใน A2:A4, และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิเสี้ยวงกลม, เชื่อมต่อเวิร์กชีต, และใช้ [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) เพื่อแม็ป A1:B4 เป็นชุดข้อมูลหนึ่งและสามหมวดหมู่ แล้วบันทึกการนำเสนอที่เชื่อมแผนภูมิ
+ตัวอย่างนี้ใช้สมุดงานภายนอกที่มีแผ่นงานชื่อ `Sheet1` ซึ่งประกอบด้วยชื่อซีรีส์ใน B1, ชื่อประเภทใน A2:A4, และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างกราฟพาย, เชื่อมโยงสมุดงาน, และใช้ [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) เพื่อแมพ A1:B4 เป็นซีรีส์หนึ่งและประเภทสามรายการ แล้วบันทึกพรีเซนเทชันที่มีแผนภูมิเชื่อมโยง
 
 ```java
 import com.aspose.slides.*;
@@ -363,12 +427,12 @@ try {
 }
 ```
 
-พารามิเตอร์ `updateChartData` ของเมธอด [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) ควบคุมว่าจะโหลดเวิร์กชีตหรือไม่
+พารามิเตอร์ `updateChartData` ของเมธอด [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) ควบคุมว่าจะโหลดสมุดงานหรือไม่
 
-* เมื่อ `updateChartData` เป็น `false` จะอัปเดตเพียงเส้นทางของเวิร์กชีตเท่านั้น แผนภูมิจะไม่โหลดหรืออัปเดตข้อมูลจากเวิร์กชีตเป้าหมาย, ดังนั้นเวิร์กชีตอาจไม่สามารถเข้าถึงได้
-* เมื่อ `updateChartData` เป็น `true` แผนภูมิจะอัปเดตข้อมูลจากเวิร์กชีตเป้าหมาย
+* เมื่อ `updateChartData` เป็น `false` จะอัปเดตเฉพาะเส้นทางของสมุดงาน เท่านั้น ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากสมุดงานเป้าหมาย ดังนั้นสมุดงานอาจไม่พร้อมใช้งาน
+* เมื่อ `updateChartData` เป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากสมุดงานเป้าหมาย
 
-ตัวอย่างต่อไปนี้กำหนด URL ตัวอย่างพร้อม `updateChartData` เป็น `false` จะรักษาข้อมูลเริ่มต้นของแผนภูมิเสี้ยวงกลมและบันทึกการนำเสนอโดยไม่โหลดเวิร์กชีตที่ไม่ได้อยู่
+ตัวอย่างต่อไปกำหนด URL ที่เป็นตัวเก็บตำแหน่งชั่วคราวพร้อม `updateChartData` ตั้งเป็น `false` จะรักษาข้อมูลเริ่มต้นของกราฟพายและบันทึกพรีเซนเทชันโดยไม่โหลดสมุดงานที่ไม่พร้อมใช้งาน
 
 ```java
 import com.aspose.slides.*;
@@ -386,11 +450,11 @@ try {
 }
 ```
 
-### **ดึงเส้นทางของเวิร์กชีตแหล่งข้อมูลภายนอกของแผนภูมิ**
+### **รับเส้นทางของสมุดงานแหล่งข้อมูลภายนอกของแผนภูมิ**
 
-เพื่อระบุเวิร์กชีตที่เชื่อมกับแผนภูมิ, ตรวจสอบว่าแผนภูมิใช้แหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทางเวิร์กชีตของมัน
+เพื่อระบุสมุดงานที่เชื่อมโยงกับแผนภูมิ ให้ตรวจสอบว่าแผนภูมิกำลังใช้แหล่งข้อมูลภายนอกหรือไม่ แล้วดึงเส้นทางของสมุดงานนั้น
 
-ตัวอย่างนี้ตรวจสอบรูปทรงแรกบนสไลด์แรกของการนำเสนอที่มีเวิร์กชีตภายนอกเชื่อมโยง หากเป็นแผนภูมิที่เชื่อมกับเวิร์กชีตภายนอก, ตัวอย่างจะพิมพ์ [getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) ไปยังคอนโซล แล้วบันทึกสำเนาการนำเสนอ
+ตัวอย่างนี้ตรวจสอบรูปร่างแรกบนสไลด์แรกของพรีเซนเทชันที่เชื่อมโยงกับสมุดงานภายนอก หากเป็นแผนภูมิที่เชื่อมโยงกับสมุดงานภายนอก ตัวอย่างจะพิมพ์ [getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) ไปยังคอนโซล จากนั้นบันทึกสำเนาพรีเซนเทชัน
 
 ```java
 import com.aspose.slides.*;
@@ -419,9 +483,9 @@ try {
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในเวิร์กชีตภายนอกได้เช่นเดียวกับที่ทำกับเวิร์กชีตภายใน หากเวิร์กชีตภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
+คุณสามารถแก้ไขข้อมูลในสมุดงานภายนอกเช่นเดียวกับการเปลี่ยนแปลงเนื้อหาของสมุดงานภายใน เมื่อสมุดงานภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
 
-ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปทรงแรกบนสไลด์แรกและเชื่อมกับเวิร์กชีตภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่มาจากเซลล์ของจุดข้อมูลแรกในชุดแรกเป็น `100` แล้วบันทึกการนำเสนอที่อัปเดต การแก้ไขค่าเซลล์สามารถอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมได้, ดังนั้นควรใช้สำเนาหากต้องการรักษาเวิร์กชีตดั้งเดิม
+ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและเชื่อมโยงกับสมุดงานภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่สนับสนุนเซลล์ของจุดข้อมูลแรกในซีรีส์แรกเป็น 100 แล้วบันทึกพรีเซนเทชันที่อัปเดต การแก้ไขค่าของเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกได้ ดังนั้นควรใช้สำเนา หากต้องการเก็บสมุดงานต้นฉบับไว้
 
 ```java
 import com.aspose.slides.*;
@@ -453,11 +517,11 @@ try {
 }
 ```
 
-### **กู้คืนเวิร์กชีตจากแคชของแผนภูมิ**
+### **กู้คืนสมุดงานจากแคชของแผนภูมิ**
 
-หากแผนภูมิใช้เวิร์กชีตภายนอกที่หายไปหรือไม่สามารถเข้าถึงได้, Aspose.Slides สามารถสร้างเวิร์กชีตแผนภูมิกลับจากข้อมูลที่แคชไว้ในไฟล์การนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/), เรียก [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), และตั้งค่า [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) เป็น `true` ก่อนเปิดการนำเสนอ
+หากแผนภูมิใช้สมุดงานภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสังเคราะห์สมุดงานแผนภูมิจากข้อมูลที่แคชไว้ในพรีเซนเทชันได้ สร้างอ็อบเจ็กต์ [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/), เรียก [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), และตั้งค่า [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) เป็น `true` ก่อนเปิดพรีเซนเทชัน
 
-ตัวอย่าง Java ด้านล่างกู้คืนข้อมูลเวิร์กชีตสำหรับแผนภูมิที่เป็นรูปทรงแรกบนสไลด์แรกและอ้างอิงเวิร์กชีตภายนอกที่ไม่พร้อมใช้งาน เข้าถึงข้อมูลที่กู้คืนผ่าน [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) และ [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+ตัวอย่าง Java ด้านล่างกู้คืนข้อมูลสมุดงานสำหรับแผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและอ้างอิงสมุดงานภายนอกที่ไม่พร้อมใช้งาน แล้วเข้าถึงข้อมูลที่กู้คืนผ่าน [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) และ [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 import com.aspose.slides.*;
@@ -477,7 +541,7 @@ try {
         IChart chart = (IChart) slide.getShapes().get_Item(0);
         IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กที่กู้คืนที่นี่.
+        // อ่านหรือแก้ไขข้อมูลสมุดงานที่กู้คืนที่นี่.
     } else {
         System.out.println("The first shape is not a chart.");
     }
@@ -486,30 +550,30 @@ try {
 }
 ```
 
-หากเวิร์กชีตภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิด, Aspose.Slides จะโยนข้อยกเว้น เปิดใช้งานการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแคชของแผนภูมิเป็นวิธีสำรองที่ยอมรับได้, เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับเวิร์กชีตภายนอกหลังจากการนำเสนออัปเดตครั้งล่าสุด
+หากสมุดงานภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยนข้อยกเว้น เปิดใช้งานการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแคชของแผนภูมิเป็นทางเลือกที่ยอมรับได้ เนื่องจากแคชอาจไม่ได้เก็บการเปลี่ยนแปลงที่ทำในสมุดงานภายนอกหลังจากพรีเซนเทชันอัปเดตครั้งสุดท้าย
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันจะตรวจสอบได้หรือไม่ว่าแผนภูมิกำหนดลิงก์ไปยังเวิร์กชีตภายนอกหรือเวิร์กชีตฝัง?**
+**ฉันจะตรวจสอบได้หรือไม่ว่าแผนภูมิใดเชื่อมโยงกับสมุดงานภายนอกหรือสมุดงานฝัง?**
 
-ได้. แผนภูมิมี [ประเภทแหล่งข้อมูล](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) และ [เส้นทางไปยังเวิร์กชีตภายนอก](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); หากแหล่งเป็นเวิร์กชีตภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าไฟล์ภายนอกถูกใช้
+ใช่ แผนภูมิมี [data source type](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) และ [path to an external workbook](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) หากแหล่งเป็นสมุดงานภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าไฟล์ภายนอกถูกใช้งาน
 
-**รองรับเส้นทางสัมพัทธ์ไปยังเวิร์กชีตภายนอกหรือไม่, และจัดเก็บอย่างไร?**
+**รองรับเส้นทางแบบสัมพันธ์สำหรับสมุดงานภายนอกหรือไม่และเก็บอย่างไร?**
 
-รองรับ. หากระบุเส้นทางสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ การนำเสนอจะจัดเก็บเส้นทางเต็มในไฟล์ PPTX, ดังนั้นการย้ายเวิร์กชีตอาจต้องอัปเดตลิงก์
+ใช่ หากระบุเส้นทางแบบสัมพันธ์ จะถูกแปลงเป็นเส้นทางแบบเต็มโดยอัตโนมัติ พรีเซนเทชันจะเก็บเส้นทางแบบเต็มในไฟล์ PPTX ดังนั้นการย้ายสมุดงานอาจต้องอัปเดตลิงก์
 
-**ฉันสามารถใช้เวิร์กชีตที่อยู่บนทรัพยากรเครือข่าย/แชร์ได้หรือไม่?**
+**ฉันสามารถใช้สมุดงานที่อยู่บนเครือข่ายหรือแชร์ได้หรือไม่?**
 
-ได้, เวิร์กชีตเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตามการแก้ไขเวิร์กชีตระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน – สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+ได้ สมุดงานเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขสมุดงานระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน – สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
 
-**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกการนำเสนอหรือไม่?**
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกพรีเซนเทชันหรือไม่?**
 
-การนำเสนอจะจัดเก็บ [ลิงก์ไปยังไฟล์ภายนอก](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--). การแก้ไขข้อมูลแผนภูมิที่มาจากเซลล์อาจอัปเดตไฟล์ XLSX ภายในเครื่องที่เชื่อมต่อ ใช้สำเนาเวิร์กชีตหากต้องการให้ไฟล์ต้นฉบับคงที่
+พรีเซนเทชันจะเก็บ [link to the external file](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) การแก้ไขข้อมูลแผนภูมิที่อิงเซลล์อาจอัปเดตไฟล์ XLSX ภายในเครื่องได้ ใช้สำเนาของสมุดงานหากต้องการให้ไฟล์ต้นฉบับคงเดิม
 
-**ถ้าไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน จะทำอย่างไร?**
+**จะทำอย่างไรหากไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน?**
 
-Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้า หรือจัดเตรียมสำเนาที่ถอดรหัส (เช่น โดยใช้ [Aspose.Cells](https://reference.aspose.com/cells/java/)) แล้วเชื่อมโยงไปยังสำเนานั้น
+Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาแบบถอดรหัส (เช่น ใช้ [Aspose.Cells](https://reference.aspose.com/cells/java/)) แล้วเชื่อมโยงไปยังสำเนานั้น
 
-**หลายแผนภูมิสามารถอ้างอิงเวิร์กชีตภายนอกเดียวกันได้หรือไม่?**
+**หลายแผนภูมิสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**
 
-ได้. แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิเมื่อโหลดข้อมูลใหม่ครั้งต่อไป
+ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะปรากฏในทุกแผนภูมิเมื่อโหลดข้อมูลครั้งต่อไป

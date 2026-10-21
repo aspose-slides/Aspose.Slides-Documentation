@@ -1,10 +1,10 @@
 ---
-title: Beheer diagramgegevenslabels in presentaties met PHP
+title: Beheer grafiekgegevenslabels in presentaties met PHP
 linktitle: Gegevenslabel
 type: docs
 url: /nl/php-java/chart-data-label/
 keywords:
-- diagram
+- grafiek
 - gegevenslabel
 - gegevensprecisie
 - percentage
@@ -14,15 +14,15 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer hoe u diagramgegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor PHP via Java voor boeiendere dia's."
+description: "Leer hoe je grafiekgegevenslabels toevoegt en formatteert in PowerPoint-presentaties met Aspose.Slides voor PHP via Java voor meer boeiende dia's."
 ---
-## **Introductie**
+## **Inleiding**
 
-Gegevenslabels geven informatie weer over diagramreeksen en individuele gegevenspunten, waardoor lezers waarden kunnen identificeren en het diagram beter kunnen begrijpen. Dit artikel legt uit hoe waarden te formatteren, percentages weer te geven, labeltekst te lezen, labels buiten de asmaximum te beheren, de afstand tussen categorische aslabels aan te passen, en pie-diagramlabels te positioneren.
+Gegevenslabels tonen informatie over grafiekreeksen en individuele datapunten, waardoor lezers waarden kunnen identificeren en de grafiek beter begrijpen. Dit artikel legt uit hoe je waarden formatteert, percentages weergeeft, labeltekst uitleest, labels buiten de aslimiet beheert, de afstand tussen categorische as‑labels aanpast en labels van cirkeldiagrammen positioneert.
 
-## **Precisie van gegevens instellen in diagramgegevenslabels**
+## **Gegevensprecisie instellen in grafiek‑gegevenslabels**
 
-Gebruik [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) om reekswaarden te formatteren. Dit voorbeeld maakt een lijndiagram met standaardgegevens, toont de gegevenstabel en schakelt waardelabels in voor de eerste reeks. Het format `#,##0.00` toont een scheidingsteken voor duizendtallen en twee decimalen zonder de onderliggende waarden te wijzigen.
+Gebruik [setNumberFormatOfValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setnumberformatofvalues/) om reeksenwaarden te formatteren. Dit voorbeeld maakt een lijndiagram met standaardgegevens, toont de gegevenstabel en schakelt waarde‑labels in voor de eerste reeks. Het formaat `#,##0.00` toont een duizendtallen‑scheidingsteken en twee decimalen zonder de onderliggende waarden te wijzigen.
 
 ```php
 use aspose\slides\Presentation;
@@ -46,9 +46,11 @@ try {
 }
 ```
 
-## **Weergave van percentage als labels**
+Om de numerieke cellen in de ingebedde werkmap van een grafiek te formatteren, zie [Set Custom Number Formats for Workbook Cells](/slides/nl/php-java/chart-workbook/#set-custom-number-formats-for-workbook-cells). Dat voorbeeld toont ook dat waarde‑labels de opmaak van hun broncellen volgen terwijl de opgeslagen numerieke waarden behouden blijven.
 
-Voor een gestapeld kolomdiagram berekent u elke waarde als een percentage van het totale van de categorie en wijst u de tekst toe aan het tekstframe dat wordt geretourneerd door [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). Dit voorbeeld gebruikt de standaard diagramgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te vermijden. Herbereken de aangepaste labeltekst als de diagramgegevens veranderen.
+## **Percentage weergeven als labels**
+
+Voor een gestapeld kolomdiagram bereken je elke waarde als een percentage van het totaal van de categorie en wijs je de tekst toe aan het tekstraster dat wordt geretourneerd door [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/). Dit voorbeeld gebruikt de standaardgrafiekgegevens en toont percentages met twee decimalen in een lettertype van 8 pt. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de grafiekgegevens wijzigen.
 
 ```php
 use aspose\slides\Presentation;
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **Percentage teken instellen met diagramgegevenslabels**
+## **Percentage‑teken instellen met grafiek‑gegevenslabels**
 
-Wanneer waarden opgeslagen zijn als breuken, gebruik dan [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) om percentages weer te geven. Geef `false` door aan [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) om het labelformaat onafhankelijk van de broncellen toe te passen.
+Wanneer waarden zijn opgeslagen als breuken, gebruik je [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) om percentages weer te geven. Geef `false` door aan [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) om de label‑opmaak onafhankelijk van de broncellen toe te passen.
 
-Dit voorbeeld maakt een 100% gestapeld kolomdiagram met rode en blauwe reeksen over vier categorieën. Elk paar waarden telt op tot 1. Het labelformaat `0.0%` toont 0,30 als 30,0%, terwijl de verticale as twee decimalen gebruikt. Beide reeksen gebruiken witte labeltekst van 10 punten.
+Dit voorbeeld maakt een 100 % gestapeld kolomdiagram met rode en blauwe reeksen over vier categorieën. Elk waardepaar telt op tot 1. Het labelformaat `0.0%` toont 0,30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide reeksen gebruiken witte labeltekst van 10 pt.
 
 ```php
 use aspose\slides\Presentation;
@@ -170,9 +172,9 @@ try {
 }
 ```
 
-## **Lees de werkelijke tekst van gegevenslabels**
+## **De feitelijke tekst van gegevenslabels uitlezen**
 
-Gebruik [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) om de tekst op te halen die door de instellingen van een gegevenslabel is gegenereerd. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentaties, of het valideren van gegenereerde diagrammen. In het onderstaande voorbeeld combineert het standaard [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) elke categorienaam, reeksennaam en waarde. Eén punt formatteert zijn waarde als percentage, en een ander gebruikt aangepaste tekst uit [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
+Gebruik [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) om de tekst op te halen die door de instellingen van een gegevenslabel wordt gegenereerd. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud of het valideren van gegenereerde diagrammen. In het onderstaande voorbeeld combineert het standaard [data label format](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/) elke categorienaam, reeksnamen en waarde. Eén punt formatteert zijn waarde als percentage, en een ander gebruikt aangepaste tekst van [getTextFrameForOverriding](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```php
 use aspose\slides\Presentation;
@@ -236,15 +238,15 @@ try {
 }
 ```
 
-Het getal dat in een gegevenspunt is opgeslagen blijft `0.75`, zelfs wanneer het label `75%` toont samen met de categorie- en reeksenamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) retourneert de resulterende labelreeks in beide gevallen. Controleer [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) apart, zoals hierboven weergegeven, wanneer u alleen zichtbare labels wilt extraheren.
+Het in een datapunt opgeslagen getal blijft `0.75`, zelfs als het label `75 %` toont samen met de categorie‑ en reeksnamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [getActualLabelText](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/getactuallabeltext/) retourneert de resulterende label‑string in beide gevallen. Controleer [isVisible](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/isvisible/) afzonderlijk, zoals hierboven getoond, wanneer je alleen zichtbare labels wilt extraheren.
 
-## **Beheer gegevenslabels buiten de asmaximum**
+## **Gegevenslabels buiten de as‑maximum beheersen**
 
-Wanneer u een asbereik handmatig beperkt, kunnen sommige gegevenspunten de maximumwaarde overschrijden. Gebruik [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) om te bepalen of hun gegevenslabels worden getoond. Deze instelling wijzigt de zichtbaarheid van de labels; ze verandert niet het asbereik of de onderliggende gegevenswaarden.
+Wanneer je handmatig een asbereik beperkt, kunnen sommige datapunten het maximum overschrijden. Gebruik [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setshowdatalabelsovermaximum/) om te bepalen of hun labels worden weergegeven. Deze instelling verandert de zichtbaarheid van labels; hij verandert niet het asbereik of de onderliggende gegevenswaarden.
 
-Het voorbeeld hieronder maakt een 2D gegroepeerd kolomdiagram met waarden 60 en 120. Het geeft `false` door aan [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) en stelt het maximum in op 100 met [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) op de verticale as. De eerste dia staat labels toe die het maximum overschrijden; een kopie van die dia schakelt ze uit. Beide dia's worden opgeslagen in `DataLabelsOverMaximum.pptx`.
+Het voorbeeld hieronder maakt een 2D gegroepeerd kolomdiagram met waarden van 60 en 120. Het geeft `false` door aan [setAutomaticMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticmaxvalue/) en stelt het maximum in op 100 met [setMaxValue](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setmaxvalue/) op de verticale as. De eerste dia staat labels toe boven het maximum; een kopie van die dia schakelt ze uit. Beide dia’s worden opgeslagen in `DataLabelsOverMaximum.pptx`.
 
-Schakel waardelabels in met [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). De instelling op diagramniveau schakelt de weergave van waarden niet zelf in en negeert niet de uitschakeling van de weergave van waarden voor een individueel label. Dit voorbeeld schakelt waarden in voor de gehele reeks en gebruikt [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) om de labels aan het buitenste einde van elke kolom te plaatsen.
+Schakel waarde‑labels in met [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). De instelling op grafiekniveau schakelt de weergave van waarden niet automatisch in en overschrijft ook niet de individuele instelling van een label. Dit voorbeeld schakelt waarden in voor de hele reeks en gebruikt [setPosition](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setposition/) om labels aan het buitenste eind van elke kolom te plaatsen.
 
 ```php
 use aspose\slides\Presentation;
@@ -296,19 +298,19 @@ try {
 }
 ```
 
-De volgende afbeeldingen tonen de opgeslagen dia's, gerenderd door Microsoft PowerPoint. Met `true` is het label **120** zichtbaar aan de bovenrand; met `false` is het verborgen. Het label **60** blijft zichtbaar, het asmaximum blijft **100**, en het tweede gegevenspunt blijft **120** in beide gevallen.
+De volgende afbeeldingen tonen de opgeslagen dia’s zoals gerenderd door Microsoft PowerPoint. Met `true` is label **120** zichtbaar aan de bovenkant; met `false` is het verborgen. Label **60** blijft zichtbaar, het as‑maximum blijft **100**, en het tweede datapunt blijft in beide gevallen **120**.
 
 | setShowDataLabelsOverMaximum(true) | setShowDataLabelsOverMaximum(false) |
 | --- | --- |
-| ![PowerPoint-diagram dat het waardelabel 120 toont met een asmaximum van 100](data-labels-over-maximum-true.png) | ![PowerPoint-diagram dat het waardelabel 120 verbergt met een asmaximum van 100](data-labels-over-maximum-false.png) |
+| ![PowerPoint‑grafiek die het waardelabel 120 toont met een asmaximum van 100](data-labels-over-maximum-true.png) | ![PowerPoint‑grafiek die het waardelabel 120 verbergt met een asmaximum van 100](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-Dit voorbeeld gebruikt een 2D kolomdiagram met een waardenas. Diagrammen zonder een waardenas, zoals taart- en donutdiagrammen, hebben geen asmaximum dat op deze manier beperkt kan worden.
+Dit voorbeeld maakt gebruik van een 2D kolomgrafiek met een waardenas. Grafieken zonder waardenas, zoals taart‑ en donuts‑grafieken, hebben geen asmaximum dat op deze manier kan worden beperkt.
 {{% /alert %}}
 
-## **Stel labelafstand vanaf een as in**
+## **Labelafstand tot een as instellen**
 
-Gebruik [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) om de afstand tussen categorische aslabels en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de aslabels. Dit voorbeeld maakt een gegroepeerd kolomdiagram en stelt de horizontale aslabeloffset in op 500. Deze instelling beïnvloedt de categorische aslabels in plaats van de labels die aan individuele gegevenspunten zijn gekoppeld.
+Gebruik [setLabelOffset](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setlabeloffset/) om de afstand tussen categorische as‑labels en de as te regelen. De waarde is een percentage van de maximale lettergrootte van de as‑labels. Dit voorbeeld maakt een gegroepeerd kolomdiagram en stelt de horizontale as‑label‑offset in op 500. Deze instelling beïnvloedt de categorische as‑labels in plaats van labels die aan individuele datapunten zijn gekoppeld.
 
 ```php
 use aspose\slides\Presentation;
@@ -330,9 +332,9 @@ try {
 
 ## **Labelpositie aanpassen**
 
-In een taartdiagram pas je de posities van gegevenslabels aan om de spatiëring te verbeteren en ruimte te maken voor leiderslijnen.
+Bij een taartdiagram kun je de positie van gegevenslabels aanpassen om de afstand te verbeteren en ruimte te maken voor verbindingslijnen.
 
-Dit voorbeeld toont de waarde van het eerste gegevenspunt, plaatst het label buiten de sector en past de horizontale en verticale offsets aan met behulp van [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) en [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). Deze offsets zijn respectievelijk relatief ten opzichte van de diagrambreedte en -hoogte.
+Dit voorbeeld toont de waarde van het eerste datapunt, plaatst het label buiten de partitie en past de horizontale en verticale verschuivingen aan met [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) en [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/). Deze verschuivingen zijn respectievelijk relatief ten opzichte van de breedte en hoogte van de grafiek.
 
 ```php
 use aspose\slides\Presentation;
@@ -359,17 +361,17 @@ try {
 }
 ```
 
-![Taartdiagram met een aangepaste positie van het gegevenslabel](pie-chart-adjusted-label.png)
+![Taartdiagram met een aangepaste labelpositie](pie-chart-adjusted-label.png)
 
-## **Leiderslijnen opmaken**
+## **Leidlijnen opmaken**
 
-Wanneer taartdiagramlabels buiten hun sectoren staan, helpen leiderslijnen de lezers elke waarde aan de juiste sector te koppelen. Een contrasterende kleur en een iets dikkere lijn kunnen deze verbindingen makkelijker volgbaar maken, terwijl transparantie en een gestippelde stijl de lijnen visueel onopvallend houden.
+Wanneer taart‑labels buiten de partities staan, helpen leidlijnen de lezer de juiste waarde aan de juiste partitie te koppelen. Een contrasterende kleur en een iets dikkere lijn maken deze verbindingen makkelijker te volgen, terwijl transparantie en een gestreepte stijl de lijnen visueel onopvallend houden.
 
-Gebruik [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) om leiderslijnen te formatteren op het niveau van de gegevenslabelverzameling van de reeks. De instellingen in `$series->getLabels()->getLeaderLinesFormat()->getLine()` gelden voor de verzameling, niet voor een individueel label.
+Gebruik [getLeaderLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelcollection/getleaderlinesformat/) om leidlijnen op serie‑niveau te formatteren. De instellingen in `$series->getLabels()->getLeaderLinesFormat()->getLine()` gelden voor de hele collectie, niet voor een individueel label.
 
-Dit voorbeeld maakt een taartdiagram met standaardgegevens, toont waarden buiten de sectoren en schakelt [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/) in. Het verplaatst twee labels verder van hun sectoren met behulp van [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) en [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) offsets, uitgedrukt als breuken van de diagrambreedte en -hoogte. Er is geen invoerpresentatie nodig.
+Dit voorbeeld maakt een taartdiagram met standaardgegevens, toont waarden buiten de partities en schakelt [setShowLeaderLines](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowleaderlines/) in. Het verplaatst twee labels verder van hun partities met [setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) en [setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) verschuivingen, uitgedrukt als fracties van de grafiekbreedte en -hoogte. Er is geen invoerpresentatie nodig.
 
-De [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) van de lijn stelt een solide blauwe kleur in met een alfa-waarde van 191 van de 255, wat ongeveer 25% transparantie oplevert. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) zet de dikte op 2 punten, en [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) maakt de lijn gestippeld.
+De [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) van de lijn stelt een solide blauwe kleur in met een alfa‑waarde van 191 van de 255, wat ongeveer 25 % transparantie oplevert. [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) stelt de dikte in op 2 pt, en [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) maakt de lijn gestreept.
 
 ```php
 use aspose\slides\Presentation;
@@ -393,7 +395,7 @@ try {
     $labelFormat->setPosition(LegendDataLabelPosition::OutsideEnd);
     $labelFormat->setShowLeaderLines(true);
 
-    // Verplaats twee labels verder weg van hun partjes.
+    // Verplaats twee labels verder van hun partities.
     $series->getLabels()->get_Item(0)->setX(0.10);
     $series->getLabels()->get_Item(0)->setY(-0.05);
     $series->getLabels()->get_Item(1)->setX(-0.10);
@@ -412,17 +414,17 @@ try {
 }
 ```
 
-Het inschakelen van leiderslijnen garandeert niet dat er een lijn verschijnt voor elk label. De zichtbaarheid hangt af van de labelplaatsing en het lay‑outgedrag van het diagram. In dit voorbeeld hebben de twee verschoven labels zichtbare leiderslijnen; de labels die dicht bij hun sectoren blijven, hebben ze niet nodig.
+Het inschakelen van leidlijnen garandeert niet dat er voor elk label een lijn verschijnt. De zichtbaarheid hangt af van de labelplaatsing en het lay‑outgedrag van de grafiek. In dit voorbeeld hebben de twee verplaatste labels zichtbare leidlijnen; de labels die dicht bij hun partities blijven, hebben ze niet nodig.
 
-De volgende afbeelding toont het opgeslagen `FormattedLeaderLines.pptx` gerenderd met Aspose.Slides:
+De volgende afbeelding toont de opgeslagen `FormattedLeaderLines.pptx` zoals gerenderd met Aspose.Slides:
 
-![Taartdiagram met blauwe, halftransparante gestippelde leiderslijnen die twee buitenste labels verbinden met hun sectoren](formatted-leader-lines.png)
+![Taartdiagram met blauwe, halftransparante, gestreepte leidlijnen die twee buitenste labels met hun partities verbinden](formatted-leader-lines.png)
 
-## **Meerdere rijen gegevenslabels boven een kolomdiagram toevoegen**
+## **Meerdere rijen gegevenslabels boven een kolomgrafiek toevoegen**
 
-Dit voorbeeld maakt een kolomdiagram met twee rijen gegevenslabels boven het plotgebied. Reeks A toont de zichtbare kolommen, terwijl Reeks B en Reeks C de extra labels leveren. Hun kolommen worden verborgen door de vulling en lijn te verwijderen. De methode [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) zorgt ervoor dat alle drie de reeksen op dezelfde categorische centra worden uitgelijnd.
+Dit voorbeeld maakt een kolomgrafiek met twee rijen gegevenslabels boven het plotgebied. Reeks A toont de zichtbare kolommen, terwijl Reeks B en Reeks C de extra labels leveren. Hun kolommen worden verborgen door de opvulling en omtrek te verwijderen. De methode [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) zorgt ervoor dat alle drie de reeksen dezelfde categorische centra delen.
 
-De instellingen van [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) reserveren ruimte voor de labelrijen. Nadat [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) de standaardposities heeft berekend, behouden [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) en [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) de horizontale uitlijning en passen ze verticale offsets toe om de labels in twee rijen te rangschikken. De cijfers blijven gegevenslabels gekoppeld aan de reeksenwaarden; alleen de rijkoppen zijn afzonderlijke tekstvormen.
+De instellingen van [ChartPlotArea](https://reference.aspose.com/slides/php-java/aspose.slides/chartplotarea/) reserveren ruimte voor de label‑rijen. Na het berekenen van de standaardposities door [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/), behouden [DataLabel::setX](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/setx/) en [DataLabel::setY](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/sety/) de horizontale uitlijning en passen ze verticale verschuivingen toe om de labels in twee rijen te rangschikken. De getallen blijven gegevenslabels gekoppeld aan de reekswerwaarden; alleen de rij‑koppen zijn afzonderlijke tekstvormen.
 
 ```php
 use aspose\slides\Presentation;
@@ -486,14 +488,14 @@ try {
         }
     }
 
-    // Lijn alle drie reeksen uit op dezelfde categorische centra.
+    // Lijn alle drie de reeksen uit op dezelfde categorische centra.
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setOverlap(100);
 
     // Gebruik minder rasterlijnen voor dit compacte voorbeeld.
     $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(10);
 
-    // Reserveer ruimte boven de plot voor twee rijen gegevenslabels.
+    // Reserveer ruimte boven het plot voor twee rijen gegevenslabels.
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
     $chart->getPlotArea()->setX(0.15);
     $chart->getPlotArea()->setY(0.32);
@@ -510,14 +512,14 @@ try {
 
         for ($categoryIndex = 0; $categoryIndex < count($categories); $categoryIndex++) {
             $dataLabel = $series->getDataPoints()->get_Item($categoryIndex)->getLabel();
-            // Behoud de standaard horizontale positie. Y is een offset ten opzichte van
-            // de standaard labelpositie, uitgedrukt als een fractie van de diagramhoogte.
+            // Behoud de standaard horizontale positie. Y is een verschuiving ten opzichte van
+            // de standaard labelpositie, weergegeven als een fractie van de grafiekhoogte.
             $actualY = java_values($dataLabel->getActualY());
             $dataLabel->setX(0);
             $dataLabel->setY($rowTop - $actualY / $chartHeight);
         }
 
-        // Alleen de rijkop is een aparte tekstvorm.
+        // Alleen de rij‑kop is een aparte tekstvorm.
         $rowHeading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $chartX, $chartY + $rowTop * $chartHeight, 85, 18);
         $rowHeading->getFillFormat()->setFillType(FillType::NoFill);
         $rowHeading->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
@@ -536,18 +538,18 @@ try {
 }
 ```
 
-![Kolomdiagram met twee rijen gegevenslabels boven het plotgebied](multiple-rows-of-labels.png)
+![Kolomgrafiek met twee rijen gegevenslabels boven het plotgebied](multiple-rows-of-labels.png)
 
 ## **FAQ**
 
-**Hoe kan ik voorkomen dat gegevenslabels overlappen in dichte diagrammen?**
+**Hoe kan ik voorkomen dat gegevenslabels overlappen bij dichte grafieken?**
 
-Combineer automatische labelplaatsing, leiderslijnen en een kleinere lettergrootte; verberg indien nodig sommige velden (bijvoorbeeld de categorie) of toon labels alleen voor extreme waarden of belangrijke punten.
+Combineer automatische labelplaatsing, leidlijnen en een kleinere lettergrootte; schakel indien nodig enkele velden (bijvoorbeeld de categorie) uit of toon alleen labels voor uiterste of sleutelwaarden.
 
-**Hoe kan ik labels uitschakelen alleen voor nul-, negatieve of lege waarden?**
+**Hoe kan ik labels uitschakelen alleen voor nul‑, negatieve‑ of lege waarden?**
 
-Filter gegevenspunten voordat u labels inschakelt en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
+Filter datapunten voordat je labels inschakelt en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
 
-**Hoe kan ik een consistente labelstijl verzekeren bij het exporteren naar PDF/afbeeldingen?**
+**Hoe zorg ik voor een consistente labelstijl bij export naar PDF/afbeeldingen?**
 
-Stel expliciet het lettertype en de grootte in en controleer of het lettertype beschikbaar is in de renderomgeving om een fallback te voorkomen.
+Stel expliciet het lettertype en de grootte in en controleer of het lettertype beschikbaar is in de renderomgeving om fallback te voorkomen.

@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 在簡報中管理圖表資料標籤
+title: 在簡報中使用 Python 管理圖表資料標籤
 linktitle: 資料標籤
 type: docs
 url: /zh-hant/python-java/chart-data-label/
@@ -15,15 +15,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "學習使用 Aspose.Slides for Python via Java 在 PowerPoint 簡報中添加與格式化圖表資料標籤，以創造更具吸引力的投影片。"
+description: "了解如何使用 Aspose.Slides for Python via Java 在 PowerPoint 簡報中新增與格式化圖表資料標籤，以打造更具吸引力的投影片。"
 ---
 ## **簡介**
 
-資料標籤顯示圖表系列和單一資料點的資訊，協助讀者辨識數值並了解圖表。本篇說明如何格式化數值、顯示百分比、讀取標籤文字、在軸最大值之外控制標籤、調整類別軸標籤間距，以及設定圓餅圖標籤的位置。
+資料標籤會顯示圖表系列與單獨資料點的資訊，協助讀者辨識數值並了解圖表。本文說明如何格式化數值、顯示百分比、讀取標籤文字、控制超出坐標軸最大值的標籤、調整類別坐標軸標籤間距，以及設定圓形圖標籤的位置。
 
 ## **設定圖表資料標籤的資料精度**
 
-使用[setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues)來格式化系列值。此範例建立一個具有預設資料的折線圖，顯示其資料表，並為第一系列啟用數值標籤。格式 `#,##0.00` 會顯示千位分隔符號和兩位小數，且不會變更底層的值。
+使用 [setNumberFormatOfValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) 來格式化系列值。此範例建立一個使用預設資料的折線圖，顯示其資料表，並為第一個系列啟用數值標籤。格式 `#,##0.00` 會顯示千位分隔符與兩位小數，且不會更改底層的值。
 
 ```python
 import jpype
@@ -50,9 +50,11 @@ finally:
     presentation.dispose()
 ```
 
-## **將百分比顯示為標籤**
+若要格式化圖表內嵌工作簿的數值儲存格，請參閱 [Set Custom Number Formats for Workbook Cells](/slides/zh-hant/python-java/chart-workbook/#set-custom-number-formats-for-workbook-cells)。該範例也示範了數值標籤遵循其來源儲存格格式，同時保留儲存的數值。
 
-對於堆疊直條圖，計算每個值佔其類別總計的百分比，並將文字指派給 [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) 回傳的文字框。此範例使用預設圖表資料，並以 8 點字體顯示保留兩位小數的百分比。總計為零的類別會被略過，以避免除以零。如果圖表資料變更，需重新計算自訂標籤文字。
+## **以百分比顯示為標籤**
+
+對於堆疊直條圖，將每個值計算為該類別總和的百分比，並將文字指派給由 [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) 回傳的文字框。本範例使用預設圖表資料，並以 8 點字型顯示保留兩位小數的百分比。總計為零的類別會被略過，以避免除以零的錯誤。若圖表資料變更，請重新計算自訂標籤文字。
 
 ```python
 import jpype
@@ -108,11 +110,11 @@ finally:
     presentation.dispose()
 ```
 
-## **為圖表資料標籤設定百分號**
+## **設定圖表資料標籤的百分比符號**
 
-當值以分數形式儲存時，使用[setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat)顯示百分比。將 `False` 傳遞給[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource)以使標籤格式獨立於來源儲存格。
+當值以分數形式儲存時，使用 [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) 來顯示百分比。將 `False` 傳遞給 [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) 可使標籤格式獨立於來源儲存格。
 
-此範例建立一個 100% 堆疊直條圖，包含四個類別的紅色與藍色系列。每對值相加皆為 1。標籤格式 `0.0%` 會將 0.30 顯示為 30.0%，而垂直軸使用兩位小數。兩個系列皆使用白色、10 點字體的標籤文字。
+此範例建立一個 100% 堆疊直條圖，四個類別中含有紅色與藍色系列。每對數值的總和為 1。標籤格式 `0.0%` 會將 0.30 顯示為 30.0%，而垂直軸則使用兩位小數。兩個系列皆使用白色、10 點的標籤文字。
 
 ```python
 import jpype
@@ -173,7 +175,7 @@ finally:
 
 ## **讀取資料標籤的實際文字**
 
-使用[getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText)取得資料標籤設定所產生的文字。這在擷取報告用標籤、搜尋簡報內容或驗證產生的圖表時很有用。在以下範例中，預設的[資料標籤格式](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/)結合了每個類別名稱、系列名稱與數值。一個資料點將其數值格式化為百分比，另一個則使用來自[getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding)的自訂文字。
+使用 [getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) 取得資料標籤設定所產生的文字。這在擷取報告用標籤、搜尋簡報內容或驗證產生的圖表時相當有用。在下列示例中，預設的 [data label format](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/) 結合了每個類別名稱、系列名稱與數值。某一資料點將其值格式化為百分比，另一則使用從 [getTextFrameForOverriding](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) 取得的自訂文字。
 
 ```python
 import jpype
@@ -234,15 +236,15 @@ finally:
     presentation.dispose()
 ```
 
-資料點中儲存的數字仍為 `0.75`，即使其標籤顯示 `75%` 並附加類別與系列名稱。自訂文字會取代產生的標籤文字。[getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText)在兩種情況下皆返回最終的標籤字串。如需僅擷取可見的標籤，請如上所示單獨檢查[isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible)。
+資料點中儲存的數值仍為 `0.75`，即使其標籤顯示 `75%` 並附帶類別與系列名稱。自訂文字會取代產生的標籤文字。無論哪種情況，[getActualLabelText](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#getActualLabelText) 都會回傳最終的標籤字串。若只想擷取可見的標籤，請如上例分別檢查 [isVisible](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#isVisible)。
 
-## **在軸最大值之外控制資料標籤**
+## **控制超出坐標軸最大值的資料標籤**
 
-當手動限制軸範圍時，某些資料點可能會超過其最大值。使用[setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum)來控制是否顯示其資料標籤。此設定會變更標籤的可見性；不會更改軸範圍或底層資料值。
+當手動限制坐標軸範圍時，部分資料點可能會超過其最大值。使用 [setShowDataLabelsOverMaximum](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setShowDataLabelsOverMaximum) 來控制是否顯示其資料標籤。此設定會變更標籤的可見性，但不會改變坐標軸範圍或底層資料值。
 
-以下範例建立一個 2D 群組直條圖，數值為 60 與 120。它對垂直軸的[setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue)傳入 `False`，並使用[setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue)將最大值設定為 100。第一張投影片允許超過最大值的標籤；其副本則停用該功能。兩張投影片皆儲存為 `DataLabelsOverMaximum.pptx`。
+下列範例建立一個包含 60 與 120 數值的 2D 群組直條圖。它將 `False` 傳遞給 [setAutomaticMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticMaxValue)，並在垂直軸上使用 [setMaxValue](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setMaxValue) 設定最大值為 100。第一張投影片允許標籤超出最大值；該投影片的複本則停用此功能。兩張投影片皆儲存於 `DataLabelsOverMaximum.pptx`。
 
-使用[setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue)啟用數值標籤。圖表層級的設定本身不會啟用數值顯示，也不會覆寫單一標籤已停用的數值顯示。此範例為整個系列啟用數值，並使用[setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition)將標籤放置於每個柱狀的外端。
+使用 [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) 來啟用數值標籤。圖表層級的設定本身不會啟用數值顯示，亦不會覆寫個別標籤已停用的數值顯示。此範例為整個系列啟用數值，並使用 [setPosition](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setPosition) 將標籤放置於每個直條的外側端點。
 
 ```python
 import jpype
@@ -296,19 +298,19 @@ finally:
     presentation.dispose()
 ```
 
-以下圖片顯示 Microsoft PowerPoint 呈現的已儲存投影片。使用 `True` 時，標籤 **120** 會在上邊界可見；使用 `False` 時則隱藏。標籤 **60** 仍保持可見，軸最大值維持 **100**，且第二個資料點在兩種情況下皆為 **120**。
+以下圖片顯示 Microsoft PowerPoint 呈現的已儲存投影片。設定為 `True` 時，標籤 **120** 會在上邊界可見；設定為 `False` 時，則隱藏。標籤 **60** 仍保持可見，坐標軸最大值仍為 **100**，而第二個資料點在兩種情況下皆為 **120**。
 
 | setShowDataLabelsOverMaximum(True) | setShowDataLabelsOverMaximum(False) |
 | --- | --- |
 | ![PowerPoint 圖表顯示軸最大值為 100 時的數值標籤 120](data-labels-over-maximum-true.png) | ![PowerPoint 圖表在軸最大值為 100 時隱藏數值標籤 120](data-labels-over-maximum-false.png) |
 
 {{% alert color="info" title="Chart Type" %}}
-此範例使用具有值軸的 2D 柱狀圖。沒有值軸的圖表，例如圓餅圖和環形圖，沒有可用於此類限制的軸最大值。
+此範例使用具有數值軸的 2D 直條圖。沒有數值軸的圖表，例如圓形圖與環形圖，無法以此方式限制軸最大值。
 {{% /alert %}}
 
-## **設定標籤與軸的距離**
+## **設定標籤與坐標軸的距離**
 
-使用[setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset)控制類別軸標籤與軸之間的距離。該值為軸標籤最大字型大小的百分比。此範例建立一個群組直條圖，並將水平軸標籤偏移設定為 500。此設定影響類別軸標籤，而非個別資料點的標籤。
+使用 [setLabelOffset](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setLabelOffset) 來控制類別坐標軸標籤與坐標軸之間的距離。此數值是軸標籤最大字型大小的百分比。本範例建立一個群組直條圖，並將水平軸標籤偏移設定為 500。此設定影響類別坐標軸的標籤，而非附加於單一資料點的標籤。
 
 ```python
 import jpype
@@ -333,9 +335,9 @@ finally:
 
 ## **調整標籤位置**
 
-在圓餅圖上，調整資料標籤位置以提升間距並為領引線留出空間。
+在圓形圖上，調整資料標籤位置以改善間距並為引線留出空間。
 
-此範例顯示第一個資料點的數值，將其標籤置於切片外側，並使用[setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX)與[setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY)調整水平與垂直偏移。這些偏移分別相對於圖表的寬度與高度。
+此範例顯示第一筆資料點的數值，將其標籤放置在切片外部，並使用 [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) 與 [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) 調整水平與垂直偏移。這些偏移分別相對於圖表的寬度與高度。
 
 ```python
 import jpype
@@ -364,17 +366,17 @@ finally:
     presentation.dispose()
 ```
 
-![已調整資料標籤位置的圓餅圖](pie-chart-adjusted-label.png)
+![圓形圖，資料標籤位置已調整](pie-chart-adjusted-label.png)
 
-## **格式化領引線**
+## **格式化引線**
 
-當圓餅圖標籤位於切片外側時，領引線可協助讀者將每個數值對應到正確的切片。使用對比色且稍微較粗的線條可讓這些連接更易於辨識，而透明度與虛線樣式則可使線條在視覺上不突兀。
+當圓形圖的標籤位於切片外側時，引線可協助讀者將每個數值對應至正確的切片。使用對比色且稍粗的線條可讓這些連接更易於辨識，而加入透明度與虛線樣式則能使線條在視覺上不突兀。
 
-使用[getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat)在系列的資料標籤集合層級格式化領引線。`series.getLabels().getLeaderLinesFormat().getLine()` 中的設定套用於整個集合，而非單一標籤。
+使用 [getLeaderLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelcollection/#getLeaderLinesFormat) 於系列的資料標籤集合層級格式化引線。`series.getLabels().getLeaderLinesFormat().getLine()` 中的設定會套用於整個集合，而非單一標籤。
 
-此範例建立一個使用預設資料的圓餅圖，將數值顯示在切片外側，並啟用[setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines)。它使用[setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX)與[setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY)偏移（以圖表寬度與高度的比例表示）將兩個標籤向外移動。無需提供輸入簡報。
+此範例建立一個使用預設資料的圓形圖，將數值顯示於切片外側，並啟用 [setShowLeaderLines](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowLeaderLines)。它使用 [setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) 與 [setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) 偏移（以圖表寬高的比例表示）將兩個標籤移得更遠。此範例不需要輸入簡報檔案。
 
-該線條的[getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat)設定為實心藍色，透明度 (alpha) 為 191/255，約 25% 透明度。[setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth)將粗細設定為 2 點，[setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle)則使線條呈虛線。
+線條的 [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) 設定為實心藍色，alpha 值 191（255 為滿值），約 25% 透明度。[setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) 設定粗細為 2 點，[setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) 使線條呈虛線。
 
 ```python
 import jpype
@@ -401,7 +403,7 @@ try:
     label_format.setPosition(LegendDataLabelPosition.OutsideEnd)
     label_format.setShowLeaderLines(True)
 
-    # 將兩個標籤從其切片更遠移動。
+    # 將兩個標籤移得更遠，遠離其切片。
     series.getLabels().get_Item(0).setX(0.10)
     series.getLabels().get_Item(0).setY(-0.05)
     series.getLabels().get_Item(1).setX(-0.10)
@@ -419,17 +421,17 @@ finally:
     presentation.dispose()
 ```
 
-啟用領引線並不保證每個標籤都會出現線條。可見性取決於標籤的位置與圖表的版面配置行為。在此範例中，兩個被移出的標籤具可見的領引線；靠近切片的標籤則不需要。
+啟用引線並不保證每個標籤都會產生線條。是否可見取決於標籤的放置位置與圖表的版面配置行為。在本範例中，兩個被移離的標籤會有可見的引線；而靠近切片的標籤則不需要引線。
 
 以下圖片顯示使用 Aspose.Slides 呈現的已儲存 `FormattedLeaderLines.pptx`：
 
-![圓餅圖，藍色半透明虛線領引線將兩個外部標籤連接至其切片](formatted-leader-lines.png)
+![圓形圖，藍色半透明虛線引線將兩個外部標籤連接至相應切片](formatted-leader-lines.png)
 
-## **在柱狀圖上方新增多列資料標籤**
+## **在直條圖上方新增多列資料標籤**
 
-此範例建立一個柱狀圖，在繪圖區上方放置兩列資料標籤。系列 A 顯示可見的柱形，Series B 與 Series C 提供額外的標籤。透過移除填色與輪廓來隱藏它們的柱形。[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) 方法將所有三個系列對齊於相同的類別中心。
+此範例建立一個直條圖，於繪圖區上方放置兩列資料標籤。Series A 顯示可見的直條，而 Series B 與 Series C 提供額外的標籤。透過移除填充與輪廓，使它們的直條隱藏。使用 [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) 方法讓三個系列在相同的類別中心對齊。
 
-[ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) 設定保留標籤列的空間。於[Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout)計算預設位置後，[DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) 與 [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) 保持水平對齊，並套用垂直偏移以將標籤排列成兩列。這些數字仍為連結至系列值的資料標籤；僅行標題為獨立的文字形狀。
+[ChartPlotArea](https://reference.aspose.com/slides/python-java/aspose.slides/chartplotarea/) 設定為標籤列保留空間。於 [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) 計算預設位置後，[DataLabel.setX](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setX) 與 [DataLabel.setY](https://reference.aspose.com/slides/python-java/aspose.slides/datalabel/#setY) 保持水平對齊，並套用垂直偏移以在兩列中排列標籤。這些數字仍是與系列值連結的資料標籤；只有列標題是獨立的文字圖形。
 
 ```python
 import jpype
@@ -474,7 +476,7 @@ try:
             series.getDataPoints().addDataPointForBarSeries(value_cell)
 
         if series_index > 0:
-            # 隱藏 B 與 C 的欄位，但保留其資料標籤。
+            # 隱藏 B 和 C 的欄位，但保留它們的資料標籤。
             series.getFormat().getFill().setFillType(FillType.NoFill)
             series.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
             label_format = series.getLabels().getDefaultDataLabelFormat()
@@ -485,14 +487,14 @@ try:
             label_fill.getSolidFillColor().setColor(Color.BLACK)
             label_format.setPosition(LegendDataLabelPosition.InsideBase)
 
-    # 將所有三個系列對齊至相同的類別中心。
+    # 使所有三個系列與相同的類別中心對齊。
     chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setOverlap(jpype.JByte(100))
 
     # 在此簡潔範例中使用較少的格線。
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setMajorUnit(10)
 
-    # 在繪圖區上方保留空間，以放置兩列資料標籤。
+    # 為兩行資料標籤在繪圖區上方保留空間。
     chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner)
     chart.getPlotArea().setX(0.15)
     chart.getPlotArea().setY(0.32)
@@ -506,12 +508,12 @@ try:
 
         for category_index in range(len(categories)):
             data_label = series.getDataPoints().get_Item(category_index).getLabel()
-            # 保留預設的水平位置。Y 為相對於
-            # 預設標籤位置的偏移量，以圖表高度的比例表示。
+            # 保持預設的水平位置。Y 是相對於
+            # 預設標籤位置的偏移，以圖表高度的比例表示。
             data_label.setX(0)
             data_label.setY(row_top - data_label.getActualY() / chart.getHeight())
 
-        # 僅列標題是獨立的文字形狀。
+        # 只有列標題是獨立的文字圖形。
         heading_y = chart.getY() + row_top * chart.getHeight()
         row_heading = slide.getShapes().addAutoShape(ShapeType.Rectangle, chart.getX(), heading_y, 85, 18)
         row_heading.getFillFormat().setFillType(FillType.NoFill)
@@ -529,18 +531,15 @@ finally:
     presentation.dispose()
 ```
 
-![柱狀圖，繪圖區上方有兩列資料標籤](multiple-rows-of-labels.png)
+![直條圖，繪圖區上方有兩列資料標籤](multiple-rows-of-labels.png)
 
-## **FAQ**
+## **常見問題**
 
-**如何在密集圖表上防止資料標籤重疊？**
+**如何防止在密集圖表上資料標籤重疊？**  
+結合自動標籤定位、引線與縮小字型大小；必要時，可隱藏部分欄位（例如類別），或僅對極端數值或關鍵點顯示標籤。
 
-結合自動標籤放置、領引線與縮小字型大小；如有必要，可隱藏某些欄位（例如類別），或僅對極端值或關鍵點顯示標籤。
+**如何僅對零、負值或空值停用標籤？**  
+在啟用標籤之前先過濾資料點，並依據定義的規則對值為 0、負值或缺失值關閉顯示。
 
-**如何僅針對零、負值或空值停用標籤？**
-
-在啟用標籤前過濾資料點，並依據定義的規則關閉對值為 0、負值或遺失值的顯示。
-
-**如何在匯出為 PDF/映像時確保標籤樣式一致？**
-
-明確設定字型族與大小，並確認渲染環境中有該字型，以避免使用備用字型。
+**如何確保匯出為 PDF/影像時標籤樣式一致？**  
+明確設定字型系列與大小，並確認渲染環境中已安裝該字型，以避免使用備用字型。
