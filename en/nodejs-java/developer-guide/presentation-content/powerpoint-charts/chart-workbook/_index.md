@@ -321,6 +321,8 @@ try {
 
 ## **Specify the Data Source Type**
 
+Series point values can also be stored directly as numeric literals. See [Set Series Values Using Numeric Literals](/slides/nodejs-java/chart-series/#set-series-values-using-numeric-literals) for a complete example that saves and reads them. The source type of point values is separate from the chart's internal or external workbook configuration; using numeric literals does not, by itself, remove the embedded workbook.
+
 This example creates a 3D column chart with default data and sets two series names using different data sources. The first name uses a string literal; the second uses cell C1 on worksheet 0. The [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) enumeration selects the source for each name. The example saves the presentation with the updated series names.
 
 ```javascript
