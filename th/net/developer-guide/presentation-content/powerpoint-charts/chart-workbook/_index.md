@@ -1,50 +1,50 @@
 ---
-title: จัดการเวิร์กบุ๊กแผนภูมิในงานนำเสนอใน .NET
-linktitle: เวิร์กบุ๊กแผนภูมิ
+title: จัดการสมุดงานแผนภูมิในงานนำเสนอด้วย .NET
+linktitle: สมุดงานแผนภูมิ
 type: docs
 weight: 70
 url: /th/net/chart-workbook/
 keywords:
-- เวิร์กบุ๊กแผนภูมิ
+- สมุดงานแผนภูมิ
 - ข้อมูลแผนภูมิ
-- เซลล์เวิร์กบุ๊ก
+- เซลล์สมุดงาน
 - ป้ายกำกับข้อมูล
-- ชีตงาน
+- แผ่นงาน
 - แหล่งข้อมูล
-- เวิร์กบุ๊กภายนอก
+- สมุดงานภายนอก
 - ข้อมูลภายนอก
 - แคชแผนภูมิ
-- การกู้คืนเวิร์กบุ๊ก
+- การกู้คืนสมุดงาน
 - PowerPoint
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ .NET: จัดการเวิร์กบุ๊กแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ."
+description: "ค้นพบ Aspose.Slides สำหรับ .NET: จัดการสมุดงานแผนภูมิใน PowerPoint และรูปแบบ OpenDocument ได้อย่างง่ายดายเพื่อเพิ่มประสิทธิภาพข้อมูลงานนำเสนอของคุณ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีทำงานกับเวิร์กบุ๊กของแผนภูมิใน Aspose.Slides โดยแสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของเวิร์กบุ๊ก ใช้เซลล์ของเวิร์กบุ๊กเป็นป้ายกำกับข้อมูลแผนภูมิ เข้าถึงคอลเลกชันของชีตงาน และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีการทำงานกับสมุดงานแผนภูมิใน Aspose.Slides โดยจะแสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมสมุดงาน, ใช้เซลล์สมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ, เข้าถึงคอลเลกชันของแผ่นงาน, และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-นอกจากนี้ยังครอบคลุมการทำงานกับเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีสร้างและกำหนดเวิร์กบุ๊กภายนอก การดึงเส้นทางของเวิร์กบุ๊กภายนอกที่เชื่อมโยงกับแผนภูมิ และการแก้ไขข้อมูลแผนภูมิเมื่อเวิร์กบุ๊กพร้อมใช้งาน
+มันยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ ตัวอย่างจะแสดงวิธีการสร้างและกำหนดสมุดงานภายนอก, ดึงพาธของสมุดงานภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อสมุดงานพร้อมใช้งาน
 
-สำหรับเซลล์เวิร์กบุ๊กที่แทนค่าข้อมูลที่หายไป โปรดดู [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/net/chart-series/) เพื่อดูความแตกต่างระหว่างเซลล์ว่างกับศูนย์ และการเปรียบเทียบกราฟเส้นของโหมดการแสดงผลที่มีให้
+สำหรับเซลล์สมุดงานที่แสดงข้อมูลที่ขาดหาย, ดู [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/net/chart-series/) เพื่อความแตกต่างระหว่างเซลล์ว่างและศูนย์, และการเปรียบเทียบแผนภูมิเส้นของโหมดการแสดงผลที่มีให้เลือก
 
 ## **รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อน**
 
-ใช้ [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) เพื่อควบคุมว่ากราฟจะพล็อตข้อมูลจากแถวและคอลัมน์ของชีตที่ซ่อนหรือไม่ ตั้งค่าเป็น `true` เพื่อพล็อตเฉพาะเซลล์ที่มองเห็นได้ หรือ `false` เพื่อรวมทั้งเซลล์ที่มองเห็นและที่ซ่อน การตั้งค่านี้ควบคุมการพล็อตของกราฟ; ไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ของชีต
+Use [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) เพื่อควบคุมว่ากราฟจะพล็อตข้อมูลจากแถวและคอลัมน์ของแผ่นงานที่ซ่อนหรือไม่ ตั้งค่าเป็น `true` เพื่อพล็อตเฉพาะเซลล์ที่มองเห็นได้ หรือ `false` เพื่อรวมทั้งเซลล์ที่มองเห็นและซ่อน การตั้งค่านี้ควบคุมการพล็อตกราฟ; มันไม่ได้ทำการซ่อนหรือแสดงแถวหรือคอลัมน์ของแผ่นงาน
 
-[การนำเสนอตัวอย่าง](hidden-source-data.pptx) มีแผนภูมิคอลัมน์เป็นรูปร่างแรกบนสไลด์แรกของมัน ชีตที่ฝังอยู่ `Sheet1` มีช่วงข้อมูลต้นแบบต่อไปนี้ `A1:C4` แถวที่ 3 และคอลัมน์ C ถูกซ่อน แต่เซลล์ของพวกมันยังคงมีค่า
+The [ตัวอย่างงานนำเสนอ](hidden-source-data.pptx) contains a column chart as the first shape on its first slide. The embedded worksheet, `Sheet1`, contains the following source range, `A1:C4`. Row 3 and column C are hidden, but their cells still contain values.
 
-| แถวของชีตงาน | A: เดือน | B: ร้านค้าปลีก | C: ค้าส่ง (คอลัมน์ซ่อน) |
+| แถวของแผ่นงาน | A: เดือน | B: รายการค้าปลีก | C: ค้าส่ง (คอลัมน์ที่ซ่อนอยู่) |
 | --- | --- | --- | --- |
 | 2 | มกราคม | 10 | 30 |
-| 3 (แถวซ่อน) | กุมภาพันธ์ | 40 | 60 |
+| 3 (แถวที่ซ่อน) | กุมภาพันธ์ | 40 | 60 |
 | 4 | มีนาคม | 20 | 50 |
 
-เข้าถึงเซลล์ต้นทางผ่าน [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) และอ่านค่า [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) เพื่อตรวจสอบสถานะการซ่อนของพวกมัน คุณสมบัตินี้เป็นแบบอ่านอย่างเดียว ในไฟล์นี้ B2 มองเห็นได้, B3 อยู่ในแถวที่ซ่อน, และ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างพิมพ์ค่า `False`, `True`, และ `True` ตามลำดับ
+Access source cells through [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) and read [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) to inspect their hidden status. This property is read-only. In this file, B2 is visible, B3 belongs to the hidden row, and C2 belongs to the hidden column; the example prints `False`, `True`, and `True`, respectively.
 
-สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการพล็อต: รักษาเวิร์กบุ๊กที่ฝังไว้ด้วย [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) และโหลดใหม่ด้วย [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) เมื่อรวมทุกเซลล์ ให้ใช้ [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) เพื่อคืนช่วงข้อมูลทั้งหมดรวมถึงหมวดหมู่เดือนกุมภาพันธ์ที่ซ่อน การเปลี่ยนค่าสถานะเพียงอย่างเดียวไม่เพียงพอในการรีเฟรชข้อมูลแผนภูมิที่ถูกแคชและป้ายกำกับหมวดหมู่ของตัวอย่างนี้
+For this example, refresh the chart data after changing the plotting setting: retain the embedded workbook with [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) and reload it with [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). When including all cells, also use [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) to restore the complete range, including the hidden February category. Simply changing the flag is insufficient to refresh this sample's cached chart data and category labels.
 
 ```csharp
 using System;
@@ -67,12 +67,12 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // รีเฟรชข้อมูลแผนภูมิจากเวิร์กบุ๊กที่ฝังอยู่.
+        // รีเฟรชข้อมูลแผนภูมิจากสมุดงานที่ฝังอยู่.
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // คืนช่วงข้อมูลต้นทางทั้งหมดรวมถึงหมวดหมู่ที่ซ่อนอยู่.
+            // เรียกคืนช่วงแหล่งข้อมูลทั้งหมด รวมถึงหมวดหมู่ที่ซ่อนอยู่.
             chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
@@ -81,25 +81,23 @@ if (slide.Shapes[0] is IChart chart)
 }
 else
 {
-    Console.WriteLine("The first shape is not a chart.");
+    Console.WriteLine("รูปร่างแรกไม่ได้เป็นแผนภูมิ.");
 }
 ```
 
-ตัวอย่างบันทึกรุ่นสองเวอร์ชันของการนำเสนอ: หนึ่งเวอร์ชันที่มีเฉพาะค่าร้านค้าปลีกที่มองเห็นได้ (10 และ 20) และอีกหนึ่งเวอร์ชันที่มีค่าทั้งหกค่า รูปภาพด้านล่างถูกสร้างจากการนำเสนอที่บันทึกและเปิดใหม่; ทั้งสองไฟล์คงการตั้งค่าการพล็อตที่กำหนดไว้ แถวที่ 3 และคอลัมน์ C ยังคงซ่อนอยู่ในทั้งสองเวิร์กบุ๊กที่ฝัง
+The example saves two versions of the presentation: one with only the visible Retail values (10 and 20), and another with all six values. The images below were rendered from the saved presentations after reopening them; both files preserve their assigned plotting setting. Row 3 and column C remain hidden in both embedded workbooks.
 
-| เฉพาะเซลล์ที่มองเห็น (`true`) | เซลล์ทั้งหมด (`false`) |
+| เฉพาะเซลล์ที่มองเห็น (`true`) | ทุกเซลล์ (`false`) |
 | --- | --- |
-| ![เฉพาะเซลล์ที่มองเห็น: ค่าร้านค้าปลีก 10 และ 20 สำหรับเดือนมกราคมและมีนาคม.](hidden_cells_True.png) | ![เซลล์ทั้งหมด: ค่าร้านค้าปลีกและค้าส่งสำหรับเดือนมกราคม, กุมภาพันธ์, และมีนาคม.](hidden_cells_False.png) |
+| ![เฉพาะเซลล์ที่มองเห็น: ค่ารายการค้าปลีก 10 และ 20 สำหรับเดือนมกราคมและมีนาคม.](hidden_cells_True.png) | ![ทุกเซลล์: ค่ารายการค้าปลีกและค้าส่งสำหรับเดือนมกราคม, กุมภาพันธ์, และมีนาคม.](hidden_cells_False.png) |
 
-เซลล์ที่ซ่อนและมีค่าแตกต่างจากเซลล์ว่าง [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) ควบคุมวิธีการแสดงค่าที่หายไป; ไม่ได้รวมหรือไม่รวมข้อมูลต้นทางที่ซ่อน ดูตัวอย่างที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/net/chart-series/#control-the-display-of-empty-cells)
+A hidden cell containing a value is different from an empty cell. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) controls how missing values are displayed; it does not include or exclude hidden source data. See [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/net/chart-series/#control-the-display-of-empty-cells) for an example.
 
 ## **ดึงช่วงข้อมูลของแผนภูมิ**
 
-ก่อนที่จะอัปเดตข้อมูลเวิร์กบุ๊กในงานนำเสนอที่มีอยู่ ให้ตรวจสอบช่วงต้นทางเพื่อระบุว่าเซลล์ของชีตงานใดที่แต่ละแผนภูมิใช้ วิธีการ [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) จะคืนค่าช่วงข้อมูลปัจจุบันเป็นสูตรที่ระบุชีต เช่น `Sheet1!$A$1:$D$5` ที่นี่ `Sheet1` คือชื่อชีต, `!` แยกจากช่วงเซลล์, และ `$A$1:$D$5` ระบุเซลล์ A1 ถึง D5 รวมทั้งสองตำแหน่ง สัญลักษณ์ดอลลาร์บ่งบอกการอ้างอิงแถวและคอลัมน์แบบสัมบูรณ์
+Before updating workbook data in an existing presentation, inspect the source ranges to identify which worksheet cells each chart uses. The [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) method returns the current data range as a worksheet-qualified formula, such as `Sheet1!$A$1:$D$5`. Here, `Sheet1` is the worksheet name, `!` separates it from the cell range, and `$A$1:$D$5` identifies cells A1 through D5, inclusive. The dollar signs indicate absolute row and column references.
 
-เมธอดนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือเวิร์กบุ๊กของมัน หากแผนภูมิไม่ใช้เวิร์กบุ๊กเป็นแหล่งข้อมูล จะทำให้เกิดข้อยกเว้น [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) สำหรับข้อมูลเพิ่มเติม ดู [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/)
-
-ตัวอย่างนี้เปิดงานนำเสนอและตรวจสอบรูปร่างบนแต่ละสไลด์โดยตรงเพื่อหาแผนภูมิ พิมพ์ชื่อและช่วงต้นทางของแต่ละแผนภูมิ หากแผนภูมิไม่ใช้เวิร์กบุ๊ก จะพิมพ์ข้อความและดำเนินการต่อไปยังแผนภูมิถัดไป
+The method reads the current range without changing the chart or its workbook. If the chart does not use a workbook as its data source, it throws [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). For more information, see the [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
 
 ```csharp
 using System;
@@ -128,11 +126,9 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **อ่านและเขียนข้อมูลแผนภูมิจากเวิร์กบุ๊ก**
+## **อ่านและเขียนข้อมูลแผนภูมิจากสมุดงาน**
 
-Aspose.Slides for .NET มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) และ [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) ที่ให้คุณอ่านและเขียนเวิร์กบุ๊กข้อมูลแผนภูมิ (ซึ่งมีข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิจำเป็นต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างที่คล้ายกับต้นแบบ
-
-ตัวอย่างนี้ใช้งานนำเสนอที่มีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรก อ่านเวิร์กบุ๊กที่ฝังอยู่ลงในสตรีม, ลบ series และ category ที่มีอยู่, แล้วเขียนเวิร์กบุ๊กเดิมกลับไป การเปลี่ยนแปลงอยู่ในหน่วยความจำ; ตัวอย่างไม่ได้บันทึกงานนำเสนอ
+Aspose.Slides for .NET provides the [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) and [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **หมายเหตุ** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
 ```csharp
 using System;
@@ -160,9 +156,9 @@ else
 }
 ```
 
-### **ตรวจสอบโครงสร้างแผนภูมิหลังจากแก้ไขเวิร์กบุ๊ก**
+### **ตรวจสอบเค้าโครงแผนภูมิหลังการแก้ไขสมุดงาน**
 
-เมื่อคุณแทนที่เวิร์กบุ๊กที่ฝังด้วยเวิร์กบุ๊กที่แก้ไขแล้ว แผนภูมิจะคง series และ collection ของ category ดั้งเดิม ความไม่ตรงกันนี้อาจทำให้ [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ให้ลบ series และ category ที่มีอยู่ก่อนเขียนเวิร์กบุ๊กที่อัปเดตกลับไปยังแผนภูมิ ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรก คอมเมนต์บ่งชี้จุดที่ควรแก้ไขเวิร์กบุ๊ก; ตัวอย่างที่สามารถรันได้เขียนเวิร์กบุ๊กเดิมกลับและตรวจสอบโครงสร้างในหน่วยความจำ
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart. This example uses a chart that is the first shape on the first slide. The comment marks where workbook editing would occur; the runnable example writes the original workbook back and validates the layout in memory.
 
 ```csharp
 using System;
@@ -178,7 +174,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // แก้ไขสตรีมเวิร์กบุ๊กที่นี่, เช่น การใช้ Aspose.Cells.
+    // แก้ไขสตรีมสมุดงานที่นี่, ตัวอย่างเช่น โดยใช้ Aspose.Cells.
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -193,15 +189,15 @@ else
 }
 ```
 
-การลบ collection จะลบการอ้างอิงข้อมูลเก่าออกก่อนที่เวิร์กบุ๊กจะถูกเขียนกลับ เรียกสร้าง series และการแมป category ที่จำเป็นสำหรับเวิร์กบุ๊กที่อัปเดตก่อนใช้แผนภูมิ
+Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
-## **กำหนดรูปแบบตัวเลขแบบกำหนดเองสำหรับเซลล์เวิร์กบุ๊ก**
+## **กำหนดรูปแบบตัวเลขที่กำหนดเองสำหรับเซลล์สมุดงาน**
 
-ใช้ [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) เพื่อควบคุมวิธีการแสดงค่าตัวเลขในเวิร์กบุ๊กที่ฝังของแผนภูมิ ตัวอย่างเช่น รายงานอาจต้องการอัตราแปลงที่แสดงเป็นเปอร์เซ็นต์ด้วยทศนิยมสี่ตำแหน่งและค่าสัมประสิทธิ์ที่แสดงด้วยทศนิยมห้าตำแหน่ง ให้ค่าสองค่าเป็นตัวเลขเพื่อให้ยังสามารถใช้ในการคำนวณและพล็อตแผนภูมิได้
+Use [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
 
-รูปแบบตัวเลขจะเปลี่ยนการแสดงผล ไม่ใช่ค่าที่เก็บไว้ รูปแบบ `0.0000%` จะทำให้แสดง `0.125` เป็น `12.5000%`; ไม่ได้แทนที่ตัวเลขที่เก็บไว้ด้วย `12.5` เช่นเดียวกัน `0.00000` จะแสดง `0.1234567` เป็น `0.12346` โดยไม่ทำการปัดเศษค่าที่เก็บ หากรูปแบบกำหนดเองเป็นสตริงว่าง (`""`) จะใช้ [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) แทน
+A number format changes the display, not the stored value. The format `0.0000%` displays `0.125` as `12.5000%`; it does not replace the stored number with `12.5`. Similarly, `0.00000` displays `0.1234567` as `0.12346` without rounding the stored value. If the custom format is an empty string (`""`), [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) is used instead.
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์และเข้าถึงเซลล์ผ่าน [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) ในชีตงาน 0, B2 มีอัตราการแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์เป็นแหล่งค่าของแผนภูมิ ตัวอย่างยังเปิดใช้ป้ายกำกับค่าที่เชื่อมต่อกับรูปแบบต้นทาง
+The following example creates a column chart and accesses its cells through [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/). On worksheet 0, B2 contains the conversion rate and C2 contains the coefficient. Both cells supply chart values. The example also enables value labels linked to the source formats.
 
 ```csharp
 using Aspose.Slides;
@@ -251,19 +247,19 @@ foreach (var series in chart.ChartData.Series)
 presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
 ```
 
-รูปแบบเซลล์ของเวิร์กบุ๊กแยกจากรูปแบบที่ตั้งตรงบนแกนแผนภูมิหรือป้ายกำกับข้อมูล ในตัวอย่างนี้แต่ละป้ายแสดงค่าของเซลล์ต้นทางเนื่องจาก [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) เปิดใช้งานและปฏิบัติตามรูปแบบตัวเลขของต้นทางเนื่องจาก [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) เป็น `true` หลังจากบันทึกและเปิดงานนำเสนอใหม่ ป้ายจะแสดง `12.5000%` และ `0.12346` ตามที่แสดงด้านล่าง แกนแนวตั้งใช้ [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) ของตัวเองเป็น `0.00` โดยตั้งค่า [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) เป็น `false`
+Workbook cell formats are separate from formats set directly on chart axes or data labels. In this example, each label displays its source cell's value because [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) is enabled, and follows the source number format because [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) is `true`. After saving and reopening the presentation, the labels display `12.5000%` and `0.12346`, as shown below. The vertical axis uses its own [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) of `0.00`, with [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) set to `false`.
 
-หากต้องการจัดรูปแบบป้ายกำกับข้อมูลอย่างอิสระ ให้ตั้งค่าสถานะเชื่อมต่อกับต้นทางเป็น `false` และกำหนด [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) ของมัน การทำเช่นนี้จะไม่เปลี่ยนรูปแบบของเซลล์เวิร์กบุ๊ก ตัวอย่างรูปแบบป้ายอิสระ `0.00` จะแสดงค่าตัวแรกเป็น `0.13` ในขณะที่ B2 ยังคงแสดง `12.5000%` ดูที่ [Chart Data Labels](/slides/th/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) สำหรับการจัดรูปแบบป้ายโดยตรง
+To format a data label independently, set its source-link flag to `false` and assign its [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/). This does not change the workbook cell's format. For example, an independent label format of `0.00` displays the first value as `0.13`, while B2 still displays `12.5000%`. See [Chart Data Labels](/slides/th/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) for direct label formatting.
 
-รูปภาพด้านล่างถูกสร้างจากงานนำเสนอที่บันทึกแล้วเปิดใหม่:
+The image below was rendered from the saved presentation after reopening it:
 
-![แผนภูมิคอลัมน์ที่มีป้ายกำกับเชื่อมต่อกับต้นทางแสดง 12.5000% และ 0.12346 และแกนตัวเลขที่จัดรูปแบบอย่างอิสระ](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **ตั้งค่าเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลของแผนภูมิ**
+## **กำหนดเซลล์สมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ**
 
-คุณสามารถใช้ข้อความจากเซลล์ของเวิร์กบุ๊กเป็นป้ายกำกับข้อมูลของแผนภูมิ
+You can use text from workbook cells as chart data labels.
 
-ตัวอย่างนี้เพิ่มแผนภูมิบับเบิลพร้อมข้อมูลเริ่มต้นบนสไลด์แรกของงานนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 บนชีตงาน 0 สำหรับป้ายชื่อสามตัวแรกใน series แรก เปิดใช้งานป้ายจากเซลล์และบันทึกงานนำเสนอที่อัปเดต
+This example adds a bubble chart with default data to the first slide of an existing presentation. It uses cells A10:A12 on worksheet 0 for the first three labels in the first series, enables labels from cells, and saves the updated presentation.
 
 ```csharp
 using Aspose.Slides;
@@ -285,9 +281,9 @@ series.Labels[2].ValueFromCell = workbook.GetCell(0, "A12", "Label 2 cell value"
 presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 ```
 
-## **จัดการชีตงาน**
+## **จัดการแผ่นงาน**
 
-คุณสมบัติ [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) ให้เข้าถึงชีตงานในเวิร์กบุ๊กของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิวงกลมพร้อมข้อมูลเริ่มต้นและพิมพ์ชื่อชีตงานแต่ละรายการลงคอนโซล
+The [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) property provides access to the worksheets in a chart workbook. This example creates a pie chart with default data and prints each worksheet name to the console.
 
 ```csharp
 using System;
@@ -308,7 +304,9 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 
 ## **ระบุประเภทแหล่งข้อมูล**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 3D พร้อมข้อมูลเริ่มต้นและตั้งชื่อ series สองชื่อโดยใช้แหล่งข้อมูลที่แตกต่างกัน ชื่อแรกใช้สตริงลิเทรัล; ชื่อที่สองใช้เซลล์ C1 บนชีตงาน 0 ค่าตัวนับ [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) เลือกแหล่งสำหรับแต่ละชื่อ ตัวอย่างบันทึกงานนำเสนอพร้อมชื่อ series ที่อัปเดต
+Series point values can also be stored directly as numeric literals. See [Set Series Values Using Numeric Literals](/slides/th/net/chart-series/#set-series-values-using-numeric-literals) for a complete example that saves and reads them. The source type of point values is separate from the chart's internal or external workbook configuration; using numeric literals does not, by itself, remove the embedded workbook.
+
+This example creates a 3D column chart with default data and sets two series names using different data sources. The first name uses a string literal; the second uses cell C1 on worksheet 0. The [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) enumeration selects the source for each name. The example saves the presentation with the updated series names.
 
 ```csharp
 using Aspose.Slides;
@@ -332,9 +330,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **ตรวจจับรูปแบบเวิร์กบุ๊กที่ฝังไม่รองรับ**
+## **ตรวจจับรูปแบบสมุดงานฝังที่ไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบเวิร์กบุ๊กไบนารีของ Excel (.xlsb) ที่สามารถฝังอยู่ในบางแผนภูมิ คุณสามารถใช้คุณสมบัติ [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) บน [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) ร่วมกับตัวนับ [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น ตัวอย่างนี้ตรวจสอบรูปร่างบนสไลด์แรกของงานนำเสนอที่มีอยู่ ข้ามรูปร่างที่ไม่ใช่แผนภูมิ และพิมพ์ข้อความการวินิจฉัยสำหรับแต่ละแผนภูมิที่มีเวิร์กบุ๊ก .xlsb ฝังอยู่
+Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) property on [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) enumeration to detect unsupported formats and skip those charts. This example inspects the shapes on the first slide of an existing presentation, skips non-chart shapes, and prints a diagnostic message for each chart with an embedded .xlsb workbook.
 
 ```csharp
 using System;
@@ -361,19 +359,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กของแผนภูมิที่สนับสนุนที่นี่.
+    // อ่านหรือแก้ไขข้อมูลสมุดงานแผนภูมิที่รองรับที่นี่.
 }
 ```
 
-## **เวิร์กบุ๊กภายนอก**
+## **สมุดงานภายนอก**
 
-Aspose.Slides รองรับการใช้เวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
+Aspose.Slides supports using external workbooks as a data source for charts.
 
-### **สร้างเวิร์กบุ๊กภายนอก**
+### **สร้างสมุดงานภายนอก**
 
-ใช้ [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) และ [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) เพื่อส่งออกเวิร์กบุ๊กแผนภูมิที่ฝังเป็นไฟล์และเชื่อมแผนภูมิไปยังเวิร์กบุ๊กภายนอกนั้น
+Use [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) and [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) to export an embedded chart workbook to a file and link the chart to that external workbook.
 
-ตัวอย่างนี้สร้างแผนภูมิวงกลมพร้อมข้อมูลเริ่มต้นและส่งออกเวิร์กบุ๊กของมัน ปิดสตรีมเอาต์พุตก่อนกำหนดเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ แล้วบันทึกงานนำเสนอที่มีการเชื่อมโยง
+This example creates a pie chart with default data and exports its workbook. It closes the output stream before assigning the external workbook as the chart data source, then saves the linked presentation.
 
 ```csharp
 using System.IO;
@@ -397,13 +395,13 @@ chart.ChartData.SetExternalWorkbook(workbookPath);
 presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-### **กำหนดเวิร์กบุ๊กภายนอก**
+### **กำหนดสมุดงานภายนอก**
 
-โดยใช้เมธอด [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) คุณสามารถกำหนดเวิร์กบุ๊กภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลของมันได้ เมธอดนี้ยังสามารถใช้เพื่ออัปเดตเส้นทางไปยังเวิร์กบุ๊กภายนอก (หากเวิร์กบุ๊กนั้นถูกย้าย)
+Using the [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
 
-แม้ว่าคุณไม่สามารถแก้ไขข้อมูลในเวิร์กบุ๊กที่เก็บไว้ในตำแหน่งหรือทรัพยากรระยะไกลได้ คุณยังสามารถใช้เวิร์กบุ๊กเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพัทธ์สำหรับเวิร์กบุ๊กภายนอก ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ
+While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
 
-ตัวอย่างนี้ใช้เวิร์กบุ๊กภายนอกที่มีชีตงานชื่อ `Sheet1` ซึ่งมีชื่อ series อยู่ใน B1, ชื่อหมวดหมู่ใน A2:A4, และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิวงกลม, เชื่อมเวิร์กบุ๊ก, และใช้ [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) เพื่อแมพ A1:B4 เป็น series หนึ่งและหมวดหมู่สามรายการ จากนั้นบันทึกงานนำเสนอพร้อมแผนภูมิที่เชื่อม
+This example uses an external workbook whose worksheet named `Sheet1` contains a series name in B1, category names in A2:A4, and numeric values in B2:B4. The example creates a pie chart, links the workbook, and uses [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) to map A1:B4 to one series and three categories. It saves the presentation with the linked chart.
 
 ```csharp
 using System.IO;
@@ -424,12 +422,12 @@ chartData.SetRange("Sheet1!$A$1:$B$4");
 presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-พารามิเตอร์ `updateChartData` ของ [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) ควบคุมว่ามีการโหลดเวิร์กบุ๊กหรือไม่
+The `updateChartData` parameter of [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) controls whether the workbook is loaded.
 
-* เมื่อ `updateChartData` เป็น `false` จะอัพเดตเฉพาะเส้นทางของเวิร์กบุ๊กเท่านั้น ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากเวิร์กบุ๊กเป้าหมาย ดังนั้นเวิร์กบุ๊กอาจไม่มีอยู่
-* เมื่อ `updateChartData` เป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากเวิร์กบุ๊กเป้าหมาย
+- When `updateChartData` is `false`, only the workbook path is updated. The chart data is not loaded or updated from the target workbook, so the workbook can be unavailable.
+- When `updateChartData` is `true`, the chart data is updated from the target workbook.
 
-ตัวอย่างต่อไปนี้กำหนด URL ตัวแทนพร้อมตั้งค่า `updateChartData` เป็น `false` จะรักษาข้อมูลเริ่มต้นของแผนภูมิวงกลมและบันทึกงานนำเสนอโดยไม่โหลดเวิร์กบุ๊กที่ไม่มีอยู่
+The following example assigns a placeholder URL with `updateChartData` set to `false`. It retains the pie chart's default data and saves the presentation without loading the unavailable workbook.
 
 ```csharp
 using Aspose.Slides;
@@ -445,11 +443,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **รับเส้นทางเวิร์กบุ๊กแหล่งข้อมูลภายนอกของแผนภูมิ**
+### **รับพาธของสมุดงานแหล่งข้อมูลภายนอกจากแผนภูมิ**
 
-เพื่อระบุเวิร์กบุ๊กที่เชื่อมกับแผนภูมิ ตรวจสอบว่าแผนภูมิใช้แหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทางเวิร์กบุ๊กของมัน
+To identify the workbook linked to a chart, check whether the chart uses an external data source and retrieve its workbook path.
 
-ตัวอย่างนี้ตรวจสอบรูปร่างแรกบนสไลด์แรกของงานนำเสนอที่มีเวิร์กบุ๊กภายนอกเชื่อมอยู่ หากเป็นแผนภูมิที่เชื่อมกับเวิร์กบุ๊กภายนอก ตัวอย่างจะพิมพ์ค่า [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) ลงคอนโซล แล้วบันทึกสำเนาของงานนำเสนอ
+This example inspects the first shape on the first slide of a presentation with a linked external workbook. If it is a chart linked to an external workbook, the example prints [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) to the console. It then saves a copy of the presentation.
 
 ```csharp
 using System;
@@ -483,9 +481,9 @@ presentation.Save("Result.pptx", SaveFormat.Pptx);
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในเวิร์กบุ๊กภายนอกได้เช่นเดียวกับที่คุณเปลี่ยนแปลงเนื้อหาของเวิร์กบุ๊กภายใน หากเวิร์กบุ๊กภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
+You can edit the data in external workbooks the same way you make changes to the contents of internal workbooks. When an external workbook cannot be loaded, an exception is thrown.
 
-ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและเชื่อมกับเวิร์กบุ๊กภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่สนับสนุนโดยเซลล์ของจุดข้อมูลแรกใน series แรกเป็น 100 และบันทึกงานนำเสนอที่อัปเดต การแก้ไขค่าของเซลล์สามารถอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมได้ ดังนั้นให้ใช้สำเนาหากต้องการรักษาเวิร์กบุ๊กต้นฉบับ
+This example uses a chart that is the first shape on the first slide and is linked to an accessible external workbook. It sets the cell-backed value of the first data point in the first series to 100 and saves the updated presentation. Editing cell values can update the linked external XLSX file, so use a copy if you need to preserve the original workbook.
 
 ```csharp
 using System;
@@ -524,11 +522,11 @@ else
 }
 ```
 
-### **กู้คืนเวิร์กบุ๊กจากแคชของแผนภูมิ**
+### **กู้คืนสมุดงานจากแคชของแผนภูมิ**
 
-หากแผนภูมิใช้เวิร์กบุ๊กภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างเวิร์กบุ๊กของแผนภูมิใหม่จากข้อมูลที่แคชไว้ในงานนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) ตั้งค่า [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/) และกำหนดค่า [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) เป็น `true` ก่อนเปิดงานนำเสนอ
+If a chart uses an external workbook that is missing or unavailable, Aspose.Slides can reconstruct the chart workbook from the data cached in the presentation. Create [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), configure its [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), and set [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) to `true` before opening the presentation.
 
-ตัวอย่าง C# ต่อไปนี้กู้คืนข้อมูลเวิร์กบุ๊กสำหรับแผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและอ้างอิงเวิร์กบุ๊กภายนอกที่ไม่สามารถใช้ได้ เข้าถึงข้อมูลที่กู้คืนผ่าน [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) และ [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+The following C# example recovers workbook data for a chart that is the first shape on the first slide and references an unavailable external workbook. It accesses the recovered data through [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) and [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
 using System;
@@ -552,7 +550,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
 {
     var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-    // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กที่กู้คืนที่นี่.
+    // อ่านหรือแก้ไขข้อมูลสมุดงานที่กู้คืนที่นี่.
 }
 else
 {
@@ -560,30 +558,30 @@ else
 }
 ```
 
-หากเวิร์กบุ๊กภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้ Aspose.Slides จะทำให้เกิด [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแผนภูมิที่แคชเป็นวิธีสำรองที่ยอมรับได้ เพราะแคชอาจไม่มีการเปลี่ยนแปลงที่ทำในเวิร์กบุ๊กภายนอกหลังจากอัปเดตงานนำเสนอครั้งล่าสุด
+If the external workbook is unavailable and recovery is disabled, Aspose.Slides throws an [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถตรวจสอบได้หรือไม่ว่าแผนภูมิเฉพาะเจาะจงเชื่อมกับเวิร์กบุ๊กภายนอกหรือเวิร์กบุ๊กที่ฝังอยู่?**
+**ฉันจะตรวจสอบได้หรือไม่ว่าแผนภูมิบางรายการเชื่อมโยงกับสมุดงานภายนอกหรือสมุดงานฝัง?**
 
-ใช่ แผนภูมิมี [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) และ [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) หากแหล่งเป็นเวิร์กบุ๊กภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ากำลังใช้ไฟล์ภายนอก
+ใช่. แผนภูมิมี [ประเภทแหล่งข้อมูล](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) และ [พาธไปยังสมุดงานภายนอก](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); หากแหล่งเป็นสมุดงานภายนอก คุณสามารถอ่านพาธเต็มเพื่อยืนยันว่าไฟล์ภายนอกถูกใช้งานอยู่
 
-**รองรับการใช้เส้นทางสัมพัทธ์ไปยังเวิร์กบุ๊กภายนอกหรือไม่ และจัดเก็บอย่างไร?**
+**รองรับพาธแบบสัมพัทธ์ไปยังสมุดงานภายนอกหรือไม่, และจัดเก็บอย่างไร?**
 
-ใช่ หากคุณระบุเส้นทางสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ งานนำเสนอจะเก็บเส้นทางเต็มในไฟล์ PPTX ดังนั้นการย้ายเวิร์กบุ๊กอาจต้องอัปเดตลิงก์
+ใช่. หากคุณระบุพาธแบบสัมพัทธ์ มันจะถูกแปลงอัตโนมัติเป็นพาธเต็ม. งานนำเสนอเก็บพาธเต็มในไฟล์ PPTX, ดังนั้นการย้ายสมุดงานอาจต้องอัปเดตลิงก์
 
-**ฉันสามารถใช้เวิร์กบุ๊กที่ตั้งอยู่บนทรัพยากรเครือข่ายหรือแชร์ได้หรือไม่?**
+**ฉันสามารถใช้สมุดงานที่อยู่บนทรัพยากรหรือแชร์เครือข่ายได้หรือไม่?**
 
-ได้ เวิร์กบุ๊กเช่นนั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขเวิร์กบุ๊กระยะไกลโดยตรงจาก Aspose.Slides ไม่รองรับ — สามารถใช้เป็นแหล่งข้อมูลได้เท่านั้น
+ใช่, สมุดงานดังกล่าวสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตามการแก้ไขสมุดงานระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน — สามารถใช้เป็นแหล่งข้อมูลได้เท่านั้น
 
-**Aspose.Slides เขียนทับไฟล์ XLSX ภายนอกเมื่อตบลงงานนำเสนอหรือไม่?**
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกงานนำเสนอหรือไม่?**
 
-งานนำเสนอเก็บ [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) การแก้ไขข้อมูลแผนภูมิที่สนับสนุนโดยเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกในเครื่องได้ ใช้สำเนาของเวิร์กบุ๊กหากต้องการให้ต้นฉบับคงเดิม
+งานนำเสนอเก็บ [ลิงก์ไปยังไฟล์ภายนอก](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). การแก้ไขข้อมูลแผนภูมิที่อิงจากเซลล์สามารถอัปเดตไฟล์ XLSX ภายในเครื่องที่เชื่อมโยงได้ ใช้สำเนาของสมุดงานหากต้องการให้ไฟล์ต้นฉบับคงอยู่โดยไม่เปลี่ยนแปลง
 
-**ฉันควรทำอย่างไรถ้าไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน?**
+**ควรทำอย่างไรหากไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน?**
 
-Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการเชื่อมต่อ วิธีทั่วไปคือการลบการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสไว้ (เช่น ใช้ [Aspose.Cells](https://reference.aspose.com/cells/net/)) แล้วเชื่อมไปยังสำเนานั้น
+Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสแล้ว (เช่น ใช้ [Aspose.Cells](https://reference.aspose.com/cells/net/)) แล้วเชื่อมโยงไปยังสำเนานั้น
 
-**หลายแผนภูมิสามารถอ้างอิงเวิร์กบุ๊กภายนอกเดียวกันได้หรือไม่?**
+**หลายแผนภูมิสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**
 
-ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปที่ไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิเมื่อมีการโหลดข้อมูลครั้งถัดไป
+ได้. แต่ละแผนภูมิเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งถัดไปที่ข้อมูลถูกโหลด

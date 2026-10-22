@@ -1,5 +1,5 @@
 ---
-title: Diagram munkafüzetek kezelése prezentációkban C++ használatával
+title: Diagrammunkafüzetek kezelése prezentációkban C++ használatával
 linktitle: Diagram munkafüzet
 type: docs
 weight: 70
@@ -19,31 +19,31 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for C++-t: könnyedén kezelje a diagram munkafüzeteket PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse a prezentáció adatait."
+description: "Fedezze fel az Aspose.Slides for C++-ot: egyszerűen kezelje a diagram munkafüzeteket PowerPoint és OpenDocument formátumokban, hogy hatékonyabbá tegye a prezentáció adatait."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet a diagram munkafüzetekkel dolgozni az Aspose.Slides‑ben. Megmutatja, hogyan lehet a diagram adatokat munkafüzet‑folyamokból olvasni és írni, a munkafüzet‑cellákat diagram adatcímkeként használni, a munkalap‑gyűjteményekhez hozzáférni, és megadni az adatforrás típusát a diagramértékekhez.
+Ez a cikk bemutatja, hogyan kell dolgozni diagramm-munkafüzetekkel az Aspose.Slides‑ben. Megmutatja, hogyan lehet a diagram adatokat munkafüzet‑adatfolyamokon keresztül beolvasni és írni, a munkafüzet‑cellákat diagram adatcímkeként használni, a munkalap‑gyűjteményekhez hozzáférni, valamint a diagramértékek adatforrás‑típusát megadni.
 
-Továbbá tárgyalja, hogyan lehet külső munkafüzeteket diagram adatforrásként használni. A példák bemutatják, hogyan kell létrehozni és hozzárendelni egy külső munkafüzetet, hogyan lehet lekérni egy diagramhoz kapcsolt külső munkafüzet útvonalát, illetve hogyan szerkeszthető a diagram adat, ha a munkafüzet elérhető.
+Továbbá tárgyalja a külső munkafüzetek diagram adatforrásként való használatát. A példák bemutatják, hogyan kell létrehozni és hozzárendelni egy külső munkafüzetet, lekérdezni egy diagramhoz kapcsolt külső munkafüzet útvonalát, valamint szerkeszteni a diagram adatokat, ha a munkafüzet elérhető.
 
-A hiányzó adatot reprezentáló munkafüzet‑cellák esetén lásd a [Control the Display of Empty Cells](/slides/hu/cpp/chart-series/) cikket, amely leírja az üres cella és a nulla közti különbséget, valamint az elérhető megjelenítési módok vonaldiagram‑összehasonlítását.
+A hiányzó adatokat képviselő munkafüzet‑cellák esetén lásd a(z) [Control the Display of Empty Cells](/slides/hu/cpp/chart-series/) cikket, amely a üres cella és a nulla közti különbséget, valamint a rendelkezésre álló megjelenítési módok vonaldiagram‑összehasonlítását mutatja be.
 
 ## **Rejtett sorok és oszlopok adatainak belefoglalása**
 
-Használja az [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) metódust annak szabályozására, hogy a diagram a rejtett munkalap‑sorokból és –oszlopokból származó adatokat ábrázolja-e. Állítsa `true`‑ra, ha csak a látható cellákat szeretné ábrázolni, vagy `false`‑ra, ha a látható és a rejtett cellákat egyaránt bele akarja foglalni. Ez a beállítás a diagram ábrázolását szabályozza; nem rejt el vagy jelenít meg munkalap‑sorokat vagy –oszlopokat.
+Használd a(z) [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) metódust annak szabályozására, hogy a diagram a rejtett munkalap‑sorokból és -oszlopokból származó adatokat ábrázolja-e. Állítsd `true`‑ra, ha csak a látható cellákat szeretnéd ábrázolni, vagy `false`‑ra, ha a látható és rejtett cellákat egyaránt bele akarod foglalni. Ez a beállítás a diagram ábrázolását szabályozza; nem rejti el vagy jeleníti meg a munkalap‑sorokat vagy -oszlopokat.
 
-A [minta prezentáció](hidden-source-data.pptx) egy oszlopdiagramot tartalmaz első alakzatként az első dián. A beágyazott munkalap, `Sheet1`, a következő forrás‑tartományt tartalmazza: `A1:C4`. A 3. sor és a C oszlop rejtett, de celláik továbbra is értékeket tartalmaznak.
+A(z) [sample presentation](hidden-source-data.pptx) egy oszlopdiagramot tartalmaz, amely az első diájának első alakja. A beágyazott munkalap, a `Sheet1`, a következő forrás‑tartományt tartalmazza: `A1:C4`. A 3. sor és a C oszlop rejtett, de a celláik továbbra is tartalmaznak értékeket.
 
 | Munkalap sor | A: Hónap | B: Kiskereskedelem | C: Nagykereskedelem (rejtett oszlop) |
 | --- | --- | --- | --- |
-| 2 | január | 10 | 30 |
-| 3 (rejtett sor) | február | 40 | 60 |
-| 4 | március | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3 (rejtett sor) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-A forráscellákat az [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) segítségével érheti el, és a [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) tulajdonsággal vizsgálhatja meg a rejtett állapotukat. Ez a tulajdonság csak olvasható. Ebben a példában a B2 látható, a B3 a rejtett sorhoz tartozik, a C2 pedig a rejtett oszlophoz; a példa a `False`, `True` és `True` értékeket írja ki.
+A forrás‑cellákhoz a(z) [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) segítségével férhetsz hozzá, és a(z) [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) olvasásával ellenőrizheted a rejtettségi állapotukat. Ez a tulajdonság csak olvasható. Ebben a fájlban a B2 látható, a B3 a rejtett sorhoz tartozik, a C2 pedig a rejtett oszlophoz; a példa sorban `False`, `True`, illetve `True` értékeket ír ki.
 
-Ehhez a példához a diagram adatainak frissítése a ábrázolási beállítás módosítása után szükséges: tartsa meg a beágyazott munkafüzetet a [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) metódussal, és töltse újra a [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) segítségével. Az összes cella belefoglalásakor használja a [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) metódust a teljes tartomány, köztük a rejtett februári kategória visszaállításához. Csak a jelző módosítása nem elegendő a példa gyorsítótár‑tárolt diagram adatainak és kategóriacímkéinek frissítéséhez.
+Ehhez a példához frissítsd a diagram adatokat a rajzolási beállítás módosítása után: tartsd meg a beágyazott munkafüzetet a(z) [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) használatával, és töltsd be újra a(z) [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/)‑nel. Az összes cella belefoglalásakor a(z) [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/)‑et is használd a teljes tartomány visszaállításához, beleértve a rejtett februári kategóriát. Csak a jelző megváltoztatása nem elegendő a minta gyorsítótárazott diagramadatai és kategóriacímkéinek frissítéséhez.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -84,7 +84,7 @@ if (chart != nullptr)
         chart->get_ChartData()->WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // Állítsa vissza a teljes forrás tartományt, beleértve a rejtett kategóriákat.
+            // Állítsa vissza a teljes forrás-tartományt, a rejtett kategóriákat is beleértve.
             chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$C$4");
         }
 
@@ -98,21 +98,21 @@ else
 }
 ```
 
-A példa két verziót ment a prezentációból: egyet csak a látható Retail értékekkel (10 és 20), a másikat pedig mind a hat értékkel. Az alábbi képek a két ábrázolási módot mutatják. A 3. sor és a C oszlop mindkét beágyazott munkafüzetben rejtett marad.
+A példa két változatban menti a prezentációt: az egyik csak a látható kiskereskedelmi értékeket (10 és 20) tartalmazza, a másik az összes hat értéket. Az alábbi képek a két ábrázolási módot szemléltetik. A 3. sor és a C oszlop mindkét beágyazott munkafüzetben rejtett marad.
 
-| Csak látható cellák (`true`) | Minden cella (`false`) |
+| Csak látható cellák (`true`) | Összes cella (`false`) |
 | --- | --- |
-| ![Csak látható cellák: Retail értékek 10 és 20 januárra és márciusra.](hidden_cells_True.png) | ![Minden cella: Retail és Wholesale értékek januárra, februárra és márciusra.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Egy rejtett cella, amely értéket tartalmaz, különbözik egy üres cellától. Az [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) szabályozza, hogy a hiányzó értékek hogyan jelenjenek meg; nem vonja be vagy zárja ki a rejtett forrásadatot. Lásd a [Control the Display of Empty Cells](/slides/hu/cpp/chart-series/#control-the-display-of-empty-cells) példát.
+A rejtett cellában lévő érték különbözik egy üres cellától. A(z) [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) szabályozza, hogy a hiányzó értékek hogyan jelenjenek meg; nem vonja be vagy zárja ki a rejtett forrásadatokat. Lásd a(z) [Control the Display of Empty Cells](/slides/hu/cpp/chart-series/#control-the-display-of-empty-cells) cikket egy példáért.
 
-## **Diagram adattartományának lekérdezése**
+## **Diagram adat-tartományának lekérdezése**
 
-Mielőtt módosítaná a munkafüzet adatokat egy meglévő prezentációban, ellenőrizze a forrás‑tartományokat, hogy azonosítsa, mely munkalap‑cellákat használja az egyes diagramok. Az [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) metódus a jelenlegi adat‑tartományt adja vissza munkalap‑kvalifikált képletként, például `Sheet1!$A$1:$D$5`. Itt a `Sheet1` a munkalap neve, a `!` elválasztja a cellatartományt, a `$A$1:$D$5` pedig az A1‑től D5‑ig terjedő cellákat jelöli. A dollárjelek abszolút sor‑ és oszlop‑referenciákat jelölnek.
+Mielőtt frissítenéd a munkafüzet adatokat egy meglévő prezentációban, ellenőrizd a forrás‑tartományokat, hogy mely munkalap‑cellákat használja az egyes diagramok. A(z) [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) metódus a jelenlegi adat‑tartományt adja vissza munkalap‑kvalifikált képletként, például `Sheet1!$A$1:$D$5`. Itt a `Sheet1` a munkalap neve, a `!` elválasztja a cellatartománytól, a `$A$1:$D$5` pedig az A1‑től D5‑ig terjedő cellákat jelöli, a dollárjelek abszolút sor‑ és oszlopreferenciákat jelentenek.
 
-A metódus a jelenlegi tartományt olvassa anélkül, hogy módosítaná a diagramot vagy annak munkafüzetét. Ha a diagram nem használ munkafüzetet adatforrásként, [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) kivételt dob. További információért lásd a [ChartData API Reference](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/) oldalát.
+A metódus a jelenlegi tartományt olvassa anélkül, hogy módosítaná a diagramot vagy annak munkafüzetét. Ha a diagram nem használ munkafüzetet adatforrásként, akkor [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) kivételt dob. További információkért lásd a(z) [ChartData API Reference](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/) oldalt.
 
-Ez a példa megnyit egy prezentációt, és minden dián közvetlenül a alakzatok között ellenőrzi, melyek diagramok. Kiírja minden diagram nevét és a forrás‑tartományt. Ha egy diagram nem használ munkafüzetet, üzenetet ír ki, és a következő diagramra lép.
+Ez a példa megnyit egy prezentációt, és minden dián közvetlenül ellenőrzi az alakzatokat diagramokra. Kiírja minden diagram nevét és forrás‑tartományát. Ha egy diagram nem használ munkafüzetet, egy üzenetet ír ki, majd a következő diagramra lép.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -153,11 +153,11 @@ for (auto slide : IterateOver(presentation->get_Slides()))
 }
 ```
 
-## **Diagramadatok olvasása és írása munkafüzetből**
+## **Diagramadatok beolvasása és írása munkafüzetből**
 
-Az Aspose.Slides for C++ biztosítja a [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) és a [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) metódusokat, amelyek lehetővé teszik diagramadat‑munkafüzetek (az Aspose.Cells‑szel szerkesztett diagramadatok) olvasását és írását. **Megjegyzés:** a diagramadatoknak ugyanúgy vagy hasonló struktúrában kell felépülniük, mint a forrás.
+Az Aspose.Slides for C++ biztosítja a(z) [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) és a(z) [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) metódusokat, amelyek lehetővé teszik a diagramadat‑munkafüzetek (az Aspose.Cells‑el szerkesztett diagramadatokat tartalmazó) be- és kiolvasását. **Megjegyzés:** a diagram adatainak ugyanúgy kell felépülniük, vagy hasonló struktúrával kell rendelkezniük, mint a forrásnak.
 
-Ez a példa egy olyan prezentációt használ, amelynek első alakzata az első dián egy diagram. Beolvassa a beágyazott munkafüzetet egy folyamba, törli a meglévő sorozatokat és kategóriákat, majd ugyanazt a munkafüzetet visszaírja. A változások a memóriában maradnak; a példa nem menti a prezentációt.
+Ez a példa egy prezentációt használ, amelynek első diáján első alakzata egy diagram. Beolvassa a beágyazott munkafüzetet egy adatfolyamba, törli a meglévő sorozatokat és kategóriákat, majd ugyanazt a munkafüzetet visszaírja. A változtatások memóriában maradnak; a példa nem menti a prezentációt.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -196,9 +196,9 @@ else
 }
 ```
 
-### **Diagramelrendezés ellenőrzése a munkafüzet módosítása után**
+### **Diagram elrendezésének ellenőrzése munkafüzet módosítása után**
 
-Amikor egy beágyazott munkafüzetet egy módosítottval cserél, a diagram megtartja az eredeti sorozat‑ és kategória‑gyűjteményeit. Ez a különbség az [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) metódus hibáját okozhat index‑túl‑tartomány hibával. Törölje a meglévő sorozatokat és kategóriákat a módosított munkafüzet visszaírása előtt. Ez a példa egy diagramot használ, amely az első dián az első alakzat. A megjegyzés jelzi, hol történik a munkafüzet szerkesztése; a futtatható példa visszaírja az eredeti munkafüzetet, és a memóriában ellenőrzi az elrendezést.
+Ha egy beágyazott munkafüzetet módosított munkafüzettel helyettesítesz, a diagram megtartja az eredeti sorozat‑ és kategória‑gyűjteményeit. Ez a nincs egyezés okozhatja, hogy a(z) [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) hibát adjon „index‑out‑of‑range” kivétellel. Töröld a meglévő sorozatokat és kategóriákat, mielőtt a frissített munkafüzetet visszaírnád a diagramra. Ez a példa egy diagramot használ, amely az első diájának első alakzata. A megjegyzés jelzi, hol történne a munkafüzet‑szerkesztés; a futtatható példa a régi munkafüzetet írja vissza, és memóriában ellenőrzi az elrendezést.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -225,7 +225,7 @@ if (chart != nullptr)
     auto chartData = chart->get_ChartData();
     auto workbookStream = chartData->ReadWorkbookStream();
 
-    // Módosítsa itt a munkafüzetfolyamot, például az Aspose.Cells használatával.
+    // Módosítsa itt a munkafüzet adatfolyamot, például az Aspose.Cells használatával.
 
     chartData->get_Series()->Clear();
     chartData->get_Categories()->Clear();
@@ -240,15 +240,15 @@ else
 }
 ```
 
-A gyűjtemények törlése eltávolítja a régi adat‑referenciákat, mielőtt a munkafüzet visszaíródna. Építse újra a szükséges sorozat‑ és kategória‑leképezéseket a frissített munkafüzethez, mielőtt a diagramot használja.
+A gyűjtemények törlése eltávolítja a régóta élő adat‑hivatkozásokat, mielőtt a munkafüzet visszaírásra kerül. Újraépíteni kell a szükséges sorozat‑ és kategória‑leképezéseket a frissített munkafüzethez, mielőtt a diagramot használnád.
 
-## **Egyedi számalakzatok beállítása munkafüzet‑cellákhoz**
+## **Egyedi számformátum beállítása munkafüzet‑cellákhoz**
 
-Használja az [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) metódust annak szabályozására, hogy a numerikus értékek hogyan jelenjenek meg egy diagram beágyazott munkafüzetében. Például egy jelentésnek szüksége lehet egy átváltási arányra, amelyet négy tizedesjegyű százalékos formában, illetve egy együtthatóra, amelyet öt tizedesjegyű formában jelenít meg. Mindkét értéket numerikus formában tartsa, hogy számításokhoz és diagramábrázoláshoz továbbra is elérhetőek legyenek.
+Használd a(z) [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) metódust annak szabályozására, hogyan jelenjenek meg a numerikus értékek egy diagram beágyazott munkafüzetében. Például egy jelentésnek százalékos konverziós rátát kell megjelenítenie négy tizedes jeggyel, illetve egy együtthatót öt tizedes jeggyel. Mindkét értéket tartsd számmá, hogy továbbra is felhasználható legyen számításokhoz és diagramrajzoláshoz.
 
-A számalakzat a megjelenítést változtatja, a tárolt értéket nem. A `0.0000%` formátum a `0.125` értéket `12.5000%`‑ként jeleníti meg; a tárolt szám nem lesz `12.5`. Hasonlóan, a `0.00000` a `0.1234567`‑et `0.12346`‑ként jeleníti meg anélkül, hogy a tárolt értéket kerekítené. Ha az egyedi formátum egy üres karakterlánc (`""`), akkor a [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) által hozzárendelt formátum lesz használva.
+A számformátum csak a megjelenést változtatja, a tárolt értéket nem. A `0.0000%` formátum a `0.125` értéket `12.5000%`‑ként jeleníti meg; nem helyettesíti a tárolt számot `12.5`‑tel. Hasonlóképpen a `0.00000` a `0.1234567` értéket `0.12346`‑ként jeleníti meg, a tárolt értéket kerekítés nélkül. Ha az egyedi formátum egy üres karakterlánc (`""`), akkor a [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/)‑en keresztül megadott formátum kerül felhasználásra.
 
-Az alábbi példa egy oszlopdiagramot hoz létre, és a cellákhoz hozzáfér az [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) segítségével. A 0‑s munkalapon a B2 tartalmazza az átváltási arányt, a C2 pedig az együtthatót. Mindkét cella diagramértéket szolgáltat. A példa engedélyezi a forrás‑formátumhoz kapcsolt értékcímkéket.
+Az alábbi példa egy oszlopdiagramot hoz létre, és a celláihoz a(z) [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) segítségével fér hozzá. Az 0‑s munkalapon a B2 a konverziós ráta, a C2 pedig az együttható. Mindkét cella a diagramértékeket szolgáltatja. A példa továbbá engedélyezi az értékcímkéket, amelyek a forrás‑formátumokhoz kapcsolódnak.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -321,19 +321,19 @@ for (auto series : IterateOver(chart->get_ChartData()->get_Series()))
 presentation->Save(u"CustomCellFormats.pptx", Export::SaveFormat::Pptx);
 ```
 
-A munkafüzet cellaformátumok különállóak a diagram tengelyekre vagy adatcímkékre közvetlenül beállított formátumoktól. Ebben a példában minden címke a forrás‑cellájuk értékét jeleníti meg, mert a [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) `true`‑ra van állítva, és a [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) `true`‑ra. A mentés és újranyitás után a címkék `12.5000%` és `0.12346` értékeket mutatják, ahogy az alább látható. A függőleges tengely saját `0.00` formátumot használ, amit a [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/) állít be, a [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) pedig `false`‑ra van állítva.
+A munkafüzet‑cellák formátumai különböznek a diagram tengelyein vagy adatcímkéin közvetlenül beállított formátumoktól. Ebben a példában minden címke a forrás‑cellájának értékét jeleníti meg, mert a [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) `true`‑ra van állítva, és a forrás‑számformátumhoz kapcsolódik, mivel a [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) `true`‑ra van állítva. A mentés és újbóli megnyitás után a címkék `12.5000%` és `0.12346` értékeket mutatják, ahogy az alább látható. A függőleges tengely saját `0.00` formátumát használja, amit a [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/) állít be, a [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) pedig `false`‑ra van állítva.
 
-Ha egy adatcímkét függetlenül szeretne formázni, állítsa a forrás‑hivatkozás jelzőjét `false`‑ra, és adja meg a formátumot a [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) segítségével. Ez nem változtatja meg a munkafüzet cellaformátumát. Például egy független címkeformátum `0.00` az első értéket `0.13`‑ként jeleníti meg, míg a B2 továbbra is `12.5000%`‑t mutat. Lásd a [Chart Data Labels](/slides/hu/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) cikket a címkék közvetlen formázásához.
+Egy adatcímke független formázásához állítsd a forrás‑kapcsolat jelzőjét `false`‑ra, és add meg a formátumot a [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/)‑el. Ez nem változtatja meg a munkafüzet‑celláé. Például egy független `0.00` formátumú címke az első értéket `0.13`‑ként jeleníti meg, míg a B2 továbbra is `12.5000%`‑t mutat. Lásd a(z) [Chart Data Labels](/slides/hu/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) cikket a közvetlen címke‑formázáshoz.
 
-Az alábbi kép a mentett prezentáció újranyitása után készült:
+Az alábbi kép a mentett, majd újra megnyitott prezentációból került előállításra:
 
-![Oszlopdiagram a forrás‑hivatkozott címkékkel, amelyek `12.5000%` és `0.12346` értékeket, valamint egy függetlenül formázott numerikus tengelyt mutatnak.](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **Munkafüzet‑cellát használjon diagram adatcímkeként**
+## **Munkafüzet‑cellát diagramadat‑címkének beállítása**
 
-A munkafüzet‑cellák szövegét felhasználhatja diagram adatcímkékként.
+A munkafüzet‑cellák szövegét diagramadat‑címkeként használhatod.
 
-Ez a példa buborékdiagramot ad az első diához, az alapértelmezett adatokkal. A 0‑s munkalap A10:A12 tartományát használja az első sorozat három első címkéjéhez, engedélyezi a cellákról származó címkéket, és menti a frissített prezentációt.
+Ez a példa egy buborékdiagramot ad hozzá alapértelmezett adatokkal egy meglévő prezentáció első diájához. Az 0‑s munkalap A10:A12 tartományát használja az első sorozat három első címkéjének, engedélyezi a cellákból származó címkéket, és menti a frissített prezentációt.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -376,7 +376,7 @@ presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 
 ## **Munkalapok kezelése**
 
-Az [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) metódus hozzáférést biztosít a diagram munkafüzetének munkalapjaihoz. Ez a példa kördiagramot hoz létre alapértelmezett adatokkal, és kiírja minden munkalap nevét a konzolra.
+A(z) [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) metódus hozzáférést biztosít a diagram‑munkafüzetben lévő munkalapokhoz. Ez a példa egy kördiagramot hoz létre alapértelmezett adatokkal, és minden munkalap nevét kiírja a konzolra.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -407,9 +407,11 @@ for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 }
 ```
 
-## **Az adatforrás típusának megadása**
+## **Az adatforrás típusának meghatározása**
 
-Ez a példa 3D‑oszlopdiagramot hoz létre alapértelmezett adatokkal, és két sorozat‑nevet állít be különböző adatforrásokból. Az első név egy karakterlánc‑literal, a második a 0‑s munkalap C1 cellájából származik. A [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) felsorolt típus választja ki a forrást minden névhez. A példa a frissített sorozat‑nevekkel menti a prezentációt.
+Sorozat‑pont értékek tárolhatók közvetlenül numerikus literálokként is. Lásd a(z) [Set Series Values Using Numeric Literals](/slides/hu/cpp/chart-series/#set-series-values-using-numeric-literals) cikket egy teljes példaért, amely menti és beolvassa őket. A pontértékek forrás‑típusa különálló a diagram belső vagy külső munkafüzet‑konfigurációjától; a numerikus literálok használata önmagában nem távolítja el a beágyazott munkafüzetet.
+
+Ez a példa egy 3D‑oszlopdiagramot hoz létre alapértelmezett adatokkal, és két sorozat‑nevet állít be különböző adatforrásokkal. Az első név egy karakter‑literál, a második a 0‑s munkalap C1 cellájából származik. A(z) [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) felsorolás választja ki az egyes nevek forrását. A példa a frissített sorozat‑nevekkel menti a prezentációt.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -450,7 +452,7 @@ presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 
 ## **Nem támogatott beágyazott munkafüzet‑formátumok észlelése**
 
-Az Aspose.Slides nem támogatja az Excel bináris munkafüzet (.xlsb) formátumot, amely bizonyos diagramokba beágyazható. A [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) metódust az [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/)‑val, valamint a [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) felsorolással használhatja a nem támogatott formátumok észlelésére, és a diagramok kihagyására. Ez a példa az első dián lévő alakzatokat vizsgálja, kihagyja a nem‑diagram alakzatokat, és diagnosztikai üzenetet ír ki minden .xlsb beágyazott munkafüzetet tartalmazó diagramhoz.
+Az Aspose.Slides nem támogatja az Excel bináris munkafüzet (.xlsb) formátumát, amely egyes diagramokban beágyazható. A(z) [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) metódust a(z) [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/)‑val együtt használhatod a [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) felsorolással a nem támogatott formátumok észlelésére, illetve a diagramok kihagyására. Ez a példa az első dián lévő alakzatokat ellenőrzi egy meglévő prezentációban, kihagyja a nem‑diagram alakzatokat, és minden .xlsb‑t beágyazott munkafüzettel rendelkező diagramhoz diagnosztikai üzenetet ír ki.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -489,7 +491,7 @@ for (auto shape : IterateOver(slide->get_Shapes()))
         continue;
     }
 
-    // Olvassa vagy módosítsa a támogatott diagram munkafüzet adatokat itt.
+    // Olvassa vagy módosítsa a támogatott diagram munkafüzet adatait itt.
 }
 ```
 
@@ -499,14 +501,14 @@ Az Aspose.Slides támogatja a külső munkafüzetek diagram adatforrásként val
 
 ### **Külső munkafüzet létrehozása**
 
-Használja a [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) és a [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) metódusokat a beágyazott diagram munkafüzete fájlba exportálásához, és a diagram külső munkafüzethez való csatolásához.
+Használd a(z) [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) és a(z) [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) metódusokat a beágyazott diagram‑munkafüzet exportálásához fájlba, majd a diagram összekapcsolásához azzal a külső munkafüzettel.
 
-Ez a példa kördiagramot hoz létre alapértelmezett adatokkal, és exportálja a munkafüzetét. Az kimeneti folyamot a külső munkafüzet diagram adatforrásként való hozzárendelése előtt zárja be, majd menti a kapcsolt prezentációt.
+Ez a példa egy kördiagramot hoz létre alapértelmezett adatokkal, és exportálja a munkafüzetét. Az összekapcsolás előtt lezárja a kimeneti adatfolyamot, majd menti a hivatkozott prezentációt.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
 #include <DOM/Chart/IChartData.h>
-#include <DOM/IChart>
+#include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
@@ -537,11 +539,11 @@ presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 
 ### **Külső munkafüzet beállítása**
 
-A [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) metódussal egy külső munkafüzetet rendelhet egy diagramhoz adatforrásként. Ez a metódus arra is használható, hogy frissítse a külső munkafüzet útvonalát (ha az át lett helyezve).
+A(z) [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) metódus segítségével egy külső munkafüzetet rendelhetsz egy diagramhoz adatforrásként. Ez a metódus használható a külső munkafüzet elérési útjának frissítésére is (ha az áthelyezésre került).
 
-Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatait nem szerkesztheti közvetlenül, továbbra is használhatók külső adatforrásként. Ha relatív útvonalat ad meg egy külső munkafüzethez, az automatikusan teljes útvonallá alakul.
+Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzet adatainak szerkesztése nem lehetséges, továbbra is használhatók külső adatforrásként. Ha relatív útvonalat adsz meg egy külső munkafüzethez, az automatikusan teljes útvonallá lesz konvertálva.
 
-Ez a példa egy külső munkafüzetet használ, amelynek `Sheet1` munkalapján a B1‑ben van egy sorozatnév, az A2:A4‑ben kategórianév, a B2:B4‑ben numerikus értékek. A példa kördiagramot hoz létre, kapcsolja a munkafüzetet, és a [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/)‑el az A1:B4‑et egy sorozatra és három kategóriára képezi le. A prezentációt a kapcsolt diagrammal menti.
+Ez a példa egy külső munkafüzetet használ, amelynek `Sheet1` nevű munkalapja B1‑ben egy sorozat‑nevet, A2:A4‑ben kategória‑neveket, B2:B4‑ben pedig numerikus értékeket tartalmaz. A példa egy kördiagramot hoz létre, összekapcsolja a munkafüzetet, és a(z) [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) segítségével A1:B4‑et leképezi egy sorozatra és három kategóriára. A prezentációt a kapcsolt diagrammal menti.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -570,12 +572,12 @@ chartData->SetRange(u"Sheet1!$A$1:$B$4");
 presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-A [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) `updateChartData` paramétere szabályozza, hogy a munkafüzet betöltődjön‑e.
+A(z) [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) `updateChartData` paramétere határozza meg, hogy a munkafüzet legyen-e betöltve.
 
-* Ha `updateChartData` **false**, csak a munkafüzet útvonala frissül. A diagramadatok nem töltődnek be vagy frissülnek a célmunkafüzetből, ezért a munkafüzet lehet, hogy nem érhető el.
-* Ha `updateChartData` **true**, a diagramadatok frissülnek a célmunkafüzetből.
+* Ha az `updateChartData` **false**, csak a munkafüzet útvonala frissül. A diagram adatokat nem tölti be vagy frissíti a cél‑munkafüzetről, ezért a munkafüzet lehet, hogy nem érhető el.
+* Ha az `updateChartData` **true**, a diagram adatokat frissíti a cél‑munkafüzetről.
 
-Az alábbi példa egy helykitöltő URL‑t ad meg, a `updateChartData` **false**‑ra állítva. A kördiagram alapértelmezett adatait megtartja, és a prezentációt anélkül menti, hogy a nem elérhető munkafüzet betöltődne.
+Az alábbi példa egy helyettesítő URL‑t ad meg, az `updateChartData` **false**‑ra állítva. Így a kördiagram alapértelmezett adatai megmaradnak, és a prezentációt a nem‑betöltött munkafüzet nélkül menti.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -599,11 +601,11 @@ chart->get_ChartData()->SetExternalWorkbook(u"https://example.com/unavailable-wo
 presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Diagram külső adatforrás‑munkafüzet‑útvonalának lekérése**
+### **Egy diagram külső adatforrás‑munkafüzete útvonalának lekérdezése**
 
-A diagramhoz kapcsolt munkafüzet azonosításához ellenőrizze, hogy a diagram külső adatforrást használ‑e, és kérje le a munkafüzet útvonalát.
+A diagramhoz kapcsolt munkafüzet azonosításához ellenőrizd, hogy a diagram külső adatforrást használ‑e, és kérdezd le annak munkafüzet‑útvonalát.
 
-Ez a példa az első dián az első alakzatot vizsgálja egy olyan prezentációban, amely külső munkafüzethez van kapcsolva. Ha ez egy diagram, amely külső munkafüzethez van kapcsolva, a példa kiírja a [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) értékét a konzolra. Ezután ment egy másolatot a prezentációról.
+Ez a példa az első dián lévő első alakzatot ellenőrzi egy, külső munkafüzettel kapcsolt prezentációban. Ha az egy diagram, amely külső munkafüzettel van összekapcsolva, a példa a [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/)‑t írja ki a konzolra, majd a prezentáció egy másolatát menti.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -644,11 +646,11 @@ else
 presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Diagramadatok szerkesztése**
+### **Diagram adatainak szerkesztése**
 
-Külső munkafüzetek adatait ugyanúgy szerkesztheti, ahogyan a belső munkafüzetek tartalmát módosítaná. Ha egy külső munkafüzetet nem lehet betölteni, kivétel keletkezik.
+A külső munkafüzetben lévő adatokat ugyanúgy szerkesztheted, mint a belső munkafüzet tartalmát. Ha egy külső munkafüzet nem tölthető be, kivétel keletkezik.
 
-Ez a példa egy diagramot használ, amely az első dián az első alakzat, és egy hozzáférhető külső munkafüzethez van kapcsolva. Beállítja az első sorozat első adatpontjának cella‑alapú értékét 100‑ra, és menti a frissített prezentációt. A cellaértékek szerkesztése frissítheti a kapcsolt külső XLSX‑fájlt, ezért használjon másolatot, ha meg kell őriznie az eredeti munkafüzetet.
+Ez a példa egy diagramot használ, amely az első diájának első alakzata, és egy elérhető külső munkafüzettel van összekapcsolva. Beállítja az első sorozat első adatpontjának cella‑alapú értékét 100‑ra, és menti a frissített prezentációt. A cellaértékek szerkesztése frissítheti a kapcsolt külső XLSX‑fájlt, ezért használj másolatot, ha az eredeti munkafüzetet meg kell őrizni.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -704,9 +706,9 @@ else
 
 ### **Munkafüzet helyreállítása a diagram gyorsítótárából**
 
-Ha egy diagram külső munkafüzetet használ, amely hiányzik vagy nem érhető el, az Aspose.Slides a prezentációban gyorsítótárazott adatokból rekonstruálhatja a diagram munkafüzetét. Hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) objektumot, konfigurálja a [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/)‑el, és a [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/)‑t állítsa **true**‑ra a prezentáció megnyitása előtt.
+Ha egy diagram egy hiányzó vagy nem‑elérhető külső munkafüzettel dolgozik, az Aspose.Slides a prezentációban gyorsítótárazott adatokból rekonstruálhatja a diagram‑munkafüzetet. Hozz létre egy [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) objektumot, konfiguráld a [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/)‑el, és a nyitás előtt hívd meg az [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/)‑t **true**‑ra.
 
-Az alábbi C++ példa helyreállítja a munkafüzet adatokat egy olyan diagramhoz, amely az első dián az első alakzat, és egy nem elérhető külső munkafüzetre hivatkozik. A helyreállított adatokat az [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) és az [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) segítségével érheti el:
+Az alábbi C++ példa helyreállítja a munkafüzet‑adatokat egy diagramhoz, amely az első diájának első alakzata, és egy nem‑elérhető külső munkafüzetre hivatkozik. A helyreállított adatokat a(z) [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) és a(z) [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) segítségével éri el:
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -746,30 +748,30 @@ else
 }
 ```
 
-Ha a külső munkafüzet nem érhető el, és a helyreállítás ki van kapcsolva, az Aspose.Slides [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) kivételt dob. Engedélyezze a helyreállítást csak akkor, ha a gyorsítótárazott diagramadatok használata elfogadható tartalék, mivel a gyorsítótár nem feltétlenül tartalmazza a külső munkafüzetben az utolsó prezentációfrissítés óta végzett változtatásokat.
+Ha a külső munkafüzet nem elérhető, és a helyreállítás ki van kapcsolva, az Aspose.Slides egy [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/) kivételt dob. Csak akkor engedélyezd a helyreállítást, ha a gyorsítótárazott diagramadatok használata elfogadható tartalék, mivel a gyorsítótár nem feltétlenül tartalmazza a külső munkafüzetben a prezentáció utolsó frissítése óta történt változtatásokat.
 
 ## **GYIK**
 
-**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzethez van-e kapcsolva?**
+**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzettel van-e összekapcsolva?**
 
-Igen. A diagramnek van egy [data source type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) és egy [path to an external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); ha a forrás egy külső munkafüzet, leolvashatja a teljes útvonalat, hogy megbizonyosodjon róla, egy külső fájlt használ.
+Igen. Egy diagram rendelkezik egy [data source type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) és egy [path to an external workbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) attribútummal; ha a forrás egy külső munkafüzet, a teljes útvonalat kiolvashatod, hogy megbizonyosodj róla, hogy egy külső fájl van használatban.
 
-**Támogatottak a relatív útvonalak a külső munkafüzetekhez, és hogyan tárolják őket?**
+**Támogatottak a relatív útvonalak a külső munkafüzetekhez, és hogyan tárolódnak?**
 
-Igen. Ha relatív útvonalat ad meg, az automatikusan átalakul abszolút útvonallá. A prezentáció az abszolút útvonalat tárolja a PPTX‑fájlban, így a munkafüzet áthelyezése esetén frissíteni kell a hivatkozást.
+Igen. Ha relatív útvonalat adsz meg, az automatikusan átalakul abszolút úttá. A prezentáció az abszolút útvonalat tárolja a PPTX fájlban, így a munkafüzet áthelyezése esetén frissíteni kell a hivatkozást.
 
-**Használhatók hálózati erőforrásokon/megosztott meghajtókon lévő munkafüzetek?**
+**Használhatók hálózati erőforrásokon/megosztásokon lévő munkafüzetek?**
 
-Igen, az ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑szel nem támogatott – csak forrásként használhatók.
+Igen, ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑ből nem támogatott – csak forrásként használhatók.
 
 **Az Aspose.Slides felülírja a külső XLSX‑et a prezentáció mentésekor?**
 
-A prezentáció egy [link to the external file](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) tárol. A cella‑háttérrel ellátott diagramadatok szerkesztése frissítheti a kapcsolt helyi XLSX‑fájlt is. Használjon egy munkafüzet‑másolatot, ha az eredetit változatlanul kell hagyni.
+A prezentáció egy [link to the external file](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) tárol. A cella‑alapú diagramadatok szerkesztése frissítheti a kapcsolt helyi XLSX‑fájlt is. Ha az eredetit változatlanul kell hagyni, használj egy másolatot a munkafüzetről.
 
 **Mi a teendő, ha a külső fájl jelszóval védett?**
 
-Az Aspose.Slides nem fogad jelszót a kapcsolódáskor. Egy gyakori megoldás, hogy előre eltávolítja a védelmet, vagy egy dekódolt másolatot készít (például az [Aspose.Cells](https://reference.aspose.com/cells/cpp/)‑szel), és arra hivatkozik.
+Az Aspose.Slides nem fogad jelszót a hivatkozáshoz. Egy gyakori megoldás, hogy előre eltávolítod a védelmet, vagy egy dekódolt másolatot (például az [Aspose.Cells](https://reference.aspose.com/cells/cpp/)‑al) készítesz, és ahhoz kapcsolod a diagramot.
 
-**Több diagram hivatkozhat ugyanarra a külső munkafüzetre?**
+**Több diagram hivatkozhat ugyanarra a külső munkafüzettel?**
 
-Igen. Minden diagram saját hivatkozást tárol. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése minden diagramot érint a következő adatbetöltéskor.
+Igen. Minden diagram a saját hivatkozását tárolja. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése minden diagramon megjelenik a következő adatbetöltéskor.

@@ -1,49 +1,49 @@
 ---
-title: "Gestionar libros de trabajo de gráficos en presentaciones con PHP"
-linktitle: "Libro de trabajo de gráfico"
+title: Gestionar libros de trabajo de gráficos en presentaciones usando PHP
+linktitle: Libro de trabajo de gráfico
 type: docs
 weight: 70
 url: /es/php-java/chart-workbook/
 keywords:
-- "libro de trabajo de gráfico"
-- "datos de gráfico"
-- "celda de libro de trabajo"
-- "etiqueta de datos"
-- "hoja de cálculo"
-- "fuente de datos"
-- "libro de trabajo externo"
-- "datos externos"
-- "caché de gráfico"
-- "recuperación de libro de trabajo"
-- "PowerPoint"
-- "presentación"
-- "PHP"
-- "Aspose.Slides"
-description: "Descubra Aspose.Slides para PHP vía Java: gestione sin esfuerzo los libros de trabajo de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
+- libro de trabajo de gráfico
+- datos de gráfico
+- celda de libro de trabajo
+- etiqueta de datos
+- hoja de cálculo
+- origen de datos
+- libro de trabajo externo
+- datos externos
+- caché de gráfico
+- recuperación de libro de trabajo
+- PowerPoint
+- presentación
+- PHP
+- Aspose.Slides
+description: "Descubra Aspose.Slides para PHP via Java: gestione sin esfuerzo los libros de trabajo de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
 ---
-## **Descripción general**
+## **Visión general**
 
-Este artículo explica cómo trabajar con libros de trabajo de gráficos en Aspose.Slides. Muestra cómo leer y escribir datos de gráficos a través de flujos de libros de trabajo, usar celdas de libro de trabajo como etiquetas de datos de gráficos, acceder a colecciones de hojas de cálculo y especificar el tipo de origen de datos para los valores del gráfico.
+Este artículo explica cómo trabajar con libros de trabajo de gráficos en Aspose.Slides. Muestra cómo leer y escribir datos de gráficos a través de flujos de libros de trabajo, usar celdas del libro como etiquetas de datos del gráfico, acceder a colecciones de hojas de cálculo y especificar el tipo de origen de datos para los valores del gráfico.
 
-También cubre el trabajo con libros de trabajo externos como fuentes de datos de gráficos. Los ejemplos demuestran cómo crear y asignar un libro de trabajo externo, obtener la ruta de un libro de trabajo externo vinculado a un gráfico y editar los datos del gráfico cuando el libro de trabajo está disponible.
+También cubre el trabajo con libros de trabajo externos como fuentes de datos de gráficos. Los ejemplos demuestran cómo crear y asignar un libro de trabajo externo, obtener la ruta de un libro de trabajo externo vinculado a un gráfico y editar los datos del gráfico cuando el libro está disponible.
 
-Para celdas de libro de trabajo que representan datos faltantes, consulte [Controlar la visualización de celdas vacías](/slides/es/php-java/chart-series/) para conocer la diferencia entre una celda vacía y cero, y una comparación de gráfico de líneas de los modos de visualización disponibles.
+Para celdas del libro que representan datos ausentes, consulte [Controlar la visualización de celdas vacías](/slides/es/php-java/chart-series/) para conocer la diferencia entre una celda vacía y cero, y una comparación de gráfico de líneas de los modos de visualización disponibles.
 
 ## **Incluir datos de filas y columnas ocultas**
 
-Utilice [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) para controlar si un gráfico representa datos de filas y columnas de hoja de cálculo ocultas. Establézcalo en `true` para representar solo celdas visibles, o en `false` para incluir tanto celdas visibles como ocultas. Esta configuración controla el trazado del gráfico; no oculta ni muestra filas o columnas de la hoja de cálculo.
+Utilice [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) para controlar si un gráfico traza datos de filas y columnas ocultas de la hoja de cálculo. Establézcalo en `true` para trazar solo celdas visibles, o en `false` para incluir tanto celdas visibles como ocultas. Esta configuración controla el trazado del gráfico; no oculta ni muestra filas o columnas de la hoja de cálculo.
 
 La [presentación de ejemplo](hidden-source-data.pptx) contiene un gráfico de columnas como la primera forma en su primera diapositiva. La hoja de cálculo incrustada, `Sheet1`, contiene el siguiente rango de origen, `A1:C4`. La fila 3 y la columna C están ocultas, pero sus celdas siguen conteniendo valores.
 
 | Fila de hoja de cálculo | A: Mes | B: Minorista | C: Mayorista (columna oculta) |
 | --- | --- | --- | --- |
-| 2 | Enero | 10 | 30 |
-| 3 (fila oculta) | Febrero | 40 | 60 |
-| 4 | Marzo | 20 | 50 |
+| 2 | enero | 10 | 30 |
+| 3 (fila oculta) | febrero | 40 | 60 |
+| 4 | marzo | 20 | 50 |
 
-Acceda a las celdas de origen a través de [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) y lea [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) para inspeccionar su estado de ocultación. Este método informa del estado sin modificarlo. En este archivo, B2 es visible, B3 pertenece a la fila oculta y C2 pertenece a la columna oculta; el ejemplo imprime `false`, `true` y `true`, respectivamente.
+Acceda a las celdas de origen a través de [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) y lea [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) para inspeccionar su estado oculto. Este método informa del estado oculto sin modificarlo. En este archivo, B2 es visible, B3 pertenece a la fila oculta y C2 pertenece a la columna oculta; el ejemplo imprime `false`, `true` y `true`, respectivamente.
 
-Para este ejemplo, actualice los datos del gráfico después de cambiar la configuración de trazado: conserve el libro de trabajo incrustado con [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) y recárguelo con [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/). Cuando se incluyen todas las celdas, use también [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para restaurar el rango completo, incluida la categoría oculta de febrero. Simplemente cambiar la bandera no es suficiente para actualizar los datos almacenados en caché del gráfico y las etiquetas de categoría de esta muestra.
+Para este ejemplo, actualice los datos del gráfico después de cambiar la configuración de trazado: conserve el libro incrustado con [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) y recárguelo con [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/). Al incluir todas las celdas, use también [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para restaurar el rango completo, incluida la categoría oculta de febrero. Simplemente cambiar el indicador no es suficiente para actualizar los datos en caché del gráfico y las etiquetas de categoría de esta muestra.
 
 ```php
 use aspose\slides\Presentation;
@@ -68,7 +68,7 @@ try {
             // Actualiza los datos del gráfico desde el libro de trabajo incrustado.
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
-                // Restablece el rango de origen completo, incluidas las categorías ocultas.
+                // Restaura el rango de origen completo, incluidas las categorías ocultas.
                 $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
             }
 
@@ -82,21 +82,21 @@ try {
 }
 ```
 
-El ejemplo guarda dos versiones de la presentación: una con solo los valores minoristas visibles (10 y 20), y otra con los seis valores. Las imágenes a continuación ilustran los dos modos de trazado. La fila 3 y la columna C permanecen ocultas en ambos libros de trabajo incrustados.
+El ejemplo guarda dos versiones de la presentación: una con solo los valores minoristas visibles (10 y 20) y otra con los seis valores. Las imágenes a continuación ilustran los dos modos de trazado. La fila 3 y la columna C permanecen ocultas en ambos libros incrustados.
 
 | Solo celdas visibles (`true`) | Todas las celdas (`false`) |
 | --- | --- |
-| ![Solo celdas visibles: valores minoristas 10 y 20 para enero y marzo.](hidden_cells_True.png) | ![Todas las celdas: valores minoristas y mayoristas para enero, febrero y marzo.](hidden_cells_False.png) |
+| ![Solo celdas visibles: valores Minorista 10 y 20 para enero y marzo.](hidden_cells_True.png) | ![Todas las celdas: valores Minorista y Mayorista para enero, febrero y marzo.](hidden_cells_False.png) |
 
-Una celda oculta que contiene un valor es diferente de una celda vacía. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) controla cómo se muestran los valores faltantes; no incluye ni excluye datos de origen ocultos. Consulte [Controlar la visualización de celdas vacías](/slides/es/php-java/chart-series/#control-the-display-of-empty-cells) para un ejemplo.
+Una celda oculta que contiene un valor es diferente de una celda vacía. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) controla cómo se muestran los valores ausentes; no incluye ni excluye datos de origen ocultos. Consulte [Controlar la visualización de celdas vacías](/slides/es/php-java/chart-series/#control-the-display-of-empty-cells) para un ejemplo.
 
 ## **Obtener el rango de datos de un gráfico**
 
-Antes de actualizar los datos del libro de trabajo en una presentación existente, inspeccione los rangos de origen para identificar qué celdas de hoja de cálculo utiliza cada gráfico. El método [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) devuelve el rango de datos actual como una fórmula calificada por hoja, por ejemplo `Sheet1!$A$1:$D$5`. Aquí, `Sheet1` es el nombre de la hoja, `!` lo separa del rango de celdas y `$A$1:$D$5` identifica las celdas A1 hasta D5, inclusive. Los signos de dólar indican referencias absolutas de fila y columna.
+Antes de actualizar los datos del libro de trabajo en una presentación existente, inspeccione los rangos de origen para identificar qué celdas de la hoja utiliza cada gráfico. El método [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) devuelve el rango de datos actual como una fórmula calificada por hoja, por ejemplo `Sheet1!$A$1:$D$5`. Aquí, `Sheet1` es el nombre de la hoja, `!` lo separa del rango de celdas y `$A$1:$D$5` identifica las celdas A1 a D5, inclusive. Los signos de dólar indican referencias absolutas de fila y columna.
 
-El método lee el rango actual sin modificar el gráfico ni su libro de trabajo. Si el gráfico no utiliza un libro de trabajo como origen de datos, lanza una excepción. Para más información, consulte la [Referencia de API de ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
+El método lee el rango actual sin cambiar el gráfico ni su libro de trabajo. Si el gráfico no usa un libro de trabajo como fuente de datos, lanza una excepción. Para más información, consulte la [Referencia de la API de ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
 
-Este ejemplo abre una presentación y comprueba las formas directamente en cada diapositiva para buscar gráficos. Imprime el nombre y el rango de origen de cada gráfico. Si un gráfico no usa un libro de trabajo, imprime un mensaje y continúa con el siguiente gráfico.
+Este ejemplo abre una presentación y comprueba las formas directamente en cada diapositiva en busca de gráficos. Imprime el nombre y el rango de origen de cada gráfico. Si un gráfico no usa un libro de trabajo, imprime un mensaje y continúa con el siguiente gráfico.
 
 ```php
 use aspose\slides\Presentation;
@@ -129,11 +129,11 @@ try {
 }
 ```
 
-## **Leer y escribir datos de gráfico desde un libro de trabajo**
+## **Leer y escribir datos de gráficos desde un libro de trabajo**
 
-Aspose.Slides for PHP via Java proporciona los métodos [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) y [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) que le permiten leer y escribir libros de trabajo de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la del origen.
+Aspose.Slides for PHP via Java proporciona los métodos [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) y [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) que le permiten leer y escribir libros de trabajo de datos de gráficos (conteniendo datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la fuente.
 
-Este ejemplo usa una presentación con un gráfico como la primera forma en su primera diapositiva. Lee el libro de trabajo incrustado a un array de bytes, elimina las series y categorías existentes, y vuelve a escribir el mismo libro de trabajo. Los cambios permanecen en memoria; el ejemplo no guarda la presentación.
+Este ejemplo usa una presentación con un gráfico como la primera forma en su primera diapositiva. Lee el libro de trabajo incrustado a un array de bytes, elimina las series y categorías existentes, y escribe el mismo libro de trabajo de vuelta. Los cambios permanecen en memoria; el ejemplo no guarda la presentación.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,9 @@ try {
 }
 ```
 
-### **Validar el diseño del gráfico después de la modificación del libro de trabajo**
+### **Validar la disposición del gráfico después de la modificación del libro de trabajo**
 
-Cuando sustituye un libro de trabajo incrustado por uno modificado, el gráfico conserva sus colecciones originales de series y categorías. Esta discrepancia puede hacer que [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) falle con un error de índice fuera de rango. Elimine las series y categorías existentes antes de escribir el libro de trabajo actualizado de nuevo en el gráfico. Este ejemplo usa un gráfico que es la primera forma en la primera diapositiva. El comentario marca donde tendría lugar la edición del libro; el ejemplo ejecutable escribe el libro original de nuevo y valida el diseño en memoria.
+Cuando sustituye un libro de trabajo incrustado por uno modificado, el gráfico conserva sus colecciones originales de series y categorías. Esta discrepancia puede hacer que [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) falle con un error de índice fuera de rango. Elimine las series y categorías existentes antes de escribir el libro de trabajo actualizado de vuelta al gráfico. Este ejemplo usa un gráfico que es la primera forma en la primera diapositiva. El comentario marca dónde se editaría el libro de trabajo; el ejemplo ejecutable escribe el libro original de vuelta y valida la disposición en memoria.
 
 ```php
 use aspose\slides\Presentation;
@@ -192,15 +192,15 @@ try {
 }
 ```
 
-Eliminar las colecciones elimina referencias a datos obsoletos antes de que el libro de trabajo se escriba de nuevo. Reconstruya cualquier asignación de series y categorías necesaria para el libro de trabajo actualizado antes de usar el gráfico.
+Eliminar las colecciones elimina referencias a datos obsoletos antes de que el libro de trabajo sea escrito de vuelta. Reconstruya cualquier asignación de series y categorías necesaria para el libro de trabajo actualizado antes de usar el gráfico.
 
-## **Establecer formatos numéricos personalizados para celdas de libro de trabajo**
+## **Establecer formatos numéricos personalizados para celdas del libro de trabajo**
 
-Utilice [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) para controlar cómo aparecen los valores numéricos en el libro de trabajo incrustado de un gráfico. Por ejemplo, un informe puede necesitar que una tasa de conversión se muestre como porcentaje con cuatro decimales y que un coeficiente se muestre con cinco decimales. Mantenga ambos valores como numéricos para que sigan estando disponibles para cálculos y trazado del gráfico.
+Utilice [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) para controlar cómo aparecen los valores numéricos en el libro de trabajo incrustado de un gráfico. Por ejemplo, un informe puede necesitar una tasa de conversión mostrada como porcentaje con cuatro decimales y un coeficiente con cinco decimales. Mantenga ambos valores como numéricos para que permanezcan disponibles para cálculos y trazado del gráfico.
 
-Un formato numérico cambia la visualización, no el valor almacenado. El formato `0.0000%` muestra `0.125` como `12.5000%`; no reemplaza el número almacenado por `12.5`. Del mismo modo, `0.00000` muestra `0.1234567` como `0.12346` sin redondear el valor almacenado. Si el formato personalizado es una cadena vacía (`""`), se utiliza el formato devuelto por [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/).
+Un formato numérico cambia la visualización, no el valor almacenado. El formato `0.0000%` muestra `0.125` como `12.5000%`; no reemplaza el número almacenado por `12.5`. De manera similar, `0.00000` muestra `0.1234567` como `0.12346` sin redondear el valor almacenado. Si el formato personalizado es una cadena vacía (`""`), se utiliza el formato devuelto por [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/).
 
-El siguiente ejemplo crea un gráfico de columnas y accede a sus celdas mediante [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/). En la hoja 0, B2 contiene la tasa de conversión y C2 contiene el coeficiente. Ambas celdas suministran valores al gráfico. El ejemplo también habilita etiquetas de valores vinculadas a los formatos de origen.
+El siguiente ejemplo crea un gráfico de columnas y accede a sus celdas a través de [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/). En la hoja 0, B2 contiene la tasa de conversión y C2 contiene el coeficiente. Ambas celdas suministran valores al gráfico. El ejemplo también habilita etiquetas de valores vinculadas a los formatos de origen.
 
 ```php
 use aspose\slides\Presentation;
@@ -255,19 +255,19 @@ try {
 }
 ```
 
-Los formatos de celda del libro de trabajo son independientes de los formatos establecidos directamente en los ejes del gráfico o en las etiquetas de datos. En este ejemplo, cada etiqueta muestra el valor de su celda de origen porque [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) está establecido en `true`, y sigue el formato numérico de origen porque [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) está en `true`. Después de guardar y volver a abrir la presentación, las etiquetas muestran `12.5000%` y `0.12346`, como se muestra a continuación. El eje vertical utiliza su propio formato numérico, asignado con [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) como `0.00`, con [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) establecido en `false`.
+Los formatos de celda del libro de trabajo son independientes de los formatos establecidos directamente en los ejes del gráfico o en las etiquetas de datos. En este ejemplo, cada etiqueta muestra el valor de su celda de origen porque [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) está establecido en `true`, y sigue el formato numérico de origen porque [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) está en `true`. Después de guardar y volver a abrir la presentación, las etiquetas muestran `12.5000%` y `0.12346`, como se muestra a continuación. El eje vertical usa su propio formato numérico, asignado con [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) como `0.00`, con [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) en `false`.
 
-Para formatear una etiqueta de datos de forma independiente, establezca su bandera de vínculo a origen en `false` y asigne un formato con [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/). Esto no cambia el formato de la celda del libro de trabajo. Por ejemplo, un formato de etiqueta independiente `0.00` muestra el primer valor como `0.13`, mientras que B2 sigue mostrando `12.5000%`. Consulte [Chart Data Labels](/slides/es/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) para el formateo directo de etiquetas.
+Para formatear una etiqueta de datos de forma independiente, establezca su indicador de vínculo a origen en `false` y asigne un formato con [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/). Esto no cambia el formato de la celda del libro de trabajo. Por ejemplo, un formato de etiqueta independiente `0.00` muestra el primer valor como `0.13`, mientras que B2 sigue mostrando `12.5000%`. Vea [Chart Data Labels](/slides/es/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) para el formato directo de etiquetas.
 
-La imagen a continuación se generó a partir de la presentación guardada tras volver a abrirla:
+La imagen a continuación se generó a partir de la presentación guardada después de volver a abrirla:
 
-![Gráfico de columnas con etiquetas vinculadas a la fuente que muestran 12.5000% y 0.12346 y un eje numérico formateado de forma independiente.](custom-cell-formats.png)
+![Gráfico de columnas con etiquetas vinculadas al origen que muestran 12.5000 % y 0.12346 y un eje numérico formateado de forma independiente.](custom-cell-formats.png)
 
-## **Establecer una celda de libro de trabajo como etiqueta de datos del gráfico**
+## **Establecer una celda del libro de trabajo como etiqueta de datos del gráfico**
 
-Puede utilizar el texto de celdas de libro de trabajo como etiquetas de datos del gráfico.
+Puede utilizar el texto de celdas del libro de trabajo como etiquetas de datos del gráfico.
 
-Este ejemplo añade un gráfico de burbujas con datos predeterminados a la primera diapositiva de una presentación existente. Usa las celdas A10:A12 en la hoja 0 para las tres primeras etiquetas de la primera serie, habilita las etiquetas desde celdas y guarda la presentación actualizada.
+Este ejemplo añade un gráfico de burbujas con datos predeterminados a la primera diapositiva de una presentación existente. Utiliza las celdas A10:A12 en la hoja 0 para las primeras tres etiquetas de la primera serie, habilita las etiquetas desde celdas y guarda la presentación actualizada.
 
 ```php
 use aspose\slides\Presentation;
@@ -318,7 +318,9 @@ try {
 
 ## **Especificar el tipo de origen de datos**
 
-Este ejemplo crea un gráfico de columnas 3D con datos predeterminados y establece dos nombres de series usando diferentes orígenes de datos. El primer nombre usa un literal de cadena; el segundo usa la celda C1 en la hoja 0. La enumeración [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) selecciona el origen para cada nombre. El ejemplo guarda la presentación con los nombres de series actualizados.
+Los valores de los puntos de la serie también pueden almacenarse directamente como literales numéricos. Consulte [Establecer valores de serie usando literales numéricos](/slides/es/php-java/chart-series/#set-series-values-using-numeric-literals) para un ejemplo completo que los guarda y los lee. El tipo de origen de los valores de los puntos es independiente de la configuración interna o externa del libro de trabajo del gráfico; usar literales numéricos no elimina, por sí mismo, el libro de trabajo incrustado.
+
+Este ejemplo crea un gráfico de columnas 3D con datos predeterminados y establece dos nombres de series usando diferentes orígenes de datos. El primer nombre usa un literal de cadena; el segundo usa la celda C1 en la hoja 0. La enumeración [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) selecciona el origen para cada nombre. El ejemplo guarda la presentación con los nombres de serie actualizados.
 
 ```php
 use aspose\slides\Presentation;
@@ -347,9 +349,9 @@ try {
 }
 ```
 
-## **Detectar formatos de libro de trabajo incrustados no compatibles**
+## **Detectar formatos de libro de trabajo incrustado no compatibles**
 
-Aspose.Slides no admite el formato de libro de trabajo de Excel binario (.xlsb) que puede estar incrustado en algunos gráficos. Puede usar el método `getEmbeddedWorkbookType` en [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) junto con la enumeración [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) para detectar formatos no compatibles y omitir esos gráficos. Este ejemplo inspecciona las formas en la primera diapositiva de una presentación existente, omite las formas que no son gráficos e imprime un mensaje diagnóstico para cada gráfico con un libro de trabajo .xlsb incrustado.
+Aspose.Slides no admite el formato de libro de trabajo binario de Excel (.xlsb) que puede incrustarse en algunos gráficos. Puede usar el método `getEmbeddedWorkbookType` en [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) junto con la enumeración [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) para detectar formatos no compatibles y omitir esos gráficos. Este ejemplo inspecciona las formas en la primera diapositiva de una presentación existente, omite las formas que no son gráficos y muestra un mensaje de diagnóstico para cada gráfico con un libro de trabajo .xlsb incrustado.
 
 ```php
 use aspose\slides\Presentation;
@@ -377,7 +379,7 @@ try {
             continue;
         }
 
-        // Leer o modificar los datos del libro de trabajo de gráfico compatibles aquí.
+        // Leer o modificar los datos del libro de trabajo del gráfico compatibles aquí.
     }
 } finally {
     $presentation->dispose();
@@ -390,9 +392,9 @@ Aspose.Slides admite el uso de libros de trabajo externos como origen de datos p
 
 ### **Crear un libro de trabajo externo**
 
-Utilice [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) y [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) para exportar un libro de trabajo de gráfico incrustado a un archivo y enlazar el gráfico a ese libro externo.
+Utilice [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) y [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) para exportar un libro de trabajo de gráfico incrustado a un archivo y vincular el gráfico a ese libro externo.
 
-Este ejemplo crea un gráfico circular con datos predeterminados y exporta su libro de trabajo. Completa la escritura del archivo antes de asignar el libro de trabajo externo como origen de datos del gráfico, y luego guarda la presentación enlazada.
+Este ejemplo crea un gráfico circular con datos predeterminados y exporta su libro de trabajo. Completa la escritura del archivo antes de asignar el libro externo como origen de datos del gráfico, y luego guarda la presentación vinculada.
 
 ```php
 use aspose\slides\Presentation;
@@ -424,13 +426,13 @@ try {
 }
 ```
 
-### **Establecer un libro de trabajo externo**
+### **Asignar un libro de trabajo externo**
 
-Mediante el método [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) puede asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro externo (si éste ha sido movido).
+Usando el método [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/), puede asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro externo (si este se ha movido).
 
-Aunque no puede editar los datos en libros almacenados en ubicaciones remotas o recursos, aún pueden usarse como origen externo de datos. Si se proporciona una ruta relativa para un libro externo, se convierte automáticamente en una ruta completa.
+Aunque no puede editar los datos en libros almacenados en ubicaciones remotas o recursos, sigue pudiendo utilizarlos como fuente externa de datos. Si se proporciona una ruta relativa para un libro externo, se convierte automáticamente en una ruta absoluta.
 
-Este ejemplo usa un libro externo cuya hoja llamada `Sheet1` contiene un nombre de serie en B1, nombres de categorías en A2:A4 y valores numéricos en B2:B4. El ejemplo crea un gráfico circular, enlaza el libro y usa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para mapear A1:B4 a una serie y tres categorías. Guarda la presentación con el gráfico enlazado.
+Este ejemplo usa un libro externo cuya hoja llamada `Sheet1` contiene un nombre de serie en B1, nombres de categorías en A2:A4 y valores numéricos en B2:B4. El ejemplo crea un gráfico circular, vincula el libro y usa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) para asignar A1:B4 a una serie y tres categorías. Guarda la presentación con el gráfico vinculado.
 
 ```php
 use aspose\slides\Presentation;
@@ -455,12 +457,12 @@ try {
 }
 ```
 
-El parámetro `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) controla si el libro de trabajo se carga.
+El parámetro `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) controla si se carga el libro de trabajo.
 
-* Cuando `updateChartData` es `false`, solo se actualiza la ruta del libro. Los datos del gráfico no se cargan ni se actualizan desde el libro de destino, por lo que el libro puede estar indisponible.
+* Cuando `updateChartData` es `false`, solo se actualiza la ruta del libro. Los datos del gráfico no se cargan ni se actualizan desde el libro de destino, por lo que el libro puede estar indisponible.  
 * Cuando `updateChartData` es `true`, los datos del gráfico se actualizan desde el libro de destino.
 
-El siguiente ejemplo asigna una URL de marcador de posición con `updateChartData` establecido en `false`. Conserva los datos predeterminados del gráfico circular y guarda la presentación sin cargar el libro indisponible.
+El siguiente ejemplo asigna una URL ficticia con `updateChartData` establecido en `false`. Conserva los datos predeterminados del gráfico circular y guarda la presentación sin cargar el libro externo indisponible.
 
 ```php
 use aspose\slides\Presentation;
@@ -480,11 +482,11 @@ try {
 }
 ```
 
-### **Obtener la ruta del libro de trabajo fuente externo de un gráfico**
+### **Obtener la ruta del libro de origen de datos externo de un gráfico**
 
-Para identificar el libro vinculado a un gráfico, compruebe si el gráfico usa un origen externo y recupérelo con su ruta de libro.
+Para identificar el libro vinculado a un gráfico, compruebe si el gráfico utiliza un origen de datos externo y recupere su ruta de libro.
 
-Este ejemplo inspecciona la primera forma en la primera diapositiva de una presentación con un libro externo enlazado. Si es un gráfico enlazado a un libro externo, el ejemplo imprime [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) en la consola. Luego guarda una copia de la presentación.
+Este ejemplo inspecciona la primera forma en la primera diapositiva de una presentación con un libro externo vinculado. Si es un gráfico vinculado a un libro externo, imprime [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) en la consola. Luego guarda una copia de la presentación.
 
 ```php
 use aspose\slides\Presentation;
@@ -516,9 +518,9 @@ try {
 
 ### **Editar datos del gráfico**
 
-Puede editar los datos en libros externos de la misma forma que modifica el contenido de libros internos. Cuando un libro externo no puede cargarse, se lanza una excepción.
+Puede editar los datos en libros externos del mismo modo que modifica el contenido de libros internos. Cuando un libro externo no puede cargarse, se lanza una excepción.
 
-Este ejemplo usa un gráfico que es la primera forma en la primera diapositiva y está vinculado a un libro externo accesible. Asigna el valor respaldado por celda del primer punto de datos de la primera serie a 100 y guarda la presentación actualizada. Editar valores de celda puede actualizar el archivo XLSX externo enlazado, así que use una copia si necesita preservar el libro original.
+Este ejemplo usa un gráfico que es la primera forma en la primera diapositiva y está vinculado a un libro externo accesible. Asigna el valor respaldado por celda del primer punto de datos de la primera serie a 100 y guarda la presentación actualizada. Editar valores de celdas puede actualizar el archivo XLSX externo vinculado, por lo que se recomienda usar una copia si necesita conservar el libro original.
 
 ```php
 use aspose\slides\Presentation;
@@ -551,11 +553,11 @@ try {
 }
 ```
 
-### **Recuperar un libro de trabajo de la caché del gráfico**
+### **Recuperar un libro de trabajo desde la caché del gráfico**
 
-Si un gráfico usa un libro externo que falta o no está disponible, Aspose.Slides puede reconstruir el libro de trabajo del gráfico a partir de los datos almacenados en caché en la presentación. Cree [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), llame a [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/), y establezca [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) en `true` antes de abrir la presentación.
+Si un gráfico usa un libro externo que falta o no está disponible, Aspose.Slides puede reconstruir el libro del gráfico a partir de los datos almacenados en caché en la presentación. Cree [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), llame a [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) y establezca [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) en `true` antes de abrir la presentación.
 
-El siguiente ejemplo PHP recupera datos del libro para un gráfico que es la primera forma en la primera diapositiva y referencia un libro externo no disponible. Accede a los datos recuperados mediante [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) y [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):
+El siguiente ejemplo en PHP recupera datos del libro para un gráfico que es la primera forma en la primera diapositiva y hace referencia a un libro externo indisponible. Accede a los datos recuperados mediante [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) y [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```php
 use aspose\slides\Presentation;
@@ -586,29 +588,29 @@ try {
 }
 ```
 
-Si el libro externo no está disponible y la recuperación está desactivada, Aspose.Slides lanza una excepción. Active la recuperación solo cuando el uso de los datos en caché del gráfico sea una solución aceptable, porque la caché puede no contener los cambios realizados en el libro externo después de la última actualización de la presentación.
+Si el libro externo no está disponible y la recuperación está desactivada, Aspose.Slides lanza una excepción. Active la recuperación solo cuando usar los datos en caché del gráfico sea una alternativa aceptable, porque la caché puede no contener los cambios realizados en el libro externo después de la última actualización de la presentación.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo determinar si un gráfico específico está vinculado a un libro externo o incrustado?**
+**¿Puedo determinar si un gráfico concreto está vinculado a un libro externo o a uno incrustado?**
 
-Sí. Un gráfico tiene un [data source type](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) y una [path to an external workbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); si el origen es un libro externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
+Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) y una [ruta a un libro externo](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); si el origen es un libro externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
 
 **¿Se admiten rutas relativas a libros externos y cómo se almacenan?**
 
-Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. La presentación almacena la ruta absoluta en el archivo PPTX, por lo que mover el libro puede requerir actualizar el enlace.
+Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. La presentación almacena la ruta absoluta en el archivo PPTX, por lo que mover el libro puede requerir actualizar el vínculo.
 
-**¿Puedo usar libros ubicados en recursos/redes compartidas?**
+**¿Puedo usar libros ubicados en recursos o comparticiones de red?**
 
 Sí, esos libros pueden usarse como origen externo de datos. Sin embargo, la edición directa de libros remotos desde Aspose.Slides no está soportada; solo pueden usarse como fuente.
 
-**¿Aspose.Slides sobrescribe el archivo XLSX externo al guardar la presentación?**
+**¿Aspose.Slides sobrescribe el XLSX externo al guardar la presentación?**
 
-La presentación almacena un [link to the external file](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Editar datos de gráfico respaldados por celdas también puede actualizar el archivo XLSX local enlazado. Use una copia del libro si el original debe permanecer sin cambios.
+La presentación almacena un [vínculo al archivo externo](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). Editar datos de gráfico respaldados por celdas también puede actualizar el archivo XLSX local vinculado. Utilice una copia del libro si el original debe permanecer sin cambios.
 
 **¿Qué debo hacer si el archivo externo está protegido con contraseña?**
 
-Aspose.Slides no acepta una contraseña al crear el vínculo. Un enfoque habitual es eliminar la protección con antelación o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/java/)) y enlazar a esa copia.
+Aspose.Slides no acepta una contraseña al crear el vínculo. Un enfoque habitual es eliminar la protección con antelación o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/java/)) y vincular a esa copia.
 
 **¿Pueden varios gráficos referenciar el mismo libro externo?**
 

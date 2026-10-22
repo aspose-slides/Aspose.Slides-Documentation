@@ -6,39 +6,84 @@ url: /cs/java/chart-series/
 keywords:
 - série grafu
 - překrytí sérií
-- barva série
+- barva sérií
 - název série
 - datový bod
-- buňka pracovního listu
+- buňka sešitu
 - mezera mezi sériemi
 - záporná hodnota
 - PowerPoint
 - prezentace
 - Java
 - Aspose.Slides
-description: "Naučte se, jak spravovat série grafu, datové body, buňky pracovního listu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích pomocí Javy."
+description: "Naučte se, jak spravovat série grafu, datové body, buňky sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích v Javě."
 ---
 ## **Přehled**
 
-Graf ukládá svá vykreslená data do pracovního sešitu s daty grafu. [IChartSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/) představuje jednu sadu souvisejících hodnot a každý [IChartDataPoint](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/) v sérii odkazuje na jednu nebo více buněk pracovního listu. Objekt [IChartCategory](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/) poskytuje štítky nebo hodnoty seskupení sdílené sérií. Název série, kategorie a hodnoty bodů jsou proto propojeny s objekty [IChartDataCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/), místo aby byly uloženy jen jako zobrazovaný text.
+Graf může ukládat své vykreslené hodnoty do buněk sešitu nebo přímo jako číselné literály. [IChartSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/) představuje jednu sadu souvisejících hodnot a každý [IChartDataPoint](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/) představuje bod v této sérii. Objekt [IChartCategory](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/) poskytuje popisky nebo skupinové hodnoty sdílené sériemi. V grafech vytvořených s výchozími daty se názvy sérií, kategorie a hodnoty bodů používají objekty [IChartDataCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/) ze sešitu grafu.
 
-Pro typický kategoriový graf výchozí pracovní list používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) jsou nulově založené. Toto rozložení je užitečné, když vytváříte graf s výchozími daty, ale nepředpokládejte, že ho používá každý existující graf. Pro načtenou prezentaci si před změnou hodnot pracovního listu prohlédněte buňky, na které odkazují série, kategorie a datové body.
+Pro typický kategoriální graf výchozí sešit používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) jsou nulové (zero‑based). Toto uspořádání je užitečné při vytváření grafu s výchozími daty, ale nepředpokládejte, že jej používá každý existující graf. U načtené prezentace si před změnou hodnot sešitu prohlédněte buňky, na které odkazují série, kategorie a datové body.
 
 Nastavení grafu mají tři různá rozsahy:
 
-- Nastavení na úrovni série, například [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--), poskytuje výchozí vzhled pro všechny body v jedné sérii.
-- Nastavení datového bodu, například [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--), přepíše vzhled série pro jeden bod.
-- Skupinová nastavení se vztahují na kompatibilní série, které patří do stejné [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/). Přístup ke skupině získáte přes [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) ve chvíli, kdy potřebujete nastavit možnosti jako překrytí nebo šířku mezery.
+- Nastavení na úrovni série, např. [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--), poskytuje výchozí vzhled pro všechny body v jedné sérii.
+- Nastavení datového bodu, např. [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--), přepíše vzhled série pro jeden konkrétní bod.
+- Skupinová nastavení se vztahují na kompatibilní série, které patří do stejné [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/). Přístup ke skupině získáte pomocí [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) v případě, že potřebujete nastavit například překrytí nebo šířku mezery.
 
-Když není explicitně nastavena výplň bodu nebo série, automatický vzhled určuje styl a motiv grafu. Když jsou přítomna formátování série i bodu, formátování bodu má přednost pro daný bod.
+Když není explicitně nastaveno vyplnění bodu nebo série, určuje automatický vzhled styl a motiv grafu. Pokud jsou přítomna jak nastavení série, tak nastavení bodu, má přednost formátování bodu.
 
-![graf-série-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Nastavení překrytí sérií v grafu**
+## **Nastavení hodnot série pomocí číselných literálů**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getOverlap--) udává, jak moc se překrývají pruhy nebo sloupce ve 2D grafu, v rozmezí od ‑100 do 100 procent. Jedná se o jen‑čtení projekci nastavení v nadřazené skupině sérií. Použijte [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) k aktualizaci všech kompatibilních sérií v této skupině. Tato volba platí pro typy grafů, které zobrazují seskupené pruhy nebo sloupce; neovlivní nesouvisející skupiny sérií v kombinovaném grafu.
+Používejte číselné literály, když hodnoty série pocházejí z aplikačních dat nebo výpočtů a nepotřebují odkazy na buňky listu. Zavolejte [setDataSourceTypeForValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) s [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/#DoubleLiterals) před přiřazením výsledku [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--) každého bodu pomocí [setAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
 
-Následující příklad nastavuje překrytí pro skupinu, která obsahuje první sérii:
+Nastavení kolekce řídí typ zdroje všech hodnot bodů v dané sérii. Metoda [getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ibasechartvalue/#getDataSourceType--) každé hodnoty bodu vrací vybraný typ; změňte jej přes nastavení kolekce. S `Worksheet` použijte [getAsCell](https://reference.aspose.com/slides/java/com.aspose.slides/isinglecellchartvalue/#getAsCell--) pro přístup k odkazované buňce. S `DoubleLiterals` použijte [getAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) nebo `setAsLiteralDouble` pro přímé čtení nebo zápis čísla.
+
+Následující příklad vytvoří sloupcový graf s výchozími sériemi a kategoriemi a poté přiřadí vypočítané hodnoty 10, 20 atd. k existujícím bodům první série. Uloží prezentaci, znovu ji otevře a vytiskne uložené hodnoty.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    series.getDataPoints().setDataSourceTypeForValues(DataSourceType.DoubleLiterals);
+    for (int i = 0; i < series.getDataPoints().size(); i++) {
+        series.getDataPoints().get_Item(i).getValue().setAsLiteralDouble((i + 1) * 10);
+    }
+
+    presentation.save("numeric_literals.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopenedPresentation = new Presentation("numeric_literals.pptx");
+try {
+    ISlide reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    IChart reopenedChart = (IChart) reopenedSlide.getShapes().get_Item(0);
+    IChartSeries reopenedSeries = reopenedChart.getChartData().getSeries().get_Item(0);
+    for (IChartDataPoint point : reopenedSeries.getDataPoints()) {
+        System.out.println(point.getValue().getAsLiteralDouble());
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+Typ zdroje hodnoty bodu je oddělený od [IChartData.getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getDataSourceType--), který určuje interní nebo externí konfiguraci sešitu grafu. Použití číselných literálů samo o sobě neodstraní vložený sešit. V tomto příkladu zůstává sešit dostupný pro popisky kategorií, názvy sérií a ostatní série. Viz [Chart Workbook](/slides/cs/java/chart-workbook/) pro správu sešitu.
+
+Pro rozptylové a bublinové grafy použijte [setDataSourceTypeForXValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) a [setDataSourceTypeForYValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) k výběru zdrojů pro [getXValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getXValue--) a [getYValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getYValue--). Bublinové grafy také používají [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) pro [getBubbleSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Nastavte každý příslušný zdroj na `DoubleLiterals` před přiřazením čísel metodou `setAsLiteralDouble` dané hodnoty.
+
+## **Nastavení překrytí sérií grafu**
+
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getOverlap--) vrací, jak moc se překrývají pruhy nebo sloupce v 2D grafu, v rozmezí od -100 do 100 procent. Jedná se o jen‑čtení projekci nastavení v nadřazené skupině sérií. Pro aktualizaci všech kompatibilních sérií ve skupině použijte [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-). Tato možnost platí pro typy grafů, které zobrazují seskupené pruhy nebo sloupce; neovlivňuje nesouvisející skupiny sérií v kombinovaném grafu.
+
+Následující příklad nastaví překrytí pro skupinu, která obsahuje první sérii:
 
 ```java
 import com.aspose.slides.*;
@@ -65,13 +110,13 @@ try {
 
 Výsledek:
 
-![Překrytí sérií](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **Změna barvy výplně série**
 
-Použijte [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) k nastavení výchozí výplně pro celou sérii. Pokud má bod již explicitně nastavenou výplň, jeho nastavení [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--) přepíše výplň série pro tento bod.
+Použijte [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) pro nastavení výchozí výplně celé série. Pokud má bod již explicitní výplň, jeho nastavení [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--) přepíše výplň série pro tento bod.
 
-Následující příklad aplikuje plnou modrou výplň na první sérii:
+Následující příklad aplikuje jednotnou modrou výplň na první sérii:
 
 ```java
 import com.aspose.slides.*;
@@ -98,11 +143,11 @@ try {
 
 Výsledek:
 
-![Barva série](series_color.png)
+![The color of the series](series_color.png)
 
 ## **Změna názvu série**
 
-Název série je uložen v pracovním sešitu grafu a normálně se zobrazuje v legendě. Ve výchozím pracovním sešitu vytvořeném pro sloupcový graf s seskupením je buňka B1 na řádku 0, sloupci 1 a obsahuje název první série. pojmenované konstanty v následujícím příkladu tuto strukturu zpřehledňují:
+Název série je uložen v sešitu dat grafu a obvykle se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro seskupený sloupcový graf je buňka B1 na řádku 0, sloupci 1 a obsahuje název první série. Pojmenované konstanty v následujícím příkladu tuto strukturu explicitně uvádějí:
 
 ```java
 import com.aspose.slides.*;
@@ -128,7 +173,7 @@ try {
 }
 ```
 
-Můžete také aktualizovat buňku, na kterou již odkazuje [IChartSeries.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getName--). Tento přístup zabraňuje předpokladu konkrétního řádku a sloupce v existujícím grafu:
+Můžete také aktualizovat buňku, na kterou již odkazuje [IChartSeries.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getName--). Tento přístup se vyhýbá předpokladu konkrétního řádku a sloupce v existujícím grafu:
 
 ```java
 import com.aspose.slides.*;
@@ -155,15 +200,15 @@ try {
 
 Výsledek:
 
-![Název série](series_name.png)
+![The series name](series_name.png)
 
 ### **Vytvoření série s názvem z více buněk**
 
-Kompozitní název série je užitečný, když jsou název produktu a období zprávy uloženy v oddělených buňkách pracovního listu. Například můžete zkombinovat `Product A` v B1 a `2026` v C1 do jediného názvu série a přitom zachovat oba části propojené s jejich zdrojovými buňkami.
+Složený název série je užitečný, když je název produktu a období reportování uloženy v samostatných buňkách sešitu. Například můžete zkombinovat `Product A` v B1 a `2026` v C1 do jediného názvu série a přitom nechat obě části propojené se svými zdrojovými buňkami.
 
-Použijte [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) k získání rozsahu názvů a pak tuto kolekci předávejte metodě [IChartSeriesCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). Argument `skipHiddenCells` určuje, zda jsou zahrnuty skryté buňky: `true` je vyloučí, `false` zahrne. Tento příklad používá `false`, aby zahrnul každou buňku v rozsahu názvu.
+Použijte [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) k načtení rozsahu názvu a pak tuto kolekci předáte metodě [IChartSeriesCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). Argument `skipHiddenCells` určuje, zda jsou skryté buňky zahrnuty: `true` je vyloučí, `false` zahrne. Tento příklad používá `false`, aby zahrnul každou buňku v rozsahu názvu.
 
-Následující příklad vytváří prezentaci s jednou sérií a dvěma datovými body. Buňky B1:C1 obsahují jen název série; A2:A3 obsahují štítky kategorií a B2:B3 číselné hodnoty.
+Následující příklad vytvoří prezentaci s jednou sérií a dvěma datovými body. Buňky B1:C1 poskytují pouze název série; A2:A3 poskytují popisky kategorií a B2:B3 číselné hodnoty.
 
 ```java
 import com.aspose.slides.*;
@@ -181,13 +226,13 @@ try {
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // Tyto dvě buňky poskytují název série.
+    // Tyto dvě buňky dodávají název série.
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
     IChartSeries series = chart.getChartData().getSeries().add(nameCells, ChartType.ClusteredColumn);
 
-    // Oddělené buňky poskytují kategorie a číselné datové body.
+    // Samostatné buňky dodávají kategorie a číselné datové body.
     IChartDataCell northCategory = workbook.getCell(0, 1, 0, "North");
     IChartDataCell southCategory = workbook.getCell(0, 2, 0, "South");
     chart.getChartData().getCategories().add(northCategory);
@@ -203,15 +248,15 @@ try {
 }
 ```
 
-Výsledný název série je `Product A 2026` s mezerou mezi oběma hodnotami buněk. Legenda to zobrazuje jako jeden záznam pro oba sloupce. Obrázek níže ilustruje výsledek:
+Výsledný název série je `Product A 2026` s mezerou mezi hodnotami dvou buněk. Legenda jej zobrazuje jako jediný záznam pro oba sloupce. Obrázek níže ilustruje výsledek:
 
-![Sloupcový graf s hodnotami Sever a Jih a kompozitním názvem série Product A 2026 v legendě](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
 ## **Získání automatické barvy výplně série**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) vrací barvu vypočítanou z indexu série a stylu grafu. Jedná se o barvu použitou, když výplň série není explicitně definována. Volání metody načte vypočítanou barvu; nepřiřadí novou výplň.
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) vrací barvu vypočítanou z indexu série a stylu grafu. Jedná se o barvu použitou, když výplň série nebyla explicitně definována. Volání metody přečte vypočítanou barvu; nepřiřadí novou výplň.
 
-Následující příklad vypíše automatickou barvu každé výchozí série:
+Následující příklad vytiskne automatickou barvu každé výchozí série:
 
 ```java
 import com.aspose.slides.*;
@@ -236,7 +281,7 @@ try {
 }
 ```
 
-Ukázkový výstup pro výchozí styl grafu:
+Výstupní příklad pro výchozí styl grafu:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -246,11 +291,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 Přesné barvy závisí na stylu a motivu grafu.
 
-## **Nastavení inverzní barvy výplně pro sérii grafu**
+## **Nastavení invertované barvy výplně pro sérii grafu**
 
-Pro pruhové, sloupcové a bublinové série může [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) zobrazit záporné hodnoty jinou výplní. Nastavte běžnou výplň série na plnou, povolte inverzi a přiřaďte barvu záporné hodnoty přes [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Záporná čísla zůstávají v pracovním listu beze změny; mění se jen jejich barva při zobrazení.
+Pro pruhové, sloupcové a bublinové série může [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) zobrazit záporné hodnoty jinou výplní. Nastavte běžnou výplň série na jednotnou, povolte inverzi a přiřaďte barvu pro záporné hodnoty pomocí [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Záporná čísla zůstávají ve sešitu beze změny; mění se pouze jejich zobrazovaná barva.
 
-Následující příklad nahrazuje výchozí data grafu jednou sérií. Řádek 0 listu obsahuje název série, sloupec 0 obsahuje názvy kategorií a sloupec 1 obsahuje hodnoty:
+Následující příklad nahradí výchozí data grafu jednou sérií. Řádek 0 listu obsahuje název série, sloupec 0 názvy kategorií a sloupec 1 hodnoty:
 
 ```java
 import com.aspose.slides.*;
@@ -307,9 +352,9 @@ try {
 
 Výsledek:
 
-![Inverzní plná výplň](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Inverzi můžete povolit pro jeden bod pomocí [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). V následujícím příkladu je inverze vypnuta pro sérii a povolena jen pro vybraný bod. Bod je také nastaven na zápornou hodnotu, aby byl efekt viditelný:
+Inverzi můžete povolit pro jeden bod pomocí [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). V následujícím příkladu je inverze vypnuta pro sérii a zapnuta jen pro vybraný bod. Bod také dostane zápornou hodnotu, aby byl efekt viditelný:
 
 ```java
 import com.aspose.slides.*;
@@ -345,7 +390,7 @@ try {
 
 ## **Vymazání konkrétní hodnoty datového bodu**
 
-Aby byl bod prázdný, aniž byste odstranili ostatní body, nastavte jeho odpovídající buňku pracovního listu na `null`. U sloupcového grafu je vykreslená hodnota dostupná přes [IChartDataPoint.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--). Datový bod zůstává na stejné pozici kategorie, ale graf jej podle nastavení prázdných hodnot považuje za prázdný.
+Chcete‑li učinit jeden bod prázdným, aniž byste odstranili ostatní body, nastavte jeho podkladovou buňku sešitu na `null`. U sloupcového grafu je vykreslená hodnota dostupná přes [IChartDataPoint.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--). Datový bod zůstane na stejné pozici kategorie, ale graf bude jeho hodnotu považovat za prázdnou podle nastavení prázdných hodnot grafu.
 
 Následující příklad vymaže pouze druhý bod v první sérii:
 
@@ -372,17 +417,17 @@ try {
 }
 ```
 
-Bodové grafy používají samostatné buňky X a Y a bublinové grafy také používají buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nepoužívejte [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) pokud chcete zachovat ostatní body, protože tato metoda odstraní všechny datové body ze sbírky.
+Rozptylové grafy používají samostatné X a Y buňky a bublinové grafy také buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nepoužívejte [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) pokud chcete zachovat ostatní body, protože tato metoda odstraní všechny datové body ze sbírky.
 
 ## **Řízení zobrazení prázdných buněk**
 
-Skryté buňky s hodnotami jsou odlišný případ od prázdných buněk. Pro zahrnutí nebo vyloučení dat ze skrytých řádků a sloupců listu viz [Include Data from Hidden Rows and Columns](/slides/cs/java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Skryté buňky obsahující hodnoty jsou odlišné od prázdných buněk. Pro zahrnutí nebo vyloučení dat ze skrytých řádků a sloupců listu viz [Include Data from Hidden Rows and Columns](/slides/cs/java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Prázdná buňka pracovního listu představuje chybějící data; buňka obsahující `0` představuje známou číselnou hodnotu. Zavolejte [IChartDataCell.setValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) s `null`, aby buňka byla prázdná. Číselná nula zůstává nulou bez ohledu na nastavení prázdných buněk.
+Prázdná buňka sešitu představuje chybějící data; buňka obsahující `0` představuje známou číselnou hodnotu. Zavolejte [IChartDataCell.setValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) s `null`, aby buňka byla prázdná. Numerická nula zůstane nulou bez ohledu na nastavení prázdných buněk.
 
-Použijte [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) k výběru, jak graf zobrazí prázdné buňky. Toto nastavení platí pro celý graf. Mění způsob vykreslení prázdných míst, aniž by prázdnou buňku zaplnilo nulou nebo interpolovanou hodnotou.
+Použijte [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) pro výběr, jak má graf zobrazovat prázdné buňky. Toto nastavení se vztahuje na celý graf. Mění způsob, jakým jsou mezery vykreslovány, aniž by prázdná buňka byla vyplněna nulou nebo interpolovanou hodnotou.
 
-Následující samostatný příklad vytváří čárový graf s jednou sérií, vymaže hodnotu pro Den 3 a uloží stejný graf ve všech režimech. Vstupní soubor není potřeba. [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) používá list 0, sloupec 0 pro štítky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název série. Konečná data jsou `10, 20, empty, 30, 40`.
+Následující samostatný příklad vytvoří čárový graf s jednou sérií, vymaže hodnotu pro den 3 a uloží graf ve třech režimech. Žádný vstupní soubor není vyžadován. [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) používá list 0, sloupec 0 pro popisky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název série. Konečná data jsou `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -409,7 +454,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Nechte den 3 skutečně prázdný, přičemž zachováte jeho kategorii a datový bod.
+    // Nechte den 3. den skutečně prázdný, přičemž zachováte jeho kategorii a datový bod.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -423,19 +468,19 @@ try {
 }
 ```
 
-Každý výstupní soubor ukládá režim, který byl nastaven před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pro uložení jen jedné verze nastavte požadovaný režim a uložte prezentaci jednou místo iterace přes režimy.
+Každý výstupní soubor ukládá režim přiřazený před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pro uložení jen jedné verze nastavte požadovaný režim a prezentaci uložte jednou místo opakování přes všechny režimy.
 
-Srovnání níže ukazuje stejná data ve všech třech souborech. Den 3 je v pracovním listu prázdný ve všech případech:
+Porovnání níže ukazuje stejná data ve všech třech souborech. Den 3 je ve všech případech prázdný v sešitu:
 
-![Čárové grafy se stejnými daty: Gap přeruší čáru v Den 3, Zero sníží čáru na nulu a Span spojí Den 2 s Den 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Viditelný efekt závisí na typu grafu. Čárový graf usnadňuje porovnání všech tří režimů. Pruhové a sloupcové grafy nemají čáru, kterou by spojila chybějící kategorii, takže `Span` nedokáže vytvořit spojovací segment zobrazený výše; prázdný sloupec a sloupec s nulovou výškou mohou vypadat podobně. Podobně scatter graf s pouze značkami nemá spojovací čáru. Neočekávejte tři odlišné výsledky u každého typu grafu; zkontrolujte výstup pro typ, který používáte.
+Viditelný efekt závisí na typu grafu. Čárový graf umožňuje snadno porovnat všechny tři režimy. Pruhové a sloupcové grafy nemají linii, která by spojovala chybějící kategorii, takže `Span` nemůže vytvořit spojovací úsek zobrazený výše; chybějící sloupec a sloupec s nulovou výškou mohou vypadat podobně. Podobně u rozptylového grafu s jen značkami není žádná spojovací čára. Neočekávejte tři odlišné výsledky u každého typu grafu; ověřte výstup u typu, který používáte.
 
 ## **Nastavení šířky mezery mezi sériemi**
 
-Šířka mezery je prostor mezi sousedními shluky pruhů nebo sloupců, vyjádřený jako procento šířky pruhu nebo sloupce. Stejně jako překrytí patří k nadřazené skupině sérií, nikoli k jedné sérii. Zavolejte [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) jednou pro skupinu. Větší hodnota vytvoří větší prostor mezi shluky; menší hodnota je učiní hustšími.
+Šířka mezery je prostor mezi sousedními klastrami pruhů nebo sloupců, vyjádřený jako procento šířky pruhu nebo sloupce. Stejně jako překrytí patří k nadřazené skupině sérií, nikoli k jedné sérii. Zavolejte [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) jednou pro skupinu. Větší hodnota vytvoří více prostoru mezi klastery; menší hodnota je učiní hustšími.
 
-Následující příklad mění šířku mezery a uloží jen konečnou prezentaci:
+Následující příklad změní šířku mezery a uloží pouze finální prezentaci:
 
 ```java
 import com.aspose.slides.*;
@@ -461,46 +506,46 @@ try {
 
 Výsledek:
 
-![Šířka mezery](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **Často kladené otázky**
 
 **Které typy grafů podporují datové série?**
 
-Všechny typy grafů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) používají data grafu, ale jejich série nemají vždy stejnou strukturu hodnot nebo nastavení. Například kategoriové grafy používají kategorie a hodnoty, scatter grafy používají hodnoty X a Y a bublinové grafy přidávají velikosti bublin. Používejte metodu tvorby datových bodů, která odpovídá typu série. Volby jako překrytí a šířka mezery platí jen pro kompatibilní skupiny pruhů nebo sloupců.
+Všechny typy grafů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) používají data grafu, ale jejich série nemají vždy stejnou strukturu hodnot nebo nastavení. Například kategoriální grafy používají kategorie a hodnoty, rozptylové grafy X a Y hodnoty a bublinové grafy přidávají velikosti bublin. Použijte metodu pro vytváření datových bodů, která odpovídá typu série. Možnosti jako překrytí a šířka mezery platí jen pro kompatibilní skupiny pruhových nebo sloupcových grafů.
 
 **Co je skupina sérií grafu?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) obsahuje kompatibilní série, které sdílejí nastavení úrovně skupiny. Kombinovaný graf může obsahovat více než jednu skupinu, takže změna skupiny získaná přes jednu sérii nemusí nutně změnit všechny série v grafu.
+[IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) obsahuje kompatibilní série, které sdílejí nastavení na úrovni skupiny. Kombinovaný graf může mít více než jednu skupinu, takže změna skupiny získané přes jednu sérii nemusí nutně změnit všechny série v grafu.
 
 **Obsahuje nově vytvořený graf výchozí data?**
 
-Ano. Ve výchozím nastavení [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) vytvoří ukázkové série, kategorie a hodnoty. Můžete upravit tyto buňky nebo vymazat jak série, tak kolekci kategorií před přidáním zcela vlastního datového souboru. Přetížená metoda může také vytvořit graf bez výchozích dat.
+Ano. Ve výchozím nastavení metoda [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) vytvoří ukázkové série, kategorie a hodnoty. Můžete tyto buňky upravit nebo vymazat jak série, tak kolekce kategorií před přidáním zcela vlastních dat. Přetížená metoda může také vytvořit graf bez výchozích dat.
 
-**Jak jsou objekty grafu propojeny s buňkami pracovního listu?**
+**Jak jsou objekty grafu propojeny s buňkami sešitu?**
 
-Názvy sérií, štítky kategorií a hodnoty datových bodů odkazují na buňky v [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Při vytváření vlastních dat udržujte řádky kategorií a řádky hodnot sérií zarovnané, aby každý bod byl vykreslen pod správnou kategorií.
+Názvy sérií, popisky kategorií a hodnoty datových bodů odkazují na buňky v [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Při tvorbě vlastních dat udržujte řádky kategorií a řádky hodnot sérií zarovnané tak, aby každý bod byl vykreslen pod zamýšlenou kategorií.
 
 **Jak vymazat jeden bod místo celé série?**
 
-Nastavte příslušnou buňku hodnoty na `null`, aby bod zůstal na své pozici kategorie jako prázdný bod. Použijte [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) pouze, když chcete odstranit všechny body ze série. Pokud odstraňujete i kategorie, aktualizujte všechny série, aby jejich hodnoty zůstaly zarovnány s kolekcí kategorií.
+Nastavte příslušnou buňku s hodnotou na `null`, aby bod zůstal na své pozici kategorie jako prázdný bod. Používejte [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) jen pokud chcete odstranit všechny body ze série. Pokud také odstraňujete kategorie, aktualizujte všechny série, aby jejich hodnoty zůstaly zarovnané s kolekcí kategorií.
 
 **Jak jsou prázdné body zobrazovány?**
 
-Výsledek závisí na typu grafu a na hodnotě nastavené pomocí [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Podporované grafy mohou zobrazovat prázdná místa jako mezery, jako nulové hodnoty nebo spojením sousedních bodů. Vyberte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz [Řízení zobrazení prázdných buněk](#control-the-display-of-empty-cells) pro kompletní příklad a vizuální srovnání.
+Výsledek závisí na typu grafu a na nastavení konfigurovaném pomocí [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Podporované grafy mohou zobrazovat prázdno jako mezery, jako nulové hodnoty nebo spojením sousedních bodů. Zvolte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz [Control the Display of Empty Cells](#control-the-display-of-empty-cells) pro kompletní příklad a vizuální srovnání.
 
 **Jak jsou formátovány záporné hodnoty?**
 
 U podporovaných pruhových, sloupcových a bublinových sérií zavolejte [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) a nastavte barvu vrácenou metodou [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Chování můžete přepsat pro jednotlivý bod pomocí [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Tyto metody ovlivňují formátování, nikoli uložené číselné hodnoty.
 
-**Které formátování má přednost, když je série i bod formátován?**
+**Které formátování má přednost, když je formátována i série i bod?**
 
-Explicitní formátování datového bodu má přednost pro daný bod. Ostatní body nadále používají explicitní formátování série nebo, pokud není definováno, automatický styl a motiv grafu. Skupinová nastavení jako překrytí a šířka mezery řídí rozvržení a nejsou přepsáním formátování na úrovni bodu.
+Explicitní formátování datového bodu má přednost pro tento bod. Ostatní body nadále používají explicitní formát série nebo, pokud formát série není definován, automatický styl a motiv grafu. Skupinová nastavení jako překrytí a šířka mezery řídí rozvržení a nejsou přepisovány na úrovni bodu.
 
-**Existuje limit počtu sérií, které může graf obsahovat?**
+**Existuje limit počtu sérií v grafu?**
 
-Aspose.Slides neudává samostatný pevný limit počtu sérií. V praxi určují omezení souboru prezentace, dostupná paměť, čas vykreslování a čitelnost grafu praktické limity.
+Aspose.Slides neukládá samostatný pevný limit počtu sérií. V praxi určují omezení souboru prezentace, dostupná paměť, čas renderování a čitelnost grafu praktické limity.
 
 **Co změnit, když jsou sloupce příliš blízko nebo příliš daleko od sebe?**
 
-Zavolejte [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) na příslušnou nadřazenou skupinu sérií. Zvýšením hodnoty rozšíříte prostor mezi shluky, snížením jej přiblížíte.
+Zavolejte [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) na příslušné nadřazené skupině sérií. Zvyšte hodnotu pro rozšíření prostoru mezi klastery nebo ji snižte pro jejich zmenšení.

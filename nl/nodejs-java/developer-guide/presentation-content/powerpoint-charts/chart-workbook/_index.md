@@ -20,21 +20,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ontdek Aspose.Slides voor Node.js via Java: beheer moeiteloos grafiekwerkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
+description: "Ontdek Aspose.Slides voor Node.js via Java: beheer grafiekwerkboeken moeiteloos in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met grafiek‑werkboeken in Aspose.Slides werkt. Het toont hoe u grafiekgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als grafiek‑dataclabels, toegang krijgt tot collectie werkbladen, en het type gegevensbron voor grafiekwaarden kunt opgeven.
+Dit artikel legt uit hoe u met grafiek‑werkboeken in Aspose.Slides kunt werken. Het toont hoe u grafiekgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als grafiekdataplabels, de kolomladencollections kunt benaderen, en het type gegevensbron kunt opgeven voor grafiekwaarden.
 
-Het behandelt ook het gebruik van externe werkboeken als gegevensbron voor grafieken. De voorbeelden laten zien hoe u een extern werkboek maakt en toewijst, het pad van een extern werkboek dat aan een grafiek is gekoppeld opvraagt, en grafiekgegevens bewerkt wanneer het werkboek beschikbaar is.
+Het behandelt ook het werken met externe werkboeken als gegevensbron voor grafieken. De voorbeelden laten zien hoe u een extern werkboek maakt en toewijst, het pad van een extern werkboek dat aan een grafiek is gekoppeld ophaalt, en grafiekgegevens bewerkt wanneer het werkboek beschikbaar is.
 
-Voor werkboekcellen die ontbrekende gegevens vertegenwoordigen, zie [Control the Display of Empty Cells](/slides/nl/nodejs-java/chart-series/) voor het verschil tussen een lege cel en nul, en een lijngrafiek‑vergelijking van de beschikbare weergavemodi.
+Voor werkboekcellen die ontbrekende gegevens vertegenwoordigen, zie [Het weergeven van lege cellen beheren](/slides/nl/nodejs-java/chart-series/) voor het verschil tussen een lege cel en nul, en een lijngrafiekvergelijking van de beschikbare weergavemodi.
 
-## **Gegevens uit verborgen rijen en kolommen opnemen**
+## **Gegevens opnemen van verborgen rijen en kolommen**
 
-Gebruik [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) om te bepalen of een grafiek gegevens plot uit verborgen werkbladrijen en -kolommen. Stel in op `true` om alleen zichtbare cellen te plotten, of op `false` om zowel zichtbare als verborgen cellen op te nemen. Deze instelling regelt het plotten van de grafiek; hij verbergt of toont geen werkbladrijen of -kolommen.
+Gebruik [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) om te regelen of een grafiek gegevens plot uit verborgen werkblad‑rijen en -kolommen. Stel in op `true` om alleen zichtbare cellen te plotten, of op `false` om zowel zichtbare als verborgen cellen op te nemen. Deze instelling regelt het plotten van de grafiek; hij verbergt of toont geen werkblad‑rijen of -kolommen.
 
-De [voorbeeldpresentatie](hidden-source-data.pptx) bevat een kolomgrafiek als de eerste vorm op de eerste dia. Het ingebedde werkblad, `Sheet1`, bevat het bronbereik `A1:C4`. Rij 3 en kolom C zijn verborgen, maar hun cellen bevatten nog steeds waarden.
+De [voorbeeldpresentatie](hidden-source-data.pptx) bevat een kolomgrafiek als eerste vorm op de eerste dia. Het ingebedde werkblad, `Sheet1`, bevat het volgende bronbereik, `A1:C4`. Rij 3 en kolom C zijn verborgen, maar hun cellen bevatten nog steeds waarden.
 
 | Werkbladrij | A: Maand | B: Detailhandel | C: Groothandel (verborgen kolom) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ De [voorbeeldpresentatie](hidden-source-data.pptx) bevat een kolomgrafiek als de
 | 3 (verborgen rij) | februari | 40 | 60 |
 | 4 | maart | 20 | 50 |
 
-Toegang tot broncellen via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) en lees [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) om hun verborgen status te inspecteren. Deze methode rapporteert de verborgen status zonder deze te wijzigen. In dit bestand is B2 zichtbaar, B3 behoort tot de verborgen rij, en C2 tot de verborgen kolom; het voorbeeld print respectievelijk `false`, `true` en `true`.
+Benader broncellen via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) en lees [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) om hun verborgen status te inspecteren. Deze methode rapporteert de verborgen status zonder deze te wijzigen. In dit bestand is B2 zichtbaar, B3 behoort tot de verborgen rij en C2 tot de verborgen kolom; het voorbeeld print respectievelijk `false`, `true` en `true`.
 
-Voor dit voorbeeld ververst u de grafiekgegevens nadat u de plot‑instelling hebt gewijzigd: behoud het ingebedde werkboek met [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) en laad het opnieuw met [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/). Wanneer u alle cellen opneemt, gebruik dan ook [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) om het volledige bereik te herstellen, inclusief de verborgen februari‑categorie. Alleen de vlag wijzigen is onvoldoende om de in deze voorbeeld‑cache opgeslagen grafiek‑ en categorielabels te verversen. Het voorbeeld converteert de geretourneerde Node.js‑buffer naar een Java‑byte‑array voordat het deze aan de schrijfmethode doorgeeft.
+Voor dit voorbeeld ververst u de grafiekgegevens na het wijzigen van de plot‑instelling: behoud het ingebedde werkboek met [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) en laad het opnieuw met [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/). Wanneer u alle cellen opneemt, gebruik dan ook [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) om het volledige bereik te herstellen, inclusief de verborgen februari‑categorie. Alleen de vlag wijzigen is onvoldoende om de in het voorbeeld gecachete grafiekgegevens en categorielabels te verversen. Het voorbeeld converteert de geretourneerde Node.js‑buffer naar een Java‑byte‑array voordat deze aan de schrijf‑methode wordt doorgegeven.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -78,28 +78,28 @@ try {
             presentation.save("hidden_cells_" + visibleOnly + ".pptx", aspose.slides.SaveFormat.Pptx);
         }
     } else {
-        console.log("The first shape is not a chart.");
+        console.log("De eerste vorm is geen grafiek.");
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-Het voorbeeld slaat twee versies van de presentatie op: één met alleen de zichtbare Detailhandelswaarden (10 en 20), en één met alle zes waarden. De afbeeldingen hieronder illustreren de twee plot‑modi. Rij 3 en kolom C blijven verborgen in beide ingebedde werkboeken.
+Het voorbeeld slaat twee versies van de presentatie op: één met alleen de zichtbare detailhandelswaarden (10 en 20), en één met alle zes waarden. De afbeeldingen hieronder illustreren de twee plot‑modi. Rij 3 en kolom C blijven verborgen in beide ingebedde werkboeken.
 
 | Alleen zichtbare cellen (`true`) | Alle cellen (`false`) |
 | --- | --- |
 | ![Alleen zichtbare cellen: Detailhandelswaarden 10 en 20 voor januari en maart.](hidden_cells_True.png) | ![Alle cellen: Detailhandels‑ en groothandelswaarden voor januari, februari en maart.](hidden_cells_False.png) |
 
-Een verborgen cel met een waarde verschilt van een lege cel. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) bepaalt hoe missende waarden worden weergegeven; het omvat of sluit geen verborgen brongegevens uit. Zie [Control the Display of Empty Cells](/slides/nl/nodejs-java/chart-series/#control-the-display-of-empty-cells) voor een voorbeeld.
+Een verborgen cel die een waarde bevat, verschilt van een lege cel. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) bepaalt hoe missende waarden worden weergegeven; hij neemt geen verborgen brongegevens op of sluit ze uit. Zie [Het weergeven van lege cellen beheren](/slides/nl/nodejs-java/chart-series/#control-the-display-of-empty-cells) voor een voorbeeld.
 
-## **Het gegevensbereik van een grafiek ophalen**
+## **Gegevensbereik van een grafiek ophalen**
 
-Voordat u werkboekgegevens bijwerkt in een bestaande presentatie, inspecteert u de bronbereiken om te bepalen welke werkbladcellen elke grafiek gebruikt. De methode [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) retourneert het huidige gegevensbereik als een werkblad‑gekwalificeerde formule, bijvoorbeeld `Sheet1!$A$1:$D$5`. Hier is `Sheet1` de werkbladnaam, `!` scheidt deze van het celbereik, en `$A$1:$D$5` identificeert de cellen A1 tot en met D5, inclusief. De dollartekens duiden absolute rij‑ en kolomreferenties aan.
+Voordat u werkboek‑gegevens bijwerkt in een bestaande presentatie, inspecteert u de bron‑bereiken om te bepalen welke werkbladcellen elke grafiek gebruikt. De [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/)‑methode retourneert het huidige gegevensbereik als een werkblad‑gekwalificeerde formule, zoals `Sheet1!$A$1:$D$5`. Hier is `Sheet1` de werkbladnaam, `!` scheidt deze van het celbereik, en `$A$1:$D$5` identificeert de cellen A1 tot en met D5, inclusief. De dollartekens duiden absolute rij‑ en kolom‑verwijzingen aan.
 
-De methode leest het huidige bereik zonder de grafiek of het werkboek te wijzigen. Als de grafiek geen werkboek als gegevensbron gebruikt, wordt `InvalidOperationException` opgegooid. Voor meer informatie, zie de [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/).
+De methode leest het huidige bereik zonder de grafiek of het werkboek te wijzigen. Als de grafiek geen werkboek als gegevensbron gebruikt, wordt een `InvalidOperationException` gegooid. Voor meer informatie, zie de [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/).
 
-Dit voorbeeld opent een presentatie en controleert de vormen rechtstreeks op elke dia op grafieken. Het drukt de naam en het bronbereik van elke grafiek af. Als een grafiek geen werkboek gebruikt, wordt een bericht afgedrukt en gaat het programma door met de volgende grafiek.
+Dit voorbeeld opent een presentatie en controleert de vormen direct op elke dia op grafieken. Het print de naam en het bronbereik van elke grafiek. Als een grafiek geen werkboek gebruikt, drukt het een bericht af en gaat verder met de volgende grafiek.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -131,11 +131,11 @@ try {
 }
 ```
 
-## **Grafiekgegevens lezen en schrijven vanuit een werkboek**
+## **Grafiekgegevens lezen en schrijven uit een werkboek**
 
-Aspose.Slides for Node.js via Java biedt de methoden [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) en [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) waarmee u werkboeken met grafiekgegevens (die bewerkt zijn met Aspose.Cells) kunt lezen en schrijven. **Note** dat de grafiekgegevens op dezelfde manier moeten zijn georganiseerd of een vergelijkbare structuur moeten hebben als de bron.
+Aspose.Slides for Node.js via Java biedt de [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) en [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) methoden die u toelaten grafiek‑werkboeken (bevatten grafiekgegevens bewerkt met Aspose.Cells) te lezen en te schrijven. **Note** dat de grafiekgegevens op dezelfde manier moeten zijn georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
 
-Dit voorbeeld gebruikt een presentatie met een grafiek als de eerste vorm op de eerste dia. Het leest het ingebedde werkboek in een byte‑array, wist de bestaande series en categorieën, en schrijft hetzelfde werkboek terug. De wijzigingen blijven in het geheugen; het voorbeeld slaat de presentatie niet op.
+Dit voorbeeld gebruikt een presentatie met een grafiek als eerste vorm op de eerste dia. Het leest het ingebedde werkboek naar een byte‑array, wist de bestaande series en categorieën, en schrijft hetzelfde werkboek terug. De wijzigingen blijven in het geheugen; het voorbeeld slaat de presentatie niet op.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-### **Grafieklay-out valideren na werkmapwijziging**
+### **Grafieklay-out valideren na wijziging van werkboek**
 
-Wanneer u een ingebed werkboek vervangt door een aangepast werkboek, behoudt de grafiek zijn oorspronkelijke series‑ en categorieverzamelingen. Deze mismatch kan ervoor zorgen dat [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) faalt met een index‑out‑of‑range‑fout. Wis de bestaande series en categorieën voordat u het bijgewerkte werkboek terugschrijft naar de grafiek. Dit voorbeeld gebruikt een grafiek die de eerste vorm op de eerste dia is. Het commentaar geeft aan waar het werkboek bewerkt zou worden; het uitvoerbare voorbeeld schrijft het oorspronkelijke werkboek terug en valideert de lay‑out in het geheugen.
+Wanneer u een ingebed werkboek vervangt door een aangepast werkboek, behoudt de grafiek zijn oorspronkelijke series‑ en categorie‑collecties. Deze mismatch kan ertoe leiden dat [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) faalt met een index‑out‑of‑range‑fout. Wis de bestaande series en categorieën voordat u het bijgewerkte werkboek terugschrijft naar de grafiek. Dit voorbeeld gebruikt een grafiek die de eerste vorm op de eerste dia is. Het commentaar markeert waar bewerking van het werkboek zou plaatsvinden; het uitvoerbare voorbeeld schrijft het originele werkboek terug en valideert de lay-out in het geheugen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // Wijzig hier de werkboekbytes, bijvoorbeeld met Aspose.Cells.
+        // Wijzig de workbook-bytes hier, bijvoorbeeld met Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -200,15 +200,15 @@ try {
 }
 ```
 
-Het wissen van de verzamelingen verwijdert verouderde dataverwijzingen voordat het werkboek wordt teruggeschreven. Bouw eventuele vereiste series‑ en categorietoewijzingen opnieuw voor het aangepaste werkboek voordat u de grafiek gebruikt.
+Het wissen van de collecties verwijdert verouderde gegevensreferenties voordat het werkboek wordt teruggeschreven. Herbouw eventuele benodigde series‑ en categorietoewijzingen voor het bijgewerkte werkboek voordat u de grafiek gebruikt.
 
-## **Aangepaste getalnotaties instellen voor werkmapcellen**
+## **Aangepaste getalindelingen instellen voor werkboekcellen**
 
-Gebruik [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) om te bepalen hoe numerieke waarden verschijnen in het ingebedde werkboek van een grafiek. Bijvoorbeeld, een rapport kan een conversieratio nodig hebben die als percentage met vier decimalen wordt weergegeven en een coëfficiënt met vijf decimalen. Houd beide waarden numeriek zodat ze beschikbaar blijven voor berekeningen en grafiekplotting.
+Gebruik [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) om te bepalen hoe numerieke waarden verschijnen in het ingebedde werkboek van een grafiek. Bijvoorbeeld, een rapport kan een conversieratio moeten weergeven als een percentage met vier decimalen en een coëfficiënt met vijf decimalen. Houd beide waarden numeriek zodat ze beschikbaar blijven voor berekeningen en grafiekplotting.
 
-Een getalnotatie wijzigt de weergave, niet de opgeslagen waarde. De notatie `0.0000%` toont `0.125` als `12,5000%`; het vervangt het opgeslagen getal niet door `12.5`. Evenzo toont `0.00000` `0.1234567` als `0.12346` zonder de opgeslagen waarde af te ronden. Als de aangepaste notatie een lege tekenreeks (`""`) is, wordt de notatie die wordt geretourneerd door [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) gebruikt.
+Een getalindeling verandert de weergave, niet de opgeslagen waarde. De indeling `0.0000%` toont `0.125` als `12.5000%`; hij vervangt het opgeslagen getal niet door `12.5`. Evenzo toont `0.00000` `0.1234567` als `0.12346` zonder het opgeslagen getal af te ronden. Als de aangepaste indeling een lege tekenreeks (`""`) is, wordt de indeling die door [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) wordt geretourneerd gebruikt.
 
-Het volgende voorbeeld maakt een kolomgrafiek en krijgt toegang tot de cellen via [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/). Op werkblad 0 bevat B2 de conversieratio en C2 de coëfficiënt. Beide cellen leveren grafiekwaarden. Het voorbeeld schakelt ook waardelabels in die gekoppeld zijn aan de bronnotaties.
+Het volgende voorbeeld maakt een kolomgrafiek en benadert zijn cellen via [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/). Op werkblad 0 bevat B2 de conversieratio en C2 de coëfficiënt. Beide cellen leveren grafiekwaarden. Het voorbeeld schakelt ook waardelabels in die gekoppeld zijn aan de bronindelingen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -260,17 +260,19 @@ try {
 }
 ```
 
-Werkmapcel‑notaties staan los van notaties die direct op grafiekassen of datalabels worden ingesteld. In dit voorbeeld toont elk label de waarde van de broncel omdat [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) op `true` staat en omdat [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) op `true` staat. Na opslaan en opnieuw openen van de presentatie tonen de labels `12,5000%` en `0,12346`, zoals hieronder weergegeven. De verticale as gebruikt zijn eigen getalnotatie, ingesteld met [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) op `0.00`, en [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) staat op `false`.
+Werkboekcel‑indelingen staan los van indelingen die direct op grafiekassen of datalabels worden ingesteld. In dit voorbeeld toont elk label de waarde van zijn broncel omdat [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) op `true` staat, en de bron‑getalindeling volgt omdat [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) op `true` staat. Na het opslaan en opnieuw openen van de presentatie tonen de labels `12.5000%` en `0.12346`, zoals hieronder weergegeven. De verticale as gebruikt een eigen getalindeling, ingesteld met [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) op `0.00`, en [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) op `false`.
 
-Om een datalabel onafhankelijk te formatteren, stelt u de bron‑koppelvlag in op `false` en kent u een notatie toe met [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/). Dit wijzigt de notatie van de werkmapcel niet. Bijvoorbeeld, een onafhankelijke labelnotatie van `0.00` toont de eerste waarde als `0,13`, terwijl B2 nog steeds `12,5000%` toont. Zie [Chart Data Labels](/slides/nl/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) voor directe label‑formattering.
+Om een datalabel onafhankelijk te formatteren, zet u de bron‑koppeling op `false` en kent u een indeling toe met [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/). Dit verandert de indeling van de werkboekcel niet. Bijvoorbeeld, een onafhankelijke label‑indeling van `0.00` toont de eerste waarde als `0.13`, terwijl B2 nog steeds `12.5000%` toont. Zie [Chart Data Labels](/slides/nl/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) voor directe label‑formattering.
 
-![Kolomgrafiek met bron‑gekoppelde labels die 12,5000% en 0,12346 weergeven en een onafhankelijk geformatteerde numerieke as.](custom-cell-formats.png)
+De afbeelding hieronder is gerenderd vanuit de opgeslagen presentatie na het opnieuw openen ervan:
 
-## **Een werkmapcel gebruiken als grafiekdatabelabel**
+![Kolomgrafiek met bron‑gekoppelde labels die 12.5000% en 0.12346 tonen en een onafhankelijk geformatteerde numerieke as.](custom-cell-formats.png)
 
-U kunt tekst uit werkmapcellen gebruiken als grafiekdatabelabels.
+## **Een werkboekcel als grafiekdataplabel instellen**
 
-Dit voorbeeld voegt een bubble‑grafiek met standaardgegevens toe aan de eerste dia van een bestaande presentatie. Het gebruikt de cellen A10:A12 op werkblad 0 voor de eerste drie labels in de eerste serie, schakelt labels uit cellen in, en slaat de bijgewerkte presentatie op.
+U kunt tekst uit werkboekcellen gebruiken als grafiekdataplabels.
+
+Dit voorbeeld voegt een bubbelgrafiek met standaardgegevens toe aan de eerste dia van een bestaande presentatie. Het gebruikt cellen A10:A12 op werkblad 0 voor de eerste drie labels in de eerste serie, schakelt labels uit cellen in, en slaat de bijgewerkte presentatie op.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -296,7 +298,7 @@ try {
 
 ## **Werkbladen beheren**
 
-De methode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) biedt toegang tot de werkbladen in een grafiek‑werkboek. Dit voorbeeld maakt een cirkelgrafiek met standaardgegevens en drukt elke werkbladnaam af naar de console.
+De [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/)‑methode biedt toegang tot de werkbladen in een grafiek‑werkboek. Dit voorbeeld maakt een taartgrafiek met standaardgegevens en drukt elke werkbladnaam af naar de console.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -318,7 +320,9 @@ try {
 
 ## **Het type gegevensbron opgeven**
 
-Dit voorbeeld maakt een 3D‑kolomgrafiek met standaardgegevens en stelt twee seriesnamen in met verschillende gegevensbronnen. De eerste naam gebruikt een tekenreeks‑literal; de tweede gebruikt cel C1 op werkblad 0. De enumeratie [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) selecteert de bron voor elke naam. Het voorbeeld slaat de presentatie op met de bijgewerkte seriesnamen.
+Series‑puntwaarden kunnen ook rechtstreeks als numerieke literalen worden opgeslagen. Zie [Set Series Values Using Numeric Literals](/slides/nl/nodejs-java/chart-series/#set-series-values-using-numeric-literals) voor een volledig voorbeeld dat ze opslaat en leest. Het bron‑type van puntwaarden staat los van de interne of externe werkboekconfiguratie van de grafiek; het gebruik van numerieke literalen verwijdert niet automatisch het ingebedde werkboek.
+
+Dit voorbeeld maakt een 3D‑kolomgrafiek met standaardgegevens en stelt twee serienamen in met verschillende gegevensbronnen. De eerste naam gebruikt een tekenreeks‑literal; de tweede gebruikt cel C1 op werkblad 0. De [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/)‑enumeratie selecteert de bron voor elke naam. Het voorbeeld slaat de presentatie op met de bijgewerkte serienamen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -344,9 +348,9 @@ try {
 }
 ```
 
-## **Niet‑ondersteunde ingebedde werkmapformaten detecteren**
+## **Detecteren van niet‑ondersteunde ingebedde werkboekformaten**
 
-Aspose.Slides ondersteunt het Excel‑binair‑werkboekformaat (.xlsb) niet wanneer dit in sommige grafieken wordt ingebed. U kunt de methode `getEmbeddedWorkbookType` op [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) gebruiken samen met de enumeratie [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan. Dit voorbeeld inspecteert de vormen op de eerste dia van een bestaande presentatie, slaat niet‑grafiek‑vormen over, en drukt een diagnostisch bericht af voor elke grafiek met een ingebedde .xlsb‑werkmap.
+Aspose.Slides ondersteunt het Excel‑binaire werkboekformaat (.xlsb) niet wanneer het in sommige grafieken is ingebed. U kunt de `getEmbeddedWorkbookType`‑methode op [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) gebruiken samen met de [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/)‑enumeratie om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan. Dit voorbeeld inspecteert de vormen op de eerste dia van een bestaande presentatie, slaat niet‑grafiek‑vormen over, en drukt een diagnostisch bericht af voor elke grafiek met een ingebedded .xlsb‑werkboek.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -372,22 +376,22 @@ try {
             continue;
         }
 
-        // Lees of wijzig ondersteunde grafiekwerkboekgegevens hier.
+        // Lees of wijzig ondersteunde grafiek‑werkboekgegevens hier.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Externe werkmap**
+## **Extern werkboek**
 
 Aspose.Slides ondersteunt het gebruik van externe werkboeken als gegevensbron voor grafieken.
 
-### **Een externe werkmap maken**
+### **Een extern werkboek maken**
 
-Gebruik [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) en [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) om een ingebed grafiek‑werkboek naar een bestand te exporteren en de grafiek aan dat externe werkboek te koppelen.
+Gebruik [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) en [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) om een ingebed grafiek‑werkboek naar een bestand te exporteren en de grafiek te koppelen aan dat externe werkboek.
 
-Dit voorbeeld maakt een cirkelgrafiek met standaardgegevens en exporteert het bijbehorende werkboek. Het voltooit het bestandsschrijven voordat het externe werkboek als gegevensbron voor de grafiek wordt toegewezen, en slaat vervolgens de gekoppelde presentatie op.
+Dit voorbeeld maakt een taartgrafiek met standaardgegevens en exporteert het werkboek. Het voltooit het bestandsschrijven voordat het het externe werkboek als grafiek‑gegevensbron toewijst, en slaat vervolgens de gekoppelde presentatie op.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -414,13 +418,13 @@ try {
 }
 ```
 
-### **Een externe werkmap instellen**
+### **Een extern werkboek instellen**
 
-Met de methode [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) kunt u een extern werkboek aan een grafiek toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (als het bestand is verplaatst).
+Met de [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/)‑methode kunt u een extern werkboek aan een grafiek toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (indien het bestand is verplaatst).
 
-Hoewel u de gegevens in werkboeken die op externe locaties of resources zijn opgeslagen niet kunt bewerken, kunt u dergelijke werkboeken nog steeds gebruiken als externe gegevensbron. Als een relatieve pad voor een extern werkboek wordt opgegeven, wordt deze automatisch omgezet naar een volledig pad.
+Hoewel u de gegevens in werkboeken die zich op externe locaties of resources bevinden niet kunt bewerken, kunt u deze wel als externe gegevensbron gebruiken. Als er een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
 
-Dit voorbeeld gebruikt een extern werkboek waarvan werkblad `Sheet1` een serienaam bevat in B1, categorienamen in A2:A4, en numerieke waarden in B2:B4. Het voorbeeld maakt een cirkelgrafiek, koppelt het werkboek, en gebruikt [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) om A1:B4 te mappen naar één serie en drie categorieën. Het slaat de presentatie met de gekoppelde grafiek op.
+Dit voorbeeld gebruikt een extern werkboek waarvan werkblad `Sheet1` een serienaam in B1, categorienamen in A2:A4, en numerieke waarden in B2:B4 bevat. Het voorbeeld maakt een taartgrafiek, koppelt het werkboek, en gebruikt [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) om A1:B4 te koppelen aan één serie en drie categorieën. Het slaat de presentatie op met de gekoppelde grafiek.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -443,12 +447,12 @@ try {
 }
 ```
 
-De parameter `updateChartData` van [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) bepaalt of het werkboek wordt geladen.
+De `updateChartData`‑parameter van [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) bepaalt of het werkboek wordt geladen.
 
-* Wanneer `updateChartData` `false` is, wordt alleen het werkboekpad bijgewerkt. De grafiekgegevens worden niet geladen of bijgewerkt vanuit het doelfile, zodat het werkboek onbeschikbaar kan blijven.
-* Wanneer `updateChartData` `true` is, worden de grafiekgegevens bijgewerkt vanuit het doelfile.
+* Wanneer `updateChartData` `false` is, wordt alleen het werkboekpad bijgewerkt. De grafiekgegevens worden niet geladen of bijgewerkt vanuit het doel‑werkboek, zodat het werkboek onbeschikbaar kan zijn.
+* Wanneer `updateChartData` `true` is, worden de grafiekgegevens bijgewerkt vanuit het doel‑werkboek.
 
-Het volgende voorbeeld kent een tijdelijke URL toe met `updateChartData` ingesteld op `false`. Het behoudt de standaardgegevens van de cirkelgrafiek en slaat de presentatie op zonder het niet‑beschikbare werkboek te laden.
+Het volgende voorbeeld wijst een placeholder‑URL toe met `updateChartData` ingesteld op `false`. Het behoudt de standaardgegevens van de taartgrafiek en slaat de presentatie op zonder het onbeschikbare werkboek te laden.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -466,11 +470,11 @@ try {
 }
 ```
 
-### **Het werkmappad van de externe gegevensbron van een grafiek ophalen**
+### **Het pad van het externe gegevensbron‑werkboek van een grafiek ophalen**
 
-Om het werkboek dat aan een grafiek is gekoppeld te identificeren, controleert u of de grafiek een externe gegevensbron gebruikt en haalt u het werkboekpad op.
+Om het werkboek te identificeren dat aan een grafiek is gekoppeld, controleert u of de grafiek een externe gegevensbron gebruikt en haalt u het werkboekpad op.
 
-Dit voorbeeld inspecteert de eerste vorm op de eerste dia van een presentatie met een gekoppeld extern werkboek. Als het een grafiek is die naar een extern werkboek verwijst, drukt het voorbeeld [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) af naar de console. Daarna wordt een kopie van de presentatie opgeslagen.
+Dit voorbeeld inspecteert de eerste vorm op de eerste dia van een presentatie met een gekoppeld extern werkboek. Als het een grafiek is die aan een extern werkboek is gekoppeld, drukt het voorbeeld [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) af naar de console. Vervolgens slaat het een kopie van de presentatie op.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -500,9 +504,9 @@ try {
 
 ### **Grafiekgegevens bewerken**
 
-U kunt de gegevens in externe werkboeken op dezelfde manier bewerken als u de inhoud van interne werkboeken wijzigt. Wanneer een extern werkboek niet kan worden geladen, wordt een uitzondering opgegooid.
+U kunt de gegevens in externe werkboeken op dezelfde manier bewerken als u wijzigingen aanbrengt in de inhoud van interne werkboeken. Wanneer een extern werkboek niet kan worden geladen, wordt er een uitzondering gegooid.
 
-Dit voorbeeld gebruikt een grafiek die de eerste vorm op de eerste dia is en die is gekoppeld aan een toegankelijk extern werkboek. Het stelt de cel‑gebackde waarde van het eerste gegevenspunt in de eerste serie in op 100 en slaat de bijgewerkte presentatie op. Het bewerken van celwaarden kan het gekoppelde externe XLSX‑bestand bijwerken, dus gebruik een kopie als u het originele werkboek ongewijzigd wilt laten.
+Dit voorbeeld gebruikt een grafiek die de eerste vorm op de eerste dia is en die is gekoppeld aan een toegankelijk extern werkboek. Het stelt de cel‑gebaseerde waarde van het eerste gegevenspunt in de eerste serie in op 100 en slaat de bijgewerkte presentatie op. Het bewerken van celwaarden kan het gekoppelde externe XLSX‑bestand bijwerken, dus gebruik een kopie als u het originele werkboek wilt behouden.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -535,11 +539,11 @@ try {
 }
 ```
 
-### **Een werkboek herstellen vanuit de grafiekcache**
+### **Een werkboek herstellen uit de grafiek‑cache**
 
-Als een grafiek een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het grafiek‑werkboek reconstrueren uit de in de presentatie gecachete gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) aan, roep [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) aan, en stel [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) in op `true` voordat u de presentatie opent.
+Als een grafiek een extern werkboek gebruikt dat ontbreekt of onbeschikbaar is, kan Aspose.Slides het grafiek‑werkboek reconstrueren uit de in de presentatie gecachete gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) aan, roep [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) aan, en zet [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) op `true` voordat u de presentatie opent.
 
-Het volgende JavaScript‑voorbeeld herstelt werkboekgegevens voor een grafiek die de eerste vorm op de eerste dia is en die verwijst naar een niet‑beschikbaar extern werkboek. Het krijgt toegang tot de herstelde gegevens via [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) en [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/):
+Het volgende JavaScript‑voorbeeld herstelt werkboek‑gegevens voor een grafiek die de eerste vorm op de eerste dia is en die verwijst naar een onbeschikbaar extern werkboek. Het benadert de herstelde gegevens via [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) en [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -569,30 +573,30 @@ try {
 }
 ```
 
-Als het externe werkboek niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachete grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste update van de presentatie in het externe werkboek zijn aangebracht.
+Als het externe werkboek onbeschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachete grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die zijn aangebracht in het externe werkboek na de laatste update van de presentatie.
 
 ## **FAQ**
 
-**Kan ik bepalen of een specifieke grafiek gekoppeld is aan een externe of een ingebedde werkmap?**
+**Kan ik bepalen of een specifieke grafiek gekoppeld is aan een extern of ingebed werkboek?**
 
-Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) en een [pad naar een extern werkboek](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); als de bron een extern werkboek is, kunt u het volledige pad lezen om te bevestigen dat een extern bestand wordt gebruikt.
+Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) en een [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); als de bron een extern werkboek is, kunt u het volledige pad lezen om zeker te zijn dat een extern bestand wordt gebruikt.
 
 **Worden relatieve paden naar externe werkboeken ondersteund, en hoe worden ze opgeslagen?**
 
-Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. De presentatie slaat het absolute pad op in het PPTX‑bestand, dus bij verplaatsen van het werkboek moet de koppeling mogelijk worden bijgewerkt.
+Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. De presentatie slaat het absolute pad op in het PPTX‑bestand, dus het verplaatsen van het werkboek kan vereisen dat de koppeling wordt bijgewerkt.
 
-**Kan ik werkboeken gebruiken die zich op netwerklocaties/shares bevinden?**
+**Kan ik werkboeken gebruiken die zich op netwerk‑resources/shares bevinden?**
 
-Ja, dergelijke werkboeken kunnen als externe gegevensbron worden gebruikt. Het rechtstreeks bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron worden gebruikt.
+Ja, dergelijke werkboeken kunnen worden gebruikt als externe gegevensbron. Het rechtstreeks bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron worden gebruikt.
 
-**Schrijft Aspose.Slides het externe XLSX‑bestand overschrijven bij het opslaan van de presentatie?**
+**Schrijft Aspose.Slides het externe XLSX‑bestand over bij het opslaan van de presentatie?**
 
-De presentatie slaat een [link naar het externe bestand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) op. Het bewerken van cel‑gebackde grafiekgegevens kan ook het gekoppelde lokale XLSX‑bestand bijwerken. Gebruik een kopie van het werkboek als het origineel ongewijzigd moet blijven.
+De presentatie slaat een [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) op. Het bewerken van cel‑gebaseerde grafiekgegevens kan ook het gekoppelde lokale XLSX‑bestand bijwerken. Gebruik een kopie van het werkboek als het origineel ongewijzigd moet blijven.
 
-**Wat moet ik doen als het externe bestand met een wachtwoord is beveiligd?**
+**Wat moet ik doen als het externe bestand met een wachtwoord beschermd is?**
 
-Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare aanpak is het van tevoren verwijderen van de beveiliging of een gedecrypteerde kopie (bijvoorbeeld met [Aspose.Cells](https://reference.aspose.com/cells/java/)) te maken en naar die kopie te koppelen.
+Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gebruikelijke aanpak is om de bescherming van tevoren te verwijderen of een ontsleutelde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](https://reference.aspose.com/cells/java/)) en naar die kopie te koppelen.
 
-**Kunnen meerdere grafieken naar hetzelfde externe werkboek verwijzen?**
+**Kunnen meerdere grafiekennaar hetzelfde externe werkboek verwijzen?**
 
-Ja. Elke grafiek slaat zijn eigen koppeling op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een update van dat bestand in elke grafiek weerspiegeld bij de volgende keer dat de gegevens worden geladen.
+Ja. Elke grafiek slaat zijn eigen koppeling op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een update van dat bestand in elke grafiek weerspiegeld de volgende keer dat de gegevens worden geladen.

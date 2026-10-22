@@ -7,7 +7,7 @@ url: /hi/python-net/chart-workbook/
 keywords:
 - चार्ट वर्कबुक
 - चार्ट डेटा
-- वर्कबुक सेल
+- वर्कबुक कोशिका
 - डेटा लेबल
 - वर्कशीट
 - डेटा स्रोत
@@ -19,31 +19,31 @@ keywords:
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET की खोज करें: PowerPoint और OpenDocument प्रारूपों में चार्ट वर्कबुक को सहजता से प्रबंधित करें और अपनी प्रस्तुति डेटा को सुगम बनाएं।"
+description: "Aspose.Slides for Python via .NET की खोज करें: PowerPoint और OpenDocument फॉर्मेट में आसानी से चार्ट वर्कबुक प्रबंधित करें और अपनी प्रस्तुति डेटा को सुव्यवस्थित बनाएं।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीके को समझाता है। यह वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा को पढ़ने और लिखने, चार्ट डेटा लेबल के रूप में वर्कबुक सेल्स का उपयोग करने, वर्कशीट संग्रहों तक पहुंचने, और चार्ट मूल्यों के लिए डेटा स्रोत प्रकार को निर्दिष्ट करने का प्रदर्शन करता है।
+यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीकों को बताता है। यह दिखाता है कि वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा को कैसे पढ़ें और लिखें, वर्कबुक की कोशिकाओं को चार्ट डेटा लेबल के रूप में उपयोग करें, वर्कशीट संग्रहों तक पहुंचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार कैसे निर्दिष्ट करें।
 
-यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दिखाते हैं कि बाहरी वर्कबुक कैसे बनाएं और असाइन करें, चार्ट से जुड़े बाहरी वर्कबुक का मार्ग कैसे प्राप्त करें, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा को कैसे संपादित करें।
+यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने पर भी चर्चा करता है। उदाहरण दिखाते हैं कि कैसे एक बाहरी वर्कबुक बनाएं और असाइन करें, चार्ट से जुड़ी बाहरी वर्कबुक का पाथ प्राप्त करें, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा को संपादित करें।
 
-गुम डेटा का प्रतिनिधित्व करने वाली वर्कबुक कोशिकाओं के लिए, [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/python-net/chart-series/) देखें जिससे खाली कोशिका और शून्य के बीच का अंतर, तथा उपलब्ध प्रदर्शन मोडों की लाइन-चार्ट तुलना समझा जा सके।
+गुम डेटा का प्रतिनिधित्व करने वाली वर्कबुक कोशिकाओं के लिए, अंतर देखने के लिये खाली कोशिका बनाम शून्य, तथा उपलब्ध डिस्प्ले मोड की लाइन-चार्ट तुलना के लिये देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/python-net/chart-series/)।
 
-## **छिपी पंक्तियों और स्तंभों से डेटा शामिल करें**
+## **छिपी हुई पंक्तियों और स्तंभों से डेटा शामिल करें**
 
-छिपी वर्कशीट पंक्तियों और स्तंभों से डेटा प्लॉट करता है या नहीं, इसे नियंत्रित करने के लिए [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) का उपयोग करें। इसे `True` सेट करें ताकि केवल दृश्यमान कोशिकाओं को प्लॉट किया जाए, या `False` सेट करें ताकि दृश्यमान और छिपी दोनों कोशिकाएँ शामिल हों। यह सेटिंग चार्ट प्लॉटिंग को नियंत्रित करती है; यह वर्कशीट पंक्तियों या स्तंभों को छिपाती या प्रदर्शित नहीं करती।
+छिपी हुई वर्कशीट पंक्तियों और स्तंभों से डेटा प्लॉट करता है या नहीं, इसे नियंत्रित करने के लिये [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) का उपयोग करें। केवल दृश्यमान कोशिकाओं को प्लॉट करने के लिये इसे `True` सेट करें, या दोनों दृश्यमान और छिपी हुई कोशिकाओं को शामिल करने के लिये `False` सेट करें। यह सेटिंग चार्ट प्लॉटिंग को नियंत्रित करती है; यह वर्कशीट पंक्तियों या स्तंभों को छुपाती या प्रदर्शित नहीं करती।
 
-[नमूना प्रस्तुति](hidden-source-data.pptx) में पहली स्लाइड के पहले आकार के रूप में एक कॉलम चार्ट शामिल है। एम्बेडेड वर्कशीट, `Sheet1`, में निम्न स्रोत रेंज `A1:C4` है। पंक्ति 3 और कॉलम C छिपे हुए हैं, लेकिन उनकी कोशिकाएँ अभी भी मान रखती हैं।
+[नमूना प्रस्तुति](hidden-source-data.pptx) में पहले स्लाइड की पहली आकृति के रूप में एक कॉलम चार्ट है। एम्बेडेड वर्कशीट, `Sheet1`, में निम्न स्रोत रेंज, `A1:C4` है। पंक्ति 3 और स्तंभ C छिपे हुए हैं, लेकिन उनकी कोशिकाओं में अभी भी मान हैं।
 
-| वर्कशीट पंक्ति | A: माह | B: रिटेल | C: थोक (छिपा स्तंभ) |
+| वर्कशीट पंक्ति | A: महीना | B: रिटेल | C: थोक (छिपा स्तंभ) |
 | --- | --- | --- | --- |
 | 2 | जनवरी | 10 | 30 |
-| 3 (छिपी पंक्ति) | फ़रवरी | 40 | 60 |
+| 3 (छिपी हुई पंक्ति) | फ़रवरी | 40 | 60 |
 | 4 | मार्च | 20 | 50 |
 
-स्रोत कोशिकाओं तक पहुंचने के लिए [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) का उपयोग करें और उनके छिपे होने की स्थिति का निरीक्षण करने के लिए [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) पढ़ें। यह गुण केवल-पूड़ा (read-only) है। इस फ़ाइल में, B2 दृश्यमान है, B3 छिपी पंक्ति से संबंधित है, और C2 छिपे स्तंभ से संबंधित है; उदाहरण क्रमशः `False`, `True`, और `True` प्रिंट करता है।
+स्रोत कोशिकाओं तक पहुँचने के लिये [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) का उपयोग करें और उनकी छिपी हुई स्थिति का निरीक्षण करने के लिये [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) पढ़ें। यह गुण केवल‑पढ़ने योग्य है। इस फ़ाइल में, B2 दृश्यमान है, B3 छिपी हुई पंक्ति की कोशिका है, और C2 छिपे हुए स्तंभ की कोशिका है; उदाहरण क्रमशः `False`, `True`, और `True` प्रिंट करता है।
 
-इस उदाहरण के लिए, प्लॉटिंग सेटिंग बदलने के बाद चार्ट डेटा को रीफ़्रेश करें: एम्बेडेड वर्कबुक को [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) के साथ बनाए रखें और इसे [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) के साथ पुनः लोड करें। सभी कोशिकाओं को शामिल करने पर, छिपी फ़रवरी श्रेणी सहित संपूर्ण रेंज को पुनर्स्थापित करने के लिए [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) का भी उपयोग करें। केवल फ़्लैग बदलना इस नमूने के कैश्ड चार्ट डेटा और श्रेणी लेबल को रीफ़्रेश करने के लिए पर्याप्त नहीं है।
+इस उदाहरण के लिये, प्लॉटिंग सेटिंग बदलने के बाद चार्ट डेटा को रिफ़्रेश करें: एम्बेडेड वर्कबुक को [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) से बनाए रखें और उसे [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) से पुनः लोड करें। सभी कोशिकाओं को शामिल करने पर, छिपी हुई फ़रवरी श्रेणी को पुनर्स्थापित करने के लिये [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) भी उपयोग करें। केवल फ़्लैग बदलना इस नमूने के कैश किए हुए चार्ट डेटा और श्रेणी लेबल को रिफ़्रेश करने के लिये पर्याप्त नहीं है।
 
 ```python
 import aspose.slides as slides
@@ -63,11 +63,11 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         for visible_only in [True, False]:
             chart.plot_visible_cells_only = visible_only
 
-            # एंबेडेड वर्कबुक से चार्ट डेटा को रीफ़्रेश करें।
+            # एम्बेडेड वर्कबुक से चार्ट डेटा को रीफ़्रेश करें।
             workbook_stream.seek(0)
             chart.chart_data.write_workbook_stream(workbook_stream)
             if not visible_only:
-                # छिपी श्रेणियों सहित, संपूर्ण स्रोत रेंज को पुनर्स्थापित करें।
+                # छिपी हुई श्रेणियों सहित पूर्ण स्रोत रेंज को पुनर्स्थापित करें।
                 chart.chart_data.set_range("Sheet1!$A$1:$C$4")
 
             presentation.save(f"hidden_cells_{visible_only}.pptx", slides.export.SaveFormat.PPTX)
@@ -75,21 +75,21 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-उदाहरण प्रस्तुति के दो संस्करण बचाता है: एक केवल दृश्यमान रिटेल मानों (10 और 20) के साथ, और दूसरा सभी छह मानों के साथ। नीचे की छवियाँ सहेजी गई प्रस्तुतियों को फिर से खोलने के बाद रेंडर की गई हैं; दोनों फ़ाइलें अपनी निर्धारित प्लॉटिंग सेटिंग को बरकरार रखती हैं। पंक्ति 3 और कॉलम C दोनों एम्बेडेड वर्कबुक में छिपे रहते हैं।
+उदाहरण दो संस्करणों में प्रस्तुति को सहेजता है: एक केवल दृश्यमान रिटेल मान (10 और 20) के साथ, और दूसरा सभी छह मानों के साथ। नीचे की छवियां सहेजी हुई प्रस्तुतियों को पुनः खोलने के बाद रेंडर की गई हैं; दोनों फ़ाइलें अपने नियत प्लॉटिंग सेटिंग को बनाए रखती हैं। पंक्ति 3 और स्तंभ C दोनों एम्बेडेड वर्कबुक में छिपी हुई बनी रहती हैं।
 
 | केवल दृश्यमान कोशिकाएँ (`True`) | सभी कोशिकाएँ (`False`) |
 | --- | --- |
 | ![केवल दृश्यमान कोशिकाएँ: जनवरी और मार्च के लिए रिटेल मान 10 और 20।](hidden_cells_True.png) | ![सभी कोशिकाएँ: जनवरी, फ़रवरी और मार्च के लिए रिटेल और थोक मान।](hidden_cells_False.png) |
 
-एक मान रखने वाली छिपी कोशिका एक खाली कोशिका से अलग होती है। [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) नियंत्रित करता है कि गायब मान कैसे प्रदर्शित हों; यह छिपे स्रोत डेटा को शामिल या बाहर नहीं करता। उदाहरण के लिए देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/python-net/chart-series/#control-the-display-of-empty-cells)।
+एक मान वाला छिपा हुआ सेल खाली सेल से भिन्न होता है। [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) नियंत्रित करता है कि गुम मान कैसे प्रदर्शित हों; यह छिपे हुए स्रोत डेटा को शामिल या बाहर नहीं करता। उदाहरण के लिये देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/python-net/chart-series/#control-the-display-of-empty-cells)।
 
-## **चार्ट की डेटा रेंज प्राप्त करें**
+## **चार्ट की डेटा रेंज पुनः प्राप्त करें**
 
-मौजूदा प्रस्तुति में वर्कबुक डेटा को अपडेट करने से पहले, स्रोत रेंजों की जाँच करें ताकि यह पहचाना जा सके कि प्रत्येक चार्ट कौन सी वर्कशीट कोशिकाओं का उपयोग करता है। [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) मेथड वर्तमान डेटा रेंज को वर्कशीट-योग्य फ़ॉर्मूला के रूप में लौटाता है, जैसे `Sheet1!$A$1:$D$5`। यहाँ, `Sheet1` वर्कशीट का नाम है, `!` इसे कोशिका रेंज से अलग करता है, और `$A$1:$D$5` कोशिकाएँ A1 से D5 तक, शामिल करती हैं। डॉलर चिह्न निरपेक्ष पंक्ति और स्तंभ संदर्भ दर्शाते हैं।
+मौजूदा प्रस्तुति में वर्कबुक डेटा को अपडेट करने से पहले, स्रोत रेंज की जाँच करें ताकि यह पता चल सके कि प्रत्येक चार्ट कौन सी वर्कशीट कोशिकाओं का उपयोग करता है। [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) मेथड वर्तमान डेटा रेंज को वर्कशीट‑क्वालिफाइड फ़ॉर्मूला के रूप में लौटाता है, जैसे `Sheet1!$A$1:$D$5`। यहाँ, `Sheet1` वर्कशीट का नाम है, `!` इसे कोशिका रेंज से अलग करता है, और `$A$1:$D$5` कोशिकाओं A1 से D5 (समेत) को दर्शाता है। डॉलर संकेत पूर्ण (absolute) पंक्ति और स्तंभ संदर्भ दर्शाते हैं।
 
-यह मेथड वर्तमान रेंज को पढ़ता है बिना चार्ट या उसकी वर्कबुक को बदले। यदि चार्ट डेटा स्रोत के रूप में वर्कबुक का उपयोग नहीं करता है, तो यह एक अपवर्जन फेंकेगा। अधिक जानकारी के लिए देखें [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/)।
+यह मेथड वर्तमान रेंज को बिना चार्ट या उसकी वर्कबुक को बदले पढ़ता है। यदि चार्ट डेटा स्रोत के रूप में वर्कबुक नहीं उपयोग करता, तो यह अपवाद फेंकेगा। अधिक जानकारी के लिये देखें [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/)।
 
-यह उदाहरण एक प्रस्तुति खोलता है और प्रत्येक स्लाइड पर सीधे आकारों को चार्ट के लिए जाँचता है। यह प्रत्येक चार्ट का नाम और स्रोत रेंज प्रिंट करता है। यदि रेंज प्राप्त नहीं की जा सकती, तो यह एक निदान संदेश प्रिंट करता है और अगले चार्ट पर आगे बढ़ता है।
+यह उदाहरण एक प्रस्तुति खोलता है और प्रत्येक स्लाइड पर सीधे आकृतियों की जाँच करता है ताकि चार्ट मिलें। यह प्रत्येक चार्ट का नाम और स्रोत रेंज प्रिंट करता है। यदि रेंज प्राप्त नहीं हो पाती, तो यह एक निदान संदेश प्रिंट करता है और अगले चार्ट की ओर बढ़ जाता है।
 
 ```python
 import aspose.slides as slides
@@ -108,9 +108,9 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **वर्कबुक से चार्ट डेटा पढ़ें और लिखें**
 
-Aspose.Slides for Python via .NET [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) और [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) मेथड प्रदान करता है जो आपको चार्ट डेटा वर्कबुक (जिसमें Aspose.Cells के साथ संपादित चार्ट डेटा है) को पढ़ने और लिखने की अनुमति देते हैं। **Note** कि चार्ट डेटा को उसी प्रकार व्यवस्थित होना चाहिए या स्रोत के समान संरचना होना आवश्यक है।
+Aspose.Slides for Python via .NET [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) और [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) मेथड प्रदान करता है जिससे आप चार्ट डेटा वर्कबुक (जिसमें Aspose.Cells से संपादित डेटा होता है) को पढ़ और लिख सकते हैं। **Note** कि चार्ट डेटा को समान संरचना में व्यवस्थित होना चाहिए या उसका स्रोत के समान होना चाहिए।
 
-यह उदाहरण एक प्रस्तुति का उपयोग करता है जिसमें पहला आकार उसके पहले स्लाइड पर एक चार्ट है। यह एम्बेडेड वर्कबुक को एक स्ट्रीम में पढ़ता है, मौजूदा श्रृंखलाएँ और श्रेणियाँ साफ करता है, और वही वर्कबुक वापस लिखता है। परिवर्तन मेमोरी में रहते हैं; उदाहरण प्रस्तुति को सहेजता नहीं है।
+यह उदाहरण पहले स्लाइड की पहली आकृति पर एक चार्ट वाली प्रस्तुति का उपयोग करता है। यह एम्बेडेड वर्कबुक को स्ट्रीम में पढ़ता है, मौजूदा श्रृंखलाएँ और श्रेणियाँ साफ़ करता है, और वही वर्कबुक वापस लिखता है। परिवर्तन मेमोरी में रहते हैं; उदाहरण प्रस्तुति को सहेजता नहीं है।
 
 ```python
 import aspose.slides as slides
@@ -133,9 +133,9 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **वर्कबुक संशोधन के बाद चार्ट लेआउट को मान्य करें**
+### **वर्कबुक संशोधन के बाद चार्ट लेआउट का वैलिडेशन करें**
 
-जब आप एम्बेडेड वर्कबुक को संशोधित वर्कबुक से बदलते हैं, तो चार्ट अपनी मूल श्रृंखला और श्रेणी संग्रहों को बरकरार रखता है। यह असंगति [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) को इंडेक्स-आउट-ऑफ-रेंज त्रुटि के साथ失敗 करवा सकती है। अपडेटेड वर्कबुक को चार्ट में वापस लिखने से पहले मौजूदा श्रृंखलाओं और श्रेणियों को साफ करें। यह उदाहरण एक चार्ट का उपयोग करता है जो पहले स्लाइड पर पहला आकार है। टिप्पणी दर्शाती है कि वर्कबुक संपादन कहाँ होगा; चलने योग्य उदाहरण मूल वर्कबुक को वापस लिखता है और मेमोरी में लेआउट को मान्य करता है।
+जब आप संशोधित वर्कबुक के साथ एम्बेडेड वर्कबुक को बदलते हैं, तो चार्ट अपनी मूल श्रृंखला और श्रेणी संग्रह को बरकरार रखता है। यह असंगति [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) को इंडेक्स‑आउट‑ऑफ़‑रेंज त्रुटि के साथ विफल कर सकती है। अद्यतन वर्कबुक को चार्ट में लिखने से पहले मौजूदा श्रृंखलाएँ और श्रेणियाँ साफ़ करें। यह उदाहरण पहले स्लाइड की पहली आकृति पर स्थित चार्ट का उपयोग करता है। टिप्पणी उन स्थानों को दर्शाती है जहाँ वर्कबुक संपादन होगा; निष्पादन योग्य उदाहरण मूल वर्कबुक को वापस लिखता है और मेमोरी में लेआउट को वैध करता है।
 
 ```python
 import aspose.slides as slides
@@ -149,7 +149,7 @@ with slides.Presentation("chart.pptx") as presentation:
         chart_data = chart.chart_data
         workbook_stream = chart_data.read_workbook_stream()
 
-        # यहाँ वर्कबुक स्ट्रीम को संशोधित करें, उदाहरण के लिए Aspose.Cells का उपयोग करके।
+        # यहाँ कार्यपुस्तिका स्ट्रीम को संशोधित करें, उदाहरण के लिए, Aspose.Cells का उपयोग करके.
 
         chart_data.series.clear()
         chart_data.categories.clear()
@@ -161,15 +161,15 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-संग्रहों को साफ करने से वर्कबुक को वापस लिखने से पहले पुराने डेटा संदर्भ हट जाते हैं। चार्ट का उपयोग करने से पहले अपडेटेड वर्कबुक के लिए आवश्यक श्रृंखलाएँ और श्रेणी मानचित्रण को पुनः बनाएँ।
+संग्रहों को साफ़ करने से लिखे जाने से पहले पुराने डेटा संदर्भ हट जाते हैं। अद्यतन वर्कबुक के लिये आवश्यक श्रृंखला और श्रेणी मैपिंग को पुनः बनाएं।
 
-## **वर्कबुक कोशिकाओं के लिए कस्टम नंबर फ़ॉर्मैट सेट करें**
+## **वर्कबुक कोशिकाओं के लिये कस्टम नंबर फ़ॉर्मेट सेट करें**
 
-एक चार्ट की एम्बेडेड वर्कबुक में संख्यात्मक मान कैसे दिखते हैं, इसे नियंत्रित करने के लिए [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) का उपयोग करें। उदाहरण के लिए, एक रिपोर्ट को परिवर्तन दर को चार दशमलव स्थानों के साथ प्रतिशत में और एक गुणांक को पाँच दशमलव स्थानों के साथ प्रदर्शित करने की आवश्यकता हो सकती है। दोनों मानों को संख्यात्मक रखें ताकि वे गणनाओं और चार्ट प्लॉटिंग के लिए उपलब्ध रहें।
+[ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) का उपयोग करके आप नियंत्रित कर सकते हैं कि चार्ट की एम्बेडेड वर्कबुक में संख्यात्मक मान कैसे प्रदर्शित हों। उदाहरण के लिये, एक रिपोर्ट को परिवर्तन दर को प्रतिशत के रूप में चार दशमलव स्थान के साथ तथा गुणांक को पाँच दशमलव स्थान के साथ दिखाने की आवश्यकता हो सकती है। दोनों मानों को संख्यात्मक रखें ताकि वे गणना और चार्ट प्लॉटिंग के लिये उपलब्ध रहें।
 
-एक नंबर फ़ॉर्मेट प्रदर्शन को बदलता है, न कि संग्रहीत मान को। फ़ॉर्मेट `0.0000%` `0.125` को `12.5000%` के रूप में दिखाता है; यह संग्रहीत संख्या को `12.5` से बदलता नहीं है। इसी प्रकार, `0.00000` `0.1234567` को `0.12346` के रूप में दिखाता है बिना संग्रहीत मान को गोल किए। यदि कस्टम फ़ॉर्मेट एक खाली स्ट्रिंग (`""`) है, तो इसके बजाय [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) का उपयोग किया जाता है।
+एक नंबर फ़ॉर्मेट केवल डिस्प्ले को बदलता है, संग्रहीत मान नहीं। फ़ॉर्मेट `0.0000%` `0.125` को `12.5000%` दिखाता है; यह संग्रहीत संख्या को `12.5` नहीं बनाता। इसी प्रकार, `0.00000` `0.1234567` को `0.12346` दिखाता है बिना संग्रहीत मान को राउंड किए। यदि कस्टम फ़ॉर्मेट खाली स्ट्रिंग (`""`) है, तो [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) उपयोग किया जाता है।
 
-निम्न उदाहरण एक कॉलम चार्ट बनाता है और इसकी कोशिकाओं को [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) के माध्यम से एक्सेस करता है। वर्कशीट 0 में, B2 में परिवर्तन दर और C2 में गुणांक है। दोनों कोशिकाएँ चार्ट मान प्रदान करती हैं। उदाहरण स्रोत फ़ॉर्मेट से जुड़े वैल्यू लेबल को भी सक्षम करता है।
+निम्न उदाहरण एक कॉलम चार्ट बनाता है और उसकी कोशिकाओं तक [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) से पहुँचता है। वर्कशीट 0 में, B2 में परिवर्तन दर और C2 में गुणांक है। दोनों कोशिकाएँ चार्ट मान प्रदान करती हैं। उदाहरण स्रोत फ़ॉर्मेट्स से जुड़े मान लेबल भी सक्षम करता है।
 
 ```python
 import aspose.slides as slides
@@ -216,18 +216,17 @@ with slides.Presentation() as presentation:
     presentation.save("CustomCellFormats.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-वर्कबुक कोशिका फ़ॉर्मेट चार्ट अक्ष या डेटा लेबल पर सीधे सेट किए गए फ़ॉर्मेट से अलग होते हैं। इस उदाहरण में, प्रत्येक लेबल अपने स्रोत कोशिका का मान प्रदर्शित करता है क्योंकि [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) सक्षम है, और स्रोत नंबर फ़ॉर्मेट का पालन करता है क्योंकि [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) `True` है। प्रस्तुति को सहेजने और पुनः खोलने के बाद, लेबल नीचे दिखाए अनुसार `12.5000%` और `0.12346` प्रदर्शित करते हैं। वर्टिकल एक्सिस अपना स्वयं का [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) `0.00` उपयोग करता है, जिसमें [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) `False` पर सेट है।
+वर्कबुक कोशिका फ़ॉर्मेट्स चार्ट धुरी या डेटा लेबल पर सीधे सेट किए गए फ़ॉर्मेट्स से अलग होते हैं। इस उदाहरण में, प्रत्येक लेबल अपना स्रोत कोशिका मान दिखाता है क्योंकि [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) सक्षम है, और स्रोत नंबर फ़ॉर्मेट को फ़ॉलो करता है क्योंकि [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) `True` है। प्रस्तुति को सहेज कर पुनः खोलने पर लेबल `12.5000%` और `0.12346` दिखाते हैं, जैसा कि नीचे दर्शाया गया है। लंबवत धुरी अपना स्वयं का [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) `0.00` उपयोग करती है, जबकि [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) `False` है।
 
-डेटा लेबल को स्वतंत्र रूप से फ़ॉर्मेट करने के लिए, उसकी स्रोत-लिंक फ़्लैग को `False` सेट करें और उसका [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) असाइन करें। यह वर्कबुक कोशिका के फ़ॉर्मेट को नहीं बदलता। उदाहरण के लिए, स्वतंत्र लेबल फ़ॉर्मेट `0.00` पहला मान `0.13` के रूप में दिखाता है, जबकि B2 अभी भी `12.5000%` दिखाता है। सीधे लेबल फ़ॉर्मेटिंग के लिए देखें [Chart Data Labels](/slides/hi/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels)।
+डेटा लेबल को स्वतंत्र रूप से फॉर्मेट करने के लिये, उसका स्रोत‑लिंक फ़्लैग `False` सेट करें और उसका [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) निर्दिष्ट करें। यह वर्कबुक सेल के फ़ॉर्मेट को नहीं बदलता। उदाहरण के लिये, स्वतंत्र लेबल फ़ॉर्मेट `0.00` पहला मान `0.13` दिखाता है, जबकि B2 अभी भी `12.5000%` दिखाता है। सीधे लेबल फ़ॉर्मेटिंग के लिये देखें [Chart Data Labels](/slides/hi/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels)।
 
-नीचे की छवि सहेजी गई प्रस्तुति को पुनः खोलने के बाद रेंडर की गई है:
-![कॉलम चार्ट जिसमें स्रोत-लिंक्ड लेबल 12.5000% और 0.12346 दिखा रहे हैं और एक स्वतंत्र रूप से फ़ॉर्मेट किया गया संख्यात्मक अक्ष।](custom-cell-formats.png)
+![स्रोत‑लिंक्ड लेबल के साथ कॉलम चार्ट जो 12.5000% और 0.12346 दिखा रहा है तथा स्वतंत्र रूप से फॉर्मेट किया गया संख्यात्मक अक्ष।](custom-cell-formats.png)
 
-## **वर्कबुक कोशिका को चार्ट डेटा लेबल के रूप में सेट करें**
+## **वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट करें**
 
-आप वर्कबुक कोशिकाओं से पाठ का उपयोग चार्ट डेटा लेबल के रूप में कर सकते हैं।
+आप वर्कबुक कोशिकाओं के पाठ को चार्ट डेटा लेबल के रूप में उपयोग कर सकते हैं।
 
-यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक बबल चार्ट जोड़ता है, जो मौजूदा प्रस्तुति की पहली स्लाइड पर है। यह वर्कशीट 0 में कोशिकाएँ A10:A12 का उपयोग पहली श्रृंखला के पहले तीन लेबल के लिए करता है, कोशिकाओं से लेबल सक्षम करता है, और अपडेटेड प्रस्तुति को सहेजता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक बबल चार्ट जोड़ता है जिसमें डिफ़ॉल्ट डेटा है। यह वर्कशीट 0 पर कोशिकाएँ A10:A12 का उपयोग पहले श्रृंखला के पहले तीन लेबल के लिये करता है, कोशिकाओं से लेबल सक्षम करता है, और अपडेटेड प्रस्तुति को सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -250,7 +249,7 @@ with slides.Presentation("chart2.pptx") as presentation:
 
 ## **वर्कशीट्स को प्रबंधित करें**
 
-[ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) प्रॉपर्टी चार्ट वर्कबुक में वर्कशीट्स तक पहुंच प्रदान करती है। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और प्रत्येक वर्कशीट का नाम कंसोल पर प्रिंट करता है।
+[ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) प्रॉपर्टी चार्ट वर्कबुक में मौजूद वर्कशीट्स तक पहुँच प्रदान करती है। यह उदाहरण एक पाई चार्ट डिफ़ॉल्ट डेटा के साथ बनाता है और प्रत्येक वर्कशीट का नाम कंसोल पर प्रिंट करता है।
 
 ```python
 import aspose.slides as slides
@@ -268,7 +267,9 @@ with slides.Presentation() as presentation:
 
 ## **डेटा स्रोत प्रकार निर्दिष्ट करें**
 
-यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक 3D कॉलम चार्ट बनाता है और दो श्रृंखला नाम विभिन्न डेटा स्रोतों का उपयोग करके सेट करता है। पहला नाम स्ट्रिंग लिटरल का उपयोग करता है; दूसरा वर्कशीट 0 में कोशिका C1 का उपयोग करता है। [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) एन्यूमरेशन प्रत्येक नाम के लिए स्रोत चुनता है। उदाहरण अपडेटेड श्रृंखला नामों के साथ प्रस्तुति को सहेजता है।
+श्रृंखला बिंदु मानों को सीधे संख्यात्मक लिटरल्स के रूप में भी संग्रहीत किया जा सकता है। पूर्ण उदाहरण के लिये देखें [Set Series Values Using Numeric Literals](/slides/hi/python-net/chart-series/#set-series-values-using-numeric-literals) जो उन्हें सहेजता और पढ़ता है। बिंदु मानों का स्रोत प्रकार चार्ट के आंतरिक या बाहरी वर्कबुक कॉन्फ़िगरेशन से अलग है; संख्यात्मक लिटरल्स का उपयोग स्वयं में एम्बेडेड वर्कबुक को हटाता नहीं है।
+
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक 3D कॉलम चार्ट बनाता है और दो श्रृंखला नामों को विभिन्न डेटा स्रोतों से सेट करता है। पहला नाम स्ट्रिंग लिटरल से आता है; दूसरा वर्कशीट 0 के सेल C1 से। [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) एनेमरेशन प्रत्येक नाम के लिये स्रोत चुनता है। उदाहरण अपडेटेड श्रृंखला नामों के साथ प्रस्तुति को सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -291,9 +292,9 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **असमर्थित एन्बेडेड वर्कबुक फ़ॉर्मेट का पता लगाएँ**
+## **असमर्थित एम्बेडेड वर्कबुक फ़ॉर्मेट्स का पता लगाएँ**
 
-Aspose.Slides कुछ चार्ट में एम्बेड किए जा सकने वाले Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट को समर्थन नहीं करता। आप [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) पर [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) प्रॉपर्टी को [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) एन्यूमरेशन के साथ उपयोग करके असमर्थित फ़ॉर्मेट का पता लगा सकते हैं और उन चार्ट को छोड़ सकते हैं। यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर आकारों की जांच करता है, गैर-चार्ट आकारों को छोड़ता है, और प्रत्येक चार्ट जिसके पास एम्बेडेड .xlsb वर्कबुक है, के लिए एक निदान संदेश प्रिंट करता है।
+Aspose.Slides उन Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट को समर्थन नहीं देता जिसे कुछ चार्ट में एम्बेड किया जा सकता है। आप [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) पर [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) प्रॉपर्टी को [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) एनेमरेशन के साथ उपयोग कर असमर्थित फ़ॉर्मेट का पता लगा सकते हैं और उन चार्ट्स को छोड़ सकते हैं। यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर आकृतियों की जाँच करता है, गैर‑चार्ट आकृतियों को छोड़ता है, और प्रत्येक .xlsb एम्बेडेड वर्कबुक वाले चार्ट के लिये निदान संदेश प्रिंट करता है।
 
 ```python
 import aspose.slides as slides
@@ -314,18 +315,18 @@ with slides.Presentation("sample.pptx") as presentation:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
 
-        # यहाँ समर्थित चार्ट वर्कबुक डेटा को पढ़ें या संशोधित करें।
+        # समर्थन प्राप्त चार्ट वर्कबुक डेटा यहाँ पढ़ें या संशोधित करें।
 ```
 
 ## **बाहरी वर्कबुक**
 
-Aspose.Slides चार्ट के डेटा स्रोत के रूप में बाहरी वर्कबुक का उपयोग करने का समर्थन करता है।
+Aspose.Slides चार्ट्स के लिये बाहरी वर्कबुक को डेटा स्रोत के रूप में उपयोग करने का समर्थन करता है।
 
-### **एक बाहरी वर्कबुक बनाएं**
+### **एक बाहरी वर्कबुक बनाएँ**
 
-[read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) और [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) का उपयोग करके एम्बेडेड चार्ट वर्कबुक को फ़ाइल में एक्सपोर्ट करें और चार्ट को उस बाहरी वर्कबुक से लिंक करें।
+[read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) और [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) का उपयोग करके एम्बेडेड चार्ट वर्कबुक को फ़ाइल में निर्यात करें और चार्ट को उस बाहरी वर्कबुक से लिंक करें।
 
-यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और उसकी वर्कबुक को एक्सपोर्ट करता है। यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में असाइन करने से पहले आउटपुट स्ट्रीम को बंद करता है, फिर लिंक्ड प्रस्तुति को सहेजता है।
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और उसकी वर्कबुक को निर्यात करता है। आउटपुट स्ट्रीम को बंद करने के बाद बाहरी वर्कबुक को डेटा स्रोत के रूप में असाइन करता है, फिर लिंक्ड प्रस्तुति को सहेजता है।
 
 ```python
 from pathlib import Path
@@ -350,11 +351,11 @@ with slides.Presentation() as presentation:
 
 ### **एक बाहरी वर्कबुक सेट करें**
 
-[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) मेथड का उपयोग करके, आप किसी चार्ट को उसके डेटा स्रोत के रूप में एक बाहरी वर्कबुक असाइन कर सकते हैं। यह मेथड बाहरी वर्कबुक के पाथ को अपडेट करने के लिए भी उपयोग किया जा सकता है (यदि वह स्थानांतरित हो गया हो)।
+[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) मेथड का उपयोग करके आप किसी चार्ट को बाहरी वर्कबुक को उसके डेटा स्रोत के रूप में असाइन कर सकते हैं। यह मेथड बाहरी वर्कबुक के पाथ को अप‑डेट करने के लिये भी उपयोग किया जा सकता है (यदि वर्कबुक को स्थानांतरित कर दिया गया हो)।
 
-हालाँकि आप रिमोट स्थानों या संसाधनों में संग्रहीत वर्कबुक डेटा को संपादित नहीं कर सकते, फिर भी आप इन वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाहरी वर्कबुक के लिए सापेक्ष पाथ प्रदान किया जाता है, तो वह स्वतः पूर्ण पाथ में बदल जाता है।
+रिमोट लोकेशन या संसाधन में संग्रहीत वर्कबुक के डेटा को आप सीधे संपादित नहीं कर सकते, फिर भी उन्हें बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। यदि बाहरी वर्कबुक का रिलेटिव पाथ प्रदान किया जाता है, तो इसे स्वचालित रूप से पूर्ण पाथ में परिवर्तित कर दिया जाता है।
 
-यह उदाहरण एक बाहरी वर्कबुक का उपयोग करता है जिसकी वर्कशीट `Sheet1` में B1 में श्रृंखला नाम, A2:A4 में श्रेणी नाम, और B2:B4 में संख्यात्मक मान हैं। उदाहरण एक पाई चार्ट बनाता है, वर्कबुक को लिंक करता है, और [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) का उपयोग करके A1:B4 को एक श्रृंखला और तीन श्रेणियों में मैप करता है। यह लिंक्ड चार्ट के साथ प्रस्तुति को सहेजता है।
+यह उदाहरण एक बाहरी वर्कबुक का उपयोग करता है जिसमें `Sheet1` नाम की वर्कशीट में B1 में एक श्रृंखला नाम, A2:A4 में श्रेणी नाम, और B2:B4 में संख्यात्मक मान हैं। उदाहरण पाई चार्ट बनाता है, वर्कबुक को लिंक करता है, और [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) का उपयोग करके A1:B4 को एक श्रृंखला और तीन श्रेणियों के साथ मैप करता है। यह लिंक्ड चार्ट के साथ प्रस्तुति को सहेजता है।
 
 ```python
 from pathlib import Path
@@ -374,13 +375,12 @@ with slides.Presentation() as presentation:
     presentation.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) का `update_chart_data` पैरामीटर नियंत्रित करता है कि वर्कबुक लोड किया जाए या नहीं।
+[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) का `update_chart_data` पैरामीटर नियंत्रित करता है कि वर्कबुक लोड हो या नहीं।
 
-`update_chart_data` `False` होने पर, केवल वर्कबुक पाथ अपडेट किया जाता है। चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं किया जाता, इसलिए वर्कबुक उपलब्ध नहीं भी हो सकती है।
+* जब `update_chart_data` `False` हो, केवल वर्कबुक पाथ अपडेट किया जाता है। चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं होता, इसलिए वर्कबुक अनुपलब्ध भी हो सकता है।
+* जब `update_chart_data` `True` हो, तो लक्ष्य वर्कबुक से चार्ट डेटा अपडेट किया जाता है।
 
-`update_chart_data` `True` होने पर, चार्ट डेटा लक्ष्य वर्कबुक से अपडेट किया जाता है।
-
-निम्न उदाहरण एक प्लेसहोल्डर URL को `update_chart_data` `False` के साथ असाइन करता है। यह पाई चार्ट का डिफ़ॉल्ट डेटा बरकारार रखता है और अनुपलब्ध वर्कबुक को लोड किए बिना प्रस्तुति को सहेजता है।
+निम्न उदाहरण `update_chart_data` को `False` रखकर एक प्लेसहोल्डर URL असाइन करता है। यह पाई चार्ट के डिफ़ॉल्ट डेटा को बरकरार रखता है और अनुपलब्ध वर्कबुक को लोड किए बिना प्रस्तुति को सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -395,11 +395,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **एक चार्ट के बाहरी डेटा स्रोत वर्कबुक पाथ प्राप्त करें**
+### **चार्ट की बाहरी डेटा स्रोत वर्कबुक पाथ प्राप्त करें**
 
-एक चार्ट से जुड़ी वर्कबुक की पहचान करने के लिए, जाँचें कि क्या चार्ट बाहरी डेटा स्रोत का उपयोग करता है और उसका वर्कबुक पाथ प्राप्त करें।
+किसी चार्ट से जुड़ी वर्कबुक को पहचानने के लिये, जाँचें कि चार्ट बाहरी डेटा स्रोत का उपयोग करता है या नहीं और उसकी वर्कबुक पाथ प्राप्त करें।
 
-यह उदाहरण एक प्रस्तुति के पहले स्लाइड पर पहले आकार को जांचता है जिसमें लिंक्ड बाहरी वर्कबुक है। यदि यह एक चार्ट है जो बाहरी वर्कबुक से जुड़ा है, तो उदाहरण कंसोल में [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) प्रिंट करता है। फिर यह प्रस्तुति की एक कॉपी सहेजता है।
+यह उदाहरण एक प्रस्तुति की पहली स्लाइड पर पहले आकृति की जाँच करता है जिसमें लिंक्ड बाहरी वर्कबुक है। यदि वह एक चार्ट है जो बाहरी वर्कबुक से लिंक्ड है, तो यह [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) को कंसोल पर प्रिंट करता है। फिर यह प्रस्तुति की एक कॉपी सहेजता है।
 
 ```python
 import aspose.slides as slides
@@ -423,9 +423,9 @@ with slides.Presentation("externalWorkbook.pptx") as presentation:
 
 ### **चार्ट डेटा संपादित करें**
 
-आप बाहरी वर्कबुक में डेटा को उसी तरह संपादित कर सकते हैं जैसे आप आंतरिक वर्कबुक की सामग्री को बदलते हैं। जब कोई बाहरी वर्कबुक लोड नहीं की जा सकती, तो एक अपवर्जन फेंका जाता है।
+आप बाहरी वर्कबुक में डेटा को उसी तरह संपादित कर सकते हैं जैसे आप आंतरिक वर्कबुक की सामग्री को बदलते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाती, तो अपवाद फेंका जाता है।
 
-यह उदाहरण एक चार्ट का उपयोग करता है जो पहले स्लाइड पर पहला आकार है और एक सुलभ बाहरी वर्कबुक से जुड़ा है। यह पहली श्रृंखला के पहले डेटा पॉइंट की सेल-आधारित मान को 100 सेट करता है और अपडेटेड प्रस्तुति को सहेजता है। सेल मानों को संपादित करने से लिंक्ड बाहरी XLSX फ़ाइल अपडेट हो सकती है, इसलिए यदि आपको मूल वर्कबुक को संरक्षित रखना है तो एक कॉपी का उपयोग करें।
+यह उदाहरण पहली स्लाइड की पहली आकृति पर स्थित एक चार्ट का उपयोग करता है जो उपलब्ध बाहरी वर्कबुक से लिंक्ड है। यह पहली श्रृंखला के पहले डेटा बिंदु का सेल‑बैक्ड मान 100 सेट करता है और अपडेटेड प्रस्तुति को सहेजता है। सेल मानों को संपादित करने से लिंक्ड बाहरी XLSX फ़ाइल अपडेट हो सकती है, इसलिए मूल वर्कबुक को संरक्षित रखने के लिये एक कॉपी का प्रयोग करें।
 
 ```python
 import aspose.slides as slides
@@ -452,9 +452,9 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ### **चार्ट कैश से वर्कबुक पुनः प्राप्त करें**
 
-यदि कोई चार्ट एक बाहरी वर्कबुक का उपयोग करता है जो उपलब्ध नहीं है या गायब है, तो Aspose.Slides प्रस्तुति में कैश किए गए डेटा से चार्ट वर्कबुक को पुनः निर्मित कर सकता है। प्रस्तुति खोलने से पहले [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), उसके [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/), और [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) को `True` सेट करके कॉन्फ़िगर करें।
+यदि कोई चार्ट ऐसी बाहरी वर्कबुक का उपयोग करता है जो अनुपलब्ध या लुप्त है, तो Aspose.Slides प्रस्तुति में कैश किए हुए डेटा से चार्ट वर्कबुक को पुनः बन सकता है। [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) बनाएं, उसकी [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/) कॉन्फ़िगर करें, और [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) को `True` सेट करें, फिर प्रस्तुति खोलें।
 
-निम्न Python उदाहरण एक चार्ट के लिए वर्कबुक डेटा पुनः प्राप्त करता है जो पहले स्लाइड पर पहला आकार है और एक अनुपलब्ध बाहरी वर्कबुक का संदर्भ देता है। यह पुनः प्राप्त डेटा को [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) और [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) के माध्यम से एक्सेस करता है:
+निम्न Python उदाहरण पहले स्लाइड की पहली आकृति पर स्थित चार्ट के लिये वर्कबुक डेटा को पुनः प्राप्त करता है जो उपलब्ध नहीं है। यह पुनः प्राप्त डेटा को [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) और [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) के माध्यम से एक्सेस करता है:
 
 ```python
 import aspose.slides as slides
@@ -470,29 +470,35 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
         chart = slide.shapes[0]
         recovered_workbook = chart.chart_data.chart_data_workbook
 
-        # यहाँ पुनः प्राप्त वर्कबुक डेटा को पढ़ें या संशोधित करें।
+        # यहाँ पुनर्प्राप्त वर्कबुक डेटा पढ़ें या संशोधित करें।
     else:
         print("The first shape is not a chart.")
 ```
 
-यदि बाहरी वर्कबुक उपलब्ध नहीं है और पुनर्प्राप्ति निष्क्रिय है, तो Aspose.Slides एक अपवर्जन फेंकेगा। केवल तभी पुनर्प्राप्ति सक्षम करें जब कैश्ड चार्ट डेटा का उपयोग एक स्वीकार्य बैकअप हो, क्योंकि कैश में प्रस्तुति के अंतिम अपडेट के बाद बाहरी वर्कबुक में किए गए परिवर्तन शामिल नहीं हो सकते।
+यदि बाहरी वर्कबुक उपलब्ध नहीं है और रिकवरी अक्षम है, तो Aspose.Slides अपवाद फेंकेगा। केवल तब रिकवरी सक्षम करें जब कैश्ड चार्ट डेटा को fallback के रूप में उपयोग करना स्वीकार्य हो, क्योंकि कैश में वह बदलाव नहीं हो सकता जो बाहरी वर्कबुक में अंतिम प्रस्तुति अपडेट के बाद किए गए हों।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या मैं यह निर्धारित कर सकता हूँ कि कोई विशिष्ट चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा हुआ है?**  
-हां। एक चार्ट के पास एक [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) और एक [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) होता है; यदि स्रोत एक बाहरी वर्कबुक है, तो आप पूर्ण पाथ पढ़ सकते हैं यह सुनिश्चित करने के लिए कि बाहरी फ़ाइल उपयोग हो रही है।
+**क्या मैं यह निर्धारित कर सकता हूँ कि कोई विशिष्ट चार्ट बाहरी या एम्बेडेड वर्कबुक से लिंक्ड है?**
 
-**क्या बाहरी वर्कबुक के सापेक्ष पाथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**  
-हां। यदि आप एक सापेक्ष पाथ निर्दिष्ट करते हैं, तो वह स्वतः एक पूर्ण पाथ में बदल जाता है। प्रस्तुति PPTX फ़ाइल में पूर्ण पाथ संग्रहीत करती है, इसलिए वर्कबुक को स्थानांतरित करने पर लिंक को अपडेट करना पड़ सकता है।
+हाँ। एक चार्ट का [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) और एक [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) होता है; यदि स्रोत बाहरी वर्कबुक है, तो आप पूर्ण पाथ पढ़ सकते हैं जिससे पुष्टि हो सके कि बाहरी फ़ाइल उपयोग में है।
 
-**क्या मैं नेटवर्क संसाधनों/शेयरों पर स्थित वर्कबुक का उपयोग कर सकता हूँ?**  
-हां, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालांकि, Aspose.Slides से सीधे रिमोट वर्कबुक को संपादित करना समर्थित नहीं है—इन्हें केवल स्रोत के रूप में उपयोग किया जा सकता है।
+**क्या बाहरी वर्कबुक के रिलेटिव पाथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**
 
-**क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को अधिलेखित करता है?**  
-प्रस्तुति एक [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) संग्रहीत करती है। सेल-आधारित चार्ट डेटा को संपादित करने से लिंक्ड लोकल XLSX फ़ाइल भी अपडेट हो सकती है। यदि मूल वर्कबुक को अपरिवर्तित रखना हो तो वर्कबुक की कॉपी का उपयोग करें।
+हाँ। यदि आप रिलेटिव पाथ निर्दिष्ट करते हैं, तो वह स्वचालित रूप से पूर्ण पाथ में परिवर्तित हो जाता है। प्रस्तुति PPTX फ़ाइल में पूर्ण पाथ संग्रहीत करती है, इसलिए वर्कबुक को स्थानांतरित करने पर लिंक को अपडेट करना पड़ सकता है।
 
-**यदि बाहरी फ़ाइल पासवर्ड-संरक्षित है तो मुझे क्या करना चाहिए?**  
-Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता। एक आम तरीका यह है कि पहले से सुरक्षा हटाएँ या एक डिक्रिप्टेड कॉपी तैयार करें (उदाहरण के लिए, [Aspose.Cells](https://reference.aspose.com/cells/python-net/) का उपयोग करके) और उस कॉपी से लिंक करें।
+**क्या मैं नेटवर्क संसाधनों/शेयरों पर स्थित वर्कबुक का उपयोग कर सकता हूँ?**
 
-**क्या कई चार्ट एक ही बाहरी वर्कबुक का संदर्भ दे सकते हैं?**  
-हां। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो फ़ाइल को अपडेट करने से अगली बार डेटा लोड होने पर प्रत्येक चार्ट में वह परिवर्तन परिलक्षित होगा।
+हाँ, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालाँकि, Aspose.Slides से सीधे रिमोट वर्कबुक को संपादित करना समर्थित नहीं है—वे केवल स्रोत के रूप में उपयोग किए जा सकते हैं।
+
+**क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को ओवरराइट करता है?**
+
+प्रस्तुति में [external file के लिंक](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) संग्रहीत होता है। सेल‑बैक्ड चार्ट डेटा को संपादित करने से लिंक्ड स्थानीय XLSX फ़ाइल भी अपडेट हो सकती है। यदि मूल फ़ाइल को अपरिवर्तित रखना है, तो वर्कबुक की एक कॉपी का उपयोग करें।
+
+**यदि बाहरी फ़ाइल पासवर्ड‑प्रोटेक्टेड है तो मैं क्या करूँ?**
+
+Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता। एक सामान्य समाधान है कि पहले सुरक्षा हटाएँ या एक डिक्रिप्टेड कॉपी तैयार करें (उदाहरण के लिये [Aspose.Cells](https://reference.aspose.com/cells/python-net/) का उपयोग करके) और उस कॉपी को लिंक करें।
+
+**क्या कई चार्ट एक ही बाहरी वर्कबुक को संदर्भित कर सकते हैं?**
+
+हाँ। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो उस फ़ाइल को अपडेट करने से अगले डेटा लोड होने पर सभी चार्ट प्रभावित होंगे।

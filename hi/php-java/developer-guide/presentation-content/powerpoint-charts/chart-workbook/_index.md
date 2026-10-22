@@ -7,7 +7,7 @@ url: /hi/php-java/chart-workbook/
 keywords:
 - चार्ट वर्कबुक
 - चार्ट डेटा
-- वर्कबुक सेल
+- वर्कबुक कोशिका
 - डेटा लेबल
 - वर्कशीट
 - डेटा स्रोत
@@ -15,35 +15,35 @@ keywords:
 - बाहरी डेटा
 - चार्ट कैश
 - वर्कबुक पुनर्प्राप्ति
-- पावरपॉइंट
+- PowerPoint
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java की खोज करें: पावरपॉइंट और OpenDocument फ़ॉर्मेट में चार्ट वर्कबुक को सहजता से प्रबंधित करके अपनी प्रस्तुति डेटा को सुव्यवस्थित करें।"
+description: "Aspose.Slides for PHP via Java की खोज करें: PowerPoint और OpenDocument फ़ॉर्मेट में चार्ट वर्कबुक को सहजता से प्रबंधित करें जिससे आपकी प्रस्तुति डेटा को सुव्यवस्थित किया जा सके।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीके को समझाता है। यह वर्कबुक स्ट्रीम्स के माध्यम से चार्ट डेटा को पढ़ने और लिखने, वर्कबुक सेल्स को चार्ट डेटा लेबल के रूप में उपयोग करने, वर्कशीट संग्रहों तक पहुंचने, और चार्ट मानों के लिये डेटा स्रोत प्रकार निर्दिष्ट करने को दर्शाता है।
+यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीके को समझाता है। यह दिखाता है कि कैसे वर्कबुक स्ट्रिम्स के माध्यम से चार्ट डेटा को पढ़ा और लिखा जाए, वर्कबुक सेल्स को चार्ट डेटा लेबल के रूप में उपयोग किया जाए, वर्कशीट संग्रहों तक पहुंच प्राप्त की जाए, और चार्ट मानों के लिए डेटा स्रोत प्रकार निर्दिष्ट किया जाए।
 
-यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी सम्मिलित करता है। उदाहरण दिखाते हैं कि बाहरी वर्कबुक कैसे बनाया और असाइन किया जाए, चार्ट से जुड़े बाहरी वर्कबुक का पथ कैसे प्राप्त किया जाए, और वर्कबुक उपलब्ध होने पर चार्ट डेटा को कैसे संपादित किया जाए।
+यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दर्शाते हैं कि कैसे एक बाहरी वर्कबुक बनाई और नियोजित की जाए, चार्ट से जुड़ी बाहरी वर्कबुक का पथ प्राप्त किया जाए, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा को संपादित किया जाए।
 
-गैर-उपलब्ध डेटा दर्शाने वाले वर्कबुक सेल्स के लिए, खाली सेल और शून्य के अंतर तथा उपलब्ध प्रदर्शन मोड्स की रेखा-चार्ट तुलना के लिए देखें [खाली सेल के प्रदर्शित को नियंत्रित करें](/slides/hi/php-java/chart-series/)।
+गुम डेटा वाले वर्कबुक सेल्स के लिए, अंतर के बारे में जानने हेतु देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/php-java/chart-series/) जहाँ खाली सेल और शून्य के बीच का अंतर और लाइन‑चार्ट मोड के तुलना प्रस्तुत किया गया है।
 
-## **छिपी पंक्तियों और स्तम्भों से डेटा शामिल करना**
+## **छिपी पंक्तियों और स्तंभों से डेटा शामिल करना**
 
-छिपी वर्कशीट पंक्तियों और स्तम्भों से डेटा को चार्ट प्लॉट करे या नहीं, इसको नियंत्रित करने के लिये [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) का उपयोग करें। इसे `true` पर सेट करने से केवल दिखने वाले सेल्स प्लॉट होते हैं, या `false` पर सेट करने से दिखने वाले तथा छिपे दोनों सेल्स शामिल होते हैं। यह सेटिंग चार्ट प्लॉटिंग को नियंत्रित करती है; यह वर्कशीट पंक्तियों या स्तम्भों को छिपाने या दिखाने का कार्य नहीं करती।
+Use [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) to control whether a chart plots data from hidden worksheet rows and columns. Set it to `true` to plot only visible cells, or `false` to include both visible and hidden cells. This setting controls chart plotting; it does not hide or unhide worksheet rows or columns.
 
-यह [नमूना प्रस्तुति](hidden-source-data.pptx) अपने पहले स्लाइड की पहली आकृति के रूप में एक स्तम्भ चार्ट रखती है। एम्बेडेड वर्कशीट, `Sheet1`, में निम्न स्रोत रेंज, `A1:C4`, सम्मिलित है। पंक्ति 3 और स्तम्भ C छिपे हुए हैं, लेकिन उनके सेल्स में अभी भी मान हैं।
+The [नमूना प्रस्तुति](hidden-source-data.pptx) contains a column chart as the first shape on its first slide. The embedded worksheet, `Sheet1`, contains the following source range, `A1:C4`. Row 3 and column C are hidden, but their cells still contain values.
 
-| वर्कशीट पंक्ति | A: माह | B: खुदरा | C: थोक (छिपा स्तम्भ) |
+| Worksheet row | A: Month | B: Retail | C: Wholesale (छिपा स्तम्भ) |
 | --- | --- | --- | --- |
 | 2 | जनवरी | 10 | 30 |
 | 3 (छिपी पंक्ति) | फ़रवरी | 40 | 60 |
 | 4 | मार्च | 20 | 50 |
 
-सोर्स सेल्स तक पहुंचने के लिये [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) का उपयोग करें और उनका छिपा स्थिति जाँचने के लिये [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) पढ़ें। यह मेथड स्थिति को बदले बिना रिपोर्ट करता है। इस फ़ाइल में, B2 दिखाई देता है, B3 छिपी पंक्ति से संबंधित है, और C2 छिपे स्तम्भ से संबंधित है; उदाहरण क्रमशः `false`, `true`, और `true` प्रिंट करता है।
+Access source cells through [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) and read [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) to inspect their hidden status. This method reports the hidden status without changing it. In this file, B2 is visible, B3 belongs to the hidden row, and C2 belongs to the hidden column; the example prints `false`, `true`, and `true`, respectively.
 
-इस उदाहरण में, प्लॉटिंग सेटिंग बदलने के बाद चार्ट डेटा को रिफ्रेश करें: एम्बेडेड वर्कबुक को [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) के साथ रखें और इसे [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) से पुनः लोड करें। सभी सेल्स को शामिल करने पर, छिपी फ़रवरी श्रेणी सहित पूर्ण रेंज पुनर्स्थापित करने के लिये [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) का उपयोग करें। केवल फ़्लैग बदलने से इस नमूने के कैश्ड चार्ट डेटा और श्रेणी लेबल्स को रिफ्रेश करने के लिये अपर्युक्त है।
+For this example, refresh the chart data after changing the plotting setting: retain the embedded workbook with [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) and reload it with [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/). When including all cells, also use [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) to restore the complete range, including the hidden February category. Simply changing the flag is insufficient to refresh this sample's cached chart data and category labels.
 
 ```php
 use aspose\slides\Presentation;
@@ -65,10 +65,10 @@ try {
         foreach ([true, false] as $visibleOnly) {
             $chart->setPlotVisibleCellsOnly($visibleOnly);
 
-            // एम्बेडेड वर्कबुक से चार्ट डेटा को रिफ्रेश करें।
+            // एम्बेडेड वर्कबुक से चार्ट डेटा रीफ़्रेश करें।
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
-                // संपूर्ण स्रोत रेंज को पुनर्स्थापित करें, जिसमें छिपी श्रेणियाँ शामिल हों।
+                // छिपी श्रेणियों सहित पूर्ण स्रोत रेंज को पुनर्स्थापित करें।
                 $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
             }
 
@@ -82,21 +82,21 @@ try {
 }
 ```
 
-उदाहरण प्रस्तुति के दो संस्करण सहेजता है: एक केवल दिखने वाले खुदरा मानों (10 और 20) के साथ, और दूसरा सभी छह मानों के साथ। नीचे की छवियां दो प्लॉटिंग मोड्स को दर्शाती हैं। पंक्ति 3 और स्तम्भ C दोनों एम्बेडेड वर्कबुक में छिपे रहते हैं।
+The example saves two versions of the presentation: one with only the visible Retail values (10 and 20), and another with all six values. The images below illustrate the two plotting modes. Row 3 and column C remain hidden in both embedded workbooks.
 
-| केवल दिखाई देने वाले सेल्स (`true`) | सभी सेल्स (`false`) |
+| केवल दृश्यमान कोशिकाएँ (`true`) | सभी कोशिकाएँ (`false`) |
 | --- | --- |
-| ![केवल दिखाई देने वाले सेल्स: जनवरी और मार्च के लिए खुदरा मान 10 और 20।](hidden_cells_True.png) | ![सभी सेल्स: जनवरी, फ़रवरी और मार्च के लिए खुदरा और थोक मान।](hidden_cells_False.png) |
+| ![केवल दृश्यमान कोशिकाएँ: जनवरी और मार्च के लिए Retail मान 10 और 20.](hidden_cells_True.png) | ![सभी कोशिकाएँ: जनवरी, फ़रवरी, और मार्च के लिए Retail और Wholesale मान.](hidden_cells_False.png) |
 
-एक मान वाला छिपा सेल एक खाली सेल से अलग होता है। [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) नियंत्रित करता है कि अनुपलब्ध मान कैसे प्रदर्शित हों; यह छिपे स्रोत डेटा को शामिल या बाहर नहीं करता। एक उदाहरण के लिये देखें [खाली सेल के प्रदर्शित को नियंत्रित करें](/slides/hi/php-java/chart-series/#control-the-display-of-empty-cells)।
+A hidden cell containing a value is different from an empty cell. [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) controls how missing values are displayed; it does not include or exclude hidden source data. See [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/php-java/chart-series/#control-the-display-of-empty-cells) for an example.
 
-## **एक चार्ट की डेटा रेंज प्राप्त करना**
+## **चार्ट की डेटा रेंज प्राप्त करना**
 
-मौजूदा प्रस्तुति में वर्कबुक डेटा को अपडेट करने से पहले, स्रोत रेंजेस की जाँच करें ताकि यह पता लगाया जा सके कि प्रत्येक चार्ट कौन सी वर्कशीट सेल्स का उपयोग करता है। [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) मेथड वर्तमान डेटा रेंज को वर्कशीट-योग्य सूत्र के रूप में लौटाता है, जैसे `Sheet1!$A$1:$D$5`। यहाँ, `Sheet1` वर्कशीट का नाम है, `!` इसे सेल रेंज से अलग करता है, और `$A$1:$D$5` A1 से D5 तक की सेल्स को शामिल करता है। डॉलर संकेत पूर्ण पंक्ति व स्तम्भ संदर्भ दर्शाते हैं।
+Before updating workbook data in an existing presentation, inspect the source ranges to identify which worksheet cells each chart uses. The [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) method returns the current data range as a worksheet-qualified formula, such as `Sheet1!$A$1:$D$5`. Here, `Sheet1` is the worksheet name, `!` separates it from the cell range, and `$A$1:$D$5` identifies cells A1 through D5, inclusive. The dollar signs indicate absolute row and column references.
 
-यह मेथड वर्तमान रेंज को पढ़ता है बिना चार्ट या उसकी वर्कबुक को बदले। यदि चार्ट डेटा स्रोत के रूप में वर्कबुक का उपयोग नहीं करता, तो यह अपवाद फेंकेगा। अधिक जानकारी के लिये देखें [ChartData API संदर्भ](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/)।
+The method reads the current range without changing the chart or its workbook. If the chart does not use a workbook as its data source, it throws an exception. For more information, see the [ChartData API रेफ़रेंस](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
 
-यह उदाहरण एक प्रस्तुति खोलता है और प्रत्येक स्लाइड पर आकृतियों को सीधे चार्ट के लिये जाँचता है। यह प्रत्येक चार्ट का नाम और स्रोत रेंज प्रिंट करता है। यदि कोई चार्ट वर्कबुक का उपयोग नहीं करता, तो यह एक संदेश प्रिंट करता है और अगले चार्ट की ओर बढ़ता है।
+This example opens a presentation and checks the shapes directly on each slide for charts. It prints each chart's name and source range. If a chart does not use a workbook, it prints a message and continues to the next chart.
 
 ```php
 use aspose\slides\Presentation;
@@ -131,9 +131,9 @@ try {
 
 ## **वर्कबुक से चार्ट डेटा पढ़ना और लिखना**
 
-Aspose.Slides for PHP via Java [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) और [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) मेथड्स प्रदान करता है जो आपको चार्ट डेटा वर्कबुक (Aspose.Cells से संपादित चार्ट डेटा) पढ़ने और लिखने की अनुमति देता है। **ध्यान दें** कि चार्ट डेटा को समान रूप से व्यवस्थित होना चाहिए या स्रोत के समान संरचना होनी चाहिए।
+Aspose.Slides for PHP via Java provides the [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) and [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **नोट** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
-यह उदाहरण एक प्रस्तुति का उपयोग करता है जिसमें पहला स्लाइड की पहली आकृति एक चार्ट है। यह एम्बेडेड वर्कबुक को बाइट एरे में पढ़ता है, मौजूदा सीरीज़ और श्रेणियों को साफ करता है, और वही वर्कबुक वापस लिखता है। बदलाव मेमोरी में रहते हैं; यह उदाहरण प्रस्तुति को सहेजता नहीं है।
+This example uses a presentation with a chart as the first shape on its first slide. It reads the embedded workbook into a byte array, clears the existing series and categories, and writes the same workbook back. The changes remain in memory; the example does not save the presentation.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,9 @@ try {
 }
 ```
 
-### **वर्कबुक संशोधन के बाद चार्ट लेआउट को मान्य करें**
+### **वर्कबुक संशोधन के बाद चार्ट लेआउट को सत्यापित करना**
 
-जब आप एम्बेडेड वर्कबुक को संशोधित वर्कबुक से बदलते हैं, तो चार्ट अपनी मूल सीरीज़ और श्रेणी संग्रहों को बरकरार रखता है। यह असमर्थता [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) को इंडेक्स-आउट-ऑफ-रेंज त्रुटि के साथ विफल कर सकती है। अपडेटेड वर्कबुक को चार्ट में वापस लिखने से पहले मौजूदा सीरीज़ और श्रेणियों को साफ करें। यह उदाहरण एक चार्ट का उपयोग करता है जो पहले स्लाइड की पहली आकृति है। टिप्पणी उस स्थान को दर्शाती है जहाँ वर्कबुक संपादन होगा; कार्यशील उदाहरण मूल वर्कबुक को वापस लिखता है और मेमोरी में लेआउट को मान्य करता है।
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart. This example uses a chart that is the first shape on the first slide. The comment marks where workbook editing would occur; the runnable example writes the original workbook back and validates the layout in memory.
 
 ```php
 use aspose\slides\Presentation;
@@ -177,7 +177,7 @@ try {
         $chartData = $chart->getChartData();
         $workbookData = $chartData->readWorkbookStream();
 
-        // यहाँ वर्कबुक बाइट्स को संशोधित करें, उदाहरण के लिये, Aspose.Cells का उपयोग करके।
+        // यहाँ वर्कबुक बाइट्स को संशोधित करें, उदाहरण के लिए, Aspose.Cells का उपयोग करके।
 
         $chartData->getSeries()->clear();
         $chartData->getCategories()->clear();
@@ -192,15 +192,15 @@ try {
 }
 ```
 
-संग्रहों को साफ करने से वर्कबुक वापस लिखने से पहले पुराने डेटा रेफ़रेंसेज़ हटती हैं। चार्ट उपयोग करने से पहले अपडेटेड वर्कबुक के लिये आवश्यक सीरीज़ और श्रेणी मैपिंग को पुनर्निर्मित करें।
+Clearing the collections removes stale data references before the workbook is written back. Rebuild any required series and category mappings for the updated workbook before using the chart.
 
-## **वर्कबुक सेल्स के लिये कस्टम नंबर फ़ॉर्मेट सेट करें**
+## **वर्कबुक कोशिकाओं के लिए कस्टम नंबर फ़ॉर्मेट सेट करना**
 
-एक चार्ट के एम्बेडेड वर्कबुक में संख्यात्मक मानों की प्रदर्शित शैली को नियंत्रित करने के लिये [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) का उपयोग करें। उदाहरण के लिये, रिपोर्ट को रूपांतरण दर को चार दशमलव स्थानों के साथ प्रतिशत में और गुणांक को पाँच दशमलव स्थानों के साथ दिखाने की आवश्यकता हो सकती है। दोनों मानों को संख्यात्मक रखें ताकि वे गणनाओं और चार्ट प्लॉटिंग के लिये उपलब्ध रहें।
+Use [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) to control how numeric values appear in a chart's embedded workbook. For example, a report may need a conversion rate displayed as a percentage with four decimal places and a coefficient displayed with five decimal places. Keep both values numeric so they remain available for calculations and chart plotting.
 
-नंबर फ़ॉर्मेट केवल प्रदर्शित को बदलता है, संग्रहीत मान को नहीं। फ़ॉर्मेट `0.0000%` `0.125` को `12.5000%` के रूप में दिखाता है; यह संग्रहीत संख्या को `12.5` से नहीं बदलता। इसी प्रकार, `0.00000` `0.1234567` को `0.12346` के रूप में दिखाता है बिना संग्रहीत मान को गोल किए। यदि कस्टम फ़ॉर्मेट खाली स्ट्रिंग (`""`) है, तो इसके बजाय [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/) द्वारा लौटाए गया फ़ॉर्मेट उपयोग किया जाता है।
+A number format changes the display, not the stored value. The format `0.0000%` displays `0.125` as `12.5000%`; it does not replace the stored number with `12.5`. Similarly, `0.00000` displays `0.1234567` as `0.12346` without rounding the stored value. If the custom format is an empty string (`""`), the format returned by [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/) is used instead.
 
-निम्न उदाहरण एक स्तम्भ चार्ट बनाता है और उसके सेल्स को [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) के माध्यम से एक्सेस करता है। वर्कशीट 0 पर, B2 में रूपांतरण दर है और C2 में गुणांक है। दोनों सेल्स चार्ट मान प्रदान करते हैं। उदाहरण स्रोत फ़ॉर्मेट से जुड़े मान लेबल को भी सक्षम करता है।
+The following example creates a column chart and accesses its cells through [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/). On worksheet 0, B2 contains the conversion rate and C2 contains the coefficient. Both cells supply chart values. The example also enables value labels linked to the source formats.
 
 ```php
 use aspose\slides\Presentation;
@@ -255,17 +255,17 @@ try {
 }
 ```
 
-वर्कबुक सेल फ़ॉर्मेट चार्ट अक्ष या डेटा लेबल पर सीधे सेट किए गए फ़ॉर्मेट से अलग होते हैं। इस उदाहरण में, प्रत्येक लेबल अपने स्रोत सेल का मान दिखाता है क्योंकि [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) `true` पर सेट है, और स्रोत नंबर फ़ॉर्मेट को फॉलो करता है क्योंकि [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) `true` पर सेट है। प्रस्तुति को सहेजने और पुनः खोलने के बाद, लेबल नीचे दिखाए अनुसार `12.5000%` और `0.12346` प्रदर्शित करते हैं। लंबवत अक्ष अपना स्वयं का नंबर फ़ॉर्मेट उपयोग करता है, जिसे [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) द्वारा `0.00` के रूप में असाइन किया गया है, और [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) `false` पर सेट है।
+Workbook cell formats are separate from formats set directly on chart axes or data labels. In this example, each label displays its source cell's value because [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) is set to `true`, and follows the source number format because [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) is set to `true`. After saving and reopening the presentation, the labels display `12.5000%` and `0.12346`, as shown below. The vertical axis uses its own number format, assigned with [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) as `0.00`, with [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) set to `false`.
 
-डेटा लेबल को स्वतंत्र रूप से फ़ॉर्मेट करने के लिये, उसके स्रोत-लिंक फ़्लैग को `false` सेट करें और [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) से फ़ॉर्मेट असाइन करें। यह वर्कबुक सेल के फ़ॉर्मेट को नहीं बदलता। उदाहरण के लिये, स्वतंत्र लेबल फ़ॉर्मेट `0.00` पहले मान को `0.13` के रूप में दिखाता है, जबकि B2 अभी भी `12.5000%` दर्शाता है। प्रत्यक्ष लेबल फ़ॉर्मेटिंग के लिये देखें [Chart Data Labels](/slides/hi/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels)।
+To format a data label independently, set its source-link flag to `false` and assign a format with [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/). This does not change the workbook cell's format. For example, an independent label format of `0.00` displays the first value as `0.13`, while B2 still displays `12.5000%`. See [Chart Data Labels](/slides/hi/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) for direct label formatting.
 
-![स्तम्भ चार्ट जिसमें स्रोत-लिंक्ड लेबल 12.5000% और 0.12346 दिखाते हैं और एक स्वतंत्र रूप से फ़ॉर्मेटेड संख्या अक्ष है।](custom-cell-formats.png)
+![स्रोत‑लिंक्ड लेबल वाले कॉलम चार्ट जिसमें 12.5000% और 0.12346 दिखाए गए हैं तथा स्वतंत्र रूप से फ़ॉर्मेट किया गया संख्यात्मक अक्ष.](custom-cell-formats.png)
 
-## **वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट करें**
+## **चार्ट डेटा लेबल के रूप में वर्कबुक सेल सेट करना**
 
-आप वर्कबुक सेल्स के पाठ को चार्ट डेटा लेबल के रूप में उपयोग कर सकते हैं।
+You can use text from workbook cells as chart data labels.
 
-यह उदाहरण मौजूदा प्रस्तुति के पहले स्लाइड में डिफॉल्ट डेटा के साथ एक बबल चार्ट जोड़ता है। यह वर्कशीट 0 पर सेल्स A10:A12 का उपयोग पहले सीरीज़ के पहले तीन लेबल्स के लिये करता है, सेल्स से लेबल सक्षम करता है, और अपडेटेड प्रस्तुति को सहेजता है।
+This example adds a bubble chart with default data to the first slide of an existing presentation. It uses cells A10:A12 on worksheet 0 for the first three labels in the first series, enables labels from cells, and saves the updated presentation.
 
 ```php
 use aspose\slides\Presentation;
@@ -291,9 +291,9 @@ try {
 }
 ```
 
-## **वर्कशीट्स का प्रबंधन करें**
+## **वर्कशीट्स को प्रबंधित करना**
 
-[ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) मेथड चार्ट वर्कबुक में वर्कशीट्स तक पहुंच प्रदान करता है। यह उदाहरण डिफॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और प्रत्येक वर्कशीट का नाम कंसोल में प्रिंट करता है।
+The [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) method provides access to the worksheets in a chart workbook. This example creates a pie chart with default data and prints each worksheet name to the console.
 
 ```php
 use aspose\slides\Presentation;
@@ -314,9 +314,11 @@ try {
 }
 ```
 
-## **डेटा स्रोत प्रकार निर्दिष्ट करें**
+## **डेटा स्रोत प्रकार निर्दिष्ट करना**
 
-यह उदाहरण डिफॉल्ट डेटा के साथ एक 3D स्तम्भ चार्ट बनाता है और विभिन्न डेटा स्रोतों का उपयोग करके दो सीरीज़ नाम सेट करता है। पहला नाम स्ट्रिंग लिटेरल से उपयोग करता है; दूसरा वर्कशीट 0 पर सेल C1 से उपयोग करता है। [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) एन्‍युमरेशन प्रत्येक नाम के लिये स्रोत चुनता है। उदाहरण अपडेटेड सीरीज़ नामों के साथ प्रस्तुति को सहेजता है।
+Series point values can also be stored directly as numeric literals. See [Set Series Values Using Numeric Literals](/slides/hi/php-java/chart-series/#set-series-values-using-numeric-literals) for a complete example that saves and reads them. The source type of point values is separate from the chart's internal or external workbook configuration; using numeric literals does not, by itself, remove the embedded workbook.
+
+This example creates a 3D column chart with default data and sets two series names using different data sources. The first name uses a string literal; the second uses cell C1 on worksheet 0. The [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) enumeration selects the source for each name. The example saves the presentation with the updated series names.
 
 ```php
 use aspose\slides\Presentation;
@@ -345,9 +347,9 @@ try {
 }
 ```
 
-## **असमर्थित एम्बेडेड वर्कबुक फ़ॉर्मेट्स का पता लगाएँ**
+## **असमर्थित एम्बेडेड वर्कबुक फ़ॉर्मेट का पता लगाना**
 
-Aspose.Slides कुछ चार्ट्स में एम्बेड किए जा सकने वाले Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट को समर्थन नहीं देता। आप [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) पर `getEmbeddedWorkbookType` मेथड को [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) एन्‍युमरेशन के साथ उपयोग करके असमर्थित फ़ॉर्मेट्स का पता लगा सकते हैं और उन चार्ट्स को छोड़ सकते हैं। यह उदाहरण मौजूदा प्रस्तुति के पहले स्लाइड पर आकृतियों का निरीक्षण करता है, गैर-चार्ट आकृतियों को छोड़ता है, और प्रत्येक .xlsb एम्बेडेड वर्कबुक वाले चार्ट के लिये एक निदान संदेश प्रिंट करता है।
+Aspose.Slides does not support the Excel binary workbook (.xlsb) format that can be embedded in some charts. You can use the `getEmbeddedWorkbookType` method on [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) together with the [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) enumeration to detect unsupported formats and skip those charts. This example inspects the shapes on the first slide of an existing presentation, skips non-chart shapes, and prints a diagnostic message for each chart with an embedded .xlsb workbook.
 
 ```php
 use aspose\slides\Presentation;
@@ -384,13 +386,13 @@ try {
 
 ## **बाहरी वर्कबुक**
 
-Aspose.Slides चार्ट्स के लिये बाहरी वर्कबुक को डेटा स्रोत के रूप में उपयोग करने का समर्थन करता है।
+Aspose.Slides supports using external workbooks as a data source for charts.
 
-### **बाहरी वर्कबुक बनाएं**
+### **बाहरी वर्कबुक बनाना**
 
-[readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) और [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) का उपयोग करके एम्बेडेड चार्ट वर्कबुक को फ़ाइल में निर्यात करें और चार्ट को उस बाहरी वर्कबुक से लिंक करें।
+Use [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) and [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) to export an embedded chart workbook to a file and link the chart to that external workbook.
 
-यह उदाहरण डिफॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और उसकी वर्कबुक निर्यात करता है। यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में असाइन करने से पहले फ़ाइल लिखना पूर्ण करता है, फिर लिंक्ड प्रस्तुति को सहेजता है।
+This example creates a pie chart with default data and exports its workbook. It completes the file write before assigning the external workbook as the chart data source, then saves the linked presentation.
 
 ```php
 use aspose\slides\Presentation;
@@ -422,13 +424,13 @@ try {
 }
 ```
 
-### **बाहरी वर्कबुक सेट करें**
+### **बाहरी वर्कबुक सेट करना**
 
-[setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) मेथड का उपयोग करके आप एक चार्ट को बाहरी वर्कबुक को डेटा स्रोत के रूप में असाइन कर सकते हैं। यह मेथड बाहरी वर्कबुक का पथ अपडेट करने के लिये भी उपयोग किया जा सकता है (यदि वह स्थानांतरित किया गया हो)।
+Using the [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) method, you can assign an external workbook to a chart as its data source. This method can also be used to update a path to the external workbook (if the latter has been moved).
 
-हालांकि आप दूरस्थ स्थानों या संसाधनों में संग्रहीत वर्कबुक डेटा को संपादित नहीं कर सकते, फिर भी आप ऐसी वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाहरी वर्कबुक के लिये सापेक्ष पथ दिया गया है, तो वह स्वचालित रूप से पूर्ण पथ में परिवर्तित हो जाता है।
+While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
 
-यह उदाहरण एक बाहरी वर्कबुक का उपयोग करता है जिसकी वर्कशीट `Sheet1` में B1 में एक सीरीज़ नाम, A2:A4 में श्रेणी नाम, और B2:B4 में संख्यात्मक मान होते हैं। उदाहरण एक पाई चार्ट बनाता है, वर्कबुक को लिंक करता है, और [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) का उपयोग करके A1:B4 को एक सीरीज़ और तीन श्रेणियों से मैप करता है। यह लिंक्ड चार्ट के साथ प्रस्तुति को सहेजता है।
+This example uses an external workbook whose worksheet named `Sheet1` contains a series name in B1, category names in A2:A4, and numeric values in B2:B4. The example creates a pie chart, links the workbook, and uses [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) to map A1:B4 to one series and three categories. It saves the presentation with the linked chart.
 
 ```php
 use aspose\slides\Presentation;
@@ -453,12 +455,12 @@ try {
 }
 ```
 
-[setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) का `updateChartData` पैरामीटर नियंत्रित करता है कि वर्कबुक लोड हो या नहीं।
+`updateChartData` पैरामीटर [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) मे यह नियंत्रित करता है कि वर्कबुक लोड हो या नहीं।
 
-* जब `updateChartData` `false` है, केवल वर्कबुक पथ अपडेट होता है। चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं होता, इसलिए वर्कबुक उपलब्ध नहीं भी हो सकता है।
-* जब `updateChartData` `true` है, चार्ट डेटा लक्ष्य वर्कबुक से अपडेट होता है।
+* जब `updateChartData` `false` हो, केवल वर्कबुक पथ अपडेट किया जाता है। चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं होता, इसलिए वर्कबुक अनुपलब्ध भी हो सकती है।
+* जब `updateChartData` `true` हो, चार्ट डेटा लक्ष्य वर्कबुक से अपडेट किया जाता है।
 
-निम्न उदाहरण एक प्लेसहोल्डर URL को `updateChartData` `false` के साथ असाइन करता है। यह पाई चार्ट के डिफॉल्ट डेटा को बरकरार रखता है और अनुपलब्ध वर्कबुक को लोड किए बिना प्रस्तुति को सहेजता है।
+The following example assigns a placeholder URL with `updateChartData` set to `false`. It retains the pie chart's default data and saves the presentation without loading the unavailable workbook.
 
 ```php
 use aspose\slides\Presentation;
@@ -478,11 +480,11 @@ try {
 }
 ```
 
-### **एक चार्ट के बाहरी डेटा स्रोत वर्कबुक पथ को प्राप्त करें**
+### **एक चार्ट के बाहरी डेटा स्रोत वर्कबुक पथ प्राप्त करना**
 
-एक चार्ट से जुड़ी वर्कबुक की पहचान करने के लिये, जाँचें कि चार्ट बाहरी डेटा स्रोत उपयोग करता है या नहीं और उसका वर्कबुक पथ प्राप्त करें।
+To identify the workbook linked to a chart, check whether the chart uses an external data source and retrieve its workbook path.
 
-यह उदाहरण एक प्रस्तुति में पहले स्लाइड की पहली आकृति को निरीक्षण करता है जिसमें लिंक्ड बाहरी वर्कबुक है। यदि यह एक चार्ट है जो बाहरी वर्कबुक से लिंक्ड है, तो उदाहरण [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) को कंसोल पर प्रिंट करता है। फिर यह प्रस्तुति की एक प्रति सहेजता है।
+This example inspects the first shape on the first slide of a presentation with a linked external workbook. If it is a chart linked to an external workbook, the example prints [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) to the console. It then saves a copy of the presentation.
 
 ```php
 use aspose\slides\Presentation;
@@ -512,11 +514,11 @@ try {
 }
 ```
 
-### **चार्ट डेटा संपादित करें**
+### **चार्ट डेटा संपादित करना**
 
-आप बाहरी वर्कबुक में डेटा को उसी तरह संपादित कर सकते हैं जैसे आप आंतरिक वर्कबुक की सामग्री को बदलते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाता, तो अपवाद फेंका जाता है।
+You can edit the data in external workbooks the same way you make changes to the contents of internal workbooks. When an external workbook cannot be loaded, an exception is thrown.
 
-यह उदाहरण एक चार्ट का उपयोग करता है जो पहले स्लाइड की पहली आकृति है और एक सुलभ बाहरी वर्कबुक से लिंक्ड है। यह पहली सीरीज़ के पहले डेटा पॉइंट के सेल-बैक्ड मान को 100 सेट करता है और अपडेटेड प्रस्तुति को सहेजता है। सेल मानों को संपादित करने से लिंक्ड बाहरी XLSX फ़ाइल अपडेट हो सकती है, इसलिए यदि मूल वर्कबुक को बरकरार रखना है तो एक कॉपी का उपयोग करें।
+This example uses a chart that is the first shape on the first slide and is linked to an accessible external workbook. It sets the cell-backed value of the first data point in the first series to 100 and saves the updated presentation. Editing cell values can update the linked external XLSX file, so use a copy if you need to preserve the original workbook.
 
 ```php
 use aspose\slides\Presentation;
@@ -549,11 +551,11 @@ try {
 }
 ```
 
-### **चार्ट कैश से वर्कबुक पुनर्प्राप्त करें**
+### **चार्ट कैश से वर्कबुक पुनर्प्राप्त करना**
 
-यदि कोई चार्ट ऐसी बाहरी वर्कबुक उपयोग करता है जो गायब या अनुपलब्ध है, तो Aspose.Slides प्रस्तुति में कैश्ड डेटा से चार्ट वर्कबुक को पुनर्निर्मित कर सकता है। प्रस्तुति खोलने से पहले [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/) बनाएं, [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) को कॉल करें, और [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) को `true` सेट करें।
+If a chart uses an external workbook that is missing or unavailable, Aspose.Slides can reconstruct the chart workbook from the data cached in the presentation. Create [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), call [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/), and set [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) to `true` before opening the presentation.
 
-निम्न PHP उदाहरण एक चार्ट के लिये वर्कबुक डेटा पुनर्प्राप्त करता है जो पहले स्लाइड की पहली आकृति है और अनुपलब्ध बाहरी वर्कबुक को संदर्भित करता है। यह पुनर्प्राप्त डेटा तक [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) और [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) के माध्यम से पहुँचता है:
+The following PHP example recovers workbook data for a chart that is the first shape on the first slide and references an unavailable external workbook. It accesses the recovered data through [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) and [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```php
 use aspose\slides\Presentation;
@@ -584,30 +586,30 @@ try {
 }
 ```
 
-यदि बाहरी वर्कबुक अनुपलब्ध है और रिकवरी अक्षम है, तो Aspose.Slides अपवाद फेंकेगा। केवल तब रिकवरी सक्षम करें जब कैश्ड चार्ट डेटा का उपयोग एक स्वीकार्य बैकअप हो, क्योंकि कैश में प्रस्तुति के अंतिम अपडेट के बाद बाहरी वर्कबुक में किए गए परिवर्तन नहीं हो सकते हैं।
+If the external workbook is unavailable and recovery is disabled, Aspose.Slides throws an exception. Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं यह निर्धारित कर सकता हूँ कि कोई विशेष चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा है?**
+**क्या मैं निर्धारित कर सकता हूँ कि कोई विशेष चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा है?**
 
-हां। एक चार्ट के पास एक [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) और एक [बाहरी वर्कबुक का पथ](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) होता है; यदि स्रोत बाहरी वर्कबुक है, तो आप पूर्ण पथ पढ़ सकते हैं ताकि यह सुनिश्चित किया जा सके कि बाहरी फ़ाइल उपयोग में है।
+हां। एक चार्ट का एक [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) और एक [बाहरी वर्कबुक पथ](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) होता है; यदि स्रोत एक बाहरी वर्कबुक है, तो आप पूर्ण पथ पढ़ सकते हैं यह सुनिश्चित करने के लिए कि बाहरी फ़ाइल उपयोग में है।
 
 **क्या बाहरी वर्कबुक के सापेक्ष पथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**
 
-हां। यदि आप सापेक्ष पथ निर्दिष्ट करते हैं, तो वह स्वचालित रूप से पूर्ण पथ में परिवर्तित हो जाता है। प्रस्तुति PPTX फ़ाइल में पूर्ण पथ संग्रहीत करती है, इसलिए वर्कबुक को स्थानांतरित करने पर लिंक को अपडेट करना आवश्यक हो सकता है।
+हां। यदि आप एक सापेक्ष पथ निर्दिष्ट करते हैं, तो वह स्वतः ही एक निरपेक्ष पथ में बदल दिया जाता है। प्रस्तुति निरपेक्ष पथ को PPTX फ़ाइल में संग्रहीत करती है, इसलिए वर्कबुक को स्थानांतरित करने पर लिंक को अपडेट करना पड़ सकता है।
 
 **क्या मैं नेटवर्क संसाधनों/शेयरों पर स्थित वर्कबुक का उपयोग कर सकता हूँ?**
 
-हां, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालांकि, Aspose.Slides से सीधे रिमोट वर्कबुक को संपादित करना समर्थित नहीं है—वे केवल स्रोत के रूप में उपयोग किए जा सकते हैं।
+हां, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालांकि, Aspose.Slides से दूरस्थ वर्कबुक को सीधे संपादित करना समर्थित नहीं है — उन्हें केवल स्रोत के रूप में उपयोग किया जा सकता है।
 
-**क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को ओवरराइट करता है?**
+**क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को अधिलेखित करता है?**
 
-प्रस्तुति एक [बाहरी फ़ाइल के लिंक](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) संग्रहीत करती है। सेल-बैक्ड चार्ट डेटा को संपादित करने से लिंक्ड स्थानीय XLSX फ़ाइल भी अपडेट हो सकती है। यदि मूल वर्कबुक को अपरिवर्तित रखना आवश्यक है, तो वर्कबुक की एक कॉपी का उपयोग करें।
+प्रस्तुति एक [बाहरी फ़ाइल का लिंक](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) संग्रहीत करती है। सेल‑बैक्ड चार्ट डेटा को संपादित करने से लिंक्ड स्थानीय XLSX फ़ाइल भी अपडेट हो सकती है। यदि मूल फ़ाइल अपरिवर्तित रहनी चाहिए, तो वर्कबुक की एक कॉपी उपयोग करें।
 
-**यदि बाहरी फ़ाइल पासवर्ड-सुरक्षित है तो मैं क्या करूँ?**
+**यदि बाहरी फ़ाइल पासवर्ड‑सुरक्षित है तो मुझे क्या करना चाहिए?**
 
-Aspose.Slides लिंक करने के समय पासवर्ड स्वीकार नहीं करता। एक सामान्य तरीका है पहले सुरक्षा हटाना या एक डिक्रिप्टेड कॉपी तैयार करना (उदाहरण के लिये, [Aspose.Cells](https://reference.aspose.com/cells/java/) का उपयोग करके) और उस कॉपी से लिंक करना।
+Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता। एक सामान्य समाधान यह है कि पहले सुरक्षा हटाई जाए या एक डिक्रिप्टेड कॉपी तैयार की जाए (उदाहरण के लिए, [Aspose.Cells](https://reference.aspose.com/cells/java/) का उपयोग करके) और उस कॉपी को लिंक किया जाए।
 
 **क्या कई चार्ट एक ही बाहरी वर्कबुक का संदर्भ दे सकते हैं?**
 
-हां। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर संकेत करते हैं, तो उस फ़ाइल को अपडेट करने से अगले डेटा लोड होने पर प्रत्येक चार्ट में प्रतिबिंबित होगा।
+हां। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो उस फ़ाइल को अपडेट करने से अगली बार डेटा लोड होने पर प्रत्येक चार्ट में प्रतिबिंबित होगा।

@@ -1,5 +1,5 @@
 ---
-title: Quản lý Sổ làm việc Biểu đồ trong Bản trình chiếu trên .NET
+title: Quản lý Sổ làm việc Biểu đồ trong Bản trình bày bằng .NET
 linktitle: Sổ làm việc Biểu đồ
 type: docs
 weight: 70
@@ -16,35 +16,35 @@ keywords:
 - bộ nhớ đệm biểu đồ
 - khôi phục sổ làm việc
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho .NET: dễ dàng quản lý sổ làm việc biểu đồ trong định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho .NET: dễ dàng quản lý sổ làm việc biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình bày của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ qua các luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập bảng tính, và chỉ định loại nguồn dữ liệu cho giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng bao gồm việc làm việc với sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và giao một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc khả dụng.
+Nó cũng đề cập đến việc làm việc với sổ làm việc bên ngoài như nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc bên ngoài, lấy đường dẫn của sổ làm việc bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.
 
-Đối với các ô sổ làm việc đại diện cho dữ liệu thiếu, xem [Kiểm soát hiển thị các ô trống](/slides/vi/net/chart-series/) để biết sự khác nhau giữa ô trống và số 0, và so sánh biểu đồ đường của các chế độ hiển thị có sẵn.
+Đối với các ô sổ làm việc đại diện cho dữ liệu thiếu, hãy xem mục [Kiểm soát hiển thị các ô trống](/slides/vi/net/chart-series/) để hiểu sự khác biệt giữa ô trống và số 0, cùng so sánh biểu đồ đường cho các chế độ hiển thị có sẵn.
 
 ## **Bao gồm dữ liệu từ các hàng và cột ẩn**
 
-Sử dụng [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) để kiểm soát liệu biểu đồ có vẽ dữ liệu từ các hàng và cột bảng tính ẩn hay không. Đặt thành `true` để chỉ vẽ các ô hiển thị, hoặc `false` để bao gồm cả các ô hiển thị và ẩn. Cài đặt này chỉ kiểm soát việc vẽ biểu đồ; nó không ẩn hoặc hiện lại các hàng hoặc cột trong bảng tính.
+Sử dụng [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) để điều khiển liệu biểu đồ có vẽ dữ liệu từ các hàng và cột worksheet ẩn hay không. Đặt giá trị thành `true` để chỉ vẽ các ô hiển thị, hoặc `false` để bao gồm cả ô hiển thị và ẩn. Cài đặt này kiểm soát việc vẽ biểu đồ; nó không ẩn hoặc hiện các hàng hay cột worksheet.
 
-Bản trình chiếu mẫu [sample presentation](hidden-source-data.pptx) chứa một biểu đồ cột là hình dạng đầu tiên trên slide đầu tiên. Bảng tính nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn chứa giá trị.
+[File mẫu](hidden-source-data.pptx) chứa một biểu đồ cột là hình dạng đầu tiên trên slide đầu tiên. Worksheet được nhúng, `Sheet1`, chứa phạm vi nguồn sau, `A1:C4`. Hàng 3 và cột C bị ẩn, nhưng các ô của chúng vẫn chứa giá trị.
 
-| Hàng bảng tính | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
+| Hàng worksheet | A: Tháng | B: Bán lẻ | C: Bán buôn (cột ẩn) |
 | --- | --- | --- | --- |
-| 2 | Tháng 1 | 10 | 30 |
-| 3 (hidden row) | Tháng 2 | 40 | 60 |
-| 4 | Tháng 3 | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3 (hidden row) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-Truy cập các ô nguồn qua [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) và đọc [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) để kiểm tra trạng thái ẩn của chúng. Thuộc tính này chỉ đọc. Trong tệp này, B2 hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ in ra `False`, `True`, và `True` tương ứng.
+Truy cập các ô nguồn thông qua [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) và đọc [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) để kiểm tra trạng thái ẩn của chúng. Thuộc tính này chỉ đọc. Trong tệp này, B2 hiển thị, B3 thuộc hàng ẩn, và C2 thuộc cột ẩn; ví dụ sẽ in ra `False`, `True`, và `True` tương ứng.
 
-Đối với ví dụ này, làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại sổ làm việc nhúng bằng [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) và tải lại bằng [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Khi bao gồm tất cả các ô, cũng sử dụng [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) để khôi phục phạm vi đầy đủ, bao gồm danh mục tháng 2 ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ đã được bộ nhớ đệm và các nhãn danh mục trong mẫu này.
+Đối với ví dụ này, hãy làm mới dữ liệu biểu đồ sau khi thay đổi cài đặt vẽ: giữ lại sổ làm việc được nhúng bằng [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) và tải lại bằng [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/). Khi bao gồm tất cả các ô, cũng sử dụng [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) để khôi phục phạm vi đầy đủ, bao gồm danh mục February bị ẩn. Chỉ thay đổi cờ không đủ để làm mới dữ liệu biểu đồ và nhãn danh mục được lưu trong bộ nhớ đệm của mẫu này.
 
 ```csharp
 using System;
@@ -67,12 +67,12 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // Làm mới dữ liệu biểu đồ từ sổ làm việc nhúng.
+        // Làm mới dữ liệu biểu đồ từ sổ làm việc được nhúng.
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
         {
-            // Khôi phục toàn bộ phạm vi nguồn, bao gồm các danh mục ẩn.
+            // Khôi phục phạm vi nguồn đầy đủ, bao gồm các danh mục ẩn.
             chart.ChartData.SetRange("Sheet1!$A$1:$C$4");
         }
 
@@ -85,23 +85,21 @@ else
 }
 ```
 
-Ví dụ lưu hai phiên bản của bản trình chiếu: một chỉ có các giá trị Bán lẻ hiển thị (10 và 20), và một khác có tất cả sáu giá trị. Các hình ảnh bên dưới được tạo từ các bản trình chiếu đã lưu sau khi mở lại; cả hai tệp đều giữ cài đặt vẽ đã chỉ định. Hàng 3 và cột C vẫn ẩn trong cả hai sổ làm việc nhúng.
+Ví dụ lưu hai phiên bản của bản trình bày: một chỉ có các giá trị Retail hiển thị (10 và 20), và một khác với cả sáu giá trị. Các hình ảnh dưới đây được tạo từ các bản trình bày đã lưu sau khi mở lại; cả hai tệp đều giữ cài đặt vẽ đã chỉ định. Hàng 3 và cột C vẫn ẩn trong cả hai sổ làm việc được nhúng.
 
 | Chỉ các ô hiển thị (`true`) | Tất cả các ô (`false`) |
 | --- | --- |
-| ![Chỉ các ô hiển thị: Giá trị Bán lẻ 10 và 20 cho Tháng 1 và Tháng 3.](hidden_cells_True.png) | ![Tất cả các ô: Giá trị Bán lẻ và Bán buôn cho Tháng 1, Tháng 2 và Tháng 3.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-Một ô ẩn chứa giá trị khác với một ô trống. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) kiểm soát cách hiển thị các giá trị thiếu; nó không bao gồm hoặc loại bỏ dữ liệu nguồn ẩn. Xem [Kiểm soát hiển thị các ô trống](/slides/vi/net/chart-series/#control-the-display-of-empty-cells) để xem ví dụ.
+Một ô ẩn có giá trị khác với một ô trống. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) kiểm soát cách hiển thị các giá trị thiếu; nó không bao gồm hay loại bỏ dữ liệu nguồn ẩn. Xem mục [Kiểm soát hiển thị các ô trống](/slides/vi/net/chart-series/#control-the-display-of-empty-cells) để biết ví dụ.
 
 ## **Lấy phạm vi dữ liệu của biểu đồ**
 
-Trước khi cập nhật dữ liệu sổ làm việc trong một bản trình chiếu hiện có, hãy kiểm tra các phạm vi nguồn để xác định các ô bảng tính mà mỗi biểu đồ sử dụng.
+Trước khi cập nhật dữ liệu sổ làm việc trong một bản trình bày hiện có, hãy kiểm tra các phạm vi nguồn để xác định ô worksheet nào được mỗi biểu đồ sử dụng. Phương thức [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) trả về phạm vi dữ liệu hiện tại dưới dạng công thức có chỉ định worksheet, ví dụ `Sheet1!$A$1:$D$5`. Ở đây, `Sheet1` là tên worksheet, `!` ngăn cách nó với phạm vi ô, và `$A$1:$D$5` chỉ các ô từ A1 đến D5, bao gồm cả chúng. Dấu đô la biểu thị tham chiếu hàng và cột tuyệt đối.
 
-Phương thức [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) trả về phạm vi dữ liệu hiện tại dưới dạng công thức có chỉ định bảng tính, ví dụ `Sheet1!$A$1:$D$5`. Ở đây, `Sheet1` là tên bảng tính, `!` tách nó khỏi phạm vi ô, và `$A$1:$D$5` chỉ các ô A1 đến D5, bao gồm. Dấu dollar chỉ các tham chiếu hàng và cột tuyệt đối.
+Phương thức này đọc phạm vi hiện tại mà không thay đổi biểu đồ hoặc sổ làm việc của nó. Nếu biểu đồ không sử dụng sổ làm việc làm nguồn dữ liệu, nó sẽ ném ra [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Để biết thêm thông tin, xem [Tham chiếu API ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
 
-Phương thức đọc phạm vi hiện tại mà không thay đổi biểu đồ hoặc sổ làm việc của nó. Nếu biểu đồ không sử dụng sổ làm việc làm nguồn dữ liệu, nó sẽ ném ra [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Để biết thêm thông tin, xem [Tham khảo API ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/).
-
-Ví dụ này mở một bản trình chiếu và kiểm tra các hình dạng trực tiếp trên mỗi slide để tìm biểu đồ. Nó in ra tên của mỗi biểu đồ và phạm vi nguồn. Nếu một biểu đồ không sử dụng sổ làm việc, nó sẽ in một thông báo và tiếp tục tới biểu đồ tiếp theo.
+Ví dụ này mở một bản trình bày và kiểm tra các hình dạng trực tiếp trên mỗi slide để tìm biểu đồ. Nó in ra tên và phạm vi nguồn của mỗi biểu đồ. Nếu một biểu đồ không sử dụng sổ làm việc, nó sẽ in thông báo và tiếp tục sang biểu đồ tiếp theo.
 
 ```csharp
 using System;
@@ -132,9 +130,9 @@ foreach (var slide in presentation.Slides)
 
 ## **Đọc và ghi dữ liệu biểu đồ từ sổ làm việc**
 
-Aspose.Slides cho .NET cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) và [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự nguồn.
+Aspose.Slides for .NET cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) và [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng một cách hoặc phải có cấu trúc tương tự như nguồn.
 
-Ví dụ này sử dụng một bản trình chiếu có biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nó đọc sổ làm việc nhúng vào một luồng, xóa các chuỗi và danh mục hiện có, và ghi lại cùng một sổ làm việc. Các thay đổi vẫn tồn tại trong bộ nhớ; ví dụ không lưu bản trình chiếu.
+Ví dụ này sử dụng một bản trình bày có biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Nó đọc sổ làm việc được nhúng vào một luồng, xóa các series và category hiện có, và ghi lại cùng một sổ làm việc. Các thay đổi vẫn còn trong bộ nhớ; ví dụ không lưu bản trình bày.
 
 ```csharp
 using System;
@@ -164,7 +162,7 @@ else
 
 ### **Xác thực bố cục biểu đồ sau khi sửa đổi sổ làm việc**
 
-Khi bạn thay thế một sổ làm việc nhúng bằng một sổ làm việc đã sửa đổi, biểu đồ vẫn giữ lại các bộ sưu tập chuỗi và danh mục gốc. Sự không khớp này có thể gây [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) thất bại với lỗi chỉ mục vượt quá phạm vi. Xóa các chuỗi và danh mục hiện có trước khi ghi sổ làm việc đã cập nhật trở lại biểu đồ. Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Dòng chú thích đánh dấu nơi sẽ thực hiện việc chỉnh sửa sổ làm việc; ví dụ có thể chạy sẽ ghi lại sổ làm việc gốc và xác thực bố cục trong bộ nhớ.
+Khi bạn thay thế một sổ làm việc được nhúng bằng một sổ làm việc đã sửa, biểu đồ vẫn giữ lại các collection series và category gốc. Sự không khớp này có thể gây lỗi cho [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) với lỗi chỉ mục ngoài phạm vi. Hãy xóa các series và category hiện có trước khi ghi sổ làm việc đã cập nhật trở lại biểu đồ. Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên. Các chú thích đánh dấu nơi việc chỉnh sửa sổ làm việc sẽ diễn ra; ví dụ có thể chạy sẽ ghi lại sổ làm việc gốc và xác thực bố cục trong bộ nhớ.
 
 ```csharp
 using System;
@@ -180,7 +178,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // Sửa đổi luồng sổ làm việc ở đây, ví dụ, sử dụng Aspose.Cells.
+    // Sửa đổi luồng sổ làm việc ở đây, ví dụ, bằng cách sử dụng Aspose.Cells.
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -195,15 +193,15 @@ else
 }
 ```
 
-Xóa các bộ sưu tập loại bỏ các tham chiếu dữ liệu cũ trước khi sổ làm việc được ghi lại. Xây dựng lại bất kỳ chuỗi và ánh xạ danh mục nào cần thiết cho sổ làm việc đã cập nhật trước khi sử dụng biểu đồ.
+Xóa các collection loại bỏ các tham chiếu dữ liệu cũ trước khi sổ làm việc được ghi lại. Hãy xây dựng lại bất kỳ mapping series và category nào cần thiết cho sổ làm việc đã cập nhật trước khi sử dụng biểu đồ.
 
 ## **Đặt định dạng số tùy chỉnh cho các ô sổ làm việc**
 
-Sử dụng [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) để kiểm soát cách các giá trị số hiển thị trong sổ làm việc nhúng của biểu đồ. Ví dụ, một báo cáo có thể cần tỷ lệ chuyển đổi hiển thị dưới dạng phần trăm với bốn chữ số thập phân và hệ số hiển thị với năm chữ số thập phân. Giữ cả hai giá trị dưới dạng số để chúng vẫn có thể sử dụng cho tính toán và vẽ biểu đồ.
+Sử dụng [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) để kiểm soát cách các giá trị số hiển thị trong sổ làm việc được nhúng của biểu đồ. Ví dụ, một báo cáo có thể cần tỷ lệ chuyển đổi hiển thị dưới dạng phần trăm với bốn chữ số thập phân và một hệ số hiển thị với năm chữ số thập phân. Giữ cả hai giá trị ở dạng số để chúng vẫn có thể được dùng cho các phép tính và vẽ biểu đồ.
 
-Một định dạng số chỉ thay đổi cách hiển thị, không thay đổi giá trị đã lưu. Định dạng `0.0000%` hiển thị `0.125` thành `12.5000%`; nó không thay thế số đã lưu bằng `12.5`. Tương tự, `0.00000` hiển thị `0.1234567` thành `0.12346` mà không làm tròn giá trị đã lưu. Nếu định dạng tùy chỉnh là một chuỗi rỗng (`""`), [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) sẽ được sử dụng thay thế.
+Định dạng số chỉ thay đổi cách hiển thị, không thay đổi giá trị lưu trữ. Định dạng `0.0000%` hiển thị `0.125` thành `12.5000%`; nó không thay thế số được lưu bằng `12.5`. Tương tự, `0.00000` hiển thị `0.1234567` thành `0.12346` mà không làm tròn giá trị lưu. Nếu định dạng tùy chỉnh là chuỗi rỗng (`""`), sẽ sử dụng [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) thay thế.
 
-Ví dụ sau tạo một biểu đồ cột và truy cập các ô của nó qua [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/). Trên bảng tính 0, B2 chứa tỷ lệ chuyển đổi và C2 chứa hệ số. Cả hai ô đều cung cấp giá trị cho biểu đồ. Ví dụ cũng bật nhãn giá trị được liên kết với các định dạng nguồn.
+Ví dụ dưới đây tạo một biểu đồ cột và truy cập các ô của nó thông qua [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/). Trên worksheet 0, B2 chứa tỷ lệ chuyển đổi và C2 chứa hệ số. Cả hai ô đều cung cấp giá trị cho biểu đồ. Ví dụ cũng bật nhãn giá trị liên kết với định dạng nguồn.
 
 ```csharp
 using Aspose.Slides;
@@ -253,19 +251,19 @@ foreach (var series in chart.ChartData.Series)
 presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
 ```
 
-Định dạng ô sổ làm việc tách biệt với các định dạng được đặt trực tiếp trên trục biểu đồ hoặc nhãn dữ liệu. Trong ví dụ này, mỗi nhãn hiển thị giá trị ô nguồn vì [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) được bật, và tuân theo định dạng số nguồn vì [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) là `true`. Sau khi lưu và mở lại bản trình chiếu, các nhãn hiển thị `12.5000%` và `0.12346`, như hình dưới. Trục dọc sử dụng [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) riêng của nó là `0.00`, với [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) đặt thành `false`.
+Định dạng ô sổ làm việc tách biệt khỏi các định dạng được đặt trực tiếp trên trục biểu đồ hoặc nhãn dữ liệu. Trong ví dụ này, mỗi nhãn hiển thị giá trị của ô nguồn vì [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) được bật, và tuân theo định dạng số nguồn vì [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) là `true`. Sau khi lưu và mở lại bản trình bày, các nhãn hiển thị `12.5000%` và `0.12346`, như hình dưới. Trục dọc sử dụng [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) riêng của nó là `0.00`, với [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) đặt thành `false`.
 
-Để định dạng một nhãn dữ liệu một cách độc lập, đặt cờ liên kết nguồn của nó thành `false` và gán [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/). Điều này không thay đổi định dạng của ô sổ làm việc. Ví dụ, một định dạng nhãn độc lập `0.00` hiển thị giá trị đầu tiên là `0.13`, trong khi B2 vẫn hiển thị `12.5000%`. Xem [Nhãn dữ liệu biểu đồ](/slides/vi/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) để định dạng nhãn trực tiếp.
+Để định dạng một nhãn dữ liệu một cách độc lập, đặt cờ liên kết nguồn thành `false` và gán [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/). Điều này không thay đổi định dạng của ô sổ làm việc. Ví dụ, một định dạng nhãn độc lập `0.00` sẽ hiển thị giá trị đầu tiên là `0.13`, trong khi B2 vẫn hiển thị `12.5000%`. Xem mục [Nhãn dữ liệu biểu đồ](/slides/vi/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) để biết cách định dạng nhãn trực tiếp.
 
-Hình ảnh dưới đây được tạo từ bản trình chiếu đã lưu sau khi mở lại:
+Hình ảnh dưới đây được tạo từ bản trình bày đã lưu sau khi mở lại:
 
-![Biểu đồ cột với các nhãn liên kết nguồn hiển thị 12.5000% và 0.12346 và trục số được định dạng độc lập.](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
 ## **Đặt một ô sổ làm việc làm nhãn dữ liệu biểu đồ**
 
-Bạn có thể sử dụng văn bản từ các ô sổ làm việc làm nhãn dữ liệu cho biểu đồ.
+Bạn có thể sử dụng văn bản từ các ô sổ làm việc làm nhãn dữ liệu biểu đồ.
 
-Ví dụ này thêm một biểu đồ bong bóng với dữ liệu mặc định vào slide đầu tiên của một bản trình chiếu hiện có. Nó sử dụng các ô A10:A12 trên bảng tính 0 cho ba nhãn đầu tiên trong chuỗi đầu tiên, bật nhãn từ các ô, và lưu bản trình chiếu đã cập nhật.
+Ví dụ này thêm một biểu đồ bubble với dữ liệu mặc định vào slide đầu tiên của một bản trình bày hiện có. Nó sử dụng các ô A10:A12 trên worksheet 0 cho ba nhãn đầu tiên trong series đầu tiên, bật nhãn từ ô, và lưu bản trình bày đã cập nhật.
 
 ```csharp
 using Aspose.Slides;
@@ -287,9 +285,9 @@ series.Labels[2].ValueFromCell = workbook.GetCell(0, "A12", "Label 2 cell value"
 presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 ```
 
-## **Quản lý các bảng tính**
+## **Quản lý Worksheets**
 
-Thuộc tính [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) cung cấp quyền truy cập vào các bảng tính trong một sổ làm việc biểu đồ. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in ra tên mỗi bảng tính lên console.
+Thuộc tính [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) cung cấp quyền truy cập vào các worksheet trong một sổ làm việc biểu đồ. Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và in tên mỗi worksheet ra console.
 
 ```csharp
 using System;
@@ -310,7 +308,9 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 
 ## **Chỉ định loại nguồn dữ liệu**
 
-Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên chuỗi bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng một chuỗi literal; tên thứ hai sử dụng ô C1 trên bảng tính 0. Phân loại [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) chọn nguồn cho mỗi tên. Ví dụ lưu bản trình chiếu với các tên chuỗi đã được cập nhật.
+Các giá trị điểm series cũng có thể được lưu trữ trực tiếp dưới dạng số nguyên. Xem mục [Đặt giá trị series bằng số nguyên](/slides/vi/net/chart-series/#set-series-values-using-numeric-literals) để có ví dụ đầy đủ về việc lưu và đọc chúng. Loại nguồn của các giá trị điểm tách biệt khỏi cấu hình sổ làm việc nội bộ hoặc bên ngoài của biểu đồ; việc sử dụng số nguyên không tự động loại bỏ sổ làm việc được nhúng.
+
+Ví dụ này tạo một biểu đồ cột 3D với dữ liệu mặc định và đặt hai tên series bằng các nguồn dữ liệu khác nhau. Tên đầu tiên sử dụng literal chuỗi; tên thứ hai sử dụng ô C1 trên worksheet 0. Phân loại [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) xác định nguồn cho mỗi tên. Ví dụ lưu bản trình bày với các tên series đã cập nhật.
 
 ```csharp
 using Aspose.Slides;
@@ -334,9 +334,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Phát hiện các định dạng sổ làm việc nhúng không được hỗ trợ**
+## **Phát hiện định dạng sổ làm việc nhúng không được hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng sổ làm việc Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng thuộc tính [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) trên [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) cùng với phân loại [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các hình dạng trên slide đầu tiên của một bản trình chiếu hiện có, bỏ qua các hình không phải biểu đồ, và in ra thông báo chẩn đoán cho mỗi biểu đồ có sổ làm việc .xlsb được nhúng.
+Aspose.Slides không hỗ trợ định dạng sổ làm việc Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng thuộc tính [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) trên [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) cùng với liệt kê [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó. Ví dụ này kiểm tra các hình dạng trên slide đầu tiên của một bản trình bày hiện có, bỏ qua các hình dạng không phải biểu đồ, và in thông báo chẩn đoán cho mỗi biểu đồ có sổ làm việc .xlsb được nhúng.
 
 ```csharp
 using System;
@@ -363,7 +363,7 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // Đọc hoặc sửa đổi dữ liệu sổ làm việc biểu đồ được hỗ trợ ở đây.
+    // Đọc hoặc sửa đổi dữ liệu sổ làm việc biểu đồ được hỗ trợ tại đây.
 }
 ```
 
@@ -371,11 +371,11 @@ foreach (var shape in slide.Shapes)
 
 Aspose.Slides hỗ trợ sử dụng sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ.
 
-### **Tạo sổ làm việc bên ngoài**
+### **Tạo một sổ làm việc bên ngoài**
 
-Sử dụng [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) và [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) để xuất sổ làm việc biểu đồ nhúng ra một tệp và liên kết biểu đồ với sổ làm việc bên ngoài đó.
+Sử dụng [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) và [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) để xuất sổ làm việc biểu đồ được nhúng ra file và liên kết biểu đồ với sổ làm việc bên ngoài đó.
 
-Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và xuất sổ làm việc của nó. Nó đóng luồng đầu ra trước khi gán sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ, sau đó lưu bản trình chiếu đã liên kết.
+Ví dụ này tạo một biểu đồ tròn với dữ liệu mặc định và xuất sổ làm việc của nó. Nó đóng luồng xuất trước khi gán sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ, sau đó lưu bản trình bày đã liên kết.
 
 ```csharp
 using System.IO;
@@ -399,13 +399,13 @@ chart.ChartData.SetExternalWorkbook(workbookPath);
 presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-### **Đặt sổ làm việc bên ngoài**
+### **Đặt một sổ làm việc bên ngoài**
 
-Bằng cách sử dụng phương thức [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/), bạn có thể gán một sổ làm việc bên ngoài cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sổ làm việc bên ngoài (nếu nó đã được di chuyển).
+Bằng cách sử dụng phương thức [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/), bạn có thể gán một sổ làm việc bên ngoài cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sổ làm việc bên ngoài (nếu sổ làm việc đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm việc được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các sổ làm việc đó như một nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho sổ làm việc bên ngoài, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm việc lưu trữ ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các sổ làm việc đó làm nguồn dữ liệu bên ngoài. Nếu đường dẫn tương đối cho sổ làm việc bên ngoài được cung cấp, nó sẽ tự động được chuyển đổi thành đường dẫn đầy đủ.
 
-Ví dụ này sử dụng một sổ làm việc bên ngoài mà bảng tính có tên `Sheet1` chứa tên chuỗi ở B1, tên danh mục trong A2:A4 và các giá trị số trong B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết sổ làm việc, và sử dụng [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) để ánh xạ A1:B4 thành một chuỗi và ba danh mục. Nó lưu bản trình chiếu với biểu đồ đã được liên kết.
+Ví dụ này sử dụng một sổ làm việc bên ngoài có worksheet tên `Sheet1` chứa tên series trong B1, tên danh mục trong A2:A4, và giá trị số trong B2:B4. Ví dụ tạo một biểu đồ tròn, liên kết sổ làm việc, và sử dụng [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) để ánh xạ A1:B4 thành một series và ba danh mục. Nó lưu bản trình bày với biểu đồ đã liên kết.
 
 ```csharp
 using System.IO;
@@ -426,12 +426,12 @@ chartData.SetRange("Sheet1!$A$1:$B$4");
 presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-Tham số `updateChartData` của [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) kiểm soát việc sổ làm việc có được tải hay không.
+Tham số `updateChartData` của [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) kiểm soát việc có tải sổ làm việc hay không.
 
-* Khi `updateChartData` là `false`, chỉ đường dẫn sổ làm việc được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ sổ làm việc mục tiêu, vì vậy sổ làm việc có thể không khả dụng.
-* Khi `updateChartData` là `true`, dữ liệu biểu đồ được cập nhật từ sổ làm việc mục tiêu.
+* Khi `updateChartData` là `false`, chỉ đường dẫn sổ làm việc được cập nhật. Dữ liệu biểu đồ không được tải hoặc cập nhật từ sổ làm việc đích, vì vậy sổ làm việc có thể không có sẵn.
+* Khi `updateChartData` là `true`, dữ liệu biểu đồ được cập nhật từ sổ làm việc đích.
 
-Ví dụ sau gán một URL placeholder với `updateChartData` đặt thành `false`. Nó giữ nguyên dữ liệu mặc định của biểu đồ tròn và lưu bản trình chiếu mà không tải sổ làm việc không khả dụng.
+Ví dụ sau gán một URL placeholder với `updateChartData` đặt thành `false`. Nó giữ nguyên dữ liệu mặc định của biểu đồ tròn và lưu bản trình bày mà không tải sổ làm việc không khả dụng.
 
 ```csharp
 using Aspose.Slides;
@@ -449,9 +449,9 @@ presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx
 
 ### **Lấy đường dẫn sổ làm việc nguồn dữ liệu bên ngoài của một biểu đồ**
 
-Để xác định sổ làm việc được liên kết với một biểu đồ, kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu bên ngoài hay không và lấy đường dẫn sổ làm việc của nó.
+Để xác định sổ làm việc được liên kết với một biểu đồ, kiểm tra xem biểu đồ có sử dụng nguồn dữ liệu bên ngoài không và lấy đường dẫn sổ làm việc của nó.
 
-Ví dụ này kiểm tra hình dạng đầu tiên trên slide đầu tiên của một bản trình chiếu có sổ làm việc bên ngoài được liên kết. Nếu nó là một biểu đồ được liên kết với sổ làm việc bên ngoài, ví dụ sẽ in ra [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) trên console. Sau đó nó lưu một bản sao của bản trình chiếu.
+Ví dụ này kiểm tra hình dạng đầu tiên trên slide đầu tiên của một bản trình bày có sổ làm việc bên ngoài đã liên kết. Nếu đó là một biểu đồ được liên kết với sổ làm việc bên ngoài, ví dụ sẽ in ra [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) trên console. Sau đó nó lưu một bản sao của bản trình bày.
 
 ```csharp
 using System;
@@ -485,9 +485,9 @@ presentation.Save("Result.pptx", SaveFormat.Pptx);
 
 ### **Chỉnh sửa dữ liệu biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong các sổ làm việc bên ngoài theo cách bạn thay đổi nội dung của các sổ làm việc nội bộ. Khi một sổ làm việc bên ngoài không thể được tải, một ngoại lệ sẽ được ném ra.
+Bạn có thể chỉnh sửa dữ liệu trong các sổ làm việc bên ngoài tương tự như thay đổi nội dung của sổ làm việc nội bộ. Khi một sổ làm việc bên ngoài không thể được tải, một ngoại lệ sẽ được ném.
 
-Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và được liên kết với một sổ làm việc bên ngoài có thể truy cập được. Nó đặt giá trị dựa trên ô của điểm dữ liệu đầu tiên trong chuỗi đầu tiên thành 100 và lưu bản trình chiếu đã cập nhật. Việc chỉnh sửa giá trị ô có thể cập nhật tệp XLSX bên ngoài được liên kết, vì vậy hãy sử dụng một bản sao nếu bạn cần bảo toàn sổ làm việc gốc.
+Ví dụ này sử dụng một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và được liên kết với một sổ làm việc bên ngoài có thể truy cập. Nó đặt giá trị dựa trên ô của điểm dữ liệu đầu tiên trong series đầu tiên thành 100 và lưu bản trình bày đã cập nhật. Việc chỉnh sửa giá trị ô có thể cập nhật file XLSX bên ngoài được liên kết, vì vậy hãy sử dụng bản sao nếu bạn cần bảo lưu sổ làm việc gốc.
 
 ```csharp
 using System;
@@ -526,11 +526,11 @@ else
 }
 ```
 
-### **Khôi phục sổ làm việc từ bộ nhớ đệm biểu đồ**
+### **Khôi phục sổ làm việc từ bộ nhớ đệm của biểu đồ**
 
-Nếu một biểu đồ sử dụng một sổ làm việc bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sổ làm việc biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình chiếu. Tạo [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), cấu hình [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), và đặt [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) thành `true` trước khi mở bản trình chiếu.
+Nếu một biểu đồ sử dụng sổ làm việc bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sổ làm việc biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình bày. Tạo [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/), cấu hình [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/), và đặt [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) thành `true` trước khi mở bản trình bày.
 
-Ví dụ C# sau khôi phục dữ liệu sổ làm việc cho một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và tham chiếu một sổ làm việc bên ngoài không khả dụng. Nó truy cập dữ liệu đã khôi phục qua [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) và [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+Ví dụ C# sau đây khôi phục dữ liệu sổ làm việc cho một biểu đồ là hình dạng đầu tiên trên slide đầu tiên và tham chiếu đến một sổ làm việc bên ngoài không khả dụng. Nó truy cập dữ liệu đã khôi phục qua [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) và [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
 using System;
@@ -562,30 +562,30 @@ else
 }
 ```
 
-Nếu sổ làm việc bên ngoài không khả dụng và chế độ khôi phục bị tắt, Aspose.Slides sẽ ném ra [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã được lưu trong bộ nhớ đệm là một phương án chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi đã thực hiện trên sổ làm việc bên ngoài sau lần cập nhật cuối cùng của bản trình chiếu.
+Nếu sổ làm việc bên ngoài không khả dụng và chức năng khôi phục bị tắt, Aspose.Slides sẽ ném ra một [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception). Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã lưu trong bộ nhớ đệm là chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi đã thực hiện trên sổ làm việc bên ngoài sau khi bản trình bày được cập nhật lần cuối.
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể xác định liệu một biểu đồ cụ thể có liên kết tới sổ làm việc bên ngoài hay sổ làm việc nhúng không?**
+**Tôi có thể xác định xem một biểu đồ cụ thể có liên kết tới sổ làm việc bên ngoài hay sổ làm việc được nhúng không?**
 
-Có. Một biểu đồ có một [loại nguồn dữ liệu](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) và một [đường dẫn tới sổ làm việc bên ngoài](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); nếu nguồn là một sổ làm việc bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn một tệp bên ngoài đang được sử dụng.
+Có. Một biểu đồ có [loại nguồn dữ liệu](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) và một [đường dẫn tới sổ làm việc bên ngoài](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/); nếu nguồn là sổ làm việc bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
 
 **Các đường dẫn tương đối tới sổ làm việc bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình chiếu lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển sổ làm việc có thể yêu cầu cập nhật liên kết.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Bản trình bày lưu đường dẫn tuyệt đối trong tệp PPTX, vì vậy việc di chuyển sổ làm việc có thể yêu cầu cập nhật liên kết.
 
-**Tôi có thể sử dụng sổ làm việc nằm trên các tài nguyên/mạng chia sẻ không?**
+**Tôi có thể sử dụng sổ làm việc nằm trên tài nguyên/điểm chia sẻ mạng không?**
 
-Có, các sổ làm việc như vậy có thể được sử dụng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các sổ làm việc từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
+Có, các sổ làm việc như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các sổ làm việc từ xa bằng Aspose.Slides không được hỗ trợ—chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên tệp XLSX bên ngoài khi lưu bản trình chiếu không?**
+**Aspose.Slides có ghi đè lên file XLSX bên ngoài khi lưu bản trình bày không?**
 
-Bản trình chiếu lưu một [liên kết tới tệp bên ngoài](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật tệp XLSX cục bộ đã liên kết. Hãy sử dụng một bản sao của sổ làm việc nếu bản gốc phải giữ nguyên.
+Bản trình bày lưu một [liên kết tới file bên ngoài](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/). Việc chỉnh sửa dữ liệu biểu đồ dựa trên ô cũng có thể cập nhật file XLSX địa phương đã liên kết. Hãy sử dụng một bản sao của sổ làm việc nếu cần giữ nguyên bản gốc.
 
-**Tôi nên làm gì nếu tệp bên ngoài được bảo vệ bằng mật khẩu?**
+**Nếu file bên ngoài được bảo vệ bằng mật khẩu thì tôi nên làm gì?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách phổ biến là loại bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng cách sử dụng [Aspose.Cells](https://reference.aspose.com/cells/net/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Cách thường dùng là loại bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng [Aspose.Cells](https://reference.aspose.com/cells/net/)) và liên kết tới bản sao đó.
 
 **Nhiều biểu đồ có thể tham chiếu cùng một sổ làm việc bên ngoài không?**
 
-Có. Mỗi biểu đồ lưu liên kết của riêng nó. Nếu tất cả chúng trỏ tới cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong mỗi biểu đồ vào lần tiếp theo dữ liệu được tải.
+Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một file, việc cập nhật file đó sẽ được phản ánh trong mỗi biểu đồ vào lần kế tiếp dữ liệu được tải.

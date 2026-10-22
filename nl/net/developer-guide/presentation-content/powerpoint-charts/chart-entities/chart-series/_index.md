@@ -1,44 +1,86 @@
 ---
-title: Beheer grafiekgegevensreeksen in presentaties in .NET
+title: Beheer grafiekdatereeksen in presentaties in .NET
 linktitle: Gegevensreeksen
 type: docs
 url: /nl/net/chart-series/
 keywords:
-- grafiekreeksen
-- overlap van reeksen
-- kleur van reeks
-- kleur van categorie
+- grafiekreeks
+- reeks overlap
+- reeks kleur
+- categorie kleur
 - reeksnaam
 - datapunt
-- reeksafstand
+- reeks gat
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u grafiekreeksen, datapunt­en, werkboekcellen, opmaak, overlap, gapsbreedte en negatieve waarden in presentaties kunt beheren met C#."
+description: "Leer hoe u grafiekreeksen, datapunt, werkboekcellen, opmaak, overlap, gatbreedte en negatieve waarden in presentaties kunt beheren met C#."
 ---
 ## **Overzicht**
 
-Een grafiek slaat zijn weergegeven gegevens op in een grafiekdataboek. Een [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) vertegenwoordigt één set verwante waarden, en elk [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) in de serie verwijst naar één of meer werkboekcellen. [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/)‑objecten geven de labels of groeperingswaarden weer die door de series worden gedeeld. De serienaam, categorieën en puntwaarden zijn daarom gekoppeld aan [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/)‑objecten in plaats van alleen als weergavetekst opgeslagen te worden.
+Een grafiek kan zijn geplotte waarden opslaan in werkboekcellen of rechtstreeks als numerieke litteraals. Een [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) vertegenwoordigt één set gerelateerde waarden, en elk [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) vertegenwoordigt een punt in die reeks. [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/)‑objecten leveren de etiketten of groeperingswaarden die door de reeksen gedeeld worden. In grafieken die met standaarddata zijn gemaakt, gebruiken reeksenamen, categorieën en puntwaarden [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/)‑objecten uit het grafiek‑werkboek.
 
-Voor een typische categoriegrafiek gebruikt het standaardwerkboek rij 0 voor serienamen, kolom 0 voor categorienamen en de resterende cellen voor seriewaarden. Werkblad‑, rij‑ en kolom‑indexen die worden doorgegeven aan [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) zijn nul‑gebaseerd. Deze indeling is handig wanneer u een grafiek met standaardgegevens maakt, maar ga er niet vanuit dat elke bestaande grafiek deze indeling gebruikt. Voor een geladen presentatie inspecteert u de cellen waarnaar de series, categorieën en data‑punten verwijzen voordat u werkboekwaarden wijzigt.
+Voor een typische categoriëngrafiek gebruikt het standaardwerkboek rij 0 voor reeksenamen, kolom 0 voor categorienamen en de overige cellen voor reeksenwaarden. Werkblad‑, rij‑ en kolom‑indexen die aan [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) worden doorgegeven, zijn nul‑gebaseerd. Deze indeling is handig wanneer je een grafiek met standaarddata maakt, maar ga er niet van uit dat elke bestaande grafiek deze indeling gebruikt. Voor een geladen presentatie, inspecteer de cellen waarnaar de reeksen, categorieën en datapunten verwijzen voordat je werkboekwaarden wijzigt.
 
-Grafiekinstellingen hebben drie verschillende bereiken:
+Grafiekinstellingen hebben drie verschillende scopes:
 
-- Instellingen op serieniveau, zoals [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/), bieden de standaardweergave voor alle punten in één serie.  
-- Instellingen op datapuntniveau, zoals [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/), overschrijven de serie‑weergave voor één punt.  
-- Groepsinstellingen gelden voor compatibele series die tot dezelfde [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) behoren. Toegang tot de groep krijg je via [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) wanneer je opties zoals overlappen of gapsbreedte moet instellen.
+- Instellingen op reekseniveau, zoals [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/), leveren de standaardweergave voor alle punten in één reeks.
+- Instellingen per datapunt, zoals [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/), overschrijven de reeks‑weergave voor één punt.
+- Groepsinstellingen gelden voor compatibele reeksen die tot dezelfde [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) behoren. Toegang tot de groep verkrijg je via [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) wanneer je opties zoals overlap of gatbreedte moet instellen.
 
-Wanneer er geen expliciete vulling voor een punt of serie is ingesteld, bepalen de grafiekstijl en het thema het automatische uiterlijk. Wanneer zowel serie‑ als punt‑opmaak aanwezig zijn, heeft de punt‑opmaak voorrang voor dat punt.
+Wanneer geen expliciete punt‑ of reeks‑vulling is ingesteld, bepalen de grafiekstijl en het thema het automatische uiterlijk. Wanneer zowel reeks‑ als punt‑opmaak aanwezig zijn, heeft de punt‑opmaak voorrang voor dat punt.
 
-![grafiek‑reeks‑powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Instellen van de overlappende grafiekreeksen**
+## **Reekswaarden instellen met numerieke litteraals**
 
-[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) geeft aan hoeveel balken of kolommen overlappen in een 2D‑grafiek, van -100 tot 100 percent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende serie‑groep. Stel [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) in om elke compatibele serie in die groep bij te werken. Deze optie geldt voor grafiektypen die gegroepeerde balken of kolommen weergeven; hij heeft geen invloed op niet‑gerelateerde seriegroepen in een combinatiegrafiek.
+Gebruik numerieke litteraals wanneer reeksenwaarden afkomstig zijn uit toepassingsdata of berekeningen en geen verwijzingen naar werkbladcellen nodig hebben. Stel [DataSourceTypeForValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforvalues/) in op [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) vóór het toewijzen van elke punt‑[Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/value/) via [AsLiteralDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/idoublechartvalue/asliteraldouble/).
 
-Het volgende voorbeeld stelt de overlap in voor de groep die de eerste serie bevat:
+De collectiesetting bepaalt het brontype van alle puntwaarden in die reeks. Elke punt‑[Value.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ibasechartvalue/datasourcetype/) geeft het geselecteerde type weer; wijzig het via de collectiesetting. Met `Worksheet` gebruik je [AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/isinglecellchartvalue/ascell/) om de gerefereerde cel te benaderen. Met `DoubleLiterals` gebruik je `AsLiteralDouble` om het getal direct te lezen of te schrijven.
+
+Het volgende voorbeeld maakt een kolomgrafiek met standaardreeksen en -categorieën, en kent vervolgens berekende waarden 10, 20, enz. toe aan de bestaande punten van de eerste reeks. Het slaat de presentatie op, opent deze opnieuw en print de opgeslagen waarden.
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+var series = chart.ChartData.Series[0];
+
+series.DataPoints.DataSourceTypeForValues = DataSourceType.DoubleLiterals;
+for (var i = 0; i < series.DataPoints.Count; i++)
+{
+    series.DataPoints[i].Value.AsLiteralDouble = (i + 1) * 10;
+}
+
+presentation.Save("numeric_literals.pptx", SaveFormat.Pptx);
+
+using var reopenedPresentation = new Presentation("numeric_literals.pptx");
+var reopenedSlide = reopenedPresentation.Slides[0];
+var reopenedChart = (IChart)reopenedSlide.Shapes[0];
+var reopenedSeries = reopenedChart.ChartData.Series[0];
+foreach (var point in reopenedSeries.DataPoints)
+{
+    Console.WriteLine(point.Value.AsLiteralDouble);
+}
+```
+
+Het brontype van de puntwaarde staat los van [IChartData.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/datasourcetype/), dat de interne of externe werkboekconfiguratie van de grafiek identificeert. Het gebruik van numerieke litteraals verwijdert op zichzelf niet het ingebedde werkboek. In dit voorbeeld blijft het werkboek beschikbaar voor categorielabels, reeksenamen en de andere reeksen. Zie [Chart Workbook](/slides/nl/net/chart-workbook/) voor werkboekbeheer.
+
+Voor spreidings‑ en bubbelgrafieken stel je [DataSourceTypeForXValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforxvalues/) en [DataSourceTypeForYValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforyvalues/) in om de bronnen voor [XValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/xvalue/) en [YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/) te kiezen. Bubbelgrafieken gebruiken ook [DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforbubblesizes/) voor [BubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/bubblesize/). Stel elke toepasselijke bron in op `DoubleLiterals` vóór het toewijzen van getallen via de eigenschap `AsLiteralDouble` van die waarde.
+
+## **De overlap van de grafiekreeks instellen**
+
+[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) geeft aan hoeveel balken of kolommen overlappen in een 2D‑grafiek, van -100 tot 100 percent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende reeksgroep. Stel [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) in om elke compatibele reeks in die groep bij te werken. Deze optie geldt voor grafiektype­s die gegroepeerde balken of kolommen tonen; hij beïnvloedt geen niet‑gerelateerde reeksgroepen in een combinatietype.
+
+Het volgende voorbeeld stelt de overlap in voor de groep die de eerste reeks bevat:
 
 ```cs
 using Aspose.Slides;
@@ -61,15 +103,15 @@ series.ParentSeriesGroup.Overlap = overlapPercent;
 presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
-Het resultaat:
+Resultaat:
 
-![De reeksoverlap](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Wijzig de opvulkleur van de reeks**
+## **De vullingskleur van de reeks wijzigen**
 
-Gebruik [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) om de standaardvulling voor een gehele serie in te stellen. Als een punt al een expliciete vulling heeft, overschrijft de [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) instelling de serievulling voor dat punt.
+Gebruik [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) om de standaardvulling voor een volledige reeks in te stellen. Als een punt al een expliciete vulling heeft, overschrijft de [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/)‑instelling de reeksvulling voor dat punt.
 
-Het volgende voorbeeld past een effen blauwe vulling toe op de eerste serie:
+Het volgende voorbeeld past een effen blauwe vulling toe op de eerste reeks:
 
 ```cs
 using System.Drawing;
@@ -92,13 +134,13 @@ series.Format.Fill.SolidFillColor.Color = Color.Blue;
 presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
-Het resultaat:
+Resultaat:
 
-![De kleur van de reeks](series_color.png)
+![The color of the series](series_color.png)
 
-## **Wijzig de naam van de reeks**
+## **De reeksnaam wijzigen**
 
-Een serienaam wordt opgeslagen in het grafiekdataboek en normaal weergegeven in de legenda. In het standaardwerkboek dat voor een gegroepeerde kolomgrafiek wordt aangemaakt, bevindt cel B1 zich op rij 0, kolom 1 en bevat de naam van de eerste serie. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
+Een reeksennaam wordt opgeslagen in het grafiek‑datwerkboek en normaal weergegeven in de legenda. In het standaardwerkboek dat voor een gegroepeerde kolomgrafiek wordt aangemaakt, staat cel B1 op rij 0, kolom 1 en bevat zij de naam van de eerste reeks. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
 
 ```cs
 using Aspose.Slides;
@@ -122,7 +164,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-U kunt ook de cel bijwerken die al wordt gerefereerd door [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/). Deze aanpak voorkomt aannames over een specifieke rij en kolom in een bestaande grafiek:
+Je kunt ook de cel bijwerken waarnaar [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/) al verwijst. Deze aanpak vermijdt aannames over een bepaalde rij of kolom in een bestaande grafiek:
 
 ```cs
 using Aspose.Slides;
@@ -145,17 +187,17 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-Het resultaat:
+Resultaat:
 
-![De naam van de reeks](series_name.png)
+![The series name](series_name.png)
 
-### **Maak een reeks met een naam uit meerdere cellen**
+### **Een reeks maken met een naam uit meerdere cellen**
 
-Een samengestelde reeksennaam is nuttig wanneer een productnaam en een rapportageperiode in afzonderlijke werkboekcellen zijn opgeslagen. Bijvoorbeeld, u kunt `Product A` in B1 en `2026` in C1 samenvoegen tot één reeksennaam, terwijl beide delen gekoppeld blijven aan hun broncellen.
+Een samengestelde reeksennaam is nuttig wanneer een productnaam en een rapportageperiode in afzonderlijke werkboekcellen staan. Bijvoorbeeld kun je `Product A` in B1 en `2026` in C1 combineren tot één reeksennaam, terwijl beide delen gekoppeld blijven aan hun broncellen.
 
-Gebruik [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) om het naamgebied op te halen, en geef die collectie vervolgens door aan [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/). Het argument `skipHiddenCells` bepaalt of verborgen cellen worden meegenomen: `true` sluit ze uit, `false` neemt ze op. Dit voorbeeld gebruikt `false` om elke cel in het naamgebied op te nemen.
+Gebruik [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) om het naam‑bereik op te halen, en geef die collectie door aan [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/). Het argument `skipHiddenCells` bepaalt of verborgen cellen inbegrepen worden: `true` sluit ze uit, `false` neemt ze op. In dit voorbeeld wordt `false` gebruikt om elke cel in het naam‑bereik op te nemen.
 
-Het volgende voorbeeld maakt een presentatie met één serie en twee datapunt‑waarden. Cellen B1:C1 leveren alleen de reeksennaam; A2:A3 leveren de categorielabels, en B2:B3 leveren de numerieke waarden.
+Het volgende voorbeeld maakt een presentatie met één reeks en twee datapunten. Cellen B1:C1 leveren uitsluitend de reeksennaam; A2:A3 leveren de categorielabels, en B2:B3 leveren de numerieke waarden.
 
 ```cs
 using Aspose.Slides;
@@ -174,7 +216,7 @@ chart.HasLegend = true;
 var workbook = chart.ChartData.ChartDataWorkbook;
 workbook.Clear(0);
 
-// Deze twee cellen leveren de serienaam.
+// Deze twee cellen leveren de reeksnaam.
 workbook.GetCell(0, 0, 1, "Product A");
 workbook.GetCell(0, 0, 2, "2026");
 var nameCells = workbook.GetCellCollection("Sheet1!$B$1:$C$1", skipHiddenCells: false);
@@ -193,15 +235,15 @@ series.DataPoints.AddDataPointForBarSeries(southValue);
 presentation.Save("composite_series_name.pptx", SaveFormat.Pptx);
 ```
 
-De resulterende reeksennaam is `Product A 2026`, met een spatie tussen de twee celwaarden. De legenda toont dit als één item voor beide kolommen. De onderstaande afbeelding is gerenderd vanuit de opgeslagen presentatie:
+De resulterende reeksennaam is `Product A 2026`, met een spatie tussen de twee celwaarden. De legenda toont dit als één invoer voor beide kolommen. De afbeelding hieronder is gerenderd vanuit de opgeslagen presentatie:
 
-![Kolomgrafiek met Noord- en Zuidwaarden en de samengestelde reeksennaam Product A 2026 in de legenda](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Verkrijg de automatische opvulkleur van de reeks**
+## **De automatische vullingskleur van de reeks ophalen**
 
-[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) retourneert de kleur die wordt berekend op basis van de seriëindex en de grafiekstijl. Dit is de kleur die wordt gebruikt wanneer de serievulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; hij kent geen nieuwe vulling toe.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) retourneert de kleur die is berekend op basis van het reeks‑index en de grafiekstijl. Dit is de kleur die wordt gebruikt wanneer de reeksvulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; hij wijst geen nieuwe vulling toe.
 
-Het volgende voorbeeld drukt de automatische kleur van elke standaardreeks af:
+Het volgende voorbeeld print de automatische kleur van elke standaardreeks:
 
 ```cs
 using System;
@@ -234,11 +276,11 @@ Series 2: ff9bbb59
 
 De exacte kleuren hangen af van de grafiekstijl en het thema.
 
-## **Stel Inverteer de opvulkleur in voor een grafiekreeks**
+## **Inverted‑vullingkleur voor een grafiekreeks instellen**
 
-Voor balk‑, kolom‑ en bubbelreeksen kan [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) negatieve waarden met een andere vulling weergeven. Stel de reguliere serievulling in op effen, schakel inversie in, en wijs de negatieve‑waarde‑kleur toe via [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Negatieve getallen blijven ongewijzigd in het werkboek; alleen hun weergavekleur verandert.
+Voor balk‑, kolom‑ en bubbelreeksen kan [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) negatieve waarden weergeven met een andere vulling. Stel de gewone reeksvulling in op effen, schakel inversie in en wijs de negatieve‑waardekleur toe via [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Negatieve getallen blijven ongewijzigd in het werkboek; alleen hun weergavekleur verandert.
 
-Het volgende voorbeeld vervangt de standaardgrafiekgegevens door één serie. Werkbladrij 0 bevat de serienaam, kolom 0 bevat categorienamen, en kolom 1 bevat de waarden:
+Het volgende voorbeeld vervangt de standaardgrafiekdata door één reeks. Werkbladrij 0 bevat de reeksennaam, kolom 0 de categorienamen, en kolom 1 de waarden:
 
 ```cs
 using System.Drawing;
@@ -291,11 +333,11 @@ series.InvertedSolidFillColor.Color = Color.Red;
 presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
-Het resultaat:
+Resultaat:
 
-![De geïnverteerde solide opvulkleur](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-U kunt inversie voor één punt inschakelen via [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). In het volgende voorbeeld is inversie uitgeschakeld voor de serie en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt bovendien een negatieve waarde zodat het effect zichtbaar is:
+Je kunt inversie voor één punt inschakelen via [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). In het volgende voorbeeld wordt inversie uitgeschakeld voor de reeks en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt ook een negatieve waarde zodat het effect zichtbaar is:
 
 ```cs
 using System.Drawing;
@@ -327,11 +369,11 @@ dataPoint.InvertIfNegative = true;
 presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **Wis een specifieke datapuntwaarde**
+## **Een specifieke datapuntwaarde wissen**
 
-Om één punt leeg te maken zonder de andere punten te verwijderen, stelt u de onderliggende werkboekcel in op `null`. Voor een kolomgrafiek is de weergegeven waarde beschikbaar via [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). Het datapunt blijft op dezelfde categorielocatie staan, maar de grafiek behandelt zijn waarde als leeg volgens de instelling voor lege waarden van de grafiek.
+Om één punt leeg te maken zonder de andere punten te verwijderen, stel je de onderliggende werkboekcel in op `null`. Voor een kolomgrafiek is de geplotte waarde beschikbaar via [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). Het datapunt blijft op dezelfde categorielocatie, maar de grafiek behandelt de waarde als leeg volgens de instellingen voor lege waarden.
 
-Het volgende voorbeeld wist alleen het tweede punt in de eerste serie:
+Het volgende voorbeeld wist alleen het tweede punt in de eerste reeks:
 
 ```cs
 using Aspose.Slides;
@@ -354,17 +396,17 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-Spreiding‑grafieken gebruiken afzonderlijke X‑ en Y‑cellen, en bubbelgrafieken gebruiken daarnaast een groottecel. Wis alleen de cel die de waarde vertegenwoordigt die u wilt verwijderen. Roep [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) niet aan wanneer u de andere punten wilt behouden, want die methode verwijdert elk datapunt uit de collectie.
+Spreidingsgrafieken gebruiken aparte X‑ en Y‑cellen, en bubbelgrafieken gebruiken ook een groottecel. Wis alleen de cel die de waarde vertegenwoordigt die je wilt verwijderen. Roep [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) niet aan wanneer je de andere punten wilt behouden, want die methode verwijdert alle datapunt‑collecties.
 
-## **Regel de weergave van lege cellen**
+## **Weergave van lege cellen regelen**
 
-Verborgen cellen die waarden bevatten vormen een afzonderlijk geval ten opzichte van lege cellen. Zie voor het opnemen of uitsluiten van gegevens uit verborgen werkbladrijen en -kolommen [Include Data from Hidden Rows and Columns](/slides/nl/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Verborgen cellen die waarden bevatten vormen een apart geval ten opzichte van lege cellen. Om gegevens uit verborgen werkbladrijen en -kolommen wel of niet op te nemen, zie [Include Data from Hidden Rows and Columns](/slides/nl/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Een lege werkboekcel vertegenwoordigt ontbrekende gegevens; een cel met `0` vertegenwoordigt een bekende numerieke waarde. Stel [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) in op `null` om een cel leeg te maken. Een numeriek nul blijft een nul ongeacht de instelling voor lege cellen.
+Een lege werkboekcel vertegenwoordigt ontbrekende data; een cel met `0` vertegenwoordigt een bekende numerieke waarde. Stel [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) in op `null` om een cel leeg te maken. Een numerieke nul blijft een nul, ongeacht de instelling voor lege cellen.
 
-Gebruik [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) om te kiezen hoe de grafiek lege cellen weergeeft. Deze instelling geldt voor de hele grafiek. Ze verandert hoe lege waarden worden uitgezet, zonder de lege werkboekcel op nul of een geïnterpoleerde waarde te vullen.
+Gebruik [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) om te kiezen hoe de grafiek lege cellen weergeeft. Deze instelling geldt voor de hele grafiek. Hij verandert hoe lege waarden geplot worden, zonder de lege werkboekcel te vullen met nul of een geïnterpoleerde waarde.
 
-Het volgende zelfstandige voorbeeld maakt een lijngrafiek met één serie, wist de waarde voor Dag 3, en slaat dezelfde grafiek op met elke modus. Er is geen invoerbestand nodig. De [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) gebruikt werkblad 0, kolom 0 voor categorielabels, en kolom 1 voor waarden; rij 0 bevat de serienaam. De uiteindelijke gegevens zijn `10, 20, leeg, 30, 40`.
+Het volgende zelfstandige voorbeeld maakt een lijngrafiek met één reeks, wist de waarde voor Dag 3 en slaat dezelfde grafiek op met elk van de modi. Er is geen invoerbestand nodig. De [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) gebruikt werkblad 0, kolom 0 voor categorielabels, en kolom 1 voor waarden; rij 0 bevat de reeksennaam. De uiteindelijke data zijn `10, 20, empty, 30, 40`.
 
 ```cs
 using Aspose.Slides;
@@ -404,19 +446,19 @@ foreach (var mode in modes)
 }
 ```
 
-Elk uitvoerbestand bevat de modus die vóór het opslaan is toegewezen: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` en `empty_cells_Span.pptx`. Om slechts één versie op te slaan, stelt u de gewenste modus in en slaat u de presentatie eenmalig op in plaats van te itereren over de modi.
+Elk uitvoerbestand bevat de modus die vóór het opslaan is ingesteld: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` en `empty_cells_Span.pptx`. Om slechts één versie op te slaan, stel je de gewenste modus in en sla je de presentatie één keer op in plaats van over de modi te itereren.
 
-De vergelijking hieronder toont dezelfde gegevens in alle drie de bestanden. Dag 3 is in het werkboek in elk geval leeg:
+De onderstaande vergelijking toont dezelfde data in alle drie de bestanden. Dag 3 is in elk geval leeg in het werkboek:
 
-![Lijngrafieken met identieke gegevens: Gap onderbreekt de lijn op Dag 3, Zero brengt de lijn naar nul, en Span verbindt Dag 2 met Dag 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Het zichtbare effect hangt af van het grafiektype. Een lijngrafiek maakt alle drie de modi gemakkelijk vergelijkbaar. Balk‑ en kolomgrafieken hebben geen lijn om een ontbrekende categorie te verbinden, zodat `Span` de getoonde verbindingssegment niet kan produceren; een ontbrekende kolom en een nul‑hoogte kolom kunnen er ook vergelijkbaar uitzien. Evenzo heeft een spreidingsgrafiek met alleen markers geen verbindingslijn. Verwacht niet drie verschillende resultaten voor elk grafiektype; controleer de uitvoer voor het type dat u gebruikt.
+Het zichtbare effect hangt af van het grafiektype. Een lijngrafiek maakt alle drie de modi gemakkelijk vergelijkbaar. Balk‑ en kolomgrafieken hebben geen lijn om over een ontbrekende categorie heen te verbinden, waardoor `Span` niet het verbindingssegment kan produceren dat hierboven te zien is; een missende kolom en een kolom met nul hoogte kunnen er ook gelijk uitzien. Evenzo heeft een spreidingsgrafiek met alleen markers geen verbindingslijn. Verwacht niet dat elke grafiek drie duidelijke resultaten oplevert; controleer de output voor het type dat je gebruikt.
 
-## **Instellen van de gapsbreedte van de reeks**
+## **De gatbreedte van de reeks instellen**
 
-Gapsbreedte is de ruimte tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de breedte van de balk of kolom. Net als overlap behoort deze instelling tot de bovenliggende serie‑groep en niet tot één serie. Stel [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) één keer in voor de groep. Een grotere waarde creëert meer ruimte tussen clusters; een kleinere waarde maakt ze dichter.
+Gatbreedte is de ruimte tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de balk‑ of kolombreedte. Net als overlap behoort het tot de bovenliggende reeksgroep en niet tot één enkele reeks. Stel [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) eenmalig in voor de groep. Een grotere waarde creëert meer ruimte tussen de clusters; een kleinere waarde maakt ze dichter opeen.
 
-Het volgende voorbeeld wijzigt de gapsbreedte en slaat alleen de uiteindelijke presentatie op:
+Het volgende voorbeeld wijzigt de gatbreedte en slaat alleen de uiteindelijke presentatie op:
 
 ```cs
 using Aspose.Slides;
@@ -438,48 +480,48 @@ series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
-Het resultaat:
+Resultaat:
 
-![De gapsbreedte](gap_width.png)
+![The gap width](gap_width.png)
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Welke grafiektype ondersteunen gegevensreeksen?**
+**Welke grafiektype­s ondersteunen datreeksen?**
 
-Alle grafiektype die door de [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)‑enumeratie worden weergegeven, gebruiken grafiekgegevens, maar hun series hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categoriegrafieken gebruiken categorieën en waarden, spreidingsgrafieken gebruiken X‑ en Y‑waarden, en bubbelgrafieken voegen bubbelgroottes toe. Gebruik de datapunt‑creatiemethode die overeenkomt met het serietype. Opties zoals overlappen en gapsbreedte gelden alleen voor compatibele balk‑ of kolomgroepen.
+Alle grafiektype­s die door de [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)‑enumeratie worden vertegenwoordigd, gebruiken grafiekdata, maar hun reeksen hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld categoriëngrafieken gebruiken categorieën en waarden, spreidingsgrafieken gebruiken X‑ en Y‑waarden, en bubbelgrafieken voegen bubbelgroottes toe. Gebruik de datapuntcreatiemethode die past bij het type reeks. Opties zoals overlap en gatbreedte gelden alleen voor compatibele balk‑ of kolomgroepen.
 
 **Wat is een grafiekreeks‑groep?**
 
-Een [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) bevat compatibele series die groeps‑niveau plotinstellingen delen. Een combinatiegrafiek kan meer dan één groep bevatten, zodat het wijzigen van de groep die via één serie wordt bereikt niet per­ se alle series in de grafiek wijzigt.
+Een [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) bevat compatibele reeksen die groeps‑niveau‑plotinstellingen delen. Een combinatietype kan meer dan één groep bevatten, dus het wijzigen van de groep die via één reeks wordt bereikt, verandert niet per se elke reeks in de grafiek.
 
-**Bevat een nieuw aangemaakte grafiek standaardgegevens?**
+**Bevat een nieuw aangemaakte grafiek standaarddata?**
 
-Ja. Standaard maakt [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) voorbeeldseries, -categorieën en -waarden aan. U kunt die cellen bewerken of zowel de serie‑ als de categorieverzamelingen wissen voordat u een volledig aangepaste dataset toevoegt. Een overload kan ook een grafiek zonder standaardgegevens maken.
+Ja. Standaard maakt [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) voorbeeldreeksen, -categorieën en -waarden aan. Je kunt die cellen bewerken of zowel de reeksen‑ als de categorieverzamelingen wissen voordat je een volledig aangepaste dataset toevoegt. Een overload kan ook een grafiek zonder standaarddata maken.
 
-**Hoe zijn grafiekobjecten gekoppeld aan werkboekcellen?**
+**Hoe zijn grafiekobjecten verbonden met werkboekcellen?**
 
-Serienamen, categorielabels en datapuntwaarden refereren aan cellen in een [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/). Het wijzigen van een gerefereerde cel werkt het overeenkomstige grafiekelement bij. Wanneer u aangepaste gegevens bouwt, houdt u de categorie‑rijen en serie‑waarde‑rijen op één lijn zodat elk punt onder de juiste categorie wordt uitgezet.
+Reeksenamen, categorielabels en datapuntwaarden refereren naar cellen in een [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/). Het wijzigen van een gerefereerde cel werkt het overeenkomstige grafiekelement bij. Wanneer je aangepaste data maakt, houd dan de rijen voor categorieën en de rijen voor reeks‑waarden op één lijn zodat elk punt onder de juiste categorie geplot wordt.
 
-**Hoe wis ik één punt in plaats van de hele serie?**
+**Hoe wis ik één punt in plaats van de hele reeks?**
 
-Stel de betreffende waarde‑cel in op `null` om de positie van het punt in de categorie behouden als een leeg punt. Gebruik [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) alleen wanneer u alle punten van die serie wilt verwijderen. Als u ook categorieën verwijdert, update dan elke serie zodat hun waarden blijven overeenkomen met de categorieverzameling.
+Stel de relevante waardecel in op `null` om de punt‑categoriepositie te behouden als een leeg punt. Gebruik [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) alleen wanneer je alle punten uit die reeks wilt verwijderen. Als je ook categorieën verwijdert, werk je elke reeks bij zodat hun waarden op één lijn blijven met de categorieverzameling.
 
 **Hoe worden lege punten weergegeven?**
 
-Het resultaat hangt af van het grafiektype en van [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/). Ondersteunde grafieken kunnen lege waarden weergeven als gaten, als nul‑waarden, of door aangrenzende punten te verbinden. Kies de instelling die past bij de betekenis van ontbrekende data in uw presentatie. Zie [Regel de weergave van lege cellen](#regel-de-weergave-van-lege-cellen) voor een volledig voorbeeld en visuele vergelijking.
+Het resultaat hangt af van het grafiektype en [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/). Ondersteunde grafieken kunnen lege waarden weergeven als gaten, als nulwaardes, of door naburige punten te verbinden. Kies de instelling die past bij de betekenis van ontbrekende data in je presentatie. Zie [Control the Display of Empty Cells](#control-the-display-of-empty-cells) voor een volledig voorbeeld en visuele vergelijking.
 
 **Hoe worden negatieve waarden opgemaakt?**
 
-Voor ondersteunde balk‑, kolom‑ en bubbelreeksen schakelt u [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) in en stelt u [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) in. U kunt het gedrag voor een individueel punt overschrijven met [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Deze eigenschappen beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
+Voor ondersteunde balk‑, kolom‑ en bubbelreeksen kun je [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) inschakelen en [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) instellen. Je kunt het gedrag voor een individueel punt overschrijven met [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Deze eigenschappen beïnvloeden alleen de opmaak, niet de opgeslagen getallen.
 
-**Welke opmaak heeft voorrang wanneer zowel een serie als een punt zijn opgemaakt?**
+**Welke opmaak wint wanneer zowel een reeks als een punt zijn opgemaakt?**
 
-Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete serie‑opmaak gebruiken of, wanneer de serie‑opmaak niet is gedefinieerd, de automatische grafiekstijl en het thema. Groeps‑eigenschappen zoals overlappen en gapsbreedte regelen de lay‑out en zijn geen punt‑niveau opmaak‑overschrijvingen.
+Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete reeks‑opmaak gebruiken of, wanneer de reeks‑opmaak niet is gedefinieerd, de automatische grafiekstijl en thema. Groepseigenschappen zoals overlap en gatbreedte regelen de lay‑out en zijn geen punt‑niveau‑opmaakoverschrijvingen.
 
-**Is er een limiet aan het aantal series dat een grafiek kan bevatten?**
+**Is er een limiet aan het aantal reeksen dat een grafiek kan bevatten?**
 
-Aspose.Slides legt geen aparte vaste limiet op voor het aantal series. In de praktijk bepalen de beperkingen van het presentatie‑bestand, beschikbaar geheugen, render‑tijd en de leesbaarheid van de grafiek een praktische limiet.
+Aspose.Slides legt geen aparte vaste limiet op het aantal reeksen. In de praktijk bepalen bestands‑beperkingen, beschikbaar geheugen, render‑tijd en leesbaarheid van de grafiek een nuttige grens.
 
-**Wat moet ik aanpassen wanneer kolommen te dicht bij elkaar of te ver uit elkaar staan?**
+**Wat moet ik aanpassen wanneer kolommen te dicht of te ver van elkaar staan?**
 
-Stel [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) in op de betreffende bovenliggende serie‑groep. Verhoog de waarde om de ruimte tussen clusters te vergroten, of verlaag hem om de clusters dichter bij elkaar te brengen.
+Stel [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) in op de juiste bovenliggende reeksgroep. Verhoog de waarde om de ruimte tussen de clusters te vergroten, of verlaag de waarde om de clusters dichter bij elkaar te brengen.

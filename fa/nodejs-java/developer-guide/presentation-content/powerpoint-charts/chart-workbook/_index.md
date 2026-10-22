@@ -1,50 +1,50 @@
 ---
-title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها با استفاده از JavaScript
-linktitle: کتاب‌کار نمودار
+title: مدیریت کارنامه‌های نمودار در ارائه‌ها با استفاده از JavaScript
+linktitle: کارنامه نمودار
 type: docs
 weight: 70
 url: /fa/nodejs-java/chart-workbook/
 keywords:
-- کتاب‌کار نمودار
-- داده‌های نمودار
-- سلول کتاب‌کار
+- کارنامه نمودار
+- داده نمودار
+- سلول کارنامه
 - برچسب داده
-- کاربرگ
+- برگه کاری
 - منبع داده
-- کتاب‌کار خارجی
+- کارنامه خارجی
 - داده خارجی
 - کش نمودار
-- بازیابی کتاب‌کار
-- PowerPoint
+- بازیابی کارنامه
+- پاورپوینت
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides برای Node.js از طریق Java را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
+description: "Aspose.Slides برای Node.js از طریق Java را کشف کنید: به‌راحتی کارنامه‌های نمودار را در قالب‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
 ---
 ## **نمای کلی**
 
-این مقاله توضیح می‌دهد چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار بخوانید و بنویسید، از سلول‌های کتاب‌کار به عنوان برچسب داده‌های نمودار استفاده کنید، به مجموعه‌های کاربرگ دسترسی داشته باشید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
+این مقاله نحوه کار با کارنامه‌های نمودار در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کارنامه بخوانید و بنویسید، از سلول‌های کارنامه به عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های برگه‌ها دسترسی پیدا کنید و نوع منبع داده برای مقادیر نمودار را تعیین کنید.
 
-همچنین کار با کتاب‌کارهای خارجی به عنوان منابع دادهٔ نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص داده شوند، مسیر کتاب‌کار خارجی پیوست‌شده به یک نمودار را بازیابی کنید و داده‌های نمودار را زمانی که کتاب‌کار در دسترس است، ویرایش کنید.
+همچنین کار با کارنامه‌های خارجی به‌عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کارنامه خارجی ایجاد و اختصاص دهید، مسیر یک کارنامه خارجی پیوند داده شده به نمودار را بازیابی کنید و داده‌های نمودار را زمانی که کارنامه در دسترس است ویرایش کنید.
 
-برای سلول‌های کتاب‌کاری که نشان‌دهندهٔ داده‌های گمشده هستند، به مقاله [Control the Display of Empty Cells](/slides/fa/nodejs-java/chart-series/) برای تفاوت بین یک سلول خالی و صفر و مقایسهٔ نمودار خطی بین حالت‌های نمایش موجود مراجعه کنید.
+برای سلول‌های کارنامه که داده‌های مفقودی را نشان می‌دهند، به [کنترل نمایش سلول‌های خالی](/slides/fa/nodejs-java/chart-series/) مراجعه کنید تا تفاوت بین سلول خالی و صفر و مقایسهٔ نمودار خطی حالت‌های نمایش موجود را ببینید.
 
-## **شامل کردن داده‌ها از ردیف‌ها و ستون‌های مخفی**
+## **شمول داده‌ها از سطرها و ستون‌های مخفی**
 
-از [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) برای کنترل این‌که آیا یک نمودار داده‌ها را فقط از سلول‌های قابل مشاهده کاربرگ رسم کند استفاده کنید. مقدار `true` فقط سلول‌های قابل مشاهده را رسم می‌کند، در حالی که `false` هم سلول‌های قابل مشاهده و هم مخفی را شامل می‌شود. این تنظیم فقط نمودار را تحت تأثیر قرار می‌دهد؛ ردیف‌ها یا ستون‌های کاربرگ را مخفی یا آشکار نمی‌کند.
+از [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) برای کنترل اینکه آیا یک نمودار فقط داده‌های سلول‌های مرئی برگه را ترسیم می‌کند یا نه استفاده کنید. مقدار `true` فقط سلول‌های مرئی را ترسیم می‌کند و مقدار `false` هر دو سلول مرئی و مخفی را شامل می‌شود. این تنظیم فقط ترسیم نمودار را کنترل می‌کند؛ سطرها یا ستون‌های برگه را مخفی یا نمایان نمی‌کند.
 
-[نمونهٔ ارائه](hidden-source-data.pptx) شامل یک نمودار ستونی به عنوان اولین شکل در اسلاید اول است. کاربرگ توکار، `Sheet1`، بازهٔ منبع زیر را دارد: `A1:C4`. ردیف 3 و ستون C مخفی هستند، اما سلول‌های آن‌ها هنوز دارای مقادیر هستند.
+[ارائه نمونه](hidden-source-data.pptx) شامل یک نمودار ستونی به‌عنوان اولین شکل در اولین اسلاید است. برگهٔ جاسازی‌شده، `Sheet1`، دامنهٔ منبع `A1:C4` را دارد. سطر 3 و ستون C مخفی هستند، اما سلول‌های آن‌ها هنوز مقدار دارند.
 
-| سطر کاربرگ | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون مخفی) |
+| سطر برگه | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون مخفی) |
 | --- | --- | --- | --- |
 | 2 | ژانویه | 10 | 30 |
-| 3 (hidden row) | فوریه | 40 | 60 |
+| 3 (سطر مخفی) | فوریه | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-به سلول‌های منبع از طریق [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) دسترسی پیدا کنید و با [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) وضعیت مخفی بودن آن‌ها را بررسی کنید. این روش وضعیت مخفی بودن را بدون تغییر آن گزارش می‌دهد. در این فایل، B2 قابل مشاهده است، B3 متعلق به ردیف مخفی است و C2 متعلق به ستون مخفی؛ مثال به ترتیب `false`، `true` و `true` را چاپ می‌کند.
+دسترسی به سلول‌های منبع از طریق [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) و خواندن [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) برای بررسی وضعیت مخفی بودن آن‌ها. این روش وضعیت مخفی را بدون تغییر آن گزارش می‌دهد. در این فایل، B2 مرئی است، B3 متعلق به سطر مخفی و C2 متعلق به ستون مخفی؛ مثال به ترتیب `false`، `true` و `true` را چاپ می‌کند.
 
-برای این مثال، پس از تغییر تنظیم رسم، داده‌های نمودار را تازه کنید: کتاب‌کار توکار را با [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) نگه دارید و با [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) دوباره بارگذاری کنید. هنگام شامل کردن تمام سلول‌ها، از [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) برای بازگرداندن بازهٔ کامل، شامل دستهٔ مخفی فوریه، استفاده کنید. فقط تغییر پرچم کافی نیست تا داده‌های کش‌شدهٔ مثال تازه شوند. مثال بافر Node.js را به آرایهٔ بایت Java تبدیل می‌کند قبل از اینکه به متد نوشتن پاس بدهد.
+برای این مثال، پس از تغییر تنظیم ترسیم، داده‌های نمودار را تازه کنید: کارنامهٔ جاسازی‌شده را با [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) نگه داشته و با [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) دوباره بارگذاری کنید. هنگام شامل‌کردن همه سلول‌ها، از [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) نیز برای بازگرداندن دامنهٔ کامل، شامل دستهٔ مخفی فوریه، استفاده کنید؛ فقط تغییر پرچم کافی نیست تا داده‌های کش‌شدهٔ نمونهٔ این نمونه تجدید شود. مثال قبل از فراخوانی متد نوشتن، بافر Node.js را به آرایهٔ بایت جاوا تبدیل می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -68,10 +68,10 @@ try {
         for (const visibleOnly of [true, false]) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // داده‌های نمودار را از کتاب‌کار توکار تازه کنید.
+            // داده‌های نمودار را از کارنامهٔ جاسازی‌شده تازه کنید.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // بازهٔ منبع کامل را بازگردانید، از جمله دسته‌های مخفی.
+                // دامنهٔ منبع کامل را بازگردانید، شامل دسته‌های مخفی.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -85,21 +85,21 @@ try {
 }
 ```
 
-این مثال دو نسخه از ارائه را ذخیره می‌کند: یکی فقط مقادیر قابل مشاهدهٔ خرده‌فروشی (10 و 20) و دیگری تمام شش مقدار. تصاویر زیر دو حالت رسم را نشان می‌دهند. ردیف 3 و ستون C در هر دو کتاب‌کار توکار مخفی می‌مانند.
+مثال دو نسخهٔ ارائه را ذخیره می‌کند: یکی فقط مقادیر خرده‌فروشی مرئی (10 و 20) و دیگری تمام شش مقدار. تصاویر زیر دو حالت ترسیم را نشان می‌دهند. سطر 3 و ستون C در هر دو کارنامهٔ جاسازی‌شده مخفی می‌مانند.
 
-| فقط سلول‌های قابل مشاهده (`true`) | تمام سلول‌ها (`false`) |
+| فقط سلول‌های مرئی (`true`) | همه سلول‌ها (`false`) |
 | --- | --- |
 | ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-یک سلول مخفی که دارای مقدار است متفاوت از یک سلول خالی است. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) تعیین می‌کند مقادیر گمشده چگونه نمایش داده شوند؛ این روش داده‌های منبع مخفی را شامل یا حذف نمی‌کند. برای مثال به [Control the Display of Empty Cells](/slides/fa/nodejs-java/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
+یک سلول مخفی که مقدار دارد متفاوت از یک سلول خالی است. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) کنترل می‌کند مقادیر مفقود چگونه نمایش داده شوند؛ این تنظیم شامل یا حذف دادهٔ منبع مخفی را انجام نمی‌دهد. برای مثال به [کنترل نمایش سلول‌های خالی](/slides/fa/nodejs-java/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
 
-## **بازیابی بازهٔ دادهٔ یک نمودار**
+## **بازیابی دامنهٔ دادهٔ یک نمودار**
 
-قبل از به‌روزرسانی داده‌های کتاب‌کار در یک ارائهٔ موجود، بازه‌های منبع را بررسی کنید تا مشخص کنید هر نمودار از چه سلول‌های کاربرگی استفاده می‌کند. متد [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) بازهٔ دادهٔ فعلی را به عنوان یک فرمول مختص کاربرگ، مانند `Sheet1!$A$1:$D$5`، برمی‌گرداند. در اینجا `Sheet1` نام کاربرگ است، `!` آن را از بازهٔ سلولی جدا می‌کند و `$A$1:$D$5` سلول‌های A1 تا D5 را شامل می‌شود. علامت دلار مرجع سطر و ستون مطلق را نشان می‌دهد.
+قبل از به‌روزرسانی داده‌های کارنامه در یک ارائهٔ موجود، دامنه‌های منبع را بررسی کنید تا بفهمید هر نمودار از کدام سلول‌های برگه استفاده می‌کند. متد [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) دامنهٔ دادهٔ فعلی را به‌صورت فرمولی با مشخصات برگه، مانند `Sheet1!$A$1:$D$5` برمی‌گرداند. در اینجا، `Sheet1` نام برگه است، `!` آن را از دامنهٔ سلول‌ها جدا می‌کند و `$A$1:$D$5` سلول‌های A1 تا D5 را شامل می‌شود. علامت دلار نشانگر مراجع مطلق سطر و ستون است.
 
-این متد بدون تغییر نمودار یا کتاب‌کار آن، بازهٔ فعلی را می‌خواند. اگر نمودار از کتاب‌کار به عنوان منبع داده استفاده نکند، `InvalidOperationException` پرتاب می‌شود. برای اطلاعات بیشتر به [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) مراجعه کنید.
+این متد دامنهٔ فعلی را بدون تغییر نمودار یا کارنامه می‌خواند. اگر نمودار کارنامه‌ای به‌عنوان منبع داده نداشته باشد، `InvalidOperationException` پرتاب می‌کند. برای جزئیات بیشتر، به [مرجع API ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) مراجعه کنید.
 
-این مثال یک ارائه را باز می‌کند و شکل‌های موجود در هر اسلاید را برای یافتن نمودارها بررسی می‌کند. نام هر نمودار و بازهٔ منبع را چاپ می‌کند. اگر نمودار از کتاب‌کار استفاده نکند، پیام مربوطه را چاپ کرده و به نمودار بعدی می‌رود.
+این مثال ارائه‌ای را باز می‌کند و شکل‌های هر اسلاید را برای یافتن نمودارها بررسی می‌کند. نام هر نمودار و دامنهٔ منبع آن را چاپ می‌کند. اگر نموداری کارنامهٔ خارجی نداشته باشد، پیامی چاپ می‌کند و به نمودار بعدی می‌رود.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -131,11 +131,11 @@ try {
 }
 ```
 
-## **خواندن و نوشتن دادهٔ نمودار از یک کتاب‌کار**
+## **خواندن و نوشتن دادهٔ نمودار از کارنامه**
 
-Aspose.Slides for Node.js via Java متدهای [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) و [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) را فراهم می‌کند که به شما امکان می‌دهد کتاب‌کارهای دادهٔ نمودار (حاوی داده‌های ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **توجه** داشته باشید که داده‌های نمودار باید به همان صورت سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+Aspose.Slides for Node.js via Java متدهای [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) و [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) را ارائه می‌دهد که امکان خواندن و نوشتن کارنامه‌های دادهٔ نمودار (شامل داده‌های ویرایش‌شده با Aspose.Cells) را می‌دهد. **توجه** داشته باشید که دادهٔ نمودار باید به همان شکل سازماندهی شده باشد یا ساختاری مشابه منبع داشته باشد.
 
-این مثال از یک ارائه با یک نمودار به عنوان اولین شکل در اسلاید اول استفاده می‌کند. کتاب‌کار توکار را به یک آرایهٔ بایت می‌خواند، مجموعهٔ سری‌ها و دسته‌ها را پاک می‌کند و همان کتاب‌کار را باز می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال ارائه را ذخیره نمی‌کند.
+این مثال ارائه‌ای با یک نمودار به‌عنوان اولین شکل در اولین اسلاید دارد. کارنامهٔ جاسازی‌شده را به آرایهٔ بایت می‌خواند، سری‌ها و دسته‌های موجود را پاک می‌کند و همان کارنامه را دوباره می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال ارائه را ذخیره نمی‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-### **اعتبارسنجی چیدمان نمودار پس از اصلاح کتاب‌کار**
+### **اعتبارسنجی چیدمان نمودار پس از تغییر کارنامه**
 
-هنگامی که یک کتاب‌کار توکار را با یک کتاب‌کار اصلاح‌شده جایگزین می‌کنید، نمودار مجموعهٔ سری‌ها و دسته‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شکست [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) با خطای «index‑out‑of‑range» شود. پیش از نوشتن کتاب‌کار به‌روز‌شده، سری‌ها و دسته‌های موجود را پاک کنید. این مثال از یک نمودار که اولین شکل در اسلاید اول است استفاده می‌کند. نظرات نشان می‌دهند که در اینجا ویرایش کتاب‌کار انجام می‌شود؛ مثال قابل اجرا کتاب‌کار اصلی را باز می‌نویسد و چیدمان را در حافظه اعتبارسنجی می‌کند.
+هنگامی که کارنامهٔ جاسازی‌شده با یک کارنامهٔ اصلاح‌شده جایگزین می‌شود، نمودار مجموعهٔ سری‌ها و دسته‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شکست [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) با خطای «index‑out‑of‑range» شود. قبل از نوشتن کارنامهٔ به‌روزشده، سری‌ها و دسته‌های موجود را پاک کنید. این مثال از یک نموداری استفاده می‌کند که اولین شکل در اولین اسلاید است. نظرات مکان‌هایی را نشان می‌دهند که در آن‌ها ویرایش کارنامه انجام می‌شود؛ مثال اجرایی کارنامهٔ اصلی را دوباره می‌نویسد و چیدمان را در حافظه اعتبارسنجی می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // در اینجا بایت‌های کتاب‌کار را تغییر دهید، به عنوان مثال با استفاده از Aspose.Cells.
+        // در اینجا بایت‌های کارنامه را تغییر دهید، برای مثال با استفاده از Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -200,15 +200,15 @@ try {
 }
 ```
 
-پاک‌سازی مجموعه‌ها قبل از نوشتن کتاب‌کار، ارجاعات داده‌های منسوخ را حذف می‌کند. پیش از استفاده از نمودار، هر سری و نگاشت دستهٔ لازم برای کتاب‌کار به‌روز‌شده را بازسازی کنید.
+پاک‌سازی مجموعه‌ها قبل از نوشتن کارنامه، ارجاعات دادهٔ منسوخ را حذف می‌کند. پیش از استفاده از نمودار، هر سری و نگاشت دستهٔ مورد نیاز برای کارنامهٔ به‌روزشده را بازسازی کنید.
 
-## **تنظیم قالب‌های عددی سفارشی برای سلول‌های کتاب‌کار**
+## **تنظیم قالب عددی سفارشی برای سلول‌های کارنامه**
 
-از [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) برای کنترل نحوهٔ نمایش مقادیر عددی در کتاب‌کار توکار یک نمودار استفاده کنید. به عنوان مثال، ممکن است گزارشی نیاز داشته باشد نرخ تبدیل به صورت درصد با چهار رقم اعشار و یک ضریب با پنج رقم اعشار نمایش داده شود. هر دو مقدار را عددی نگه دارید تا برای محاسبات و رسم نمودار در دسترس باشند.
+از [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) برای کنترل نحوه نمایش مقادیر عددی در کارنامهٔ جاسازی‌شدهٔ نمودار استفاده کنید. به‌عنوان مثال، ممکن است گزارش به نرخ تبدیل به‌صورت درصد با چهار رقم اعشار و ضریب با پنج رقم اعشار نیاز داشته باشد. هر دو مقدار را عددی نگه دارید تا برای محاسبات و ترسیم نمودار در دسترس باشند.
 
-یک قالب عددی نمایش را تغییر می‌دهد، نه مقدار ذخیره‌شده. قالب `0.0000%` عدد `0.125` را به عنوان `12.5000%` نمایش می‌دهد؛ عدد ذخیره‌شده همچنان `0.125` است. به‌طور مشابه، `0.00000` عدد `0.1234567` را به `0.12346` گرد می‌کند بدون اینکه مقدار ذخیره‌شده را تغییر دهد. اگر قالب سفارشی رشتهٔ خالی (`""`) باشد، قالبی که توسط [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) برمی‌گردد به‌کار می‌رود.
+قالب عددی فقط نمایش را تغییر می‌دهد، نه مقدار ذخیره‌شده. قالب `0.0000%` مقدار `0.125` را به‌صورت `12.5000%` نمایش می‌دهد؛ عدد ذخیره‌شده به `12.5` تبدیل نمی‌شود. به‌ همین ترتیب، `0.00000` عدد `0.1234567` را به‌صورت `0.12346` نشان می‌دهد بدون این‌که مقدار ذخیره‌شده را گرد کند. اگر قالب سفارشی یک رشتهٔ خالی (`""`) باشد، قالبی که توسط [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) برگردانده می‌شود استفاده می‌شود.
 
-مثال زیر یک نمودار ستونی ایجاد می‌کند و سلول‌های آن را از طریق [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) دسترسی می‌دهد. در کاربرگ 0، B2 نرخ تبدیل و C2 ضریب را دارد. هر دو سلول مقدارهای نمودار را فراهم می‌کنند. مثال همچنین برچسب‌های مقدار را که به قالب‌های منبع پیوند دارند فعال می‌کند.
+مثال زیر یک نمودار ستونی ایجاد می‌کند و سلول‌های آن را از طریق [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) دسترسی می‌یابد. در برگهٔ 0، B2 حاوی نرخ تبدیل و C2 حاوی ضریب است. هر دو سلول مقادیر نمودار را فراهم می‌کنند. مثال همچنین برچسب‌های مقداری را که به قالب‌های منبع مرتبط هستند فعال می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -260,19 +260,19 @@ try {
 }
 ```
 
-قالب‌های سلول کتاب‌کار مستقل از قالب‌های مستقیماً روی محورهای نمودار یا برچسب‌های داده تنظیم شده‌اند. در این مثال، هر برچسب مقدار سلول منبع خود را نمایش می‌دهد زیرا [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) برابر `true` است و به دلیل تنظیم [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) برابر `true`، قالب عددی منبع را دنبال می‌کند. پس از ذخیره و بازگشای ارائه، برچسب‌ها `12.5000%` و `0.12346` را نشان می‌دهند، همان‌طور که در زیر مشاهده می‌شود. محور عمودی قالب عددی خود را دارد که با [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) به `0.00` تنظیم شده است و [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) برابر `false` است.
+قالب‌های سلول کارنامه جدا از قالب‌های تنظیم‌شده مستقیم بر محورهای نمودار یا برچسب‌های داده‌اند. در این مثال، هر برچسب مقدار سلول منبع خود را نشان می‌دهد چون [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) برابر `true` است و به دلیل تنظیم [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) برابر `true`، قالب عددی منبع را دنبال می‌کند. پس از ذخیره و بازگشای ارائه، برچسب‌ها `12.5000%` و `0.12346` را نمایش می‌دهند، همان‌طور که در زیر نشان داده شده است. محور عمودی قالب عددی خود را دارد؛ با [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) به `0.00` تنظیم شده و [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) برابر `false` است.
 
-برای قالب‌بندی مستقل یک برچسب داده، پرچم پیوند به منبع را به `false` تنظیم کنید و با [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) قالبی اختصاص دهید. این کار قالب سلول کتاب‌کار را تغییر نمی‌دهد. برای مثال، قالب مستقل `0.00` اولین مقدار را به `0.13` نمایش می‌دهد در حالی که B2 همچنان `12.5000%` را نشان می‌دهد. برای جزئیات بیشتر به [Chart Data Labels](/slides/fa/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) مراجعه کنید.
+برای قالب‌بندی مستقل یک برچسب داده، پرچم پیوند به منبع آن را به `false` تنظیم کنید و با [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) قالبی اختصاص دهید. این کار قالب سلول کارنامه را تغییر نمی‌دهد. به‌عنوان مثال، قالب مستقل `0.00` اولین مقدار را به `0.13` نمایش می‌دهد، در حالی که B2 هنوز `12.5000%` را نشان می‌دهد. برای قالب‌بندی مستقیم برچسب‌ها به [برچسب‌های دادهٔ نمودار](/slides/fa/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) مراجعه کنید.
 
-تصویر زیر پس از بازگشای ارائه ذخیره‌شده رندر شده است:
+تصویر زیر پس از بازگشایی ارائهٔ ذخیره‌شده رندر شده است:
 
 ![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **تنظیم یک سلول کتاب‌کار به عنوان برچسب دادهٔ نمودار**
+## **تنظیم یک سلول کارنامه به‌عنوان برچسب دادهٔ نمودار**
 
-می‌توانید از متن سلول‌های کتاب‌کار به عنوان برچسب‌های دادهٔ نمودار استفاده کنید.
+می‌توانید متن سلول‌های کارنامه را به عنوان برچسب دادهٔ نمودار استفاده کنید.
 
-این مثال یک نمودار حبابی با داده‌های پیش‌فرض به اسلاید اول یک ارائهٔ موجود اضافه می‌کند. سلول‌های A10:A12 در کاربرگ 0 برای اولین سه برچسب در سری اول استفاده می‌شود، برچسب‌ها از سلول‌ها فعال می‌شوند و ارائه به‌روز شده ذخیره می‌شود.
+این مثال یک نمودار حبابی با دادهٔ پیش‌فرض به اولین اسلاید یک ارائهٔ موجود اضافه می‌کند. از سلول‌های A10:A12 در برگهٔ 0 برای اولین سه برچسب در سری اول استفاده می‌کند، برچسب‌ها از سلول‌ها را فعال می‌سازد و ارائهٔ به‌روزشده را ذخیره می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -296,9 +296,9 @@ try {
 }
 ```
 
-## **مدیریت کاربرگ‌ها**
+## **مدیریت برگه‌ها**
 
-متد [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) دسترسی به کاربرگ‌های موجود در یک کتاب‌کار نمودار را فراهم می‌کند. این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و نام هر کاربرگ را در کنسول چاپ می‌کند.
+متد [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) دسترسی به برگه‌های کارنامهٔ نمودار را فراهم می‌کند. این مثال یک نمودار دایره‌ای با دادهٔ پیش‌فرض می‌سازد و نام هر برگه را در کنسول چاپ می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -320,7 +320,9 @@ try {
 
 ## **مشخص کردن نوع منبع داده**
 
-این مثال یک نمودار ستونی 3‎بعدی با داده‌های پیش‌فرض ایجاد می‌کند و دو نام سری را با منابع داده متفاوت تنظیم می‌کند. نام اول از یک مقدار رشته‌ای استفاده می‌کند؛ نام دوم از سلول C1 در کاربرگ 0 خوانده می‌شود. شمارشگر [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) منبع هر نام را انتخاب می‌کند. مثال ارائه را با نام‌های سری به‌روزرسانی‌شده ذخیره می‌کند.
+مقادیر نقاط سری می‌توانند مستقیماً به صورت Literals عددی ذخیره شوند. برای مثال کامل به [تنظیم مقادیر سری با Literals عددی](/slides/fa/nodejs-java/chart-series/#set-series-values-using-numeric-literals) مراجعه کنید. نوع منبع مقادیر نقطه‌ای جدا از پیکربندی کارنامهٔ داخلی یا خارجی نمودار است؛ استفاده از Literals عددی به‌تنهایی کارنامهٔ جاسازی‌شده را حذف نمی‌کند.
+
+این مثال یک نمودار ستونی 3D با دادهٔ پیش‌فرض می‌سازد و دو نام سری را با منابع داده متفاوت تنظیم می‌کند. نام اول از یک Literal رشته‌ای استفاده می‌کند؛ نام دوم از سلول C1 در برگهٔ 0 استفاده می‌کند. شمارش [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) منبع هر نام را انتخاب می‌کند. مثال ارائه را با نام‌های سری به‌روزشده ذخیره می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -346,9 +348,9 @@ try {
 }
 ```
 
-## **تشخیص قالب‌های کتاب‌کار توکار پشتیبانی‌نشده**
+## **تشخیص قالب‌های کارنامهٔ جاسازی‌شدهٔ پشتیبانی‌نشده**
 
-Aspose.Slides قالب کتاب‌کار باینری اکسل (.xlsb) را که می‌تواند در برخی نمودارها توکار باشد، پشتیبانی نمی‌کند. می‌توانید با استفاده از متد `getEmbeddedWorkbookType` در [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) همراه با شمارشگر [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) قالب‌های پشتیبانی‌نشده را شناسایی کرده و آن نمودارها را نادیده بگیرید. این مثال شکل‌های اسلاید اول یک ارائهٔ موجود را بررسی می‌کند، اشکال غیرنمودار را رد می‌کند و برای هر نمودار با کتاب‌کار .xlsb توکار پیغام دیباگ چاپ می‌کند.
+Aspose.Slides قالب کارنامهٔ باینری Excel (.xlsb) را که می‌تواند در برخی نمودارها جاسازی شود، پشتیبانی نمی‌کند. می‌توانید با متد `getEmbeddedWorkbookType` روی [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) همراه با شمارش [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) قالب‌های پشتیبانی‌نشده را شناسایی و از آن نمودارها عبور کنید. این مثال شکل‌های اولین اسلاید یک ارائهٔ موجود را بررسی می‌کند، شکل‌های غیرنموداری را عبور می‌دهد و برای هر نمودار دارای کارنامهٔ .xlsb یک پیام تشخيصی چاپ می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -374,22 +376,22 @@ try {
             continue;
         }
 
-        // داده‌های پشتیبانی‌شدهٔ کتاب‌کار نمودار را در اینجا بخوانید یا اصلاح کنید.
+        // خواندن یا تغییر داده‌های کارنامهٔ پشتیبانی‌شدهٔ نمودار در اینجا.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **کتاب‌کار خارجی**
+## **کارنامهٔ خارجی**
 
-Aspose.Slides از استفاده کتاب‌کارهای خارجی به عنوان منبع داده برای نمودارها پشتیبانی می‌کند.
+Aspose.Slides از استفاده از کارنامه‌های خارجی به‌عنوان منبع داده برای نمودارها پشتیبانی می‌کند.
 
-### **ایجاد یک کتاب‌کار خارجی**
+### **ایجاد یک کارنامهٔ خارجی**
 
-از [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) و [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) برای استخراج کتاب‌کار توکار یک نمودار به یک فایل و پیوند نمودار به آن کتاب‌کار خارجی استفاده کنید.
+از [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) و [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) برای استخراج یک کارنامهٔ نمودار جاسازی‌شده به یک فایل و پیوند نمودار به آن کارنامهٔ خارجی استفاده کنید.
 
-این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و کتاب‌کار آن را صادر می‌دارد. نوشتن فایل را تکمیل می‌کند پیش از این‌که کتاب‌کار خارجی را به عنوان منبع دادهٔ نمودار تعیین کند، سپس ارائهٔ پیوندشده را ذخیره می‌کند.
+این مثال یک نمودار دایره‌ای با دادهٔ پیش‌فرض می‌سازد و کارنامهٔ آن را صادر می‌کند. پس از تکمیل نوشتن فایل، کارنامهٔ خارجی را به‌عنوان منبع دادهٔ نمودار اختصاص داده و ارائهٔ پیوندشده را ذخیره می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -416,13 +418,13 @@ try {
 }
 ```
 
-### **تنظیم یک کتاب‌کار خارجی**
+### **تنظیم یک کارنامهٔ خارجی**
 
-با استفاده از متد [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) می‌توانید یک کتاب‌کار خارجی را به یک نمودار به عنوان منبع دادهٔ خود اختصاص دهید. این متد می‌تواند مسیر کتاب‌کار خارجی را (اگر جابجا شده باشد) نیز به‌روز کند.
+با استفاده از متد [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) می‌توانید یک کارنامهٔ خارجی را به‌عنوان منبع دادهٔ نمودار اختصاص دهید. این روش همچنین می‌تواند برای به‌روزرسانی مسیر کارنامهٔ خارجی (اگر منتقل شده باشد) استفاده شود.
 
-اگرچه نمی‌توانید داده‌ها را در کتاب‌کارهایی که در مکان‌های راه دور یا منابع ذخیره شده‌اند، مستقیماً ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی فراهم شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
+اگرچه نمی‌توانید داده را در کارنامه‌های ذخیره‌شده در مکان‌های دوردست یا منابع ویرایش کنید، همچنان می‌توانید از چنین کارنامه‌هایی به‌عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای کارنامهٔ خارجی داده شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
 
-این مثال از یک کتاب‌کار خارجی استفاده می‌کند که کاربرگ نام‌دار `Sheet1` شامل یک نام سری در B1، اسامی دسته در A2:A4 و مقادیر عددی در B2:B4 است. مثال یک نمودار دایره‌ای ایجاد می‌کند، کتاب‌کار را پیوند می‌دهد و با استفاده از [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) بازهٔ A1:B4 را به یک سری و سه دسته نگاشت می‌کند. ارائه با نمودار پیوندشده ذخیره می‌شود.
+این مثال از یک کارنامهٔ خارجی استفاده می‌کند که برگهٔ آن با نام `Sheet1` شامل نام سری در B1، نام دسته‌ها در A2:A4 و مقادیر عددی در B2:B4 است. مثال یک نمودار دایره‌ای می‌سازد، کارنامه را پیوند می‌دهد و با [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) A1:B4 را به یک سری و سه دسته نگاشت می‌کند. ارائه با نمودار پیوندشده ذخیره می‌شود.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -445,12 +447,12 @@ try {
 }
 ```
 
-پارامتر `updateChartData` در متد [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) تعیین می‌کند که آیا کتاب‌کار بارگذاری شود یا نه.
+پارامتر `updateChartData` متد [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) کنترل می‌کند آیا کارنامه بارگذاری شود یا نه.
 
-* زمانی که `updateChartData` برابر `false` باشد، فقط مسیر کتاب‌کار به‌روزرسانی می‌شود. دادهٔ نمودار از کتاب‌کار هدف بارگذاری یا به‌روزرسانی نمی‌شود، بنابراین کتاب‌کار می‌تواند در دسترس نباشد.
-* زمانی که `updateChartData` برابر `true` باشد، دادهٔ نمودار از کتاب‌کار هدف به‌روز می‌شود.
+* وقتی `updateChartData` برابر `false` باشد، فقط مسیر کارنامه به‌روزرسانی می‌شود. دادهٔ نمودار از کارنامه هدف بارگذاری یا به‌روزرسانی نمی‌شود، بنابراین کارنامه می‌تواند در دسترس نباشد.
+* وقتی `updateChartData` برابر `true` باشد، دادهٔ نمودار از کارنامه هدف به‌روزرسانی می‌شود.
 
-مثال زیر یک URL جایگزین را با `updateChartData` برابر `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار دایره‌ای حفظ می‌شوند و ارائه بدون بارگذاری کتاب‌کار غیرقابل دسترس ذخیره می‌شود.
+مثال زیر یک URL جایگزین با `updateChartData` برابر `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار دایره‌ای را حفظ می‌کند و ارائه را بدون بارگذاری کارنامهٔ در دسترس نیست ذخیره می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -468,11 +470,11 @@ try {
 }
 ```
 
-### **دریافت مسیر کتاب‌کار منبع دادهٔ خارجی یک نمودار**
+### **دریافت مسیر کارنامهٔ منبع دادهٔ خارجی یک نمودار**
 
-برای شناسایی کتاب‌کار پیوندشده به یک نمودار، بررسی کنید آیا نمودار از منبع دادهٔ خارجی استفاده می‌کند و مسیر کتاب‌کار آن را بازیابی کنید.
+برای تعیین کارنامهٔ پیوند داده شده به یک نمودار، بررسی کنید آیا نمودار از منبع دادهٔ خارجی استفاده می‌کند و مسیر کارنامهٔ آن را بازیابی کنید.
 
-این مثال اولین شکل در اسلاید اول یک ارائهٔ دارای کتاب‌کار خارجی پیوندشده را بررسی می‌کند. اگر شکل یک نمودار پیوندشده به کتاب‌کار خارجی باشد، [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) را در کنسول چاپ می‌کند. سپس یک کپی از ارائه ذخیره می‌شود.
+این مثال اولین شکل در اولین اسلاید یک ارائهٔ دارای کارنامهٔ خارجی پیوندشده را بررسی می‌کند. اگر شکل یک نمودار پیوند به کارنامهٔ خارجی باشد، [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) را در کنسول چاپ می‌کند. سپس یک کپی از ارائه را ذخیره می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -502,9 +504,9 @@ try {
 
 ### **ویرایش دادهٔ نمودار**
 
-می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را همانند تغییر محتوای کتاب‌کارهای داخلی ویرایش کنید. وقتی یک کتاب‌کار خارجی قابل بارگذاری نباشد، استثنا پرتاب می‌شود.
+می‌توانید داده‌های کارنامه‌های خارجی را همان‌طور که داده‌های کارنامه‌های داخلی را ویرایش می‌کنید، تغییر دهید. وقتی کارنامهٔ خارجی قابل بارگذاری نباشد، استثنا پرتاب می‌شود.
 
-این مثال از یک نمودار که اولین شکل در اسلاید اول است و به یک کتاب‌کار خارجی قابل دسترسی پیوند دارد، استفاده می‌کند. مقدار نقطهٔ دادهٔ اول در سری اول را به 100 تنظیم می‌کند و ارائهٔ به‌روزرسانی‌شده را ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی پیوندشده را به‌روزرسانی کند، بنابراین در صورت نیاز به حفظ کتاب‌کار اصلی، یک کپی استفاده کنید.
+این مثال از یک نمودار که اولین شکل در اولین اسلاید است و به یک کارنامهٔ خارجی قابل دسترس پیوند دارد استفاده می‌کند. مقدار نقطهٔ دادهٔ اول در سری اول را به 100 تنظیم می‌کند و ارائهٔ به‌روزشده را ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی پیوندشده را به‌روزرسانی کند، بنابراین در صورت نیاز به حفظ کارنامهٔ اصلی، از یک کپی استفاده کنید.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -537,11 +539,11 @@ try {
 }
 ```
 
-### **بازیابی کتاب‌کار از کش نمودار**
+### **بازیابی کارنامه از کش نمودار**
 
-اگر یک نمودار از کتاب‌کار خارجی که گم شده یا در دسترس نیست استفاده می‌کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. قبل از باز کردن ارائه، یک شیء [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) ایجاد کنید، با [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) تنظیم کنید و [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) را به `true` مقرر سازید.
+اگر یک نمودار از کارنامهٔ خارجی که گم شده یا در دسترس نیست استفاده می‌کند، Aspose.Slides می‌تواند کارنامهٔ نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. قبل از باز کردن ارائه، یک [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) ایجاد کنید، [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) را فراخوانی کنید و [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) را به `true` تنظیم کنید.
 
-مثال JavaScript زیر داده‌های کتاب‌کار را برای یک نمودار که اولین شکل در اسلاید اول است و به یک کتاب‌کار خارجی غیرقابل دسترس ارجاع می‌دهد، بازیابی می‌کند. داده‌های بازیابی‌شده از طریق [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) و [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) دسترسی می‌شود:
+مثال JavaScript زیر کارنامهٔ داده را برای یک نمودار که اولین شکل در اولین اسلاید است و به یک کارنامهٔ خارجی در دسترس نیست، بازیابی می‌کند. داده‌های بازیابی‌شده را از طریق [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) و [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) دسترسی می‌یابد:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -562,7 +564,7 @@ try {
         const chart = slide.getShapes().get_Item(0);
         const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // در اینجا داده‌های کتاب‌کار بازسازی‌شده را بخوانید یا اصلاح کنید.
+        // در اینجا داده‌های کارنامه بازیابی‌شده را بخوانید یا تغییر دهید.
     } else {
         console.log("The first shape is not a chart.");
     }
@@ -571,30 +573,30 @@ try {
 }
 ```
 
-اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنا پرتاب می‌کند. فقط زمانی که استفاده از داده‌های کش‌شدهٔ نمودار گزینهٔ قابل قبول باشد، بازیابی را فعال کنید، چرا که کش ممکن است شامل تغییرات انجام‌شده بر روی کتاب‌کار خارجی پس از آخرین به‌روزرسانی ارائه نباشد.
+اگر کارنامهٔ خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنا پرتاب می‌کند. فقط در زمانی که استفاده از داده‌های کش‌شدهٔ نمودار گزینهٔ قابل قبول است، بازیابی را فعال کنید، زیرا کش ممکن است شامل تغییرات ایجادشده در کارنامهٔ خارجی پس از آخرین به‌روزرسانی ارائه نباشد.
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم تشخیص دهم که یک نمودار خاص به کتاب‌کار خارجی یا توکار پیوند دارد؟**
+**آیا می‌توانم تعیین کنم آیا یک نمودار خاص به یک کارنامهٔ خارجی یا جاسازی‌شده پیوند دارد؟**
 
-بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) و یک [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا اطمینان حاصل کنید فایلی خارجی استفاده می‌شود.
+بله. یک نمودار دارای [نوع منبع داده](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) و [مسیر به کارنامهٔ خارجی](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) است؛ اگر منبع یک کارنامهٔ خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایلی خارجی استفاده می‌شود.
 
-**آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
+**آیا مسیرهای نسبی به کارنامه‌های خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
 
-بله. اگر مسیر نسبی تعیین کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابجایی کتاب‌کار ممکن است نیاز به به‌روزرسانی پیوند داشته باشد.
+بله. اگر مسیر نسبی تعیین کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابه‌جایی کارنامه ممکن است نیاز به به‌روزرسانی پیوند داشته باشد.
 
-**آیا می‌توانم از کتاب‌کارهایی که در منابع/به‌اشتراک‌گذاری‌های شبکه قرار دارند استفاده کنم؟**
+**آیا می‌توانم از کارنامه‌های قرارگیری در منابع/به‌اشتراک‌گذاری‌های شبکه استفاده کنم؟**
 
-بله، چنین کتاب‌کارهایی می‌توانند به عنوان منبع دادهٔ خارجی استفاده شوند. اما ویرایش مستقیم کتاب‌کارهای راه دور از طریق Aspose.Slides پشتیبانی نمی‌شود؛ آن‌ها تنها می‌توانند به عنوان منبع استفاده شوند.
+بله، چنین کارنامه‌هایی می‌توانند به‌عنوان منبع دادهٔ خارجی استفاده شوند. با این حال، ویرایش مستقیم کارنامه‌های دوردست از Aspose.Slides پشتیبانی نمی‌شود؛ فقط می‌توانند به‌عنوان منبع استفاده شوند.
 
-**آیا Aspose.Slides هنگام ذخیرهٔ ارائه فایل XLSX خارجی را بازنویسی می‌کند؟**
+**آیا Aspose.Slides هنگام ذخیرهٔ ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**
 
-ارائه یک [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) را ذخیره می‌کند. ویرایش داده‌های نمودار مبتنی بر سلول می‌تواند فایل XLSX محلی پیوندشده را نیز به‌روز کند. اگر فایل اصلی باید دست‌نخورده بماند، از یک کپی کتاب‌کار استفاده کنید.
+ارائه یک [پیوند به فایل خارجی](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) را ذخیره می‌کند. ویرایش داده‌های نمودار مبتنی بر سلول می‌تواند فایل XLSX محلی پیوندشده را نیز به‌روزرسانی کند. اگر فایل اصلی باید بدون تغییر بماند، از یک کپی کارنامه استفاده کنید.
 
-**اگر فایل خارجی با رمز عبور محافظت شده باشد چه کار کنم؟**
+**اگر فایل خارجی با رمزعبور محافظت شده باشد، چه باید کرد؟**
 
-Aspose.Slides هنگام پیوند گرفتن رمز عبور نمی‌پذیرد. رویکرد معمول حذف پیش‌ازنگر محافظت یا تهیهٔ یک کپی رمزگشای شده (به عنوان مثال با استفاده از [Aspose.Cells](https://reference.aspose.com/cells/java/)) و پیوند به آن کپی است.
+Aspose.Slides هنگام پیوند گذرواژه‌ای نمی‌پذیرد. یک روش رایج حذف محافظت از قبل یا تهیه یک کپی رمزگشایی‌شده (به عنوان مثال با [Aspose.Cells](https://reference.aspose.com/cells/java/)) و پیوند به آن کپی است.
 
-**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی ارجاع بدهند؟**
+**آیا می‌توان چندین نمودار را به یک کارنامهٔ خارجی ارجاع داد؟**
 
-بله. هر نمودار پیوند خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در تمام نمودارها منعکس می‌شود.
+بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر نمودار در بارگذاری بعدی داده‌ها منعکس می‌شود.

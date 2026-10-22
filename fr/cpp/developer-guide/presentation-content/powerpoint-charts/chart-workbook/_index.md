@@ -1,5 +1,5 @@
 ---
-title: Gérer les classeurs de graphiques dans les présentations avec C++
+title: Gestion des classeurs de graphiques dans les présentations avec C++
 linktitle: Classeur de graphique
 type: docs
 weight: 70
@@ -8,7 +8,7 @@ keywords:
 - classeur de graphique
 - données de graphique
 - cellule de classeur
-- étiquette de données
+- libellé de données
 - feuille de calcul
 - source de données
 - classeur externe
@@ -19,31 +19,31 @@ keywords:
 - présentation
 - C++
 - Aspose.Slides
-description: "Découvrez Aspose.Slides pour C++ : gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument afin de rationaliser les données de votre présentation."
+description: "Découvrez Aspose.Slides pour C++: gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument afin d'optimiser les données de votre présentation."
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire les données de graphique via des flux de classeur, utiliser les cellules du classeur comme étiquettes de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
+Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire des données de graphique via des flux de classeur, utiliser les cellules du classeur comme libellés de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
 
-Il couvre également l’utilisation de classeurs externes comme sources de données pour les graphiques. Les exemples démontrent comment créer et affecter un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
+Il couvre également l’utilisation de classeurs externes comme sources de données de graphique. Les exemples montrent comment créer et affecter un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
 
-Pour les cellules de classeur qui représentent des données manquantes, voir [Contrôler l'affichage des cellules vides](/slides/fr/cpp/chart-series/) pour la différence entre une cellule vide et zéro, ainsi qu’une comparaison de graphique en courbes des modes d’affichage disponibles.
+Pour les cellules de classeur qui représentent des données manquantes, voir [Contrôler l’affichage des cellules vides](/slides/fr/cpp/chart-series/) pour la différence entre une cellule vide et zéro, ainsi qu’une comparaison en graphique en courbes des modes d’affichage disponibles.
 
-## **Inclure les données des lignes et colonnes masquées**
+## **Inclure des données provenant de lignes et colonnes cachées**
 
-Utilisez [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) pour contrôler si un graphique trace les données provenant de lignes et colonnes de feuille masquées. Définissez‑le sur `true` pour tracer uniquement les cellules visibles, ou sur `false` pour inclure à la fois les cellules visibles et masquées. Ce paramètre contrôle le traçage du graphique ; il ne masque ni n’affiche les lignes ou colonnes de la feuille.
+Utilisez [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) pour contrôler si un graphique trace les données provenant de lignes et colonnes de feuille masquées. Définissez-le sur `true` pour tracer uniquement les cellules visibles, ou sur `false` pour inclure à la fois les cellules visibles et masquées. Ce réglage contrôle le traçage du graphique ; il ne masque ni n’affiche les lignes ou colonnes de la feuille de calcul.
 
-La [présentation d’exemple](hidden-source-data.pptx) contient un graphique en colonnes comme première forme de sa première diapositive. La feuille de calcul intégrée, `Sheet1`, contient la plage source suivante, `A1:C4`. La ligne 3 et la colonne C sont masquées, mais leurs cellules contiennent toujours des valeurs.
+La [présentation d'exemple](hidden-source-data.pptx) contient un graphique à colonnes comme première forme de la première diapositive. La feuille de calcul intégrée, `Sheet1`, contient la plage source suivante, `A1:C4`. La ligne 3 et la colonne C sont masquées, mais leurs cellules contiennent toujours des valeurs.
 
 | Ligne de feuille | A : Mois | B : Vente au détail | C : Vente en gros (colonne masquée) |
 | --- | --- | --- | --- |
-| 2 | January | 10 | 30 |
-| 3 (ligne masquée) | February | 40 | 60 |
-| 4 | March | 20 | 50 |
+| 2 | Janvier | 10 | 30 |
+| 3 (ligne masquée) | Février | 40 | 60 |
+| 4 | Mars | 20 | 50 |
 
 Accédez aux cellules sources via [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) et lisez [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) pour inspecter leur statut masqué. Cette propriété est en lecture seule. Dans ce fichier, B2 est visible, B3 appartient à la ligne masquée et C2 appartient à la colonne masquée ; l’exemple affiche `False`, `True` et `True`, respectivement.
 
-Pour cet exemple, rafraîchissez les données du graphique après avoir modifié le paramètre de traçage : conservez le classeur intégré avec [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) et rechargez‑le avec [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). Lors de l’inclusion de toutes les cellules, utilisez également [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) pour restaurer la plage complète, y compris la catégorie de février masquée. Modifier simplement le drapeau n’est pas suffisant pour actualiser les données de graphique et les étiquettes de catégorie mises en cache dans cet exemple.
+Pour cet exemple, rafraîchissez les données du graphique après avoir modifié le réglage de traçage : conservez le classeur intégré avec [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) et rechargez-le avec [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). Lors de l’inclusion de toutes les cellules, utilisez également [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) pour restaurer la plage complète, y compris la catégorie de février masquée. Modifier simplement le drapeau n’est pas suffisant pour rafraîchir les données en cache de cet exemple ainsi que les libellés de catégorie.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -79,7 +79,7 @@ if (chart != nullptr)
     {
         chart->set_PlotVisibleCellsOnly(visibleOnly);
 
-        // Actualiser les données du graphique à partir du classeur intégré.
+        // Rafraîchir les données du graphique depuis le classeur intégré.
         workbookStream->set_Position(0);
         chart->get_ChartData()->WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
@@ -98,19 +98,21 @@ else
 }
 ```
 
-L’exemple enregistre deux versions de la présentation : une avec uniquement les valeurs de vente au détail visibles (10 et 20) et une autre avec les six valeurs. Les images ci‑dessous illustrent les deux modes de traçage. La ligne 3 et la colonne C restent masquées dans les deux classeurs intégrés.
+L’exemple enregistre deux versions de la présentation : une avec uniquement les valeurs visibles de vente au détail (10 et 20) et une autre avec les six valeurs. Les images ci‑dessous illustrent les deux modes de traçage. La ligne 3 et la colonne C restent masquées dans les deux classeurs intégrés.
 
-| Seulement les cellules visibles (`true`) | Toutes les cellules (`false`) |
+| Cellules visibles uniquement (`true`) | Toutes les cellules (`false`) |
 | --- | --- |
-| ![Seulement les cellules visibles : valeurs de vente au détail 10 et 20 pour January et March.](hidden_cells_True.png) | ![Toutes les cellules : valeurs de vente au détail et de gros pour January, February et March.](hidden_cells_False.png) |
+| ![Cellules visibles uniquement : valeurs de vente au détail 10 et 20 pour janvier et mars.](hidden_cells_True.png) | ![Toutes les cellules : valeurs de vente au détail et de vente en gros pour janvier, février et mars.](hidden_cells_False.png) |
 
-Une cellule masquée contenant une valeur est différente d’une cellule vide. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) contrôle la façon dont les valeurs manquantes sont affichées ; il n’inclut ni n’exclut les données sources masquées. Voir [Contrôler l'affichage des cellules vides](/slides/fr/cpp/chart-series/#control-the-display-of-empty-cells) pour un exemple.
+Une cellule masquée contenant une valeur est différente d’une cellule vide. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) contrôle la façon dont les valeurs manquantes sont affichées ; il n’inclut ni n’exclut les données sources masquées. Voir [Contrôler l’affichage des cellules vides](/slides/fr/cpp/chart-series/#control-the-display-of-empty-cells) pour un exemple.
 
 ## **Récupérer la plage de données d’un graphique**
 
-Avant de mettre à jour les données du classeur dans une présentation existante, inspectez les plages sources afin d’identifier les cellules de feuille utilisées par chaque graphique. La méthode [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) renvoie la plage de données actuelle sous forme de formule qualifiée par la feuille, par exemple `Sheet1!$A$1:$D$5`. Ici, `Sheet1` est le nom de la feuille, `!` le sépare de la plage de cellules, et `$A$1:$D$5` identifie les cellules de A1 à D5 inclu, les signes dollar indiquant des références absolues de ligne et de colonne.
+Avant de mettre à jour les données du classeur dans une présentation existante, inspectez les plages sources afin d’identifier quelles cellules de feuille chaque graphique utilise. La méthode [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) renvoie la plage de données actuelle sous forme de formule qualifiée par la feuille, telle que `Sheet1!$A$1:$D$5`. Ici, `Sheet1` est le nom de la feuille, `!` la sépare de la plage de cellules, et `$A$1:$D$5` identifie les cellules A1 à D5 incluses. Le symbole `$` indique des références de ligne et de colonne absolues.
 
-La méthode lit la plage actuelle sans modifier le graphique ni son classeur. Si le graphique n’utilise pas de classeur comme source de données, elle déclenche une [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Pour plus d’informations, consultez la [Référence de l'API ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
+La méthode lit la plage actuelle sans modifier le graphique ni son classeur. Si le graphique n’utilise pas de classeur comme source de données, elle lève [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Pour plus d’informations, consultez la [Référence API ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
+
+Cet exemple ouvre une présentation et parcourt les formes de chaque diapositive à la recherche de graphiques. Il affiche le nom de chaque graphique et sa plage source. Si un graphique n’utilise pas de classeur, il affiche un message et passe au graphique suivant.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -151,11 +153,11 @@ for (auto slide : IterateOver(presentation->get_Slides()))
 }
 ```
 
-## **Lire et écrire les données d’un graphique depuis un classeur**
+## **Lire et écrire des données de graphique depuis un classeur**
 
-Aspose.Slides for C++ propose les méthodes [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) et [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) qui permettent de lire et d’écrire les classeurs de données de graphique (contenant des données de graphique modifiées avec Aspose.Cells). **Remarque** : les données du graphique doivent être organisées de la même façon ou posséder une structure similaire à la source.
+Aspose.Slides pour C++ fournit les méthodes [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) et [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) qui permettent de lire et d’écrire les classeurs de données de graphique (contenant des données de graphique modifiées avec Aspose.Cells). **Note** que les données du graphique doivent être organisées de la même manière ou posséder une structure similaire à la source.
 
-Cet exemple utilise une présentation contenant un graphique comme première forme de sa première diapositive. Il lit le classeur intégré dans un flux, supprime les séries et catégories existantes, puis écrit à nouveau le même classeur. Les changements restent en mémoire ; l’exemple ne sauvegarde pas la présentation.
+Cet exemple utilise une présentation contenant un graphique comme première forme de la première diapositive. Il lit le classeur intégré dans un flux, supprime les séries et catégories existantes, puis réécrit le même classeur. Les changements restent en mémoire ; l’exemple ne sauvegarde pas la présentation.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -196,7 +198,7 @@ else
 
 ### **Valider la mise en page du graphique après modification du classeur**
 
-Lorsque vous remplacez un classeur intégré par un classeur modifié, le graphique conserve ses collections de séries et de catégories d’origine. Cette incohérence peut provoquer l’échec de [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) avec une erreur d’indice hors portée. Effacez les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique. Cet exemple utilise un graphique qui est la première forme de la première diapositive. Le commentaire indique où l’édition du classeur aurait lieu ; l’exemple exécutable écrit le classeur d’origine dans le graphique et valide la mise en page en mémoire.
+Lorsque vous remplacez un classeur intégré par un classeur modifié, le graphique conserve ses collections de séries et de catégories d’origine. Cette incohérence peut entraîner l’échec de [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) avec une erreur d’indice hors plage. Supprimez les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique. Cet exemple utilise un graphique qui est la première forme de la première diapositive. Le commentaire indique où l’édition du classeur aurait lieu ; l’exemple exécutable réécrit le classeur d’origine et valide la mise en page en mémoire.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -238,15 +240,15 @@ else
 }
 ```
 
-Effacer les collections supprime les références de données obsolètes avant que le classeur ne soit réécrit. Reconstruisez les mappages de séries et de catégories nécessaires pour le classeur mis à jour avant d’utiliser le graphique.
+Supprimer les collections élimine les références de données obsolètes avant que le classeur ne soit réécrit. Reconstruisez les mappages de séries et de catégories nécessaires pour le classeur mis à jour avant d’utiliser le graphique.
 
 ## **Définir des formats numériques personnalisés pour les cellules du classeur**
 
-Utilisez [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) pour contrôler la façon dont les valeurs numériques apparaissent dans le classeur intégré du graphique. Par exemple, un rapport peut nécessiter d’afficher un taux de conversion en pourcentage avec quatre décimales et un coefficient avec cinq décimales. Conservez les deux valeurs sous forme numérique afin qu’elles restent disponibles pour les calculs et le traçage du graphique.
+Utilisez [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) pour contrôler l’apparence des valeurs numériques dans le classeur intégré du graphique. Par exemple, un rapport peut nécessiter d’afficher un taux de conversion en pourcentage avec quatre décimales et un coefficient avec cinq décimales. Conservez les deux valeurs au format numérique afin qu’elles restent disponibles pour les calculs et le traçage du graphique.
 
-Un format numérique change l’affichage, pas la valeur stockée. Le format `0.0000%` affiche `0.125` sous forme `12.5000%` ; il ne remplace pas le nombre stocké par `12.5`. De même, `0.00000` affiche `0.1234567` sous forme `0.12346` sans arrondir la valeur stockée. Si le format personnalisé est une chaîne vide (`""`), le format assigné via [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) est utilisé à la place.
+Un format numérique change l’affichage, pas la valeur stockée. Le format `0.0000%` affiche `0.125` comme `12.5000%` ; il ne remplace pas le nombre stocké par `12.5`. De même, `0.00000` affiche `0.1234567` comme `0.12346` sans arrondir la valeur stockée. Si le format personnalisé est une chaîne vide (`""`), le format assigné via [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) est utilisé à la place.
 
-L’exemple suivant crée un graphique en colonnes et accède à ses cellules via [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/). Dans la feuille 0, B2 contient le taux de conversion et C2 le coefficient. Les deux cellules alimentent les valeurs du graphique. L’exemple active également les étiquettes de valeur liées aux formats sources.
+L’exemple suivant crée un graphique à colonnes et accède à ses cellules via [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/). Sur la feuille 0, B2 contient le taux de conversion et C2 le coefficient. Les deux cellules fournissent les valeurs du graphique. L’exemple active également les libellés de valeur liés aux formats sources.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -319,19 +321,19 @@ for (auto series : IterateOver(chart->get_ChartData()->get_Series()))
 presentation->Save(u"CustomCellFormats.pptx", Export::SaveFormat::Pptx);
 ```
 
-Les formats de cellules du classeur sont distincts des formats appliqués directement aux axes du graphique ou aux étiquettes de données. Dans cet exemple, chaque étiquette affiche la valeur de sa cellule source parce que [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) est appelé avec `true`, et suit le format numérique source parce que [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) est appelé avec `true`. Après avoir sauvegardé et rouvert la présentation, les étiquettes affichent `12.5000%` et `0.12346`, comme le montre l’image ci‑dessous. L’axe vertical utilise son propre format `0.00`, assigné via [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/), avec [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) appelé avec `false`.
+Les formats de cellules du classeur sont séparés des formats définis directement sur les axes du graphique ou les libellés de données. Dans cet exemple, chaque libellé affiche la valeur de sa cellule source parce que [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) est appelé avec `true`, et suit le format numérique source parce que [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) est appelé avec `true`. Après avoir enregistré et rouvert la présentation, les libellés affichent `12.5000%` et `0.12346`, comme indiqué ci‑dessous. L’axe vertical utilise son propre format `0.00`, assigné via [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/), avec [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) appelé avec `false`.
 
-Pour formater une étiquette de donnée de façon indépendante, définissez son indicateur de lien source sur `false` et assignez son format via [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/). Cela ne modifie pas le format de la cellule du classeur. Par exemple, un format d’étiquette indépendant `0.00` affiche la première valeur comme `0.13`, tandis que B2 continue d’afficher `12.5000%`. Voir [Étiquettes de données du graphique](/slides/fr/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) pour le formatage direct des étiquettes.
+Pour formater un libellé de données indépendamment, désactivez le drapeau de lien source (`false`) et assignez son format via [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/). Cela ne modifie pas le format de la cellule du classeur. Par exemple, un format de libellé indépendant `0.00` affiche la première valeur comme `0.13`, tandis que B2 continue d’afficher `12.5000%`. Consultez [Chart Data Labels](/slides/fr/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) pour le formatage direct des libellés.
 
-L’image ci‑dessous a été rendue à partir de la présentation sauvegardée puis rouverte :
+L’image ci‑dessous a été rendue à partir de la présentation enregistrée après l’avoir réouverte :
 
-![Graphique en colonnes avec des étiquettes liées aux sources affichant 12.5000% et 0.12346 et un axe numérique formaté indépendamment.](custom-cell-formats.png)
+![Graphique à colonnes avec des libellés liés à la source affichant 12.5000% et 0.12346 et un axe numérique formaté indépendamment.](custom-cell-formats.png)
 
-## **Utiliser une cellule de classeur comme étiquette de données du graphique**
+## **Utiliser une cellule de classeur comme libellé de données du graphique**
 
-Vous pouvez utiliser le texte des cellules de classeur comme étiquettes de données du graphique.
+Vous pouvez utiliser le texte des cellules de classeur comme libellés de données du graphique.
 
-Cet exemple ajoute un graphique à bulles avec des données par défaut à la première diapositive d’une présentation existante. Il utilise les cellules A10 : A12 de la feuille 0 pour les trois premières étiquettes de la première série, active les étiquettes provenant des cellules et sauvegarde la présentation mise à jour.
+Cet exemple ajoute un graphique à bulles avec des données par défaut à la première diapositive d’une présentation existante. Il utilise les cellules A10 : A12 de la feuille 0 pour les trois premiers libellés de la première série, active les libellés provenant des cellules et enregistre la présentation mise à jour.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -372,9 +374,9 @@ series->get_Labels()->idx_get(2)->set_ValueFromCell(thirdLabelCell);
 presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Gérer les feuilles de calcul**
+## **Gestion des feuilles de calcul**
 
-La méthode [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) fournit l’accès aux feuilles de calcul d’un classeur de graphique. Cet exemple crée un graphique circulaire avec des données par défaut et imprime chaque nom de feuille dans la console.
+La méthode [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) fournit l’accès aux feuilles de calcul d’un classeur de graphique. Cet exemple crée un graphique circulaire avec des données par défaut et affiche le nom de chaque feuille de calcul dans la console.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -407,7 +409,9 @@ for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 
 ## **Spécifier le type de source de données**
 
-Cet exemple crée un graphique en colonnes 3D avec des données par défaut et définit deux noms de séries en utilisant des sources de données différentes. Le premier nom utilise un littéral de chaîne ; le second utilise la cellule C1 de la feuille 0. L’énumération [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) sélectionne la source pour chaque nom. L’exemple sauvegarde la présentation avec les noms de séries mis à jour.
+Les valeurs des points de série peuvent également être stockées directement sous forme de littéraux numériques. Voir [Set Series Values Using Numeric Literals](/slides/fr/cpp/chart-series/#set-series-values-using-numeric-literals) pour un exemple complet qui les enregistre et les lit. Le type de source des valeurs de points est distinct de la configuration interne ou externe du classeur du graphique ; l’utilisation de littéraux numériques ne supprime pas, à elle seule, le classeur intégré.
+
+Cet exemple crée un graphique à colonnes 3D avec des données par défaut et définit deux noms de séries à l’aide de sources de données différentes. Le premier nom utilise un littéral de chaîne ; le second utilise la cellule C1 de la feuille 0. L’énumération [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) sélectionne la source pour chaque nom. L’exemple enregistre la présentation avec les noms de séries mis à jour.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -448,7 +452,7 @@ presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 
 ## **Détecter les formats de classeur intégré non pris en charge**
 
-Aspose.Slides ne prend pas en charge le format de classeur Excel binaire (.xlsb) qui peut être intégré dans certains graphiques. Vous pouvez utiliser la méthode [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) sur [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) avec l’énumération [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques. Cet exemple inspecte les formes de la première diapositive d’une présentation existante, ignore les formes qui ne sont pas des graphiques et affiche un message de diagnostic pour chaque graphique contenant un classeur .xlsb intégré.
+Aspose.Slides ne prend pas en charge le format de classeur Excel binaire (.xlsb) qui peut être intégré dans certains graphiques. Vous pouvez utiliser la méthode [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) sur [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) avec l’énumération [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques. Cet exemple inspecte les formes de la première diapositive d’une présentation existante, ignore les formes non graphiques et affiche un message diagnostique pour chaque graphique contenant un classeur .xlsb intégré.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -487,7 +491,7 @@ for (auto shape : IterateOver(slide->get_Shapes()))
         continue;
     }
 
-    // Lire ou modifier les données du classeur de graphique prises en charge ici.
+    // Lire ou modifier les données de classeur de graphique prises en charge ici.
 }
 ```
 
@@ -497,9 +501,9 @@ Aspose.Slides prend en charge l’utilisation de classeurs externes comme source
 
 ### **Créer un classeur externe**
 
-Utilisez [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) et [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) pour exporter le classeur intégré d’un graphique vers un fichier et lier le graphique à ce classeur externe.
+Utilisez [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) et [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) pour exporter le classeur de graphique intégré vers un fichier et lier le graphique à ce classeur externe.
 
-Cet exemple crée un graphique circulaire avec des données par défaut et exporte son classeur. Il ferme le flux de sortie avant d’assigner le classeur externe comme source de données du graphique, puis sauvegarde la présentation liée.
+Cet exemple crée un graphique circulaire avec des données par défaut et exporte son classeur. Il ferme le flux de sortie avant d’affecter le classeur externe comme source de données du graphique, puis enregistre la présentation liée.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -533,13 +537,13 @@ chart->get_ChartData()->SetExternalWorkbook(workbookPath);
 presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Définir un classeur externe**
+### **Affecter un classeur externe**
 
-En utilisant la méthode [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/), vous pouvez attribuer un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour le chemin du classeur externe (s’il a été déplacé).
+En utilisant la méthode [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/), vous pouvez affecter un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour le chemin vers le classeur externe (si ce dernier a été déplacé).
 
-Bien que vous ne puissiez pas modifier les données des classeurs stockés dans des emplacements distants ou des ressources, vous pouvez toujours les utiliser comme source de données externe. Si le chemin relatif d’un classeur externe est fourni, il est automatiquement converti en chemin complet.
+Bien que vous ne puissiez pas modifier les données des classeurs stockés sur des emplacements distants ou des ressources, vous pouvez toujours les utiliser comme source de données externe. Si un chemin relatif pour un classeur externe est fourni, il est automatiquement converti en chemin complet.
 
-Cet exemple utilise un classeur externe dont la feuille nommée `Sheet1` contient un nom de série en B1, des noms de catégorie en A2 :A4 et des valeurs numériques en B2 :B4. L’exemple crée un graphique circulaire, lie le classeur et utilise [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) pour mapper A1 :B4 à une série et trois catégories. Il sauvegarde la présentation avec le graphique lié.
+Cet exemple utilise un classeur externe dont la feuille nommée `Sheet1` contient un nom de série en B1, des noms de catégorie en A2 : A4 et des valeurs numériques en B2 : B4. L’exemple crée un graphique circulaire, lie le classeur et utilise [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) pour mapper A1 : B4 à une série et trois catégories. Il enregistre la présentation avec le graphique lié.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -570,10 +574,10 @@ presentation->Save(u"Presentation_with_externalWorkbook.pptx", Export::SaveForma
 
 Le paramètre `updateChartData` de [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) contrôle le chargement du classeur.
 
-* Lorsque `updateChartData` est `false`, seul le chemin du classeur est mis à jour. Les données du graphique ne sont pas chargées ni mises à jour depuis le classeur cible, de sorte que le classeur peut être indisponible.
+* Lorsque `updateChartData` est `false`, seul le chemin du classeur est mis à jour. Les données du graphique ne sont pas chargées ou mises à jour depuis le classeur cible, de sorte que le classeur peut être indisponible.
 * Lorsque `updateChartData` est `true`, les données du graphique sont mises à jour depuis le classeur cible.
 
-L’exemple suivant assigne une URL de substitution avec `updateChartData` fixé à `false`. Il conserve les données par défaut du graphique circulaire et sauvegarde la présentation sans charger le classeur indisponible.
+L’exemple suivant affecte une URL factice avec `updateChartData` défini sur `false`. Il conserve les données par défaut du graphique circulaire et enregistre la présentation sans charger le classeur indisponible.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -597,11 +601,11 @@ chart->get_ChartData()->SetExternalWorkbook(u"https://example.com/unavailable-wo
 presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Obtenir le chemin du classeur de source de données externe d’un graphique**
+### **Obtenir le chemin du classeur source de données externe d’un graphique**
 
 Pour identifier le classeur lié à un graphique, vérifiez si le graphique utilise une source de données externe et récupérez son chemin de classeur.
 
-Cet exemple inspecte la première forme de la première diapositive d’une présentation contenant un classeur externe lié. Si c’est un graphique lié à un classeur externe, l’exemple affiche [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) dans la console. Il sauvegarde ensuite une copie de la présentation.
+Cet exemple examine la première forme de la première diapositive d’une présentation contenant un classeur externe lié. Si c’est un graphique lié à un classeur externe, l’exemple affiche [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) dans la console. Il enregistre ensuite une copie de la présentation.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -646,7 +650,7 @@ presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 
 Vous pouvez modifier les données des classeurs externes de la même manière que vous modifiez le contenu des classeurs internes. Lorsqu’un classeur externe ne peut pas être chargé, une exception est levée.
 
-Cet exemple utilise un graphique qui est la première forme de la première diapositive et qui est lié à un classeur externe accessible. Il définit la valeur basée sur la cellule du premier point de données de la première série à 100 et sauvegarde la présentation mise à jour. Modifier les valeurs des cellules peut mettre à jour le fichier XLSX externe lié, utilisez donc une copie si vous devez préserver le classeur original.
+Cet exemple utilise un graphique qui est la première forme de la première diapositive et qui est lié à un classeur externe accessible. Il affecte la valeur soutenue par la cellule du premier point de données de la première série à 100 et enregistre la présentation mise à jour. Modifier les valeurs des cellules peut mettre à jour le fichier XLSX externe lié, donc utilisez une copie si vous devez préserver le classeur original.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -702,7 +706,7 @@ else
 
 ### **Récupérer un classeur depuis le cache du graphique**
 
-Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), configurez‑les avec [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), puis appelez [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) avec `true` avant d’ouvrir la présentation.
+Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), configurez‑le avec [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), et appelez [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) avec `true` avant d’ouvrir la présentation.
 
 L’exemple C++ suivant récupère les données du classeur pour un graphique qui est la première forme de la première diapositive et qui référence un classeur externe indisponible. Il accède aux données récupérées via [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) et [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) :
 
@@ -744,30 +748,24 @@ else
 }
 ```
 
-Si le classeur externe est indisponible et que la récupération est désactivée, Aspose.Slides déclenche une [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Activez la récupération uniquement lorsque l’utilisation des données de graphique mises en cache constitue une solution de repli acceptable, car le cache peut ne pas contenir les modifications apportées au classeur externe après la dernière mise à jour de la présentation.
+Si le classeur externe est indisponible et que la récupération est désactivée, Aspose.Slides lève une [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). activez la récupération uniquement lorsque l’utilisation des données du graphique en cache est une solution de repli acceptable, car le cache peut ne pas contenir les modifications apportées au classeur externe après la dernière mise à jour de la présentation.
 
 ## **FAQ**
 
-**Puis‑je déterminer si un graphique spécifique est lié à un classeur externe ou intégré ?**
+**Puis-je déterminer si un graphique spécifique est lié à un classeur externe ou intégré ?**  
+Oui. Un graphique possède un [type de source de données](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu’un fichier externe est utilisé.
 
-Oui. Un graphique possède un [type de source de données](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu’un fichier externe est utilisé.
-
-**Les chemins relatifs vers les classeurs externes sont‑ils pris en charge, et comment sont‑ils stockés ?**
-
+**Les chemins relatifs vers les classeurs externes sont‑ils pris en charge, et comment sont‑ils stockés ?**  
 Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. La présentation stocke le chemin absolu dans le fichier PPTX, de sorte que le déplacement du classeur peut nécessiter la mise à jour du lien.
 
-**Puis‑je utiliser des classeurs situés sur des ressources ou partages réseau ?**
+**Puis‑je utiliser des classeurs situés sur des ressources ou partages réseau ?**  
+Oui, ces classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge ; ils ne peuvent être utilisés que comme source.
 
-Oui, ces classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge ; ils ne peuvent être utilisés qu’en tant que source.
+**Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**  
+La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Modifier les données du graphique soutenues par des cellules peut également mettre à jour le fichier XLSX local lié. Utilisez une copie du classeur si l’original doit rester inchangé.
 
-**Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de la sauvegarde de la présentation ?**
+**Que faire si le fichier externe est protégé par un mot de passe ?**  
+Aspose.Slides n’accepte pas de mot de passe lors de la création du lien. Une approche courante consiste à retirer la protection au préalable ou à préparer une copie décryptée (par exemple en utilisant [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) et à créer le lien vers cette copie.
 
-La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Modifier les données de graphique basées sur des cellules peut également mettre à jour le fichier XLSX local lié. Utilisez une copie du classeur si l’original doit rester inchangé.
-
-**Que faire si le fichier externe est protégé par mot de passe ?**
-
-Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à retirer la protection à l’avance ou à préparer une copie décryptée (par exemple, en utilisant [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) et à la lier.
-
-**Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**
-
+**Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**  
 Oui. Chaque graphique stocke son propre lien. S’ils pointent tous vers le même fichier, la mise à jour de ce fichier sera reflétée dans chaque graphique lors du prochain chargement des données.

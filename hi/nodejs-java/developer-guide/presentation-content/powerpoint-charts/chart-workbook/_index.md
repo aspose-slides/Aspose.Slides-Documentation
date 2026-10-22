@@ -1,5 +1,5 @@
 ---
-title: जावास्क्रिप्ट का उपयोग करके प्रस्तुतियों में चार्ट वर्कबुक प्रबंधित करें
+title: प्रस्तुतियों में जावास्क्रिप्ट का उपयोग करके चार्ट वर्कबुक प्रबंधित करें
 linktitle: चार्ट वर्कबुक
 type: docs
 weight: 70
@@ -14,37 +14,37 @@ keywords:
 - बाहरी वर्कबुक
 - बाहरी डेटा
 - चार्ट कैश
-- वर्कबुक रिकवरी
+- वर्कबुक पुनर्प्राप्ति
 - PowerPoint
 - प्रस्तुति
 - Node.js
-- जावास्क्रिप्ट
+- JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java को खोजें: PowerPoint और OpenDocument प्रारूपों में चार्ट वर्कबुक को सहजता से प्रबंधित करें जिससे आपके प्रस्तुतिकरण डेटा को सरल बनाया जा सके।"
+description: "Aspose.Slides for Node.js via Java को खोजें: PowerPoint और OpenDocument फ़ॉर्मेट में चार्ट वर्कबुक को सहजता से प्रबंधित करें और अपनी प्रस्तुति डेटा को सुव्यवस्थित करें।"
 ---
-## **परिचय**
+## **सारांश**
 
-यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीकों को समझाता है। यह वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा को पढ़ने और लिखने, वर्कबुक कोशिकाओं को चार्ट डेटा लेबल के रूप में उपयोग करने, वर्कशीट संग्रहों तक पहुँचने, और चार्ट मानों के लिए डेटा स्रोत प्रकार निर्दिष्ट करने के तरीकों को दिखाता है।
+यह लेख Aspose.Slides में चार्ट वर्कबुक्स के साथ काम करने के तरीके को समझाता है। यह दिखाता है कि वर्कबुक स्ट्रीम्स के माध्यम से चार्ट डेटा को कैसे पढ़ा और लिखा जाए, वर्कबुक सेल्स को चार्ट डेटा लेबल के रूप में उपयोग किया जाए, वर्कशीट कलेक्शन्स तक पहुंचा जाए, और चार्ट मानों के लिए डेटा स्रोत प्रकार को कैसे निर्दिष्ट किया जाए।
 
-यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दिखाते हैं कि कैसे एक बाहरी वर्कबुक बनाया और असाइन किया जाता है, चार्ट से जुड़ी बाहरी वर्कबुक का पथ प्राप्त किया जाता है, और वर्कबुक उपलब्ध होने पर चार्ट डेटा को संपादित किया जाता है।
+यह बाहरी वर्कबुक्स को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दर्शाते हैं कि कैसे एक बाहरी वर्कबुक बनाया और असाइन किया जाए, चार्ट से जुड़ी बाहरी वर्कबुक का पथ प्राप्त किया जाए, और वर्कबुक उपलब्ध होने पर चार्ट डेटा को संपादित किया जाए।
 
-गायब डेटा को दर्शाने वाली वर्कबुक कोशिकाओं के बारे में, खाली कोशिका और शून्य के बीच अंतर के लिए [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/nodejs-java/chart-series/) देखें, साथ ही उपलब्ध प्रदर्शन मोड्स की लाइन-चार्ट तुलना देखें।
+गुम डेटा को दर्शाने वाली वर्कबुक सेल्स के लिए, देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/nodejs-java/chart-series/) ताकि खाली कोशिका और शून्य के बीच अंतर तथा उपलब्ध डिस्प्ले मोड्स की लाइन-चार्ट तुलना को समझा जा सके।
 
-## **छिपी हुई पंक्तियों और स्तंभों से डेटा शामिल करें**
+## **छिपी हुई पंक्तियों और स्तम्भों से डेटा शामिल करें**
 
-एक चार्ट को छिपी हुई वर्कशीट पंक्तियों और स्तंभों से डेटा प्लॉट करना है या नहीं, यह नियंत्रित करने के लिए [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) का उपयोग करें। इसे `true` सेट करने से केवल दृश्यमान कोशिकाएँ प्लॉट होंगी, या `false` सेट करने से दृश्यमान और छिपी दोनों कोशिकाएँ शामिल होंगी। यह सेटिंग केवल चार्ट प्लॉटिंग को नियंत्रित करती है; यह वर्कशीट पंक्तियों या स्तंभों को छिपाती या दर्शाती नहीं है।
+छिपी हुई वर्कशीट पंक्तियों और स्तम्भों से डेटा प्लॉट करता है या नहीं, इसे नियंत्रित करने के लिए [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) का उपयोग करें। इसे `true` सेट करने पर केवल दिखाई देने वाली कोशिकाएँ प्लॉट होंगी, या `false` सेट करने पर दिखाई देने वाली और छिपी हुई दोनों कोशिकाएँ शामिल होंगी। यह सेटिंग केवल चार्ट प्लॉटिंग को नियंत्रित करती है; यह वर्कशीट पंक्तियों या स्तम्भों को छिपाती या प्रदर्शित नहीं करती।
 
-[नमूना प्रस्तुति](hidden-source-data.pptx) में पहली स्लाइड पर पहला आकार एक कॉलम चार्ट है। एंबेडेड वर्कशीट, `Sheet1`, में स्रोत रेंज `A1:C4` है। पंक्ति 3 और स्तंभ C छिपे हुए हैं, लेकिन उनकी कोशिकाओं में अभी भी मान हैं।
+[नमूना प्रस्तुति](hidden-source-data.pptx) में पहली स्लाइड पर पहला आकार एक कॉलम चार्ट है। अंतर्निहित वर्कशीट, `Sheet1`, में निम्न स्रोत रेंज `A1:C4` है। पंक्ति 3 और स्तम्भ C छिपी हुई हैं, लेकिन उनकी कोशिकाएँ अभी भी मान रखती हैं।
 
-| वर्कशीट पंक्ति | A: महीना | B: रिटेल | C: थोक (छिपा स्तंभ) |
+| Worksheet row | A: Month | B: Retail | C: Wholesale (hidden column) |
 | --- | --- | --- | --- |
-| 2 | January | 10 | 30 |
-| 3 (छिपी पंक्ति) | February | 40 | 60 |
-| 4 | March | 20 | 50 |
+| 2 | जनवरी | 10 | 30 |
+| 3 (hidden row) | फ़रवरी | 40 | 60 |
+| 4 | मार्च | 20 | 50 |
 
-स्रोत कोशिकाओं तक पहुँचने के लिए [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) का उपयोग करें और उनकी छिपी स्थिति का निरीक्षण करने के लिए [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) पढ़ें। यह विधि छिपी स्थिति को बदले बिना रिपोर्ट करती है। इस फ़ाइल में, B2 दृश्यमान है, B3 छिपी पंक्ति से है, और C2 छिपे स्तंभ से है; उदाहरण क्रमशः `false`, `true`, `true` प्रिंट करता है।
+स्रोत कोशिकाओं तक पहुंचने के लिए [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) का उपयोग करें और उनकी छिपी अवस्था को जांचने के लिए [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) पढ़ें। यह मेथड छिपी अवस्था को बदले बिना रिपोर्ट करता है। इस फ़ाइल में, B2 दृश्य है, B3 छिपी पंक्ति से संबंधित है, और C2 छिपे स्तम्भ से संबंधित है; उदाहरण क्रमशः `false`, `true`, और `true` प्रिंट करता है।
 
-इस उदाहरण के लिए, प्लॉटिंग सेटिंग बदलने के बाद चार्ट डेटा को रीफ़्रेश करें: एंबेडेड वर्कबुक को [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) से बनाये रखें और उसे [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) से पुनः लोड करें। सभी कोशिकाओं को शामिल करने के लिए, छिपी हुई फरवरी श्रेणी को पुनर्स्थापित करने हेतु [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) का भी उपयोग करें। केवल फ़्लैग बदलना इस नमूने की कैश्ड चार्ट डेटा और श्रेणी लेबल को रीफ़्रेश करने के लिए पर्याप्त नहीं है। उदाहरण लौटाए गए Node.js बफ़र को Java बाइट एरे में परिवर्तित करता है और फिर लिखने की विधि को पास करता है।
+इस उदाहरण के लिये, प्लॉटिंग सेटिंग बदलने के बाद चार्ट डेटा को रीफ़्रेश करें: अंतर्निहित वर्कबुक को [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) से रखे रखें और इसे [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) से पुनःलोड करें। सभी कोशिकाओं को शामिल करने पर, छिपी फ़रवरी श्रेणी सहित पूर्ण रेंज पुनर्स्थापित करने के लिये भी [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) का उपयोग करें। बस फ़्लैग बदलना इस नमूने के कैश्ड चार्ट डेटा और श्रेणी लेबल को रीफ़्रेश करने के लिये अपर्याप्त है। उदाहरण लिखने की विधि को पास करने से पहले लौटाए गए Node.js बफ़र को Java बाइट एरे में परिवर्तित करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -68,14 +68,14 @@ try {
         for (const visibleOnly of [true, false]) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // एम्बेडेड वर्कबुक से चार्ट डेटा को रीफ़्रेश करें।
-            chart.getChartData().writeWorkbookStream(workbookData);
-            if (!visibleOnly) {
-                // छिपी श्रेणियों सहित पूर्ण स्रोत रेंज को पुनर्स्थापित करें।
-                chart.getChartData().setRange("Sheet1!$A$1:$C$4");
-            }
+                // एंबेडेड वर्कबुक से चार्ट डेटा रीफ़्रेश करें।
+                chart.getChartData().writeWorkbookStream(workbookData);
+                if (!visibleOnly) {
+                    // छिपी श्रेणियों सहित संपूर्ण स्रोत रेंज को पुनर्स्थापित करें।
+                    chart.getChartData().setRange("Sheet1!$A$1:$C$4");
+                }
 
-            presentation.save("hidden_cells_" + visibleOnly + ".pptx", aspose.slides.SaveFormat.Pptx);
+                presentation.save("hidden_cells_" + visibleOnly + ".pptx", aspose.slides.SaveFormat.Pptx);
         }
     } else {
         console.log("The first shape is not a chart.");
@@ -85,21 +85,21 @@ try {
 }
 ```
 
-उदाहरण दो संस्करणों में प्रस्तुतिकरण को सहेजता है: एक जिसमें केवल दृश्यमान रिटेल मान (10 और 20) हैं, और दूसरा जिसमें सभी छह मान हैं। नीचे की छवियाँ दो प्लॉटिंग मोड्स को दर्शाती हैं। पंक्ति 3 और स्तंभ C दोनों एंबेडेड वर्कबुक में छिपे रहते हैं।
+उदाहरण दो संस्करणों में प्रस्तुति को सहेजता है: एक में केवल दृश्य रिटेल मान (10 और 20) हैं, और दूसरा में सभी छह मान हैं। नीचे दी गई छवियाँ दो प्लॉटिंग मोड को दर्शाती हैं। पंक्ति 3 और स्तम्भ C दोनों अंतर्निहित वर्कबुक्स में छिपे रहते हैं।
 
-| केवल दृश्यमान कोशिकाएँ (`true`) | सभी कोशिकाएँ (`false`) |
+| केवल दृश्य कोशिकाएँ (`true`) | सभी कोशिकाएँ (`false`) |
 | --- | --- |
-| ![केवल दृश्यमान कोशिकाएँ: जनवरी और मार्च के लिए रिटेल मान 10 और 20।](hidden_cells_True.png) | ![सभी कोशिकाएँ: जनवरी, फरवरी और मार्च के लिए रिटेल और थोक मान।](hidden_cells_False.png) |
+| ![केवल दृश्य कोशिकाएँ: जनवरी और मार्च के लिए रिटेल मान 10 और 20.](hidden_cells_True.png) | ![सभी कोशिकाएँ: जनवरी, फ़रवरी और मार्च के लिए रिटेल और होलसेल मान.](hidden_cells_False.png) |
 
-एक मान वाले छिपे हुए कोशिका का अंतर एक खाली कोशिका से होता है। [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) यह नियंत्रित करता है कि गायब मान कैसे दिखाए जाएँ; यह छिपे स्रोत डेटा को शामिल या बाहर नहीं करता। उदाहरण के लिये देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/nodejs-java/chart-series/#control-the-display-of-empty-cells)।
+एक मान वाला छिपा सेल खाली सेल से अलग होता है। [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) नियंत्रित करता है कि गुम मान कैसे प्रदर्शित किए जाएँ; यह छिपा स्रोत डेटा को शामिल या बाहर नहीं करता। उदाहरण के लिये देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/nodejs-java/chart-series/#control-the-display-of-empty-cells)।
 
 ## **चार्ट की डेटा रेंज प्राप्त करें**
 
-मौजूदा प्रस्तुतिकरण में वर्कबुक डेटा को अपडेट करने से पहले, स्रोत रेंज की जाँच करें ताकि यह पहचाना जा सके कि प्रत्येक चार्ट कौन‑से वर्कशीट कोशिकाओं का उपयोग करता है। [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) विधि वर्तमान डेटा रेंज को वर्कशीट‑योग्य फ़ॉर्मूला के रूप में लौटाती है, जैसे `Sheet1!$A$1:$D$5`। यहाँ, `Sheet1` वर्कशीट का नाम है, `!` उसे रेंज से अलग करता है, और `$A$1:$D$5` कोशिकाओं A1‑D5 को शामिल करता है। डॉलर संकेत निरपेक्ष पंक्ति और स्तंभ संदर्भ दर्शाते हैं।
+मौजूदा प्रस्तुति में वर्कबुक डेटा को अपडेट करने से पहले, स्रोत रेंज को जांचें ताकि यह पहचाना जा सके कि प्रत्येक चार्ट कौन सी वर्कशीट कोशिकाएँ उपयोग करता है। [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) मेथड वर्तमान डेटा रेंज को वर्कशीट‑क्वालीफ़ाईड फ़ॉर्मूला के रूप में लौटाता है, जैसे `Sheet1!$A$1:$D$5`। यहाँ `Sheet1` वर्कशीट का नाम है, `!` इसे कोशिका रेंज से अलग करता है, और `$A$1:$D$5` सेल्स A1 से D5 तक निर्दिष्ट करता है। डॉलर संकेत निरपेक्ष पंक्ति और स्तम्भ संदर्भ दर्शाते हैं।
 
-यह विधि चार्ट या उसके वर्कबुक को बदले बिना वर्तमान रेंज को पढ़ती है। यदि चार्ट डेटा स्रोत के रूप में वर्कबुक का उपयोग नहीं करता है, तो यह `InvalidOperationException` फेंकता है। अधिक जानकारी के लिये देखें [ChartData API संदर्भ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/)।
+यह मेथड चार्ट या उसकी वर्कबुक बदले बिना वर्तमान रेंज पढ़ता है। यदि चार्ट डेटा स्रोत के रूप में वर्कबुक उपयोग नहीं करता, तो यह `InvalidOperationException` थ्रो करता है। अधिक जानकारी के लिये देखें [ChartData API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/)।
 
-यह उदाहरण एक प्रस्तुतिकरण खोलता है और प्रत्येक स्लाइड पर आकारों की जाँच करता है कि कौन‑से चार्ट हैं। यह प्रत्येक चार्ट का नाम और स्रोत रेंज प्रिंट करता है। यदि कोई चार्ट वर्कबुक का उपयोग नहीं करता, तो यह संदेश प्रिंट करता है और अगले चार्ट पर आगे बढ़ता है।
+यह उदाहरण एक प्रस्तुति खोलता है और प्रत्येक स्लाइड पर सीधे आकारों को चार्ट के लिये जांचता है। यह प्रत्येक चार्ट का नाम और स्रोत रेंज प्रिंट करता है। यदि कोई चार्ट वर्कबुक उपयोग नहीं करता, तो यह संदेश प्रिंट कर अगले चार्ट पर जारी रहता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -133,9 +133,9 @@ try {
 
 ## **वर्कबुक से चार्ट डेटा पढ़ें और लिखें**
 
-Aspose.Slides for Node.js via Java, [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) और [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) विधियों के माध्यम से चार्ट डेटा वर्कबुक (Aspose.Cells से संपादित) को पढ़ने और लिखने की सुविधा देता है। **नोट** कि चार्ट डेटा को उसी तरह व्यवस्थित होना चाहिए या स्रोत के समान संरचना रखनी चाहिए।
+Aspose.Slides for Node.js via Java [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) और [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) मेथड प्रदान करता है जो आपको चार्ट डेटा वर्कबुक्स (Aspose.Cells के साथ संपादित) को पढ़ने और लिखने की अनुमति देता है। **ध्यान दें** कि चार्ट डेटा को उसी प्रकार व्यवस्थित किया जाना चाहिए या स्रोत के समान संरचना रखनी चाहिए।
 
-यह उदाहरण पहली स्लाइड पर पहला आकार एक चार्ट वाला प्रस्तुतिकरण उपयोग करता है। यह एंबेडेड वर्कबुक को बाइट एरे में पढ़ता है, मौजूदा श्रृंखलाएँ और श्रेणियाँ साफ़ करता है, और वही वर्कबुक वापस लिखता है। परिवर्तन मेमोरी में रहते हैं; उदाहरण प्रस्तुतिकरण को सहेजता नहीं है।
+यह उदाहरण पहली स्लाइड के पहले आकार के रूप में एक चार्ट वाली प्रस्तुति का उपयोग करता है। यह अंतर्निहित वर्कबुक को बाइट एरे में पढ़ता है, मौजूदा श्रृंखला और श्रेणियों को साफ़ करता है, और उसी वर्कबुक को वापस लिखता है। परिवर्तन स्मृति में रहते हैं; उदाहरण प्रस्तुति को सहेजता नहीं है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-### **वर्कबुक संशोधन के बाद चार्ट लेआउट सत्यापित करें**
+### **वर्कबुक संशोधन के बाद चार्ट लेआउट को वैध बनाएं**
 
-जब आप एंबेडेड वर्कबुक को संशोधित संस्करण से बदलते हैं, तो चार्ट अपनी मूल श्रृंखलाओं और श्रेणी संग्रहों को बरकरार रखता है। यह असंगतता [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) को इंडेक्स‑आउट‑ऑफ़‑रेंज त्रुटि के साथ विफल कर सकती है। अद्यतन वर्कबुक को वापस लिखने से पहले मौजूदा श्रृंखला और श्रेणियों को साफ़ करें। यह उदाहरण पहली स्लाइड पर पहला आकार एक चार्ट उपयोग करता है। टिप्पणी उन स्थानों को दर्शाती है जहाँ वर्कबुक संपादन किया जाएगा; चलाने योग्य उदाहरण मूल वर्कबुक को वापस लिखता है और मेमोरी में लेआउट को सत्यापित करता है।
+जब आप संशोधित वर्कबुक को अंतर्निहित वर्कबुक के स्थान पर रखते हैं, तो चार्ट अपनी मूल श्रृंखला और श्रेणी कलेक्शन्स को बरकरार रखता है। यह विसंगति [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) को इंडेक्स‑आउट‑ऑफ़‑रेंज त्रुटि के साथ विफल कर सकती है। अपडेटेड वर्कबुक को वापस लिखने से पहले मौजूदा श्रृंखला और श्रेणियों को साफ़ करें। यह उदाहरण पहली स्लाइड पर पहला आकार एक चार्ट है। टिप्पणी दर्शाती है कि जहाँ वर्कबुक संपादन होगा; चलने योग्य उदाहरण मूल वर्कबुक को वापस लिखता है और मेमोरी में लेआउट को वैध करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // यहाँ वर्कबुक बाइट्स को संशोधित करें, उदाहरण के लिए, Aspose.Cells का उपयोग करके।
+        // वर्कबुक बाइट्स को यहाँ संशोधित करें, उदाहरण के लिए, Aspose.Cells का उपयोग करके।
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -200,15 +200,15 @@ try {
 }
 ```
 
-संग्रहों को साफ़ करने से लिखे जाने से पहले पुराने डेटा रेफ़रेंस हट जाते हैं। अद्यतन वर्कबुक के लिये आवश्यक श्रृंखलाएँ और श्रेणी मैपिंग पुनः बनाएँ, फिर चार्ट का उपयोग करें।
+संकलनों को साफ़ करने से पुरानी डेटा रेफ़रेंसेज़ हट जाती हैं इससे पहले कि वर्कबुक वापस लिखी जाए। अपडेटेड वर्कबुक के लिये आवश्यक श्रृंखला और श्रेणी मैपिंग को पुनः बनाएं इससे पहले कि चार्ट उपयोग किया जाए।
 
-## **वर्कबुक कोशिकाओं के लिए कस्टम संख्या प्रारूप सेट करें**
+## **वर्कबुक कोशिकाओं के लिये कस्टम नंबर फ़ॉर्मेट सेट करें**
 
-[ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) का उपयोग करके आप तय कर सकते हैं कि चार्ट के एंबेडेड वर्कबुक में संख्यात्मक मान कैसे दिखेंगे। उदाहरण के लिए, एक रिपोर्ट को रूपांतरण दर को चार दशमलव स्थान के साथ प्रतिशत में तथा गुणांक को पाँच दशमलव स्थान के साथ दिखाना पड़ सकता है। दोनों मान संख्यात्मक रखें ताकि वे गणनाओं और चार्ट प्लॉटिंग के लिये उपलब्ध रहें।
+एक चार्ट की अंतर्निहित वर्कबुक में संख्यात्मक मानों को कैसे दिखाना है, इसे नियंत्रित करने के लिये [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) का उपयोग करें। उदाहरण के लिये, एक रिपोर्ट को परिवर्तन दर को चार दशमलव स्थानों के साथ प्रतिशत के रूप में और गुणांक को पाँच दशमलव स्थानों के साथ प्रदर्शित करने की आवश्यकता हो सकती है। दोनों मानों को संख्यात्मक रखें ताकि वे गणनाओं और चार्ट प्लॉटिंग के लिये उपलब्ध रहें।
 
-संख्या प्रारूप दिखावे को बदलता है, न कि संग्रहीत मान को। `0.0000%` प्रारूप `0.125` को `12.5000%` दिखाता है; यह संग्रहीत संख्या को `12.5` नहीं बनाता। इसी प्रकार, `0.00000` `0.1234567` को `0.12346` दिखाता है बिना संग्रहीत मान को गोल किए। यदि कस्टम प्रारूप खाली स्ट्रिंग (`""`) है, तो [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) द्वारा लौटाया गया प्रारूप उपयोग किया जाता है।
+एक नंबर फ़ॉर्मेट केवल प्रदर्शित रूप को बदलता है, संग्रहीत मान को नहीं। फ़ॉर्मेट `0.0000%` `0.125` को `12.5000%` के रूप में दिखाता है; यह संग्रहीत संख्या को `12.5` में नहीं बदलता। इसी प्रकार, `0.00000` `0.1234567` को `0.12346` दिखाता है बिना संग्रहीत मान को राउंड किए। यदि कस्टम फ़ॉर्मेट खाली स्ट्रिंग (`""`) है, तो [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) द्वारा लौटाया गया फ़ॉर्मेट उपयोग किया जाता है।
 
-निम्न उदाहरण एक कॉलम चार्ट बनाता है और उसकी कोशिकाओं को [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) के माध्यम से एक्सेस करता है। वर्कशीट 0 में, B2 में रूपांतरण दर और C2 में गुणांक है। दोनों कोशिकाएँ चार्ट मान प्रदान करती हैं। उदाहरण स्रोत फ़ॉर्मेट से जुड़े मान लेबल भी सक्रिय करता है।
+निम्न उदाहरण एक कॉलम चार्ट बनाता है और उसकी कोशिकाओं तक पहुंचता है [getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) के द्वारा। वर्कशीट 0 में, B2 में परिवर्तन दर और C2 में गुणांक है। दोनों कोशिकाएँ चार्ट मान प्रदान करती हैं। उदाहरण स्रोत फ़ॉर्मेट से जुड़ी मान लेबल भी सक्षम करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -260,17 +260,19 @@ try {
 }
 ```
 
-वर्कबुक कोशिका प्रारूप चार्ट अक्ष या डेटा लेबल पर सीधे सेट किए गए प्रारूपों से अलग होते हैं। इस उदाहरण में, प्रत्येक लेबल अपना स्रोत कोशिका मान प्रदर्शित करता है क्योंकि [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) `true` पर सेट है, और स्रोत संख्या प्रारूप का पालन करता है क्योंकि [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) `true` पर सेट है। सहेजने और पुनः खोलने के बाद, लेबल `12.5000%` और `0.12346` दिखाते हैं, जैसा नीचे दिखाया गया है। ऊर्ध्वाधर अक्ष अपना स्वयं का संख्या प्रारूप उपयोग करता है, जिसे [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) द्वारा `0.00` और [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) `false` पर सेट किया गया है।
+वर्कबुक सेल फ़ॉर्मेट्स चार्ट अक्षों या डेटा लेबल्स पर सीधे सेट किए गए फ़ॉर्मेट्स से अलग होते हैं। इस उदाहरण में प्रत्येक लेबल अपना स्रोत सेल मान दिखाता है क्योंकि [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) `true` है, और स्रोत नंबर फ़ॉर्मेट का अनुसरण करता है क्योंकि [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) `true` है। सहेजने और पुनः खोलने के बाद लेबल्स `12.5000%` और `0.12346` दिखाते हैं, जैसा कि नीचे दिखाया गया है। ऊर्ध्वाधर अक्ष अपना स्वयं का नंबर फ़ॉर्मेट उपयोग करता है, जिसे [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) से `0.00` सेट किया गया है, और [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) `false` है।
 
-डेटा लेबल को स्वतंत्र रूप से स्वरूपित करने हेतु, उसके स्रोत‑लिंक फ़्लैग को `false` सेट करें और [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) द्वारा एक प्रारूप असाइन करें। यह वर्कबुक कोशिका के प्रारूप को नहीं बदलता। उदाहरण के लिये, स्वतंत्र लेबल प्रारूप `0.00` पहली मान को `0.13` दिखाता है, जबकि B2 अभी भी `12.5000%` दिखाता है। सीधे लेबल स्वरूपण के लिये देखें [Chart Data Labels](/slides/hi/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels)।
+डेटा लेबल को स्वतंत्र रूप से फ़ॉर्मेट करने के लिये, उसका स्रोत‑लिंक फ़्लैग `false` सेट करें और [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) से फ़ॉर्मेट असाइन करें। यह वर्कबुक सेल के फ़ॉर्मेट को नहीं बदलता। उदाहरण के लिये, स्वतंत्र लेबल फ़ॉर्मेट `0.00` पहला मान `0.13` दिखाएगा, जबकि B2 अभी भी `12.5000%` दिखाएगा। सीधे लेबल फ़ॉर्मेटिंग के लिये देखें [Chart Data Labels](/slides/hi/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels)।
 
-![स्रोत-लिंक लेबल्स के साथ कॉलम चार्ट जिसमें 12.5000% और 0.12346 दिखाए गए हैं और स्वतंत्र रूप से स्वरूपित संख्यात्मक अक्ष।](custom-cell-formats.png)
+नीचे दी गई छवि सहेजी गई प्रस्तुति को पुनः खोलने के बाद रेंडर की गई है:
+
+![स्रोत‑लिंक्ड लेबल्स के साथ कॉलम चार्ट जो 12.5000% और 0.12346 दिखाते हैं तथा स्वतंत्र रूप से फ़ॉर्मेटेड संख्यात्मक अक्ष.](custom-cell-formats.png)
 
 ## **वर्कबुक सेल को चार्ट डेटा लेबल के रूप में सेट करें**
 
-आप वर्कबुक कोशिकाओं के टेक्स्ट को चार्ट डेटा लेबल के रूप में उपयोग कर सकते हैं।
+आप वर्कबुक सेल्स के टेक्स्ट को चार्ट डेटा लेबल के रूप में उपयोग कर सकते हैं।
 
-यह उदाहरण मौजूदा प्रस्तुतिकरण की पहली स्लाइड पर एक बबल चार्ट जोड़ता है, जो डिफ़ॉल्ट डेटा रखता है। यह वर्कशीट 0 की कोशिकाएँ A10:A12 को पहली श्रृंखला के पहले तीन लेबल के लिए उपयोग करता है, कोशिकाओं से लेबल सक्षम करता है, और अद्यतन प्रस्तुतिकरण को सहेजता है।
+यह उदाहरण एक मौजूदा प्रस्तुति की पहली स्लाइड में एक बबल चार्ट जोड़ता है जिसमें डिफ़ॉल्ट डेटा है। यह वर्कशीट 0 में A10:A12 कोशिकाओं को पहली श्रृंखला के पहले तीन लेबल के लिये उपयोग करता है, सेल‑आधारित लेबल्स को सक्षम करता है, और अपडेटेड प्रस्तुति को सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -294,9 +296,9 @@ try {
 }
 ```
 
-## **वर्कशीट्स को प्रबंधित करें**
+## **वर्कशीट्स का प्रबंधन करें**
 
-[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) विधि चार्ट वर्कबुक में मौजूद वर्कशीट्स की पहुँच प्रदान करती है। यह उदाहरण एक डिफ़ॉल्ट डेटा वाले पाई चार्ट को बनाता है और प्रत्येक वर्कशीट का नाम कंसोल पर प्रिंट करता है।
+[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) मेथड एक चार्ट वर्कबुक में वर्कशीट्स तक पहुंच प्रदान करता है। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और प्रत्येक वर्कशीट का नाम कंसोल पर प्रिंट करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -318,7 +320,9 @@ try {
 
 ## **डेटा स्रोत प्रकार निर्दिष्ट करें**
 
-यह उदाहरण डिफ़ॉल्ट डेटा वाले एक 3D कॉलम चार्ट को बनाता है और विभिन्न डेटा स्रोतों का उपयोग करके दो श्रृंखला नाम सेट करता है। पहला नाम स्ट्रिंग लिटरल है; दूसरा नाम वर्कशीट 0 के सेल C1 से लिया गया है। [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) enumeration प्रत्येक नाम के लिये स्रोत चुनता है। उदाहरण अद्यतन श्रृंखला नामों के साथ प्रस्तुतिकरण को सहेजता है।
+श्रृंखला बिंदु मानों को सीधे संख्यात्मक लिटेरल्स के रूप में भी संग्रहीत किया जा सकता है। पूर्ण उदाहरण के लिये देखें [Set Series Values Using Numeric Literals](/slides/hi/nodejs-java/chart-series/#set-series-values-using-numeric-literals) जो उन्हें सहेजता और पढ़ता है। बिंदु मानों का स्रोत प्रकार चार्ट के आंतरिक या बाहरी वर्कबुक कॉन्फ़िगरेशन से अलग है; संख्यात्मक लिटेरल्स का उपयोग स्वाभाविक रूप से अंतर्निहित वर्कबुक को नहीं हटाता।
+
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक 3D कॉलम चार्ट बनाता है और दो श्रृंखला नामों को विभिन्न डेटा स्रोतों के साथ सेट करता है। पहला नाम स्ट्रिंग लिटेरल है; दूसरा वर्कशीट 0 की कोशिका C1 है। [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) एन्यूमरेशन प्रत्येक नाम के लिये स्रोत चुनता है। उदाहरण अपडेटेड श्रृंखला नामों के साथ प्रस्तुति को सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -344,9 +348,9 @@ try {
 }
 ```
 
-## **असमर्थित एंबेडेड वर्कबुक फ़ॉर्मेट का पता लगाएँ**
+## **असमर्थित अंतर्निहित वर्कबुक फ़ॉर्मेट का पता लगाएँ**
 
-Aspose.Slides उन Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट को समर्थन नहीं देता जो कुछ चार्ट में एंबेडेड हो सकते हैं। आप [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) पर `getEmbeddedWorkbookType` विधि को [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) enumeration के साथ उपयोग करके असमर्थित फ़ॉर्मेट का पता लगा सकते हैं और उन चार्ट्स को छोड़ सकते हैं। यह उदाहरण मौजूदा प्रस्तुतिकरण की पहली स्लाइड पर आकारों की जाँच करता है, गैर‑चार्ट आकारों को छोड़ता है, और प्रत्येक .xlsb एंबेडेड वर्कबुक वाले चार्ट के लिये एक डायग्नोस्टिक संदेश प्रिंट करता है।
+Aspose.Slides कुछ चार्ट्स में एम्बेडेड Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट का समर्थन नहीं करता। आप [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) पर `getEmbeddedWorkbookType` मेथड को [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) एन्यूमरेशन के साथ उपयोग करके असमर्थित फ़ॉर्मेट का पता लगा सकते हैं और उन चार्ट्स को छोड़ सकते हैं। यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर आकारों की जाँच करता है, गैर‑चार्ट आकारों को छोड़ता है, और प्रत्येक चार्ट के लिये एक डायग्नोस्टिक संदेश प्रिंट करता है जिसमें .xlsb वर्कबुक एम्बेडेड है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -372,7 +376,7 @@ try {
             continue;
         }
 
-        // समर्थित चार्ट वर्कबुक डेटा को यहाँ पढ़ें या संशोधित करें।
+        // यहाँ समर्थित चार्ट वर्कबुक डेटा पढ़ें या संशोधित करें।
     }
 } finally {
     presentation.dispose();
@@ -381,13 +385,13 @@ try {
 
 ## **बाहरी वर्कबुक**
 
-Aspose.Slides चार्ट्स के लिये बाहरी वर्कबुक को डेटा स्रोत के रूप में उपयोग करने का समर्थन करता है।
+Aspose.Slides चार्ट्स के लिये डेटा स्रोत के रूप में बाहरी वर्कबुक्स का उपयोग समर्थन करता है।
 
-### **एक बाहरी वर्कबुक बनाएँ**
+### **एक बाहरी वर्कबुक बनाएं**
 
-[readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) और [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) का उपयोग करके एंबेडेड चार्ट वर्कबुक को फ़ाइल में निर्यात करें और चार्ट को उस बाहरी वर्कबुक से लिंक करें।
+[readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) और [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) का उपयोग करके एक एम्बेडेड चार्ट वर्कबुक को फ़ाइल में निर्यात करें और चार्ट को उस बाहरी वर्कबुक से लिंक करें।
 
-यह उदाहरण डिफ़ॉल्ट डेटा वाला एक पाई चार्ट बनाता है और उसकी वर्कबुक को निर्यात करता है। फ़ाइल लिखने के बाद इसे बाहरी वर्कबुक के रूप में डेटा स्रोत असाइन करता है, फिर लिंक किया गया प्रस्तुतिकरण सहेजता है।
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और उसकी वर्कबुक को निर्यात करता है। फ़ाइल लिखना पूरा होने के बाद बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में असाइन करता है, फिर लिंक्ड प्रस्तुति को सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -416,11 +420,11 @@ try {
 
 ### **एक बाहरी वर्कबुक असाइन करें**
 
-[setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) विधि का उपयोग करके आप किसी चार्ट को बाहरी वर्कबुक को डेटा स्रोत के रूप में असाइन कर सकते हैं। यह विधि का उपयोग बाहरी वर्कबुक के पथ को अपडेट करने के लिये भी किया जा सकता है (अगर वह स्थानांतरित किया गया हो)।
+[setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) मेथड का उपयोग करके आप एक चार्ट को उसके डेटा स्रोत के रूप में एक बाहरी वर्कबुक असाइन कर सकते हैं। यह मेथड बाहरी वर्कबुक के पथ को अपडेट करने के लिये भी उपयोग किया जा सकता है (यदि वह स्थानांतरित किया गया हो)।
 
-जबकि आप रिमोट लोकेशन या संसाधनों में संग्रहीत वर्कबुक डेटा को संपादित नहीं कर सकते, आप फिर भी ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि एक बाहरी वर्कबुक का रिलेटिव पथ दिया गया है, तो वह स्वतः पूर्ण पथ में बदल दिया जाता है।
+हालाँकि आप रिमोट लोकेशन्स या संसाधनों में संग्रहीत वर्कबुक्स के डेटा को संपादित नहीं कर सकते, आप अभी भी ऐसे वर्कबुक्स को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाहरी वर्कबुक के लिये एक सापेक्ष पथ प्रदान किया जाता है, तो वह स्वचालित रूप से पूर्ण पथ में परिवर्तित हो जाता है।
 
-यह उदाहरण एक बाहरी वर्कबुक का उपयोग करता है जहाँ वर्कशीट `Sheet1` में B1 में श्रृंखला नाम, A2:A4 में श्रेणी नाम, और B2:B4 में संख्यात्मक मान हैं। उदाहरण एक पाई चार्ट बनाता है, वर्कबुक को लिंक करता है, और [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) का उपयोग करके A1:B4 को एक श्रृंखला और तीन श्रेणियों से मैप करता है। फिर लिंक किए गए चार्ट के साथ प्रस्तुतिकरण को सहेजता है।
+यह उदाहरण एक बाहरी वर्कबुक का उपयोग करता है जिसकी वर्कशीट `Sheet1` में B1 में श्रृंखला नाम, A2:A4 में श्रेणी नाम, और B2:B4 में संख्यात्मक मान हैं। उदाहरण एक पाई चार्ट बनाता है, वर्कबुक को लिंक करता है, और [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) का उपयोग करके A1:B4 को एक श्रृंखला और तीन श्रेणियों से मैप करता है। यह लिंक्ड चार्ट के साथ प्रस्तुति को सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -443,12 +447,12 @@ try {
 }
 ```
 
-[setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) का `updateChartData` पैरामीटर यह नियंत्रित करता है कि वर्कबुक लोड हो या नहीं।
+[setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) का `updateChartData` पैरामीटर निर्धारित करता है कि वर्कबुक लोड की जाए या नहीं।
 
-* जब `updateChartData` `false` है, तो केवल वर्कबुक पथ अपडेट किया जाता है। चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं किया जाता, इसलिए वर्कबुक अनुपलब्ध हो सकता है।
+* जब `updateChartData` `false` है, तो केवल वर्कबुक पथ अपडेट होता है। चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं किया जाता, इसलिए वर्कबुक अनुपलब्ध भी हो सकती है।
 * जब `updateChartData` `true` है, तो चार्ट डेटा लक्ष्य वर्कबुक से अपडेट किया जाता है।
 
-निम्न उदाहरण `updateChartData` को `false` पर सेट करके प्लेसहोल्डर URL असाइन करता है। यह पाई चार्ट के डिफ़ॉल्ट डेटा को बरकरार रखता है और अनुपलब्ध वर्कबुक को लोड किए बिना प्रस्तुतिकरण को सहेजता है।
+निम्न उदाहरण `updateChartData` को `false` सेट करके एक प्लेसहोल्डर URL असाइन करता है। यह पाई चार्ट के डिफ़ॉल्ट डेटा को बरकरार रखता है और अनुपलब्ध वर्कबुक को लोड किए बिना प्रस्तुति को सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -466,12 +470,11 @@ try {
 }
 ```
 
-### **एक चार्ट के बाहरी डेटा स्रोत वर्कबुक पथ को प्राप्त करें**
+### **एक चार्ट के बाहरी डेटा स्रोत वर्कबुक पथ प्राप्त करें**
 
-किसी चार्ट से जुड़ी वर्कबुक को पहचानने के लिये, जाँचें कि चार्ट बाहरी डेटा स्रोत का उपयोग करता है या नहीं और उसका वर्कबुक पथ प्राप्त करें।
+किसी चार्ट से जुड़ी वर्कबुक को पहचानने के लिये, जांचें कि चार्ट बाहरी डेटा स्रोत उपयोग करता है या नहीं और उसका वर्कबुक पथ प्राप्त करें।
 
-यह उदाहरण प्रस्तुतिकरण की पहली स्लाइड पर पहले आकार को inspe
-क्शन करता है, यदि वह बाहरी वर्कबुक से लिंक किया हुआ चार्ट है तो वह [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) को कंसोल पर प्रिंट करता है। फिर प्रस्तुतिकरण की एक कॉपी सहेजता है।
+यह उदाहरण एक लिंक्ड बाहरी वर्कबुक वाली प्रस्तुति की पहली स्लाइड के पहले आकार की जाँच करता है। यदि वह एक चार्ट है जो बाहरी वर्कबुक से जुड़ा है, तो उदाहरण कंसोल में [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) प्रिंट करता है। फिर प्रस्तुति की एक प्रति सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -501,9 +504,9 @@ try {
 
 ### **चार्ट डेटा संपादित करें**
 
-आप बाहरी वर्कबुक के डेटा को उसी प्रकार संपादित कर सकते हैं जैसा आप आंतरिक वर्कबुक की सामग्री को बदलते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाती, तो अपवाद फेंका जाता है।
+आप बाहरी वर्कबुक्स के डेटा को उसी प्रकार संपादित कर सकते हैं जैसा आप आंतरिक वर्कबुक्स को करते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाता, तो एक अपवास्था (exception) फेंकी जाती है।
 
-यह उदाहरण पहली स्लाइड पर पहला आकार एक चार्ट है और वह एक सुलभ बाहरी वर्कबुक से जुड़ा है। यह पहली श्रृंखला के पहले डेटा बिंदु की सेल‑बैक्ड मान को `100` पर सेट करता है और अद्यतन प्रस्तुतिकरण को सहेजता है। सेल मानों को संपादित करने से लिंक की गई बाहरी XLSX फ़ाइल अपडेट हो सकती है, इसलिए मूल वर्कबुक को संरक्षित रखने के लिये एक कॉपी का उपयोग करें।
+यह उदाहरण पहली स्लाइड के पहले आकार के रूप में एक चार्ट का उपयोग करता है जो एक सुलभ बाहरी वर्कबुक से जुड़ा है। यह पहले श्रृंखला के पहले डेटा पॉइंट को 100 सेट करता है और अपडेटेड प्रस्तुति को सहेजता है। सेल मानों का संपादन लिंक्ड बाहरी XLSX फाइल को अपडेट कर सकता है, इसलिए मूल वर्कबुक को संरक्षित रखने हेतु एक कॉपी का प्रयोग करें।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -536,11 +539,11 @@ try {
 }
 ```
 
-### **चार्ट कैश से वर्कबुक को पुनः प्राप्त करें**
+### **चार्ट कैश से वर्कबुक पुनः प्राप्त करें**
 
-यदि कोई चार्ट ऐसी बाहरी वर्कबुक का उपयोग करता है जो अनुपलब्ध या गायब है, तो Aspose.Slides प्रस्तुतिकरण में कैश किए गए डेटा से चार्ट वर्कबुक को पुनः बना सकता है। [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) बनाइए, [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) को कॉल करें, और [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) को `true` सेट करें, फिर प्रस्तुतिकरण खोलें।
+यदि कोई चार्ट ऐसी बाहरी वर्कबुक उपयोग करता है जो गायब या अनुपलब्ध है, तो Aspose.Slides प्रस्तुति में कैश्ड डेटा से चार्ट वर्कबुक को पुनः निर्मित कर सकता है। [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) बनाएँ, फिर [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) को कॉल करें, और [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) को `true` सेट करें, फिर प्रस्तुति खोलें।
 
-निम्न JavaScript उदाहरण एक ऐसे चार्ट के लिये वर्कबुक डेटा को पुनः प्राप्त करता है जो पहली स्लाइड पर पहला आकार है और अनुपलब्ध बाहरी वर्कबुक को संदर्भित करता है। यह पुनः प्राप्त डेटा को [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) और [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) के माध्यम से एक्सेस करता है:
+निम्न JavaScript उदाहरण पहले आकार के रूप में एक चार्ट के लिये वर्कबुक डेटा को पुनः प्राप्त करता है जो पहली स्लाइड पर है और अनुपलब्ध बाहरी वर्कबुक को संदर्भित करता है। यह पुनः प्राप्त डेटा को [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) और [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) के माध्यम से एक्सेस करता है:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -570,30 +573,30 @@ try {
 }
 ```
 
-यदि बाहरी वर्कबुक अनुपलब्ध है और पुनः प्राप्ति अक्षम है, तो Aspose.Slides अपवाद फेंकेगा। केवल तभी पुनः प्राप्ति सक्षम करें जब कैश्ड चार्ट डेटा उपयोग करना स्वीकार्य बैक‑अप हो, क्योंकि कैश में बाहरी वर्कबुक में किए गए बाद के परिवर्तन शामिल नहीं हो सकते।
+यदि बाहरी वर्कबुक अनुपलब्ध है और पुनः प्राप्ति अक्षम है, तो Aspose.Slides अपवास्था फेंकेगा। पुनः प्राप्ति तभी सक्षम करें जब कैश्ड चार्ट डेटा का उपयोग स्वीकार्य फॉलबैक हो, क्योंकि कैश में बाहरी वर्कबुक में किए गए बदलाव प्रतिबिंबित नहीं हो सकते।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या मैं यह निर्धारित कर सकता हूँ कि कोई विशेष चार्ट बाहरी या एंबेडेड वर्कबुक से लिंक है?**
+**क्या मैं निर्धारित कर सकता हूँ कि कोई विशिष्ट चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा है?**
 
-हाँ। एक चार्ट के पास एक [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) और एक [एक बाहरी वर्कबुक का पथ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) होता है; यदि स्रोत एक बाहरी वर्कबुक है, तो आप पूर्ण पाथ पढ़कर सुनिश्चित कर सकते हैं कि एक बाहरी फ़ाइल उपयोग में है।
+हाँ। एक चार्ट के पास [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) और एक [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) होता है; यदि स्रोत बाहरी वर्कबुक है, तो आप पूर्ण पथ पढ़कर सुनिश्चित कर सकते हैं कि बाहरी फ़ाइल उपयोग में है।
 
-**क्या बाहरी वर्कबुक के रिलेटिव पाथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**
+**क्या बाहरी वर्कबुक्स के सापेक्ष पथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**
 
-हाँ। यदि आप रिलेटिव पाथ निर्दिष्ट करते हैं, तो वह स्वतः पूर्ण पाथ में परिवर्तित हो जाता है। प्रस्तुतिकरण PPTX फ़ाइल में पूर्ण पाथ संग्रहीत करता है, इसलिए वर्कबुक को स्थानांतरित करने पर लिंक को अपडेट करने की आवश्यकता पड़ सकती है।
+हाँ। यदि आप सापेक्ष पथ निर्दिष्ट करते हैं, तो वह स्वचालित रूप से पूर्ण पथ में परिवर्तित हो जाता है। प्रस्तुति PPTX फ़ाइल में पूर्ण पथ संग्रहीत करती है, इसलिए वर्कबुक को स्थानांतरित करने पर लिंक को अपडेट करना पड़ सकता है।
 
-**क्या मैं नेटवर्क संसाधनों/शेयर्स पर स्थित वर्कबुक का उपयोग कर सकता हूँ?**
+**क्या मैं नेटवर्क संसाधनों/शेयर पर स्थित वर्कबुक्स का उपयोग कर सकता हूँ?**
 
-हाँ, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालांकि, Aspose.Slides से सीधे रिमोट वर्कबुक को संपादित करना समर्थित नहीं है—वे केवल स्रोत के रूप में उपयोग किए जा सकते हैं।
+हाँ, ऐसे वर्कबुक्स को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालाँकि, Aspose.Slides से रिमोट वर्कबुक्स को सीधे संपादित करना समर्थित नहीं है—वे केवल स्रोत के रूप में उपयोग किए जा सकते हैं।
 
-**क्या Aspose.Slides प्रस्तुतिकरण सहेजते समय बाहरी XLSX को ओवरराइट करता है?**
+**क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को ओवरराइट करता है?**
 
-प्रस्तुतिकरण एक [बाहरी फ़ाइल का लिंक](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) संग्रहीत करता है। सेल‑बैक्ड चार्ट डेटा को संपादित करने से लिंक की गई स्थानीय XLSX फ़ाइल भी अपडेट हो सकती है। यदि मूल वर्कबुक अपरिवर्तित रहना आवश्यक है, तो उसकी एक कॉपी का उपयोग करें।
+प्रस्तुति एक [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) संग्रहीत करती है। सेल‑आधारित चार्ट डेटा का संपादन भी लिंक्ड स्थानीय XLSX फ़ाइल को अपडेट कर सकता है। यदि मूल फ़ाइल को अपरिवर्तित रखना है, तो वर्कबुक की एक कॉपी का उपयोग करें।
 
-**यदि बाहरी फ़ाइल पासवर्ड‑सुरक्षित है तो मुझे क्या करना चाहिए?**
+**यदि बाहरी फ़ाइल पासवर्ड‑सुरक्षित हो तो क्या करें?**
 
-Aspose.Slides लिंक बनाते समय पासवर्ड स्वीकार नहीं करता। आम तौर पर पहले सुरक्षा हटाना या किसी डिक्रिप्टेड कॉपी तैयार करना (उदाहरण के लिये [Aspose.Cells](https://reference.aspose.com/cells/java/) का उपयोग करके) उचित समाधान है।
+Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता। सामान्य तरीका यह है कि पहले सुरक्षा हटा दी जाए या एक डिक्रिप्टेड कॉपी तैयार की जाए (उदाहरण के लिये, [Aspose.Cells](https://reference.aspose.com/cells/java/) का उपयोग करके) और उस कॉपी को लिंक किया जाए।
 
-**क्या विभिन्न चार्ट एक ही बाहरी वर्कबुक को संदर्भित कर सकते हैं?**
+**क्या कई चार्ट्स एक ही बाहरी वर्कबुक को संदर्भित कर सकते हैं?**
 
-हाँ। प्रत्येक चार्ट अपनी स्वयं की लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो उस फ़ाइल में किए गए अपडेट प्रत्येक चार्ट में अगली बार डेटा लोड होने पर प्रतिबिंबित होंगे।
+हाँ। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो फ़ाइल को अपडेट करने से प्रत्येक चार्ट में अगले डेटा लोड पर परिवर्तन प्रतिबिंबित होंगे।

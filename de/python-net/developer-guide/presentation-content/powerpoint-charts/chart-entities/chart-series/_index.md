@@ -4,10 +4,10 @@ linktitle: Datenserien
 type: docs
 url: /de/python-net/chart-series/
 keywords:
-- Diagrammserie
+- Diagrammserien
 - Serienüberlappung
 - Serienfarbe
-- Kategorienfarbe
+- Kategoriefarbe
 - Serienname
 - Datenpunkt
 - Serienlücke
@@ -15,29 +15,66 @@ keywords:
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammserien, Datenpunkte, Arbeitsmappenzellen, Formatierung, Überlappung, Lückenbreite und negative Werte in Präsentationen mit Python verwalten."
+description: "Erfahren Sie, wie Sie Diagrammserien, Datenpunkte, Arbeitsblattzellen, Formatierung, Überlappung, Lückenbreite und negative Werte in Präsentationen mit Python verwalten."
 ---
 ## **Übersicht**
 
-Ein Diagramm speichert seine geplotteten Daten in einem Diagrammdaten‑Arbeitsmappe. Eine [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) stellt einen Satz zusammengehöriger Werte dar, und jeder [ChartDataPoint](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/) in der Serie bezieht sich auf eine oder mehrere Arbeitsmappenzellen. [ChartCategory](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/)‑Objekte liefern die Beschriftungen oder Gruppierungswerte, die von den Serien gemeinsam genutzt werden. Der Serienname, die Kategorien und die Punktwerte sind daher mit [ChartDataCell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/)‑Objekten verknüpft und werden nicht nur als Anzeigetext gespeichert.
+Ein Diagramm kann seine geplotteten Werte in Arbeitsblattzellen oder direkt als numerische Literale speichern. Eine [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) repräsentiert einen Satz zusammengehöriger Werte, und jeder [ChartDataPoint](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/) stellt einen Punkt in dieser Serie dar. [ChartCategory](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/)‑Objekte liefern die Beschriftungen oder Gruppierungswerte, die von den Serien gemeinsam genutzt werden. In Diagrammen, die mit Standarddaten erstellt wurden, verwenden Seriennamen, Kategorien und Punktwerte [ChartDataCell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/)‑Objekte aus dem Diagramm‑Arbeitsbuch.
 
-Für ein typisches Kategoriediagramm verwendet die Standard‑Arbeitsmappe Zeile 0 für Seriennamen, Spalte 0 für Kategorienamen und die übrigen Zellen für Serienwerte. Arbeitsblatt‑, Zeilen‑ und Spaltenindizes, die an [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) übergeben werden, sind nullbasiert. Dieses Layout ist nützlich, wenn Sie ein Diagramm mit Standarddaten erstellen, aber Sie dürfen nicht davon ausgehen, dass jedes vorhandene Diagramm es verwendet. Bei einer geladenen Präsentation sollten Sie die von den Serien, Kategorien und Datenpunkten referenzierten Zellen prüfen, bevor Sie Arbeitsmappenwerte ändern.
+Für ein typisches Bereichsdiagramm verwendet das Standard‑Arbeitsbuch Zeile 0 für Seriennamen, Spalte 0 für Kategorienamen und die übrigen Zellen für Serienwerte. Arbeitsblatt‑, Zeilen‑ und Spaltenindizes, die an [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) übergeben werden, sind nullbasiert. Dieses Layout ist nützlich, wenn Sie ein Diagramm mit Standarddaten erstellen, aber Sie dürfen nicht davon ausgehen, dass jedes vorhandene Diagramm es verwendet. Für eine geladene Präsentation prüfen Sie die von den Serien, Kategorien und Datenpunkten referenzierten Zellen, bevor Sie Arbeitsbuchwerte ändern.
 
 Diagrammeinstellungen haben drei verschiedene Geltungsbereiche:
 
-- Einstellungen auf Serienebene, wie [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/), geben das Standardaussehen für alle Punkte einer Serie an.
-- Einstellungen auf Datenpunktebene, wie [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/), überschreiben das Serienaussehen für einen einzelnen Punkt.
-- Gruppeneinstellungen gelten für kompatible Serien, die derselben [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) angehören. Greifen Sie auf die Gruppe über [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/) zu, wenn Sie Optionen wie Überlappung oder Lückenbreite festlegen müssen.
+- Einstellunge auf Serienebene, wie [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/), bieten das Standardaussehen für alle Punkte einer Serie.
+- Einstellungen für Datenpunkte, wie [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/), überschreiben das Serienaussehen für einen Punkt.
+- Gruppeneinstellungen gelten für kompatible Serien, die zur gleichen [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) gehören. Greifen Sie über [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/) auf die Gruppe zu, wenn Sie Optionen wie Überlappung oder Lückenbreite festlegen müssen.
 
-Wenn keine explizite Punkt‑ oder Serienfüllung festgelegt ist, bestimmen der Diagrammstil und das Theme das automatische Aussehen. Wenn sowohl Serien‑ als auch Punktformatierungen vorhanden sind, hat die Punktformatierung für diesen Punkt Vorrang.
+Wenn keine explizite Punkt‑ oder Serienfüllung festgelegt ist, bestimmen Diagrammstil und -thema das automatische Aussehen. Wenn sowohl Serien‑ als auch Punktformatierung vorhanden sind, hat die Punktformatierung für diesen Punkt Vorrang.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Überlappung der Diagrammserie festlegen**
+## **Serienwerte mit numerischen Literalen festlegen**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) gibt an, wie stark Balken oder Säulen in einem 2D‑Diagramm überlappen, von -100 bis 100 Prozent. Es ist eine schreibgeschützte Projektion der Einstellung in der übergeordneten Seriengruppe. Setzen Sie [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/), um jede kompatible Serie in dieser Gruppe zu aktualisieren. Diese Option gilt für Diagrammtypen, die gruppierte Balken oder Säulen anzeigen; sie beeinflusst nicht unzusammenhängende Seriengruppen in einem Kombinationsdiagramm.
+Verwenden Sie numerische Literale, wenn Serienwerte aus Anwendungsdaten oder Berechnungen stammen und keine Arbeitsblatt‑Zellreferenzen benötigen. Setzen Sie [data_source_type_for_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_values/) auf [DataSourceType.DOUBLE_LITERALS](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) bevor Sie jedem Punkt seine [value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/) über [as_literal_double](https://reference.aspose.com/slides/python-net/aspose.slides.charts/doublechartvalue/as_literal_double/) zuweisen.
 
-Das folgende Beispiel setzt die Überlappung für die Gruppe, die die erste Serie enthält:
+Die Sammlungseinstellung steuert den Quelltyp aller Punktwerte in dieser Serie. Jeder Punkt's [value.data_source_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/basechartvalue/data_source_type/) gibt den ausgewählten Typ an; ändern Sie ihn über die Sammlungseinstellung. Bei `WORKSHEET` verwenden Sie [as_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/doublechartvalue/as_cell/), um auf die referenzierte Zelle zuzugreifen. Bei `DOUBLE_LITERALS` verwenden Sie `as_literal_double`, um die Zahl direkt zu lesen oder zu schreiben.
+
+Das folgende Beispiel erstellt ein Säulendiagramm mit Standardserien und -kategorien und weist dann den vorhandenen Punkten der ersten Serie berechnete Werte von 10, 20 usw. zu. Es speichert die Präsentation, öffnet sie erneut und gibt die gespeicherten Werte aus.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    series = chart.chart_data.series[0]
+
+    series.data_points.data_source_type_for_values = charts.DataSourceType.DOUBLE_LITERALS
+    for i in range(len(series.data_points)):
+        series.data_points[i].value.as_literal_double = (i + 1) * 10
+
+    presentation.save("numeric_literals.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("numeric_literals.pptx") as reopened_presentation:
+    reopened_slide = reopened_presentation.slides[0]
+    reopened_chart = reopened_slide.shapes[0]
+    reopened_series = reopened_chart.chart_data.series[0]
+    for point in reopened_series.data_points:
+        print(point.value.as_literal_double)
+```
+
+Der Quelltyp des Punktwerts ist getrennt von [ChartData.data_source_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/), das die interne oder externe Arbeitsbuchkonfiguration des Diagramms identifiziert. Die Verwendung numerischer Literale entfernt nicht von selbst das eingebettete Arbeitsbuch. In diesem Beispiel bleibt das Arbeitsbuch für Kategoriebeschriftungen, Seriennamen und die anderen Serien verfügbar. Siehe [Chart Workbook](/slides/de/python-net/chart-workbook/) für die Arbeitsbuchverwaltung.
+
+Für Streu‑ und Blasendiagramme setzen Sie [data_source_type_for_x_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_x_values/) und [data_source_type_for_y_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_y_values/), um die Quellen für [x_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/x_value/) bzw. [y_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/y_value/) auszuwählen. Blasendiagramme verwenden zusätzlich [data_source_type_for_bubble_sizes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_bubble_sizes/) für [bubble_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/bubble_size/). Setzen Sie jede relevante Quelle auf `DOUBLE_LITERALS`, bevor Sie Zahlen über die `as_literal_double`‑Eigenschaft dieses Wertes zuweisen.
+
+## **Diagrammserien‑Überlappung festlegen**
+
+[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) gibt an, wie stark Balken oder Säulen in einem 2D‑Diagramm überlappen, von -100 bis 100 Prozent. Es ist eine schreibgeschützte Projektion der Einstellung in der übergeordneten Seriengruppe. Setzen Sie [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) , um jede kompatible Serie in dieser Gruppe zu aktualisieren. Diese Option gilt für Diagrammtypen, die gruppierte Balken oder Säulen anzeigen; sie wirkt sich nicht auf nicht zugehörige Seriengruppen in einem Kombinationsdiagramm aus.
+
+Das folgende Beispiel legt die Überlappung für die Gruppe fest, die die erste Serie enthält:
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -59,13 +96,15 @@ with slides.Presentation() as presentation:
 ```
 
 Das Ergebnis:
+
 ![Die Serienüberlappung](series_overlap.png)
 
-## **Serienfüllfarbe ändern**
+## **Füllfarbe der Serie ändern**
 
-Verwenden Sie [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/) , um die Standardfüllung für eine gesamte Serie festzulegen. Wenn ein Punkt bereits eine explizite Füllung hat, überschreibt seine [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/)‑Einstellung die Serienfüllung für diesen Punkt.
+Verwenden Sie [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/), um die Standardfüllung für eine gesamte Serie festzulegen. Hat ein Punkt bereits eine explizite Füllung, überschreibt dessen [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/)‑Einstellung die Serienfüllung für diesen Punkt.
 
-Das folgende Beispiel wendet eine feste blaue Füllung auf die erste Serie an:
+Das folgende Beispiel wendet eine einfarbige blaue Füllung auf die erste Serie an:
+
 ```py
 import aspose.pydrawing as drawing
 import aspose.slides as slides
@@ -87,11 +126,13 @@ with slides.Presentation() as presentation:
 ```
 
 Das Ergebnis:
+
 ![Die Farbe der Serie](series_color.png)
 
 ## **Seriennamen ändern**
 
-Ein Serienname wird in der Diagrammdaten‑Arbeitsmappe gespeichert und normalerweise in der Legende angezeigt. In der Standard‑Arbeitsmappe, die für ein gruppiertes Säulendiagramm erstellt wird, befindet sich Zelle B1 in Zeile 0, Spalte 1 und enthält den Namen der ersten Serie. Die benannten Konstanten im folgenden Beispiel machen diese Struktur explizit:
+Ein Serienname wird im Diagrammdaten‑Arbeitsbuch gespeichert und normalerweise in der Legende angezeigt. Im Standard‑Arbeitsbuch, das für ein gruppiertes Säulendiagramm erstellt wird, befindet sich die Zelle B1 in Zeile 0, Spalte 1 und enthält den Namen der ersten Serie. Die benannten Konstanten im folgenden Beispiel machen diese Struktur explizit:
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -113,7 +154,8 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sie können auch die bereits von [ChartSeries.name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/name/) referenzierte Zelle aktualisieren. Dieser Ansatz vermeidet Annahmen über eine bestimmte Zeile und Spalte in einem vorhandenen Diagramm:
+Sie können auch die bereits von [ChartSeries.name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/name/) referenzierte Zelle aktualisieren. Dieser Ansatz vermeidet Annahmen über eine bestimmte Zeile und Spalte in einem bestehenden Diagramm:
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -135,15 +177,17 @@ with slides.Presentation() as presentation:
 ```
 
 Das Ergebnis:
+
 ![Der Serienname](series_name.png)
 
-### **Erzeugen einer Serie mit einem Namen aus mehreren Zellen**
+### **Eine Serie mit einem Namen aus mehreren Zellen erstellen**
 
-Ein zusammengesetzter Serienname ist nützlich, wenn ein Produktname und ein Berichtszeitraum in separaten Arbeitsmappenzellen gespeichert sind. Zum Beispiel können Sie `Product A` in B1 und `2026` in C1 zu einem einzigen Seriennamen kombinieren, während beide Teile mit ihren Quellzellen verknüpft bleiben.
+Ein zusammengesetzter Serienname ist nützlich, wenn ein Produktname und ein Berichtszeitraum in separaten Arbeitsblattzellen gespeichert sind. Zum Beispiel können Sie `Product A` in B1 und `2026` in C1 zu einem einzigen Seriennamen kombinieren, während beide Teile mit ihren Quellzellen verknüpft bleiben.
 
-Verwenden Sie [ChartDataWorkbook.get_cell_collection](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell_collection/) , um den Namensbereich abzurufen, und übergeben Sie diese Sammlung anschließend an [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriescollection/add/). Das Argument `skip_hidden_cells` steuert, ob versteckte Zellen einbezogen werden: `True` schließt sie aus, `False` schließt sie ein. Dieses Beispiel verwendet `False`, um jede Zelle im Namensbereich einzubeziehen.
+Verwenden Sie [ChartDataWorkbook.get_cell_collection](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell_collection/), um den Namensbereich abzurufen, und übergeben Sie diese Sammlung an [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriescollection/add/). Das Argument `skip_hidden_cells` steuert, ob verborgene Zellen einbezogen werden: `True` schließt sie aus, `False` schließt sie ein. Dieses Beispiel verwendet `False`, um jede Zelle im Namensbereich zu inkludieren.
 
-Das folgende Beispiel erstellt eine Präsentation mit einer Serie und zwei Datenpunkten. Die Zellen B1:C1 liefern nur den Seriennamen; A2:A3 liefern die Kategorielabels und B2:B3 die numerischen Werte.
+Das folgende Beispiel erstellt eine Präsentation mit einer Serie und zwei Datenpunkten. Die Zellen B1:C1 liefern nur den Seriennamen; A2:A3 liefern die Kategoriebeschriftungen und B2:B3 die numerischen Werte.
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -179,14 +223,16 @@ with slides.Presentation() as presentation:
     presentation.save("composite_series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Der resultierende Serienname lautet `Product A 2026`, mit einem Leerzeichen zwischen den beiden Zellwerten. Die Legende zeigt dies als einen Eintrag für beide Spalten an. Das untenstehende Bild wurde aus der gespeicherten Präsentation gerendert:
+Der resultierende Serienname lautet `Product A 2026`, mit einem Leerzeichen zwischen den beiden Zellwerten. Die Legende zeigt dies als einen Eintrag für beide Spalten an. Das Bild unten wurde aus der gespeicherten Präsentation gerendert:
+
 ![Säulendiagramm mit Nord‑ und Süd‑Werten und dem zusammengesetzten Seriennamen Product A 2026 in der Legende](composite_series_name.png)
 
 ## **Automatische Serienfüllfarbe abrufen**
 
-[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) liefert die Farbe, die aus dem Serienindex und dem Diagrammstil berechnet wird. Dies ist die Farbe, die verwendet wird, wenn die Serienfüllung nicht explizit definiert ist. Der Aufruf der Methode liest die berechnete Farbe; er weist keine neue Füllung zu.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) gibt die aus dem Serienindex und dem Diagrammstil berechnete Farbe zurück. Dies ist die Farbe, die verwendet wird, wenn die Serienfüllung nicht explizit definiert wurde. Der Aufruf der Methode liest die berechnete Farbe; er weist keine neue Füllung zu.
 
 Das folgende Beispiel gibt die automatische Farbe jeder Standardserie aus:
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -206,19 +252,21 @@ with slides.Presentation() as presentation:
 ```
 
 Beispielausgabe für den Standarddiagrammstil:
+
 ```text
 Series 0: ff4f81bd
 Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Die genauen Farben hängen vom Diagrammstil und Theme ab.
+Die genauen Farben hängen vom Diagrammstil und -theme ab.
 
-## **Invertierte Füllfarbe für eine Diagrammserie festlegen**
+## **Umgekehrte Füllfarbe für eine Diagrammserie festlegen**
 
-Für Balken‑, Säulen‑ und Blasenseien kann [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) negative Werte mit einer anderen Füllung anzeigen. Setzen Sie die reguläre Serienfüllung auf fest, aktivieren Sie die Inversion und weisen Sie die Farbe für negative Werte über [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) zu. Negative Zahlen bleiben in der Arbeitsmappe unverändert; nur ihre Anzeigefarbe ändert sich.
+Für Balken‑, Säulen‑ und Blasensereien kann [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) negative Werte mit einer anderen Füllung anzeigen. Setzen Sie die reguläre Serienfüllung auf einfarbig, aktivieren Sie die Umkehrung und weisen Sie die Farbe für negative Werte über [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) zu. Negative Zahlen bleiben im Arbeitsbuch unverändert; nur ihre Anzeigefarbe ändert sich.
 
-Das folgende Beispiel ersetzt die Standarddiagrammdaten durch eine Serie. Zeile 0 des Arbeitsblatts enthält den Seriennamen, Spalte 0 enthält Kategorienamen und Spalte 1 enthält die Werte:
+Das folgende Beispiel ersetzt die Standard‑Diagrammdaten durch eine Serie. Zeile 0 des Arbeitsblatts enthält den Seriennamen, Spalte 0 enthält die Kategorienamen und Spalte 1 enthält die Werte:
+
 ```py
 import aspose.pydrawing as drawing
 import aspose.slides as slides
@@ -269,9 +317,11 @@ with slides.Presentation() as presentation:
 ```
 
 Das Ergebnis:
-![Die invertierte feste Füllfarbe](inverted_solid_fill_color.png)
 
-Sie können die Inversion für einen Punkt über [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) aktivieren. Im folgenden Beispiel ist die Inversion für die Serie deaktiviert und nur für den ausgewählten Punkt aktiviert. Dem Punkt wird zudem ein negativer Wert zugewiesen, sodass der Effekt sichtbar ist:
+![Die umgekehrte einfarbige Füllfarbe](inverted_solid_fill_color.png)
+
+Sie können die Umkehrung für einen einzelnen Punkt über [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) aktivieren. Im folgenden Beispiel ist die Umkehrung für die Serie deaktiviert und nur für den ausgewählten Punkt aktiviert. Dem Punkt wird außerdem ein negativer Wert zugewiesen, damit der Effekt sichtbar ist:
+
 ```py
 import aspose.pydrawing as drawing
 import aspose.slides as slides
@@ -303,9 +353,10 @@ with slides.Presentation() as presentation:
 
 ## **Einen bestimmten Datenpunktwert löschen**
 
-Um einen Punkt leer zu machen, ohne die anderen Punkte zu entfernen, setzen Sie die zugehörige Arbeitsmappenzelle auf `None`. Für ein Säulendiagramm ist der geplottete Wert über [ChartDataPoint.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/) verfügbar. Der Datenpunkt bleibt an derselben Kategorienposition, aber das Diagramm behandelt seinen Wert als leer gemäß den Leeren‑Wert‑Einstellungen des Diagramms.
+Um einen Punkt leer zu machen, ohne die anderen Punkte zu entfernen, setzen Sie die zugrunde liegende Arbeitsblattzelle auf `None`. Bei einem Säulendiagramm ist der geplottete Wert über [ChartDataPoint.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/) verfügbar. Der Datenpunkt bleibt an derselben Kategorienposition, aber das Diagramm behandelt seinen Wert als leer gemäß den Diagramm‑Einstellungen für leere Werte.
 
-Das folgende Beispiel löscht nur den zweiten Punkt in der ersten Serie:
+Das folgende Beispiel löscht nur den zweiten Punkt der ersten Serie:
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -326,17 +377,18 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Streudiagramme verwenden separate X‑ und Y‑Zellen, und Blasendiagramme verwenden zusätzlich eine Größenzelle. Löschen Sie nur die Zelle, die den zu entfernenden Wert darstellt. Rufen Sie nicht [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) auf, wenn Sie die anderen Punkte behalten möchten, da diese Methode alle Datenpunkte aus der Sammlung entfernt.
+Streudiagramme verwenden separate X‑ und Y‑Zellen, und Blasendiagramme nutzen zusätzlich eine Größenzelle. Löschen Sie nur die Zelle, die den zu entfernenden Wert darstellt. Rufen Sie nicht [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) auf, wenn Sie die anderen Punkte behalten wollen, da diese Methode jeden Datenpunkt aus der Sammlung entfernt.
 
 ## **Anzeige leerer Zellen steuern**
 
-Versteckte Zellen, die Werte enthalten, stellen einen separaten Fall von leeren Zellen dar. Um Daten aus versteckten Arbeitsblattzeilen und -spalten ein- oder auszuschließen, siehe [Include Data from Hidden Rows and Columns](/slides/de/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Versteckte Zellen, die Werte enthalten, sind ein separater Fall von leeren Zellen. Um Daten aus versteckten Arbeitsblattzeilen und -spalten ein- oder auszuschließen, siehe [Include Data from Hidden Rows and Columns](/slides/de/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Eine leere Arbeitsmappenzelle steht für fehlende Daten; eine Zelle mit `0` repräsentiert einen bekannten numerischen Wert. Setzen Sie [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) auf `None`, um eine Zelle leer zu machen. Eine numerische Null bleibt eine Null, unabhängig von der Einstellung für leere Zellen.
+Eine leere Arbeitsblattzelle steht für fehlende Daten; eine Zelle mit `0` stellt einen bekannten numerischen Wert dar. Setzen Sie [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) auf `None`, um eine Zelle leer zu machen. Eine numerische Null bleibt eine Null, unabhängig von der Einstellung für leere Zellen.
 
-Verwenden Sie [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) , um zu wählen, wie das Diagramm leere Zellen darstellt. Diese Einstellung gilt für das gesamte Diagramm. Sie ändert, wie Leerstellen geplottet werden, ohne die leere Arbeitsmappenzelle mit Null oder einem interpolierten Wert zu füllen.
+Verwenden Sie [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/), um zu wählen, wie das Diagramm leere Zellen darstellt. Diese Einstellung gilt für das gesamte Diagramm. Sie ändert, wie Lücken geplottet werden, ohne die leere Arbeitsblattzelle mit Null oder einem interpolierten Wert zu füllen.
 
-Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit einer Serie, löscht den Wert für Tag 3 und speichert dasselbe Diagramm mit jedem Modus. Es wird keine Eingabedatei benötigt. Der [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) verwendet Arbeitsblatt 0, Spalte 0 für Kategorielabels und Spalte 1 für Werte; Zeile 0 enthält den Seriennamen. Die endgültigen Daten sind `10, 20, empty, 30, 40`.
+Das folgende eigenständige Beispiel erstellt ein Liniendiagramm mit einer Serie, löscht den Wert für Tag 3 und speichert dasselbe Diagramm in jedem Modus. Keine Eingabedatei ist erforderlich. Das [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) verwendet Arbeitsblatt 0, Spalte 0 für Kategorienamen und Spalte 1 für Werte; Zeile 0 enthält den Seriennamen. Die endgültigen Daten sind `10, 20, empty, 30, 40`.
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -361,7 +413,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # Lassen Sie Tag 3 wirklich leer, während Sie seine Kategorie und Datenpunkt beibehalten.
+    # Lassen Sie Tag 3 wirklich leer, während Sie seine Kategorie und den Datenpunkt beibehalten.
     workbook.get_cell(0, 3, 1).value = None
 
     modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
@@ -370,18 +422,20 @@ with slides.Presentation() as presentation:
         presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Jede Ausgabedatei speichert den vor dem Speichern zugewiesenen Modus: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` und `empty_cells_Span.pptx`. Um nur eine Version zu speichern, weisen Sie den gewünschten Modus zu und speichern die Präsentation einmal, anstatt über die Modi zu iterieren.
+Jede Ausgabedatei speichert den vor dem Speichern zugewiesenen Modus: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` und `empty_cells_Span.pptx`. Um nur eine Version zu speichern, weisen Sie den gewünschten Modus zu und speichern die Präsentation ein einziges Mal, anstatt über die Modi zu iterieren.
 
-Der untenstehende Vergleich zeigt dieselben Daten in allen drei Dateien. Tag 3 ist in der Arbeitsmappe in jedem Fall leer:
-![Liniendiagramme mit identischen Daten: Gap bricht die Linie bei Tag 3, Zero lässt die Linie auf Null fallen, und Span verbindet Tag 2 mit Tag 4.](display_blanks_as.png)
+Der Vergleich unten zeigt dieselben Daten in allen drei Dateien. Tag 3 ist in jeder Arbeitsmappe leer:
 
-Der sichtbare Effekt hängt vom Diagrammtyp ab. Ein Liniendiagramm macht alle drei Modi leicht vergleichbar. Balken‑ und Säulendiagramme haben keine Linie, die über eine fehlende Kategorie hinweg verbindet, sodass `SPAN` das gezeigte Verbindungssegment nicht erzeugen kann; eine fehlende Säule und eine Säule mit Höhe 0 können ebenfalls ähnlich aussehen. Ebenso hat ein Streudiagramm nur mit Markern keine Verbindungslinie. Erwartet nicht drei unterschiedliche Ergebnisse für jeden Diagrammtyp; prüft die Ausgabe für den von euch verwendeten Typ.
+![Liniendiagramme mit identischen Daten: Gap unterbricht die Linie bei Tag 3, Zero lässt die Linie auf Null fallen und Span verbindet Tag 2 mit Tag 4.](display_blanks_as.png)
+
+Der sichtbare Effekt hängt vom Diagrammtyp ab. Ein Liniendiagramm macht alle drei Modi leicht vergleichbar. Balken‑ und Säulendiagramme haben keine Linie, die über eine fehlende Kategorie hinweg verbindet, sodass `SPAN` das oben gezeigte Verbindungssegment nicht erzeugen kann; eine fehlende Säule und eine Säule mit Höhe 0 können ebenfalls ähnlich aussehen. Ebenso hat ein Streudiagramm mit nur Markern keine Verbindungslinie. Erwarten Sie nicht für jeden Diagrammtyp drei unterschiedliche Ergebnisse; prüfen Sie die Ausgabe für den von Ihnen verwendeten Typ.
 
 ## **Lückenbreite der Serie festlegen**
 
-Die Lückenbreite ist der Abstand zwischen benachbarten Balken‑ oder Säulenclustern, angegeben als Prozentsatz der Balken‑ oder Säulenbreite. Wie die Überlappung gehört sie zur übergeordneten Seriengruppe und nicht zu einer einzelnen Serie. Setzen Sie [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) einmal für die Gruppe. Ein größerer Wert erzeugt mehr Abstand zwischen den Clustern; ein kleinerer Wert macht sie dichter.
+Die Lückenbreite ist der Abstand zwischen benachbarten Balken‑ oder Säulen‑Clustern, ausgedrückt als Prozentsatz der Balken‑ oder Säulenbreite. Wie die Überlappung gehört sie zur übergeordneten Seriengruppe und nicht zu einer einzelnen Serie. Setzen Sie [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) einmal für die Gruppe. Ein größerer Wert erzeugt mehr Abstand zwischen den Clustern; ein kleinerer Wert macht sie dichter.
 
 Das folgende Beispiel ändert die Lückenbreite und speichert nur die endgültige Präsentation:
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
@@ -402,46 +456,47 @@ with slides.Presentation() as presentation:
 ```
 
 Das Ergebnis:
+
 ![Die Lückenbreite](gap_width.png)
 
 ## **FAQ**
 
 **Welche Diagrammtypen unterstützen Datenserien?**
 
-Alle Diagrammtypen, die durch die Aufzählung [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) repräsentiert werden, verwenden Diagrammdaten, jedoch haben ihre Serien nicht alle dieselbe Werte‑Struktur oder dieselben Einstellungen. Zum Beispiel verwenden Kategoriediagramme Kategorien und Werte, Streudiagramme X‑ und Y‑Werte und Blasendiagramme zusätzlich Blasengrößen. Verwenden Sie die Datenpunkt‑Erstellungsmethode, die zum Serientyp passt. Optionen wie Überlappung und Lückenbreite gelten nur für kompatible Balken‑ oder Säulengruppen.
+Alle Diagrammtypen, die durch die Aufzählung [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) repräsentiert werden, verwenden Diagrammdaten, aber ihre Serien haben nicht alle dieselbe Werte‑Struktur oder Einstellungen. Beispielsweise verwenden Bereichsdiagramme Kategorien und Werte, Streudiagramme X‑ und Y‑Werte, und Blasendiagramme zusätzlich Blasengrößen. Verwenden Sie die Datenpunkt‑Erstellungsmethode, die zum Serientyp passt. Optionen wie Überlappung und Lückenbreite gelten nur für kompatible Balken‑ oder Säulengruppen.
 
-**Was ist eine Diagrammseriengruppe?**
+**Was ist eine Diagramm‑Seriengruppe?**
 
-Eine [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) enthält kompatible Serien, die gruppenbezogene Plot‑Einstellungen gemeinsam nutzen. Ein Kombinationsdiagramm kann mehr als eine Gruppe enthalten, sodass das Ändern der über eine Serie erreichten Gruppe nicht zwingend alle Serien im Diagramm ändert.
+Eine [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) enthält kompatible Serien, die gruppenweite Plot‑Einstellungen teilen. Ein Kombinationsdiagramm kann mehr als eine Gruppe enthalten, sodass das Ändern der Gruppe, die über eine Serie erreicht wird, nicht zwangsläufig jede Serie im Diagramm ändert.
 
 **Enthält ein neu erstelltes Diagramm Standarddaten?**
 
-Ja. Standardmäßig erzeugt [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) Beispielserien, Kategorien und Werte. Sie können diese Zellen bearbeiten oder sowohl die Serien‑ als auch die Kategorielsammlungen leeren, bevor Sie einen komplett eigenen Datensatz hinzufügen. Eine Überladung kann ebenfalls ein Diagramm ohne Standarddaten erzeugen.
+Ja. Standardmäßig erstellt [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) Beispieldaten für Serien, Kategorien und Werte. Sie können diese Zellen bearbeiten oder sowohl die Serien‑ als auch die Kategorien‑Sammlungen leeren, bevor Sie ein komplett benutzerdefiniertes Datenset hinzufügen. Eine Überladung kann ebenfalls ein Diagramm ohne Standarddaten erzeugen.
 
-**Wie sind Diagrammobjekte mit Arbeitsmappenzellen verknüpft?**
+**Wie sind Diagrammobjekte mit Arbeitsblattzellen verbunden?**
 
-Seriennamen, Kategorielabels und Datenpunktwerte referenzieren Zellen in einer [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/). Das Ändern einer referenzierten Zelle aktualisiert das entsprechende Diagrammelement. Wenn Sie eigene Daten erstellen, halten Sie Kategorienzeilen und Serien‑Werte‑Zeilen ausgerichtet, sodass jeder Punkt unter der vorgesehenen Kategorie geplottet wird.
+Seriennamen, Kategoriebeschriftungen und Datenpunktwerte verweisen auf Zellen in einem [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/). Das Ändern einer referenzierten Zelle aktualisiert das entsprechende Diagrammelement. Beim Erstellen benutzerdefinierter Daten sollten Sie Kategorie‑Zeilen und Serien‑Wert‑Zeilen ausgerichtet halten, damit jeder Punkt unter der beabsichtigten Kategorie geplottet wird.
 
-**Wie lösche ich einen Punkt statt der gesamten Serie?**
+**Wie lösche ich einen einzelnen Punkt statt der gesamten Serie?**
 
-Setzen Sie die betreffende Werte‑Zelle auf `None`, um die Kategorienposition des Punktes als leeren Punkt beizubehalten. Verwenden Sie [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) nur, wenn Sie alle Punkte dieser Serie entfernen möchten. Wenn Sie auch Kategorien entfernen, aktualisieren Sie jede Serie, sodass deren Werte mit der Kategorielsammlung ausgerichtet bleiben.
+Setzen Sie die entsprechende Wertzelle auf `None`, um die Position des Punktes in der Kategorie beizubehalten, wobei er leer bleibt. Verwenden Sie [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) nur, wenn Sie alle Punkte dieser Serie entfernen wollen. Wenn Sie auch Kategorien entfernen, aktualisieren Sie jede Serie, sodass ihre Werte mit der Kategorie‑Sammlung abgestimmt bleiben.
 
 **Wie werden leere Punkte dargestellt?**
 
-Das Ergebnis hängt vom Diagrammtyp und [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) ab. Unterstützte Diagramme können Leerstellen als Lücken, als Nullwerte oder durch Verbinden benachbarter Punkte anzeigen. Wählen Sie die Einstellung, die der Bedeutung fehlender Daten in Ihrer Präsentation entspricht. Siehe [Anzeige leerer Zellen steuern](#control-the-display-of-empty-cells) für ein vollständiges Beispiel und einen visuellen Vergleich.
+Das Ergebnis hängt vom Diagrammtyp und [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) ab. Unterstützte Diagramme können Lücken als Unterbrechungen, als Nullwerte oder durch Verbinden benachbarter Punkte darstellen. Wählen Sie die Einstellung, die der Bedeutung fehlender Daten in Ihrer Präsentation entspricht. Siehe [Anzeige leerer Zellen steuern](#control-the-display-of-empty-cells) für ein vollständiges Beispiel und visuellen Vergleich.
 
 **Wie werden negative Werte formatiert?**
 
-Für unterstützte Balken‑, Säulen‑ und Blasenseien aktivieren Sie [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) und setzen [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Sie können das Verhalten für einen einzelnen Punkt mit [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) überschreiben. Diese Eigenschaften beeinflussen die Formatierung, nicht die gespeicherten numerischen Werte.
+Für unterstützte Balken‑, Säulen‑ und Blasensereien aktivieren Sie [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) und setzen [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Sie können das Verhalten für einen einzelnen Punkt mit [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) überschreiben. Diese Eigenschaften betreffen die Formatierung, nicht die gespeicherten numerischen Werte.
 
 **Welche Formatierung gewinnt, wenn sowohl eine Serie als auch ein Punkt formatiert sind?**
 
-Explizite Datenpunkt‑Formatierung hat für diesen Punkt Vorrang. Andere Punkte verwenden weiterhin das explizite Serienformat oder, wenn das Serienformat nicht definiert ist, den automatischen Diagrammstil und das Theme. Gruppeneigenschaften wie Überlappung und Lückenbreite steuern das Layout und stellen keine Formatierungs‑Überschreibungen auf Punktebene dar.
+Explizite Datenpunkt‑Formatierung hat für diesen Punkt Vorrang. Andere Punkte verwenden weiterhin die explizite Serienformatierung oder, wenn keine Serienformatierung definiert ist, den automatischen Diagrammstil und das Theme. Gruppeneigenschaften wie Überlappung und Lückenbreite steuern das Layout und sind keine punktbezogenen Formatierungs‑Overrides.
 
-**Gibt es eine Begrenzung, wie viele Serien ein Diagramm enthalten kann?**
+**Gibt es ein Limit, wie viele Serien ein Diagramm enthalten kann?**
 
-Aspose.Slides legt keine feste Obergrenze für die Anzahl der Serien eines Diagramms fest. In der Praxis bestimmen Dateigrößenbeschränkungen, verfügbarer Speicher, Renderzeit und die Lesbarkeit des Diagramms eine sinnvolle Grenze.
+Aspose.Slides legt kein separates festes Limit für die Anzahl der Serien eines Diagramms fest. In der Praxis bestimmen Dateigrößen‑Beschränkungen, verfügbarer Speicher, Renderzeit und Lesbarkeit des Diagramms ein sinnvolles Limit.
 
-**Was sollte ich ändern, wenn Säulen zu eng beieinander oder zu weit auseinander liegen?**
+**Was soll ich ändern, wenn Säulen zu nahe beieinander oder zu weit auseinander liegen?**
 
-Setzen Sie [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) in der entsprechenden übergeordneten Seriengruppe. Erhöhen Sie den Wert, um den Abstand zwischen den Clustern zu vergrößern, oder verringern Sie ihn, um die Cluster näher zusammenzubringen.
+Setzen Sie [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) auf der entsprechenden übergeordneten Seriengruppe. Erhöhen Sie den Wert, um den Abstand zwischen den Clustern zu vergrößern, oder verringern Sie ihn, um die Cluster näher zusammenzuziehen.

@@ -1,44 +1,86 @@
 ---
-title: Administrar series de datos de gráficos en presentaciones en .NET
+title: Gestionar series de datos de gráficos en presentaciones en .NET
 linktitle: Series de datos
 type: docs
 url: /es/net/chart-series/
 keywords:
-- series de gráficos
-- superposición de series
-- color de serie
+- series de gráfico
+- solapamiento de series
+- color de series
 - color de categoría
 - nombre de serie
 - punto de datos
-- separación de series
+- espacio entre series
 - PowerPoint
 - presentación
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda cómo gestionar series de gráficos, puntos de datos, celdas de libros de trabajo, formato, superposición, ancho de separación y valores negativos en presentaciones con C#."
+description: "Aprende a gestionar series de gráficos, puntos de datos, celdas del libro de trabajo, formato, solapamiento, ancho del espacio y valores negativos en presentaciones con C#."
 ---
-## **Visión general**
+## **Descripción general**
 
-Un gráfico almacena sus datos trazados en un libro de datos de gráfico. Un [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) representa un conjunto de valores relacionados, y cada [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) de la serie hace referencia a una o más celdas del libro. Los objetos [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) proporcionan las etiquetas o valores de agrupación compartidos por las series. Por lo tanto, el nombre de la serie, las categorías y los valores de los puntos están conectados a objetos [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) en lugar de almacenarse sólo como texto visible.
+Un gráfico puede almacenar sus valores trazados en celdas del libro de trabajo o directamente como literales numéricos. Un [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) representa un conjunto de valores relacionados, y cada [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) representa un punto en esa serie. Los objetos [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) proporcionan las etiquetas o valores de agrupación compartidos por las series. En los gráficos creados con datos predeterminados, los nombres de series, categorías y valores de punto utilizan objetos [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) del libro de trabajo del gráfico.
 
-Para un gráfico de categorías típico, el libro predeterminado utiliza la fila 0 para los nombres de las series, la columna 0 para los nombres de las categorías y el resto de celdas para los valores de las series. Los índices de hoja, fila y columna que se pasan a [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) empiezan en cero. Este diseño es útil cuando se crea un gráfico con datos predeterminados, pero no se debe asumir que todo gráfico existente lo utiliza. Para una presentación cargada, inspeccione las celdas referenciadas por las series, categorías y puntos de datos antes de cambiar los valores del libro.
+Para un gráfico de categorías típico, el libro de trabajo predeterminado usa la fila 0 para los nombres de series, la columna 0 para los nombres de categorías y el resto de celdas para los valores de series. Los índices de hoja, fila y columna que se pasan a [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) son basados en cero. Esta disposición es útil cuando se crea un gráfico con datos predeterminados, pero no debe asumirse que cada gráfico existente lo usa. Para una presentación cargada, inspeccione las celdas referenciadas por las series, categorías y puntos de datos antes de modificar los valores del libro de trabajo.
 
 Los ajustes del gráfico tienen tres ámbitos diferentes:
 
-- Ajustes a nivel de serie, como [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/), que proporcionan la apariencia predeterminada para todos los puntos de una serie.
-- Ajustes de punto de datos, como [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/), que sobrescriben la apariencia de la serie para un punto.
-- Los ajustes de grupo se aplican a series compatibles que pertenecen al mismo [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/). Acceda al grupo mediante [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) cuando necesite establecer opciones como superposición o ancho de separación.
+- Ajustes a nivel de serie, como [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/), proporcionan la apariencia predeterminada para todos los puntos de una serie.
+- Ajustes a nivel de punto de datos, como [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/), anulan la apariencia de la serie para un punto concreto.
+- Los ajustes de grupo se aplican a series compatibles que pertenecen al mismo [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/). Acceda al grupo mediante [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) cuando necesite establecer opciones como solapamiento o ancho del espacio.
 
-Cuando no se establece un relleno explícito para el punto o la serie, el estilo y el tema del gráfico determinan la apariencia automática. Cuando están presentes tanto el formato de serie como el de punto, el formato del punto tiene prioridad para ese punto.
+Cuando no se define un relleno explícito de punto o de serie, el estilo y el tema del gráfico determinan la apariencia automática. Cuando existen tanto el formato de la serie como el del punto, el formato del punto tiene prioridad para ese punto.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Establecer la superposición de la serie del gráfico**
+## **Establecer valores de series usando literales numéricos**
 
-[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) indica cuánto se superponen las barras o columnas en un gráfico 2D, de -100 a 100 por ciento. Es una proyección de solo lectura del ajuste en el grupo padre de series. Establezca [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) para actualizar todas las series compatibles en ese grupo. Esta opción se aplica a los tipos de gráfico que muestran barras o columnas agrupadas; no afecta a grupos de series no relacionados en un gráfico combinado.
+Utilice literales numéricos cuando los valores de la serie provengan de datos o cálculos de la aplicación y no necesiten referencias a celdas de la hoja. Establezca [DataSourceTypeForValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforvalues/) en [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) antes de asignar a cada [Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/value/) del punto mediante [AsLiteralDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/idoublechartvalue/asliteraldouble/).
 
-El siguiente ejemplo establece la superposición para el grupo que contiene la primera serie:
+La configuración de la colección controla el tipo de origen de todos los valores de punto en esa serie. El [Value.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ibasechartvalue/datasourcetype/) de cada punto indica el tipo seleccionado; cámbielo mediante la configuración de la colección. Con `Worksheet`, utilice [AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/isinglecellchartvalue/ascell/) para acceder a la celda referenciada. Con `DoubleLiterals`, use `AsLiteralDouble` para leer o escribir el número directamente.
+
+El siguiente ejemplo crea un gráfico de columnas con series y categorías predeterminadas, y luego asigna valores calculados de 10, 20, etc., a los puntos existentes de su primera serie. Guarda la presentación, la vuelve a abrir y muestra los valores almacenados.
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+var series = chart.ChartData.Series[0];
+
+series.DataPoints.DataSourceTypeForValues = DataSourceType.DoubleLiterals;
+for (var i = 0; i < series.DataPoints.Count; i++)
+{
+    series.DataPoints[i].Value.AsLiteralDouble = (i + 1) * 10;
+}
+
+presentation.Save("numeric_literals.pptx", SaveFormat.Pptx);
+
+using var reopenedPresentation = new Presentation("numeric_literals.pptx");
+var reopenedSlide = reopenedPresentation.Slides[0];
+var reopenedChart = (IChart)reopenedSlide.Shapes[0];
+var reopenedSeries = reopenedChart.ChartData.Series[0];
+foreach (var point in reopenedSeries.DataPoints)
+{
+    Console.WriteLine(point.Value.AsLiteralDouble);
+}
+```
+
+El tipo de origen del valor del punto está separado de [IChartData.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/datasourcetype/), que identifica la configuración interna o externa del libro de trabajo del gráfico. Utilizar literales numéricos no elimina, por sí mismo, el libro de trabajo incrustado. En este ejemplo, el libro sigue disponible para las etiquetas de categoría, los nombres de serie y las demás series. Consulte [Chart Workbook](/slides/es/net/chart-workbook/) para la gestión del libro de trabajo.
+
+Para gráficos de dispersión y burbuja, establezca [DataSourceTypeForXValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforxvalues/) y [DataSourceTypeForYValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforyvalues/) para elegir las fuentes de [XValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/xvalue/) y [YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). Los gráficos de burbuja también utilizan [DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforbubblesizes/) para [BubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/bubblesize/). Establezca cada fuente aplicable en `DoubleLiterals` antes de asignar números mediante la propiedad `AsLiteralDouble` correspondiente.
+
+## **Establecer el solapamiento de series del gráfico**
+
+[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) indica cuánto se solapan barras o columnas en un gráfico 2D, de -100 a 100 porcentaje. Es una proyección de solo lectura del ajuste en el grupo de series padre. Establezca [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) para actualizar todas las series compatibles en ese grupo. Esta opción se aplica a los tipos de gráfico que muestran barras o columnas agrupadas; no afecta a los grupos de series no relacionados en un gráfico combinado.
+
+El siguiente ejemplo establece el solapamiento para el grupo que contiene la primera serie:
 
 ```cs
 using Aspose.Slides;
@@ -52,7 +94,7 @@ const sbyte overlapPercent = 30;
 using var presentation = new Presentation();
 var slide = presentation.Slides[firstSlideIndex];
 
-// El nuevo gráfico contiene series de muestra, categorías y valores.
+// El nuevo gráfico contiene series, categorías y valores de muestra.
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
 var series = chart.ChartData.Series[firstSeriesIndex];
@@ -67,7 +109,7 @@ El resultado:
 
 ## **Cambiar el color de relleno de la serie**
 
-Utilice [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) para establecer el relleno predeterminado de una serie completa. Si un punto ya tiene un relleno explícito, su ajuste [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) sobrescribe el relleno de la serie para ese punto.
+Utilice [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) para definir el relleno predeterminado de una serie completa. Si un punto ya tiene un relleno explícito, su configuración [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) anula el relleno de la serie para ese punto.
 
 El siguiente ejemplo aplica un relleno sólido azul a la primera serie:
 
@@ -122,7 +164,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-También puede actualizar la celda a la que ya hace referencia [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/). Este enfoque evita suponer una fila y columna concretas en un gráfico existente:
+También puede actualizar la celda ya referenciada por [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/). Este enfoque evita suponer una fila y columna determinadas en un gráfico existente:
 
 ```cs
 using Aspose.Slides;
@@ -151,9 +193,9 @@ El resultado:
 
 ### **Crear una serie con un nombre a partir de varias celdas**
 
-Un nombre de serie compuesto es útil cuando el nombre de un producto y el período del informe se almacenan en celdas distintas del libro. Por ejemplo, puede combinar `Product A` en B1 y `2026` en C1 en un único nombre de serie manteniendo ambas partes vinculadas a sus celdas de origen.
+Un nombre de serie compuesto es útil cuando el nombre del producto y el período del informe se almacenan en celdas distintas del libro. Por ejemplo, puede combinar `Product A` en B1 y `2026` en C1 en un único nombre de serie manteniendo ambos componentes vinculados a sus celdas origen.
 
-Utilice [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) para obtener el rango de nombres y, a continuación, pase esa colección a [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/). El argumento `skipHiddenCells` controla si se incluyen celdas ocultas: `true` las excluye, mientras que `false` las incluye. Este ejemplo usa `false` para incluir todas las celdas del rango de nombres.
+Utilice [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) para obtener el rango de nombres y, a continuación, pase esa colección a [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/). El argumento `skipHiddenCells` controla si se incluyen celdas ocultas: `true` las excluye, `false` las incluye. Este ejemplo usa `false` para incluir todas las celdas del rango de nombres.
 
 El siguiente ejemplo crea una presentación con una serie y dos puntos de datos. Las celdas B1:C1 suministran solo el nombre de la serie; A2:A3 suministran las etiquetas de categoría, y B2:B3 los valores numéricos.
 
@@ -174,13 +216,13 @@ chart.HasLegend = true;
 var workbook = chart.ChartData.ChartDataWorkbook;
 workbook.Clear(0);
 
-// Estas dos celdas proporcionan el nombre de la serie.
+// Estas dos celdas suministran el nombre de la serie.
 workbook.GetCell(0, 0, 1, "Product A");
 workbook.GetCell(0, 0, 2, "2026");
 var nameCells = workbook.GetCellCollection("Sheet1!$B$1:$C$1", skipHiddenCells: false);
 var series = chart.ChartData.Series.Add(nameCells, ChartType.ClusteredColumn);
 
-// Celdas separadas proporcionan las categorías y los puntos de datos numéricos.
+// Celdas separadas suministran las categorías y los puntos de datos numéricos.
 var northCategory = workbook.GetCell(0, 1, 0, "North");
 var southCategory = workbook.GetCell(0, 2, 0, "South");
 chart.ChartData.Categories.Add(northCategory);
@@ -193,15 +235,15 @@ series.DataPoints.AddDataPointForBarSeries(southValue);
 presentation.Save("composite_series_name.pptx", SaveFormat.Pptx);
 ```
 
-El nombre de la serie resultante es `Product A 2026`, con un espacio entre los dos valores de celda. La leyenda lo muestra como una única entrada para ambas columnas. La imagen a continuación se generó a partir de la presentación guardada:
+El nombre de serie resultante es `Product A 2026`, con un espacio entre los dos valores de celda. La leyenda lo muestra como una única entrada para ambas columnas. La imagen a continuación se generó a partir de la presentación guardada:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
 ## **Obtener el color automático de relleno de la serie**
 
-[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) devuelve el color calculado a partir del índice de la serie y del estilo del gráfico. Este es el color que se usa cuando el relleno de la serie no se ha definido explícitamente. Llamar al método lee el color calculado; no asigna un nuevo relleno.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) devuelve el color calculado a partir del índice de la serie y el estilo del gráfico. Este es el color usado cuando el relleno de la serie no se ha definido explícitamente. Llamar al método lee el color calculado; no asigna un nuevo relleno.
 
-El siguiente ejemplo imprime el color automático de cada serie predeterminada:
+El siguiente ejemplo muestra el color automático de cada serie predeterminada:
 
 ```cs
 using System;
@@ -232,13 +274,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Los colores exactos dependen del estilo y del tema del gráfico.
+Los colores exactos dependen del estilo y el tema del gráfico.
 
-## **Establecer color de relleno invertido para una serie del gráfico**
+## **Establecer el color de relleno invertido para una serie del gráfico**
 
-Para series de barras, columnas y burbujas, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) puede mostrar valores negativos con un relleno diferente. Establezca el relleno regular de la serie a sólido, habilite la inversión y asigne el color de valor negativo mediante [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Los números negativos permanecen sin cambios en el libro; solo cambia su color de visualización.
+Para series de barras, columnas y burbujas, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) puede mostrar valores negativos con un relleno diferente. Establezca el relleno regular de la serie a sólido, habilite la inversión y asigne el color del valor negativo mediante [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Los números negativos permanecen sin cambios en el libro; solo cambia su color de visualización.
 
-El siguiente ejemplo sustituye los datos del gráfico predeterminados por una serie. La fila 0 de la hoja contiene el nombre de la serie, la columna 0 contiene los nombres de categoría y la columna 1 contiene los valores:
+El siguiente ejemplo sustituye los datos predeterminados del gráfico por una serie. La fila 0 de la hoja contiene el nombre de la serie, la columna 0 los nombres de categoría y la columna 1 los valores:
 
 ```cs
 using System.Drawing;
@@ -295,7 +337,7 @@ El resultado:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Puede habilitar la inversión para un punto a través de [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). En el siguiente ejemplo, la inversión está desactivada para la serie y activada solo para el punto seleccionado. Al punto también se le asigna un valor negativo para que el efecto sea visible:
+Puede habilitar la inversión para un punto mediante [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). En el siguiente ejemplo, la inversión está desactivada para la serie y activada solo para el punto seleccionado. Ese punto también recibe un valor negativo para que el efecto sea visible:
 
 ```cs
 using System.Drawing;
@@ -329,7 +371,7 @@ presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 
 ## **Borrar el valor de un punto de datos específico**
 
-Para dejar un punto vacío sin eliminar los demás puntos, establezca su celda de respaldo en el libro a `null`. En un gráfico de columnas, el valor trazado está disponible a través de [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). El punto de datos permanece en la misma posición de categoría, pero el gráfico trata su valor como vacío según la configuración de valores en blanco del gráfico.
+Para dejar vacío un punto sin eliminar los demás, establezca su celda de respaldo del libro en `null`. En un gráfico de columnas, el valor trazado está disponible mediante [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). El punto de datos permanece en la misma posición de categoría, pero el gráfico trata su valor como vacío según la configuración de valores en blanco del gráfico.
 
 El siguiente ejemplo borra solo el segundo punto de la primera serie:
 
@@ -354,17 +396,17 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-Los gráficos de dispersión utilizan celdas X y Y separadas, y los gráficos de burbujas también usan una celda de tamaño. Borre solo la celda que representa el valor que pretende eliminar. No llame a [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) cuando quiera conservar los demás puntos, porque ese método elimina todos los puntos de datos de la colección.
+Los gráficos de dispersión usan celdas X y Y separadas, y los de burbuja también usan una celda de tamaño. Borre solo la celda que representa el valor que desea eliminar. No llame a [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) cuando quiera conservar los demás puntos, ya que ese método elimina todos los puntos de datos de la colección.
 
 ## **Controlar la visualización de celdas vacías**
 
-Las celdas ocultas que contienen valores son un caso distinto de las celdas vacías. Para incluir o excluir datos de filas y columnas ocultas, consulte [Incluir datos de filas y columnas ocultas](/slides/es/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Las celdas ocultas que contienen valores son un caso distinto de las celdas vacías. Para incluir o excluir datos de filas y columnas ocultas de la hoja, consulte [Include Data from Hidden Rows and Columns](/slides/es/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Una celda del libro vacía representa datos faltantes; una celda que contiene `0` representa un valor numérico conocido. Establezca [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) a `null` para dejar la celda vacía. Un cero numérico sigue siendo cero, independientemente de la configuración de celdas en blanco.
+Una celda de libro vacía representa datos ausentes; una celda que contiene `0` representa un valor numérico conocido. Establezca [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) en `null` para dejarla vacía. Un cero numérico sigue siendo cero sin importar la configuración de celdas vacías.
 
-Utilice [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) para elegir cómo el gráfico muestra las celdas vacías. Esta configuración se aplica a todo el gráfico. Cambia la forma en que se trazan los vacíos, sin rellenar la celda del libro vacía con cero o un valor interpolado.
+Utilice [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) para elegir cómo muestra el gráfico las celdas vacías. Este ajuste se aplica a todo el gráfico. Cambia la forma en que se trazan los vacíos, sin rellenar la celda del libro con cero o con un valor interpolado.
 
-El siguiente ejemplo autocontenido crea un gráfico de líneas con una serie, borra el valor del Día 3 y guarda el mismo gráfico con cada modo. No se necesita archivo de entrada. El [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) usa la hoja 0, la columna 0 para las etiquetas de categoría y la columna 1 para los valores; la fila 0 contiene el nombre de la serie. Los datos finales son `10, 20, empty, 30, 40`.
+El siguiente ejemplo autónomo crea un gráfico de líneas con una serie, elimina el valor del Día 3 y guarda el mismo gráfico con cada modo. No se necesita archivo de entrada. El [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) usa la hoja 0, columna 0 para las etiquetas de categoría y columna 1 para los valores; la fila 0 contiene el nombre de la serie. Los datos finales son `10, 20, empty, 30, 40`.
 
 ```cs
 using Aspose.Slides;
@@ -393,7 +435,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// Leave Day 3 genuinely empty, while retaining its category and data point.
+// Dejar el Día 3 realmente vacío, manteniendo su categoría y punto de datos.
 workbook.GetCell(0, 3, 1).Value = null;
 
 var modes = new[] { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -404,19 +446,19 @@ foreach (var mode in modes)
 }
 ```
 
-Cada archivo de salida almacena el modo asignado antes de guardar: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` y `empty_cells_Span.pptx`. Para guardar solo una versión, asigne el modo deseado y guarde la presentación una vez en lugar de iterar sobre los modos.
+Cada archivo de salida almacena el modo asignado antes de guardar: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` y `empty_cells_Span.pptx`. Para guardar solo una versión, asigne el modo deseado y guarde la presentación una única vez en lugar de iterar sobre los modos.
 
 La comparación a continuación muestra los mismos datos en los tres archivos. El Día 3 está vacío en el libro en todos los casos:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-El efecto visible depende del tipo de gráfico. Un gráfico de líneas facilita la comparación de los tres modos. Los gráficos de barras y columnas no tienen línea que conectar a través de una categoría faltante, por lo que `Span` no puede producir el segmento de conexión que se muestra arriba; una columna ausente y una columna de altura cero pueden parecer iguales. De manera similar, un gráfico de dispersión solo con marcadores no tiene línea de conexión. No espere tres resultados distintos para cada tipo de gráfico; verifique la salida para el tipo que utilice.
+El efecto visible depende del tipo de gráfico. Un gráfico de líneas permite comparar fácilmente los tres modos. Los gráficos de barras y columnas no tienen línea que conectar una categoría faltante, por lo que `Span` no puede producir el segmento de conexión mostrado arriba; una columna ausente y una columna de altura cero pueden parecer similares. De manera análoga, un gráfico de dispersión solo con marcadores no tiene línea de conexión. No espere tres resultados distintos para cada tipo de gráfico; verifique la salida para el tipo que utilice.
 
-## **Establecer el ancho de separación de la serie**
+## **Establecer el ancho del espacio entre series**
 
-El ancho de separación es el espacio entre clústeres adyacentes de barras o columnas, expresado como porcentaje del ancho de la barra o columna. Al igual que la superposición, pertenece al grupo padre de series y no a una única serie. Establezca [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) una vez para el grupo. Un valor mayor crea más espacio entre clústeres; un valor menor los hace más densos.
+El ancho del espacio es la distancia entre grupos de barras o columnas adyacentes, expresada como porcentaje del ancho de la barra o columna. Al igual que el solapamiento, pertenece al grupo de series padre y no a una sola serie. Establezca [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) una vez para el grupo. Un valor mayor crea más espacio entre los grupos; un valor menor los vuelve más densos.
 
-El siguiente ejemplo cambia el ancho de separación y guarda solo la presentación final:
+El siguiente ejemplo modifica el ancho del espacio y guarda solo la presentación final:
 
 ```cs
 using Aspose.Slides;
@@ -446,40 +488,40 @@ El resultado:
 
 **¿Qué tipos de gráfico admiten series de datos?**
 
-Todos los tipos de gráfico representados por la enumeración [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) utilizan datos de gráfico, pero sus series no comparten la misma estructura de valores ni los mismos ajustes. Por ejemplo, los gráficos de categorías usan categorías y valores, los de dispersión usan valores X e Y, y los de burbujas añaden tamaños de burbuja. Utilice el método de creación de puntos que corresponda al tipo de serie. Los ajustes como superposición y ancho de separación se aplican solo a grupos de barras o columnas compatibles.
+Todos los tipos de gráfico representados por la enumeración [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) utilizan datos del gráfico, pero sus series no comparten la misma estructura de valores ni los mismos ajustes. Por ejemplo, los gráficos de categorías usan categorías y valores, los de dispersión usan valores X y Y, y los de burbuja añaden tamaños de burbuja. Use el método de creación de puntos que corresponda al tipo de serie. Opciones como solapamiento y ancho del espacio solo se aplican a grupos de barras o columnas compatibles.
 
 **¿Qué es un grupo de series de gráfico?**
 
-Un [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) contiene series compatibles que comparten ajustes de trazado a nivel de grupo. Un gráfico combinado puede contener más de un grupo, por lo que cambiar el grupo al que se accede a través de una serie no necesariamente modifica todas las series del gráfico.
+Un [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) contiene series compatibles que comparten ajustes de trazado a nivel de grupo. Un gráfico combinado puede contener más de un grupo, por lo que cambiar el grupo alcanzado a través de una serie no altera necesariamente todas las series del gráfico.
 
 **¿Un gráfico recién creado contiene datos predeterminados?**
 
-Sí. Por defecto, [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) crea series, categorías y valores de muestra. Puede editar esas celdas o borrar tanto las colecciones de series como de categorías antes de añadir un conjunto de datos completamente personalizado. También existe una sobrecarga que crea un gráfico sin datos predeterminados.
+Sí. Por defecto, [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) crea series, categorías y valores de muestra. Puede editar esas celdas o borrar tanto las colecciones de series como de categorías antes de añadir un conjunto de datos completamente personalizado. Una sobrecarga también puede crear un gráfico sin datos predeterminados.
 
 **¿Cómo están conectados los objetos del gráfico a las celdas del libro?**
 
-Los nombres de series, etiquetas de categoría y valores de puntos de datos hacen referencia a celdas en un [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/). Cambiar una celda referenciada actualiza el elemento del gráfico correspondiente. Cuando crea datos personalizados, mantenga alineadas las filas de categorías y las filas de valores de serie para que cada punto se trace bajo la categoría prevista.
+Los nombres de series, las etiquetas de categoría y los valores de los puntos de datos hacen referencia a celdas en un [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/). Cambiar una celda referenciada actualiza el elemento correspondiente del gráfico. Cuando construya datos personalizados, mantenga alineadas las filas de categorías y las filas de valores de series para que cada punto se trace bajo la categoría prevista.
 
-**¿Cómo borro un punto sin eliminar toda la serie?**
+**¿Cómo borro un punto en lugar de toda la serie?**
 
-Establezca la celda de valor correspondiente a `null` para mantener la posición de categoría del punto como un punto vacío. Utilice [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) solo cuando pretenda eliminar todos los puntos de esa serie. Si también elimina categorías, actualice todas las series para que sus valores sigan alineados con la colección de categorías.
+Establezca la celda de valor correspondiente en `null` para conservar la posición de categoría del punto como vacío. Use [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) solo cuando pretenda eliminar todos los puntos de esa serie. Si también elimina categorías, actualice cada serie para que sus valores sigan alineados con la colección de categorías.
 
 **¿Cómo se muestran los puntos vacíos?**
 
-El resultado depende del tipo de gráfico y de [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/). Los gráficos compatibles pueden mostrar los vacíos como huecos, como valores cero o conectando los puntos vecinos. Elija la configuración que coincida con el significado de los datos ausentes en su presentación. Consulte [Controlar la visualización de celdas vacías](#controlar-la-visualización-de-celdas-vacías) para un ejemplo completo y una comparación visual.
+El resultado depende del tipo de gráfico y de [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/). Los gráficos compatibles pueden mostrar vacíos como huecos, como valores cero o conectando puntos vecinos. Elija la configuración que coincida con el significado de los datos ausentes en su presentación. Consulte [Controlar la visualización de celdas vacías](#controlar-la-visualización-de-celdas-vacías) para un ejemplo completo y una comparación visual.
 
 **¿Cómo se formatean los valores negativos?**
 
-Para series de barras, columnas y burbujas compatibles, habilite [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) y establezca [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Puede sobrescribir el comportamiento para un punto individual con [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Estas propiedades afectan al formato, no a los valores numéricos almacenados.
+Para series de barras, columnas y burbujas compatibles, habilite [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) y establezca [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Puede anular el comportamiento para un punto individual con [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Estas propiedades afectan el formato, no los valores numéricos almacenados.
 
 **¿Qué formato prevalece cuando tanto una serie como un punto están formateados?**
 
-El formato explícito del punto de datos tiene prioridad para ese punto. Los demás puntos continúan usando el formato explícito de la serie o, cuando no está definido, el estilo y tema automáticos del gráfico. Las propiedades de grupo, como superposición y ancho de separación, controlan la disposición y no anulan el formato a nivel de punto.
+El formato explícito del punto de datos tiene prioridad para ese punto. Los demás puntos continúan usando el formato explícito de la serie o, cuando no hay formato de serie definido, el estilo y tema automático del gráfico. Las propiedades de grupo como solapamiento y ancho del espacio controlan la disposición y no sobrescriben el formato a nivel de punto.
 
-**¿Existe un límite de cuántas series puede contener un gráfico?**
+**¿Existe un límite en la cantidad de series que puede contener un gráfico?**
 
-Aspose.Slides no impone un límite fijo independiente para el número de series. En la práctica, las restricciones del archivo de presentación, la memoria disponible, el tiempo de renderizado y la legibilidad del gráfico determinan un límite útil.
+Aspose.Slides no impone un límite fijo independiente para la cantidad de series. En la práctica, las restricciones del archivo de presentación, la memoria disponible, el tiempo de renderizado y la legibilidad del gráfico determinan un límite práctico.
 
-**¿Qué debo cambiar cuando las columnas están demasiado juntas o demasiado separadas?**
+**¿Qué debo ajustar cuando las columnas están demasiado próximas o muy separadas?**
 
-Establezca [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) en el grupo padre de series correspondiente. Aumente el valor para ensanchar el espacio entre clústeres, o disminúyalo para acercar los clústeres.
+Establezca [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) en el grupo de series padre correspondiente. Aumente el valor para ensanchar el espacio entre los grupos, o disminúyalo para acercarlos.

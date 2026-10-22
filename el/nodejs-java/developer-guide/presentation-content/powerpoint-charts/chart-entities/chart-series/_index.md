@@ -1,10 +1,10 @@
 ---
-title: Διαχείριση Σειρών Δεδομένων Διαγραμμάτων σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
-linktitle: Σειρές Δεδομένων
+title: Διαχείριση σειρών δεδομένων γραφήματος στις παρουσιάσεις χρησιμοποιώντας JavaScript
+linktitle: Σειρές δεδομένων
 type: docs
 url: /el/nodejs-java/chart-series/
 keywords:
-- σειρές διαγράμματος
+- σειρές γραφήματος
 - επικάλυψη σειράς
 - χρώμα σειράς
 - όνομα σειράς
@@ -17,27 +17,73 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε σειρές διαγράμματος, σημεία δεδομένων, κελιά βιβλίου εργασίας, μορφοποίηση, επικάλυψη, πλάτος κενών και αρνητικές τιμές σε παρουσιάσεις με JavaScript."
+description: "Μάθετε πώς να διαχειρίζεστε σειρές γραφήματος, σημεία δεδομένων, κελιά βιβλίου εργασίας, μορφοποίηση, επικάλυψη, πλάτος κενών και αρνητικές τιμές σε παρουσιάσεις με JavaScript."
 ---
 ## **Επισκόπηση**
 
-Ένα διάγραμμα αποθηκεύει τα σχεδιασμένα δεδομένα του σε ένα βιβλίο δεδομένων διαγράμματος. Ένα [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) αντιπροσωπεύει ένα σύνολο σχετικών τιμών, και κάθε [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) στη σειρά αναφέρεται σε ένα ή περισσότερα κελιά του βιβλίου εργασίας. Τα αντικείμενα [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται οι σειρές. Το όνομα της σειράς, οι κατηγορίες και οι τιμές των σημείων επομένως συνδέονται με αντικείμενα [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) αντί να αποθηκεύονται μόνο ως κείμενο εμφάνισης.
+Ένα γράφημα μπορεί να αποθηκεύει τις σχεδιασμένες του τιμές σε κελιά βιβλίου εργασίας ή απευθείας ως αριθμητικά λήμματα. Ένα [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) αντιπροσωπεύει ένα σύνολο σχετιζόμενων τιμών, και κάθε [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) αντιπροσωπεύει ένα σημείο σε αυτή τη σειρά. Τα αντικείμενα [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται οι σειρές. Σε γραφήματα που δημιουργούνται με προεπιλεγμένα δεδομένα, τα ονόματα σειρών, οι κατηγορίες και οι τιμές σημείων χρησιμοποιούν αντικείμενα [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) από το βιβλίο εργασίας του γραφήματος.
 
-Για ένα τυπικό διάγραμμα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη γραμμή 0 για τα ονόματα σειρών, τη στήλη 0 για τα ονόματα κατηγοριών και τα υπόλοιπα κελιά για τις τιμές σειρών. Οι δείκτες φύλλου, γραμμής και στήλης που περνιούνται στο [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) είναι μηδενικής βάσης. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα διάγραμμα με προεπιλεγμένα δεδομένα, αλλά δεν υποθέτετε ότι κάθε υπάρχον διάγραμμα τη χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, εξετάστε τα κελιά που αναφέρονται από τις σειρές, τις κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
+Για ένα τυπικό γράφημα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη γραμμή 0 για τα ονόματα σειρών, τη στήλη 0 για τα ονόματα κατηγοριών και τα υπόλοιπα κελιά για τις τιμές σειρών. Οι δείκτες φύλλου, γραμμής και στήλης που περνούν στο [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) είναι μηδενικά‑βάση. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα γράφημα με προεπιλεγμένα δεδομένα, αλλά μην υποθέτετε ότι κάθε υπάρχον γράφημα τη χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, ελέγξτε τα κελιά στα οποία αναφέρονται οι σειρές, οι κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
 
-Οι ρυθμίσεις διαγράμματος έχουν τρία διαφορετικά επίπεδα:
+Οι ρυθμίσεις γραφήματος έχουν τρία διαφορετικά πεδία:
 
-- Ρυθμίσεις επιπέδου σειράς, όπως [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία σε μια σειρά.
-- Ρυθμίσεις σημείου‑δεδομένου, όπως [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat), παρακάμπτουν την εμφάνιση της σειράς για ένα σημείο.
-- Ρυθμίσεις ομάδας ισχύουν για συμβατές σειρές που ανήκουν στην ίδια [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Πρόσβαση στην ομάδα μέσω του [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) όταν χρειάζεται να ορίσετε επιλογές όπως υπερκάλυψη ή πλάτος διαστήματος.
+- Ρυθμίσεις σε επίπεδο σειράς, όπως το [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία μιας σειράς.
+- Ρυθμίσεις σημείου δεδομένων, όπως το [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), υπερισχύουν της εμφάνισης της σειράς για ένα σημείο.
+- Ρυθμίσεις ομάδας εφαρμόζονται σε συμβατές σειρές που ανήκουν στο ίδιο [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Πρόσβαση στην ομάδα μέσω του [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/) όταν χρειάζεται να ορίσετε επιλογές όπως επικάλυψη ή πλάτος κενού.
 
-Όταν δεν οριστεί ρητά γεμίσμα σημείου ή σειράς, το στυλ και το θέμα του διαγράμματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχει τόσο μορφοποίηση σειράς όσο και σημείου, η μορφοποίηση του σημείου έχει προτεραιότητα για εκείνο το σημείο.
+Όταν δεν έχει οριστεί ρητά γέμισμα σημείου ή σειράς, το στυλ και το θέμα του γραφήματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχουν και μορφοποίηση σειράς και σημείου, η μορφοποίηση του σημείου έχει προτεραιότητα για εκείνο το σημείο.
 
-![διάγραμμα-σειρά-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Ορισμός Επικάλυψης Σειράς Διαγράμματος**
+## **Ορισμός τιμών σειράς χρησιμοποιώντας αριθμητικά λήμματα**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getOverlap) αναφέρει το πόσο οι μπάρες ή οι στήλες αλληλοεπικαλύπτονται σε ένα 2D διάγραμμα, από -100 έως 100 τοις εκατό. Είναι μια ανάγνωση μόνο της ρύθμισης στην γονική ομάδα σειρών. Χρησιμοποιήστε το [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) για να ενημερώσετε κάθε συμβατή σειρά στην ομάδα. Αυτή η επιλογή ισχύει για τύπους διαγραμμάτων που εμφανίζουν ομαδοποιημένες μπάρες ή στήλες· δεν επηρεάζει ανεξάρτητες ομάδες σειρών σε ένα συνδυαστικό διάγραμμα.
+Χρησιμοποιήστε αριθμητικά λήμματα όταν οι τιμές της σειράς προέρχονται από δεδομένα ή υπολογισμούς της εφαρμογής και δεν χρειάζονται παραπομπές σε κελιά φύλλου εργασίας. Καλέστε το [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) με το [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) πριν αντιστοιχίσετε το αποτέλεσμα του [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) κάθε σημείου μέσω του [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+
+Η ρύθμιση συλλογής ελέγχει τον τύπο πηγής όλων των τιμών σημείων σε εκείνη τη σειρά. Η μέθοδος [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/) κάθε τιμής σημείου αναφέρει τον επιλεγμένο τύπο· αλλάξτε την μέσω της ρύθμισης συλλογής. Με `Worksheet`, χρησιμοποιήστε το [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) για πρόσβαση στο παρατιθέμενο κελί. Με `DoubleLiterals`, χρησιμοποιήστε το [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) ή το `setAsLiteralDouble` για ανάγνωση ή εγγραφή του αριθμού απευθείας.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα γράφημα στήλης με προεπιλεγμένες σειρές και κατηγορίες, στη συνέχεια αντιστοιχίζει τις υπολογισμένες τιμές 10, 20 κ.λπ. στα υπάρχοντα σημεία της πρώτης σειράς. Αποθηκεύει την παρουσίαση, τη ξανανοίγει και εκτυπώνει τις αποθηκευμένες τιμές.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    series.getDataPoints().setDataSourceTypeForValues(aspose.slides.DataSourceType.DoubleLiterals);
+    for (let i = 0; i < series.getDataPoints().size(); i++) {
+        series.getDataPoints().get_Item(i).getValue().setAsLiteralDouble((i + 1) * 10);
+    }
+
+    presentation.save("numeric_literals.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const reopenedPresentation = new aspose.slides.Presentation("numeric_literals.pptx");
+try {
+    const reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    const reopenedChart = reopenedSlide.getShapes().get_Item(0);
+    const reopenedSeries = reopenedChart.getChartData().getSeries().get_Item(0);
+    for (let i = 0; i < reopenedSeries.getDataPoints().size(); i++) {
+        const point = reopenedSeries.getDataPoints().get_Item(i);
+        console.log(point.getValue().getAsLiteralDouble());
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+Ο τύπος πηγής τιμής σημείου είναι διαχωρισμένος από το [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), το οποίο καταδεικνύει τη διαμόρφωση του εσωτερικού ή εξωτερικού βιβλίου εργασίας του γραφήματος. Η χρήση αριθμητικών λημμάτων δεν αφαιρεί, από μόνο της, το ενσωματωμένο βιβλίο εργασίας. Σε αυτό το παράδειγμα, το βιβλίο εργασίας παραμένει διαθέσιμο για ετικέτες κατηγοριών, ονόματα σειρών και τις άλλες σειρές. Δείτε το [Chart Workbook](/slides/el/nodejs-java/chart-workbook/) για διαχείριση βιβλίου εργασίας.
+
+Για γραφήματα scatter και bubble, χρησιμοποιήστε το [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) και το [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) για επιλογή των πηγών για το [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) και το [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/). Τα γραφήματα bubble χρησιμοποιούν επίσης το [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) για το [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Ορίστε κάθε σχετική πηγή σε `DoubleLiterals` πριν αντιστοιχίσετε αριθμούς μέσω της μεθόδου `setAsLiteralDouble` της τιμής.
+
+## **Ορισμός επικάλυψης σειράς γραφήματος**
+
+Το [ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) αναφέρει πόσο οι ράβδοι ή στήλες επικαλύπτονται σε ένα 2Δ γράφημα, από -100 έως 100 %· είναι μια ανάγνωση μόνο της ρύθμισης στην γονική ομάδα σειρών. Χρησιμοποιήστε το [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) για να ενημερώσετε κάθε συμβατή σειρά στην ομάδα. Αυτή η επιλογή ισχύει για τύπους γραφημάτων που εμφανίζουν ομαδοποιημένους ράβδους ή στήλες· δεν επηρεάζει ανεξάρτητες ομάδες σειρών σε ένα συνδυαστικό γράφημα.
 
 Το παρακάτω παράδειγμα ορίζει την επικάλυψη για την ομάδα που περιέχει την πρώτη σειρά:
 
@@ -54,7 +100,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // Το νέο διάγραμμα περιέχει δείγμα σειρών, κατηγοριών και τιμών.
+    // Το νέο γράφημα περιέχει δείγμα σειρών, κατηγοριών και τιμών.
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -68,13 +114,13 @@ try {
 
 Το αποτέλεσμα:
 
-![Η επικάλυψη της σειράς](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Αλλαγή Χρώματος Γέμισης Σειράς**
+## **Αλλαγή χρώματος γεμίσματος σειράς**
 
-Χρησιμοποιήστε το [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat) για να ορίσετε το προεπιλεγμένο γεμίσμα ολόκληρης μιας σειράς. Εάν ένα σημείο έχει ήδη ρητό γεμίσμα, η ρύθμιση του [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat) παρακάμπτει το γεμίσμα της σειράς για εκείνο το σημείο.
+Χρησιμοποιήστε το [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) για να ορίσετε το προεπιλεγμένο γέμισμα ολόκληρης μιας σειράς. Εάν ένα σημείο έχει ήδη ρητό γέμισμα, η ρύθμιση του [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) υπερισχύει του γεμίσματος της σειράς για εκείνο το σημείο.
 
-Το παρακάτω παράδειγμα εφαρμόζει γεμίσμα ενιαίου σκούρου μπλε στην πρώτη σειρά:
+Το παρακάτω παράδειγμα εφαρμόζει συμπαγές μπλε γέμισμα στην πρώτη σειρά:
 
 ```javascript
 const aspose = {};
@@ -104,11 +150,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Το χρώμα της σειράς](series_color.png)
+![The color of the series](series_color.png)
 
-## **Αλλαγή Ονόματος Σειράς**
+## **Αλλαγή ονόματος σειράς**
 
-Ένα όνομα σειράς αποθηκεύεται στο βιβλίο δεδομένων του διαγράμματος και εμφανίζεται κανονικά στο υπόμνημα. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα διαγωνομετρικό στήλης, το κελί B1 βρίσκεται στη γραμμή 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι ονομαστικές σταθερές στο παρακάτω παράδειγμα κάνουν αυτή τη δομή σαφή:
+Το όνομα μιας σειράς αποθηκεύεται στο βιβλίο εργασίας δεδομένων του γραφήματος και εμφανίζεται συνήθως στην υπόμνηση. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα γράφημα στήλης με ομαδοποίηση, το κελί B1 είναι στη γραμμή 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι σταθερές ονόματος στο παρακάτω παράδειγμα κάνουν αυτή τη δομή σαφή:
 
 ```javascript
 const aspose = {};
@@ -135,7 +181,7 @@ try {
 }
 ```
 
-Μπορείτε επίσης να ενημερώσετε το κελί που ήδη αναφέρεται από το [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getName). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης γραμμής και στήλης σε υπάρχον διάγραμμα:
+Μπορείτε επίσης να ενημερώσετε το κελί που ήδη αναφέρεται από το [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης γραμμής και στήλης σε υπάρχον γράφημα:
 
 ```javascript
 const aspose = {};
@@ -163,15 +209,15 @@ try {
 
 Το αποτέλεσμα:
 
-![Το όνομα της σειράς](series_name.png)
+![The series name](series_name.png)
 
-### **Δημιουργία Σειράς με Όνομα από Πολλαπλά Κελιά**
+### **Δημιουργία σειράς με όνομα από πολλαπλά κελιά**
 
-Ένα σύνθετο όνομα σειράς είναι χρήσιμο όταν το όνομα προϊόντος και η περίοδος αναφοράς αποθηκεύονται σε ξεχωριστά κελιά του βιβλίου εργασίας. Για παράδειγμα, μπορείτε να συνδυάσετε το `Product A` στο B1 και το `2026` στο C1 σε ένα ενιαίο όνομα σειράς, διατηρώντας ταυτόχρονα και τα δύο τμήματα συνδεδεμένα με τα πηγάδια τους.
+Ένα σύνθετο όνομα σειράς είναι χρήσιμο όταν το όνομα προϊόντος και η αναφορά περιόδου αποθηκεύονται σε ξεχωριστά κελιά βιβλίου εργασίας. Για παράδειγμα, μπορείτε να συνδυάσετε το `Product A` στο B1 και το `2026` στο C1 σε ένα ενιαίο όνομα σειράς διατηρώντας και τα δύο μέρη συνδεδεμένα με τα πηγαία κελιά τους.
 
-Χρησιμοποιήστε το [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCellCollection) για να ανακτήσετε την περιοχή ονομάτων, μετά περάστε αυτήν τη συλλογή στο [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/#add). Το όρισμα `skipHiddenCells` ελέγχει εάν θα συμπεριληφθούν κρυφά κελιά: `true` τα εξαιρεί, ενώ `false` τα περιλαμβάνει. Αυτό το παράδειγμα χρησιμοποιεί `false` για να συμπεριλάβει κάθε κελί στην περιοχή ονόματος.
+Χρησιμοποιήστε το [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) για να ανακτήσετε το εύρος ονομάτων, στη συνέχεια περάστε αυτή τη συλλογή στο [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). Το επιχείρημα `skipHiddenCells` ελέγχει εάν τα κρυφά κελιά περιλαμβάνονται: `true` τα εξαιρεί, ενώ `false` τα περιλαμβάνει. Αυτό το παράδειγμα χρησιμοποιεί `false` για να συμπεριλάβει κάθε κελί στο εύρος ονόματος.
 
-Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με μία σειρά και δύο σημεία δεδομένων. Τα κελιά B1:C1 παρέχουν μόνο το όνομα της σειράς· A2:A3 παρέχουν τις ετικέτες κατηγοριών, και B2:B3 παρέχουν τις αριθμητικές τιμές.
+Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με μία σειρά και δύο σημεία δεδομένων. Τα κελιά B1:C1 παρέχουν μόνο το όνομα σειράς· τα A2:A3 παρέχουν τις ετικέτες κατηγοριών, και τα B2:B3 παρέχουν τις αριθμητικές τιμές.
 
 ```javascript
 const aspose = {};
@@ -212,13 +258,13 @@ try {
 }
 ```
 
-Το προκύπτον όνομα σειράς είναι `Product A 2026`, με κενό μεταξύ των δύο τιμών κελιών. Το υπόμνημα το εμφανίζει ως μία καταχώρηση και για τις δύο στήλες. Η εικόνα παρακάτω απεικονίζει το αποτέλεσμα:
+Το παραγόμενο όνομα σειράς είναι `Product A 2026`, με κενό μεταξύ των δύο τιμών κελιών. Η υπόμνηση το εμφανίζει ως μία καταχώρηση για και τις δύο στήλες. Η εικόνα παρακάτω δείχνει το αποτέλεσμα:
 
-![Διάγραμμα στήλης με βόρειες και νότιες τιμές και σύνθετο όνομα σειράς Product A 2026 στο υπόμνημα](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Λήψη Αυτόματου Χρώματος Γέμισης Σειράς**
+## **Λήψη αυτόματου χρώματος γεμίσματος σειράς**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) επιστρέφει το χρώμα που υπολογίζεται από τον δείκτη της σειράς και το στυλ του διαγράμματος. Αυτό είναι το χρώμα που χρησιμοποιείται όταν το γεμίσμα της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν αναθέτει νέο γεμίσμα.
+Το [ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) επιστρέφει το χρώμα που υπολογίζεται από τον δείκτη της σειράς και το στυλ του γραφήματος. Αυτό είναι το χρώμα που χρησιμοποιείται όταν το γέμισμα της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογιζόμενο χρώμα· δεν ορίζει νέο γέμισμα.
 
 Το παρακάτω παράδειγμα εκτυπώνει το αυτόματο χρώμα κάθε προεπιλεγμένης σειράς:
 
@@ -246,7 +292,7 @@ try {
 }
 ```
 
-Αποτελέσματα παραδείγματος για το προεπιλεγμένο στυλ διαγράμματος:
+Παράδειγμα εξόδου για το προεπιλεγμένο στυλ γραφήματος:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -254,13 +300,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Τα ακριβή χρώματα εξαρτώνται από το στυλ και το θέμα του διαγράμματος.
+Τα ακριβή χρώματα εξαρτώνται από το στυλ και το θέμα του γραφήματος.
 
-## **Ορισμός Αντιστροφικού Χρώματος Γέμισης για Σειρά Διαγράμματος**
+## **Ορισμός αντιστροφής χρώματος γεμίσματος για σειρά γραφήματος**
 
-Για σειρές μπάρας, στήλης και φυσαλίδας, το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) μπορεί να εμφανίζει αρνητικές τιμές με διαφορετικό γεμιστικό χρώμα. Ορίστε το κανονικό γεμίσμα της σειράς σε στερεό, ενεργοποιήστε την αντιστροφή και ορίστε το χρώμα της αρνητικής τιμής μέσω του [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· αλλάζει μόνο το χρώμα εμφάνισης.
+Για σειρές ράβδου, στήλης και bubble, το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) μπορεί να εμφανίζει αρνητικές τιμές με διαφορετικό γέμισμα. Ορίστε το κανονικό γέμισμα σειράς σε συμπαγές, ενεργοποιήστε την αντιστροφή και αντιστοιχίστε το χρώμα αρνητικής τιμής μέσω του [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· μόνο το χρώμα εμφάνισής τους αλλάζει.
 
-Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα διαγράμματος με μία σειρά. Η γραμμή 0 του φύλλου περιέχει το όνομα της σειράς, η στήλη 0 περιέχει τα ονόματα κατηγοριών και η στήλη 1 περιέχει τις τιμές:
+Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα γραφήματος με μία σειρά. Η γραμμή 0 του φύλλου εργασίας περιέχει το όνομα της σειράς, η στήλη 0 περιέχει τα ονόματα κατηγοριών και η στήλη 1 τις τιμές:
 
 ```javascript
 const aspose = {};
@@ -320,9 +366,9 @@ try {
 
 Το αποτέλεσμα:
 
-![Το αντιστροφοποιημένο στερεό χρώμα γέμισης](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Μπορείτε να ενεργοποιήσετε την αντιστροφή για ένα σημείο μέσω του [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Στο παρακάτω παράδειγμα, η αντιστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Στο σημείο έχει επίσης δοθεί αρνητική τιμή ώστε το εφέ να είναι ορατό:
+Μπορείτε να ενεργοποιήσετε την αντιστροφή για ένα σημείο μέσω του [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Στο παρακάτω παράδειγμα, η αντιστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Το σημείο επίσης λαμβάνει μια αρνητική τιμή ώστε το εφέ να είναι ορατό:
 
 ```javascript
 const aspose = {};
@@ -359,9 +405,9 @@ try {
 }
 ```
 
-## **Καθαρισμός Συγκεκριμένης Τιμής Σημείου Δεδομένων**
+## **Καθαρισμός συγκεκριμένης τιμής σημείου δεδομένων**
 
-Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα άλλα σημεία, ορίστε το αντίστοιχο κελί του βιβλίου εργασίας σε `null`. Για ένα διάγραμμα στήλης, η σχεδιασμένη τιμή είναι προσβάσιμη μέσω του [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getValue). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το διάγραμμα το θεωρεί κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του διαγράμματος.
+Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα άλλα σημεία, ορίστε το αντίστοιχο κελί του βιβλίου εργασίας σε `null`. Σε ένα γράφημα στήλης, η σχεδιασμένη τιμή είναι διαθέσιμη μέσω του [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το γράφημα το αντιμετωπίζει ως κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του γραφήματος.
 
 Το παρακάτω παράδειγμα καθαρίζει μόνο το δεύτερο σημείο στην πρώτη σειρά:
 
@@ -389,17 +435,17 @@ try {
 }
 ```
 
-Τα διαγράμματα σκορ χρησιμοποιούν ξεχωριστά κελιά X και Y, και τα διαγράμματα φυσαλίδων χρησιμοποιούν επίσης κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέσετε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear) όταν θέλετε να διατηρήσετε τα άλλα σημεία, επειδή αυτή η μέθοδος αφαιρεί όλα τα σημεία δεδομένων από τη συλλογή.
+Τα γραφήματα scatter χρησιμοποιούν ξεχωριστά κελιά X και Y, και τα bubble επίσης ένα κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέσετε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) όταν θέλετε να κρατήσετε τα άλλα σημεία, επειδή αυτή η μέθοδος αφαιρεί όλα τα σημεία δεδομένων από τη συλλογή.
 
-## **Έλεγχος Εμφάνισης Κενών Κυψελών**
+## **Έλεγχος εμφάνισης κενών κελιών**
 
-Κρυφά κελιά που περιέχουν τιμές αποτελούν ξεχωριστή περίπτωση από τα κενά κελιά. Για να συμπεριλάβετε ή να εξαιρέσετε δεδομένα από κρυφές γραμμές και στήλες φύλλου, δείτε το [Include Data from Hidden Rows and Columns](/slides/el/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Κρυφά κελιά που περιέχουν τιμές αποτελούν ξεχωριστό σενάριο από κενά κελιά. Για να περιλάβετε ή να εξαιρέσετε δεδομένα από κρυμμένες γραμμές και στήλες φύλλου εργασίας, δείτε το [Συμπερίληψη δεδομένων από κρυμμένες γραμμές και στήλες](/slides/el/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Ένα κενό κελί βιβλίου εργασίας αντιπροσωπεύει ελλιπή δεδομένα· ένα κελί που περιέχει `0` αντιπροσωπεύει γνωστή αριθμητική τιμή. Καλέστε το [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setValue) με `null` για να κάνετε το κελί κενό. Ένας αριθμητικός μηδενικός παραμένει μηδενικός ανεξάρτητα από τη ρύθμιση κενών κελιών.
+Ένα κενό κελί βιβλίου εργασίας αντιπροσωπεύει ελλιπή δεδομένα· ένα κελί που περιέχει `0` αντιπροσωπεύει γνωστή αριθμητική τιμή. Καλέστε το [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) με `null` για να κάνετε ένα κελί κενό. Ένας αριθμητικός μηδέν παραμένει μηδέν ανεξάρτητα από τη ρύθμιση κενών κελιών.
 
-Χρησιμοποιήστε το [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) για να επιλέξετε πώς το διάγραμμα εμφανίζει τα κενά κελιά. Αυτή η ρύθμιση ισχύει για όλο το διάγραμμα. Αλλάζει τον τρόπο που σχεδιάζονται τα κενά, χωρίς να γεμίζει το κενό κελί με μηδέν ή με παρεμβατική τιμή.
+Χρησιμοποιήστε το [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) για να επιλέξετε πώς θα εμφανίζεται το γράφημα τα κενά κελιά. Αυτή η ρύθμιση ισχύει για ολόκληρο το γράφημα. Αλλάζει τον τρόπο που σχεδιάζονται τα κενά, χωρίς να γεμίζει το κενό κελί του βιβλίου εργασίας με μηδέν ή με παρεμβατική τιμή.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με μία σειρά, κάνει την τιμή της Ημέρας 3 κενή και αποθηκεύει το ίδιο διάγραμμα με κάθε λειτουργία. Δεν απαιτείται αρχείο εισόδου. Το [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) χρησιμοποιεί το φύλλο 0, στήλη 0 για ετικέτες κατηγοριών και στήλη 1 για τιμές· η γραμμή 0 κρατά το όνομα της σειράς. Τα τελικά δεδομένα είναι `10, 20, empty, 30, 40`.
+Το παρακάτω αυτοσυνεπές παράδειγμα δημιουργεί ένα γράφημα γραμμής με μία σειρά, αφαιρεί την τιμή για την Ημέρα 3 και αποθηκεύει το ίδιο γράφημα με κάθε λειτουργία. Δεν απαιτείται αρχείο εισόδου. Το [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) χρησιμοποιεί το φύλλο 0, τη στήλη 0 για ετικέτες κατηγοριών και τη στήλη 1 για τιμές· η γραμμή 0 κρατά το όνομα της σειράς. Τα τελικά δεδομένα είναι `10, 20, empty, 30, 40`.
 
 ```javascript
 const aspose = {};
@@ -441,17 +487,17 @@ try {
 }
 ```
 
-Κάθε αρχείο εξόδου αποθηκεύει τη λειτουργία που είχε οριστεί πριν από την αποθήκευση: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` και `empty_cells_Span.pptx`. Για να αποθηκεύσετε μόνο μία έκδοση, ορίστε τη ζητούμενη λειτουργία και αποθηκεύστε την παρουσίαση μία φορά αντί για επανάληψη στις λειτουργίες.
+Κάθε αρχείο εξόδου αποθηκεύει τη λειτουργία που έχει ανατεθεί πριν την αποθήκευση: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` και `empty_cells_Span.pptx`. Για αποθήκευση μόνο μιας έκδοσης, ορίστε την επιθυμητή λειτουργία και αποθηκεύστε την παρουσίαση μία φορά αντί να επαναλάβετε τις λειτουργίες.
 
 Η σύγκριση παρακάτω δείχνει τα ίδια δεδομένα και στα τρία αρχεία. Η Ημέρα 3 είναι κενή στο βιβλίο εργασίας σε κάθε περίπτωση:
 
-![Διαγράμματα γραμμής με τα ίδια δεδομένα: Το κενό σπάει τη γραμμή στην Ημέρα 3, το μηδέν κατεβάζει τη γραμμή στο μηδέν, και το Span συνδέει τη Ημέρα 2 με τη Ημέρα 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Το ορατό αποτέλεσμα εξαρτάται από τον τύπο διαγράμματος. Ένα διάγραμμα γραμμής κάνει τις τρεις λειτουργίες εύκολα συγκρίσιμες. Τα διαγράμματα μπάρες και στήλες δεν έχουν γραμμή για σύνδεση διασώματος, έτσι το `Span` δεν μπορεί να δημιουργήσει το δείγμα σύνδεσης που φαίνεται παραπάνω· ένα κενό στήλη και μια στήλη μηδενικού ύψους μπορούν επίσης να μοιάζουν. Ομοίως, ένα διάγραμμα σκέδασης με μόνο σημεία δεν έχει γραμμή σύνδεσης. Μην περιμένετε τρία διακριτά αποτελέσματα για κάθε τύπο διαγράμματος· ελέγξτε την έξοδο για τον τύπο που χρησιμοποιείτε.
+Το οπτικό αποτέλεσμα εξαρτάται από τον τύπο γραφήματος. Ένα γράφημα γραμμής καθιστά εύκολη τη σύγκριση των τριών λειτουργιών. Τα γραφήματα ράβδου και στήλης δεν έχουν γραμμή για σύνδεση μέσω μιας ελλιπούσας κατηγορίας, επομένως το `Span` δεν μπορεί να δημιουργήσει το σύνδεσμο που φαίνεται παραπάνω· ένα κενό σύστημα στήλης και μια στήλη μηδενικού ύψους μπορούν επίσης να φαίνονται παρόμοια. Ομοίως, ένα γράφημα scatter με μόνο σημεία δεν έχει γραμμή σύνδεσης. Μην περιμένετε τρία διακριτά αποτελέσματα για κάθε τύπο γραφήματος· ελέγξτε την έξοδο για τον τύπο που χρησιμοποιείτε.
 
-## **Ορισμός Πλάτους Κενού Σειράς**
+## **Ορισμός πλάτους κενού σειράς**
 
-Το πλάτος κενού είναι το κενό μεταξύ γειτονικών ομάδων μπαρών ή στηλών, εκφρασμένο ως ποσοστό του πλάτους της μπάρας ή της στήλης. Όπως η επικάλυψη, ανήκει στην γονική ομάδα σειρών και όχι σε μια σειρά. Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) μία φορά για την ομάδα. Μια μεγαλύτερη τιμή δημιουργεί περισσότερο χώρο μεταξύ των ομάδων· μια μικρότερη τιμή τις κάνει πυκνότερες.
+Το πλάτος κενού είναι το διάστημα μεταξύ διαδοχικών ομάδων ράβδων ή στηλών, εκφρασμένο ως ποσοστό του πλάτους της ράβδου ή στήλης. Όπως και η επικάλυψη, ανήκει στην γονική ομάδα σειρών και όχι σε μία σειρά. Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) μία φορά για την ομάδα. Μια μεγαλύτερη τιμή δημιουργεί περισσότερο χώρο μεταξύ των ομάδων· μια μικρότερη τιμή τις κάνει πιο πυκνές.
 
 Το παρακάτω παράδειγμα αλλάζει το πλάτος κενού και αποθηκεύει μόνο την τελική παρουσίαση:
 
@@ -480,46 +526,46 @@ try {
 
 Το αποτέλεσμα:
 
-![Το πλάτος κενού](gap_width.png)
+![The gap width](gap_width.png)
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές ερωτήσεις**
 
-**Ποιοι τύποι διαγραμμάτων υποστηρίζουν σειρές δεδομένων;**
+**Ποιοι τύποι γραφημάτων υποστηρίζουν σειρές δεδομένων;**
 
-Όλοι οι τύποι διαγραμμάτων που αντιπροσωπεύονται από την ανωτέρω απαρίθμηση [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) χρησιμοποιούν δεδομένα διαγράμματος, αλλά οι σειρές τους δεν έχουν όλες την ίδια δομή τιμών ή τις ίδιες ρυθμίσεις. Για παράδειγμα, τα διαγράμματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα διαγράμματα σκορ χρησιμοποιούν τιμές X και Y, και τα διαγράμματα φυσαλίδων προσθέτουν μεγέθη φυσαλίδων. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει στον τύπο της σειράς. Οι επιλογές όπως η επικάλυψη και το πλάτος κενού ισχύουν μόνο σε συμβατές ομάδες μπαρών ή στηλών.
+Όλοι οι τύποι γραφημάτων που αντιπροσωπεύονται από την απαρίθμηση [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) χρησιμοποιούν δεδομένα γραφήματος, αλλά οι σειρές τους δεν έχουν όλοι την ίδια δομή τιμών ή ρυθμίσεις. Για παράδειγμα, τα γραφήματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα scatter χρησιμοποιούν τιμές X και Y, και τα bubble προσθέτουν μεγέθη φυσαλίδων. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει με τον τύπο σειράς. Επιλογές όπως επικάλυψη και πλάτος κενού ισχύουν μόνο για συμβατές ομάδες ράβδων ή στηλών.
 
-**Τι είναι μια ομάδα σειρών διαγράμματος;**
+**Τι είναι μια ομάδα σειρών γραφήματος;**
 
-Μια [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις σχεδίασης επιπέδου ομάδας. Ένα συνδυαστικό διάγραμμα μπορεί να περιέχει περισσότερες από μία ομάδες, έτσι η αλλαγή της ομάδας που προέρχεται από μια σειρά δεν αλλάζει απαραίτητα κάθε σειρά στο διάγραμμα.
+Μια [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις επίπεδου σχεδίασης. Ένα συνδυαστικό γράφημα μπορεί να περιέχει περισσότερες από μία ομάδες, έτσι η αλλαγή της ομάδας μέσω μιας σειράς δεν αλλάζει υποχρεωτικά όλες τις σειρές στο γράφημα.
 
-**Ένα νεοδημιουργημένο διάγραμμα περιέχει προεπιλεγμένα δεδομένα;**
+**Δημιουργεί ένα νεοδημιουργημένο γράφημα προεπιλεγμένα δεδομένα;**
 
-Ναι. Από προεπιλογή, η μέθοδος [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) δημιουργεί δείγμα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να καθαρίσετε τόσο τις συλλογές σειρών όσο και κατηγοριών πριν προσθέσετε ένα πλήρως προσαρμοσμένο σύνολο δεδομένων. Υπάρχει επίσης υπερφόρτωση που μπορεί να δημιουργήσει διάγραμμα χωρίς προεπιλεγμένα δεδομένα.
+Ναι. Από προεπιλογή, το [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) δημιουργεί δείγματα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να καθαρίσετε τόσο τις συλλογές σειρών όσο και τις συλλογές κατηγοριών πριν προσθέσετε ένα πλήρως προσαρμοσμένο σύνολο δεδομένων. Μια υπερφόρτωση μπορεί επίσης να δημιουργήσει ένα γράφημα χωρίς προεπιλεγμένα δεδομένα.
 
-**Πώς συνδέονται τα αντικείμενα των διαγραμμάτων με τα κελιά του βιβλίου εργασίας;**
+**Πώς συνδέονται τα αντικείμενα γραφήματος με κελιά βιβλίου εργασίας;**
 
-Τα ονόματα σειρών, οι ετικέτες κατηγοριών και οι τιμές σημείων δεδομένων αναφέρονται σε κελιά ενός [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Η αλλαγή ενός αναφερόμενου κελιού ενημερώνει το αντίστοιχο στοιχείο του διαγράμματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις γραμμές κατηγοριών και τις γραμμές τιμών σειρών ευθυγραμμισμένες ώστε κάθε σημείο να σχεδιάζεται κάτω από την αντίστοιχη κατηγορία.
+Τα ονόματα σειρών, ετικέτες κατηγοριών και τιμές σημείων δεδομένων παραπέμπουν σε κελιά σε ένα [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Η αλλαγή ενός παρατιθέμενου κελιού ενημερώνει το αντίστοιχο στοιχείο του γραφήματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις γραμμές κατηγορίας και τις γραμμές τιμών σειρών ευθυγραμμισμένες έτσι ώστε κάθε σημείο να σχεδιάζεται κάτω από την επιθυμητή κατηγορία.
 
-**Πώς μπορώ να καθαρίσω ένα σημείο αντί για ολόκληρη τη σειρά;**
+**Πώς να καθαρίσω ένα σημείο αντί ολόκληρης σειράς;**
 
-Ορίστε το σχετικό κελί τιμής σε `null` ώστε η θέση της κατηγορίας του σημείου να παραμείνει κενή. Χρησιμοποιήστε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear) μόνο όταν θέλετε να αφαιρέσετε όλα τα σημεία από τη σειρά. Εάν αφαιρέσετε και τις κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμείνουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
+Ορίστε το σχετικό κελί τιμής σε `null` για να διατηρήσετε τη θέση της κατηγορίας του σημείου ως κενό σημείο. Χρησιμοποιήστε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) μόνο όταν επιθυμείτε να αφαιρέσετε όλα τα σημεία από αυτή τη σειρά. Εάν αφαιρείτε επίσης κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμένουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
 
 **Πώς εμφανίζονται τα κενά σημεία;**
 
-Το αποτέλεσμα εξαρτάται από τον τύπο διαγράμματος και την τιμή που έχει ρυθμιστεί μέσω του [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). Τα υποστηριζόμενα διαγράμματα μπορούν να εμφανίζουν τα κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας τα γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει στο νόημα των ελλιπών δεδομένων στην παρουσίασή σας. Δείτε το **[Έλεγχος Εμφάνισης Κενών Κυψελών](#control-the-display-of-empty-cells)** για ένα πλήρες παράδειγμα και οπτική σύγκριση.
+Το αποτέλεσμα εξαρτάται από τον τύπο γραφήματος και τη ρύθμιση που έχει καθοριστεί μέσω του [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/). Τα υποστηριζόμενα γραφήματα μπορούν να εμφανίζουν κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας τα γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει με το νόημα των ελλιπών δεδομένων στην παρουσίασή σας. Δείτε το [Control the Display of Empty Cells](#control-the-display-of-empty-cells) για πλήρες παράδειγμα και οπτική σύγκριση.
 
 **Πώς μορφοποιούνται οι αρνητικές τιμές;**
 
-Για τις υποστηριζόμενες σειρές μπάρας, στήλης και φυσαλίδας, καλέστε το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) και ορίστε το χρώμα που επιστρέφει το [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Μπορείτε να παρακάμψετε τη συμπεριφορά για ένα επιμέρους σημείο με το [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Αυτές οι μέθοδοι επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
+Για υποστηριζόμενες σειρές ράβδου, στήλης και bubble, καλέστε το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) και ορίστε το χρώμα που επιστρέφει το [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Μπορείτε να υπερισχύσετε της συμπεριφοράς για ένα επιπλέον σημείο με το [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Αυτές οι μέθοδοι επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
 
-**Ποια μορφοποίηση επικρατεί όταν τόσο μια σειρά όσο και ένα σημείο είναι μορφοποιημένα;**
+**Ποια μορφοποίηση υπερισχύει όταν τόσο σειρά όσο και σημείο έχουν μορφοποιηθεί;**
 
-Η ρητή μορφοποίηση σημείου‑δεδομένου έχει προτεραιότητα για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφοποίηση σειράς ή, όταν η μορφοποίηση σειράς δεν ορίζεται, το αυτόματο στυλ και θέμα του διαγράμματος. Οι ρυθμίσεις ομάδας όπως η επικάλυψη και το πλάτος κενού ελέγχουν τη διάταξη και δεν είναι παρακάμψεις μορφοποίησης επιπέδου σημείου.
+Η ρητή μορφοποίηση σημείου δεδομένων έχει προτεραιότητα για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφή της σειράς ή, όταν η μορφή σειράς δεν ορίζεται, το αυτόματο στυλ και θέμα του γραφήματος. Οι ρυθμίσεις ομάδας όπως επικάλυψη και πλάτος κενού ελέγχουν τη διάταξη και δεν είναι παρακάμψεις μορφοποίησης επιπέδου σημείου.
 
-**Υπάρχει όριο στον αριθμό των σειρών που μπορεί να περιέχει ένα διάγραμμα;**
+**Υπάρχει όριο στον αριθμό σειρών που μπορεί να περιέχει ένα γράφημα;**
 
-Το Aspose.Slides δεν επιβάλλει ξεχωριστό περιορισμό στον αριθμό των σειρών. Στην πράξη, οι περιορισμοί του αρχείου παρουσίασης, η διαθέσιμη μνήμη, ο χρόνος απόδοσης και η αναγνωσιμότητα του διαγράμματος καθορίζουν ένα πρακτικό όριο.
+Το Aspose.Slides δεν επιβάλλει ξεχωριστό σταθερό όριο αριθμού σειρών. Στην πράξη, περιορισμοί του αρχείου παρουσίασης, διαθέσιμη μνήμη, χρόνος απόδοσης και η αναγνωσιμότητα του γραφήματος καθορίζουν ένα χρηστικό όριο.
 
-**Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ μακριά η μία από την άλλη;**
+**Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ μακριά μεταξύ τους;**
 
-Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) στην αντίστοιχη γονική ομάδα σειρών. Αυξήστε την τιμή για να μεγαλώσετε το διάστημα μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.
+Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) στη σχετική γονική ομάδα σειρών. Αυξήστε την τιμή για να διευρύνετε το διάστημα μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.

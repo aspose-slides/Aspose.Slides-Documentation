@@ -1,5 +1,5 @@
 ---
-title: إدارة دفاتر عمل المخططات في العروض التقديمية باستخدام بايثون
+title: إدارة دفاتر عمل المخططات في العروض التقديمية باستخدام Python
 linktitle: دفتر عمل المخطط
 type: docs
 weight: 70
@@ -8,42 +8,42 @@ keywords:
 - دفتر عمل المخطط
 - بيانات المخطط
 - خلية دفتر العمل
-- عنوان البيانات
-- ورقة العمل
+- تسمية البيانات
+- ورقة عمل
 - مصدر البيانات
 - دفتر عمل خارجي
 - بيانات خارجية
-- ذاكرة مخطط مؤقتة
+- مخزن مؤقت للمخطط
 - استعادة دفتر العمل
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "اكتشف Aspose.Slides لبايثون عبر .NET: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات العرض التقديمي الخاص بك."
+description: "اكتشف Aspose.Slides for Python عبر .NET: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات عرضك التقديمي."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية العمل مع دفاتر عمل المخطط في Aspose.Slides. تُظهر كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كعناوين بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
+تشرح هذه المقالة كيفية العمل مع دفاتر عمل المخطط في Aspose.Slides. تُظهر كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كملصقات بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
 
-كما يغطي العمل مع دفاتر العمل الخارجية كمصادر بيانات للمخطط. تُظهر الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترداد مسار دفتر العمل الخارجي المرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
+كما تغطي العمل مع دفاتر عمل خارجية كمصادر بيانات للمخطط. توضح الأمثلة كيفية إنشاء دفتر عمل خارجي وتعيينه، واسترجاع مسار دفتر عمل خارجي مرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
 
-للخلايا التي تمثل بيانات مفقودة في دفتر العمل، راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/python-net/chart-series/) لمعرفة الفرق بين الخلية الفارغة والصفر، ومقارنة مخطط خطي لأنماط العرض المتاحة.
+لخلایا التي تمثل بيانات مفقودة، راجع [Control the Display of Empty Cells](/slides/ar/python-net/chart-series/) لمعرفة الفرق بين الخلية الفارغة والصفر، ومقارنة مخطط خطي لأوضاع العرض المتاحة.
 
 ## **تضمين البيانات من الصفوف والأعمدة المخفية**
 
-استخدم [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) للتحكم ما إذا كان المخطط يرسم البيانات من الصفوف والأعمدة المخفية في ورقة العمل. اضبطه على `True` لرسم الخلايا الظاهرة فقط، أو `False` لتضمين كل من الخلايا الظاهرة والمخفية. هذا الإعداد يتحكم في رسم المخطط؛ وهو لا يخفى أو يُظهر صفوف أو أعمدة ورقة العمل.
+استخدم [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) للتحكم فيما إذا كان المخطط يرسم البيانات من صفوف وأعمدة ورقة العمل المخفية. عيّنه إلى `True` لرسم الخلايا الظاهرة فقط، أو إلى `False` لتضمين كل من الخلايا الظاهرة والمخفية. هذا الإعداد يتحكم في رسم المخطط؛ ليس له تأثير على إخفاء أو إظهار صفوف أو أعمدة ورقة العمل.
 
-تحتوي [العرض التوضيحي](hidden-source-data.pptx) على مخطط عمودي كأول شكل في شريحةها الأولى. ورقة العمل المضمنة، `Sheet1`, تحتوي على النطاق المصدر التالي، `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا تزال تحتوي على قيم.
+ملف العرض [sample presentation](hidden-source-data.pptx) يحتوي على مخطط عمودي كأول شكل في شريحةه الأولى. ورقة العمل المضمَّنة، `Sheet1`، تحتوي على النطاق المصدر `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا تزال تحتوي على قيم.
 
-| صف ورقة العمل | A: شهر | B: تجزئة | C: جملة (عمود مخفي) |
+| صف ورقة العمل | الشهر | التجزئة | التجزئة (عمود مخفي) |
 | --- | --- | --- | --- |
 | 2 | يناير | 10 | 30 |
 | 3 (صف مخفي) | فبراير | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-يمكن الوصول إلى خلايا المصدر عبر [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) وقراءة [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) للتحقق من حالة إخفاءها. هذه الخاصية للقراءة فقط. في هذا الملف، B2 مرئية، B3 تنتمي إلى الصف المخفي، وC2 تنتمي إلى العمود المخفي؛ يطبع المثال `False`، `True`، و`True` على التوالي.
+الوصول إلى خلايا المصدر عبر [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) وقراءة [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) لتفحص حالة الإخفاء. هذه الخاصية للقراءة فقط. في هذا الملف، B2 مرئية، B3 تنتمي إلى الصف المخفي، وC2 تنتمي إلى العمود المخفي؛ المثال يطبع `False`، `True`، و`True` على التوالي.
 
-في هذا المثال، قم بتحديث بيانات المخطط بعد تغيير إعداد الرسم: احتفظ بدفتر العمل المضمن عبر [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) وأعد تحميله باستخدام [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). عند تضمين جميع الخلايا، استخدم أيضًا [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) لاستعادة النطاق الكامل، بما في ذلك فئة فبراير المخفية. مجرد تغيير العلامة لا يكفي لتحديث بيانات المخطط المخزنة مؤقتًا وعناوين الفئات في هذا المثال.
+في هذا المثال، حدّث بيانات المخطط بعد تغيير إعداد الرسم: احتفظ بدفتر العمل المضمَّن باستخدام [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) وأعد تحميله باستخدام [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). عند تضمين كل الخلايا، استخدم أيضًا [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) لاستعادة النطاق الكامل، بما في ذلك الفئة المخفية فبراير. مجرد تغيير العلامة غير كافٍ لتحديث بيانات المخطط المخزَّنة مؤقتًا وعناوين الفئات في هذا المثال.
 
 ```python
 import aspose.slides as slides
@@ -75,21 +75,21 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-يحفظ المثال نسختين من العرض: نسخة تحتوي فقط على قيم التجزئة الظاهرة (10 و20)، ونسخة تحتوي على كل القيم الستة. تم إنشاء الصور أدناه من العروض المحفوظة بعد إعادة فتحها؛ كلا الملفين يحافظان على إعداد الرسم المعيّن. يظل الصف 3 والعمود C مخفيين في كل من دفاتر العمل المضمنة.
+يحفظ المثال نسختين من العرض: واحدة تحتوي فقط على قيم التجزئة الظاهرة (10 و20)، وأخرى تحتوي على جميع القيم الست. تم عرض الصور أدناه من العروض المحفوظة بعد إعادة فتحها؛ كلا الملفين يحافظان على إعداد الرسم المعين. يظل الصف 3 والعمود C مخفيين في كلا دفترَي العمل المضمَّنين.
 
 | الخلايا الظاهرة فقط (`True`) | كل الخلايا (`False`) |
 | --- | --- |
-| ![الخلايا الظاهرة فقط: قيم التجزئة 10 و20 لشهري يناير ومارس.](hidden_cells_True.png) | ![كل الخلايا: قيم التجزئة والجملة لشهري يناير وفبراير ومارس.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-الخلية المخفية التي تحتوي على قيمة تختلف عن الخلية الفارغة. يتحكم [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) في كيفية عرض القيم المفقودة؛ وهو لا يضم أو يستبعد بيانات المصدر المخفية. راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/python-net/chart-series/#control-the-display-of-empty-cells) للحصول على مثال.
+الخلية المخفية التي تحتوي على قيمة تختلف عن الخلية الفارغة. يتحكم [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) في طريقة عرض القيم المفقودة؛ ولا يشمل أو يستبعد البيانات المصدر المخفية. راجع [Control the Display of Empty Cells](/slides/ar/python-net/chart-series/#control-the-display-of-empty-cells) للحصول على مثال.
 
-## **استخراج نطاق بيانات المخطط**
+## **استرجاع نطاق بيانات المخطط**
 
-قبل تحديث بيانات دفتر العمل في عرض موجود، قم بفحص النطاقات المصدر لتحديد خلايا ورقة العمل التي يستخدمها كل مخطط. تُعيد طريقة [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) النطاق الحالي للبيانات كصيغة مؤهلة لورقة العمل، مثل `Sheet1!$A$1:$D$5`. هنا، `Sheet1` هو اسم ورقة العمل، `!` يفصلها عن نطاق الخلايا، و`$A$1:$D$5` يحدد الخلايا من A1 إلى D5 شاملًا. علامات الدولار تشير إلى مراجع صف وعمود مطلقة.
+قبل تحديث بيانات دفتر العمل في عرض موجود، افحص نطاقات المصدر لتحديد خلايا ورقة العمل التي يستخدمها كل مخطط. تُعيد طريقة [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) النطاق الحالي كصيغة مؤهلة لورقة العمل، مثل `Sheet1!$A$1:$D$5`. هنا، `Sheet1` هو اسم ورقة العمل، `!` يفصلها عن نطاق الخلايا، و`$A$1:$D$5` يحدد الخلايا من A1 إلى D5 شاملًا. تشير علامات الدولار إلى مراجع صف وعمود مطلقة.
 
-تقرأ الطريقة النطاق الحالي دون تغيير المخطط أو دفتر عمله. إذا لم يستخدم المخطط دفتر عمل كمصدر للبيانات، فإنها تُثير استثناءً. لمزيد من المعلومات، راجع [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/).
+تقرأ الطريقة النطاق الحالي دون تغيير المخطط أو دفتر العمل الخاص به. إذا لم يكن المخطط يستخدم دفتر عمل كمصدر بيانات، فإنها تُثير استثناءً. لمزيد من المعلومات، شاهد [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/).
 
-يفتح هذا المثال عرضًا ويتحقق من الأشكال مباشرة على كل شريحة للعثور على المخططات. يطبع اسم كل مخطط ونطاق المصدر. إذا تعذر استرجاع النطاق، يطبع رسالة تشخيصية ويستمر إلى المخطط التالي.
+يفتح هذا المثال عرضًا ويفحص الأشكال مباشرةً في كل شريحة للبحث عن المخططات. يطبع اسم كل مخطط ونطاق المصدر. إذا تعذر استرجاع النطاق، يطبع رسالة تشخيصية ويستمر إلى المخطط التالي.
 
 ```python
 import aspose.slides as slides
@@ -108,9 +108,9 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **قراءة وكتابة بيانات المخطط من دفتر عمل**
 
-يُوفر Aspose.Slides for Python via .NET طرقًا [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) و[write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) التي تسمح لك بقراءة وكتابة دفاتر بيانات المخطط (التي تحتوي على بيانات المخطط التي تم تعديلها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تُنظم بنفس الطريقة أو أن يكون لها بنية مشابهة للمصدر.
+توفر Aspose.Slides for Python via .NET طريقتي [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) و[write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) اللذان يتيحان لك قراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تعديلها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تكون منظمة بنفس الطريقة أو يجب أن يكون لها بنية مشابهة للمصدر.
 
-يستخدم هذا المثال عرضًا يحتوي على مخطط كأول شكل في شريحته الأولى. يقرأ دفتر العمل المضمن إلى تدفق، يمسح السلاسل والفئات الحالية، ويكتب نفس دفتر العمل مرة أخرى. تبقى التغييرات في الذاكرة؛ لا يحفظ المثال العرض.
+يستخدم هذا المثال عرضًا يحتوي على مخطط كأول شكل في شريحةه الأولى. يقرأ دفتر العمل المضمَّن إلى تدفق، يمسح السلاسل والفئات الحالية، ويكتب نفس دفتر العمل مرة أخرى. تظل التغييرات في الذاكرة؛ المثال لا يحفظ العرض.
 
 ```python
 import aspose.slides as slides
@@ -135,7 +135,7 @@ with slides.Presentation("chart.pptx") as presentation:
 
 ### **التحقق من تخطيط المخطط بعد تعديل دفتر العمل**
 
-عند استبدال دفتر عمل مضمّن بآخر معدل، يحتفظ المخطط بسلسلته الأصلية ومجموعات الفئات. قد يتسبب هذا الاختلاف في فشل [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/). امسح السلاسل والفئات الحالية قبل كتابة دفتر العمل المحدّث إلى المخطط. يستخدم هذا المثال مخططًا كأول شكل في الشريحة الأولى. تُشير التعليقات إلى مكان تعديل دفتر العمل؛ المثال القابل للتنفيذ يكتب دفتر العمل الأصلي مرة أخرى ويُتحقق من التخطيط في الذاكرة.
+عند استبدال دفتر عمل مضمَّن بآخر معدل، يحتفظ المخطط بالسلاسل ومجموعات الفئات الأصلية. هذا الاختلاف قد يتسبب في فشل [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) مع خطأ فهرس خارج النطاق. امسح السلاسل والفئات الحالية قبل كتابة دفتر العمل المحدث إلى المخطط. يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى. العلامة التعليقية تشير إلى مكان تحرير دفتر العمل؛ المثال القابل للتنفيذ يكتب دفتر العمل الأصلي مرة أخرى ويُصادق على التخطيط في الذاكرة.
 
 ```python
 import aspose.slides as slides
@@ -149,7 +149,7 @@ with slides.Presentation("chart.pptx") as presentation:
         chart_data = chart.chart_data
         workbook_stream = chart_data.read_workbook_stream()
 
-        # عدّل تدفق دفتر العمل هنا، على سبيل المثال باستخدام Aspose.Cells.
+        # قم بتعديل تدفق دفتر العمل هنا، على سبيل المثال باستخدام Aspose.Cells.
 
         chart_data.series.clear()
         chart_data.categories.clear()
@@ -161,15 +161,15 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-إزالة المجموعات تحذف مراجع البيانات القديمة قبل كتابة دفتر العمل مرة أخرى. أعد بناء أي سلاسل وفئات مطلوبة للدفتر المحدث قبل استخدام المخطط.
+إفراغ المجموعات يزيل مراجع البيانات القديمة قبل كتابة دفتر العمل مرة أخرى. أعد بناء أي سلاسل أو خريطة فئات مطلوبة للدفتر المحدث قبل استخدام المخطط.
 
-## **تعيين تنسيقات رقم مخصصة لخلايا دفتر العمل**
+## **تعيين تنسيقات رقمية مخصَّصة لخلايا دفتر العمل**
 
-استخدم [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) للتحكم في كيفية ظهور القيم الرقمية في دفتر العمل المضمن للمخطط. على سبيل المثال، قد يحتاج تقرير إلى عرض معدل التحويل كنسبة مئوية بأربعة أرقام عشرية ومعامل بخمس أرقام عشرية. احفظ القيمتين عددية لتظل متاحة للحسابات ورسم المخطط.
+استخدم [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) للتحكم في طريقة ظهور القيم العددية في دفتر عمل المخطط المضمَّن. على سبيل المثال، قد يحتاج تقرير إلى عرض معدل التحويل كنسبة مئوية بأربعة منازل عشرية ومعامل بخمسة منازل عشرية. احتفظ بالقيمتين عددياً حتى تظل متاحة للحسابات ورسم المخطط.
 
-تنسيق الرقم يُغيّر العرض فقط، وليس القيمة المخزنة. التنسيق `0.0000%` يعرض `0.125` كـ `12.5000%`؛ ولا يستبدل العدد المخزن بـ `12.5`. بالمثل، `0.00000` يعرض `0.1234567` كـ `0.12346` دون تقريب القيمة المخزنة. إذا كان التنسيق المخصص سلسلة فارغة (`""`)، يُستخدم [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) بدلاً من ذلك.
+تنسيق الرقم يغيّر العرض فقط، لا القيمة المخزَّنة. التنسيق `0.0000%` يعرض `0.125` كـ `12.5000%`؛ لا يستبدل الرقم المخزن بـ `12.5`. بالمثل، `0.00000` يعرض `0.1234567` كـ `0.12346` دون تقريب القيمة المخزَّنة. إذا كان التنسيق المخصَّص سلسلة فارغة (`""`)، يُستخدم [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) بدلًا منه.
 
-المثال التالي ينشئ مخططًا عموديًا ويصل إلى خلاياه عبر [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/). في ورقة العمل 0، يحتوي B2 على معدل التحويل وC2 على المعامل. كل من الخلايا تزود المخطط بالقيم. يُمكّن المثال أيضًا عناوين القيم المرتبطة بصيغ المصدر.
+النموذج التالي يُنشئ مخطط عمودي ويصل إلى خلاياه عبر [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/). في ورقة العمل 0، يحتوي B2 على معدل التحويل وC2 على المعامل. كلتا الخليتين تزودان المخطط بالقيم. يُفعل المثال أيضًا ملصقات القيم المرتبطة بالتنسيقات المصدر.
 
 ```python
 import aspose.slides as slides
@@ -216,19 +216,19 @@ with slides.Presentation() as presentation:
     presentation.save("CustomCellFormats.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تنسيقات خلايا دفتر العمل منفصلة عن التنسيقات المحددة مباشرة على محاور المخطط أو عناوين البيانات. في هذا المثال، كل عنوان يعرض قيمة خلية المصدر لأن [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) مفعل، ويتبع تنسيق الرقم للمصدر لأن [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) هو `True`. بعد حفظ وإعادة فتح العرض، تُظهر العناوين `12.5000%` و`0.12346` كما هو موضح أدناه. يستخدم المحور الرأسي تنسيقه الخاص [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) بـ `0.00`، مع ضبط [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) على `False`.
+تنسيقات خلايا دفتر العمل منفصلة عن التنسيقات التي تُعيّن مباشرةً على محاور المخطط أو ملصقات البيانات. في هذا المثال، كل ملصق يعرض قيمة الخلية المصدر لأن [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) مفعَّل، ويتبع تنسيق الرقم المصدر لأن [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) هو `True`. بعد حفظ وإعادة فتح العرض، تعرض الملصقات `12.5000%` و`0.12346` كما هو موضح أدناه. يستخدم المحور العمودي تنسيقه الخاص [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) بـ `0.00`، مع [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) مضبوطًا على `False`.
 
-لتحسين تنسيق عنوان البيانات بشكل مستقل، اضبط علم ربط المصدر إلى `False` وعيّن [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/). هذا لا يغيّر تنسيق خلية دفتر العمل. على سبيل المثال، تنسيق عنوان مستقل بـ `0.00` يعرض القيمة الأولى كـ `0.13`، بينما لا يزال B2 يعرض `12.5000%`. راجع [Chart Data Labels](/slides/ar/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) لتنسيق العناوين مباشرة.
+لإعداد تنسيق ملصق بيانات بشكل مستقل، عيّن علم الرابط إلى المصدر إلى `False` وعيّن [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/). هذا لا يغيّر تنسيق خلية دفتر العمل. على سبيل المثال، تنسيق ملصق مستقل بـ `0.00` يعرض القيمة الأولى كـ `0.13`، بينما لا يزال B2 يعرض `12.5000%`. راجع [Chart Data Labels](/slides/ar/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) لتنسيق الملصق مباشرةً.
 
-الصورة أدناه تم إنشاءها من العرض المحفوظ بعد إعادة فتحه:
+الصورة أدناه تم استخراجها من العرض المحفوظ بعد إعادة فتحه:
 
-![مخطط عمودي بعناوين مرتبطة بالمصدر تُظهر 12.5000% و0.12346 ومحور رقمي بتنسيق مستقل.](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **تعيين خلية دفتر العمل كعنوان بيانات للمخطط**
+## **تعيين خلية دفتر العمل كملصق بيانات للمخطط**
 
-يمكنك استخدام النص من خلايا دفتر العمل كعناوين بيانات للمخطط.
+يمكنك استخدام النص الموجود في خلايا دفتر العمل كملصقات بيانات للمخطط.
 
-يضيف هذا المثال مخطط فقاعة ببيانات افتراضية إلى الشريحة الأولى من عرض موجود. يستخدم الخلايا A10:A12 في ورقة العمل 0 للعلامات الثلاثة الأولى في السلسلة الأولى، يمكّن العناوين من الخلايا، ويحفظ العرض المحدّث.
+يضيف هذا المثال مخطط فقاعات ببيانات افتراضية إلى الشريحة الأولى من عرض موجود. يستخدم الخلايا A10:A12 في ورقة العمل 0 للملصقات الثلاث الأولى في السلسلة الأولى، يفعّل الملصقات من الخلايا، ويحفظ العرض المحدث.
 
 ```python
 import aspose.slides as slides
@@ -251,7 +251,7 @@ with slides.Presentation("chart2.pptx") as presentation:
 
 ## **إدارة أوراق العمل**
 
-توفر الخاصية [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) إمكانية الوصول إلى أوراق العمل في دفتر عمل المخطط. ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويطبع اسم كل ورقة عمل إلى وحدة التحكم.
+توفر الخاصية [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) إمكانية الوصول إلى أوراق العمل في دفتر عمل المخطط. يُنشئ هذا المثال مخطط دائري ببيانات افتراضية ويطبع اسم كل ورقة عمل إلى وحدة التحكم.
 
 ```python
 import aspose.slides as slides
@@ -269,7 +269,9 @@ with slides.Presentation() as presentation:
 
 ## **تحديد نوع مصدر البيانات**
 
-ينشئ هذا المثال مخططًا عموديًا ثلاثي الأبعاد ببيانات افتراضية ويحدد اسمين للسلسلة باستخدام مصادر بيانات مختلفة. الاسم الأول يستخدم قيمة حرفية؛ الاسم الثاني يستخدم الخلية C1 في ورقة العمل 0. يحدد تعداد [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) المصدر لكل اسم. يحفظ المثال العرض مع أسماء السلاسل المحدثة.
+يمكن أيضًا تخزين قيم نقاط السلسلة مباشرة كقيم عددية ثابتة. راجع [Set Series Values Using Numeric Literals](/slides/ar/python-net/chart-series/#set-series-values-using-numeric-literals) للحصول على مثال كامل يحفظها ويقرأها. نوع مصدر القيم منفصل عن تكوين دفتر العمل الداخلي أو الخارجي للمخطط؛ استخدام القيم العددية الثابتة لا يزيل دفتر العمل المضمَّن بحد ذاته.
+
+يُنشئ هذا المثال مخطط عمودي ثلاثي الأبعاد ببيانات افتراضية ويعيّن اسمين لسلسلتين باستخدام مصادر بيانات مختلفة. الاسم الأول يستخدم ثابتًا نصيًا؛ والاسم الثاني يستخدم الخلية C1 في ورقة العمل 0. تُحدّد تعداد [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) المصدر لكل اسم. يحفظ المثال العرض مع أسماء السلاسل المحدثة.
 
 ```python
 import aspose.slides as slides
@@ -292,9 +294,9 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **اكتشاف صيغ دفاتر العمل المضمنة غير المدعومة**
+## **اكتشاف تنسيقات دفاتر العمل المضمَّنة غير المدعومة**
 
-لا يدعم Aspose.Slides صيغة دفتر عمل Excel الثنائي (.xlsb) التي يمكن تضمينها في بعض المخططات. يمكنك استخدام الخاصية [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) على [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) لاكتشاف الصيغ غير المدعومة وتخطي تلك المخططات. يفحص هذا المثال الأشكال في الشريحة الأولى من عرض موجود، يتجاوز الأشكال غير المخططة، ويطبع رسالة تشخيصية لكل مخطط يحتوي على دفتر عمل .xlsb مضمّن.
+لا تدعم Aspose.Slides تنسيق دفتر العمل الثنائي Excel (.xlsb) الذي يمكن تضمينه في بعض المخططات. يمكنك استخدام الخاصية [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) على [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) لاكتشاف التنسيقات غير المدعومة وتجاوز تلك المخططات. يفحص هذا المثال الأشكال في الشريحة الأولى من عرض موجود، يتجاوز الأشكال غير المخططة، ويطبع رسالة تشخيصية لكل مخطط يحتوي على دفتر عمل .xlsb مضمَّن.
 
 ```python
 import aspose.slides as slides
@@ -320,13 +322,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **دفتر عمل خارجي**
 
-يدعم Aspose.Slides استخدام دفاتر العمل الخارجية كمصدر بيانات للمخططات.
+تدعم Aspose.Slides استخدام دفاتر عمل خارجية كمصدر بيانات للمخططات.
 
 ### **إنشاء دفتر عمل خارجي**
 
-استخدم [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) و[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) لتصدير دفتر عمل المخطط المضمن إلى ملف وربط المخطط بذلك دفتر العمل الخارجي.
+استخدم [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) و[set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) لتصدير دفتر عمل مخطط مضمَّن إلى ملف وربط المخطط بذلك الدفتر الخارجي.
 
-ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويصدر دفتر عمله. يغلق تدفق الإخراج قبل تعيين دفتر العمل الخارجي كمصدر بيانات للمخطط، ثم يحفظ العرض المرتبط.
+يُنشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويصدّر دفتر عمله. يغلق تدفق الإخراج قبل تعيين دفتر العمل الخارجي كمصدر بيانات للمخطط، ثم يحفظ العرض المرتبط.
 
 ```python
 from pathlib import Path
@@ -351,11 +353,11 @@ with slides.Presentation() as presentation:
 
 ### **تعيين دفتر عمل خارجي**
 
-باستخدام طريقة [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/)، يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
+باستخدام طريقة [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الملف).
 
-على الرغم من عدم إمكانية تحرير البيانات في دفاتر العمل المخزنة في مواقع أو موارد بعيدة، يمكنك الاستمرار في استخدام تلك الدفاتر كمصدر بيانات خارجي. إذا تم تقديم مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+على الرغم من impossibility تحرير البيانات في دفاتر العمل المخزّنة في مواقع أو موارد عن بُعد، لا يزال بإمكانك استخدامها كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
 
-يستخدم هذا المثال دفتر عمل خارجي تحتوي ورقة العمل المسماة `Sheet1` فيها على اسم سلسلة في B1، أسماء الفئات في A2:A4، والقيم الرقمية في B2:B4. ينشئ المثال مخططًا دائريًا، يربط دفتر العمل، ويستخدم [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) لتعيين A1:B4 لسلسلة واحدة وثلاث فئات. يحفظ العرض مع المخطط المرتبط.
+يستخدم هذا المثال دفتر عمل خارجي بحيث تحتوي ورقة العمل المسماة `Sheet1` على اسم سلسلة في B1، وأسماء فئات في A2:A4، وقيم عددية في B2:B4. يخلق المثال مخططًا دائريًا، يربط دفتر العمل، ويستخدم [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) لتعيين A1:B4 كسلسلة واحدة وثلاث فئات. يحفظ العرض مع المخطط المرتبط.
 
 ```python
 from pathlib import Path
@@ -375,12 +377,12 @@ with slides.Presentation() as presentation:
     presentation.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-معامل `update_chart_data` في [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) يتحكم فيما إذا كان دفتر العمل يتم تحميله.
+معامل `update_chart_data` في طريقة [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) يتحكم فيما إذا كان دفتر العمل يُحمَّل.
 
-* عندما تكون `update_chart_data` `False`، يتم تحديث مسار دفتر العمل فقط. لا يتم تحميل بيانات المخطط أو تحديثها من دفتر العمل الهدف، وبالتالي يمكن أن يكون دفتر العمل غير متاح.
-* عندما تكون `update_chart_data` `True`، يتم تحديث بيانات المخطط من دفتر العمل الهدف.
+* عندما يكون `update_chart_data` `False`، يتم تحديث مسار دفتر العمل فقط. لا يتم تحميل أو تحديث بيانات المخطط من دفتر العمل المستهدف، وبالتالي يمكن أن يكون دفتر العمل غير متاح.
+* عندما يكون `update_chart_data` `True`، يتم تحديث بيانات المخطط من دفتر العمل المستهدف.
 
-يعين المثال التالي عنوان URL نائب مع `update_chart_data` مضبوط على `False`. يحتفظ بالبيانات الافتراضية للمخطط الدائري ويحفظ العرض دون تحميل دفتر العمل غير المتاح.
+المثال التالي يعين عنوان URL نائب مع `update_chart_data` مضبوطًا على `False`. يحتفظ بالبيانات الافتراضية للمخطط الدائري ويحفظ العرض دون تحميل دفتر العمل غير المتاح.
 
 ```python
 import aspose.slides as slides
@@ -397,9 +399,9 @@ with slides.Presentation() as presentation:
 
 ### **الحصول على مسار دفتر عمل مصدر البيانات الخارجي لمخطط**
 
-لتحديد دفتر العمل المرتبط بمخطط، تحقق مما إذا كان المخطط يستخدم مصدر بيانات خارجي واسترجع مسار دفتر العمل الخاص به.
+لتحديد دفتر العمل المرتبط بمخطط، تحقق مما إذا كان المخطط يستخدم مصدر بيانات خارجي واسترجع مساره.
 
-يفحص هذا المثال الشكل الأول في الشريحة الأولى من عرض يحتوي على دفتر عمل خارجي مرتبط. إذا كان مخططًا مرتبطًا بدفتر عمل خارجي، يطبع المثال [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) إلى وحدة التحكم. ثم يحفظ نسخة من العرض.
+يفحص هذا المثال الشكل الأول في الشريحة الأولى من عرض يحتوي على دفتر عمل خارجي مرتبط. إذا كان مخططًا مرتبطًا بدفتر عمل خارجي، يطبع [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) إلى وحدة التحكم. ثم يحفظ نسخة من العرض.
 
 ```python
 import aspose.slides as slides
@@ -423,9 +425,9 @@ with slides.Presentation("externalWorkbook.pptx") as presentation:
 
 ### **تحرير بيانات المخطط**
 
-يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يُطرح استثناء.
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يُثار استثناء.
 
-يستخدم هذا المثال مخططًا كأول شكل في الشريحة الأولى وهو مرتبط بدفتر عمل خارجي قابل للوصول. يضبط القيمة المستندة إلى الخلية لأول نقطة بيانات في السلسلة الأولى إلى 100 ويحفظ العرض المحدّث. يمكن لتعديل قيم الخلايا تحديث ملف XLSX الخارجي المرتبط، لذا استخدم نسخة إذا كنت بحاجة للحفاظ على دفتر العمل الأصلي.
+يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى ومربوطًا بدفتر عمل خارجي قابل للوصول. يعيّن قيمة الخلية لأول نقطة بيانات في السلسلة الأولى إلى 100 ويحفظ العرض المحدث. تحرير قيم الخلايا يمكن أن يُحدِّث ملف XLSX الخارجي المرتبط، لذا استخدم نسخة إذا كنت بحاجة للحفاظ على دفتر العمل الأصلي.
 
 ```python
 import aspose.slides as slides
@@ -450,11 +452,11 @@ with slides.Presentation("presentation.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **استعادة دفتر عمل من ذاكرة مخطط التخزين المؤقت**
+### **استعادة دفتر عمل من ذاكرة التخزين المؤقت للمخطط**
 
-إذا كان مخطط يستخدم دفتر عمل خارجي مفقود أو غير متاح، يمكن ل Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزنة مؤقتًا في العرض. أنشئ [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/)، اضبط [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/)، واضبط [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) إلى `True` قبل فتح العرض.
+إذا كان مخطط يستخدم دفتر عمل خارجي غير موجود أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزَّنة مؤقتًا في العرض. أنشئ كائن [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/)، واضبط [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/)، وعين [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) إلى `True` قبل فتح العرض.
 
-المثال التالي بلغة Python يستعيد بيانات دفتر العمل لمخطط هو الشكل الأول في الشريحة الأولى ويشير إلى دفتر عمل خارجي غير متاح. يصل إلى البيانات المستعادة عبر [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) و[ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+المثال التالي بلغة Python يستعيد بيانات دفتر عمل لمخطط هو الشكل الأول في الشريحة الأولى ويشير إلى دفتر عمل خارجي غير متاح. يصل إلى البيانات المستعادة عبر [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) و[ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
 
 ```python
 import aspose.slides as slides
@@ -470,35 +472,35 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
         chart = slide.shapes[0]
         recovered_workbook = chart.chart_data.chart_data_workbook
 
-        # اقرأ أو عدّل بيانات دفتر العمل المستعاد هنا.
+        # قراءة أو تعديل بيانات دفتر العمل المستعاد هنا.
     else:
         print("The first shape is not a chart.")
 ```
 
-إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، يرفع Aspose.Slides استثناءً. فعّل الاستعادة فقط عندما يكون استخدام البيانات المخزنة مؤقتًا للمخطط خيارًا مقبولًا، لأن الذاكرة قد لا تحتوي على التغييرات التي أُجريت على دفتر العمل الخارجي بعد آخر تحديث للعرض.
+إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، تُثير Aspose.Slides استثناءً. فعّل الاستعادة فقط عندما يكون استخدام البيانات المخزَّنة مؤقتًا في المخطط حلًا مقبولًا، لأن الذاكرة المؤقتة قد لا تحتوي على التغييرات التي أُجريت على دفتر العمل الخارجي بعد آخر تحديث للعرض.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تحديد ما إذا كان مخطط معين مرتبط بدفتر عمل خارجي أم مضمّن؟**
+**هل يمكنني تحديد ما إذا كان مخطط معين مرتبط بدفتر عمل خارجي أو مضمَّن؟**
 
-نعم. يحتوي المخطط على [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) و[ path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+نعم. يحتوي المخطط على [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) و[مسار إلى دفتر عمل خارجي](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
 
-**هل يتم دعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
+**هل تدعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
 
-نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. يخزن العرض المسار المطلق في ملف PPTX، لذا قد يتطلب نقل دفتر العمل تحديث الارتباط.
+نعم. إذا حددت مسارًا نسبيًا، يُحوَّل تلقائيًا إلى مسار مطلق. يخزن العرض المسار المطلق في ملف PPTX، لذا قد يتطلب نقل دفتر العمل تحديث الارتباط.
 
-**هل يمكنني استخدام دفاتر العمل الموجودة على موارد/مشاركات الشبكة؟**
+**هل يمكنني استخدام دفاتر عمل موجودة على موارد/مشاركات شبكة؟**
 
-نعم، يمكن استخدام تلك الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يُدعم تحرير دفاتر العمل البعيدة مباشرةً من Aspose.Slides—يمكن استخدامها فقط كمصدر.
+نعم، يمكن استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يُدعم تحرير دفاتر العمل البعيدة مباشرةً من Aspose.Slides—يمكن استخدامها فقط كمصدر.
 
-**هل يقوم Aspose.Slides باستبدال ملف XLSX الخارجي عند حفظ العرض؟**
+**هل تقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض؟**
 
-يخزن العرض [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/). يمكن لتعديل بيانات المخطط المستندة إلى الخلايا أيضًا تحديث ملف XLSX المحلي المرتبط. استخدم نسخة من دفتر العمل إذا كان يجب ترك الأصلي دون تغيير.
+يخزن العرض [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/). يمكن أن يُحدِّث تحرير بيانات المخطط المرتبطة بالخلية ملف XLSX المحلي المرتبط. استخدم نسخة من دفتر العمل إذا كان من الضروري أن يبقى الأصلي دون تغيير.
 
 **ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
 
-لا يقبل Aspose.Slides كلمة مرور عند الربط. النهج الشائع هو إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال، باستخدام [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) وربطها بهذه النسخة.
+لا تقبل Aspose.Slides كلمة مرور عند الربط. عادةً ما يُزال الحماية مسبقًا أو تُحضّر نسخة مفكّكة (على سبيل المثال باستخدام [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) ويتم الربط بتلك النسخة.
 
 **هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
 
-نعم. كل مخطط يخزن ارتباطه الخاص. إذا كانت جميعها تشير إلى نفس الملف، فسيؤدي تحديث ذلك الملف إلى انعكاسه في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
+نعم. يخزن كل مخطط ارتباطه الخاص. إذا أشار جميعها إلى نفس الملف، فإن تحديث ذلك الملف سينعكس في كل مخطط عند تحميل البيانات مرة أخرى.
