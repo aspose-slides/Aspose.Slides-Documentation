@@ -1,149 +1,87 @@
 ---
-title: Настройка фигур в презентациях с Python
-linktitle: Пользовательская фигура
+title: Настройка форм презентаций в Python
+linktitle: Пользовательская форма
 type: docs
 weight: 20
 url: /ru/python-net/custom-shape/
 keywords:
-- пользовательская фигура
-- добавить фигуру
-- создать фигуру
-- изменить фигуру
-- геометрия фигуры
-- путь геометрии
+- пользовательская форма
+- добавить форму
+- создать форму
+- изменить форму
+- геометрия формы
+- геометрический путь
 - точки пути
-- редактировать точки
+- точки редактирования
 - добавить точку
 - удалить точку
 - операция редактирования
 - скруглённый угол
 - PowerPoint
-- OpenDocument
 - презентация
 - Python
 - Aspose.Slides
-description: "Создавайте и настраивайте фигуры в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Python на платформе .NET: геометрические пути, скруглённые углы, составные фигуры."
+description: "Создавайте и настраивайте формы в презентациях PowerPoint с помощью Aspose.Slides для Python через .NET: геометрические пути, скруглённые углы, составные формы."
 ---
-
 ## **Обзор**
 
-Рассмотрим квадрат. В PowerPoint, используя **Edit Points**, вы можете:
+Эта статья объясняет, как настраивать формы презентаций в Aspose.Slides, редактируя геометрию формы через точки редактирования и геометрические пути. Показано, как работать с [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) для изменения существующих форм, выполнения базовых операций редактирования пути, добавления или удаления точек и применения обновлённой геометрии обратно к форме.
 
-* перемещать угол квадрата внутрь или наружу,
-* регулировать кривизну угла или точки,
-* добавлять новые точки к квадрату,
-* манипулировать его точками.
+Также демонстрируется, как создавать пользовательские и составные формы, создавать формы со скруглёнными углами, определять, замкнута ли геометрия формы, и извлекать элементы формы для анализа контуров.
 
-Эти операции можно применять к любой фигуре. С помощью **Edit Points** вы можете изменить форму или создать новую на основе существующей формы.
+## **Изменить форму с помощью точек редактирования**
 
-## **Советы по редактированию фигур**
+В PowerPoint вы можете использовать **Edit Points**, чтобы изменить квадрат:
 
-![Команда "Edit Points"](custom_shape_0.png)
+* Переместить угол внутрь или наружу.  
+* Отрегулировать кривизну в точке.  
+* Добавить новые точки.
 
-Прежде чем начать редактировать фигуры PowerPoint с помощью **Edit Points**, учитывайте следующие замечания о фигурах:
+Редактирование точек позволяет изменять контур формы или использовать существующую форму как основу для новой.
 
-* Фигура (или её контур) может быть **закрытой** или **открытой**.
-* Закрытая фигура не имеет начальной или конечной точки; открытая фигура имеет начало и конец.
-* Каждая фигура имеет как минимум две опорные точки, соединённые отрезками.
-* Отрезок может быть прямым или изогнутым; опорные точки определяют характер отрезка.
-* Опорные точки могут быть **угловыми**, **плавными** или **прямыми**:
-  * Точка **угловая** — это место, где два прямых отрезка встречаются под углом.
-  * Точка **плавная** имеет две ручки, лежащие на одной линии, и прилегающие отрезки образуют плавную кривую. При этом обе ручки находятся на одинаковом расстоянии от опорной точки.
-  * Точка **прямая** также имеет две коллинеарные ручки, и прилегающие отрезки образуют плавную кривую. В этом случае ручки не обязаны находиться на одинаковом расстоянии от опорной точки.
-* Перемещая или редактируя опорные точки (тем самым изменяя углы отрезков), вы можете менять внешний вид фигуры.
+## **Советы по редактированию форм**
 
-Чтобы редактировать фигуры PowerPoint, Aspose.Slides предоставляет класс [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+![overview_image](custom_shape_0.png)
 
-* Объект [GeometryPath] представляет геометрический путь [GeometryShape] объекта.
-* Чтобы получить [GeometryPath] из экземпляра [GeometryShape], используйте метод [GeometryShape.get_geometry_paths].
-* Для установки [GeometryPath] для фигуры используйте [GeometryShape.set_geometry_path] для *solid shapes* и [GeometryShape.set_geometry_paths] для *composite shapes*.
-* Для добавления отрезков используйте методы класса [GeometryPath].
-* Используйте свойства [GeometryPath.stroke] и [GeometryPath.fill_mode] для управления внешним видом геометрического пути.
-* Используйте свойство [GeometryPath.path_data] для получения геометрического пути фигуры в виде массива отрезков пути.
+При редактировании форм PowerPoint учитывайте следующие концепции:
+
+* Форма (или её путь) может быть закрытой или открытой.  
+* Путь формы состоит из опорных точек, соединённых сегментами.  
+* Сегмент может быть прямым или кривым. Опорные точки и управляющие ручки определяют его форму.  
+* Опорные точки бывают уголковыми, прямыми или сглаженными:  
+  * В уголковой точке соединяющие сегменты могут встречаться под углом.  
+  * В сглаженной точке две управляющие ручки выровнены и находятся на одинаковом расстоянии от опорной точки.  
+  * В прямой точке две управляющие ручки выровнены, но могут находиться на разном расстоянии от опорной точки.  
+* Перемещение опорных точек или изменение их ручек меняет контур формы.
+
+Для редактирования форм PowerPoint через точки редактирования **Aspose.Slides** предоставляет класс [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+
+* Экземпляр [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) представляет геометрический путь объекта [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).  
+* Чтобы получить [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) из экземпляра [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/), можно использовать метод [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/).  
+* Чтобы установить [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) для формы, можно использовать методы: [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) для форм с одним путем и [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) для форм с несколькими путями.  
+* Чтобы добавить сегменты, можно использовать методы класса [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).  
+* С помощью свойств [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) и [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) можно задать внешний вид геометрического пути.  
+* Свойство [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) позволяет получить геометрический путь [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) в виде массива сегментов пути.
 
 ## **Простые операции редактирования**
 
-Следующие методы используются для простых операций редактирования.
+Используйте следующие методы для редактирования геометрического пути. Перегрузки, принимающие индекс, вставляют сегмент в позицию с нулевым базовым индексом в массиве сегментов пути.
 
-**Добавить линию** в конец пути:
-```py
-line_to(point)
-line_to(x, y)
-```
+| Операция | Метод |
+| --- | --- |
+| Добавить или вставить прямую линию. | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
+| Добавить или вставить кубическую кривую Безье с двумя управляющими точками и конечной точкой. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
+| Добавить или вставить квадратичную кривую Безье с одной управляющей точкой и конечной точкой. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| Добавить эллиптическую дугу с заданными размерами и углами в градусах. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
+| Замкнуть текущую фигуру, соединив её конечную точку с начальной. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
+| Установить начальную точку фигуры. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
+| Удалить сегмент по нулевому базовому индексу. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
+## **Добавить пользовательские точки к форме**
 
-**Добавить линию** в указанной позиции пути:
-```py    
-line_to(point, index)
-line_to(x, y, index)
-```
+В этом примере вставляются две точки в прямоугольную форму с помощью [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) и применяется отредактированный путь через [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). Координаты локальны для формы: обе новые точки находятся в её центре, на расстоянии 100 пунктов от левого края и 50 пунктов от верхнего. Индексы сегментов 1 и 4 размещают их на верхней и нижней гранях, притягивая эти грани внутрь.
 
-
-**Добавить кубическую кривую Безье** в конец пути:
-```py
-cubic_bezier_to(point1, point2, point3)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3)
-```
-
-
-**Добавить кубическую кривую Безье** в указанной позиции пути:
-```py
-cubic_bezier_to(point1, point2, point3, index)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
-```
-
-
-**Добавить квадратичную кривую Безье** в конец пути:
-```py
-quadratic_bezier_to(point1, point2)
-quadratic_bezier_to(x1, y1, x2, y2)
-```
-
-
-**Добавить квадратичную кривую Безье** в указанной позиции пути:
-```py
-quadratic_bezier_to(point1, point2, index)
-quadratic_bezier_to(x1, y1, x2, y2, index)
-```
-
-
-**Добавить дугу** к пути:
-```py
-arc_to(width, heigth, startAngle, sweepAngle)
-```
-
-
-**Закрыть текущую фигуру** в пути:
-```py
-close_figure()
-```
-
-
-**Установить позицию для следующей точки**:
-```py
-move_to(point)
-move_to(x, y)
-```
-
-
-**Удалить сегмент пути** по заданному индексу:
-```py
-remove_at(index)
-```
-
-
-## **Добавить пользовательские точки к фигурам**
-
-Здесь вы узнаете, как определить произвольную форму, добавляя собственную последовательность точек. Указывая упорядоченные точки и типы отрезков (прямые или изогнутые) и, при необходимости, закрывая путь, вы можете рисовать точные пользовательские графические элементы — многоугольники, значки, выноски или логотипы — непосредственно на слайдах.
-
-1. Создайте экземпляр класса [GeometryShape] и задайте ему [ShapeType.RECTANGLE].
-2. Получите экземпляр [GeometryPath] из фигуры.
-3. Вставьте новую точку между двумя верхними точками пути.
-4. Вставьте новую точку между двумя нижними точками пути.
-5. Примените обновлённый путь к фигуре.
-
-Следующий код на Python показывает, как добавить пользовательские точки к фигуре:
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -156,24 +94,15 @@ with slides.Presentation() as presentation:
     geometry_path.line_to(100, 50, 4)
 
     shape.set_geometry_path(geometry_path)
-
-    presentation.save("custom_points.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+![example1_image](custom_shape_1.png)
 
-![Пользовательские точки](custom_shape_1.png)
+## **Удалить точки из формы**
 
-##  **Удалить точки из фигур**
+В этом примере изменяется контур формы в виде сердца, удаляя сегмент с нулевым базовым индексом 2 с помощью [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). Применение изменённого пути через [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) обновляет контур формы.
 
-Иногда пользовательская фигура содержит лишние точки, усложняющие её геометрию или влияющие на отображение. В этом разделе показано, как удалить конкретные точки из пути фигуры, чтобы упростить контур и достичь более чистых, точных результатов.
-
-1. Создайте экземпляр класса [GeometryShape] и задайте ему тип [ShapeType.HEART].
-2. Получите экземпляр [GeometryPath] из фигуры.
-3. Удалите сегмент из пути.
-4. Примените обновлённый путь к фигуре.
-
-Следующий код на Python показывает, как удалить точки из фигуры:
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -185,50 +114,39 @@ with slides.Presentation() as presentation:
     path.remove_at(2)
 
     shape.set_geometry_path(path)
-
-    presentation.save("removed_points.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example2_image](custom_shape_2.png)
 
+## **Создать пользовательскую форму**
 
-![Удалённые точки](custom_shape_2.png)
+В этом примере создаётся пятиконечная звезда с помощью [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Чередующиеся наружные и внутренние радиусы 100 и 50 пунктов определяют вершины и впадины; шаг 72 градуса равномерно размещает пять вершин. Путь замыкается методом [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) и применяется к прямоугольной форме через [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), заменяя её контур.
 
-##  **Создать пользовательские фигуры**
-
-Создавайте индивидуальные векторные фигуры, определяя [GeometryPath] и составляя её из линий, дуг и кривых Безье. В этом разделе показано, как построить пользовательскую геометрию с нуля и добавить получившуюся фигуру на слайд.
-
-1. Вычислите точки для фигуры.
-2. Создайте экземпляр класса [GeometryPath].
-3. Заполните путь точками.
-4. Создайте экземпляр класса [GeometryShape].
-5. Примените путь к фигуре.
-
-Следующий код на Python показывает, как создать пользовательскую фигуру:
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import math
 
 points = []
 
-R = 100
-r = 50
-step = 72
+outer_radius = 100
+inner_radius = 50
+angle_step = 72
 
-for angle in range(-90, 270, step):
+for angle in range(-90, 270, angle_step):
     radians = angle * (math.pi / 180)
-    x = R * math.cos(radians)
-    y = R * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    x = outer_radius * math.cos(radians)
+    y = outer_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
-    radians = math.pi * (angle + step / 2) / 180.0
-    x = r * math.cos(radians)
-    y = r * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    radians = math.pi * (angle + angle_step / 2) / 180.0
+    x = inner_radius * math.cos(radians)
+    y = inner_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
 star_path = slides.GeometryPath()
 star_path.move_to(points[0])
 
-for i in range(len(points)):
+for i in range(1, len(points)):
     star_path.line_to(points[i])
 
 star_path.close_figure()
@@ -236,26 +154,16 @@ star_path.close_figure()
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.set_geometry_path(star_path)
-
-    presentation.save("custom_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example3_image](custom_shape_3.png)
 
+## **Создать составную пользовательскую форму**
 
-![Пользовательская фигура](custom_shape_3.png)
+В этом примере определяются два закрытых объекта [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) для верхней и нижней трети формы. Применение обоих путей через [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) создаёт одну составную форму с промежутком в её средней трети.
 
-## **Создать составные пользовательские фигуры**
-
-Создание составной пользовательской фигуры позволяет объединить несколько геометрических путей в одну, переиспользуемую фигуру на слайде. Определите и объедините эти пути, чтобы построить сложные визуальные элементы, выходящие за рамки стандартного набора фигур.
-
-1. Создайте экземпляр класса [GeometryShape].
-2. Создайте первый экземпляр класса [GeometryPath].
-3. Создайте второй экземпляр класса [GeometryPath].
-4. Примените оба пути к фигуре.
-
-Следующий код на Python показывает, как создать составную пользовательскую фигуру:
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -263,34 +171,29 @@ with slides.Presentation() as presentation:
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
 
-    geometry_path_0 = slides.GeometryPath()
-    geometry_path_0.move_to(0, 0)
-    geometry_path_0.line_to(shape.width, 0)
-    geometry_path_0.line_to(shape.width, shape.height/3)
-    geometry_path_0.line_to(0, shape.height / 3)
-    geometry_path_0.close_figure()
+    top_path = slides.GeometryPath()
+    top_path.move_to(0, 0)
+    top_path.line_to(shape.width, 0)
+    top_path.line_to(shape.width, shape.height / 3)
+    top_path.line_to(0, shape.height / 3)
+    top_path.close_figure()
 
-    geometry_path_1 = slides.GeometryPath()
-    geometry_path_1.move_to(0, shape.height/3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height / 3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height)
-    geometry_path_1.line_to(0, shape.height)
-    geometry_path_1.close_figure()
+    bottom_path = slides.GeometryPath()
+    bottom_path.move_to(0, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height)
+    bottom_path.line_to(0, shape.height)
+    bottom_path.close_figure()
 
-    shape.set_geometry_paths([ geometry_path_0, geometry_path_1])
-
-    presentation.save("composite_shape.pptx", slides.export.SaveFormat.PPTX)
+    shape.set_geometry_paths([top_path, bottom_path])
 ```
+![example4_image](custom_shape_4.png)
 
+## **Создать пользовательскую форму со скруглёнными углами**
 
-![Составная фигура](custom_shape_4.png)
+В этом примере комбинируются прямые сегменты с [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) для создания формы со внутрь‑изогнутыми углами. Каждый размер угла задаёт ширину и высоту дуги в пунктах, а sweep‑угол -90° рисует против часовой стрелки четверть эллипса. Завершённый путь применяется через [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), и презентация сохраняется в формате PPTX.
 
-## **Создать пользовательские фигуры со скруглёнными углами**
-
-В этом разделе показано, как нарисовать пользовательскую фигуру со сглаженными скруглёнными углами, используя геометрический путь. Вы комбинируете прямые отрезки и круговые дуги, чтобы сформировать контур, и добавите готовую фигуру на слайд.
-
-Следующий код на Python показывает, как создать пользовательскую фигуру со скруглёнными углами:
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
@@ -307,67 +210,118 @@ left_bottom_size = 10
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(
-        slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
 
-    point1 = draw.PointF(left_top_size, 0)
-    point2 = draw.PointF(shape_width - right_top_size, 0)
-    point3 = draw.PointF(shape_width, shape_height - right_bottom_size)
-    point4 = draw.PointF(left_bottom_size, shape_height)
-    point5 = draw.PointF(0, left_top_size)
+    top_left = slides.PointF(left_top_size, 0)
+    top_right = slides.PointF(shape_width - right_top_size, 0)
+    right_bottom = slides.PointF(shape_width, shape_height - right_bottom_size)
+    bottom_left = slides.PointF(left_bottom_size, shape_height)
+    left_top = slides.PointF(0, left_top_size)
 
     geometry_path = slides.GeometryPath()
-    geometry_path.move_to(point1)
-    geometry_path.line_to(point2)
+    geometry_path.move_to(top_left)
+    geometry_path.line_to(top_right)
     geometry_path.arc_to(right_top_size, right_top_size, 180, -90)
-    geometry_path.line_to(point3)
+    geometry_path.line_to(right_bottom)
     geometry_path.arc_to(right_bottom_size, right_bottom_size, -90, -90)
-    geometry_path.line_to(point4)
+    geometry_path.line_to(bottom_left)
     geometry_path.arc_to(left_bottom_size, left_bottom_size, 0, -90)
-    geometry_path.line_to(point5)
+    geometry_path.line_to(left_top)
     geometry_path.arc_to(left_top_size, left_top_size, 90, -90)
     geometry_path.close_figure()
 
     shape.set_geometry_path(geometry_path)
 
-    presentation.save("curved_corners.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Определить, закрыта ли геометрия формы**
 
-![Скруглённые углы](custom_shape_6.png)
+Следующий вспомогательный метод проверяет, заканчивается ли каждый непустой геометрический путь закрывающим сегментом. Он читает [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) и сравнивает команду последнего сегмента [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) с [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Возвращает false, если нет непустых путей. Метод проверяет только последнюю команду каждого пути; он не исследует каждый субфигуру внутри пути. Пример выводит `True` для прямоугольника.
 
-## **Определить, является ли геометрия фигуры замкнутой**
+```python
+import aspose.slides as slides
 
-Замкнутая фигура определяется как такая, где все её стороны соединены, образуя единую границу без пробелов. Такая фигура может быть простой геометрической формой или сложным пользовательским контуром. Следующий пример кода показывает, как проверить, является ли геометрия фигуры замкнутой:
-```py
+
 def is_geometry_closed(geometry_shape):
-    is_closed = None
+    has_nonempty_path = False
 
     for geometry_path in geometry_shape.get_geometry_paths():
-        data_length = len(geometry_path.path_data)
-        if data_length == 0:
+        segments = geometry_path.path_data
+        if len(segments) == 0:
             continue
 
-        last_segment = geometry_path.path_data[data_length - 1]
-        is_closed = last_segment.path_command == PathCommandType.CLOSE
-
-        if not is_closed:
+        has_nonempty_path = True
+        last_segment = segments[len(segments) - 1]
+        if last_segment.path_command != slides.PathCommandType.CLOSE:
             return False
 
-    return is_closed
+    return has_nonempty_path
+
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+    print(is_geometry_closed(shape))
 ```
 
+## **Извлечь и проанализировать элементы формы**
+
+Используйте [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) для анализа существующей формы как элементов, содержащих точки пути и типы точек. Каждый возвращённый [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) раскрывает массивы [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) и [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/). Такое представление полезно для анализа контура или передачи геометрии в пользовательские инструменты рисования.
+
+Пример открывает презентацию, находит первую геометрическую форму непосредственно на первом слайде и выводит её сегменты пути. Используйте презентацию, содержащую форму с прямыми и кривыми сегментами, чтобы увидеть оба типа вывода. Поиск внутри групп не производится.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = next((item for item in slide.shapes if isinstance(item, slides.GeometryShape)), None)
+
+    if shape is None:
+        print("No geometry shape found on the first slide.")
+    else:
+        for element in shape.create_shape_elements():
+            points = element.path_points
+            types = element.path_types
+            print("Shape element:")
+
+            i = 0
+            while i < len(points):
+                point_type = types[i] & 0x07  # Сохраняет тип сегмента, исключая флаги.
+                if point_type == 0:
+                    print(f"Start figure at {points[i]}")
+                elif point_type == 1:
+                    print(f"Line to {points[i]}")
+                elif point_type == 3:
+                    print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
+                    i += 2  # Consume both control points and the endpoint.
+
+                if (types[i] & 0x80) != 0:
+                    print("Close subpath back to its starting point.")
+                i += 1
+```
+
+Массивы сопоставляются по индексу: `points[i]` — точка, `types[i]` — её роль. Тип 0 начинается фигуру, тип 1 рисует линию от предыдущей точки к текущей. Кубический сегмент Безье начинается в предыдущей конечной точке и использует три последовательных элемента типа 3: два управляющих пункта и новую конечную точку. Цикл потребляет эти три элемента вместе и проверяет конечную точку на замыкание.
+
+Типы точек также содержат флаги. Маска `0x07` определяет тип сегмента, а `0x80` проверяется отдельно для обнаружения закрытого подпути. Например, `129` (`0x81`) — конец линии, закрывающий подпуть, а `131` (`0x83`) — конец Безье, закрывающий его. Сравнение чистого значения только с `1` или `3` пропустило бы такие случаи. Другие флаги, такие как тире (`0x10`) и маркер (`0x20`), не меняют базовый тип сегмента.
+
+**Координаты и преобразования.** Точки измеряются в пунктах (1/72 дюйма), X растёт вправо, Y — вниз. Для разобщённой формы извлечённые координаты уже включают её [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) и [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) и отражают её текущую ширину и высоту. Например, неповёрнутый прямоугольник в точке `(100, 200)` размером `120 × 80` имеет границы контура `(100, 200)`–`(220, 280)`. Не добавляйте позицию формы повторно. Вычтите её X и Y, чтобы получить координаты относительно её необработанной рамки.
+
+Извлечённые точки не учитывают [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) формы и горизонтальные/вертикальные отражения. Чтобы воспроизвести отображаемый контур, примените эти трансформации вокруг центра формы. Для группированных форм также учитывайте преобразования координат группы; не предполагая, что извлечённые точки уже являются окончательными координатами слайда или не применяя трансляцию и масштабирование дважды, если они уже учтены в кадре дочернего элемента.
+
+**Анализ против редактирования.** Извлечённые массивы описывают контур; их изменение не обновляет исходную форму. Выбирайте такой подход, когда вашему коду анализа или рисования нужны массивы точек/типов. Используйте [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) когда нужны геометрические команды в локальной системе координат формы или вы хотите редактировать её геометрию. Применяйте отредактированные пути через [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) или [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
 
 ## **FAQ**
 
-**Что произойдёт с заливкой и контуром после замены геометрии?**
+**Что произойдёт со заливкой и контуром после замены геометрии?**
 
-Стиль остаётся привязанным к фигуре; меняется только контур. Заливка и контур автоматически применяются к новой геометрии.
+Стиль остаётся привязан к форме; меняется только контур. Заливка и контур автоматически применяются к новой геометрии.
 
-**Как правильно повернуть пользовательскую фигуру вместе с её геометрией?**
+**Как правильно вращать пользовательскую форму вместе с её геометрией?**
 
-Используйте свойство [rotation] фигуры; геометрия вращается вместе с фигурой, поскольку привязана к собственной системе координат фигуры.
+Используйте свойство [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) формы; геометрия вращается вместе с формой, поскольку привязана к её собственной системе координат.
 
-**Можно ли преобразовать пользовательскую фигуру в изображение, чтобы “зафиксировать” результат?**
+**Можно ли преобразовать пользовательскую форму в изображение, чтобы «зафиксировать» результат?**
 
-Да. Экспортируйте необходимую область [slide](/slides/ru/python-net/convert-powerpoint-to-png/) или саму [shape](/slides/ru/python-net/create-shape-thumbnails/) в растровый формат; это упрощает дальнейшую работу с тяжёлыми геометриями.
+Да. Экспортируйте нужную [slide](/slides/ru/python-net/convert-powerpoint-to-png/) область или саму [shape](/slides/ru/python-net/create-shape-thumbnails/) в растровый формат; это упростит дальнейшую работу со сложными геометриями.

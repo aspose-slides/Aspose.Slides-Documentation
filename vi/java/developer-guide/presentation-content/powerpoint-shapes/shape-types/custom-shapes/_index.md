@@ -1,5 +1,5 @@
 ---
-title: Tùy chỉnh hình dạng trình chiếu trong Java
+title: Tùy chỉnh các hình dạng trong bản trình chiếu bằng Java
 linktitle: Hình dạng tùy chỉnh
 type: docs
 weight: 20
@@ -18,193 +18,143 @@ keywords:
 - hoạt động chỉnh sửa
 - góc cong
 - PowerPoint
-- bài thuyết trình
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Tạo và tùy chỉnh các hình dạng trong bài thuyết trình PowerPoint với Aspose.Slides cho Java: đường hình học, góc cong, hình dạng ghép."
+description: "Tạo và tùy chỉnh các hình dạng trong bản trình chiếu PowerPoint với Aspose.Slides cho Java: đường hình học, góc cong, hình ghép nối."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách tùy chỉnh các hình dạng trong bản trình chiếu bằng Aspose.Slides bằng cách chỉnh sửa geometry của hình dạng thông qua các điểm chỉnh sửa và đường geometry. Nó cho thấy cách làm việc với `GeometryPath` và `IGeometryPath` để sửa đổi các hình dạng hiện có, thực hiện các thao tác chỉnh sửa đường cơ bản, thêm hoặc xóa các điểm, và áp dụng geometry đã cập nhật trở lại cho một hình dạng.
+Bài viết này giải thích cách tùy chỉnh các hình dạng trong bản trình chiếu của Aspose.Slides bằng cách chỉnh sửa hình học của hình thông qua các điểm chỉnh sửa và đường hình học. Nó cho thấy cách làm việc với [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) và [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) để sửa đổi các hình hiện có, thực hiện các thao tác chỉnh sửa đường cơ bản, thêm hoặc xóa các điểm, và áp dụng hình học đã cập nhật trở lại cho một hình dạng.
 
-Nó cũng minh họa cách tạo các hình dạng tùy chỉnh và phức hợp, xây dựng các hình dạng với góc cong, xác định liệu geometry của một hình dạng có đóng hay không, và chuyển đổi giữa `GeometryPath` và `java.awt.Shape` cho các kịch bản tùy chỉnh geometry bổ sung.
+Nó cũng trình diễn cách tạo các hình dạng tùy chỉnh và ghép nối, xây dựng các hình dạng có góc cong, xác định xem hình học của một hình dạng có đóng không, kiểm tra các phần tử hình dạng, và chuyển đổi các đường viền văn bản Java AWT thành các đường hình học.
 
-## **Thay đổi một hình dạng bằng các điểm chỉnh sửa**
+## **Thay đổi một Hình Dạng Bằng Điểm Chỉnh Sửa**
 
-Xem xét một hình vuông. Trong PowerPoint, bằng cách sử dụng **edit points**, bạn có thể 
+Trong PowerPoint, bạn có thể sử dụng **Edit Points** để sửa đổi một hình vuông:
 
-* di chuyển góc của hình vuông ra vào
-* chỉ định độ cong cho một góc hoặc điểm
-* thêm các điểm mới vào hình vuông
-* thao tác các điểm trên hình vuông, v.v. 
+* Di chuyển một góc vào trong hoặc ra ngoài.
+* Điều chỉnh độ cong tại một điểm.
+* Thêm các điểm mới.
 
-Về cơ bản, bạn có thể thực hiện các nhiệm vụ đã mô tả trên bất kỳ hình dạng nào. Bằng cách sử dụng các điểm chỉnh sửa, bạn có thể thay đổi một hình dạng hoặc tạo một hình dạng mới từ một hình dạng hiện có. 
+Việc chỉnh sửa các điểm cho phép bạn thay đổi đường viền của một hình dạng hoặc sử dụng một hình dạng hiện có làm cơ sở cho một hình mới.
 
-## **Mẹo chỉnh sửa hình dạng**
+## **Mẹo Chỉnh Sửa Hình Dạng**
 
 ![overview_image](custom_shape_0.png)
 
-Trước khi bắt đầu chỉnh sửa các hình dạng PowerPoint bằng các điểm chỉnh sửa, bạn có thể muốn xem xét các điểm sau về hình dạng:
+Khi chỉnh sửa các hình dạng PowerPoint, hãy ghi nhớ các khái niệm sau:
 
 * Một hình dạng (hoặc đường của nó) có thể là đóng hoặc mở.
-* Khi một hình dạng đóng, nó không có điểm bắt đầu hoặc kết thúc. Khi một hình dạng mở, nó có điểm đầu và điểm cuối. 
-* Tất cả các hình dạng bao gồm ít nhất 2 điểm neo được liên kết với nhau bằng các đường thẳng.
-* Một đường có thể là thẳng hoặc cong. Các điểm neo xác định tính chất của đường. 
-* Các điểm neo tồn tại dưới dạng điểm góc, điểm thẳng hoặc điểm mịn:
-  * Điểm góc là điểm mà 2 đường thẳng gặp nhau tạo thành một góc. 
-  * Điểm mịn là điểm mà 2 tay cầm nằm trên một đường thẳng và các đoạn đường nối nhau thành một đường cong mịn. Trong trường hợp này, tất cả các tay cầm đều cách điểm neo một khoảng cách bằng nhau. 
-  * Điểm thẳng là điểm mà 2 tay cầm nằm trên một đường thẳng và các đoạn đường nối nhau thành một đường cong mịn. Trong trường hợp này, các tay cầm không nhất thiết phải cách điểm neo một khoảng cách bằng nhau. 
-* Bằng cách di chuyển hoặc chỉnh sửa các điểm neo (điều này thay đổi góc của các đường), bạn có thể thay đổi cách hình dạng hiển thị. 
+* Đường của một hình dạng bao gồm các điểm neo được kết nối bằng các đoạn.
+* Một đoạn có thể thẳng hoặc cong. Các điểm neo và tay điều khiển xác định hình dạng của nó.
+* Các điểm neo tồn tại dưới dạng điểm góc, điểm thẳng, hoặc điểm trơn:
+  * Tại một điểm góc, các đoạn liền kề có thể gặp nhau ở một góc.
+  * Tại một điểm trơn, hai tay điều khiển được căn chỉnh và cách điểm neo cùng một khoảng cách.
+  * Tại một điểm thẳng, hai tay điều khiển được căn chỉnh nhưng có thể có khoảng cách khác nhau từ điểm neo.
+* Di chuyển các điểm neo hoặc điều chỉnh các tay của chúng sẽ thay đổi đường viền của hình dạng.
 
-Để chỉnh sửa các hình dạng PowerPoint bằng các điểm chỉnh sửa, **Aspose.Slides** cung cấp lớp [**GeometryPath**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath) và giao diện [**IGeometryPath**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryPath). 
+Để chỉnh sửa các hình dạng PowerPoint thông qua các điểm chỉnh sửa, **Aspose.Slides** cung cấp lớp [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) và giao diện [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/).
 
-* Một đối tượng [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath) đại diện cho đường geometry của đối tượng [IGeometryShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryShape). 
-* Để lấy `GeometryPath` từ đối tượng `IGeometryShape`, bạn có thể sử dụng phương thức [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) . 
-* Để đặt `GeometryPath` cho một hình dạng, bạn có thể sử dụng các phương thức: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) cho *hình dạng rắn* và [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) cho *hình dạng phức hợp*.
-* Để thêm các đoạn, bạn có thể sử dụng các phương thức dưới [IGeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryPath). 
-* Sử dụng các phương thức [IGeometryPath.setStroke](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) và [IGeometryPath.setFillMode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryPath#setFillMode-byte-), bạn có thể đặt diện mạo cho một đường geometry.
-* Sử dụng phương thức [IGeometryPath.getPathData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryPath#getPathData--) , bạn có thể lấy đường geometry của một `GeometryShape` dưới dạng mảng các đoạn đường. 
-* Để truy cập các tùy chọn tùy chỉnh geometry bổ sung, bạn có thể chuyển đổi [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath) sang [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* Sử dụng các phương thức [geometryPathToGraphicsPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) và [graphicsPathToGeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (từ lớp [ShapeUtil](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ShapeUtil)) để chuyển đổi [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath) sang [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) và ngược lại. 
+* Một đối tượng [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) đại diện cho đường hình học của đối tượng [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/).
+* Để lấy [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) từ thể hiện [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/), bạn có thể sử dụng phương thức [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) .
+* Để đặt [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) cho một hình dạng, bạn có thể sử dụng các phương thức: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) cho các hình dạng có một đường duy nhất và [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) cho các hình dạng có nhiều đường.
+* Để thêm các đoạn, bạn có thể sử dụng các phương thức trong [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) .
+* Bằng cách sử dụng các phương thức [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setStroke-boolean-) và [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-), bạn có thể đặt giao diện cho một đường hình học.
+* Bằng cách sử dụng phương thức [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) , bạn có thể lấy đường hình học của một [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/geometryshape/) dưới dạng mảng các đoạn đường.
+* Để truy cập các tùy chọn tùy chỉnh hình học bổ sung, bạn có thể đọc một [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) thông qua [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) và phát lại các đoạn trên một [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) .
 
-## **Các thao tác chỉnh sửa đơn giản**
+## **Các Thao Tác Chỉnh Sửa Cơ Bản**
 
-Đoạn mã Java này cho bạn biết cách
+Sử dụng các phương thức sau để chỉnh sửa một đường hình học. Các phiên bản nhận chỉ số sẽ chèn một đoạn ở vị trí dựa trên chỉ số không-đếm trong mảng các đoạn của đường.
 
-**Add a line** to the end of a path
+| Thao tác | Phương thức |
+| --- | --- |
+| Thêm hoặc chèn một đường thẳng. | [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| Thêm hoặc chèn một đường cong Bézier bậc ba với hai điểm điều khiển và một điểm cuối. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Thêm hoặc chèn một đường cong Bézier bậc hai với một điểm điều khiển và một điểm cuối. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Thêm một cung elip với kích thước và góc được chỉ định theo độ. | [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Đóng hình hiện tại bằng cách kết nối điểm cuối của nó với điểm bắt đầu. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) |
+| Đặt điểm bắt đầu của một hình. | [GeometryPath.moveTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Xóa một đoạn ở chỉ số không-đếm. | [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**Add a line** to a specified position on a path:
+## **Thêm Các Điểm Tùy Chỉnh Vào Một Hình Dạng**
 
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**Add a cubic Bezier curve** at the end of a path:
+Ví dụ này chèn hai điểm vào một hình chữ nhật bằng cách sử dụng [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) và áp dụng đường đã chỉnh sửa với [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Các tọa độ là cục bộ đối với hình dạng: cả hai điểm mới đều nằm ở trung tâm của nó, cách mép trái 100 điểm và cách mép trên 50 điểm. Các chỉ số đoạn 1 và 4 đặt chúng trên các cạnh trên và dưới, kéo các cạnh này vào trong.
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Add a cubic Bezier curve** to the specified position on a path:
+```java
+import com.aspose.slides.*;
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**Add a quadratic Bezier curve** at the end of a path:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Add quadratic Bezier curve** to a specified position on a path:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**Append a given arc** to a path:
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Close the current figure** of a path:
-
-``` java
-public void closeFigure();
-```
-**Set the position for the next point**:
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**Remove the path segment** at a given index:
-
-``` java
-public void removeAt(int index);
-```
-
-## **Thêm các điểm tùy chỉnh vào một hình dạng**
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryShape) và đặt loại [ShapeType.Rectangle](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ShapeType). 
-2. Lấy một thể hiện của lớp [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath) từ hình dạng. 
-3. Thêm một điểm mới giữa hai điểm trên cùng của đường. 
-4. Thêm một điểm mới giữa hai điểm dưới cùng của đường. 
-5. Áp dụng đường cho hình dạng. 
-
-Đoạn mã Java này cho bạn biết cách thêm các điểm tùy chỉnh vào một hình dạng:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## **Xóa các điểm khỏi một hình dạng**
+## **Xóa Các Điểm Khỏi Một Hình Dạng**
 
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryShape) và đặt loại [ShapeType.Heart](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ShapeType). 
-2. Lấy một thể hiện của lớp [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath) từ hình dạng. 
-3. Xóa đoạn cho đường. 
-4. Áp dụng đường cho hình dạng. 
+Ví dụ này thay đổi đường viền dạng trái tim bằng cách xóa đoạn ở chỉ số không-đếm 2 với [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-). Áp dụng đường đã sửa đổi bằng [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) sẽ cập nhật đường viền của hình dạng.
 
-Đoạn mã Java này cho bạn biết cách xóa các điểm khỏi một hình dạng:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example2_image](custom_shape_2.png)
 
-## **Tạo một hình dạng tùy chỉnh**
+## **Tạo Một Hình Dạng Tùy Chỉnh**
 
-1. Tính toán các điểm cho hình dạng. 
-2. Tạo một thể hiện của lớp [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath). 
-3. Điền các điểm vào đường. 
-4. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryShape). 
-5. Áp dụng đường cho hình dạng. 
+Ví dụ này xây dựng một ngôi sao năm cánh bằng [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/). Các bán kính ngoài và trong xen kẽ 100 và 50 điểm xác định các ngọn và các rãnh; bước 72 độ tạo khoảng cách đều cho năm ngọn. Đường được đóng bằng [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) và áp dụng cho một hình chữ nhật bằng [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), thay thế đường viền của nó.
 
-Đoạn mã Java này cho bạn biết cách tạo một hình dạng tùy chỉnh:
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<Point2D.Float> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    Point2D.Float point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -217,61 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
-
 ```
 ![example3_image](custom_shape_3.png)
 
+## **Tạo Một Hình Dạng Ghép Nối Tùy Chỉnh**
 
-## **Tạo một hình dạng tùy chỉnh ghép**
+Ví dụ này định nghĩa hai đối tượng [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) đóng cho phần trên và phần dưới của một hình dạng. Áp dụng cả hai đường bằng [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) tạo ra một hình dạng ghép nối duy nhất với một khoảng trống ở phần ba giữa.
 
-  1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryShape). 
-  2. Tạo một thể hiện đầu tiên của lớp [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath). 
-  3. Tạo một thể hiện thứ hai của lớp [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath). 
-  4. Áp dụng các đường cho hình dạng. 
+```java
+import com.aspose.slides.*;
 
-Đoạn mã Java này cho bạn biết cách tạo một hình dạng tùy chỉnh ghép:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Tạo một hình dạng tùy chỉnh với góc cong**
+## **Tạo Một Hình Dạng Tùy Chỉnh Với Các Góc Cong**
 
-Đoạn mã Java này cho bạn biết cách tạo một hình dạng tùy chỉnh với góc cong (ngầm vào trong);
+Ví dụ này kết hợp các đoạn thẳng với [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) để tạo một hình dạng có các góc cong vào trong. Mỗi kích thước góc đặt chiều rộng và chiều cao của cung bằng điểm, và vòng quét -90 độ vẽ một phần tư elip ngược chiều kim đồng hồ. Đường hoàn chỉnh được áp dụng bằng [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), và bản trình chiếu được lưu dưới định dạng PPTX.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -282,119 +231,243 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    Point2D.Float topLeft = new Point2D.Float(leftTopSize, 0);
+    Point2D.Float topRight = new Point2D.Float(shapeWidth - rightTopSize, 0);
+    Point2D.Float rightBottom = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
+    Point2D.Float bottomLeft = new Point2D.Float(leftBottomSize, shapeHeight);
+    Point2D.Float leftTop = new Point2D.Float(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Xác định xem geometry của một hình dạng có đóng hay không**
+## **Kiểm Tra Hình Học Của Một Hình Dạng Có Đóng Không**
 
-Một hình dạng đóng được định nghĩa là hình dạng mà tất cả các mặt của nó kết nối, tạo thành một biên duy nhất không có khoảng trống. Hình dạng này có thể là một hình học đơn giản hoặc một đường viền tùy chỉnh phức tạp. Đoạn mã mẫu dưới đây cho thấy cách kiểm tra xem geometry của một hình dạng có đóng hay không:
+Trợ giúp sau đây kiểm tra xem mỗi đường hình học không rỗng có kết thúc bằng một đoạn đóng hay không. Nó đọc [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) và so sánh lệnh cuối cùng của đoạn với [IPathSegment.getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) so với [PathCommandType.Close](https://reference.aspose.com/slides/java/com.aspose.slides/pathcommandtype/). Nó trả về false khi không có đường nào không rỗng. Kiểm tra này chỉ xem xét lệnh cuối cùng của mỗi đường; nó không kiểm tra mọi hình con bên trong một đường. Ví dụ in ra `true` cho một hình chữ nhật.
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
+}
 
-    return isClosed == true;
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Chuyển GeometryPath sang java.awt.Shape** 
+## **Trích Xuất và Kiểm Tra Các Phần Tử Hình Dạng**
 
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryShape). 
-2. Tạo một thể hiện của lớp [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html). 
-3. Chuyển đổi thể hiện [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) sang thể hiện [GeometryPath](https://reference.aspose.com/slides/vi/java/com.aspose.slides/GeometryPath) bằng cách sử dụng [ShapeUtil](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ShapeUtil). 
-4. Áp dụng các đường cho hình dạng. 
+Sử dụng [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#createShapeElements--) để kiểm tra một hình dạng hiện có dưới dạng các phần tử chứa các điểm đường và kiểu điểm. Ép mỗi [IShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/ishapeelement/) trả về sang [ShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/) để lấy các mảng điểm và kiểu thông qua các phương thức [getPathPoints](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathPoints--) và [getPathTypes](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathTypes--) . Định dạng này hữu ích cho việc phân tích đường viền hoặc chuyển geometry sang các công cụ vẽ tùy chỉnh.
 
-Đoạn mã Java—một triển khai của các bước trên—trình bày quá trình chuyển đổi **GeometryPath** sang **GraphicsPath**:
+Ví dụ mở file input.pptx, tìm hình geometry đầu tiên trên slide đầu tiên, và in ra các đoạn đường của nó. Sử dụng một bản trình chiếu chứa hình dạng có các đoạn thẳng và cong để xem cả hai loại đầu ra. Nó không tìm kiếm bên trong các nhóm.
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Tạo hình mới
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lấy đường geometry của hình
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            Point2D.Float[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // Giữ lại loại đoạn, loại trừ các cờ.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Các mảng tương ứng theo chỉ số: `points[i]` là một điểm và `types[i]` mô tả vai trò của nó. Kiểu `0` bắt đầu một hình, và kiểu `1` vẽ một đường từ điểm trước đó tới điểm hiện tại. Một đoạn Bézier bậc ba bắt đầu tại điểm cuối trước và sử dụng ba mục kiểu `3` liên tiếp: hai điểm điều khiển rồi điểm cuối mới. Vòng lặp tiêu thụ ba mục này cùng nhau và kiểm tra điểm cuối để xác định đóng.
+
+Các kiểu điểm cũng chứa các cờ. Áp dụng mask `0x07` để xác định loại đoạn, và kiểm tra `0x80` riêng để phát hiện một subpath đóng. Ví dụ, `129` (`0x81`) có nghĩa là một điểm cuối đường thẳng đóng một subpath, và `131` (`0x83`) là một điểm cuối Bézier đóng một subpath. Java lưu các cờ này trong byte có dấu; việc mask giữ nguyên các giá trị bit mong muốn. So sánh giá trị thô chỉ với `1` hoặc `3` sẽ bỏ lỡ các trường hợp này. Các cờ khác, như dấu gạch (`0x10`) và marker (`0x20`), không thay đổi loại đoạn cơ bản.
+
+**Tọa độ và biến đổi.** Các điểm được đo bằng điểm (1/72 inch), với X tăng về phía bên phải và Y tăng xuống phía dưới. Đối với một hình không nhóm, các tọa độ đã được trích xuất đã bao gồm vị trí trả về bởi [getX](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getX--) và [getY](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getY--) và phản ánh chiều rộng‑chiều cao hiện tại của nó. Ví dụ, một hình chữ nhật không quay ở vị trí `(100, 200)` với kích thước `120 × 80` có giới hạn viền `(100, 200)`–`(220, 280)`. Không cần cộng lại vị trí của hình nữa. Trừ X và Y của nó để có tọa độ tương đối so với khung không quay.
+
+Các điểm đã trích xuất không áp dụng phép quay của hình, trả về bởi [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getRotation--), cũng như các phép lật ngang và dọc. Để tái tạo đường viền hiển thị, hãy áp dụng các biến đổi này quanh trung tâm của hình. Đối với các hình được nhóm, cũng cần tính đến ánh xạ tọa độ và biến đổi của nhóm; không giả định rằng các điểm đã trích xuất là tọa độ cuối cùng trên slide hoặc thực hiện một phép dịch/thu phóng hai lần nếu nó đã được phản ánh trong khung của đối tượng con.
+
+**Kiểm tra so với chỉnh sửa.** Các mảng đã trích xuất mô tả đường viền; việc thay đổi chúng sẽ không cập nhật hình dạng gốc. Chọn cách tiếp cận này khi phân tích hoặc mã vẽ của bạn cần các mảng điểm/kiểu. Sử dụng [getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) khi bạn cần các lệnh geometry trong hệ tọa độ cục bộ của hình hoặc muốn chỉnh sửa geometry của nó. Áp dụng các đường đã chỉnh sửa qua [setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) hoặc [setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) .
+
+## **Chuyển Đổi Một Java AWT Shape Thành GeometryPath**
+
+Ví dụ này kết hợp một đường viền hình chữ nhật với văn bản đã chuyển đổi thành geometry. Phương thức [setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) của đường viền vô hiệu hoá việc tô màu. Một [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) tạo đường viền văn bản trong một [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) của nó cung cấp các đoạn di chuyển, đường thẳng, quadratic, cubic và đóng, mà ví dụ này phát lại trên một [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) .
+
+Văn bản sử dụng phông Arial 40 điểm. Đường viền được dịch 20 điểm theo chiều ngang và đặt vị trí sao cho đỉnh thị giác cách mép trên của hình dạng 10 điểm. Đường văn bản được tô đầy, trong khi hình chữ nhật gốc vẫn là đường viền. Áp dụng cả hai đường bằng [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) tạo ra một hình duy nhất chứa hình chữ nhật và văn bản.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.GlyphVector;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.PathIterator;
+import java.awt.image.BufferedImage;
+
+Presentation presentation = new Presentation();
+try {
+    // Tạo hình dạng mới
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+
+    // Lấy đường hình học của hình dạng
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
     originalPath.setFillMode(PathFillModeType.None);
 
-    // Tạo đường graphics mới với văn bản
+    // Tạo đường đồ họa mới với văn bản
     Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
+    Font font = new Font("Arial", Font.PLAIN, 40);
     String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
+    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D graphics = image.createGraphics();
 
     try
     {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
+        FontRenderContext fontContext = graphics.getFontRenderContext();
+        GlyphVector glyphVector = font.createGlyphVector(fontContext, text);
+        Rectangle2D textBounds = glyphVector.getVisualBounds();
+        float baseline = (float) -textBounds.getY() + 10;
+        graphicsPath = glyphVector.getOutline(20f, baseline);
     }
     finally {
-        g2.dispose();
+        graphics.dispose();
     }
 
-    // Chuyển đổi đường graphics thành đường geometry
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
+    // Chuyển đổi đường đồ họa sang đường hình học
+    IGeometryPath textPath = new GeometryPath();
+    PathIterator pathIterator = graphicsPath.getPathIterator(null);
+    float[] points = new float[6];
+
+    while (!pathIterator.isDone())
+    {
+        int segmentType = pathIterator.currentSegment(points);
+        switch (segmentType)
+        {
+            case PathIterator.SEG_MOVETO:
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_LINETO:
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_QUADTO:
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case PathIterator.SEG_CUBICTO:
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case PathIterator.SEG_CLOSE:
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // Đặt kết hợp của đường geometry mới và đường geometry gốc cho hình
+    // Đặt tổ hợp đường hình học mới và đường hình học gốc cho hình dạng
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example5_image](custom_shape_5.png)
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**What will happen to the fill and outline after replacing the geometry?**  
-Phong cách vẫn giữ nguyên với hình dạng; chỉ có đường viền thay đổi. Lớp nền và đường viền sẽ tự động áp dụng cho geometry mới.
+**Điều gì sẽ xảy ra với phần tô và đường viền sau khi thay thế geometry?**
 
-**How do I correctly rotate a custom shape along with its geometry?**  
-Sử dụng phương thức [setRotation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shape/#setRotation-float-) của hình dạng; geometry sẽ quay cùng với hình dạng vì nó được ràng buộc với hệ tọa độ riêng của hình dạng.
+Kiểu vẫn giữ nguyên trên hình; chỉ đường viền được thay đổi. Phần tô và đường viền sẽ tự động áp dụng cho geometry mới.
 
-**Can I convert a custom shape to an image to "lock in" the result?**  
-Có. Xuất [slide](/slides/vi/java/convert-powerpoint-to-png/) hoặc [shape](/slides/vi/java/create-shape-thumbnails/) cần thiết sang định dạng raster; cách này giúp đơn giản hóa công việc tiếp theo với các geometry phức tạp.
+**Làm sao để quay đúng một hình dạng tùy chỉnh cùng với geometry của nó?**
+
+Sử dụng phương thức [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) của hình; geometry sẽ quay cùng hình vì nó gắn liền với hệ tọa độ của hình.
+
+**Tôi có thể chuyển đổi một hình dạng tùy chỉnh thành hình ảnh để “khóa” kết quả không?**
+
+Có. Xuất khu vực [slide](/slides/vi/java/convert-powerpoint-to-png/) cần thiết hoặc trực tiếp [shape](/slides/vi/java/create-shape-thumbnails/) sang định dạng raster; việc này đơn giản hoá các thao tác tiếp theo với các geometry phức tạp.

@@ -22,339 +22,414 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 JavaScript 以及 Aspose.Slides for Node.js 在 PowerPoint 簡報中建立與自訂形狀：幾何路徑、曲線角、複合形狀。"
+description: "使用 JavaScript 與 Aspose.Slides for Node.js 在 PowerPoint 簡報中建立與自訂形狀：幾何路徑、曲線角、複合形狀。"
 ---
 ## **概述**
 
-本文說明如何透過編輯點與幾何路徑來編輯形狀幾何，進而自訂 Aspose.Slides 中的簡報形狀。示範如何使用 `GeometryPath` 修改既有形狀、執行基本的路徑編輯操作、加入或移除點，並將更新後的幾何套用回形狀。
+本文說明如何透過編輯點與幾何路徑來編輯形狀幾何，從而自訂 Aspose.Slides 中的簡報形狀。它展示了如何使用 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) 來修改現有形狀、執行基本路徑編輯操作、加入或移除點，並將更新後的幾何套用回形狀。
 
-同時也展示如何建立自訂與複合形狀、建構帶曲線角的形狀、判斷形狀幾何是否為封閉，以及在 `GeometryPath` 與 `java.awt.Shape` 之間的相互轉換，以因應其他幾何自訂情境。
+它也示範了如何建立自訂與複合形狀、建構具有曲線角的形狀、判斷形狀幾何是否閉合、檢查形狀元素，以及將 Java AWT 文字輪廓轉換為幾何路徑。
 
 ## **使用編輯點變更形狀**
 
-以正方形為例。在 PowerPoint 中，使用 **編輯點**，您可以  
+在 PowerPoint 中，您可以使用 **編輯點** 來修改方形：
 
-* 移動正方形的角向內或向外  
-* 為角或點指定曲率  
-* 為正方形新增點  
-* 操作正方形上的點，等等  
+* 向內或向外移動角落。
+* 調整某一點的曲率。
+* 新增點。
 
-實質上，您可以對任何形狀執行上述任務。透過編輯點，您可以變更形狀或從現有形狀建立新形狀。
+編輯點讓您能修改形狀的輪廓，或以現有形狀作為新形狀的基礎。
 
-## **形狀編輯提示**
+## **形狀編輯技巧**
 
 ![overview_image](custom_shape_0.png)
 
-在開始使用編輯點編輯 PowerPoint 形狀之前，您可能需要了解以下有關形狀的要點：
+編輯 PowerPoint 形狀時，請記住以下概念：
 
-* 形狀（或其路徑）可以是封閉的，也可以是開放的。  
-* 封閉的形狀沒有起點或終點；開放的形狀則有開始與結束。  
-* 所有形狀至少由 2 個錨點透過線段相連。  
-* 線段可以是直的或曲的。錨點決定線段的性質。  
-* 錨點可分為角點、直點或平滑點：  
-  * 角點是兩條直線在某個角度交會的點。  
-  * 平滑點是兩個控制柄位於同一直線上，且線段以平滑曲線相接的點，此時兩個控制柄與錨點的距離相等。  
-  * 直點是兩個控制柄位於同一直線上，線段以平滑曲線相接的點，但兩個控制柄與錨點的距離不必相等。  
-* 透過移動或編輯錨點（會改變線段的角度），即可改變形狀的外觀。
+* 形狀（或其路徑）可以是閉合或開放。
+* 形狀的路徑由錨點與段落相連組成。
+* 段落可以是直線或曲線。錨點與控制手柄決定其形狀。
+* 錨點可分為角點、直點或平滑點：
+  * 角點的相鄰段落可在角度處相交。
+  * 平滑點的兩個控制手柄對齊且與錨點的距離相等。
+  * 直點的兩個控制手柄對齊，但與錨點的距離可不同。
+* 移動錨點或調整其手柄會改變形狀的輪廓。
 
-為了透過編輯點編輯 PowerPoint 形狀，**Aspose.Slides** 提供了 [**GeometryPath**](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryPath) 類別與 [**GeometryPath**](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryPath) 類別。
+要透過編輯點編輯 PowerPoint 形狀，**Aspose.Slides** 提供 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) 類別。
 
-* 一個 [GeometryPath](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryPath) 例項表示 [GeometryShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryShape) 物件的幾何路徑。  
-* 若要從 `GeometryShape` 例項取得 `GeometryPath`，可使用 [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryShape#getGeometryPaths--) 方法。  
-* 若要為形狀設定 `GeometryPath`，可使用以下方法：針對*實心形狀*使用 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryShape#setGeometryPath-aspose.slides.IGeometryPath-)；針對*複合形狀*使用 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryShape#setGeometryPaths-aspose.slides.IGeometryPath:A-)。  
-* 若要新增線段，可使用 [GeometryPath](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryPath) 下的相關方法。  
-* 使用 [GeometryPath.setStroke](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryPath#setStroke-boolean-) 與 [GeometryPath.setFillMode](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryPath#setFillMode-byte-) 方法，可設定幾何路徑的外觀。  
-* 使用 [GeometryPath.getPathData](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryPath#getPathData--) 方法，可將 `GeometryShape` 的幾何路徑以路徑段陣列形式取得。  
-* 若要存取更多形狀幾何自訂選項，可將 [GeometryPath](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryPath) 轉換為 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)。  
-* 使用 [geometryPathToGraphicsPath](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ShapeUtil#geometryPathToGraphicsPath-aspose.slides.IGeometryPath-) 與 [graphicsPathToGeometryPath](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) 方法（來自 [ShapeUtil](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ShapeUtil) 類別），可在 [GeometryPath](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/GeometryPath) 與 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 之間進行相互轉換。
+* 一個 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) 實例代表 [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) 物件的幾何路徑。
+* 若要從 [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) 例項取得 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)，可使用 [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) 方法。
+* 若要為形狀設定 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)，可使用以下方法：單一路徑形狀使用 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath)，多路徑形狀使用 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths)。
+* 若要加入段落，可使用 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) 下的各種方法。
+* 使用 [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) 與 [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) 方法，可設定幾何路徑的外觀。
+* 使用 [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) 方法，可將 [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) 的幾何路徑取回為段落陣列。
+* 若要存取其他形狀幾何的自訂化選項，可透過 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) 的 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 讀取，並將段落重播至 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)。
 
-## **簡單編輯操作**
+## **簡易編輯操作**
 
-此 JavaScript 程式碼示範如何  
+使用下列方法編輯幾何路徑。接受索引的重載會在路徑段落陣列的零基位置插入段落。
 
-**在路徑末端加入直線**  
-```javascript
-lineTo(point);
-lineTo(x, y);
-```  
-**在路徑指定位置加入直線**  
-```javascript
-lineTo(point, index);
-lineTo(x, y, index);
-```  
-**在路徑末端加入三次貝茲曲線**  
-```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
-```  
-**在路徑指定位置加入三次貝茲曲線**  
-```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
-```  
-**在路徑末端加入二次貝茲曲線**  
-```javascript
-quadraticBezierTo(point1, point2);
-quadraticBezierTo(x1, y1, x2, y2);
-```  
-**在路徑指定位置加入二次貝茲曲線**  
-```javascript
-quadraticBezierTo(point1, point2, index);
-quadraticBezierTo(x1, y1, x2, y2, index);
-```  
-**將給定弧線附加至路徑**  
-```javascript
-arcTo(width, heigth, startAngle, sweepAngle);
-```  
-**關閉路徑目前的圖形**  
-```javascript
-closeFigure();
-```  
-**設定下一個點的位置**  
-```javascript
-moveTo(point);
-moveTo(x, y);
-```  
-**移除指定索引的路徑段**  
-```javascript
-removeAt(index);
-```
+| 操作 | 方法 |
+| --- | --- |
+| 新增或插入直線。 | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
+| 新增或插入具有兩個控制點與端點的三次貝茲曲線。 | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| 新增或插入具有一個控制點與端點的二次貝茲曲線。 | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| 依指定尺寸與以度為單位的角度新增橢圓弧。 | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
+| 透過將端點連回起始點來關閉目前圖形。 | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
+| 設定圖形的起始點。 | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
+| 移除零基索引處的段落。 | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **向形狀新增自訂點**
 
-1. 建立一個 [GeometryShape] 類別的實例，並將其類型設定為 [ShapeType.Rectangle]。  
-2. 從形狀取得 [GeometryPath] 類別的實例。  
-3. 在路徑上方的兩個點之間加入新點。  
-4. 在路徑下方的兩個點之間加入新點。  
-5. 將路徑套用至形狀。  
+此範例使用 [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) 在矩形形狀中插入兩個點，並使用 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) 套用編輯後的路徑。座標以形狀為本地座標：兩個新點位於中心，距左側 100 點、距上方 50 點。段落索引 1 與 4 分別將它們放在上邊與下邊，使這兩條邊向內收縮。
 
-以下 JavaScript 程式碼示範如何向形狀新增自訂點：  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
-    var geometryPath = shape.getGeometryPaths()[0];
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
-```  
+```
+
 ![example1_image](custom_shape_1.png)
 
 ## **從形狀移除點**
 
-1. 建立一個 [GeometryShape] 類別的實例，並將其類型設定為 [ShapeType.Heart]。  
-2. 從形狀取得 [GeometryPath] 類別的實例。  
-3. 移除該路徑的段。  
-4. 將路徑套用至形狀。  
+此範例透過 [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) 移除零基索引 2 處的段落，變更心形輪廓。使用 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) 套用修改後的路徑，即可更新形狀的輪廓。
 
-以下 JavaScript 程式碼示範如何從形狀移除點：  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Heart, 100, 100, 300, 300);
-    var path = shape.getGeometryPaths()[0];
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Heart, 100, 100, 300, 300);
+
+    const path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
-```  
+```
 ![example2_image](custom_shape_2.png)
 
 ## **建立自訂形狀**
 
-1. 計算形狀的點座標。  
-2. 建立 [GeometryPath] 類別的實例。  
-3. 使用這些點填充路徑。  
-4. 建立 [GeometryShape] 類別的實例。  
-5. 將路徑套用至形狀。  
+此範例使用 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) 建立五角星。交錯的外半徑 100 點與內半徑 50 點決定星尖與凹陷；72 度的步長讓五個星尖均勻分布。路徑最後以 [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) 關閉，並使用 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) 套用至矩形形狀，取代其輪廓。
 
-以下 JavaScript 程式碼示範如何建立自訂形狀：  
 ```javascript
-var points = java.newInstanceSync("java.util.ArrayList");
-var R = 100;
-var r = 50;
-var step = 72;
-for (var angle = -90; angle < 270; angle += step) {
-    var radians = angle * (java.getStaticFieldValue("java.lang.Math", "PI") / 180.0);
-    var x = R * java.callStaticMethodSync("java.lang.Math", "cos", radians);
-    var y = R * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-    points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
-    radians = (java.getStaticFieldValue("java.lang.Math", "PI") * (angle + (step / 2))) / 180.0;
-    x = r * java.callStaticMethodSync("java.lang.Math", "cos", radians);
-    y = r * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-    points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const points = [];
+const outerRadius = 100;
+const innerRadius = 50;
+const angleStep = 72;
+
+for (let angle = -90; angle < 270; angle += angleStep) {
+    let radians = angle * Math.PI / 180;
+    points.push({ x: outerRadius * Math.cos(radians) + outerRadius, y: outerRadius * Math.sin(radians) + outerRadius });
+    radians = (angle + angleStep / 2) * Math.PI / 180;
+    points.push({ x: innerRadius * Math.cos(radians) + outerRadius, y: innerRadius * Math.sin(radians) + outerRadius });
 }
-var starPath = new aspose.slides.GeometryPath();
-starPath.moveTo(points.get(0));
-for (var i = 1; i < points.size(); i++) {
-    starPath.lineTo(points.get(i));
+
+const starPath = new slides.GeometryPath();
+starPath.moveTo(java.newFloat(points[0].x), java.newFloat(points[0].y));
+for (let i = 1; i < points.length; i++) {
+    starPath.lineTo(java.newFloat(points[i].x), java.newFloat(points[i].y));
 }
 starPath.closeFigure();
-var pres = new aspose.slides.Presentation();
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
-```  
+```
 ![example3_image](custom_shape_3.png)
 
 ## **建立複合自訂形狀**
 
-1. 建立 [GeometryShape] 類別的實例。  
-2. 建立第一個 [GeometryPath] 類別的實例。  
-3. 建立第二個 [GeometryPath] 類別的實例。  
-4. 將這些路徑套用至形狀。  
+此範例為形狀的上、下三分之一各定義一個閉合的 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) 物件。使用 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) 同時套用兩條路徑，即可產生一個在中部三分之一有空隙的單一複合形狀。
 
-以下 JavaScript 程式碼示範如何建立複合自訂形狀：  
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
-    var geometryPath0 = new aspose.slides.GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight() / 3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
-    var geometryPath1 = new aspose.slides.GeometryPath();
-    geometryPath1.moveTo(0, (shape.getHeight() / 3) * 2);
-    geometryPath1.lineTo(shape.getWidth(), (shape.getHeight() / 3) * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
-    shape.setGeometryPaths(java.newArray("com.aspose.slides.GeometryPath",[geometryPath0, geometryPath1]));
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const topPath = new slides.GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), java.newFloat(shape.getHeight() / 3));
+    topPath.lineTo(0, java.newFloat(shape.getHeight() / 3));
+    topPath.closeFigure();
+
+    const bottomPath = new slides.GeometryPath();
+    bottomPath.moveTo(0, java.newFloat(shape.getHeight() / 3 * 2));
+    bottomPath.lineTo(shape.getWidth(), java.newFloat(shape.getHeight() / 3 * 2));
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    const paths = java.newArray("com.aspose.slides.GeometryPath", [topPath, bottomPath]);
+    shape.setGeometryPaths(paths);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
-```  
+```
 ![example4_image](custom_shape_4.png)
 
-## **建立帶曲線角的自訂形狀**
+## **建立具有曲線角的自訂形狀**
 
-以下 JavaScript 程式碼示範如何建立具有向內曲線角的自訂形狀；  
+此範例將直線段與 [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) 結合，產生內彎曲角的形狀。每個角的尺寸以點為單位設定弧形的寬高，-90 度的掃描角繪製逆時針四分之一橢圓。完成的路徑以 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) 套用，最後將簡報儲存為 PPTX 格式。
+
 ```javascript
-var shapeX = 20.0;
-var shapeY = 20.0;
-var shapeWidth = 300.0;
-var shapeHeight = 200.0;
-var leftTopSize = 50.0;
-var rightTopSize = 20.0;
-var rightBottomSize = 40.0;
-var leftBottomSize = 10.0;
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const shapeX = 20;
+const shapeY = 20;
+const shapeWidth = 300;
+const shapeHeight = 200;
+
+const leftTopSize = 50;
+const rightTopSize = 20;
+const rightBottomSize = 40;
+const leftBottomSize = 10;
+
+const presentation = new slides.Presentation();
 try {
-    var childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
-    var geometryPath = new aspose.slides.GeometryPath();
-    var point1 = java.newInstanceSync("com.aspose.slides.Point2DFloat", leftTopSize, 0);
-    var point2 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth - rightTopSize, 0);
-    var point3 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = java.newInstanceSync("com.aspose.slides.Point2DFloat", leftBottomSize, shapeHeight);
-    var point5 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 0, leftTopSize);
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    const geometryPath = new slides.GeometryPath();
+    geometryPath.moveTo(leftTopSize, 0);
+    geometryPath.lineTo(shapeWidth - rightTopSize, 0);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(shapeWidth, shapeHeight - rightBottomSize);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(leftBottomSize, shapeHeight);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(0, leftTopSize);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
     geometryPath.closeFigure();
-    childShape.setGeometryPath(geometryPath);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    shape.setGeometryPath(geometryPath);
+
+    presentation.save("output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **判斷形狀幾何是否為封閉**
+## **判斷形狀幾何是否閉合**
 
-封閉形狀指的是其所有邊皆相連，形成單一沒有間隙的邊界。此類形狀可以是簡單的幾何圖形，也可以是複雜的自訂輪廓。以下程式碼範例示範如何檢查形狀幾何是否為封閉：  
-```java
-function isGeometryClosed(geometryShape) 
-{
-    let isClosed = null;
+以下輔助程式會檢查每個非空的幾何路徑是否以閉合段落結尾。它會讀取 [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) 並將最後段落的 [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) 與 [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/) 比較。若沒有非空路徑則回傳 false。此檢查僅檢視每條路徑的最後指令，並不會檢查路徑內的每一個子圖形。範例對矩形會印出 `true`。
 
-    geometryShape.getGeometryPaths().forEach(geometryPath => {
-        const pathData = geometryPath.getPathData();
-        const dataLength = pathData.length;
-
-        if (dataLength === 0) return;
-
-        const lastSegment = pathData[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() === aspose.slides.PathCommandType.Close;
-
-        if (!isClosed) return false;
-    });
-
-    return isClosed === true;
-}
-```
-
-## **將 GeometryPath 轉換為 java.awt.Shape** 
-
-1. 建立 [GeometryShape] 類別的實例。  
-2. 建立 [java.awt.Shape] 類別的實例。  
-3. 使用 [ShapeUtil] 將 [java.awt.Shape] 實例轉換為 [GeometryPath] 實例。  
-4. 將路徑套用至形狀。  
-
-以下 JavaScript 程式碼（對上述步驟的實作）示範 **GeometryPath** 轉換為 **GraphicsPath** 的過程：  
 ```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // 建立新形狀
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 100);
-    // 取得形狀的幾何路徑
-    var originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(aspose.slides.PathFillModeType.None);
-    // 建立帶文字的圖形路徑
-    var graphicsPath;
-    var font = java.newInstanceSync("java.awt.Font", "Arial", java.getStaticFieldValue("java.awt.Font", "PLAIN"), 40);
-    var text = "Text in shape";
-    var img = java.newInstanceSync("BufferedImage", 100, 100, java.getStaticFieldValue("BufferedImage", "TYPE_INT_ARGB"));
-    var g2 = img.createGraphics();
-    try {
-        var glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20.0, -glyphVector.getVisualBounds().getY() + 10);
-    } finally {
-        g2.dispose();
+const slides = require("aspose.slides.via.java");
+
+function isGeometryClosed(geometryShape) {
+    let hasNonemptyPath = false;
+    for (const geometryPath of geometryShape.getGeometryPaths()) {
+        const segments = geometryPath.getPathData();
+        if (segments.length === 0) {
+            continue;
+        }
+        hasNonemptyPath = true;
+        const lastSegment = segments[segments.length - 1];
+        if (lastSegment.getPathCommand() !== slides.PathCommandType.Close) {
+            return false;
+        }
     }
-    // 將圖形路徑轉換為幾何路徑
-    var textPath = aspose.slides.ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(aspose.slides.PathFillModeType.Normal);
-    // 設定新幾何路徑與原始幾何路徑的組合到形狀
-    shape.setGeometryPaths(java.newArray("com.aspose.slides.IGeometryPath", [originalPath, textPath]));
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    return hasNonemptyPath;
 }
-```  
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const closed = isGeometryClosed(shape);
+    console.log(closed);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **擷取與檢查形狀元素**
+
+使用 [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) 可將現有形狀檢查為包含路徑點與點類型的元素。透過每個回傳的 [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) 可使用 [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) 與 [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes) 方法取得點與類型陣列。此表示法對輪廓分析或將幾何傳遞給自訂繪圖工具相當有用。
+
+範例開啟 `input.pptx`，在第一張投影片直接找到第一個幾何形狀，並印出其路徑段落。請使用包含直線與曲線段落的形狀測試，便能同時看到兩種輸出。此程式不會在群組內搜尋。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let shape = null;
+    for (let index = 0; index < slide.getShapes().size(); index++) {
+        const candidate = slide.getShapes().get_Item(index);
+        if (java.instanceOf(candidate, "com.aspose.slides.GeometryShape")) {
+            shape = candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        console.log("No geometry shape found on the first slide.");
+    } else {
+        for (const shapeElement of shape.createShapeElements()) {
+            const points = shapeElement.getPathPoints();
+            const types = shapeElement.getPathTypes();
+            console.log("Shape element:");
+
+            for (let i = 0; i < points.length; i++) {
+                const pointType = types[i] & 0x07; // 保留段落類型，排除旗標。
+                switch (pointType) {
+                    case 0:
+                        console.log("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        console.log("Line to " + points[i]);
+                        break;
+                    case 3:
+                        console.log("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    console.log("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+陣列以索引對應：`points[i]` 為一個點，`types[i]` 描述其角色。類型 `0` 表示開始圖形，類型 `1` 表示從前一點畫線至當前點。三次貝茲段落從前一端點開始，使用連續三個類型 `3` 的條目：兩個控制點後接新的端點。迴圈會一次處理這三個條目，並檢查端點是否閉合。
+
+點類型亦包含旗標。使用 `0x07` 遮罩可辨識段落類型，另用 `0x80` 判斷是否為閉合子路徑。例如 `129` (`0x81`) 代表關閉子路徑的線段端點，`131` (`0x83`) 代表關閉的貝茲端點。Java 以有號位元組儲存這些旗標；遮罩可保留正確的位元值。僅以 `1` 或 `3` 比對原始值會遺漏這些情況。其他旗標如虛線 (`0x10`) 與標記 (`0x20`) 不會改變基礎段落類型。
+
+**座標與轉換。** 點的單位為點（1/72 吋），X 向右遞增，Y 向下遞增。對於未群組的形狀，擷取的座標已包含由 [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) 與 [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) 回傳的位置，並反映目前的寬度與高度。例如，未旋轉的矩形位於 `(100, 200)`，尺寸為 `120 × 80`，其輪廓界限為 `(100, 200)`–`(220, 280)`。不要再次加上形狀的位置。將 X 與 Y 減去即可取得相對於未旋轉框架的座標。
+
+擷取的點不會套用由 [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation) 回傳的形狀旋轉，亦不會考慮水平或垂直翻轉。若要重現顯示的輪廓，必須在形狀中心周圍套用這些轉換。對於群組形狀，亦需考慮群組座標映射與轉換；不要假設擷取的點已是最終投影片座標，或在已反映於子框架的情況下再次平移或縮放。
+
+**檢查 vs. 編輯。** 擷取的陣列僅描述輪廓；修改它們不會更新原始形狀。當您的分析或繪圖程式需要點/類型陣列時，可使用此方法。若需要以形狀本地座標系統的幾何指令或想編輯其幾何，請使用 [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths)。編輯後的路徑請透過 [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) 或 [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) 套用。
+
+## **將 Java AWT Shape 轉換為 GeometryPath**
+
+此範例將矩形輪廓與轉換後的文字結合。輪廓的 [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) 方法關閉填充。透過 [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) 產生文字輪廓，形成一個 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html)。其 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 會提供移動、直線、二次、三次與閉合段落，範例將這些段落重新播放至 [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)。
+
+Java 橋接使用顯式的 float 與 byte 值對應 Java 參數。迭代器將座標寫入 Java float 陣列；反射再將更新後的值讀回 JavaScript。文字使用 40 點的 Arial 字型。輪廓水平向右偏移 20 點，且以其視覺上方位於形狀上緣下方 10 點的位置。文字路徑填色，而原始矩形保持輪廓。最後使用 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) 套用兩條路徑，產生同時包含矩形與文字的單一形狀。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 300, 100);
+    
+    const originalPath = shape.getGeometryPaths()[0];
+    originalPath.setFillMode(java.newByte(slides.PathFillModeType.None));
+
+    const font = java.newInstanceSync("java.awt.Font", "Arial", java.getStaticFieldValue("java.awt.Font", "PLAIN"), 40);
+    const image = java.newInstanceSync("java.awt.image.BufferedImage", 100, 100, java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
+    const graphics = image.createGraphics();
+    let graphicsPath;
+    try {
+        const fontContext = graphics.getFontRenderContext();
+        const glyphVector = font.createGlyphVector(fontContext, "Text in shape");
+        const textBounds = glyphVector.getVisualBounds();
+        const baseline = java.newFloat(-textBounds.getY() + 10);
+        graphicsPath = glyphVector.getOutline(java.newFloat(20), baseline);
+    } finally {
+        graphics.dispose();
+    }
+
+    const textPath = new slides.GeometryPath();
+    const pathIterator = graphicsPath.getPathIterator(null);
+    const coordinates = java.newArray("float", [0, 0, 0, 0, 0, 0]);
+
+    while (!pathIterator.isDone()) {
+        const segmentType = pathIterator.currentSegment(coordinates);
+        const points = [];
+        for (let i = 0; i < 6; i++) {
+            const coordinate = java.callStaticMethodSync("java.lang.reflect.Array", "getFloat", coordinates, i);
+            points.push(java.newFloat(coordinate));
+        }
+        switch (segmentType) {
+            case 0: // 移動至。
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case 1: // 直線至。
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case 2: // 二次貝茲曲線。
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case 3: // 三次貝茲曲線。
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case 4: // 關閉圖形。
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+    textPath.setFillMode(java.newByte(slides.PathFillModeType.Normal));
+    const paths = java.newArray("com.aspose.slides.GeometryPath", [originalPath, textPath]);
+    shape.setGeometryPaths(paths);
+} finally {
+    presentation.dispose();
+}
+```
 ![example5_image](custom_shape_5.png)
 
-## **FAQ**
+## **常見問題**
 
-**在取代幾何之後，填色和輪廓會發生什麼變化？**  
-樣式仍保留在形狀上，僅輪廓會改變。填色與輪廓會自動套用至新的幾何。
+**替換幾何後，填色與輪廓會發生什麼變化？**
 
-**如何正確地將自訂形狀連同其幾何一起旋轉？**  
-使用形狀的 [setRotation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/setrotation/) 方法；由於幾何綁定於形狀自身的座標系統，旋轉時會同步旋轉。
+樣式仍然屬於形狀，只有輪廓會改變。填色與輪廓會自動套用到新的幾何上。
 
-**我可以將自訂形狀轉換成圖像以「鎖定」結果嗎？**  
-可以。將所需的 [slide](/slides/zh-hant/nodejs-java/convert-powerpoint-to-png/) 區域或 [shape](/slides/zh-hant/nodejs-java/create-shape-thumbnails/) 本身匯出為點陣圖格式；這樣可簡化後續對複雜幾何的處理。
+**如何正確地將自訂形狀與其幾何一起旋轉？**
+
+使用形狀的 [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) 方法；幾何會隨形狀一起旋轉，因為它綁定於形狀自己的座標系統。
+
+**我可以將自訂形狀轉換為影像以「鎖定」結果嗎？**
+
+可以。將所需的 [slide](/slides/zh-hant/nodejs-java/convert-powerpoint-to-png/) 區域或 [shape](/slides/zh-hant/nodejs-java/create-shape-thumbnails/) 本身匯出為點陣圖格式，這樣可簡化後續對複雜幾何的處理。

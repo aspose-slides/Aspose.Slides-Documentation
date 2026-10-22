@@ -19,192 +19,142 @@ keywords:
 - گوشه منحنی
 - PowerPoint
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
 description: "ایجاد و سفارشی‌سازی اشکال در ارائه‌های PowerPoint با Aspose.Slides برای جاوا: مسیرهای هندسی، گوشه‌های منحنی، شکل‌های ترکیبی."
 ---
-## **بررسی کلی**
+## **مروری کلی**
 
-این مقاله توضیح می‌دهد که چگونه می‌توان شکل‌های ارائه در Aspose.Slides را با ویرایش هندسه شکل از طریق نقاط ویرایش و مسیرهای هندسی سفارشی کرد. نشان می‌دهد چگونه با `GeometryPath` و `IGeometryPath` کار کنید تا شکل‌های موجود را تغییر دهید، عملیات پایه‌ای ویرایش مسیر را انجام دهید، نقاط را اضافه یا حذف کنید و هندسه به‌روزشده را به شکل اعمال کنید.
+این مقاله توضیح می‌دهد چگونه با ویرایش هندسه شکل‌ها از طریق نقاط و مسیرهای هندسی، شکل‌های ارائه در Aspose.Slides را سفارشی کنید. نشان می‌دهد چگونه با [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) و [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) به تغییر شکل‌های موجود می‌پردازید، عملیات پایه ویرایش مسیر را انجام می‌دهید، نقاط را اضافه یا حذف می‌کنید و هندسه به‌روزشده را به یک شکل اعمال می‌کنید.
 
-همچنین نشان می‌دهد چگونه شکل‌های سفارشی و ترکیبی ایجاد کنید، شکل‌ها را با گوشه‌های منحنی بسازید، تعیین کنید آیا هندسه شکل بسته است یا نه، و بین `GeometryPath` و `java.awt.Shape` برای سناریوهای سفارشی‌سازی هندسه بیشتر تبدیل کنید.
+همچنین نحوه ایجاد شکل‌های سفارشی و ترکیبی، ساخت شکل‌ها با گوشه‌های منحنی، تعیین اینکه آیا هندسه یک شکل بسته است، بازرسی عناصر شکل، و تبدیل خطوط متن Java AWT به مسیرهای هندسی را نشان می‌دهد.
 
-## **تغییر شکل با استفاده از نقاط ویرایش**
+## **تغییر یک شکل با استفاده از نقاط ویرایش**
 
-یک مربع را در نظر بگیرید. در PowerPoint، با استفاده از **نقاط ویرایش** می‌توانید  
+در PowerPoint می‌توانید با **نقاط ویرایش** یک مربع را تغییر دهید:
 
-* گوشهٔ مربع را به داخل یا بیرون جابه‌جا کنید  
-* انحنای یک گوشه یا نقطه را مشخص کنید  
-* نقاط جدیدی به مربع اضافه کنید  
-* نقاط مربع را دست‌کاری کنید و غیره  
+* حرکت گوشه به داخل یا خارج.
+* تنظیم انحنا در یک نقطه.
+* افزودن نقاط جدید.
 
-به‌طور کلی می‌توانید این کارها را روی هر شکلی انجام دهید. با استفاده از نقاط ویرایش، می‌توانید یک شکل را تغییر دهید یا از یک شکل موجود یک شکل جدید بسازید.
+ویرایش نقاط به شما امکان می‌دهد پیرامون یک شکل را تغییر داده یا از یک شکل موجود به‌عنوان پایه برای شکل جدید استفاده کنید.
 
 ## **نکات ویرایش شکل**
 
-![تصویر_overview](custom_shape_0.png)
+![تصویر_نمای_کلی](custom_shape_0.png)
 
-قبل از اینکه شروع به ویرایش شکل‌های PowerPoint از طریق نقاط ویرایش کنید، ممکن است بخواهید این نکات را دربارهٔ شکل‌ها در نظر بگیرید:
+هنگام ویرایش شکل‌های PowerPoint، این مفاهیم را در نظر بگیرید:
 
-* یک شکل (یا مسیر آن) می‌تواند بسته یا باز باشد.  
-* وقتی شکل بسته است، نقطهٔ شروع یا انتهایی ندارد. وقتی شکل باز است، نقطهٔ شروع و پایان دارد.  
-* تمام شکل‌ها حداقل شامل ۲ نقطهٔ لنگر هستند که توسط خطوط به یکدیگر متصل می‌شوند.  
-* یک خط می‌تواند مستقیم یا منحنی باشد. نقاط لنگر طبیعت خط را تعیین می‌کنند.  
-* نقاط لنگر به‌صورت نقاط گوشه‌ای، مستقیم یا صاف وجود دارند:  
-  * نقطهٔ گوشه‌ای نقطه‌ای است که در آن ۲ خط مستقیم با زاویه‌ای به‌هم می‌پیوندند.  
-  * نقطهٔ صاف نقطه‌ای است که در آن ۲ دستگیره در یک خط مستقیم قرار دارند و بخش‌های خط به‌صورت یک منحنی نرم به هم می‌رسند. در این حالت تمام دستگیره‌ها با فاصلهٔ مساوی از نقطهٔ لنگر جدا هستند.  
-  * نقطهٔ مستقیم نقطه‌ای است که در آن ۲ دستگیره در یک خط مستقیم قرار دارند و بخش‌های خط به‌صورت یک منحنی نرم به هم می‌رسند. در این حالت دستگیره‌ها نیازی به داشتن فاصلهٔ مساوی از نقطهٔ لنگر ندارند.  
-* با جابجا یا ویرایش نقاط لنگر (که زاویهٔ خطوط را تغییر می‌دهد)، می‌توانید ظاهر یک شکل را تغییر دهید.
+* یک شکل (یا مسیر آن) می‌تواند بسته یا باز باشد.
+* مسیر یک شکل از نقاط لنگر متصل‌شده توسط بخش‌ها تشکیل شده است.
+* یک بخش می‌تواند مستقیم یا منحنی باشد. نقاط لنگر و دستگیره‌های کنترل شکل آن را تعیین می‌کنند.
+* نقاط لنگر به عنوان نقاط گوشه‌ای، مستقیم یا صاف وجود دارند:
+  * در یک نقطه گوشه‌ای، بخش‌های پیوست می‌توانند با زاویه‌ای برخورد کنند.
+  * در یک نقطه صاف، دو دستگیره کنترل هم‌راستا و به‌صورت مساوی از نقطه لنگر فاصله دارند.
+  * در یک نقطه مستقیم، دو دستگیره کنترل هم‌راستا هستند اما ممکن است فاصله‌های متفاوتی از نقطه لنگر داشته باشند.
+* حرکت نقاط لنگر یا تنظیم دستگیره‌های آن‌ها پیرامون شکل را تغییر می‌دهد.
 
-برای ویرایش شکل‌های PowerPoint از طریق نقاط ویرایش، **Aspose.Slides** کلاس [**GeometryPath**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) و رابط [**IGeometryPath**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IGeometryPath) را فراهم می‌کند.
+برای ویرایش شکل‌های PowerPoint از طریق نقاط ویرایش، **Aspose.Slides** کلاس [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) و رابط [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) را فراهم می‌کند.
 
-* یک نمونهٔ [GeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) نمایانگر مسیر هندسی شیء [IGeometryShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IGeometryShape) است.  
-* برای دریافت `GeometryPath` از نمونهٔ `IGeometryShape` می‌توانید از متد [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) استفاده کنید.  
-* برای تنظیم `GeometryPath` یک شکل، می‌توانید این متدها را به کار ببرید: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) برای *شکل‌های ثابت* و [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) برای *شکل‌های ترکیبی*.  
-* برای افزودن قطعات می‌توانید از متدهای زیر [IGeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IGeometryPath) استفاده کنید.  
-* با استفاده از متدهای [IGeometryPath.setStroke](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) و [IGeometryPath.setFillMode](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IGeometryPath#setFillMode-byte-) می‌توانید ظاهر یک مسیر هندسی را تنظیم کنید.  
-* با استفاده از متد [IGeometryPath.getPathData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IGeometryPath#getPathData--) می‌توانید مسیر هندسی یک `GeometryShape` را به‌صورت آرایه‌ای از قطعات مسیر بازیابی کنید.  
-* برای دسترسی به گزینه‌های سفارشی‌سازی اضافی هندسه شکل، می‌توانید [GeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) را به [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) تبدیل کنید.  
-* از متدهای [geometryPathToGraphicsPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) و [graphicsPathToGeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (از کلاس [ShapeUtil](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ShapeUtil)) برای تبدیل [GeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) به [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) و برعکس استفاده کنید.
+* یک نمونهٔ [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) مسیر هندسی شیٔ [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/) را نشان می‌دهد.
+* برای دریافت [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) از نمونهٔ [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/) می‌توانید از متد [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) استفاده کنید.
+* برای تنظیم [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) برای یک شکل، می‌توانید از این متدها استفاده کنید: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) برای شکل‌های با مسیر واحد و [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) برای شکل‌های با مسیرهای متعدد.
+* برای افزودن بخش‌ها، می‌توانید از متدهای موجود در [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) استفاده کنید.
+* با استفاده از متدهای [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setStroke-boolean-) و [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) می‌توانید ظاهر یک مسیر هندسی را تنظیم کنید.
+* با استفاده از متد [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) می‌توانید مسیر هندسی یک [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/geometryshape/) را به‌صورت آرایه‌ای از بخش‌های مسیر دریافت کنید.
+* برای دسترسی به گزینه‌های سفارشی‌سازی بیشتر هندسهٔ شکل، می‌توانید یک [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) را از طریق [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) آن بخوانید و بخش‌ها را روی یک [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) بازپخش کنید.
 
-## **عملیات سادهٔ ویرایش**
+## **عملیات ویرایش ساده**
 
-این کد Java نشان می‌دهد چگونه  
+از متدهای زیر برای ویرایش یک مسیر هندسی استفاده کنید. بارگذاری‌های پذیرنده یک اندیس، یک بخش را در موقعیت صفر‑پایهٔ آرایهٔ بخش‌های مسیر قرار می‌دهند.
 
-**یک خط** به انتهای مسیر اضافه شود
+| عملیات | متد |
+| --- | --- |
+| افزودن یا درج یک خط مستقیم. | [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| افزودن یا درج یک منحنی Bézier مکعبی با دو نقطه کنترل و نقطهٔ انتهایی. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| افزودن یا درج یک منحنی Bézier درجه دوم با یک نقطه کنترل و نقطهٔ انتهایی. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| افزودن یک قوسی بیضوی با ابعاد و زاویه‌های مشخص به درجه. | [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| بستن شکل فعلی با اتصال نقطهٔ انتهایی به نقطهٔ شروع. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) |
+| تنظیم نقطهٔ شروع یک شکل. | [GeometryPath.moveTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| حذف یک بخش در یک اندیس صفر‑پایه. | [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**یک خط** در موقعیت مشخصی از مسیر اضافه شود:
+## **افزودن نقاط سفارشی به یک شکل**
 
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**یک منحنی Bezier درجهٔ سه** در انتهای مسیر اضافه شود:
+این مثال دو نقطه را به یک شکل مستطیلی با استفاده از [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) اضافه می‌کند و مسیر ویرایش‌شده را با [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) اعمال می‌نماید. مختصات‌ها به‌صورت محلی به شکل هستند: هر دو نقطه جدید در مرکز آن، ۱۰۰ نقطه از سمت چپ و ۵۰ نقطه از بالای شکل قرار دارند. اندیس‌های بخش ۱ و ۴ آن‌ها را بر روی لبه‌های بالا و پایین قرار می‌دهند و آن لبه‌ها را به سمت داخل می‌کشند.
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**یک منحنی Bezier درجهٔ سه** به موقعیت مشخصی از مسیر اضافه شود:
+```java
+import com.aspose.slides.*;
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**یک منحنی Bezier درجهٔ دو** در انتهای مسیر اضافه شود:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**یک منحنی Bezier درجهٔ دو** به موقعیت مشخصی از مسیر اضافه شود:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**یک قوس داده‌شده** به مسیر اضافه شود:
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**بستن شکل فعلی** مسیر:
-
-``` java
-public void closeFigure();
-```
-**تنظیم موقعیت برای نقطهٔ بعدی**:
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**حذف قطعه مسیر** در ایندکس داده‌شده:
-
-``` java
-public void removeAt(int index);
-```
-
-## **اضافه کردن نقاط سفارشی به یک شکل**
-1. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryShape) ایجاد کنید و نوع [ShapeType.Rectangle](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ShapeType) را تنظیم کنید.  
-2. یک نمونهٔ [GeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) از شکل دریافت کنید.  
-3. یک نقطهٔ جدید بین دو نقطهٔ بالایی مسیر اضافه کنید.  
-4. یک نقطهٔ جدید بین دو نقطهٔ پایینی مسیر اضافه کنید.  
-5. مسیر را بر شکل اعمال کنید.
-
-این کد Java نشان می‌دهد چگونه نقاط سفارشی به یک شکل اضافه کنید:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![مثال1_تصویر](custom_shape_1.png)
+
+![example1_image](custom_shape_1.png)
 
 ## **حذف نقاط از یک شکل**
 
-1. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryShape) ایجاد کنید و نوع [ShapeType.Heart](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ShapeType) را تنظیم کنید.  
-2. یک نمونهٔ [GeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) از شکل دریافت کنید.  
-3. قطعه مسیر را حذف کنید.  
-4. مسیر را بر شکل اعمال کنید.
+این مثال شکل هندی را با حذف بخش با اندیس صفر‑پایهٔ ۲ با استفاده از [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) تغییر می‌دهد. با اعمال مسیر اصلاح‌شده با [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) حاشیهٔ شکل به‌روزرسانی می‌شود.
 
-این کد Java نشان می‌دهد چگونه نقاط را از یک شکل حذف کنید:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![مثال2_تصویر](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
 ## **ایجاد یک شکل سفارشی**
 
-1. نقاط شکل را محاسبه کنید.  
-2. یک نمونه از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) ایجاد کنید.  
-3. مسیر را با نقاط پر کنید.  
-4. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryShape) ایجاد کنید.  
-5. مسیر را بر شکل اعمال کنید.
+این مثال یک ستارهٔ پنج‌پرگی را با استفاده از [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) می‌سازد. شعاع‌های بیرونی و داخلی متناوب به ترتیب ۱۰۰ و ۵۰ نقطه، نوک‌ها و حفره‌ها را تعریف می‌کند؛ گام ۷۲ درجه، پنج نوک را به‌صورت مساوی فاصله می‌دهد. مسیر با [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) بسته می‌شود و با استفاده از [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) یک شکل مستطیلی اعمال می‌گردد و حاشیهٔ آن جایگزین می‌شود.
 
-این کد Java نشان می‌دهد چگونه یک شکل سفارشی ایجاد کنید:
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<Point2D.Float> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    Point2D.Float point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -217,60 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![مثال3_تصویر](custom_shape_3.png)
-
+![example3_image](custom_shape_3.png)
 
 ## **ایجاد یک شکل ترکیبی سفارشی**
 
-1. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryShape) ایجاد کنید.  
-2. یک نمونه اول از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) ایجاد کنید.  
-3. یک نمونه دوم از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) ایجاد کنید.  
-4. مسیرها را بر شکل اعمال کنید.
+این مثال دو شیٔ [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) بسته برای یک‌سوم بالایی و یک‌سوم پایینی یک شکل تعریف می‌کند. اعمال هر دو مسیر با [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) یک شکل ترکیبی واحد با فضای خالی در یک‌سوم میانی ایجاد می‌کند.
 
-این کد Java نشان می‌دهد چگونه یک شکل ترکیبی سفارشی ایجاد کنید:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![مثال4_تصویر](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
 ## **ایجاد یک شکل سفارشی با گوشه‌های منحنی**
 
-این کد Java نشان می‌دهد چگونه یک شکل سفارشی با گوشه‌های منحنی (به سمت داخل) ایجاد کنید:
+این مثال بخش‌های مستقیم را با [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) ترکیب می‌کند تا شکلی با گوشه‌های منحنی به‌درون ایجاد شود. هر اندازهٔ گوشه عرض و ارتفاع قوس را به‌پیکسل (نقطه) تعیین می‌کند و چرخش ‎‑۹۰ درجه یک قوس‌نیم‌دایرهٔ جهت‌دار خلاف ساعت را می‌کشد. مسیر نهایی با [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) اعمال می‌شود و ارائه در قالب PPTX ذخیره می‌گردد.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -281,79 +231,170 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    Point2D.Float topLeft = new Point2D.Float(leftTopSize, 0);
+    Point2D.Float topRight = new Point2D.Float(shapeWidth - rightTopSize, 0);
+    Point2D.Float rightBottom = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
+    Point2D.Float bottomLeft = new Point2D.Float(leftBottomSize, shapeHeight);
+    Point2D.Float leftTop = new Point2D.Float(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تشخیص اینکه آیا هندسهٔ شکل بسته است**
+## **تشخیص اینکه آیا هندسهٔ یک شکل بسته است**
 
-یک شکل بسته به این معنا تعریف می‌شود که تمام طرف‌های آن به‌هم متصل هستند و مرزی یکپارچه بدون فاصله تشکیل می‌دهند. چنین شکلی می‌تواند یک فرم هندسی ساده یا یک قالب سفارشی پیچیده باشد. مثال کد زیر نشان می‌دهد چطور بررسی کنید که آیا هندسهٔ یک شکل بسته است یا نه:
+تابع کمکی زیر بررسی می‌کند که آیا هر مسیر هندسی غیرخالی با یک بخش بسته پایان می‌یابد یا خیر. این تابع با خواندن [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) و مقایسهٔ فرمان نهایی بخش [IPathSegment.getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) با [PathCommandType.Close](https://reference.aspose.com/slides/java/com.aspose.slides/pathcommandtype/) عمل می‌کند. وقتی مسیرهای غیرخالی وجود نداشته باشد، مقدار false برمی‌گرداند. این بررسی فقط فرمان نهایی هر مسیر را می‌سنجد؛ تمام زیرشکل‌ها را بررسی نمی‌کند. مثال مقدار `true` را برای یک مستطیل چاپ می‌کند.
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
+}
 
-    return isClosed == true;
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **تبدیل GeometryPath به java.awt.Shape**
+## **استخراج و بررسی عناصر شکل**
 
-1. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryShape) ایجاد کنید.  
-2. یک نمونه از کلاس [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) ایجاد کنید.  
-3. نمونهٔ [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) را با استفاده از [ShapeUtil](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ShapeUtil) به نمونهٔ [GeometryPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/GeometryPath) تبدیل کنید.  
-4. مسیرها را بر شکل اعمال کنید.
+از [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#createShapeElements--) برای بررسی یک شکل موجود به‌صورت عناصری که شامل نقاط مسیر و انواع نقاط می‌شوند، استفاده کنید. هر [IShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/ishapeelement/) بازگردانده‌شده را به [ShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/) تبدیل کنید تا آرایه‌های نقاط و انواع را از طریق متدهای [getPathPoints](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathPoints--) و [getPathTypes](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathTypes--) دریافت کنید. این نمایش برای تحلیل حاشیه یا انتقال هندسه به ابزارهای رسم سفارشی مفید است.
 
-این کد Java—یک پیاده‌سازی از مراحل فوق—فرآیند تبدیل **GeometryPath** به **GraphicsPath** را نشان می‌دهد:
+مثال فایل `input.pptx` را باز می‌کند، اولین شکل هندسی را مستقیماً روی اولین اسلاید پیدا می‌کند و بخش‌های مسیر آن را چاپ می‌نماید. برای مشاهدهٔ خروجی‌های هر دو نوع بخش (مستقیم و منحنی) یک ارائهٔ شامل شکل با این دو نوع بخش داشته باشید. این روش داخل گروه‌ها جستجو نمی‌کند.
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            Point2D.Float[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // نوع بخش را حفظ کنید، پرچم‌ها را مستثنی کنید.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+آرایه‌ها بر اساس اندیس مطابقت دارند: `points[i]` یک نقطه و `types[i]` نقش آن را توصیف می‌کند. نوع `0` یک شکل را آغاز می‌کند و نوع `1` خطی از نقطهٔ قبلی به نقطهٔ جاری می‌کشد. یک بخش Bézier مکعبی از نقطهٔ انتهایی قبلی آغاز می‌شود و از سه ورودی متوالی نوع‑`3` استفاده می‌کند: دو نقطهٔ کنترل به‌همراه نقطهٔ انتهایی جدید. حلقه این سه ورودی را به‌صورت گروهی مصرف می‌کند و نقطهٔ انتهایی را برای بسته بودن بررسی می‌کند.
+
+انواع نقطه همچنین شامل پرچم‌ها می‌شوند. برای تشخیص نوع بخش از ماسک `0x07` استفاده کنید و برای تشخیص زیرمسیر بسته پرچم `0x80` را جداگانه بررسی کنید. به عنوان مثال، `129` (`0x81`) یعنی نقطهٔ انتهایی خطی که زیرمسیر را می‌بندد و `131` (`0x83`) یعنی نقطهٔ انتهایی Bézier که زیرمسیر را می‌بندد. جاوا این پرچم‌ها را در بایت‌های علامت‌دار ذخیره می‌کند؛ ماسک کردن مقادیر اصلی را حفظ می‌کند. مقایسهٔ مقدار خام فقط با `1` یا `3` این موارد را از دست می‌دهد. پرچم‌های دیگر مانند خط‌چین (`0x10`) و نشانگر (`0x20`) نوع پایهٔ بخش را تغییر نمی‌دهند.
+
+**مختصات و تبدیلات.** نقاط برحسب نقاط (۱/۷۲ اینچ) اندازه‌گیری می‌شوند و X به سمت راست و Y به سمت پایین افزایش می‌یابد. برای یک شکل غیرگروه‌بندی‌شده، مختصات استخراج‌شده قبلاً شامل موقعیت بازگردانده‌شده توسط [getX](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getX--) و [getY](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getY--) و عرض و ارتفاع فعلی آن است. به عنوان مثال، یک مستطیل بدون چرخش در `(100, 200)` با اندازهٔ `120 × 80` مرزهای حاشیهٔ آن `(100, 200)`–`(220, 280)` دارد. موقعیت شکل را دوباره اضافه نکنید. برای به‌دست آوردن مختصات نسبت به قاب غیرچرخان، X و Y آن را کم کنید.
+
+نقاط استخراج‌شده چرخش شکل، که توسط [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getRotation--) برگردانده می‌شود، یا وارونه‌سازی افقی و عمودی را اعمال نمی‌کنند. برای بازتولید حاشیهٔ نمایش‌داده‌شده، این تبدیلات را پیرامون مرکز شکل اعمال کنید. برای شکل‌های گروهی، همچنین نقشهٔ مختصات گروه و تبدیلات را در نظر بگیرید؛ فرض نکنید که نقاط استخراج‌شده مختصات نهایی اسلاید رندر شده هستند یا ترجمه یا مقیاس را دو بار اعمال کنید اگر قبلاً در قاب فرزند منعکس شده باشد.
+
+**بازرسی در مقابل ویرایش.** آرایه‌های استخراج‌شده حاشیه را توصیف می‌کنند؛ تغییر آن‌ها شکل اصلی را به‌روزرسانی نمی‌کند. زمانی که تحلیل یا کد رسم شما به آرایه‌های نقطه/نوع نیاز دارد، این روش را برگزینید. وقتی به دستورات هندسی در سیستم مختصات محلی شکل یا ویرایش هندسهٔ آن نیاز دارید، از [getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) استفاده کنید. مسیرهای ویرایش‌شده را از طریق [setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) یا [setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) اعمال کنید.
+
+## **تبدیل یک Shape از Java AWT به GeometryPath**
+
+این مثال شکل مستطیلی را با متنی ترکیب می‌کند که به هندسه تبدیل شده است. متد [setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) برای شکل، پر کردن آن را غیرفعال می‌کند. یک [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) خطوط متن را در یک [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ایجاد می‌کند. [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) آن حرکت، خط، منحنی درجه دوم، منحنی مکعبی و بخش‌های بسته را فراهم می‌کند که مثال آن‌ها را بر روی یک [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) بازپخش می‌کند.
+
+متن با قلم Arial به اندازهٔ ۴۰ نقطه استفاده می‌شود. مسیر با ۲۰ نقطه به‌صورت افقی جابجا می‌شود و بالأ بصری آن ۱۰ نقطه زیر لبهٔ بالای شکل قرار می‌گیرد. مسیر متن پر می‌شود، در حالی که مستطیل اولیه فقط به‌صورت خط مرزی می‌ماند. اعمال هر دو مسیر با [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) یک شکل واحد شامل مستطیل و متن تولید می‌کند.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.GlyphVector;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.PathIterator;
+import java.awt.image.BufferedImage;
+
+Presentation presentation = new Presentation();
 try {
     // ایجاد شکل جدید
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
     // دریافت مسیر هندسی شکل
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
@@ -361,39 +402,72 @@ try {
 
     // ایجاد مسیر گرافیکی جدید با متن
     Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
+    Font font = new Font("Arial", Font.PLAIN, 40);
     String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
+    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D graphics = image.createGraphics();
 
     try
     {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
+        FontRenderContext fontContext = graphics.getFontRenderContext();
+        GlyphVector glyphVector = font.createGlyphVector(fontContext, text);
+        Rectangle2D textBounds = glyphVector.getVisualBounds();
+        float baseline = (float) -textBounds.getY() + 10;
+        graphicsPath = glyphVector.getOutline(20f, baseline);
     }
     finally {
-        g2.dispose();
+        graphics.dispose();
     }
 
     // تبدیل مسیر گرافیکی به مسیر هندسی
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
+    IGeometryPath textPath = new GeometryPath();
+    PathIterator pathIterator = graphicsPath.getPathIterator(null);
+    float[] points = new float[6];
+
+    while (!pathIterator.isDone())
+    {
+        int segmentType = pathIterator.currentSegment(points);
+        switch (segmentType)
+        {
+            case PathIterator.SEG_MOVETO:
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_LINETO:
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_QUADTO:
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case PathIterator.SEG_CUBICTO:
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case PathIterator.SEG_CLOSE:
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // تنظیم ترکیب مسیر هندسی جدید و مسیر هندسی اصلی برای شکل
+    // تخصیص ترکیب مسیر هندسی جدید و مسیر هندسی اصلی به شکل
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![مثال5_تصویر](custom_shape_5.png)
+![example5_image](custom_shape_5.png)
 
 ## **سوالات متداول**
 
-**پس از جایگزینی هندسه، پر کردن و خط بیرونی چه اتفاقی می‌افتد؟**  
-استایل همراه شکل باقی می‌ماند؛ فقط محدوده تغییر می‌کند. پر کردن و خط بیرونی به‌صورت خودکار بر هندسهٔ جدید اعمال می‌شوند.
+**چه اتفاقی برای پر و مرز پس از جایگزینی هندسه می‌افتد؟**
 
-**چگونه می‌توانم یک شکل سفارشی را به‌درستی همراه با هندسه‌اش بچرخانم؟**  
-از متد [setRotation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#setRotation-float-) شکل استفاده کنید؛ چون هندسه به سیستم مختصات شکل متصل است، با شکل می‌چرخد.
+سبک با شکل باقی می‌ماند؛ فقط حاشیه تغییر می‌کند. پر و مرز به‌صورت خودکار به هندسهٔ جدید اعمال می‌شوند.
 
-**آیا می‌توانم یک شکل سفارشی را به تصویر تبدیل کنم تا «قفل» شود؟**  
-بله. بخش مورد نیاز [slide](/slides/fa/java/convert-powerpoint-to-png/) یا خود [شکل](/slides/fa/java/create-shape-thumbnails/) را به فرمت رستر صادر کنید؛ این کار کار با هندسه‌های سنگین را ساده‌تر می‌کند.
+**چگونه می‌توانم شکل سفارشی را به‌همراه هندسهٔ آن به‌درستی بچرخانم؟**
+
+از متد [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) شکل استفاده کنید؛ هندسه همراه شکل می‌چرخد زیرا به سیستم مختصات خود شکل متصل است.
+
+**آیا می‌توانم شکل سفارشی را به تصویر تبدیل کنم تا «قفل» شود؟**
+
+بله. ناحیهٔ مورد نیاز [slide](/slides/fa/java/convert-powerpoint-to-png/) یا خود [shape](/slides/fa/java/create-shape-thumbnails/) را به قالب رستر صادر کنید؛ این کار کار با هندسه‌های پیچیده را ساده می‌کند.

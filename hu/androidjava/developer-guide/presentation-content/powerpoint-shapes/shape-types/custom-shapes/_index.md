@@ -1,210 +1,158 @@
 ---
 title: Alakzatok testreszabása prezentációkban Androidon
-linktitle: Egyedi alakzat
+linktitle: Egyéni alakzat
 type: docs
 weight: 20
 url: /hu/androidjava/custom-shape/
 keywords:
-- egyedi alakzat
+- egyéni alakzat
 - alakzat hozzáadása
 - alakzat létrehozása
 - alakzat módosítása
-- alakzat geometria
+- alakzat geometriája
 - geometriai útvonal
 - útvonal pontok
-- szerkesztőpontok
+- szerkesztési pontok
 - pont hozzáadása
 - pont eltávolítása
 - szerkesztési művelet
-- görbe sarok
+- ívelt sarok
 - PowerPoint
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Alakzatok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for Android Java segítségével: geometriai útvonalak, görbe sarkok, összetett alakzatok."
+description: "Alakzatok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for Android segítségével Java használatával: geometriai útvonalak, ívelt sarkok, összetett alakzatok."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan testreszabhatók a megjelenítési alakzatok az Aspose.Slides‑ben úgy, hogy a forma geometriáját szerkesztőpontokkal és geometriai útvonalakkal módosítjuk. Megmutatja, hogyan használható a `GeometryPath` és az `IGeometryPath` meglévő alakzatok módosítására, alapvető útvonal‑szerkesztési műveletek végrehajtására, pontok hozzáadására vagy eltávolítására, valamint a frissített geometria alakzatra való alkalmazására.
+Ez a cikk bemutatja, hogyan testreszabhatók a prezentáció alakzatai az Aspose.Slides‑ban a forma geometria szerkesztésével szerkesztési pontokon és geometriai útvonalakon keresztül. Megmutatja, hogyan dolgozhat a [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) és a [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) segítségével meglévő alakzatok módosítására, alapvető útvonal‑szerkesztési műveletek végrehajtására, pontok hozzáadására vagy eltávolítására, és a módosított geometria visszaalkalmazására egy alakzatra.
 
-Emellett bemutatja, hogyan hozhatók létre egyedi és összetett alakzatok, hogyan építhetők görbe sarkokkal rendelkező alakzatok, hogyan határozható meg, hogy egy alakzat geometriája zárt‑e, valamint hogyan konvertálható a `GeometryPath` és a `java.awt.Shape` egymásba további geometriák testreszabási forgatókönyveihez.
+Emellett bemutatja, hogyan hozhat létre egyéni és összetett alakzatokat, hogyan építhet alakzatokat ívelt sarkokkal, hogyan határozhatja meg, hogy egy alakzat geometriája zárt‑e, és hogyan vizsgálhatja meg az alakzat elemeit Android ponttömbök használatával.
 
-## **Alakzat módosítása szerkesztőpontokkal**
-Tekintsünk egy négyzetet. A PowerPointban **szerkesztőpontok** használatával a következőket tehetjük:
+## **Alakzat módosítása szerkesztési pontokkal**
 
-* a négyzet sarkát be‑ vagy kifelé mozgatni
-* egy sarok vagy pont görbületét megadni
-* új pontokat hozzáadni a négyzethez
-* a négyzet pontjait manipulálni, stb.
+* Mozgassa a sarkot befelé vagy kifelé.
+* Állítsa be a görbületet egy pontnál.
+* Adjon hozzá új pontokat.
 
-Lényegében a leírt feladatok bármely alakzatra elvégezhetők. A szerkesztőpontok segítségével módosítható egy alakzat, vagy új alakzat hozható létre egy meglévőből.
+A pontok szerkesztése lehetővé teszi az alakzat körvonalának módosítását, vagy egy meglévő alakzat felhasználását új alapként.
 
-## **Alakzatszerkesztési tippek**
+## **Alakzat szerkesztési tippek**
 
-![overview_image](custom_shape_0.png)
+![áttekintés_kép](custom_shape_0.png)
 
-Mielőtt szerkesztenél PowerPoint‑alakzatokat szerkesztőpontokkal, vedd figyelembe a következőket az alakzatokkal kapcsolatban:
+PowerPoint‑alakzatok szerkesztésekor vegye figyelembe a következő fogalmakat:
 
 * Egy alakzat (vagy annak útvonala) lehet zárt vagy nyitott.
-* Zárt alakzatnál nincs kezdeti vagy végpont, nyitott alakzatnál van kezdete és vége.
-* Minden alakzat legalább 2 horgonypontból áll, amelyeket vonalak kötnek össze.
-* A vonal lehet egyenes vagy íves. A horgonypontok határozzák meg a vonal jellegét.
-* A horgonypontok lehetnek sarokpontok, egyenes pontok vagy sima pontok:
-  * Egy sarokpont az a pont, ahol 2 egyenes vonal szöget zár be.
-  * Egy sima pont az a pont, ahol 2 kontrolpont egyenes vonalban helyezkedik el, és a vonal szegmensei sima görbével csatlakoznak. Ilyenkor a kontrolpontok egyenlő távolságra vannak a horgonyponttól.
-  * Egy egyenes pont az a pont, ahol 2 kontrolpont egyenes vonalban található, de a vonal szegmensei nem feltétlenül csatlakoznak egyenlő távolságra a horgonyponttól.
-* Horgonypontok mozgatásával vagy szerkesztésével (ami a vonalak szögét változtatja) megváltoztatható az alakzat megjelenése.
+* Az alakzat útvonala horgonypontokból áll, amelyeket szegmensek kötnek össze.
+* Egy szegmens lehet egyenes vagy ívelt. A horgonypontok és a vezérlőkarok határozzák meg a formáját.
+* A horgonypontok léteznek sarokpontként, egyenes pontként vagy sima pontként:
+  * Sarokpontnál a szomszédos szegmensek egy szögnél találkozhatnak.
+  * Sima pontnál a két vezérlőkar egy vonalban van és egyenlő távolságra van a horgonyponttól.
+  * Egyenes pontnál a két vezérlőkar egy vonalban van, de különböző távolságra lehet a horgonyponttól.
+* A horgonypontok mozgatása vagy a karok állítása megváltoztatja az alakzat körvonalát.
 
-PowerPoint‑alakzatok szerkesztőpontokkal történő szerkesztéséhez az **Aspose.Slides** a [**GeometryPath**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) osztályt és az [**IGeometryPath**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IGeometryPath) interfészt biztosítja.
+PowerPoint‑alakzatok szerkesztéséhez szerkesztési pontokkal a **Aspose.Slides** biztosítja a [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) osztályt és a [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) interfészt.
 
-* Egy [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) példány a [IGeometryShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IGeometryShape) objektum geometriai útvonalát reprezentálja.
-* A `GeometryPath` lekéréséhez a `IGeometryShape` példányból a [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--) metódust használhatod.
-* Egy alakzat `GeometryPath`‑jának beállításához a következő metódusok állnak rendelkezésre: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) *szilárd alakzatok* esetén és [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) *összetett alakzatok* esetén.
-* Szegmensek hozzáadásához az [IGeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IGeometryPath) alatti metódusokat használhatod.
-* Az [IGeometryPath.setStroke](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) és az [IGeometryPath.setFillMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) metódusokkal beállítható egy geometriai útvonal megjelenése.
-* Az [IGeometryPath.getPathData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IGeometryPath#getPathData--) metódussal a `GeometryShape` útvonaladatai szegmens tömbként kérhetők le.
-* További alakzatgeometria‑testreszabási lehetőségek eléréséhez a [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) konvertálható a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) típusra.
-* A [geometryPathToGraphicsPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) és a [graphicsPathToGeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) metódusok (a [ShapeUtil](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ShapeUtil) osztályból) segítségével a [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) visszakonvertálható a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) típusra és fordítva.
+* Egy [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) példány a [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) objektum geometriai útvonalát képviseli.
+* A [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) metódussal lekérheti a [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)‑t a [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) példányból.
+* Egy alakzat [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)‑jának beállításához használhatja a [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) metódust egyszeres útvonalú alakzatokhoz, valamint a [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) metódust többeszörös útvonalú alakzatokhoz.
+* Szegmensek hozzáadásához a [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) alatti metódusokat használhatja.
+* A [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) és a [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-) metódusokkal beállíthatja egy geometriai útvonal megjelenését.
+* A [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) metódussal lekérheti a [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) geometriai útvonalát útvonal‑szegmensek tömbjeként.
 
 ## **Egyszerű szerkesztési műveletek**
 
-Ez a Java‑kód bemutatja, hogyan
+Használja a következő metódusokat egy geometriai útvonal szerkesztéséhez. Az indexet elfogadó túlterhelések egy szegmenst a nullától számított pozícióba illesztik be az útvonal szegmens‑tömbjében.
 
-**Adjunk hozzá egy vonalat** egy útvonal végéhez
+| Művelet | Metódus |
+| --- | --- |
+| Egyenes vonal hozzáadása vagy beszúrása. | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| Köbös Bézier‑görbe hozzáadása vagy beszúrása két vezérlőponttal és egy végponttal. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Kvadratikus Bézier‑görbe hozzáadása vagy beszúrása egy vezérlőponttal és egy végponttal. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Elliptikus ív hozzáadása a megadott méretekkel és fokokban megadott szögekkel. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Az aktuális alakzat lezárása azzal, hogy a végpontját összeköti a kiindulási ponttal. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| Az alakzat kezdőpontjának beállítása. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Szegmens eltávolítása a nulla‑alapú indexnél. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**Adjunk hozzá egy vonalat** egy megadott pozícióban az útvonalon:
+## **Egyéni pontok hozzáadása egy alakzathoz**
 
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**Adjunk hozzá egy köbös Bézier‑görbét** az útvonal végére:
+Ez a példa két pontot szúr be egy téglalap alakzatba a [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) használatával, majd a szerkesztett útvonalat a [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-)‑vel alkalmazza. A koordináták az alakzatra lokálisak: mindkét új pont a középpontban van, 100 pontbalra a bal szélről és 50 pontbalra a felső szélről. Az 1 és 4 indexű szegmensek a felső és alsó élekre helyezik őket, behúzva ezeket az éleket.
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Adjunk hozzá egy köbös Bézier‑görbét** a megadott pozícióba az útvonalon:
+```java
+import com.aspose.slides.*;
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**Adjunk hozzá egy kvadratikus Bézier‑görbét** az útvonal végére:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Adjunk hozzá egy kvadratikus Bézier‑görbét** a megadott pozícióba az útvonalon:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**Fűzzünk hozzá egy adott ívet** az útvonalhoz:
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Zárjuk le a jelenlegi alakzatot** egy útvonalon:
-
-``` java
-public void closeFigure();
-```
-**Állítsuk be a következő pont pozícióját**:
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**Távolítsuk el a szegmenst** a megadott indexnél:
-
-``` java
-public void removeAt(int index);
-```
-
-## **Egyedi pontok hozzáadása egy alakzathoz**
-1. Hozz létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryShape) osztályból, és állítsd be a [ShapeType.Rectangle](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ShapeType) típust.
-2. Szerezz egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) osztályból az alakzatról.
-3. Adj hozzá egy új pontot a két felső pont közé az útvonalon.
-4. Adj hozzá egy új pontot a két alsó pont közé az útvonalon.
-5. Alkalmazd az útvonalat az alakzatra.
-
-Ez a Java‑kód mutatja, hogyan adhatunk egyedi pontokat egy alakzathoz:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example1_image](custom_shape_1.png)
+
+![példa1_kép](custom_shape_1.png)
 
 ## **Pontok eltávolítása egy alakzatból**
 
-1. Hozz létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryShape) osztályból, és állítsd be a [ShapeType.Heart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ShapeType) típust.
-2. Szerezz egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) osztályból az alakzatról.
-3. Távolítsd el a szegmenst az útvonalból.
-4. Alkalmazd az útvonalat az alakzatra.
+Ez a példa egy szív alakú körvonalat módosít úgy, hogy eltávolítja a nullától számított 2‑es indexű szegmenst a [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) használatával. A módosított útvonal [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-)‑vel történő alkalmazása frissíti az alakzat körvonalát.
 
-Ez a Java‑kód mutatja, hogyan távolíthatók el pontok egy alakzatból:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example2_image](custom_shape_2.png)
+![példa2_kép](custom_shape_2.png)
 
-## **Egyedi alakzat létrehozása**
+## **Egyéni alakzat létrehozása**
 
-1. Számold ki az alakzat pontjait.
-2. Hozz létre egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) osztályból.
-3. Töltsd fel az útvonalat a pontokkal.
-4. Hozz létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryShape) osztályból.
-5. Alkalmazd az útvonalat az alakzatra.
+Ez a példa ötágú csillagot épít a [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) segítségével. A külső és belső sugarak 100 és 50 pont váltakozása határozza meg a csúcsokat és a benyúlásokat; egy 72‑fokos lépés egyenlő távolságra helyezi el az öt csúcsot. Az útvonalat a [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) zárja le, majd a [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) alkalmazza egy téglalap alakzatra, felülírva annak körvonalát.
 
-Ez a Java‑kód bemutatja, hogyan hozhatsz létre egy egyedi alakzatot:
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<PointF> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    PointF point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -217,60 +165,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example3_image](custom_shape_3.png)
+![példa3_kép](custom_shape_3.png)
 
+## **Összetett egyéni alakzat létrehozása**
 
-## **Összetett egyedi alakzat létrehozása**
-
-1. Hozz létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryShape) osztályból.
-2. Hozz létre egy első példányt a [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) osztályból.
-3. Hozz létre egy második példányt a [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) osztályból.
-4. Alkalmazd a két útvonalat az alakzatra.
-
-Ez a Java‑kód bemutatja, hogyan hozhatsz létre egy összetett egyedi alakzatot:
-
-``` java
-Presentation pres = new Presentation();
-try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
-
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
-
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-![example4_image](custom_shape_4.png)
-
-## **Egyedi alakzat létrehozása görbe sarkokkal**
-
-Ez a Java‑kód megmutatja, hogyan hozhatsz létre egy egyedi alakzatot görbe (befelé ívelő) sarkokkal:
+Ez a példa két zárt [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) objektumot definiál az alakzat felső és alsó harmadjára. Mindkét útvonal [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) használatával történő alkalmazása egyetlen összetett alakzatot hoz létre, amelynek középső harmada rés van.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
+
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
+} finally {
+    presentation.dispose();
+}
+```
+![példa4_kép](custom_shape_4.png)
+
+## **Egyéni alakzat ívelt sarkokkal**
+
+Ez a példa egyenes szegmenseket kombinál a [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) hívásával, hogy egy befelé ívelt sarkokkal rendelkező alakzatot hozzon létre. Minden sarokméret a bolygó szélességét és magasságát pontban adja meg, a -90‑fokos ív pedig egy óramutató járásával ellentétes negyed‑ellipszist rajzol. A kész útvonalat a [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) alkalmazza, és a prezentációt PPTX formátumban menti.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -281,122 +229,157 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    PointF topLeft = new PointF(leftTopSize, 0);
+    PointF topRight = new PointF(shapeWidth - rightTopSize, 0);
+    PointF rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+    PointF bottomLeft = new PointF(leftBottomSize, shapeHeight);
+    PointF leftTop = new PointF(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Megállapítás, hogy egy alakzat geometriája zárt‑e**
+## **Megállapítás, hogy egy alakzat geometriája zárt-e**
 
-A zárt alakzat olyan, amelynek minden oldala összekapcsolódik, így egyetlen határoló nélkülös szegmens keletkezik. Ilyen alakzat lehet egy egyszerű geometriai forma vagy egy komplex egyedi körvonal. Az alábbi kódrészlet megmutatja, hogyan ellenőrizhető, hogy az alakzat geometriája zárt‑e:
+Az alábbi segédfüggvény ellenőrzi, hogy minden nem üres geometriai útvonal záró szegmensekkel végződik‑e. A [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) olvasásával összehasonlítja az utolsó szegmens [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) értékét a [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/)‑val. Üres útvonal esetén hamis értéket ad vissza. Ez a függvény minden útvonal végső parancsát ellenőrzi; nem vizsgálja meg az egyes alalakzatokat az útvonalon belül. A példa egy téglalap esetén `true`‑t ír ki.
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
-
-    return isClosed == true;
 }
-```
 
-## **GeometryPath konvertálása java.awt.Shape‑ra**
-
-1. Hozz létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryShape) osztályból.
-2. Hozz létre egy példányt a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) osztályból.
-3. A [ShapeUtil](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ShapeUtil) segítségével konvertáld a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) példányt a [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/GeometryPath) példányra.
-4. Alkalmazd a kapott útvonalakat az alakzatra.
-
-Ez a Java‑kód – a fenti lépések megvalósítása – demonstrálja a **GeometryPath**‑ról **GraphicsPath**‑ra történő konverzió folyamatát:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Új alakzat létrehozása
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Az alakzat geometriai útvonalának lekérése
-    IGeometryPath originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(PathFillModeType.None);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    // Új grafikus útvonal létrehozása szöveggel
-    Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
-
-    try
-    {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
-    }
-    finally {
-        g2.dispose();
-    }
-
-    // A grafikus útvonal konvertálása geometriai útvonalra
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(PathFillModeType.Normal);
-
-    // Az új geometriai útvonal és az eredeti geometriai útvonal kombinációjának beállítása az alakzatra
-    shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example5_image](custom_shape_5.png)
+
+## **Alakzat elemeinek kinyerése és vizsgálata**
+
+Használja a [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) metódust egy meglévő alakzat elemeinek megtekintéséhez, amelyek útvonal‑pontokat és pont‑típusokat tartalmaznak. Az egyes visszaadott [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) objektumot castolja [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/)‑re, hogy a [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) és a [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) metódusokkal lekérje a pont‑ és típus‑tömböket. Ez a reprezentáció hasznos kontúr‑analízishez vagy a geometria custom rajzoló eszközöknek történő átadásához.
+
+A példa megnyit egy `input.pptx` fájlt, megtalálja az első geometriával rendelkező alakzatot az első dián, és kiírja az útvonal‑szegmenseit. Használjon olyan prezentációt, amelyben az alakzat egyenes és ívelt szegmenseket is tartalmaz, hogy mindkét kimenetet láthassa. A csoportokon belül nem keres.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            PointF[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // Tartsa meg a szegmens típusát, a flag-eket kizárva.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Fogyasztja mindkét vezérlőpontot és a végpontot.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A tömbök index‑szerint párosodnak: `points[i]` egy pont, `types[i]` pedig annak szerepét írja le. A `0` típus új alakzatot indít, az `1` típus egy vonalat rajzol az előző pontból a jelenlegi pontba. Egy köbös Bézier‑szegmens a korábbi végpontból indul, három egymást követő `3` típusú bejegyzést használ: két vezérlőpontot, majd az új végpontot. A ciklus ezekhez a három bejegyzéshez egyszerre fér hozzá, és ellenőrzi a végpontot a zárás szempontjából.
+
+A pont‑típusok flag‑eket is tartalmaznak. A `0x07` maszkkal határozható meg a szegmens típusa, a `0x80` flag önállóan jelez zárt alútvonalat. Például a `129` (`0x81`) egy vonal‑végpont, amely alútvonalat zár, a `131` (`0x83`) pedig egy Bézier‑végpont, amely szintén zár. A Java ezeket a flag‑eket aláírt byte‑ként tárolja; a maszkolás megőrzi a megfelelő bitértékeket. Ha csak a nyers értéket hasonlítaná `1`‑el vagy `3`‑mal, ezek a esetek kimaradnának. Más flag‑ek, például a szaggatottság (`0x10`) és a marker (`0x20`), nem változtatják az alap szegmens típust.
+
+**Koordináták és transzformációk.** A pontok pontban (1/72 hüvelyk) vannak mérve, az X jobb felé, a Y lefele növekszik. Egy nem csoportosított alakzat esetén a kinyert koordináták már tartalmazzák a [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) és [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) által visszaadott pozíciót, valamint a jelenlegi szélességet és magasságot. Például egy elforgatás nélküli téglalap a `(100, 200)`‑as bal‑felső sarokkal és `120 × 80` mérettel a körvonal‑határolókat `(100, 200)`–`(220, 280)` adja. Ne adja hozzá újra az alakzat pozícióját; vonja ki az X‑et és Y‑t a lokális koordinátákhoz.
+
+A kinyert pontok nem alkalmazzák az alakzat [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--) által visszaadott forgatását, illetve a vízszintes és függőleges tükrözést. A megjelenített körvonal reprodukálásához ezeket a transzformációkat kell alkalmazni a középpont körül. Csoportos alakzatok esetén a csoportkoordináta‑leképezést és transzformációkat is figyelembe kell venni; ne tételezze, hogy a kinyert pontok már a végső diára vetített koordináták, és ne alkalmazzon kétszeres eltolást vagy skálázást, ha már a gyermek keretben szerepelnek.
+
+**Vizsgálat vs. szerkesztés.** A kinyert tömbök a körvonalat írják le; azok módosítása nem frissíti az eredeti alakzatot. Ezt a megközelítést válassza, ha a pont‑típus tömbökre van szüksége elemzéshez vagy rajzoló kódhoz. Használja a [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--)‑t, ha a geometriai parancsokra van szüksége az alakzat lokális koordináta‑rendszerében, vagy ha szerkeszteni szeretné a geometriaát. Szerkesztett útvonalak alkalmazásához használja a [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) vagy a [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) metódusokat.
 
 ## **GYIK**
 
-**Mi történik a kitöltéssel és körvonallal a geometria cseréje után?**
+**Mi történik a kitöltéssel és a körvonallal a geometria cseréje után?**
 
-A stílus az alakzaton marad; csak a kontúr változik. A kitöltés és a körvonal automatikusan az új geometriára kerül alkalmazásra.
+A stílus az alakzattal marad; csak a körvonal változik. A kitöltés és a körvonal automatikusan alkalmazásra kerül az új geometriára.
 
-**Hogyan forgathatom helyesen a saját alakzatot a geometriájával együtt?**
+**Hogyan forgathatom helyesen egy egyéni alakzatot a geometriájával együtt?**
 
-Használd az alakzat [setRotation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shape/#setRotation-float-) metódusát; a geometria az alakzattal együtt forog, mivel az az alakzat saját koordináta‑rendszeréhez van kötve.
+Használja az alakzat [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) metódusát; a geometria együtt forgik az alakzattal, mivel az az alakzat saját koordináta‑rendszeréhez van kötve.
 
-**Átalakíthatom-e a saját alakzatot egy képpé a „lezáráshoz”?**
+**Átalakíthatom‑e egy egyéni alakzatot képpé, hogy „lezárjam” az eredményt?**
 
-Igen. Exportáld a kívánt [slide](/slides/hu/androidjava/convert-powerpoint-to-png/) területet vagy magát a [shape](/slides/hu/androidjava/create-shape-thumbnails/)‑t raszteres formátumba; ez megkönnyíti a nehéz geometriákkal való további munkát.
+Igen. Exportálja a szükséges [dia](/slides/hu/androidjava/convert-powerpoint-to-png/) területet vagy magát a [alakzat](/slides/hu/androidjava/create-shape-thumbnails/)‑t raster formátumba; ez egyszerűsíti a komplex geometriákkal való további munkát.

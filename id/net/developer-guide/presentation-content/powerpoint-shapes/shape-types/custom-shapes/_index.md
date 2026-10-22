@@ -24,242 +24,188 @@ keywords:
 - Aspose.Slides
 description: "Buat dan sesuaikan bentuk dalam presentasi PowerPoint dengan Aspose.Slides untuk .NET: jalur geometri, sudut melengkung, bentuk komposit."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan mengedit geometri bentuk melalui titik edit dan jalur geometri. Ini menunjukkan cara bekerja dengan `GeometryPath` dan `IGeometryPath` untuk memodifikasi bentuk yang ada, melakukan operasi penyuntingan jalur dasar, menambah atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke sebuah bentuk.
+Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan mengedit geometri bentuk melalui titik edit dan jalur geometri. Ini menunjukkan cara bekerja dengan [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) dan [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) untuk memodifikasi bentuk yang ada, melakukan operasi penyuntingan jalur dasar, menambah atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke sebuah bentuk.
 
-Ini juga memperagakan cara membuat bentuk khusus dan gabungan, membangun bentuk dengan sudut melengkung, menentukan apakah geometri sebuah bentuk tertutup, dan mengonversi antara `GeometryPath` dan `GraphicsPath` untuk skenario penyesuaian geometri tambahan.
+Artikel ini juga mendemonstrasikan cara membuat bentuk khusus dan komposit, membangun bentuk dengan sudut melengkung, menentukan apakah geometri sebuah bentuk tertutup, dan menggunakan konversi warisan antara [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) dan [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) untuk skenario penyesuaian geometri tambahan.
 
-## **Ubah Bentuk dengan Titik Edit**
+## **Ubah Bentuk Menggunakan Titik Edit**
 
-Pertimbangkan sebuah persegi. Di PowerPoint, dengan menggunakan **titik edit**, Anda dapat
+Di PowerPoint, Anda dapat menggunakan **Edit Points** untuk memodifikasi sebuah persegi:
 
-* memindahkan sudut persegi ke dalam atau ke luar
-* menentukan kelengkungan untuk sudut atau titik
-* menambahkan titik baru ke persegi
-* memanipulasi titik pada persegi, dll.
+* Pindahkan sudut ke dalam atau ke luar.
+* Sesuaikan kelengkungan pada sebuah titik.
+* Tambahkan titik baru.
 
-Intinya, Anda dapat melakukan tugas-tugas yang dijelaskan pada bentuk apa pun. Dengan titik edit, Anda dapat mengubah sebuah bentuk atau membuat bentuk baru dari bentuk yang sudah ada.
+Mengedit titik memungkinkan Anda memodifikasi kontur bentuk atau menggunakan bentuk yang ada sebagai dasar untuk bentuk baru.
 
-## **Tip Penyuntingan Bentuk**
+## **Tips Penyuntingan Bentuk**
 
 ![overview_image](custom_shape_0.png)
 
-Sebelum Anda mulai menyunting bentuk PowerPoint melalui titik edit, Anda mungkin ingin mempertimbangkan hal-hal berikut tentang bentuk:
+Saat menyunting bentuk PowerPoint, ingat konsep-konsep berikut:
 
 * Sebuah bentuk (atau jalurnya) dapat berupa tertutup atau terbuka.
-* Semua bentuk terdiri dari setidaknya 2 titik jangkar yang terhubung satu sama lain oleh garis.
-* Sebuah garis dapat lurus atau melengkung. Titik jangkar menentukan sifat garis.
-* Titik jangkar ada sebagai titik sudut, titik lurus, atau titik halus:
-  * Titik sudut adalah titik dimana 2 garis lurus bergabung dengan sudut tertentu.
-  * Titik halus adalah titik dimana 2 pegangan berada pada satu garis lurus dan segmen garis bergabung dalam lengkungan halus. Dalam kasus ini, semua pegangan dipisahkan dari titik jangkar dengan jarak yang sama.
-  * Titik lurus adalah titik dimana 2 pegangan berada pada satu garis lurus dan segmen garis tersebut bergabung dalam lengkungan halus. Dalam kasus ini, pegangan tidak harus dipisahkan dari titik jangkar dengan jarak yang sama.
-* Dengan memindahkan atau menyunting titik jangkar (yang mengubah sudut garis), Anda dapat mengubah tampilan sebuah bentuk.
+* Jalur sebuah bentuk terdiri dari titik jangkar yang dihubungkan oleh segmen.
+* Sebuah segmen dapat lurus atau melengkung. Titik jangkar dan pegangan kontrol menentukan bentuknya.
+* Titik jangkar dapat berupa titik sudut, titik lurus, atau titik halus:
+  * Pada titik sudut, segmen yang bersebelahan dapat bertemu pada sebuah sudut.
+  * Pada titik halus, dua pegangan kontrol sejajar dan berjarak sama dari titik jangkar.
+  * Pada titik lurus, dua pegangan kontrol sejajar tetapi dapat memiliki jarak yang berbeda dari titik jangkar.
+* Memindahkan titik jangkar atau menyesuaikan pegangan mereka mengubah kontur bentuk.
 
-Untuk menyunting bentuk PowerPoint melalui titik edit, **Aspose.Slides** menyediakan kelas [**GeometryPath**](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath) dan antarmuka [**IGeometryPath**](https://reference.aspose.com/slides/id/net/aspose.slides/igeometrypath).
+Untuk menyunting bentuk PowerPoint melalui titik edit, **Aspose.Slides** menyediakan kelas [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) dan antarmuka [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
 
-* Sebuah instance [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath) mewakili jalur geometri dari objek [IGeometryShape](https://reference.aspose.com/slides/id/net/aspose.slides/igeometryshape).
-* Untuk mengambil `GeometryPath` dari instance `IGeometryShape`, Anda dapat menggunakan metode [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/id/net/aspose.slides/igeometryshape/methods/getgeometrypaths).
-* Untuk menetapkan `GeometryPath` pada sebuah bentuk, Anda dapat menggunakan metode berikut: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/igeometryshape/methods/setgeometrypath) untuk *bentuk padat* dan [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/id/net/aspose.slides/igeometryshape/methods/setgeometrypaths) untuk *bentuk komposit*.
-* Untuk menambahkan segmen, Anda dapat menggunakan metode di bawah [IGeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/igeometrypath).
-* Dengan menggunakan properti [IGeometryPath.Stroke](https://reference.aspose.com/slides/id/net/aspose.slides/igeometrypath/properties/stroke) dan [IGeometryPath.FillMode](https://reference.aspose.com/slides/id/net/aspose.slides/igeometrypath/properties/fillmode), Anda dapat mengatur tampilan sebuah jalur geometri.
-* Dengan menggunakan properti [IGeometryPath.PathData](https://reference.aspose.com/slides/id/net/aspose.slides/igeometrypath/properties/pathdata), Anda dapat mengambil jalur geometri dari `GeometryShape` sebagai array segmen jalur.
-* Untuk mengakses opsi penyesuaian geometri bentuk tambahan, Anda dapat mengonversi [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath) ke [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).
-* Gunakan metode [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/id/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) dan [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) (dari kelas [ShapeUtil](https://reference.aspose.com/slides/id/net/aspose.slides.util/shapeutil)) untuk mengonversi [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath) ke [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) bolak-balik.
+* Sebuah instance [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) mewakili jalur geometri dari objek [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
+* Untuk mengambil [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) dari instance [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/), Anda dapat menggunakan metode [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/).
+* Untuk menetapkan [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) pada sebuah bentuk, Anda dapat menggunakan metode berikut: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) untuk bentuk dengan satu jalur dan [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) untuk bentuk dengan beberapa jalur.
+* Untuk menambahkan segmen, Anda dapat menggunakan metode di bawah [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
+* Dengan menggunakan properti [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) dan [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/), Anda dapat mengatur tampilan jalur geometri.
+* Dengan menggunakan properti [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/), Anda dapat mengambil jalur geometri dari sebuah [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) sebagai array segmen jalur.
+* Pada versi warisan yang mendukung metode konversi di bawah, Anda dapat mengonversi [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ke [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
+* Gunakan metode [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) dan [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (dari kelas [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) untuk mengonversi antara [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) dan [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
 
 ## **Operasi Penyuntingan Sederhana**
 
-Kode C# ini menunjukkan cara
+Gunakan metode berikut untuk menyunting jalur geometri. Overload yang menerima indeks menyisipkan segmen pada posisi berbasis nol dalam array segmen jalur.
 
-**Menambahkan garis** ke akhir jalur
+| Operation | Method |
+| --- | --- |
+| Menambahkan atau menyisipkan garis lurus. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
+| Menambahkan atau menyisipkan kurva Bézier kubik dengan dua titik kontrol dan titik akhir. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| Menambahkan atau menyisipkan kurva Bézier kuadratik dengan satu titik kontrol dan titik akhir. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| Menambahkan busur elips dengan dimensi dan sudut yang ditentukan dalam derajat. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| Menutup gambar saat ini dengan menghubungkan titik akhirnya ke titik awal. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| Menetapkan titik mulai sebuah gambar. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| Menghapus segmen pada indeks berbasis nol. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
-``` csharp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Menambahkan garis** ke posisi tertentu pada jalur:
+## **Menambahkan Titik Kustom ke Sebuah Bentuk**
 
-``` csharp    
-void LineTo(PointF point, uint index);
-void LineTo(float x, float y, uint index);
-```
-**Menambahkan kurva Bezier kubik** di akhir jalur:
+Contoh ini menyisipkan dua titik ke dalam bentuk persegi panjang menggunakan [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) dan menerapkan jalur yang diedit dengan [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). Koordinat bersifat lokal terhadap bentuk: kedua titik baru berada di pusatnya, 100 poin dari kiri dan 50 poin dari atas. Indeks segmen 1 dan 4 menempatkannya pada tepi atas dan bawah, menarik tepi tersebut ke dalam.
 
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Menambahkan kurva Bezier kubik** ke posisi tertentu pada jalur:
+```csharp
+using Aspose.Slides;
 
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
-```
-**Menambahkan kurva Bezier kuadratik** di akhir jalur:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Menambahkan kurva Bezier kuadratik** ke posisi tertentu pada jalur:
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2, uint index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
-```
-**Menambahkan busur tertentu** ke jalur:
+var geometryPath = shape.GetGeometryPaths()[0];
+geometryPath.LineTo(100, 50, 1);
+geometryPath.LineTo(100, 50, 4);
 
-``` csharp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Menutup gambar saat ini** pada jalur:
-
-``` csharp
-void CloseFigure();
-```
-**Menetapkan posisi untuk titik berikutnya**:
-
-``` csharp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Menghapus segmen jalur** pada indeks tertentu:
-
-``` csharp
-void RemoveAt(int index);
-```
-
-## **Menambahkan Titik Kustom ke Bentuk**
-
-1. Buat sebuah instance dari kelas [GeometryShape](https://reference.aspose.com/slides/id/net/aspose.slides/geometryshape) dan atur tipe [ShapeType.Rectangle](https://reference.aspose.com/slides/id/net/aspose.slides/shapetype).
-2. Dapatkan sebuah instance dari kelas [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath) dari bentuk tersebut.
-3. Tambahkan titik baru di antara dua titik atas pada jalur.
-4. Tambahkan titik baru di antara dua titik bawah pada jalur.
-5. Terapkan jalur ke bentuk.
-
-Kode C# ini menunjukkan cara menambahkan titik kustom ke sebuah bentuk:
-
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
-    IGeometryPath geometryPath = shape.GetGeometryPaths()[0];
-
-    geometryPath.LineTo(100, 50, 1);
-    geometryPath.LineTo(100, 50, 4);
-    shape.SetGeometryPath(geometryPath);
-}
+shape.SetGeometryPath(geometryPath);
 ```
 
 ![example1_image](custom_shape_1.png)
 
-## **Menghapus Titik dari Bentuk**
+## **Menghapus Titik dari Sebuah Bentuk**
 
-1. Buat sebuah instance dari kelas [GeometryShape](https://reference.aspose.com/slides/id/net/aspose.slides/geometryshape) dan atur tipe [ShapeType.Heart](https://reference.aspose.com/slides/id/net/aspose.slides/shapetype).
-2. Dapatkan sebuah instance dari kelas [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath) dari bentuk tersebut.
-3. Hapus segmen untuk jalur.
-4. Terapkan jalur ke bentuk.
+Contoh ini mengubah kontur berbentuk hati dengan menghapus segmen pada indeks berbasis nol 2 menggunakan [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Menerapkan jalur yang dimodifikasi dengan [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) memperbarui kontur bentuk.
 
-Kode C# ini menunjukkan cara menghapus titik dari sebuah bentuk:
+```csharp
+using Aspose.Slides;
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-	GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-	IGeometryPath path = shape.GetGeometryPaths()[0];
-	path.RemoveAt(2);
-	shape.SetGeometryPath(path);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+
+var path = shape.GetGeometryPaths()[0];
+path.RemoveAt(2);
+
+shape.SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
 ## **Membuat Bentuk Kustom**
 
-1. Hitung titik-titik untuk bentuk tersebut.
-2. Buat sebuah instance dari kelas [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath).
-3. Isi jalur dengan titik-titik tersebut.
-4. Buat sebuah instance dari kelas [GeometryShape](https://reference.aspose.com/slides/id/net/aspose.slides/geometryshape).
-5. Terapkan jalur ke bentuk.
+Contoh ini membangun bintang lima sudut dengan [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Radius luar dan dalam yang bergantian sebesar 100 dan 50 poin menentukan ujung dan cekungan; langkah 72 derajat menempatkan lima ujung secara merata. Jalur ditutup dengan [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) dan diterapkan ke bentuk persegi panjang menggunakan [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), menggantikan konturnya.
 
-Kode C# ini menunjukkan cara membuat bentuk kustom:
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Aspose.Slides;
 
-``` csharp
-List<PointF> points = new List<PointF>();
+var points = new List<PointF>();
 
-float R = 100, r = 50;
-int step = 72;
+var outerRadius = 100f;
+var innerRadius = 50f;
+var angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (var angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math.PI / 180f);
-    double x = R * Math.Cos(radians);
-    double y = R * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    var radians = angle * (Math.PI / 180f);
+    var x = outerRadius * Math.Cos(radians);
+    var y = outerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.Cos(radians);
-    y = r * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.Cos(radians);
+    y = innerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-GeometryPath starPath = new GeometryPath();
+var starPath = new GeometryPath();
 starPath.MoveTo(points[0]);
 
-for (int i = 1; i < points.Count; i++)
+for (var i = 1; i < points.Count; i++)
 {
     starPath.LineTo(points[i]);
 }
 
 starPath.CloseFigure();
 
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    shape.SetGeometryPath(starPath);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
+shape.SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
-## **Membuat Bentuk Gabungan Kustom**
+## **Membuat Bentuk Kustom Komposit**
 
-1. Buat sebuah instance dari kelas [GeometryShape](https://reference.aspose.com/slides/id/net/aspose.slides/geometryshape).
-2. Buat instance pertama dari kelas [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath).
-3. Buat instance kedua dari kelas [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath).
-4. Terapkan jalur-jalur ke bentuk.
+Contoh ini mendefinisikan dua objek [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) tertutup untuk sepertiga atas dan bawah sebuah bentuk. Menerapkan kedua jalur dengan [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) menghasilkan satu bentuk komposit dengan celah pada sepertiga tengahnya.
 
-Kode C# ini menunjukkan cara membuat bentuk gabungan kustom:
+```csharp
+using Aspose.Slides;
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.MoveTo(0, 0);
-    geometryPath0.LineTo(shape.Width, 0);
-    geometryPath0.LineTo(shape.Width, shape.Height/3);
-    geometryPath0.LineTo(0, shape.Height / 3);
-    geometryPath0.CloseFigure();
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.MoveTo(0, shape.Height/3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height / 3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height);
-    geometryPath1.LineTo(0, shape.Height);
-    geometryPath1.CloseFigure();
+var topPath = new GeometryPath();
+topPath.MoveTo(0, 0);
+topPath.LineTo(shape.Width, 0);
+topPath.LineTo(shape.Width, shape.Height / 3);
+topPath.LineTo(0, shape.Height / 3);
+topPath.CloseFigure();
 
-    shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-}
+var bottomPath = new GeometryPath();
+bottomPath.MoveTo(shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height);
+bottomPath.LineTo(0, shape.Height);
+bottomPath.CloseFigure();
+
+shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
 ![example4_image](custom_shape_4.png)
 
 ## **Membuat Bentuk Kustom dengan Sudut Melengkung**
 
-Kode C# ini menunjukkan cara membuat bentuk kustom dengan sudut melengkung (ke dalam);
+Contoh ini menggabungkan segmen lurus dengan [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) untuk membuat bentuk dengan sudut melengkung ke dalam. Setiap ukuran sudut menentukan lebar dan tinggi busur dalam poin, dan sapuan -90 derajat menggambar seperempat elips berlawanan arah jarum jam. Jalur yang selesai diterapkan dengan [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), dan presentasi disimpan dalam format PPTX.
 
-```c#
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var shapeX = 20f;
 var shapeY = 20f;
 var shapeWidth = 300f;
@@ -270,102 +216,179 @@ var rightTopSize = 20f;
 var rightBottomSize = 40f;
 var leftBottomSize = 10f;
 
-using (var presentation = new Presentation())
-{
-    var childShape = presentation.Slides[0].Shapes.AddAutoShape(
-        ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    var geometryPath = new GeometryPath();
+var topLeft = new PointF(leftTopSize, 0);
+var topRight = new PointF(shapeWidth - rightTopSize, 0);
+var rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+var bottomLeft = new PointF(leftBottomSize, shapeHeight);
+var leftTop = new PointF(0, leftTopSize);
 
-    var point1 = new PointF(leftTopSize, 0);
-    var point2 = new PointF(shapeWidth - rightTopSize, 0);
-    var point3 = new PointF(shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = new PointF(leftBottomSize, shapeHeight);
-    var point5 = new PointF(0, leftTopSize);
+var geometryPath = new GeometryPath();
+geometryPath.MoveTo(topLeft);
+geometryPath.LineTo(topRight);
+geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
+geometryPath.LineTo(rightBottom);
+geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
+geometryPath.LineTo(bottomLeft);
+geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
+geometryPath.LineTo(leftTop);
+geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+geometryPath.CloseFigure();
 
-    geometryPath.MoveTo(point1);
-    geometryPath.LineTo(point2);
-    geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.LineTo(point3);
-    geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.LineTo(point4);
-    geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.LineTo(point5);
-    geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+shape.SetGeometryPath(geometryPath);
 
-    geometryPath.CloseFigure();
-
-    childShape.SetGeometryPath(geometryPath);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **Menentukan Apakah Geometri Bentuk Tertutup**
+## **Menemukan Apakah Geometri Bentuk Tertutup**
 
-Suatu bentuk tertutup didefinisikan sebagai bentuk di mana semua sisinya terhubung, membentuk satu batas tanpa celah. Bentuk semacam itu dapat berupa bentuk geometris sederhana atau kontur kustom yang kompleks. Contoh kode berikut menunjukkan cara memeriksa apakah geometri sebuah bentuk tertutup:
+Pembantu berikut memeriksa apakah setiap jalur geometri yang tidak kosong berakhir dengan segmen penutup. Ia membaca [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) dan membandingkan perintah segmen akhir [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) dengan [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Ia mengembalikan false ketika tidak ada jalur yang tidak kosong. Pemeriksaan ini melihat perintah akhir tiap jalur; tidak memeriksa setiap subgambar di dalam jalur. Contoh mencetak `True` untuk persegi panjang.
 
-```cs
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+Console.WriteLine(IsGeometryClosed(shape));
+
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
-    bool? isClosed = null;
+    var hasNonemptyPath = false;
 
     foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
-        var dataLength = geometryPath.PathData.Length;
-        if (dataLength == 0)
+        var segments = geometryPath.PathData;
+        if (segments.Length == 0)
+        {
             continue;
+        }
 
-        var lastSegment = geometryPath.PathData[dataLength - 1];
-        isClosed = lastSegment.PathCommand == PathCommandType.Close;
-
-        if (isClosed == false)
+        hasNonemptyPath = true;
+        var lastSegment = segments[segments.Length - 1];
+        if (lastSegment.PathCommand != PathCommandType.Close)
+        {
             return false;
+        }
     }
-    
-    return isClosed == true;
+
+    return hasNonemptyPath;
 }
 ```
 
+## **Mengekstrak dan Memeriksa Elemen Bentuk**
+
+Gunakan [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) untuk memeriksa bentuk yang ada sebagai elemen yang berisi titik jalur dan tipe titik. Cast setiap [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) yang dikembalikan ke [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) untuk membaca array [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) dan [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/)nya. Representasi ini berguna untuk analisis kontur atau meneruskan geometri ke alat gambar kustom.
+
+Contoh membuka sebuah presentasi, menemukan bentuk geometri pertama langsung pada slide pertama, dan mencetak segmen jalurnya. Gunakan presentasi yang berisi bentuk dengan segmen lurus dan melengkung untuk melihat kedua jenis output. Ia tidak mencari di dalam grup.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.OfType<IGeometryShape>().FirstOrDefault();
+if (shape == null)
+{
+    Console.WriteLine("No geometry shape found on the first slide.");
+    return;
+}
+
+foreach (IShapeElement element in shape.CreateShapeElements())
+{
+    var shapeElement = (ShapeElement)element;
+    var points = shapeElement.PathPoints;
+    var types = shapeElement.PathTypes;
+    Console.WriteLine("Shape element:");
+
+    for (var i = 0; i < points.Length; i++)
+    {
+        var pointType = types[i] & 0x07; // Pertahankan tipe segmen, kecuali flag.
+        switch (pointType)
+        {
+            case 0:
+                Console.WriteLine($"Start figure at {points[i]}");
+                break;
+            case 1:
+                Console.WriteLine($"Line to {points[i]}");
+                break;
+            case 3:
+                Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
+                i += 2; // Konsumsi kedua titik kontrol dan titik akhir.
+                break;
+        }
+
+        if ((types[i] & 0x80) != 0)
+        {
+            Console.WriteLine("Close subpath back to its starting point.");
+        }
+    }
+}
+```
+
+Array tersebut berkorespondensi berdasarkan indeks: `points[i]` adalah sebuah titik dan `types[i]` menjelaskan perannya. Tipe `0` memulai sebuah gambar, dan tipe `1` menggambar garis dari titik sebelumnya ke titik saat ini. Segmen Bézier kubik dimulai pada titik akhir sebelumnya dan menggunakan tiga entri tipe-`3` berurutan: dua titik kontrol diikuti oleh titik akhir baru. Loop mengonsumsi ketiga entri tersebut bersama-sama dan memeriksa titik akhir untuk penutupan.
+
+Tipe titik juga mengandung flag. Lakukan mask dengan `0x07` untuk mengidentifikasi tipe segmen, dan uji `0x80` secara terpisah untuk mendeteksi subpath tertutup. Misalnya, `129` (`0x81`) berarti titik akhir garis yang menutup subpath, dan `131` (`0x83`) berarti titik akhir Bézier yang menutup satu. Membandingkan nilai mentah hanya dengan `1` atau `3` akan melewatkan kasus ini. Flag lain, seperti dash (`0x10`) dan marker (`0x20`), tidak mengubah tipe segmen dasar.
+
+**Koordinat dan transformasi.**  
+Titik diukur dalam poin (1/72 inci), dengan X bertambah ke kanan dan Y bertambah ke bawah. Untuk bentuk yang tidak dikelompokkan, koordinat yang diekstrak sudah mencakup posisi [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) dan [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/)nya serta mencerminkan lebar dan tinggi saat ini. Misalnya, persegi panjang yang tidak diputar pada `(100, 200)` dengan ukuran `120 × 80` memiliki batas kontur `(100, 200)`–`(220, 280)`. Jangan menambahkan posisi bentuk lagi. Kurangi X dan Y-nya untuk memperoleh koordinat relatif terhadap kerangka yang tidak diputar.
+
+Titik yang diekstrak tidak menerapkan [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) bentuk atau flip horizontal dan vertikal. Untuk mereproduksi kontur yang ditampilkan, terapkan transformasi tersebut di sekitar pusat bentuk. Untuk bentuk yang dikelompokkan, perhitungkan juga pemetaan koordinat grup dan transformasinya; jangan berasumsi bahwa titik yang diekstrak adalah koordinat slide akhir yang dirender atau menerapkan translasi atau skala dua kali jika sudah tercermin dalam kerangka anak.
+
+**Pemeriksaan vs penyuntingan.**  
+Array yang diekstrak menggambarkan kontur; mengubahnya tidak memperbarui bentuk asli. Pilih pendekatan ini ketika analisis atau kode gambar Anda memerlukan array titik/tipe. Gunakan [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) ketika Anda memerlukan perintah geometri dalam sistem koordinat lokal bentuk atau ingin menyunting geometriannya. Terapkan jalur yang disunting melalui [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) atau [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
+
 ## **Mengonversi GeometryPath ke GraphicsPath (System.Drawing.Drawing2D)**
 
-1. Buat sebuah instance dari kelas [GeometryShape](https://reference.aspose.com/slides/id/net/aspose.slides/geometryshape).
-2. Buat sebuah instance dari kelas [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) pada namespace [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).
-3. Konversi instance [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) ke instance [GeometryPath](https://reference.aspose.com/slides/id/net/aspose.slides/geometrypath) menggunakan [ShapeUtil](https://reference.aspose.com/slides/id/net/aspose.slides.util/shapeutil).
-4. Terapkan jalur ke bentuk.
+Contoh berikut memerlukan assembly Aspose.Slides for .NET versi warisan yang mendukung [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), seperti versi 25.10, dan lingkungan Windows dengan `System.Drawing.Common`. Metode konversi dihapus dalam [version 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
 
-Kode C# ini—implementasi dari langkah-langkah di atas—menunjukkan proses konversi **GeometryPath** ke **GraphicsPath**:
+Contoh ini menggabungkan kontur persegi panjang dengan teks yang dikonversi menjadi geometri. [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) kontur diatur untuk menonaktifkan isinya. Sebuah [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) menyimpan kontur teks, yang dikonversi oleh [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) menjadi jalur geometri berisi. Menerapkan kedua jalur dengan [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) menghasilkan satu bentuk yang berisi persegi panjang dan teks. Untuk konversi ke arah sebaliknya, gunakan [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100) as GeometryShape;
+```csharp
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using Aspose.Slides;
+using Aspose.Slides.Util;
 
-    IGeometryPath originalPath = shape.GetGeometryPaths()[0];
-    originalPath.FillMode = PathFillModeType.None;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    GraphicsPath gPath = new GraphicsPath();
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
-    gPath.AddString("Text in shape", new FontFamily("Arial"), 1, 40, new PointF(10, 10), StringFormat.GenericDefault);
+var originalPath = shape.GetGeometryPaths()[0];
+originalPath.FillMode = PathFillModeType.None;
 
-    IGeometryPath textPath = ShapeUtil.GraphicsPathToGeometryPath(gPath);
-    textPath.FillMode = PathFillModeType.Normal;
+using var graphicsPath = new GraphicsPath();
+using var fontFamily = new FontFamily("Arial");
+using var stringFormat = StringFormat.GenericDefault;
 
-    shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
-}
+graphicsPath.AddString("Text in shape", fontFamily, (int)FontStyle.Bold, 40, new PointF(10, 10), stringFormat);
+
+var textPath = ShapeUtil.GraphicsPathToGeometryPath(graphicsPath);
+textPath.FillMode = PathFillModeType.Normal;
+
+shape.SetGeometryPaths(new[] { originalPath, textPath });
 ```
 ![example5_image](custom_shape_5.png)
 
 ## **FAQ**
 
-**Apa yang terjadi pada isi dan kontur setelah mengganti geometri?**
+**Apa yang akan terjadi pada isi dan kontur setelah mengganti geometri?**
 
-Gaya tetap pada bentuk; hanya kontur yang berubah. Isi dan kontur secara otomatis diterapkan pada geometri baru.
+Gaya tetap berada pada bentuk; hanya kontur yang berubah. Isi dan kontur secara otomatis diterapkan pada geometri baru.
 
-**Bagaimana cara memutar bentuk kustom beserta geometrinya dengan benar?**
+**Bagaimana cara memutar bentuk kustom secara benar bersama geometrianya?**
 
-Gunakan properti [rotation](https://reference.aspose.com/slides/id/net/aspose.slides/shape/rotation/) pada bentuk; geometri berputar bersama bentuk karena terikat pada sistem koordinat bentuk tersebut.
+Gunakan properti [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) bentuk; geometri berputar bersama bentuk karena terikat pada sistem koordinat bentuk itu sendiri.
 
-**Apakah saya dapat mengonversi bentuk kustom ke gambar untuk “mengunci” hasilnya?**
+**Bisakah saya mengonversi bentuk kustom menjadi gambar untuk "mengunci" hasilnya?**
 
 Ya. Ekspor area [slide](/slides/id/net/convert-powerpoint-to-png/) yang diperlukan atau [bentuk](/slides/id/net/create-shape-thumbnails/) itu sendiri ke format raster; ini menyederhanakan pekerjaan selanjutnya dengan geometri yang kompleks.

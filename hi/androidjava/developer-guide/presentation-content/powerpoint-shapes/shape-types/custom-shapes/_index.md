@@ -1,212 +1,160 @@
 ---
-title: Android पर प्रस्तुति आकृतियों को अनुकूलित करें
-linktitle: कस्टम आकृति
+title: Android पर प्रस्तुति आकारों को अनुकूलित करें
+linktitle: कस्टम आकार
 type: docs
 weight: 20
 url: /hi/androidjava/custom-shape/
-keywords: 
-- कस्टम आकृति
-- आकृति जोड़ें
-- आकृति बनाएँ
-- आकृति बदलें
-- आकृति ज्यामिति
-- ज्यामिति पथ
-- पथ बिंदु
-- संपादन बिंदु
+keywords:
+- कस्टम आकार
+- आकार जोड़ें
+- आकार बनाएँ
+- आकार बदलें
+- आकार ज्यामिति
+- ज्यामिति पाथ
+- पाथ पॉइंट्स
+- एडिट पॉइंट्स
 - बिंदु जोड़ें
 - बिंदु हटाएँ
-- संपादन कार्य
+- संपादन संचालन
 - वक्र कोना
 - PowerPoint
 - प्रस्तुति
 - Android
 - Java
 - Aspose.Slides
-description: "Java के माध्यम से Android के लिए Aspose.Slides के साथ PowerPoint प्रस्तुतियों में आकृतियों को बनाएं और अनुकूलित करें: ज्यामिति पथ, वक्र कोने, संयुक्त आकृतियां।"
+description: "Java के माध्यम से Android के लिए Aspose.Slides के साथ PowerPoint प्रस्तुतियों में आकार बनाएं और अनुकूलित करें: ज्यामिति पाथ, वक्र कोने, संयुक्त आकार।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides में प्रस्तुति आकृतियों को संपादन बिंदुओं और ज्यामिति पाथ के माध्यम से आकृति ज्यामिति को संपादित करके अनुकूलित करने का तरीका समझाता है। यह दिखाता है कि `GeometryPath` और `IGeometryPath` के साथ काम करके मौजूदा आकृतियों को संशोधित कैसे किया जाए, बुनियादी पाथ संपादन संचालन कैसे किए जाएँ, बिंदुओं को जोड़ें या हटाएँ, और अद्यतन ज्यामिति को वापस आकृति पर लागू करें।
+यह लेख Aspose.Slides में प्रस्तुति आकारों को अनुकूलित करने के लिए आकार ज्यामिति को संपादन बिंदुओं और ज्यामिति पाथ के माध्यम से संपादन करके समझाता है। यह दिखाता है कि कैसे [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) और [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) के साथ काम करके मौजूदा आकारों को संशोधित किया जाए, मूल पाथ संपादन संचालन किए जाएँ, बिंदु जोड़े या हटाए जाएँ, और अद्यतन ज्यामिति को फिर से आकार पर लागू किया जाए।  
 
-यह यह भी प्रदर्शित करता है कि कैसे कस्टम और संयुक्त आकृतियाँ बनाई जाएँ, वक्र कोनों वाली आकृतियाँ निर्मित की जाएँ, यह निर्धारित किया जाए कि कोई आकृति ज्यामिति बंद है या नहीं, और अतिरिक्त ज्यामिति अनुकूलन परिदृश्यों के लिये `GeometryPath` और `java.awt.Shape` के बीच रूपांतरण किया जाए।
+यह भी दर्शाता है कि कैसे कस्टम और संयुक्त आकार बनाएँ, कर्व्ड कोर्नर वाले आकार बनाएँ, यह निर्धारित करें कि आकार ज्यामिति बंद है या नहीं, और Android पॉइंट ऐरे का उपयोग करके आकार तत्वों का निरीक्षण करें।
 
-## **एडिट पॉइंट्स का उपयोग करके आकृति बदलना**
+## **संपादन बिंदुओं का उपयोग करके आकार बदलें**
 
-एक वर्ग (square) की कल्पना करें। PowerPoint में, **edit points** का उपयोग करके आप
+PowerPoint में, आप **Edit Points** का उपयोग करके एक वर्ग को संशोधित कर सकते हैं:
 
-* वर्ग के कोने को अंदर या बाहर ले जा सकते हैं
-* किसी कोने या बिंदु की वक्रता निर्धारित कर सकते हैं
-* वर्ग में नए बिंदु जोड़ सकते हैं
-* वर्ग पर बिंदुओं को हेरफेर कर सकते हैं, आदि।
+* कोने को अंदर या बाहर ले जाएँ।
+* बिंदु पर वक्रता समायोजित करें।
+* नए बिंदु जोड़ें।
 
-अंततः, आप किसी भी आकृति पर वर्णित कार्य कर सकते हैं। edit points का उपयोग करके आप एक आकृति को बदल सकते हैं या मौजूदा आकृति से नई आकृति बना सकते हैं।
+बिंदुओं को संपादित करने से आप आकार की रूपरेखा को बदल सकते हैं या एक मौजूदा आकार को नई आकार की आधारशिला के रूप में उपयोग कर सकते हैं।
 
-## **आकृति संपादन सुझाव**
+## **आकार संपादन टिप्स**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint आकृतियों को edit points के माध्यम से संपादित करना शुरू करने से पहले, आप इन बिंदुओं पर विचार करना चाहेंगे:
+PowerPoint आकारों को संपादित करते समय, इन अवधारणाओं को याद रखें:
 
-* एक आकृति (या उसका पाथ) बंद या खुला हो सकता है।
-* जब एक आकृति बंद होती है, तो उसमें प्रारम्भ या समाप्ति बिंदु नहीं होता। जब आकृति खुली होती है, तो उसके पास शुरुआत और अंत होता है।
-* सभी आकृतियों में कम से कम 2 एंकर पॉइंट होते हैं जो एक-दूसरे से रेखाओं द्वारा जुड़े होते हैं।
-* एक रेखा या तो सीधी या वक्र होती है। एंकर पॉइंट रेखा की प्रकृति निर्धारित करते हैं।
-* एंकर पॉइंट कोने के बिंदु, सीधी बिंदु, या स्मूथ बिंदु के रूप में होते हैं:
-  * कोना बिंदु वह बिंदु है जहाँ दो सीधी रेखाएँ कोण पर जुड़ती हैं।
-  * स्मूथ बिंदु वह बिंदु है जहाँ दो हैंडल एक सीधी रेखा में मौजूद होते हैं और रेखा के खंड स्मूथ वक्र में जुड़ते हैं। इस स्थिति में, सभी हैंडल एंकर पॉइंट से समान दूरी पर होते हैं।
-  * सीधा बिंदु वह बिंदु है जहाँ दो हैंडल एक सीधी रेखा में मौजूद होते हैं और उस रेखा के खंड स्मूथ वक्र में जुड़ते हैं। इस स्थिति में, हैंडल को एंकर पॉइंट से समान दूरी पर होने की आवश्यकता नहीं होती।
-* एंकर पॉइंट को ले जाकर या संपादित करके (जिससे रेखाओं का कोण बदलता है), आप आकृति के रूप को बदल सकते हैं।
+* कोई आकार (या उसका पाथ) बंद या खुला हो सकता है।
+* आकार के पाथ में एंकर पॉइंट्स होते हैं जो सेगमेंट्स द्वारा जुड़े होते हैं।
+* एक सेगमेंट सीधा या वक्र हो सकता है। एंकर पॉइंट्स और कंट्रोल हैंडल्स इसकी आकृति निर्धारित करते हैं।
+* एंकर पॉइंट्स कोने के बिंदु, सीधे बिंदु, या स्मूद बिंदु के रूप में होते हैं:
+  * कोने के बिंदु पर, जुड़े सेगमेंट्स एक कोण पर मिल सकते हैं।
+  * स्मूद बिंदु पर, दो कंट्रोल हैंडल्स संरेखित होते हैं और एंकर पॉइंट से समान दूरी पर होते हैं।
+  * सीधे बिंदु पर, दो कंट्रोल हैंडल्स संरेखित होते हैं लेकिन एंकर पॉइंट से अलग-अलग दूरी पर हो सकते हैं।
+* एंकर पॉइंट्स को ले जाना या उनके हैंडल्स को समायोजित करना आकार की रूपरेखा को बदलता है।
 
-PowerPoint आकृतियों को edit points के माध्यम से संपादित करने के लिए, **Aspose.Slides** [**GeometryPath**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) क्लास और [**IGeometryPath**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IGeometryPath) इंटरफ़ेस प्रदान करता है।
+PowerPoint आकारों को संपादन बिंदुओं के माध्यम से संपादित करने के लिए, **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) क्लास और [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) इंटरफ़ेस प्रदान करता है।
 
-* एक [GeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) इंस्टेंस [IGeometryShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IGeometryShape) ऑब्जेक्ट का ज्यामिति पाथ दर्शाता है।
-* `IGeometryShape` इंस्टेंस से `GeometryPath` प्राप्त करने के लिए, आप [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--) मेथड का उपयोग कर सकते हैं।
-* एक आकृति के लिए `GeometryPath` सेट करने हेतु, आप इन मेथड का उपयोग कर सकते हैं: *solid shapes* के लिये [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) और *composite shapes* के लिये [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-)।
-* सेगमेंट जोड़ने के लिए, आप [IGeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IGeometryPath) के अंतर्गत मेथड का उपयोग कर सकते हैं।
-* [IGeometryPath.setStroke](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) और [IGeometryPath.setFillMode](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) मेथड का उपयोग करके, आप एक ज्यामिति पाथ की उपस्थिति सेट कर सकते हैं।
-* [IGeometryPath.getPathData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IGeometryPath#getPathData--) मेथड का उपयोग करके, आप `GeometryShape` का ज्यामिति पाथ पाथ सेगमेंट की एरे के रूप में प्राप्त कर सकते हैं।
-* अतिरिक्त आकृति ज्यामिति अनुकूलन विकल्पों तक पहुँचने के लिये, आप [GeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) को [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) में परिवर्तित कर सकते हैं।
-* [geometryPathToGraphicsPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) और [graphicsPathToGeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) मेथड (जो [ShapeUtil](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ShapeUtil) क्लास से हैं) का उपयोग करके, आप [GeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) को [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) में और वापस रूपांतरण कर सकते हैं।
+* एक [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) इंस्टेंस [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) ऑब्जेक्ट की ज्यामिति पाथ का प्रतिनिधित्व करता है।
+* [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) मेथड का उपयोग करके आप [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) इंस्टेंस से [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) प्राप्त कर सकते हैं।
+* किसी आकार के लिए [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) सेट करने हेतु आप ये मेथड उपयोग कर सकते हैं: एकल पाथ वाले आकारों के लिए [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) और बहु‑पाथ वाले आकारों के लिए [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---)।
+* सेगमेंट जोड़ने हेतु आप [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) के अंतर्गत उपलब्ध मेथड का उपयोग कर सकते हैं।
+* [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) और [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-) मेथड्स का उपयोग करके आप ज्यामिति पाथ की उपस्थिति सेट कर सकते हैं।
+* [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) मेथड का उपयोग करके आप एक [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) की ज्यामिति पाथ को पाथ सेगमेंट्स की एरे के रूप में प्राप्त कर सकते हैं।
 
 ## **सरल संपादन संचालन**
 
-यह Java कोड आपको दिखाता है कैसे
+ज्यामिति पाथ को संपादित करने के लिए नीचे दिए गए मेथड्स का उपयोग करें। इंडेक्स स्वीकार करने वाले ओवरलोड पाथ के सेगमेंट एरे में उस शून्य‑आधारित स्थिति पर एक सेगमेंट डालते हैं।
 
-**एक रेखा जोड़ें** पाथ के अंत में
+| ऑपरेशन | विधि |
+| --- | --- |
+| सीधी रेखा जोड़ें या सम्मिलित करें। | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| दो नियंत्रण बिंदुओं और अंत बिंदु के साथ क्यूबिक Bézier कर्व जोड़ें या सम्मिलित करें। | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| एक नियंत्रण बिंदु और अंत बिंदु के साथ क्वाड्रैटिक Bézier कर्व जोड़ें या सम्मिलित करें। | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| निर्दिष्ट आयामों और डिग्री में कोणों के साथ दीर्घवृत्तीय आर्क जोड़ें। | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| वर्तमान आकृति को उसके अंत बिंदु को प्रारंभ बिंदु से जोड़कर बंद करें। | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| आकृति के प्रारम्भ बिंदु को सेट करें। | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| शून्य‑आधारित इंडेक्स पर एक सेगमेंट हटाएँ। | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**एक रेखा जोड़ें** एक निर्दिष्ट स्थान पर पाथ में:
+## **आकार में कस्टम बिंदु जोड़ें**
 
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**एक क्यूबिक बीज़ियर कर्व जोड़ें** पाथ के अंत में:
+यह उदाहरण दो बिंदु एक आयताकार आकार में [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) का उपयोग करके डालता है और संपादित पाथ को [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) द्वारा लागू करता है। निर्देशांक आकार के स्थानीय हैं: दोनों नए बिंदु उसके केन्द्र में, बाएँ से 100 पॉइंट और ऊपर से 50 पॉइंट पर स्थित हैं। सेगमेंट इंडेक्स 1 और 4 उन्हें क्रमशः शीर्ष और नीचे के किनारों पर रखते हैं, जिससे उन किनारों को अंदर की ओर खींचा जाता है।
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**एक क्यूबिक बीज़ियर कर्व जोड़ें** पाथ में निर्दिष्ट स्थान पर:
+```java
+import com.aspose.slides.*;
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**एक द्विघात बीज़ियर कर्व जोड़ें** पाथ के अंत में:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**एक द्विघात बीज़ियर कर्व जोड़ें** पाथ में निर्दिष्ट स्थान पर:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**एक दिया गया आर्क जोड़ें** पाथ में:
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**पाथ की वर्तमान आकृति बंद करें**:
-
-``` java
-public void closeFigure();
-```
-**अगले बिंदु के लिये स्थिति सेट करें**:
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**दिए गये इंडेक्स पर पाथ सेगमेंट हटाएँ**:
-
-``` java
-public void removeAt(int index);
-```
-
-## **आकृति में कस्टम बिंदु जोड़ें**
-
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryShape) क्लास की इंस्टेंस बनाएँ और [ShapeType.Rectangle](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ShapeType) प्रकार सेट करें।
-2. आकृति से [GeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) क्लास की एक इंस्टेंस प्राप्त करें।
-3. पाथ पर दो शीर्ष बिंदुओं के बीच एक नया बिंदु जोड़ें।
-4. पाथ पर दो निचले बिंदुओं के बीच एक नया बिंदु जोड़ें।
-5. पाथ को आकृति पर लागू करें।
-
-यह Java कोड आपको दिखाता है कि कैसे आकृति में कस्टम बिंदु जोड़ें:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## **आकृति से बिंदु हटाएँ**
+## **आकार से बिंदु हटाएँ**
 
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryShape) क्लास की इंस्टेंस बनाएँ और [ShapeType.Heart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ShapeType) प्रकार सेट करें।
-2. आकृति से [GeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) क्लास की एक इंस्टेंस प्राप्त करें।
-3. पाथ के लिए सेगमेंट हटाएँ।
-4. पाथ को आकृति पर लागू करें।
+यह उदाहरण एक दिल‑आकार की रूपरेखा को शून्य‑आधारित इंडेक्स 2 पर सेगमेंट हटाकर [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) से बदलता है। संशोधित पाथ को [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) द्वारा लागू करने से आकार की रूपरेखा अपडेट हो जाती है।
 
-यह Java कोड आपको दिखाता है कि कैसे आकृति से बिंदु हटाएँ:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example2_image](custom_shape_2.png)
 
-## **कस्टम आकृति बनाएं**
+## **कस्टम आकार बनाएं**
 
-1. आकृति के बिंदुओं की गणना करें।
-2. एक [GeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) क्लास की इंस्टेंस बनाएँ।
-3. पाथ को बिंदुओं से भरें।
-4. एक [GeometryShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryShape) क्लास की इंस्टेंस बनाएँ।
-5. पाथ को आकृति पर लागू करें।
+यह उदाहरण [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) का उपयोग करके पाँच‑कोणीय तारा बनाता है। बाहरी और आंतरिक त्रिज्या क्रमशः 100 और 50 पॉइंट के वैकल्पिक मान शीर्ष बिंदु और अंतरों को निर्धारित करते हैं; 72‑डिग्री कदम पाँचों टिप्स को समान रूप से अंतर देता है। पाथ को [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) द्वारा बंद किया जाता है और आयताकार आकार पर [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) द्वारा लागू किया जाता है, जिससे उसकी रूपरेखा बदल दी जाती है।
 
-यह Java दिखाता है कि कैसे कस्टम आकृति बनाएं:
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<PointF> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    PointF point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -219,60 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
-
 ```
 ![example3_image](custom_shape_3.png)
 
-## **संयुक्त कस्टम आकृति बनाएं**
+## **संयुक्त कस्टम आकार बनाएं**
 
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryShape) क्लास की इंस्टेंस बनाएँ।
-2. [GeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) क्लास की पहली इंस्टेंस बनाएँ।
-3. [GeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) क्लास की दूसरी इंस्टेंस बनाएँ.
-4. पाथ को आकृति पर लागू करें।
+यह उदाहरण आकार के ऊपर और नीचे के तिहाई भाग के लिए दो बंद [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) वस्तुएँ परिभाषित करता है। दोनों पाथ को साथ में [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) द्वारा लागू करने से मध्य तिहाई में एक अंतराल के साथ एकल संयुक्त आकार बनता है।
 
-यह Java कोड आपको संयुक्त कस्टम आकृति बनाने के लिये दिखाता है:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example4_image](custom_shape_4.png)
 
-## **वक्र कोनों वाली कस्टम आकृति बनाएं**
+## **कर्व्ड कॉर्नर वाले कस्टम आकार बनाएं**
 
-यह Java कोड आपको दिखाता है कैसे वक्र कोनों (भीतर की ओर) वाली कस्टम आकृति बनाएं;
+यह उदाहरण सीधी सेगमेंट को [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) के साथ मिलाकर अंदर की ओर कर्व्ड कॉर्नर वाला आकार बनाता है। प्रत्येक कॉर्नर आकार आर्क की चौड़ाई और ऊँचाई को पॉइंट्स में सेट करता है, और -90‑डिग्री स्वीप एक विपरीत‑घड़ी दिशा के चौथाई दीर्घवृत्त को बनाता है। पूर्ण पाथ को [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) द्वारा लागू किया जाता है, और प्रस्तुति PPTX फ़ॉर्मेट में सहेजी जाती है।
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -283,122 +231,157 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    PointF topLeft = new PointF(leftTopSize, 0);
+    PointF topRight = new PointF(shapeWidth - rightTopSize, 0);
+    PointF rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+    PointF bottomLeft = new PointF(leftBottomSize, shapeHeight);
+    PointF leftTop = new PointF(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **पता लगाएँ कि क्या आकृति ज्यामिति बंद है**
+## **जाँचें कि क्या आकार ज्यामिति बंद है**
 
-एक बंद आकृति को इस प्रकार परिभाषित किया जाता है कि उसकी सभी पक्ष जुड़े हों, जिससे कोई अंतराल के बिना एक एकल सीमा बनती है। ऐसी आकृति सरल ज्यामितीय रूप या जटिल कस्टम रूपरेखा हो सकती है। निम्नलिखित कोड उदाहरण दिखाता है कि कैसे जांचें कि आकृति ज्यामिति बंद है या नहीं:
+निम्नलिखित सहायक यह जांचता है कि प्रत्येक गैर‑खाली ज्यामिति पाथ एक बंद सेगमेंट के साथ समाप्त होता है या नहीं। यह [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) को पढ़ता है और अंतिम सेगमेंट के [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) की तुलना [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/) से करता है। जब कोई गैर‑खाली पाथ नहीं होता तो यह false लौटाता है। यह प्रत्येक पाथ के अंतिम कमांड की जाँच करता है; यह पाथ के भीतर प्रत्येक उप‑आकृति का निरीक्षण नहीं करता। उदाहरण में आयत के लिये `true` मुद्रित होता है।
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
-
-    return isClosed == true;
 }
-```
 
-## **GeometryPath को java.awt.Shape में बदलें**
-
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryShape) क्लास की इंस्टेंस बनाएँ।
-2. एक [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) क्लास की इंस्टेंस बनाएँ।
-3. [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) इंस्टेंस को [GeometryPath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/GeometryPath) इंस्टेंस में [ShapeUtil](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ShapeUtil) का उपयोग करके परिवर्तित करें।
-4. पाथ को आकृति पर लागू करें।
-
-यह Java कोड—ऊपर दिए गए चरणों का कार्यान्वयन—**GeometryPath** से **GraphicsPath** रूपांतरण प्रक्रिया को दर्शाता है:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // नई आकृति बनाएं
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // आकृति का ज्यामिति पथ प्राप्त करें
-    IGeometryPath originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(PathFillModeType.None);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    // पाठ के साथ नया ग्राफ़िक्स पथ बनाएं
-    Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
-
-    try
-    {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
-    }
-    finally {
-        g2.dispose();
-    }
-
-    // ग्राफ़िक्स पथ को ज्यामिति पथ में परिवर्तित करें
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(PathFillModeType.Normal);
-
-    // आकृति में नया ज्यामिति पथ और मूल ज्यामिति पथ का संयोजन सेट करें
-    shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example5_image](custom_shape_5.png)
+
+## **आकार तत्वों को निकालें और निरीक्षण करें**
+
+[IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) का उपयोग करके आप मौजूदा आकार को पाथ पॉइंट्स और पॉइंट प्रकारों वाले तत्वों के रूप में निरीक्षण कर सकते हैं। प्रत्येक लौटाए गए [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) को [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) में कास्ट करके आप [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) और [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) मेथड्स के माध्यम से पॉइंट और प्रकार एरे प्राप्त कर सकते हैं। यह प्रतिनिधित्व कंटूर विश्लेषण या कस्टम ड्रॉइंग टूल्स को ज्यामिति पास करने में उपयोगी है।
+
+उदाहरण input.pptx खोलता है, पहले स्लाइड पर सीधे पहली ज्यामिति आकार को खोजता है, और उसके पाथ सेगमेंट्स को मुद्रित करता है। दोनों प्रकार के आउटपुट को देखने के लिये एक ऐसी प्रस्तुति का उपयोग करें जिसमें सीधी और वक्र सेगमेंट वाले आकार हों। यह समूहों के भीतर खोज नहीं करता।
+
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            PointF[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // सेगमेंट प्रकार रखें, फ़्लैग को छोड़कर।
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+एरे इंडेक्स द्वारा मेल खाते हैं: `points[i]` एक बिंदु है और `types[i]` उसकी भूमिका का वर्णन करता है। प्रकार `0` एक आकृति शुरू करता है, और प्रकार `1` पिछले बिंदु से वर्तमान बिंदु तक एक रेखा खींचता है। एक क्यूबिक Bézier सेगमेंट पिछले अंत बिंदु से शुरू होता है और लगातार तीन प्रकार‑`3` प्रविष्टियों का उपयोग करता है: दो नियंत्रण बिंदु और फिर नया अंत बिंदु। लूप इन तीन प्रविष्टियों को साथ में उपभोग करता है और अंत बिंदु के बंद होने की जाँच करता है।
+
+पॉइंट प्रकारों में फ्लैग भी होते हैं। सेगमेंट प्रकार पहचानने के लिये `0x07` से मास्क करें, और बंद उप‑पाथ का पता लगाने के लिये `0x80` को अलग से परीक्षण करें। उदाहरण के लिये, `129` (`0x81`) एक लाइन अंत बिंदु को दर्शाता है जो उप‑पाथ को बंद करता है, और `131` (`0x83`) एक Bézier अंत बिंदु को जो एक को बंद करता है। जावा इन फ्लैग को साइन किए हुए बाइट्स में संग्रहीत करता है; मास्किंग वांछित बिट मानों को संरक्षित करती है। केवल `1` या `3` के साथ कच्चे मान की तुलना करने से ये केस छूट जाते हैं। अन्य फ्लैग, जैसे डैश (`0x10`) और मार्कर (`0x20`), मूल सेगमेंट प्रकार को नहीं बदलते।
+
+**निर्देशांक और परिवर्तन।** पॉइंट्स को पॉइंट्स (1/72 इंच) में मापा जाता है, जहाँ X दाएँ की ओर बढ़ता है और Y नीचे की ओर। एक अँग्रुप्ड न किए गये आकार के लिये, निकाले गये निर्देशांक पहले से ही [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) और [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) द्वारा लौटाए गए स्थान को शामिल करते हैं और उसकी वर्तमान चौड़ाई‑ऊँचाई को दर्शाते हैं। उदाहरण के लिये, `(100, 200)` पर  `120 × 80` आकार का बिना घुमा हुआ आयत कंटूर सीमाएँ `(100, 200)`–`(220, 280)` रखता है। आकार की स्थिति को पुनः न जोड़ें। उसके X और Y को घटाकर आप अँग्रुप्ड न किए गये फ्रेम के सापेक्ष निर्देशांक प्राप्त करते हैं।
+
+निकाले गये पॉइंट्स आकार के रोटेशन, जो [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--) द्वारा लौटाया जाता है, या क्षैतिज‑उभी फ़्लिप को नहीं लागू करते। प्रदर्शित कंटूर को पुनः प्राप्त करने के लिये इन परिवर्तनों को आकार के केंद्र के चारों ओर लागू करें। समूहित आकारों के लिये, समूह कोऑर्डिनेट मैपिंग और परिवर्तन भी ध्यान में रखें; यह मानें कि निकाले गये पॉइंट्स अंतिम रेंडर स्लाइड निर्देशांक नहीं हैं और यदि यह पहले से ही बाल फ्रेम में परिलक्षित है तो अनुवाद या स्केल दो बार न लगाएँ।
+
+**निरीक्षण बनाम संपादन।** निकाली गयी एरे कंटूर का वर्णन करती है; उन्हें बदलने से मूल आकार अपडेट नहीं होता। जब आपका विश्लेषण या ड्रॉइंग कोड पॉइंट/टाइप एरे की आवश्यकता रखता है तो इस दृष्टिकोण का चयन करें। जब आपको आकार के स्थानीय निर्देशांक प्रणाली में ज्यामिति कमांड चाहिए या उसकी ज्यामिति संपादित करनी हो तो [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) का उपयोग करें। संपादित पाथ को [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) या [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) द्वारा लागू करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**ज्यामिति को बदलने के बाद भराव और रूपरेखा के साथ क्या होगा?**
+**ज्यामिति को बदलने के बाद भराव और रूपरेखा पर क्या प्रभाव पड़ेगा?**
 
-शैली आकृति के साथ बनी रहेगी; केवल कंटीला बदलता है। भराव और रूपरेखा स्वतः नई ज्यामिति पर लागू हो जाते हैं।
+स्टाइल आकार के साथ ही रहता है; केवल कंटूर बदलता है। भराव और रूपरेखा स्वचालित रूप से नई ज्यामिति पर लागू हो जाती है।
 
-**एक कस्टम आकृति को उसकी ज्यामिति के साथ सही ढंग से कैसे घुमाऊँ?**
+**कस्टम आकार को उसकी ज्यामिति के साथ सही तरीके से कैसे घुमाऊँ?**
 
-आकृति की [setRotation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/shape/#setRotation-float-) मेथड का उपयोग करें; ज्यामिति आकृति के साथ घुमती है क्योंकि वह आकृति के अपने निर्देशांक प्रणाली से जुड़ी होती है।
+आकार की `[setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-)` मेथड का प्रयोग करें; ज्यामिति आकार के साथ घुमती है क्योंकि वह आकार के अपने निर्देशांक प्रणाली से बंधी होती है।
 
-**क्या मैं कस्टम आकृति को छवि में बदल सकता हूँ ताकि परिणाम को "लॉक" किया जा सके?**
+**क्या मैं कस्टम आकार को एक छवि में बदल सकता हूँ ताकि परिणाम "लॉक इन" हो सके?**
 
-हां। आवश्यक [slide](/slides/hi/androidjava/convert-powerpoint-to-png/) क्षेत्र या स्वयं [shape](/slides/hi/androidjava/create-shape-thumbnails/) को रास्टर फॉर्मेट में निर्यात करें; इससे भारी ज्यामितियों के साथ आगे का काम सरल हो जाता है।
+हाँ। आवश्यक `[slide](/slides/hi/androidjava/convert-powerpoint-to-png/)` क्षेत्र या `[shape](/slides/hi/androidjava/create-shape-thumbnails/)` को रास्टर फॉर्मेट में निर्यात करें; इससे जटिल ज्यामितियों के साथ आगे काम सरल हो जाता है।

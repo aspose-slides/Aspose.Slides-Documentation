@@ -6,14 +6,14 @@ weight: 20
 url: /es/net/custom-shape/
 keywords:
 - forma personalizada
-- agregar forma
+- añadir forma
 - crear forma
 - cambiar forma
 - geometría de forma
-- ruta de geometría
+- ruta geométrica
 - puntos de ruta
 - puntos de edición
-- agregar punto
+- añadir punto
 - eliminar punto
 - operación de edición
 - esquina curva
@@ -22,238 +22,190 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Crear y personalizar formas en presentaciones de PowerPoint con Aspose.Slides para .NET: rutas de geometría, esquinas curvas, formas compuestas."
+description: "Crear y personalizar formas en presentaciones de PowerPoint con Aspose.Slides para .NET: rutas geométricas, esquinas curvas, formas compuestas."
 ---
+## **Resumen**
+
+Este artículo explica cómo personalizar las formas de presentación en Aspose.Slides editando la geometría de la forma mediante puntos de edición y rutas geométricas. Muestra cómo trabajar con [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) y [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) para modificar formas existentes, realizar operaciones básicas de edición de rutas, añadir o eliminar puntos y aplicar la geometría actualizada a una forma.
+
+También demuestra cómo crear formas personalizadas y compuestas, construir formas con esquinas curvas, determinar si una geometría de forma está cerrada y usar la conversión heredada entre [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) y [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) para escenarios adicionales de personalización de geometría.
 
 ## **Cambiar una forma usando puntos de edición**
 
-Considere un cuadrado. En PowerPoint, usando **puntos de edición**, puede 
+En PowerPoint, puedes usar **Edit Points** para modificar un cuadrado:
 
-* mover la esquina del cuadrado hacia adentro o hacia afuera
-* especificar la curvatura de una esquina o punto
-* agregar nuevos puntos al cuadrado
-* manipular los puntos del cuadrado, etc. 
+* Mover una esquina hacia dentro o hacia fuera.
+* Ajustar la curvatura en un punto.
+* Añadir puntos nuevos.
 
-Esencialmente, puede realizar las tareas descritas en cualquier forma. Usando puntos de edición, puede cambiar una forma o crear una nueva forma a partir de una forma existente. 
+Editar puntos te permite modificar el contorno de una forma o usar una forma existente como base para una nueva.
 
-## **Consejos para editar formas**
+## **Consejos para la edición de formas**
 
 ![overview_image](custom_shape_0.png)
 
-Antes de comenzar a editar formas de PowerPoint mediante puntos de edición, quizá desee considerar los siguientes aspectos sobre las formas:
+Al editar formas de PowerPoint, ten en cuenta estos conceptos:
 
-* Una forma (o su ruta) puede ser cerrada o abierta.
-* Todas las formas constan de al menos 2 puntos de anclaje vinculados entre sí por líneas
-* Una línea es recta o curva. Los puntos de anclaje determinan la naturaleza de la línea. 
-* Los puntos de anclaje pueden ser puntos de esquina, puntos rectos o puntos suaves:
-  * Un punto de esquina es un punto donde se unen 2 líneas rectas formando un ángulo. 
-  * Un punto suave es un punto donde existen 2 manejadores en una línea recta y los segmentos de la línea se unen en una curva suave. En este caso, todos los manejadores están separados del punto de anclaje a una distancia igual. 
-  * Un punto recto es un punto donde existen 2 manejadores en una línea recta y los segmentos de esa línea se unen en una curva suave. En este caso, los manejadores no tienen que estar separados del punto de anclaje a una distancia igual. 
-* Al mover o editar los puntos de anclaje (lo que cambia el ángulo de las líneas), puede modificar la apariencia de una forma. 
+* Una forma (o su ruta) puede estar cerrada o abierta.
+* La ruta de una forma está formada por puntos de anclaje conectados por segmentos.
+* Un segmento puede ser recto o curvo. Los puntos de anclaje y los manejadores de control determinan su forma.
+* Los puntos de anclaje existen como puntos de esquina, puntos rectos o puntos suaves:
+  * En un punto de esquina, los segmentos adyacentes pueden encontrarse en un ángulo.
+  * En un punto suave, los dos manejadores de control están alineados y a la misma distancia del punto de anclaje.
+  * En un punto recto, los dos manejadores de control están alineados pero pueden estar a diferentes distancias del punto de anclaje.
+* Mover los puntos de anclaje o ajustar sus manejadores cambia el contorno de la forma.
 
-Para editar formas de PowerPoint mediante puntos de edición, **Aspose.Slides** proporciona la clase [**GeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) y la interfaz [**IGeometryPath**](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath). 
+Para editar formas de PowerPoint mediante puntos de edición, **Aspose.Slides** proporciona la clase [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) y la interfaz [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
 
-* Una instancia de [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) representa una ruta geométrica del objeto [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape). 
-* Para obtener el`GeometryPath` de la instancia `IGeometryShape`, puede usar el método [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/getgeometrypaths). 
-* Para establecer el `GeometryPath` de una forma, puede usar estos métodos: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypath) para *formas sólidas* y [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/methods/setgeometrypaths) para *formas compuestas*.
-* Para agregar segmentos, puede usar los métodos bajo [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath). 
-* Usando las propiedades [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/stroke) y [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/fillmode), puede establecer la apariencia de una ruta geométrica.
-* Con la propiedad [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/properties/pathdata), puede obtener la ruta geométrica de un `GeometryShape` como una matriz de segmentos de ruta. 
-* Para acceder a opciones adicionales de personalización de geometría de forma, puede convertir [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) a [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)
-* Use los métodos [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) y [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) (de la clase [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil)) para convertir [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) a [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) y viceversa. 
+* Una instancia de [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) representa la ruta geométrica del objeto [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
+* Para obtener el [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) de la instancia [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/), puedes usar el método [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/).
+* Para establecer el [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) de una forma, puedes usar estos métodos: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) para formas con una sola ruta y [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) para formas con varias rutas.
+* Para añadir segmentos, puedes usar los métodos de [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
+* Mediante las propiedades [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) y [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/), puedes definir la apariencia de una ruta geométrica.
+* Con la propiedad [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/), puedes obtener la ruta geométrica de un [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) como una matriz de segmentos de ruta.
+* En versiones heredadas que admiten los métodos de conversión a continuación, puedes convertir [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
+* Utiliza los métodos [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) y [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (de la clase [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) para convertir entre [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) y [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
 
 ## **Operaciones de edición simples**
 
-Este código C# le muestra cómo
+Utiliza los siguientes métodos para editar una ruta geométrica. Las sobrecargas que aceptan un índice insertan un segmento en esa posición basada en cero dentro del arreglo de segmentos de la ruta.
 
-**Agregar una línea** al final de una ruta
-``` csharp
-void LineTo(PointF point);
-void LineTo(float x, float y);
+| Operación | Método |
+| --- | --- |
+| Añadir o insertar una línea recta. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
+| Añadir o insertar una curva Bézier cúbica con dos puntos de control y un punto final. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| Añadir o insertar una curva Bézier cuadrática con un punto de control y un punto final. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| Añadir un arco elíptico con las dimensiones y ángulos especificados en grados. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| Cerrar la figura actual conectando su punto final con su punto inicial. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| Establecer el punto inicial de una figura. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| Eliminar un segmento en un índice basado en cero. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
+
+## **Añadir puntos personalizados a una forma**
+
+Este ejemplo inserta dos puntos en una forma rectangular usando [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) y aplica la ruta editada con [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). Las coordenadas son locales a la forma: ambos puntos nuevos están en su centro, a 100 puntos del lado izquierdo y 50 puntos de la parte superior. Los índices de segmentos 1 y 4 los colocan en los bordes superior e inferior, tirando de esos bordes hacia dentro.
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+var geometryPath = shape.GetGeometryPaths()[0];
+geometryPath.LineTo(100, 50, 1);
+geometryPath.LineTo(100, 50, 4);
+
+shape.SetGeometryPath(geometryPath);
 ```
-
-**Agregar una línea** a una posición especificada en una ruta:
-``` csharp    
-void LineTo(PointF point, uint index);
-void LineTo(float x, float y, uint index);
-```
-
-**Agregar una curva cúbica de Bézier** al final de una ruta:
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-
-**Agregar una curva cúbica de Bézier** a la posición especificada en una ruta:
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
-```
-
-**Agregar una curva cuadrática de Bézier** al final de una ruta:
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-
-**Agregar una curva cuadrática de Bézier** a la posición especificada en una ruta:
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2, uint index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
-```
-
-**Adjuntar un arco dado** a una ruta:
-``` csharp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-
-**Cerrar la figura actual** de una ruta:
-``` csharp
-void CloseFigure();
-```
-
-**Establecer la posición para el siguiente punto**:
-``` csharp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-
-**Eliminar el segmento de ruta** en un índice dado:
-``` csharp
-void RemoveAt(int index);
-```
-
-
-## **Agregar puntos personalizados a una forma**
-
-1. Crear una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) y establecer el tipo [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype).
-2. Obtener una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) de la forma.
-3. Agregar un nuevo punto entre los dos puntos superiores de la ruta.
-4. Agregar un nuevo punto entre los dos puntos inferiores de la ruta.
-5. Aplicar la ruta a la forma.
-
-Este código C# le muestra cómo agregar puntos personalizados a una forma:
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
-    IGeometryPath geometryPath = shape.GetGeometryPaths()[0];
-
-    geometryPath.LineTo(100, 50, 1);
-    geometryPath.LineTo(100, 50, 4);
-    shape.SetGeometryPath(geometryPath);
-}
-```
-
 
 ![example1_image](custom_shape_1.png)
 
 ## **Eliminar puntos de una forma**
 
-1. Crear una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) y establecer el tipo [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype). 
-2. Obtener una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) de la forma.
-3. Eliminar el segmento de la ruta.
-4. Aplicar la ruta a la forma.
+Este ejemplo modifica el contorno de una forma de corazón eliminando el segmento en el índice base 2 con [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Aplicar la ruta modificada con [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) actualiza el contorno de la forma.
 
-Este código C# le muestra cómo eliminar puntos de una forma:
-``` csharp
-using (Presentation pres = new Presentation())
-{
-	GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300) as GeometryShape;
+```csharp
+using Aspose.Slides;
 
-	IGeometryPath path = shape.GetGeometryPaths()[0];
-	path.RemoveAt(2);
-	shape.SetGeometryPath(path);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+
+var path = shape.GetGeometryPaths()[0];
+path.RemoveAt(2);
+
+shape.SetGeometryPath(path);
 ```
-
 ![example2_image](custom_shape_2.png)
 
 ## **Crear una forma personalizada**
 
-1. Calcular los puntos para la forma.
-2. Crear una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath). 
-3. Rellenar la ruta con los puntos.
-4. Crear una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape). 
-5. Aplicar la ruta a la forma.
+Este ejemplo construye una estrella de cinco puntas con [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Los radios exteriores e interiores alternados de 100 y 50 puntos definen las puntas y las indentaciones; un paso de 72 grados separa uniformemente las cinco puntas. La ruta se cierra con [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) y se aplica a una forma rectangular mediante [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), sustituyendo su contorno.
 
-Este C# le muestra cómo crear una forma personalizada:
-``` csharp
-List<PointF> points = new List<PointF>();
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Aspose.Slides;
 
-float R = 100, r = 50;
-int step = 72;
+var points = new List<PointF>();
 
-for (int angle = -90; angle < 270; angle += step)
+var outerRadius = 100f;
+var innerRadius = 50f;
+var angleStep = 72;
+
+for (var angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math.PI / 180f);
-    double x = R * Math.Cos(radians);
-    double y = R * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    var radians = angle * (Math.PI / 180f);
+    var x = outerRadius * Math.Cos(radians);
+    var y = outerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.Cos(radians);
-    y = r * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.Cos(radians);
+    y = innerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-GeometryPath starPath = new GeometryPath();
+var starPath = new GeometryPath();
 starPath.MoveTo(points[0]);
 
-for (int i = 1; i < points.Count; i++)
+for (var i = 1; i < points.Count; i++)
 {
     starPath.LineTo(points[i]);
 }
 
 starPath.CloseFigure();
 
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    shape.SetGeometryPath(starPath);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
+shape.SetGeometryPath(starPath);
 ```
-
 ![example3_image](custom_shape_3.png)
 
-## **Crear una forma personalizada compuesta**
+## **Crear una forma compuesta personalizada**
 
-1. Crear una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
-2. Crear una primera instancia de la clase [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
-3. Crear una segunda instancia de la clase [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath).
-4. Aplicar las rutas a la forma.
+Este ejemplo define dos [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) cerrados para el tercio superior y el tercio inferior de una forma. Aplicar ambas rutas con [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) crea una única forma compuesta con un hueco en el tercio medio.
 
-Este código C# le muestra cómo crear una forma personalizada compuesta:
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
+```csharp
+using Aspose.Slides;
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.MoveTo(0, 0);
-    geometryPath0.LineTo(shape.Width, 0);
-    geometryPath0.LineTo(shape.Width, shape.Height/3);
-    geometryPath0.LineTo(0, shape.Height / 3);
-    geometryPath0.CloseFigure();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.MoveTo(0, shape.Height/3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height / 3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height);
-    geometryPath1.LineTo(0, shape.Height);
-    geometryPath1.CloseFigure();
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-}
+var topPath = new GeometryPath();
+topPath.MoveTo(0, 0);
+topPath.LineTo(shape.Width, 0);
+topPath.LineTo(shape.Width, shape.Height / 3);
+topPath.LineTo(0, shape.Height / 3);
+topPath.CloseFigure();
+
+var bottomPath = new GeometryPath();
+bottomPath.MoveTo(shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height);
+bottomPath.LineTo(0, shape.Height);
+bottomPath.CloseFigure();
+
+shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
-
 ![example4_image](custom_shape_4.png)
 
 ## **Crear una forma personalizada con esquinas curvas**
 
-Este código C# le muestra cómo crear una forma personalizada con esquinas curvas (hacia adentro);
-```c#
+Este ejemplo combina segmentos rectos con [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) para crear una forma con esquinas curvas hacia dentro. Cada tamaño de esquina define el ancho y la altura del arco en puntos, y el barrido de -90 grados dibuja un cuarto de elipse en sentido antihorario. La ruta completada se aplica con [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), y la presentación se guarda en formato PPTX.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var shapeX = 20f;
 var shapeY = 20f;
 var shapeWidth = 300f;
@@ -264,103 +216,177 @@ var rightTopSize = 20f;
 var rightBottomSize = 40f;
 var leftBottomSize = 10f;
 
-using (var presentation = new Presentation())
-{
-    var childShape = presentation.Slides[0].Shapes.AddAutoShape(
-        ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    var geometryPath = new GeometryPath();
+var topLeft = new PointF(leftTopSize, 0);
+var topRight = new PointF(shapeWidth - rightTopSize, 0);
+var rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+var bottomLeft = new PointF(leftBottomSize, shapeHeight);
+var leftTop = new PointF(0, leftTopSize);
 
-    var point1 = new PointF(leftTopSize, 0);
-    var point2 = new PointF(shapeWidth - rightTopSize, 0);
-    var point3 = new PointF(shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = new PointF(leftBottomSize, shapeHeight);
-    var point5 = new PointF(0, leftTopSize);
+var geometryPath = new GeometryPath();
+geometryPath.MoveTo(topLeft);
+geometryPath.LineTo(topRight);
+geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
+geometryPath.LineTo(rightBottom);
+geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
+geometryPath.LineTo(bottomLeft);
+geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
+geometryPath.LineTo(leftTop);
+geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+geometryPath.CloseFigure();
 
-    geometryPath.MoveTo(point1);
-    geometryPath.LineTo(point2);
-    geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.LineTo(point3);
-    geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.LineTo(point4);
-    geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.LineTo(point5);
-    geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+shape.SetGeometryPath(geometryPath);
 
-    geometryPath.CloseFigure();
-
-    childShape.SetGeometryPath(geometryPath);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
+## **Comprobar si la geometría de una forma está cerrada**
 
-## **Descubrir si la geometría de una forma está cerrada**
+El siguiente asistente verifica si cada ruta geométrica no vacía termina con un segmento de cierre. Lee [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) y compara el [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) del segmento final con [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Devuelve false cuando no hay rutas no vacías. Este chequeo examina el comando final de cada ruta; no inspecciona cada subfigura dentro de una ruta. El ejemplo muestra `True` para un rectángulo.
 
-Una forma cerrada se define como aquella donde todos sus lados se conectan, formando un único contorno sin huecos. Esa forma puede ser una forma geométrica simple o un contorno personalizado complejo. El siguiente ejemplo de código muestra cómo comprobar si la geometría de una forma está cerrada:
-```cs
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+Console.WriteLine(IsGeometryClosed(shape));
+
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
-    bool? isClosed = null;
+    var hasNonemptyPath = false;
 
     foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
-        var dataLength = geometryPath.PathData.Length;
-        if (dataLength == 0)
+        var segments = geometryPath.PathData;
+        if (segments.Length == 0)
+        {
             continue;
+        }
 
-        var lastSegment = geometryPath.PathData[dataLength - 1];
-        isClosed = lastSegment.PathCommand == PathCommandType.Close;
-
-        if (isClosed == false)
+        hasNonemptyPath = true;
+        var lastSegment = segments[segments.Length - 1];
+        if (lastSegment.PathCommand != PathCommandType.Close)
+        {
             return false;
+        }
     }
-    
-    return isClosed == true;
+
+    return hasNonemptyPath;
 }
 ```
 
+## **Extraer e inspeccionar los elementos de una forma**
 
-## **Convertir GeometryPath a GraphicsPath (System.Drawing.Drawing2D)** 
+Usa [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) para inspeccionar una forma existente como elementos que contienen puntos de ruta y tipos de punto. Convierte cada [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) devuelto a [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) para leer sus matrices [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) y [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/). Esta representación es útil para análisis de contornos o para pasar la geometría a herramientas de dibujo personalizadas.
 
-1. Crear una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape).
-2. Crear una instancia de la clase [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) del espacio de nombres [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).
-3. Convertir la instancia [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) a la instancia [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) usando [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil).
-4. Aplicar las rutas a la forma.
+El ejemplo abre una presentación, encuentra la primera forma geométrica directamente en la primera diapositiva y muestra sus segmentos de ruta. Utiliza una presentación que contenga una forma con segmentos rectos y curvos para ver ambos tipos de salida. No busca dentro de grupos.
 
-Este código C#—una implementación de los pasos anteriores—demuestra el proceso de conversión de **GeometryPath** a **GraphicsPath**:
-``` csharp
-using (Presentation pres = new Presentation())
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.OfType<IGeometryShape>().FirstOrDefault();
+if (shape == null)
 {
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100) as GeometryShape;
+    Console.WriteLine("No geometry shape found on the first slide.");
+    return;
+}
 
-    IGeometryPath originalPath = shape.GetGeometryPaths()[0];
-    originalPath.FillMode = PathFillModeType.None;
+foreach (IShapeElement element in shape.CreateShapeElements())
+{
+    var shapeElement = (ShapeElement)element;
+    var points = shapeElement.PathPoints;
+    var types = shapeElement.PathTypes;
+    Console.WriteLine("Shape element:");
 
-    GraphicsPath gPath = new GraphicsPath();
+    for (var i = 0; i < points.Length; i++)
+    {
+        var pointType = types[i] & 0x07; // Mantener el tipo de segmento, excluyendo banderas.
+        switch (pointType)
+        {
+            case 0:
+                Console.WriteLine($"Start figure at {points[i]}");
+                break;
+            case 1:
+                Console.WriteLine($"Line to {points[i]}");
+                break;
+            case 3:
+                Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
+                i += 2; // Consumir ambos puntos de control y el punto final.
+                break;
+        }
 
-    gPath.AddString("Text in shape", new FontFamily("Arial"), 1, 40, new PointF(10, 10), StringFormat.GenericDefault);
-
-    IGeometryPath textPath = ShapeUtil.GraphicsPathToGeometryPath(gPath);
-    textPath.FillMode = PathFillModeType.Normal;
-
-    shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
+        if ((types[i] & 0x80) != 0)
+        {
+            Console.WriteLine("Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
+Las matrices se corresponden por índice: `points[i]` es un punto y `types[i]` describe su rol. El tipo `0` inicia una figura, y el tipo `1` dibuja una línea desde el punto anterior hasta el punto actual. Un segmento Bézier cúbico comienza en el extremo anterior y utiliza tres entradas consecutivas de tipo `3`: dos puntos de control y el nuevo punto final. El bucle consume esas tres entradas juntas y verifica el punto final para determinar el cierre.
+
+Los tipos de punto también contienen banderas. Enmascara con `0x07` para identificar el tipo de segmento y prueba `0x80` por separado para detectar una subruta cerrada. Por ejemplo, `129` (`0x81`) indica un extremo de línea que cierra una subruta, y `131` (`0x83`) indica un extremo Bézier que la cierra. Comparar el valor bruto solo con `1` o `3` pasaría por alto estos casos. Otras banderas, como la de guion (`0x10`) y la de marcador (`0x20`), no cambian el tipo básico del segmento.
+
+**Coordenadas y transformaciones.** Los puntos se miden en puntos (1/72 de pulgada), con X aumentando hacia la derecha y Y aumentando hacia abajo. Para una forma no agrupada, las coordenadas extraídas ya incluyen su posición [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) y [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) y reflejan su ancho y alto actuales. Por ejemplo, un rectángulo sin rotar en `(100, 200)` con tamaño `120 × 80` tiene límites de contorno `(100, 200)`–`(220, 280)`. No añadas la posición de la forma de nuevo. Resta su X y Y para obtener coordenadas relativas a su marco sin rotar.
+
+Los puntos extraídos no aplican la [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) de la forma ni los volteos horizontal y vertical. Para reproducir el contorno mostrado, aplica esas transformaciones alrededor del centro de la forma. Para formas agrupadas, también ten en cuenta el mapeo de coordenadas del grupo y sus transformaciones; no asumas que los puntos extraídos son las coordenadas finales renderizadas en la diapositiva ni apliques una traslación o escala dos veces si ya están reflejadas en el marco del hijo.
+
+**Inspección frente a edición.** Las matrices extraídas describen el contorno; modificarlas no actualiza la forma original. Elige este enfoque cuando tu código de análisis o dibujo necesite matrices de punto/tipo. Usa [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) cuando necesites comandos de geometría en el sistema de coordenadas local de la forma o quieras editar su geometría. Aplica rutas editadas mediante [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) o [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
+
+## **Convertir GeometryPath a GraphicsPath (System.Drawing.Drawing2D)**
+
+El siguiente ejemplo requiere un ensamblado heredado de Aspose.Slides for .NET que admita [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), como la versión 25.10, y un entorno Windows con `System.Drawing.Common`. Los métodos de conversión se eliminaron en la [versión 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
+
+Este ejemplo combina un contorno rectangular con texto convertido a geometría. El [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) del contorno se establece para desactivar su relleno. Un [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) almacena el contorno del texto, que [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) convierte en una ruta geométrica rellenada. Aplicar ambas rutas con [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) produce una única forma que contiene el rectángulo y el texto. Para la conversión en sentido contrario, usa [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
+
+```csharp
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+
+var originalPath = shape.GetGeometryPaths()[0];
+originalPath.FillMode = PathFillModeType.None;
+
+using var graphicsPath = new GraphicsPath();
+using var fontFamily = new FontFamily("Arial");
+using var stringFormat = StringFormat.GenericDefault;
+
+graphicsPath.AddString("Text in shape", fontFamily, (int)FontStyle.Bold, 40, new PointF(10, 10), stringFormat);
+
+var textPath = ShapeUtil.GraphicsPathToGeometryPath(graphicsPath);
+textPath.FillMode = PathFillModeType.Normal;
+
+shape.SetGeometryPaths(new[] { originalPath, textPath });
+```
 ![example5_image](custom_shape_5.png)
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Qué ocurrirá con el relleno y el contorno después de reemplazar la geometría?**
+**¿Qué ocurrirá con el relleno y el contorno después de sustituir la geometría?**
 
-El estilo permanece con la forma; solo el contorno cambia. El relleno y el contorno se aplican automáticamente a la nueva geometría.
+El estilo permanece con la forma; solo cambia el contorno. El relleno y el contorno se aplican automáticamente a la nueva geometría.
 
 **¿Cómo rotar correctamente una forma personalizada junto con su geometría?**
 
-Utilice la propiedad [rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) de la forma; la geometría gira con la forma porque está vinculada al propio sistema de coordenadas de la forma.
+Utiliza la propiedad [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) de la forma; la geometría gira con la forma porque está vinculada al propio sistema de coordenadas de la forma.
 
-**¿Puedo convertir una forma personalizada a una imagen para "bloquear" el resultado?**
+**¿Puedo convertir una forma personalizada en una imagen para “bloquear” el resultado?**
 
-Sí. Exporte el área de la [diapositiva](/slides/es/net/convert-powerpoint-to-png/) requerida o la propia [forma](/slides/es/net/create-shape-thumbnails/) a un formato raster; esto simplifica el trabajo posterior con geometrías complejas.
+Sí. Exporta la [slide](/slides/es/net/convert-powerpoint-to-png/) o la [shape](/slides/es/net/create-shape-thumbnails/) requerida a un formato raster; esto simplifica el trabajo posterior con geometrías complejas.

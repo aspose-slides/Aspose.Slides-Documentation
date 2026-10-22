@@ -1,15 +1,15 @@
 ---
-title: Prezentációs alakzatok testreszabása PHP-ben
-linktitle: Egyéni alakzat
+title: PHP-ban a prezentáció alakzatainak testreszabása
+linktitle: Egyedi alakzat
 type: docs
 weight: 20
 url: /hu/php-java/custom-shape/
-keywords: 
-- egyéni alakzat
+keywords:
+- egyedi alakzat
 - alakzat hozzáadása
 - alakzat létrehozása
 - alakzat módosítása
-- alakzat geometriája
+- alakzat geometria
 - geometriai útvonal
 - útvonal pontok
 - szerkesztési pontok
@@ -21,354 +21,423 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Alakzatok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for PHP (Java) segítségével: geometriai útvonalak, görbe sarkok, kompozit alakzatok."
+description: "Alakzatok létrehozása és testreszabása PowerPoint-prezentációkban az Aspose.Slides for PHP Java-on keresztül: geometriai útvonalak, görbe sarkok, összetett alakzatok."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet testre szabni a prezentációs alakzatokat az Aspose.Slides-ben úgy, hogy a alakzatgeometriát szerkesztési pontok és geometriai útvonalak segítségével módosítjuk. Megmutatja, hogyan kell a `GeometryPath`‑t használni a meglévő alakzatok módosításához, alapvető útvonal‑szerkesztési műveletek végrehajtásához, pontok hozzáadásához vagy eltávolításához, és a frissített geometria visszaalkalmazásához egy alakzatra.
+Ez a cikk bemutatja, hogyan lehet testreszabni a prezentáció alakzatokat az Aspose.Slides-ban a alakzat geometriájának szerkesztésével a szerkesztési pontok és geometriai útvonalak segítségével.  
+Megmutatja, hogyan lehet a [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) használatával módosítani a meglévő alakzatokat, alapvető útvonal‑szerkesztési műveleteket végrehajtani, pontokat hozzáadni vagy eltávolítani, és az frissített geometriát visszaalkalmazni egy alakzatra.  
 
-Emellett bemutatja, hogyan hozhatunk létre egyéni és kompozit alakzatokat, hogyan építhetünk görbe sarkokkal rendelkező alakzatokat, hogyan határozhatjuk meg, hogy egy alakzatgeometria zárt‑e, valamint hogyan konvertálhatjuk a `GeometryPath`‑t és a `java.awt.Shape`‑t egymásba további geometriai testreszabási helyzetekhez.
+Emellett bemutatja a saját és összetett alakzatok létrehozását, a görbe sarkokkal rendelkező alakzatok építését, annak meghatározását, hogy egy alakzat geometriája zárt‑e, az alakzatelemek vizsgálatát, valamint a Java AWT szövegvonalak átalakítását geometriai útvonalakká.
 
 ## **Alakzat módosítása szerkesztési pontokkal**
 
-Vegyünk egy négyzetet. A PowerPointban a **szerkesztési pontok** segítségével a következőket teheti:
+PowerPoint‑ban a **Edit Points** segítségével módosíthat egy négyzetet:
 
-* a négyzet sarkát befelé vagy kifelé mozgatni
-* megadni a görbületet egy sarokhoz vagy ponthoz
-* új pontokat hozzáadni a négyzethez
-* pontokat kezelni a négyzeten, stb.
+* Egy sarkot beljebb vagy kifelé mozdíthat.  
+* Egy pontnál a görbületet állíthatja.  
+* Új pontokat adhat hozzá.  
 
-Lényegében a leírt feladatokat bármely alakzaton végrehajthatja. A szerkesztési pontok használatával egy alakzatot módosíthat vagy egy új alakzatot hozhat létre egy meglévőből.
+A szerkesztési pontok lehetővé teszik az alakzat körvonalának módosítását, vagy egy meglévő alakzat alapként való felhasználását egy újnál.
 
 ## **Alakzat szerkesztési tippek**
 
 ![overview_image](custom_shape_0.png)
 
-Mielőtt elkezdené szerkeszteni a PowerPoint‑alkalmazás alakzatait szerkesztési pontokkal, vegye figyelembe az alábbi szempontokat az alakzatokról:
+PowerPoint‑alakzatok szerkesztésekor tartsa szem előtt a következő fogalmakat:
 
-* Egy alakzat (vagy az útvonala) lehet zárt vagy nyitott.
-* Ha egy alakzat zárt, nincs kezdő‑ vagy végpontja. Ha nyitott, van egy kezdeti és egy befejező pontja.
-* Minden alakzat legalább 2 horgonypontból áll, amelyeket vonalak kötnek össze.
-* Egy vonal lehet egyenes vagy ívelt. A horgonypontok határozzák meg a vonal jellegét.
-* A horgonypontok lehetnek sarokpontok, simított pontok vagy egyenes pontok:
-  * Egy **sarokpont** olyan pont, ahol 2 egyenes vonal szöggel találkozik.
-  * Egy **simított pont** olyan pont, ahol 2 fogantyú egy egyenes vonalon helyezkedik el, és a vonalszakaszok sima ívben csatlakoznak. Ebben az esetben a fogantyúk azonos távolságra vannak a horgonyponttól.
-  * Egy **egyenes pont** olyan pont, ahol 2 fogantyú egy egyenes vonalon helyezkedik el, és a vonalszakaszok sima ívben csatlakoznak. Itt a fogantyúknek nem kell azonos távolságra lenniük a horgonyponttól.
-* A horgonypontok mozgatásával vagy szerkesztésével (ami a vonalak szögét változtatja) megváltoztathatja az alakzat megjelenését.
+* Egy alakzat (vagy annak útvonala) lehet zárt vagy nyílt.  
+* Az alakzat útvonala horgonypontokból áll, amelyeket szegmensek kapcsolnak össze.  
+* Egy szegmens lehet egyenes vagy íves. A horgonypontok és a vezérlő fogantyúk határozzák annak formáját.  
+* A horgonypontok létezhetnek sarokpontként, egyenes pontként vagy sima pontként:  
+  * Sarokpontnál a szomszédos szegmensek szöget zárhatnak be.  
+  * Sima pontnál a két vezérlő fogantyú egy vonalban van és egyenlő távolságra a horgonyponttól.  
+  * Egyenes pontnál a két vezérlő fogantyú egy vonalban van, de különböző távolságra lehet a horgonyponttól.  
+* A horgonypontok mozgatása vagy a fogantyúk állítása megváltoztatja az alakzat körvonalát.
 
-A PowerPoint‑alakzatok szerkesztéséhez szerkesztési pontokkal, az **Aspose.Slides** a [**GeometryPath**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryPath) osztályt biztosítja.
+PowerPoint‑alakzatok szerkesztéséhez a szerkesztési pontok segítségével, a **Aspose.Slides** a [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) osztályt biztosítja.
 
-* Egy [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryPath) példány egy geometriai útvonalat képvisel a [GeometryShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometryshape/) objektumban.
-* A `GeometryShape` példányból a `GeometryPath`‑t a [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometryshape/#getGeometryPaths) metódussal kérhetjük le.
-* Egy alakzat `GeometryPath`‑jának beállításához használhatja a következő metódusokat: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometryshape/#setGeometryPath) **szilárd alakzatok** esetén és [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometryshape/#setGeometryPaths) **kompozit alakzatok** esetén.
-* Szakaszok hozzáadásához a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometrypath/) alatti metódusokat használhatja.
-* A [GeometryPath::setStroke](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometrypath/setstroke/) és a [GeometryPath::setFillMode](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometrypath/setfillmode/) metódusokkal beállíthatja egy geometriai útvonal megjelenését.
-* A [GeometryPath::getPathData](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometrypath/getpathdata/) metódussal lekérheti egy `GeometryShape` geometriai útvonalát útvonal‑szegmensek tömbjeként.
-* További alakzat‑geometriai testreszabási lehetőségekhez konvertálhatja a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometrypath/)‑t [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) típusra.
-* Használja a [geometryPathToGraphicsPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapeutil/geometrypathtographicspath/) és a [graphicsPathToGeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapeutil/graphicspathtogeometrypath/) metódusokat (a [ShapeUtil](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ShapeUtil) osztályból) a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/geometrypath/) és a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) közötti konverzióhoz oda‑vissza.
+* A [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) példány a [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) objektum geometriai útvonalát képviseli.  
+* A [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) lekéréséhez a [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) példányból a [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) metódust használhatja.  
+* A [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) egy alakzathoz való beállításához a következő metódusokat használhatja: a [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) egyszerű útvonalú alakzatokhoz és a [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) több útvonalú alakzatokhoz.  
+* Szegmensek hozzáadásához a [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) alatti metódusokat használhatja.  
+* A [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) és a [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) metódusokkal beállíthatja egy geometriai útvonal megjelenését.  
+* A [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) metódussal lekérheti egy [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) geometriai útvonalát útvonal‑szegmensek tömbjeként.  
+* További alakzatgeometria‑testreszabási lehetőségekhez a [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) objektumot a saját [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)‑én keresztül olvashatja, majd a szegmenseket egy [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)‑ra reprodukálhatja.
 
 ## **Egyszerű szerkesztési műveletek**
 
-Ez a PHP kód azt mutatja, hogyan lehet
+Az alábbi metódusokkal szerkesztheti a geometriai útvonalat. Az indexet elfogadó túlterhelések egy szegmenset szúrnak be a nullától számított pozícióba a szegmens‑tömbben.
 
-**Vonal hozzáadása** az útvonal végéhez
-
-```php
-
-```
-**Vonal hozzáadása** egy meghatározott pozícióban az útvonalon:
-
-```php
-
-```
-**Köbös Bézier‑görbe hozzáadása** az útvonal végéhez:
-
-```php
-
-```
-**Köbös Bézier‑görbe hozzáadása** egy meghatározott pozícióban az útvonalon:
-
-```php
-
-```
-**Parabolikus Bézier‑görbe hozzáadása** az útvonal végéhez:
-
-```php
-
-```
-**Parabolikus Bézier‑görbe hozzáadása** egy meghatározott pozícióban az útvonalon:
-
-```php
-
-```
-**Megadott ív hozzáfűzése** az útvonalhoz:
-
-```php
-
-```
-**Az aktuális alakzat lezárása** az útvonalon:
-
-```php
-
-```
-**A következő pont pozíciójának beállítása**:
-
-```php
-
-```
-**Az útvonal‑szegmens eltávolítása** egy adott indexnél:
-
-```php
-
-```
+| Művelet | Metódus |
+| --- | --- |
+| Egyenes vonal hozzáadása vagy beszúrása. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
+| Köbös Bézier‑görbe (két vezérlőponttal és egy végponttal) hozzáadása vagy beszúrása. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Másodfokú Bézier‑görbe (egy vezérlőponttal és egy végponttal) hozzáadása vagy beszúrása. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Elliptikus ív hozzáadása a megadott méretekkel és fokban megadott szögekkel. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| Az aktuális alakzat lezárása a végpont és a kezdőpont összekapcsolásával. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| Az alakzat kezdőpontjának beállítása. | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
+| Szegmens eltávolítása a nulla‑bázisú indexen. | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **Egyéni pontok hozzáadása egy alakzathoz**
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryShape) osztályból, és állítsa be a [ShapeType::Rectangle](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ShapeType) típust.
-2. Szerezze be a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryPath) példányt az alakzatról.
-3. Adjon hozzá egy új pontot a két felső pont között az útvonalon.
-4. Adjon hozzá egy új pontot a két alsó pont között az útvonalon.
-5. Alkalmazza az útvonalat az alakzatra.
-
-Ez a PHP kód azt mutatja, hogyan adhat hozzá egyéni pontokat egy alakzathoz:
+Ez a példa két pontot szúr be egy téglalap alakzatba a [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) használatával, majd a szerkesztett útvonalat a [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) alkalmazza. A koordináták az alakzathoz helyi értékek: mindkét új pont a közepénél van, 100 pont balról és 50 pont felülről. Az 1‑es és 4‑es szegmens‑indexek a felső és alsó élre helyezik őket, ezáltal azok befelé húzódnak.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+
     $geometryPath = $shape->getGeometryPaths()[0];
     $geometryPath->lineTo(100, 50, 1);
     $geometryPath->lineTo(100, 50, 4);
+
     $shape->setGeometryPath($geometryPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## **Pontok eltávolítása egy alakzatról**
+## **Pontok eltávolítása egy alakzatból**
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryShape) osztályból, és állítsa be a [ShapeType::Heart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ShapeType) típust.
-2. Szerezze be a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryPath) példányt az alakzatról.
-3. Távolítsa el a szegmenst az útvonalból.
-4. Alkalmazza az útvonalat az alakzatra.
-
-Ez a PHP kód azt mutatja, hogyan távolíthat el pontokat egy alakzatról:
+Ez a példa egy szív alakú körvonalat módosít a [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) segítségével a nullától számított 2‑es indexen lévő szegmens eltávolításával. A módosított útvonal alkalmazása a [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) metódussal frissíti az alakzat kontúrját.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
+
     $path = $shape->getGeometryPaths()[0];
     $path->removeAt(2);
+
     $shape->setGeometryPath($path);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example2_image](custom_shape_2.png)
 
 ## **Egyéni alakzat létrehozása**
 
-1. Számolja ki az alakzat pontjait.
-2. Hozzon létre egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryPath) osztályból.
-3. Töltse fel az útvonalat a pontokkal.
-4. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryShape) osztályból.
-5. Alkalmazza az útvonalat az alakzatra.
-
-Ez a Java azt mutatja, hogyan hozhat létre egy egyéni alakzatot:
+Ez a példa egy ötágú csillagot épít a [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) segítségével. Az 100‑es és 50‑es pontokkal váltakozó külső‑ és belső‑sugár meghatározza a csúcsokat és a benyomulásokat; a 72 fokos lépés egyenletesen elosztja az öt csúcsot. Az útvonalat a [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) zárja le, majd a [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) alkalmazza egy téglalap alakzatra, felülírva annak körvonalát.
 
 ```php
-  $points = new Java("java.util.ArrayList");
-  $R = 100;
-  $r = 50;
-  $step = 72;
-  for($angle = -90; $angle < 270; $angle += $step) {
-    $radians = $angle * java("java.lang.Math")->PI / 180.0;
-    $x = $R * java("java.lang.Math")->cos($radians);
-    $y = $R * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-    $radians = java("java.lang.Math")->PI * $angle . $step / 2 / 180.0;
-    $x = $r * java("java.lang.Math")->cos($radians);
-    $y = $r * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-  }
-  $starPath = new GeometryPath();
-  $starPath->moveTo($points->get(0));
-  for($i = 1; $i < java_values($points->size()) ; $i++) {
-    $starPath->lineTo($points->get($i));
-  }
-  $starPath->closeFigure();
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $R * 2, $R * 2);
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$points = [];
+$outerRadius = 100;
+$innerRadius = 50;
+$angleStep = 72;
+for ($angle = -90; $angle < 270; $angle += $angleStep) {
+    $radians = deg2rad($angle);
+    $points[] = [$outerRadius * cos($radians) + $outerRadius, $outerRadius * sin($radians) + $outerRadius];
+    $radians = deg2rad($angle + $angleStep / 2);
+    $points[] = [$innerRadius * cos($radians) + $outerRadius, $innerRadius * sin($radians) + $outerRadius];
+}
+
+$starPath = new GeometryPath();
+$starPath->moveTo($points[0][0], $points[0][1]);
+for ($i = 1; $i < count($points); $i++) {
+    $starPath->lineTo($points[$i][0], $points[$i][1]);
+}
+$starPath->closeFigure();
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $outerRadius * 2, $outerRadius * 2);
     $shape->setGeometryPath($starPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example3_image](custom_shape_3.png)
 
-## **Kompozit egyéni alakzat létrehozása**
+## **Összetett egyéni alakzat létrehozása**
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryShape) osztályból.
-2. Hozzon létre egy első példányt a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryPath) osztályból.
-3. Hozzon létre egy második példányt a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryPath) osztályból.
-4. Alkalmazza a két útvonalat az alakzatra.
-
-Ez a PHP kód azt mutatja, hogyan hozhat létre egy kompozit egyéni alakzatot:
+Ez a példa két zárt [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) objektumot definiál az alakzat felső és alsó harmadjára. Mindkét útvonal a [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) használatával egyetlen összetett alakzatot hoz létre, amelynek középső harmadában egy rés van.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
-    $geometryPath0 = new GeometryPath();
-    $geometryPath0->moveTo(0, 0);
-    $geometryPath0->lineTo($shape->getWidth(), 0);
-    $geometryPath0->lineTo($shape->getWidth(), $shape->getHeight() / 3);
-    $geometryPath0->lineTo(0, $shape->getHeight() / 3);
-    $geometryPath0->closeFigure();
-    $geometryPath1 = new GeometryPath();
-    $geometryPath1->moveTo(0, $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight());
-    $geometryPath1->lineTo(0, $shape->getHeight());
-    $geometryPath1->closeFigure();
-    $shape->setGeometryPaths(array($geometryPath0, $geometryPath1 ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+
+    $topPath = new GeometryPath();
+    $topPath->moveTo(0, 0);
+    $topPath->lineTo(java_values($shape->getWidth()), 0);
+    $topPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3);
+    $topPath->lineTo(0, java_values($shape->getHeight()) / 3);
+    $topPath->closeFigure();
+
+    $bottomPath = new GeometryPath();
+    $bottomPath->moveTo(0, java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()));
+    $bottomPath->lineTo(0, java_values($shape->getHeight()));
+    $bottomPath->closeFigure();
+
+    $shape->setGeometryPaths([$topPath, $bottomPath]);
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example4_image](custom_shape_4.png)
 
 ## **Egyéni alakzat létrehozása görbe sarkokkal**
 
-Ez a PHP kód azt mutatja, hogyan hozhat létre egy egyéni alakzatot görbe sarkokkal (befelé):
+Ez a példa egyenes szegmenseket kombinál a [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) használatával, hogy befelé görbített sarkú alakzatot kapjon. Minden sarokméret meghatározza az ív szélességét és magasságát pontban, a -90 fokos ív a balra forgó negyed ellipszist rajzolja. A kész útvonalat a [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) alkalmazza, majd a prezentációt PPTX formátumban menti.
 
 ```php
-  $shapeX = 20.0;
-  $shapeY = 20.0;
-  $shapeWidth = 300.0;
-  $shapeHeight = 200.0;
-  $leftTopSize = 50.0;
-  $rightTopSize = 20.0;
-  $rightBottomSize = 40.0;
-  $leftBottomSize = 10.0;
-  $pres = new Presentation();
-  try {
-    $childShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
+use aspose\slides\GeometryPath;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$shapeX = 20;
+$shapeY = 20;
+$shapeWidth = 300;
+$shapeHeight = 200;
+
+$leftTopSize = 50;
+$rightTopSize = 20;
+$rightBottomSize = 40;
+$leftBottomSize = 10;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
+
+    $topLeft = new Point2DFloat($leftTopSize, 0);
+    $topRight = new Point2DFloat($shapeWidth - $rightTopSize, 0);
+    $rightBottom = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
+    $bottomLeft = new Point2DFloat($leftBottomSize, $shapeHeight);
+    $leftTop = new Point2DFloat(0, $leftTopSize);
+
     $geometryPath = new GeometryPath();
-    $point1 = new Point2DFloat($leftTopSize, 0);
-    $point2 = new Point2DFloat($shapeWidth - $rightTopSize, 0);
-    $point3 = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
-    $point4 = new Point2DFloat($leftBottomSize, $shapeHeight);
-    $point5 = new Point2DFloat(0, $leftTopSize);
-    $geometryPath->moveTo($point1);
-    $geometryPath->lineTo($point2);
+    $geometryPath->moveTo($topLeft);
+    $geometryPath->lineTo($topRight);
     $geometryPath->arcTo($rightTopSize, $rightTopSize, 180, -90);
-    $geometryPath->lineTo($point3);
+    $geometryPath->lineTo($rightBottom);
     $geometryPath->arcTo($rightBottomSize, $rightBottomSize, -90, -90);
-    $geometryPath->lineTo($point4);
+    $geometryPath->lineTo($bottomLeft);
     $geometryPath->arcTo($leftBottomSize, $leftBottomSize, 0, -90);
-    $geometryPath->lineTo($point5);
+    $geometryPath->lineTo($leftTop);
     $geometryPath->arcTo($leftTopSize, $leftTopSize, 90, -90);
     $geometryPath->closeFigure();
-    $childShape->setGeometryPath($geometryPath);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
-## **Megállapítás, hogy egy alakzatgeometria zárt‑e**
+    $shape->setGeometryPath($geometryPath);
 
-A zárt alakzat olyan, amelynek minden oldala összekapcsolódik, egyetlen határolóvonalat alkotva rések nélkül. Ilyen alakzat lehet egyszerű geometriai forma vagy bonyolult egyéni kontúr. Az alábbi kódrészlet bemutatja, hogyan ellenőrizhető, hogy egy alakzatgeometria zárt‑e:
-
-```php
-function isGeometryClosed($geometryShape)
-{
-    $isClosed = null;
-
-    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
-        $dataLength = count(java_values($geometryPath->getPathData()));
-        if ($dataLength === 0) {
-            continue;
-        }
-
-        $lastSegment = java_values($geometryPath->getPathData())[$dataLength - 1];
-        $isClosed = $lastSegment->getPathCommand() === PathCommandType::Close;
-
-        if ($isClosed === false) {
-            return false;
-        }
-    }
-
-    return $isClosed === true;
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **GeometryPath átalakítása java.awt.Shape típusra**
+## **Megállapítás, hogy az alakzat geometriája zárt‑e**
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryShape) osztályból.
-2. Hozzon létre egy példányt a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) osztályból.
-3. A [ShapeUtil](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ShapeUtil) segítségével konvertálja a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) példányt a [GeometryPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/GeometryPath) példányra.
-4. Alkalmazza az útvonalakat az alakzatra.
-
-Ez a PHP kód – a fenti lépések megvalósítása – bemutatja a **GeometryPath**‑tól **GraphicsPath**‑ig terjedő konverziós folyamatot:
+Az alábbi segédfüggvény ellenőrzi, hogy minden nem üres geometriai útvonal záró szegmenssel végződik‑e. A [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) beolvassa, és a végső szegmens [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) értékét összehasonlítja a [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/) típussal. Ha nincs nem üres útvonal, hamisat ad vissza. Ez a végső parancsot ellenőrzi minden útvonalnál; nem vizsgálja meg minden alalakzatot az útvonalon belül. A példa `true`‑t nyomtat egy téglalapra.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Új alakzat létrehozása
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
-    # Az alakzat geometriai útvonalának lekérése
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function isGeometryClosed($geometryShape)
+{
+    $hasNonemptyPath = false;
+    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
+        $segments = java_values($geometryPath->getPathData());
+        if (count($segments) === 0) {
+            continue;
+        }
+        $hasNonemptyPath = true;
+        $lastSegment = $segments[count($segments) - 1];
+        if (java_values($lastSegment->getPathCommand()) !== PathCommandType::Close) {
+            return false;
+        }
+    }
+    return $hasNonemptyPath;
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+    $closed = isGeometryClosed($shape);
+    echo ($closed ? "true" : "false") . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Alakzatelemek kinyerése és vizsgálata**
+
+Használja a [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) metódust, hogy meglévő alakzatot elemekként vizsgáljon, amelyek tartalmazzák az útvonal pontokat és ponttípusokat. Minden visszaadott [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) segítségével lekérheti a pont‑ és típus‑tömböket a [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) és a [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes) metódusokkal. Ez a reprezentáció hasznos a kontúr‑analízishez vagy a geometria egyedi rajzoló eszközökhöz való átadásához.
+
+A példa megnyitja az input.pptx‑et, megtalálja az első geometriai alakzatot közvetlenül az első dián, és kiírja annak útvonal‑szegmenseit. Használjon egy olyan prezentációt, amelyben egy alakzat egyenes és íves szegmenseket is tartalmaz, hogy mindkét típusú kimenetet lássa. A csoportokon belül nem keres.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = null;
+    $shapes = $slide->getShapes();
+    for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+        $candidate = $shapes->get_Item($shapeIndex);
+        if (java_instanceof($candidate, java("com.aspose.slides.GeometryShape"))) {
+            $shape = $candidate;
+            break;
+        }
+    }
+
+    if ($shape === null) {
+        echo "No geometry shape found on the first slide." . PHP_EOL;
+    } else {
+        foreach ($shape->createShapeElements() as $element) {
+            $points = java_values($element->getPathPoints());
+            $types = array_values(unpack("C*", java_values($element->getPathTypes())));
+            echo "Shape element:" . PHP_EOL;
+            for ($i = 0; $i < count($points); $i++) {
+                $pointType = $types[$i] & 0x07; // Tartsa meg a szegmens típusát, a jelzők nélkül.
+                switch ($pointType) {
+                    case 0:
+                        echo "Start figure at " . $points[$i] . PHP_EOL;
+                        break;
+                    case 1:
+                        echo "Line to " . $points[$i] . PHP_EOL;
+                        break;
+                    case 3:
+                        echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
+                        $i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+                if (($types[$i] & 0x80) !== 0) {
+                    echo "Close subpath back to its starting point." . PHP_EOL;
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+A tömbök index szerint egyeznek: `$points[$i]` egy pont, `$types[$i]` pedig annak szerepét írja le. A `0` típus új alakzatot nyit, az `1` típus az előző pontból a jelenlegi pontba vonalat rajzol. Egy köbös Bézier‑szegmens az előző végpontból indul, és három egymást követő `3` típusú elem használ: két vezérlőpontot, majd az új végpontot. A ciklus ezeket a három elemet egyszerre fogyasztja, és ellenőrzi, hogy a végpont zárta‑e az alakzatot.
+
+A ponttípusok további jelzőket is tartalmaznak. `0x07`‑es maszkot használva azonosítható a szegmens típusa, `0x80`‑as teszttel pedig meghatározható, hogy egy alútvonal zárt‑e. Például a `129` (`0x81`) egy vonal‑végpont, amely alútvonalat zár, a `131` (`0x83`) egy Bézier‑végpont, amely szintén zár. A PHP/Java Bridge a bájt‑tömböt bináris sztringként adja vissza; a `"C*"`‑el történő kicsomagolás unsigned bájt‑értékeket ad. A maszk alkalmazása megőrzi a kívánt bitértékeket. Ha csak a nyers értéket (`1` vagy `3`) hasonlítaná, ezek a esetek kimaradnának. A dash (`0x10`) és marker (`0x20`) jelzők nem változtatják az alapszegmens‑típust.
+
+**Koordináták és transzformációk.** A pontok pontban vannak mérve (1/72 hüvelyk), az X jobbra, a Y lefelé növekszik. Egy csoporton kívüli alakzatra a kinyert koordináták már tartalmazzák a [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) és [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) által visszaadott helyzetet, valamint a jelenlegi szélességet és magasságot. Például egy 120 × 80-as méretű, nem elforgatott téglalap a `(100, 200)`‑as bal‑felső sarokban `(100, 200)`‑tól `(220, 280)`‑ig határozza meg a kontúrhatárokat. Ne adja hozzá újra az alakzat helyzetét. Vonja ki az X és Y értékét a koordináták helyi, elforgatás nélküli keretéhez.
+
+A kinyert pontok nem alkalmazzák az alakzat [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) által visszaadott forgását, illetve a vízszintes és függőleges tükrözést. A megjelenített kontúr reprodukálásához ezeket a transzformációkat az alakzat középpontja körül kell alkalmazni. Csoportos alakzatok esetén vegye figyelembe a csoportkoordináta‑leképezést és a transzformációkat; ne feltételezze, hogy a kinyert pontok már a végső diára vetített koordináták, és ne alkalmazzon kétszeres eltolást vagy méretezést, ha az már szerepel a gyermek keretében.
+
+**Vizsgálat vs. szerkesztés.** A kinyert tömbök a kontúrt leírják; módosításuk nem frissíti az eredeti alakzatot. Ezt a megközelítést akkor válassza, ha a pont‑/típus‑tömbökre szüksége van elemzési vagy rajzoló kódban. Használja a [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) metódust, ha a geometriai parancsokra van szüksége az alakzat helyi koordináta‑rendszerében, vagy ha a geometriát szerkeszteni szeretné. A szerkesztett útvonalak alkalmazásához a [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) vagy a [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) metódusokat használja.
+
+## **Java AWT Shape átalakítása GeometryPath‑vé**
+
+Ez a példa egy téglalap körvonalát kombinálja a geometriává konvertált szöveggel. A körvonal [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) metódusa letiltja a kitöltést. Egy [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) hozza létre a szöveg körvonalát egy [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) segítségével. A [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) mozgás, egyenes, másod‑ és harmad‑rendű, valamint záró szegmenseket ad, amelyeket a példa egy [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)‑ra játszik le.
+
+A példa egy Java float tömböt használ, hogy a PHP/Java Bridge megőrizze az iterátor által írt koordinátákat. A szöveg 40‑pont Arial betűtípussal jelenik meg. A körvonal 20 ponttal vízszintesen el van tolva, és a vizuális teteje 10 ponttal az alakzat felső szélétől van lejjebb. A szöveg útvonal kitöltött, míg az eredeti téglalap csak körvonal marad. Mindkét útvonal a [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) használatával kerül alkalmazásra, egyetlen alakzatot hozva létre, amely a téglalapot és a szöveget egyaránt tartalmazza.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\PathFillModeType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
+    
     $originalPath = $shape->getGeometryPaths()[0];
     $originalPath->setFillMode(PathFillModeType::None);
-    # Új grafikus útvonal létrehozása szöveggel
-    $graphicsPath;
-    $font = new Font("Arial", Font->PLAIN, 40);
-    $text = "Text in shape";
-    $img = new BufferedImage(100, 100, BufferedImage->TYPE_INT_ARGB);
-    $g2 = $img->createGraphics();
+
+    $fontClass = java("java.awt.Font");
+    $imageClass = java("java.awt.image.BufferedImage");
+    $font = new Java("java.awt.Font", "Arial", $fontClass->PLAIN, 40);
+    $image = new Java("java.awt.image.BufferedImage", 100, 100, $imageClass->TYPE_INT_ARGB);
+    $graphics = $image->createGraphics();
     try {
-      $glyphVector = $font->createGlyphVector($g2->getFontRenderContext(), $text);
-      $graphicsPath = $glyphVector->getOutline(20.0, -$glyphVector->getVisualBounds()->getY() + 10);
+        $fontContext = $graphics->getFontRenderContext();
+        $glyphVector = $font->createGlyphVector($fontContext, "Text in shape");
+        $textBounds = $glyphVector->getVisualBounds();
+        $baseline = -java_values($textBounds->getY()) + 10;
+        $graphicsPath = $glyphVector->getOutline(20.0, $baseline);
     } finally {
-      $g2->dispose();
+        $graphics->dispose();
     }
-    # Grafikus útvonal konvertálása geometriai útvonalra
-    $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
+
+    $textPath = new GeometryPath();
+    $pathIterator = $graphicsPath->getPathIterator(null);
+    $iteratorClass = java("java.awt.geom.PathIterator");
+    $arrayClass = java("java.lang.reflect.Array");
+    $floatClass = java("java.lang.Float");
+    $coordinates = $arrayClass->newInstance($floatClass->TYPE, 6);
+
+    while (!java_values($pathIterator->isDone())) {
+        $segmentType = java_values($pathIterator->currentSegment($coordinates));
+        $points = java_values($coordinates);
+        switch ($segmentType) {
+            case java_values($iteratorClass->SEG_MOVETO):
+                $textPath->moveTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_LINETO):
+                $textPath->lineTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_QUADTO):
+                $textPath->quadraticBezierTo($points[0], $points[1], $points[2], $points[3]);
+                break;
+            case java_values($iteratorClass->SEG_CUBICTO):
+                $textPath->cubicBezierTo($points[0], $points[1], $points[2], $points[3], $points[4], $points[5]);
+                break;
+            case java_values($iteratorClass->SEG_CLOSE):
+                $textPath->closeFigure();
+                break;
+        }
+        $pathIterator->next();
+    }
     $textPath->setFillMode(PathFillModeType::Normal);
-    # Új geometriai útvonal és az eredeti geometriai útvonal kombinációjának beállítása az alakzatra
-    $shape->setGeometryPaths(array($originalPath, $textPath ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $shape->setGeometryPaths([$originalPath, $textPath]);
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example5_image](custom_shape_5.png)
 
 ## **GYIK**
 
-**Mi történik a kitöltéssel és a kontúrral a geometria cseréje után?**
+**Mi történik a kitöltéssel és a körvonallal a geometria cseréje után?**  
+A stílus az alakzaton marad; csak a körvonal változik. A kitöltés és a körvonal automatikusan az új geometriára kerül alkalmazásra.
 
-A stílus az alakzatnál marad; csak a kontúr változik. A kitöltés és a kontúr automatikusan az új geometriára kerülnek alkalmazásra.
+**Hogyan forgathatom helyesen egy egyéni alakzatot a geometriájával együtt?**  
+Használja az alakzat [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) metódusát; a geometria az alakzattal együtt forog, mivel az az alakzat saját koordináta‑rendszeréhez van kötve.
 
-**Hogyan tudom helyesen elforgatni egy egyéni alakzatot a geometriai adataival együtt?**
-
-Használja az alakzat [setRotation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/setrotation/) metódusát; a geometria az alakzattal együtt forgó, mivel az az alakzat saját koordináta‑rendszeréhez van kötve.
-
-**Átalakíthatom‑e egy egyéni alakzatot képpé a végeredmény „lezárásához”?**
-
-Igen. Exportálja a szükséges [slide](/slides/hu/php-java/convert-powerpoint-to-png/) területet vagy a [shape](/slides/hu/php-java/create-shape-thumbnails/) saját magát raszteres formátumba; ez egyszerűsíti a nehéz geometriai elemekkel való további munkát.
+**Átalakíthatom-e egy egyéni alakzatot képpé a végeredmény „lezárásához”?**  
+Igen. Exportálja a szükséges [slide](/slides/hu/php-java/convert-powerpoint-to-png/) területet vagy a [shape](/slides/hu/php-java/create-shape-thumbnails/) képet raszteres formátumba; ez megkönnyíti a további munkát a komplex geometriákkal.

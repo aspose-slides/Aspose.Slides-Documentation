@@ -1,15 +1,15 @@
 ---
-title: Настройка фигур презентаций в C++
-linktitle: Пользовательская фигура
+title: Настройка форм презентаций в C++
+linktitle: Пользовательская форма
 type: docs
 weight: 20
 url: /ru/cpp/custom-shape/
-keywords: 
-- пользовательская фигура
-- добавить фигуру
-- создать фигуру
-- изменить фигуру
-- геометрия фигуры
+keywords:
+- пользовательская форма
+- добавить форму
+- создать форму
+- изменить форму
+- геометрия формы
 - геометрический путь
 - точки пути
 - точки редактирования
@@ -21,342 +21,429 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Создавайте и настраивайте фигуры в презентациях PowerPoint с помощью Aspose.Slides для C++: геометрические пути, скруглённые углы, составные фигуры."
+description: "Создавайте и настраивайте формы в презентациях PowerPoint с помощью Aspose.Slides для C++: геометрические пути, скруглённые углы, составные формы."
 ---
+## **Обзор**
+
+Эта статья объясняет, как настраивать формы презентаций в Aspose.Slides, редактируя геометрию формы с помощью точек редактирования и геометрических путей. Она показывает, как работать с [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) и [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) для изменения существующих форм, выполнения базовых операций редактирования пути, добавления или удаления точек и применения обновлённой геометрии обратно к форме.
+
+Она также демонстрирует, как создавать пользовательские и составные формы, строить формы со скруглёнными углами и определять, является ли геометрия формы замкнутой.
 
 ## **Изменение формы с помощью точек редактирования**
-Рассмотрим квадрат. В PowerPoint, используя **теги редактирования**, вы можете
 
-* перемещать угол квадрата внутрь или наружу
-* задавать кривизну для угла или точки
-* добавлять новые точки к квадрату
-* манипулировать точками квадрата и т.д.
+В PowerPoint вы можете использовать **Edit Points** для изменения квадрата:
 
-По сути, эти задачи можно выполнять с любой фигурой. С помощью точек редактирования вы можете изменить форму или создать новую форму из существующей.
+* Переместить угол внутрь или наружу.
+* Отрегулировать кривизну в точке.
+* Добавить новые точки.
 
-## **Советы по редактированию фигур**
+Редактирование точек позволяет изменять контур формы или использовать существующую форму в качестве основы для новой.
+
+## **Советы по редактированию форм**
 
 ![overview_image](custom_shape_0.png)
 
-Прежде чем начать редактировать фигуры PowerPoint с помощью точек редактирования, обратите внимание на следующее о фигурах:
+При редактировании форм PowerPoint учитывайте следующие концепции:
 
-* Фигура (или её путь) может быть как замкнутой, так и открытой.
-* Когда фигура замкнута, у неё нет начальной или конечной точки. Когда фигура открыта, у неё есть начало и конец. 
-* Все фигуры состоят минимум из 2‑х опорных точек, связанных между собой линиями.
-* Линия может быть прямой или кривой. Опорные точки определяют тип линии. 
-* Опорные точки бывают уголковыми, прямыми или сглаженными:
-  * Уголковая точка — это точка, где соединяются 2 прямые линии под углом. 
-  * Сглаженная точка — это точка, где 2‑х «ручки» находятся на одной прямой и сегменты линии соединяются плавной кривой. В этом случае обе «ручки» находятся на одинаковом расстоянии от опорной точки. 
-  * Прямая точка — это точка, где 2‑х «ручки» находятся на одной прямой и сегменты линии соединяются плавной кривой. В этом случае расстояние «ручек» от опорной точки может различаться. 
-* Перемещая или изменяя опорные точки (что меняет угол линий), вы меняете внешний вид фигуры. 
+* Форма (или её путь) может быть закрытой или открытой.
+* Путь формы состоит из опорных точек, соединённых отрезками.
+* Отрезок может быть прямым или изогнутым. Опорные точки и контрольные рычаги определяют его форму.
+* Опорные точки могут быть угловыми, прямыми или сглаженными:
+  * В угловой точке соседние отрезки могут соединяться под углом.
+  * В сглаженной точке два контрольных рычага выровнены и находятся на одинаковом расстоянии от опорной точки.
+  * В прямой точке два контрольных рычага выровнены, но могут находиться на разном расстоянии от опорной точки.
+* Перемещение опорных точек или корректировка их рычагов изменяет контур формы.
 
-Для редактирования фигур PowerPoint через точки редактирования **Aspose.Slides** предоставляет класс [**GeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) и интерфейс [**IGeometryPath**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path).
+Для редактирования форм PowerPoint с помощью точек редактирования **Aspose.Slides** предоставляет класс [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) и интерфейс [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
 
-* Экземпляр [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) представляет геометрический путь объекта [IGeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape). 
-* Чтобы получить `GeometryPath` из экземпляра `IGeometryShape`, используйте метод [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1). 
-* Чтобы установить `GeometryPath` для фигуры, используйте методы: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) для *сплошных фигур* и [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) для *составных фигур*.
-* Чтобы добавить сегменты, используйте методы из [IGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path). 
-* С помощью методов [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) и [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7) можно задать внешний вид геометрического пути.
-* С помощью метода [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca) можно получить геометрический путь `GeometryShape` в виде массива сегментов пути. 
-* Для доступа к дополнительным параметрам настройки геометрии фигуры можно преобразовать [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) в [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path).
-* Используйте методы [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) и [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (из класса [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util)) для взаимного преобразования [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) и [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path).
+* Экземпляр [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) представляет геометрический путь объекта [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
+* Чтобы получить [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) из экземпляра [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), можно использовать метод [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* Чтобы задать [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) для формы, можно использовать следующие методы: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) для форм с одним путем и [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) для форм с несколькими путями.
+* Чтобы добавить отрезки, можно использовать методы в [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+* С помощью методов [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) и [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) можно задать отображение геометрического пути.
+* С помощью метода [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) можно получить геометрический путь [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) в виде массива отрезков пути.
 
 ## **Простые операции редактирования**
 
-Этот C++‑код демонстрирует, как
+Используйте следующие методы для редактирования геометрического пути. Перегрузки, принимающие индекс, вставляют отрезок в указанную позицию (нумерация с нуля) массива отрезков пути.
 
-**Добавить линию** в конец пути
-``` cpp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
+| Operation | Method |
+| --- | --- |
+| Добавить или вставить прямую линию. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| Добавить или вставить кубическую кривую Безье с двумя контрольными точками и конечной точкой. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Добавить или вставить квадратичную кривую Безье с одной контрольной точкой и конечной точкой. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Добавить эллиптическую дугу с указанными размерами и углами в градусах. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| Замкнуть текущую фигуру, соединив её конечную точку с начальной. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Задать начальную точку фигуры. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| Удалить отрезок по индексу, начинающемуся с нуля. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-**Добавить линию** в указанную позицию пути:
-``` cpp    
-void LineTo(PointF point, uint32_t index);
-void LineTo(float x, float y, uint32_t index);
-```
+## **Добавление пользовательских точек в форму**
 
-**Добавить кубическую кривую Безье** в конец пути:
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
+В этом примере вставляются две точки в прямоугольную форму с помощью [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) и применяется отредактированный путь через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Координаты локальны для формы: обе новые точки находятся в её центре, на 100 пунктов от левого края и 50 пунктов от верхнего. Индексы отрезков 1 и 4 размещают их на верхнем и нижнем краях, притягивая эти края внутрь.
 
-**Добавить кубическую кривую Безье** в указанную позицию пути:
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
-```
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-**Добавить квадратичную кривую Безье** в конец пути:
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
+using namespace Aspose::Slides;
+using namespace System;
 
-**Добавить квадратичную кривую Безье** в указанную позицию пути:
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
-```
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-**Добавить заданную дугу** к пути:
-``` cpp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-**Замкнуть текущую фигуру** пути:
-``` cpp
-void CloseFigure();
-```
-
-**Установить позицию для следующей точки**:
-``` cpp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-
-**Удалить сегмент пути** по указанному индексу:
-``` cpp
-void RemoveAt(int32_t index);
-```
-
-
-## **Добавление пользовательских точек к фигуре**
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) и задайте тип [ShapeType.Rectangle](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
-2. Получите экземпляр класса [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) из фигуры.  
-3. Добавьте новую точку между двумя верхними точками пути.  
-4. Добавьте новую точку между двумя нижними точками пути.  
-5. Примените путь к фигуре.
-
-Этот C++‑код показывает, как добавить пользовательские точки к фигуре:
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
-
-SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
-
+auto geometryPath = shape->GetGeometryPaths()->idx_get(0);
 geometryPath->LineTo(100.0f, 50.0f, 1);
 geometryPath->LineTo(100.0f, 50.0f, 4);
+
 shape->SetGeometryPath(geometryPath);
 ```
 
-
 ![example1_image](custom_shape_1.png)
 
-## **Удаление точек из фигуры**
+## **Удаление точек из формы**
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape) и задайте тип [ShapeType.Heart](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
-2. Получите экземпляр класса [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) из фигуры.  
-3. Удалите сегмент пути.  
-4. Примените путь к фигуре.
+В этом примере меняется контур в виде сердца, удаляя отрезок по индексу 2 (нумерация с нуля) с помощью [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Применение изменённого пути через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) обновляет контур формы.
 
-Этот C++‑код показывает, как удалить точки из фигуры:
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f);
+
+auto path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
+
 shape->SetGeometryPath(path);
 ```
 
 ![example2_image](custom_shape_2.png)
 
-## **Создание пользовательской фигуры**
+## **Создание пользовательской формы**
 
-1. Вычислите точки фигуры.  
-2. Создайте экземпляр класса [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).  
-3. Заполните путь точками.  
-4. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).  
-5. Примените путь к фигуре.
+В этом примере создаётся пятиконечная звезда с помощью [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Чередующиеся внешние и внутренние радиусы 100 и 50 пунктов определяют вершины и впадины; шаг в 72 градуса равномерно распределяет пять вершин. Путь замыкается с помощью [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) и применяется к прямоугольной форме через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), заменяя её контур.
 
-Этот C++‑код показывает, как создать пользовательскую фигуру:
-``` cpp
-SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
 
-float R = 100.0f, r = 50.0f;
-int32_t step = 72;
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::Drawing;
 
-for (int32_t angle = -90; angle < 270; angle += step)
+auto points = System::MakeObject<List<PointF>>();
+
+auto outerRadius = 100.0f;
+auto innerRadius = 50.0f;
+auto angleStep = 72;
+
+for (auto angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math::PI / 180.f);
-    double x = outerRadius * Math::Cos(radians);
-    double y = outerRadius * Math::Sin(radians);
+    auto radians = angle * (Math::PI / 180.f);
+    auto x = outerRadius * Math::Cos(radians);
+    auto y = outerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    radians = Math::PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-SharedPtr<GeometryPath> starPath = System::MakeObject<GeometryPath>();
+auto starPath = System::MakeObject<GeometryPath>();
 starPath->MoveTo(points->idx_get(0));
 
-for (int32_t i = 1; i < points->get_Count(); i++)
+for (auto i = 1; i < points->get_Count(); i++)
 {
     starPath->LineTo(points->idx_get(i));
 }
 
 starPath->CloseFigure();
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
-
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
 
 ![example3_image](custom_shape_3.png)
 
-## **Создание составной пользовательской фигуры**
+## **Создание составной пользовательской формы**
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).  
-2. Создайте первый экземпляр класса [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).  
-3. Создайте второй экземпляр класса [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path).  
-4. Примените пути к фигуре.
+В этом примере определяются два замкнутых объекта [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) для верхней и нижней трети формы. Применение обоих путей через [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) создаёт одну составную форму с разрывом в её средней трети.
 
-Этот C++‑код демонстрирует создание составной пользовательской фигуры:
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
-geometryPath0->MoveTo(0.0f, 0.0f);
-geometryPath0->LineTo(shape->get_Width(), 0.0f);
-geometryPath0->LineTo(shape->get_Width(), shape->get_Height() / 3);
-geometryPath0->LineTo(0.0f, shape->get_Height() / 3);
-geometryPath0->CloseFigure();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> geometryPath1 = System::MakeObject<GeometryPath>();
-geometryPath1->MoveTo(0.0f, shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height());
-geometryPath1->LineTo(0.0f, shape->get_Height());
-geometryPath1->CloseFigure();
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
+auto topPath = System::MakeObject<GeometryPath>();
+topPath->MoveTo(0.0f, 0.0f);
+topPath->LineTo(shape->get_Width(), 0.0f);
+topPath->LineTo(shape->get_Width(), shape->get_Height() / 3);
+topPath->LineTo(0.0f, shape->get_Height() / 3);
+topPath->CloseFigure();
+
+auto bottomPath = System::MakeObject<GeometryPath>();
+bottomPath->MoveTo(0.0f, shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height());
+bottomPath->LineTo(0.0f, shape->get_Height());
+bottomPath->CloseFigure();
+
+auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath });
+
+shape->SetGeometryPaths(paths);
 ```
 
 ![example4_image](custom_shape_4.png)
 
-## **Создание пользовательской фигуры со скруглёнными углами**
+## **Создание пользовательской формы со скруглёнными углами**
 
-Этот C++‑код показывает, как создать пользовательскую фигуру со скруглёнными (внутренними) углами:
+В этом примере комбинируются прямые отрезки с [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) для создания формы со скруглёнными внутрь углами. Размер каждого угла задаёт ширину и высоту дуги в пунктах, а sweep -90 градусов рисует эллипс четвертью против часовой стрелки. Завершённый путь применяется через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), и презентация сохраняется в формате PPTX.
+
 ```cpp
-float shapeX = 20.f;
-float shapeY = 20.f;
-float shapeWidth = 300.f;
-float shapeHeight = 200.f;
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
 
-float leftTopSize = 50.f;
-float rightTopSize = 20.f;
-float rightBottomSize = 40.f;
-float leftBottomSize = 10.f;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto shapeX = 20.f;
+auto shapeY = 20.f;
+auto shapeWidth = 300.f;
+auto shapeHeight = 200.f;
+
+auto leftTopSize = 50.f;
+auto rightTopSize = 20.f;
+auto rightBottomSize = 40.f;
+auto leftBottomSize = 10.f;
 
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto topLeft = PointF(leftTopSize, 0.0f);
+auto topRight = PointF(shapeWidth - rightTopSize, 0.0f);
+auto rightBottom = PointF(shapeWidth, shapeHeight - rightBottomSize);
+auto bottomLeft = PointF(leftBottomSize, shapeHeight);
+auto leftTop = PointF(0.0f, leftTopSize);
 
 auto geometryPath = System::MakeObject<GeometryPath>();
-
-PointF point1(leftTopSize, 0.0f);
-PointF point2(shapeWidth - rightTopSize, 0.0f);
-PointF point3(shapeWidth, shapeHeight - rightBottomSize);
-PointF point4(leftBottomSize, shapeHeight);
-PointF point5(0.0f, leftTopSize);
-
-geometryPath->MoveTo(point1);
-geometryPath->LineTo(point2);
+geometryPath->MoveTo(topLeft);
+geometryPath->LineTo(topRight);
 geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
-geometryPath->LineTo(point3);
+geometryPath->LineTo(rightBottom);
 geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
-geometryPath->LineTo(point4);
+geometryPath->LineTo(bottomLeft);
 geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
-geometryPath->LineTo(point5);
+geometryPath->LineTo(leftTop);
 geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
-
 geometryPath->CloseFigure();
 
-childShape->SetGeometryPath(geometryPath);
+shape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
+## **Определение, является ли геометрия формы замкнутой**
 
-## **Определение, является ли геометрия фигуры замкнутой**
+Следующий вспомогательный метод проверяет, заканчивается ли каждый непустой геометрический путь замыкающим отрезком. Он читает [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) и сравнивает команду последнего отрезка [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) с [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). При отсутствии непустых путей возвращает false. Проверяется только конечная команда каждого пути; отдельные подфигуры внутри пути не анализируются. В примере выводится `True` для прямоугольника.
 
-Замкнутая фигура определяется как такая, у которой все стороны соединены, образуя единую границу без разрывов. Такая фигура может быть простой геометрической формой или сложным пользовательским контуром. Ниже приведён пример кода, показывающий, как проверить, является ли геометрия фигуры замкнутой:
 ```cpp
-bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
-{
-    bool isClosed = false;
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto isGeometryClosed = [](SharedPtr<IGeometryShape> geometryShape)
+{
+    auto hasNonemptyPath = false;
     for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->get_Length();
-        if (dataLength == 0)
+        auto segments = geometryPath->get_PathData();
+        if (segments->get_Length() == 0)
+        {
             continue;
+        }
 
-        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
-
-        if (!isClosed)
+        hasNonemptyPath = true;
+        auto lastSegment = segments->idx_get(segments->get_Length() - 1);
+        if (lastSegment->get_PathCommand() != PathCommandType::Close)
+        {
             return false;
+        }
     }
+    return hasNonemptyPath;
+};
 
-    return isClosed;
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+Console::WriteLine(isGeometryClosed(shape));
+```
+
+## **Извлечение и проверка элементов формы**
+
+Используйте [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) для изучения существующей формы как элементов, содержащих точки пути и типы точек. Преобразуйте каждый возвращенный [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) к [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/), чтобы прочитать массивы, возвращаемые методами [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) и [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Такое представление полезно для анализа контура или передачи геометрии в пользовательские инструменты рисования.
+
+В примере открывается презентация, находится первая геометрическая форма на первом слайде и выводятся её отрезки пути. Используйте презентацию, содержащую форму с прямыми и изогнутыми отрезками, чтобы увидеть оба типа вывода. Поиск внутри групп не производится.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IShapeElement.h>
+#include <DOM/ShapeElement.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IGeometryShape> shape;
+for (auto&& candidate : slide->get_Shapes())
+{
+    shape = AsCast<IGeometryShape>(candidate);
+    if (shape != nullptr)
+    {
+        break;
+    }
+}
+if (shape == nullptr)
+{
+    Console::WriteLine(u"No geometry shape found on the first slide.");
+    return;
+}
+
+for (auto&& element : shape->CreateShapeElements())
+{
+    auto shapeElement = ExplicitCast<ShapeElement>(element);
+    auto points = shapeElement->get_PathPoints();
+    auto types = shapeElement->get_PathTypes();
+    Console::WriteLine(u"Shape element:");
+
+    for (auto i = 0; i < points->get_Length(); i++)
+    {
+        auto pointType = types[i] & 0x07; // Сохранить тип сегмента, исключая флаги.
+        switch (pointType)
+        {
+            case 0:
+                Console::WriteLine(u"Start figure at {0}", points[i]);
+                break;
+            case 1:
+                Console::WriteLine(u"Line to {0}", points[i]);
+                break;
+            case 3:
+                Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
+                i += 2; // Использовать обе контрольные точки и конечную точку.
+                break;
+        }
+        if ((types[i] & 0x80) != 0)
+        {
+            Console::WriteLine(u"Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
+Массивы соответствуют друг другу по индексу: `points[i]` — точка, а `types[i]` описывает её роль. Тип `0` начинается фигуру, тип `1` рисует линию от предыдущей точки к текущей. Кубический сегмент Безье начинается от предыдущей конечной точки и использует три последовательных элемента типа `3`: две контрольные точки и новую конечную точку. Цикл обрабатывает эти три элемента вместе и проверяет конечную точку на замкнутость.
+
+Типы точек также содержат флаги. Применяйте маску `0x07`, чтобы определить тип сегмента, и проверяйте `0x80` отдельно, чтобы обнаружить закрытый подпуть. Например, `129` (`0x81`) означает конечную точку линии, закрывающую подпуть, а `131` (`0x83`) — конечную точку Безье, закрывающую его. Сравнение сырого значения только с `1` или `3` упустит такие случаи. Другие флаги, например тире (`0x10`) и маркер (`0x20`), не меняют базовый тип сегмента.
+
+**Координаты и преобразования.** Точки измеряются в пунктах (1/72 дюйма), при этом X увеличивается вправо, а Y — вниз. Для не сгруппированной формы извлечённые координаты уже включают позицию, возвращаемую методами [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) и [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/), и отражают её текущие ширину и высоту. Например, незавёрнутый прямоугольник в `(100, 200)` размером `120 × 80` имеет границы контура `(100, 200)`–`(220, 280)`. Не добавляйте позицию формы повторно. Вычтите её X и Y, чтобы получить координаты относительно её необращённого кадра.
+
+Извлечённые точки не учитывают вращение, установленное через [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) , или горизонтальное и вертикальное отражения. Чтобы восстановить отображаемый контур, примените эти преобразования вокруг центра формы. Для сгруппированных форм также учитывайте отображение координат группы и её преобразования; не следует полагать, что извлечённые точки являются конечными координатами слайда, и не применяйте трансляцию или масштабирование дважды, если они уже учтены в кадре дочернего объекта.
+
+**Проверка против редактирования.** Извлечённые массивы описывают контур; их изменение не обновляет исходную форму. Выбирайте этот подход, когда ваш код анализа или рисования нуждается в массивах точек/типов. Используйте [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) , если нужны команды геометрии в локальной системе координат формы или требуется редактировать её геометрию. Применяйте отредактированные пути через [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) или [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) .
 
 ## **Преобразование GeometryPath в GraphicsPath**
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_shape).  
-2. Создайте экземпляр класса [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) из пространства имён [System.Drawing.Drawing2D](https://reference.aspose.com/slides/cpp/namespace/system.drawing.drawing2_d).  
-3. Преобразуйте экземпляр [GraphicsPath](https://reference.aspose.com/slides/cpp/class/system.drawing.drawing2_d.graphics_path) в экземпляр [GeometryPath](https://reference.aspose.com/slides/cpp/class/aspose.slides.geometry_path) с помощью [ShapeUtil](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.shape_util).  
-4. Примените пути к фигуре.
-
-Этот C++‑код, реализующий описанные шаги, демонстрирует процесс преобразования **GeometryPath** в **GraphicsPath**:
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
-
-SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
-originalPath->set_FillMode(PathFillModeType::None);
-
-SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
-
-SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
-textPath->set_FillMode(PathFillModeType::Normal);
-
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
-```
-
-![example5_image](custom_shape_5.png)
+Текущий публичный API Aspose.Slides для C++ не предоставляет преобразований между геометрическими путями и графическими путями. Для проверки контура используйте элементы формы, как описано выше. Для редактирования формы используйте геометрические пути и применяйте обновлённые пути к форме.
 
 ## **FAQ**
 
 **Что произойдёт с заливкой и контуром после замены геометрии?**
 
-Стиль остаётся привязанным к фигуре; меняется только контур. Заливка и контур автоматически применяются к новой геометрии.
+Стиль остаётся привязанным к форме; изменяется только контур. Заливка и контур автоматически применяются к новой геометрии.
 
-**Как правильно повернуть пользовательскую фигуру вместе с её геометрией?**
+**Как правильно вращать пользовательскую форму вместе с её геометрией?**
 
-Используйте свойство [rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) фигуры; геометрия поворачивается вместе с фигурой, поскольку она привязана к её собственной системе координат.
+Используйте метод формы [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) ; геометрия вращается вместе с формой, поскольку она привязана к её собственной системе координат.
 
-**Можно ли преобразовать пользовательскую фигуру в изображение, чтобы «зафиксировать» результат?**
+**Можно ли преобразовать пользовательскую форму в изображение, чтобы “зафиксировать” результат?**
 
-Да. Экспортируйте нужную [slide](/slides/ru/cpp/convert-powerpoint-to-png/) или саму [shape](/slides/ru/cpp/create-shape-thumbnails/) в растровый формат; это упростит дальнейшую работу с тяжёлыми геометриями.
+Да. Экспортируйте нужную область [слайд](/slides/ru/cpp/convert-powerpoint-to-png/) или саму [форму](/slides/ru/cpp/shape-thumbnails/) в растровый формат; это упрощает дальнейшую работу со сложными геометриями.

@@ -1,5 +1,5 @@
 ---
-title: PHP'de Sunum Şekillerini Özelleştirme
+title: PHP'de Sunum Şekillerini Özelleştir
 linktitle: Özel Şekil
 type: docs
 weight: 20
@@ -16,360 +16,430 @@ keywords:
 - nokta ekle
 - nokta kaldır
 - düzenleme işlemi
-- kavisli köşe
+- kıvrımlı köşe
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile PowerPoint sunumlarında şekiller oluşturun ve özelleştirin: geometri yolları, kavisli köşeler, birleşik şekiller."
+description: "Java aracılığıyla PHP için Aspose.Slides kullanarak PowerPoint sunumlarında şekiller oluşturun ve özelleştirin: geometri yolları, kıvrımlı köşeler, birleşik şekiller."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde sunum şekillerini düzenleme noktaları ve geometri yolları aracılığıyla şekil geometrisini düzenleyerek nasıl özelleştirileceğini açıklıyor. `GeometryPath` ile mevcut şekilleri nasıl değiştirebileceğinizi, temel yol düzenleme işlemlerini nasıl gerçekleştirebileceğinizi, nokta ekleyip kaldırmayı ve güncellenmiş geometrinin şekle yeniden uygulanmasını gösterir.
+Bu makale, Aspose.Slides'ta sunum şekillerini düzenleme noktaları ve geometri yolları aracılığıyla şekil geometrisini düzenleyerek özelleştirmeyi açıklar. Mevcut şekilleri değiştirmek, temel yol düzenleme işlemleri gerçekleştirmek, nokta eklemek veya kaldırmak ve güncellenmiş geometrinin bir şekle uygulanmasını göstermek için [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) ile nasıl çalışılacağını gösterir.
 
-Ayrıca, özel ve birleşik şekillerin nasıl oluşturulacağını, kavisli köşeli şekillerin nasıl inşa edileceğini, bir şekil geometrisinin kapalı olup olmadığının nasıl belirleneceğini ve ek geometri özelleştirme senaryoları için `GeometryPath` ile `java.awt.Shape` arasında nasıl dönüştürüleceğini gösterir.
+Ayrıca, özel ve bileşik şekiller oluşturmayı, köşeleri kıvrımlı olan şekiller inşa etmeyi, bir şekil geometrisinin kapalı olup olmadığını belirlemeyi, şekil öğelerini incelemeyi ve Java AWT metin konturlarını geometri yollarına dönüştürmeyi gösterir.
 
-## **Düzenleme Noktalarını Kullanarak Şekli Değiştirme**
+## **Bir Şekli Düzenleme Noktalarıyla Değiştirme**
 
-Bir kareyi düşünün. PowerPoint’te **düzenleme noktalarını** kullanarak şunları yapabilirsiniz
+PowerPoint'te **Edit Points** özelliğini kullanarak bir kareyi değiştirebilirsiniz:
 
-* karenin köşesini içeri ya da dışarı doğru hareket ettirmek
-* bir köşe ya da noktanın eğriliğini belirlemek
-* kareye yeni noktalar eklemek
-* kare üzerindeki noktaları manipüle etmek, vb. 
+* Bir köşeyi içe ya da dışa taşıyın.
+* Bir noktada eğriliği ayarlayın.
+* Yeni noktalar ekleyin.
 
-Özetle, tanımlanan görevleri herhangi bir şekil üzerinde gerçekleştirebilirsiniz. Düzenleme noktalarını kullanarak bir şekli değiştirebilir veya mevcut bir şekilden yeni bir şekil oluşturabilirsiniz. 
+Nokta düzenleme, bir şeklin dış hatlarını değiştirmenize veya mevcut bir şekli yeni bir şeklin temeli olarak kullanmanıza olanak tanır.
 
 ## **Şekil Düzenleme İpuçları**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint şekillerini düzenleme noktaları aracılığıyla düzenlemeye başlamadan önce, şekillerle ilgili aşağıdaki noktalara göz atmak isteyebilirsiniz:
+PowerPoint şekillerini düzenlerken şu kavramları aklınızda bulundurun:
 
-* Bir şekil (veya yolu) ya kapalı ya da açıktır.
-* Bir şekil kapalı olduğunda bir başlangıç ya da bitiş noktasına sahip değildir. Şekil açık olduğunda bir başlangıç ve bitişi vardır.
-* Tüm şekiller, birbirine çizgilerle bağlanan en az 2 tutama noktasından oluşur.
-* Bir çizgi ya düz ya da kavisli olabilir. Tutama noktaları çizginin niteliğini belirler.
-* Tutama noktaları köşe noktaları, düz noktalar veya yumuşak noktalar olarak bulunur:
-  * Bir köşe noktası, 2 düz çizginin bir açıyla birleştiği noktadır.
-  * Bir yumuşak nokta, 2 tutamaçının düz bir hat üzerinde bulunduğu ve çizgi segmentlerinin sorunsuz bir eğri ile birleştiği noktadır. Bu durumda, tüm tutamaçlar tutama noktasından eşit bir mesafede bulunur.
-  * Bir düz nokta, 2 tutamaçının düz bir hat üzerinde bulunduğu ve çizgi segmentlerinin bir eğriyle birleştiği noktadır. Bu durumda tutamaçların tutama noktasından eşit mesafede olmaları gerekmez.
-* Tutama noktalarını (çizgi açılarını değiştiren) hareket ettirerek veya düzenleyerek bir şeklin görünümünü değiştirebilirsiniz. 
+* Bir şekil (veya yolu) kapalı ya da açık olabilir.
+* Bir şeklin yolu, segmentlerle bağlanan çapa noktalarından oluşur.
+* Bir segment düz veya eğri olabilir. Çapa noktaları ve kontrol kolları şeklinin biçimini belirler.
+* Çapa noktaları köşe noktaları, düz noktalar veya pürüzsüz noktalar olarak bulunur:
+  * Bir köşe noktasında, bitişik segmentler bir açıyla buluşabilir.
+  * Bir pürüzsüz noktada, iki kontrol kolu hizalanmış ve çapa noktasına eşit uzaklıktadır.
+  * Bir düz noktada, iki kontrol kolu hizalanmıştır ancak çapa noktasına farklı mesafelerde olabilir.
+* Çapa noktalarını taşıyarak veya kollarını ayarlayarak şeklin dış hattı değişir.
 
-PowerPoint şekillerini düzenleme noktalarıyla düzenlemek için **Aspose.Slides**, [**GeometryPath**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryPath) sınıfını sunar.
+PowerPoint şekillerini düzenleme noktalarıyla düzenlemek için **Aspose.Slides**, [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) sınıfını sunar.
 
-* Bir [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryPath) örneği, [GeometryShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometryshape/) nesnesinin geometri yolunu temsil eder.
-* `GeometryShape` örneğinden `GeometryPath` değerini almak için [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometryshape/#getGeometryPaths) metodunu kullanabilirsiniz.
-* Bir şekil için `GeometryPath` ayarlamak üzere bu yöntemleri kullanabilirsiniz: *katı şekiller* için [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometryshape/#setGeometryPath) ve *birleşik şekiller* için [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometryshape/#setGeometryPaths).
-* Segment eklemek için [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometrypath/) altındaki yöntemleri kullanabilirsiniz.
-* [GeometryPath::setStroke](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometrypath/setstroke/) ve [GeometryPath::setFillMode](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometrypath/setfillmode/) yöntemlerini kullanarak bir geometri yolunun görünümünü ayarlayabilirsiniz.
-* [GeometryPath::getPathData](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometrypath/getpathdata/) yöntemini kullanarak bir `GeometryShape`'in geometri yolunu yol segmentleri dizisi olarak alabilirsiniz.
-* Ek şekil geometri özelleştirme seçeneklerine erişmek için [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometrypath/) öğesini [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) öğesine dönüştürebilirsiniz.
-* [geometryPathToGraphicsPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapeutil/geometrypathtographicspath/) ve [graphicsPathToGeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapeutil/graphicspathtogeometrypath/) yöntemlerini ([ShapeUtil](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ShapeUtil) sınıfından) kullanarak [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/geometrypath/) öğesini [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) öğesine ve geri dönüştürebilirsiniz.
+* Bir [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) örneği, [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) nesnesinin bir geometri yolunu temsil eder.
+* [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) örneğinden [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) elde etmek için [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) yöntemini kullanabilirsiniz.
+* Bir şekil için [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) ayarlamak üzere bu yöntemleri kullanabilirsiniz: tek yollu şekiller için [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ve birden çok yol içeren şekiller için [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
+* Segment eklemek için [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) altındaki yöntemleri kullanabilirsiniz.
+* [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) ve [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) yöntemlerini kullanarak bir geometri yolunun görünümünü ayarlayabilirsiniz.
+* [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) yöntemini kullanarak bir [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) geometrisinin yol verisini yol segmentleri dizisi olarak alabilirsiniz.
+* Ek şekil geometri özelleştirme seçeneklerine erişmek için bir [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) nesnesini [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) aracılığıyla okuyabilir ve segmentleri bir [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) üzerine yeniden oynatabilirsiniz.
 
 ## **Basit Düzenleme İşlemleri**
 
-Bu PHP kodu size nasıl
+Bir geometri yolunu düzenlemek için aşağıdaki yöntemleri kullanın. Bir dizin kabul eden aşırı yüklemeler, segmenti yolun segment dizisinde sıfır tabanlı konuma ekler.
 
-**Bir satır ekle** bir yolun sonuna
+| İşlem | Yöntem |
+| --- | --- |
+| Düz bir çizgi ekleyin veya ekleyin. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
+| İki kontrol noktası ve bir bitiş noktası ile kübik Bézier eğrisi ekleyin veya yerleştirin. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Bir kontrol noktası ve bir bitiş noktası ile ikinci dereceden Bézier eğrisi ekleyin veya yerleştirin. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Belirtilen boyut ve derece cinsinden açıyla eliptik bir yay ekleyin. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| Bitiş noktasını başlangıç noktasına bağlayarak geçerli şekli kapatın. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| Bir şeklin başlangıç noktasını ayarlayın. | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
+| Sıfır tabanlı bir dizindeki segmenti kaldırın. | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
 
-```php
+## **Bir Şekle Özel Noktalar Ekleme**
 
-```
-**Bir satır ekle** bir yolun belirli bir konumuna:
-
-```php
-
-```
-**Kübik Bezier eğrisi ekle** bir yolun sonuna:
-
-```php
-
-```
-**Kübik Bezier eğrisi ekle** bir yolun belirli bir konumuna:
+Bu örnek, bir dikdörtgen şekline iki nokta eklemek için [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) kullanır ve düzenlenmiş yolu [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ile uygular. Koordinatlar şekle göre lokalidir: her iki yeni nokta da merkezinde, soldan 100 puan ve üstten 50 puan uzaktadır. Segment indeksleri 1 ve 4, bu noktaları üst ve alt kenarlara yerleştirerek bu kenarları içe doğru çeker.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
-```
-**Kuadratik Bezier eğrisi ekle** bir yolun sonuna:
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-```php
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
 
-```
-**Kuadratik Bezier eğrisi ekle** bir yolun belirli bir konumuna:
-
-```php
-
-```
-**Belirli bir yay ekle** bir yola:
-
-```php
-
-```
-**Mevcut şekli kapat** bir yolda:
-
-```php
-
-```
-**Sonraki nokta için konumu ayarla**:
-
-```php
-
-```
-**Belirli bir indeksindeki yol segmentini kaldır**:
-
-```php
-
-```
-
-## **Bir Şekle Özel Noktalar Ekle**
-
-1. [GeometryShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryShape) sınıfının bir örneğini oluşturun ve [ShapeType::Rectangle](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ShapeType) tipini ayarlayın.
-2. Şekilden bir [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryPath) sınıfı örneği alın.
-3. Yoldaki iki üst nokta arasına yeni bir nokta ekleyin.
-4. Yoldaki iki alt nokta arasına yeni bir nokta ekleyin.
-5. Yolu şekle uygulayın.
-
-Bu PHP kodu, bir şekle özel noktalar nasıl eklenir gösterir:
-
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $geometryPath = $shape->getGeometryPaths()[0];
     $geometryPath->lineTo(100, 50, 1);
     $geometryPath->lineTo(100, 50, 4);
+
     $shape->setGeometryPath($geometryPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
 ![example1_image](custom_shape_1.png)
 
 ## **Şekilden Noktaları Kaldırma**
 
-1. [GeometryShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryShape) sınıfının bir örneğini oluşturun ve [ShapeType::Heart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ShapeType) tipini ayarlayın.
-2. Şekilden bir [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryPath) sınıfı örneği alın.
-3. Yol için segmenti kaldırın.
-4. Yolu şekle uygulayın.
-
-Bu PHP kodu, bir şekilden noktaların nasıl kaldırılacağını gösterir:
+Bu örnek, bir kalp şeklinin dış hatlarını [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) ile sıfır tabanlı indeks 2'deki segmenti kaldırarak değiştirir. Değiştirilmiş yolu [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ile uygulamak şeklin konturunu günceller.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
+
     $path = $shape->getGeometryPaths()[0];
     $path->removeAt(2);
+
     $shape->setGeometryPath($path);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example2_image](custom_shape_2.png)
 
 ## **Özel Bir Şekil Oluşturma**
 
-1. Şekil için noktaları hesaplayın.
-2. [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryPath) sınıfının bir örneğini oluşturun.
-3. Yolu noktalarla doldurun.
-4. [GeometryShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryShape) sınıfının bir örneğini oluşturun.
-5. Yolu şekle uygulayın.
-
-Bu Java kodu, özel bir şekil nasıl oluşturulur gösterir:
+Bu örnek, [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) kullanarak beş köşeli bir yıldız inşa eder. 100 ve 50 puanlık dış ve iç yarıçapların dönüşümlü olarak kullanılması uçları ve girintileri tanımlar; 72 derecelik adım beş ucu eşit aralıklarla dağıtır. Yol, [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) ile kapatılır ve [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) kullanılarak dikdörtgen bir şekle uygulanır; böylece mevcut dış hat yer değiştirir.
 
 ```php
-  $points = new Java("java.util.ArrayList");
-  $R = 100;
-  $r = 50;
-  $step = 72;
-  for($angle = -90; $angle < 270; $angle += $step) {
-    $radians = $angle * java("java.lang.Math")->PI / 180.0;
-    $x = $R * java("java.lang.Math")->cos($radians);
-    $y = $R * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-    $radians = java("java.lang.Math")->PI * $angle . $step / 2 / 180.0;
-    $x = $r * java("java.lang.Math")->cos($radians);
-    $y = $r * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-  }
-  $starPath = new GeometryPath();
-  $starPath->moveTo($points->get(0));
-  for($i = 1; $i < java_values($points->size()) ; $i++) {
-    $starPath->lineTo($points->get($i));
-  }
-  $starPath->closeFigure();
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $R * 2, $R * 2);
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$points = [];
+$outerRadius = 100;
+$innerRadius = 50;
+$angleStep = 72;
+for ($angle = -90; $angle < 270; $angle += $angleStep) {
+    $radians = deg2rad($angle);
+    $points[] = [$outerRadius * cos($radians) + $outerRadius, $outerRadius * sin($radians) + $outerRadius];
+    $radians = deg2rad($angle + $angleStep / 2);
+    $points[] = [$innerRadius * cos($radians) + $outerRadius, $innerRadius * sin($radians) + $outerRadius];
+}
+
+$starPath = new GeometryPath();
+$starPath->moveTo($points[0][0], $points[0][1]);
+for ($i = 1; $i < count($points); $i++) {
+    $starPath->lineTo($points[$i][0], $points[$i][1]);
+}
+$starPath->closeFigure();
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $outerRadius * 2, $outerRadius * 2);
     $shape->setGeometryPath($starPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example3_image](custom_shape_3.png)
 
-
 ## **Bileşik Özel Şekil Oluşturma**
 
-  1. [GeometryShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryShape) sınıfının bir örneğini oluşturun.
-  2. [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryPath) sınıfının ilk örneğini oluşturun.
-  3. [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryPath) sınıfının ikinci örneğini oluşturun.
-  4. Yolları şekle uygulayın.
-
-Bu PHP kodu, bir bileşik özel şekil nasıl oluşturulur gösterir:
+Bu örnek, bir şeklin üst ve alt üçte birini temsil eden iki kapalı [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) tanımlar. Her iki yolu da [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) ile uygulamak, ortasında bir boşluk bırakan tek bir bileşik şekil oluşturur.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
-    $geometryPath0 = new GeometryPath();
-    $geometryPath0->moveTo(0, 0);
-    $geometryPath0->lineTo($shape->getWidth(), 0);
-    $geometryPath0->lineTo($shape->getWidth(), $shape->getHeight() / 3);
-    $geometryPath0->lineTo(0, $shape->getHeight() / 3);
-    $geometryPath0->closeFigure();
-    $geometryPath1 = new GeometryPath();
-    $geometryPath1->moveTo(0, $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight());
-    $geometryPath1->lineTo(0, $shape->getHeight());
-    $geometryPath1->closeFigure();
-    $shape->setGeometryPaths(array($geometryPath0, $geometryPath1 ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+
+    $topPath = new GeometryPath();
+    $topPath->moveTo(0, 0);
+    $topPath->lineTo(java_values($shape->getWidth()), 0);
+    $topPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3);
+    $topPath->lineTo(0, java_values($shape->getHeight()) / 3);
+    $topPath->closeFigure();
+
+    $bottomPath = new GeometryPath();
+    $bottomPath->moveTo(0, java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()));
+    $bottomPath->lineTo(0, java_values($shape->getHeight()));
+    $bottomPath->closeFigure();
+
+    $shape->setGeometryPaths([$topPath, $bottomPath]);
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Kavisli Köşeli Özel Şekil Oluşturma**
+## **Kıvrımlı Köşeli Özel Şekil Oluşturma**
 
-Bu PHP kodu, içe doğru kavisli köşelere sahip özel bir şekil nasıl oluşturulacağını gösterir;
+Bu örnek, düz segmentleri [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) ile birleştirerek içe kıvrılan köşelere sahip bir şekil oluşturur. Her köşe boyutu, yayı puan cinsinden genişlik ve yükseklik olarak ayarlar ve -90 derecelik süpürme saat yönünün tersine bir çeyrek elips çizer. Tamamlanan yol, [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ile uygulanır ve sunum PPTX formatında kaydedilir.
 
 ```php
-  $shapeX = 20.0;
-  $shapeY = 20.0;
-  $shapeWidth = 300.0;
-  $shapeHeight = 200.0;
-  $leftTopSize = 50.0;
-  $rightTopSize = 20.0;
-  $rightBottomSize = 40.0;
-  $leftBottomSize = 10.0;
-  $pres = new Presentation();
-  try {
-    $childShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
+use aspose\slides\GeometryPath;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$shapeX = 20;
+$shapeY = 20;
+$shapeWidth = 300;
+$shapeHeight = 200;
+
+$leftTopSize = 50;
+$rightTopSize = 20;
+$rightBottomSize = 40;
+$leftBottomSize = 10;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
+
+    $topLeft = new Point2DFloat($leftTopSize, 0);
+    $topRight = new Point2DFloat($shapeWidth - $rightTopSize, 0);
+    $rightBottom = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
+    $bottomLeft = new Point2DFloat($leftBottomSize, $shapeHeight);
+    $leftTop = new Point2DFloat(0, $leftTopSize);
+
     $geometryPath = new GeometryPath();
-    $point1 = new Point2DFloat($leftTopSize, 0);
-    $point2 = new Point2DFloat($shapeWidth - $rightTopSize, 0);
-    $point3 = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
-    $point4 = new Point2DFloat($leftBottomSize, $shapeHeight);
-    $point5 = new Point2DFloat(0, $leftTopSize);
-    $geometryPath->moveTo($point1);
-    $geometryPath->lineTo($point2);
+    $geometryPath->moveTo($topLeft);
+    $geometryPath->lineTo($topRight);
     $geometryPath->arcTo($rightTopSize, $rightTopSize, 180, -90);
-    $geometryPath->lineTo($point3);
+    $geometryPath->lineTo($rightBottom);
     $geometryPath->arcTo($rightBottomSize, $rightBottomSize, -90, -90);
-    $geometryPath->lineTo($point4);
+    $geometryPath->lineTo($bottomLeft);
     $geometryPath->arcTo($leftBottomSize, $leftBottomSize, 0, -90);
-    $geometryPath->lineTo($point5);
+    $geometryPath->lineTo($leftTop);
     $geometryPath->arcTo($leftTopSize, $leftTopSize, 90, -90);
     $geometryPath->closeFigure();
-    $childShape->setGeometryPath($geometryPath);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
-## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenme**
+    $shape->setGeometryPath($geometryPath);
 
-Kapalı bir şekil, tüm kenarları birbirine bağlanarak boşluk bırakmayan tek bir sınır oluşturan şekil olarak tanımlanır. Böyle bir şekil basit bir geometrik form ya da karmaşık bir özel kontur olabilir. Aşağıdaki kod örneği, bir şekil geometrisinin kapalı olup olmadığını nasıl kontrol edeceğinizi gösterir:
-
-```php
-function isGeometryClosed($geometryShape)
-{
-    $isClosed = null;
-
-    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
-        $dataLength = count(java_values($geometryPath->getPathData()));
-        if ($dataLength === 0) {
-            continue;
-        }
-
-        $lastSegment = java_values($geometryPath->getPathData())[$dataLength - 1];
-        $isClosed = $lastSegment->getPathCommand() === PathCommandType::Close;
-
-        if ($isClosed === false) {
-            return false;
-        }
-    }
-
-    return $isClosed === true;
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **GeometryPath'i java.awt.Shape'e Dönüştürme**
+## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenin**
 
-1. [GeometryShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryShape) sınıfının bir örneğini oluşturun.
-2. [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) sınıfının bir örneğini oluşturun.
-3. [ShapeUtil](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ShapeUtil) kullanarak [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) örneğini [GeometryPath](https://reference.aspose.com/slides/tr/php-java/aspose.slides/GeometryPath) örneğine dönüştürün.
-4. Yolları şekle uygulayın.
-
-Bu PHP kodu—yukarıdaki adımların bir uygulaması—**GeometryPath**'i **GraphicsPath**'e dönüştürme sürecini gösterir:
+Aşağıdaki yardımcı, her dolu olmayan geometri yolunun kapanış segmentiyle bitip bitmediğini kontrol eder. [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) okur ve son segmentin [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) değerini [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/) ile karşılaştırır. Boş olmayan yol olmadığında false döner. Bu, her yolun son komutunu kontrol eder; bir yol içindeki her alt şekli incelemez. Örnek bir dikdörtgen için `true` yazar.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Yeni bir şekil oluştur
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
-    # Şeklin geometri yolunu al
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function isGeometryClosed($geometryShape)
+{
+    $hasNonemptyPath = false;
+    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
+        $segments = java_values($geometryPath->getPathData());
+        if (count($segments) === 0) {
+            continue;
+        }
+        $hasNonemptyPath = true;
+        $lastSegment = $segments[count($segments) - 1];
+        if (java_values($lastSegment->getPathCommand()) !== PathCommandType::Close) {
+            return false;
+        }
+    }
+    return $hasNonemptyPath;
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+    $closed = isGeometryClosed($shape);
+    echo ($closed ? "true" : "false") . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Şekil Öğelerini Çıkarma ve İnceleme**
+
+Mevcut bir şekli, yol noktaları ve nokta türlerini içeren öğeler olarak incelemek için [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) kullanın. Dönen her [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) üzerinden [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) ve [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes) metodlarıyla nokta ve tip dizileri alınır. Bu temsil, kontur analizi veya geometriyi özel çizim araçlarına aktarmak için kullanışlıdır.
+
+Örnek, input.pptx dosyasını açar, ilk slaytta doğrudan ilk geometri şeklini bulur ve yol segmentlerini yazdırır. Hem düz hem de eğri segmentler içeren bir şekil içeren bir sunum kullanın; çıktı iki türde de gösterilir. Gruplar içinde arama yapılmaz.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = null;
+    $shapes = $slide->getShapes();
+    for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+        $candidate = $shapes->get_Item($shapeIndex);
+        if (java_instanceof($candidate, java("com.aspose.slides.GeometryShape"))) {
+            $shape = $candidate;
+            break;
+        }
+    }
+
+    if ($shape === null) {
+        echo "No geometry shape found on the first slide." . PHP_EOL;
+    } else {
+        foreach ($shape->createShapeElements() as $element) {
+            $points = java_values($element->getPathPoints());
+            $types = array_values(unpack("C*", java_values($element->getPathTypes())));
+            echo "Shape element:" . PHP_EOL;
+            for ($i = 0; $i < count($points); $i++) {
+                $pointType = $types[$i] & 0x07; // Bayrakları hariç tutarak segment tipini koru.
+                switch ($pointType) {
+                    case 0:
+                        echo "Start figure at " . $points[$i] . PHP_EOL;
+                        break;
+                    case 1:
+                        echo "Line to " . $points[$i] . PHP_EOL;
+                        break;
+                    case 3:
+                        echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
+                        $i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+                if (($types[$i] & 0x80) !== 0) {
+                    echo "Close subpath back to its starting point." . PHP_EOL;
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Diziler indeksle eşleşir: `$points[$i]` bir noktadır ve `$types[$i]` onun rolünü tanımlar. Tip `0` bir şekli başlatır, tip `1` önceki noktadan şu anki noktaya bir çizgi çizer. Kübik Bézier segmenti önceki bitiş noktasından başlar ve üç ardışık tip-`3` girdisi kullanır: iki kontrol noktası ardından yeni bitiş noktası. Döngü bu üç girdiği birlikte tüketir ve kapanış için bitiş noktasını denetler.
+
+Nokta tipleri ayrıca bayraklar içerir. Segment tipini belirlemek için `0x07` ile maskeleyin ve kapalı bir alt yol tespiti için `0x80` i ayrı‑ ayrı test edin. Örneğin `129` (`0x81`) bir satır bitiş noktası olup bir alt yolu kapatır, `131` (`0x83`) ise bir Bézier bitiş noktası olup bir alt yolu kapatır. PHP/Java Bridge byte dizisini ikili bir dize olarak döndürür; "C*" ile ayrıştırmak işaretsiz byte değerleri üretir. Maskeleme, amaçlanan bit değerlerini korur. Sadece `1` veya `3` ile karşılaştırmak bu durumları atlayacaktır. Çizgi (`0x10`) ve işaretçi (`0x20`) gibi diğer bayraklar temel segment tipini değiştirmez.
+
+**Koordinatlar ve dönüşümler.** Noktalar puan (1/72 inç) biriminde ölçülür; X sağa, Y aşağı doğru artar. Gruplamış bir şekil için, çıkarılan koordinatlar zaten [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) ve [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) tarafından döndürülen konumu içerir ve mevcut genişlik ve yüksekliği yansıtır. Örneğin, `(100, 200)` konumunda, `120 × 80` boyutunda bir döndürülmemiş dikdörtgenin kontur sınırları `(100, 200)`–`(220, 280)` şeklindedir. Şeklin konumunu tekrar eklemeyin. X ve Y değerlerini çıkararak, dönüşülmemiş çerçeveye göre koordinatları elde edin.
+
+Çıkarılan noktalar, [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) tarafından döndürülen şeklin rotasyonunu veya yatay‑dikey çevirileri uygulamaz. Görüntülenen konturu yeniden üretmek için bu dönüşümleri şeklin merkezinde uygulayın. Gruplar içinde ise grup koordinat haritalamasını ve dönüşümleri de hesaba katın; çıkarılan noktaların sunumun nihai slayt koordinatları olduğunu varsaymayın ve çeviri ya da ölçekleme iki kez uygulanmasın.
+
+**İnceleme vs. düzenleme.** Çıkarılan diziler konturu tanımlar; bunları değiştirmek orijinal şekli güncellemez. Analiz ya da çizim kodunuz nokta/tip dizilerine ihtiyaç duyduğunda bu yöntemi seçin. Şeklin yerel koordinat sistemindeki geometri komutlarına ihtiyaç duyuyorsanız ya da geometrisini düzenlemek istiyorsanız [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) kullanın. Düzenlenmiş yolları [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) veya [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) ile uygulayın.
+
+## **Java AWT Şekilini GeometryPath’e Dönüştürme**
+
+Bu örnek, bir dikdörtgen konturunu metne dönüştürülmüş geometrisiyle birleştirir. Konturun [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) yöntemi doldurulmasını devre dışı bırakır. Bir [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html), bir [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) içinde metin konturunu oluşturur. Bunun [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) hareket, çizgi, ikinci dereceden, kübik ve kapanış segmentlerini sağlar; örnek bunları bir [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) üzerinde yeniden oynatır.
+
+Örnek, PHP/Java Bridge’in iteratör tarafından yazılan koordinatları koruması için bir Java float dizisi kullanır. Metin 40 puanlık Arial yazı tipinde. Kontur yatayda 20 puan kaydırılır ve görsel üstü şeklin üst kenarının 10 puan altında konumlandırılır. Metin yolu doldurulurken, orijinal dikdörtgen bir kontur olarak kalır. Her iki yolu da [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) ile uygulamak, dikdörtgen ve metni içeren tek bir şekil üretir.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\PathFillModeType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
+    
     $originalPath = $shape->getGeometryPaths()[0];
     $originalPath->setFillMode(PathFillModeType::None);
-    # Metinle yeni bir grafik yolu oluştur
-    $graphicsPath;
-    $font = new Font("Arial", Font->PLAIN, 40);
-    $text = "Text in shape";
-    $img = new BufferedImage(100, 100, BufferedImage->TYPE_INT_ARGB);
-    $g2 = $img->createGraphics();
+
+    $fontClass = java("java.awt.Font");
+    $imageClass = java("java.awt.image.BufferedImage");
+    $font = new Java("java.awt.Font", "Arial", $fontClass->PLAIN, 40);
+    $image = new Java("java.awt.image.BufferedImage", 100, 100, $imageClass->TYPE_INT_ARGB);
+    $graphics = $image->createGraphics();
     try {
-      $glyphVector = $font->createGlyphVector($g2->getFontRenderContext(), $text);
-      $graphicsPath = $glyphVector->getOutline(20.0, -$glyphVector->getVisualBounds()->getY() + 10);
+        $fontContext = $graphics->getFontRenderContext();
+        $glyphVector = $font->createGlyphVector($fontContext, "Text in shape");
+        $textBounds = $glyphVector->getVisualBounds();
+        $baseline = -java_values($textBounds->getY()) + 10;
+        $graphicsPath = $glyphVector->getOutline(20.0, $baseline);
     } finally {
-      $g2->dispose();
+        $graphics->dispose();
     }
-    # Grafik yolunu geometri yoluna dönüştür
-    $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
+
+    $textPath = new GeometryPath();
+    $pathIterator = $graphicsPath->getPathIterator(null);
+    $iteratorClass = java("java.awt.geom.PathIterator");
+    $arrayClass = java("java.lang.reflect.Array");
+    $floatClass = java("java.lang.Float");
+    $coordinates = $arrayClass->newInstance($floatClass->TYPE, 6);
+
+    while (!java_values($pathIterator->isDone())) {
+        $segmentType = java_values($pathIterator->currentSegment($coordinates));
+        $points = java_values($coordinates);
+        switch ($segmentType) {
+            case java_values($iteratorClass->SEG_MOVETO):
+                $textPath->moveTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_LINETO):
+                $textPath->lineTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_QUADTO):
+                $textPath->quadraticBezierTo($points[0], $points[1], $points[2], $points[3]);
+                break;
+            case java_values($iteratorClass->SEG_CUBICTO):
+                $textPath->cubicBezierTo($points[0], $points[1], $points[2], $points[3], $points[4], $points[5]);
+                break;
+            case java_values($iteratorClass->SEG_CLOSE):
+                $textPath->closeFigure();
+                break;
+        }
+        $pathIterator->next();
+    }
     $textPath->setFillMode(PathFillModeType::Normal);
-    # Yeni geometri yolu ve orijinal geometri yolunun kombinasyonunu şekle ayarla
-    $shape->setGeometryPaths(array($originalPath, $textPath ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $shape->setGeometryPaths([$originalPath, $textPath]);
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example5_image](custom_shape_5.png)
 
-## **FAQ**
+## **SSS**
 
-**Geometriyi değiştirdikten sonra dolgu ve kenarlık ne olur?**
+**Geometri değiştirildikten sonra dolgu ve kontur ne olur?**
 
-Stil şekil ile kalır; sadece kontur değişir. Dolgu ve kenarlık otomatik olarak yeni geometriye uygulanır.
+Stil şekil ile birlikte kalır; yalnızca kontur değişir. Dolgu ve kontur yeni geometriye otomatik olarak uygulanır.
 
-**Özel bir şekli geometrisiyle birlikte nasıl doğru şekilde döndürürüm?**
+**Özel bir şekli geometrisiyle birlikte doğru şekilde nasıl döndürürüm?**
 
-Şeklin [setRotation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/setrotation/) metodunu kullanın; geometri, şeklin kendi koordinat sistemine bağlı olduğu için şekil ile birlikte döner.
+Şeklin [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) yöntemini kullanın; geometri, şeklin kendi koordinat sistemine bağlı olduğu için şekille birlikte döner.
 
-**Sonucu "kilitlemek" için özel bir şekli bir görüntüye dönüştürebilir miyim?**
+**Sonucu "kilitlemek" için özel bir şekli görüntüye dönüştürebilir miyim?**
 
-Evet. Gerekli [slaytı](/slides/tr/php-java/convert-powerpoint-to-png/) bölgesini ya da [şekli](/slides/tr/php-java/create-shape-thumbnails/) kendisini raster bir formata dışa aktarabilirsiniz; bu, karmaşık geometrilerle çalışmayı kolaylaştırır.
+Evet. Gerekli [slide](/slides/tr/php-java/convert-powerpoint-to-png/) alanını ya da [shape](/slides/tr/php-java/create-shape-thumbnails/) kendisini raster bir formata dışa aktarın; bu, karmaşık geometrilerle sonraki çalışmayı basitleştirir.

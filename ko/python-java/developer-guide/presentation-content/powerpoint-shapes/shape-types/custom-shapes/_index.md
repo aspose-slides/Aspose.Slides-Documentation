@@ -1,16 +1,16 @@
 ---
-title: 파이썬(Java)에서 프레젠테이션 도형 사용자 지정
-linktitle: 사용자 정의 도형
+title: Python을 통해 Java에서 프레젠테이션 도형 사용자 지정
+linktitle: 맞춤형 도형
 type: docs
 weight: 20
 url: /ko/python-java/custom-shape/
-keywords: 
-- 사용자 정의 도형
+keywords:
+- 맞춤형 도형
 - 도형 추가
-- 도형 생성
+- 도형 만들기
 - 도형 변경
-- 도형 기하
-- 기하 경로
+- 도형 기하학
+- 기하학 경로
 - 경로 포인트
 - 편집 포인트
 - 포인트 추가
@@ -19,114 +19,68 @@ keywords:
 - 곡선 모서리
 - PowerPoint
 - 프레젠테이션
-- 파이썬
+- Python
 - Aspose.Slides
-description: "Java를 통한 Python용 Aspose.Slides로 PowerPoint 프레젠테이션의 도형을 만들고 사용자 지정합니다: 기하 경로, 곡선 모서리, 복합 도형."
+description: "Python을 통해 Java에서 Aspose.Slides를 사용하여 PowerPoint 프레젠테이션의 도형을 만들고 사용자 지정합니다: 기하학 경로, 곡선 모서리, 복합 도형."
 ---
 ## **개요**
 
-이 문서에서는 편집 포인트와 기하 경로를 사용하여 Aspose.Slides에서 도형의 기하 형상을 편집함으로써 프레젠테이션 도형을 사용자 지정하는 방법을 설명합니다. 기존 도형을 수정하고 기본 경로 편집 작업을 수행하며 포인트를 추가·제거하고, 업데이트된 기하 형상을 도형에 적용하기 위해 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/)를 사용하는 방법을 보여줍니다.
+이 문서에서는 편집 포인트와 기하학 경로를 통해 도형 기하학을 편집하여 Aspose.Slides에서 프레젠테이션 도형을 사용자 지정하는 방법을 설명합니다. 이 문서에서는 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)를 사용하여 기존 도형을 수정하고, 기본 경로 편집 작업을 수행하며, 포인트를 추가하거나 제거하고, 업데이트된 기하학을 도형에 다시 적용하는 방법을 보여줍니다.
 
-또한 사용자 정의 및 복합 도형을 만들고, 곡선 모서리를 가진 도형을 구축하며, 도형 기하 형상이 닫혀 있는지 확인하고, 추가 기하 사용자 지정 시나리오를 위해 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/)와 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 간 변환 방법을 시연합니다.
+또한 사용자 지정 및 복합 도형을 만들고, 곡선 모서리를 가진 도형을 구축하며, 도형 기하학이 닫혀 있는지 확인하고, 도형 요소를 검사하며, Java AWT 텍스트 윤곽을 기하학 경로로 변환하는 방법도 보여줍니다.
 
-## **편집 포인트를 사용한 도형 변경**
+## **편집 포인트를 사용하여 도형 변경**
 
-정사각형을 생각해 보십시오. PowerPoint에서 **편집 포인트**를 사용하면 
-* 정사각형의 모서리를 안쪽이나 바깥쪽으로 이동
-* 모서리 또는 포인트의 곡률 지정
-* 정사각형에 새 포인트 추가
-* 정사각형의 포인트를 조작 등
-을 수행할 수 있습니다. 
+PowerPoint에서 **Edit Points**를 사용하여 사각형을 수정할 수 있습니다:
 
-본질적으로 이러한 작업은 모든 도형에 대해 수행할 수 있습니다. 편집 포인트를 사용하면 기존 도형을 변경하거나 기존 도형에서 새 도형을 만들 수 있습니다. 
+* 모서리를 안쪽이나 바깥쪽으로 이동합니다.
+* 포인트에서 곡률을 조정합니다.
+* 새로운 포인트를 추가합니다.
+
+포인트를 편집하면 도형의 윤곽을 수정하거나 기존 도형을 새 도형의 기반으로 사용할 수 있습니다.
 
 ## **도형 편집 팁**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint 도형을 편집 포인트를 통해 수정하기 전에 다음 사항을 고려하십시오.
+PowerPoint 도형을 편집할 때 다음 개념을 기억하세요:
 
-* 도형(또는 그 경로)은 닫힌 형태일 수도, 열린 형태일 수도 있습니다.
-* 도형이 닫힌 경우 시작점이나 끝점이 없습니다. 도형이 열린 경우 시작점과 끝점이 존재합니다. 
-* 모든 도형은 최소 2개의 앵커 포인트가 선으로 연결되어 있습니다.
-* 선은 직선이거나 곡선일 수 있습니다. 앵커 포인트가 선의 형태를 결정합니다. 
-* 앵커 포인트는 코너 포인트, 직선 포인트, 부드러운 포인트 중 하나입니다:
-  * 코너 포인트는 두 개의 직선이 각도에서 만나는 지점입니다. 
-  * 부드러운 포인트는 두 개의 핸들이 일직선에 위치하고 선분이 부드러운 곡선으로 이어지는 지점이며, 이 경우 모든 핸들은 앵커 포인트로부터 동일한 거리만큼 떨어져 있습니다. 
-  * 직선 포인트는 두 개의 핸들이 일직선에 위치하고 선분이 부드러운 곡선으로 이어지는 지점이지만, 이 경우 핸들이 앵커 포인트와 동일한 거리를 유지할 필요는 없습니다. 
-* 앵커 포인트를 이동하거나 편집하여(선의 각도가 변함) 도형의 모양을 바꿀 수 있습니다. 
+* 도형(또는 그 경로)은 닫혀 있거나 열려 있을 수 있습니다.
+* 도형의 경로는 세그먼트로 연결된 앵커 포인트로 구성됩니다.
+* 세그먼트는 직선 또는 곡선일 수 있습니다. 앵커 포인트와 제어 핸들이 그 형태를 결정합니다.
+* 앵커 포인트는 코너 포인트, 직선 포인트 또는 스무스 포인트로 존재합니다:
+  * 코너 포인트에서는 인접 세그먼트가 각도로 만나지만
+  * 스무스 포인트에서는 두 제어 핸들이 정렬되어 앵커 포인트와 동일한 거리에 있습니다.
+  * 직선 포인트에서는 두 제어 핸들이 정렬되어 있지만 앵커 포인트와 거리 차이가 있을 수 있습니다.
+* 앵커 포인트를 이동하거나 핸들을 조정하면 도형의 윤곽이 바뀝니다.
 
-PowerPoint 도형을 편집 포인트로 수정하려면 **Aspose.Slides**가 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/) 클래스를 제공합니다. 
+편집 포인트를 통해 PowerPoint 도형을 편집하려면 **Aspose.Slides**가 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 클래스를 제공합니다.
 
-* [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/) 인스턴스는 [GeometryShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/) 객체의 기하 경로를 나타냅니다.
-* [GeometryShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/) 인스턴스에서 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/)를 가져오려면 [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/#getGeometryPaths) 메서드를 사용합니다.
-* 도형에 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/)를 설정하려면 *단일 도형*의 경우 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/#setGeometryPath) 메서드를, *복합 도형*의 경우 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/#setGeometryPaths) 메서드를 사용합니다.
-* 세그먼트를 추가하려면 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/) 아래의 메서드를 사용합니다. 
-* [GeometryPath.setStroke](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/#setStroke) 및 [GeometryPath.setFillMode](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/#setFillMode) 메서드를 이용해 기하 경로의 외형을 지정할 수 있습니다.
-* [GeometryPath.getPathData](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/#getPathData) 메서드를 사용하면 [GeometryShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/)의 기하 경로를 경로 세그먼트 배열로 가져올 수 있습니다. 
-* 추가 도형 기하 사용자 지정 옵션에 접근하려면 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/)를 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)으로 변환할 수 있습니다.
-* [ShapeUtil](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shapeutil/) 클래스의 [geometryPathToGraphicsPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shapeutil/) 및 [graphicsPathToGeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shapeutil/) 메서드를 사용하면 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/)와 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 간을 양방향으로 변환할 수 있습니다. 
+* [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 인스턴스는 [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) 객체의 기하학 경로를 나타냅니다.
+* [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) 인스턴스에서 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)를 가져오려면 [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) 메서드를 사용할 수 있습니다.
+* 도형에 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)를 설정하려면 단일 경로를 가진 도형은 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), 다중 경로를 가진 도형은 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) 메서드를 사용할 수 있습니다.
+* 세그먼트를 추가하려면 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 아래의 메서드를 사용할 수 있습니다.
+* [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke)와 [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) 메서드를 사용하여 기하학 경로의 모양을 설정할 수 있습니다.
+* [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) 메서드를 사용하면 [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/)의 기하학 경로를 경로 세그먼트 배열로 가져올 수 있습니다.
+* 추가 도형 기하학 맞춤 옵션에 접근하려면 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html)을 해당 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)로 읽고 세그먼트를 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)에 재생할 수 있습니다.
 
 ## **간단한 편집 작업**
 
-다음 서명은 기본 편집 작업을 보여줍니다.
+다음 메서드를 사용하여 기하학 경로를 편집합니다. 인덱스를 받는 오버로드는 경로 세그먼트 배열의 해당 0부터 시작하는 위치에 세그먼트를 삽입합니다.
 
-**경로 끝에 선을 추가**:
+| Operation | Method |
+| --- | --- |
+| 직선 추가 또는 삽입. | [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) |
+| 두 개의 제어점과 끝점이 있는 3차 베지어 곡선 추가 또는 삽입. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| 하나의 제어점과 끝점이 있는 2차 베지어 곡선 추가 또는 삽입. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| 지정된 크기와 각도(도)로 타원 호 추가. | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
+| 끝점을 시작점에 연결하여 현재 도형을 닫음. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
+| 도형의 시작점을 설정. | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
+| 0부터 시작하는 인덱스 위치의 세그먼트를 제거. | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
 
-- `geometry_path.lineTo(point)`
-- `geometry_path.lineTo(x, y)`
+## **도형에 사용자 지정 포인트 추가**
 
-**경로의 지정된 위치에 선을 추가**:
-
-- `geometry_path.lineTo(point, index)`
-- `geometry_path.lineTo(x, y, index)`
-
-**경로 끝에 3차 베지어 곡선을 추가**:
-
-- `geometry_path.cubicBezierTo(point1, point2, point3)`
-- `geometry_path.cubicBezierTo(x1, y1, x2, y2, x3, y3)`
-
-**경로의 지정된 위치에 3차 베지어 곡선을 추가**:
-
-- `geometry_path.cubicBezierTo(point1, point2, point3, index)`
-- `geometry_path.cubicBezierTo(x1, y1, x2, y2, x3, y3, index)`
-
-**경로 끝에 2차 베지어 곡선을 추가**:
-
-- `geometry_path.quadraticBezierTo(point1, point2)`
-- `geometry_path.quadraticBezierTo(x1, y1, x2, y2)`
-
-**경로의 지정된 위치에 2차 베지어 곡선을 추가**:
-
-- `geometry_path.quadraticBezierTo(point1, point2, index)`
-- `geometry_path.quadraticBezierTo(x1, y1, x2, y2, index)`
-
-**주어진 호를 경로에 추가**:
-
-- `geometry_path.arcTo(width, height, start_angle, sweep_angle)`
-
-**현재 피규어를 닫음**:
-
-- `geometry_path.closeFigure()`
-
-**다음 포인트 위치 지정**:
-
-- `geometry_path.moveTo(point)`
-- `geometry_path.moveTo(x, y)`
-
-**지정된 인덱스의 경로 세그먼트 제거**:
-
-- `geometry_path.removeAt(index)`
-
-
-## **도형에 사용자 정의 포인트 추가**
-1. [GeometryShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/) 클래스의 인스턴스를 생성하고 [ShapeType.Rectangle](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shapetype/#Rectangle) 유형을 설정합니다.
-2. 도형에서 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/) 클래스의 인스턴스를 가져옵니다.
-3. 경로 상의 두 상단 포인트 사이에 새 포인트를 추가합니다.
-4. 경로 상의 두 하단 포인트 사이에 새 포인트를 추가합니다.
-5. 경로를 도형에 적용합니다.
-
-다음 Python 코드는 도형에 사용자 정의 포인트를 추가하는 방법을 보여줍니다:
+이 예제에서는 [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo)를 사용하여 사각형 도형에 두 개의 포인트를 삽입하고, 편집된 경로를 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)로 적용합니다. 좌표는 도형에 대한 로컬 좌표이며, 두 새로운 포인트는 도형 중앙에 위치하고 왼쪽에서 100 포인트, 위에서 50 포인트 떨어져 있습니다. 세그먼트 인덱스 1과 4는 각각 위와 아래 가장자리에 배치되어 해당 가장자리를 안쪽으로 당깁니다.
 
 ```python
 import jpype
@@ -139,24 +93,24 @@ from asposeslides.api import Presentation, ShapeType
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+
     geometry_path = shape.getGeometryPaths()[0]
     geometry_path.lineTo(100, 50, 1)
     geometry_path.lineTo(100, 50, 4)
+
     shape.setGeometryPath(geometry_path)
 finally:
     presentation.dispose()
 ```
+
 ![example1_image](custom_shape_1.png)
 
 ## **도형에서 포인트 제거**
 
-1. [GeometryShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/) 클래스의 인스턴스를 생성하고 [ShapeType.Heart](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shapetype/#Heart) 유형을 설정합니다. 
-2. 도형에서 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/) 클래스의 인스턴스를 가져옵니다.
-3. 경로의 세그먼트를 제거합니다.
-4. 경로를 도형에 적용합니다.
-
-다음 Python 코드는 도형에서 포인트를 제거하는 방법을 보여줍니다:
+이 예제에서는 [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt)를 사용하여 0부터 시작하는 인덱스 2에 해당하는 세그먼트를 제거함으로써 하트 모양의 윤곽을 변경합니다. 수정된 경로를 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)으로 적용하면 도형의 윤곽이 업데이트됩니다.
 
 ```python
 import jpype
@@ -169,24 +123,22 @@ from asposeslides.api import Presentation, ShapeType
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300)
+
     geometry_path = shape.getGeometryPaths()[0]
     geometry_path.removeAt(2)
+
     shape.setGeometryPath(geometry_path)
 finally:
     presentation.dispose()
 ```
 ![example2_image](custom_shape_2.png)
 
-## **사용자 정의 도형 만들기**
+## **사용자 지정 도형 만들기**
 
-1. 도형의 포인트를 계산합니다.
-2. [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/) 클래스의 인스턴스를 생성합니다. 
-3. 포인트로 경로를 채웁니다.
-4. [GeometryShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/) 클래스의 인스턴스를 생성합니다. 
-5. 경로를 도형에 적용합니다.
-
-다음 Python 코드는 사용자 정의 도형을 만드는 방법을 보여줍니다:
+이 예제에서는 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)를 사용하여 5각별을 만듭니다. 외부 반경 100 포인트와 내부 반경 50 포인트를 교대로 사용하여 별의 꼭짓점과 오목 부분을 정의하고, 72도 간격으로 다섯 꼭짓점을 균일하게 배치합니다. 경로는 [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure)으로 닫히며, [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)를 사용하여 사각형 도형에 적용해 기존 윤곽을 교체합니다.
 
 ```python
 import jpype
@@ -202,15 +154,15 @@ import math
 points = []
 outer_radius = 100
 inner_radius = 50
-step = 72
+angle_step = 72
 
-for angle in range(-90, 270, step):
+for angle in range(-90, 270, angle_step):
     radians = math.radians(angle)
     x = outer_radius * math.cos(radians)
     y = outer_radius * math.sin(radians)
     points.append((x + outer_radius, y + outer_radius))
 
-    radians = math.radians(angle + step / 2)
+    radians = math.radians(angle + angle_step / 2)
     x = inner_radius * math.cos(radians)
     y = inner_radius * math.sin(radians)
     points.append((x + outer_radius, y + outer_radius))
@@ -223,22 +175,18 @@ star_path.closeFigure()
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outer_radius * 2, outer_radius * 2)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.setGeometryPath(star_path)
 finally:
     presentation.dispose()
 ```
 ![example3_image](custom_shape_3.png)
 
+## **복합 사용자 지정 도형 만들기**
 
-## **복합 사용자 정의 도형 만들기**
-
-  1. [GeometryShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/) 클래스의 인스턴스를 생성합니다.
-  2. 첫 번째 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/) 클래스의 인스턴스를 생성합니다.
-  3. 두 번째 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/) 클래스의 인스턴스를 생성합니다.
-  4. 경로들을 도형에 적용합니다.
-
-다음 Python 코드는 복합 사용자 정의 도형을 만드는 방법을 보여줍니다:
+이 예제에서는 도형의 상단 1/3과 하단 1/3을 위한 두 개의 닫힌 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 객체를 정의합니다. 두 경로를 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)로 적용하면 중간 1/3에 틈이 있는 하나의 복합 도형이 생성됩니다.
 
 ```python
 import jpype
@@ -251,7 +199,9 @@ from asposeslides.api import Presentation, ShapeType, GeometryPath
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
 
     top_path = GeometryPath()
     top_path.moveTo(0, 0)
@@ -273,9 +223,9 @@ finally:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **곡선 모서리를 가진 사용자 정의 도형 만들기**
+## **곡선 모서리가 있는 사용자 지정 도형 만들기**
 
-다음 Python 코드는 곡선 모서리(안쪽) 사용자 정의 도형을 만드는 방법을 보여줍니다:
+이 예제에서는 직선 세그먼트와 [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo)를 결합하여 안쪽으로 굽은 모서리를 가진 도형을 만듭니다. 각 모서리 크기는 호의 너비와 높이를 포인트 단위로 설정하고, -90도 회전으로 시계 반대 방향의 1/4 타원을 그립니다. 완성된 경로는 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)으로 적용되며, 프레젠테이션은 PPTX 형식으로 저장됩니다.
 
 ```python
 import jpype
@@ -298,7 +248,10 @@ left_bottom_size = 10
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Custom, shape_x, shape_y, shape_width, shape_height)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Custom, shape_x, shape_y, shape_width, shape_height)
+
     geometry_path = GeometryPath()
     geometry_path.moveTo(left_top_size, 0)
     geometry_path.lineTo(shape_width - right_top_size, 0)
@@ -310,15 +263,17 @@ try:
     geometry_path.lineTo(0, left_top_size)
     geometry_path.arcTo(left_top_size, left_top_size, 90, -90)
     geometry_path.closeFigure()
+    
     shape.setGeometryPath(geometry_path)
+
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **도형 기하가 닫혀 있는지 확인**
+## **도형 기하학이 닫혔는지 확인하기**
 
-닫힌 도형이란 모든 면이 연결되어 틈이 없는 단일 경계를 형성하는 경우를 말합니다. 이러한 도형은 단순한 기하 형태이거나 복잡한 사용자 정의 외곽선일 수 있습니다. 아래 코드 예제는 도형 기하가 닫혀 있는지 확인하는 방법을 보여줍니다:
+다음 도우미는 모든 비어 있지 않은 기하학 경로가 닫는 세그먼트로 끝나는지 확인합니다. [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData)를 읽고 최종 세그먼트의 [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand)를 [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/)와 비교합니다. 비어 있지 않은 경로가 없을 경우 `False`를 반환합니다. 이 검사는 각 경로의 최종 명령만 확인하며, 경로 내의 모든 하위 도형을 검사하지는 않습니다. 예제에서는 사각형에 대해 `True`를 출력합니다.
 
 ```python
 import jpype
@@ -327,29 +282,97 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import PathCommandType
+from asposeslides.api import Presentation, ShapeType, PathCommandType
 
 def is_geometry_closed(geometry_shape):
-    is_closed = False
+    has_nonempty_path = False
     for geometry_path in geometry_shape.getGeometryPaths():
         path_data = geometry_path.getPathData()
         if len(path_data) == 0:
             continue
         last_segment = path_data[-1]
-        is_closed = last_segment.getPathCommand() == PathCommandType.Close
-        if not is_closed:
+        has_nonempty_path = True
+        if last_segment.getPathCommand() != PathCommandType.Close:
             return False
-    return is_closed
+    return has_nonempty_path
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+    closed = is_geometry_closed(shape)
+    print(closed)
+finally:
+    presentation.dispose()
 ```
 
-## **GeometryPath를 java.awt.Shape로 변환** 
+## **도형 요소 추출 및 검사**
 
-1. [GeometryShape](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometryshape/) 클래스의 인스턴스를 생성합니다.
-2. [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 클래스의 인스턴스를 생성합니다.
-3. [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)를 따라가면서 각 세그먼트를 경로에 재생하여 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 인스턴스를 [GeometryPath](https://reference.aspose.com/slides/ko/python-java/aspose.slides/geometrypath/) 인스턴스로 변환합니다.
-4. 경로들을 도형에 적용합니다.
+[GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements)를 사용하면 경로 포인트와 포인트 유형을 포함하는 요소로 기존 도형을 검사할 수 있습니다. 반환된 각 요소를 `jpype.JObject`와 함께 [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/)로 캐스팅하여 [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints)와 [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) 메서드를 통해 포인트와 유형 배열을 가져옵니다. 이 표현은 윤곽 분석이나 기하학을 사용자 정의 그리기 도구에 전달할 때 유용합니다.
 
-다음 Python 코드는 그래픽 경로를 기하 경로로 변환하는 단계를 구현합니다:
+예제에서는 input.pptx를 열어 첫 번째 슬라이드에서 첫 번째 기하학 도형을 직접 찾아 그 경로 세그먼트를 출력합니다. 직선과 곡선 세그먼트를 모두 포함하는 도형이 있는 프레젠테이션을 사용하면 두 종류의 출력 모두 확인할 수 있습니다. 그룹 내부는 검색하지 않습니다.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, GeometryShape, ShapeElement
+
+presentation = Presentation("input.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = None
+    for candidate in slide.getShapes():
+        if isinstance(candidate, GeometryShape):
+            shape = candidate
+            break
+
+    if shape is None:
+        print("No geometry shape found on the first slide.")
+    else:
+        for element in shape.createShapeElements():
+            shape_element = jpype.JObject(element, ShapeElement)
+            points = shape_element.getPathPoints()
+            types = shape_element.getPathTypes()
+            print("Shape element:")
+
+            i = 0
+            while i < len(points):
+                point_type = types[i] & 0x07  # Keep the segment type, excluding flags.
+                if point_type == 0:
+                    print(f"Start figure at {points[i]}")
+                elif point_type == 1:
+                    print(f"Line to {points[i]}")
+                elif point_type == 3:
+                    print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
+                    i += 2  # Consume both control points and the endpoint.
+
+                if types[i] & 0x80:
+                    print("Close subpath back to its starting point.")
+                i += 1
+finally:
+    presentation.dispose()
+```
+
+배열은 인덱스로 대응합니다: `points[i]`는 점을, `types[i]`는 해당 역할을 나타냅니다. 타입 `0`은 도형을 시작하고, 타입 `1`은 이전 점에서 현재 점까지 선을 그립니다. 3차 베지어 세그먼트는 이전 끝점에서 시작하여 연속된 세 개의 타입 `3` 항목을 사용합니다: 두 개의 제어점과 그 뒤의 새로운 끝점입니다. 루프는 이 세 항목을 함께 소비하고 끝점이 닫혔는지 확인합니다.
+
+점 타입에는 플래그도 포함됩니다. 세그먼트 유형을 식별하려면 `0x07`로 마스크하고, 닫힌 하위 경로를 감지하려면 `0x80`을 별도로 테스트합니다. 예를 들어 `129`(`0x81`)는 하위 경로를 닫는 선 끝점이며, `131`(`0x83`)은 이를 닫는 베지어 끝점입니다. Java는 이러한 플래그를 부호 있는 바이트에 저장하므로 마스크를 적용하면 의도된 비트 값이 보존됩니다. 원시 값을 `1`이나 `3`과만 비교하면 이러한 경우를 놓칠 수 있습니다. 대시(`0x10`)와 마커(`0x20`)와 같은 다른 플래그는 기본 세그먼트 유형을 변경하지 않습니다.
+
+**좌표 및 변환.** 점은 포인트(1/72 인치) 단위로 측정되며, X는 오른쪽으로, Y는 아래쪽으로 증가합니다. 그룹화되지 않은 도형의 경우 추출된 좌표에는 이미 [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX)와 [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY)가 반환하는 위치가 포함되어 현재 너비와 높이를 반영합니다. 예를 들어, 위치가 `(100, 200)`이고 크기가 `120 × 80`인 회전되지 않은 사각형은 윤곽 경계가 `(100, 200)`–`(220, 280)`입니다. 도형의 위치를 다시 추가하지 마세요. X와 Y를 빼서 회전되지 않은 프레임을 기준으로 한 좌표를 얻습니다.
+
+추출된 점에는 [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation)이 반환하는 도형 회전이나 수평·수직 뒤집기가 적용되지 않습니다. 표시된 윤곽을 재현하려면 도형 중심을 기준으로 이러한 변환을 적용하세요. 그룹화된 도형의 경우 그룹 좌표 매핑 및 변환도 고려해야 하며, 추출된 점이 최종 렌더링된 슬라이드 좌표라고 가정하거나 이미 자식 프레임에 반영된 변환을 또 적용하지 마세요.
+
+**검사와 편집의 구분.** 추출된 배열은 윤곽을 설명하며, 이를 변경해도 원래 도형은 업데이트되지 않습니다. 분석이나 그리기 코드가 점/유형 배열이 필요할 때 이 방법을 선택하세요. 도형의 로컬 좌표계에서 기하학 명령이 필요하거나 기하학을 편집하려면 [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths)을 사용하십시오. 편집된 경로는 [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 또는 [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)를 통해 적용합니다.
+
+## **Java AWT Shape를 GeometryPath로 변환하기**
+
+이 예제에서는 사각형 윤곽과 기하학으로 변환된 텍스트를 결합합니다. 윤곽의 [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) 메서드는 채우기를 비활성화합니다. [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html)는 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html)에 텍스트 윤곽을 만들고, 해당 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)는 이동, 선, 2차, 3차, 닫기 세그먼트를 제공하며, 예제에서는 이를 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)에 재생합니다.
+
+텍스트는 40포인트 Arial 폰트를 사용합니다. 윤곽은 가로로 20포인트 이동하고, 시각적인 상단이 도형의 상단 가장자리보다 10포인트 아래에 위치합니다. 텍스트 경로는 채워지고 원래 사각형은 윤곽만 남습니다. 두 경로를 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)으로 적용하면 사각형과 텍스트를 포함하는 단일 도형이 생성됩니다.
 
 ```python
 import jpype
@@ -366,10 +389,11 @@ from java.awt.image import BufferedImage
 
 presentation = Presentation()
 try:
-    # 새로운 도형을 생성합니다.
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
+    slide = presentation.getSlides().get_Item(0)
 
-    # 도형의 기하 경로를 가져옵니다.
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
+
+    # 도형의 기하학 경로를 가져옵니다.
     original_path = shape.getGeometryPaths()[0]
     original_path.setFillMode(PathFillModeType.None_)
 
@@ -379,12 +403,15 @@ try:
     image = BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB)
     graphics = image.createGraphics()
     try:
-        glyph_vector = font.createGlyphVector(graphics.getFontRenderContext(), text)
-        graphics_path = glyph_vector.getOutline(20.0, -glyph_vector.getVisualBounds().getY() + 10)
+        font_context = graphics.getFontRenderContext()
+        glyph_vector = font.createGlyphVector(font_context, text)
+        text_bounds = glyph_vector.getVisualBounds()
+        baseline = -text_bounds.getY() + 10
+        graphics_path = glyph_vector.getOutline(20.0, baseline)
     finally:
         graphics.dispose()
 
-    # 그래픽 경로를 기하 경로로 변환합니다.
+    # 그래픽 경로를 기하학 경로로 변환합니다.
     text_path = GeometryPath()
     path_iterator = graphics_path.getPathIterator(None)
     points = jpype.JArray(jpype.JFloat)(6)
@@ -403,7 +430,7 @@ try:
         path_iterator.next()
     text_path.setFillMode(PathFillModeType.Normal)
 
-    # 원본 기하 경로와 함께 텍스트 경로를 적용합니다.
+    # 텍스트 경로를 원래 기하학 경로와 함께 적용합니다.
     shape.setGeometryPaths([original_path, text_path])
 finally:
     presentation.dispose()
@@ -412,14 +439,14 @@ finally:
 
 ## **FAQ**
 
-**기하를 교체한 후 채우기와 외곽선은 어떻게 됩니까?**
+**기하학을 교체한 후 채우기와 윤곽선은 어떻게 되나요?**
 
-스타일은 도형에 그대로 남으며, 윤곽선만 변경됩니다. 채우기와 외곽선은 새 기하에 자동으로 적용됩니다.
+스타일은 도형에 남아 있으며, 윤곽만 변경됩니다. 채우기와 윤곽선은 자동으로 새 기하학에 적용됩니다.
 
-**기하와 함께 사용자 정의 도형을 올바르게 회전하려면 어떻게 해야 합니까?**
+**사용자 지정 도형과 그 기하학을 어떻게 올바르게 회전시키나요?**
 
-도형의 [setRotation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shape/#setRotation) 메서드를 사용하십시오; 기하가 도형에 연결되어 있기 때문에 도형과 함께 회전됩니다.
+도형의 [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) 메서드를 사용하십시오; 기하학은 도형에 바인딩된 자체 좌표계 때문에 도형과 함께 회전합니다.
 
-**사용자 정의 도형을 이미지로 변환하여 결과를 “잠그” 수 있나요?**
+**사용자 지정 도형을 이미지로 변환해 결과를 “고정”시킬 수 있나요?**
 
-예. 필요한 [slide](/slides/ko/python-java/convert-powerpoint-to-png/) 영역이나 [shape](/slides/ko/python-java/create-shape-thumbnails/) 자체를 래스터 형식으로 내보내면 복잡한 기하를 다루는 작업이 간소화됩니다.
+네. 필요한 [slide](/slides/ko/python-java/convert-powerpoint-to-png/) 영역이나 [shape](/slides/ko/python-java/create-shape-thumbnails/) 자체를 래스터 형식으로 내보내면 복잡한 기하학 작업을 보다 쉽게 할 수 있습니다.

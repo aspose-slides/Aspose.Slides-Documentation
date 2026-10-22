@@ -1,6 +1,6 @@
 ---
 title: Dostosuj kształty prezentacji w C++
-linktitle: Niestandardowy kształt
+linktitle: Kształt niestandardowy
 type: docs
 weight: 20
 url: /pl/cpp/custom-shape/
@@ -12,354 +12,434 @@ keywords:
 - geometria kształtu
 - ścieżka geometryczna
 - punkty ścieżki
-- punkty edycji
+- edytuj punkty
 - dodaj punkt
 - usuń punkt
 - operacja edycji
-- zaokrąglony narożnik
+- zakrzywiony narożnik
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++: ścieżki geometryczne, zaokrąglone narożniki, kształty złożone."
+description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint przy użyciu Aspose.Slides dla C++: ścieżki geometryczne, zakrzywione narożniki, kształty złożone."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak dostosować kształty prezentacji w Aspose.Slides, edytując geometrię kształtu za pomocą punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z `GeometryPath` i `IGeometryPath`, aby modyfikować istniejące kształty, wykonywać podstawowe operacje edycji ścieżki, dodawać lub usuwać punkty oraz zastosować zaktualizowaną geometrię do kształtu.
+Ten artykuł wyjaśnia, jak dostosować kształty prezentacji w Aspose.Slides poprzez edycję geometrii kształtu przy użyciu punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) i [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/), aby modyfikować istniejące kształty, wykonywać podstawowe operacje edycji ścieżek, dodawać lub usuwać punkty oraz zastosować zaktualizowaną geometrię do kształtu.
 
-## **Zmienianie kształtu przy użyciu punktów edycji**
-Weźmy pod uwagę kwadrat. W PowerPoint, używając **punktów edycji**, możesz  
+Pokazuje również, jak tworzyć własne i złożone kształty, budować kształty z zakrzywionymi narożnikami oraz określić, czy geometria kształtu jest zamknięta.
 
-* przesunąć róg kwadratu do wewnątrz lub na zewnątrz  
-* określić krzywiznę rogu lub punktu  
-* dodać nowe punkty do kwadratu  
-* manipulować punktami kwadratu itp.  
+## **Zmiana kształtu przy użyciu punktów edycji**
 
-W zasadzie możesz wykonywać opisane zadania na dowolnym kształcie. Korzystając z punktów edycji, możesz zmienić istniejący kształt lub utworzyć nowy kształt na jego podstawie. 
+W programie PowerPoint możesz używać **Edit Points**, aby zmodyfikować kwadrat:
+
+* Przesuń róg do wewnątrz lub na zewnątrz.
+* Dostosuj krzywiznę w punkcie.
+* Dodaj nowe punkty.
+
+Edycja punktów pozwala zmienić kontur kształtu lub użyć istniejącego kształtu jako podstawy do nowego.
 
 ## **Wskazówki dotyczące edycji kształtów**
 
 ![overview_image](custom_shape_0.png)
 
-Zanim zaczniesz edytować kształty PowerPointa przy pomocy punktów edycji, rozważ następujące kwestie związane z kształtami:
+Podczas edycji kształtów w PowerPoint, pamiętaj o następujących pojęciach:
 
-* Kształt (lub jego ścieżka) może być zamknięty lub otwarty.  
-* Gdy kształt jest zamknięty, nie ma punktu początkowego ani końcowego. Gdy jest otwarty, ma początek i koniec.  
-* Wszystkie kształty składają się co najmniej z 2 punktów kotwiczących połączonych liniami.  
-* Linia może być prosta lub krzywa. Punkty kotwiczące określają charakter linii.  
-* Punkty kotwiczące występują jako punkty narożne, proste lub gładkie:  
-  * Punkt narożny to punkt, w którym 2 proste linie łączą się pod kątem.  
-  * Punkt gładki to punkt, w którym 2 uchwyty leżą w jednej linii, a odcinki linii łączą się w płynne łuki. W tym przypadku wszystkie uchwyty są oddalone od punktu kotwiczącego o tę samą odległość.  
-  * Punkt prosty to punkt, w którym 2 uchwyty leżą w jednej linii, a odcinki linii łączą się w łuk, ale uchwyty nie muszą być oddalone od punktu kotwiczącego o równą odległość.  
-* Przesuwając lub edytując punkty kotwiczące (co zmienia kąt linii), możesz zmienić wygląd kształtu.  
+* Kształt (lub jego ścieżka) może być zamknięty lub otwarty.
+* Ścieżka kształtu składa się z punktów kotwic połączonych odcinkami.
+* Odcinek może być prosty lub zakrzywiony. Punkty kotwic i uchwyty kontrolne określają jego kształt.
+* Punkty kotwic występują jako punkty narożne, proste lub płynne:
+  * W punkcie narożnym sąsiadujące odcinki mogą łączyć się pod kątem.
+  * W punkcie płynnym dwa uchwyty kontrolne są wyrównane i znajdują się w równych odległościach od punktu kotwicy.
+  * W punkcie prostym dwa uchwyty kontrolne są wyrównane, ale mogą znajdować się w różnych odległościach od punktu kotwicy.
+* Przesuwanie punktów kotwic lub dostosowywanie ich uchwytów zmienia kontur kształtu.
 
-Aby edytować kształty PowerPointa przy pomocy punktów edycji, **Aspose.Slides** udostępnia klasę [**GeometryPath**](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path) oraz interfejs [**IGeometryPath**](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_geometry_path).
+Aby edytować kształty PowerPoint przy użyciu punktów edycji, **Aspose.Slides** udostępnia klasę [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) oraz interfejs [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
 
-* Instancja [GeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path) reprezentuje ścieżkę geometryczną obiektu [IGeometryShape](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_geometry_shape).  
-* Aby pobrać `GeometryPath` z instancji `IGeometryShape`, użyj metody [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1).  
-* Aby ustawić `GeometryPath` dla kształtu, użyj metod: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) dla *kształtów jednorodnych* oraz [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) dla *kształtów złożonych*.  
-* Aby dodać segmenty, użyj metod dostępnych w [IGeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_geometry_path).  
-* Korzystając z metod [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) i [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7), możesz ustawić wygląd ścieżki geometrycznej.  
-* Metoda [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca) umożliwia pobranie danych ścieżki geometrycznej `GeometryShape` jako tablicy segmentów ścieżki.  
-* Aby uzyskać dodatkowe opcje dostosowywania geometrii kształtu, możesz przekonwertować [GeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path) na [GraphicsPath](https://reference.aspose.com/slides/pl/cpp/class/system.drawing.drawing2_d.graphics_path).  
-* Użyj metod [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) i [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (z klasy [ShapeUtil](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.util.shape_util)) do konwersji [GeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path) na [GraphicsPath](https://reference.aspose.com/slides/pl/cpp/class/system.drawing.drawing2_d.graphics_path) i z powrotem.  
+* Instancja [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) reprezentuje ścieżkę geometryczną obiektu [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
+* Aby pobrać [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) z instancji [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), możesz użyć metody [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* Aby ustawić [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) dla kształtu, możesz użyć następujących metod: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) dla kształtów z jedną ścieżką oraz [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) dla kształtów z wieloma ścieżkami.
+* Aby dodać odcinki, możesz użyć metod dostępnych w [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+* Korzystając z metod [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) i [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/), możesz ustawić wygląd ścieżki geometrycznej.
+* Korzystając z metody [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/), możesz pobrać ścieżkę geometryczną [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) jako tablicę segmentów ścieżki.
 
-## **Proste operacje edycyjne**
+## **Proste operacje edycji**
 
-Ten kod C++ pokazuje, jak  
+Użyj poniższych metod, aby edytować ścieżkę geometryczną. Przeciążenia przyjmujące indeks wstawiają odcinek na tej zerowo‑indeksowanej pozycji w tablicy odcinków ścieżki.
 
-**Dodać linię** na koniec ścieżki  
+| Operacja | Metoda |
+| --- | --- |
+| Dodaj lub wstaw prostą linię. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| Dodaj lub wstaw krzywą Bézier o stopniu sześciennym z dwoma punktami kontrolnymi i punktem końcowym. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Dodaj lub wstaw kwadratową krzywą Bézier z jednym punktem kontrolnym i punktem końcowym. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Dodaj łuk eliptyczny o określonych wymiarach i kątach w stopniach. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| Zamknij bieżącą figurę, łącząc jej punkt końcowy z punktem początkowym. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Ustaw punkt początkowy figury. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| Usuń odcinek o zerowo‑indeksowanej pozycji. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-``` cpp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Dodać linię** w określonej pozycji na ścieżce:  
+## **Dodaj własne punkty do kształtu**
 
-``` cpp    
-void LineTo(PointF point, uint32_t index);
-void LineTo(float x, float y, uint32_t index);
-```
-**Dodać krzywą Beziera trzeciego stopnia** na koniec ścieżki:  
+Ten przykład wstawia dwa punkty do prostokątnego kształtu przy użyciu [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) i zastosowuje edytowaną ścieżkę za pomocą [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Współrzędne są lokalne względem kształtu: oba nowe punkty znajdują się w jego centrum, 100 punktów od lewej i 50 punktów od górnej krawędzi. Indeksy odcinków 1 i 4 umieszczają je odpowiednio na górnej i dolnej krawędzi, ściągając te krawędzie do środka.
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Dodać krzywą Beziera trzeciego stopnia** w określonej pozycji na ścieżce:  
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
-```
-**Dodać krzywą Beziera drugiego stopnia** na koniec ścieżki:  
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Dodać krzywą Beziera drugiego stopnia** w określonej pozycji na ścieżce:  
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
-```
-**Dołączyć dany łuk** do ścieżki:  
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-``` cpp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Zamknąć bieżącą figurę** ścieżki:  
-
-``` cpp
-void CloseFigure();
-```
-**Ustawić pozycję dla następnego punktu**:  
-
-``` cpp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Usunąć segment ścieżki** o podanym indeksie:  
-
-``` cpp
-void RemoveAt(int32_t index);
-```
-## **Dodawanie własnych punktów do kształtu**
-1. Utwórz instancję klasy [GeometryShape](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_shape) i ustaw typ [ShapeType.Rectangle](https://reference.aspose.com/slides/pl/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
-2. Pobierz instancję klasy [GeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path) z kształtu.  
-3. Dodaj nowy punkt pomiędzy dwoma górnymi punktami ścieżki.  
-4. Dodaj nowy punkt pomiędzy dwoma dolnymi punktami ścieżki.  
-5. Zastosuj ścieżkę do kształtu.  
-
-Ten kod C++ pokazuje, jak dodać własne punkty do kształtu:  
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
-
-SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
-
+auto geometryPath = shape->GetGeometryPaths()->idx_get(0);
 geometryPath->LineTo(100.0f, 50.0f, 1);
 geometryPath->LineTo(100.0f, 50.0f, 4);
+
 shape->SetGeometryPath(geometryPath);
 ```
 
 ![example1_image](custom_shape_1.png)
 
-## **Usuwanie punktów z kształtu**
+## **Usuń punkty z kształtu**
 
-1. Utwórz instancję klasy [GeometryShape](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_shape) i ustaw typ [ShapeType.Heart](https://reference.aspose.com/slides/pl/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
-2. Pobierz instancję klasy [GeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path) z kształtu.  
-3. Usuń segment ścieżki.  
-4. Zastosuj ścieżkę do kształtu.  
+Ten przykład zmienia kontur w kształcie serca, usuwając odcinek o zerowo‑indeksowanym indeksie 2 za pomocą [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Zastosowanie zmodyfikowanej ścieżki za pomocą [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) aktualizuje obrys kształtu.
 
-Ten kod C++ pokazuje, jak usunąć punkty z kształtu:  
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f);
+
+auto path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
+
 shape->SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
-## **Tworzenie własnego kształtu**
+## **Utwórz własny kształt**
 
-1. Oblicz punkty dla kształtu.  
-2. Utwórz instancję klasy [GeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path).  
-3. Wypełnij ścieżkę punktami.  
-4. Utwórz instancję klasy [GeometryShape](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_shape).  
-5. Zastosuj ścieżkę do kształtu.  
+Ten przykład tworzy pięcioramienną gwiazdę przy użyciu [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Naprzemienne zewnętrzne i wewnętrzne promienie wynoszące 100 i 50 punktów definiują szczyty i wcięcia; krok 72 stopni równomiernie rozmieszcza pięć szczytów. Ścieżka jest zamykana metodą [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/), a następnie zastosowana do prostokątnego kształtu przy pomocy [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), zastępując jego kontur.
 
-Ten kod C++ pokazuje, jak stworzyć własny kształt:  
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::Drawing;
 
-float R = 100.0f, r = 50.0f;
-int32_t step = 72;
+auto points = System::MakeObject<List<PointF>>();
 
-for (int32_t angle = -90; angle < 270; angle += step)
+auto outerRadius = 100.0f;
+auto innerRadius = 50.0f;
+auto angleStep = 72;
+
+for (auto angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math::PI / 180.f);
-    double x = outerRadius * Math::Cos(radians);
-    double y = outerRadius * Math::Sin(radians);
+    auto radians = angle * (Math::PI / 180.f);
+    auto x = outerRadius * Math::Cos(radians);
+    auto y = outerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    radians = Math::PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-SharedPtr<GeometryPath> starPath = System::MakeObject<GeometryPath>();
+auto starPath = System::MakeObject<GeometryPath>();
 starPath->MoveTo(points->idx_get(0));
 
-for (int32_t i = 1; i < points->get_Count(); i++)
+for (auto i = 1; i < points->get_Count(); i++)
 {
     starPath->LineTo(points->idx_get(i));
 }
 
 starPath->CloseFigure();
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
-
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
+## **Utwórz złożony własny kształt**
 
-## **Tworzenie złożonego własnego kształtu**
+Ten przykład definiuje dwie zamknięte obiekty [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) dla górnej i dolnej trzeciej części kształtu. Zastosowanie obu ścieżek przy pomocy [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) tworzy pojedynczy złożony kształt z przerwą w środkowej trzeciej części.
 
-1. Utwórz instancję klasy [GeometryShape](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_shape).  
-2. Utwórz pierwszą instancję klasy [GeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path).  
-3. Utwórz drugą instancję klasy [GeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path).  
-4. Zastosuj ścieżki do kształtu.  
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-Ten kod C++ pokazuje, jak stworzyć złożony własny kształt:  
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
-geometryPath0->MoveTo(0.0f, 0.0f);
-geometryPath0->LineTo(shape->get_Width(), 0.0f);
-geometryPath0->LineTo(shape->get_Width(), shape->get_Height() / 3);
-geometryPath0->LineTo(0.0f, shape->get_Height() / 3);
-geometryPath0->CloseFigure();
+auto topPath = System::MakeObject<GeometryPath>();
+topPath->MoveTo(0.0f, 0.0f);
+topPath->LineTo(shape->get_Width(), 0.0f);
+topPath->LineTo(shape->get_Width(), shape->get_Height() / 3);
+topPath->LineTo(0.0f, shape->get_Height() / 3);
+topPath->CloseFigure();
 
-SharedPtr<IGeometryPath> geometryPath1 = System::MakeObject<GeometryPath>();
-geometryPath1->MoveTo(0.0f, shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height());
-geometryPath1->LineTo(0.0f, shape->get_Height());
-geometryPath1->CloseFigure();
+auto bottomPath = System::MakeObject<GeometryPath>();
+bottomPath->MoveTo(0.0f, shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height());
+bottomPath->LineTo(0.0f, shape->get_Height());
+bottomPath->CloseFigure();
 
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
+auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath });
+
+shape->SetGeometryPaths(paths);
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Tworzenie własnego kształtu z zaokrąglonymi narożnikami**
+## **Utwórz własny kształt z zakrzywionymi narożnikami**
 
-Ten kod C++ pokazuje, jak stworzyć własny kształt z wklęsłymi narożnikami;  
+Ten przykład łączy proste odcinki z [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/), aby utworzyć kształt z wklęsłymi zakrzywionymi narożnikami. Rozmiar każdego narożnika określa szerokość i wysokość łuku w punktach, a kąt obrotu -90 stopni rysuje elipsę ćwiartkową w kierunku przeciwnym do ruchu wskazówek zegara. Gotowa ścieżka jest zastosowana przy pomocy [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), a prezentacja zostaje zapisana w formacie PPTX.
 
 ```cpp
-float shapeX = 20.f;
-float shapeY = 20.f;
-float shapeWidth = 300.f;
-float shapeHeight = 200.f;
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
 
-float leftTopSize = 50.f;
-float rightTopSize = 20.f;
-float rightBottomSize = 40.f;
-float leftBottomSize = 10.f;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto shapeX = 20.f;
+auto shapeY = 20.f;
+auto shapeWidth = 300.f;
+auto shapeHeight = 200.f;
+
+auto leftTopSize = 50.f;
+auto rightTopSize = 20.f;
+auto rightBottomSize = 40.f;
+auto leftBottomSize = 10.f;
 
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto topLeft = PointF(leftTopSize, 0.0f);
+auto topRight = PointF(shapeWidth - rightTopSize, 0.0f);
+auto rightBottom = PointF(shapeWidth, shapeHeight - rightBottomSize);
+auto bottomLeft = PointF(leftBottomSize, shapeHeight);
+auto leftTop = PointF(0.0f, leftTopSize);
 
 auto geometryPath = System::MakeObject<GeometryPath>();
-
-PointF point1(leftTopSize, 0.0f);
-PointF point2(shapeWidth - rightTopSize, 0.0f);
-PointF point3(shapeWidth, shapeHeight - rightBottomSize);
-PointF point4(leftBottomSize, shapeHeight);
-PointF point5(0.0f, leftTopSize);
-
-geometryPath->MoveTo(point1);
-geometryPath->LineTo(point2);
+geometryPath->MoveTo(topLeft);
+geometryPath->LineTo(topRight);
 geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
-geometryPath->LineTo(point3);
+geometryPath->LineTo(rightBottom);
 geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
-geometryPath->LineTo(point4);
+geometryPath->LineTo(bottomLeft);
 geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
-geometryPath->LineTo(point5);
+geometryPath->LineTo(leftTop);
 geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
-
 geometryPath->CloseFigure();
 
-childShape->SetGeometryPath(geometryPath);
+shape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Sprawdzanie, czy geometria kształtu jest zamknięta**
+## **Sprawdź, czy geometria kształtu jest zamknięta**
 
-Zamknięty kształt definiuje się jako taki, którego wszystkie boki łączą się, tworząc jedną granicę bez przerw. Może to być prosta figura geometryczna lub złożony własny obrys. Poniższy przykład kodu pokazuje, jak sprawdzić, czy geometria kształtu jest zamknięta:  
+Poniższy pomocnik sprawdza, czy każda niepusta ścieżka geometryczna kończy się odcinkiem zamykającym. Odczytuje [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) i porównuje polecenie ostatniego odcinka [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) z [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Zwraca wartość false, gdy nie ma niepustych ścieżek. Sprawdza on polecenie końcowe każdej ścieżki; nie analizuje każdej podfigury w ścieżce. Przykład wypisuje `True` dla prostokąta.
 
 ```cpp
-bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
-{
-    bool isClosed = false;
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto isGeometryClosed = [](SharedPtr<IGeometryShape> geometryShape)
+{
+    auto hasNonemptyPath = false;
     for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->get_Length();
-        if (dataLength == 0)
+        auto segments = geometryPath->get_PathData();
+        if (segments->get_Length() == 0)
+        {
             continue;
+        }
 
-        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
-
-        if (!isClosed)
+        hasNonemptyPath = true;
+        auto lastSegment = segments->idx_get(segments->get_Length() - 1);
+        if (lastSegment->get_PathCommand() != PathCommandType::Close)
+        {
             return false;
+        }
     }
+    return hasNonemptyPath;
+};
 
-    return isClosed;
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+Console::WriteLine(isGeometryClosed(shape));
+```
+
+## **Wyodrębnij i sprawdź elementy kształtu**
+
+Użyj [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/), aby przejrzeć istniejący kształt jako elementy zawierające punkty ścieżki i typy punktów. Rzutuj każdy zwrócony [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) na [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/), aby odczytać tablice zwracane przez [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) i [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Ta reprezentacja jest przydatna do analizy konturu lub przekazywania geometrii do własnych narzędzi rysunkowych.
+
+Przykład otwiera prezentację, znajduje pierwszy kształt geometryczny bezpośrednio na pierwszym slajdzie i wypisuje jego segmenty ścieżki. Użyj prezentacji zawierającej kształt z prostymi i zakrzywionymi odcinkami, aby zobaczyć oba rodzaje wyników. Nie przeszukuje elementów wewnątrz grup.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IShapeElement.h>
+#include <DOM/ShapeElement.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IGeometryShape> shape;
+for (auto&& candidate : slide->get_Shapes())
+{
+    shape = AsCast<IGeometryShape>(candidate);
+    if (shape != nullptr)
+    {
+        break;
+    }
+}
+if (shape == nullptr)
+{
+    Console::WriteLine(u"No geometry shape found on the first slide.");
+    return;
+}
+
+for (auto&& element : shape->CreateShapeElements())
+{
+    auto shapeElement = ExplicitCast<ShapeElement>(element);
+    auto points = shapeElement->get_PathPoints();
+    auto types = shapeElement->get_PathTypes();
+    Console::WriteLine(u"Shape element:");
+
+    for (auto i = 0; i < points->get_Length(); i++)
+    {
+        auto pointType = types[i] & 0x07; // Zachowaj typ segmentu, pomijając flagi.
+        switch (pointType)
+        {
+            case 0:
+                Console::WriteLine(u"Start figure at {0}", points[i]);
+                break;
+            case 1:
+                Console::WriteLine(u"Line to {0}", points[i]);
+                break;
+            case 3:
+                Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
+                i += 2; // Zużyj oba punkty kontrolne oraz punkt końcowy.
+                break;
+        }
+        if ((types[i] & 0x80) != 0)
+        {
+            Console::WriteLine(u"Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
-## **Konwersja GeometryPath do GraphicsPath** 
+Tablice odpowiadają sobie po indeksie: `points[i]` jest punktem, a `types[i]` opisuje jego rolę. Typ `0` rozpoczyna figurę, a typ `1` rysuje linię od poprzedniego punktu do bieżącego. Segment Bézier stopnia sześciennego rozpoczyna się w poprzednim punkcie końcowym i wykorzystuje trzy kolejne wpisy typu `3`: dwa punkty kontrolne, po czym następuje nowy punkt końcowy. Pętla konsumuje te trzy wpisy razem i sprawdza punkt końcowy pod kątem zamknięcia.
 
-1. Utwórz instancję klasy [GeometryShape](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_shape).  
-2. Utwórz instancję klasy [GraphicsPath](https://reference.aspose.com/slides/pl/cpp/class/system.drawing.drawing2_d.graphics_path) z przestrzeni nazw [System.Drawing.Drawing2D](https://reference.aspose.com/slides/pl/cpp/namespace/system.drawing.drawing2_d).  
-3. Przekonwertuj instancję [GraphicsPath](https://reference.aspose.com/slides/pl/cpp/class/system.drawing.drawing2_d.graphics_path) na instancję [GeometryPath](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.geometry_path) przy użyciu klasy [ShapeUtil](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.util.shape_util).  
-4. Zastosuj ścieżki do kształtu.  
+Typy punktów zawierają także flagi. Maskuj przy użyciu `0x07`, aby zidentyfikować typ segmentu, oraz testuj osobno `0x80`, aby wykryć zamkniętą podścieżkę. Na przykład `129` (`0x81`) oznacza punkt końcowy linii zamykający podścieżkę, a `131` (`0x83`) oznacza punkt końcowy Bézier zamykający podścieżkę. Porównywanie surowej wartości tylko z `1` lub `3` pominęłoby te przypadki. Inne flagi, takie jak kreska (`0x10`) i znacznik (`0x20`), nie zmieniają podstawowego typu segmentu.
 
-Ten kod C++ — implementacja powyższych kroków — demonstruje proces konwersji **GeometryPath** na **GraphicsPath**:  
+**Współrzędne i przekształcenia.**  
+Punkty mierzone są w punktach (1/72 cala), przy czym X rośnie w prawo, a Y w dół. Dla niezgrupowanego kształtu wyodrębnione współrzędne już zawierają pozycję zwróconą przez [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) i [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/), odzwierciedlając jego aktualną szerokość i wysokość. Na przykład, nieobrócony prostokąt o współrzędnych `(100, 200)` i rozmiarze `120 × 80` ma granice konturu `(100, 200)`–`(220, 280)`. Nie dodawaj ponownie pozycji kształtu. Odejmij jego X i Y, aby uzyskać współrzędne względem nieobróconej ramki.
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+Wyodrębnione punkty nie uwzględniają rotacji ustawionej przez [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) ani odbić poziomych i pionowych. Aby odtworzyć wyświetlany kontur, zastosuj te przekształcenia wokół środka kształtu. Dla kształtów zgrupowanych uwzględnij także mapowanie współrzędnych grupy i przekształcenia; nie zakładaj, że wyodrębnione punkty są ostatecznymi współrzędnymi renderowanego slajdu ani nie stosuj translacji lub skalowania dwukrotnie, jeśli już jest odzwierciedlone w ramce dziecka.
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
+**Inspekcja vs. edycja.**  
+Wyodrębnione tablice opisują kontur; ich modyfikacja nie aktualizuje oryginalnego kształtu. Wybierz to podejście, gdy Twoja analiza lub kod rysujący wymaga tablic punktów/typów. Użyj [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/), gdy potrzebujesz poleceń geometrycznych w lokalnym układzie współrzędnych kształtu lub chcesz edytować jego geometrię. Zastosuj edytowane ścieżki za pomocą [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) lub [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
 
-SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
-originalPath->set_FillMode(PathFillModeType::None);
+## **Konwertuj GeometryPath na GraphicsPath**
 
-SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
-
-SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
-textPath->set_FillMode(PathFillModeType::Normal);
-
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
-```
-![example5_image](custom_shape_5.png)
+Obecne publiczne API Aspose.Slides dla C++ nie udostępnia konwersji między ścieżkami geometrycznymi a ścieżkami graficznymi. Aby przeanalizować kontur, użyj elementów kształtu opisanych powyżej. Aby edytować kształt, użyj ścieżek geometrycznych i zastosuj zaktualizowane ścieżki do kształtu.
 
 ## **FAQ**
 
-**Co stanie się z wypełnieniem i obrysem po zamianie geometrii?**
+**Co się stanie z wypełnieniem i obrysem po zastąpieniu geometrii?**  
+Styl pozostaje przypisany do kształtu; zmienia się tylko kontur. Wypełnienie i obrys są automatycznie stosowane do nowej geometrii.
 
-Styl pozostaje przypisany do kształtu; zmienia się jedynie kontur. Wypełnienie i obrys są automatycznie stosowane do nowej geometrii.
+**Jak poprawnie obrócić własny kształt wraz z jego geometrią?**  
+Użyj metody [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) kształtu; geometria obraca się razem z kształtem, ponieważ jest związana z jego własnym układem współrzędnych.
 
-**Jak prawidłowo obrócić własny kształt razem z jego geometrią?**
-
-Użyj właściwości [rotation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/shape/set_rotation/) kształtu; geometria obraca się razem z nim, ponieważ jest powiązana z własnym układem współrzędnych kształtu.
-
-**Czy mogę skonwertować własny kształt na obraz, aby „zablokować” wynik?**
-
-Tak. Wyeksportuj wybrany [slide](/slides/pl/cpp/convert-powerpoint-to-png/) lub sam [shape](/slides/pl/cpp/create-shape-thumbnails/) do formatu rastrowego; upraszcza to dalszą pracę z złożonymi geometriami.
+**Czy mogę przekonwertować własny kształt na obraz, aby „zablokować” wynik?**  
+Tak. Wyeksportuj wymagany obszar [slide](/slides/pl/cpp/convert-powerpoint-to-png/) lub sam [shape](/slides/pl/cpp/shape-thumbnails/) do formatu rastrowego; ułatwia to dalszą pracę z złożonymi geometriami.

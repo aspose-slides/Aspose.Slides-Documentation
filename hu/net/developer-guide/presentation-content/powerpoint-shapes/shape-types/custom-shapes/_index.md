@@ -1,6 +1,6 @@
 ---
-title: ".NET-ben a prezentáció alakzatainak testreszabása"
-linktitle: "Egyedi alakzat"
+title: Prezentációs alakzatok testreszabása .NET-ben
+linktitle: Egyedi alakzat
 type: docs
 weight: 20
 url: /hu/net/custom-shape/
@@ -11,8 +11,8 @@ keywords:
 - alakzat módosítása
 - alakzat geometria
 - geometriai útvonal
-- útvonalpontok
-- szerkesztő pontok
+- útvonal pontok
+- szerkesztési pontok
 - pont hozzáadása
 - pont eltávolítása
 - szerkesztési művelet
@@ -22,229 +22,190 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Alakzatok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for .NET segítségével: geometriai útvonalak, ívelt sarkok, összetett alakzatok."
+description: "Alakzatok létrehozása és testreszabása PowerPoint-prezentációkban az Aspose.Slides for .NET segítségével: geometriai útvonalak, ívelt sarkok, összetett alakzatok."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan lehet testreszabni a prezentáció alakzatokat az Aspose.Slides-ban a alakzateg geometria szerkesztésével a szerkesztő pontok és geometriai útvonalak használatával. Megmutatja, hogyan lehet a `GeometryPath` és az `IGeometryPath` segítségével módosítani a meglévő alakzatokat, alapvető útvonal-szerkesztési műveleteket végezni, pontokat hozzáadni vagy eltávolítani, és a frissített geometriát visszaalkalmazni egy alakzatra.
+Ez a cikk bemutatja, hogyan lehet testre szabni a prezentáció alakzatokat az Aspose.Slides-ben a forma geometria szerkesztésével a szerkesztési pontok és a geometriai útvonalak használatával. Megmutatja, hogyan lehet a [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) és a [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) osztályokkal dolgozni meglévő alakzatok módosításához, alapvető út-szerkesztési műveletek végrehajtásához, pontok hozzáadásához vagy eltávolításához, illetve a frissített geometria visszaállításához egy alakzatra.
 
-Az is bemutatja, hogyan hozhatunk létre egyedi és összetett alakzatokat, hogyan építhetünk görbületű sarkokkal rendelkező alakzatokat, hogyan határozhatjuk meg, hogy egy alakzateg geometria zárt-e, és hogyan konvertálhatjuk a `GeometryPath`-t és a `GraphicsPath`-t további geometriai testreszabási forgatókönyvekhez.
+Az is bemutatja, hogyan lehet egyedi és összetett alakzatokat létrehozni, görbe sarkokkal rendelkező alakzatokat építeni, meghatározni, hogy egy alakzat geometriája zárt‑e, és a régi átalakítást a [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) és a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) között használni további geometriai testreszabási forgatókönyvekhez.
 
-## **Alakzat módosítása szerkesztő pontokkal**
+## **Alakzat módosítása szerkesztési pontokkal**
 
-Vegyünk egy négyzetet. A PowerPointban, a **szerkesztő pontok** használatával a következőket tehetjük
+PowerPointban a **Szerkesztési pontok** segítségével módosíthat egy négyzetet:
 
-* a négyzet sarkát be- vagy kifelé mozdíthatjuk
-* megadhatjuk egy sarok vagy pont görbületét
-* új pontokat adhatunk hozzá a négyzethez
-* a négyzet pontjait manipulálhatjuk, stb.
+* Egy sarkot befelé vagy kifelé mozgatni.
+* A görbületet egy pontnál állítani.
+* Új pontok hozzáadása.
 
-Lényegében ezeket a feladatokat bármely alakzaton elvégezhetjük. A szerkesztő pontok használatával módosíthatunk egy alakzatot, vagy új alakzatot hozhatunk létre egy meglévőből.
+A pontok szerkesztése lehetővé teszi az alakzat körvonalának módosítását, vagy egy meglévő alakzat felhasználását új alapként.
 
 ## **Alakzat szerkesztési tippek**
 
-![overview_image](custom_shape_0.png)
+![áttekintő_kép](custom_shape_0.png)
 
-Mielőtt elkezdené a PowerPoint alakzatok szerkesztését szerkesztő pontok segítségével, érdemes ezeket a szempontokat figyelembe venni az alakzatokkal kapcsolatban:
+PowerPoint alakzatok szerkesztésekor tartsa szem előtt ezeket a fogalmakat:
 
-* Egy alakzat (vagy az útvonala) lehet zárt vagy nyitott.
-* Minden alakzat legalább 2 rögzítési pontból áll, amelyek vonalakkal vannak összekötve.
-* Egy vonal lehet egyenes vagy görbe. A rögzítési pontok határozzák meg a vonal jellegét.
-* A rögzítési pontok létezhetnek sarokpontként, egyenes pontként vagy sima pontként:
-  * Egy sarokpont olyan pont, ahol 2 egyenes vonal találkozik egy szögnél.
-  * Egy sima pont olyan pont, ahol 2 fogantyú egy egyenes vonalon helyezkedik el, és a vonal szegmensek sima ívben kapcsolódnak össze. Ebben az esetben minden fogantyú egyenlő távolságra van a rögzítési ponttól.
-  * Egy egyenes pont olyan pont, ahol 2 fogantyú egy egyenes vonalon helyezkedik el, és a vonal szegmensek egy sima ívben csatlakoznak. Ebben az esetben a fogantyúknek nem kell egyenlő távolságra lenniük a rögzítési ponttól.
-* A rögzítési pontok mozgásával vagy szerkesztésével (amely megváltoztatja a vonalak szögét) módosítható az alakzat megjelenése.
+* Egy alakzat (vagy annak útvonala) lehet zárt vagy nyitott.
+* Az alakzat útvonala tartalmazó horgonypontokból áll, amelyeket szegmensek kötnek össze.
+* Egy szegmens lehet egyenes vagy görbe. A horgonypontok és a vezérlő fogantyúk (control handles) határozzák meg alakját.
+* A horgonypontok lehetnek sarokpontok, egyenes pontok vagy sima pontok:
+  * Sarokpont esetén a szomszédos szegmensek egy szögnél találkozhatnak.
+  * Sima pontnál a két vezérlő fogantyú egy vonalban van és egyenlő távolságra helyezkedik el a horgonyponttól.
+  * Egyenes pontnál a két vezérlő fogantyú egy vonalban van, de különböző távolságra lehet a horgonyponttól.
+* A horgonypontok mozgatása vagy fogantyúik állítása megváltoztatja az alakzat körvonalát.
 
-A PowerPoint alakzatok szerkesztő pontokkal történő szerkesztéséhez a **Aspose.Slides** a [**GeometryPath**](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath) osztályt és a [**IGeometryPath**](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometrypath) interfészt biztosítja.
+PowerPoint alakzatok szerkesztéséhez **Aspose.Slides** biztosítja a [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) osztályt és a [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) interfészt.
 
-* A [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath) példány egy geometriai útvonalat képvisel a [IGeometryShape](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometryshape) objektum számára.
-* A `GeometryPath` lekéréséhez az `IGeometryShape` példányból használhatja a [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometryshape/methods/getgeometrypaths) metódust.
-* A `GeometryPath` beállításához egy alakzathoz használhatja ezeket a metódusokat: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometryshape/methods/setgeometrypath) *egyszerű alakzatok* esetén, és [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometryshape/methods/setgeometrypaths) *összetett alakzatok* esetén.
-* Szegmensek hozzáadásához használhatja a [IGeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometrypath) alatti metódusokat.
-* A [IGeometryPath.Stroke](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometrypath/properties/stroke) és a [IGeometryPath.FillMode](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometrypath/properties/fillmode) tulajdonságok használatával beállíthatja egy geometriai útvonal megjelenését.
-* A [IGeometryPath.PathData](https://reference.aspose.com/slides/hu/net/aspose.slides/igeometrypath/properties/pathdata) tulajdonság használatával lekérheti egy `GeometryShape` geometriai útvonalát útvonal-szegmensek tömbjeként.
-* További alakzatgeometria testreszabási lehetőségek eléréséhez konvertálhatja a [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath)-t a [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)-ra.
-* Használja a [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/hu/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) és a [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) metódusokat (a [ShapeUtil](https://reference.aspose.com/slides/hu/net/aspose.slides.util/shapeutil) osztályból) a [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath)-t a [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)-ra és vissza való konvertáláshoz.
+* A [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) példány egy geometriai útvonalat képvisel a [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) objektumban.
+* A [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) lekéréséhez a [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) példányból használható a [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) metódus.
+* Egy alakzathoz a [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) beállításához használhatók a következő metódusok: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) egyetlen útvonallal rendelkező alakzatokhoz és [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) több útvonallal rendelkező alakzatokhoz.
+* Szegmensek hozzáadásához használhatók a [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) alatti metódusok.
+* A [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) és a [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) tulajdonságok használatával beállítható a geometriai útvonal megjelenése.
+* A [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) tulajdonság segítségével a [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) útvonalát lehet tömbként lekérni, amely szegmens elemeket tartalmaz.
+* Régi verziókban, amelyek támogatják az alábbi konverziós metódusokat, a [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) átalakítható a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) formátumba.
+* Használja a [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) és a [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) metódusokat (a [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/) osztályból) a [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) és a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) közötti átalakításhoz.
 
 ## **Egyszerű szerkesztési műveletek**
 
-Ez a C# kód megmutatja, hogyan
+A geometriai útvonal szerkesztéséhez használja az alábbi metódusokat. Az indexet elfogadó túlterhelések egy szegmenst illesztenek a megadott nulla‑alapú pozícióba az útvonal szegmens tömbjében.
 
-**Vonal hozzáadása** az útvonal végéhez
-``` csharp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Vonal hozzáadása** egy megadott pozícióba az útvonalon:
-``` csharp    
-void LineTo(PointF point, uint index);
-void LineTo(float x, float y, uint index);
-```
-**Köbös Bézier-görbe hozzáadása** az útvonal végén:
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Köbös Bézier-görbe hozzáadása** a megadott pozícióba az útvonalon:
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
-```
-**Kvadratikus Bézier-görbe hozzáadása** az útvonal végén:
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Kvadratikus Bézier-görbe hozzáadása** a megadott pozícióba az útvonalon:
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2, uint index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
-```
-**Adott ív hozzáfűzése** egy útvonalhoz:
-``` csharp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Az aktuális alakzat lezárása** egy útvonalnál:
-``` csharp
-void CloseFigure();
-```
-**A következő pont pozíciójának beállítása**:
-``` csharp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Az útvonal szegmens eltávolítása** egy adott indexnél:
-``` csharp
-void RemoveAt(int index);
-```
+| Művelet | Metódus |
+| --- | --- |
+| Egyenes vonal hozzáadása vagy beszúrása. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
+| Körbös Bézier‑görbe hozzáadása vagy beszúrása két vezérlőponttal és egy végponttal. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| Másodfokú Bézier‑görbe hozzáadása vagy beszúrása egy vezérlőponttal és egy végponttal. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| Elliptikus ív hozzáadása a megadott méretekkel és fokokban kifejezett szögekkel. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| Az aktuális alakzat zárása a végpont és a kiinduló pont összekapcsolásával. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| Az alakzat kiinduló pontjának beállítása. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| Szegmens eltávolítása a nulla‑alapú indexnél. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
 ## **Egyedi pontok hozzáadása egy alakzathoz**
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/net/aspose.slides/geometryshape) osztályból, és állítsa be a [ShapeType.Rectangle](https://reference.aspose.com/slides/hu/net/aspose.slides/shapetype) típust.
-2. Szerezzen be egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath) osztályból az alakzatról.
-3. Adjon hozzá egy új pontot a két felső pont között az útvonalon.
-4. Adjon hozzá egy új pontot a két alsó pont között az útvonalon.
-5. Alkalmazza az útvonalat az alakzatra.
+Ez a példa két pontot szúr be egy téglalap alakzatba a [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) segítségével, majd a szerkesztett útvonalat alkalmazza a [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) használatával. A koordináták az alakzathoz viszonyítva helyi értékek: mindkét új pont a középpontban helyezkedik el, 100 pont távolságra a bal szélről és 50 pont a felső szélről. Az 1‑es és 4‑es szegmensindexek a pontokat a felső és alsó élre helyezik, ezáltal ezeket az éleket befelé húzzák.
 
-Ez a C# kód megmutatja, hogyan adhatunk egyedi pontokat egy alakzathoz:
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
-    IGeometryPath geometryPath = shape.GetGeometryPaths()[0];
+```csharp
+using Aspose.Slides;
 
-    geometryPath.LineTo(100, 50, 1);
-    geometryPath.LineTo(100, 50, 4);
-    shape.SetGeometryPath(geometryPath);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+var geometryPath = shape.GetGeometryPaths()[0];
+geometryPath.LineTo(100, 50, 1);
+geometryPath.LineTo(100, 50, 4);
+
+shape.SetGeometryPath(geometryPath);
 ```
 
-![example1_image](custom_shape_1.png)
+![példa1_kép](custom_shape_1.png)
 
-##  **Pontok eltávolítása egy alakzatból**
+## **Pontok eltávolítása egy alakzatról**
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/net/aspose.slides/geometryshape) osztályból, és állítsa be a [ShapeType.Heart](https://reference.aspose.com/slides/hu/net/aspose.slides/shapetype) típust.
-2. Szerezzen be egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath) osztályból az alakzatról.
-3. Távolítsa el az útvonal szegmensét.
-4. Alkalmazza az útvonalat az alakzatra.
+Ez a példa egy szív alakú körvonalat módosít azzal, hogy a [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) metódussal eltávolítja a 2‑es (nulla‑alapú) indexű szegmenst. A módosított útvonal alkalmazása a [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) segítségével frissíti az alakzat kontúrját.
 
-Ez a C# kód megmutatja, hogyan távolíthatunk el pontokat egy alakzatból:
-``` csharp
-using (Presentation pres = new Presentation())
-{
-	GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300) as GeometryShape;
+```csharp
+using Aspose.Slides;
 
-	IGeometryPath path = shape.GetGeometryPaths()[0];
-	path.RemoveAt(2);
-	shape.SetGeometryPath(path);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+
+var path = shape.GetGeometryPaths()[0];
+path.RemoveAt(2);
+
+shape.SetGeometryPath(path);
 ```
-![example2_image](custom_shape_2.png)
+![példa2_kép](custom_shape_2.png)
 
-##  **Egyedi alakzat létrehozása**
+## **Egyedi alakzat létrehozása**
 
-1. Számolja ki az alakzat pontjait.
-2. Hozzon létre egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath) osztályból.
-3. Töltse fel az útvonalat a pontokkal.
-4. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/net/aspose.slides/geometryshape) osztályból.
-5. Alkalmazza az útvonalat az alakzatra.
+Ez a példa egy ötágú csillagot épít a [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) használatával. Az egymást váltakozó külső és belső sugarak (100 és 50 pont) határozzák meg a csúcsokat és a bemetszéseket; egy 72‑fokos lépés egyenletesen osztja el az öt csúcsot. Az útvonalat a [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) zárja le, majd a [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) alkalmazásával egy téglalap alakzatra helyezi, felülírva annak körvonalát.
 
-Ez a C# bemutatja, hogyan hozhatunk létre egy egyedi alakzatot:
-``` csharp
-List<PointF> points = new List<PointF>();
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Aspose.Slides;
 
-float R = 100, r = 50;
-int step = 72;
+var points = new List<PointF>();
 
-for (int angle = -90; angle < 270; angle += step)
+var outerRadius = 100f;
+var innerRadius = 50f;
+var angleStep = 72;
+
+for (var angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math.PI / 180f);
-    double x = R * Math.Cos(radians);
-    double y = R * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    var radians = angle * (Math.PI / 180f);
+    var x = outerRadius * Math.Cos(radians);
+    var y = outerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.Cos(radians);
-    y = r * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.Cos(radians);
+    y = innerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-GeometryPath starPath = new GeometryPath();
+var starPath = new GeometryPath();
 starPath.MoveTo(points[0]);
 
-for (int i = 1; i < points.Count; i++)
+for (var i = 1; i < points.Count; i++)
 {
     starPath.LineTo(points[i]);
 }
 
 starPath.CloseFigure();
 
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    shape.SetGeometryPath(starPath);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
+shape.SetGeometryPath(starPath);
 ```
-![example3_image](custom_shape_3.png)
+![példa3_kép](custom_shape_3.png)
 
 ## **Összetett egyedi alakzat létrehozása**
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/net/aspose.slides/geometryshape) osztályból.
-2. Hozzon létre egy első példányt a [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath) osztályból.
-3. Hozzon létre egy második példányt a [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath) osztályból.
-4. Alkalmazza az útvonalakat az alakzatra.
+Ez a példa két zárt [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) objektumot definiál az alakzat felső és alsó harmadához. Mindkét útvonal alkalmazásával a [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) egyetlen összetett alakzat jön létre, amelynek középső harmadában egy rés van.
 
-Ez a C# kód megmutatja, hogyan hozhatunk létre egy összetett egyedi alakzatot:
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
+```csharp
+using Aspose.Slides;
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.MoveTo(0, 0);
-    geometryPath0.LineTo(shape.Width, 0);
-    geometryPath0.LineTo(shape.Width, shape.Height/3);
-    geometryPath0.LineTo(0, shape.Height / 3);
-    geometryPath0.CloseFigure();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.MoveTo(0, shape.Height/3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height / 3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height);
-    geometryPath1.LineTo(0, shape.Height);
-    geometryPath1.CloseFigure();
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-}
+var topPath = new GeometryPath();
+topPath.MoveTo(0, 0);
+topPath.LineTo(shape.Width, 0);
+topPath.LineTo(shape.Width, shape.Height / 3);
+topPath.LineTo(0, shape.Height / 3);
+topPath.CloseFigure();
+
+var bottomPath = new GeometryPath();
+bottomPath.MoveTo(0, shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height);
+bottomPath.LineTo(0, shape.Height);
+bottomPath.CloseFigure();
+
+shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
-![example4_image](custom_shape_4.png)
+![példa4_kép](custom_shape_4.png)
 
-## **Egyedi alakzat létrehozása görbületű sarkokkal**
+## **Egyedi alakzat létrehozása görbe sarkokkal**
 
-Ez a C# kód megmutatja, hogyan hozhatunk létre egy egyedi alakzatot görbületű (belülre ívelt) sarkokkal;
-```c#
+Ez a példa egyenes szegmenseket kombinál a [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) használatával, hogy egy befelé görbülő sarkokkal rendelkező alakzatot kapjon. Minden sarokméret meghatározza az ív szélességét és magasságát pontokban, a -90‑fokos ív pedig egy óramutatóval ellentétes negyedellipszist rajzol. A kész útvonalat a [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) alkalmazza, és a prezentációt PPTX formátumban menti.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var shapeX = 20f;
 var shapeY = 20f;
 var shapeWidth = 300f;
@@ -255,100 +216,177 @@ var rightTopSize = 20f;
 var rightBottomSize = 40f;
 var leftBottomSize = 10f;
 
-using (var presentation = new Presentation())
-{
-    var childShape = presentation.Slides[0].Shapes.AddAutoShape(
-        ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    var geometryPath = new GeometryPath();
+var topLeft = new PointF(leftTopSize, 0);
+var topRight = new PointF(shapeWidth - rightTopSize, 0);
+var rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+var bottomLeft = new PointF(leftBottomSize, shapeHeight);
+var leftTop = new PointF(0, leftTopSize);
 
-    var point1 = new PointF(leftTopSize, 0);
-    var point2 = new PointF(shapeWidth - rightTopSize, 0);
-    var point3 = new PointF(shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = new PointF(leftBottomSize, shapeHeight);
-    var point5 = new PointF(0, leftTopSize);
+var geometryPath = new GeometryPath();
+geometryPath.MoveTo(topLeft);
+geometryPath.LineTo(topRight);
+geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
+geometryPath.LineTo(rightBottom);
+geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
+geometryPath.LineTo(bottomLeft);
+geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
+geometryPath.LineTo(leftTop);
+geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+geometryPath.CloseFigure();
 
-    geometryPath.MoveTo(point1);
-    geometryPath.LineTo(point2);
-    geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.LineTo(point3);
-    geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.LineTo(point4);
-    geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.LineTo(point5);
-    geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+shape.SetGeometryPath(geometryPath);
 
-    geometryPath.CloseFigure();
-
-    childShape.SetGeometryPath(geometryPath);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **Megállapítás, hogy egy alakzat geometriája zárt-e**
+## **Megállapítás, hogy egy alakzat geometriája zárt‑e**
 
-Az zárt alakzat olyan, amelynek minden oldalát összekapcsolják, egyetlen szegélyt alkotva hézagok nélkül. Egy ilyen alakzat lehet egyszerű geometriai forma vagy összetett egyedi körvonal. A következő kódrészlet bemutatja, hogyan ellenőrizhető, hogy egy alakzat geometriája zárt-e:
-```cs
+Az alábbi segédfüggvény ellenőrzi, hogy minden nem üres geometriai útvonal záró szegmensen végződik‑e. Olvassa a [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) értéket, és összehasonlítja az utolsó szegmens [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) értékét a [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/) típussal. Ha nincs nem üres útvonal, hamisat ad vissza. Ez csak az egyes útvonalak végleges parancsát vizsgálja, nem elemzi minden alalakzatot a útvonalon belül. A példa egy téglalap esetén `True`‑t ír ki.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+Console.WriteLine(IsGeometryClosed(shape));
+
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
-    bool? isClosed = null;
+    var hasNonemptyPath = false;
 
     foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
-        var dataLength = geometryPath.PathData.Length;
-        if (dataLength == 0)
+        var segments = geometryPath.PathData;
+        if (segments.Length == 0)
+        {
             continue;
+        }
 
-        var lastSegment = geometryPath.PathData[dataLength - 1];
-        isClosed = lastSegment.PathCommand == PathCommandType.Close;
-
-        if (isClosed == false)
+        hasNonemptyPath = true;
+        var lastSegment = segments[segments.Length - 1];
+        if (lastSegment.PathCommand != PathCommandType.Close)
+        {
             return false;
+        }
     }
-    
-    return isClosed == true;
+
+    return hasNonemptyPath;
 }
 ```
 
-## **GeometryPath konvertálása GraphicsPath-re (System.Drawing.Drawing2D)**
+## **Alakzat elemek kinyerése és ellenőrzése**
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/net/aspose.slides/geometryshape) osztályból.
-2. Hozzon létre egy példányt a [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) osztályból a [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) névtérből.
-3. Konvertálja a [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) példányt a [GeometryPath](https://reference.aspose.com/slides/hu/net/aspose.slides/geometrypath) példányra a [ShapeUtil](https://reference.aspose.com/slides/hu/net/aspose.slides.util/shapeutil) használatával.
-4. Alkalmazza az útvonalakat az alakzatra.
+Használja a [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) metódust a meglévő alakzat elemeinek megtekintéséhez, amelyek tartalmazzák az útvonal pontjait és ponttípusait. Az egyes visszaadott [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) objektumot alakítsa [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) típusra, hogy elérje a [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) és a [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/) tömböket. Ez a reprezentáció hasznos a kontúr elemzéséhez vagy a geometria egyedi rajzeszközökhöz való átadásához.
 
-Ez a C# kód – a fenti lépések megvalósítása – bemutatja a **GeometryPath** és **GraphicsPath** közötti konverziós folyamatot:
-``` csharp
-using (Presentation pres = new Presentation())
+A példa egy prezentációt nyit meg, megtalálja az első geometriai alakzatot az első diáron, és kiírja az útvonal szegmenseit. Használjon olyan prezentációt, amely tartalmaz egy alakzatot egyenes és görbe szegmensekkel, hogy mindkét típust lássa. Nem keres csoportok belsejében.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.OfType<IGeometryShape>().FirstOrDefault();
+if (shape == null)
 {
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100) as GeometryShape;
+    Console.WriteLine("No geometry shape found on the first slide.");
+    return;
+}
 
-    IGeometryPath originalPath = shape.GetGeometryPaths()[0];
-    originalPath.FillMode = PathFillModeType.None;
+foreach (IShapeElement element in shape.CreateShapeElements())
+{
+    var shapeElement = (ShapeElement)element;
+    var points = shapeElement.PathPoints;
+    var types = shapeElement.PathTypes;
+    Console.WriteLine("Shape element:");
 
-    GraphicsPath gPath = new GraphicsPath();
+    for (var i = 0; i < points.Length; i++)
+    {
+        var pointType = types[i] & 0x07; // Tartsa meg a szegmens típusát, a flag-ek kizárásával.
+        switch (pointType)
+        {
+            case 0:
+                Console.WriteLine($"Start figure at {points[i]}");
+                break;
+            case 1:
+                Console.WriteLine($"Line to {points[i]}");
+                break;
+            case 3:
+                Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
+                i += 2; // Fogyassza el mindkét vezérlőpontot és a végpontot.
+                break;
+        }
 
-    gPath.AddString("Text in shape", new FontFamily("Arial"), 1, 40, new PointF(10, 10), StringFormat.GenericDefault);
-
-    IGeometryPath textPath = ShapeUtil.GraphicsPathToGeometryPath(gPath);
-    textPath.FillMode = PathFillModeType.Normal;
-
-    shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
+        if ((types[i] & 0x80) != 0)
+        {
+            Console.WriteLine("Close subpath back to its starting point.");
+        }
+    }
 }
 ```
-![example5_image](custom_shape_5.png)
+
+A tömbök index alapján egyeznek: a `points[i]` egy pont, a `types[i]` leírja a szerepét. A `0` típus egy ábra kezdetét jelzi, az `1` típus a korábbi ponttól a jelenlegi pontig egy vonalat rajzol. A köbös Bézier‑szegmens a korábbi végpontból indul, és három egymást követő `3` típusú bejegyzést használ: két vezérlőpontot, majd az új végpontot. A ciklus ezen három bejegyzést egyszerre dolgozza fel, és a végpontot ellenőrzi a zárás szempontjából.
+
+A ponttípusok flag‑eket is tartalmaznak. A `0x07` maszkkal határozható meg a szegmens típusa, a `0x80` külön tesztelhető a zárt alútvonal felismerésére. Például a `129` (`0x81`) egy vonal végpont, amely zár egy alútvonalat, a `131` (`0x83`) pedig egy Bézier‑végpont, amely szintén zár. Ha csak a `1` vagy `3` értékkel hasonlítaná a nyers értéket, ezek a esetek kimaradnának. Más flag‑ek, például a szaggatott (`0x10`) vagy a marker (`0x20`) nem változtatják az alap szegmens típust.
+
+**Koordináták és transzformációk.** A pontok pontban (1/72 hüvelyk) vannak mérve, az X jobbra, a Y lefelé növekszik. Egy nem csoportosított alakzat esetén a kinyert koordináták már tartalmazzák a [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) és [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) pozíciót, valamint a jelenlegi szélességet és magasságot. Például egy nem elforgatott téglalap `(100, 200)`‑on, `120 × 80` mérettel, a kontúrbounds `(100, 200)`‑`(220, 280)`. Ne adja hozzá újra az alakzat pozícióját. Az X‑ és Y‑t le kell vonni, hogy az elforgatás nélküli kerethez viszonyított koordinátákat kapja.
+
+A kinyert pontok nem tartalmazzák az alakzat [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) vagy a vízszintes és függőleges tükrözés transzformációit. A megjelenített kontúr reprodukálásához alkalmazza ezeket a transzformációkat az alakzat középpontja körül. Csoportosított alakzatok esetén vegye figyelembe a csoport koordináta leképezését és transzformációkat; ne feltételezze, hogy a kinyert pontok már a végső dia koordináták, és ne alkalmazzon eltolást vagy méretezést kétszer, ha már benne vannak a gyermek keretben.
+
+**Ellenőrzés vs. szerkesztés.** A kinyert tömbök a kontúrt írják le; azok módosítása nem frissíti az eredeti alakzatot. Ezt a megközelítést akkor válassza, ha a pont‑típus tömbökre van szüksége elemzéshez vagy rajzoláshoz. Használja a [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) metódust, ha a geometriai parancsokra van szükség az alakzat helyi koordináta‑rendszerében, vagy ha a geometriát szerkeszteni szeretné. A szerkesztett útvonalakat alkalmazza a [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) vagy a [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) segítségével.
+
+## **GeometryPath konvertálása GraphicsPath‑re (System.Drawing.Drawing2D)**
+
+Az alábbi példa egy régi Aspose.Slides for .NET összeállítást igényel, amely támogatja a [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) metódust, például a 25.10‑es verziót, valamint egy Windows környezetet a `System.Drawing.Common`‑nal. A konverziós metódusok eltávolításra kerültek a [version 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/) után.
+
+Ez a példa egy téglalap körvonalat kombinál szöveggeometria átalakításával. A körvonal [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) beállításával letiltja a kitöltést. A [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) tárolja a szöveg kontúrját, amelyet a [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) egy kitöltött geometriai útvonalra konvertál. Mindkét útvonal alkalmazása a [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) segítségével egyetlen alakzatot hoz létre, amely tartalmazza a téglalapot és a szöveget. Az ellentétes irányú konverzióhoz használja a [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) metódust.
+
+```csharp
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+
+var originalPath = shape.GetGeometryPaths()[0];
+originalPath.FillMode = PathFillModeType.None;
+
+using var graphicsPath = new GraphicsPath();
+using var fontFamily = new FontFamily("Arial");
+using var stringFormat = StringFormat.GenericDefault;
+
+graphicsPath.AddString("Text in shape", fontFamily, (int)FontStyle.Bold, 40, new PointF(10, 10), stringFormat);
+
+var textPath = ShapeUtil.GraphicsPathToGeometryPath(graphicsPath);
+textPath.FillMode = PathFillModeType.Normal;
+
+shape.SetGeometryPaths(new[] { originalPath, textPath });
+```
+![példa5_kép](custom_shape_5.png)
 
 ## **GYIK**
 
-**Mi történik a kitöltéssel és a körvonallal, miután lecserélik a geometriát?**
+**Mi történik a kitöltéssel és a körvonallal a geometria cseréje után?**
 
-A stílus megmarad az alakzaton; csak a kontúr változik. A kitöltés és a körvonal automatikusan alkalmazásra kerül az új geometriára.
+A stílus az alakzaton marad; csak a kontúr változik. A kitöltés és a körvonal automatikusan alkalmazásra kerül az új geometriára.
 
-**Hogyan forgatom helyesen egy egyedi alakzatot a geometriájával együtt?**
+**Hogyan lehet helyesen elforgatni egy egyedi alakzatot a geometriájával együtt?**
 
-Használja az alakzat [rotation](https://reference.aspose.com/slides/hu/net/aspose.slides/shape/rotation/) tulajdonságát; a geometria az alakzattal együtt forog, mivel az alakzat saját koordináta-rendszeréhez van kötve.
+Használja az alakzat [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) tulajdonságát; a geometria az alakzattal együtt forog, mivel az az alakzat saját koordináta‑rendszeréhez van kötve.
 
-**Átkonvertálhatok egy egyedi alakzatot képpé, hogy „lezárom” az eredményt?**
+**Átalakítható-e egy egyedi alakzat kép‑formátumba a „lezáráshoz”?**
 
-Igen. Exportálja a szükséges [slide](/slides/hu/net/convert-powerpoint-to-png/) területet vagy a [shape](/slides/hu/net/create-shape-thumbnails/) maga képre raszteres formátumban; ez megkönnyíti a nehéz geometriákkal való további munkát.
+Igen. Exportálja a szükséges [dia](/slides/hu/net/convert-powerpoint-to-png/) területet vagy maga az [alakzat](/slides/hu/net/create-shape-thumbnails/) képet raszter formátumba; ez egyszerűsíti a komplex geometriák további kezelését.

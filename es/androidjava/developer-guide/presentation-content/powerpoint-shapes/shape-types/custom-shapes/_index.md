@@ -1,5 +1,5 @@
 ---
-title: Personaliza formas de presentación en Android
+title: Personalizar formas de presentación en Android
 linktitle: Forma personalizada
 type: docs
 weight: 20
@@ -10,7 +10,7 @@ keywords:
 - crear forma
 - cambiar forma
 - geometría de forma
-- ruta geométrica
+- ruta de geometría
 - puntos de ruta
 - puntos de edición
 - añadir punto
@@ -22,183 +22,137 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Crea y personaliza formas en presentaciones de PowerPoint con Aspose.Slides para Android mediante Java: rutas geométricas, esquinas curvas, formas compuestas."
+description: "Crear y personalizar formas en presentaciones de PowerPoint con Aspose.Slides para Android mediante Java: rutas de geometría, esquinas curvas, formas compuestas."
 ---
+## **Descripción general**
+
+Este artículo explica cómo personalizar las formas de presentación en Aspose.Slides editando la geometría de la forma mediante puntos de edición y rutas de geometría. Muestra cómo trabajar con [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) y [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) para modificar formas existentes, realizar operaciones básicas de edición de rutas, añadir o eliminar puntos y aplicar la geometría actualizada a una forma.
+
+También demuestra cómo crear formas personalizadas y compuestas, construir formas con esquinas curvas, determinar si la geometría de una forma está cerrada e inspeccionar los elementos de la forma usando matrices de puntos de Android.
 
 ## **Cambiar una forma usando puntos de edición**
-Considere un cuadrado. En PowerPoint, usando **puntos de edición**, puede 
 
-* mover la esquina del cuadrado hacia adentro o hacia afuera
-* especificar la curvatura de una esquina o punto
-* añadir nuevos puntos al cuadrado
-* manipular los puntos del cuadrado, etc. 
+* Mover una esquina hacia dentro o hacia fuera.
+* Ajustar la curvatura en un punto.
+* Añadir nuevos puntos.
 
-En esencia, puede realizar las tareas descritas en cualquier forma. Con los puntos de edición, puede cambiar una forma o crear una nueva forma a partir de una forma existente. 
+Editar puntos le permite modificar el contorno de una forma o usar una forma existente como base para una nueva.
 
-## **Consejos para editar formas**
+## **Consejos para la edición de formas**
 
-![imagen_resumen](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-Antes de comenzar a editar formas de PowerPoint mediante puntos de edición, es posible que desee considerar estos puntos sobre las formas:
+Al editar formas de PowerPoint, tenga en cuenta estos conceptos:
 
-* Una forma (o su trayectoria) puede ser cerrada o abierta.
-* Cuando una forma es cerrada, carece de punto de inicio o final. Cuando una forma es abierta, tiene un comienzo y un final. 
-* Todas las formas constan de al menos 2 puntos de anclaje vinculados entre sí por líneas
-* Una línea es recta o curva. Los puntos de anclaje determinan la naturaleza de la línea. 
+* Una forma (o su ruta) puede ser cerrada o abierta.
+* La ruta de una forma está compuesta por puntos de anclaje conectados por segmentos.
+* Un segmento puede ser recto o curvo. Los puntos de anclaje y los manejadores de control determinan su forma.
 * Los puntos de anclaje existen como puntos de esquina, puntos rectos o puntos suaves:
-  * Un punto de esquina es un punto donde se unen 2 líneas rectas en un ángulo. 
-  * Un punto suave es un punto donde 2 manejadores existen en una línea recta y los segmentos de la línea se unen en una curva suave. En este caso, todos los manejadores están separados del punto de anclaje por una distancia igual. 
-  * Un punto recto es un punto donde 2 manejadores existen en una línea recta y esos segmentos de línea se unen en una curva suave. En este caso, los manejadores no tienen que estar separados del punto de anclaje por una distancia igual. 
-* Al mover o editar los puntos de anclaje (lo que cambia el ángulo de las líneas), puede cambiar la apariencia de una forma. 
+  * En un punto de esquina, los segmentos adyacentes pueden encontrarse en un ángulo.
+  * En un punto suave, los dos manejadores de control están alineados y a la misma distancia del punto de anclaje.
+  * En un punto recto, los dos manejadores de control están alineados pero pueden estar a diferentes distancias del punto de anclaje.
+* Mover los puntos de anclaje o ajustar sus manejadores cambia el contorno de la forma.
 
-Para editar formas de PowerPoint mediante puntos de edición, **Aspose.Slides** proporciona la clase [**GeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) y la interfaz [**IGeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath).
+Para editar formas de PowerPoint mediante puntos de edición, **Aspose.Slides** proporciona la clase [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) y la interfaz [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
 
-* Una instancia de [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) representa una trayectoria geométrica del objeto [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape).
-* Para obtener el `GeometryPath` de la instancia `IGeometryShape`, puede usar el método [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--) .
-* Para establecer el `GeometryPath` de una forma, puede usar estos métodos: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) para *formas sólidas* y [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) para *formas compuestas*.
-* Para añadir segmentos, puede usar los métodos bajo [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath) .
-* Usando los métodos [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) y [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) , puede establecer la apariencia de una trayectoria geométrica.
-* Usando el método [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#getPathData--) , puede obtener la trayectoria geométrica de un `GeometryShape` como una matriz de segmentos de trayectoria.
-* Para acceder a opciones adicionales de personalización de la geometría de la forma, puede convertir [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) .
-* Utilice los métodos [geometryPathToGraphicsPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) y [graphicsPathToGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (de la clase [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil) ) para convertir [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) y viceversa.
+* Una instancia de [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) representa una ruta de geometría del objeto [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/).
+* Para obtener el [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) de la instancia [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/), puede usar el método [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) .
+* Para establecer el [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) de una forma, puede usar estos métodos: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) para formas con una sola ruta y [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) para formas con varias rutas.
+* Para añadir segmentos, puede usar los métodos bajo [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) .
+* Usando los métodos [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) y [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-), puede establecer la apariencia de una ruta de geometría.
+* Con el método [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) , puede obtener la ruta de geometría de un [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) como una matriz de segmentos de ruta.
 
 ## **Operaciones de edición simples**
 
-Este código Java le muestra cómo
+Utilice los siguientes métodos para editar una ruta de geometría. Las sobrecargas que aceptan un índice insertan un segmento en esa posición basada en cero dentro de la matriz de segmentos de la ruta.
 
-**Añadir una línea** al final de una trayectoria
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
+| Operación | Método |
+| --- | --- |
+| Agregar o insertar una línea recta. | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| Agregar o insertar una curva Bézier cúbica con dos puntos de control y un punto final. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Agregar o insertar una curva Bézier cuadrática con un punto de control y un punto final. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Agregar un arco elíptico con las dimensiones y ángulos especificados en grados. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Cerrar la figura actual conectando su punto final con su punto de inicio. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| Establecer el punto de inicio de una figura. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Eliminar un segmento en un índice basado en cero. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-**Añadir una línea** a una posición especificada en una trayectoria:
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
+## **Añadir puntos personalizados a una forma**
 
-**Añadir una curva Bézier cúbica** al final de una trayectoria:
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
+Este ejemplo inserta dos puntos en una forma rectangular usando [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) y aplica la ruta editada con [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Las coordenadas son locales a la forma: ambos puntos nuevos están en su centro, a 100 puntos del borde izquierdo y 50 puntos del borde superior. Los índices de segmento 1 y 4 los colocan en los bordes superior e inferior, tirando esos bordes hacia dentro.
 
-**Añadir una curva Bézier cúbica** a la posición especificada en una trayectoria:
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
+```java
+import com.aspose.slides.*;
 
-**Añadir una curva Bézier cuadrática** al final de una trayectoria:
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-
-**Añadir una curva Bézier cuadrática** a una posición especificada en una trayectoria:
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-
-**Añadir un arco dado** a una trayectoria:
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-
-**Cerrar la figura actual** de una trayectoria:
-``` java
-public void closeFigure();
-```
-
-**Establecer la posición del siguiente punto**:
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-
-**Eliminar el segmento de trayectoria** en un índice dado:
-``` java
-public void removeAt(int index);
-```
-
-
-## **Agregar puntos personalizados a una forma**
-1. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) y establezca el tipo [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType) .
-2. Obtenga una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) de la forma.
-3. Añada un nuevo punto entre los dos puntos superiores de la trayectoria.
-4. Añada un nuevo punto entre los dos puntos inferiores de la trayectoria.
-5. Aplique la trayectoria a la forma.
-
-Este código Java le muestra cómo añadir puntos personalizados a una forma:
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-![ejemplo1_imagen](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
 ## **Eliminar puntos de una forma**
 
-1. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) y establezca el tipo [ShapeType.Heart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType) .
-2. Obtenga una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) de la forma.
-3. Elimine el segmento de la trayectoria.
-4. Aplique la trayectoria a la forma.
+Este ejemplo modifica el contorno de una forma en forma de corazón eliminando el segmento en el índice basado en cero 2 con [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-). Aplicar la ruta modificada con [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) actualiza el contorno de la forma.
 
-Este código Java le muestra cómo eliminar puntos de una forma:
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
-![ejemplo2_imagen](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
 ## **Crear una forma personalizada**
 
-1. Calcule los puntos para la forma.
-2. Cree una instancia de la clase [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) .
-3. Rellene la trayectoria con los puntos.
-4. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) .
-5. Aplique la trayectoria a la forma.
+Este ejemplo construye una estrella de cinco puntas con [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/). Los radios exteriores e interiores alternados de 100 y 50 puntos definen las puntas y las indentaciones; un paso de 72 grados separa uniformemente las cinco puntas. La ruta se cierra con [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) y se aplica a una forma rectangular usando [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), sustituyendo su contorno.
 
-Este Java le muestra cómo crear una forma personalizada:
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.List;
 
-float R = 100, r = 50;
-int step = 72;
+List<PointF> points = new ArrayList<>();
 
-for (int angle = -90; angle < 270; angle += step)
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
+
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    PointF point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -211,60 +165,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
-![ejemplo3_imagen](custom_shape_3.png)
-
+![example3_image](custom_shape_3.png)
 
 ## **Crear una forma personalizada compuesta**
 
-  1. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) .
-  2. Cree una primera instancia de la clase [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) .
-  3. Cree una segunda instancia de la clase [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) .
-  4. Aplique las trayectorias a la forma.
+Este ejemplo define dos objetos [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) cerrados para el tercio superior y el tercio inferior de una forma. Aplicar ambas rutas con [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) crea una única forma compuesta con una separación en su tercio medio.
 
-Este código Java le muestra cómo crear una forma personalizada compuesta:
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
-![ejemplo4_imagen](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
 ## **Crear una forma personalizada con esquinas curvas**
 
-Este código Java le muestra cómo crear una forma personalizada con esquinas curvas (hacia adentro);
+Este ejemplo combina segmentos rectos con [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) para crear una forma con esquinas curvas hacia dentro. Cada tamaño de esquina establece el ancho y la altura del arco en puntos, y el barrido de -90 grados dibuja un cuarto de elipse en sentido antihorario. La ruta completa se aplica con [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), y la presentación se guarda en formato PPTX.
+
 ```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -275,112 +229,146 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    PointF topLeft = new PointF(leftTopSize, 0);
+    PointF topRight = new PointF(shapeWidth - rightTopSize, 0);
+    PointF rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+    PointF bottomLeft = new PointF(leftBottomSize, shapeHeight);
+    PointF leftTop = new PointF(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Descubrir si la geometría de una forma está cerrada**
 
-Una forma cerrada se define como aquella en la que todos sus lados se conectan, formando un solo contorno sin huecos. Dicha forma puede ser una figura geométrica simple o un contorno personalizado complejo. El siguiente ejemplo de código muestra cómo comprobar si la geometría de una forma está cerrada:
+El siguiente asistente comprueba si cada ruta de geometría no vacía termina con un segmento de cierre. Lee [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) y compara el comando del segmento final [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) con [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/). Devuelve false cuando no hay rutas no vacías. Esta comprobación evalúa el comando final de cada ruta; no inspecciona cada subfigura dentro de una ruta. El ejemplo muestra `true` para un rectángulo.
+
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
-
-    return isClosed == true;
 }
-```
 
-
-## **Convertir GeometryPath a java.awt.Shape** 
-
-1. Cree una instancia de la clase [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) .
-2. Cree una instancia de la clase [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) .
-3. Convierta la instancia de [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) a la instancia de [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) usando [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil) .
-4. Aplique las trayectorias a la forma.
-
-Este código Java—una implementación de los pasos anteriores—demuestra el proceso de conversión de **GeometryPath** a **GraphicsPath**:
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Crear nueva forma
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Obtener la ruta de geometría de la forma
-    IGeometryPath originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(PathFillModeType.None);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    // Crear nueva ruta gráfica con texto
-    Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
-
-    try
-    {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
-    }
-    finally {
-        g2.dispose();
-    }
-
-    // Convertir ruta gráfica a ruta de geometría
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(PathFillModeType.Normal);
-
-    // Establecer la combinación de la nueva ruta de geometría y la ruta de geometría original en la forma
-    shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-![ejemplo5_imagen](custom_shape_5.png)
+## **Extraer e inspeccionar elementos de forma**
+
+Utilice [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) para inspeccionar una forma existente como elementos que contienen puntos de ruta y tipos de punto. Convierta cada [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) devuelto a [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) para obtener las matrices de puntos y tipos a través de los métodos [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) y [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) . Esta representación es útil para análisis de contornos o para pasar la geometría a herramientas de dibujo personalizadas.
+
+El ejemplo abre input.pptx, encuentra la primera forma de geometría directamente en la primera diapositiva y muestra sus segmentos de ruta. Use una presentación que contenga una forma con segmentos rectos y curvos para ver ambos tipos de salida. No busca dentro de grupos.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            PointF[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // Mantener el tipo de segmento, excluyendo banderas.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Las matrices corresponden por índice: `points[i]` es un punto y `types[i]` describe su función. El tipo `0` inicia una figura, y el tipo `1` dibuja una línea desde el punto anterior al punto actual. Un segmento Bézier cúbico comienza en el extremo anterior y usa tres entradas consecutivas de tipo `3`: dos puntos de control seguidos del nuevo extremo. El bucle consume esas tres entradas juntas y comprueba el extremo para detectar cierre.
+
+Los tipos de punto también contienen banderas. Enmascare con `0x07` para identificar el tipo de segmento y pruebe `0x80` por separado para detectar un subtrayecto cerrado. Por ejemplo, `129` (`0x81`) significa un extremo de línea que cierra un subtrayecto, y `131` (`0x83`) significa un extremo Bézier que cierra uno. Java almacena estas banderas en bytes con signo; el enmascarado preserva los valores de bits previstos. Comparar el valor bruto solo con `1` o `3` omitiría estos casos. Otras banderas, como la de guión (`0x10`) y la de marcador (`0x20`), no cambian el tipo base del segmento.
+
+**Coordenadas y transformaciones.** Los puntos se miden en puntos (1/72 pulgada), con X aumentando hacia la derecha y Y aumentando hacia abajo. Para una forma sin agrupar, las coordenadas extraídas ya incluyen la posición devuelta por [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) y [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) y reflejan su ancho y alto actuales. Por ejemplo, un rectángulo sin rotar en `(100, 200)` con tamaño `120 × 80` tiene límites de contorno `(100, 200)`–`(220, 280)`. No vuelva a sumar la posición de la forma. Reste su X y Y para obtener coordenadas relativas a su marco sin rotar.
+
+Los puntos extraídos no aplican la rotación de la forma, devuelta por [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--), ni los volteos horizontales y verticales. Para reproducir el contorno mostrado, aplique esas transformaciones alrededor del centro de la forma. Para formas agrupadas, tenga también en cuenta el mapeo de coordenadas del grupo y sus transformaciones; no asuma que los puntos extraídos son las coordenadas finales renderizadas de la diapositiva ni aplique una traslación o escala dos veces si ya están reflejadas en el marco del hijo.
+
+**Inspección versus edición.** Las matrices extraídas describen el contorno; modificarlas no actualiza la forma original. Elija este enfoque cuando su análisis o código de dibujo necesite matrices de punto/tipo. Use [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) cuando necesite comandos de geometría en el sistema de coordenadas local de la forma o quiera editar su geometría. Aplique rutas editadas mediante [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) o [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) .
 
 ## **Preguntas frecuentes**
 
@@ -390,8 +378,8 @@ El estilo permanece con la forma; solo cambia el contorno. El relleno y el conto
 
 **¿Cómo rotar correctamente una forma personalizada junto con su geometría?**
 
-Utilice el método [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) de la forma; la geometría rota con la forma porque está vinculada al propio sistema de coordenadas de la forma.
+Utilice el método [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) de la forma; la geometría gira con la forma porque está vinculada al propio sistema de coordenadas de la forma.
 
 **¿Puedo convertir una forma personalizada en una imagen para “bloquear” el resultado?**
 
-Sí. Exporte el área de la [diapositiva](/slides/es/androidjava/convert-powerpoint-to-png/) requerida o la propia [forma](/slides/es/androidjava/create-shape-thumbnails/) a un formato raster; esto simplifica el trabajo posterior con geometrías complejas.
+Sí. Exporte el área de la [slide](/slides/es/androidjava/convert-powerpoint-to-png/) requerida o la propia [shape](/slides/es/androidjava/create-shape-thumbnails/) a un formato raster; esto simplifica el trabajo posterior con geometrías complejas.

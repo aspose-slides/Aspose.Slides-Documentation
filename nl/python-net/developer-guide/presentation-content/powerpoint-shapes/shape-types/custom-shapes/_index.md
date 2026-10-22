@@ -1,5 +1,5 @@
 ---
-title: Aangepaste vormen in presentaties met Python
+title: Aangepaste presentatievormen in Python
 linktitle: Aangepaste vorm
 type: docs
 weight: 20
@@ -12,138 +12,76 @@ keywords:
 - vormgeometrie
 - geometrisch pad
 - padpunten
-- punten bewerken
+- bewerkingspunten
 - punt toevoegen
 - punt verwijderen
 - bewerkingsoperatie
-- gebogen hoek
+- afgeronde hoek
 - PowerPoint
-- OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-description: "Maak en pas vormen aan in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Python via .NET: geometrische paden, gebogen hoeken, samengestelde vormen."
+description: "Maak en pas vormen aan in PowerPoint-presentaties met Aspose.Slides voor Python via .NET: geometrische paden, afgeronde hoeken, samengestelde vormen."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Beschouw een vierkant. In PowerPoint, met **Edit Points**, kun je:
+Dit artikel legt uit hoe je presentatie‑vormen in Aspose.Slides kunt aanpassen door de vormgeometrie te bewerken via bewerkingspunten en geometrische paden. Het toont hoe je met [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) kunt werken om bestaande vormen te wijzigen, basale padbewerkingsbewerkingen uit te voeren, punten toe te voegen of te verwijderen, en de bijgewerkte geometrie op een vorm toe te passen.
 
-* een hoek van een vierkant naar binnen of naar buiten verplaatsen,
-* de kromming van een hoek of punt aanpassen,
-* nieuwe punten aan het vierkant toevoegen,
-* de punten ervan manipuleren.
+Het demonstreert ook hoe je aangepaste en samengestelde vormen kunt maken, vormen met afgeronde hoeken kunt bouwen, kunt bepalen of een vormgeometrie gesloten is, en vorm‑elementen kunt extraheren voor contouranalyse.
 
-Je kunt deze bewerkingen op elke vorm toepassen. Met **Edit Points** kun je een vorm wijzigen of een nieuwe maken op basis van een bestaande vorm.
+## **Een vorm wijzigen met bewerkingspunten**
 
-## **Tips voor het bewerken van vormen**
+In PowerPoint kun je **Bewerkingspunten** gebruiken om een vierkant te wijzigen:
 
-![Bewerkingspunten-commando](custom_shape_0.png)
+* Een hoek naar binnen of buiten verplaatsen.
+* De kromming op een punt aanpassen.
+* Nieuwe punten toevoegen.
 
-Voordat je begint met het bewerken van PowerPoint‑vormen met **Edit Points**, let op deze opmerkingen over vormen:
+Bewerkingspunten laten je de omtrek van een vorm wijzigen of een bestaande vorm als basis voor een nieuwe gebruiken.
 
-* Een vorm (of het pad ervan) kan **gesloten** of **open** zijn.  
-* Een gesloten vorm heeft geen begin‑ of eindpunt; een open vorm heeft een begin en een einde.  
-* Iedere vorm heeft minstens twee ankerpunten die verbonden zijn door lijnsegmenten.  
-* Een segment is recht of gebogen; ankerpunten bepalen de aard van het segment.  
-* Ankerpunten kunnen **hoek**, **vloeiend** of **recht** zijn:  
-  * Een **hoek**‑punt is waar twee rechte segmenten elkaar onder een hoek ontmoeten.  
-  * Een **vloeiend**‑punt heeft twee handvatten die collineair zijn en de aangrenzende segmenten vormen een soepele curve. In dit geval hebben beide handvatten dezelfde afstand tot het ankerpunt.  
-  * Een **recht**‑punt heeft ook twee collineaire handvatten en de aangrenzende segmenten vormen een soepele curve. In dit geval hoeven de handvatten niet dezelfde afstand tot het ankerpunt te hebben.  
-* Door ankerpunten te verplaatsen of te bewerken (en daarmee de hoek van segmenten te wijzigen), kun je het uiterlijk van de vorm aanpassen.
+## **Tips voor vormbewerkingen**
 
-Om PowerPoint‑vormen te bewerken, biedt Aspose.Slides de [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/)‑klasse.
+![overview_image](custom_shape_0.png)
 
-* Een [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/)‑instantie vertegenwoordigt het geometrische pad van een [GeometryShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometryshape/)‑object.  
-* Om de [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/) van een [GeometryShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometryshape/)‑instantie op te halen, gebruik je de methode [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometryshape/get_geometry_paths/).  
-* Om de [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/) voor een vorm in te stellen, gebruik je [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometryshape/set_geometry_path/) voor *solide vormen* en [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometryshape/set_geometry_paths/) voor *samengestelde vormen*.  
-* Om segmenten toe te voegen, gebruik je de methoden op [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/).  
-* Gebruik de eigenschappen [GeometryPath.stroke](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/stroke/) en [GeometryPath.fill_mode](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/fill_mode/) om het uiterlijk van een geometrisch pad te regelen.  
-* Gebruik de eigenschap [GeometryPath.path_data](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/path_data/) om het geometrische pad van een vorm op te halen als een array van padsegmenten.
+Houd bij het bewerken van PowerPoint‑vormen rekening met de volgende concepten:
+
+* Een vorm (of zijn pad) kan gesloten of open zijn.
+* Het pad van een vorm bestaat uit ankerpunten die met segmenten verbonden zijn.
+* Een segment kan recht of gebogen zijn. Ankerpunten en controle‑handvatten bepalen de vorm.
+* Ankerpunten komen voor als hoekpunten, rechte punten of vloeiende punten:
+  * Bij een hoekpunt kunnen aangrenzende segmenten onder een hoek samenkomen.
+  * Bij een vloeiend punt zijn de twee controle‑handvatten uitgelijnd en op gelijke afstand van het ankerpunt.
+  * Bij een recht punt zijn de twee controle‑handvatten uitgelijnd, maar kunnen ze verschillende afstanden tot het ankerpunt hebben.
+* Het verplaatsen van ankerpunten of het aanpassen van hun handvatten verandert de omtrek van de vorm.
+
+Om PowerPoint‑vormen via bewerkingspunten te bewerken, biedt **Aspose.Slides** de klasse [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+
+* Een [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)‑instantie vertegenwoordigt het geometrische pad van het object [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).
+* Om het [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) op te halen uit de [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/)-instantie, kun je de methode [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) gebruiken.
+* Om het [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) voor een vorm in te stellen, kun je deze methoden gebruiken: [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) voor vormen met één enkel pad en [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) voor vormen met meerdere paden.
+* Om segmenten toe te voegen, kun je de methoden onder [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) gebruiken.
+* Met de eigenschappen [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) en [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) kun je het uiterlijk van een geometrisch pad instellen.
+* Met de eigenschap [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) kun je het geometrische pad van een [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) ophalen als een array van padsegmenten.
 
 ## **Eenvoudige bewerkingsbewerkingen**
 
-De volgende methoden worden gebruikt voor eenvoudige bewerkingsbewerkingen.
+Gebruik de volgende methoden om een geometrisch pad te bewerken. Overloads die een index accepteren voegen een segment in op die nul‑gebaseerde positie in de segmentarray van het pad.
 
-**Voeg een lijn toe** aan het einde van een pad:
+| Operatie | Methode |
+| --- | --- |
+| Een rechte lijn toevoegen of invoegen. | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
+| Een kubieke Bézier‑curve met twee controlepunten en een eindpunt toevoegen of invoegen. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
+| Een kwadratische Bézier‑curve met één controlepunt en een eindpunt toevoegen of invoegen. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| Een elliptische boog toevoegen met de opgegeven afmetingen en hoeken in graden. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
+| De huidige figuur sluiten door het eindpunt met het startpunt te verbinden. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
+| Het startpunt van een figuur instellen. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
+| Een segment op een nul‑gebaseerde index verwijderen. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
-```py
-line_to(point)
-line_to(x, y)
-```
+## **Aangepaste punten aan een vorm toevoegen**
 
-**Voeg een lijn toe** op een opgegeven positie in een pad:
+Dit voorbeeld voegt twee punten toe aan een rechthoekige vorm met [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) en past het bewerkte pad toe met [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). De coördinaten zijn lokaal ten opzichte van de vorm: beide nieuwe punten bevinden zich in het midden, 100 punten van de linkerkant en 50 punten van de bovenkant. Segment‑indices 1 en 4 plaatsen ze respectievelijk op de boven‑ en onderrand, waardoor die randen naar binnen worden getrokken.
 
-```py    
-line_to(point, index)
-line_to(x, y, index)
-```
-
-**Voeg een kubieke Bézier‑curve toe** aan het einde van een pad:
-
-```py
-cubic_bezier_to(point1, point2, point3)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3)
-```
-
-**Voeg een kubieke Bézier‑curve toe** op een opgegeven positie in een pad:
-
-```py
-cubic_bezier_to(point1, point2, point3, index)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
-```
-
-**Voeg een kwadratische Bézier‑curve toe** aan het einde van een pad:
-
-```py
-quadratic_bezier_to(point1, point2)
-quadratic_bezier_to(x1, y1, x2, y2)
-```
-
-**Voeg een kwadratische Bézier‑curve toe** op een opgegeven positie in een pad:
-
-```py
-quadratic_bezier_to(point1, point2, index)
-quadratic_bezier_to(x1, y1, x2, y2, index)
-```
-
-**Voeg een boog toe** aan een pad:
-
-```py
-arc_to(width, heigth, startAngle, sweepAngle)
-```
-
-**Sluit de huidige figuur** in een pad:
-
-```py
-close_figure()
-```
-
-**Stel de positie in voor het volgende punt**:
-
-```py
-move_to(point)
-move_to(x, y)
-```
-
-**Verwijder het padsegment** op een gegeven index:
-
-```py
-remove_at(index)
-```
-
-## **Aangepaste punten aan vormen toevoegen**
-
-Hier leer je hoe je een vrije vorm definieert door je eigen reeks punten toe te voegen. Door geordende punten en segmenttypen (recht of gebogen) op te geven en eventueel het pad te sluiten, kun je precieze aangepaste grafische elementen – polygonen, pictogrammen, call‑outs of logo’s – rechtstreeks op je dia’s tekenen.
-
-1. Maak een instantie van de [GeometryShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometryshape/)‑klasse en stel het [ShapeType.RECTANGLE] in.  
-2. Haal een [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/)‑instantie op uit de vorm.  
-3. Voeg een nieuw punt in tussen de twee bovenste punten op het pad.  
-4. Voeg een nieuw punt in tussen de twee onderste punten op het pad.  
-5. Pas het bijgewerkte pad toe op de vorm.
-
-De volgende Python‑code laat zien hoe je aangepaste punten aan een vorm toevoegt:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -156,24 +94,15 @@ with slides.Presentation() as presentation:
     geometry_path.line_to(100, 50, 4)
 
     shape.set_geometry_path(geometry_path)
-
-    presentation.save("custom_points.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Aangepaste punten](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
-## **Punten van vormen verwijderen**
+## **Punten van een vorm verwijderen**
 
-Soms bevat een aangepaste vorm onnodige punten die de geometrie compliceren of de weergave beïnvloeden. Deze sectie laat zien hoe je specifieke punten uit het pad van een vorm verwijdert zodat je de omtrek kunt vereenvoudigen en een schoner, nauwkeuriger resultaat krijgt.
+Dit voorbeeld wijzigt de omtrek van een hartvorm door het segment op nul‑gebaseerde index 2 te verwijderen met [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). Door het aangepaste pad toe te passen met [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) wordt de contour van de vorm bijgewerkt.
 
-1. Maak een instantie van de [GeometryShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometryshape/)‑klasse en stel het [ShapeType.HEART] type in.  
-2. Haal een [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/)‑instantie op uit de vorm.  
-3. Verwijder een segment uit het pad.  
-4. Pas het bijgewerkte pad toe op de vorm.
-
-De volgende Python‑code laat zien hoe je punten uit een vorm verwijdert:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -185,50 +114,39 @@ with slides.Presentation() as presentation:
     path.remove_at(2)
 
     shape.set_geometry_path(path)
-
-    presentation.save("removed_points.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example2_image](custom_shape_2.png)
 
-![Verwijderde punten](custom_shape_2.png)
+## **Een aangepaste vorm maken**
 
-## **Aangepaste vormen maken**
+Dit voorbeeld bouwt een vijfpuntige ster met [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Afwisselend buiten‑ en binnenstraal van respectievelijk 100 en 50 punten bepalen de topjes en inkepingen; een stap van 72 graden verdeelt de vijf topjes gelijkmatig. Het pad wordt gesloten met [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) en toegepast op een rechthoekige vorm via [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), waardoor de oude omtrek wordt vervangen.
 
-Maak op maat gemaakte vectorvormen door een [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/) te definiëren en deze samen te stellen uit lijnen, boogsegmenten en Bézier‑curves. Deze sectie laat zien hoe je een aangepaste geometrie vanaf nul opbouwt en de resulterende vorm aan je dia toevoegt.
-
-1. Bepaal de punten voor de vorm.  
-2. Maak een instantie van de [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/)‑klasse.  
-3. Vul het pad met de punten.  
-4. Maak een instantie van de [GeometryShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometryshape/)‑klasse.  
-5. Pas het pad toe op de vorm.
-
-De volgende Python‑code laat zien hoe je een aangepaste vorm maakt:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import math
 
 points = []
 
-R = 100
-r = 50
-step = 72
+outer_radius = 100
+inner_radius = 50
+angle_step = 72
 
-for angle in range(-90, 270, step):
+for angle in range(-90, 270, angle_step):
     radians = angle * (math.pi / 180)
-    x = R * math.cos(radians)
-    y = R * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    x = outer_radius * math.cos(radians)
+    y = outer_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
-    radians = math.pi * (angle + step / 2) / 180.0
-    x = r * math.cos(radians)
-    y = r * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    radians = math.pi * (angle + angle_step / 2) / 180.0
+    x = inner_radius * math.cos(radians)
+    y = inner_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
 star_path = slides.GeometryPath()
 star_path.move_to(points[0])
 
-for i in range(len(points)):
+for i in range(1, len(points)):
     star_path.line_to(points[i])
 
 star_path.close_figure()
@@ -236,26 +154,16 @@ star_path.close_figure()
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.set_geometry_path(star_path)
-
-    presentation.save("custom_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example3_image](custom_shape_3.png)
 
-![Aangepaste vorm](custom_shape_3.png)
+## **Een samengestelde aangepaste vorm maken**
 
-## **Samengestelde aangepaste vormen maken**
+Dit voorbeeld definieert twee gesloten [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)-objecten voor respectievelijk het boven‑ en onder‑derde deel van een vorm. Door beide paden toe te passen met [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) ontstaat één samengestelde vorm met een gat door het middelste derde deel.
 
-Het maken van een samengestelde aangepaste vorm stelt je in staat meerdere geometrische paden te combineren tot één herbruikbare vorm op een dia. Definieer en voeg deze paden samen om complexe visualisaties te bouwen die verder gaan dan de standaardvormen.
-
-1. Maak een instantie van de [GeometryShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometryshape/)‑klasse.  
-2. Maak de eerste instantie van de [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/)‑klasse.  
-3. Maak de tweede instantie van de [GeometryPath](https://reference.aspose.com/slides/nl/python-net/aspose.slides/geometrypath/)‑klasse.  
-4. Pas beide paden toe op de vorm.
-
-De volgende Python‑code laat zien hoe je een samengestelde aangepaste vorm maakt:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -263,34 +171,29 @@ with slides.Presentation() as presentation:
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
 
-    geometry_path_0 = slides.GeometryPath()
-    geometry_path_0.move_to(0, 0)
-    geometry_path_0.line_to(shape.width, 0)
-    geometry_path_0.line_to(shape.width, shape.height/3)
-    geometry_path_0.line_to(0, shape.height / 3)
-    geometry_path_0.close_figure()
+    top_path = slides.GeometryPath()
+    top_path.move_to(0, 0)
+    top_path.line_to(shape.width, 0)
+    top_path.line_to(shape.width, shape.height / 3)
+    top_path.line_to(0, shape.height / 3)
+    top_path.close_figure()
 
-    geometry_path_1 = slides.GeometryPath()
-    geometry_path_1.move_to(0, shape.height/3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height / 3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height)
-    geometry_path_1.line_to(0, shape.height)
-    geometry_path_1.close_figure()
+    bottom_path = slides.GeometryPath()
+    bottom_path.move_to(0, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height)
+    bottom_path.line_to(0, shape.height)
+    bottom_path.close_figure()
 
-    shape.set_geometry_paths([ geometry_path_0, geometry_path_1])
-
-    presentation.save("composite_shape.pptx", slides.export.SaveFormat.PPTX)
+    shape.set_geometry_paths([top_path, bottom_path])
 ```
+![example4_image](custom_shape_4.png)
 
-![Samengestelde vorm](custom_shape_4.png)
+## **Een aangepaste vorm met afgeronde hoeken maken**
 
-## **Aangepaste vormen maken met gebogen hoeken**
+Dit voorbeeld combineert rechte segmenten met [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) om een vorm met naar binnen gebogen hoeken te creëren. Elke hoekgrootte stelt de breedte en hoogte van de boog in punten in, en de sweep van ‑90 graden tekent een tegen de klok in lopende kwart‑ellipse. Het voltooide pad wordt toegepast met [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), en de presentatie wordt opgeslagen in PPTX‑formaat.
 
-Deze sectie laat zien hoe je een aangepaste vorm met soepel gebogen hoeken tekent met behulp van een geometrisch pad. Je combineert rechte segmenten en cirkelboogsegmenten om de omtrek te vormen en voegt de voltooide vorm toe aan je dia.
-
-De volgende Python‑code laat zien hoe je een aangepaste vorm met gebogen hoeken maakt:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
@@ -307,66 +210,118 @@ left_bottom_size = 10
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(
-        slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
 
-    point1 = draw.PointF(left_top_size, 0)
-    point2 = draw.PointF(shape_width - right_top_size, 0)
-    point3 = draw.PointF(shape_width, shape_height - right_bottom_size)
-    point4 = draw.PointF(left_bottom_size, shape_height)
-    point5 = draw.PointF(0, left_top_size)
+    top_left = slides.PointF(left_top_size, 0)
+    top_right = slides.PointF(shape_width - right_top_size, 0)
+    right_bottom = slides.PointF(shape_width, shape_height - right_bottom_size)
+    bottom_left = slides.PointF(left_bottom_size, shape_height)
+    left_top = slides.PointF(0, left_top_size)
 
     geometry_path = slides.GeometryPath()
-    geometry_path.move_to(point1)
-    geometry_path.line_to(point2)
+    geometry_path.move_to(top_left)
+    geometry_path.line_to(top_right)
     geometry_path.arc_to(right_top_size, right_top_size, 180, -90)
-    geometry_path.line_to(point3)
+    geometry_path.line_to(right_bottom)
     geometry_path.arc_to(right_bottom_size, right_bottom_size, -90, -90)
-    geometry_path.line_to(point4)
+    geometry_path.line_to(bottom_left)
     geometry_path.arc_to(left_bottom_size, left_bottom_size, 0, -90)
-    geometry_path.line_to(point5)
+    geometry_path.line_to(left_top)
     geometry_path.arc_to(left_top_size, left_top_size, 90, -90)
     geometry_path.close_figure()
 
     shape.set_geometry_path(geometry_path)
 
-    presentation.save("curved_corners.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Gebogen hoeken](custom_shape_6.png)
+## **Controleren of een vormgeometrie gesloten is**
 
-## **Bepalen of de geometrie van een vorm gesloten is**
+De volgende hulpfunctie controleert of elke niet‑lege geometrische pad eindigt met een sluitingssegment. Hij leest [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) en vergelijkt het laatste segment‑[PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) met [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Hij retourneert **false** wanneer er geen niet‑lege paden zijn. Deze controle bekijkt alleen het laatste commando van elk pad; hij inspecteert niet elk sub‑figuur binnen een pad. Het voorbeeld geeft `True` weer voor een rechthoek.
 
-Een gesloten vorm wordt gedefinieerd als een vorm waarbij alle zijden met elkaar verbonden zijn, waardoor één aaneengesloten rand ontstaat zonder gaten. Zo’n vorm kan een eenvoudige geometrische figuur zijn of een complexe aangepaste omtrek. De volgende code‑voorbeeld laat zien hoe je controleert of de geometrie van een vorm gesloten is:
+```python
+import aspose.slides as slides
 
-```py
+
 def is_geometry_closed(geometry_shape):
-    is_closed = None
+    has_nonempty_path = False
 
     for geometry_path in geometry_shape.get_geometry_paths():
-        data_length = len(geometry_path.path_data)
-        if data_length == 0:
+        segments = geometry_path.path_data
+        if len(segments) == 0:
             continue
 
-        last_segment = geometry_path.path_data[data_length - 1]
-        is_closed = last_segment.path_command == PathCommandType.CLOSE
-
-        if not is_closed:
+        has_nonempty_path = True
+        last_segment = segments[len(segments) - 1]
+        if last_segment.path_command != slides.PathCommandType.CLOSE:
             return False
 
-    return is_closed
+    return has_nonempty_path
+
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+    print(is_geometry_closed(shape))
 ```
+
+## **Elementen van een vorm extraheren en inspecteren**
+
+Gebruik [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) om een bestaande vorm te onderzoeken als elementen die padpunten en punt‑typen bevatten. Elk geretourneerd [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) biedt toegang tot zijn arrays [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) en [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/). Deze weergave is nuttig voor contouranalyse of voor het doorgeven van geometrie aan aangepaste tekengereedschappen.
+
+Het voorbeeld opent een presentatie, vindt de eerste geometry‑shape direct op de eerste dia, en drukt zijn padsegmenten af. Gebruik een presentatie die een vorm met rechte en gebogen segmenten bevat om beide uitvoertypen te zien. Het doorzoekt geen groepen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = next((item for item in slide.shapes if isinstance(item, slides.GeometryShape)), None)
+
+    if shape is None:
+        print("No geometry shape found on the first slide.")
+    else:
+        for element in shape.create_shape_elements():
+            points = element.path_points
+            types = element.path_types
+            print("Shape element:")
+
+            i = 0
+            while i < len(points):
+                point_type = types[i] & 0x07  # Keep the segment type, excluding flags.
+                if point_type == 0:
+                    print(f"Start figure at {points[i]}")
+                elif point_type == 1:
+                    print(f"Line to {points[i]}")
+                elif point_type == 3:
+                    print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
+                    i += 2  # Consume both control points and the endpoint.
+
+                if (types[i] & 0x80) != 0:
+                    print("Close subpath back to its starting point.")
+                i += 1
+```
+
+De arrays corresponderen per index: `points[i]` is een punt en `types[i]` beschrijft de rol. Type `0` start een figuur, en type `1` tekent een lijn van het vorige punt naar het huidige punt. Een kubiek Bézier‑segment start bij het vorige eindpunt en gebruikt drie opeenvolgende type‑`3`‑items: twee controlepunten gevolgd door het nieuwe eindpunt. De lus verwerkt deze drie items tegelijk en controleert het eindpunt op sluiting.
+
+Punt‑typen bevatten ook vlaggen. Maskeer met `0x07` om het segmenttype te identificeren, en test `0x80` apart om een gesloten subpad te detecteren. Bijvoorbeeld, `129` (`0x81`) betekent een lijn‑eindpunt dat een subpad sluit, en `131` (`0x83`) betekent een Bézier‑eindpunt dat er een sluit. Alleen vergelijken met `1` of `3` zou deze gevallen missen. Andere vlaggen, zoals dash (`0x10`) en marker (`0x20`), wijzigen het basistype niet.
+
+**Coördinaten en transformaties.** Punten worden gemeten in points (1/72 inch), waarbij X naar rechts en Y naar beneden toeneemt. Voor een niet‑gegroepeerde vorm zijn de geëxtraheerde coördinaten al inclusief zijn [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/)‑ en [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/)‑positie en weerspiegelen ze de huidige breedte en hoogte. Een ongeroteerde rechthoek op `(100, 200)` met grootte `120 × 80` heeft contourgrenzen `(100, 200)`–`(220, 280)`. Voeg de positie van de vorm niet opnieuw toe. Trek zijn X en Y af om coördinaten te verkrijgen die relatief zijn ten opzichte van het ongeroteerde frame.
+
+De geëxtraheerde punten passen de [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/)‑eigenschap of horizontale en verticale spiegeling van de vorm niet toe. Om de weergegeven contour te reproduceren, pas die transformaties rond het middelpunt van de vorm toe. Voor gegroepeerde vormen moet je bovendien rekening houden met de coördinatenmapping en transformaties van de groep; ga er niet van uit dat de geëxtraheerde punten de definitieve weergave‑dia‑coördinaten zijn, en vermijd dubbele translaties of schalingen als deze al in het kind‑frame zijn verwerkt.
+
+**Inspectie versus bewerking.** Geëxtraheerde arrays beschrijven de contour; wijzigen ervan werkt de oorspronkelijke vorm niet bij. Kies deze aanpak wanneer je analyse‑ of tekenlogica punt/‑type‑arrays vereist. Gebruik [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) wanneer je geometrische commando’s in het lokale coördinatensysteem van de vorm nodig hebt of wanneer je de geometrie wilt bewerken. Pas bewerkte paden toe via [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) of [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) .
 
 ## **FAQ**
 
-**Wat gebeurt er met de opvulling en de contour nadat de geometrie is vervangen?**
+**Wat gebeurt er met de vulling en de omtrek nadat de geometrie is vervangen?**
 
-De stijl blijft bij de vorm; alleen de contour verandert. De opvulling en de contour worden automatisch toegepast op de nieuwe geometrie.
+De stijl blijft gekoppeld aan de vorm; alleen de contour verandert. De vulling en omtrek worden automatisch toegepast op de nieuwe geometrie.
 
-**Hoe roteer ik een aangepaste vorm correct samen met de geometrie?**
+**Hoe roteer ik een aangepaste vorm correct samen met zijn geometrie?**
 
-Gebruik de [rotation]-eigenschap van de vorm; de geometrie roteert mee met de vorm omdat deze gekoppeld is aan het eigen coördinatensysteem van de vorm.
+Gebruik de [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/)‑eigenschap van de vorm; de geometrie roteert mee omdat deze gebonden is aan het eigen coördinatensysteem van de vorm.
 
-**Kan ik een aangepaste vorm converteren naar een afbeelding om het resultaat vast te zetten?**
+**Kan ik een aangepaste vorm omzetten naar een afbeelding om het resultaat “vast te zetten”?**
 
-Ja. Exporteer het benodigde [slide](/slides/nl/python-net/convert-powerpoint-to-png/)‑gebied of de [shape](/slides/nl/python-net/create-shape-thumbnails/) zelf naar een rasterformaat; dit maakt verdere bewerking met zware geometrieën eenvoudiger.
+Ja. Exporteer het gewenste [slide](/slides/nl/python-net/convert-powerpoint-to-png/)‑gebied of de [shape](/slides/nl/python-net/create-shape-thumbnails/) zelf naar een rasterformaat; dit vergemakkelijkt verder werk met complexe geometrieën.

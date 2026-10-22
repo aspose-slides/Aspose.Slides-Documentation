@@ -1,20 +1,20 @@
 ---
-title: Sesuaikan Bentuk Presentasi di Java
+title: Kustomisasi Bentuk Presentasi di Java
 linktitle: Bentuk Kustom
 type: docs
 weight: 20
 url: /id/java/custom-shape/
 keywords:
 - bentuk kustom
-- menambah bentuk
-- membuat bentuk
-- mengubah bentuk
+- tambahkan bentuk
+- buat bentuk
+- ubah bentuk
 - geometri bentuk
 - jalur geometri
 - titik jalur
-- titik sunting
-- menambah titik
-- menghapus titik
+- titik penyuntingan
+- tambahkan titik
+- hapus titik
 - operasi penyuntingan
 - sudut melengkung
 - PowerPoint
@@ -23,189 +23,138 @@ keywords:
 - Aspose.Slides
 description: "Buat dan sesuaikan bentuk dalam presentasi PowerPoint dengan Aspose.Slides untuk Java: jalur geometri, sudut melengkung, bentuk komposit."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan mengedit geometri bentuk melalui titik sunting dan jalur geometri. Artikel ini menunjukkan cara bekerja dengan `GeometryPath` dan `IGeometryPath` untuk memodifikasi bentuk yang ada, melakukan operasi penyuntingan jalur dasar, menambah atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke bentuk.
+Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan menyunting geometri bentuk melalui titik penyuntingan dan jalur geometri. Ini menunjukkan cara bekerja dengan [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) dan [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) untuk memodifikasi bentuk yang ada, melakukan operasi penyuntingan jalur dasar, menambah atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke sebuah bentuk.
 
-Artikel ini juga mendemonstrasikan cara membuat bentuk kustom dan komposit, membangun bentuk dengan sudut melengkung, menentukan apakah geometri bentuk tertutup, dan mengonversi antara `GeometryPath` dan `java.awt.Shape` untuk skenario penyesuaian geometri tambahan.
+Itu juga mendemonstrasikan cara membuat bentuk kustom dan komposit, membangun bentuk dengan sudut melengkung, menentukan apakah geometri bentuk tertutup, memeriksa elemen bentuk, dan mengonversi outline teks Java AWT menjadi jalur geometri.
 
-## **Ubah Bentuk Menggunakan Titik Sunting**
+## **Ubah Bentuk dengan Titik Penyuntingan**
 
-Pertimbangkan sebuah persegi. Di PowerPoint, menggunakan **edit points**, Anda dapat  
+Di PowerPoint, Anda dapat menggunakan **Edit Points** untuk memodifikasi sebuah kotak:
 
-* memindahkan sudut persegi ke dalam atau ke luar  
-* menentukan kelengkungan untuk sebuah sudut atau titik  
-* menambahkan titik baru ke persegi  
-* memanipulasi titik pada persegi, dll.  
+* Pindahkan sudut ke dalam atau ke luar.
+* Sesuaikan kelengkungan pada sebuah titik.
+* Tambahkan titik baru.
 
-Pada dasarnya, Anda dapat melakukan tugas‑tugas tersebut pada bentuk apa pun. Dengan titik sunting, Anda dapat mengubah sebuah bentuk atau membuat bentuk baru dari bentuk yang ada. 
+Menyunting titik memungkinkan Anda memodifikasi kontur bentuk atau menggunakan bentuk yang ada sebagai dasar untuk bentuk baru.
 
 ## **Tips Penyuntingan Bentuk**
 
 ![overview_image](custom_shape_0.png)
 
-Sebelum Anda mulai menyunting bentuk PowerPoint melalui titik sunting, pertimbangkan hal‑hal berikut tentang bentuk:
+Saat menyunting bentuk PowerPoint, ingat konsep-konsep berikut:
 
-* Sebuah bentuk (atau jalurnya) dapat berupa tertutup atau terbuka.  
-* Ketika sebuah bentuk tertutup, ia tidak memiliki titik awal atau akhir. Ketika sebuah bentuk terbuka, ia memiliki titik awal dan akhir.  
-* Semua bentuk terdiri dari setidaknya 2 titik jangkar yang dihubungkan oleh garis  
-* Garis dapat lurus atau melengkung. Titik jangkar menentukan sifat garis.  
-* Titik jangkar hadir sebagai titik sudut, titik lurus, atau titik halus:  
-  * Titik sudut adalah titik di mana 2 garis lurus bertemu pada sebuah sudut.  
-  * Titik halus adalah titik di mana 2 pegangan berada pada satu garis lurus dan segmen garis bergabung dalam sebuah kurva halus. Dalam hal ini, semua pegangan dipisahkan dari titik jangkar dengan jarak yang sama.  
-  * Titik lurus adalah titik di mana 2 pegangan berada pada satu garis lurus dan segmen‑segmen garis tersebut bergabung dalam sebuah kurva halus. Dalam hal ini, pegangan tidak harus dipisahkan dari titik jangkar dengan jarak yang sama.  
-* Dengan memindahkan atau menyunting titik jangkar (yang mengubah sudut garis), Anda dapat mengubah tampilan bentuk.  
+* Sebuah bentuk (atau jalurnya) dapat berupa tertutup atau terbuka.
+* Jalur bentuk terdiri dari titik jangkar yang terhubung oleh segmen.
+* Segmen dapat lurus atau melengkung. Titik jangkar dan pegangan kontrol menentukan bentuknya.
+* Titik jangkar ada sebagai titik sudut, titik lurus, atau titik halus:
+  * Pada titik sudut, segmen yang berdekatan dapat bertemu dengan satu sudut.
+  * Pada titik halus, dua pegangan kontrol sejajar dan berjarak sama dari titik jangkar.
+  * Pada titik lurus, dua pegangan kontrol sejajar tetapi dapat memiliki jarak yang berbeda dari titik jangkar.
+* Memindahkan titik jangkar atau menyesuaikan pegangan mereka mengubah kontur bentuk.
 
-Untuk menyunting bentuk PowerPoint melalui titik sunting, **Aspose.Slides** menyediakan kelas [**GeometryPath**](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath) dan antarmuka [**IGeometryPath**](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryPath).
+Untuk menyunting bentuk PowerPoint melalui titik penyuntingan, **Aspose.Slides** menyediakan kelas [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) dan antarmuka [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/).
 
-* Sebuah instance [GeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath) mewakili jalur geometri dari objek [IGeometryShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryShape).  
-* Untuk mengambil `GeometryPath` dari instance `IGeometryShape`, Anda dapat menggunakan metode [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryShape#getGeometryPaths--).  
-* Untuk menetapkan `GeometryPath` ke sebuah bentuk, Anda dapat menggunakan metode: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) untuk *solid shapes* dan [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) untuk *composite shapes*.  
-* Untuk menambahkan segmen, Anda dapat menggunakan metode‑metode di bawah [IGeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryPath).  
-* Dengan menggunakan metode [IGeometryPath.setStroke](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) dan [IGeometryPath.setFillMode](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryPath#setFillMode-byte-), Anda dapat mengatur tampilan jalur geometri.  
-* Dengan menggunakan metode [IGeometryPath.getPathData](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryPath#getPathData--), Anda dapat mengambil jalur geometri dari sebuah `GeometryShape` sebagai array segmen jalur.  
-* Untuk mengakses opsi penyesuaian geometri bentuk tambahan, Anda dapat mengonversi [GeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath) ke [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).  
-* Gunakan metode [geometryPathToGraphicsPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) dan [graphicsPathToGeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (dari kelas [ShapeUtil](https://reference.aspose.com/slides/id/java/com.aspose.slides/ShapeUtil)) untuk mengonversi [GeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath) ke [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) bolak‑balik.  
+* Sebuah instance [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) mewakili jalur geometri dari objek [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/).
+* Untuk mengambil [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) dari instance [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/), Anda dapat menggunakan metode [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) .
+* Untuk menetapkan [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) ke sebuah bentuk, Anda dapat menggunakan metode ini: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) untuk bentuk dengan satu jalur dan [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) untuk bentuk dengan beberapa jalur.
+* Untuk menambahkan segmen, Anda dapat menggunakan metode di bawah [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) .
+* Dengan menggunakan metode [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setStroke-boolean-) dan [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-), Anda dapat mengatur tampilan untuk sebuah jalur geometri.
+* Dengan menggunakan metode [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) , Anda dapat mengambil jalur geometri dari sebuah [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/geometryshape/) sebagai array segmen jalur.
+* Untuk mengakses opsi kustomisasi geometri bentuk tambahan, Anda dapat membaca sebuah [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) melalui [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)‑nya dan memutar ulang segmen‑segmen tersebut pada sebuah [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) .
 
 ## **Operasi Penyuntingan Sederhana**
 
-Kode Java berikut menunjukkan cara
+Gunakan metode berikut untuk menyunting sebuah jalur geometri. Overload yang menerima indeks menyisipkan segmen pada posisi berbasis nol dalam array segmen jalur.
 
-**Menambahkan garis** ke akhir jalur
+| Operasi | Metode |
+| --- | --- |
+| Tambahkan atau sisipkan garis lurus. | [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| Tambahkan atau sisipkan kurva Bézier kubik dengan dua titik kontrol dan satu titik akhir. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Tambahkan atau sisipkan kurva Bézier kuadratik dengan satu titik kontrol dan satu titik akhir. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Tambahkan busur elips dengan dimensi dan sudut yang ditentukan dalam derajat. | [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Tutup gambar saat ini dengan menghubungkan titik akhirnya ke titik awalnya. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) |
+| Atur titik awal sebuah gambar. | [GeometryPath.moveTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Hapus segmen pada indeks berbasis nol. | [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**Menambahkan garis** ke posisi tertentu pada jalur:
+## **Tambah Titik Kustom ke Bentuk**
 
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**Menambahkan kurva Bezier kubik** di akhir jalur:
+Contoh ini menyisipkan dua titik ke dalam bentuk persegi panjang menggunakan [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) dan menerapkan jalur yang diedit dengan [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) . Koordinat bersifat lokal untuk bentuk: kedua titik baru berada di tengahnya, 100 poin dari kiri dan 50 poin dari atas. Indeks segmen 1 dan 4 menempatkannya pada tepi atas dan bawah, menarik tepi‑tepi tersebut ke dalam.
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Menambahkan kurva Bezier kubik** ke posisi tertentu pada jalur:
+```java
+import com.aspose.slides.*;
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**Menambahkan kurva Bezier kuadratik** di akhir jalur:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Menambahkan kurva Bezier kuadratik** ke posisi tertentu pada jalur:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**Menambahkan lengkungan** tertentu ke sebuah jalur:
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Menutup figur saat ini** pada sebuah jalur:
-
-``` java
-public void closeFigure();
-```
-**Menetapkan posisi untuk titik berikutnya**:
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**Menghapus segmen jalur** pada indeks tertentu:
-
-``` java
-public void removeAt(int index);
-```
-
-## **Tambahkan Titik Kustom ke Bentuk**
-
-1. Buat sebuah instance kelas [GeometryShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryShape) dan tetapkan tipe [ShapeType.Rectangle](https://reference.aspose.com/slides/id/java/com.aspose.slides/ShapeType).  
-2. Dapatkan instance kelas [GeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath) dari bentuk.  
-3. Tambahkan titik baru di antara dua titik atas pada jalur.  
-4. Tambahkan titik baru di antara dua titik bawah pada jalur.  
-5. Terapkan jalur ke bentuk.  
-
-Kode Java berikut menunjukkan cara menambahkan titik kustom ke sebuah bentuk:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
 ## **Hapus Titik dari Bentuk**
 
-1. Buat sebuah instance kelas [GeometryShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryShape) dan tetapkan tipe [ShapeType.Heart](https://reference.aspose.com/slides/id/java/com.aspose.slides/ShapeType).  
-2. Dapatkan instance kelas [GeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath) dari bentuk.  
-3. Hapus segmen untuk jalur.  
-4. Terapkan jalur ke bentuk.  
+Contoh ini mengubah outline berbentuk hati dengan menghapus segmen pada indeks berbasis nol 2 menggunakan [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) . Menerapkan jalur yang dimodifikasi dengan [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) memperbarui kontur bentuk.
 
-Kode Java berikut menunjukkan cara menghapus titik dari sebuah bentuk:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example2_image](custom_shape_2.png)
 
 ## **Buat Bentuk Kustom**
 
-1. Hitung titik‑titik untuk bentuk.  
-2. Buat sebuah instance kelas [GeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath).  
-3. Isi jalur dengan titik‑titik tersebut.  
-4. Buat sebuah instance kelas [GeometryShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryShape).  
-5. Terapkan jalur ke bentuk.  
+Contoh ini membangun bintang lima sudut dengan [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) . Jari‑jari luar dan dalam bergantian 100 dan 50 poin menentukan puncak dan cekungan; langkah 72 derajat menempatkan kelima puncak secara merata. Jalur ditutup dengan [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) dan diterapkan ke bentuk persegi panjang menggunakan [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) , menggantikan outline‑nya.
 
-Java berikut menunjukkan cara membuat bentuk kustom:
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<Point2D.Float> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    Point2D.Float point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -218,60 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example3_image](custom_shape_3.png)
 
-
 ## **Buat Bentuk Kustom Komposit**
 
-1. Buat sebuah instance kelas [GeometryShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryShape).  
-2. Buat instance pertama kelas [GeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath).  
-3. Buat instance kedua kelas [GeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath).  
-4. Terapkan jalur‑jalur ke bentuk.  
+Contoh ini mendefinisikan dua objek [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) tertutup untuk sepertiga atas dan bawah sebuah bentuk. Menerapkan kedua jalur dengan [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) membuat satu bentuk komposit dengan celah di sepertiga tengahnya.
 
-Kode Java berikut menunjukkan cara membuat bentuk kustom komposit:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example4_image](custom_shape_4.png)
 
 ## **Buat Bentuk Kustom dengan Sudut Melengkung**
 
-Kode Java berikut menunjukkan cara membuat bentuk kustom dengan sudut melengkung (ke dalam);
+Contoh ini menggabungkan segmen lurus dengan [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) untuk membuat bentuk dengan sudut melengkung ke dalam. Setiap ukuran sudut menetapkan lebar dan tinggi busur dalam poin, dan sweep –90 derajat menggambar seperempat elips berlawanan arah jarum jam. Jalur yang selesai diterapkan dengan [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) , dan presentasi disimpan dalam format PPTX.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -282,122 +231,243 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    Point2D.Float topLeft = new Point2D.Float(leftTopSize, 0);
+    Point2D.Float topRight = new Point2D.Float(shapeWidth - rightTopSize, 0);
+    Point2D.Float rightBottom = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
+    Point2D.Float bottomLeft = new Point2D.Float(leftBottomSize, shapeHeight);
+    Point2D.Float leftTop = new Point2D.Float(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Temukan Apakah Geometri Bentuk Ditutup**
+## **Temukan Apakah Geometri Bentuk Tertutup**
 
-Sebuah bentuk tertutup didefinisikan sebagai bentuk di mana semua sisinya terhubung, membentuk satu batas tanpa celah. Bentuk semacam itu dapat berupa bentuk geometris sederhana atau outline kustom yang kompleks. Contoh kode berikut menunjukkan cara memeriksa apakah geometri bentuk tertutup:
+Penolong berikut memeriksa apakah setiap jalur geometri yang tidak kosong diakhiri dengan segmen penutup. Ia membaca [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) dan membandingkan perintah [IPathSegment.getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) akhir dengan [PathCommandType.Close](https://reference.aspose.com/slides/java/com.aspose.slides/pathcommandtype/) . Ia mengembalikan false bila tidak ada jalur yang tidak kosong. Pemeriksaan ini hanya memeriksa perintah akhir setiap jalur; tidak memeriksa setiap sub‑gambar di dalam jalur. Contoh mencetak `true` untuk sebuah persegi panjang.
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
+}
 
-    return isClosed == true;
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Konversi GeometryPath ke java.awt.Shape** 
+## **Ekstrak dan Periksa Elemen Bentuk**
 
-1. Buat sebuah instance kelas [GeometryShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryShape).  
-2. Buat sebuah instance kelas [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).  
-3. Konversi instance [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) ke instance [GeometryPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/GeometryPath) menggunakan [ShapeUtil](https://reference.aspose.com/slides/id/java/com.aspose.slides/ShapeUtil).  
-4. Terapkan jalur ke bentuk.  
+Gunakan [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#createShapeElements--) untuk memeriksa bentuk yang ada sebagai elemen yang berisi titik‑titik jalur dan tipe‑tipe titik. Cast setiap [IShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/ishapeelement/) yang dikembalikan ke [ShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/) untuk mengambil array titik dan tipe melalui metode [getPathPoints](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathPoints--) dan [getPathTypes](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathTypes--) . Representasi ini berguna untuk analisis kontur atau mengirimkan geometri ke alat menggambar kustom.
 
-Kode Java—implementasi langkah‑langkah di atas—menunjukkan proses konversi **GeometryPath** ke **GraphicsPath**:
+Contoh membuka input.pptx, menemukan bentuk geometri pertama langsung pada slide pertama, dan mencetak segmen‑segmen jalurnya. Gunakan presentasi yang berisi bentuk dengan segmen lurus dan melengkung untuk melihat kedua jenis output. Ia tidak mencari di dalam grup.
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            Point2D.Float[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // Pertahankan jenis segmen, kecuali flag.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Array‑array tersebut berkorespondensi berdasarkan indeks: `points[i]` adalah sebuah titik dan `types[i]` menjelaskan perannya. Tipe `0` memulai sebuah gambar, dan tipe `1` menggambar garis dari titik sebelumnya ke titik saat ini. Segmen Bézier kubik dimulai pada titik akhir sebelumnya dan menggunakan tiga entri tipe `3` berurutan: dua titik kontrol diikuti oleh titik akhir baru. Loop mengonsumsi ketiga entri tersebut sekaligus dan memeriksa titik akhir untuk penutupan.
+
+Tipe‑tipe titik juga mengandung flag. Mask dengan `0x07` untuk mengidentifikasi tipe segmen, dan uji `0x80` secara terpisah untuk mendeteksi sub‑path tertutup. Misalnya, `129` (`0x81`) berarti titik akhir garis yang menutup sub‑path, dan `131` (`0x83`) berarti titik akhir Bézier yang menutup satu. Java menyimpan flag ini dalam byte bertanda; masking mempertahankan nilai bit yang dimaksud. Membandingkan nilai mentah hanya dengan `1` atau `3` akan melewatkan kasus ini. Flag lain, seperti dash (`0x10`) dan marker (`0x20`), tidak mengubah tipe segmen dasar.
+
+**Koordinat dan transformasi.** Titik diukur dalam poin (1/72 inci), dengan X meningkat ke kanan dan Y meningkat ke bawah. Untuk bentuk yang tidak dikelompokkan, koordinat yang diekstrak sudah mencakup posisi yang dikembalikan oleh [getX](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getX--) dan [getY](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getY--) serta mencerminkan lebar dan tinggi saat ini. Misalnya, sebuah persegi panjang tak berotasi pada `(100, 200)` dengan ukuran `120 × 80` memiliki batas kontur `(100, 200)`–`(220, 280)`. Jangan menambahkan posisi bentuk lagi. Kurangi X dan Y‑nya untuk memperoleh koordinat relatif terhadap kerangka tak berotasi.
+
+Titik‑titik yang diekstrak tidak menerapkan rotasi bentuk, yang dikembalikan oleh [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getRotation--) , atau flip horizontal dan vertikal. Untuk mereproduksi kontur yang ditampilkan, terapkan transformasi tersebut di sekitar pusat bentuk. Untuk bentuk yang dikelompokkan, juga perhitungkan pemetaan koordinat grup dan transformasinya; jangan mengasumsikan bahwa titik yang diekstrak adalah koordinat slide yang dirender akhir atau menerapkan translasi atau skala dua kali bila sudah tercermin dalam kerangka anak.
+
+**Inspeksi vs penyuntingan.** Array yang diekstrak mendeskripsikan kontur; mengubahnya tidak memperbarui bentuk asli. Pilih pendekatan ini ketika analisis atau kode menggambar Anda memerlukan array titik/tipe. Gunakan [getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) bila Anda membutuhkan perintah geometri dalam sistem koordinat lokal bentuk atau ingin menyunting geometri tersebut. Terapkan jalur yang diedit melalui [setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) atau [setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) .
+
+## **Konversi Bentuk Java AWT ke GeometryPath**
+
+Contoh ini menggabungkan outline persegi panjang dengan teks yang dikonversi menjadi geometri. Metode [setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) pada outline menonaktifkan isinya. Sebuah [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) membuat outline teks dalam sebuah [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)‑nya menyuplai segmen move, line, quadratic, cubic, dan closing, yang contoh ini memutar ulang pada sebuah [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) .
+
+Teks menggunakan font Arial 40 poin. Outline dipindahkan 20 poin secara horizontal dan diposisikan dengan bagian atas visualnya 10 poin di bawah tepi atas bentuk. Jalur teks diisi, sementara persegi panjang asli tetap menjadi outline. Menerapkan kedua jalur dengan [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) menghasilkan satu bentuk yang berisi persegi panjang dan teks.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.GlyphVector;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.PathIterator;
+import java.awt.image.BufferedImage;
+
+Presentation presentation = new Presentation();
 try {
     // Buat bentuk baru
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dapatkan jalur geometri dari bentuk
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+
+    // Dapatkan jalur geometri bentuk
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
     originalPath.setFillMode(PathFillModeType.None);
 
     // Buat jalur grafis baru dengan teks
     Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
+    Font font = new Font("Arial", Font.PLAIN, 40);
     String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
+    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D graphics = image.createGraphics();
 
     try
     {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
+        FontRenderContext fontContext = graphics.getFontRenderContext();
+        GlyphVector glyphVector = font.createGlyphVector(fontContext, text);
+        Rectangle2D textBounds = glyphVector.getVisualBounds();
+        float baseline = (float) -textBounds.getY() + 10;
+        graphicsPath = glyphVector.getOutline(20f, baseline);
     }
     finally {
-        g2.dispose();
+        graphics.dispose();
     }
 
     // Konversi jalur grafis ke jalur geometri
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
+    IGeometryPath textPath = new GeometryPath();
+    PathIterator pathIterator = graphicsPath.getPathIterator(null);
+    float[] points = new float[6];
+
+    while (!pathIterator.isDone())
+    {
+        int segmentType = pathIterator.currentSegment(points);
+        switch (segmentType)
+        {
+            case PathIterator.SEG_MOVETO:
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_LINETO:
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_QUADTO:
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case PathIterator.SEG_CUBICTO:
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case PathIterator.SEG_CLOSE:
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+
     textPath.setFillMode(PathFillModeType.Normal);
 
     // Atur kombinasi jalur geometri baru dan jalur geometri asal ke bentuk
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example5_image](custom_shape_5.png)
 
 ## **FAQ**
 
-**Apa yang terjadi pada isi dan garis tepi setelah mengganti geometri?**  
+**Apa yang akan terjadi pada isian dan kontur setelah mengganti geometri?**
 
-Gaya tetap melekat pada bentuk; hanya kontur yang berubah. Isi dan garis tepi secara otomatis diterapkan ke geometri baru.
+Gaya tetap melekat pada bentuk; hanya kontur yang berubah. Isian dan kontur otomatis diterapkan pada geometri baru.
 
-**Bagaimana cara memutar bentuk kustom bersama geometri secara benar?**  
+**Bagaimana cara memutar bentuk kustom dengan benar bersama geometri nya?**
 
-Gunakan metode [setRotation](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/#setRotation-float-) pada bentuk; geometri berputar bersama bentuk karena terikat pada sistem koordinat bentuk tersebut.
+Gunakan metode [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) pada bentuk; geometri berputar bersama bentuk karena terikat pada sistem koordinat bentuk itu sendiri.
 
-**Bisakah saya mengonversi bentuk kustom menjadi gambar untuk “mengunci” hasilnya?**  
+**Bisakah saya mengkonversi bentuk kustom menjadi gambar untuk "mengunci" hasilnya?**
 
-Ya. Ekspor area [slide](/slides/id/java/convert-powerpoint-to-png/) yang diperlukan atau [shape](/slides/id/java/create-shape-thumbnails/) itu sendiri ke format raster; ini menyederhanakan pekerjaan lanjutan dengan geometri yang kompleks.
+Ya. Ekspor area [slide](/slides/id/java/convert-powerpoint-to-png/) yang diperlukan atau [shape](/slides/id/java/create-shape-thumbnails/) itu sendiri ke format raster; ini memudahkan pekerjaan lanjutan dengan geometri yang kompleks.

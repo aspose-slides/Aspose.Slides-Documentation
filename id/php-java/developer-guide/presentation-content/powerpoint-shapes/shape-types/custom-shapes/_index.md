@@ -1,373 +1,445 @@
 ---
-title: Kustomisasi Bentuk Presentasi di PHP
+title: Sesuaikan Bentuk Presentasi di PHP
 linktitle: Bentuk Kustom
 type: docs
 weight: 20
 url: /id/php-java/custom-shape/
-keywords:
+keywords: 
 - bentuk kustom
-- menambahkan bentuk
-- membuat bentuk
-- mengubah bentuk
+- tambahkan bentuk
+- buat bentuk
+- ubah bentuk
 - geometri bentuk
 - jalur geometri
 - titik jalur
 - titik edit
-- menambah titik
-- menghapus titik
+- tambah titik
+- hapus titik
 - operasi penyuntingan
 - sudut melengkung
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Buat dan sesuaikan bentuk dalam presentasi PowerPoint dengan Aspose.Slides untuk PHP via Java: jalur geometri, sudut melengkung, bentuk gabungan."
+description: "Buat dan sesuaikan bentuk dalam presentasi PowerPoint dengan Aspose.Slides untuk PHP via Java: jalur geometri, sudut melengkung, bentuk komposit."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan mengedit geometri bentuk melalui titik edit dan jalur geometri. Artikel ini menunjukkan cara menggunakan `GeometryPath` untuk memodifikasi bentuk yang ada, melakukan operasi penyuntingan jalur dasar, menambah atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke sebuah bentuk.
+Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan mengedit geometri bentuk melalui titik edit dan geometry paths. Artikel ini menunjukkan cara bekerja dengan [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) untuk memodifikasi bentuk yang ada, melakukan operasi penyuntingan path dasar, menambah atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke sebuah bentuk.
 
-Artikel ini juga memperlihatkan cara membuat bentuk khusus dan gabungan, membangun bentuk dengan sudut melengkung, menentukan apakah geometri sebuah bentuk tertutup, serta mengonversi antara `GeometryPath` dan `java.awt.Shape` untuk skenario penyesuaian geometri tambahan.
+Artikel ini juga memperlihatkan cara membuat bentuk khusus dan komposit, membangun bentuk dengan sudut melengkung, menentukan apakah geometri bentuk tertutup, memeriksa elemen bentuk, dan mengonversi outline teks Java AWT menjadi geometry paths.
 
 ## **Mengubah Bentuk Menggunakan Titik Edit**
-Pertimbangkan sebuah persegi. Di PowerPoint, menggunakan **titik edit**, Anda dapat
 
-* memindahkan sudut persegi ke dalam atau ke luar
-* menentukan kelengkungan untuk sebuah sudut atau titik
-* menambahkan titik baru ke persegi
-* memanipulasi titik pada persegi, dll.
+Di PowerPoint, Anda dapat menggunakan **Edit Points** untuk memodifikasi sebuah persegi:
 
-Intinya, Anda dapat melakukan tugas‑tugas yang dijelaskan pada bentuk apa pun. Dengan titik edit, Anda dapat mengubah bentuk atau membuat bentuk baru dari bentuk yang sudah ada.
+* Memindahkan sudut ke dalam atau ke luar.
+* Menyesuaikan kelengkungan pada sebuah titik.
+* Menambahkan titik baru.
+
+Menyunting titik memungkinkan Anda mengubah kontur sebuah bentuk atau menggunakan bentuk yang ada sebagai dasar untuk bentuk baru.
 
 ## **Tips Penyuntingan Bentuk**
 
 ![overview_image](custom_shape_0.png)
 
-Sebelum Anda mulai menyunting bentuk PowerPoint melalui titik edit, ada beberapa hal yang perlu dipertimbangkan tentang bentuk:
+Saat menyunting bentuk PowerPoint, perhatikan konsep berikut:
 
-* Sebuah bentuk (atau jalurnya) dapat berupa tertutup atau terbuka.
-* Ketika sebuah bentuk tertutup, ia tidak memiliki titik awal atau akhir. Ketika sebuah bentuk terbuka, ia memiliki titik awal dan akhir. 
-* Semua bentuk terdiri dari setidaknya 2 titik jangkar yang terhubung satu sama lain oleh garis.
-* Sebuah garis dapat lurus atau melengkung. Titik jangkar menentukan sifat garis.
-* Titik jangkar ada sebagai titik sudut, titik lurus, atau titik halus:
-  * Titik sudut adalah titik di mana 2 garis lurus bergabung membentuk suatu sudut. 
-  * Titik halus adalah titik di mana 2 pegangan berada dalam satu garis lurus dan segmen garis bergabung dalam lengkungan halus. Dalam kasus ini, semua pegangan dipisahkan dari titik jangkar dengan jarak yang sama. 
-  * Titik lurus adalah titik di mana 2 pegangan berada dalam satu garis lurus dan segmen garis tersebut bergabung dalam lengkungan halus. Dalam kasus ini, pegangan tidak harus dipisahkan dari titik jangkar dengan jarak yang sama. 
-* Dengan memindahkan atau menyunting titik jangkar (yang mengubah sudut garis), Anda dapat mengubah tampilan sebuah bentuk. 
+* Sebuah bentuk (atau path‑nya) dapat berupa tertutup atau terbuka.
+* Path sebuah bentuk terdiri dari anchor points yang dihubungkan oleh segmen.
+* Sebuah segmen dapat lurus atau melengkung. Anchor points dan control handles menentukan bentuknya.
+* Anchor points dapat berupa corner points, straight points, atau smooth points:
+  * Pada corner point, segmen‑segmen yang berdekatan dapat bertemu dengan sudut.
+  * Pada smooth point, dua control handle berada pada satu garis dan berjarak sama dari anchor point.
+  * Pada straight point, dua control handle berada pada satu garis namun dapat memiliki jarak yang berbeda dari anchor point.
+* Memindahkan anchor points atau menyesuaikan handle‑nya mengubah kontur bentuk.
 
-Untuk menyunting bentuk PowerPoint melalui titik edit, **Aspose.Slides** menyediakan kelas [**GeometryPath**](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryPath).
+Untuk menyunting bentuk PowerPoint melalui titik edit, **Aspose.Slides** menyediakan kelas [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-* Sebuah [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryPath) mewakili jalur geometri dari objek [GeometryShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometryshape/).
-* Untuk mengambil `GeometryPath` dari instance `GeometryShape`, Anda dapat menggunakan metode [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometryshape/#getGeometryPaths).
-* Untuk mengatur `GeometryPath` bagi sebuah bentuk, Anda dapat menggunakan metode berikut: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometryshape/#setGeometryPath) untuk *bentuk padat* dan [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometryshape/#setGeometryPaths) untuk *bentuk gabungan*.
-* Untuk menambahkan segmen, Anda dapat menggunakan metode‑metode di bawah [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometrypath/).
-* Dengan menggunakan metode [GeometryPath::setStroke](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometrypath/setstroke/) dan [GeometryPath::setFillMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometrypath/setfillmode/), Anda dapat mengatur tampilan jalur geometri.
-* Dengan menggunakan metode [GeometryPath::getPathData](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometrypath/getpathdata/), Anda dapat mengambil jalur geometri dari sebuah `GeometryShape` sebagai array segmen jalur.
-* Untuk mengakses opsi penyesuaian geometri bentuk tambahan, Anda dapat mengonversi [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometrypath/) ke [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html).
-* Gunakan metode [geometryPathToGraphicsPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapeutil/geometrypathtographicspath/) dan [graphicsPathToGeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapeutil/graphicspathtogeometrypath/) (dari kelas [ShapeUtil](https://reference.aspose.com/slides/id/php-java/aspose.slides/ShapeUtil)) untuk mengonversi [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/geometrypath/) ke [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) bolak‑balik.
+* Sebuah instance [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) mewakili geometry path dari objek [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
+* Untuk mengambil [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) dari instance [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/), Anda dapat menggunakan metode [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
+* Untuk menetapkan [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) pada sebuah bentuk, Anda dapat menggunakan metode: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) untuk bentuk dengan satu path dan [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) untuk bentuk dengan banyak path.
+* Untuk menambah segmen, Anda dapat menggunakan metode‑metode di bawah [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* Menggunakan metode [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) dan [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode), Anda dapat mengatur tampilan geometry path.
+* Menggunakan metode [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData), Anda dapat mengambil geometry path dari sebuah [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) sebagai array segmen path.
+* Untuk mengakses opsi kustomisasi geometri bentuk tambahan, Anda dapat membaca sebuah [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) melalui [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)‑nya dan memutar ulang segmen‑segmen pada sebuah [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
 ## **Operasi Penyuntingan Sederhana**
 
-Kode PHP ini menunjukkan cara
+Gunakan metode berikut untuk menyunting geometry path. Overload yang menerima indeks menyisipkan segmen pada posisi berbasis nol dalam array segmen path.
 
-**Menambahkan sebuah garis** ke akhir jalur
+| Operasi | Metode |
+| --- | --- |
+| Menambahkan atau menyisipkan garis lurus. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
+| Menambahkan atau menyisipkan kurva Bézier kubik dengan dua titik kontrol dan sebuah titik akhir. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Menambahkan atau menyisipkan kurva Bézier kuadratik dengan satu titik kontrol dan sebuah titik akhir. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Menambahkan sebuah busur elips dengan dimensi dan sudut yang ditentukan dalam derajat. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| Menutup figur saat ini dengan menghubungkan titik akhirnya ke titik awalnya. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| Menetapkan titik awal sebuah figur. | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
+| Menghapus segmen pada indeks berbasis nol. | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
 
-```php
+## **Menambah Titik Kustom ke Sebuah Bentuk**
 
-```
-**Menambahkan sebuah garis** pada posisi tertentu di jalur:
-
-```php
-
-```
-**Menambahkan kurva Bezier kubik** di akhir jalur:
-
-```php
-
-```
-**Menambahkan kurva Bezier kubik** pada posisi tertentu di jalur:
+Contoh ini menyisipkan dua titik ke dalam bentuk persegi panjang menggunakan [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) dan menerapkan path yang telah disunting dengan [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). Koordinat bersifat lokal terhadap bentuk: kedua titik baru berada di tengahnya, 100 poin dari kiri dan 50 poin dari atas. Indeks segmen 1 dan 4 menempatkannya pada tepi atas dan bawah, menarik tepi‑tepi tersebut ke dalam.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
-```
-**Menambahkan kurva Bezier kuadratik** di akhir jalur:
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-```php
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
 
-```
-**Menambahkan kurva Bezier kuadratik** pada posisi tertentu di jalur:
-
-```php
-
-```
-**Menambahkan sebuah busur** ke jalur:
-
-```php
-
-```
-**Menutup gambar saat ini** pada jalur:
-
-```php
-
-```
-**Menetapkan posisi untuk titik berikutnya**:
-
-```php
-
-```
-**Menghapus segmen jalur** pada indeks tertentu:
-
-```php
-
-```
-
-## **Menambahkan Titik Khusus ke Bentuk**
-1. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryShape) dan atur tipe [ShapeType::Rectangle](https://reference.aspose.com/slides/id/php-java/aspose.slides/ShapeType).
-2. Dapatkan instance kelas [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryPath) dari bentuk tersebut.
-3. Tambahkan titik baru di antara dua titik atas pada jalur.
-4. Tambahkan titik baru di antara dua titik bawah pada jalur.
-5. Terapkan jalur ke bentuk.
-
-Kode PHP ini menunjukkan cara menambahkan titik khusus ke sebuah bentuk:
-
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $geometryPath = $shape->getGeometryPaths()[0];
     $geometryPath->lineTo(100, 50, 1);
     $geometryPath->lineTo(100, 50, 4);
+
     $shape->setGeometryPath($geometryPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-![example1_image](custom_shape_1.png)
-
-## **Menghapus Titik dari Bentuk**
-
-1. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryShape) dan atur tipe [ShapeType::Heart](https://reference.aspose.com/slides/id/php-java/aspose.slides/ShapeType).
-2. Dapatkan instance kelas [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryPath) dari bentuk tersebut.
-3. Hapus segmen pada jalur.
-4. Terapkan jalur ke bentuk.
-
-Kode PHP ini menunjukkan cara menghapus titik dari sebuah bentuk:
-
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
-    $path = $shape->getGeometryPaths()[0];
-    $path->removeAt(2);
-    $shape->setGeometryPath($path);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-![example2_image](custom_shape_2.png)
-
-## **Membuat Bentuk Khusus**
-
-1. Hitung titik‑titik untuk bentuk.
-2. Buat instance kelas [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryPath).
-3. Isi jalur dengan titik‑titik tersebut.
-4. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryShape).
-5. Terapkan jalur ke bentuk.
-
-Java ini menunjukkan cara membuat bentuk khusus:
-
-```php
-  $points = new Java("java.util.ArrayList");
-  $R = 100;
-  $r = 50;
-  $step = 72;
-  for($angle = -90; $angle < 270; $angle += $step) {
-    $radians = $angle * java("java.lang.Math")->PI / 180.0;
-    $x = $R * java("java.lang.Math")->cos($radians);
-    $y = $R * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-    $radians = java("java.lang.Math")->PI * $angle . $step / 2 / 180.0;
-    $x = $r * java("java.lang.Math")->cos($radians);
-    $y = $r * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-  }
-  $starPath = new GeometryPath();
-  $starPath->moveTo($points->get(0));
-  for($i = 1; $i < java_values($points->size()) ; $i++) {
-    $starPath->lineTo($points->get($i));
-  }
-  $starPath->closeFigure();
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $R * 2, $R * 2);
-    $shape->setGeometryPath($starPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-![example3_image](custom_shape_3.png)
-
-
-## **Membuat Bentuk Gabungan Khusus**
-
-1. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryShape).
-2. Buat instance pertama kelas [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryPath).
-3. Buat instance kedua kelas [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryPath).
-4. Terapkan jalur‑jalur ke bentuk.
-
-Kode PHP ini menunjukkan cara membuat bentuk gabungan khusus:
-
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
-    $geometryPath0 = new GeometryPath();
-    $geometryPath0->moveTo(0, 0);
-    $geometryPath0->lineTo($shape->getWidth(), 0);
-    $geometryPath0->lineTo($shape->getWidth(), $shape->getHeight() / 3);
-    $geometryPath0->lineTo(0, $shape->getHeight() / 3);
-    $geometryPath0->closeFigure();
-    $geometryPath1 = new GeometryPath();
-    $geometryPath1->moveTo(0, $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight());
-    $geometryPath1->lineTo(0, $shape->getHeight());
-    $geometryPath1->closeFigure();
-    $shape->setGeometryPaths(array($geometryPath0, $geometryPath1 ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-![example4_image](custom_shape_4.png)
-
-## **Membuat Bentuk Khusus dengan Sudut Melengkung**
-
-Kode PHP ini menunjukkan cara membuat bentuk khusus dengan sudut melengkung (ke dalam);
-
-```php
-  $shapeX = 20.0;
-  $shapeY = 20.0;
-  $shapeWidth = 300.0;
-  $shapeHeight = 200.0;
-  $leftTopSize = 50.0;
-  $rightTopSize = 20.0;
-  $rightBottomSize = 40.0;
-  $leftBottomSize = 10.0;
-  $pres = new Presentation();
-  try {
-    $childShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
-    $geometryPath = new GeometryPath();
-    $point1 = new Point2DFloat($leftTopSize, 0);
-    $point2 = new Point2DFloat($shapeWidth - $rightTopSize, 0);
-    $point3 = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
-    $point4 = new Point2DFloat($leftBottomSize, $shapeHeight);
-    $point5 = new Point2DFloat(0, $leftTopSize);
-    $geometryPath->moveTo($point1);
-    $geometryPath->lineTo($point2);
-    $geometryPath->arcTo($rightTopSize, $rightTopSize, 180, -90);
-    $geometryPath->lineTo($point3);
-    $geometryPath->arcTo($rightBottomSize, $rightBottomSize, -90, -90);
-    $geometryPath->lineTo($point4);
-    $geometryPath->arcTo($leftBottomSize, $leftBottomSize, 0, -90);
-    $geometryPath->lineTo($point5);
-    $geometryPath->arcTo($leftTopSize, $leftTopSize, 90, -90);
-    $geometryPath->closeFigure();
-    $childShape->setGeometryPath($geometryPath);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Menentukan Apakah Geometri Bentuk Tertutup**
-
-Sebuah bentuk tertutup didefinisikan sebagai bentuk yang semua sisinya terhubung, membentuk satu batas tanpa celah. Bentuk tersebut dapat berupa bentuk geometris sederhana atau kontur khusus yang kompleks. Contoh kode berikut menunjukkan cara memeriksa apakah geometri sebuah bentuk tertutup:
-
-```php
-function isGeometryClosed($geometryShape)
-{
-    $isClosed = null;
-
-    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
-        $dataLength = count(java_values($geometryPath->getPathData()));
-        if ($dataLength === 0) {
-            continue;
-        }
-
-        $lastSegment = java_values($geometryPath->getPathData())[$dataLength - 1];
-        $isClosed = $lastSegment->getPathCommand() === PathCommandType::Close;
-
-        if ($isClosed === false) {
-            return false;
-        }
-    }
-
-    return $isClosed === true;
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **Mengonversi GeometryPath ke java.awt.Shape** 
+![example1_image](custom_shape_1.png)
 
-1. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryShape).
-2. Buat instance kelas [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html).
-3. Konversi instance [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) ke instance [GeometryPath](https://reference.aspose.com/slides/id/php-java/aspose.slides/GeometryPath) menggunakan [ShapeUtil](https://reference.aspose.com/slides/id/php-java/aspose.slides/ShapeUtil).
-4. Terapkan jalur‑jalur ke bentuk.
+## **Menghapus Titik dari Sebuah Bentuk**
 
-Kode PHP—implementasi langkah‑langkah di atas—menunjukkan proses konversi **GeometryPath** ke **GraphicsPath**:
+Contoh ini mengubah outline berbentuk hati dengan menghapus segmen pada indeks berbasis nol 2 menggunakan [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). Menerapkan path yang telah dimodifikasi dengan [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) memperbarui kontur bentuk.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Buat bentuk baru
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
-    # Dapatkan jalur geometri dari bentuk
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
+
+    $path = $shape->getGeometryPaths()[0];
+    $path->removeAt(2);
+
+    $shape->setGeometryPath($path);
+} finally {
+    $presentation->dispose();
+}
+```
+![example2_image](custom_shape_2.png)
+
+## **Membuat Bentuk Kustom**
+
+Contoh ini membangun sebuah bintang lima titik menggunakan [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). Jari‑jari luar dan dalam yang bergantian sebesar 100 dan 50 poin menentukan ujung serta cekungan; langkah 72 derajat menempatkan kelima ujung secara merata. Path ditutup dengan [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) dan diterapkan ke bentuk persegi panjang menggunakan [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), menggantikan outline‑nya.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$points = [];
+$outerRadius = 100;
+$innerRadius = 50;
+$angleStep = 72;
+for ($angle = -90; $angle < 270; $angle += $angleStep) {
+    $radians = deg2rad($angle);
+    $points[] = [$outerRadius * cos($radians) + $outerRadius, $outerRadius * sin($radians) + $outerRadius];
+    $radians = deg2rad($angle + $angleStep / 2);
+    $points[] = [$innerRadius * cos($radians) + $outerRadius, $innerRadius * sin($radians) + $outerRadius];
+}
+
+$starPath = new GeometryPath();
+$starPath->moveTo($points[0][0], $points[0][1]);
+for ($i = 1; $i < count($points); $i++) {
+    $starPath->lineTo($points[$i][0], $points[$i][1]);
+}
+$starPath->closeFigure();
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $outerRadius * 2, $outerRadius * 2);
+    $shape->setGeometryPath($starPath);
+} finally {
+    $presentation->dispose();
+}
+```
+![example3_image](custom_shape_3.png)
+
+## **Membuat Bentuk Kustom Komposit**
+
+Contoh ini mendefinisikan dua [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) tertutup untuk sepertiga atas dan bawah sebuah bentuk. Menerapkan kedua path dengan [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) menghasilkan satu bentuk komposit dengan celah di sepertiga tengahnya.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+
+    $topPath = new GeometryPath();
+    $topPath->moveTo(0, 0);
+    $topPath->lineTo(java_values($shape->getWidth()), 0);
+    $topPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3);
+    $topPath->lineTo(0, java_values($shape->getHeight()) / 3);
+    $topPath->closeFigure();
+
+    $bottomPath = new GeometryPath();
+    $bottomPath->moveTo(0, java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()));
+    $bottomPath->lineTo(0, java_values($shape->getHeight()));
+    $bottomPath->closeFigure();
+
+    $shape->setGeometryPaths([$topPath, $bottomPath]);
+} finally {
+    $presentation->dispose();
+}
+```
+![example4_image](custom_shape_4.png)
+
+## **Membuat Bentuk Kustom dengan Sudut Melengkung**
+
+Contoh ini menggabungkan segmen lurus dengan [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) untuk membuat bentuk dengan sudut melengkung ke dalam. Setiap ukuran sudut menetapkan lebar dan tinggi busur dalam poin, dan sweep –90 derajat menggambar seperempat elips berlawanan arah jarum jam. Path yang selesai diterapkan dengan [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), dan presentasi disimpan dalam format PPTX.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$shapeX = 20;
+$shapeY = 20;
+$shapeWidth = 300;
+$shapeHeight = 200;
+
+$leftTopSize = 50;
+$rightTopSize = 20;
+$rightBottomSize = 40;
+$leftBottomSize = 10;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
+
+    $topLeft = new Point2DFloat($leftTopSize, 0);
+    $topRight = new Point2DFloat($shapeWidth - $rightTopSize, 0);
+    $rightBottom = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
+    $bottomLeft = new Point2DFloat($leftBottomSize, $shapeHeight);
+    $leftTop = new Point2DFloat(0, $leftTopSize);
+
+    $geometryPath = new GeometryPath();
+    $geometryPath->moveTo($topLeft);
+    $geometryPath->lineTo($topRight);
+    $geometryPath->arcTo($rightTopSize, $rightTopSize, 180, -90);
+    $geometryPath->lineTo($rightBottom);
+    $geometryPath->arcTo($rightBottomSize, $rightBottomSize, -90, -90);
+    $geometryPath->lineTo($bottomLeft);
+    $geometryPath->arcTo($leftBottomSize, $leftBottomSize, 0, -90);
+    $geometryPath->lineTo($leftTop);
+    $geometryPath->arcTo($leftTopSize, $leftTopSize, 90, -90);
+    $geometryPath->closeFigure();
+
+    $shape->setGeometryPath($geometryPath);
+
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Menentukan Apakah Geometry Bentuk Tertutup**
+
+Helper berikut memeriksa apakah setiap geometry path yang tidak kosong diakhiri dengan segmen penutup. Helper membaca [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) dan membandingkan perintah akhir segmen [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) dengan [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). Helper mengembalikan false ketika tidak ada path yang tidak kosong. Pemeriksaan ini memeriksa perintah akhir tiap path; ia tidak memeriksa setiap sub‑figur dalam sebuah path. Contoh mencetak `true` untuk sebuah persegi panjang.
+
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function isGeometryClosed($geometryShape)
+{
+    $hasNonemptyPath = false;
+    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
+        $segments = java_values($geometryPath->getPathData());
+        if (count($segments) === 0) {
+            continue;
+        }
+        $hasNonemptyPath = true;
+        $lastSegment = $segments[count($segments) - 1];
+        if (java_values($lastSegment->getPathCommand()) !== PathCommandType::Close) {
+            return false;
+        }
+    }
+    return $hasNonemptyPath;
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+    $closed = isGeometryClosed($shape);
+    echo ($closed ? "true" : "false") . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Mengekstrak dan Memeriksa Elemen Bentuk**
+
+Gunakan [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) untuk memeriksa sebuah bentuk yang ada sebagai elemen‑elemen yang berisi titik‑titik path dan tipe‑tipe titik. Gunakan setiap [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) yang dikembalikan untuk mengambil array titik dan tipe melalui metode [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) dan [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). Representasi ini berguna untuk analisis kontur atau untuk mengirimkan geometri ke alat menggambar kustom.
+
+Contoh membuka `input.pptx`, menemukan geometry shape pertama tepat pada slide pertama, dan mencetak segmen‑segmen path‑nya. Gunakan sebuah presentasi yang berisi bentuk dengan segmen lurus dan melengkung untuk melihat kedua jenis output. Contoh tidak mencari di dalam grup.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = null;
+    $shapes = $slide->getShapes();
+    for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+        $candidate = $shapes->get_Item($shapeIndex);
+        if (java_instanceof($candidate, java("com.aspose.slides.GeometryShape"))) {
+            $shape = $candidate;
+            break;
+        }
+    }
+
+    if ($shape === null) {
+        echo "No geometry shape found on the first slide." . PHP_EOL;
+    } else {
+        foreach ($shape->createShapeElements() as $element) {
+            $points = java_values($element->getPathPoints());
+            $types = array_values(unpack("C*", java_values($element->getPathTypes())));
+            echo "Shape element:" . PHP_EOL;
+            for ($i = 0; $i < count($points); $i++) {
+                $pointType = $types[$i] & 0x07; // Simpan tipe segmen, kecuali flag.
+                switch ($pointType) {
+                    case 0:
+                        echo "Start figure at " . $points[$i] . PHP_EOL;
+                        break;
+                    case 1:
+                        echo "Line to " . $points[$i] . PHP_EOL;
+                        break;
+                    case 3:
+                        echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
+                        $i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+                if (($types[$i] & 0x80) !== 0) {
+                    echo "Close subpath back to its starting point." . PHP_EOL;
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Array‑array tersebut bersesuaian berdasarkan indeks: `$points[$i]` adalah sebuah titik dan `$types[$i]` menjelaskan perannya. Tipe `0` memulai sebuah figur, dan tipe `1` menggambar sebuah garis dari titik sebelumnya ke titik saat ini. Sebuah segmen Bézier kubik dimulai dari titik akhir sebelumnya dan menggunakan tiga entri tipe‑`3` berurutan: dua titik kontrol diikuti oleh titik akhir baru. Loop mengonsumsi ketiga entri tersebut sekaligus dan memeriksa titik akhir untuk penutupan.
+
+Tipe‑tipe titik juga mengandung flag. Mask dengan `0x07` untuk mengidentifikasi tipe segmen, dan uji `0x80` secara terpisah untuk mendeteksi sub‑path tertutup. Sebagai contoh, `129` (`0x81`) berarti titik akhir garis yang menutup sub‑path, dan `131` (`0x83`) berarti titik akhir Bézier yang menutup satu sub‑path. PHP/Java Bridge mengembalikan array byte sebagai string biner; melakukan unpack dengan `"C*"` menghasilkan nilai byte tak bertanda. Masking menjaga nilai bit yang dimaksud. Membandingkan nilai mentah hanya dengan `1` atau `3` akan melewatkan kasus ini. Flag lain, seperti dash (`0x10`) dan marker (`0x20`), tidak mengubah tipe segmen dasar.
+
+**Koordinat dan transformasi.** Titik diukur dalam poin (1/72 inci), dengan X meningkat ke kanan dan Y meningkat ke bawah. Untuk bentuk yang tidak tergabung, koordinat yang diekstrak sudah mencakup posisi yang dikembalikan oleh [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) dan [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) serta mencerminkan lebar dan tinggi saat ini. Sebagai contoh, sebuah persegi panjang tidak berputar pada `(100, 200)` dengan ukuran `120 × 80` memiliki batas kontur `(100, 200)`–`(220, 280)`. Jangan menambahkan posisi bentuk lagi. Kurangi X dan Y untuk memperoleh koordinat relatif terhadap kerangka tidak berputar.
+
+Poin yang diekstrak tidak menerapkan rotasi bentuk, yang dikembalikan oleh [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation), atau pembalikan horizontal dan vertikal. Untuk mereproduksi kontur yang ditampilkan, terapkan transformasi tersebut di sekitar pusat bentuk. Untuk bentuk yang tergabung, perhitungkan juga pemetaan koordinat grup dan transformasinya; jangan mengasumsikan bahwa poin yang diekstrak sudah merupakan koordinat slide akhir atau menerapkan translasi atau skala dua kali bila sudah tercermin dalam kerangka anak.
+
+**Inspeksi vs penyuntingan.** Array yang diekstrak menjelaskan kontur; mengubahnya tidak memperbarui bentuk asli. Pilih pendekatan ini ketika analisis atau kode gambar Anda membutuhkan array titik/tipe. Gunakan [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) bila Anda memerlukan perintah geometri dalam sistem koordinat lokal bentuk atau ingin menyunting geometriya. Terapkan path yang disunting melalui [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) atau [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
+
+## **Mengonversi Java AWT Shape menjadi GeometryPath**
+
+Contoh ini menggabungkan outline persegi panjang dengan teks yang dikonversi menjadi geometri. Metode [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) pada outline menonaktifkan isinya. Sebuah [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) membuat outline teks dalam sebuah [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)‑nya menyediakan segmen move, line, quadratic, cubic, dan closing, yang kemudian diputar ulang pada sebuah [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+
+Contoh menggunakan array float Java sehingga PHP/Java Bridge mempertahankan koordinat yang ditulis oleh iterator. Teks menggunakan font Arial 40 poin. Outline dialihkan 20 poin secara horizontal dan diposisikan dengan bagian atas visualnya 10 poin di bawah tepi atas bentuk. Path teks diisi, sementara persegi panjang asli tetap berupa outline. Menerapkan kedua path dengan [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) menghasilkan satu bentuk yang berisi persegi panjang dan teks.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\PathFillModeType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
+    
     $originalPath = $shape->getGeometryPaths()[0];
     $originalPath->setFillMode(PathFillModeType::None);
-    # Buat jalur grafik baru dengan teks
-    $graphicsPath;
-    $font = new Font("Arial", Font->PLAIN, 40);
-    $text = "Text in shape";
-    $img = new BufferedImage(100, 100, BufferedImage->TYPE_INT_ARGB);
-    $g2 = $img->createGraphics();
+
+    $fontClass = java("java.awt.Font");
+    $imageClass = java("java.awt.image.BufferedImage");
+    $font = new Java("java.awt.Font", "Arial", $fontClass->PLAIN, 40);
+    $image = new Java("java.awt.image.BufferedImage", 100, 100, $imageClass->TYPE_INT_ARGB);
+    $graphics = $image->createGraphics();
     try {
-      $glyphVector = $font->createGlyphVector($g2->getFontRenderContext(), $text);
-      $graphicsPath = $glyphVector->getOutline(20.0, -$glyphVector->getVisualBounds()->getY() + 10);
+        $fontContext = $graphics->getFontRenderContext();
+        $glyphVector = $font->createGlyphVector($fontContext, "Text in shape");
+        $textBounds = $glyphVector->getVisualBounds();
+        $baseline = -java_values($textBounds->getY()) + 10;
+        $graphicsPath = $glyphVector->getOutline(20.0, $baseline);
     } finally {
-      $g2->dispose();
+        $graphics->dispose();
     }
-    # Konversi jalur grafik ke jalur geometri
-    $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
+
+    $textPath = new GeometryPath();
+    $pathIterator = $graphicsPath->getPathIterator(null);
+    $iteratorClass = java("java.awt.geom.PathIterator");
+    $arrayClass = java("java.lang.reflect.Array");
+    $floatClass = java("java.lang.Float");
+    $coordinates = $arrayClass->newInstance($floatClass->TYPE, 6);
+
+    while (!java_values($pathIterator->isDone())) {
+        $segmentType = java_values($pathIterator->currentSegment($coordinates));
+        $points = java_values($coordinates);
+        switch ($segmentType) {
+            case java_values($iteratorClass->SEG_MOVETO):
+                $textPath->moveTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_LINETO):
+                $textPath->lineTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_QUADTO):
+                $textPath->quadraticBezierTo($points[0], $points[1], $points[2], $points[3]);
+                break;
+            case java_values($iteratorClass->SEG_CUBICTO):
+                $textPath->cubicBezierTo($points[0], $points[1], $points[2], $points[3], $points[4], $points[5]);
+                break;
+            case java_values($iteratorClass->SEG_CLOSE):
+                $textPath->closeFigure();
+                break;
+        }
+        $pathIterator->next();
+    }
     $textPath->setFillMode(PathFillModeType::Normal);
-    # Atur kombinasi jalur geometri baru dan jalur geometri asal ke bentuk
-    $shape->setGeometryPaths(array($originalPath, $textPath ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $shape->setGeometryPaths([$originalPath, $textPath]);
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example5_image](custom_shape_5.png)
 
 ## **FAQ**
 
-**Apa yang terjadi pada isi dan outline setelah mengganti geometri?**
+**Apa yang terjadi pada isian dan outline setelah mengganti geometri?**
 
-Gaya tetap melekat pada bentuk; hanya kontur yang berubah. Isi dan outline secara otomatis diterapkan pada geometri baru.
+Gaya tetap melekat pada bentuk; hanya kontur yang berubah. Isian dan outline secara otomatis diterapkan pada geometri baru.
 
-**Bagaimana cara memutar bentuk khusus bersamaan dengan geometri-nya?**
+**Bagaimana cara memutar bentuk kustom bersama geometri secara benar?**
 
-Gunakan metode [setRotation](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/setrotation/) pada bentuk; geometri berputar bersama bentuk karena terikat pada sistem koordinat bentuk itu sendiri.
+Gunakan metode [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) pada bentuk; geometri berputar bersama bentuk karena terikat pada sistem koordinat bentuk itu sendiri.
 
-**Bisakah saya mengonversi bentuk khusus menjadi gambar untuk “mengunci” hasilnya?**
+**Apakah saya dapat mengonversi bentuk kustom menjadi gambar untuk "mengunci" hasilnya?**
 
-Ya. Ekspor area [slide](/slides/id/php-java/convert-powerpoint-to-png/) yang diperlukan atau [shape](/slides/id/php-java/create-shape-thumbnails/) itu sendiri ke format raster; hal ini menyederhanakan pekerjaan selanjutnya dengan geometri yang berat.
+Ya. Ekspor area [slide](/slides/id/php-java/convert-powerpoint-to-png/) yang diperlukan atau [shape](/slides/id/php-java/create-shape-thumbnails/) itu sendiri ke format raster; ini menyederhanakan pekerjaan selanjutnya dengan geometri kompleks.

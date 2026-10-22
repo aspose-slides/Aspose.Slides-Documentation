@@ -1,360 +1,435 @@
 ---
-title: जावास्क्रिप्ट में प्रस्तुति आकृतियों को कस्टमाइज़ करें
-linktitle: कस्टम आकृति
+title: जावास्क्रिप्ट में प्रस्तुति आकारों को अनुकूलित करें
+linktitle: कस्टम आकार
 type: docs
 weight: 20
 url: /hi/nodejs-java/custom-shape/
 keywords:
-- कस्टम आकृति
-- आकृति जोड़ें
-- आकृति बनाएं
-- आकृति बदलें
-- आकृति ज्यामिति
-- ज्यामिति पाथ
+- कस्टम आकार
+- आकार जोड़ें
+- आकार बनाएं
+- आकार बदलें
+- आकार जियोमेट्री
+- जियोमेट्री पाथ
 - पाथ बिंदु
-- सम्पादन बिंदु
+- संपादन बिंदु
 - बिंदु जोड़ें
 - बिंदु हटाएँ
-- संपादन संचालन
+- संपादन ऑपरेशन
 - वक्र कोना
 - PowerPoint
 - प्रस्तुति
 - Node.js
-- जावास्क्रिप्ट
+- JavaScript
 - Aspose.Slides
-description: "Node.js के लिए जावास्क्रिप्ट और Aspose.Slides के साथ PowerPoint प्रस्तुतियों में आकृतियों को बनाएँ और कस्टमाइज़ करें: ज्यामिति पाथ, वक्र कोने, सम्मिलित आकृतियां।"
+description: "जावास्क्रिप्ट और Aspose.Slides for Node.js के साथ PowerPoint प्रस्तुतियों में आकार बनाएं और अनुकूलित करें: जियोमेट्री पाथ, वक्र कोने, सम्मिलित आकार।"
 ---
 ## **परिचय**
 
-यह लेख Aspose.Slides में प्रस्तुति आकृतियों को संपादन बिंदुओं और ज्यामिति पाथों के माध्यम से आकृति ज्यामिति संपादित करके कस्टमाइज़ करने के तरीके को समझाता है। यह दिखाता है कि `GeometryPath` के साथ कार्य करके मौजूदा आकृतियों को संशोधित करना, बुनियादी पाथ संपादन संचालन करना, बिंदुओं को जोड़ना या हटाना, और अपडेट की गई ज्यामिति को वापस आकृति पर लागू करना।
+यह लेख यह समझाता है कि Aspose.Slides में शैप जियोमेट्री को संपादन बिंदुओं और जियोमेट्री पाथ्स के माध्यम से संपादित करके प्रस्तुति आकारों को कैसे अनुकूलित किया जाए। यह दिखाता है कि कैसे [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) का उपयोग करके मौजूदा आकारों को संशोधित किया जा सकता है, बुनियादी पाथ संपादन कार्य किए जा सकते हैं, बिंदुओं को जोड़ा या हटाया जा सकता है, और अद्यतन जियोमेट्री को फिर से एक आकार पर लागू किया जा सकता है।
 
-यह यह भी दर्शाता है कि कैसे कस्टम और सम्मिलित आकृतियां बनाई जाएँ, वक्र कोनों वाली आकृतियों का निर्माण किया जाए, यह निर्धारित किया जाए कि आकृति की ज्यामिति बंद है या नहीं, और अतिरिक्त ज्यामिति कस्टमाइज़ेशन परिदृश्यों के लिए `GeometryPath` और `java.awt.Shape` के बीच रूपांतरण किया जाए।
+यह यह भी दर्शाता है कि कैसे कस्टम और सम्मिलित आकार बनाए जाएँ, वक्र कोनों वाले आकार बनाएँ, यह निर्धारित किया जाए कि क्या एक आकार जियोमेट्री बंद है, आकार तत्वों का निरीक्षण करें, और Java AWT टेक्स्ट रूपरेखाओं को जियोमेट्री पाथ्स में परिवर्तित करें।
 
-## **सम्पादन बिंदुओं का उपयोग करके आकृति बदलें**
+## **संपादन बिंदुओं का उपयोग करके आकार बदलें**
 
-एक वर्ग को मान लीजिए। PowerPoint में, **सम्पादन बिंदुओं** का उपयोग करके आप
-* वर्ग के कोने को अंदर या बाहर ले जा सकते हैं
-* किसी कोने या बिंदु की वक्रता निर्दिष्ट कर सकते हैं
-* वर्ग में नए बिंदु जोड़ सकते हैं
-* वर्ग के बिंदुओं को हेरफेर कर सकते हैं, आदि
+PowerPoint में आप **संपादन बिंदुओं** का उपयोग करके एक वर्ग को संशोधित कर सकते हैं:
 
-वास्तव में, आप इन वर्णित कार्यों को किसी भी आकृति पर कर सकते हैं। सम्पादन बिंदुओं का उपयोग करके आप एक आकृति को बदल सकते हैं या मौजूदा आकृति से नई आकृति बना सकते हैं।
+* कोने को अंदर या बाहर ले जाएँ।
+* बिंदु पर वक्रता को समायोजित करें।
+* नए बिंदु जोड़ें।
 
-## **आकृति संपादन युक्तियाँ**
+बिंदुओं को संपादित करने से आप एक आकार की रूपरेखा को बदल सकते हैं या किसी मौजूदा आकार को नए आकार के आधार के रूप में उपयोग कर सकते हैं।
+
+## **आकार संपादन टिप्स**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint आकृतियों को सम्पादन बिंदुओं के माध्यम से संपादित करना शुरू करने से पहले, आप इन बिंदुओं पर विचार करना चाहेंगे:
-* एक आकृति (या उसकी पाथ) बंद या खुली हो सकती है।
-* जब आकृति बंद होती है, तो उसमें कोई प्रारंभ या समाप्त बिंदु नहीं होता। जब आकृति खुली होती है, तो उसके पास एक शुरुआत और अंत होता है।
-* सभी आकृतियों में कम से कम 2 एंकर बिंदु होते हैं जो रेखाओं द्वारा एक-दूसरे से जुड़े होते हैं।
-* एक रेखा या तो सीधी होती है या वक्र। एंकर बिंदु रेखा की प्रकृति निर्धारित करते हैं।
-* एंकर बिंदु कोने के बिंदु, सीधे बिंदु, या सुगम बिंदु के रूप में मौजूद होते हैं:
-  * कोना बिंदु वह बिंदु है जहाँ 2 सीधी रेखाएँ कोण पर जुड़ती हैं।
-  * सुगम बिंदु वह बिंदु है जहाँ 2 हैंडल सीधी रेखा में होते हैं और रेखा के खण्ड एक सुगम वक्र में जुड़ते हैं। इस स्थिति में, सभी हैंडल एंकर बिंदु से समान दूरी पर होते हैं।
-  * सीधा बिंदु वह बिंदु है जहाँ 2 हैंडल सीधी रेखा में होते हैं और उस रेखा के खण्ड एक सुगम वक्र में जुड़ते हैं। इस स्थिति में, हैंडल को एंकर बिंदु से समान दूरी पर होने की आवश्यकता नहीं होती।
-* एंकर बिंदुओं को स्थानांतरित या संपादित करके (जो रेखाओं के कोण को बदलता है), आप आकृति की उपस्थिति बदल सकते हैं।
+PowerPoint आकारों को संपादित करते समय निम्नलिखित अवधारणाओं को ध्यान में रखें:
 
-PowerPoint आकृतियों को सम्पादन बिंदुओं के माध्यम से संपादित करने के लिए, **Aspose.Slides** [**GeometryPath**](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) क्लास प्रदान करता है।
+* एक आकार (या उसका पाथ) बंद या खुला दोनों हो सकता है।
+* एक आकार का पाथ एंकर बिंदुओं और खंडों (segments) से बना होता है।
+* एक खंड सीधा या वक्र हो सकता है। एंकर बिंदु और नियंत्रण हैण्डल इसकी आकृति निर्धारित करते हैं।
+* एंकर बिंदु कोने वाले बिंदु, सीधा बिंदु, या स्मूद बिंदु हो सकते हैं:
+  * कोने वाले बिंदु पर, आसन्न खंड एक कोण पर मिल सकते हैं।
+  * स्मूद बिंदु पर, दो नियंत्रण हैण्डल संरेखित होते हैं और एंकर बिंदु से समान दूरी पर होते हैं।
+  * सीधा बिंदु पर, दो नियंत्रण हैण्डल संरेखित होते हैं लेकिन एंकर बिंदु से विभिन्न दूरी पर हो सकते हैं।
+* एंकर बिंदुओं को ले जाकर या उनके हैंडल को समायोजित करके आप आकार की रूपरेखा बदलते हैं।
 
-* एक [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) उदाहरण [GeometryShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryShape) ऑब्जेक्ट की ज्यामिति पाथ का प्रतिनिधित्व करता है।
-* `GeometryPath` को `GeometryShape` उदाहरण से प्राप्त करने के लिए आप [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryShape#getGeometryPaths--) मेथड का उपयोग कर सकते हैं।
-* एक आकृति के लिए `GeometryPath` सेट करने के लिए आप ये मेथड उपयोग कर सकते हैं: ठोस आकृतियों के लिए [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryShape#setGeometryPath-aspose.slides.IGeometryPath-) और सम्मिलित आकृतियों के लिए [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryShape#setGeometryPaths-aspose.slides.IGeometryPath:A-)।
-* सेगमेंट जोड़ने के लिए आप [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) के अंतर्गत मेथड्स का उपयोग कर सकते हैं।
-* [GeometryPath.setStroke](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath#setStroke-boolean-) और [GeometryPath.setFillMode](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath#setFillMode-byte-) मेथड्स का उपयोग करके आप ज्यामिति पाथ की उपस्थिति सेट कर सकते हैं।
-* [GeometryPath.getPathData](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath#getPathData--) मेथड का उपयोग करके आप `GeometryShape` की ज्यामिति पाथ को पाथ सेगमेंट्स की एरे के रूप में प्राप्त कर सकते हैं।
-* अतिरिक्त आकृति ज्यामिति कस्टमाइज़ेशन विकल्पों तक पहुंचने के लिए आप [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) को [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) में रूपांतरण कर सकते हैं।
-* [geometryPathToGraphicsPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeUtil#geometryPathToGraphicsPath-aspose.slides.IGeometryPath-) और [graphicsPathToGeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) मेथड्स ( [ShapeUtil](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeUtil) क्लास से) का उपयोग करके आप [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) को [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) में और वापस रूपांतरित कर सकते हैं।
+PowerPoint आकारों को संपादन बिंदुओं के माध्यम से संपादित करने के लिए **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) क्लास प्रदान करता है।
 
-## **सरल संपादन संचालन**
+* एक [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) इंस्टेंस [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) ऑब्जेक्ट की जियोमेट्री पाथ को दर्शाता है।
+* [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) मेथड का उपयोग करके आप [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) इंस्टेंस से [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) प्राप्त कर सकते हैं।
+* किसी आकार के लिए [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) सेट करने के लिए आप ये मेथड उपयोग कर सकते हैं: एकल पाथ वाले आकारों के लिए [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) और बहु‑पाथ वाले आकारों के लिए [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths)।
+* खंड जोड़ने के लिए आप [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) के तहत उपलब्ध मेथड उपयोग कर सकते हैं।
+* [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) और [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) मेथड का उपयोग करके आप जियोमेट्री पाथ की उपस्थिति सेट कर सकते हैं।
+* [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) मेथड का उपयोग करके आप [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) की जियोमेट्री पाथ को पाथ खंडों की एरे के रूप में प्राप्त कर सकते हैं।
+* अतिरिक्त shape जियोमेट्री कस्टमाइज़ेशन विकल्पों तक पहुँचने के लिए आप एक [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) को उसके [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) के माध्यम से पढ़ सकते हैं और खंडों को एक [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) पर पुनः चलाकर लागू कर सकते हैं।
 
-यह JavaScript कोड आपको दिखाता है कि कैसे
-**लाइन जोड़ें** पाथ के अंत में
-```javascript
-lineTo(point);
-lineTo(x, y);
-```
-**लाइन जोड़ें** पाथ पर निर्दिष्ट स्थान पर:
-```javascript
-lineTo(point, index);
-lineTo(x, y, index);
-```
-**क्यूबिक Bezier वक्र जोड़ें** पाथ के अंत में:
-```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
-```
-**क्यूबिक Bezier वक्र जोड़ें** पाथ पर निर्दिष्ट स्थान पर:
-```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
-```
-**क्वाड्रेटिक Bezier वक्र जोड़ें** पाथ के अंत में:
-```javascript
-quadraticBezierTo(point1, point2);
-quadraticBezierTo(x1, y1, x2, y2);
-```
-**क्वाड्रेटिक Bezier वक्र जोड़ें** पाथ पर निर्दिष्ट स्थान पर:
-```javascript
-quadraticBezierTo(point1, point2, index);
-quadraticBezierTo(x1, y1, x2, y2, index);
-```
-**दिए गए आर्क को जोड़ें** पाथ में:
-```javascript
-arcTo(width, heigth, startAngle, sweepAngle);
-```
-**पाथ की वर्तमान आकृति बंद करें**:
-```javascript
-closeFigure();
-```
-**अगले बिंदु की स्थिति सेट करें**:
-```javascript
-moveTo(point);
-moveTo(x, y);
-```
-**दिए गए इंडेक्स पर पाथ सेगमेंट हटाएँ**:
-```javascript
-removeAt(index);
-```
+## **सरल संपादन ऑपरेशन**
 
-## **आकृति में कस्टम बिंदु जोड़ें**
+जियोमेट्री पाथ को संपादित करने के लिए नीचे दिए गए मेथड का उपयोग करें। ओवरलोड जो एक इंडेक्स स्वीकार करते हैं, वह पाथ के खंड एरे में शून्य‑आधारित स्थिति पर खंड को सम्मिलित करते हैं।
 
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryShape) क्लास का उदाहरण बनाएं और [ShapeType.Rectangle](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeType) प्रकार सेट करें।
-2. आकृति से [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) क्लास का एक उदाहरण प्राप्त करें।
-3. पाथ के दो शीर्ष बिंदुओं के बीच एक नया बिंदु जोड़ें।
-4. पाथ के दो निचले बिंदुओं के बीच एक नया बिंदु जोड़ें।
-5. पाथ को आकृति पर लागू करें।
+| ऑपरेशन | विधि |
+| --- | --- |
+| सीधी रेखा जोड़ें या सम्मिलित करें। | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
+| दो नियंत्रण बिंदुओं और एक अंत बिंदु के साथ क्यूबिक Bézier वक्र जोड़ें या सम्मिलित करें। | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| एक नियंत्रण बिंदु और एक अंत बिंदु के साथ क्वाड्रेटिक Bézier वक्र जोड़ें या सम्मिलित करें। | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| निर्दिष्ट आयाम और डिग्री में कोणों के साथ दीर्घवृतीय चाप जोड़ें। | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
+| वर्तमान फ़िगर को उसके अंत बिंदु को प्रारंभ बिंदु से जोड़कर बंद करें। | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
+| फ़िगर का प्रारंभ बिंदु सेट करें। | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
+| शून्य‑आधारित इंडेक्स पर खंड हटाएँ। | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
 
-यह JavaScript कोड आपको दिखाता है कि कैसे एक आकृति में कस्टम बिंदु जोड़े जाएँ:
+## **आकार में कस्टम बिंदु जोड़ें**
+
+यह उदाहरण दो बिंदु एक आयताकार आकार में [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) का उपयोग करके सम्मिलित करता है और संपादित पाथ को [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) द्वारा लागू करता है। समन्वय आकार के सापेक्ष स्थानीय होते हैं: दोनों नए बिंदु आकार के केंद्र में हैं, बाएँ से 100 पॉइंट और ऊपर से 50 पॉइंट पर। खंड इंडेक्स 1 और 4 उन्हें क्रमशः शीर्ष और निचले किनारों पर रखते हैं, जिससे वे किनारे अंदर की ओर खींचे जाते हैं।
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
-    var geometryPath = shape.getGeometryPaths()[0];
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## **आकृति से बिंदु हटाएँ**
+## **आकार से बिंदु हटाएँ**
 
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryShape) क्लास का उदाहरण बनाएं और [ShapeType.Heart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeType) प्रकार सेट करें।
-2. आकृति से [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) क्लास का एक उदाहरण प्राप्त करें।
-3. पाथ के लिए सेगमेंट हटाएँ।
-4. पाथ को आकृति पर लागू करें।
+यह उदाहरण [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) के साथ शून्य‑आधारित इंडेक्स 2 पर खंड हटाकर हार्ट‑शेप रूपरेखा को बदलता है। संशोधित पाथ को [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) द्वारा लागू करने से आकार की रूपरेखा अपडेट हो जाती है।
 
-यह JavaScript कोड आपको दिखाता है कि कैसे एक आकृति से बिंदु हटाए जाएँ:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Heart, 100, 100, 300, 300);
-    var path = shape.getGeometryPaths()[0];
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Heart, 100, 100, 300, 300);
+
+    const path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 ![example2_image](custom_shape_2.png)
 
-## **कस्टम आकृति बनाएँ**
+## **कस्टम आकार बनाना**
 
-1. आकृति के बिंदुओं की गणना करें।
-2. [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) क्लास का एक उदाहरण बनाएं।
-3. बिंदुओं से पाथ भरें।
-4. [GeometryShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryShape) क्लास का एक उदाहरण बनाएं।
-5. पाथ को आकृति पर लागू करें।
+यह उदाहरण [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) का उपयोग करके पाँच‑कोणीय स्टार बनाता है। बाहरी और आंतरिक त्रिज्या क्रमशः 100 और 50 पॉइंट के वैकल्पिक मान टिप्स और इंडेंटेशन को परिभाषित करते हैं; 72‑डिग्री का चरण पाँच टिप्स को समान रूप से वितरित करता है। पाथ को [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) द्वारा बंद किया जाता है और [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) से एक आयताकार आकार पर लागू किया जाता है, जिससे उसकी रूपरेखा बदल जाती है।
 
-यह JavaScript आपको दिखाता है कि कैसे एक कस्टम आकृति बनाई जाए:
 ```javascript
-var points = java.newInstanceSync("java.util.ArrayList");
-var R = 100;
-var r = 50;
-var step = 72;
-for (var angle = -90; angle < 270; angle += step) {
-    var radians = angle * (java.getStaticFieldValue("java.lang.Math", "PI") / 180.0);
-    var x = R * java.callStaticMethodSync("java.lang.Math", "cos", radians);
-    var y = R * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-    points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
-    radians = (java.getStaticFieldValue("java.lang.Math", "PI") * (angle + (step / 2))) / 180.0;
-    x = r * java.callStaticMethodSync("java.lang.Math", "cos", radians);
-    y = r * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-    points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const points = [];
+const outerRadius = 100;
+const innerRadius = 50;
+const angleStep = 72;
+
+for (let angle = -90; angle < 270; angle += angleStep) {
+    let radians = angle * Math.PI / 180;
+    points.push({ x: outerRadius * Math.cos(radians) + outerRadius, y: outerRadius * Math.sin(radians) + outerRadius });
+    radians = (angle + angleStep / 2) * Math.PI / 180;
+    points.push({ x: innerRadius * Math.cos(radians) + outerRadius, y: innerRadius * Math.sin(radians) + outerRadius });
 }
-var starPath = new aspose.slides.GeometryPath();
-starPath.moveTo(points.get(0));
-for (var i = 1; i < points.size(); i++) {
-    starPath.lineTo(points.get(i));
+
+const starPath = new slides.GeometryPath();
+starPath.moveTo(java.newFloat(points[0].x), java.newFloat(points[0].y));
+for (let i = 1; i < points.length; i++) {
+    starPath.lineTo(java.newFloat(points[i].x), java.newFloat(points[i].y));
 }
 starPath.closeFigure();
-var pres = new aspose.slides.Presentation();
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 ![example3_image](custom_shape_3.png)
 
-## **समुच्चय कस्टम आकृति बनाएँ**
+## **संयुक्त कस्टम आकार बनाना**
 
-  1. [GeometryShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryShape) क्लास का एक उदाहरण बनाएं।
-  2. [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) क्लास का पहला उदाहरण बनाएं।
-  3. [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) क्लास का दूसरा उदाहरण बनाएं।
-  4. पाथ को आकृति पर लागू करें।
+यह उदाहरण एक आकार के ऊपर और नीचे के तिहाई भागों के लिए दो बंद [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) ऑब्जेक्ट परिभाषित करता है। दोनों पाथ को [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) के साथ लागू करने से मध्य तिहाई में एक अंतर के साथ एक एकल सम्मिलित आकार बनता है।
 
-यह JavaScript कोड आपको दिखाता है कि कैसे एक समुच्चय कस्टम आकृति बनाई जाए:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
-    var geometryPath0 = new aspose.slides.GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight() / 3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
-    var geometryPath1 = new aspose.slides.GeometryPath();
-    geometryPath1.moveTo(0, (shape.getHeight() / 3) * 2);
-    geometryPath1.lineTo(shape.getWidth(), (shape.getHeight() / 3) * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
-    shape.setGeometryPaths(java.newArray("com.aspose.slides.GeometryPath",[geometryPath0, geometryPath1]));
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const topPath = new slides.GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), java.newFloat(shape.getHeight() / 3));
+    topPath.lineTo(0, java.newFloat(shape.getHeight() / 3));
+    topPath.closeFigure();
+
+    const bottomPath = new slides.GeometryPath();
+    bottomPath.moveTo(0, java.newFloat(shape.getHeight() / 3 * 2));
+    bottomPath.lineTo(shape.getWidth(), java.newFloat(shape.getHeight() / 3 * 2));
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    const paths = java.newArray("com.aspose.slides.GeometryPath", [topPath, bottomPath]);
+    shape.setGeometryPaths(paths);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 ![example4_image](custom_shape_4.png)
 
-## **वक्र कोनों के साथ कस्टम आकृति बनाएँ**
+## **वक्र कोनों वाले कस्टम आकार बनाना**
 
-यह JavaScript कोड आपको दिखाता है कि कैसे वक्र कोनों (अंदर की ओर) के साथ कस्टम आकृति बनाई जाए;
+यह उदाहरण सीधी खंडों को [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) के साथ मिलाकर अंतर्मुख‑वक्र कोनों वाला आकार बनाता है। प्रत्येक कोने का आकार आर्क की चौड़ाई और ऊँचाई को पॉइंट में सेट करता है, और -90‑डिग्री का स्वीप एक प्रतिक्लॉकवाइज क्वार्टर एलीप्स बनाता है। पूर्ण पाथ को [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) द्वारा लागू किया जाता है, और प्रस्तुति को PPTX प्रारूप में सहेजा जाता है।
+
 ```javascript
-var shapeX = 20.0;
-var shapeY = 20.0;
-var shapeWidth = 300.0;
-var shapeHeight = 200.0;
-var leftTopSize = 50.0;
-var rightTopSize = 20.0;
-var rightBottomSize = 40.0;
-var leftBottomSize = 10.0;
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const shapeX = 20;
+const shapeY = 20;
+const shapeWidth = 300;
+const shapeHeight = 200;
+
+const leftTopSize = 50;
+const rightTopSize = 20;
+const rightBottomSize = 40;
+const leftBottomSize = 10;
+
+const presentation = new slides.Presentation();
 try {
-    var childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
-    var geometryPath = new aspose.slides.GeometryPath();
-    var point1 = java.newInstanceSync("com.aspose.slides.Point2DFloat", leftTopSize, 0);
-    var point2 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth - rightTopSize, 0);
-    var point3 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = java.newInstanceSync("com.aspose.slides.Point2DFloat", leftBottomSize, shapeHeight);
-    var point5 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 0, leftTopSize);
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    const geometryPath = new slides.GeometryPath();
+    geometryPath.moveTo(leftTopSize, 0);
+    geometryPath.lineTo(shapeWidth - rightTopSize, 0);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(shapeWidth, shapeHeight - rightBottomSize);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(leftBottomSize, shapeHeight);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(0, leftTopSize);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
     geometryPath.closeFigure();
-    childShape.setGeometryPath(geometryPath);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    shape.setGeometryPath(geometryPath);
+
+    presentation.save("output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **जाँचें कि क्या आकृति की ज्यामिति बंद है**
+## **जाँचें कि क्या आकार जियोमेट्री बंद है**
 
-एक बंद आकृति वह होती है जहाँ इसकी सभी पक्ष आपस में जुड़े होते हैं, जिससे कोई गैप नहीं रहता और एक एकल सीमा बनती है। ऐसी आकृति सरल ज्यामितीय रूप हो सकती है या जटिल कस्टम रूपरेखा। निम्नलिखित कोड उदाहरण दिखाता है कि कैसे जांचें कि आकृति की ज्यामिति बंद है या नहीं:
-```java
-function isGeometryClosed(geometryShape) 
-{
-    let isClosed = null;
+निम्नलिखित हेल्पर यह जाँचता है कि क्या प्रत्येक गैर‑खाली जियोमेट्री पाथ एक बंद खंड के साथ समाप्त होती है। यह [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) पढ़ता है और अंतिम खंड के [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) की तुलना [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/) से करता है। जब कोई गैर‑खाली पाथ नहीं होती तो यह false लौटाता है। यह प्रत्येक पाथ के अंतिम कमांड की जाँच करता है; यह पाथ के भीतर प्रत्येक उप‑फ़िगर की जाँच नहीं करता। उदाहरण में यह आयत के लिए `true` प्रिंट करता है।
 
-    geometryShape.getGeometryPaths().forEach(geometryPath => {
-        const pathData = geometryPath.getPathData();
-        const dataLength = pathData.length;
-
-        if (dataLength === 0) return;
-
-        const lastSegment = pathData[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() === aspose.slides.PathCommandType.Close;
-
-        if (!isClosed) return false;
-    });
-
-    return isClosed === true;
-}
-```
-
-## **GeometryPath को java.awt.Shape में रूपांतरित करें**
-
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryShape) क्लास का उदाहरण बनाएं।
-2. [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) क्लास का एक उदाहरण बनाएं।
-3. [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) उदाहरण को [GeometryPath](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/GeometryPath) उदाहरण में [ShapeUtil](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/ShapeUtil) का उपयोग करके रूपांतरित करें।
-4. पाथ को आकृति पर लागू करें।
-
-यह JavaScript कोड—ऊपर बताए गए चरणों का कार्यान्वयन—**GeometryPath** से **GraphicsPath** रूपांतरण प्रक्रिया को दर्शाता है:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+function isGeometryClosed(geometryShape) {
+    let hasNonemptyPath = false;
+    for (const geometryPath of geometryShape.getGeometryPaths()) {
+        const segments = geometryPath.getPathData();
+        if (segments.length === 0) {
+            continue;
+        }
+        hasNonemptyPath = true;
+        const lastSegment = segments[segments.length - 1];
+        if (lastSegment.getPathCommand() !== slides.PathCommandType.Close) {
+            return false;
+        }
+    }
+    return hasNonemptyPath;
+}
+
+const presentation = new slides.Presentation();
 try {
-    // नई आकृति बनाएं
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 100);
-    // आकृति का ज्यामिति पाथ प्राप्त करें
-    var originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(aspose.slides.PathFillModeType.None);
-    // टेक्स्ट के साथ नई ग्राफ़िक्स पाथ बनाएं
-    var graphicsPath;
-    var font = java.newInstanceSync("java.awt.Font", "Arial", java.getStaticFieldValue("java.awt.Font", "PLAIN"), 40);
-    var text = "Text in shape";
-    var img = java.newInstanceSync("BufferedImage", 100, 100, java.getStaticFieldValue("BufferedImage", "TYPE_INT_ARGB"));
-    var g2 = img.createGraphics();
-    try {
-        var glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20.0, -glyphVector.getVisualBounds().getY() + 10);
-    } finally {
-        g2.dispose();
-    }
-    // ग्राफ़िक्स पाथ को ज्यामिति पाथ में बदलें
-    var textPath = aspose.slides.ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(aspose.slides.PathFillModeType.Normal);
-    // नई ज्यामिति पाथ और मूल ज्यामिति पाथ के संयोजन को आकृति पर सेट करें
-    shape.setGeometryPaths(java.newArray("com.aspose.slides.IGeometryPath", [originalPath, textPath]));
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const closed = isGeometryClosed(shape);
+    console.log(closed);
 } finally {
-    if (pres != null) {
-        pres.dispose();
+    presentation.dispose();
+}
+```
+
+## **आकार तत्वों को निकालें और निरीक्षण करें**
+
+एक मौजूदा आकार को तत्वों के रूप में निरीक्षण करने के लिए आप [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) का उपयोग कर सकते हैं, जहाँ प्रत्येक तत्व में पाथ बिंदु और बिंदु प्रकार होते हैं। प्रत्येक लौटाए गये [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) को [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) और [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes) मेथड के माध्यम से बिंदु और प्रकार एरे प्राप्त होते हैं। यह प्रतिनिधित्व कंटूर विश्लेषण या कस्टम ड्रॉइंग टूल्स को जियोमेट्री पास करने के लिए उपयोगी है।
+
+उदाहरण input.pptx को खोलता है, पहले स्लाइड पर पहले जियोमेट्री शैप को ढूँढता है, और उसके पाथ खंडों को प्रिंट करता है। ऐसी प्रस्तुति का उपयोग करें जिसमें आकार में सीधी और वक्र दोनों खंड हों ताकि दोनों प्रकार का आउटपुट देखा जा सके। यह समूहों के भीतर नहीं खोजता।
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let shape = null;
+    for (let index = 0; index < slide.getShapes().size(); index++) {
+        const candidate = slide.getShapes().get_Item(index);
+        if (java.instanceOf(candidate, "com.aspose.slides.GeometryShape")) {
+            shape = candidate;
+            break;
+        }
     }
+
+    if (shape == null) {
+        console.log("No geometry shape found on the first slide.");
+    } else {
+        for (const shapeElement of shape.createShapeElements()) {
+            const points = shapeElement.getPathPoints();
+            const types = shapeElement.getPathTypes();
+            console.log("Shape element:");
+
+            for (let i = 0; i < points.length; i++) {
+                const pointType = types[i] & 0x07; // Keep the segment type, excluding flags.
+                switch (pointType) {
+                    case 0:
+                        console.log("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        console.log("Line to " + points[i]);
+                        break;
+                    case 3:
+                        console.log("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    console.log("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+एरे इंडेक्स के अनुसार मेल खाते हैं: `points[i]` एक बिंदु है और `types[i]` उसकी भूमिका वर्णित करता है। प्रकार `0` एक फ़िगर की शुरुआत दर्शाता है, और प्रकार `1` पिछले बिंदु से वर्तमान बिंदु तक लाइन खींचता है। एक क्यूबिक Bézier खंड पिछले अंत बिंदु से शुरू होता है और तीन क्रमिक प्रकार‑`3` प्रविष्टियों का उपयोग करता है: दो नियंत्रण बिंदु और नया अंत बिंदु। लूप इन तीन प्रविष्टियों को साथ में उपभोग करता है और बंद होने के लिए अंत बिंदु की जाँच करता है।
+
+बिंदु प्रकारों में फ़्लैग भी होते हैं। `0x07` के साथ मास्क करके खंड प्रकार पहचाना जाता है, और `0x80` को अलग से परीक्षण करके बंद सब‑पाथ पाया जाता है। उदाहरण के लिये, `129` (`0x81`) का अर्थ है एक लाइन अंत बिंदु जो सब‑पाथ को बंद करता है, और `131` (`0x83`) का अर्थ है एक Bézier अंत बिंदु जो बंद करता है। Java इन फ़्लैग को साइन‑ड बाइट में संग्रहीत करता है; मास्किंग मूल बिट मानों को बरकरार रखती है। केवल `1` या `3` के साथ कच्चे मान की तुलना करने से ये मामलों छूट जाएंगे। अन्य फ़्लैग, जैसे डैश (`0x10`) और मार्कर (`0x20`), बेस खंड प्रकार को नहीं बदलते।
+
+**समन्वय और रूपांतरण।** बिंदु पॉइंट में मापे जाते हैं (1/72 इंच), जहाँ X दाएँ बढ़ता है और Y नीचे की ओर। अन‑ग्रुप्ड आकार के लिए निकाले गए समन्वय पहले से ही [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) और [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) द्वारा लौटाए गये स्थिति को शामिल करते हैं और उसकी वर्तमान चौड़ाई व ऊँचाई को दर्शाते हैं। उदाहरण के लिये, `(100, 200)` पर स्थित, `120 × 80` आकार वाला अन‑रोटे़टेड आयत का कंटूर बाउंड `(100, 200)`–`(220, 280)` है। आकार की स्थिति को फिर से जोड़ने की आवश्यकता नहीं। उसके X और Y को घटाकर वह बिंदु प्राप्त करें जो अन‑रोटे़टेड फ्रेम के सापेक्ष हों।
+
+निकाले गए बिंदु [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation) द्वारा लौटाए गये घुमाव या क्षैतिज/लंबवत फ्लिप को लागू नहीं करते। प्रदर्शित कंटूर को पुनः उत्पन्न करने के लिए इन रूपांतरणों को आकार के केंद्र के चारों ओर लागू करें। समूहित आकारों के लिए, समूह समन्वय मैपिंग और रूपांतरणों को भी ध्यान में रखें; यह मान न बनें कि निकाले गए बिंदु अंतिम रेंडर किए गये स्लाइड समन्वय हैं या यदि वह पहले ही बच्चे के फ्रेम में परिलक्षित है तो अनावश्यक रूप से अनुवाद या स्केल दोहराएँ नहीं।
+
+**जाँच बनाम संपादन।** निकाले गये एरे केवल कंटूर का वर्णन करते हैं; उन्हें बदलने से मूल आकार अपडेट नहीं होता। जब आपके विश्लेषण या ड्रॉइंग कोड को बिंदु/प्रकार एरे की आवश्यकता हो तो इस विधि को चुनें। जब आपको आकार की स्थानीय समन्वय प्रणाली में जियोमेट्री कमांड चाहिए या जियोमेट्री को संपादित करना हो तो [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) उपयोग करें। संपादित पाथ को [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) या [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) द्वारा लागू करें।
+
+## **Java AWT Shape को GeometryPath में परिवर्तित करें**
+
+यह उदाहरण एक आयताकार रूपरेखा को टेक्स्ट के साथ मिलाता है जिसे जियोमेट्री में परिवर्तित किया गया है। रूपरेखा का [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) मेथड उसकी भराई को निष्क्रिय करता है। एक [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) एक [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) में टेक्स्ट रूपरेखा बनाता है। उसका [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) मूव, लाइन, क्वाड्रेटिक, क्यूबिक, और क्लोज़िंग खंड प्रदान करता है, जिन्हें उदाहरण एक [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) पर पुनः चलाता है।
+
+Java ब्रीज संबंधित Java पैरामीटर के लिये स्पष्ट फ़्लोट और बाइट मान उपयोग करता है। इटेरेटर निर्देशांक को एक Java फ़्लोट एरे में लिखता है; रिफ्लेक्शन उसके अपडेटेड मानों को वापस JavaScript में पढ़ता है। टेक्स्ट 40‑पॉइंट Arial फ़ॉन्ट में है। रूपरेखा को क्षैतिज रूप से 20 पॉइंट शिफ्ट किया गया है और दृश्य शीर्ष से 10 पॉइंट नीचे shape की शीर्ष किनारे पर स्थित किया गया है। टेक्स्ट पाथ को भरा गया है, जबकि मूल आयत रूपरेखा बनी रहती है। दोनों पाथ को [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) के साथ लागू करने से एकल आकार बनता है जिसमें आयत और टेक्स्ट दोनों शामिल होते हैं।
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 300, 100);
+    
+    const originalPath = shape.getGeometryPaths()[0];
+    originalPath.setFillMode(java.newByte(slides.PathFillModeType.None));
+
+    const font = java.newInstanceSync("java.awt.Font", "Arial", java.getStaticFieldValue("java.awt.Font", "PLAIN"), 40);
+    const image = java.newInstanceSync("java.awt.image.BufferedImage", 100, 100, java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
+    const graphics = image.createGraphics();
+    let graphicsPath;
+    try {
+        const fontContext = graphics.getFontRenderContext();
+        const glyphVector = font.createGlyphVector(fontContext, "Text in shape");
+        const textBounds = glyphVector.getVisualBounds();
+        const baseline = java.newFloat(-textBounds.getY() + 10);
+        graphicsPath = glyphVector.getOutline(java.newFloat(20), baseline);
+    } finally {
+        graphics.dispose();
+    }
+
+    const textPath = new slides.GeometryPath();
+    const pathIterator = graphicsPath.getPathIterator(null);
+    const coordinates = java.newArray("float", [0, 0, 0, 0, 0, 0]);
+
+    while (!pathIterator.isDone()) {
+        const segmentType = pathIterator.currentSegment(coordinates);
+        const points = [];
+        for (let i = 0; i < 6; i++) {
+            const coordinate = java.callStaticMethodSync("java.lang.reflect.Array", "getFloat", coordinates, i);
+            points.push(java.newFloat(coordinate));
+        }
+        switch (segmentType) {
+            case 0: // स्थानांतरित करें।
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case 1: // रेखा तक।
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case 2: // क्वाड्रेटिक बीज़ियर वक्र।
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case 3: // क्यूबिक बीज़ियर वक्र।
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case 4: // फ़िगर बंद करें।
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+    textPath.setFillMode(java.newByte(slides.PathFillModeType.Normal));
+    const paths = java.newArray("com.aspose.slides.GeometryPath", [originalPath, textPath]);
+    shape.setGeometryPaths(paths);
+} finally {
+    presentation.dispose();
 }
 ```
 ![example5_image](custom_shape_5.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**ज्यामिति बदलने के बाद भराव और रूपरेखा के साथ क्या होगा?**
+**जियोमेट्री को बदलने के बाद भराव और रूपरेखा क्या होगी?**
 
-शैली आकृति के साथ रहती है; केवल रूपरेखा बदलती है। भराव और रूपरेखा स्वचालित रूप से नई ज्यामिति पर लागू हो जाते हैं।
+स्टाइल आकार के साथ बना रहता है; केवल कंटूर बदलती है। भराव और रूपरेखा स्वचालित रूप से नई जियोमेट्री पर लागू हो जाती हैं।
 
-**मैं कस्टम आकृति को उसकी ज्यामिति के साथ सही ढंग से कैसे घुमा सकता हूँ?**
+**कस्टम आकार को उसकी जियोमेट्री के साथ सही तरीके से कैसे घुमाएँ?**
 
-आकृति के [setRotation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/setrotation/) मेथड का उपयोग करें; ज्यामिति आकृति के साथ घुमती है क्योंकि यह आकृति के अपने समन्वय प्रणाली से बंधी होती है।
+आकार की [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) मेथड का उपयोग करें; जियोमेट्री आकार के साथ घुमती है क्योंकि यह आकार के अपने समन्वय प्रणाली से बंधी होती है।
 
-**क्या मैं कस्टम आकृति को एक छवि में रूपांतरित करके परिणाम को "लॉक" कर सकता हूँ?**
+**क्या मैं कस्टम आकार को एक इमेज में परिवर्तित कर "लॉक इन" कर सकता हूँ?**
 
-हाँ। आवश्यक [slide](/slides/hi/nodejs-java/convert-powerpoint-to-png/) क्षेत्र या स्वयं [shape](/slides/hi/nodejs-java/create-shape-thumbnails/) को रास्टर फ़ॉर्मेट में निर्यात करें; यह भारी ज्यामितियों के साथ आगे के काम को सरल बनाता है।
+हाँ। आवश्यक [slide](/slides/hi/nodejs-java/convert-powerpoint-to-png/) क्षेत्र या स्वयं [shape](/slides/hi/nodejs-java/create-shape-thumbnails/) को रास्टर फ़ॉर्मेट में निर्यात करें; इससे जटिल जियोमेट्री के साथ आगे के काम को सरल बनाया जा सकता है।

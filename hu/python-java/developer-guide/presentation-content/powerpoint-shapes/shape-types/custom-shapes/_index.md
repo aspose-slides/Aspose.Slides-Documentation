@@ -1,131 +1,86 @@
 ---
-title: Alakzatok testreszabása prezentációkban Pythonon keresztül Java-val
-linktitle: Egyedi alakzat
+title: "Prezentációs alakzatok testreszabása Pythonban Java-n keresztül"
+linktitle: "Egyedi alakzat"
 type: docs
 weight: 20
 url: /hu/python-java/custom-shape/
 keywords:
-- egyedi alakzat
-- alakzat hozzáadása
-- alakzat létrehozása
-- alakzat módosítása
-- alakzat geometria
-- geometriai útvonal
-- útvonal pontok
-- szerkesztési pontok
-- pont hozzáadása
-- pont eltávolítása
-- szerkesztési művelet
-- ívelt sarok
-- PowerPoint
-- prezentáció
-- Python
-- Aspose.Slides
+- "egyedi alakzat"
+- "alakzat hozzáadása"
+- "alakzat létrehozása"
+- "alakzat módosítása"
+- "alakzat geometria"
+- "geometriai útvonal"
+- "útvonal pontok"
+- "szerkesztőpontok"
+- "pont hozzáadása"
+- "pont eltávolítása"
+- "szerkesztési művelet"
+- "ívelt sarok"
+- "PowerPoint"
+- "prezentáció"
+- "Python"
+- "Aspose.Slides"
 description: "Alakzatok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for Python via Java segítségével: geometriai útvonalak, ívelt sarkok, összetett alakzatok."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet testreszabni a prezentációs alakzatokat az Aspose.Slides-ban a forma geometria szerkesztésével szerkesztési pontok és geometriai útvonalak segítségével. Megmutatja, hogyan kell használni a [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) osztályt a meglévő alakzatok módosításához, alapvető útvonal-szerkesztési műveletek végrehajtásához, pontok hozzáadásához vagy eltávolításához, és a frissített geometria alkalmazásához egy alakzatra.
+Ez a cikk bemutatja, hogyan lehet testreszabni a prezentáció alakzatait az Aspose.Slides segítségével a forma geometria szerkesztésével szerkesztőpontok és geometriai útvonalak segítségével. Megmutatja, hogyan lehet a [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) használatával módosítani meglévő alakzatokat, alapvető útvonal-szerkesztési műveleteket végrehajtani, pontokat hozzáadni vagy eltávolítani, és az frissített geometriát visszaalkalmazni egy alakzatra.
 
-Emellett bemutatja, hogyan lehet egyedi és összetett alakzatokat létrehozni, ívelt sarkokkal rendelkező alakzatokat felépíteni, meghatározni, hogy egy alakzat geometria zárt‑e, valamint átalakítani a [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) és a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) között további geometriai testreszabási forgatókönyvekhez.
+Emellett bemutatja, hogyan lehet egyedi és összetett alakzatokat létrehozni, ívelt sarkokkal ellátott alakzatokat építeni, meghatározni, hogy egy forma geometria zárt‑e, vizsgálni a formaelemeket, és a Java AWT szöveg körvonalait geometriai útvonalakká alakítani.
 
-## **Alakzat módosítása szerkesztési pontokkal**
+## **Alakzat módosítása szerkesztőpontokkal**
 
-Vegyünk egy négyzetet. A PowerPointban a **szerkesztési pontok** segítségével:
+PowerPointban a **Szerkesztőpontok** segítségével egy négyzetet módosíthat:
 
-* a négyzet sarkát befelé vagy kifelé mozgathatja
-* megadhatja egy sarok vagy pont görbületét
-* új pontokat adhat a négyzethez
-* manipulálhatja a négyzet pontjait, stb.
+* Egy sarkot be‑ vagy kifelé mozgathat.
+* Egy pont ívének görbületét állíthatja.
+* Új pontokat adhat hozzá.
 
-Alapvetően a leírt feladatokat bármely alakzatra elvégezheti. A szerkesztési pontokkal módosíthat egy alakzatot, vagy egy új alakzatot hozhat létre egy meglévőből.
+A pontok szerkesztése lehetővé teszi egy alakzat körvonalának módosítását, vagy egy meglévő alakzat alapjának felhasználását egy új létrehozásához.
 
-## **Alakzat‑szerkesztési tippek**
+## **Alakzat szerkesztési tippek**
 
 ![overview_image](custom_shape_0.png)
 
-Mielőtt elkezdené a PowerPoint alakzatok szerkesztését szerkesztési pontokkal, vegye figyelembe a következőket az alakzatokkal kapcsolatban:
+PowerPoint‑alakzatok szerkesztésekor tartsa szem előtt a következőket:
 
 * Egy alakzat (vagy annak útvonala) lehet zárt vagy nyitott.
-* Zárt alakzatnál nincs kezdő‑ vagy végpontja. Nyílt alakzat esetén van eleje és vége.
-* Minden alakzat legalább 2 horgonypontból áll, amelyeket vonalak kötnek össze.
-* Egy vonal lehet egyenes vagy íves. A horgonypontok határozzák meg a vonal jellegét.
-* A horgonypontok lehetnek sarokpontok, egyenes pontok vagy sima pontok:
-  * Egy sarokpont az a pont, ahol 2 egyenes vonal találkozik szöggel.
-  * Egy sima pont az a pont, ahol 2 fogantyú egy egyenes vonalban helyezkedik el, és a vonal szegmensek egy sima ívben csatlakoznak. Ebben az esetben minden fogantyú egyenlő távolságra van a horgonyponttól.
-  * Egy egyenes pont az a pont, ahol 2 fogantyú egy egyenes vonalban helyezkedik el, és a vonal szegmensek egy ívben csatlakoznak. Ebben az esetben a fogantyúknek nem kell egyenlő távolságra lenniük a horgonyponttól.
-* A horgonypontok mozgatásával vagy szerkesztésével (amely a vonalak szögét változtatja) megváltoztathatja az alakzat kinézetét.
+* Az alakzat útvonala horgonypontokból áll, amelyeket szegmensek kötnek össze.
+* Egy szegmens lehet egyenes vagy íves. A horgonypontok és a vezérlő fogantyúk határozzák meg alakját.
+* A horgonypontok három típusúak: sarokpont, egyenes pont vagy sima pont:
+  * Sarokpontnál a szomszédos szegmensek szöget zárhatnak be.
+  * Simapontnál a két vezérlő fogantyú egy vonalban van, és azonos távolságra helyezkedik el a horgonyponttól.
+  * Egyenes pontnál a két vezérlő fogantyú egy vonalban van, de távolságuk eltérhet a horgonyponttól.
+* A horgonypontok mozgatása vagy fogantyúik módosítása megváltoztatja az alakzat körvonalát.
 
-A PowerPoint alakzatok szerkesztéséhez **Aspose.Slides** biztosítja a [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) osztályt.
+PowerPoint‑alakzatok szerkesztéséhez szerkesztőpontokkal a **Aspose.Slides** a [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) osztályt biztosítja.
 
-* Egy [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) példány a [GeometryShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/) objektum geometriai útvonalát képviseli.
-* A [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) lekéréséhez a [GeometryShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/) példányból használja a [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/#getGeometryPaths) metódust.
-* Egy alakzat [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) beállításához használja a következő metódusokat: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/#setGeometryPath) *egyszerű alakzatok* esetén és [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/#setGeometryPaths) *összetett alakzatok* esetén.
-* Szegmensek hozzáadásához használja a [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) alatti metódusokat.
-* A [GeometryPath.setStroke](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/#setStroke) és a [GeometryPath.setFillMode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/#setFillMode) metódusokkal beállíthatja a geometriai útvonal megjelenését.
-* A [GeometryPath.getPathData](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/#getPathData) metódussal lekérheti egy [GeometryShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/) geometriai útvonalát útvonal‑szegmensek tömbjeként.
-* További alakzatgeometria testreszabási lehetőségekhez átalakíthatja a [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/)‑t [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)-ra.
-* Használja a [geometryPathToGraphicsPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapeutil/) és a [graphicsPathToGeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapeutil/) metódusokat (a [ShapeUtil](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapeutil/) osztályból) a [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) és a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) közötti átalakításhoz mindkét irányban.
+* Egy [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) példány a [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) objektum geometriai útvonalát képviseli.
+* A [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) lekéréséhez a [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) példányból a [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) metódust használhatja.
+* A [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) beállításához egy alakzatra használja a [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) metódust egyetlen útvonalú alakzatoknál, illetve a [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) metódust több útvonalú alakzatoknál.
+* Szegmensek hozzáadásához a [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) alatti metódusokat használhatja.
+* A [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) és a [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) metódusokkal beállíthatja a geometriai útvonal megjelenését.
+* A [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) metódus segítségével egy [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) útvonaladatait tömbként kaphatja meg.
+* További forma‑geometria testreszabási lehetőségekhez a [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) objektumot a [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) segítségével olvashatja, és a szegmenseket egy [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)‑re “újrajátszhatja”.
 
 ## **Egyszerű szerkesztési műveletek**
 
-Az alábbi aláírások mutatják az alapvető szerkesztési műveleteket:
+Használja az alábbi metódusokat egy geometriai útvonal szerkesztéséhez. Az indexet elfogadó felülírások a szegmens‑tömbben a megadott nullán‑induló pozícióba szúrják be a szegmenst.
 
-**Vonal hozzáadása** az útvonal végéhez:
-
-- `geometry_path.lineTo(point)`
-- `geometry_path.lineTo(x, y)`
-
-**Vonal hozzáadása** egy megadott pozícióhoz az útvonalon:
-
-- `geometry_path.lineTo(point, index)`
-- `geometry_path.lineTo(x, y, index)`
-
-**Köbös Bézier‑görbe hozzáadása** az útvonal végéhez:
-
-- `geometry_path.cubicBezierTo(point1, point2, point3)`
-- `geometry_path.cubicBezierTo(x1, y1, x2, y2, x3, y3)`
-
-**Köbös Bézier‑görbe hozzáadása** egy megadott pozícióhoz az útvonalon:
-
-- `geometry_path.cubicBezierTo(point1, point2, point3, index)`
-- `geometry_path.cubicBezierTo(x1, y1, x2, y2, x3, y3, index)`
-
-**Kvadratikus Bézier‑görbe hozzáadása** az útvonal végéhez:
-
-- `geometry_path.quadraticBezierTo(point1, point2)`
-- `geometry_path.quadraticBezierTo(x1, y1, x2, y2)`
-
-**Kvadratikus Bézier‑görbe hozzáadása** egy megadott pozícióhoz az útvonalon:
-
-- `geometry_path.quadraticBezierTo(point1, point2, index)`
-- `geometry_path.quadraticBezierTo(x1, y1, x2, y2, index)`
-
-**Megadott ív hozzáfűzése** az útvonalhoz:
-
-- `geometry_path.arcTo(width, height, start_angle, sweep_angle)`
-
-**Az aktuális alakzat bezárása** az útvonalon:
-
-- `geometry_path.closeFigure()`
-
-**A következő pont pozíciójának beállítása**:
-
-- `geometry_path.moveTo(point)`
-- `geometry_path.moveTo(x, y)`
-
-**Útvonal‑szegmens eltávolítása** egy adott indexnél:
-
-- `geometry_path.removeAt(index)`
+| Művelet | Metódus |
+| --- | --- |
+| Egyenes vonal hozzáadása vagy beszúrása. | [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) |
+| Két vezérlőponttal és egy végponttal rendelkező kúp Bézier‑görbe hozzáadása vagy beszúrása. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Egyetlen vezérlőponttal és egy végponttal rendelkező kvadratikus Bézier‑görbe hozzáadása vagy beszúrása. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Elliptikus ív hozzáadása a megadott méretekkel és fokokban kifejezett szögekkel. | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
+| A jelenlegi alakzat lezárása az végpont és a kezdőpont összekötésével. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
+| Az alakzat kezdőpontjának beállítása. | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
+| Szegmens eltávolítása nullán‑induló index szerint. | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **Egyedi pontok hozzáadása egy alakzathoz**
-1. Hozzon létre egy [GeometryShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/) példányt, és állítsa be a [ShapeType.Rectangle](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapetype/#Rectangle) típust.
-2. Szerezze be a [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) példányt az alakzatról.
-3. Adjon egy új pontot a két felső pont közé az útvonalban.
-4. Adjon egy új pontot a két alsó pont közé az útvonalban.
-5. Alkalmazza az útvonalat az alakzatra.
 
-Ez a Python kód megmutatja, hogyan adhat egyedi pontokat egy alakzathoz:
+Ez a példa két pontot szúr be egy téglalapba a [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) használatával, majd a szerkesztett útvonalat a [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)‑vel alkalmazza. A koordináták a forma lokális rendszere szerint értendők: mindkét új pont a középpontban helyezkedik el, 100 pontbalra és 50 pont lejjebb. Az 1‑es és 4‑es szegmens‑indexek a pontokat a felső és alsó élre teszik, ezáltal az éleket befelé húzva.
 
 ```python
 import jpype
@@ -138,24 +93,24 @@ from asposeslides.api import Presentation, ShapeType
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+
     geometry_path = shape.getGeometryPaths()[0]
     geometry_path.lineTo(100, 50, 1)
     geometry_path.lineTo(100, 50, 4)
+
     shape.setGeometryPath(geometry_path)
 finally:
     presentation.dispose()
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## **Pontok eltávolítása egy alakzatból**
+## **Pontok eltávolítása egy alakzatról**
 
-1. Hozzon létre egy [GeometryShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/) példányt, és állítsa be a [ShapeType.Heart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapetype/#Heart) típust. 
-2. Szerezze be a [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) példányt az alakzatról.
-3. Távolítsa el az útvonal szegmensét.
-4. Alkalmazza az útvonalat az alakzatra.
-
-Ez a Python kód megmutatja, hogyan távolíthat el pontokat egy alakzatról:
+Ez a példa egy szív alakú körvonalat módosít azzal, hogy a [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) segítségével eltávolítja a 2‑es nullán‑induló indexű szegmenst. A módosított útvonal [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)‑vel való alkalmazása frissíti az alakzat kontúrt.
 
 ```python
 import jpype
@@ -168,9 +123,13 @@ from asposeslides.api import Presentation, ShapeType
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300)
+
     geometry_path = shape.getGeometryPaths()[0]
     geometry_path.removeAt(2)
+
     shape.setGeometryPath(geometry_path)
 finally:
     presentation.dispose()
@@ -179,13 +138,7 @@ finally:
 
 ## **Egyedi alakzat létrehozása**
 
-1. Számolja ki az alakzat pontjait.
-2. Hozzon létre egy [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) példányt. 
-3. Töltse fel az útvonalat a pontokkal.
-4. Hozzon létre egy [GeometryShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/) példányt. 
-5. Alkalmazza az útvonalat az alakzatra.
-
-Ez a Python kód megmutatja, hogyan hozhat létre egyedi alakzatot:
+Ez a példa ötágú csillagot épít a [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)‑vel. A 100 és 50 pont közötti váltakozó külső‑ és belső‑sugár határozza meg a csúcsokat és a bemetsüléseket; a 72 fokos lépés egyenlően osztja el az öt csúcsot. Az útvonal a [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure)‑vel záródik, és a [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)‑vel egy téglalapra alkalmazva felülírja annak körvonalát.
 
 ```python
 import jpype
@@ -201,15 +154,15 @@ import math
 points = []
 outer_radius = 100
 inner_radius = 50
-step = 72
+angle_step = 72
 
-for angle in range(-90, 270, step):
+for angle in range(-90, 270, angle_step):
     radians = math.radians(angle)
     x = outer_radius * math.cos(radians)
     y = outer_radius * math.sin(radians)
     points.append((x + outer_radius, y + outer_radius))
 
-    radians = math.radians(angle + step / 2)
+    radians = math.radians(angle + angle_step / 2)
     x = inner_radius * math.cos(radians)
     y = inner_radius * math.sin(radians)
     points.append((x + outer_radius, y + outer_radius))
@@ -222,7 +175,9 @@ star_path.closeFigure()
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outer_radius * 2, outer_radius * 2)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.setGeometryPath(star_path)
 finally:
     presentation.dispose()
@@ -231,12 +186,7 @@ finally:
 
 ## **Összetett egyedi alakzat létrehozása**
 
-1. Hozzon létre egy [GeometryShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/) példányt.
-2. Hozzon létre egy első [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) példányt.
-3. Hozzon létre egy második [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) példányt.
-4. Alkalmazza a útvonalakat az alakzatra.
-
-Ez a Python kód megmutatja, hogyan hozhat létre egy összetett egyedi alakzatot:
+Ez a példa két zárt [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) objektumot definiál a forma felső és alsó harmadához. Mindkét útvonal a [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)‑vel való alkalmazásával egyetlen összetett alakzatot hoz létre, amelynek középső harmada üres marad.
 
 ```python
 import jpype
@@ -249,7 +199,9 @@ from asposeslides.api import Presentation, ShapeType, GeometryPath
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
 
     top_path = GeometryPath()
     top_path.moveTo(0, 0)
@@ -271,9 +223,9 @@ finally:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Egyedi alakzat létrehozása ívelt sarkokkal**
+## **Egyedi alakzat ívelt sarkokkal**
 
-Ez a Python kód megmutatja, hogyan hozhat létre egyedi alakzatot ívelt (befelé görbült) sarkokkal:
+Ez a példa egyenes szegmenseket kombinál a [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo)‑val, hogy egy belső‑görbületű sarkokkal rendelkező alakzatot kapjon. Minden sarok mérete meghatározza az ív szélességét és magasságát pontban, a –90 fokos ív pedig egy óramutatóval ellentétes negyed‑ellipszist rajzol. A kész útvonalat a [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)‑vel alkalmazza, és a bemutatót PPTX formátumban menti.
 
 ```python
 import jpype
@@ -296,7 +248,10 @@ left_bottom_size = 10
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Custom, shape_x, shape_y, shape_width, shape_height)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Custom, shape_x, shape_y, shape_width, shape_height)
+
     geometry_path = GeometryPath()
     geometry_path.moveTo(left_top_size, 0)
     geometry_path.lineTo(shape_width - right_top_size, 0)
@@ -308,15 +263,17 @@ try:
     geometry_path.lineTo(0, left_top_size)
     geometry_path.arcTo(left_top_size, left_top_size, 90, -90)
     geometry_path.closeFigure()
+    
     shape.setGeometryPath(geometry_path)
+
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Annak ellenőrzése, hogy egy alakzat geometria zárt‑e**
+## **Megszerzés, hogy egy alakzat geometria zárt‑e**
 
-A zárt alakzatot úgy határozzuk meg, hogy minden oldal összeköttetésben van, egyetlen szegélyt alkotva hézagok nélkül. Egy ilyen alakzat lehet egyszerű geometriai forma vagy összetett egyedi körvonal. Az alábbi kódrészlet bemutatja, hogyan ellenőrizheti, hogy egy alakzat geometria zárt‑e:
+Az alábbi segédfüggvény ellenőrzi, hogy minden nem üres geometriai útvonal záró szegmensekkel végződik‑e. A [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData)‑t olvassa, majd a végső szegmens [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) értékét összehasonlítja a [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/)‑val. Ha nincs nem üres útvonal, `False`‑t ad vissza. A függvény az egyes útvonalak végső parancsát ellenőrzi; nem elemzi a pálya minden alalakzatát. A példa a négyzet esetén `True`‑t ír ki.
 
 ```python
 import jpype
@@ -325,36 +282,104 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import PathCommandType
+from asposeslides.api import Presentation, ShapeType, PathCommandType
 
 def is_geometry_closed(geometry_shape):
-    is_closed = False
+    has_nonempty_path = False
     for geometry_path in geometry_shape.getGeometryPaths():
         path_data = geometry_path.getPathData()
         if len(path_data) == 0:
             continue
         last_segment = path_data[-1]
-        is_closed = last_segment.getPathCommand() == PathCommandType.Close
-        if not is_closed:
+        has_nonempty_path = True
+        if last_segment.getPathCommand() != PathCommandType.Close:
             return False
-    return is_closed
+    return has_nonempty_path
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+    closed = is_geometry_closed(shape)
+    print(closed)
+finally:
+    presentation.dispose()
 ```
 
-## **GeometryPath átalakítása java.awt.Shape‑ra** 
+## **Alakzat elemeinek kinyerése és vizsgálata**
 
-1. Hozzon létre egy [GeometryShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometryshape/) példányt.
-2. Hozzon létre egy [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) példányt.
-3. Konvertálja a [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) példányt a [GeometryPath](https://reference.aspose.com/slides/hu/python-java/aspose.slides/geometrypath/) példányra, a [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) bejárásával és minden szegmens újbóli lejátszásával.
-4. Alkalmazza az útvonalakat az alakzatra.
+Használja a [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) metódust, hogy egy meglévő alakzatot elemekkel vizsgáljon, amelyek útvonallépéseket és ponttípusokat tartalmaznak. Minden visszakapott elemet [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) típusra castoljon `jpype.JObject`‑kel, majd a [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) és a [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) metódusok segítségével szerezze be a pont‑ és típus‑tömböket. Ez a reprezentáció hasznos kontúr‑elemzéshez vagy a geometria saját rajzolóeszközökbe történő továbbításához.
 
-Ez a Python kód valósítja meg a fenti lépéseket a grafikusi útvonal geometry‑ra való átalakításához:
+A példa megnyit egy **input.pptx** fájlt, megtalálja az első geometriai alakzatot az első dián, és kiírja annak szegmenseit. Használjon olyan bemutatót, amelynek alakzata egyenes és ívelt szegmenseket is tartalmaz, hogy mindkét kimenetet lássa. Csoportokon belül nem keres.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpime.startJVM()
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, GeometryShape, ShapeElement
+
+presentation = Presentation("input.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = None
+    for candidate in slide.getShapes():
+        if isinstance(candidate, GeometryShape):
+            shape = candidate
+            break
+
+    if shape is None:
+        print("No geometry shape found on the first slide.")
+    else:
+        for element in shape.createShapeElements():
+            shape_element = jpype.JObject(element, ShapeElement)
+            points = shape_element.getPathPoints()
+            types = shape_element.getPathTypes()
+            print("Shape element:")
+
+            i = 0
+            while i < len(points):
+                point_type = types[i] & 0x07  # Keep the segment type, excluding flags.
+                if point_type == 0:
+                    print(f"Start figure at {points[i]}")
+                elif point_type == 1:
+                    print(f"Line to {points[i]}")
+                elif point_type == 3:
+                    print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
+                    i += 2  # Consume both control points and the endpoint.
+
+                if types[i] & 0x80:
+                    print("Close subpath back to its starting point.")
+                i += 1
+finally:
+    presentation.dispose()
+```
+
+A tömbök index szerint egyeznek: `points[i]` egy pont, `types[i]` leírja a szerepét. Az `0` típusú elem új alakzatot indít, az `1` típusú elem egy vonalat rajzol az előző pontból a jelenlegi pontba. Egy köb‑Bézier szegmens az előző végpontból indul, és három egymást követő, `3`‑as típusú bejegyzést használ: két vezérlőpontot, majd az új végpontot. A ciklus ezeket a három bejegyzést egyszerre fogyasztja, és a végpont zártságát ellenőrzi.
+
+A ponttípusok flag‑eket is tartalmaznak. A `0x07` maskával azonosítható a szegmens típusa, az `0x80` flag külön tesztelhető a zárt alútvonal felismerésére. Például a `129` (`0x81`) egy vonal‑végpontot jelent, amely zár egy alútvonalat, a `131` (`0x83`) pedig egy Bézier‑végpontot, amely zár egyet. A Java ezeket a flag‑eket előjeles bájtokban tárolja; a maskolás megőrzi a kívánt bitértékeket. A nyers érték csak `1`‑gyel vagy `3`‑mal való összehasonlítása kihagyná ezeket az eseteket. Más flag‑ek, például a szaggatás (`0x10`) vagy a marker (`0x20`), nem változtatják az alap szegmens típust.
+
+**Koordináták és transzformációk.** A pontok pontban (1/72 hüvelyk) vannak megadva, az X jobbra, az Y lefelé növekszik. Egy nem csoportosított alakzatra a kinyert koordináták már tartalmazzák a [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) és [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) által visszaadott pozíciót, valamint a jelenlegi szélességet és magasságot. Például egy nem elforgatott téglalap a `(100, 200)`‑n, `120 × 80` mérettel a kontúr határa `(100, 200)`–`(220, 280)`. Ne adja hozzá újra az alakzat pozícióját; vonja ki az X‑et és Y‑t a lokális koordinátákhoz.
+
+A kinyert pontok nem tartalmazzák az alakzat forgását, amelyet a [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation) ad, illetve a vízszintes és függőleges tükrözést. A megjelenített kontúr reprodukálásához ezekkel a transzformációkkal kell eljárni a forma középpontja körül. Csoportos alakzatok esetén vegye figyelembe a csoport koordináta‑leképezését és transzformációit is; ne feltételezze, hogy a kinyert pontok a végleges diá\-koordináták, és ne alkalmazzon egy fordítást vagy méretezést kétszer, ha már a gyermek keretben megjelennek.
+
+**Vizsgálat vs. szerkesztés.** A kinyert tömbök a kontúrt írják le; ezek módosítása nem frissíti az eredeti alakzatot. Ezt a módszert akkor válassza, ha a pont/típus tömbökre épülő elemzésre vagy rajzoló programra van szükség. Használja a [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths)‑t, ha a geometriai parancsokra a forma lokális koordináta‑rendszerében van szüksége, vagy ha a geometria szerkesztése a cél. Szerkesztett útvonalak alkalmazásához használja a [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) vagy a [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) metódusokat.
+
+## **Java AWT Shape konvertálása GeometryPath‑vé**
+
+Ez a példa egy téglalap körvonalát kombinálja a geometriává konvertált szöveggel. A körvonal [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) metódusa kikapcsolja a kitöltést. Egy [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) létrehozza a szöveg körvonalát egy [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) objektumban. A [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) mozgás, vonal, kvadratikus, kúp‑Bézier és záró szegmenseket szolgáltat, amelyeket a példa egy [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)‑re újrajátssza.
+
+A szöveg 40‑pont Arial betűtípussal jelenik meg. A körvonal 20 ponttal vízszintesen eltolódik, a vizuális teteje pedig 10 ponttal az alakzat felső szélétől lejjebb helyezkedik el. A szöveg útvonal kitöltött, míg az eredeti téglalap csak körvonal marad. Mindkét útvonal a [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)‑vel való alkalmazásával egyetlen alakzattá alakul, amely a téglalapot és a szöveget egyaránt tartalmazza.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, ShapeType, GeometryPath, PathFillModeType
 
@@ -364,10 +389,11 @@ from java.awt.image import BufferedImage
 
 presentation = Presentation()
 try:
-    # Új alakzat létrehozása.
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Az alakzat geometriai útvonalának lekérése.
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
+
+    # A forma geometriai útvonalának lekérése.
     original_path = shape.getGeometryPaths()[0]
     original_path.setFillMode(PathFillModeType.None_)
 
@@ -377,8 +403,11 @@ try:
     image = BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB)
     graphics = image.createGraphics()
     try:
-        glyph_vector = font.createGlyphVector(graphics.getFontRenderContext(), text)
-        graphics_path = glyph_vector.getOutline(20.0, -glyph_vector.getVisualBounds().getY() + 10)
+        font_context = graphics.getFontRenderContext()
+        glyph_vector = font.createGlyphVector(font_context, text)
+        text_bounds = glyph_vector.getVisualBounds()
+        baseline = -text_bounds.getY() + 10
+        graphics_path = glyph_vector.getOutline(20.0, baseline)
     finally:
         graphics.dispose()
 
@@ -401,7 +430,7 @@ try:
         path_iterator.next()
     text_path.setFillMode(PathFillModeType.Normal)
 
-    # A szöveg útvonal alkalmazása az eredeti geometriai útvonallal együtt.
+    # Apply the text path together with the original geometry path.
     shape.setGeometryPaths([original_path, text_path])
 finally:
     presentation.dispose()
@@ -412,12 +441,12 @@ finally:
 
 **Mi történik a kitöltéssel és a körvonallal a geometria cseréje után?**
 
-A stílus megmarad az alakzaton; csak a kontúr változik. A kitöltés és a körvonal automatikusan alkalmazásra kerül az új geometriára.
+A stílus az alakzaton marad; csak a kontúr változik. A kitöltés és a körvonal automatikusan a új geometriára kerül.
 
-**Hogyan forgathatom helyesen egy egyedi alakzatot a geometriájával együtt?**
+**Hogyan forgathatom helyesen az egyedi alakzatot a geometriai adatokkal együtt?**
 
-Használja az alakzat [setRotation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#setRotation) metódusát; a geometria az alakzattal együtt forog, mert az az alakzat saját koordináta‑rendszeréhez van kötve.
+Használja az alakzat [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) metódusát; a geometria az alakzattal együtt forgik, mivel a forma saját koordináta‑rendszeréhez van kötve.
 
-**Átalakíthatom-e egy egyedi alakzatot képpé, hogy „lezároljam” az eredményt?**
+**Átalakíthatom‑e az egyedi alakzatot képpé a „lezáráshoz”?**
 
-Igen. Exportálja a kívánt [slide](/slides/hu/python-java/convert-powerpoint-to-png/) területet vagy a [shape](/slides/hu/python-java/create-shape-thumbnails/) maga képformátumba; ez leegyszerűsíti a nehéz geometriai elemekkel való további munkát.
+Igen. Exportálja a kívánt [slide](/slides/hu/python-java/convert-powerpoint-to-png/) területet vagy a [shape](/slides/hu/python-java/create-shape-thumbnails/)‑t raster formátumba; ez egyszerűsíti a komplex geometriákkal való további munkát.

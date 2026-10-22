@@ -12,254 +12,200 @@ keywords:
 - هندسهٔ شکل
 - مسیر هندسی
 - نقاط مسیر
-- نقاط ویرایش
+- نقاط ویرایشی
 - افزودن نقطه
 - حذف نقطه
-- عملیات ویرایش
-- گوشهٔ خمیده
-- PowerPoint
+- عملیات ویرایشی
+- گوشهٔ منحنی
+- پاورپوینت
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "ایجاد و سفارشی‌سازی اشکال در ارائه‌های PowerPoint با Aspose.Slides برای .NET: مسیرهای هندسی، گوشه‌های خمیده، اشکال ترکیبی."
+description: "ایجاد و سفارشی‌سازی اشکال در ارائه‌های پاورپوینت با Aspose.Slides برای .NET: مسیرهای هندسی، گوشه‌های منحنی، اشکال ترکیبی."
 ---
-## **بررسی کلی**
+## **مروری کلی**
 
-این مقاله نحوهٔ سفارشی‌سازی اشکال ارائه در Aspose.Slides را از طریق ویرایش هندسهٔ شکل با استفاده از نقاط و مسیرهای هندسی توضیح می‌دهد. نشان می‌دهد چگونه با `GeometryPath` و `IGeometryPath` می‌توان اشکال موجود را تغییر داد، عملیات پایهٔ ویرایش مسیر را انجام داد، نقاط را اضافه یا حذف کرد و هندسهٔ به‌روز شده را به شکل اعمال کرد.
+این مقاله توضیح می‌دهد چگونه می‌توان اشکال ارائه در Aspose.Slides را با ویرایش هندسهٔ شکل از طریق نقاط ویرایشی و مسیرهای هندسی سفارشی کرد. این مقاله نشان می‌دهد چگونه با [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) و [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) کار کنید تا اشکال موجود را اصلاح کنید، عملیات پایهٔ ویرایش مسیر را انجام دهید، نقاط را اضافه یا حذف کنید، و هندسهٔ به‌روزرسانی‌شده را به یک شکل اعمال کنید.
 
-همچنین نشان می‌دهد چگونه اشکال سفارشی و ترکیبی ایجاد شود، اشکال با گوشه‌های خمیده ساخته شود، تشخیص داده شود که آیا هندسهٔ یک شکل بسته است یا خیر، و بین `GeometryPath` و `GraphicsPath` برای سناریوهای سفارشی‌سازی هندسهٔ بیشتر تبدیل انجام شود.
+همچنین نشان می‌دهد چگونه اشکال سفارشی و ترکیبی بسازید، اشکالی با گوشه‌های منحنی ایجاد کنید، تعیین کنید آیا هندسهٔ یک شکل بسته است یا نه، و از تبدیل قدیمی بین [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) و [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) برای سناریوهای سفارشی‌سازی هندسی اضافی استفاده کنید.
 
-## **تغییر شکل با استفاده از نقاط ویرایش**
+## **تغییر یک شکل با استفاده از نقاط ویرایشی**
 
-یک مربع را در نظر بگیرید. در PowerPoint، با استفاده از **نقاط ویرایش** می‌توانید  
+در PowerPoint می‌توانید از **نقاط ویرایشی** برای اصلاح یک مربع استفاده کنید:
 
-* گوشهٔ مربع را به سمت داخل یا خارج حرکت دهید  
-* انحنای یک گوشه یا نقطه را مشخص کنید  
-* نقاط جدیدی به مربع اضافه کنید  
-* نقاط روی مربع را دست‌کاری کنید و ...
+* جابه‌جا کردن یک گوشه به سمت داخل یا خارج.
+* تنظیم انحنای یک نقطه.
+* افزودن نقاط جدید.
 
-به‌طور کلی می‌توانید این کارها را بر روی هر شکلی انجام دهید. با استفاده از نقاط ویرایش می‌توانید یک شکل را تغییر داده یا شکل جدیدی از شکل موجود بسازید.
+ویرایش نقاط به شما امکان می‌دهد محدودهٔ یک شکل را تغییر دهید یا از یک شکل موجود به‌عنوان پایهٔ یک شکل جدید استفاده کنید.
 
 ## **نکات ویرایش شکل**
 
 ![overview_image](custom_shape_0.png)
 
-قبل از شروع به ویرایش اشکال PowerPoint از طریق نقاط ویرایش، ممکن است بخواهید به نکات زیر دربارهٔ اشکال توجه کنید:
+هنگام ویرایش اشکال PowerPoint، این مفاهیم را در نظر بگیرید:
 
-* یک شکل (یا مسیر آن) می‌تواند بسته یا باز باشد.  
-* تمام اشکال حداقل از ۲ نقطهٔ لنگر تشکیل شده‌اند که توسط خطوط به یکدیگر متصل می‌شوند.  
-* یک خط می‌تواند مستقیم یا منحنی باشد. نقاط لنگر ماهیت خط را تعیین می‌کنند.  
-* نقاط لنگر به صورت نقاط گوشه‌ای، مستقیم یا صاف وجود دارند:  
-  * نقطهٔ گوشه‌ای نقطه‌ای است که در آن دو خط مستقیم با یک زاویه به هم می‌رسند.  
-  * نقطهٔ صاف نقطه‌ای است که در آن دو دسته‌دار (handle) در یک خط مستقیم قرار دارند و بخش‌های خط به‌صورت منحنی نرم به هم می‌پیوندند. در این حالت تمام دسته‌ها فاصلهٔ مساوی از نقطهٔ لنگر دارند.  
-  * نقطهٔ مستقیم نقطه‌ای است که در آن دو دسته‌دار در یک خط مستقیم قرار دارند و بخش‌های خط به‌صورت منحنی به هم می‌پیوندند. در این حالت دسته‌ها نیاز به داشتن فاصلهٔ مساوی از نقطهٔ لنگر ندارند.  
-* با جابه‌جایی یا ویرایش نقاط لنگر (که زاویهٔ خطوط را تغییر می‌دهد) می‌توانید ظاهر شکل را تغییر دهید.
+* یک شکل (یا مسیر آن) می‌تواند بسته یا باز باشد.
+* مسیر یک شکل شامل نقاط لنگر است که توسط بخش‌ها به هم وصل می‌شوند.
+* یک بخش می‌تواند مستقیم یا منحنی باشد. نقاط لنگر و دسته‌های کنترل شکل آن را تعیین می‌کنند.
+* نقاط لنگر می‌توانند به صورت نقاط گوشه‌ای، نقاط مستقیم یا نقاط صاف باشند:
+  * در یک نقطهٔ گوشه‌ای، بخش‌های مجاور می‌توانند در یک زاویه به هم بپیوندند.
+  * در یک نقطهٔ صاف، دو دستهٔ کنترل هم‌راستا هستند و از نقطهٔ لنگر به‌صورت مساوی فاصله دارند.
+  * در یک نقطهٔ مستقیم، دو دستهٔ کنترل هم‌راستا هستند اما می‌توانند فاصله‌های متفاوتی از نقطهٔ لنگر داشته باشند.
+* جابه‌جایی نقاط لنگر یا تنظیم دسته‌هایشان، شکل کلی شکل را تغییر می‌دهد.
 
-برای ویرایش اشکال PowerPoint از طریق نقاط ویرایش، **Aspose.Slides** کلاس [**GeometryPath**](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath) و رابط [**IGeometryPath**](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometrypath) را فراهم می‌کند.
+برای ویرایش اشکال PowerPoint از طریق نقاط ویرایشی، **Aspose.Slides** کلاس [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) و اینترفیس [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) را فراهم می‌کند.
 
-* یک نمونهٔ [GeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath) مسیر هندسی شیء [IGeometryShape](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometryshape) را نشان می‌دهد.  
-* برای دریافت `GeometryPath` از نمونهٔ `IGeometryShape` می‌توانید از متد [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometryshape/methods/getgeometrypaths) استفاده کنید.  
-* برای تنظیم `GeometryPath` برای یک شکل می‌توانید این متدها را به کار ببرید: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometryshape/methods/setgeometrypath) برای *اشکال جامد* و [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometryshape/methods/setgeometrypaths) برای *اشکال ترکیبی*.  
-* برای افزودن بخش‌ها می‌توانید از متدهای موجود در [IGeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometrypath) استفاده کنید.  
-* با استفاده از ویژگی‌های [IGeometryPath.Stroke](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometrypath/properties/stroke) و [IGeometryPath.FillMode](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometrypath/properties/fillmode) می‌توانید ظاهر مسیر هندسی را تنظیم کنید.  
-* با استفاده از ویژگی [IGeometryPath.PathData](https://reference.aspose.com/slides/fa/net/aspose.slides/igeometrypath/properties/pathdata) می‌توانید مسیر هندسی یک `GeometryShape` را به‌صورت آرایه‌ای از بخش‌های مسیر بازیابی کنید.  
-* برای دسترسی به گزینه‌های سفارشی‌سازی بیشتر هندسهٔ شکل می‌توانید [GeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath) را به [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) تبدیل کنید.  
-* از متدهای [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/fa/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) و [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) (در کلاس [ShapeUtil](https://reference.aspose.com/slides/fa/net/aspose.slides.util/shapeutil)) برای تبدیل دوباره و جلو به‌یاد داشته باشید.
+* یک نمونهٔ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) مسیر هندسی شیء [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) را نشان می‌دهد.
+* برای دریافت [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) از یک نمونهٔ [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) می‌توانید از متد [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) استفاده کنید.
+* برای تنظیم [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) برای یک شکل، می‌توانید از این متدها استفاده کنید: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) برای اشکال با مسیر واحد و [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) برای اشکال با مسیرهای متعدد.
+* برای افزودن بخش‌ها، می‌توانید از متدهای موجود در [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) استفاده کنید.
+* با استفاده از خصوصیات [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) و [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) می‌توانید ظاهر یک مسیر هندسی را تنظیم کنید.
+* با استفاده از خصوصیت [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) می‌توانید مسیر هندسی یک [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) را به‌صورت آرایه‌ای از بخش‌های مسیر دریافت کنید.
+* در نسخه‌های قدیمی که متدهای تبدیل زیر را پشتیبانی می‌کنند، می‌توانید [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) را به [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) تبدیل کنید.
+* از متدهای [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) و [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (از کلاس [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) برای تبدیل بین [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) و [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) استفاده کنید.
 
-## **عملیات سادهٔ ویرایش**
+## **عملیات سادهٔ ویرایشی**
 
-این کد C# نشان می‌دهد چگونه  
+از متدهای زیر برای ویرایش یک مسیر هندسی استفاده کنید. بارگذاری‌های پذیرندهٔ یک اندیس، بخش را در آن موقعیت صفر‑پایه در آرایهٔ بخش‌های مسیر درج می‌کند.
 
-**یک خط به انتهای مسیر اضافه کنید**
-
-``` csharp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**یک خط به موقعیتی مشخص در مسیر اضافه کنید:**  
-
-``` csharp    
-void LineTo(PointF point, uint index);
-void LineTo(float x, float y, uint index);
-```
-**یک منحنی Bezier مکعبی به انتهای مسیر اضافه کنید:**  
-
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**یک منحنی Bezier مکعبی به موقعیت مشخصی در مسیر اضافه کنید:**  
-
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
-```
-**یک منحنی Bezier درجهٔ دو به انتهای مسیر اضافه کنید:**  
-
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**یک منحنی Bezier درجهٔ دو به موقعیت مشخصی در مسیر اضافه کنید:**  
-
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2, uint index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
-```
-**یک قوس داده‌شده را به مسیر اضافه کنید:**  
-
-``` csharp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**شکل جاری مسیر را ببندید:**  
-
-``` csharp
-void CloseFigure();
-```
-**موقعیت نقطهٔ بعدی را تعیین کنید:**  
-
-``` csharp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**بخش مسیر را در ایندکس مشخص حذف کنید:**  
-
-``` csharp
-void RemoveAt(int index);
-```
+| عملیات | متد |
+| --- | --- |
+| افزودن یا درج یک خط مستقیم. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
+| افزودن یا درج یک منحنی بزیهٔ کاوبیک با دو نقطهٔ کنترل و یک نقطهٔ انتهایی. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| افزودن یا درج یک منحنی بزیهٔ درجهٔ دوم با یک نقطهٔ کنترل و یک نقطهٔ انتهایی. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| افزودن یک قوس بیضوی با ابعاد و زوایای مشخص به درجه. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| بستن شکل جاری با وصل نقطهٔ انتهایی به نقطهٔ شروع. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| تنظیم نقطهٔ شروع یک شکل. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| حذف یک بخش در اندیسی صفر‑پایه. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
 ## **افزودن نقاط سفارشی به یک شکل**
 
-1. نمونه‌ای از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/net/aspose.slides/geometryshape) بسازید و نوع [ShapeType.Rectangle](https://reference.aspose.com/slides/fa/net/aspose.slides/shapetype) را تنظیم کنید.  
-2. نمونه‌ای از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath) را از شکل دریافت کنید.  
-3. نقطهٔ جدیدی بین دو نقطهٔ بالایی مسیر اضافه کنید.  
-4. نقطهٔ جدیدی بین دو نقطهٔ پایینی مسیر اضافه کنید.  
-5. مسیر را به شکل اعمال کنید.
+این مثال دو نقطه را به یک شکل مستطیلی با استفاده از [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) وارد می‌کند و مسیر ویرایش‌شده را با [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) اعمال می‌نماید. مختصات‌ها نسبت به شکل هستند: هر دو نقطهٔ جدید در مرکز آن، ۱۰۰ نقطه از سمت چپ و ۵۰ نقطه از سمت بالا قرار دارند. اندیس‌های بخش ۱ و ۴ آن‌ها را بر لبهٔ بالا و پایین قرار می‌دهد و این لبه‌ها را به سمت داخل می‌کشد.
 
-این کد C# نشان می‌دهد چگونه نقاط سفارشی را به یک شکل اضافه کنید:
+```csharp
+using Aspose.Slides;
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
-    IGeometryPath geometryPath = shape.GetGeometryPaths()[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    geometryPath.LineTo(100, 50, 1);
-    geometryPath.LineTo(100, 50, 4);
-    shape.SetGeometryPath(geometryPath);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+var geometryPath = shape.GetGeometryPaths()[0];
+geometryPath.LineTo(100, 50, 1);
+geometryPath.LineTo(100, 50, 4);
+
+shape.SetGeometryPath(geometryPath);
 ```
 
 ![example1_image](custom_shape_1.png)
 
-##  **حذف نقاط از یک شکل**
+## **حذف نقاط از یک شکل**
 
-1. نمونه‌ای از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/net/aspose.slides/geometryshape) بسازید و نوع [ShapeType.Heart](https://reference.aspose.com/slides/fa/net/aspose.slides/shapetype) را تنظیم کنید.  
-2. نمونه‌ای از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath) را از شکل دریافت کنید.  
-3. بخش مسیر را حذف کنید.  
-4. مسیر را به شکل اعمال کنید.
+این مثال محدودهٔ یک شکل قلبی را با حذف بخش در اندیس صفر‑پایهٔ ۲ با [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) تغییر می‌دهد. اعمال مسیر اصلاح‌شده با [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) مرز شکل را به‌روزرسانی می‌کند.
 
-این کد C# نشان می‌دهد چگونه نقاط را از یک شکل حذف کنید:
+```csharp
+using Aspose.Slides;
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-	GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-	IGeometryPath path = shape.GetGeometryPaths()[0];
-	path.RemoveAt(2);
-	shape.SetGeometryPath(path);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+
+var path = shape.GetGeometryPaths()[0];
+path.RemoveAt(2);
+
+shape.SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
-##  **ایجاد یک شکل سفارشی**
+## **ایجاد یک شکل سفارشی**
 
-1. نقاط شکل را محاسبه کنید.  
-2. نمونه‌ای از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath) بسازید.  
-3. مسیر را با نقاط پر کنید.  
-4. نمونه‌ای از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/net/aspose.slides/geometryshape) بسازید.  
-5. مسیر را به شکل اعمال کنید.
+این مثال یک ستارهٔ پنج‌ضلعی را با [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) می‌سازد. شعاع‌های خارجی و داخلی به ترتیب ۱۰۰ و ۵۰ نقطه، نوک‌ها و توهم‌ها را تعریف می‌کنند؛ گام ۷۲ درجه نوک‌های پنج‌تایی را به‌صورت مساوی پخش می‌کند. مسیر با [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) بسته می‌شود و با [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) به یک شکل مستطیلی اعمال می‌گردد و مرز قبلی آن را جایگزین می‌کند.
 
-این کد C# نشان می‌دهد چگونه یک شکل سفارشی ایجاد کنید:
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Aspose.Slides;
 
-``` csharp
-List<PointF> points = new List<PointF>();
+var points = new List<PointF>();
 
-float R = 100, r = 50;
-int step = 72;
+var outerRadius = 100f;
+var innerRadius = 50f;
+var angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (var angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math.PI / 180f);
-    double x = R * Math.Cos(radians);
-    double y = R * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    var radians = angle * (Math.PI / 180f);
+    var x = outerRadius * Math.Cos(radians);
+    var y = outerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.Cos(radians);
-    y = r * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.Cos(radians);
+    y = innerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-GeometryPath starPath = new GeometryPath();
+var starPath = new GeometryPath();
 starPath.MoveTo(points[0]);
 
-for (int i = 1; i < points.Count; i++)
+for (var i = 1; i < points.Count; i++)
 {
     starPath.LineTo(points[i]);
 }
 
 starPath.CloseFigure();
 
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    shape.SetGeometryPath(starPath);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
+shape.SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
-## **ایجاد یک شکل سفارشی ترکیبی**
+## **ایجاد یک شکل ترکیبی سفارشی**
 
-1. نمونه‌ای از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/net/aspose.slides/geometryshape) بسازید.  
-2. اولین نمونهٔ کلاس [GeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath) را ایجاد کنید.  
-3. دومین نمونهٔ کلاس [GeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath) را ایجاد کنید.  
-4. مسیرها را به شکل اعمال کنید.
+این مثال دو شیء [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) بسته برای سوم‌های بالایی و پایینی یک شکل تعریف می‌کند. اعمال هر دو مسیر با [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) یک شکل ترکیبی واحد با یک فضای خالی در سوم میانی آن ایجاد می‌کند.
 
-این کد C# نشان می‌دهد چگونه یک شکل سفارشی ترکیبی ایجاد کنید:
+```csharp
+using Aspose.Slides;
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.MoveTo(0, 0);
-    geometryPath0.LineTo(shape.Width, 0);
-    geometryPath0.LineTo(shape.Width, shape.Height/3);
-    geometryPath0.LineTo(0, shape.Height / 3);
-    geometryPath0.CloseFigure();
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.MoveTo(0, shape.Height/3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height / 3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height);
-    geometryPath1.LineTo(0, shape.Height);
-    geometryPath1.CloseFigure();
+var topPath = new GeometryPath();
+topPath.MoveTo(0, 0);
+topPath.LineTo(shape.Width, 0);
+topPath.LineTo(shape.Width, shape.Height / 3);
+topPath.LineTo(0, shape.Height / 3);
+topPath.CloseFigure();
 
-    shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-}
+var bottomPath = new GeometryPath();
+bottomPath.MoveTo(shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height);
+bottomPath.LineTo(0, shape.Height);
+bottomPath.CloseFigure();
+
+shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
 ![example4_image](custom_shape_4.png)
 
-## **ایجاد یک شکل سفارشی با گوشه‌های خمیده**
+## **ایجاد یک شکل سفارشی با گوشه‌های منحنی**
 
-این کد C# نشان می‌دهد چگونه یک شکل سفارشی با گوشه‌های خمیده (به سمت داخل) ایجاد کنید:
+این مثال بخش‌های مستقیم را با [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) ترکیب می‌کند تا شکلی با گوشه‌های داخلی منحنی ایجاد شود. هر اندازهٔ گوشه عرض و ارتفاع قوس را بر حسب نقطه تنظیم می‌کند و طی -۹۰ درجه یک کمان بیضوی‌سرافاز ساعت‌گرد می‌کشد. مسیر کامل با [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) اعمال می‌شود و ارائه در قالب PPTX ذخیره می‌گردد.
 
-```c#
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var shapeX = 20f;
 var shapeY = 20f;
 var shapeWidth = 300f;
@@ -270,102 +216,177 @@ var rightTopSize = 20f;
 var rightBottomSize = 40f;
 var leftBottomSize = 10f;
 
-using (var presentation = new Presentation())
-{
-    var childShape = presentation.Slides[0].Shapes.AddAutoShape(
-        ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    var geometryPath = new GeometryPath();
+var topLeft = new PointF(leftTopSize, 0);
+var topRight = new PointF(shapeWidth - rightTopSize, 0);
+var rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+var bottomLeft = new PointF(leftBottomSize, shapeHeight);
+var leftTop = new PointF(0, leftTopSize);
 
-    var point1 = new PointF(leftTopSize, 0);
-    var point2 = new PointF(shapeWidth - rightTopSize, 0);
-    var point3 = new PointF(shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = new PointF(leftBottomSize, shapeHeight);
-    var point5 = new PointF(0, leftTopSize);
+var geometryPath = new GeometryPath();
+geometryPath.MoveTo(topLeft);
+geometryPath.LineTo(topRight);
+geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
+geometryPath.LineTo(rightBottom);
+geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
+geometryPath.LineTo(bottomLeft);
+geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
+geometryPath.LineTo(leftTop);
+geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+geometryPath.CloseFigure();
 
-    geometryPath.MoveTo(point1);
-    geometryPath.LineTo(point2);
-    geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.LineTo(point3);
-    geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.LineTo(point4);
-    geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.LineTo(point5);
-    geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+shape.SetGeometryPath(geometryPath);
 
-    geometryPath.CloseFigure();
-
-    childShape.SetGeometryPath(geometryPath);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 ## **تشخیص اینکه آیا هندسهٔ یک شکل بسته است**
 
-یک شکل بسته به‌عنوان شکلی تعریف می‌شود که تمام اضلاع آن به‌هم متصل باشند و یک مرز واحد بدون شکاف داشته باشد. چنین شکلی می‌تواند یک فرم هندسی ساده یا یک طرح سفارشی پیچیده باشد. مثال کد زیر نشان می‌دهد چگونه بررسی شود که آیا هندسهٔ یک شکل بسته است یا خیر:
+کمکی زیر بررسی می‌کند که آیا هر مسیر هندسی غیر خالی با یک بخش بستن پایان می‌یابد یا خیر. این کمک [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) را می‌خواند و دستور نهایی بخش [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) را با [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/) مقایسه می‌کند. وقتی مسیرهای غیر خالی وجود نداشته باشد، مقدار false برمی‌گرداند. این بررسی تنها دستور نهایی هر مسیر را می‌سنجد؛ زیرشکل‌های داخلی مسیر را بررسی نمی‌کند. مثال برای یک مستطیل مقدار `True` را چاپ می‌کند.
 
-```cs
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+Console.WriteLine(IsGeometryClosed(shape));
+
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
-    bool? isClosed = null;
+    var hasNonemptyPath = false;
 
     foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
-        var dataLength = geometryPath.PathData.Length;
-        if (dataLength == 0)
+        var segments = geometryPath.PathData;
+        if (segments.Length == 0)
+        {
             continue;
+        }
 
-        var lastSegment = geometryPath.PathData[dataLength - 1];
-        isClosed = lastSegment.PathCommand == PathCommandType.Close;
-
-        if (isClosed == false)
+        hasNonemptyPath = true;
+        var lastSegment = segments[segments.Length - 1];
+        if (lastSegment.PathCommand != PathCommandType.Close)
+        {
             return false;
+        }
     }
-    
-    return isClosed == true;
+
+    return hasNonemptyPath;
 }
 ```
+
+## **استخراج و بررسی عناصر شکل**
+
+از متد [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) برای بررسی یک شکل موجود به‌عنوان عناصری حاوی نقاط مسیر و انواع نقطه استفاده کنید. هر [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) بازگردانده‌شده را به [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) تبدیل کنید تا آرایه‌های [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) و [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/) را بخوانید. این نمایش برای تحلیل مرز یا انتقال هندسه به ابزارهای رسم سفارشی مفید است.
+
+مثال یک ارائه را باز می‌کند، اولین شکل هندسی را مستقیماً در اولین اسلاید پیدا می‌کند و بخش‌های مسیر آن را چاپ می‌کند. از یک ارائه‌ای که شامل یک شکل با بخش‌های مستقیم و منحنی است استفاده کنید تا هر دو نوع خروجی را ببینید. این روش درون گروه‌ها جستجو نمی‌کند.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.OfType<IGeometryShape>().FirstOrDefault();
+if (shape == null)
+{
+    Console.WriteLine("No geometry shape found on the first slide.");
+    return;
+}
+
+foreach (IShapeElement element in shape.CreateShapeElements())
+{
+    var shapeElement = (ShapeElement)element;
+    var points = shapeElement.PathPoints;
+    var types = shapeElement.PathTypes;
+    Console.WriteLine("Shape element:");
+
+    for (var i = 0; i < points.Length; i++)
+    {
+        var pointType = types[i] & 0x07; // نوع بخش را نگه‌دارید، پرچم‌ها را مستثنی کنید.
+        switch (pointType)
+        {
+            case 0:
+                Console.WriteLine($"Start figure at {points[i]}");
+                break;
+            case 1:
+                Console.WriteLine($"Line to {points[i]}");
+                break;
+            case 3:
+                Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
+                i += 2; // هر دو نقطه کنترل و نقطه انتهایی را مصرف کنید.
+                break;
+        }
+
+        if ((types[i] & 0x80) != 0)
+        {
+            Console.WriteLine("Close subpath back to its starting point.");
+        }
+    }
+}
+```
+
+آرایه‌ها با اندیس متناظرند: `points[i]` یک نقطه است و `types[i]` نقش آن را توصیف می‌کند. نوع `0` شروع یک شکل را نشان می‌دهد و نوع `1` خطی از نقطهٔ قبلی به نقطهٔ فعلی می‌کشد. یک بخش بزیهٔ کاوبیک از نقطهٔ انتهایی قبلی شروع می‌شود و از سه ورودی متوالی نوع‑`3` استفاده می‌کند: دو نقطهٔ کنترل سپس نقطهٔ انتهایی جدید. حلقه این سه ورودی را همراه‑هم مصرف کرده و نقطهٔ انتهایی را برای بستن بررسی می‌کند.
+
+انواع نقطه همچنین پرچم‌هایی دارند. با ماسک `0x07` می‌توانید نوع بخش را تشخیص دهید و با تست `0x80` به‌طور جداگانه یک زیرمسیر بسته را شناسایی کنید. برای مثال `129` (`0x81`) به معنای نقطهٔ انتهایی خط است که یک زیرمسیر را می‌بندد و `131` (`0x83`) نقطهٔ انتهایی بزیهٔ که یک زیرمسیر را می‌بندد. مقایسهٔ مقدار خام فقط با `1` یا `3` این موارد را نادیده می‌گیرد. پرچم‌های دیگر مانند خط تیره (`0x10`) و نشانگر (`0x20`) نوع پایهٔ بخش را تغییر نمی‌دهند.
+
+**مختصات و تبدیل‌ها.** نقاط بر حسب نقطه (۱/۷۲ اینچ) اندازه‌گیری می‌شوند؛ X به سمت راست و Y به سمت پایین افزایش می‌یابد. برای یک شکل تکی، مختصات استخراج‌شده شامل موقعیت [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) و [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) آن و ابعاد فعلی است. به‌عنوان مثال، یک مستطیل بدون چرخش در `(100, 200)` با اندازهٔ `120 × 80` حدود مرزی `(100, 200)`–`(220, 280)` دارد. موقعیت شکل را دوباره اضافه نکنید؛ برای به‌دست آوردن مختصات نسبی به چارچوب بدون چرخش، X و Y را کم کنید.
+
+نقاط استخراج‌شده اعمال [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) یا وارونگی افقی و عمودی شکل را ندارند. برای بازتولید مرز نمایش داده‌شده، این تبدیلات را حول مرکز شکل اعمال کنید. برای اشکال گروهی، تبدیل مختصات گروه و تبدیلات آن را نیز در نظر بگیرید؛ فرض نکنید که نقاط استخراج‌شده مختصات نهایی اسلاید هستند یا ترجمه/مقیاس را دو بار اعمال کنید اگر قبلاً در چارچوب فرزند منعکس شده‌اند.
+
+**بازرسی در مقایسه با ویرایش.** آرایه‌های استخراج‌شده مرز را توصیف می‌کنند؛ تغییر آن‌ها شکل اصلی را بروز نمی‌دهد. این روش را زمانی انتخاب کنید که نیاز به آرایهٔ نقاط/انواع برای تجزیه و تحلیل یا ابزار رسم خود داشته باشید. برای دریافت دستورات هندسی در سیستم مختصات محلی شکل یا برای ویرایش هندسه، از [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) استفاده کنید. مسیرهای ویرایش‌شده را از طریق [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) یا [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) اعمال کنید.
 
 ## **تبدیل GeometryPath به GraphicsPath (System.Drawing.Drawing2D)**
 
-1. نمونه‌ای از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/net/aspose.slides/geometryshape) بسازید.  
-2. نمونه‌ای از کلاس [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) در فضای نام [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) ایجاد کنید.  
-3. نمونهٔ [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) را به نمونهٔ [GeometryPath](https://reference.aspose.com/slides/fa/net/aspose.slides/geometrypath) با استفاده از [ShapeUtil](https://reference.aspose.com/slides/fa/net/aspose.slides.util/shapeutil) تبدیل کنید.  
-4. مسیرها را به شکل اعمال کنید.
+مثال زیر نیاز به یک اسمبلی قدیمی Aspose.Slides for .NET دارد که متد [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) را پشتیبانی کند، مانند نسخهٔ ۲۵.۱۰، و یک محیط Windows با `System.Drawing.Common`. این متدها در [نسخهٔ ۲۵.۱۱](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/) حذف شدند.
 
-این کد C#—یک پیاده‌سازی از مراحل فوق—فرآیند تبدیل **GeometryPath** به **GraphicsPath** را نشان می‌دهد:
+این مثال مرز مستطیلی را با متن تبدیل‌شده به هندسه ترکیب می‌کند. [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) مرز را برای غیر فعال کردن پر شدن تنظیم می‌کند. یک [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) مرز متن را ذخیره می‌کند که توسط [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) به یک مسیر هندسی پرشده تبدیل می‌شود. اعمال هر دو مسیر با [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) یک شکل واحد حاوی مستطیل و متن ایجاد می‌کند. برای تبدیل در جهت مخالف، از [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) استفاده کنید.
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100) as GeometryShape;
+```csharp
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using Aspose.Slides;
+using Aspose.Slides.Util;
 
-    IGeometryPath originalPath = shape.GetGeometryPaths()[0];
-    originalPath.FillMode = PathFillModeType.None;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    GraphicsPath gPath = new GraphicsPath();
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
-    gPath.AddString("Text in shape", new FontFamily("Arial"), 1, 40, new PointF(10, 10), StringFormat.GenericDefault);
+var originalPath = shape.GetGeometryPaths()[0];
+originalPath.FillMode = PathFillModeType.None;
 
-    IGeometryPath textPath = ShapeUtil.GraphicsPathToGeometryPath(gPath);
-    textPath.FillMode = PathFillModeType.Normal;
+using var graphicsPath = new GraphicsPath();
+using var fontFamily = new FontFamily("Arial");
+using var stringFormat = StringFormat.GenericDefault;
 
-    shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
-}
+graphicsPath.AddString("Text in shape", fontFamily, (int)FontStyle.Bold, 40, new PointF(10, 10), stringFormat);
+
+var textPath = ShapeUtil.GraphicsPathToGeometryPath(graphicsPath);
+textPath.FillMode = PathFillModeType.Normal;
+
+shape.SetGeometryPaths(new[] { originalPath, textPath });
 ```
 ![example5_image](custom_shape_5.png)
 
-## **سؤالات متداول**
+## **سؤال‌های متداول**
 
-**بعد از جایگزینی هندسه، پر رنگ و حاشیه چه می‌شوند؟**
+**پس از جایگزینی هندسه، پرکننده و مرز چه می‌شود؟**
 
-استایل همراه با شکل می‌ماند؛ فقط کانتور تغییر می‌کند. پر رنگ و حاشیه به‌صورت خودکار به هندسهٔ جدید اعمال می‌شوند.
+قالب با شکل باقی می‌ماند؛ فقط مرز تغییر می‌کند. پرکننده و مرز به‌صورت خودکار به هندسهٔ جدید اعمال می‌شوند.
 
-**چگونه می‌توان شکل سفارشی را به‌درستی همراه با هندسه‌اش چرخاند؟**
+**چگونه شکل سفارشی را به‌درستی همراه با هندسه‌اش بچرخانم؟**
 
-از ویژگی [rotation](https://reference.aspose.com/slides/fa/net/aspose.slides/shape/rotation/) شکل استفاده کنید؛ هندسه به‌دلیل ارتباط با سامانهٔ مختصات شکل، با آن می‌چرخد.
+از خصوصیت [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) شکل استفاده کنید؛ هندسه همراه با شکل می‌چرخد زیرا به سیستم مختصات خود شکل متصل است.
 
 **آیا می‌توانم یک شکل سفارشی را به تصویر تبدیل کنم تا «قفل» شود؟**
 
-بله. ناحیهٔ مورد نیاز [اسلاید](/slides/fa/net/convert-powerpoint-to-png/) یا خود [شکل](/slides/fa/net/create-shape-thumbnails/) را به فرمت رستری صادر کنید؛ این کار کار با هندسه‌های سنگین را ساده می‌کند.
+بله. اسلاید موردنظر ([slide](/slides/fa/net/convert-powerpoint-to-png/)) یا خود شکل ([shape](/slides/fa/net/create-shape-thumbnails/)) را به فرمت رستر صادر کنید؛ این کار کار با هندسه‌های پیچیده را ساده‌تر می‌سازد.

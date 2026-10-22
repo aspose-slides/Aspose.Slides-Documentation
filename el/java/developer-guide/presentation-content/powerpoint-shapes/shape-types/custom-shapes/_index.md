@@ -1,17 +1,17 @@
 ---
-title: Προσαρμογή σχημάτων παρουσίασης σε Java
-linktitle: Προσαρμοσμένο σχήμα
+title: Προσαρμογή Σχημάτων Παρουσίασης σε Java
+linktitle: Προσαρμοσμένο Σχήμα
 type: docs
 weight: 20
 url: /el/java/custom-shape/
-keywords: 
+keywords:
 - προσαρμοσμένο σχήμα
 - προσθήκη σχήματος
 - δημιουργία σχήματος
 - αλλαγή σχήματος
 - γεωμετρία σχήματος
-- διαδρομή γεωμετρίας
-- σημεία διαδρομής
+- μονοπάτι γεωμετρίας
+- σημεία μονοπατιού
 - σημεία επεξεργασίας
 - προσθήκη σημείου
 - αφαίρεση σημείου
@@ -21,190 +21,140 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Δημιουργία και προσαρμογή σχημάτων σε παρουσιάσεις PowerPoint με Aspose.Slides για Java: διαδρομές γεωμετρίας, καμπυλωτές γωνίες, σύνθετα σχήματα."
+description: "Δημιουργία και προσαρμογή σχημάτων σε παρουσιάσεις PowerPoint με Aspose.Slides για Java: μονοπάτια γεωμετρίας, καμπυλωτές γωνίες, σύνθετα σχήματα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε σχήματα παρουσίασης στο Aspose.Slides επεξεργάζοντας τη γεωμετρία του σχήματος μέσω σημείων επεξεργασίας και διαδρομών γεωμετρίας. Δείχνει πώς να εργαστείτε με `GeometryPath` και `IGeometryPath` για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας διαδρομής, να προσθέσετε ή να αφαιρέσετε σημεία και να εφαρμόσετε την ενημερωμένη γεωμετρία πίσω σε ένα σχήμα.
+Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τα σχήματα παρουσίασης στο Aspose.Slides επεξεργάζοντας τη γεωμετρία των σχημάτων μέσω σημείων επεξεργασίας και μονοπατιών γεωμετρίας. Δείχνει πώς να εργάζεστε με [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) και [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας μονοπατιού, να προσθέσετε ή να αφαιρέσετε σημεία, και να εφαρμόσετε την ενημερωμένη γεωμετρία πίσω σε ένα σχήμα.
 
-Επίσης, παρουσιάζει πώς να δημιουργήσετε προσαρμοσμένα και σύνθετα σχήματα, να κατασκευάσετε σχήματα με καμπύλες γωνίες, να προσδιορίσετε εάν μια γεωμετρία σχήματος είναι κλειστή και να μετατρέψετε μεταξύ `GeometryPath` και `java.awt.Shape` για επιπλέον σενάρια προσαρμογής γεωμετρίας.
+Επίσης παρουσιάζει πώς να δημιουργήσετε προσαρμοσμένα και σύνθετα σχήματα, να οικοδομήσετε σχήματα με καμπύλες γωνίες, να προσδιορίσετε αν μια γεωμετρία σχήματος είναι κλειστή, να ελέγξετε τα στοιχεία του σχήματος και να μετατρέψετε τα περιγράμματα κειμένου Java AWT σε μονοπάτια γεωμετρίας.
 
-## **Αλλαγή Σχήματος μέσω Σημείων Επεξεργασίας**
+## **Αλλαγή Σχήματος Χρησιμοποιώντας Σημεία Επεξεργασίας**
 
-Σκεφτείτε ένα τετράγωνο. Στο PowerPoint, χρησιμοποιώντας **σημεία επεξεργασίας**, μπορείτε
+Στο PowerPoint, μπορείτε να χρησιμοποιήσετε **Edit Points** για να τροποποιήσετε ένα τετράγωνο:
 
-* να μετακινήσετε την γωνία του τετραγώνου προς τα μέσα ή προς τα έξω
-* να ορίσετε την καμπυλότητα για μια γωνία ή σημείο
-* να προσθέσετε νέα σημεία στο τετράγωνο
-* να χειριστείτε σημεία στο τετράγωνο κ.λπ.
+* Μετακινήστε μια γωνία προς τα μέσα ή προς τα έξω.
+* Ρυθμίστε την καμπυλότητα σε ένα σημείο.
+* Προσθέστε νέα σημεία.
 
-Βασικά, μπορείτε να εκτελέσετε τις παραπάνω εργασίες σε οποιοδήποτε σχήμα. Χρησιμοποιώντας σημεία επεξεργασίας, μπορείτε να αλλάξετε ένα σχήμα ή να δημιουργήσετε νέο σχήμα από ένα υπάρχον σχήμα.
+Η επεξεργασία σημείων σας επιτρέπει να τροποποιήσετε το περίγραμμα ενός σχήματος ή να χρησιμοποιήσετε ένα υπάρχον σχήμα ως βάση για ένα νέο.
 
-## **Συμβουλές Επεξεργασίας Σχημάτων**
+## **Συμβουλές Επεξεργασίας Σχήματος**
 
-![προεπισκοπηση_εικονας](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-Πριν αρχίσετε την επεξεργασία σχημάτων PowerPoint μέσω σημείων επεξεργασίας, ίσως θέλετε να λάβετε υπόψη τα εξής σχετικά με τα σχήματα:
+Κατά την επεξεργασία σχημάτων PowerPoint, θυμηθείτε τις παρακάτω έννοιες:
 
-* Ένα σχήμα (ή η διαδρομή του) μπορεί να είναι είτε κλειστό είτε ανοιχτό.
-* Όταν ένα σχήμα είναι κλειστό, δεν έχει σημείο έναρξης ή λήξης. Όταν είναι ανοιχτό, έχει αρχή και τέλος. 
-* Όλα τα σχήματα αποτελούνται από τουλάχιστον 2 άγκυρες σημείων που συνδέονται μεταξύ τους με γραμμές.
-* Μια γραμμή είναι είτε ευθεία είτε καμπυλωτή. Τα σημεία άγκυρας καθορίζουν τη φύση της γραμμής. 
-* Τα σημεία άγκυρας υφίστανται ως γωνιακά σημεία, ευθείες σημεία ή λεία σημεία:
-  * Ένα γωνιακό σημείο είναι σημείο όπου 2 ευθείες γραμμές ενώνουν υπό γωνία. 
-  * Ένα λείο σημείο είναι σημείο όπου 2 χειριστήρια βρίσκονται σε ευθεία γραμμή και τα τμήματα της γραμμής ενώνουν σε ομαλή καμπύλη. Σε αυτή την περίπτωση, όλα τα χειριστήρια είναι διαχωρισμένα από το σημείο άγκυρας την ίδια απόσταση. 
-  * Ένα ευθύ σημείο είναι σημείο όπου 2 χειριστήρια βρίσκονται σε ευθεία γραμμή και τα τμήματα αυτής της γραμμής ενώνουν σε λείο τόξο. Σε αυτή την περίπτωση, τα χειριστήρια δεν χρειάζεται να είναι διαχωρισμένα από το σημείο άγκυρας την ίδια απόσταση. 
-* Με τη μετακίνηση ή επεξεργασία των σημείων άγκυρας (που αλλάζει τη γωνία των γραμμών), μπορείτε να αλλάξετε την εμφάνιση ενός σχήματος.
+* Ένα σχήμα (ή το μονοπάτι του) μπορεί να είναι είτε κλειστό είτε ανοιχτό.
+* Το μονοπάτι ενός σχήματος αποτελείται από σημεία αγύρωσης συνδεδεμένα με τμήματα.
+* Ένα τμήμα μπορεί να είναι ευθύ ή κυρτό. Τα σημεία αγύρωσης και οι χειρολαβές ελέγχου καθορίζουν το σχήμα του.
+* Τα σημεία αγύρωσης υπάρχουν ως γωνιακά σημεία, ευθείες σημεία ή λείες σημεία:
+  * Σε ένα γωνιακό σημείο, τα διπλανά τμήματα μπορούν να συναντηθούν με γωνία.
+  * Σε ένα λείο σημείο, οι δύο χειρολαβές ελέγχου είναι ευθυγραμμισμένες και ισαπέχουν από το σημείο αγύρωσης.
+  * Σε ένα ευθύ σημείο, οι δύο χειρολαβές ελέγχου είναι ευθυγραμμισμένες αλλά μπορεί να έχουν διαφορετικές αποστάσεις από το σημείο αγύρωσης.
+* Η μετακίνηση των σημείων αγύρωσης ή η ρύθμιση των χειρολαβών τους αλλάζει το περίγραμμα του σχήματος.
 
-Για να επεξεργαστείτε σχήματα PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [**GeometryPath**](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath) και τη διεπαφή [**IGeometryPath**](https://reference.aspose.com/slides/el/java/com.aspose.slides/IGeometryPath).
+Για να επεξεργαστείτε σχήματα PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) και τη διεπαφή [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/).
 
-* Μια [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath) παρουσία αντιπροσωπεύει τη διαδρομή γεωμετρίας του αντικειμένου [IGeometryShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/IGeometryShape). 
-* Για να λάβετε το `GeometryPath` από την παρουσία `IGeometryShape`, μπορείτε να χρησιμοποιήσετε τη μέθοδο [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/el/java/com.aspose.slides/IGeometryShape#getGeometryPaths--). 
-* Για να ορίσετε το `GeometryPath` για ένα σχήμα, μπορείτε να χρησιμοποιήσετε τις μεθόδους: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) για *ακέραια σχήματα* και [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/el/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) για *σύνθετα σχήματα*.
-* Για να προσθέσετε τμήματα, μπορείτε να χρησιμοποιήσετε τις μεθόδους κάτω από [IGeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/IGeometryPath). 
-* Χρησιμοποιώντας τις μεθόδους [IGeometryPath.setStroke](https://reference.aspose.com/slides/el/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) και [IGeometryPath.setFillMode](https://reference.aspose.com/slides/el/java/com.aspose.slides/IGeometryPath#setFillMode-byte-), μπορείτε να ορίσετε την εμφάνιση μιας διαδρομής γεωμετρίας.
-* Μέσω της μεθόδου [IGeometryPath.getPathData](https://reference.aspose.com/slides/el/java/com.aspose.slides/IGeometryPath#getPathData--) μπορείτε να ανακτήσετε τη διαδρομή γεωμετρίας ενός `GeometryShape` ως πίνακα τμημάτων διαδρομής. 
-* Για να έχετε πρόσβαση σε πρόσθετες επιλογές προσαρμογής γεωμετρίας σχήματος, μπορείτε να μετατρέψετε το [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath) σε [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* Χρησιμοποιήστε τις μεθόδους [geometryPathToGraphicsPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) και [graphicsPathToGeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (από την κλάση [ShapeUtil](https://reference.aspose.com/slides/el/java/com.aspose.slides/ShapeUtil)) για να μετατρέψετε το [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath) σε [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) και αντίστροφα.
+* Μια [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) παρουσία αντιπροσωπεύει ένα μονοπάτι γεωμετρίας του αντικειμένου [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/).
+* Για να ανακτήσετε το [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) από την παρουσία [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/), μπορείτε να χρησιμοποιήσετε τη μέθοδο [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--).
+* Για να ορίσετε το [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) για ένα σχήμα, μπορείτε να χρησιμοποιήσετε αυτές τις μεθόδους: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) για σχήματα με ένα μόνο μονοπάτι και [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) για σχήματα με πολλαπλά μονοπάτια.
+* Για να προσθέσετε τμήματα, μπορείτε να χρησιμοποιήσετε τις μεθόδους υπό τη [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/).
+* Χρησιμοποιώντας τις μεθόδους [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setStroke-boolean-) και [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-), μπορείτε να ορίσετε την εμφάνιση για ένα μονοπάτι γεωμετρίας.
+* Χρησιμοποιώντας τη μέθοδο [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--), μπορείτε να ανακτήσετε το μονοπάτι γεωμετρίας ενός [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/geometryshape/) ως έναν πίνακα τμημάτων μονοπατιού.
+* Για να έχετε πρόσβαση σε πρόσθετες επιλογές προσαρμογής γεωμετρίας σχήματος, μπορείτε να διαβάσετε ένα [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) μέσω του [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) και να επαναλάβετε τα τμήματα σε ένα [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/).
 
 ## **Απλές Λειτουργίες Επεξεργασίας**
 
-Αυτός ο κώδικας Java δείχνει πώς να
+Χρησιμοποιήστε τις παρακάτω μεθόδους για να επεξεργαστείτε ένα μονοπάτι γεωμετρίας. Οι υπερφορτώσεις που δέχονται δείκτη εισάγουν ένα τμήμα στη θέση μηδενικής βάσης στον πίνακα τμημάτων του μονοπατιού.
 
-**Προσθέσετε μια γραμμή** στο τέλος μιας διαδρομής
-
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**Προσθέσετε μια γραμμή** σε συγκεκριμένη θέση σε μια διαδρομή:
-
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**Προσθέσετε μια κυρτή καμπύλη Bezier** στο τέλος μιας διαδρομής:
-
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Προσθέσετε μια κυρτή καμπύλη Bezier** σε συγκεκριμένη θέση σε μια διαδρομή:
-
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**Προσθέσετε μια τετραγωνική καμπύλη Bezier** στο τέλος μιας διαδρομής:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Προσθέσετε τετραγωνική καμπύλη Bezier** σε συγκεκριμένη θέση σε μια διαδρομή:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**Προσθέσετε ένα δοσμένο τόξο** σε μια διαδρομή:
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Κλείσετε το τρέχον σχήμα** μιας διαδρομής:
-
-``` java
-public void closeFigure();
-```
-**Ορίσετε τη θέση του επόμενου σημείου**:
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**Αφαιρέσετε το τμήμα διαδρομής** σε δεδομένο δείκτη:
-
-``` java
-public void removeAt(int index);
-```
+| Λειτουργία | Μέθοδος |
+| --- | --- |
+| Προσθήκη ή εισαγωγή μιας ευθείας γραμμής. | [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| Προσθήκη ή εισαγωγή μιας κυβικής καμπύλης Bézier με δύο σημεία ελέγχου και ένα τελικό σημείο. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Προσθήκη ή εισαγωγή μιας τετραγωνικής καμπύλης Bézier με ένα σημείο ελέγχου και ένα τελικό σημείο. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Προσθήκη μιας ελλειπτικής τοξοειδούς με τις καθορισμένες διαστάσεις και γωνίες σε μοίρες. | [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Κλείσιμο του τρέχοντος σχήματος συνδέοντας το τελικό του σημείο με το αρχικό του σημείο. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) |
+| Ορισμός του αρχικού σημείου ενός σχήματος. | [GeometryPath.moveTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Αφαίρεση ενός τμήματος σε δείκτη μηδενικής βάσης. | [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) |
 
 ## **Προσθήκη Προσαρμοσμένων Σημείων σε Σχήμα**
-1. Δημιουργήστε μια παρουσία της κλάσης [GeometryShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryShape) και ορίστε τον τύπο [ShapeType.Rectangle](https://reference.aspose.com/slides/el/java/com.aspose.slides/ShapeType). 
-2. Λάβετε μια παρουσία της κλάσης [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath) από το σχήμα. 
-3. Προσθέστε ένα νέο σημείο μεταξύ των δύο άνω σημείων της διαδρομής. 
-4. Προσθέστε ένα νέο σημείο μεταξύ των δύο κάτω σημείων της διαδρομής. 
-5. Εφαρμόστε τη διαδρομή στο σχήμα.
 
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε προσαρμοσμένα σημεία σε σχήμα:
+Αυτό το παράδειγμα εισάγει δύο σημεία σε ένα ορθογώνιο σχήμα χρησιμοποιώντας [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) και εφαρμόζει το επεξεργασμένο μονοπάτι με [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Οι συντεταγμένες είναι τοπικές στο σχήμα: και τα δύο νέα σημεία βρίσκονται στο κέντρο του, 100 points από αριστερά και 50 points από πάνω. Οι δείκτες τμημάτων 1 και 4 τα τοποθετούν στα πάνω και κάτω άκρα, τραβώντας αυτά τα άκρα προς το εσωτερικό.
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![παραδειγμα1_εικονα](custom_shape_1.png)
+
+![example1_image](custom_shape_1.png)
 
 ## **Αφαίρεση Σημείων από Σχήμα**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [GeometryShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryShape) και ορίστε τον τύπο [ShapeType.Heart](https://reference.aspose.com/slides/el/java/com.aspose.slides/ShapeType). 
-2. Λάβετε μια παρουσία της κλάσης [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath) από το σχήμα. 
-3. Αφαιρέστε το τμήμα της διαδρομής. 
-4. Εφαρμόστε τη διαδρομή στο σχήμα.
+Αυτό το παράδειγμα αλλάζει το περίγραμμα σχήματος καρδιάς αφαιρώντας το τμήμα στη θέση μηδενικής βάσης 2 με [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-). Η εφαρμογή του τροποποιημένου μονοπατιού με [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ενημερώνει το περίγραμμα του σχήματος.
 
-Αυτός ο κώδικας Java δείχνει πώς να αφαιρέσετε σημεία από σχήμα:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![παραδειγμα2_εικονα](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
 ## **Δημιουργία Προσαρμοσμένου Σχήματος**
 
-1. Υπολογίστε τα σημεία του σχήματος. 
-2. Δημιουργήστε μια παρουσία της κλάσης [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath). 
-3. Συμπληρώστε τη διαδρομή με τα σημεία. 
-4. Δημιουργήστε μια παρουσία της κλάσης [GeometryShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryShape). 
-5. Εφαρμόστε τη διαδρομή στο σχήμα.
+Αυτό το παράδειγμα δημιουργεί έναν πεντάγωνο αστέρι με [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/). Εναλλασσόμενες εξωτερικές και εσωτερικές ακτίνες 100 και 50 points ορίζουν τις άκρες και τις εσοχές· ένα βήμα 72 μ graus χωρίζει ομοιόμορφα τις πέντε άκρες. Το μονοπάτι κλείνει με [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) και εφαρμόζεται σε ένα ορθογώνιο σχήμα με [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), αντικαθιστώντας το περίγραμμα του.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε προσαρμοσμένο σχήμα:
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<Point2D.Float> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    Point2D.Float point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -217,60 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![παραδειγμα3_εικονα](custom_shape_3.png)
-
+![example3_image](custom_shape_3.png)
 
 ## **Δημιουργία Σύνθετου Προσαρμοσμένου Σχήματος**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [GeometryShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryShape). 
-2. Δημιουργήστε την πρώτη παρουσία της κλάσης [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath). 
-3. Δημιουργήστε τη δεύτερη παρουσία της κλάσης [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath). 
-4. Εφαρμόστε τις διαδρομές στο σχήμα.
+Αυτό το παράδειγμα ορίζει δύο κλειστά [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) αντικείμενα για το άνω και το κάτω τρίτο ενός σχήματος. Η εφαρμογή και των δύο μονοπατιών με [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) δημιουργεί ένα ενιαίο σύνθετο σχήμα με ένα κενό στην κεντρική τρίτη του περιοχή.
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε ένα σύνθετο προσαρμοσμένο σχήμα:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![παραδειγμα4_εικονα](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
 ## **Δημιουργία Προσαρμοσμένου Σχήματος με Καμπύλες Γωνίες**
 
-Αυτός ο κώδικας Java δείχνει πώς να δημιουργήσετε προσαρμοσμένο σχήμα με καμπύλες γωνίες (προς τα μέσα):
+Αυτό το παράδειγμα συνδυάζει ευθύ τμήματα με [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) για να δημιουργήσει ένα σχήμα με εσωτερικές καμπυλωτές γωνίες. Κάθε μέγεθος γωνίας ορίζει το πλάτος και το ύψος της τοξοειδούς σε points, και η σάρωση -90 μ graus σχεδιάζει ένα αντίστροφα ρολόι τέταρτο έλλειψης. Το ολοκληρωμένο μονοπάτι εφαρμόζεται με [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), και η παρουσίαση αποθηκεύεται σε μορφή PPTX.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -281,122 +231,243 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    Point2D.Float topLeft = new Point2D.Float(leftTopSize, 0);
+    Point2D.Float topRight = new Point2D.Float(shapeWidth - rightTopSize, 0);
+    Point2D.Float rightBottom = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
+    Point2D.Float bottomLeft = new Point2D.Float(leftBottomSize, shapeHeight);
+    Point2D.Float leftTop = new Point2D.Float(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Εύρεση Εάν η Γεωμετρία Σχήματος Είναι Κλειστή**
+## **Καθορίστε Εάν η Γεωμετρία Σχήματος Είναι Κλειστή**
 
-Ένα κλειστό σχήμα ορίζεται ως εκείνο στο οποίο όλες οι πλευρές συνδέονται, σχηματίζοντας ένα ενιαίο όριο χωρίς κενά. Ένα τέτοιο σχήμα μπορεί να είναι μια απλή γεωμετρική μορφή ή ένα πολύπλοκο προσαρμοσμένο περίγραμμα. Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ελέγξετε εάν η γεωμετρία ενός σχήματος είναι κλειστή:
+Ο παρακάτω βοηθός ελέγχει αν κάθε μη κενό μονοπάτι γεωμετρίας λήγει με τμήμα κλεισίματος. Διαβάζει το [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) και συγκρίνει την τελική εντολή του τμήματος [IPathSegment.getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) με το [PathCommandType.Close](https://reference.aspose.com/slides/java/com.aspose.slides/pathcommandtype/). Επιστρέφει false όταν δεν υπάρχουν μη κενά μονοπάτια. Ο έλεγχος αφορά την τελική εντολή κάθε μονοπατιού· δεν επιθεωρεί κάθε υποσχήμα εντός του. Το παράδειγμα εκτυπώνει `true` για ένα ορθογώνιο.
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
+}
 
-    return isClosed == true;
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Μετατροπή GeometryPath σε java.awt.Shape** 
+## **Εξαγωγή και Επιθεώρηση Στοιχείων Σχήματος**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [GeometryShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryShape). 
-2. Δημιουργήστε μια παρουσία της κλάσης [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html). 
-3. Μετατρέψτε την παρουσία [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) σε παρουσία [GeometryPath](https://reference.aspose.com/slides/el/java/com.aspose.slides/GeometryPath) χρησιμοποιώντας το [ShapeUtil](https://reference.aspose.com/slides/el/java/com.aspose.slides/ShapeUtil). 
-4. Εφαρμόστε τις διαδρομές στο σχήμα.
+Χρησιμοποιήστε το [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#createShapeElements--) για να επιθεωρήσετε ένα υφιστάμενο σχήμα ως στοιχεία που περιέχουν σημεία μονοπατιού και τύπους σημείων. Μετατρέψτε κάθε επιστρεφόμενο [IShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/ishapeelement/) σε [ShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/) ώστε να λάβετε τους πίνακες σημείων και τύπων μέσω των μεθόδων [getPathPoints](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathPoints--) και [getPathTypes](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathTypes--). Αυτή η αναπαράσταση είναι χρήσιμη για ανάλυση περιγραμμάτων ή για μεταφορά γεωμετρίας σε προσαρμοσμένα εργαλεία σχεδίασης.
 
-Αυτός ο κώδικας Java—μια υλοποίηση των παραπάνω βημάτων—δείχνει τη διαδικασία μετατροπής **GeometryPath** σε **GraphicsPath**:
+Το παράδειγμα ανοίγει το input.pptx, βρίσκει το πρώτο γεωμετρικό σχήμα στην πρώτη διαφάνεια και εκτυπώνει τα τμήματα του μονοπατιού του. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχήμα με ευθύ και κυρτά τμήματα για να δείτε και τις δύο μορφές εξόδου. Δεν ψάχνει μέσα σε ομάδες.
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            Point2D.Float[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // Διατήρηση του τύπου τμήματος, εξαιρώντας τις σημαίες.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Καταναλώνει και τα δύο σημεία ελέγχου και το τελικό σημείο.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Οι πίνακες αντιστοιχούν κατά δείκτη: `points[i]` είναι ένα σημείο και `types[i]` περιγράφει τον ρόλο του. Ο τύπος `0` ξεκινά ένα σχήμα, και ο τύπος `1` σχεδιάζει γραμμή από το προηγούμενο σημείο στο τρέχον. Ένα τμήμα κυβικής Bézier αρχίζει στο προηγούμενο τελικό σημείο και χρησιμοποιεί τρεις διαδοχικές καταχωρήσεις τύπου `3`: δύο σημεία ελέγχου ακολουθούμενα από το νέο τελικό σημείο. Ο βρόχος καταναλώνει αυτές τις τρεις καταχωρήσεις μαζί και ελέγχει το τελικό σημείο για κλείσιμο.
+
+Οι τύποι σημείων περιέχουν επίσης σημαίες. Χρησιμοποιήστε τη μάσκα `0x07` για να ταυτοποιήσετε τον τύπο του τμήματος και ελέγξτε ξεχωριστά το `0x80` για να ανιχνεύσετε ένα κλειστό υπομονοπάτι. Για παράδειγμα, το `129` (`0x81`) σημαίνει ένα τελικό σημείο γραμμής που κλείνει ένα υπομονοπάτι, και το `131` (`0x83`) σημαίνει ένα τελικό σημείο Bézier που κλείνει ένα. Η Java αποθηκεύει αυτές τις σημαίες σε υπογραφόμενα bytes· η μάσκα διατηρεί τις προοριζόμενες τιμές bit. Η σύγκριση της ωμής τιμής μόνο με `1` ή `3` θα χάσει αυτές τις περιπτώσεις. Άλλες σημαίες, όπως η παύλα (`0x10`) και ο δείκτης (`0x20`), δεν αλλάζουν τον βασικό τύπο του τμήματος.
+
+**Συντεταγμένες και μετασχηματισμοί.** Τα σημεία μετρώνται σε points (1/72 ίντσα), με το X να αυξάνεται προς τα δεξιά και το Y προς τα κάτω. Για ένα μη ομαδοποιημένο σχήμα, οι εξαγόμενες συντεταγμένες περιλαμβάνουν ήδη τη θέση που επιστρέφεται από τις μεθόδους [getX](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getX--) και [getY](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getY--) και αντικατοπτρίζουν το τρέχον πλάτος και ύψος του. Για παράδειγμα, ένα μη περιστραμμένο ορθογώνιο στο `(100, 200)` με μέγεθος `120 × 80` έχει όρια περιγράμματος `(100, 200)`–`(220, 280)`. Μην προσθέσετε ξανά τη θέση του σχήματος. Αφαιρέστε το X και Y του για να λάβετε συντεταγμένες σχετικά με το μη περιστραμμένο πλαίσιο.
+
+Οι εξαγόμενες σημεία δεν εφαρμόζουν την περιστροφή του σχήματος, που επιστρέφεται από τη [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getRotation--), ούτε τις οριζόντιες και κάθετες αναστροφές. Για να αποδομήσετε το εμφανιζόμενο περίγραμμα, εφαρμόστε αυτούς τους μετασχηματισμούς γύρω από το κέντρο του σχήματος. Για ομαδοποιημένα σχήματα, λάβετε επίσης υπόψη τη χαρτογράφηση συντεταγμένων ομάδας και τους μετασχηματισμούς· μην θεωρείτε ότι τα εξαγόμενα σημεία είναι οι τελικές συντεταγμένες της διαφάνειας ή εφαρμόζετε διπλή μετάθεση ή κλιμάκωση αν αυτά ήδη αντικατοπτρίζονται στο πλαίσιο του παιδιού.
+
+**Επιθεώρηση έναντι επεξεργασίας.** Οι εξαγόμενοι πίνακες περιγράφουν το περίγραμμα· η αλλαγή τους δεν ενημερώνει το αρχικό σχήμα. Επιλέξτε αυτήν την προσέγγιση όταν η ανάλυση ή ο κώδικας σχεδίασής σας χρειάζονται πίνακες σημείων/τύπων. Χρησιμοποιήστε το [getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) όταν χρειάζεστε εντολές γεωμετρίας στο τοπικό σύστημα συντεταγμένων του σχήματος ή θέλετε να επεξεργαστείτε τη γεωμετρία του. Εφαρμόστε τα επεξεργασμένα μονοπάτια μέσω του [setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ή του [setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---).
+
+## **Μετατροπή Σχήματος Java AWT σε GeometryPath**
+
+Αυτό το παράδειγμα συνδυάζει το περίγραμμα ενός ορθογωνίου με κείμενο μετατρεπόμενο σε γεωμετρία. Η μέθοδος [setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) του περιγράμματος απενεργοποιεί τη γεμίσή του. Ένα [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) δημιουργεί το περίγραμμα κειμένου σε ένα [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Το [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) του παρέχει εντολές κίνησης, γραμμής, τετραγωνικής, κυβικής και κλεισίματος· το παράδειγμα τις επαναλαμβάνει σε ένα [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/).
+
+Το κείμενο χρησιμοποιεί γραμματοσειρά Arial 40 points. Το περίγραμμα μετατοπίζεται 20 points οριζόντια και τοποθετείται έτσι ώστε το οπτικό του πάνω να βρίσκεται 10 points κάτω από την πάνω άκρη του σχήματος. Το μονοπάτι κειμένου γεμίζει, ενώ το αρχικό ορθογώνιο παραμένει ως περίγραμμα. Η εφαρμογή και των δύο μονοπατιών με [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) παράγει ένα ενιαίο σχήμα που περιέχει το ορθογώνιο και το κείμενο.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.GlyphVector;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.PathIterator;
+import java.awt.image.BufferedImage;
+
+Presentation presentation = new Presentation();
 try {
     // Δημιουργία νέου σχήματος
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Λήψη διαδρομής γεωμετρίας του σχήματος
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+
+    // Λήψη μονοπατιού γεωμετρίας του σχήματος
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
     originalPath.setFillMode(PathFillModeType.None);
 
-    // Δημιουργία νέας διαδρομής γραφικών με κείμενο
+    // Δημιουργία νέου γραφικού μονοπατιού με κείμενο
     Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
+    Font font = new Font("Arial", Font.PLAIN, 40);
     String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
+    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D graphics = image.createGraphics();
 
     try
     {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
+        FontRenderContext fontContext = graphics.getFontRenderContext();
+        GlyphVector glyphVector = font.createGlyphVector(fontContext, text);
+        Rectangle2D textBounds = glyphVector.getVisualBounds();
+        float baseline = (float) -textBounds.getY() + 10;
+        graphicsPath = glyphVector.getOutline(20f, baseline);
     }
     finally {
-        g2.dispose();
+        graphics.dispose();
     }
 
-    // Μετατροπή διαδρομής γραφικών σε διαδρομή γεωμετρίας
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
+    // Μετατροπή του γραφικού μονοπατιού σε μονοπάτι γεωμετρίας
+    IGeometryPath textPath = new GeometryPath();
+    PathIterator pathIterator = graphicsPath.getPathIterator(null);
+    float[] points = new float[6];
+
+    while (!pathIterator.isDone())
+    {
+        int segmentType = pathIterator.currentSegment(points);
+        switch (segmentType)
+        {
+            case PathIterator.SEG_MOVETO:
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_LINETO:
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_QUADTO:
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case PathIterator.SEG_CUBICTO:
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case PathIterator.SEG_CLOSE:
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // Ορισμός συνδυασμού νέας διαδρομής γεωμετρίας και αρχικής διαδρομής γεωμετρίας στο σχήμα
+    // Ορισμός του συνδυασμού νέου μονοπατιού γεωμετρίας και αρχικού μονοπατιού γεωμετρίας στο σχήμα
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![παραδειγμα5_εικονα](custom_shape_5.png)
+![example5_image](custom_shape_5.png)
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΑ ΕΡΩΤΗΣΕΙΣ**
 
-**Τι συμβαίνει με τη γέμιση και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
+**Τι θα συμβεί στη γέμιση και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
 
 Το στυλ παραμένει στο σχήμα· μόνο το περίγραμμα αλλάζει. Η γέμιση και το περίγραμμα εφαρμόζονται αυτόματα στη νέα γεωμετρία.
 
 **Πώς να περιστρέψω σωστά ένα προσαρμοσμένο σχήμα μαζί με τη γεωμετρία του;**
 
-Χρησιμοποιήστε τη μέθοδο [setRotation](https://reference.aspose.com/slides/el/java/com.aspose.slides/shape/#setRotation-float-) του σχήματος· η γεωμετρία περιστρέφεται μαζί με το σχήμα επειδή είναι δεσμευμένη στο δικό του σύστημα συντεταγμένων.
+Χρησιμοποιήστε τη μέθοδο [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) του σχήματος· η γεωμετρία περιστρέφεται με το σχήμα επειδή είναι δεσμευμένη στο δικό του σύστημα συντεταγμένων.
 
-**Μπορώ να μετατρέψω ένα προσαρμοσμένο σχήμα σε εικόνα για να «κλειδώσω» το αποτέλεσμα;**
+**Μπορώ να μετατρέψω ένα προσαρμοσμένο σχήμα σε εικόνα για να "κλειδώσω" το αποτέλεσμα;**
 
-Ναι. Εξαγάγετε την απαιτούμενη περιοχή [slide](/slides/el/java/convert-powerpoint-to-png/) ή το ίδιο το [shape](/slides/el/java/create-shape-thumbnails/) σε μορφή raster· αυτό απλοποιεί την περαιτέρω εργασία με βαριές γεωμετρίες.
+Ναι. Εξάγετε την απαιτούμενη περιοχή [slide](/slides/el/java/convert-powerpoint-to-png/) ή το ίδιο το [shape](/slides/el/java/create-shape-thumbnails/) σε μορφή raster· αυτό απλοποιεί την περαιτέρω εργασία με πολύπλοκες γεωμετρίες.

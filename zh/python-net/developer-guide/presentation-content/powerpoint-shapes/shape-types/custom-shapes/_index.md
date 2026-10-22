@@ -1,10 +1,10 @@
 ---
-title: 使用 Python 在演示文稿中自定义形状
+title: 在 Python 中自定义演示文稿形状
 linktitle: 自定义形状
 type: docs
 weight: 20
 url: /zh/python-net/custom-shape/
-keywords: 
+keywords:
 - 自定义形状
 - 添加形状
 - 创建形状
@@ -16,134 +16,70 @@ keywords:
 - 添加点
 - 移除点
 - 编辑操作
-- 圆滑角
+- 曲线角
 - PowerPoint
-- OpenDocument
-- presentation
+- 演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中创建并自定义形状：几何路径、圆滑角、复合形状。"
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 演示文稿中创建和自定义形状：几何路径、曲线角、复合形状。"
 ---
-
 ## **概述**
 
-考虑一个正方形。在 PowerPoint 中使用 **编辑点**，您可以：
+本文解释了如何通过编辑点和几何路径编辑形状几何来自定义 Aspose.Slides 中的演示文稿形状。它展示了如何使用 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 修改现有形状，执行基本的路径编辑操作，添加或删除点，并将更新后的几何应用回形状。
 
-* 将正方形的角向内或向外移动，
-* 调整角或点的曲率，
-* 向正方形添加新点，
-* 操作其点。
+它还演示了如何创建自定义和复合形状，构建带曲线角的形状，判断形状几何是否闭合，以及提取形状元素进行轮廓分析。
 
-您可以将这些操作应用于任意形状。使用 **编辑点**，您可以修改形状或根据现有形状创建新形状。
+## **使用编辑点更改形状**
+
+* 将角点向内或向外移动。
+* 调整点处的曲率。
+* 添加新点。
+
+编辑点可以让你修改形状的轮廓，或以现有形状为基础创建新形状。
 
 ## **形状编辑技巧**
 
-![“编辑点”命令](custom_shape_0.png)
+![概览图](custom_shape_0.png)
 
-在使用 **编辑点** 开始编辑 PowerPoint 形状之前，请注意以下关于形状的说明：
+编辑 PowerPoint 形状时，请牢记以下概念：
 
-* 形状（或其路径）可以是 **闭合** 或 **开放** 的。
-* 闭合形状没有起始点或结束点；开放形状有起始点和结束点。
-* 每个形状至少有两个通过线段连接的锚点。
-* 线段可以是直的或曲的；锚点决定线段的性质。
-* 锚点可以是 **角点**、**平滑点** 或 **直线点**：
-  * **角点** 是两条直线段在一个角处相交的点。
-  * **平滑点** 有两个共线的手柄，相邻的线段形成平滑曲线。在此情况下，两个手柄与锚点的距离相等。
-  * **直线点** 也有两个共线的手柄，相邻的线段形成平滑曲线，但手柄到锚点的距离可以不同。
-* 通过移动或编辑锚点（从而改变线段角度），可以改变形状的外观。
+* 形状（或其路径）可以是闭合的或打开的。
+* 形状的路径由锚点和段连接组成。
+* 段可以是直线或曲线。锚点和控制柄决定其形状。
+* 锚点存在为拐角点、直线点或平滑点：
+  * 在拐角点， 相邻段可以形成角度。
+  * 在平滑点，两个控制柄对齐且距离锚点相等。
+  * 在直线点，两个控制柄对齐，但与锚点的距离可以不同。
+* 移动锚点或调整其控制柄会改变形状的轮廓。
 
-要编辑 PowerPoint 形状，Aspose.Slides 提供了 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 类。
+要通过编辑点编辑 PowerPoint 形状，**Aspose.Slides** 提供了 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 类。
 
 * 一个 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 实例表示 [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) 对象的几何路径。
-* 要从 [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) 实例中获取 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)，请使用 [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) 方法。
-* 要为形状设置 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)，对 *实心形状* 使用 [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/)，对 *复合形状* 使用 [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/)。
-* 要添加线段，请使用 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 上的方法。
-* 使用 [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) 和 [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) 属性控制几何路径的外观。
-* 使用 [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) 属性可将形状的几何路径作为路径段数组检索。
+* 要从 [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) 实例获取 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)，可以使用 [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) 方法。
+* 要为形状设置 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)，可以使用以下方法：单路径形状使用 [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/)，多路径形状使用 [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/)。
+* 要添加段，可以使用 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 下的方法。
+* 使用 [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) 和 [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) 属性，可设置几何路径的外观。
+* 使用 [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) 属性，可将 [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) 的几何路径检索为路径段数组。
 
 ## **简单编辑操作**
 
-以下方法用于简单编辑操作。
+使用以下方法编辑几何路径。接受索引的重载会在路径段数组的相应零基位置插入段。
 
-**在路径末尾添加直线**：
-```py
-line_to(point)
-line_to(x, y)
-```
-
-
-**在路径的指定位置添加直线**：
-```py    
-line_to(point, index)
-line_to(x, y, index)
-```
-
-
-**在路径末尾添加三次贝塞尔曲线**：
-```py
-cubic_bezier_to(point1, point2, point3)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3)
-```
-
-
-**在路径的指定位置添加三次贝塞尔曲线**：
-```py
-cubic_bezier_to(point1, point2, point3, index)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
-```
-
-
-**在路径末尾添加二次贝塞尔曲线**：
-```py
-quadratic_bezier_to(point1, point2)
-quadratic_bezier_to(x1, y1, x2, y2)
-```
-
-
-**在路径的指定位置添加二次贝塞尔曲线**：
-```py
-quadratic_bezier_to(point1, point2, index)
-quadratic_bezier_to(x1, y1, x2, y2, index)
-```
-
-
-**向路径追加弧线**：
-```py
-arc_to(width, heigth, startAngle, sweepAngle)
-```
-
-
-**关闭路径中的当前图形**：
-```py
-close_figure()
-```
-
-
-**设置下一个点的位置**：
-```py
-move_to(point)
-move_to(x, y)
-```
-
-
-**删除给定索引处的路径段**：
-```py
-remove_at(index)
-```
-
+| 操作 | 方法 |
+| --- | --- |
+| 追加或插入直线。 | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
+| 追加或插入带有两个控制点和终点的三次贝塞尔曲线。 | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
+| 追加或插入带有一个控制点和终点的二次贝塞尔曲线。 | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| 追加具有指定尺寸和角度（以度为单位）的椭圆弧。 | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
+| 通过将端点连接到起点来闭合当前图形。 | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
+| 设置图形的起始点。 | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
+| 移除零基索引处的段。 | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
 ## **向形状添加自定义点**
 
-在本节中，您将学习通过添加自己的点序列来定义自由形状。通过指定有序点和线段类型（直线或曲线），并可选地闭合路径，您可以在幻灯片上直接绘制精确的自定义图形——多边形、图标、批注或徽标。
+此示例使用 [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) 向矩形形状插入两个点，并使用 [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) 应用编辑后的路径。坐标相对于形状本身：两个新点位于中心，距左边 100 点，距顶部 50 点。段索引 1 和 4 将它们放在顶部和底部边缘，向内拉动这些边缘。
 
-1. 创建一个 [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) 类的实例并设置其 [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/)。
-2. 从该形状获取一个 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 实例。
-3. 在路径的两个顶部点之间插入一个新点。
-4. 在路径的两个底部点之间插入一个新点。
-5. 将更新后的路径应用于形状。
-
-以下 Python 代码演示如何向形状添加自定义点：
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -156,24 +92,15 @@ with slides.Presentation() as presentation:
     geometry_path.line_to(100, 50, 4)
 
     shape.set_geometry_path(geometry_path)
-
-    presentation.save("custom_points.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+![示例1图](custom_shape_1.png)
 
-![自定义点](custom_shape_1.png)
+## **从形状中移除点**
 
-##  **从形状中移除点**
+此示例通过使用 [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) 删除零基索引 2 处的段来更改心形轮廓。使用 [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) 应用修改后的路径后，形状的轮廓会被更新。
 
-有时自定义形状包含不必要的点，这会使几何结构变得复杂或影响渲染效果。本节展示如何从形状的路径中移除特定点，以简化轮廓并实现更清晰、更精确的结果。
-
-1. 创建一个 [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) 类的实例并设置其 [ShapeType.HEART](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/) 类型。
-2. 从该形状获取一个 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 实例。
-3. 从路径中移除一个线段。
-4. 将更新后的路径应用于形状。
-
-以下 Python 代码演示如何从形状中移除点：
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -185,50 +112,39 @@ with slides.Presentation() as presentation:
     path.remove_at(2)
 
     shape.set_geometry_path(path)
-
-    presentation.save("removed_points.pptx", slides.export.SaveFormat.PPTX)
 ```
+![示例2图](custom_shape_2.png)
 
+## **创建自定义形状**
 
-![已移除的点](custom_shape_2.png)
+此示例使用 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 构建一个五角星。交替的外半径 100 点和内半径 50 点定义了顶点和凹陷；72 度的步长使五个顶点均匀分布。使用 [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) 将路径闭合，并通过 [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) 应用于矩形形状，替换其轮廓。
 
-##  **创建自定义形状**
-
-通过定义一个 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 并使用直线、弧线和贝塞尔曲线进行组合，创建专属矢量形状。本节展示如何从零开始构建自定义几何体并将生成的形状添加到幻灯片中。
-
-1. 计算形状的各个点。
-2. 创建一个 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 类的实例。
-3. 用这些点填充路径。
-4. 创建一个 [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) 类的实例。
-5. 将路径应用于形状。
-
-以下 Python 代码演示如何创建自定义形状：
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import math
 
 points = []
 
-R = 100
-r = 50
-step = 72
+outer_radius = 100
+inner_radius = 50
+angle_step = 72
 
-for angle in range(-90, 270, step):
+for angle in range(-90, 270, angle_step):
     radians = angle * (math.pi / 180)
-    x = R * math.cos(radians)
-    y = R * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    x = outer_radius * math.cos(radians)
+    y = outer_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
-    radians = math.pi * (angle + step / 2) / 180.0
-    x = r * math.cos(radians)
-    y = r * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    radians = math.pi * (angle + angle_step / 2) / 180.0
+    x = inner_radius * math.cos(radians)
+    y = inner_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
 star_path = slides.GeometryPath()
 star_path.move_to(points[0])
 
-for i in range(len(points)):
+for i in range(1, len(points)):
     star_path.line_to(points[i])
 
 star_path.close_figure()
@@ -236,26 +152,16 @@ star_path.close_figure()
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.set_geometry_path(star_path)
-
-    presentation.save("custom_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-
-![自定义形状](custom_shape_3.png)
+![示例3图](custom_shape_3.png)
 
 ## **创建复合自定义形状**
 
-创建复合自定义形状可将多个几何路径合并为幻灯片上的单个可重用形状。定义并合并这些路径，以构建超出标准形状集合的复杂视觉效果。
+此示例为形状的上三分之一和下三分之一定义了两个闭合的 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 对象。使用 [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) 同时应用这两条路径，可创建一个在中间三分之一处留有间隙的单一复合形状。
 
-1. 创建一个 [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) 类的实例。
-2. 创建第一个 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 类的实例。
-3. 创建第二个 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) 类的实例。
-4. 将两个路径都应用于该形状。
-
-以下 Python 代码演示如何创建复合自定义形状：
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -263,34 +169,29 @@ with slides.Presentation() as presentation:
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
 
-    geometry_path_0 = slides.GeometryPath()
-    geometry_path_0.move_to(0, 0)
-    geometry_path_0.line_to(shape.width, 0)
-    geometry_path_0.line_to(shape.width, shape.height/3)
-    geometry_path_0.line_to(0, shape.height / 3)
-    geometry_path_0.close_figure()
+    top_path = slides.GeometryPath()
+    top_path.move_to(0, 0)
+    top_path.line_to(shape.width, 0)
+    top_path.line_to(shape.width, shape.height / 3)
+    top_path.line_to(0, shape.height / 3)
+    top_path.close_figure()
 
-    geometry_path_1 = slides.GeometryPath()
-    geometry_path_1.move_to(0, shape.height/3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height / 3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height)
-    geometry_path_1.line_to(0, shape.height)
-    geometry_path_1.close_figure()
+    bottom_path = slides.GeometryPath()
+    bottom_path.move_to(0, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height)
+    bottom_path.line_to(0, shape.height)
+    bottom_path.close_figure()
 
-    shape.set_geometry_paths([ geometry_path_0, geometry_path_1])
-
-    presentation.save("composite_shape.pptx", slides.export.SaveFormat.PPTX)
+    shape.set_geometry_paths([top_path, bottom_path])
 ```
+![示例4图](custom_shape_4.png)
 
+## **创建带曲线角的自定义形状**
 
-![复合形状](custom_shape_4.png)
+此示例将直线段与 [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) 组合，生成一个角部向内弯曲的形状。每个角的大小决定弧的宽度和高度（单位为点），-90 度的扫掠角绘制出逆时针的四分之一椭圆。完成的路径通过 [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) 应用，并将演示文稿保存为 PPTX 格式。
 
-## **创建带圆滑角的自定义形状**
-
-本节展示如何使用几何路径绘制带圆滑角的自定义形状。您将结合直线段和圆弧形成轮廓，并将完成的形状添加到幻灯片中。
-
-以下 Python 代码演示如何创建带圆滑角的自定义形状：
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
@@ -307,67 +208,118 @@ left_bottom_size = 10
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(
-        slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
 
-    point1 = draw.PointF(left_top_size, 0)
-    point2 = draw.PointF(shape_width - right_top_size, 0)
-    point3 = draw.PointF(shape_width, shape_height - right_bottom_size)
-    point4 = draw.PointF(left_bottom_size, shape_height)
-    point5 = draw.PointF(0, left_top_size)
+    top_left = slides.PointF(left_top_size, 0)
+    top_right = slides.PointF(shape_width - right_top_size, 0)
+    right_bottom = slides.PointF(shape_width, shape_height - right_bottom_size)
+    bottom_left = slides.PointF(left_bottom_size, shape_height)
+    left_top = slides.PointF(0, left_top_size)
 
     geometry_path = slides.GeometryPath()
-    geometry_path.move_to(point1)
-    geometry_path.line_to(point2)
+    geometry_path.move_to(top_left)
+    geometry_path.line_to(top_right)
     geometry_path.arc_to(right_top_size, right_top_size, 180, -90)
-    geometry_path.line_to(point3)
+    geometry_path.line_to(right_bottom)
     geometry_path.arc_to(right_bottom_size, right_bottom_size, -90, -90)
-    geometry_path.line_to(point4)
+    geometry_path.line_to(bottom_left)
     geometry_path.arc_to(left_bottom_size, left_bottom_size, 0, -90)
-    geometry_path.line_to(point5)
+    geometry_path.line_to(left_top)
     geometry_path.arc_to(left_top_size, left_top_size, 90, -90)
     geometry_path.close_figure()
 
     shape.set_geometry_path(geometry_path)
 
-    presentation.save("curved_corners.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **判断形状几何是否闭合**
 
-![圆滑角](custom_shape_6.png)
+以下帮助程序检查每个非空几何路径是否以闭合段结束。它读取 [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) 并将最后一段的 [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) 与 [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/) 进行比较。如果没有非空路径，则返回 false。该检查仅关注每条路径的最终命令；不会检查路径内部的每个子图形。示例对矩形输出 `True`。
 
-## **确定形状几何是否闭合**
+```python
+import aspose.slides as slides
 
-闭合形状指其所有边相连，形成没有间隙的单一边界。此类形状可以是简单的几何形态，也可以是复杂的自定义轮廓。以下代码示例展示如何检查形状几何是否闭合：
-```py
+
 def is_geometry_closed(geometry_shape):
-    is_closed = None
+    has_nonempty_path = False
 
     for geometry_path in geometry_shape.get_geometry_paths():
-        data_length = len(geometry_path.path_data)
-        if data_length == 0:
+        segments = geometry_path.path_data
+        if len(segments) == 0:
             continue
 
-        last_segment = geometry_path.path_data[data_length - 1]
-        is_closed = last_segment.path_command == PathCommandType.CLOSE
-
-        if not is_closed:
+        has_nonempty_path = True
+        last_segment = segments[len(segments) - 1]
+        if last_segment.path_command != slides.PathCommandType.CLOSE:
             return False
 
-    return is_closed
+    return has_nonempty_path
+
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+    print(is_geometry_closed(shape))
 ```
 
+## **提取并检查形状元素**
+
+使用 [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) 可将现有形状检查为包含路径点和点类型的元素集合。每个返回的 [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) 暴露其 [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) 和 [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/) 数组。这种表示方式对轮廓分析或将几何传递给自定义绘图工具很有帮助。
+
+示例打开一个演示文稿，直接在第一张幻灯片上找到第一个几何形状，并打印其路径段。使用包含直线段和曲线段的形状进行测试，可看到两种输出。该方法不会在组内部搜索。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = next((item for item in slide.shapes if isinstance(item, slides.GeometryShape)), None)
+
+    if shape is None:
+        print("No geometry shape found on the first slide.")
+    else:
+        for element in shape.create_shape_elements():
+            points = element.path_points
+            types = element.path_types
+            print("Shape element:")
+
+            i = 0
+            while i < len(points):
+                point_type = types[i] & 0x07  # 保留段类型，排除标志。
+                if point_type == 0:
+                    print(f"Start figure at {points[i]}")
+                elif point_type == 1:
+                    print(f"Line to {points[i]}")
+                elif point_type == 3:
+                    print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
+                    i += 2  # 消耗两个控制点和终点。
+
+                if (types[i] & 0x80) != 0:
+                    print("Close subpath back to its starting point.")
+                i += 1
+```
+
+数组通过索引对应：`points[i]` 为一个点，`types[i]` 描述其角色。类型 `0` 表示开始一个图形，类型 `1` 表示从前一点绘制到当前点的直线。三次贝塞尔段在前一个端点开始，使用连续的三个类型 `3` 条目：两个控制点随后是新的端点。循环会一起消费这三个条目，并检查端点是否闭合。
+
+点类型还包含标志。使用 `0x07` 掩码可识别段类型，使用 `0x80` 可单独检测闭合子路径。例如，`129` (`0x81`) 表示闭合子路径的直线端点，`131` (`0x83`) 表示闭合子路径的贝塞尔端点。仅与 `1` 或 `3` 比较原始值会遗漏这些情况。其他标志，如虚线 (`0x10`) 和标记 (`0x20`)，不会改变基础段类型。
+
+**坐标和转换。** 点的单位是点（1/72 英寸），X 向右增大，Y 向下增大。对于未分组的形状，提取的坐标已经包含其 [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) 和 [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) 位置，并反映其当前宽高。例如，位于 `(100, 200)`、大小为 `120 × 80` 的未旋转矩形其轮廓界限为 `(100, 200)`–`(220, 280)`。不要再次加上形状的位置。减去其 X 和 Y 可得到相对于未旋转框架的坐标。
+
+提取的点不应用形状的 [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) 或水平、垂直翻转。若要还原显示的轮廓，需要围绕形状中心应用这些变换。对于分组形状，还必须考虑组坐标映射和变换；不要假设提取的点已经是最终渲染在幻灯片上的坐标，也不要在已经反映在子对象框架中的情况下再次平移或缩放。
+
+**检查与编辑的区别。** 提取的数组仅描述轮廓，修改它们不会更新原始形状。当你的分析或绘图代码只需要点/类型数组时使用此方法。若需要在形状本地坐标系中获取几何命令或编辑几何，请使用 [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/)。通过 [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) 或 [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) 应用编辑后的路径。
 
 ## **常见问题**
 
 **替换几何后填充和轮廓会怎样？**
 
-样式仍然保留在形状上；仅轮廓会更改。填充和轮廓会自动应用到新的几何上。
+样式仍附着在形状上，仅轮廓会改变。填充和轮廓会自动应用到新的几何上。
 
-**如何让自定义形状连同其几何一起正确旋转？**
+**如何正确地连同几何一起旋转自定义形状？**
 
-使用形状的 [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/rotation/) 属性；几何会随形状一起旋转，因为它绑定到形状自身的坐标系。
+使用形状的 [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) 属性；几何会随形状一起旋转，因为它绑定在形状自身的坐标系中。
 
 **我可以将自定义形状转换为图像以“锁定”结果吗？**
 
-可以。将所需的 [slide](/slides/zh/python-net/convert-powerpoint-to-png/) 区域或 [shape](/slides/zh/python-net/create-shape-thumbnails/) 本身导出为光栅格式，这样可以简化后续对复杂几何的处理。
+可以。将所需的 [幻灯片](/slides/zh/python-net/convert-powerpoint-to-png/) 区域或 [形状](/slides/zh/python-net/create-shape-thumbnails/) 本身导出为光栅格式，这会简化后续对复杂几何的处理。

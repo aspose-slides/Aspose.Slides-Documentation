@@ -5,7 +5,7 @@ type: docs
 weight: 20
 url: /id/cpp/custom-shape/
 keywords:
-- bentuk kustom
+- bentuk khusus
 - tambahkan bentuk
 - buat bentuk
 - ubah bentuk
@@ -25,343 +25,422 @@ description: "Buat dan sesuaikan bentuk dalam presentasi PowerPoint dengan Aspos
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan mengedit geometri bentuk melalui titik edit dan jalur geometris. Artikel ini memperlihatkan cara bekerja dengan `GeometryPath` dan `IGeometryPath` untuk memodifikasi bentuk yang ada, melakukan operasi penyuntingan jalur dasar, menambah atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke sebuah bentuk.
+Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan mengedit geometri bentuk melalui titik edit dan jalur geometri. Artikel ini menunjukkan cara bekerja dengan [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) dan [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) untuk memodifikasi bentuk yang ada, melakukan operasi edit jalur dasar, menambah atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke sebuah bentuk.
 
-## **Ubah Bentuk Menggunakan Titik Edit**
+Artikel ini juga mendemonstrasikan cara membuat bentuk khusus dan komposit, membangun bentuk dengan sudut melengkung, serta menentukan apakah geometri sebuah bentuk tertutup.
 
-Pertimbangkan sebuah persegi. Di PowerPoint, menggunakan **titik edit**, Anda dapat
+## **Mengubah Bentuk dengan Titik Edit**
 
-* memindahkan sudut persegi ke dalam atau ke luar
-* menentukan kelengkungan untuk sebuah sudut atau titik
-* menambahkan titik baru ke persegi
-* memanipulasi titik pada persegi, dll.
+Di PowerPoint, Anda dapat menggunakan **Edit Points** untuk memodifikasi sebuah kotak:
 
-Intinya, Anda dapat melakukan tugas yang dijelaskan pada bentuk apa pun. Dengan titik edit, Anda dapat mengubah bentuk atau membuat bentuk baru dari bentuk yang ada. 
+* Memindahkan sudut ke dalam atau ke luar.
+* Menyesuaikan kelengkungan pada suatu titik.
+* Menambahkan titik baru.
 
-## **Tips Penyuntingan Bentuk**
+Mengedit titik memungkinkan Anda mengubah kontur sebuah bentuk atau menggunakan bentuk yang ada sebagai dasar untuk bentuk baru.
 
-![overview_image](custom_shape_0.png)
+## **Tips Mengedit Bentuk**
 
-Sebelum Anda mulai mengedit bentuk PowerPoint melalui titik edit, Anda mungkin ingin mempertimbangkan poin-poin berikut tentang bentuk:
+![gambar_overview](custom_shape_0.png)
+
+Saat mengedit bentuk PowerPoint, perhatikan konsep berikut:
 
 * Sebuah bentuk (atau jalurnya) dapat berupa tertutup atau terbuka.
-* Ketika sebuah bentuk tertutup, ia tidak memiliki titik awal atau akhir. Ketika sebuah bentuk terbuka, ia memiliki awal dan akhir. 
-* Semua bentuk terdiri dari setidaknya 2 titik jangkar yang terhubung satu sama lain oleh garis
-* Sebuah garis dapat lurus atau melengkung. Titik jangkar menentukan sifat garis. 
-* Titik jangkar ada sebagai titik sudut, titik lurus, atau titik halus:
-  * Titik sudut adalah titik di mana 2 garis lurus bertemu pada sebuah sudut. 
-  * Titik halus adalah titik di mana 2 pegangan berada pada satu garis lurus dan segmen garis bergabung dalam kurva halus. Dalam hal ini, semua pegangan dipisahkan dari titik jangkar dengan jarak yang sama. 
-  * Titik lurus adalah titik di mana 2 pegangan berada pada satu garis lurus dan segmen garis tersebut bergabung dalam kurva halus. Dalam hal ini, pegangan tidak harus dipisahkan dari titik jangkar dengan jarak yang sama. 
-* Dengan memindahkan atau menyunting titik jangkar (yang mengubah sudut garis), Anda dapat mengubah tampilan sebuah bentuk. 
+* Jalur bentuk terdiri dari titik jangkar yang dihubungkan oleh segmen.
+* Sebuah segmen dapat lurus atau melengkung. Titik jangkar dan pegangan kontrol menentukan bentuknya.
+* Titik jangkar dapat berupa titik sudut, titik lurus, atau titik halus:
+  * Pada titik sudut, segmen yang bersebelahan dapat bertemu pada suatu sudut.
+  * Pada titik halus, dua pegangan kontrol berada pada satu garis dan berjarak sama dari titik jangkar.
+  * Pada titik lurus, dua pegangan kontrol berada pada satu garis tetapi dapat memiliki jarak yang berbeda dari titik jangkar.
+* Memindahkan titik jangkar atau menyesuaikan pegangannya mengubah kontur bentuk.
 
-Untuk mengedit bentuk PowerPoint melalui titik edit, **Aspose.Slides** menyediakan kelas [**GeometryPath**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path) dan antarmuka [**IGeometryPath**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_path).
+Untuk mengedit bentuk PowerPoint melalui titik edit, **Aspose.Slides** menyediakan kelas [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) dan antarmuka [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
 
-* Sebuah instance [GeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path) mewakili jalur geometri dari objek [IGeometryShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_shape).
-* Untuk mengambil `GeometryPath` dari instance `IGeometryShape`, Anda dapat menggunakan metode [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1).
-* Untuk mengatur `GeometryPath` untuk sebuah bentuk, Anda dapat menggunakan metode ini: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) untuk *bentuk solid* dan [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) untuk *bentuk komposit*.
-* Untuk menambahkan segmen, Anda dapat menggunakan metode di bawah [IGeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_path). 
-* Dengan menggunakan metode [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) dan [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7), Anda dapat mengatur tampilan untuk jalur geometri.
-* Dengan menggunakan metode [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca), Anda dapat mengambil jalur geometri dari `GeometryShape` sebagai array segmen jalur. 
-* Untuk mengakses opsi kustomisasi geometri bentuk tambahan, Anda dapat mengonversi [GeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path) menjadi [GraphicsPath](https://reference.aspose.com/slides/id/cpp/class/system.drawing.drawing2_d.graphics_path)
-* Gunakan metode [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) dan [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (dari kelas [ShapeUtil](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.util.shape_util)) untuk mengonversi [GeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path) ke [GraphicsPath](https://reference.aspose.com/slides/id/cpp/class/system.drawing.drawing2_d.graphics_path) bolak-balik. 
+* Sebuah instance [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) mewakili jalur geometri dari objek [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
+* Untuk mengambil [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) dari instance [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), Anda dapat menggunakan metode [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* Untuk menetapkan [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) pada sebuah bentuk, Anda dapat menggunakan metode ini: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) untuk bentuk dengan satu jalur dan [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) untuk bentuk dengan banyak jalur.
+* Untuk menambah segmen, Anda dapat menggunakan metode‑metode di bawah [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+* Dengan metode [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) dan [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/), Anda dapat mengatur tampilan jalur geometri.
+* Dengan metode [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/), Anda dapat mengambil jalur geometri dari sebuah [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) sebagai array segmen jalur.
 
 ## **Operasi Penyuntingan Sederhana**
 
-Kode C++ ini menunjukkan cara Anda
+Gunakan metode berikut untuk menyunting sebuah jalur geometri. Overload yang menerima indeks menyisipkan segmen pada posisi nol‑based tersebut dalam array segmen jalur.
 
-**Tambahkan garis** ke akhir jalur
+| Operasi | Metode |
+| --- | --- |
+| Menambahkan atau menyisipkan garis lurus. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| Menambahkan atau menyisipkan kurva Bézier kubik dengan dua titik kontrol dan satu titik akhir. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Menambahkan atau menyisipkan kurva Bézier kuadratik dengan satu titik kontrol dan satu titik akhir. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Menambahkan busur elips dengan dimensi dan sudut yang ditentukan dalam derajat. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| Menutup gambar saat ini dengan menghubungkan titik akhir ke titik awal. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Menetapkan titik awal sebuah gambar. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| Menghapus segmen pada indeks nol‑based. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-``` cpp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Tambahkan garis** ke posisi yang ditentukan pada jalur:
+## **Menambahkan Titik Khusus ke Bentuk**
 
-``` cpp    
-void LineTo(PointF point, uint32_t index);
-void LineTo(float x, float y, uint32_t index);
-```
-**Tambahkan kurva Bezier kubik** ke akhir jalur:
+Contoh ini menyisipkan dua titik ke dalam bentuk persegi panjang menggunakan [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) dan menerapkan jalur yang telah diedit dengan [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Koordinat tersebut bersifat lokal terhadap bentuk: kedua titik baru berada di tengahnya, 100 poin dari kiri dan 50 poin dari atas. Indeks segmen 1 dan 4 menempatkannya pada tepi atas dan bawah, menarik tepi‑tepi tersebut ke dalam.
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Tambahkan kurva Bezier kubik** ke posisi yang ditentukan pada jalur:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
-```
-**Tambahkan kurva Bezier kuadratik** ke akhir jalur:
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Tambahkan kurva Bezier kuadratik** ke posisi yang ditentukan pada jalur:
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
-```
-**Tambahkan lengkungan tertentu** ke jalur:
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-``` cpp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Tutup gambar saat ini** dari jalur:
-
-``` cpp
-void CloseFigure();
-```
-**Atur posisi untuk titik berikutnya**:
-
-``` cpp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Hapus segmen jalur** pada indeks tertentu:
-
-``` cpp
-void RemoveAt(int32_t index);
-```
-## **Tambahkan Titik Kustom ke Bentuk**
-
-1. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_shape) dan atur tipe [ShapeType.Rectangle](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).
-2. Dapatkan instance kelas [GeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path) dari bentuk.
-3. Tambahkan titik baru di antara dua titik atas pada jalur.
-4. Tambahkan titik baru di antara dua titik bawah pada jalur.
-5. Terapkan jalur ke bentuk.
-
-Kode C++ ini menunjukkan cara menambahkan titik kustom ke sebuah bentuk:
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
-
-SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
-
+auto geometryPath = shape->GetGeometryPaths()->idx_get(0);
 geometryPath->LineTo(100.0f, 50.0f, 1);
 geometryPath->LineTo(100.0f, 50.0f, 4);
+
 shape->SetGeometryPath(geometryPath);
 ```
 
-![example1_image](custom_shape_1.png)
+![gambar_contoh1](custom_shape_1.png)
 
-## **Hapus Titik dari Bentuk**
+## **Menghapus Titik dari Bentuk**
 
-1. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_shape) dan atur tipe [ShapeType.Heart](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5). 
-2. Dapatkan instance kelas [GeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path) dari bentuk.
-3. Hapus segmen untuk jalur.
-4. Terapkan jalur ke bentuk.
+Contoh ini mengubah kontur bentuk hati dengan menghapus segmen pada indeks nol‑based 2 menggunakan [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Menerapkan jalur yang dimodifikasi dengan [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) memperbarui kontur bentuk.
 
-Kode C++ ini menunjukkan cara menghapus titik dari sebuah bentuk:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f);
+
+auto path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
+
 shape->SetGeometryPath(path);
 ```
-![example2_image](custom_shape_2.png)
+![gambar_contoh2](custom_shape_2.png)
 
-## **Buat Bentuk Kustom**
+## **Membuat Bentuk Khusus**
 
-1. Hitung titik-titik untuk bentuk.
-2. Buat instance kelas [GeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path). 
-3. Isi jalur dengan titik-titik.
-4. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_shape). 
-5. Terapkan jalur ke bentuk.
+Contoh ini membangun bintang lima sudut dengan [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Jari‑jari luar dan dalam yang bergantian sebesar 100 dan 50 poin menentukan ujung‑ujung dan lekukan; langkah 72 derajat menempatkan kelima ujung secara merata. Jalur ditutup dengan [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) dan diterapkan ke bentuk persegi panjang menggunakan [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), menggantikan kontur aslinya.
 
-Kode C++ ini menunjukkan cara membuat bentuk kustom:
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::Drawing;
 
-float R = 100.0f, r = 50.0f;
-int32_t step = 72;
+auto points = System::MakeObject<List<PointF>>();
 
-for (int32_t angle = -90; angle < 270; angle += step)
+auto outerRadius = 100.0f;
+auto innerRadius = 50.0f;
+auto angleStep = 72;
+
+for (auto angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math::PI / 180.f);
-    double x = outerRadius * Math::Cos(radians);
-    double y = outerRadius * Math::Sin(radians);
+    auto radians = angle * (Math::PI / 180.f);
+    auto x = outerRadius * Math::Cos(radians);
+    auto y = outerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    radians = Math::PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-SharedPtr<GeometryPath> starPath = System::MakeObject<GeometryPath>();
+auto starPath = System::MakeObject<GeometryPath>();
 starPath->MoveTo(points->idx_get(0));
 
-for (int32_t i = 1; i < points->get_Count(); i++)
+for (auto i = 1; i < points->get_Count(); i++)
 {
     starPath->LineTo(points->idx_get(i));
 }
 
 starPath->CloseFigure();
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
-
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
-![example3_image](custom_shape_3.png)
+![gambar_contoh3](custom_shape_3.png)
 
+## **Membuat Bentuk Khusus Komposit**
 
-## **Buat Bentuk Kustom Komposit**
-
-  1. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_shape).
-  2. Buat instance pertama kelas [GeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path).
-  3. Buat instance kedua kelas [GeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path).
-  4. Terapkan jalur ke bentuk.
-
-Kode C++ ini menunjukkan cara membuat bentuk kustom komposit:
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
-
-SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
-geometryPath0->MoveTo(0.0f, 0.0f);
-geometryPath0->LineTo(shape->get_Width(), 0.0f);
-geometryPath0->LineTo(shape->get_Width(), shape->get_Height() / 3);
-geometryPath0->LineTo(0.0f, shape->get_Height() / 3);
-geometryPath0->CloseFigure();
-
-SharedPtr<IGeometryPath> geometryPath1 = System::MakeObject<GeometryPath>();
-geometryPath1->MoveTo(0.0f, shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height());
-geometryPath1->LineTo(0.0f, shape->get_Height());
-geometryPath1->CloseFigure();
-
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
-```
-![example4_image](custom_shape_4.png)
-
-## **Buat Bentuk Kustom dengan Sudut Melengkung**
-
-Kode C++ ini menunjukkan cara membuat bentuk kustom dengan sudut melengkung (ke dalam);
+Contoh ini mendefinisikan dua [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) tertutup untuk sepertiga atas dan bawah sebuah bentuk. Menerapkan kedua jalur dengan [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) menciptakan satu bentuk komposit dengan celah pada sepertiga tengahnya.
 
 ```cpp
-float shapeX = 20.f;
-float shapeY = 20.f;
-float shapeWidth = 300.f;
-float shapeHeight = 200.f;
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-float leftTopSize = 50.f;
-float rightTopSize = 20.f;
-float rightBottomSize = 40.f;
-float leftBottomSize = 10.f;
+using namespace Aspose::Slides;
+using namespace System;
 
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
+
+auto topPath = System::MakeObject<GeometryPath>();
+topPath->MoveTo(0.0f, 0.0f);
+topPath->LineTo(shape->get_Width(), 0.0f);
+topPath->LineTo(shape->get_Width(), shape->get_Height() / 3);
+topPath->LineTo(0.0f, shape->get_Height() / 3);
+topPath->CloseFigure();
+
+auto bottomPath = System::MakeObject<GeometryPath>();
+bottomPath->MoveTo(0.0f, shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height());
+bottomPath->LineTo(0.0f, shape->get_Height());
+bottomPath->CloseFigure();
+
+auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath });
+
+shape->SetGeometryPaths(paths);
+```
+![gambar_contoh4](custom_shape_4.png)
+
+## **Membuat Bentuk Khusus dengan Sudut Melengkung**
+
+Contoh ini menggabungkan segmen lurus dengan [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) untuk membuat bentuk dengan sudut melengkung ke dalam. Setiap ukuran sudut menentukan lebar dan tinggi busur dalam poin, dan putaran –90 derajat menggambar seperempat elips berlawanan arah jarum jam. Jalur selesai diterapkan dengan [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), dan presentasi disimpan dalam format PPTX.
+
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto shapeX = 20.f;
+auto shapeY = 20.f;
+auto shapeWidth = 300.f;
+auto shapeHeight = 200.f;
+
+auto leftTopSize = 50.f;
+auto rightTopSize = 20.f;
+auto rightBottomSize = 40.f;
+auto leftBottomSize = 10.f;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto topLeft = PointF(leftTopSize, 0.0f);
+auto topRight = PointF(shapeWidth - rightTopSize, 0.0f);
+auto rightBottom = PointF(shapeWidth, shapeHeight - rightBottomSize);
+auto bottomLeft = PointF(leftBottomSize, shapeHeight);
+auto leftTop = PointF(0.0f, leftTopSize);
 
 auto geometryPath = System::MakeObject<GeometryPath>();
-
-PointF point1(leftTopSize, 0.0f);
-PointF point2(shapeWidth - rightTopSize, 0.0f);
-PointF point3(shapeWidth, shapeHeight - rightBottomSize);
-PointF point4(leftBottomSize, shapeHeight);
-PointF point5(0.0f, leftTopSize);
-
-geometryPath->MoveTo(point1);
-geometryPath->LineTo(point2);
+geometryPath->MoveTo(topLeft);
+geometryPath->LineTo(topRight);
 geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
-geometryPath->LineTo(point3);
+geometryPath->LineTo(rightBottom);
 geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
-geometryPath->LineTo(point4);
+geometryPath->LineTo(bottomLeft);
 geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
-geometryPath->LineTo(point5);
+geometryPath->LineTo(leftTop);
 geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
-
 geometryPath->CloseFigure();
 
-childShape->SetGeometryPath(geometryPath);
+shape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Temukan Apakah Geometri Bentuk Tertutup**
+## **Menentukan Apakah Geometri Bentuk Tertutup**
 
-Sebuah bentuk tertutup didefinisikan sebagai bentuk di mana semua sisinya terhubung, membentuk batas tunggal tanpa celah. Bentuk semacam itu dapat berupa bentuk geometris sederhana atau outline kustom yang kompleks. Contoh kode berikut menunjukkan cara memeriksa apakah geometri bentuk tertutup:
+Pembantu berikut memeriksa apakah setiap jalur geometri yang tidak kosong berakhir dengan segmen penutup. Ia membaca [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) dan membandingkan perintah segmen terakhir [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) dengan [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Ia mengembalikan false bila tidak ada jalur yang tidak kosong. Pemeriksaan ini melihat perintah akhir tiap jalur; ia tidak memeriksa setiap sub‑gambar di dalam jalur. Contoh mencetak `True` untuk sebuah persegi panjang.
 
 ```cpp
-bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
-{
-    bool isClosed = false;
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto isGeometryClosed = [](SharedPtr<IGeometryShape> geometryShape)
+{
+    auto hasNonemptyPath = false;
     for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->get_Length();
-        if (dataLength == 0)
+        auto segments = geometryPath->get_PathData();
+        if (segments->get_Length() == 0)
+        {
             continue;
+        }
 
-        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
-
-        if (!isClosed)
+        hasNonemptyPath = true;
+        auto lastSegment = segments->idx_get(segments->get_Length() - 1);
+        if (lastSegment->get_PathCommand() != PathCommandType::Close)
+        {
             return false;
+        }
     }
+    return hasNonemptyPath;
+};
 
-    return isClosed;
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+Console::WriteLine(isGeometryClosed(shape));
+```
+
+## **Mengekstrak dan Memeriksa Elemen Bentuk**
+
+Gunakan [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) untuk memeriksa bentuk yang ada sebagai elemen‑elemen yang berisi titik‑titik jalur dan tipe‑tipe titik. Cast setiap [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) yang dikembalikan ke [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) untuk membaca array yang dikembalikan oleh [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) dan [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Representasi ini berguna untuk analisis kontur atau untuk mengirim geometri ke alat‑alat menggambar khusus.
+
+Contoh membuka sebuah presentasi, menemukan bentuk geometri pertama pada slide pertama, dan mencetak segmen‑segmen jalurnya. Gunakan presentasi yang berisi bentuk dengan segmen lurus dan melengkung untuk melihat kedua jenis output. Tidak dilakukan pencarian di dalam grup.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IShapeElement.h>
+#include <DOM/ShapeElement.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IGeometryShape> shape;
+for (auto&& candidate : slide->get_Shapes())
+{
+    shape = AsCast<IGeometryShape>(candidate);
+    if (shape != nullptr)
+    {
+        break;
+    }
+}
+if (shape == nullptr)
+{
+    Console::WriteLine(u"No geometry shape found on the first slide.");
+    return;
+}
+
+for (auto&& element : shape->CreateShapeElements())
+{
+    auto shapeElement = ExplicitCast<ShapeElement>(element);
+    auto points = shapeElement->get_PathPoints();
+    auto types = shapeElement->get_PathTypes();
+    Console::WriteLine(u"Shape element:");
+
+    for (auto i = 0; i < points->get_Length(); i++)
+    {
+        auto pointType = types[i] & 0x07; // Pertahankan tipe segmen, kecuali flag.
+        switch (pointType)
+        {
+            case 0:
+                Console::WriteLine(u"Start figure at {0}", points[i]);
+                break;
+            case 1:
+                Console::WriteLine(u"Line to {0}", points[i]);
+                break;
+            case 3:
+                Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
+                i += 2; // Gunakan kedua titik kontrol dan titik akhir.
+                break;
+        }
+        if ((types[i] & 0x80) != 0)
+        {
+            Console::WriteLine(u"Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
-## **Konversi GeometryPath ke GraphicsPath** 
+Array‑array tersebut bersesuaian berdasarkan indeks: `points[i]` adalah sebuah titik dan `types[i]` menjelaskan perannya. Tipe `0` memulai sebuah gambar, dan tipe `1` menggambar garis dari titik sebelumnya ke titik saat ini. Sebuah segmen Bézier kubik dimulai dari titik akhir sebelumnya dan menggunakan tiga entri tipe‑`3` berurutan: dua titik kontrol diikuti oleh titik akhir baru. Loop mengkonsumsi ketiga entri tersebut sekaligus dan memeriksa titik akhir untuk menutup.
 
-1. Buat instance kelas [GeometryShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_shape).
-2. Buat instance kelas [GraphicsPath](https://reference.aspose.com/slides/id/cpp/class/system.drawing.drawing2_d.graphics_path) dari namespace [System.Drawing.Drawing2D](https://reference.aspose.com/slides/id/cpp/namespace/system.drawing.drawing2_d).
-3. Konversi instance [GraphicsPath](https://reference.aspose.com/slides/id/cpp/class/system.drawing.drawing2_d.graphics_path) ke instance [GeometryPath](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.geometry_path) menggunakan [ShapeUtil](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.util.shape_util).
-4. Terapkan jalur ke bentuk.
+Tipe titik juga mengandung flag. Mask dengan `0x07` untuk mengidentifikasi tipe segmen, dan uji `0x80` secara terpisah untuk mendeteksi sub‑path tertutup. Misalnya, `129` (`0x81`) berarti titik akhir garis yang menutup sub‑path, dan `131` (`0x83`) berarti titik akhir Bézier yang menutup satu sub‑path. Membandingkan nilai mentah hanya dengan `1` atau `3` akan melewatkan kasus‑kasus ini. Flag lain, seperti dash (`0x10`) dan marker (`0x20`), tidak mengubah tipe segmen dasar.
 
-Kode C++—implementasi langkah-langkah di atas—menunjukkan proses konversi **GeometryPath** ke **GraphicsPath**:
+**Koordinat dan transformasi.** Titik diukur dalam poin (1/72 inci), dengan X meningkat ke kanan dan Y meningkat ke bawah. Untuk bentuk yang tidak berada dalam grup, koordinat yang diekstrak sudah mencakup posisi yang dikembalikan oleh [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) dan [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) serta mencerminkan lebar dan tinggi saat ini. Misalnya, persegi panjang tidak berotasi pada `(100, 200)` dengan ukuran `120 × 80` memiliki batas kontur `(100, 200)`–`(220, 280)`. Jangan menambahkan posisi bentuk lagi. Kurangi X dan Y‑nya untuk memperoleh koordinat relatif terhadap bingkai yang tidak berotasi.
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+Titik‑titik yang diekstrak tidak menerapkan rotasi yang diatur melalui [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) atau pembalikan horizontal dan vertikal. Untuk mereproduksi kontur yang ditampilkan, terapkan transformasi tersebut di sekitar pusat bentuk. Untuk bentuk yang berada dalam grup, juga perhitungkan pemetaan koordinat grup serta transformasinya; jangan menganggap bahwa titik‑titik yang diekstrak adalah koordinat akhir slide yang dirender atau menerapkan translasi atau skala dua kali jika sudah tercermin dalam bingkai anak.
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
+**Pemeriksaan vs penyuntingan.** Array yang diekstrak menggambarkan kontur; mengubahnya tidak memperbarui bentuk asli. Pilih pendekatan ini ketika analisis atau kode menggambar Anda membutuhkan array titik/tipe. Gunakan [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) bila Anda memerlukan perintah geometri dalam sistem koordinat lokal bentuk atau ingin menyunting geometri tersebut. Terapkan jalur yang telah diedit melalui [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) atau [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
 
-SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
-originalPath->set_FillMode(PathFillModeType::None);
+## **Mengonversi GeometryPath ke GraphicsPath**
 
-SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
-
-SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
-textPath->set_FillMode(PathFillModeType::Normal);
-
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
-```
-![example5_image](custom_shape_5.png)
+API publik Aspose.Slides untuk C++ saat ini tidak menyediakan konversi antara jalur geometri dan jalur grafis. Untuk memeriksa kontur, gunakan elemen bentuk seperti dijelaskan di atas. Untuk menyunting bentuk, gunakan jalur geometri dan terapkan jalur yang diperbarui ke bentuk.
 
 ## **FAQ**
 
-**Apa yang akan terjadi pada isi dan garis tepi setelah mengganti geometri?**
+**Apa yang terjadi pada isi dan kontur setelah mengganti geometri?**
 
-Gaya tetap melekat pada bentuk; hanya kontur yang berubah. Isi dan garis tepi secara otomatis diterapkan pada geometri baru.
+Gaya tetap melekat pada bentuk; hanya konturnya yang berubah. Isi dan kontur secara otomatis diterapkan ke geometri baru.
 
-**Bagaimana cara memutar bentuk kustom dengan benar bersama geometri nya?**
+**Bagaimana cara memutar bentuk khusus bersamaan dengan geometri secara benar?**
 
-Gunakan properti [rotation](https://reference.aspose.com/slides/id/cpp/aspose.slides/shape/set_rotation/) pada bentuk; geometri akan berputar bersama bentuk karena terikat pada sistem koordinat bentuk itu sendiri.
+Gunakan metode [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) pada bentuk; geometri berotasi bersama bentuk karena terikat pada sistem koordinat bentuk itu sendiri.
 
-**Apakah saya dapat mengonversi bentuk kustom menjadi gambar untuk “mengunci” hasilnya?**
+**Bisakah saya mengonversi bentuk khusus menjadi gambar untuk "mengunci" hasilnya?**
 
-Ya. Ekspor area [slide](/slides/id/cpp/convert-powerpoint-to-png/) yang diperlukan atau [bentuk](/slides/id/cpp/create-shape-thumbnails/) itu sendiri ke format raster; ini mempermudah pekerjaan selanjutnya dengan geometri yang kompleks.
+Ya. Ekspor area [slide](/slides/id/cpp/convert-powerpoint-to-png/) yang diperlukan atau [shape](/slides/id/cpp/shape-thumbnails/) itu sendiri ke format raster; hal ini menyederhanakan pekerjaan lanjutan dengan geometri yang kompleks.

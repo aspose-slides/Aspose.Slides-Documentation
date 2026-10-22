@@ -1,204 +1,160 @@
 ---
-title: Android でプレゼンテーションの形状をカスタマイズ
-linktitle: カスタム形状
+title: Android でプレゼンテーション シェイプをカスタマイズする
+linktitle: カスタム シェイプ
 type: docs
 weight: 20
 url: /ja/androidjava/custom-shape/
 keywords:
-- カスタム形状
-- 形状の追加
-- 形状の作成
-- 形状の変更
-- 形状ジオメトリ
-- ジオメトリパス
-- パス点
+- カスタム シェイプ
+- シェイプを追加
+- シェイプを作成
+- シェイプを変更
+- シェイプ ジオメトリ
+- ジオメトリ パス
+- パス ポイント
 - 編集ポイント
-- ポイントの追加
-- ポイントの削除
+- ポイントを追加
+- ポイントを削除
 - 編集操作
-- 曲線コーナー
+- 曲がり角
 - PowerPoint
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Java を使用して Android 用 Aspose.Slides で PowerPoint プレゼンテーションの形状を作成・カスタマイズ: ジオメトリパス、曲線コーナー、複合形状。"
+description: "Java を使用して Android 用 Aspose.Slides で PowerPoint プレゼンテーションのシェイプを作成およびカスタマイズします：ジオメトリ パス、曲がり角、複合シェイプ。"
 ---
+## **概要**
 
-## **編集ポイントを使用して形状を変更する**
-正方形を考えてみましょう。PowerPoint では **編集ポイント** を使用して
+この記事では、編集ポイントとジオメトリパスを使用してシェイプのジオメトリを編集することで、Aspose.Slides のプレゼンテーション シェイプをカスタマイズする方法を説明します。既存のシェイプを変更し、基本的なパス編集操作を実行し、ポイントを追加または削除し、更新されたジオメトリをシェイプに適用するために、[GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) と [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) の使用方法を示します。
 
-* 正方形の角を内側または外側に移動できる
-* 角やポイントの曲率を指定できる
-* 正方形に新しいポイントを追加できる
-* 正方形上のポイントを操作できる、など
+また、カスタム シェイプと複合シェイプの作成方法、曲がり角を持つシェイプの構築方法、シェイプ ジオメトリが閉じているかどうかの判定方法、Android のポイント配列を使用したシェイプ要素の検査方法も実演します。
 
-基本的に、任意の形状に対して上記の操作を行うことができます。編集ポイントを使用すると、形状を変更したり、既存の形状から新しい形状を作成したりできます。
+## **編集ポイントを使用してシェイプを変更する**
 
-## **形状編集のヒント**
+PowerPoint では、**編集ポイント** を使用して四角形を変更できます。
+
+* 角を内側または外側に移動する。
+* ポイントの曲率を調整する。
+* 新しいポイントを追加する。
+
+編集ポイントを使用すると、シェイプの輪郭を変更したり、既存のシェイプを新しいシェイプの基礎として使用したりできます。
+
+## **シェイプ編集のヒント**
 
 ![overview_image](custom_shape_0.png)
 
-編集ポイントで PowerPoint の形状を編集し始める前に、形状に関して次の点を考慮してください。
+PowerPoint シェイプを編集する際は、次の概念を覚えておいてください。
 
-* 形状（またはそのパス）は閉じているか開いているかのどちらかです。
-* 形状が閉じている場合、開始点や終了点がありません。開いている場合は開始点と終了点があります。
-* すべての形状は、少なくとも 2 つのアンカーポイントが線でつながって構成されます。
-* 線は直線または曲線のいずれかです。アンカーポイントが線の性質を決定します。
-* アンカーポイントはコーナーポイント、ストレートポイント、スムーズポイントのいずれかです:
-  * コーナーポイントは、2 本の直線が角度を持って結合する点です。
-  * スムーズポイントは、2 本のハンドルが一直線上にあり、線分が滑らかな曲線でつながる点です。この場合、すべてのハンドルはアンカーポイントから同じ距離だけ離れています。
-  * ストレートポイントは、2 本のハンドルが一直線上にあり、線分が滑らかな曲線でつながる点です。この場合、ハンドルはアンカーポイントから等距離である必要はありません。
-* アンカーポイントを移動または編集（線の角度が変わります）すると、形状の見た目を変更できます。
+* シェイプ（またはそのパス）は閉じている場合と開いている場合があります。
+* シェイプのパスは、セグメントで接続されたアンカーポイントで構成されます。
+* セグメントは直線または曲線のいずれかです。アンカーポイントと制御ハンドルが形状を決定します。
+* アンカーポイントはコーナーポイント、直線ポイント、スムーズポイントとして存在します:
+  * コーナーポイントでは、隣接するセグメントが角度を持って接続できます。
+  * スムーズポイントでは、2 つの制御ハンドルが一直線上にあり、アンカーポイントから等距離です。
+  * 直線ポイントでは、2 つの制御ハンドルが一直線上にありますが、アンカーポイントからの距離は異なる場合があります。
+* アンカーポイントを移動したりハンドルを調整したりすると、シェイプの輪郭が変わります。
 
-編集ポイントで PowerPoint の形状を編集するには、**Aspose.Slides** が [**GeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) クラスと [**IGeometryPath**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath) インターフェイスを提供します。
+編集ポイントを介して PowerPoint シェイプを編集するには、**Aspose.Slides** が提供する [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) クラスと [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) インターフェイスを使用します。
 
-* [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) インスタンスは、[IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape) オブジェクトのジオメトリパスを表します。
-* `IGeometryShape` インスタンスから `GeometryPath` を取得するには、[IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--) メソッドを使用します。
-* 形状に `GeometryPath` を設定するには、*実体形状* 用に [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-)、*複合形状* 用に [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) を使用します。
-* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath) にあるメソッドを使用します。
-* [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) と [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) メソッドを使用して、ジオメトリパスの外観を設定できます。
-* [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IGeometryPath#getPathData--) メソッドで、`GeometryShape` のジオメトリパスをパスセグメントの配列として取得できます。
-* 追加の形状ジオメトリ カスタマイズ オプションにアクセスするには、[GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) を [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) に変換します。
-* [geometryPathToGraphicsPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) と [graphicsPathToGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) メソッド（[ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil) クラス）を使用して、[GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) と [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) を相互変換できます。
+* [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) インスタンスは、[IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) オブジェクトのジオメトリ パスを表します。
+* [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) インスタンスから [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) を取得するには、[IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) メソッドを使用できます。
+* シェイプに対して [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) を設定するには、単一パスのシェイプには [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) を、複数パスのシェイプには [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) を使用します。
+* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) 配下のメソッドを使用します。
+* [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) と [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-) メソッドを使用して、ジオメトリ パスの外観を設定できます。
+* [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) メソッドを使用すると、[GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) のジオメトリ パスをパス セグメントの配列として取得できます。
 
 ## **簡単な編集操作**
 
-この Java コードは次の操作方法を示します
+ジオメトリ パスを編集するには、以下のメソッドを使用します。インデックスを受け取るオーバーロードは、パスのセグメント配列内のゼロベース位置にセグメントを挿入します。
 
-**パスの末尾に直線を追加する**
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
+| 操作 | メソッド |
+| --- | --- |
+| 直線を追加または挿入する。 | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| 2 つの制御点と終点を持つ 3 次ベジエ曲線を追加または挿入する。 | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| 1 つの制御点と終点を持つ 2 次ベジエ曲線を追加または挿入する。 | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| 指定された幅・高さと角度（度）で楕円弧を追加する。 | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| 終点を開始点に接続して現在の図形を閉じる。 | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| 図形の開始点を設定する。 | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| ゼロベースインデックスのセグメントを削除する。 | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-**パスの指定位置に直線を追加する:**
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
+## **シェイプにカスタムポイントを追加する**
 
-**パスの末尾に 3 次ベジェ曲線を追加する:**
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
+この例は、[GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) を使用して矩形シェイプに 2 つのポイントを挿入し、[IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) で編集されたパスを適用します。座標はシェイプローカルで、2 つの新しいポイントはシェイプの中心にあり、左から 100 ポイント、上から 50 ポイントの位置です。セグメントインデックス 1 と 4 がそれぞれ上辺と下辺に配置され、これらの辺を内側へ引き込んでいます。
 
-**パスの指定位置に 3 次ベジェ曲線を追加する:**
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
+```java
+import com.aspose.slides.*;
 
-**パスの末尾に 2 次ベジェ曲線を追加する:**
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-
-**パスの指定位置に 2 次ベジェ曲線を追加する:**
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-
-**パスに円弧を追加する:**
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-
-**パスの現在の図形を閉じる:**
-``` java
-public void closeFigure();
-```
-
-**次のポイントの位置を設定する:**
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-
-**指定インデックスのパスセグメントを削除する:**
-``` java
-public void removeAt(int index);
-```
-
-
-## **形状にカスタムポイントを追加する**
-1. [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) クラスのインスタンスを作成し、[ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType) タイプを設定します。
-2. 形状から [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) クラスのインスタンスを取得します。
-3. パス上の上部 2 点の間に新しいポイントを追加します。
-4. パス上の下部 2 点の間に新しいポイントを追加します。
-5. パスを形状に適用します。
-
-この Java コードは形状にカスタムポイントを追加する方法を示します:
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ![example1_image](custom_shape_1.png)
 
-## **形状からポイントを削除する**
+## **シェイプからポイントを削除する**
 
-1. [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) クラスのインスタンスを作成し、[ShapeType.Heart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeType) タイプを設定します。
-2. 形状から [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) クラスのインスタンスを取得します。
-3. パスのセグメントを削除します。
-4. パスを形状に適用します。
+この例は、[GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) を使用してゼロベースインデックス 2 のセグメントを削除し、ハート形の輪郭を変更します。変更されたパスを [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) で適用すると、シェイプの輪郭が更新されます。
 
-この Java コードは形状からポイントを削除する方法を示します:
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example2_image](custom_shape_2.png)
 
-## **カスタム形状を作成する**
+## **カスタム シェイプの作成**
 
-1. 形状のポイントを計算します。
-2. [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) クラスのインスタンスを作成します。
-3. パスにポイントを設定します。
-4. [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) クラスのインスタンスを作成します。
-5. パスを形状に適用します。
+この例は、[GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) を使用して五角形の星を構築します。外側半径 100 ポイント、内側半径 50 ポイントを交互に設定し、72 度刻みで 5 本の先端を均等に配置します。パスは [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) で閉じられ、[IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) を使用して矩形シェイプに適用し、元の輪郭を置き換えます。
 
-この Java はカスタム形状を作成する方法を示します:
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.List;
 
-float R = 100, r = 50;
-int step = 72;
+List<PointF> points = new ArrayList<>();
 
-for (int angle = -90; angle < 270; angle += step)
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
+
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    PointF point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -211,60 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example3_image](custom_shape_3.png)
 
+## **複合カスタム シェイプの作成**
 
-## **複合カスタム形状を作成する**
+この例は、シェイプの上部 1/3 と下部 1/3 用に 2 つの閉じた [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) オブジェクトを定義します。両方のパスを [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) で適用すると、中央の 1/3 に隙間のある単一の複合シェイプが作成されます。
 
-  1. [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) クラスのインスタンスを作成します。
-  2. 最初の [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) クラスのインスタンスを作成します。
-  3. 2 番目の [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) クラスのインスタンスを作成します。
-  4. パスを形状に適用します。
+```java
+import com.aspose.slides.*;
 
-この Java コードは複合カスタム形状の作成方法を示します:
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example4_image](custom_shape_4.png)
 
-## **曲線コーナー付きカスタム形状を作成する**
+## **曲がり角付きカスタム シェイプの作成**
 
-この Java コードは曲線コーナー（内側）付きのカスタム形状を作成する方法を示します:
+この例は、直線セグメントと [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) を組み合わせて、内側に曲がった角を持つシェイプを作成します。各角のサイズはアークの幅と高さをポイントで設定し、-90 度のスイープで反時計回りの 1/4 楕円を描きます。完成したパスは [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) で適用され、プレゼンテーションは PPTX 形式で保存されます。
+
 ```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -275,123 +231,157 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    PointF topLeft = new PointF(leftTopSize, 0);
+    PointF topRight = new PointF(shapeWidth - rightTopSize, 0);
+    PointF rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+    PointF bottomLeft = new PointF(leftBottomSize, shapeHeight);
+    PointF leftTop = new PointF(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **シェイプ ジオメトリが閉じているかどうかの判定**
 
-## **形状ジオメトリが閉じているか確認する**
+以下のヘルパーは、すべての非空ジオメトリ パスが閉じるセグメントで終わっているかどうかをチェックします。`[IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--)` を読み取り、最終セグメントの `[IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--)` が `[PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/)` と一致するか比較します。非空パスが存在しない場合は `false` を返します。このチェックは各パスの最終コマンドだけを対象とし、パス内のすべてのサブフィギュアは検査しません。例では矩形に対して `true` が出力されます。
 
-閉じた形状は、すべての側面が接続され、隙間のない単一の境界を形成するものとして定義されます。その形状は単純な幾何形状でも、複雑なカスタム輪郭でもかまいません。以下のコード例は、形状ジオメトリが閉じているかどうかを確認する方法を示します:
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
-
-    return isClosed == true;
 }
-```
 
-
-## **GeometryPath を java.awt.Shape に変換する** 
-
-1. [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryShape) クラスのインスタンスを作成します。
-2. [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) クラスのインスタンスを作成します。
-3. [ShapeUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ShapeUtil) を使用して、[java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) インスタンスを [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GeometryPath) インスタンスに変換します。
-4. パスを形状に適用します。
-
-この Java コードは、上記手順の実装例で、**GeometryPath** から **GraphicsPath** への変換プロセスを示しています:
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 新しい形状を作成
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 形状のジオメトリパスを取得
-    IGeometryPath originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(PathFillModeType.None);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    // テキスト付きの新しいグラフィックパスを作成
-    Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
-
-    try
-    {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
-    }
-    finally {
-        g2.dispose();
-    }
-
-    // グラフィックパスをジオメトリパスに変換
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(PathFillModeType.Normal);
-
-    // 新しいジオメトリパスと元のジオメトリパスの組み合わせを形状に設定
-    shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-![example5_image](custom_shape_5.png)
+## **シェイプ要素の抽出と検査**
 
-## **FAQ**
+[IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) を使用して、パスポイントとポイントタイプを含む要素として既存シェイプを検査できます。返された各 [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) を [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) にキャストし、`[getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--)` と `[getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--)` メソッドでポイント配列とタイプ配列を取得します。この表現は輪郭解析やカスタム描画ツールへのジオメトリ受け渡しに便利です。
+
+例では `input.pptx` を開き、最初のスライド上の最初のジオメトリ シェイプを直接取得し、そのパス セグメントを出力します。直線と曲線の両方を含むシェイプが含まれるプレゼンテーションを使用すると、両方の出力が確認できます。グループ内部は検索されません。
+
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            PointF[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // フラグを除いたセグメントタイプを保持します。
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // 制御点2つと終点を消費します。
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+配列はインデックスで対応します: `points[i]` は点、`types[i]` はその役割を表します。タイプ `0` は図形の開始、タイプ `1` は前の点から現在の点への直線を示します。3 次ベジエ セグメントは前の終点から開始し、タイプ `3` のエントリが 3 つ続きます: 2 つの制御点と新しい終点です。ループはこれら 3 エントリをまとめて消費し、終点が閉じているかどうかを確認します。
+
+ポイントタイプにはフラグも含まれます。`0x07` でセグメント種別を判別し、`0x80` を別途テストして閉じたサブパスを検出します。例として `129` (`0x81`) はサブパスを閉じる直線終点、`131` (`0x83`) はサブパスを閉じるベジエ終点を意味します。Java はこれらを符号付きバイトで保持するため、マスク処理でビット値を保持します。`1` や `3` だけと比較するとこれらのケースを見落とします。ダッシュ (`0x10`) やマーカー (`0x20`) などの他フラグは基礎セグメント種別を変えません。
+
+**座標と変換** ポイントはポイント単位 (1/72 インチ) で測定され、X は右方向、Y は下方向に増加します。グループ化されていないシェイプの場合、抽出された座標は既に `[getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--)` と `[getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--)` が返す位置を含み、現在の幅と高さを反映しています。例として、未回転の矩形が `(100, 200)` に左上があり、サイズが `120 × 80` の場合、輪郭の境界は `(100, 200)`–`(220, 280)` です。シェイプの位置を再度加算しないでください。未回転フレームに対して相対座標を得るには X と Y を引き算します。
+
+抽出されたポイントは `[getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--)` による回転や水平・垂直フリップは適用されません。表示された輪郭を再現するには、シェイプの中心を基点にこれらの変換を適用してください。グループ化されたシェイプの場合は、グループ座標マッピングと変換も考慮し、抽出ポイントが最終スライド座標であると仮定したり、すでに子フレームに反映されている平行移動やスケールを二重に適用したりしないでください。
+
+**検査と編集の違い** 抽出された配列は輪郭を記述しますが、配列を変更しても元のシェイプは更新されません。ポイント/タイプ配列が必要な解析や描画コードにはこの方法を選択してください。シェイプのローカル座標系でジオメトリ コマンドが必要、またはジオメトリを編集したい場合は `[getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--)` を使用し、編集後は `[setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-)` または `[setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---)` で適用してください。
+
+## **よくある質問**
 
 **ジオメトリを置き換えた後、塗りつぶしと輪郭はどうなりますか？**
 
-スタイルは形状に残り、輪郭だけが変更されます。塗りつぶしと輪郭は新しいジオメトリに自動的に適用されます。
+スタイルはシェイプに残り、輪郭だけが変更されます。塗りつぶしと輪郭は新しいジオメトリに自動的に適用されます。
 
-**ジオメトリとともにカスタム形状を正しく回転させるにはどうすればよいですか？**
+**ジオメトリと一緒にカスタム シェイプを正しく回転させるにはどうすればよいですか？**
 
-形状の [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) メソッドを使用します。ジオメトリは形状にバインドされているため、形状とともに回転します。
+シェイプの `[setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-)` メソッドを使用してください。ジオメトリはシェイプの座標系にバインドされているため、シェイプと共に回転します。
 
-**カスタム形状を画像に変換して「ロック」できますか？**
+**カスタム シェイプを画像に変換して「ロック」できますか？**
 
-はい。必要な [slide](/slides/ja/androidjava/convert-powerpoint-to-png/) 領域または [shape](/slides/ja/androidjava/create-shape-thumbnails/) 自体をラスタ形式でエクスポートすると、重いジオメトリの後続作業が簡素化されます。
+はい。対象の [slide](/slides/ja/androidjava/convert-powerpoint-to-png/) 領域または [shape](/slides/ja/androidjava/create-shape-thumbnails/) 自体をラスター形式でエクスポートすれば、複雑なジオメトリの後続作業が簡素化されます。

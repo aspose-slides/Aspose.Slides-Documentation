@@ -12,9 +12,9 @@ keywords:
 - geometrie tvaru
 - geometrická cesta
 - body cesty
-- editační body
+- upravit body
 - přidat bod
-- odstranit bod
+- odebrat bod
 - operace úpravy
 - zakřivený roh
 - PowerPoint
@@ -22,189 +22,139 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Vytvořte a přizpůsobte tvary v prezentacích PowerPoint pomocí Aspose.Slides pro Android v Javě: geometrické cesty, zakřivené rohy, složené tvary."
+description: "Vytvářejte a přizpůsobujte tvary v PowerPoint prezentacích pomocí Aspose.Slides pro Android v jazyce Java: geometrické cesty, zakřivené rohy, složené tvary."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak přizpůsobit tvary prezentace v Aspose.Slides úpravou geometrie tvaru pomocí editačních bodů a geometrických cest. Ukazuje, jak pracovat s `GeometryPath` a `IGeometryPath` pro úpravu existujících tvarů, provádění základních operací úpravy cest, přidávání nebo odstraňování bodů a aplikaci aktualizované geometrie zpět na tvar.
+Tento článek vysvětluje, jak přizpůsobit tvary prezentací v Aspose.Slides úpravou geometrie tvaru pomocí editačních bodů a geometrických cest. Ukazuje, jak pracovat s [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) a [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) k úpravě existujících tvarů, provádění základních operací úpravy cesty, přidávání nebo odebírání bodů a aplikaci aktualizované geometrie zpět na tvar.
 
-Také demonstruje, jak vytvářet vlastní a složené tvary, stavět tvary s zakřivenými rohy, zjistit, zda je geometrie tvaru uzavřená, a převádět mezi `GeometryPath` a `java.awt.Shape` pro další scénáře přizpůsobení geometrie.
+Také ukazuje, jak vytvořit vlastní a složené tvary, vytvořit tvary s zakřivenými rohy, určit, zda je geometrie tvaru uzavřená, a prozkoumat elementy tvaru pomocí Android pole bodů.
 
 ## **Změna tvaru pomocí editačních bodů**
-Uvažujme čtverec. V PowerPointu můžete pomocí **editačních bodů**
 
-* posunout roh čtverce dovnitř nebo ven,
-* zadat zakřivení pro roh nebo bod,
-* přidat nové body do čtverce,
-* manipulovat s body na čtverci atd.
+V PowerPointu můžete použít **Edit Points** k úpravě čtverce:
 
-V podstatě můžete provádět popsané úkoly na jakémkoli tvaru. Pomocí editačních bodů můžete tvar změnit nebo vytvořit nový tvar z existujícího.
+* Posunout roh dovnitř nebo ven.
+* Upravit zakřivení v bodě.
+* Přidat nové body.
+
+Úprava bodů vám umožní měnit obrys tvaru nebo použít existující tvar jako základ pro nový.
 
 ## **Tipy pro úpravu tvarů**
 
 ![overview_image](custom_shape_0.png)
 
-Než začnete upravovat tvary PowerPointu pomocí editačních bodů, zvažte následující body o tvarech:
+Při úpravě tvarů v PowerPointu mějte na paměti následující pojmy:
 
 * Tvar (nebo jeho cesta) může být buď uzavřený, nebo otevřený.
-* Když je tvar uzavřený, nemá počáteční ani koncový bod. Když je tvar otevřený, má začátek i konec. 
-* Všechny tvary se skládají alespoň ze 2 kotvicových bodů spojených čarami.
-* Čára je buď přímá, nebo zakřivená. Kotvicové body určují povahu čáry. 
-* Kotvicové body existují jako rohové body, přímé body nebo hladké body:
-  * Rohový bod je bod, kde se dva přímé úseky setkávají pod úhlem. 
-  * Hladký bod je bod, kde jsou dva úchyty v jedné přímce a úseky čáry se spojují do hladké křivky. V tomto případě jsou všechny úchyty od kotvicového bodu odděleny stejnou vzdáleností. 
-  * Přímý bod je bod, kde jsou dva úchyty v jedné přímce a úseky čáry se spojují do hladké křivky. V tomto případě nemusí být úchyty od kotvicového bodu odděleny stejnou vzdáleností. 
-* Posunutím nebo úpravou kotvicových bodů (což mění úhel čar) můžete změnit vzhled tvaru.
+* Cesta tvaru se skládá z kotevních bodů spojených segmenty.
+* Segment může být přímý nebo zakřivený. Kotevní body a ovládací úchyty určují jeho tvar.
+* Kotevní body existují jako rohové body, přímé body nebo hladké body:
+  * U rohového bodu se sousední segmenty mohou setkat pod úhlem.
+  * U hladkého bodu jsou dva ovládací úchyty zarovnané a ve stejné vzdálenosti od kotevního bodu.
+  * U přímého bodu jsou dva ovládací úchyty zarovnané, ale mohou být od kotevního bodu ve různých vzdálenostech.
+* Posun kotevních bodů nebo úprava jejich úchytných úchytů mění obrys tvaru.
 
-Pro úpravu tvarů PowerPointu pomocí editačních bodů poskytuje **Aspose.Slides** třídu [**GeometryPath**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath) a rozhraní [**IGeometryPath**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryPath).
+Pro úpravu tvarů v PowerPointu pomocí editačních bodů poskytuje **Aspose.Slides** třídu [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) a rozhraní [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
 
-* Instance [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath) představuje geometrickou cestu objektu [IGeometryShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryShape).
-* Pro získání `GeometryPath` z instance `IGeometryShape` můžete použít metodu [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--).
-* Pro nastavení `GeometryPath` pro tvar můžete použít tyto metody: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) pro *plné tvary* a [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) pro *složené tvary*.
-* Pro přidání segmentů můžete použít metody pod rozhraním [IGeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryPath).
-* Pomocí metod [IGeometryPath.setStroke](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) a [IGeometryPath.setFillMode](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) můžete nastavit vzhled geometrické cesty.
-* Pomocí metody [IGeometryPath.getPathData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryPath#getPathData--) můžete získat geometrickou cestu `GeometryShape` jako pole segmentů cesty.
-* Pro přístup k dalším možnostem přizpůsobení geometrie tvaru můžete převést [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath) na [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-* Použijte metody [geometryPathToGraphicsPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) a [graphicsPathToGeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (z třídy [ShapeUtil](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ShapeUtil)) k převodu [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath) na [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) a zpět.
+* Instance [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) představuje geometrickou cestu objektu [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/).
+* Pro získání [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) z instance [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) můžete použít metodu [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--).
+* Pro nastavení [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) pro tvar můžete použít tyto metody: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) pro tvary s jednou cestou a [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) pro tvary s více cestami.
+* Pro přidání segmentů můžete použít metody pod [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
+* Pomocí metod [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) a [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-) můžete nastavit vzhled geometrické cesty.
+* Pomocí metody [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) můžete získat geometrickou cestu [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) jako pole segmentů cesty.
 
-## **Jednoduché operace úpravy**
+## **Jednoduché operace úprav**
 
-Tento Java kód ukazuje, jak
+Použijte následující metody pro úpravu geometrické cesty. Přetížení, která přijímají index, vloží segment na danou nulovou pozici v poli segmentů cesty.
 
-**Přidat čáru** na konec cesty
-
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**Přidat čáru** na určenou pozici v cestě:
-
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**Přidat kubickou Bézierovu křivku** na konec cesty:
-
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Přidat kubickou Bézierovu křivku** na určenou pozici v cestě:
-
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**Přidat kvadratickou Bézierovu křivku** na konec cesty:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Přidat kvadratickou Bézierovu křivku** na určenou pozici v cestě:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**Připojit daný oblouk** k cestě:
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Uzavřít aktuální figurku** cesty:
-
-``` java
-public void closeFigure();
-```
-**Nastavit pozici pro další bod**:
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**Odstranit segment cesty** na daném indexu:
-
-``` java
-public void removeAt(int index);
-```
+| Operace | Metoda |
+| --- | --- |
+| Přidat nebo vložit přímou čáru. | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| Přidat nebo vložit kubickou Bézierovu křivku se dvěma řídícími body a koncovým bodem. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Přidat nebo vložit kvadratickou Bézierovu křivku s jedním řídícím bodem a koncovým bodem. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Přidat eliptický oblouk se zadanými rozměry a úhly ve stupních. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Uzavřít aktuální útvar spojením jeho koncového bodu s počátečním bodem. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| Nastavit počáteční bod útvaru. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Odstranit segment na nulovém indexu. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
 ## **Přidání vlastních bodů do tvaru**
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryShape) a nastavte typ [ShapeType.Rectangle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ShapeType).
-2. Získejte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath) ze tvaru.
-3. Přidejte nový bod mezi dva horní body v cestě.
-4. Přidejte nový bod mezi dva spodní body v cestě.
-5. Aplikujte cestu na tvar.
 
-Tento Java kód ukazuje, jak přidat vlastní body do tvaru:
+Tento příklad vloží dva body do obdélníkového tvaru pomocí [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) a použije upravenou cestu metodou [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Souřadnice jsou lokální k tvaru: oba nové body jsou ve středu, 100 bodů od levého okraje a 50 bodů od horního. Indexy segmentů 1 a 4 je umístí na horní a dolní hranu, čímž tyto hrany stáhnou dovnitř.
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## **Odstranění bodů z tvaru**
+## **Odstranění bodů ze tvaru**
 
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryShape) a nastavte typ [ShapeType.Heart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ShapeType).
-2. Získejte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath) ze tvaru.
-3. Odstraňte segment cesty.
-4. Aplikujte cestu na tvar.
+Tento příklad mění obrys ve tvaru srdce odstraněním segmentu na nulovém indexu 2 pomocí [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-). Použití upravené cesty metodou [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) aktualizuje konturu tvaru.
 
-Tento Java kód ukazuje, jak odstranit body z tvaru:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example2_image](custom_shape_2.png)
 
-##  **Vytvoření vlastního tvaru**
+## **Vytvoření vlastního tvaru**
 
-1. Spočítejte body pro tvar.
-2. Vytvořte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath).
-3. Naplňte cestu body.
-4. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryShape).
-5. Aplikujte cestu na tvar.
+Tento příklad vytvoří pěticípou hvězdu pomocí [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/). Střídavé vnější a vnitřní poloměry 100 a 50 bodů definují špičky a zapuštění; krok 72 stupňů rovnoměrně rozmístí pět špiček. Cesta je uzavřena pomocí [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) a aplikována na obdélníkový tvar pomocí [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), čímž nahradí jeho obrys.
 
-Tento Java kód ukazuje, jak vytvořit vlastní tvar:
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<PointF> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    PointF point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -217,61 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
-
 ```
 ![example3_image](custom_shape_3.png)
 
-
 ## **Vytvoření složeného vlastního tvaru**
 
-  1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryShape).
-  2. Vytvořte první instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath).
-  3. Vytvořte druhou instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath).
-  4. Aplikujte cesty na tvar.
+Tento příklad definuje dva uzavřené objekty [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) pro horní a dolní třetinu tvaru. Použití obou cest pomocí [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) vytvoří jeden složený tvar s mezerou napříč jeho střední třetinou.
 
-Tento Java kód ukazuje, jak vytvořit složený vlastní tvar:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Vytvoření vlastního tvaru s zakřivenými rohy**
+## **Vytvoření vlastního tvaru se zakřivenými rohy**
 
-Tento Java kód ukazuje, jak vytvořit vlastní tvar se zakřivenými rohy (dovnitř);
+Tento příklad kombinuje přímé segmenty s [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) k vytvoření tvaru se zakřivenými rohy dovnitř. Každá velikost rohu určuje šířku a výšku oblouku v bodech a úhel -90 stupňů vykreslí proti směru hodinových ručiček čtvrtkružnici. Dokončená cesta je použita pomocí [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) a prezentace je uložena ve formátu PPTX.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -282,122 +231,155 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    PointF topLeft = new PointF(leftTopSize, 0);
+    PointF topRight = new PointF(shapeWidth - rightTopSize, 0);
+    PointF rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+    PointF bottomLeft = new PointF(leftBottomSize, shapeHeight);
+    PointF leftTop = new PointF(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Zjištění, zda je geometrie tvaru uzavřená**
 
-Uzavřený tvar je definován jako takový, kde všechny jeho strany spojují a tvoří jediný okraj bez mezer. Takový tvar může být jednoduchou geometrickou formou nebo složitým vlastním obrysem. Následující ukázkový kód ukazuje, jak zkontrolovat, zda je geometrie tvaru uzavřená:
+Následující pomocná metoda kontroluje, zda každá neprázdná geometrická cesta končí uzavíracím segmentem. Načte [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) a porovná příkaz posledního segmentu [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) s [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/). Vrátí false, pokud neexistují neprázdné cesty. Toto kontroluje poslední příkaz každé cesty; neprozkoumává každou subfiguru uvnitř cesty. Příklad vypíše `true` pro obdélník.
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
-
-    return isClosed == true;
 }
-```
 
-## **Převod GeometryPath na java.awt.Shape** 
-
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryShape).
-2. Vytvořte instanci třídy [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-3. Převěďte instanci [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) na instanci [GeometryPath](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/GeometryPath) pomocí [ShapeUtil](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ShapeUtil).
-4. Aplikujte cesty na tvar.
-
-Tento Java kód – implementace výše uvedených kroků – demonstruje proces konverze **GeometryPath** na **GraphicsPath**:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Vytvořit nový tvar
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Získat geometrickou cestu tvaru
-    IGeometryPath originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(PathFillModeType.None);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    // Vytvořit novou grafickou cestu s textem
-    Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
-
-    try
-    {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
-    }
-    finally {
-        g2.dispose();
-    }
-
-    // Převést grafickou cestu na geometrickou cestu
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(PathFillModeType.Normal);
-
-    // Nastavit kombinaci nové geometrické cesty a původní geometrické cesty na tvar
-    shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example5_image](custom_shape_5.png)
+
+## **Extrahování a inspekce elementů tvaru**
+
+Použijte [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) k prozkoumání existujícího tvaru jako elementů obsahujících body cesty a typy bodů. Přetypujte každý vrácený [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) na [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) a získejte pole bodů a typů pomocí metod [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) a [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) . Toto znázornění je užitečné pro analýzu kontury nebo předání geometrie vlastním kreslícím nástrojům.
+
+Příklad otevře soubor input.pptx, najde první geometrický tvar přímo na první snímku a vypíše jeho segmenty cesty. Použijte prezentaci obsahující tvar s přímými i zakřivenými segmenty, abyste viděli oba typy výstupu. Neprohledává skupiny.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            PointF[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // Zachovat typ segmentu, vyjma příznaků.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Spotřebovat oba řídící body a koncový bod.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Pole odpovídají podle indexu: `points[i]` je bod a `types[i]` popisuje jeho roli. Typ `0` zahajuje útvar a typ `1` kreslí čáru od předchozího bodu k aktuálnímu. Kubický Bézierův segment začíná na předchozím koncovém bodě a používá tři po sobě jdoucí položky typu `3`: dva řídící body následované novým koncovým bodem. Smyčka spotřebuje tyto tři položky najednou a kontroluje koncový bod pro uzavření.
+
+Typy bodů také obsahují příznaky. Maskujte pomocí `0x07` k určení typu segmentu a testujte `0x80` samostatně k detekci uzavřeného podcesty. Například `129` (`0x81`) znamená koncový bod čáry, který uzavírá podcestu, a `131` (`0x83`) znamená koncový bod Bézieru, který uzavírá podcestu. Java ukládá tyto příznaky do podepsaných bytů; maskování zachovává zamýšlené bitové hodnoty. Porovnání surové hodnoty jen s `1` nebo `3` by tyto případy prošvihlo. Další příznaky, jako čárka (`0x10`) a značka (`0x20`), nemění základní typ segmentu.
+
+**Souřadnice a transformace.**  
+Bodů se měří v bodech (1/72 palce), přičemž X roste doprava a Y dolů. Pro netvořený (ne‑skupinový) tvar již extrahované souřadnice zahrnují pozici vrácenou metodami [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) a [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) a odrážejí jeho aktuální šířku a výšku. Například neotočený obdélník na `(100, 200)` s velikostí `120 × 80` má obrysové meze `(100, 200)`–`(220, 280)`. Nepřidávejte pozici tvaru znovu. Odečtěte jeho X a Y, abyste získali souřadnice relativní k jeho neotočenému rámu.
+
+Extrahované body neaplikují rotaci tvaru, vrácenou metodou [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--), ani horizontální a vertikální převrácení. Pro reprodukci zobrazeného obrysu aplikujte tyto transformace kolem středu tvaru. Pro seskupené tvary také zohledněte mapování souřadnic skupiny a transformace; nepředpokládejte, že extrahované body jsou finální vykreslené souřadnice snímku, ani neaplikujte translační nebo škálovací transformaci dvakrát, pokud už jsou ve rámu dítěte zahrnuty.
+
+Inspekce versus úprava. Extrahovaná pole popisují obrys; jejich změna neaktualizuje původní tvar. Zvolte tento přístup, když vaše analytické nebo kreslicí kódy potřebují pole bodů/typů. Použijte [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) pokud potřebujete geometrické příkazy v lokálním souřadnicovém systému tvaru nebo chcete upravit jeho geometrii. Aplikujte upravené cesty pomocí [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) nebo [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---).
 
 ## **Často kladené otázky**
 
-**Co se stane s výplní a obrysem po nahrazení geometrie?**
+**Co se stane s výplní a obrysem po nahrazení geometrie?**  
+Styl zůstává u tvaru; mění se pouze obrys. Výplň a obrys jsou automaticky aplikovány na novou geometrii.
 
-Styl zůstane spojený s tvarem; změní se pouze kontura. Výplň a obrys jsou automaticky aplikovány na novou geometrii.
+**Jak správně otočit vlastní tvar spolu s jeho geometrií?**  
+Použijte metodu [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) tvaru; geometrie se otáčí spolu s tvarem, protože je vázána na jeho vlastní souřadnicový systém.
 
-**Jak správně otočit vlastní tvar spolu s jeho geometrií?**
-
-Použijte metodu [setRotation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#setRotation-float-) tvaru; geometrie se otáčí spolu s tvarem, protože je svázána se souřadnicovým systémem tvaru.
-
-**Mohu převést vlastní tvar na obrázek, aby byl „uzamčen“ výsledek?**
-
-Ano. Exportujte požadovanou [slide](/slides/cs/androidjava/convert-powerpoint-to-png/) oblast nebo samotný [shape](/slides/cs/androidjava/create-shape-thumbnails/) do rastrového formátu; to usnadňuje další práci s těžkými geometriemi.
+**Mohu převést vlastní tvar na obrázek, aby byl výsledek „uzamčen“?**  
+Ano. Exportujte požadovanou oblast [slide](/slides/cs/androidjava/convert-powerpoint-to-png/) nebo samotný [shape](/slides/cs/androidjava/create-shape-thumbnails/) do rastrového formátu; toto usnadní další práci s komplexními geometriemi.
