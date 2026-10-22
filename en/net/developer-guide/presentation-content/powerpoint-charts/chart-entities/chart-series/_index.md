@@ -21,7 +21,7 @@ description: "Learn how to manage chart series, data points, workbook cells, for
 
 ## **Overview**
 
-A chart stores its plotted data in a chart data workbook. An [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) represents one set of related values, and each [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) in the series refers to one or more workbook cells. [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) objects provide the labels or grouping values shared by the series. The series name, categories, and point values are therefore connected to [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) objects rather than stored only as display text.
+A chart can store its plotted values in workbook cells or directly as numeric literals. An [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) represents one set of related values, and each [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) represents a point in that series. [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) objects provide the labels or grouping values shared by the series. In charts created with default data, series names, categories, and point values use [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) objects from the chart workbook.
 
 For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
 
@@ -34,6 +34,48 @@ Chart settings have three different scopes:
 When no explicit point or series fill is set, the chart style and theme determine the automatic appearance. When both series and point formatting are present, the point formatting takes precedence for that point.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
+
+## **Set Series Values Using Numeric Literals**
+
+Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Set [DataSourceTypeForValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforvalues/) to [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) before assigning each point's [Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/value/) through [AsLiteralDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/idoublechartvalue/asliteraldouble/).
+
+The collection setting controls the source type of all point values in that series. Each point's [Value.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ibasechartvalue/datasourcetype/) reports the selected type; change it through the collection setting. With `Worksheet`, use [AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/isinglecellchartvalue/ascell/) to access the referenced cell. With `DoubleLiterals`, use `AsLiteralDouble` to read or write the number directly.
+
+The following example creates a column chart with default series and categories, then assigns calculated values of 10, 20, and so on to the existing points of its first series. It saves the presentation, reopens it, and prints the stored values.
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+var series = chart.ChartData.Series[0];
+
+series.DataPoints.DataSourceTypeForValues = DataSourceType.DoubleLiterals;
+for (var i = 0; i < series.DataPoints.Count; i++)
+{
+    series.DataPoints[i].Value.AsLiteralDouble = (i + 1) * 10;
+}
+
+presentation.Save("numeric_literals.pptx", SaveFormat.Pptx);
+
+using var reopenedPresentation = new Presentation("numeric_literals.pptx");
+var reopenedSlide = reopenedPresentation.Slides[0];
+var reopenedChart = (IChart)reopenedSlide.Shapes[0];
+var reopenedSeries = reopenedChart.ChartData.Series[0];
+foreach (var point in reopenedSeries.DataPoints)
+{
+    Console.WriteLine(point.Value.AsLiteralDouble);
+}
+```
+
+The point value source type is separate from [IChartData.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/datasourcetype/), which identifies the chart's internal or external workbook configuration. Using numeric literals does not, by itself, remove the embedded workbook. In this example, the workbook remains available for category labels, series names, and the other series. See [Chart Workbook](/slides/net/chart-workbook/) for workbook management.
+
+For scatter and bubble charts, set [DataSourceTypeForXValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforxvalues/) and [DataSourceTypeForYValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforyvalues/) to choose the sources for [XValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/xvalue/) and [YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). Bubble charts also use [DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforbubblesizes/) for [BubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/bubblesize/). Set each applicable source to `DoubleLiterals` before assigning numbers through that value's `AsLiteralDouble` property.
 
 ## **Set the Chart Series Overlap**
 
