@@ -6,11 +6,11 @@ weight: 70
 url: /es/cpp/chart-workbook/
 keywords:
 - libro de trabajo de gráfico
-- datos del gráfico
+- datos de gráfico
 - celda del libro de trabajo
 - etiqueta de datos
 - hoja de cálculo
-- origen de datos
+- fuente de datos
 - libro de trabajo externo
 - datos externos
 - caché del gráfico
@@ -19,31 +19,31 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Descubra Aspose.Slides para C++: gestione fácilmente los libros de trabajo de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
+description: "Descubra Aspose.Slides para C++: gestione sin esfuerzo los libros de trabajo de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
 ---
-## **Resumen**
+## **Visión general**
 
-Este artículo describe cómo trabajar con libros de trabajo de gráficos en Aspose.Slides. Muestra cómo leer y escribir datos de gráficos mediante flujos de libros de trabajo, usar celdas del libro de trabajo como etiquetas de datos del gráfico, acceder a colecciones de hojas de cálculo y especificar el tipo de origen de datos para los valores del gráfico.
+Este artículo explica cómo trabajar con libros de trabajo de gráficos en Aspose.Slides. Muestra cómo leer y escribir datos de gráficos a través de flujos de libros de trabajo, usar celdas del libro de trabajo como etiquetas de datos del gráfico, acceder a colecciones de hojas de cálculo y especificar el tipo de origen de datos para los valores del gráfico.
 
-También cubre el trabajo con libros de trabajo externos como fuentes de datos de gráficos. Los ejemplos demuestran cómo crear y asignar un libro de trabajo externo, obtener la ruta de un libro de trabajo externo vinculado a un gráfico y editar los datos del gráfico cuando el libro de trabajo está disponible.
+También cubre el trabajo con libros de trabajo externos como fuentes de datos de gráficos. Los ejemplos demuestran cómo crear y asignar un libro de trabajo externo, recuperar la ruta de un libro de trabajo externo vinculado a un gráfico y editar los datos del gráfico cuando el libro de trabajo está disponible.
 
-Para las celdas del libro de trabajo que representan datos ausentes, consulte [Controlar la visualización de celdas vacías](/slides/es/cpp/chart-series/) para conocer la diferencia entre una celda vacía y cero, y una comparación de gráficas de líneas de los modos de visualización disponibles.
+Para celdas de libro de trabajo que representan datos ausentes, consulte [Controlar la visualización de celdas vacías](/slides/es/cpp/chart-series/) para conocer la diferencia entre una celda vacía y cero, y una comparativa de gráficos de líneas de los modos de visualización disponibles.
 
 ## **Incluir datos de filas y columnas ocultas**
 
-Utilice [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) para controlar si un gráfico representa datos de filas y columnas de hoja de cálculo ocultas. Defínalo como `true` para trazar solo celdas visibles, o `false` para incluir tanto celdas visibles como ocultas. Esta configuración controla el trazado del gráfico; no oculta ni muestra filas o columnas de la hoja.
+Use [IChart::set_PlotVisibleCellsOnly](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_plotvisiblecellsonly/) para controlar si un gráfico traza datos de filas y columnas ocultas de la hoja de cálculo. Establézcalo en `true` para trazar solo celdas visibles, o en `false` para incluir tanto celdas visibles como ocultas. Esta configuración controla el trazado del gráfico; no oculta ni muestra filas o columnas de la hoja.
 
-La [presentación de ejemplo](hidden-source-data.pptx) contiene un gráfico de columnas como la primera forma en su primera diapositiva. La hoja incrustada, `Sheet1`, contiene el siguiente rango de origen, `A1:C4`. La fila 3 y la columna C están ocultas, pero sus celdas siguen conteniendo valores.
+La [presentación de muestra](hidden-source-data.pptx) contiene un gráfico de columnas como la primera forma en su primera diapositiva. La hoja incrustada, `Sheet1`, contiene el siguiente rango de origen, `A1:C4`. La fila 3 y la columna C están ocultas, pero sus celdas siguen conteniendo valores.
 
-| Fila de hoja | A: Mes | B: Venta al por menor | C: Mayorista (columna oculta) |
+| Fila de hoja | A: Mes | B: Minorista | C: Mayorista (columna oculta) |
 | --- | --- | --- | --- |
-| 2 | Enero | 10 | 30 |
-| 3 (fila oculta) | Febrero | 40 | 60 |
-| 4 | Marzo | 20 | 50 |
+| 2 | enero | 10 | 30 |
+| 3 (fila oculta) | febrero | 40 | 60 |
+| 4 | marzo | 20 | 50 |
 
-Acceda a las celdas de origen a través de [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) y lea [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) para inspeccionar su estado oculto. Esta propiedad es de solo lectura. En este archivo, B2 es visible, B3 pertenece a la fila oculta y C2 pertenece a la columna oculta; el ejemplo imprime `False`, `True` y `True`, respectivamente.
+Acceda a las celdas fuente a través de [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) y lea [IChartDataCell::get_IsHidden](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/get_ishidden/) para inspeccionar su estado de ocultación. Esta propiedad es de solo lectura. En este archivo, B2 es visible, B3 pertenece a la fila oculta y C2 pertenece a la columna oculta; el ejemplo imprime `False`, `True` y `True`, respectivamente.
 
-Para este ejemplo, actualice los datos del gráfico después de cambiar la configuración de trazado: conserve el libro de trabajo incrustado con [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) y recárguelo con [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). Al incluir todas las celdas, también utilice [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) para restaurar el rango completo, incluida la categoría de febrero oculta. Simplemente cambiar el indicador no es suficiente para actualizar los datos en caché del gráfico y las etiquetas de categorías de esta muestra.
+Para este ejemplo, actualice los datos del gráfico después de cambiar la configuración de trazado: conserve el libro de trabajo incrustado con [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) y recárguelo con [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/). Cuando incluya todas las celdas, use también [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) para restaurar el rango completo, incluida la categoría de febrero oculta. Cambiar simplemente la bandera no es suficiente para refrescar los datos en caché del gráfico y las etiquetas de categoría de esta muestra.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -98,21 +98,21 @@ else
 }
 ```
 
-El ejemplo guarda dos versiones de la presentación: una con solo los valores visibles de Venta al por menor (10 y 20) y otra con los seis valores. Las imágenes a continuación ilustran los dos modos de trazado. La fila 3 y la columna C permanecen ocultas en ambos libros de trabajo incrustados.
+El ejemplo guarda dos versiones de la presentación: una con solo los valores visibles de Minorista (10 y 20) y otra con los seis valores. Las imágenes siguientes ilustran los dos modos de trazado. La fila 3 y la columna C siguen ocultas en ambos libros de trabajo incrustados.
 
 | Solo celdas visibles (`true`) | Todas las celdas (`false`) |
 | --- | --- |
-| ![Solo celdas visibles: valores de Venta al por menor 10 y 20 para Enero y Marzo.](hidden_cells_True.png) | ![Todas las celdas: valores de Venta al por menor y Mayorista para Enero, Febrero y Marzo.](hidden_cells_False.png) |
+| ![Solo celdas visibles: valores de Minorista 10 y 20 para enero y marzo.](hidden_cells_True.png) | ![Todas las celdas: valores de Minorista y Mayorista para enero, febrero y marzo.](hidden_cells_False.png) |
 
-Una celda oculta que contiene un valor es diferente de una celda vacía. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) controla cómo se muestran los valores ausentes; no incluye ni excluye datos de origen ocultos. Consulte [Controlar la visualización de celdas vacías](/slides/es/cpp/chart-series/#control-the-display-of-empty-cells) para ver un ejemplo.
+Una celda oculta que contiene un valor es diferente de una celda vacía. [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) controla cómo se muestran los valores ausentes; no incluye ni excluye datos fuente ocultos. Consulte [Controlar la visualización de celdas vacías](/slides/es/cpp/chart-series/#control-the-display-of-empty-cells) para un ejemplo.
 
 ## **Obtener el rango de datos de un gráfico**
 
-Antes de actualizar los datos del libro de trabajo en una presentación existente, inspeccione los rangos de origen para identificar qué celdas de hoja de cálculo usa cada gráfico. El método [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) devuelve el rango de datos actual como una fórmula calificada a la hoja, por ejemplo `Sheet1!$A$1:$D$5`. Aquí, `Sheet1` es el nombre de la hoja, `!` la separa del rango de celdas, y `$A$1:$D$5` identifica las celdas A1 a D5, inclusive. Los signos de dólar indican referencias absolutas de fila y columna.
+Antes de actualizar los datos del libro de trabajo en una presentación existente, inspeccione los rangos de origen para identificar qué celdas de hoja usa cada gráfico. El método [IChartData::GetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/getrange/) devuelve el rango de datos actual como una fórmula cualificada por hoja, por ejemplo `Sheet1!$A$1:$D$5`. Aquí, `Sheet1` es el nombre de la hoja, `!` lo separa del rango de celdas y `$A$1:$D$5` identifica las celdas A1 a D5 inclusive. Los signos de dólar indican referencias absolutas de fila y columna.
 
-El método lee el rango actual sin modificar el gráfico ni su libro de trabajo. Si el gráfico no utiliza un libro de trabajo como origen de datos, lanza [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Para obtener más información, consulte la [Referencia de API de ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
+El método lee el rango actual sin modificar el gráfico ni su libro de trabajo. Si el gráfico no usa un libro de trabajo como fuente de datos, lanza [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Para más información, consulte la [Referencia de la API de ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/).
 
-Este ejemplo abre una presentación y verifica las formas directamente en cada diapositiva en busca de gráficos. Imprime el nombre y el rango de origen de cada gráfico. Si un gráfico no utiliza un libro de trabajo, imprime un mensaje y continúa con el siguiente gráfico.
+Este ejemplo abre una presentación y comprueba directamente en cada diapositiva las formas para buscar gráficos. Imprime el nombre y el rango de origen de cada gráfico. Si un gráfico no usa un libro de trabajo, imprime un mensaje y continúa con el siguiente gráfico.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -153,11 +153,11 @@ for (auto slide : IterateOver(presentation->get_Slides()))
 }
 ```
 
-## **Leer y escribir datos de gráfico desde un libro de trabajo**
+## **Leer y escribir datos de gráficos desde un libro de trabajo**
 
-Aspose.Slides para C++ proporciona los métodos [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) y [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) que permiten leer y escribir libros de trabajo de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o tener una estructura similar a la fuente.
+Aspose.Slides para C++ proporciona los métodos [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) y [WriteWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) que permiten leer y escribir libros de trabajo de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Note** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la fuente.
 
-Este ejemplo utiliza una presentación con un gráfico como primera forma en la primera diapositiva. Lee el libro de trabajo incrustado a un flujo, borra las series y categorías existentes, y escribe de nuevo el mismo libro de trabajo. Los cambios permanecen en memoria; el ejemplo no guarda la presentación.
+Este ejemplo usa una presentación con un gráfico como la primera forma en su primera diapositiva. Lee el libro de trabajo incrustado en un flujo, elimina las series y categorías existentes y escribe el mismo libro de trabajo de vuelta. Los cambios permanecen en memoria; el ejemplo no guarda la presentación.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -196,9 +196,9 @@ else
 }
 ```
 
-### **Validar diseño del gráfico después de la modificación del libro de trabajo**
+### **Validar el diseño del gráfico después de la modificación del libro de trabajo**
 
-Cuando reemplaza un libro de trabajo incrustado por uno modificado, el gráfico conserva sus colecciones originales de series y categorías. Esta incoherencia puede provocar que [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) falle con un error de índice fuera de rango. Borre las series y categorías existentes antes de escribir el libro de trabajo actualizado de vuelta en el gráfico. Este ejemplo utiliza un gráfico que es la primera forma en la primera diapositiva. El comentario indica dónde se produciría la edición del libro de trabajo; el ejemplo ejecutable escribe de nuevo el libro original y valida el diseño en memoria.
+Al reemplazar un libro de trabajo incrustado por uno modificado, el gráfico conserva sus colecciones originales de series y categorías. Esta incongruencia puede provocar que [IChart::ValidateChartLayout](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/validatechartlayout/) falle con un error de índice fuera de rango. Elimine las series y categorías existentes antes de escribir el libro de trabajo actualizado de vuelta al gráfico. Este ejemplo usa un gráfico que es la primera forma en la primera diapositiva. El comentario marca donde se editaría el libro de trabajo; el ejemplo ejecutable escribe el libro original de vuelta y valida el diseño en memoria.
 
 ```cpp
 #include <DOM/Chart/IChartCategoryCollection.h>
@@ -240,13 +240,13 @@ else
 }
 ```
 
-Vaciar las colecciones elimina referencias de datos obsoletos antes de que el libro de trabajo sea escrito nuevamente. Reconstruya cualquier mapeo de series y categorías necesario para el libro de trabajo actualizado antes de usar el gráfico.
+Eliminar las colecciones elimina referencias a datos obsoletos antes de que el libro de trabajo se escriba de vuelta. Reconstruya las asignaciones de series y categorías necesarias para el libro de trabajo actualizado antes de usar el gráfico.
 
-## **Establecer formatos numéricos personalizados para celdas del libro de trabajo**
+## **Establecer formatos de número personalizados para celdas del libro de trabajo**
 
-Utilice [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) para controlar cómo aparecen los valores numéricos en el libro de trabajo incrustado de un gráfico. Por ejemplo, un informe puede necesitar que una tasa de conversión se muestre como porcentaje con cuatro decimales y un coeficiente con cinco decimales. Mantenga ambos valores como numéricos para que permanezcan disponibles para cálculos y trazado del gráfico.
+Utilice [IChartDataCell::set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) para controlar cómo aparecen los valores numéricos en el libro de trabajo incrustado de un gráfico. Por ejemplo, un informe puede necesitar una tasa de conversión mostrada como porcentaje con cuatro decimales y un coeficiente con cinco decimales. Mantenga ambos valores como numéricos para que sigan estando disponibles para cálculos y trazado del gráfico.
 
-Un formato numérico cambia la visualización, no el valor almacenado. El formato `0.0000%` muestra `0.125` como `12.5000%`; no reemplaza el número almacenado por `12.5`. De manera similar, `0.00000` muestra `0.1234567` como `0.12346` sin redondear el valor almacenado. Si el formato personalizado es una cadena vacía (`""`), se utiliza el formato asignado mediante [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/).
+Un formato de número cambia la visualización, no el valor almacenado. El formato `0.0000%` muestra `0.125` como `12.5000%`; no sustituye el número almacenado por `12.5`. De manera similar, `0.00000` muestra `0.1234567` como `0.12346` sin redondear el valor almacenado. Si el formato personalizado es una cadena vacía (`""`), se utiliza el formato asignado mediante [set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/).
 
 El siguiente ejemplo crea un gráfico de columnas y accede a sus celdas mediante [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/). En la hoja 0, B2 contiene la tasa de conversión y C2 contiene el coeficiente. Ambas celdas suministran valores al gráfico. El ejemplo también habilita etiquetas de valor vinculadas a los formatos de origen.
 
@@ -321,18 +321,17 @@ for (auto series : IterateOver(chart->get_ChartData()->get_Series()))
 presentation->Save(u"CustomCellFormats.pptx", Export::SaveFormat::Pptx);
 ```
 
-Los formatos de celda del libro de trabajo son independientes de los formatos establecidos directamente en los ejes del gráfico o en las etiquetas de datos. En este ejemplo, cada etiqueta muestra el valor de su celda de origen porque [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) se llama con `true`, y sigue el formato numérico de origen porque [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) se llama con `true`. Después de guardar y volver a abrir la presentación, las etiquetas muestran `12.5000%` y `0.12346`, como se muestra a continuación. El eje vertical usa su propio formato `0.00`, asignado mediante [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/), con [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) llamado con `false`.
+Los formatos de celda del libro son independientes de los formatos establecidos directamente en los ejes del gráfico o en las etiquetas de datos. En este ejemplo, cada etiqueta muestra el valor de su celda de origen porque [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) se llama con `true`, y sigue el formato numérico de origen porque [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) se llama con `true`. Tras guardar y volver a abrir la presentación, las etiquetas muestran `12.5000%` y `0.12346`, como se muestra a continuación. El eje vertical usa su propio formato `0.00`, asignado mediante [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberformat/), con [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isnumberformatlinkedtosource/) llamado con `false`.
 
-Para formatear una etiqueta de datos de forma independiente, establezca su bandera de vínculo al origen en `false` y asigne su formato mediante [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/). Esto no modifica el formato de la celda del libro de trabajo. Por ejemplo, un formato de etiqueta independiente `0.00` muestra el primer valor como `0.13`, mientras que B2 sigue mostrando `12.5000%`. Consulte [Etiquetas de datos del gráfico](/slides/es/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) para el formateo directo de etiquetas.
+Para formatear una etiqueta de datos de forma independiente, establezca su bandera de vínculo a fuente en `false` y asigne su formato mediante [set_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/). Esto no cambia el formato de la celda del libro. Por ejemplo, un formato independiente de etiqueta `0.00` muestra el primer valor como `0.13`, mientras B2 sigue mostrando `12.5000%`. Consulte [Etiquetas de datos del gráfico](/slides/es/cpp/chart-data-label/#set-percentage-sign-with-chart-data-labels) para formatear directamente las etiquetas.
 
-La siguiente imagen se generó a partir de la presentación guardada tras volver a abrirla:
 ![Gráfico de columnas con etiquetas vinculadas al origen que muestran 12.5000% y 0.12346 y un eje numérico formateado de forma independiente.](custom-cell-formats.png)
 
 ## **Establecer una celda del libro de trabajo como etiqueta de datos del gráfico**
 
-Puede utilizar texto de celdas del libro de trabajo como etiquetas de datos del gráfico.
+Puede usar texto de celdas del libro de trabajo como etiquetas de datos del gráfico.
 
-Este ejemplo añade un gráfico de burbujas con datos predeterminados a la primera diapositiva de una presentación existente. Utiliza las celdas A10:A12 en la hoja 0 para las tres primeras etiquetas de la primera serie, habilita etiquetas provenientes de celdas y guarda la presentación actualizada.
+Este ejemplo añade un gráfico de burbujas con datos predeterminados a la primera diapositiva de una presentación existente. Utiliza las celdas A10:A12 en la hoja 0 para las tres primeras etiquetas de la primera serie, habilita las etiquetas desde celdas y guarda la presentación actualizada.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -373,7 +372,7 @@ series->get_Labels()->idx_get(2)->set_ValueFromCell(thirdLabelCell);
 presentation->Save(u"resultchart.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Administrar hojas de cálculo**
+## **Gestionar hojas de cálculo**
 
 El método [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) proporciona acceso a las hojas de cálculo en un libro de trabajo de gráfico. Este ejemplo crea un gráfico circular con datos predeterminados e imprime el nombre de cada hoja en la consola.
 
@@ -408,7 +407,9 @@ for (auto i = 0; i < workbook->get_Worksheets()->get_Count(); i++)
 
 ## **Especificar el tipo de origen de datos**
 
-Este ejemplo crea un gráfico de columnas 3D con datos predeterminados y establece dos nombres de series usando diferentes orígenes de datos. El primer nombre usa una cadena literal; el segundo usa la celda C1 en la hoja 0. La enumeración [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) selecciona el origen para cada nombre. El ejemplo guarda la presentación con los nombres de series actualizados.
+Los valores de los puntos de serie también pueden almacenarse directamente como literales numéricos. Consulte [Establecer valores de serie mediante literales numéricos](/slides/es/cpp/chart-series/#set-series-values-using-numeric-literals) para un ejemplo completo que los guarda y los lee. El tipo de origen de los valores de punto es independiente de la configuración interna o externa del libro de trabajo del gráfico; usar literales numéricos no elimina, por sí mismo, el libro de trabajo incrustado.
+
+Este ejemplo crea un gráfico de columnas 3D con datos predeterminados y establece dos nombres de serie usando diferentes fuentes de datos. El primer nombre usa un literal de cadena; el segundo usa la celda C1 en la hoja 0. La enumeración [DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) selecciona la fuente para cada nombre. El ejemplo guarda la presentación con los nombres de serie actualizados.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -447,9 +448,9 @@ cellName->set_Data(nameCell);
 presentation->Save(u"pres.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Detectar formatos de libros incrustados no compatibles**
+## **Detectar formatos de libro de trabajo incrustado no compatibles**
 
-Aspose.Slides no admite el formato de libro binario de Excel (.xlsb) que puede incrustarse en algunos gráficos. Puede usar el método [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) en [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) junto con la enumeración [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) para detectar formatos no compatibles y omitir esos gráficos. Este ejemplo inspecciona las formas en la primera diapositiva de una presentación existente, omite las formas que no son gráficos y muestra un mensaje de diagnóstico para cada gráfico con un libro incrustado .xlsb.
+Aspose.Slides no admite el formato de libro binario de Excel (.xlsb) que puede incrustarse en algunos gráficos. Puede usar el método [get_EmbeddedWorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_embeddedworkbooktype/) en [IChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/) junto con la enumeración [WorkbookType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/workbooktype/) para detectar formatos no compatibles y omitir esos gráficos. Este ejemplo inspecciona las formas en la primera diapositiva de una presentación existente, omite las formas que no son gráficos y muestra un mensaje de diagnóstico para cada gráfico con un libro .xlsb incrustado.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -488,7 +489,7 @@ for (auto shape : IterateOver(slide->get_Shapes()))
         continue;
     }
 
-    // Leer o modificar los datos del libro de trabajo de gráfico compatibles aquí.
+    // Leer o modificar los datos del libro de trabajo del gráfico compatibles aquí.
 }
 ```
 
@@ -498,9 +499,9 @@ Aspose.Slides admite el uso de libros de trabajo externos como fuente de datos p
 
 ### **Crear un libro de trabajo externo**
 
-Utilice [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) y [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) para exportar un libro de trabajo de gráfico incrustado a un archivo y enlazar el gráfico a ese libro externo.
+Utilice [ReadWorkbookStream](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) y [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) para exportar un libro de trabajo de gráfico incrustado a un archivo y vincular el gráfico a ese libro externo.
 
-Este ejemplo crea un gráfico circular con datos predeterminados y exporta su libro de trabajo. Cierra el flujo de salida antes de asignar el libro externo como origen de datos del gráfico, y luego guarda la presentación enlazada.
+Este ejemplo crea un gráfico circular con datos predeterminados y exporta su libro de trabajo. Cierra el flujo de salida antes de asignar el libro externo como fuente de datos del gráfico y luego guarda la presentación vinculada.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -534,13 +535,13 @@ chart->get_ChartData()->SetExternalWorkbook(workbookPath);
 presentation->Save(u"externalWorkbook.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Establecer un libro de trabajo externo**
+### **Asignar un libro de trabajo externo**
 
-Mediante el método [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/), puede asignar un libro de trabajo externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al libro externo (si este se ha movido).
+Mediante el método [SetExternalWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setexternalworkbook/) puede asignar un libro de trabajo externo a un gráfico como su fuente de datos. Este método también puede usarse para actualizar la ruta al libro externo (si este se ha movido).
 
-Aunque no se pueden editar los datos en libros almacenados en ubicaciones o recursos remotos, aún puede usar esos libros como fuente de datos externa. Si se proporciona una ruta relativa para un libro externo, se convierte automáticamente en una ruta completa.
+Aunque no puede editar los datos en libros almacenados en ubicaciones remotas o recursos, puede seguir utilizándolos como fuente externa. Si se proporciona una ruta relativa para un libro externo, se convierte automáticamente en una ruta completa.
 
-Este ejemplo usa un libro externo cuya hoja denominada `Sheet1` contiene un nombre de serie en B1, nombres de categorías en A2:A4 y valores numéricos en B2:B4. El ejemplo crea un gráfico circular, enlaza el libro y usa [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) para asignar A1:B4 a una serie y tres categorías. Guarda la presentación con el gráfico enlazado.
+Este ejemplo usa un libro externo cuya hoja llamada `Sheet1` contiene un nombre de serie en B1, nombres de categoría en A2:A4 y valores numéricos en B2:B4. El ejemplo crea un gráfico circular, vincula el libro y usa [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) para mapear A1:B4 a una serie y tres categorías. Guarda la presentación con el gráfico vinculado.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -574,7 +575,7 @@ El parámetro `updateChartData` de [SetExternalWorkbook](https://reference.aspos
 * Cuando `updateChartData` es `false`, solo se actualiza la ruta del libro. Los datos del gráfico no se cargan ni actualizan desde el libro de destino, por lo que el libro puede estar indisponible.
 * Cuando `updateChartData` es `true`, los datos del gráfico se actualizan desde el libro de destino.
 
-El siguiente ejemplo asigna una URL de marcador de posición con `updateChartData` establecido en `false`. Conserva los datos predeterminados del gráfico circular y guarda la presentación sin cargar el libro indisponible.
+El siguiente ejemplo asigna una URL de marcador de posición con `updateChartData` configurado en `false`. Conserva los datos predeterminados del gráfico circular y guarda la presentación sin cargar el libro indisponible.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -600,9 +601,9 @@ presentation->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", Export::SaveF
 
 ### **Obtener la ruta del libro de trabajo de origen de datos externo de un gráfico**
 
-Para identificar el libro de trabajo vinculado a un gráfico, compruebe si el gráfico usa una fuente de datos externa y recupere su ruta.
+Para identificar el libro vinculado a un gráfico, compruebe si el gráfico usa una fuente externa y recupere su ruta.
 
-Este ejemplo inspecciona la primera forma en la primera diapositiva de una presentación con un libro externo enlazado. Si es un gráfico vinculado a un libro externo, el ejemplo muestra [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) en la consola. Después guarda una copia de la presentación.
+Este ejemplo inspecciona la primera forma en la primera diapositiva de una presentación con un libro externo vinculado. Si es un gráfico vinculado a un libro externo, el ejemplo imprime [get_ExternalWorkbookPath](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_externalworkbookpath/) en la consola. Luego guarda una copia de la presentación.
 
 ```cpp
 #include <DOM/Chart/ChartDataSourceType.h>
@@ -645,9 +646,9 @@ presentation->Save(u"Result.pptx", Export::SaveFormat::Pptx);
 
 ### **Editar datos del gráfico**
 
-Puede editar los datos en libros externos de la misma forma que modifica el contenido de libros internos. Cuando no se puede cargar un libro externo, se lanza una excepción.
+Puede editar los datos en libros externos de la misma forma que modifica el contenido de los libros internos. Cuando un libro externo no puede cargarse, se lanza una excepción.
 
-Este ejemplo usa un gráfico que es la primera forma en la primera diapositiva y está vinculado a un libro externo accesible. Establece el valor respaldado por celda del primer punto de datos de la primera serie a 100 y guarda la presentación actualizada. Editar valores de celda puede actualizar el archivo XLSX externo enlazado, por lo que use una copia si necesita preservar el libro original.
+Este ejemplo usa un gráfico que es la primera forma en la primera diapositiva y está vinculado a un libro externo accesible. Establece el valor respaldado por celda del primer punto de datos de la primera serie en 100 y guarda la presentación actualizada. Editar valores de celda puede actualizar el archivo XLSX externo vinculado, así que use una copia si necesita preservar el libro original.
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -703,9 +704,9 @@ else
 
 ### **Recuperar un libro de trabajo desde la caché del gráfico**
 
-Si un gráfico usa un libro externo que falta o no está disponible, Aspose.Slides puede reconstruir el libro de trabajo del gráfico a partir de los datos almacenados en caché en la presentación. Cree [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), configúrelo con [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), y llame a [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) con `true` antes de abrir la presentación.
+Si un gráfico usa un libro externo que falta o no está disponible, Aspose.Slides puede reconstruir el libro de trabajo del gráfico a partir de los datos en caché en la presentación. Cree [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/), configúrelo con [set_SpreadsheetOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), y llame a [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) con `true` antes de abrir la presentación.
 
-El siguiente ejemplo en C++ recupera datos del libro de trabajo para un gráfico que es la primera forma en la primera diapositiva y hace referencia a un libro externo no disponible. Accede a los datos recuperados mediante [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) y [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+El siguiente ejemplo en C++ recupera los datos del libro para un gráfico que es la primera forma en la primera diapositiva y que hace referencia a un libro externo no disponible. Accede a los datos recuperados mediante [IChart::get_ChartData](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_chartdata/) y [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
 
 ```cpp
 #include <DOM/Chart/IChartData.h>
@@ -737,7 +738,7 @@ if (chart != nullptr)
 {
     auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    // Leer o modificar los datos del libro de trabajo recuperado aquí.
+    // Leer o modificar los datos del libro recuperado aquí.
 }
 else
 {
@@ -745,30 +746,30 @@ else
 }
 ```
 
-Si el libro externo no está disponible y la recuperación está deshabilitada, Aspose.Slides lanza un [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Habilite la recuperación solo cuando el uso de los datos del gráfico en caché sea una alternativa aceptable, porque la caché puede no contener los cambios realizados en el libro externo después de la última actualización de la presentación.
+Si el libro externo no está disponible y la recuperación está desactivada, Aspose.Slides lanza un [System::InvalidOperationException](https://reference.aspose.com/slides/cpp/system/details_invalidoperationexception/). Habilite la recuperación solo cuando usar los datos en caché del gráfico sea una alternativa aceptable, porque la caché puede no contener los cambios realizados en el libro externo después de la última actualización de la presentación.
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Puedo determinar si un gráfico específico está vinculado a un libro externo o incrustado?**
+**¿Puedo determinar si un gráfico específico está vinculado a un libro de trabajo externo o incrustado?**
 
-Sí. Un gráfico posee un [tipo de origen de datos](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) y una [ruta a un libro externo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); si el origen es un libro externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
+Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) y una [ruta a un libro de trabajo externo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); si el origen es un libro externo, puede leer la ruta completa para confirmar que se está usando un archivo externo.
 
-**¿Se admiten rutas relativas a libros externos, y cómo se almacenan?**
+**¿Se admiten rutas relativas a libros de trabajo externos y cómo se almacenan?**
 
-Sí. Si especifica una ruta relativa, se convierte automáticamente a una ruta absoluta. La presentación almacena la ruta absoluta en el archivo PPTX, por lo que mover el libro puede requerir actualizar el enlace.
+Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. La presentación almacena la ruta absoluta en el archivo PPTX, por lo que mover el libro puede requerir actualizar el vínculo.
 
-**¿Puedo usar libros ubicados en recursos/redes compartidas?**
+**¿Puedo usar libros de trabajo ubicados en recursos/redes compartidas?**
 
-Sí, esos libros pueden usarse como fuente de datos externa. Sin embargo, editar libros remotos directamente desde Aspose.Slides no está soportado; solo pueden usarse como origen.
+Sí, esos libros pueden usarse como fuente externa de datos. Sin embargo, la edición directa de libros remotos desde Aspose.Slides no está soportada; solo pueden usarse como fuente.
 
-**¿Aspose.Slides sobrescribe el archivo XLSX externo al guardar la presentación?**
+**¿Aspose.Slides sobrescribe el XLSX externo al guardar la presentación?**
 
-La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Editar los datos del gráfico respaldados por celdas también puede actualizar el archivo XLSX local enlazado. Use una copia del libro si el original debe permanecer sin cambios.
+La presentación almacena un [vínculo al archivo externo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Editar datos de gráfico respaldados por celdas también puede actualizar el archivo XLSX local vinculado. Use una copia del libro si el original debe permanecer sin cambios.
 
 **¿Qué debo hacer si el archivo externo está protegido con contraseña?**
 
-Aspose.Slides no acepta una contraseña al enlazar. Un enfoque habitual es quitar la protección previamente o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) y enlazar a esa copia.
+Aspose.Slides no acepta una contraseña al vincular. Un enfoque común es eliminar la protección con antelación o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/cpp/)) y vincular a esa copia.
 
-**¿Pueden varios gráficos referenciar el mismo libro externo?**
+**¿Pueden varios gráficos referenciar el mismo libro de trabajo externo?**
 
-Sí. Cada gráfico almacena su propio enlace. Si todos apuntan al mismo archivo, la actualización de ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.
+Sí. Cada gráfico almacena su propio vínculo. Si todos apuntan al mismo archivo, actualizar ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.

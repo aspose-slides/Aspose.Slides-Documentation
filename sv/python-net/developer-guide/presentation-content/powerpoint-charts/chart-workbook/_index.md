@@ -1,49 +1,49 @@
 ---
-title: Hantera diagramarbetsböcker i presentationer med Python
-linktitle: Diagramarbetsbok
+title: Hantera diagramarböcker i presentationer med Python
+linktitle: Diagramarbok
 type: docs
 weight: 70
 url: /sv/python-net/chart-workbook/
 keywords:
-- diagramarbetsbok
+- diagramarbok
 - diagramdata
-- arbetsbokscell
+- arbetsboks cell
 - datamärkning
-- kalkylark
+- arbetsblad
 - datakälla
 - extern arbetsbok
 - extern data
 - diagramcache
-- arbetsboksåterställning
+- återställning av arbetsbok
 - PowerPoint
 - presentation
 - Python
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för Python via .NET: hantera enkelt diagramarbetsböcker i PowerPoint- och OpenDocument-format för att effektivisera dina presentationsdata."
+description: "Upptäck Aspose.Slides för Python via .NET: hantera enkelt diagramarböcker i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
 ---
 ## **Översikt**
 
-Det här artikeln förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkningar, får åtkomst till kalkylarksamlingar och anger datakälltyp för diagramvärden.
+Den här artikeln förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsboksströmmar, använder arbetsboks-celler som diagramdatamärkningar, får åtkomst till arbetsbladssamlingar och specificerar datakälltypen för diagramvärden.
 
-Den täcker även arbete med externa arbetsböcker som diagramdatakällor. Exemplet demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram, och redigerar diagramdata när arbetsboken är tillgänglig.
+Den täcker även arbete med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen för en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
 
-För arbetsboksceller som representerar saknad data, se [Kontrollera visning av tomma celler](/slides/sv/python-net/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramjämförelse av de tillgängliga visningslägena.
+För arbetsboks-celler som representerar saknad data, se [Styr visning av tomma celler](/slides/sv/python-net/chart-series/) för skillnaden mellan en tom cell och noll, samt en linjediagramjämförelse av de tillgängliga visningslägena.
 
 ## **Inkludera data från dolda rader och kolumner**
 
-Använd [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) för att styra om ett diagram plottar data från dolda kalkylarksrader och -kolumner. Sätt den till `True` för att plotta endast synliga celler, eller `False` för att inkludera både synliga och dolda celler. Denna inställning styr diagramplotting; den döljer eller visar inte kalkylarksrader eller -kolumner.
+Använd [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) för att styra om ett diagram ska rita data från dolda arbetsbladsrader och -kolumner. Sätt den till `True` för att bara rita synliga celler, eller `False` för att inkludera både synliga och dolda celler. Denna inställning styr diagramritning; den döljer eller visar inte arbetsbladsrader eller -kolumner.
 
-[Exempelpresentationen](hidden-source-data.pptx) innehåller ett stapeldiagram som den första formen på den första bilden. Det inbäddade kalkylarket, `Sheet1`, innehåller följande källintervall, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
+[Sample presentation](hidden-source-data.pptx) innehåller ett stapeldiagram som den första formen på den första sliden. Det inbäddade arbetsbladet, `Sheet1`, innehåller följande källområde, `A1:C4`. Rad 3 och kolumn C är dolda, men deras celler innehåller fortfarande värden.
 
-| Kalkylarkrad | A: Månad | B: Detaljhandel | C: Partihandel (dolt kolumn) |
+| Arbetsblad rad | A: Månad | B: Detaljhandel | C: Partihandel (dold kolumn) |
 | --- | --- | --- | --- |
 | 2 | Januari | 10 | 30 |
-| 3 (dolt rad) | Februari | 40 | 60 |
+| 3 (dold rad) | Februari | 40 | 60 |
 | 4 | Mars | 20 | 50 |
 
-Få åtkomst till källceller via [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) och läs [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) för att inspektera deras dolda status. Denna egenskap är skrivskyddad. I den här filen är B2 synlig, B3 tillhör den dolda raden och C2 tillhör den dolda kolumnen; exemplet skriver ut `False`, `True` och `True` respektive.
+Få åtkomst till källceller via [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) och läs [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) för att inspektera deras dolda status. Denna egenskap är skrivskyddad. I detta exempel är B2 synlig, B3 tillhör den dolda raden och C2 tillhör den dolda kolumnen; exemplet skriver ut `False`, `True` och `True` i den ordningen.
 
-För detta exempel, uppdatera diagramdata efter att ha ändrat plotinställningen: behåll den inbäddade arbetsboken med [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) och läs in den igen med [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). När alla celler inkluderas, använd också [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) för att återställa hela intervallet, inklusive den dolda februari-kategorin. Att bara ändra flaggan räcker inte för att uppdatera detta exempels cachelagrade diagramdata och kategorimärkningar.
+För detta exempel, uppdatera diagramdata efter att du ändrat ritinställningen: behåll den inbäddade arbetsboken med [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) och ladda om den med [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/). När du inkluderar alla celler, använd även [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) för att återställa det kompletta området, inklusive den dolda februari-kategorin. Att enbart ändra flaggan räcker inte för att uppdatera detta exempels cachade diagramdata och kategorimärkningar.
 
 ```python
 import aspose.slides as slides
@@ -67,7 +67,7 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
             workbook_stream.seek(0)
             chart.chart_data.write_workbook_stream(workbook_stream)
             if not visible_only:
-                # Återställ hela källintervallet, inklusive dolda kategorier.
+                # Återställ det kompletta källområdet, inklusive dolda kategorier.
                 chart.chart_data.set_range("Sheet1!$A$1:$C$4")
 
             presentation.save(f"hidden_cells_{visible_only}.pptx", slides.export.SaveFormat.PPTX)
@@ -75,21 +75,21 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-Exemplet sparar två versioner av presentationen: en med endast de synliga detaljhandelsvärdena (10 och 20), och en med alla sex värden. Bilderna nedan renderades från de sparade presentationerna efter att de öppnats igen; båda filerna bevarar sin tilldelade plotinställning. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
+Exemplet sparar två versioner av presentationen: en med endast de synliga detaljhandelsvärdena (10 och 20), och en med alla sex värden. Bilderna nedan renderades från de sparade presentationerna efter att de öppnats igen; båda filerna bevarar sin tilldelade ritinställning. Rad 3 och kolumn C förblir dolda i båda inbäddade arbetsböckerna.
 
 | Endast synliga celler (`True`) | Alla celler (`False`) |
 | --- | --- |
-| ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för Januari och Mars.](hidden_cells_True.png) | ![Alla celler: Detaljhandel- och Partihandelsvärden för Januari, Februari och Mars.](hidden_cells_False.png) |
+| ![Endast synliga celler: Detaljhandelsvärden 10 och 20 för januari och mars.](hidden_cells_True.png) | ![Alla celler: Detaljhandels- och partihandelsvärden för januari, februari och mars.](hidden_cells_False.png) |
 
-En dold cell som innehåller ett värde skiljer sig från en tom cell. [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) styr hur saknade värden visas; den inkluderar inte eller exkluderar inte dold källdata. Se [Kontrollera visning av tomma celler](/slides/sv/python-net/chart-series/#control-the-display-of-empty-cells) för ett exempel.
+En dold cell som innehåller ett värde skiljer sig från en tom cell. [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) styr hur saknade värden visas; den inkluderar eller exkluderar inte dold källdata. Se [Styr visning av tomma celler](/slides/sv/python-net/chart-series/#control-the-display-of-empty-cells) för ett exempel.
 
 ## **Hämta diagrammets dataområde**
 
-Innan du uppdaterar arbetsboksdata i en befintlig presentation, inspektera källintervallen för att identifiera vilka kalkylarks-celler varje diagram använder. Metoden [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) returnerar det aktuella dataintervallet som en kalkylarks‑kvalificerad formel, t.ex. `Sheet1!$A$1:$D$5`. Här är `Sheet1` kalkylarksnamnet, `!` separerar det från cellintervallet, och `$A$1:$D$5` identifierar cellerna A1 till D5, inklusive. Dollartecknen indikerar absoluta rad‑ och kolumnreferenser.
+Innan du uppdaterar arbetsboksdata i en befintlig presentation, inspektera källområdena för att identifiera vilka arbetsblads-celler varje diagram använder. Metoden [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) returnerar det nuvarande dataområdet som en arbetsblads‑kvalificerad formel, t.ex. `Sheet1!$A$1:$D$5`. Här är `Sheet1` arbetsbladsnamnet, `!` separerar det från cellområdet, och `$A$1:$D$5` identifierar cellerna A1 till D5, inklusivt. Dollartecknen indikerar absoluta rad‑ och kolumnreferenser.
 
-Metoden läser det aktuella intervallet utan att ändra diagrammet eller dess arbetsbok. Om diagrammet inte använder en arbetsbok som datakälla, kastas ett undantag. För mer information, se [ChartData API‑referens](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/).
+Metoden läser det aktuella området utan att ändra diagrammet eller dess arbetsbok. Om diagrammet inte använder en arbetsbok som datakälla kastar det ett undantag. För mer information, se [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/).
 
-Detta exempel öppnar en presentation och kontrollerar formerna direkt på varje bild för diagram. Det skriver ut varje diagram namn och källintervall. Om intervallet inte kan hämtas, skriver det ut ett diagnostiskt meddelande och fortsätter till nästa diagram.
+Detta exempel öppnar en presentation och kontrollerar formerna direkt på varje slide för diagram. Det skriver ut varje diagramnamn och källområde. Om området inte kan hämtas skriver det ut ett diagnostiskt meddelande och fortsätter till nästa diagram.
 
 ```python
 import aspose.slides as slides
@@ -108,9 +108,9 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Läsa och skriva diagramdata från en arbetsbok**
 
-Aspose.Slides för Python via .NET tillhandahåller metoderna [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) och [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) som låter dig läsa och skriva diagramarbetsböcker (innehållande diagramdata redigerade med Aspose.Cells). **Obs!** att diagramdata måste vara organiserad på samma sätt eller ha en struktur liknande källan.
+Aspose.Slides for Python via .NET tillhandahåller metoderna [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) och [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Note** att diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
 
-Detta exempel använder en presentation med ett diagram som den första formen på den första bilden. Det läser in den inbäddade arbetsboken till en ström, rensar befintliga serier och kategorier, och skriver tillbaka samma arbetsbok. Ändringarna kvarstår i minnet; exemplet sparar inte presentationen.
+Detta exempel använder en presentation med ett diagram som den första formen på den första sliden. Det läser den inbäddade arbetsboken till en ström, rensar befintliga serier och kategorier och skriver tillbaka samma arbetsbok. Ändringarna kvarstår i minnet; exemplet sparar inte presentationen.
 
 ```python
 import aspose.slides as slides
@@ -133,9 +133,9 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **Validera diagramlayout efter arbetsboksmodifikation**
+### **Validera diagramlayout efter arbetsboksändring**
 
-När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategorisamlingar. Detta missmatch kan få [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) att misslyckas med ett index‑out‑of‑range‑fel. Rensa befintliga serier och kategorier innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet. Detta exempel använder ett diagram som är den första formen på den första bilden. Kommentarerna markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka den ursprungliga arbetsboken och validerar layouten i minnet.
+När du ersätter en inbäddad arbetsbok med en modifierad, behåller diagrammet sina ursprungliga serie‑ och kategorisamlingar. Denna mismatch kan få [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) att misslyckas med ett index‑out‑of‑range‑fel. Rensa de befintliga serierna och kategorierna innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet. Detta exempel använder ett diagram som är den första formen på den första sliden. Kommentarerna markerar var arbetsboksredigering skulle ske; det körbara exemplet skriver tillbaka den ursprungliga arbetsboken och validerar layouten i minnet.
 
 ```python
 import aspose.slides as slides
@@ -149,7 +149,7 @@ with slides.Presentation("chart.pptx") as presentation:
         chart_data = chart.chart_data
         workbook_stream = chart_data.read_workbook_stream()
 
-        # Ändra arbetsboksströmmen här, till exempel med Aspose.Cells.
+        # Ändra arbetsbokströmmen här, till exempel med Aspose.Cells.
 
         chart_data.series.clear()
         chart_data.categories.clear()
@@ -161,15 +161,15 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-Att rensa samlingarna tar bort föråldrade datreferenser innan arbetsboken skrivs tillbaka. Återskapa eventuella nödvändiga serie‑ och kategorimappningar för den uppdaterade arbetsboken innan du använder diagrammet.
+Att rensa samlingarna tar bort föråldrade datareferenser innan arbetsboken skrivs tillbaka. Bygg om eventuella nödvändiga serie‑ och kategorikartor för den uppdaterade arbetsboken innan du använder diagrammet.
 
-## **Ange anpassade talformat för arbetsboksceller**
+## **Ange anpassade talformat för arbetsboks-celler**
 
-Använd [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) för att styra hur numeriska värden visas i diagrammets inbäddade arbetsbok. Till exempel kan en rapport behöva en konverteringsgrad visas som procent med fyra decimaler och en koefficient med fem decimaler. Behåll båda värdena numeriska så de förblir tillgängliga för beräkningar och diagramplotting.
+Använd [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) för att styra hur numeriska värden visas i ett diagrams inbäddade arbetsbok. Till exempel kan en rapport behöva en konverteringsgrad som visas som en procent med fyra decimaler och en koefficient med fem decimaler. Behåll båda värdena som numeriska så att de fortsatt kan användas för beräkningar och diagramritning.
 
-Ett talformat ändrar bara visningen, inte det lagrade värdet. Formatet `0.0000%` visar `0.125` som `12.5000%`; det ersätter inte det lagrade talet med `12.5`. På samma sätt visar `0.00000` `0.1234567` som `0.12346` utan att avrunda det lagrade värdet. Om det anpassade formatet är en tom sträng (`""`), används [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) istället.
+Ett talformat ändrar endast visningen, inte det lagrade värdet. Formatet `0.0000%` visar `0.125` som `12.5000%`; det ersätter inte det lagrade talet med `12.5`. På samma sätt visar `0.00000` `0.1234567` som `0.12346` utan att avrunda det lagrade värdet. Om det anpassade formatet är en tom sträng (`""`), används [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) istället.
 
-Följande exempel skapar ett stapeldiagram och får åtkomst till dess celler via [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/). På kalkylark 0 innehåller B2 konverteringsgraden och C2 koefficienten. Båda cellerna levererar diagramvärden. Exemplet aktiverar också värdemärkningar länkade till källformaten.
+Följande exempel skapar ett stapeldiagram och får åtkomst till dess celler via [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/). På arbetsblad 0 innehåller B2 konverteringsgraden och C2 koefficienten. Båda cellerna tillhandahåller diagramvärden. Exemplet aktiverar också värdemärkningar länkade till källformaten.
 
 ```python
 import aspose.slides as slides
@@ -216,19 +216,17 @@ with slides.Presentation() as presentation:
     presentation.save("CustomCellFormats.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Arbetsbokscellformat är separata från format som sätts direkt på diagramaxlar eller datamärkningar. I detta exempel visar varje märkning sitt källcellsvärde eftersom [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) är aktiverat, och följer källans talformat eftersom [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) är `True`. Efter att presentationen sparats och öppnats igen visar märkningarna `12.5000%` och `0.12346`, som visas nedan. Den vertikala axeln använder sitt eget [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) `0.00`, med [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) satt till `False`.
+Arbetsboks‑celformat är separata från format som sätts direkt på diagramaxlar eller datamärkningar. I detta exempel visar varje märkning sitt källcellsvärde eftersom [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) är aktiverat, och följer källans talformat eftersom [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) är `True`. Efter att presentationen sparats och öppnats igen visar märkningarna `12.5000%` och `0.12346`, som visas nedan. Den vertikala axeln använder sitt eget [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) `0.00`, med [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) satt till `False`.
 
-För att formatera en datamärkning självständigt, sätt dess käll‑länk‑flagga till `False` och tilldela dess [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/). Detta ändrar inte arbetsbokscellens format. Till exempel visar ett oberoende märkningformat `0.00` det första värdet som `0.13`, medan B2 fortfarande visar `12.5000%`. Se [Diagramdatamärkningar](/slides/sv/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) för direkt märkningformatering.
+För att formatera en datamärkning oberoende, sätt dess källa‑länkningsflagga till `False` och tilldela dess [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/). Detta ändrar inte arbetsbokens cellformat. Till exempel visar ett oberoende märkningformat `0.00` det första värdet som `0.13`, medan B2 fortfarande visar `12.5000%`. Se [Diagramdataetiketter](/slides/sv/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) för direkt märkningformatering.
 
-Bilden nedan renderades från den sparade presentationen efter att den öppnats igen:
+![KolumnDiagram med källlänkade etiketter som visar 12,5000 % och 0,12346 samt en oberoende formaterad numerisk axel.](custom-cell-formats.png)
 
-![Stapeldiagram med käll‑länkade märkningar som visar 12.5000% och 0.12346 samt en oberoende formaterad numerisk axel.](custom-cell-formats.png)
+## **Ange en arbetsboks-cell som diagramdatamärkning**
 
-## **Ange en arbetsbokscell som diagramdatamärkning**
+Du kan använda text från arbetsboks-celler som diagramdatamärkningar.
 
-Du kan använda text från arbetsboksceller som diagramdatamärkningar.
-
-Detta exempel lägger till ett bubbeldiagram med standarddata på den första bilden i en befintlig presentation. Det använder cellerna A10:A12 på kalkylark 0 för de första tre märkningsvärdena i den första serien, aktiverar märkningar från celler, och sparar den uppdaterade presentationen.
+Detta exempel lägger till ett bubbeldiagram med standarddata på den första sliden i en befintlig presentation. Det använder cellerna A10:A12 på arbetsblad 0 för de tre första märkningarna i den första serien, aktiverar märkningar från celler och sparar den uppdaterade presentationen.
 
 ```python
 import aspose.slides as slides
@@ -249,9 +247,9 @@ with slides.Presentation("chart2.pptx") as presentation:
     presentation.save("resultchart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Hantera kalkylark**
+## **Hantera arbetsblad**
 
-Egenskapen [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) ger åtkomst till kalkylarken i en diagramarbetsbok. Detta exempel skapar ett cirkeldiagram med standarddata och skriver ut varje kalkylarks namn till konsolen.
+Egendomen [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) ger åtkomst till arbetsbladen i en diagramarbetsbok. Detta exempel skapar ett cirkeldiagram med standarddata och skriver ut varje arbetsbladsnamn till konsolen.
 
 ```python
 import aspose.slides as slides
@@ -267,9 +265,11 @@ with slides.Presentation() as presentation:
         print(worksheet.name)
 ```
 
-## **Ange datakälltyp**
+## **Specificera datakälltyp**
 
-Detta exempel skapar ett 3D‑stapeldiagram med standarddata och sätter två serienamn med olika datakällor. Det första namnet använder en strängliteral; det andra använder cell C1 på kalkylark 0. Uppräkningen [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) väljer källan för varje namn. Exemplet sparar presentationen med de uppdaterade serienamnen.
+Serievärden kan även lagras direkt som numeriska litteraler. Se [Ange serievärden med numeriska litteraler](/slides/sv/python-net/chart-series/#set-series-values-using-numeric-literals) för ett komplett exempel som sparar och läser dem. Källtypen för serievärden är separat från diagrammets interna eller externa arbetsboks‑konfiguration; att använda numeriska litteraler tar i sig självt inte bort den inbäddade arbetsboken.
+
+Detta exempel skapar ett 3D‑stapeldiagram med standarddata och sätter två serienamn med olika datakällor. Det första namnet använder en stränglitteral; det andra använder cell C1 på arbetsblad 0. Uppräkningen [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) väljer källan för varje namn. Exemplet sparar presentationen med de uppdaterade serienamnen.
 
 ```python
 import aspose.slides as slides
@@ -292,9 +292,9 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Upptäcka icke‑stödda inbäddade arbetsboksformat**
+## **Detektera ej stödda inbäddade arbetsboksformat**
 
-Aspose.Slides stödjer inte Excel‑binärarbetsboksformatet (.xlsb) som kan vara inbäddat i vissa diagram. Du kan använda egenskapen [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) på [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) för att upptäcka icke‑stödda format och hoppa över de diagrammen. Detta exempel inspekterar formerna på den första bilden i en befintlig presentation, hoppar över icke‑diagramformer, och skriver ut ett diagnostiskt meddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
+Aspose.Slides stödjer inte Excel‑binärarbetsboksformatet (.xlsb) som kan vara inbäddat i vissa diagram. Du kan använda egenskapen [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) på [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) för att upptäcka ej stödda format och hoppa över dessa diagram. Detta exempel inspekterar formerna på den första sliden i en befintlig presentation, hoppar över former som inte är diagram och skriver ut ett diagnostiskt meddelande för varje diagram med en inbäddad .xlsb‑arbetsbok.
 
 ```python
 import aspose.slides as slides
@@ -315,14 +315,14 @@ with slides.Presentation("sample.pptx") as presentation:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
 
-        # Läs eller ändra stödd diagramarbetsboksdata här.
+        # Läs eller ändra stödd diagramarbokdata här.
 ```
 
-## **Extern arbetsbok**
+## **Externt arbetsbok**
 
 Aspose.Slides stödjer att använda externa arbetsböcker som datakälla för diagram.
 
-### **Skapa en extern arbetsbok**
+### **Skapa ett externt arbetsbok**
 
 Använd [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) och [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) för att exportera en inbäddad diagramarbetsbok till en fil och länka diagrammet till den externa arbetsboken.
 
@@ -349,13 +349,13 @@ with slides.Presentation() as presentation:
     presentation.save("externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Tilldela en extern arbetsbok**
+### **Ange ett externt arbetsbok**
 
-Genom att använda metoden [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera en sökväg till den externa arbetsboken (om den senare har flyttats).
+Genom metoden [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera en sökväg till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
+Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du ändå använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
 
-Detta exempel använder en extern arbetsbok där kalkylarket `Sheet1` innehåller ett serienamn i B1, kategorinamn i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken, och använder [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) för att mappa A1:B4 till en serie och tre kategorier. Det sparar presentationen med det länkade diagrammet.
+Detta exempel använder en extern arbetsbok vars arbetsblad `Sheet1` innehåller ett serienamn i B1, kategorinamn i A2:A4 och numeriska värden i B2:B4. Exemplet skapar ett cirkeldiagram, länkar arbetsboken och använder [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) för att kartlägga A1:B4 till en serie och tre kategorier. Det sparar presentationen med det länkade diagrammet.
 
 ```python
 from pathlib import Path
@@ -375,10 +375,10 @@ with slides.Presentation() as presentation:
     presentation.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Parametern `update_chart_data` för [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) styr om arbetsboken laddas.
+`update_chart_data`‑parametern för [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) styr om arbetsboken laddas.
 
-* När `update_chart_data` är `False` uppdateras endast arbetsbokens sökväg. Diagramdata laddas eller uppdateras inte från målarbetsboken, så arbetsboken kan vara otillgänglig.
-* När `update_chart_data` är `True` uppdateras diagramdata från målarbetsboken.
+* När `update_chart_data` är `False` uppdateras bara arbetsbokens sökväg. Diagramdata laddas eller uppdateras inte från mål‑arbetsboken, så arbetsboken kan vara otillgänglig.
+* När `update_chart_data` är `True` uppdateras diagramdata från mål‑arbetsboken.
 
 Följande exempel tilldelar en platshållar‑URL med `update_chart_data` satt till `False`. Det behåller cirkeldiagrammets standarddata och sparar presentationen utan att ladda den otillgängliga arbetsboken.
 
@@ -397,9 +397,9 @@ with slides.Presentation() as presentation:
 
 ### **Hämta den externa datakällans arbetsboksökväg för ett diagram**
 
-För att identifiera arbetsboken som är länkad till ett diagram, kontrollera om diagrammet använder en extern datakälla och hämta dess arbetsboksökväg.
+För att identifiera arbetsboken som är länkad till ett diagram, kontrollera om diagrammet använder en extern datakälla och hämta dess arbetsboks‑sökväg.
 
-Detta exempel inspekterar den första formen på den första bilden i en presentation med en länkad extern arbetsbok. Om det är ett diagram länkat till en extern arbetsbok, skriver exemplet ut [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) till konsolen. Det sparar sedan en kopia av presentationen.
+Detta exempel inspekterar den första formen på den första sliden i en presentation med en länkad extern arbetsbok. Om det är ett diagram som länkas till en extern arbetsbok, skriver exemplet ut [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) till konsolen. Det sparar sedan en kopia av presentationen.
 
 ```python
 import aspose.slides as slides
@@ -423,9 +423,9 @@ with slides.Presentation("externalWorkbook.pptx") as presentation:
 
 ### **Redigera diagramdata**
 
-Du kan redigera data i externa arbetsböcker på samma sätt som du ändrar innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
+Du kan redigera data i externa arbetsböcker på samma sätt som du gör förändringar i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Detta exempel använder ett diagram som är den första formen på den första bilden och är länkat till en tillgänglig extern arbetsbok. Det sätter det cell‑stödda värdet för den första datapunkten i den första serien till 100 och sparar den uppdaterade presentationen. Att redigera cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du måste bevara original‑arbetsboken.
+Detta exempel använder ett diagram som är den första formen på den första sliden och som länkas till en åtkomlig extern arbetsbok. Det sätter värdet för den första datapunkten i den första serien till 100 och sparar den uppdaterade presentationen. Att redigera cellvärden kan uppdatera den länkade externa XLSX‑filen, så använd en kopia om du måste bevara original‑arbetsboken.
 
 ```python
 import aspose.slides as slides
@@ -450,11 +450,11 @@ with slides.Presentation("presentation.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **Återskapa en arbetsbok från diagram‑cachen**
+### **Återställ en arbetsbok från diagramcachen**
 
-Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig, kan Aspose.Slides rekonstruera diagramarbetsboken från den cachelagrade datan i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), konfigurera dess [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/), och sätt [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) till `True` innan du öppnar presentationen.
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig kan Aspose.Slides rekonstruera diagramarboken från den data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), konfigurera dess [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/), och sätt [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) till `True` innan du öppnar presentationen.
 
-Följande Python‑exempel återställer arbetsboksdata för ett diagram som är den första formen på den första bilden och refererar en otillgänglig extern arbetsbok. Det får åtkomst till den återställda datan via [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) och [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+Följande Python‑exempel återställer arbetsboksdata för ett diagram som är den första formen på den första sliden och refererar en otillgänglig extern arbetsbok. Det får åtkomst till den återställda datan via [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) och [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
 
 ```python
 import aspose.slides as slides
@@ -470,35 +470,35 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
         chart = slide.shapes[0]
         recovered_workbook = chart.chart_data.chart_data_workbook
 
-        # Läs eller ändra den återställda arbetsboksdata här.
+        # Läs eller ändra den återställda arbetsboksdatan här.
     else:
         print("The first shape is not a chart.")
 ```
 
-Om den externa arbetsboken är otillgänglig och återställning är inaktiverad, kastar Aspose.Slides ett undantag. Aktivera återställning endast när användning av cachelagrad diagramdata är ett acceptabelt alternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+Om den externa arbetsboken är otillgänglig och återställning är inaktiverad, kastar Aspose.Slides ett undantag. Aktivera återställning endast när användning av den cachade diagramdatan är ett acceptabelt alternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
 
 ## **FAQ**
 
-**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
+**Kan jag avgöra om ett specifikt diagram är länkat till ett externt eller inbäddat arbetsbok?**
 
-Ja. Ett diagram har en [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) och en [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
+Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) och en [sökväg till ett externt arbetsbok](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så att flytta arbetsboken kan kräva en uppdatering av länken.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Presentationen lagrar den absoluta sökvägen i PPTX‑filen, så att flytta arbetsboken kan kräva att länken uppdateras.
 
-**Kan jag använda arbetsböcker som ligger på nätverksresurser/delade mappar?**
+**Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Att redigera fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte — de kan endast användas som källa.
+Ja, sådana arbetsböcker kan användas som en extern datakälla. Att redigera fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som källa.
 
 **Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
-Presentationen lagrar en [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Att redigera cell‑stödd diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
+Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/). Att redigera cell‑baserad diagramdata kan också uppdatera den länkade lokala XLSX‑filen. Använd en kopia av arbetsboken om originalet måste förbli oförändrat.
 
-**Vad gör jag om den externa filen är lösenordsskyddad?**
+**Vad ska jag göra om den externa filen är lösenordsskyddad?**
 
-Aspose.Slides accepterar inte ett lösenord vid länkning. En vanlig lösning är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) och länka till den kopian.
+Aspose.Slides accepterar inte ett lösenord vid länkning. En vanlig metod är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 
-Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil, kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data laddas.
+Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data laddas.

@@ -1,50 +1,50 @@
 ---
-title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها در .NET
-linktitle: کتاب‌کار نمودار
+title: مدیریت دفترچه‌های کار نمودار در ارائه‌ها در .NET
+linktitle: دفترچه کار نمودار
 type: docs
 weight: 70
 url: /fa/net/chart-workbook/
 keywords:
-- کتاب‌کار نمودار
+- دفترچه کار نمودار
 - داده‌های نمودار
-- سلول کتاب‌کار
+- سلول دفترچه کار
 - برچسب داده
-- برگه‌کار
+- برگه کاری
 - منبع داده
-- کتاب‌کار خارجی
+- دفترچه کار خارجی
 - داده خارجی
 - کش نمودار
-- بازیابی کتاب‌کار
+- بازیابی دفترچه کار
 - PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides برای .NET را کشف کنید: به‌سادگی کتاب‌کارهای نمودار را در قالب‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
+description: "Aspose.Slides برای .NET را کشف کنید: به‌صورت آسان دفترچه‌های کار نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
 ---
-## **مروری کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه با دفترچه‌های کار نمودار در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های دفترچه کاری بخوانید و بنویسید، از سلول‌های دفترچه کاری به‌عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های شیت‌ها دسترسی پیدا کنید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
+این مقاله توضیح می‌دهد که چگونه با دفترچه‌های کار چارت در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های چارت را از طریق جریان‌های دفترچه کار خوانده و نوشته، از سلول‌های دفترچه کار به عنوان برچسب‌های داده چارت استفاده کرده، به مجموعه‌های برگه‌ها دسترسی پیدا کنید و نوع منبع داده برای مقادیر چارت را مشخص کنید.
 
-همچنین کار با دفترچه‌های کاری خارجی به‌عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک دفترچه کاری خارجی ایجاد و اختصاص دهید، مسیر دفترچه کاری خارجی پیوست‌شده به یک نمودار را بازیابی کنید و داده‌های نمودار را زمانی که دفترچه در دسترس است ویرایش کنید.
+همچنین کار با دفترچه‌های کار خارجی به عنوان منابع داده چارت را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک دفترچه کار خارجی ایجاد و اختصاص داده، مسیر دفترچه کار خارجی مرتبط با یک چارت را دریافت کرده و داده‌های چارت را وقتی دفترچه کار در دسترس است ویرایش کنید.
 
-برای سلول‌های دفترچه کاری که نمایانگر داده‌های گمشده هستند، به [Control the Display of Empty Cells](/slides/fa/net/chart-series/) مراجعه کنید تا تفاوت بین یک سلول خالی و صفر، و مقایسه‌ی خطوط نمودار در حالت‌های نمایش موجود را ببینید.
+برای سلول‌های دفترچه کاری که نشانگر داده‌های گمشده هستند، به [کنترل نمایش سلول‌های خالی](/slides/fa/net/chart-series/) مراجعه کنید تا تفاوت بین سلول خالی و صفر، و مقایسهٔ نمودار خطی از حالت‌های نمایش موجود را ببینید.
 
-## **درج داده‌ها از ردیف‌ها و ستون‌های مخفی**
+## **شامل کردن داده‌ها از ردیف‌ها و ستون‌های مخفی**
 
-از [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) برای کنترل این‌که آیا یک نمودار داده‌ها را از ردیف‌ها و ستون‌های مخفی شیت رسم کند یا نه استفاده کنید. آن را به `true` تنظیم کنید تا فقط سلول‌های قابل مشاهده رسم شوند، یا به `false` تا هر دو سلول قابل مشاهده و مخفی شامل شوند. این تنظیم فقط رسم نمودار را کنترل می‌کند؛ ردیف‌ها یا ستون‌های شیت را مخفی یا آشکار نمی‌کند.
+از [IChart.PlotVisibleCellsOnly](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/plotvisiblecellsonly/) برای کنترل اینکه آیا چارت داده‌ها را از ردیف‌ها و ستون‌های مخفی برگه کاری رسم می‌کند یا نه استفاده کنید. آن را به `true` تنظیم کنید تا فقط سلول‌های قابل مشاهده رسم شوند، یا به `false` تا هم سلول‌های قابل مشاهده و هم مخفی شامل شوند. این تنظیم فقط رسم چارت را کنترل می‌کند؛ ردیف‌ها یا ستون‌های برگه کاری را مخفی یا آشکار نمی‌کند.
 
-[نمونه ارائه](hidden-source-data.pptx) شامل یک نمودار ستون به‌عنوان اولین شکل در اسلاید اول است. شیت جاسازی‌شده، `Sheet1`، محدوده منبع زیر را دارد: `A1:C4`. ردیف 3 و ستون C مخفی هستند، اما سلول‌های آنها هنوز مقدار دارند.
+[نمونه ارائه](hidden-source-data.pptx) شامل یک نمودار ستونی به عنوان اولین شکل در اسلاید اول است. برگه کاری توکار، `Sheet1`، محدودهٔ منبع زیر را دارد: `A1:C4`. ردیف 3 و ستون C مخفی هستند، اما سلول‌های آن‌ها هنوز مقدار دارند.
 
-| ردیف شیت | A: ماه | B: خرده‌فروشی | C: عمده‌فروشی (ستون مخفی) |
+| ردیف برگه کاری | A: ماه | B: خرده‌فروش | C: عمده‌فروشی (ستون مخفی) |
 | --- | --- | --- | --- |
 | 2 | ژانویه | 10 | 30 |
 | 3 (ردیف مخفی) | فوریه | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-به سلول‌های منبع از طریق [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) دسترسی پیدا کنید و برای بررسی وضعیت مخفی بودن آنها از [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) استفاده کنید. این خصوصیت فقط‑خواندنی است. در این مثال، B2 قابل مشاهده است، B3 متعلق به ردیف مخفی و C2 متعلق به ستون مخفی است؛ مثال `False`، `True` و `True` را به ترتیب چاپ می‌کند.
+به سلول‌های منبع از طریق [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) دسترسی پیدا کنید و [IChartDataCell.IsHidden](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/ishidden/) را برای بررسی وضعیت مخفی بودن آن‌ها بخوانید. این ویژگی فقط-خواندنی است. در این فایل، B2 قابل مشاهده است، B3 متعلق به ردیف مخفی است و C2 متعلق به ستون مخفی؛ مثال به ترتیب `False`، `True` و `True` را چاپ می‌کند.
 
-برای این مثال، پس از تغییر تنظیم رسم، داده‌های نمودار را تازه کنید: دفترچه جاسازی‌شده را با [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) حفظ کنید و آن را با [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) دوباره بارگذاری کنید. هنگام شامل‌کردن تمام سلول‌ها، از [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) برای بازگرداندن محدوده کامل، شامل دستهٔ مخفی فوریه، استفاده کنید. فقط تغییر پرچم کافی نیست تا داده‌های کش‌شدهٔ نمونه و برچسب‌های دسته بروز شوند.
+برای این مثال، پس از تغییر تنظیم رسم، داده‌های چارت را تازه کنید: دفترچه کار توکار را با [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) نگه دارید و با [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) دوباره بارگذاری کنید. هنگام شامل کردن تمام سلول‌ها، از [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) نیز برای بازگرداندن محدوده کامل، شامل دستهٔ مخفی فوریه، استفاده کنید. فقط تغییر پرچم برای تازه‌سازی داده‌های کش‌شدهٔ این مثال کافی نیست.
 
 ```csharp
 using System;
@@ -67,7 +67,7 @@ if (slide.Shapes[0] is IChart chart)
     {
         chart.PlotVisibleCellsOnly = visibleOnly;
 
-        // داده‌های نمودار را از کتاب‌کار جاسازی‌شده تازه کنید.
+        // داده‌های نمودار را از دفترچه کار توکار تازه کنید.
         workbookStream.Position = 0;
         chart.ChartData.WriteWorkbookStream(workbookStream);
         if (!visibleOnly)
@@ -85,21 +85,21 @@ else
 }
 ```
 
-مثال دو نسخهٔ ارائه را ذخیره می‌کند: یک نسخه تنها با مقادیر خرده‌فروشی قابل مشاهده (10 و 20) و دیگری با تمام شش مقدار. تصاویر زیر از ارائه‌های ذخیره‑شده پس از بازگشایی آنها رندر شده‌اند؛ هر دو فایل تنظیم رسم تخصیص‑داده‌شده خود را حفظ می‌کنند. ردیف 3 و ستون C در هر دو دفترچه کاری جاسازی‌شده مخفی می‌مانند.
+این مثال دو نسخهٔ ارائه ذخیره می‌کند: یکی فقط با مقادیر قابل مشاهدهٔ خرده‌فروش (10 و 20) و دیگری با تمام شش مقدار. تصاویر زیر پس از بازکردن مجدد ارائه‌های ذخیره‌شده رندر شده‌اند؛ هر دو فایل تنظیم رسم اختصاصی خود را حفظ می‌کنند. ردیف 3 و ستون C در هر دو دفترچه توکار مخفی باقی می‌مانند.
 
-| فقط سلول‌های قابل مشاهده (`true`) | همه سلول‌ها (`false`) |
+| فقط سلول‌های قابل مشاهده (`true`) | تمام سلول‌ها (`false`) |
 | --- | --- |
-| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
+| ![فقط سلول‌های قابل مشاهده: مقادیر خرده‌فروش ۱۰ و ۲۰ برای ژانویه و مارس.](hidden_cells_True.png) | ![تمام سلول‌ها: مقادیر خرده‌فروش و عمده‌فروشی برای ژانویه، فوریه و مارس.](hidden_cells_False.png) |
 
-یک سلول مخفی که دارای مقدار است با یک سلول خالی متفاوت است. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) کنترل می‌کند مقادیر گمشده چگونه نمایش داده شوند؛ این ویژگی شامل یا مستثنی کردن داده‌های منبع مخفی را انجام نمی‌دهد. برای مثال به [Control the Display of Empty Cells](/slides/fa/net/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
+یک سلول مخفی که مقدار دارد، متفاوت از یک سلول خالی است. [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) کنترل می‌کند مقادیر گمشده چگونه نمایش داده شوند؛ این تنظیم شامل یا حذف داده‌های منبع مخفی نمی‌شود. برای مثال به [کنترل نمایش سلول‌های خالی](/slides/fa/net/chart-series/#control-the-display-of-empty-cells) مراجعه کنید.
 
-## **بازیابی بازهٔ داده‌های یک نمودار**
+## **دریافت بازه داده‌های یک چارت**
 
-قبل از به‌روزرسانی داده‌های دفترچه کاری در یک ارائه موجود، بازه‌های منبع را بررسی کنید تا متوجه شوید هر نمودار از کدام سلول‌های شیت استفاده می‌کند. متد [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) بازهٔ دادهٔ جاری را به‌صورت یک فرمول شیت‑مواجه برمی‌گرداند، برای مثال `Sheet1!$A$1:$D$5`. در اینجا `Sheet1` نام شیت، `!` آن را از بازه سلولی جدا می‌کند و `$A$1:$D$5` سلول‌های A1 تا D5 را (شامل) نشان می‌دهد. علامت دلار نشان‌دهندهٔ ارجاع مطلق ردیف و ستون است.
+قبل از به‌روزرسانی داده‌های دفترچه کار در یک ارائه موجود، بازه‌های منبع را بررسی کنید تا مشخص شود هر چارت از کدام سلول‌های برگه کاری استفاده می‌کند. متد [IChartData.GetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/getrange/) بازهٔ دادهٔ فعلی را به صورت یک فرمول با مشخصات برگه کاری برمی‌گرداند، مانند `Sheet1!$A$1:$D$5`. در اینجا، `Sheet1` نام برگه کاری است، `!` آن را از محدودهٔ سلول جدا می‌کند و `$A$1:$D$5` سلول‌های A1 تا D5 را شامل می‌شود. علامت دلار نشان‌دهندهٔ ارجاع مطلق به ردیف و ستون است.
 
-این متد بازهٔ جاری را بدون تغییر نمودار یا دفترچه‌اش می‌خواند. اگر نمودار از دفترچه‌ای به‌عنوان منبع داده استفاده نکند، یک [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) پرتاب می‌شود. برای اطلاعات بیشتر، به [ChartData API Reference](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/) مراجعه کنید.
+این متد بازهٔ فعلی را بدون تغییر چارت یا دفترچهٔ کار می‌خواند. اگر چارت از دفترچه کار به عنوان منبع داده استفاده نکند، یک [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) پرتاب می‌شود. برای جزئیات بیشتر به [مرجع API ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/) مراجعه کنید.
 
-این مثال یک ارائه باز می‌کند و شکل‌های هر اسلاید را مستقیم برای یافتن نمودارها بررسی می‌کند. نام هر نمودار و بازهٔ منبع آن را چاپ می‌کند. اگر نمودار از دفترچه‌ای استفاده نکند، پیامی چاپ می‌شود و به نمودار بعدی ادامه می‌دهد.
+این مثال یک ارائه باز می‌کند و شکل‌های هر اسلاید را مستقیم برای یافتن چارت‌ها بررسی می‌کند. نام هر چارت و بازهٔ منبع را چاپ می‌کند. اگر چارت از دفترچه کار استفاده نکند، پیام مربوطه را چاپ کرده و به چارت بعدی ادامه می‌دهد.
 
 ```csharp
 using System;
@@ -128,11 +128,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **خواندن و نوشتن داده‌های نمودار از دفترچه کاری**
+## **خواندن و نوشتن داده‌های چارت از یک دفترچه کار**
 
-Aspose.Slides for .NET متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) را فراهم می‌کند که به شما اجازه می‌دهد دفترچه‌های کار دادهٔ نمودار (حاوی داده‌های ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **توجه** داشته باشید که داده‌های نمودار باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+Aspose.Slides for .NET متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/writeworkbookstream/) را فراهم می‌کند که امکان خواندن و نوشتن دفترچه‌های کار چارت (حاوی داده‌های چارت ویرایش‌شده با Aspose.Cells) را می‌دهند. **توجه** داشته باشید که داده‌های چارت باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
 
-این مثال از یک ارائه با یک نمودار به‌عنوان اولین شکل در اسلاید اول استفاده می‌کند. دفترچهٔ جاسازی‌شده را به یک جریان می‌خواند، سری‌ها و دسته‌های موجود را پاک می‌کند و همان دفترچه را دوباره می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال ارائه را ذخیره نمی‌کند.
+این مثال از یک ارائه با یک چارت به عنوان اولین شکل در اسلاید اول استفاده می‌کند. دفترچه کار توکار را به یک جریان می‌خواند، سری‌ها و دسته‌ها را پاک می‌کند و همان دفترچه را باز می‌نویسد. تغییرات در حافظه باقی می‌مانند؛ مثال ارائه را ذخیره نمی‌کند.
 
 ```csharp
 using System;
@@ -160,9 +160,9 @@ else
 }
 ```
 
-### **اعتبارسنجی طرح‌بندی نمودار پس از تغییر دفترچه کاری**
+### **اعتبارسنجی چیدمان چارت پس از تغییر دفترچه کار**
 
-زمانی که دفترچهٔ جاسازی‌شده را با یک دفترچهٔ اصلاح‌شده جایگزین می‌کنید، نمودار مجموعهٔ سری‌ها و دسته‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شود [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) با خطای «index‑out‑of‑range» شکست بخورد. پیش از نوشتن دفترچهٔ به‌روزرسانی‌شده به نمودار، سری‌ها و دسته‌های موجود را پاک کنید. این مثال از یک نمودار که اولین شکل در اسلاید اول است استفاده می‌کند. نظرات نشان می‌دهند کجا ویرایش دفترچه انجام می‌شود؛ مثال قابل اجرا دفترچهٔ اصلی را باز می‌نویسد و طرح‌بندی را در حافظه اعتبارسنجی می‌کند.
+هنگامی که دفترچه کار توکار را با یک نسخهٔ اصلاح‌شده جایگزین می‌کنید، چارت مجموعهٔ سری و دسته‌های اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند منجر به شکست [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) با خطای out-of-range شود. پیش از نوشتن دفترچه کار به‌روز شده، سری‌ها و دسته‌های موجود را پاک کنید. این مثال از یک چارت استفاده می‌کند که اولین شکل در اسلاید اول است. نقطهٔ نظر کامنت نشان می‌دهد که ویرایش دفترچه در اینجا رخ می‌دهد؛ مثال اجرایی دفترچه اصلی را برمی‌گرداند و چیدمان را در حافظه اعتبارسنجی می‌کند.
 
 ```csharp
 using System;
@@ -178,7 +178,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
     var chartData = chart.ChartData;
     using var workbookStream = chartData.ReadWorkbookStream();
 
-    // جریان کتاب‌کار را در اینجا تغییر دهید، برای مثال با استفاده از Aspose.Cells.
+    // جریان دفترچه کار را اینجا تغییر دهید، به عنوان مثال با استفاده از Aspose.Cells.
 
     chartData.Series.Clear();
     chartData.Categories.Clear();
@@ -193,15 +193,15 @@ else
 }
 ```
 
-پاک‌کردن مجموعه‌ها مراجع دادهٔ منقضی‌شده را پیش از نوشتن دفترچه حذف می‌کند. پیش از استفاده از نمودار، هر سری و نگاشت دستهٔ مورد نیاز را برای دفترچه به‌روزرسانی‌شده بازسازی کنید.
+پاک‌سازی مجموعه‌ها قبل از نوشتن دفترچه کار، مراجع دادهٔ کهنه را حذف می‌کند. قبل از استفاده از چارت، هر سری و نگاشت دسته‌ مورد نیاز برای دفترچه به‌روزرسانی‌شده بازسازی شود.
 
-## **تنظیم قالب‌های عددی سفارشی برای سلول‌های دفترچه کاری**
+## **تنظیم قالب‌های عددی سفارشی برای سلول‌های دفترچه کار**
 
-از [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) برای کنترل نحوهٔ نمایش مقادیر عددی در دفترچهٔ جاسازی‌شدهٔ یک نمودار استفاده کنید. به‌عنوان مثال، ممکن است یک گزارش نیاز داشته باشد نرخ تبدیل را به‌صورت درصد با چهار رقم اعشار و یک ضریب را با پنج رقم اعشار نمایش دهد. هر دو مقدار را عددی نگه دارید تا برای محاسبات و رسم نمودار در دسترس باشند.
+از [ChartDataCell.CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/customnumberformat/) برای کنترل نحوهٔ نمایش مقدارهای عددی در دفترچه کار توکار چارت استفاده کنید. به عنوان مثال، یک گزارش ممکن است نیاز به نمایش نرخ تبدیل به درصد با چهار رقم اعشار و یک ضریب با پنج رقم اعشار داشته باشد. هر دو مقدار را به صورت عددی نگه دارید تا برای محاسبات و رسم چارت در دسترس باشند.
 
-یک قالب عددی فقط نمایش را تغییر می‌دهد، مقدار ذخیره‌شده را تغییر نمی‌دهد. قالب `0.0000%` مقدار `0.125` را به‌صورت `12.5000%` نمایش می‌دهد؛ عدد ذخیره‌شده همچنان `0.125` است. به‌طور مشابه، `0.00000` مقدار `0.1234567` را به‌صورت `0.12346` نشان می‌دهد بدون اینکه مقدار ذخیره‌شده rond شود. اگر قالب سفارشی یک رشتهٔ خالی (`""`) باشد، به‌جای آن از [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) استفاده می‌شود.
+یک قالب عددی نمایش را تغییر می‌دهد، نه مقدار ذخیره‌شده. قالب `0.0000%` عدد `0.125` را به صورت `12.5000%` نشان می‌دهد؛ عدد ذخیره‌شده همچنان `0.125` باقی می‌ماند. به همین ترتیب، `0.00000` عدد `0.1234567` را به `0.12346` نمایش می‌دهد بدون این‌که مقدار ذخیره‌شده را گرد کند. اگر قالب سفارشی یک رشتهٔ خالی (`""`) باشد، به جای آن از [PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatacell/presetnumberformat/) استفاده می‌شود.
 
-مثال زیر یک نمودار ستون ایجاد می‌کند و سلول‌های آن را از طریق [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) دسترسی می‌یابد. در شیت 0، B2 حاوی نرخ تبدیل و C2 حاوی ضریب است. هر دو سلول مقدارهای نمودار را فراهم می‌کنند. مثال همچنین برچسب‌های مقدار را که به قالب‌های منبع پیوند دارند فعال می‌کند.
+مثال زیر یک نمودار ستونی ایجاد می‌کند و سلول‌های آن را از طریق [ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) دسترسی می‌یابد. در برگهٔ 0، B2 حاوی نرخ تبدیل و C2 حاوی ضریب است. هر دو سلول مقدارهای چارت را تأمین می‌کنند. مثال همچنین برچسب‌های مقدار را که به قالب‌های منبع پیوند دارند فعال می‌کند.
 
 ```csharp
 using Aspose.Slides;
@@ -251,19 +251,17 @@ foreach (var series in chart.ChartData.Series)
 presentation.Save("CustomCellFormats.pptx", SaveFormat.Pptx);
 ```
 
-قالب‌های سلول دفترچه متفاوت از قالب‌های تنظیم‌شده مستقیم بر محورها یا برچسب‌های داده هستند. در این مثال، هر برچسب مقدار سلول منبع خود را نمایش می‌دهد زیرا [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) فعال است و به‌دلیل اینکه [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) برابر `true` است، قالب عددی منبع را دنبال می‌کند؛ پس از ذخیره و بازگشایی ارائه، برچسب‌ها `12.5000%` و `0.12346` را نشان می‌دهند همان‌طور که در زیر مشاهده می‌شود. محور عمودی قالب خود را با [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) برابر `0.00` دارد و [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) برابر `false` است.
+قالب‌های سلول دفترچه کار جدا از قالب‌های تنظیم‌شده مستقیم روی محورها یا برچسب‌های داده هستند. در این مثال هر برچسب مقدار سلول منبع خود را نشان می‌دهد چون [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) فعال است و به دلیل اینکه [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) برابر `true` است، قالب عددی منبع را دنبال می‌کند. پس از ذخیره و باز کردن مجدد ارائه، برچسب‌ها `12.5000%` و `0.12346` را نشان می‌دهند، همان‌طور که در زیر نشان داده شده است. محور عمودی قالب خود را با [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) `0.00` دارد و [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isnumberformatlinkedtosource/) به `false` تنظیم شده است.
 
-برای قالب‌بندی مستقل یک برچسب داده، پرچم پیوند به منبع را به `false` تنظیم کنید و برای آن [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) اختصاص دهید. این کار قالب سلول دفترچه را تغییر نمی‌دهد. برای مثال، قالب مستقل برچسب `0.00` مقدار اول را به‌صورت `0.13` نشان می‌دهد در حالی که B2 همچنان `12.5000%` را نشان می‌دهد. برای قالب‌بندی مستقیم برچسب‌ها به [Chart Data Labels](/slides/fa/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) مراجعه کنید.
+برای قالب‌بندی مستقل یک برچسب داده، پرچم پیوند به منبع آن را به `false` بگذارید و [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/numberformat/) موردنظر را اختصاص دهید. این کار قالب سلول دفترچه کار را تغییر نمی‌دهد. برای مثال، قالب مستقل برچسب `0.00` مقدار اول را به `0.13` نمایش می‌دهد، در حالی که B2 همچنان `12.5000%` را نشان می‌دهد. برای جزئیات بیشتر به [برچسب‌های دادهٔ چارت](/slides/fa/net/chart-data-label/#set-percentage-sign-with-chart-data-labels) مراجعه کنید.
 
-تصویر زیر از ارائهٔ ذخیره‌شده پس از بازگشایی رندر شده است:
+![نمودار ستونی با برچسب‌های پیوندی به منبع که `12.5000%` و `0.12346` را نشان می‌دهند و یک محور عددی با قالب مستقل.](custom-cell-formats.png)
 
-![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
+## **تنظیم یک سلول دفترچه کار به عنوان برچسب داده چارت**
 
-## **استفاده از یک سلول دفترچه کاری به‌عنوان برچسب دادهٔ نمودار**
+می‌توانید از متن موجود در سلول‌های دفترچه کار به‌عنوان برچسب‌های داده چارت استفاده کنید.
 
-می‌توانید متن سلول‌های دفترچه کاری را به‌عنوان برچسب‌های دادهٔ نمودار استفاده کنید.
-
-این مثال یک نمودار حبابی با داده‌های پیش‌فرض به اولین اسلاید یک ارائه موجود اضافه می‌کند. از سلول‌های A10:A12 در شیت 0 برای سه برچسب اول در اولین سری استفاده می‌کند، برچسب‌ها را از سلول‌ها فعال می‌کند و ارائه به‌روز‌شده را ذخیره می‌کند.
+این مثال یک نمودار حبابی با داده‌های پیش‌فرض به اسلاید اول یک ارائه موجود اضافه می‌کند. از سلول‌های A10:A12 در برگهٔ 0 برای سه برچسب اول در سری اول استفاده می‌کند، برچسب‌ها را از سلول‌ها فعال می‌کند و ارائه به‌روزشده را ذخیره می‌کند.
 
 ```csharp
 using Aspose.Slides;
@@ -285,9 +283,9 @@ series.Labels[2].ValueFromCell = workbook.GetCell(0, "A12", "Label 2 cell value"
 presentation.Save("resultchart.pptx", SaveFormat.Pptx);
 ```
 
-## **مدیریت شیت‌ها**
+## **مدیریت برگه‌های کاری**
 
-خاصیت [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) دسترسی به شیت‌های یک دفترچهٔ نمودار را فراهم می‌کند. این مثال یک نمودار پای با داده‌های پیش‌فرض ایجاد می‌کند و نام هر شیت را در کنسول چاپ می‌کند.
+خاصیتی به نام [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/worksheets/) دسترسی به برگه‌های کاری موجود در دفترچه کار چارت را فراهم می‌کند. این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و نام هر برگه را در کنسول چاپ می‌کند.
 
 ```csharp
 using System;
@@ -308,7 +306,9 @@ for (var i = 0; i < workbook.Worksheets.Count; i++)
 
 ## **مشخص کردن نوع منبع داده**
 
-این مثال یک نمودار ستون 3D با داده‌های پیش‌فرض ایجاد می‌کند و دو نام سری را با استفاده از منابع داده مختلف تنظیم می‌کند. نام اول از یک رشتهٔ متنی استفاده می‌کند؛ نام دوم از سلول C1 در شیت 0 می‌گیرد. شمارش [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) منبع هر نام را انتخاب می‌کند. مثال ارائه را با نام‌های سری به‌روزشده ذخیره می‌کند.
+مقدارهای نقاط سری می‌توانند به‌صورت مستقیم به عنوان مقدارهای عددی literal نیز ذخیره شوند. برای مثال کامل که آن‌ها را ذخیره و می‌خواند، به [تنظیم مقادیر سری با استفاده از عددهای literal](/slides/fa/net/chart-series/#set-series-values-using-numeric-literals) مراجعه کنید. نوع منبع مقادیر نقطه‌ای جدا از پیکربندی داخلی یا خارجی دفترچه کار چارت است؛ استفاده از عددهای literal به تنهایی دفترچه کار توکار را حذف نمی‌کند.
+
+این مثال یک نمودار ستونی 3بعدی با داده‌های پیش‌فرض ایجاد می‌کند و دو نام سری را با منابع داده متفاوت تنظیم می‌کند. نام اول از یک literal رشته‌ای استفاده می‌کند؛ نام دوم از سلول C1 در برگهٔ 0 بهره می‌برد. مقدار [DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) هر نام را انتخاب می‌کند. مثال ارائه را با نام‌های سری به‌روزشده ذخیره می‌کند.
 
 ```csharp
 using Aspose.Slides;
@@ -332,9 +332,9 @@ cellName.Data = nameCell;
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **تشخیص فرمت‌های دفترچهٔ کار جاسازی‌شدهٔ پشتیبانی‌نشده**
+## **تشخیص قالب‌های پشتیبانی نشده دفترچه کار توکار**
 
-Aspose.Slides فرمت دفترچهٔ کار باینری اکسل (.xlsb) را که می‌تواند در برخی نمودارها جاسازی شود، پشتیبانی نمی‌کند. می‌توانید با استفاده از خاصیت [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) در [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) همراه با شمارش [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) فرمت‌های پشتیبانی‌نشده را شناسایی کنید و آن نمودارها را رد کنید. این مثال شکل‌های اسلاید اول یک ارائه موجود را بررسی می‌کند، شکل‌های غیرنمودار را رد می‌کند و برای هر نمودار دارای دفترچهٔ .xlsb جاسازی‌شده یک پیام تشخیصی چاپ می‌کند.
+Aspose.Slides قالب دفترچه کار باینری اکسل (.xlsb) را که می‌تواند در برخی چارت‌ها توکار باشد، پشتیبانی نمی‌کند. می‌توانید از ویژگی [EmbeddedWorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/embeddedworkbooktype/) روی [IChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/) به همراه شمارش [WorkbookType](https://reference.aspose.com/slides/net/aspose.slides.charts/workbooktype/) برای تشخیص قالب‌های پشتیبانی نشده و عبور از آن چارت‌ها استفاده کنید. این مثال شکل‌های اسلاید اول یک ارائه موجود را بررسی می‌کند، شکل‌های غیرچارت را عبور می‌دهد و برای هر چارت دارای دفترچه کار .xlsb پیغام تشخیصی چاپ می‌کند.
 
 ```csharp
 using System;
@@ -361,19 +361,19 @@ foreach (var shape in slide.Shapes)
         continue;
     }
 
-    // خواندن یا تغییر داده‌های پشتیبانی‌شدهٔ کتاب‌کار نمودار در اینجا.
+    // در اینجا داده‌های دفترچه کار پشتیبانی‌شدهٔ چارت را بخوانید یا تغییر دهید.
 }
 ```
 
-## **دفترچهٔ کار خارجی**
+## **دفترچه کار خارجی**
 
-Aspose.Slides استفاده از دفترچه‌های کاری خارجی به‌عنوان منبع داده برای نمودارها را پشتیبانی می‌کند.
+Aspose.Slides از استفاده از دفترچه‌های کار خارجی به عنوان منبع داده برای چارت‌ها پشتیبانی می‌کند.
 
-### **ایجاد یک دفترچهٔ کار خارجی**
+### **ایجاد یک دفترچه کار خارجی**
 
-از [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) و [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) برای استخراج یک دفترچهٔ کار نمودار جاسازی‌شده به یک فایل و پیوند نمودار به آن دفترچهٔ کار خارجی استفاده کنید.
+از [ReadWorkbookStream](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/readworkbookstream/) و [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) برای استخراج دفترچه کار توکار یک چارت به فایل و پیوند چارت به آن دفترچه کار خارجی استفاده کنید.
 
-این مثال یک نمودار پای با داده‌های پیش‌فرض ایجاد می‌کند و دفترچهٔ آن را استخراج می‌کند. قبل از اختصاص دفترچهٔ کار خارجی به عنوان منبع دادهٔ نمودار، جریان خروجی را می‌بندد، سپس ارائهٔ پیوست‌شده را ذخیره می‌کند.
+این مثال یک نمودار دایره‌ای با داده‌های پیش‌فرض ایجاد می‌کند و دفترچه کار آن را استخراج می‌کند. قبل از اختصاص دفترچه کار خارجی به عنوان منبع داده چارت، جریان خروجی را می‌بندد و سپس ارائه پیوندشده را ذخیره می‌کند.
 
 ```csharp
 using System.IO;
@@ -397,13 +397,13 @@ chart.ChartData.SetExternalWorkbook(workbookPath);
 presentation.Save("externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-### **تنظیم یک دفترچهٔ کار خارجی**
+### **تنظیم یک دفترچه کار خارجی**
 
-با استفاده از متد [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) می‌توانید یک دفترچهٔ کار خارجی را به یک نمودار به‌عنوان منبع دادهٔ آن اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر دفترچهٔ کار خارجی (در صورت جابجایی آن) به کار رود.
+با استفاده از متد [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) می‌توانید یک دفترچه کار خارجی را به یک چارت به عنوان منبع دادهٔ آن اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر دفترچه کار خارجی (در صورت جابجا شدن) به کار رود.
 
-اگرچه نمی‌توانید داده‌های دفاتر کاری ذخیره‌شده در مکان‌های راه دور یا منابع را مستقیماً ویرایش کنید، همچنان می‌توانید از چنین دفاتری به‌عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای یک دفترچهٔ کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
+اگرچه نمی‌توانید داده‌های دفترچه کارهای ذخیره‌شده در مکان‌های راه دور یا منابع را مستقیماً ویرایش کنید، می‌توانید همچنان از چنین دفترچه‌هایی به عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای دفترچه کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
 
-این مثال از یک دفترچهٔ کار خارجی استفاده می‌کند که شیت آن با نام `Sheet1` شامل نام سری در B1، نام‌های دسته در A2:A4 و مقادیر عددی در B2:B4 است. مثال یک نمودار پای ایجاد می‌کند، دفترچه را پیوند می‌دهد و با استفاده از [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) بازهٔ A1:B4 را به یک سری و سه دسته نگاشت می‌کند. سپس ارائهٔ حاوی نمودار پیوست‌شده را ذخیره می‌کند.
+این مثال از یک دفترچه کار خارجی استفاده می‌کند که برگهٔ آن با نام `Sheet1` شامل یک نام سری در B1، نام‌های دسته در A2:A4 و مقادیر عددی در B2:B4 است. مثال یک نمودار دایره‌ای ایجاد می‌کند، دفترچه را پیوند می‌دهد و از [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) برای نگاشت A1:B4 به یک سری و سه دسته استفاده می‌کند. ارائه با چارت پیوندشده ذخیره می‌شود.
 
 ```csharp
 using System.IO;
@@ -424,12 +424,12 @@ chartData.SetRange("Sheet1!$A$1:$B$4");
 presentation.Save("Presentation_with_externalWorkbook.pptx", SaveFormat.Pptx);
 ```
 
-پارامتر `updateChartData` متد [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) کنترل می‌کند آیا دفترچهٔ کار بارگذاری شود یا نه.
+پارامتر `updateChartData` متد [SetExternalWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setexternalworkbook/) کنترل می‌کند آیا دفترچه کار بارگذاری شود یا نه.
 
-* وقتی `updateChartData` برابر `false` باشد، فقط مسیر دفترچه به‌روزرسانی می‌شود. دادهٔ نمودار از دفترچهٔ هدف بارگذاری یا به‌روزرسانی نمی‌شود، بنابراین دفترچه می‌تواند در دسترس نباشد.
-* وقتی `updateChartData` برابر `true` باشد، دادهٔ نمودار از دفترچهٔ هدف به‌روزرسانی می‌شود.
+* وقتی `updateChartData` برابر `false` باشد، فقط مسیر دفترچه کار به‌روزرسانی می‌شود. داده‌های چارت از دفترچه کار هدف بارگذاری یا به‌روزرسانی نمی‌شوند، بنابراین می‌توان دفترچه کار را در دسترس نبودن نگه داشت.
+* وقتی `updateChartData` برابر `true` باشد، داده‌های چارت از دفترچه کار هدف به‌روزرسانی می‌شوند.
 
-مثال زیر یک URL جایگزین را با `updateChartData` برابر `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار پای حفظ می‌شوند و ارائه بدون بارگذاری دفترچهٔ در دسترس نیست ذخیره می‌شود.
+مثال زیر یک URL مکان‌گیر با `updateChartData` برابر `false` اختصاص می‌دهد. داده‌های پیش‌فرض نمودار دایره‌ای حفظ می‌شوند و ارائه بدون بارگذاری دفترچه کار غیرقابل دسترس ذخیره می‌شود.
 
 ```csharp
 using Aspose.Slides;
@@ -445,11 +445,11 @@ chart.ChartData.SetExternalWorkbook("https://example.com/unavailable-workbook.xl
 presentation.Save("SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat.Pptx);
 ```
 
-### **دریافت مسیر دفترچهٔ کار منبع دادهٔ خارجی یک نمودار**
+### **دریافت مسیر دفترچه کار منبع دادهٔ خارجی یک چارت**
 
-برای شناسایی دفترچهٔ کار پیوست‌شده به یک نمودار، بررسی کنید آیا نمودار از منبع دادهٔ خارجی استفاده می‌کند و مسیر دفترچهٔ کار را بازیابی کنید.
+برای شناسایی دفترچه کار پیوندشده به یک چارت، بررسی کنید آیا چارت از منبع دادهٔ خارجی استفاده می‌کند و مسیر دفترچه کار آن را بازیابی کنید.
 
-این مثال اولین شکل در اسلاید اول یک ارائه با دفترچهٔ کار خارجی پیوست‌شده را بررسی می‌کند. اگر یک نمودار باشد که به دفترچهٔ کار خارجی پیوست شده است، مثال [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) را در کنسول چاپ می‌کند. سپس یک کپی از ارائه را ذخیره می‌کند.
+این مثال اولین شکل در اولین اسلاید یک ارائه با دفترچه کار خارجی پیوندشده را بررسی می‌کند. اگر این شکل یک چارت پیوندشده به دفترچه کار خارجی باشد، [ExternalWorkbookPath](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/externalworkbookpath/) را در کنسول چاپ می‌کند. سپس یک کپی از ارائه را ذخیره می‌کند.
 
 ```csharp
 using System;
@@ -481,11 +481,11 @@ else
 presentation.Save("Result.pptx", SaveFormat.Pptx);
 ```
 
-### **ویرایش داده‌های نمودار**
+### **ویرایش داده‌های چارت**
 
-می‌توانید داده‌های دفاتر کاری خارجی را همانند داده‌های دفاتر داخلی ویرایش کنید. وقتی یک دفترچهٔ کار خارجی قابل بارگذاری نباشد، یک استثنا پرتاب می‌شود.
+می‌توانید داده‌های دفترچه‌های کار خارجی را همانند داده‌های داخلی ویرایش کنید. وقتی یک دفترچه کار خارجی قابل بارگذاری نباشد، یک استثنا پرتاب می‌شود.
 
-این مثال از یک نمودار که اولین شکل در اسلاید اول است و به یک دفترچهٔ کار خارجی قابل دسترس پیوست شده استفاده می‌کند. مقدار نقطهٔ دادهٔ اول در سری اول را به 100 تنظیم می‌کند و ارائهٔ به‌روزشده را ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی پیوست‌شده را به‌روزرسانی کند، بنابراین برای حفظ نسخهٔ اصلی از یک کپی استفاده کنید.
+این مثال از یک چارت که اولین شکل در اولین اسلاید است و به یک دفترچه کار خارجی قابل دسترس پیوند دارد استفاده می‌کند. مقدار پشتیبان‌دستهٔ اولین نقطه داده در اولین سری را به 100 تنظیم می‌کند و ارائه به‌روزشده را ذخیره می‌کند. ویرایش مقادیر سلولی می‌تواند فایل XLSX خارجی پیوندشده را به‌روز کند، بنابراین در صورت نیاز به حفظ دفترچه اصلی از یک کپی استفاده کنید.
 
 ```csharp
 using System;
@@ -524,11 +524,11 @@ else
 }
 ```
 
-### **بازیابی یک دفترچهٔ کار از کش نمودار**
+### **بازیابی دفترچه کار از حافظه نهان چارت**
 
-اگر یک نمودار از یک دفترچهٔ کار خارجی که مفقود یا در دسترس نیست استفاده کند، Aspose.Slides می‌تواند دفترچهٔ کار نمودار را از داده‌های کش‌شده در ارائه بازیابی کند. قبل از باز کردن ارائه، یک [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) ایجاد کنید، [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/) آن را پیکربندی کنید و ویژگی [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) را به `true` تنظیم کنید.
+اگر یک چارت از دفترچه کار خارجی که موجود نیست یا در دسترس نیست استفاده می‌کند، Aspose.Slides می‌تواند دفترچه کار چارت را از داده‌های کش‌شده در ارائه بازسازی کند. قبل از باز کردن ارائه، یک [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) ایجاد کنید، [SpreadsheetOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/spreadsheetoptions/) آن را پیکربندی کنید و [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) را به `true` تنظیم کنید.
 
-مثال زیر به زبان C# داده‌های دفترچه را برای یک نمودار که اولین شکل در اسلاید اول است و به یک دفترچهٔ کار خارجی غیرقابل دسترس ارجاع می‌دهد، بازیابی می‌کند. داده‌های بازیابی‌شده از طریق [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) و [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) دسترسی پیدا می‌کند:
+مثال C# زیر داده‌های دفترچه کار را برای یک چارت که اولین شکل در اولین اسلاید است و به یک دفترچه کار خارجی غیرقابل دسترس ارجاع می‌دهد، بازمی‌یابد. داده‌های بازگردانده‌شده از طریق [IChart.ChartData](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/chartdata/) و [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/chartdataworkbook/) دسترسی می‌یابند:
 
 ```csharp
 using System;
@@ -552,7 +552,7 @@ if (shapeCount > 0 && slide.Shapes[0] is IChart chart)
 {
     var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 
-    // خواندن یا تغییر داده‌های دفترچه بازیابی‌شده در اینجا.
+    // در اینجا داده‌های دفترچه کار بازیابی‌شده را بخوانید یا ویرایش کنید.
 }
 else
 {
@@ -560,30 +560,30 @@ else
 }
 ```
 
-اگر دفترچهٔ کار خارجی در دسترس نباشد و بازسازی غیرفعال باشد، Aspose.Slides یک [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) پرتاب می‌کند. بازسازی را فقط زمانی فعال کنید که استفاده از داده‌های کش‌شدهٔ نمودار گزینهٔ قابل قبولی باشد، زیرا کش ممکن است شامل تغییرات انجام‌شده روی دفترچهٔ کار خارجی پس از آخرین بروز رسانی ارائه نباشد.
+اگر دفترچه کار خارجی در دسترس نباشد و بازسازی غیرفعال باشد، Aspose.Slides یک [InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception) پرتاب می‌کند. فقط زمانی بازسازی را فعال کنید که استفاده از داده‌های کش‌شدهٔ چارت یک گزینهٔ قابل قبول باشد، زیرا ممکن است کش شامل تغییرات انجام‌شده در دفترچه کار خارجی پس از آخرین به‌روزرسانی ارائه نشود.
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا می‌توانم تشخیص دهم که یک نمودار خاص به یک دفترچهٔ کار خارجی یا داخلی پیوست شده است؟**
+**آیا می‌توانم تشخیص دهم یک چارت خاص به یک دفترچه کار خارجی یا توکار پیوند دارد؟**
 
-بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) و [path to an external workbook](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) است؛ اگر منبع یک دفترچهٔ کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایلی خارجی استفاده می‌شود.
+بله. یک چارت دارای [نوع منبع داده](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/datasourcetype/) و یک [مسیر به یک دفترچه کار خارجی](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) است؛ اگر منبع یک دفترچه کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید یک فایل خارجی استفاده می‌شود.
 
-**آیا مسیرهای نسبی به دفترچه‌های کاری خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
+**آیا مسیرهای نسبی به دفترچه‌های کار خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
 
-بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابجایی دفترچه ممکن است نیاز به به‌روزرسانی پیوند داشته باشد.
+بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند، بنابراین جابجایی دفترچه ممکن است نیاز به به‌روزرسانی لینک داشته باشد.
 
-**آیا می‌توانم از دفترچه‌های کاری که روی منابع شبکه/به‌اشتراک‌گذاری شده قرار دارند استفاده کنم؟**
+**آیا می‌توانم از دفترچه‌های کاری که در منابع/به‌اشتراک‌گذاری‌های شبکه قرار دارند استفاده کنم؟**
 
-بله، چنین دفترچه‌هایی می‌توانند به‌عنوان منبع دادهٔ خارجی استفاده شوند. با این حال، ویرایش مستقیم دفترچه‌های کاری از راه دور توسط Aspose.Slides پشتیبانی نمی‌شود—فقط می‌توان از آنها به‌عنوان منبع استفاده کرد.
+بله، می‌توان از چنین دفترچه‌هایی به عنوان منبع دادهٔ خارجی استفاده کرد. با این حال، ویرایش مستقیم دفترچه‌های کاری از راه دور توسط Aspose.Slides پشتیبانی نمی‌شود—آن‌ها فقط می‌توانند به عنوان منبع استفاده شوند.
 
-**آیا Aspose.Slides هنگام ذخیرهٔ ارائه فایل XLSX خارجی را بازنویسی می‌کند؟**
+**آیا Aspose.Slides هنگام ذخیرهٔ ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**
 
-ارائه یک [link to the external file](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) ذخیره می‌کند. ویرایش داده‌های نمودار پشتیبان‌شده توسط سلول می‌تواند فایل XLSX محلی پیوست‌شده را نیز به‌روز کند. اگر نسخهٔ اصلی باید دست‌نخورده بماند، یک کپی از دفترچه کار استفاده کنید.
+ارائه یک [پیوند به فایل خارجی](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdata/externalworkbookpath/) را ذخیره می‌کند. ویرایش داده‌های چارت پشتیبان‌دسته می‌تواند فایل XLSX محلی پیوندشده را نیز به‌روز کند. اگر باید دفترچه اصلی دست نخورده بماند، از یک کپی استفاده کنید.
 
-**اگر فایل خارجی با رمز عبور محافظت شده باشد چه کاری باید انجام دهم؟**
+**در صورت داشتن فایل خارجی با رمز عبور چه کاری باید انجام دهم؟**
 
-Aspose.Slides هنگام پیوند گرفتن رمز عبوری قبول نمی‌کند. یک روش معمول این است که پیش از آن محافظت را حذف کنید یا یک کپی رمزگشایی‌شده تهیه کنید (مثلاً با استفاده از [Aspose.Cells](https://reference.aspose.com/cells/net/)) و به آن کپی پیوند دهید.
+Aspose.Slides هنگام پیوندگیری رمز عبور را نمی‌پذیرد. یک روش رایج این است که پیش از استفاده، حفاظت را حذف کنید یا یک کپی رمزگشایی‌شده (به عنوان مثال با استفاده از [Aspose.Cells](https://reference.aspose.com/cells/net/)) تهیه کنید و به آن پیوند دهید.
 
-**آیا چندین نمودار می‌توانند به یک دفترچهٔ کار خارجی ارجاع دهند؟**
+**آیا چندین چارت می‌توانند به همان دفترچه کار خارجی ارجاع دهند؟**
 
-بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها برای تمام نمودارها منعکس خواهد شد.
+بله. هر چارت لینک خودش را ذخیره می‌کند. اگر همه به یک فایل ارجاع دهند، به‌روزرسانی آن فایل در آینده برای هر چارت بازتاب خواهد یافت.

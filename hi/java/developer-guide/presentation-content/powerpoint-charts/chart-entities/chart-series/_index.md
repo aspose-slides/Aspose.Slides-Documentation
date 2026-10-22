@@ -1,44 +1,89 @@
 ---
-title: "जावा में प्रेजेंटेशन में चार्ट डेटा सीरीज़ को प्रबंधित करें"
-linktitle: "डेटा सीरीज़"
+title: जावा में प्रस्तुतियों में चार्ट डेटा श्रृंखला प्रबंधित करें
+linktitle: डेटा श्रृंखला
 type: docs
 url: /hi/java/chart-series/
 keywords:
-- "चार्ट सीरीज़"
-- "सीरीज़ ओवरलैप"
-- "सीरीज़ रंग"
-- "सीरीज़ नाम"
-- "डेटा पॉइंट"
-- "वर्कबुक सेल"
-- "सीरीज़ गैप"
-- "नकारात्मक मान"
-- "PowerPoint"
-- "प्रेजेंटेशन"
-- "Java"
-- "Aspose.Slides"
-description: "जावा के साथ प्रेजेंटेशनों में चार्ट सीरीज़, डेटा पॉइंट, वर्कबुक सेल, फॉर्मेटिंग, ओवरलैप, गैप चौड़ाई और नकारात्मक मानों को कैसे प्रबंधित करें, यह सीखें।"
+- चार्ट श्रृंखला
+- श्रृंखला ओवरलैप
+- श्रृंखला रंग
+- श्रृंखला नाम
+- डेटा बिंदु
+- वर्कबुक सेल
+- श्रृंखला गैप
+- नकारात्मक मान
+- PowerPoint
+- प्रस्तुति
+- Java
+- Aspose.Slides
+description: "जावा के साथ प्रस्तुतियों में चार्ट श्रृंखलाएँ, डेटा बिंदु, वर्कबुक सेल, फ़ॉर्मेटिंग, ओवरलैप, गैप चौड़ाई, और नकारात्मक मान कैसे प्रबंधित करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-एक चार्ट अपने प्लॉटेड डेटा को एक चार्ट डेटा वर्कबुक में संग्रहीत करता है। एक [IChartSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/) एक संबंधित मानों के सेट का प्रतिनिधित्व करता है, और सीरीज़ में प्रत्येक [IChartDataPoint](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/) एक या अधिक वर्कबुक सेल को संदर्भित करता है। [IChartCategory](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/) ऑब्जेक्ट्स लेबल या समूह मान प्रदान करते हैं जो सीरीज़ द्वारा साझा किए जाते हैं। इसलिए सीरीज़ का नाम, श्रेणियाँ, और बिंदु मान [IChartDataCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/) ऑब्जेक्ट्स से जुड़े होते हैं, न कि केवल प्रदर्शित पाठ के रूप में संग्रहीत होते हैं।
+एक चार्ट अपनी प्लॉटेड मानों को वर्कबुक सेल में या सीधे संख्यात्मक लिटरेल्स के रूप में संग्रहीत कर सकता है। एक [IChartSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/) एक संबंधित मानों का सेट दर्शाता है, और प्रत्येक [IChartDataPoint](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/) उस श्रृंखला में एक बिंदु को दर्शाता है। [IChartCategory](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/) वस्तुएँ श्रृंखला द्वारा साझा किए गए लेबल या समूह मान प्रदान करती हैं। डिफ़ॉल्ट डेटा के साथ बनाए गए चार्ट्स में, श्रृंखला नाम, श्रेणियाँ और बिंदु मान [IChartDataCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/) वस्तुओं का उपयोग चार्ट वर्कबुक से करते हैं।
 
-एक सामान्य श्रेणी चार्ट के लिए, डिफ़ॉल्ट वर्कबुक पंक्ति 0 को सीरीज़ नामों के लिये, कॉलम 0 को श्रेणी नामों के लिये, और शेष सेल्स को सीरीज़ मूल्यों के लिये उपयोग करती है। [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) को पास किए जाने वाले वर्कशीट, पंक्ति, और कॉलम इंडेक्स शून्य‑आधारित होते हैं। यह लेआउट तब उपयोगी होता है जब आप डिफ़ॉल्ट डेटा के साथ चार्ट बनाते हैं, लेकिन यह मानना नहीं चाहिए कि हर मौजूदा चार्ट इसे उपयोग करता है। लोड किए गए प्रेज़ेंटेशन के लिये, वर्कबुक मान बदलने से पहले सीरीज़, श्रेणियों, और डेटा पॉइंट्स द्वारा संदर्भित सेल्स की जाँच करें।
+एक सामान्य श्रेणी चार्ट के लिए, डिफ़ॉल्ट वर्कबुक श्रृंखला नामों के लिए पंक्ति 0, श्रेणी नामों के लिए स्तंभ 0, और शेष सेल्स का उपयोग श्रृंखला मानों के लिए करती है। वर्कशीट, पंक्ति और स्तंभ सूचकांक जो [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) को पास किए जाते हैं, शून्य‑आधारित होते हैं। यह लेआउट डिफ़ॉल्ट डेटा के साथ चार्ट बनाते समय उपयोगी है, लेकिन यह मानना उचित नहीं है कि हर मौजूदा चार्ट इसका उपयोग करता है। लोड किए गए प्रेजेंटेशन के लिए, वर्कबुक मान बदलने से पहले श्रृंखला, श्रेणियाँ और डेटा बिंदुओं द्वारा संदर्भित सेल्स की जाँच करें।
 
-चार्ट सेटिंग्स के तीन अलग‑अलग स्कोप होते हैं:
+चार्ट सेटिंग्स के तीन विभिन्न स्तर होते हैं:
 
-- सीरीज़‑स्तर सेटिंग्स, जैसे कि [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--), जो एक सीरीज़ के सभी पॉइंट्स के लिये डिफ़ॉल्ट रूप प्रदान करती हैं।
-- डेटा‑पॉइंट सेटिंग्स, जैसे कि [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--), जो एक पॉइंट के लिये सीरीज़ के रूप को ओवरराइड करती हैं।
-- समूह सेटिंग्स उन संगत सीरीज़ पर लागू होती हैं जो समान [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) से संबंधित हैं। समूह तक पहुँचने के लिये [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) का उपयोग करें जब आपको ओवरलैप या गैप‑विथ जैसी विकल्प सेट करने हों।
+- श्रृंखला‑स्तर सेटिंग्स, जैसे [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) सभी बिंदुओं के लिए डिफ़ॉल्ट रूप प्रदान करती हैं।
+- डेटा‑बिंदु सेटिंग्स, जैसे [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--) किसी एक बिंदु के लिए श्रृंखला रूप को अधिलेखित करती हैं।
+- समूह सेटिंग्स उन संगत श्रृंखलाओं पर लागू होती हैं जो एक ही [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) से संबंधित हैं। समूह तक पहुँचने के लिए [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) का उपयोग करें जब आपको ओवरलैप या गैप चौड़ाई जैसे विकल्प सेट करने हों।
 
-जब कोई स्पष्ट पॉइंट या सीरीज़ फ़िल सेट नहीं किया गया हो, तो चार्ट शैली और थीम स्वचालित रूप से उपस्थिति निर्धारित करती हैं। जब दोनों सीरीज़ और पॉइंट फॉर्मेट मौजूद हों, तो पॉइंट फॉर्मेट उस पॉइंट के लिये प्राथमिकता लेता है।
+जब कोई स्पष्ट बिंदु या श्रृंखला फ़िल नहीं निर्धारित किया गया हो, तो चार्ट शैली और थीम स्वचालित रूप से रूप निर्धारित करती हैं। जब दोनों श्रृंखला और बिंदु फ़ॉर्मेटिंग मौजूद हों, तो बिंदु फ़ॉर्मेटिंग उस बिंदु के लिए प्राथमिकता लेती है।
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **चार्ट सीरीज ओवरलैप सेट करें**
+## **संख्यात्मक लिटरेल्स का उपयोग करके श्रृंखला मान सेट करें**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getOverlap--) रिपोर्ट करता है कि 2D चार्ट में बार या कॉलम कितनी ओवरलैप होते हैं, -100 से 100 प्रतिशत तक। यह पैरेंट सीरीज़ ग्रुप पर सेटिंग का केवल‑पढ़ने‑के‑लिए प्रोजेक्शन है। सभी संगत सीरीज़ को अपडेट करने के लिये [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) का उपयोग करें। यह विकल्प उन चार्ट प्रकारों पर लागू होता है जो समूहित बार या कॉलम प्रदर्शित करते हैं; यह संयोजन चार्ट में असंबंधित सीरीज़ ग्रुप को प्रभावित नहीं करता।
+जब श्रृंखला मान एप्लिकेशन डेटा या गणनाओं से आते हैं और वर्कशीट सेल संदर्भों की आवश्यकता नहीं होती, तो संख्यात्मक लिटरेल्स का उपयोग करें। प्रत्येक बिंदु के [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--) परिणाम को [setAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-) के माध्यम से असाइन करने से पहले [setDataSourceTypeForValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) को [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/#DoubleLiterals) के साथ कॉल करें।
 
-निम्न उदाहरण समूह के लिये ओवरलैप सेट करता है जिसमें पहली सीरीज़ शामिल है:
+कलेक्शन सेटिंग उस श्रृंखला में सभी बिंदु मानों के स्रोत प्रकार को नियंत्रित करती है। प्रत्येक बिंदु मान का [getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ibasechartvalue/#getDataSourceType--) विधि चयनित प्रकार को दर्शाती है; इसे कलेक्शन सेटिंग के माध्यम से बदलें। `Worksheet` के साथ, संदर्भित सेल तक पहुँचने के लिए [getAsCell](https://reference.aspose.com/slides/java/com.aspose.slides/isinglecellchartvalue/#getAsCell--) का प्रयोग करें। `DoubleLiterals` के साथ, संख्या को सीधे पढ़ने या लिखने के लिये [getAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) या `setAsLiteralDouble` का उपयोग करें।
+
+निम्न उदाहरण एक कॉलम चार्ट बनाता है जिसमें डिफ़ॉल्ट श्रृंखला और श्रेणियाँ होती हैं, फिर उसकी पहली श्रृंखला के मौजूदा बिंदुओं को क्रमशः 10, 20 आदि की गणना किए गए मान असाइन करता है। यह प्रेजेंटेशन को सहेजता है, पुनः खोलता है, और संग्रहीत मानों को प्रिंट करता है।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    series.getDataPoints().setDataSourceTypeForValues(DataSourceType.DoubleLiterals);
+    for (int i = 0; i < series.getDataPoints().size(); i++) {
+        series.getDataPoints().get_Item(i).getValue().setAsLiteralDouble((i + 1) * 10);
+    }
+
+    presentation.save("numeric_literals.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopenedPresentation = new Presentation("numeric_literals.pptx");
+try {
+    ISlide reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    IChart reopenedChart = (IChart) reopenedSlide.getShapes().get_Item(0);
+    IChartSeries reopenedSeries = reopenedChart.getChartData().getSeries().get_Item(0);
+    for (IChartDataPoint point : reopenedSeries.getDataPoints()) {
+        System.out.println(point.getValue().getAsLiteralDouble());
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+बिंदु मान स्रोत प्रकार [IChartData.getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getDataSourceType--) से अलग होता है, जो चार्ट की आंतरिक या बाहरी वर्कबुक कॉन्फ़िगरेशन को पहचानता है। संख्यात्मक लिटरेल्स का उपयोग करने से स्वचालित रूप से एम्बेडेड वर्कबुक नहीं हटता। इस उदाहरण में, वर्कबुक श्रेणी लेबल, श्रृंखला नाम और अन्य श्रृंखलाओं के लिये उपलब्ध रहता है। वर्कबुक प्रबंधन के लिये देखें [Chart Workbook](/slides/hi/java/chart-workbook/)।
+
+स्कैटर और बबल चार्ट्स के लिये, [setDataSourceTypeForXValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) और [setDataSourceTypeForYValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) का उपयोग करके क्रमशः [getXValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getXValue--) और [getYValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getYValue--) के स्रोत चुनें। बबल चार्ट्स [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) को भी उपयोग करते हैं ताकि [getBubbleSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getBubbleSize--) की स्रोत तय हो सके। प्रत्येक लागू स्रोत को `DoubleLiterals` में सेट करें और फिर उस मान के `setAsLiteralDouble` मेथड के माध्यम से संख्याएँ असाइन करें।
+
+## **चार्ट श्रृंखला ओवरलैप सेट करें**
+
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getOverlap--) रिपोर्ट करता है कि 2D चार्ट में बार या कॉलम कितनी ओवरलैप करते हैं, -100 से 100 प्रतिशत तक। यह पैरेंट श्रृंखला समूह पर सेटिंग का केवल‑पढ़ने योग्य प्रोज़ेक्शन है। सभी संगत श्रृंखलाओं को अपडेट करने के लिये [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) का उपयोग करें। यह विकल्प उन चार्ट प्रकारों पर लागू होता है जो समूहित बार या कॉलम दर्शाते हैं; संयोजन चार्ट में असंबद्ध श्रृंखला समूहों को यह प्रभावित नहीं करता।
+
+निम्न उदाहरण पहली श्रृंखला को शामिल करने वाले समूह का ओवरलैप सेट करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -51,7 +96,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // नया चार्ट नमूना सीरीज़, श्रेणियां और मान शामिल करता है।
+    // नया चार्ट नमूना श्रृंखलाएँ, श्रेणियाँ, और मान शामिल करता है।
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -67,11 +112,11 @@ try {
 
 ![The series overlap](series_overlap.png)
 
-## **सीरीज़ फ़िल का रंग बदलें**
+## **श्रृंखला फ़िल रंग बदलें**
 
-पूरी सीरीज़ के लिये डिफ़ॉल्ट फ़िल सेट करने के लिये [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) का उपयोग करें। यदि किसी पॉइंट का पहले से स्पष्ट फ़िल है, तो उसके [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--) सेटिंग उस पॉइंट के लिये सीरीज़ फ़िल को ओवरराइड करती है।
+पूरी श्रृंखला के लिये डिफ़ॉल्ट फ़िल सेट करने हेतु [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) का प्रयोग करें। यदि किसी बिंदु का पहले से स्पष्ट फ़िल सेट है, तो उसका [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--) सेटिंग उस बिंदु के लिये श्रृंखला फ़िल को अधिलेखित करती है।
 
-निम्न उदाहरण पहली सीरीज़ पर ठोस नीला फ़िल लागू करता है:
+निम्न उदाहरण पहली श्रृंखला पर ठोस नीला फ़िल लागू करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +145,9 @@ try {
 
 ![The color of the series](series_color.png)
 
-## **सीरीज़ का नाम बदलें**
+## **श्रृंखला नाम बदलें**
 
-सीरीज़ का नाम चार्ट डेटा वर्कबुक में संग्रहीत होता है और सामान्यतः लेजेंड में दिखाया जाता है। क्लस्टर्ड कॉलम चार्ट के लिये बनाए गए डिफ़ॉल्ट वर्कबुक में, सेल B1 पंक्ति 0, कॉलम 1 पर स्थित होता है और पहली सीरीज़ का नाम रखता है। निम्न उदाहरण में नामांकित स्थिरांक इस संरचना को स्पष्ट करते हैं:
+एक श्रृंखला नाम चार्ट डेटा वर्कबुक में संग्रहीत होता है और सामान्यतः लेजेंड में दिखाया जाता है। क्लस्टर्ड कॉलम चार्ट के लिये डिफ़ॉल्ट वर्कबुक में, सेल B1 पंक्ति 0, स्तंभ 1 पर स्थित है और पहली श्रृंखला का नाम रखता है। नीचे दिए गए उदाहरण में नामित स्थिरांक इस संरचना को स्पष्ट करते हैं:
 
 ```java
 import com.aspose.slides.*;
@@ -128,7 +173,7 @@ try {
 }
 ```
 
-आप [IChartSeries.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getName--) द्वारा पहले से संदर्भित सेल को भी अपडेट कर सकते हैं। यह तरीका मौजूदा चार्ट में किसी विशिष्ट पंक्ति और कॉलम मानने से बचता है:
+आप [IChartSeries.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getName--) द्वारा पहले से संदर्भित सेल को भी अपडेट कर सकते हैं। यह दृष्टिकोण मौजूदा चार्ट में किसी विशेष पंक्ति और स्तंभ का अनुमान लगाने से बचाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -157,13 +202,13 @@ try {
 
 ![The series name](series_name.png)
 
-### **कई सेल्स से नाम वाली सीरीज़ बनाएं**
+### **एकाधिक सेल्स से नाम वाली श्रृंखला बनाएं**
 
-जब उत्पाद का नाम और रिपोर्टिंग अवधि अलग‑अलग वर्कबुक सेल्स में संग्रहीत हों, तो कॉम्पोज़िट सीरीज़ नाम उपयोगी होता है। उदाहरण के लिये, आप `Product A` (सेल B1) और `2026` (सेल C1) को एकल सीरीज़ नाम में सम्मिलित कर सकते हैं जबकि दोनों हिस्से अपने स्रोत सेल्स से जुड़े रहें।
+जब उत्पाद नाम और रिपोर्टिंग अवधि अलग‑अलग वर्कबुक सेल में संग्रहीत हों, तो संयुक्त श्रृंखला नाम उपयोगी होता है। उदाहरण के लिये, आप B1 में `Product A` और C1 में `2026` को एक ही श्रृंखला नाम में सम्मिलित कर सकते हैं, जबकि दोनों भाग स्रोत सेल से जुड़े रहते हैं।
 
-नाम रेंज प्राप्त करने के लिये [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) का उपयोग करें, फिर उस संग्रह को [IChartSeriesCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-) को पास करें। `skipHiddenCells` तर्क नियंत्रण करता है कि छिपे सेल्स शामिल हों या नहीं: `true` उन्हें बाहर रखता है, जबकि `false` उन्हें शामिल करता है। यह उदाहरण `false` का उपयोग करके नाम रेंज में हर सेल को शामिल करता है।
+[IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) का उपयोग करके नाम रेंज को प्राप्त करें, फिर उसे [IChartSeriesCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-) को पास करें। `skipHiddenCells` तर्क निर्धारित करता है कि छिपे हुए सेल्स शामिल हों या नहीं: `true` उन्हें बाहर करता है, जबकि `false` शामिल करता है। इस उदाहरण में `false` का उपयोग करके नाम रेंज के सभी सेल्स को शामिल किया गया है।
 
-निम्न उदाहरण एक प्रेज़ेंटेशन बनाता है जिसमें एक सीरीज़ और दो डेटा पॉइंट्स हैं। सेल B1:C1 केवल सीरीज़ नाम प्रदान करते हैं; A2:A3 श्रेणी लेबल प्रदान करते हैं, और B2:B3 संख्यात्मक मान प्रदान करते हैं।
+निम्न उदाहरण एक प्रेजेंटेशन बनाता है जिसमें एक श्रृंखला और दो डेटा बिंदु होते हैं। सेल B1:C1 केवल श्रृंखला नाम प्रदान करते हैं; A2:A3 श्रेणी लेबल देते हैं, और B2:B3 संख्यात्मक मान देते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -181,13 +226,13 @@ try {
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // ये दो सेल्स सीरीज़ नाम प्रदान करती हैं.
+    // ये दो सेल्स श्रृंखला नाम प्रदान करती हैं।
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
     IChartSeries series = chart.getChartData().getSeries().add(nameCells, ChartType.ClusteredColumn);
 
-    // अलग-अलग सेल्स श्रेणियों और संख्यात्मक डेटा पॉइंट्स प्रदान करती हैं.
+    // अलग-अलग सेल्स श्रेणियाँ और संख्यात्मक डेटा पॉइंट्स प्रदान करती हैं।
     IChartDataCell northCategory = workbook.getCell(0, 1, 0, "North");
     IChartDataCell southCategory = workbook.getCell(0, 2, 0, "South");
     chart.getChartData().getCategories().add(northCategory);
@@ -203,15 +248,15 @@ try {
 }
 ```
 
-परिणामी सीरीज़ नाम `Product A 2026` होगा, दो सेल मानों के बीच एक स्पेस के साथ। लेजेंड इसे दोनों कॉलम के लिये एक एंट्री के रूप में प्रदर्शित करता है। नीचे की छवि परिणाम दर्शाती है:
+परिणामी श्रृंखला नाम `Product A 2026` होगा, दो सेल मानों के मध्य एक स्पेस के साथ। लेजेंड इसे दोनों स्तंभों के लिये एक ही प्रविष्टि के रूप में दर्शाता है। नीचे की छवि परिणाम को दर्शाती है:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **स्वचालित सीरीज़ फ़िल रंग प्राप्त करें**
+## **स्वचालित श्रृंखला फ़िल रंग प्राप्त करें**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) वह रंग लौटाता है जो सीरीज़ इंडेक्स और चार्ट शैली से गणना किया जाता है। यह वह रंग है जो तब उपयोग किया जाता है जब सीरीज़ फ़िल स्पष्ट रूप से परिभाषित नहीं किया गया हो। यह विधि गणना किया गया रंग पढ़ती है; यह नया फ़िल असाइन नहीं करती।
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) श्रृंखला इंडेक्स और चार्ट शैली से गणना किया गया रंग लौटाता है। यह वह रंग है जो तब उपयोग होता है जब श्रृंखला फ़िल स्पष्ट रूप से परिभाषित नहीं किया गया हो। इस मेथड को कॉल करने से केवल गणना किया गया रंग पढ़ा जाता है; नया फ़िल असाइन नहीं किया जाता।
 
-निम्न उदाहरण प्रत्येक डिफ़ॉल्ट सीरीज़ का स्वचालित रंग प्रिंट करता है:
+निम्न उदाहरण प्रत्येक डिफ़ॉल्ट श्रृंखला का स्वचालित रंग प्रिंट करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -246,11 +291,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 सटीक रंग चार्ट शैली और थीम पर निर्भर करते हैं।
 
-## **चार्ट सीरीज़ के लिये इनवर्ट फ़िल रंग सेट करें**
+## **एक चार्ट श्रृंखला के लिये इनवर्ट फ़िल रंग सेट करें**
 
-बार, कॉलम, और बबल सीरीज़ के लिये, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) नकारात्मक मानों को अलग फ़िल के साथ प्रदर्शित कर सकता है। नियमित सीरीज़ फ़िल को ठोस सेट करें, इनवर्ज़न सक्षम करें, और नकारात्मक‑मान रंग को [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) के माध्यम से असाइन करें। नकारात्मक संख्याएँ वर्कबुक में अपरिवर्तित रहती हैं; केवल उनका प्रदर्शित रंग बदलता है।
+बार, कॉलम और बबल श्रृंखलाओं के लिये, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) का उपयोग करके नकारात्मक मानों को एक अलग फ़िल के साथ दिखाया जा सकता है। नियमित श्रृंखला फ़िल को ठोस सेट करें, इनवर्शन को सक्षम करें, और नकारात्मक‑मान रंग को [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) से असाइन करें। नकारात्मक संख्याएँ वर्कबुक में अपरिवर्तित रहती हैं; केवल उनका प्रदर्शित रंग बदलता है।
 
-निम्न उदाहरण डिफ़ॉल्ट चार्ट डेटा को एक सीरीज़ से बदलता है। वर्कशीट पंक्ति 0 में सीरीज़ नाम, कॉलम 0 में श्रेणी नाम, और कॉलम 1 में मान होते हैं:
+निम्न उदाहरण डिफ़ॉल्ट चार्ट डेटा को एक श्रृंखला से बदलता है। वर्कशीट पंक्ति 0 में श्रृंखला नाम, स्तंभ 0 में श्रेणी नाम, और स्तंभ 1 में मान होते हैं:
 
 ```java
 import com.aspose.slides.*;
@@ -309,7 +354,7 @@ try {
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-एक पॉइंट के लिये इनवर्ज़न को [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) द्वारा सक्षम किया जा सकता है। नीचे के उदाहरण में सीरीज़ के लिये इनवर्ज़न अक्षम है और केवल चयनित पॉइंट के लिये सक्षम है। पॉइंट को नकारात्मक मान भी असाइन किया गया है ताकि प्रभाव दिखाई दे:
+आप [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) के द्वारा एक बिंदु के लिये इनवर्शन सक्षम कर सकते हैं। नीचे के उदाहरण में श्रृंखला के लिये इनवर्शन अक्षम है और केवल चयनित बिंदु के लिये सक्षम किया गया है। बिंदु को नकारात्मक मान भी असाइन किया गया है ताकि प्रभाव दिखाई दे:
 
 ```java
 import com.aspose.slides.*;
@@ -343,11 +388,11 @@ try {
 }
 ```
 
-## **विशिष्ट डेटा पॉइंट मान साफ़ करें**
+## **विशिष्ट डेटा बिंदु मान साफ़ करें**
 
-एक पॉइंट को अन्य पॉइंट्स को हटाए बिना ख़ाली करने के लिये, उसके बैकिंग वर्कबुक सेल को `null` सेट करें। कॉलम चार्ट के लिये, प्लॉटेड मान [IChartDataPoint.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--) के माध्यम से उपलब्ध है। डेटा पॉइंट वही श्रेणी स्थिति पर रहता है, लेकिन चार्ट उसके मान को खाली मानता है जैसा कि चार्ट की खाली‑मान सेटिंग्स में निर्धारित है।
+एक बिंदु को खाली करने के लिये, उसके आधारभूत वर्कबुक सेल को `null` सेट करें, अन्य बिंदुओं को हटाए बिना। कॉलम चार्ट में, प्लॉटेड मान [IChartDataPoint.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--) के द्वारा उपलब्ध है। डेटा बिंदु वही श्रेणी स्थिति में रहता है, पर चार्ट अपने ब्लैंक‑वैल्यू सेटिंग के अनुसार इसे खाली मानता है।
 
-निम्न उदाहरण पहली सीरीज़ में केवल दूसरे पॉइंट को साफ़ करता है:
+निम्न उदाहरण पहली श्रृंखला के दूसरे बिंदु को ही साफ़ करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -372,17 +417,17 @@ try {
 }
 ```
 
-स्कैटर चार्ट अलग‑अलग X और Y सेल्स का उपयोग करते हैं, और बबल चार्ट एक आकार सेल भी उपयोग करता है। केवल उस सेल को साफ़ करें जो आप हटाना चाहते हैं। यदि आप अन्य पॉइंट्स को रखना चाहते हैं तो [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) न कॉल करें, क्योंकि वह विधि संग्रह से सभी डेटा पॉइंट्स हटा देती है।
+स्कैटर चार्ट अलग‑अलग X और Y सेल्स का उपयोग करते हैं, और बबल चार्ट आकार सेल भी उपयोग करता है। केवल उस सेल को साफ़ करें जो आप हटाना चाहते हैं। जब आप अन्य बिंदु रखना चाहते हैं, तो [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) को न कॉल करें, क्योंकि यह मेथड कलेक्शन से सभी बिंदुओं को हटाता है।
 
-## **खाली सेल्स के प्रदर्शन को नियंत्रित करें**
+## **खाली सेल्स के प्रदर्शन का नियंत्रण करें**
 
-छिपे हुए सेल्स जिनमें मान है, वे खाली सेल्स से अलग हैं। छिपी हुई वर्कशीट पंक्तियों और कॉलमों से डेटा शामिल या बाहर करने के लिये, देखें [Include Data from Hidden Rows and Columns](/slides/hi/java/chart-workbook/#include-data-from-hidden-rows-and-columns)।
+छिपे हुए सेल्स जो मान रखते हैं, खाली सेल्स से अलग होते हैं। छिपी हुई वर्कशीट पंक्तियों और स्तंभों से डेटा को शामिल या बहिष्कृत करने के लिये देखें [Include Data from Hidden Rows and Columns](/slides/hi/java/chart-workbook/#include-data-from-hidden-rows-and-columns)।
 
-एक खाली वर्कबुक सेल गायब डेटा का प्रतिनिधित्व करता है; `0` वाला सेल ज्ञात संख्यात्मक मान दर्शाता है। एक सेल को खाली करने के लिये [IChartDataCell.setValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) को `null` के साथ कॉल करें। संख्यात्मक शून्य खाली‑सेल सेटिंग के बावजूद शून्य बना रहता है।
+एक खाली वर्कबुक सेल अनुपस्थित डेटा को दर्शाता है; `0` वाला सेल ज्ञात संख्यात्मक मान दर्शाता है। किसी सेल को खाली करने के लिये [IChartDataCell.setValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) को `null` पास करें। संख्यात्मक शून्य ब्लैंक‑सेल सेटिंग से स्वतंत्र रूप से शून्य ही रहेगा।
 
-[ IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) का उपयोग करके आप तय कर सकते हैं कि चार्ट खाली सेल्स को कैसे दिखाए। यह सेटिंग पूरे चार्ट पर लागू होती है। यह खाली मानों को प्लॉट करने के तरीके को बदलती है, बिना खाली वर्कबुक सेल को शून्य या इंटरपोलेटेड मान से भरते हुए।
+चार्ट को खाली सेल्स कैसे दिखाने हैं, यह चुनने के लिये [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) का उपयोग करें। यह सेटिंग पूरी चार्ट पर लागू होती है और ब्लैंक्स के प्लॉटिंग तरीके को बदलती है, बिना खाली वर्कबुक सेल को शून्य या इंटरपोलेशन मान से भरें।
 
-निम्न स्व-निहित उदाहरण एक लाइन चार्ट बनाता है जिसमें एक सीरीज़ है, Day 3 का मान साफ़ करता है, और प्रत्येक मोड के साथ समान चार्ट सहेजता है। कोई इनपुट फ़ाइल आवश्यक नहीं है। [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) वर्कशीट 0, कॉलम 0 को श्रेणी लेबल और कॉलम 1 को मान के लिये उपयोग करता है; पंक्ति 0 में सीरीज़ नाम होता है। अंतिम डेटा `10, 20, empty, 30, 40` है।
+निम्न स्वयं‑समावेशी उदाहरण एक लाइन चार्ट बनाता है जिसमें एक श्रृंखला है, दिन 3 का मान साफ़ करता है, और प्रत्येक मोड के साथ वही चार्ट सहेजता है। कोई इनपुट फ़ाइल आवश्यक नहीं। [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) वर्कशीट 0, स्तंभ 0 को श्रेणी लेबल और स्तंभ 1 को मान हेतु उपयोग करता है; पंक्ति 0 श्रृंखला नाम रखती है। अंतिम डेटा `10, 20, empty, 30, 40` है।
 
 ```java
 import com.aspose.slides.*;
@@ -409,7 +454,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // दिन 3 को वास्तव में खाली छोड़ें, जबकि उसकी श्रेणी और डेटा पॉइंट को बरकरार रखें।
+    // Day 3 को वास्तव में खाली छोड़ें, जबकि उसकी श्रेणी और डेटा बिंदु को बनाए रखें।
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -423,19 +468,19 @@ try {
 }
 ```
 
-प्रत्येक आउटपुट फ़ाइल में सहेजने से पहले सेट किया गया मोड सम्मिलित होता है: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, और `empty_cells_Span.pptx`। केवल एक संस्करण सहेजने के लिये, इच्छित मोड असाइन करें और प्रेज़ेंटेशन को एक बार सहेजें।
+प्रत्येक आउटपुट फ़ाइल सहेजने से पहले असाइन किए गए मोड को दर्शाती है: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, और `empty_cells_Span.pptx`। केवल एक संस्करण सहेजने के लिये, इच्छित मोड असाइन करें और प्रेजेंटेशन को एक बार सहेजें, मोड्स पर क्रमिक रूप से नहीं।
 
-नीचे का तुलना चार फ़ाइलों में समान डेटा दर्शाता है। Day 3 हर केस में वर्कबुक में खाली है:
+नीचे का तुलना समान डेटा को सभी तीन फ़ाइलों में दिखाती है। दिन 3 हर मामले में वर्कबुक में खाली है:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-दिखावा प्रभाव चार्ट प्रकार पर निर्भर करता है। लाइन चार्ट सभी तीन मोड को आसानी से तुलना करने देता है। बार और कॉलम चार्ट में कोई लाइन नहीं होती जो गायब श्रेणी को जोड़ सके, इसलिए `Span` ऊपर दिखाए गए कनेक्टिंग सेगमेंट को उत्पन्न नहीं कर सकता; एक गायब कॉलम और शून्य‑ऊँचाई वाला कॉलम भी समान दिख सकते हैं। इसी प्रकार, केवल मार्कर वाले स्कैटर चार्ट में कोई कनेक्टिंग लाइन नहीं होती। हर चार्ट प्रकार के लिये तीन विभिन्न परिणामों की उम्मीद न करें; आप जिस प्रकार का उपयोग कर रहे हैं उसकी आउटपुट जाँचें।
+दिखाया गया प्रभाव चार्ट प्रकार पर निर्भर करता है। लाइन चार्ट सभी तीन मोड को आसान तुलना के लिये दिखाता है। बार और कॉलम चार्ट में कोई लाइन नहीं होने के कारण `Span` उपर्युक्त कनेक्शन नहीं बना पाता; एक गायब कॉलम और शून्य‑ऊँचाई वाला कॉलम भी समान दिख सकते हैं। इसी प्रकार, केवल मार्कर वाले स्कैटर चार्ट में कोई कनेक्टिंग लाइन नहीं होती। सभी चार्ट प्रकारों में तीन विशिष्ट परिणाम की अपेक्षा न रखें; अपने उपयोग के प्रकार के लिये आउटपुट जाँचें।
 
-## **सीरीज़ गैप‑विथ सेट करें**
+## **श्रृंखला गैप चौड़ाई सेट करें**
 
-गैप‑विथ पास‑पास बार या कॉलम क्लस्टर के बीच की दूरी है, जो बार या कॉलम की चौड़ाई के प्रतिशत में व्यक्त की जाती है। ओवरलैप की तरह, यह पैरेंट सीरीज़ ग्रुप से सम्बंधित है, न कि किसी एक सीरीज़ से। समूह के लिये एक बार [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) कॉल करें। बड़ा मान क्लस्टर के बीच अधिक स्पेस बनाता है; छोटा मान उन्हें अधिक घना बनाता है।
+गैप चौड़ाई आसन्न बार या कॉलम क्लस्टर्स के बीच की जगह है, जो बार या कॉलम चौड़ाई के प्रतिशत के रूप में व्यक्त की जाती है। ओवरलैप की तरह, यह पैरेंट श्रृंखला समूह से संबंधित है, न कि किसी एकल श्रृंखला से। समूह के लिये एक बार [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) कॉल करें। उच्च मान क्लस्टर्स के बीच अधिक जगह बनाता है; कम मान उन्हें घना बनाता है।
 
-निम्न उदाहरण गैप‑विथ बदलता है और केवल अंतिम प्रेज़ेंटेशन को सहेजता है:
+निम्न उदाहरण गैप चौड़ाई बदलता है और केवल अंतिम प्रेजेंटेशन को सहेजता है:
 
 ```java
 import com.aspose.slides.*;
@@ -465,42 +510,42 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**कौन से चार्ट प्रकार डेटा सीरीज़ को सपोर्ट करते हैं?**
+**कौन से चार्ट प्रकार डेटा श्रृंखला का समर्थन करते हैं?**
 
-[ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) एनेमरेशन द्वारा दर्शाए गए सभी चार्ट प्रकार डेटा का उपयोग करते हैं, लेकिन उनकी सीरीज़ सभी में समान मान संरचना या सेटिंग्स नहीं होतीं। उदाहरण के लिये, श्रेणी चार्ट श्रेणियों और मानों का उपयोग करते हैं, स्कैटर चार्ट X और Y मानों का, और बबल चार्ट बबल आकार जोड़ते हैं। सीरीज़ प्रकार से मेल खाने वाली डेटा‑पॉइंट निर्मित विधि का उपयोग करें। ओवरलैप और गैप‑विथ जैसी विकल्प केवल संगत बार या कॉलम ग्रुप पर लागू होती हैं।
+[ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) enumeration द्वारा प्रतिनिधित्व किए गए सभी चार्ट प्रकार डेटा का उपयोग करते हैं, लेकिन उनके श्रृंखला सभी में समान मान संरचना या सेटिंग नहीं होती। उदाहरण के लिये, श्रेणी चार्ट श्रेणियाँ और मान उपयोग करते हैं, स्कैटर चार्ट X और Y मान उपयोग करते हैं, और बबल चार्ट बबल आकार जोड़ते हैं। श्रृंखला प्रकार से मेल खाने वाले डेटा‑बिंदु निर्माण मेथड का उपयोग करें। ओवरलैप और गैप चौड़ाई जैसे विकल्प केवल संगत बार या कॉलम समूहों पर लागू होते हैं।
 
-**चार्ट सीरीज़ ग्रुप क्या है?**
+**चार्ट श्रृंखला समूह क्या है?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) उन संगत सीरीज़ को समेटता है जो समूह‑स्तर की प्लॉटिंग सेटिंग्स साझा करते हैं। एक संयोजन चार्ट में एक से अधिक ग्रुप हो सकते हैं, इसलिए एक सीरीज़ के माध्यम से पहुँचा गया ग्रुप बदलना अनिवार्य नहीं है कि चार्ट की सभी सीरीज़ बदलें।
+[IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) संगत श्रृंखलाओं को सम्मिलित करता है जो समूह‑स्तर प्लॉटिंग सेटिंग्स साझा करती हैं। एक संयोजन चार्ट में एक से अधिक समूह हो सकते हैं, इसलिए एक श्रृंखला से पहुँचा गया समूह सभी श्रृंखलाओं को आवश्यक नहीं कि बदल दे।
 
-**क्या नई बनाई गई चार्ट में डिफ़ॉल्ट डेटा होता है?**
+**क्या नया बनाए गया चार्ट डिफ़ॉल्ट डेटा रखता है?**
 
-हाँ। डिफ़ॉल्ट रूप से, [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) नमूना सीरीज़, श्रेणियां और मान बनाता है। आप उन सेल्स को संपादित कर सकते हैं या पूरी तरह कस्टम डेटा सेट जोड़ने से पहले सीरीज़ और श्रेणी संग्रह दोनों को साफ़ कर सकते हैं। एक ओवरलोड भी बिना डिफ़ॉल्ट डेटा के चार्ट बना सकता है।
+हां। डिफ़ॉल्ट रूप से, [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) नमूना श्रृंखला, श्रेणियाँ और मान बनाता है। आप इन सेल्स को संपादित कर सकते हैं या पूरी तरह कस्टम डेटा सेट जोड़ने से पहले श्रृंखला और श्रेणी कलेक्शन को साफ़ कर सकते हैं। एक ओवरलोड भी डिफ़ॉल्ट डेटा के बिना चार्ट बना सकता है।
 
 **चार्ट ऑब्जेक्ट्स वर्कबुक सेल्स से कैसे जुड़े होते हैं?**
 
-सीरीज़ नाम, श्रेणी लेबल, और डेटा‑पॉइंट मान [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) में सेल्स को संदर्भित करते हैं। किसी संदर्भित सेल को बदलने से संबंधित चार्ट तत्व अपडेट हो जाता है। कस्टम डेटा बनाते समय श्रेणी पंक्तियों और सीरीज़‑मान पंक्तियों को इस प्रकार संरेखित रखें कि प्रत्येक पॉइंट लक्ष्यित श्रेणी के तहत प्लॉट हो।
+श्रृंखला नाम, श्रेणी लेबल और डेटा‑बिंदु मान [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) में सेल्स को संदर्भित करते हैं। संदर्भित सेल को बदलने से सम्बंधित चार्ट तत्व अपडेट होता है। कस्टम डेटा बनाते समय, श्रेणी पंक्तियों और श्रृंखला‑मान पंक्तियों को इस तरह संरेखित रखें कि प्रत्येक बिंदु इच्छित श्रेणी के नीचे प्लॉट हो।
 
-**मैं पूरे सीरीज़ के बजाय एक पॉइंट कैसे साफ़ करूँ?**
+**मैं पूरी श्रृंखला के बजाय एक बिंदु को कैसे साफ़ करूँ?**
 
-संबंधित मान सेल को `null` सेट करें जिससे पॉइंट की श्रेणी स्थिति खाली पॉइंट के रूप में बनी रहे। केवल तब [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) का उपयोग करें जब आप पूरी सीरीज़ को हटाना चाहते हों। यदि आप श्रेणियां भी हटाते हैं, तो सभी सीरीज़ को अपडेट करें ताकि उनके मान श्रेणी संग्रह के साथ संरेखित रहें।
+संबंधित मान सेल को `null` सेट करें ताकि बिंदु का श्रेणी स्थान खाली बिंदु के रूप में बना रहे। पूरी श्रृंखला के सभी बिंदुओं को हटाने के लिये केवल [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) का उपयोग करें।
 
-**खाली पॉइंट्स कैसे दर्शाए जाते हैं?**
+**खाली बिंदु कैसे दर्शाए जाते हैं?**
 
-परिणाम चार्ट प्रकार और [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) में कॉन्फ़िगर किए गए मान पर निर्भर करता है। समर्थित चार्ट ब्लैंक्स को गैप, शून्य मान, या पड़ोसी पॉइंट्स को जोड़कर दिखा सकते हैं। अपनी प्रस्तुति में गायब डेटा के अर्थ से मेल खाने वाला सेटिंग चुनें। पूर्ण उदाहरण और दृश्य तुलना के लिये देखें [Control the Display of Empty Cells](#control-the-display-of-empty-cells)।
+परिणाम चार्ट प्रकार और [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) के द्वारा कॉन्फ़िगर किए गए मान पर निर्भर करता है। समर्थित चार्ट ब्लैंक्स को गैप, शून्य मान या निकटवर्ती बिंदुओं को जोड़कर दिखा सकते हैं। अपनी प्रस्तुति में अनुपस्थिति डेटा के अर्थ के अनुसार उपयुक्त सेटिंग चुनें। विस्तृत उदाहरण और दृश्य तुलना के लिये देखें [Control the Display of Empty Cells](#control-the-display-of-empty-cells)।
 
-**नकारात्मक मानों को कैसे फॉर्मेट किया जाता है?**
+**नकारात्मक मानों का फ़ॉर्मेट क्या है?**
 
-समर्थित बार, कॉलम, और बबल सीरीज़ के लिये, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) को कॉल करें और [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) द्वारा प्राप्त रंग सेट करें। आप व्यक्तिगत पॉइंट के लिये [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) से व्यवहार ओवरराइड कर सकते हैं। ये विधियां फ़ॉर्मेटिंग को प्रभावित करती हैं, न कि संग्रहीत संख्यात्मक मानों को।
+समर्थित बार, कॉलम और बबल श्रृंखलाओं के लिये, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) कॉल करें और [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) द्वारा लौटाए गए रंग को सेट करें। आप [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) के द्वारा व्यक्तिगत बिंदु के लिये व्यवहार को ओवरराइड कर सकते हैं। ये मेथड फ़ॉर्मेटिंग को प्रभावित करते हैं, न कि संग्रहित संख्यात्मक मानों को।
 
-**जब सीरीज़ और पॉइंट दोनों फ़ॉर्मेट किए गए हों, तो कौन जीतेगा?**
+**जब श्रृंखला और बिंदु दोनों फ़ॉर्मेटेड हों तो कौन जीतेगा?**
 
-स्पष्ट डेटा‑पॉइंट फ़ॉर्मेट उस पॉइंट के लिये प्राथमिकता लेता है। अन्य पॉइंट्स स्पष्ट सीरीज़ फ़ॉर्मेट या, यदि सीरीज़ फ़ॉर्मेट परिभाषित नहीं है, तो स्वचालित चार्ट शैली और थीम का उपयोग करते रहते हैं। समूह सेटिंग्स जैसे ओवरलैप और गैप‑विथ लेआउट को नियंत्रित करती हैं और पॉइंट‑स्तर फ़ॉर्मेट ओवरराइड नहीं होतीं।
+स्पष्ट डेटा‑बिंदु फ़ॉर्मेटिंग उस बिंदु के लिये प्राथमिकता लेती है। अन्य बिंदु स्पष्ट श्रृंखला फ़ॉर्मेट या, जब श्रृंखला फ़ॉर्मेट परिभाषित न हो, स्वचालित चार्ट शैली और थीम का उपयोग जारी रखते हैं। समूह सेटिंग्स जैसे ओवरलैप और गैप चौड़ाई लेआउट को नियंत्रित करती हैं और बिंदु‑स्तर की फ़ॉर्मेटिंग को ओवरराइड नहीं करतीं।
 
-**एक चार्ट में अधिकतम कितनी सीरीज़ हो सकती हैं?**
+**क्या चार्ट में रखने योग्य श्रृंखलाओं की कोई सीमा है?**
 
-Aspose.Slides कोई अलग ठोस सीरीज़‑काउंट सीमा नहीं लगाता। व्यावहारिक रूप से, प्रेज़ेंटेशन फ़ाइल की सीमाएँ, उपलब्ध मेमोरी, रेंडरिंग समय, और चार्ट की पठनीयता उपयोगी सीमा तय करती हैं।
+Aspose.Slides कोई अलग स्थिर श्रृंखला‑संख्या सीमा नहीं लगाती। व्यावहारिक रूप से, प्रेजेंटेशन फ़ाइल सीमाएँ, उपलब्ध मेमोरी, रेंडरिंग समय और चार्ट की पठनीयता उपयोगी सीमा निर्धारित करती हैं।
 
-**जब कॉलम बहुत पास या बहुत दूर हों तो मुझे क्या बदलना चाहिए?**
+**जब कॉलम बहुत करीब या बहुत दूर हों तो क्या बदलें?**
 
-उचित पैरेंट सीरीज़ ग्रुप पर [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) कॉल करें। मान बढ़ाएँ ताकि क्लस्टर के बीच का अंतराल बढ़े, या घटाएँ ताकि क्लस्टर एक‑दूसरे के करीब आएँ।
+संगत पैरेंट श्रृंखला समूह पर [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) कॉल करें। मान बढ़ाने से क्लस्टर्स के बीच की दूरी बढ़ेगी, घटाने से वे करीब आएँगे।

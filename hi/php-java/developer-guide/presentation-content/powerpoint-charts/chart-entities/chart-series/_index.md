@@ -16,29 +16,80 @@ keywords:
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "PHP के साथ प्रस्तुतियों में चार्ट श्रृंखला, डेटा बिंदु, वर्कबुक सेल, स्वरूपण, ओवरलैप, गैप चौड़ाई और नकारात्मक मान को कैसे प्रबंधित करें सीखें।"
+description: "PHP का उपयोग करके प्रस्तुतियों में चार्ट श्रृंखलाओं, डेटा बिंदुओं, वर्कबुक सेल्स, फ़ॉर्मेटिंग, ओवरलैप, गैप चौड़ाई, और नकारात्मक मानों का प्रबंधन कैसे करें सीखें।"
 ---
 ## **अवलोकन**
 
-एक चार्ट अपने प्लॉट किए गए डेटा को चार्ट डेटा वर्कबुक में संग्रहीत करता है। एक [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) एक संबंधित मानों के सेट का प्रतिनिधित्व करता है, और श्रृंखला में प्रत्येक [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) एक या अधिक वर्कबुक कोशिकाओं को संदर्भित करता है। [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) ऑब्जेक्ट्स श्रृंखला द्वारा साझा किए गए लेबल या समूह मान प्रदान करते हैं। इसलिए श्रृंखला का नाम, श्रेणियाँ, और बिंदु मान [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) ऑब्जेक्ट्स से जुड़े होते हैं, न कि केवल प्रदर्शित पाठ के रूप में संग्रहीत।
+एक चार्ट अपने प्लॉटेड मानों को वर्कबुक सेल्स में या सीधे संख्यात्मक लिटेरल्स के रूप में संग्रहीत कर सकता है। एक [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) संबंधित मानों का एक सेट दर्शाता है, और प्रत्येक [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) उस श्रृंखला में एक बिंदु दर्शाता है। [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) ऑब्जेक्ट्स लेबल या समूह मान प्रदान करते हैं जो श्रृंखलाओं में साझा होते हैं। डिफ़ॉल्ट डेटा के साथ बनाए गए चार्ट्स में, श्रृंखला नाम, वर्गीकरण और बिंदु मान चार्ट वर्कबुक से [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) ऑब्जेक्ट्स का उपयोग करते हैं।
 
-एक सामान्य श्रेणी चार्ट के लिए, डिफ़ॉल्ट वर्कबुक श्रृंखला नामों के लिए पंक्ति 0, श्रेणी नामों के लिए स्तंभ 0, और शेष कोशिकाएँ श्रृंखला मानों के लिए उपयोग करती है। [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/#getCell) को पास किए गए वर्कशीट, पंक्ति और स्तंभ अनुक्रम शून्य-आधारित होते हैं। यह लेआउट तब उपयोगी होता है जब आप डिफ़ॉल्ट डेटा के साथ चार्ट बनाते हैं, लेकिन यह मानें नहीं कि प्रत्येक मौजूदा चार्ट इसका उपयोग करता है। एक लोडेड प्रस्तुति के लिए, वर्कबुक मान बदलने से पहले श्रृंखला, श्रेणियों और डेटा बिंदुओं द्वारा संदर्भित कोशिकाओं की जाँच करें।
+एक सामान्य श्रेणी चार्ट के लिए, डिफ़ॉल्ट वर्कबुक पंक्ति 0 को श्रृंखला नामों के लिए, कॉलम 0 को श्रेणी नामों के लिए, और शेष सेल्स को श्रृंखला मानों के लिए उपयोग करता है। [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) को पास किए गए वर्कशीट, पंक्ति और कॉलम इंडेक्स शून्य‑आधारित होते हैं। यह लेआउट डिफ़ॉल्ट डेटा वाले चार्ट बनाने पर उपयोगी है, लेकिन यह मानना कि हर मौजूदा चार्ट इसे उपयोग करता है, सुरक्षित नहीं है। लोड किए गए प्रेजेंटेशन के लिए, वर्कबुक मान बदलने से पहले श्रृंखला, वर्गीकरण और डेटा पॉइंट्स द्वारा संदर्भित सेल्स की जाँच करें।
 
-चार्ट सेटिंग्स के तीन अलग-अलग स्तर हैं:
+चार्ट सेटिंग्स के तीन अलग-अलग स्कोप होते हैं:
 
-- सीरीज़-स्तर सेटिंग्स, जैसे [ChartSeries.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getFormat), एक सीरीज़ के सभी बिंदुओं के लिए डिफ़ॉल्ट स्वरूप प्रदान करती हैं।
-- डेटा-बिंदु सेटिंग्स, जैसे [ChartDataPoint.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getFormat), एक बिंदु के लिए सीरीज़ का स्वरूप ओवरराइड करती हैं।
-- समूह सेटिंग्स समान [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) के अंतर्गत आने वाली संगत सीरीज़ पर लागू होती हैं। जब आपको ओवरलैप या गैप चौड़ाई जैसे विकल्प सेट करने की आवश्यकता हो, तो [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup) के माध्यम से समूह तक पहुंचें।
+- श्रृंखला‑स्तर सेटिंग्स, जैसे कि [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/), सभी बिंदुओं के लिए डिफ़ॉल्ट स्वरूप प्रदान करती हैं।
+- डेटा‑पॉइंट सेटिंग्स, जैसे कि [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/), एक बिंदु के लिए श्रृंखला स्वरूप को ओवरराइड करती हैं।
+- समूह सेटिंग्स समान [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) की संगत श्रृंखलाओं पर लागू होती हैं। जब आपको ओवरलैप या गैप चौड़ाई जैसे विकल्प सेट करने की आवश्यकता हो, तो [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/) के माध्यम से समूह एक्सेस करें।
 
-जब कोई स्पष्ट बिंदु या श्रृंखला भराव सेट नहीं किया गया हो, तो चार्ट शैली और थीम स्वचालित स्वरूप निर्धारित करती हैं। जब श्रृंखला और बिंदु दोनों का फ़ॉर्मेट मौजूद हो, तो बिंदु का फ़ॉर्मेट उस बिंदु के लिए प्राथमिकता रखता है।
+जब कोई स्पष्ट बिंदु या श्रृंखला भराव सेट नहीं किया जाता, तो चार्ट शैली और थीम स्वचालित स्वरूप निर्धारित करती हैं। जब दोनों श्रृंखला और बिंदु फॉर्मेट मौजूद होते हैं, तो बिंदु फॉर्मेट उस बिंदु के लिए प्राथमिकता लेता है।
 
-![चार्ट-सीरीज़-पावरपॉइंट](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **चार्ट सीरीज़ ओवरलैप सेट करें**
+## **संख्या लिटेरल्स का उपयोग करके श्रृंखला मान सेट करें**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getOverlap) 2D चार्ट में बार या कॉलम के ओवरलैप प्रतिशत को -100 से 100 तक रिपोर्ट करता है। यह पैरेंट श्रृंखला समूह पर सेटिंग का केवल-पढ़ने योग्य प्रक्षेपण है। समान समूह में प्रत्येक संगत सीरीज़ को अपडेट करने के लिए [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) का उपयोग करें। यह विकल्प उन चार्ट प्रकारों पर लागू होता है जो समूहित बार या कॉलम प्रदर्शित करते हैं; यह संयोजन चार्ट में असंबंधित सीरीज़ समूहों को प्रभावित नहीं करता।
+जब श्रृंखला मान एप्लिकेशन डेटा या गणनाओं से आते हैं और वर्कशीट सेल रेफ़रेंसेस की आवश्यकता नहीं होती, तो संख्या लिटेरल्स का उपयोग करें। प्रत्येक बिंदु के [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) परिणाम को [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/) के माध्यम से असाइन करने से पहले [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) को [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) के साथ कॉल करें।
 
-निम्नलिखित उदाहरण प्रथम श्रृंखला को शामिल करने वाले समूह के लिए ओवरलैप सेट करता है:
+कलेक्शन सेटिंग उस श्रृंखला में सभी बिंदु मानों के स्रोत प्रकार को नियंत्रित करती है। प्रत्येक बिंदु मान का [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) मेथड चयनित प्रकार रिपोर्ट करता है; इसे कलेक्शन सेटिंग के माध्यम से बदलें। `Worksheet` के साथ, रेफ़रेंस्ड सेल तक पहुंचने के लिए [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) का उपयोग करें। `DoubleLiterals` के साथ, संख्या को सीधे पढ़ने या लिखने के लिए [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) या `setAsLiteralDouble` का उपयोग करें।
+
+निम्न उदाहरण एक कॉलम चार्ट बनाता है जिसमें डिफ़ॉल्ट श्रृंखला और वर्गीकरण होते हैं, फिर पहली श्रृंखला के मौजूदा बिंदुओं को 10, 20 आदि के गणितीय मान असाइन करता है। यह प्रेज़ेंटेशन को सहेजता है, पुनः खोलता है, और संग्रहीत मानों को प्रिंट करता है।
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\DataSourceType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $series->getDataPoints()->setDataSourceTypeForValues(DataSourceType::DoubleLiterals);
+    $pointCount = java_values($series->getDataPoints()->size());
+    for ($i = 0; $i < $pointCount; $i++) {
+        $series->getDataPoints()->get_Item($i)->getValue()->setAsLiteralDouble(($i + 1) * 10);
+    }
+
+    $presentation->save("numeric_literals.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$reopenedPresentation = new Presentation("numeric_literals.pptx");
+try {
+    $reopenedSlide = $reopenedPresentation->getSlides()->get_Item(0);
+    $reopenedChart = $reopenedSlide->getShapes()->get_Item(0);
+    $reopenedSeries = $reopenedChart->getChartData()->getSeries()->get_Item(0);
+    $pointCount = java_values($reopenedSeries->getDataPoints()->size());
+    for ($i = 0; $i < $pointCount; $i++) {
+        $point = $reopenedSeries->getDataPoints()->get_Item($i);
+        echo java_values($point->getValue()->getAsLiteralDouble()), PHP_EOL;
+    }
+} finally {
+    $reopenedPresentation->dispose();
+}
+```
+
+बिंदु मान स्रोत प्रकार [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) से अलग है, जो चार्ट की आंतरिक या बाहरी वर्कबुक कॉन्फ़िगरेशन पहचानता है। संख्या लिटेरल्स का उपयोग करने से एंबेडेड वर्कबुक स्वचालित रूप से हटता नहीं है। इस उदाहरण में, वर्कबुक वर्गीकरण लेबल्स, श्रृंखला नामों और अन्य श्रृंखलाओं के लिए उपलब्ध रहता है। वर्कबुक प्रबंधन के लिए देखें [Chart Workbook](/slides/hi/php-java/chart-workbook/)।
+
+स्कैटर और बबल चार्ट्स के लिए, [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) और [setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) का उपयोग करके क्रमशः [getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) और [getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/) के स्रोत चुनें। बबल चार्ट्स में [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) का उपयोग करके [getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/) का स्रोत चुनें। प्रत्येक लागू स्रोत को `DoubleLiterals` पर सेट करें और फिर `setAsLiteralDouble` मेथड के माध्यम से संख्याएँ असाइन करें।
+
+## **चार्ट श्रृंखला ओवरलैप सेट करें**
+
+[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) रिपोर्ट करता है कि 2D चार्ट में बार या कॉलम कितना ओवरलैप करते हैं, -100 से 100 प्रतिशत तक। यह पैरेंट श्रृंखला समूह पर सेटिंग का केवल रीड‑ओनली प्रस्तुतीकरण है। सभी संगत श्रृंखलाओं को अपडेट करने के लिए [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) का उपयोग करें। यह विकल्प ग्रुपेड बार या कॉलम वाले चार्ट प्रकारों पर लागू होता है; संयोजन चार्ट में असंबंधित श्रृंखला समूह इससे प्रभावित नहीं होते।
+
+निम्न उदाहरण पहले श्रृंखला को शामिल करने वाले समूह के लिए ओवरलैप सेट करता है:
 
 ```php
 $firstSlideIndex = 0;
@@ -49,7 +100,7 @@ $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-    // नया चार्ट नमूना श्रृंखला, श्रेणियां और मान रखता है।
+    // नया चार्ट नमूना श्रृंखलाएँ, श्रेणियाँ और मान शामिल करता है।
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
     $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
@@ -65,13 +116,13 @@ try {
 
 परिणाम:
 
-![सीरीज़ ओवरलैप](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **सीरीज़ फिल रंग बदलें**
+## **श्रृंखला भराव रंग बदलें**
 
-पूरी सीरीज़ के लिए डिफ़ॉल्ट भराव सेट करने हेतु [ChartSeries.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getFormat) का उपयोग करें। यदि किसी बिंदु के पास पहले से स्पष्ट भराव है, तो उसके [ChartDataPoint.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getFormat) सेटिंग उस बिंदु के लिए श्रृंखला भराव को ओवरराइड करती है।
+पूरी श्रृंखला के लिए डिफ़ॉल्ट भराव सेट करने हेतु [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) का उपयोग करें। यदि किसी बिंदु का पहले से स्पष्ट भराव है, तो उसका [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) सेटिंग उस बिंदु के लिए श्रृंखला भराव को ओवरराइड करती है।
 
-निम्नलिखित उदाहरण प्रथम सीरीज़ पर ठोस नीला भराव लागू करता है:
+निम्न उदाहरण पहली श्रृंखला पर ठोस नीला भराव लागू करता है:
 
 ```php
 $firstSlideIndex = 0;
@@ -98,11 +149,11 @@ try {
 
 परिणाम:
 
-![सीरीज़ का रंग](series_color.png)
+![The color of the series](series_color.png)
 
-## **सीरीज़ नाम बदलें**
+## **श्रृंखला नाम बदलें**
 
-एक सीरीज़ नाम चार्ट डेटा वर्कबुक में संग्रहीत होता है और सामान्यतः लेजेंड में प्रदर्शित होता है। क्लस्टर्ड कॉलम चार्ट के लिए बनाई गई डिफ़ॉल्ट वर्कबुक में, कोशिका B1 पंक्ति 0, स्तंभ 1 पर स्थित होती है और पहले सीरीज़ का नाम रखती है। निम्नलिखित उदाहरण में नामित चर इस संरचना को स्पष्ट करते हैं:
+एक श्रृंखला नाम चार्ट डेटा वर्कबुक में संग्रहीत होता है और सामान्यतः लेजेंड में प्रदर्शित होता है। क्लस्टर्ड कॉलम चार्ट के लिए डिफ़ॉल्ट वर्कबुक में, सेल B1 पंक्ति 0, कॉलम 1 पर स्थित है और पहली श्रृंखला का नाम रखता है। नीचे दिए गए उदाहरण में नामित वैरिएबल्स इस संरचना को स्पष्ट करते हैं:
 
 ```php
 $firstSlideIndex = 0;
@@ -128,7 +179,7 @@ try {
 }
 ```
 
-आप [ChartSeries.getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getName) द्वारा पहले से संदर्भित कोशिका को भी अपडेट कर सकते हैं। यह दृष्टिकोण मौजूदा चार्ट में किसी विशिष्ट पंक्ति और स्तंभ को मानने से बचाता है:
+आप [ChartSeries::getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getname/) द्वारा पहले से संदर्भित सेल को भी अपडेट कर सकते हैं। यह तरीका मौजूदा चार्ट में किसी विशिष्ट पंक्ति और कॉलम को मानने से बचाता है:
 
 ```php
 $firstSlideIndex = 0;
@@ -155,15 +206,15 @@ try {
 
 परिणाम:
 
-![सीरीज़ नाम](series_name.png)
+![The series name](series_name.png)
 
-### **कई कोशिकाओं से नाम के साथ सीरीज़ बनाएं**
+### **कई सेल्स से नाम वाली श्रृंखला बनाएं**
 
-जब उत्पाद नाम और रिपोर्टिंग अवधि अलग-अलग वर्कबुक कोशिकाओं में संग्रहीत हों, तो संयुक्त सीरीज़ नाम उपयोगी होता है। उदाहरण के तौर पर, आप B1 में `Product A` और C1 में `2026` को मिलाकर एकल सीरीज़ नाम बना सकते हैं, जबकि दोनों भागों को उनके स्रोत कोशिकाओं से जुड़ा रख सकते हैं।
+जब उत्पाद नाम और रिपोर्टिंग अवधि अलग-अलग वर्कबुक सेल्स में संग्रहीत हों, तो सम्मिलित श्रृंखला नाम उपयोगी होता है। उदाहरण के लिए, आप B1 में `Product A` और C1 में `2026` को मिलाकर एक ही श्रृंखला नाम बना सकते हैं, जबकि दोनों भाग अपने स्रोत सेल्स से जुड़े रहते हैं।
 
-नाम रेंज प्राप्त करने के लिए [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/#getCellCollection) का उपयोग करें, फिर उस संग्रह को [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/#add) को पास करें। `skipHiddenCells` तर्क यह नियंत्रित करता है कि छिपी हुई कोशिकाएँ शामिल हों या नहीं: `true` उन्हें बाहर करता है, जबकि `false` उन्हें शामिल करता है। यह उदाहरण `false` का उपयोग करके नाम रेंज की सभी कोशिकाओं को शामिल करता है।
+[ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcellcollection/) का उपयोग करके नाम रेंज प्राप्त करें, फिर उसे [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/add/) को पास करें। `skipHiddenCells` तर्क यह नियंत्रित करता है कि छिपे हुए सेल शामिल हों या न हों: `true` उन्हें बाहर करता है, `false` शामिल करता है। यह उदाहरण `false` का उपयोग करके नाम रेंज की सभी सेल्स शामिल करता है।
 
-निम्नलिखित उदाहरण एक प्रस्तुति बनाता है जिसमें एक सीरीज़ और दो डेटा बिंदु होते हैं। कोशिकाएँ B1:C1 केवल सीरीज़ नाम प्रदान करती हैं; A2:A3 श्रेणी लेबल देती हैं, और B2:B3 संख्यात्मक मान देती हैं।
+निम्न उदाहरण एक प्रेज़ेंटेशन बनाता है जिसमें एक श्रृंखला और दो डेटा पॉइंट्स होते हैं। सेल्स B1:C1 केवल श्रृंखला नाम प्रदान करती हैं; A2:A3 श्रेणी लेबल्स देते हैं, और B2:B3 संख्यात्मक मान देते हैं।
 
 ```php
 use aspose\slides\ChartType;
@@ -183,13 +234,13 @@ try {
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $workbook->clear(0);
 
-    // ये दो कोशिकाएँ श्रृंखला का नाम प्रदान करती हैं।
+    // इन दो सेल्स श्रृंखला नाम प्रदान करती हैं।
     $workbook->getCell(0, 0, 1, "Product A");
     $workbook->getCell(0, 0, 2, "2026");
     $nameCells = $workbook->getCellCollection('Sheet1!$B$1:$C$1', false);
     $series = $chart->getChartData()->getSeries()->add($nameCells, ChartType::ClusteredColumn);
 
-    // अलग कोशिकाएँ श्रेणियाँ और संख्यात्मक डेटा बिंदु प्रदान करती हैं।
+    // अलग-अलग सेल्स श्रेणियाँ और संख्यात्मक डेटा पॉइंट्स प्रदान करती हैं।
     $northCategory = $workbook->getCell(0, 1, 0, "North");
     $southCategory = $workbook->getCell(0, 2, 0, "South");
     $chart->getChartData()->getCategories()->add($northCategory);
@@ -205,15 +256,15 @@ try {
 }
 ```
 
-परिणामस्वरूप सीरीज़ नाम `Product A 2026` होगा, जिसमें दो कोशिका मानों के बीच एक स्पेस होगा। लेजेंड इसे दोनों स्तंभों के लिए एक प्रविष्टि के रूप में दिखाएगा। नीचे की छवि परिणाम को दर्शाती है:
+परिणामी श्रृंखला नाम `Product A 2026` है, दो सेल मानों के बीच एक स्पेस के साथ। लेजेंड इसे दोनों कॉलमों के लिए एक एंट्री के रूप में दिखाता है। नीचे दिया गया चित्र परिणाम दर्शाता है:
 
-![उत्तरी और दक्षिणी मानों के साथ कॉलम चार्ट और लेजेंड में संयुक्त सीरीज़ नाम Product A 2026](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **ऑटोमैटिक सीरीज़ फिल रंग प्राप्त करें**
+## **स्वचालित श्रृंखला भराव रंग प्राप्त करें**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) श्रृंखला अनुक्रम और चार्ट शैली से गणना किया गया रंग लौटाता है। यह वह रंग है जो तब उपयोग होता है जब श्रृंखला भराव स्पष्ट रूप से परिभाषित नहीं किया गया हो। इस मेथड को कॉल करने से गणना किया गया रंग पढ़ा जाता है; यह नया भराव असाइन नहीं करता।
+[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) श्रृंखला इंडेक्स और चार्ट शैली से गणना किया गया रंग लौटाता है। यह वही रंग है जो तब उपयोग होता है जब श्रृंखला भराव स्पष्ट रूप से परिभाषित नहीं किया गया हो। मेथड कॉल केवल गणना किया गया रंग पढ़ता है; यह नया भराव असाइन नहीं करता।
 
-निम्नलिखित उदाहरण प्रत्येक डिफ़ॉल्ट श्रृंखला का स्वचालित रंग प्रिंट करता है:
+निम्न उदाहरण प्रत्येक डिफ़ॉल्ट श्रृंखला का स्वचालित रंग प्रिंट करता है:
 
 ```php
 $firstSlideIndex = 0;
@@ -250,11 +301,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 सटीक रंग चार्ट शैली और थीम पर निर्भर करते हैं।
 
-## **चार्ट सीरीज़ के लिए इनवर्ट फिल रंग सेट करें**
+## **चार्ट श्रृंखला के लिए इनवर्ट भराव रंग सेट करें**
 
-बार, कॉलम और बबल श्रृंखलाओं के लिए, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setInvertIfNegative) नकारात्मक मानों को अलग रंग से दर्शा सकता है। नियमित श्रृंखला भराव को ठोस सेट करें, इनवर्शन सक्षम करें, और नकारात्मक‑मान रंग को [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) के माध्यम से असाइन करें। नकारात्मक संख्याएँ वर्कबुक में अपरिवर्तित रहती हैं; केवल उनका प्रदर्शन रंग बदलता है।
+बार, कॉलम और बबल श्रृंखलाओं के लिए, [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) नकारात्मक मानों को अलग भराव के साथ प्रदर्शित कर सकता है। नियमित श्रृंखला भराव को ठोस सेट करें, इनवर्ज़न सक्षम करें, और नकारात्मक‑मूल्य रंग को [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/) के माध्यम से असाइन करें। नकारात्मक संख्याएँ वर्कबुक में अपरिवर्तित रहती हैं; केवल उनका डिस्प्ले रंग बदलता है।
 
-निम्नलिखित उदाहरण डिफ़ॉल्ट चार्ट डेटा को एक श्रृंखला से बदलता है। वर्कशीट की पंक्ति 0 में श्रृंखला नाम, स्तंभ 0 में श्रेणी नाम, और स्तंभ 1 में मान होते हैं:
+निम्न उदाहरण डिफ़ॉल्ट चार्ट डेटा को एक श्रृंखला से बदलता है। वर्कशीट पंक्ति 0 में श्रृंखला नाम, कॉलम 0 में श्रेणी नाम, और कॉलम 1 में मान होते हैं:
 
 ```php
 $firstSlideIndex = 0;
@@ -312,9 +363,9 @@ try {
 
 परिणाम:
 
-![इनवर्टेड सॉलिड फिल रंग](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-आप [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) के द्वारा एक बिंदु के लिए इनवर्शन सक्षम कर सकते हैं। निम्न उदाहरण में श्रृंखला के लिए इनवर्शन अक्षम किया गया है और केवल चयनित बिंदु के लिए सक्षम किया गया है। बिंदु को नकारात्मक मान भी असाइन किया गया है ताकि प्रभाव स्पष्ट दिखे:
+आप एक बिंदु के लिए [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/) के द्वारा इनवर्ज़न सक्षम कर सकते हैं। नीचे के उदाहरण में श्रृंखला के लिए इनवर्ज़न अक्षम है और केवल चयनित बिंदु के लिए सक्षम किया गया है। बिंदु को नकारात्मक मान भी असाइन किया गया है ताकि प्रभाव स्पष्ट दिखे:
 
 ```php
 $firstSlideIndex = 0;
@@ -348,11 +399,11 @@ try {
 }
 ```
 
-## **विशिष्ट डेटा बिंदु मान साफ़ करें**
+## **विशिष्ट डेटा पॉइंट मान साफ़ करें**
 
-एक बिंदु को खाली करने के लिए उसके समर्थन वर्कबुक सेल को `null` सेट करें, जबकि अन्य बिंदुओं को न हटाएँ। कॉलम चार्ट के लिए, प्लॉट किया गया मान [ChartDataPoint.getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getValue) के माध्यम से उपलब्ध होता है। डेटा बिंदु समान श्रेणी स्थिति पर रहता है, लेकिन चार्ट उसकी मान को खाली मानता है जैसा कि चार्ट की खाली‑मान सेटिंग्स में परिभाषित है।
+एक बिंदु को खाली करने के लिए, उसके बैकिंग वर्कबुक सेल को `null` सेट करें, जबकि अन्य बिंदुओं को बरकरार रखें। कॉलम चार्ट के लिए, प्लॉटेड मान [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) के माध्यम से उपलब्ध होता है। डेटा पॉइंट वही श्रेणी पद में बना रहता है, लेकिन चार्ट उसकी मान को खाली मानता है, जैसा कि चार्ट की ब्लैंक‑वैल्यू सेटिंग्स निर्धारित करती हैं।
 
-निम्नलिखित उदाहरण प्रथम श्रृंखला के दूसरे बिंदु को ही साफ़ करता है:
+निम्न उदाहरण पहली श्रृंखला के केवल दूसरे बिंदु को साफ़ करता है:
 
 ```php
 $firstSlideIndex = 0;
@@ -377,17 +428,17 @@ try {
 }
 ```
 
-स्कैटर चार्ट अलग‑अलग X और Y सेल का उपयोग करते हैं, और बबल चार्ट एक आकार सेल भी उपयोग करता है। केवल उस सेल को साफ़ करें जो आप हटाना चाहते हैं। जब आप अन्य बिंदुओं को रखना चाहते हैं, तो [ChartDataPointCollection.clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/#clear) न बुलाएँ, क्योंकि यह मेथड संग्रह से सभी डेटा बिंदु हटा देता है।
+स्कैटर चार्ट्स अलग‑अलग X और Y सेल्स का उपयोग करते हैं, और बबल चार्ट्स में आकार सेल भी होता है। केवल उस सेल को साफ़ करें जो हटाए जाने वाले मान का प्रतिनिधित्व करता है। जब आप अन्य बिंदुओं को रखना चाहते हैं, तो [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) न बुलाएँ, क्योंकि यह मेथड पूरी कलेक्शन को हटा देता है।
 
-## **खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें**
+## **खाली सेल्स के प्रदर्शन को नियंत्रित करें**
 
-छिपी हुई कोशिकाएँ जिनमें मान होते हैं, वे खाली कोशिकाओं से अलग मामले हैं। छिपी हुई वर्कशीट पंक्तियों और स्तंभों से डेटा को शामिल या बाहर करने के लिए देखें [छिपी पंक्तियों और स्तंभों से डेटा शामिल करें](/slides/hi/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns)।
+छिपे हुए सेल्स जिनमें मान होते हैं, वे खाली सेल्स से अलग होते हैं। छिपी वर्कशीट पंक्तियों और कॉलमों से डेटा को शामिल या बाहर करने के लिए देखें [Include Data from Hidden Rows and Columns](/slides/hi/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns)।
 
-एक खाली वर्कबुक सेल गायब डेटा को दर्शाता है; `0` वाला सेल ज्ञात संख्यात्मक मान को दर्शाता है। `null` के साथ [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setValue) को कॉल करके सेल को खाली बनायें। संख्यात्मक शून्य ब्लैंक‑सेल सेटिंग के बावजूद शून्य ही रहता है।
+एक खाली वर्कबुक सेल अनुपलब्ध डेटा दर्शाता है; `0` वाला सेल ज्ञात संख्यात्मक मान दर्शाता है। सेल को खाली बनाने के लिए [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) को `null` के साथ कॉल करें। शून्य संख्यात्मक शून्य ही रहेगा, चाहे ब्लैंक‑सेल सेटिंग जो भी हो।
 
-खाली कोशिकाओं को चार्ट कैसे दिखाता है, इसे चुनने के लिए [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs) का उपयोग करें। यह सेटिंग पूरे चार्ट पर लागू होती है। यह ब्लैंक्स के प्लॉटिंग तरीके को बदलती है, बिना खाली वर्कबुक सेल को शून्य या अन्य मान से भरने के।
+खाली सेल्स के प्रदर्शन को चुनने के लिए [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) का उपयोग करें। यह सेटिंग पूरे चार्ट पर लागू होती है और ब्लैंक्स के प्लॉटिंग तरीके को बदलती है, बिना खाली वर्कबुक सेल को शून्य या इंटरपोलेटेड मान से भरें।
 
-निम्नलिखित स्वतंत्र उदाहरण एक लाइन चार्ट बनाता है जिसमें एक श्रृंखला है, दिन 3 का मान साफ़ करता है, और प्रत्येक मोड के साथ उसी चार्ट को सहेजता है। कोई इनपुट फ़ाइल आवश्यक नहीं है। [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) वर्कशीट 0, स्तंभ 0 को श्रेणी लेबल के लिए, और स्तंभ 1 को मानों के लिए उपयोग करता है; पंक्ति 0 में श्रृंखला नाम रहता है। अंतिम डेटा `10, 20, empty, 30, 40` है।
+निम्न स्वनिर्भर उदाहरण एक लाइन चार्ट बनाता है जिसमें एक श्रृंखला है, दिन 3 का मान साफ़ करता है, और प्रत्येक मोड के साथ उसी चार्ट को सहेजता है। कोई इनपुट फ़ाइल आवश्यक नहीं है। [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) वर्कशीट 0, कॉलम 0 को श्रेणी लेबल्स और कॉलम 1 को मानों के लिए उपयोग करता है; पंक्ति 0 में श्रृंखला नाम रहता है। अंतिम डेटा `10, 20, empty, 30, 40` है।
 
 ```php
 use aspose\slides\ChartType;
@@ -417,7 +468,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Day 3 को वास्तव में खाली छोड़ें, जबकि उसकी श्रेणी और डेटा बिंदु को बनाए रखें।
+    // Day 3 को वास्तव में खाली छोड़ें, जबकि उसकी श्रेणी और डेटा पॉइंट को बनाए रखें।
     $workbook->getCell(0, 3, 1)->setValue(null);
 
     $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
@@ -431,19 +482,19 @@ try {
 }
 ```
 
-प्रत्येक आउटपुट फ़ाइल सहेजने से पहले निर्धारित मोड को दर्शाती है: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, और `empty_cells_Span.pptx`। केवल एक संस्करण सहेजने के लिए, इच्छित मोड असाइन करें और प्रस्तुति को एक बार सहेजें, मोड्स पर पुनरावृति न करें।
+प्रत्येक आउटपुट फ़ाइल उस मोड को दर्शाती है जो सहेजने से पहले सेट किया गया था: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, और `empty_cells_Span.pptx`। केवल एक संस्करण सहेजने के लिए, इच्छित मोड असाइन करें और प्रेज़ेंटेशन को एक बार सहेजें।
 
-नीचे तुलना में समान डेटा तीनों फाइलों में दिखाया गया है। दिन 3 कार्यपुस्तिका में प्रत्येक मामले में खाली है:
+नीचे की तुलना में सभी तीन फ़ाइलों में समान डेटा दिखाया गया है। दिन 3 हर केस में वर्कबुक में खाली रहता है:
 
-![लाइन चार्ट समान डेटा के साथ: गैप दिन 3 पर रेखा को तोड़ता है, ज़ीरो रेखा को शून्य तक घटाता है, और स्पैन दिन 2 को दिन 4 से जोड़ता है।](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-दिखाया गया प्रभाव चार्ट प्रकार पर निर्भर करता है। लाइन चार्ट सभी तीन मोड को आसानी से तुलना करने देता है। बार और कॉलम चार्ट में गायब श्रेणी के ऊपर कोई रेखा नहीं होती, इसलिए `Span` ऊपर दिखाए गए कनेक्टिंग खंड को उत्पन्न नहीं कर सकता; एक गायब स्तंभ और शून्य‑ऊँचाई वाला स्तंभ भी समान दिख सकते हैं। इसी तरह, केवल मार्कर वाले स्कैटर चार्ट में कोई कनेक्टिंग लाइन नहीं होती। सभी चार्ट प्रकारों में तीन अलग-अलग परिणाम की उम्मीद न रखें; जिस प्रकार का उपयोग कर रहे हैं, उसके लिए आउटपुट की जाँच करें।
+दृश्यमान प्रभाव चार्ट प्रकार पर निर्भर करता है। लाइन चार्ट सभी तीन मोड को स्पष्ट रूप से तुलना करने देता है। बार और कॉलम चार्ट्स में कोई लाइन नहीं होती जिससे कनेक्शन संभव न हो, इसलिए `Span` उपर्युक्त कनेक्टिंग सेगमेंट नहीं बना सकता; एक गुम कॉलम और शून्य‑ऊँचाई वाला कॉलम भी एक जैसा दिख सकता है। इसी प्रकार, केवल मार्कर्स वाले स्कैटर चार्ट में कोई कनेक्टिंग लाइन नहीं होती। सभी चार्ट प्रकारों में तीन अलग-अलग परिणाम मिलने की उम्मीद न करें; अपने उपयोग किए जाने वाले प्रकार के अनुसार आउटपुट जाँचें।
 
-## **सीरीज़ गैप चौड़ाई सेट करें**
+## **श्रृंखला गैप चौड़ाई सेट करें**
 
-गैप चौड़ाई सन्निहित बार या कॉलम क्लस्टरों के बीच की जगह है, जिसे बार या कॉलम की चौड़ाई के प्रतिशत के रूप में व्यक्त किया जाता है। ओवरलैप की तरह, यह पैरेंट श्रृंखला समूह से संबंधित है, न कि किसी एक श्रृंखला से। समूह के लिए एक बार [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) कॉल करें। बड़ी मान क्लस्टरों के बीच अधिक जगह बनाती है; छोटी मान उन्हें अधिक घना बनाती है।
+गैप चौड़ाई साइड‑बाय‑साइड बार या कॉलम क्लस्टर के बीच की जगह को दर्शाती है, जो बार या कॉलम की चौड़ाई के प्रतिशत के रूप में व्यक्त होती है। ओवरलैप की तरह, यह पैरेंट श्रृंखला समूह से संबंधित है, न कि किसी एकली श्रृंखला से। समूह के लिए एक बार [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) कॉल करें। बड़ा मान क्लस्टर के बीच अधिक जगह बनाता है; छोटा मान उन्हें अधिक सघन बनाता है।
 
-निम्नलिखित उदाहरण गैप चौड़ाई बदलता है और केवल अंतिम प्रस्तुति को सहेजता है:
+निम्न उदाहरण गैप चौड़ाई बदलता है और केवल अंतिम प्रेज़ेंटेशन को सहेजता है:
 
 ```php
 $firstSlideIndex = 0;
@@ -469,46 +520,46 @@ try {
 
 परिणाम:
 
-![गैप चौड़ाई](gap_width.png)
+![The gap width](gap_width.png)
 
-## **सामान्य प्रश्न**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**कौन से चार्ट प्रकार डेटा सीरीज़ का समर्थन करते हैं?**
+**कौन से चार्ट प्रकार डेटा श्रृंखलाओं का समर्थन करते हैं?**
 
-[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) एन्क्यूमरेशन द्वारा प्रतिनिधित्व किए गए सभी चार्ट प्रकार डेटा का उपयोग करते हैं, लेकिन उनकी श्रृंखलाओं की मूल्य संरचना या सेटिंग्स समान नहीं होती। उदाहरण के लिए, श्रेणी चार्ट श्रेणियाँ और मान उपयोग करते हैं, स्कैटर चार्ट X और Y मान, और बबल चार्ट बबल आकार जोड़ते हैं। श्रृंखला प्रकार से मेल खाते डेटा‑बिंदु निर्माण मेथड का उपयोग करें। ओवरलैप और गैप चौड़ाई जैसे विकल्प केवल संगत बार या कॉलम समूहों पर लागू होते हैं।
+[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) एनोमरेशन द्वारा प्रतिनिधित्व किए गए सभी चार्ट प्रकार डेटा का उपयोग करते हैं, लेकिन उनकी श्रृंखलाओं की संरचना या सेटिंग्स समान नहीं हो सकती। उदाहरण के लिए, श्रेणी चार्ट्स में श्रेणियाँ और मान होते हैं, स्कैटर चार्ट्स में X और Y मान होते हैं, और बबल चार्ट्स में बबल आकार जोड़ते हैं। श्रृंखला प्रकार से मेल खाने वाली डेटा‑पॉइंट निर्माण विधि चुनें। ओवरलैप और गैप चौड़ाई जैसे विकल्प केवल संगत बार या कॉलम समूहों पर लागू होते हैं।
 
-**चार्ट सीरीज़ समूह क्या है?**
+**चार्ट श्रृंखला समूह क्या है?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) संगत सीरीज़ को सम्मिलित करता है जो समूह‑स्तर की प्लॉट सेटिंग्स साझा करती हैं। एक संयोजन चार्ट में एक से अधिक समूह हो सकते हैं, इसलिए एक सीरीज़ के माध्यम से पहुँचे गए समूह को बदलने से सभी सीरीज़ पर ज़रूरी नहीं कि असर पड़े।
+[ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) संगत श्रृंखलाओं को रखता है जो समूह‑स्तर के प्लॉटिंग सेटिंग्स साझा करती हैं। एक संयोजन चार्ट में एक से अधिक समूह हो सकते हैं, इसलिए एक श्रृंखला के माध्यम से पहुँचा गया समूह सभी श्रृंखलाओं को आवश्यक रूप से नहीं बदलता।
 
 **क्या नई बनाई गई चार्ट में डिफ़ॉल्ट डेटा होता है?**
 
-हां। डिफ़ॉल्ट रूप से, [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) नमूना सीरीज़, श्रेणियाँ और मान बनाता है। आप उन कोशिकाओं को संपादित कर सकते हैं या पूरी तरह से कस्टम डेटा सेट जोड़ने से पहले दोनों सीरीज़ और श्रेणी संग्रह को साफ़ कर सकते हैं। एक ओवरलोड का उपयोग करके डिफ़ॉल्ट डेटा के बिना भी चार्ट बनाया जा सकता है।
+हां। डिफ़ॉल्ट रूप से, [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) नमूना श्रृंखलाएँ, श्रेणियाँ और मान बनाता है। आप उन सेल्स को संपादित कर सकते हैं या कस्टम डेटा सेट जोड़ने से पहले दोनों श्रृंखला और श्रेणी कलेक्शन को साफ़ कर सकते हैं। एक ओवरलोड भी बिना डिफ़ॉल्ट डेटा के चार्ट बना सकता है।
 
-**चार्ट ऑब्जेक्ट्स वर्कबुक कोशिकाओं से कैसे जुड़े हैं?**
+**चार्ट ऑब्जेक्ट्स वर्कबुक सेल्स से कैसे जुड़े होते हैं?**
 
-शीर्षक, श्रेणी लेबल और डेटा‑बिंदु मान [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) की कोशिकाओं को संदर्भित करते हैं। संदर्भित कोशिका को बदलने से संबंधित चार्ट तत्व अपडेट होता है। जब आप कस्टम डेटा बनाते हैं, तो श्रेणी पंक्तियों और श्रृंखला‑मान पंक्तियों को इस प्रकार संरेखित रखें कि प्रत्येक बिंदु इच्छित श्रेणी के नीचे प्लॉट हो।
+श्रृंखला नाम, श्रेणी लेबल और डेटा‑पॉइंट मान [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) में सेल्स को रेफ़र करते हैं। किसी रेफ़रेंस्ड सेल को बदलने से संबंधित चार्ट तत्व अपडेट हो जाता है। कस्टम डेटा बनाते समय, श्रेणी पंक्तियों और श्रृंखला‑मान पंक्तियों को संरेखित रखें ताकि प्रत्येक बिंदु इच्छित श्रेणी के नीचे प्लॉट हो।
 
-**मैं पूरी श्रृंखला के बजाय एक बिंदु कैसे साफ़ करूँ?**
+**मैं पूरी श्रृंखला की बजाय एक बिंदु कैसे साफ़ करूँ?**
 
-संबंधित मान कोशिका को `null` सेट करें ताकि बिंदु की श्रेणी स्थिति खाली बिंदु के रूप में बनी रहे। [ChartDataPointCollection.clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/#clear) का उपयोग केवल तब करें जब आप पूरी श्रृंखला के सभी बिंदुओं को हटाना चाहते हों। यदि आप श्रेणियों को भी हटाते हैं, तो सभी श्रृंखलाओं को इस प्रकार अपडेट करें कि उनके मान श्रेणी संग्रह के साथ संरेखित रहें।
+संभव बिंदु को खाली रखने के लिए संबंधित मान सेल को `null` सेट करें, जिससे उसका श्रेणी पद बना रहे। केवल तब [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) का उपयोग करें जब आप पूरी श्रृंखला के सभी बिंदु हटाना चाहते हों। यदि आप श्रेणियाँ भी हटाते हैं, तो सभी श्रृंखलाओं को इस तरह अपडेट करें कि उनके मान श्रेणी संग्रह के साथ संरेखित रहें।
 
 **खाली बिंदु कैसे प्रदर्शित होते हैं?**
 
-परिणाम [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs) द्वारा कॉन्फ़िगर किए गए चार्ट प्रकार और मान पर निर्भर करता है। समर्थित चार्ट खाली मान को गैप, शून्य मान या निकटवर्ती बिंदुओं को जोड़कर दिखा सकते हैं। अपनी प्रस्तुति में गायब डेटा के अर्थ के अनुसार सेटिंग चुनें। पूर्ण उदाहरण और दृश्य तुलना के लिए देखें **[खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](#control-the-display-of-empty-cells)**।
+परिणाम चार्ट प्रकार और [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) में कॉन्फ़िगर किए गए मान पर निर्भर करता है। समर्थित चार्ट्स ब्लैंक्स को गैप, शून्य मान या निकटवर्ती बिंदुओं को जोड़कर दिखा सकते हैं। अपनी प्रेज़ेंटेशन में लापता डेटा के अर्थ के अनुसार सेटिंग चुनें। पूर्ण उदाहरण और दृश्य तुलना के लिए देखें [Control the Display of Empty Cells](#control-the-display-of-empty-cells)।
 
-**नकारात्मक मानों का फ़ॉर्मेट क्या है?**
+**नकारात्मक मानों का स्वरूप क्या है?**
 
-समर्थित बार, कॉलम और बबल श्रृंखलाओं के लिए, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setInvertIfNegative) को कॉल करें और [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) द्वारा लौटाए गए रंग को सेट करें। आप व्यक्तिगत बिंदु के लिए [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) के द्वारा व्यवहार को ओवरराइड कर सकते हैं। ये मेथड्स स्वरूपण को प्रभावित करते हैं, न कि संग्रहीत संख्यात्मक मानों को।
+समर्थित बार, कॉलम और बबल श्रृंखलाओं के लिए, [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) को कॉल करें और [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/) द्वारा लौटाए गए रंग को सेट करें। आप व्यक्तिगत बिंदु के लिए [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/) से व्यवहार ओवरराइड कर सकते हैं। ये मेथड फॉर्मेटिंग को प्रभावित करते हैं, न कि संग्रहीत संख्यात्मक मानों को।
 
-**जब दोनों श्रृंखला और बिंदु का फ़ॉर्मेट हो, तो कौन जीतेगा?**
+**जब दोनों श्रृंखला और बिंदु फॉर्मेटेड हों, तो कौन जीतेगा?**
 
-स्पष्ट डेटा‑बिंदु फ़ॉर्मेट उस बिंदु के लिए प्राथमिकता रखता है। अन्य बिंदु स्पष्ट श्रृंखला फ़ॉर्मेट या, जब श्रृंखला फ़ॉर्मेट परिभाषित नहीं है, तो स्वचालित चार्ट शैली और थीम का उपयोग जारी रखते हैं। समूह सेटिंग्स जैसे ओवरलैप और गैप चौड़ाई लेआउट को नियंत्रित करती हैं और बिंदु‑स्तर के फ़ॉर्मेट ओवरराइड नहीं होतीं।
+स्पष्ट डेटा‑पॉइंट फॉर्मेटिंग उस बिंदु के लिए प्राथमिकता लेती है। अन्य बिंदु स्पष्ट श्रृंखला फ़ॉर्मेट या, जब श्रृंखला फ़ॉर्मेट परिभाषित न हो, तो स्वचालित चार्ट शैली और थीम का उपयोग जारी रखते हैं। समूह सेटिंग्स जैसे ओवरलैप और गैप चौड़ाई लेआउट को नियंत्रित करती हैं और बिंदु‑स्तर के फॉर्मेट ओवरराइड नहीं हैं।
 
-**क्या चार्ट में सम्मिलित किए जाने वाले सीरीज़ की संख्या पर कोई सीमा है?**
+**क्या चार्ट में शामिल की जा सकने वाली श्रृंखलाओं की संख्या पर कोई सीमा है?**
 
-Aspose.Slides कोई अलग स्थिर सीरीज़‑गणना सीमा नहीं लगाता। व्यवहार में, प्रस्तुति फ़ाइल प्रतिबंध, उपलब्ध मेमोरी, रेंडरिंग समय और चार्ट की पठनीयता उपयोगी सीमा तय करती है।
+Aspose.Slides किसी अलग स्थिर श्रृंखला‑गणना सीमा नहीं लगाता। व्यवहार में, प्रेज़ेंटेशन फ़ाइल सीमाएँ, उपलब्ध मेमोरी, रेंडरिंग समय और चार्ट की पठनीयता उपयोगी सीमा निर्धारित करती हैं।
 
-**जब कॉलम बहुत निकट या बहुत दूर हों, तो मुझे क्या बदलना चाहिए?**
+**जब कॉलम बहुत करीब या बहुत दूर हों, तो मुझे क्या बदलना चाहिए?**
 
-संबंधित पैरेंट श्रृंखला समूह पर [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) को कॉल करें। मान बढ़ाने से क्लस्टरों के बीच अंतराल widen हो जाएगा, और घटाने से क्लस्टर नजदीक आएँगे।
+उचित पैरेंट श्रृंखला समूह पर [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) कॉल करें। क्लस्टर के बीच की दूरी बढ़ाने के लिए मान बढ़ाएँ, या उन्हें करीब लाने के लिए कम करें।

@@ -1,50 +1,50 @@
 ---
-title: จัดการสมุดงานชาร์ตในงานนำเสนอด้วย Python ผ่าน Java
-linktitle: สมุดงานชาร์ต
+title: จัดการสมุดงานแผนภูมิในงานนำเสนอด้วย Python via Java
+linktitle: สมุดงานแผนภูมิ
 type: docs
 weight: 70
 url: /th/python-java/chart-workbook/
 keywords:
-- สมุดงานชาร์ต
-- ข้อมูลชาร์ต
+- สมุดงานแผนภูมิ
+- ข้อมูลแผนภูมิ
 - เซลล์สมุดงาน
-- ป้ายข้อมูล
-- แผ่นงาน
+- ป้ายกำกับข้อมูล
+- เวิร์กชีต
 - แหล่งข้อมูล
 - สมุดงานภายนอก
 - ข้อมูลภายนอก
-- แคชชาร์ต
+- แคชแผนภูมิ
 - การกู้คืนสมุดงาน
 - PowerPoint
-- งานนำเสนอ
+- presentation
 - Python
 - Java
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ Python ผ่าน Java: จัดการสมุดงานชาร์ตในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ."
+description: "ค้นพบ Aspose.Slides for Python via Java: จัดการสมุดงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายเพื่อปรับปรุงข้อมูลในงานนำเสนอของคุณ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับสมุดงานชาร์ตใน Aspose.Slides โดยแสดงวิธีอ่านและเขียนข้อมูลชาร์ตผ่านสตรีมของสมุดงาน ใช้เซลล์สมุดงานเป็นป้ายข้อมูลชาร์ต เข้าถึงคอลเล็กชันของแผ่นงาน และกำหนดประเภทแหล่งข้อมูลสำหรับค่าชาร์ต
+บทความนี้อธิบายวิธีการทำงานกับสมุดงานแผนภูมิใน Aspose.Slides โดยแสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิโดยใช้สตรีมของสมุดงาน ใช้เซลล์ของสมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ เข้าถึงคอลเลกชันของเวิร์กชีต และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-บทความยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลของชาร์ต ตัวอย่างจะแสดงวิธีสร้างและกำหนดสมุดงานภายนอก ดึงเส้นทางของสมุดงานภายนอกที่เชื่อมต่อกับชาร์ต และแก้ไขข้อมูลชาร์ตเมื่อสมุดงานพร้อมใช้งาน
+มันยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีสร้างและกำหนดสมุดงานภายนอก ดึงเส้นทางของสมุดงานภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิโดยที่สมุดงานพร้อมใช้งาน
 
-สำหรับเซลล์สมุดงานที่แสดงข้อมูลที่หายไป ดูที่ [ควบคุมการแสดงผลของเซลล์ที่ว่าง](/slides/th/python-java/chart-series/) เพื่อเปรียบเทียบความแตกต่างระหว่างเซลล์ว่างกับศูนย์ และการเปรียบเทียบแบบแผนภูมิเส้นของโหมดการแสดงผลที่มีอยู่
+สำหรับเซลล์สมุดงานที่แทนค่าข้อมูลที่หายไป ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/python-java/chart-series/) เพื่อดูความแตกต่างระหว่างเซลล์ว่างและศูนย์ รวมถึงการเปรียบเทียบแผนภูมิเส้นของโหมดการแสดงผลที่มีอยู่
 
 ## **รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อน**
 
-ใช้ [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) เพื่อควบคุมว่าชาร์ตจะทำการพล็อตข้อมูลจากแถวและคอลัมน์ของแผ่นงานที่ซ่อนหรือไม่ ตั้งค่าเป็น `True` เพื่อพล็อตเฉพเซลล์ที่มองเห็นได้เท่านั้น หรือ `False` เพื่อรวมทั้งเซลล์ที่มองเห็นและที่ซ่อน การตั้งค่านี้ควบคุมการพล็อตของชาร์ต; มันไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ของแผ่นงาน
+ใช้ [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) เพื่อควบคุมว่าการวาดแผนภูมิจะใช้ข้อมูลจากแถวและคอลัมน์ที่ซ่อนหรือไม่ ตั้งค่าเป็น `True` เพื่อวาดเฉพาะเซลล์ที่มองเห็นได้ หรือ `False` เพื่อรวมทั้งเซลล์ที่มองเห็นและที่ซ่อน การตั้งค่านี้ควบคุมการวาดแผนภูมิเท่านั้น ไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ของเวิร์กชีต
 
-งานนำเสนอตัวอย่าง [sample presentation](hidden-source-data.pptx) มีชาร์ตคอลัมน์เป็นรูปร่างแรกบนสไลด์แรกของมัน ตารางที่ฝังไว้ `Sheet1` มีช่วงแหล่งข้อมูลต่อไปนี้ `A1:C4`. แถว 3 และคอลัมน์ C ถูกซ่อน แต่เซลล์ของพวกมันยังคงมีค่า
+[ไฟล์ตัวอย่างการนำเสนอ](hidden-source-data.pptx) มีแผนภูมิกอลัมน์เป็นรูปร่างแรกบนสไลด์แรก เวิร์กชีตฝังอยู่ชื่อ `Sheet1` มีช่วงข้อมูลต้นทาง `A1:C4` แถว 3 และคอลัมน์ C ถูกซ่อน แต่เซลล์ของพวกมันยังคงมีค่า
 
-| แถวของแผ่นงาน | A: เดือน | B: รายปลีก | C: การขายส่ง (คอลัมน์ซ่อน) |
+| แถวเวิร์กชีต | A: เดือน | B: การขายปลีก | C: ขายส่ง (คอลัมน์ที่ซ่อน) |
 | --- | --- | --- | --- |
-| 2 | มกราคม | 10 | 30 |
-| 3 (แถวซ่อน) | กุมภาพันธ์ | 40 | 60 |
-| 4 | มีนาคม | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3 (hidden row) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-เข้าถึงเซลล์แหล่งข้อมูลผ่าน [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) และอ่าน [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) เพื่อตรวจสอบสถานะการซ่อนของเซลล์ วิธีนี้รายงานสถานะการซ่อนโดยไม่เปลี่ยนแปลงค่า ในไฟล์นี้ B2 มองเห็นได้, B3 อยู่ในแถวที่ซ่อน, C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างพิมพ์ `False`, `True` และ `True` ตามลำดับ
+เข้าถึงเซลล์ต้นทางผ่าน [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) และอ่าน [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) เพื่อสอบสอบสถานะการซ่อน วิธีนี้รายงานสถานะการซ่อนโดยไม่เปลี่ยนแปลงค่า ในไฟล์นี้ B2 มองเห็นได้ B3 อยู่ในแถวที่ซ่อนและ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างพิมพ์ `False`, `True`, และ `True` ตามลำดับ
 
-สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลชาร์ตหลังจากเปลี่ยนการตั้งค่าการพล็อต: เก็บสมุดงานฝังด้วย [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) แล้วโหลดใหม่ด้วย [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) เมื่อรวมทุกเซลล์ให้ใช้ [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) เพื่อคืนช่วงครบรวมรวมถึงหมวดหมู่เดือนกุมภาพันธ์ที่ซ่อน การเปลี่ยนแค่ค่าสถานะไม่เพียงพอที่จะรีเฟรชข้อมูลชาร์ตที่แคชและป้ายหมวดหมู่ของตัวอย่างนี้
+ในตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการวาด: เก็บสมุดงานฝังด้วย [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) และโหลดกลับด้วย [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) เมื่อรวมทุกเซลล์ ให้ใช้ [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) เพื่อกู้ช่วงเต็มรวมถึงหมวดเดือนกุมภาพันธ์ที่ซ่อน การเปลี่ยนค่าเดียวไม่เพียงพอที่จะรีเฟรชข้อมูลแผนภูมิและป้ายหมวดที่เก็บไว้ในตัวอย่างนี้
 
 ```python
 import jpype
@@ -71,10 +71,10 @@ try:
         for visible_only in (True, False):
             chart.setPlotVisibleCellsOnly(visible_only)
 
-            # รีเฟรชข้อมูลชาร์ตจากสมุดงานที่ฝังไว้.
+            # รีเฟรชข้อมูลแผนภูมิจากสมุดงานฝัง.
             chart.getChartData().writeWorkbookStream(workbook_data)
             if not visible_only:
-                # คืนช่วงแหล่งข้อมูลทั้งหมด รวมถึงหมวดหมู่ที่ซ่อนไว้.
+                # คืนช่วงต้นทางทั้งหมด รวมถึงหมวดที่ซ่อน.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4")
 
             presentation.save(f"hidden_cells_{visible_only}.pptx", SaveFormat.Pptx)
@@ -84,21 +84,21 @@ finally:
     presentation.dispose()
 ```
 
-ตัวอย่างบันทึกเวอร์ชันของงานนำเสนอสองเวอร์ชัน: เวอร์ชันหนึ่งมีเฉพาะค่าการขายปลีกที่มองเห็นได้ (10 และ 20) และอีกเวอร์ชันหนึ่งมีค่าทั้งหกค่า รูปภาพด้านล่างแสดงโหมดการพล็อตสองแบบ แถว 3 และคอลัมน์ C ยังคงซ่อนอยู่ในสมุดงานฝังทั้งสอง
+ตัวอย่างบันทึกสองเวอร์ชันของการนำเสนอ: เวอร์ชันหนึ่งมีค่า Retail ที่มองเห็นได้เท่านั้น (10 และ 20) และอีกหนึ่งมีค่าทั้งหกค่า รูปภาพด้านล่างแสดงสองโหมดการวาด แถว 3 และคอลัมน์ C ยังคงซ่อนอยู่ในสมุดงานฝังทั้งสอง
 
-| เซลล์ที่มองเห็นได้เท่านั้น (`True`) | ทุกเซลล์ (`False`) |
+| เฉพาะเซลล์ที่มองเห็น (`True`) | ทุกเซลล์ (`False`) |
 | --- | --- |
 | ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-เซลล์ที่ซ่อนและมีค่าแตกต่างจากเซลล์ว่าง [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) ควบคุมวิธีที่ค่าที่หายไปถูกแสดง; มันไม่รวมหรือยกเว้นข้อมูลแหล่งซ่อน ดูที่ [ควบคุมการแสดงผลของเซลล์ที่ว่าง](/slides/th/python-java/chart-series/#control-the-display-of-empty-cells) เพื่อดูตัวอย่าง
+เซลล์ที่ซ่อนแต่มีค่าแตกต่างจากเซลล์ว่าง [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) ควบคุมวิธีการแสดงค่าที่หายไป; มันไม่ได้รวมหรือยกเว้นข้อมูลต้นทางที่ซ่อน ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/python-java/chart-series/#control-the-display-of-empty-cells) สำหรับตัวอย่าง
 
-## **ดึงช่วงข้อมูลของชาร์ต**
+## **ดึงช่วงข้อมูลของแผนภูมิ**
 
-ก่อนอัพเดตข้อมูลสมุดงานในงานนำเสนอที่มีอยู่ ให้ตรวจสอบช่วงแหล่งข้อมูลเพื่อระบุว่าแผ่นงานใดบ้างที่แต่ละชาร์ตใช้ วิธี [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) จะคืนช่วงข้อมูลปัจจุบันในรูปแบบสูตรที่ระบุแผ่นงาน เช่น `Sheet1!$A$1:$D$5` โดย `Sheet1` คือชื่อแผ่นงาน, `!` แยกจากช่วงเซลล์, `$A$1:$D$5` ระบุเซลล์ A1 ถึง D5 รวมถึงเครื่องหมาย `$` แสดงการอ้างอิงแบบคงที่
+ก่อนอัปเดตข้อมูลสมุดงานในงานนำเสนอที่มีอยู่ ให้ตรวจสอบช่วงต้นทางเพื่อระบุว่าแผนภูมิใช้เซลล์เวิร์กชีตใดบ้าง วิธี [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) คืนค่าช่วงข้อมูลปัจจุบันเป็นสูตรที่ระบุเวิร์กชีต เช่น `Sheet1!$A$1:$D$5` ที่นี่ `Sheet1` คือชื่อเวิร์กชีต `!` แยกจากช่วงเซลล์และ `$A$1:$D$5` ระบุเซลล์ A1 ถึง D5 รวมทั้งสองค่า เครื่องหมายดอลลาร์เซ็นต์บ่งชี้อ้างอิงแถวและคอลัมน์แบบคงที่
 
-วิธีนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงชาร์ตหรือสมุดงาน หากชาร์ตไม่ใช้สมุดงานเป็นแหล่งข้อมูล จะทำให้เกิด `InvalidOperationException` สำหรับข้อมูลเพิ่มเติมดูที่ [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/)
+เมธอดนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือสมุดงาน หากแผนภูมิไม่ได้ใช้สมุดงานเป็นแหล่งข้อมูล จะโยก `InvalidOperationException` สำหรับข้อมูลเพิ่มเติม ดูที่ [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/)
 
-ตัวอย่างนี้เปิดงานนำเสนอและตรวจสอบรูปร่างบนแต่ละสไลด์เพื่อหา ชาร์ต พิมพ์ชื่อชาร์ตและช่วงแหล่งข้อมูล หากชาร์ตไม่ใช้สมุดงานจะพิมพ์ข้อความและดำเนินการต่อไปยังชาร์ตถัดไป
+ตัวอย่างนี้เปิดงานนำเสนอและตรวจสอบรูปร่างบนแต่ละสไลด์เพื่อหาแผนภูมิ พิมพ์ชื่อแผนภูมิและช่วงต้นทาง หากแผนภูมิไม่ได้ใช้สมุดงาน จะพิมพ์ข้อความและดำเนินการต่อไปยังแผนภูมถัดไป
 
 ```python
 import jpype
@@ -125,11 +125,11 @@ finally:
     presentation.dispose()
 ```
 
-## **อ่านและเขียนข้อมูลชาร์ตจากสมุดงาน**
+## **อ่านและเขียนข้อมูลแผนภูมิจากสมุดงาน**
 
-Aspose.Slides for Python via Java ให้บริการเมธอด [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) และ [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) ที่ช่วยให้คุณอ่านและเขียนสมุดงานข้อมูลชาร์ต (ซึ่งบรรจุข้อมูลชาร์ตที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลชาร์ตต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูล
+Aspose.Slides for Python via Java ให้เมธอด [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) และ [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) ที่ทำให้คุณอ่านและเขียนสมุดงานข้อมูลแผนภูมิ (ที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างคล้ายกับต้นทาง
 
-ตัวอย่างนี้ใช้งานนำเสนอที่มีชาร์ตเป็นรูปร่างแรกบนสไลด์แรก อ่านสมุดงานฝังไปยังอาร์เรย์ไบต์, ล้างซีรีส์และหมวดหมู่ที่มีอยู่, แล้วเขียนสมุดงานเดิมกลับไป การเปลี่ยนแปลงอยู่ในหน่วยความจำ; ตัวอย่างไม่บันทึกงานนำเสนอ
+ตัวอย่างนี้ใช้งานนำเสนอที่มีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรก อ่านสมุดงานฝังเป็นอาเรย์ไบต์ ล้างซีรีส์และหมวดหมู่เดิม แล้วเขียนสมุดงานเดียวกันกลับไป การเปลี่ยนแปลงค้างอยู่ในหน่วยความจำ ตัวอย่างไม่ได้บันทึกงานนำเสนอ
 
 ```python
 import jpype
@@ -160,9 +160,9 @@ finally:
     presentation.dispose()
 ```
 
-### **ตรวจสอบเค้าโครงชาร์ตหลังการแก้ไขสมุดงาน**
+### **ตรวจสอบโครงสร้างแผนภูมหลังการแก้ไขสมุดงาน**
 
-เมื่อคุณแทนที่สมุดงานฝังด้วยสมุดงานที่แก้ไขแล้ว ชาร์ตจะยังคงคอลเล็กชันซีรีส์และหมวดหมู่เดิม ความไม่สอดคล้องนี้อาจทำให้ [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ให้ล้างซีรีส์และหมวดหมู่ที่มีอยู่ก่อนเขียนสมุดงานที่อัพเดทกลับไปยังชาร์ต ตัวอย่างใช้ชาร์ตที่เป็นรูปร่างแรกบนสไลด์แรก คอมเมนต์บ่งชี้จุดที่จะแก้ไขสมุดงาน; ตัวอย่างที่ทำงานได้เขียนสมุดงานเดิมกลับและตรวจสอบเค้าโครงในหน่วยความจำ
+เมื่อคุณแทนที่สมุดงานฝังด้วยสมุดงานที่แก้ไขแล้ว แผนภูมิจะคงซีรีส์และคอลเลกชันหมวดหมู่เดิม ความไม่สอดคล้องนี้อาจทำให้ [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) ล้มเหลวด้วยข้อผิดพลาดดัชนีออกนอกช่วง ลบซีรีส์และหมวดหมู่เดิมก่อนเขียนสมุดงานอัปเดตกลับไปยังแผนภูมิ ตัวอย่างใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรก คอมเมนต์บ่งชี้จุดที่ต้องแก้ไขสมุดงาน; ตัวอย่างที่ทำงานเขียนสมุดงานต้นกลับและตรวจสอบโครงสร้างในหน่วยความจำ
 
 ```python
 import jpype
@@ -196,15 +196,15 @@ finally:
     presentation.dispose()
 ```
 
-การล้างคอลเล็กชันจะลบการอ้างอิงข้อมูลที่ล้าสมัยก่อนสมุดงานถูกเขียนกลับ สร้างการแมปซีรีส์และหมวดหมู่ใหม่ตามสมุดงานที่อัพเดทก่อนใช้ชาร์ต
+การลบคอลเลกชันช่วยลบการอ้างอิงข้อมูลที่เก่าออกก่อนเขียนสมุดงานกลับ สร้างแม็พซีรีส์และหมวดหมู่ใหม่สำหรับสมุดงานอัปเดตก่อนใช้แผนภูมิ
 
 ## **ตั้งค่าฟอร์แมตตัวเลขแบบกำหนดเองสำหรับเซลล์สมุดงาน**
 
-ใช้ [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) เพื่อควบคุมรูปแบบการแสดงค่าตัวเลขในสมุดงานฝังของชาร์ต ตัวอย่างเช่น รายงานอาจต้องการแสดงอัตราการแปลงเป็นเปอร์เซ็นต์ด้วยทศนิยมสี่ตำแหน่งและค่าสัมประสิทธิ์ด้วยทศนิยมห้าตำแหน่ง ค่าทั้งสองควรเป็นตัวเลขเพื่อให้ยังคงใช้ในการคำนวณและการพล็อตชาร์ตได้
+ใช้ [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) เพื่อควบคุมการแสดงค่าตัวเลขในสมุดงานฝังของแผนภูมิ ตัวอย่างเช่น รายงานอาจต้องการอัตราการแปลงแสดงเป็นเปอร์เซ็นต์ด้วยทศนิยมสี่ตำแหน่งและค่าสัมประสิทธิ์ด้วยทศนิยมห้าตำแหน่ง ให้ค่าสองค่าดังกล่าวเป็นตัวเลขเพื่อให้ยังคงใช้คำนวณและวาดแผนภูมิได้
 
-ฟอร์แมตตัวเลขเปลี่ยนการแสดงผล ไม่ได้เปลี่ยนค่าที่จัดเก็บ ฟอร์แมต `0.0000%` จะแสดง `0.125` เป็น `12.5000%`; มันไม่แทนที่ตัวเลขที่จัดเก็บด้วย `12.5` เช่นเดียวกัน `0.00000` จะทำให้ `0.1234567` แสดงเป็น `0.12346` โดยไม่ปัดค่าที่จัดเก็บ หากฟอร์แมตที่กำหนดเป็นสตริงว่าง (`""`) ระบบจะใช้ฟอร์แมตที่ได้จาก [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) แทน
+ฟอร์แมตตัวเลขเปลี่ยนการแสดงผล ไม่ได้เปลี่ยนค่าที่เก็บไว้ ฟอร์แมต `0.0000%` จะแสดง `0.125` เป็น `12.5000%` แต่ไม่ได้แทนที่ตัวเลขที่เก็บเป็น `12.5` เช่นเดียวกัน `0.00000` แสดง `0.1234567` เป็น `0.12346` โดยไม่ปัดเศษค่าที่เก็บ หากฟอร์แมตกำหนดเป็นสตริงว่าง (`""`) จะใช้ฟอร์แมตที่คืนจาก [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) แทน
 
-ตัวอย่างต่อไปนี้สร้างชาร์ตคอลัมน์และเข้าถึงเซลล์ผ่าน [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) บนแผ่นงาน 0, B2 มีอัตราการแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์ให้ค่าแก่ชาร์ต ตัวอย่างยังเปิดใช้ป้ายค่าเชื่อมโยงกับฟอร์แมตแหล่งข้อมูล
+ตัวอย่างต่อไปสร้างแผนภูมิกอลัมน์และเข้าถึงเซลล์ผ่าน [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) บนเวิร์กชีต 0 เซลล์ B2 มีอัตราการแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์เป็นค่าของแผนภูมิ ตัวอย่างยังเปิดใช้งานป้ายกำกับค่าที่เชื่อมโยงกับฟอร์แมตต้นทาง
 
 ```python
 import jpype
@@ -259,19 +259,19 @@ finally:
     presentation.dispose()
 ```
 
-ฟอร์แมตเซลล์สมุดงานแยกจากฟอร์แมตที่กำหนดโดยตรงบนแกนชาร์ตหรือป้ายข้อมูล ในตัวอย่างนี้แต่ละป้ายจะแสดงค่าจากเซลล์แหล่งที่มาด้วยเหตุผลที่ [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) ตั้งเป็น `True` และฟอร์แมตตัวเลขเชื่อมโยงกับแหล่งที่มาด้วย [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) ตั้งเป็น `True` หลังจากบันทึกและเปิดงานนำเสนอใหม่ ป้ายจะแสดง `12.5000%` และ `0.12346` ตามที่แสดงด้านล่าง แกนแนวตั้งใช้ฟอร์แมตตัวเลขของมันเอง กำหนดด้วย [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) เป็น `0.00` และ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) ตั้งเป็น `False`
+ฟอร์แมตเซลล์สมุดงานแยกจากฟอร์แมตที่ตั้งโดยตรงบนแกนแผนภูมิหรือป้ายกำกับข้อมูล ในตัวอย่างนี้แต่ละป้ายกำกับแสดงค่าจากเซลล์ต้นทางเนื่องจาก [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) ตั้งเป็น `True` และตามฟอร์แมตตัวเลขต้นทางเนื่องจาก [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) ตั้งเป็น `True` หลังจากบันทึกและเปิดงานนำเสนอใหม่ ป้ายกำกับจะแสดง `12.5000%` และ `0.12346` ตามที่แสดงด้านล่าง แกนตั้งใช้ฟอร์แมตของตัวเองตั้งด้วย [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) เป็น `0.00` และ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) ตั้งเป็น `False`
 
-หากต้องการฟอร์แมตป้ายข้อมูลแยกจากแหล่ง ให้ตั้งค่าแฟล็กเชื่อมโยงแหล่งเป็น `False` แล้วกำหนดฟอร์แมตด้วย [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) วิธีนี้จะไม่เปลี่ยนฟอร์แมตของเซลล์สมุดงาน ตัวอย่างเช่น ฟอร์แมตป้ายอิสระ `0.00` จะแสดงค่าตัวแรกเป็น `0.13` ในขณะที่ B2 ยังแสดง `12.5000%` ดูที่ [Chart Data Labels](/slides/th/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) เพื่อทำการฟอร์แมตป้ายโดยตรง
+หากต้องการฟอร์แมตป้ายกำกับข้อมูลแยกต่างหาก ให้อตั้งค่าสถานะเชื่อมต่อกับต้นทางเป็น `False` แล้วกำหนดฟอร์แมตด้วย [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) วิธีนี้ไม่ได้เปลี่ยนฟอร์แมตของเซลล์สมุดงาน ตัวอย่างเช่น ฟอร์แมตป้ายกำกับอิสระ `0.00` จะแสดงค่แรกเป็น `0.13` ในขณะที่ B2 ยังคงแสดง `12.5000%` ดูที่ [Chart Data Labels](/slides/th/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) สำหรับการกำหนดฟอร์แมตโดยตรง
 
-ภาพด้านล่างสร้างจากงานนำเสนอที่บันทึกแล้วและเปิดใหม่อีกครั้ง:
+รูปภาพด้านล่างสร้างจากงานนำเสนอที่บันทึกและเปิดใหม่แล้ว:
 
 ![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **ตั้งค่าเซลล์สมุดงานเป็นป้ายข้อมูลของชาร์ต**
+## **ตั้งค่าเซลล์สมุดงานเป็นป้ายกำกับข้อมูลของแผนภูมิ**
 
-คุณสามารถใช้ข้อความจากเซลล์สมุดงานเป็นป้ายข้อมูลของชาร์ตได้
+คุณสามารถใช้ข้อความจากเซลล์สมุดงานเป็นป้ายกำกับข้อมูลของแผนภูมิได้
 
-ตัวอย่างนี้เพิ่มชาร์ตฟองจากข้อมูลเริ่มต้นไปยังสไลด์แรกของงานนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 บนแผ่นงาน 0 เป็นป้ายสามค่าแรกในซีรีส์แรก เปิดใช้งานป้ายจากเซลล์และบันทึกงานนำเสนอที่อัพเดทแล้ว
+ตัวอย่างนี้เพิ่มแผนภูมิบับเบิลพร้อมข้อมูลค่าเริ่มต้นบนสไลด์แรกของงานนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 บนเวิร์กชีต 0 เป็นสามป้ายแรกของซีรีส์แรก เปิดใช้งานป้ายจากเซลล์และบันทึกงานนำเสนอที่อัปเดต
 
 ```python
 import jpype
@@ -301,9 +301,9 @@ finally:
     presentation.dispose()
 ```
 
-## **จัดการแผ่นงาน**
+## **จัดการเวิร์กชีต**
 
-เมธอด [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) ให้การเข้าถึงแผ่นงานในสมุดงานชาร์ต ตัวอย่างนี้สร้างชาร์ตพายด้วยข้อมูลเริ่มต้นและพิมพ์ชื่อแต่ละแผ่นงานลงคอนโซล
+เมธอด [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) ให้เข้าถึงเวิร์กชีตในสมุดงานแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิเส้นพายด้วยข้อมูลค่าเริ่มต้นและพิมพ์ชื่อแต่ละเวิร์กชีตไปยังคอนโซล
 
 ```python
 import jpype
@@ -326,9 +326,11 @@ finally:
     presentation.dispose()
 ```
 
-## **กำหนดประเภทแหล่งข้อมูล**
+## **ระบุประเภทแหล่งข้อมูล**
 
-ตัวอย่างนี้สร้างชาร์ตคอลัมน์ 3 มิติด้วยข้อมูลเริ่มต้นและกำหนดชื่อซีรีส์สองชื่อโดยใช้แหล่งข้อมูลต่างกัน ชื่อแรกใช้สตริงลิตเตรัล; ชื่อที่สองใช้เซลล์ C1 บนแผ่นงาน 0 ตัวเลือก [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) ระบุแหล่งสำหรับแต่ละชื่อ ตัวอย่างบันทึกงานนำเสนอพร้อมชื่อซีรีส์ที่อัพเดท
+ค่าจุดของซีรีส์สามารถจัดเก็บเป็นลิเทรัลตัวเลขโดยตรงได้ ดูที่ [Set Series Values Using Numeric Literals](/slides/th/python-java/chart-series/#set-series-values-using-numeric-literals) สำหรับตัวอย่างสมบูรณ์ที่บันทึกและอ่านค่าเหล่านี้ ประเภทแหล่งข้อมูลของค่าจุดแยกจากการกำหนดสมุดงานภายในหรือภายนอกของแผนภูมิ; การใช้ลิเทรัลตัวเลขไม่ทำให้สมุดงานฝังหายไปโดยอัตโนมัติ
+
+ตัวอย่างนี้สร้างแผนภูมิกอลัมน์ 3 มิติด้วยข้อมูลค่าเริ่มต้นและตั้งชื่อซีรีส์สองชื่อด้วยแหล่งข้อมูลที่แตกต่างกัน ชื่อแรกใช้ลิเทรัลสตริง; ชื่อที่สองใช้เซลล์ C1 บนเวิร์กชีต 0 [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) ระบุแหล่งข้อมูลสำหรับแต่ละชื่อ ตัวอย่างบันทึกงานนำเสนอพร้อมชื่อซีรีส์ที่อัปเดต
 
 ```python
 import jpype
@@ -359,7 +361,7 @@ finally:
 
 ## **ตรวจจับรูปแบบสมุดงานฝังที่ไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบสมุดงาน Excel แบบไบนารี (.xlsb) ที่อาจฝังในบางชาร์ต คุณสามารถใช้เมธอด [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) บน [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามชาร์ตเหล่านั้น ตัวอย่างตรวจสอบรูปร่างบนสไลด์แรกของงานนำเสนอที่มีอยู่ ข้ามรูปร่างที่ไม่ใช่ชาร์ต และพิมพ์ข้อความวินิจฉัยสำหรับแต่ละชาร์ตที่มีสมุดงาน .xlsb ฝังอยู่
+Aspose.Slides ไม่รองรับรูปแบบสมุดงาน Excel แบบไบนารี (.xlsb) ที่อาจฝังในบางแผนภูมิ คุณสามารถใช้เมธอด [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) บน [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) ร่วมกับ enum [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น ตัวอย่างตรวจสอบรูปร่างบนสไลด์แรกของงานนำเสนอที่มีอยู่ ข้ามรูปร่างที่ไม่ใช่แผนภูมิ และพิมพ์ข้อความวินิจฉัยสำหรับแต่ละแผนภูมิที่ฝังสมุดงาน .xlsb
 
 ```python
 import jpype
@@ -386,20 +388,20 @@ try:
         if is_internal_workbook and is_binary_macro:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # อ่านหรือแก้ไขข้อมูลสมุดงานชาร์ตที่รองรับที่นี่.
+        # อ่านหรือแก้ไขข้อมูลสมุดงานแผนภูมิที่รองรับที่นี่.
 finally:
     presentation.dispose()
 ```
 
 ## **สมุดงานภายนอก**
 
-Aspose.Slides รองรับการใช้สมุดงานภายนอกเป็นแหล่งข้อมูลของชาร์ต
+Aspose.Slides รองรับการใช้สมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ
 
 ### **สร้างสมุดงานภายนอก**
 
-ใช้ [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) และ [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) เพื่อส่งออกสมุดงานชาร์ตฝังเป็นไฟล์และเชื่อมชาร์ตกับสมุดงานภายนอกร่วมกัน
+ใช้ [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) และ [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) เพื่อส่งออกสมุดงานแผนภูมิกฝังเป็นไฟล์และเชื่อมแผนภูมิกับสมุดงานภายนอกนั้น
 
-ตัวอย่างนี้สร้างชาร์ตพายด้วยข้อมูลเริ่มต้นและส่งออกสมุดงานของมัน ทำการเขียนไฟล์ให้เสร็จก่อนกำหนดสมุดงานภายนอกเป็นแหล่งข้อมูลของชาร์ต จากนั้นบันทึกงานนำเสนอที่เชื่อมโยงแล้ว
+ตัวอย่างนี้สร้างแผนภูมิเส้นพายด้วยข้อมูลค่าเริ่มต้นและส่งออกสมุดงานของมัน ทำการเขียนไฟล์ให้เสร็จก่อนกำหนดสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ แล้วบันทึกงานนำเสนอที่ลิงก์ไว้
 
 ```python
 import jpype
@@ -427,13 +429,13 @@ finally:
     presentation.dispose()
 ```
 
-### **กำหนดสมุดงานภายนอก**
+### **ตั้งค่าสมุดงานภายนอก**
 
-โดยใช้เมธอด [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) คุณสามารถกำหนดสมุดงานภายนอกให้กับชาร์ตเป็นแหล่งข้อมูลได้ เมธอดนี้ยังสามารถใช้เพื่ออัปเดตเส้นทางของสมุดงานภายนอก (หากไฟล์ถูกย้าย)
+โดยใช้เมธอด [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) คุณสามารถกำหนดสมุดงานภายนอกให้เป็นแหล่งข้อมูลของแผนภูมิได้ วิธีนี้ยังสามารถใช้เพื่ออัปเดตเส้นทางไปยังสมุดงานภายนอก (หากย้ายตำแหน่ง)
 
-แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลในสมุดงานที่จัดเก็บในตำแหน่งระยะไกลหรือทรัพยากรได้ แต่ยังสามารถใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากให้เส้นทางสัมพัทธ์สำหรับสมุดงานภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
+แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลในสมุดงานที่เก็บไว้ในตำแหน่งระยะไกลหรือทรัพยากรได้ คุณก็ยังสามารถใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพัทธ์สำหรับสมุดงานภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มอัตโนมัติ
 
-ตัวอย่างนี้ใช้สมุดงานภายนอกที่มีแผ่นงานชื่อ `Sheet1` มีชื่อซีรีส์ใน B1, ชื่อหมวดหมู่ใน A2:A4, และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างชาร์ตพาย, เชื่อมสมุดงาน, และใช้ [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) เพื่อแมป A1:B4 ไปยังซีรีส์เดียวและสามหมวดหมู่ จากนั้นบันทึกงานนำเสนอพร้อมชาร์ตที่เชื่อมโยง
+ตัวอย่างนี้ใช้สมุดงานภายนอกที่เวิร์กชีตชื่อ `Sheet1` มีชื่อซีรีส์ใน B1, ชื่อหมวดใน A2:A4 และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิเส้นพาย, เชื่อมสมุดงาน, และใช้ [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) เพื่อแมพ A1:B4 เป็นหนึ่งซีรีส์และสามหมวด แล้วบันทึกงานนำเสนอพร้อมแผนภูมิที่เชื่อมโยง
 
 ```python
 import jpype
@@ -461,12 +463,12 @@ finally:
     presentation.dispose()
 ```
 
-พารามิเตอร์ `updateChartData` ของเมธอด [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) ควบคุมว่ากรณีสมุดงานจะถูกโหลดหรือไม่
+พารามิเตอร์ `updateChartData` ของ [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) ควบคุมว่าจะโหลดสมุดงานหรือไม่
 
-* เมื่อ `updateChartData` เป็น `False` จะอัปเดตเพียงเส้นทางของสมุดงานเท่านั้น ชาร์ตข้อมูลจะไม่ถูกโหลดหรืออัปเดตจากสมุดงานเป้าหมาย ดังนั้นสมุดงานอาจไม่มีอยู่
-* เมื่อ `updateChartData` เป็น `True` ชาร์ตข้อมูลจะอัปเดตจากสมุดงานเป้าหมาย
+* เมื่อ `updateChartData` เป็น `False` จะอัปเดตเฉพาะเส้นทางสมุดงาน เท่านั้น ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากสมุดงานเป้าหมาย ดังนั้นสมุดงานอาจไม่มีอยู่
+* เมื่อ `updateChartData` เป็น `True` ข้อมูลแผนภูมิจะอัปเดตจากสมุดงานเป้าหมาย
 
-ตัวอย่างต่อไปนี้กำหนด URL ตัวแทนด้วย `updateChartData` ตั้งเป็น `False` งานนำเสนอจะคงข้อมูลเริ่มต้นของชาร์ตพายและบันทึกโดยไม่โหลดสมุดงานที่ไม่มีอยู่
+ตัวอย่างต่อไปกำหนด URL ตัวแทนด้วย `updateChartData` เท่ากับ `False` คงข้อมูลค่าเริ่มต้นของแผนภูมิเส้นพายและบันทึกงานนำเสนอโดยไม่ได้โหลดสมุดงานที่ไม่มีอยู่
 
 ```python
 import jpype
@@ -490,11 +492,11 @@ finally:
     presentation.dispose()
 ```
 
-### **รับเส้นทางของสมุดงานแหล่งข้อมูลภายนอกของชาร์ต**
+### **รับเส้นทางของสมุดงานแหล่งข้อมูลภายนอกของแผนภูมิ**
 
-เพื่อระบุสมุดงานที่เชื่อมต่อกับชาร์ต ให้ตรวจสอบว่าชาร์ตใช้แหล่งข้อมูลภายนอกหรือไม่ และดึงเส้นทางสมุดงานของมัน
+เพื่อระบุสมุดงานที่เชื่อมโยงกับแผนภูมิ ตรวจสอบว่าแผนภูมิโใช้แหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทางสมุดงานของมัน
 
-ตัวอย่างนี้ตรวจสอบรูปร่างแรกบนสไลด์แรกของงานนำเสนอที่มีสมุดงานภายนอกที่เชื่อมโยง หากเป็นชาร์ตที่เชื่อมกับสมุดงานภายนอก ตัวอย่างจะพิมพ์ [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) ลงคอนโซล จากนั้นบันทึกสำเนาของงานนำเสนอ
+ตัวอย่างนี้ตรวจสอบรูปร่างแรกบนสไลด์แรกของงานนำเสนอที่เชื่อมสมุดงานภายนอก หากเป็นแผนภูมิที่เชื่อมสมุดงานภายนอก ตัวอย่างพิมพ์ [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) ไปยังคอนโซล แล้วบันทึกสำเนาของงานนำเสนอ
 
 ```python
 import jpype
@@ -525,11 +527,11 @@ finally:
     presentation.dispose()
 ```
 
-### **แก้ไขข้อมูลชาร์ต**
+### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในสมุดงานภายนอกได้เช่นเดียวกับการทำการเปลี่ยนแปลงในสมุดงานภายใน เมื่อสมุดงานภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
+คุณสามารถแก้ไขข้อมูลในสมุดงานภายนอกเช่นเดียวกับการเปลี่ยนแปลงเนื้อหาของสมุดงานภายใน เมื่อสมุดงานภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
 
-ตัวอย่างนี้ใช้ชาร์ตที่เป็นรูปร่างแรกบนสไลด์แรกและเชื่อมกับสมุดงานภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่สนับสนุนโดยเซลล์ของจุดข้อมูลแรกในซีรีส์แรกเป็น 100 แล้วบันทึกงานนำเสนอที่อัพเดท การแก้ไขค่าเซลล์สามารถอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมต่อได้ ดังนั้นควรใช้สำเนาหากต้องการเก็บสมุดงานต้นฉบับไว้
+ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและเชื่อมกับสมุดงานภายนอกที่เข้าถึงได้ ตั้งค่าค่าแบ็คของเซลล์สำหรับจุดข้อมูลแรกในซีรีส์แรกเป็น 100 แล้วบันทึกงานนำเสนอที่อัปเดต การแก้ไขค่าของเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกที่เชื่อม ดังนั้นใช้สำเนาหากต้องการรักษาสมุดงานต้นฉบับไว้
 
 ```python
 import jpype
@@ -563,11 +565,11 @@ finally:
     presentation.dispose()
 ```
 
-### **กู้คืนสมุดงานจากแคชของชาร์ต**
+### **กู้คืนสมุดงานจากแคชของแผนภูมิ**
 
-หากชาร์ตใช้สมุดงานภายนอกที่หายไปหรือไม่มีอยู่ Aspose.Slides สามารถสร้างสมุดงานชาร์ตจากข้อมูลที่แคชในงานนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/), เรียก [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions), แล้วตั้งค่า [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) เป็น `True` ก่อนเปิดงานนำเสนอ
+หากแผนภูมิใช้สมุดงานภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างสมุดงานแผนภูมิกจากข้อมูลที่แคชอยู่ในงานนำเสนอ สร้าง [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/), เรียก [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions), แล้วตั้งค่า [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) เป็น `True` ก่อนเปิดงานนำเสนอ
 
-ตัวอย่าง Python ด้านล่างกู้คืนข้อมูลสมุดงานสำหรับชาร์ตที่เป็นรูปร่างแรกบนสไลด์แรกและอ้างอิงถึงสมุดงานภายนอกที่ไม่มีอยู่ จากนั้นเข้าถึงข้อมูลที่กู้คืนผ่าน [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) และ [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+ตัวอย่าง Python ต่อไปนี้กู้คืนข้อมูลสมุดงานสำหรับแผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและอ้างอิงสมุดงานภายนอกที่ไม่มีอยู่ เข้าถึงข้อมูลที่กู้คืนผ่าน [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) และ [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -593,37 +595,37 @@ try:
         chart = slide.getShapes().get_Item(0)
         recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-        # อ่านหรือแก้ไขข้อมูลสมุดงานที่กู้คืนที่นี่.
+        # อ่านหรือแก้ไขข้อมูลสมุดงานที่กู้คืนได้ที่นี่.
     else:
         print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-หากสมุดงานภายนอกไม่มีอยู่และการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยนข้อยกเว้น ให้เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลชาร์ตที่แคชเป็นวิธีสำรองที่ยอมรับได้ เพราะแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับสมุดงานภายนอกหลังจากที่งานนำเสนออัปเดตครั้งล่าสุด
+หากสมุดงานภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยกข้อยกเว้น เปิดใช้งานการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแคชของแผนภูมิคือทางเลือกที่ยอมรับได้ เพราะแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับสมุดงานภายนอกหลังจากครั้งสุดท้ายที่อัปเดตงานนำเสนอ
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบได้หรือไม่ว่าชาร์ตเฉพาะเชื่อมกับสมุดงานภายนอกหรือฝังอยู่?**
+**ฉันสามารถกำหนดได้หรือไม่ว่าแผนภูมิบางตัวเชื่อมโยงกับสมุดงานภายนอกหรือสมุดงานฝัง?**
 
-ใช่. ชาร์ตมี [data source type](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) และ [path to an external workbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); หากแหล่งเป็นสมุดงานภายนอกคุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าไฟล์ภายนอกกำลังใช้หรือไม่
+ได้ แผนภูมิมี [data source type](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) และ [path to an external workbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath); หากแหล่งคือสมุดงานภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อให้แน่ใจว่ากำลังใช้ไฟล์ภายนอก
 
-**รองรับการใช้เส้นทางสัมพัทธ์ไปยังสมุดงานภายนอกหรือไม่ และจัดเก็บอย่างไร?**
+**รองรับเส้นทางสัมพัทธ์ไปยังสมุดงานภายนอกหรือไม่ และเก็บอย่างไร?**
 
-ใช่. หากคุณระบุเส้นทางสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางแบบเต็มโดยอัตโนมัติ งานนำเสนอบันทึกเส้นทางแบบเต็มในไฟล์ PPTX ดังนั้นการย้ายสมุดงานอาจต้องอัปเดตลิงก์
+ใช่ หากระบุเส้นทางสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางแบบสมบูรณ์โดยอัตโนมัติ งานนำเสนอเก็บเส้นทางสมบูรณ์ในไฟล์ PPTX ดังนั้นการย้ายสมุดงานอาจต้องอัปเดตลิงก์
 
-**ฉันสามารถใช้สมุดงานที่ตั้งอยู่บนทรัพยากร/แชร์เครือข่ายได้หรือไม่?**
+**ฉันสามารถใช้สมุดงานที่อยู่บนทรัพยากรหรือแชร์เครือข่ายได้หรือไม่?**
 
-ได้, สมุดงานเหล่านี้สามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตามการแก้ไขสมุดงานระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน – สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+ได้ สมุดงานเหล่านี้สามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม Aspose.Slides ไม่สนับสนุนการแก้ไขสมุดงานระยะไกลโดยตรง – สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
 
 **Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกงานนำเสนอหรือไม่?**
 
-งานนำเสนอบันทึก [link to the external file](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) การแก้ไขค่าชาร์ตที่อิงกับเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมโยง ใช้สำเนาของสมุดงานหากต้องการให้ไฟล์ต้นฉบับคงเดิม
+งานนำเสนอเก็บ [link to the external file](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) การแก้ไขค่าที่มาจากเซลล์ของแผนภูมิอาจอัปเดตไฟล์ XLSX ภายในโลคัลที่เชื่อม ใช้สำเนาของสมุดงานหากต้องการให้ไฟล์ต้นฉบับคงเดิม
 
-**หากไฟล์ภายนอกถูกตั้งรหัสผ่านควรทำอย่างไร?**
+**ต้องทำอย่างไรหากไฟล์ภายนอกมีการป้องกันด้วยรหัสผ่าน?**
 
-Aspose.Slides ไม่รับรหัสผ่านเมื่อเชื่อมโยง วิธีที่พบบ่อยคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัส (เช่นโดยใช้ [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) แล้วเชื่อมโยงไปยังสำเนานั้น
+Aspose.Slides ไม่รับรหัสผ่านเมื่อเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสแล้ว (เช่นโดยใช้ [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) แล้วเชื่อมโยงไปยังสำเนานั้น
 
-**หลายชาร์ตสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**
+**หลายแผนภูมิสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**
 
-ได้. แต่ละชาร์ตบันทึกลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในทุกชาร์ตเมื่อโหลดข้อมูลใหม่ครั้งต่อไป
+ได้ แต่ละแผนภูมิเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งต่อไปที่โหลดข้อมูล**

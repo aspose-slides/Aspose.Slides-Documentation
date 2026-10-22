@@ -10,32 +10,94 @@ keywords:
 - cor da categoria
 - nome da série
 - ponto de dados
-- intervalo da série
+- espaçamento da série
 - PowerPoint
 - apresentação
 - C++
 - Aspose.Slides
-description: "Aprenda como gerenciar séries de gráficos, pontos de dados, células da pasta de trabalho, formatação, sobreposição, largura do intervalo e valores negativos em apresentações com C++."
+description: "Aprenda como gerenciar séries de gráficos, pontos de dados, células de pasta de trabalho, formatação, sobreposição, largura do intervalo e valores negativos em apresentações com C++."
 ---
 ## **Visão geral**
 
-Um gráfico armazena seus dados plotados em uma pasta de trabalho de dados do gráfico. Um [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) representa um conjunto de valores relacionados, e cada [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) da série refere‑se a uma ou mais células da pasta de trabalho. Objetos [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) fornecem os rótulos ou valores de agrupamento compartilhados pelas séries. O nome da série, as categorias e os valores dos pontos, portanto, estão conectados a objetos [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) em vez de serem armazenados apenas como texto de exibição.
+Um gráfico pode armazenar seus valores plotados em células da pasta de trabalho ou diretamente como literais numéricos. Um [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) representa um conjunto de valores relacionados, e cada [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) representa um ponto nessa série. Objetos [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) fornecem os rótulos ou valores de agrupamento compartilhados pelas séries. Em gráficos criados com dados padrão, nomes de séries, categorias e valores de pontos usam objetos [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) da pasta de trabalho do gráfico.
 
-Para um gráfico de categoria típico, a pasta de trabalho padrão usa a linha 0 para nomes das séries, a coluna 0 para nomes das categorias e as demais células para os valores das séries. Os índices de planilha, linha e coluna passados para [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) são baseados em zero. Esse layout é útil quando você cria um gráfico com dados padrão, mas não assuma que todo gráfico existente o utiliza. Para uma apresentação carregada, inspecione as células referenciadas pelas séries, categorias e pontos de dados antes de alterar os valores da pasta de trabalho.
+Para um gráfico de categoria típico, a pasta de trabalho padrão usa a linha 0 para nomes de séries, a coluna 0 para nomes de categorias e as demais células para valores das séries. Os índices de planilha, linha e coluna passados para [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) são baseados em zero. Esse layout é útil quando você cria um gráfico com dados padrão, mas não assume que todo gráfico existente o utiliza. Para uma apresentação carregada, inspecione as células referenciadas pelas séries, categorias e pontos de dados antes de alterar os valores da pasta de trabalho.
 
 As configurações do gráfico têm três escopos diferentes:
 
-- Configurações ao nível da série, como [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), fornecem a aparência padrão para todos os pontos de uma série.
-- Configurações de ponto de dados, como [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/), substituem a aparência da série para um ponto.
+- Configurações no nível da série, como [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), fornecem a aparência padrão para todos os pontos de uma série.
+- Configurações de ponto de dados, como [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/), substituem a aparência da série para um ponto específico.
 - Configurações de grupo aplicam‑se a séries compatíveis que pertencem ao mesmo [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/). Acesse o grupo através de [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) quando precisar definir opções como sobreposição ou largura do intervalo.
 
 Quando nenhum preenchimento explícito de ponto ou série é definido, o estilo e o tema do gráfico determinam a aparência automática. Quando há formatação de série e de ponto, a formatação do ponto tem precedência para esse ponto.
 
-![série-de-gráfico-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Definir a sobreposição das séries do gráfico**
+## **Definir valores da série usando literais numéricos**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) indica quanto barras ou colunas se sobrepõem em um gráfico 2D, de –100 a 100 por cento. É uma projeção somente‑leitura da configuração no grupo de séries pai. Chame [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) para atualizar todas as séries compatíveis nesse grupo. Essa opção aplica‑se a tipos de gráfico que exibem barras ou colunas agrupadas; não afeta grupos de séries não relacionados em um gráfico combinado.
+Use literais numéricos quando os valores da série provêm de dados ou cálculos da aplicação e não precisam de referências a células da planilha. Chame [set_DataSourceTypeForValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforvalues/) com [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) antes de atribuir o valor retornado por [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_value/) de cada ponto através de [set_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/set_asliteraldouble/).
+
+A configuração da coleção controla o tipo de origem de todos os valores dos pontos nessa série. Cada ponto relata seu tipo selecionado por meio de [IBaseChartValue::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ibasechartvalue/get_datasourcetype/); altere‑o através da configuração da coleção. Com `Worksheet`, use [get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/isinglecellchartvalue/get_ascell/) para acessar a célula referenciada. Com `DoubleLiterals`, use [get_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/get_asliteraldouble/) ou `set_AsLiteralDouble` para ler ou gravar o número diretamente.
+
+O exemplo a seguir cria um gráfico de colunas com séries e categorias padrão, e então atribui valores calculados de 10, 20, etc., aos pontos existentes da primeira série. Ele salva a apresentação, reabre‑a e imprime os valores armazenados.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/DataSourceType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+
+series->get_DataPoints()->set_DataSourceTypeForValues(DataSourceType::DoubleLiterals);
+for (auto i = 0; i < series->get_DataPoints()->get_Count(); i++)
+{
+    series->get_DataPoints()->idx_get(i)->get_Value()->set_AsLiteralDouble((i + 1) * 10);
+}
+
+presentation->Save(u"numeric_literals.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+
+auto reopenedPresentation = MakeObject<Presentation>(u"numeric_literals.pptx");
+auto reopenedSlide = reopenedPresentation->get_Slide(0);
+auto reopenedChart = ExplicitCast<IChart>(reopenedSlide->get_Shape(0));
+auto reopenedSeries = reopenedChart->get_ChartData()->get_Series()->idx_get(0);
+for (auto i = 0; i < reopenedSeries->get_DataPoints()->get_Count(); i++)
+{
+    auto point = reopenedSeries->get_DataPoints()->idx_get(i);
+    Console::WriteLine(point->get_Value()->get_AsLiteralDouble());
+}
+reopenedPresentation->Dispose();
+```
+
+O tipo de origem do valor do ponto é separado de [IChartData::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_datasourcetype/), que identifica a configuração interna ou externa da pasta de trabalho do gráfico. Usar literais numéricos não remove, por si só, a pasta de trabalho incorporada. Neste exemplo, a pasta de trabalho continua disponível para rótulos de categorias, nomes de séries e as demais séries. Consulte [Chart Workbook](/slides/pt/cpp/chart-workbook/) para gerenciamento da pasta de trabalho.
+
+Para gráficos de dispersão e bolha, chame [set_DataSourceTypeForXValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforxvalues/) e [set_DataSourceTypeForYValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforyvalues/) para escolher as fontes de [get_XValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_xvalue/) e [get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Gráficos de bolha também usam [set_DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforbubblesizes/) para [get_BubbleSize](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_bubblesize/). Defina cada fonte aplicável como `DoubleLiterals` antes de atribuir números por meio do método `set_AsLiteralDouble` desse valor.
+
+## **Definir a sobreposição de séries do gráfico**
+
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) informa quanto as barras ou colunas se sobrepõem em um gráfico 2D, de –100 a 100 por cento. É uma projeção somente leitura da configuração no grupo de séries pai. Chame [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) para atualizar todas as séries compatíveis naquele grupo. Essa opção se aplica a tipos de gráfico que exibem barras ou colunas agrupadas; não afeta grupos de séries não relacionados em um gráfico combinado.
 
 O exemplo a seguir define a sobreposição para o grupo que contém a primeira série:
 
@@ -64,7 +126,7 @@ const int8_t overlapPercent = 30;
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(firstSlideIndex);
 
-// O novo gráfico contém séries de exemplo, categorias e valores.
+// O novo gráfico contém séries, categorias e valores de exemplo.
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
 auto seriesCollection = chart->get_ChartData()->get_Series();
@@ -77,11 +139,11 @@ presentation->Dispose();
 
 O resultado:
 
-![A sobreposição da série](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **Alterar a cor de preenchimento da série**
 
-Use [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) para definir o preenchimento padrão de uma série inteira. Se um ponto já possui um preenchimento explícito, sua configuração [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) substitui o preenchimento da série para esse ponto.
+Use [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) para definir o preenchimento padrão de uma série inteira. Se um ponto já possuir um preenchimento explícito, sua configuração [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) substitui o preenchimento da série para esse ponto.
 
 O exemplo a seguir aplica um preenchimento sólido azul à primeira série:
 
@@ -128,11 +190,11 @@ presentation->Dispose();
 
 O resultado:
 
-![A cor da série](series_color.png)
+![The color of the series](series_color.png)
 
 ## **Alterar o nome da série**
 
-Um nome de série é armazenado na pasta de trabalho de dados do gráfico e normalmente é exibido na legenda. Na pasta de trabalho padrão criada para um gráfico de colunas agrupadas, a célula B1 está na linha 0, coluna 1 e contém o nome da primeira série. As constantes nomeadas no exemplo a seguir tornam essa estrutura explícita:
+Um nome de série é armazenado na pasta de trabalho de dados do gráfico e normalmente exibido na legenda. Na pasta de trabalho padrão criada para um gráfico de colunas agrupadas, a célula B1 está na linha 0, coluna 1 e contém o nome da primeira série. As constantes nomeadas no exemplo a seguir tornam essa estrutura explícita:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -173,7 +235,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Você também pode atualizar a célula já referenciada por [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). Essa abordagem evita assumir uma linha e coluna específicas em um gráfico existente:
+Você também pode atualizar a célula já referenciada por [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). Essa abordagem evita supor uma linha e coluna específicas em um gráfico existente:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -220,15 +282,15 @@ presentation->Dispose();
 
 O resultado:
 
-![O nome da série](series_name.png)
+![The series name](series_name.png)
 
-### **Criar uma série com um nome a partir de várias células**
+### **Criar uma série com nome a partir de múltiplas células**
 
-Um nome de série composto é útil quando o nome do produto e o período de relatório estão armazenados em células de pasta de trabalho distintas. Por exemplo, você pode combinar `Product A` em B1 e `2026` em C1 em um único nome de série, mantendo ambas as partes vinculadas às suas células de origem.
+Um nome de série composto é útil quando o nome do produto e o período de relatório são armazenados em células diferentes da pasta de trabalho. Por exemplo, você pode combinar `Product A` em B1 e `2026` em C1 em um único nome de série mantendo ambas as partes vinculadas às suas células de origem.
 
-Use [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) para obter o intervalo de nomes e, em seguida, passe essa coleção para [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). O argumento `skipHiddenCells` controla se células ocultas são incluídas: `true` as exclui, `false` as inclui. Este exemplo usa `false` para incluir todas as células no intervalo de nomes.
+Use [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) para recuperar o intervalo de nomes e, em seguida, passe essa coleção para [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). O argumento `skipHiddenCells` controla se células ocultas são incluídas: `true` as exclui, `false` as inclui. Este exemplo usa `false` para incluir todas as células do intervalo de nomes.
 
-O exemplo a seguir cria uma apresentação com uma série e duas pontos de dados. As células B1:C1 fornecem apenas o nome da série; A2:A3 fornecem os rótulos de categoria e B2:B3 fornecem os valores numéricos.
+O exemplo a seguir cria uma apresentação com uma série e dois pontos de dados. As células B1:C1 fornecem apenas o nome da série; A2:A3 fornecem os rótulos das categorias e B2:B3 fornecem os valores numéricos.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -268,7 +330,7 @@ chart->set_HasLegend(true);
 auto workbook = chartData->get_ChartDataWorkbook();
 workbook->Clear(0);
 
-// Essas duas células fornecem o nome da série.
+// Estas duas células fornecem o nome da série.
 auto productName = ObjectExt::Box<String>(u"Product A");
 auto reportingPeriod = ObjectExt::Box<String>(u"2026");
 workbook->GetCell(0, 0, 1, productName);
@@ -294,13 +356,13 @@ presentation->Save(u"composite_series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-O nome da série resultante é `Product A 2026`, com um espaço entre os dois valores de célula. A legenda exibe isso como uma única entrada para ambas as colunas. A imagem abaixo ilustra o resultado:
+O nome da série resultante é `Product A 2026`, com um espaço entre os dois valores das células. A legenda exibe isso como uma única entrada para ambas as colunas. A imagem abaixo ilustra o resultado:
 
-![Gráfico de colunas com valores Norte e Sul e o nome de série composto Product A 2026 na legenda](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
 ## **Obter a cor automática de preenchimento da série**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) devolve a cor calculada a partir do índice da série e do estilo do gráfico. Essa é a cor usada quando o preenchimento da série não foi definido explicitamente. Chamar o método lê a cor calculada; não atribui um novo preenchimento.
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) devolve a cor calculada a partir do índice da série e do estilo do gráfico. Essa é a cor usada quando o preenchimento da série não foi definido explicitamente. Chamar o método lê a cor calculada; ele não atribui um novo preenchimento.
 
 O exemplo a seguir imprime a cor automática de cada série padrão:
 
@@ -309,7 +371,7 @@ O exemplo a seguir imprime a cor automática de cada série padrão:
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/IChart.h>
+#include <DOM/IChart>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
@@ -354,9 +416,9 @@ Series 2: ff9bbb59
 
 As cores exatas dependem do estilo e do tema do gráfico.
 
-## **Definir preenchimento inverso para uma série do gráfico**
+## **Definir preenchimento invertido para uma série de gráfico**
 
-Para séries de barras, colunas e bolhas, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) pode exibir valores negativos com um preenchimento diferente. Defina o preenchimento regular da série como sólido, habilite a inversão e atribua a cor de valor negativo através de [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Números negativos permanecem inalterados na pasta de trabalho; apenas sua cor de exibição muda.
+Para séries de barra, coluna e bolha, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) pode exibir valores negativos com um preenchimento diferente. Defina o preenchimento regular da série como sólido, habilite a inversão e atribua a cor de valor negativo através de [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Números negativos permanecem inalterados na pasta de trabalho; apenas a cor de exibição muda.
 
 O exemplo a seguir substitui os dados padrão do gráfico por uma série. A linha 0 da planilha contém o nome da série, a coluna 0 contém os nomes das categorias e a coluna 1 contém os valores:
 
@@ -446,9 +508,9 @@ presentation->Dispose();
 
 O resultado:
 
-![A cor de preenchimento sólido invertido](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Você pode habilitar a inversão para um ponto através de [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). No exemplo a seguir, a inversão está desativada para a série e ativada apenas para o ponto selecionado. O ponto também recebe um valor negativo para que o efeito seja visível:
+Você pode habilitar a inversão para um ponto através de [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). No exemplo a seguir, a inversão está desabilitada para a série e habilitada apenas para o ponto selecionado. O ponto também recebe um valor negativo para que o efeito seja visível:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -460,7 +522,7 @@ Você pode habilitar a inversão para um ponto através de [IChartDataPoint::set
 #include <DOM/Chart/IDoubleChartValue.h>
 #include <DOM/Chart/IFormat.h>
 #include <DOM/FillType.h>
-#include <DOM/IChart.h>
+#include <DOM/IChart>
 #include <DOM/IColorFormat.h>
 #include <DOM/IFillFormat.h>
 #include <DOM/IShapeCollection.h>
@@ -508,9 +570,9 @@ presentation->Dispose();
 
 ## **Limpar o valor de um ponto de dados específico**
 
-Para tornar um ponto vazio sem remover os demais, defina sua célula de suporte na pasta de trabalho como `nullptr`. Para um gráfico de colunas, o valor plotado está disponível através de [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). O ponto de dados permanece na mesma posição de categoria, mas o gráfico trata seu valor como em branco de acordo com as configurações de valores em branco do gráfico.
+Para deixar um ponto vazio sem remover os demais, defina sua célula de pasta de trabalho de suporte como `nullptr`. Para um gráfico de colunas, o valor plotado está disponível através de [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). O ponto de dados permanece na mesma posição de categoria, mas o gráfico trata seu valor como em branco de acordo com as configurações de valores em branco do gráfico.
 
-O exemplo a seguir limpa apenas o segundo ponto da primeira série:
+O exemplo a seguir limpa somente o segundo ponto da primeira série:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -549,17 +611,17 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Gráficos de dispersão usam células X e Y separadas, e gráficos de bolhas também usam uma célula de tamanho. Limpe somente a célula que representa o valor que você pretende remover. Não chame [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) quando quiser manter os demais pontos, pois esse método remove todos os pontos de dados da coleção.
+Gráficos de dispersão usam células X e Y separadas, e gráficos de bolha também usam uma célula de tamanho. Limpe apenas a célula que representa o valor que deseja remover. Não chame [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) quando quiser manter os outros pontos, pois esse método remove todos os pontos da coleção.
 
 ## **Controlar a exibição de células vazias**
 
-Células ocultas que contêm valores são um caso distinto das células vazias. Para incluir ou excluir dados de linhas e colunas ocultas da planilha, veja [Include Data from Hidden Rows and Columns](/slides/pt/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Células ocultas que contêm valores são um caso diferente de células vazias. Para incluir ou excluir dados de linhas e colunas ocultas da planilha, veja [Include Data from Hidden Rows and Columns](/slides/pt/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Uma célula vazia da pasta de trabalho representa dados ausentes; uma célula contendo `0` representa um valor numérico conhecido. Chame [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) com `nullptr` para tornar a célula vazia. Um zero numérico continua zero independentemente da configuração de célula vazia.
+Uma célula vazia da pasta de trabalho representa dados ausentes; uma célula contendo `0` representa um valor numérico conhecido. Chame [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) com `nullptr` para tornar a célula vazia. Um zero numérico permanece zero independentemente da configuração de célula em branco.
 
-Use [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) para escolher como o gráfico exibe células vazias. Essa configuração aplica‑se a todo o gráfico. Ela altera como os vazios são plotados, sem preencher a célula vazia da pasta de trabalho com zero ou valor interpolado.
+Use [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) para escolher como o gráfico exibe células vazias. Essa configuração aplica‑se a todo o gráfico. Ela altera a forma como os vazios são plotados, sem preencher a célula vazia da pasta de trabalho com zero ou valor interpolado.
 
-O exemplo autocontido a seguir cria um gráfico de linhas com uma série, limpa o valor do Dia 3 e salva o mesmo gráfico em cada modo. Nenhum arquivo de entrada é necessário. O [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) usa a planilha 0, coluna 0 para rótulos de categoria e coluna 1 para valores; a linha 0 contém o nome da série. Os dados finais são `10, 20, empty, 30, 40`.
+O exemplo autônomo a seguir cria um gráfico de linhas com uma série, limpa o valor do Dia 3 e salva o mesmo gráfico em cada modo. Nenhum arquivo de entrada é necessário. O [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) usa a planilha 0, a coluna 0 para rótulos de categoria e a coluna 1 para valores; a linha 0 contém o nome da série. Os dados finais são `10, 20, empty, 30, 40`.
 
 ```cpp
 #include <array>
@@ -627,17 +689,17 @@ for (auto mode : modes)
 presentation->Dispose();
 ```
 
-Cada arquivo de saída armazena o modo atribuído antes da gravação: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` e `empty_cells_Span.pptx`. Para salvar apenas uma versão, atribua o modo desejado e salve a apresentação uma única vez em vez de iterar pelos modos.
+Cada arquivo de saída armazena o modo atribuído antes de salvar: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` e `empty_cells_Span.pptx`. Para salvar apenas uma versão, atribua o modo desejado e salve a apresentação uma única vez em vez de iterar pelos modos.
 
 A comparação abaixo mostra os mesmos dados nos três arquivos. O Dia 3 está vazio na pasta de trabalho em todos os casos:
 
-![Gráficos de linha com dados idênticos: Gap interrompe a linha no Dia 3, Zero faz a linha cair a zero, e Span conecta o Dia 2 ao Dia 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-O efeito visível depende do tipo de gráfico. Um gráfico de linhas torna os três modos fáceis de comparar. Gráficos de barras e colunas não possuem linha para conectar categorias ausentes, portanto `Span` não pode gerar o segmento de conexão mostrado acima; uma coluna ausente e uma coluna de altura zero podem parecer semelhantes. Da mesma forma, um gráfico de dispersão apenas com marcadores não tem linha de conexão. Não espere três resultados distintos para todo tipo de gráfico; verifique a saída para o tipo que você usa.
+O efeito visível depende do tipo de gráfico. Um gráfico de linhas facilita a comparação dos três modos. Gráficos de barra e coluna não têm linha para conectar entre categorias ausentes, de modo que `Span` não pode produzir o segmento de conexão mostrado acima; uma coluna ausente e uma coluna de altura zero também podem parecer iguais. Da mesma forma, um gráfico de dispersão apenas com marcadores não possui linha de conexão. Não espere três resultados distintos para todos os tipos de gráfico; verifique a saída para o tipo que você usa.
 
 ## **Definir a largura do intervalo da série**
 
-A largura do intervalo é o espaço entre clusters adjacentes de barras ou colunas, expressa como porcentagem da largura da barra ou coluna. Assim como a sobreposição, pertence ao grupo de séries pai e não a uma série individual. Chame [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) uma vez para o grupo. Um valor maior cria mais espaço entre os clusters; um valor menor os deixa mais densos.
+A largura do intervalo é o espaço entre clusters adjacentes de barras ou colunas, expresso como porcentagem da largura da barra ou coluna. Assim como a sobreposição, pertence ao grupo de séries pai e não a uma única série. Chame [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) uma vez para o grupo. Um valor maior cria mais espaço entre os clusters; um valor menor os torna mais densos.
 
 O exemplo a seguir altera a largura do intervalo e salva apenas a apresentação final:
 
@@ -678,13 +740,13 @@ presentation->Dispose();
 
 O resultado:
 
-![A largura do intervalo](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **FAQ**
 
 **Quais tipos de gráfico suportam séries de dados?**
 
-Todos os tipos de gráfico representados pela enumeração [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) utilizam dados de gráfico, mas suas séries não compartilham a mesma estrutura de valores ou configurações. Por exemplo, gráficos de categoria usam categorias e valores, gráficos de dispersão usam valores X e Y, e gráficos de bolha adicionam tamanhos de bolha. Use o método de criação de ponto de dados que corresponde ao tipo da série. Opções como sobreposição e largura do intervalo aplicam‑se somente a grupos de barras ou colunas compatíveis.
+Todos os tipos de gráfico representados pela enumeração [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) utilizam dados de gráfico, porém suas séries não têm todas a mesma estrutura de valores ou configurações. Por exemplo, gráficos de categoria usam categorias e valores, gráficos de dispersão usam valores X e Y, e gráficos de bolha adicionam tamanhos de bolha. Use o método de criação de ponto de dados que corresponde ao tipo da série. Opções como sobreposição e largura do intervalo aplicam‑se apenas a grupos de barra ou coluna compatíveis.
 
 **O que é um grupo de séries de gráfico?**
 
@@ -692,32 +754,32 @@ Um [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.cha
 
 **Um gráfico recém‑criado contém dados padrão?**
 
-Sim. Por padrão, [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) cria séries, categorias e valores de exemplo. Você pode editar essas células ou limpar tanto as coleções de séries quanto as de categorias antes de adicionar um conjunto de dados totalmente personalizado. Uma sobrecarga também pode criar um gráfico sem dados padrão.
+Sim. Por padrão, [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) cria séries, categorias e valores de exemplo. Você pode editar essas células ou limpar as coleções de séries e categorias antes de adicionar um conjunto de dados totalmente personalizado. Uma sobrecarga também pode criar um gráfico sem dados padrão.
 
 **Como os objetos do gráfico estão conectados às células da pasta de trabalho?**
 
-Nomes de séries, rótulos de categorias e valores de pontos de dados referenciam células em um [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Alterar uma célula referenciada atualiza o elemento correspondente do gráfico. Ao construir dados personalizados, mantenha as linhas de categorias e as linhas de valores das séries alinhadas para que cada ponto seja plotado sob a categoria pretendida.
+Nomes de séries, rótulos de categorias e valores de pontos de dados referenciam células em um [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Alterar uma célula referenciada atualiza o elemento correspondente do gráfico. Ao criar dados personalizados, mantenha as linhas de categoria e as linhas de valores das séries alinhadas para que cada ponto seja plotado sob a categoria pretendida.
 
 **Como limpar um ponto em vez de toda a série?**
 
-Defina a célula de valor relevante como `nullptr` para manter a posição de categoria do ponto como ponto vazio. Chame [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) apenas quando desejar remover todos os pontos daquela série. Se também remover categorias, atualize cada série para que seus valores permaneçam alinhados com a coleção de categorias.
+Defina a célula de valor relevante como `nullptr` para manter a posição de categoria do ponto como vazio. Chame [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) apenas quando desejar remover todos os pontos daquela série. Se também remover categorias, atualize todas as séries para que seus valores permaneçam alinhados com a coleção de categorias.
 
 **Como os pontos vazios são exibidos?**
 
-O resultado depende do tipo de gráfico e de [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Gráficos suportados podem exibir vazios como intervalos, como valores zero ou conectando pontos vizinhos. Escolha a configuração que corresponda ao significado dos dados ausentes em sua apresentação. Consulte [Controlar a exibição de células vazias](#controlar-a-exibição-de-células-vazias) para um exemplo completo e comparativo visual.
+O resultado depende do tipo de gráfico e de [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Gráficos suportados podem exibir vazios como lacunas, como valores zero ou conectando pontos vizinhos. Escolha a configuração que corresponda ao significado dos dados ausentes em sua apresentação. Consulte [Control the Display of Empty Cells](#control-the-display-of-empty-cells) para um exemplo completo e comparação visual.
 
-**Como valores negativos são formatados?**
+**Como os valores negativos são formatados?**
 
-Para séries de barra, coluna e bolha suportadas, chame [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) e defina a cor por meio de [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Você pode sobrescrever o comportamento para um ponto individual com [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Esses métodos afetam a formatação, não os valores numéricos armazenados.
+Para séries de barra, coluna e bolha suportadas, chame [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) e defina a cor através de [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Você pode sobrescrever o comportamento para um ponto individual com [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Esses métodos afetam a formatação, não os valores numéricos armazenados.
 
 **Qual formatação prevalece quando tanto a série quanto o ponto são formatados?**
 
-A formatação explícita de ponto de dados tem precedência para esse ponto. Os demais pontos continuam usando a formatação explícita da série ou, quando a formatação da série não está definida, o estilo e o tema automáticos do gráfico. Configurações de grupo, como sobreposição e largura do intervalo, controlam o layout e não substituem formatações ao nível do ponto.
+A formatação explícita de ponto de dados tem precedência para esse ponto. Os demais pontos continuam usando a formatação explícita da série ou, quando a formatação da série não está definida, o estilo e tema automáticos do gráfico. Configurações de grupo, como sobreposição e largura do intervalo, controlam o layout e não substituem a formatação de ponto.
 
 **Existe um limite para a quantidade de séries que um gráfico pode conter?**
 
-Aspose.Slides não impõe um limite fixo separado de séries. Na prática, as restrições do arquivo de apresentação, memória disponível, tempo de renderização e legibilidade do gráfico determinam um limite útil.
+Aspose.Slides não impõe um limite fixo separado para a contagem de séries. Na prática, restrições do arquivo de apresentação, memória disponível, tempo de renderização e legibilidade do gráfico determinam um limite útil.
 
-**O que devo ajustar quando as colunas estão muito próximas ou muito afastadas?**
+**O que devo mudar quando as colunas estão muito próximas ou muito afastadas?**
 
-Chame [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) no grupo de séries pai apropriado. Aumente o valor para ampliar o espaço entre os clusters ou diminua-o para aproximar os clusters.
+Chame [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) no grupo de séries pai apropriado. Aumente o valor para ampliar o espaço entre os clusters ou diminua‑o para aproximar os clusters.

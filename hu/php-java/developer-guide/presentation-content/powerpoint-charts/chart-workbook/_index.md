@@ -1,13 +1,13 @@
 ---
-title: Diagram munkafüzetek kezelése prezentációkban PHP használatával
-linktitle: Diagram munkafüzet
+title: Diagrammunkafüzetek kezelése prezentációkban PHP használatával
+linktitle: Diagrammunkafüzet
 type: docs
 weight: 70
 url: /hu/php-java/chart-workbook/
 keywords:
-- diagram munkafüzet
-- diagram adatok
-- munkafüzet cella
+- diagrammunkafüzet
+- diagramadatok
+- munkafüzetcella
 - adatcímke
 - munkalap
 - adatforrás
@@ -19,31 +19,31 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for PHP via Java megoldást: könnyedén kezelheti a diagram munkafüzeteket PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse prezentációja adatait."
+description: "Fedezze fel az Aspose.Slides for PHP via Java-t: egyszerűen kezelje a diagrammunkafüzeteket PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse prezentációja adatait."
 ---
 ## **Áttekintés**
 
-Ez a cikk leírja, hogyan lehet a diagram munkafüzetekkel dolgozni az Aspose.Slides‑ben. Bemutatja, hogyan olvassuk és írjuk a diagram adatokat munkafüzet‑adatfolyamok segítségével, hogyan használjuk a munkafüzet cellákat diagram adatcímkeként, hogyan érjük el a munkalap‑gyűjteményeket, és hogyan határozzuk meg az adatforrás típusát a diagram értékekhez.
+Ez a cikk bemutatja, hogyan lehet a diagramkönyvtárakkal dolgozni az Aspose.Slides-ban. Megmutatja, hogyan kell beolvasni és írni a diagramadatokat könyvtár adatfolyamokon keresztül, a munkafüzet cellákat diagramadatcímkékként használni, elérni a munkalapgyűjteményeket, és megadni az adatforrás típusát a diagramértékekhez.
 
-A cikk kitér a külső munkafüzetek diagram adatforrásként történő használatára is. A példák bemutatják, hogyan hozhatunk létre és rendelhetünk hozzá egy külső munkafüzetet, hogyan kérhetjük le egy diagramhoz kapcsolódó külső munkafüzet útvonalát, valamint hogyan szerkeszthetjük a diagram adatokat, amikor a munkafüzet elérhető.
+A cikk továbbá tárgyalja a külső munkafüzetek diagramadatforrásként való használatát. A példák bemutatják, hogyan hozhatunk létre és rendelhetünk hozzá egy külső munkafüzetet, hogyan kérhetjük le egy diagramhoz kapcsolt külső munkafüzet útvonalát, és hogyan szerkeszthetjük a diagramadatokat, ha a munkafüzet rendelkezésre áll.
 
-A hiányzó adatokat tartalmazó munkafüzet‑cellákhoz lásd a [Üres cellák megjelenítésének vezérlése](/slides/hu/php-java/chart-series/) cikket, amely a különbséget mutatja az üres cella és a nulla között, valamint egy vonaldiagramot a rendelkezésre álló megjelenítési módok összehasonlítására.
+Hiányzó adatot képviselő munkafüzetcellák esetén lásd a [Control the Display of Empty Cells](/slides/hu/php-java/chart-series/) cikket, ahol megtudhatja a különbséget az üres cella és a nulla között, valamint egy vonaldiagram-összehasonlítást a rendelkezésre álló megjelenítési módokról.
 
 ## **Rejtett sorok és oszlopok adatainak belefoglalása**
 
-Használja a [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) metódust, hogy szabályozza, a diagram a rejtett munkalap‑sorok és -oszlopok adatait is felhasználja‑e. Állítsa `true`‑ra, ha csak a látható cellákat szeretné ábrázolni, vagy `false`‑ra, ha a látható és rejtett cellákat egyaránt fel kívánja venni. Ez a beállítás a diagram ábrázolását vezérli; nem rejti el vagy jeleníti meg a munkalap‑sorokat vagy -oszlopokat.
+Használja a [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) elemet annak szabályozására, hogy a diagram a rejtett munkalap sorokból és oszlopokból származó adatokat is ábrázolja-e. Állítsa `true`-ra, ha csak a látható cellákat kívánja ábrázolni, vagy `false`-ra, ha a látható és a rejtett cellákat is bele szeretné foglalni. Ez a beállítás a diagram ábrázolását szabályozza; nem rejti el vagy jeleníti meg a munkalap sorokat vagy oszlopokat.
 
-A [mintaprezentáció](hidden-source-data.pptx) egy oszlopdiagramot tartalmaz első alakzatként az első dián. A beágyazott munkalap, `Sheet1`, a következő forrás‑tartományt tartalmazza: `A1:C4`. A 3. sor és a C oszlop rejtett, de celláik még mindig értékeket tartalmaznak.
+A [példa előadás](hidden-source-data.pptx) egy oszlopdiagramot tartalmaz, amely az első dián az első alakzat. A beágyazott munkalap, `Sheet1`, a következő forrásintervallumot tartalmazza: `A1:C4`. A 3. sor és a C oszlop rejtett, de a celláik még mindig tartalmaznak értékeket.
 
 | Munkalap sor | A: Hónap | B: Kiskereskedelem | C: Nagykereskedelem (rejtett oszlop) |
 | --- | --- | --- | --- |
-| 2 | Január | 10 | 30 |
-| 3 (rejtett sor) | Február | 40 | 60 |
-| 4 | Március | 20 | 50 |
+| 2 | január | 10 | 30 |
+| 3 (rejtett sor) | február | 40 | 60 |
+| 4 | március | 20 | 50 |
 
-A forrás‑cellák eléréséhez használja a [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) metódust, és olvassa a [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) értékét a rejtett állapot vizsgálatához. Ez a metódus a rejtett állapotot jelzi anélkül, hogy megváltoztatná azt. Ebben a fájlban a B2 látható, a B3 a rejtett sorhoz tartozik, a C2 pedig a rejtett oszlophoz; a példa sorban `false`, `true`, és `true` értékeket ír ki.
+A forráscellákhoz a [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével férhet hozzá, és a [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) metódussal ellenőrizheti a rejtettségi állapotukat. Ez a metódus megjeleníti a rejtettségi állapotot anélkül, hogy megváltoztatná azt. Ebben a fájlban a B2 látható, a B3 a rejtett sorhoz tartozik, és a C2 a rejtett oszlophoz; a példa ennek megfelelően `false`, `true`, `true` értékeket ír ki.
 
-E példához a diagram adatainak frissítése a beállítás módosítása után szükséges: tartsa meg a beágyazott munkafüzetet a [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) metódussal, és töltse be újra a [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) metódussal. Az összes cella belefoglalásakor használja még a [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) metódust a teljes tartomány visszaállításához, beleértve a rejtett februári kategóriát is. Csak a jelző módosítása nem elegendő a minta gyorsítótárazott diagram adatainak és kategória‑címkéinek frissítéséhez.
+Ehhez a példához frissítse a diagramadatokat a kirajzolási beállítás megváltoztatása után: tartsa meg a beágyazott munkafüzetet a [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) használatával, és töltse be újra a [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) segítségével. Az összes cella belefoglalásakor használja a [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) elemet is, hogy helyreállítsa a teljes tartományt, beleértve a rejtett februári kategóriát. A jelző egyszerű módosítása nem elegendő a mintában tárolt diagramadatok és kategóriacímkék frissítéséhez.
 
 ```php
 use aspose\slides\Presentation;
@@ -65,10 +65,10 @@ try {
         foreach ([true, false] as $visibleOnly) {
             $chart->setPlotVisibleCellsOnly($visibleOnly);
 
-            // Frissítse a diagram adatokat a beágyazott munkafüzetről.
+            // Frissítsd a diagramadatokat a beágyazott munkafüzetről.
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
-                // Állítsa vissza a teljes forrás tartományt, beleértve a rejtett kategóriákat.
+                // Állítsd vissza a teljes forrásintervallumot, beleértve a rejtett kategóriákat.
                 $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
             }
 
@@ -82,21 +82,21 @@ try {
 }
 ```
 
-A példa két változatban menti a prezentációt: egyben csak a látható Kiskereskedelem értékek (10 és 20) szerepelnek, a másikban mind a hat érték. Az alábbi képek a két ábrázolási módot szemléltetik. A 3. sor és a C oszlop mindkét beágyazott munkafüzetben rejtett marad.
+A példa két változatban menti a prezentációt: az egyik csak a látható Kiskereskedelem értékeket (10 és 20) tartalmazza, a másik pedig mind a hat értéket. Az alábbi képek illusztrálják a két ábrázolási módot. A 3. sor és a C oszlop mindkét beágyazott munkafüzetben rejtett marad.
 
 | Csak látható cellák (`true`) | Minden cella (`false`) |
 | --- | --- |
-| ![Csak látható cellák: Kiskereskedelmi értékek 10 és 20 Január és Március számára.](hidden_cells_True.png) | ![Minden cella: Kiskereskedelmi és Nagykereskedelmi értékek Január, Február és Március számára.](hidden_cells_False.png) |
+| ![Csak látható cellák: Kiskereskedelem értékek 10 és 20 januárra és márciusra.](hidden_cells_True.png) | ![Minden cella: Kiskereskedelem és Nagykereskedelem értékek januárra, februárra és márciusra.](hidden_cells_False.png) |
 
-Egy rejtett cella, amely értéket tartalmaz, különbözik egy üres cellától. A [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) metódus szabályozza, hogy a hiányzó értékek hogyan jelenjenek meg; nem vonja be vagy zárja ki a rejtett forrásadatot. Lásd a [Üres cellák megjelenítésének vezérlése](/slides/hu/php-java/chart-series/#control-the-display-of-empty-cells) cikket példáért.
+Egy értéket tartalmazó rejtett cella különbözik egy üres cellától. A [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) szabályozza, hogyan jelennek meg a hiányzó értékek; nem vonja be vagy zárja ki a rejtett forrásadatokat. Lásd a [Control the Display of Empty Cells](/slides/hu/php-java/chart-series/#control-the-display-of-empty-cells) példát.
 
-## **Diagram adatcímének lekérése**
+## **Diagram adatintervallumának lekérése**
 
-Mielőtt módosítaná a munkafüzet adatokat egy meglévő prezentációban, ellenőrizze a forrás‑tartományokat, hogy megtudja, mely munkalap‑cellákat használja az egyes diagramok. A [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) metódus a jelenlegi adatcímkét adja vissza munkalap‑kvalifikált képletként, például `Sheet1!$A$1:$D$5`. Itt a `Sheet1` a munkalap neve, a `!` választja el a cellatartományt, a `$A$1:$D$5` pedig az A1‑től D5‑ig terjedő cellákat jelöli, a dollárjelek pedig abszolút sor‑ és oszlop‑hivatkozást mutatnak.
+A meglévő prezentációban a munkafüzet adatainak frissítése előtt ellenőrizze a forrásintervallumokat, hogy meghatározza, mely munkalapcellákat használja a diagram. A [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) metódus visszaadja a jelenlegi adatintervallumot munkalap‑kvalifikált képletként, például `Sheet1!$A$1:$D$5`. Itt a `Sheet1` a munkalap neve, a `!` elválasztja a cellatartományt, a `$A$1:$D$5` pedig az A1‑től D5‑ig terjedő cellákat jelöli (beleértve). A dollárjelek abszolút sor‑ és oszlopreferenciákat jelölnek.
 
-A metódus a jelenlegi tartományt olvassa anélkül, hogy megváltoztatná a diagramot vagy annak munkafüzetét. Ha a diagram nem használ munkafüzetet adatforrásként, kivételt dob. További információkért tekintse meg a [ChartData API Referenciát](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/).
+A metódus a jelenlegi tartományt olvassa anélkül, hogy módosítaná a diagramot vagy a munkafüzetet. Ha a diagram nem használ munkafüzetet adatforrásként, kivételt dob. További információkért lásd a [ChartData API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) oldalt.
 
-Ez a példa megnyit egy prezentációt, és közvetlenül minden dián ellenőrzi az alakzatokat diagramokra. Kiírja minden diagram nevét és forrás‑tartományát. Ha egy diagram nem használ munkafüzetet, üzenetet ír ki, és a következő diagramra lép.
+Ez a példa megnyit egy prezentációt, és minden dián közvetlenül a formákat ellenőrzi, hogy diagramok vannak‑e. Kiírja minden diagram nevét és forrásintervallumát. Ha egy diagram nem használ munkafüzetet, üzenetet ír ki, és a következő diagramra tovább lép.
 
 ```php
 use aspose\slides\Presentation;
@@ -129,11 +129,11 @@ try {
 }
 ```
 
-## **Diagram adatok olvasása és írása munkafüzetből**
+## **Diagramadatok beolvasása és írása munkafüzettel**
 
-Az Aspose.Slides for PHP via Java a [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) és a [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) metódusokat kínálja, amelyek lehetővé teszik a diagram adat‑munkafüzetek (az Aspose.Cells‑szel szerkesztett diagramadatok) olvasását és írását. **Megjegyzés**, hogy a diagram adatokat ugyanúgy kell felépíteni, vagy szerkezetüknek hasonlónak kell lennie a forráshoz.
+Az Aspose.Slides for PHP via Java biztosítja a [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) és a [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) metódusokat, amelyekkel be‑ és kiolvashatók a diagramadatokat tartalmazó munkafüzetek (amelyek az Aspose.Cells‑el szerkesztett adatokat tartalmazzák). **Note** hogy a diagramadatoknak ugyanúgy kell felépülniük, vagy hasonló szerkezetűeknek kell lenniük, mint a forrás.
 
-Ez a példa egy prezentációt használ, amelynek első alakzata az első dián egy diagram. Beolvassa a beágyazott munkafüzetet egy bájt‑tömbbe, törli a meglévő sorozatokat és kategóriákat, és visszaírja ugyanazt a munkafüzetet. A változtatások memóriában maradnak; a példa nem menti a prezentációt.
+Ez a példa egy prezentációt használ, amelynek első diáján az első alakzat egy diagram. Beolvassa a beágyazott munkafüzetet egy bájt‑tömbbe, kitörli a meglévő sorozatokat és kategóriákat, majd visszaírja ugyanazt a munkafüzetet. A változtatások memóriában maradnak; a példa nem menti a prezentációt.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,9 @@ try {
 }
 ```
 
-### **Diagram elrendezésének ellenőrzése munkafüzet módosítása után**
+### **Diagramelrendezés ellenőrzése a munkafüzet módosítása után**
 
-Ha egy beágyazott munkafüzetet egy módosítottra cserél, a diagram megtartja az eredeti sorozat‑ és kategória‑gyűjteményeket. Ez a nem‑összhang a [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) hibához vezethet, ha a sorozat‑ vagy kategória‑gyűjtemények nem egyeznek. Törölje a meglévő sorozatokat és kategóriákat, mielőtt visszaírná a frissített munkafüzetet a diagramhoz. Ez a példa egy diagramot használ, amely az első dia első alakzata. A megjegyzés azt jelöli, hol történne a munkafüzet szerkesztése; a futtatható példa visszaírja az eredeti munkafüzetet, és a memóriában ellenőrzi az elrendezést.
+Amikor egy beágyazott munkafüzetet egy módosítottra cserél, a diagram megőrzi az eredeti sorozat‑ és kategóriagyűjteményeket. Ez az eltérés a [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) hibához vezethet, amely index‑túl‑hatókörű hibát dob. Törölje a meglévő sorozatokat és kategóriákat, mielőtt a frissített munkafüzetet visszaírná a diagramra. Ez a példa egy diagramot használ, amely az első dián az első alakzat. A megjegyzés jelöli, hol történne a munkafüzet szerkesztése; a futtatható példa visszaírja az eredeti munkafüzetet, és memóriában ellenőrzi az elrendezést.
 
 ```php
 use aspose\slides\Presentation;
@@ -177,7 +177,7 @@ try {
         $chartData = $chart->getChartData();
         $workbookData = $chartData->readWorkbookStream();
 
-        // Módosítsa a munkafüzet bájtjait itt, például az Aspose.Cells használatával.
+        // Módosítsd a munkafüzet bájtjait itt, például az Aspose.Cells használatával.
 
         $chartData->getSeries()->clear();
         $chartData->getCategories()->clear();
@@ -192,15 +192,15 @@ try {
 }
 ```
 
-A gyűjtemények törlése eltávolítja a régi adat‑referenciákat, mielőtt a munkafüzet visszaírásra kerül. Az új munkafüzethez szükséges sorozat‑ és kategória‑leképezéseket építse újra, mielőtt a diagramot használja.
+A gyűjtemények törlése eltávolítja a régi adatreferenciákat, mielőtt a munkafüzet vissza lenne írva. Építse újra a szükséges sorozat‑ és kategória‑leképezéseket a frissített munkafüzethez, mielőtt a diagramot használná.
 
-## **Egyéni számformátumok beállítása munkafüzet cellákhoz**
+## **Egyedi számformátumok beállítása munkafüzetcellákhoz**
 
-Használja a [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) metódust, hogy szabályozza, a numerikus értékek hogyan jelenjenek meg egy diagram beágyazott munkafüzetében. Például egy jelentésnek a konverziós arányt százalékban, négy tizedesjeggyel, a koefficienst pedig öt tizedesjeggyel kell megjelenítenie. Tartsa mindkét értéket számmá, hogy számításokhoz és diagramrajzoláshoz továbbra is elérhetők legyenek.
+Használja a [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) elemet annak szabályozására, hogyan jelenjenek meg a numerikus értékek egy diagram beágyazott munkafüzeteiben. Például egy jelentésben a konverziós arányt százalékosan, négy tizedesjeggyel, a koefficienst pedig öt tizedesjeggyel kell megjeleníteni. Tartsa mindkét értéket numerikus formában, hogy elérhetőek maradjanak a számításokhoz és a diagramábrázoláshoz.
 
-A számformátum csak a megjelenítést változtatja, nem a tárolt értéket. A `0.0000%` formátum a `0.125` értéket `12.5000%`‑ként jeleníti meg; a tárolt szám nem lesz `12.5`‑re cserélve. Hasonlóképpen a `0.00000` a `0.1234567` értéket `0.12346`‑ként jeleníti meg, anélkül, hogy a tárolt értéket kerekítené. Ha az egyéni formátum egy üres karakterlánc (`""`), akkor a [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/) által visszaadott formátumot használja.
+A számformátum a megjelenítést változtatja, nem a tárolt értéket. A `0.0000%` formátum a `0.125`‑et `12.5000%`‑ként jeleníti meg; nem helyettesíti a tárolt számot `12.5`‑tel. Hasonlóképpen, a `0.00000` formátum a `0.1234567`‑et `0.12346`‑ként jeleníti meg anélkül, hogy a tárolt értéket kerekítené. Ha az egyedi formátum üres karakterlánc (`""`), akkor a [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/) által visszaadott formátumot használja.
 
-Az alábbi példa létrehoz egy oszlopdiagramot, és a [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével eléri a cellákat. Az 0‑s indexű munkalapon a B2 a konverziós arányt, a C2 a koefficienst tartalmazza. Mindkét cella a diagram értékeit szolgáltatja. A példa továbbá engedélyezi a forrásformátumhoz linkelt értékcímkéket.
+Az alábbi példa egy oszlopdiagramot hoz létre, és celláihoz a [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével fér hozzá. A 0‑s indexű munkalapon a B2 tartalmazza a konverziós arányt, a C2 a koefficienst. Mindkét cella diagramértékeket szolgáltat. A példa továbbá engedélyezi az értékcímkéket, amelyek a forrásformátumokhoz vannak kapcsolva.
 
 ```php
 use aspose\slides\Presentation;
@@ -255,17 +255,17 @@ try {
 }
 ```
 
-A munkafüzet‑cellák formátumai különböznek a diagram tengelyeken vagy adatcímkéken közvetlenül beállított formátumoktól. Ebben a példában minden címke a forráscellájának értékét jeleníti meg, mivel a [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) `true`‑ra van állítva, és a forrás számformátumát követi a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) `true`‑nak köszönhetően. A prezentáció mentése és újbóli megnyitása után a címkék `12.5000%` és `0.12346` értékeket mutatják, ahogyan alább látható. A függőleges tengely saját számformátumot használ, amelyet a [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) `0.00` értékre állít, a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) pedig `false`‑ra van állítva.
+A munkafüzet cellaformátumai különállóak a diagram tengelyeire vagy adatcímkéire közvetlenül beállított formátumoktól. Ebben a példában minden címke a forráscellája értékét jeleníti meg, mivel a [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) `true`‑ra van állítva, és a forrás számformátumát követi, mert a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) `true`. A prezentáció mentése és újbóli megnyitása után a címkék `12.5000%` és `0.12346` értékeket mutatják, ahogy alább is látható. A függőleges tengely saját számformátumot használ, amelyet a [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) `0.00` értékkel ad meg, a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) pedig `false`.
 
-Egy adatcímke önálló formázásához állítsa a forrás‑link zászlót `false`‑ra, és rendelje hozzá a formátumot a [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) segítségével. Ez nem változtatja meg a munkafüzet cellájának formátumát. Például egy `0.00` önálló címkeformátum az első értéket `0.13`‑ként jeleníti meg, míg a B2 továbbra is `12.5000%`‑ot mutat. Lásd a [Diagram adatcímkék](/slides/hu/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) cikket a közvetlen címkeformázáshoz.
+Az adatcímke önálló formázásához állítsa a forrásra hivatkozó jelzőt `false`‑ra, és adjon meg egy formátumot a [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) segítségével. Ez nem módosítja a munkafüzet cellaformátumát. Például egy önálló címkeformátum `0.00` a első értéket `0.13`‑ként jeleníti meg, míg a B2 továbbra is `12.5000%`‑t mutat. Lásd a [Chart Data Labels](/slides/hu/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) oldalt a közvetlen címkeformázáshoz.
 
-![Oszlopdiagram forrásra hivatkozó címkékkel, amelyek 12.5000% és 0.12346 értékeket mutatnak, valamint egy függetlenül formázott numerikus tengellyel.](custom-cell-formats.png)
+![Oszlopdiagram forrásra hivatkozó címkékkel, amelyek `12.5000%` és `0.12346` értékeket mutatnak, valamint egy önállóan formázott numerikus tengellyel.](custom-cell-formats.png)
 
-## **Munkafüzet cella beállítása diagram adatcímkének**
+## **Munkafüzetcellát diagramadatcímkeként beállítása**
 
-A munkafüzet cellák szövegét felhasználhatja diagram adatcímkeként.
+Szöveget használhat munkafüzetcellákból diagramadatcímkékként.
 
-Ez a példa egy buborékdiagramot ad hozzá alapértelmezett adatokkal az első dia első alakzatához egy meglévő prezentációban. Az 0‑s indexű munkalap A10:A12 tartományát használja az első sorozat első három címkéjéhez, engedélyezi a cellákból származó címkéket, és elmenti a frissített prezentációt.
+Ez a példa egy buborékdiagramot ad hozzá alapértelmezett adatokkal egy meglévő prezentáció első diájához. A 0‑s indexű munkalapon az A10:A12 cellákat használja az első sorozat első három címkéjének, engedélyezi a cellákból származó címkéket, és menti a frissített prezentációt.
 
 ```php
 use aspose\slides\Presentation;
@@ -293,7 +293,7 @@ try {
 
 ## **Munkalapok kezelése**
 
-A [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) metódus hozzáférést biztosít a diagram munkafüzetében lévő munkalapokhoz. Ez a példa egy kördiagramot hoz létre alapértelmezett adatokkal, és minden munkalap nevét kiírja a konzolra.
+A [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) metódus hozzáférést biztosít a diagram munkafüzeteiben lévő munkalapokhoz. Ez a példa egy alapértelmezett adatokkal rendelkező kördiagramot hoz létre, és minden munkalap nevét kiírja a konzolra.
 
 ```php
 use aspose\slides\Presentation;
@@ -314,9 +314,11 @@ try {
 }
 ```
 
-## **Adatforrás típusának meghatározása**
+## **Az adatforrás típusának megadása**
 
-Ez a példa egy 3D oszlopdiagramot hoz létre alapértelmezett adatokkal, és két sorozatnevet állít be különböző adatforrásokkal. Az első nevet egy karakterlánc‑literál adja; a másodikat a 0‑s indexű munkalap C1 cellája biztosítja. A [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) felsorolás adja meg a forrást minden névhez. A példa a frissített sorozatnevekkel menti a prezentációt.
+A sorozatpont értékeket közvetlenül numerikus literálokként is tárolhatja. Lásd a [Set Series Values Using Numeric Literals](/slides/hu/php-java/chart-series/#set-series-values-using-numeric-literals) oldalt a teljes példáért, amely menti és beolvassa ezeket. A pontértékek adatforrás‑típusa elkülönül a diagram belső vagy külső munkafüzet‑konfigurációjától; a numerikus literálok használata önmagában nem távolítja el a beágyazott munkafüzetet.
+
+Ez a példa egy alapértelmezett adatokkal rendelkező 3D‑oszlopdiagramot hoz létre, és két sorozatnevet állít be különböző adatforrásokkal. Az első név egy karakterlánc‑literál; a második a 0‑s indexű munkalap C1 celláját használja. A [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) felsorolás az egyes nevek forrását választja ki. A példa a frissített sorozatnevekkel menti a prezentációt.
 
 ```php
 use aspose\slides\Presentation;
@@ -345,9 +347,9 @@ try {
 }
 ```
 
-## **Nem támogatott beágyazott munkafüzet formátumok észlelése**
+## **Nem támogatott beágyazott munkafűzet‑formátumok észlelése**
 
-Az Aspose.Slides nem támogatja az Excel bináris munkafüzet (.xlsb) formátumát, amelyet egyes diagramokba be lehet ágyazni. A [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) `getEmbeddedWorkbookType` metódusával és a [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) felsorolással felismerhető a nem támogatott formátum, és kihagyhatók az ilyen diagramok. Ez a példa a meglévő prezentáció első dia alakzatait vizsgálja, kihagyja a nem diagram alakzatokat, és minden .xlsb beágyazott munkafüzettel rendelkező diagramra diagnosztikai üzenetet ír ki.
+Az Aspose.Slides nem támogatja az Excel bináris munkafüzetet (.xlsb) formátumot, amely egyes diagramokban beágyazható. A [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) `getEmbeddedWorkbookType` metódusát a [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) felsorolással együtt használva észlelheti a nem támogatott formátumokat, és kihagyhatja azokat a diagramokat. Ez a példa a meglévő prezentáció első diáján lévő alakzatokat ellenőrzi, a nem‑diagram alakzatokat kihagyja, és minden .xlsb‑t beágyazott munkafüzettel rendelkező diagramhoz diagnosztikai üzenetet ír ki.
 
 ```php
 use aspose\slides\Presentation;
@@ -375,7 +377,7 @@ try {
             continue;
         }
 
-        // Olvassa vagy módosítsa a támogatott diagram munkafüzet adatokat itt.
+        // Olvassa vagy módosítsa a támogatott diagram munkafüzet adatait itt.
     }
 } finally {
     $presentation->dispose();
@@ -384,13 +386,13 @@ try {
 
 ## **Külső munkafüzet**
 
-Az Aspose.Slides támogatja a külső munkafüzetek diagram adatforrásként való használatát.
+Az Aspose.Slides támogatja a külső munkafüzetek diagramadatforrásként való használatát.
 
 ### **Külső munkafüzet létrehozása**
 
-Használja a [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) és a [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) metódusokat, hogy egy beágyazott diagram munkafüzetet exportáljon egy fájlba, és a diagramot erre a külső munkafüzetre hivatkoztassa.
+Használja a [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) és a [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) elemeket a beágyazott diagram munkafüzete fájlba exportálásához és a diagram külső munkafüzethez való csatolásához.
 
-Ez a példa egy kördiagramot hoz létre alapértelmezett adatokkal, és exportálja a munkafüzetét. A fájlírás befejezése után állítja be a külső munkafüzetet diagram adatforrásként, majd menti a hivatkozott prezentációt.
+Ez a példa egy alapértelmezett adatokkal rendelkező kördiagramot hoz létre, és exportálja a munkafüzettét. A fájlírás befejezése után rendeli hozzá a külső munkafüzetet diagramadat‑forrásként, majd menti a kapcsolt prezentációt.
 
 ```php
 use aspose\slides\Presentation;
@@ -424,11 +426,11 @@ try {
 
 ### **Külső munkafüzet beállítása**
 
-A [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) metódussal egy külső munkafüzetet rendelhet egy diagramhoz adatforrásként. Ezzel a metódussal frissíthető a külső munkafüzet elérési útja is (ha az áthelyezésre került).
+A [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) metódus segítségével külső munkafüzetet rendelhet egy diagramhoz adatforrásként. Ez a metódus használható a külső munkafüzet útvonalának frissítésére is (ha az áthelyezésre került).
 
-Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatait nem lehet közvetlenül szerkeszteni, továbbra is felhasználhatók külső adatforrásként. Ha relatív útvonalat ad meg egy külső munkafüzethez, az automatikusan teljes útvonallá alakul.
+Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzettek adatait nem szerkesztheti, továbbra is használhatja ezeket mint külső adatforrást. Ha relatív útvonalat ad meg egy külső munkafüzethez, az automatikusan teljes útvonallá lesz konvertálva.
 
-Ez a példa egy külső munkafüzetet használ, amelynek `Sheet1` munkalapján a B1‑ben egy sorozatnév, az A2:A4‑ben kategórianév, a B2:B4‑ben numerikus értékek szerepelnek. A példa kördiagramot hoz létre, összekapcsolja a munkafüzetet, és a [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) segítségével az A1:B4 tartományt egy sorozatra és három kategóriára képezi le. A hivatkozott diagrammal menti a prezentációt.
+Ez a példa egy külső munkafüzetet használ, amelynek `Sheet1` nevű munkalapja B1‑ben tartalmaz egy sorozatnevet, A2:A4‑ben kategórianéveket, B2:B4‑ben numerikus értékeket. A példa egy kördiagramot hoz létre, csatolja a munkafüzetet, és a [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) segítségével az A1:B4‑et egy sorozatra és három kategóriára képezi le. A diagramot a kapcsolt prezentációban menti.
 
 ```php
 use aspose\slides\Presentation;
@@ -453,12 +455,12 @@ try {
 }
 ```
 
-A [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) `updateChartData` paramétere szabályozza, hogy a munkafüzet be legyen‑töltve.
+A `updateChartData` paraméter a [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) metódusban szabályozza, hogy a munkafüzet be legyen‑töltve.
 
-* Ha `updateChartData` **false**, csak a munkafüzet útvonala frissül. A diagram adatai nem kerülnek be‑ vagy frissítésre a célmunkafüzetből, így a munkafüzet nem is elérhető.
-* Ha `updateChartData` **true**, a diagram adatai frissülnek a célmunkafüzetből.
+* Amikor `updateChartData` **false**, csak a munkafüzet útvonala frissül. A diagramadatok nem töltődnek be vagy frissülnek a cél‑munkafüzetről, így a munkafüzet hiányozhat.
+* Amikor `updateChartData` **true**, a diagramadatok frissülnek a cél‑munkafüzetről.
 
-Az alábbi példa egy helyőrző URL‑t ad meg `updateChartData` **false** értékkel. A kördiagram alapértelmezett adatait megtartja, és a prezentációt anélkül menti, hogy a nem‑elérhető munkafüzet betöltődne.
+Az alábbi példa egy helyőrző URL‑t ad meg, a `updateChartData` **false**‑ra állítva. Megőrzi a kördiagram alapértelmezett adatait, és a prezentációt a nem‑betöltött munkafüzet nélkül menti.
 
 ```php
 use aspose\slides\Presentation;
@@ -478,11 +480,11 @@ try {
 }
 ```
 
-### **Diagram külső adatforrás munkafüzet útvonalának lekérése**
+### **Diagram külső adatforrás‑munkafüzet‑útvonalának lekérése**
 
-A diagramhoz kapcsolódó munkafüzet azonosításához ellenőrizze, hogy a diagram külső adatforrást használ‑e, és kérje le a munkafüzet útvonalát.
+Annak meghatározásához, hogy melyik munkafüzet van a diagramhoz csatlakoztatva, ellenőrizze, hogy a diagram külső adatforrást használ‑e, és kérje le a munkafüzet útvonalát.
 
-Ez a példa az első dián található első alakzatot vizsgálja egy hivatkozott külső munkafüzettel rendelkező prezentációban. Ha a diagram külső munkafüzethez kapcsolódik, a példa kiírja a [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) értékét a konzolra, majd ment egy másolatot a prezentációból.
+Ez a példa a prezentáció első diájának első alakzatát vizsgálja, amely egy külső munkafüzettel van összekapcsolva. Ha ez egy külső munkafüzethez kötött diagram, a példa a [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) értékét írja ki a konzolra, majd ment egy másolatot a prezentációról.
 
 ```php
 use aspose\slides\Presentation;
@@ -512,11 +514,11 @@ try {
 }
 ```
 
-### **Diagram adatainak szerkesztése**
+### **Diagramadatok szerkesztése**
 
 Külső munkafüzetek adatait ugyanúgy szerkesztheti, ahogy a belső munkafüzetek tartalmát módosítaná. Ha egy külső munkafüzetet nem lehet betölteni, kivétel keletkezik.
 
-Ez a példa egy diagramot használ, amely az első dia első alakzata, és egy elérhető külső munkafüzethez kapcsolódik. Az első sorozat első adatpontjának cella‑alapú értékét 100‑ra állítja, majd elmenti a frissített prezentációt. A cella‑értékek szerkesztése frissítheti a hivatkozott külső XLSX fájlt, ezért használjon másolatot, ha az eredeti munkafüzetet meg kell őrizni.
+Ez a példa egy diagramot használ, amely az első dián az első alakzat, és egy elérhető külső munkafüzethez van csatlakoztatva. Beállítja az első sorozat első adatpontjának cella‑alapú értékét 100‑ra, majd menti a frissített prezentációt. A cellaértékek szerkesztése frissítheti a kapcsolt külső XLSX‑fájlt, ezért használjon másolatot, ha az eredeti munkafüzetet meg kell őrizni.
 
 ```php
 use aspose\slides\Presentation;
@@ -549,11 +551,11 @@ try {
 }
 ```
 
-### **Munkafüzet helyreállítása a diagram gyorsítótárából**
+### **Munkafüzet helyreállítása a diagram‑gyorsítótárból**
 
-Ha egy diagram olyan külső munkafüzetet használ, amely hiányzik vagy nem érhető el, az Aspose.Slides a prezentációban gyorsítótárazott adatokból rekonstruálhatja a diagram munkafüzetét. Hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/) objektumot, hívja meg a [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) metódust, és állítsa a [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) értékét **true**‑ra, mielőtt megnyitná a prezentációt.
+Ha egy diagram olyan külső munkafüzetet használ, amely hiányzik vagy nem érhető el, az Aspose.Slides rekonstruálhatja a diagram munkafüzettét a prezentációban gyorsítótárazott adatokból. Hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/) objektumot, hívja meg a [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/) metódust, és a [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) elemet **true**‑ra állítsa, mielőtt megnyitná a prezentációt.
 
-Az alábbi PHP példa helyreállítja a munkafüzet adatokat egy diagramhoz, amely az első dia első alakzata, és egy nem elérhető külső munkafüzettel hivatkozik. A helyreállított adatokat a [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) és a [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével éri el:
+Az alábbi PHP‑példa helyreállítja a munkafűzet‑adatokat egy diagramra, amely az első dián az első alakzat, és egy nem elérhető külső munkafüzetre hivatkozik. A helyreállított adatokat a [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) és a [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) segítségével érheti el:
 
 ```php
 use aspose\slides\Presentation;
@@ -575,7 +577,7 @@ try {
         $chart = $slide->getShapes()->get_Item(0);
         $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-        // Olvassa vagy módosítsa a helyreállított munkafüzet adatokat itt.
+        // Olvassa vagy módosítsa a helyreállított munkafüzet adatait itt.
     } else {
         echo "The first shape is not a chart.", PHP_EOL;
     }
@@ -584,30 +586,30 @@ try {
 }
 ```
 
-Ha a külső munkafüzet nem érhető el, és a helyreállítás le van tiltva, az Aspose.Slides kivételt dob. Engedélyezze a helyreállítást csak akkor, ha a gyorsítótárazott diagramadatok használata elfogadható, mivel a gyorsítótár nem feltétlenül tartalmazza a külső munkafüzeten végzett módosításokat a prezentáció legutóbbi frissítése óta.
+Ha a külső munkafüzet nem érhető el, és a helyreállítás le van tiltva, az Aspose.Slides kivételt dob. Csak akkor engedélyezze a helyreállítást, ha a gyorsítótárazott diagramadatok használata elfogadható tartalék, mivel a gyorsítótár nem feltétlenül tartalmazza a külső munkafüzetben a prezentáció legutóbbi frissítése óta végzett módosításokat.
 
 ## **GYIK**
 
-**Meg tudom állapítani, hogy egy adott diagram külső vagy beágyazott munkafüzethez kapcsolódik-e?**
+**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzettel van‑e összekapcsolva?**
 
-Igen. A diagram rendelkezik egy [adatforrás típusával](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) és egy [útvonallal egy külső munkafüzethez](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); ha a forrás külső munkafüzet, akkor a teljes útvonal lekérdezésével ellenőrizhető, hogy külső fájlt használ‑e.
+Igen. A diagramnek van egy [data source type](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) és egy [path to an external workbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) attribútuma; ha a forrás egy külső munkafüzet, a teljes útvonalat beolvashatja, hogy megbizonyosodjon arról, valóban külső fájlt használ.
 
-**Támogatottak a relatív útvonalak a külső munkafüzetekhez, és hogyan tárolódnak?**
+**Támogatottak a relatív útvonalak külső munkafüzetekhez, és hogyan tárolódnak?**
 
-Igen. Ha relatív útvonalat ad meg, az automatikusan abszolút útvonalra konvertálódik. A prezentáció az abszolút útvonalat tárolja a PPTX fájlban, így a munkafüzet áthelyezésekor a hivatkozás frissítése szükségessé válhat.
+Igen. Ha relatív útvonalat ad meg, az automatikusan abszolút útvonallá konvertálódik. A prezentáció az abszolút útvonalat tárolja a PPTX‑fájlban, ezért a munkafüzet áthelyezésekor frissíteni kell a hivatkozást.
 
-**Használhatok munkafüzeteket hálózati erőforrásokon/megosztásokon?**
+**Használhatok munkafüzetet hálózati erőforrásokban/megosztott meghajtókon?**
 
-Igen, az ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑ből nem támogatott – csak forrásként alkalmazhatók.
+Igen, ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzettek közvetlen szerkesztése az Aspose.Slides‑ből nem támogatott – csak forrásként használhatók.
 
 **Az Aspose.Slides felülírja a külső XLSX‑et a prezentáció mentésekor?**
 
-A prezentáció egy [hivatkozást tárol a külső fájlra](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). A cella‑alapú diagramadatok szerkesztése frissítheti a kapcsolt helyi XLSX fájlt. Ha az eredetit változatlanul kell hagyni, használjon másolatot a munkafüzetről.
+A prezentáció egy [link to the external file](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) tárol. A cella‑alapú diagramadatok szerkesztése frissítheti a kapcsolt helyi XLSX‑fájlt is. Ha az eredetit változatlanul kell hagyni, használjon másolatot a munkafüzetről.
 
-**Mit tegyek, ha a külső fájl jelszóval védett?**
+**Mit tegyek, ha a külső fájl jelszóval van védve?**
 
-Az Aspose.Slides nem fogad el jelszót a hivatkozás létrehozásakor. Általános megközelítés, hogy előre eltávolítja a védelmet, vagy egy visszafejtett másolatot készít (például az [Aspose.Cells](https://reference.aspose.com/cells/java/) segítségével), majd arra hivatkozik.
+Az Aspose.Slides nem fogad el jelszót a csatlakoztatáskor. Egy gyakori megoldás, hogy a védelmet előzetesen eltávolítja, vagy egy dekódolt másolatot készít (például az [Aspose.Cells](https://reference.aspose.com/cells/java/) segítségével), majd arra hivatkozik.
 
-**Több diagram hivatkozhat ugyanarra a külső munkafüzetre?**
+**Több diagram hivatkozhat ugyanarra a külső munkafüzettel?**
 
-Igen. Minden diagram a saját hivatkozását tárolja. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése minden diagramon megjelenik a következő adatbetöltéskor.
+Igen. Minden diagram saját hivatkozást tárol. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése minden diagramon megjelenik a következő adatbetöltéskor.

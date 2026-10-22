@@ -4,38 +4,74 @@ linktitle: Series de datos
 type: docs
 url: /es/python-net/chart-series/
 keywords:
-- serie de gráfico
+- series de gráficos
 - superposición de series
-- color de serie
+- color de series
 - color de categoría
 - nombre de serie
 - punto de datos
-- intervalo de serie
+- espacio entre series
 - PowerPoint
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprenda a gestionar series de gráficos, puntos de datos, celdas de libros, formato, superposición, ancho de intervalo y valores negativos en presentaciones con Python."
+description: "Aprenda a gestionar series de gráficos, puntos de datos, celdas del libro de trabajo, formato, superposición, ancho del espacio y valores negativos en presentaciones con Python."
 ---
 ## **Visión general**
 
-Un gráfico almacena sus datos representados en un libro de datos del gráfico. Un [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) representa un conjunto de valores relacionados, y cada [ChartDataPoint](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/) de la serie hace referencia a una o más celdas del libro. Los objetos [ChartCategory](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/) proporcionan las etiquetas o valores de agrupación compartidos por las series. Por lo tanto, el nombre de la serie, las categorías y los valores de los puntos están conectados a objetos [ChartDataCell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/) en lugar de almacenarse solo como texto visible.
+Un gráfico puede almacenar sus valores trazados en celdas del libro de trabajo o directamente como literales numéricos. Un [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) representa un conjunto de valores relacionados, y cada [ChartDataPoint](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/) representa un punto en esa serie. Los objetos [ChartCategory](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/) proporcionan las etiquetas o valores de agrupación compartidos por las series. En los gráficos creados con datos predeterminados, los nombres de series, categorías y valores de puntos utilizan objetos [ChartDataCell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/) del libro de datos del gráfico.
 
-Para un gráfico de categorías típico, el libro predeterminado usa la fila 0 para los nombres de las series, la columna 0 para los nombres de las categorías y el resto de celdas para los valores de las series. Los índices de hoja, fila y columna que se pasan a [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) son basados en cero. Este diseño es útil cuando se crea un gráfico con datos predeterminados, pero no se asume que todo gráfico existente lo utilice. Para una presentación cargada, inspeccione las celdas a las que hacen referencia las series, categorías y puntos de datos antes de modificar los valores del libro.
+Para un gráfico de categorías típico, el libro de trabajo predeterminado usa la fila 0 para los nombres de series, la columna 0 para los nombres de categorías y el resto de celdas para los valores de series. Los índices de hoja, fila y columna que se pasan a [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) son basados en cero. Esta disposición es útil cuando crea un gráfico con datos predeterminados, pero no asuma que todo gráfico existente la utiliza. Para una presentación cargada, inspeccione las celdas referenciadas por las series, categorías y puntos de datos antes de cambiar los valores del libro de trabajo.
 
 Los ajustes del gráfico tienen tres ámbitos diferentes:
 
-- Configuraciones a nivel de serie, como [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/), proporcionan la apariencia predeterminada para todos los puntos de una serie.
-- Configuraciones de punto de datos, como [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/), sustituyen la apariencia de la serie para un punto concreto.
-- Las configuraciones de grupo se aplican a series compatibles que pertenecen al mismo [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/). Acceda al grupo mediante [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/) cuando necesite establecer opciones como superposición o ancho del intervalo.
+- Ajustes a nivel de serie, como [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/), proporcionan la apariencia predeterminada para todos los puntos de una serie.
+- Ajustes a nivel de punto de datos, como [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/), sustituyen la apariencia de la serie para un punto.
+- Los ajustes de grupo se aplican a series compatibles que pertenecen al mismo [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/). Acceda al grupo mediante [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/) cuando necesite establecer opciones como superposición o ancho del espacio.
 
-Cuando no se define un relleno explícito de punto o serie, el estilo y el tema del gráfico determinan la apariencia automática. Cuando existen tanto el formato de la serie como el del punto, el formato del punto prevalece para ese punto.
+Cuando no se define un relleno explícito de punto o serie, el estilo y el tema del gráfico determinan la apariencia automática. Cuando existen tanto el formato de serie como el de punto, el formato del punto tiene prioridad para ese punto.
 
-![serie-de-gráfico-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
+
+## **Establecer valores de la serie mediante literales numéricos**
+
+Utilice literales numéricos cuando los valores de la serie provengan de datos de la aplicación o de cálculos y no necesiten referencias a celdas de hoja de cálculo. Establezca [data_source_type_for_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_values/) a [DataSourceType.DOUBLE_LITERALS](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) antes de asignar a cada punto su [value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/) mediante [as_literal_double](https://reference.aspose.com/slides/python-net/aspose.slides.charts/doublechartvalue/as_literal_double/).
+
+El ajuste de la colección controla el tipo de origen de todos los valores de punto en esa serie. El [value.data_source_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/basechartvalue/data_source_type/) de cada punto muestra el tipo seleccionado; cámbielo a través del ajuste de la colección. Con `WORKSHEET`, utilice [as_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/doublechartvalue/as_cell/) para acceder a la celda referenciada. Con `DOUBLE_LITERALS`, use `as_literal_double` para leer o escribir el número directamente.
+
+El siguiente ejemplo crea un gráfico de columnas con series y categorías predeterminadas, y luego asigna valores calculados de 10, 20, etc., a los puntos existentes de su primera serie. Guarda la presentación, la vuelve a abrir y muestra los valores almacenados.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    series = chart.chart_data.series[0]
+
+    series.data_points.data_source_type_for_values = charts.DataSourceType.DOUBLE_LITERALS
+    for i in range(len(series.data_points)):
+        series.data_points[i].value.as_literal_double = (i + 1) * 10
+
+    presentation.save("numeric_literals.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("numeric_literals.pptx") as reopened_presentation:
+    reopened_slide = reopened_presentation.slides[0]
+    reopened_chart = reopened_slide.shapes[0]
+    reopened_series = reopened_chart.chart_data.series[0]
+    for point in reopened_series.data_points:
+        print(point.value.as_literal_double)
+```
+
+El tipo de origen del valor del punto es independiente de [ChartData.data_source_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/), que identifica la configuración interna o externa del libro de trabajo del gráfico. Utilizar literales numéricos no elimina, por sí mismo, el libro de trabajo incrustado. En este ejemplo, el libro de trabajo sigue disponible para las etiquetas de categoría, los nombres de serie y las demás series. Consulte [Libro de datos del gráfico](/slides/es/python-net/chart-workbook/) para la gestión del libro de trabajo.
+
+Para gráficos de dispersión y burbujas, establezca [data_source_type_for_x_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_x_values/) y [data_source_type_for_y_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_y_values/) para elegir las fuentes de [x_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/x_value/) y [y_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/y_value/). Los gráficos de burbujas también usan [data_source_type_for_bubble_sizes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_bubble_sizes/) para [bubble_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/bubble_size/). Establezca cada fuente correspondiente a `DOUBLE_LITERALS` antes de asignar números a través de la propiedad `as_literal_double` de ese valor.
 
 ## **Establecer la superposición de la serie del gráfico**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) indica cuánto se superponen las barras o columnas en un gráfico 2D, desde -100 hasta 100 por ciento. Es una proyección de solo lectura de la configuración en el grupo de series principal. Defina [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) para actualizar todas las series compatibles en ese grupo. Esta opción se aplica a los tipos de gráfico que muestran barras o columnas agrupadas; no afecta a los grupos de series no relacionados en un gráfico combinado.
+[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) indica cuánto se solapan las barras o columnas en un gráfico 2D, de -100 a 100 por ciento. Es una proyección de solo lectura del ajuste en el grupo de series padre. Establezca [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) para actualizar todas las series compatibles en ese grupo. Esta opción se aplica a tipos de gráficos que muestran barras o columnas agrupadas; no afecta a los grupos de series no relacionados en un gráfico combinado.
 
 El siguiente ejemplo establece la superposición para el grupo que contiene la primera serie:
 
@@ -50,7 +86,7 @@ overlap_percent = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[first_slide_index]
 
-    # El nuevo gráfico contiene series, categorías y valores de ejemplo.
+    # El nuevo gráfico contiene series, categorías y valores de muestra.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[first_series_index]
@@ -61,11 +97,11 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![Superposición de la serie](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **Cambiar el color de relleno de la serie**
 
-Utilice [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/) para establecer el relleno predeterminado de una serie completa. Si un punto ya tiene un relleno explícito, su configuración [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/) sustituye el relleno de la serie para ese punto.
+Utilice [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/) para establecer el relleno predeterminado de una serie completa. Si un punto ya tiene un relleno explícito, su ajuste [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/) sobrescribe el relleno de la serie para ese punto.
 
 El siguiente ejemplo aplica un relleno sólido azul a la primera serie:
 
@@ -91,11 +127,11 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![Color de la serie](series_color.png)
+![The color of the series](series_color.png)
 
 ## **Cambiar el nombre de la serie**
 
-El nombre de una serie se almacena en el libro de datos del gráfico y normalmente se muestra en la leyenda. En el libro predeterminado creado para un gráfico de columnas agrupadas, la celda B1 está en la fila 0, columna 1 y contiene el nombre de la primera serie. Las constantes nombradas del siguiente ejemplo hacen explícita esa estructura:
+El nombre de una serie se almacena en el libro de datos del gráfico y normalmente se muestra en la leyenda. En el libro predeterminado creado para un gráfico de columnas agrupadas, la celda B1 está en la fila 0, columna 1 y contiene el nombre de la primera serie. Las constantes nombradas en el siguiente ejemplo hacen explícita esa estructura:
 
 ```py
 import aspose.slides as slides
@@ -118,7 +154,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-También puede actualizar la celda ya referenciada por [ChartSeries.name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/name/). Este enfoque evita suponer una fila y columna concretas en un gráfico existente:
+También puede actualizar la celda ya referenciada por [ChartSeries.name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/name/). Este enfoque evita suponer una fila y columna particulares en un gráfico existente:
 
 ```py
 import aspose.slides as slides
@@ -142,15 +178,15 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![Nombre de la serie](series_name.png)
+![The series name](series_name.png)
 
 ### **Crear una serie con un nombre a partir de varias celdas**
 
-Un nombre de serie compuesto es útil cuando el nombre del producto y el período del informe están almacenados en celdas distintas del libro. Por ejemplo, puede combinar `Product A` en B1 y `2026` en C1 en un único nombre de serie manteniendo ambas partes vinculadas a sus celdas origen.
+Un nombre de serie compuesto es útil cuando el nombre del producto y el periodo del informe están almacenados en celdas diferentes del libro de trabajo. Por ejemplo, puede combinar `Product A` en B1 y `2026` en C1 en un único nombre de serie manteniendo ambas partes vinculadas a sus celdas origen.
 
-Utilice [ChartDataWorkbook.get_cell_collection](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell_collection/) para obtener el rango de nombres y, a continuación, pase esa colección a [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriescollection/add/). El argumento `skip_hidden_cells` controla si se incluyen celdas ocultas: `True` las excluye, mientras que `False` las incluye. Este ejemplo usa `False` para incluir todas las celdas del rango de nombres.
+Utilice [ChartDataWorkbook.get_cell_collection](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell_collection/) para obtener el rango de nombres, y pase esa colección a [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriescollection/add/). El argumento `skip_hidden_cells` controla si se incluyen celdas ocultas: `True` las excluye, `False` las incluye. Este ejemplo usa `False` para incluir todas las celdas del rango de nombres.
 
-El siguiente ejemplo crea una presentación con una serie y dos puntos de datos. Las celdas B1:C1 proporcionan solo el nombre de la serie; A2:A3 proporcionan las etiquetas de categoría, y B2:B3 proporcionan los valores numéricos.
+El siguiente ejemplo crea una presentación con una serie y dos puntos de datos. Las celdas B1:C1 suministran solo el nombre de la serie; A2:A3 suministran las etiquetas de categoría, y B2:B3 suministran los valores numéricos.
 
 ```py
 import aspose.slides as slides
@@ -187,13 +223,13 @@ with slides.Presentation() as presentation:
     presentation.save("composite_series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-El nombre resultante de la serie es `Product A 2026`, con un espacio entre los dos valores de celda. La leyenda lo muestra como una única entrada para ambas columnas. La imagen a continuación se generó a partir de la presentación guardada:
+El nombre de serie resultante es `Product A 2026`, con un espacio entre los dos valores de celda. La leyenda lo muestra como una única entrada para ambas columnas. La imagen a continuación se generó a partir de la presentación guardada:
 
-![Gráfico de columnas con valores Norte y Sur y el nombre de serie compuesto Product A 2026 en la leyenda](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
 ## **Obtener el color de relleno automático de la serie**
 
-[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) devuelve el color calculado a partir del índice de la serie y del estilo del gráfico. Este es el color que se utiliza cuando el relleno de la serie no se ha definido explícitamente. Llamar al método lee el color calculado; no asigna un nuevo relleno.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) devuelve el color calculado a partir del índice de la serie y del estilo del gráfico. Este es el color que se usa cuando el relleno de la serie no ha sido definido explícitamente. Llamar al método lee el color calculado; no asigna un nuevo relleno.
 
 El siguiente ejemplo muestra el color automático de cada serie predeterminada:
 
@@ -223,13 +259,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Los colores exactos dependen del estilo y del tema del gráfico.
+Los colores exactos dependen del estilo y el tema del gráfico.
 
 ## **Establecer el color de relleno invertido para una serie del gráfico**
 
-Para series de barras, columnas y burbujas, [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) puede mostrar valores negativos con un relleno diferente. Defina el relleno regular de la serie como sólido, habilite la inversión y asigne el color de valor negativo mediante [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Los números negativos permanecen sin cambios en el libro; solo su color de visualización varía.
+Para series de barras, columnas y burbujas, [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) puede mostrar valores negativos con un relleno distinto. Establezca el relleno de serie regular a sólido, active la inversión y asigne el color de valor negativo mediante [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Los números negativos permanecen sin cambios en el libro de trabajo; solo su color de visualización cambia.
 
-El siguiente ejemplo reemplaza los datos del gráfico predeterminados por una serie. La fila 0 de la hoja contiene el nombre de la serie, la columna 0 contiene los nombres de categoría y la columna 1 contiene los valores:
+El siguiente ejemplo sustituye los datos del gráfico predeterminados por una serie. La fila 0 de la hoja contiene el nombre de la serie, la columna 0 contiene los nombres de categoría y la columna 1 contiene los valores:
 
 ```py
 import aspose.pydrawing as drawing
@@ -282,9 +318,9 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![Color de relleno sólido invertido](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Puede habilitar la inversión para un punto a través de [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). En el siguiente ejemplo, la inversión está desactivada para la serie y habilitada solo para el punto seleccionado. Además, al punto se le asigna un valor negativo para que el efecto sea visible:
+Puede activar la inversión para un solo punto mediante [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). En el siguiente ejemplo, la inversión está desactivada para la serie y activada solo para el punto seleccionado. Al punto también se le asigna un valor negativo para que el efecto sea visible:
 
 ```py
 import aspose.pydrawing as drawing
@@ -317,7 +353,7 @@ with slides.Presentation() as presentation:
 
 ## **Borrar el valor de un punto de datos específico**
 
-Para dejar un punto vacío sin eliminar los demás, establezca su celda de respaldo en el libro como `None`. En un gráfico de columnas, el valor representado está disponible a través de [ChartDataPoint.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/). El punto de datos permanece en la misma posición de categoría, pero el gráfico trata su valor como vacío según la configuración de valores vacíos del gráfico.
+Para dejar vacío un punto sin eliminar los demás, establezca su celda de libro de trabajo subyacente a `None`. En un gráfico de columnas, el valor trazado está disponible a través de [ChartDataPoint.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/). El punto de datos permanece en la misma posición de categoría, pero el gráfico trata su valor como vacío según la configuración de valores en blanco del gráfico.
 
 El siguiente ejemplo borra solo el segundo punto de la primera serie:
 
@@ -341,17 +377,17 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Los gráficos de dispersión usan celdas X y Y separadas, y los gráficos de burbujas también usan una celda de tamaño. Borre solo la celda que representa el valor que desea eliminar. No llame a [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) cuando desee conservar los demás puntos, ya que ese método elimina todos los puntos de la colección.
+Los gráficos de dispersión usan celdas X e Y separadas, y los de burbujas también utilizan una celda de tamaño. Borre solo la celda que representa el valor que desea eliminar. No llame a [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) cuando quiera conservar los demás puntos, porque ese método elimina todos los puntos de datos de la colección.
 
 ## **Controlar la visualización de celdas vacías**
 
-Las celdas ocultas que contienen valores son un caso distinto de las celdas vacías. Para incluir o excluir datos de filas y columnas ocultas de la hoja, consulte [Include Data from Hidden Rows and Columns](/slides/es/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Las celdas ocultas que contienen valores son un caso distinto de las celdas vacías. Para incluir o excluir datos de filas y columnas ocultas de la hoja, consulte [Incluir datos de filas y columnas ocultas](/slides/es/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Una celda de libro vacía representa datos ausentes; una celda que contiene `0` representa un valor numérico conocido. Establezca [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) a `None` para dejar una celda vacía. Un cero numérico sigue siendo cero independientemente de la configuración de celdas vacías.
+Una celda de libro de trabajo vacía representa datos ausentes; una celda que contiene `0` representa un valor numérico conocido. Establezca [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/) a `None` para vaciar una celda. Un cero numérico sigue siendo cero sin importar la configuración de celdas en blanco.
 
-Utilice [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) para elegir cómo el gráfico muestra las celdas vacías. Esta configuración se aplica a todo el gráfico. Cambia la forma en que se trazan los vacíos, sin rellenar la celda del libro con cero o un valor interpolado.
+Utilice [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) para elegir cómo el gráfico muestra las celdas vacías. Este ajuste se aplica a todo el gráfico. Cambia la forma en que se trazan los vacíos, sin rellenar la celda del libro de trabajo con cero o un valor interpolado.
 
-El siguiente ejemplo autocontenido crea un gráfico de líneas con una serie, borra el valor del Día 3 y guarda el mismo gráfico con cada modo. No se necesita archivo de entrada. El [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) usa la hoja 0, la columna 0 para etiquetas de categoría y la columna 1 para valores; la fila 0 contiene el nombre de la serie. Los datos finales son `10, 20, empty, 30, 40`.
+El siguiente ejemplo autocontenido crea un gráfico de líneas con una serie, borra el valor del Día 3 y guarda el mismo gráfico con cada modo. No se necesita archivo de entrada. El [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) usa la hoja 0, la columna 0 para etiquetas de categoría y la columna 1 para valores; la fila 0 contiene el nombre de la serie. Los datos finales son `10, 20, vacío, 30, 40`.
 
 ```py
 import aspose.slides as slides
@@ -377,7 +413,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # Dejar el Día 3 verdaderamente vacío, mientras se conserva su categoría y punto de datos.
+    # Dejar el día 3 realmente vacío, manteniendo su categoría y su punto de datos.
     workbook.get_cell(0, 3, 1).value = None
 
     modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
@@ -386,19 +422,19 @@ with slides.Presentation() as presentation:
         presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Cada archivo de salida almacena el modo asignado antes de guardarse: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` y `empty_cells_Span.pptx`. Para guardar solo una versión, asigne el modo deseado y guarde la presentación una única vez en lugar de iterar sobre los modos.
+Cada archivo de salida almacena el modo asignado antes de guardar: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` y `empty_cells_Span.pptx`. Para guardar solo una versión, asigne el modo deseado y guarde la presentación una vez en lugar de iterar sobre los modos.
 
-La comparación a continuación muestra los mismos datos en los tres archivos. El Día 3 está vacío en el libro en todos los casos:
+La comparación a continuación muestra los mismos datos en los tres archivos. El Día 3 está vacío en el libro de trabajo en todos los casos:
 
-![Gráficos de líneas con datos idénticos: Gap corta la línea en el Día 3, Zero lleva la línea a cero y Span conecta el Día 2 con el Día 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-El efecto visible depende del tipo de gráfico. Un gráfico de líneas facilita la comparación de los tres modos. Los gráficos de barras y columnas no tienen línea que conectar una categoría ausente, por lo que `SPAN` no puede producir el segmento de conexión mostrado arriba; una columna ausente y una columna de altura cero pueden parecer iguales. De modo similar, un gráfico de dispersión solo con marcadores no tiene línea de conexión. No espere tres resultados distintos para cada tipo de gráfico; verifique la salida para el tipo que utilice.
+El efecto visible depende del tipo de gráfico. Un gráfico de líneas permite comparar fácilmente los tres modos. Los gráficos de barras y columnas no tienen línea para conectar una categoría ausente, por lo que `SPAN` no puede generar el segmento de conexión mostrado arriba; una columna ausente y una columna de altura cero pueden parecer iguales. De manera similar, un gráfico de dispersión solo con marcadores no tiene línea de conexión. No espere tres resultados distintos para todos los tipos de gráfico; compruebe la salida para el tipo que utiliza.
 
-## **Establecer el ancho del intervalo de la serie**
+## **Establecer el ancho del espacio entre series**
 
-El ancho del intervalo es el espacio entre grupos de barras o columnas adyacentes, expresado como porcentaje del ancho de la barra o columna. Al igual que la superposición, pertenece al grupo de series principal y no a una serie individual. Defina [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) una vez para el grupo. Un valor mayor crea más espacio entre los grupos; un valor menor los hace más densos.
+El ancho del espacio es la distancia entre clústeres adyacentes de barras o columnas, expresada como porcentaje del ancho de la barra o columna. Al igual que la superposición, pertenece al grupo de series padre y no a una sola serie. Establezca [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) una vez para el grupo. Un valor mayor crea más espacio entre clústeres; un valor menor los hace más densos.
 
-El siguiente ejemplo cambia el ancho del intervalo y guarda solo la presentación final:
+El siguiente ejemplo cambia el ancho del espacio y guarda solo la presentación final:
 
 ```py
 import aspose.slides as slides
@@ -421,46 +457,46 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![Ancho del intervalo](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **Preguntas frecuentes**
 
 **¿Qué tipos de gráfico admiten series de datos?**
 
-Todos los tipos de gráfico representados por la enumeración [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) utilizan datos de gráfico, pero sus series no comparten la misma estructura de valores ni los mismos ajustes. Por ejemplo, los gráficos de categorías usan categorías y valores, los gráficos de dispersión usan valores X e Y, y los gráficos de burbujas añaden tamaños de burbuja. Utilice el método de creación de puntos de datos que coincida con el tipo de serie. Opciones como superposición y ancho del intervalo se aplican solo a grupos de barras o columnas compatibles.
+Todos los tipos de gráfico representados por la enumeración [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) utilizan datos del gráfico, pero sus series no comparten siempre la misma estructura de valores ni los mismos ajustes. Por ejemplo, los gráficos de categorías usan categorías y valores, los de dispersión usan valores X e Y, y los de burbujas añaden tamaños de burbuja. Utilice el método de creación de puntos de datos que corresponda al tipo de serie. Ajustes como superposición y ancho del espacio solo se aplican a grupos de barras o columnas compatibles.
 
 **¿Qué es un grupo de series de gráfico?**
 
-Un [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) contiene series compatibles que comparten ajustes de trazado a nivel de grupo. Un gráfico combinado puede contener más de un grupo, por lo que cambiar el grupo alcanzado a través de una serie no necesariamente modifica todas las series del gráfico.
+Un [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) contiene series compatibles que comparten ajustes de trazado a nivel de grupo. Un gráfico combinado puede contener más de un grupo, por lo que cambiar el grupo obtenido a través de una serie no altera necesariamente todas las series del gráfico.
 
-**¿Un gráfico creado recientemente contiene datos predeterminados?**
+**¿Un gráfico recién creado contiene datos predeterminados?**
 
-Sí. De forma predeterminada, [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) crea series, categorías y valores de muestra. Puede editar esas celdas o borrar tanto las colecciones de series como de categorías antes de añadir un conjunto de datos totalmente personalizado. También existe una sobrecarga que permite crear un gráfico sin datos predeterminados.
+Sí. Por defecto, [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) crea series, categorías y valores de muestra. Puede editar esas celdas o borrar tanto las colecciones de series como de categorías antes de añadir un conjunto de datos totalmente personalizado. También existe una sobrecarga que puede crear un gráfico sin datos predeterminados.
 
-**¿Cómo están conectados los objetos del gráfico a las celdas del libro?**
+**¿Cómo están conectados los objetos del gráfico a las celdas del libro de trabajo?**
 
-Los nombres de series, etiquetas de categoría y valores de puntos de datos hacen referencia a celdas en un [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/). Cambiar una celda referenciada actualiza el elemento correspondiente del gráfico. Cuando construya datos personalizados, mantenga las filas de categorías y las filas de valores de series alineadas para que cada punto se trace bajo la categoría prevista.
+Los nombres de series, etiquetas de categoría y valores de puntos de datos hacen referencia a celdas en un [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/). Cambiar una celda referenciada actualiza el elemento correspondiente del gráfico. Cuando construye datos personalizados, mantenga alineadas las filas de categoría y las filas de valores de series para que cada punto se trace bajo la categoría prevista.
 
-**¿Cómo limpio un punto en lugar de toda la serie?**
+**¿Cómo borro solo un punto en lugar de toda la serie?**
 
-Establezca la celda de valor correspondiente a `None` para mantener la posición de categoría del punto como vacío. Utilice [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) solo cuando pretenda eliminar todos los puntos de esa serie. Si también elimina categorías, actualice todas las series para que sus valores permanezcan alineados con la colección de categorías.
+Establezca la celda de valor correspondiente a `None` para conservar la posición de categoría del punto como un punto vacío. Use [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) solo cuando desee eliminar todos los puntos de esa serie. Si también elimina categorías, actualice todas las series para que sus valores permanezcan alineados con la colección de categorías.
 
 **¿Cómo se muestran los puntos vacíos?**
 
-El resultado depende del tipo de gráfico y de [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/). Los gráficos compatibles pueden mostrar los vacíos como intervalos, como valores cero o conectando los puntos vecinos. Elija la configuración que coincida con el significado de los datos faltantes en su presentación. Consulte [Controlar la visualización de celdas vacías](#controlar-la-visualización-de-celdas-vacías) para un ejemplo completo y una comparación visual.
+El resultado depende del tipo de gráfico y de [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/). Los gráficos compatibles pueden mostrar los vacíos como espacios, como valores cero o conectando los puntos vecinos. Elija la configuración que coincida con el significado de los datos ausentes en su presentación. Consulte [Controlar la visualización de celdas vacías](#controlar-la-visualización-de-celdas-vacías) para un ejemplo completo y una comparación visual.
 
 **¿Cómo se formatean los valores negativos?**
 
-Para series de barras, columnas y burbujas compatibles, habilite [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) y establezca [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Puede sobrescribir el comportamiento para un punto individual mediante [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Estas propiedades afectan al formato, no a los valores numéricos almacenados.
+Para series de barras, columnas y burbujas compatibles, habilite [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) y establezca [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). Puede sobrescribir el comportamiento para un punto individual con [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). Estas propiedades afectan al formato, no a los valores numéricos almacenados.
 
-**¿Qué formato gana cuando tanto una serie como un punto están formateados?**
+**¿Qué formato prevalece cuando tanto una serie como un punto están formateados?**
 
-El formato explícito del punto de datos tiene prioridad para ese punto. Los demás puntos continúan usando el formato explícito de la serie o, cuando el formato de la serie no está definido, el estilo y tema automáticos del gráfico. Las propiedades de grupo, como superposición y ancho del intervalo, controlan el diseño y no sustituyen el formato a nivel de punto.
+El formato explícito del punto de datos tiene prioridad para ese punto. Los demás puntos siguen usando el formato explícito de la serie o, cuando no está definido, el estilo y tema automáticos del gráfico. Las propiedades de grupo como superposición y ancho del espacio controlan la disposición y no sustituyen el formato a nivel de punto.
 
-**¿Existe un límite en la cantidad de series que puede contener un gráfico?**
+**¿Existe un límite al número de series que puede contener un gráfico?**
 
-Aspose.Slides no impone un límite fijo separado de series. En la práctica, las restricciones del archivo de presentación, la memoria disponible, el tiempo de renderizado y la legibilidad del gráfico determinan un límite útil.
+Aspose.Slides no impone un límite fijo separado para el número de series. En la práctica, las limitaciones del archivo de presentación, la memoria disponible, el tiempo de renderizado y la legibilidad del gráfico determinan un límite útil.
 
-**¿Qué debo modificar cuando las columnas están demasiado próximas o demasiado separadas?**
+**¿Qué debo modificar cuando las columnas están demasiado juntas o demasiado separadas?**
 
-Establezca [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) en el grupo de series principal adecuado. Aumente el valor para ensanchar el espacio entre los grupos, o disminúyalo para acercar los grupos entre sí.
+Establezca [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) en el grupo de series padre correspondiente. Aumente el valor para ampliar el espacio entre clústeres o disminúyalo para acercar los clústeres.

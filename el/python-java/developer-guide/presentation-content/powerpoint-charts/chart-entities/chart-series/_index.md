@@ -5,39 +5,86 @@ type: docs
 url: /el/python-java/chart-series/
 keywords:
 - σειρές γραφήματος
-- επικάλυψη σειράς
+- επικάλυψη σειρών
 - χρώμα σειράς
 - όνομα σειράς
 - σημείο δεδομένων
 - κελί βιβλίου εργασίας
-- κενό σειράς
+- διάστημα σειράς
 - αρνητική τιμή
 - PowerPoint
 - παρουσίαση
 - Python
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε σειρές γραφήματος, σημεία δεδομένων, κελιά βιβλίου εργασίας, μορφοποίηση, επικάλυψη, πλάτος κενών και αρνητικές τιμές σε παρουσιάσεις με Aspose.Slides για Python μέσω Java."
+description: "Μάθετε πώς να διαχειρίζεστε τις σειρές γραφήματος, τα σημεία δεδομένων, τα κελιά βιβλίου εργασίας, τη μορφοποίηση, την επικάλυψη, το πλάτος κενών και τις αρνητικές τιμές σε παρουσιάσεις με Aspose.Slides για Python μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Ένα γράφημα αποθηκεύει τα σχεδιασμένα του δεδομένα σε ένα βιβλίο εργασίας δεδομένων γραφήματος. Ένα [ChartSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/) αντιπροσωπεύει ένα σύνολο σχετικών τιμών, και κάθε [ChartDataPoint](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/) στη σειρά αναφέρεται σε ένα ή περισσότερα κελιά του βιβλίου εργασίας. Τα αντικείμενα [ChartCategory](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται από τις σειρές. Το όνομα της σειράς, οι κατηγορίες και οι τιμές των σημείων είναι επομένως συνδεδεμένα με αντικείμενα [ChartDataCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/) αντί να αποθηκεύονται μόνο ως κείμενο εμφάνισης.
+Ένα γράφημα μπορεί να αποθηκεύει τις σχεδιασμένες τιμές του σε κελιά βιβλίου εργασίας ή απευθείας ως αριθμητικά λήμματα. Ένα [ChartSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/) αντιπροσωπεύει ένα σύνολο σχετικών τιμών, και κάθε [ChartDataPoint](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/) αντιπροσωπεύει ένα σημείο σε αυτή τη σειρά. Τα αντικείμενα [ChartCategory](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται οι σειρές. Σε γραφήματα που δημιουργούνται με προεπιλεγμένα δεδομένα, τα ονόματα σειρών, οι κατηγορίες και οι τιμές σημείων χρησιμοποιούν αντικείμενα [ChartDataCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/) από το βιβλίο εργασίας του γραφήματος.
 
-Για ένα τυπικό γράφημα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη γραμμή 0 για τα ονόματα των σειρών, τη στήλη 0 για τα ονόματα κατηγοριών και τα υπόλοιπα κελιά για τις τιμές των σειρών. Οι δείκτες φύλλου εργασίας, γραμμής και στήλης που περνιούνται στο [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) είναι μηδενικής βάσης. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα γράφημα με προεπιλεγμένα δεδομένα, αλλά μην υποθέτετε ότι κάθε υπάρχον γράφημα το χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, ελέγξτε τα κελιά στα οποία αναφέρονται οι σειρές, οι κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
+Για ένα τυπικό γράφημα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη γραμμή 0 για τα ονόματα σειρών, τη στήλη 0 για τα ονόματα κατηγοριών και τα υπόλοιπα κελιά για τις τιμές σειρών. Οι δείκτες Worksheet, γραμμής και στήλης που περνούν στο [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) είναι μηδενικής βάσης. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα γράφημα με προεπιλεγμένα δεδομένα, αλλά μην υποθέτετε ότι κάθε υπάρχον γράφημα το χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, ελέγξτε τα κελιά στα οποία αναφέρονται οι σειρές, οι κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
 
-Οι ρυθμίσεις γραφήματος έχουν τρεις διαφορετικές εμβέλειες:
+Οι ρυθμίσεις του γραφήματος έχουν τρία διαφορετικά πεδία:
 
-- Ρυθμίσεις επιπέδου σειράς, όπως το [ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία σε μία σειρά.
-- Ρυθμίσεις σημείου δεδομένων, όπως το [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat), παρακάμπτουν την εμφάνιση της σειράς για ένα σημείο.
-- Οι ρυθμίσεις ομάδας εφαρμόζονται σε συμβατές σειρές που ανήκουν στην ίδια [ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/). Προσπελάστε την ομάδα μέσω του [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup) όταν χρειάζεται να ορίσετε επιλογές όπως η επικάλυψη ή το πλάτος κενών.
+- Ρυθμίσεις επιπέδου σειράς, όπως [ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία σε μια σειρά.
+- Ρυθμίσεις σημείου δεδομένων, όπως [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat), παρακάμπτουν την εμφάνιση της σειράς για ένα σημείο.
+- Ρυθμίσεις ομάδας ισχύουν για συμβατές σειρές που ανήκουν στην ίδια [ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/). Πρόσβαση στην ομάδα μέσω του [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup) όταν χρειάζεται να ορίσετε επιλογές όπως η επικάλυψη ή το πλάτος κενών.
 
-Όταν δεν έχει οριστεί ρητά γέμισμα σημείου ή σειράς, το στυλ και το θέμα του γραφήματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχουν τόσο μορφοποίηση σειράς όσο και σημείου, η μορφοποίηση του σημείου προεξέχει για εκείνο το σημείο.
+Όταν δεν έχει οριστεί ρητό γέμισμα σημείου ή σειράς, το στυλ και το θέμα του γραφήματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχουν τόσο μορφοποίηση σειράς όσο και σημείου, η μορφοποίηση του σημείου έχει προτεραιότητα για εκείνο το σημείο.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![διάγραμμα-σειράς-powerpoint](chart-series-powerpoint.png)
+
+## **Ορισμός Τιμών Σειράς Χρησιμοποιώντας Αριθμητικά Λήμματα**
+
+Χρησιμοποιήστε αριθμητικά λήμματα όταν οι τιμές της σειράς προέρχονται από δεδομένα ή υπολογισμούς της εφαρμογής και δεν χρειάζονται αναφορές κελιών του φύλλου εργασίας. Καλείτε το [setDataSourceTypeForValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForValues) με το [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/#DoubleLiterals) πριν αναθέσετε το αποτέλεσμα του [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue) κάθε σημείου μέσω του [setAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#setAsLiteralDouble).
+
+Η ρύθμιση της συλλογής ελέγχει τον τύπο προέλευσης όλων των τιμών σημείων σε αυτή τη σειρά. Η μέθοδος [getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/basechartvalue/#getDataSourceType) κάθε τιμής σημείου αναφέρει τον επιλεγμένο τύπο· αλλάξτε τον μέσω της ρύθμισης της συλλογής. Με `Worksheet`, χρησιμοποιήστε το [getAsCell](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsCell) για να προσπελάσετε το κελί στο οποίο αναφέρεται. Με `DoubleLiterals`, χρησιμοποιήστε το [getAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsLiteralDouble) ή `setAsLiteralDouble` για να διαβάσετε ή να γράψετε τον αριθμό άμεσα.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα γράφημα στήλης με προεπιλεγμένες σειρές και κατηγορίες, στη συνέχεια αναθέτει υπολογισμένες τιμές 10, 20 κ.λπ. στα υπάρχοντα σημεία της πρώτης σειράς. Αποθηκεύει την παρουσίαση, την ανοίγει ξανά και εκτυπώνει τις αποθηκευμένες τιμές.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, DataSourceType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
+    series = chart.getChartData().getSeries().get_Item(0)
+
+    series.getDataPoints().setDataSourceTypeForValues(DataSourceType.DoubleLiterals)
+    for i in range(series.getDataPoints().size()):
+        series.getDataPoints().get_Item(i).getValue().setAsLiteralDouble((i + 1) * 10)
+
+    presentation.save("numeric_literals.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+
+reopened_presentation = Presentation("numeric_literals.pptx")
+try:
+    reopened_slide = reopened_presentation.getSlides().get_Item(0)
+    reopened_chart = reopened_slide.getShapes().get_Item(0)
+    reopened_series = reopened_chart.getChartData().getSeries().get_Item(0)
+    for point in reopened_series.getDataPoints():
+        print(point.getValue().getAsLiteralDouble())
+finally:
+    reopened_presentation.dispose()
+```
+
+Ο τύπος προέλευσης τιμής σημείου είναι ξεχωριστός από το [ChartData.getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType), το οποίο προσδιορίζει τη διαμόρφωση του εσωτερικού ή εξωτερικού βιβλίου εργασίας του γραφήματος. Η χρήση αριθμητικών λημμάτων δεν αφαιρεί από μόνη της το ενσωματωμένο βιβλίο εργασίας. Σε αυτό το παράδειγμα, το βιβλίο εργασίας παραμένει διαθέσιμο για τις ετικέτες κατηγοριών, τα ονόματα σειρών και τις άλλες σειρές. Δείτε το [Chart Workbook](/slides/el/python-java/chart-workbook/) για διαχείριση βιβλίου εργασίας.
+
+Για διασκορπισμένα και φυσαλίδα γραφήματα, χρησιμοποιήστε το [setDataSourceTypeForXValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForXValues) και το [setDataSourceTypeForYValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForYValues) για να επιλέξετε τις προελεύσεις για το [getXValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getXValue) και το [getYValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getYValue). Τα γραφήματα φυσαλίδων χρησιμοποιούν επίσης το [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForBubbleSizes) για το [getBubbleSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getBubbleSize). Ορίστε κάθε κατάλληλη προέλευση σε `DoubleLiterals` πριν αναθέσετε αριθμούς μέσω της μεθόδου `setAsLiteralDouble` της τιμής.
 
 ## **Ορισμός Επικάλυψης Σειράς Γραφήματος**
 
-Το [ChartSeries.getOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getOverlap) αναφέρει πόσο πολύ μπάρες ή στήλες επικαλύπτονται σε ένα 2D γράφημα, από -100 έως 100 τοις εκατό. Είναι μια μόνο ανάγνωση της ρύθμισης στην ομάδα γονέα σειράς. Χρησιμοποιήστε το [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) για να ενημερώσετε κάθε συμβατή σειρά σε αυτήν την ομάδα. Αυτή η επιλογή εφαρμόζεται σε τύπους γραφήματος που εμφανίζουν ομαδοποιημένες μπάρες ή στήλες· δεν επηρεάζει ανεξάρτητες ομάδες σειρών σε ένα συνδυαστικό γράφημα.
+Το [ChartSeries.getOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getOverlap) αναφέρει το πόσο επικάλυψη έχουν οι μπάρες ή οι στήλες σε ένα 2Δ γράφημα, από -100 μέχρι 100 τοις εκατό. Είναι μια μόνο για ανάγνωση προβολή της ρύθμισης στην γονική ομάδα σειράς. Χρησιμοποιήστε το [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) για να ενημερώσετε κάθε συμβατή σειρά σε εκείνη την ομάδα. Αυτή η επιλογή ισχύει για τύπους γραφήματος που εμφανίζουν ομαδοποιημένες μπάρες ή στήλες· δεν επηρεάζει ανεξάρτητες ομάδες σειρών σε συνδυαστικό γράφημα.
 
 Το παρακάτω παράδειγμα ορίζει την επικάλυψη για την ομάδα που περιέχει την πρώτη σειρά:
 
@@ -45,7 +92,7 @@ description: "Μάθετε πώς να διαχειρίζεστε σειρές �
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
+if not jpway.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
@@ -71,13 +118,13 @@ finally:
 
 Το αποτέλεσμα:
 
-![Η επικάλυψη της σειράς](series_overlap.png)
+![Η επικάλυψη των σειρών](series_overlap.png)
 
 ## **Αλλαγή Χρώματος Γέμισης Σειράς**
 
-Χρησιμοποιήστε το [ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat) για να ορίσετε το προεπιλεγμένο γέμισμα για ολόκληρη τη σειρά. Εάν ένα σημείο έχει ήδη ρητό γέμισμα, η ρύθμιση του [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat) παρακάμπτει το γέμισμα της σειράς για εκείνο το σημείο.
+Χρησιμοποιήστε το [ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat) για να ορίσετε το προεπιλεγμένο γέμισμα ολόκληρης μιας σειράς. Εάν ένα σημείο έχει ήδη ρητή γέμιση, η ρύθμιση του [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat) παρακάμπτει το γέμισμα της σειράς για εκείνο το σημείο.
 
-Το παρακάτω παράδειγμα εφαρμόζει ένα ενιαίο μπλε γέμισμα στην πρώτη σειρά:
+Το παρακάτω παράδειγμα εφαρμόζει στερεό γαλάζιο γέμισμα στην πρώτη σειρά:
 
 ```python
 import jpype
@@ -114,7 +161,7 @@ finally:
 
 ## **Αλλαγή Ονόματος Σειράς**
 
-Το όνομα μιας σειράς αποθηκεύεται στο βιβλίο εργασίας δεδομένων γραφήματος και εμφανίζεται κανονικά στο υπόμνημα. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα συγκεντρωτικό γράφημα στήλης, το κελί B1 βρίσκεται στη γραμμή 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι ονομασμένες μεταβλητές στο παρακάτω παράδειγμα καθιστούν αυτή τη δομή σαφή:
+Το όνομα μιας σειράς αποθηκεύεται στο βιβλίο εργασίας δεδομένων του γραφήματος και συνήθως εμφανίζεται στο υπόμνημα. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα γράφημα στήλης συγκεντρωτικών τιμών, το κελί B1 βρίσκεται στη γραμμή 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι ονομαστικές μεταβλητές στο παρακάτω παράδειγμα κάνουν αυτή τη δομή σαφή:
 
 ```python
 import jpype
@@ -145,7 +192,7 @@ finally:
     presentation.dispose()
 ```
 
-Μπορείτε επίσης να ενημερώσετε το κελί στο οποίο ήδη αναφέρεται το [ChartSeries.getName](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getName). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης γραμμής και στήλης σε ένα υπάρχον γράφημα:
+Μπορείτε επίσης να ενημερώσετε το κελί που ήδη αναφέρεται από το [ChartSeries.getName](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getName). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης γραμμής και στήλης σε υπάρχον γράφημα:
 
 ```python
 import jpype
@@ -179,11 +226,11 @@ finally:
 
 ![Το όνομα της σειράς](series_name.png)
 
-### **Δημιουργία Σειράς με Όνομα από Πολλά Κελιά**
+### **Δημιουργία Σειράς με Όνομα από Πολλαπλά Κελιά**
 
-Ένα σύνθετο όνομα σειράς είναι χρήσιμο όταν το όνομα προϊόντος και η περίοδος αναφοράς αποθηκεύονται σε ξεχωριστά κελιά του βιβλίου εργασίας. Για παράδειγμα, μπορείτε να συνδυάσετε το `Product A` στο B1 και το `2026` στο C1 σε ένα ενιαίο όνομα σειράς, διατηρώντας και τα δύο μέρη συνδεδεμένα με τα κελιά προέλευσής τους.
+Ένα σύνθετο όνομα σειράς είναι χρήσιμο όταν το όνομα προϊόντος και η περίοδος αναφοράς αποθηκεύονται σε διαφορετικά κελιά του βιβλίου εργασίας. Για παράδειγμα, μπορείτε να συνδυάσετε το `Product A` στο B1 και το `2026` στο C1 σε ένα ενιαίο όνομα σειράς διατηρώντας και τα δύο μέρη συνδεδεμένα με τα πηγαία κελιά τους.
 
-Χρησιμοποιήστε το [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCellCollection) για να λάβετε την περιοχή ονομάτων, στη συνέχεια περάστε αυτή τη συλλογή στο [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriescollection/#add). Το επιχείρημα `skipHiddenCells` ελέγχει αν τα κρυφά κελιά συμπεριλαμβάνονται: το `True` τα εξαιρεί, ενώ το `False` τα περιλαμβάνει. Αυτό το παράδειγμα χρησιμοποιεί το `False` για να συμπεριλάβει κάθε κελί στην περιοχή ονόματος.
+Χρησιμοποιήστε το [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCellCollection) για να ανακτήσετε το εύρος ονομάτων, έπειτα περάστε αυτή τη συλλογή στο [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriescollection/#add). Το όρισμα `skipHiddenCells` ελέγχει εάν οι κρυφά κελιά θα συμπεριληφθούν: `True` τα εξαιρεί, ενώ `False` τα περιλαμβάνει. Αυτό το παράδειγμα χρησιμοποιεί `False` για να συμπεριλάβει κάθε κελί στο εύρος ονομάτων.
 
 Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με μία σειρά και δύο σημεία δεδομένων. Τα κελιά B1:C1 παρέχουν μόνο το όνομα της σειράς· τα A2:A3 παρέχουν τις ετικέτες κατηγοριών, και τα B2:B3 παρέχουν τις αριθμητικές τιμές.
 
@@ -215,7 +262,7 @@ try:
     name_cells = workbook.getCellCollection("Sheet1!$B$1:$C$1", False)
     series = chart.getChartData().getSeries().add(name_cells, ChartType.ClusteredColumn)
 
-    # Ξεχωριστά κελιά παρέχουν τις κατηγορίες και τις αριθμητικές τιμές δεδομένων.
+    # Ξεχωριστά κελιά παρέχουν τις κατηγορίες και τα αριθμητικά σημεία δεδομένων.
     north_category = workbook.getCell(0, 1, 0, "North")
     south_category = workbook.getCell(0, 2, 0, "South")
     chart.getChartData().getCategories().add(north_category)
@@ -230,15 +277,15 @@ finally:
     presentation.dispose()
 ```
 
-Το προκύπτον όνομα σειράς είναι `Product A 2026`, με ένα κενό μεταξύ των δύο τιμών κελιών. Το υπόμνημα το εμφανίζει ως μία καταχώρηση για και τις δύο στήλες. Η εικόνα παρακάτω απεικονίζει το αποτέλεσμα:
+Το προκύπτον όνομα σειράς είναι `Product A 2026`, με ένα κενό μεταξύ των δύο τιμών κελιών. Το υπόμνημα το εμφανίζει ως μία καταχώρηση και για τις δύο στήλες. Η εικόνα παρακάτω απεικονίζει το αποτέλεσμα:
 
-![Γράφημα στήλης με τιμές Βορρά και Νότου και το σύνθετο όνομα σειράς Product A 2026 στο υπόμνημα](composite_series_name.png)
+![Γράφημα στήλης με τιμές Βόρεια και Νότια και το σύνθετο όνομα σειράς Product A 2026 στο υπόμνημα](composite_series_name.png)
 
-## **Λήψη Αυτόματου Χρώματος Γέμισης Σειράς**
+## **Ανάκτηση Αυτόματου Χρώματος Γέμισης Σειράς**
 
-Το [ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getAutomaticSeriesColor) επιστρέφει το χρώμα που υπολογίζεται από το δείκτη της σειράς και το στυλ του γραφήματος. Αυτό είναι το χρώμα που χρησιμοποιείται όταν το γέμισμα της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν αναθέτει νέο γέμισμα.
+Το [ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getAutomaticSeriesColor) επιστρέφει το χρώμα που υπολογίζεται από τον δείκτη της σειράς και το στυλ του γραφήματος. Αυτό είναι το χρώμα που χρησιμοποιείται όταν το γέμισμα της σειράς δεν ορίζεται ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν εκχωρεί νέο γέμισμα.
 
-Το παρακάτω παράδειγμα εκτυπώνει το αυτόματο χρώμα κάθε προεπιλεγμένης σειράς:
+Το παρακάτω παράδειγμα τυπώνει το αυτόματο χρώμα κάθε προεπιλεγμένης σειράς:
 
 ```python
 import jpype
@@ -276,11 +323,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 Τα ακριβή χρώματα εξαρτώνται από το στυλ και το θέμα του γραφήματος.
 
-## **Ορισμός Αναστροφής Χρώματος Γέμισης για Σειρά Γραφήματος**
+## **Ορισμός Αντεστραμμένου Χρώματος Γέμισης για Σειρά Γραφήματος**
 
-Για σειρές μπάρας, στήλης και φυσαλίδας, το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) μπορεί να εμφανίζει τις αρνητικές τιμές με διαφορετικό γέμισμα. Ορίστε το κανονικό γέμισμα της σειράς σε ενιαίο, ενεργοποιήστε την αναστροφή και ορίστε το χρώμα των αρνητικών τιμών μέσω του [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· αλλάζει μόνο το χρώμα εμφάνισης.
+Για σειρές μπάρες, στήλες και φυσαλίδας, το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) μπορεί να εμφανίζει τις αρνητικές τιμές με διαφορετικό γέμισμα. Ορίστε το κανονικό γέμισμα σειράς σε στερεό, ενεργοποιήστε την αντιστροφή και αναθέστε το χρώμα αρνητικής τιμής μέσω του [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· μόνο το χρώμα προβολής τους αλλάζει.
 
-Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα γραφήματος με μία σειρά. Η γραμμή 0 του φύλλου εργασίας περιέχει το όνομα της σειράς, η στήλη 0 περιέχει τα ονόματα των κατηγοριών, και η στήλη 1 περιέχει τις τιμές:
+Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα γραφήματος με μία σειρά. Η γραμμή 0 του φύλλου εργασίας περιέχει το όνομα της σειράς, η στήλη 0 περιέχει τα ονόματα κατηγοριών, και η στήλη 1 περιέχει τις τιμές:
 
 ```python
 import jpype
@@ -342,12 +389,12 @@ finally:
 
 Το αποτέλεσμα:
 
-![Το αναστραμμένο ενιαίο χρώμα γέμισης](inverted_solid_fill_color.png)
+![Το αντεστραμμένο στερεό χρώμα γέμισης](inverted_solid_fill_color.png)
 
-Μπορείτε να ενεργοποιήσετε την αναστροφή για ένα σημείο μέσω του [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Στο παρακάτω παράδειγμα, η αναστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιημένη μόνο για το επιλεγμένο σημείο. Στο σημείο έχει επίσης εκχωρηθεί μια αρνητική τιμή ώστε το εφέ να είναι ορατό:
+Μπορείτε να ενεργοποιήσετε την αντιστροφή για ένα σημείο μέσω του [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Στο παρακάτω παράδειγμα, η αντιστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Το σημείο επίσης λαμβάνει μια αρνητική τιμή ώστε το αποτέλεσμα να είναι ορατό:
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -386,7 +433,7 @@ finally:
 
 ## **Καθαρισμός Συγκεκριμένης Τιμής Σημείου Δεδομένων**
 
-Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα άλλα σημεία, ορίστε το υποκείμενο κελί του βιβλίου εργασίας σε `None`. Για ένα γράφημα στήλης, η σχεδιασμένη τιμή είναι διαθέσιμη μέσω του [ChartDataPoint.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το γράφημα το αντιμετωπίζει ως κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του γραφήματος.
+Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα άλλα σημεία, ορίστε το υποκείμενο κελί του βιβλίου εργασίας σε `None`. Για ένα γράφημα στήλης, η σχεδιασμένη τιμή είναι διαθέσιμη μέσω του [ChartDataPoint.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το γράφημα το θεωρεί κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του γραφήματος.
 
 Το παρακάτω παράδειγμα καθαρίζει μόνο το δεύτερο σημείο στην πρώτη σειρά:
 
@@ -418,17 +465,17 @@ finally:
     presentation.dispose()
 ```
 
-Τα διασκορπισμένα γραφήματα χρησιμοποιούν ξεχωριστά κελιά X και Y, και τα γραφήματα φυσαλίδων χρησιμοποιούν επίσης ένα κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέσετε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) όταν θέλετε να διατηρήσετε τα άλλα σημεία, επειδή αυτή η μέθοδος αφαιρεί όλα τα σημεία δεδομένων από τη συλλογή.
+Τα διασκορπισμένα γραφήματα χρησιμοποιούν χωριστά κελιά X και Y, και τα γραφήματα φυσαλίδων επίσης χρησιμοποιούν κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέσετε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) όταν θέλετε να διατηρήσετε τα άλλα σημεία, επειδή αυτή η μέθοδος αφαιρεί όλα τα σημεία δεδομένων από τη συλλογή.
 
-## **Έλεγχος Εμφάνισης Κελιών χωρίς Δεδομένα**
+## **Έλεγχος Εμφάνισης Κενών Κυψελών**
 
-Τα κρυφά κελιά που περιέχουν τιμές είναι ξεχωριστή περίπτωση από τα κενά κελιά. Για να συμπεριλάβετε ή να εξαιρέσετε δεδομένα από κρυφές γραμμές και στήλες, δείτε το [Συμπερίληψη Δεδομένων από Κρυφές Γραμμές και Στήλες](/slides/el/python-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Οι κρυφές κυψέλες που περιέχουν τιμές αποτελούν ξεχωριστή περίπτωση από τις κενές κυψέλες. Για να συμπεριλάβετε ή να εξαιρέσετε δεδομένα από κρυφές γραμμές και στήλες φύλλου εργασίας, δείτε την ενότητα [Include Data from Hidden Rows and Columns](/slides/el/python-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Ένα κενό κελί στο βιβλίο εργασίας αντιπροσωπεύει ελλιπή δεδομένα· ένα κελί που περιέχει `0` αντιπροσωπεύει μια γνωστή αριθμητική τιμή. Καλέστε το [ChartDataCell.setValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setValue) με `None` για να κάνετε ένα κελί κενό. Ένας αριθμητικός μηδέν παραμένει μηδέν ανεξάρτητα από τη ρύθμιση κενών κελιών.
+Μια κενή κυψέλη βιβλίου εργασίας αντιπροσωπεύει ελλιπή δεδομένα· μια κυψέλη που περιέχει `0` αντιπροσωπεύει γνωστή αριθμητική τιμή. Καλέστε το [ChartDataCell.setValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setValue) με `None` για να κάνετε μια κυψέλη κενή. Ένα αριθμητικό μηδέν παραμένει μηδέν ανεξάρτητα από τη ρύθμιση κενής κυψέλης.
 
-Χρησιμοποιήστε το [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) για να επιλέξετε πώς το γράφημα εμφανίζει τα κενά κελιά. Αυτή η ρύθμιση εφαρμόζεται σε ολόκληρο το γράφημα. Αλλάζει τον τρόπο που σχεδιάζονται τα κενά, χωρίς να γεμίζει το κενό κελί του βιβλίου εργασίας με μηδέν ή μια παρεμβαλλόμενη τιμή.
+Χρησιμοποιήστε το [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) για να επιλέξετε πώς το γράφημα εμφανίζει τις κενές κυψέλες. Αυτή η ρύθμιση ισχύει για ολόκληρο το γράφημα. Αλλάζει τον τρόπο που τα κενά σχεδιάζονται, χωρίς να γεμίζει την κενή κυψέλη του βιβλίου εργασίας με μηδέν ή με διαμερισμένη τιμή.
 
-Το παρακάτω αυτόνομα παράδειγμα δημιουργεί ένα γράφημα γραμμής με μία σειρά, καθαρίζει την τιμή για την Ημέρα 3, και αποθηκεύει το ίδιο γράφημα με κάθε λειτουργία. Δεν απαιτείται αρχείο εισόδου. Το [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) χρησιμοποιεί το φύλλο εργασίας 0, στήλη 0 για τις ετικέτες κατηγοριών και στήλη 1 για τις τιμές· η γραμμή 0 περιέχει το όνομα της σειράς. Τα τελικά δεδομένα είναι `10, 20, empty, 30, 40`.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα γράφημα γραμμής με μία σειρά, καθαρίζει την τιμή για την Ημέρα 3, και αποθηκεύει το ίδιο γράφημα με κάθε λειτουργία. Δεν απαιτείται αρχείο εισόδου. Το [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) χρησιμοποιεί το φύλλο 0, στήλη 0 για ετικέτες κατηγοριών, και στήλη 1 για τιμές· η γραμμή 0 κρατά το όνομα της σειράς. Τα τελικά δεδομένα είναι `10, 20, empty, 30, 40`.
 
 ```python
 import jpype
@@ -460,7 +507,7 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # Αφήστε την Ημέρα 3 πραγματικά κενή, ενώ διατηρείται η κατηγορία και το σημείο δεδομένων της.
+    # Αφήστε την Ημέρα 3 πραγματικά κενή, διατηρώντας την κατηγορία και το σημείο δεδομένων.
     workbook.getCell(0, 3, 1).setValue(None)
 
     modes = [DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span]
@@ -472,17 +519,17 @@ finally:
     presentation.dispose()
 ```
 
-Κάθε αρχείο εξόδου αποθηκεύει τη λειτουργία που ορίστηκε πριν την αποθήκευση: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` και `empty_cells_Span.pptx`. Για να αποθηκεύσετε μόνο μία έκδοση, καθορίστε τη ζητούμενη λειτουργία και αποθηκεύστε την παρουσίαση μία φορά αντί να επαναλήσετε τις λειτουργίες.
+Κάθε αρχείο εξόδου αποθηκεύει τη λειτουργία που είχε οριστεί πριν από την αποθήκευση: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` και `empty_cells_Span.pptx`. Για να αποθηκεύσετε μόνο μία έκδοση, ορίστε τη λειτουργία που επιθυμείτε και αποθηκεύστε την παρουσίαση μία φορά αντί για επαναλήψεις.
 
 Η σύγκριση παρακάτω δείχνει τα ίδια δεδομένα και στα τρία αρχεία. Η Ημέρα 3 είναι κενή στο βιβλίο εργασίας σε κάθε περίπτωση:
 
-![Γραφήματα γραμμής με ίδια δεδομένα: Gap διακόπτει τη γραμμή στην Ημέρα 3, Zero κατεβάζει τη γραμμή στο μηδέν, και Span συνδέει τη Ημέρα 2 με τη Ημέρα 4.](display_blanks_as.png)
+![Γραφήματα γραμμής με ίσο περιεχόμενο: Το Gap διακόπτει τη γραμμή στην Ημέρα 3, το Zero κατεβάζει τη γραμμή στο μηδέν, και το Span συνδέει την Ημέρα 2 με την Ημέρα 4.](display_blanks_as.png)
 
-Το ορατό αποτέλεσμα εξαρτάται από τον τύπο του γραφήματος. Ένα γράφημα γραμμής καθιστά εύκολο τον συγκριτικό έλεγχο όλων των τριών λειτουργιών. Τα γραφήματα μπάρας και στήλης δεν έχουν γραμμή για σύνδεση μέσω μιας ελλιπούσας κατηγορίας, έτσι το `Span` δεν μπορεί να δημιουργήσει το συνδετικό τμήμα που φαίνεται παραπάνω· μια ελλιπής στήλη και μια στήλη μηδενικού ύψους μπορούν επίσης να φαίνονται παρόμοια. Ομοίως, ένα διασκορπιστικό γράφημα μόνο με δείκτες δεν έχει γραμμή σύνδεσης. Μην περιμένετε τρία διαφορετικά αποτελέσματα για κάθε τύπο γραφήματος· ελέγξτε την έξοδο για τον τύπο που χρησιμοποιείτε.
+Το οπτικό αποτέλεσμα εξαρτάται από τον τύπο γραφήματος. Ένα γράφημα γραμμής κάνει εύκολη τη σύγκριση των τριών λειτουργιών. Τα γραφήματα μπάρες και στήλες δεν έχουν γραμμή σύνδεσης μεταξύ ελλιπών κατηγοριών, επομένως το `Span` δεν μπορεί να δημιουργήσει το συνδετικό τμήμα που φαίνεται παραπάνω· μια κενή στήλη και μια στήλη μηδενικού ύψους μπορεί επίσης να φαίνονται παρόμοια. Ομοίως, ένα διασκορπισμένο γράφημα με μόνο δείκτες δεν έχει γραμμή σύνδεσης. Μη περιμένετε τρία διακριτά αποτελέσματα για κάθε τύπο γραφήματος· ελέγξτε το αποτέλεσμα για τον τύπο που χρησιμοποιείτε.
 
-## **Ορισμός Πλάτους Κενών Σειράς**
+## **Ορισμός Πλάτους Κενών Μεταξύ Σειρών**
 
-Το πλάτος κενών είναι το διάστημα μεταξύ γειτονικών ομάδων μπάρας ή στήλης, εκφρασμένο ως ποσοστό του πλάτους της μπάρας ή στήλης. Όπως η επικάλυψη, ανήκει στην ομάδα γονέα σειράς παρά σε μία σειρά. Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) μία φορά για την ομάδα. Μια μεγαλύτερη τιμή δημιουργεί περισσότερο χώρο μεταξύ των ομάδων· μια μικρότερη τιμή τις καθιστά πιο πυκνές.
+Το πλάτος κενών είναι ο χώρος μεταξύ γειτονικών ομάδων μπάρες ή στήλες, εκφρασμένο ως ποσοστό του πλάτους της μπάρας ή της στήλης. Όπως και η επικάλυψη, ανήκει στη γονική ομάδα σειρών αντί σε μία σειρά. Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) μία φορά για την ομάδα. Μια μεγαλύτερη τιμή δημιουργεί περισσότερος χώρος μεταξύ των ομάδων· μια μικρότερη τιμή τις κάνει πιο πυκνές.
 
 Το παρακάτω παράδειγμα αλλάζει το πλάτος κενών και αποθηκεύει μόνο την τελική παρουσίαση:
 
@@ -515,46 +562,46 @@ finally:
 
 Το αποτέλεσμα:
 
-![Το πλάτος κενών](gap_width.png)
+![Το πλάτος των κενών](gap_width.png)
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποιοι τύποι γραφήματος υποστηρίζουν σειρές δεδομένων;**
+**Ποιοί τύποι γραφήματος υποστηρίζουν σειρές δεδομένων;**
 
-Όλοι οι τύποι γραφήματος που αντιπροσωπεύονται από την απαρίθμηση [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) χρησιμοποιούν δεδομένα γραφήματος, αλλά οι σειρές τους δεν έχουν όλοι την ίδια δομή τιμών ή ρυθμίσεις. Για παράδειγμα, τα γραφήματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα διασκορπισμένα γραφήματα χρησιμοποιούν τιμές X και Y, και τα γραφήματα φυσαλίδων προσθέτουν μεγέθη φυσαλίδων. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει στον τύπο σειράς. Επιλογές όπως η επικάλυψη και το πλάτος κενών ισχύουν μόνο για συμβατές ομάδες μπάρας ή στήλης.
+Όλοι οι τύποι γραφήματος που αντιπροσωπεύει η απαρίθμηση [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) χρησιμοποιούν δεδομένα γραφήματος, αλλά οι σειρές τους δεν έχουν όλοι την ίδια δομή τιμών ή ρυθμίσεις. Για παράδειγμα, τα γραφήματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα διασκορπισμένα χρησιμοποιούν τιμές X και Y, και τα γραφήματα φυσαλίδας προσθέτουν μεγέθη φυσαλίδας. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει στον τύπο σειράς. Οι επιλογές όπως επικάλυψη και πλάτος κενών ισχύουν μόνο για συμβατές ομάδες μπάρες ή στήλες.
 
-**Τι είναι μια ομάδα σειράς γραφήματος;**
+**Τι είναι μια ομάδα σειρών γραφήματος;**
 
-Μια [ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις σχεδίασης επιπέδου ομάδας. Ένα συνδυαστικό γράφημα μπορεί να περιέχει περισσότερες από μία ομάδες, έτσι η αλλαγή της ομάδας που προσεγγίζεται μέσω μιας σειράς δεν αλλάζει απαραίτητα όλες τις σειρές στο γράφημα.
+Μια [ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις σχεδίασης επιπέδου ομάδας. Ένα συνδυαστικό γράφημα μπορεί να περιέχει περισσότερες από μία ομάδες, οπότε η αλλαγή της ομάδας μέσω μιας σειράς δεν αλλάζει αναγκαστικά όλες τις σειρές στο γράφημα.
 
-**Έχει ένα νεοδημιουργημένο γράφημα προεπιλεγμένα δεδομένα;**
+**Το νεοδημιουργηθέν γράφημα περιέχει προεπιλεγμένα δεδομένα;**
 
-Ναι. Από προεπιλογή, το [ShapeCollection.addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) δημιουργεί δείγματα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να εκκαθαρίσετε και τις συλλογές σειρών και κατηγοριών πριν προσθέσετε ένα εντελώς προσαρμοσμένο σύνολο δεδομένων. Μία υπερφόρτωση μπορεί επίσης να δημιουργήσει ένα γράφημα χωρίς προεπιλεγμένα δεδομένα.
+Ναι. Από προεπιλογή, το [ShapeCollection.addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) δημιουργεί δείγματα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να καθαρίσετε τόσο τις συλλογές σειρών όσο και κατηγοριών πριν προσθέσετε ένα εντελώς προσαρμοσμένο σύνολο δεδομένων. Υπάρχει επίσης υπερφόρτωση που μπορεί να δημιουργήσει ένα γράφημα χωρίς προεπιλεγμένα δεδομένα.
 
-**Πώς συνδέονται τα αντικείμενα γραφήματος με κελιά του βιβλίου εργασίας;**
+**Πώς συνδέονται τα αντικείμενα γραφήματος με τα κελιά του βιβλίου εργασίας;**
 
-Τα ονόματα των σειρών, οι ετικέτες των κατηγοριών και οι τιμές των σημείων δεδομένων αναφέρονται σε κελιά ενός [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/). Η αλλαγή ενός κελιού που αναφέρεται ενημερώνει το αντίστοιχο στοιχείο του γραφήματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις γραμμές κατηγοριών και τις γραμμές τιμών σειρών ευθυγραμμισμένες ώστε κάθε σημείο να σχεδιάζεται κάτω από την επιθυμητή κατηγορία.
+Τα ονόματα σειρών, οι ετικέτες κατηγοριών και οι τιμές σημείων δεδομένων αναφέρονται σε κελιά ενός [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/). Η αλλαγή ενός κελιού αναφοράς ενημερώνει το αντίστοιχο στοιχείο του γραφήματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις γραμμές κατηγοριών και τις γραμμές τιμών σειράς ευθυγραμμισμένες έτσι ώστε κάθε σημείο να σχεδιάζεται κάτω από την προβλεπόμενη κατηγορία.
 
-**Πώς να καθαρίσω ένα σημείο αντί ολόκληρης της σειράς;**
+**Πώς να καθαρίσω ένα σημείο αντί ολόκληρης σειράς;**
 
-Ορίστε το σχετικό κελί τιμής σε `None` για να διατηρήσετε τη θέση κατηγορίας του σημείου ως κενό σημείο. Χρησιμοποιήστε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) μόνο όταν σκοπεύετε να αφαιρέσετε όλα τα σημεία από εκείνη τη σειρά. Εάν αφαιρέσετε επίσης τις κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμείνουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
+Ορίστε το σχετικό κελί τιμής σε `None` για να διατηρήσετε τη θέση κατηγορίας του σημείου ως κενό σημείο. Χρησιμοποιήστε το [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) μόνο όταν θέλετε να αφαιρέσετε όλα τα σημεία από εκείνη τη σειρά. Εάν αφαιρέσετε επίσης τις κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμείνουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
 
 **Πώς εμφανίζονται τα κενά σημεία;**
 
-Το αποτέλεσμα εξαρτάται από τον τύπο του γραφήματος και την τιμή που έχει ρυθμιστεί μέσω του [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs). Τα υποστηριζόμενα γραφήματα μπορούν να εμφανίζουν κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας τα γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει στο νόημα των ελλιπών δεδομένων στην παρουσίασή σας. Δείτε το [Έλεγχος Εμφάνισης Κελιών χωρίς Δεδομένα](#control-the-display-of-empty-cells) για ένα πλήρες παράδειγμα και οπτική σύγκριση.
+Το αποτέλεσμα εξαρτάται από τον τύπο γραφήματος και τη τιμή που έχει διαμορφωθεί μέσω του [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs). Τα υποστηριζόμενα γραφήματα μπορούν να εμφανίζουν κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει στο νόημα των ελλιπών δεδομένων στην παρουσίασή σας. Δείτε την ενότητα [Control the Display of Empty Cells](#control-the-display-of-empty-cells) για ένα πλήρες παράδειγμα και οπτική σύγκριση.
 
 **Πώς μορφοποιούνται οι αρνητικές τιμές;**
 
-Για τις υποστηριζόμενες σειρές μπάρας, στήλης και φυσαλίδων, καλέστε το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) και ορίστε το χρώμα που επιστρέφεται από το [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Μπορείτε να παρακάμψετε τη συμπεριφορά για ένα μεμονωμένο σημείο με το [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Αυτές οι μέθοδοι επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
+Για υποστηριζόμενες σειρές μπάρες, στήλες και φυσαλίδες, καλέστε το [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) και ορίστε το χρώμα που επιστρέφεται από το [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Μπορείτε να παρακάμψετε τη συμπεριφορά για ένα μεμονωμένο σημείο με το [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Αυτές οι μέθοδοι επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
 
-**Ποια μορφοποίηση προβάλλει όταν τόσο η σειρά όσο και το σημείο έχουν μορφοποιηθεί;**
+**Ποια μορφοποίηση κερδίζει όταν τόσο μια σειρά όσο και ένα σημείο μορφοποιούνται;**
 
-Η ρητή μορφοποίηση σημείου δεδομένων προβάλλει για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφοποίηση της σειράς ή, όταν η μορφοποίηση της σειράς δεν ορίζεται, το αυτόματο στυλ και θέμα του γραφήματος. Οι ρυθμίσεις ομάδας όπως η επικάλυψη και το πλάτος κενών ελέγχουν τη διάταξη και δεν αποτελούν παρακάμψεις μορφοποίησης επιπέδου σημείου.
+Η ρητή μορφοποίηση σημείου δεδομένων έχει προτεραιότητα για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφή σειράς ή, όταν δεν ορίζεται μορφή σειράς, το αυτόματο στυλ και θέμα του γραφήματος. Οι ρυθμίσεις ομάδας όπως επικάλυψη και πλάτος κενών ελέγχουν τη διάταξη και δεν είναι παρακάμψεις μορφοποίησης επιπέδου σημείου.
 
 **Υπάρχει όριο στον αριθμό σειρών που μπορεί να περιέχει ένα γράφημα;**
 
-Το Aspose.Slides δεν επιβάλλει ξεχωριστό σταθερό όριο στον αριθμό σειρών. Στην πράξη, οι περιορισμοί του αρχείου παρουσίασης, η διαθέσιμη μνήμη, ο χρόνος απόδοσης και η αναγνωσιμότητα του γραφήματος καθορίζουν ένα χρήσιμο όριο.
+Το Aspose.Slides δεν επιβάλλει ξεχωριστό σταθερό όριο αριθμού σειρών. Στην πράξη, περιορισμοί του αρχείου παρουσίασης, διαθέσιμη μνήμη, χρόνος απόδοσης και η αναγνωσιμότητα του γραφήματος καθορίζουν ένα βολικό όριο.
 
 **Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ μακριά;**
 
-Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) στην κατάλληλη ομάδα γονέα σειράς. Αυξήστε την τιμή για να διευρύνετε το χώρο μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.
+Καλέστε το [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) στην κατάλληλη γονική ομάδα σειρών. Αυξήστε την τιμή για να διευρύνετε το διάστημα μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.

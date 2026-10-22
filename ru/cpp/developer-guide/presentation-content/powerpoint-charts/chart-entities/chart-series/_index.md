@@ -1,43 +1,105 @@
 ---
-title: Управление сериями данных диаграмм в презентациях на C++
-linktitle: Серии данных
+title: Управление данными рядов диаграмм в презентациях на C++
+linktitle: Ряды данных
 type: docs
 url: /ru/cpp/chart-series/
 keywords:
-- серии диаграммы
-- перекрытие серий
-- цвет серии
+- ряды диаграмм
+- перекрытие рядов
+- цвет ряда
 - цвет категории
-- имя серии
+- имя ряда
 - точка данных
-- промежуток серии
+- зазор ряда
 - PowerPoint
 - презентация
 - C++
 - Aspose.Slides
-description: "Узнайте, как управлять сериями диаграмм, точками данных, ячейками рабочей книги, форматированием, перекрытием, шириной промежутка и отрицательными значениями в презентациях с использованием C++."
+description: "Узнайте, как управлять рядами диаграмм, точками данных, ячейками рабочей книги, форматированием, перекрытием, шириной зазора и отрицательными значениями в презентациях с помощью C++."
 ---
 ## **Обзор**
 
-Диаграмма хранит свои построенные данные в рабочей книге данных диаграммы. [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) представляет один набор связанных значений, и каждый [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) в серии ссылается на одну или несколько ячеек рабочей книги. Объекты [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) предоставляют подписи или группирующие значения, общие для серии. Поэтому имя серии, категории и значения точек связаны с объектами [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/), а не хранятся только как отображаемый текст.
+Диаграмма может сохранять построенные значения в ячейках рабочей книги или непосредственно как числовые литералы. [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) представляет один набор связанных значений, а каждый [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) представляет точку в этом ряду. Объекты [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) обеспечивают метки или группирующие значения, общие для рядов. В диаграммах, созданных с данными по умолчанию, имена рядов, категории и значения точек используют объекты [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) из рабочей книги диаграммы.
 
-Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и оставшиеся ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/), начинаются с 0. Такой макет полезен, когда вы создаёте диаграмму с данными по умолчанию, но не следует предполагать, что каждая существующая диаграмма использует его. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем менять значения в рабочей книге.
+Для типичной категориальной диаграммы рабочая книга по умолчанию использует строку 0 для имён рядов, столбец 0 для имён категорий и оставшиеся ячейки для значений рядов. Индексы листа, строки и столбца, передаваемые в [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/), начинаются с 0. Такой макет удобен при создании диаграммы с данными по умолчанию, но не следует предполагать, что каждая существующая диаграмма использует его. Для загруженной презентации проверьте ячейки, на которые ссылаются ряды, категории и точки данных, прежде чем менять значения в рабочей книге.
 
-Настройки диаграммы имеют три разных уровня:
+Настройки диаграммы имеют три уровня области действия:
 
-- Настройки уровня серии, такие как [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), задают внешний вид по умолчанию для всех точек в одной серии.
-- Настройки точки данных, такие как [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/), переопределяют внешний вид серии для одной точки.
-- Настройки группы применяются к совместимым сериям, принадлежащим к одной [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/). Доступ к группе осуществляется через [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/), когда необходимо задать параметры, такие как перекрытие или ширина промежутка.
+- Настройки уровня ряда, такие как [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), задают внешний вид всех точек в одном ряду.
+- Настройки отдельной точки, такие как [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/), переопределяют внешний вид ряда для этой точки.
+- Групповые настройки применяются к совместимым рядам, принадлежащим одному [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/). Получите группу через [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/), когда нужно задать параметры, такие как перекрытие или ширина зазора.
 
-Если явная заливка точки или серии не задана, стиль и тема диаграммы определяют автоматический внешний вид. Когда заданы оба формата — серии и точки — формат точки имеет приоритет для этой точки.
+Если явное заполнение точки или ряда не задано, стиль и тема диаграммы определяют автоматический внешний вид. Когда присутствуют оба формата — ряда и точки — формат точки имеет приоритет для этой точки.
 
-![серия диаграммы PowerPoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Установить перекрытие серии диаграммы**
+## **Установить значения ряда, используя числовые литералы**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) сообщает, насколько перекрываются столбцы или полосы в 2D‑диаграмме, от ‑100 до 100 процентов. Это только чтение проекции настройки на родительскую группу серий. Вызовите [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) чтобы обновить каждую совместимую серию в этой группе. Эта опция применима к типам диаграмм, отображающим сгруппированные столбцы или полосы; она не влияет на несвязанные группы серий в комбинированной диаграмме.
+Используйте числовые литералы, когда значения ряда получаются из данных приложения или вычислений и не требуют ссылок на ячейки листа. Вызовите [set_DataSourceTypeForValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforvalues/) с параметром [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) перед тем, как присвоить значение, возвращаемое каждой точкой через [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_value/) с помощью [set_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/set_asliteraldouble/).
 
-Следующий пример задаёт перекрытие для группы, содержащей первую серию:
+Настройка коллекции управляет типом источника всех значений точек в этом ряду. [IBaseChartValue::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ibasechartvalue/get_datasourcetype/) каждой точки сообщает выбранный тип; измените его через настройку коллекции. При работе с `Worksheet` используйте [get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/isinglecellchartvalue/get_ascell/) для доступа к ссылочной ячейке. При работе с `DoubleLiterals` используйте [get_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/get_asliteraldouble/) или `set_AsLiteralDouble` для чтения или записи числа напрямую.
+
+В следующем примере создаётся столбчатая диаграмма с рядами и категориями по умолчанию, затем присваиваются вычисленные значения 10, 20 и т.д. существующим точкам первого ряда. Пример сохраняет презентацию, открывает её снова и выводит сохранённые значения.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/DataSourceType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+
+series->get_DataPoints()->set_DataSourceTypeForValues(DataSourceType::DoubleLiterals);
+for (auto i = 0; i < series->get_DataPoints()->get_Count(); i++)
+{
+    series->get_DataPoints()->idx_get(i)->get_Value()->set_AsLiteralDouble((i + 1) * 10);
+}
+
+presentation->Save(u"numeric_literals.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+
+auto reopenedPresentation = MakeObject<Presentation>(u"numeric_literals.pptx");
+auto reopenedSlide = reopenedPresentation->get_Slide(0);
+auto reopenedChart = ExplicitCast<IChart>(reopenedSlide->get_Shape(0));
+auto reopenedSeries = reopenedChart->get_ChartData()->get_Series()->idx_get(0);
+for (auto i = 0; i < reopenedSeries->get_DataPoints()->get_Count(); i++)
+{
+    auto point = reopenedSeries->get_DataPoints()->idx_get(i);
+    Console::WriteLine(point->get_Value()->get_AsLiteralDouble());
+}
+reopenedPresentation->Dispose();
+```
+
+Тип источника значения точки отделён от [IChartData::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_datasourcetype/), который определяет конфигурацию внутренней или внешней рабочей книги диаграммы. Использование числовых литералов само по себе не удаляет встроенную рабочую книгу. В этом примере рабочая книга остаётся доступной для меток категорий, имён рядов и остальных рядов. См. [Chart Workbook](/slides/ru/cpp/chart-workbook/) для управления рабочей книгой.
+
+Для точечных и пузырьковых диаграмм вызовите [set_DataSourceTypeForXValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforxvalues/) и [set_DataSourceTypeForYValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforyvalues/) чтобы выбрать источники для [get_XValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_xvalue/) и [get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Пузырьковые диаграммы также используют [set_DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforbubblesizes/) для [get_BubbleSize](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_bubblesize/). Установите каждый применимый источник в `DoubleLiterals` перед присвоением чисел через метод `set_AsLiteralDouble` соответствующего значения.
+
+## **Установить перекрытие рядов диаграммы**
+
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) сообщает, насколько столбцы или полосы перекрываются в 2D‑диаграмме, в диапазоне от ‑100 до 100 процентов. Это только чтение проекции настройки в родительской группе рядов. Вызовите [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) чтобы обновить все совместимые ряды в этой группе. Этот параметр применяется к типам диаграмм, отображающим группированные столбцы или полосы; он не влияет на несвязанные группы рядов в комбинированной диаграмме.
+
+В следующем примере задаётся перекрытие для группы, содержащей первый ряд:
 
 ```cpp
 #include <cstdint>
@@ -64,7 +126,7 @@ const int8_t overlapPercent = 30;
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Новая диаграмма содержит образцовые серии, категории и значения.
+// Новая диаграмма содержит образцы рядов, категорий и значений.
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
 auto seriesCollection = chart->get_ChartData()->get_Series();
@@ -77,13 +139,13 @@ presentation->Dispose();
 
 Результат:
 
-![Перекрытие серии](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Изменить цвет заливки серии**
+## **Изменить цвет заполнения ряда**
 
-Используйте [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) для задания заливки по умолчанию для всей серии. Если у точки уже есть явная заливка, её настройка [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) переопределяет заливку серии для этой точки.
+Используйте [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) для задания заполнения по умолчанию для всего ряда. Если у точки уже указано явное заполнение, её настройка [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) переопределяет заполнение ряда для этой точки.
 
-Следующий пример задаёт сплошную синюю заливку первой серии:
+В следующем примере применяется сплошное синее заполнение к первому ряду:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -128,11 +190,11 @@ presentation->Dispose();
 
 Результат:
 
-![Цвет серии](series_color.png)
+![The color of the series](series_color.png)
 
-## **Изменить имя серии**
+## **Изменить имя ряда**
 
-Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию для сгруппированной столбчатой диаграммы ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные константы в следующем примере делают эту структуру явной:
+Имя ряда хранится в рабочей книге диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию для сгруппированной столбчатой диаграммы ячейка B1 находится в строке 0, столбце 1 и содержит имя первого ряда. Именованные константы в следующем примере делают эту структуру явной:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -173,7 +235,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Вы также можете обновить ячейку, уже используемую [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). Такой подход избегает предположений о конкретных строках и столбцах в существующей диаграмме:
+Вы также можете обновить ячейку, уже указанную в [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). Такой подход избавляет от предположений о конкретных строках и столбцах в существующей диаграмме:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -220,15 +282,15 @@ presentation->Dispose();
 
 Результат:
 
-![Имя серии](series_name.png)
+![The series name](series_name.png)
 
-### **Создать серию с именем из нескольких ячеек**
+### **Создать ряд с именем из нескольких ячеек**
 
-Составное имя серии удобно, когда название продукта и период отчёта хранятся в разных ячейках рабочей книги. Например, можно объединить `Product A` в B1 и `2026` в C1 в одно имя серии, при этом обе части остаются связанными со своими исходными ячейками.
+Составное имя ряда удобно, когда название продукта и отчётный период хранятся в отдельных ячейках рабочей книги. Например, можно объединить `Product A` в B1 и `2026` в C1 в одно имя ряда, при этом обе части остаются привязанными к исходным ячейкам.
 
-Используйте [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) для получения диапазона имён, а затем передайте эту коллекцию в [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). Параметр `skipHiddenCells` управляет включением скрытых ячеек: `true` исключает их, `false` — включает. В этом примере используется `false`, чтобы включить каждую ячейку диапазона имён.
+Используйте [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) для получения диапазона имён, затем передайте эту коллекцию в [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). Параметр `skipHiddenCells` определяет, включать ли скрытые ячейки: `true` — исключить, `false` — включить. В этом примере используется `false`, чтобы включить все ячейки диапазона имён.
 
-Следующий пример создаёт презентацию с одной серией и двумя точками данных. Ячейки B1:C1 содержат только имя серии; A2:A3 — подписи категорий, а B2:B3 — числовые значения.
+В следующем примере создаётся презентация с одним рядом и двумя точками данных. Ячейки B1:C1 содержат только имя ряда; A2:A3 — метки категорий; B2:B3 — числовые значения.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -268,7 +330,7 @@ chart->set_HasLegend(true);
 auto workbook = chartData->get_ChartDataWorkbook();
 workbook->Clear(0);
 
-// Эти две ячейки задают имя серии.
+// Эти две ячейки задают имя ряда.
 auto productName = ObjectExt::Box<String>(u"Product A");
 auto reportingPeriod = ObjectExt::Box<String>(u"2026");
 workbook->GetCell(0, 0, 1, productName);
@@ -294,15 +356,15 @@ presentation->Save(u"composite_series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Получаемое имя серии — `Product A 2026`, между двумя значениями ячеек стоит пробел. Легенда отображает его как одну запись для обоих столбцов. На изображении ниже показан результат:
+Полученное имя ряда — `Product A 2026`, между значениями ячеек вставлен пробел. Легенда отображает его как одну запись для обеих колонок. Ниже изображён результат:
 
-![Гистограмма с значениями North и South и составным именем серии Product A 2026 в легенде](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Получить автоматический цвет заливки серии**
+## **Получить автоматический цвет заполнения ряда**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) возвращает цвет, вычисленный на основе индекса серии и стиля диаграммы. Это цвет, используемый, когда заливка серии явно не определена. Вызов метода только читает вычисленный цвет; он не назначает новую заливку.
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) возвращает цвет, вычисленный на основе индекса ряда и стиля диаграммы. Это цвет, используемый, когда заполнение ряда не задано явно. Вызов метода лишь считывает вычисленный цвет; он не задаёт новое заполнение.
 
-Следующий пример выводит автоматический цвет каждой серии по умолчанию:
+В следующем примере выводится автоматический цвет каждого ряда по умолчанию:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -354,11 +416,11 @@ Series 2: ff9bbb59
 
 Точные цвета зависят от стиля и темы диаграммы.
 
-## **Установить инвертировать цвет заливки для серии диаграммы**
+## **Установить инвертированный цвет заполнения для ряда диаграммы**
 
-Для серий со столбцами, полосами и пузырьками [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) позволяет отображать отрицательные значения другим цветом. Задайте обычную заливку серии как сплошную, включите инверсию и задайте цвет для отрицательных значений через [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Отрицательные числа остаются неизменными в рабочей книге; меняется только их отображаемый цвет.
+Для рядов типа полоса, столбец и пузырёк [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) позволяет отображать отрицательные значения другим заполнением. Задайте обычное заполнение ряда как сплошное, включите инверсию и задайте цвет отрицательного значения через [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Отрицательные числа остаются неизменными в рабочей книге; меняется только их отображаемый цвет.
 
-Следующий пример заменяет данные диаграммы по умолчанию одной серией. Строка 0 листа содержит имя серии, столбец 0 — имена категорий, столбец 1 — значения:
+В следующем примере заменяется набор данных диаграммы одним рядом. Строка 0 листа содержит имя ряда, столбец 0 — имена категорий, столбец 1 — значения:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -446,9 +508,9 @@ presentation->Dispose();
 
 Результат:
 
-![Инвертированный сплошной цвет заливки](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Вы можете включить инверсию для одной точки через [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присвоено отрицательное значение, чтобы эффект был видим:
+Инверсию можно включить для отдельной точки через [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). В следующем примере инверсия отключена для ряда и включена только для выбранной точки. Точке также присваивается отрицательное значение, чтобы эффект был виден:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -508,9 +570,9 @@ presentation->Dispose();
 
 ## **Очистить конкретное значение точки данных**
 
-Чтобы сделать одну точку пустой, не удаляя остальные, установите её ячейку в рабочей книге в значение `nullptr`. Для столбчатой диаграммы построенное значение доступно через [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Точка остаётся на той же позиции категории, но диаграмма рассматривает её значение как пустое согласно настройкам отображения пустых значений.
+Чтобы сделать одну точку пустой, не удаляя остальные, установите её ячейку в рабочей книге в `nullptr`. Для столбчатой диаграммы отображаемое значение доступно через [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Точка остаётся в той же позиции категории, но диаграмма воспринимает её значение как пустое в соответствии с настройками отображения пустых значений.
 
-Следующий пример очищает только вторую точку в первой серии:
+В следующем примере очищается только вторая точка первого ряда:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -549,17 +611,17 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Диаграммы разброса используют отдельные ячейки X и Y, а диаграммы пузырьков — также ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое вы хотите удалить. Не вызывайте [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) если хотите оставить остальные точки, поскольку этот метод удалит все точки из коллекции.
+Точечные диаграммы используют отдельные ячейки X и Y, а пузырьковые — ещё и ячейку размера. Очищайте только ту ячейку, значение которой вы хотите удалить. Не вызывайте [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) если хотите оставить остальные точки, поскольку этот метод удаляет все точки из коллекции.
 
 ## **Управление отображением пустых ячеек**
 
-Скрытые ячейки, содержащие значения, — отдельный случай от пустых ячеек. Чтобы включать или исключать данные из скрытых строк и столбцов листа, см. [Include Data from Hidden Rows and Columns](/slides/ru/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Скрытые ячейки, содержащие значения, – отдельный случай от пустых ячеек. Чтобы включать или исключать данные из скрытых строк и столбцов листа, см. [Include Data from Hidden Rows and Columns](/slides/ru/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Пустая ячейка рабочей книги обозначает отсутствующие данные; ячейка, содержащая `0`, — известное числовое значение. Вызовите [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) с `nullptr`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулём независимо от настройки пустых ячеек.
+Пустая ячейка рабочей книги представляет отсутствие данных; ячейка, содержащая `0`, представляет известное числовое значение. Вызовите [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) с `nullptr`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулём независимо от настройки пустых ячеек.
 
-Используйте [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) для выбора способа отображения пустых ячеек в диаграмме. Эта настройка применяется ко всей диаграмме. Она меняет способ построения пустот, не заполняя пустую ячейку нулём или интерполированным значением.
+Используйте [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) для выбора способа отображения пустых ячеек. Эта настройка применяется ко всей диаграмме. Она меняет способ построения пустот, не заполняя пустую ячейку нулём или интерполированным значением.
 
-Следующий самостоятельный пример создаёт линейную диаграмму с одной серией, очищает значение для Day 3 и сохраняет одну и ту же диаграмму в каждом режиме. Входной файл не требуется. [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) использует лист 0, столбец 0 для подписей категорий и столбец 1 для значений; строка 0 — имя серии. Итоговые данные: `10, 20, empty, 30, 40`.
+В следующем самостоятельном примере создаётся линейная диаграмма с одним рядом, очищается значение для Дня 3 и сохраняется одна и та же диаграмма в каждом режиме. Входной файл не требуется. [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) использует лист 0, столбец 0 — метки категорий, столбец 1 — значения; строка 0 — имя ряда. Финальные данные: `10, 20, empty, 30, 40`.
 
 ```cpp
 #include <array>
@@ -627,17 +689,19 @@ for (auto mode : modes)
 presentation->Dispose();
 ```
 
-Сравнение ниже показывает одинаковые данные во всех трёх файлах. Day 3 пуст в рабочей книге во всех случаях:
+Каждый выходной файл сохраняет режим, установленный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте нужный режим и сохраните презентацию один раз вместо перебора режимов.
 
-![Линейные диаграммы с одинаковыми данными: Gap разрывает линию в день 3, Zero опускает линию к нулю, а Span соединяет день 2 с днем 4.](display_blanks_as.png)
+Сравнение ниже показывает одинаковые данные во всех трёх файлах. День 3 пуст в рабочей книге во всех случаях:
 
-Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнить все три режима. Диаграммы столбцов и полос не имеют линии, соединяющей пропущенную категорию, поэтому `Span` не может создать соединительный сегмент, показанный выше; отсутствующий столбец и столбец нулевой высоты также могут выглядеть одинаково. Аналогично, диаграмма разброса только с маркерами не имеет соединительной линии. Не ожидайте трёх разных результатов для каждого типа диаграмм; проверьте вывод для используемого типа.
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-## **Установить ширину промежутка серии**
+Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнивать все три режима. Для столбчатых и гистограмм нет линии, соединяющей пропущенную категорию, поэтому `Span` не может создать соединительный сегмент, как показано выше; пустой столбец и столбец нулевой высоты могут выглядеть одинаково. Аналогично, точечная диаграмма только с маркерами не имеет соединительной линии. Не ожидайте трёх разных результатов для каждого типа диаграммы; проверяйте вывод для используемого типа.
 
-Ширина промежутка — пространство между соседними кластерами столбцов или полос, выраженное в процентах от ширины столбца или полосы. Как и перекрытие, она относится к родительской группе серий, а не к отдельной серии. Вызовите [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) один раз для группы. Большее значение создаёт больше пространства между кластерами; меньшее — делает их плотнее.
+## **Установить ширину зазора между рядами**
 
-Следующий пример меняет ширину промежутка и сохраняет только финальную презентацию:
+Ширина зазора — пространство между соседними кластерами столбцов или полос, выраженное в процентах от ширины столбца или полосы. Как и перекрытие, она относится к родительской группе рядов, а не к отдельному ряду. Вызовите [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) один раз для группы. Большее значение создаёт больше пространства между кластерами; меньшее — делает их плотнее.
+
+В следующем примере меняется ширина зазора и сохраняется только окончательная презентация:
 
 ```cpp
 #include <cstdint>
@@ -676,46 +740,46 @@ presentation->Dispose();
 
 Результат:
 
-![Ширина промежутка](gap_width.png)
+![The gap width](gap_width.png)
 
 ## **FAQ**
 
-**Какие типы диаграмм поддерживают серии данных?**
+**Какие типы диаграмм поддерживают ряды данных?**
 
-Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), используют данные диаграммы, но их серии имеют разные структуры значений и настройки. Например, диаграммы категорий используют категории и значения, диаграммы разброса — X и Y, а пузырьковые — размер пузыря. Выбирайте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применимы только к совместимым группам столбцов или полос.
+Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), используют данные диаграммы, но их ряды не всегда имеют одинаковую структуру значений или настройки. Например, категориальные диаграммы используют категории и значения, точечные — X и Y, а пузырьковые — размеры пузырей. Используйте метод создания точек, соответствующий типу ряда. Параметры, такие как перекрытие и ширина зазора, применимы только к совместимым группам столбцов или полос.
 
-**Что такое группа серий диаграммы?**
+**Что такое группа рядов диаграммы?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) содержит совместимые серии, которые используют общие настройки построения группы. Комбинированная диаграмма может иметь более одной группы, поэтому изменение группы, полученной через одну серию, не обязательно изменит все серии в диаграмме.
+[IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) содержит совместимые ряды, которые разделяют групповые параметры построения. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы, полученной через один ряд, не обязательно изменит каждый ряд в диаграмме.
 
-**Содержит ли вновь созданная диаграмма данные по умолчанию?**
+**Создаётся ли в новой диаграмме набор данных по умолчанию?**
 
-Да. По умолчанию [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) создаёт образцовые серии, категории и значения. Вы можете отредактировать эти ячейки или очистить как коллекцию серий, так и коллекцию категорий перед добавлением полностью пользовательского набора данных. Существует перегрузка, позволяющая создать диаграмму без данных по умолчанию.
+Да. По умолчанию [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) создаёт образцы рядов, категорий и значений. Вы можете изменить эти ячейки или очистить обе коллекции (рядов и категорий) перед добавлением полностью пользовательского набора данных. Существует перегрузка, позволяющая создать диаграмму без данных по умолчанию.
 
 **Как объекты диаграммы связаны с ячейками рабочей книги?**
 
-Имена серий, подписи категорий и значения точек данных ссылаются на ячейки в [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Изменение ссылки ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных следите за тем, чтобы строки категорий и строки значений серий были согласованы, чтобы каждая точка отображалась под нужной категорией.
+Имена рядов, метки категорий и значения точек данных ссылаются на ячейки в [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Изменение ссылки ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных держите строки категорий и строки значений рядов согласованными, чтобы каждая точка отображалась под нужной категорией.
 
-**Как очистить одну точку вместо всей серии?**
+**Как очистить одну точку, а не весь ряд?**
 
-Установите соответствующую ячейку значения в `nullptr`, чтобы сохранить позицию категории точки как пустую. Вызовите [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) только тогда, когда хотите удалить все точки из серии. Если вы также удаляете категории, обновите каждую серию, чтобы их значения оставались согласованными с коллекцией категорий.
+Установите соответствующую ячейку значения в `nullptr`, чтобы сохранить позицию категории точки как пустую. Вызывайте [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) только когда нужно удалить все точки из ряда. Если вы удаляете также категории, обновите каждый ряд, чтобы их значения оставались согласованными с коллекцией категорий.
 
 **Как отображаются пустые точки?**
 
-Результат зависит от типа диаграммы и [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Поддерживаемые диаграммы могут отображать пустоты как разрывы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. раздел [Управление отображением пустых ячеек](#контроль-отображения-пустых-ячейк) для полного примера и визуального сравнения.
+Результат зависит от типа диаграммы и [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Поддерживаемые диаграммы могут отображать пустоты как разрывы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. раздел [Control the Display of Empty Cells](#control-the-display-of-empty-cells) для полного примера и визуального сравнения.
 
 **Как форматируются отрицательные значения?**
 
-Для поддерживаемых столбцов, полос и пузырьков вызовите [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) и задайте цвет через [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Для отдельной точки можно переопределить поведение с помощью [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Эти методы влияют только на форматирование, а не на хранимые числовые значения.
+Для поддерживаемых рядов типа полоса, столбец и пузырёк вызовите [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) и задайте цвет через [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Поведение отдельной точки можно переопределить с помощью [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Эти методы влияют на форматирование, а не на сохранённые числовые значения.
 
-**Какой формат имеет приоритет, когда и серия, и точка отформатированы?**
+**Какой формат выигрывает, когда ряд и точка отформатированы?**
 
-Явное форматирование точки имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не определён, автоматический стиль и тему диаграммы. Настройки группы, такие как перекрытие и ширина промежутка, управляют расположением и не являются переопределением формата на уровне точек.
+Явное форматирование точки имеет приоритет для этой точки. Другие точки продолжают использовать явный формат ряда или, если формат ряда не задан, автоматический стиль и тему диаграммы. Групповые параметры, такие как перекрытие и ширина зазора, управляют расположением и не являются переопределяющим форматированием точек.
 
-**Есть ли ограничение на количество серий в диаграмме?**
+**Есть ли ограничение на количество рядов в диаграмме?**
 
-Aspose.Slides не накладывает отдельного фиксированного ограничения на количество серий. На практике ограничения файловой структуры презентации, доступной памяти, времени рендеринга и читаемости диаграммы определяют практический предел.
+Aspose.Slides не накладывает отдельного фиксированного ограничения на количество рядов. На практике ограничения файлов презентации, доступная память, время рендеринга и читаемость диаграммы определяют практический предел.
 
-**Что следует изменить, когда столбцы слишком близко или слишком далеко друг от друга?**
+**Что менять, когда столбцы слишком близко расположены или слишком далеко друг от друга?**
 
-Вызовите [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) у соответствующей родительской группы серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите, чтобы собрать их ближе.
+Вызовите [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) для соответствующей родительской группы рядов. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите, чтобы собрать их ближе.

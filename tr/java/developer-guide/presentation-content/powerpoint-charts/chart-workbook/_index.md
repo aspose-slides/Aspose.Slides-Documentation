@@ -1,49 +1,49 @@
 ---
-title: Sunumlarda Java Kullanarak Grafik Çalışma Kitaplarını Yönetme
-linktitle: Grafik Çalışma Kitabı
+title: Java Kullanarak Sunumlarda Grafik İş Kitaplarını Yönet
+linktitle: Grafik İş Kitabı
 type: docs
 weight: 70
 url: /tr/java/chart-workbook/
 keywords:
-- grafik çalışma kitabı
+- grafik iş kitabı
 - grafik verisi
-- çalışma kitabı hücresi
+- iş kitabı hücresi
 - veri etiketi
 - çalışma sayfası
 - veri kaynağı
-- harici çalışma kitabı
+- harici iş kitabı
 - harici veri
 - grafik önbelleği
-- çalışma kitabı kurtarma
+- iş kitabı kurtarma
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java’yı keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yöneterek sunum verilerinizi düzenleyin."
+description: "Aspose.Slides for Java'ı keşfedin: PowerPoint ve OpenDocument formatlarında grafik iş kitaplarını zahmetsizce yöneterek sunum verilerinizi düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale Aspose.Slides'ta grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları üzerinden grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketi olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme konularını gösterir.
+Bu makale, Aspose.Slides'te grafik iş kitaplarıyla nasıl çalışılacağını açıklar. İş kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, iş kitabı hücrelerini grafik veri etiketleri olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme konularını gösterir.
 
-Ayrıca dış çalışma kitaplarını grafik veri kaynakları olarak kullanmayı kapsar. Örnekler, dış bir çalışma kitabı oluşturup atamayı, bir grafiğe bağlı dış çalışma kitabının yolunu almayı ve çalışma kitabı mevcut olduğunda grafik verilerini düzenlemeyi gösterir.
+Ayrıca, harici iş kitaplarının grafik veri kaynağı olarak kullanılmasını da kapsar. Örnekler, dış bir iş kitabı oluşturma ve atama, bir grafiğe bağlı dış iş kitabının yolunu alma ve iş kitabı mevcut olduğunda grafik verisini düzenleme yöntemlerini gösterir.
 
-Eksik veriyi temsil eden çalışma kitabı hücreleri için, bir boş hücre ile sıfır arasındaki farkı ve mevcut gösterim modlarının bir çizgi grafik karşılaştırmasını görmek için [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/java/chart-series/) bölümüne bakın.
+Eksik veriyi temsil eden iş kitabı hücreleri için, boş bir hücre ile sıfır arasındaki farkı ve mevcut görüntüleme modlarının satır grafik karşılaştırmasını görmek üzere [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/java/chart-series/) bölümüne bakın.
 
-## **Gizli Satır ve Sütunlardaki Veriyi Dahil Et**
+## **Gizli Satır ve Sütunlardan Veri Dahil Et**
 
-[IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) kullanarak bir grafiğin gizli çalışma sayfası satır ve sütunlarından veri çizip çizmeyeceğini kontrol edin. Yalnızca görünür hücreleri çizmek için `true`, hem görünür hem de gizli hücreleri dahil etmek için `false` ayarlayın. Bu ayar grafik çizimini kontrol eder; çalışma sayfası satır veya sütunlarını gizlemez/göstermez.
+[IChart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setPlotVisibleCellsOnly-boolean-) kullanarak bir grafiğin gizli çalışma sayfası satır ve sütunlarından veri çizip çizmeyeceğini kontrol edin. Yalnızca görünen hücreleri çizmek için `true`, hem görünen hem de gizli hücreleri dahil etmek için `false` olarak ayarlayın. Bu ayar grafik çizimini kontrol eder; çalışma sayfası satır veya sütunlarını gizlemez veya göstermez.
 
-[örnek sunum](hidden-source-data.pptx) ilk slaytındaki ilk şekil olarak bir sütun grafiği içerir. Gömülü çalışma sayfası `Sheet1`, `A1:C4` kaynak aralığını içerir. 3. satır ve C sütunu gizlidir, ancak hücreleri hâlâ değer içerir.
+[örnek sunum](hidden-source-data.pptx) ilk slaytının ilk şekli olarak bir sütun grafik içerir. Gömülü çalışma sayfası `Sheet1`, `A1:C4` aralığını içerir. 3. satır ve C sütunu gizlidir, ancak hücreleri hâlâ değer içerir.
 
-| Çalışma Sayfası satırı | A: Ay | B: Perakende | C: Toptan (gizli sütun) |
+| Çalışma sayfası satırı | A: Ay | B: Perakende | C: Toptan (gizli sütun) |
 | --- | --- | --- | --- |
 | 2 | Ocak | 10 | 30 |
 | 3 (gizli satır) | Şubat | 40 | 60 |
 | 4 | Mart | 20 | 50 |
 
-Kaynak hücrelere [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) ile erişin ve gizli durumlarını incelemek için [IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) okuyun. Bu yöntem gizli durumunu değiştirmeden raporlar. Bu dosyada B2 görünür, B3 gizli satıra ait ve C2 gizli sütuna ait; örnek sırasıyla `false`, `true` ve `true` yazdırır.
+[IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) aracılığıyla kaynak hücrelere erişin ve gizli durumlarını incelemek için [IChartDataCell.isHidden](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#isHidden--) kullanın. Bu yöntem gizli durumunu değiştirmeden rapor eder. Bu dosyada B2 görünüyor, B3 gizli satıra ait ve C2 gizli sütuna ait; örnek sırasıyla `false`, `true` ve `true` değerlerini basar.
 
-Bu örnek için çizim ayarı değiştirildikten sonra grafik verisini yenileyin: gömülü çalışma kitabını [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) ile tutun ve [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) ile yeniden yükleyin. Tüm hücreleri dahil ederken gizli Şubat kategorisini de geri yüklemek için [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) kullanın. Sadece bayrağı değiştirmek, bu örnek için önbelleğe alınmış grafik verisini ve kategori etiketlerini yenilemek için yetersizdir.
+Bu örnek için, çizim ayarı değiştirildikten sonra grafik verisini yenileyin: gömülü iş kitabını [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) ile koruyun ve [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) ile yeniden yükleyin. Tüm hücreleri dahil ederken, gizli Şubat kategorisini de içeren tam aralığı geri yüklemek için [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) kullanın. Bayrağı yalnızca değiştirmek, bu örneğin önbelleğe alınmış grafik verisini ve kategori etiketlerini yenilemek için yeterli değildir.
 
 ```java
 import com.aspose.slides.*;
@@ -64,10 +64,10 @@ try {
         for (boolean visibleOnly : new boolean[] { true, false }) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // Gömülü çalışma kitabından grafik verisini yenileyin.
+            // Gömülü iş kitabından grafik verilerini yenile.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
-                // Gizli kategoriler dahil tam kaynak aralığını geri yükleyin.
+                // Gizli kategoriler dahil olmak üzere tam kaynak aralığını geri yükle.
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4");
             }
 
@@ -81,21 +81,21 @@ try {
 }
 ```
 
-Örnek, yalnızca görünür Perakende değerlerini (10 ve 20) içeren bir sürüm ve tüm altı değeri içeren bir sürüm kaydeder. Aşağıdaki görseller iki çizim kipini gösterir. Satır 3 ve sütun C her iki gömülü çalışma kitabında da gizli kalır.
+Örnek, sunumun iki sürümünü kaydeder: yalnızca görünen Perakende değerleri (10 ve 20) içeren bir sürüm ve tüm altı değeri içeren bir sürüm. Aşağıdaki görseller iki çizim modunu gösterir. 3. satır ve C sütunu her iki gömülü iş kitabında da gizli kalır.
 
-| Yalnızca görünür hücreler (`true`) | Tüm hücreler (`false`) |
+| Yalnızca görünen hücreler (`true`) | Tüm hücreler (`false`) |
 | --- | --- |
-| ![Yalnızca görünür hücreler: Ocak ve Mart için Perakende değerleri 10 ve 20.](hidden_cells_True.png) | ![Tüm hücreler: Ocak, Şubat ve Mart için Perakende ve Toptan değerleri.](hidden_cells_False.png) |
+| ![Yalnızca görünen hücreler: Ocak ve Mart için Perakende değerleri 10 ve 20.](hidden_cells_True.png) | ![Tüm hücreler: Ocak, Şubat ve Mart için Perakende ve Toptan değerleri.](hidden_cells_False.png) |
 
-Gizli bir hücredeki değer boş bir hücreden farklıdır. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) eksik değerlerin nasıl gösterileceğini kontrol eder; gizli kaynak veriyi ekleyip çıkartmaz. Örnek için [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/java/chart-series/#control-the-display-of-empty-cells) bölümüne bakın.
+Değer içeren bir gizli hücre, boş bir hücreden farklıdır. [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) eksik değerlerin nasıl görüntüleneceğini kontrol eder; gizli kaynak veriyi ekleyip çıkartmaz. Örnek için [Boş Hücrelerin Görüntülenmesini Kontrol Et](/slides/tr/java/chart-series/#control-the-display-of-empty-cells) bölümüne bakın.
 
-## **Grafiğin Veri Aralığını Al**
+## **Bir Grafiğin Veri Aralığını Al**
 
-Mevcut bir sunumda çalışma kitabı verilerini güncellemeden önce, her grafiğin kullandığı çalışma sayfası hücrelerini belirlemek için kaynak aralıklarını inceleyin. [IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) yöntemi, `Sheet1!$A$1:$D$5` gibi çalışma sayfası nitelikli bir formül olarak mevcut veri aralığını döndürür. Burada `Sheet1` çalışma sayfası adıdır, `!` hücre aralığından ayırır ve `$A$1:$D$5` A1’den D5’e kadar (dahil) hücreleri tanımlar. `$` işaretleri mutlak satır ve sütun referanslarını gösterir.
+Mevcut bir sunumda iş kitabı verisini güncellemeden önce, her grafiğin hangi çalışma sayfası hücrelerini kullandığını belirlemek amacıyla kaynak aralıklarını inceleyin. [IChartData.getRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getRange--) yöntemi, `Sheet1!$A$1:$D$5` gibi çalışma sayfası nitelikli bir formül olarak mevcut veri aralığını döndürür. Burada `Sheet1` çalışma sayfası adıdır, `!` hücre aralığından ayırır ve `$A$1:$D$5` A1'den D5'e kadar olan hücreleri (dahil) tanımlar. Dolar işaretleri mutlak satır ve sütun referanslarını gösterir.
 
-Yöntem grafiği veya onun çalışma kitabını değiştirmeden mevcut aralığı okur. Grafik bir çalışma kitabını veri kaynağı olarak kullanmıyorsa `InvalidOperationException` fırlatır. Daha fazla bilgi için [ChartData API Referansı](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/) bölümüne bakın.
+Bu yöntem, grafiği veya iş kitabını değiştirmeden mevcut aralığı okur. Grafik, veri kaynağı olarak bir iş kitabı kullanmıyorsa `InvalidOperationException` fırlatır. Daha fazla bilgi için [ChartData API Referansı](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/) bölümüne bakın.
 
-Bu örnek bir sunumu açar ve her slayttaki şekilleri doğrudan grafikler için kontrol eder. Her grafiğin adını ve kaynak aralığını yazdırır. Bir grafik çalışma kitabı kullanmıyorsa bir mesaj yazdırır ve bir sonraki grafa devam eder.
+Bu örnek bir sunumu açar ve her slayttaki şekilleri doğrudan kontrol ederek grafik olup olmadığını denetler. Her grafiğin adını ve kaynak aralığını yazar. Bir grafik iş kitabı kullanmıyorsa bir mesaj basar ve bir sonraki grafiğe geçer.
 
 ```java
 import com.aspose.slides.*;
@@ -121,11 +121,11 @@ try {
 }
 ```
 
-## **Bir Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
+## **İş Kitabından Grafik Verilerini Oku ve Yaz**
 
-Aspose.Slides for Java, grafik verileri (Aspose.Cells ile düzenlenmiş) içeren çalışma kitaplarını okumanıza ve yazmanıza olanak tanıyan [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) ve [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) yöntemleri sağlar. **Not** grafik verileri aynı biçimde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
+Aspose.Slides for Java, grafik verileri (Aspose.Cells ile düzenlenmiş) içeren iş kitaplarını okumanıza ve yazmanıza olanak tanıyan [readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) ve [writeWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#writeWorkbookStream-byte---) yöntemlerini sağlar. **Not** grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
 
-Bu örnek, ilk slaytındaki ilk şekil olarak bir grafik içeren bir sunum kullanır. Gömülü çalışma kitabını bir bayt dizisine okur, mevcut serileri ve kategorileri temizler ve aynı çalışma kitabını geri yazar. Değişiklikler bellek içinde kalır; örnek sunumu kaydetmez.
+Bu örnek, ilk slaytının ilk şekli olarak bir grafik içeren bir sunum kullanır. Gömülü iş kitabını bir bayt dizisine okur, mevcut serileri ve kategorileri temizler ve aynı iş kitabını geri yazar. Değişiklikler bellekte kalır; örnek sunumu kaydetmez.
 
 ```java
 import com.aspose.slides.*;
@@ -152,9 +152,9 @@ try {
 }
 ```
 
-### **Çalışma Kitabı Değişikliği Sonrası Grafik Düzenini Doğrulama**
+### **İş Kitabı Değişikliği Sonrası Grafik Düzenini Doğrula**
 
-Gömülü bir çalışma kitabını değiştirilmiş bir kitapla değiştirdiğinizde, grafik orijinal seri ve kategori koleksiyonlarını korur. Bu uyumsuzluk, [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) metodunun dizin dışı hatasıyla başarısız olmasına neden olabilir. Güncellenmiş çalışma kitabını grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin. Bu örnek, ilk slayttaki ilk şekil olarak bir grafik kullanır. Yorum, çalışma kitabı düzenlemesinin nerede gerçekleşeceğini işaret eder; çalıştırılabilir örnek orijinal çalışma kitabını geri yazar ve bellekte düzeni doğrular.
+Gömülü bir iş kitabını değiştirilmiş bir sürümle değiştirdiğinizde, grafik orijinal serileri ve kategori koleksiyonlarını korur. Bu uyumsuzluk, [IChart.validateChartLayout](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#validateChartLayout--) yönteminin indeks dışı hata vermesine neden olabilir. Güncellenmiş iş kitabını grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin. Bu örnek, ilk slaytın ilk şekli olarak bir grafik kullanır. Yorum, iş kitabı düzenlemesinin nerede gerçekleşeceğini işaret eder; çalıştırılabilir örnek orijinal iş kitabını geri yazar ve düzeni bellekte doğrular.
 
 ```java
 import com.aspose.slides.*;
@@ -169,7 +169,7 @@ try {
         IChartData chartData = chart.getChartData();
         byte[] workbookData = chartData.readWorkbookStream();
 
-        // Burada çalışma kitabı baytlarını değiştirin, örneğin Aspose.Cells kullanarak.
+        // Gömülü iş kitabı baytlarını burada değiştirin, örneğin Aspose.Cells kullanarak.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -184,15 +184,15 @@ try {
 }
 ```
 
-Koleksiyonları temizlemek, çalışma kitabı geri yazılmadan önce bayat veri referanslarını kaldırır. Güncellenmiş çalışma kitabı için gerekli seri ve kategori eşlemelerini yeniden oluşturun ve ardından grafiği kullanın.
+Serileri temizlemek, iş kitabı geri yazılmadan önce eski veri referanslarını kaldırır. Güncellenmiş iş kitabı için gerekli olabilecek serileri ve kategori eşlemelerini yeniden oluşturun.
 
-## **Çalışma Kitabı Hücreleri için Özel Sayı Biçimleri Ayarlama**
+## **İş Kitabı Hücreleri için Özel Sayı Biçimleri Ayarla**
 
-[IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) kullanarak sayısal değerlerin bir grafiğin gömülü çalışma kitabında nasıl görüneceğini kontrol edin. Örneğin, bir rapor dönüşüm oranını yüzde olarak dört ondalık basamakla ve katsayıyı beş ondalık basamakla gösterebilir. Her iki değeri de sayısal tutun, böylece hesaplamalar ve grafik çizimi için kullanılabilir kalır.
+[IChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) kullanarak bir grafiğin gömülü iş kitabındaki sayısal değerlerin nasıl görüneceğini kontrol edin. Örneğin, bir rapor yüzde işaretiyle dört ondalık basamak ve bir katsayıyı beş ondalık basamakla gösterebilir. Her iki değeri de sayısal tutun, böylece hesaplamalar ve grafik çizimi için kullanılabilir kalır.
 
-Bir sayı biçimi değeri gösterimi değiştirir, saklanan değeri değiştirmez. `0.0000%` biçimi `0.125` değerini `12.5000%` olarak gösterir; saklanan sayı `12.5` ile değiştirilmez. Benzer şekilde, `0.00000` `0.1234567` değerini `0.12346` olarak gösterir, saklanan değeri yuvarlamaz. Özel biçim boş bir dize (`""`) ise, [getPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) tarafından döndürülen biçim kullanılır.
+Bir sayı biçimi gösterimi değiştirir, depolanan değeri değiştirmez. `0.0000%` biçimi `0.125` sayısını `12.5000%` olarak gösterir; sayıyı `12.5` ile değiştirmez. Benzer şekilde, `0.00000` `0.1234567` sayısını `0.12346` olarak gösterir, depolanan değeri yuvarlamaz. Özel biçim boş bir dize (`""`) ise, [getPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#getPresetNumberFormat--) tarafından döndürülen biçim kullanılır.
 
-Aşağıdaki örnek bir sütun grafiği oluşturur ve hücrelerine [getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) üzerinden erişir. Çalışma sayfası 0'da B2 dönüşüm oranını ve C2 katsayısını içerir. İki hücre de grafik değerlerini sağlar. Örnek aynı zamanda kaynak biçimlerine bağlı değer etiketlerini etkinleştirir.
+Aşağıdaki örnek bir sütun grafik oluşturur ve hücrelerine [getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) aracılığıyla erişir. Çalışma sayfası 0'da B2 dönüşüm oranını, C2 katsayısını içerir. Her iki hücre de grafik değerleri sağlar. Örnek ayrıca kaynak biçimlerine bağlı değer etiketlerini etkinleştirir.
 
 ```java
 import com.aspose.slides.*;
@@ -243,19 +243,17 @@ try {
 }
 ```
 
-Çalışma kitabı hücre biçimleri, doğrudan grafik eksenlerine veya veri etiketlerine ayarlanan biçimlerden ayrıdadır. Bu örnekte, her etiket [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true` olduğu için kaynak hücre değerini gösterir ve [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) `true` olduğu için kaynak sayı biçimini takip eder. Sunumu kaydedip yeniden açtıktan sonra etiketler `12.5000%` ve `0.12346` gösterir, aşağıda gösterildiği gibi. Düşey eksen kendi sayı biçimini [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) `0.00` olarak ayarlar ve [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) `false` olur.
+İş kitabı hücre biçimleri, doğrudan eksenlere veya veri etiketlerine uygulanan biçimlerden ayrıdır. Bu örnekte, her etiket kaynak hücresinin değerini gösterir çünkü [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true` olarak ayarlanmıştır ve [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) `true` olduğu için kaynak sayı biçimini izler. Sunumu kaydedip yeniden açtıktan sonra etiketler `12.5000%` ve `0.12346` olarak gösterilir. Dikey eksen, kendi sayı biçimini [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) ile `0.00` olarak belirler ve [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormatLinkedToSource-boolean-) `false` olarak ayarlanır.
 
-Bir veri etiketini bağımsız biçimlendirmek için kaynak‑bağlantı bayrağını `false` yapın ve [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) ile bir biçim atayın. Bu, çalışma kitabı hücresinin biçimini değiştirmez. Örneğin, bağımsız `0.00` etiketi ilk değeri `0.13` olarak gösterirken B2 hâlâ `12.5000%` gösterir. Doğrudan etiket biçimlendirme için [Grafik Veri Etiketleri](/slides/tr/java/chart-data-label/#set-percentage-sign-with-chart-data-labels) bölümüne bakın.
+Bağımsız bir veri etiketi biçimlendirmek için, kaynak‑bağlantı bayrağını `false` yapıp [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) ile bir biçim atayın. Bu, iş kitabı hücresinin biçimini değiştirmez. Örneğin, bağımsız `0.00` biçimi ilk değeri `0.13` olarak gösterirken B2 hâlâ `12.5000%` gösterir. Doğrudan etiket biçimlendirmesi için [Chart Data Labels](/slides/tr/java/chart-data-label/#set-percentage-sign-with-chart-data-labels) bölümüne bakın.
 
-Aşağıdaki resim, sunumu kaydedip yeniden açtıktan sonra oluşturulmuştur:
+![Kaynak-bağlantılı etiketleri gösteren sütun grafiği: 12.5000% ve 0.12346 ve bağımsız olarak biçimlendirilmiş sayısal eksen.](custom-cell-formats.png)
 
-![Kaynakla bağlanmış etiketleri gösteren sütun grafik, %12,5000 ve 0,12346 ve bağımsız biçimlendirilmiş sayısal eksen.](custom-cell-formats.png)
+## **Bir İş Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarla**
 
-## **Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
+İş kitabı hücrelerinden gelen metni grafik veri etiketleri olarak kullanabilirsiniz.
 
-Çalışma kitabı hücrelerindeki metni grafik veri etiketleri olarak kullanabilirsiniz.
-
-Bu örnek, mevcut bir sunumun ilk slaydına varsayılan verili bir balon grafiği ekler. İlk serideki ilk üç etiket için çalışma sayfası 0'da A10:A12 hücrelerini kullanır, hücrelerden etiketleri etkinleştirir ve güncellenmiş sunumu kaydeder.
+Bu örnek, mevcut bir sunumun ilk slaydına varsayılan verilerle bir balon grafik ekler. İlk serideki ilk üç etiketi oluşturmak için çalışma sayfası 0'da A10:A12 hücrelerini kullanır, hücrelerden etiketleri etkinleştirir ve güncellenen sunumu kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -279,9 +277,9 @@ try {
 }
 ```
 
-## **Çalışma Sayfalarını Yönetme**
+## **Çalışma Sayfalarını Yönet**
 
-[IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) yöntemi, bir grafik çalışma kitabındaki çalışma sayfalarına erişim sağlar. Bu örnek bir pasta grafiği oluşturur, varsayılan veriyi ekler ve her çalışma sayfası adını konsola yazar.
+[IChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getWorksheets--) yöntemi bir grafik iş kitabındaki çalışma sayfalarına erişim sağlar. Bu örnek, varsayılan verilerle bir pasta grafik oluşturur ve her çalışma sayfasının adını konsola yazar.
 
 ```java
 import com.aspose.slides.*;
@@ -301,9 +299,11 @@ try {
 }
 ```
 
-## **Veri Kaynağı Türünü Belirtme**
+## **Veri Kaynağı Türünü Belirle**
 
-Bu örnek, varsayılan verili bir 3D sütun grafiği oluşturur ve iki seri adını farklı veri kaynakları kullanarak ayarlar. İlk ad bir dize sabiti; ikincisi çalışma sayfası 0'da C1 hücresini kullanır. [DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) enum'ı her ad için kaynağı seçer. Örnek, güncellenmiş seri adlarıyla sunumu kaydeder.
+Seri nokta değerleri doğrudan sayısal sabitler olarak da depolanabilir. Tam bir örnek ve kaydetme/okuma işlemleri için [Seri Değerlerini Sayısal Sabitler Kullanarak Ayarla](/slides/tr/java/chart-series/#set-series-values-using-numeric-literals) bölümüne bakın. Nokta değerlerinin veri kaynağı türü, grafiğin iç veya dış iş kitabı yapılandırmasından ayrı bir kavramdır; sayısal sabitler kullanmak tek başına gömülü iş kitabını kaldırmaz.
+
+Bu örnek, varsayılan verilerle bir 3D sütun grafik oluşturur ve iki seri adını farklı veri kaynaklarıyla ayarlar. İlk ad bir dize sabiti kullanır; ikincisi çalışma sayfası 0'da C1 hücresini kullanır. [DataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/) enumı her ad için kaynağı seçer. Örnek, güncellenen seri adlarıyla sunumu kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -329,9 +329,9 @@ try {
 }
 ```
 
-## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Algılama**
+## **Desteklenmeyen Gömülü İş Kitabı Biçimlerini Algıla**
 
-Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) biçimini desteklemez. [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) üzerindeki [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) yöntemini ve [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) enum'ını kullanarak desteklenmeyen biçimleri tespit edip bu grafikleri atlayabilirsiniz. Bu örnek, mevcut bir sunumun ilk slaydındaki şekilleri inceler, grafik olmayan şekilleri atlar ve .xlsb gömülü çalışma kitabı olan her grafiğe tanı teşhisi mesajı yazar.
+Aspose.Slides, bazı grafiklerde gömülü olabilen Excel ikili iş kitabı (.xlsb) biçimini desteklemez. Desteklenmeyen biçimleri tespit etmek ve bu grafikleri atlamak için [IChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/) üzerindeki [getEmbeddedWorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getEmbeddedWorkbookType--) yöntemini ve [WorkbookType](https://reference.aspose.com/slides/java/com.aspose.slides/workbooktype/) enumını kullanabilirsiniz. Bu örnek, mevcut bir sunumun ilk slaydındaki şekilleri inceler, grafik olmayan şekilleri atlar ve .xlsb gömülü iş kitabı olan her grafik için bir tanı mesajı yazar.
 
 ```java
 import com.aspose.slides.*;
@@ -355,22 +355,22 @@ try {
             continue;
         }
 
-        // Desteklenen grafik çalışma kitabı verilerini burada okuyun veya değiştirin.
+        // Desteklenen grafik iş kitabı verilerini burada okuyun veya değiştirin.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Harici Çalışma Kitabı**
+## **Harici İş Kitabı**
 
-Aspose.Slides, grafikler için harici çalışma kitaplarını veri kaynağı olarak kullanmayı destekler.
+Aspose.Slides, grafikler için veri kaynağı olarak harici iş kitaplarını destekler.
 
-### **Harici Çalışma Kitabı Oluşturma**
+### **Harici Bir İş Kitabı Oluştur**
 
-[readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) ve [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) kullanarak gömülü grafik çalışma kitabını bir dosyaya dışa aktarabilir ve grafiği bu harici çalışma kitabına bağlayabilirsiniz.
+[readWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#readWorkbookStream--) ve [setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) kullanarak gömülü bir grafik iş kitabını dosyaya dışarı aktarabilir ve grafiği bu harici iş kitabına bağlayabilirsiniz.
 
-Bu örnek bir pasta grafiği oluşturur, varsayılan veriyi ekler ve çalışma kitabını dışa aktarır. Dosya yazma işlemi tamamlandıktan sonra harici çalışma kitabını grafik veri kaynağı olarak atar, ardından bağlantılı sunumu kaydeder.
+Bu örnek, varsayılan verilerle bir pasta grafik oluşturur ve iş kitabını dışa aktarır. Dosya yazma işlemi tamamlandıktan sonra harici iş kitabını grafik veri kaynağı olarak atar ve bağlantılı sunumu kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -398,13 +398,13 @@ try {
 }
 ```
 
-### **Harici Çalışma Kitabı Ayarlama**
+### **Harici Bir İş Kitabı Ayarla**
 
-[setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) yöntemiyle bir grafiğe harici bir çalışma kitabını veri kaynağı olarak atayabilirsiniz. Bu yöntem, harici çalışma kitabının yolu taşındıysa güncellemek için de kullanılabilir.
+[setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-) yöntemiyle bir grafiğe harici bir iş kitabını veri kaynağı olarak atayabilirsiniz. Bu yöntem, harici iş kitabının konumu değiştirildiğinde yolu da güncellemek için kullanılabilir.
 
-Uzak konumlardaki veya kaynaklardaki çalışma kitaplarındaki verileri doğrudan düzenleyemesiniz de, bu çalışma kitaplarını hâlâ harici veri kaynağı olarak kullanabilirsiniz. Bir harici çalışma kitabı için göreceli bir yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
+Uzak konumlardaki veya kaynaklardaki iş kitaplarının verileri doğrudan düzenlenemez, ancak bu iş kitapları harici veri kaynağı olarak kullanılabilir. Bir harici iş kitabı için göreceli bir yol verilirse, otomatik olarak tam yola dönüştürülür.
 
-Bu örnek, `Sheet1` adlı çalışma sayfasında B1 hücresinde bir seri adı, A2:A4 aralığında kategori adları ve B2:B4 aralığında sayısal değerler içeren bir harici çalışma kitabı kullanır. Bir pasta grafiği oluşturur, çalışma kitabını bağlar ve [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) ile A1:B4 aralığını bir seri ve üç kategoriye eşler. Bağlantılı grafiği içeren sunumu kaydeder.
+Bu örnek, `Sheet1` adlı çalışma sayfasında B1'de bir seri adı, A2:A4'te kategori adları ve B2:B4'te sayısal değerler bulunan bir harici iş kitabı kullanır. Pasta grafik oluşturur, iş kitabını bağlar ve [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) ile A1:B4 aralığını bir seri ve üç kategoriye eşler. Bağlantılı grafikle sunumu kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -427,12 +427,12 @@ try {
 }
 ```
 
-[setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) yönteminin `updateChartData` parametresi, çalışma kitabının yüklenip yüklenmeyeceğini kontrol eder.
+[setExternalWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setExternalWorkbook-java.lang.String-boolean-) yönteminin `updateChartData` parametresi iş kitabının yüklenip yüklenmeyeceğini kontrol eder.
 
-* `updateChartData` `false` olduğunda, yalnızca çalışma kitabı yolu güncellenir. Grafik verileri hedef çalışma kitabından yüklenmez veya güncellenmez, bu yüzden çalışma kitabı mevcut olmayabilir.
-* `updateChartData` `true` olduğunda, grafik verileri hedef çalışma kitabından güncellenir.
+* `updateChartData` `false` olduğunda yalnızca iş kitabı yolu güncellenir. Grafik verisi hedef iş kitabından yüklenmez veya güncellenmez, bu yüzden iş kitabı mevcut olmayabilir.
+* `updateChartData` `true` olduğunda grafik verisi hedef iş kitabından güncellenir.
 
-Aşağıdaki örnek, `updateChartData` `false` olarak ayarlanmış bir yer tutucu URL atar. Pasta grafiğinin varsayılan verisini korur ve bulunmayan çalışma kitabını yüklemeden sunumu kaydeder.
+Aşağıdaki örnek, `updateChartData` `false` olarak ayarlanmış bir yer tutucu URL atar. Pasta grafiğinin varsayılan verileri korunur ve kullanılabilir olmayan iş kitabı yüklenmeden sunum kaydedilir.
 
 ```java
 import com.aspose.slides.*;
@@ -450,11 +450,11 @@ try {
 }
 ```
 
-### **Bir Grafiğin Harici Veri Kaynağı Çalışma Kitabı Yolunu Al**
+### **Bir Grafiğin Harici Veri Kaynağı İş Kitabı Yolunu Al**
 
-Bir grafiğe bağlı çalışma kitabını belirlemek için, grafiğin harici bir veri kaynağı kullanıp kullanmadığını kontrol edin ve çalışma kitabı yolunu alın.
+Bir grafiğin bağlı olduğu iş kitabını belirlemek için, grafiğin harici bir veri kaynağı kullanıp kullanmadığını kontrol edin ve iş kitabı yolunu alın.
 
-Bu örnek, bir sunumda bağlanmış harici çalışma kitabı olan ilk slaydın ilk şekline bakar. Eğer dış çalışma kitabına bağlanmış bir grafik ise, [getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) konsola yazar. Ardından sunumun bir kopyasını kaydeder.
+Bu örnek, bir sunumun ilk slaydındaki ilk şekli inceler; eğer bu şekil harici bir iş kitabına bağlı bir grafikse, [getExternalWorkbookPath](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) değerini konsola yazar. Ardından sunumun bir kopyasını kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -481,11 +481,11 @@ try {
 }
 ```
 
-### **Grafik Verilerini Düzenleme**
+### **Grafik Verisini Düzenle**
 
-Harici çalışma kitaplarındaki verileri, dahili çalışma kitaplarındaki verileri düzenlediğiniz gibi düzenleyebilirsiniz. Harici bir çalışma kitabı yüklenemezse bir istisna fırlatılır.
+Harici iş kitaplarındaki verileri, dahili iş kitaplarındaki gibi düzenleyebilirsiniz. Harici bir iş kitabı yüklenemediğinde bir istisna fırlatılır.
 
-Bu örnek, ilk slayttaki ilk şekil olarak bir grafik kullanır ve erişilebilir bir harici çalışma kitabına bağlanır. İlk serinin ilk veri noktasının hücre‑destekli değerini 100 olarak ayarlar ve güncellenmiş sunumu kaydeder. Hücre değerlerini düzenlemek, bağlı harici XLSX dosyasını güncelleyebilir; bu yüzden orijinali korumak istiyorsanız bir kopya kullanın.
+Bu örnek, ilk slaytın ilk şekli olan ve erişilebilir bir harici iş kitabına bağlı bir grafiği kullanır. İlk serideki ilk veri noktasının hücre‑temelli değerini 100 olarak ayarlar ve güncellenen sunumu kaydeder. Hücre değerlerini düzenlemek, bağlı harici XLSX dosyasını güncelleyebilir; bu yüzden orijinali korumak için bir kopya kullanın.
 
 ```java
 import com.aspose.slides.*;
@@ -517,11 +517,11 @@ try {
 }
 ```
 
-### **Grafik Önbelleğinden Çalışma Kitabını Kurtarma**
+### **Grafik Önbelleğinden Bir İş Kitabını Kurtar**
 
-Bir grafik, eksik veya bulunamayan harici bir çalışma kitabı kullanıyorsa, Aspose.Slides grafik çalışma kitabını sunumda önbelleğe alınan veriden yeniden oluşturabilir. [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) oluşturun, [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) çağırın ve [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) `true` olarak ayarlayın, ardından sunumu açın.
+Bir grafik, eksik veya kullanılamayan bir harici iş kitabı kullanıyorsa, Aspose.Slides sunumdaki önbelleğe alınmış veriden grafik iş kitabını yeniden oluşturabilir. [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) oluşturun, [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) çağırın ve [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) özelliğini `true` yapın; ardından sunumu açın.
 
-Aşağıdaki Java örneği, ilk slayttaki ilk şekil olarak bir grafik için harici çalışma kitabı bulunamadığında çalışma kitabı verilerini kurtarır. Kurtarılan verilere [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) ve [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) aracılığıyla erişir:
+Aşağıdaki Java örneği, ilk slaytın ilk şekli olan ve kullanılamayan bir harici iş kitabına başvuran bir grafik için iş kitabı verilerini kurtarır. Kurtarılan verilere [IChart.getChartData](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getChartData--) ve [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) aracılığıyla erişir:
 
 ```java
 import com.aspose.slides.*;
@@ -541,7 +541,7 @@ try {
         IChart chart = (IChart) slide.getShapes().get_Item(0);
         IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Burada kurtarılan çalışma kitabı verilerini okuyun veya değiştirin.
+        // Kurtarılan iş kitabı verilerini burada okuyun veya değiştirin.
     } else {
         System.out.println("The first shape is not a chart.");
     }
@@ -550,30 +550,30 @@ try {
 }
 ```
 
-Harici çalışma kitabı bulunamaz ve kurtarma devre dışı bırakılırsa, Aspose.Slides bir istisna fırlatır. Ön bellekli grafik verilerini kullanmak kabul edilebilir bir geri dönüşümse, kurtarmayı etkinleştirin; çünkü önbellek, sunum son güncellendiğinden sonra harici çalışma kitabında yapılan değişiklikleri içermeyebilir.
+Harici iş kitabı kullanılamaz ve kurtarma devre dışı bırakılırsa Aspose.Slides bir istisna fırlatır. Önbellekten grafik verisinin kullanılması kabul edilebilir bir geri dönüş ise yalnızca kurtarmayı etkinleştirin; çünkü önbellek, sunum son güncellendiğinden beri harici iş kitabında yapılmış değişiklikleri içermeyebilir.
 
 ## **SSS**
 
-**Belirli bir grafiğin harici mi yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**
+**Belirli bir grafiğin harici mi yoksa gömülü bir iş kitabına mı bağlı olduğunu belirleyebilir miyim?**
 
-Evet. Bir grafik, [veri kaynağı türü](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) ve bir [harici çalışma kitabı yolu](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) içerir; kaynak bir harici çalışma kitabı ise, dış bir dosyanın kullanıldığını doğrulamak için tam yolu okuyabilirsiniz.
+Evet. Bir grafiğin bir [veri kaynağı türü](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getDataSourceType--) ve bir [harici iş kitabı yolu](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) vardır; kaynak harici bir iş kitabı ise tam yolu okuyarak dış bir dosyanın kullanıldığını teyit edebilirsiniz.
 
-**Harici çalışma kitapları için göreceli yollar destekleniyor mu, nasıl depolanıyor?**
+**Harici iş kitapları için göreceli yollar destekleniyor mu ve nasıl depolanıyor?**
 
-Evet. Bir göreceli yol belirtirseniz, otomatik olarak mutlak yola dönüştürülür. Sunum bu mutlak yolu PPTX dosyasında saklar, bu yüzden çalışma kitabını taşımak bağlantının güncellenmesini gerektirebilir.
+Evet. Göreceli bir yol belirtirseniz otomatik olarak mutlak yola dönüştürülür. Sunum bu mutlak yolu PPTX dosyasında saklar; bu yüzden iş kitabını taşıdığınızda bağlantının güncellenmesi gerekebilir.
 
-**Ağ kaynakları/paylaşımları üzerindeki çalışma kitaplarını kullanabilir miyim?**
+**Ağ kaynakları/paylaşımları üzerindeki iş kitaplarını kullanabilir miyim?**
 
-Evet, bu tür çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak, Aspose.Slides'tan uzaktaki çalışma kitaplarını doğrudan düzenlemek desteklenmez—sadece bir kaynak olarak kullanılabilirler.
+Evet, bu tür iş kitapları harici veri kaynağı olarak kullanılabilir. Ancak Aspose.Slides'den uzak iş kitaplarını doğrudan düzenlemek desteklenmez; yalnızca bir kaynak olarak kullanılabilirler.
 
-**Aspose.Slides, sunumu kaydederken harici XLSX dosyasını üzerine yazıyor mu?**
+**Aspose.Slides, sunumu kaydederken harici XLSX'i üzerine yazar mı?**
 
-Sunum, harici dosyaya bir [bağlantı](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) saklar. Hücre‑destekli grafik verilerini düzenlemek, bağlı yerel XLSX dosyasını da güncelleyebilir. Orijinalin değiştirilmemesi gerekiyorsa, çalışma kitabının bir kopyasını kullanın.
+Sunum, harici dosyaya bir [bağlantı](https://reference.aspose.com/slides/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) saklar. Hücre‑temelli grafik verilerini düzenlemek, bağlı yerel XLSX dosyasını da güncelleyebilir. Orijinal iş kitabının değişmemesi gerekiyorsa bir kopyasını kullanın.
 
 **Harici dosya şifre korumalıysa ne yapmalıyım?**
 
-Aspose.Slides, bağlanırken şifre kabul etmez. Yaygın bir yaklaşım, şifreyi önceden kaldırmak veya bir [Aspose.Cells](https://reference.aspose.com/cells/java/) kullanarak şifresi çözülmüş bir kopya hazırlamaktır ve bu kopyaya bağlanmaktır.
+Aspose.Slides, bağlantı sırasında şifre kabul etmez. Yaygın bir yaklaşım, şifreyi önceden kaldırmak veya bir şifre çözülmüş kopya hazırlamaktır (örneğin, [Aspose.Cells](https://reference.aspose.com/cells/java/) kullanarak) ve bu kopyaya bağlanmaktır.
 
-**Birden çok grafik aynı harici çalışma kitabına referans gösterebilir mi?**
+**Birden fazla grafik aynı harici iş kitabına başvurabilir mi?**
 
-Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosya güncellendiğinde veri bir sonraki kez yüklendiğinde her grafiğe yansır.
+Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, o dosyanın güncellenmesi her grafiğin bir sonraki veri yüklemesinde yansıtılır.

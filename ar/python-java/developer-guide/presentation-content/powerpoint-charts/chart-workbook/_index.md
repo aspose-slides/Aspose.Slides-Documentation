@@ -1,40 +1,40 @@
 ---
-title: إدارة مصنفات المخططات في العروض التقديمية باستخدام Python عبر Java
-linktitle: مصنف المخطط
+title: إدارة دفاتر عمل المخططات في العروض التقديمية باستخدام Python عبر Java
+linktitle: دفتر عمل المخطط
 type: docs
 weight: 70
 url: /ar/python-java/chart-workbook/
 keywords:
-- مصنف مخطط
+- دفتر عمل المخطط
 - بيانات المخطط
-- خلية المصنف
-- ملصق البيانات
+- خلية دفتر العمل
+- تسمية البيانات
 - ورقة العمل
 - مصدر البيانات
-- مصنف خارجي
+- دفتر عمل خارجي
 - بيانات خارجية
-- ذاكرة مخبأة للمخطط
-- استعادة المصنف
+- ذاكرة مخطط مؤقتة
+- استعادة دفتر العمل
 - PowerPoint
 - عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "اكتشف Aspose.Slides for Python via Java: إدارة مصنفات المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات العرض التقديمي الخاصة بك."
+description: "اكتشف Aspose.Slides for Python عبر Java: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint وOpenDocument لتبسيط بيانات العرض التقديمي الخاصة بك."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية العمل مع مصنفات المخطط في Aspose.Slides. توضح كيفية قراءة بيانات المخطط وكتابتها عبر تدفقات المصنف، واستخدام خلايا المصنف كملصقات بيانات للمخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
+هذه المقالة توضح كيفية العمل مع دفاتر عمل المخطط في Aspose.Slides. تُظهر كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كعناوين بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
 
-كما تغطي العمل مع المصنفات الخارجية كمصادر بيانات للمخطط. توضح الأمثلة كيفية إنشاء وتعيين مصنف خارجي، واسترداد مسار مصنف خارجي مرتبط بمخطط، وتحرير بيانات المخطط عندما يتوفر المصنف.
+كما تغطي العمل مع دفاتر العمل الخارجية كمصادر بيانات للمخططات. تُظهر الأمثلة كيفية إنشاء دفتر عمل خارجي وتعيينه، واسترجاع مسار دفتر عمل خارجي مرتبط بمخطط، وتحرير بيانات المخطط عندما يكون دفتر العمل متوفرًا.
 
-للتعامل مع خلايا المصنف التي تمثل بيانات مفقودة، راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/python-java/chart-series/) لمعرفة الفرق بين الخلية الفارغة والصفر، ومقارنة مخطط خط للأنماط المتاحة للعرض.
+لخلايا دفتر العمل التي تمثل بيانات مفقودة، راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/python-java/chart-series/) للفرق بين الخلية الفارغة والصفر، ومقارنة مخطط خط بين أوضاع العرض المتاحة.
 
 ## **تضمين البيانات من الصفوف والأعمدة المخفية**
 
-استخدم [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) للتحكم فيما إذا كان المخطط يرسم بيانات من صفوف وأعمدة ورقة العمل المخفية. اضبطه على `True` لرسم الخلايا المرئية فقط، أو `False` لتضمين كل من الخلايا المرئية والمخفية. هذه الإعدادات تتحكم في رسم المخطط؛ لا تقوم بإخفاء أو إظهار صفوف أو أعمدة ورقة العمل.
+استخدم [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) للتحكم فيما إذا كان المخطط يرسم البيانات من الصفوف والأعمدة المخفية في ورقة العمل. عيّنها إلى `True` لرسم الخلايا المرئية فقط، أو إلى `False` لتضمين كل من الخلايا المرئية والمخفية. هذه الإعدادات تتحكم في رسم المخطط؛ لا تقوم بإخفاء أو إظهار صفوف أو أعمدة ورقة العمل.
 
-يحتوي [عرض توضيحي](hidden-source-data.pptx) على مخطط عمودي كأول شكل في شريحةه الأولى. الورقة المدمجة، `Sheet1`، تحتوي على النطاق المصدر التالي، `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا تزال تحتوي على قيم.
+[عينة العرض التقديمي](hidden-source-data.pptx) يحتوي على مخطط عمودي كأول شكل في شغلته الأولى. ورقة العمل المدمجة، `Sheet1`، تحتوي على النطاق المصدر التالي، `A1:C4`. الصف 3 والعمود C مخفيان، لكن خلاياهما لا تزال تحتوي على قيم.
 
 | صف ورقة العمل | A: الشهر | B: التجزئة | C: الجملة (عمود مخفي) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ description: "اكتشف Aspose.Slides for Python via Java: إدارة مصنف�
 | 3 (صف مخفي) | فبراير | 40 | 60 |
 | 4 | مارس | 20 | 50 |
 
-يمكن الوصول إلى خلايا المصدر عبر [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) وقراءة [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) لفحص حالة الإخفاء الخاصة بها. تُعيد هذه الطريقة حالة الإخفاء دون تغييرها. في هذا الملف، B2 مرئية، B3 تنتمي إلى الصف المخفي، وC2 تنتمي إلى العمود المخفي؛ يطبع المثال `False`، `True`، و`True` على التوالي.
+الوصول إلى خلايا المصدر عبر [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) وقراءة [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) لفحص حالة الإخفاء. تُعيد هذه الطريقة حالة الإخفاء دون تعديلها. في هذا الملف، B2 مرئية، B3 تنتمي إلى الصف المخفي، وC2 تنتمي إلى العمود المخفي؛ المثال يطبع `False`، `True`، و`True` على التوالي.
 
-في هذا المثال، قم بتحديث بيانات المخطط بعد تغيير إعداد الرسم: احتفظ بالمصنف المدمج باستخدام [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) وأعيد تحميله باستخدام [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream). عند تضمين جميع الخلايا، استخدم أيضًا [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) لاستعادة النطاق الكامل، بما في ذلك فئة فبراير المخفية. مجرد تغيير العلامة غير كافٍ لتحديث بيانات المخطط المخبأة وفئات الملصقات في هذا المثال.
+في هذا المثال، يُحديث بيانات المخطط بعد تغيير إعداد الرسم: احتفظ بدفتر العمل المدمج باستخدام [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) وأعد تحميله بـ [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream). عند تضمين كل الخلايا، استخدم أيضًا [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) لاستعادة النطاق الكامل، بما في ذلك فئة فبراير المخفية. مجرد تغيير العلامة غير كافٍ لتحديث بيانات المخطط المخزنة مؤقتًا وتسميات الفئات في هذا العينة.
 
 ```python
 import jpype
@@ -71,7 +71,7 @@ try:
         for visible_only in (True, False):
             chart.setPlotVisibleCellsOnly(visible_only)
 
-            # تحديث بيانات المخطط من المصنف المدمج.
+            # تحديث بيانات المخطط من دفتر العمل المدمج.
             chart.getChartData().writeWorkbookStream(workbook_data)
             if not visible_only:
                 # استعادة النطاق المصدر الكامل، بما في ذلك الفئات المخفية.
@@ -84,21 +84,21 @@ finally:
     presentation.dispose()
 ```
 
-يحفظ المثال نسختين من العرض التقديمي: واحدة تحتوي فقط على قيم التجزئة المرئية (10 و 20)، وأخرى تحتوي على جميع القيم الستة. توضح الصور أدناه وضعيت الرسم. يظل الصف 3 والعمود C مخفيين في كلا المصنفين المدمجين.
+يحفظ المثال نسختين من العرض التقديمي: واحدة تحتوي فقط على قيم التجزئة المرئية (10 و20)، والأخرى تحتوي على جميع القيم الست. توضح الصور أدناه وضعتي الرسم. يظل الصف 3 والعمود C مخفيين في كل من دفاتر العمل المدمجة.
 
-| الخلايا المرئية فقط (`True`) | جميع الخلايا (`False`) |
+| الخلايا المرئية فقط (`True`) | كل الخلايا (`False`) |
 | --- | --- |
-| ![الخلايا المرئية فقط: قيم التجزئة 10 و 20 لشهري يناير ومارس.](hidden_cells_True.png) | ![جميع الخلايا: قيم التجزئة والجملة لشهري يناير، فبراير، ومارس.](hidden_cells_False.png) |
+| ![الخلايا المرئية فقط: قيم التجزئة 10 و 20 لشهري يناير ومارس.](hidden_cells_True.png) | ![كل الخلايا: قيم التجزئة والجملة لشهري يناير، فبراير، ومارس.](hidden_cells_False.png) |
 
-خلية مخفية تحتوي على قيمة تختلف عن الخلية الفارغة. يتحكم [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) في كيفية عرض القيم المفقودة؛ لا يتضمن أو يستبعد بيانات المصدر المخفية. راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/python-java/chart-series/#control-the-display-of-empty-cells) للحصول على مثال.
+الخلية المخفية التي تحتوي على قيمة تختلف عن الخلية الفارغة. يتحكم [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) في كيفية عرض القيم المفقودة؛ لا يتضمن أو يستبعد البيانات المصدر المخفية. راجع [التحكم في عرض الخلايا الفارغة](/slides/ar/python-java/chart-series/#control-the-display-of-empty-cells) لمثال.
 
-## **استرجاع نطاق بيانات المخطط**
+## **استخراج نطاق بيانات المخطط**
 
-قبل تحديث بيانات المصنف في عرض تقديمي موجود، افحص نطاقات المصدر لتحديد خلايا ورقة العمل التي يستخدمها كل مخطط. تُعيد الطريقة [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) النطاق الحالي كصيغة مؤهلة للورقة، مثل `Sheet1!$A$1:$D$5`. هنا، `Sheet1` هو اسم الورقة، `!` يفصلها عن نطاق الخلايا، و`$A$1:$D$5` يحدّد الخلايا من A1 إلى D5 شاملًا. تشير علامات الدولار إلى مراجع صف وعمود مطلقة.
+قبل تحديث بيانات دفتر العمل في عرض تقديمي موجود، افحص نطاقات المصدر لتحديد خلايا ورقة العمل التي يستخدمها كل مخطط. تُعيد طريقة [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) النطاق الحالي للبيانات كصيغة مؤهلة بورقة العمل، مثل `Sheet1!$A$1:$D$5`. هنا، `Sheet1` هو اسم ورقة العمل، `!` يفصلها عن نطاق الخلايا، و`$A$1:$D$5` يحدد الخلايا من A1 إلى D5 شاملًا. تشير علامات الدولار إلى مراجع مطلقة للصف والعمود.
 
-تقرأ الطريقة النطاق الحالي دون تغيير المخطط أو مصنفه. إذا لم يستخدم المخطط مصنفًا كمصدر للبيانات، فإنها تُثير استثناء `InvalidOperationException`. لمزيد من المعلومات، راجع [ChartData API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/).
+تقرأ الطريقة النطاق الحالي دون تغيير المخطط أو دفتر العمل الخاص به. إذا لم يستخدم المخطط دفتر عمل كمصدر للبيانات، فإنها تُطلق استثناء `InvalidOperationException`. لمزيد من المعلومات، راجع [مرجع API لChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/).
 
-يفتح هذا المثال عرضًا تقديميًا ويفحص الأشكال مباشرة على كل شريحة للعثور على المخططات. يطبع اسم كل مخطط ونطاق المصدر. إذا لم يستخدم المخطط مصنفًا، يطبع رسالة ويتابع إلى المخطط التالي.
+هذا المثال يفتح عرضًا تقديميًا ويفحص الأشكال مباشرةً على كل شريحة بحثًا عن المخططات. يطبع اسم كل مخطط ونطاق المصدر. إذا لم يستخدم مخطط دليل عمل، يطبع رسالة ويستمر إلى المخطط التالي.
 
 ```python
 import jpype
@@ -125,11 +125,11 @@ finally:
     presentation.dispose()
 ```
 
-## **قراءة وكتابة بيانات المخطط من مصنف**
+## **قراءة وكتابة بيانات المخطط من دفتر عمل**
 
-توفر Aspose.Slides for Python via Java طرق [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) و[writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) التي تسمح بقراءة وكتابة مصنفات بيانات المخطط (التي تحتوي على بيانات مخطط تم تعديلها باستخدام Aspose.Cells). **ملاحظة** يجب تنظيم بيانات المخطط بنفس الطريقة أو أن تكون لها بنية مشابهة للمصدر.
+توفر Aspose.Slides for Python via Java طرق [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) و[writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) التي تسمح بقراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تحريرها باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تُنظم بنفس الطريقة أو يجب أن يكون لها بنية مشابهة للمصدر.
 
-يستخدم هذا المثال عرضًا تقديميًا يحتوي على مخطط كأول شكل في شريحته الأولى. يقرأ المصنف المدمج إلى مصفوفة بايت، يمسح السلاسل والفئات الحالية، ويعيد كتابة المصنف نفسه. تبقى التغييرات في الذاكرة؛ لا يحفظ المثال العرض التقديمي.
+يستخدم هذا المثال عرضًا تقديميًا يحتوي على مخطط كأول شكل في شغلته الأولى. يقرأ دفتر العمل المدمج إلى مصفوفة بايت، يمسح السلاسل والفئات الحالية، ثم يكتب دفتر العمل نفسه مرة أخرى. تبقى التغييرات في الذاكرة؛ لا يقوم المثال بحفظ العرض التقديمي.
 
 ```python
 import jpype
@@ -160,9 +160,9 @@ finally:
     presentation.dispose()
 ```
 
-### **التحقق من تخطيط المخطط بعد تعديل المصنف**
+### **التحقق من تخطيط المخطط بعد تعديل دفتر العمل**
 
-عند استبدال مصنف مدمج بآخر معدّل، يحتفظ المخطط بسلاسل الفئات ومجموعات الفئات الأصلية. هذا التفاوت قد يتسبب في فشل [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) مع خطأ "فهرس خارج النطاق". امسح السلاسل والفئات الحالية قبل كتابة المصنف المُحدّث مرة أخرى إلى المخطط. يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى. العلامة التعليقية تُظهر موضع تعديل المصنف؛ يكتب المثال القابل للتنفيذ المصنف الأصلي مرة أخرى ويتحقق من التخطيط في الذاكرة.
+عند استبدال دفتر عمل مدمج بآخر معدل، يحتفظ المخطط بسلسلاته ومجموعات فئاته الأصلية. هذا التناقض قد يسبب فشل [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) مع خطأ خارج النطاق. امسح السلاسل والفئات الحالية قبل كتابة دفتر العمل المحدث مرة أخرى إلى المخطط. يستخدم هذا المثال مخططًا كأول شكل على الشريحة الأولى. العلامة في التعليق توضح مكان تعديل دفتر العمل؛ المثال القابل للتنفيذ يكتب دفتر العمل الأصلي مرة أخرى وي validates التخطيط في الذاكرة.
 
 ```python
 import jpype
@@ -183,7 +183,7 @@ try:
         chart_data = chart.getChartData()
         workbook_data = chart_data.readWorkbookStream()
 
-        # عدل بايتات المصنف هنا، على سبيل المثال باستخدام Aspose.Cells.
+        # قم بتعديل بايتات دفتر العمل هنا، على سبيل المثال، باستخدام Aspose.Cells.
 
         chart_data.getSeries().clear()
         chart_data.getCategories().clear()
@@ -196,15 +196,15 @@ finally:
     presentation.dispose()
 ```
 
-إزالة المجموعات تُزيل مراجع البيانات البالية قبل كتابة المصنف مرة أخرى. أعد بناء أي سلاسل وفئات مطلوبة للمصنف المحدّث قبل استخدام المخطط.
+إزالة المجموعات تُزيل مراجع البيانات القديمة قبل كتابة دفتر العمل مرة أخرى. أعد بناء أي سلاسل أو تخطيطات فئات مطلوبة لدفتر العمل المحدث قبل استخدام المخطط.
 
-## **ضبط تنسيقات الأرقام المخصصة لخلايا المصنف**
+## **تعيين صيغ أرقام مخصصة لخلايا دفتر العمل**
 
-استخدم [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) للتحكم في طريقة ظهور القيم الرقمية في مصنف المخطط المدمج. على سبيل المثال، قد يحتاج تقرير إلى عرض معدل التحويل كنسبة مئوية بأربعة منازل عشرية ومعامل بخمسة منازل عشرية. حافظ على كلا القيمتين رقميًا بحيث تظل متاحة للحسابات ورسم المخطط.
+استخدم [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) للتحكم في كيفية ظهور القيم الرقمية في دفتر عمل المخطط المدمج. على سبيل المثال، قد يحتاج تقرير إلى عرض معدل تحويل كنسبة مئوية بأربعة منازل عشرية ومعامل بخمسة منازل عشرية. احتفظ بالقيمتين كأرقام لتظل متاحة للحسابات ورسم المخطط.
 
-تغير تنسيق الرقم العرض فقط، وليس القيمة المخزنة. يعرض التنسيق `0.0000%` القيمة `0.125` كـ `12.5000%`؛ لا يستبدل الرقم المخزن بـ `12.5`. بالمثل، يعرض التنسيق `0.00000` القيمة `0.1234567` كـ `0.12346` دون تقريب القيمة المخزنة. إذا كان التنسيق المخصص سلسلة فارغة (`""`)، يُستَخدم التنسيق الذي تُعيده [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) بدلاً منه.
+صيغة الرقم تُغيّر العرض فقط، لا القيم المخزنة. الصيغة `0.0000%` تعرض `0.125` كـ `12.5000%`؛ لا تستبدل العدد المخزن بـ `12.5`. بالمثل، `0.00000` تُظهر `0.1234567` كـ `0.12346` دون تقريب القيمة المخزنة. إذا كانت الصيغة المخصصة سلسلة فارغة (`""`)، تُستخدم الصيغة التي تُرجعها [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) بدلاً منها.
 
-ينشئ المثال التالي مخططًا عموديًا ويصل إلى خلاياه عبر [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook). في ورقة العمل 0، يحتوي B2 على معدل التحويل وC2 على المعامل. كلا الخليتين تزودان المخطط بالقيم. يُمكّن المثال أيضًا ملصقات القيم المرتبطة بالتنسيقات المصدرية.
+المثال التالي يُنشئ مخططًا عموديًا ويصل إلى خلاياه عبر [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook). في ورقة العمل 0، B2 يحتوي على معدل التحويل وC2 يحتوي على المعامل. كلتا الخليتين تُزودان المخطط بالقيم. يُمكّن المثال أيضًا تسميات القيم المرتبطة بصيغ المصدر.
 
 ```python
 import jpype
@@ -259,19 +259,17 @@ finally:
     presentation.dispose()
 ```
 
-تنسيقات خلايا المصنف منفصلة عن التنسيقات المضبوطة مباشرة على محاور المخطط أو ملصقات البيانات. في هذا المثال، تعرض chaque ملصق قيمة خلية المصدر لأن [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) مُعيَّن إلى `True`، ويتبع تنسيق الرقم المصدر لأن [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) مُعيَّن إلى `True`. بعد حفظ وإعادة فتح العرض التقديمي، تُظهر الملصقات `12.5000%` و`0.12346` كما هو موضح أدناه. يستخدم المحور العمودي تنسيق عدد خاص به، يتم تعيينه بواسطة [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) كـ `0.00`، مع [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) مُعيَّن إلى `False`.
+تنسيقات خلايا دفتر العمل منفصلة عن التنسيقات المطبقة مباشرةً على محاور المخطط أو تسميات البيانات. في هذا المثال، كل تسمية تعرض قيمة خلية المصدر لأن [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) مُعيَّنة إلى `True`، وتتبع صيغة الرقم المصدر لأن [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) مُعيَّنة إلى `True`. بعد حفظ وإعادة فتح العرض التقديمي، تُظهر التسميات `12.5000%` و`0.12346` كما هو موضح أدناه. يستخدم المحور العمودي صيغة رقم خاصة به، مُعينة بـ [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) كـ `0.00`، مع [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) مُعيَّنة إلى `False`.
 
-لتنسيق ملصق بيانات بشكل مستقل، عيّن علم ربط المصدر إلى `False` وعيّن تنسيقًا باستخدام [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat). لا يغيّر ذلك تنسيق خلية المصنف. على سبيل المثال، يُظهر تنسيق ملصق مستقل `0.00` القيمة الأولى كـ `0.13`، بينما لا يزال B2 يعرض `12.5000%`. راجع [ملصقات بيانات المخطط](/slides/ar/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) لتنسيق الملصق مباشرة.
+لتنسيق تسمية بيانات بشكل مستقل، عيّن علم الارتباط بالمصدر إلى `False` وعيّن صيغة باستخدام [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat). لا يُغيّر هذا تنسيق خلية دفتر العمل. على سبيل المثال، صيغة تسمية مستقلة `0.00` تُظهر القيمة الأولى كـ `0.13`، بينما لا يزال B2 يُظهر `12.5000%`. راجع [تسميات بيانات المخطط](/slides/ar/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) لتنسيق التسميات مباشرةً.
 
-الصورة أدناه تم توليدها من العرض التقديمي المحفوظ بعد إعادة فتحه:
+![مخطط عمودي بتسميات مرتبطة بالمصدر تُظهر 12.5000% و0.12346 ومحور رقمي بتنسيق مستقل.](custom-cell-formats.png)
 
-![مخطط عمودي مع ملصقات مرتبطة بالمصدر تُظهر 12.5000% و 0.12346 ومحور عددٍ منسق بشكل مستقل.](custom-cell-formats.png)
+## **تعيين خلية دفتر العمل كعنوان بيانات للمخطط**
 
-## **استخدام خلية مصنف كملصق بيانات للمخطط**
+يمكنك استخدام النص من خلايا دفتر العمل كعناوين بيانات للمخطط.
 
-يمكنك استخدام النص من خلايا المصنف كملصقات بيانات للمخطط.
-
-يضيف هذا المثال مخطط فقاعي مع بيانات افتراضية إلى الشريحة الأولى من عرض تقديمي موجود. يستخدم الخلايا A10:A12 في ورقة العمل 0 للملصقات الثلاث الأولى في السلسلة الأولى، يُمكّن الملصقات من الخلايا، ويحفظ العرض المحدث.
+يضيف هذا المثال مخطط فقاعات ببيانات افتراضية إلى الشريحة الأولى من عرض تقديمي موجود. يستخدم الخلايا A10:A12 في ورقة العمل 0 كالعناوين الثلاثة الأولى في السلسلة الأولى، يمكّن العناوين من الخلايا، ويحفظ العرض التقديمي المحدث.
 
 ```python
 import jpype
@@ -303,7 +301,7 @@ finally:
 
 ## **إدارة أوراق العمل**
 
-توفر الطريقة [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) إمكانية الوصول إلى أوراق العمل في مصنف المخطط. ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويطبع اسم كل ورقة عمل إلى وحدة التحكم.
+توفر طريقة [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) إمكانية الوصول إلى أوراق العمل في دفتر عمل مخطط. ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويطبع اسم كل ورقة عمل إلى وحدة التحكم.
 
 ```python
 import jpype
@@ -328,7 +326,9 @@ finally:
 
 ## **تحديد نوع مصدر البيانات**
 
-ينشئ هذا المثال مخططًا عموديًا ثلاثي الأبعاد ببيانات افتراضية ويعيّن اسمين للسلسلتين باستخدام مصادر بيانات مختلفة. يستخدم الاسم الأول قيمة نصية ثابتة؛ يستخدم الاسم الثاني الخلية C1 في ورقة العمل 0. يختار تعداد [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) المصدر لكل اسم. يحفظ المثال العرض التقديمي بالأسماء المحدثة للسلاسل.
+يمكن أيضًا تخزين قيم نقاط السلسلة مباشرةً كقوامير رقمية. راجع [Set Series Values Using Numeric Literals](/slides/ar/python-java/chart-series/#set-series-values-using-numeric-literals) لمثال كامل يحفظ القيم ويقرأها. نوع مصدر قيم النقاط منفصل عن تكوين دفتر العمل الداخلي أو الخارجي للمخطط؛ استخدام القوامير الرقمية لا يزيل دفتر العمل المدمج بحد ذاته.
+
+هذا المثال يُنشئ مخططًا عموديًا ثلاثي الأبعاد ببيانات افتراضية ويُعيّن اسمين للسلسلتين باستخدام مصادر بيانات مختلفة. الاسم الأول يستخدم قوامٍ نصي؛ الثاني يستخدم الخلية C1 في ورقة العمل 0. يختار تعداد [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) المصدر لكل اسم. يحفظ المثال العرض التقديمي بأسماء السلاسل المحدثة.
 
 ```python
 import jpype
@@ -357,9 +357,9 @@ finally:
     presentation.dispose()
 ```
 
-## **كشف تنسيقات المصنف المدمجة غير المدعومة**
+## **اكتشاف تنسيقات دفاتر العمل المدمجة غير المدعومة**
 
-لا يدعم Aspose.Slides تنسيق المصنف الثنائي Excel (.xlsb) الذي يمكن دمجه في بعض المخططات. يمكنك استخدام طريقة [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) على [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) لاكتشاف التنسيقات غير المدعومة وتخطي تلك المخططات. يفحص هذا المثال الأشكال في الشريحة الأولى من عرض تقديمي موجود، يتخطى الأشكال غير المخططات، ويطبع رسالة تشخيصية لكل مخطط يحتوي على مصنف .xlsb مدمج.
+لا تدعم Aspose.Slides تنسيق دفتر العمل الثنائي Excel (.xlsb) الذي يمكن تضمينه في بعض المخططات. يمكنك استخدام طريقة [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) على [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) لاكتشاف التنسيقات غير المدعومة وتخطي تلك المخططات. يفحص هذا المثال الأشكال على الشريحة الأولى من عرض تقديمي موجود، يتخطى الأشكال غير المخططة، ويطبع رسالة تشخيص لكل مخطط يحتوي على دفتر عمل .xlsb مدمج.
 
 ```python
 import jpype
@@ -386,20 +386,20 @@ try:
         if is_internal_workbook and is_binary_macro:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # قراءة أو تعديل بيانات مصنف المخطط المدعومة هنا.
+        # اقرأ أو عدّل بيانات دفتر العمل المدعومة للمخطط هنا.
 finally:
     presentation.dispose()
 ```
 
-## **مصنف خارجي**
+## **دفتر عمل خارجي**
 
-يدعم Aspose.Slides استخدام المصنفات الخارجية كمصدر بيانات للمخططات.
+يدعم Aspose.Slides استخدام دفاتر عمل خارجية كمصدر بيانات للمخططات.
 
-### **إنشاء مصنف خارجي**
+### **إنشاء دفتر عمل خارجي**
 
-استخدم [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) و[setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) لتصدير مصنف مخطط مدمج إلى ملف وربط المخطط بذلك المصنف الخارجي.
+استخدم [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) و[setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) لتصدير دفتر عمل مخطط مدمج إلى ملف وربط المخطط بذلك الدفتر الخارجي.
 
-ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويصدر مصنفه. يكمل كتابة الملف قبل تعيين المصنف الخارجي كمصدر بيانات للمخطط، ثم يحفظ العرض المرتبط.
+ينشئ هذا المثال مخططًا دائريًا ببيانات افتراضية ويصدر دفتر عمله. يُكمل كتابة الملف قبل تعيين دفتر العمل الخارجي كمصدر بيانات للمخطط، ثم يحفظ العرض التقديمي المرتبط.
 
 ```python
 import jpype
@@ -427,13 +427,13 @@ finally:
     presentation.dispose()
 ```
 
-### **تعيين مصنف خارجي**
+### **تعيين دفتر عمل خارجي**
 
-باستخدام طريقة [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) يمكنك تعيين مصنف خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار المصنف الخارجي (في حال تم نقل الأخير).
+باستخدام طريقة [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook)، يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
 
-على الرغم من أنه لا يمكنك تحرير البيانات في المصنفات المخزنة في مواقع أو موارد بعيدًا، يمكنك الاستمرار في استخدام هذه المصنفات كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لمصنف خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
+على الرغم من أنه لا يمكنك تحرير البيانات في دفاتر العمل المخزنة في مواقع أو موارد عن بُعد، لا يزال بإمكانك استخدامها كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتحول تلقائيًا إلى مسار كامل.
 
-يستخدم هذا المثال مصنفًا خارجيًا تحتوي ورقة العمل المسماة `Sheet1` فيه على اسم سلسلة في B1، وأسماء فئات في A2:A4، وقيم رقمية في B2:B4. ينشئ المثال مخططًا دائريًا، يربط المصنف، ويستخدم [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) لتعيين A1:B4 إلى سلسلة واحدة وثلاث فئات. يحفظ العرض بالمخطط المرتبط.
+يستخدم هذا المثال دفتر عمل خارجي تحتوي ورقة عمله المسماة `Sheet1` على اسم سلسلة في B1، وأسماء فئات في A2:A4، وقيم رقمية في B2:B4. يُنشئ المثال مخططًا دائريًا، يربط دفتر العمل، ويستخدم [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) لتعيين A1:B4 لسلسلة واحدة وثلاث فئات. يحفظ العرض التقديمي بالمخطط المرتبط.
 
 ```python
 import jpype
@@ -461,12 +461,12 @@ finally:
     presentation.dispose()
 ```
 
-معامل `updateChartData` في طريقة [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) يتحكم فيما إذا كان يتم تحميل المصنف.
+معامل `updateChartData` في [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) يتحكم فيما إذا كان دفتر العمل يُحمَّل.
 
-* عندما يكون `updateChartData` مساويًا لـ `False`، يُحدَّث مسار المصنف فقط. لا يتم تحميل بيانات المخطط أو تحديثها من المصنف الهدف، وبالتالي يمكن أن يكون المصنف غير متاح.
-* عندما يكون `updateChartData` مساويًا لـ `True`، تُحدَّث بيانات المخطط من المصنف الهدف.
+* عندما يكون `updateChartData` مساويًا لـ `False`، يتم تحديث مسار دفتر العمل فقط. لا تُحمَّل بيانات المخطط أو تُحدَّث من دفتر العمل الهدف، لذا يمكن أن يكون دفتر العمل غير متوفر.
+* عندما يكون `updateChartData` مساويًا لـ `True`، تُحدَّث بيانات المخطط من دفتر العمل الهدف.
 
-يعين المثال التالي عنوان URL نائب مع `updateChartData` مضبوطًا على `False`. يحتفظ بالبيانات الافتراضية للمخطط الدائري ويحفظ العرض دون تحميل المصنف غير المتاح.
+المثال التالي يعيّن عنوان URL نائب مع `updateChartData` مُعيَّن إلى `False`. يحتفظ بالبيانات الافتراضية للمخطط الدائري ويحفظ العرض التقديمي دون تحميل دفتر العمل غير المتوفر.
 
 ```python
 import jpype
@@ -490,11 +490,11 @@ finally:
     presentation.dispose()
 ```
 
-### **الحصول على مسار مصنف مصدر البيانات الخارجي لمخطط**
+### **الحصول على مسار دفتر عمل مصدر البيانات الخارجي للمخطط**
 
-لتحديد المصنف المرتبط بمخطط، تحقق مما إذا كان المخطط يستخدم مصدر بيانات خارجي واستخرج مسار المصنف.
+لتحديد دفتر العمل المرتبط بمخطط، تحقق مما إذا كان المخطط يستخدم مصدرًا خارجيًا واسترجع مسار دفتر العمل.
 
-يفحص هذا المثال الشكل الأول في الشريحة الأولى من عرض تقديمي يحتوي على مصنف خارجي مرتبط. إذا كان مخططًا مرتبطًا بمصنف خارجي، يطبع [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) إلى وحدة التحكم. ثم يحفظ نسخة من العرض التقديمي.
+يفحص هذا المثال أول شكل على الشريحة الأولى من عرض تقديمي مرتبط بدفتر عمل خارجي. إذا كان مخططًا مرتبطًا بدفتر عمل خارجي، يطبع [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) إلى وحدة التحكم. ثم يحفظ نسخة من العرض التقديمي.
 
 ```python
 import jpype
@@ -527,9 +527,9 @@ finally:
 
 ### **تحرير بيانات المخطط**
 
-يمكنك تحرير البيانات في المصنفات الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات المصنفات الداخلية. عندما لا يمكن تحميل مصنف خارجي، يُطرح استثناء.
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تُجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يُلقى استثناء.
 
-يستخدم هذا المثال مخططًا هو الشكل الأول في الشريحة الأولى ومربوطًا بمصنف خارجي متاح. يعين قيمة الخلية للنقطة البيانات الأولى في السلسلة الأولى إلى 100 ويحفظ العرض المحدث. يمكن لتحرير قيم الخلايا تحديث ملف XLSX الخارجي المرتبط، لذا يُنصح باستخدام نسخة إذا كنت بحاجة للحفاظ على المصنف الأصلي.
+يستخدم هذا المثال مخططًا كأول شكل على الشريحة الأولى ومربوطًا بدفتر عمل خارجي يمكن الوصول إليه. يعيّن القيمة المدعومة بالخلية للنقطة البيانات الأولى في السلسلة الأولى إلى 100 ويحفظ العرض التقديمي المحدث. تحرير قيم الخلايا يمكن أن يحدث ملف XLSX الخارجي المرتبط، لذا استعمل نسخة إذا كنت بحاجة للاحتفاظ بالدفتر الأصلي.
 
 ```python
 import jpype
@@ -563,11 +563,11 @@ finally:
     presentation.dispose()
 ```
 
-### **استعادة مصنف من ذاكرة التخزين المؤقت للمخطط**
+### **استعادة دفتر عمل من ذاكرة مخطط**
 
-إذا كان المخطط يستخدم مصنفًا خارجيًا مفقودًا أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء مصنف المخطط من البيانات المخزنة مؤقتًا في العرض. أنشئ كائنًا من [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/)، استدعِ [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions)، واضبط [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) إلى `True` قبل فتح العرض.
+إذا كان المخطط يستخدم دفتر عمل خارجي مفقود أو غير متوفر، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزنة مؤقتًا في العرض التقديمي. أنشئ [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/)، استدعِ [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions)، وعين [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) إلى `True` قبل فتح العرض التقديمي.
 
-يستعيد المثال التالي بلغة Python بيانات المصنف لمخطط هو الشكل الأول في الشريحة الأولى ويشير إلى مصنف خارجي غير متاح. يصل إلى البيانات المستعادة عبر [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) و[ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
+المثال التالي بلغة Python يستعيد بيانات دفتر العمل لمخطط هو الشكل الأول على الشريحة الأولى ويشير إلى دفتر عمل خارجي غير متوفر. يصل إلى البيانات المستعادة عبر [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) و[ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```python
 import jpype
@@ -593,37 +593,37 @@ try:
         chart = slide.getShapes().get_Item(0)
         recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-        # قراءة أو تعديل بيانات المصنف المستعاد هنا.
+        # اقرأ أو عدل بيانات دفتر العمل المستعاد هنا.
     else:
         print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-إذا كان المصنف الخارجي غير متاح وتم تعطيل الاستعادة، تُطرح Aspose.Slides استثناء. فعِّل الاستعادة فقط عندما يكون استخدام البيانات المخزنة مؤقتًا كحل مقبول، لأن الذاكرة المؤقتة قد لا تحتوي على تغييرات أُجريت على المصنف الخارجي بعد آخر تحديث للعرض.
+إذا كان دفتر العمل الخارجي غير متوفر وتم تعطيل الاستعادة، تُطلق Aspose.Slides استثناء. فعل الاستعادة فقط عندما يكون استخدام بيانات المخطط المخزنة مؤقتًا كحل مقبول، لأن الذاكرة قد لا تحتوي على التغييرات التي أُجريت على دفتر العمل الخارجي بعد آخر تحديث للعرض التقديمي.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بمصنف خارجي أو مدمج؟**
+**هل يمكنني معرفة ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مدمج؟**
 
-نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) و[مسار إلى مصنف خارجي](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)؛ إذا كان المصدر مصنفًا خارجيًا، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) و[مسار إلى دفتر عمل خارجي](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
 
-**هل تدعم المسارات النسبية للمصنفات الخارجية، وكيف يتم تخزينها؟**
+**هل تدعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
 
-نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. يخزن العرض المسار المطلق في ملف PPTX، لذا قد يتطلب نقل المصنف تحديث الرابط.
+نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. يخزن العرض التقديمي المسار المطلق في ملف PPTX، لذا قد يتطلب نقل دفتر العمل تحديث الرابط.
 
-**هل يمكنني استخدام مصنفات موجودة على موارد/مشاركات شبكة؟**
+**هل يمكنني استخدام دفاتر عمل موجودة على موارد/مشاركات شبكة؟**
 
-نعم، يمكن استخدام مثل هذه المصنفات كمصدر بيانات خارجي. ومع ذلك، لا يدعم Aspose.Slides تحرير المصنفات البعيدة مباشرةً—يمكن استخدامها فقط كمصدر.
+نعم، يمكن استخدام مثل هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يُدعم تحرير دفاتر العمل البعيدة مباشرةً من Aspose.Slides—يمكن فقط استخدامها كمصدر.
 
-**هل يقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض؟**
+**هل تقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
 
-يخزن العرض [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). يمكن لتعديل بيانات المخطط المرتبطة بالخلية أيضًا تحديث ملف XLSX المحلي المرتبط. استخدم نسخة من المصنف إذا كان من الضروري إبقاء الأصلي دون تغيير.
+يخزن العرض التقديمي [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). يمكن لتحرير بيانات المخطط المدعومة بالخلية أيضًا تحديث ملف XLSX المحلي المرتبط. استخدم نسخة من دفتر العمل إذا كان الأصلي يجب أن يبقى دون تغيير.
 
 **ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
 
-Aspose.Slides لا يقبل كلمة مرور عند الربط. عادةً ما يتم إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (مثلاً باستخدام [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) وربط تلك النسخة.
+لا تقبل Aspose.Slides كلمة مرور عند الربط. يُنصح بإزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال باستخدام [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) وربطها بهذه النسخة.
 
-**هل يمكن لعدة مخططات الإشارة إلى نفس المصنف الخارجي؟**
+**هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
 
-نعم. يخزن كل مخطط رابطه الخاص. إذا كانت جميع الروابط تشير إلى نفس الملف، سيظهر أي تعديل لهذا الملف في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
+نعم. يخزن كل مخطط رابطًا خاصًا به. إذا كان جميعها يشير إلى نفس الملف، سيُعكس أي تحديث لهذا الملف في كل مخطط عند تحميل البيانات مرة أخرى.

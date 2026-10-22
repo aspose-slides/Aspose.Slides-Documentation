@@ -1,49 +1,49 @@
 ---
-title: จัดการเวิร์กบุ๊กชาร์ตในงานนำเสนอด้วย Python
-linktitle: เวิร์กบุ๊กชาร์ต
+title: จัดการ Workbook ของแผนภูมิในการนำเสนอด้วย Python
+linktitle: Workbook ของแผนภูมิ
 type: docs
 weight: 70
 url: /th/python-net/chart-workbook/
 keywords:
-- เวิร์กบุ๊กชาร์ต
-- ข้อมูลชาร์ต
-- เซลล์เวิร์กบุ๊ก
-- ป้ายข้อมูล
-- ชีตงาน
+- workbook ของแผนภูมิ
+- ข้อมูลแผนภูมิ
+- เซลล์ workbook
+- ป้ายกำกับข้อมูล
+- แผ่นงาน
 - แหล่งข้อมูล
-- เวิร์กบุ๊กภายนอก
+- workbook ภายนอก
 - ข้อมูลภายนอก
-- แคชชาร์ต
-- การกู้คืนเวิร์กบุ๊ก
+- แคชของแผนภูมิ
+- การกู้คืน workbook
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Python
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ Python ผ่าน .NET: จัดการเวิร์กบุ๊กชาร์ตในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ"
+description: "ค้นพบ Aspose.Slides สำหรับ Python ผ่าน .NET: จัดการ chart workbook ในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลการนำเสนอของคุณ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีทำงานกับชาร์ตเวิร์กบุ๊กใน Aspose.Slides แสดงวิธีอ่านและเขียนข้อมูลชาร์ตผ่านสตรีมเวิร์กบุ๊ก ใช้เซลล์เวิร์กบุ๊กเป็นป้ายข้อมูลของชาร์ต เข้าถึงคอลเลกชันของชีตงาน และระบุประเภทแหล่งข้อมูลสำหรับค่าชาร์ต
+บทความนี้อธิบายวิธีทำงานกับ chart workbook ใน Aspose.Slides โดยแสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของ workbook, ใช้เซลล์ของ workbook เป็นป้ายกำกับข้อมูลแผนภูมิ, เข้าถึงคอลเลกชันของ worksheet, และระบุประเภทของแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-นอกจากนี้ยังครอบคลุมการทำงานกับเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของชาร์ต ตัวอย่างจะแสดงวิธีสร้างและกำหนดเวิร์กบุ๊กภายนอก ดึงเส้นทางของเวิร์กบุ๊กภายนอกที่เชื่อมโยงกับชาร์ต และแก้ไขข้อมูลชาร์ตเมื่อเวิร์กบุ๊กพร้อมใช้งาน
+บทความนี้ยังครอบคลุมการทำงานกับ workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีสร้างและกำหนด workbook ภายนอก, ดึงเส้นทางของ workbook ภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อ workbook มีอยู่
 
-สำหรับเซลล์เวิร์กบุ๊กที่แสดงค่าที่หายไป ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/python-net/chart-series/) เพื่อเปรียบเทียบระหว่างเซลล์ว่างและศูนย์ รวมถึงการเปรียบเทียบแบบแผนภูมิเส้นของโหมดการแสดงผลที่มีอยู่
+สำหรับเซลล์ของ workbook ที่แทนค่าข้อมูลที่หายไป ให้ดูที่ [Control the Display of Empty Cells](/slides/th/python-net/chart-series/) เพื่อเปรียบเทียบระหว่างเซลล์ว่างและศูนย์ รวมถึงการเปรียบเทียบแบบเส้นกราฟของโหมดการแสดงผลที่มีให้เลือก
 
-## **รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อนไว้**
+## **รวมข้อมูลจากแถวและคอลัมน์ที่ถูกซ่อน**
 
-ใช้ [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) เพื่อควบคุมว่าชาร์ตจะวาดข้อมูลจากแถวและคอลัมน์ที่ซ่อนไว้หรือไม่ ตั้งเป็น `True` เพื่อวาดเฉพาะเซลล์ที่มองเห็นได้ หรือ `False` เพื่อรวมทั้งเซลล์ที่มองเห็นและที่ซ่อนอยู่ การตั้งค่านี้ควบคุมการวาดชาร์ตเท่านั้น ไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ในชีตงาน
+ใช้ [Chart.plot_visible_cells_only](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/plot_visible_cells_only/) เพื่อควบคุมว่าระดับแผนภูมิจะพล็อตข้อมูลจากแถวและคอลัมน์ของ worksheet ที่ซ่อนอยู่หรือไม่ ตั้งค่าเป็น `True` เพื่อพล็อตเฉพาะเซลล์ที่มองเห็นได้ หรือ `False` เพื่อรวมทั้งเซลล์ที่มองเห็นและที่ซ่อนอยู่ การตั้งค่านี้ควบคุมการพล็อตของแผนภูมิ; ไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ของ worksheet
 
-[sample presentation](hidden-source-data.pptx) มีแผนภูมิคอลัมน์เป็นรูปแบบแรกบนสไลด์แรกของไฟล์ ชีตงานที่ถูกฝัง `Sheet1` มีช่วงข้อมูลต้นฉบับ `A1:C4` แถวที่ 3 และคอลัมน์ C ถูกซ่อนไว้ แต่เซลล์ของพวกมันยังคงมีค่าอยู่
+[ตัวอย่างการนำเสนอ](hidden-source-data.pptx) มีแผนภูมิคอลัมน์เป็นรูปทรงแรกบนสไลด์แรกของไฟล์นั้น Worksheet ที่ฝังมาร่วม `Sheet1` มีช่วงแหล่งข้อมูล `A1:C4` แถวที่ 3 และคอลัมน์ C ถูกซ่อนอยู่ แต่เซลล์ของพวกมันยังคงมีค่า
 
-| แถว Worksheet | A: เดือน | B: ค้าปลีก | C: ขายส่ง (คอลัมน์ซ่อน) |
+| แถวของ Worksheet | A: เดือน | B: รายละเอียดขายปลีก | C: รายละเอียดขายส่ง (คอลัมน์ที่ซ่อน) |
 | --- | --- | --- | --- |
-| 2 | มกราคม | 10 | 30 |
-| 3 (แถวซ่อน) | กุมภาพันธ์ | 40 | 60 |
-| 4 | มีนาคม | 20 | 50 |
+| 2 | January | 10 | 30 |
+| 3 (แถวที่ซ่อน) | February | 40 | 60 |
+| 4 | March | 20 | 50 |
 
-เข้าถึงเซลล์ต้นฉบับผ่าน [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) และอ่านค่า [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) เพื่อตรวจสอบสถานะการซ่อนของเซลล์ คุณสมบัตินี้เป็นแบบอ่าน‑อย่างเท่านั้น ในไฟล์นี้ B2 มองเห็นได้ B3 อยู่ในแถวที่ซ่อน และ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างจะแสดงผล `False`, `True`, และ `True` ตามลำดับ
+เข้าถึงเซลล์ต้นทางผ่าน [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) และอ่านค่า [ChartDataCell.is_hidden](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/is_hidden/) เพื่อตรวจสอบสถานะการซ่อนของเซลล์ คุณสมบัตินี้เป็นแบบอ่านเท่านั้น ในไฟล์นี้ B2 มองเห็นได้, B3 อยู่ในแถวที่ซ่อน, และ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างจะพิมพ์ `False`, `True`, และ `True` ตามลำดับ
 
-สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลชาร์ตหลังจากเปลี่ยนการตั้งค่าแบบวาด: เก็บเวิร์กบุ๊กที่ฝังไว้ด้วย [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) แล้วโหลดใหม่ด้วย [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) เมื่อรวมทุกเซลล์ให้ใช้ [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) เพื่อคืนช่วงเต็มรวมถึงประเภทเดือน February ที่ซ่อนอยู่ การเปลี่ยนค่าสถานะอย่างเดียวไม่เพียงพอที่จะรีเฟรชข้อมูลแคชของชาร์ตและป้ายประเภทในตัวอย่างนี้
+สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการพล็อต: เก็บ workbook ที่ฝังไว้ด้วย [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) และโหลดใหม่ด้วย [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) เมื่อรวมทุกเซลล์ ให้ใช้ [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) เพื่อคืนช่วงเต็มรวมถึงหมวด “February” ที่ซ่อนอยู่ การเปลี่ยนแฟล็กอย่างเดียวไม่เพียงพอที่จะรีเฟรชข้อมูลแผนภูมิและป้ายกำกับหมวดที่แคชไว้ในตัวอย่างนี้
 
 ```python
 import aspose.slides as slides
@@ -63,11 +63,11 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         for visible_only in [True, False]:
             chart.plot_visible_cells_only = visible_only
 
-            # รีเฟรชข้อมูลชาร์ตจากเวิร์กบุ๊กที่ฝังไว้.
+            # รีเฟรชข้อมูลแผนภูมิจาก workbook ที่ฝังอยู่.
             workbook_stream.seek(0)
             chart.chart_data.write_workbook_stream(workbook_stream)
             if not visible_only:
-                # คืนค่าช่วงข้อมูลต้นฉบับทั้งหมดรวมถึงประเภทที่ซ่อนอยู่.
+                # คืนช่วงแหล่งข้อมูลเต็มรวมถึงหมวดที่ซ่อนอยู่.
                 chart.chart_data.set_range("Sheet1!$A$1:$C$4")
 
             presentation.save(f"hidden_cells_{visible_only}.pptx", slides.export.SaveFormat.PPTX)
@@ -75,21 +75,21 @@ with slides.Presentation("hidden-source-data.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-ตัวอย่างบันทึกสองเวอร์ชันของงานนำเสนอ: เวอร์ชันแรกมีเฉพาะค่าค้าปลีกที่มองเห็นได้ (10 และ 20) อีกเวอร์ชันมีค่าทั้งหกค่า รูปภาพด้านล่างสร้างจากงานนำเสนอที่บันทึกแล้วและเปิดใหม่; ทั้งสองไฟล์คงการตั้งค่าการวาดไว้ตามเดิม แถว 3 และคอลัมน์ C ยังคงซ่อนอยู่ในเวิร์กบุ๊กที่ฝังทั้งสอง
+ตัวอย่างบันทึกสองเวอร์ชันของการนำเสนอ: หนึ่งเวอร์ชันที่มีเฉพาะค่าปลีกที่มองเห็นได้ (10 และ 20) และอีกเวอร์ชันที่มีค่าทั้งหกค่า ภาพด้านล่างถูกเรนเดอร์จากไฟล์การนำเสนอที่บันทึกแล้วและเปิดใหม่; ทั้งสองไฟล์เก็บการตั้งค่าการพล็อตที่กำหนดไว้ แถวที่ 3 และคอลัมน์ C ยังอยู่ในสถานะซ่อนในทั้งสอง workbook ที่ฝังอยู่
 
-| เซลล์ที่มองเห็นเท่านั้น (`True`) | ทุกเซลล์ (`False`) |
+| เฉพาะเซลล์ที่มองเห็น (`True`) | ทุกเซลล์ (`False`) |
 | --- | --- |
-| ![เซลล์ที่มองเห็นเท่านั้น: ค่าค้าปลีก 10 และ 20 สำหรับเดือนมกราคมและมีนาคม.](hidden_cells_True.png) | ![ทุกเซลล์: ค่าค้าปลีกและขายส่งสำหรับเดือนมกราคม, กุมภาพันธ์, และมีนาคม.](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-เซลล์ที่ซ่อนและมีค่าแตกต่างจากเซลล์ว่าง [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) ควบคุมวิธีการแสดงค่าที่หายไป; ไม่ได้รวมหรือยกเว้นข้อมูลต้นฉบับที่ซ่อนอยู่ ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](/slides/th/python-net/chart-series/#control-the-display-of-empty-cells) เพื่อดูตัวอย่าง
+เซลล์ที่ซ่อนและมีค่าแตกต่างจากเซลล์ว่าง [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) ควบคุมวิธีการแสดงค่าที่หายไป; ไม่ได้รวมหรือยกเว้นข้อมูลต้นทางที่ซ่อนอยู่ ดูที่ [Control the Display of Empty Cells](/slides/th/python-net/chart-series/#control-the-display-of-empty-cells) เพื่อดูตัวอย่าง
 
-## **ดึงช่วงข้อมูลของชาร์ต**
+## **ดึงช่วงข้อมูลของแผนภูมิ**
 
-ก่อนที่จะอัปเดตข้อมูลเวิร์กบุ๊กในงานนำเสนอที่มีอยู่ ให้ตรวจสอบช่วงข้อมูลต้นฉบับเพื่อระบุว่าแต่ละชาร์ตใช้เซลล์ชีตงานใด [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) คืนค่าช่วงข้อมูลปัจจุบันในรูปสูตรที่อ้างอิงชีตงาน เช่น `Sheet1!$A$1:$D$5` ที่นี่ `Sheet1` เป็นชื่อชีต, `!` แยกจากช่วงเซลล์, `$A$1:$D$5` ระบุเซลล์ A1 ถึง D5 รวมทั้งสองสัญลักษณ์ `$` แสดงการอ้างอิงแบบสัมบูรณ์
+ก่อนที่จะอัปเดตข้อมูล workbook ในการนำเสนอที่มีอยู่ ให้ตรวจสอบช่วงต้นทางเพื่อระบุว่า worksheet ใดที่แผนภูมิเชื่อมโยงอยู่ วิธี [ChartData.get_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/get_range/) จะคืนค่าช่วงข้อมูลปัจจุบันเป็นสูตรที่ระบุ worksheet, เช่น `Sheet1!$A$1:$D$5` โดย `Sheet1` คือชื่อ worksheet, `!` คั่นกับช่วงเซลล์, และ `$A$1:$D$5` ระบุเซลล์ตั้งแต่ A1 ถึง D5 รวมถึงสัญลักษณ์ `$` ที่บ่งบอกการอ้างอิงแบบ absolute
 
-เมธอดนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงชาร์ตหรือเวิร์กบุ๊ก หากชาร์ตไม่ได้ใช้เวิร์กบุ๊กเป็นแหล่งข้อมูลจะเกิดข้อยกเว้น ดูรายละเอียดเพิ่มเติมใน [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/)
+เมธอดนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือ workbook หากแผนภูมิไม่ได้ใช้ workbook เป็นแหล่งข้อมูล จะเกิดข้อยกเว้น สำหรับข้อมูลเพิ่มเติมดูที่ [ChartData API Reference](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/)
 
-ตัวอย่างนี้เปิดงานนำเสนอและตรวจสอบรูปบนแต่ละสไลด์เพื่อค้นหาแชาร์ต พิมพ์ชื่อและช่วงข้อมูลของแต่ละชาร์ต หากไม่สามารถดึงช่วงได้ จะพิมพ์ข้อความวินิจฉัยและดำเนินการต่อไปยังชาร์ตถัดไป
+ตัวอย่างนี้เปิดไฟล์การนำเสนอและตรวจสอบรูปทรงบนแต่ละสไลด์เพื่อหาแผนภูมิ พิมพ์ชื่อและช่วงต้นทางของแต่ละแผนภูมิ หากไม่สามารถดึงช่วงได้ จะพิมพ์ข้อความวินิจฉัยและดำเนินการต่อไปยังแผนภูมิถัดไป
 
 ```python
 import aspose.slides as slides
@@ -106,11 +106,11 @@ with slides.Presentation("presentation.pptx") as presentation:
                     print(f"{shape.name}: Unable to retrieve the chart data range. {error}")
 ```
 
-## **อ่านและเขียนข้อมูลชาร์ตจากเวิร์กบุ๊ก**
+## **อ่านและเขียนข้อมูลแผนภูมิจาก Workbook**
 
-Aspose.Slides for Python via .NET มีเมธอด [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) และ [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) ที่ช่วยให้คุณอ่านและเขียนเวิร์กบุ๊กข้อมูลชาร์ต (เวิร์กบุ๊กที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลชาร์ตต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูล
+Aspose.Slides for Python via .NET ให้เมธอด [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) และ [write_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/write_workbook_stream/) ที่ช่วยให้คุณอ่านและเขียน workbook ของข้อมูลแผนภูมิ (ซึ่งอาจถูกแก้ไขด้วย Aspose.Cells) **หมายเหตุ** ว่าโครงสร้างข้อมูลแผนภูมิต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างคล้ายกับต้นทาง
 
-ตัวอย่างนี้ใช้งานนำเสนอที่มีชาร์ตเป็นรูปแบบแรกบนสไลด์แรก อ่านเวิร์กบุ๊กที่ฝังไว้เป็นสตรีม ลบซีรีส์และประเภทเดิมทั้งหมด แล้วเขียนเวิร์กบุ๊กเดียวกันกลับไป การเปลี่ยนแปลงจะคงอยู่ในหน่วยความจำ ตัวอย่างไม่ได้บันทึกงานนำเสนอ
+ตัวอย่างนี้ใช้การนำเสนอที่มีแผนภูมิเป็นรูปทรงแรกบนสไลด์แรก อ่าน workbook ที่ฝังไว้เป็นสตรีม, ลบ series และ categories เดิม, แล้วเขียน workbook เดิมกลับเข้าไป การเปลี่ยนแปลงอยู่ในหน่วยความจำ; ตัวอย่างนี้ไม่ได้บันทึกการนำเสนอ
 
 ```python
 import aspose.slides as slides
@@ -133,9 +133,9 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **ตรวจสอบเค้าโครงชาร์ตหลังการแก้ไขเวิร์กบุ๊ก**
+### **ตรวจสอบโครงสร้างแผนภูมิหลังการแก้ไข Workbook**
 
-เมื่อตัวเวิร์กบุ๊กที่ฝังไว้ถูกแทนที่ด้วยเวิร์กบุ๊กที่แก้ไขแล้ว ชาร์ตจะยังคงคอลเลกชันซีรีส์และประเภทเดิม การไม่ตรงกันนี้อาจทำให้ [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) ล้มเหลวด้วยข้อผิดพลาด index‑out‑of‑range ให้ลบซีรีส์และประเภทเดิมก่อนเขียนเวิร์กบุ๊กอัปเดตกลับไปที่ชาร์ต ตัวอย่างนี้ใช้ชาร์ตที่เป็นรูปแบบแรกบนสไลด์แรก คอมเมนต์ระบุจุดที่การแก้ไขเวิร์กบุ๊กจะเกิดขึ้น; ตัวอย่างที่ทำงานได้เขียนเวิร์กบุ๊กต้นฉบับกลับและตรวจสอบเค้าโครงในหน่วยความจำ
+เมื่อคุณแทนที่ workbook ที่ฝังด้วย workbook ที่แก้ไขแล้ว แผนภูมิจะยังคงรักษา series และ collection ของหมวดหมู่เดิมไว้ ความไม่ตรงนี้อาจทำให้ [Chart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/validate_chart_layout/) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ให้ลบ series และ categories เก่าก่อนเขียน workbook ที่อัปเดตกลับเข้าแผนภูมิ ตัวอย่างใช้แผนภูมิที่เป็นรูปทรงแรกบนสไลด์แรก คอมเมนต์บ่งบอกตำแหน่งที่ควรแก้ไข workbook; ตัวอย่างที่ทำงานได้เขียน workbook ดั้งเดิมกลับเข้าไปและตรวจสอบโครงสร้างในหน่วยความจำ
 
 ```python
 import aspose.slides as slides
@@ -149,7 +149,7 @@ with slides.Presentation("chart.pptx") as presentation:
         chart_data = chart.chart_data
         workbook_stream = chart_data.read_workbook_stream()
 
-        # แก้ไขสตรีมเวิร์กบุ๊กที่นี่, ตัวอย่างเช่นโดยใช้ Aspose.Cells.
+        # แก้ไขสตรีม workbook ที่นี่, ตัวอย่างเช่น ใช้ Aspose.Cells.
 
         chart_data.series.clear()
         chart_data.categories.clear()
@@ -161,15 +161,15 @@ with slides.Presentation("chart.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-การลบคอลเลกชันจะทำให้การอ้างอิงข้อมูลที่ล้าสมัยหายไปก่อนที่เวิร์กบุ๊กจะถูกเขียนกลับ สร้างซีรีส์และการแม็พประเภทใหม่ตามเวิร์กบุ๊กที่อัปเดตก่อนใช้ชาร์ต
+การลบ collection จะลบการอ้างอิงข้อมูลที่ล้าสมัยก่อนที่ workbook จะถูกเขียนกลับมา สร้าง series และ mapping ของหมวดหมู่ใหม่ตามความต้องการของ workbook ที่อัปเดตก่อนใช้แผนภูมิ
 
-## **กำหนดรูปแบบตัวเลขแบบกำหนดเองสำหรับเซลล์เวิร์กบุ๊ค**
+## **ตั้งค่าฟอร์แมตตัวเลขแบบกำหนดเองสำหรับเซลล์ของ Workbook**
 
-ใช้ [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) เพื่อควบคุมรูปแบบการแสดงค่าตัวเลขในเวิร์กบุ๊กที่ฝังอยู่ของชาร์ต ตัวอย่างเช่น รายงานอาจต้องแสดงอัตราแปลงเป็นเปอร์เซ็นต์ 4 ตำแหน่งทศนิยมและค่าสัมประสิทธิ์ 5 ตำแหน่งทศนิยม ให้ค่าเหล่านี้ยังคงเป็นตัวเลขเพื่อให้สามารถคำนวณและวาดชาร์ตต่อไปได้
+ใช้ [ChartDataCell.custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) เพื่อควบคุมวิธีแสดงค่าตัวเลขใน workbook ที่ฝังอยู่ของแผนภูมิ ตัวอย่างเช่น รายงานอาจต้องการแสดงอัตราแปลงเป็นเปอร์เซ็นต์ที่มีทศนิยมสี่ตำแหน่งและค่าสัมประสิทธิ์ที่มีทศนิยมห้าตำแหน่ง เก็บค่าทั้งสองเป็นตัวเลขเพื่อให้ยังคงใช้ในการคำนวณและพล็อตแผนภูมิได้
 
-รูปแบบตัวเลขเปลี่ยนการแสดงผลไม่ใช่ค่าที่เก็บไว้ `0.0000%` จะทำให้ `0.125` แสดงเป็น `12.5000%` แต่ไม่ได้แทนที่ค่าที่เก็บเป็น `12.5` เช่นเดียวกัน `0.00000` จะทำให้ `0.1234567` แสดงเป็น `0.12346` โดยไม่ปัดเศษค่าที่เก็บไว้ หากรูปแบบกำหนดเองเป็นสตริงว่าง (`""`) จะใช้ [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) แทน
+ฟอร์แมตตัวเลขเปลี่ยนการแสดงผล ไม่ได้เปลี่ยนค่าที่เก็บไว้ ฟอร์แมต `0.0000%` จะทำให้แสดง `0.125` เป็น `12.5000%` แต่ค่าที่เก็บยังคงเป็น `0.125` เช่นเดียวกัน `0.00000` จะทำให้แสดง `0.1234567` เป็น `0.12346` โดยไม่ได้ปัดค่าเก็บไว้ หากฟอร์แมตกำหนดเป็นสตริงว่าง (`""`) จะใช้ [preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) แทน
 
-ตัวอย่างต่อไปสร้างแผนภูมิคอลัมน์และเข้าถึงเซลล์ผ่าน [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) บนชีต 0 เซลล์ B2 มีอัตราแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์เป็นค่าชาร์ต ตัวอย่างยังเปิดใช้งานป้ายค่าที่เชื่อมโยงกับรูปแบบต้นฉบับ
+ตัวอย่างต่อไปสร้างแผนภูมิคอลัมน์และเข้าถึงเซลล์ผ่าน [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) บน worksheet 0 เซลล์ B2 มีอัตราแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์ให้ค่ากับแผนภูมิ ตัวอย่างยังเปิดใช้งานป้ายกำกับค่าที่เชื่อมต่อกับฟอร์แมตต้นทาง
 
 ```python
 import aspose.slides as slides
@@ -216,19 +216,19 @@ with slides.Presentation() as presentation:
     presentation.save("CustomCellFormats.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-รูปแบบของเซลล์เวิร์กบุ๊กแยกจากรูปแบบที่ตั้งโดยตรงบนแกนหรือป้ายข้อมูล ในตัวอย่างนี้แต่ละป้ายจะแสดงค่าจากเซลล์ต้นทางเพราะ [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) ถูกเปิดและตามรูปแบบตัวเลขของเซลล์ต้นทางเพราะ [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) เป็น `True` หลังจากบันทึกและเปิดงานนำเสนอใหม่ ป้ายจะแสดง `12.5000%` และ `0.12346` ตามด้านล่าง แกนแนวตั้งใช้ [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) ของตัวเอง `0.00` โดยที่ [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) ตั้งเป็น `False`
+ฟอร์แมตของเซลล์ workbook แยกจากฟอร์แมตที่ตั้งโดยตรงบนแกนหรือป้ายกำกับข้อมูล ในตัวอย่างนี้แต่ละป้ายกำกับจะแสดงค่าจากเซลล์ต้นทางเพราะ [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) ถูกเปิดและ [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) เป็น `True` หลังจากบันทึกและเปิดการนำเสนอใหม่ ป้ายกำกับจะแสดง `12.5000%` และ `0.12346` ตามที่แสดงด้านล่าง แกนแนวตั้งใช้ [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) ของตัวเองเป็น `0.00` กับ [is_number_format_linked_to_source](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_number_format_linked_to_source/) ตั้งเป็น `False`
 
-หากต้องการฟอร์แมตป้ายข้อมูลอย่างอิสระ ให้ตั้งค่าสถานะเชื่อมโยงกับแหล่งเป็น `False` แล้วกำหนด [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) ของป้ายเอง ซึ่งจะไม่เปลี่ยนรูปแบบของเซลล์เวิร์กบุ๊ก ตัวอย่างเช่น ฟอร์แมตป้ายอิสระ `0.00` จะทำให้ค่าตัวแรกแสดงเป็น `0.13` ในขณะที่ B2 ยังคงแสดง `12.5000%` ดูที่ [Chart Data Labels](/slides/th/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) เพื่อเรียนรู้การฟอร์แมตป้ายโดยตรง
+หากต้องการฟอร์แมตป้ายกำกับโดยอิสระ ให้ตั้งค่าเชื่อมโยงกับต้นทางเป็น `False` และกำหนด [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/number_format/) ของป้ายกำกับนั้น ฟอร์แมตนี้จะไม่ส่งผลต่อฟอร์แมตของเซลล์ใน workbook ตัวอย่างเช่น ฟอร์แมตอิสระ `0.00` จะทำให้ค่าตัวแรกแสดงเป็น `0.13` ในขณะที่ B2 ยังคงแสดง `12.5000%` ดูที่ [Chart Data Labels](/slides/th/python-net/chart-data-label/#set-percentage-sign-with-chart-data-labels) เพื่อดูการฟอร์แมตป้ายกำกับโดยตรง
 
-รูปภาพด้านล่างสร้างจากงานนำเสนอที่บันทึกแล้วและเปิดใหม่:
+ภาพด้านล่างได้มาจากการเรนเดอร์การนำเสนอที่บันทึกแล้วและเปิดใหม่:
 
-![แผนภูมิคอลัมน์พร้อมป้ายที่เชื่อมโยงกับแหล่งแสดง 12.5000% และ 0.12346 พร้อมแกนจำนวนที่ฟอร์แมตอิสระ.](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **กำหนดเซลล์เวิร์กบุ๊กเป็นป้ายข้อมูลของชาร์ต**
+## **ตั้งค่าเซลล์ Workbook เป็นป้ายกำกับข้อมูลของแผนภูมิ**
 
-คุณสามารถใช้ข้อความจากเซลล์เวิร์กบุ็คเป็นป้ายข้อมูลของชาร์ตได้
+คุณสามารถใช้ข้อความจากเซลล์ของ workbook เป็นป้ายกำกับข้อมูลของแผนภูมิได้
 
-ตัวอย่างนี้เพิ่มแผนภูมิบับเบิลที่มีข้อมูลค่าเริ่มต้นบนสไลด์แรกของงานนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 บนชีต 0 สำหรับป้ายสามอันแรกของซีรีส์แรก เปิดใช้ป้ายจากเซลล์ แล้วบันทึกงานนำเสนอที่อัปเดต
+ตัวอย่างนี้เพิ่มแผนภูมิบับเบิลที่มีข้อมูลเริ่มต้นบนสไลด์แรกของการนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 บน worksheet 0 เป็นป้ายกำกับสามค่าตัวแรกของ series แรก เปิดใช้งานป้ายกำกับจากเซลล์และบันทึกการนำเสนอที่อัปเดต
 
 ```python
 import aspose.slides as slides
@@ -249,9 +249,9 @@ with slides.Presentation("chart2.pptx") as presentation:
     presentation.save("resultchart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **จัดการชีตงาน**
+## **จัดการ Worksheets**
 
-คุณสมบัติ [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) ให้เข้าถึงชีตงานในเวิร์กบุ๊กของชาร์ต ตัวอย่างนี้สร้างแผนภูมิโดนัทที่มีข้อมูลค่าเริ่มต้นและพิมพ์ชื่อชีตแต่ละอันลงคอนโซล
+คุณสมบัติ [ChartDataWorkbook.worksheets](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/worksheets/) ให้เข้าถึง worksheets ใน chart workbook ตัวอย่างนี้สร้างแผนภูมิโดนัทที่มีข้อมูลเริ่มต้นและพิมพ์ชื่อของแต่ละ worksheet ไปยังคอนโซล
 
 ```python
 import aspose.slides as slides
@@ -267,9 +267,11 @@ with slides.Presentation() as presentation:
         print(worksheet.name)
 ```
 
-## **ระบุประเภทแหล่งข้อมูล**
+## **ระบุประเภทของแหล่งข้อมูล**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 3 มิติที่มีข้อมูลค่าเริ่มต้นและตั้งชื่อซีรีส์สองชื่อโดยใช้แหล่งข้อมูลที่แตกต่างกัน ชื่อแรกใช้สตริงลิตัล; ชื่อที่สองใช้เซลล์ C1 บนชีต 0 ค่ำ enumerations [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) จะเลือกแหล่งสำหรับแต่ละชื่อ ตัวอย่างบันทึกงานนำเสนอพร้อมชื่อซีรีส์ที่อัปเดต
+ค่าจุดของ series สามารถจัดเก็บเป็นค่าตัวเลขโดยตรง ดูที่ [Set Series Values Using Numeric Literals](/slides/th/python-net/chart-series/#set-series-values-using-numeric-literals) สำหรับตัวอย่างครบถ้วนที่บันทึกและอ่านค่าเหล่านั้น ประเภทของแหล่งข้อมูลของค่าจุดแยกจากการกำหนดค่า workbook ภายในหรือภายนอกของแผนภูมิ; การใช้ค่าตัวเลขโดยตรงไม่ได้ทำให้ workbook ที่ฝังอยู่หายไปโดยอัตโนมัติ
+
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 3 มิติที่มีข้อมูลเริ่มต้นและตั้งชื่อ series สองชื่อโดยใช้แหล่งข้อมูลที่แตกต่างกัน ชื่อแรกใช้สตริงลิเทอร์ัล; ชื่อที่สองใช้เซลล์ C1 บน worksheet 0 ค่าคงที่ [DataSourceType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/) กำหนดแหล่งข้อมูลสำหรับแต่ละชื่อ ตัวอย่างบันทึกการนำเสนอพร้อมชื่อ series ที่อัปเดต
 
 ```python
 import aspose.slides as slides
@@ -292,9 +294,9 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตรวจจับรูปแบบเวิร์กบุ๊กที่ฝังไม่รองรับ**
+## **ตรวจจับรูปแบบ Workbook ที่ฝังและไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบเวิร์กบุ๊ก Excel แบบไบนารี (.xlsb) ที่อาจฝังอยู่ในบางชาร์ต คุณสามารถใช้คุณสมบัติ [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) บน [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) ร่วมกับ enumerations [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามชาร์ตเหล่านั้น ตัวอย่างนี้ตรวจสอบรูปบนสไลด์แรกของงานนำเสนอที่มีอยู่ ข้ามรูปร่างที่ไม่ใช่ชาร์ต และพิมพ์ข้อความวินิจฉัยสำหรับแต่ละชาร์ตที่มีเวิร์กบุ๊ก .xlsb ฝังอยู่
+Aspose.Slides ไม่รองรับรูปแบบ workbook ของ Excel แบบไบนารี (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้คุณสมบัติ [embedded_workbook_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/embedded_workbook_type/) บน [ChartData](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมิเช่นนั้น ตัวอย่างนี้ตรวจสอบรูปทรงบนสไลด์แรกของการนำเสนอที่มีอยู่ ข้ามรูปทรงที่ไม่ใช่แผนภูมิ และพิมพ์ข้อความวินิจฉัยสำหรับแต่ละแผนภูมิที่มี workbook .xlsb ฝังอยู่
 
 ```python
 import aspose.slides as slides
@@ -315,18 +317,18 @@ with slides.Presentation("sample.pptx") as presentation:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
 
-        # อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กชาร์ตที่รองรับที่นี่.
+        # อ่านหรือแก้ไขข้อมูล workbook ของแผนภูมิที่รองรับที่นี่.
 ```
 
-## **เวิร์กบุ๊กภายนอก**
+## **Workbook ภายนอก**
 
-Aspose.Slides รองรับการใช้เวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของชาร์ต
+Aspose.Slides รองรับการใช้ workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ
 
-### **สร้างเวิร์กบุ๊กภายนอก**
+### **สร้าง Workbook ภายนอก**
 
-ใช้ [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) และ [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) เพื่อส่งออกเวิร์กบุ๊กชาร์ตที่ฝังเป็นไฟล์และเชื่อมชาร์ตกับเวิร์กบุ๊กภายนอกนั้น
+ใช้ [read_workbook_stream](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) และ [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) เพื่อส่งออก workbook ของแผนภูมิที่ฝังอยู่เป็นไฟล์และลิงก์แผนภูมิกับ workbook ภายนอกนั้น
 
-ตัวอย่างนี้สร้างแผนภูมิโดนัทที่มีข้อมูลค่าเริ่มต้นและส่งออกเวิร์กบุ๊กของมัน ปิดสตรีมออกก่อนกำหนดเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของชาร์ต แล้วบันทึกงานนำเสนอที่เชื่อมโยง
+ตัวอย่างนี้สร้างแผนภูมิโดนัทที่มีข้อมูลเริ่มต้นและส่งออก workbook ของมัน ปิดสตรีมผลลัพธ์ก่อนกำหนด workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ แล้วบันทึกการนำเสนอที่ลิงก์แล้ว
 
 ```python
 from pathlib import Path
@@ -349,13 +351,13 @@ with slides.Presentation() as presentation:
     presentation.save("externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **ตั้งค่าเวิร์กบุ๊กภายนอก**
+### **กำหนด Workbook ภายนอก**
 
-ด้วยเมธอด [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) คุณสามารถกำหนดเวิร์กบุ๊กภายนอกให้เป็นแหล่งข้อมูลของชาร์ตได้ เมธอดนี้ยังใช้เพื่ออัปเดตเส้นทางไปยังเวิร์กบุ๊กภายนอก (หากไฟล์ถูกย้าย)
+โดยใช้เมธอด [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) คุณสามารถกำหนด workbook ภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังสามารถใช้เพื่ออัปเดตเส้นทางไปยัง workbook ภายนอก (หากถูกย้าย)
 
-แม้ว่าจะไม่สามารถแก้ไขข้อมูลในเวิร์กบุ๊กที่เก็บไว้ในตำแหน่งระยะไกลหรือทรัพยากรได้ แต่ยังสามารถใช้เวิร์กบุ๊กเหล่านั้นเป็นแหล่งข้อมูลภายนอก หากระบุเส้นทางเชิงสัมพัทธ์สำหรับเวิร์กบุ๊กภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
+แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลใน workbook ที่จัดเก็บบนตำแหน่งที่อยู่ระยะไกลหรือทรัพยากรอื่นได้ แต่คุณยังคงสามารถใช้ workbook เหล่านั้นเป็นแหล่งข้อมูลภายนอก หากให้เส้นทางสัมพัทธ์แก่ workbook ภายนอก ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ
 
-ตัวอย่างนี้ใช้เวิร์กบุ๊กภายนอกที่ชีตชื่อ `Sheet1` มีชื่อซีรีส์ใน B1, ชื่อประเภทใน A2:A4 และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิโดนัท, เชื่อมเวิร์กบุ๊ก, และใช้ [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) เพื่อแม็พ A1:B4 เป็นซีรีส์หนึ่งและสามประเภท แล้วบันทึกงานนำเสนอที่เชื่อมชาร์ต
+ตัวอย่างนี้ใช้ workbook ภายนอกที่ worksheet ชื่อ `Sheet1` มีชื่อ series อยู่ใน B1, ชื่อหมวดใน A2:A4, และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิโดนัท, ลิงก์ workbook, และใช้ [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) เพื่อแมป A1:B4 เป็น series หนึ่งและสามหมวด แล้วบันทึกการนำเสนอที่มีแผนภูมิลิงก์
 
 ```python
 from pathlib import Path
@@ -375,12 +377,12 @@ with slides.Presentation() as presentation:
     presentation.save("Presentation_with_externalWorkbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-พารามิเตอร์ `update_chart_data` ของ [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) ควบคุมว่าเวิร์กบุ๊กจะถูกโหลดหรือไม่
+พารามิเตอร์ `update_chart_data` ของเมธอด [set_external_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_external_workbook/) ควบคุมว่าจะแสดงข้อมูล workbook หรือไม่
 
-* เมื่อ `update_chart_data` เป็น `False` จะอัปเดตเฉพาะเส้นทางเวิร์กบุ๊ก ชาร์ตจะไม่โหลดหรืออัปเดตข้อมูลจากเวิร์กบุ๊กเป้าหมาย ดังนั้นเวิร์กบุ๊กอาจไม่พร้อมใช้งาน
-* เมื่อ `update_chart_data` เป็น `True` ชาร์ตจะอัปเดตข้อมูลจากเวิร์กบุ๊กเป้าหมาย
+* เมื่อ `update_chart_data` เป็น `False` จะอัปเดตเฉพาะเส้นทางของ workbook เท่านั้น ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจาก workbook ปลายทาง ดังนั้น workbook สามารถไม่มีอยู่ได้
+* เมื่อ `update_chart_data` เป็น `True` ข้อมูลแผนภูมิจะอัปเดตจาก workbook ปลายทาง
 
-ตัวอย่างต่อไปกำหนด URL ตัวอย่างโดยตั้ง `update_chart_data` เป็น `False` งานนำเสนอยังคงใช้ข้อมูลค่าเริ่มต้นของแผนภูมิโดนัทและบันทึกโดยไม่โหลดเวิร์กบุ๊กที่ไม่พร้อมใช้งาน
+ตัวอย่างต่อไปกำหนด URL ตัวอย่างเป็น placeholder พร้อม `update_chart_data` ตั้งเป็น `False` การนำเสนอจะคงข้อมูลเริ่มต้นของแผนภูมิโดนัทและบันทึกโดยไม่โหลด workbook ที่ไม่มีอยู่
 
 ```python
 import aspose.slides as slides
@@ -395,11 +397,11 @@ with slides.Presentation() as presentation:
     presentation.save("SetExternalWorkbookWithUpdateChartData.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **รับเส้นทางเวิร์กบุ๊กแหล่งข้อมูลภายนอกของชาร์ต**
+### **ดึงเส้นทาง Workbook ของแหล่งข้อมูลภายนอกของแผนภูมิ**
 
-เพื่อระบุเวิร์กบุ๊กที่เชื่อมกับชาร์ต ให้ตรวจสอบว่าชาร์ตใช้แหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทางเวิร์กบุ๊กของมัน
+เพื่อระบุ workbook ที่ลิงก์กับแผนภูมิ ให้ตรวจสอบว่าแผนภูมิมีแหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทางของ workbook นั้น
 
-ตัวอย่างนี้ตรวจสอบรูปแรกบนสไลด์แรกของงานนำเสนอที่เชื่อมเวิร์กบุ๊กภายนอก หากเป็นชาร์ตที่เชื่อมเวิร์กบุ๊กภายนอก ตัวอย่างจะพิมพ์ [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ลงคอนโซล แล้วบันทึกสำเนาของงานนำเสนอ
+ตัวอย่างนี้ตรวจสอบรูปทรงแรกบนสไลด์แรกของการนำเสนอที่มี workbook ภายนอกที่ลิงก์ หากเป็นแผนภูมิลิงก์กับ workbook ภายนอก ตัวอย่างจะพิมพ์ [external_workbook_path](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ไปยังคอนโซล แล้วบันทึกสำเนาของการนำเสนอ
 
 ```python
 import aspose.slides as slides
@@ -421,11 +423,11 @@ with slides.Presentation("externalWorkbook.pptx") as presentation:
     presentation.save("Result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **แก้ไขข้อมูลชาร์ต**
+### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในเวิร์กบุ๊กภายนอกได้เช่นเดียวกับการเปลี่ยนแปลงในเวิร์กบุ๊กภายใน หากเวิร์กบุ๊กภายนอกไม่สามารถโหลดได้ จะมีการโยนข้อยกเว้น
+คุณสามารถแก้ไขข้อมูลใน workbook ภายนอกเช่นเดียวกับที่ทำการเปลี่ยนแปลงใน workbook ภายใน หากไม่สามารถโหลด workbook ภายนอก จะเกิดข้อยกเว้น
 
-ตัวอย่างนี้ใช้ชาร์ตที่เป็นรูปแรกบนสไลด์แรกและเชื่อมกับเวิร์กบุ๊กภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่อยู่ในเซลล์ของจุดข้อมูลแรกในซีรีส์แรกเป็น 100 และบันทึกงานนำเสนอที่อัปเดต การแก้ไขค่าจากเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกที่เชื่อม จึงควรใช้สำเนาหากต้องการรักษาเวิร์กบุ๊กต้นฉบับ
+ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปทรงแรกบนสไลด์แรกและลิงก์กับ workbook ภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่มาจากเซลล์ของจุดข้อมูลแรกใน series แรกเป็น 100 แล้วบันทึกการนำเสนอที่อัปเดต การแก้ไขค่าที่มาจากเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกที่ลิงก์ไว้ ดังนั้นหากต้องการรักษาไฟล์ต้นฉบับไว้ ควรใช้สำเนา
 
 ```python
 import aspose.slides as slides
@@ -450,11 +452,11 @@ with slides.Presentation("presentation.pptx") as presentation:
         print("The first shape is not a chart.")
 ```
 
-### **กู้คืนเวิร์กบุ๊กจากแคชของชาร์ต**
+### **กู้คืน Workbook จากแคชของแผนภูมิ**
 
-หากชาร์ตใช้เวิร์กบุ๊กภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างเวิร์กบุ๊กชาร์ตใหม่จากข้อมูลที่แคชไว้ในงานนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) ตั้งค่า [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/) และเปิดใช้งาน [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) เป็น `True` ก่อนเปิดงานนำเสนอ
+หากแผนภูมิใช้ workbook ภายนอกที่หายไปหรือไม่สามารถเข้าถึงได้ Aspose.Slides สามารถสร้างใหม่จากข้อมูลที่แคชไว้ในไฟล์การนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/), กำหนดค่า [spreadsheet_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/spreadsheet_options/), แล้วตั้งค่า [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) เป็น `True` ก่อนเปิดการนำเสนอ
 
-ตัวอย่าง Python ต่อไปนี้กู้คืนข้อมูลเวิร์กบุ๊กสำหรับชาร์ตที่เป็นรูปแรกบนสไลด์แรกและอ้างอิงเวิร์กบุ๊กภายนอกที่ไม่พร้อมใช้งาน ตัวอย่างเข้าถึงข้อมูลที่กู้คืนผ่าน [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) และ [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+ตัวอย่าง Python ที่ต่อไปนี้กู้คืนข้อมูล workbook สำหรับแผนภูมิที่เป็นรูปทรงแรกบนสไลด์แรกและอ้างอิง workbook ภายนอกที่ไม่สามารถเข้าถึงได้ ตัวอย่างเข้าถึงข้อมูลที่กู้คืนผ่าน [Chart.chart_data](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/chart_data/) และ [ChartData.chart_data_workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
 
 ```python
 import aspose.slides as slides
@@ -470,35 +472,35 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
         chart = slide.shapes[0]
         recovered_workbook = chart.chart_data.chart_data_workbook
 
-        # อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กที่กู้คืนที่นี่.
+        # อ่านหรือแก้ไขข้อมูล workbook ที่กู้คืนที่นี่.
     else:
         print("The first shape is not a chart.")
 ```
 
-หากเวิร์กบุ๊กภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยนข้อยกเว้น เปิดการกู้คืนก็ต่อเมื่อการใช้ข้อมูลแคชของชาร์ตเป็นทางเลือกที่รับได้ เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับเวิร์กบุ๊กภายนอกหลังจากการอัปเดตงานนำเสนอครั้งล่าสุด
+หาก workbook ภายนอกไม่สามารถเข้าถึงได้และการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยงข้อยกเว้น ให้เปิดการกู้คืนเฉพาะเมื่อต้องการใช้ข้อมูลแคชของแผนภูมิเป็นทางเลือกสำรอง เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับ workbook ภายนอกหลังจากการอัปเดตครั้งล่าสุดของการนำเสนอ
 
 ## **FAQ**
 
-**ฉันจะตรวจสอบได้หรือไม่ว่าชาร์ตเฉพาะเจาะจงเชื่อมกับเวิร์กบุ๊กภายนอกหรือเวิร์กบุ๊กที่ฝัง?**
+**ฉันสามารถระบุได้หรือไม่ว่าแผนภูมิใดเชื่อมต่อกับ workbook ภายนอกหรือที่ฝังอยู่?**
 
-ใช่ ชาร์ตมี [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) และ [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) หากแหล่งเป็นเวิร์กบุ๊กภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ามีไฟล์ภายนอกถูกใช้
+ได้ แผนภูมิมี [data source type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/) และ [path to an external workbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) หากเป็น workbook ภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ามีไฟล์ภายนอกถูกใช้
 
-**รองรับเส้นทางเชิงสัมพัทธ์ไปยังเวิร์กบุ๊กภายนอกหรือไม่ และจัดเก็บอย่างไร?**
+**รองรับเส้นทางสัมพัทธ์ไปยัง workbook ภายนอกหรือไม่ และเก็บไว้ในรูปแบบใด?**
 
-รองรับ หากระบุเส้นทางเชิงสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มอัตโนมัติ งานนำเสนอเก็บเส้นทางเต็มในไฟล์ PPTX ดังนั้นการย้ายเวิร์กบุ๊กอาจต้องอัปเดตลิงก์
+ได้ หากกำหนดเส้นทางเป็นสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ การนำเก็บเส้นทางเต็มไว้ในไฟล์ PPTX ดังนั้นการย้าย workbook อาจต้องอัปเดตลิงก์
 
-**ฉันสามารถใช้เวิร์กบุ๊กที่อยู่บนทรัพยากรหรือแชร์เครือข่ายได้หรือไม่?**
+**ฉันสามารถใช้ workbook ที่อยู่บนเครือข่าย/แชร์ได้หรือไม่?**
 
-ได้ เวิร์กบุ๊กเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขเวิร์กบุ๊กระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน – สามารถใช้เป็นแหล่งข้อมูลได้เท่านั้น
+ได้ workbook เหล่านี้สามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไข workbook ระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน – สามารถใช้เป็นแหล่งข้อมูลได้เท่านั้น
 
-**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกงานนำเสนอหรือไม่?**
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกการนำเข้าหรือไม่?**
 
-งานนำเสนอเก็บ [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) การแก้ไขค่าชาร์ตที่มาจากเซลล์อาจอัปเดตไฟล์ XLSX ภายในเครื่องที่เชื่อมต่อ ใช้สำเนาของเวิร์กบุ๊กหากต้องการให้ไฟล์ต้นฉบับคงเดิม
+การนำเสนอเก็บ [link to the external file](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/external_workbook_path/) การแก้ไขค่าที่มาจากเซลล์ของแผนภูมิอาจอัปเดตไฟล์ XLSX ภายในเครื่องที่ลิงก์ไว้ ใช้สำเนาของ workbook หากต้องการให้ไฟล์ต้นฉบับคงอยู่โดยไม่มีการเปลี่ยนแปลง
 
-**ควรทำอย่างไรหากไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน?**
+**ถ้าไฟล์ภายนอกมีการป้องกันด้วยรหัสผ่าน ควรทำอย่างไร?**
 
-Aspose.Slides ไม่รับรหัสผ่านเมื่อตั้งลิงก์ วิธีทั่วไปคือถอดการป้องกันล่วงหน้า หรือเตรียมสำเนาที่ถอดรหัสแล้ว (เช่น ใช้ [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) แล้วลิงก์ไปยังสำเนานั้น
+Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการลิงก์ วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัส (เช่น ใช้ [Aspose.Cells](https://reference.aspose.com/cells/python-net/)) แล้วลิงก์ไปยังสำเนานั้น
 
-**หลายชาร์ตสามารถอ้างอิงเวิร์กบุ๊กภายนอกเดียวกันได้หรือไม่?**
+**หลายแผนภูมิสามารถอ้างอิง workbook ภายนอกเดียวกันได้หรือไม่?**
 
-ได้ แต่ละชาร์ตเก็บลิงก์ของตัวเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในทุกชาร์ตเมื่อโหลดข้อมูลครั้งต่อไป
+ได้ แต่ละแผนภูมจะเก็บลิงก์ของตนเอง หากทั้งหมดลิงก์ไปยังไฟล์เดียว การอัปเดตไฟล์นั้นจะสะท้อนในทุกแผนภูมิครั้งต่อไปที่โหลดข้อมูล**

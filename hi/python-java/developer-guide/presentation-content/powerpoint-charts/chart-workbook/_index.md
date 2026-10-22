@@ -1,50 +1,50 @@
 ---
-title: "Python via Java के साथ प्रस्तुतियों में चार्ट वर्कबुक का प्रबंधन"
-linktitle: "चार्ट वर्कबुक"
+title: Python via Java का उपयोग करके प्रस्तुतियों में चार्ट वर्कबुक प्रबंधित करें
+linktitle: चार्ट वर्कबुक
 type: docs
 weight: 70
 url: /hi/python-java/chart-workbook/
 keywords:
-- "चार्ट वर्कबुक"
-- "चार्ट डेटा"
-- "वर्कबुक कोशिका"
-- "डेटा लेबल"
-- "वर्कशीट"
-- "डेटा स्रोत"
-- "बाहरी वर्कबुक"
-- "बाहरी डेटा"
-- "चार्ट कैश"
-- "वर्कबुक पुनर्प्राप्ति"
-- "PowerPoint"
-- "प्रस्तुति"
-- "Python"
-- "Java"
-- "Aspose.Slides"
-description: "Aspose.Slides for Python via Java की खोज करें: PowerPoint और OpenDocument फ़ॉर्मैट में चार्ट वर्कबुक को आसानी से प्रबंधित करें ताकि आपकी प्रस्तुति डेटा को सुव्यवस्थित किया जा सके।"
+- चार्ट वर्कबुक
+- चार्ट डेटा
+- वर्कबुक सेल
+- डेटा लेबल
+- वर्कशीट
+- डेटा स्रोत
+- बाहरी वर्कबुक
+- बाहरी डेटा
+- चार्ट कैश
+- वर्कबुक पुनर्प्राप्ति
+- PowerPoint
+- प्रस्तुति
+- Python
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Python via Java की खोज करें: PowerPoint और OpenDocument फ़ॉर्मेट में चार्ट वर्कबुक को आसानी से प्रबंधित करें ताकि आपकी प्रस्तुति डेटा को सुव्यवस्थित किया जा सके।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने के तरीके को समझाता है। यह दर्शाता है कि वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा को कैसे पढ़ा और लिखा जाए, वर्कबुक की कोशिकाओं को चार्ट डेटा लेबल के रूप में कैसे उपयोग किया जाए, वर्कशीट संग्रह तक कैसे पहुँचा जाए, और चार्ट मानों के डेटा स्रोत प्रकार को कैसे निर्दिष्ट किया जाए।
+यह लेख Aspose.Slides में चार्ट वर्कबुक के साथ काम करने का तरीका समझाता है। यह दिखाता है कि वर्कबुक स्ट्रीम के माध्यम से चार्ट डेटा को कैसे पढ़ें और लिखें, वर्कबुक कोशिकाओं को चार्ट डेटा लेबल के रूप में उपयोग करें, वर्कशीट संग्रहों तक पहुँचें, और चार्ट मानों के लिए डेटा स्रोत प्रकार कैसे निर्दिष्ट करें।
 
-यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने को भी कवर करता है। उदाहरण दर्शाते हैं कि कैसे एक बाहरी वर्कबुक बनाया और असाइन किया जाए, किसी चार्ट से जुड़ी बाहरी वर्कबुक का पाथ प्राप्त किया जाए, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा को संपादित किया जाए।
+यह बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में उपयोग करने के बारे में भी बताता है। उदाहरण प्रदर्शित करते हैं कि बाहरी वर्कबुक कैसे बनाएँ और असाइन करें, चार्ट से जुड़ी बाहरी वर्कबुक का पथ कैसे प्राप्त करें, और जब वर्कबुक उपलब्ध हो तो चार्ट डेटा कैसे संपादित करें।
 
-किसी वर्कबुक कोशिका में अनुपलब्ध डेटा के लिए, देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/python-java/chart-series/) ताकि खाली कोशिका और शून्य के बीच अंतर और उपलब्ध प्रदर्शन मोड की लाइन‑चार्ट तुलना को समझा जा सके।
+वह कोशिकाओं के लिए जो डेटा नहीं है, उसके लिए देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/python-java/chart-series/) ताकि खाली कोशिका और शून्य के बीच अंतर तथा उपलब्ध प्रदर्शन मोड के एक रेखा-चार्ट तुलना को समझा जा सके।
 
-## **छुपी पंक्तियों और स्तंभों से डेटा शामिल करें**
+## **छिपी पंक्तियों और स्तंभों से डेटा शामिल करें**
 
-छुपी वर्कशीट पंक्तियों और स्तंभों से चार्ट डेटा को प्लॉट किया जाए या नहीं, इसे नियंत्रित करने के लिए [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) का उपयोग करें। केवल दृश्यमान कोशिकाओं को प्लॉट करने हेतु इसे `True` सेट करें, या दृश्यमान और छुपी दोनों कोशिकाओं को शामिल करने हेतु `False` सेट करें। यह सेटिंग चार्ट प्लॉटिंग को नियंत्रित करती है; यह वर्कशीट पंक्तियों या स्तंभों को छुपाती या दिखाती नहीं है।
+छिपी वर्कशीट पंक्तियों और स्तंभों से डेटा प्लॉट किया जाए या नहीं, इसे नियंत्रित करने के लिए [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) का उपयोग करें। केवल दृश्यमान कोशिकाओं को प्लॉट करने के लिए इसे `True` सेट करें, या दृश्यमान और छिपी दोनों कोशिकाओं को शामिल करने के लिए `False` सेट करें। यह सेटिंग चार्ट प्लॉटिंग को नियंत्रित करती है; यह वर्कशीट पंक्तियों या स्तंभों को छिपाती या दिखाती नहीं है।
 
-[sample presentation](hidden-source-data.pptx) में पहली स्लाइड की पहली आकृति के रूप में एक कॉलम चार्ट है। एम्बेडेड वर्कशीट, `Sheet1`, में स्रोत रेंज `A1:C4` है। पंक्ति 3 और स्तंभ C छुपे हुए हैं, परन्तु उनकी कोशिकाओं में अभी भी मान हैं।
+[उदाहरण प्रस्तुतिकरण](hidden-source-data.pptx) में पहली स्लाइड के पहले आकार के रूप में एक कॉलम चार्ट है। एम्बेडेड वर्कशीट `Sheet1` में निम्न स्रोत रेंज, `A1:C4` मौजूद है। पंक्ति 3 और स्तंभ C छिपी हुई हैं, लेकिन उनकी कोशिकाओं में अभी भी मान हैं।
 
-| Worksheet row | A: Month | B: Retail | C: Wholesale (hidden column) |
+| वर्कशीट पंक्ति | A: माह | B: रिटेल | C: होलसेल (छिपा स्तंभ) |
 | --- | --- | --- | --- |
-| 2 | January | 10 | 30 |
-| 3 (hidden row) | February | 40 | 60 |
-| 4 | March | 20 | 50 |
+| 2 | जनवरी | 10 | 30 |
+| 3 (छिपी पंक्ति) | फरवरी | 40 | 60 |
+| 4 | मार्च | 20 | 50 |
 
-स्रोत कोशिकाओं को [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) से प्राप्त करें और उनकी छुपी स्थिति का निरीक्षण करने के लिए [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) पढ़ें। यह विधि छुपी स्थिति को बदले बिना रिपोर्ट करती है। इस फ़ाइल में, B2 दृश्यमान है, B3 छुपी पंक्ति से संबंधित है, तथा C2 छुपे स्तंभ से संबंधित है; उदाहरण क्रमशः `False`, `True`, और `True` प्रिंट करता है।
+स्रोत कोशिकाओं तक पहुँचने के लिए [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) का उपयोग करें और उनकी छिपी स्थिति को जांचने के लिए [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) पढ़ें। यह विधि छिपी स्थिति को बदले बिना रिपोर्ट करती है। इस फ़ाइल में, B2 दृश्यमान है, B3 छिपी पंक्ति से संबंधित है, और C2 छिपे स्तंभ से संबंधित है; उदाहरण क्रमशः `False`, `True`, और `True` प्रिंट करता है।
 
-इस उदाहरण के लिए, प्लॉटिंग सेटिंग बदलने के बाद चार्ट डेटा को रिफ़्रेश करें: एम्बेडेड वर्कबुक को [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) से पुनः प्राप्त करें और [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) से पुनः लोड करें। सभी कोशिकाओं को शामिल करने पर, छुपी फ़रवरी श्रेणी को भी पुनः स्थापित करने हेतु [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) का उपयोग करें। केवल फ़्लैग बदलना इस उदाहरण के कैश्ड चार्ट डेटा और श्रेणी लेबल को रिफ़्रेश करने के लिए अपर्याप्त है।
+इस उदाहरण के लिए, प्लॉटिंग सेटिंग बदलने के बाद चार्ट डेटा को रीफ़्रेश करें: एम्बेडेड वर्कबुक को [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) से प्राप्त करें और [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) से पुनः लोड करें। सभी कोशिकाओं को शामिल करने के लिए, छिपी फ़रवरी श्रेणी को भी पुनर्स्थापित करने हेतु [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) का उपयोग करें। केवल फ़्लैग बदलना इस नमूने के कैश्ड चार्ट डेटा और श्रेणी लेबल को रीफ़्रेश करने के लिए पर्याप्त नहीं है।
 
 ```python
 import jpype
@@ -74,7 +74,7 @@ try:
             # एम्बेडेड वर्कबुक से चार्ट डेटा को रीफ़्रेश करें।
             chart.getChartData().writeWorkbookStream(workbook_data)
             if not visible_only:
-                # छुपी श्रेणियों सहित पूर्ण स्रोत रेंज को पुनर्स्थापित करें।
+                # छिपी श्रेणियों सहित पूर्ण स्रोत रेंज को पुनर्स्थापित करें।
                 chart.getChartData().setRange("Sheet1!$A$1:$C$4")
 
             presentation.save(f"hidden_cells_{visible_only}.pptx", SaveFormat.Pptx)
@@ -84,21 +84,21 @@ finally:
     presentation.dispose()
 ```
 
-उदाहरण प्रस्तुति के दो संस्करण सहेजता है: एक केवल दृश्यमान रिटेल मान (10 और 20) के साथ, और दूसरा सभी छह मानों के साथ। नीचे की छवियाँ दो प्लॉटिंग मोड को दर्शाती हैं। पंक्ति 3 और स्तंभ C दोनों एम्बेडेड वर्कबुक में छुपे रहे हैं।
+उदाहरण प्रस्तुति के दो संस्करण सहेजता है: एक में केवल दृश्यमान रिटेल मान (10 और 20) हैं, और दूसरा में सभी छह मान हैं। नीचे की छवियों में दो प्लॉटिंग मोड दिखाए गए हैं। पंक्ति 3 और स्तम्भ C दोनों एम्बेडेड वर्कबुक में छिपे रहते हैं।
 
 | केवल दृश्यमान कोशिकाएँ (`True`) | सभी कोशिकाएँ (`False`) |
 | --- | --- |
-| ![केवल दृश्यमान कोशिकाएँ: जनवरी और मार्च के लिए रिटेल मान 10 और 20।](hidden_cells_True.png) | ![सभी कोशिकाएँ: जनवरी, फ़रवरी और मार्च के लिए रिटेल और होलसेल मान।](hidden_cells_False.png) |
+| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
 
-एक छुपी कोशिका जिसमें मान है वह खाली कोशिका से भिन्न होती है। [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) नियंत्रित करता है कि अनुपलब्ध मान कैसे प्रदर्शित किए जाएँ; इसका छुपे स्रोत डेटा को शामिल या बाहर करने से कोई संबंध नहीं है। उदाहरण के लिए देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/python-java/chart-series/#control-the-display-of-empty-cells)।
+एक मान सहित छिपी कोशिका खाली कोशिका से अलग होती है। [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) नियंत्रित करता है कि अनुपलब्ध मान कैसे प्रदर्शित हों; यह छिपे स्रोत डेटा को शामिल या बाहर नहीं करता। उदाहरण के लिए देखें [खाली कोशिकाओं के प्रदर्शन को नियंत्रित करें](/slides/hi/python-java/chart-series/#control-the-display-of-empty-cells)।
 
-## **चार्ट की डेटा रेंज प्राप्त करें**
+## **चार्ट के डेटा रेंज को पुनः प्राप्त करें**
 
-किसी मौजूदा प्रस्तुति में वर्कबुक डेटा को अपडेट करने से पहले, स्रोत रेंज की जाँच करके यह पहचानें कि प्रत्येक चार्ट किन वर्कशीट कोशिकाओं का उपयोग करता है। [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) विधि वर्तमान डेटा रेंज को एक वर्कशीट‑क्वालिफाइड फ़ॉर्मूला के रूप में लौटाती है, जैसे `Sheet1!$A$1:$D$5`। यहाँ `Sheet1` वर्कशीट का नाम है, `!` इसे सेल रेंज से अलग करता है, और `$A$1:$D$5` निरपेक्ष पंक्ति‑स्तंभ संदर्भ दर्शाता है।
+मौजूदा प्रस्तुति में वर्कबुक डेटा को अपडेट करने से पहले, स्रोत रेंजों की जांच करें ताकि यह पहचाना जा सके कि प्रत्येक चार्ट कौन-कौन सी वर्कशीट कोशिकाओं का उपयोग करता है। [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) विधि वर्तमान डेटा रेंज को एक वर्कशीट-योग्य फ़ॉर्मूला के रूप में लौटाती है, जैसे `Sheet1!$A$1:$D$5`। यहाँ, `Sheet1` वर्कशीट का नाम है, `!` इसे कोशिका रेंज से अलग करता है, और `$A$1:$D$5` कोशिकाएँ A1 से D5 तक, दोनों सहित, को दर्शाता है। डॉलर चिह्न पूर्ण पंक्ति और स्तंभ संदर्भ दर्शाते हैं।
 
-यह विधि चार्ट या उसकी वर्कबुक को बदले बिना वर्तमान रेंज को पढ़ती है। यदि चार्ट डेटा स्रोत के रूप में वर्कबुक का उपयोग नहीं करता, तो यह `InvalidOperationException` फेंकती है। अधिक जानकारी के लिए देखें [ChartData API संदर्भ](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/)।
+यह विधि चार्ट या उसके वर्कबुक को बदले बिना वर्तमान रेंज को पढ़ती है। यदि चार्ट डेटा स्रोत के रूप में वर्कबुक का उपयोग नहीं करता, तो यह `InvalidOperationException` फेंकता है। अधिक जानकारी के लिए देखें [ChartData API रेफ़रेंस](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/)।
 
-यह उदाहरण एक प्रस्तुति खोलता है और प्रत्येक स्लाइड पर सीधे आकृतियों की जाँच करता है कि वे चार्ट हैं या नहीं। यह प्रत्येक चार्ट का नाम और स्रोत रेंज प्रिंट करता है। यदि कोई चार्ट वर्कबुक का उपयोग नहीं करता, तो वह एक संदेश प्रिंट करके अगले चार्ट पर जारी रहता है।
+यह उदाहरण एक प्रस्तुति खोलता है और प्रत्येक स्लाइड पर सीधे आकारों की जाँच करता है कि क्या उनमें चार्ट हैं। यह प्रत्येक चार्ट का नाम और स्रोत रेंज प्रिंट करता है। यदि कोई चार्ट वर्कबुक का उपयोग नहीं करता, तो यह एक संदेश प्रिंट करता है और अगले चार्ट पर जारी रहता है।
 
 ```python
 import jpype
@@ -127,9 +127,9 @@ finally:
 
 ## **वर्कबुक से चार्ट डेटा पढ़ें और लिखें**
 
-Aspose.Slides for Python via Java [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) और [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) विधियाँ प्रदान करता है, जिससे आप चार्ट डेटा वर्कबुक (जो Aspose.Cells के साथ संपादित किए गये हैं) को पढ़ और लिख सकते हैं। **Note** कि चार्ट डेटा को समान रूप से व्यवस्थित होना चाहिए या स्रोत के समान संरचना होनी चाहिए।
+Aspose.Slides for Python via Java, [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) और [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) विधियों को प्रदान करता है जो आपको चार्ट डेटा वर्कबुक (जिसमें Aspose.Cells के साथ संपादित डेटा होता है) को पढ़ने और लिखने की अनुमति देती हैं। **ध्यान दें** कि चार्ट डेटा को उसी प्रकार संगठित होना चाहिए या स्रोत के समान संरचना रखनी चाहिए।
 
-यह उदाहरण पहली स्लाइड की पहली आकृति के रूप में एक चार्ट के साथ एक प्रस्तुति का उपयोग करता है। यह एम्बेडेड वर्कबुक को बाइट ऐरे में पढ़ता है, मौजूदा सीरीज़ और श्रेणियों को साफ़ करता है, और वही वर्कबुक वापस लिखता है। परिवर्तन मेमोरी में रहते हैं; उदाहरण प्रस्तुति को सहेजता नहीं है।
+यह उदाहरण पहली स्लाइड के पहले आकार के रूप में एक चार्ट वाली प्रस्तुति का उपयोग करता है। यह एम्बेडेड वर्कबुक को बाइट ऐरे में पढ़ता है, मौजूदा श्रृंखलाएँ और श्रेणियाँ साफ़ करता है, और वही वर्कबुक वापस लिखता है। परिवर्तन मेमोरी में रहते हैं; उदाहरण प्रस्तुति को सहेजता नहीं है।
 
 ```python
 import jpype
@@ -160,9 +160,9 @@ finally:
     presentation.dispose()
 ```
 
-### **वर्कबुक संशोधन के बाद चार्ट लेआउट को मान्य करें**
+### **वर्कबुक संशोधन के बाद चार्ट लेआउट सत्यापित करें**
 
-जब आप एक संशोधित वर्कबुक के साथ एम्बेडेड वर्कबुक को बदलते हैं, तो चार्ट अपने मूल सीरीज़ और श्रेणी संग्रह को बनाए रखता है। यह असंगति [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) को इंडेक्स‑आउट‑ऑफ‑रेंज त्रुटि के साथ फेल कर सकती है। अद्यतन वर्कबुक को चार्ट में लिखने से पहले मौजूदा सीरीज़ और श्रेणियों को साफ़ करें। यह उदाहरण पहली स्लाइड की पहली आकृति में एक चार्ट का उपयोग करता है। टिप्पणी चिन्ह उन स्थानों को दर्शाता है जहाँ वर्कबुक संशोधन होगा; चलाने योग्य उदाहरण मूल वर्कबुक को वापस लिखता है और मेमोरी में लेआउट को मान्य करता है।
+जब आप एक संशोधित वर्कबुक से एम्बेडेड वर्कबुक को प्रतिस्थापित करते हैं, तो चार्ट अपनी मूल श्रृंखलाएँ और श्रेणी संग्रह बनाए रखता है। यह असंगति [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) को इंडेक्स-आउट-ऑफ़-रेंज त्रुटि के साथ विफल कर सकती है। अद्यतन वर्कबुक को वापस लिखने से पहले मौजूदा श्रृंखलाएँ और श्रेणियाँ साफ़ करें। यह उदाहरण पहली स्लाइड के पहले आकार के रूप में एक चार्ट का उपयोग करता है। टिप्पणी वह स्थान दर्शाती है जहाँ वर्कबुक संपादन होगा; चलने योग्य उदाहरण मूल वर्कबुक को वापस लिखता है और मेमोरी में लेआउट को वैध करता है।
 
 ```python
 import jpype
@@ -183,7 +183,7 @@ try:
         chart_data = chart.getChartData()
         workbook_data = chart_data.readWorkbookStream()
 
-        # वर्कबुक बाइट्स यहाँ संशोधित करें, उदाहरण के लिए, Aspose.Cells का उपयोग करके।
+        # यहाँ वर्कबुक बाइट्स संशोधित करें, उदाहरण के लिए, Aspose.Cells का उपयोग करके।
 
         chart_data.getSeries().clear()
         chart_data.getCategories().clear()
@@ -196,15 +196,15 @@ finally:
     presentation.dispose()
 ```
 
-संग्रहों को साफ़ करने से वर्कबुक लिखे जाने से पहले पुराने डेटा रेफ़रेंसेज़ हट जाते हैं। अद्यतन वर्कबुक के लिए आवश्यक सीरीज़ और श्रेणी मैपिंग को पुनः बनाएँ, फिर चार्ट का उपयोग करें।
+संग्रहों को साफ़ करने से वर्कबुक को वापस लिखने से पहले पुराने डेटा रेफ़रेंस हट जाते हैं। अद्यतन वर्कबुक के लिए आवश्यक कोई भी श्रृंखला और श्रेणी मैपिंग को फिर से बनाएं, फिर चार्ट का उपयोग करें।
 
 ## **वर्कबुक कोशिकाओं के लिए कस्टम नंबर फ़ॉर्मेट सेट करें**
 
-[ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) का उपयोग करके आप एक चार्ट की एम्बेडेड वर्कबुक में संख्यात्मक मानों के प्रदर्शित होने के तरीके को नियंत्रित कर सकते हैं। उदाहरण के लिये, किसी रिपोर्ट को रूपांतरण दर को चार दशमलव स्थान के साथ प्रतिशत रूप में और गुणांक को पाँच दशमलव स्थान के साथ दिखाना पड़ सकता है। दोनों मानों को संख्यात्मक रखें ताकि वे गणनाओं और चार्ट प्लॉटिंग के लिये उपलब्ध रहें।
+[ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) का उपयोग करके आप नियंत्रित कर सकते हैं कि संख्यात्मक मान चार्ट की एम्बेडेड वर्कबुक में कैसे प्रदर्शित हों। उदाहरण के लिए, एक रिपोर्ट को परिवर्तन दर को प्रतिशत के रूप में चार दशमलव स्थानों के साथ और गुणांक को पाँच दशमलव स्थानों के साथ दिखाना पड़ सकता है। दोनों मानों को संख्यात्मक रखें ताकि वे गणनाओं और चार्ट प्लॉटिंग के लिए उपलब्ध रहें।
 
-एक नंबर फ़ॉर्मेट केवल प्रदर्शित मान बदलता है, संग्रहीत मान नहीं। फ़ॉर्मेट `0.0000%` `0.125` को `12.5000%` के रूप में दिखाता है; यह संग्रहीत संख्या को `12.5` में नहीं बदलता। इसी प्रकार `0.00000` `0.1234567` को `0.12346` दिखाता है, बिना संग्रहीत मान को गोल किए। यदि कस्टम फ़ॉर्मेट एक खाली स्ट्रिंग (`""`) है, तो [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) द्वारा लौटाए गए फ़ॉर्मेट को प्रयोग किया जाता है।
+एक नंबर फ़ॉर्मेट केवल प्रदर्शित करता है, संग्रहीत मान को नहीं बदलता। फ़ॉर्मेट `0.0000%` `0.125` को `12.5000%` के रूप में दिखाता है; यह संग्रहीत संख्या को `12.5` में नहीं बदलता। इसी प्रकार, `0.00000` `0.1234567` को `0.12346` के रूप में दिखाता है बिना संग्रहीत मान को राउंड किए। यदि कस्टम फ़ॉर्मेट खाली स्ट्रिंग (`""`) है, तो [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) द्वारा लौटाया गया फ़ॉर्मेट उपयोग किया जाता है।
 
-निम्न उदाहरण एक कॉलम चार्ट बनाता है और इसकी कोशिकाओं तक पहुँचता है [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) के माध्यम से। वर्कशीट 0 पर, B2 में रूपांतरण दर और C2 में गुणांक है। दोनों कोशिकाएँ चार्ट मान प्रदान करती हैं। उदाहरण लेबल को स्रोत फ़ॉर्मेट से लिंक करने के साथ साथ मान लेबल को भी सक्षम करता है।
+नीचे का उदाहरण एक कॉलम चार्ट बनाता है और उसकी कोशिकाओं तक पहुँचता है [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) के द्वारा। वर्कशीट 0 पर, B2 में परिवर्तन दर और C2 में गुणांक है। दोनों कोशिकाएँ चार्ट मान प्रदान करती हैं। उदाहरण स्रोत फ़ॉर्मेट से जुड़ी मान लेबल भी सक्षम करता है।
 
 ```python
 import jpype
@@ -259,19 +259,19 @@ finally:
     presentation.dispose()
 ```
 
-वर्कबुक कोशिका फ़ॉर्मेट चार्ट अक्षों या डेटा लेबल पर सीधे सेट किए गए फ़ॉर्मेट से अलग होते हैं। इस उदाहरण में प्रत्येक लेबल अपना स्रोत कोशिका मान दिखाता है क्योंकि [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) `True` है, और स्रोत नंबर फ़ॉर्मेट का अनुसरण करता है क्योंकि [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) `True` है। सहेजने तथा प्रस्तुति को पुनः खोलने के बाद लेबल `12.5000%` और `0.12346` प्रदर्शित करते हैं, जैसा कि नीचे दिखाया गया है। वर्टिकल अक्ष अपना स्वयं का नंबर फ़ॉर्मेट उपयोग करता है, जिसे [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) से `0.00` सेट किया गया है, और [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) `False` है।
+वर्कबुक कोशिका फ़ॉर्मेट्स चार्ट अक्ष या डेटा लेबल पर सीधे सेट किए गए फ़ॉर्मेट्स से अलग होते हैं। इस उदाहरण में, प्रत्येक लेबल अपने स्रोत कोशिका के मान को दिखाता है क्योंकि [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) `True` पर सेट है, और स्रोत नंबर फ़ॉर्मेट का अनुसरण करता है क्योंकि [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) भी `True` है। प्रस्तुति सहेजने और पुनः खोलने के बाद, लेबल `12.5000%` और `0.12346` दिखाते हैं, जैसा कि नीचे दिखाया गया है। लंबवत अक्ष अपना स्वयं का नंबर फ़ॉर्मेट उपयोग करता है, जिसे [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) द्वारा `0.00` सेट किया गया है, और [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) `False` पर है।
 
-किसी डेटा लेबल को स्वतंत्र रूप से फ़ॉर्मेट करने के लिये, उसके स्रोत‑लिंक फ़्लैग को `False` सेट करें और [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) से फ़ॉर्मेट असाइन करें। यह वर्कबुक कोशिका के फ़ॉर्मेट को नहीं बदलेगा। उदाहरण के लिये, स्वतंत्र लेबल फ़ॉर्मेट `0.00` पहला मान `0.13` दिखाता है, जबकि B2 अभी भी `12.5000%` दिखाता है। देखें [Chart Data Labels](/slides/hi/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) सीधे लेबल फ़ॉर्मेटिंग के लिये।
+डेटा लेबल को स्वतंत्र रूप से फ़ॉर्मेट करने के लिए, उसके स्रोत‑लिंक फ़्लैग को `False` सेट करें और [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat) से फ़ॉर्मेट असाइन करें। यह वर्कबुक कोशिका के फ़ॉर्मेट को नहीं बदलता। उदाहरण के लिए, स्वतंत्र लेबल फ़ॉर्मेट `0.00` पहला मान `0.13` दिखाएगा, जबकि B2 अभी भी `12.5000%` दिखाएगा। सीधे लेबल फ़ॉर्मेटिंग के लिये देखें [Chart Data Labels](/slides/hi/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels)।
 
-नीचे की छवि सहेजे गये प्रस्तुति को पुनः खोलने के बाद रेंडर की गई है:
+नीचे की छवि सहेजी गई प्रस्तुति को पुनः खोलने के बाद रेंडर की गई है:
 
-![स्रोत‑लिंक्ड लेबल के साथ कॉलम चार्ट, जो 12.5000% और 0.12346 दिखा रहा है तथा स्वतंत्र रूप से फ़ॉर्मेट किए गये संख्यात्मक अक्ष का उपयोग कर रहा है।](custom-cell-formats.png)
+![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
 
-## **चार्ट डेटा लेबल के रूप में वर्कबुक कोशिका सेट करें**
+## **वर्कबुक कोशिका को चार्ट डेटा लेबल के रूप में सेट करें**
 
-आप वर्कबुक कोशिकाओं से पाठ को चार्ट डेटा लेबल के रूप में उपयोग कर सकते हैं।
+आप वर्कबुक कोशिकाओं के पाठ को चार्ट डेटा लेबल के रूप में उपयोग कर सकते हैं।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में डिफ़ॉल्ट डेटा के साथ एक बबल चार्ट जोड़ता है। यह वर्कशीट 0 की कोशिकाएँ A10:A12 को पहली सीरीज़ के प्रथम तीन लेबल के रूप में उपयोग करता है, कोशिकाओं से लेबल सक्षम करता है, और अपडेटेड प्रस्तुति को सहेजता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक बबल चार्ट डिफ़ॉल्ट डेटा के साथ जोड़ता है। यह वर्कशीट 0 की कोशिकाएँ A10:A12 का उपयोग पहले श्रृंखला के पहले तीन लेबल के लिए करता है, कोशिकाओं से लेबल सक्षम करता है, और अपडेटेड प्रस्तुति सहेजता है।
 
 ```python
 import jpype
@@ -301,9 +301,9 @@ finally:
     presentation.dispose()
 ```
 
-## **वर्कशीट्स का प्रबंधन करें**
+## **वर्कशीट प्रबंधित करें**
 
-[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) विधि चार्ट वर्कबुक में उपस्थित वर्कशीट्स तक पहुँच प्रदान करती है। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और प्रत्येक वर्कशीट का नाम कंसोल पर प्रिंट करता है।
+[ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) विधि चार्ट वर्कबुक में मौजूद वर्कशीटों तक पहुँच प्रदान करती है। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और प्रत्येक वर्कशीट का नाम कंसोल पर प्रिंट करता है।
 
 ```python
 import jpype
@@ -328,7 +328,9 @@ finally:
 
 ## **डेटा स्रोत प्रकार निर्दिष्ट करें**
 
-यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक 3D कॉलम चार्ट बनाता है और दो सीरीज़ नामों को विभिन्न डेटा स्रोतों से सेट करता है। पहला नाम एक स्ट्रिंग लिटरल से लिया गया है; दूसरा नाम वर्कशीट 0 की कोशिका C1 से लिया गया है। [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) एन्ह्यूमरेशन प्रत्येक नाम के स्रोत का चयन करता है। उदाहरण अपडेटेड सीरीज़ नामों के साथ प्रस्तुति को सहेजता है।
+श्रृंखला बिंदु मानों को सीधे संख्यात्मक लिटरल के रूप में भी संग्रहीत किया जा सकता है। एक पूर्ण उदाहरण के लिये देखें [Set Series Values Using Numeric Literals](/slides/hi/python-java/chart-series/#set-series-values-using-numeric-literals) जो उन्हें सहेजता और पढ़ता है। बिंदु मानों का स्रोत प्रकार चार्ट के आंतरिक या बाहरी वर्कबुक कॉन्फ़िगरेशन से अलग होता है; संख्यात्मक लिटरल का उपयोग स्वयं एम्बेडेड वर्कबुक को नहीं हटाता।
+
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक 3D कॉलम चार्ट बनाता है और दो श्रृंखला नामों को विभिन्न डेटा स्रोतों का उपयोग करके सेट करता है। पहला नाम स्ट्रिंग लिटरल से लिया गया है; दूसरा नाम वर्कशीट 0 की कोशिका C1 से लिया गया है। [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) enumeration प्रत्येक नाम के स्रोत का चयन करता है। उदाहरण प्रस्तुति को अपडेटेड श्रृंखला नामों के साथ सहेजता है।
 
 ```python
 import jpype
@@ -357,9 +359,9 @@ finally:
     presentation.dispose()
 ```
 
-## **एम्बेडेड वर्कबुक के असमर्थित फ़ॉर्मेट को पहचानें**
+## **असमर्थित एम्बेडेड वर्कबुक फ़ॉर्मेट का पता लगाएँ**
 
-Aspose.Slides उन Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट को समर्थन नहीं देता जो कुछ चार्ट्स में एम्बेडेड हो सकते हैं। आप [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) पर [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) विधि को [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) एन्ह्यूमरेशन के साथ उपयोग करके असमर्थित फ़ॉर्मेट का पता लगा सकते हैं और उन चार्ट्स को स्किप कर सकते हैं। यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर आकृतियों की जाँच करता है, गैर‑चार्ट आकृतियों को छोड़ता है, और प्रत्येक .xlsb एम्बेडेड वर्कबुक वाले चार्ट के लिये एक डायग्नोस्टिक संदेश प्रिंट करता है।
+Aspose.Slides उन चार्ट्स में एम्बेडेड Excel बाइनरी वर्कबुक (.xlsb) फ़ॉर्मेट का समर्थन नहीं करता। आप [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) पर [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) विधि को [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) enumeration के साथ उपयोग करके असमर्थित फ़ॉर्मेट का पता लगा सकते हैं और उन चार्ट्स को छोड़ सकते हैं। यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर आकारों की जाँच करता है, गैर‑चार्ट आकारों को छोड़ता है, और प्रत्येक .xlsb एम्बेडेड वर्कबुक वाले चार्ट के लिये एक डायग्नॉस्टिक संदेश प्रिंट करता है।
 
 ```python
 import jpype
@@ -386,20 +388,21 @@ try:
         if is_internal_workbook and is_binary_macro:
             print("Skipping a chart with an unsupported .xlsb workbook.")
             continue
-        # समर्थित चार्ट वर्कबुक डेटा को यहाँ पढ़ें या संशोधित करें।
+        # यहाँ समर्थित चार्ट वर्कबुक डेटा को पढ़ें या संशोधित करें।
+
 finally:
     presentation.dispose()
 ```
 
 ## **बाहरी वर्कबुक**
 
-Aspose.Slides चार्ट्स के लिये बाहरी वर्कबुक को डेटा स्रोत के रूप में उपयोग करने का समर्थन करता है।
+Aspose.Slides चार्ट्स के लिए डेटा स्रोत के रूप में बाहरी वर्कबुक का उपयोग समर्थन करता है।
 
-### **बाहरी वर्कबुक बनाएं**
+### **बाहरी वर्कबुक बनाएँ**
 
-[readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) और [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) का उपयोग करके एम्बेडेड चार्ट वर्कबुक को फ़ाइल में निर्यात करें और चार्ट को उस बाहरी वर्कबुक से लिंक करें।
+[readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) और [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) का उपयोग करके आप एम्बेडेड चार्ट वर्कबुक को फ़ाइल में निर्यात कर सकते हैं और चार्ट को उस बाहरी वर्कबुक से लिंक कर सकते हैं।
 
-यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और उसकी वर्कबुक को निर्यात करता है। फ़ाइल लिखने के बाद बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में असाइन करता है, फिर लिंक्ड प्रस्तुति को सहेजता है।
+यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक पाई चार्ट बनाता है और उसकी वर्कबुक निर्यात करता है। फ़ाइल लिखना पूरा होने के बाद बाहरी वर्कबुक को चार्ट डेटा स्रोत के रूप में असाइन करता है, फिर लिंक्ड प्रस्तुति सहेजता है।
 
 ```python
 import jpype
@@ -427,13 +430,13 @@ finally:
     presentation.dispose()
 ```
 
-### **बाहरी वर्कबुक सेट करें**
+### **बाहरी वर्कबुक असाइन करें**
 
-[setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) विधि का उपयोग करके आप किसी चार्ट के लिये बाहरी वर्कबुक को डेटा स्रोत के रूप में असाइन कर सकते हैं। यह विधि बाहरी वर्कबुक के पाथ को अपडेट करने के लिये भी प्रयोग की जा सकती है (यदि वर्कबुक को स्थानांतरित किया गया हो)।
+[setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) विधि का उपयोग करके आप किसी चार्ट को उसका डेटा स्रोत के रूप में बाहरी वर्कबुक असाइन कर सकते हैं। यह विधि बाहरी वर्कबुक के पथ को अपडेट करने के लिए भी उपयोग की जा सकती है (यदि वह स्थानांतरित किया गया हो)।
 
-यदि आप दूरस्थ स्थितियों या संसाधनों में संग्रहीत वर्कबुक के डेटा को संपादित नहीं कर सकते, तो आप फिर भी ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाहरी वर्कबुक का सापेक्ष पाथ दिया गया है, तो वह स्वचालित रूप से पूर्ण पाथ में परिवर्तित हो जाता है।
+भले ही आप रिमोट स्थानों या संसाधनों में संग्रहीत वर्कबुक के डेटा को सीधे संपादित न कर सकें, आप फिर भी ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग कर सकते हैं। यदि बाहरी वर्कबुक के लिये सापेक्ष पथ प्रदान किया जाता है, तो उसे स्वतः पूर्ण पथ में परिवर्तित कर दिया जाता है।
 
-यह उदाहरण एक बाहरी वर्कबुक का उपयोग करता है जिसकी वर्कशीट `Sheet1` में B1 में एक सीरीज़ नाम, A2:A4 में श्रेणी नाम, और B2:B4 में संख्यात्मक मान हैं। उदाहरण एक पाई चार्ट बनाता है, वर्कबुक को लिंक करता है, और [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) का उपयोग करके A1:B4 को एक सीरीज़ और तीन श्रेणियों से मैप करता है। फिर लिंक्ड चार्ट के साथ प्रस्तुति को सहेजता है।
+यह उदाहरण एक बाहरी वर्कबुक का उपयोग करता है जिसकी वर्कशीट `Sheet1` में B1 में श्रृंखला नाम, A2:A4 में श्रेणी नाम, और B2:B4 में संख्यात्मक मान हैं। उदाहरण एक पाई चार्ट बनाता है, वर्कबुक को लिंक करता है, और [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) का उपयोग करके A1:B4 को एक श्रृंखला और तीन श्रेणियों से मैप करता है। यह लिंक्ड चार्ट के साथ प्रस्तुति को सहेजता है।
 
 ```python
 import jpype
@@ -463,10 +466,10 @@ finally:
 
 [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) का `updateChartData` पैरामीटर नियंत्रित करता है कि वर्कबुक लोड हो या नहीं।
 
-* जब `updateChartData` `False` है, तो केवल वर्कबुक पाथ अपडेट किया जाता है। चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं होता, इसलिए वर्कबुक अनुपलब्ध भी हो सकती है।
-* जब `updateChartData` `True` है, तो चार्ट डेटा लक्ष्य वर्कबुक से अपडेट होता है।
+* जब `updateChartData` `False` हो, तो केवल वर्कबुक पथ अपडेट होता है। चार्ट डेटा लक्ष्य वर्कबुक से लोड या अपडेट नहीं होता, इसलिए वर्कबुक उपलब्ध नहीं भी हो सकती।
+* जब `updateChartData` `True` हो, तो चार्ट डेटा लक्ष्य वर्कबुक से अपडेट होता है।
 
-निम्न उदाहरण `updateChartData` को `False` सेट करके एक प्लेसहोल्डर URL असाइन करता है। यह पाई चार्ट के डिफ़ॉल्ट डेटा को बरकरार रखता है और अनुपलब्ध वर्कबुक को लोड किए बिना प्रस्तुति को सहेजता है।
+निम्न उदाहरण `updateChartData` को `False` के साथ एक प्लेसहोल्डर URL असाइन करता है। यह पाई चार्ट के डिफ़ॉल्ट डेटा को बरकरार रखता है और अनुपलब्ध वर्कबुक को लोड किए बिना प्रस्तुति सहेजता है।
 
 ```python
 import jpype
@@ -490,11 +493,11 @@ finally:
     presentation.dispose()
 ```
 
-### **चार्ट की बाहरी डेटा स्रोत वर्कबुक पाथ प्राप्त करें**
+### **चार्ट के बाहरी डेटा स्रोत वर्कबुक पथ प्राप्त करें**
 
-किसी चार्ट से जुड़ी वर्कबुक की पहचान करने के लिये, जाँचें कि क्या चार्ट बाहरी डेटा स्रोत का उपयोग करता है और उसकी वर्कबुक पाथ प्राप्त करें।
+किसी चार्ट से जुड़ी वर्कबुक की पहचान करने के लिए, जांचें कि क्या चार्ट बाहरी डेटा स्रोत का उपयोग करता है और उसका वर्कबुक पथ प्राप्त करें।
 
-यह उदाहरण प्रस्तुति की पहली स्लाइड की पहली आकृति की जाँच करता है जिसमें लिंक्ड बाहरी वर्कबुक है। यदि यह एक बाहरी वर्कबुक से जुड़ा चार्ट है, तो उदाहरण [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) को कंसोल पर प्रिंट करता है। फिर प्रस्तुति की एक कॉपी सहेजता है।
+यह उदाहरण एक प्रस्तुति में पहले स्लाइड के पहले आकार को जांचता है, जिसमें लिंक्ड बाहरी वर्कबुक है। यदि वह एक चार्ट है जो बाहरी वर्कबुक से जुड़ा है, तो उदाहरण [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) को कंसोल पर प्रिंट करता है। फिर यह प्रस्तुति की एक कॉपी सहेजता है।
 
 ```python
 import jpype
@@ -527,9 +530,9 @@ finally:
 
 ### **चार्ट डेटा संपादित करें**
 
-आप बाहरी वर्कबुक में डेटा को उसी प्रकार संपादित कर सकते हैं जैसे आप आन्तरिक वर्कबुक की सामग्री को संशोधित करते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाती, तो एक अपवाद फेंका जाता है।
+आप बाहरी वर्कबुक में डेटा को उसी तरह संपादित कर सकते हैं जैसे आप आंतरिक वर्कबुक की सामग्री को बदलते हैं। जब कोई बाहरी वर्कबुक लोड नहीं हो पाती, तो एक अपवाद फेंका जाता है।
 
-यह उदाहरण पहली स्लाइड की पहली आकृति में स्थित एक चार्ट का उपयोग करता है जो एक सुलभ बाहरी वर्कबुक से लिंक्ड है। यह पहली सीरीज़ के पहले डेटा पॉइंट का मान 100 सेट करता है और अपडेटेड प्रस्तुति को सहेजता है। सेल मानों को संपादित करने से लिंक्ड बाहरी XLSX फ़ाइल अपडेट हो सकती है, इसलिए मूल वर्कबुक को सुरक्षित रखने हेतु एक कॉपी उपयोग करें।
+यह उदाहरण पहली स्लाइड के पहले आकार के रूप में एक चार्ट का उपयोग करता है, जो एक सुलभ बाहरी वर्कबुक से जुड़ा है। यह पहले श्रृंखला के पहले डेटा बिंदु का सेल‑बैक्ड मान 100 सेट करता है और अपडेटेड प्रस्तुति सहेजता है। सेल मानों को संपादित करने से लिंक्ड बाहरी XLSX फ़ाइल अपडेट हो सकती है, इसलिए मूल वर्कबुक को संरक्षित रखने हेतु एक कॉपी का उपयोग करें।
 
 ```python
 import jpype
@@ -565,16 +568,16 @@ finally:
 
 ### **चार्ट कैश से वर्कबुक पुनः प्राप्त करें**
 
-यदि कोई चार्ट बाहरी वर्कबुक का उपयोग करता है जो अनुपलब्ध या गायब है, तो Aspose.Slides प्रस्तुति में कैश किए गए डेटा से चार्ट वर्कबुक को पुनः बनाकर पुनः प्राप्त कर सकता है। [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/) बनाएं, [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) को कॉल करें, और [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) को `True` सेट करें, फिर प्रस्तुति खोलें।
+यदि कोई चार्ट बाहरी वर्कबुक का उपयोग करता है जो अनुपलब्ध या गायब है, तो Aspose.Slides प्रस्तुति में कैश किए गए डेटा से चार्ट वर्कबुक को पुनः निर्मित कर सकता है। [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/) बनाएं, [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) को कॉल करें, और [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) को `True` सेट करें, फिर प्रस्तुति खोलें।
 
-निम्न Python उदाहरण एक चार्ट के लिये वर्कबुक डेटा पुनः प्राप्त करता है जो पहली स्लाइड की पहली आकृति है और अनुपलब्ध बाहरी वर्कबुक को संदर्भित करता है। यह पुनः प्राप्त डेटा को [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) और [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) के माध्यम से एक्सेस करता है:
+निम्न Python उदाहरण एक चार्ट के लिए वर्कबुक डेटा पुनः प्राप्त करता है जो पहली स्लाइड के पहले आकार में है और एक अनुपलब्ध बाहरी वर्कबुक को संदर्भित करता है। यह पुनः प्राप्त डेटा को [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) और [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) के माध्यम से एक्सेस करता है:
 
 ```python
-import jpype
+import jpile
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpile.isJVMStarted():
+    jpile.startJVM()
 
 from asposeslides.api import Chart, LoadOptions, Presentation, SpreadsheetOptions
 
@@ -593,37 +596,37 @@ try:
         chart = slide.getShapes().get_Item(0)
         recovered_workbook = chart.getChartData().getChartDataWorkbook()
 
-        # यहाँ पुनर्प्राप्त वर्कबुक डेटा को पढ़ें या संशोधित करें।
+        # यहाँ पुनः प्राप्त वर्कबुक डेटा को पढ़ें या संशोधित करें।
     else:
         print("The first shape is not a chart.")
 finally:
     presentation.dispose()
 ```
 
-यदि बाहरी वर्कबुक अनुपलब्ध है और पुनः प्राप्ति अक्षम है, तो Aspose.Slides एक अपवाद फेंकेगा। केवल तभी पुनः प्राप्ति सक्षम करें जब कैश्ड चार्ट डेटा का उपयोग स्वीकार्य फॉलबैक हो, क्योंकि कैश में बाहरी वर्कबुक में किए गए परिवर्तनों को शामिल नहीं किया गया हो सकता है।
+यदि बाहरी वर्कबुक अनुपलब्ध है और रिकवरी निष्क्रिय है, तो Aspose.Slides एक अपवाद फेंकता है। केवल तब रिकवरी सक्षम करें जब कैश्ड चार्ट डेटा को फॉलबैक के रूप में उपयोग करना स्वीकार्य हो, क्योंकि कैश में बाहरी वर्कबुक में अंतिम अपडेट के बाद किए गए परिवर्तन शामिल न भी हो सकते हैं।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं निर्धारित कर सकता हूँ कि कोई विशेष चार्ट बाहरी या एम्बेडेड वर्कबुक से लिंक्ड है?**
+**क्या मैं निर्धारित कर सकता हूँ कि कोई विशिष्ट चार्ट बाहरी या एम्बेडेड वर्कबुक से जुड़ा है?**
 
-हां। चार्ट के पास एक [डेटा स्रोत प्रकार](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) और एक [बाहरी वर्कबुक पाथ](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) होता है; यदि स्रोत एक बाहरी वर्कबुक है, तो आप पूर्ण पाथ पढ़ कर सुनिश्चित कर सकते हैं कि बाहरी फ़ाइल उपयोग में है।
+हाँ। एक चार्ट का [data source type](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) और [path to an external workbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) होता है; यदि स्रोत बाहरी वर्कबुक है, तो आप पूर्ण पथ पढ़कर सुनिश्चित कर सकते हैं कि बाहरी फ़ाइल उपयोग में है।
 
-**क्या बाहरी वर्कबुक के सापेक्ष पाथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**
+**क्या बाहरी वर्कबुक के सापेक्ष पथ समर्थित हैं, और वे कैसे संग्रहीत होते हैं?**
 
-हां। यदि आप सापेक्ष पाथ निर्दिष्ट करते हैं, तो वह स्वचालित रूप से पूर्ण पाथ में परिवर्तित हो जाता है। प्रस्तुति PPTX फ़ाइल में पूर्ण पाथ संग्रहीत करती है, इसलिए वर्कबुक को स्थानांतरित करने पर लिंक को अपडेट करना पड़ सकता है।
+हाँ। यदि आप सापेक्ष पथ निर्दिष्ट करते हैं, तो वह स्वतः पूर्ण पथ में परिवर्तित हो जाता है। प्रस्तुति PPTX फ़ाइल में पूर्ण पथ संग्रहीत करती है, इसलिए वर्कबुक को स्थानांतरित करने पर लिंक को अपडेट करना पड़ सकता है।
 
 **क्या मैं नेटवर्क संसाधनों/शेयरों पर स्थित वर्कबुक का उपयोग कर सकता हूँ?**
 
-हां, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में प्रयोग किया जा सकता है। हालांकि, Aspose.Slides से सीधे रिमोट वर्कबुक को संपादित करना समर्थित नहीं है — वे केवल स्रोत के रूप में उपयोग किए जा सकते हैं।
+हाँ, ऐसे वर्कबुक को बाहरी डेटा स्रोत के रूप में उपयोग किया जा सकता है। हालाँकि, Aspose.Slides से सीधे रिमोट वर्कबुक को संपादित करना समर्थित नहीं है—वे केवल स्रोत के रूप में उपयोग किए जा सकते हैं।
 
-**क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को अधिलेखित करता है?**
+**क्या Aspose.Slides प्रस्तुति सहेजते समय बाहरी XLSX को ओवरराइट करता है?**
 
-प्रस्तुति एक [बाहरी फ़ाइल लिंक](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) संग्रहीत करती है। सेल‑बैक्ड चार्ट डेटा को संपादित करने से लिंक्ड स्थानीय XLSX फ़ाइल भी अपडेट हो सकती है। यदि मूल वर्कबुक को अपरिवर्तित रखना है तो उसकी कॉपी उपयोग करें।
+प्रस्तुति एक [बाहरी फ़ाइल का लिंक](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) संग्रहीत करती है। सेल‑बैक्ड चार्ट डेटा को संपादित करने से लिंक्ड स्थानीय XLSX फ़ाइल भी अपडेट हो सकती है। यदि मूल फ़ाइल अपरिवर्तित रहनी चाहिए, तो वर्कबुक की एक कॉपी उपयोग करें।
 
-**यदि बाहरी फ़ाइल पासवर्ड‑संरक्षित है तो क्या करें?**
+**यदि बाहरी फ़ाइल पासवर्ड‑सुरक्षित है तो मुझे क्या करना चाहिए?**
 
-Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता। सामान्य दृष्टिकोण यह है कि पहले सुरक्षा हटाई जाए या एक डिक्रिप्टेड कॉपी (उदाहरण के लिये [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) तैयार की जाए और उस कॉपी को लिंक किया जाए।
+Aspose.Slides लिंक करते समय पासवर्ड स्वीकार नहीं करता। एक सामान्य तरीका है कि पहले सुरक्षा हटाएँ या एक डिक्रिप्टेड कॉपी (उदाहरण के लिए, [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) तैयार करें और उस कॉपी से लिंक करें।
 
 **क्या कई चार्ट एक ही बाहरी वर्कबुक को संदर्भित कर सकते हैं?**
 
-हां। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल को संकेत देते हैं, तो उस फ़ाइल को अपडेट करने से अगली बार डेटा लोड होने पर सभी चार्ट प्रभावित होंगे।
+हाँ। प्रत्येक चार्ट अपना लिंक संग्रहीत करता है। यदि सभी एक ही फ़ाइल की ओर इशारा करते हैं, तो उस फ़ाइल को अपडेट करने से प्रत्येक चार्ट में अगली बार डेटा लोड होने पर परिवर्तन प्रतिबिंबित होते हैं।

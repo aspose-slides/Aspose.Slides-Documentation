@@ -1,40 +1,40 @@
 ---
-title: Gerenciar pastas de trabalho de gráficos em apresentações usando JavaScript
-linktitle: Pasta de Trabalho de Gráfico
+title: Gerenciar Livros de Trabalho de Gráficos em Apresentações Usando JavaScript
+linktitle: Livro de Trabalho de Gráfico
 type: docs
 weight: 70
 url: /pt/nodejs-java/chart-workbook/
 keywords:
-- pasta de trabalho de gráfico
-- dados de gráfico
-- célula de pasta de trabalho
+- livro de trabalho de gráfico
+- dados do gráfico
+- célula do livro de trabalho
 - rótulo de dados
 - planilha
 - fonte de dados
-- pasta de trabalho externa
+- livro de trabalho externo
 - dados externos
 - cache de gráfico
-- recuperação de pasta de trabalho
+- recuperação de livro de trabalho
 - PowerPoint
 - apresentação
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Descubra o Aspose.Slides para Node.js via Java: gerencie facilmente pastas de trabalho de gráficos em formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
+description: "Descubra Aspose.Slides para Node.js via Java: gerencie facilmente livros de trabalho de gráficos em formatos PowerPoint e OpenDocument para simplificar os dados da sua apresentação."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráficos por meio de streams de pastas de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para valores de gráfico.
+Este artigo explica como trabalhar com livros de trabalho de gráfico no Aspose.Slides. Ele mostra como ler e gravar dados de gráfico através de streams de livro de trabalho, usar células do livro de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para valores do gráfico.
 
-Também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar dados do gráfico quando a pasta de trabalho está disponível.
+Ele também cobre o trabalho com livros de trabalho externos como fontes de dados de gráfico. Os exemplos demonstram como criar e atribuir um livro de trabalho externo, recuperar o caminho de um livro de trabalho externo vinculado a um gráfico e editar os dados do gráfico quando o livro de trabalho está disponível.
 
-Para células da pasta de trabalho que representam dados ausentes, veja [Controlar a Exibição de Células Vazias](/slides/pt/nodejs-java/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação em gráfico de linhas dos modos de exibição disponíveis.
+Para células de livro de trabalho que representam dados ausentes, veja [Controlar a Exibição de Células Vazias](/slides/pt/nodejs-java/chart-series/) para a diferença entre uma célula vazia e zero, e uma comparação de gráfico de linhas dos modos de exibição disponíveis.
 
 ## **Incluir Dados de Linhas e Colunas Ocultas**
 
-Use [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) para controlar se um gráfico plota dados de linhas e colunas de planilha ocultas. Defina como `true` para plotar apenas células visíveis, ou `false` para incluir células visíveis e ocultas. Essa configuração controla a plotagem do gráfico; não oculta ou exibe linhas ou colunas da planilha.
+Use [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setplotvisiblecellsonly/) para controlar se um gráfico traça dados de linhas e colunas de planilha ocultas. Defina como `true` para traçar apenas células visíveis, ou `false` para incluir tanto células visíveis quanto ocultas. Esta configuração controla a plotagem do gráfico; não oculta ou exibe linhas ou colunas da planilha.
 
-A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de colunas como a primeira forma no seu primeiro slide. A planilha incorporada, `Sheet1`, contém o intervalo de origem `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
+A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de colunas como a primeira forma no seu primeiro slide. A planilha incorporada, `Sheet1`, contém o seguinte intervalo de origem, `A1:C4`. A linha 3 e a coluna C estão ocultas, mas suas células ainda contêm valores.
 
 | Linha da planilha | A: Mês | B: Varejo | C: Atacado (coluna oculta) |
 | --- | --- | --- | --- |
@@ -42,9 +42,9 @@ A [apresentação de exemplo](hidden-source-data.pptx) contém um gráfico de co
 | 3 (linha oculta) | Fevereiro | 40 | 60 |
 | 4 | Março | 20 | 50 |
 
-Acesse as células de origem através de [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) e leia [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) para inspecionar seu status de ocultação. Esse método relata o status sem alterá‑lo. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `false`, `true` e `true`, respectivamente.
+Acesse as células de origem através de [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/) e leia [ChartDataCell.isHidden](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/ishidden/) para inspecionar seu status de ocultação. Este método relata o status oculto sem alterá-lo. Neste arquivo, B2 está visível, B3 pertence à linha oculta e C2 pertence à coluna oculta; o exemplo imprime `false`, `true` e `true`, respectivamente.
 
-Para este exemplo, atualize os dados do gráfico após mudar a configuração de plotagem: mantenha a pasta de trabalho incorporada com [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) e recarregue-a com [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/). Ao incluir todas as células, use também [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) para restaurar o intervalo completo, incluindo a categoria de fevereiro oculta. Apenas mudar a bandeira não é suficiente para atualizar os dados em cache deste exemplo e os rótulos de categoria. O exemplo converte o buffer Node.js retornado para um array de bytes Java antes de passá‑lo ao método de gravação.
+Para este exemplo, atualize os dados do gráfico após mudar a configuração de plotagem: mantenha o livro de trabalho incorporado com [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) e recarregue‑o com [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/). Ao incluir todas as células, também use [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) para restaurar o intervalo completo, incluindo a categoria de fevereiro ocultada. Simplesmente mudar a bandeira não é suficiente para atualizar os dados de gráfico em cache e os rótulos de categoria deste exemplo. O exemplo converte o buffer Node.js retornado em um array de bytes Java antes de passá‑lo ao método de gravação.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -68,7 +68,7 @@ try {
         for (const visibleOnly of [true, false]) {
             chart.setPlotVisibleCellsOnly(visibleOnly);
 
-            // Atualizar os dados do gráfico a partir da pasta de trabalho incorporada.
+            // Atualizar os dados do gráfico a partir do livro de trabalho incorporado.
             chart.getChartData().writeWorkbookStream(workbookData);
             if (!visibleOnly) {
                 // Restaurar o intervalo de origem completo, incluindo categorias ocultas.
@@ -85,21 +85,21 @@ try {
 }
 ```
 
-O exemplo salva duas versões da apresentação: uma com apenas os valores de Varejo visíveis (10 e 20) e outra com todos os seis valores. As imagens abaixo ilustram os dois modos de plotagem. A linha 3 e a coluna C permanecem ocultas em ambas as pastas de trabalho incorporadas.
+O exemplo salva duas versões da apresentação: uma com apenas os valores de Varejo visíveis (10 e 20) e outra com todos os seis valores. As imagens abaixo ilustram os dois modos de plotagem. A linha 3 e a coluna C permanecem ocultas em ambos os livros de trabalho incorporados.
 
 | Apenas células visíveis (`true`) | Todas as células (`false`) |
 | --- | --- |
-| ![Apenas células visíveis: valores de Varejo 10 e 20 para janeiro e março.](hidden_cells_True.png) | ![Todas as células: valores de Varejo e Atacado para janeiro, fevereiro e março.](hidden_cells_False.png) |
+| ![Apenas células visíveis: valores de Varejo 10 e 20 para Janeiro e Março.](hidden_cells_True.png) | ![Todas as células: valores de Varejo e Atacado para Janeiro, Fevereiro e Março.](hidden_cells_False.png) |
 
-Uma célula oculta contendo um valor é diferente de uma célula vazia. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) controla como valores ausentes são exibidos; não inclui nem exclui dados de origem ocultos. Veja [Controlar a Exibição de Células Vazias](/slides/pt/nodejs-java/chart-series/#control-the-display-of-empty-cells) para um exemplo.
+Uma célula oculta contendo um valor é diferente de uma célula vazia. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) controla como valores ausentes são exibidos; não inclui ou exclui dados de origem ocultos. Veja [Controlar a Exibição de Células Vazias](/slides/pt/nodejs-java/chart-series/#control-the-display-of-empty-cells) para um exemplo.
 
 ## **Recuperar o Intervalo de Dados de um Gráfico**
 
-Antes de atualizar os dados da pasta de trabalho em uma apresentação existente, inspecione os intervalos de origem para identificar quais células da planilha cada gráfico utiliza. O método [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) retorna o intervalo de dados atual como uma fórmula qualificada pela planilha, como `Sheet1!$A$1:$D$5`. Aqui, `Sheet1` é o nome da planilha, `!` a separa do intervalo de células e `$A$1:$D$5` identifica as células de A1 a D5, inclusive. Os sinais de dólar indicam referências absolutas de linha e coluna.
+Antes de atualizar os dados do livro de trabalho em uma apresentação existente, inspecione os intervalos de origem para identificar quais células da planilha cada gráfico usa. O método [ChartData.getRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getrange/) retorna o intervalo de dados atual como uma fórmula qualificada da planilha, como `Sheet1!$A$1:$D$5`. Aqui, `Sheet1` é o nome da planilha, `!` separa‑o do intervalo de células e `$A$1:$D$5` identifica as células de A1 a D5, inclusive. Os sinais de dólar indicam referências absolutas de linha e coluna.
 
-O método lê o intervalo atual sem alterar o gráfico ou sua pasta de trabalho. Se o gráfico não usar uma pasta de trabalho como fonte de dados, ele lança `InvalidOperationException`. Para mais informações, veja a [Referência da API ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/).
+O método lê o intervalo atual sem alterar o gráfico ou seu livro de trabalho. Se o gráfico não usar um livro de trabalho como fonte de dados, ele lança `InvalidOperationException`. Para mais informações, veja a [Referência da API ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/).
 
-Este exemplo abre uma apresentação e verifica as formas diretamente em cada slide em busca de gráficos. Ele imprime o nome de cada gráfico e seu intervalo de origem. Se um gráfico não usar uma pasta de trabalho, imprime uma mensagem e continua para o próximo gráfico.
+Este exemplo abre uma apresentação e verifica as formas diretamente em cada slide para gráficos. Ele imprime o nome de cada gráfico e seu intervalo de origem. Se um gráfico não usar um livro de trabalho, ele imprime uma mensagem e continua para o próximo gráfico.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -131,11 +131,11 @@ try {
 }
 ```
 
-## **Ler e Gravar Dados de Gráfico a partir de uma Pasta de Trabalho**
+## **Ler e Gravar Dados de Gráfico a partir de um Livro de Trabalho**
 
-Aspose.Slides for Node.js via Java fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) e [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) que permitem ler e gravar pastas de trabalho de dados de gráficos (contendo dados de gráfico editados com Aspose.Cells). **Observação** de que os dados do gráfico precisam estar organizados da mesma forma ou ter uma estrutura semelhante à origem.
+Aspose.Slides for Node.js via Java fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) e [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/writeworkbookstream/) que permitem ler e gravar livros de trabalho de dados de gráfico (contendo dados de gráfico editados com Aspose.Cells). **Nota** que os dados do gráfico precisam estar organizados da mesma maneira ou ter uma estrutura semelhante à origem.
 
-Este exemplo usa uma apresentação com um gráfico como a primeira forma no seu primeiro slide. Ele lê a pasta de trabalho incorporada para um array de bytes, limpa as séries e categorias existentes e grava a mesma pasta de trabalho de volta. As alterações permanecem em memória; o exemplo não salva a apresentação.
+Este exemplo usa uma apresentação com um gráfico como a primeira forma no seu primeiro slide. Ele lê o livro de trabalho incorporado em um array de bytes, limpa as séries e categorias existentes e grava o mesmo livro de volta. As alterações permanecem na memória; o exemplo não salva a apresentação.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +165,9 @@ try {
 }
 ```
 
-### **Validar o Layout do Gráfico após Modificação da Pasta de Trabalho**
+### **Validar o Layout do Gráfico Após Modificação do Livro de Trabalho**
 
-Ao substituir uma pasta de trabalho incorporada por uma modificada, o gráfico mantém suas coleções originais de séries e categorias. Essa inconsistência pode fazer com que [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar a pasta de trabalho atualizada de volta no gráfico. Este exemplo usa um gráfico que é a primeira forma no primeiro slide. O comentário indica onde a edição da pasta de trabalho ocorreria; o exemplo executável grava a pasta de trabalho original de volta e valida o layout em memória.
+Quando você substitui um livro de trabalho incorporado por um modificado, o gráfico mantém suas coleções originais de séries e categorias. Essa incompatibilidade pode fazer com que [Chart.validateChartLayout](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/validatechartlayout/) falhe com um erro de índice fora do intervalo. Limpe as séries e categorias existentes antes de gravar o livro de trabalho atualizado de volta ao gráfico. Este exemplo usa um gráfico que é a primeira forma no primeiro slide. O comentário marca onde a edição do livro de trabalho ocorreria; o exemplo executável grava o livro de trabalho original de volta e valida o layout na memória.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,7 +185,7 @@ try {
         const workbookBytes = Array.from(workbookBuffer);
         const workbookData = java.newArray("byte", workbookBytes);
 
-        // Modifique os bytes da pasta de trabalho aqui, por exemplo, usando Aspose.Cells.
+        // Modifique os bytes do workbook aqui, por exemplo, usando Aspose.Cells.
 
         chartData.getSeries().clear();
         chartData.getCategories().clear();
@@ -200,11 +200,11 @@ try {
 }
 ```
 
-Limpar as coleções remove referências a dados obsoletos antes que a pasta de trabalho seja gravada. Reconstrua quaisquer mapeamentos de séries e categorias necessários para a pasta de trabalho atualizada antes de usar o gráfico.
+Limpar as coleções remove referências de dados obsoletas antes que o livro de trabalho seja gravado de volta. Reconstrua quaisquer mapeamentos de séries e categorias necessários para o livro de trabalho atualizado antes de usar o gráfico.
 
-## **Definir Formatos Numéricos Personalizados para Células da Pasta de Trabalho**
+## **Definir Formatos Numéricos Personalizados para Células do Livro de Trabalho**
 
-Use [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) para controlar como valores numéricos aparecem na pasta de trabalho incorporada ao gráfico. Por exemplo, um relatório pode precisar exibir uma taxa de conversão como percentual com quatro casas decimais e um coeficiente com cinco casas decimais. Mantenha ambos os valores como numéricos para que permaneçam disponíveis para cálculos e plotagem de gráfico.
+Use [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) para controlar como os valores numéricos aparecem no livro de trabalho incorporado de um gráfico. Por exemplo, um relatório pode precisar de uma taxa de conversão exibida como percentual com quatro casas decimais e um coeficiente exibido com cinco casas decimais. Mantenha ambos os valores numéricos para que permaneçam disponíveis para cálculos e plotagem do gráfico.
 
 Um formato numérico altera a exibição, não o valor armazenado. O formato `0.0000%` exibe `0.125` como `12.5000%`; não substitui o número armazenado por `12.5`. Da mesma forma, `0.00000` exibe `0.1234567` como `0.12346` sem arredondar o valor armazenado. Se o formato personalizado for uma string vazia (`""`), o formato retornado por [getPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/getpresetnumberformat/) será usado.
 
@@ -260,17 +260,17 @@ try {
 }
 ```
 
-Os formatos de célula da pasta de trabalho são independentes dos formatos definidos diretamente em eixos do gráfico ou rótulos de dados. Neste exemplo, cada rótulo exibe o valor da célula de origem porque [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) está definido como `true`, e segue o formato numérico da origem porque [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) está definido como `true`. Depois de salvar e reabrir a apresentação, os rótulos exibem `12.5000%` e `0.12346`, conforme mostrado abaixo. O eixo vertical usa seu próprio formato numérico, atribuído com [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) como `0.00`, com [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) definido como `false`.
+Os formatos de célula do livro de trabalho são separados dos formatos definidos diretamente nos eixos do gráfico ou nos rótulos de dados. Neste exemplo, cada rótulo exibe o valor da célula de origem porque [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) está definido como `true`, e segue o formato numérico da origem porque [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) está definido como `true`. Após salvar e reabrir a apresentação, os rótulos exibem `12.5000%` e `0.12346`, como mostrado abaixo. O eixo vertical usa seu próprio formato numérico, atribuído com [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformat/) como `0.00`, com [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberformatlinkedtosource/) definido como `false`.
 
-Para formatar um rótulo de dados independentemente, defina sua bandeira de vínculo à origem como `false` e atribua um formato com [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/). Isso não altera o formato da célula da pasta de trabalho. Por exemplo, um formato de rótulo independente `0.00` exibe o primeiro valor como `0.13`, enquanto B2 ainda exibe `12.5000%`. Veja [Rótulos de Dados do Gráfico](/slides/pt/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) para formatação direta de rótulos.
+Para formatar um rótulo de dados independentemente, defina sua bandeira de vínculo à origem como `false` e atribua um formato com [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setnumberformat/). Isso não altera o formato da célula do livro de trabalho. Por exemplo, um formato de rótulo independente `0.00` exibe o primeiro valor como `0.13`, enquanto B2 ainda exibe `12.5000%`. Veja [Chart Data Labels](/slides/pt/nodejs-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) para formatação direta de rótulos.
 
 A imagem abaixo foi renderizada a partir da apresentação salva após reabri‑la:
 
-![Gráfico de colunas com rótulos vinculados à fonte mostrando 12.5000% e 0.12346 e eixo numérico formatado independentemente.](custom-cell-formats.png)
+![Gráfico de colunas com rótulos vinculados à origem mostrando 12.5000% e 0.12346 e um eixo numérico formatado independentemente.](custom-cell-formats.png)
 
-## **Definir uma Célula da Pasta de Trabalho como Rótulo de Dados do Gráfico**
+## **Definir uma Célula de Livro de Trabalho como Rótulo de Dados do Gráfico**
 
-Você pode usar texto de células da pasta de trabalho como rótulos de dados do gráfico.
+Você pode usar texto de células de livro de trabalho como rótulos de dados do gráfico.
 
 Este exemplo adiciona um gráfico de bolhas com dados padrão ao primeiro slide de uma apresentação existente. Ele usa as células A10:A12 na planilha 0 para os três primeiros rótulos da primeira série, habilita rótulos a partir de células e salva a apresentação atualizada.
 
@@ -298,7 +298,7 @@ try {
 
 ## **Gerenciar Planilhas**
 
-O método [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) fornece acesso às planilhas em uma pasta de trabalho de gráfico. Este exemplo cria um gráfico de pizza com dados padrão e imprime o nome de cada planilha no console.
+O método [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getworksheets/) fornece acesso às planilhas em um livro de trabalho de gráfico. Este exemplo cria um gráfico de pizza com dados padrão e imprime cada nome de planilha no console.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -319,6 +319,8 @@ try {
 ```
 
 ## **Especificar o Tipo de Fonte de Dados**
+
+Os valores dos pontos de série também podem ser armazenados diretamente como literais numéricos. Veja [Set Series Values Using Numeric Literals](/slides/pt/nodejs-java/chart-series/#set-series-values-using-numeric-literals) para um exemplo completo que os salva e os lê. O tipo de origem dos valores dos pontos é separado da configuração interna ou externa do livro de trabalho do gráfico; usar literais numéricos não remove, por si só, o livro de trabalho incorporado.
 
 Este exemplo cria um gráfico de colunas 3D com dados padrão e define dois nomes de série usando fontes de dados diferentes. O primeiro nome usa um literal de string; o segundo usa a célula C1 na planilha 0. A enumeração [DataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) seleciona a fonte para cada nome. O exemplo salva a apresentação com os nomes de série atualizados.
 
@@ -346,9 +348,9 @@ try {
 }
 ```
 
-## **Detectar Formatos de Pastas de Trabalho Incorporadas Não Suportados**
+## **Detectar Formatos de Livro de Trabalho Incorporado Não Suportados**
 
-Aspose.Slides não suporta o formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método `getEmbeddedWorkbookType` em [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) junto com a enumeração [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos. Este exemplo inspeciona as formas no primeiro slide de uma apresentação existente, ignora formas que não são gráficos e imprime uma mensagem de diagnóstico para cada gráfico com uma pasta de trabalho .xlsb incorporada.
+Aspose.Slides não suporta o formato de livro de trabalho binário do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método `getEmbeddedWorkbookType` em [ChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/workbooktype/) para detectar formatos não suportados e pular esses gráficos. Este exemplo inspeciona as formas no primeiro slide de uma apresentação existente, ignora formas que não são gráficos e imprime uma mensagem de diagnóstico para cada gráfico com um livro de trabalho .xlsb incorporado.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -374,22 +376,22 @@ try {
             continue;
         }
 
-        // Ler ou modificar os dados da pasta de trabalho de gráfico suportados aqui.
+        // Ler ou modificar os dados suportados do livro de trabalho do gráfico aqui.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Pasta de Trabalho Externa**
+## **Livro de Trabalho Externo**
 
-Aspose.Slides suporta o uso de pastas de trabalho externas como fonte de dados para gráficos.
+Aspose.Slides oferece suporte ao uso de livros de trabalho externos como fonte de dados para gráficos.
 
-### **Criar uma Pasta de Trabalho Externa**
+### **Criar um Livro de Trabalho Externo**
 
-Use [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) e [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) para exportar uma pasta de trabalho de gráfico incorporada para um arquivo e vincular o gráfico a essa pasta de trabalho externa.
+Use [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/readworkbookstream/) e [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) para exportar um livro de trabalho de gráfico incorporado para um arquivo e vincular o gráfico a esse livro de trabalho externo.
 
-Este exemplo cria um gráfico de pizza com dados padrão e exporta sua pasta de trabalho. Ele conclui a gravação do arquivo antes de atribuir a pasta de trabalho externa como fonte de dados do gráfico, então salva a apresentação vinculada.
+Este exemplo cria um gráfico de pizza com dados padrão e exporta seu livro de trabalho. Ele conclui a gravação do arquivo antes de atribuir o livro de trabalho externo como fonte de dados do gráfico, então salva a apresentação vinculada.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -416,13 +418,13 @@ try {
 }
 ```
 
-### **Definir uma Pasta de Trabalho Externa**
+### **Definir um Livro de Trabalho Externo**
 
-Usando o método [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/), você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se ela foi movida).
+Usando o método [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/), você pode atribuir um livro de trabalho externo a um gráfico como sua fonte de dados. Este método também pode ser usado para atualizar um caminho para o livro de trabalho externo (se o último foi movido).
 
-Embora você não possa editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda pode usá‑las como fonte de dados externa. Se o caminho relativo para uma pasta de trabalho externa for fornecido, ele será convertido automaticamente para um caminho absoluto.
+Embora você não possa editar os dados em livros de trabalho armazenados em locais remotos ou recursos, ainda pode usar esses livros de trabalho como fonte de dados externa. Se for fornecido um caminho relativo para um livro de trabalho externo, ele será convertido automaticamente para um caminho completo.
 
-Este exemplo usa uma pasta de trabalho externa cuja planilha chamada `Sheet1` contém um nome de série em B1, nomes de categoria em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula a pasta de trabalho e usa [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) para mapear A1:B4 para uma série e três categorias. Ele salva a apresentação com o gráfico vinculado.
+Este exemplo usa um livro de trabalho externo cuja planilha nomeada `Sheet1` contém um nome de série em B1, nomes de categoria em A2:A4 e valores numéricos em B2:B4. O exemplo cria um gráfico de pizza, vincula o livro de trabalho e usa [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) para mapear A1:B4 para uma série e três categorias. Ele salva a apresentação com o gráfico vinculado.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -445,12 +447,12 @@ try {
 }
 ```
 
-O parâmetro `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) controla se a pasta de trabalho é carregada.
+O parâmetro `updateChartData` do método [setExternalWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setexternalworkbook/) controla se o livro de trabalho é carregado.
 
-* Quando `updateChartData` é `false`, apenas o caminho da pasta de trabalho é atualizado. Os dados do gráfico não são carregados ou atualizados a partir da pasta de trabalho de destino, portanto a pasta de trabalho pode estar indisponível.
-* Quando `updateChartData` é `true`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
+* Quando `updateChartData` é `false`, apenas o caminho do livro de trabalho é atualizado. Os dados do gráfico não são carregados ou atualizados a partir do livro de trabalho de destino, podendo o livro de trabalho estar indisponível.
+* Quando `updateChartData` é `true`, os dados do gráfico são atualizados a partir do livro de trabalho de destino.
 
-O exemplo a seguir atribui uma URL de espaço reservado com `updateChartData` definido como `false`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar a pasta de trabalho indisponível.
+O exemplo a seguir atribui uma URL de placeholder com `updateChartData` definido como `false`. Ele mantém os dados padrão do gráfico de pizza e salva a apresentação sem carregar o livro de trabalho indisponível.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -468,11 +470,11 @@ try {
 }
 ```
 
-### **Obter o Caminho da Pasta de Trabalho de Fonte de Dados Externa de um Gráfico**
+### **Obter o Caminho do Livro de Trabalho da Fonte de Dados Externa de um Gráfico**
 
-Para identificar a pasta de trabalho vinculada a um gráfico, verifique se o gráfico usa uma fonte de dados externa e recupere seu caminho.
+Para identificar o livro de trabalho vinculado a um gráfico, verifique se o gráfico usa uma fonte de dados externa e recupere seu caminho de livro de trabalho.
 
-Este exemplo inspeciona a primeira forma no primeiro slide de uma apresentação com uma pasta de trabalho externa vinculada. Se for um gráfico vinculado a uma pasta de trabalho externa, o exemplo imprime [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) no console. Em seguida, salva uma cópia da apresentação.
+Este exemplo inspeciona a primeira forma no primeiro slide de uma apresentação com um livro de trabalho externo vinculado. Se for um gráfico vinculado a um livro de trabalho externo, o exemplo imprime [getExternalWorkbookPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) no console. Em seguida, salva uma cópia da apresentação.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -502,9 +504,9 @@ try {
 
 ### **Editar Dados do Gráfico**
 
-Você pode editar os dados em pastas de trabalho externas da mesma forma que altera o conteúdo de pastas de trabalho internas. Quando uma pasta de trabalho externa não pode ser carregada, uma exceção é lançada.
+Você pode editar os dados em livros de trabalho externos da mesma forma que faz alterações no conteúdo de livros de trabalho internos. Quando um livro de trabalho externo não pode ser carregado, uma exceção é lançada.
 
-Este exemplo usa um gráfico que é a primeira forma no primeiro slide e está vinculado a uma pasta de trabalho externa acessível. Ele define o valor respaldado por célula do primeiro ponto de dados da primeira série para 100 e salva a apresentação atualizada. Editar valores de célula pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar a pasta de trabalho original.
+Este exemplo usa um gráfico que é a primeira forma no primeiro slide e está vinculado a um livro de trabalho externo acessível. Ele define o valor baseado em célula do primeiro ponto de dados da primeira série para 100 e salva a apresentação atualizada. Editar valores de célula pode atualizar o arquivo XLSX externo vinculado, portanto use uma cópia se precisar preservar o livro de trabalho original.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -537,11 +539,11 @@ try {
 }
 ```
 
-### **Recuperar uma Pasta de Trabalho do Cache do Gráfico**
+### **Recuperar um Livro de Trabalho do Cache do Gráfico**
 
-Se um gráfico usa uma pasta de trabalho externa que está ausente ou indisponível, Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), chame [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/) e defina [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) como `true` antes de abrir a apresentação.
+Se um gráfico usa um livro de trabalho externo que está ausente ou indisponível, Aspose.Slides pode reconstruir o livro de trabalho do gráfico a partir dos dados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/), chame [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/setspreadsheetoptions/), e defina [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) como `true` antes de abrir a apresentação.
 
-O exemplo JavaScript a seguir recupera os dados da pasta de trabalho para um gráfico que é a primeira forma no primeiro slide e referencia uma pasta de trabalho externa indisponível. Ele acessa os dados recuperados através de [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) e [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/):
+O exemplo JavaScript a seguir recupera os dados do livro de trabalho para um gráfico que é a primeira forma no primeiro slide e referencia um livro de trabalho externo indisponível. Ele acessa os dados recuperados através de [Chart.getChartData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getchartdata/) e [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -562,7 +564,7 @@ try {
         const chart = slide.getShapes().get_Item(0);
         const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-        // Ler ou modificar os dados da pasta de trabalho recuperada aqui.
+        // Ler ou modificar os dados do workbook recuperado aqui.
     } else {
         console.log("The first shape is not a chart.");
     }
@@ -571,30 +573,30 @@ try {
 }
 ```
 
-Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma exceção. Ative a recuperação apenas quando usar os dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
+Se o livro de trabalho externo estiver indisponível e a recuperação estiver desativada, Aspose.Slides lança uma exceção. Habilite a recuperação somente quando usar os dados de gráfico em cache for uma solução aceitável, pois o cache pode não conter alterações feitas no livro de trabalho externo após a última atualização da apresentação.
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou incorporada?**
+**Posso determinar se um gráfico específico está vinculado a um livro de trabalho externo ou incorporado?**
 
-Sim. Um gráfico possui um [tipo de fonte de dados](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) e um [caminho para uma pasta de trabalho externa](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); se a fonte for externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
+Sim. Um gráfico tem um [data source type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) e um [path to an external workbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); se a fonte for um livro de trabalho externo, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Caminhos relativos para pastas de trabalho externas são suportados e como são armazenados?**
+**Caminhos relativos para livros de trabalho externos são suportados, e como são armazenados?**
 
-Sim. Se você especificar um caminho relativo, ele será convertido automaticamente para um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, portanto mover a pasta de trabalho pode exigir a atualização do link.
+Sim. Se você especificar um caminho relativo, ele será convertido automaticamente para um caminho absoluto. A apresentação armazena o caminho absoluto no arquivo PPTX, portanto mover o livro de trabalho pode exigir a atualização do link.
 
-**Posso usar pastas de trabalho localizadas em recursos/rede compartilhada?**
+**Posso usar livros de trabalho localizados em recursos/rede compartilhada?**
 
-Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. Contudo, editar pastas de trabalho remotas diretamente pelo Aspose.Slides não é suportado — elas podem ser usadas apenas como fonte.
+Sim, esses livros de trabalho podem ser usados como fonte de dados externa. No entanto, editar livros de trabalho remotos diretamente do Aspose.Slides não é suportado — eles podem ser usados apenas como fonte.
 
-**Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
+**O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-A apresentação armazena um [link ao arquivo externo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). Editar dados de gráfico respaldados por célula pode também atualizar o arquivo XLSX local vinculado. Use uma cópia da pasta de trabalho se o original precisar permanecer inalterado.
+A apresentação armazena um [link to the external file](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). Editar os dados de gráfico baseados em célula também pode atualizar o arquivo XLSX local vinculado. Use uma cópia do livro de trabalho se o original precisar permanecer inalterado.
 
-**O que fazer se o arquivo externo estiver protegido por senha?**
+**O que devo fazer se o arquivo externo estiver protegido por senha?**
 
-Aspose.Slides não aceita senha ao criar o vínculo. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/java/)) e vincular a essa cópia.
+O Aspose.Slides não aceita senha ao vincular. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](https://reference.aspose.com/cells/java/)) e vincular a essa cópia.
 
-**Vários gráficos podem referenciar a mesma pasta de trabalho externa?**
+**Vários gráficos podem referenciar o mesmo livro de trabalho externo?**
 
-Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, a atualização desse arquivo será refletida em cada gráfico na próxima vez que os dados forem carregados.
+Sim. Cada gráfico armazena seu próprio link. Se todos apontarem para o mesmo arquivo, atualizar esse arquivo será refletido em cada gráfico na próxima vez que os dados forem carregados.

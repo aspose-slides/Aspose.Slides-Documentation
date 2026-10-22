@@ -1,5 +1,5 @@
 ---
-title: Gestion des classeurs de graphiques dans les présentations avec Python via Java
+title: Gérer les classeurs de graphiques dans les présentations avec Python via Java
 linktitle: Classeur de graphique
 type: docs
 weight: 70
@@ -8,7 +8,7 @@ keywords:
 - classeur de graphique
 - données de graphique
 - cellule de classeur
-- étiquette de donnée
+- libellé de données
 - feuille de calcul
 - source de données
 - classeur externe
@@ -20,31 +20,31 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Découvrez Aspose.Slides pour Python via Java : gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument afin d’optimiser les données de votre présentation."
+description: "Découvrez Aspose.Slides pour Python via Java : gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument pour rationaliser les données de votre présentation."
 ---
-## **Aperçu**
+## **Vue d’ensemble**
 
-Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire les données d’un graphique via des flux de classeur, utiliser les cellules du classeur comme étiquettes de données, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
+Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire des données de graphique via des flux de classeur, utiliser des cellules de classeur comme libellés de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
 
-Il couvre également l’utilisation de classeurs externes comme sources de données pour les graphiques. Les exemples démontrent comment créer et affecter un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
+Il couvre également l’utilisation de classeurs externes comme sources de données de graphique. Les exemples démontrent comment créer et affecter un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
 
-Pour les cellules du classeur représentant des données manquantes, voir [Contrôler l'affichage des cellules vides](/slides/fr/python-java/chart-series/) pour la différence entre une cellule vide et zéro, et une comparaison en diagramme en courbes des modes d’affichage disponibles.
+Pour les cellules de classeur qui représentent des données manquantes, consultez [Contrôler l’affichage des cellules vides](/slides/fr/python-java/chart-series/) pour la différence entre une cellule vide et zéro, ainsi qu’une comparaison en graphique linéaire des différents modes d’affichage disponibles.
 
 ## **Inclure les données des lignes et colonnes masquées**
 
-Utilisez [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) pour contrôler si un graphique trace les données provenant de lignes et colonnes de feuille masquées. Réglez-le sur `True` pour tracer uniquement les cellules visibles, ou sur `False` pour inclure à la fois les cellules visibles et masquées. Ce paramètre contrôle le tracé du graphique ; il ne masque ni n’affiche les lignes ou colonnes de la feuille.
+Utilisez [Chart.setPlotVisibleCellsOnly](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setPlotVisibleCellsOnly) pour contrôler si un graphique trace les données provenant de lignes et colonnes de feuille masquées. Mettez‑le à `True` pour tracer uniquement les cellules visibles, ou à `False` pour inclure les cellules visibles et masquées. Ce paramètre contrôle le traçage du graphique ; il ne masque ni n’affiche les lignes ou colonnes de la feuille.
 
-La [sample presentation](hidden-source-data.pptx) contient un graphique en colonnes comme première forme de la première diapositive. La feuille incorporée, `Sheet1`, contient la plage source suivante, `A1:C4`. La ligne 3 et la colonne C sont masquées, mais leurs cellules contiennent toujours des valeurs.
+La [présentation d’exemple](hidden-source-data.pptx) contient un graphique en colonnes comme première forme de sa première diapositive. La feuille incorporée, `Sheet1`, contient la plage source suivante, `A1:C4`. La ligne 3 et la colonne C sont masquées, mais leurs cellules contiennent toujours des valeurs.
 
-| Ligne de la feuille de calcul | A: Mois | B: Vente au détail | C: Vente en gros (colonne masquée) |
+| Ligne de la feuille de calcul | A : Mois | B : Vente au détail | C : Vente en gros (colonne masquée) |
 | --- | --- | --- | --- |
-| 2 | Janvier | 10 | 30 |
-| 3 (ligne masquée) | Février | 40 | 60 |
-| 4 | Mars | 20 | 50 |
+| 2 | janvier | 10 | 30 |
+| 3 (ligne masquée) | février | 40 | 60 |
+| 4 | mars | 20 | 50 |
 
-Accédez aux cellules sources via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) et lisez [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) pour inspecter leur état masqué. Cette méthode rapporte l’état masqué sans le modifier. Dans ce fichier, B2 est visible, B3 appartient à la ligne masquée et C2 appartient à la colonne masquée ; l’exemple affiche `False`, `True` et `True`, respectivement.
+Accédez aux cellules sources via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) et lisez [ChartDataCell.isHidden](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#isHidden) pour inspecter leur statut de masquage. Cette méthode rapporte le statut sans le modifier. Dans ce fichier, B2 est visible, B3 appartient à la ligne masquée, et C2 appartient à la colonne masquée ; l’exemple affiche `False`, `True` et `True` respectivement.
 
-Pour cet exemple, actualisez les données du graphique après avoir modifié le paramètre de traçage : conservez le classeur incorporé avec [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) et rechargez-le avec [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream). Lors de l’inclusion de toutes les cellules, utilisez également [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) pour restaurer la plage complète, y compris la catégorie février masquée. Modifier simplement le drapeau n’est pas suffisant pour actualiser les données du graphique et les étiquettes de catégorie en cache de cet échantillon.
+Pour cet exemple, rafraîchissez les données du graphique après avoir changé le paramètre de traçage : conservez le classeur incorporé avec [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) et rechargez‑le avec [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream). Lors de l’inclusion de toutes les cellules, utilisez également [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) pour restaurer la plage complète, y compris la catégorie de février masquée. Modifier simplement le drapeau n’est pas suffisant pour actualiser les données et les libellés de catégorie mis en cache dans cet exemple.
 
 ```python
 import jpype
@@ -71,7 +71,7 @@ try:
         for visible_only in (True, False):
             chart.setPlotVisibleCellsOnly(visible_only)
 
-            # Rafraîchir les données du graphique à partir du classeur incorporé.
+            # Actualiser les données du graphique à partir du classeur incorporé.
             chart.getChartData().writeWorkbookStream(workbook_data)
             if not visible_only:
                 # Restaurer la plage source complète, y compris les catégories masquées.
@@ -84,21 +84,21 @@ finally:
     presentation.dispose()
 ```
 
-L’exemple enregistre deux versions de la présentation : l’une avec uniquement les valeurs de vente au détail visibles (10 et 20), et l’autre avec les six valeurs. Les images ci‑dessous illustrent les deux modes de traçage. La ligne 3 et la colonne C restent masquées dans les deux classeurs incorporés.
+L’exemple enregistre deux versions de la présentation : une avec uniquement les valeurs de vente au détail visibles (10 et 20), et une avec les six valeurs. Les images ci‑dessous illustrent les deux modes de traçage. La ligne 3 et la colonne C restent masquées dans les deux classeurs incorporés.
 
 | Cellules visibles uniquement (`True`) | Toutes les cellules (`False`) |
 | --- | --- |
-| ![Cellules visibles uniquement : valeurs de vente au détail 10 et 20 pour janvier et mars.](hidden_cells_True.png) | ![Toutes les cellules : valeurs de vente au détail et en gros pour janvier, février et mars.](hidden_cells_False.png) |
+| ![Cellules visibles uniquement : valeurs de vente au détail 10 et 20 pour janvier et mars.](hidden_cells_True.png) | ![Toutes les cellules : valeurs de vente au détail et de vente en gros pour janvier, février et mars.](hidden_cells_False.png) |
 
-Une cellule masquée contenant une valeur diffère d’une cellule vide. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) contrôle la façon dont les valeurs manquantes sont affichées ; il n’inclut pas et n’exclut pas les données sources masquées. Voir [Contrôler l'affichage des cellules vides](/slides/fr/python-java/chart-series/#control-the-display-of-empty-cells) pour un exemple.
+Une cellule masquée contenant une valeur est différente d’une cellule vide. [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) contrôle la façon dont les valeurs manquantes sont affichées ; il n’ajoute ni ne retire de données source masquées. Voir [Contrôler l’affichage des cellules vides](/slides/fr/python-java/chart-series/#control-the-display-of-empty-cells) pour un exemple.
 
 ## **Récupérer la plage de données d’un graphique**
 
-Avant de mettre à jour les données du classeur dans une présentation existante, inspectez les plages sources pour identifier quelles cellules de feuille chaque graphique utilise. La méthode [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) renvoie la plage de données actuelle sous forme de formule qualifiée par feuille, comme `Sheet1!$A$1:$D$5`. Ici, `Sheet1` est le nom de la feuille, `!` la sépare de la plage de cellules, et `$A$1:$D$5` identifie les cellules A1 à D5 incluses. Les signes dollar indiquent des références absolues de ligne et de colonne.
+Avant de mettre à jour les données du classeur dans une présentation existante, inspectez les plages sources afin d’identifier quelles cellules de feuille chaque graphique utilise. La méthode [ChartData.getRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getRange) renvoie la plage de données actuelle sous forme de formule qualifiée par feuille, telle que `Sheet1!$A$1:$D$5`. Ici, `Sheet1` est le nom de la feuille, `!` le sépare de la plage de cellules, et `$A$1:$D$5` identifie les cellules A1 à D5 incluses. Les signes dollar indiquent des références absolues de ligne et de colonne.
 
-La méthode lit la plage actuelle sans modifier le graphique ou son classeur. Si le graphique n’utilise pas de classeur comme source de données, elle lève `InvalidOperationException`. Pour plus d’informations, voir la [Référence API ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/).
+La méthode lit la plage actuelle sans modifier le graphique ni son classeur. Si le graphique n’utilise pas de classeur comme source de données, elle lève une `InvalidOperationException`. Pour plus d’informations, consultez la [Référence API ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/).
 
-Cet exemple ouvre une présentation et examine les formes directement sur chaque diapositive à la recherche de graphiques. Il affiche le nom de chaque graphique et sa plage source. Si un graphique n’utilise pas de classeur, il affiche un message et passe au graphique suivant.
+Cet exemple ouvre une présentation et parcourt les formes de chaque diapositive à la recherche de graphiques. Il affiche le nom de chaque graphique et sa plage source. Si un graphique n’utilise pas de classeur, il affiche un message et passe au graphique suivant.
 
 ```python
 import jpype
@@ -125,11 +125,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Lire et écrire les données du graphique depuis un classeur**
+## **Lire et écrire des données de graphique depuis un classeur**
 
-Aspose.Slides for Python via Java fournit les méthodes [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) et [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) qui permettent de lire et d’écrire les classeurs de données de graphiques (contenant des données de graphique éditées avec Aspose.Cells). **Note** que les données du graphique doivent être organisées de la même manière ou posséder une structure similaire à la source.
+Aspose.Slides for Python via Java fournit les méthodes [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) et [writeWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#writeWorkbookStream) qui permettent de lire et d’écrire des classeurs de données de graphique (contenant des données éditées avec Aspose.Cells). **Remarque** : les données du graphique doivent être organisées de la même façon ou posséder une structure similaire à la source.
 
-Cet exemple utilise une présentation avec un graphique comme première forme de la première diapositive. Il lit le classeur incorporé dans un tableau d’octets, efface les séries et catégories existantes, puis réécrit le même classeur. Les modifications restent en mémoire ; l’exemple n’enregistre pas la présentation.
+Cet exemple utilise une présentation contenant un graphique comme première forme de sa première diapositive. Il lit le classeur incorporé dans un tableau d’octets, supprime les séries et catégories existantes, puis réécrit le même classeur. Les modifications restent en mémoire ; l’exemple n’enregistre pas la présentation.
 
 ```python
 import jpype
@@ -162,7 +162,7 @@ finally:
 
 ### **Valider la mise en page du graphique après modification du classeur**
 
-Lorsque vous remplacez un classeur incorporé par un modifié, le graphique conserve ses collections de séries et de catégories d’origine. Cette incohérence peut entraîner l’échec de [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) avec une erreur d’indice hors plage. Effacez les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique. Cet exemple utilise un graphique qui est la première forme de la première diapositive. Le commentaire indique où l’édition du classeur aurait lieu ; l’exemple exécutable réécrit le classeur original et valide la mise en page en mémoire.
+Lorsque vous remplacez un classeur incorporé par un classeur modifié, le graphique conserve ses collections de séries et de catégories d’origine. Cette incohérence peut entraîner l’échec de [Chart.validateChartLayout](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#validateChartLayout) avec une erreur d’indice hors limites. Supprimez les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique. Cet exemple utilise un graphique qui est la première forme de la première diapositive. Le commentaire indique où l’édition du classeur aurait lieu ; l’exemple exécutable réécrit le classeur d’origine et valide la mise en page en mémoire.
 
 ```python
 import jpype
@@ -183,7 +183,7 @@ try:
         chart_data = chart.getChartData()
         workbook_data = chart_data.readWorkbookStream()
 
-        # Modifiez les octets du classeur ici, par exemple en utilisant Aspose.Cells.
+        # Modifier les octets du classeur ici, par exemple en utilisant Aspose.Cells.
 
         chart_data.getSeries().clear()
         chart_data.getCategories().clear()
@@ -196,15 +196,15 @@ finally:
     presentation.dispose()
 ```
 
-Effacer les collections supprime les références de données obsolètes avant que le classeur ne soit réécrit. Reconstruisez les mappages de séries et de catégories nécessaires pour le classeur mis à jour avant d’utiliser le graphique.
+Effacer les collections supprime les références de données périmées avant que le classeur ne soit réécrit. Reconstruisez les mappages de séries et de catégories requis pour le classeur mis à jour avant d’utiliser le graphique.
 
 ## **Définir des formats numériques personnalisés pour les cellules du classeur**
 
-Utilisez [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) pour contrôler l’apparence des valeurs numériques dans le classeur incorporé d’un graphique. Par exemple, un rapport peut nécessiter qu’un taux de conversion s’affiche en pourcentage avec quatre décimales et qu’un coefficient s’affiche avec cinq décimales. Conservez les deux valeurs sous forme numérique afin qu’elles restent disponibles pour les calculs et le tracé du graphique.
+Utilisez [ChartDataCell.setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) pour contrôler l’apparence des valeurs numériques dans le classeur incorporé d’un graphique. Par exemple, un rapport peut nécessiter un taux de conversion affiché en pourcentage avec quatre décimales et un coefficient affiché avec cinq décimales. Conservez les deux valeurs sous forme numérique afin qu’elles restent disponibles pour les calculs et le traçage du graphique.
 
 Un format numérique change l’affichage, pas la valeur stockée. Le format `0.0000%` affiche `0.125` sous forme `12.5000%` ; il ne remplace pas le nombre stocké par `12.5`. De même, `0.00000` affiche `0.1234567` sous forme `0.12346` sans arrondir la valeur stockée. Si le format personnalisé est une chaîne vide (`""`), le format renvoyé par [getPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#getPresetNumberFormat) est utilisé à la place.
 
-L’exemple suivant crée un graphique en colonnes et accède à ses cellules via [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook). Dans la feuille 0, B2 contient le taux de conversion et C2 le coefficient. Les deux cellules alimentent les valeurs du graphique. L’exemple active également les étiquettes de valeur liées aux formats source.
+L’exemple suivant crée un graphique en colonnes et accède à ses cellules via [getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook). Sur la feuille 0, B2 contient le taux de conversion et C2 le coefficient. Les deux cellules alimentent le graphique. L’exemple active également les libellés de valeur liés aux formats sources.
 
 ```python
 import jpype
@@ -259,17 +259,19 @@ finally:
     presentation.dispose()
 ```
 
-Les formats des cellules du classeur sont distincts des formats appliqués directement aux axes du graphique ou aux étiquettes de données. Dans cet exemple, chaque étiquette affiche la valeur de sa cellule source parce que [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) est réglé sur `True`, et suit le format numérique source parce que [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) est réglé sur `True`. Après avoir enregistré et rouvert la présentation, les étiquettes affichent `12.5000%` et `0.12346`, comme indiqué ci‑dessous. L’axe vertical utilise son propre format numérique, assigné avec [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) à `0.00`, avec [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) réglé sur `False`.
+Les formats des cellules du classeur sont distincts des formats appliqués directement aux axes du graphique ou aux libellés de données. Dans cet exemple, chaque libellé affiche la valeur de sa cellule source parce que [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) est à `True`, et suit le format numérique source parce que [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) est à `True`. Après avoir enregistré et rouvert la présentation, les libellés affichent `12.5000%` et `0.12346`, comme illustré ci‑dessous. L’axe vertical utilise son propre format numérique, affecté avec [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) à `0.00`, avec [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormatLinkedToSource) à `False`.
 
-Pour formater une étiquette de données de manière indépendante, définissez son indicateur de liaison à la source sur `False` et attribuez‑lui un format avec [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat). Cela ne modifie pas le format de la cellule du classeur. Par exemple, un format d’étiquette indépendant de `0.00` affiche la première valeur sous forme `0.13`, tandis que B2 continue d’afficher `12.5000%`. Voir [Étiquettes de données du graphique](/slides/fr/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) pour le formatage direct des étiquettes.
+Pour formater un libellé indépendamment, désactivez son drapeau de lien source (`False`) et affectez un format avec [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setNumberFormat). Cela ne modifie pas le format de la cellule du classeur. Par exemple, un format de libellé indépendant `0.00` affiche la première valeur sous forme `0.13`, tandis que B2 continue d’afficher `12.5000%`. Voir [Libellés de données du graphique](/slides/fr/python-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) pour le formatage direct des libellés.
 
-![Graphique en colonnes avec étiquettes liées à la source affichant 12.5000% et 0.12346 et un axe numérique formaté de manière indépendante.](custom-cell-formats.png)
+L’image ci‑dessous a été rendue à partir de la présentation enregistrée après l’avoir rouvert :
 
-## **Utiliser une cellule de classeur comme étiquette de données du graphique**
+![Graphique en colonnes avec des libellés liés à la source affichant 12.5000% et 0.12346 et un axe numérique formaté indépendamment.](custom-cell-formats.png)
 
-Vous pouvez utiliser le texte des cellules du classeur comme étiquettes de données du graphique.
+## **Utiliser une cellule du classeur comme libellé de données du graphique**
 
-Cet exemple ajoute un graphique à bulles avec des données par défaut à la première diapositive d’une présentation existante. Il utilise les cellules A10 : A12 de la feuille 0 pour les trois premières étiquettes de la première série, active les étiquettes provenant des cellules et enregistre la présentation mise à jour.
+Vous pouvez utiliser le texte de cellules du classeur comme libellés de données du graphique.
+
+Cet exemple ajoute un graphique à bulles avec des données par défaut à la première diapositive d’une présentation existante. Il utilise les cellules A10 :A12 sur la feuille 0 pour les trois premiers libellés de la première série, active les libellés depuis les cellules, puis enregistre la présentation mise à jour.
 
 ```python
 import jpype
@@ -301,7 +303,7 @@ finally:
 
 ## **Gérer les feuilles de calcul**
 
-La méthode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) fournit l’accès aux feuilles de calcul d’un classeur de graphique. Cet exemple crée un graphique circulaire avec des données par défaut et affiche chaque nom de feuille dans la console.
+La méthode [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getWorksheets) donne accès aux feuilles d’un classeur de graphique. Cet exemple crée un graphique circulaire avec des données par défaut et affiche chaque nom de feuille dans la console.
 
 ```python
 import jpype
@@ -326,7 +328,9 @@ finally:
 
 ## **Spécifier le type de source de données**
 
-Cet exemple crée un graphique à colonnes 3D avec des données par défaut et définit deux noms de séries en utilisant des sources de données différentes. Le premier nom utilise une chaîne littérale ; le second utilise la cellule C1 de la feuille 0. L’énumération [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) sélectionne la source pour chaque nom. L’exemple enregistre la présentation avec les noms de séries mis à jour.
+Les valeurs des points de série peuvent également être stockées directement comme littéraux numériques. Consultez [Définir les valeurs de série à l’aide de littéraux numériques](/slides/fr/python-java/chart-series/#set-series-values-using-numeric-literals) pour un exemple complet qui les enregistre et les lit. Le type de source des valeurs de points est distinct de la configuration du classeur interne ou externe du graphique ; l’utilisation de littéraux numériques ne supprime pas, à elle seule, le classeur incorporé.
+
+Cet exemple crée un graphique en colonnes 3D avec des données par défaut et définit deux noms de séries à l’aide de sources de données différentes. Le premier nom utilise un littéral chaîne ; le second utilise la cellule C1 sur la feuille 0. L’énumération [DataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/) sélectionne la source pour chaque nom. L’exemple enregistre la présentation avec les noms de séries mis à jour.
 
 ```python
 import jpype
@@ -355,9 +359,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Détecter les formats de classeur incorporés non pris en charge**
+## **Détecter les formats de classeur incorporé non pris en charge**
 
-Aspose.Slides ne prend pas en charge le format de classeur Excel binaire (.xlsb) qui peut être incorporé dans certains graphiques. Vous pouvez utiliser la méthode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) sur [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) conjointement avec l’énumération [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques. Cet exemple examine les formes de la première diapositive d’une présentation existante, ignore les formes qui ne sont pas des graphiques et affiche un message de diagnostic pour chaque graphique avec un classeur .xlsb incorporé.
+Aspose.Slides ne prend pas en charge le format de classeur Excel binaire (.xlsb) qui peut être incorporé dans certains graphiques. Vous pouvez utiliser la méthode [getEmbeddedWorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getEmbeddedWorkbookType) sur [ChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/) avec l’énumération [WorkbookType](https://reference.aspose.com/slides/python-java/aspose.slides/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques. Cet exemple examine les formes de la première diapositive d’une présentation existante, ignore les formes qui ne sont pas des graphiques et affiche un message diagnostique pour chaque graphique contenant un classeur .xlsb incorporé.
 
 ```python
 import jpype
@@ -395,9 +399,9 @@ Aspose.Slides prend en charge l’utilisation de classeurs externes comme source
 
 ### **Créer un classeur externe**
 
-Utilisez [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) et [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) pour exporter un classeur de graphique incorporé vers un fichier et lier le graphique à ce classeur externe.
+Utilisez [readWorkbookStream](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#readWorkbookStream) et [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) pour exporter le classeur d’un graphique incorporé vers un fichier et lier le graphique à ce classeur externe.
 
-Cet exemple crée un graphique circulaire avec des données par défaut et exporte son classeur. Il termine l’écriture du fichier avant d’attribuer le classeur externe comme source de données du graphique, puis enregistre la présentation liée.
+Cet exemple crée un graphique circulaire avec des données par défaut et exporte son classeur. Il termine l’écriture du fichier avant d’affecter le classeur externe comme source de données du graphique, puis enregistre la présentation liée.
 
 ```python
 import jpype
@@ -427,11 +431,11 @@ finally:
 
 ### **Définir un classeur externe**
 
-En utilisant la méthode [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook), vous pouvez affecter un classeur externe à un graphique comme source de données. Cette méthode peut également être utilisée pour mettre à jour le chemin du classeur externe (si ce dernier a été déplacé).
+En utilisant la méthode [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook), vous pouvez affecter un classeur externe à un graphique comme source de données. Cette méthode peut également servir à mettre à jour le chemin vers le classeur externe (si ce dernier a été déplacé).
 
-Bien que vous ne puissiez pas modifier les données des classeurs stockés à distance ou dans des ressources, vous pouvez néanmoins les utiliser comme source de données externe. Si un chemin relatif est fourni pour un classeur externe, il est automatiquement converti en chemin complet.
+Bien que vous ne puissiez pas modifier les données des classeurs stockés sur des emplacements distants ou des ressources, vous pouvez toujours les utiliser comme source de données externe. Si un chemin relatif est fourni, il est automatiquement converti en chemin absolu.
 
-Cet exemple utilise un classeur externe dont la feuille nommée `Sheet1` contient un nom de série en B1, des noms de catégorie en A2 : A4 et des valeurs numériques en B2 : B4. L’exemple crée un graphique circulaire, lie le classeur et utilise [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) pour associer A1 : B4 à une série et trois catégories. Il enregistre la présentation avec le graphique lié.
+Cet exemple utilise un classeur externe dont la feuille nommée `Sheet1` contient un nom de série en B1, des noms de catégorie en A2 :A4 et des valeurs numériques en B2 :B4. L’exemple crée un graphique circulaire, lie le classeur, puis utilise [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) pour mapper A1 :B4 à une série et trois catégories. Il enregistre la présentation avec le graphique lié.
 
 ```python
 import jpype
@@ -459,12 +463,12 @@ finally:
     presentation.dispose()
 ```
 
-Le paramètre `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) contrôle si le classeur est chargé.
+Le paramètre `updateChartData` de [setExternalWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setExternalWorkbook) contrôle le chargement du classeur.
 
-* Lorsque `updateChartData` est `False`, seul le chemin du classeur est mis à jour. Les données du graphique ne sont pas chargées ni mises à jour à partir du classeur cible, de sorte que le classeur peut être indisponible.
-* Lorsque `updateChartData` est `True`, les données du graphique sont mises à jour à partir du classeur cible.
+* Lorsque `updateChartData` vaut `False`, seul le chemin du classeur est mis à jour. Les données du graphique ne sont pas chargées ni mises à jour depuis le classeur cible, le classeur peut donc être indisponible.
+* Lorsque `updateChartData` vaut `True`, les données du graphique sont mises à jour depuis le classeur cible.
 
-L’exemple suivant attribue une URL fictive avec `updateChartData` réglé sur `False`. Il conserve les données par défaut du graphique circulaire et enregistre la présentation sans charger le classeur indisponible.
+L’exemple suivant affecte une URL factice avec `updateChartData` réglé sur `False`. Il conserve les données par défaut du graphique circulaire et enregistre la présentation sans charger le classeur indisponible.
 
 ```python
 import jpype
@@ -490,9 +494,9 @@ finally:
 
 ### **Obtenir le chemin du classeur source de données externe d’un graphique**
 
-Pour identifier le classeur lié à un graphique, vérifiez si le graphique utilise une source de données externe et récupérez son chemin.
+Pour identifier le classeur lié à un graphique, vérifiez si le graphique utilise une source de données externe et récupérez son chemin de classeur.
 
-Cet exemple examine la première forme de la première diapositive d’une présentation avec un classeur externe lié. Si c’est un graphique lié à un classeur externe, l’exemple affiche [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) dans la console. Il enregistre ensuite une copie de la présentation.
+Cet exemple examine la première forme de la première diapositive d’une présentation contenant un classeur externe lié. Si c’est un graphique lié à un classeur externe, l’exemple affiche [getExternalWorkbookPath](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) dans la console. Il enregistre ensuite une copie de la présentation.
 
 ```python
 import jpype
@@ -525,9 +529,9 @@ finally:
 
 ### **Modifier les données du graphique**
 
-Vous pouvez modifier les données des classeurs externes de la même manière que vous modifiez le contenu des classeurs internes. Lorsqu’un classeur externe ne peut pas être chargé, une exception est levée.
+Vous pouvez modifier les données des classeurs externes de la même façon que vous modifiez le contenu des classeurs internes. Lorsqu’un classeur externe ne peut pas être chargé, une exception est levée.
 
-Cet exemple utilise un graphique qui est la première forme de la première diapositive et est lié à un classeur externe accessible. Il définit la valeur soutenue par la cellule du premier point de données de la première série à 100 et enregistre la présentation mise à jour. Modifier les valeurs de cellule peut mettre à jour le fichier XLSX externe lié, utilisez donc une copie si vous devez conserver le classeur d’origine.
+Cet exemple utilise un graphique qui est la première forme de la première diapositive et qui est lié à un classeur externe accessible. Il fixe la valeur basée sur la cellule du premier point de données de la première série à 100 et enregistre la présentation mise à jour. Modifier les valeurs des cellules peut mettre à jour le fichier XLSX externe lié, utilisez donc une copie si vous devez préserver le classeur d’origine.
 
 ```python
 import jpype
@@ -563,9 +567,9 @@ finally:
 
 ### **Récupérer un classeur à partir du cache du graphique**
 
-Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/), appelez [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions) et définissez [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) sur `True` avant d’ouvrir la présentation.
+Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez un [LoadOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/), appelez [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setSpreadsheetOptions), puis définissez [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/python-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) sur `True` avant d’ouvrir la présentation.
 
-L’exemple Python suivant récupère les données du classeur pour un graphique qui est la première forme de la première diapositive et référence un classeur externe indisponible. Il accède aux données récupérées via [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) et [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) :
+L’exemple Python suivant récupère les données du classeur pour un graphique qui est la première forme de la première diapositive et qui fait référence à un classeur externe indisponible. Il accède aux données récupérées via [Chart.getChartData](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getChartData) et [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getChartDataWorkbook) :
 
 ```python
 import jpype
@@ -598,7 +602,7 @@ finally:
     presentation.dispose()
 ```
 
-Si le classeur externe est indisponible et que la récupération est désactivée, Aspose.Slides lève une exception. Activez la récupération uniquement lorsque l’utilisation des données du graphique en cache constitue une solution de repli acceptable, car le cache peut ne pas contenir les modifications apportées au classeur externe après la dernière mise à jour de la présentation.
+Si le classeur externe est indisponible et que la récupération est désactivée, Aspose.Slides lève une exception. Activez la récupération uniquement lorsque l’utilisation des données de graphique mises en cache constitue une solution de repli acceptable, car le cache peut ne pas contenir les modifications apportées au classeur externe après la dernière mise à jour de la présentation.
 
 ## **FAQ**
 
@@ -608,7 +612,7 @@ Oui. Un graphique possède un [type de source de données](https://reference.asp
 
 **Les chemins relatifs vers les classeurs externes sont‑ils pris en charge, et comment sont‑ils stockés ?**
 
-Oui. Si vous indiquez un chemin relatif, il est automatiquement converti en chemin absolu. La présentation stocke le chemin absolu dans le fichier PPTX, de sorte que le déplacement du classeur peut nécessiter une mise à jour du lien.
+Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. La présentation stocke le chemin absolu dans le fichier PPTX, ainsi le déplacement du classeur peut nécessiter la mise à jour du lien.
 
 **Puis‑je utiliser des classeurs situés sur des ressources ou partages réseau ?**
 
@@ -616,11 +620,11 @@ Oui, ces classeurs peuvent être utilisés comme source de données externe. Cep
 
 **Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**
 
-La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Modifier les données de graphique soutenues par une cellule peut également mettre à jour le fichier XLSX local lié. Utilisez une copie du classeur si l’original doit rester inchangé.
+La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Modifier les données du graphique basées sur des cellules peut également mettre à jour le fichier XLSX local lié. Utilisez une copie du classeur si l’original doit rester inchangé.
 
 **Que faire si le fichier externe est protégé par un mot de passe ?**
 
-Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à enlever la protection au préalable ou à préparer une copie décryptée (par exemple avec [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) et à la lier.
+Aspose.Slides n’accepte pas de mot de passe lors de la création du lien. Une approche courante consiste à supprimer la protection à l’avance ou à préparer une copie décryptée (par exemple avec [Aspose.Cells](https://reference.aspose.com/cells/python-java/)) et à lier cette copie.
 
 **Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**
 

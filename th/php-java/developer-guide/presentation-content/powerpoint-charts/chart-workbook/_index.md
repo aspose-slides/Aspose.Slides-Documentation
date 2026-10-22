@@ -1,49 +1,49 @@
 ---
-title: จัดการเวิร์กบุ๊กแผนภูมิในงานนำเสนอด้วย PHP
-linktitle: เวิร์กบุ๊กแผนภูมิ
+title: จัดการ Workbook ของแผนภูมิในงานนำเสนอโดยใช้ PHP
+linktitle: Workbook ของแผนภูมิ
 type: docs
 weight: 70
 url: /th/php-java/chart-workbook/
 keywords:
-- เวิร์กบุ๊กแผนภูมิ
+- workbook ของแผนภูมิ
 - ข้อมูลแผนภูมิ
-- เซลล์เวิร์กบุ๊ก
-- ป้ายกำกับข้อมูล
-- แผ่นงาน
+- เซลล์ workbook
+- ป้ายข้อมูล
+- เวิร์กชีท
 - แหล่งข้อมูล
-- เวิร์กบุ๊กภายนอก
+- Workbook ภายนอก
 - ข้อมูลภายนอก
-- แคชแผนภูมิ
-- การกู้คืนเวิร์กบุ๊ก
+- แคชของแผนภูมิ
+- การกู้คืน workbook
 - PowerPoint
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ PHP ผ่าน Java: จัดการเวิร์กบุ๊กแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ."
+description: "ค้นพบ Aspose.Slides for PHP via Java: จัดการ workbook ของแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อทำให้ข้อมูลงานนำเสนอของคุณเป็นระเบียบ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีทำงานกับเวิร์กบุ๊กแผนภูมิใน Aspose.Slides แสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมเวิร์กบุ๊ก ใช้เซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลแผนภูมิ เข้าถึงคอลเลกชันแผ่นงาน และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีทำงานกับ workbook ของแผนภูมิใน Aspose.Slides โดยแสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีม workbook, ใช้เซลล์ workbook เป็นป้ายข้อมูลแผนภูมิ, เข้าถึงคอลเลกชัน worksheet, และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-มันยังครอบคลุมการทำงานกับเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีสร้างและกำหนดเวิร์กบุ๊กภายนอก ดึงเส้นทางของเวิร์กบุ๊กภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิเมื่อเวิร์กบุ๊กพร้อมใช้งาน
+นอกจากนี้ยังครอบคลุมการทำงานกับ workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีสร้างและกำหนด workbook ภายนอก, ดึงเส้นทางของ workbook ภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อ workbook มีพร้อมใช้งาน
 
-สำหรับเซลล์เวิร์กบุ๊กที่แทนค่าขาดหาย ดูที่ [ควบคุมการแสดงเซลล์ว่าง](/slides/th/php-java/chart-series/) เพื่อเปรียบเทียบความแตกต่างระหว่างเซลล์ว่างกับศูนย์ และดูการเปรียบเทียบแบบกราฟเส้นของโหมดการแสดงผลที่มีให้เลือก
+สำหรับเซลล์ workbook ที่เป็นข้อมูลที่ขาดหาย, ดู [ควบคุมการแสดงผลของเซลล์ที่ว่างเปล่า](/slides/th/php-java/chart-series/) เพื่อทราบความแตกต่างระหว่างเซลล์ว่างและศูนย์, รวมถึงการเปรียบเทียบแผนภูมิเส้นของโหมดการแสดงผลที่มีให้เลือก
 
-## **รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่**
+## **รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อน**
 
-ใช้ [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) เพื่อควบคุมว่าแผนภูมิจะพล็อตข้อมูลจากแถวและคอลัมน์แผ่นงานที่ซ่อนอยู่หรือไม่ ตั้งค่าเป็น `true` เพื่อพล็อตเฉพาะเซลล์ที่มองเห็นได้ หรือ `false` เพื่อรวมทั้งเซลล์ที่มองเห็นและที่ซ่อน การตั้งค่านี้ควบคุมการพล็อตของแผนภูมิ; ไม่ได้ทำการซ่อนหรือแสดงแถวหรือคอลัมน์ของแผ่นงาน
+ใช้ [Chart::setPlotVisibleCellsOnly](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setplotvisiblecellsonly/) เพื่อควบคุมว่ากราฟจะวาดข้อมูลจากแถวและคอลัมน์ worksheet ที่ซ่อนหรือไม่ ตั้งเป็น `true` เพื่อวาดเฉพาะเซลล์ที่มองเห็น, หรือ `false` เพื่อรวมเซลล์ที่มองเห็นและที่ซ่อน การตั้งค่านี้ควบคุมการวาดของแผนภูมิ; ไม่ได้ซ่อนหรือแสดงแถวหรือคอลัมน์ worksheet
 
-[ตัวอย่างงานนำเสนอ](hidden-source-data.pptx) มีแผนภูมิคอลัมน์เป็นรูปทรงแรกบนสไลด์แรกของไฟล์ แผ่นงานฝังอยู่ `Sheet1` มีช่วงข้อมูลต้นทาง `A1:C4` แถว 3 และคอลัมน์ C ถูกซ่อนอยู่ แต่เซลล์ของพวกมันยังคงมีค่า
+[ตัวอย่างงานนำเสนอ](hidden-source-data.pptx) มีแผนภูมิคอลัมน์เป็นรูปร่างแรกบนสไลด์แรก Worksheet ฝังอยู่, `Sheet1`, มีช่วงข้อมูลต้นทาง `A1:C4`. แถว 3 และคอลัมน์ C ถูกซ่อน, แต่เซลล์ยังคงมีค่า
 
-| แถวแผ่นงาน | A: เดือน | B: ค้าปลีก | C: ขายส่ง (คอลัมน์ที่ซ่อน) |
+| แถว Worksheet | A: เดือน | B: ปลีก | C: โฮลเซล (คอลัมน์ที่ซ่อน) |
 | --- | --- | --- | --- |
 | 2 | มกราคม | 10 | 30 |
 | 3 (แถวที่ซ่อน) | กุมภาพันธ์ | 40 | 60 |
 | 4 | มีนาคม | 20 | 50 |
 
-เข้าถึงเซลล์ต้นทางผ่าน [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) และอ่าน [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) เพื่อสอบถามสถานะการซ่อนของเซลล์ วิธีนี้รายงานสถานะการซ่อนโดยไม่เปลี่ยนแปลงค่า ในไฟล์นี้ B2 มองเห็นได้, B3 อยู่ในแถวที่ซ่อน, และ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างพิมพ์ค่า `false`, `true`, และ `true` ตามลำดับ
+เข้าถึงเซลล์ต้นทางผ่าน [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) และอ่าน [ChartDataCell::isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/ishidden/) เพื่อตรวจสอบสถานะการซ่อนของเซลล์ วิธีนี้รายงานสถานะการซ่อนโดยไม่เปลี่ยนแปลง ในไฟล์นี้ B2 มองเห็น, B3 อยู่ในแถวที่ซ่อน, และ C2 อยู่ในคอลัมน์ที่ซ่อน; ตัวอย่างพิมพ์ `false`, `true`, และ `true` ตามลำดับ
 
-สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการพล็อต: คงเวิร์กบุ๊กฝังไว้ด้วย [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) แล้วโหลดใหม่ด้วย [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) เมื่อรวมทุกเซลล์ให้ใช้ [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) เพื่อคืนช่วงทั้งหมดรวมถึงประเภทเดือนกุมภาพันธ์ที่ซ่อนอยู่ การเปลี่ยนค่าแฟล็กอย่างเดียวไม่เพียงพอในการรีเฟรชข้อมูลแผนภูมิที่แคชไว้และป้ายชื่อประเภทในตัวอย่างนี้
+สำหรับตัวอย่างนี้ ให้รีเฟรชข้อมูลแผนภูมิหลังจากเปลี่ยนการตั้งค่าการวาด: รักษา workbook ฝังด้วย [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) และโหลดใหม่ด้วย [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/). เมื่อรวมทุกเซลล์, ใช้ [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) เพื่อกู้คืนช่วงเต็มรวมถึงหมวดหมู่เดือนกุมภาพันธ์ที่ซ่อน การเปลี่ยนค่าสถานะอย่างเดียวไม่เพียงพอที่จะรีเฟรชข้อมูลแผนภูมิที่แคชและป้ายหมวดหมู่ของตัวอย่างนี้
 
 ```php
 use aspose\slides\Presentation;
@@ -65,10 +65,10 @@ try {
         foreach ([true, false] as $visibleOnly) {
             $chart->setPlotVisibleCellsOnly($visibleOnly);
 
-            // รีเฟรชข้อมูลแผนภูมิจากเวิร์กบุ๊กฝังอยู่.
+            // รีเฟรชข้อมูลแผนภูมิจาก workbook ที่ฝังอยู่.
             $chart->getChartData()->writeWorkbookStream($workbookData);
             if (!$visibleOnly) {
-                // คืนช่วงต้นทางทั้งหมด รวมถึงประเภทที่ซ่อนอยู่.
+                // กู้คืนช่วงต้นทางทั้งหมด รวมถึงหมวดหมู่ที่ซ่อนอยู่.
                 $chart->getChartData()->setRange('Sheet1!$A$1:$C$4');
             }
 
@@ -82,21 +82,21 @@ try {
 }
 ```
 
-ตัวอย่างบันทึกสองเวอร์ชันของงานนำเสนอ: หนึ่งเวอร์ชันมีเฉพาะค่าค้าปลีกที่มองเห็นได้ (10 และ 20) อีกหนึ่งเวอร์ชันมีค่าทั้งหกค่า รูปภาพด้านล่างแสดงโหมดการพล็อตสองแบบ แถว 3 และคอลัมน์ C ยังคงซ่อนอยู่ในทั้งสองเวิร์กบุ๊กฝัง
+ตัวอย่างบันทึกสองเวอร์ชันของงานนำเสนอ: เวอร์ชันหนึ่งมีค่า Retail ที่มองเห็นเท่านั้น (10 และ 20), อีกเวอร์ชันหนึ่งมีค่าทั้งหกค่า รูปภาพด้านล่างแสดงสองโหมดการวาด แถว 3 และคอลัมน์ C ยังคงซ่อนใน workbook ฝังทั้งสอง
 
-| เซลล์ที่มองเห็นได้ (`true`) | เซลล์ทั้งหมด (`false`) |
+| เฉพาะเซลล์ที่มองเห็น (`true`) | ทุกเซลล์ (`false`) |
 | --- | --- |
-| ![Only visible cells: Retail values 10 and 20 for January and March.](hidden_cells_True.png) | ![All cells: Retail and Wholesale values for January, February, and March.](hidden_cells_False.png) |
+| ![เฉพาะเซลล์ที่มองเห็น: ค่า Retail 10 และ 20 สำหรับเดือนมกราคมและมีนาคม.](hidden_cells_True.png) | ![ทุกเซลล์: ค่า Retail และ Wholesale สำหรับเดือนมกราคม, กุมภาพันธ์, และมีนาคม.](hidden_cells_False.png) |
 
-เซลล์ที่ซ่อนและมีค่าไม่เหมือนกับเซลล์ว่าง [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) ควบคุมวิธีการแสดงค่าที่หายไป; ไม่ได้รวมหรือยกเว้นข้อมูลต้นทางที่ซ่อน ดูที่ [ควบคุมการแสดงเซลล์ว่าง](/slides/th/php-java/chart-series/#control-the-display-of-empty-cells) เพื่อดูตัวอย่าง
+เซลล์ที่ซ่อนและมีค่าแตกต่างจากเซลล์ที่ว่างเปล่า [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) ควบคุมวิธีการแสดงค่าที่ขาดหาย; ไม่ได้รวมหรือแยกข้อมูลต้นทางที่ซ่อน ดู [ควบคุมการแสดงผลของเซลล์ที่ว่างเปล่า](/slides/th/php-java/chart-series/#control-the-display-of-empty-cells) เพื่อดูตัวอย่าง
 
 ## **ดึงช่วงข้อมูลของแผนภูมิ**
 
-ก่อนอัปเดตข้อมูลเวิร์กบุ๊กในงานนำเสนอที่มีอยู่ ให้ตรวจสอบช่วงต้นทางเพื่อระบุว่าแผ่นงานแต่ละเซลล์ที่แผนภูมิกำลังใช้คืออะไร วิธี [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) คืนค่าช่วงข้อมูลปัจจุบันในรูปสูตรที่อ้างอิงแผ่นงาน เช่น `Sheet1!$A$1:$D$5` ที่นี่ `Sheet1` คือชื่อแผ่นงาน, `!` แยกจากช่วงเซลล์, และ `$A$1:$D$5` ระบุเซลล์จาก A1 ถึง D5 รวมถึงสัญลักษณ์ `$` แสดงการอ้างอิงแบบคงที่
+ก่อนอัปเดตข้อมูล workbook ในงานนำเสนอที่มีอยู่, ตรวจสอบช่วงต้นทางเพื่อทราบว่า worksheet ใดที่แผนภูมิใช้ วิธี [ChartData::getRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getrange/) คืนค่าช่วงข้อมูลปัจจุบันในรูปแบบสูตรที่อ้างอิง worksheet เช่น `Sheet1!$A$1:$D$5`. ที่นี่ `Sheet1` คือชื่อ worksheet, `!` คั่นกับช่วงเซลล์, และ `$A$1:$D$5` ระบุเซลล์ A1 ถึง D5 รวมถึงสัญลักษณ์ดอลลาร์บ่งบอกการอ้างอิงแบบคงที่
 
-วิธีนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือเวิร์กบุ๊กของมัน หากแผนภูมิไม่ได้ใช้เวิร์กบุ๊กเป็นแหล่งข้อมูล จะเกิดข้อยกเว้น ดูข้อมูลเพิ่มเติมที่ [อ้างอิง API ของ ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/)
+วิธีนี้อ่านช่วงปัจจุบันโดยไม่เปลี่ยนแปลงแผนภูมิหรือ workbook ของมัน หากแผนภูมิไม่ใช้ workbook เป็นแหล่งข้อมูล จะโยนข้อยกเว้น ดูข้อมูลเพิ่มเติมที่ [ChartData API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/)
 
-ตัวอย่างนี้เปิดงานนำเสนอและตรวจสอบรูปทรงบนแต่ละสไลด์เพื่อหากราฟ พิมพ์ชื่อและช่วงต้นทางของแต่ละแผนภูมิ หากแผนภูมิไม่ใช้เวิร์กบุ๊ก จะพิมพ์ข้อความและดำเนินการต่อไปยังแผนภูมิดังต่อไป
+ตัวอย่างนี้เปิดงานนำเสนอและตรวจสอบรูปร่างบนแต่ละสไลด์เพื่อหาแผนภูมิ พิมพ์ชื่อแผนภูมิและช่วงต้นทาง หากแผนภูมิไม่ใช้ workbook จะพิมพ์ข้อความแล้วดำเนินต่อไปยังแผนภูมถัดไป
 
 ```php
 use aspose\slides\Presentation;
@@ -129,11 +129,11 @@ try {
 }
 ```
 
-## **อ่านและเขียนข้อมูลแผนภูมิจากเวิร์กบุ๊ก**
+## **อ่านและเขียนข้อมูลแผนภูมิจาก Workbook**
 
-Aspose.Slides for PHP via Java ให้วิธีการ [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) และ [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) ที่ช่วยให้คุณอ่านและเขียนเวิร์กบุ๊กข้อมูลแผนภูมิ (ซึ่งอาจแก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูลต้นฉบับ
+Aspose.Slides for PHP via Java มีเมธอด [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) และ [writeWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/writeworkbookstream/) ที่ให้คุณอ่านและเขียน workbook ของข้อมูลแผนภูมิ (ที่มีข้อมูลแผนภูมิแก้ไขด้วย Aspose.Cells) **Note** ว่าข้อมูลแผนภูมิต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูล
 
-ตัวอย่างนี้ใช้งานนำเสนอที่มีแผนภูมิเป็นรูปทรงแรกบนสไลด์แรก อ่านเวิร์กบุ๊กฝังเป็นอาเรย์ไบต์ ลบซีรีส์และประเภทเดิมออก แล้วเขียนเวิร์กบุ๊กเดิมกลับไป การเปลี่ยนแปลงอยู่ในหน่วยความจำ; ตัวอย่างไม่ได้บันทึกงานนำเสนอ
+ตัวอย่างนี้ใช้งานนำเสนอที่มีแผนภูมิเป็นรูปร่างแรกบนสไลด์แรก อ่าน workbook ฝังเป็นอาเรย์ไบต์, ลบ series และ categories ที่มีอยู่, แล้วเขียน workbook เดิมกลับไป การเปลี่ยนแปลงค้างอยู่ในหน่วยความจำ; ตัวอย่างไม่ได้บันทึกงานนำเสนอ
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,9 @@ try {
 }
 ```
 
-### **ตรวจสอบเค้าโครงแผนภูมิหลังการแก้ไขเวิร์กบุ๊ก**
+### **ตรวจสอบ Layout แผนภูมิหลังการแก้ไข Workbook**
 
-เมื่อคุณแทนที่เวิร์กบุ๊กฝังด้วยเวิร์กบุ๊กที่แก้ไขแล้ว แผนภูมิจะยังคงคอลเลกชันซีรีส์และประเภทเดิมไว้ ความไม่สอดคล้องนี้อาจทำให้ [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ให้ลบซีรีส์และประเภทเดิมออกก่อนเขียนเวิร์กบุ๊กอัปเดตกลับไปยังแผนภูมิ ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปทรงแรกบนสไลด์แรก คอมเมนต์ระบุจุดที่การแก้ไขเวิร์กบุ๊กจะเกิดขึ้น; ตัวอย่างทำงานเขียนเวิร์กบุ๊กเดิมกลับและตรวจสอบเค้าโครงในหน่วยความจำ
+เมื่อคุณแทนที่ workbook ฝังด้วย workbook ที่แก้ไขแล้ว, แผนภูมิอาจยังคงมี series และ category collections เดิม ความไม่ตรงกันนี้อาจทำให้ [Chart::validateChartLayout](https://reference.aspose.com/slides/php-java/aspose.slides/chart/validatechartlayout/) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ควรลบ series และ categories ที่มีอยู่ก่อนเขียน workbook ที่อัปเดตกลับไป ตัวอย่างนี้ใช้แผนภูมิเป็นรูปร่างแรกบนสไลด์แรก คอมเมนต์บ่งบอกตำแหน่งที่การแก้ไข workbook จะเกิดขึ้น; ตัวอย่างที่ทำงานได้เขียน workbook ดั้งเดิมกลับและตรวจสอบ layout ในหน่วยความจำ
 
 ```php
 use aspose\slides\Presentation;
@@ -177,7 +177,7 @@ try {
         $chartData = $chart->getChartData();
         $workbookData = $chartData->readWorkbookStream();
 
-        // แก้ไขไบต์ของเวิร์กบุ๊กที่นี่, ตัวอย่างเช่น ใช้ Aspose.Cells.
+        // แก้ไขไบต์ของ workbook ที่นี่, ตัวอย่างเช่น, ด้วย Aspose.Cells.
 
         $chartData->getSeries()->clear();
         $chartData->getCategories()->clear();
@@ -192,15 +192,15 @@ try {
 }
 ```
 
-การลบคอลเลกชันจะกำจัดการอ้างอิงข้อมูลเก่าก่อนที่เวิร์กบุ๊กจะถูกเขียนกลับ สร้างการแมปซีรีส์และประเภทใหม่ตามเวิร์กบุ๊กที่อัปเดตก่อนใช้แผนภูมิ
+การลบคอลเลกชันจะทำให้การอ้างอิงข้อมูลล้าสมัยหายไปก่อนที่ workbook จะถูกเขียนกลับ. สร้าง series และ category mappings ที่จำเป็นสำหรับ workbook ที่อัปเดตก่อนใช้แผนภูมิ
 
-## **กำหนดรูปแบบตัวเลขแบบกำหนดเองสำหรับเซลล์เวิร์กบุ๊ก**
+## **กำหนดรูปแบบตัวเลขแบบกำหนดเองสำหรับเซลล์ Workbook**
 
-ใช้ [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) เพื่อควบคุมวิธีการแสดงค่าตัวเลขในเวิร์กบุ๊กฝังของแผนภูมิ ตัวอย่างเช่น รายงานอาจต้องแสดงอัตราการแปลงเป็นเปอร์เซ็นต์ด้วยทศนิยมสี่ตำแหน่งและค่าสัมประสิทธิ์ด้วยทศนิยมห้าตำแหน่ง ค่าทั้งสองควรเป็นตัวเลขเพื่อให้ยังคงใช้ในการคำนวณและการพล็อตแผนภูมิได้
+ใช้ [ChartDataCell::setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) เพื่อควบคุมรูปแบบการแสดงค่าตัวเลขใน workbook ฝังของแผนภูมิ ตัวอย่างเช่น รายงานอาจต้องแสดงอัตราการแปลงเป็นเปอร์เซ็นต์กับทศนิยมสี่ตำแหน่งและค่าสัมประสิทธิ์กับทศนิยมห้าตำแหน่ง เก็บค่าทั้งสองเป็นตัวเลขเพื่อให้ยังคงใช้ในการคำนวณและการวาดแผนภูมิได้
 
-รูปแบบตัวเลขเปลี่ยนการแสดงผล ไม่ได้เปลี่ยนค่าที่เก็บไว้ รูปแบบ `0.0000%` จะทำให้ `0.125` แสดงเป็น `12.5000%`; ไม่ได้แทนที่ค่าที่เก็บด้วย `12.5` เช่นเดียวกัน `0.00000` จะทำให้ `0.1234567` แสดงเป็น `0.12346` โดยไม่มีการปัดเศษค่าที่เก็บไว้ หากรูปแบบกำหนดเองเป็นสตริงว่าง (`""`) ระบบจะใช้รูปแบบที่คืนโดย [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/)
+รูปแบบตัวเลขเปลี่ยนการแสดงผล ไม่ได้เปลี่ยนค่าที่เก็บไว้ รูปแบบ `0.0000%` จะทำให้ `0.125` แสดงเป็น `12.5000%`; ไม่ได้แทนที่ค่าที่เก็บเป็น `12.5`. เช่นเดียวกัน `0.00000` จะทำให้ `0.1234567` แสดงเป็น `0.12346` โดยไม่ปัดเศษค่าที่เก็บ หากรูปแบบกำหนดเองเป็นสตริงว่าง (`""`) จะใช้รูปแบบที่คืนจาก [getPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/getpresetnumberformat/) แทน
 
-ตัวอย่างต่อไปสร้างแผนภูมิคอลัมน์และเข้าถึงเซลล์ผ่าน [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/) บนแผ่นงาน 0, B2 มีอัตราการแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์เป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างยังเปิดใช้งานป้ายกำกับค่าเชื่อมโยงกับรูปแบบต้นทาง
+ตัวอย่างต่อไปสร้างแผนภูมิคอลัมน์และเข้าถึงเซลล์ผ่าน [getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/). ใน worksheet 0, เซลล์ B2 มีอัตราการแปลงและ C2 มีค่าสัมประสิทธิ์ ทั้งสองเซลล์ให้ค่ากราฟ ตัวอย่างยังเปิดใช้ป้ายค่าที่เชื่อมกับรูปแบบต้นทาง
 
 ```php
 use aspose\slides\Presentation;
@@ -255,19 +255,19 @@ try {
 }
 ```
 
-รูปแบบเซลล์เวิร์กบุ๊กแตกต่างจากรูปแบบที่ตั้งโดยตรงบนแกนหรือป้ายกำกับข้อมูล ในตัวอย่างนี้แต่ละป้ายกำกับจะแสดงค่าจากเซลล์ต้นทางเพราะ [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) ถูกตั้งเป็น `true` และตามรูปแบบตัวเลขของเซลล์ต้นทางเพราะ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) ถูกตั้งเป็น `true` หลังจากบันทึกและเปิดงานนำเสนอใหม่ ป้ายกำกับจะแสดง `12.5000%` และ `0.12346` ตามที่แสดงด้านล่าง แกนแนวตั้งใช้รูปแบบตัวเลขของตนเอง ที่กำหนดด้วย [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) เป็น `0.00` พร้อมกับ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) ตั้งเป็น `false`
+รูปแบบเซลล์ workbook แยกจากรูปแบบที่ตั้งโดยตรงบนแกนหรือป้ายข้อมูล ในตัวอย่างนี้แต่ละป้ายแสดงค่าจากเซลล์ต้นทางเพราะ [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) ตั้งเป็น `true` และตามรูปแบบตัวเลขของต้นทางเพราะ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) ตั้งเป็น `true`. หลังจากบันทึกและเปิดงานนำเสนอใหม่ ป้ายจะแสดง `12.5000%` และ `0.12346` ตามที่แสดงด้านล่าง แกนแนวตั้งใช้รูปแบบตัวเลขของตนเองที่ตั้งด้วย [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) เป็น `0.00`, และ [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformatlinkedtosource/) ตั้งเป็น `false`.
 
-หากต้องการจัดรูปแบบป้ายกำกับข้อมูลแยกจากแหล่ง ให้ตั้งค่าสถานะเชื่อมโยงต้นทางเป็น `false` แล้วกำหนดรูปแบบด้วย [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/) วิธีนี้ไม่ทำให้รูปแบบของเซลล์เวิร์กบุ๊กเปลี่ยน ตัวอย่างเช่น รูปแบบป้ายกำกับแยก `0.00` จะทำให้ค่าแรกแสดงเป็น `0.13` ในขณะที่ B2 ยังแสดง `12.5000%` ดูที่ [Chart Data Labels](/slides/th/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) สำหรับการจัดรูปแบบป้ายกำกับโดยตรง
+หากต้องการจัดรูปแบบป้ายข้อมูลแยกจากแหล่งข้อมูล ให้ตั้งค่าสถานะเชื่อมต้นทางเป็น `false` แล้วกำหนดรูปแบบด้วย [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setnumberformat/). วิธีนี้จะไม่เปลี่ยนรูปแบบของเซลล์ workbook ตัวอย่างเช่น รูปแบบป้ายอิสระ `0.00` จะทำให้ค่าที่แรกแสดงเป็น `0.13` ในขณะที่ B2 ยังคงแสดง `12.5000%`. ดู [Chart Data Labels](/slides/th/php-java/chart-data-label/#set-percentage-sign-with-chart-data-labels) สำหรับการจัดรูปแบบป้ายโดยตรง
 
-ภาพต่อไปแสดงจากงานนำเสนอที่บันทึกแล้วและเปิดใหม่อีกครั้ง:
+ภาพด้านล่างสร้างจากงานนำเสนอที่บันทึกแล้วและเปิดใหม่อีกครั้ง:
 
-![Column chart with source-linked labels showing 12.5000% and 0.12346 and an independently formatted numeric axis.](custom-cell-formats.png)
+![แผนภูมิคอลัมน์ที่มีป้ายเชื่อมกับแหล่งข้อมูลแสดง 12.5000% และ 0.12346 พร้อมแกนตัวเลขที่จัดรูปแบบแยกต่างหาก.](custom-cell-formats.png)
 
-## **กำหนดเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลของแผนภูมิ**
+## **ตั้งค่าเซลล์ Workbook เป็นป้ายข้อมูลแผนภูมิ**
 
-คุณสามารถใช้ข้อความจากเซลล์เวิร์กบุ๊กเป็นป้ายกำกับข้อมูลของแผนภูมิได้
+คุณสามารถใช้ข้อความจากเซลล์ workbook เป็นป้ายข้อมูลแผนภูมิได้
 
-ตัวอย่างนี้เพิ่มแผนภูมิบับเบิลที่มีข้อมูลเริ่มต้นบนสไลด์แรกของงานนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 บนแผ่นงาน 0 สำหรับสามป้ายกำกับแรกในซีรีส์แรก เปิดใช้งานป้ายกำกับจากเซลล์และบันทึกงานนำเสนอที่ได้อัปเดต
+ตัวอย่างนี้เพิ่มแผนภูมิบับเบิลที่มีข้อมูลเริ่มต้นบนสไลด์แรกของงานนำเสนอที่มีอยู่ ใช้เซลล์ A10:A12 ใน worksheet 0 สำหรับป้ายสามอันแรกของ series แรก, เปิดใช้ป้ายจากเซลล์, แล้วบันทึกงานนำเสนอที่อัปเดต
 
 ```php
 use aspose\slides\Presentation;
@@ -293,9 +293,9 @@ try {
 }
 ```
 
-## **จัดการแผ่นงาน**
+## **จัดการ Worksheets**
 
-วิธี [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) ให้เข้าถึงแผ่นงานในเวิร์กบุ๊กของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิพายที่มีข้อมูลเริ่มต้นและพิมพ์ชื่อแต่ละแผ่นงานไปยังคอนโซล
+เมธอด [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getworksheets/) ให้คุณเข้าถึง worksheets ใน workbook ของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิพายที่มีข้อมูลเริ่มต้นและพิมพ์ชื่อ worksheet แต่ละอันลงคอนโซล
 
 ```php
 use aspose\slides\Presentation;
@@ -318,7 +318,9 @@ try {
 
 ## **ระบุประเภทแหล่งข้อมูล**
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 3 มิติที่มีข้อมูลเริ่มต้นและตั้งชื่อซีรีส์สองชื่อโดยใช้แหล่งข้อมูลที่ต่างกัน ชื่อแรกใช้สตริงแบบลิตเทอรัล; ชื่อที่สองใช้เซลล์ C1 บนแผ่นงาน 0 ค่อนไทป์ [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) กำหนดแหล่งสำหรับแต่ละชื่อ ตัวอย่างบันทึกงานนำเสนอพร้อมชื่อซีรีส์ที่อัปเดต
+ค่าจุด series สามารถเก็บเป็นลิเทอรัลตัวเลขโดยตรงได้ ดู [Set Series Values Using Numeric Literals](/slides/th/php-java/chart-series/#set-series-values-using-numeric-literals) สำหรับตัวอย่างเต็มที่บันทึกและอ่านค่าเหล่านั้น ประเภทของแหล่งข้อมูลของค่าจุดแยกจากการกำหนดค่า workbook ภายในหรือภายนอกของแผนภูมิ; การใช้ลิเทอรัลตัวเลขไม่ได้ทำให้ workbook ฝังหายไปโดยอัตโนมัติ
+
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ 3D ที่มีข้อมูลเริ่มต้นและกำหนดชื่อ series สองชื่อโดยใช้แหล่งข้อมูลต่างกัน ชื่อแรกใช้สตริงลิเทอรัล; ชื่อที่สองใช้เซลล์ C1 ใน worksheet 0. การนับ enum [DataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) เลือกแหล่งข้อมูลสำหรับแต่ละชื่อ ตัวอย่างบันทึกงานนำเสนอพร้อมชื่อ series ที่อัปเดต
 
 ```php
 use aspose\slides\Presentation;
@@ -347,9 +349,9 @@ try {
 }
 ```
 
-## **ตรวจจับรูปแบบเวิร์กบุ๊กฝังที่ไม่สนับสนุน**
+## **ตรวจจับรูปแบบ Workbook ฝังที่ไม่รองรับ**
 
-Aspose.Slides ไม่สนับสนุนรูปแบบเวิร์กบุ๊ก Excel แบบไบนารี (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้เมธอด `getEmbeddedWorkbookType` บน [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) ร่วมกับไอเทม [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่สนับสนุนและข้ามแผนภูมินั้น ตัวอย่างตรวจสอบรูปทรงบนสไลด์แรกของงานนำเสนอที่มีอยู่ ข้ามรูปทรงที่ไม่ใช่แผนภูมิและพิมพ์ข้อความวินิจฉัยสำหรับแต่ละแผนภูมิที่มีเวิร์กบุ๊ก .xlsb ฝังอยู่
+Aspose.Slides ไม่รองรับรูปแบบ workbook Excel แบบไบนารี (.xlsb) ที่อาจฝังในบางแผนภูมิ คุณสามารถใช้เมธอด `getEmbeddedWorkbookType` บน [ChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/) ร่วมกับ enum [WorkbookType](https://reference.aspose.com/slides/php-java/aspose.slides/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น ตัวอย่างตรวจสอบรูปร่างบนสไลด์แรกของงานนำเสนอที่มีอยู่, ข้ามรูปร่างที่ไม่ใช่แผนภูมิ, แล้วพิมพ์ข้อความวินิจฉัยสำหรับแต่ละแผนภูมิที่มี workbook .xlsb ฝัง
 
 ```php
 use aspose\slides\Presentation;
@@ -377,22 +379,22 @@ try {
             continue;
         }
 
-        // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กแผนภูมิที่สนับสนุนที่นี่.
+        // อ่านหรือแก้ไขข้อมูล workbook ของแผนภูมิที่รองรับที่นี่.
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **เวิร์กบุ๊กภายนอก**
+## **Workbook ภายนอก**
 
-Aspose.Slides รองรับการใช้เวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ
+Aspose.Slides รองรับการใช้ workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ
 
-### **สร้างเวิร์กบุ๊กภายนอก**
+### **สร้าง Workbook ภายนอก**
 
-ใช้ [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) และ [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) เพื่อส่งออกเวิร์กบุ๊กแผนภูมิฝังเป็นไฟล์และเชื่อมโยงแผนภูมิกับเวิร์กบุ๊กภายนอกนั้น
+ใช้ [readWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/readworkbookstream/) และ [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) เพื่อส่งออก workbook ของแผนภูมิที่ฝังลงไฟล์และเชื่อมแผนภูมิกับ workbook ภายนอกนั้น
 
-ตัวอย่างนี้สร้างแผนภูมิเพายที่มีข้อมูลเริ่มต้นและส่งออกเวิร์กบุ๊กของมัน ทำการเขียนไฟล์ให้เสร็จก่อนกำหนดเวิร์กบุ๊กภายนอกเป็นแหล่งข้อมูลของแผนภูมิ แล้วบันทึกงานนำเสนอที่เชื่อมโยง
+ตัวอย่างนี้สร้างแผนภูมิเพายที่มีข้อมูลเริ่มต้นและส่งออก workbook ของมัน. การเขียนไฟล์เสร็จสิ้นก่อนกำหนด workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ, แล้วบันทึกงานนำเสนอที่เชื่อมแล้ว
 
 ```php
 use aspose\slides\Presentation;
@@ -424,13 +426,13 @@ try {
 }
 ```
 
-### **กำหนดเวิร์กบุ๊กภายนอก**
+### **กำหนด Workbook ภายนอก**
 
-โดยใช้เมธอด [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) คุณสามารถกำหนดเวิร์กบุ๊กภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังสามารถใช้เพื่ออัปเดตเส้นทางไปยังเวิร์กบุ๊กภายนอก (หากไฟล์ถูกย้าย)
+โดยใช้เมธอด [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) คุณสามารถกำหนด workbook ภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังใช้เพื่ออัปเดตเส้นทางไปยัง workbook ภายนอก (หากไฟล์ถูกย้าย)
 
-แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลในเวิร์กบุ๊กที่จัดเก็บในตำแหน่งห่างไกลหรือทรัพยากรได้ คุณก็ยังสามารถใช้เวิร์กบุ๊กเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพันธ์สำหรับเวิร์กบุ๊กภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
+แม้คุณจะไม่สามารถแก้ไขข้อมูลใน workbook ที่จัดเก็บในตำแหน่งระยะไกลหรือทรัพยากรได้, คุณยังสามารถใช้ workbook เหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพัทธ์สำหรับ workbook ภายนอก ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ
 
-ตัวอย่างนี้ใช้เวิร์กบุ๊กภายนอกที่แผ่นงานชื่อ `Sheet1` มีชื่อซีรีส์ใน B1, ชื่อประเภทใน A2:A4, และค่าตัวเลขใน B2:B4 ตัวอย่างสร้างแผนภูมิเพาย, เชื่อมโยงเวิร์กบุ๊ก, และใช้ [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) เพื่อแมป A1:B4 เป็นหนึ่งซีรีส์และสามประเภท ส่งงานนำเสนอพร้อมแผนภูมิที่เชื่อมโยง
+ตัวอย่างนี้ใช้ workbook ภายนอกที่ Worksheet ชื่อ `Sheet1` มีชื่อ series ใน B1, ชื่อหมวดใน A2:A4, และค่าตัวเลขใน B2:B4. ตัวอย่างสร้างแผนภูมิเพาย, เชื่อม workbook, และใช้ [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) เพื่อแมป A1:B4 ไปยัง series หนึ่งและสามหมวด. แล้วบันทึกงานนำเสนอที่เชื่อมแผนภูมิ
 
 ```php
 use aspose\slides\Presentation;
@@ -455,12 +457,12 @@ try {
 }
 ```
 
-พารามิเตอร์ `updateChartData` ของ [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) ควบคุมว่ามีการโหลดเวิร์กบุ๊กหรือไม่
+พารามิเตอร์ `updateChartData` ของ [setExternalWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setexternalworkbook/) ควบคุมว่าจะโหลด workbook หรือไม่
 
-* เมื่อ `updateChartData` เป็น `false` จะอัปเดตเฉพาะเส้นทางของเวิร์กบุ๊ก ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากเวิร์กบุ๊กเป้าหมาย ดังนั้นเวิร์กบุ๊กอาจไม่มีอยู่
-* เมื่อ `updateChartData` เป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากเวิร์กบุ๊กเป้าหมาย
+* เมื่อ `updateChartData` เป็น `false`, จะอัปเดตเฉพาะเส้นทาง workbook. ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจาก workbook เป้าหมาย, ดังนั้น workbook สามารถไม่มีอยู่ได้
+* เมื่อ `updateChartData` เป็น `true`, ข้อมูลแผนภูมิจะอัปเดตจาก workbook เป้าหมาย
 
-ตัวอย่างต่อไปกำหนด URL ตัวอักษรแทนที่พร้อม `updateChartData` ตั้งเป็น `false` คงข้อมูลเริ่มต้นของแผนภูมิเพายและบันทึกงานนำเสนอโดยไม่โหลดเวิร์กบุ๊กที่ไม่สามารถเข้าถึงได้
+ตัวอย่างต่อไปกำหนด URL ตัวอย่างด้วย `updateChartData` เป็น `false`. งานนำเสนอจะยังคงมีข้อมูลแผนภูมิพายเริ่มต้นและบันทึกโดยไม่โหลด workbook ที่ไม่มี
 
 ```php
 use aspose\slides\Presentation;
@@ -480,11 +482,11 @@ try {
 }
 ```
 
-### **รับเส้นทางเวิร์กบุ๊กแหล่งข้อมูลภายนอกของแผนภูมิ**
+### **ดึงเส้นทาง Workbook แหล่งข้อมูลภายนอกของแผนภูมิ**
 
-เพื่อระบุเวิร์กบุ๊กที่เชื่อมโยงกับแผนภูมิ ตรวจสอบว่าแผนภูมิใช้แหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทางเวิร์กบุ๊กของมัน
+เพื่อระบุ workbook ที่เชื่อมกับแผนภูมิ, ตรวจสอบว่าแผนภูมิใช้แหล่งข้อมูลภายนอกหรือไม่และดึงเส้นทาง workbook ของมัน
 
-ตัวอย่างนี้ตรวจสอบรูปทรงแรกบนสไลด์แรกของงานนำเสนอที่มีเวิร์กบุ๊กภายนอกเชื่อมโยง หากเป็นแผนภูมิที่เชื่อมโยงกับเวิร์กบุ๊กภายนอก ตัวอย่างพิมพ์ [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) ไปยังคอนโซลแล้วบันทึกสำเนาของงานนำเสนอ
+ตัวอย่างนี้ตรวจสอบรูปร่างแรกบนสไลด์แรกของงานนำเสนอที่เชื่อม workbook ภายนอก หากเป็นแผนภูมิที่เชื่อมกับ workbook ภายนอก ตัวอย่างพิมพ์ [getExternalWorkbookPath](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) ลงคอนโซล แล้วบันทึกสำเนาของงานนำเสนอ
 
 ```php
 use aspose\slides\Presentation;
@@ -516,9 +518,9 @@ try {
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในเวิร์กบุ๊กภายนอกได้เช่นเดียวกับการเปลี่ยนแปลงในเวิร์กบุ๊กภายใน เมื่อเวิร์กบุ๊กภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
+คุณสามารถแก้ไขข้อมูลใน workbook ภายนอกได้เช่นเดียวกับที่ทำกับ workbook ภายใน เมื่อ workbook ภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
 
-ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปทรงแรกบนสไลด์แรกและเชื่อมโยงกับเวิร์กบุ๊กภายนอกที่เข้าถึงได้ ตั้งค่าค่าที่อยู่ในเซลล์ของจุดข้อมูลแรกในซีรีส์แรกเป็น 100 และบันทึกงานนำเสนอที่อัปเดต การแก้ไขค่าจากเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมโยง จึงควรใช้สำเนาหากต้องการเก็บเวิร์กบุ๊กต้นฉบับไว้
+ตัวอย่างนี้ใช้แผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและเชื่อมกับ workbook ภายนอกที่เข้าถึงได้. ตั้งค่า cell-backed value ของจุดข้อมูลแรกใน series แรกเป็น 100 แล้วบันทึกงานนำเสนอที่อัปเดต การแก้ไขค่าเซลล์สามารถอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมต่อได้, ดังนั้นใช้สำเนาถ้าต้องการเก็บ workbook เดิมไว้
 
 ```php
 use aspose\slides\Presentation;
@@ -551,11 +553,11 @@ try {
 }
 ```
 
-### **กู้คืนเวิร์กบุ๊กจากแคชของแผนภูมิ**
+### **กู้คืน Workbook จากแคชของแผนภูมิ**
 
-หากแผนภูมิใช้เวิร์กบุ๊กภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างเวิร์กบุ๊กแผนภูมิจากข้อมูลที่แคชไว้ในงานนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), เรียก [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/), และตั้งค่า [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) เป็น `true` ก่อนเปิดงานนำเสนอ
+หากแผนภูมิใช้ workbook ภายนอกที่หายไปหรือไม่สามารถใช้งานได้, Aspose.Slides สามารถสร้าง workbook ของแผนภูมิจากข้อมูลที่แคชในงานนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/), เรียก [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setspreadsheetoptions/), แล้วตั้ง [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/php-java/aspose.slides/spreadsheetoptions/setrecoverworkbookfromchartcache/) เป็น `true` ก่อนเปิดงานนำเสนอ
 
-ตัวอย่าง PHP ต่อไปกู้คืนข้อมูลเวิร์กบุ๊กสำหรับแผนภูมิที่เป็นรูปทรงแรกบนสไลด์แรกและอ้างอิงเวิร์กบุ๊กภายนอกที่ไม่สามารถเข้าถึงได้ เข้าถึงข้อมูลที่กู้คืนผ่าน [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) และ [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):
+ตัวอย่าง PHP ด้านล่างกู้คืนข้อมูล workbook สำหรับแผนภูมิที่เป็นรูปร่างแรกบนสไลด์แรกและอ้างอิง workbook ภายนอกที่ไม่สามารถเข้าถึงได้. เข้าถึงข้อมูลที่กู้คืนผ่าน [Chart::getChartData](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getchartdata/) และ [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getchartdataworkbook/):
 
 ```php
 use aspose\slides\Presentation;
@@ -577,7 +579,7 @@ try {
         $chart = $slide->getShapes()->get_Item(0);
         $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-        // อ่านหรือแก้ไขข้อมูลเวิร์กบุ๊กที่กู้คืนที่นี่.
+        // อ่านหรือแก้ไขข้อมูล workbook ที่กู้คืนที่นี่.
     } else {
         echo "The first shape is not a chart.", PHP_EOL;
     }
@@ -586,30 +588,30 @@ try {
 }
 ```
 
-หากเวิร์กบุ๊กภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยนข้อยกเว้น ให้เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแคชของแผนภูมิเป็นทางเลือกที่ยอมรับได้ เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำในเวิร์กบุ๊กภายนอกหลังจากที่งานนำเสนออัปเดตครั้งล่าสุด
+หาก workbook ภายนอกไม่สามารถใช้งานได้และการกู้คืนถูกปิด, Aspose.Slides จะโยนข้อยกเว้น เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแคชของแผนภูมิเป็นวิธีสำรองที่ยอมรับได้, เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับ workbook ภายนอกหลังจากที่งานนำเสนอถูกอัปเดตครั้งสุดท้าย
 
 ## **FAQ**
 
-**ฉันจะตรวจสอบได้หรือไม่ว่าแผนภูมิใดเชื่อมโยงกับเวิร์กบุ๊กภายนอกหรือเวิร์กบุ๊กฝัง?**
+**ฉันจะตรวจสอบได้หรือไม่ว่าแผนภูมิใดเชื่อมกับ workbook ภายนอกหรือที่ฝังอยู่?**
 
-ได้. แผนภูมิมี [data source type](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) และ [path to an external workbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); หากแหล่งเป็นเวิร์กบุ๊กภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ามีการใช้ไฟล์ภายนอก
+ได้. แผนภูมิมี [data source type](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) และ [path to an external workbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/); หากแหล่งเป็น workbook ภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าไฟล์ภายนอกกำลังถูกใช้
 
-**รองรับเส้นทางสัมพันธ์ไปยังเวิร์กบุ๊กภายนอกหรือไม่ และเก็บอย่างไร?**
+**รองรับเส้นทางสัมพัทธ์ไปยัง workbook ภายนอกหรือไม่, แล้วเก็บอย่างไร?**
 
-ใช่. หากคุณระบุเส้นทางสัมพันธ์ ระบบจะเปลี่ยนอัตโนมัติเป็นเส้นทางเต็ม งานนำเสนอเก็บเส้นทางเต็มในไฟล์ PPTX ดังนั้นการย้ายเวิร์กบุ๊กอาจต้องอัปเดตลิงก์
+รองรับ. หากคุณระบุเส้นทางสัมพัทธ์ ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ งานนำเสนอเก็บเส้นทางเต็มในไฟล์ PPTX, ดังนั้นการย้าย workbook อาจต้องอัปเดตลิงก์
 
-**ฉันสามารถใช้เวิร์กบุ๊กที่อยู่บนทรัพยากรเครือข่าย/แชร์ได้หรือไม่?**
+**ฉันสามารถใช้ workbook ที่อยู่บนทรัพยากร/แชร์เครือข่ายได้หรือไม่?**
 
-ได้, เวิร์กบุ๊กเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขเวิร์กบุ๊กระยะไกลโดยตรงจาก Aspose.Slides ไม่รองรับ — สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+ได้, workbook ดังกล่าวสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม, การแก้ไข workbook ระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน — สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
 
 **Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกงานนำเสนอหรือไม่?**
 
-งานนำเสนอเก็บ [link to the external file](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/) การแก้ไขข้อมูลแผนภูมิที่อิงจากเซลล์อาจอัปเดตไฟล์ XLSX ภายนอกที่เชื่อมโยง ใช้สำเนาเวิร์กบุ๊กหากต้องการให้ไฟล์ต้นฉบับคงอยู่โดยไม่เปลี่ยนแปลง
+งานนำเสนอเก็บ [link to the external file](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getexternalworkbookpath/). การแก้ไขข้อมูลแผนภูมิที่อิงเซลล์อาจอัปเดตไฟล์ XLSX ภายในเครื่องที่เชื่อมกับลิงก์ ใช้สำเนาของ workbook หากต้องการให้ไฟล์ต้นฉบับไม่เปลี่ยนแปลง
 
-**ควรทำอย่างไรหากไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน?**
+**ถ้าไฟล์ภายนอกมีการป้องกันด้วยรหัสผ่านควรทำอย่างไร?**
 
-Aspose.Slides ไม่รับรหัสผ่านเมื่อลิงก์ วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสแล้ว (เช่น ใช้ [Aspose.Cells](https://reference.aspose.com/cells/java/)) แล้วเชื่อมโยงไปยังสำเนานั้น
+Aspose.Slides ไม่รับรหัสผ่านเมื่อเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้า หรือเตรียมสำเนาที่ถอดรหัส (เช่น ใช้ [Aspose.Cells](https://reference.aspose.com/cells/java/)) แล้วเชื่อมโยงกับสำเนานั้น
 
-**หลายแผนภูมิสามารถอ้างอิงเวิร์กบุ๊กภายนอกเดียวกันได้หรือไม่?**
+**หลายแผนภูมิสามารถอ้างอิง workbook ภายนอกเดียวกันได้หรือไม่?**
 
-ได้. แต่ละแผนภูมิเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปที่ไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิเมื่อตัวข้อมูลถูกโหลดครั้งต่อไป
+ได้. แต่ละแผนภูมิเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปที่ไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งต่อไปที่โหลดข้อมูล**
