@@ -1,5 +1,5 @@
 ---
-title: Präsentationsdiagramme in PHP formatieren
+title: Diagramme in Präsentationen formatieren in PHP
 linktitle: Diagrammformatierung
 type: docs
 weight: 60
@@ -7,63 +7,49 @@ url: /de/php-java/chart-formatting/
 keywords:
 - Diagramm formatieren
 - Diagrammformatierung
-- Diagrammobjekt
+- Diagramm-Entität
 - Diagrammeigenschaften
 - Diagrammeinstellungen
 - Diagrammoptionen
-- Schriftarteigenschaften
-- abgerundete Kante
+- Schrifteigenschaften
+- Abgerundeter Rand
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides for PHP via Java formatieren und Ihrer PowerPoint-Präsentation ein professionelles, auffälliges Design verleihen."
+description: "Erfahren Sie, wie Sie Diagramme mit Aspose.Slides für PHP über Java formatieren und Ihre PowerPoint-Präsentation mit benutzerdefinierten Achsen, Schriften, Zahlenformaten und abgerundeten Diagrammrändern verbessern."
 ---
+## **Übersicht**
 
-## **Diagrammobjekte formatieren**
-Aspose.Slides for PHP via Java ermöglicht Entwicklern, benutzerdefinierte Diagramme von Grund auf zu ihren Folien hinzuzufügen. Dieser Artikel erklärt, wie verschiedene Diagrammobjekte formatiert werden, einschließlich Diagrammkategorie‑ und Werteachse.
+Dieser Artikel erklärt, wie Diagramme in PowerPoint‑Präsentationen mithilfe von Aspose.Slides formatiert werden. Er zeigt, wie wichtige Diagrammelemente wie Achsen, Gitternetzlinien, Titel, Legenden, der Plot‑Bereich und Wandfüllungen angepasst werden können, um das Erscheinungsbild und die Lesbarkeit von Diagrammdaten zu verbessern.
 
-Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung verschiedener Diagrammobjekte und deren Formatierung mit benutzerdefinierten Werten:
+Er demonstriert außerdem, wie Schrifteigenschaften für Diagramm‑Text festgelegt, vordefinierte Zahlenformate auf Diagrammdaten angewendet und abgerundete Ecken für den Diagrammbereich aktiviert werden. Zusammen zeigen diese Beispiele, wie sowohl der visuelle Stil als auch die Datenpräsentation von Diagrammen in einer Präsentation gesteuert werden können.
 
-1. Erstellen Sie eine Instanz der [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.
-1. Rufen Sie die Referenz einer Folie anhand ihres Index ab.
-1. Fügen Sie ein Diagramm mit Standarddaten und einem gewünschten Diagrammtyp hinzu (in diesem Beispiel verwenden wir ChartType::LineWithMarkers).
-1. Greifen Sie auf die Wertachse des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. Festlegen des **Line format** für die Hauptgitternetzlinien der Wertachse
-   1. Festlegen des **Line format** für die Nebengitternetzlinien der Wertachse
-   1. Festlegen des **Number Format** für die Wertachse
-   1. Festlegen von **Min, Max, Major and Minor units** für die Wertachse
-   1. Festlegen der **Text Properties** für die Daten der Wertachse
-   1. Festlegen des **Title** für die Wertachse
-   1. Festlegen des **Line Format** für die Wertachse
-1. Greifen Sie auf die Category Axis des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. Festlegen des **Line format** für die Hauptgitternetzlinien der Category Axis
-   1. Festlegen des **Line format** für die Nebengitternetzlinien der Category Axis
-   1. Festlegen der **Text Properties** für die Daten der Category Axis
-   1. Festlegen des **Title** für die Category Axis
-   1. Festlegen der **Label Positioning** für die Category Axis
-   1. Festlegen des **Rotation Angle** für die Beschriftungen der Category Axis
-1. Greifen Sie auf die Legende des Diagramms zu und setzen Sie die **Text Properties** dafür
-1. Legen Sie die Anzeige der Diagrammlegenden ohne Überlappung des Diagramms fest
-1. Greifen Sie auf die **Secondary Value Axis** des Diagramms zu und setzen Sie die folgenden Eigenschaften:
-   1. Aktivieren Sie die sekundäre **Value Axis**
-   1. Festlegen des **Line Format** für die sekundäre Value Axis
-   1. Festlegen des **Number Format** für die sekundäre Value Axis
-   1. Festlegen von **Min, Max, Major and Minor units** für die sekundäre Value Axis
-1. Plotten Sie nun die erste Diagrammserie auf der sekundären Value Axis
-1. Legen Sie die Füllfarbe der Rückwand des Diagramms fest
-1. Legen Sie die Füllfarbe des Plotbereichs des Diagramms fest
-1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei
+## **Diagramm‑Entitäten formatieren**
+
+Verwenden Sie [Diagramm](https://reference.aspose.com/slides/php-java/aspose.slides/chart/), um Diagrammtitel, Achsen, Gitternetzlinien, Legenden und den Plot‑Bereich zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Markern und Standardsdaten und wendet anschließend separate Text‑ und Linienformate auf seine Werte‑ und Kategorien‑Achsen an. Schriftgrößen und Linienstärken werden in Punkten angegeben; Kategorielabels werden um 45 Grad gedreht.
+
+Die Werte‑Achse verwendet [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) unabhängig von den Quellzellen. Ihre Skala reicht von –2 bis 15, mit Hauptintervallen von 2 und Nebenintervallen von 0,5. Das Beispiel kombiniert Prozentsatzformatierung mit [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) auf Tausend, passen Sie diese Einstellungen also an die Bedeutung und Größe Ihrer Daten an. Die Legende bleibt außerhalb des Plot‑Bereichs, da [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) mit `false` aufgerufen wird. Hinter‑Wand‑ und Boden‑Füllungen werden über [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) und [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) konfiguriert, diese Oberflächen sind jedoch nur in 3D‑Diagrammen sichtbar.
+
 ```php
-  # Erstellen Sie eine Instanz der Presentation-Klasse
-  $pres = new Presentation();
-  try {
-    # Zugriff auf die erste Folie
-    $slide = $pres->getSlides()->get_Item(0);
-    # Hinzufügen des Beispiel-Diagramms
+use aspose\slides\ChartType;
+use aspose\slides\DisplayUnitType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LineDashStyle;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\PresetColor;
+use aspose\slides\SaveFormat;
+use aspose\slides\TickLabelPositionType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
-    # Festlegen des Diagrammtitels
-    $chart->hasTitle();
+
+    $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("");
     $chartTitle = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $chartTitle->setText("Sample Chart");
@@ -72,267 +58,301 @@ Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung verschied
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Festlegen des Formats der Hauptgitternetzlinien für die Wertachse
+
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # Festlegen des Formats der Hilfsgitternetzlinien für die Wertachse
+    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle::DashDot);
+
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Festlegen des Zahlenformats der Wertachse
-    $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
+
+    $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    # Festlegen der maximalen und minimalen Werte des Diagramms
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getVerticalAxis()->setMaxValue(15.0);
-    $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
+
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(15);
+    $chart->getAxes()->getVerticalAxis()->setMinValue(-2);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    # Festlegen der Texteigenschaften der Wertachse
-    $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
-    $txtVal->setFontBold(NullableBool::True);
-    $txtVal->setFontHeight(16);
-    $txtVal->setFontItalic(NullableBool::True);
-    $txtVal->getFillFormat()->setFillType(FillType::Solid);
-    $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
-    $txtVal->setLatinFont(new FontData("Times New Roman"));
-    # Festlegen des Titels der Wertachse
-    $chart->getAxes()->getVerticalAxis()->hasTitle();
+
+    $valueAxisText = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
+    $valueAxisText->setFontBold(NullableBool::True);
+    $valueAxisText->setFontHeight(16);
+    $valueAxisText->setFontItalic(NullableBool::True);
+    $valueAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkGreen);
+    $valueAxisText->setLatinFont(new FontData("Times New Roman"));
+
+    $chart->getAxes()->getVerticalAxis()->setTitle(true);
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
-    $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $valtitle->setText("Primary Axis");
-    $valtitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $valtitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $valtitle->getPortionFormat()->setFontHeight(20);
-    $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Festlegen des Formats der Hauptgitternetzlinien für die Kategorienachse
+    $valueAxisTitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $valueAxisTitle->setText("Primary Axis");
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $valueAxisTitle->getPortionFormat()->setFontHeight(20);
+    $valueAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $valueAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 128, 0));
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # Festlegen des Formats der Hilfsgitternetzlinien für die Kategorienachse
+
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Festlegen der Texteigenschaften der Kategorienachse
-    $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
-    $txtCat->setFontBold(NullableBool::True);
-    $txtCat->setFontHeight(16);
-    $txtCat->setFontItalic(NullableBool::True);
-    $txtCat->getFillFormat()->setFillType(FillType::Solid);
-    $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $txtCat->setLatinFont(new FontData("Arial"));
-    # Festlegen des Titels der Kategorienachse
-    $chart->getAxes()->getHorizontalAxis()->hasTitle();
+
+    $categoryAxisText = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
+    $categoryAxisText->setFontBold(NullableBool::True);
+    $categoryAxisText->setFontHeight(16);
+    $categoryAxisText->setFontItalic(NullableBool::True);
+    $categoryAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisText->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $categoryAxisText->setLatinFont(new FontData("Arial"));
+
+    $chart->getAxes()->getHorizontalAxis()->setTitle(true);
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
-    $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $catTitle->setText("Sample Category");
-    $catTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $catTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $catTitle->getPortionFormat()->setFontHeight(20);
-    $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Festlegen der Beschriftungsposition der Kategorienachse
+
+    $categoryAxisTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $categoryAxisTitle->setText("Sample Category");
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $categoryAxisTitle->getPortionFormat()->setFontHeight(20);
+    $categoryAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $categoryAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # Festlegen des Rotationswinkels der Beschriftungen der Kategorienachse
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    # Festlegen der Texteigenschaften der Legende
-    $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
-    $txtleg->setFontBold(NullableBool::True);
-    $txtleg->setFontHeight(16);
-    $txtleg->setFontItalic(NullableBool::True);
-    $txtleg->getFillFormat()->setFillType(FillType::Solid);
-    $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # Legenden anzeigen, ohne das Diagramm zu überlappen
-    $chart->getLegend()->setOverlay(true);
-    # chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # Festlegen der sekundären Wertachse
-    $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # Festlegen des Zahlenformats der sekundären Wertachse
-    $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    # Festlegen der maximalen und minimalen Werte des Diagramms
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMaxValue(20.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    # Festlegen der Hintergrundwandfarbe des Diagramms
+
+    $legendText = $chart->getLegend()->getTextFormat()->getPortionFormat();
+    $legendText->setFontBold(NullableBool::True);
+    $legendText->setFontHeight(16);
+    $legendText->setFontItalic(NullableBool::True);
+    $legendText->getFillFormat()->setFillType(FillType::Solid);
+    $legendText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkRed);
+
+    $chart->getLegend()->setOverlay(false);
+
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Festlegen der Farbe des Zeichenbereichs
+
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
-    # Präsentation speichern
-    $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setPresetColor(PresetColor::LightCyan);
+
+    $presentation->save("FormattedChart_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Schrifteigenschaften für ein Diagramm festlegen**
 
-## **Schriftart‑Eigenschaften für ein Diagramm festlegen**
-Aspose.Slides for PHP via Java bietet Unterstützung für das Festlegen der schriftenbezogenen Eigenschaften für das Diagramm. Bitte folgen Sie den untenstehenden Schritten, um die Schriftarteigenschaften für ein Diagramm festzulegen.
+Setzen Sie die Standardschriftgröße für Diagramm‑Text über [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). Das Beispiel erstellt ein gruppiertes Säulendiagramm mit einer 20‑Punkt‑Schrift und aktiviert Wertbeschriftungen für die erste Serie über [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Textelemente mit eigenen expliziten Schriftarteinstellungen können die Diagramm‑Voreinstellung überschreiben.
 
-- Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)-Klassenobjekt.
-- Fügen Sie dem Folie ein Diagramm hinzu.
-- Legen Sie die Schriftgröße fest.
-- Speichern Sie die modifizierte Präsentation.
-
-Im Folgenden wird ein Beispiel gegeben.
 ```php
-  # Instanz der Presentation-Klasse erstellen
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
     $chart->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $pres->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
+    $presentation->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **Numerisches Format festlegen**
-Aspose.Slides for PHP via Java bietet eine einfache API zur Verwaltung des Diagrammdatenformats:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klasse.
-1. Rufen Sie die Referenz einer Folie anhand ihres Index ab.
-1. Fügen Sie ein Diagramm mit Standarddaten und einem gewünschten Typ hinzu (dieses Beispiel verwendet **ChartType::ClusteredColumn**).
-1. Legen Sie das vordefinierte Zahlenformat aus den möglichen vorgegebenen Werten fest.
-1. Durchlaufen Sie die Diagrammdatenzelle jeder Diagrammserie und setzen Sie das Zahlenformat der Diagrammdaten.
-1. Speichern Sie die Präsentation.
-1. Legen Sie das benutzerdefinierte Zahlenformat fest.
-1. Durchlaufen Sie die Diagrammdatenzelle jeder Diagrammserie und setzen Sie ein unterschiedliches Zahlenformat für die Diagrammdaten.
-1. Speichern Sie die Präsentation.
+Verwenden Sie [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/), um ein integriertes Zahlenformat auf Diagramm‑Arbeitsmappen‑Zellen anzuwenden. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit Standard‑, zellbasierten Daten und wendet Format‑Index 10 (`0.00%`) auf jede Serien‑Wertzelle an. Dadurch wird die Darstellung der Werte in der Arbeitsmappe geändert, ohne die zugrunde liegenden Zahlen zu verändern; zum Beispiel wird 0,25 als 25,00 % angezeigt. Achsen‑ und Datenbeschriftungsformate können separat konfiguriert werden.
+
 ```php
-  # Instanz der Presentation-Klasse erstellen
-  $pres = new Presentation();
-  try {
-    # Zugriff auf die erste Präsentationsfolie
-    $slide = $pres->getSlides()->get_Item(0);
-    # Hinzufügen eines Standard-Clustered-Column-Diagramms
-    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    # Zugriff auf die Diagrammseriensammlung
-    $series = $chart->getChartData()->getSeries();
-    # Durchlaufen jeder Diagrammserie
-    foreach($series as $ser) {
-      # Durchlaufen jeder Datenzelle in der Serie
-      foreach($ser->getDataPoints() as $cell) {
-        # Festlegen des Zahlenformats
-        $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-      }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
+    $series = $chart->getChartData()->getSeries();
+
+    for ($i = 0; $i < java_values($series->size()); $i++) {
+        $chartSeries = $series->get_Item($i);
+        $dataPoints = $chartSeries->getDataPoints();
+        for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
+            $dataPoint = $dataPoints->get_Item($j);
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
+        }
     }
-    # Präsentation speichern
-    $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("PresetNumberFormat_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+Die folgende Tabelle listet integrierte Zahlenformat‑Indizes mit repräsentativen Excel‑Formaten für das englische (USA) Gebietsschema auf. Die genauen Format‑Strings und deren Darstellung können je nach Anwendung und Gebietsschema variieren, insbesondere für Währungen und Datumsangaben. Einige Excel‑Formate weichen zudem von den Vorgaben des OOXML‑Standards ab, wie in den [Microsoft‑Hinweisen zur Zahlenformat‑Implementierung](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) beschrieben.
 
-Die möglichen vorgegebenen Zahlenformatwerte zusammen mit ihrem Index, die verwendet werden können, sind unten aufgeführt:
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-|**0**|Allgemein|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+## **Abgerundete Rahmen im Diagrammbereich festlegen**
 
-## **Abgerundete Ränder des Diagrammbereichs festlegen**
-Aspose.Slides for PHP via Java bietet Unterstützung für das Festlegen des Diagrammbereichs. Die Methoden [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/hasroundedcorners/) und [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) wurden der [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart)-Klasse hinzugefügt.
+Rufen Sie [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) mit `true` auf, um die Ecken des Diagrammbereichs abzurunden. Das Beispiel erstellt ein gruppiertes Säulendiagramm und verwendet [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/), um dessen Kontur eine durchgehende graue Farbe und einen ein­linigen Stil zu geben, bevor die Präsentation gespeichert wird.
 
-1. Instanziieren Sie ein [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)-Klassenobjekt.
-1. Fügen Sie der Folie ein Diagramm hinzu.
-1. Legen Sie den Fülltyp und die Füllfarbe des Diagramms fest.
-1. Setzen Sie die Eigenschaft für abgerundete Ecken auf True.
-1. Speichern Sie die modifizierte Präsentation.
-
-Im Folgenden wird ein Beispiel gegeben. 
 ```php
-  # Instanz der Presentation-Klasse erstellen
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LineStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 100, 600, 400);
     $chart->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getLineFormat()->setStyle(LineStyle->Single);
+    $chart->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $chart->getLineFormat()->setStyle(LineStyle::Single);
     $chart->setRoundedCorners(true);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **Vorhandene Diagramm‑Anmerkungen bearbeiten**
+
+Ein Diagramm kann benutzerdefinierte Formen enthalten, etwa eine Text‑Anmerkung, die den Status eines Berichts erklärt. Greifen Sie über [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/) auf diese Formen zu. Die Sammlung, die von [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) zurückgegeben wird, enthält die vom Diagramm besessenen Formen.
+
+Ein gewöhnliches Textfeld, das über einem Diagramm platziert wird, gehört zur Folie, selbst wenn es wie ein Teil des Diagramms aussieht. Durchlaufen Sie [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/), um das Diagramm und die normalen Folien‑Formen zu finden, aber es werden nicht die einzelnen Formen innerhalb des Diagramms aufgelistet. Diagrammtitel und Datenbeschriftungen sind separate Diagrammelemente, keine benutzerdefinierten Anmerkungen in dieser Sammlung.
+
+Laden Sie [chart-annotations.pptx](chart-annotations.pptx) herunter und legen Sie es im Arbeitsverzeichnis der Anwendung ab. Die erste Folie enthält ein Diagramm mit einer nicht gruppierten Anmerkung „Preliminary results“, einer diagrammbesessenen Linie und einem gewöhnlichen Folientextfeld „Slide overlay“. Das Beispiel findet das erste Diagramm auf dieser Folie und ändert die Anmerkung zu „Final results“, sobald der Bericht veröffentlichungsbereit ist. Es prüft, ob die Sammlung leer ist, und bearbeitet nur ein [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) mit einem nicht‑null‑Textframe, das von [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) zurückgegeben wird und den erwarteten Text enthält.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("chart-annotations.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chartType = new JavaClass("com.aspose.slides.IChart");
+    $autoShapeType = new JavaClass("com.aspose.slides.IAutoShape");
+    $chart = null;
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++) {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartType)) {
+            $chart = $shape;
+            break;
+        }
+    }
+
+    if ($chart === null || java_values($chart->getUserShapes()->getShapes()->size()) == 0) {
+        echo "No chart or chart-owned shapes found." . PHP_EOL;
+        return;
+    }
+
+    $updated = false;
+    $userShapes = $chart->getUserShapes()->getShapes();
+    for ($i = 0; $i < java_values($userShapes->size()); $i++) {
+        $shape = $userShapes->get_Item($i);
+        if (java_instanceof($shape, $autoShapeType)) {
+            $annotation = $shape;
+            if (!java_is_null($annotation->getTextFrame()) && java_values($annotation->getTextFrame()->getText()) === "Preliminary results") {
+                $annotation->getTextFrame()->setText("Final results");
+                $updated = true;
+                break;
+            }
+        }
+    }
+
+    if ($updated) {
+        $presentation->save("chart-annotations-updated.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No matching text annotation found." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Die Linie und das Folientextfeld bleiben unverändert. Die folgenden Bilder zeigen die Eingabe und das gespeicherte, erneut geöffnete Ergebnis:
+
+| Vor dem Bearbeiten | Nach dem Bearbeiten |
+| --- | --- |
+| ![Diagrammanmerkung mit dem Text Vorläufige Ergebnisse](chart-annotations-before.png) | ![Diagrammanmerkung mit dem Text Endergebnisse](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Das Beispiel prüft nur die obersten, vom Diagramm besessenen Formen. Befindet sich eine Anmerkung in einem [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), untersuchen Sie auch die [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/)‑Sammlung dieser Gruppe. Wiederholen Sie dies rekursiv für verschachtelte Gruppen und wenden Sie dieselben Textprüfungen auf deren Kindformen an. Eine Gruppe selbst ist ein Container; behandeln Sie sie nicht als Textfeld.
+{{% /alert %}}
 
 ## **FAQ**
 
-**Kann ich halbtransparente Füllungen für Spalten/Bereiche festlegen, während die Kontur undurchsichtig bleibt?**
+**Kann ich halbtransparente Füllungen für Säulen/Bereiche festlegen und dabei die Kontur undurchsichtig lassen?**
 
-Ja. Die Fülltransparenz und die Kontur werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Rasters und der Daten in dichten Visualisierungen zu verbessern.
+Ja. Transparenz der Füllung und Kontur werden getrennt konfiguriert. Das ist nützlich, um die Lesbarkeit des Gitternetzes und der Daten in dichten Visualisierungen zu verbessern.
 
 **Wie kann ich mit Datenbeschriftungen umgehen, wenn sie überlappen?**
 
-Verringern Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Komponenten der Beschriftung (z. B. Kategorien), stellen Sie den Beschriftungsversatz/die Position ein, zeigen Sie Beschriftungen nur für ausgewählte Punkte an, falls nötig, oder wechseln Sie das Format zu "Wert + Legende".
+Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht notwendige Beschriftungskomponenten (z. B. Kategorien), passen Sie die Beschriftungsposition an, zeigen Sie Beschriftungen nur für ausgewählte Punkte an oder wechseln Sie das Format zu „Wert + Legende“.
 
-**Kann ich Verlauf‑ oder Musterfüllungen auf Serien anwenden?**
+**Kann ich Farbverlauf‑ oder Musterfüllungen auf Serien anwenden?**
 
-Ja. Sowohl einfarbige als auch Verlauf‑/Musterfüllungen sind in der Regel verfügbar. Verwenden Sie Verläufe sparsam und vermeiden Sie Kombinationen, die den Kontrast zum Raster und zum Text verringern.
+Ja. Reihen unterstützen einfarbige, Verlauf‑ und Musterfüllungen. In der Praxis sollten Verläufe sparsam eingesetzt und Kombinationen vermieden werden, die den Kontrast zum Gitter und zum Text verringern.

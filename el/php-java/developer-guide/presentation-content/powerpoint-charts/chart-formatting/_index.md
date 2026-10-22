@@ -6,70 +6,50 @@ weight: 60
 url: /el/php-java/chart-formatting/
 keywords:
 - μορφοποίηση διαγράμματος
-- μορφοποίηση διαγράμματος
+- μορφοποίηση διαγραμμάτων
 - οντότητα διαγράμματος
 - ιδιότητες διαγράμματος
 - ρυθμίσεις διαγράμματος
 - επιλογές διαγράμματος
 - ιδιότητες γραμματοσειράς
-- στρογγυλεμένο περιθώριο
+- στρογγυλεμένο περίγραμμα
 - PowerPoint
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Μάθετε τη μορφοποίηση διαγραμμάτων στο Aspose.Slides για PHP μέσω Java και ενισχύστε την παρουσίαση PowerPoint σας με επαγγελματικό, εντυπωσιακό στυλ."
+description: "Μάθετε τη μορφοποίηση διαγραμμάτων στο Aspose.Slides για PHP μέσω Java και βελτιώστε την παρουσίαση PowerPoint σας με προσαρμοσμένους άξονες, γραμματοσειρές, αριθμητικές μορφές και στρογγυλεμένα περίγραμμα διαγράμματος."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να προσαρμόσετε σημαντικά στοιχεία του διαγράμματος, όπως άξονες, γραμμές πλέγματος, τίτλους, υπομνήματα, την περιοχή σχεδίασης και τις γεμίσεις τοίχου, ώστε να βελτιώσετε την εμφάνιση και την αναγνωσιμότητα των δεδομένων του διαγράμματος.
+Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να προσαρμόσετε βασικά στοιχεία του διαγράμματος όπως τους άξονες, τις γραμμές πλέγματος, τους τίτλους, τις λεζάντες, την περιοχή σχεδίασης και τα γεμίσματα των τοίχων για να βελτιώσετε την εμφάνιση και την αναγνωσιμότητα των δεδομένων του διαγράμματος.
 
-Επίσης, παρουσιάζει πώς να ορίσετε ιδιότητες γραμματοσειράς για το κείμενο του διαγράμματος, να εφαρμόσετε προεπιλεγμένες και προσαρμοσμένες αριθμητικές μορφές στα δεδομένα του διαγράμματος και να ενεργοποιήσετε στρογγυλεμένες γωνίες για την περιοχή του διαγράμματος. Συνολικά, αυτά τα παραδείγματα δείχνουν πώς να ελέγχετε τόσο το οπτικό στυλ όσο και την παρουσίαση των δεδομένων των διαγραμμάτων σε μια παρουσίαση.
+Επίσης, παρουσιάζει πώς να ορίσετε ιδιότητες γραμματοσειράς για το κείμενο του διαγράμματος, να εφαρμόσετε προεπιλεγμένες αριθμητικές μορφές στα δεδομένα του διαγράμματος και να ενεργοποιήσετε στρογγυλεμένες γωνίες για την περιοχή του διαγράμματος. Μαζί, αυτά τα παραδείγματα δείχνουν πώς να ελέγξετε τόσο το οπτικό στυλ όσο και την παρουσίαση των δεδομένων των διαγραμμάτων σε μια παρουσίαση.
 
-## **Μορφοποίηση Οντοτήτων Διαγράμματος**
-Aspose.Slides for PHP via Java επιτρέπει στους προγραμματιστές να προσθέτουν προσαρμοσμένα διαγράμματα στις διαφάνειές τους από την αρχή. Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε διαφορετικές οντότητες διαγράμματος, συμπεριλαμβανομένων των κατηγοριών διαγράμματος και του άξονα τιμών.
+## **Διαμόρφωση Στοιχείων Διαγράμματος**
 
-Aspose.Slides for PHP via Java παρέχει ένα απλό API για τη διαχείριση διαφορετικών οντοτήτων διαγράμματος και τη μορφοποίησή τους χρησιμοποιώντας προσαρμοσμένες τιμές:
+Χρησιμοποιήστε [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) για να μορφοποιήσετε τίτλους διαγράμματος, άξονες, γραμμές πλέγματος, λεζάντες και την περιοχή σχεδίασης. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με δείκτες και προεπιλεγμένα δεδομένα, στη συνέχεια εφαρμόζει ξεχωριστά στυλ κειμένου και γραμμής στους άξονες τιμών και κατηγοριών. Τα μεγέθη γραμματοσειράς και τα πάχη των γραμμών ορίζονται σε σημεία· ετικέτες κατηγοριών περιστρέφονται κατά 45 μοίρες.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [**Presentation**](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/)class.
-1. Αποκτήστε την αναφορά μιας διαφάνειας με τον δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με κάποιον από τους επιθυμητούς τύπους (σε αυτό το παράδειγμα θα χρησιμοποιήσουμε ChartType::LineWithMarkers).
-1. Προσπελάστε τον Άξονα Τιμών του διαγράμματος και ορίστε τις παρακάτω ιδιότητες:
-   1. Ορισμός **Line format** για τις κύριες γραμμές πλέγματος του Άξονα Τιμών
-   1. Ορισμός **Line format** για τις δευτερεύουσες γραμμές πλέγματος του Άξονα Τιμών
-   1. Ορισμός **Number Format** για τον Άξονα Τιμών
-   1. Ορισμός **Min, Max, Major and Minor units** για τον Άξονα Τιμών
-   1. Ορισμός **Text Properties** για τα δεδομένα του Άξονα Τιμών
-   1. Ορισμός **Title** για τον Άξονα Τιμών
-   1. Ορισμός **Line Format** για τον Άξονα Τιμών
-1. Προσπελάστε τον Άξονα Κατηγορίας του διαγράμματος και ορίστε τις παρακάτω ιδιότητες:
-   1. Ορισμός **Line format** για τις κύριες γραμμές πλέγματος του Άξονα Κατηγορίας
-   1. Ορισμός **Line format** για τις δευτερεύουσες γραμμές πλέγματος του Άξονα Κατηγορίας
-   1. Ορισμός **Text Properties** για τα δεδομένα του Άξονα Κατηγορίας
-   1. Ορισμός **Title** για τον Άξονα Κατηγορίας
-   1. Ορισμός **Label Positioning** για τον Άξονα Κατηγορίας
-   1. Ορισμός **Rotation Angle** για τις ετικέτες του Άξονα Κατηγορίας
-1. Προσπελάστε το Υπόμνημα του διαγράμματος και ορίστε τις **Text Properties** για αυτό.
-1. Ρυθμίστε την εμφάνιση των υπομνημάτων του διαγράμματος χωρίς επικάλυψη του διαγράμματος
-1. Προσπελάστε τον **Secondary Value Axis** του διαγράμματος και ορίστε τις παρακάτω ιδιότητες:
-   1. Ενεργοποιήστε τον Δευτερεύοντα **Value Axis**
-   1. Ορισμός **Line Format** για τον Δευτερεύοντα Άξονα Τιμών
-   1. Ορισμός **Number Format** για τον Δευτερεύοντα Άξονα Τιμών
-   1. Ορισμός **Min, Max, Major and Minor units** για τον Δευτερεύοντα Άξονα Τιμών
-1. Τώρα σχεδιάστε τη πρώτη σειρά διαγράμματος στον Δευτερεύοντα Άξονα Τιμών
-1. Ορίστε το χρώμα γεμίσματος του πίσω τοίχου του διαγράμματος
-1. Ορίστε το χρώμα γεμίσματος της περιοχής σχεδίασης του διαγράμματος
-1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+Ο άξονας τιμών χρησιμοποιεί [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) ανεξάρτητα από τα κελιά προέλευσης. Η κλίμακά του εκτείνεται από -2 έως 15, με κύρια διαστήματα 2 και δευτερεύοντα 0.5. Το παράδειγμα επίσης συνδυάζει μορφοποίηση ποσοστών με [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) ορισμένη σε χιλιάδες, ώστε να προσαρμόζετε αυτές τις ρυθμίσεις σύμφωνα με το νόημα και το μέγεθος των δεδομένων σας. Η λεζάντα παραμένει εκτός της περιοχής σχεδίασης επειδή το [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) καλείται με `false`. Τα γεμίσματα του πίσω τοίχου και του δάπεδου ρυθμίζονται μέσω [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) και [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), αλλά αυτές οι επιφάνειες είναι ορατές μόνο σε 3D διαγράμματα.
 
 ```php
-  # Δημιουργία ενός αντικειμένου της κλάσης Presentation
-  $pres = new Presentation();
-  try {
-    # Πρόσβαση στην πρώτη διαφάνεια
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθήκη του δείγματος διαγράμματος
+use aspose\slides\ChartType;
+use aspose\slides\DisplayUnitType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LineDashStyle;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\PresetColor;
+use aspose\slides\SaveFormat;
+use aspose\slides\TickLabelPositionType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
-    # Ορισμός Τίτλου Διαγράμματος
-    $chart->hasTitle();
+
+    $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("");
     $chartTitle = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $chartTitle->setText("Sample Chart");
@@ -78,264 +58,303 @@ Aspose.Slides for PHP via Java παρέχει ένα απλό API για τη δ
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Ορισμός μορφής κύριων γραμμών πλέγματος για άξονα τιμών
+
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # Ορισμός μορφής δευτερευουσών γραμμών πλέγματος για άξονα τιμών
+    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle::DashDot);
+
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Ορισμός αριθμητικής μορφής άξονα τιμών
-    $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
+
+    $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    # Ορισμός μέγιστων και ελάχιστων τιμών διαγράμματος
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getVerticalAxis()->setMaxValue(15.0);
-    $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
+
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(15);
+    $chart->getAxes()->getVerticalAxis()->setMinValue(-2);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    # Ορισμός ιδιοτήτων κειμένου του άξονα τιμών
-    $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
-    $txtVal->setFontBold(NullableBool::True);
-    $txtVal->setFontHeight(16);
-    $txtVal->setFontItalic(NullableBool::True);
-    $txtVal->getFillFormat()->setFillType(FillType::Solid);
-    $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
-    $txtVal->setLatinFont(new FontData("Times New Roman"));
-    # Ορισμός τίτλου άξονα τιμών
-    $chart->getAxes()->getVerticalAxis()->hasTitle();
+
+    $valueAxisText = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
+    $valueAxisText->setFontBold(NullableBool::True);
+    $valueAxisText->setFontHeight(16);
+    $valueAxisText->setFontItalic(NullableBool::True);
+    $valueAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkGreen);
+    $valueAxisText->setLatinFont(new FontData("Times New Roman"));
+
+    $chart->getAxes()->getVerticalAxis()->setTitle(true);
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
-    $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $valtitle->setText("Primary Axis");
-    $valtitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $valtitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $valtitle->getPortionFormat()->setFontHeight(20);
-    $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Ορισμός μορφής κύριων γραμμών πλέγματος για άξονα Κατηγορίας
+    $valueAxisTitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $valueAxisTitle->setText("Primary Axis");
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $valueAxisTitle->getPortionFormat()->setFontHeight(20);
+    $valueAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $valueAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 128, 0));
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # Ορισμός μορφής δευτερευουσών γραμμών πλέγματος για άξονα Κατηγορίας
+
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Ορισμός ιδιοτήτων κειμένου του άξονα Κατηγορίας
-    $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
-    $txtCat->setFontBold(NullableBool::True);
-    $txtCat->setFontHeight(16);
-    $txtCat->setFontItalic(NullableBool::True);
-    $txtCat->getFillFormat()->setFillType(FillType::Solid);
-    $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $txtCat->setLatinFont(new FontData("Arial"));
-    # Ορισμός τίτλου Κατηγορίας
-    $chart->getAxes()->getHorizontalAxis()->hasTitle();
+
+    $categoryAxisText = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
+    $categoryAxisText->setFontBold(NullableBool::True);
+    $categoryAxisText->setFontHeight(16);
+    $categoryAxisText->setFontItalic(NullableBool::True);
+    $categoryAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisText->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $categoryAxisText->setLatinFont(new FontData("Arial"));
+
+    $chart->getAxes()->getHorizontalAxis()->setTitle(true);
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
-    $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $catTitle->setText("Sample Category");
-    $catTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $catTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $catTitle->getPortionFormat()->setFontHeight(20);
-    $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Ορισμός θέσης ετικέτας άξονα κατηγορίας
+
+    $categoryAxisTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $categoryAxisTitle->setText("Sample Category");
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $categoryAxisTitle->getPortionFormat()->setFontHeight(20);
+    $categoryAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $categoryAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # Ορισμός γωνίας περιστροφής ετικέτας άξονα κατηγορίας
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    # Ορισμός ιδιοτήτων κειμένου υπομνήματος
-    $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
-    $txtleg->setFontBold(NullableBool::True);
-    $txtleg->setFontHeight(16);
-    $txtleg->setFontItalic(NullableBool::True);
-    $txtleg->getFillFormat()->setFillType(FillType::Solid);
-    $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # Ρυθμιση εμφάνισης υπομνήματος διαγράμματος χωρίς επικάλυψη διαγράμματος
-    $chart->getLegend()->setOverlay(true);
-    # chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # Ορισμός δευτερεύοντος άξονα τιμών
-    $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # Ορισμός αριθμητικής μορφής δευτερεύοντος άξονα τιμών
-    $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    # Ορισμός μέγιστων και ελάχιστων τιμών διαγράμματος
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMaxValue(20.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    # Ορισμός χρώματος πίσω τοίχου διαγράμματος
+
+    $legendText = $chart->getLegend()->getTextFormat()->getPortionFormat();
+    $legendText->setFontBold(NullableBool::True);
+    $legendText->setFontHeight(16);
+    $legendText->setFontItalic(NullableBool::True);
+    $legendText->getFillFormat()->setFillType(FillType::Solid);
+    $legendText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkRed);
+
+    $chart->getLegend()->setOverlay(false);
+
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Ορισμός χρώματος περιοχής σχεδίασης
+
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
-    # Αποθήκευση Παρουσίασης
-    $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setPresetColor(PresetColor::LightCyan);
+
+    $presentation->save("FormattedChart_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Ορισμός Ιδιοτήτων Γραμματοσειράς για ένα Διάγραμμα**
-Aspose.Slides for PHP via Java παρέχει υποστήριξη για την ορισμό ιδιοτήτων γραμματοσειράς για το διάγραμμα. Ακολουθήστε τα παρακάτω βήματα για την ορισμό των ιδιοτήτων γραμματοσειράς του διαγράμματος.
+## **Ορισμός Ιδιοτήτων Γραμματοσειράς για Διάγραμμα**
 
-- Δημιουργήστε ένα αντικείμενο κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-- Προσθέστε διάγραμμα στην διαφάνεια.
-- Ορίστε το ύψος γραμματοσειράς.
-- Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Παρατίθεται παρακάτω παράδειγμα.
+Ορίστε το προεπιλεγμένο μέγεθος γραμματοσειράς για το κείμενο του διαγράμματος μέσω του [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). Το παράδειγμα δημιουργεί ένα συσσωματωμένο διάγραμμα στήλης με γραμματοσειρά 20 σημείων και ενεργοποιεί ετικέτες τιμών για τη πρώτη σειρά μέσω του [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Στοιχεία κειμένου με τις δικές τους ρητές ρυθμίσεις γραμματοσειράς μπορούν να παρακάμψουν το προεπιλεγμένο στυλ του διαγράμματος.
 
 ```php
-  # Δημιουργία ενός αντικειμένου της κλάσης Presentation
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
     $chart->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $pres->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Ορισμός Αριθμητικής Μορφής**
-Το Aspose.Slides for PHP via Java παρέχει ένα απλό API για τη διαχείριση της μορφής δεδομένων του διαγράμματος:
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation).
-1. Αποκτήστε την αναφορά μιας διαφάνειας με τον δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και κάποιον από τους επιθυμητούς τύπους (αυτό το παράδειγμα χρησιμοποιεί **ChartType::ClusteredColumn**).
-1. Ορίστε την προεπιλεγμένη αριθμητική μορφή από τις διαθέσιμες προεπιλεγμένες τιμές.
-1. Διασχίστε τα κελιά δεδομένων του διαγράμματος σε κάθε σειρά διαγράμματος και ορίστε τη μορφή αριθμού των δεδομένων του διαγράμματος.
-1. Αποθηκεύστε την παρουσίαση.
-1. Ορίστε την προσαρμοσμένη μορφή αριθμού.
-1. Διασχίστε τα κελιά δεδομένων του διαγράμματος σε κάθε σειρά και ορίστε διαφορετική μορφή αριθμού για τα δεδομένα.
-1. Αποθηκεύστε την παρουσίαση.
+Χρησιμοποιήστε το [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) για να εφαρμόσετε ενσωματωμένη αριθμητική μορφή στα κελιά του φύλλου εργασίας του διαγράμματος. Αυτό το παράδειγμα δημιουργεί ένα συσσωματωμένο διάγραμμα στήλης με προεπιλεγμένα, δεδομένα από κελιά, και εφαρμόζει δείκτη μορφής 10 (`0.00%`) σε κάθε κελί τιμής σειράς. Αυτό αλλάζει τον τρόπο εμφάνισης των τιμών στο φύλλο εργασίας χωρίς να αλλάζει τους υποκείμενους αριθμούς· για παράδειγμα, το 0.25 εμφανίζεται ως 25.00%. Μορφές άξονα και ετικετών δεδομένων μπορούν να ρυθμιστούν ξεχωριστά.
 
 ```php
-  # Δημιουργία ενός αντικειμένου της κλάσης Presentation
-  $pres = new Presentation();
-  try {
-    # Πρόσβαση στην πρώτη διαφάνεια παρουσίασης
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθήκη προεπιλεγμένου διαγράμματος ομαδοποιημένων στηλών
-    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    # Πρόσβαση στη συλλογή σειρών διαγράμματος
-    $series = $chart->getChartData()->getSeries();
-    # Διέλευση σε κάθε σειρά διαγράμματος
-    foreach($series as $ser) {
-      # Διέλευση σε κάθε κελί δεδομένων στη σειρά
-      foreach($ser->getDataPoints() as $cell) {
-        # Ορισμός αριθμητικής μορφής
-        $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-      }
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
+    $series = $chart->getChartData()->getSeries();
+
+    for ($i = 0; $i < java_values($series->size()); $i++) {
+        $chartSeries = $series->get_Item($i);
+        $dataPoints = $chartSeries->getDataPoints();
+        for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
+            $dataPoint = $dataPoints->get_Item($j);
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0,00%
+        }
     }
-    # Αποθήκευση παρουσίασης
-    $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("PresetNumberFormat_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-|**0**|Γενική|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+Ο παρακάτω πίνακας παραθέτει ενσωματωμένους δείκτες αριθμητικών μορφών με αντιπροσωπευτικές μορφές Excel για την αγγλική (Ηνωμένες Πολιτείες) τοπική ρύθμιση. Τα ακριβή συμβολοσειρές μορφής και η εμφάνισή τους μπορεί να διαφέρουν ανά εφαρμογή και τοπική ρύθμιση, ιδίως για νόμισμα και ημερομηνίες. Μερικές μορφές Excel διαφέρουν επίσης από τα προεπιλεγμένα στο πρότυπο OOXML, όπως περιγράφεται στις [Σημειώσεις υλοποίησης αριθμητικής μορφής της Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-## **Ορισμός Στρογγυλεμένων Άκρων Περιοχής Διαγράμματος**
-Το Aspose.Slides for PHP via Java παρέχει υποστήριξη για τον ορισμό της περιοχής του διαγράμματος. Οι μέθοδοι [**hasRoundedCorners**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chart/hasroundedcorners/) και [**setRoundedCorners**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chart/setroundedcorners/) έχουν προστεθεί στην κλάση [Chart](https://reference.aspose.com/slides/el/php-java/aspose.slides/Chart) class.
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-1. Δημιουργήστε ένα αντικείμενο κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation).
-1. Προσθέστε διάγραμμα στην διαφάνεια.
-1. Ορίστε τον τύπο γεμίσματος και το χρώμα γεμίσματος του διαγράμματος
-1. Ορίστε την ιδιότητα στρογγυλεμένων γωνιών σε True.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+## **Ορισμός Στρογγυλεμένων Αστών Περιοχής Διαγράμματος**
 
-Παρατίθεται παρακάτω παράδειγμα.
+Καλέστε το [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) με `true` για να στρογγυλοποιήσετε τις γωνίες της περιοχής του διαγράμματος. Το παράδειγμα δημιουργεί ένα συσσωματωμένο διάγραμμα στήλης και χρησιμοποιεί το [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) για να δώσει στο περίγραμμα του ένα συμπαγές γκρι χρώμα και στυλ μονής γραμμής πριν αποθηκεύσει την παρουσίαση.
 
 ```php
-  # Δημιουργία ενός αντικειμένου της κλάσης Presentation
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LineStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 100, 600, 400);
     $chart->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getLineFormat()->setStyle(LineStyle->Single);
+    $chart->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $chart->getLineFormat()->setStyle(LineStyle::Single);
     $chart->setRoundedCorners(true);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Επεξεργασία Υφιστάμενων Σχολίων Διαγράμματος**
+
+Ένα διάγραμμα μπορεί να περιέχει προσαρμοσμένα σχήματα, όπως ένα κείμενο σχολίου που εξηγεί την κατάσταση μιας αναφοράς. Πρόσβαση σε αυτά τα σχήματα μέσω του [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). Η συλλογή που επιστρέφεται από το [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) περιέχει τα σχήματα που ανήκουν στο διάγραμμα.
+
+Ένα κοινό πλαίσιο κειμένου τοποθετημένο πάνω σε διάγραμμα ανήκει στη διαφάνεια, ακόμη και αν μοιάζει με μέρος του διαγράμματος. Η επανάληψη μέσω του [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) εντοπίζει το διάγραμμα και τα κανονικά σχήματα της διαφάνειας, αλλά δεν απαριθμεί τα επιμέρους σχήματα μέσα στο διάγραμμα. Οι τίτλοι διαγράμματος και οι ετικέτες δεδομένων είναι ξεχωριστά στοιχεία διαγράμματος, όχι προσαρμοσμένα σχόλια σε αυτή τη συλλογή.
+
+Κατεβάστε το [chart-annotations.pptx](chart-annotations.pptx) και τοποθετήστε το στον φάκελο εργασίας της εφαρμογής. Η πρώτη διαφάνειά του περιέχει ένα διάγραμμα με αχαλίνδωτο σχόλιο που γράφει «Preliminary results», μια γραμμή που ανήκει στο διάγραμμα, και ένα κοινό πλαίσιο κειμένου διαφάνειας που γράφει «Slide overlay». Το παράδειγμα εντοπίζει το πρώτο διάγραμμα σε αυτή τη διαφάνεια και αλλάζει το σχόλιο σε «Final results» όταν η αναφορά είναι έτοιμη για δημοσίευση. Ελέγχει αν η συλλογή είναι κενή και επεξεργάζεται μόνο ένα [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) με μη‑μηδενικό πλαίσιο κειμένου που επιστρέφεται από το [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) και το αναμενόμενο κείμενο.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("chart-annotations.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chartType = new JavaClass("com.aspose.slides.IChart");
+    $autoShapeType = new JavaClass("com.aspose.slides.IAutoShape");
+    $chart = null;
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++) {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartType)) {
+            $chart = $shape;
+            break;
+        }
+    }
+
+    if ($chart === null || java_values($chart->getUserShapes()->getShapes()->size()) == 0) {
+        echo "No chart or chart-owned shapes found." . PHP_EOL;
+        return;
+    }
+
+    $updated = false;
+    $userShapes = $chart->getUserShapes()->getShapes();
+    for ($i = 0; $i < java_values($userShapes->size()); $i++) {
+        $shape = $userShapes->get_Item($i);
+        if (java_instanceof($shape, $autoShapeType)) {
+            $annotation = $shape;
+            if (!java_is_null($annotation->getTextFrame()) && java_values($annotation->getTextFrame()->getText()) === "Preliminary results") {
+                $annotation->getTextFrame()->setText("Final results");
+                $updated = true;
+                break;
+            }
+        }
+    }
+
+    if ($updated) {
+        $presentation->save("chart-annotations-updated.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No matching text annotation found." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Η γραμμή και το πλαίσιο κειμένου της διαφάνειας παραμένουν αμετάβλητα. Οι παρακάτω εικόνες δείχνουν το αρχικό και το αποθηκευμένο, ξανά ανοιγμένο αποτέλεσμα:
+
+| Πριν την επεξεργασία | Μετά την επεξεργασία |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+
+Το παράδειγμα εξετάζει μόνο τα σχήματα που ανήκουν άμεσα στο διάγραμμα. Αν ένα σχόλιο βρίσκεται μέσα σε ένα [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), εξετάστε επίσης τη συλλογή [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) του συγκεκριμένου γκρουπ. Επαναλάβετε αυτό αναδρομικά για ένθετα γκρουπ, εφαρμόζοντας τους ίδιους ελέγχους κειμένου στα παιδικά τους σχήματα. Ένα γκρουπ από μόνο του είναι ένας δοχείο· μη θεωρείτε το ως πλαίσιο κειμένου.
+
+{{% /alert %}}
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ορίσω ημιδιαφανή γεμίσματα για στήλες/περιοχές ενώ διατηρώ το περίγραμμα αδιαφανές;**
+**Μπορώ να ορίσω ημιδιαφανή γεμίσματα για στήλες/περιοχές διατηρώντας το περίγραμμα αδιαφανές;**
 
-Ναι. Η διαφάνεια του γεμίσματος και το περίγραμμα ρυθμίζονται ξεχωριστά. Αυτό είναι χρήσιμο για τη βελτίωση της αναγνωσιμότητας του πλέγματος και των δεδομένων σε πυκνές απεικονίσεις.
+Ναί. Η διαφάνεια του γεμίσματος και το περίγραμμα ρυθμίζονται ξεχωριστά. Αυτό είναι χρήσιμο για τη βελτίωση της αναγνωσιμότητας του πλέγματος και των δεδομένων σε πυκνές οπτικοποιήσεις.
 
-**Πώς μπορώ να αντιμετωπίσω τις ετικέτες δεδομένων όταν επικαλύπτονται;**
+**Πώς μπορώ να αντιμετωπίσω ετικέτες δεδομένων όταν επικαλύπτονται;**
 
-Μειώστε το μέγεθος της γραμματοσειράς, απενεργοποιήστε μη απαραίτητα στοιχεία ετικετών (π.χ. κατηγορίες), ορίστε την απόσταση/θέση της ετικέτας, εμφανίστε ετικέτες μόνο για επιλεγμένα σημεία αν χρειάζεται, ή αλλάξτε τη μορφή σε "value + legend".
+Μειώστε το μέγεθος γραμματοσειράς, απενεργοποιήστε μη‑απαραίτητα στοιχεία ετικετών (π.χ., κατηγορίες), προσαρμόστε τη θέση της ετικέτας, εμφανίστε ετικέτες μόνο για επιλεγμένα σημεία εάν χρειάζεται, ή αλλάξτε τη μορφή σε «τιμή + λεζάντα».
 
-**Μπορώ να εφαρμόσω διαβάθμιση ή μοτίβα γεμίσματος σε σειρές;**
+**Μπορώ να εφαρμόσω διαβάσεις ή μοτίβα γεμίσματος σε σειρές;**
 
-Ναι. Συνήθως είναι διαθέσιμα τόσο συμπαγή όσο και διαβαθμισμένα/μοτίβα γεμίσματα. Στην πράξη, χρησιμοποιήστε τις διαβαθμίσεις περιορισμένα και αποφύγετε συνδυασμούς που μειώνουν την αντίθεση με το πλέγμα και το κείμενο.
+Ναί. Οι σειρές υποστηρίζουν συμπαγή, διαβατική και μοτίβα γεμίσματος. Στην πράξη, χρησιμοποιήστε διαβάσεις με μέτρο και αποφύγετε συνδυασμούς που μειώνουν την αντίθεση με το πλέγμα και το κείμενο.

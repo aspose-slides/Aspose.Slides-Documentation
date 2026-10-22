@@ -1,5 +1,5 @@
 ---
-title: Formattare i grafici delle presentazioni in Java
+title: Formattare i grafici della presentazione in Java
 linktitle: Formattazione del grafico
 type: docs
 weight: 60
@@ -17,61 +17,31 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Impara a formattare i grafici in Aspose.Slides per Java e migliora la tua presentazione PowerPoint con uno stile professionale e accattivante."
+description: "Impara la formattazione dei grafici in Aspose.Slides per Java e migliora la tua presentazione PowerPoint con assi personalizzati, caratteri, formati numerici e bordi arrotondati del grafico."
 ---
 ## **Panoramica**
 
 Questo articolo spiega come formattare i grafici nelle presentazioni PowerPoint utilizzando Aspose.Slides. Mostra come personalizzare gli elementi chiave del grafico come assi, linee della griglia, titoli, legende, l'area del tracciato e i riempimenti delle pareti per migliorare l'aspetto e la leggibilità dei dati del grafico.
 
-Mostra inoltre come impostare le proprietà del carattere per il testo del grafico, applicare formati numerici predefiniti e personalizzati ai dati del grafico e abilitare gli angoli arrotondati per l'area del grafico. Insieme, questi esempi mostrano come controllare sia lo stile visivo sia la presentazione dei dati dei grafici in una presentazione.
+Mostra inoltre come impostare le proprietà del carattere per il testo del grafico, applicare formati numerici predefiniti ai dati del grafico e abilitare gli angoli arrotondati per l'area del grafico. Insieme, questi esempi mostrano come controllare sia lo stile visivo sia la presentazione dei dati dei grafici in una presentazione.
 
 ## **Formattare le entità del grafico**
-Aspose.Slides for Java consente agli sviluppatori di aggiungere grafici personalizzati alle proprie diapositive da zero. Questo articolo spiega come formattare diverse entità del grafico, inclusi gli assi di categoria e di valore.
 
-Aspose.Slides for Java fornisce un'API semplice per gestire diverse entità del grafico e formattarle usando valori personalizzati:
+Usa [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) per formattare i titoli dei grafici, gli assi, le linee della griglia, le legende e l'area del tracciato. Questo esempio crea un grafico a linee con marcatori e dati predefiniti, quindi applica stili di testo e di linea separati ai suoi assi dei valori e delle categorie. Le dimensioni del carattere e le larghezze delle linee sono specificate in punti; le etichette delle categorie sono ruotate di 45 gradi.
 
-1. Crea un'istanza della classe [**Presentation**](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-1. Ottieni il riferimento di una diapositiva tramite il suo indice.
-1. Aggiungi un grafico con dati predefiniti insieme a uno dei tipi desiderati (in questo esempio utilizzeremo ChartType.LineWithMarkers).
-1. Accedi all'asse dei valori del grafico e imposta le seguenti proprietà:
-   1. Impostazione del **Line format** per le linee della griglia principale dell'asse dei valori
-   1. Impostazione del **Line format** per le linee della griglia secondaria dell'asse dei valori
-   1. Impostazione del **Number Format** per l'asse dei valori
-   1. Impostazione di **Min, Max, Major and Minor units** per l'asse dei valori
-   1. Impostazione delle **Text Properties** per i dati dell'asse dei valori
-   1. Impostazione del **Title** per l'asse dei valori
-   1. Impostazione del **Line Format** per l'asse dei valori
-1. Accedi all'asse di categoria del grafico e imposta le seguenti proprietà:
-   1. Impostazione del **Line format** per le linee della griglia principale dell'asse di categoria
-   1. Impostazione del **Line format** per le linee della griglia secondaria dell'asse di categoria
-   1. Impostazione delle **Text Properties** per i dati dell'asse di categoria
-   1. Impostazione del **Title** per l'asse di categoria
-   1. Impostazione del **Label Positioning** per l'asse di categoria
-   1. Impostazione dell'**Rotation Angle** per le etichette dell'asse di categoria
-1. Accedi alla legenda del grafico e imposta le **Text Properties**.
-1. Imposta la visualizzazione delle legende del grafico senza sovrapporle al grafico.
-1. Accedi all'**Secondary Value Axis** del grafico e imposta le seguenti proprietà:
-   1. Abilita l'**Secondary Value Axis**
-   1. Impostazione del **Line Format** per l'**Secondary Value Axis**
-   1. Impostazione del **Number Format** per l'**Secondary Value Axis**
-   1. Impostazione di **Min, Max, Major and Minor units** per l'**Secondary Value Axis**
-1. Ora traccia la prima serie del grafico sull'**Secondary Value Axis**
-1. Imposta il colore di riempimento della parete posteriore del grafico
-1. Imposta il colore di riempimento dell'area del tracciato del grafico
-1. Scrivi la presentazione modificata in un file PPTX
+L'asse dei valori utilizza [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) indipendentemente dalle celle di origine. La sua scala va da -2 a 15, con intervalli principali di 2 e intervalli secondari di 0,5. L'esempio combina anche la formattazione percentuale con [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) impostato su migliaia, quindi adatta queste impostazioni al significato e alla grandezza dei tuoi dati. La legenda rimane fuori dall'area del tracciato perché [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) è chiamato con `false`. I riempimenti del retro-parete e del pavimento sono configurati tramite [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) e [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), ma queste superfici sono visibili solo nei grafici 3D.
 
 ```java
-// Crea un'istanza della classe Presentation
-Presentation pres = new Presentation();
-try {
-    // Accesso alla prima diapositiva
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-    // Aggiunta del grafico di esempio
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Impostazione del titolo del grafico
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -81,290 +51,286 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Impostazione del formato delle linee della griglia principale per l'asse dei valori
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Impostazione del formato delle linee della griglia secondaria per l'asse dei valori
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Impostazione del formato numerico dell'asse dei valori
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Impostazione dei valori massimo e minimo del grafico
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Impostazione delle proprietà del testo dell'asse dei valori
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // Impostazione del titolo dell'asse dei valori
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Impostazione del formato delle linee della griglia principale per l'asse di categoria
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Impostazione del formato delle linee della griglia secondaria per l'asse di categoria
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Impostazione delle proprietà del testo dell'asse di categoria
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // Impostazione del titolo della categoria
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Impostazione della posizione delle etichette dell'asse di categoria
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // Impostazione dell'angolo di rotazione delle etichette dell'asse di categoria
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Impostazione delle proprietà del testo delle legende
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // Imposta la visualizzazione delle legende del grafico senza sovrapporle al grafico
+    chart.getLegend().setOverlay(false);
 
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // Impostazione dell'asse dei valori secondario
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // Impostazione del formato numerico dell'asse dei valori secondario
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // Impostazione dei valori massimo e minimo del grafico
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // Impostazione del colore della parete posteriore del grafico
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(new Color(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // Impostazione del colore dell'area del tracciato
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // Salva la presentazione
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Impostare le proprietà del carattere per un grafico**
-Aspose.Slides for Java fornisce il supporto per impostare le proprietà relative al carattere per il grafico. Segui i passaggi seguenti per impostare le proprietà del carattere per il grafico.
 
-- Istanzia un oggetto della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-- Aggiungi un grafico alla diapositiva.
-- Imposta l'altezza del carattere.
-- Salva la presentazione modificata.
-
-Di seguito è riportato un esempio.
+Imposta la dimensione predefinita del carattere per il testo del grafico tramite [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). L'esempio crea un grafico a colonne raggruppate con un carattere di 20 punti e abilita le etichette dei valori per la prima serie tramite [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Gli elementi di testo con impostazioni di carattere esplicite proprie possono sovrascrivere il valore predefinito del grafico.
 
 ```java
-// Crea un'istanza della classe Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Impostare il formato numerico**
-Aspose.Slides for Java fornisce un'API semplice per gestire il formato dei dati del grafico:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-1. Ottieni il riferimento di una diapositiva tramite il suo indice.
-1. Aggiungi un grafico con dati predefiniti insieme a uno dei tipi desiderati (questo esempio utilizza **ChartType.ClusteredColumn**).
-1. Imposta il formato numerico predefinito tra i valori predefiniti disponibili.
-1. Scorri le celle dei dati del grafico in ogni serie e imposta il formato numerico dei dati del grafico.
-1. Salva la presentazione.
-1. Imposta il formato numerico personalizzato.
-1. Scorri le celle dei dati del grafico in ogni serie e imposta un formato numerico diverso per i dati del grafico.
-1. Salva la presentazione.
+Usa [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) per applicare un formato numerico incorporato alle celle del foglio di lavoro del grafico. Questo esempio crea un grafico a colonne raggruppate con dati predefiniti basati su celle e applica l'indice di formato 10 (`0.00%`) a ciascuna cella dei valori della serie. Questo modifica il modo in cui i valori sono visualizzati nel foglio di lavoro senza alterare i numeri sottostanti; ad esempio, 0.25 viene visualizzato come 25,00%. I formati degli assi e delle etichette dei dati possono essere configurati separatamente.
 
 ```java
-// Crea un'istanza della classe Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Accedi alla prima diapositiva della presentazione
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Aggiunta di un grafico a colonne raggruppate predefinito
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // Accesso alla collezione delle serie del grafico
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // Scorri ogni serie del grafico
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // Scorri ogni cella dati nella serie
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // Impostazione del formato numerico
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
 
-    // Salvataggio della presentazione
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Di seguito sono riportati i possibili valori di formato numerico predefiniti insieme al loro indice predefinito, che possono essere utilizzati:
+La tabella seguente elenca gli indici dei formati numerici incorporati con i relativi formati Excel rappresentativi per la locale inglese (Stati Uniti). Le stringhe di formato esatte e la loro visualizzazione possono variare a seconda dell'applicazione e della locale, in particolare per valute e date. Alcuni formati Excel differiscono anche dai valori predefiniti nello standard OOXML, come descritto nelle [note di implementazione del formato numerico di Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Indice | Formato |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
 ## **Impostare i bordi arrotondati dell'area del grafico**
-Aspose.Slides for Java fornisce il supporto per impostare l'area del grafico. I metodi [**hasRoundedCorners**](https://reference.aspose.com/slides/it/java/com.aspose.slides/IChart#hasRoundedCorners--) e [**setRoundedCorners**](https://reference.aspose.com/slides/it/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) sono stati aggiunti all'interfaccia [IChart](https://reference.aspose.com/slides/it/java/com.aspose.slides/IChart) e alla classe [Chart](https://reference.aspose.com/slides/it/java/com.aspose.slides/Chart).
 
-1. Istanzia un oggetto della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-1. Aggiungi un grafico alla diapositiva.
-1. Imposta il tipo di riempimento e il colore di riempimento del grafico
-1. Imposta la proprietà round corner su True.
-1. Salva la presentazione modificata.
-
-Di seguito è riportato un esempio.  
+Chiama [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) con `true` per arrotondare gli angoli dell'area del grafico. L'esempio crea un grafico a colonne raggruppate e utilizza [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) per dare al suo contorno un colore grigio solido e uno stile a linea singola prima di salvare la presentazione.
 
 ```java
-// Crea un'istanza della classe Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Modificare le annotazioni di grafico esistenti**
+
+Un grafico può contenere forme personalizzate, come un'annotazione testuale che spiega lo stato di un report. Accedi a queste forme tramite [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), elencate anche sotto [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) nella Riferimento API del grafico. La collezione restituita da [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) contiene le forme di proprietà del grafico.
+
+Una casella di testo ordinaria posizionata sopra un grafico appartiene alla diapositiva, anche se sembra parte del grafico. L'iterazione tramite [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) trova il grafico e le forme ordinarie della diapositiva, ma non elenca le singole forme all'interno del grafico. I titoli dei grafici e le etichette dei dati sono elementi separati del grafico, non annotazioni personalizzate in questa collezione.
+
+Scarica [chart-annotations.pptx](chart-annotations.pptx) e posizionalo nella directory di lavoro dell'applicazione. La sua prima diapositiva contiene un grafico con un'annotazione non raggruppata che recita "Preliminary results", una linea di proprietà del grafico e una casella di testo ordinaria della diapositiva che recita "Slide overlay". L'esempio trova il primo grafico su quella diapositiva e cambia l'annotazione in "Final results" quando il report è pronto per la pubblicazione. Controlla se la collezione è vuota e modifica solo un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) con un frame di testo non nullo restituito da [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) e con il testo previsto.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+La linea e la casella di testo della diapositiva rimangono inalterate. Le immagini seguenti mostrano l'input e il risultato salvato e riaperto:
+
+| Prima della modifica | Dopo la modifica |
+| --- | --- |
+| ![Annotazione del grafico che mostra Preliminary results](chart-annotations-before.png) | ![Annotazione del grafico che mostra Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+L'esempio esamina solo le forme di primo livello di proprietà del grafico. Se un'annotazione è all'interno di un [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), ispeziona anche la collezione [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) di quel gruppo. Ripeti questo in modo ricorsivo per i gruppi nidificati, applicando gli stessi controlli di testo alle loro forme figlie. Un gruppo è un contenitore; non trattarlo come una casella di testo.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Posso impostare riempimenti semi-trasparenti per colonne/aree mantenendo il bordo opaco?**
+**Posso impostare riempimenti semitrasparenti per colonne/aree mantenendo il bordo opaco?**
 
-Sì. La trasparenza del riempimento e il contorno vengono configurati separatamente. Questo è utile per migliorare la leggibilità della griglia e dei dati in visualizzazioni dense.
+Sì. La trasparenza del riempimento e il contorno sono configurati separatamente. Questo è utile per migliorare la leggibilità della griglia e dei dati in visualizzazioni densamente popolate.
 
 **Come posso gestire le etichette dei dati quando si sovrappongono?**
 
-Riduci la dimensione del carattere, disabilita componenti non essenziali dell'etichetta (ad esempio le categorie), imposta l'offset/posizione dell'etichetta, mostra le etichette solo per i punti selezionati se necessario, oppure passa al formato "valore + legenda".
+Riduci la dimensione del carattere, disabilita i componenti non essenziali delle etichette (ad esempio, le categorie), regola la posizione dell'etichetta, mostra le etichette solo per i punti selezionati se necessario, oppure passa al formato "valore + legenda".
 
-**Posso applicare riempimenti a gradiente o a motivo alle serie?**
+**Posso applicare riempimenti a gradiente o motivo alle serie?**
 
-Sì. Sono generalmente disponibili sia riempimenti solidi che a gradiente/motivo. In pratica, usa i gradienti con parsimonia ed evita combinazioni che riducono il contrasto con la griglia e il testo.
+Sì. Le serie supportano riempimenti solidi, a gradiente e a motivo. In pratica, usa i gradienti con parsimonia ed evita combinazioni che riducono il contrasto con la griglia e il testo.

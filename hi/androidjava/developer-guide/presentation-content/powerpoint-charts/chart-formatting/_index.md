@@ -1,12 +1,12 @@
 ---
-title: एंड्रॉइड पर प्रस्तुति चार्ट फ़ॉर्मेट करें
-linktitle: चार्ट फ़ॉर्मेटिंग
+title: एंड्रॉइड पर प्रस्तुति चार्ट को स्वरूपित करें
+linktitle: चार्ट स्वरूपण
 type: docs
 weight: 60
 url: /hi/androidjava/chart-formatting/
 keywords:
-- चार्ट फ़ॉर्मेट
-- चार्ट फ़ॉर्मेटिंग
+- चार्ट स्वरूपित करें
+- चार्ट स्वरूपण
 - चार्ट इकाई
 - चार्ट गुण
 - चार्ट सेटिंग्स
@@ -15,64 +15,34 @@ keywords:
 - गोल किनारा
 - PowerPoint
 - प्रस्तुति
-- Android
-- Java
+- एंड्रॉइड
+- जावा
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java में चार्ट फ़ॉर्मेटिंग सीखें और अपने PowerPoint प्रस्तुति को पेशेवर, आकर्षक शैली के साथ उन्नत बनाएं।"
+description: "Aspose.Slides for Android में जावा के माध्यम से चार्ट स्वरूपण सीखें और कस्टम एक्सिस, फ़ॉन्ट, संख्या स्वरूप और गोल चार्ट किनारों के साथ अपनी PowerPoint प्रस्तुति को उन्नत बनाएं।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फॉर्मेट करने के तरीके को समझाता है। यह दिखाता है कि अक्ष, ग्रिड लाइन्स, शीर्षक, लेजेंड, प्लॉट एरिया और वॉल फ़िल्स जैसे प्रमुख चार्ट तत्वों को कैसे अनुकूलित किया जाए ताकि चार्ट डेटा की उपस्थिति और पठनीयता बेहतर हो सके।
+यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को स्वरूपित करने का तरीका समझाता है। यह एक्सिस, ग्रिड लाइन्स, शीर्षक, लीजेंड, प्लॉट एरिया, और वॉल फ़िल्स जैसे मुख्य चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता को बेहतर बनाने का प्रदर्शन करता है।
 
-यह यह भी दर्शाता है कि चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण कैसे सेट करें, चार्ट डेटा पर पूर्वनिर्धारित और कस्टम संख्यात्मक फ़ॉर्मेट लागू करें, और चार्ट एरिया के लिए गोल किनारे सक्षम करें। साथ मिलकर ये उदाहरण दिखाते हैं कि प्रस्तुति में चार्ट की दृश्य शैली और डेटा प्रस्तुति दोनों को कैसे नियंत्रित किया जाए।
+यह चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण निर्धारित करने, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक स्वरूप लागू करने, और चार्ट एरिया के लिए गोल किनारों को सक्षम करने का भी प्रदर्शन करता है। ये उदाहरण मिलकर प्रस्तुतिकरण में चार्ट के दृश्य शैली और डेटा प्रस्तुति दोनों को नियंत्रित करने के तरीके दर्शाते हैं।
 
-## **चार्ट संस्थाओं का फ़ॉर्मेटिंग**
-Aspose.Slides for Android via Java डेवलपर्स को शून्य से अपने स्लाइड्स में कस्टम चार्ट जोड़ने की सुविधा देता है। यह लेख विभिन्न चार्ट संस्थाओं जैसे चार्ट श्रेणी और मान अक्ष को फ़ॉर्मेट करने का विवरण देता है।
+## **चार्ट घटकों को स्वरूपित करना**
 
-Aspose.Slides for Android via Java विभिन्न चार्ट संस्थाओं को प्रबंधित करने और कस्टम मानों के साथ फ़ॉर्मेट करने के लिए एक सरल API प्रदान करता है:
+चार्ट शीर्षक, एक्सिस, ग्रिड लाइन्स, लीजेंड और प्लॉट एरिया को स्वरूपित करने के लिए [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) का उपयोग करें। यह उदाहरण मार्कर वाले एक लाइन चार्ट को डिफ़ॉल्ट डेटा के साथ बनाता है, फिर उसके वैल्यू और कैटेगरी एक्सिस पर अलग-अलग टेक्स्ट और लाइन शैलियों को लागू करता है। फ़ॉन्ट आकार और लाइन चौड़ाई पॉइंट्स में निर्दिष्ट हैं; कैटेगरी लेबल को 45 डिग्री घुमाया गया है।
 
-1. **[Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/)** वर्ग की एक उदाहरण बनाएँ।
-1. उसकी अनुक्रमणिका द्वारा स्लाइड का संदर्भ प्राप्त करें।
-1. इच्छित प्रकार (इस उदाहरण में हम **ChartType.LineWithMarkers** का उपयोग करेंगे) के साथ डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें।
-1. चार्ट के वैल्यू एक्सिस तक पहुँचें और निम्नलिखित गुण सेट करें:
-   1. वैल्यू एक्सिस मेजर ग्रिड लाइन्स के लिए **Line format** सेट करना
-   1. वैल्यू एक्सिस माइनर ग्रिड लाइन्स के लिए **Line format** सेट करना
-   1. वैल्यू एक्सिस के लिए **Number Format** सेट करना
-   1. वैल्यू एक्सिस के लिए **Min, Max, Major and Minor units** सेट करना
-   1. वैल्यू एक्सिस डेटा के लिए **Text Properties** सेट करना
-   1. वैल्यू एक्सिस के लिए **Title** सेट करना
-   1. वैल्यू एक्सिस के लिए **Line Format** सेट करना
-1. चार्ट के कैटेगरी एक्सिस तक पहुँचें और निम्नलिखित गुण सेट करें:
-   1. कैटेगरी एक्सिस मेजर ग्रिड लाइन्स के लिए **Line format** सेट करना
-   1. कैटेगरी एक्सिस माइनर ग्रिड लाइन्स के लिए **Line format** सेट करना
-   1. कैटेगरी एक्सिस डेटा के लिए **Text Properties** सेट करना
-   1. कैटेगरी एक्सिस के लिए **Title** सेट करना
-   1. कैटेगरी एक्सिस के लिए **Label Positioning** सेट करना
-   1. कैटेगरी एक्सिस लेबल्स के लिए **Rotation Angle** सेट करना
-1. चार्ट के लेजेंड तक पहुँचें और उनके लिए **Text Properties** सेट करें
-1. चार्ट लेजेंड को ओवरलैपिंग चार्ट के बिना दिखाएँ
-1. चार्ट के **Secondary Value Axis** तक पहुँचें और निम्नलिखित गुण सेट करें:
-   1. द्वितीयक **Value Axis** सक्षम करें
-   1. द्वितीयक वैल्यू एक्सिस के लिए **Line Format** सेट करें
-   1. द्वितीयक वैल्यू एक्सिस के लिए **Number Format** सेट करें
-   1. द्वितीयक वैल्यू एक्सिस के लिए **Min, Max, Major and Minor units** सेट करें
-1. अब द्वितीयक वैल्यू एक्सिस पर पहला चार्ट सीरीज़ प्लॉट करें
-1. चार्ट के बैक वॉल फ़िल रंग सेट करें
-1. चार्ट प्लॉट एरिया फ़िल रंग सेट करें
-1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें
+वैल्यू एक्सिस स्रोत कोशिकाओं से स्वतंत्र रूप से [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) का उपयोग करता है। इसका स्केल -2 से 15 तक है, प्रमुख अंतराल 2 और छोटा अंतराल 0.5 है। यह उदाहरण प्रतिशत स्वरूप को [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) को हजारों पर सेट करके भी जोड़ता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार समायोजित करें। लेजेंड प्लॉट एरिया के बाहर रहता है क्योंकि [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) को `false` के साथ बुलाया गया है। बैक-वॉल और फर्श भराव [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) और [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) के माध्यम से कॉन्फ़िगर किए जाते हैं, लेकिन ये सतहें केवल 3D चार्ट में ही दृश्य होती हैं।
 
 ```java
-// Presentation class की एक उदाहरण बनाएं
-Presentation pres = new Presentation();
-try {
-    // पहले स्लाइड तक पहुँच रहा है
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // नमूना चार्ट जोड़ रहा है
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // चार्ट शीर्षक सेट कर रहा है
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -82,290 +52,286 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // वैल्यू अक्ष के लिए मेजर ग्रिड लाइन्स फ़ॉर्मेट सेट कर रहा है
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // वैल्यू अक्ष के लिए माइनर ग्रिड लाइन्स फ़ॉर्मेट सेट कर रहा है
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // वैल्यू अक्ष का नंबर फ़ॉर्मेट सेट कर रहा है
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // चार्ट के अधिकतम, न्यूनतम मान सेट कर रहा है
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // वैल्यू एक्सिस टेक्स्ट प्रॉपर्टीज़ सेट कर रहा है
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // वैल्यू अक्ष शीर्षक सेट कर रहा है
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // कैटेगरी अक्ष के लिए मेजर ग्रिड लाइन्स फ़ॉर्मेट सेट कर रहा है
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // कैटेगरी अक्ष के लिए माइनर ग्रिड लाइन्स फ़ॉर्मेट सेट कर रहा है
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // कैटेगरी अक्ष के टेक्स्ट प्रॉपर्टीज़ सेट कर रहा है
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // कैटेगरी शीर्षक सेट कर रहा है
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // कैटेगरी अक्ष लेबल की स्थिति सेट कर रहा है
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // कैटेगरी अक्ष लेबल घूर्णन कोण सेट कर रहा है
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // लेजेंड्स टेक्स्ट प्रॉपर्टीज़ सेट कर रहा है
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // ओवरलैपिंग चार्ट के बिना चार्ट लेजेंड दिखाने के लिए सेट करें
+    chart.getLegend().setOverlay(false);
 
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // सेकेंडरी वैल्यू अक्ष सेट कर रहा है
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // सेकेंडरी वैल्यू अक्ष का नंबर फ़ॉर्मेट सेट कर रहा है
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // चार्ट के अधिकतम, न्यूनतम मान सेट कर रहा है
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // चार्ट बैक वॉल रंग सेट कर रहा है
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // प्लॉट एरिया रंग सेट कर रहा है
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // प्रस्तुति सहेजें
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **चार्ट के लिए फ़ॉन्ट गुण सेट करें**
-Aspose.Slides for Android via Java चार्ट के लिए फ़ॉन्ट से संबंधित गुण सेट करने का समर्थन प्रदान करता है। कृपया चार्ट के फ़ॉन्ट गुण सेट करने के लिए नीचे दिए गए चरणों का पालन करें।
 
-- **[Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/)** वर्ग का ऑब्जेक्ट बनाएँ।
-- स्लाइड पर चार्ट जोड़ें।
-- फ़ॉन्ट की ऊँचाई सेट करें।
-- संशोधित प्रस्तुति को सहेजें।
-
-नीचे दिया गया नमूना उदाहरण है।
+चार्ट टेक्स्ट के लिए डिफ़ॉल्ट फ़ॉन्ट आकार को [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--) के माध्यम से सेट करें। यह उदाहरण 20 पॉइंट फ़ॉन्ट के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और पहले श्रृंखला के लिए [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) के द्वारा मान लेबल सक्षम करता है। अपने स्वयं के स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट तत्व चार्ट के डिफ़ॉल्ट को ओवरराइड कर सकते हैं।
 
 ```java
-// Presentation वर्ग की एक उदाहरण बनाएं
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **संख्यात्मक फ़ॉर्मेट सेट करें**
-Aspose.Slides for Android via Java चार्ट डेटा फ़ॉर्मेट को प्रबंधित करने के लिए एक सरल API प्रदान करता है:
+## **संख्यात्मक स्वरूप सेट करें**
 
-1. **[Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation)** वर्ग की एक उदाहरण बनाएँ।
-1. उसकी अनुक्रमणिका द्वारा स्लाइड का संदर्भ प्राप्त करें।
-1. इच्छित प्रकार (इस उदाहरण में **ChartType.ClusteredColumn** उपयोग किया गया है) के साथ डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ें।
-1. उपलब्ध प्रीसेट मूल्यों में से प्रीसेट नंबर फ़ॉर्मेट सेट करें।
-1. प्रत्येक चार्ट सीरीज़ में चार्ट डेटा सेल के माध्यम से पार करके चार्ट डेटा नंबर फ़ॉर्मेट सेट करें।
-1. प्रस्तुति सहेजें।
-1. कस्टम नंबर फ़ॉर्मेट सेट करें।
-1. प्रत्येक चार्ट सीरीज़ में चार्ट डेटा सेल के माध्यम से पार करके अलग-अलग चार्ट डेटा नंबर फ़ॉर्मेट सेट करें।
-1. प्रस्तुति सहेजें।
+[IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) का उपयोग करके चार्ट कार्यपुस्तिका कोशिकाओं पर एक बिल्ट-इन नंबर फ़ॉर्मेट लागू करें। यह उदाहरण डिफ़ॉल्ट, सेल-समर्थित डेटा के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रत्येक श्रृंखला मान कोशिका पर फ़ॉर्मेट इंडेक्स 10 (`0.00%`) लागू करता है। यह कार्यपुस्तिका में मानों को बदलें बिना संख्याओं को बदले उनके प्रदर्शन को बदलता है; उदाहरण के लिए, 0.25 को 25.00% दिखाया जाता है। एक्सिस और डेटा-लेबल फ़ॉर्मेट को अलग-अलग कॉन्फ़िगर किया जा सकता है।
 
 ```java
-// Presentation वर्ग की एक उदाहरण बनाएं
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // पहली प्रस्तुति स्लाइड तक पहुँचें
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // एक डिफ़ॉल्ट क्लस्टर्ड कॉलम चार्ट जोड़ें
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // चार्ट सीरीज़ संग्रह तक पहुँच रहे हैं
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // प्रत्येक चार्ट सीरीज़ पर इटररेट कर रहे हैं
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // सीरीज़ में प्रत्येक डेटा सेल पर इटररेट कर रहे हैं
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // नंबर फ़ॉर्मेट सेट कर रहे हैं
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
 
-    // प्रस्तुति सहेजें
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-निचे दिए गए प्रीसेट नंबर फ़ॉर्मेट मान और उनके अनुक्रमणिका दिए गये हैं:
+निम्न तालिका में निर्मित संख्या स्वरूप सूचकांक और उनके प्रतिनिधित्व वाले Excel स्वरूपों को इंग्लिश (United States) लोकैल के लिए सूचीबद्ध किया गया है। वास्तविक स्वरूप स्ट्रिंग और उनका प्रदर्शन अनुप्रयोग और लोकैल के अनुसार बदल सकता है, विशेष रूप से मुद्रा और तिथियों के लिये। कुछ Excel स्वरूप OOXML मानक के डिफॉल्ट से भी भिन्न होते हैं, जैसा कि [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| सूचकांक | स्वरूप |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **चार्ट एरिया गोल किनारे सेट करें**
-Aspose.Slides for Android via Java चार्ट एरिया सेट करने के लिए समर्थन प्रदान करता है। मेथड **[hasRoundedCorners](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IChart#hasRoundedCorners--)** और **[setRoundedCorners](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-)** को **[IChart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IChart)** इंटरफ़ेस और **[Chart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Chart)** वर्ग में जोड़ा गया है।
+## **चार्ट एरिया के गोल किनारे सेट करें**
 
-1. **[Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation)** वर्ग का ऑब्जेक्ट बनाएँ।
-1. स्लाइड पर चार्ट जोड़ें।
-1. चार्ट का फ़िल टाइप और फ़िल रंग सेट करें।
-1. गोल कोना गुण को True सेट करें।
-1. संशोधित प्रस्तुति को सहेजें।
-
-नीचे दिया गया नमूना उदाहरण है।  
+[IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) को `true` के साथ बुलाकर चार्ट एरिया के किनारों को गोल करें। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) का उपयोग करके उसकी रूपरेखा को ठोस ग्रे रंग और सिंगल-लाइन शैली देता है, फिर प्रस्तुति को सहेजता है।
 
 ```java
-// Presentation वर्ग की एक उदाहरण बनाएं
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **सामान्य प्रश्न**
+## **मौजूदा चार्ट एनोटेशन संपादित करें**
 
-**क्या मैं कॉलम/एरिया के लिए अर्ध-पारदर्शी फ़िल सेट कर सकता हूँ जबकि बॉर्डर अपारदर्शी रहे?**
+एक चार्ट में कस्टम शैप्स हो सकते हैं, जैसे कि रिपोर्ट की स्थिति बताने वाला टेक्स्ट एनोटेशन। इन शैप्स तक पहुंचने के लिए [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--) का उपयोग करें, जो [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) में भी सूचीबद्ध है। [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) द्वारा लौटाई गई कलेक्शन में चार्ट-स्वामित्व वाले शैप्स शामिल होते हैं।
 
-हाँ। फ़िल पारदर्शिता और रूपरेखा को अलग-अलग कॉन्फ़िगर किया जाता है। यह घनी विज़ुअलाइज़ेशन में ग्रिड और डेटा की पठनीयता सुधारने के लिए उपयोगी है।
+एक सामान्य टेक्स्ट बॉक्स जो चार्ट के ऊपर रखा जाता है, वह स्लाइड का हिस्सा होता है, चाहे वह चार्ट का हिस्सा जैसा दिखे। [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) के माध्यम से इटरेट करने पर चार्ट और सामान्य स्लाइड शैप्स मिलते हैं, लेकिन चार्ट के अंदर व्यक्तिगत शैप्स को नहीं गिना जाता। चार्ट शीर्षक और डेटा लेबल अलग-अलग चार्ट तत्व होते हैं, न कि इस कलेक्शन में कस्टम एनोटेशन।
+
+[chart-annotations.pptx](chart-annotations.pptx) डाउनलोड करें और इसे अनुप्रयोग की कार्य निर्देशिका में रखें। इस फ़ाइल की पहली स्लाइड में एक चार्ट है जिसमें अनग्रुप्ड एनोटेशन "Preliminary results", एक चार्ट-स्वामित्व वाली लाइन, और एक सामान्य स्लाइड टेक्स्ट बॉक्स "Slide overlay" है। उदाहरण उस स्लाइड पर पहले चार्ट को खोजता है और रिपोर्ट तैयार होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली कलेक्शन की जाँच करता है और केवल उन [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) को संपादित करता है जिनमें गैर-शून्य टेक्स्ट फ्रेम हो, जिसे [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) द्वारा प्राप्त किया गया हो और अपेक्षित टेक्स्ट हो।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+लाइन और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहता है। निम्न छवियां इनपुट और सहेजे गए, पुनः खोले गए परिणाम को दर्शाती हैं:
+
+| संपादन से पहले | संपादन के बाद |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+उदाहरण केवल शीर्ष-स्तर के चार्ट-स्वामित्व वाले शैप्स की जांच करता है। यदि कोई एनोटेशन [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) के भीतर है, तो उस समूह की [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) कलेक्शन को भी निरीक्षण करें। नेस्टेड समूहों के लिए इसे पुनरावर्ती रूप से दोहराएँ, और उनके चाइल्ड शैप्स पर समान टेक्स्ट जाँच लागू करें। समूह स्वयं एक कंटेनर है; इसे टेक्स्ट बॉक्स की तरह न मानें।
+{{% /alert %}}
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**क्या मैं कॉलम/एरिया के लिए अर्ध-पारदर्शी फ़िल्स सेट कर सकता हूँ जबकि सीमा को अपारदर्शी रख सकता हूँ?**
+
+हाँ। फ़िल ट्रांसपैरेंसी और बाहरी रूपरेखा को अलग से कॉन्फ़िगर किया जाता है। यह ग्रिड और घनी विज़ुअलाइज़ेशन में डेटा की पठनीयता सुधारने में उपयोगी है।
 
 **डेटा लेबल ओवरलैप होने पर मैं क्या करूँ?**
 
-फ़ॉन्ट आकार कम करें, गैर‑आवश्यक लेबल घटकों (जैसे श्रेणियाँ) को निष्क्रिय करें, लेबल ऑफसेट/स्थिति सेट करें, आवश्यक होने पर केवल चयनित बिंदुओं के लिए लेबल दिखाएँ, या फ़ॉर्मेट को “value + legend” में बदलें।
+फ़ॉन्ट आकार घटाएँ, गैर-आवश्यक लेबल घटकों को अक्षम करें (जैसे, कैटेगरी), लेबल स्थितियों को समायोजित करें, आवश्यक हो तो केवल चयनित बिंदुओं के लिए लेबल दिखाएँ, या फ़ॉर्मेट को "value + legend" में बदलें।
 
-**क्या मैं सीरीज़ पर ग्रेडिएंट या पैटर्न फ़िल लागू कर सकता हूँ?**
+**क्या मैं श्रृंखलाओं पर ग्रेडिएंट या पैटर्न फ़िल्स लागू कर सकता हूँ?**
 
-हाँ। ठोस तथा ग्रेडिएंट/पैटर्न फ़िल आमतौर पर उपलब्ध होते हैं। व्यावहारिक रूप से, ग्रेडिएंट का संक्षिप्त उपयोग करें और ऐसे संयोजन से बचें जो ग्रिड और टेक्स्ट के बीच कंट्रास्ट को कम कर दें।
+हाँ। श्रृंखलाएँ ठोस, ग्रेडिएंट और पैटर्न फ़िल्स को समर्थन देती हैं। व्यावहारिक रूप से, ग्रेडिएंट को संयमित रूप से उपयोग करें और ऐसी संयोजन से बचें जो ग्रिड और टेक्स्ट के साथ कंट्रास्ट कम कर दें।

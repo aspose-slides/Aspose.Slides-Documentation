@@ -1,74 +1,51 @@
 ---
-title: تنسيق مخططات العرض التقديمي في .NET
+title: تنسيق مخططات العرض في .NET
 linktitle: تنسيق المخطط
 type: docs
 weight: 60
 url: /ar/net/chart-formatting/
 keywords:
 - تنسيق المخطط
-- تنسيق المخطط
-- كائن المخطط
+- تنسيق المخططات
+- كيان المخطط
 - خصائص المخطط
 - إعدادات المخطط
 - خيارات المخطط
 - خصائص الخط
 - حد مستدير
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم تنسيق المخططات في Aspose.Slides for .NET وارتقِ بعرض PowerPoint التقديمي باستخدام أسلوب احترافي وجذاب."
+description: "تعرّف على تنسيق المخططات في Aspose.Slides لـ .NET وارتقِ بعرض PowerPoint الخاص بك باستخدام محاور مخصصة، خطوط، تنسيقات رقمية، وحدود مخطط مستديرة."
 ---
+## **نظرة عامة**
 
-## **تنسيق كائنات المخطط**
-Aspose.Slides for .NET يتيح للمطورين إضافة مخططات مخصصة إلى الشرائح من الصفر. يشرح هذا المقال كيفية تنسيق كائنات المخطط المختلفة بما في ذلك محور الفئات ومحور القيم.
+توضح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. تُظهر كيفية تخصيص عناصر المخطط الأساسية مثل المحاور، خطوط الشبكة، العناوين، وسادة الألوان، منطقة الرسم، وتعبئة الجدران لتحسين مظهر وقراءة بيانات المخطط.
 
-Aspose.Slides for .NET يوفر واجهة برمجة تطبيقات بسيطة لإدارة كائنات المخطط المختلفة وتنسيقها باستخدام قيم مخصصة:
+كما تُظهر كيفية ضبط خصائص الخط لنص المخطط، تطبيق تنسيقات عددية مُعرفة مسبقًا على بيانات المخطط، وتمكين الزوايا المستديرة لمنطقة المخطط. معًا، تُظهر هذه الأمثلة كيفية التحكم في النمط البصري وعرض البيانات للمخططات في العرض التقديمي.
 
-1. إنشاء مثيل من الفئة **Presentation**.
-1. الحصول على مرجع الشريحة عبر فهرستها.
-1. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (في هذا المثال سنستخدم ChartType.LineWithMarkers).
-1. الوصول إلى محور القيم للمخطط وتعيين الخصائص التالية:
-   1. تعيين **Line format** لخطوط الشبكة الرئيسية لمحور القيم.
-   1. تعيين **Line format** لخطوط الشبكة الفرعية لمحور القيم.
-   1. تعيين **Number Format** لمحور القيم.
-   1. تعيين **Min, Max, Major and Minor units** لمحور القيم.
-   1. تعيين **Text Properties** لبيانات محور القيم.
-   1. تعيين **Title** لمحور القيم.
-   1. تعيين **Line Format** لمحور القيم.
-1. الوصول إلى محور الفئات للمخطط وتعيين الخصائص التالية:
-   1. تعيين **Line format** لخطوط الشبكة الرئيسية لمحور الفئات.
-   1. تعيين **Line format** لخطوط الشبكة الفرعية لمحور الفئات.
-   1. تعيين **Text Properties** لبيانات محور الفئات.
-   1. تعيين **Title** لمحور الفئات.
-   1. تعيين **Label Positioning** لمحور الفئات.
-   1. تعيين **Rotation Angle** لتسميات محور الفئات.
-1. الوصول إلى وسيلة الإيضاح للمخطط وتعيين **Text Properties** لها.
-1. إظهار وسيلة إيضاح المخطط دون تداخل المخطط.
-1. الوصول إلى **Secondary Value Axis** للمخطط وتعيين الخصائص التالية:
-   1. تمكين **Value Axis** الثانوي.
-   1. تعيين **Line Format** لمحور القيم الثانوي.
-   1. تعيين **Number Format** لمحور القيم الثانوي.
-   1. تعيين **Min, Max, Major and Minor units** لمحور القيم الثانوي.
-1. الآن رسم السلسلة الأولى للمخطط على محور القيم الثانوي.
-1. تعيين لون تعبئة الجدار الخلفي للمخطط.
-1. تعيين لون تعبئة منطقة الرسم للمخطط.
-1. كتابة العرض المعدل إلى ملف PPTX.
-```c#
- // إنشاء عرض تقديمي// إنشاء عرض تقديمي
-Presentation pres = new Presentation();
+## **تنسيق كيانات المخطط**
 
- // الوصول إلى الشريحة الأولى
-ISlide slide = pres.Slides[0];
+استخدم [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) لتنسيق عناوين المخطط، المحاور، خطوط الشبكة، وسادة الألوان، ومنطقة الرسم. يخلق هذا المثال مخططًا خطيًا مع علامات وبيانات افتراضية، ثم يطبق أنماط نصية وخطية منفصلة على محوري القيم والفئات. تُحدد أحجام الخطوط وعرض الخطوط بالنقاط؛ تُدوَّر تسميات الفئات بزاوية 45 درجة.
 
- // إضافة المخطط النموذجي
-IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+يستخدم محور القيم [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) بشكل مستقل عن الخلايا المصدر. يمتد مقياسه من -2 إلى 15، مع فواصل رئيسية قدرها 2 وفواصل فرعية قدرها 0.5. يجمع المثال أيضًا بين تنسيق النسبة المئوية و[DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) المُضبط على الآلاف، لذا قم بتكييف هذه الإعدادات وفقًا لمعنى وحجم بياناتك. تبقى وسادة الألوان خارج منطقة الرسم لأن [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) معطَّلة. تُضبط تعبئة الجدار الخلفي والأرضية عبر [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) و[Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/)، لكن هذه الأسطح تظهر فقط في المخططات ثلاثية الأبعاد.
 
- // ضبط عنوان المخطط
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
-IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
+var chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
 chartTitle.Text = "Sample Chart";
 chartTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 chartTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
@@ -76,23 +53,19 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
- // ضبط تنسيق خطوط الشبكة الرئيسية لمحور القيم
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
- // ضبط تنسيق خطوط الشبكة الفرعية لمحور القيم
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
- // ضبط تنسيق أرقام محور القيم
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
- // ضبط القيم القصوى والدنيا للمخطط
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -103,235 +76,253 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
- // ضبط خصائص نص محور القيم
-IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
-txtVal.FontBold = NullableBool.True;
-txtVal.FontHeight = 16;
-txtVal.FontItalic = NullableBool.True;
-txtVal.FillFormat.FillType = FillType.Solid; ;
-txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
-txtVal.LatinFont = new FontData("Times New Roman");
+var valueAxisText = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
+valueAxisText.FontBold = NullableBool.True;
+valueAxisText.FontHeight = 16;
+valueAxisText.FontItalic = NullableBool.True;
+valueAxisText.FillFormat.FillType = FillType.Solid;
+valueAxisText.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+valueAxisText.LatinFont = new FontData("Times New Roman");
 
- // ضبط عنوان محور القيم
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
-IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-valtitle.Text = "Primary Axis";
-valtitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-valtitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-valtitle.PortionFormat.FontHeight = 20;
-valtitle.PortionFormat.FontBold = NullableBool.True;
-valtitle.PortionFormat.FontItalic = NullableBool.True;
+var valueAxisTitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+valueAxisTitle.Text = "Primary Axis";
+valueAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+valueAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+valueAxisTitle.PortionFormat.FontHeight = 20;
+valueAxisTitle.PortionFormat.FontBold = NullableBool.True;
+valueAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
- // ضبط تنسيق خط محور القيم : الآن مهمل
- // chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
- // chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
- // Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
-
- // ضبط تنسيق خطوط الشبكة الرئيسية لمحور الفئات
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
- // ضبط تنسيق خطوط الشبكة الفرعية لمحور الفئات
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
- // ضبط خصائص نص محور الفئات
-IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
-txtCat.FontBold = NullableBool.True;
-txtCat.FontHeight = 16;
-txtCat.FontItalic = NullableBool.True;
-txtCat.FillFormat.FillType = FillType.Solid; ;
-txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
-txtCat.LatinFont = new FontData("Arial");
+var categoryAxisText = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
+categoryAxisText.FontBold = NullableBool.True;
+categoryAxisText.FontHeight = 16;
+categoryAxisText.FontItalic = NullableBool.True;
+categoryAxisText.FillFormat.FillType = FillType.Solid;
+categoryAxisText.FillFormat.SolidFillColor.Color = Color.Blue;
+categoryAxisText.LatinFont = new FontData("Arial");
 
- // ضبط عنوان محور الفئات
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
-IPortion catTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-catTitle.Text = "Sample Category";
-catTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-catTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-catTitle.PortionFormat.FontHeight = 20;
-catTitle.PortionFormat.FontBold = NullableBool.True;
-catTitle.PortionFormat.FontItalic = NullableBool.True;
+var categoryAxisTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+categoryAxisTitle.Text = "Sample Category";
+categoryAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+categoryAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+categoryAxisTitle.PortionFormat.FontHeight = 20;
+categoryAxisTitle.PortionFormat.FontBold = NullableBool.True;
+categoryAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
- // ضبط موضع تسمية محور الفئات
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
-
- // ضبط زاوية تدوير تسمية محور الفئات
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
- // ضبط خصائص نص وسيلة الإيضاح
-IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
-txtleg.FontBold = NullableBool.True;
-txtleg.FontHeight = 16;
-txtleg.FontItalic = NullableBool.True;
-txtleg.FillFormat.FillType = FillType.Solid; ;
-txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
+var legendText = chart.Legend.TextFormat.PortionFormat;
+legendText.FontBold = NullableBool.True;
+legendText.FontHeight = 16;
+legendText.FontItalic = NullableBool.True;
+legendText.FillFormat.FillType = FillType.Solid;
+legendText.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
- // إظهار وسيلة إيضاح المخطط دون تداخل مع المخطط
+chart.Legend.Overlay = false;
 
-chart.Legend.Overlay = true;
-            
- // رسم السلسلة الأولى على محور القيم الثانوي
- // Chart.ChartData.Series[0].PlotOnSecondAxis = true;
-
- // ضبط لون جدار خلفية المخطط
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
- // ضبط لون منطقة الرسم
+
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// حفظ العرض التقديمي
-pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
+presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
+## **ضبط خصائص الخط لمخطط**
 
-## **تعيين خصائص الخط للمخطط**
-Aspose.Slides for .NET يوفر دعمًا لتعيين خصائص الخط المتعلقة بالمخطط. يرجى اتباع الخطوات أدناه لتعيين خصائص الخط للمخطط.
+اضبط حجم الخط الافتراضي لنص المخطط عبر [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). ينشئ المثال مخطط أعمدة متجمع مع خط بحجم 20 نقطة ويفعّل تسميات القيم للسلسلة الأولى عبر [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). يمكن لعناصر النص التي لها إعدادات خط صريحة خاصة أن تتجاوز الإعداد الافتراضي للمخطط.
 
-- إنشاء كائن من الفئة Presentation.
-- إضافة مخطط إلى الشريحة.
-- تعيين ارتفاع الخط.
-- حفظ العرض المعدل.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-مثال العينة التالي موضح.
-```c#
-using (Presentation pres = new Presentation())
-{               
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    chart.TextFormat.PortionFormat.FontHeight = 20;
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    pres.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+chart.TextFormat.PortionFormat.FontHeight = 20;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **تعيين التنسيق الرقمي**
-Aspose.Slides for .NET يوفر واجهة برمجة تطبيقات بسيطة لإدارة تنسيق بيانات المخطط:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. الحصول على مرجع الشريحة عبر فهرستها.
-1. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (يستخدم هذا المثال **ChartType.ClusteredColumn**).
-1. تعيين تنسيق الرقم المسبق من القيم المسبقة المتاحة.
-1. التجول عبر خلايا بيانات المخطط في كل سلسلة وتعيين تنسيق رقم البيانات للمخطط.
-1. حفظ العرض.
-1. تعيين تنسيق رقم مخصص.
-1. التجول عبر خلايا بيانات المخطط داخل كل سلسلة وتعيين تنسيق رقم مختلف.
-1. حفظ العرض.
-```c#
-// إنشاء العرض التقديمي// إنشاء العرض التقديمي
-Presentation pres = new Presentation();
+استخدم [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) لتطبيق تنسيق عدد مدمج على خلايا دفتر عمل المخطط. يخلق هذا المثال مخطط أعمدة متجمع ببيانات افتراضية مدعومة بالخلايا ويطبق فهرس التنسيق 10 (`0.00%`) على كل خلية قيمة سلسلة. يغيّر هذا طريقة عرض القيم في دفتر العمل دون تغيير الأعداد الأساسية؛ على سبيل المثال، تُعرض 0.25 كـ 25.00%. يمكن تكوين تنسيقات المحور وتنسيقات تسميات البياناتSeparately.
 
-// الوصول إلى الشريحة الأولى للعرض التقديمي
-ISlide slide = pres.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// إضافة مخطط عمود مجمع افتراضي
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// الوصول إلى مجموعة سلاسل المخطط
-IChartSeriesCollection series = chart.ChartData.Series;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var series = chart.ChartData.Series;
 
-// ضبط تنسيق الأرقام المحدد مسبقًا
-// التنقل عبر كل سلسلة مخطط
-foreach (ChartSeries ser in series)
+foreach (var chartSeries in series)
 {
-    // التنقل عبر كل خلية بيانات في السلسلة
-    foreach (IChartDataPoint cell in ser.DataPoints)
+    foreach (var dataPoint in chartSeries.DataPoints)
     {
-        // ضبط تنسيق الرقم
-        cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
-// حفظ العرض التقديمي
-pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
+presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
+القائمة التالية تُظهر فهارس تنسيقات الأعداد المدمجة مع صيغ Excel النموذجية للغة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق وعرضها حسب التطبيق واللغة، خصوصًا للعملات والتواريخ. بعض صيغ Excel تختلف أيضًا عن الافتراضيات في معيار OOXML، كما هو موضح في [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-القيم المسبقة المتاحة لتنسيق الأرقام مع مؤشرها المسبق هي كما يلي:
+| الفهرس | الصيغة |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+## **تعيين حدود مستديرة لمنطقة المخطط**
 
-## **تعيين حدود منحنية لمنطقة المخطط**
-Aspose.Slides for .NET يوفر دعمًا لتعيين منطقة المخطط. تم إضافة الخصائص **IChart.HasRoundedCorners** و **Chart.HasRoundedCorners** في Aspose.Slides.
+فعّل [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) لتقريب زوايا منطقة المخطط. ينشئ المثال مخطط أعمدة متجمع ويستخدم [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) لمنح حدودها لونًا رماديًا صلبًا ونمط خط وحيد قبل حفظ العرض التقديمي.
 
-1. إنشاء كائن من الفئة `Presentation`.
-1. إضافة مخطط إلى الشريحة.
-1. تعيين نوع التعبئة ولون التعبئة للمخطط.
-1. تعيين خاصية الزوايا المستديرة إلى True.
-1. حفظ العرض المعدل.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-العينة التالية موضحة.
-```c#
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+chart.LineFormat.FillFormat.FillType = FillType.Solid;
+chart.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+chart.LineFormat.Style = LineStyle.Single;
+chart.HasRoundedCorners = true;
+
+presentation.Save("out.pptx", SaveFormat.Pptx);
+```
+
+## **تحرير تعليقات المخطط الموجودة**
+
+يمكن للمخطط أن يحتوي على أشكال مخصصة، مثل تعليق نصي يوضح حالة تقرير. يمكن الوصول إلى هذه الأشكال عبر [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/)، المذكورة أيضًا تحت [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) في مرجع API الخاص بالمخطط. يحتوي مجموعة [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) على الأشكال المملوكة للمخطط.
+
+مربع نص عادي موضع فوق المخطط ينتمي إلى الشريحة، حتى لو ظهر كجزء من المخطط. يكتشف التكرار عبر [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) المخطط والأشكال العادية للشريحة، لكنه لا يُدرج الأشكال الفردية داخل المخطط. عناوين المخطط وتسميات البيانات هي عناصر مخطط منفصلة، ليست تعليقات مخصصة في هذه المجموعة.
+
+حمّل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل العمل الخاص بالتطبيق. تحتوي شريحته الأولى على مخطط مع تعليق غير مُجَمَّع يقرأ "Preliminary results"، وخط مملوك للمخطط، ومربع نص عادي على الشريحة يقرأ "Slide overlay". يجد المثال المخطط الأول في تلك الشريحة ويغيّر التعليق إلى "Final results" عندما يصبح التقرير جاهزًا للنشر. يتحقق من وجود مجموعة فارغة ولا يُعدِّل سوى [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) التي تحتوي على [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) غير فارغ والنص المتوقع.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("chart-annotations.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.OfType<IChart>().FirstOrDefault();
+
+if (chart == null || chart.UserShapes.Shapes.Count == 0)
 {
-	ISlide slide = presentation.Slides[0];
-	IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-	chart.LineFormat.FillFormat.FillType = FillType.Solid;
-	chart.LineFormat.Style = LineStyle.Single;
-	chart.HasRoundedCorners = true;
+    Console.WriteLine("No chart or chart-owned shapes found.");
+    return;
+}
 
-	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var updated = false;
+foreach (var shape in chart.UserShapes.Shapes)
+{
+    if (shape is IAutoShape annotation && 
+        annotation.TextFrame != null && 
+        annotation.TextFrame.Text == "Preliminary results")
+    {
+        annotation.TextFrame.Text = "Final results";
+        updated = true;
+        break;
+    }
+}
+
+if (updated)
+{
+    presentation.Save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No matching text annotation found.");
 }
 ```
 
+يبقى الخط ومربع النص على الشريحة دون تغيير. تُظهر الصور التالية المدخل والنتيجة المحفوظة المفتوحة مجددًا:
 
-## **الأسئلة الشائعة**
+| قبل التحرير | بعد التحرير |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
-**هل يمكنني تعيين تعبئة شبه شفافة للأعمدة/المناطق مع الحفاظ على الحد غير شفاف؟**
+{{% alert color="info" title="Note" %}}
+يفحص المثال فقط الأشكال ذات المستوى الأعلى المملوكة للمخطط. إذا كان التعليق داخل [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/)، فافحص مجموعة [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) الخاصة بذلك أيضًا. كرِّر ذلك بصورة متداخلة للمجموعات المتداخلة، مطبقًا نفس فحوصات النص على الأشكال الفرعية. المجموعة نفسها حاوية؛ لا تُعاملها كصندوق نص.
+{{% /alert %}}
 
-نعم. يتم تكوين شفافية التعبئة والحد بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
+## **الأسئلة المتكررة**
 
-**كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
+**هل يمكنني ضبط تعبئات نصف شفافة للأعمدة/المناطق مع الحفاظ على الحدود غير شفافة؟**
 
-قلل حجم الخط، أو عطل مكونات التسميات غير الضرورية (مثل الفئات)، أو اضبط إزاحة/موضع التسميات، أو اعرض التسميات فقط للنقاط المختارة إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + المفتاح".
+نعم. يتم تكوين شفافية التعبئة والحدود بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
 
-**هل يمكنني تطبيق تعبئة تدرج أو نمط على السلاسل؟**
+**كيف يمكنني معالجة تسميات البيانات عندما تتداخل؟**
 
-نعم. تتوفر عادةً كل من التعبئات الصلبة وتعبئات التدرج/النمط. في التطبيق العملي، استخدم التدرجات باعتدال وتجنب الجمع بينها إذا كان ذلك يقلل من التباين مع الشبكة والنص.
+قلل حجم الخط، عطل المكونات غير الضرورية للتسميات (مثل الفئات)، اضبط موضع التسمية، أظهر التسميات فقط للنقاط المحددة إذا لزم الأمر، أو غير الصيغة إلى "القيمة + وسادة الألوان".
+
+**هل يمكنني تطبيق تعبئات متدرجة أو نمطية للسلاسل؟**
+
+نعم. تدعم السلاسل تعبئات صلبة، متدرجة، ونمطية. في الممارسة العملية، استخدم التدرجات باعتدال وتجنب الجمع الذي يقلل من التباين مع الشبكة والنص.

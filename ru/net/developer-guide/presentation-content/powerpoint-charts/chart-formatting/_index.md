@@ -1,74 +1,51 @@
 ---
-title: Форматирование диаграмм в презентациях .NET
-linktitle: Форматирование диаграмм
+title: Форматирование графиков презентаций в .NET
+linktitle: Форматирование графиков
 type: docs
 weight: 60
 url: /ru/net/chart-formatting/
 keywords:
-- формат диаграммы
-- форматирование диаграмм
-- объект диаграммы
-- свойства диаграммы
-- настройки диаграммы
-- параметры диаграммы
+- формат графика
+- форматирование графика
+- сущность графика
+- свойства графика
+- настройки графика
+- опции графика
 - свойства шрифта
-- скруглённые границы
+- скруглённая граница
 - PowerPoint
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Изучите форматирование диаграмм в Aspose.Slides для .NET и улучшите свою презентацию PowerPoint профессиональным, привлекающим внимание оформлением."
+description: "Изучите форматирование графиков в Aspose.Slides для .NET и улучшите свою презентацию PowerPoint с помощью пользовательских осей, шрифтов, числовых форматов и скруглённых границ графика."
 ---
+## **Обзор**
 
-## **Форматирование объектов диаграммы**
-Aspose.Slides for .NET позволяет разработчикам добавлять пользовательские диаграммы на слайды с нуля. Эта статья объясняет, как форматировать различные объекты диаграммы, включая категориальную и ось значений.
+В этой статье объясняется, как форматировать графики в презентациях PowerPoint с помощью Aspose.Slides. Показано, как настраивать ключевые элементы графика, такие как оси, линии сетки, заголовки, легенды, область построения и заливки стен, чтобы улучшить внешний вид и читаемость данных графика.  
 
-Aspose.Slides for .NET предоставляет простой API для управления различными объектами диаграммы и их форматирования с помощью пользовательских значений:
+Также демонстрируется, как задавать свойства шрифта для текста графика, применять предустановленные числовые форматы к данным графика и включать скругленные углы области графика. В совокупности эти примеры показывают, как управлять как визуальным стилем, так и представлением данных графиков в презентации.
 
-1. Создайте экземпляр класса **Presentation**.
-1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию любого нужного типа (в этом примере будем использовать ChartType.LineWithMarkers).
-1. Получите доступ к оси значений диаграммы и задайте следующие свойства:
-   1. Установка **Line format** для основных линий сетки оси значений
-   1. Установка **Line format** для вспомогательных линий сетки оси значений
-   1. Установка **Number Format** для оси значений
-   1. Установка **Min, Max, Major and Minor units** для оси значений
-   1. Установка **Text Properties** для данных оси значений
-   1. Установка **Title** для оси значений
-   1. Установка **Line Format** для оси значений
-1. Получите доступ к оси категорий диаграммы и задайте следующие свойства:
-   1. Установка **Line format** для основных линий сетки оси категорий
-   1. Установка **Line format** для вспомогательных линий сетки оси категорий
-   1. Установка **Text Properties** для данных оси категорий
-   1. Установка **Title** для оси категорий
-   1. Установка **Label Positioning** для оси категорий
-   1. Установка **Rotation Angle** для подписей оси категорий
-1. Получите доступ к легенде диаграммы и задайте **Text Properties** для неё
-1. Установите отображение легенд без перекрытия диаграммы
-1. Получите доступ к **Secondary Value Axis** диаграммы и задайте следующие свойства:
-   1. Включите вторичную **Value Axis**
-   1. Установка **Line Format** для вторичной оси значений
-   1. Установка **Number Format** для вторичной оси значений
-   1. Установка **Min, Max, Major and Minor units** для вторичной оси значений
-1. Теперь построьте первую серию диаграммы на вторичной оси значений
-1. Установите цвет заливки задней стенки диаграммы
-1. Установите цвет заливки области построения диаграммы
-1. Запишите изменённую презентацию в файл PPTX
-```c#
-// Создание презентации// Создание презентации
-Presentation pres = new Presentation();
+## **Форматирование сущностей графика**
 
-// Доступ к первому слайду
-ISlide slide = pres.Slides[0];
+Используйте [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) для форматирования заголовков графика, осей, линий сетки, легенд и области построения. Этот пример создает линейный график с маркерами и данными по умолчанию, затем применяет отдельные стили текста и линий к его оси значений и оси категорий. Размеры шрифтов и толщины линий указаны в пунктах; подписи категорий повёрнуты на 45 градусов.  
 
-// Добавление образцовой диаграммы
-IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+Ось значений использует [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) независимо от исходных ячеек. Ее масштаб идет от -2 до 15, с основными интервалами 2 и второстепенными интервалами 0,5. Пример также сочетает форматирование в процентах с [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) , установленным в тысячи, поэтому адаптируйте эти настройки к смыслу и масштабу ваших данных. Легенда находится вне области построения, поскольку [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) отключен. Заполнения задней стенки и пола настраиваются через [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) и [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), но эти поверхности видны только в 3D‑графиках.
 
-// Установка заголовка диаграммы
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
-IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
+var chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
 chartTitle.Text = "Sample Chart";
 chartTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 chartTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
@@ -76,23 +53,19 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Установка формата основных линий сетки для оси значений
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Установка формата вспомогательных линий сетки для оси значений
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Установка числового формата оси значений
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
-// Установка максимальных и минимальных значений диаграммы
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -103,240 +76,250 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Установка свойств текста оси значений
-IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
-txtVal.FontBold = NullableBool.True;
-txtVal.FontHeight = 16;
-txtVal.FontItalic = NullableBool.True;
-txtVal.FillFormat.FillType = FillType.Solid; ;
-txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
-txtVal.LatinFont = new FontData("Times New Roman");
+var valueAxisText = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
+valueAxisText.FontBold = NullableBool.True;
+valueAxisText.FontHeight = 16;
+valueAxisText.FontItalic = NullableBool.True;
+valueAxisText.FillFormat.FillType = FillType.Solid;
+valueAxisText.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+valueAxisText.LatinFont = new FontData("Times New Roman");
 
-// Установка заголовка оси значений
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
-IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-valtitle.Text = "Primary Axis";
-valtitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-valtitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-valtitle.PortionFormat.FontHeight = 20;
-valtitle.PortionFormat.FontBold = NullableBool.True;
-valtitle.PortionFormat.FontItalic = NullableBool.True;
+var valueAxisTitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+valueAxisTitle.Text = "Primary Axis";
+valueAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+valueAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+valueAxisTitle.PortionFormat.FontHeight = 20;
+valueAxisTitle.PortionFormat.FontBold = NullableBool.True;
+valueAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Установка формата линии оси значений: устарело
-// chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
-// chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
-// Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
-
-// Установка формата основных линий сетки для оси категорий
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// Установка формата вспомогательных линий сетки для оси категорий
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Установка свойств текста оси категорий
-IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
-txtCat.FontBold = NullableBool.True;
-txtCat.FontHeight = 16;
-txtCat.FontItalic = NullableBool.True;
-txtCat.FillFormat.FillType = FillType.Solid; ;
-txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
-txtCat.LatinFont = new FontData("Arial");
+var categoryAxisText = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
+categoryAxisText.FontBold = NullableBool.True;
+categoryAxisText.FontHeight = 16;
+categoryAxisText.FontItalic = NullableBool.True;
+categoryAxisText.FillFormat.FillType = FillType.Solid;
+categoryAxisText.FillFormat.SolidFillColor.Color = Color.Blue;
+categoryAxisText.LatinFont = new FontData("Arial");
 
-// Установка заголовка категории
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
-IPortion catTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-catTitle.Text = "Sample Category";
-catTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-catTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-catTitle.PortionFormat.FontHeight = 20;
-catTitle.PortionFormat.FontBold = NullableBool.True;
-catTitle.PortionFormat.FontItalic = NullableBool.True;
+var categoryAxisTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+categoryAxisTitle.Text = "Sample Category";
+categoryAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+categoryAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+categoryAxisTitle.PortionFormat.FontHeight = 20;
+categoryAxisTitle.PortionFormat.FontBold = NullableBool.True;
+categoryAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Установка позиции меток оси категорий
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
-
-// Установка угла вращения меток оси категорий
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// Установка текстовых свойств легенд
-IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
-txtleg.FontBold = NullableBool.True;
-txtleg.FontHeight = 16;
-txtleg.FontItalic = NullableBool.True;
-txtleg.FillFormat.FillType = FillType.Solid; ;
-txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
+var legendText = chart.Legend.TextFormat.PortionFormat;
+legendText.FontBold = NullableBool.True;
+legendText.FontHeight = 16;
+legendText.FontItalic = NullableBool.True;
+legendText.FillFormat.FillType = FillType.Solid;
+legendText.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// Установка отображения легенд диаграммы без перекрытия диаграммы
+chart.Legend.Overlay = false;
 
-chart.Legend.Overlay = true;
-            
-// Построение первой серии на вторичной оси значений
-// Chart.ChartData.Series[0].PlotOnSecondAxis = true;
-
-// Установка цвета задней стенки диаграммы
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
-// Установка цвета области построения
+
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// Save Presentation
-pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
+presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Установка свойств шрифта для графика**
 
+Установите размер шрифта по умолчанию для текста графика через [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Пример создает сгруппированный столбчатый график с шрифтом 20 пунктов и включает подписи значений для первой серии через [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Текстовые элементы с собственными явными настройками шрифта могут переопределять значение по умолчанию графика.
 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-## **Установка свойств шрифта для диаграммы**
-Aspose.Slides for .NET поддерживает установку свойств шрифта для диаграммы. Пожалуйста, выполните следующие шаги для настройки шрифтов диаграммы.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-- Создайте объект класса Presentation.
-- Добавьте диаграмму на слайд.
-- Установите высоту шрифта.
-- Сохраните изменённую презентацию.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+chart.TextFormat.PortionFormat.FontHeight = 20;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-Ниже приведён пример.
-```c#
-using (Presentation pres = new Presentation())
-{               
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    chart.TextFormat.PortionFormat.FontHeight = 20;
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    pres.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
-}
+presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
-
-
-
-
 
 ## **Установка числового формата**
-Aspose.Slides for .NET предоставляет простой API для управления форматом данных диаграммы:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-1. Получите ссылку на слайд по его индексу.
-1. Добавьте диаграмму с данными по умолчанию любого нужного типа (в этом примере используется **ChartType.ClusteredColumn**).
-1. Установите предустановленный числовой формат из возможных предустановленных значений.
-1. Пройдитесь по ячейкам данных диаграммы в каждой серии и задайте числовой формат данных.
-1. Сохраните презентацию.
-1. Установите пользовательский числовой формат.
-1. Пройдитесь по ячейкам данных диаграммы в каждой серии и задайте различный числовой формат данных.
-1. Сохраните презентацию.
-```c#
-// Создать презентацию// Создать презентацию
-Presentation pres = new Presentation();
+Используйте [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) для применения встроенного числового формата к ячейкам книги графика. Этот пример создает сгруппированный столбчатый график с данными по умолчанию, поддерживаемыми ячейками, и применяет индекс формата 10 (`0.00%`) к ячейке значения каждой серии. Это меняет способ отображения значений в книге без изменения самих чисел; например, 0,25 отображается как 25,00 %. Форматы осей и подписей данных могут быть настроены отдельно.
 
-// Получить первый слайд презентации
-ISlide slide = pres.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Добавление диаграммы кластерных столбцов по умолчанию
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Получение коллекции рядов диаграммы
-IChartSeriesCollection series = chart.ChartData.Series;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var series = chart.ChartData.Series;
 
-// Установка предустановленного числового формата
-// Перебор всех рядов диаграммы
-foreach (ChartSeries ser in series)
+foreach (var chartSeries in series)
 {
-    // Перебор всех ячеек данных в ряду
-    foreach (IChartDataPoint cell in ser.DataPoints)
+    foreach (var dataPoint in chartSeries.DataPoints)
     {
-        // Установка числового формата
-        cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
-// Сохранение презентации
-pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
+presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
+В следующей таблице перечислены встроенные индексы числовых форматов с типичными форматами Excel для локали English (United States). Точные строковые форматы и их отображение могут различаться в зависимости от приложения и локали, особенно для валют и дат. Некоторые форматы Excel также отличаются от значений по умолчанию в стандарте OOXML, как описано в [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-Возможные предустановленные значения числового формата вместе с их индексом указаны ниже:
+| Индекс | Формат |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+## **Установка скруглённых границ области графика**
 
-## **Установка скруглённых границ области диаграммы**
-Aspose.Slides for .NET поддерживает задание области диаграммы. Свойства **IChart.HasRoundedCorners** и **Chart.HasRoundedCorners** были добавлены в Aspose.Slides.
+Включите [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) для скругления углов области графика. Пример создает сгруппированный столбчатый график и использует [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) для задания его контуру сплошного серого цвета и однослойного стиля перед сохранением презентации.
 
-1. Создайте объект класса `Presentation`.
-1. Добавьте диаграмму на слайд.
-1. Установите тип заливки и цвет заливки диаграммы.
-1. Установите свойство скруглённых углов в True.
-1. Сохраните изменённую презентацию.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-Ниже приведён пример.
-```c#
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+chart.LineFormat.FillFormat.FillType = FillType.Solid;
+chart.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+chart.LineFormat.Style = LineStyle.Single;
+chart.HasRoundedCorners = true;
+
+presentation.Save("out.pptx", SaveFormat.Pptx);
+```
+
+## **Редактирование существующих аннотаций графика**
+
+График может содержать пользовательские фигуры, такие как текстовая аннотация, объясняющая статус отчёта. Доступ к этим фигурам осуществляется через [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), также перечисленные в [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) в справочнике API графика. Его коллекция [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) содержит фигуры, принадлежащие графику.  
+
+Обычный текстовый блок, размещённый поверх графика, принадлежит слайду, даже если выглядит как часть графика. Перебор через [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) находит график и обычные фигуры слайда, но не перечисляет отдельные фигуры внутри графика. Заголовки графиков и подписи данных являются отдельными элементами графика, а не пользовательскими аннотациями в этой коллекции.  
+
+Скачайте [chart-annotations.pptx](chart-annotations.pptx) и поместите его в рабочий каталог приложения. Его первый слайд содержит график с разгруппированной аннотацией «Preliminary results», линией, принадлежащей графику, и обычным текстовым блоком слайда «Slide overlay». Пример находит первый график на этом слайде и меняет аннотацию на «Final results», когда отчёт готов к публикации. Он проверяет, не пуста ли коллекция, и редактирует только [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) с ненулевым [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) и ожидаемым текстом.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("chart-annotations.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.OfType<IChart>().FirstOrDefault();
+
+if (chart == null || chart.UserShapes.Shapes.Count == 0)
 {
-	ISlide slide = presentation.Slides[0];
-	IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-	chart.LineFormat.FillFormat.FillType = FillType.Solid;
-	chart.LineFormat.Style = LineStyle.Single;
-	chart.HasRoundedCorners = true;
+    Console.WriteLine("No chart or chart-owned shapes found.");
+    return;
+}
 
-	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var updated = false;
+foreach (var shape in chart.UserShapes.Shapes)
+{
+    if (shape is IAutoShape annotation && 
+        annotation.TextFrame != null && 
+        annotation.TextFrame.Text == "Preliminary results")
+    {
+        annotation.TextFrame.Text = "Final results";
+        updated = true;
+        break;
+    }
+}
+
+if (updated)
+{
+    presentation.Save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No matching text annotation found.");
 }
 ```
 
+Линия и текстовый блок слайда остаются без изменений. Ниже показаны изображения исходного состояния и сохранённого, повторно открытого результата:
+
+| Перед редактированием | После редактирования |
+| --- | --- |
+| ![Аннотация графика: Preliminary results](chart-annotations-before.png) | ![Аннотация графика: Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Пример проверяет только фигуры верхнего уровня, принадлежащие графику. Если аннотация находится внутри [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), проверьте также коллекцию [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) этой группы. Повторяйте это рекурсивно для вложенных групп, применяя те же проверки текста к их дочерним фигурам. Сама группа является контейнером; не рассматривайте её как текстовый блок.
+{{% /alert %}}
 
 ## **FAQ**
 
-**Можно ли задать полупрозрачные заливки для столбцов/областей, оставив границу непрозрачной?**
+**Могу ли я задать полупрозрачные заливки для столбцов/областей, сохранив границу непрозрачной?**  
+Да. Прозрачность заливки и контур настраиваются отдельно. Это полезно для повышения читаемости сетки и данных в плотных визуализациях.
 
-Да. Прозрачность заливки и контур настраиваются независимо. Это полезно для повышения читаемости сетки и данных в плотных визуализациях.
+**Как бороться с наложением подписей данных?**  
+Уменьшите размер шрифта, отключите необязательные компоненты подписи (например, категории), отрегулируйте положение подписи, при необходимости показывайте подписи только для выбранных точек или переключите формат на «значение + легенда».
 
-**Как справиться с подписью данных, когда они перекрываются?**
-
-Уменьшите размер шрифта, отключите необязательные компоненты подписи (например, категории), задайте смещение/позицию подписи, при необходимости показывайте подписи только для выбранных точек или переключите формат на «значение + легенда».
-
-**Можно ли применять градиентные или штриховые заливки к сериям?**
-
-Да. Как сплошные, так и градиентные/штриховые заливки обычно доступны. На практике используйте градиенты умеренно и избегайте комбинаций, которые снижают контрастность сетки и текста.
+**Могу ли я применять градиентные или узорчатые заливки к сериям?**  
+Да. Серии поддерживают сплошные, градиентные и узорчатые заливки. На практике используйте градиенты умеренно и избегайте комбинаций, снижающих контраст с сеткой и текстом.

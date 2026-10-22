@@ -1,13 +1,13 @@
 ---
-title: JavaScript'te Sunum Grafiklerini Biçimlendirme
+title: JavaScript'te Sunum Grafiklerini Biçimlendir
 linktitle: Grafik Biçimlendirme
 type: docs
 weight: 60
 url: /tr/nodejs-java/chart-formatting/
 keywords:
-- grafik formatı
 - grafik biçimlendirme
-- grafik nesnesi
+- grafik formatı
+- grafik varlığı
 - grafik özellikleri
 - grafik ayarları
 - grafik seçenekleri
@@ -18,355 +18,323 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js'te JavaScript kullanarak grafik biçimlendirmeyi öğrenin ve PowerPoint sunumunuzu profesyonel, göz alıcı bir stil ile yükseltin."
+description: "Aspose.Slides for Node.js ile JavaScript'te grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı biçimleri ve yuvarlatılmış grafik kenarlarıyla PowerPoint sunumunuzu geliştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafiklerin nasıl biçimlendirileceğini açıklar. Ekseni, ızgara çizgileri, başlıkları, lejantları, çizim alanını ve duvar dolgularını özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafiklerin nasıl biçimlendirileceğini açıklar. Eksenler, ızgara çizgileri, başlıklar, lejandlar, grafik alanı ve duvar doldurulmaları gibi önemli grafik öğelerinin nasıl özelleştirileceğini göstererek grafik verilerinin görünümünü ve okunabilirliğini artırır.
 
-Ayrıca grafik metni için yazı tipi özelliklerini ayarlamayı, grafik verilerine ön tanımlı ve özel sayısal formatlar uygulamayı ve grafik alanı için yuvarlatılmış köşeleri etkinleştirmeyi de gösterir. Bu örnekler, bir sunumdaki grafiklerin görsel stilini ve veri sunumunu nasıl kontrol edeceğinizi ortaya koyar.
+Ayrıca grafik metni için yazı tipi özelliklerinin nasıl ayarlandığını, grafik verilerine önceden tanımlı sayısal biçimlerin nasıl uygulandığını ve grafik alanının köşe yuvarlamalarının nasıl etkinleştirileceğini gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edebileceğinizi gösterir.
 
-## **Grafik Nesnelerini Biçimlendirme**
+## **Grafik Öğelerini Biçimlendir**
 
-Aspose.Slides for Node.js via Java, geliştiricilerin sıfırdan slaytlarına özel grafikler eklemesine olanak tanır. Bu makale, grafik kategorisi ve değer ekseni gibi farklı grafik nesnelerinin nasıl biçimlendirileceğini açıklar.
+Use [Grafik](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
 
-Aspose.Slides for Node.js via Java, farklı grafik nesnelerini yönetmek ve bunları özel değerlerle biçimlendirmek için basit bir API sağlar:
-
-1. [**Presentation**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. Bir slaydın referansını indeksine göre alın.
-1. İstenilen türde (bu örnekte ChartType.LineWithMarkers kullanılacaktır) varsayılan veriyle bir grafik ekleyin.
-1. Grafiğin Değer Eksenine erişin ve aşağıdaki özellikleri ayarlayın:
-   1. Değer Ekseni Ana Izgara Çizgileri için **Satır formatını** ayarlama
-   1. Değer Ekseni Küçük Izgara Çizgileri için **Satır formatını** ayarlama
-   1. Değer Ekseni için **Sayı Formatını** ayarlama
-   1. Değer Ekseni için **Min, Max, Ana ve Küçük birimleri** ayarlama
-   1. Değer Ekseni verileri için **Metin Özelliklerini** ayarlama
-   1. Değer Ekseni için **Başlığı** ayarlama
-   1. Değer Ekseni için **Satır Formatını** ayarlama
-1. Grafiğin Kategori Eksenine erişin ve aşağıdaki özellikleri ayarlayın:
-   1. Kategori Ekseni Ana Izgara Çizgileri için **Satır formatını** ayarlama
-   1. Kategori Ekseni Küçük Izgara Çizgileri için **Satır formatını** ayarlama
-   1. Kategori Ekseni verileri için **Metin Özelliklerini** ayarlama
-   1. Kategori Ekseni için **Başlığı** ayarlama
-   1. Kategori Ekseni için **Etiket Konumlandırmasını** ayarlama
-   1. Kategori Ekseni etiketleri için **Döndürme Açısını** ayarlama
-1. Grafiğin Lejantına erişin ve **Metin Özelliklerini** ayarlayın
-1. Grafik Lejantının grafikle çakışmadan gösterilmesini ayarlayın
-1. Grafiğin **İkincil Değer Eksenine** erişin ve aşağıdaki özellikleri ayarlayın:
-   1. İkincil **Değer Eksenini** etkinleştirin
-   1. İkincil Değer Ekseni için **Satır Formatını** ayarlayın
-   1. İkincil Değer Ekseni için **Sayı Formatını** ayarlayın
-   1. İkincil Değer Ekseni için **Min, Max, Ana ve Küçük birimleri** ayarlayın
-1. Şimdi ilk grafik serisini İkincil Değer Ekseni üzerine çizin
-1. Grafiğin arka duvar dolgu rengini ayarlayın
-1. Grafiğin çizim alanı dolgu rengini ayarlayın
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın
+The value axis uses [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) and [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), but these surfaces are only visible in 3D charts.
 
 ```javascript
-// Presentation sınıfının bir örneğini oluşturun
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // İlk slayta erişiliyor
-    var slide = pres.getSlides().get_Item(0);
-    // Örnek grafiği ekleme
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
-    // Grafik Başlığını Ayarlama
-    chart.hasTitle();
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
+
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
-    var chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    let chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
     chartTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     chartTitle.getPortionFormat().setFontHeight(20);
-    chartTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chartTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Değer ekseni için Ana ızgara çizgileri formatını ayarlama
+    chartTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    chartTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // Değer ekseni için Küçük ızgara çizgileri formatını ayarlama
+    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // Değer ekseni sayı formatını ayarlama
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
-    // Grafik maksimum, minimum değerlerini ayarlama
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getVerticalAxis().setMaxValue(15.0);
-    chart.getAxes().getVerticalAxis().setMinValue(-2.0);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+
+    chart.getAxes().getVerticalAxis().setMaxValue(15);
+    chart.getAxes().getVerticalAxis().setMinValue(-2);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0);
-    // Değer Ekseni Metin Özelliklerini Ayarlama
-    var txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(aspose.slides.NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(aspose.slides.NullableBool.True);
-    txtVal.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtVal.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkGreen));
-    txtVal.setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    // Değer ekseni başlığını ayarlama
-    chart.getAxes().getVerticalAxis().hasTitle();
+
+    let valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkGreen));
+    valueAxisText.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    var valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Kategori ekseni için Ana ızgara çizgileri formatını ayarlama
+    let valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    // Kategori ekseni için Küçük ızgara çizgileri formatını ayarlama
-    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setFillFormat(java.newByte(aspose.slides.FillType.Solid));
+
+    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // Kategori Ekseni Metin Özelliklerini Ayarlama
-    var txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(aspose.slides.NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(aspose.slides.NullableBool.True);
-    txtCat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtCat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    txtCat.setLatinFont(new aspose.slides.FontData("Arial"));
-    // Kategori Başlığını Ayarlama
-    chart.getAxes().getHorizontalAxis().hasTitle();
+
+    let categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    categoryAxisText.setLatinFont(new aspose.slides.FontData("Arial"));
+
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
-    var catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Kategori ekseni etiket konumunu ayarlama
+
+    let categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(aspose.slides.TickLabelPositionType.Low);
-    // Kategori ekseni etiket döndürme açısını ayarlama
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
-    // Lejant Metin Özelliklerini Ayarlama
-    var txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(aspose.slides.NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(aspose.slides.NullableBool.True);
-    txtleg.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkRed));
-    // Grafik lejantlarını grafikle çakışmadan gösterme
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // İkincil değer eksenini ayarlama
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(aspose.slides.LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-    // İkincil değer ekseni Sayı formatını ayarlama
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-    // Grafik maksimum, minimum değerlerini ayarlama
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0);
-    // Grafik arka duvar rengini ayarlama
+
+    let legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    legendText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkRed));
+
+    chart.getLegend().setOverlay(false);
+
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
     chart.getFloor().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Çizim alanı rengini ayarlama
+
     chart.getPlotArea().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.LightCyan));
-    // Sunumu Kaydet
-    pres.save("FormattedChart.pptx", aspose.slides.SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.LightCyan));
+
+    presentation.save("FormattedChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Grafik İçin Yazı Tipi Özelliklerini Ayarlama**
+## **Bir Grafik İçin Yazı Tipi Özelliklerini Ayarla**
 
-Aspose.Slides for Node.js via Java, grafik için yazı tipi ile ilgili özelliklerin ayarlanmasını destekler. Grafik için yazı tipi özelliklerini ayarlamak için aşağıdaki adımları izleyin.
-
-- [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfı nesnesinin bir örneğini oluşturun.
-- Slayda bir grafik ekleyin.
-- Yazı tipi yüksekliğini ayarlayın.
-- Değiştirilmiş sunumu kaydedin.
-
-Aşağıdaki örnek verilmiştir.
+Set the default font size for chart text through [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Text elements with their own explicit font settings can override the chart default.
 
 ```javascript
-// Presentation sınıfının bir örneğini oluştur
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    pres.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Sayısal Formatı Ayarlama**
+## **Sayısal Biçimi Ayarla**
 
-Aspose.Slides for Node.js via Java, grafik veri formatını yönetmek için basit bir API sağlar:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. Bir slaydın referansını indeksine göre alın.
-1. İstenilen türde (bu örnek **ChartType.ClusteredColumn** kullanır) varsayılan veriyle bir grafik ekleyin.
-1. Olası ön ayar değerlerinden birini seçerek ön tanımlı sayı formatını ayarlayın.
-1. Her grafik serisindeki grafik veri hücresini dolaşarak grafik veri sayı formatını ayarlayın.
-1. Sunumu kaydedin.
-1. Özel sayı formatını ayarlayın.
-1. Her grafik serisindeki veri hücresini dolaşarak farklı bir grafik veri sayı formatı belirleyin.
-1. Sunumu kaydedin.
+Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
 
 ```javascript
-// Presentation sınıfının bir örneğini oluştur
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // İlk sunum slaydına eriş
-    var slide = pres.getSlides().get_Item(0);
-    // Varsayılan küme sütun grafiği ekleniyor
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
-    // Grafik seri koleksiyonuna erişiliyor
-    var series = chart.getChartData().getSeries();
-    // Her bir grafik serisi üzerinden dolaş
-    for (var i = 0; i < series.size(); i++) {
-        var ser = series.get_Item(i);
-        // Serideki her veri hücresi üzerinde dolaş
-        for (var j = 0; j < ser.getDataPoints().size(); j++) {
-            var cell = ser.getDataPoints().get_Item(j);
-            // Sayı formatı ayarlanıyor
-            cell.getValue().getAsCell().setPresetNumberFormat(java.newByte(10));// 0.00%
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
+    let series = chart.getChartData().getSeries();
+
+    for (let i = 0; i < series.size(); i++) {
+        let chartSeries = series.get_Item(i);
+        for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
+            let dataPoint = chartSeries.getDataPoints().get_Item(j);
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0,00%
         }
     }
-    // Sunumu kaydet
-    pres.save("PresetNumberFormat.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("PresetNumberFormat_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Aşağıda ön tanımlı sayı formatı değerleri, indeksleri ve kullanılabilecekleri listelenmiştir:
+Aşağıdaki tablo, İngiliz (Amerika Birleşik Devletleri) yerel ayarı için temsilci Excel biçimleriyle birlikte yerleşik sayı biçimi indekslerini listeler. Tam biçim dize ve görüntüleri uygulamaya ve yerel ayara göre değişebilir, özellikle para birimi ve tarih formatları için. Bazı Excel biçimleri, OOXML standardındaki varsayılanlardan farklıdır; bunlar [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklanmıştır.
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| İndeks | Biçim |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Grafik Alanı Yuvarlatılmış Kenarları Ayarlama**
+## **Grafik Alanının Yuvarlatılmış Kenarlarını Ayarla**
 
-Aspose.Slides for Node.js via Java, grafik alanı için yuvarlatılmış köşe ayarlarını destekler. [**hasRoundedCorners**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) ve [**setRoundedCorners**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) metodları [Chart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Chart) sınıfına eklenmiştir.
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. Slayda bir grafik ekleyin.
-1. Grafiğin dolgu türünü ve dolgu rengini ayarlayın
-1. Yuvarlatılmış köşe özelliğini **True** olarak ayarlayın.
-1. Değiştirilmiş sunumu kaydedin.
-
-Aşağıdaki örnek verilmiştir.
+Call [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) to give its outline a solid gray color and a single-line style before saving the presentation.
 
 ```javascript
-// Presentation sınıfının bir örneğini oluştur
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getLineFormat().setStyle(aspose.slides.LineStyle.Single);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    chart.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.Single));
     chart.setRoundedCorners(true);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **Mevcut Grafik Açıklamalarını Düzenle**
+
+A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). The collection returned by [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) contains the chart-owned shapes.
+
+An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+
+Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) and the expected text.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("chart-annotations.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = null;
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+            chart = shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        console.log("No chart or chart-owned shapes found.");
+    } else {
+        let updated = false;
+        for (let i = 0; i < chart.getUserShapes().getShapes().size(); i++) {
+            let shape = chart.getUserShapes().getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                let annotation = shape;
+                if (annotation.getTextFrame() != null && annotation.getTextFrame().getText() === "Preliminary results") {
+                    annotation.getTextFrame().setText("Final results");
+                    updated = true;
+                    break;
+                }
+            }
+        }
+
+        if (updated) {
+            presentation.save("chart-annotations-updated.pptx", aspose.slides.SaveFormat.Pptx);
+        } else {
+            console.log("No matching text annotation found.");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+
+| Düzenlemeden Önce | Düzenledikten Sonra |
+| --- | --- |
+| ![Grafik açıklaması Preliminary results](chart-annotations-before.png) | ![Grafik açıklaması Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
+{{% /alert %}}
 
 ## **SSS**
 
-**Sütunların/alanların kenarını opak tutarken yarı saydam dolgu ayarlayabilir miyim?**
+**Sütunlar/alanlar için yarı şeffaf doldurmayı, kenarlığı opak tutarak ayarlayabilir miyim?**
 
-Evet. Dolgu şeffaflığı ve kontur ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verinin okunabilirliğini artırmaya yardımcı olur.
+Evet. Doldurmanın şeffaflığı ve kontur ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve veri okunabilirliğini artırmak için yararlıdır.
 
-**Etiketler çakıştığında nasıl başa çıkabilirim?**
+**Etiketler çakıştığında nasıl bir çözüm uygulamalıyım?**
 
-Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini devre dışı bırakın (örneğin kategoriler), etiket kaydırmasını/konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiket gösterin veya formatı “değer + lejant” olarak değiştirin.
+Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini kapatın (örneğin kategorileri), etiket konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiket gösterin veya formatı “değer + lejand” olarak değiştirin.
 
-**Serilere degrade veya desen dolgusu uygulayabilir miyim?**
+**Serilere degrade veya desen dolguları uygulayabilir miyim?**
 
-Evet. Hem katı hem de degrade/desen dolguları genellikle mevcuttur. Pratikte, degrade kullanımını sınırlı tutun ve ızgara ve metinle kontrastı azaltan kombinasyonlardan kaçının.
-
----
-title: JavaScript'te Sunum Grafiklerini Biçimlendirme
-linktitle: Grafik Biçimlendirme
-type: docs
-weight: 60
-url: /tr/nodejs-java/chart-formatting/
-keywords:
-- grafik formatı
-- grafik biçimlendirme
-- grafik nesnesi
-- grafik özellikleri
-- grafik ayarları
-- grafik seçenekleri
-- yazı tipi özellikleri
-- yuvarlatılmış kenar
-- PowerPoint
-- sunum
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Aspose.Slides for Node.js'te JavaScript kullanarak grafik biçimlendirmeyi öğrenin ve PowerPoint sunumunuzu profesyonel, göz alıcı bir stil ile yükseltin."
----
+Evet. Seriler katı, degrade ve desen dolgularını destekler. Pratikte, degradeleri sınırlı kullanın ve ızgara ile metin arasındaki kontrastı azaltan kombinasyonlardan kaçının.

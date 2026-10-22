@@ -1,13 +1,13 @@
 ---
-title: Formater les graphiques de présentation en JavaScript
-linktitle: Formatage des graphiques
+title: Format des graphiques de présentation en JavaScript
+linktitle: Mise en forme des graphiques
 type: docs
 weight: 60
 url: /fr/nodejs-java/chart-formatting/
 keywords:
 - format de graphique
-- formatage de graphique
-- entité de graphique
+- mise en forme du graphique
+- entité du graphique
 - propriétés du graphique
 - paramètres du graphique
 - options du graphique
@@ -18,327 +18,320 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Apprenez le formatage des graphiques dans Aspose.Slides pour Node.js en JavaScript et améliorez votre présentation PowerPoint avec un style professionnel et attrayant."
+description: "Apprenez la mise en forme des graphiques dans Aspose.Slides pour Node.js via Java et améliorez votre présentation PowerPoint avec des axes personnalisés, des polices, des formats numériques et des bordures de graphique arrondies."
 ---
+## **Vue d'ensemble**
 
-## **Formater les entités du graphique**
+Cet article explique comment mettre en forme les graphiques dans les présentations PowerPoint en utilisant Aspose.Slides. Il montre comment personnaliser les éléments clés d'un graphique tels que les axes, les lignes de grille, les titres, les légendes, la zone de traçage et les remplissages des parois afin d'améliorer l'apparence et la lisibilité des données du graphique.
 
-Aspose.Slides for Node.js via Java permet aux développeurs d'ajouter des graphiques personnalisés à leurs diapositives depuis le début. Cet article explique comment formater différentes entités du graphique, y compris l'axe des catégories et l'axe des valeurs.
+Il montre également comment définir les propriétés de police pour le texte du graphique, appliquer des formats numériques prédéfinis aux données du graphique et activer les coins arrondis de la zone du graphique. Ensemble, ces exemples illustrent comment contrôler à la fois le style visuel et la présentation des données des graphiques dans une présentation.
 
-Aspose.Slides for Node.js via Java fournit une API simple pour gérer différentes entités du graphique et les formater à l'aide de valeurs personnalisées :
+## **Mettre en forme les entités du graphique**
 
-1. Créer une instance de la classe [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-1. Obtenir la référence d'une diapositive par son indice.
-1. Ajouter un graphique avec des données par défaut ainsi que le type souhaité (dans cet exemple, nous utiliserons ChartType.LineWithMarkers).
-1. Accéder à l'axe des valeurs du graphique et définir les propriétés suivantes :
-   1. Définir le **format de ligne** pour les lignes majeures de la grille de l'axe des valeurs
-   1. Définir le **format de ligne** pour les lignes mineures de la grille de l'axe des valeurs
-   1. Définir le **format de nombre** pour l'axe des valeurs
-   1. Définir les **unités Min, Max, majeures et mineures** pour l'axe des valeurs
-   1. Définir les **propriétés de texte** pour les données de l'axe des valeurs
-   1. Définir le **titre** pour l'axe des valeurs
-   1. Définir le **format de ligne** pour l'axe des valeurs
-1. Accéder à l'axe des catégories du graphique et définir les propriétés suivantes :
-   1. Définir le **format de ligne** pour les lignes majeures de la grille de l'axe des catégories
-   1. Définir le **format de ligne** pour les lignes mineures de la grille de l'axe des catégories
-   1. Définir les **propriétés de texte** pour les données de l'axe des catégories
-   1. Définir le **titre** pour l'axe des catégories
-   1. Définir le **positionnement des libellés** pour l'axe des catégories
-   1. Définir l'**angle de rotation** pour les libellés de l'axe des catégories
-1. Accéder à la légende du graphique et définir les **propriétés de texte** pour celle-ci
-1. Afficher les légendes du graphique sans chevaucher le graphique
-1. Accéder à l'**axe secondaire des valeurs** du graphique et définir les propriétés suivantes :
-   1. Activer l'**axe secondaire des valeurs**
-   1. Définir le **format de ligne** pour l'axe secondaire des valeurs
-   1. Définir le **format de nombre** pour l'axe secondaire des valeurs
-   1. Définir les **unités Min, Max, majeures et mineures** pour l'axe secondaire des valeurs
-1. Tracer maintenant la première série du graphique sur l'axe secondaire des valeurs
-1. Définir la couleur de remplissage du mur arrière du graphique
-1. Définir la couleur de remplissage de la zone de tracé du graphique
-1. Écrire la présentation modifiée dans un fichier PPTX
+Utilisez [Graphique](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) pour mettre en forme les titres, les axes, les lignes de grille, les légendes et la zone de traçage du graphique. Cet exemple crée un graphique en courbes avec des marqueurs et des données par défaut, puis applique des styles de texte et de trait séparés à ses axes de valeurs et de catégories. Les tailles de police et les épaisseurs de trait sont spécifiées en points ; les libellés de catégorie sont tournés de 45 degrés.
+
+L'axe de valeurs utilise [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) de manière indépendante des cellules source. Son étendue va de -2 à 15, avec des intervalles majeurs de 2 et des intervalles mineurs de 0,5. L'exemple combine également le formatage en pourcentage avec [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) réglé sur les milliers, adaptez ces paramètres à la signification et à l'ampleur de vos données. La légende reste à l'extérieur de la zone de traçage parce que [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) est appelé avec `false`. Les remplissages du mur arrière et du plancher sont configurés via [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) et [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), mais ces surfaces ne sont visibles que dans les graphiques 3D.
+
 ```javascript
-// Créer une instance de la classe Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Accéder à la première diapositive
-    var slide = pres.getSlides().get_Item(0);
-    // Ajouter le graphique d'exemple
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
-    // Définir le titre du graphique
-    chart.hasTitle();
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
+
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
-    var chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    let chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
     chartTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     chartTitle.getPortionFormat().setFontHeight(20);
-    chartTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chartTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Définir le format des lignes de grille majeures pour l'axe des valeurs
+    chartTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    chartTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // Définir le format des lignes de grille mineures pour l'axe des valeurs
+    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // Définir le format numérique de l'axe des valeurs
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
-    // Définir les valeurs maximales et minimales du graphique
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getVerticalAxis().setMaxValue(15.0);
-    chart.getAxes().getVerticalAxis().setMinValue(-2.0);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+
+    chart.getAxes().getVerticalAxis().setMaxValue(15);
+    chart.getAxes().getVerticalAxis().setMinValue(-2);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0);
-    // Définir les propriétés de texte de l'axe des valeurs
-    var txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(aspose.slides.NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(aspose.slides.NullableBool.True);
-    txtVal.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtVal.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkGreen));
-    txtVal.setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    // Définir le titre de l'axe des valeurs
-    chart.getAxes().getVerticalAxis().hasTitle();
+
+    let valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkGreen));
+    valueAxisText.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    var valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Définir le format des lignes de grille majeures pour l'axe des catégories
+    let valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    // Définir le format des lignes de grille mineures pour l'axe des catégories
+
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // Définir les propriétés de texte de l'axe des catégories
-    var txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(aspose.slides.NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(aspose.slides.NullableBool.True);
-    txtCat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtCat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    txtCat.setLatinFont(new aspose.slides.FontData("Arial"));
-    // Définir le titre de la catégorie
-    chart.getAxes().getHorizontalAxis().hasTitle();
+
+    let categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    categoryAxisText.setLatinFont(new aspose.slides.FontData("Arial"));
+
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
-    var catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Définir la position des étiquettes de l'axe des catégories
+
+    let categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(aspose.slides.TickLabelPositionType.Low);
-    // Définir l'angle de rotation des étiquettes de l'axe des catégories
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
-    // Définir les propriétés de texte des légendes
-    var txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(aspose.slides.NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(aspose.slides.NullableBool.True);
-    txtleg.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkRed));
-    // Afficher les légendes du graphique sans chevaucher le graphique
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // Définir l'axe secondaire des valeurs
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(aspose.slides.LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-    // Définir le format numérique de l'axe secondaire des valeurs
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-    // Définir les valeurs maximales et minimales du graphique (axe secondaire)
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0);
-    // Définir la couleur du mur arrière du graphique
+
+    let legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    legendText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkRed));
+
+    chart.getLegend().setOverlay(false);
+
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
     chart.getFloor().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Définir la couleur de la zone de tracé
+
     chart.getPlotArea().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.LightCyan));
-    // Enregistrer la présentation
-    pres.save("FormattedChart.pptx", aspose.slides.SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.LightCyan));
+
+    presentation.save("FormattedChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Définir les propriétés de police d'un graphique**
 
-## **Définir les propriétés de police pour le graphique**
+Définissez la taille de police par défaut du texte du graphique via [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). L'exemple crée un graphique à colonnes groupées avec une police de 20 points et active les libellés de valeur pour la première série via [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Les éléments de texte avec leurs propres réglages de police explicites peuvent remplacer la valeur par défaut du graphique.
 
-Aspose.Slides for Node.js via Java prend en charge la définition des propriétés liées à la police pour le graphique. Veuillez suivre les étapes ci‑dessous pour définir les propriétés de police du graphique.
-
-- Instancier l'objet de classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-- Ajouter un graphique sur la diapositive.
-- Définir la hauteur de la police.
-- Enregistrer la présentation modifiée.
-
-L'exemple d'échantillon ci‑dessous est fourni.
 ```javascript
-// Créer une instance de la classe Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    pres.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Définir le format numérique**
 
-## **Définir le format des valeurs numériques**
+Utilisez [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) pour appliquer un format numérique intégré aux cellules du classeur du graphique. Cet exemple crée un graphique à colonnes groupées avec des données par défaut basées sur les cellules et applique l'index de format 10 (`0.00%`) à chaque cellule de valeur de série. Cela modifie la façon dont les valeurs sont affichées dans le classeur sans changer les nombres sous-jacents ; par exemple, 0.25 s'affiche comme 25,00 %. Les formats des axes et des libellés de données peuvent être configurés séparément.
 
-Aspose.Slides for Node.js via Java fournit une API simple pour gérer le format des données du graphique :
-
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Obtenir la référence d'une diapositive par son indice.
-1. Ajouter un graphique avec des données par défaut ainsi que le type souhaité (cet exemple utilise **ChartType.ClusteredColumn**).
-1. Définir le format de nombre prédéfini parmi les valeurs prédéfinies possibles.
-1. Parcourir la cellule de données du graphique dans chaque série et définir le format de nombre des données du graphique.
-1. Enregistrer la présentation.
-1. Définir le format de nombre personnalisé.
-1. Parcourir la cellule de données du graphique dans chaque série et appliquer un format de nombre différent aux données du graphique.
-1. Enregistrer la présentation.
 ```javascript
-// Créer une instance de la classe Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Accéder à la première diapositive de la présentation
-    var slide = pres.getSlides().get_Item(0);
-    // Ajouter un graphique en colonnes groupées par défaut
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
-    // Accéder à la collection des séries du graphique
-    var series = chart.getChartData().getSeries();
-    // Parcourir chaque série du graphique
-    for (var i = 0; i < series.size(); i++) {
-        var ser = series.get_Item(i);
-        // Parcourir chaque cellule de données dans la série
-        for (var j = 0; j < ser.getDataPoints().size(); j++) {
-            var cell = ser.getDataPoints().get_Item(j);
-            // Définir le format numérique
-            cell.getValue().getAsCell().setPresetNumberFormat(java.newByte(10));// 0.00%
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
+    let series = chart.getChartData().getSeries();
+
+    for (let i = 0; i < series.size(); i++) {
+        let chartSeries = series.get_Item(i);
+        for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
+            let dataPoint = chartSeries.getDataPoints().get_Item(j);
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0,00%
         }
     }
-    // Enregistrer la présentation
-    pres.save("PresetNumberFormat.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("PresetNumberFormat_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Le tableau suivant répertorie les index de formats numériques intégrés avec des formats Excel représentatifs pour la langue anglaise (États‑Unis). Le format exact et son affichage peuvent varier selon l'application et la localisation, notamment pour les devises et les dates. Certains formats Excel diffèrent également des valeurs par défaut de la norme OOXML, comme indiqué dans les [notes d’implémentation du format numérique de Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-Les valeurs de format de nombre prédéfinies possibles ainsi que leur index sont indiquées ci‑dessous :
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+## **Définir les bordures arrondies de la zone du graphique**
 
-## **Définir les coins arrondis de la zone du graphique**
+Appelez [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) avec `true` pour arrondir les coins de la zone du graphique. L'exemple crée un graphique à colonnes groupées et utilise [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) pour donner à son contour une couleur grise unie et un style de ligne simple avant d'enregistrer la présentation.
 
-Aspose.Slides for Node.js via Java prend en charge la définition de la zone du graphique. Les méthodes [**hasRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) et [**setRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) ont été ajoutées à la classe [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart) et [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart).
-
-1. Instancier l'objet de classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. Ajouter un graphique sur la diapositive.
-1. Définir le type de remplissage et la couleur de remplissage du graphique
-1. Définir la propriété de coin arrondi sur True.
-1. Enregistrer la présentation modifiée.
-
-L'exemple d'échantillon ci‑dessous est fourni. 
 ```javascript
-// Créer une instance de la classe Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getLineFormat().setStyle(aspose.slides.LineStyle.Single);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    chart.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.Single));
     chart.setRoundedCorners(true);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Modifier les annotations de graphique existantes**
+
+Un graphique peut contenir des formes personnalisées, comme une annotation de texte expliquant l'état d'un rapport. Accédez à ces formes via [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). La collection renvoyée par [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) contient les formes appartenant au graphique.
+
+Une zone de texte ordinaire placée au-dessus d'un graphique appartient à la diapositive, même si elle semble faire partie du graphique. Parcourir [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) trouve le graphique et les formes ordinaires de la diapositive, mais n'énumère pas les formes individuelles à l'intérieur du graphique. Les titres de graphique et les libellés de données sont des éléments de graphique distincts, pas des annotations personnalisées dans cette collection.
+
+Téléchargez [chart-annotations.pptx](chart-annotations.pptx) et placez‑le dans le répertoire de travail de l'application. Sa première diapositive contient un graphique avec une annotation dégrouppée indiquant « Preliminary results », une ligne appartenant au graphique, et une zone de texte ordinaire de la diapositive indiquant « Slide overlay ». L'exemple trouve le premier graphique de cette diapositive et modifie l'annotation en « Final results » lorsque le rapport est prêt à être publié. Il vérifie si la collection est vide et ne modifie qu'un [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) avec un cadre de texte non nul renvoyé par [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) et le texte attendu.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("chart-annotations.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = null;
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+            chart = shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        console.log("No chart or chart-owned shapes found.");
+    } else {
+        let updated = false;
+        for (let i = 0; i < chart.getUserShapes().getShapes().size(); i++) {
+            let shape = chart.getUserShapes().getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                let annotation = shape;
+                if (annotation.getTextFrame() != null && annotation.getTextFrame().getText() === "Preliminary results") {
+                    annotation.getTextFrame().setText("Final results");
+                    updated = true;
+                    break;
+                }
+            }
+        }
+
+        if (updated) {
+            presentation.save("chart-annotations-updated.pptx", aspose.slides.SaveFormat.Pptx);
+        } else {
+            console.log("No matching text annotation found.");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+La ligne et la zone de texte de la diapositive restent inchangées. Les images suivantes montrent l'entrée et le résultat enregistré, puis rouvert :
+
+| Before editing | After editing |
+| --- | --- |
+| ![Annotation du graphique affichant Preliminary results](chart-annotations-before.png) | ![Annotation du graphique affichant Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+L'exemple n'examine que les formes appartenant au graphique au niveau supérieur. Si une annotation se trouve à l'intérieur d'un [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), inspectez également la collection [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) de ce groupe. Répétez cela de façon récursive pour les groupes imbriqués, en appliquant les mêmes vérifications de texte à leurs formes enfant. Un groupe est lui‑même un conteneur ; ne le considérez pas comme une zone de texte.
+{{% /alert %}}
 
 ## **FAQ**
 
-**Puis-je définir des remplissages semi‑transparents pour les colonnes/zones tout en conservant le contour opaque ?**
-
+**Puis-je définir des remplissages semi‑transparents pour les colonnes/zones tout en conservant la bordure opaque ?**  
 Oui. La transparence du remplissage et le contour sont configurés séparément. Cela est utile pour améliorer la lisibilité de la grille et des données dans des visualisations denses.
 
-**Comment gérer les étiquettes de données lorsqu'elles se chevauchent ?**
+**Comment gérer les libellés de données lorsqu'ils se chevauchent ?**  
+Réduisez la taille de la police, désactivez les composants de libellé non essentiels (par exemple, les catégories), ajustez la position du libellé, affichez les libellés uniquement pour les points sélectionnés si nécessaire, ou passez au format « valeur + légende ».
 
-Réduire la taille de la police, désactiver les composants d'étiquette non essentiels (par exemple, les catégories), régler le décalage/la position de l'étiquette, n'afficher les étiquettes que pour les points sélectionnés si nécessaire, ou passer au format "valeur + légende".
-
-**Puis-je appliquer des remplissages en dégradé ou en motif aux séries ?**
-
-Oui. Les remplissages plein et en dégradé/motif sont généralement disponibles. En pratique, utilisez les dégradés avec parcimonie et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.
+**Puis-je appliquer des remplissages en dégradé ou à motifs aux séries ?**  
+Oui. Les séries prennent en charge les remplissages unis, en dégradé et à motifs. En pratique, utilisez les dégradés avec parcimonie et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.

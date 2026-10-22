@@ -1,63 +1,35 @@
 ---
-title: Mise en forme des graphiques de présentation en Python
-linktitle: Mise en forme des graphiques
+title: Formatage des graphiques de présentation en Python
+linktitle: Formatage de graphique
 type: docs
 weight: 60
 url: /fr/python-java/chart-formatting/
 keywords:
-- format graphique
-- mise en forme de graphique
+- format de graphique
+- formatage de graphique
 - entité de graphique
 - propriétés du graphique
 - paramètres du graphique
 - options du graphique
 - propriétés de police
-- bordure arrondie
+- bord arrondi
 - PowerPoint
 - présentation
 - Python
 - Aspose.Slides
-description: "Apprenez la mise en forme des graphiques dans Aspose.Slides pour Python via Java et améliorez votre présentation PowerPoint avec un style professionnel et attrayant."
+description: "Apprenez le formatage des graphiques dans Aspose.Slides pour Python via Java et améliorez votre présentation PowerPoint avec des axes personnalisés, des polices, des formats numériques et des bordures de graphique arrondies."
 ---
 ## **Aperçu**
 
-Cet article explique comment mettre en forme les graphiques dans les présentations PowerPoint en utilisant Aspose.Slides. Il montre comment personnaliser les éléments clés d’un graphique tels que les axes, les lignes de grille, les titres, les légendes, la zone de tracé et les remplissages des murs afin d’améliorer l’apparence et la lisibilité des données du graphique.
+Cet article explique comment mettre en forme les graphiques dans les présentations PowerPoint en utilisant Aspose.Slides. Il montre comment personnaliser les éléments clés du graphique tels que les axes, les quadrillages, les titres, les légendes, la zone de tracé et les remplissages des murs afin d'améliorer l'apparence et la lisibilité des données du graphique.
 
-Il montre également comment définir les propriétés de police pour le texte du graphique, appliquer des formats numériques prédéfinis ou personnalisés aux données du graphique, et activer les coins arrondis pour la zone du graphique. Ensemble, ces exemples montrent comment contrôler à la fois le style visuel et la présentation des données d’un graphique dans une présentation.
+Il démontre également comment définir les propriétés de police pour le texte du graphique, appliquer des formats numériques prédéfinis aux données du graphique et activer les coins arrondis de la zone du graphique. Ensemble, ces exemples montrent comment contrôler à la fois le style visuel et la présentation des données des graphiques dans une présentation.
 
-## **Mettre en forme les entités du graphique**
-Aspose.Slides for Python via Java permet aux développeurs d’ajouter des graphiques personnalisés à leurs diapositives à partir de zéro. Cet article explique comment mettre en forme différentes entités de graphique, y compris les axes de catégorie et de valeur.
+## **Formater les entités du graphique**
 
-Aspose.Slides for Python via Java fournit une API simple pour gérer différentes entités de graphique et les mettre en forme à l’aide de valeurs personnalisées :
+Utilisez [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) pour formater les titres du graphique, les axes, les quadrillages, les légendes et la zone de tracé. Cet exemple crée un graphique en ligne avec des marqueurs et des données par défaut, puis applique des styles de texte et de ligne distincts à ses axes de valeur et de catégorie. Les tailles de police et les largeurs de ligne sont spécifiées en points ; les libellés de catégorie sont tournés de 45 degrés.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-1. Accédez à une diapositive par son index.
-1. Ajoutez un graphique du type souhaité avec des données par défaut (cet exemple utilise [ChartType.LineWithMarkers](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#LineWithMarkers)).
-1. Accédez à l’axe des valeurs du graphique et définissez les propriétés suivantes :
-   1. Définissez le **format de ligne** pour les lignes de grille majeures de l’axe des valeurs.
-   1. Définissez le **format de ligne** pour les lignes de grille mineures de l’axe des valeurs.
-   1. Définissez le **format numérique** pour l’axe des valeurs.
-   1. Définissez le **minimum, le maximum, les unités majeures et mineures** pour l’axe des valeurs.
-   1. Définissez les **propriétés de texte** pour les données de l’axe des valeurs.
-   1. Définissez le **titre** de l’axe des valeurs.
-1. Accédez à l’axe de catégorie du graphique et définissez les propriétés suivantes :
-   1. Définissez le **format de ligne** pour les lignes de grille majeures de l’axe de catégorie.
-   1. Définissez le **format de ligne** pour les lignes de grille mineures de l’axe de catégorie.
-   1. Définissez les **propriétés de texte** pour les données de l’axe de catégorie.
-   1. Définissez le **titre** de l’axe de catégorie.
-   1. Définissez le **positionnement des étiquettes** pour l’axe de catégorie.
-   1. Définissez l’**angle de rotation** des étiquettes de l’axe de catégorie.
-1. Accédez à la légende du graphique et définissez ses **propriétés de texte**.
-1. Affichez la légende du graphique sans qu’elle chevauche le graphique.
-1. Accédez à l’**axe des valeurs secondaire** du graphique et définissez les propriétés suivantes :
-   1. Activez l’**axe des valeurs** secondaire.
-   1. Définissez le **format de ligne** pour l’axe des valeurs secondaire.
-   1. Définissez le **format numérique** pour l’axe des valeurs secondaire.
-   1. Définissez le **minimum, le maximum, les unités majeures et mineures** pour l’axe des valeurs secondaire.
-1. Tracez la première série du graphique sur l’axe des valeurs secondaire.
-1. Définissez la couleur de remplissage du mur arrière du graphique.
-1. Définissez la couleur de remplissage de la zone de tracé du graphique.
-1. Écrivez la présentation modifiée dans un fichier PPTX.
+L'axe de valeur utilise [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) indépendamment des cellules source. Son échelle va de -2 à 15, avec des intervalles majeurs de 2 et des intervalles mineurs de 0,5. L'exemple combine également le format de pourcentage avec [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) réglé sur des milliers, adaptez donc ces paramètres à la signification et à l'ampleur de vos données. La légende reste à l'extérieur de la zone de tracé parce que [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) est appelé avec `False`. Les remplissages du mur arrière et du plancher sont configurés via [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) et [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), mais ces surfaces ne sont visibles que dans les graphiques 3D.
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-# Créer une instance de la classe Presentation
 presentation = Presentation()
 try:
-    # Accéder à la première diapositive
     slide = presentation.getSlides().get_Item(0)
 
-    # Ajouter le graphique d'exemple
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # Définir le titre du graphique
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Définir le format des lignes de grille majeures pour l'axe des valeurs
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # Définir le format des lignes de grille mineures pour l'axe des valeurs
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Définir le format numérique de l'axe des valeurs
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # Définir les valeurs maximale et minimale du graphique
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # Définir les propriétés de texte de l'axe des valeurs
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # Définir le titre de l'axe des valeurs
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Définir le format des lignes de grille majeures pour l'axe des catégories
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # Définir le format des lignes de grille mineures pour l'axe des catégories
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Définir les propriétés de texte de l'axe des catégories
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # Définir le titre de la catégorie
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,75 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Définir la position des étiquettes de l'axe des catégories
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # Définir l'angle de rotation des étiquettes de l'axe des catégories
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # Définir les propriétés de texte de la légende
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # Afficher la légende du graphique sans chevaucher le graphique
-
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # Définir l'axe des valeurs secondaire
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # Définir le format numérique de l'axe des valeurs secondaire
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # Définir les valeurs maximale et minimale du graphique
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # Définir la couleur du mur arrière du graphique
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # Définir la couleur de la zone de tracé
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # Enregistrer la présentation
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Définir les propriétés de police pour un graphique**
-Aspose.Slides for Python via Java prend en charge la définition des propriétés de police pour les graphiques. Suivez ces étapes pour définir les propriétés de police :
 
-- Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-- Ajoutez un graphique à la diapositive.
-- Définissez la hauteur de la police.
-- Enregistrez la présentation modifiée.
-
-L’exemple suivant illustre ces étapes.
+Définissez la taille de police par défaut pour le texte du graphique via [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). L'exemple crée un graphique à colonnes groupées avec une police de 20 points et active les étiquettes de valeur pour la première série via [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Les éléments de texte avec leurs propres paramètres de police explicites peuvent remplacer la valeur par défaut du graphique.
 
 ```python
 import jpype
@@ -247,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Créer une instance de la classe Presentation
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -261,14 +184,8 @@ finally:
 ```
 
 ## **Définir le format numérique**
-Aspose.Slides for Python via Java fournit une API simple pour gérer les formats de données des graphiques :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-1. Accédez à une diapositive par son index.
-1. Ajoutez un graphique du type souhaité avec des données par défaut (cet exemple utilise [ChartType.ClusteredColumn](https://reference.aspose.com/slides/fr/python-java/aspose.slides/charttype/#ClusteredColumn)).
-1. Définissez le format numérique prédéfini parmi les valeurs prédéfinies possibles.
-1. Parcourez les cellules de données de chaque série du graphique et définissez leur format numérique.
-1. Enregistrez la présentation.
+Utilisez [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) pour appliquer un format numérique intégré aux cellules du classeur du graphique. Cet exemple crée un graphique à colonnes groupées avec des données par défaut, liées aux cellules, et applique l'indice de format 10 (`0.00%`) à chaque cellule de valeur de série. Cela modifie la façon dont les valeurs sont affichées dans le classeur sans changer les nombres sous-jacents ; par exemple, 0,25 s'affiche en 25,00 %. Les formats des axes et des étiquettes de données peuvent être configurés séparément.
 
 ```python
 import jpype
@@ -279,81 +196,66 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Créer une instance de la classe Presentation
 presentation = Presentation()
 try:
-    # Accéder à la première diapositive de la présentation
     slide = presentation.getSlides().get_Item(0)
 
-    # Ajouter un graphique à colonnes groupées par défaut
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # Accéder à la collection des séries du graphique
     chart_series_collection = chart.getChartData().getSeries()
 
-    # Parcourir chaque série du graphique
     for chart_series in chart_series_collection:
-        # Parcourir chaque point de données de la série
         for data_point in chart_series.getDataPoints():
-            # Définir le format numérique
-            data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0.00%
+            data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0,00%
 
-    # Enregistrer la présentation
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Les formats numériques prédéfinis disponibles et leurs indices sont répertoriés ci‑dessous :
+Le tableau suivant répertorie les indices de formats numériques intégrés avec les formats Excel représentatifs pour la langue anglaise (États‑Unis). Les chaînes de format exactes et leur affichage peuvent varier selon l'application et la locale, en particulier pour les monnaies et les dates. Certains formats Excel diffèrent également des valeurs par défaut du standard OOXML, comme décrit dans [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|Général|
-| :- | :- |
-|**1**|0|
-|**2**|0,00|
-|**3**|#,##0|
-|**4**|#,##0,00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0,00;$-#,##0,00|
-|**8**|$#,##0,00;Red$-#,##0,00|
-|**9**|0%|
-|**10**|0,00%|
-|**11**|0,00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|jj/mm/aa|
-|**15**|j‑mmm‑aa|
-|**16**|j‑mmm|
-|**17**|mmm‑aa|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|jj/mm/aa h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0,00;-#,##0,00|
-|**40**|#,##0,00;Red-#,##0,00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0,00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0,00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0,0E+00|
-|**49**|@|
+| Indice | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Définir des bordures arrondies pour la zone du graphique**
-Aspose.Slides for Python via Java prend en charge les coins arrondis pour la zone du graphique via les méthodes [hasRoundedCorners](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#hasRoundedCorners) et [setRoundedCorners](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#setRoundedCorners) de la classe [Chart](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/).
+## **Définir les bordures arrondies de la zone du graphique**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-1. Ajoutez un graphique à la diapositive.
-1. Définissez le type de remplissage et le style de la ligne de bordure du graphique.
-1. Activez les coins arrondis.
-1. Enregistrez la présentation modifiée.
-
-L’exemple suivant montre ces étapes.
+Appelez [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) avec `True` pour arrondir les coins de la zone du graphique. L'exemple crée un graphique à colonnes groupées et utilise [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) pour donner à son contour une couleur gris solide et un style à ligne unique avant d'enregistrer la présentation.
 
 ```python
 import jpype
@@ -364,31 +266,90 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# Créer une instance de la classe Presentation
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Modifier les annotations de graphique existantes**
+
+Un graphique peut contenir des formes personnalisées, comme une annotation texte expliquant l'état d'un rapport. Accédez à ces formes via [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). La collection renvoyée par [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) contient les formes appartenant au graphique.
+
+Une zone de texte ordinaire placée au-dessus d'un graphique appartient à la diapositive, même si elle ressemble à une partie du graphique. Parcourir [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) trouve le graphique et les formes ordinaires de la diapositive, mais n'énumère pas les formes individuelles à l'intérieur du graphique. Les titres de graphique et les étiquettes de données sont des éléments de graphique distincts, pas des annotations personnalisées dans cette collection.
+
+Téléchargez [chart-annotations.pptx](chart-annotations.pptx) et placez‑le dans le répertoire de travail de l'application. Sa première diapositive contient un graphique avec une annotation non groupée affichant « Résultats préliminaires », une ligne appartenant au graphique et une zone de texte ordinaire de diapositive affichant « Superposition de diapositive ». L'exemple trouve le premier graphique sur cette diapositive et modifie l'annotation en « Résultats finaux » lorsque le rapport est prêt à être publié. Il vérifie s'il y a une collection vide et ne modifie qu'une [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) dont le cadre de texte n'est pas `None` renvoyé par [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) et le texte attendu.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+La ligne et la zone de texte de la diapositive restent inchangées. Les images suivantes montrent l'entrée et le résultat sauvegardé, rouvert :
+
+| Avant modification | Après modification |
+| --- | --- |
+| ![Annotation de graphique affichant Résultats préliminaires](chart-annotations-before.png) | ![Annotation de graphique affichant Résultats finaux](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+L'exemple n'inspecte que les formes de niveau supérieur appartenant au graphique. Si une annotation se trouve à l'intérieur d'un [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), inspectez également la collection [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) de ce groupe. Répétez cela de façon récursive pour les groupes imbriqués, en appliquant les mêmes vérifications de texte à leurs formes enfants. Un groupe est lui-même un conteneur ; ne le considérez pas comme une zone de texte.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Puis‑je appliquer des remplissages semi‑transparents aux colonnes/aires tout en conservant le contour opaque ?**
+**Puis‑je définir des remplissages semi‑transparents pour les colonnes/zones tout en conservant le bord opaque ?**
 
-Oui. La transparence du remplissage et le contour sont configurés séparément. Cela permet d’améliorer la lisibilité de la grille et des données dans les visualisations denses.
+Oui. La transparence du remplissage et le contour sont configurés séparément. Cela est utile pour améliorer la lisibilité de la grille et des données dans les visualisations denses.
 
-**Comment gérer les étiquettes de données lorsqu’elles se chevauchent ?**
+**Comment gérer les étiquettes de données lorsqu'elles se chevauchent ?**
 
-Réduisez la taille de la police, désactivez les composants d’étiquette non essentiels (par exemple, les catégories), définissez le décalage/la position de l’étiquette, n’affichez les étiquettes que pour les points sélectionnés si nécessaire, ou passez au format « valeur + légende ».
+Réduisez la taille de la police, désactivez les composants d'étiquette non essentiels (par exemple, les catégories), ajustez la position de l'étiquette, n'affichez les étiquettes que pour les points sélectionnés si nécessaire, ou changez le format en « valeur + légende ».
 
-**Puis‑je appliquer des remplissages en dégradé ou en motif aux séries ?**
+**Puis‑je appliquer des remplissages dégradés ou à motif aux séries ?**
 
-Oui. Les remplissages unis ainsi que les dégradés ou motifs sont généralement disponibles. En pratique, utilisez les dégradés avec modération et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.
+Oui. Les séries prennent en charge les remplissages plein, dégradé et à motif. En pratique, utilisez les dégradés avec parcimonie et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.

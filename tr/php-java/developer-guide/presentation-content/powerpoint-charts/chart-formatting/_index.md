@@ -1,5 +1,5 @@
 ---
-title: PHP'de Sunum Grafiklerini Biçimlendirme
+title: PHP'de Sunum Grafiklerini Biçimlendir
 linktitle: Grafik Biçimlendirme
 type: docs
 weight: 60
@@ -17,59 +17,39 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile grafik biçimlendirmeyi öğrenin ve profesyonel, göz alıcı stillerle PowerPoint sunumunuzu yükseltin."
+description: "Aspose.Slides for PHP'de Java aracılığıyla grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı biçimleri ve yuvarlatılmış grafik kenarlarıyla PowerPoint sunumunuzu yükseltin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarında grafiklerin nasıl biçimlendirileceğini açıklar. Eksenler, ızgara çizgileri, başlıklar, açıklamalar, çizim alanı ve duvar dolgu gibi temel grafik öğelerinin nasıl özelleştirileceğini göstererek grafik verilerinin görünümünü ve okunabilirliğini artırır.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarında grafikleri nasıl biçimlendireceğinizi açıklar. Eksenler, ızgara çizgileri, başlıklar, lejandlar, çizim alanı ve duvar dolguları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
 
-Ayrıca, grafik metni için yazı tipi özelliklerini ayarlamayı, grafik verilerine önceden tanımlı ve özel sayısal biçimler uygulamayı ve grafik alanı için yuvarlatılmış köşeleri etkinleştirmeyi gösterir. Bu örnekler, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edebileceğinizi gösterir.
+Ayrıca, grafik metni için yazı tipi özelliklerini ayarlamayı, grafik verilerine önceden tanımlı sayısal formatları uygulamayı ve grafik alanının köşelerini yuvarlamayı da gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edebileceğinizi gösterir.
 
 ## **Grafik Varlıklarını Biçimlendirme**
-Aspose.Slides for PHP via Java, geliştiricilerin sıfırdan özel grafikler eklemesine olanak tanır. Bu makale, grafik kategori ve değer ekseni dahil olmak üzere farklı grafik varlıklarını nasıl biçimlendireceğinizi açıklar.
 
-Aspose.Slides for PHP via Java, farklı grafik varlıklarını yönetmek ve özelleştirilmiş değerlerle biçimlendirmek için basit bir API sağlar:
+Use [Grafik](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
 
-1. Bir [**Presentation**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. Bir slaydın referansını indeksine göre alın.
-1. İstenilen türden bir grafik ekleyin (bu örnekte ChartType::LineWithMarkers kullanılacaktır).
-1. Grafik Değer Ekseni'ne erişin ve aşağıdaki özellikleri ayarlayın:
-   1. Değer Ekseni Büyük Izgara çizgileri için **Satır biçimi** ayarlama
-   1. Değer Ekseni Küçük Izgara çizgileri için **Satır biçimi** ayarlama
-   1. Değer Ekseni için **Sayı Biçimi** ayarlama
-   1. Değer Ekseni için **Min, Max, Büyük ve Küçük birimler** ayarlama
-   1. Değer Ekseni verileri için **Metin Özellikleri** ayarlama
-   1. Değer Ekseni için **Başlık** ayarlama
-   1. Değer Ekseni için **Satır Biçimi** ayarlama
-1. Grafik Kategori Ekseni'ne erişin ve aşağıdaki özellikleri ayarlayın:
-   1. Kategori Ekseni Büyük Izgara çizgileri için **Satır biçimi** ayarlama
-   1. Kategori Ekseni Küçük Izgara çizgileri için **Satır biçimi** ayarlama
-   1. Kategori Ekseni verileri için **Metin Özellikleri** ayarlama
-   1. Kategori Ekseni için **Başlık** ayarlama
-   1. Kategori Ekseni için **Etiket Konumlandırma** ayarlama
-   1. Kategori Ekseni etiketleri için **Dönme Açısı** ayarlama
-1. Grafik Açıklaması'na erişin ve **Metin Özellikleri**'ni ayarlayın
-1. Grafik açıklamalarını grafikle çakışmayacak şekilde gösterin
-1. Grafik **İkincil Değer Ekseni**'ne erişin ve aşağıdaki özellikleri ayarlayın:
-   1. İkincil **Değer Ekseni**'ni etkinleştir
-   1. İkincil Değer Ekseni için **Satır Biçimi** ayarlama
-   1. İkincil Değer Ekseni için **Sayı Biçimi** ayarlama
-   1. İkincil Değer Ekseni için **Min, Max, Büyük ve Küçük birimler** ayarlama
-1. İlk grafik serisini İkincil Değer Ekseni üzerinde çizin
-1. Grafiğin arka duvar dolgu rengini ayarlayın
-1. Grafiğin çizim alanı dolgu rengini ayarlayın
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın
+The value axis uses [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) and [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), but these surfaces are only visible in 3D charts.
 
 ```php
-  # Presentation sınıfının bir örneğini oluştur
-  $pres = new Presentation();
-  try {
-    # İlk slayta erişme
-    $slide = $pres->getSlides()->get_Item(0);
-    # Örnek grafiği ekleme
+use aspose\slides\ChartType;
+use aspose\slides\DisplayUnitType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LineDashStyle;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\PresetColor;
+use aspose\slides\SaveFormat;
+use aspose\slides\TickLabelPositionType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
-    # Grafik Başlığını Ayarlama
-    $chart->hasTitle();
+
+    $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("");
     $chartTitle = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $chartTitle->setText("Sample Chart");
@@ -78,265 +58,303 @@ Aspose.Slides for PHP via Java, farklı grafik varlıklarını yönetmek ve öze
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Değer ekseni için büyük ızgara çizgileri biçimini ayarlama
+
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # Değer ekseni için küçük ızgara çizgileri biçimini ayarlama
+    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle::DashDot);
+
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Değer ekseni sayı biçimini ayarlama
-    $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
+
+    $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    # Grafiğin maksimum, minimum değerlerini ayarlama
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getVerticalAxis()->setMaxValue(15.0);
-    $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
+
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(15);
+    $chart->getAxes()->getVerticalAxis()->setMinValue(-2);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    # Değer Ekseni Metin Özelliklerini Ayarlama
-    $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
-    $txtVal->setFontBold(NullableBool::True);
-    $txtVal->setFontHeight(16);
-    $txtVal->setFontItalic(NullableBool::True);
-    $txtVal->getFillFormat()->setFillType(FillType::Solid);
-    $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
-    $txtVal->setLatinFont(new FontData("Times New Roman"));
-    # Değer ekseni başlığını ayarlama
-    $chart->getAxes()->getVerticalAxis()->hasTitle();
+
+    $valueAxisText = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
+    $valueAxisText->setFontBold(NullableBool::True);
+    $valueAxisText->setFontHeight(16);
+    $valueAxisText->setFontItalic(NullableBool::True);
+    $valueAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkGreen);
+    $valueAxisText->setLatinFont(new FontData("Times New Roman"));
+
+    $chart->getAxes()->getVerticalAxis()->setTitle(true);
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
-    $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $valtitle->setText("Primary Axis");
-    $valtitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $valtitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $valtitle->getPortionFormat()->setFontHeight(20);
-    $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Kategori ekseni için büyük ızgara çizgileri biçimini ayarlama
+    $valueAxisTitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $valueAxisTitle->setText("Primary Axis");
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $valueAxisTitle->getPortionFormat()->setFontHeight(20);
+    $valueAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $valueAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 128, 0));
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # Kategori ekseni için küçük ızgara çizgileri biçimini ayarlama
+
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Kategori Ekseni Metin Özelliklerini Ayarlama
-    $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
-    $txtCat->setFontBold(NullableBool::True);
-    $txtCat->setFontHeight(16);
-    $txtCat->setFontItalic(NullableBool::True);
-    $txtCat->getFillFormat()->setFillType(FillType::Solid);
-    $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $txtCat->setLatinFont(new FontData("Arial"));
-    # Kategori Başlığını Ayarlama
-    $chart->getAxes()->getHorizontalAxis()->hasTitle();
+
+    $categoryAxisText = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
+    $categoryAxisText->setFontBold(NullableBool::True);
+    $categoryAxisText->setFontHeight(16);
+    $categoryAxisText->setFontItalic(NullableBool::True);
+    $categoryAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisText->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $categoryAxisText->setLatinFont(new FontData("Arial"));
+
+    $chart->getAxes()->getHorizontalAxis()->setTitle(true);
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
-    $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $catTitle->setText("Sample Category");
-    $catTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $catTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $catTitle->getPortionFormat()->setFontHeight(20);
-    $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Kategori ekseni etiket konumunu ayarlama
+
+    $categoryAxisTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $categoryAxisTitle->setText("Sample Category");
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $categoryAxisTitle->getPortionFormat()->setFontHeight(20);
+    $categoryAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $categoryAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # Kategori ekseni etiket dönüş açısını ayarlama
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    # Açıklama Metin Özelliklerini Ayarlama
-    $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
-    $txtleg->setFontBold(NullableBool::True);
-    $txtleg->setFontHeight(16);
-    $txtleg->setFontItalic(NullableBool::True);
-    $txtleg->getFillFormat()->setFillType(FillType::Solid);
-    $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # Grafiğin açıklamaları çakışmadan gösterilsin
-    $chart->getLegend()->setOverlay(true);
-    # chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # İkincil değer eksenini ayarlama
-    $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # İkincil değer ekseni sayı biçimini ayarlama
-    $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    # Grafiğin maksimum, minimum değerlerini ayarlama
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMaxValue(20.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    # Grafiğin arka duvar rengini ayarlama
+
+    $legendText = $chart->getLegend()->getTextFormat()->getPortionFormat();
+    $legendText->setFontBold(NullableBool::True);
+    $legendText->setFontHeight(16);
+    $legendText->setFontItalic(NullableBool::True);
+    $legendText->getFillFormat()->setFillType(FillType::Solid);
+    $legendText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkRed);
+
+    $chart->getLegend()->setOverlay(false);
+
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Çizim alanı rengini ayarlama
+
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
-    # Sunumu Kaydet
-    $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setPresetColor(PresetColor::LightCyan);
+
+    $presentation->save("FormattedChart_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Grafik İçin Yazı Tipi Özelliklerini Ayarlama**
-Aspose.Slides for PHP via Java, grafik için yazı tipiyle ilgili özellikleri ayarlama desteği sağlar. Grafik için yazı tipi özelliklerini ayarlamak için aşağıdaki adımları izleyin.
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı nesnesi oluşturun.
-- Slayta bir grafik ekleyin.
-- Yazı tipi yüksekliğini ayarlayın.
-- Değiştirilmiş sunumu kaydedin.
-
-Aşağıda örnek bir örnek verilmiştir.
+Set the default font size for chart text through [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Text elements with their own explicit font settings can override the chart default.
 
 ```php
-  # Presentation sınıfının bir örneğini oluştur
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
     $chart->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $pres->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Sayısal Biçimi Ayarlama**
-Aspose.Slides for PHP via Java, grafik veri biçimini yönetmek için basit bir API sağlar:
+## **Sayısal Formatı Ayarlama**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. Bir slaydın referansını indeksine göre alın.
-1. İstenilen türden bir grafik ekleyin (bu örnek **ChartType::ClusteredColumn** kullanır).
-1. Olabilir önceden tanımlı sayı biçimlerinden birini ayarlayın.
-1. Her grafik serisindeki grafik veri hücresinde dolaşarak grafik veri sayı biçimini ayarlayın.
-1. Sunumu kaydedin.
-1. Özel sayı biçimini ayarlayın.
-1. Her grafik serisindeki veri hücresinde dolaşarak farklı bir sayı biçimi ayarlayın.
-1. Sunumu kaydedin.
+Use [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
 
 ```php
-  # Presentation sınıfının bir örneğini oluştur
-  $pres = new Presentation();
-  try {
-    # İlk sunum slaytına eriş
-    $slide = $pres->getSlides()->get_Item(0);
-    # Varsayılan gruplanmış sütun grafiği ekleme
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    # Grafik serileri koleksiyonuna erişme
     $series = $chart->getChartData()->getSeries();
-    # Her grafik serisi üzerinden dolaşma
-    foreach($series as $ser) {
-      # Serideki her veri hücresi üzerinden dolaşma
-      foreach($ser->getDataPoints() as $cell) {
-        # Sayı biçimini ayarlama
-        $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
-      }
+
+    for ($i = 0; $i < java_values($series->size()); $i++) {
+        $chartSeries = $series->get_Item($i);
+        $dataPoints = $chartSeries->getDataPoints();
+        for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
+            $dataPoint = $dataPoints->get_Item($j);
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
+        }
     }
-    # Sunumu kaydetme
-    $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("PresetNumberFormat_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-Kullanılabilecek olası önceden tanımlı sayı biçimi değerleri, ilgili indeksleriyle birlikte aşağıda verilmiştir:
+Aşağıdaki tablo, İngiliz (ABD) yerel ayarı için temsil edici Excel formatlarıyla birlikte yerleşik sayı biçimi indekslerini listeler. Tam format dizesi ve görüntüsü, özellikle para birimi ve tarihler için uygulama ve yerel ayara göre değişebilir. Bazı Excel formatları, [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklanan OOXML standart varsayılanlarından da farklıdır.
 
-|**0**|Genel|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| İndeks | Biçim |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Grafik Alanı Yuvarlatılmış Kenarlar Ayarlama**
-Aspose.Slides for PHP via Java, grafik alanını ayarlama desteği sağlar. **hasRoundedCorners** ve **setRoundedCorners** yöntemleri [Chart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Chart) sınıfına eklenmiştir.
+## **Grafik Alanı Yuvarlatılmış Kenarlıklarını Ayarla**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfı nesnesi oluşturun.
-1. Slayta bir grafik ekleyin.
-1. Grafiğin dolgu tipini ve dolgu rengini ayarlayın.
-1. Yuvarlatılmış köşe özelliğini **True** olarak ayarlayın.
-1. Değiştirilmiş sunumu kaydedin.
-
-Aşağıda örnek bir örnek verilmiştir.
+Call [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) to give its outline a solid gray color and a single-line style before saving the presentation.
 
 ```php
-  # Presentation sınıfının bir örneğini oluştur
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LineStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 100, 600, 400);
     $chart->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getLineFormat()->setStyle(LineStyle->Single);
+    $chart->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $chart->getLineFormat()->setStyle(LineStyle::Single);
     $chart->setRoundedCorners(true);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Mevcut Grafik Açıklamalarını Düzenle**
+
+A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). The collection returned by [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) contains the chart-owned shapes.
+
+An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+
+Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) and the expected text.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("chart-annotations.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chartType = new JavaClass("com.aspose.slides.IChart");
+    $autoShapeType = new JavaClass("com.aspose.slides.IAutoShape");
+    $chart = null;
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++) {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartType)) {
+            $chart = $shape;
+            break;
+        }
+    }
+
+    if ($chart === null || java_values($chart->getUserShapes()->getShapes()->size()) == 0) {
+        echo "No chart or chart-owned shapes found." . PHP_EOL;
+        return;
+    }
+
+    $updated = false;
+    $userShapes = $chart->getUserShapes()->getShapes();
+    for ($i = 0; $i < java_values($userShapes->size()); $i++) {
+        $shape = $userShapes->get_Item($i);
+        if (java_instanceof($shape, $autoShapeType)) {
+            $annotation = $shape;
+            if (!java_is_null($annotation->getTextFrame()) && java_values($annotation->getTextFrame()->getText()) === "Preliminary results") {
+                $annotation->getTextFrame()->setText("Final results");
+                $updated = true;
+                break;
+            }
+        }
+    }
+
+    if ($updated) {
+        $presentation->save("chart-annotations-updated.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No matching text annotation found." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+
+| Düzenlemeden Önce | Düzenlendikten Sonra |
+| --- | --- |
+| ![Ön sonuçları okuyan grafik açıklaması](chart-annotations-before.png) | ![Sonuçları okuyan grafik açıklaması](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+
+The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
+
+{{% /alert %}}
 
 ## **SSS**
 
-**Sütunlar/alanlar için yarı saydam dolgu ayarlarken kenarı opak tutabilir miyim?**
+**Sütunlar/alanlar için kenarı opak tutarken yarı saydam dolgular ayarlayabilir miyim?**
 
-Evet. Dolgu şeffaflığı ve kenar ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verilerin okunabilirliğini artırmak için yararlıdır.
+Evet. Dolgu saydamlığı ve kenarlık ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve veri okunabilirliğini artırmak için yararlıdır.
 
-**Etiketler çakıştığında nasıl başa çıkabilirim?**
+**Üst üste binen veri etiketleriyle nasıl başa çıkabilirim?**
 
-Yazı tipi boyutunu azaltın, gereksiz etiket bileşenlerini devre dışı bırakın (örneğin, kategorileri), etiket ofsetini/konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiketleri gösterin veya biçimi “değer + açıklama” şeklinde değiştirin.
+Yazı tipi boyutunu azaltın, gereksiz etiket bileşenlerini (örneğin, kategorileri) devre dışı bırakın, etiket konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiket gösterin veya formatı “değer + lejand” olarak değiştirin.
 
-**Serilere degrade veya desen dolguları uygulayabilir miyim?**
+**Serilere degrade veya desen dolgular uygulayabilir miyim?**
 
-Evet. Hem katı hem de degrade/desen dolgular genellikle mevcuttur. Uygulamada degradeleri sınırlı kullanın ve ızgara ve metinle kontrastı azaltan kombinasyonlardan kaçının.
+Evet. Seriler katı, degrade ve desen dolgularını destekler. Uygulamada, degradeleri ölçülü kullanın ve ızgara ve metinle kontrastı azaltan kombinasyonlardan kaçının.

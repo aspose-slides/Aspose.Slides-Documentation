@@ -1,69 +1,55 @@
 ---
-title: PHPでプレゼンテーションチャートをフォーマットする
+title: PHPでプレゼンテーション用チャートをフォーマットする
 linktitle: チャートの書式設定
 type: docs
 weight: 60
 url: /ja/php-java/chart-formatting/
 keywords:
-- チャートをフォーマット
-- チャート書式設定
+- チャートのフォーマット
+- チャートの書式設定
 - チャートエンティティ
-- チャートプロパティ
+- チャート プロパティ
 - チャート設定
 - チャートオプション
-- フォントプロパティ
+- フォント プロパティ
 - 角丸境界線
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java のチャート書式設定を学び、プロフェッショナルで目を引くスタイルで PowerPoint プレゼンテーションを向上させましょう。"
+description: "Java 経由で PHP 用 Aspose.Slides のチャート書式設定を学び、カスタム軸、フォント、数値形式、角丸チャート境界線で PowerPoint プレゼンテーションを向上させましょう。"
 ---
+## **概要**
 
-## **Format Chart Entities**
-Aspose.Slides for PHP via Java では、開発者はスライドにカスタム チャートをゼロから追加できます。本記事では、チャートのカテゴリ軸と値軸を含むさまざまなチャート エンティティの書式設定方法を説明します。
+この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションのチャートを書式設定する方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなどの主要なチャート要素をカスタマイズし、チャート データの外観と可読性を向上させる方法を示します。
 
-Aspose.Slides for PHP via Java は、さまざまなチャート エンティティを管理し、カスタム値で書式設定するためのシンプルな API を提供します。
+また、チャート テキストのフォント プロパティの設定、チャート データへの事前設定数値形式の適用、チャート領域の角丸の有効化方法も示します。これらの例により、プレゼンテーション内のチャートのビジュアル スタイルとデータ表示の両方を制御する方法がわかります。
 
-1. [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのインスタンスを作成します。
-1. インデックスでスライドの参照を取得します。
-1. 任意のタイプ（この例では ChartType::LineWithMarkers）でデフォルト データを持つチャートを追加します。
-1. チャートの値軸にアクセスし、次のプロパティを設定します。
-   1. 値軸メジャー グリッド線の **Line format** を設定
-   1. 値軸マイナー グリッド線の **Line format** を設定
-   1. 値軸の **Number Format** を設定
-   1. 値軸の **Min, Max, Major and Minor units** を設定
-   1. 値軸データの **Text Properties** を設定
-   1. 値軸の **Title** を設定
-   1. 値軸の **Line Format** を設定
-1. チャートのカテゴリ軸にアクセスし、次のプロパティを設定します。
-   1. カテゴリ軸メジャー グリッド線の **Line format** を設定
-   1. カテゴリ軸マイナー グリッド線の **Line format** を設定
-   1. カテゴリ軸データの **Text Properties** を設定
-   1. カテゴリ軸の **Title** を設定
-   1. カテゴリ軸の **Label Positioning** を設定
-   1. カテゴリ軸ラベルの **Rotation Angle** を設定
-1. チャートの凡例にアクセスし、**Text Properties** を設定します。
-1. チャートの凡例がチャートと重ならないように表示します。
-1. チャートの **Secondary Value Axis** にアクセスし、次のプロパティを設定します。
-   1. セカンダリ **Value Axis** を有効化
-   1. セカンダリ値軸の **Line Format** を設定
-   1. セカンダリ値軸の **Number Format** を設定
-   1. セカンダリ値軸の **Min, Max, Major and Minor units** を設定
-1. セカンダリ値軸に最初のチャート系列をプロットします。
-1. チャートの裏壁の塗りつぶし色を設定します。
-1. チャートのプロット領域の塗りつぶし色を設定します。
-1. 変更したプレゼンテーションを PPTX ファイルに書き込みます
+## **チャートエンティティの書式設定**
+
+Use [チャート](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
+
+The value axis uses [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) and [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), but these surfaces are only visible in 3D charts.
+
 ```php
-  # Presentation クラスのインスタンスを作成する
-  $pres = new Presentation();
-  try {
-    # 最初のスライドにアクセスする
-    $slide = $pres->getSlides()->get_Item(0);
-    # サンプルチャートを追加する
+use aspose\slides\ChartType;
+use aspose\slides\DisplayUnitType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LineDashStyle;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\PresetColor;
+use aspose\slides\SaveFormat;
+use aspose\slides\TickLabelPositionType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
-    # チャートタイトルを設定する
-    $chart->hasTitle();
+
+    $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("");
     $chartTitle = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $chartTitle->setText("Sample Chart");
@@ -72,267 +58,301 @@ Aspose.Slides for PHP via Java は、さまざまなチャート エンティテ
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # 値軸の主要グリッド線の形式を設定する
+
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # 値軸の補助グリッド線の形式を設定する
+    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle::DashDot);
+
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # 値軸の数値形式を設定する
-    $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
+
+    $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    # チャートの最大・最小値を設定する
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getVerticalAxis()->setMaxValue(15.0);
-    $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
+
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(15);
+    $chart->getAxes()->getVerticalAxis()->setMinValue(-2);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    # 値軸のテキストプロパティを設定する
-    $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
-    $txtVal->setFontBold(NullableBool::True);
-    $txtVal->setFontHeight(16);
-    $txtVal->setFontItalic(NullableBool::True);
-    $txtVal->getFillFormat()->setFillType(FillType::Solid);
-    $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
-    $txtVal->setLatinFont(new FontData("Times New Roman"));
-    # 値軸のタイトルを設定する
-    $chart->getAxes()->getVerticalAxis()->hasTitle();
+
+    $valueAxisText = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
+    $valueAxisText->setFontBold(NullableBool::True);
+    $valueAxisText->setFontHeight(16);
+    $valueAxisText->setFontItalic(NullableBool::True);
+    $valueAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkGreen);
+    $valueAxisText->setLatinFont(new FontData("Times New Roman"));
+
+    $chart->getAxes()->getVerticalAxis()->setTitle(true);
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
-    $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $valtitle->setText("Primary Axis");
-    $valtitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $valtitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $valtitle->getPortionFormat()->setFontHeight(20);
-    $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # カテゴリ軸の主要グリッド線の形式を設定する
+    $valueAxisTitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $valueAxisTitle->setText("Primary Axis");
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $valueAxisTitle->getPortionFormat()->setFontHeight(20);
+    $valueAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $valueAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 128, 0));
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # カテゴリ軸の補助グリッド線の形式を設定する
+
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # カテゴリ軸のテキストプロパティを設定する
-    $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
-    $txtCat->setFontBold(NullableBool::True);
-    $txtCat->setFontHeight(16);
-    $txtCat->setFontItalic(NullableBool::True);
-    $txtCat->getFillFormat()->setFillType(FillType::Solid);
-    $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $txtCat->setLatinFont(new FontData("Arial"));
-    # カテゴリのタイトルを設定する
-    $chart->getAxes()->getHorizontalAxis()->hasTitle();
+
+    $categoryAxisText = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
+    $categoryAxisText->setFontBold(NullableBool::True);
+    $categoryAxisText->setFontHeight(16);
+    $categoryAxisText->setFontItalic(NullableBool::True);
+    $categoryAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisText->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $categoryAxisText->setLatinFont(new FontData("Arial"));
+
+    $chart->getAxes()->getHorizontalAxis()->setTitle(true);
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
-    $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $catTitle->setText("Sample Category");
-    $catTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $catTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $catTitle->getPortionFormat()->setFontHeight(20);
-    $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # カテゴリ軸ラベルの位置を設定する
+
+    $categoryAxisTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $categoryAxisTitle->setText("Sample Category");
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $categoryAxisTitle->getPortionFormat()->setFontHeight(20);
+    $categoryAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $categoryAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # カテゴリ軸ラベルの回転角度を設定する
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    # 凡例のテキストプロパティを設定する
-    $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
-    $txtleg->setFontBold(NullableBool::True);
-    $txtleg->setFontHeight(16);
-    $txtleg->setFontItalic(NullableBool::True);
-    $txtleg->getFillFormat()->setFillType(FillType::Solid);
-    $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # チャートと重ならないように凡例を表示する
-    $chart->getLegend()->setOverlay(true);
-    # chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # 二次値軸を設定する
-    $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # 二次値軸の数値形式を設定する
-    $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    # チャートの最大・最小値を設定する
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMaxValue(20.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    # チャートの背面壁の色を設定する
+
+    $legendText = $chart->getLegend()->getTextFormat()->getPortionFormat();
+    $legendText->setFontBold(NullableBool::True);
+    $legendText->setFontHeight(16);
+    $legendText->setFontItalic(NullableBool::True);
+    $legendText->getFillFormat()->setFillType(FillType::Solid);
+    $legendText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkRed);
+
+    $chart->getLegend()->setOverlay(false);
+
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # プロット領域の色を設定する
+
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
-    # プレゼンテーションを保存する
-    $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setPresetColor(PresetColor::LightCyan);
+
+    $presentation->save("FormattedChart_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **チャートのフォント プロパティの設定**
 
-## **Set Font Properties for a Chart**
-Aspose.Slides for PHP via Java は、チャートのフォント関連プロパティの設定をサポートします。以下の手順でチャートのフォントプロパティを設定してください。
+Set the default font size for chart text through [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Text elements with their own explicit font settings can override the chart default.
 
-- [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation)クラスのオブジェクトをインスタンス化します。
-- スライドにチャートを追加します。
-- フォントの高さを設定します。
-- 変更したプレゼンテーションを保存します。
-
-以下にサンプル例を示します。
 ```php
-  # Presentation クラスのインスタンスを作成する
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
     $chart->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $pres->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **数値形式の設定**
 
-## **Set the Numeric Format**
-Aspose.Slides for PHP via Java は、チャート データの書式設定を管理するシンプルな API を提供します。
+Use [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスのインスタンスを作成します。
-1. インデックスでスライドの参照を取得します。
-1. 任意のタイプ（この例では **ChartType::ClusteredColumn**）でデフォルト データを持つチャートを追加します。
-1. 可能なプリセット値から事前設定の数値書式を設定します。
-1. 各チャート系列のチャート データ セルを走査し、チャート データの数値書式を設定します。
-1. プレゼンテーションを保存します。
-1. カスタム数値書式を設定します。
-1. 各チャート系列内のチャート データ セルを走査し、異なるチャート データ数値書式を設定します。
-1. プレゼンテーションを保存します。
 ```php
-  # Presentation クラスのインスタンスを作成する
-  $pres = new Presentation();
-  try {
-    # 最初のプレゼンテーション スライドにアクセスする
-    $slide = $pres->getSlides()->get_Item(0);
-    # デフォルトのクラスター化カラム チャートを追加する
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    # チャート系列コレクションにアクセスする
     $series = $chart->getChartData()->getSeries();
-    # すべてのチャート系列を走査する
-    foreach($series as $ser) {
-      # 系列内のすべてのデータセルを走査する
-      foreach($ser->getDataPoints() as $cell) {
-        # 数値形式を設定する
-        $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
 
-      }
+    for ($i = 0; $i < java_values($series->size()); $i++) {
+        $chartSeries = $series->get_Item($i);
+        $dataPoints = $chartSeries->getDataPoints();
+        for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
+            $dataPoint = $dataPoints->get_Item($j);
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
+        }
     }
-    # プレゼンテーションを保存する
-    $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("PresetNumberFormat_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+The following table lists built-in number format indices with representative Excel formats for the English (United States) locale. The exact format strings and their display can vary by application and locale, particularly for currency and dates. Some Excel formats also differ from the defaults in the OOXML standard, as described in [Microsoft の数値形式実装ノート](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-使用できる事前設定の数値書式とそのインデックスは以下のとおりです。
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+## **チャート領域の角丸境界線の設定**
 
-## **Set Chart Area Rounded Borders**
-Aspose.Slides for PHP via Java は、チャート領域の設定をサポートします。メソッド [**hasRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/hasroundedcorners/) と [**setRoundedCorners**](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) が [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/Chart) クラスに追加されました。
+Call [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) to give its outline a solid gray color and a single-line style before saving the presentation.
 
-1. [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスのオブジェクトをインスタンス化します。
-1. スライドにチャートを追加します。
-1. チャートの塗りつぶしタイプと塗りつぶし色を設定します。
-1. 角丸プロパティを True に設定します。
-1. 変更したプレゼンテーションを保存します。
-
-以下にサンプル例を示します。 
 ```php
-  # Presentation クラスのインスタンスを作成する
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LineStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 100, 600, 400);
     $chart->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getLineFormat()->setStyle(LineStyle->Single);
+    $chart->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $chart->getLineFormat()->setStyle(LineStyle::Single);
     $chart->setRoundedCorners(true);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **既存のチャート注釈の編集**
+
+A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). The collection returned by [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) contains the chart-owned shapes.
+
+An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+
+Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) and the expected text.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("chart-annotations.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chartType = new JavaClass("com.aspose.slides.IChart");
+    $autoShapeType = new JavaClass("com.aspose.slides.IAutoShape");
+    $chart = null;
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++) {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartType)) {
+            $chart = $shape;
+            break;
+        }
+    }
+
+    if ($chart === null || java_values($chart->getUserShapes()->getShapes()->size()) == 0) {
+        echo "No chart or chart-owned shapes found." . PHP_EOL;
+        return;
+    }
+
+    $updated = false;
+    $userShapes = $chart->getUserShapes()->getShapes();
+    for ($i = 0; $i < java_values($userShapes->size()); $i++) {
+        $shape = $userShapes->get_Item($i);
+        if (java_instanceof($shape, $autoShapeType)) {
+            $annotation = $shape;
+            if (!java_is_null($annotation->getTextFrame()) && java_values($annotation->getTextFrame()->getText()) === "Preliminary results") {
+                $annotation->getTextFrame()->setText("Final results");
+                $updated = true;
+                break;
+            }
+        }
+    }
+
+    if ($updated) {
+        $presentation->save("chart-annotations-updated.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No matching text annotation found." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+
+| Before editing | After editing |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
+{{% /alert %}}
 
 ## **FAQ**
 
-**列やエリアの塗りつぶしを半透明にし、枠線は不透明のままにできますか？**
+**列/エリアの塗りつぶしを半透明にし、枠線を不透明のままにできますか？**
 
-はい。塗りつぶしの透明度と輪郭は別々に設定できます。これは、グリッドやデータが密集した可視化で可読性を向上させるのに役立ちます。
+はい。塗りつぶしの透明度と輪郭は別々に設定できます。これにより、グリッドやデータが密集した可視化での可読性を向上させることができます。
 
-**ラベルが重なる場合、どう対処すればよいですか？**
+**ラベルが重なったときの対処法は？**
 
-フォントサイズを小さくする、不要なラベル要素（例: カテゴリ）を無効にする、ラベルのオフセット/位置を設定する、必要に応じて選択ポイントのみラベルを表示する、または「値＋凡例」形式に切り替えるなどの方法があります。
+フォントサイズを小さくする、不要なラベル要素（例: カテゴリ）を非表示にする、ラベル位置を調整する、必要に応じて選択したポイントだけラベルを表示する、または「値 + 凡例」形式に切り替えるなどの方法があります。
 
 **系列にグラデーションやパターンの塗りつぶしを適用できますか？**
 
-はい。ソリッド塗りつぶしと同様に、グラデーションやパターン塗りつぶしも利用可能です。実務ではグラデーションの使用は控えめにし、グリッドやテキストとのコントラストが低下する組み合わせは避けてください。
+はい。系列は単色、グラデーション、パターンの塗りつぶしをサポートします。実務ではグラデーションは控えめに使用し、グリッドやテキストとのコントラストを減らす組み合わせは避けてください。

@@ -1,5 +1,5 @@
 ---
-title: Formatera diagram i presentationer på Android
+title: Formatera presentationsdiagram på Android
 linktitle: Diagramformatering
 type: docs
 weight: 60
@@ -11,68 +11,38 @@ keywords:
 - diagramegenskaper
 - diagraminställningar
 - diagramalternativ
-- teckensegenskaper
-- rundade kanter
+- teckensnittsegenskaper
+- avrundad kant
 - PowerPoint
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Lär dig diagramformatering i Aspose.Slides för Android via Java och förbättra din PowerPoint-presentation med professionell, iögonfallande stil."
+description: "Lär dig diagramformatering i Aspose.Slides för Android via Java och förbättra din PowerPoint-presentation med anpassade axlar, teckensnitt, nummerformat och avrundade diagramkanter."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du formaterar diagram i PowerPoint-presentationer med hjälp av Aspose.Slides. Den visar hur du anpassar viktiga diagramkomponenter såsom axlar, rutnätslinjer, titlar, förklaringar, plot‑område och väggfyllningar för att förbättra diagrammets utseende och läsbarhet.
+Den här artikeln förklarar hur du formaterar diagram i PowerPoint-presentationer med hjälp av Aspose.Slides. Den visar hur du anpassar viktiga diagramkomponenter såsom axlar, rutnätlinjer, titlar, förklaringar, plotområdet och väggfyllningar för att förbättra diagrammets utseende och läsbarhet.
 
-Den demonstrerar också hur du ställer in teckensegenskaper för diagramtext, applicerar förinställda och anpassade numeriska format på diagramdata samt aktiverar rundade hörn för diagramområdet. Tillsammans visar exemplen hur du styr både den visuella stilen och datapresentationen av diagram i en presentation.
+Den visar också hur du ställer in teckensnittsegenskaper för diagramtext, använder förinställda numeriska format för diagramdata och aktiverar avrundade hörn för diagramområdet. Tillsammans visar dessa exempel hur du kontrollerar både den visuella stilen och datarepresentationen för diagram i en presentation.
 
 ## **Formatera diagramobjekt**
-Aspose.Slides for Android via Java låter utvecklare lägga till anpassade diagram i sina bilder från grunden. Den här artikeln förklarar hur du formaterar olika diagramobjekt inklusive diagrammets kategori‑ och värdeaxel.
 
-Aspose.Slides for Android via Java erbjuder ett enkelt API för att hantera olika diagramobjekt och formatera dem med egna värden:
+Använd [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) för att formatera diagramtitlar, axlar, rutnätlinjer, förklaringar och plotområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text- och linjestilar på dess värde- och kategoriaxlar. Teckenstorlekar och linjebredder anges i punkter; kategorietiketter roteras 45 grader.
 
-1. Skapa en instans av klassen [**Presentation**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) .
-2. Hämta en referens till en bild med dess index.
-3. Lägg till ett diagram med standarddata samt någon av de önskade typerna (i detta exempel använder vi ChartType.LineWithMarkers).
-4. Få åtkomst till diagrammets **Värdeaxel** och ställ in följande egenskaper:
-   1. Ställ in **Linjeformat** för värdeaxelns huvudrutnätslinjer
-   1. Ställ in **Linjeformat** för värdeaxelns underrutnätslinjer
-   1. Ställ in **Talformat** för värdeaxeln
-   1. Ställ in **Min, Max, Huvud‑ och underenheter** för värdeaxeln
-   1. Ställ in **Textegenskaper** för värdeaxelns data
-   1. Ställ in **Titel** för värdeaxeln
-   1. Ställ in **Linjeformat** för värdeaxeln
-5. Få åtkomst till diagrammets **Kategori‑axel** och ställ in följande egenskaper:
-   1. Ställ in **Linjeformat** för kategoriaxelns huvudrutnätslinjer
-   1. Ställ in **Linjeformat** för kategoriaxelns underrutnätslinjer
-   1. Ställ in **Textegenskaper** för kategoriaxelns data
-   1. Ställ in **Titel** för kategoriaxeln
-   1. Ställ in **Etikettpositionering** för kategoriaxeln
-   1. Ställ in **Rotationsvinkel** för kategoriaxonsetiketter
-6. Få åtkomst till diagrammets förklaring och ställ in **Textegenskaper** för den
-7. Visa diagramförklaringar utan att de överlappar diagrammet
-8. Få åtkomst till diagrammets **sekundära Värdeaxel** och ställ in följande egenskaper:
-   1. Aktivera den sekundära **Värdeaxeln**
-   1. Ställ in **Linjeformat** för den sekundära värdeaxeln
-   1. Ställ in **Talformat** för den sekundära värdeaxeln
-   1. Ställ in **Min, Max, Huvud‑ och underenheter** för den sekundära värdeaxeln
-9. Plotta nu den första diagramserien på den sekundära värdeaxeln
-10. Ställ in färg för diagrammets bakre väggfyllning
-11. Ställ in färg för diagrammets plot‑områdefyllning
-12. Skriv den modifierade presentationen till en PPTX‑fil
+Värdeaxeln använder [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) oberoende av källcellerna. Dess skala går från -2 till 15, med huvudintervall på 2 och delintervall på 0,5. Exemplet kombinerar även procentformat med [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) inställt på tusental, så anpassa dessa inställningar efter din datas betydelse och storlek. Förklaringen placeras utanför plotområdet eftersom [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) anropas med `false`. Bakväggs- och golvfyllningar konfigureras via [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) och [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), men dessa ytor är bara synliga i 3D-diagram.
 
 ```java
-// Skapa en instans av Presentation-klassen
-Presentation pres = new Presentation();
-try {
-    // Åtkomst till den första bilden
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // Lägger till exempeldiagrammet
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Ställer in diagramtitel
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -82,290 +52,286 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Ställer in format för huvudrutnätslinjer för värdeaxeln
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Ställer in format för underrutnätslinjer för värdeaxeln
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Ställer in talformat för värdeaxeln
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Ställer in diagrammets max- och minvärden
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Ställer in textegenskaper för värdeaxeln
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // Ställer in titel för värdeaxeln
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Ställer in format för huvudrutnätslinjer för kategoriaxeln
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Ställer in format för underrutnätslinjer för kategoriaxeln
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Ställer in textegenskaper för kategoriaxeln
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // Ställer in kategoriens titel
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Ställer in position för kategoriaxelns etiketter
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // Ställer in rotationsvinkel för kategoriaxelns etiketter
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Ställer in textegenskaper för förklaringar
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // Ställ in att visa diagramförklaringar utan överlappning
+    chart.getLegend().setOverlay(false);
 
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // Ställer in sekundär värdeaxel
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // Ställer in talformat för sekundär värdeaxel
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // Ställer in diagrammets max- och minvärden
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // Ställer in färg för diagrammets bakre vägg
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // Ställer in färg för plot‑området
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // Spara presentationen
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ställ in teckensegenskaper för ett diagram**
-Aspose.Slides for Android via Java erbjuder stöd för att ställa in teckensegenskaper för diagram. Följ stegen nedan för att ange teckensegenskaperna för diagrammet.
+## **Ställ in teckensnitts‑egenskaper för ett diagram**
 
-- Instansiera [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) klassobjekt.
-- Lägg till diagram på bilden.
-- Ställ in teckenhöjd.
-- Spara den modifierade presentationen.
-
-Nedan följer ett exempel.
+Ställ in standardteckensnittsstorlek för diagramtext via [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--). Exemplet skapar ett grupperat stapeldiagram med 20‑punkts teckensnitt och aktiverar värdeetiketter för den första serien via [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Textelement med egna explicita teckensnittsinställningar kan åsidosätta diagrammets standard.
 
 ```java
-// Skapa en instans av Presentation-klassen
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ställ in numeriskt format**
-Aspose.Slides for Android via Java erbjuder ett enkelt API för att hantera diagramdatans format:
+## **Ställ in det numeriska formatet**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) .
-2. Hämta en referens till en bild med dess index.
-3. Lägg till ett diagram med standarddata samt någon av de önskade typerna (detta exempel använder **ChartType.ClusteredColumn**).
-4. Ställ in det förinställda talformatet från de möjliga förinställda värdena.
-5. Gå igenom varje diagramserie och varje datacell och sätt diagramdatans talformat.
-6. Spara presentationen.
-7. Ställ in ett anpassat talformat.
-8. Gå igenom varje diagramserie och varje datacell och ange ett annat talformat för diagramdata.
-9. Spara presentationen.
+Använd [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) för att applicera ett inbyggt nummerformat på diagrammets arbetsboksceller. Detta exempel skapar ett grupperat stapeldiagram med standard‑, cell‑stödd data och tillämpar formatindex 10 (`0.00%`) på varje serie‑värdecell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; exempelvis visas 0,25 som 25,00 %. Axel‑ och dataetikettformat kan konfigureras separat.
 
 ```java
-// Skapa en instans av Presentation-klassen
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Åtkomst till den första presentationsbilden
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Lägger till ett standarddiagram av typen ClusteredColumn
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // Hämtar diagramseriens samling
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // Iterera genom varje diagramserie
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // Iterera genom varje datapunkt i serien
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // Ställer in talformatet
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0,00%
         }
     }
 
-    // Sparar presentationen
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-De möjliga förinställda talformatvärdena tillsammans med deras index som kan användas listas nedan:
+Följande tabell listar inbyggda nummerformat‑index med representativa Excel‑format för den engelska (USA)‑lokalen. Exakta formatsträngar och hur de visas kan variera mellan applikationer och språk, särskilt för valuta och datum. Vissa Excel‑format skiljer sig också från standarderna i OOXML, enligt [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|Allmän|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Ställ in rundade kanter för diagramområde**
-Aspose.Slides for Android via Java erbjuder stöd för att ange diagramområde. Metoderna [**hasRoundedCorners**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) och [**setRoundedCorners**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) har lagts till i gränssnittet [IChart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChart) och klassen [Chart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Chart) .
+## **Ställ in avrundade kanter för diagramområdet**
 
-1. Instansiera [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) klassobjekt.
-2. Lägg till diagram på bilden.
-3. Ställ in fyllningstyp och fyllningsfärg för diagrammet
-4. Ställ in egenskapen för rundade hörn till True.
-5. Spara den modifierade presentationen.
-
-Nedan följer ett exempel.  
+Anropa [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) med `true` för att avrunda hörnen på diagramområdet. Exemplet skapar ett grupperat stapeldiagram och använder [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
 
 ```java
-// Skapa en instans av Presentation-klassen
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Vanliga frågor**
+## **Redigera befintliga diagramanteckningar**
 
-**Kan jag ange semitransparenta fyllningar för kolumner/områden samtidigt som kanten förblir ogenomskinlig?**
+Ett diagram kan innehålla anpassade former, till exempel en textanteckning som förklarar statusen för en rapport. Åtkomst till dessa former sker via [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), även listad under [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) i Diagram‑API‑referensen. Samlingen som returneras av [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) innehåller de diagram‑ägdde formerna.
 
-Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
+En vanlig textruta placerad ovanpå ett diagram tillhör sliden, även om den ser ut som en del av diagrammet. Genom att iterera över [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) hittas diagrammet samt vanliga slide‑former, men inte de enskilda formerna inuti diagrammet. Diagramtitlar och datalabels är separata diagramelement, inte anpassade anteckningar i denna samling.
 
-**Hur kan jag hantera dataetiketter när de överlappar?**
+Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en odelad anteckning som säger "Preliminary results", en diagram‑ägd linje och en vanlig slide‑textruta med texten "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är klar för publicering. Det kontrollerar om samlingen är tom och redigerar endast en [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) med en icke‑null text‑ram som returneras av [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) och den förväntade texten.
 
-Minska teckenstorleken, inaktivera icke‑nödvändiga etikettkomponenter (t.ex. kategorier), justera etikettens förskjutning/position, visa etiketter endast för utvalda punkter om det behövs, eller byt format till ”värde + förklaring”.
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Linjen och slide‑textrutan förblir oförändrade. Följande bilder visar indata och det sparade, återöppnade resultatet:
+
+| Före redigering | Efter redigering |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Exemplet granskar endast diagram‑ägdde former på top‑nivå. Om en anteckning finns i en [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), inspektera även den gruppens [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--)‑samling. Upprepa detta rekursivt för inbäddade grupper och tillämpa samma textkontroller på deras barnformer. En grupp är i sig en behållare; behandla den inte som en textruta.
+{{% /alert %}}
+
+## **FAQ**
+
+**Kan jag ange halvtransparenta fyllningar för kolumner/områden samtidigt som kanten förblir ogenomskinlig?**
+
+Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten av rutnätet och data i täta visualiseringar.
+
+**Hur hanterar jag dataetiketter när de överlappar?**
+
+Minska teckenstorleken, inaktivera icke‑viktiga etikettkomponenter (till exempel kategorier), justera etikettpositionen, visa etiketter endast för utvalda punkter om nödvändigt, eller byt format till "värde + förklaring".
 
 **Kan jag applicera gradient‑ eller mönsterfyllningar på serier?**
 
-Ja. Både solida och gradient‑/mönsterfyllningar är vanligtvis tillgängliga. I praktiken bör du använda gradienter sparsamt och undvika kombinationer som minskar kontrasten mot rutnätet och texten.
+Ja. Serier stödjer solida, gradient‑ och mönsterfyllningar. Använd gradienter sparsamt i praktiken och undvik kombinationer som minskar kontrasten mot rutnätet och texten.

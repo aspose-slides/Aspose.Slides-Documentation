@@ -1,63 +1,35 @@
 ---
-title: Formatowanie wykresów prezentacji w Pythonie
+title: Formatuj wykresy prezentacji w Pythonie
 linktitle: Formatowanie wykresów
 type: docs
 weight: 60
 url: /pl/python-java/chart-formatting/
 keywords:
+- format wykresu
 - formatowanie wykresu
-- formatowanie wykresu
-- element wykresu
+- obiekt wykresu
 - właściwości wykresu
 - ustawienia wykresu
 - opcje wykresu
 - właściwości czcionki
-- zaokrąglona krawędź
+- zaokrąglone obramowanie
 - PowerPoint
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Poznaj formatowanie wykresów w Aspose.Slides dla Pythona poprzez Java i podnieś swoją prezentację PowerPoint dzięki profesjonalnemu, przyciągającemu uwagę stylowi."
+description: "Poznaj formatowanie wykresów w Aspose.Slides dla Pythona poprzez Javę i podnieś swoją prezentację PowerPoint, dodając własne osie, czcionki, formaty liczbowe oraz zaokrąglone obramowania wykresów."
 ---
 ## **Przegląd**
 
 Ten artykuł wyjaśnia, jak formatować wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides. Pokazuje, jak dostosować kluczowe elementy wykresu, takie jak osie, linie siatki, tytuły, legendy, obszar wykresu i wypełnienia ścian, aby poprawić wygląd i czytelność danych wykresu.
 
-Pokazuje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wstępnie zdefiniowane i własne formaty liczbowe do danych wykresu oraz włączyć zaokrąglone rogi dla obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
+Pokazuje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować predefiniowane formaty liczbowe do danych wykresu oraz włączyć zaokrąglone rogi obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
 
 ## **Formatuj elementy wykresu**
-Aspose.Slides for Python via Java umożliwia programistom dodawanie własnych wykresów do slajdów od podstaw. Ten artykuł wyjaśnia, jak formatować różne elementy wykresu, w tym osie kategorii i wartości.
 
-Aspose.Slides for Python via Java provides a simple API for managing different chart entities and formatting them using custom values:
+Użyj [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) do formatowania tytułów wykresu, osi, linii siatki, legend i obszaru wykresu. Ten przykład tworzy wykres liniowy ze znacznikami i danymi domyślnymi, a następnie stosuje oddzielne style tekstu i linii do jego osi wartości i osi kategorii. Rozmiary czcionek i grubości linii są określone w punktach; etykiety kategorii są obrócone o 45 stopni.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/).
-1. Uzyskaj dostęp do slajdu przy użyciu jego indeksu.
-1. Dodaj wykres wybranego typu z danymi domyślnymi (w tym przykładzie użyto [ChartType.LineWithMarkers](https://reference.aspose.com/slides/pl/python-java/aspose.slides/charttype/#LineWithMarkers)).
-1. Uzyskaj dostęp do osi wartości wykresu i ustaw następujące właściwości:
-   1. Ustaw **format linii** dla głównych linii siatki osi wartości.
-   1. Ustaw **format linii** dla pomniejszych linii siatki osi wartości.
-   1. Ustaw **format liczbowy** dla osi wartości.
-   1. Ustaw **minimum, maksimum, jednostki główne i pomniejsze** dla osi wartości.
-   1. Ustaw **właściwości tekstu** dla danych osi wartości.
-   1. Ustaw **tytuł** dla osi wartości.
-1. Uzyskaj dostęp do osi kategorii wykresu i ustaw następujące właściwości:
-   1. Ustaw **format linii** dla głównych linii siatki osi kategorii.
-   1. Ustaw **format linii** dla pomniejszych linii siatki osi kategorii.
-   1. Ustaw **właściwości tekstu** dla danych osi kategorii.
-   1. Ustaw **tytuł** dla osi kategorii.
-   1. Ustaw **pozycjonowanie etykiet** dla osi kategorii.
-   1. Ustaw **kąt obrotu** dla etykiet osi kategorii.
-1. Uzyskaj dostęp do legendy wykresu i ustaw jej **właściwości tekstu**.
-1. Wyświetl legendę wykresu bez nakładania się na wykres.
-1. Uzyskaj dostęp do **drugorzędnej osi wartości** wykresu i ustaw następujące właściwości:
-   1. Włącz drugorzędną **osię wartości**.
-   1. Ustaw **format linii** dla drugorzędnej osi wartości.
-   1. Ustaw **format liczbowy** dla drugorzędnej osi wartości.
-   1. Ustaw **minimum, maksimum, jednostki główne i pomniejsze** dla drugorzędnej osi wartości.
-1. Umieść pierwszą serię wykresu na drugorzędnej osi wartości.
-1. Ustaw kolor wypełnienia tylnej ściany wykresu.
-1. Ustaw kolor wypełnienia obszaru wykresu.
-1. Zapisz zmodyfikowaną prezentację do pliku PPTX.
+Oś wartości używa [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) niezależnie od komórek źródłowych. Jej skala biegnie od -2 do 15, z głównymi przedziałami co 2 i mniejszymi przedziałami co 0,5. Przykład łączy również formatowanie procentowe z [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) ustawionym na tysiące, więc dopasuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) jest wywoływane z `False`. Wypełnienia tylnej ściany i podłogi są konfigurowane przy użyciu [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) i [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), ale te powierzchnie są widoczne tylko w wykresach 3D.
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-# Utwórz instancję klasy Presentation
 presentation = Presentation()
 try:
-    # Uzyskaj dostęp do pierwszego slajdu
     slide = presentation.getSlides().get_Item(0)
 
-    # Dodaj przykładowy wykres
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # Ustaw tytuł wykresu
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Ustaw format głównych linii siatki dla osi wartości
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # Ustaw format pomniejszych linii siatki dla osi wartości
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Ustaw format liczbowy osi wartości
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # Ustaw maksymalne i minimalne wartości wykresu
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # Ustaw właściwości tekstu osi wartości
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # Ustaw tytuł osi wartości
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Ustaw format głównych linii siatki dla osi kategorii
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # Ustaw format pomniejszych linii siatki dla osi kategorii
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Ustaw właściwości tekstu osi kategorii
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # Ustaw tytuł osi kategorii
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,75 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Ustaw pozycję etykiet osi kategorii
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # Ustaw kąt obrotu etykiet osi kategorii
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # Ustaw właściwości tekstu legendy
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # Pokaż legendę wykresu bez nakładania się na wykres
-
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # Ustaw drugorzędną oś wartości
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # Ustaw format liczbowy drugorzędnej osi wartości
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # Ustaw maksymalne i minimalne wartości wykresu
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # Ustaw kolor tylnej ściany wykresu
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # Ustaw kolor obszaru wykresu
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # Save the presentation
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Ustaw właściwości czcionki dla wykresu**
-Aspose.Slides for Python via Java obsługuje ustawianie właściwości czcionki dla wykresów. Postępuj zgodnie z poniższymi krokami, aby ustawić właściwości czcionki:
 
-- Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/).
-- Dodaj wykres do slajdu.
-- Ustaw wysokość czcionki.
-- Zapisz zmodyfikowaną prezentację.
-
-Poniższy przykład demonstruje te kroki.
+Ustaw domyślny rozmiar czcionki dla tekstu wykresu za pomocą [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). Przykład tworzy wykres słupkowy grupowany z czcionką 20 punktów i włącza etykiety wartości dla pierwszej serii przy użyciu [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Elementy tekstowe z własnymi wyraźnymi ustawieniami czcionki mogą nadpisać domyślne ustawienia wykresu.
 
 ```python
 import jpype
@@ -247,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Utwórz instancję klasy Presentation
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -260,15 +183,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ustaw format numeryczny**
-Aspose.Slides for Python via Java udostępnia prosty interfejs API do zarządzania formatami danych wykresu:
+## **Ustaw format liczbowy**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/).
-1. Uzyskaj dostęp do slajdu przy użyciu jego indeksu.
-1. Dodaj wykres wybranego typu z danymi domyślnymi (w tym przykładzie użyto [ChartType.ClusteredColumn](https://reference.aspose.com/slides/pl/python-java/aspose.slides/charttype/#ClusteredColumn)).
-1. Ustaw wstępnie zdefiniowany format liczbowy spośród dostępnych wartości wstępnych.
-1. Iteruj przez komórki danych w każdej serii wykresu i ustaw ich format liczbowy.
-1. Zapisz prezentację.
+Użyj [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat), aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Ten przykład tworzy wykres słupkowy grupowany z domyślnymi, opartymi na komórkach danymi i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmian podstawowych liczb; na przykład 0,25 jest wyświetlane jako 25,00%. Formatowanie osi i etykiet danych można konfigurować osobno.
 
 ```python
 import jpype
@@ -279,81 +196,66 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Utwórz instancję klasy Presentation
 presentation = Presentation()
 try:
-    # Uzyskaj dostęp do pierwszego slajdu prezentacji
     slide = presentation.getSlides().get_Item(0)
 
-    # Dodaj domyślny wykres kolumnowy grupowany
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # Uzyskaj dostęp do zbioru serii wykresu
     chart_series_collection = chart.getChartData().getSeries()
 
-    # Przejdź przez wszystkie serie wykresu
     for chart_series in chart_series_collection:
-        # Przejdź przez wszystkie punkty danych w serii
         for data_point in chart_series.getDataPoints():
-            # Ustaw format liczbowy
-            data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0.00%
+            data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0,00%
 
-    # Zapisz prezentację
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Dostępne wstępnie zdefiniowane formaty liczbowe i ich indeksy są wymienione poniżej:
+Poniższa tabela zawiera wbudowane indeksy formatów liczbowych wraz z reprezentatywnymi formatami Excel dla ustawień regionalnych English (United States). Dokładne ciągi formatów i ich wyświetlanie mogą się różnić w zależności od aplikacji i lokalizacji, szczególnie w przypadku walut i dat. Niektóre formaty Excel różnią się także od domyślnych w standardzie OOXML, jak opisano w [uwagi Microsoft dotyczące implementacji formatów liczbowych](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|Ogólny|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Indeks | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
 ## **Ustaw zaokrąglone krawędzie obszaru wykresu**
-Aspose.Slides for Python via Java obsługuje zaokrąglone rogi obszaru wykresu poprzez metody [hasRoundedCorners](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#hasRoundedCorners) i [setRoundedCorners](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/#setRoundedCorners) klasy [Chart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/).
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/).
-1. Dodaj wykres do slajdu.
-1. Ustaw typ i styl wypełnienia linii obramowania wykresu.
-1. Włącz zaokrąglone rogi.
-1. Zapisz zmodyfikowaną prezentację.
-
-Poniższy przykład demonstruje te kroki.
+Wywołaj [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) z wartością `True`, aby zaokrąglić rogi obszaru wykresu. Przykład tworzy wykres słupkowy grupowany i używa [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat), aby nadać jego konturowi jednolity szary kolor i styl jednej linii przed zapisaniem prezentacji.
 
 ```python
 import jpype
@@ -364,31 +266,90 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# Utwórz instancję klasy Presentation
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Edytuj istniejące adnotacje wykresu**
+
+Wykres może zawierać niestandardowe kształty, takie jak adnotacja tekstowa wyjaśniająca status raportu. Dostęp do tych kształtów uzyskuje się przez [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). Kolekcja zwrócona przez [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) zawiera kształty należące do wykresu.
+
+Zwykły pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda na część wykresu. Iteracja przez [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) znajduje wykres i zwykłe kształty slajdu, ale nie wymienia pojedynczych kształtów wewnątrz wykresu. Tytuły wykresów i etykiety danych są oddzielnymi elementami wykresu, a nie niestandardowymi adnotacjami w tej kolekcji.
+
+Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera wykres z nieagregowaną adnotacją o treści „Preliminary results”, linią należącą do wykresu oraz zwykłym polem tekstowym slajdu o treści „Slide overlay”. Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na „Final results”, gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja nie jest pusta i edytuje tylko [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) z ramką tekstową inną niż `None`, zwróconą przez [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) i oczekiwanym tekstem.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+Linia i pole tekstowe slajdu pozostają niezmienione. Poniższe obrazy przedstawiają dane wejściowe oraz zapisany, ponownie otwarty wynik:
+
+| Przed edycją | Po edycji |
+| --- | --- |
+| ![Adnotacja wykresu z napisem Preliminary results](chart-annotations-before.png) | ![Adnotacja wykresu z napisem Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Przykład sprawdza tylko kształty należące bezpośrednio do wykresu. Jeśli adnotacja znajduje się wewnątrz [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), zbadaj również kolekcję [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) tej grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich podrzędnych kształtów. Grupa sama w sobie jest kontenerem; nie traktuj jej jako pola tekstowego.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, zachowując nieprzezroczystą ramkę?**
+**Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, zachowując nieprzezroczyste obramowanie?**
 
-Tak. Przezroczystość wypełnienia i obramowanie są konfigurowane osobno. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
+Tak. Przezroczystość wypełnienia i kontur są konfigurowane oddzielnie. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
 
-**Jak mogę sobie poradzić z etykietami danych, gdy zachodzą na siebie?**
+**Jak radzić sobie z etykietami danych, gdy nachodzą na siebie?**
 
-Zredukuj rozmiar czcionki, wyłącz nieistotne elementy etykiet (np. kategorie), ustaw offset/pozycję etykiety, wyświetlaj etykiety tylko dla wybranych punktów w razie potrzeby lub przełącz format na „wartość + legenda”.
+Zredukuj rozmiar czcionki, wyłącz nieistotne elementy etykiet (np. kategorie), dostosuj pozycję etykiety, wyświetlaj etykiety tylko dla wybranych punktów w razie potrzeby lub zmień format na „wartość + legenda”.
 
 **Czy mogę zastosować wypełnienia gradientowe lub wzorcowe do serii?**
 
-Tak. Zazwyczaj dostępne są zarówno wypełnienia jednorodne, jak i gradientowe/wzorcowe. W praktyce używaj gradientów oszczędnie i unikaj kombinacji, które obniżają kontrast względem siatki i tekstu.
+Tak. Serie obsługują wypełnienia jednorodne, gradientowe i wzorcowe. W praktyce używaj gradientów oszczędnie i unikaj kombinacji, które zmniejszają kontrast z siatką i tekstem.

@@ -17,59 +17,39 @@ keywords:
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java में चार्ट फ़ॉर्मेटिंग सीखें और अपने PowerPoint प्रस्तुति को पेशेवर, आकर्षक शैली के साथ उन्नत बनाएं।"
+description: "Aspose.Slides के लिए PHP में चार्ट फ़ॉर्मेटिंग सीखें और कस्टम अक्ष, फ़ॉन्ट, संख्या फ़ॉर्मेट और गोल चार्ट किनारों के साथ अपनी PowerPoint प्रस्तुति को उन्नत बनाएं।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फॉर्मेट करने का तरीका समझाता है। यह अक्ष, ग्रिड रेखाएँ, शीर्षक, लीजेंड, प्लॉट एरिया और वॉल फ़िल्स जैसी प्रमुख चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता को सुधारने को दर्शाता है।
+यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फ़ॉर्मेट करने के तरीकों को समझाता है। यह अक्ष, ग्रिड लाइन्स, शीर्षक, लेजेंड, प्लॉट एरिया और दीवार फ़िल्स जैसे मुख्य चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता को बेहतर बनाता है।
 
-यह चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण सेट करने, चार्ट डेटा पर प्रीसेट और कस्टम न्यूमेरिक फॉर्मेट लागू करने, तथा चार्ट एरिया के लिए गोल कोने सक्षम करने का भी प्रदर्शन करता है। ये सभी उदाहरण प्रस्तुतियों में चार्ट की दृश्य शैली और डेटा प्रस्तुति दोनों को नियंत्रित करने के तरीके दिखाते हैं।
+यह भी दर्शाता है कि चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण कैसे सेट करें, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक फ़ॉर्मेट कैसे लागू करें, और चार्ट एरिया के कोनों को गोल कैसे बनाया जाये। ये उदाहरण मिलकर यह दिखाते हैं कि प्रस्तुति में चार्ट की दृश्य शैली और डेटा प्रस्तुति दोनों को कैसे नियंत्रित किया जाए।
 
 ## **चार्ट इकाइयों को फ़ॉर्मेट करें**
-Aspose.Slides for PHP via Java डेवलपर्स को शून्य से अपनी स्लाइड्स में कस्टम चार्ट जोड़ने की सुविधा देता है। यह लेख विभिन्न चार्ट इकाइयों को फ़ॉर्मेट करने का तरीका बताता है, जिसमें चार्ट श्रेणी और मान अक्ष शामिल हैं।
 
-Aspose.Slides for PHP via Java विभिन्न चार्ट इकाइयों को प्रबंधित करने और उन्हें कस्टम मानों से फ़ॉर्मेट करने के लिए एक सरल API प्रदान करता है:
+[चार्ट](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) का उपयोग करके चार्ट शीर्षक, अक्ष, ग्रिड लाइन्स, लेजेंड और प्लॉट एरिया को फ़ॉर्मेट करें। यह उदाहरण मार्कर्स वाले एक लाइन चार्ट को डिफ़ॉल्ट डेटा के साथ बनाता है, फिर उसके मान और श्रेणी अक्षों पर अलग‑अलग टेक्स्ट और लाइन शैली लागू करता है। फ़ॉन्ट आकार और लाइन चौड़ाई पॉइंट में निर्दिष्ट की गई हैं; श्रेणी लेबल 45 डिग्री घुमाए गये हैं।
 
-1. [**Presentation**](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाएँ।
-1. स्लाइड को उसके इंडेक्स से प्राप्त करें।
-1. किसी भी इच्छित प्रकार के साथ डिफ़ॉल्ट डेटा वाला चार्ट जोड़ें (इस उदाहरण में हम ChartType::LineWithMarkers का उपयोग करेंगे)।
-1. चार्ट के वैल्यू एक्सिस तक पहुँचें और निम्न गुण सेट करें:
-   1. वैल्यू एक्सिस मेजर ग्रिड लाइनों के लिए **Line format** सेट करना
-   1. वैल्यू एक्सिस मिनर ग्रिड लाइनों के लिए **Line format** सेट करना
-   1. वैल्यू एक्सिस के लिए **Number Format** सेट करना
-   1. वैल्यू एक्सिस के लिए **Min, Max, Major and Minor units** सेट करना
-   1. वैल्यू एक्सिस डेटा के लिए **Text Properties** सेट करना
-   1. वैल्यू एक्सिस के लिए **Title** सेट करना
-   1. वैल्यू एक्सिस के लिए **Line Format** सेट करना
-1. चार्ट के कैटेगरी एक्सिस तक पहुँचें और निम्न गुण सेट करें:
-   1. कैटेगरी एक्सिस मेजर ग्रिड लाइनों के लिए **Line format** सेट करना
-   1. कैटेगरी एक्सिस मिनर ग्रिड लाइनों के लिए **Line format** सेट करना
-   1. कैटेगरी एक्सिस डेटा के लिए **Text Properties** सेट करना
-   1. कैटेगरी एक्सिस के लिए **Title** सेट करना
-   1. कैटेगरी एक्सिस के लिए **Label Positioning** सेट करना
-   1. कैटेगरी एक्सिस लेबल्स के लिए **Rotation Angle** सेट करना
-1. चार्ट के लेजेंड तक पहुँचें और उनके लिए **Text Properties** सेट करें
-1. ओवरलैपिंग चार्ट के बिना चार्ट लेजेंड दिखाएँ
-1. चार्ट के **Secondary Value Axis** तक पहुँचें और निम्न गुण सेट करें:
-   1. सेकेंडरी **Value Axis** को सक्षम करें
-   1. सेकेंडरी वैल्यू एक्सिस के लिए **Line Format** सेट करना
-   1. सेकेंडरी वैल्यू एक्सिस के लिए **Number Format** सेट करना
-   1. सेकेंडरी वैल्यू एक्सिस के लिए **Min, Max, Major and Minor units** सेट करना
-1. अब सेकेंडरी वैल्यू एक्सिस पर पहला चार्ट सीरीज़ प्लॉट करें
-1. चार्ट बैक वॉल फ़िल कलर सेट करें
-1. चार्ट प्लॉट एरिया फ़िल कलर सेट करें
-1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें
+मान अक्ष [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) को स्रोत कोशिकाओं से स्वतंत्र रूप से उपयोग करता है। इसका स्केल -2 से 15 तक है, मुख्य अंतराल 2 और गौण अंतराल 0.5 हैं। यह उदाहरण प्रतिशत फ़ॉर्मेट को [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) के साथ हजारों में सेट करने को भी जोड़ता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार समायोजित करें। लेजेंड प्लॉट एरिया के बाहर रहता है क्योंकि [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) को `false` के साथ कॉल किया गया है। पीछे की दीवार और फर्श भराव को [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) और [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) के माध्यम से कॉन्फ़िगर किया जाता है, लेकिन ये सतहें केवल 3D चार्ट में ही दिखाई देती हैं।
 
 ```php
-  # Presentation क्लास की एक इंस्टेंस बनाएं
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड तक पहुँच रहे हैं
-    $slide = $pres->getSlides()->get_Item(0);
-    # नमूना चार्ट जोड़ रहे हैं
+use aspose\slides\ChartType;
+use aspose\slides\DisplayUnitType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LineDashStyle;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\PresetColor;
+use aspose\slides\SaveFormat;
+use aspose\slides\TickLabelPositionType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
-    # चार्ट शीर्षक सेट कर रहे हैं
-    $chart->hasTitle();
+
+    $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("");
     $chartTitle = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $chartTitle->setText("Sample Chart");
@@ -78,266 +58,301 @@ Aspose.Slides for PHP via Java विभिन्न चार्ट इका�
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # वैल्यू एक्सिस के लिए मेजर ग्रिड लाइनों का फॉर्मेट सेट कर रहे हैं
+
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # वैल्यू एक्सिस के लिए माइनर ग्रिड लाइनों का फॉर्मेट सेट कर रहे हैं
+    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle::DashDot);
+
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # वैल्यू एक्सिस का नंबर फॉर्मेट सेट कर रहे हैं
-    $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
+
+    $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    # चार्ट के अधिकतम और न्यूनतम मान सेट कर रहे हैं
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getVerticalAxis()->setMaxValue(15.0);
-    $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
+
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(15);
+    $chart->getAxes()->getVerticalAxis()->setMinValue(-2);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    # वैल्यू एक्सिस के टेक्स्ट गुण सेट कर रहे हैं
-    $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
-    $txtVal->setFontBold(NullableBool::True);
-    $txtVal->setFontHeight(16);
-    $txtVal->setFontItalic(NullableBool::True);
-    $txtVal->getFillFormat()->setFillType(FillType::Solid);
-    $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
-    $txtVal->setLatinFont(new FontData("Times New Roman"));
-    # वैल्यू एक्सिस शीर्षक सेट कर रहे हैं
-    $chart->getAxes()->getVerticalAxis()->hasTitle();
+
+    $valueAxisText = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
+    $valueAxisText->setFontBold(NullableBool::True);
+    $valueAxisText->setFontHeight(16);
+    $valueAxisText->setFontItalic(NullableBool::True);
+    $valueAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkGreen);
+    $valueAxisText->setLatinFont(new FontData("Times New Roman"));
+
+    $chart->getAxes()->getVerticalAxis()->setTitle(true);
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
-    $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $valtitle->setText("Primary Axis");
-    $valtitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $valtitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $valtitle->getPortionFormat()->setFontHeight(20);
-    $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # कैटेगरी एक्सिस के लिए मेजर ग्रिड लाइनों का फॉर्मेट सेट कर रहे हैं
+    $valueAxisTitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $valueAxisTitle->setText("Primary Axis");
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $valueAxisTitle->getPortionFormat()->setFontHeight(20);
+    $valueAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $valueAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 128, 0));
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # कैटेगरी एक्सिस के लिए माइनर ग्रिड लाइनों का फॉर्मेट सेट कर रहे हैं
+
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # कैटेगरी एक्सिस के टेक्स्ट गुण सेट कर रहे हैं
-    $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
-    $txtCat->setFontBold(NullableBool::True);
-    $txtCat->setFontHeight(16);
-    $txtCat->setFontItalic(NullableBool::True);
-    $txtCat->getFillFormat()->setFillType(FillType::Solid);
-    $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $txtCat->setLatinFont(new FontData("Arial"));
-    # कैटेगरी शीर्षक सेट कर रहे हैं
-    $chart->getAxes()->getHorizontalAxis()->hasTitle();
+
+    $categoryAxisText = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
+    $categoryAxisText->setFontBold(NullableBool::True);
+    $categoryAxisText->setFontHeight(16);
+    $categoryAxisText->setFontItalic(NullableBool::True);
+    $categoryAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisText->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $categoryAxisText->setLatinFont(new FontData("Arial"));
+
+    $chart->getAxes()->getHorizontalAxis()->setTitle(true);
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
-    $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $catTitle->setText("Sample Category");
-    $catTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $catTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $catTitle->getPortionFormat()->setFontHeight(20);
-    $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # कैटेगरी एक्सिस लेबल स्थिति सेट कर रहे हैं
+
+    $categoryAxisTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $categoryAxisTitle->setText("Sample Category");
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $categoryAxisTitle->getPortionFormat()->setFontHeight(20);
+    $categoryAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $categoryAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # कैटेगरी एक्सिस लेबल घूर्णन कोण सेट कर रहे हैं
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    # लेजेंड के टेक्स्ट गुण सेट कर रहे हैं
-    $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
-    $txtleg->setFontBold(NullableBool::True);
-    $txtleg->setFontHeight(16);
-    $txtleg->setFontItalic(NullableBool::True);
-    $txtleg->getFillFormat()->setFillType(FillType::Solid);
-    $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # चार्ट के साथ ओवरलैप किए बिना लेजेंड दिखाने के लिए सेट करें
-    $chart->getLegend()->setOverlay(true);
-    # chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # सेकेंडरी वैल्यू एक्सिस सेट कर रहे हैं
-    $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # सेकेंडरी वैल्यू एक्सिस का नंबर फॉर्मेट सेट कर रहे हैं
-    $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    # चार्ट के अधिकतम और न्यूनतम मान सेट कर रहे हैं
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMaxValue(20.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    # चार्ट बैक वॉल का रंग सेट कर रहे हैं
+
+    $legendText = $chart->getLegend()->getTextFormat()->getPortionFormat();
+    $legendText->setFontBold(NullableBool::True);
+    $legendText->setFontHeight(16);
+    $legendText->setFontItalic(NullableBool::True);
+    $legendText->getFillFormat()->setFillType(FillType::Solid);
+    $legendText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkRed);
+
+    $chart->getLegend()->setOverlay(false);
+
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # प्लॉट एरिया का रंग सेट कर रहे हैं
+
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
-    # प्रस्तुति सहेजें
-    $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setPresetColor(PresetColor::LightCyan);
+
+    $presentation->save("FormattedChart_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **चार्ट के लिए फ़ॉन्ट गुण सेट करें**
-Aspose.Slides for PHP via Java चार्ट के लिए फ़ॉन्ट संबंधित गुण सेट करने का समर्थन प्रदान करता है। कृपया नीचे दिए गए चरणों का पालन करके चार्ट के फ़ॉन्ट गुण सेट करें।
 
-- [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास ऑब्जेक्ट का इंस्टैंसिएशन करें।
-- स्लाइड पर चार्ट जोड़ें।
-- फ़ॉन्ट की ऊँचाई सेट करें।
-- संशोधित प्रस्तुति को सहेजें।
-
-नीचे एक नमूना उदाहरण दिया गया है।
+[Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/) के माध्यम से चार्ट टेक्स्ट के लिए डिफ़ॉल्ट फ़ॉन्ट आकार सेट करें। यह उदाहरण 20‑पॉइंट फ़ॉन्ट वाले एक क्लस्टर्ड कॉलम चार्ट को बनाता है और पहले क्रम के लिए [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) के माध्यम से वैल्यू लेबल सक्षम करता है। अपने स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट तत्व चार्ट की डिफ़ॉल्ट को ओवरराइड कर सकते हैं।
 
 ```php
-  # Presentation क्लास की एक इंस्टेंस बनाएं
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
     $chart->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $pres->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **न्यूमेरिक फॉर्मेट सेट करें**
-Aspose.Slides for PHP via Java चार्ट डेटा फ़ॉर्मेट को प्रबंधित करने के लिए एक सरल API प्रदान करता है:
+## **संख्यात्मक फ़ॉर्मेट सेट करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास की एक इंस्टेंस बनाएँ।
-1. स्लाइड को उसके इंडेक्स से प्राप्त करें।
-1. किसी भी इच्छित प्रकार के साथ डिफ़ॉल्ट डेटा वाला चार्ट जोड़ें (इस उदाहरण में **ChartType::ClusteredColumn** उपयोग किया गया है)।
-1. उपलब्ध प्रीसेट मानों में से प्रीसेट नंबर फ़ॉर्मेट सेट करें।
-1. प्रत्येक चार्ट सीरीज़ में चार्ट डेटा सेल को पार करते हुए चार्ट डेटा नंबर फ़ॉर्मेट सेट करें।
-1. प्रस्तुति सहेजें।
-1. कस्टम नंबर फ़ॉर्मेट सेट करें।
-1. प्रत्येक चार्ट सीरीज़ में चार्ट डेटा सेल को पार करते हुए अलग-अलग चार्ट डेटा नंबर फ़ॉर्मेट सेट करें।
-1. प्रस्तुति सहेजें।
+[ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) का उपयोग करके चार्ट वर्कबुक कोशिकाओं पर बिल्ट‑इन नंबर फ़ॉर्मेट लागू करें। यह उदाहरण डिफ़ॉल्ट, सेल‑बैक्ड डेटा वाले एक क्लस्टर्ड कॉलम चार्ट को बनाता है और प्रत्येक श्रृंखला मान सेल पर फ़ॉर्मेट इंडेक्स 10 (`0.00%`) लागू करता है। इससे वर्कबुक में संख्याएँ नहीं बदलतीं, केवल उनका दिखावा बदलता है; उदाहरण के लिये, 0.25 को 25.00 % के रूप में प्रदर्शित किया जाता है। अक्ष और डेटा‑लेबल फ़ॉर्मेट को अलग‑अलग कॉन्फ़िगर किया जा सकता है।
 
 ```php
-  # Presentation क्लास की एक इंस्टेंस बनाएं
-  $pres = new Presentation();
-  try {
-    # पहले प्रस्तुतीकरण स्लाइड तक पहुँचें
-    $slide = $pres->getSlides()->get_Item(0);
-    # डिफ़ॉल्ट क्लस्टर्ड कॉलम चार्ट जोड़ें
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    # चार्ट सीरीज़ संग्रह तक पहुँच रहे हैं
     $series = $chart->getChartData()->getSeries();
-    # प्रत्येक चार्ट सीरीज़ के माध्यम से ट्रैवर्स करें
-    foreach($series as $ser) {
-      # सीरीज़ में प्रत्येक डेटा सेल के माध्यम से ट्रैवर्स करें
-      foreach($ser->getDataPoints() as $cell) {
-        # नंबर फ़ॉर्मेट सेट कर रहे हैं
-        $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
 
-      }
+    for ($i = 0; $i < java_values($series->size()); $i++) {
+        $chartSeries = $series->get_Item($i);
+        $dataPoints = $chartSeries->getDataPoints();
+        for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
+            $dataPoint = $dataPoints->get_Item($j);
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
+        }
     }
-    # प्रस्तुति सहेजें
-    $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("PresetNumberFormat_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-नीचे संभव प्रीसेट नंबर फ़ॉर्मेट मान, उनके इंडेक्स के साथ दिए गए हैं:
+निम्न तालिका में अंग्रेज़ी (संयुक्त राज्य) लोकल के प्रतिनिधि Excel फ़ॉर्मेट के साथ निर्मित संख्या फ़ॉर्मेट इंडेक्स दिखाए गये हैं। सटीक फ़ॉर्मेट स्ट्रिंग और उनका प्रदर्शन एप्लिकेशन और लोकल के अनुसार बदल सकता है, विशेषकर मुद्रा और तिथियों के लिये। कुछ Excel फ़ॉर्मेट OOXML मानक के डिफ़ॉल्ट से भी भिन्न होते हैं, जैसा कि [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| सूचकांक | फ़ॉर्मेट |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **चार्ट एरिया को गोल किनारा दें**
-Aspose.Slides for PHP via Java चार्ट एरिया को सेट करने का समर्थन प्रदान करता है। [**hasRoundedCorners**](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chart/hasroundedcorners/) और [**setRoundedCorners**](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chart/setroundedcorners/) मेथड्स को [Chart](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Chart) क्लास में जोड़ा गया है।
+## **चार्ट एरिया के गोल किनारे सेट करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/Presentation) क्लास ऑब्जेक्ट का इंस्टैंसिएशन करें।
-1. स्लाइड पर चार्ट जोड़ें।
-1. चार्ट का फ़िल टाइप और फ़िल कलर सेट करें।
-1. गोल कोना गुण को True सेट करें।
-1. संशोधित प्रस्तुति को सहेजें।
-
-नीचे एक नमूना उदाहरण दिया गया है।
+[Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) को `true` के साथ कॉल करके चार्ट एरिया के किनारों को गोल करें। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) का उपयोग करके उसकी रूपरेखा को ठोस ग्रे रंग और एकल‑लाइन शैली देता है, फिर प्रस्तुति को सहेजता है।
 
 ```php
-  # Presentation क्लास की एक इंस्टेंस बनाएं
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LineStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 100, 600, 400);
     $chart->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getLineFormat()->setStyle(LineStyle->Single);
+    $chart->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $chart->getLineFormat()->setStyle(LineStyle::Single);
     $chart->setRoundedCorners(true);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **मौजूदा चार्ट एनोटेशन संपादित करें**
 
-**क्या मैं कॉलम/एरिया के लिए अर्धपारदर्शी फ़िल सेट कर सकता हूँ जबकि बॉर्डर अपरदर्शी रहे?**
+एक चार्ट में कस्टम आकार हो सकते हैं, जैसे कि रिपोर्ट की स्थिति बताने वाला टेक्स्ट एनोटेशन। इन आकारों तक पहुंचने के लिये [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/) का प्रयोग करें। [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) द्वारा लौटाए गये संग्रह में चार्ट‑स्वामित्व वाले आकार होते हैं।
 
-हाँ। फ़िल ट्रांसपेरेंसी और आउटलाइन को अलग-अलग कॉन्फ़िगर किया जाता है। यह घनी विज़ुअलाइज़ेशन में ग्रिड और डेटा की पठनीयता को बेहतर बनाने में उपयोगी है।
+एक सामान्य टेक्स्ट बॉक्स जो चार्ट के ऊपर रखा गया हो वह स्लाइड का हिस्सा होता है, चाहे वह चार्ट का हिस्सा जैसा दिखे। [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) के माध्यम से इटरेट करने पर चार्ट तथा सामान्य स्लाइड आकार मिलते हैं, लेकिन चार्ट के भीतर व्यक्तिगत आकारों की सूची नहीं बनती। चार्ट शीर्षक और डेटा लेबल अलग‑अलग चार्ट तत्व होते हैं, न कि इस संग्रह में कस्टम एनोटेशन।
 
-**लेबल ओवरलैप होने पर मैं कैसे निपटूँ?**
+[chart-annotations.pptx](chart-annotations.pptx) को डाउनलोड करके एप्लिकेशन की कार्य निर्देशिका में रखें। इसकी पहली स्लाइड में एक चार्ट है जिसमें "Preliminary results" लिखा एक अनग्रुपेड एनोटेशन, एक चार्ट‑स्वामित्व वाली लाइनी और "Slide overlay" लिखा सामान्य स्लाइड टेक्स्ट बॉक्स है। उदाहरण पहले चार्ट को ढूंढता है और रिपोर्ट प्रकाशित होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली संग्रह की जाँच करता है और केवल उन [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) को संपादित करता है जिनके पास गैर‑नल टेक्स्ट फ्रेम है, जिसे [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) द्वारा प्राप्त किया गया है और जिसकी सामग्री अपेक्षित टेक्स्ट से मेल खाती है।
 
-फ़ॉन्ट आकार घटाएँ, गैर‑आवश्यक लेबल घटकों (जैसे श्रेणियाँ) को अक्षम करें, लेबल ऑफ़सेट/पोज़िशन सेट करें, आवश्यक होने पर केवल चयनित पॉइंट्स के लिए लेबल दिखाएँ, या फॉर्मेट को “value + legend” में बदलें।
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-**क्या मैं सीरीज़ पर ग्रेडिएंट या पैटर्न फ़िल अप्लाई कर सकता हूँ?**
+$presentation = new Presentation("chart-annotations.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-हाँ। ठोस और ग्रेडिएंट/पैटर्न फ़िल दोनों आमतौर पर उपलब्ध होते हैं। व्यावहारिक रूप से, ग्रेडिएंट का सीमित उपयोग करें और ऐसे संयोजन से बचें जो ग्रिड और टेक्स्ट के साथ कंट्रास्ट कम कर दें।
+    $chartType = new JavaClass("com.aspose.slides.IChart");
+    $autoShapeType = new JavaClass("com.aspose.slides.IAutoShape");
+    $chart = null;
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++) {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartType)) {
+            $chart = $shape;
+            break;
+        }
+    }
+
+    if ($chart === null || java_values($chart->getUserShapes()->getShapes()->size()) == 0) {
+        echo "No chart or chart-owned shapes found." . PHP_EOL;
+        return;
+    }
+
+    $updated = false;
+    $userShapes = $chart->getUserShapes()->getShapes();
+    for ($i = 0; $i < java_values($userShapes->size()); $i++) {
+        $shape = $userShapes->get_Item($i);
+        if (java_instanceof($shape, $autoShapeType)) {
+            $annotation = $shape;
+            if (!java_is_null($annotation->getTextFrame()) && java_values($annotation->getTextFrame()->getText()) === "Preliminary results") {
+                $annotation->getTextFrame()->setText("Final results");
+                $updated = true;
+                break;
+            }
+        }
+    }
+
+    if ($updated) {
+        $presentation->save("chart-annotations-updated.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No matching text annotation found." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+लाइन और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहता है। नीचे दिए गये चित्र इनपुट और सहेजा गया, पुनः खोला गया परिणाम दिखाते हैं:
+
+| संपादन से पहले | संपादन के बाद |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+उदाहरण केवल शीर्ष‑स्तर के चार्ट‑स्वामित्व वाले आकारों की जांच करता है। यदि कोई एनोटेशन एक [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) के अंदर है, तो उस समूह की [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) संग्रह को भी जांचें। नेस्टेड ग्रुप्स के लिये इसे पुनरावर्ती रूप से दोहराएँ, और उनके चाइल्ड आकारों पर समान टेक्स्ट जांच लागू करें। एक समूह स्वयं एक कंटेनर है; इसे टेक्स्ट बॉक्स के रूप में न मानें।
+{{% /alert %}}
+
+## **अक्सर पूछे जाने वाले प्रश्न**
+
+**क्या मैं कॉलम/एरिया के लिए अर्ध‑पारदर्शी फ़िल लागू करके बॉर्डर को अपारदर्शी रख सकता हूँ?**
+
+हां। फ़िल पारदर्शिता और रूपरेखा को अलग‑अलग कॉन्फ़िगर किया जाता है। यह ग्रिड और डेटा की पठनीयता को बढ़ाने में सहायक है।
+
+**डेटा लेबल ओवरलैप होने पर मैं क्या करूँ?**
+
+फ़ॉन्ट आकार कम करें, गैर‑आवश्यक लेबल घटकों (जैसे श्रेणियाँ) को निष्क्रिय करें, लेबल की स्थिति समायोजित करें, आवश्यक होने पर केवल चयनित बिंदुओं के लेबल दिखाएँ, या फ़ॉर्मेट को "value + legend" में बदलें।
+
+**क्या मैं श्रृंखला पर ग्रेडिएंट या पैटर्न फ़िल लागू कर सकता हूँ?**
+
+हां। श्रृंखलाएँ ठोस, ग्रेडिएंट और पैटर्न फ़िल का समर्थन करती हैं। अभ्यास में ग्रेडिएंट का सीमित उपयोग करें और ऐसे संयोजन से बचें जो ग्रिड और टेक्स्ट के बीच कंट्रास्ट कम कर दें।

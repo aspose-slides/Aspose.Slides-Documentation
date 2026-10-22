@@ -1,13 +1,13 @@
 ---
-title: JavaScript에서 프레젠테이션 차트 서식 지정
+title: JavaScript에서 프레젠테이션 차트 형식 지정
 linktitle: 차트 서식 지정
 type: docs
 weight: 60
 url: /ko/nodejs-java/chart-formatting/
 keywords:
 - 차트 서식 지정
-- 차트 서식 지정
-- 차트 엔터티
+- 차트 서식
+- 차트 개체
 - 차트 속성
 - 차트 설정
 - 차트 옵션
@@ -18,332 +18,323 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js의 차트 서식 지정 방법을 JavaScript에서 배우고, 전문적이고 시선을 끄는 스타일링으로 PowerPoint 프레젠테이션을 향상시키세요."
+description: "Java를 통해 Node.js용 Aspose.Slides의 차트 서식 지정 방법을 배우고, 사용자 지정 축, 글꼴, 숫자 형식 및 둥근 차트 테두리를 사용하여 PowerPoint 프레젠테이션을 향상시키세요."
 ---
-## **Overview**
+## **개요**
 
-이 문서에서는 Aspose.Slides를 사용하여 PowerPoint 프레젠테이션에서 차트를 서식 지정하는 방법을 설명합니다. 축, 눈금선, 제목, 범례, 플롯 영역 및 벽면 채우기와 같은 핵심 차트 요소를 사용자 정의하여 차트 데이터의 외관과 가독성을 향상시키는 방법을 보여줍니다.
+이 문서는 Aspose.Slides를 사용하여 PowerPoint 프레젠테이션에서 차트를 형식화하는 방법을 설명합니다. 차트 데이터의 외관과 가독성을 향상시키기 위해 축, 눈금선, 제목, 범례, 플롯 영역 및 벽 채우기와 같은 핵심 차트 요소를 사용자 지정하는 방법을 보여줍니다.
 
-또한 차트 텍스트에 대한 글꼴 속성을 설정하고, 차트 데이터에 사전 정의된 숫자 형식 및 사용자 정의 숫자 형식을 적용하며, 차트 영역에 둥근 모서리를 활성화하는 방법을 시연합니다. 이러한 예제를 통해 프레젠테이션에서 차트의 시각적 스타일과 데이터 표시를 모두 제어하는 방법을 배울 수 있습니다.
+또한 차트 텍스트의 글꼴 속성을 설정하고, 차트 데이터에 사전 정의된 숫자 형식을 적용하며, 차트 영역에 둥근 모서리를 적용하는 방법을 시연합니다. 이러한 예제들을 통해 프레젠테이션에서 차트의 시각적 스타일과 데이터 표시를 모두 제어하는 방법을 보여줍니다.
 
-## **Format Chart Entities**
+## **차트 개체 서식 지정**
 
-Aspose.Slides for Node.js via Java를 사용하면 개발자가 처음부터 슬라이드에 사용자 정의 차트를 추가할 수 있습니다. 이 문서는 차트 카테고리 축 및 값 축을 포함한 다양한 차트 엔터티를 서식 지정하는 방법을 설명합니다.
+[차트](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/)를 사용하여 차트 제목, 축, 눈금선, 범례 및 플롯 영역을 서식 지정합니다. 이 예제는 마커와 기본 데이터를 가진 선 차트를 만든 다음 값 축과 범주 축에 개별 텍스트 및 선 스타일을 적용합니다. 글꼴 크기와 선 두께는 포인트 단위로 지정되며, 범주 레이블은 45도 회전됩니다.
 
-Aspose.Slides for Node.js via Java는 다양한 차트 엔터티를 관리하고 사용자 정의 값으로 서식 지정할 수 있는 간단한 API를 제공합니다:
-
-1. [**Presentation**](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation/) 클래스를 인스턴스화합니다.
-1. 인덱스로 슬라이드 참조를 가져옵니다.
-1. 원하는 유형의 차트를 기본 데이터와 함께 추가합니다(이 예제에서는 ChartType.LineWithMarkers를 사용합니다).
-1. 차트 값 축에 접근하고 다음 속성을 설정합니다:
-   1. 값 축 주요 눈금선에 대한 **Line format** 설정
-   1. 값 축 보조 눈금선에 대한 **Line format** 설정
-   1. 값 축에 대한 **Number Format** 설정
-   1. 값 축에 대한 **Min, Max, Major and Minor units** 설정
-   1. 값 축 데이터에 대한 **Text Properties** 설정
-   1. 값 축에 대한 **Title** 설정
-   1. 값 축에 대한 **Line Format** 설정
-1. 차트 카테고리 축에 접근하고 다음 속성을 설정합니다:
-   1. 카테고리 축 주요 눈금선에 대한 **Line format** 설정
-   1. 카테고리 축 보조 눈금선에 대한 **Line format** 설정
-   1. 카테고리 축 데이터에 대한 **Text Properties** 설정
-   1. 카테고리 축에 대한 **Title** 설정
-   1. 카테고리 축에 대한 **Label Positioning** 설정
-   1. 카테고리 축 레이블에 대한 **Rotation Angle** 설정
-1. 차트 범례에 접근하고 **Text Properties**를 설정합니다.
-1. 차트가 겹치지 않도록 범례를 표시합니다.
-1. 차트 **Secondary Value Axis**에 접근하고 다음 속성을 설정합니다:
-   1. 보조 **Value Axis** 활성화
-   1. 보조 값 축에 대한 **Line Format** 설정
-   1. 보조 값 축에 대한 **Number Format** 설정
-   1. 보조 값 축에 대한 **Min, Max, Major and Minor units** 설정
-1. 이제 첫 번째 차트 시리즈를 보조 값 축에 플롯합니다.
-1. 차트 뒤쪽 벽면 채우기 색을 설정합니다.
-1. 차트 플롯 영역 채우기 색을 설정합니다.
-1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
+값 축은 소스 셀과 무관하게 [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) 를 사용합니다. 눈금은 -2에서 15까지이며 주요 간격은 2, 보조 간격은 0.5입니다. 이 예제는 또한 백분율 서식을 [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) 로 천 단위로 설정한 것과 결합하므로 데이터의 의미와 규모에 맞게 이러한 설정을 조정하십시오. 범례는 [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) 가 `false` 로 호출되었기 때문에 플롯 영역 밖에 유지됩니다. 뒤벽 및 바닥 채우기는 [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) 와 [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) 을 통해 구성되지만, 이러한 표면은 3D 차트에서만 표시됩니다.
 
 ```javascript
-// Presentation 클래스의 인스턴스를 생성합니다
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 첫 번째 슬라이드에 접근합니다
-    var slide = pres.getSlides().get_Item(0);
-    // 샘플 차트를 추가합니다
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
-    // 차트 제목 설정
-    chart.hasTitle();
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
+
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
-    var chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    let chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
     chartTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     chartTitle.getPortionFormat().setFontHeight(20);
-    chartTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chartTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // 값 축의 주요 격자선 서식 설정
+    chartTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    chartTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // 값 축의 보조 격자선 서식 설정
+    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // 값 축 숫자 서식 설정
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
-    // 차트 최대값 및 최소값 설정
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getVerticalAxis().setMaxValue(15.0);
-    chart.getAxes().getVerticalAxis().setMinValue(-2.0);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+
+    chart.getAxes().getVerticalAxis().setMaxValue(15);
+    chart.getAxes().getVerticalAxis().setMinValue(-2);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0);
-    // 값 축 텍스트 속성 설정
-    var txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(aspose.slides.NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(aspose.slides.NullableBool.True);
-    txtVal.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtVal.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkGreen));
-    txtVal.setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    // 값 축 제목 설정
-    chart.getAxes().getVerticalAxis().hasTitle();
+
+    let valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkGreen));
+    valueAxisText.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    var valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // 카테고리 축의 주요 격자선 서식 설정
+    let valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    // 카테고리 축의 보조 격자선 서식 설정
+
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // 카테고리 축 텍스트 속성 설정
-    var txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(aspose.slides.NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(aspose.slides.NullableBool.True);
-    txtCat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtCat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    txtCat.setLatinFont(new aspose.slides.FontData("Arial"));
-    // 카테고리 제목 설정
-    chart.getAxes().getHorizontalAxis().hasTitle();
+
+    let categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    categoryAxisText.setLatinFont(new aspose.slides.FontData("Arial"));
+
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
-    var catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // 카테고리 축 레이블 위치 설정
+
+    let categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(aspose.slides.TickLabelPositionType.Low);
-    // 카테고리 축 레이블 회전 각도 설정
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
-    // 범례 텍스트 속성 설정
-    var txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(aspose.slides.NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(aspose.slides.NullableBool.True);
-    txtleg.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkRed));
-    // 차트가 겹치지 않도록 범례를 표시하도록 설정
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // 보조 값 축 설정
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(aspose.slides.LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-    // 보조 값 축 숫자 서식 설정
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-    // 차트 최대값 및 최소값 설정
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0);
-    // 차트 뒷벽 색상 설정
+
+    let legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    legendText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkRed));
+
+    chart.getLegend().setOverlay(false);
+
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
     chart.getFloor().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // 플롯 영역 색상 설정
+
     chart.getPlotArea().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.LightCyan));
-    // 프레젠테이션 저장
-    pres.save("FormattedChart.pptx", aspose.slides.SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.LightCyan));
+
+    presentation.save("FormattedChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Set Font Properties for Chart**
+## **차트에 대한 글꼴 속성 설정**
 
-Aspose.Slides for Node.js via Java는 차트에 대한 글꼴 관련 속성을 설정하는 기능을 제공합니다. 차트의 글꼴 속성을 설정하려면 아래 단계를 따르세요.
-
-- [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation/) 클래스 객체를 인스턴스화합니다.
-- 슬라이드에 차트를 추가합니다.
-- 글꼴 높이를 설정합니다.
-- 수정된 프레젠테이션을 저장합니다.
-
-아래에 샘플 예제가 제공됩니다.
+[Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) 을 통해 차트 텍스트의 기본 글꼴 크기를 설정합니다. 이 예제는 20포인트 글꼴을 사용한 클러스터형 열 차트를 만들고 [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) 로 첫 번째 시리즈에 값 레이블을 활성화합니다. 자체 명시적 글꼴 설정을 가진 텍스트 요소는 차트 기본값을 재정의할 수 있습니다.
 
 ```javascript
-// Presentation 클래스의 인스턴스를 생성합니다
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    pres.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Set Format of Numerics**
+## **숫자 형식 설정**
 
-Aspose.Slides for Node.js via Java는 차트 데이터 형식을 관리하기 위한 간단한 API를 제공합니다:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 인덱스로 슬라이드 참조를 가져옵니다.
-1. 기본 데이터와 함께 원하는 유형의 차트를 추가합니다(이 예제에서는 **ChartType.ClusteredColumn**을 사용합니다).
-1. 가능한 사전 정의 값 중에서 사전 정의 숫자 형식을 설정합니다.
-1. 각 차트 시리즈의 차트 데이터 셀을 순회하면서 차트 데이터 숫자 형식을 설정합니다.
-1. 프레젠테이션을 저장합니다.
-1. 사용자 정의 숫자 형식을 설정합니다.
-1. 각 차트 시리즈의 차트 데이터 셀을 순회하면서 서로 다른 차트 데이터 숫자 형식을 설정합니다.
-1. 프레젠테이션을 저장합니다.
+[ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) 을 사용하여 차트 워크북 셀에 내장 숫자 형식을 적용합니다. 이 예제는 기본 셀 기반 데이터를 가진 클러스터형 열 차트를 만들고 각 시리즈 값 셀에 형식 인덱스 10(`0.00%`)을 적용합니다. 이는 기본 숫자를 변경하지 않고 워크북에서 값이 표시되는 방식을 바꿉니다. 예를 들어 0.25는 25.00% 로 표시됩니다. 축 및 데이터 레이블 형식은 별도로 구성할 수 있습니다.
 
 ```javascript
-// Presentation 클래스의 인스턴스를 생성합니다
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // 첫 번째 프레젠테이션 슬라이드에 접근합니다
-    var slide = pres.getSlides().get_Item(0);
-    // 기본 클러스터드 컬럼 차트를 추가합니다
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
-    // 차트 시리즈 컬렉션에 접근합니다
-    var series = chart.getChartData().getSeries();
-    // 각 차트 시리즈를 순회합니다
-    for (var i = 0; i < series.size(); i++) {
-        var ser = series.get_Item(i);
-        // 시리즈의 각 데이터 셀을 순회합니다
-        for (var j = 0; j < ser.getDataPoints().size(); j++) {
-            var cell = ser.getDataPoints().get_Item(j);
-            // 숫자 서식을 설정합니다
-            cell.getValue().getAsCell().setPresetNumberFormat(java.newByte(10));// 0.00%
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
+    let series = chart.getChartData().getSeries();
+
+    for (let i = 0; i < series.size(); i++) {
+        let chartSeries = series.get_Item(i);
+        for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
+            let dataPoint = chartSeries.getDataPoints().get_Item(j);
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0.00%
         }
     }
-    // 프레젠테이션을 저장합니다
-    pres.save("PresetNumberFormat.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("PresetNumberFormat_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-가능한 사전 정의 숫자 형식 값과 해당 인덱스는 다음과 같습니다:
+다음 표는 영어(미국) 로케일에 대한 대표적인 Excel 형식과 함께 내장 숫자 형식 인덱스를 나열합니다. 정확한 형식 문자열과 표시 방식은 애플리케이션 및 로케일에 따라 다를 수 있으며, 특히 통화와 날짜 형식에서 차이가 있습니다. 일부 Excel 형식은 [Microsoft의 숫자 형식 구현 노트](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) 에 설명된 OOXML 표준의 기본값과도 다를 수 있습니다.
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| 인덱스 | 형식 |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Set Chart Area Rounded Borders**
+## **차트 영역 둥근 테두리 설정**
 
-Aspose.Slides for Node.js via Java는 차트 영역에 둥근 모서리를 설정하는 기능을 제공합니다. 메서드 [**hasRoundedCorners**](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) 및 [**setRoundedCorners**](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-)가 [Chart](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Chart) 클래스에 추가되었습니다.
-
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스 객체를 인스턴스화합니다.
-1. 슬라이드에 차트를 추가합니다.
-1. 차트의 채우기 유형과 채우기 색을 설정합니다.
-1. 둥근 모서리 속성을 True로 설정합니다.
-1. 수정된 프레젠테이션을 저장합니다.
-
-아래에 샘플 예제가 제공됩니다.
+[Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) 에 `true` 를 전달하여 차트 영역의 모서리를 둥글게 합니다. 이 예제는 클러스터형 열 차트를 만든 다음 [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) 을 사용해 외곽선을 실색 회색과 단일 선 스타일로 지정한 후 프레젠테이션을 저장합니다.
 
 ```javascript
-// Presentation 클래스의 인스턴스를 생성합니다
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getLineFormat().setStyle(aspose.slides.LineStyle.Single);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    chart.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.Single));
     chart.setRoundedCorners(true);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **기존 차트 주석 편집**
+
+차트는 보고서 상태를 설명하는 텍스트 주석과 같은 사용자 정의 도형을 포함할 수 있습니다. 이러한 도형은 [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) 로 접근합니다. [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) 가 반환하는 컬렉션에는 차트가 소유한 도형이 들어 있습니다.
+
+차트 위에 배치된 일반 텍스트 상자는 차트의 일부처럼 보여도 슬라이드에 속합니다. [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) 를 순회하면 차트와 일반 슬라이드 도형을 찾을 수 있지만 차트 내부의 개별 도형은 열거되지 않습니다. 차트 제목과 데이터 레이블은 별도의 차트 요소이며, 이 컬렉션에 포함된 사용자 정의 주석이 아닙니다.
+
+[chart-annotations.pptx](chart-annotations.pptx) 를 다운로드하여 애플리케이션 작업 디렉터리에 배치합니다. 첫 번째 슬라이드에는 "예비 결과" 라는 라벨이 붙은 분리된 주석, 차트가 소유한 선, "슬라이드 오버레이" 라는 라벨이 붙은 일반 텍스트 상자가 포함된 차트가 있습니다. 예제는 해당 슬라이드에서 첫 번째 차트를 찾아 보고서가 게시 준비가 되면 주석을 "최종 결과" 로 변경합니다. 컬렉션이 비어 있는지 확인하고, [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) 중 [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) 으로 반환된 텍스트 프레임이 null이 아니며 예상 텍스트와 일치하는 경우에만 편집합니다.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("chart-annotations.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = null;
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+            chart = shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        console.log("No chart or chart-owned shapes found.");
+    } else {
+        let updated = false;
+        for (let i = 0; i < chart.getUserShapes().getShapes().size(); i++) {
+            let shape = chart.getUserShapes().getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                let annotation = shape;
+                if (annotation.getTextFrame() != null && annotation.getTextFrame().getText() === "Preliminary results") {
+                    annotation.getTextFrame().setText("Final results");
+                    updated = true;
+                    break;
+                }
+            }
+        }
+
+        if (updated) {
+            presentation.save("chart-annotations-updated.pptx", aspose.slides.SaveFormat.Pptx);
+        } else {
+            console.log("No matching text annotation found.");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+선과 슬라이드 텍스트 상자는 변경되지 않은 상태로 남습니다. 다음 이미지들은 입력 파일과 저장 후 다시 연 결과를 보여줍니다:
+
+| 편집 전 | 편집 후 |
+| --- | --- |
+| ![예비 결과를 나타내는 차트 주석](chart-annotations-before.png) | ![최종 결과를 나타내는 차트 주석](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+예제는 최상위 차트 소유 도형만 검사합니다. 주석이 [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) 내부에 있는 경우 해당 그룹의 [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) 컬렉션도 검사하십시오. 중첩된 그룹에 대해서는 재귀적으로 동일한 텍스트 검사를 수행하여 하위 도형에 적용합니다. 그룹 자체는 컨테이너이며 텍스트 상자로 취급하면 안 됩니다.
+{{% /alert %}}
 
 ## **FAQ**
 
-**Can I set semi-transparent fills for columns/areas while keeping the border opaque?**
+**열/영역에 반투명 채우기를 적용하면서 테두리는 불투명하게 유지할 수 있나요?**
 
-예. 채우기 투명도와 외곽선은 별도로 구성됩니다. 이는 격자와 데이터가 촘촘한 시각화에서 가독성을 높이는 데 유용합니다.
+예. 채우기 투명도와 외곽선은 별도로 구성됩니다. 이는 격자와 데이터의 가독성을 높이는 데 유용합니다.
 
-**How can I deal with data labels when they overlap?**
+**레이블이 겹칠 때 어떻게 처리해야 하나요?**
 
-글꼴 크기를 줄이거나, 필요 없는 레이블 요소(예: 카테고리)를 비활성화하고, 레이블 오프셋/위치를 설정하며, 필요 시 선택된 포인트에만 레이블을 표시하거나 “값 + 범례” 형식으로 전환합니다.
+글꼴 크기를 줄이거나, 필요 없는 레이블 요소(예: 범주)를 비활성화하고, 레이블 위치를 조정하거나, 필요 시 선택된 포인트에만 레이블을 표시하거나, "값 + 범례" 형식으로 전환하십시오.
 
-**Can I apply gradient or pattern fills to series?**
+**시리즈에 그래디언트나 패턴 채우기를 적용할 수 있나요?**
 
-예. 고체 채우기와 그라디언트/패턴 채우기가 일반적으로 제공됩니다. 실무에서는 그라디언트를 적게 사용하고, 격자와 텍스트 대비를 감소시키는 조합은 피하는 것이 좋습니다.
+예. 시리즈는 단색, 그라디언트 및 패턴 채우기를 지원합니다. 실제로는 그라디언트를 제한적으로 사용하고, 격자와 텍스트 대비를 감소시키는 조합은 피하십시오.

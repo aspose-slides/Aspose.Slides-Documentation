@@ -7,7 +7,7 @@ url: /el/python-java/chart-formatting/
 keywords:
 - μορφοποίηση διαγράμματος
 - μορφοποίηση διαγράμματος
-- στοιχείο διαγράμματος
+- οντότητα διαγράμματος
 - ιδιότητες διαγράμματος
 - ρυθμίσεις διαγράμματος
 - επιλογές διαγράμματος
@@ -17,47 +17,19 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Μάθετε τη μορφοποίηση διαγραμμάτων στο Aspose.Slides για Python μέσω Java και ενισχύστε την παρουσίαση PowerPoint σας με επαγγελματικό, εντυπωσιακό στυλ."
+description: "Μάθετε τη μορφοποίηση διαγραμμάτων στο Aspose.Slides για Python μέσω Java και βελτιώστε την παρουσίαση PowerPoint σας με προσαρμοσμένους άξονες, γραμματοσειρές, αριθμητικές μορφές και στρογγυλεμένα περιγράμματα διαγράμματος."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να προσαρμόζετε βασικά στοιχεία του διαγράμματος όπως οι άξονες, οι γραμμές πλέγματος, οι τίτλοι, τα υπομνήματα, η περιοχή σχεδίασης και οι γεμίσεις τοίχου για να βελτιώσετε την εμφάνιση και την αναγνωσιμότητα των δεδομένων του διαγράμματος.
+Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να προσαρμόζετε βασικά στοιχεία του διαγράμματος όπως άξονες, γραμμές πλέγματος, τίτλους, υπομνήματα, την περιοχή σχεδίασης και τις γεμίσεις τοίχου ώστε να βελτιώσετε την εμφάνιση και την αναγνωσιμότητα των δεδομένων του διαγράμματος.
 
-Επίσης, παρουσιάζει πώς να ορίζετε ιδιότητες γραμματοσειράς για το κείμενο του διαγράμματος, να εφαρμόζετε προεπιλεγμένες και προσαρμοσμένες αριθμητικές μορφές στα δεδομένα του διαγράμματος και να ενεργοποιείτε στρογγυλεμένες γωνίες για την περιοχή του διαγράμματος. Μαζί, αυτά τα παραδείγματα δείχνουν πώς να ελέγχετε τόσο το οπτικό στυλ όσο και την παρουσίαση των δεδομένων των διαγραμμάτων σε μια παρουσίαση.
+Επίσης, δείχνει πώς να ορίζετε ιδιότητες γραμματοσειράς για το κείμενο του διαγράμματος, να εφαρμόζετε προρυθμισμένες αριθμητικές μορφές στα δεδομένα του διαγράμματος και να ενεργοποιείτε στρογγυλεμένες γωνίες για την περιοχή του διαγράμματος. Μαζί, αυτά τα παραδείγματα δείχνουν πώς να ελέγχετε τόσο το οπτικό στυλ όσο και την παρουσίαση των δεδομένων των διαγραμμάτων σε μια παρουσίαση.
 
 ## **Μορφοποίηση Στοιχείων Διαγράμματος**
-Aspose.Slides for Python via Java επιτρέπει στους προγραμματιστές να προσθέτουν προσαρμοσμένα διαγράμματα στις διαφάνειές τους από την αρχή. Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε διαφορετικά στοιχεία διαγράμματος, συμπεριλαμβανομένων των άξονων κατηγορίας και τιμής.
 
-Aspose.Slides for Python via Java παρέχει ένα απλό API για τη διαχείριση διαφορετικών στοιχείων διαγράμματος και τη μορφοποίησή τους με προσαρμοσμένες τιμές:
+Use [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) για να μορφοποιήσετε τους τίτλους διαγραμμάτων, τους άξονες, τις γραμμές πλέγματος, τα υπομνήματα και την περιοχή σχεδίασης. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με δείκτες και προεπιλεγμένα δεδομένα, στη συνέχεια εφαρμόζει ξεχωριστά στυλ κειμένου και γραμμής στους άξονες τιμής και κατηγορίας του. Τα μεγέθη γραμματοσειράς και τα πλάτη των γραμμών καθορίζονται σε πόντους· οι ετικέτες κατηγορίας περιστρέφονται κατά 45 μοίρες.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-1. Προσπελάστε μια διαφάνεια με το δείκτη της.
-1. Προσθέστε ένα διάγραμμα του επιθυμητού τύπου με προεπιλεγμένα δεδομένα (αυτό το παράδειγμα χρησιμοποιεί [ChartType.LineWithMarkers](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#LineWithMarkers)).
-1. Προσπελάστε τον άξονα τιμών του διαγράμματος και ορίστε τις παρακάτω ιδιότητες:
-   1. Ορίστε **Line format** για τις κύριες γραμμές πλέγματος του άξονα τιμών.
-   1. Ορίστε **Line format** για τις δευτερεύουσες γραμμές πλέγματος του άξονα τιμών.
-   1. Ορίστε **Number Format** για τον άξονα τιμών.
-   1. Ορίστε **minimum, maximum, major, and minor units** για τον άξονα τιμών.
-   1. Ορίστε **Text Properties** για τα δεδομένα του άξονα τιμών.
-   1. Ορίστε **Title** για τον άξονα τιμών.
-1. Προσπελάστε τον άξονα κατηγορίας του διαγράμματος και ορίστε τις παρακάτω ιδιότητες:
-   1. Ορίστε **Line format** για τις κύριες γραμμές πλέγματος του άξονα κατηγορίας.
-   1. Ορίστε **Line format** για τις δευτερεύουσες γραμμές πλέγματος του άξονα κατηγορίας.
-   1. Ορίστε **Text Properties** για τα δεδομένα του άξονα κατηγορίας.
-   1. Ορίστε **Title** για τον άξονα κατηγορίας.
-   1. Ορίστε **Label Positioning** για τον άξονα κατηγορίας.
-   1. Ορίστε **Rotation Angle** για τις ετικέτες του άξονα κατηγορίας.
-1. Προσπελάστε το υπόμνημα του διαγράμματος και ορίστε τις **text properties** του.
-1. Εμφανίστε το υπόμνημα του διαγράμματος χωρίς να επικαλύπτει το διάγραμμα.
-1. Προσπελάστε τον **secondary value axis** του διαγράμματος και ορίστε τις παρακάτω ιδιότητες:
-   1. Ενεργοποιήστε τον δευτερογενή **value axis**.
-   1. Ορίστε **Line Format** για τον δευτερογενή άξονα τιμών.
-   1. Ορίστε **Number Format** για τον δευτερογενή άξονα τιμών.
-   1. Ορίστε **minimum, maximum, major, and minor units** για τον δευτερογενή άξονα τιμών.
-1. Σχεδιάστε τη πρώτη σειρά διαγράμματος στον δευτερογενή άξονα τιμών.
-1. Ορίστε το χρώμα γεμίσματος του πίσω τοίχου του διαγράμματος.
-1. Ορίστε το χρώμα γεμίσματος της περιοχής σχεδίασης του διαγράμματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+Ο άξονας τιμής χρησιμοποιεί [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) ανεξάρτητα από τα πηγαία κελιά. Η κλίμακά του κυμαίνεται από -2 έως 15, με κύρια διαστήματα των 2 και δευτερεύοντα διαστήματα των 0,5. Το παράδειγμα επίσης συνδυάζει μορφοποίηση ποσοστών με [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) ορισμένη σε χιλιάδες, έτσι προσαρμόστε αυτές τις ρυθμίσεις στο νόημα και το μέγεθος των δεδομένων σας. Το υπόμνημα παραμένει εκτός της περιοχής σχεδίασης επειδή το [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) καλείται με `False`. Οι γεμίσεις του πίσω τοίχου και του δαπέδου ρυθμίζονται μέσω του [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) και του [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), αλλά αυτές οι επιφάνειες είναι ορατές μόνο σε 3D διαγράμματα.
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation
 presentation = Presentation()
 try:
-    # Πρόσβαση στην πρώτη διαφάνεια
     slide = presentation.getSlides().get_Item(0)
 
-    # Προσθήκη του παραδείγματικού διαγράμματος
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # Ορισμός Τίτλου Διαγράμματος
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Ορισμός μορφής κύριων γραμμών πλέγματος για τον άξονα τιμών
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # Ορισμός μορφής δευτερευουσών γραμμών πλέγματος για τον άξονα τιμών
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Ορισμός μορφής αριθμού για τον άξονα τιμών
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # Ορισμός μέγιστων και ελάχιστων τιμών διαγράμματος
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # Ορισμός ιδιοτήτων κειμένου του άξονα τιμών
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # Ορισμός τίτλου άξονα τιμών
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Ορισμός μορφής κύριων γραμμών πλέγματος για τον άξονα κατηγορίας
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # Ορισμός μορφής δευτερευουσών γραμμών πλέγματος για τον άξονα κατηγορίας
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Ορισμός ιδιοτήτων κειμένου του άξονα κατηγορίας
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # Ορισμός Τίτλου Κατηγορίας
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,74 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Ορισμός θέσης ετικέτας άξονα κατηγορίας
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # Ορισμός γωνίας περιστροφής ετικέτας άξονα κατηγορίας
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # Ορισμός ιδιοτήτων κειμένου υπομνήματος
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # Εμφάνιση του υπομνήματος διαγράμματος χωρίς επικάλυψη
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # Ορισμός δευτερεύοντος άξονα τιμών
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # Ορισμός μορφής αριθμού για τον δευτερεύοντα άξονα τιμών
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # Ορισμός μέγιστων και ελάχιστων τιμών διαγράμματος
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # Ορισμός χρώματος πίσω τοίχου διαγράμματος
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # Ορισμός χρώματος περιοχής σχεδίασης
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # Αποθήκευση της παρουσίασης
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Ορίστε Ιδιότητες Γραμματοσειράς για ένα Διάγραμμα**
-Aspose.Slides for Python via Java υποστηρίζει τον ορισμό ιδιοτήτων γραμματοσειράς για διαγράμματα. Ακολουθήστε αυτά τα βήματα για να ορίσετε τις ιδιότητες γραμματοσειράς:
+## **Ορισμός Ιδιοτήτων Γραμματοσειράς για Διάγραμμα**
 
-- Δημιουργήστε ένα αντικείμενο της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-- Προσθέστε ένα διάγραμμα στη διαφάνεια.
-- Ορίστε το ύψος γραμματοσειράς.
-- Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Το παρακάτω παράδειγμα δείχνει αυτά τα βήματα.
+Ορίστε το προεπιλεγμένο μέγεθος γραμματοσειράς για το κείμενο του διαγράμματος μέσω του [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). Το παράδειγμα δημιουργεί ένα συγκεντρωτικό διάγραμμα στηλών με γραμματοσειρά 20 πόντων και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά μέσω του [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Στοιχεία κειμένου με τις δικές τους ρητές ρυθμίσεις γραμματοσειράς μπορούν να παρακάμψουν την προεπιλογή του διαγράμματος.
 
 ```python
 import jpype
@@ -246,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-    # Δημιουργήστε ένα αντικείμενο της κλάσης Presentation
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -259,15 +183,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ορίστε τη Μορφή Αριθμών**
-Aspose.Slides for Python via Java παρέχει ένα απλό API για τη διαχείριση μορφών δεδομένων διαγράμματος:
+## **Ορισμός Αριθμητικής Μορφής**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-1. Προσπελάστε μια διαφάνεια με το δείκτη της.
-1. Προσθέστε ένα διάγραμμα του επιθυμητού τύπου με προεπιλεγμένα δεδομένα (αυτό το παράδειγμα χρησιμοποιεί [ChartType.ClusteredColumn](https://reference.aspose.com/slides/el/python-java/aspose.slides/charttype/#ClusteredColumn)).
-1. Ορίστε τη προεπιλεγμένη μορφή αριθμού από τις διαθέσιμες προεπιλεγμένες τιμές.
-1. Επανάληψη στις κυψέλες δεδομένων κάθε σειράς διαγράμματος και ορισμός της μορφής αριθμού τους.
-1. Αποθηκεύστε την παρουσίαση.
+Χρησιμοποιήστε το [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) για να εφαρμόσετε μια ενσωματωμένη αριθμητική μορφή στα κελιά του βιβλίου εργασίας του διαγράμματος. Αυτό το παράδειγμα δημιουργεί ένα συγκεντρωτικό διάγραμμα στηλών με προεπιλεγμένα, δεδομένα υποστηριζόμενα από κελιά και εφαρμόζει τον δείκτη μορφής 10 (`0.00%`) σε κάθε κελί τιμής σειράς. Αυτό αλλάζει τον τρόπο εμφάνισης των τιμών στο βιβλίο εργασίας χωρίς να αλλάζει τους υποκείμενους αριθμούς· για παράδειγμα, το 0.25 εμφανίζεται ως 25,00%. Οι μορφές άξονα και ετικετών δεδομένων μπορούν να ρυθμιστούν ξεχωριστά.
 
 ```python
 import jpype
@@ -278,81 +196,66 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation
 presentation = Presentation()
 try:
-    # Πρόσβαση στην πρώτη διαφάνεια παρουσίασης
     slide = presentation.getSlides().get_Item(0)
 
-    # Προσθήκη προεπιλεγμένου διαγράμματος στήλης με συστοιχίσεις
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # Πρόσβαση στη συλλογή σειρών του διαγράμματος
     chart_series_collection = chart.getChartData().getSeries()
 
-    # Επανάληψη σε κάθε σειρά του διαγράμματος
     for chart_series in chart_series_collection:
-        # Επανάληψη σε κάθε σημείο δεδομένων της σειράς
         for data_point in chart_series.getDataPoints():
-            # Ορισμός μορφής αριθμού
-            data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0.00%
+            data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0,00%
 
-    # Αποθήκευση της παρουσίασης
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Οι διαθέσιμες προεπιλεγμένες μορφές αριθμών και οι δείκτες τους παρατίθενται παρακάτω:
+Ο ακόλουθος πίνακας παραθέτει ενσωματωμένα δείκτες αριθμητικής μορφής με αντιπροσωπευτικές μορφές Excel για τη ρύθμιση περιοχής (English (United States)). Τα ακριβή συμβολοσειρά μορφής και η εμφάνισή τους μπορεί να διαφέρουν ανά εφαρμογή και τοπική ρύθμιση, ιδιαίτερα για νομίσματα και ημερομηνίες. Ορισμένες μορφές Excel διαφέρουν επίσης από τις προεπιλογές του προτύπου OOXML, όπως περιγράφεται στις [σημειώσεις υλοποίησης αριθμητικών μορφών της Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|Γενικό|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Ορίστε Στρογγυλοποιημένα Όρια Περιοχής Διαγράμματος**
-Aspose.Slides for Python via Java υποστηρίζει στρογγυλεμένες γωνίες για την περιοχή του διαγράμματος μέσω των μεθόδων [hasRoundedCorners](https://reference.aspose.com/slides/el/python-java/aspose.slides/chart/#hasRoundedCorners) και [setRoundedCorners](https://reference.aspose.com/slides/el/python-java/aspose.slides/chart/#setRoundedCorners) της κλάσης [Chart](https://reference.aspose.com/slides/el/python-java/aspose.slides/chart/).
+## **Ορισμός Στρογγυλεμένων Περιγραμμάτων Περιοχής Διαγράμματος**
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-1. Προσθέστε ένα διάγραμμα στη διαφάνεια.
-1. Ορίστε τον τύπο γεμίσματος και το στυλ της γραμμής περιγράμματος του διαγράμματος.
-1. Ενεργοποιήστε τις στρογγυλεμένες γωνίες.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Το παρακάτω παράδειγμα δείχνει αυτά τα βήματα.
+Κλήστε το [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) με `True` για να στρογγυλεύσετε τις γωνίες της περιοχής του διαγράμματος. Το παράδειγμα δημιουργεί ένα συγκεντρωτικό διάγραμμα στηλών και χρησιμοποιεί το [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) για να δώσει στο περίγραμμα του μια συμπαγή γκρίζα απόχρωση και ένα στυλ μονογραμμής πριν αποθηκευθεί η παρουσίαση.
 
 ```python
 import jpype
@@ -363,31 +266,90 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **ΣΥΜΒΑΤΕΣ**
+## **Επεξεργασία Υπάρχουσας Σχολιασμών Διαγράμματος**
 
-**Μπορώ να ορίσω ημιδιαφανείς γεμίσεις για στήλες/περιοχές ενώ το περίγραμμα παραμένει αδιαφανές;**
+Ένα διάγραμμα μπορεί να περιέχει προσαρμοσμένα σχήματα, όπως μια σχολιαστική σημείωση κειμένου που εξηγεί την κατάσταση μιας αναφοράς. Πρόσβαση σε αυτά τα σχήματα μέσω του [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). Η συλλογή που επιστρέφεται από το [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) περιέχει τα σχήματα που ανήκουν στο διάγραμμα.
 
-Ναι. Η διαφάνεια του γεμίσματος και η γραμμή περιγράμματος διαχειρίζονται ξεχωριστά. Αυτό είναι χρήσιμο για τη βελτίωση της αναγνωσιμότητας του πλέγματος και των δεδομένων σε πυκνές οπτικοποιήσεις.
+Ένα συνηθισμένο πλαίσιο κειμένου τοποθετημένο πάνω σε ένα διάγραμμα ανήκει στη διαφάνεια, ακόμη κι αν μοιάζει με μέρος του διαγράμματος. Η επανάληψη μέσω του [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) εντοπίζει το διάγραμμα και τα συνηθισμένα σχήματα της διαφάνειας, αλλά δεν απαριθμεί τα μεμονωμένα σχήματα μέσα στο διάγραμμα. Οι τίτλοι διαγράμματος και οι ετικέτες δεδομένων είναι ξεχωριστά στοιχεία του διαγράμματος, όχι προσαρμοσμένοι σχολιασμοί σε αυτή τη συλλογή.
 
-**Πώς μπορώ να αντιμετωπίσω ετικέτες δεδομένων όταν επικαλύπτονται;**
+Κατεβάστε το [chart-annotations.pptx](chart-annotations.pptx) και τοποθετήστε το στον κατάλογο εργασίας της εφαρμογής. Η πρώτη του διαφάνεια περιέχει ένα διάγραμμα με μια μη ομαδοποιημένη σχολιαστική σημείωση που λέει "Preliminary results", μια γραμμή που ανήκει στο διάγραμμα, και ένα συνηθισμένο πλαίσιο κειμένου διαφάνειας που λέει "Slide overlay". Το παράδειγμα εντοπίζει το πρώτο διάγραμμα σε αυτή τη διαφάνεια και αλλάζει τη σχολιαστική σημείωση σε "Final results" όταν η αναφορά είναι έτοιμη για δημοσίευση. Ελέγχει για κενή συλλογή και επεξεργάζεται μόνο ένα [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) με ένα πλαίσιο κειμένου διαφορετικό από `None` που επιστρέφεται από το [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) και το αναμενόμενο κείμενο.
 
-Μειώστε το μέγεθος της γραμματοσειράς, απενεργοποιήστε μη απαραίτητα στοιχεία ετικετών (π.χ. κατηγορίες), ορίστε την απόκλιση/θέση της ετικέτας, εμφανίστε ετικέτες μόνο για επιλεγμένα σημεία εφόσον χρειάζεται, ή αλλάξτε τη μορφή σε «τιμή + υπόμνημα».
+```python
+import jpype
+import asposeslides
 
-**Μπορώ να εφαρμόσω διαβαθμίσεις ή μοτίβα γεμίσματος σε σειρές;**
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-Ναι. Συνήθως διατίθενται τόσο γεμίσματα μονής απόχρωσης όσο και διαβαθμίσεων/μοτίβων. Στην πράξη, χρησιμοποιήστε τις διαβαθμίσεις με μέτρο και αποφύγετε συνδυασμούς που μειώνουν την αντίθεση με το πλέγμα και το κείμενο.
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+Η γραμμή και το πλαίσιο κειμένου της διαφάνειας παραμένουν αμετάβλητα. Οι παρακάτω εικόνες δείχνουν την είσοδο και το αποθηκευμένο, ξαναανοιγμένο αποτέλεσμα:
+
+| Πριν την επεξεργασία | Μετά την επεξεργασία |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Το παράδειγμα εξετάζει μόνο τα σχήματα κορυφαίου επιπέδου που ανήκουν στο διάγραμμα. Εάν μια σχολιαστική σημείωση βρίσκεται μέσα σε ένα [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), εξετάστε επίσης τη συλλογή [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) του συγκεκριμένου γκρουπ. Επαναλάβετε αυτό αναδρομικά για ενσωματωμένα γκρουπ, εφαρμόζοντας τους ίδιους ελέγχους κειμένου στα παιδικά τους σχήματα. Ένα γκρουπ είναι από μόνο του ένας περιέκτης· μην το θεωρείτε ως πλαίσιο κειμένου.
+{{% /alert %}}
+
+## **Συχνές Ερωτήσεις**
+
+**Μπορώ να ορίσω ημιδιάφανες γεμίσεις για στήλες/περιοχές διατηρώντας το περίγραμμα αδιαφανές;**
+
+Ναι. Η διαφάνεια της γεμίας και το περίγραμμα ρυθμίζονται ξεχωριστά. Αυτό είναι χρήσιμο για τη βελτίωση της αναγνωσιμότητας του πλέγματος και των δεδομένων σε πυκνές απεικονίσεις.
+
+**Πώς μπορώ να αντιμετωπίσω τις ετικέτες δεδομένων όταν επικαλύπτονται;**
+
+Μειώστε το μέγεθος γραμματοσειράς, απενεργοποιήστε μη απαραίτητα στοιχεία ετικετών (π.χ. κατηγορίες), προσαρμόστε τη θέση της ετικέτας, εμφανίστε ετικέτες μόνο για επιλεγμένα σημεία αν χρειαστεί, ή αλλάξτε τη μορφή σε "value + legend".
+
+**Μπορώ να εφαρμόσω διαβαθμίσεις ή μοτίβα γεμίσεων σε σειρές;**
+
+Ναι. Οι σειρές υποστηρίζουν συμπαγείς, διαβαθμισμένες και μοτίβες γεμίσεων. Στην πράξη, χρησιμοποιείτε τις διαβαθμίσεις με μέτρο και αποφεύγετε συνδυασμούς που μειώνουν την αντίθεση με το πλέγμα και το κείμενο.

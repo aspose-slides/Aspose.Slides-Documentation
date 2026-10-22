@@ -7,343 +7,334 @@ url: /sv/nodejs-java/chart-formatting/
 keywords:
 - formatera diagram
 - diagramformatering
-- diagramelement
+- diagramobjekt
 - diagramegenskaper
 - diagraminställningar
 - diagramalternativ
-- teckengenskaper
-- avrundade kanter
+- teckensnittsegenskaper
+- avrundad kant
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig diagramformatering i Aspose.Slides för Node.js i JavaScript och förbättra din PowerPoint-presentation med professionell, iögonfallande styling."
+description: "Lär dig diagramformatering i Aspose.Slides för Node.js via Java och förbättra din PowerPoint-presentation med anpassade axlar, teckensnitt, talformat och avrundade diagramkanter."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man formaterar diagram i PowerPoint-presentationer med Aspose.Slides. Den visar hur man anpassar viktiga diagramkomponenter såsom axlar, rutnätslinjer, titlar, förklaringar, plotområdet och väggfyllningar för att förbättra diagrammens utseende och läsbarhet.
+Den här artikeln förklarar hur man formaterar diagram i PowerPoint-presentationer med Aspose.Slides. Den visar hur man anpassar viktiga diagramdelar såsom axlar, rutnätlinjer, titlar, legender, plotområdet och väggfyllningar för att förbättra diagrammens utseende och läsbarhet.
 
-Den demonstrerar också hur man anger typegenskaper för diagramtext, använder förinställda och anpassade numeriska format för diagramdata samt aktiverar avrundade hörn för diagramområdet. Tillsammans visar dessa exempel hur man styr både den visuella stilen och datapresentationen för diagram i en presentation.
+Den visar också hur man anger teckensnittsegenskaper för diagramtext, tillämpar förinställda numeriska format på diagramdata och aktiverar avrundade hörn för diagramområdet. Tillsammans visar dessa exempel hur man styr både den visuella stilen och datavisningen för diagram i en presentation.
 
 ## **Formatera diagramobjekt**
 
-Aspose.Slides for Node.js via Java låter utvecklare lägga till anpassade diagram i sina bilder från grunden. Denna artikel förklarar hur man formaterar olika diagramobjekt inklusive diagrammets kategori- och värdeaxel.
+Använd [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) för att formatera diagramtitlar, axlar, rutnätlinjer, legender och plotområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text- och linjestilar på dess värde- och kategoriajlar. Teckenstorlekar och linjebredder anges i punkter; kategorietiketter roteras 45 grader.
 
-Aspose.Slides for Node.js via Java tillhandahåller ett enkelt API för att hantera olika diagramobjekt och formatera dem med anpassade värden:
-
-1. Skapa en instans av [**Presentation**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)klassen.
-1. Hämta en bilds referens genom dess index.
-1. Lägg till ett diagram med standarddata samt någon av de önskade typerna (i detta exempel använder vi ChartType.LineWithMarkers).
-1. Åtkomst till diagrammets Värdeaxel och ange följande egenskaper:
-   1. Ange **Line format** för Värdeaxelns stora rutnätslinjer
-   1. Ange **Line format** för Värdeaxelns små rutnätslinjer
-   1. Ange **Number Format** för Värdeaxel
-   1. Ange **Min, Max, Major and Minor units** för Värdeaxel
-   1. Ange **Text Properties** för Värdeaxelns data
-   1. Ange **Title** för Värdeaxel
-   1. Ange **Line Format** för Värdeaxel
-1. Åtkomst till diagrammets KategoriAxel och ange följande egenskaper:
-   1. Ange **Line format** för KategoriAxelns stora rutnätslinjer
-   1. Ange **Line format** för KategoriAxelns små rutnätslinjer
-   1. Ange **Text Properties** för KategoriAxelns data
-   1. Ange **Title** för KategoriAxel
-   1. Ange **Label Positioning** för KategoriAxel
-   1. Ange **Rotation Angle** för KategoriAxelns etiketter
-1. Åtkomst till diagrammets Legend och ange **Text Properties** för dem
-1. Ställ in att visa diagramlegender utan att de överlappar diagrammet
-1. Åtkomst till diagrammets **Secondary Value Axis** och ange följande egenskaper:
-   1. Aktivera den sekundära **Value Axis**
-   1. Ange **Line Format** för sekundär Value Axis
-   1. Ange **Number Format** för sekundär Value Axis
-   1. Ange **Min, Max, Major and Minor units** för sekundär Value Axis
-1. Plotta nu den första diagramekserien på sekundär Value Axis
-1. Ange bakväggens fyllningsfärg för diagrammet
-1. Ange fyllningsfärgen för diagrammets plotområde
-1. Skriv den modifierade presentationen till en PPTX‑fil
+Värdeaxeln använder [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) oberoende av källcellerna. Dess skala går från -2 till 15, med huvudintervall på 2 och delintervall på 0.5. Exemplet kombinerar också procentformatering med [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) satt till tusental, så anpassa dessa inställningar efter betydelsen och storleken på dina data. Legenden förblir utanför plotområdet eftersom [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) anropas med `false`. Bakväggs- och golvfyllningar konfigureras via [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) och [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), men dessa ytor är endast synliga i 3D-diagram.
 
 ```javascript
-// Skapa en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Åtkomst till den första bilden
-    var slide = pres.getSlides().get_Item(0);
-    // Lägger till exempeldiagrammet
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
-    // Ställer in diagramtitel
-    chart.hasTitle();
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
+
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
-    var chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    let chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
     chartTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     chartTitle.getPortionFormat().setFontHeight(20);
-    chartTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chartTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Ställer in format för stora rutnätslinjer för värdeaxeln
+    chartTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    chartTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // Ställer in format för små rutnätslinjer för värdeaxeln
+    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // Ställer in talformat för värdeaxeln
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
-    // Ställer in diagrammets max- och minvärden
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getVerticalAxis().setMaxValue(15.0);
-    chart.getAxes().getVerticalAxis().setMinValue(-2.0);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+
+    chart.getAxes().getVerticalAxis().setMaxValue(15);
+    chart.getAxes().getVerticalAxis().setMinValue(-2);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0);
-    // Ställer in textegenskaper för värdeaxeln
-    var txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(aspose.slides.NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(aspose.slides.NullableBool.True);
-    txtVal.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtVal.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkGreen));
-    txtVal.setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    // Ställer in titel för värdeaxeln
-    chart.getAxes().getVerticalAxis().hasTitle();
+
+    let valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkGreen));
+    valueAxisText.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    var valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Ställer in format för stora rutnätslinjer för kategoriaxeln
+    let valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    // Ställer in format för små rutnätslinjer för kategoriaxeln
+
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // Ställer in textegenskaper för kategoriaxeln
-    var txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(aspose.slides.NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(aspose.slides.NullableBool.True);
-    txtCat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtCat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    txtCat.setLatinFont(new aspose.slides.FontData("Arial"));
-    // Ställer in titel för kategoriaxeln
-    chart.getAxes().getHorizontalAxis().hasTitle();
+
+    let categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    categoryAxisText.setLatinFont(new aspose.slides.FontData("Arial"));
+
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
-    var catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // Ställer in etikettposition för kategoriaxeln
+
+    let categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(aspose.slides.TickLabelPositionType.Low);
-    // Ställer in rotationsvinkel för kategoriaxelns etiketter
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
-    // Ställer in textegenskaper för förklaringar
-    var txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(aspose.slides.NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(aspose.slides.NullableBool.True);
-    txtleg.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkRed));
-    // Ställ in att visa förklaringar utan att överlappa diagrammet
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // Ställer in sekundär värdeaxel
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(aspose.slides.LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-    // Ställer in talformat för sekundär värdeaxel
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-    // Ställer in diagrammets max- och minvärden
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0);
-    // Ställer in bakväggens färg för diagrammet
+
+    let legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    legendText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkRed));
+
+    chart.getLegend().setOverlay(false);
+
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
     chart.getFloor().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Ställer in färg för plotområdet
+
     chart.getPlotArea().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.LightCyan));
-    // Spara presentationen
-    pres.save("FormattedChart.pptx", aspose.slides.SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.LightCyan));
+
+    presentation.save("FormattedChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ange typegenskaper för diagram**
+## **Ange teckensnittsegenskaper för ett diagram**
 
-Aspose.Slides for Node.js via Java stöder att ange typegenskaper för diagrammet. Följ stegen nedan för att ange typegenskaper för diagrammet.
-
-- Instansiera [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)klassens objekt.
-- Lägg till ett diagram på bilden.
-- Ange teckenhöjd.
-- Spara den modifierade presentationen.
-
-Nedan ges ett exempel.
+Ange standardteckenstorlek för diagramtext via [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). Exemplet skapar ett grupperat stapeldiagram med ett 20‑punkts teckensnitt och aktiverar värdetiketter för den första serien via [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Textelement med egna explicita teckeninställningar kan överskrida diagrammets standard.
 
 ```javascript
-// Skapa en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    pres.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ange format för numeriska värden**
+## **Ange det numeriska formatet**
 
-Aspose.Slides for Node.js via Java tillhandahåller ett enkelt API för att hantera diagramdatans format:
-
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)klassen.
-1. Hämta en bilds referens genom dess index.
-1. Lägg till ett diagram med standarddata samt någon av de önskade typerna (detta exempel använder **ChartType.ClusteredColumn**).
-1. Ange det förinställda talformatet från de möjliga förinställda värdena.
-1. Gå igenom diagramdatacellen i varje diagramekserie och ange diagramdatans talformat.
-1. Spara presentationen.
-1. Ange ett anpassat talformat.
-1. Gå igenom diagramdatacellen i varje diagramekserie och ange ett annat talformat.
-1. Spara presentationen.
+Använd [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) för att tillämpa ett inbyggt talformat på diagrammets arbetsboksceller. Detta exempel skapar ett grupperat stapeldiagram med standard, cellbaserade data och tillämpar formatindex 10 (`0.00%`) på varje serievärdecell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0.25 som 25.00 %. Axel- och datatetikettformat kan konfigureras separat.
 
 ```javascript
-// Skapa en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // Åtkomst till den första presentationsbilden
-    var slide = pres.getSlides().get_Item(0);
-    // Lägger till ett standardklustrat stapeldiagram
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
-    // Åtkomst till diagrammets seriekollektion
-    var series = chart.getChartData().getSeries();
-    // Gå igenom varje diagramserie
-    for (var i = 0; i < series.size(); i++) {
-        var ser = series.get_Item(i);
-        // Gå igenom varje datapunkt i serien
-        for (var j = 0; j < ser.getDataPoints().size(); j++) {
-            var cell = ser.getDataPoints().get_Item(j);
-            // Ställer in talformatet
-            cell.getValue().getAsCell().setPresetNumberFormat(java.newByte(10));// 0.00%
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
+    let series = chart.getChartData().getSeries();
+
+    for (let i = 0; i < series.size(); i++) {
+        let chartSeries = series.get_Item(i);
+        for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
+            let dataPoint = chartSeries.getDataPoints().get_Item(j);
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0,00%
         }
     }
-    // Sparar presentationen
-    pres.save("PresetNumberFormat.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("PresetNumberFormat_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-De möjliga förinställda talformatvärdena tillsammans med deras förinställda index som kan användas listas nedan:
+Följande tabell listar inbyggda talformatindex med representativa Excel-format för den engelska (USA) lokalen. De exakta formatsträngarna och deras visning kan variera mellan applikationer och lokaler, särskilt för valuta och datum. Vissa Excel-format skiljer sig också från standardinställningarna i OOXML-standarden, enligt [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Ange avrundade kanter för diagramområde**
+## **Ange avrundade kanter för diagramområdet**
 
-Aspose.Slides for Node.js via Java stöder att ange diagramområde. Metoderna [**hasRoundedCorners**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) och [**setRoundedCorners**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) har lagts till i [Chart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Chart)‑klassen.
-
-1. Instansiera [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)klassens objekt.
-1. Lägg till ett diagram på bilden.
-1. Ange fyllningstyp och fyllningsfärg för diagrammet
-1. Sätt egenskapen för rundade hörn till True.
-1. Spara den modifierade presentationen.
-
-Nedan ges ett exempel.
+Anropa [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) med `true` för att runda hörnen på diagramområdet. Exemplet skapar ett grupperat stapeldiagram och använder [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
 
 ```javascript
-// Skapa en instans av Presentation-klassen
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getLineFormat().setStyle(aspose.slides.LineStyle.Single);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    chart.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.Single));
     chart.setRoundedCorners(true);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **Redigera befintliga diagramanteckningar**
+
+Ett diagram kan innehålla anpassade former, såsom en textanteckning som förklarar statusen för en rapport. Åtkomst till dessa former sker via [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). Samlingen som returneras av [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) innehåller diagramägda former.
+
+En vanlig textruta placerad ovanpå ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Genom att iterera över [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) hittas både diagrammet och vanliga bildformer, men de enskilda formerna i diagrammet listas inte. Diagramtitlar och datatetiketter är separata diagramelement, inte anpassade anteckningar i denna samling.
+
+Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en ogrupperad anteckning som lyder "Preliminary results", en diagramägd linje och en vanlig bildtextruta som lyder "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är klar för publicering. Det kontrollerar om samlingen är tom och redigerar endast en [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) med en icke‑null textram som returneras av [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) och den förväntade texten.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("chart-annotations.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = null;
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+            chart = shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        console.log("No chart or chart-owned shapes found.");
+    } else {
+        let updated = false;
+        for (let i = 0; i < chart.getUserShapes().getShapes().size(); i++) {
+            let shape = chart.getUserShapes().getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                let annotation = shape;
+                if (annotation.getTextFrame() != null && annotation.getTextFrame().getText() === "Preliminary results") {
+                    annotation.getTextFrame().setText("Final results");
+                    updated = true;
+                    break;
+                }
+            }
+        }
+
+        if (updated) {
+            presentation.save("chart-annotations-updated.pptx", aspose.slides.SaveFormat.Pptx);
+        } else {
+            console.log("No matching text annotation found.");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Linjen och bildtextrutan förblir oförändrade. Följande bilder visar ingången och det sparade, återöppnade resultatet:
+
+| Före redigering | Efter redigering |
+| --- | --- |
+| ![Diagramanteckning som visar Preliminary results](chart-annotations-before.png) | ![Diagramanteckning som visar Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Exemplet granskar endast diagramägd former på översta nivån. Om en anteckning finns inuti en [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) ska även den gruppens [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes)-samling inspekteras. Upprepa detta rekursivt för inbäddade grupper och tillämpa samma textkontroller på deras barnformer. En grupp är i sig en behållare; behandla den inte som en textruta.
+{{% /alert %}}
 
 ## **FAQ**
 
-**Kan jag ange halvtransparent fyllning för staplar/områden samtidigt som kanten förblir ogenomskinlig?**
+**Kan jag ange halvgenomskinliga fyllningar för kolumner/områden samtidigt som kanten förblir opak?**
 
-Ja. Fylla transparens och kontur konfigureras separat. Detta är användbart för att förbättra läsbarheten av rutnätet och data i täta visualiseringar.
+Ja. Fyllnadstransparens och kontur konfigureras separat. Detta är användbart för att förbättra läsbarheten av rutnätet och data i täta visualiseringar.
 
-**Hur hanterar jag datamärkningar när de överlappar?**
+**Hur kan jag hantera datatetiketter när de överlappar?**
 
-Minska teckenstorleken, inaktivera icke‑nödvändiga märkningskomponenter (t.ex. kategorier), ange märkningens offset/position, visa märken endast för utvalda punkter om nödvändigt, eller byt format till "värde + förklaring".
+Minska teckenstorleken, inaktivera icke‑nödvändiga etikettkomponenter (till exempel kategorier), justera etikettpositionen, visa etiketter endast för utvalda punkter om det behövs, eller byt formatet till "värde + legend".
 
-**Kan jag använda gradient‑ eller mönsterfyllningar för serier?**
+**Kan jag tillämpa gradient‑ eller mönsterfyllningar på serier?**
 
-Ja. Både solida och gradient‑/mönsterfyllningar är vanligtvis tillgängliga. I praktiken bör gradienter användas sparsamt och undvika kombinationer som minskar kontrasten mot rutnätet och texten.
+Ja. Serier stödjer solida, gradient‑ och mönsterfyllningar. I praktiken bör gradienter användas sparsamt och undvika kombinationer som minskar kontrasten mot rutnätet och texten.

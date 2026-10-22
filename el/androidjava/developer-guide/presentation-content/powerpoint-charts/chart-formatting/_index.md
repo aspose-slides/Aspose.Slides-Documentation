@@ -6,8 +6,8 @@ weight: 60
 url: /el/androidjava/chart-formatting/
 keywords:
 - διαμόρφωση διαγράμματος
-- διαμόρφωση διαγράμματος
-- οντότητα διαγράμματος
+- μορφοποίηση διαγράμματος
+- αντικείμενο διαγράμματος
 - ιδιότητες διαγράμματος
 - ρυθμίσεις διαγράμματος
 - επιλογές διαγράμματος
@@ -18,61 +18,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Μάθετε τη διαμόρφωση διαγραμμάτων στο Aspose.Slides για Android μέσω Java και βελτιώστε την παρουσίαση PowerPoint σας με επαγγελματικό, εντυπωσιακό στυλ."
+description: "Μάθετε τη μορφοποίηση διαγραμμάτων στο Aspose.Slides για Android μέσω Java και βελτιώστε την παρουσίασή σας στο PowerPoint με προσαρμοσμένους άξονες, γραμματοσειρές, αριθμητικές μορφές και στρογγυλεμένα σύνορα διαγράμματος."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να προσαρμόσετε βασικά στοιχεία του διαγράμματος όπως άξονες, γραμμές πλέγματος, τίτλους, υπομνήματα, την περιοχή σχεδίασης και τις γεμίσεις τοίχου για να βελτιώσετε την εμφάνιση και την αναγνωσιμότητα των δεδομένων του διαγράμματος.
+Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε διαγράμματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να προσαρμόζετε βασικά στοιχεία του διαγράμματος όπως άξονες, γραμμές πλέγματος, τίτλους, υπομνήματα, την περιοχή σχεδίασης και τα γέμισματα τοίχου για να βελτιώσετε την εμφάνιση και την αναγνωσιμότητα των δεδομένων του διαγράμματος.
 
-Επίσης, παρουσιάζει πώς να ορίσετε τις ιδιότητες γραμματοσειράς για το κείμενο του διαγράμματος, να εφαρμόσετε προκαθορισμένες και προσαρμοσμένες αριθμητικές μορφές στα δεδομένα του διαγράμματος και να ενεργοποιήσετε στρογγυλεμένες γωνίες για την περιοχή του διαγράμματος. Μαζί, αυτά τα παραδείγματα δείχνουν πώς να ελέγξετε τόσο το οπτικό στυλ όσο και την παρουσίαση των δεδομένων ενός διαγράμματος σε μια παρουσίαση.
+Δείχνει επίσης πώς να ορίσετε ιδιότητες γραμματοσειράς για το κείμενο του διαγράμματος, να εφαρμόσετε προεπιλεγμένες αριθμητικές μορφές στα δεδομένα του διαγράμματος και να ενεργοποιήσετε στρογγυλεμένες γωνίες για την περιοχή του διαγράμματος. Μαζί, αυτά τα παραδείγματα δείχνουν πώς να ελέγχετε τόσο το οπτικό στυλ όσο και την παρουσίαση των δεδομένων των διαγραμμάτων σε μια παρουσίαση.
 
-## **Διαμόρφωση Στοιχείων Γραφήματος**
-Το Aspose.Slides for Android via Java επιτρέπει στους προγραμματιστές να προσθέτουν προσαρμοσμένα διαγράμματα στις διαφάνειές τους από το μηδέν. Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε διαφορετικά στοιχεία γραφήματος, συμπεριλαμβανομένου του άξονα κατηγορίας και του άξονα τιμών.
+## **Μορφοποίηση Στοιχείων Διαγράμματος**
 
-Το Aspose.Slides for Android via Java παρέχει ένα απλό API για τη διαχείριση διαφορετικών στοιχείων γραφήματος και τη μορφοποίησή τους χρησιμοποιώντας προσαρμοσμένες τιμές:
+Χρησιμοποιήστε [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) για να μορφοποιήσετε τους τίτλους, τους άξονες, τις γραμμές πλέγματος, τα υπομνήματα και την περιοχή σχεδίασης του διαγράμματος. Αυτό το παράδειγμα δημιουργεί ένα γραμμικό διάγραμμα με δείκτες και προεπιλεγμένα δεδομένα, στη συνέχεια εφαρμόζει ξεχωριστά στυλ κειμένου και γραμμής στους άξονες τιμής και κατηγορίας. Τα μεγέθη γραμματοσειράς και το πάχος των γραμμών ορίζονται σε μονάδες σημείο· οι ετικέτες των κατηγοριών περιστρέφονται κατά 45 μοίρες.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [**Παρουσίαση**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) .
-1. Αποκτήστε αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-1. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτό το παράδειγμα θα χρησιμοποιήσουμε ChartType.LineWithMarkers).
-1. Πρόσβαση στον Άξονα Τιμών του γραφήματος και ορισμός των εξής ιδιοτήτων:
-   1. Καθορισμός **Line format** για τις κύριες γραμμές πλέγματος του άξονα τιμών
-   1. Καθορισμός **Line format** για τις δευτερεύουσες (minor) γραμμές πλέγματος του άξονα τιμών
-   1. Καθορισμός **Number Format** για τον άξονα τιμών
-   1. Καθορισμός **Min, Max, Major and Minor units** για τον άξονα τιμών
-   1. Καθορισμός **Text Properties** για τα δεδομένα του άξονα τιμών
-   1. Ορισμός **Title** για τον άξονα τιμών
-   1. Καθορισμός **Line Format** για τον άξονα τιμών
-1. Πρόσβαση στον Άξονα Κατηγορίας του γραφήματος και ορισμός των εξής ιδιοτήτων:
-   1. Καθορισμός **Line format** για τις κύριες γραμμές πλέγματος του άξονα κατηγορίας
-   1. Καθορισμός **Line format** για τις δευτερεύουσες (minor) γραμμές πλέγματος του άξονα κατηγορίας
-   1. Καθορισμός **Text Properties** για τα δεδομένα του άξονα κατηγορίας
-   1. Ορισμός **Title** για τον άξονα κατηγορίας
-   1. Καθορισμός **Label Positioning** για τον άξονα κατηγορίας
-   1. Καθορισμός **Rotation Angle** για τις ετικέτες του άξονα κατηγορίας
-1. Πρόσβαση στην Υπόμνηση του γραφήματος και ορισμός των **Text Properties** για αυτήν
-1. Ρύθμιση εμφάνισης των υπομνήσεων του γραφήματος ώστε να μην επικαλύπτονται το γράφημα
-1. Πρόσβαση στον **Secondary Value Axis** του γραφήματος και ορισμός των εξής ιδιοτήτων:
-   1. Ενεργοποίηση του δευτερεύοντος **Value Axis**
-   1. Καθορισμός **Line Format** για τον δευτερεύοντα άξονα τιμών
-   1. Καθορισμός **Number Format** για τον δευτερεύοντα άξονα τιμών
-   1. Καθορισμός **Min, Max, Major and Minor units** για τον δευτερεύοντα άξονα τιμών
-1. Τώρα σχεδιάστε τη πρώτη σειρά γραφήματος στον Δευτερεύοντα Άξονα Τιμών
-1. Ορίστε το χρώμα γεμίσματος του πίσω τοίχου του γραφήματος
-1. Ορίστε το χρώμα γεμίσματος της περιοχής σχεδίασης του γραφήματος
-1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX
+Ο άξονας τιμής χρησιμοποιεί [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) ανεξάρτητα από τα πηγαιακά κελιά. Η κλίμακά του εκτείνεται από -2 έως 15, με κύρια διαστήματα στα 2 και δευτερεύουσες διαστήματα στα 0.5. Το παράδειγμα επίσης συνδυάζει τη μορφοποίηση ποσοστού με [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) ορισμένο σε χιλιάδες, έτσι προσαρμόστε αυτές τις ρυθμίσεις ανάλογα με το νόημα και το μέγεθος των δεδομένων σας. Το υπομνήμα παραμένει εκτός της περιοχής σχεδίασης επειδή [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) καλείται με `false`. Τα γέμισματα του πίσω τοίχου και του πατώματος διαμορφώνονται μέσω [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) και [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), αλλά αυτές οι επιφάνειες είναι ορατές μόνο σε 3D διαγράμματα.
 
 ```java
-// Δημιουργήστε μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation();
-try {
-    // Πρόσβαση στην πρώτη διαφάνεια
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // Προσθήκη του δείγματος γραφήματος
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Ορισμός τίτλου γραφήματος
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -82,290 +52,286 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Ορισμός μορφής κύριων γραμμών πλέγματος για τον άξονα τιμών
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Ορισμός μορφής δευτερευουσών γραμμών πλέγματος για τον άξονα τιμών
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Ορισμός μορφής αριθμού του άξονα τιμών
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Ορισμός μέγιστων και ελάχιστων τιμών του γραφήματος
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Ορισμός ιδιοτήτων κειμένου του άξονα τιμών
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // Ορισμός τίτλου άξονα τιμών
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Ορισμός μορφής κύριων γραμμών πλέγματος για τον άξονα κατηγορίας
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Ορισμός μορφής δευτερευουσών γραμμών πλέγματος για τον άξονα κατηγορίας
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Ορισμός ιδιοτήτων κειμένου του άξονα κατηγορίας
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // Ορισμός τίτλου κατηγορίας
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Ορισμός θέσης ετικετών άξονα κατηγορίας
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // Ορισμός γωνίας περιστροφής ετικετών άξονα κατηγορίας
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Ορισμός ιδιοτήτων κειμένου υπομνήματος
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // Ορισμός εμφάνισης υπομνήματος γραφήματος χωρίς επικάλυψη του γραφήματος
+    chart.getLegend().setOverlay(false);
 
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // Ορισμός δευτερεύοντος άξονα τιμών
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // Ορισμός μορφής αριθμού δευτερεύοντος άξονα τιμών
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // Ορισμός μέγιστων και ελάχιστων τιμών του γραφήματος
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // Ορισμός χρώματος πίσω τοίχου γραφήματος
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // Ορισμός χρώματος περιοχής σχεδίασης
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // Αποθήκευση παρουσίασης
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός Ιδιότητων Γραμματοσειράς για ένα Γράφημα**
-Το Aspose.Slides for Android via Java παρέχει υποστήριξη για τον ορισμό ιδιοτήτων σχετικών με τη γραμματοσειρά του γραφήματος. Ακολουθήστε τα παρακάτω βήματα για να ορίσετε τις ιδιότητες γραμματοσειράς για το γράφημα.
+## **Ορισμός Ιδιοτήτων Γραμματοσειράς για ένα Διάγραμμα**
 
-- Δημιουργήστε αντικείμενο κλάσης [**Παρουσίαση**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) .
-- Προσθέστε γράφημα στη διαφάνεια.
-- Ορίστε το ύψος της γραμματοσειράς.
-- Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Παρατίθεται παρακάτω ένα παράδειγμα.
+Ορίστε το προεπιλεγμένο μέγεθος γραμματοσειράς για το κείμενο του διαγράμματος μέσω του [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--). Το παράδειγμα δημιουργεί ένα συγκεντρωτικό ριζόγραμμα με γραμματοσειρά 20 σημείων και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά μέσω του [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Τα στοιχεία κειμένου με τις δικές τους ρητές ρυθμίσεις γραμματοσειράς μπορούν να παρακάμψουν το προεπιλεγμένο στυλ του διαγράμματος.
 
 ```java
-// Δημιουργήστε μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ορισμός Αριθμητικής Μορφής**
-Το Aspose.Slides for Android via Java παρέχει ένα απλό API για τη διαχείριση της μορφής δεδομένων του γραφήματος:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [**Παρουσίαση**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-1. Αποκτήστε αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-1. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτό το παράδειγμα χρησιμοποιούμε **ChartType.ClusteredColumn**).
-1. Ορίστε τη προεπιλεγμένη μορφή αριθμού από τις διαθέσιμες προεπιλεγμένες τιμές.
-1. Περάστε από το κελί δεδομένων του γραφήματος σε κάθε σειρά και ορίστε τη μορφή αριθμού των δεδομένων.
-1. Αποθηκεύστε την παρουσίαση.
-1. Ορίστε προσαρμοσμένη μορφή αριθμού.
-1. Περάστε από τα κελιά δεδομένων του γραφήματος σε κάθε σειρά και ορίστε διαφορετική μορφή αριθμού για τα δεδομένα.
-1. Αποθηκεύστε την παρουσίαση.
+Χρησιμοποιήστε [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) για να εφαρμόσετε μια ενσωματωμένη μορφή αριθμού στα κελιά του βιβλίου εργασίας του διαγράμματος. Αυτό το παράδειγμα δημιουργεί ένα συγκεντρωτικό ριζόγραμμα με προεπιλεγμένα, δεδομένα που προέρχονται από κελιά, και εφαρμόζει δείκτη μορφής 10 (`0.00%`) σε κάθε κελί τιμής σειράς. Αυτό αλλάζει τον τρόπο που οι τιμές εμφανίζονται στο βιβλίο εργασίας χωρίς να αλλάζει τους υποκείμενους αριθμούς· για παράδειγμα, το 0.25 εμφανίζεται ως 25.00%. Οι μορφές άξονα και ετικετών δεδομένων μπορούν να διαμορφωθούν χωριστά.
 
 ```java
-// Δημιουργήστε μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Πρόσβαση στην πρώτη διαφάνεια παρουσίασης
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη προεπιλεγμένου διαγράμματος στήλης με συσσωμάτωση
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // Πρόσβαση στη συλλογή σειρών του διαγράμματος
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // Διαπέραση κάθε σειράς του διαγράμματος
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // Διαπέραση κάθε κελιού δεδομένων στη σειρά
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // Ορισμός μορφής αριθμού
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0,00%
         }
     }
 
-    // Αποθήκευση παρουσίασης
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Οι πιθανές προεπιλεγμένες τιμές μορφής αριθμού μαζί με τον αντίστοιχο δείκτη τους είναι οι εξής:
+Ο παρακάτω πίνακας παραθέτει τους ενσωματωμένους δείκτες μορφής αριθμού με αντιπροσωπευτικές μορφές Excel για την αγγλική (Ηνωμένες Πολιτείες) περιοχή. Οι ακριβείς συμβολοσειρές μορφής και η εμφάνισή τους μπορεί να διαφέρουν ανάλογα με την εφαρμογή και την περιοχή, ιδιαίτερα για νομίσματα και ημερομηνίες. Ορισμένες μορφές Excel διαφέρουν επίσης από τα προεπιλεγμένα στο πρότυπο OOXML, όπως περιγράφεται στις [σημειώσεις υλοποίησης μορφής αριθμού της Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|Γενικό|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Δείκτης | Μορφή |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Ορισμός Στρογγυλεμένων Άκρων Περιοχής Γραφήματος**
-Το Aspose.Slides for Android via Java παρέχει υποστήριξη για τη ρύθμιση της περιοχής του γραφήματος. Οι μέθοδοι [**hasRoundedCorners**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) και [**setRoundedCorners**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) προστέθηκαν στη διεπαφή [IChart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IChart) και στην κλάση [Chart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Chart).
+## **Ορισμός Στρογγυλεμένων Ακμών της Περιοχής Διαγράμματος**
 
-1. Δημιουργήστε αντικείμενο κλάσης [**Παρουσίαση**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation) .
-1. Προσθέστε γράφημα στη διαφάνεια.
-1. Ορίστε τύπο και χρώμα γεμίσματος του γραφήματος.
-1. Ορίστε την ιδιότητα στρογγυλεμένων γωνιών σε True.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Παρατίθεται παρακάτω ένα παράδειγμα.
+Καλέστε το [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) με `true` για να στρογγυλοποιήσετε τις γωνίες της περιοχής του διαγράμματος. Το παράδειγμα δημιουργεί ένα συγκεντρωτικό ριζόγραμμα και χρησιμοποιεί το [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) για να δώσει στο περίγραμμά του έναν συμπαγή γκρίζο χρώμα και μονόγραμμο στυλ πριν αποθηκεύσει την παρουσίαση.
 
 ```java
-// Δημιουργήστε μια παρουσία της κλάσης Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Επεξεργασία Υπαρχουσών Σχολίων Διαγράμματος**
+
+Ένα διάγραμμα μπορεί να περιέχει προσαρμοσμένα σχήματα, όπως ένα κείμενο σχολίου που εξηγεί την κατάσταση μιας έκθεσης. Πρόσβαση σε αυτά τα σχήματα γίνεται μέσω του [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), που επίσης εμφανίζεται στο [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) στην Αναφορά API του Diagram. Η συλλογή που επιστρέφεται από το [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) περιέχει τα σχήματα που ανήκουν στο διάγραμμα.
+
+Ένα συνηθισμένο πλαίσιο κειμένου τοποθετημένο πάνω σε διάγραμμα ανήκει στη διαφάνεια, ακόμη και αν φαίνεται μέρος του διαγράμματος. Η επανάληψη μέσω του [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) βρίσκει το διάγραμμα και τα συνηθισμένα σχήματα διαφάνειας, αλλά δεν απαριθμεί τα μεμονωμένα σχήματα εντός του διαγράμματος. Οι τίτλοι διαγράμματος και οι ετικέτες δεδομένων είναι ξεχωριστά στοιχεία διαγράμματος, όχι προσαρμοσμένα σχόλια σε αυτήν τη συλλογή.
+
+Κατεβάστε το [chart-annotations.pptx](chart-annotations.pptx) και τοποθετήστε το στον κατάλογο εργασίας της εφαρμογής. Η πρώτη διαφάνειά του περιέχει ένα διάγραμμα με ένα αδιάσπαστο σχόλιο που αναφέρει «Preliminary results», μια γραμμή που ανήκει στο διάγραμμα και ένα συνηθισμένο πλαίσιο κειμένου διαφάνειας που αναφέρει «Slide overlay». Το παράδειγμα εντοπίζει το πρώτο διάγραμμα σε αυτή τη διαφάνεια και αλλάζει το σχόλιο σε «Final results» όταν η έκθεση είναι έτοιμη για δημοσίευση. Ελέγχει για κενή συλλογή και επεξεργάζεται μόνο ένα [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) με μη‑null πλαίσιο κειμένου που επιστρέφεται από το [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) και το αναμενόμενο κείμενο.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Η γραμμή και το πλαίσιο κειμένου της διαφάνειας παραμένουν αμετάβλητα. Οι παρακάτω εικόνες δείχνουν την είσοδο και το αποθηκευμένο, ξανά ανοιγμένο αποτέλεσμα:
+
+| Πριν την επεξεργασία | Μετά την επεξεργασία |
+| --- | --- |
+| ![Σχόλιο διαγράμματος που διαβάζει Προκαταρκτικά αποτελέσματα](chart-annotations-before.png) | ![Σχόλιο διαγράμματος που διαβάζει Τελικά αποτελέσματα](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Το παράδειγμα εξετάζει μόνο τα σχήματα που ανήκουν στο διάγραμμα στο ανώτερο επίπεδο. Εάν ένα σχόλιο βρίσκεται μέσα σε ένα [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), εξετάστε επίσης τη συλλογή [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) του συγκεκριμένου γκρουπ. Επαναλάβετε αυτή τη διαδικασία αναδρομικά για ενσωματωμένα γκρουπ, εφαρμόζοντας τους ίδιους ελέγχους κειμένου στα παιδικά σχήματα. Ένα γκρουπ από μόνο του είναι ένας κοντέινερ· μην το αντιμετωπίζετε ως πλαίσιο κειμένου.
+{{% /alert %}}
+
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ορίσω ημιαδιαφανείς γεμίσματα για στήλες/περιοχές διατηρώντας το περίγραμμα αδιαφανές;**
+**Μπορώ να ορίσω ημιδιαυγείς γεμίσεις για στήλες/περιοχές διατηρώντας το περίγραμμα αδιαφανές;**
 
-Ναι. Η διαφάνεια του γεμίσματος και το περίγραμμα ρυθμίζονται χωριστά. Αυτό είναι χρήσιμο για τη βελτίωση της αναγνωσιμότητας του πλέγματος και των δεδομένων σε πυκνές οπτικές αναπαραστάσεις.
+Ναι. Η διαφάνεια της γεμίσεως και το περίγραμμα ρυθμίζονται ξεχωριστά. Αυτό είναι χρήσιμο για τη βελτίωση της αναγνωσιμότητας του πλέγματος και των δεδομένων σε πυκνές απεικονίσεις.
 
-**Πώς μπορώ να αντιμετωπίσω τις ετικέτες δεδομένων όταν επικαλύπτονται;**
+**Πώς μπορώ να αντιμετωπίσω τις ετικέτες δεδομένων όταν αλληλοεπικαλύπτονται;**
 
-Μειώστε το μέγεθος της γραμματοσειράς, απενεργοποιήστε μη απαραίτητα στοιχεία ετικετών (π.χ. κατηγορίες), ρυθμίστε την απόσταση/θέση της ετικέτας, εμφανίστε ετικέτες μόνο για επιλεγμένα σημεία αν χρειάζεται ή αλλάξτε τη μορφή σε «τιμή + υπόμνημα».
+Μειώστε το μέγεθος γραμματοσειράς, απενεργοποιήστε μη‑ουσιώδη στοιχεία ετικετών (για παράδειγμα, τις κατηγορίες), προσαρμόστε τη θέση της ετικέτας, εμφανίστε ετικέτες μόνο για επιλεγμένα σημεία εάν χρειάζεται, ή αλλάξτε τη μορφή σε «τιμή + υπόμνημα».
 
-**Μπορώ να εφαρμόσω διαβαθμισμένα ή μοτίβα γεμίσματος στις σειρές;**
+**Μπορώ να εφαρμόσω διαβαθμισμένες ή σχεδιαστικές γεμίσεις σε σειρές;**
 
-Ναι. Συνήθως διατίθενται τόσο γεμίσματα μονής χρώματος όσο και διαβαθμισμένα/μοτίβα. Στην πράξη, χρησιμοποιείτε τα διαβαθμισμένα γεμίσματα με μέτρο και αποφεύγετε συνδυασμούς που μειώνουν την αντίθεση με το πλέγμα και το κείμενο.
+Ναι. Οι σειρές υποστηρίζουν συμπαγείς, διαβαθμισμένες και σχεδιαστικές γεμίσεις. Στην πράξη, χρησιμοποιήστε διαβαθμίσεις με μέτρο και αποφύγετε συνδυασμούς που μειώνουν την αντίθεση με το πλέγμα και το κείμενο.

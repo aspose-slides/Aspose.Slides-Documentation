@@ -14,94 +14,56 @@ keywords:
 - 字体属性
 - 圆角边框
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "通过 Aspose.Slides for Python（基于 .NET），学习图表格式化，并为您的 PowerPoint 或 OpenDocument 演示文稿提升专业且吸引眼球的样式。"
+description: "了解如何在 Aspose.Slides for Python via .NET 中进行图表格式化，并通过自定义坐标轴、字体、数字格式和圆角图表边框提升您的 PowerPoint 演示文稿。"
 ---
-
 ## **概述**
 
-本指南展示了如何使用 Aspose.Slides for Python 对 PowerPoint 图表进行格式化。它逐步说明了对核心图表实体（如类别轴和值轴、网格线、标签、标题、图例以及次坐标轴）的自定义，并演示如何通过简洁可运行的代码示例来控制字体、数字格式、填充、轮廓、绘图区域和背壁颜色以及圆角图表。遵循这些步骤示例，您将创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)，添加并配置图表，并将结果保存为 PPTX，同时应用精确的视觉和排版设置。
+本文介绍如何使用 Aspose.Slides 在 PowerPoint 演示文稿中格式化图表。它展示了如何自定义关键图表元素，如坐标轴、网格线、标题、图例、绘图区域和墙面填充，以改善图表数据的外观和可读性。
 
-## **格式化图表元素**
+它还演示了如何设置图表文本的字体属性、对图表数据应用预设数字格式，以及为图表区域启用圆角。通过这些示例，您可以控制演示文稿中图表的视觉样式和数据呈现。
 
-Aspose.Slides for Python 允许开发者从头添加自定义图表到幻灯片。本节说明如何格式化各种图表元素，包括类别轴和值轴。
+## **格式化图表实体**
 
-Aspose.Slides 提供了一个简单的 API 用于管理图表元素并应用自定义格式：
+使用 [图表](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) 来格式化图表标题、坐标轴、网格线、图例和绘图区域。此示例创建了一个带有标记和默认数据的折线图，然后对其值轴和类别轴分别应用文本和线条样式。字体大小和线宽以磅为单位指定；类别标签旋转 45 度。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，类型为所需类型（在本例中为 `ChartType.LINE_WITH_MARKERS`）。  
-1. 访问图表的值轴并设置以下内容：  
-   1. 为值轴主网格线设置 **线条格式**。  
-   1. 为值轴次网格线设置 **线条格式**。  
-   1. 为值轴设置 **数字格式**。  
-   1. 为值轴设置 **最小值、最大值、主单位和次单位**。  
-   1. 为值轴标签设置 **文本属性**。  
-   1. 为值轴设置 **标题**。  
-   1. 为值轴设置 **线条格式**。  
-1. 访问图表的类别轴并设置以下内容：  
-   1. 为类别轴主网格线设置 **线条格式**。  
-   1. 为类别轴次网格线设置 **线条格式**。  
-   1. 为类别轴标签设置 **文本属性**。  
-   1. 为类别轴设置 **标题**。  
-   1. 为类别轴设置 **标签定位**。  
-   1. 为类别轴标签设置 **旋转角度**。  
-1. 访问图表图例并设置其 **文本属性**。  
-1. 显示图表图例且不与图表重叠。  
-1. 访问图表的 **次值轴** 并设置以下内容：  
-   1. 启用次 **值轴**。  
-   1. 为次值轴设置 **线条格式**。  
-   1. 为次值轴设置 **数字格式**。  
-   1. 为次值轴设置 **最小值、最大值、主单位和次单位**。  
-1. 将第一个图表系列绘制在次值轴上。  
-1. 设置图表背壁的填充颜色。  
-1. 设置图表绘图区的填充颜色。  
-1. 将修改后的演示文稿写入 PPTX 文件。  
-```py
+值轴使用 [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) 独立于源单元格。其刻度范围为 -2 到 15，主间隔为 2，次间隔为 0.5。示例还将百分比格式与 [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) 设置为千位组合使用，因此请根据数据的意义和数量级调整这些设置。因为已禁用 [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/)，图例位于绘图区域之外。背墙和地板填充通过 [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) 和 [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) 配置，但这些表面仅在 3D 图表中可见。
+
+```python
 import aspose.slides.charts as charts
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-# 实例化 Presentation 类。
 with slides.Presentation() as presentation:
 
-    # 访问第一张幻灯片。
     slide = presentation.slides[0]
 
-    # 添加示例图表。
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 50, 50, 500, 400)
 
-    # 设置图表标题。
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("")
     chart_title = chart.chart_title.text_frame_for_overriding.paragraphs[0].portions[0]
     chart_title.text = "Sample Chart"
     chart_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    chart_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    chart_title.portion_format.fill_format.solid_fill_color.color = slides.Color.gray
     chart_title.portion_format.font_height = 20
-    chart_title.portion_format.font_bold = 1
-    chart_title.portion_format.font_italic = 1
+    chart_title.portion_format.font_bold = slides.NullableBool.TRUE
+    chart_title.portion_format.font_italic = slides.NullableBool.TRUE
 
-    # 为数值轴设置主网格线格式。
     chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
-    chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.blue
+    chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = slides.Color.blue
     chart.axes.vertical_axis.major_grid_lines_format.line.width = 5
     chart.axes.vertical_axis.major_grid_lines_format.line.dash_style = slides.LineDashStyle.DASH_DOT
 
-    # 为数值轴设置次网格线格式。
     chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
-    chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.red
+    chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = slides.Color.red
     chart.axes.vertical_axis.minor_grid_lines_format.line.width = 3
 
-    # 设置数值轴的数字格式。
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
     chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.THOUSANDS
     chart.axes.vertical_axis.number_format = "0.0%"
 
-    # 设置数值轴的最大值、最小值、主单位和次单位。
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.is_automatic_max_value = False
     chart.axes.vertical_axis.is_automatic_minor_unit = False
@@ -112,102 +74,82 @@ with slides.Presentation() as presentation:
     chart.axes.vertical_axis.minor_unit = 0.5
     chart.axes.vertical_axis.major_unit = 2.0
 
-    # 设置数值轴文本属性。
     vertical_axis_portion_format = chart.axes.vertical_axis.text_format.portion_format
-    vertical_axis_portion_format.font_bold = 1
+    vertical_axis_portion_format.font_bold = slides.NullableBool.TRUE
     vertical_axis_portion_format.font_height = 16
-    vertical_axis_portion_format.font_italic = 1
-    vertical_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
-    vertical_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_green
+    vertical_axis_portion_format.font_italic = slides.NullableBool.TRUE
+    vertical_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    vertical_axis_portion_format.fill_format.solid_fill_color.color = slides.Color.dark_green
     vertical_axis_portion_format.latin_font = slides.FontData("Times New Roman")
 
-    # 设置数值轴标题。
     chart.axes.vertical_axis.has_title = True
     chart.axes.vertical_axis.title.add_text_frame_for_overriding("")
     vertical_axis_title = chart.axes.vertical_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
     vertical_axis_title.text = "Primary Axis"
     vertical_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    vertical_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    vertical_axis_title.portion_format.fill_format.solid_fill_color.color = slides.Color.gray
     vertical_axis_title.portion_format.font_height = 20
-    vertical_axis_title.portion_format.font_bold = 1
-    vertical_axis_title.portion_format.font_italic = 1
+    vertical_axis_title.portion_format.font_bold = slides.NullableBool.TRUE
+    vertical_axis_title.portion_format.font_italic = slides.NullableBool.TRUE
 
-    # 为类别轴设置主网格线格式。
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
-    chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.green
+    chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = slides.Color.green
     chart.axes.horizontal_axis.major_grid_lines_format.line.width = 5
 
-    # 为类别轴设置次网格线格式。
     chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
-    chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.yellow
+    chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = slides.Color.yellow
     chart.axes.horizontal_axis.minor_grid_lines_format.line.width = 3
 
-    # 设置类别轴文本属性。
     horizontal_axis_portion_format = chart.axes.horizontal_axis.text_format.portion_format
-    horizontal_axis_portion_format.font_bold = 1
+    horizontal_axis_portion_format.font_bold = slides.NullableBool.TRUE
     horizontal_axis_portion_format.font_height = 16
-    horizontal_axis_portion_format.font_italic = 1
-    horizontal_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
-    horizontal_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+    horizontal_axis_portion_format.font_italic = slides.NullableBool.TRUE
+    horizontal_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    horizontal_axis_portion_format.fill_format.solid_fill_color.color = slides.Color.blue
     horizontal_axis_portion_format.latin_font = slides.FontData("Arial")
 
-    # 设置类别轴标题。
     chart.axes.horizontal_axis.has_title = True
     chart.axes.horizontal_axis.title.add_text_frame_for_overriding("")
 
     horizontal_axis_title = chart.axes.horizontal_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
     horizontal_axis_title.text = "Sample Category"
     horizontal_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    horizontal_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    horizontal_axis_title.portion_format.fill_format.solid_fill_color.color = slides.Color.gray
     horizontal_axis_title.portion_format.font_height = 20
-    horizontal_axis_title.portion_format.font_bold = 1
-    horizontal_axis_title.portion_format.font_italic = 1
+    horizontal_axis_title.portion_format.font_bold = slides.NullableBool.TRUE
+    horizontal_axis_title.portion_format.font_italic = slides.NullableBool.TRUE
 
-    # 设置类别轴标签位置。
     chart.axes.horizontal_axis.tick_label_position = charts.TickLabelPositionType.LOW
 
-    # 设置类别轴标签旋转角度。
     chart.axes.horizontal_axis.tick_label_rotation_angle = 45
 
-    # 设置图例文本属性。
     legend_portion_format = chart.legend.text_format.portion_format
-    legend_portion_format.font_bold = 1
+    legend_portion_format.font_bold = slides.NullableBool.TRUE
     legend_portion_format.font_height = 16
-    legend_portion_format.font_italic = 1
-    legend_portion_format.fill_format.fill_type = slides.FillType.SOLID 
-    legend_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_red
+    legend_portion_format.font_italic = slides.NullableBool.TRUE
+    legend_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    legend_portion_format.fill_format.solid_fill_color.color = slides.Color.dark_red
 
-    # 显示图例覆盖在图表上。
-    chart.legend.overlay = True
-                
-    # 设置图表背墙颜色。
+    chart.legend.overlay = False
+
     chart.back_wall.thickness = 1
     chart.back_wall.format.fill.fill_type = slides.FillType.SOLID
-    chart.back_wall.format.fill.solid_fill_color.color = draw.Color.orange
+    chart.back_wall.format.fill.solid_fill_color.color = slides.Color.orange
 
     chart.floor.format.fill.fill_type = slides.FillType.SOLID
-    chart.floor.format.fill.solid_fill_color.color = draw.Color.red
+    chart.floor.format.fill.solid_fill_color.color = slides.Color.red
 
-    # 设置绘图区域颜色。
     chart.plot_area.format.fill.fill_type = slides.FillType.SOLID
-    chart.plot_area.format.fill.solid_fill_color.color = draw.Color.light_cyan
+    chart.plot_area.format.fill.solid_fill_color.color = slides.Color.light_cyan
 
-    # 保存演示文稿。
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **设置图表的字体属性**
 
-## **设置图表字体属性**
+通过 [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/) 设置图表文本的默认字体大小。示例创建了一个簇状柱形图，使用 20 磅字体，并通过 [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) 为第一系列启用值标签。具有显式字体设置的文本元素可以覆盖图表默认设置。
 
-Aspose.Slides for Python 支持为图表设置与字体相关的属性。请按照以下步骤配置图表字体属性：
-
-1. 实例化一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 对象。  
-1. 向幻灯片添加图表。  
-1. 设置字体高度。  
-1. 保存修改后的演示文稿。  
-
-下面提供示例代码。  
-```py
+```python
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
@@ -221,122 +163,140 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **设置数字格式**
 
-Aspose.Slides for Python 为管理图表数据格式提供了简单的 API：
+使用 [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) 将内置数字格式应用于图表工作簿单元格。此示例创建了一个簇状柱形图，使用默认的基于单元格的数据，并对每个系列值单元格应用格式索引 10 (`0.00%`)。这会更改工作簿中值的显示方式，而不改变底层数字，例如 0.25 将显示为 25.00%。坐标轴和数据标签的格式可以单独配置。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，类型为所需类型。  
-1. 从可用的预设值中设置预设数字格式。  
-1. 遍历每个系列的图表数据单元格并设置数字格式。  
-1. 保存演示文稿。  
-1. 设置自定义数字格式。  
-1. 再次遍历每个系列的图表数据单元格并设置不同的数字格式。  
-1. 保存演示文稿。  
-```py
+```python
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# 实例化 Presentation 类。
 with slides.Presentation() as presentation:
-    # 访问第一张幻灯片。
     slide = presentation.slides[0]
 
-    # 添加默认的簇状柱形图。
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 400)
 
-    # 设置预设数字格式。
-    # 遍历每个图表系列。
     for series in chart.chart_data.series:
-        # 遍历系列中的每个数据点。
-        for cell in series.data_points:
-            # 设置数字格式。
-            cell.value.as_cell.preset_number_format = 10  # 0.00%
+        for data_point in series.data_points:
+            data_point.value.as_cell.preset_number_format = 10  # 0.00%
 
-    # 保存演示文稿。
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+以下表格列出了内置数字格式索引及其对应的英文（美国）区域的 Excel 示例格式。确切的格式字符串及显示方式可能因应用程序和区域设置而异，尤其是货币和日期。一些 Excel 格式也与 OOXML 标准的默认值不同，详见 [Microsoft 的数字格式实现说明](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)。
 
-以下列出了可用的预设数字格式及其对应的索引。
+| 索引 | 格式 |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+## **设置图表区域圆角边框**
 
-## **为图表区域设置圆角边框**
+启用 [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) 为图表区域的角落添加圆角。示例创建了一个簇状柱形图，并使用 [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) 将其轮廓设置为实心灰色单线样式，然后保存演示文稿。
 
-Aspose.Slides for Python 支持使用 `Chart.has_rounded_corners` 属性配置图表区域：
-
-1. 实例化一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 对象。  
-2. 向幻灯片添加图表。  
-3. 设置图表的填充类型和填充颜色。  
-4. 将圆角属性设置为 `True`。  
-5. 保存修改后的演示文稿。  
-
-下面提供示例。  
-```py
+```python
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-	slide = presentation.slides[0]
+    slide = presentation.slides[0]
 
-	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 100, 600, 400)
-	chart.line_format.fill_format.fill_type = slides.FillType.SOLID
-	chart.line_format.style = slides.LineStyle.SINGLE
-	chart.has_rounded_corners = True
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 100, 600, 400)
+    chart.line_format.fill_format.fill_type = slides.FillType.SOLID
+    chart.line_format.fill_format.solid_fill_color.color = slides.Color.gray
+    chart.line_format.style = slides.LineStyle.SINGLE
+    chart.has_rounded_corners = True
 
-	presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **编辑现有图表批注**
+
+图表可以包含自定义形状，例如说明报告状态的文本批注。通过 [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/) 访问这些形状。其 [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) 集合包含图表拥有的形状。
+
+放置在图表上的普通文本框属于幻灯片，即使看起来像是图表的一部分。遍历 [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) 能找到图表以及普通幻灯片形状，但不会枚举图表内部的单独形状。图表标题和数据标签是独立的图表元素，而不是此集合中的自定义批注。
+
+下载 [chart-annotations.pptx](chart-annotations.pptx) 并将其放在应用程序的工作目录中。其第一张幻灯片包含一个图表，图表上有一个未分组的批注显示“初步结果”、一个图表拥有的线条以及一个普通幻灯片文本框显示“幻灯片覆盖”。示例在该幻灯片上找到首个图表，并在报告准备发布时将批注更改为“最终结果”。它会检查集合是否为空，并仅编辑具有非 `None` 且包含预期文本的 [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) 的 [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) 。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("chart-annotations.pptx") as presentation:
+    slide = presentation.slides[0]
+    chart = next((shape for shape in slide.shapes if isinstance(shape, charts.Chart)), None)
+
+    if chart is None or len(chart.user_shapes.shapes) == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.user_shapes.shapes:
+            if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+                if shape.text_frame.text == "Preliminary results":
+                    shape.text_frame.text = "Final results"
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", slides.export.SaveFormat.PPTX)
+        else:
+            print("No matching text annotation found.")
+```
+
+线条和幻灯片文本框保持不变。以下图像显示了输入和保存后重新打开的结果：
+
+| 编辑前 | 编辑后 |
+| --- | --- |
+| ![图表批注显示 初步结果](chart-annotations-before.png) | ![图表批注显示 最终结果](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+示例仅检查顶部级别的图表拥有的形状。如果批注位于 [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) 中，请同时检查该组的 [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) 集合。对嵌套组递归执行此操作，对其子形状应用相同的文本检查。组本身是一个容器；不要将其视为文本框。
+{{% /alert %}}
 
 ## **常见问题**
 
 **我可以为柱形/区域设置半透明填充，同时保持边框不透明吗？**
 
-是的。填充透明度和轮廓是分开配置的。这对于在密集的可视化中提高网格和数据的可读性非常有用。
+可以。填充透明度和轮廓是分别配置的。这对于在密集可视化中提升网格和数据的可读性非常有用。
 
 **当数据标签重叠时，我该如何处理？**
 
-可以减少字体大小，禁用非必要的标签组件（例如类别），设置标签的偏移/位置，必要时仅为选定的点显示标签，或将格式切换为“数值 + 图例”。
+可以降低字体大小，禁用非必要的标签组件（例如类别），调整标签位置，必要时仅为选定的数据点显示标签，或切换为 “值 + 图例” 格式。
 
 **我可以对系列应用渐变或图案填充吗？**
 
-可以。通常同时提供纯色和渐变/图案填充。实际使用时请适度使用渐变，并避免与网格和文本形成对比度降低的组合。
+可以。系列支持实心、渐变和图案填充。实际使用时应适度使用渐变，并避免与网格和文本形成对比度降低的组合。

@@ -1,6 +1,6 @@
 ---
-title: Androidon lévő prezentációs diagramok formázása
-linktitle: Diagram formázás
+title: Formázza a prezentációs diagramokat Androidon
+linktitle: Diagram formázása
 type: docs
 weight: 60
 url: /hu/androidjava/chart-formatting/
@@ -18,61 +18,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg a diagramok formázását az Aspose.Slides for Android via Java segítségével, és emelje prezentációját PowerPointban professzionális, szemrevaló stílusokkal."
+description: "Ismerje meg a diagram formázását az Aspose.Slides Android verziójában Java nyelven, és emelje fel PowerPoint prezentációját egyedi tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan formázhatók diagramok PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan testreszabhatók a diagram kulcsfontosságú elemei, mint például a tengelyek, rácsvonalak, címek, jelmagyarázatok, a diagramterület és a fal kitöltései, a diagramadatok megjelenésének és olvashatóságának javítása érdekében.
+Ez a cikk bemutatja, hogyan formázhatók a diagramok PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan testreszabhatók a diagram fő elemei, például a tengelyek, rácsvonalak, címek, jelmagyarázatok, a diagramterület és a fal kitöltései, a diagram adatainak megjelenésének és olvashatóságának javítása érdekében.
 
-Továbbá bemutatja, hogyan állíthatók be a betűtípus‑tulajdonságok a diagram szövegéhez, hogyan alkalmazhatók előre definiált és egyéni numerikus formátumok a diagram adataihoz, valamint hogyan engedélyezhetők a lekerekített sarkok a diagramterületen. Ezek a példák együtt mutatják, hogyan szabályozható a diagramok vizuális stílusa és adatmegjelenítése egy prezentációban.
+Emellett bemutatja, hogyan állíthatók be a betűtípus‑tulajdonságok a diagram szövegeihez, hogyan alkalmazhatók előre definiált numerikus formátumok a diagram adataihoz, valamint hogyan engedélyezhetők a lekerekített sarkok a diagram területén. Ezek a példák egyaránt a diagram vizuális stílusát és az adatok megjelenítését szabályozzák egy prezentációban.
 
-## **Diagram elemek formázása**
-Az Aspose.Slides for Android via Java lehetővé teszi a fejlesztők számára, hogy saját diagramokat adjanak hozzá diákhoz a semmiből. Ez a cikk bemutatja, hogyan formázhatók a különböző diagram elemek, beleértve a diagramkategória‑ és értéktengelyt.
+## **Diagramelemek formázása**
 
-Az Aspose.Slides for Android via Java egyszerű API‑t biztosít a különböző diagram elemek kezeléséhez és azok egyéni értékekkel történő formázásához:
+Használja a [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) felületet diagramcímek, tengelyek, rácsvonalak, jelmagyarázatok és diagramterület formázásához. Ez a példa egy jelölőkkel ellátott vonaldiagramot hoz létre alapértelmezett adatokkal, majd külön szöveg‑ és vonalstílusokat alkalmaz az érték‑ és kategóriatengelyeken. A betűméretek és vonalszélességek pontban vannak megadva; a kategória‑címkék 45 fokra vannak elforgatva.
 
-1. Hozzon létre egy példányt a [**Presentation**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze meg a dia hivatkozását index alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (ebben a példában a ChartType.LineWithMarkers‑t használjuk).
-1. Nyissa meg a diagram Érték‑tengelyét, és állítsa be a következő tulajdonságokat:
-   1. **Line format** beállítása az Érték‑tengely fő rácsvonalaihoz
-   1. **Line format** beállítása az Érték‑tengely alárendelt rácsvonalaihoz
-   1. **Number Format** beállítása az Érték‑tengelyhez
-   1. **Min, Max, Major and Minor units** beállítása az Érték‑tengelyhez
-   1. **Text Properties** beállítása az Érték‑tengely adatainak
-   1. **Title** beállítása az Érték‑tengelyhez
-   1. **Line Format** beállítása az Érték‑tengelyhez
-1. Nyissa meg a diagram Kategória‑tengelyét, és állítsa be a következő tulajdonságokat:
-   1. **Line format** beállítása a Kategória‑tengely fő rácsvonalaihoz
-   1. **Line format** beállítása a Kategória‑tengely alárendelt rácsvonalaihoz
-   1. **Text Properties** beállítása a Kategória‑tengely adatainak
-   1. **Title** beállítása a Kategória‑tengelyhez
-   1. **Label Positioning** beállítása a Kategória‑tengelyhez
-   1. **Rotation Angle** beállítása a Kategória‑tengely címkéihez
-1. Nyissa meg a diagram Jelmagyarázatát, és állítsa be a **Text Properties**‑t számukra
-1. Állítsa be, hogy a diagram jelmagyarázata ne fedje át a diagramot
-1. Nyissa meg a diagram **Secondary Value Axis**‑t, és állítsa be a következő tulajdonságokat:
-   1. Engedélyezze a másodlagos **Value Axis**‑t
-   1. **Line Format** beállítása a másodlagos Érték‑tengelyhez
-   1. **Number Format** beállítása a másodlagos Érték‑tengelyhez
-   1. **Min, Max, Major and Minor units** beállítása a másodlagos Érték‑tengelyhez
-1. Most ábrázolja az első diagram sorozatot a másodlagos Érték‑tengelyen
-1. Állítsa be a diagram hátsó falának kitöltőszínét
-1. Állítsa be a diagram diagramterületének kitöltőszínét
-1. Írja a módosított prezentációt PPTX fájlba
+Az értéktengely a [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) metódust használja a forráscelláktól függetlenül. Skálája -2‑től 15‑ig terjed, fő intervalluma 2, másodlagos intervalluma 0,5. A példa a százalékos formázást a [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) „ezer” beállításával kombinálja, ezért a beállításokat a saját adatainak jelentéséhez és nagyságrendjéhez igazítsa. A jelmagyarázat a diagramterület kívül marad, mivel a [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) `false` értékkel van meghívva. A hátfal és az alap kitöltései a [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) és a [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) segítségével állíthatók be, ezek a felületek azonban csak 3D diagramokban láthatók.
 
 ```java
-// Presentation osztály példányának létrehozása
-Presentation pres = new Presentation();
-try {
-    // Az első dia elérése
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // Minta diagram hozzáadása
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Diagram cím beállítása
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -82,290 +52,288 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Fő rácsvonalak formátumának beállítása az érték‑tengelyhez
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Alárendelt rácsvonalak formátumának beállítása az érték‑tengelyhez
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Érték‑tengely számformátumának beállítása
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Diagram maximális és minimális értékek beállítása
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Érték‑tengely szövegtulajdonságainak beállítása
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // Érték‑tengely címének beállítása
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Fő rácsvonalak formátumának beállítása a kategória‑tengelyhez
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Alárendelt rácsvonalak formátumának beállítása a kategória‑tengelyhez
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Kategória‑tengely szövegtulajdonságainak beállítása
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // Kategória‑tengely címének beállítása
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Kategória‑tengely címke pozíciójának beállítása
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // Kategória‑tengely címke forgatási szöge
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Jelmagyarázat szövegtulajdonságainak beállítása
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // Diagram jelmagyarázatának megjelenítése a diagram átfedése nélkül
+    chart.getLegend().setOverlay(false);
 
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // Másodlagos érték‑tengely beállítása
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // Másodlagos érték‑tengely számformátumának beállítása
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // Diagram maximális és minimális értékek beállítása
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // Diagram hátfal színének beállítása
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // Ábrázolási terület színének beállítása
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // Prezentáció mentése
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Diagram betűtípus‑tulajdonságainak beállítása**
-Az Aspose.Slides for Android via Java támogatja a diagram betűtípus‑tulajdonságainak beállítását. Kövesse az alábbi lépéseket a diagram betűtípus‑tulajdonságainak megadásához.
+## **Betűtípus‑tulajdonságok beállítása diagramhoz**
 
-- Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztálypéldányt.
-- Adjon hozzá egy diagramot a diára.
-- Állítsa be a betűtípus magasságát.
-- Mentse a módosított prezentációt.
-
-Az alábbi minta példa ezt szemlélteti.
+Állítsa be a diagram szövegeinek alapértelmezett betűméretét a [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--) metódus segítségével. A példa egy csoportosított oszlopdiagramot hoz létre 20 pontos betűmérettel, és az első sorozat értékcímkéit a [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true` értékkel engedélyezi. A saját, kifejezetten megadott betűtípus beállításokkal rendelkező szövegelemek felülírhatják a diagram alapértelmezését.
 
 ```java
-// Presentation osztály példányának létrehozása
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Numerikus formátum beállítása**
-Az Aspose.Slides for Android via Java egyszerű API‑t biztosít a diagramadat‑formátum kezeléséhez:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-1. Szerezze meg a dia hivatkozását index alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típussal (ebben a példában a **ChartType.ClusteredColumn**‑t használjuk).
-1. Állítsa be az előre definiált számformátumot az elérhető értékek közül.
-1. Járja végig a diagram adatcelláit minden diagram sorozatban, és állítsa be a diagram adat‑számformátumát.
-1. Mentse a prezentációt.
-1. Állítsa be az egyéni számformátumot.
-1. Járja végig a diagram adatcelláit minden diagram sorozatban, és állítson be különböző számformátumot.
-1. Mentse a prezentációt.
+Használja az [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) metódust beépített számformátum alkalmazásához a diagram munkafüzetcelláira. Ez a példa egy csoportosított oszlopdiagramot hoz létre alapértelmezett, cella‑alapú adatokkal, és a 10‑es formátumindexet (`0.00%`) alkalmazza minden sorozat értékcellájára. Ez a megjelenést módosítja a munkafüzetben anélkül, hogy a tényleges számok változnának; például a 0,25 érték 25,00 %-ként jelenik meg. A tengely‑ és adatcímke‑formátumok külön konfigurálhatók.
 
 ```java
-// Presentation osztály példányának létrehozása
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Az első prezentációs dia elérése
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Alapértelmezett csoportos oszlopdiagram hozzáadása
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // A diagram sorozatgyűjteményének elérése
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // Minden diagram sorozaton való iteráció
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // Sorozat minden adatcellájának iterációja
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // A számformátum beállítása
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
 
-    // Prezentáció mentése
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Az elérhető előre definiált számformátum‑értékek a hozzájuk tartozó indexekkel együtt az alábbiak:
+Az alábbi táblázat a beépített számformátum‑indexeket sorolja fel a angol (Egyesült Államok) területi beállításokhoz tartozó jellemző Excel‑formátumokkal. A pontos formátumkarakterláncok és megjelenítésük alkalmazásonként és területenként eltérhet, különösen a pénznemek és dátumok esetében. Néhány Excel‑formátum eltér az OOXML szabvány alapértelmezéseitől, ahogy azt a [Microsoft számformátum‑implementációs megjegyzéseiben](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) leírják.
 
-|**0**|Általános|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Formátum |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Lekerekített sarkok beállítása a diagram területén**
-Az Aspose.Slides for Android via Java támogatja a diagram területének beállítását. A [**hasRoundedCorners**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) és a [**setRoundedCorners**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) metódusok hozzá lettek adva az [IChart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IChart) interfészhez és a [Chart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Chart) osztályhoz.
+## **Lekerekített szegélyek beállítása a diagramterületen**
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztálypéldányt.
-1. Adjon hozzá egy diagramot a diára.
-1. Állítsa be a diagram kitöltésének típusát és színét
-1. Állítsa be a lekerekített sarok tulajdonságát igazra.
-1. Mentse a módosított prezentációt.
-
-Az alábbi minta példa ezt szemlélteti.
+Hívja meg az [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) metódust `true` értékkel a diagramterület sarkainak lekerekítéséhez. A példa egy csoportosított oszlopdiagramot hoz létre, és a [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) segítségével szilárd szürke színt és egyvonalas stílust ad a körvonalnak, mielőtt elmentené a prezentációt.
 
 ```java
-// Presentation osztály példányának létrehozása
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Meglévő diagramjegyzetek szerkesztése**
+
+Egy diagram tartalmazhat egyedi alakzatokat, például olyan szöveges megjegyzést, amely a jelentés állapotát magyarázza. Ezeket az alakzatokat a [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--) vagy a [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) API‑kön keresztül érheti el. A [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) által visszaadott gyűjtemény a diagramhoz tartozó alakzatokat tartalmazza.
+
+Egy diagram fölé helyezett egyszerű szövegdoboz a diára tartozik, még ha úgy néz is ki, mintha a diagram része lenne. A [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) iterálásával megtalálja a diagramot és a diagramon kívüli diaképeket, de a diagramon belüli egyedi alakzatokat nem sorolja fel. A diagramcímek és adatcímkék külön diagramelemek, nem egyedi megjegyzések ebben a gyűjteményben.
+
+Töltse le a [chart-annotations.pptx](chart-annotations.pptx) fájlt, és helyezze el az alkalmazás munkakönyvtárában. Az első dián egy diagram látható, amely egy csoportosítatlan megjegyzést („Preliminary results”), egy diagramhoz tartozó vonalat és egy egyszerű diaszövegdobozt („Slide overlay”) tartalmaz. A példa megtalálja az első diagramot azon a dián, és módosítja a megjegyzést „Final results” szövegre, amikor a jelentés közzétételre készül. Ellenőrzi, hogy a gyűjtemény nem üres, és csak akkor szerkeszt egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet, ha annak nem üres a [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) által visszaadott szövegkerete, és a várt szöveget tartalmazza.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A vonal és a diaszövegdoboz változatlan marad. Az alábbi képek a bemeneti és a mentett, újra megnyitott eredményt mutatják:
+
+| Szerkesztés előtt | Szerkesztés után |
+| --- | --- |
+| ![Diagramjegyzet – Preliminary results](chart-annotations-before.png) | ![Diagramjegyzet – Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Megjegyzés" %}}
+
+A példa csak a legfelső szintű, diagramhoz tartozó alakzatokat vizsgálja. Ha egy megjegyzés egy [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) belsejében van, vizsgálja meg annak [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) gyűjteményét is. Ezt rekurzívan ismételje a beágyazott csoportokra, ugyanazokat a szövegellenőrzéseket alkalmazva a gyermekalakzatokra. A csoport önmagában egy tároló; ne kezelje szövegdobozként.
+
+{{% /alert %}}
+
 ## **GYIK**
 
-**Beállíthatok félig átlátszó kitöltéseket oszlopokhoz/területekhez, miközben a szegély átlátszatlan marad?**
+**Beállíthatok-e félig átlátszó kitöltést az oszlopok/területek számára, miközben a szegély opak marad?**
 
-Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez hasznos a rács és az adatok olvashatóságának javításához sűrű vizualizációk esetén.
+Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez különösen hasznos a rács és az adatok olvashatóságának javításához sűrű vizualizációkban.
 
-**Hogyan kezeljem a felülcsúszó adatcímkéket?**
+**Hogyan kezeljem a címkéket, ha átfedik egymást?**
 
-Csökkentse a betűméretet, tiltsa le a nem lényeges címkeelemeket (például a kategóriákat), állítsa be a címke eltolását/pozícióját, ha szükséges, csak a kiválasztott pontok címkéit mutassa, vagy váltson a „érték + jelmagyarázat” formátumra.
+Csökkentse a betűméretet, tiltsa le a nem lényeges címkeösszetevőket (például a kategóriákat), állítsa át a címkehelyzetet, szükség esetén csak a kiválasztott pontok címkéit jelenítse meg, vagy váltsa “érték + jelmagyarázat” formátumra.
 
-**Alkalmazhatok‑e színátmenetes vagy mintás kitöltéseket sorozatokra?**
+**Alkalmazhatok‑e fokozat vagy minta kitöltést sorozatokra?**
 
-Igen. Mind a szilárd, mind a színátmenetes/mintás kitöltések általában elérhetők. A gyakorlatban használjon színátmeneteket mértékkel, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.
+Igen. A sorozatok támogatják a szilárd, fokozatos és minta kitöltéseket. Gyakorlatban használjon fokozatot mértékkel, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.

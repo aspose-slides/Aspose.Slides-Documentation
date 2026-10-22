@@ -18,66 +18,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解 Aspose.Slides for .NET 中的圖表格式化，並以專業、引人注目的樣式提升您的 PowerPoint 簡報。"
+description: "了解在 Aspose.Slides for .NET 中的圖表格式化，並透過自訂座標軸、字型、數字格式和圓角圖表邊框，提升您的 PowerPoint 簡報。"
 ---
-## **概述**
+## **概觀**
 
-本文說明如何使用 Aspose.Slides 在 PowerPoint 簡報中格式化圖表。它展示了如何自訂圖表的關鍵元素，如座標軸、格線、標題、圖例、繪圖區域以及牆面填色，以提升圖表資料的外觀與可讀性。
+本文說明如何使用 Aspose.Slides 在 PowerPoint 簡報中格式化圖表。它展示了如何自訂圖表的關鍵元素，如座標軸、格線、標題、圖例、繪圖區域以及牆壁填色，以提升圖表資料的外觀與可讀性。
 
-此外，本文還示範了如何設定圖表文字的字型屬性、套用預設與自訂的數字格式至圖表資料，以及啟用圖表區域的圓角。這些範例共同說明了如何同時掌控簡報中圖表的視覺樣式與資料呈現方式。
+它同時示範了如何設定圖表文字的字型屬性、將預設數字格式套用到圖表資料，並啟用圖表區域的圓角。這些範例一併說明了如何同時控制簡報中圖表的視覺樣式與資料呈現。
 
 ## **格式化圖表實體**
-Aspose.Slides for .NET 讓開發人員從頭建立自訂圖表。本文章說明如何格式化不同的圖表實體，包括圖表類別軸與值軸。
 
-Aspose.Slides for .NET 提供簡易的 API 來管理不同的圖表實體並以自訂值進行格式化：
+使用 [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) 來格式化圖表標題、座標軸、格線、圖例與繪圖區域。此範例建立一個帶標記的折線圖與預設資料，然後對其值軸與類別軸分別套用文字與線條樣式。字型大小與線寬以點為單位；類別標籤旋轉 45 度。
 
-1. 建立 **Presentation** 類別的實例。
-1. 依索引取得投影片的參照。
-1. 加入具有預設資料的圖表，並選擇任意所需類型（本範例使用 ChartType.LineWithMarkers）。
-1. 存取圖表值軸，並設定以下屬性：
-   1. 設定值軸主要格線的 **Line format**
-   1. 設定值軸次要格線的 **Line format**
-   1. 設定值軸的 **Number Format**
-   1. 設定值軸的 **Min, Max, Major and Minor units**
-   1. 設定值軸資料的 **Text Properties**
-   1. 設定值軸的 **Title**
-   1. 設定值軸的 **Line Format**
-1. 存取圖表類別軸，並設定以下屬性：
-   1. 設定類別軸主要格線的 **Line format**
-   1. 設定類別軸次要格線的 **Line format**
-   1. 設定類別軸資料的 **Text Properties**
-   1. 設定類別軸的 **Title**
-   1. 設定類別軸的 **Label Positioning**
-   1. 設定類別軸標籤的 **Rotation Angle**
-1. 存取圖表圖例，並設定其 **Text Properties**
-1. 設定顯示圖例且不與圖表重疊
-1. 存取圖表的 **Secondary Value Axis**，並設定以下屬性：
-   1. 啟用次要 **Value Axis**
-   1. 設定次要值軸的 **Line Format**
-   1. 設定次要值軸的 **Number Format**
-   1. 設定次要值軸的 **Min, Max, Major and Minor units**
-1. 現在在次要值軸上繪製第一個圖表系列
-1. 設定圖表背牆的填色
-1. 設定圖表繪圖區域的填色
-1. 將已修改的簡報寫入 PPTX 檔案
+值軸使用 [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/)，與來源儲存格無關。其刻度從 -2 到 15，主要間隔為 2，次要間隔為 0.5。範例也將百分比格式與 [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) 設為千位結合使用，請依據資料的意義與數值大小調整這些設定。圖例因為已停用 [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/)，所以位於繪圖區域之外。背牆與地板填色透過 [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) 與 [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) 設定，但這些表面僅在 3D 圖表中可見。
 
-```c#
-// 實例化簡報// 實例化簡報
-Presentation pres = new Presentation();
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Accessing the first slide
-// 存取第一張投影片
-ISlide slide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Adding the sample chart
-// 加入範例圖表
-IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-// Setting Chart Titile
-// 設定圖表標題
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
-IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
+var chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
 chartTitle.Text = "Sample Chart";
 chartTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 chartTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
@@ -85,27 +53,19 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Setting Major grid lines format for value axis
-// 設定值軸主要格線格式
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Setting Minor grid lines format for value axis
-// 設定值軸次要格線格式
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Setting value axis number format
-// 設定值軸數字格式
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
-// Setting chart maximum, minimum values
-// 設定圖表最大值與最小值
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -116,254 +76,253 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Setting Value Axis Text Properties
-// 設定值軸文字屬性
-IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
-txtVal.FontBold = NullableBool.True;
-txtVal.FontHeight = 16;
-txtVal.FontItalic = NullableBool.True;
-txtVal.FillFormat.FillType = FillType.Solid; ;
-txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
-txtVal.LatinFont = new FontData("Times New Roman");
+var valueAxisText = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
+valueAxisText.FontBold = NullableBool.True;
+valueAxisText.FontHeight = 16;
+valueAxisText.FontItalic = NullableBool.True;
+valueAxisText.FillFormat.FillType = FillType.Solid;
+valueAxisText.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+valueAxisText.LatinFont = new FontData("Times New Roman");
 
-// Setting value axis title
-// 設定值軸標題
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
-IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-valtitle.Text = "Primary Axis";
-valtitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-valtitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-valtitle.PortionFormat.FontHeight = 20;
-valtitle.PortionFormat.FontBold = NullableBool.True;
-valtitle.PortionFormat.FontItalic = NullableBool.True;
+var valueAxisTitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+valueAxisTitle.Text = "Primary Axis";
+valueAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+valueAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+valueAxisTitle.PortionFormat.FontHeight = 20;
+valueAxisTitle.PortionFormat.FontBold = NullableBool.True;
+valueAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Setting value axis line format : Now Obselete
-// 設定值軸線條格式：已過時
-// chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
-// chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
-// Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
-
-// Setting Major grid lines format for Category axis
-// 設定類別軸主要格線格式
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// Setting Minor grid lines format for Category axis
-// 設定類別軸次要格線格式
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Setting Category Axis Text Properties
-// 設定類別軸文字屬性
-IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
-txtCat.FontBold = NullableBool.True;
-txtCat.FontHeight = 16;
-txtCat.FontItalic = NullableBool.True;
-txtCat.FillFormat.FillType = FillType.Solid; ;
-txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
-txtCat.LatinFont = new FontData("Arial");
+var categoryAxisText = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
+categoryAxisText.FontBold = NullableBool.True;
+categoryAxisText.FontHeight = 16;
+categoryAxisText.FontItalic = NullableBool.True;
+categoryAxisText.FillFormat.FillType = FillType.Solid;
+categoryAxisText.FillFormat.SolidFillColor.Color = Color.Blue;
+categoryAxisText.LatinFont = new FontData("Arial");
 
-// Setting Category Titile
-// 設定類別標題
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
-IPortion catTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-catTitle.Text = "Sample Category";
-catTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-catTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-catTitle.PortionFormat.FontHeight = 20;
-catTitle.PortionFormat.FontBold = NullableBool.True;
-catTitle.PortionFormat.FontItalic = NullableBool.True;
+var categoryAxisTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+categoryAxisTitle.Text = "Sample Category";
+categoryAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+categoryAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+categoryAxisTitle.PortionFormat.FontHeight = 20;
+categoryAxisTitle.PortionFormat.FontBold = NullableBool.True;
+categoryAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Setting category axis lable position
-// 設定類別軸標籤位置
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
-
-// Setting category axis lable rotation angle
-// 設定類別軸標籤旋轉角度
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// Setting Legends Text Properties
-// 設定圖例文字屬性
-IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
-txtleg.FontBold = NullableBool.True;
-txtleg.FontHeight = 16;
-txtleg.FontItalic = NullableBool.True;
-txtleg.FillFormat.FillType = FillType.Solid; ;
-txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
+var legendText = chart.Legend.TextFormat.PortionFormat;
+legendText.FontBold = NullableBool.True;
+legendText.FontHeight = 16;
+legendText.FontItalic = NullableBool.True;
+legendText.FillFormat.FillType = FillType.Solid;
+legendText.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// Set show chart legends without overlapping chart
-// 設定顯示圖例且不與圖表重疊
+chart.Legend.Overlay = false;
 
-chart.Legend.Overlay = true;
-            
-// Ploting first series on secondary value axis
-// 在次要值軸上繪製第一個系列
-// Chart.ChartData.Series[0].PlotOnSecondAxis = true;
-
-// Setting chart back wall color
-// 設定圖表背牆顏色
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
-// Setting Plot area color
-// 設定繪圖區顏色
+
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// Save Presentation
-// 儲存簡報
-pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
+presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
+## **設定圖表字型屬性**
 
+透過 [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) 設定圖表文字的預設字型大小。此範例建立一個叢集柱狀圖，字型大小為 20 點，並透過 [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 為第一個系列啟用值標籤。具有自行明確字型設定的文字元素會覆寫圖表的預設值。
 
-## **設定圖表的字型屬性**
-Aspose.Slides for .NET 提供設定圖表相關字型屬性的支援。請依照以下步驟設定圖表的字型屬性。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-- 實例化 Presentation 類別物件。
-- 在投影片上新增圖表。
-- 設定字型高度。
-- 儲存已修改的簡報。
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-以下提供範例程式碼。
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+chart.TextFormat.PortionFormat.FontHeight = 20;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-```c#
-using (Presentation pres = new Presentation())
-{               
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    chart.TextFormat.PortionFormat.FontHeight = 20;
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    pres.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
-}
+presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **設定數字格式**
 
+使用 [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) 為圖表工作表儲存格套用內建數字格式。此範例建立一個叢集柱狀圖，使用預設的、以儲存格為基礎的資料，並將格式索引 10 (`0.00%`) 套用到每個系列的值儲存格。這會改變工作表中值的顯示方式，但不改變底層數字；例如，0.25 會顯示為 25.00%。座標軸與資料標籤的格式也可以分別設定。
 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-## **設定數值格式**
-Aspose.Slides for .NET 提供簡易的 API 以管理圖表資料格式：
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。
-1. 依索引取得投影片的參照。
-1. 加入具有預設資料的圖表，並選擇任意所需類型（本範例使用 **ChartType.ClusteredColumn**）。
-1. 從可用的預設值中設定預設數字格式。
-1. 遍歷每個圖表系列中的圖表資料儲存格，並設定圖表資料的數字格式。
-1. 儲存簡報。
-1. 設定自訂數字格式。
-1. 遍歷每個圖表系列內的圖表資料儲存格，設定不同的圖表資料數字格式。
-1. 儲存簡報。
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var series = chart.ChartData.Series;
 
-```c#
-// 實例化簡報// 實例化簡報
-Presentation pres = new Presentation();
-
-// 存取第一張簡報投影片
-ISlide slide = pres.Slides[0];
-
-// 新增預設的叢集柱形圖
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-// 存取圖表系列集合
-IChartSeriesCollection series = chart.ChartData.Series;
-
-// 設定預設的數字格式
-// 遍歷每個圖表系列
-foreach (ChartSeries ser in series)
+foreach (var chartSeries in series)
 {
-    // 遍歷系列中的每個資料儲存格
-    foreach (IChartDataPoint cell in ser.DataPoints)
+    foreach (var dataPoint in chartSeries.DataPoints)
     {
-        // 設定數字格式
-        cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
-// 儲存簡報
-pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
+presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-以下列出可使用的預設數字格式值及其對應的索引：
+以下表格列出內建數字格式索引及其在英文（美國）語系下的代表性 Excel 格式。實際的格式字串與顯示方式可能因應用程式與語系而異，特別是貨幣與日期。某些 Excel 格式也與 OOXML 標準的預設不同，如同在 [Microsoft 的數字格式實作說明](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) 中所述。
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| 索引 | 格式 |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
 ## **設定圖表區域圓角邊框**
-Aspose.Slides for .NET 提供設定圖表區域的支援。已在 Aspose.Slides 中加入 **IChart.HasRoundedCorners** 與 **Chart.HasRoundedCorners** 屬性。
 
-1. 實例化 `Presentation` 類別物件。
-1. 在投影片上新增圖表。
-1. 設定圖表的填充類型與填充顏色
-1. 將圓角屬性設為 True。
-1. 儲存已修改的簡報。
+啟用 [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) 以讓圖表區域的角落變圓。此範例建立一個叢集柱狀圖，並使用 [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) 為其外框設定實心灰色與單線樣式，最後儲存簡報。
 
-以下提供範例程式碼。
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+chart.LineFormat.FillFormat.FillType = FillType.Solid;
+chart.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+chart.LineFormat.Style = LineStyle.Single;
+chart.HasRoundedCorners = true;
+
+presentation.Save("out.pptx", SaveFormat.Pptx);
+```
+
+## **編輯現有圖表註釋**
+
+圖表可以包含自訂圖形，例如說明報告狀態的文字註釋。可透過 [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) 取得這些圖形，該屬性同樣在 [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) 中列出於 Chart API 參考。它的 [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) 集合包含圖表所擁有的圖形。
+
+放在圖表上方的普通文字方塊屬於投影片，即使看起來像是圖表的一部份。遍歷 [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) 會找到圖表與普通投影片圖形，但不會列舉圖表內部的個別圖形。圖表標題與資料標籤是獨立的圖表元素，並非此集合中的自訂註釋。
+
+下載 [chart-annotations.pptx](chart-annotations.pptx) 並放置於應用程式的工作目錄。其第一張投影片包含一個未分組的註釋「Preliminary results」、一條圖表擁有的線條，以及一個普通投影片文字方塊「Slide overlay」。範例會在該投影片上找到第一個圖表，並在報告準備發布時將註釋改為「Final results」。它會檢查集合是否為空，僅編輯具有非 null [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) 且文字符合預期的 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("chart-annotations.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.OfType<IChart>().FirstOrDefault();
+
+if (chart == null || chart.UserShapes.Shapes.Count == 0)
 {
-	ISlide slide = presentation.Slides[0];
-	IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-	chart.LineFormat.FillFormat.FillType = FillType.Solid;
-	chart.LineFormat.Style = LineStyle.Single;
-	chart.HasRoundedCorners = true;
+    Console.WriteLine("No chart or chart-owned shapes found.");
+    return;
+}
 
-	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var updated = false;
+foreach (var shape in chart.UserShapes.Shapes)
+{
+    if (shape is IAutoShape annotation && 
+        annotation.TextFrame != null && 
+        annotation.TextFrame.Text == "Preliminary results")
+    {
+        annotation.TextFrame.Text = "Final results";
+        updated = true;
+        break;
+    }
+}
+
+if (updated)
+{
+    presentation.Save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No matching text annotation found.");
 }
 ```
 
-## **FAQ**
+線條與投影片文字方塊保持不變。以下影像顯示編輯前後的結果：
 
-**我可以為柱狀/區域設定半透明填色，同時保持邊框不透明嗎？**
+| 編輯前 | 編輯後 |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
-可以。填充透明度與輪廓是分別設定的。這在密集的視覺化圖表中有助於提升格線與資料的可讀性。
+{{% alert color="info" title="Note" %}}
+此範例僅檢查圖表擁有的頂層圖形。如果註釋位於 [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) 內，亦需檢查該群組的 [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) 集合。對於巢狀群組，請遞迴執行相同的文字檢查於其子圖形。群組本身僅是容器；不要將其當作文字方塊處理。
+{{% /alert %}}
+
+## **常見問題**
+
+**我可以在保持邊框不透明的同時，為柱形/區域設定半透明填色嗎？**
+
+可以。填色透明度與外框分別設定。這在提升密集視覺化中格線與資料的可讀性時相當有用。
 
 **當資料標籤重疊時，我該如何處理？**
 
-降低字型大小、停用非必要的標籤元件（例如類別）、設定標籤的偏移/位置，必要時僅顯示選取點的標籤，或改用「值 + 圖例」的格式。
+縮小字型、停用非必要的標籤元件（例如類別）、調整標籤位置，必要時僅顯示選取點的標籤，或改為「值 + 圖例」的格式。
 
 **我可以對系列套用漸層或圖案填色嗎？**
 
-可以。通常皆可使用實色與漸層/圖案填色。實務上，請節制使用漸層，避免與格線及文字的對比度降低的組合。
+可以。系列支援實心、漸層與圖案填色。實務上，請節制使用漸層，並避免與格線與文字對比度降低的組合。

@@ -1,6 +1,6 @@
 ---
-title: Androidでプレゼンテーションチャートをフォーマット
-linktitle: チャート書式設定
+title: Androidでプレゼンテーションチャートをフォーマットする
+linktitle: チャートの書式設定
 type: docs
 weight: 60
 url: /ja/androidjava/chart-formatting/
@@ -8,7 +8,7 @@ keywords:
 - チャートの書式設定
 - チャートの書式設定
 - チャートエンティティ
-- チャートプロパティ
+- チャートのプロパティ
 - チャート設定
 - チャートオプション
 - フォントプロパティ
@@ -18,55 +18,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java のチャート書式設定を学び、プロフェッショナルで目を引くスタイルで PowerPoint プレゼンテーションを向上させましょう。"
+description: "Android用 Aspose.Slides でのチャート書式設定を学び、カスタム軸、フォント、数値書式、角丸チャート境界線で PowerPoint プレゼンテーションを向上させましょう。"
 ---
+## **概要**
 
-## **チャートエンティティの書式設定**
-Aspose.Slides for Android via Java を使用すると、開発者はスライドにカスタムチャートを最初から追加できます。本記事では、チャートのカテゴリ軸と値軸を含むさまざまなチャートエンティティの書式設定方法について説明します。
+この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションのチャートをフォーマットする方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなどの主要なチャート要素をカスタマイズし、チャート データの外観と可読性を向上させる方法を示します。
 
-Aspose.Slides for Android via Java は、さまざまなチャートエンティティを管理し、カスタム値を使用して書式設定できるシンプルな API を提供します。
+また、チャート テキストのフォント プロパティの設定、チャート データへの事前定義数値書式の適用、チャート領域の角を丸める方法も示します。これらの例を組み合わせることで、プレゼンテーション内のチャートのビジュアル スタイルとデータ表示の両方を制御できることが示されています。
 
-1. [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスでスライドの参照を取得します。
-1. デフォルトデータと希望のタイプのいずれかでチャートを追加します（この例では ChartType.LineWithMarkers を使用します）。
-1. チャートの値軸にアクセスし、以下のプロパティを設定します：
-   1. 値軸の主要グリッド線の **Line format** を設定します。
-   1. 値軸のマイナー グリッド線の **Line format** を設定します。
-   1. 値軸の **Number Format** を設定します。
-   1. 値軸の **Min, Max, Major and Minor units** を設定します。
-   1. 値軸データの **Text Properties** を設定します。
-   1. 値軸の **Title** を設定します。
-   1. 値軸の **Line Format** を設定します。
-1. チャートのカテゴリ軸にアクセスし、以下のプロパティを設定します：
-   1. カテゴリ軸の主要グリッド線の **Line format** を設定します。
-   1. カテゴリ軸のマイナー グリッド線の **Line format** を設定します。
-   1. カテゴリ軸データの **Text Properties** を設定します。
-   1. カテゴリ軸の **Title** を設定します。
-   1. カテゴリ軸の **Label Positioning** を設定します。
-   1. カテゴリ軸ラベルの **Rotation Angle** を設定します。
-1. チャートの凡例にアクセスし、**Text Properties** を設定します。
-1. チャートが重ならないように凡例を表示します。
-1. チャートの **Secondary Value Axis** にアクセスし、以下のプロパティを設定します：
-   1. セカンダリ **Value Axis** を有効にします。
-   1. セカンダリ値軸の **Line Format** を設定します。
-   1. セカンダリ値軸の **Number Format** を設定します。
-   1. セカンダリ値軸の **Min, Max, Major and Minor units** を設定します。
-1. セカンダリ値軸に最初のチャート系列をプロットします。
-1. チャートの背面壁の塗りつぶし色を設定します。
-1. チャートのプロット領域の塗りつぶし色を設定します。
-1. 変更したプレゼンテーションを PPTX ファイルに書き込みます。
+## **チャート要素のフォーマット**
+
+チャートのタイトル、軸、グリッド線、凡例、およびプロット領域をフォーマットするには、[IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) を使用します。この例では、マーカー付きの折れ線グラフをデフォルト データで作成し、値軸とカテゴリ軸それぞれに別々のテキストと線のスタイルを適用します。フォント サイズと線幅はポイント単位で指定され、カテゴリ ラベルは 45 度回転します。
+
+値軸は、ソースセルに依存せず [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) を使用します。スケールは -2 から 15 までで、メジャー間隔は 2、マイナー間隔は 0.5 に設定されています。この例では、パーセンテージ書式と [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) を千単位に設定したものを組み合わせているため、データの意味や規模に合わせて設定を調整してください。凡例は、[setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) に `false` を指定しているため、プロット領域の外側に表示されます。背面壁と床の塗りつぶしは [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) と [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) で設定しますが、これらの面は 3D チャートでのみ表示されます。
+
 ```java
-// Presentation クラスのインスタンスを作成
-Presentation pres = new Presentation();
-try {
-    // 最初のスライドにアクセス
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // サンプルチャートを追加
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // チャートタイトルを設定
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -76,291 +52,286 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // 値軸の主要グリッド線の書式を設定
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // 値軸の補助グリッド線の書式を設定
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // 値軸の数値書式を設定
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // チャートの最大・最小値を設定
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // 値軸のテキストプロパティを設定
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // 値軸のタイトルを設定
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // カテゴリ軸の主要グリッド線の書式を設定
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // カテゴリ軸の補助グリッド線の書式を設定
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // カテゴリ軸のテキストプロパティを設定
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // カテゴリタイトルを設定
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // カテゴリ軸ラベルの位置を設定
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // カテゴリ軸ラベルの回転角度を設定
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // 凡例のテキストプロパティを設定
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // チャートが重ならないように凡例を表示
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
+    chart.getLegend().setOverlay(false);
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // セカンダリ値軸を設定
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // セカンダリ値軸の数値書式を設定
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // チャートの最大・最小値を設定
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // チャートの背面壁の色を設定
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // プロット領域の色を設定
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // プレゼンテーションを保存
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **チャートのフォント プロパティの設定**
 
+[Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--) を使用して、チャート テキストのデフォルト フォント サイズを設定します。この例では、20 ポイントのフォントを持つクラスター化縦棒グラフを作成し、[setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) を使用して最初の系列の値ラベルを有効にします。独自の明示的なフォント設定を持つテキスト要素は、チャートのデフォルト設定を上書きできます。
 
-## **チャートのフォントプロパティの設定**
-Aspose.Slides for Android via Java は、チャートのフォント関連プロパティの設定をサポートします。以下の手順に従ってチャートのフォントプロパティを設定してください。
-
-- [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのオブジェクトをインスタンス化します。
-- スライドにチャートを追加します。
-- フォントの高さを設定します。
-- 変更したプレゼンテーションを保存します。
-
-以下にサンプル例を示します。
 ```java
-// Presentationクラスのインスタンスを作成
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **数値書式の設定**
 
-## **数値フォーマットの設定**
-Aspose.Slides for Android via Java は、チャートデータフォーマットを管理するシンプルな API を提供します：
+[IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) を使用して、チャートのブックセルに組み込み数値書式を適用します。この例では、デフォルトのセルベース データを持つクラスター化縦棒グラフを作成し、各系列の値セルにフォーマット インデックス 10（`0.00%`）を適用します。これにより、基となる数値は変更せずにブック上での表示が変わります。たとえば、0.25 は 25.00% と表示されます。軸とデータ ラベルの書式は個別に設定できます。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成します。
-1. インデックスでスライドの参照を取得します。
-1. デフォルトデータと希望のタイプのいずれかでチャートを追加します（この例では **ChartType.ClusteredColumn** を使用します）。
-1. 可能なプリセット値から事前設定された数値フォーマットを設定します。
-1. 各チャート系列のチャートデータセルを走査し、数値フォーマットを設定します。
-1. プレゼンテーションを保存します。
-1. カスタム数値フォーマットを設定します。
-1. 各チャート系列内のチャートデータセルを走査し、異なる数値フォーマットを設定します。
-1. プレゼンテーションを保存します。
 ```java
-// Presentation クラスのインスタンスを作成
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // 最初のプレゼンテーションスライドにアクセス
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // デフォルトのクラスター化された縦棒グラフを追加
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // チャート系列コレクションにアクセス
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // すべてのチャート系列を走査
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // 系列内のすべてのデータセルを走査
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // 数値書式を設定
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
 
-    // プレゼンテーションを保存
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+以下の表は、英語（米国）ロケール向けの代表的な Excel 書式とともに、組み込み数値書式インデックスを一覧表示しています。正確な書式文字列とその表示はアプリケーションやロケールにより異なる場合があり、特に通貨や日付で顕著です。一部の Excel 書式は、[Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) に記載されているように OOXML 標準のデフォルトとは異なることがあります。
 
-可能なプリセット数値フォーマットの値とそのインデックスは以下のとおりです：
-
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| インデックス | 書式 |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
 ## **チャート領域の角丸境界線の設定**
-Aspose.Slides for Android via Java は、チャート領域の設定をサポートします。メソッド [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) と [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) が [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) インターフェイスおよび [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart) クラスに追加されました。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのオブジェクトをインスタンス化します。
-1. スライドにチャートを追加します。
-1. チャートの塗りつぶしタイプと塗りつぶし色を設定します。
-1. 角丸プロパティを True に設定します。
-1. 変更したプレゼンテーションを保存します。
+`true` を指定して [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) を呼び出すと、チャート領域の角が丸くなります。この例では、クラスター化縦棒グラフを作成し、[getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) を使用して輪郭に単色のグレーと単線スタイルを設定し、プレゼンテーションを保存します。
 
-以下にサンプル例を示します。　
 ```java
-// Presentation クラスのインスタンスを作成
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **既存のチャート注釈の編集**
+
+チャートには、レポートのステータスを説明するテキスト注釈などのカスタム シェイプを含めることができます。これらのシェイプは [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--) を介して取得でき、Chart API リファレンスの [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) にも記載されています。[getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) が返すコレクションには、チャートが所有するシェイプが含まれます。
+
+チャート上に配置された通常のテキスト ボックスは、たとえチャートの一部に見えてもスライドに属します。[Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) を反復処理すると、チャートと通常のスライド シェイプが取得できますが、チャート内部の個別シェイプは列挙されません。チャート タイトルやデータ ラベルは、別個のチャート要素であり、このコレクション内のカスタム注釈ではありません。
+
+アプリケーションの作業ディレクトリに [chart-annotations.pptx](chart-annotations.pptx) をダウンロードして配置します。最初のスライドには、"Preliminary results" と表示された非グループ化注釈と、チャートが所有する線、そして "Slide overlay" と表示された通常のスライド テキスト ボックスを含むチャートが配置されています。この例では、そのスライド上の最初のチャートを見つけ、レポートの公開準備ができたときに注釈を "Final results" に変更します。空のコレクションを確認し、[getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) が非 null のテキスト フレームを返す [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) のみを編集し、期待されるテキストかどうかをチェックします。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+線とスライドのテキスト ボックスは変更されません。以下の画像は、入力と保存後に再度開いた結果を示しています。
+
+| Before editing | After editing |
+| --- | --- |
+| ![「Preliminary results」と表示されたチャート注釈](chart-annotations-before.png) | ![「Final results」と表示されたチャート注釈](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+この例は、トップレベルのチャート所有シェイプのみを調べます。[IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) 内に注釈がある場合、そのグループの [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) コレクションも確認します。入れ子になったグループに対して再帰的に同じ操作を行い、子シェイプにも同様のテキストチェックを適用します。グループ自体はコンテナであり、テキスト ボックスとして扱わないでください。
+{{% /alert %}}
 
 ## **FAQ**
 
-**列/エリアの半透明塗りつぶしを設定し、枠線は不透明のままにできますか？**
+**列や領域の塗りつぶしを半透明にし、枠線は不透明のままにできますか？**
 
-はい。塗りつぶしの透明度と輪郭は別々に設定できます。これは、密度の高い可視化においてグリッドやデータの可読性を向上させるのに役立ちます。
+はい。塗りつぶしの透明度と輪郭は別々に設定できます。これは、密集した可視化でグリッドやデータの可読性を向上させるのに役立ちます。
 
-**データラベルが重なる場合、どう対処すればよいですか？**
+**データ ラベルが重なったときはどう対処すればよいですか？**
 
-フォントサイズを小さくする、不要なラベル要素（例：カテゴリ）を無効にする、ラベルのオフセット/位置を設定する、必要に応じて選択したポイントのみラベルを表示する、またはフォーマットを「値 + 凡例」に切り替える、といった方法があります。
+フォント サイズを縮小したり、不要なラベル要素（例: カテゴリ）を無効にしたり、ラベル位置を調整したり、必要に応じて選択したポイントのみラベルを表示したり、書式を「値 + 凡例」に切り替えるなどの方法があります。
 
-**系列にグラデーションやパターンの塗りつぶしを適用できますか？**
+**系列にグラデーションやパターン 塗りつぶしを適用できますか？**
 
-はい。通常、単色塗りつぶしとグラデーション/パターン塗りつぶしの両方が利用可能です。実際には、グラデーションは控えめに使用し、グリッドやテキストとのコントラストが低下する組み合わせは避けてください。
+はい。系列は単色、グラデーション、パターン 塗りつぶしをサポートします。実務ではグラデーションは控えめに使用し、グリッドやテキストとのコントラストを低下させる組み合わせは避けてください。

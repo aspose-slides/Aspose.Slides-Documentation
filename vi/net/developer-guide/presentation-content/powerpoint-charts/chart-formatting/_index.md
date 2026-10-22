@@ -1,5 +1,5 @@
 ---
-title: Định dạng biểu đồ trong bản trình bày .NET
+title: Định dạng biểu đồ trong bài thuyết trình bằng .NET
 linktitle: Định dạng biểu đồ
 type: docs
 weight: 60
@@ -14,67 +14,38 @@ keywords:
 - thuộc tính phông chữ
 - viền bo tròn
 - PowerPoint
-- bản trình bày
+- bài thuyết trình
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng biểu đồ trong Aspose.Slides cho .NET và nâng cao bản trình bày PowerPoint của bạn với phong cách chuyên nghiệp, bắt mắt."
+description: "Tìm hiểu cách định dạng biểu đồ trong Aspose.Slides cho .NET và nâng cao bài thuyết trình PowerPoint của bạn với trục tùy chỉnh, phông chữ, định dạng số và viền bỉu đồ bo tròn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách định dạng biểu đồ trong bài thuyết trình PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần chính của biểu đồ như trục, đường lưới, tiêu đề, chú giải, khu vực vẽ và màu nền tường để cải thiện diện mạo và khả năng đọc dữ liệu biểu đồ.
+Bài viết này giải thích cách định dạng biểu đồ trong bản trình bày PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần chính của biểu đồ như trục, đường lưới, tiêu đề, chú giải, khu vực vẽ và màu nền tường để cải thiện ngoại hình và khả năng đọc dữ liệu biểu đồ.
 
-Nó cũng trình bày cách đặt thuộc tính phông chữ cho văn bản biểu đồ, áp dụng định dạng số có sẵn và tùy chỉnh cho dữ liệu biểu đồ, và bật góc bo tròn cho vùng biểu đồ. Cùng nhau, các ví dụ này cho thấy cách kiểm soát cả kiểu dáng trực quan và cách trình bày dữ liệu của biểu đồ trong một bài thuyết trình.
+Nó cũng trình bày cách thiết lập thuộc tính phông chữ cho văn bản biểu đồ, áp dụng các định dạng số có sẵn cho dữ liệu biểu đồ và bật bo tròn góc cho khu vực biểu đồ. Những ví dụ này cho thấy cách kiểm soát cả phong cách trực quan và cách trình bày dữ liệu của các biểu đồ trong bản trình bày.
 
 ## **Định dạng các thực thể biểu đồ**
-Aspose.Slides for .NET cho phép nhà phát triển thêm biểu đồ tùy chỉnh vào các slide từ đầu. Bài viết này giải thích cách định dạng các thực thể biểu đồ khác nhau bao gồm trục danh mục và trục giá trị của biểu đồ.
 
-Aspose.Slides for .NET cung cấp một API đơn giản để quản lý các thực thể biểu đồ khác nhau và định dạng chúng bằng các giá trị tùy chỉnh:
+Sử dụng [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) để định dạng tiêu đề biểu đồ, trục, đường lưới, chú giải và khu vực vẽ. Ví dụ này tạo một biểu đồ đường có các điểm đánh dấu và dữ liệu mặc định, sau đó áp dụng các kiểu văn bản và đường riêng biệt cho trục giá trị và trục danh mục của nó. Kích thước phông chữ và độ rộng đường được chỉ định bằng điểm; nhãn danh mục được xoay 45 độ.
 
-1. Tạo một thể hiện của lớp **Presentation**.
-1. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định cùng với bất kỳ loại nào mong muốn (trong ví dụ này chúng ta sẽ sử dụng ChartType.LineWithMarkers).
-1. Truy cập Trục Giá trị của biểu đồ và đặt các thuộc tính sau:
-   1. Đặt **Line format** cho các đường lưới chính của Trục Giá trị
-   1. Đặt **Line format** cho các đường lưới phụ của Trục Giá trị
-   1. Đặt **Number Format** cho Trục Giá trị
-   1. Đặt **Min, Max, Major and Minor units** cho Trục Giá trị
-   1. Đặt **Text Properties** cho dữ liệu Trục Giá trị
-   1. Đặt **Title** cho Trục Giá trị
-   1. Đặt **Line Format** cho Trục Giá trị
-1. Truy cập Trục Danh mục của biểu đồ và đặt các thuộc tính sau:
-   1. Đặt **Line format** cho các đường lưới chính của Trục Danh mục
-   1. Đặt **Line format** cho các đường lưới phụ của Trục Danh mục
-   1. Đặt **Text Properties** cho dữ liệu Trục Danh mục
-   1. Đặt **Title** cho Trục Danh mục
-   1. Đặt **Label Positioning** cho Trục Danh mục
-   1. Đặt **Rotation Angle** cho nhãn Trục Danh mục
-1. Truy cập Chú giải của biểu đồ và đặt **Text Properties** cho chúng
-1. Đặt hiển thị chú giải biểu đồ mà không bị chồng lên biểu đồ
-1. Truy cập **Secondary Value Axis** của biểu đồ và đặt các thuộc tính sau:
-   1. Bật **Value Axis** phụ
-   1. Đặt **Line Format** cho Trục Giá trị phụ
-   1. Đặt **Number Format** cho Trục Giá trị phụ
-   1. Đặt **Min, Max, Major and Minor units** cho Trục Giá trị phụ
-1. Bây giờ vẽ chuỗi biểu đồ đầu tiên trên Trục Giá trị phụ
-1. Đặt màu nền tường phía sau biểu đồ
-1. Đặt màu nền khu vực vẽ biểu đồ
-1. Ghi bài thuyết trình đã sửa đổi vào tệp PPTX
+Trục giá trị sử dụng [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) độc lập với các ô nguồn. Thang đo chạy từ -2 đến 15, với khoảng cách lớn là 2 và khoảng cách nhỏ là 0.5. Ví dụ cũng kết hợp định dạng phần trăm với [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) được đặt thành hàng nghìn, vì vậy hãy điều chỉnh các thiết lập này phù hợp với ý nghĩa và quy mô dữ liệu của bạn. Chú giải nằm ngoài khu vực vẽ vì [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) bị tắt. Màu nền tường sau và sàn được cấu hình thông qua [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) và [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), nhưng những bề mặt này chỉ hiển thị trong biểu đồ 3D.
 
-```c#
-// Khởi tạo bản trình bày// Khởi tạo bản trình bày
-Presentation pres = new Presentation();
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Truy cập slide đầu tiên
-ISlide slide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Thêm biểu đồ mẫu
-IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-// Đặt tiêu đề biểu đồ
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
-IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
+var chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
 chartTitle.Text = "Sample Chart";
 chartTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 chartTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
@@ -82,23 +53,19 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Đặt định dạng đường lưới chính cho trục giá trị
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Đặt định dạng đường lưới phụ cho trục giá trị
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Đặt định dạng số cho trục giá trị
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
-// Đặt giá trị tối đa, tối thiểu cho biểu đồ
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -109,239 +76,253 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Đặt thuộc tính văn bản trục giá trị
-IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
-txtVal.FontBold = NullableBool.True;
-txtVal.FontHeight = 16;
-txtVal.FontItalic = NullableBool.True;
-txtVal.FillFormat.FillType = FillType.Solid; ;
-txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
-txtVal.LatinFont = new FontData("Times New Roman");
+var valueAxisText = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
+valueAxisText.FontBold = NullableBool.True;
+valueAxisText.FontHeight = 16;
+valueAxisText.FontItalic = NullableBool.True;
+valueAxisText.FillFormat.FillType = FillType.Solid;
+valueAxisText.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+valueAxisText.LatinFont = new FontData("Times New Roman");
 
-// Đặt tiêu đề trục giá trị
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
-IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-valtitle.Text = "Primary Axis";
-valtitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-valtitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-valtitle.PortionFormat.FontHeight = 20;
-valtitle.PortionFormat.FontBold = NullableBool.True;
-valtitle.PortionFormat.FontItalic = NullableBool.True;
+var valueAxisTitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+valueAxisTitle.Text = "Primary Axis";
+valueAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+valueAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+valueAxisTitle.PortionFormat.FontHeight = 20;
+valueAxisTitle.PortionFormat.FontBold = NullableBool.True;
+valueAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Đặt định dạng đường trục giá trị : Bây giờ đã lỗi thời
-// chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
-// chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
-// Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
-
-// Đặt định dạng đường lưới chính cho trục danh mục
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// Đặt định dạng đường lưới phụ cho trục danh mục
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Đặt thuộc tính văn bản trục danh mục
-IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
-txtCat.FontBold = NullableBool.True;
-txtCat.FontHeight = 16;
-txtCat.FontItalic = NullableBool.True;
-txtCat.FillFormat.FillType = FillType.Solid; ;
-txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
-txtCat.LatinFont = new FontData("Arial");
+var categoryAxisText = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
+categoryAxisText.FontBold = NullableBool.True;
+categoryAxisText.FontHeight = 16;
+categoryAxisText.FontItalic = NullableBool.True;
+categoryAxisText.FillFormat.FillType = FillType.Solid;
+categoryAxisText.FillFormat.SolidFillColor.Color = Color.Blue;
+categoryAxisText.LatinFont = new FontData("Arial");
 
-// Đặt tiêu đề danh mục
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
-IPortion catTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-catTitle.Text = "Sample Category";
-catTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-catTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-catTitle.PortionFormat.FontHeight = 20;
-catTitle.PortionFormat.FontBold = NullableBool.True;
-catTitle.PortionFormat.FontItalic = NullableBool.True;
+var categoryAxisTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+categoryAxisTitle.Text = "Sample Category";
+categoryAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+categoryAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+categoryAxisTitle.PortionFormat.FontHeight = 20;
+categoryAxisTitle.PortionFormat.FontBold = NullableBool.True;
+categoryAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Đặt vị trí nhãn trục danh mục
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
-
-// Đặt góc quay nhãn trục danh mục
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// Đặt thuộc tính văn bản chú giải
-IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
-txtleg.FontBold = NullableBool.True;
-txtleg.FontHeight = 16;
-txtleg.FontItalic = NullableBool.True;
-txtleg.FillFormat.FillType = FillType.Solid; ;
-txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
+var legendText = chart.Legend.TextFormat.PortionFormat;
+legendText.FontBold = NullableBool.True;
+legendText.FontHeight = 16;
+legendText.FontItalic = NullableBool.True;
+legendText.FillFormat.FillType = FillType.Solid;
+legendText.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// Hiển thị chú giải biểu đồ mà không chồng lên biểu đồ
+chart.Legend.Overlay = false;
 
-chart.Legend.Overlay = true;
-            
-// Vẽ chuỗi đầu tiên trên trục giá trị phụ
-// Chart.ChartData.Series[0].PlotOnSecondAxis = true;
-
-// Đặt màu tường phía sau biểu đồ
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
-// Đặt màu khu vực vẽ
+
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// Lưu bản trình bày
-pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
+presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Đặt thuộc tính phông chữ cho biểu đồ**
 
+Đặt kích thước phông chữ mặc định cho văn bản biểu đồ thông qua [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Ví dụ tạo một biểu đồ cột nhóm với phông chữ 20 điểm và bật nhãn giá trị cho chuỗi đầu tiên thông qua [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Các yếu tố văn bản có cài đặt phông chữ riêng có thể ghi đè lên mặc định của biểu đồ.
 
-## **Đặt Thuộc tính Phông chữ cho Biểu đồ**
-Aspose.Slides for .NET hỗ trợ việc đặt các thuộc tính liên quan tới phông chữ cho biểu đồ. Vui lòng làm theo các bước sau để đặt thuộc tính phông chữ cho biểu đồ.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-- Khởi tạo đối tượng lớp Presentation.
-- Thêm biểu đồ vào slide.
-- Đặt kích thước phông chữ.
-- Lưu bài thuyết trình đã chỉnh sửa.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Ví dụ mẫu dưới đây được đưa ra.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+chart.TextFormat.PortionFormat.FontHeight = 20;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-```c#
-using (Presentation pres = new Presentation())
-{               
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    chart.TextFormat.PortionFormat.FontHeight = 20;
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    pres.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
-}
+presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **Đặt định dạng số**
 
+Sử dụng [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) để áp dụng một định dạng số có sẵn cho các ô bảng tính của biểu đồ. Ví dụ này tạo một biểu đồ cột nhóm với dữ liệu mặc định, dựa trên ô và áp dụng chỉ số định dạng 10 (`0.00%`) cho mỗi ô giá trị chuỗi. Điều này thay đổi cách hiển thị giá trị trong bảng tính mà không thay đổi số liệu gốc; ví dụ, 0.25 sẽ hiển thị dưới dạng 25.00%. Định dạng trục và nhãn dữ liệu có thể được cấu hình riêng biệt.
 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-## **Đặt Định dạng Số**
-Aspose.Slides for .NET cung cấp một API đơn giản để quản lý định dạng dữ liệu biểu đồ:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation).
-1. Lấy tham chiếu tới một slide bằng chỉ mục của nó.
-1. Thêm một biểu đồ với dữ liệu mặc định cùng với bất kỳ loại nào mong muốn (ví dụ này sử dụng **ChartType.ClusteredColumn**).
-1. Đặt định dạng số có sẵn từ các giá trị preset có thể.
-1. Duyệt qua các ô dữ liệu biểu đồ trong mỗi chuỗi biểu đồ và đặt định dạng số cho dữ liệu biểu đồ.
-1. Lưu bài thuyết trình.
-1. Đặt định dạng số tùy chỉnh.
-1. Duyệt qua các ô dữ liệu biểu đồ trong mỗi chuỗi biểu đồ và đặt một định dạng số khác cho dữ liệu biểu đồ.
-1. Lưu bài thuyết trình.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var series = chart.ChartData.Series;
 
-```c#
-// Khởi tạo bản trình bày// Khởi tạo bản trình bày
-Presentation pres = new Presentation();
-
-// Truy cập slide đầu tiên của bản trình bày
-ISlide slide = pres.Slides[0];
-
-// Thêm biểu đồ cột nhóm mặc định
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-// Truy cập bộ sưu tập chuỗi biểu đồ
-IChartSeriesCollection series = chart.ChartData.Series;
-
-// Đặt định dạng số preset
-// Duyệt qua mỗi chuỗi biểu đồ
-foreach (ChartSeries ser in series)
+foreach (var chartSeries in series)
 {
-    // Duyệt qua mỗi ô dữ liệu trong chuỗi
-    foreach (IChartDataPoint cell in ser.DataPoints)
+    foreach (var dataPoint in chartSeries.DataPoints)
     {
-        // Đặt định dạng số
-        cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
-// Lưu bản trình bày
-pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
+presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Các giá trị định dạng số preset có thể sử dụng cùng với chỉ số preset của chúng được liệt kê dưới đây:
+Bảng sau liệt kê các chỉ số định dạng số có sẵn cùng với các định dạng Excel đại diện cho ngôn ngữ Anh (Hoa Kỳ). Các chuỗi định dạng chính xác và cách hiển thị có thể khác nhau tùy theo ứng dụng và ngôn ngữ, đặc biệt đối với tiền tệ và ngày tháng. Một số định dạng Excel cũng khác so với mặc định trong chuẩn OOXML, như mô tả trong [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|Chung|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Chỉ mục | Định dạng |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Đặt Đường viền Bo tròn cho Vùng Biểu đồ**
-Aspose.Slides for .NET hỗ trợ việc đặt vùng biểu đồ. Các thuộc tính **IChart.HasRoundedCorners** và **Chart.HasRoundedCorners** đã được thêm vào Aspose.Slides.
+## **Bật bo tròn góc cho khu vực biểu đồ**
 
-1. Khởi tạo đối tượng lớp `Presentation`.
-1. Thêm biểu đồ vào slide.
-1. Đặt kiểu và màu nền cho biểu đồ
-1. Đặt thuộc tính góc bo tròn thành True.
-1. Lưu bài thuyết trình đã chỉnh sửa.
+Bật [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) để bo tròn các góc của khu vực biểu đồ. Ví dụ tạo một biểu đồ cột nhóm và sử dụng [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) để đặt đường viền của nó thành màu xám đặc và kiểu đường đơn trước khi lưu bản trình bày.
 
-Ví dụ mẫu dưới đây được đưa ra.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+chart.LineFormat.FillFormat.FillType = FillType.Solid;
+chart.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+chart.LineFormat.Style = LineStyle.Single;
+chart.HasRoundedCorners = true;
+
+presentation.Save("out.pptx", SaveFormat.Pptx);
+```
+
+## **Chỉnh sửa chú thích biểu đồ hiện có**
+
+Một biểu đồ có thể chứa các hình dạng tùy chỉnh, chẳng hạn như chú thích văn bản giải thích trạng thái của báo cáo. Truy cập các hình dạng này thông qua [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), cũng được liệt kê dưới [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) trong Tham chiếu API của Chart. Bộ sưu tập [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) của nó chứa các hình dạng thuộc sở hữu của biểu đồ.
+
+Một hộp văn bản thông thường được đặt lên trên biểu đồ thuộc về slide, ngay cả khi nó trông giống như một phần của biểu đồ. Duyệt qua [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) sẽ tìm thấy biểu đồ và các hình dạng slide thông thường, nhưng không liệt kê các hình dạng riêng lẻ bên trong biểu đồ. Tiêu đề biểu đồ và nhãn dữ liệu là các phần tử biểu đồ riêng biệt, không phải là chú thích tùy chỉnh trong bộ sưu tập này.
+
+Tải xuống [chart-annotations.pptx](chart-annotations.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên của nó chứa một biểu đồ với một chú thích chưa nhóm ghi "Preliminary results", một đường thuộc sở hữu biểu đồ và một hộp văn bản slide thông thường ghi "Slide overlay". Ví dụ tìm biểu đồ đầu tiên trên slide đó và thay đổi chú thích thành "Final results" khi báo cáo đã sẵn sàng để xuất bản. Nó kiểm tra xem bộ sưu tập có rỗng không và chỉ chỉnh sửa một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) có [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) không null và chứa văn bản mong đợi.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("chart-annotations.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.OfType<IChart>().FirstOrDefault();
+
+if (chart == null || chart.UserShapes.Shapes.Count == 0)
 {
-	ISlide slide = presentation.Slides[0];
-	IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-	chart.LineFormat.FillFormat.FillType = FillType.Solid;
-	chart.LineFormat.Style = LineStyle.Single;
-	chart.HasRoundedCorners = true;
+    Console.WriteLine("No chart or chart-owned shapes found.");
+    return;
+}
 
-	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var updated = false;
+foreach (var shape in chart.UserShapes.Shapes)
+{
+    if (shape is IAutoShape annotation && 
+        annotation.TextFrame != null && 
+        annotation.TextFrame.Text == "Preliminary results")
+    {
+        annotation.TextFrame.Text = "Final results";
+        updated = true;
+        break;
+    }
+}
+
+if (updated)
+{
+    presentation.Save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No matching text annotation found.");
 }
 ```
 
+Đường và hộp văn bản slide vẫn không thay đổi. Các hình ảnh sau cho thấy đầu vào và kết quả đã lưu, mở lại:
+
+| Trước khi chỉnh sửa | Sau khi chỉnh sửa |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Ví dụ chỉ kiểm tra các hình dạng thuộc sở hữu cấp cao nhất của biểu đồ. Nếu một chú thích nằm bên trong một [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), cũng cần kiểm tra bộ sưu tập [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) của nhóm đó. Lặp lại quá trình này một cách đệ quy cho các nhóm lồng nhau, áp dụng cùng các kiểm tra văn bản cho các hình dạng con của chúng. Một nhóm tự nó là một bộ chứa; không nên coi nó là một hộp văn bản.
+{{% /alert %}}
+
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể đặt màu nền bán trong suốt cho cột/khu vực trong khi vẫn giữ viền không trong suốt không?**
+**Tôi có thể đặt màu nền bán trong suốt cho các cột/khu vực trong khi giữ viền không trong suốt không?**
 
-Có. Độ trong suốt của màu nền và đường viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc của lưới và dữ liệu trong các biểu đồ dày đặc.
+Có. Độ trong suốt của nền và đường viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc lưới và dữ liệu trong các hình ảnh mật độ cao.
 
-**Làm sao tôi có thể xử lý các nhãn dữ liệu khi chúng bị chồng lên nhau?**
+**Làm sao xử lý các nhãn dữ liệu khi chúng chồng lên nhau?**
 
-Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), đặt độ lệch/vị trí nhãn, chỉ hiển thị nhãn cho các điểm đã chọn nếu cần, hoặc chuyển định dạng sang "giá trị + chú giải".
+Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), điều chỉnh vị trí nhãn, chỉ hiển thị nhãn cho các điểm được chọn nếu cần, hoặc chuyển định dạng sang "giá trị + chú giải".
 
-**Tôi có thể áp dụng màu nền gradient hoặc họa tiết cho chuỗi dữ liệu không?**
+**Tôi có thể áp dụng nền gradient hoặc hoa văn cho chuỗi dữ liệu không?**
 
-Có. Cả màu nền đặc và gradient/họa tiết thường đều khả dụng. Trong thực tế, hãy sử dụng gradient một cách tiết kiệm và tránh các kết hợp làm giảm độ tương phản với lưới và văn bản.
+Có. Các chuỗi hỗ trợ nền đặc, gradient và hoa văn. Thực tế, hãy sử dụng gradient một cách tiết kiệm và tránh các kết hợp làm giảm độ tương phản với lưới và văn bản.

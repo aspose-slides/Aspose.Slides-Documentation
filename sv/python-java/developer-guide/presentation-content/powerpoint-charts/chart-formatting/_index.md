@@ -11,53 +11,25 @@ keywords:
 - diagramegenskaper
 - diagraminställningar
 - diagramalternativ
-- teckensegenskaper
+- teckensnittsegenskaper
 - rundade kanter
 - PowerPoint
 - presentation
 - Python
 - Aspose.Slides
-description: "Lär dig diagramformatering i Aspose.Slides för Python via Java och lyft din PowerPoint-presentation med professionell, iögonfallande stil."
+description: "Lär dig diagramformatering i Aspose.Slides för Python via Java och förbättra din PowerPoint-presentation med anpassade axlar, teckensnitt, talformat och rundade diagramkanter."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du formaterar diagram i PowerPoint‑presentationer med Aspose.Slides. Den visar hur du anpassar viktiga diagramkomponenter som axlar, rutnätlinjer, titlar, förklaringar, diagramytan och väggfyllningar för att förbättra diagrammets utseende och läsbarhet.
+Den här artikeln förklarar hur du formaterar diagram i PowerPoint-presentationer med Aspose.Slides. Den visar hur du anpassar viktiga diagramdelar såsom axlar, rutnätlinjer, titlar, förklaringar, plotområdet och väggfyllningar för att förbättra diagrammens utseende och läsbarhet.
 
-Den demonstrerar också hur du anger teckensegenskaper för diagramtext, använder förinställda och anpassade numeriska format för diagramdata samt aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur du styr både den visuella stilen och datavisningen i diagram i en presentation.
+Den visar också hur du ställer in teckensnittsegenskaper för diagramtext, tillämpar förinställda numeriska format på diagramdata och aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur du styr både den visuella stilen och datapresentationen för diagram i en presentation.
 
 ## **Formatera diagramobjekt**
-Aspose.Slides for Python via Java låter utvecklare lägga till anpassade diagram i sina bilder från grunden. Den här artikeln förklarar hur du formaterar olika diagramobjekt inklusive kategori‑ och värdeaxlar.
 
-Aspose.Slides for Python via Java tillhandahåller ett enkelt API för att hantera olika diagramobjekt och formatera dem med anpassade värden:
+Använd [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) för att formatera diagramtitlar, axlar, rutnätlinjer, förklaringar och plotområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text- och linjestilar på dess värde- och kategoriaxlar. Teckenstorlekar och linjebreddar anges i punkter; kategorietiketter roteras 45 grader.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-1. Kom åt en bild efter dess index.
-1. Lägg till ett diagram av önskad typ med standarddata (det här exemplet använder [ChartType.LineWithMarkers](https://reference.aspose.com/slides/sv/python-java/aspose.slides/charttype/#LineWithMarkers)).
-1. Kom åt diagrammets värdeaxel och ange följande egenskaper:
-   1. Ställ in **Linjeformat** för värdeaxelns huvudrutnätslinjer.
-   1. Ställ in **Linjeformat** för värdeaxelns underrutnätslinjer.
-   1. Ställ in **Talformat** för värdeaxeln.
-   1. Ställ in **minimum, maximum, huvud‑ och underenheter** för värdeaxeln.
-   1. Ställ in **Textegenskaper** för värdeaxelns data.
-   1. Ställ in **Titel** för värdeaxeln.
-1. Kom åt diagrammets kategori‑axel och ange följande egenskaper:
-   1. Ställ in **Linjeformat** för kategori‑axelns huvudrutnätslinjer.
-   1. Ställ in **Linjeformat** för kategori‑axelns underrutnätslinjer.
-   1. Ställ in **Textegenskaper** för kategori‑axelns data.
-   1. Ställ in **Titel** för kategori‑axeln.
-   1. Ställ in **Etikettpositionering** för kategori‑axeln.
-   1. Ställ in **Rotationsvinkel** för kategori‑axelns etiketter.
-1. Kom åt diagrammets förklaring och ange dess **textegenskaper**.
-1. Visa diagramförklaringen utan att den överlappar diagrammet.
-1. Kom åt diagrammets **sekundära värdeaxel** och ange följande egenskaper:
-   1. Aktivera den sekundära **värdeaxeln**.
-   1. Ställ in **Linjeformat** för den sekundära värdeaxeln.
-   1. Ställ in **Talformat** för den sekundära värdeaxeln.
-   1. Ställ in **minimum, maximum, huvud‑ och underenheter** för den sekundära värdeaxeln.
-1. Plotta den första diagramserien på den sekundära värdeaxeln.
-1. Ställ in bakväggens fyllningsfärg för diagrammet.
-1. Ställ in diagrammets plottyta fyllningsfärg.
-1. Skriv den modifierade presentationen till en PPTX‑fil.
+Värdeaxeln använder [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) oberoende av källcellerna. Dess skala går från -2 till 15, med huvudintervall på 2 och mindre intervall på 0,5. Exemplet kombinerar även procentformat med [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) satt till tusental, så anpassa dessa inställningar efter betydelse och storlek på dina data. Förklaringen förblir utanför plotområdet eftersom [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) anropas med `False`. Bakväggs- och golv-fyllningar konfigureras via [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) och [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), men dessa ytor är endast synliga i 3D-diagram.
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-# Skapa en instans av Presentation-klassen
 presentation = Presentation()
 try:
-    # Åtkomst till den första bilden
     slide = presentation.getSlides().get_Item(0)
 
-    # Lägg till exempeldiagrammet
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # Ställ in diagramtitel
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Ställ in huvudrutnätslinjers format för värdeaxeln
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # Ställ in underrutnätslinjers format för värdeaxeln
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Ställ in talformat för värdeaxeln
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # Ställ in diagrammets maximala och minimala värden
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # Ställ in textegenskaper för värdeaxeln
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # Ställ in värdeaxelns titel
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Ställ in huvudrutnätslinjers format för kategori‑axeln
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # Ställ in underrutnätslinjers format för kategori‑axeln
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Ställ in textegenskaper för kategori‑axeln
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # Ställ in kategori‑titel
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,75 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Ställ in etikettposition för kategori‑axeln
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # Ställ in rotationsvinkel för kategori‑axlens etiketter
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # Ställ in textegenskaper för förklaringen
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # Visa diagramförklaringen utan att den överlappar diagrammet
-
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # Ställ in sekundär värdeaxel
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # Ställ in talformat för sekundär värdeaxel
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # Ställ in diagrammets maximala och minimala värden
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # Ställ in bakväggens färg för diagrammet
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # Ställ in färg för plotområdet
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # Spara presentationen
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Ställ in teckensegenskaper för ett diagram**
-Aspose.Slides for Python via Java stöder att ange teckensegenskaper för diagram. Följ dessa steg för att ange teckensegenskaperna:
+## **Ställ in teckensnittsegenskaper för ett diagram**
 
-- Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-- Lägg till ett diagram på bilden.
-- Ange teckenhöjd.
-- Spara den modifierade presentationen.
-
-Följande exempel demonstrerar dessa steg.
+Ställ in standardteckenstorleken för diagramtext via [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). Exemplet skapar ett grupperat stapeldiagram med ett 20‑punkts teckensnitt och aktiverar värdeetiketter för den första serien via [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Textelement med egna explicita teckensnittinställningar kan åsidosätta diagrammets standard.
 
 ```python
 import jpype
@@ -247,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Skapa en instans av Presentation-klassen
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -260,15 +183,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ställ in numeriskt format**
-Aspose.Slides for Python via Java tillhandahåller ett enkelt API för att hantera diagramdatans format:
+## **Ställ in det numeriska formatet**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-1. Kom åt en bild efter dess index.
-1. Lägg till ett diagram av önskad typ med standarddata (det här exemplet använder [ChartType.ClusteredColumn](https://reference.aspose.com/slides/sv/python-java/aspose.slides/charttype/#ClusteredColumn)).
-1. Ställ in det förinställda talformatet från de möjliga förinställda värdena.
-1. Iterera genom datacellerna i varje diagramserie och ange deras talformat.
-1. Spara presentationen.
+Använd [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) för att tillämpa ett inbyggt talformat på diagrammets arbetsboks-celler. Detta exempel skapar ett grupperat stapeldiagram med standard, cellbaserad data och tillämpar formatindex 10 (`0.00%`) på varje serie‑värdecell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0,25 som 25,00 %. Axel- och dataetikettformat kan konfigureras separat.
 
 ```python
 import jpype
@@ -279,81 +196,66 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Skapa en instans av Presentation-klassen
 presentation = Presentation()
 try:
-    # Åtkomst till den första presentationsbilden
     slide = presentation.getSlides().get_Item(0)
 
-    # Lägg till ett standardklustrat stapeldiagram
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # Åtkomst till diagramseriens samling
     chart_series_collection = chart.getChartData().getSeries()
 
-    # Iterera genom varje diagramserie
     for chart_series in chart_series_collection:
-        # Iterera genom varje datapunkt i serien
         for data_point in chart_series.getDataPoints():
-            # Ställ in talformatet
             data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0,00%
 
-    # Spara presentationen
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-De tillgängliga förinställda talformaten och deras index listas nedan:
+Följande tabell listar inbyggda talformatindex med representativa Excel-format för den engelska (USA) lokalen. De exakta formatsträngarna och deras visning kan variera mellan program och lokaler, särskilt för valuta och datum. Vissa Excel-format skiljer sig också från standardvärdena i OOXML-standarden, som beskrivs i [Microsofts anteckningar om nummerformatimplementation](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
 ## **Ställ in rundade kanter för diagramområdet**
-Aspose.Slides for Python via Java stöder rundade hörn för diagramområdet via metoderna [hasRoundedCorners](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#hasRoundedCorners) och [setRoundedCorners](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/#setRoundedCorners) i klassen [Chart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/chart/).
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-1. Lägg till ett diagram på bilden.
-1. Ställ in fyllningstyp och stil för diagrammets kantlinje.
-1. Aktivera rundade hörn.
-1. Spara den modifierade presentationen.
-
-Följande exempel demonstrerar dessa steg.
+Anropa [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) med `True` för att runda hörnen på diagramområdet. Exemplet skapar ett grupperat stapeldiagram och använder [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
 
 ```python
 import jpype
@@ -364,31 +266,90 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# Skapa en instans av Presentation-klassen
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Redigera befintliga diagramanteckningar**
 
-**Kan jag ange halvgenomskinliga fyllningar för staplar/områden samtidigt som kanten förblir ogenomskinlig?**
+Ett diagram kan innehålla anpassade former, såsom en textanteckning som förklarar statusen för en rapport. Åtkomst till dessa former sker via [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). Samlingen som returneras av [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) innehåller diagramägda former.
 
-Ja. Fyllningens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten av rutnätet och data i täta visualiseringar.
+En vanlig textruta placerad över ett diagram tillhör bilden, även om den ser ut att vara en del av diagrammet. Genom att iterera över [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) hittas diagrammet och vanliga bildformer, men de enskilda formerna i diagrammet listas inte. Diagramtitlar och dataetiketter är separata diagramelement, inte anpassade anteckningar i denna samling.
 
-**Hur hanterar jag datamärkningarna när de överlappar varandra?**
+Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en ogrupperad anteckning som läser "Preliminary results", en diagramägd linje och en vanlig bildtextruta som läser "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är klar för publicering. Det kontrollerar om samlingen är tom och redigerar endast en [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) med en textram som inte är `None` som returneras av [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) och den förväntade texten.
 
-Minska teckenstorleken, inaktivera icke‑nödvändiga märkningselement (t.ex. kategorier), justera märkningens förskjutning/position, visa märken endast för valda punkter om så behövs, eller byt format till ”värde + förklaring”.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+Linjen och bildtextrutan förblir oförändrade. Följande bilder visar indata och det sparade, återöppnade resultatet:
+
+| Före redigering | Efter redigering |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Exemplet granskar endast diagramägda former på toppnivå. Om en anteckning finns i en [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), inspektera även den gruppens [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes)-samling. Upprepa detta rekursivt för inbäddade grupper och tillämpa samma textkontroller på deras underordnade former. En grupp är i sig en behållare; behandla den inte som en textruta.
+{{% /alert %}}
+
+## **Vanliga frågor**
+
+**Kan jag ange halvtransparenta fyllningar för kolumner/områden samtidigt som jag behåller kanten ogenomskinlig?**
+
+Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
+
+**Hur kan jag hantera dataetiketter när de överlappar?**
+
+Minska teckenstorleken, inaktivera icke nödvändiga etikettkomponenter (t.ex. kategorier), justera etikettpositionen, visa etiketter endast för utvalda punkter vid behov, eller byt formatet till "värde + förklaring".
 
 **Kan jag använda gradient‑ eller mönsterfyllningar för serier?**
 
-Ja. Både solida och gradient‑/mönsterfyllningar är i allmänhet tillgängliga. I praktiken bör gradienter användas sparsamt och kombinationer som minskar kontrasten mot rutnät och text undvikas.
+Ja. Serier stödjer solida, gradient‑ och mönsterfyllningar. I praktiken bör du använda gradienter sparsamt och undvika kombinationer som minskar kontrasten mot rutnätet och texten.
